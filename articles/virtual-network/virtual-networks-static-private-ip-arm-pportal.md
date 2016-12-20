@@ -1,13 +1,13 @@
 ---
-title: Come impostare un indirizzo IP statico privato in modalità ARM usando il portale di Azure | Microsoft Docs
-description: Informazioni sugli IP privati (DIP) e istruzioni per gestirli in modalità ARM tramite il portale di Azure
+title: "Come impostare un indirizzo IP statico privato in modalità ARM usando il portale di Azure | Documentazione Microsoft"
+description: "Informazioni sugli IP privati (DIP) e istruzioni per gestirli in modalità ARM tramite il portale di Azure"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 11245645-357d-4358-9a14-dd78e367b494
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 5d56a0d2c9c44d37520c6a9a3db326f9bdc5420e
+ms.openlocfilehash: e4f6d14f79536c58e40d3ac4b48d00a8c397f1b4
+
 
 ---
-# Come impostare un indirizzo IP statico privato nel portale di Azure
-[!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
+# <a name="how-to-set-a-static-private-ip-address-in-the-azure-portal"></a>Come impostare un indirizzo IP statico privato nel portale di Azure
+
+> [!div class="op_single_selector"]
+- [Portale di Azure](virtual-networks-static-private-ip-arm-pportal.md)
+- [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
+- [Interfaccia della riga di comando di Azure](virtual-networks-static-private-ip-arm-cli.md)
+- [Portale di Azure (classico)](virtual-networks-static-private-ip-classic-pportal.md)
+- [PowerShell (Classic)](virtual-networks-static-private-ip-classic-ps.md) (PowerShell (classico))
+- [Interfaccia della riga di comando di Azure (versione classica)](virtual-networks-static-private-ip-classic-cli.md)
+
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
@@ -30,67 +42,72 @@ Questo articolo illustra il modello di distribuzione Gestione risorse. È anche 
 
 La procedura di esempio seguente prevede che un ambiente semplice sia già creato. Se si desidera eseguire la procedura illustrata in questo documento, creare innanzitutto l'ambiente di prova descritto in [creare una rete virtuale](virtual-networks-create-vnet-arm-pportal.md).
 
-## Come creare una VM per il test degli indirizzi IP statici privati
+## <a name="how-to-create-a-vm-for-testing-static-private-ip-addresses"></a>Come creare una VM per il test degli indirizzi IP statici privati
 Non è possibile impostare un indirizzo IP statico privato durante la creazione di una VM in modalità di distribuzione di Gestione risorse tramite il portale di Azure. È necessario creare innanzitutto la VM, quindi impostare il relativo IP privato come statico.
 
-Per creare una VM denominata *DNS01* nel subnet *FrontEnd* di una VNet denominata *TestVNet*, attenersi alla procedura riportata di seguito.
+Per creare una VM denominata *DNS01* nel subnet *FrontEnd* di una VNet denominata *TestVNet*, seguire questa procedura.
 
-1. Da un browser, passare a http://portal.azure.com e, se necessario, accedere con l'account Azure.
-2. Fare clic su **NUOVO** > **Calcolo** > **Windows Server 2012 R2 Datacenter**, si noti che l’elenco **Selezionare un modello di distribuzione** mostra già **Gestione risorse**, quindi fare clic su **Crea**, come illustrato nella figura che segue.
+1. In un browser passare a http://portal.azure.com e, se necessario, accedere con l'account Azure.
+2. Fare clic su **NUOVO** > **Calcolo** > **Windows Server 2012 R2 Datacenter** (notare che l’elenco **Selezionare un modello di distribuzione** mostra già **Gestione risorse**) e quindi fare clic su **Crea**, come mostrato nella figura seguente.
    
     ![Creare VM nel portale di Azure](./media/virtual-networks-static-ip-arm-pportal/figure01.png)
-3. Nel pannello **Nozioni di base**, immettere il nome della VM da creare (*DNS01* nello scenario), l'account amministratore locale e la password, come illustrato nella figura che segue.
+3. Nel pannello **Nozioni di base** , immettere il nome della VM da creare (*DNS01* nello scenario), l'account amministratore locale e la password, come illustrato nella figura che segue.
    
     ![Pannello Nozioni di base](./media/virtual-networks-static-ip-arm-pportal/figure02.png)
-4. Assicurarsi che la **Località** selezionata sia *USA centrale*, quindi fare clic su **Seleziona esistente** in **Gruppo di risorse**, quindi fare clic nuovamente su **Gruppo di risorse**, quindi fare clic su *TestRG* e infine su **OK**.
+4. Assicurarsi che la **Località** selezionata sia *Stati Uniti centrali*, fare clic su **Seleziona esistente** in **Gruppo di risorse**, fare clic nuovamente su **Gruppo di risorse**, fare clic su *TestRG* e infine fare clic su **OK**.
    
     ![Pannello Nozioni di base](./media/virtual-networks-static-ip-arm-pportal/figure03.png)
 5. Nel pannello **Scegli una dimensione** selezionare **Standard A1** e quindi fare clic su **Seleziona**.
    
-    ![Pannello Scegliere una dimensione](./media/virtual-networks-static-ip-arm-pportal/figure04.png)
-6. Nel pannello **Impostazioni**, assicurarsi che siano impostate le seguenti proprietà con i valori riportati di seguito, quindi fare clic su **OK**.
+    ![Pannello Scegliere una dimensione](./media/virtual-networks-static-ip-arm-pportal/figure04.png)    
+6. Nel pannello **Impostazioni** assicurarsi che siano impostate le proprietà seguenti con i valori riportati di seguito, quindi fare clic su **OK**.
    
     -**Account di archiviazione**: *vnetstorage*
    
    * **Rete**: *TestVNet*
    * **Subnet**: *FrontEnd*
      
-     ![Pannello Scegliere una dimensione](./media/virtual-networks-static-ip-arm-pportal/figure05.png)  
-7. Nel pannello **Riepilogo**, fare clic su **OK**. Si noti il riquadro visualizzato di seguito nel dashboard.
+     ![Pannello Scegliere una dimensione](./media/virtual-networks-static-ip-arm-pportal/figure05.png)     
+7. Nel pannello **Riepilogo** fare clic su **OK**. Si noti il riquadro visualizzato di seguito nel dashboard.
    
     ![Creare VM nel portale di Azure](./media/virtual-networks-static-ip-arm-pportal/figure06.png)
 
-## Come recuperare le informazioni relative all'indirizzo IP privato statico per una VM
+## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Come recuperare le informazioni relative all'indirizzo IP privato statico per una VM
 Per visualizzare le informazioni dell’indirizzo IP privato statico per la macchina virtuale creata con la procedura descritta sopra, eseguire la procedura seguente.
 
-1. Dal portale di Azure fare clic su **Esplora tutto** > **Macchine virtuali** > **DNS01** > **Tutte le impostazioni** > **Interfacce di rete** e quindi fare clic sull'unica interfaccia di rete elencata.
+1. Dal portale di Azure fare clic su **Esplora tutto** > **Macchine virtuali** > **machinesDNS01All** > **Tutte le impostazioni** > **Interfacce di rete** e quindi fare clic sull'unica interfaccia di rete elencata.
    
-    ![Distribuzione di un riquadro VM](./media/virtual-networks-static-ip-arm-pportal/figure07.png)  
-2. Nel pannello **Interfaccia di rete**, fare clic su **Tutte le impostazioni** > **Indirizzi IP** e notare i valori di **Assegnazione** e **Indirizzo IP**.
+    ![Distribuzione di un riquadro VM](./media/virtual-networks-static-ip-arm-pportal/figure07.png)
+2. Nel pannello **Interfaccia di rete** fare clic su **Tutte le impostazioni** > **Indirizzi IP** e notare i valori di **Assegnazione** e **Indirizzo IP**.
    
-    ![Distribuzione di un riquadro VM](./media/virtual-networks-static-ip-arm-pportal/figure08.png)  
+    ![Distribuzione di un riquadro VM](./media/virtual-networks-static-ip-arm-pportal/figure08.png)
 
-## Come aggiungere un indirizzo IP statico privato a una macchina virtuale esistente
-Per aggiungere un indirizzo IP statico privato per la VM creata in precedenza, attenersi alla procedura seguente:
+## <a name="how-to-add-a-static-private-ip-address-to-an-existing-vm"></a>Come aggiungere un indirizzo IP statico privato a una macchina virtuale esistente
+Per aggiungere un indirizzo IP statico privato per la macchina virtuale creata in precedenza, attenersi alla procedura seguente:
 
-1. Dal pannello **Indirizzi IP** mostrato in precedenza, fare clic su **Statico**in **Assegnazione**.
+1. Dal pannello **Indirizzi IP** mostrato in precedenza, fare clic su **Statico** in **Assegnazione**.
 2. Digitare *192.168.1.101* per **Indirizzo IP** e quindi fare clic su **Salva**.
    
     ![Creare VM nel portale di Azure](./media/virtual-networks-static-ip-arm-pportal/figure09.png)
 
 > [!NOTE]
-> Se dopo aver fatto clic su **Salva ** si nota che l'assegnazione è ancora impostato su **Dinamico**, significa che l'indirizzo IP immesso è già in uso. Provare un indirizzo IP diverso.
+> Se dopo aver fatto clic su **Salva** si nota che l'assegnazione è ancora impostata su **Dinamico**, significa che l'indirizzo IP immesso è già in uso. Provare un indirizzo IP diverso.
 > 
 > 
 
-## Come rimuovere un indirizzo IP statico privato da una VM
+## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Come rimuovere un indirizzo IP statico privato da una VM
 Per rimuovere l'indirizzo IP statico privato dalla VM creata in precedenza, attenersi alla procedura seguente.
 
 1. Dal pannello **Indirizzi IP** mostrato in precedenza, fare clic su **Dinamico** in **Assegnazione** e quindi fare clic su **Salva**.
 
-## Passaggi successivi
-* Informazioni su [indirizzi IP pubblici riservati](virtual-networks-reserved-public-ip.md).
-* Informazioni su [indirizzi IP pubblici a livello di istanza (ILPIP)](virtual-networks-instance-level-public-ip.md).
+## <a name="next-steps"></a>Passaggi successivi
+* Informazioni su [indirizzi IP pubblici riservati](virtual-networks-reserved-public-ip.md) .
+* Informazioni su [indirizzi IP pubblici a livello di istanza (ILPIP)](virtual-networks-instance-level-public-ip.md) .
 * Consultare le [API REST dell'indirizzo IP riservato](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 43f480acb3e49a1b6a081a8338bb66daa571be55
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 79b75ae11af07735449714d3a3034c867224ebf4
 
 ---
 # <a name="api-management-documentation"></a>Documentazione di Gestione API
@@ -29,7 +29,7 @@ Gestione API consente alle organizzazioni di pubblicare API per consentire a svi
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=api-management">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=api-management">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -86,36 +86,46 @@ Gestione API consente alle organizzazioni di pubblicare API per consentire a svi
 
 ---
 
-## <a name="reference"></a>Riferimento
-
+<h2>riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Cmdlet PowerShell di Resource Manager per Gestione API</p>
+                        <h3>Riga di comando</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt613507">PowerShell classico</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/apimanagement/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Riferimenti all'API REST di Gestione API</p>
+                        <p><a href="/rest/api/apimanagement/">API REST</a></p>
+                        <p><a href="/rest/api/apimanagement/ApiManagementREST/API-Management-REST">API REST (originale)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Altri</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn894081">Criteri</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt697540">Modelli</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
 
@@ -131,6 +141,6 @@ Scaricare la documentazione di Gestione API </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

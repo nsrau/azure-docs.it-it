@@ -1,12 +1,12 @@
 ---
-title: Autorizzazione di Azure AD da servizio a servizio con OAuth2.0 | Microsoft Docs
-description: Questo articolo illustra come usare i messaggi HTTP per implementare l'autenticazione da servizio a servizio usando il flusso di concessione di credenziali client OAuth2.0.
+title: Autorizzazione di Azure AD da servizio a servizio con OAuth2.0 | Documentazione Microsoft
+description: Questo articolo illustra come usare i messaggi HTTP per implementare l&quot;autenticazione da servizio a servizio usando il flusso di concessione di credenziali client OAuth2.0.
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: priyamo
+translationtype: Human Translation
+ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
+ms.openlocfilehash: 9d9ddbddb1039f56c420cb8f10dfa9bb82788b72
+
 
 ---
 # <a name="service-to-service-calls-using-client-credentials"></a>Chiamate da servizio a servizio mediante le credenziali client
@@ -30,7 +34,7 @@ Il diagramma seguente illustra il funzionamento del flusso di concessione delle 
 4. I dati della risorsa protetta vengono restituiti all'applicazione Web.
 
 ## <a name="register-the-services-in-azure-ad"></a>Registrare i servizi in Azure AD
-Registrare il servizio chiamante e il servizio ricevente in Azure Active Directory (Azure AD). Per istruzioni dettagliate, vedere [Integrazione di applicazioni con Azure Active Directory](active-directory-integrating-applications.md#BKMK_Native)
+Registrare il servizio chiamante e il servizio ricevente in Azure Active Directory (Azure AD). Per altre informazioni, vedere [Integrazione di applicazioni con Azure Active Directory](active-directory-integrating-applications.md).
 
 ## <a name="request-an-access-token"></a>Richiedere un token di accesso
 Per richiedere un token di accesso, usare una richiesta HTTP POST per l'endpoint di Azure AD specifico del tenant.
@@ -87,6 +91,8 @@ L'esempio seguente mostra una risposta corretta a una richiesta di token di acce
 ## <a name="see-also"></a>Vedere anche
 * [OAuth 2.0 in Azure AD](active-directory-protocols-oauth-code.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -7,20 +7,24 @@ author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 07e47189-680e-4102-a8d4-5a8eb9c00213
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/21/2016
+ms.date: 11/21/2016
 ms.author: nepeters
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 25af19c208fb69d06ca74dec41f42a075eb22304
+
 
 ---
 # <a name="access-and-security-in-azure-resource-manager-templates"></a>Accesso e sicurezza nei modelli di Azure Resource Manager
 Le applicazioni ospitate in Azure devono in genere essere accessibili attraverso Internet o una connessione VPN/Express Route con Azure. Nel caso dell'applicazione Music Store di esempio, il sito Web è reso disponibile su Internet con un indirizzo IP pubblico. Una volta stabilito l'accesso, le connessioni all'applicazione e l'accesso alle risorse delle macchine virtuali deve essere protetto. La sicurezza dell'accesso è garantita da un gruppo di sicurezza di rete. 
 
-Questo documento descrive in che modo è protetta l'applicazione Music Store nel modello di esempio di Azure Resource Manager. Tutte le dipendenze e le configurazioni univoche sono evidenziate. Per ottenere risultati ottimali, pre-distribuire un'istanza della soluzione alla propria sottoscrizione di Azure ed esercitarsi con il modello di Azure Resource Manager. Il modello completo è disponibile in [Music Store Deployment on Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)(Distribuzione di Music Store in Ubuntu).
+Questo documento descrive in che modo è protetta l'applicazione Music Store nel modello di esempio di Azure Resource Manager. Tutte le dipendenze e le configurazioni univoche sono evidenziate. Per ottenere risultati ottimali, pre-distribuire un'istanza della soluzione alla propria sottoscrizione di Azure ed esercitarsi con il modello di Azure Resource Manager. Il modello completo è disponibile in [Music Store Deployment on Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)(Distribuzione di Music Store in Ubuntu). 
 
 ## <a name="public-ip-address"></a>Indirizzo IP pubblico
 Per consentire l'accesso pubblico a una risorsa di Azure, è possibile usare una risorsa di indirizzo IP pubblico. L'indirizzo IP pubblico può essere configurato con un indirizzo IP statico o dinamico. Se viene usato un indirizzo dinamico e la macchina virtuale viene arrestata e deallocata, l'indirizzo viene rimosso. Al riavvio della macchina, è possibile che venga assegnato un indirizzo IP pubblico diverso. Per impedire l'assegnazione di un altro indirizzo IP, è possibile usare un indirizzo IP riservato. 
@@ -29,7 +33,7 @@ Per consentire l'accesso pubblico a una risorsa di Azure, è possibile usare una
 
 Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello di Resource Manager: [Indirizzo IP pubblico](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L121).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/publicIPAddresses",
@@ -51,7 +55,7 @@ Un indirizzo IP pubblico può essere associato a una scheda di rete virtuale o a
 
 Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello di Resource Manager: [Associazione dell'indirizzo IP pubblico con il servizio di bilanciamento del carico](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L208).
 
-```none
+```json
 "frontendIPConfigurations": [
   {
     "properties": {
@@ -75,7 +79,7 @@ Una volta stabilito l'accesso alle risorse di Azure, è necessario imporre alcun
 
 Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello di Resource Manager: [Gruppo di sicurezza di rete](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L68).
 
-```none
+```json
 {
   "apiVersion": "2015-05-01-preview",
   "type": "Microsoft.Network/networkSecurityGroups",
@@ -110,7 +114,7 @@ In questo esempio il gruppo di sicurezza di rete è associato all'oggetto subnet
 
 Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello di Resource Manager: [Associazione del gruppo di sicurezza di rete con la rete virtuale](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L158).
 
-```none
+```json
 "subnets": [
   {
     "name": "[variables('subnetName')]",
@@ -132,8 +136,11 @@ Per informazioni approfondite sui gruppi di sicurezza di rete, vedere [Che cos'�
 ## <a name="next-step"></a>Passaggio successivo
 <hr>
 
-[Passaggio 3: Disponibilità e scalabilità nei modelli di Azure Resource Manager](virtual-machines-linux-dotnet-core-4-avalibility-scale.md)
+[Passaggio 3: Disponibilità e scalabilità nei modelli di Azure Resource Manager](virtual-machines-linux-dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

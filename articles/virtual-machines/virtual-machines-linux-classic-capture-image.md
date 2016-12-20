@@ -1,13 +1,13 @@
 ---
-title: Acquisire un'immagine di una macchina virtuale Linux | Microsoft Docs
-description: Informazioni su come acquisire un'immagine di una macchina virtuale di Azure basata su Linux creata con il modello di distribuzione classica.
+title: Acquisire un&quot;immagine di una macchina virtuale Linux | Microsoft Docs
+description: Informazioni su come acquisire un&quot;immagine di una macchina virtuale di Azure basata su Linux creata con il modello di distribuzione classica.
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 17d7ffee-a58e-4290-9de1-64c3cf1ddc05
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,22 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 7453b7b5938a15564110cae31fa878ee3616620a
+
 
 ---
-# Come acquisire una macchina virtuale Linux classica come immagine
+# <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Come acquisire una macchina virtuale Linux classica come immagine
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-Informazioni su come [eseguire questa procedura con il modello di Resource Manager](virtual-machines-linux-capture-image.md).
+Informazioni su come [eseguire questa procedura con il modello di Resource Manager](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Questo articolo illustra come acquisire una macchina virtuale Azure classica che esegue Linux come immagine per creare altre macchine virtuali. Questa immagine include il disco del sistema operativo e i dischi dati collegati alla macchina virtuale. Poiché la configurazione di rete non è inclusa, è necessario definirla quando si creano le altre macchine virtuali dall'immagine.
 
 Azure archivia l'immagine in **Immagini**, insieme a tutte le immagini caricate. Per altre informazioni sulle immagini, vedere [Informazioni sulle immagini di macchine virtuali in Azure][Informazioni sulle immagini di macchine virtuali in Azure].
 
-## Prima di iniziare
-Questa procedura presuppone che sia stata creata una macchina virtuale di Azure tramite il modello di distribuzione classico e che sia stato configurato il sistema operativo, inclusi gli eventuali dischi dati connessi. Se è necessario creare una VM, leggere l'articolo su come [creare una macchina virtuale Linux][creare una macchina virtuale Linux].
+## <a name="before-you-begin"></a>Prima di iniziare
+Questa procedura presuppone che sia stata creata una macchina virtuale di Azure tramite il modello di distribuzione classico e che sia stato configurato il sistema operativo, inclusi gli eventuali dischi dati connessi. Se è necessario creare una VM, leggere l'articolo [creare una macchina virtuale Linux][creare una macchina virtuale Linux].
 
-## Acquisizione della macchina virtuale
-1. [Effettuare la connessione alla macchina virtuale](virtual-machines-linux-mac-create-ssh-keys.md) usando un client SSH a scelta.
+## <a name="capture-the-virtual-machine"></a>Acquisizione della macchina virtuale
+1. [Effettuare la connessione alla macchina virtuale](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) usando un client SSH a scelta.
 2. Nella finestra di SSH digitare il comando seguente. L'output di `waagent` può variare leggermente, in base alla versione dell'utilità:
    
     `sudo waagent -deprovision+user`
@@ -52,7 +56,7 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 4. Digitare **Exit** per chiudere il client SSH.
    
    > [!NOTE]
-   > I restanti passaggi presuppongono che l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) sia stata già installata sul computer client. Tutti i passaggi riportati di seguito possono essere eseguiti anche nel [portale di Azure classico][portale di Azure classico].
+   > I restanti passaggi presuppongono che l' [interfaccia della riga di comando di Azure](../xplat-cli-install.md) sia stata già installata sul computer client. Tutti i passaggi riportati di seguito possono essere eseguiti anche nel [portale di Azure classico][portale di Azure classico].
    > 
    > 
 5. Dal computer client, aprire l'interfaccia della riga di comando di Azure ed eseguire l'accesso alla sottoscrizione di Azure. Per informazioni dettagliate, leggere [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
@@ -71,24 +75,28 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
    
     `azure vm capture -t <your-virtual-machine-name> <new-image-name>`
    
-    Digitare il nome dell'immagine al posto di *nuovo-nome-immagine*. Questo comando consente di creare un'immagine generalizzata del sistema operativo. Il sottocomando `-t` consente di eliminare la macchina virtuale originale.
+    Digitare il nome dell'immagine al posto di *new-image-name*. Questo comando consente di creare un'immagine generalizzata del sistema operativo. Il sottocomando `-t` consente di eliminare la macchina virtuale originale.
 9. La nuova immagine è ora disponibile nell'elenco delle immagini che possono essere utilizzate per configurare nuove macchine virtuali. È possibile visualizzarla con il comando:
    
    `azure vm image list`
    
-   Verrà visualizzata nell'elenco **IMMAGINI** del [portale di Azure classico][portale di Azure classico].
+   Nel [portale di Azure classico][portale di Azure classico] verrà visualizzata all'interno dell'elenco **IMMAGINI**.
    
    ![Acquisizione dell'immagine eseguita correttamente](./media/virtual-machines-linux-classic-capture-image/VMCapturedImageAvailable.png)
 
-## Passaggi successivi
-L'immagine è pronta per essere utilizzata per creare macchine virtuali. È possibile usare il comando `azure vm create` dell'interfaccia della riga di comando di Azure e indicare il nome dell'immagine creata. Per informazioni dettagliate sul comando, vedere [Uso dell'interfaccia della riga di comando di Azure con modello di distribuzione classica](../virtual-machines-command-line-tools.md). In alternativa, usare il [portale di Azure classico][portale di Azure classico] per creare una macchina virtuale personalizzata usando il metodo **Da raccolta** e selezionando l'immagine creata. Per altri dettagli, vedere [Come creare una macchina virtuale personalizzata][Come creare una macchina virtuale personalizzata].
+## <a name="next-steps"></a>Passaggi successivi
+L'immagine è pronta per essere utilizzata per creare macchine virtuali. È possibile usare il comando `azure vm create` dell'interfaccia della riga di comando di Azure e indicare il nome dell'immagine creata. Per informazioni dettagliate sul comando, vedere [Uso dell'interfaccia della riga di comando di Azure con modello di distribuzione classica](../virtual-machines-command-line-tools.md) . In alternativa, usare il [portale di Azure classico][portale di Azure classico] per creare una macchina virtuale personalizzata usando il metodo **Da raccolta** e selezionando l'immagine creata. Per altri dettagli, vedere [Come creare una macchina virtuale personalizzata][Come creare una macchina virtuale personalizzata].
 
-**Vedere anche:** [Guida dell'utente dell'agente Linux di Azure](virtual-machines-linux-agent-user-guide.md)
+**Vedere anche:** [Manuale dell'utente dell'agente Linux di Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [portale di Azure classico]: http://manage.windowsazure.com
 [Informazioni sulle immagini di macchine virtuali in Azure]: virtual-machines-linux-classic-about-images.md
 [Come creare una macchina virtuale personalizzata]: virtual-machines-linux-classic-create-custom.md
-[How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
+[Come collegare un disco dati a una macchina virtuale]: virtual-machines-windows-classic-attach-disk.md
 [creare una macchina virtuale Linux]: virtual-machines-linux-classic-create-custom.md
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

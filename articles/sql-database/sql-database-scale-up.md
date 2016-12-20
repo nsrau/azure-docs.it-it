@@ -1,61 +1,62 @@
 ---
-title: Modificare il livello di servizio e il livello delle prestazioni di un database SQL di Azure
-description: La modifica del livello del servizio e del livello delle prestazioni di un database SQL di Azure mostra come scalare il database SQL verso l’alto o verso il basso. Modificare il livello di prezzo di un database SQL di Azure.
+title: Modificare il livello di servizio e il livello delle prestazioni di un database SQL di Azure | Microsoft Docs
+description: "La modifica del livello del servizio e del livello delle prestazioni di un database SQL di Azure mostra come scalare il database SQL verso l’alto o verso il basso. Modificare il livello di prezzo di un database SQL di Azure."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: cbd67e88-08d5-40e2-a223-0fb0c718a782
 ms.service: sql-database
 ms.devlang: NA
-ms.date: 07/19/2016
+ms.date: 10/12/2016
 ms.author: sstein
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
+translationtype: Human Translation
+ms.sourcegitcommit: 1e297de81be07a107691c54875ca638ae73d43df
+ms.openlocfilehash: 3f283166f09437611aa04d7cadf5b161d0e52f8a
+
 
 ---
-# Modificare il livello di servizio e il livello di prestazioni (livello di prezzo) di un database SQL
+# <a name="change-the-service-tier-and-performance-level-pricing-tier-of-a-sql-database-using-the-azure-portal"></a>Modificare il livello di servizio e il livello di prestazioni (piano tariffario) di un database SQL con il Portale di Azure
 > [!div class="op_single_selector"]
-> * [Portale di Azure](sql-database-scale-up.md)
+> * [**Portale di Azure**](sql-database-scale-up.md)
 > * [PowerShell](sql-database-scale-up-powershell.md)
 > 
 > 
 
 I livelli di servizio e di prestazioni descrivono le funzionalità e le risorse disponibili per il database SQL e possono essere aggiornati quando le esigenze dell’applicazione cambiano. Per altre informazioni, vedere [Livelli di servizio](sql-database-service-tiers.md).
 
-Si noti che la modifica del livello di servizio e/o livello di prestazioni di un database crea una replica del database originale al nuovo livello di prestazioni, quindi passa le connessioni alla replica. Durante il processo non si verificano perdite di dati, tuttavia durante il breve intervallo nel quale si passa alla replica, le connessioni sono disabilitate e può verificarsi il rollback di alcune transazioni in-flight. Questa finestra varia, ma in media è inferiore a 4 secondi e in più del 99% dei casi è inferiore a 30 secondi. Molto raramente, soprattutto se è presente un elevato numero di transazioni in-flight quando le connessioni sono disabilitate, questa finestra potrebbe essere più lunga.
+Si noti che la modifica del livello di servizio e/o livello di prestazioni di un database crea una replica del database originale al nuovo livello di prestazioni, quindi passa le connessioni alla replica. Durante il processo non si verificano perdite di dati, tuttavia durante il breve intervallo nel quale si passa alla replica, le connessioni sono disabilitate e può verificarsi il rollback di alcune transazioni in-flight. Questa finestra varia, ma in media è inferiore a 4 secondi e in più del 99% dei casi è inferiore a 30 secondi. Molto raramente, soprattutto se è presente un elevato numero di transazioni in-flight quando le connessioni sono disabilitate, questa finestra potrebbe essere più lunga.  
 
-La durata dell'intero processo di scalabilità verticale dipende dalla dimensione e dal livello di servizio del database prima e dopo la modifica. Ad esempio, il passaggio di un database di 250 GB al livello di servizio Standard o dal livello di servizio Standard a un altro livello o nell'ambito dello stesso livello di servizio Standard viene completato entro 6 ore. Per un database delle stesse dimensioni in fase di modifica dei livelli di prestazioni all'interno del livello di servizio Premium, il completamento dovrebbe avvenire entro 3 ore.
+Nella maggior parte dei casi, la durata dell'intero processo di aumento delle prestazioni richiederà meno di 5 minuti. 
 
-Utilizzare le informazioni contenute negli argomenti [Aggiornamento delle edizioni Web e Business del database SQL ai nuovi livelli di servizio](sql-database-upgrade-server-portal.md) e [Livelli di servizio e livelli di prestazioni del database SQL di Azure](sql-database-service-tiers.md) per determinare il livello di prestazioni e il livello di servizio appropriati per il database SQL di Azure.
+Usare le informazioni presenti in [Livelli di prestazioni e livelli di servizio del database SQL di Azure](sql-database-service-tiers.md) per determinare il livello di prestazioni e il livello di servizio appropriati per il database SQL di Azure.
 
-* Per effettuare il downgrade di un database, la dimensione di quest'ultimo deve essere inferiore alla dimensione massima consentita per il livello del servizio di destinazione.
+* Per effettuare il downgrade di un database, la dimensione di quest'ultimo deve essere inferiore alla dimensione massima consentita per il livello del servizio di destinazione. 
 * Quando si aggiorna un database con la [replica geografica](sql-database-geo-replication-overview.md) abilitata, è necessario aggiornare i database secondari al livello di prestazioni previsto prima di aggiornare il database primario.
-* Quando si esegue il downgrade da un livello di servizio, è necessario prima terminare tutte le relazioni di replica geografica.
+* Quando si esegue il downgrade da un livello di servizio, è necessario prima terminare tutte le relazioni di replica geografica. 
 * Le offerte per il ripristino del servizio sono diverse per i vari livelli di servizio. Se si effettua il downgrade è possibile che la capacità di eseguire un ripristino temporizzato o di disporre di un periodo di mantenimento del backup inferiore vengano perse. Per ulteriori informazioni, vedere [Backup e ripristino del database SQL di Azure](sql-database-business-continuity.md).
 * La modifica del piano tariffario del database non modifica le dimensioni massime del database. Per modificare le dimensioni massime del database usare [Transact-SQL (T-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) o [PowerShell](https://msdn.microsoft.com/library/mt619433.aspx).
 * Le nuove proprietà del database non vengono applicate finché non sono state completate le modifiche.
 
 **Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:**
 
-* Una sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare semplicemente clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
 * un database SQL di Azure. Se non si dispone di un database SQL, crearne uno seguendo i passaggi indicati in questo articolo: [Creare il primo database SQL di Azure](sql-database-get-started.md).
 
-## Modificare il livello di servizio e il livello delle prestazioni del database
+## <a name="change-the-service-tier-and-performance-level-of-your-database"></a>Modificare il livello di servizio e il livello delle prestazioni del database
 Aprire il pannello del Database SQL per il database che si desidera scalare verso l’alto o verso il basso:
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Fare clic su **ESPLORA TUTTO**.
-3. Fare clic su **Database SQL**.
-4. Fare clic sul database che si desidera modificare.
-5. Nel pannello del database SQL selezionare **Tutte le impostazioni** e quindi **Piano tariffario (piano DTU)**.
+1. Nel [Portale di Azure](https://portal.azure.com) fare clic su **More services** (Altri servizi) > **Database SQL**.
+2. Fare clic sul database che si desidera modificare.
+3. Nel pannello **Database SQL** fare clic su **Piano tariffario (piano DTU)**:
    
    ![piano tariffario][1]
-6. Selezionare un nuovo livello e fare clic su **Seleziona**:
+4. Scegliere un nuovo piano tariffario e fare clic su **Seleziona**:
    
-   Facendo clic su **Seleziona** si invia una richiesta di scalabilità per modificare il livello del database. A seconda delle dimensioni del database, l'operazione di ridimensionamento potrebbe richiedere diverso tempo. Fare clic sulla notifica per i dettagli e lo stato dell'operazione di ridimensionamento.
+   Facendo clic su **Seleziona** viene inviata una richiesta di ridimensionamento per modificare il piano tariffario. A seconda delle dimensioni del database, l'operazione di ridimensionamento potrebbe richiedere diverso tempo (vedere le informazioni nella prima parte dell'articolo).
    
    > [!NOTE]
    > La modifica del piano tariffario del database non modifica le dimensioni massime del database. Per modificare le dimensioni massime del database usare [Transact-SQL (T-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) o [PowerShell](https://msdn.microsoft.com/library/mt619433.aspx).
@@ -63,34 +64,30 @@ Aprire il pannello del Database SQL per il database che si desidera scalare vers
    > 
    
    ![selezionare un livello di prezzo][2]
-7. Nella barra multifunzione di sinistra fare clic su **Notifiche**:
+5. Fare clic sull'icona di notifica (a forma di campanello) in alto a destra:
    
-   ![notifiche][3]
-
-## Verificare che il database sia sul livello di prezzo selezionato
-   Dopo aver completato l'operazione di ridimensionamento controllare e confermare che il database è sul livello desiderato:
-
-1. Fare clic su **ESPLORA TUTTO**.
-2. Fare clic su **Database SQL**.
-3. Fare clic sul database aggiornato.
-4. Controllare il **piano tariffario** e verificare che sia impostato il piano corretto.
+   ![Notifiche][3]
    
-   ![nuovo prezzo][4]
+   Fare clic sul testo della notifica per aprire il riquadro dei dettagli in cui è possibile visualizzare lo stato della richiesta.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * Modificare le dimensioni massime del database tramite [Transact-SQL (T-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) o [PowerShell](https://msdn.microsoft.com/library/mt619433.aspx).
 * [Scalare orizzontalmente e verticalmente](sql-database-elastic-scale-get-started.md)
 * [Connettersi al database SQL con SSMS ed eseguire query](sql-database-connect-query-ssms.md)
 * [Esportare un database SQL di Azure](sql-database-export.md)
 
-## Risorse aggiuntive
+## <a name="additional-resources"></a>Risorse aggiuntive
 * [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 * [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
 <!--Image references-->
-[1]: ./media/sql-database-scale-up/pricing-tile.png
+[1]: ./media/sql-database-scale-up/new-tier.png
 [2]: ./media/sql-database-scale-up/choose-tier.png
 [3]: ./media/sql-database-scale-up/scale-notification.png
 [4]: ./media/sql-database-scale-up/new-tier.png
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

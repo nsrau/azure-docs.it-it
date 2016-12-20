@@ -2,35 +2,39 @@
 title: Usare i cmdlet PowerShell con Azure RemoteApp | Microsoft Docs
 description: Informazioni su come usare i cmdlet Windows PowerShell in Azure RemoteApp.
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: guscatalano
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 7d3d5ded-6f73-4de6-a8ac-c1d622e842a2
 ms.service: remoteapp
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dcd220da143b518bf28cc1169ab68d20256c07ba
+
 
 ---
-# Usare i cmdlet Windows PowerShell con Azure RemoteApp
+# <a name="use-windows-powershell-cmdlets-with-azure-remoteapp"></a>Usare i cmdlet Windows PowerShell con Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
  È possibile usare i cmdlet Azure RemoteApp PowerShell per amministrare e gestire le raccolte. Per iniziare, usare le informazioni seguenti.
 
-## Ottenere i cmdlet
+## <a name="get-the-cmdlets"></a>Ottenere i cmdlet
 - - -
-Prima di tutto scaricare i cmdlet di Azure PowerShell [qui](http://go.microsoft.com/?linkid=9811175). I cmdlet di RemoteApp sono inclusi.
+Prima di tutto scaricare i cmdlet di Azure PowerShell [qui](http://go.microsoft.com/?linkid=9811175). I cmdlet di RemoteApp sono inclusi. 
 
 Vedere la [guida dei cmdlet di Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx).
 
-## Configurare i cmdlet di Azure per usare la sottoscrizione
+## <a name="configure-azure-cmdlets-to-use-your-subscription"></a>Configurare i cmdlet di Azure per usare la sottoscrizione
 - - -
 Seguire [questa guida](../powershell-install-configure.md) per poter usare i cmdlet con la sottoscrizione di Azure.
 
@@ -38,13 +42,13 @@ Per iniziare rapidamente è possibile eseguire questi passaggi:
 
 1. Scaricare e installare i [cmdlet di Azure PowerShell](http://go.microsoft.com/?linkid=9811175).
 2. Avviare Microsoft Azure PowerShell.
-3. Eseguire **Add-AzureAccount** per l'autenticazione alla sottoscrizione di Azure. Quando richiesto, immettere il nome utente e la password usati per accedere al portale di Azure.
-4. Eseguire **Get-AzureSubscription** per elencare le sottoscrizioni associate all'account utente.
+3. Eseguire **Add-AzureAccount** per l'autenticazione alla sottoscrizione di Azure. Quando richiesto, immettere il nome utente e la password usati per accedere al portale di Azure.  
+4. Eseguire **Get-AzureSubscription** per elencare le sottoscrizioni associate all'account utente. 
 5. Eseguire **Select-AzureSubscription** e specificare il nome o l'ID della sottoscrizione da usare nella console di PowerShell.
 
-La console di Azure PowerShell è configurata e pronta per l'uso. Tenere presente che sarà necessario ripetere i passaggi da 2 a 5 ogni volta che si avvia la console di Azure PowerShell.
+La console di Azure PowerShell è configurata e pronta per l'uso. Tenere presente che sarà necessario ripetere i passaggi da 2 a 5 ogni volta che si avvia la console di Azure PowerShell.  
 
-## Creare una raccolta nel cloud
+## <a name="create-a-cloud-collection"></a>Creare una raccolta nel cloud
 - - -
 È semplice, basta eseguire il comando seguente:
 
@@ -62,10 +66,10 @@ Dopo aver completato la creazione della raccolta, è possibile aggiungervi utent
 
 L'operazione è così completata. L'utente dovrebbe essere in grado di connettersi all'applicazione tramite il client Azure RemoteApp disponibile [qui](https://www.remoteapp.windowsazure.com/).
 
-## Cmdlet disponibili
+## <a name="available-cmdlets"></a>Cmdlet disponibili
 Sono disponibili molti altri comandi, la cui documentazione sarà disponibile a breve:
 
-Cmdlet della raccolta RemoteApp di base:
+Cmdlet della raccolta RemoteApp di base: 
 
 * New-AzureRemoteAppCollection
 * Get-AzureRemoteAppCollection
@@ -111,4 +115,9 @@ Altri cmdlet di RemoteApp:
 * Set-AzureRemoteAppWorkspace
 * Get-AzureRemoteAppOperationResult
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

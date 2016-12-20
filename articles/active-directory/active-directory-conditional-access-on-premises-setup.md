@@ -1,12 +1,12 @@
 ---
-title: Configurazione dell'accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory | Microsoft Docs
-description: Guida dettagliata per abilitare l'accesso condizionale alle applicazioni locali tramite Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
+title: Configurazione dell&quot;accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory | Documentazione Microsoft
+description: Guida dettagliata per abilitare l&quot;accesso condizionale alle applicazioni locali tramite Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 453c71fe4636eddb4e96eef7acc7e62b99dca4dd
+
 
 ---
 # <a name="setting-up-on-premises-conditional-access-using-azure-active-directory-device-registration"></a>Configurazione dell'accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory
@@ -52,7 +56,7 @@ Queste funzionalità sono disponibili per i clienti che acquistano una licenza d
 ## <a name="scenario-assumptions"></a>Presupposti dello scenario
 Questo scenario presuppone l'esistenza di un ambiente ibrido, costituito da un tenant di Azure AD e un'istanza di Active Directory locale. Questi tenant devono essere connessi mediante Azure AD Connect, con un dominio verificato e AD FS per SSO. L'elenco di controllo riportato di seguito è utile per configurare l'ambiente per la fase descritta in precedenza.
 
-## <a name="checklist:-prerequisites-for-conditional-access-scenario"></a>Elenco di controllo: prerequisiti per lo scenario di accesso condizionale
+## <a name="checklist-prerequisites-for-conditional-access-scenario"></a>Elenco di controllo: prerequisiti per lo scenario di accesso condizionale
 Connettere il tenant di Azure AD all'istanza di Active Directory locale.
 
 ## <a name="configure-azure-active-directory-device-registration-service"></a>Configurare il servizio Registrazione dispositivo di Azure Active Directory
@@ -62,7 +66,7 @@ Nella guida si presuppone che Windows Server Active Directory sia stato configur
 
 Per distribuire il servizio Registrazione dispositivo di Azure Active Directory con il tenant di Azure Active Directory, completare nell'ordine indicato le attività riportate nell'elenco di controllo seguente. Quando un collegamento a un riferimento porta a un argomento concettuale, leggere l'argomento e quindi tornare a questo elenco di controllo, per poter procedere con le attività restanti. Alcune attività includeranno un passaggio per la convalida dello scenario, per verificare di aver completato il passaggio correttamente.
 
-## <a name="part-1:-enable-azure-active-directory-device-registration"></a>Parte 1: Abilitare Registrazione dispositivo di Azure Active Directory
+## <a name="part-1-enable-azure-active-directory-device-registration"></a>Parte 1: Abilitare Registrazione dispositivo di Azure Active Directory
 Seguire questo elenco di controllo per abilitare e configurare il servizio Registrazione dispositivo di Azure Active Directory.
 
 | Attività | riferimento |
@@ -70,21 +74,21 @@ Seguire questo elenco di controllo per abilitare e configurare il servizio Regis
 | Abilitare Registrazione dispositivo nel tenant di Azure Active Directory per consentire l'aggiunta dei dispositivi all'area di lavoro. Per impostazione predefinita, l'autenticazione a più fattori non è abilitata per il servizio. L'autenticazione a più fattori è tuttavia consigliata quando si registra un dispositivo. Prima di abilitare l'autenticazione a più fattori in ADRS, assicurarsi che AD FS sia configurato per un provider di autenticazione a più fattori. |[Abilitare Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-device-registration-overview.md) |
 | I dispositivi individueranno il servizio Registrazione dispositivo di Azure Active Directory cercando record DNS noti. È necessario configurare il DNS della società in modo che i dispositivi possano trovare il servizio Registrazione dispositivo di Azure Active Directory. |[Configurare l'individuazione di Registrazione dispositivo di Azure Active Directory.](active-directory-conditional-access-device-registration-overview.md) |
 
-## <a name="part-2:-deploy-and-configure-windows-server-2012-r2-active-directory-federation-services-and-set-up-a-federation-relationship-with-azure-ad"></a>Parte 2: Distribuire e configurare Active Directory Federation Services con Windows Server 2012 R2 e configurare una relazione federativa con Azure AD
+## <a name="part-2-deploy-and-configure-windows-server-2012-r2-active-directory-federation-services-and-set-up-a-federation-relationship-with-azure-ad"></a>Parte 2: Distribuire e configurare Active Directory Federation Services con Windows Server 2012 R2 e configurare una relazione federativa con Azure AD
 | Attività | riferimento |
 | --- | --- |
 | Distribuire un dominio di Servizi di dominio Active Directory con le estensioni dello schema di Windows Server 2012 R2. Non è necessario aggiornare alcun controller di dominio a Windows Server 2012 R2. L'unico requisito è l'aggiornamento dello schema. |[Aggiornare lo schema di Servizi di dominio Active Directory](#upgrade-your-active-directory-domain-services-schema) |
 | I dispositivi individueranno il servizio Registrazione dispositivo di Azure Active Directory cercando record DNS noti. È necessario configurare il DNS della società in modo che i dispositivi possano trovare il servizio Registrazione dispositivo di Azure Active Directory. |[Preparare Active Directory per supportare i dispositivi](#prepare-your-active-directory-to-support-devices) |
 
-## <a name="part-3:-enable-device-writeback-in-azure-ad"></a>Parte 3: Abilitare il writeback dei dispositivi in Azure AD
+## <a name="part-3-enable-device-writeback-in-azure-ad"></a>Parte 3: Abilitare il writeback dei dispositivi in Azure AD
 | Attività | riferimento |
 | --- | --- |
 | Completare la parte 2 di Abilitazione del writeback dei dispositivi in Azure AD Connect. Al termine, tornare a questa guida. |[Abilitazione del writeback dei dispositivi in Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
 
-## <a name="[optional]-part-4:-enable-multi-factor-authentication"></a>[Facoltativo] Parte 4: Abilitazione di Multi-Factor Authentication
+## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Facoltativo] Parte 4: Abilitazione di Multi-Factor Authentication
 È consigliabile configurare una delle diverse opzioni per Multi-Factor Authentication. Se si desidera richiedere MFA, vedere [Scegliere la soluzione di sicurezza Multi-Factor più adatta](../multi-factor-authentication/multi-factor-authentication-get-started.md). È inclusa una descrizione di ogni soluzione con collegamenti che consentono di configurare la soluzione selezionata.
 
-## <a name="part-5:-verification"></a>Parte 5: Verifica
+## <a name="part-5-verification"></a>Parte 5: Verifica
 La distribuzione è completata. È ora possibile provare alcuni scenari. Seguire i collegamenti riportati di seguito per provare il servizio e acquisire familiarità con le funzionalità.
 
 | Attività | riferimento |
@@ -104,7 +108,7 @@ Questa procedura permette di integrare il tenant di Azure AD con l'istanza di Ac
 5. Nella sezione **distribuisci e gestisci** eseguire i passaggi da 1 a 3 per integrare Azure Active Directory con la directory locale.
    
    1. Aggiungere i domini.
-   2. Installare ed eseguire Azure AD Connect. Installare Azure AD Connect seguendo le istruzioni riportate di seguito in [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
+   2. Installare ed eseguire Azure AD Connect. Installare Azure AD Connect seguendo le istruzioni riportate di seguito in [Installazione personalizzata di Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
    3. Verificare e gestire la sincronizzazione della directory. Le istruzioni per l'accesso Single Sign-On sono disponibili in questo passaggio.
    
    > [!NOTE]
@@ -163,7 +167,7 @@ Dove `yourdomainname` è il nome di dominio configurato con Azure Active Directo
 
 È possibile comunicare questo URL agli utenti in diversi modi. Quello consigliato consiste nel pubblicare l'URL in un messaggio personalizzato di accesso all'applicazione negato in AD FS. Questa attività viene descritta nella sezione seguente: [Creare un criterio di accesso alle applicazioni e un messaggio di accesso negato personalizzato](#create-an-application-access-policy-and-custom-access-denied-message).
 
-### <a name="join-a-windows-8.1-device-using-azure-active-directory-device-registration"></a>Aggiungere un dispositivo Windows 8.1 con Registrazione dispositivo di Azure Active Directory
+### <a name="join-a-windows-81-device-using-azure-active-directory-device-registration"></a>Aggiungere un dispositivo Windows 8.1 con Registrazione dispositivo di Azure Active Directory
 1. Nel dispositivo Windows 8.1 passare a **Impostazioni PC** > **Rete** > **Area di lavoro**.
 2. Immettere il proprio nome utente in formato UPN, Ad esempio dan@contoso.com.
 3. Selezionare **Aggiungi**.
@@ -231,6 +235,9 @@ A questo punto, quando gli utenti accedono all'applicazione da un dispositivo no
 ## <a name="related-articles"></a>Articoli correlati
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

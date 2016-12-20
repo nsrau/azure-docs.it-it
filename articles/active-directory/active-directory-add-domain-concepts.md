@@ -1,12 +1,12 @@
 ---
-title: Panoramica concettuale dei nomi di dominio personalizzati in Azure Active Directory | Microsoft Docs
-description: Illustra il framework concettuale per l'uso di nomi di dominio personalizzati in Azure Active Directory, compresa la federazione per Single Sign-On
+title: Panoramica concettuale dei nomi di dominio personalizzati in Azure Active Directory | Documentazione Microsoft
+description: Illustra il framework concettuale per l&quot;uso di nomi di dominio personalizzati in Azure Active Directory, compresa la federazione per Single Sign-On
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeffsta
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: fd0c5def-0da2-43af-81bc-76f4cfe86afd
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: curtand;jeffsta
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 12d41a77655c4892a9dc20979ef98b1bd39f94c5
+
 
 ---
 # <a name="conceptual-overview-of-custom-domain-names-in-azure-active-directory"></a>Panoramica concettuale dei nomi di dominio personalizzati in Azure Active Directory
@@ -58,6 +62,9 @@ Le attività di gestione del dominio possono essere completate dal portale di Az
 * [Uso di PowerShell per gestire i nomi di dominio in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 * [Uso dell'API Graph di Azure AD per gestire i nomi di dominio in Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

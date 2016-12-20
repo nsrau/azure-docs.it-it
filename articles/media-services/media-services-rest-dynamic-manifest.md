@@ -1,12 +1,12 @@
 ---
-title: Creazione di filtri con l'API REST di Servizi multimediali di Azure | Microsoft Docs
-description: Questo argomento descrive come creare filtri che il client può usare per trasmettere in streaming sezioni specifiche di un flusso. Servizi multimediali crea manifesti dinamici per consentire questo streaming selettivo.
+title: Creazione di filtri con l&quot;API REST di Servizi multimediali di Azure | Microsoft Docs
+description: "Questo argomento descrive come creare filtri che il client può usare per trasmettere in streaming sezioni specifiche di un flusso. Servizi multimediali crea manifesti dinamici per consentire questo streaming selettivo."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: f7d23daf-7cd2-49c7-a195-ab902912ab3c
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako;cenkdin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 941f9e45b7b61c2ae7ce0fcd5b3a3d1891ff8315
+
 
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Creazione di filtri con l'API REST di Servizi multimediali di Azure
@@ -153,7 +157,7 @@ Corpo della richiesta
     . . . 
 
 ## <a name="list-filters"></a>Elencare i filtri
-### <a name="get-all-global-**filter**s-in-the-ams-account"></a>Ottenere tutti i **Filter**globali nell'account di Servizi multimediali di Azure
+### <a name="get-all-global-filters-in-the-ams-account"></a>Ottenere tutti i **Filter**globali nell'account di Servizi multimediali di Azure
 Per elencare i filtri, usare le richieste HTTP seguenti: 
 
 #### <a name="http-request"></a>Richiesta HTTP
@@ -166,7 +170,7 @@ Per elencare i filtri, usare le richieste HTTP seguenti:
     x-ms-version: 2.11 
     Host: media.windows.net 
 
-### <a name="get-**assetfilter**s-associated-with-an-asset"></a>Ottenere gli **AssetFilter**associati a un asset
+### <a name="get-assetfilters-associated-with-an-asset"></a>Ottenere gli **AssetFilter**associati a un asset
 #### <a name="http-request"></a>Richiesta HTTP
     GET https://media.windows.net/API/Assets('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592')/AssetFilters HTTP/1.1 
     DataServiceVersion: 3.0 
@@ -178,7 +182,7 @@ Per elencare i filtri, usare le richieste HTTP seguenti:
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
 
-### <a name="get-an-**assetfilter**-based-on-its-id"></a>Ottenere un **AssetFilter** in base all'ID
+### <a name="get-an-assetfilter-based-on-its-id"></a>Ottenere un **AssetFilter** in base all'ID
 #### <a name="http-request"></a>Richiesta HTTP
     GET https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__TestFilter') HTTP/1.1 
     DataServiceVersion: 3.0 
@@ -339,6 +343,9 @@ Gli esempi seguenti illustrano come aggiungere filtri agli URL di streaming.
 ## <a name="see-also"></a>Vedere anche
 [Filtri e manifesti dinamici](media-services-dynamic-manifest-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

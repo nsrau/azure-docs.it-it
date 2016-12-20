@@ -1,12 +1,12 @@
 ---
-title: Log personalizzati in Log Analytics | Microsoft Docs
-description: Log Analytics può raccogliere gli eventi dai file di testo nei computer Windows e Linux.  Questo articolo descrive come definire un nuovo log personalizzato e i dettagli dei record creati nel repository OMS.
+title: Log personalizzati in Log Analytics | Documentazione Microsoft
+description: "Log Analytics può raccogliere gli eventi dai file di testo nei computer Windows e Linux.  Questo articolo descrive come definire un nuovo log personalizzato e i dettagli dei record creati nel repository OMS."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: aca7f6bb-6f53-4fd4-a45c-93f12ead4ae1
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 25c63021160e5259bc72a4f7bbfc248b7ac717aa
+
 
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log personalizzati in Log Analytics
@@ -33,7 +37,7 @@ I file di log da raccogliere devono soddisfare i criteri seguenti.
 ## <a name="defining-a-custom-log"></a>Definizione di un log personalizzato
 Usare la procedura seguente per definire un file di log personalizzato.  Scorrere fino alla fine dell'articolo per la procedura dettagliata di un esempio che spiega come aggiungere un log personalizzato.
 
-### <a name="step-1.-open-the-custom-log-wizard"></a>Passaggio 1. Aprire la procedura guidata per i log personalizzati
+### <a name="step-1-open-the-custom-log-wizard"></a>Passaggio 1. Aprire la procedura guidata per i log personalizzati
 La procedura guidata per i personalizzati viene eseguita nel portale di OMS e consente di definire un nuovo log personalizzato da raccogliere.
 
 1. Nel portale di OMS passare a **Impostazioni**.
@@ -41,7 +45,7 @@ La procedura guidata per i personalizzati viene eseguita nel portale di OMS e co
 3. Per impostazione predefinita, viene eseguito automaticamente il push di tutte le modifiche di configurazione in tutti gli agenti.  Per gli agenti Linux, viene inviato un file di configurazione all'agente di raccolta dati Fluentd.  Per modificare questo file manualmente in ogni agente Linux, deselezionare la casella *Applica la configurazione seguente alle macchine virtuali Linux*.
 4. Fare clic su **Aggiungi+** per aprire la procedura guidata per i log personalizzati.
 
-### <a name="step-2.-upload-and-parse-a-sample-log"></a>Passaggio 2. Caricare e analizzare un log di esempio
+### <a name="step-2-upload-and-parse-a-sample-log"></a>Passaggio 2. Caricare e analizzare un log di esempio
 Per iniziare, caricare un esempio del log personalizzato.  La procedura guidata analizza e visualizza le voci nel file da convalidare.  Log Analytics usa il delimitatore specificato per identificare tutti i record.
 
 **Nuova riga** è il delimitatore predefinito e viene usato per i file di log con una sola voce per riga.  Se la riga inizia con una data e ora in uno dei formati disponibili, è possibile specificare un delimitatore **Timestamp** che supporta le voci che si estendono su più righe. 
@@ -59,7 +63,7 @@ Se viene usato un delimitatore Timestamp, la proprietà TimeGenerated di ogni re
 4. Modificare il delimitatore usato per identificare un nuovo record e selezionare il delimitatore che identifica meglio i record nel file di log.
 5. Fare clic su **Avanti**.
 
-### <a name="step-3.-add-log-collection-paths"></a>Passaggio 3. Aggiungere percorsi di raccolta di log
+### <a name="step-3-add-log-collection-paths"></a>Passaggio 3. Aggiungere percorsi di raccolta di log
 È necessario definire uno o più percorsi nell'agente in cui è possibile individuare il log personalizzato.  È possibile fornire un percorso specifico e un nome per il file di log oppure specificare un percorso con un carattere jolly per il nome.  Questa opzione è utile per le applicazioni che creano un nuovo file ogni giorno o quando un file raggiunge una determinata dimensione.  È anche possibile fornire più percorsi per un singolo file di log.
 
 Ad esempio, un'applicazione potrebbe creare un file di log ogni giorno con la data inclusa nel nome, come in log20100316.txt. Un modello per questo log potrebbe essere *log\*.txt*, applicabile a qualsiasi file di log in base allo schema di denominazione dell'applicazione.
@@ -77,14 +81,14 @@ La tabella seguente fornisce esempi di percorsi validi per specificare file di l
 2. Digitare il percorso e fare clic sul pulsante **+** .
 3. Ripetere il processo per i percorsi aggiuntivi.
 
-### <a name="step-4.-provide-a-name-and-description-for-the-log"></a>Passaggio 4. Specificare un nome e una descrizione per il log
+### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Passaggio 4. Specificare un nome e una descrizione per il log
 Il nome specificato viene usato per il tipo di log come descritto in precedenza.  Termina sempre con _CL per definirlo come log personalizzato.
 
 1. Digitare un nome per il log.  Il suffisso **\_CL** viene applicato automaticamente.
 2. Aggiungere una **Descrizione**facoltativa.
 3. Fare clic su **Avanti** per salvare la definizione del log personalizzato.
 
-### <a name="step-5.-validate-that-the-custom-logs-are-being-collected"></a>Passaggio 5. Verificare che i log personalizzati vengano raccolti
+### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Passaggio 5. Verificare che i log personalizzati vengano raccolti
 La visualizzazione dei dati iniziali di un nuovo log personalizzato in Log Analytics potrebbe richiedere fino a un'ora.  La procedura inizia con la raccolta delle voci dai log trovati nel percorso specificato dal punto in cui è stato definito il log personalizzato.  Le voci caricate durante la creazione del log personalizzato non vengono mantenute, ma vengono raccolte le voci già esistenti nei file di log individuati.
 
 Dopo che Log Analytics avvia la raccolta dal log personalizzato, i record vengono resi disponibili con lo strumento di ricerca nei log.  Usare il nome assegnato al log personalizzato come **Tipo** nella query.
@@ -94,7 +98,7 @@ Dopo che Log Analytics avvia la raccolta dal log personalizzato, i record vengon
 > 
 > 
 
-### <a name="step-6.-parse-the-custom-log-entries"></a>Passaggio 6. Analizzare le voci del log personalizzato
+### <a name="step-6-parse-the-custom-log-entries"></a>Passaggio 6. Analizzare le voci del log personalizzato
 L'intera voce di log viene archiviata in una singola proprietà denominata **RawData**.  È probabile che si preferisca separare le diverse parti di informazioni di ogni voce in singole proprietà archiviate nel record.  Per farlo, usare la funzionalità [Campi personalizzati](log-analytics-custom-fields.md) di Log Analytics.
 
 La procedura dettagliata per l'analisi della voce del log personalizzato non viene fornita in questa sede.  Per queste informazioni, vedere la documentazione [Campi personalizzati](log-analytics-custom-fields.md) .
@@ -170,6 +174,9 @@ Viene usato Campi personalizzati per definire i campi *EventTime*, *Code*, *Stat
 * Usare [Campi personalizzati](log-analytics-custom-fields.md) per analizzare le voci del log personalizzato nei singoli campi.
 * Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -2,22 +2,26 @@
 title: Uso del reindirizzamento in Azure RemoteApp | Microsoft Docs
 description: Informazioni su come configurare e usare il reindirizzamento in RemoteApp
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: 2c8c867f-4907-4f2e-9ccd-2eb82bb5b837
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 392f15955362607187abf402dee076e328c11bd3
+
 
 ---
-# Uso del reindirizzamento in Azure RemoteApp
+# <a name="using-redirection-in-azure-remoteapp"></a>Uso del reindirizzamento in Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -25,7 +29,7 @@ Il reindirizzamento dei dispositivi consente agli utenti di interagire con appli
 
 RemoteApp usa il protocollo RDP (Remote Desktop Protocol) e RemoteFX per il reindirizzamento.
 
-## Quale reindirizzamento è abilitato per impostazione predefinita?
+## <a name="what-redirection-is-enabled-by-default"></a>Quale reindirizzamento è abilitato per impostazione predefinita?
 Quando si usa RemoteApp, i reindirizzamenti seguenti sono abilitati per impostazione predefinita. Le informazioni tra parentesi mostrano l'impostazione RDP.
 
 * Riproduzione di suoni sul computer locale (**Riproduci nel computer locale**). (audiomode:i:0)
@@ -35,15 +39,15 @@ Quando si usa RemoteApp, i reindirizzamenti seguenti sono abilitati per impostaz
 * Dispositivo smart card (redirectsmartcards:i:1)
 * Appunti (funzionalità di copia e incolla) (redirectclipboard:i:1)
 * Disattivazione caratteri smussati (allowfontsmoothing:i:1)
-* Reindirizzamento di tutti i dispositivi Plug and Play supportati (devicestoredirect:s:*)
+* Reindirizzamento di tutti i dispositivi Plug and Play supportati. (devicestoredirect:s:*)
 
-## Quali altri reindirizzamenti sono disponibili?
+## <a name="what-other-redirection-is-available"></a>Quali altri reindirizzamenti sono disponibili?
 Due opzioni di reindirizzamento sono disabilitate per impostazione predefinita:
 
 * Reindirizzamento delle unità (mapping di unità): le unità del computer locale diventano unità mappate nella sessione remota. In questo modo è possibile salvare o aprire file da unità locali mentre si lavora nella sessione remota.
 * Reindirizzamento USB: è possibile usare i dispositivi USB collegati al computer locale all'interno della sessione remota.
 
-## Modificare le impostazioni di reindirizzamento in RemoteApp
+## <a name="change-your-redirection-settings-in-remoteapp"></a>Modificare le impostazioni di reindirizzamento in RemoteApp
 È possibile modificare le impostazioni di reindirizzamento del dispositivo per una raccolta usando Microsoft Azure PowerShell con SDK. Dopo aver installato il nuovo PowerShell e l'SDK, configurarlo per gestire la sottoscrizione, come descritto in [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 Usare quindi un comando simile al seguente per impostare le proprietà RDP personalizzate:
@@ -52,31 +56,31 @@ Usare quindi un comando simile al seguente per impostare le proprietà RDP perso
 
 (Si noti che *'n* viene usato come delimitatore tra le singole proprietà)
 
-Per un elenco delle proprietà RDP configurate, eseguire il cmdlet seguente. Si noti che solo le proprietà personalizzate vengono visualizzate come risultati di output, non le proprietà predefinite:
+Per un elenco delle proprietà RDP configurate, eseguire il cmdlet seguente. Si noti che solo le proprietà personalizzate vengono visualizzate come risultati di output, non le proprietà predefinite:  
 
     Get-AzureRemoteAppCollection -CollectionName <collection name>
 
-Quando si impostano proprietà personalizzate, è necessario specificare tutte le proprietà personalizzate ogni volta. In caso contrario, l'impostazione viene nuovamente disabilitata.
+Quando si impostano proprietà personalizzate, è necessario specificare tutte le proprietà personalizzate ogni volta. In caso contrario, l'impostazione viene nuovamente disabilitata.   
 
-### Esempi comuni
-Per abilitare il reindirizzamento delle unità, usare il cmdlet seguente:
+### <a name="common-examples"></a>Esempi comuni
+Per abilitare il reindirizzamento delle unità, usare il cmdlet seguente:  
 
-    Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*”
+    Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*"
 
 Usare questo cmdlet per abilitare sia il reindirizzamento delle unità che il reindirizzamento USB:
 
     Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:*"
 
-Usare questo cmdlet per disabilitare la condivisione degli Appunti:
+Usare questo cmdlet per disabilitare la condivisione degli Appunti:  
 
-    Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "redirectclipboard:i:0”
+    Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "redirectclipboard:i:0"
 
 > [!IMPORTANT]
 > Assicurarsi di disconnettere completamente tutti gli utenti nella raccolta (non solo scollegarli) prima di verificare la modifica. Per assicurarsi che gli utenti siano disconnessi completamente, andare alla scheda **Sessioni** nella raccolta nel portale di Azure e disconnettere tutti gli utenti scollegati o collegati. Talvolta è necessario attendere alcuni secondi perché le unità locali vengano mostrate in Esplora risorse all'interno della sessione.
 > 
 > 
 
-## Modificare le impostazioni di reindirizzamento USB nel client Windows
+## <a name="change-usb-redirection-settings-on-your-windows-client"></a>Modificare le impostazioni di reindirizzamento USB nel client Windows
 Se si desidera usare il reindirizzamento USB su un computer che si connette a RemoteApp, è necessario eseguire 2 azioni. 1 - L'amministratore deve abilitare il reindirizzamento USB a livello di raccolta tramite Azure PowerShell. 2 - Su ogni dispositivo su cui si desidera usare il reindirizzamento USB, è necessario abilitare un criterio di gruppo che lo consente. È necessario eseguire questo passaggio per ogni utente che desidera usare il reindirizzamento USB.
 
 > [!NOTE]
@@ -84,16 +88,16 @@ Se si desidera usare il reindirizzamento USB su un computer che si connette a Re
 > 
 > 
 
-### Abilitare il reindirizzamento USB per la raccolta di RemoteApp
+### <a name="enable-usb-redirection-for-the-remoteapp-collection"></a>Abilitare il reindirizzamento USB per la raccolta di RemoteApp
 Per abilitare il reindirizzamento USB a livello di raccolta, utilizzare il cmdlet seguente:
 
     Set-AzureRemoteAppCollection -CollectionName <collection_name> -CustomRdpProperty "nusbdevicestoredirect:s:*"
 
-### Abilitare il reindirizzamento USB per il computer client
+### <a name="enable-usb-redirection-for-the-client-computer"></a>Abilitare il reindirizzamento USB per il computer client
 Per configurare le impostazioni di reindirizzamento USB sul computer:
 
 1. Aprire l'Editor Criteri di gruppo locali (GPEDIT.MSC) (eseguire gpedit.msc da un prompt dei comandi).
-2. Aprire **Configurazione computer\\Criteri\\Modelli amministrativi\\Componenti di Windows\\Servizi Desktop remoto\\Client di connessione desktop remoto\\Reindirizzamento dispositivo USB RemoteFX**.
+2. Aprire **Configurazione computer\Criteri\Modelli amministrativi\Componenti di Windows\Servizi Desktop remoto\Client di connessione desktop remoto\Reindirizzamento dispositivo USB RemoteFX**.
 3. Fare doppio clic su **Consenti il reindirizzamento RDP di altri dispositivi USB RemoteFX supportati da questo computer**.
 4. Selezionare **Attivato** e quindi selezionare **Amministratori e utenti nei diritti di accesso del reindirizzamento USB RemoteFX**.
 5. Aprire un prompt dei comandi con autorizzazioni amministrative ed eseguire il comando seguente:
@@ -104,12 +108,17 @@ Per configurare le impostazioni di reindirizzamento USB sul computer:
 È anche possibile usare lo strumento Gestione criteri di gruppo per creare e applicare i criteri di reindirizzamento USB per tutti i computer nel dominio:
 
 1. Accedere al controller di dominio come amministratore di dominio.
-2. Aprire Console Gestione criteri di gruppo (fare clic su **Start > Strumenti di amministrazione > Gestione criteri di gruppo**).
+2. Aprire Console Gestione criteri di gruppo (fare clic su **Start > Strumenti di amministrazione > Gestione Criteri di gruppo**).
 3. Passare al dominio o unità organizzativa per cui si desidera creare il criterio.
 4. Fare clic con il pulsante destro del mouse su **Criterio dominio predefinito** e quindi fare clic su **Modifica**.
-5. Aprire **Configurazione computer\\Criteri\\Modelli amministrativi\\Componenti di Windows\\Servizi Desktop remoto\\Client di connessione desktop remoto\\Reindirizzamento dispositivo USB RemoteFX**.
+5. Aprire **Configurazione computer\Criteri\Modelli amministrativi\Componenti di Windows\Servizi Desktop remoto\Client di connessione desktop remoto\Reindirizzamento dispositivo USB RemoteFX**.
 6. Fare doppio clic su **Consenti il reindirizzamento RDP di altri dispositivi USB RemoteFX supportati da questo computer**.
 7. Selezionare **Attivato** e quindi selezionare **Amministratori e utenti nei diritti di accesso del reindirizzamento USB RemoteFX**.
-8. Fare clic su **OK**.
+8. Fare clic su **OK**.  
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

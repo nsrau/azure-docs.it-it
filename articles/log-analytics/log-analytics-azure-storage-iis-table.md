@@ -1,19 +1,23 @@
 ---
-title: Uso dell'archivio BLOB per IIS e dell'archivio tabelle per gli eventi | Microsoft Docs
-description: Log Analytics è in grado di leggere i log per i servizi di Azure che scrivono dati di diagnostica nell'archivio tabelle o log di IIS nell'archivio BLOB.
+title: Utilizzo dell&quot;archiviazione BLOB per IIS e dell&quot;archiviazione tabelle per gli eventi | Documentazione Microsoft
+description: "Log Analytics è in grado di leggere i log per i servizi di Azure che scrivono dati di diagnostica nell&quot;archivio tabelle o log di IIS nell&quot;archivio BLOB."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 10/25/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 950b6de5b579cac1a2b10db299e6f7bcfd8c7b04
+
 
 ---
 # <a name="using-blob-storage-for-iis-and-table-storage-for-events"></a>Uso dell'archivio BLOB per IIS e dell'archivio tabelle per gli eventi
@@ -25,7 +29,7 @@ Log Analytics è in grado di leggere i log per i servizi seguenti che scrivono d
 
 Affinché Log Analytics possa raccogliere i dati per tali risorse, è necessario abilitare la diagnostica di Azure.
 
-Dopo l'abilitazione della diagnostica, è possibile usare il portale di Azure o PowerShell per configurare Log Analytics per la raccolta dei log.
+Dopo l'abilitazione della diagnostica, è possibile usare il Portale di Azure o PowerShell per configurare Log Analytics per la raccolta dei log.
 
 Diagnostica di Azure è un'estensione di Azure che consente di raccogliere i dati di diagnostica da un ruolo di lavoro, da un ruolo Web o da una macchina virtuale in esecuzione in Azure. I dati vengono memorizzati in un account di archiviazione di Azure e possono quindi essere raccolti da Log Analytics.
 
@@ -46,17 +50,17 @@ Per consentire a Log Analytics di raccogliere questi log di Diagnostica di Azure
 > 
 > 
 
-Per le macchine virtuali è anche possibile installare [Microsoft Monitoring Agent](http://go.microsoft.com/fwlink/?LinkId=517269) nella macchina virtuale per abilitare la raccolta di informazioni aggiuntive. In questo modo sarà possibile analizzare i log IIS e i registri eventi, oltre che eseguire ulteriori analisi, tra cui il rilevamento delle modifiche alla configurazione, la valutazione degli aggiornamenti e la valutazione di SQL.
+Per le macchine virtuali è anche possibile installare l'[agente di Log Analytics](log-analytics-azure-vm-extension.md) nella macchina virtuale per abilitare la raccolta di informazioni aggiuntive. In questo modo è possibile analizzare i log IIS e i registri eventi, oltre che eseguire ulteriori analisi, tra cui il rilevamento delle modifiche alla configurazione, la valutazione degli aggiornamenti e la valutazione di SQL.
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection"></a>Abilitare la diagnostica di Azure in una macchina virtuale per la raccolta di log eventi e IIS
-Usare la procedura seguente per abilitare la diagnostica di Azure in una macchina virtuale per la raccolta di log di eventi e IIS tramite il portale di gestione di Microsoft Azure.
+Usare la procedura seguente per abilitare la Diagnostica di Azure in una macchina virtuale per la raccolta di log di eventi e IIS tramite il portale di Microsoft Azure.
 
-### <a name="to-enable-azure-diagnostics-in-a-virtual-machine-with-the-azure-management-portal"></a>Per abilitare la diagnostica di Azure in una macchina virtuale con il portale di gestione di Azure
+### <a name="to-enable-azure-diagnostics-in-a-virtual-machine-with-the-azure-portal"></a>Per abilitare la Diagnostica di Azure in una macchina virtuale con il portale di Azure
 1. Installare l'agente di macchine virtuali quando si crea una macchina virtuale. Se la macchina virtuale esiste già, verificare che l'agente di macchine virtuali sia già installato.
    
-   * Nel portale di gestione di Azure passare alla macchina virtuale, selezionare **Configurazione facoltativa**, quindi **Diagnostica** e impostare lo **Stato** su **Sì**.
+   * Nel portale di Azure passare alla macchina virtuale, selezionare **Configurazione facoltativa**, quindi **Diagnostica** e impostare lo **Stato** su **Sì**.
      
-     Al termine, nella macchina virtuale risulterà automaticamente installata e in esecuzione l'estensione Diagnostica di Azure che sarà responsabile della raccolta dei dati di diagnostica.
+     Al termine, nella VM risulta installata e in esecuzione l'estensione di Diagnostica di Azure, che ha il compito di raccogliere i dati di diagnostica.
 2. Abilitare il monitoraggio e configurare la registrazione degli eventi su una macchina virtuale esistente. La diagnostica può essere abilitata a livello di macchina virtuale. Per abilitare la diagnostica e quindi configurare la registrazione degli eventi, eseguire la procedura seguente:
    
    1. Selezionare la macchina virtuale.
@@ -69,7 +73,7 @@ Usare la procedura seguente per abilitare la diagnostica di Azure in una macchin
 Con Azure PowerShell è possibile specificare in modo più preciso gli eventi che vengono scritti nell'Archiviazione di Azure. Vedere [Collect data using Azure diagnostics written to table storage or IIS Logs written to blob](log-analytics-azure-storage-json.md) (Raccogliere dati usando i log di diagnostica di Azure scritti nell'archivio tabelle o i log di IIS scritti nell'archivio BLOB).
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>Abilitare Diagnostica di Azure in un ruolo Web per la raccolta di eventi e log IIS
-Vedere [Abilitazione di Diagnostica di Azure in servizi cloud di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md). Le informazioni di base contenute in tale articolo consentiranno di personalizzare i passaggi da eseguire qui per usare Log Analytics.
+Consultare l'argomento su [come abilitare la diagnostica in un servizio cloud](../cloud-services/cloud-services-dotnet-diagnostics.md) per una procedura generale di abilitazione della Diagnostica di Azure. Le istruzioni seguenti usano queste informazioni, personalizzandole per l'uso con Log Analytics.
 
 Con Diagnostica di Azure abilitata:
 
@@ -111,7 +115,7 @@ Assicurarsi che ConfigurationSettings specifichi un account di archiviazione, co
     </ConfigurationSettings>
 ```
 
-I valori **AccountName** e **AccountKey** sono disponibili nel dashboard dell'account di archiviazione del portale di gestione di Azure in Gestisci chiavi di accesso. Il protocollo per la stringa di connessione deve essere **https**.
+I valori **AccountName** e **AccountKey** sono disponibili nel dashboard dell'account di archiviazione del portale di Azure in Gestisci chiavi di accesso. Il protocollo per la stringa di connessione deve essere **https**.
 
 Dopo che la configurazione della diagnostica aggiornata è stata applicata al servizio cloud e ha iniziato a scrivere la diagnostica in Archiviazione di Azure, è possibile configurare Log Analytics.
 
@@ -127,15 +131,15 @@ Nel portale di Azure passare all'area di lavoro di Log Analytics ed eseguire que
 1. Fare clic su *Log account di archiviazione*
 2. Fare clic sull'attività *Aggiungi*
 3. Selezionare l'account di archiviazione che contiene i log di diagnostica
-   * È possibile usare un account di archiviazione classico o un account di archiviazione di Azure Resource Manager
+   * L'account di archiviazione può essere di tipo classico oppure un account di archiviazione di Azure Resource Manager
 4. Selezionare il tipo di dati per cui si vogliono raccogliere i log
-   * È possibile scegliere i log di IIS, i log eventi, i log di Syslog (Linux), i log ETW e i log di eventi di Service Fabric
-5. Il valore per l'origine verrà popolato automaticamente in base al tipo di dati e non può essere modificato
+   * È possibile scegliere tra log IIS, log eventi, SysLog (Linux), log ETW ed eventi Service Fabric.
+5. Il valore per l'origine viene compilato automaticamente in base al tipo di dati e non può essere modificato
 6. Fare clic su OK per salvare la configurazione
 
 Ripetere i passaggi da 2 a 6 per account di archiviazione aggiuntivi e tipi di dati che devono essere raccolti da Log Analytics.
 
-Entro 30 minuti circa sarà possibile visualizzare i dati dall'account di archiviazione in Log Analytics. Verranno visualizzati solo i dati scritti nell'archivio dopo l'applicazione della configurazione. Log Analytics non legge i dati preesistenti dall'account di archiviazione.
+Nel giro di 30 minuti circa è possibile visualizzare i dati dell'account di archiviazione in Log Analytics. Verranno visualizzati solo i dati scritti nell'archivio dopo l'applicazione della configurazione. Log Analytics non legge i dati preesistenti dall'account di archiviazione.
 
 > [!NOTE]
 > Il portale non conferma l'esistenza dell'origine nell'account di archiviazione e non verifica se vengono scritti nuovi dati.
@@ -143,13 +147,15 @@ Entro 30 minuti circa sarà possibile visualizzare i dati dall'account di archiv
 > 
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection-using-powershell"></a>Abilitare la diagnostica di Azure in una macchina virtuale per la raccolta di log eventi e log IIS tramite PowerShell
-Con Azure PowerShell è possibile specificare in modo più preciso gli eventi che vengono scritti nell'Archiviazione di Azure.
-Per altri dettagli, vedere [Abilitare la diagnostica nelle macchine virtuali di Azure](../virtual-machines-dotnet-diagnostics.md) .
+Usare la procedura [Configurazione di Log Analytics per indicizzare Diagnostica di Azure](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) per leggere tramite PowerShell i dati di Diagnostica di Azure scritti nell'archiviazione tabelle.
 
-È possibile abilitare e aggiornare l'agente con il seguente script di PowerShell.
+Con Azure PowerShell è possibile specificare in modo più preciso gli eventi che vengono scritti nell'Archiviazione di Azure.
+Per altre informazioni, vedere [Abilitare la diagnostica nelle macchine virtuali di Azure](../virtual-machines-dotnet-diagnostics.md).
+
+È possibile abilitare e aggiornare la Diagnostica di Azure con il seguente script PowerShell.
 È possibile usare questo script anche con una configurazione della registrazione personalizzata.
-Sarà necessario modificare lo script per impostare l'account di archiviazione, il nome del servizio e il nome della macchina virtuale.
-Lo script usa i cmdlet per le macchine virtuali classiche.
+Modificare lo script per impostare l'account di archiviazione, il nome del servizio e il nome della macchina virtuale.
+Lo script usa i cmdlet per le macchine virtuali di tipo classico.
 
 Esaminare il seguente script di esempio, copiarlo, modificarlo se necessario, salvare l'esempio come file script di PowerShell e quindi eseguire lo script.
 
@@ -184,11 +190,15 @@ Esaminare il seguente script di esempio, copiarlo, modificarlo se necessario, sa
     (Get-AzureVM -ServiceName $service_name -Name $vm_name) | Set-AzureVMExtension -ExtensionName $wad_extension_name -Publisher $wad_publisher -PublicConfiguration $wad_public_config -PrivateConfiguration $wad_private_config -Version $wad_version | Update-AzureVM
 ```
 
+
 ## <a name="next-steps"></a>Passaggi successivi
 * [Usare i file JSON nell'archivio BLOB](log-analytics-azure-storage-json.md) per leggere i log dai servizi di Azure che scrivono dati di diagnostica nell'archivio BLOB in formato JSON.
 * [Abilitare soluzioni](log-analytics-add-solutions.md) per fornire informazioni dettagliate sui dati.
 * [Usare query di ricerca](log-analytics-log-searches.md) per analizzare i dati.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

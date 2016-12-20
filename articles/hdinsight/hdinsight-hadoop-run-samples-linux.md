@@ -1,13 +1,13 @@
 ---
-title: Eseguire gli esempi di MapReduce Hadoop in HDInsight basati su Linux | Microsoft Docs
-description: Introduzione all'uso di esempi MapReduce con HDInsight basato su Linux. Usare SSH per connettersi al cluster, quindi usare il comando di Hadoop per eseguire i processi di esempio.
+title: Eseguire esempi di MapReduce in Hadoop in HDInsight basato su Linux | Documentazione Microsoft
+description: Introduzione all&quot;uso di esempi MapReduce con HDInsight basato su Linux. Usare SSH per connettersi al cluster, quindi usare il comando di Hadoop per eseguire i processi di esempio.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: e1d2a0b9-1659-4fab-921e-4a8990cbb30a
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d4b6db263becb722cabfab2160c0a460034eae72
+
 
 ---
 # <a name="run-the-hadoop-samples-in-hdinsight"></a>Eseguire gli esempi di Hadoop in HDInsight
@@ -61,7 +65,7 @@ I cluster HDInsight basati su Linux forniscono una serie di esempi MapReduce che
 **Codice sorgente**: il codice sorgente per questi esempi è incluso nel cluster HDInsight in **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples**
 
 > [!NOTE]
-> `2.2.4.9-1` è la versione di Hortonworks Data Platform per il cluster HDInsight e può cambiare quando si aggiorna HDInsight.
+>  `2.2.4.9-1` è la versione di Hortonworks Data Platform per il cluster HDInsight e può cambiare quando si aggiorna HDInsight.
 > 
 > 
 
@@ -133,7 +137,7 @@ Esiste un modo certo per creare un puzzle Sudoku in base al quale non è possibi
     ? ? ? ? 4 5 ? 7 8
 
 > [!NOTE]
-> `2.2.4.9-1` del percorso può variare quando il cluster HDInsight viene aggiornato.
+>  `2.2.4.9-1` del percorso può variare quando il cluster HDInsight viene aggiornato.
 > 
 > 
 
@@ -153,7 +157,7 @@ Il risultato dovrebbe essere simile al seguente:
     1 8 5 7 3 9 2 6 4
     2 6 3 1 4 5 9 7 8
 
-## <a name="pi-(π)"></a>Pi greco (π)
+## <a name="pi-"></a>Pi greco (π)
 Per calcolare il valore di Pi greco, l'esempio usa un metodo statistico simile al metodo Monte Carlo. I punti posizionati in modo casuale all'interno di un quadrato unitario rientrano anche in un cerchio incluso in tale quadrato con una probabilità uguale all'area del cerchio, Pi greco/4. Il valore di Pi greco può essere stimato in base a valore di 4R, dove R indica il rapporto tra il numero di punti che si trovano all’interno del cerchio e il numero totale di punti che si trovano all’interno del quadrato. La precisione del calcolo è direttamente proporzionale al numero di punti utilizzati.
 
 Il mapper di questo esempio genera un numero di punti casuali all'interno di un quadrato unitario e quindi conta il numero di punti all'interno del cerchio.
@@ -220,6 +224,6 @@ In questo articolo si è appreso come eseguire gli esempi inclusi nei cluster HD
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,157 +1,186 @@
 ---
-title: Dimensioni dei servizi cloud
-description: Elenco delle diverse dimensioni delle macchine virtuali per i ruoli Web e di lavoro del servizio cloud di Azure.
+title: Dimensioni dei servizi cloud | Documentazione Microsoft
+description: Elenco delle diverse dimensioni e ID delle macchine virtuali per i ruoli Web e di lavoro del servizio cloud di Azure.
 services: cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: Thraka
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 1127c23e-106a-47c1-a2e9-40e6dda640f6
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 08/10/2016
+ms.date: 10/27/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: d6faf73b3fb5f56e42a07dc9c0bbf1a48767c7c8
+
 
 ---
-# Dimensioni dei servizi cloud
-Questo argomento descrive le dimensioni e le opzioni disponibili per le istanze del ruolo di servizio cloud, come ruoli Web e di lavoro. Fornisce anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse.
+# <a name="sizes-for-cloud-services"></a>Dimensioni dei servizi cloud
+Questo argomento descrive le dimensioni e le opzioni disponibili per le istanze del ruolo di servizio cloud, come ruoli Web e di lavoro. Fornisce anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse. Ogni dimensione contiene un ID da inserire nel [file csdef](cloud-services-model-and-package.md#csdef).
 
 I servizi cloud sono uno dei diversi tipi di risorse di calcolo offerti da Azure. Fare clic [qui](cloud-services-choose-me.md) per altre informazioni sui servizi cloud.
 
 > [!NOTE]
-> Per i limiti di Azure correlati, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
+> Per i limiti di Azure correlati, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md)
 > 
 > 
 
-## Dimensioni delle istanze del ruolo Web e di lavoro
+## <a name="sizes-for-web-and-worker-role-instances"></a>Dimensioni delle istanze del ruolo Web e di lavoro
+In Azure sono disponibili più dimensioni standard. Si tengano presenti le considerazioni seguenti per alcune di queste dimensioni:
+
+* Le macchine virtuali serie D sono progettate per eseguire le applicazioni che richiedono maggiore potenza di calcolo e prestazioni del disco temporaneo. Le macchine virtuali serie D forniscono processori più veloci, un rapporto tra memoria e memoria centrale superiore e un'unità SSD ( solid-state drive) per il disco temporaneo. Per ulteriori informazioni, vedere l'annuncio sul blog di Azure, [Nuove dimensioni delle macchine virtuali serie D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
+* Serie Dv2, una versione successiva della serie D originale, dotata di una CPU più potente. La CPU della serie Dv2 è circa il 35% più rapida rispetto alla CPU della serie D. È basata sul processore Intel Xeon® E5-2673 v3 a 2,4 GHz (Haswell) e grazie alla tecnologia Intel Turbo Boost 2.0 può funzionare fino a 3,1 GHz. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
+* Le macchine virtuali serie G offrono la maggiore quantità di memoria e vengono eseguite su host con processori della famiglia Intel Xeon E5 V3.
+* Le VM di serie A possono essere distribuite su una vasta gamma di tipi di hardware e processori. La dimensione è limitata in base all'hardware per offrire prestazioni del processore coerenti per l'istanza in esecuzione, indipendentemente dall'hardware in cui è distribuita. Per determinare l'hardware fisico in cui viene distribuita questa dimensione, eseguire una query nell'hardware virtuale dall'interno della macchina virtuale.
+* La sottoscrizione della dimensione A0 è eccessiva nell'hardware fisico. Solo per questa dimensione specifica, altre distribuzioni dei clienti possono compromettere le prestazioni del carico di lavoro in esecuzione. Le prestazioni relative sono indicate di seguito come linea di base prevista, con variabilità approssimativa del 15%.
+
+La dimensione della macchina virtuale influisce sul prezzo. Influisce, inoltre, sull’elaborazione, sulla memoria e sulla capacità di archiviazione della macchina virtuale. I costi di archiviazione vengono calcolati separatamente in base alle pagine usate nell'account di archiviazione. Per altre informazioni, vedere [Dettagli prezzi per le macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/) e [Dettagli prezzi di archiviazione](https://azure.microsoft.com/pricing/details/storage/). 
+
 Le considerazioni seguenti potrebbero essere utili all’utente per scegliere una dimensione:
 
-* Le istanze di macchine virtuali serie D sono progettate per eseguire le applicazioni che richiedono maggiore potenza di calcolo e prestazioni del disco temporaneo. Le macchine virtuali serie D forniscono processori più veloci, un rapporto tra memoria e memoria centrale superiore e un'unità SSD ( solid-state drive) per il disco temporaneo. Per ulteriori informazioni, vedere l'annuncio sul blog di Azure, [Nuove dimensioni delle macchine virtuali serie D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
-* Serie Dv2, una versione successiva della serie D originale, dotata di una CPU più potente. La CPU della serie Dv2 è circa il 35% più rapida rispetto alla CPU della serie D. È basata sul processore Intel Xeon® E5-2673 v3 a 2,4 GHz (Haswell) e grazie alla tecnologia Intel Turbo Boost 2.0 può funzionare fino a 3,1 GHz. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
-* I ruoli Web e di lavoro richiedono più spazio su disco temporaneo rispetto alle macchine virtuali di Azure a causa dei requisiti di sistema. I file di sistema riservano 4 GB di spazio per il file di paging di Windows e 2 GB di spazio per il file dump di Windows.
-* Il disco del sistema operativo contiene il sistema operativo guest di Windows, la cartella Programmi (incluse le installazioni eseguite mediante attività di avvio a meno che non si specifichi un altro disco), le modifiche del Registro di sistema, la cartella System32 e .NET Framework.
-* Il **disco di archiviazione temporanea** contiene i file di configurazione e i log di Azure, Diagnostica Azure, inclusi i log di IIS, e tutte le risorse di archiviazione locale definite.
-* Il **disco dell’applicazione** è il disco in cui viene estratto il file con estensione cspkg e che contiene il sito Web, i file binari, il processo host del ruolo, le attività di avvio, il file web.config e così via.
-* Le dimensioni delle macchine virtuali A8/A10 e A9/A11 hanno la stessa capacità. Le istanze di macchine virtuali A8 e A9 includono una scheda di rete aggiuntiva connessa a una rete con accesso diretto a memoria remota (RDMA) per una comunicazione rapida tra macchine virtuali. Le istanze A8 e A9 sono progettate per applicazioni di elaborazione ad alte prestazioni che richiedono comunicazione costante e a bassa latenza tra i nodi durante l'esecuzione, ad esempio, le applicazioni che usano l'interfaccia MPI (Message Passing Interface). Le istanze di macchina virtuale A10 e A11 non includono la scheda di rete aggiuntiva. Le istanze A10 e A11 sono progettate per applicazioni di calcolo ad alte prestazioni che non richiedono una comunicazione costante e a bassa latenza tra i nodi, note anche come applicazioni parametriche o imbarazzantemente parallele.
-  
-  > [!NOTE]
-  > Se si stanno considerando i formati da A8 ad A11, selezionare [qui](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) per altre informazioni.
-  > 
-  > 
+* Le dimensioni delle serie A8-A11 e H sono note anche come *istanze a elevato uso di calcolo*. L'hardware che esegue queste dimensioni è progettato e ottimizzato per applicazioni a elevato utilizzo di calcolo e di rete, come applicazioni cluster HPC, modellazione e simulazioni. La serie A8-A11 usa Intel Xeon E5-2670 @ 2,6 GHZ, mentre la serie H usa Intel Xeon E5-2667 v3 @ 3,2 GHz. Per informazioni e considerazioni dettagliate sull'uso di queste dimensioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+* La serie Dv2, D e G sono ideali per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale o requisiti di memoria superiori.  Offrono una potente combinazione per molte applicazioni di livello aziendale.
+* Alcuni degli host fisici nei data center di Azure potrebbero non supportare macchine virtuali di dimensioni superiori, ad esempio da A5 ad A11. Di conseguenza, potrebbe essere visualizzato il messaggio di errore **Impossibile configurare la macchina virtuale {nome macchina virtuale}** o **Impossibile creare la macchina virtuale {nome macchina virtuale}** quando si configura una macchina virtuale esistente in base a una nuova dimensione, si crea una nuova macchina virtuale in una rete virtuale creata prima del 16 aprile 2013 o si aggiunge una nuova macchina a un servizio cloud esistente. Vedere [Errore: "Impossibile configurare la macchina virtuale"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) nel forum di supporto per le soluzioni alternative per ogni scenario di distribuzione.  
+* La sottoscrizione può anche limitare il numero di core che è possibile distribuire in alcune famiglie di dimensioni . Per aumentare la quota, contattare il supporto tecnico di Azure.
 
-> [!NOTE]
-> Tutte le dimensioni delle macchine forniscono un **disco dell’applicazione** che archivia tutti i file del pacchetto di servizio cloud grande circa 1,5 GB.
+## <a name="performance-considerations"></a>Considerazioni sulle prestazioni
+È stato creato il concetto di unità di elaborazione di Azure (ACU, Azure Compute Unit) per mettere a punto un modo per confrontare le prestazioni di calcolo (CPU) degli SKU di Azure. In questo modo, sarà più semplice identificare lo SKU più adatto a soddisfare le proprie esigenze di prestazioni.  L'unità ACU adotta come standard una macchina virtuale Small (Standard_A1), a cui attribuisce il valore 100. Per tutte le altre SKU sarà quindi possibile valutare la maggiore velocità di elaborazione con cui sono in grado di eseguire un benchmark standard. 
+
+> [!IMPORTANT]
+> L'unità ACU costituisce solo un'indicazione di riferimento.  I risultati possono variare in base al carico di lavoro. 
 > 
 > 
 
-Assicurarsi di esaminare i [prezzi](https://azure.microsoft.com/pricing/details/cloud-services/) di ogni dimensione del servizio cloud.
+<br>
 
-## Scopo generico
-Per siti Web, database di piccole e medie dimensioni e altre applicazioni normali.
+| Famiglia SKU | ACU/Core |
+| --- | --- |
+| [Standard_A0](#a-series) |50 |
+| [Standard_A1-4](#a-series) |100 |
+| [Standard_A5-7](#a-series) |100 |
+| [A8-A11](#a-series) |225* |
+| [D1-14](#d-series) |160 |
+| [D1-15v2](#dv2-series) |210 - 250* |
+| [G1-5](#g-series) |180 - 240* |
+| [H](#h-series) |290 - 300* |
 
-> [!NOTE]
-> La capacità di archiviazione è rappresentata usando 1024 ^ 3 byte come unità di misura per GB. Questa unità di misura è definita talvolta gibibyte o definizione di base 2. Quando si confrontano dimensioni che usano sistemi di base diversi, è necessario ricordare che le dimensioni di base 2 potrebbero risultare più piccole di quelli di base 10 ma per qualsiasi dimensione specifica (ad esempio, 1 GB) un sistema di base 2 fornisce maggiore capacità di un sistema di base 10, perché 1024^3 è superiore a 1000^3.
-> 
-> 
+Le unità ACU contrassegnate con * usano la tecnologia Intel® Turbo per aumentare la frequenza della CPU e offrire un miglioramento delle prestazioni.  L'entità dell'aumento di prestazioni può variare in base alle dimensioni della macchina virtuale, al carico di lavoro e agli altri carichi di lavoro in esecuzione sullo stesso host.
 
-| Dimensioni (id) | Core | RAM | Larghezza di banda netta | Dimensioni totali del disco |
-| --- |:---:| ---:|:---:| ---:|
-| Molto piccola |1 |0,75 GB |Bassa |19 GB |
-| Small |1 |1,75 GB |Moderata |224 GB |
-| Media |2 |3,5 GB |Moderata |489 GB |
-| Large |4 |7 GB |Alto |999 GB |
-| Molto grande |8 |14 GB |Alto |2\.039 GB |
+## <a name="size-tables"></a>Tabelle delle dimensioni
+Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dimensione.
 
-> [!NOTE]
-> Da **Molto piccola** a **Molto grande** possono anche essere denominate rispettivamente **A0 A4**.
-> 
-> 
+* La capacità di archiviazione viene visualizzata in unità di GiB o 1.024^3 byte. Quando si confrontano dischi misurati in GB (1.000^3 byte) con dischi misurati in GiB (1.024^3), tenere presente che i valori di capacità specificati in GiB potrebbero apparire inferiori. Ad esempio, 1.023 GiB = 1.098,4 GB
+* La velocità effettiva del disco viene misurata in operazioni di input/output al secondo (IOPS) e MBps, dove il valore di MBps corrisponde a 10^6 byte al secondo.
+* I dischi dati possono operare in modalità memorizzata nella cache o non memorizzata nella cache. Per il funzionamento dei dischi dati memorizzati nella cache, la modalità di cache host è impostata su **ReadOnly** o su **ReadWrite**.  Per il funzionamento dei dischi dati non memorizzati nella cache, la modalità di cache host è impostata su **None**.
+* La larghezza di banda della rete massima è la larghezza di banda aggregata massima allocata e assegnata a ogni tipo di VM. La larghezza di banda massima fornisce indicazioni per selezionare il tipo di VM corretto per garantire la disponibilità della capacità di rete adeguata. Quando si passa da bassa, moderata, alta e molto alta, la velocità effettiva aumenta di conseguenza. Le prestazioni di rete effettive dipenderanno da molti fattori, tra cui carichi di rete e dell’applicazione e le impostazioni di rete dell’applicazione.
 
-## A elevato utilizzo di memoria
-Per database di grandi dimensioni, server farm di SharePoint e applicazioni a velocità effettiva elevata.
+## <a name="a-series"></a>Serie A
+| Dimensione | Core CPU | Memoria: GiB | Unità HDD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco di dati max: IOPS | Larghezza di banda della rete/scheda NIC max |
+| --- | --- | --- | --- | --- | --- | --- |
+| Standard_A0 |1 |0,768 |20 |1 |1x500 |1/bassa |
+| Standard_A1 |1 |1,75 |70 |2 |2x500 |1/moderata |
+| Standard_A2 |2 |3,5 GB |135 |4 |4x500 |1/moderata |
+| Standard_A3 |4 |7 |285 |8 |8x500 |2/alta |
+| Standard_A4 |8 |14 |605 |16 |16x500 |4/alta |
+| Standard_A5 |2 |14 |135 |4 |4x500 |1/moderata |
+| Standard_A6 |4 |28 |285 |8 |8x500 |2/alta |
+| Standard_A7 |8 |56 |605 |16 |16x500 |4/alta |
 
-| Dimensioni (id) | Core | RAM | Larghezza di banda netta | Dimensioni totali del disco |
-| --- |:---:| ---:|:---:| ---:|
-| A5 |2 |14 GB |Moderata |489 GB |
-| A6 |4 |28 GB |Alto |999 GB |
-| A7 |8 |56 GB |Alto |2\.039 GB |
+## <a name="a-series---compute-intensive-instances"></a>Serie A - Istanze a elevato utilizzo di calcolo
+Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## Soluzione ottimizzata con supporto InfiniBand
-Disponibile in data center selezionati. Le macchine virtuali A8 e A9 sono dotate di [processori Intel® Xeon® E5](http://www.intel.com/content/www/us/en/processors/xeon/xeon-processor-e5-family.html). Aggiunge una rete **InfiniBand** da 32 Gbit al secondo con tecnologia Accesso diretto a memoria remota (RDMA, Remote Direct Memory Access). Ideale per applicazioni MPI (Message Passing Interface), cluster a prestazioni elevate, modellazione e simulazioni, codifica video e altri scenari a elevato utilizzo di calcolo o di rete.
+| Dimensione | Core CPU | Memoria: GiB | Unità HDD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco di dati max: IOPS | Larghezza di banda della rete/scheda NIC max |
+| --- | --- | --- | --- | --- | --- | --- |
+| Standard_A8* |8 |56 |382 |16 |16x500 |2/alta |
+| Standard_A9* |16 |112 |382 |16 |16x500 |4/molto alta |
+| Standard_A10 |8 |56 |382 |16 |16x500 |2/alta |
+| Standard_A11 |16 |112 |382 |16 |16x500 |4/molto alta |
 
-| Dimensioni (id) | Core | RAM | Larghezza di banda netta | Dimensioni totali del disco |
-| --- |:---:| ---:|:---:| ---:|
-| A8 |8 |56 GB |Alto |382 GB |
-| A9 |16 |112 GB |Molto elevata |382 GB |
+*Con supporto di RDMA
 
-## A elevato utilizzo di calcolo
-Disponibile in data center selezionati. Le macchine virtuali A10 e A11 sono dotate di [processori Intel® Xeon® E5](http://www.intel.com/content/www/us/en/processors/xeon/xeon-processor-e5-family.html). Ideale per cluster ad alte prestazioni, modellazione e simulazioni, codifica video e altri scenari a uso intensivo di risorse di calcolo o rete. Configurazione simile alle istanze A8 e A9, senza rete InfiniBand e tecnologia RDMA.
+## <a name="d-series"></a>Serie D
+| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco di dati max: IOPS | Larghezza di banda della rete/scheda NIC max |
+| --- | --- | --- | --- | --- | --- | --- |
+| Standard_D1 |1 |3,5 |50 |2 |2x500 |1/moderata |
+| Standard_D2 |2 |7 |100 |4 |4x500 |2/alta |
+| Standard_D3 |4 |14 |200 |8 |8x500 |4/alta |
+| Standard_D4 |8 |28 |400 |16 |16x500 |8/alta |
+| Standard_D11 |2 |14 |100 |4 |4x500 |2/alta |
+| Standard_D12 |4 |28 |200 |8 |8x500 |4/alta |
+| Standard_D13 |8 |56 |400 |16 |16x500 |8/alta |
+| Standard_D14 |16 |112 |800 |32 |32x500 |8/molto alta |
 
-| Dimensioni (id) | Core | RAM | Larghezza di banda netta | Dimensioni totali del disco |
-| --- |:---:| ---:|:---:| ---:|
-| A10 |8 |56 GB |Alto |382 GB |
-| A11 |16 |112 GB |Molto elevata |382 GB |
+## <a name="dv2-series"></a>Serie Dv2
+| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco di dati max: IOPS | Larghezza di banda della rete/scheda NIC max |
+| --- | --- | --- | --- | --- | --- | --- |
+| Standard_D1_v2 |1 |3,5 |50 |2 |2x500 |1/moderata |
+| Standard_D2_v2 |2 |7 |100 |4 |4x500 |2/alta |
+| Standard_D3_v2 |4 |14 |200 |8 |8x500 |4/alta |
+| Standard_D4_v2 |8 |28 |400 |16 |16x500 |8/alta |
+| Standard_D5_v2 |16 |56 |800 |32 |32x500 |8/estremamente alta |
+| Standard_D11_v2 |2 |14 |100 |4 |4x500 |2/alta |
+| Standard_D12_v2 |4 |28 |200 |8 |8x500 |4/alta |
+| Standard_D13_v2 |8 |56 |400 |16 |16x500 |8/alta |
+| Standard_D14_v2 |16 |112 |800 |32 |32x500 |8/estremamente alta |
+| Standard_D15_v2 |20 |140 |1.000 |40 |40x500 |8/estremamente alta |
 
-## Serie D: calcolo ottimizzato
-Le macchine virtuali di serie D offrono unità SSD (Solid State Drive) e processori più veloci del 60% rispetto alla serie A e sono disponibili anche per ruoli Web o di lavoro in Servizi cloud di Azure. Questa serie è ideale per le applicazioni che richiedono CPU più veloci, prestazioni migliori per il disco locale o quantità più elevate di memoria.
+## <a name="g-series"></a>Serie G
+| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco max: IOPS | Larghezza di banda della rete/scheda NIC max |
+| --- | --- | --- | --- | --- | --- | --- |
+| Standard_G1 |2 |28 |384 |4 |4x500 |1/alta |
+| Standard_G2 |4 |56 |768 |8 |8x500 |2/alta |
+| Standard_G3 |8 |112 |1.536 |16 |16x500 |4/molto alta |
+| Standard_G4 |16 |224 |3.072 |32 |32x500 |8/estremamente alta |
+| Standard_G5 |32 |448 |6.144 |64 |64 x 500 |8/estremamente alta |
 
-## Scopo generico (D)
-Per siti Web, database di piccole e medie dimensioni e altre applicazioni normali.
+## <a name="h-series"></a>Serie H
+Le macchine virtuali serie H di Azure sono le VM high performance computing di prossima generazione che puntano a risolvere esigenze di calcolo di fascia alta, come modellazione molecolare e fluidodinamica computazionale. Queste VM a 8 e 16 core sono basate sulla tecnologia del processore Intel Haswell E5-2667 V3 con memoria DDR4 e archiviazione basata su SSD locale. 
 
-| Dimensioni (id) | Core | RAM | Larghezza di banda netta | Dimensioni totali del disco |
-| --- |:---:| ---:|:---:| ---:|
-| Standard\_D1 |1 |3,5 GB |Moderata |50 GB |
-| Standard\_D2 |2 |7 GB |Elevata |100 GB |
-| Standard\_D3 |4 |14 GB |Alto |200 GB |
-| Standard\_D4 |8 |28 GB |Alto |400 GB |
+Oltre alla sostanziale potenza della CPU, la serie H offre diverse opzioni per rete RDMA a bassa latenza con FDR InfiniBand e diverse configurazioni di memoria a supporto di requisiti di calcolo a elevato uso di memoria.
 
-## A elevato utilizzo di memoria (D)
-Per database di grandi dimensioni, server farm di SharePoint e applicazioni a velocità effettiva elevata.
+| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco max: IOPS | Larghezza di banda della rete/scheda NIC max |
+| --- | --- | --- | --- | --- | --- | --- |
+| Standard_H8 |8 |56 |1000 |16 |16x500 |8/alta |
+| Standard_H16 |16 |112 |2000 |32 |32x500 |8/molto alta |
+| Standard_H8m |8 |112 |1000 |16 |16x500 |8/alta |
+| Standard_H16m |16 |224 |2000 |32 |32x500 |8/molto alta |
+| Standard_H16r* |16 |112 |2000 |32 |32x500 |8/molto alta |
+| Standard_H16mr* |16 |224 |2000 |32 |32x500 |8/molto alta |
 
-| Dimensioni (id) | Core | RAM | Larghezza di banda netta | Dimensioni totali del disco |
-| --- |:---:| ---:|:---:| ---:|
-| Standard\_D11 |2 |14 GB |Alto |100 GB |
-| Standard\_D12 |4 |28 GB |Alto |200 GB |
-| Standard\_D13 |8 |56 GB |Alto |400 GB |
-| Standard\_D14 |16 |112 GB |Molto elevata |800 GB |
+*Con supporto di RDMA
 
-## Serie Dv2: calcolo ottimizzato
-Le istanze serie Dv2 sono la nuova generazione delle istanze serie D e possono essere usate come macchine virtuali o servizi cloud. Le istanze serie Dv2 includeranno CPU più potenti e in media il 35% più veloci rispetto a quelle delle istanze serie D e avranno le stesse configurazioni di memoria e dischi della serie D. Le istanze serie Dv2 sono basate sul processore Intel Xeon® E5-2673 v3 (Haswell) a 2,4 GHz di ultima generazione e con la tecnologia Intel Turbo Boost Technology 2.0 possono arrivare fino a 3,1 GHz. Le serie Dv2 e D sono ideali per le applicazioni che richiedono CPU più veloci, prestazioni migliori per i dischi locali o quantità di memoria più elevate e offrono una potente combinazione per molte applicazioni di livello aziendale.
+## <a name="notes-standard-a0---a4-using-cli-and-powershell"></a>Note: Standard A0 - A4 che utilizza l’interfaccia della riga di comando e PowerShell
+Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggermente diversi in PowerShell e nell’interfaccia della riga di comando:
 
-## Scopo generico (Dv2)
-Per siti Web, database di piccole e medie dimensioni e altre applicazioni normali.
+* Standard_A0 è ExtraSmall 
+* Standard_A1 è Small
+* Standard_A2 è Medium
+* Standard_A3 è Large
+* Standard_A4 è ExtraLarge
 
-| Dimensioni (id) | Core | RAM | Larghezza di banda netta | Dimensioni totali del disco |
-| --- |:---:| ---:|:---:| ---:|
-| Standard\_D1\_v2 |1 |3,5 GB |Moderata |50 GB |
-| Standard\_D2\_v2 |2 |7 GB |Elevata |100 GB |
-| Standard\_D3\_v2 |4 |14 GB |Alto |200 GB |
-| Standard\_D4\_v2 |8 |28 GB |Alto |400 GB |
-| Standard\_D5\_v2 |16 |56 GB |Molto elevata |800 GB |
-
-## A elevato utilizzo di memoria (Dv2)
-Per database di grandi dimensioni, server farm di SharePoint e applicazioni a velocità effettiva elevata
-
-| Dimensioni (id) | Core | RAM | Larghezza di banda netta | Dimensioni totali del disco |
-| --- |:---:| ---:|:---:| ---:|
-| Standard\_D11\_v2 |2 |14 GB |Alto |100 GB |
-| Standard\_D12\_v2 |4 |28 GB |Alto |200 GB |
-| Standard\_D13\_v2 |8 |56 GB |Alto |400 GB |
-| Standard\_D14\_v2 |16 |112 GB |Molto elevata |800 GB |
-| Standard\_D15\_v2 |20 |140 GB |Molto elevata |1\.000 GB |
-
-## Configurare le dimensioni per i servizi Cloud
+## <a name="configure-sizes-for-cloud-services"></a>Configurare le dimensioni per i servizi Cloud
 È possibile specificare le dimensioni di un'istanza del ruolo delle macchine virtuali nell'ambito del modello del servizio descritto dal [file di definizione del servizio](cloud-services-model-and-package.md#csdef). Le dimensioni di un ruolo determinano il numero di memorie centrali CPU, la capacità di memoria e la dimensione del file system locale allocati a una istanza in esecuzione. Scegliere le dimensioni del ruolo in base ai requisiti delle risorse dell'applicazione.
 
-Di seguito è riportato un esempio per impostare la dimensione di ruolo [Standard\_D2](#general-purpose-d) per un'istanza del ruolo Web:
+Di seguito è riportato un esempio per impostare la dimensione di ruolo [Standard_D2](#general-purpose-d) per un'istanza del ruolo Web:
 
 ```xml
-<WebRole name="WebRole1" vmsize="<mark>Standard_D2</mark>">
+<WorkerRole name="Worker1" vmsize="Standard_D2">
 ...
-</WebRole>
+</WorkerRole>
 ```
 
-<!---HONumber=AcomDC_0914_2016-->
+## <a name="next-steps"></a>Passaggi successivi
+* Per informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
+* Per altre informazioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per carichi di lavoro come High-Performance Computing (HPC).
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

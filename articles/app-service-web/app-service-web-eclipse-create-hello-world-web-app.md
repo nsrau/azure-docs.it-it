@@ -1,12 +1,12 @@
 ---
-title: Creare un'app Web Hello World per Azure in Eclipse | Microsoft Docs
-description: Questa esercitazione descrive come usare il toolkit di Azure per Eclipse per creare un'app Web Hello World per Azure.
+title: Creare un&quot;app Web Hello World per Azure in Eclipse | Documentazione Microsoft
+description: Questa esercitazione descrive come usare il toolkit di Azure per Eclipse per creare un&quot;app Web Hello World per Azure.
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 20d41e88-9eab-462e-8ee3-89da71e7a33f
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d3549bca22266aab2deca1d9fcaabfc4034956cf
+
 
 ---
 # <a name="create-a-hello-world-web-app-for-azure-in-eclipse"></a>Creare un'app Web Hello World per Azure in Eclipse
@@ -161,8 +165,8 @@ Quando viene aperta la visualizzazione **Azure Explorer** , seguire questa proce
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni sui Toolkit di Azure per gli IDE di Java, consultare i seguenti collegamenti:
 
-* [Toolkit di Azure per Eclipse]
-  * [Installare il Toolkit di Azure per Eclipse.]
+* [Azure Toolkit per Eclipse]
+  * [Installazione di Azure Toolkit per Eclipse]
   * *Creare un’app Web Hello World per Azure in Eclipse (questo articolo)*
   * [Novità di Azure Toolkit per Eclipse]
 * [Toolkit di Azure per IntelliJ]
@@ -178,11 +182,11 @@ Per altre informazioni sulla creazione di App Web di Azure, vedere la [Panoramic
 
 <!-- URL List -->
 
-[Toolkit di Azure per Eclipse]: ../azure-toolkit-for-eclipse.md
+[Azure Toolkit per Eclipse]: ../azure-toolkit-for-eclipse.md
 [Toolkit di Azure per IntelliJ]: ../azure-toolkit-for-intellij.md
 [Creare un'app Web Hello World per Azure in Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
-[Creare un'app Web Hello World per Azure in IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
-[Installare il Toolkit di Azure per Eclipse.]: ../azure-toolkit-for-eclipse-installation.md
+[Creare un'App Web Hello World per Azure in IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
+[Installazione di Azure Toolkit per Eclipse]: ../azure-toolkit-for-eclipse-installation.md
 [Installazione del Toolkit di Azure per IntelliJ]: ../azure-toolkit-for-intellij-installation.md
 [Novità di Azure Toolkit per Eclipse]: ../azure-toolkit-for-eclipse-whats-new.md
 [Novità del Toolkit di Azure per IntelliJ]: ../azure-toolkit-for-intellij-whats-new.md
@@ -211,6 +215,6 @@ Per altre informazioni sulla creazione di App Web di Azure, vedere la [Panoramic
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

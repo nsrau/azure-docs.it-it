@@ -39,17 +39,18 @@
 ### [.NET](cdn-app-dev-net.md)
 ### [Node.js](cdn-app-dev-node.md)
 
-## Risoluzione dei problemi
+## Risolvere problemi
 ### [Stato 404](cdn-troubleshoot-endpoint.md)
 ### [Compressione dei file](cdn-troubleshoot-compression.md)
 
 # Riferimento
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
-## [Località POP della rete CDN di Azure](cdn-pop-locations.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn)
+## [.NET](/dotnet/api/microsoft.azure.management.cdn)
+## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)
 
 # Risorse
+## [Località POP della rete CDN di Azure](cdn-pop-locations.md)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=cdn)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/cdn/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
@@ -57,6 +58,6 @@
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

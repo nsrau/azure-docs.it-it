@@ -1,12 +1,12 @@
 ---
-title: Aggiungere o rimuovere nodi in un cluster di Service Fabric autonomo | Microsoft Docs
+title: Aggiungere o rimuovere nodi in un cluster di Service Fabric autonomo | Documentazione Microsoft
 description: Informazioni su come aggiungere o rimuovere nodi in un cluster di Azure Service Fabric su una macchina fisica o virtuale che esegue Windows Server in locale o nel cloud.
 services: service-fabric
 documentationcenter: .net
 author: dsk-2015
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: bc6b8fc0-d2af-42f8-a164-58538be38d02
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/20/2016
 ms.author: dkshir;chackdan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 335ab9d3746b089e9e7a8d640a89a2d381295b46
+
 
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Aggiungere o rimuovere nodi in un cluster di Service Fabric autonomo eseguito in Windows Server
@@ -38,13 +42,18 @@ Dopo aver [creato il cluster di Service Fabric autonomo in computer Windows Serv
 3. Creare una connessione Desktop remoto (RDP) con il computer o la VM da rimuovere dal cluster.
 4. Copiare o [scaricare il pacchetto autonomo per Service Fabric per Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) e decomprimerlo nel computer o nella VM.
 5. Eseguire PowerShell come amministratore e passare al percorso del pacchetto decompresso.
-6. Eseguire lo script *RemoveNode.ps1* di PowerShell. L'esempio seguente rimuove il nodo corrente dal cluster. *ExistingClusterConnectionEndPoint* è un endpoint di connessione per un nodo già presente nel cluster esistente. Per questo endpoint è necessario scegliere l'indirizzo IP di *qualsiasi* **altro nodo** del cluster.
+6. Eseguire lo script *RemoveNode.ps1* in PowerShell. L'esempio seguente rimuove il nodo corrente dal cluster. *ExistingClientConnectionEndpoint* è un endpoint connessione client per qualsiasi nodo che resterà nel cluster. Scegliere l'indirizzo IP e la porta endpoint di *qualsiasi* **altro nodo** del cluster. Questo **altro nodo** aggiornerà a sua volta la configurazione del cluster per il nodo rimosso. 
 
 ```
-.\RemoveNode.ps1 -ExistingClusterConnectionEndPoint 182.17.34.50:19000
+.\RemoveNode.ps1 -ExistingClientConnectionEndpoint 182.17.34.50:19000
 ```
 
-A causa di un difetto noto che verrà corretto nella prossima versione, anche dopo essere stato rimosso un nodo risulta in query e SFX come inattivo. 
+> [!NOTE]
+> Alcuni nodi non possono essere rimossi a causa delle dipendenze dei servizi di sistema. Questi nodi sono nodi primari e possono essere identificati tramite l'esecuzione di query sul manifesto del cluster mediante `Get-ServiceFabricClusterManifest` e trovando le voci del nodo contrassegnate con `IsSeedNode=”true”`. 
+> 
+> 
+
+A causa di un difetto noto, un nodo risulta inattivo in query e SFX anche dopo essere stato rimosso. Il problema verrà risolto in una versione futura. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Impostazioni di configurazione per un cluster autonomo in Windows](service-fabric-cluster-manifest.md)
@@ -52,6 +61,9 @@ A causa di un difetto noto che verrà corretto nella prossima versione, anche do
 * [Proteggere un cluster autonomo in Windows con certificati X.509](service-fabric-windows-cluster-x509-security.md)
 * [Creare un cluster di Service Fabric autonomo con VM di Azure che eseguono Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

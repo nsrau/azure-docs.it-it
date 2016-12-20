@@ -1,45 +1,42 @@
 ---
-title: Non è possibile accedere per gestire la sottoscrizione di Azure | Microsoft Docs
-description: Descrive le informazioni di risoluzione dei problemi per alcuni dei problemi di accesso della sottoscrizione di Azure
-services: ''
-documentationcenter: ''
+title: "Non è possibile accedere alla sottoscrizione di Azure | Documentazione Microsoft"
+description: Descrive come eseguire la risoluzione di alcuni problemi di accesso comuni della sottoscrizione di Azure.
+services: 
+documentationcenter: 
 author: genlin
-manager: msmbaldwin
-editor: ''
+manager: mbaldwin
+editor: 
 tags: billing
-
+ms.assetid: d1545298-99db-4941-8e97-f24a06bb7cb6
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 10/25/2016
 ms.author: genli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1ef20a830c96b0f0d5e85186f757441f256746f5
+
 
 ---
-# Non è possibile accedere per gestire la sottoscrizione di Azure
+# <a name="i-cant-sign-in-to-manage-my-azure-subscription"></a>Non è possibile accedere per gestire la sottoscrizione di Azure
 Questo articolo illustra alcuni dei metodi più comuni per risolvere i problemi di accesso.
 
-> [!NOTE]
-> Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
-> 
-> 
-
-## La pagina resta in stato di caricamento
-Questo può essere causato da un problema del browser Internet.
-
-Per risolvere il problema, provare i metodi seguenti, nell'ordine indicato. Al termine di ciascun metodo, provare a riconnettersi alla pagina di accesso nel portale.
+## <a name="page-hangs-in-the-loading-status"></a>La pagina resta in stato di caricamento
+Se si blocca la pagina del browser Internet, provare ciascuna delle seguenti operazioni fino a quando non è possibile accedere al [portale di Azure](https://portal.azure.com).
 
 * Aggiornare la pagina.
 * Utilizzare un altro browser Internet.
-* Se si utilizza Microsoft Internet Explorer, accedere al portale di Azure con la modalità InPrivate Browsing. A questo scopo, seguire questa procedura:
+* Se si utilizza Microsoft Internet Explorer, accedere al portale di Azure con la modalità InPrivate Browsing. 
   
-  A. Fare clic su **Strumenti** ![pulsante strumenti](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Sicurezza** > **InPrivate Browsing**.
+  R.    Fare clic sul pulsante **Strumenti** ![ ](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Sicurezza** > **InPrivate Browsing**.
   
-  B. Andare al [portale di Azure](https://portal.azure.com), quindi accedere al portale.
+  B.    Andare al [portale di Azure](https://portal.azure.com), quindi accedere al portale.
 
-## Messaggio di errore "Nessuna sottoscrizione trovata"
-Questo problema può verificarsi se l'account non ha diritti utente sufficienti. Un amministratore account può accedere al [Centro Account](https://account.windowsazure.com/) solo se gli amministratori del servizio (SA) e i co-amministratori (CA) hanno accesso solo al [portale di Azure](https://portal.azure.com).
+## <a name="error-message-no-subscriptions-found"></a>Messaggio di errore "Nessuna sottoscrizione trovata"
+Se l'account non dispone di autorizzazioni sufficienti, è possibile che venga visualizzato il messaggio di errore **Nessuna sottoscrizione trovata**. Solo un amministratore account può accedere al [Centro Account](https://account.windowsazure.com/), non gli amministratori del servizio (SA) e i co-amministratori (CA).
 
 **Scenario 1: il messaggio di errore appare nel [portale di Azure](https://portal.azure.com)**
 
@@ -52,28 +49,23 @@ Controllare se l'account utilizzato è l'amministratore account. Per verificare 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nel menu Hub, selezionare **Sottoscrizione**.
 3. Scegliere la sottoscrizione da controllare, quindi selezionare **Impostazioni**.
-4. Selezionare **Proprietà**. L'amministratore account della sottoscrizione viene visualizzato nella casella **Amministratore account**.
+4. Selezionare **Proprietà**. L'amministratore account della sottoscrizione viene visualizzato nella casella **Amministratore account** .
 
-## Viene eseguito l'accesso automaticamente come utente diverso
+## <a name="you-are-automatically-signed-in-as-a-different-user"></a>Viene eseguito l'accesso automaticamente come utente diverso
 Questo problema può verificarsi se si utilizza più di un account utente in un browser Internet.
 
 Per risolvere il problema, utilizzare uno dei seguenti metodi alternativi:
 
-* Disconnettersi dal portale e accedere nuovamente con l'account che si desidera utilizzare.
-* Svuotare la cache ed eliminare i cookie di Internet. Per farlo in Internet Explorer, fare clic su **Strumenti** ![pulsante strumenti](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Opzioni Internet** > **Elimina**, verificare di aver selezionato siano le caselle di controllo per file temporanei, cookie, password e cronologia esplorazioni, quindi fare clic su Elimina.
-* Riconfigurare le impostazioni di Internet Explorer per ripristinare le impostazioni personali definite. A tale scopo, fare clic su **Strumenti** ![pulsante strumenti](./media/billing-cannot-login-subscription/Toolsbutton.png)> **Opzioni Internet** > **Avanzate** > selezionare la casella di controllo **Elimina impostazioni personali** > **Ripristina**.
-* Accedere al portale di Azure in modalità InPrivate Browsing. Per farlo, fare clic su **Strumenti** ![pulsante strumenti](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Sicurezza** > **InPrivate Browsing**.
+* Svuotare la cache ed eliminare i cookie di Internet. In Internet Explorer fare clic su **Strumenti** ![pulsante Strumenti](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Opzioni Internet** > **Elimina**. Verificare di aver selezionato sia le caselle di controllo per file temporanei, cookie, password e cronologia esplorazioni, quindi fare clic su Elimina.
+* Riconfigurare le impostazioni di Internet Explorer per ripristinare le impostazioni personali definite. Fare clic su **Strumenti** ![pulsante strumenti](./media/billing-cannot-login-subscription/Toolsbutton.png)> **Opzioni Internet** > **Avanzate** > selezionare la casella di controllo **Elimina impostazioni personali** > **Ripristina**.
+* Accedere al portale di Azure in modalità InPrivate Browsing. Fare clic sul pulsante **Strumenti** ![ ](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Sicurezza** > **InPrivate Browsing**.
 
-## È necessario accedere a un account aziendale.
-L’account Microsoft è l'indirizzo di posta elettronica che si utilizza, insieme alla password, per accedere a qualsiasi programma o servizio Windows Live, ad esempio Outlook, Hotmail, MSN o OneDrive. È possibile impostare un account Microsoft usando qualsiasi indirizzo di posta elettronica appartenente all’utente, compresa la posta elettronica aziendale. Vedere [www.microsoft.com/account](http://www.microsoft.com/account) per ulteriori dettagli.
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
+Se si necessita ancora di assistenza, [contattare il supporto tecnico](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) per ottenere una rapida risoluzione del problema. 
 
-La pagina di accesso predefinita del portale di Azure è relativa all'account Microsoft. Se l'account è associato a un account aziendale, selezionare l'opzione di accesso corretta come illustrato di seguito. Per altre informazioni sull'uso dell’account aziendale, vedere [Iscrizione ad Azure come organizzazione](active-directory/sign-up-organization.md):
 
-![pagina di accesso](./media/billing-cannot-login-subscription/signin.png)
 
-> [!NOTE]
-> Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
-> 
-> 
 
-<!---HONumber=AcomDC_0928_2016-->
+<!--HONumber=Nov16_HO3-->
+
+

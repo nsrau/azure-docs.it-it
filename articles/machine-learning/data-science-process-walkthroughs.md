@@ -1,12 +1,12 @@
 ---
-title: Procedure dettagliate del Processo di analisi scientifica dei dati per i team | Microsoft Docs
-description: Le procedure dettagliate illustrano come combinare strumenti cloud, strumenti locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente.
+title: Procedure dettagliate del Processo di analisi scientifica dei dati per i team | Documentazione Microsoft
+description: Le procedure dettagliate illustrano come combinare strumenti cloud, strumenti locali e servizi in un flusso di lavoro o in una pipeline per creare un&quot;applicazione intelligente.
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: aa63d5a5-25ee-4c4b-9a4c-7553b98d7f6e
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fde069560d53c5b5010bbb59b52d60a6971d8dac
+
 
 ---
 # <a name="team-data-science-process-walkthroughs"></a>Procedure dettagliate del Processo di analisi scientifica dei dati per i team
@@ -46,9 +50,12 @@ La procedura dettagliata [Data Science using Scala with Spark on Azure](machine-
 ## <a name="use-t-sql-with-sql-server-r-services"></a>Usare T-SQL con i servizi R di SQL Server
 La procedura dettagliata [In-Database Advanced Analytics for SQL Developers](https://msdn.microsoft.com/library/mt683480.aspx) (Analisi avanzata nel database per gli sviluppatori SQL) fornisce ai programmatori SQL indicazioni per la compilazione di una soluzione di analisi avanzata con Transact-SQL usando i servizi R di SQL Server per rendere operativa una soluzione R.
 
-## <a name="what's-next?"></a>Passaggi successivi
+## <a name="whats-next"></a>Passaggi successivi
 Per una panoramica degli argomenti che forniscono informazioni dettagliate sulle attività che costituiscono il processo di analisi scientifica dei dati in Azure, vedere [Processo di analisi scientifica dei dati per i team](http://aka.ms/datascienceprocess). 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Accesso al supporto per gli editori per Azure Marketplace | Microsoft Docs
+title: Accesso al supporto per gli editori per Azure Marketplace | Documentazione Microsoft
 description: Come accedere e inviare le richieste di supporto per gli editori per Azure Marketplace
 services: marketplace-publishing
 documentationcenter: na
 author: v-jeana
 manager: lakoch
-editor: ''
-
+editor: 
+ms.assetid: 9c0c981a-9e5e-437a-9b70-67a9f376302f
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2015
 ms.author: v-jeana; hascipio
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 45a8b94a1fabe8158bfc637fc48968ff677215c8
+
 
 ---
-# Accesso al supporto per gli editori per Azure Marketplace
+# <a name="accessing-publisher-support-for-the-azure-marketplace"></a>Accesso al supporto per gli editori per Azure Marketplace
 Microsoft fornisce il supporto per un'ampia gamma di prodotti e servizi. Assicurarsi che la query rilevi il team di supporto corretto è importante per garantire una risposta appropriata e tempestiva. Considerare gli scenari seguenti, che possono essere utili per indirizzare la propria richiesta al team appropriato:
 
 * Se si è un editore in Azure Marketplace e si sta ancora sviluppando la propria VM, è necessario contattare i team Microsoft che si occupano dell'integrazione o del calcolo.
@@ -32,17 +36,17 @@ In questo articolo verranno illustrate le attività seguenti:
 * Fornire informazioni di contatto.
 * Descrivere il problema.
 
-## 1\. Effettuare l'accesso con l'account Microsoft.
+## <a name="1-sign-in-to-your-microsoft-account"></a>1. Effettuare l'accesso con l'account Microsoft.
 Passare a https://publish.windowsazure.com/ e accedere con le credenziali dell'account Microsoft.
 
   ![Schermata di accesso][1]
 
-## 2\. Passare alle pagine di supporto per gli editori
+## <a name="2-navigate-to-the-publisher-support-pages"></a>2. Passare alle pagine di supporto per gli editori
 Nel menu superiore destro selezionare **Ottieni supporto**.
 
   ![Supporto][2]
 
-## 3\. Selezionare il tipo di problema e la categoria.
+## <a name="3-select-the-problem-type-and-category"></a>3. Selezionare il tipo di problema e la categoria.
 ![Tipo e categoria del problema][3]
 
 I tipi di problemi disponibili sono i seguenti:
@@ -56,17 +60,17 @@ I tipi di problemi disponibili sono i seguenti:
 * **Centro per sviluppatori**
 * **Altri**
 
-## 4\. Richiedere supporto
-Dopo aver selezionato il tipo di problema e la categoria, fare clic sul pulsante **Avvia richiesta**.
+## <a name="4-request-support"></a>4. Richiedere supporto
+Dopo aver selezionato il tipo di problema e la categoria, fare clic sul pulsante **Avvia richiesta** .
 
 ![Avviare il supporto][4]
 
-## 5\. Fornire le informazioni di contatto e descrivere il problema
+## <a name="5-provide-contact-information-and-describe-the-problem"></a>5. Fornire le informazioni di contatto e descrivere il problema
 Descrivere il problema nel modo più completo possibile e fornire eventuali file (ad esempio, screenshot, tracce di rete e così via) che possono essere utili per risolvere il problema.
 
 ![Descrivere il problema][5]
 
-## 6\. Conferma dell'invio
+## <a name="6-submission-confirmation"></a>6. Conferma dell'invio
 Dopo avere inviato il problema, verrà confermata la ricezione entro 24 ore e saranno assegnate una priorità e una gravità al problema. Il team dedicato di tecnici del supporto tecnico offrirà l'assistenza necessaria per la risoluzione in base ai tempi di risposta del contratto di servizio.
 
 ![Conferma][6]
@@ -74,7 +78,7 @@ Dopo avere inviato il problema, verrà confermata la ricezione entro 24 ore e sa
 * Se è necessario comunicare con Microsoft in relazione al problema, usare il numero di conferma in tutta la corrispondenza.
 * È possibile visualizzare lo stato del problema in qualsiasi momento.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Per informazioni su come risolvere specifici problemi di supporto, vedere [Risoluzione dei problemi comuni in Azure Marketplace](marketplace-publishing-support-common-issues.md).
 
 [1]: ./media/marketplace-publishing-get-publisher-support/step1.png
@@ -84,4 +88,8 @@ Per informazioni su come risolvere specifici problemi di supporto, vedere [Risol
 [5]: ./media/marketplace-publishing-get-publisher-support/step5.png
 [6]: ./media/marketplace-publishing-get-publisher-support/step6.png
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

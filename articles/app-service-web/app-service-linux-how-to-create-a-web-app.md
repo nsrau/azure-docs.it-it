@@ -1,13 +1,13 @@
 ---
-title: How to Create a Web App with App Service on Linux | Microsoft Docs
-description: Web app creation workflow for App Service on Linux.
-keywords: azure app service, web app, linux, oss
+title: Come creare un&quot;app Web con il servizio app in Linux | Documentazione Microsoft
+description: Flusso di lavoro per la creazione di un&quot;app Web per il servizio app in Linux.
+keywords: Servizio app di Azure, app Web, Linux, OSS
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: naziml
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 3a71d10a-a0fe-4d28-af95-03b2860057d5
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,37 +15,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8d87315ec97631c7ad3f0163aeaa0abde11b7416
+
 
 ---
-# <a name="create-a-web-app-with-app-service-on-linux"></a>Create a Web App with App Service on Linux
-## <a name="using-the-management-portal-to-create-your-web-app"></a>Using the Management Portal to create your web app
-You can start creating your Web App on Linux from the [management portal](https://portal.azure.com) as shown in the image below.
+# <a name="create-a-web-app-with-app-service-on-linux"></a>Creare un'app Web con il servizio app in Linux
+## <a name="use-the-azure-portal-to-create-your-web-app"></a>Usare il portale di Azure per creare l'app Web
+È possibile avviare la creazione dell'app Web in Linux dal [portale di Azure](https://portal.azure.com), come illustrato nell'immagine seguente:
 
-![][1]
+![Avviare la creazione di un'app Web nel portale di Azure][1]
 
-Once you select the option below, you will be shown the Create blade as shown in the image below. 
+Viene quindi aperto il **pannello Crea**, come illustrato nell'immagine seguente:
 
-![][2]
+![Pannello Crea][2]
 
-* Give your web app a name.
-* Choose an existing Resource Group or create a new one. (See regions available in the [limitations section](app-service-linux-intro.md)).
-* Choose an existing app service plan or create a new one (See app service plan notes in the [limitations section](app-service-linux-intro.md)). 
-* Choose the application stack you intend to use. You will get to choose between several versions of Node.js and PHP. 
+1. Assegnare all'app Web un nome.
+2. Scegliere un gruppo di risorse esistente oppure crearne uno nuovo. Vedere le aree disponibili nella [sezione sulle limitazioni](app-service-linux-intro.md).
+3. Scegliere un piano di servizio app di Azure esistente o crearne uno nuovo. Vedere le note sul piano di servizio app nella [sezione sulle limitazioni](app-service-linux-intro.md).
+4. Scegliere lo stack di applicazioni che si intende da usare. È possibile scegliere tra diverse versioni di Node.js e PHP.
 
-Once you have the app created, you can change the application stack from the application settings as shown in the image below.
+Dopo avere creato l'app, è possibile cambiare lo stack di applicazioni dalle impostazioni dell'applicazione, come illustrato nell'immagine seguente:
 
-![][3]
+![Impostazioni dell'applicazione][3]
 
-## <a name="deploying-your-web-app"></a>Deploying your web app
-Choosing "deployment options" from the management portal gives you the option to use local a Git repository or a GitHub repository to deploy your application. The instructions thereafter are similarly to a non-Linux web app and you can follow the instructions in either our [local Git deployment](app-service-deploy-local-git.md) or our [continuous deployment](app-service-continuous-deployment.md) article for GitHub.
+## <a name="deploy-your-web-app"></a>Distribuire l'app Web
+Scegliendo le **opzioni di distribuzione** dal portale di gestione, è possibile usare un repository Git o GitHub locale per distribuire l'applicazione. Le altre istruzioni sono simili a quelle per le app Web non Linux e sono disponibili nell'articolo sulla [distribuzione di Git locale](app-service-deploy-local-git.md) o sulla [distribuzione continua](app-service-continuous-deployment.md) per GitHub.
 
-You can also use FTP to upload your application to your site. You can get the FTP endpoint for your web app from the diagnostics logs section as shown in the image below.
+È anche possibile usare l'FTP per caricare l'applicazione nel sito. È possibile ottenere l'endpoint FTP per l'app Web dalla sezione Log di diagnostica, come illustrato nell'immagine seguente:
 
-![][4]
+![Log di diagnostica][4]
 
-## <a name="next-steps"></a>Next Steps
-* [What is App Service on Linux?](app-service-linux-intro.md)
-* [Using PM2 Configuration for Node.js in Web Apps on Linux](app-service-linux-using-nodejs-pm2.md)
+## <a name="next-steps"></a>Passaggi successivi
+* [What is App Service on Linux?](app-service-linux-intro.md) (Che cos'è Servizio app in Linux?)
+* [Uso della configurazione PM2 per Node.js nelle app Web in Linux](app-service-linux-using-nodejs-pm2.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-how-to-create-a-web-app/top-level-create.png
@@ -55,6 +59,6 @@ You can also use FTP to upload your application to your site. You can get the FT
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

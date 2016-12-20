@@ -1,13 +1,13 @@
 ---
-title: Sviluppo di processi Python MapReduce con HDInsight | Microsoft Docs
+title: Sviluppare processi Python MapReduce con HDInsight | Documentazione Microsoft
 description: Informazioni su come creare ed eseguire processi Python MapReduce nei cluster HDInsight basati su Linux.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 729550243e18c7a9f514aa18d1f4fdd8142d141b
+
 
 ---
 # <a name="develop-python-streaming-programs-for-hdinsight"></a>Sviluppo di programmi per la creazione di flussi Python per HDInsight
@@ -46,7 +50,7 @@ Il diagramma di flusso illustra ciò che accade durante le fasi di mapping e rid
 
 ![illustrazione di MapReduce](./media/hdinsight-hadoop-streaming-python/HDI.WordCountDiagram.png)
 
-## <a name="why-python?"></a>Perché Python?
+## <a name="why-python"></a>Perché Python?
 Python è un linguaggio di programmazione generale di alto livello che consente di esprimere concetti in un minor numero di righe di codice rispetto a molti altri linguaggi. Si è recentemente diffuso presso i data scientist come linguaggio per la creazione di prototipi grazie alla natura interpretata, alla tipizzazione dinamica e alla sintassi elegante che lo rendono appropriato per lo sviluppo rapido di applicazioni.
 
 Python è installato in tutti i cluster HDInsight.
@@ -63,7 +67,7 @@ Python è in grado di gestire facilmente questi requisiti usando il modulo **sys
 ## <a name="create-the-mapper-and-reducer"></a>Creare il mapper e il reducer
 Il mapper e il reducer sono file di testo, in questo caso **mapper.py** e **reducer.py** (per indicare chiaramente le operazioni eseguite da ciascuno). È possibile crearli usando l'editor di propria scelta.
 
-### <a name="mapper.py"></a>Mapper.py
+### <a name="mapperpy"></a>Mapper.py
 Creare un nuovo file denominato **mapper.py** e usare il seguente codice come contenuto:
 
     #!/usr/bin/env python
@@ -92,7 +96,7 @@ Creare un nuovo file denominato **mapper.py** e usare il seguente codice come co
 
 Soffermarsi per leggere il codice e comprenderne la funzione.
 
-### <a name="reducer.py"></a>reducer.py
+### <a name="reducerpy"></a>reducer.py
 Creare un nuovo file denominato **reducer.py** e usare il seguente codice come contenuto:
 
     #!/usr/bin/env python
@@ -204,6 +208,9 @@ Dopo aver appreso come usare i processi di flusso MapReduce con HDInsight, veder
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

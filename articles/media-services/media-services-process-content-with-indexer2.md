@@ -2,11 +2,11 @@
 title: Indicizzazione dei file multimediali con Azure Media Indexer 2 Preview | Microsoft Docs
 description: Azure Media Indexer consente di rendere disponibile per la ricerca il contenuto dei file multimediali e di generare una trascrizione full-text per i sottotitoli codificati e le parole chiave. Questo argomento illustra come usare Media Indexer 2 Preview.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 85d25525-a498-44eb-ae3a-2ca5ceb8e53d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: adsolank;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 17571acfab870974186af9849d030e9702f3be76
+
 
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indicizzazione dei file multimediali con Azure Media Indexer 2 Preview
@@ -50,7 +54,7 @@ Un processo di indicizzazione può generare file di sottotitoli codificati nei f
 
 I file di sottotitoli codificati con questi formati possono essere utili per rendere i file audio e video accessibili alle persone con problemi uditivi.
 
-## <a name="task-configuration-(preset)"></a>Configurazione delle attività (set di impostazioni)
+## <a name="task-configuration-preset"></a>Configurazione delle attività (set di impostazioni)
 Quando si crea un'attività di indicizzazione con **Azure Media Indexer 2 Preview**, è necessario specificare un set di impostazioni di configurazione.
 
 Il codice JSON seguente imposta i parametri disponibili.
@@ -275,6 +279,9 @@ Il programma seguente illustra come:
 
 [Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

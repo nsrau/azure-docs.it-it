@@ -1,13 +1,13 @@
 ---
-title: Linee guida di monitoraggio e diagnostica | Microsoft Docs
+title: Linee guida di monitoraggio e diagnostica | Documentazione Microsoft
 description: Procedure consigliate per il monitoraggio di applicazioni distribuite nel cloud.
-services: ''
+services: 
 documentationcenter: na
 author: dragon119
 manager: christb
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 2d2a8497-73d0-4a46-aac6-6d504003de2b
 ms.service: best-practice
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 8d149069c95b5b68904ab6a5a47b1fa6215da23d
+
 
 ---
 # <a name="monitoring-and-diagnostics-guidance"></a>Indicazioni di monitoraggio e diagnostica
@@ -60,7 +64,7 @@ Un operatore deve ricevere un avviso rapidamente (entro pochi secondi) se qualsi
 
 Un sistema di monitoraggio completo consente a un operatore di eseguire il drill-down attraverso il sistema per visualizzare lo stato di integrità di sottosistemi e componenti. Ad esempio, se tutto il sistema viene rappresentato come parzialmente integro, l'operatore deve essere in grado di eseguire lo zoom avanti e determinare quale funzionalità sia attualmente disponibile.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisiti per le origini, la raccolta dati e la strumentazione
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisiti per le origini, la raccolta dati e la strumentazione
 I dati non elaborati richiesti per supportare il monitoraggio dello stato possono essere generati come risultato di:
 
 * Tracciare l'esecuzione delle richieste degli utenti. Queste informazioni permettono di determinare quali richieste hanno avuto esito positivo, quali esito negativo e la durata di ogni richiesta.
@@ -93,7 +97,7 @@ Un operatore deve anche essere in grado di visualizzare la disponibilità cronol
 
 Una soluzione di monitoraggio deve offrire una visualizzazione immediata e cronologica della disponibilità o dell'indisponibilità di ogni sistema. Deve anche essere in grado di avvisare rapidamente un operatore quando uno o più servizi non funzionano o quando gli utenti non riescono a connettersi ai servizi. Non si tratta semplicemente di monitorare ogni servizio ma anche di esaminare le azioni eseguite da ogni utente, se tali azioni hanno esito negativo quando tentano di comunicare con un servizio. Entro certi limiti qualche problema di connettività è normale e può essere dovuto a errori temporanei, ma può essere utile consentire al sistema di generare un avviso relativo al numero di errori di connessione a un sottosistema specifico durante un determinato periodo di tempo.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisiti per le origini, la raccolta dati e la strumentazione
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisiti per le origini, la raccolta dati e la strumentazione
 Come nel monitoraggio dello stato, i dati non elaborati necessari per supportare il monitoraggio della disponibilità possono essere generati tramite Synthetic User Monitoring e mediante registrazione delle eccezioni, degli errori e degli avvisi che potrebbero verificarsi. Inoltre, è possibile ottenere i dati sulla disponibilità dal monitoraggio degli endpoint. L'applicazione può esporre uno o più endpoint di integrità, ogni test di accesso a un'area funzionale all'interno del sistema. Il sistema di monitoraggio può eseguire il ping di ogni endpoint in base a una pianificazione definita e raccogliere i risultati (esito positivo o esito negativo).
 
 Tutti i timeout, gli errori di connettività di rete e i tentativi di connessione devono essere registrati. Tutti i dati devono riportare un timestamp.
@@ -157,7 +161,7 @@ Tutte le visualizzazioni devono consentire a un operatore di specificare un peri
 
 Un operatore deve essere in grado di generare un avviso in base alla misura di qualsiasi prestazione per qualsiasi valore dato durante un intervallo di tempo specificato.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisiti per le origini, la raccolta dati e la strumentazione
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisiti per le origini, la raccolta dati e la strumentazione
 È possibile raccogliere dati di alto livello relativi alle prestazioni (velocità effettiva, numero di utenti simultanei, numero di transazioni aziendali, frequenza di errori e così via) tramite il monitoraggio dello stato delle richieste degli utenti nel momento in cui arrivano e passano attraverso il sistema. Ciò implica che in corrispondenza di punti chiave del codice dell'applicazione siano presenti istruzioni di traccia e informazioni di temporizzazione. Tutti gli errori, le eccezioni e gli avvisi devono essere acquisiti con i dati sufficienti a metterli in relazione alle richieste che li hanno causati. Un'altra utile fonte di informazioni è costituita dal log di Internet Information Services (IIS).
 
 Se possibile, è inoltre consigliabile acquisire dati sulle prestazioni per i sistemi esterni utilizzati dall'applicazione. Questi sistemi esterni potrebbero fornire i propri contatori delle prestazioni o altre funzionalità per la richiesta di dati sulle prestazioni. Se ciò non è possibile, registrare informazioni quali l'ora di inizio e l'ora di fine di ogni richiesta effettuata a un sistema esterno insieme allo stato dell'operazione (esito positivo, errore o avviso). Per le richieste di tempo, ad esempio, è possibile usare un approccio simile al funzionamento di un cronometro, avviando un timer al momento dell'avvio della richiesta e arrestando il timer al completamento della richiesta stessa.
@@ -199,7 +203,7 @@ Le informazioni fornite a un operatore devono includere l'indirizzo dell'host di
 
 Una parte fondamentale nella gestione della sicurezza di un sistema è in grado di rilevare rapidamente azioni che si discostano dai modello abituale. Per facilitare la rilevazione di picchi di attività in orari insoliti, è possibile rappresentare visivamente informazioni quali il numero di richieste di accesso con esito positivo e/o con esito negativo. Un esempio di attività insolita è l'accesso di utenti alle 3.00 e l'esecuzione di un gran numero di operazioni fino all'inizio della giornata di lavoro, alle 9.00. Queste informazioni possono essere usate anche per semplificare la configurazione della scalabilità automatica pianificata. Se ad esempio un operatore osserva che un numero elevato di utenti accede regolarmente a una determinata ora del giorno, può disporre l'avvio di servizi di autenticazione aggiuntivi per gestire il volume di lavoro, arrestandoli quando il periodo di picco è stato superato.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisiti per le origini, la raccolta dati e la strumentazione
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisiti per le origini, la raccolta dati e la strumentazione
 La sicurezza è un aspetto onnicomprensivo della maggior parte dei sistemi distribuiti. È probabile che i dati pertinenti vengano generati in più punti all'interno di un sistema. È consigliabile adottare un approccio di gestione delle informazioni e degli eventi di sicurezza (SIEM, Security Information and Event Management) per raccogliere le informazioni relative alla sicurezza derivanti da eventi generati dall'applicazione nonché da apparecchiature di rete, server, firewall, software antivirus e altri elementi di prevenzione delle intrusioni.
 
 Il monitoraggio della sicurezza può incorporare dati da strumenti che non fanno parte dell'applicazione, ad esempio utilità che identificano attività di analisi delle porte da parte di agenzie esterne o filtri di rete in grado di rilevare tentativi di accesso non autenticato all'applicazione e ai dati.
@@ -211,7 +215,7 @@ Una funzionalità di monitoraggio della protezione è la varietà di origini da 
 
 <a name="SLA-monitoring"></a>
 
-## <a name="sla-monitoring"></a>monitoraggio del contratto di servizio
+## <a name="sla-monitoring"></a>monitoraggio del contratto di servizio 
 Molti sistemi commerciali che supportano i clienti paganti forniscono garanzie sulle prestazioni del sistema sotto forma di contratti di servizio. In pratica, un contratto di servizio dichiara che il sistema è in grado di gestire un volume di lavoro definito all'interno di un intervallo di tempo concordato e senza perdita di dati critici. Il monitoraggio del contratto di servizio si occupa di garantire che il sistema è in grado di soddisfare i contratti di servizio misurabili.
 
 > [!NOTE]
@@ -251,7 +255,7 @@ Un'applicazione cloud includerà probabilmente un numero di componenti e sottosi
 
 A scopo di avvertimento, il sistema deve essere in grado di generare un evento se uno qualsiasi degli indicatori di alto livello supera una soglia specificata. I dettagli di basso livello dei diversi fattori che costituiscono l'indicatore di alto livello devono essere disponibili per il sistema di generazione degli avvisi come dati contestuali.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisiti per le origini, la raccolta dati e la strumentazione
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisiti per le origini, la raccolta dati e la strumentazione
 I dati non elaborati necessari per supportare il monitoraggio del contratto di servizio sono simili a quelli richiesti per il monitoraggio delle prestazioni, con alcuni aspetti del monitoraggio dello stato e della disponibilità. Per altri dettagli, vedere le sezioni corrispondenti. È possibile acquisire dati da:
 
 * Esecuzione del monitoraggio degli endpoint.
@@ -283,7 +287,7 @@ Per ricostruire le azioni degli utenti, un analista deve essere in grado di tene
 
 Le informazioni di controllo sono estremamente riservate. Contengono probabilmente dati che identificano gli utenti del sistema e le attività eseguite da questi. Per questo motivo, è molto probabile che le informazioni di controllo abbiano la forma di report disponibili solo per analisti di fiducia, anziché di sistema interattivo in grado di supportare il drill down di grafici. Un analista deve essere in grado di generare un'ampia gamma di report, ad esempio l'elenco delle attività di tutti gli utenti entro un intervallo di tempo specificato con i dettagli sulla cronologia dell'attività per ogni utente, oppure l'elenco della sequenza di operazioni eseguite su una o più risorse.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisiti per le origini, la raccolta dati e la strumentazione
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisiti per le origini, la raccolta dati e la strumentazione
 Le fonti principali di informazioni per il controllo possono includere:
 
 * Il sistema di sicurezza che gestisce l'autenticazione utente.
@@ -314,7 +318,7 @@ Per esaminare l'utilizzo del sistema, un operatore in genere deve visualizzare l
 
 Un operatore deve anche essere in grado di generare grafici. Un grafico, ad esempio, può visualizzare gli utenti che usano più risorse o le risorse o le funzionalità di sistema usate con maggiore frequenza.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisiti per le origini, la raccolta dati e la strumentazione
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisiti per le origini, la raccolta dati e la strumentazione
 Il monitoraggio dell'utilizzo può essere eseguito a un livello relativamente elevato. Può rilevare l'ora di inizio e fine di ogni richiesta e la natura della richiesta stessa, ovvero di lettura, di scrittura e così via, a seconda della risorsa in questione. È possibile ottenere queste informazioni da:
 
 * Traccia attività dell'utente.
@@ -331,7 +335,7 @@ I clienti e gli altri utenti possono segnalare problemi se nel sistema si verifi
 ### <a name="requirements-for-issue-tracking"></a>Requisiti per la gestione dei problemi
 Gli operatori spesso eseguono la gestione dei problemi tramite un sistema distinto che consente di registrare e segnalare i dettagli dei problemi segnalati dagli utenti. Questi dettagli possono includere le attività che l'utente stava tentando di eseguire, i sintomi del problema, la sequenza di eventi e i messaggi di errore o di avviso visualizzati.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisiti per le origini, la raccolta dati e la strumentazione
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisiti per le origini, la raccolta dati e la strumentazione
 L'origine dati iniziale per i dati di gestione di un problema è l'utente che ha segnalato il problema. L'utente potrebbe essere in grado di fornire dati aggiuntivi, ad esempio:
 
 * I dettagli dell'arresto anomalo del sistema, se l'applicazione include un componente in esecuzione nel desktop dell'utente.
@@ -358,7 +362,7 @@ Quando un utente segnala un problema, spesso è consapevole solo dell'impatto im
 ### <a name="requirements-for-tracing-and-debugging"></a>Requisiti per la traccia e il  debug
 Per la traccia di eventi imprevisti e di altri problemi, è fondamentale che i dati di monitoraggio forniscano informazioni sufficienti a consentire a un analista di risalire all'origine dei problemi e ricostruire la sequenza degli eventi. Queste informazioni devono essere sufficienti a consentire a un analista di diagnosticare la causa radice dei problemi. Uno sviluppatore può quindi apportare le modifiche necessarie per impedire che i problemi si ripetano.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisiti per le origini, la raccolta dati e la strumentazione
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisiti per le origini, la raccolta dati e la strumentazione
 La risoluzione dei problemi può implicare la traccia di tutti i metodi, e dei relativi parametri, richiamati nell'ambito di un'operazione per creare un albero che rappresenti il flusso logico attraverso il sistema quando un cliente effettua una richiesta specifica. Eccezioni e avvisi generati dal sistema a seguito di questo flusso devono essere acquisiti e registrati.
 
 Per supportare il debug, il sistema può fornire hook che consentono a un operatore di acquisire informazioni sullo stato in corrispondenza di punti critici del sistema. In alternativa, il sistema può fornire informazioni dettagliate man mano che le operazioni selezionate progrediscono. L'acquisizione di dati a questo livello di dettaglio può imporre un carico aggiuntivo al sistema e deve essere un processo temporaneo. Un operatore usa questo processo principalmente quando si verifica una serie di eventi molto insolita e difficile da replicare o quando una nuova versione di uno o più elementi in un sistema richiede un attento monitoraggio, per garantire che tali elementi funzionino come previsto.
@@ -517,7 +521,7 @@ Considerando la natura elastica del cloud e per evitare la necessità di recuper
 
 Per ottimizzare l'utilizzo della larghezza di banda, è possibile scegliere di trasferire i dati meno urgenti in blocchi, come batch. Tuttavia, i dati non devono essere rimandati indefinitamente, soprattutto se contengono informazioni sensibili al tempo.
 
-#### <a name="_pulling-and-pushing-instrumentation-data_"></a>*Eseguire il pull e push dei dati di strumentazione*
+#### <a name="pulling-and-pushing-instrumentation-data"></a>*Eseguire il pull e push dei dati di strumentazione*
 Il sottosistema di raccolta dei dati di strumentazione può recuperare attivamente i dati di strumentazione dai diversi log e da altre origini per ogni istanza dell'applicazione ( *modello pull*). In alternativa, può fungere da ricevitore passivo che attende che i dati vengano inviati dai componenti che costituiscono ogni istanza dell'applicazione ( *modello push*).
 
 Un approccio all'implementazione del modello pull consiste nell'uso di agenti di monitoraggio eseguiti in locale con ogni istanza dell'applicazione. Un agente di monitoraggio è un processo separato che recupera periodicamente (pull) i dati di telemetria raccolti in corrispondenza del nodo locale e scrive queste informazioni direttamente nell'archivio centralizzato condiviso da tutte le istanze della condivisione delle applicazioni. Questo è il meccanismo implementato da Diagnostica di Azure. Ogni istanza di un ruolo Web o di lavoro di Azure può essere configurata per l'acquisizione di informazioni di diagnostica e di altre informazioni di traccia archiviate in locale. L'agente di monitoraggio eseguito insieme a ogni istanza copia i dati specificati in Archiviazione di Azure. L'articolo [Abilitazione di Diagnostica in Servizi cloud e nelle macchine virtuali di Azure in servizi cloud di Azure](cloud-services/cloud-services-dotnet-diagnostics.md) offre altri dettagli su questo processo. Alcuni elementi, ad esempio i log IIS, i dump di arresto anomalo del sistema e il log degli errori personalizzati, vengono scritti nell'archiviazione BLOB. I dati del registro eventi di Windows, gli eventi ETW e i contatori delle prestazioni vengono registrati nell'archiviazione tabelle. Nella Figura 3 viene illustrato questo meccanismo.
@@ -545,7 +549,7 @@ Per la scalabilità è possibile eseguire più istanze del servizio di scrittura
 
 <a name="consolidating-instrumentation-data"></a>
 
-#### <a name="_consolidating-instrumentation-data_"></a>*Consolidamento dei dati di strumentazione*
+#### <a name="consolidating-instrumentation-data"></a>*Consolidamento dei dati di strumentazione*
 I dati di strumentazione recuperati dal servizio di raccolta dati da una singola istanza di un'applicazione offrono una visualizzazione localizzata dell'integrità e delle prestazioni di tale istanza. Per valutare l'integrità complessiva del sistema, è necessario consolidare alcuni aspetti dei dati nelle viste locali. È possibile eseguire questa operazione dopo che i dati sono stati archiviati. In alcuni casi, però, ciò è possibile anche non appena i dati sono stati raccolti. Anziché essere scritti direttamente nell'archivio condiviso, i dati di strumentazione possono passare attraverso un servizio di consolidamento separato che combina i dati e funge da processo di filtro e pulizia. Ad esempio, possono essere combinati in questo modo i dati di strumentazione che includono le stesse informazioni di correlazione, ad esempio un ID attività. È possibile che un utente avvii un'operazione aziendale in un nodo e che quindi la trasferisca in un altro nodo in caso di errore del nodo originario o a seconda della configurazione del bilanciamento del carico. Questo processo consente di rilevare e rimuovere eventuali dati duplicati (sempre una possibilità se il servizio dati di telemetria utilizza le code di messaggi per spingere i dati di strumentazione in archiviazione). Figura 5 illustra un esempio di questa struttura.
 
 ![Esempio di uso di un servizio per consolidare i dati di strumentazione](media/best-practices-monitoring/Consolidation.png)
@@ -574,12 +578,12 @@ Gli stessi dati di strumentazione potrebbero essere necessari per più scopi. Ad
 
 Le informazioni usate per analisi più ponderate, per la creazione di report e per l'individuazione di tendenze cronologiche sono meno urgenti e possono essere archiviate in un modo che supporti data mining e query ad hoc. Per altre informazioni, vedere la sezione [Supporto di analisi critiche, a caldo e a freddo](#supporting-hot-warm-and-cold-analysis) più avanti in questo documento.
 
-#### <a name="_log-rotation-and-data-retention_"></a>*Rotazione dei registri e conservazione dei dati*
+#### <a name="log-rotation-and-data-retention"></a>*Rotazione dei registri e conservazione dei dati*
 La strumentazione può generare una notevole quantità di dati. Questi dati possono essere contenuti in diverse posizioni, dai file di registro non elaborati, i file di traccia e altre informazioni acquisite in ogni nodo alla visualizzazione consolidata, pulita e partizionata dei dati contenuti in uno spazio di archiviazione condiviso. In alcuni casi, dopo che i dati sono stati elaborati e trasferiti, i dati non elaborati di origine possono essere rimossi da ogni nodo. In altri casi, potrebbe essere necessario o semplicemente utile salvare le informazioni non elaborate. Ad esempio, potrebbe essere più opportuno lasciare disponibili i dati generati a scopo di debug nella loro forma non elaborata, eliminandoli rapidamente dopo la rimozione di tutti i bug.
 
 I dati sulle prestazioni hanno spesso una durata maggiore perché possono essere usati per identificare le tendenze delle prestazioni e pianificare la capacità. La visualizzazione consolidata di questi dati viene generalmente mantenuta online per un periodo limitato, per consentirne l'accesso rapido. In seguito, questi dati possono essere archiviati o eliminati. I dati raccolti per la misurazione e la fatturazione ai clienti potrebbero dover essere salvati a tempo indeterminato. Alcuni requisiti normativi, poi, potrebbero richiedere l'archiviazione e il salvataggio anche delle informazioni raccolte a scopo di controllo e sicurezza. Anche questi dati sono riservati e potrebbe essere necessario crittografarli o proteggerli in altro modo per evitare manomissioni. Non registrare mai le password degli utenti o altre informazioni che potrebbero essere usate per commettere furti di identità. Tali dettagli devono essere eliminati dai dati prima che questi vengano archiviati.
 
-#### <a name="_down-sampling_"></a>*Sottocampionamento*
+#### <a name="down-sampling"></a>*Sottocampionamento*
 Archiviare dati cronologici è utile per individuare le tendenze a lungo termine. Anziché salvare dati obsoleti nella loro interezza, è possibile eseguire il sottocampionamento dei dati per ridurne la risoluzione e risparmiare sui costi di archiviazione. Ad esempio, anziché salvare gli indicatori di prestazioni minuto per minuto, è possibile consolidare i dati che risalgono a più di un mese prima in una visualizzazione ora per ora.
 
 ### <a name="best-practices-for-collecting-and-storing-logging-information"></a>Procedure consigliate per la raccolta e archiviazione delle informazioni di registrazione
@@ -597,7 +601,7 @@ Come descritto nella sezione [Consolidamento dei dati di strumentazione](#consol
 
 <a name="supporting-hot-warm-and-cold-analysis"></a>
 
-### <a name="supporting-hot,-warm,-and-cold-analysis"></a>Supporto di analisi critiche, a caldo e a freddo
+### <a name="supporting-hot-warm-and-cold-analysis"></a>Supporto di analisi critiche, a caldo e a freddo
 L’analisi e la riformattazione dei dati per scopi di virtualizzazione, creazione di report e invio di avvisi possono essere processi complessi che utilizzano un proprio set di risorse. Per alcune forme di monitoraggio il tempo è un fattore critico. Per essere efficaci, tali forme di monitoraggio richiedono un'immediata analisi dei dati. Ciò è noto come *analisi critica*. Tra i possibili esempi, le analisi necessarie per l'invio degli avvisi e alcuni aspetti del monitoraggio della sicurezza, ad esempio il rilevamento di un attacco al sistema. I dati necessari per questi scopi devono essere rapidamente disponibili e strutturati per un'elaborazione efficiente. In alcuni casi, potrebbe essere necessario spostare l'elaborazione dell'analisi nei singoli nodi in cui vengono mantenuti i dati.
 
 Altre forme di analisi sono meno dipendenti dal tempo ma, una volta ricevuti i dati non elaborati, potrebbero richiedere alcuni calcoli e alcune operazioni di aggregazione. Questo tipo di analisi è detto *analisi a caldo*. L’analisi delle prestazioni spesso rientra in questa categoria. In questo caso, è improbabile che un unico evento prestazioni isolato sia statisticamente significativo. Potrebbe essere causato da un picco o da un problema improvviso. I dati di una serie di eventi dovrebbero fornire un quadro più affidabile delle prestazioni del sistema.
@@ -699,10 +703,13 @@ In molti casi, i processi batch possono generare report in base a una pianificaz
 * [Abilitazione di Diagnostica in servizi cloud e macchine virtuali di Azure](cloud-services/cloud-services-dotnet-diagnostics.md)
 * [Cache Redis di Azure](https://azure.microsoft.com/services/cache/), [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) e [HDInsight](https://azure.microsoft.com/services/hdinsight/)
 * [Come usare le code del bus di servizio](service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
-* [SQL Server Business Intelligence in Macchine virtuali di Azure](virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md)
-* [Ricevere notifiche di avviso](azure-portal/insights-receive-alert-notifications.md) e [Tenere traccia dell'integrità del servizio](azure-portal/insights-service-health.md)
+* [SQL Server Business Intelligence in Macchine virtuali di Azure](virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Ricevere notifiche di avviso](monitoring-and-diagnostics/insights-receive-alert-notifications.md) e [Tenere traccia dell'integrità del servizio](monitoring-and-diagnostics/insights-service-health.md)
 * [Application Insights](application-insights/app-insights-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

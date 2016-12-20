@@ -14,175 +14,189 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 12/06/2016
 ms.author: rachelap@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: a0a46708645be91f89b0a6ae9059468bc84aeb11
-ms.openlocfilehash: c6905452951910d3c62bc5152741a8ead26196ef
+ms.sourcegitcommit: f46a67f2591ef98eeda03f5c3bc556d5b8bcc096
+ms.openlocfilehash: 4e0dd8b922107b232a120c25d1f656c5d667748b
 
 
 ---
-# <a name="create-an-azure-function-which-binds-to-an-azure-service"></a>Creare una funzione di Azure associata a un servizio di Azure
-[!INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)]
+# <a name="create-an-azure-function-connected-to-an-azure-service"></a>Creare una funzione di Azure connessa a un servizio di Azure
 
-Questo breve video illustra come creare una funzione di Azure che ascolta i messaggi in una coda di Azure e li copia in un BLOB di Azure.
+Questo argomento illustra come creare una funzione di Azure che ascolta i messaggi in una coda di Azure e li copia nelle righe di una tabella di Archiviazione di Azure. Per caricare i messaggi nella coda viene usata una funzione attivata da un timer. Una seconda funzione legge i messaggi dalla coda e li scrive nella tabella. Sia la coda che la tabella vengono create da funzioni di Azure sulla base delle definizioni di associazione. 
+
+Per rendere le cose più interessanti, una funzione è scritta in JavaScript e l'altra in C#. Questo dimostra che un'app per le funzioni può avere funzioni scritte in linguaggi diversi.
 
 ## <a name="watch-the-video"></a>Video
 >[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
 >
 >
 
-## <a name="create-an-input-queue-trigger-function"></a>Creare una funzione trigger della coda di input
-L'obiettivo di questa funzione è scrivere un messaggio in una coda ogni 10 secondi. A tale scopo, è necessario creare le code dei messaggi e della funzione e aggiungere il codice per la scrittura dei messaggi nelle code appena create.
+## <a name="create-a-function-that-writes-to-the-queue"></a>Creare una funzione che scrive nella coda
 
-1. Passare al portale di Azure e trovare l'app per le funzioni di Azure.
-2. Fare clic su **Nuova funzione** > **TimerTrigger - Node**. Assegnare alla funzione il nome **FunctionsBindingsDemo1**
-3. Immettere un valore di "0/10 * * * * *" per la pianificazione. Questo valore ha la forma di un'espressione Cron e permette di pianificare l'esecuzione del timer ogni 10 secondi.
-4. Fare clic sul pulsante **Crea** per creare la funzione.
-   
-    ![Aggiungere una funzione timer trigger](./media/functions-create-an-azure-connected-function/new-trigger-timer-function.png)
-5. Verificare il funzionamento della funzione visualizzando l'attività nel log. Per visualizzare il riquadro dei log, potrebbe essere necessario fare clic sul collegamento **Log** nell'angolo superiore destro.
-   
-   ![Verificare il funzionamento della funzione visualizzando il log](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-view-log.png)
+Prima di connettersi a una coda di archiviazione, è necessario creare una funzione che carica la coda di messaggi. La funzione JavaScript usa un trigger basato su timer che scrive un messaggio nella coda ogni 10 secondi. Se non si dispone già di un account Azure, consultare [Prova Funzioni di Azure](https://functions.azure.com/try) oppure [creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-### <a name="add-a-message-queue"></a>Aggiungere una coda dei messaggi
-1. Passare alla scheda **Integrazione**.
-2. Scegliere **Nuovo output** > **Coda di archiviazione di Azure** > **Seleziona**.
-3. Immettere **myQueueItem** nella casella di testo **Nome del parametro del messaggio**.
-4. Selezionare un account di archiviazione. Se non è disponibile, fare clic su **nuovo** per crearne uno.
-5. Immettere **functions-bindings** nella casella di testo **Nome coda**.
-6. Fare clic su **Save**.  
-   
-   ![Aggiungere una funzione timer trigger](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab.png)
+1. Passare al portale di Azure e trovare l'app per le funzioni.
 
-### <a name="write-to-the-message-queue"></a>Scrivere nella coda dei messaggi
-1. Tornare alla scheda **Sviluppo** e aggiungere il codice seguente alla funzione dopo il codice esistente:
+2. Fare clic su **Nuova funzione** > **TimerTrigger-JavaScript**. 
+
+3. Assegnare alla funzione il nome **FunctionsBindingsDemo1**, immettere un valore di espressione cron `0/10 * * * * *` per **Pianificazione** e quindi fare clic su **Crea**.
+   
+    ![Aggiungere una funzione attivata da un timer](./media/functions-create-an-azure-connected-function/new-trigger-timer-function.png)
+
+    A questo punto è stata creata una funzione attivata da un timer che viene eseguita ogni 10 secondi.
+
+5. Nella scheda **Sviluppo** fare clic su **Log** e visualizzare l'attività nel log. Si noti che viene scritta una voce di log ogni 10 secondi.
+   
+    ![Visualizzare il log per verificare il funzionamento della funzione](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-view-log.png)
+
+## <a name="add-a-message-queue-output-binding"></a>Aggiungere un'associazione di output della coda dei messaggi
+
+1. Nella scheda **Integrazione** scegliere **Nuovo output** > **Archiviazione code di Azure** > **Seleziona**.
+
+    ![Aggiungere una funzione attivata da un timer](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab.png)
+
+2. Immettere `myQueueItem` per **Nome del parametro del messaggio** e `functions-bindings` per **Nome coda**, selezionare una **Connessione dell'account di archiviazione** esistente o fare clic su **nuova** per creare una connessione dell'account di archiviazione, quindi fare clic su **Salva**.  
+
+    ![Creare l'associazione di output alla coda dei messaggi](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab2.png)
+
+1. Tornare alla scheda **Sviluppo** e aggiungere alla funzione il codice seguente:
    
     ```javascript
    
     function myQueueItem() 
-      {
+    {
         return {
-        msg: "some message goes here",
-        time: "time goes here"
-      }
+            msg: "some message goes here",
+            time: "time goes here"
+        }
     }
    
     ```
-2. Modificare il codice della funzione esistente per chiamare il codice aggiunto nel passaggio 1. Inserire il codice seguente attorno alla riga 9 della funzione, dopo l'istruzione *if*.
+2. Individuare l'istruzione *if* più o meno in corrispondenza della riga 9 della funzione e inserire dopo di essa il codice seguente.
    
     ```javascript
    
     var toBeQed = myQueueItem();
     toBeQed.time = timeStamp;
-    context.bindings.myQueue = toBeQed;
+    context.bindings.myQueueItem = toBeQed;
    
-    ```
+    ```  
    
-    Questo codice crea un oggetto **myQueueItem** e ne imposta la proprietà **time** sul valore corrente di timeStamp. Aggiunge quindi il nuovo elemento della coda all'associazione myQueue del contesto.
+    Questo codice crea un oggetto **myQueueItem** e ne imposta la proprietà **time** sul valore corrente di timeStamp. Aggiunge quindi il nuovo elemento della coda all'associazione **myQueueItem** del contesto.
+
 3. Fare clic su **Salva ed esegui**.
-4. Per verificare il funzionamento del codice, visualizzare la coda in Visual Studio.
-   
-   * Aprire Visual Studio e passare a **Visualizza** > **Cloud** **Explorer**.
-   * Trovare l'account di archiviazione e la coda **functions-bindings** usata durante la creazione della coda myQueue. Dovrebbero essere visualizzate righe di dati di log. Potrebbe essere necessario accedere ad Azure tramite Visual Studio.  
 
-## <a name="create-an-output-queue-trigger-function"></a>Creare una funzione trigger della coda di output
-1. Fare clic su **Nuova funzione** > **QueueTrigger - C#**. Assegnare alla funzione il nome **FunctionsBindingsDemo2**. Si noti che è possibile combinare più linguaggi nella stessa app per le funzioni, in questo caso Node e C#.
-2. Immettere **functions-bindings** nel campo **Nome coda**.
-3. Selezionare un account di archiviazione da usare o crearne uno nuovo.
-4. Fare clic su **Crea**
-5. Verificare il funzionamento della nuova funzione visualizzando sia il log della funzione che Visual Studio per gli aggiornamenti. Il log della funzione mostra che la funzione è in esecuzione e gli elementi vengono rimossi dalla coda. Dato che la funzione è associata alla coda di output **functions-bindings** come trigger di input, aggiornando la coda **functions-bindings** in Visual Studio si dovrebbe vedere che gli elementi sono spariti perché rimossi dalla coda.   
-   
-   ![Aggiungere una funzione timer della coda di output](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png)   
+## <a name="view-storage-updates-by-using-storage-explorer"></a>Visualizzare gli aggiornamenti di archiviazione usando Storage Explorer
+È possibile verificare il funzionamento della funzione visualizzando i messaggi nella coda creata.  È possibile connettersi alla coda di archiviazione usando Visual Studio Cloud Explorer. Usando il portale e Microsoft Azure Storage Explorer, tuttavia, la connessione all'account di archiviazione risulta più semplice.
 
-### <a name="modify-the-queue-item-type-from-json-to-object"></a>Modificare il tipo di elemento della coda da JSON in oggetto
-1. Sostituire il codice in **FunctionsBindingsDemo2** con il codice seguente:    
+1. Nella scheda **Integrazione** selezionare l'associazione di output della coda > **Documentazione**, visualizzare la stringa di connessione per l'account di archiviazione e quindi copiare il valore. Usare questo valore per la connessione all'account di archiviazione.
+
+    ![Scaricare Azure Storage Explorer](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab3.png)
+
+
+2. Se non è già stato fatto, scaricare e installare [Microsoft Azure Storage Explorer](http://storageexplorer.com). 
+ 
+3. In Storage Explorer fare clic sull'icona Connetti ad Archiviazione di Azure, incollare la stringa di connessione nel campo e completare la procedura guidata.
+
+    ![Storage Explorer aggiunge una connessione](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-storage-explorer.png)
+
+4. In **Local and attached** (Locale e collegato) espandere **Account di archiviazione** > account di archiviazione > **Code** > **functions-bindings** e verificare che i messaggi vengano scritti nella coda.
+
+    ![Visualizzazione dei messaggi nella coda](./media/functions-create-an-azure-connected-function/functionsbindings-azure-storage-explorer.png)
+
+    Se la coda non esiste o è vuota, è probabile che si tratti di un problema relativo al codice o all'associazione della funzione.
+
+## <a name="create-a-function-that-reads-from-the-queue"></a>Creare una funzione che legge dalla coda
+
+Dopo aver aggiunto i messaggi alla coda, è possibile creare un'altra funzione che legge dalla coda e scrive i messaggi in modo permanente in una tabella di Archiviazione di Azure.
+
+1. Fare clic su **Nuova funzione** > **QueueTrigger-CSharp**. 
+ 
+2. Assegnare alla funzione il nome `FunctionsBindingsDemo2`, immettere **functions-bindings** nel campo **Nome coda**, selezionare un account di archiviazione esistente o crearne uno e quindi fare clic su **Crea**.
+
+    ![Aggiungere una funzione timer della coda di output](./media/functions-create-an-azure-connected-function/function-demo2-new-function.png) 
+
+3. (Facoltativo) È possibile verificare il funzionamento della nuova funzione visualizzando la nuova coda in Storage Explorer, come descritto in precedenza. È anche possibile usare Visual Studio Cloud Explorer.  
+
+4. (Facoltativo) Aggiornare la coda **functions-bindings**: notare che sono state rimossi alcuni elementi. La rimozione si verifica perché la funzione è associata alla coda **functions-bindings** come trigger di input e legge tale coda. 
+ 
+## <a name="add-a-table-output-binding"></a>Aggiungere un'associazione di output della tabella
+
+1. In FunctionsBindingsDemo2 fare clic su **Integrazione** > **Nuovo output** > **Archiviazione tabelle di Azure** > **Seleziona**.
+
+    ![Aggiungere un'associazione a una tabella di Archiviazione di Azure](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
+
+2. Immettere `TableItem` per **Nome tabella** e `functionbindings` per **Nome del parametro della tabella**, scegliere una **Connessione dell'account di archiviazione** o crearne una nuova e quindi fare clic su **Salva**.
+
+    ![Configurare l'associazione della tabella di archiviazione](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab2.png)
+   
+3. Nella scheda **Sviluppo** sostituire il codice della funzione esistente con il seguente:
    
     ```cs
-   
+    
     using System;
-   
-    public static void Run(QItem myQueueItem, ICollector<TableItem> myTable, TraceWriter log)
-    {
-      TableItem myItem = new TableItem
-      {
-        PartitionKey = "key",
-        RowKey = Guid.NewGuid().ToString(),
-        Time = DateTime.Now.ToString("hh.mm.ss.ffffff"),
-        Msg = myQueueItem.Msg,
-        OriginalTime = myQueueItem.Time    
-      };
-      log.Verbose($"C# Queue trigger function processed: {myQueueItem.Msg} | {myQueueItem.Time}");
-    }
-   
-    public class TableItem
-    {
-      public string PartitionKey {get; set;}
-      public string RowKey {get; set;}
-      public string Time {get; set;}
-      public string Msg {get; set;}
-      public string OriginalTime {get; set;}
-    }
-   
-    public class QItem
-    {
-      public string Msg { get; set;}
-      public string Time { get; set;}
-    }
-   
-    ```
-   
-    Questo codice aggiunge due classi, **TableItem** e **QItem**, che consentono di leggere e scrivere nelle code. Anche la funzione **Run** è stata modificata in modo da accettare i parametri **QItem** e **TraceWriter** anziché **stringa** e **TraceWriter**. 
-2. Fare clic sul pulsante **Salva** .
-3. Verificare il funzionamento del codice controllando il log. Si noti che le funzioni di Azure serializzano e deserializzano automaticamente l'oggetto, semplificando l'accesso alla coda in una modalità orientata agli oggetti per lo scambio di dati. 
-
-## <a name="store-messages-in-an-azure-table"></a>Archiviare i messaggi in una tabella di Azure
-Ora che entrambe le code funzionano è possibile aggiungere una tabella di Azure per l'archiviazione permanente dei dati delle code.
-
-1. Passare alla scheda **Integrazione**.
-2. Creare una tabella di archiviazione di Azure per l'output e denominarla **myTable**.
-3. Alla domanda su quale tabella usare per la scrittura dei dati, rispondere **functionsbindings**.
-4. Modificare l'impostazione di **PartitionKey** da **{project-id}** in **{partition}**.
-5. Scegliere un account di archiviazione da usare o crearne uno nuovo.
-6. Fare clic su **Save**.
-7. Passare alla scheda **Sviluppo**.
-8. Creare una classe **TableItem** per rappresentare una tabella di Azure e modificare la funzione Run in modo che accetti l'oggetto TableItem appena creato. Perché possa funzionare è necessario usare le proprietà **PartitionKey** e **RowKey**.
-   
-    ```cs
-   
+    
     public static void Run(QItem myQueueItem, ICollector<TableItem> myTable, TraceWriter log)
     {    
-      TableItem myItem = new TableItem
-      {
-        PartitionKey = "key",
-        RowKey = Guid.NewGuid().ToString(),
-        Time = DateTime.Now.ToString("hh.mm.ss.ffffff"),
-        Msg = myQueueItem.Msg,
-        OriginalTime = myQueueItem.Time    
-      };
-   
-      log.Verbose($"C# Queue trigger function processed: {myQueueItem.RowKey} | {myQueueItem.Msg} | {myQueueItem.Time}");
+        TableItem myItem = new TableItem
+        {
+            PartitionKey = "key",
+            RowKey = Guid.NewGuid().ToString(),
+            Time = DateTime.Now.ToString("hh.mm.ss.ffffff"),
+            Msg = myQueueItem.Msg,
+            OriginalTime = myQueueItem.Time    
+        };
+        
+        // Add the item to the table binding collection.
+        myTable.Add(myItem);
+    
+        log.Verbose($"C# Queue trigger function processed: {myItem.RowKey} | {myItem.Msg} | {myItem.Time}");
     }
-   
+    
     public class TableItem
     {
-      public string PartitionKey {get; set;}
-      public string RowKey {get; set;}
-      public string Time {get; set;}
-      public string Msg {get; set;}
-      public string OriginalTime {get; set;}
+        public string PartitionKey {get; set;}
+        public string RowKey {get; set;}
+        public string Time {get; set;}
+        public string Msg {get; set;}
+        public string OriginalTime {get; set;}
+    }
+    
+    public class QItem
+    {
+        public string Msg { get; set;}
+        public string Time { get; set;}
     }
     ```
-9. Fare clic su **Save**.
-10. Verificare il funzionamento del codice sia visualizzando i log della funzione che in Visual Studio. Per verificare in Visual Studio, usare **Cloud Explorer** per passare alla tabella di Azure **functionsbindings** e verificare che contenga righe.
+    La classe **TableItem** rappresenta una riga della tabella di archiviazione. Aggiungere l'elemento alla raccolta `myTable` di oggetti **TableItem**. Per inserire voci nella tabella, è necessario impostare le proprietà **PartitionKey** e **RowKey**.
 
-[!INCLUDE [Getting Started Note](../../includes/functions-bindings-next-steps.md)]
+4. Fare clic su **Salva**  Al termine, è possibile verificare il funzionamento della funzione visualizzando la tabella in Storage Explorer o Visual Studio Cloud Explorer.
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+5. (Facoltativo) Nell'account di archiviazione di Storage Explorer espandere **Tabelle** > **functionsbindings** e verificare che alla tabella vengano aggiunte delle righe. È possibile eseguire la stessa operazione in Visual Studio Cloud Explorer.
+
+    ![Visualizzazione delle righe della tabella](./media/functions-create-an-azure-connected-function/functionsbindings-azure-storage-explorer2.png)
+
+    Se la tabella non esiste o è vuota, è probabile che si tratti di un problema relativo al codice o all'associazione della funzione. 
+ 
+[!INCLUDE [More binding information](../../includes/functions-bindings-next-steps.md)]
+
+## <a name="next-steps"></a>Passaggi successivi
+Vedere gli argomenti seguenti per altre informazioni su Funzioni di Azure.
+
+* [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)  
+   Informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
+* [Test di Funzioni di Azure](functions-test-a-function.md)  
+   Descrive diversi strumenti e tecniche per il test delle funzioni.
+* [Come aumentare le prestazioni di Funzioni di Azure](functions-scale.md)  
+  Presenta i piani di servizio disponibili con Funzioni di Azure, tra cui il piano di hosting A consumo, e spiega come scegliere quello più appropriato. 
+
+[!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

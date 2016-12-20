@@ -1,12 +1,12 @@
 ---
 title: Ripristino di emergenza per le applicazioni basate su Azure | Microsoft Docs
 description: Panoramiche tecniche e informazioni approfondite sulla progettazione e la creazione di applicazioni per il ripristino di emergenza in Microsoft Azure.
-services: ''
+services: 
 documentationcenter: na
 author: adamglick
 manager: saladki
-editor: ''
-
+editor: 
+ms.assetid: f9e0cbdc-ec82-46dc-bee6-558b35518252
 ms.service: resiliency
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 416ec840c60bf7446e37aeda241fc2646f83a52f
+
 
 ---
 # <a name="disaster-recovery-for-applications-built-on-microsoft-azure"></a>Ripristino di emergenza per le applicazioni basate su Microsoft Azure
@@ -148,7 +152,7 @@ Il problema maggiore nell'implementazione di questa architettura consiste nella 
 In una potenziale implementazione si potrebbe usare la coda intermedia illustrata nell'esempio precedente. Il ruolo di lavoro che elabora i dati nella destinazione di archiviazione finale può apportare la modifica sia nell'area primaria che in quella secondaria. Non si tratta di attività semplici, ma le istruzioni complete relative al codice di replica non rientrano nell'ambito di questo articolo. L'aspetto importante è che occorre dedicare molto tempo e attività di test alla modalità di replica dei dati nell'area secondaria. Si consiglia di eseguire anche attività di elaborazione e test aggiuntive per accertarsi che i processi di failover e ripristino gestiscano correttamente eventuali incoerenze dei dati o transazioni duplicate.
 
 > [!NOTE]
-> Questo articolo si incentra soprattutto sulla piattaforma distribuita come servizio (PaaS). Esistono comunque altre opzioni di replica e disponibilità per applicazioni ibride che usano macchine virtuali di Azure. Queste applicazioni ibride usano l'infrastruttura come servizio (IaaS) per ospitare SQL Server in macchine virtuali in Azure. Ciò consente di adottare gli approcci tradizionali di SQL Server alla disponibilità, ad esempio Gruppi di disponibilità AlwaysOn o il log shipping. Alcune tecniche, come AlwaysOn, funzionano solo tra istanze di SQL Server locali e macchine virtuali di Azure. Per altre informazioni, vedere [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+> Questo articolo si incentra soprattutto sulla piattaforma distribuita come servizio (PaaS). Esistono comunque altre opzioni di replica e disponibilità per applicazioni ibride che usano macchine virtuali di Azure. Queste applicazioni ibride usano l'infrastruttura come servizio (IaaS) per ospitare SQL Server in macchine virtuali in Azure. Ciò consente di adottare gli approcci tradizionali di SQL Server alla disponibilità, ad esempio Gruppi di disponibilità AlwaysOn o il log shipping. Alcune tecniche, come AlwaysOn, funzionano solo tra istanze di SQL Server locali e macchine virtuali di Azure. Per altre informazioni, vedere [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 > 
 > 
 
@@ -242,7 +246,7 @@ Un'altra strategia per il ripristino di emergenza consiste nel progettare un'app
 
 Le architetture ibride presentano alcune sfide. Per prima cosa, la maggior parte di questo articolo è incentrata su modelli di architettura PaaS. Le applicazioni PaaS in Azure si basano in genere su costrutti specifici di Azure, ad esempio ruoli, servizi cloud e Gestione traffico. Per creare una soluzione locale per questo tipo di applicazione PaaS, è necessaria un'architettura sostanzialmente diversa. Ciò potrebbe non essere fattibile dal punto di vista della gestione o dei costi.
 
-Una soluzione ibrida per il ripristino di emergenza presenta tuttavia meno ostacoli per le architetture tradizionali che sono state semplicemente trasferite nel cloud. Questo accade per le architetture che utilizzano la tecnologia IaaS. Le applicazioni IaaS usano macchine virtuali nel cloud per le quali possono esistere equivalenti diretti in locale. L'uso di reti virtuali consente anche di connettere macchine nel cloud a risorse di rete locali. Ciò offre diverse opportunità che non sono possibili con le applicazioni solo PaaS. Ad esempio, SQL Server può trarre vantaggio dalle soluzioni di ripristino di emergenza come Gruppi di disponibilità AlwaysOn e il mirroring del database. Per informazioni dettagliate, vedere [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+Una soluzione ibrida per il ripristino di emergenza presenta tuttavia meno ostacoli per le architetture tradizionali che sono state semplicemente trasferite nel cloud. Questo accade per le architetture che utilizzano la tecnologia IaaS. Le applicazioni IaaS usano macchine virtuali nel cloud per le quali possono esistere equivalenti diretti in locale. L'uso di reti virtuali consente anche di connettere macchine nel cloud a risorse di rete locali. Ciò offre diverse opportunità che non sono possibili con le applicazioni solo PaaS. Ad esempio, SQL Server può trarre vantaggio dalle soluzioni di ripristino di emergenza come Gruppi di disponibilità AlwaysOn e il mirroring del database. Per informazioni dettagliate, vedere [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Le soluzioni di tipo IaaS forniscono inoltre alle applicazioni locali una modalità più semplice per usare Azure come opzione di failover. È possibile avere un'applicazione completamente funzionante in un'area locale esistente. Se tuttavia non sono disponibili risorse sufficienti per gestire un'area geograficamente separata per il failover, è possibile scegliere di usare macchine e reti virtuali per eseguire l'applicazione in Azure. In questo caso, è necessario definire i processi per la sincronizzazione dei dati nel cloud. La distribuzione di Azure diventa quindi l'area secondaria da usare per il failover. L'area primaria rimane l'applicazione locale. Per altre informazioni sulle architetture e le funzionalità IaaS, vedere [Macchine virtuali - Documentazione](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
@@ -281,6 +285,9 @@ Esistono diverse altre tecniche utilizzabili per testare i piani di ripristino d
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo fa parte di una serie dedicata al [ripristino di emergenza e disponibilità elevata per le applicazioni basate su Microsoft Azure](resiliency-disaster-recovery-high-availability-azure-applications.md). L'articolo precedente della serie è [Disponibilità elevata per le applicazioni basate su Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

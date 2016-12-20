@@ -1,20 +1,24 @@
 ---
-title: Usare un tenant di Office 365 con una sottoscrizione di Azure | Microsoft Docs
-description: Informazioni su come aggiungere una directory (tenant) di Office 365 a una sottoscrizione di Azure per creare l'associazione.
-services: ''
-documentationcenter: ''
+title: Usare un tenant di Office 365 con una sottoscrizione di Azure | Documentazione Microsoft
+description: Informazioni su come aggiungere una directory (tenant) di Office 365 a una sottoscrizione di Azure per creare l&quot;associazione.
+services: 
+documentationcenter: 
 author: JiangChen79
 manager: mbaldwin
-editor: ''
+editor: 
 tags: billing,top-support-issue
-
+ms.assetid: cc9c57c6-7bfd-4dea-9027-c75ef3737589
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 12/16/2016
 ms.author: cjiang
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 36cd9eac7be2d99971d8d2e227cd4b761df82d08
+
 
 ---
 # <a name="associate-an-office-365-tenant-with-an-azure-subscription"></a>Associare un tenant di Office 365 con una sottoscrizione di Azure
@@ -161,6 +165,9 @@ Gli scenari correlati includono:
 
 Per informazioni su come eseguire queste attività, vedere [Usare l'account Office 365 esistente con la sottoscrizione di Azure o viceversa](billing-use-existing-office-365-account-azure-subscription.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

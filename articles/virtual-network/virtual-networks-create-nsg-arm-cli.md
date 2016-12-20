@@ -1,13 +1,13 @@
 ---
-title: Come creare gruppi di sicurezza di rete in modalità ARM mediante l'interfaccia della riga di comando di Azure | Microsoft Docs
-description: Informazioni su come creare e distribuire gruppi di sicurezza di rete in ARM mediante l'interfaccia della riga di comando di Azure
+title: "Come creare gruppi di sicurezza di rete in modalità ARM mediante l&quot;interfaccia della riga di comando di Azure | Documentazione Microsoft"
+description: Informazioni su come creare e distribuire gruppi di sicurezza di rete in ARM mediante l&quot;interfaccia della riga di comando di Azure
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 9ea82c09-f4a6-4268-88bc-fc439db40c48
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d740926f6e372e46001b5a093c7fb25b47bc4f36
+
 
 ---
-# Come creare gruppi di sicurezza di rete nell'interfaccia della riga di comando di Azure
+# <a name="how-to-create-nsgs-in-the-azure-cli"></a>Come creare gruppi di sicurezza di rete nell'interfaccia della riga di comando di Azure
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -30,7 +34,7 @@ Questo articolo illustra il modello di distribuzione Gestione risorse. È anche 
 
 I comandi di esempio dell'interfaccia della riga di comando di Azure riportati di seguito prevedono un ambiente semplice già creato in base allo scenario precedente. Se si desidera eseguire i comandi così come sono visualizzati in questo documento, creare innanzitutto l'ambiente di test distribuendo [questo modello](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), fare clic su **Distribuisci in Azure**, sostituire i valori di parametro predefiniti, se necessario e quindi seguire le istruzioni nel portale.
 
-## Come creare il gruppo di sicurezza di rete per la subnet front-end
+## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Come creare il gruppo di sicurezza di rete per la subnet front-end
 Per creare un gruppo di sicurezza di rete denominato *NSG-FrontEnd* in base allo scenario precedente, seguire questa procedura.
 
 1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
@@ -103,13 +107,13 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-FrontEnd* in base allo
    * **-a (o --nsg-name)**. Nome del gruppo di sicurezza di rete in cui verrà creata la regola. Per questo scenario, *NSG-FrontEnd*.
    * **-n (o --name)**. Nome per la nuova regola. Per questo scenario, *rdp-rule*.
    * **-c (o --access)**. Livello di accesso per la regola (Deny o Allow).
-   * **-p (o--protocol)**. Protocollo (Tcp, Udp o *) per la regola.
+   * **-p (o --protocol)**. Protocollo (Tcp, Udp o *) per la regola.
    * **-r (o--direction)**. Direzione di connessione (Inbound o Outbound).
-   * **-y (o--priority)**. Priorità per la regola.
+   * **-y (o --priority)**. Priorità per la regola.
    * **-f (o --source-address-prefix)**. Prefisso dell'indirizzo di origine in CIDR o con tag predefiniti.
    * **-o (o --source-port-range)**. Porta o intervallo di porte di origine.
    * **-e (o --destination-address-prefix)**. Prefisso dell'indirizzo di destinazione in CIDR o con tag predefiniti.
-   * **-u (o --destination-port-range)**. Porta o intervallo di porte di destinazione.
+   * **-u (o --destination-port-range)**. Porta o intervallo di porte di destinazione.    
 5. Eseguire il comando **azure network nsg rule create** per creare una regola che consenta l'accesso alla porta 80 (HTTP) da Internet.
    
         azure network nsg rule create -g TestRG -a NSG-FrontEnd -n web-rule -c Allow -p Tcp -r Inbound -y 200 -f Internet -o * -e * -u 80
@@ -160,7 +164,7 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-FrontEnd* in base allo
         data:    
         info:    network vnet subnet set command OK
 
-## Come creare il gruppo di sicurezza di rete per la subnet back-end
+## <a name="how-to-create-the-nsg-for-the-back-end-subnet"></a>Come creare il gruppo di sicurezza di rete per la subnet back-end
 Per creare un gruppo di sicurezza di rete denominato *NSG-BackEnd* in base allo scenario precedente, seguire questa procedura.
 
 1. Eseguire il comando **azure network nsg create** per creare un gruppo di sicurezza di rete.
@@ -263,4 +267,9 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-BackEnd* in base allo 
         data:    
         info:    network vnet subnet set command OK
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

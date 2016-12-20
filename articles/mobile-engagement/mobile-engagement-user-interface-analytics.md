@@ -1,12 +1,12 @@
 ---
 title: Interfaccia utente di Azure Mobile Engagement - Analytics
-description: Informazioni su come analizzare i dati storici sull'applicazione usando Azure Mobile Engagement
+description: Informazioni su come analizzare i dati storici sull&quot;applicazione usando Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 6b2533ac-b8ec-4e35-872c-d563895bdc0c
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,28 +14,29 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
+ms.openlocfilehash: d091163f13e6a3415a8a902734e022b6adab5d5a
+
 
 ---
-# Come analizzare i dati cronologici sull'applicazione
-In questo articolo viene descritta la scheda **ANALYTICS** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement**.
+# <a name="how-to-analyze-historical-data-about-your-application"></a>Come analizzare i dati cronologici sull'applicazione
+In questo articolo viene descritta la scheda **ANALISI** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement** .
 
 La sezione Analytics dell'interfaccia utente fornisce informazioni aggregate sull'applicazione, tratte dai dati cronologici che vengono aggiornati ogni 24 ore. Le informazioni vengono visualizzate in dashboard diversi, composti da grafici a linee/barre/torta, griglie e mappe. I dati possono anche essere scaricati come file con estensione csv. La maggior parte di queste informazioni è disponibile in tempo reale nella sezione Monitoraggio dell'interfaccia utente. Inoltre, è possibile accedervi dall'API Analytics.
 
 > [!NOTE]
-> Molte sezioni dell’interfaccia utente del portale **Mobile Engagement** contengono il pulsante **MOSTRA GUIDA**. Premere questo pulsante per ottenere ulteriori informazioni contestuali su una sezione.
-> 
-> 
+> Molte sezioni dell'interfaccia utente del portale **Mobile Engagement** contengono il pulsante **MOSTRA GUIDA**. Premere questo pulsante per ottenere ulteriori informazioni contestuali su una sezione.
 
-## Analisi standard e personalizzate
-Azure Mobile Engagement offre un set di informazioni analitiche standard di base relative all'applicazione che possono essere rappresentate in un grafico, non appena si integra l'app con l'SDK. Azure Mobile Engagement offre anche la possibilità di riunire ulteriori informazioni analitiche personalizzate relative al comportamento degli utenti finali. È possibile effettuare questa operazione creando una pianificazione di "tag (informazioni dell'app)" personalizzata creata da **Impostazioni**. In questo modo, Azure Mobile Engagement può raccogliere tali dati aggiuntivi per conto dell'utente.
+## <a name="standard-and-custom-analytics"></a>Analisi standard e personalizzate
+Azure Mobile Engagement offre un set di informazioni analitiche standard di base relative all'applicazione che possono essere rappresentate in un grafico, non appena si integra l'app con l'SDK. Azure Mobile Engagement offre anche la possibilità di riunire ulteriori informazioni analitiche personalizzate relative al comportamento degli utenti finali. È possibile eseguire questa operazione creando una pianificazione di "tag (informazioni dell'app)" personalizzata creata da **Impostazioni**. In questo modo, Azure Mobile Engagement può raccogliere questi dati aggiuntivi per conto dell'utente.
 
-## Analytics
+## <a name="analytics"></a>Analytics
 * Dashboard: visualizza informazioni generali sugli utenti nuovi e attivi e sulle loro tendenze.
 * Utenti: gli utenti sono identificati tramite l'identificatore del dispositivo. Questo valore è univoco per ogni dispositivo (a un nuovo utente corrisponde un nuovo dispositivo). Un utente viene considerato come nuovo in un determinato intervallo di tempo, se ha eseguito la prima sessione durante questo intervallo di tempo. Un utente viene considerato come assorbito se ha eseguito almeno una sessione negli ultimi 7 giorni. Gli utenti attivi sono quelli che hanno effettuato almeno una sessione durante un determinato periodo. È possibile ordinarli per mese, settimana, giorno oppure ora. Tutti i grafici hanno un aspetto simile, ma consentono di filtrare gli elementi in base a funzionalità differenti (ad esempio, la versione dell'applicazione) e successivamente in base all'intervallo di tempo. Tra le informazioni standard raccolte integrando l'SDK sono incluse le seguenti: utenti attivi, nuovo utente, numero di sessioni, durata di ogni sessione, informazioni tecniche sul paese, impostazioni locali, località, lingua, gestore telefonico, dispositivi, firmware, rete (Wi-Fi), versioni dell'app e dell'SDK, utilizzo dei clienti. È possibile visualizzare tali informazioni in tempo reale dalla sezione di monitoraggio.
 
-> Nota: il periodo si basa sulla data definita nelle impostazioni del dispositivo dell'utente. Pertanto, se nel telefono la data non è corretta, è possibile che venga visualizzato il periodo errato.
-> 
-> 
+> [!NOTE]
+> il periodo si basa sulla data presente nelle impostazioni del dispositivo dell'utente. Pertanto, se nel telefono di un utente la data è impostata in modo errato, è possibile che venga visualizzato il periodo errato.
 
 * Assorbimento: un utente viene considerato come assorbito in un determinato intervallo di tempo se ha eseguito la prima sessione durante questo intervallo. È possibile modificare gli intervalli temporali durante i quali gli utenti assorbiti (e quelli nuovi) vengono conteggiati su base oraria, giornaliera, settimanale o mensile. Le analisi relative alla conservazione degli utenti vengono realizzate a partire dalle coorti. Si definisce coorte il set di tutti i nuovi utenti rilevati in un determinato periodo di tempo (ad esempio, il set di utenti che eseguono la prima sessione durante questo periodo). Vengono utilizzate coorti di 1 giorno, 2 giorni, 4 giorni, 7 giorni o 1 mese. Data una coorte, ogni giorno, ogni 2 giorni, ogni 4 giorni, ogni 7 giorni oppure ogni mese, Azure Mobile Engagement calcola il set di tutti gli utenti che ne fanno parte e che sono ancora attivi (vale a dire, gli utenti che hanno eseguito almeno una sessione durante questo periodo). Questo set di utenti viene definito come versione coorte. È possibile che Azure Mobile Engagement visualizzi il numero di utenti che ancora utilizzano l'app, ma soltanto lo store di una piattaforma specifica riesce a offrire informazioni sul numero di utenti che hanno disinstallato l'app (ad esempio, Google Play, iTunes, Windows Store e così via).
 * Sessioni: un singolo utilizzo dell'applicazione da parte di un utente. Le sessioni vengono create dalla sequenza di attività eseguite dall'utente. Solitamente, un'attività viene associata all'utilizzo di una schermata dell'applicazione. Tuttavia, può variare in base al modo in cui l'SDK è stato integrato nell'applicazione. Un utente può eseguire soltanto un'attività per volta: una sessione inizia appena l'utente avvia la prima attività e si interrompe quando conclude l'ultima attività. Se l'utente non esegue attività per alcuni secondi, la sequenza viene suddivisa in due sessioni distinte.
@@ -49,29 +50,29 @@ Azure Mobile Engagement offre un set di informazioni analitiche standard di base
 
 ![Analytics2][11]
 
-## Accesso alla schermata Panoramica su assorbimento
+## <a name="accessing-the-retention-overview"></a>Accesso alla schermata Panoramica su assorbimento
 ![Analytics3][12]
 
 La parte centrale della schermata Panoramica su assorbimento è suddivisa in diverse schede, ciascuna delle quali riporta una panoramica su un determinato periodo di assorbimento. Nell'esempio viene visualizzato il periodo di assorbimento di due giorni. Nelle altre schede vengono visualizzati i periodi di assorbimento di 4 e 7 giorni.
 
-## Informazioni sulle schede della schermata Panoramica su assorbimento
+## <a name="understanding-the-retention-overview-cards"></a>Informazioni sulle schede della schermata Panoramica su assorbimento
 ![Analytics4][13]
 
-### Ogni scheda comprende tre parti principali:
+### <a name="each-card-is-composed-of-3-main-parts"></a>Ogni scheda comprende tre parti principali:
 1. 1: coorte e periodo considerato
 2. 2-4: assorbimento per il periodo corrente
 3. 5: grafico sparkline della cronologia
 
-### Di seguito, sono riportate le informazioni dettagliate su ogni elemento:
+### <a name="here-is-detailed-information-about-each-element"></a>Di seguito, sono riportate le informazioni dettagliate su ogni elemento:
 1. Coorte e periodo: l'intestazione fornisce informazioni sul tipo di coorte. Qui, "Periodo di 2 giorni" indica che sarà esaminato il comportamento degli utenti per 2 giorni, di quelli che hanno iniziato a utilizzare l'app nei 2 giorni e si stabilisce se tali utenti si connettono nel periodo di 2 giorni. Nell'esempio riportato in alto, vengono considerate le attività degli utenti tra il 21 e il 22 novembre.
 2. In questo modo, è possibile visualizzare il tasso di assorbimento del 21 e 22 novembre, relativo agli utenti che hanno iniziato a utilizzare l'app il 19 e 20 novembre. In questo esempio, sono presenti 3 nuovi utenti tra il 19 e il 20; di questi, solo 1 attivo tra il 21 e il 22 novembre.
 3. L'indicatore visivo fornisce le stesse informazioni rappresentate graficamente. Un terzo del cerchio rappresenta il 33%. Il colore fornisce ulteriori indicazioni: il verde indica che il numero è in aumento rispetto al calcolo precedente. Il giallo indica una situazione stabile, mentre il rosso rappresenta una riduzione.
 4. Indica i valori utilizzati per il calcolo.
 5. Si tratta di un grafico sparkline relativo alla cronologia dei valori di assorbimento. Consente di visualizzare i valori del passato per avere una visione più ampia sull'evoluzione.
 
-## Vedere anche
-* [Concetti][Link 6]
-* [Guida per la risoluzione dei problemi - Assistenza][Link 24]
+## <a name="see-also"></a>Vedere anche
+* [Concetti][Collegamento 6]
+* [Guida alla risoluzione dei problemi][Collegamento 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -134,38 +135,42 @@ La parte centrale della schermata Panoramica su assorbimento è suddivisa in div
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: ../mobile-engagement-how-tos-first-push.md
-[Link 28]: ../mobile-engagement-how-tos-test-campaign.md
-[Link 29]: ../mobile-engagement-how-tos-personalize-push.md
-[Link 30]: ../mobile-engagement-how-tos-differentiate-push.md
-[Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
-[Link 32]: ../mobile-engagement-how-tos-text-view.md
-[Link 33]: ../mobile-engagement-how-tos-web-view.md
+[Collegamento 1]: mobile-engagement-user-interface.md
+[Collegamento 2]: mobile-engagement-troubleshooting-guide.md
+[Collegamento 3]: mobile-engagement-how-tos.md
+[Collegamento 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Collegamento 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Collegamento 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Collegamento 7]: https://account.windowsazure.com/PreviewFeatures
+[Collegamento 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Collegamento 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Collegamento 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Collegamento 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Collegamento 12]: mobile-engagement-user-interface-navigation.md
+[Collegamento 13]: mobile-engagement-user-interface-home.md
+[Collegamento 14]: mobile-engagement-user-interface-my-account.md
+[Collegamento 15]: mobile-engagement-user-interface-analytics.md
+[Collegamento 16]: mobile-engagement-user-interface-monitor.md
+[Collegamento 17]: mobile-engagement-user-interface-reach.md
+[Collegamento 18]: mobile-engagement-user-interface-segments.md
+[Collegamento 19]: mobile-engagement-user-interface-dashboard.md
+[Collegamento 20]: mobile-engagement-user-interface-settings.md
+[Collegamento 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Collegamento 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Collegamento 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Collegamento 24]: mobile-engagement-troubleshooting-guide-service.md
+[Collegamento 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Collegamento 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Collegamento 27]: ../mobile-engagement-how-tos-first-push.md
+[Collegamento 28]: ../mobile-engagement-how-tos-test-campaign.md
+[Collegamento 29]: ../mobile-engagement-how-tos-personalize-push.md
+[Collegamento 30]: ../mobile-engagement-how-tos-differentiate-push.md
+[Collegamento 31]: ../mobile-engagement-how-tos-schedule-campaign.md
+[Collegamento 32]: ../mobile-engagement-how-tos-text-view.md
+[Collegamento 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

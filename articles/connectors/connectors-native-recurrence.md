@@ -1,13 +1,13 @@
 ---
-title: Aggiungere il trigger di ricorrenza nelle app per la logica | Microsoft Docs
-description: Panoramica dei trigger di ricorrenza e di come usarli con un'app per la logica di Azure.
-services: ''
-documentationcenter: ''
+title: Aggiungere il trigger di ricorrenza nelle app per la logica | Documentazione Microsoft
+description: Panoramica dei trigger di ricorrenza e di come usarli con un&quot;app per la logica di Azure.
+services: 
+documentationcenter: 
 author: jeffhollan
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d85eb09283bc464e78bf84401eeb0ff366ef5773
+
 
 ---
-# Introduzione al trigger di ricorrenza
+# <a name="get-started-with-the-recurrence-trigger"></a>Introduzione al trigger di ricorrenza
 Usando il trigger di ricorrenza è possibile creare potenti flussi di lavoro nel cloud.
 
 Ad esempio, è possibile:
@@ -27,7 +31,7 @@ Ad esempio, è possibile:
 
 Per informazioni su come iniziare a usare un trigger di ricorrenza in un'app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Usare un trigger di ricorrenza
+## <a name="use-a-recurrence-trigger"></a>Usare un trigger di ricorrenza
 Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](connectors-overview.md).
 
 Ecco una sequenza di esempio di come configurare un trigger di ricorrenza in un'app per la logica:
@@ -37,12 +41,13 @@ Ecco una sequenza di esempio di come configurare un trigger di ricorrenza in un'
 
 L'app per la logica avvia ora un'esecuzione dopo ogni intervallo di tempo.
 
-![Trigger HTTP](./media/connectors-native-recurrence/using-trigger.png)  
+![Trigger HTTP](./media/connectors-native-recurrence/using-trigger.png)
 
-## Dettagli del trigger
+## <a name="trigger-details"></a>Dettagli del trigger
 Il trigger di ricorrenza ha le proprietà seguenti che è possibile configurare.
 
-Attiva un'app per la logica dopo un intervallo di tempo specificato. Un asterisco (*) indica che è un campo obbligatorio.
+Attiva un'app per la logica dopo un intervallo di tempo specificato.
+Un asterisco (*) indica che è un campo obbligatorio.
 
 | Nome visualizzato | Nome proprietà | Descrizione |
 | --- | --- | --- |
@@ -51,9 +56,14 @@ Attiva un'app per la logica dopo un intervallo di tempo specificato. Un asterisc
 | Fuso orario |timeZone |Se viene fornito un valore startTime senza una differenza dall'ora UTC, verrà usato tale valore timeZone. |
 | Ora di inizio |startTime |Ora di inizio nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). |
 
-<br>  
+<br>
 
-## Passaggi successivi
-Provare ora a usare la piattaforma e [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l'[elenco di API](apis-list.md).
+## <a name="next-steps"></a>Passaggi successivi
+Provare ora a usare la piattaforma e [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

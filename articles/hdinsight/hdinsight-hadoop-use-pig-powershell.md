@@ -1,13 +1,13 @@
 ---
-title: Usare Pig di Hadoop con PowerShell in HDInsight | Microsoft Docs
+title: Usare Pig di Hadoop con PowerShell in HDInsight | Documentazione Microsoft
 description: Informazioni su come inviare processi Pig a un cluster Hadoop in HDInsight con Azure PowerShell.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 737089c1-b494-4387-9def-7b4dac3be532
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2def733a07d3e8132f998c29538df1c7cbacfee4
+
 
 ---
 # <a name="run-pig-jobs-using-powershell"></a>Eseguire processi Pig mediante PowerShell
@@ -27,7 +31,7 @@ Questo documento fornisce un esempio di come usare Azure PowerShell per inviare 
 > 
 > 
 
-## <a name="<a-id="prereq"></a>prerequisites"></a><a id="prereq"></a>Prerequisiti
+## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Prerequisiti
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -35,7 +39,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
   
     [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-## <a name="<a-id="powershell"></a>run-pig-jobs-using-powershell"></a><a id="powershell"></a>Eseguire processi Pig mediante PowerShell
+## <a name="a-idpowershellarun-pig-jobs-using-powershell"></a><a id="powershell"></a>Eseguire processi Pig mediante PowerShell
 Azure PowerShell fornisce *cmdlet* che consentono di eseguire in modalità remota processi Pig in HDInsight. Questo risultato si ottiene internamente usando chiamate REST a [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (chiamato in precedenza Templeton) in esecuzione nel cluster HDInsight.
 
 Durante l'esecuzione di processi Pig in un cluster HDInsight remoto, vengono usati i seguenti cmdlet:
@@ -122,7 +126,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
         (ERROR,6)
         (FATAL,2)
 
-## <a name="<a-id="troubleshooting"></a>troubleshooting"></a><a id="troubleshooting"></a>Risoluzione dei problemi
+## <a name="a-idtroubleshootingatroubleshooting"></a><a id="troubleshooting"></a>Risoluzione dei problemi
 Se al termine del processo non vengono restituite informazioni, potrebbe essersi verificato un errore durante l'elaborazione. Per visualizzare informazioni relative all'errore per questo processo, aggiungere il seguente comando alla fine del file **pigjob.ps1** , salvare il file, quindi eseguirlo nuovamente.
 
     # Print the output of the Pig job.
@@ -138,10 +142,10 @@ Se al termine del processo non vengono restituite informazioni, potrebbe essersi
 
 Vengono restituite le informazioni scritte in STDERR nel server durante l'esecuzione del processo. Tali informazioni possono essere utili per determinare la causa del problema.
 
-## <a name="<a-id="summary"></a>summary"></a><a id="summary"></a>Riepilogo
+## <a name="a-idsummaryasummary"></a><a id="summary"></a>Riepilogo
 Come è possibile notare, Azure PowerShell fornisce un modo semplice per eseguire processi Pig in un cluster HDInsight, monitorare lo stato del processo e recuperare l'output.
 
-## <a name="<a-id="nextsteps"></a>next-steps"></a><a id="nextsteps"></a>Passaggi successivi
+## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Passaggi successivi
 Per informazioni generali su Pig in HDInsight:
 
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
@@ -151,6 +155,9 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

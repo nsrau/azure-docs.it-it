@@ -1,33 +1,37 @@
 ---
-title: Gestire VM in un set di scalabilità di macchine virtuali | Microsoft Docs
-description: Gestire le macchine virtuali in un set di scalabilità di macchine virtuali tramite Azure PowerShell.
+title: "Gestire VM in un set di scalabilità di macchine virtuali | Microsoft Docs"
+description: "Gestire le macchine virtuali in un set di scalabilità di macchine virtuali tramite Azure PowerShell."
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: davidmu1
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: d35fa77a-de96-4ccd-a332-eb181d1f4273
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2016
+ms.date: 09/27/2016
 ms.author: davidmu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 812d5c977ace7176e81e3e875daaf8e643c95a46
+
 
 ---
-# Gestire le macchine virtuali in un set di scalabilità di macchine virtuali
-Usare le attività descritte in questo articolo per gestire le risorse delle macchine virtuali del set di scalabilità.
+# <a name="manage-virtual-machines-in-a-virtual-machine-scale-set"></a>Gestire le macchine virtuali in un set di scalabilità di macchine virtuali
+Usare le attività descritte in questo articolo per gestire le macchine virtuali nel set di scalabilità.
 
-Tutte le attività che implicano la gestione di una macchina virtuale in un set di scalabilità richiedono che si conosca l'ID dell'istanza della macchina virtuale che si vuole gestire. È possibile usare [Esplora risorse di Azure](https://resources.azure.com) per trovare l'ID dell'istanza di una macchina virtuale in un set di scalabilità. È anche possibile usare Esplora risorse per verificare lo stato delle attività da completare.
+La maggior parte delle attività che implicano la gestione di una macchina virtuale in un set di scalabilità richiede di conoscere l'ID dell'istanza della macchina virtuale che si vuole gestire. È possibile usare [Esplora risorse di Azure](https://resources.azure.com) per trovare l'ID dell'istanza di una macchina virtuale in un set di scalabilità. È anche possibile usare Esplora risorse per verificare lo stato delle attività da completare.
 
-Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione che si vuole usare e accedere all'account Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione e accedere all'account, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
-## Visualizzare informazioni su un set di scalabilità di macchine virtuali
-È possibile ottenere informazioni generali su un set di scalabilità, ovvero una visualizzazione delle istanze. In alternativa, è possibile ottenere informazioni più specifiche, ad esempio informazioni sulle risorse nel set.
+## <a name="display-information-about-a-scale-set"></a>Visualizzare informazioni relative a un set di scalabilità
+È possibile ottenere informazioni generali su un set di scalabilità, ovvero una visualizzazione delle istanze. In alternativa, è possibile ottenere informazioni più specifiche, ad esempio informazioni sulle risorse nel set di scalabilità.
 
-In questo comando sostituire *resource group name* con il nome del gruppo di risorse che include il set di scalabilità di macchine virtuali e *scale set name* con il nome del set di scalabilità, quindi eseguire il comando:
+Sostituire i valori tra virgolette con il nome del gruppo di risorse e il set di scalabilità, quindi eseguire il comando:
 
     Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
 
@@ -87,11 +91,11 @@ Verrà visualizzata una schermata simile alla seguente:
         Settings                                : {"xmlCfg":"...","storageAccount":"astore"}
     ProvisioningState                           : Succeeded
 
-In questo comando sostituire *resource group name* con il nome del gruppo di risorse che include il set di scalabilità di macchine virtuali, *scale set name* con il nome del set di scalabilità di macchine virtuali e *#* con l'ID dell'istanza della macchina virtuale di cui si vogliono ottenere informazioni, quindi eseguire il comando:
+Sostituire i valori tra virgolette con il nome del gruppo di risorse e il set di scalabilità. Sostituire *#* con l'identificatore dell'istanza della macchina virtuale di cui si desidera ottenere informazioni, quindi eseguirlo:
 
     Get-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
-Verrà visualizzata una schermata simile alla seguente:
+Verrà visualizzata una schermata simile a all'esempio seguente:
 
     Id                            : /subscriptions/{sub-id}/resourceGroups/myrg1/providers/Microsoft.Compute/
                                     virtualMachineScaleSets/myvmss1/virtualMachines/0
@@ -140,8 +144,8 @@ Verrà visualizzata una schermata simile alla seguente:
       Settings                    : {"xmlCfg":"...","storageAccount":"astore"}
       ProvisioningState           : Succeeded
 
-## Avviare una macchina virtuale in un set di scalabilità
-In questo comando sostituire *resource group name* con il nome del gruppo di risorse che include il set di scalabilità di macchine virtuali, *scale set name* con il nome del set di scalabilità, sostituire *#* con l'ID della macchina virtuale che si vuole avviare, quindi eseguire il comando:
+## <a name="start-a-virtual-machine-in-a-scale-set"></a>Avviare una macchina virtuale in un set di scalabilità
+Sostituire i valori tra virgolette con il nome del gruppo di risorse e il set di scalabilità. Sostituire *#* con l'identificatore della macchina virtuale che si desidera avviare, quindi eseguirlo:
 
     Start-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
@@ -161,10 +165,10 @@ In Esplora risorse è possibile vedere che lo stato dell'istanza è **running**:
       }
     ]
 
-Per avviare tutte le macchine virtuali nel set, non usare il parametro - InstanceId.
+È possibile avviare tutte le macchine virtuali nel set di scalabilità senza usare il parametro - InstanceId.
 
-## Arrestare una macchina virtuale in un set di scalabilità
-In questo comando sostituire *resource group name* con il nome del gruppo di risorse che include il set di scalabilità di macchine virtuali, *scale set name* con il nome del set di scalabilità, sostituire *#* con l'ID della macchina virtuale che si vuole arrestare, quindi eseguire il comando:
+## <a name="stop-a-virtual-machine-in-a-scale-set"></a>Arrestare una macchina virtuale in un set di scalabilità
+Sostituire i valori tra virgolette con il nome del gruppo di risorse e il set di scalabilità. Sostituire *#* con l'identificatore della macchina virtuale che si desidera arrestare, quindi eseguirlo:
 
     Stop-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
@@ -184,20 +188,32 @@ In Esplora risorse è possibile vedere che lo stato dell'istanza è **deallocate
       }
     ]
 
-Per arrestare una macchina virtuale e non deallocarla, usare il parametro -StayProvisioned. Per arrestare tutte le macchine virtuali nel set, non usare il parametro - InstanceId.
+Per arrestare una macchina virtuale e non deallocarla, usare il parametro -StayProvisioned. È possibile arrestare tutte le macchine virtuali nel set senza usare il parametro - InstanceId.
 
-## Riavviare una macchina virtuale in un set di scalabilità
-In questo comando sostituire *resource group name* con il nome del gruppo di risorse che include il set di scalabilità di macchine virtuali, *scale set name* con il nome del set di scalabilità, sostituire *#* con l'ID della macchina virtuale che si vuole riavviare, quindi eseguire il comando:
+## <a name="restart-a-virtual-machine-in-a-scale-set"></a>Riavviare una macchina virtuale in un set di scalabilità
+Sostituire i valori tra virgolette con il nome del gruppo di risorse e il set di scalabilità. Sostituire *#* con l'identificatore della macchina virtuale che si desidera riavviare, quindi eseguirlo:
 
     Restart-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
-Per riavviare tutte le macchine virtuali nel set, non usare il parametro - InstanceId.
+È possibile riavviare tutte le macchine virtuali nel set senza usare il parametro - InstanceId.
 
-## Rimuovere una macchina virtuale da un set di scalabilità
-In questo comando sostituire *resource group name* con il nome del gruppo di risorse che include il set di scalabilità di macchine virtuali, *scale set name* con il nome del set di scalabilità, sostituire *#* con l'ID della macchina virtuale che si vuole rimuovere dal set di scalabilità, quindi eseguire il comando:
+## <a name="remove-a-virtual-machine-from-a-scale-set"></a>Rimuovere una macchina virtuale da un set di scalabilità
+Sostituire i valori tra virgolette con il nome del gruppo di risorse e il set di scalabilità. Sostituire *#* con l'identificatore della macchina virtuale che si desidera rimuovere, quindi eseguirlo:  
 
     Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name" -InstanceId #
 
 Per rimuovere il set di scalabilità di macchine virtuali tutto in una volta, non usare il parametro - InstanceId.
 
-<!---HONumber=AcomDC_0720_2016-->
+## <a name="change-the-capacity-of-a-scale-set"></a>Modificare la capacità di un set di scalabilità
+È possibile aggiungere o rimuovere le macchine virtuali modificando la capacità del set. Ottenere il set di scalabilità che si desidera modificare, impostare il valore di capacità desiderato, quindi aggiornare il set di scalabilità con la nuova capacità. Nei comandi riportati sotto, sostituire i valori tra virgolette con il nome del gruppo di risorse e il set di scalabilità.
+
+  $vmss = Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" $vmss.sku.capacity = 5 Update-AzureRmVmss -ResourceGroupName "resource group name" -Name "scale set name" -VirtualMachineScaleSet $vmss 
+
+Se si rimuovono le macchine virtuali dal set di scalabilità, per prime verranno rimosse le macchine virtuali con gli ID più elevati.
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

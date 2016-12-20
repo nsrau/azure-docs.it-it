@@ -1,12 +1,12 @@
 ---
-title: Gestire server e insiemi di credenziali di Backup di Azure con il modello di distribuzione classica | Microsoft Docs
+title: Gestire i server e gli insiemi di credenziali di Backup di Azure con il modello di distribuzione classica di Azure | Microsoft Docs
 description: Utilizzare questa esercitazione per imparare a gestire server e insieme di credenziali di Backup di Azure.
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: markgalioto
 manager: jwhit
 editor: tysonn
-
+ms.assetid: f175eb12-0905-437f-91fd-eaee03ab6e81
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: jimpark;markgal
+translationtype: Human Translation
+ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
+ms.openlocfilehash: ee95dd7f96adcb2a271f3bddf56a4b6c85c4afd5
+
 
 ---
 # <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>Gestire server e insiemi di credenziali di Backup di Azure con il modello di distribuzione classica
@@ -26,8 +30,6 @@ ms.author: jimpark;markgal
 In questo articolo è disponibile una panoramica delle attività di gestione dei backup disponibili tramite il portale di Azure classico e l'agente di Backup di Microsoft Azure.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Modello di distribuzione di Gestione risorse
 
 ## <a name="management-portal-tasks"></a>Attività del portale di gestione
 1. Accedere al [portale di gestione](https://manage.windowsazure.com).
@@ -190,6 +192,9 @@ Per abilitare la limitazione della larghezza di banda della rete:
 * Per altre informazioni sul servizio Backup di Azure, vedere [Panoramica di Backup di Azure](backup-introduction-to-azure-backup.md)
 * Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,25 +1,29 @@
 ---
-title: Servizi collegati di calcolo | Microsoft Docs
-description: Informazioni sugli ambienti di calcolo che è possibile utilizzare nelle pipeline di Data Factory di Azure per trasformare/elaborare i dati..
+title: Servizi collegati di calcolo | Documentazione Microsoft
+description: "Informazioni sugli ambienti di calcolo che è possibile utilizzare nelle pipeline di Data Factory di Azure per trasformare/elaborare i dati.."
 services: data-factory
-documentationcenter: ''
-author: spelluru
+documentationcenter: 
+author: sharonlo101
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 6877a7e8-1a58-4cfb-bbd3-252ac72e4145
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2016
-ms.author: spelluru
+ms.author: shlo
+translationtype: Human Translation
+ms.sourcegitcommit: 357e149121d4cd9b56dd17e7a7429b11e4f192db
+ms.openlocfilehash: f30e31a11ee08601b1c1d8db84031c8db5a15a71
+
 
 ---
-# Servizi collegati di calcolo
+# <a name="compute-linked-services"></a>Servizi collegati di calcolo
 Questo articolo spiega i diversi ambienti di calcolo che è possibile utilizzare per elaborare o una trasformare dati. Fornisce inoltre informazioni dettagliate sulle diverse configurazioni (on-demand e bring your own) supportate da Data Factory durante la configurazione di servizi collegati che collegano questi ambienti a una data factory di Azure.
 
-La seguente tabella presenta un elenco degli ambienti di calcolo supportati da Data Factory e le attività eseguibili in tali ambienti.
+La seguente tabella presenta un elenco degli ambienti di calcolo supportati da Data Factory e le attività eseguibili in tali ambienti. 
 
 | Ambiente di calcolo | attività |
 | --- | --- |
@@ -29,7 +33,7 @@ La seguente tabella presenta un elenco degli ambienti di calcolo supportati da D
 | [Azure Data Lake Analytics.](#azure-data-lake-analytics-linked-service) |[Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) |[Stored procedure](data-factory-stored-proc-activity.md) |
 
-## Ambiente di calcolo “on-demand”
+## <a name="on-demand-compute-environment"></a>Ambiente di calcolo “on-demand”
 In questo tipo di configurazione, l'ambiente informatico è completamente gestito dal servizio Azure Data Factory. Viene automaticamente creato dal servizio Data Factory prima che un processo venga inviato per l’elaborazione dati e rimosso quando il processo viene completato. Gli utenti possono configurare e controllare le impostazioni granulari dell'ambiente di elaborazione su richiesta per l'esecuzione del processo, la gestione del cluster e azioni di avvio automatico.
 
 > [!NOTE]
@@ -37,22 +41,22 @@ In questo tipo di configurazione, l'ambiente informatico è completamente gestit
 > 
 > 
 
-## Servizio collegato Azure HDInsight su richiesta
+## <a name="azure-hdinsight-on-demand-linked-service"></a>Servizio collegato Azure HDInsight su richiesta
 Il servizio Data factory di Azure può creare automaticamente un cluster HDInsight su richiesta basato su Windows o Linux per elaborare i dati. La creazione del cluster avviene nella stessa area dell'account di archiviazione (proprietà linkedServiceName in JSON) associato al cluster.
 
-Tenere presente i seguenti punti **importanti**sul servizio collegato HDInsight su richiesta:
+Tenere presente i seguenti punti **importanti** sul servizio collegato HDInsight su richiesta:
 
 * Non viene visualizzato il cluster HDInsight su richiesta creato nella sottoscrizione di Azure. Il servizio Azure Data Factory gestisce il cluster HDInsight su richiesta per conto dell'utente.
-* I registri per i processi eseguiti su un cluster HDInsight su richiesta vengono copiati nell'account di archiviazione associato al cluster HDInsight. È possibile accedere a questi log dal portale di Azure nel pannello **Dettagli di esecuzione di attività**. Per informazioni dettagliate, vedere l'articolo [Monitoraggio e gestione delle pipeline](data-factory-monitor-manage-pipelines.md).
+* I registri per i processi eseguiti su un cluster HDInsight su richiesta vengono copiati nell'account di archiviazione associato al cluster HDInsight. È possibile accedere a questi log dal portale di Azure nel pannello **Dettagli di esecuzione di attività** . Per informazioni dettagliate, vedere l'articolo [Monitoraggio e gestione delle pipeline](data-factory-monitor-manage-pipelines.md) .
 * Viene addebitato solo il tempo in cui il cluster HDInsight è attivo e i processi in esecuzione.
 
 > [!IMPORTANT]
-> Richiede in genere più di**15 minuti**per il provisioning di un cluster HDInsight di Azure su richiesta.
+> Richiede in genere più di **15 minuti** per il provisioning di un cluster HDInsight di Azure su richiesta.
 > 
 > 
 
-### Esempio
-Il codice JSON seguente definisce un servizio collegato HDInsight su richiesta basato su Linux. Il servizio Data factory crea automaticamente un cluster HDInsight **basato su Linux** durante l'elaborazione di una sezione di dati.
+### <a name="example"></a>Esempio
+Il codice JSON seguente definisce un servizio collegato HDInsight su richiesta basato su Linux. Il servizio Data factory crea automaticamente un cluster HDInsight **basato su Linux** durante l'elaborazione di una sezione di dati. 
 
     {
         "name": "HDInsightOnDemandLinkedService",
@@ -67,34 +71,34 @@ Il codice JSON seguente definisce un servizio collegato HDInsight su richiesta b
         }
     }
 
-Per usare un cluster HDInsight basato su Windows, impostare **osType** su **windows** oppure evitare di usare la proprietà dato che il valore predefinito è windows.
+Per usare un cluster HDInsight basato su Windows, impostare **osType** su **windows** oppure evitare di usare la proprietà dato che il valore predefinito è windows.  
 
 > [!IMPORTANT]
-> Il cluster HDInsight crea un **contenitore predefinito** nell'archiviazione BLOB specificata nel file JSON (**linkedServiceName**). HDInsight non elimina il contenitore quando viene eliminato il cluster. Questo comportamento dipende dalla progettazione. Con il servizio collegato HDInsight su richiesta, viene creato un cluster HDInsight ogni volta che è necessario elaborare una sezione, a meno che non esista un cluster attivo (**timeToLive**) che viene eliminato al termine dell'elaborazione.
+> Il cluster HDInsight crea un **contenitore predefinito** nell'archivio BLOB specificato nel file JSON (**linkedServiceName**). HDInsight non elimina il contenitore quando viene eliminato il cluster. Questo comportamento dipende dalla progettazione. Con il servizio collegato HDInsight su richiesta, viene creato un cluster HDInsight ogni volta che è necessario elaborare una sezione, a meno che non esista un cluster attivo (**timeToLive**) che viene eliminato al termine dell'elaborazione. 
 > 
-> Man mano che vengono elaborate più sezioni, vengono visualizzati molti contenitori nell'archivio BLOB di Azure. Se non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. I nomi dei contenitori seguono questo schema: "adf**nomedatafactory**-**nomeserviziocollegato**-datetimestamp". Per eliminare i contenitori nell'archivio BLOB di Azure, usare strumenti come [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+> Man mano che vengono elaborate più sezioni, vengono visualizzati numerosi contenitori nell'archivio BLOB di Azure. Se non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. I nomi dei contenitori seguono questo schema: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Per eliminare i contenitori nell'archivio BLOB di Azure, usare strumenti come [Microsoft Azure Storage Explorer](http://storageexplorer.com/) .
 > 
 > 
 
-### Proprietà
+### <a name="properties"></a>Proprietà
 | Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | type |La proprietà type deve essere impostata su **HDInsightOnDemand**. |Sì |
-| clusterSize |Numero di nodi del ruolo di lavoro/nodi dati nel cluster. Il cluster HDInsight viene creato con 2 nodi head e il numero di nodi del ruolo di lavoro specificato per questa proprietà. I nodi sono di dimensione Standard\_D3, con 4 core, quindi un cluster di 4 nodi del ruolo di lavoro avrà 24 core, ossia 4*4 per nodi del ruolo di lavoro + 2*4 per nodi head. Vedere [Creare cluster Hadoop basati su Linux in HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) per i dettagli sul livello Standard\_D3. |Sì |
-| timetolive |Il tempo di inattività consentito per il cluster HDInsight su richiesta. Specifica per quanto tempo il cluster HDInsight su richiesta rimane attivo dopo il completamento di un'attività eseguita se non sono presenti altri processi attivi del cluster.<br/><br/>Ad esempio, se un'esecuzione di attività accetta 6 minuti e timetolive è impostato su 5 minuti, il cluster rimane attivo per altri 5 minuti dopo i 6 minuti di elaborazione dell'attività. Se un'altra attività viene eseguita entro i 6 minuti consentiti, verrà elaborata dal cluster stesso.<br/><br/>La creazione di un cluster HDInsight su richiesta è un'operazione costosa (potrebbe richiedere alcuni minuti), quindi utilizzare questa impostazione per migliorare le prestazioni di una data factory riutilizzando un cluster HDInsight su richiesta.<br/><br/>Se si imposta il valore della proprietà timetolive su 0, il cluster viene eliminato non appena l'attività in elaborazione termina. D'altra parte, se si imposta un valore elevato, il cluster può rimanere inattivo inutilmente causando costi elevati. È quindi importante impostare il valore appropriato in base alle esigenze.<br/><br/>Più pipeline possono condividere la stessa istanza del cluster HDInsight su richiesta se il valore della proprietà timetolive è impostato in modo appropriato. |Sì |
+| clusterSize |Numero di nodi del ruolo di lavoro/nodi dati nel cluster. Il cluster HDInsight viene creato con 2 nodi head e il numero di nodi del ruolo di lavoro specificato per questa proprietà. I nodi sono di dimensione Standard_D3, con 4 core, quindi un cluster di 4 nodi del ruolo di lavoro ha 24 core, ossia 4*4 per i nodi del ruolo di lavoro + 2*4 per i nodi head. Vedere [Creare cluster Hadoop basati su Linux in HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) per i dettagli sul livello Standard_D3. |Sì |
+| timeToLive |Il tempo di inattività consentito per il cluster HDInsight su richiesta. Specifica per quanto tempo il cluster HDInsight su richiesta rimane attivo dopo il completamento di un'attività eseguita se non sono presenti altri processi attivi del cluster.<br/><br/>Ad esempio, se un'esecuzione di attività accetta 6 minuti e timetolive è impostato su 5 minuti, il cluster rimane attivo per altri 5 minuti dopo i 6 minuti di elaborazione dell'attività. Se un'altra attività viene eseguita entro i 6 minuti consentiti, verrà elaborata dal cluster stesso.<br/><br/>Poiché la creazione di un cluster HDInsight su richiesta è un'operazione che usa un numero elevato di risorse e potrebbe richiedere alcuni minuti, usare questa impostazione a seconda delle necessità per migliorare le prestazioni di una data factory riutilizzando un cluster HDInsight su richiesta.<br/><br/>Se si imposta il valore della proprietà timetolive su 0, il cluster viene eliminato non appena l'attività in elaborazione termina. D'altra parte, se si imposta un valore elevato, il cluster può rimanere inattivo inutilmente causando costi elevati. È quindi importante impostare il valore appropriato in base alle esigenze.<br/><br/>Più pipeline possono condividere la stessa istanza del cluster HDInsight su richiesta se il valore della proprietà timetolive è impostato in modo appropriato. |Sì |
 | version |Versione del cluster HDInsight Il valore predefinito è 3.1 per cluster Windows e 3.2 per cluster Linux. |No |
 | linkedServiceName |Servizio collegato Archiviazione di Azure che il cluster su richiesta deve usare per l'archiviazione e l'elaborazione dei dati. |Sì |
 | additionalLinkedServiceNames |Specifica account di archiviazione aggiuntivi per il servizio collegato HDInsight in modo che il servizio Data Factory possa registrarli per conto dell'utente. |No |
 | osType |Tipo di sistema operativo. I valori consentiti sono: Windows (impostazione predefinita) e Linux |No |
-| hcatalogLinkedServiceName |Il nome del servizio collegato di Azure SQL che fa riferimento al database HCatalog. Verrà creato il cluster HDInsight su richiesta utilizzando il database SQL di Azure come metastore. |No |
+| hcatalogLinkedServiceName |Il nome del servizio collegato di Azure SQL che fa riferimento al database HCatalog. Viene creato il cluster HDInsight su richiesta usando il database SQL di Azure come metastore. |No |
 
-#### Esempio di codice JSON additionalLinkedServiceNames
+#### <a name="additionallinkedservicenames-json-example"></a>Esempio di codice JSON additionalLinkedServiceNames
     "additionalLinkedServiceNames": [
         "otherLinkedServiceName1",
         "otherLinkedServiceName2"
       ]
 
-### Advanced Properties
+### <a name="advanced-properties"></a>Advanced Properties
 È inoltre possibile specificare le seguenti proprietà per la configurazione granulare del cluster HDInsight su richiesta.
 
 | Proprietà | Descrizione | Obbligatorio |
@@ -108,7 +112,7 @@ Per usare un cluster HDInsight basato su Windows, impostare **osType** su **wind
 | stormConfiguration |Specifica i parametri di configurazione Storm (storm-site.xml) per il cluster HDInsight. |No |
 | yarnConfiguration |Specifica i parametri di configurazione Yarn (yarn-site.xml) per il cluster HDInsight. |No |
 
-#### Esempio: configurazione del cluster HDInsight su richiesta con le proprietà avanzate
+#### <a name="example-on-demand-hdinsight-cluster-configuration-with-advanced-properties"></a>Esempio: configurazione del cluster HDInsight su richiesta con le proprietà avanzate
     {
       "name": " HDInsightOnDemandLinkedService",
       "properties": {
@@ -142,26 +146,26 @@ Per usare un cluster HDInsight basato su Windows, impostare **osType** su **wind
       }
     }
 
-### Dimensioni dei nodi
-È possibile specificare le dimensioni di head, dei dati e dei nodi zookeeper usando le seguenti proprietà.
+### <a name="node-sizes"></a>Dimensioni dei nodi
+È possibile specificare le dimensioni dei nodi head, di dati e zookeeper usando le proprietà seguenti: 
 
 | Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| headNodeSize |Specifica le dimensioni del nodo head Il valore predefinito è Standard\_D3. Vedere la sezione **Specificare le dimensioni dei nodi** illustrata di seguito per informazioni dettagliate. |No |
-| dataNodeSize |Specifica le dimensioni del nodo dei dati. Il valore predefinito è Standard\_D3. |No |
-| zookeeperNodeSize |Specifica le dimensioni del nodo Zookeeper. Il valore predefinito è Standard\_D3. |No |
+| headNodeSize |Specifica le dimensioni del nodo head Il valore predefinito è Standard_D3. Vedere più avanti la sezione **Specificare le dimensioni dei nodi** per informazioni dettagliate. |No |
+| dataNodeSize |Specifica le dimensioni del nodo dei dati. Il valore predefinito è Standard_D3. |No |
+| zookeeperNodeSize |Specifica le dimensioni del nodo Zookeeper. Il valore predefinito è Standard_D3. |No |
 
-#### Specificare le dimensioni dei nodi
-Vedere l’articolo [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) per i valori della stringa che è necessario specificare per le proprietà precedenti. I valori devono essere conformi ai **CMDLET e API** a cui si fa riferimento nell'articolo. Come si vede nell'articolo, il nodo dei dati di grandi dimensioni (per impostazione predefinita) ha 7 GB di memoria, il che potrebbe non andare abbastanza bene per il proprio scenario.
+#### <a name="specifying-node-sizes"></a>Specificare le dimensioni dei nodi
+Vedere l'articolo [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-linux-sizes.md#size-tables?toc=%2fazure%2fdata-factory%2ftoc.json) per i valori della stringa che è necessario specificare per le proprietà precedenti. I valori devono essere conformi a **CMDLET e API** a cui si fa riferimento nell'articolo. Come si vede nell'articolo, il nodo dei dati di grandi dimensioni (per impostazione predefinita) ha 7 GB di memoria, il che potrebbe non andare abbastanza bene per il proprio scenario. 
 
-Se si desidera creare nodi head e nodi del ruolo di lavoro di dimensioni D4, è necessario specificare **Standard\_D4** come valore per le proprietà headNodeSize e dataNodeSize.
+Per creare nodi head e nodi del ruolo di lavoro di dimensioni D4, è necessario specificare **Standard_D4** come valore per le proprietà headNodeSize e dataNodeSize. 
 
     "headNodeSize": "Standard_D4",    
     "dataNodeSize": "Standard_D4",
 
-Se si specifica un valore errato per queste proprietà, potrebbe essere visualizzato il seguente **errore:** impossibile creare il cluster. Eccezione: impossibile completare l'operazione di creazione del cluster. L'operazione non è riuscita con codice '400'. Nello stato del cluster è apparso il messaggio 'Errore'. Messaggio: ’PreClusterCreationValidationFailure’. Quando si riceve questo errore, assicurarsi che si stia utilizzando il nome **CMDLET e API** dalla tabella presente nell'articolo precedente.
+Se si specifica un valore errato per queste proprietà, può essere visualizzato il seguente **errore:** impossibile creare il cluster. Eccezione: impossibile completare l'operazione di creazione del cluster. L'operazione non è riuscita con codice '400'. Nello stato del cluster è apparso il messaggio 'Errore'. Messaggio: ’PreClusterCreationValidationFailure’. Quando si riceve questo errore, assicurarsi di usare il nome di **CMDLET e API** della tabella dell'articolo indicato prima.  
 
-## Ambiente di calcolo “bring your own”
+## <a name="bring-your-own-compute-environment"></a>Ambiente di calcolo “bring your own”
 In questo tipo di configurazione, gli utenti possono registrare un ambiente informatico già esistente come servizio collegato in Data Factory. L'ambiente di elaborazione viene gestito dall'utente e il servizio Data Factory viene utilizzato per eseguire le attività.
 
 Questo tipo di configurazione è supportato per gli ambienti di calcolo seguenti:
@@ -170,10 +174,10 @@ Questo tipo di configurazione è supportato per gli ambienti di calcolo seguenti
 * Azure Batch
 * Azure Machine Learning
 
-## Servizio collegato Azure HDInsight
+## <a name="azure-hdinsight-linked-service"></a>Servizio collegato Azure HDInsight
 È possibile creare un servizio collegato Azure HDInsight per registrare il proprio cluster HDInsight con Data Factory.
 
-### Esempio
+### <a name="example"></a>Esempio
     {
       "name": "HDInsightLinkedService",
       "properties": {
@@ -187,7 +191,7 @@ Questo tipo di configurazione è supportato per gli ambienti di calcolo seguenti
       }
     }
 
-### Proprietà
+### <a name="properties"></a>Proprietà
 | Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | type |La proprietà type deve essere impostata su **HDInsight**. |Sì |
@@ -196,16 +200,16 @@ Questo tipo di configurazione è supportato per gli ambienti di calcolo seguenti
 | password |Specifica la password per l'account utente. |Sì |
 | linkedServiceName |Nome del servizio collegato per l'archiviazione di BLOB utilizzato da questo cluster HDInsight. |Sì |
 
-## Servizio collegato Azure Batch
+## <a name="azure-batch-linked-service"></a>Servizio collegato Azure Batch
 È possibile creare un servizio collegato di Azure Batch per registrare un pool di Batch di macchine virtuali (VM) a una data factory. È possibile eseguire le attività .NET personalizzate utilizzando Batch Azure o Azure HDInsight.
 
 Vedere i seguenti argomenti se non si ha familiarità con il servizio di Azure Batch:
 
 * [Nozioni di base di Azure Batch](../batch/batch-technical-overview.md) per una panoramica del servizio Azure Batch.
-* Cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) per creare un account Azure Batch oppure [portale di Azure](../batch/batch-account-create-portal.md)per creare l'account Azure Batch usando il portale di Azure. Per istruzioni dettagliate sull'utilizzo del cmdlet, consultare [Utilizzo di Azure PowerShell per gestire l'account di Azure Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
-* Cmdlet [New AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) per creare un pool di Batch di Azure.
+* Cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) per creare un account Azure Batch oppure [portale di Azure](../batch/batch-account-create-portal.md) per creare l'account Azure Batch usando il portale di Azure. Per istruzioni dettagliate sull'utilizzo del cmdlet, consultare [Utilizzo di Azure PowerShell per gestire l'account di Azure Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) .
+* [New AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) per creare un pool di Batch di Azure.
 
-### Esempio
+### <a name="example"></a>Esempio
     {
       "name": "AzureBatchLinkedService",
       "properties": {
@@ -219,16 +223,16 @@ Vedere i seguenti argomenti se non si ha familiarità con il servizio di Azure B
       }
     }
 
-Aggiungere "**.<region name**" al nome dell'account di batch per la proprietà **accountName**. Esempio:
+Aggiungere "**.<region name**" al nome dell'account Batch per la proprietà **accountName**. Esempio:
 
             "accountName": "mybatchaccount.eastus"
 
-Un'altra opzione consiste nel fornire l’endpoint batchUri come illustrato di seguito.
+Un'altra opzione consiste nel fornire l’endpoint batchUri come illustrato di seguito.  
 
             "accountName": "adfteam",
             "batchUri": "https://eastus.batch.azure.com",
 
-### Proprietà
+### <a name="properties"></a>Proprietà
 | Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | type |La proprietà type deve essere impostata su **AzureBatch**. |Sì |
@@ -237,10 +241,10 @@ Un'altra opzione consiste nel fornire l’endpoint batchUri come illustrato di s
 | poolName |Nome del pool di macchine virtuali. |Sì |
 | linkedServiceName |Nome dello spazio di archiviazione del servizio collegato Azure associato al servizio collegato Azure Batch. Questo servizio collegato viene utilizzato per organizzare i file necessari per eseguire l'attività e archiviare i log di esecuzione dell’attività. |Sì |
 
-## Servizio collegato di Azure Machine Learning
+## <a name="azure-machine-learning-linked-service"></a>Servizio collegato di Azure Machine Learning
 Si crea un servizio collegato di Azure Machine Learning per registrare un endpoint di punteggio batch Machine Learning a una data factory.
 
-### Esempio
+### <a name="example"></a>Esempio
     {
       "name": "AzureMLLinkedService",
       "properties": {
@@ -252,15 +256,15 @@ Si crea un servizio collegato di Azure Machine Learning per registrare un endpoi
       }
     }
 
-### Proprietà
+### <a name="properties"></a>Proprietà
 | Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
-| Tipo |La proprietà type deve essere impostata su **AzureML**. |Sì |
+| type |La proprietà type deve essere impostata su **AzureML**. |Sì |
 | mlEndpoint |L’URL del batch punteggio. |Sì |
 | apiKey |Modello dell'area di lavoro pubblicato di API. |Sì |
 
-## Servizio collegato di Azure Data Lake Analytics
-Creare un servizio collegato di **Azure Data Lake Analytics** per collegare un servizio di calcolo di Azure Data Lake Analytics a una Data factory di Azure prima di usare l'[attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) in una pipeline.
+## <a name="azure-data-lake-analytics-linked-service"></a>Servizio collegato di Azure Data Lake Analytics
+Creare un servizio collegato di **Azure Data Lake Analytics** per collegare un servizio di calcolo di Azure Data Lake Analytics a una Data factory di Azure prima di usare l' [attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) in una pipeline.
 
 Nell'esempio seguente viene fornita la definizione JSON per un servizio collegato di Azure Data Lake Analytics.
 
@@ -292,17 +296,17 @@ La tabella seguente fornisce le descrizioni delle proprietà usate nella definiz
 | resourceGroupName |Nome del gruppo di risorse di Azure |No (se non specificata, viene usato il gruppo di risorse di Data Factory). |
 | sessionId |ID di sessione dalla sessione di autorizzazione OAuth. Ogni ID di sessione è univoco e può essere usato solo una volta. Questo valore viene generato automaticamente nell'editor di Data factory. |Sì |
 
-Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Per le scadenze dei diversi tipi di account utente, vedere la tabella seguente. Alla **scadenza del token** di autenticazione potrebbe essere visualizzato il messaggio di errore seguente: Errore dell'operazione relativa alle credenziali: invalid\_grant - AADSTS70002: Errore di convalida delle credenziali. AADSTS70008: La concessione dell'accesso specificata è scaduta o è stata revocata. ID traccia: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID correlazione: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z.
+Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Per le scadenze dei diversi tipi di account utente, vedere la tabella seguente. Alla **scadenza del token** di autenticazione potrebbe essere visualizzato un messaggio di errore simile al seguente: Errore dell'operazione relativa alle credenziali: invalid_grant - AADSTS70002: Errore di convalida delle credenziali. AADSTS70008: La concessione dell'accesso specificata è scaduta o è stata revocata. ID traccia: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID correlazione: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z.
 
 | Tipo di utente | Scade dopo |
 |:--- |:--- |
-| Account utente NON gestiti da Azure Active Directory (@hotmail.com, @live.com, ecc.) |12 ore |
+| Account utente NON gestiti da Azure Active Directory ((@hotmail.com,, @live.com, e così via). |12 ore |
 | Account utente gestiti da Azure Active Directory (AAD) |14 giorni dopo l'esecuzione dell'ultima sezione. <br/><br/>90 giorni, se viene eseguita una sezione basata sul servizio collegato OAuth almeno una volta ogni 14 giorni. |
 
-Per evitare/risolvere questo problema, alla **scadenza del token** è necessario ripetere l'autorizzazione con il pulsante **Autorizza** e ridistribuire il servizio collegato. È anche possibile generare valori per le proprietà sessionId e authorization a livello di codice usando il codice riportato nella sezione seguente.
+Per evitare/risolvere questo problema, alla **scadenza del token** è necessario ripetere l'autorizzazione con il pulsante **Autorizza** e ridistribuire il servizio collegato. È anche possibile generare valori per le proprietà sessionId e authorization a livello di codice usando il codice riportato nella sezione seguente. 
 
-### Per generare valori sessionId e authorization a livello di codice
-Il codice seguente genera valori **sessionId** e **authorization**.
+### <a name="to-programmatically-generate-sessionid-and-authorization-values"></a>Per generare valori sessionId e authorization a livello di codice
+Il codice seguente genera valori **sessionId** e **authorization**.  
 
     if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
         linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
@@ -327,15 +331,20 @@ Il codice seguente genera valori **sessionId** e **authorization**.
         }
     }
 
-Per informazioni dettagliate sulle classi di Data Factory usate nel codice, vedere gli argomenti [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). È necessario aggiungere un riferimento a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll per la classe WindowsFormsWebAuthenticationDialog.
+Per informazioni dettagliate sulle classi di Data Factory usate nel codice, vedere gli argomenti [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). È necessario aggiungere un riferimento a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll per la classe WindowsFormsWebAuthenticationDialog. 
 
-## Servizio collegato di Azure SQL
-Si crea un servizio collegato di Azure SQL e lo si utilizza con l’[Attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una procedura stored da una pipeline Data Factory. Vedere l’articolo [Connettore di Azure SQL](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) per informazioni dettagliate su questo servizio collegato.
+## <a name="azure-sql-linked-service"></a>Servizio collegato di Azure SQL
+Si crea un servizio collegato di Azure SQL e lo si utilizza con l’ [Attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una procedura stored da una pipeline Data Factory. Vedere l’articolo [Connettore di Azure SQL](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) per informazioni dettagliate su questo servizio collegato.
 
-## Servizio collegato di Azure SQL Data Warehouse
-Si crea un servizio collegato di Azure SQL Data Warehouse e lo si usa con l'[attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una stored procedure da una pipeline Data Factory. Vedere l'articolo [Proprietà del servizio collegato di Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#azure-sql-data-warehouse-linked-service-properties) per informazioni dettagliate su questo servizio collegato.
+## <a name="azure-sql-data-warehouse-linked-service"></a>Servizio collegato di Azure SQL Data Warehouse
+Si crea un servizio collegato di Azure SQL Data Warehouse e lo si usa con l' [attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una stored procedure da una pipeline Data Factory. Vedere l'articolo [Proprietà del servizio collegato di Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) per informazioni dettagliate su questo servizio collegato.
 
-## Servizio collegato di SQL Server
-Si crea un servizio collegato di SQL Server e lo si usa con l'[attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una stored procedure da una pipeline Data Factory. Vedere l'articolo [Proprietà del servizio collegato SQL Server](data-factory-sqlserver-connector.md#sql-server-linked-service-properties) per informazioni dettagliate su questo servizio collegato.
+## <a name="sql-server-linked-service"></a>Servizio collegato di SQL Server
+Si crea un servizio collegato di SQL Server e lo si usa con l' [attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una stored procedure da una pipeline Data Factory. Vedere l'articolo [Proprietà del servizio collegato SQL Server](data-factory-sqlserver-connector.md#sql-server-linked-service-properties) per informazioni dettagliate su questo servizio collegato.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

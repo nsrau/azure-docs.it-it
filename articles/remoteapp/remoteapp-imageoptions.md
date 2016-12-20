@@ -1,23 +1,27 @@
 ---
-title: Creare un'immagine di Azure RemoteApp | Microsoft Docs
+title: Creare un&quot;immagine di Azure RemoteApp | Microsoft Docs
 description: Informazioni sulle opzioni disponibili per la creazione di immagini per Azure RemoteApp
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: cb0f9424-6185-45a1-abe9-c23f1edf34f2
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 12f27315348040ac897c1ff286b54d38e9950c7d
+
 
 ---
-# Creare un'immagine di Azure RemoteApp
+# <a name="create-an-azure-remoteapp-image"></a>Creare un'immagine di Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -27,10 +31,15 @@ Per creare o usare le immagini sono disponibili diverse opzioni. Il [requisito](
 
 Per le immagini sono disponibili le opzioni seguenti:
 
-* È possibile importare e usare un'[immagine basata su una macchina virtuale di Azure](remoteapp-image-on-azurevm.md). Questa opzione è utile per le applicazioni line-of-business che richiedono impostazioni personalizzate. È possibile personalizzare l'immagine per il funzionamento con l'applicazione.
+* È possibile importare e usare un' [immagine basata su una macchina virtuale di Azure](remoteapp-image-on-azurevm.md). Questa opzione è utile per le applicazioni line-of-business che richiedono impostazioni personalizzate. È possibile personalizzare l'immagine per il funzionamento con l'applicazione.
 * È possibile [creare e caricare un'immagine personalizzata](remoteapp-create-custom-image.md). Questa opzione è utile se si ha già un'immagine usata per la distribuzione locale di Servizi Desktop remoto.
 * È possibile usare una delle [immagini modello](remoteapp-images.md) incluse nella sottoscrizione di RemoteApp. Queste immagini vengono create e gestite dal team di RemoteApp e contengono alcune applicazioni standard (come le applicazioni Office) che è possibile rendere disponibili agli utenti. Si noti che in un ambiente di produzione è possibile usare solo l'immagine di Office 365 Pro Plus.
 
 Indipendentemente da dove si ottiene l'immagine o da come la si crea, è opportuno verificare di avere compreso i [requisiti per le app](remoteapp-appreqs.md) per garantire il corretto funzionamento dell'app in RemoteApp. Il passaggio successivo consiste nel creare una raccolta [nel cloud](remoteapp-create-cloud-deployment.md) o [ibrida](remoteapp-create-hybrid-deployment.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

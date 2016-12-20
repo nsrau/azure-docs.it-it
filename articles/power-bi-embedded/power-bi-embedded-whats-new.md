@@ -1,13 +1,13 @@
 ---
-title: Novità di Power BI Embedded
-description: Informazioni più recenti sulle novità di Power BI Embedded
+title: "Novità di Power BI Embedded"
+description: "Informazioni più recenti sulle novità di Power BI Embedded"
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 2794ae98-b9a7-45df-b6e1-962a395b91fa
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,18 +15,22 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 86c4f2b6ab4ff9dfba429acfcfbd0cd2bac7b42c
+
 
 ---
-# <a name="what's-new-in-power-bi-embedded"></a>Novità di Power BI Embedded
+# <a name="whats-new-in-power-bi-embedded"></a>Novità di Power BI Embedded
 Gli aggiornamenti su **Power BI Embedded** vengono rilasciati a intervalli regolari. Non tutte le nuove versioni includono tuttavia nuove funzionalità destinate all'utente, in quanto alcune sono incentrate sulle funzionalità del servizio back-end. In questa pagina vengono evidenziate nuove funzionalità destinate all'utente. È consigliabile controllarla spesso.
 
-## <a name="august-31st,-2016"></a>31 agosto 2016
+## <a name="august-31st-2016"></a>31 agosto 2016
 Contenuti di questa versione:
 
 * Tutti i nuovi SDK JavaScript che supportano [navigazione tra le pagine e filtri avanzati](power-bi-embedded-interact-with-reports.md).
 * Power BI Embedded è ora supportato nel data center del Canada Centrale. Controllare lo [stato del datacenter](https://azure.microsoft.com/status/).
 
-## <a name="july-11th,-2016"></a>11 luglio 2016
+## <a name="july-11th-2016"></a>11 luglio 2016
 Contenuti di questa versione:
 
 * **Novità**  Il servizio Power BI Embedded non è più disponibile in anteprima: è ora disponibile a livello generale.  
@@ -39,6 +43,9 @@ Contenuti di questa versione:
 * Gli utenti possono esportare i dati di visualizzazione in un file con estensione **csv**.
 * Power BI Embedded è ora supportato in tutte le lingue/impostazioni locali di Microsoft Azure. Per altre informazioni, vedere [Microsoft Azure - Extent of Localization](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx)(Microsoft Azure: estensione della localizzazione).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 900967975694a688b6d5054cb351746819b65f16
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8ac37244d1e691a2f075116f3d78b89923cfb845
 
 
 ---
@@ -67,7 +67,7 @@ Quando si crea per la prima volta un insieme di credenziali di Servizi di ripris
 
 1. Fare clic sul nuovo insieme di credenziali per aprire il dashboard.
 2. Nel pannello **Impostazioni**, che viene visualizzato automaticamente con il dashboard dell'insieme di credenziali, fare clic su **Infrastruttura di backup**.
-3. Nel pannello Infrastruttura di backup fare clic su **Configurazione backup** per visualizzare il **Tipo di replica di archiviazione**.
+3. Nel pannello Infrastruttura di backup fare clic su **Configurazione backup** per visualizzare **Tipo di replica di archiviazione**.
    
     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 5](./media/backup-try-azure-backup-in-10-mins/backup-infrastructure.png)
 4. Scegliere l'opzione di replica di archiviazione appropriata per l'insieme di credenziali.
@@ -78,7 +78,7 @@ Quando si crea per la prima volta un insieme di credenziali di Servizi di ripris
 
 Ora che è stato creato un insieme di credenziali, preparare l'infrastruttura per il backup di file e cartelle scaricando l'agente di Servizi di ripristino di Microsoft Azure e le credenziali dell'insieme di credenziali.
 
-## <a name="step-3-download-files"></a>Passaggio 3: Scaricare file
+## <a name="step-3---download-files"></a>Passaggio 3: Scaricare file
 1. Fare clic su **Impostazioni** nel dashboard dell'insieme di credenziali di Servizi di ripristino.
    
     ![Aprire il Pannello Obiettivo di backup](./media/backup-try-azure-backup-in-10-mins/settings-button.png)
@@ -88,21 +88,21 @@ Ora che è stato creato un insieme di credenziali, preparare l'infrastruttura pe
 3. Fare clic su **Obiettivo di backup** nel pannello Backup.
    
     ![Aprire il Pannello Obiettivo di backup](./media/backup-try-azure-backup-in-10-mins/backup-goal.png)
-4. Scegliere **Locale** dal menu Dove è in esecuzione il carico di lavoro?
-5. Scegliere **File e cartelle** dal menu Di che cosa si vuole eseguire il backup? e fare clic su **OK**.
+4. Scegliere **Locale** dal menu Posizione di esecuzione del carico di lavoro.
+5. Scegliere **File e cartelle** dal menu Elementi di cui eseguire il backup, quindi fare clic su **OK**.
 
 ### <a name="download-the-recovery-services-agent"></a>Scaricare l'agente di Servizi di ripristino
-1. Fare clic su **Scarica agente per Windows Server o client Windows** nel pannello **Preparare l'infrastruttura**.
+1. Fare clic su **Scaricare l'agente per Windows Server o Windows Client** nel pannello **Preparare l'infrastruttura**.
    
     ![Preparare l'infrastruttura](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-short.png)
 2. Fare clic su **Salva** nel popup del download. Per impostazione predefinita, il file **MARSagentinstaller.exe** viene salvato nella cartella Downloads.
 
 ### <a name="download-vault-credentials"></a>Scaricare le credenziali dell’insieme di credenziali
-1. Fare clic su **Scarica > Salva** nel pannello Prepara infrastruttura.
+1. Fare clic su **Scarica > Salva** nel pannello Preparare l'infrastruttura.
    
     ![Preparare l'infrastruttura](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-download.png)
 
-## <a name="step-4-install-and-register-the-agent"></a>Passaggio 4: Installare e registrare l'agente
+## <a name="step-4--install-and-register-the-agent"></a>Passaggio 4: Installare e registrare l'agente
 > [!NOTE]
 > L'abilitazione del backup tramite il portale di Azure verrà illustrata tra poco. Ora invece si userà l'agente di Servizi di ripristino di Microsoft Azure in locale per eseguire il backup dei file e delle cartelle.
 > 
@@ -143,7 +143,7 @@ Per completare il backup iniziale, si usa l'agente di Servizi di ripristino di M
 4. Nella pagina Seleziona elementi per backup fare clic su **Aggiungi elementi**.
 5. Selezionare i file e le cartelle di cui si vuole eseguire il backup e fare clic su **OK**.
 6. Fare clic su **Avanti**.
-7. Nella pagina **Specifica la pianificazione del backup** specificare la **pianificazione del backup** e fare clic su **Avanti**.
+7. Nella pagina **Specificare la pianificazione del backup** specificare la **pianificazione del backup** e fare clic su **Avanti**.
    
     È possibile pianificare backup giornalieri, da eseguire non più di tre volte al giorno, o settimanali.
    
@@ -184,6 +184,6 @@ In caso di domande o se si vuole che venga inclusa una funzionalità, è possibi
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

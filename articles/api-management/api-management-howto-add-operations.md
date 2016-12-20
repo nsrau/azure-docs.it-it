@@ -1,40 +1,44 @@
 ---
-title: Come aggiungere operazioni a un'API in Gestione API di Azure | Microsoft Docs
-description: Informazioni su come aggiungere operazioni a un'API in Gestione API di Azure.
+title: Come aggiungere operazioni a un&quot;API in Gestione API di Azure | Microsoft Docs
+description: Informazioni su come aggiungere operazioni a un&quot;API in Gestione API di Azure.
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 1158a023-1913-4e9c-93de-9164b672f9b3
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1bc391f5be5e41c6b6691950241ba5f3abdbf538
+
 
 ---
-# Come aggiungere operazioni a un'API in Gestione API di Azure
+# <a name="how-to-add-operations-to-an-api-in-azure-api-management"></a>Come aggiungere operazioni a un'API in Gestione API di Azure
 Prima di poter usare un'API in Gestione API, è necessario aggiungervi le operazioni. Questa guida descrive come aggiungere e configurare diversi tipi di operazioni a un'API in Gestione API.
 
 ## <a name="add-operation"> </a>Aggiungere un'operazione
-Le operazioni vengono aggiunte e configurate in un'API nel portale di pubblicazione. Per accedere al portale di pubblicazione, fare clic su **Gestisci** nel portale di Azure classico per il servizio Gestione API.
+Le operazioni vengono aggiunte e configurate in un'API nel portale di pubblicazione. Per accedere al portale di pubblicazione, fare clic su **Portale di pubblicazione** nel portale di Azure per il servizio Gestione API.
 
 ![Portale di pubblicazione][api-management-management-console]
 
-> Se non è stato creata un'istanza del servizio Gestione API, vedere [Creare un'istanza del servizio Gestione API][Creare un'istanza del servizio Gestione API] nell'esercitazione [Introduzione a Gestione API di Azure][Introduzione a Gestione API di Azure].
+> Se non è ancora stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][Creare un'istanza di Gestione API] nell'esercitazione [Introduzione a Gestione API di Azure][Introduzione a Gestione API di Azure].
 > 
 > 
 
-Selezionare l'API desiderata nel portale di pubblicazione e quindi selezionare la scheda **Operazioni**.
+Selezionare l'API desiderata nel portale di pubblicazione e quindi selezionare la scheda **Operazioni** . 
 
 ![Operazioni][api-management-operations]
 
 Fare clic su **Aggiungi operazione** per aggiungere una nuova operazione. Verrà visualizzata la finestra **Nuova operazione** in cui la scheda **Firma** è visualizzata per impostazione predefinita.
 
-![Aggiungere un'operazione][api-management-add-operation]
+![Aggiungi operazione][api-management-add-operation]
 
 Specificare il **verbo HTTP** dall'elenco a discesa.
 
@@ -56,18 +60,18 @@ I chiamanti delle operazioni useranno il formato `/customers?customerid=ALFKI` c
 
 In **Nome visualizzato** e **Descrizione** viene fornita una descrizione dell'operazione e vengono usati per fornire la documentazione necessaria agli sviluppatori che usano questa API nel portale per sviluppatori.
 
-![Descrizione][api-management-description]
+![Description][api-management-description]
 
-È possibile specificare la descrizione dell'operazione come testo normale o HTML nella casella di testo **Descrizione**.
+È possibile specificare la descrizione dell'operazione come testo normale o HTML nella casella di testo **Descrizione** .
 
 ## <a name="operation-caching"> </a>Memorizzazione nella cache di un'operazione
-La memorizzazione nella cache della risposta riduce la latenza percepita dai consumer dell'API, riduce l'utilizzo della larghezza di banda e diminuisce il carico nel servizio Web HTTP che implementa l'API.
+La memorizzazione nella cache della risposta riduce la latenza percepita dai consumer dell'API, riduce l'utilizzo della larghezza di banda e diminuisce il carico nel servizio Web HTTP che implementa l'API. 
 
 Per abilitare la memorizzazione nella cache per l'operazione in modo facile e veloce, selezionare la scheda **Memorizzazione nella cache** e selezionare la casella di controllo **Abilita**.
 
 ![Memorizzazione nella cache][api-management-caching-tab]
 
-In **Durata** viene specificato il periodo di tempo durante il quale la risposta dell'operazione rimane nella cache. Il valore predefinito è 3.600 secondi o un'ora.
+**Durata** viene specificato il periodo di tempo durante il quale la risposta dell'operazione rimane nella cache. Il valore predefinito è 3.600 secondi o un'ora.
 
 Le chiavi della cache vengono usate per differenziare le risposte in modo che ogni risposta corrispondente a una chiave della cache ottenga il proprio valore memorizzato nella cache separato. Facoltativamente, è possibile immettere parametri di stringa di query specifici e/o intestazioni HTTP da usare nei valori delle chiavi della cache di calcolo rispettivamente nelle caselle di testo **Varia in base ai parametri di stringa di query** e **Varia in base alle intestazioni**. Se non viene specificato alcun valore, per la generazione della chiave della cache vengono usati i valori dell'URL di richiesta completo e l'intestazione HTTP seguenti: **Accept** e **Accept-Charset**.
 
@@ -80,31 +84,31 @@ Le chiavi della cache vengono usate per differenziare le risposte in modo che og
 
 Per aggiungere un parametro di query, fare clic su **Aggiungi parametro di query** e immettere le informazioni seguenti:
 
-* **Nome**: nome del parametro.
-* **Descrizione**: breve descrizione del parametro (facoltativa).
-* **Tipo**: tipo del parametro, selezionato nell'elenco a discesa.
-* **Valori**: valori che possono essere assegnati al parametro. Uno dei valori può essere contrassegnato come predefinito (facoltativo).
-* **Obbligatorio**: selezionare questa casella di controllo per rendere il parametro obbligatorio.
+* **Nome** : nome del parametro.
+* **Descrizione** : breve descrizione del parametro (facoltativa).
+* **Tipo** : tipo del parametro, selezionato nell'elenco a discesa.
+* **Valori** : valori che possono essere assegnati al parametro. Uno dei valori può essere contrassegnato come predefinito (facoltativo).
+* **Obbligatorio** : selezionare questa casella di controllo per rendere il parametro obbligatorio. 
 
 ![Parametri della richiesta][api-management-request-parameters]
 
 ## <a name="request-body"> </a>Corpo della richiesta
-Se l'operazione consente (ad esempio, PUT, POST) e richiede un corpo, è possibile fornirne un esempio in tutti i formati di rappresentazione supportati, ad esempio JSON e XML.
+Se l'operazione consente (ad esempio, PUT, POST) e richiede un corpo, è possibile fornirne un esempio in tutti i formati di rappresentazione supportati, ad esempio JSON e XML. 
 
 > Il corpo della richiesta è usato solo ai fini della documentazione e non viene convalidato.
 > 
 > 
 
-Per immettere un corpo della richiesta, passare alla scheda **Corpo**.
+Per immettere un corpo della richiesta, passare alla scheda **Corpo** .
 
-Fare clic su **Aggiungi rappresentazione**, iniziare a digitare il nome del tipo di contenuto desiderato (ad esempio, applicazione/json), selezionarlo nell'elenco a discesa e incollare nella casella di testo l'esempio di corpo della richiesta nel formato selezionato.
+Fare clic su **Aggiungi rappresentazione**, iniziare a digitare il nome del tipo di contenuto desiderato (ad esempio, applicazione/json), selezionarlo nell'elenco a discesa e incollare nella casella di testo l'esempio di corpo della richiesta nel formato selezionato. 
 
 ![Corpo della richiesta][api-management-request-body]
 
-Oltre alle rappresentazioni, è possibile specificare una descrizione di testo facoltativa nella casella di testo **Descrizione**.
+Oltre alle rappresentazioni, è possibile specificare una descrizione di testo facoltativa nella casella di testo **Descrizione** .
 
 ## <a name="responses"> </a>Risposte
-È consigliabile fornire esempi di risposte per tutti i codici di stato restituiti dall'operazione. Per ogni codice di stato può esistere più di un esempio di corpo della risposta, ovvero uno per ogni tipo di contenuto supportato.
+È consigliabile fornire esempi di risposte per tutti i codici di stato restituiti dall'operazione. Per ogni codice di stato può esistere più di un esempio di corpo della risposta, ovvero uno per ogni tipo di contenuto supportato. 
 
 Per aggiungere una risposta, fare clic su **Aggiungi** e iniziare a digitare il codice di stato desiderato. In questo esempio il codice di stato è **200 OK**. Quando il codice viene visualizzato nell'elenco a discesa, selezionarlo in modo che il codice della risposta venga creato e aggiunto all'operazione.
 
@@ -114,18 +118,18 @@ Fare clic su **Aggiungi rappresentazione**, iniziare a digitare il nome del tipo
 
 ![Tipo di contenuto del corpo][api-management-response-body-content-type]
 
-Incollare nella casella di testo l'esempio del corpo della risposta nel formato selezionato.
+Incollare nella casella di testo l'esempio del corpo della risposta nel formato selezionato. 
 
 ![Corpo della risposta][api-management-response-body]
 
-Se necessario, aggiungere una descrizione facoltativa nella casella di testo **Descrizione**.
+Se necessario, aggiungere una descrizione facoltativa nella casella di testo **Descrizione** .
 
 Dopo avere configurato l'operazione, fare clic su **Salva**.
 
 ## <a name="next-steps"> </a>Passaggi successivi
 Una volta aggiunte le operazioni a un'API, nel passaggio successivo l'API verrà associata a un prodotto e verrà pubblicata in modo che gli sviluppatori possano chiamare le relative operazioni.
 
-* [Come creare e pubblicare un prodotto][Come creare e pubblicare un prodotto]
+* [Come creare e pubblicare un prodotto in Gestione API di Azure][Come creare e pubblicare un prodotto in Gestione API di Azure]
 
 [api-management-management-console]: ./media/api-management-howto-add-operations/api-management-management-console.png
 [api-management-operations]: ./media/api-management-howto-add-operations/api-management-operations.png
@@ -150,18 +154,22 @@ Una volta aggiunte le operazioni a un'API, nel passaggio successivo l'API verrà
 [api-management-api-summary]: ./media/api-management-howto-add-operations/api-management-api-summary.png
 [api-management-echo-operations]: ./media/api-management-howto-add-operations/api-management-echo-operations.png
 
-[Add an operation]: #add-operation
-[Operation caching]: #operation-caching
-[Request parameters]: #request-parameters
-[Request body]: #request-body
-[Responses]: #responses
-[Next steps]: #next-steps
+[Aggiungere un'operazione]: #add-operation
+[Memorizzazione nella cache di un'operazione]: #operation-caching
+[Parametri della richiesta]: #request-parameters
+[Corpo della richiesta]: #request-body
+[Risposte]: #responses
+[Passaggi successivi]: #next-steps
 
 [Introduzione a Gestione API di Azure]: api-management-get-started.md
-[Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
+[Creare un'istanza di Gestione API]: api-management-get-started.md#create-service-instance
 
-[How to add operations to an API]: api-management-howto-add-operations.md
-[Come creare e pubblicare un prodotto]: api-management-howto-add-products.md
+[Come aggiungere operazioni a un'API in Gestione API di Azure]: api-management-howto-add-operations.md
+[Come creare e pubblicare un prodotto in Gestione API di Azure]: api-management-howto-add-products.md
 [Come memorizzare nella cache i risultati dell'operazione in Gestione API di Azure]: api-management-howto-cache.md
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

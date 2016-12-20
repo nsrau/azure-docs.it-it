@@ -1,12 +1,12 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con eDigitalResearch | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory ed eDigitalResearch.
+title: 'Esercitazione: Integrazione di Azure Active Directory con eDigitalResearch | Documentazione Microsoft'
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory ed eDigitalResearch.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: c6b66ea0-16ba-45b4-b550-e81c56262b1f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ce449d6a64b4ef9022939f0487a30157f7014673
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-edigitalresearch"></a>Esercitazione: Integrazione di Azure Active Directory con eDigitalResearch
+# <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Esercitazione: Integrazione di Azure Active Directory con eDigitalResearch
 Questa esercitazione descrive l'integrazione di eDigitalResearch con Azure Active Directory (Azure AD).
 
 L'integrazione di eDigitalResearch con Azure AD offre i vantaggi seguenti:
@@ -125,11 +129,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Microsoft Azure AD
     b. Fare clic su **Next**.
 5. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il team di supporto eDigitalResearch e fornire i seguenti elementi: 
    
-   * File del **certificato scaricato**
-     
-     - **ID entità**
-     
-     - **URL servizio Single Sign-Out**
+      - File del **certificato scaricato**
+   
+      - **ID entità**
+   
+      - **URL servizio Single Sign-Out**
 6. Nel portale di Azure classico selezionare la conferma della configurazione e fare clic su **Avanti**.
    
     ![Single Sign-On di Microsoft Azure AD][10]
@@ -242,6 +246,6 @@ Quando si fa clic sul riquadro eDigitalResearch nel pannello di accesso, si dovr
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

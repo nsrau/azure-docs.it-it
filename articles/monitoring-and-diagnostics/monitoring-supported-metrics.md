@@ -1,12 +1,12 @@
 ---
-title: 'Metriche di monitoraggio di Azure: metriche supportate per tipo di risorsa | Microsoft Docs'
+title: 'Metriche di Monitoraggio di Azure: metriche supportate per tipo di risorsa | Microsoft Docs'
 description: Elenco delle metriche disponibili per ogni tipo di risorsa con il monitoraggio di Azure.
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 63d4ac65-1688-40d1-85c8-7cd408285b0f
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fd07342dad07e70a09f372c9c6c116376630e6f8
+
 
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
@@ -24,7 +28,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 > 
 > 
 
-## <a name="microsoft.batch/batchaccounts"></a>Microsoft.Batch/batchAccounts
+## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 | Metrica | Nome visualizzato per la metrica | Unità | Tipo di aggregazione | Descrizione |
 | --- | --- | --- | --- | --- |
 | CoreCount |Numero di core |Conteggio |Totale |Numero totale di core nell'account Batch |
@@ -49,7 +53,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 | PoolDeleteStartEvent |Eventi eliminazione pool avviati |Numero |Totale |Il numero totale di eliminazioni di pool avviate |
 | PoolDeleteCompleteEvent |Eventi eliminazione pool completati |Numero |Totale |Il numero totale di eliminazioni di pool completate |
 
-## <a name="microsoft.cache/redis"></a>Microsoft.Cache/redis
+## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
 | Metrica | Nome visualizzato per la metrica | Unità | Tipo di aggregazione | Descrizione |
 | --- | --- | --- | --- | --- |
 | connectedclients |Client connessi |Numero |Massima | |
@@ -218,13 +222,13 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 | cacheRead9 |Lettura da cache (partizione 9) |Byte al secondo |Massima | |
 | percentProcessorTime9 |CPU (partizione 9) |Percentuale |Massima | |
 
-## <a name="microsoft.cognitiveservices/accounts"></a>Microsoft.CognitiveServices/accounts
+## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 | Metrica | Nome visualizzato per la metrica | Unità | Tipo di aggregazione | Descrizione |
 | --- | --- | --- | --- | --- |
 | NumberOfCalls |Numero totale di chiamate API |Conteggio |Totale |Numero totale di chiamate API. |
 | NumberOfFailedCalls |Numero totale di chiamate API non riuscite |Conteggio |Totale |Numero totale di chiamate API non riuscite. |
 
-## <a name="microsoft.compute/virtualmachines"></a>Microsoft.Compute/virtualMachines
+## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 | Metrica | Nome visualizzato per la metrica | Unità | Tipo di aggregazione | Descrizione |
 | --- | --- | --- | --- | --- |
 | CPU percentuale |CPU percentuale |Percentuale |Media |La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali |
@@ -235,7 +239,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 | Operazioni lettura disco/sec |Operazioni lettura disco/sec |Conteggio al secondo |Media |Il numero di IOPS letti dal disco |
 | Operazioni scrittura disco/sec |Operazioni scrittura disco/sec |Conteggio al secondo |Media |Il numero di IOPS scritti sul disco |
 
-## <a name="microsoft.compute/virtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
+## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 | Metrica | Nome visualizzato per la metrica | Unità | Tipo di aggregazione | Descrizione |
 | --- | --- | --- | --- | --- |
 | CPU percentuale |CPU percentuale |Percentuale |Media |La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali |
@@ -246,7 +250,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 | Operazioni lettura disco/sec |Operazioni lettura disco/sec |Conteggio al secondo |Media |Il numero di IOPS letti dal disco |
 | Operazioni scrittura disco/sec |Operazioni scrittura disco/sec |Conteggio al secondo |Media |Il numero di IOPS scritti sul disco |
 
-## <a name="microsoft.compute/virtualmachinescalesets/virtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
+## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 | Metrica | Nome visualizzato per la metrica | Unità | Tipo di aggregazione | Descrizione |
 | --- | --- | --- | --- | --- |
 | CPU percentuale |CPU percentuale |Percentuale |Media |La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali |
@@ -257,7 +261,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 | Operazioni lettura disco/sec |Operazioni lettura disco/sec |Conteggio al secondo |Media |Il numero di IOPS letti dal disco |
 | Operazioni scrittura disco/sec |Operazioni scrittura disco/sec |Conteggio al secondo |Media |Il numero di IOPS scritti sul disco |
 
-## <a name="microsoft.devices/iothubs"></a>Microsoft.Devices/IotHubs
+## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 | Metrica | Nome visualizzato per la metrica | Unità | Tipo di aggregazione | Descrizione |
 | --- | --- | --- | --- | --- |
 | d2c.telemetry.ingress.allProtocol |Tentativi di invio di messaggi telemetria |Numero |Totale |Il numero di messaggi di telemetria da dispositivo a cloud che si è cercato di inviare all'hub IoT |
@@ -268,7 +272,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 | devices.totalDevices |Dispositivi totali |Numero |Totale |Il numero di dispositivi registrati nell'hub IoT |
 | devices.connectedDevices.allProtocol |Dispositivi connessi |Numero |Totale |Il numero di dispositivi connessi all'hub IoT |
 
-## <a name="microsoft.eventhub/namespaces"></a>Microsoft.EventHub/namespaces
+## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 | Metrica | Nome visualizzato per la metrica | Unità | Tipo di aggregazione | Descrizione |
 | --- | --- | --- | --- | --- |
 | INREQS |Richieste in ingresso |Numero |Totale |Velocità effettiva dei messaggi in ingresso di Hub eventi per uno spazio dei nomi |
@@ -285,7 +289,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 | EHAMSGS |Messaggi archiviati |Numero |Totale |Messaggi archiviati di Hub eventi in uno spazio dei nomi |
 | EHAMBS |Velocità effettiva messaggi archiviati |Byte al secondo |Totale |Velocità effettiva dei messaggi archiviati di Hub eventi in uno spazio dei nomi |
 
-## <a name="microsoft.logic/workflows"></a>Microsoft.Logic/workflows
+## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
 | Metrica | Nome visualizzato per la metrica | Unità | Tipo di aggregazione | Descrizione |
 | --- | --- | --- | --- | --- |
 | RunsStarted |Esecuzioni avviate |Numero |Totale |Il numero di esecuzioni del flusso di lavoro avviate. |
@@ -319,25 +323,25 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 | BillableTriggerExecutions |Esecuzioni di trigger fatturabili |Conteggio |Totale |Numero di esecuzioni di trigger del flusso di lavoro fatturate. |
 | TotalBillableExecutions |Esecuzioni fatturabili totali |Conteggio |Totale |Numero di esecuzioni di flussi di lavoro fatturate. |
 
-## <a name="microsoft.network/applicationgateways"></a>Microsoft.Network/applicationGateways
+## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 | Metrica | Nome visualizzato per la metrica | Unità | Tipo di aggregazione | Descrizione |
 | --- | --- | --- | --- | --- |
 | Velocità effettiva |Velocità effettiva |Byte al secondo |Media | |
 
-## <a name="microsoft.search/searchservices"></a>Microsoft.Search/searchServices
+## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 | Metrica | Nome visualizzato per la metrica | Unità | Tipo di aggregazione | Descrizione |
 | --- | --- | --- | --- | --- |
 | SearchLatency |Latenza ricerca |Secondi |Media |La latenza di ricerca media per il servizio di ricerca |
 | SearchQueriesPerSecond |Query di ricerca al secondo |Conteggio al secondo |Media |Le query di ricerca al secondo per il servizio di ricerca |
 | ThrottledSearchQueriesPercentage |Percentuale query di ricerca limitate |Percentuale |Media |La percentuale di query di ricerca che sono state limitate per il servizio di ricerca |
 
-## <a name="microsoft.servicebus/namespaces"></a>Microsoft.ServiceBus/namespaces
+## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 | Metrica | Nome visualizzato per la metrica | Unità | Tipo di aggregazione | Descrizione |
 | --- | --- | --- | --- | --- |
 | CPUXNS |Uso della CPU per spazio dei nomi |Percentuale |Massima |Metrica di utilizzo CPU per spazio dei nomi Premium del bus di servizio |
 | WSXNS |Uso delle dimensioni della memoria per spazio dei nomi |Percentuale |Massima |Metrica di utilizzo memoria per spazio dei nomi Premium del bus di servizio |
 
-## <a name="microsoft.sql/servers/databases"></a>Microsoft.Sql/servers/databases
+## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 | Metrica | Nome visualizzato per la metrica | Unità | Tipo di aggregazione | Descrizione |
 | --- | --- | --- | --- | --- |
 | cpu_percent |Percentuale CPU |Percentuale |Media |Percentuale CPU |
@@ -360,7 +364,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 | dwu_consumption_percent |Percentuale DWU |Percentuale |Media |Percentuale DWU |
 | dwu_used |Uso DWU |Conteggio |Media |Uso DWU |
 
-## <a name="microsoft.sql/servers/elasticpools"></a>Microsoft.Sql/servers/elasticPools
+## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 | Metrica | Nome visualizzato per la metrica | Unità | Tipo di aggregazione | Descrizione |
 | --- | --- | --- | --- | --- |
 | cpu_percent |Percentuale CPU |Percentuale |Media |Percentuale CPU |
@@ -375,7 +379,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 | eDTU_used |Uso eDTU |Conteggio |Media |Uso eDTU |
 | storage_used |Uso archiviazione |Byte |Media |Uso archiviazione |
 
-## <a name="microsoft.streamanalytics/streamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
+## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 | Metrica | Nome visualizzato per la metrica | Unità | Tipo di aggregazione | Descrizione |
 | --- | --- | --- | --- | --- |
 | ResourceUtilization |% utilizzo unità di streaming |Percentuale |Massima |% utilizzo unità di streaming |
@@ -390,7 +394,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 | AMLCalloutFailedRequests |Richieste di funzioni non riuscite |Conteggio |Totale |Richieste di funzioni non riuscite |
 | AMLCalloutInputEvents |Eventi di funzioni |Conteggio |Totale |Eventi di funzioni |
 
-## <a name="microsoft.web/serverfarms"></a>Microsoft.Web/serverfarms
+## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 | Metrica | Nome visualizzato per la metrica | Unità | Tipo di aggregazione | Descrizione |
 | --- | --- | --- | --- | --- |
 | CpuPercentage |Percentuale CPU |Percentuale |Media |Percentuale CPU |
@@ -400,7 +404,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 | BytesReceived |Dati in entrata |Byte |Totale |Dati in entrata |
 | BytesSent |Dati in uscita |Byte |Totale |Dati in uscita |
 
-## <a name="microsoft.web/sites"></a>Microsoft.Web/sites
+## <a name="microsoftwebsites"></a>Microsoft.Web/sites
 | Metrica | Nome visualizzato per la metrica | Unità | Tipo di aggregazione | Descrizione |
 | --- | --- | --- | --- | --- |
 | CpuTime |Tempo CPU |Secondi |Totale |Tempo CPU |
@@ -419,7 +423,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 | AverageMemoryWorkingSet |Working set della memoria medio |Byte |Media |Working set della memoria medio |
 | AverageResponseTime |Tempo medio di risposta |Secondi |Media |Tempo medio di risposta |
 
-## <a name="microsoft.web/sites/slots"></a>Microsoft.Web/sites/slots
+## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 | Metrica | Nome visualizzato per la metrica | Unità | Tipo di aggregazione | Descrizione |
 | --- | --- | --- | --- | --- |
 | CpuTime |Tempo CPU |Secondi |Totale |Tempo CPU |
@@ -440,9 +444,12 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Metriche in Azure Monitor](monitoring-overview.md#monitoring-sources)
-* [Create alerts on metrics](../azure-portal/insights-receive-alert-notifications.md)
+* [Create alerts on metrics](insights-receive-alert-notifications.md)
 * [Esportazione delle metriche nell'archiviazione, nell'hub eventi o in Log Analytics](monitoring-overview-of-diagnostic-logs.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: How to buy a custom domain name in Azure App Service Web Apps
-description: Learn how to buy a custom domain name with a web app in Azure App Service.
+title: Come acquistare un nome di dominio personalizzato nelle app Web di Servizio app di Azure
+description: Informazioni su come acquistare un nome di dominio personalizzato con un&quot;app Web in Servizio app di Azure.
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,91 +14,98 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9c5c0b40d796130d93111545c93bedf86c374fd9
+
 
 ---
-# <a name="buy-and-configure-a-custom-domain-name-in-azure-app-service"></a>Buy and Configure a custom domain name in Azure App Service
+# <a name="buy-and-configure-a-custom-domain-name-in-azure-app-service"></a>Acquistare e configurare un nome di dominio personalizzato in Servizio app di Azure
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
-When you create a web app, Azure assigns it to a subdomain of azurewebsites.net. For example, if your web app is named **contoso**, the URL is **contoso.azurewebsites.net**. Azure also assigns a virtual IP address.
+Quando si crea un'app Web, Azure la assegna a un sottodominio di azurewebsites.net. Ad esempio, se l'app Web è denominata **contoso**, l'URL corrisponderà a **contoso.azurewebsites.net**. Azure assegna anche un indirizzo IP virtuale.
 
-For a production web app, you probably want users to see a custom domain name. This article explains how to buy and configure a custom domain with [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). 
+Per un'app Web di produzione, è probabile che l'amministratore desideri che gli utenti vedano un nome di dominio personalizzato. Questo articolo spiega come acquistare e configurare un dominio personalizzato con le [app Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714). 
 
 [!INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
 ## <a name="overview"></a>Overview
-If you don't have a domain name for your web app, you can easily buy one on [Azure Portal](https://portal.azure.com/). During the purchase process you can choose to have WWW and root domain's DNS records be mapped to your web app automatically. You also can manage your domain right inside Azure Portal.
+Se l'app Web non ha un nome di dominio, è possibile acquistarne uno facilmente sul [portale di Azure](https://portal.azure.com/). Durante il processo di acquisto è possibile scegliere che i record DNS WWW e di radice di dominio vengano associati automaticamente all'app Web. È inoltre possibile gestire il dominio direttamente dal portale di Azure.
 
-Use the following steps to buy domain names and assign to your web app.
+Seguire questa procedura per acquistare i nomi di dominio e assegnarli all'app Web.
 
-1. In your browser, open the [Azure Portal](https://portal.azure.com/).
-2. In the **Web Apps** tab, click the name of your web app, select **Settings**, and then select **Custom domains**
+1. Accedere al [portale di Azure](https://portal.azure.com/)dal browser.
+2. Nella scheda **App Web** fare clic sul nome dell'app Web, selezionare **Impostazioni** e quindi **Domini personalizzati**
    
     ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
-3. In the **Custom domains** blade, click **Buy domains**.
+3. Nel pannello **Domini personalizzati** fare clic su **Acquista domini**.
    
     ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
-4. In the **Buy Domains** blade, use the text box to type the domain name you want to buy and hit Enter. The suggested available domains will be shown just below the text box. Select what domain you want to buy. You can choose to purchase multiple domains at once. 
+4. Nella casella di testo del pannello **Acquista domini** immettere il nome del dominio che si vuole acquistare e premere INVIO. I domini disponibili suggeriti verranno visualizzati sotto la casella di testo. Selezionare il dominio che si vuole acquistare. È possibile scegliere di acquistare più domini in una sola volta. 
    
    ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
-5. Click the **Contact Information** and fill the domain's contact information form.
+5. Scegliere **Informazioni di contatto** e compilare il modulo di informazioni di contatto del dominio.
    
    ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-3.png)
    
    > [!NOTE]
-   > It is very important that you fill out all required fields with as much accuracy as possible, especially the email address. In case of purchasing the domain without "Privacy protection", you might be asked to verify your email before the domain becomes active. In some cases, incorrect data for contact information will result in failure to purchase domains. 
+   > È molto importante compilare tutti i campi obbligatori con la massima correttezza possibile, in particolare l'indirizzo di posta elettronica. Se si acquista il dominio senza protezione della privacy, è possibile che venga visualizzata una richiesta di verifica dell'indirizzo di posta elettronica prima che il dominio sia attivo. In alcuni casi, i dati non corretti relativi alle informazioni di contatto causano errori nell'acquisto dei domini. 
    > 
    > 
-6. Now you can choose to,
+6. A questo punto è possibile scegliere di
    
-    a) "Auto renew" your domain every year
+    a) Rinnovare automaticamente il dominio ogni anno
    
-    b) Opt-in for "Privacy protection" which is included in the purchase price for FREE (Except for TLDs who's registry do not support Privacy. For example: .co.in, .co.uk etc.)  
+    b) Acconsentire esplicitamente alla protezione della privacy, funzionalità inclusa GRATUITAMENTE nel prezzo di acquisto (tranne per domini di primo livello il cui registro non supporta la privacy, ad esempio .co.in, .co.uk e così via)  
    
-    c) "Assign default hostnames" for WWW and root domain to the current Web App. 
+    c) Assegnare nomi host predefiniti per domini WWW e radice all'app Web corrente 
    
    ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.5.png)
    
    > [!NOTE]
-   > Option C configures DNS bindings and Hostname bindings automatically for you.  This way, your Web App can be accessed using custom domain as soon as the purchase is complete (baring DNS propagation delays in few cases). In case, your Web App is behind Azure Traffic Manager, you will not see an option to assign root domain, as A-Records do not work with the Traffic Manager. You can always assign the domains/sub-domains purchased through one Web App to another Web App and vice-versa. See step 8 for more details. 
+   > L'opzione C configura le associazioni DNS e le associazioni del nome host automaticamente.  In questo modo, è possibile accedere all'app Web usando il dominio personalizzato non appena l'acquisto è completato (solo in alcuni casi si verificano ritardi di propagazione DNS). Se l'app Web è protetta da Gestione traffico di Azure, non sarà disponibile un'opzione per assegnare il dominio radice, in quanto i record A non funzionano con Gestione traffico. È sempre possibile assegnare i domini o i sottodomini acquistati tramite un'app Web a un'altra app Web e viceversa. Per informazioni dettagliate, vedere il passaggio 8. 
    > 
    > 
-7. Click the **Select** on **Buy Domains** blade, then you will see the purchase information on **Purchase confirmation** blade. If you accept the legal terms and click **Buy**, your order will be submitted and you can monitor the purchasing process on **Notification**. Domain purchase can take few minutes to complete. 
+7. Fare clic su **Seleziona** nel pannello **Acquista domini**. A questo punto verranno visualizzate le informazioni di acquisto nel pannello **Conferma acquisto**. Se si accettano le condizioni legali e si fa clic su **Acquista**, l'ordine viene inviato ed è possibile monitorare il processo di acquisto in **Notifica**. L'acquisto del dominio può richiedere alcuni minuti. 
    
    ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-4.png)
    
    ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-5.png)
-8. If you successfully ordered a domain, you can manage the domain and assign to your web app. Click the **"..."** at the right side of your domain. Then you can **Cancel purchase** or **Manage domain**. Click **Manage domain**, then we can bind **subdomain** to our web app on **Manage domain** blade. If you want to bind a  **subdomain** to a different Web App then perform this step from within the context of the respective Web App. Over here you an choose to assign the domain to Traffic manager endpoint (if Web App is behind TM) by simply selecting Traffic manager name from the Drop down menu. By doing this, domain/subdomain will be automatically assigned to all the Web Apps behind that Traffic Manager endpoint. 
+8. Se un dominio è stato ordinato correttamente, è possibile gestirlo e assegnarlo all'app Web. Fare clic sui tre puntini (**...**) a destra del dominio. Questa operazione consente di **annullare l'acquisto** o **gestire il dominio**. Fare clic su **Gestisci dominio** per poter associare il **sottodominio** all'app Web nel pannello **Gestisci dominio**. Per associare un **sottodominio** a un'altra app Web, eseguire questo passaggio dal contesto dell'app Web corrispondente. Questa operazione consente di assegnare il dominio all'endpoint di Gestione traffico (se l'app Web è protetta da Gestione traffico) selezionando il nome di Gestione traffico dal menu a discesa. Per effetto di questa operazione, il dominio o il sottodominio verranno assegnati automaticamente a tutte le app Web protette da tale endpoint di Gestione traffico. 
    
     ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-6.png)
    
    > [!NOTE]
-   > You can "Cancel purchase" within 5 days for full refund. After 5 days you will not be able to "Cancel purchase", instead you will see an option to "Delete" the domain. Deleting the domain will result in releasing it from your subscription without refund and will become available domain. 
+   > È possibile annullare l'acquisto entro 5 giorni per ottenere il rimborso completo. Dopo 5 giorni non sarà possibile annullare l'acquisto e verrà invece visualizzata un'opzione per l'eliminazione del dominio. Se eliminato, il dominio viene rilasciato dalla sottoscrizione senza rimborso e tornerà nuovamente disponibile. 
    > 
    > 
 
-Once configuration has completed, the custom domain name will be listed in the **Hostname bindings** section of your web app.
+Al termine della configurazione, il nome di dominio personalizzato sarà elencato nella sezione **Associazioni nome host** dell'app Web.
 
-At this point, you should be able to enter the custom domain name in your browser and see that it successfully takes you to your web app.
+A questo punto sarà possibile immettere il nome di dominio personalizzato nel browser e verificare che il reindirizzamento all'app Web avvenga correttamente.
 
-## <a name="what-happens-to-the-custom-domain-you-bought"></a>What happens to the custom domain you bought
-The custom domain you bought in the **Custom domains and SSL** blade is tied to the Azure subscription. As an Azure resource, this custom domain is separate and independent from the App Service app that you first bought the domain for. This means that:
+## <a name="what-happens-to-the-custom-domain-you-bought"></a>Cosa accade al dominio personalizzato acquistato
+Il dominio personalizzato acquistato nel pannello **Domini personalizzati ed SSL** è associato alla sottoscrizione di Azure. Come risorsa di Azure, questo dominio personalizzato è separato e indipendente dall'app del servizio app per cui è stato inizialmente acquistato il dominio. Ciò significa che:
 
-* Within the Azure portal, you can use the custom domain you bought for more than one App Service app, and not just for the app that you first bought the custom domain for. 
-* You can manage all the custom domains you bought in the Azure subscription by going to the **Custom domains and SSL** blade of *any* App Service app in that subscription.
-* You can assign any App Service app from the same Azure subscription to a subdomain within that custom domain.
-* If you decide to delete an App Service app, you can choose not to delete the custom domain it is bound to if you want to keep using it for other apps.
+* All'interno del portale di Azure è possibile usare il dominio personalizzato per più app del servizio app, non soltanto per quella per cui è stato acquistato il dominio personalizzato. 
+* È possibile gestire tutti i domini personalizzati acquistati nella sottoscrizione di Azure usando il pannello **Domini personalizzati ed SSL** di *qualsiasi* app del servizio app presente in tale sottoscrizione.
+* È possibile assegnare qualsiasi applicazione del servizio app dalla stessa sottoscrizione di Azure a un sottodominio all'interno del dominio personalizzato.
+* Se si decide di eliminare un'app del servizio app, è possibile scegliere di non eliminare il dominio personalizzato ad essa associato. In questo modo, è possibile continuare a usare tale dominio per altre app.
 
-## <a name="if-you-cant-see-the-custom-domain-you-bought"></a>If you can't see the custom domain you bought
-If you have bought the custom domain from within the **Custom domains and SSL** blade, but cannot see the custom domain under **Managed domains**, verify the following things:
+## <a name="if-you-cant-see-the-custom-domain-you-bought"></a>Non è possibile visualizzare il dominio personalizzato acquistato
+Se il dominio personalizzato è stato acquistato nel pannello **Domini personalizzati ed SSL**, ma non viene visualizzato in **Domini gestiti**, verificare quanto segue:
 
-* The custom domain creation may not have finished. Check the notification bell at the top of the Azure portal for the progress.
-* The custom domain creation may have failed for some reason. Check the notification bell at the top of the Azure portal for the progress.
-* The custom domain may have succeeded but the blade may not be refreshed yet. Try reopening the **Custom domains and SSL** blade.
-* You may have deleted the custom domain at some point. Check the audit logs by clicking **Settings** > **Audit Logs** from your app's main blade. 
-* The **Custom domains and SSL** blade you're looking in may belong to an app that's created in a different Azure subscription. Switch to another app in a different subscription and check its **Custom domains and SSL** blade.  
-  Within the portal, you won't be able to see or manage custom domains created in a different Azure subscription than the app. However, if you click **Advanced management** in the domain's **Manage domain** blade, you'll be redirected to the domain provider's website, where you'll be able to   [manually configure your custom domain like any external custom domain](web-sites-custom-domain-name.md) 
-    for apps created in a different Azure subscription. 
+* È possibile che la creazione del dominio personalizzato non sia stata completata. Selezionare l'icona a forma di campanella nella parte superiore del portale di Azure per verificare lo stato di avanzamento.
+* È possibile che per qualche motivo la creazione del dominio personalizzato non sia riuscita. Selezionare l'icona a forma di campanella nella parte superiore del portale di Azure per verificare lo stato di avanzamento.
+* È possibile che la creazione del dominio personalizzato sia stata completata ma che il pannello non sia ancora stato aggiornato. Provare a riaprire il pannello **Domini personalizzati ed SSL**.
+* È possibile che a un certo punto il dominio personalizzato sia stato eliminato. Verificare i log di controllo facendo clic su **Impostazioni** > **Log di controllo** nel pannello principale dell'applicazione. 
+* Il pannello **Domini personalizzati ed SSL** che si sta esaminando potrebbe appartenere a un'app creata in un'altra sottoscrizione di Azure. Passare a un'altra app in una sottoscrizione differente ed esaminare il relativo pannello **Domini personalizzati ed SSL**.  
+    All'interno del portale non sarà possibile visualizzare o gestire domini personalizzati creati in una sottoscrizione di Azure diversa da quella dell'app. Tuttavia, se si fa clic su **Gestione avanzata** nel pannello **Gestisci dominio** del dominio, si verrà reindirizzati al sito Web del provider di dominio, dove sarà possibile   [configurare manualmente il dominio personalizzato come qualsiasi dominio personalizzato esterno](web-sites-custom-domain-name.md) 
+   per app create in un'altra sottoscrizione di Azure. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

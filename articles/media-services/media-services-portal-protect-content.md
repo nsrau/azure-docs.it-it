@@ -2,18 +2,22 @@
 title: Configurazione dei criteri di protezione del contenuto tramite il portale di Azure | Microsoft Docs
 description: Questo articolo illustra come usare il portale di Azure per configurare i criteri di protezione del contenuto. Descrive anche come abilitare la crittografia dinamica per gli asset.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 10/24/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0f9b0cf4e88a1ab27546063ae89cde8de7761609
+
 
 ---
 # <a name="configuring-content-protection-policies-using-the-azure-portal"></a>Configurazione dei criteri di protezione del contenuto tramite il portale di Azure
@@ -39,12 +43,12 @@ Questo articolo illustra come configurare i criteri di protezione del contenuto 
 ## <a name="start-configuring-content-protection"></a>Avviare la configurazione della protezione del contenuto
 Per usare il portale per avviare la configurazione della protezione del contenuto per l'intero account AMS, eseguire questa procedura:
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali di Azure.
 2. Selezionare **Impostazioni** > ** Protezione del contenuto**.
 
 ![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
-## <a name="key/license-authorization-policy"></a>criterio di autorizzazione per chiavi e licenze
+## <a name="keylicense-authorization-policy"></a>criterio di autorizzazione per chiavi e licenze
 AMS supporta più modalità di autenticazione degli utenti che eseguono richieste di chiavi o licenze. I criteri di autorizzazione delle chiavi simmetriche devono essere configurati dall'utente e soddisfatti dal client perché la chiave o la licenza possa essere distribuita al client. I criteri di autorizzazione delle chiavi simmetriche possono avere una o più restrizioni di tipo **Open** o **Token**.
 
 Il portale di Azure consente di creare un **criterio di autorizzazione per chiavi e licenze** per tutti i tipi di crittografia.
@@ -130,6 +134,9 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

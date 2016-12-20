@@ -2,12 +2,12 @@
 title: Analizzare i dati sui ritardi dei voli con Hive usando HDInsight basato su Linux | Microsoft Docs
 description: Informazioni su come utilizzare Hive per analizzare i dati sui voli in HDInsight basato su Linux, e su come esportare i dati al database SQL mediante Sqoop.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 266891083fa0d2a33ef8fd7e533b036e99b00208
+
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analizzare i dati sui ritardi dei voli con Hive in HDInsight
@@ -166,7 +170,7 @@ Usare la procedura seguente per importare dati dal file con estensione csv in un
 6. Per uscire da Beeline, immettere `!quit` al prompt dei comandi.
 
 ## <a name="create-a-sql-database"></a>Creare un database SQL
-Se si dispone già di un database SQL, è necessario ottenere il nome del server. È possibile trovarlo nel [portale di Azure](https://portal.azure.com) selezionando **Database SQL__e quindi filtrando il nome del database che si desidera usare. Il nome del server è elencato nella colonna __SERVER** .
+Se si dispone già di un database SQL, è necessario ottenere il nome del server. È possibile trovarlo nel [portale di Azure](https://portal.azure.com) selezionando **Database SQL**e quindi filtrando il nome del database che si desidera usare. Il nome del server è elencato nella colonna **SERVER** .
 
 Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazione sul database SQL: Creare un database SQL in pochi minuti usando il portale di Azure](../sql-database/sql-database-get-started.md) per crearne uno. È necessario salvare il nome del server usato per il database.
 
@@ -200,7 +204,7 @@ Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazi
         ([origin_city_name] ASC))
         GO
    
-    Dopo aver immesso l'istruzione `GO` , verranno valutate le istruzioni precedenti. Si creerà una nuova tabella denominata __delays__con un indice cluster (obbligatorio del database SQL).
+    Dopo aver immesso l'istruzione `GO` , verranno valutate le istruzioni precedenti. Si creerà una nuova tabella denominata **delays**con un indice cluster (obbligatorio del database SQL).
    
     Per verificare la corretta creazione della tabella, usare il comando seguente:
    
@@ -235,7 +239,7 @@ Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazi
    
     Dovrebbe essere visualizzato un elenco di dati della tabella. Digitare `exit` per uscire dall'utilità tsql.
 
-## <a name="<a-id="nextsteps"></a>-next-steps"></a><a id="nextsteps"></a> Passaggi successivi
+## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Passaggi successivi
 È stato illustrato come caricare file nell'archivio BLOB di Azure, come popolare una tabella Hive con i dati disponibili nell'archivio BLOB di Azure, come eseguire query Hive e come usare Sqoop per esportare i dati da HDFS in un database SQL di Azure. Per altre informazioni, vedere gli articoli seguenti:
 
 * [Introduzione all'uso di HDInsight][hdinsight-get-started]
@@ -274,6 +278,6 @@ Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazi
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

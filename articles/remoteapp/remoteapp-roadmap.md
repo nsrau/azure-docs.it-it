@@ -1,23 +1,27 @@
 ---
-title: Novità di Azure RemoteApp | Microsoft Docs
-description: Informazioni su quando saranno disponibili nuove funzionalità per Azure RemoteApp
+title: "Novità di Azure RemoteApp | Microsoft Docs"
+description: "Informazioni su quando saranno disponibili nuove funzionalità per Azure RemoteApp"
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: b4aedf83-dd93-4573-b432-abbbabaee07a
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: NA
 ms.devlang: NA
 ms.topic: article
 ms.date: 09/19/2016
-ms.author: elizapo
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4bfc5ac853833b8e51e7e3a556ed6208f22884d3
+
 
 ---
-# Novità di Azure RemoteApp
+# <a name="whats-coming-in-azure-remoteapp"></a>Novità di Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -49,4 +53,9 @@ Altri miglioramenti aggiunti all'inizio dell'anno:
 * Provisioning di un numero elevato di utenti usando un file CSV
 * Disponibilità nei data center australiani
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

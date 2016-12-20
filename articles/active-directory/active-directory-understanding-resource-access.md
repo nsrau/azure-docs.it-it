@@ -1,12 +1,12 @@
 ---
-title: Informazioni sull'accesso alle risorse in Azure | Microsoft Docs
-description: Questo argomento illustra i concetti relativi all'uso di amministratori della sottoscrizione per controllare l'accesso alle risorse nel portale di Azure completo.
+title: Informazioni sull&quot;accesso alle risorse in Azure | Microsoft Docs
+description: Questo argomento illustra i concetti relativi all&quot;uso di amministratori della sottoscrizione per controllare l&quot;accesso alle risorse nel portale di Azure completo.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: markusvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 04c89fb831036af37ba381d13d45526327125540
+
 
 ---
 # <a name="understanding-resource-access-in-azure"></a>Informazioni sull'accesso alle risorse in Azure
@@ -65,6 +69,6 @@ Operazioni quali lo spostamento di risorse tra sottoscrizioni possono risultare 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

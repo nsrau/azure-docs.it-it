@@ -2,18 +2,22 @@
 title: Rilevare volti ed emozioni con Analisi Servizi multimediali di Azure | Microsoft Docs
 description: Questo argomento illustra come rilevare volti ed emozioni con Analisi Servizi multimediali di Azure.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 5ca4692c-23f1-451d-9d82-cbc8bf0fd707
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/15/2016
 ms.author: milanga;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 48a4cdf7d50e765ee42cb44d12d1dafd49c13795
+ms.openlocfilehash: 3147eba8bd31d3d05bd990571a986316d6f5093f
+
 
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Rilevare volti ed emozioni con Analisi servizi multimediali di Azure
@@ -44,7 +48,7 @@ L'API per il rilevamento e monitoraggio volti offre il rilevamento e il monitora
 
 I volti rilevati e monitorati vengono restituiti con coordinate (sinistra, superiore, larghezza e altezza) indicanti la posizione dei volti nell'immagine in pixel e un codice ID del volto che indica il monitoraggio della persona. I codici ID del volto sono soggetti a ripristino quando le riprese non sono frontali o sono sovrapposte nel fotogramma, causando l'assegnazione di diversi ID alla stessa persona.
 
-### <a name="<a-id="output_elements"></a>elements-of-the-output-json-file"></a><a id="output_elements"></a>Elementi del file di output JSON
+### <a name="a-idoutputelementsaelements-of-the-output-json-file"></a><a id="output_elements"></a>Elementi del file di output JSON
 Per le operazioni di rilevamento e monitoraggio dei volti, il risultato restituito contiene i metadati ricavati dai volti all'interno del file specificato in formato JSON.
 
 Il file JSON sul rilevamento e monitoraggio dei volti include gli attributi seguenti:
@@ -70,18 +74,11 @@ Il rilevatore di volti usa tecniche di frammentazione, che consentono di suddivi
 * Inizio/Scala cronologica = 2,1 secondi
 * Secondi x (frequenza fotogrammi/scala cronologica) = 63 fotogrammi
 
-Di seguito è riportato un esempio semplice di estrazione del file JSON in formato per fotogramma per il rilevamento e il monitoraggio dei volti:
-
-    var faceDetectionResultJsonString = operationResult.ProcessingResult;
-    var faceDetecionTracking = 
-         JsonConvert.DeserializeObject<FaceDetectionResult>(faceDetectionResultJsonString, settings);
-
-
 ## <a name="face-detection-input-and-output-example"></a>Esempio di input e output di rilevamento volti
 ### <a name="input-video"></a>Video di input
 [Video di input](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-### <a name="task-configuration-(preset)"></a>Configurazione delle attività (set di impostazioni)
+### <a name="task-configuration-preset"></a>Configurazione delle attività (set di impostazioni)
 Quando si crea un'attività con **Rilevamento multimediale volti di Azure**, è necessario specificare un set di impostazioni di configurazione. Il set di impostazioni di configurazione seguente serve unicamente per il rilevamento volti.
 
     {"version":"1.0"}
@@ -140,7 +137,7 @@ L'esempio seguente di output JSON è stato troncato.
 ### <a name="input-video"></a>Video di input
 [Video di input](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-### <a name="task-configuration-(preset)"></a>Configurazione delle attività (set di impostazioni)
+### <a name="task-configuration-preset"></a>Configurazione delle attività (set di impostazioni)
 Quando si crea un'attività con **Rilevamento multimediale volti di Azure**, è necessario specificare un set di impostazioni di configurazione. Il set di impostazioni di configurazione seguente specifica la creazione del file JSON in base al Rilevamento emozioni.
 
     {
@@ -514,6 +511,9 @@ Il programma seguente illustra come:
 
 [Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

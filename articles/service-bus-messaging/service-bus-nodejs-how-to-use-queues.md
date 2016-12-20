@@ -1,19 +1,23 @@
 ---
 title: Come usare le code del bus di servizio in Node.js | Microsoft Docs
-description: Informazioni su come usare le code del bus di servizio in Azure da un’app Node.js.
-services: service-bus
+description: "Informazioni su come usare le code del bus di servizio in Azure da un’app Node.js."
+services: service-bus-messaging
 documentationcenter: nodejs
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
+ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
+ms.openlocfilehash: d36d806d14fbaa813ea9e8e6ec132fda998bb22c
+
 
 ---
 # <a name="how-to-use-service-bus-queues"></a>Come usare le code del bus di servizio
@@ -23,16 +27,16 @@ Questo articolo illustra come usare le code del bus di servizio in Node.js. Gli 
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## <a name="create-a-node.js-application"></a>Creare un'applicazione Node.js
-Creare un'applicazione Node.js vuota. Per istruzioni su come creare un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web Azure][Creare e distribuire un'applicazione Node.js in un sito Web Azure] [Servizio cloud Node.js][Servizio cloud Node.js] usando Windows PowerShell.
+## <a name="create-a-nodejs-application"></a>Creare un'applicazione Node.js
+Creare un'applicazione Node.js vuota. Per istruzioni su come creare un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web Azure][Creare e distribuire un'applicazione Node.js in un sito Web Azure] oppure [Servizio cloud Node.js][Servizio cloud Node.js] usando Windows PowerShell.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurare l'applicazione per l'uso del bus di servizio
 Per usare il bus di servizio di Azure, scaricare e usare il pacchetto Azure Node.js che include un set di librerie di riferimento che comunicano con i servizi REST del bus di servizio.
 
-### <a name="use-node-package-manager-(npm)-to-obtain-the-package"></a>Usare Node Package Manager (NPM) per ottenere il pacchetto
+### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Usare Node Package Manager (NPM) per ottenere il pacchetto
 1. Usare la finestra di comando **Windows PowerShell per Node.js** per passare alla cartella **c:\\node\\sbqueues\\WebRole1** in cui è stata creata l'applicazione di esempio.
 2. Digitare **npm install azure** nella finestra di comando, che dovrebbe restituire un output simile al seguente:
-   
+
     ```
     azure@0.7.5 node_modules\azure
         ├── dateformat@1.0.2-1.2.3
@@ -58,9 +62,9 @@ var azure = require('azure');
 ### <a name="set-up-an-azure-service-bus-connection"></a>Configurare una connessione del bus di servizio di Azure
 Il modulo di Azure legge le variabili di ambiente AZURE\_SERVICEBUS\_NAMESPACE and AZURE\_SERVICEBUS\_ACCESS\_KEY per ottenere le informazioni necessarie per la connessione al bus di servizio. Se queste variabili di ambiente non sono impostate, è necessario specificare le informazioni relative all'account quando si chiama **createServiceBusService**.
 
-Per un esempio di impostazione delle variabili di ambiente in un file di configurazione per un servizio cloud di Azure, vedere il [servizio cloud Node.js con Archiviazione][servizio cloud Node.js con Archiviazione].
+Per un esempio di impostazione delle variabili di ambiente in un file di configurazione per un servizio cloud di Azure, vedere [Servizio cloud Node.js con Archiviazione][Servizio cloud Node.js con Archiviazione].
 
-Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure classico][portale di Azure classico] per un sito Web Azure, vedere [Creazione di un'applicazione Web Node.js con Archiviazione][Creazione di un'applicazione Web Node.js con Archiviazione].
+Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure classico][portale di Azure classico] per un sito Web di Azure, vedere [Creazione di un'applicazione Web Node.js con Archiviazione][Creazione di un'applicazione Web Node.js con Archiviazione].
 
 ## <a name="create-a-queue"></a>Creare una coda
 L'oggetto **ServiceBusService** consente di usare le code del bus di servizio. Il codice seguente consente di creare un oggetto **ServiceBusService**. Aggiungerlo nella parte superiore del file **server.js** dopo l'istruzione per importare il modulo Azure:
@@ -175,7 +179,7 @@ Per altre informazioni sulle code, vedere le risorse seguenti.
 
 * [Code, argomenti e sottoscrizioni del bus di servizio][Code, argomenti e sottoscrizioni del bus di servizio]
 * Repository [Azure SDK per Node][Azure SDK per Node] su GitHub
-* [Centro per sviluppatori di Node. js](/develop/nodejs/)
+* [Centro per sviluppatori di Node.js](/develop/nodejs/)
 
 [Azure SDK per Node]: https://github.com/Azure/azure-sdk-for-node
 [portale di Azure classico]: http://manage.windowsazure.com
@@ -183,13 +187,12 @@ Per altre informazioni sulle code, vedere le risorse seguenti.
 [Servizio cloud Node.js]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Code, argomenti e sottoscrizioni del bus di servizio]: service-bus-queues-topics-subscriptions.md
 [Creare e distribuire un'applicazione Node.js in un sito Web Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Servizio cloud Node.js con Archiviazione]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+[Servizio cloud Node.js con Archiviazione]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
 [Creazione di un'applicazione Web Node.js con Archiviazione]: ../storage/storage-nodejs-how-to-use-table-storage.md
 [Quote del bus di servizio]: service-bus-quotas.md
 
 
 
-
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

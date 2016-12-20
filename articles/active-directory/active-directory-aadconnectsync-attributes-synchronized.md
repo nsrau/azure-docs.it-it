@@ -1,12 +1,12 @@
 ---
-title: 'Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory | Microsoft Docs'
-description: Fornisce l'elenco degli attributi sincronizzati con Azure Active Directory.
+title: 'Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory | Documentazione Microsoft'
+description: Fornisce l&quot;elenco degli attributi sincronizzati con Azure Active Directory.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,22 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2016
 ms.author: markvi;andkjell
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5c8ef2d5843463cd919cf81de99c62fdcf99d146
+
 
 ---
-# Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory
-Questo argomento elenca gli attributi sincronizzati tramite il servizio di sincronizzazione Azure AD Connect. Gli attributi sono raggruppati in base alle app Azure AD correlate.
+# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory
+Questo argomento elenca gli attributi sincronizzati tramite il servizio di sincronizzazione Azure AD Connect.  
+Gli attributi sono raggruppati in base alle app Azure AD correlate.
 
-## Attributi da sincronizzare
-Spesso viene chiesto *Qual è l'elenco degli attributi minimi per sincronizzare*. L'approccio predefinito e consigliato consiste nel mantenere gli attributi predefiniti per creare un elenco indirizzi globale completo nel cloud e per ottenere tutte le funzionalità nei carichi di lavoro Office 365. Talvolta l'organizzazione non vuole sincronizzare alcuni attributi con il cloud perché contengono dati sensibili o informazioni personali, come illustrato nell'esempio seguente: ![attributi non validi](./media/active-directory-aadconnectsync-attributes-synchronized/badextensionattribute.png)
+## <a name="attributes-to-synchronize"></a>Attributi da sincronizzare
+Spesso viene chiesto *Qual è l'elenco degli attributi minimi per sincronizzare*. L'approccio predefinito e consigliato consiste nel mantenere gli attributi predefiniti per creare un elenco indirizzi globale completo nel cloud e per ottenere tutte le funzionalità nei carichi di lavoro Office 365. Talvolta l'organizzazione non vuole sincronizzare alcuni attributi con il cloud perché contengono dati sensibili o informazioni personali, come illustrato nell'esempio seguente:   
+![attributi non validi](./media/active-directory-aadconnectsync-attributes-synchronized/badextensionattribute.png)
 
-In questo caso, partire dal seguente elenco di attributi in questo argomento e individuare gli attributi che potrebbero contenere dati sensibili o informazioni personali e che non possono quindi essere sincronizzati. Deselezionare questi attributi durante l'installazione tramite [Filtro attributi e app di Azure AD](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
+In questo caso, partire dal seguente elenco di attributi in questo argomento e individuare gli attributi che potrebbero contenere dati sensibili o informazioni personali e che non possono quindi essere sincronizzati. Deselezionare questi attributi durante l'installazione tramite [Filtro attributi e app di Azure AD](connect/active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
 
 > [!WARNING]
 > Quando si deselezionano gli attributi, prestare grande attenzione e deselezionare soltanto quelli che non devono assolutamente essere sincronizzati. Deselezionando altri attributi si potrebbe influire negativamente sulle funzionalità.
 > 
 > 
 
-## Office 365 ProPlus
+## <a name="office-365-proplus"></a>Office 365 ProPlus
 | Nome attributo | Utente | Commento |
 | --- |:---:| --- |
 | accountEnabled |X |Definisce se un account è abilitato. |
@@ -41,7 +47,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | usageLocation |X |Proprietà meccanica. Paese dell'utente. Usato per l'assegnazione delle licenze. |
 | userPrincipalName |X |Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 
-## Exchange Online
+## <a name="exchange-online"></a>Exchange Online
 | Nome attributo | Utente | Contatto | Gruppo | Commento |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
@@ -163,7 +169,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | userSMIMECertificates |X |X | | |
 | wWWHomePage |X |X | | |
 
-## SharePoint Online
+## <a name="sharepoint-online"></a>SharePoint Online
 | Nome attributo | Utente | Contatto | Gruppo | Commento |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
@@ -196,13 +202,13 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
 | hideDLMembership | | |X | |
-| homephone |X |X | | |
+| homePhone |X |X | | |
 | info |X |X |X | |
-| initials |X |X | | |
+| Initials |X |X | | |
 | ipPhone |X |X | | |
 | l |X |X | | |
 | mail |X |X |X | |
-| mailnickname |X |X |X | |
+| mailNickname |X |X |X | |
 | managedBy | | |X | |
 | manager |X |X | | |
 | member | | |X | |
@@ -245,7 +251,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | userPrincipalName |X | | |Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 | wWWHomePage |X |X | | |
 
-## Lync Online
+## <a name="lync-online"></a>Lync Online
 | Nome attributo | Utente | Contatto | Gruppo | Commento |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
@@ -258,7 +264,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
 | givenName |X |X | | |
-| homephone |X |X | | |
+| homePhone |X |X | | |
 | ipPhone |X |X | | |
 | l |X |X | | |
 | mail |X |X |X | |
@@ -294,7 +300,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | userPrincipalName |X | | |Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 | wWWHomePage |X |X | | |
 
-## Azure RMS
+## <a name="azure-rms"></a>Azure RMS
 | Nome attributo | Utente | Contatto | Gruppo | Commento |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
@@ -310,7 +316,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | usageLocation |X | | |Proprietà meccanica. Paese dell'utente. Usato per l'assegnazione delle licenze. |
 | userPrincipalName |X | | |Questo nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 
-## Intune
+## <a name="intune"></a>Intune
 | Nome attributo | Utente | Contatto | Gruppo | Commento |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
@@ -319,7 +325,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | description |X |X |X | |
 | displayName |X |X |X | |
 | mail |X |X |X | |
-| mailnickname |X |X |X | |
+| mailNickname |X |X |X | |
 | member | | |X | |
 | objectSID |X | |X |Proprietà meccanica. Identificatore utente di Active Directory usato per mantenere la sincronizzazione tra Azure AD e Active Directory. |
 | proxyAddresses |X |X |X | |
@@ -329,7 +335,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | usageLocation |X | | |Proprietà meccanica. Paese dell'utente. Usato per l'assegnazione delle licenze. |
 | userPrincipalName |X | | |Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 
-## Dynamics CRM
+## <a name="dynamics-crm"></a>Dynamics CRM
 | Nome attributo | Utente | Contatto | Gruppo | Commento |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
@@ -362,7 +368,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | usageLocation |X | | |Proprietà meccanica. Paese dell'utente. Usato per l'assegnazione delle licenze. |
 | userPrincipalName |X | | |Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 
-## Applicazioni di terze parti
+## <a name="3rd-party-applications"></a>Applicazioni di terze parti
 Questo gruppo è un set di attributi usati come gli attributi minimi necessari per un'applicazione o un carico di lavoro generico. Può essere usato per un carico di lavoro non elencato in un'altra sezione o per un'app non Microsoft. Viene utilizzato in modo esplicito per:
 
 * Yammer (viene usato solo Utente)
@@ -378,7 +384,7 @@ Questo gruppo è un set di attributi che può essere usato se non si utilizza la
 | givenName |X |X | | |
 | mail |X | |X | |
 | managedBy | | |X | |
-| mailNickName |X |X |X | |
+| mailNickname |X |X |X | |
 | member | | |X | |
 | objectSID |X | | |Proprietà meccanica. Identificatore utente di Active Directory usato per mantenere la sincronizzazione tra Azure AD e Active Directory. |
 | proxyAddresses |X |X |X | |
@@ -388,7 +394,7 @@ Questo gruppo è un set di attributi che può essere usato se non si utilizza la
 | usageLocation |X | | |Proprietà meccanica. Paese dell'utente. Usato per l'assegnazione delle licenze. |
 | userPrincipalName |X | | |Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 
-## Windows 10
+## <a name="windows-10"></a>Windows 10
 I computer o dispositivi appartenenti a un dominio Windows 10 sincronizzano alcuni attributi in Azure AD. Per altre informazioni sugli scenari, vedere [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md). Questi attributi verranno sempre sincronizzati e Windows 10 non appare come app che è possibile deselezionare. Un computer appartenente a un dominio Windows 10 viene identificato se l’attributo userCertificate è popolato.
 
 | Nome attributo | Dispositivo | Commento |
@@ -403,14 +409,14 @@ I computer o dispositivi appartenenti a un dominio Windows 10 sincronizzano alcu
 | operatingSystemVersion |X |Anche chiamato deviceOSVersion. |
 | userCertificate |X | |
 
-Questi attributi per l'**utente** si aggiungono alle altre app selezionate.
+Questi attributi per l' **utente** si aggiungono alle altre app selezionate.  
 
 | Nome attributo | Utente | Commento |
 | --- |:---:| --- |
 | domainFQDN |X |Anche chiamato dnsDomainName. Ad esempio, contoso.com. |
 | domainNetBios |X |Anche chiamato netBiosName. Ad esempio, CONTOSO. |
 
-## Writeback della distribuzione ibrida Exchange
+## <a name="exchange-hybrid-writeback"></a>Writeback della distribuzione ibrida Exchange
 Se si sceglie di abilitare la distribuzione **ibrida di Exchange**, per questi attributi viene eseguito il writeback da Azure AD ad Active Directory locale. A seconda della versione di Exchange in uso, potrebbe essere sincronizzato un numero minore di attributi.
 
 | Nome attributo | Utente | Contatto | Gruppo | Commento |
@@ -424,7 +430,7 @@ Se si sceglie di abilitare la distribuzione **ibrida di Exchange**, per questi a
 | msExchUserHoldPolicies |X | | |Blocco per controversia legale: consente ai servizi cloud di determinare gli utenti per i quali è attivato un blocco per controversia legale. |
 | proxyAddresses |X |X |X |Viene inserito solo l'indirizzo x500 da Exchange Online. |
 
-## Writeback dispositivi
+## <a name="device-writeback"></a>Writeback dispositivi
 Gli oggetti dispositivo vengono creati in Active Directory. Questi oggetti possono essere dispositivi aggiunti ad Azure AD o computer Windows 10 aggiunti al dominio.
 
 | Nome attributo | Dispositivo | Commento |
@@ -444,13 +450,18 @@ Gli oggetti dispositivo vengono creati in Active Directory. Questi oggetti posso
 | msDS-IsManaged |X | |
 | msDS-RegisteredOwner |X | |
 
-## Note
+## <a name="notes"></a>Note
 * Quando si usa un ID alternativo, l'attributo locale userPrincipalName viene sincronizzato con l'attributo onPremisesUserPrincipalName di Azure AD. L'attributo dell'ID alternativo, ad esempio mail, viene sincronizzato con l'attributo di Azure AD userPrincipalName.
-* Negli elenchi sopra, il tipo di oggetto **Utente** si applica anche al tipo di oggetto **iNetOrgPerson**.
+* Negli elenchi sopra il tipo di oggetto **Utente** si applica anche al tipo di oggetto **iNetOrgPerson**.
 
-## Passaggi successivi
-Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+## <a name="next-steps"></a>Passaggi successivi
+Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
-Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
+Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

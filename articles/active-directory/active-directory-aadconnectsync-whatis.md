@@ -1,29 +1,33 @@
 ---
-title: 'Servizio di sincronizzazione Azure AD Connect: comprendere e personalizzare la sincronizzazione | Microsoft Docs'
+title: 'Servizio di sincronizzazione Azure AD Connect: comprendere e personalizzare la sincronizzazione | Documentazione Microsoft'
 description: Spiega come funziona il servizio di sincronizzazione Azure AD Connect e come personalizzarlo.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
-ms.author: markusvi;andkjell
+ms.date: 11/01/2016
+ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 68102abce40ed15f0430cfdf19d56807a1149bf8
+
 
 ---
-# Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione
+# <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione
 Il servizio di sincronizzazione Azure Active Directory Connect (servizio di sincronizzazione Azure AD Connect) è un componente importante di Azure AD Connect. Si occupa di tutte le operazioni che riguardano la sincronizzazione dei dati relativi alle identità tra l'ambiente locale e Azure AD. Il servizio di sincronizzazione Azure AD Connect è il successore di DirSync, Azure AD Sync e Forefront Identity Manager con il connettore Azure Active Directory configurato.
 
 Questo argomento fornisce informazioni di base sul **servizio di sincronizzazione Azure AD Connect**, detto anche **motore di sincronizzazione**, e include un elenco di collegamenti a tutti gli altri argomenti correlati. Per collegamenti relativi ad Azure AD Connect, vedere [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
 Il servizio di sincronizzazione è costituito da due componenti: la **sincronizzazione di Azure AD Connect** locale e il servizio di Azure AD chiamato **servizio di sincronizzazione di Azure AD Connect**. Il servizio è comune a DirSync, Azure AD Sync e Azure AD Connect.
 
-## Argomenti relativi al servizio di sincronizzazione Azure AD Connect
+## <a name="azure-ad-connect-sync-topics"></a>Argomenti relativi al servizio di sincronizzazione Azure AD Connect
 | Argomento | Contenuti e destinatari |
 | --- | --- |
 | **Concetti fondamentali sul servizio di sincronizzazione Azure AD Connect** | |
@@ -49,7 +53,7 @@ Il servizio di sincronizzazione è costituito da due componenti: la **sincronizz
 | [Funzionalità del servizio di sincronizzazione di Azure AD Connect](active-directory-aadconnectsyncservice-features.md) |Descrive il servizio di sincronizzazione e la modifica delle impostazioni di sincronizzazione in Azure AD. |
 | [Resilienza degli attributi duplicati](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) |Descrive come abilitare e usare la resilienza dei valori di attributo duplicati **userPrincipalName** e **proxyAddresses**. |
 | **Operazioni e interfaccia utente** | |
-| [Synchronization Service Manager.](active-directory-aadconnectsync-service-manager-ui.md) |Descrive l'interfaccia utente di Synchronization Service Manager, comprese le schede [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md) (Operazioni), [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md) (Connettori), [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) (Progettazione metaverse) e [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) (Ricerca metaverse). |
+| [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) |Descrive l'interfaccia utente di Synchronization Service Manager, comprese le schede [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md) (Operazioni), [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md) (Connettori), [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) (Progettazione metaverse) e [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) (Ricerca metaverse). |
 | [Attività operative e considerazioni](active-directory-aadconnectsync-operations.md) |Illustra aspetti operativi, ad esempio il ripristino di emergenza. |
 | **Procedura:** | |
 | [Reimpostare l'account Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md) |Come reimpostare le credenziali dell'account del servizio usato per la connessione dal servizio di sincronizzazione Azure AD Connect ad Azure AD. |
@@ -58,7 +62,12 @@ Il servizio di sincronizzazione è costituito da due componenti: la **sincronizz
 | [Attributi sincronizzati con Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md) |Elenca tutti gli attributi che vengono sincronizzati tra l'istanza locale di AD e Azure AD. |
 | [Riferimento alle funzioni](active-directory-aadconnectsync-functions-reference.md) |Elenca tutte le funzioni disponibili nel provisioning dichiarativo. |
 
-## Risorse aggiuntive
+## <a name="additional-resources"></a>Risorse aggiuntive
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

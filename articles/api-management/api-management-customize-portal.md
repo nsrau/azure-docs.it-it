@@ -53,7 +53,7 @@ Sono disponibili due modalità principali per la modifica delle regole di stile:
 
 In questa sezione viene modificato solo lo stile delle intestazioni. Fare clic sull'opzione **Pick element** (Seleziona elemento) sulla barra degli strumenti dell'editor dello stile e quindi fare clic su **Select an element to customize** (Seleziona un elemento da personalizzare). Man mano che il puntatore del mouse passa sugli elementi, questi vengono evidenziati per indicare gli stili dell'elemento che si possono modificare facendo clic su di essi. Passare il mouse sul testo che indica il nome dell'azienda nell'intestazione ("Portale per sviluppatori Fabrikam" se si sono seguite le istruzioni fornite nella sezione precedente) e quindi fare clic su di esso. Nell'editor dello stile viene visualizzato un set di regole di stile denominate e categorizzate.
 
-Ogni regola rappresenta una proprietà di stile dell'elemento selezionato. Ad esempio, per il testo dell'intestazione selezionata sopra, la dimensione del testo è pari a @font-size-h1, mentre il nome del tipo di carattere con le alternative si trova in @headings-font-family..
+Ogni regola rappresenta una proprietà di stile dell'elemento selezionato. Ad esempio, per il testo dell'intestazione selezionata sopra, la dimensione del testo è pari a @font-size-h1, mentre il nome del tipo di carattere con le alternative si trova in @headings-font-family.
 
 > Se si ha familiarità con [bootstrap][bootstrap], queste regole sono in effetti [variabili LESS][variabili LESS] nel tema bootstrap usato dal portale per sviluppatori.
 > 

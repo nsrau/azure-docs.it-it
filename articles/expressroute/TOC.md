@@ -20,21 +20,21 @@
 ## Creare e modificare un circuito
 ### [portale di Azure](expressroute-howto-circuit-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-circuit-arm.md)
-### [PowerShell (Classic)](expressroute-howto-circuit-classic.md) (PowerShell (classico))
+### [PowerShell (classico)](expressroute-howto-circuit-classic.md)
 ## Creare e modificare configurazioni di routing
 ### [Portale di Azure](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
-### [PowerShell (Classic)](expressroute-howto-routing-classic.md) (PowerShell (classico))
+### [PowerShell (classico)](expressroute-howto-routing-classic.md)
 ## Collegare una rete virtuale a un circuito ExpressRoute
 ### [Portale di Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
-### [PowerShell (Classic)](expressroute-howto-linkvnet-classic.md) (PowerShell (classico))
+### [PowerShell (classico)](expressroute-howto-linkvnet-classic.md)
 ## Configurare un gateway di rete virtuale per ExpressRoute
 ### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
-### [PowerShell (Classic)](expressroute-howto-add-gateway-classic.md) (PowerShell (classico))
+### [PowerShell (classico)](expressroute-howto-add-gateway-classic.md)
 ## Creare connessioni gateway VPN da sito a sito ed ExpressRoute coesistenti
 ### [PowerShell](expressroute-howto-coexist-resource-manager.md)
-### [PowerShell (Classic)](expressroute-howto-coexist-classic.md) (PowerShell (classico))
+### [PowerShell (classico)](expressroute-howto-coexist-classic.md)
 ## [Eseguire la migrazione di un circuito dal modello classico a Resource Manager](expressroute-howto-move-arm.md)
 ## Configurare un router per ExpressRoute
 ### [Esempi di configurazione di router](expressroute-config-samples-routing.md)
@@ -44,14 +44,14 @@
 ### [Procedure consigliate per la sicurezza di rete e i servizi cloud](../best-practices-network-security.md)
 ### [Routing asimmetrico](expressroute-asymmetric-routing.md)
 
-## Risoluzione dei problemi
+## Risolvere problemi
 ### [Recupero di tabelle ARP](expressroute-troubleshooting-arp-resource-manager.md)
 ### [Recupero di tabelle ARP (versione classica)](expressroute-troubleshooting-arp-classic.md)
 
 
 # riferimento
 ## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-## [REST (Resource Manager)](https://msdn.microsoft.com/library/azure/mt586720)
+## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (classico)](https://msdn.microsoft.com/library/azure/dn606310)
 
 # Risorse correlate
@@ -80,6 +80,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=expressroute)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

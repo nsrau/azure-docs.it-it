@@ -2,11 +2,11 @@
 title: Come generare anteprime utilizzando Media Encoder Standard con .NET
 description: In questo argomento viene illustrato come utilizzare .NET per codificare un asset e al tempo stesso generare anteprime utilizzando Media Encoder Standard.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: b8dab73a-1d91-4b6d-9741-a92ad39fc3f7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1c28e756548b69d336b7f66ae9fbfa3c9259f787
+
 
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-.net"></a>Come generare anteprime utilizzando Media Encoder Standard con .NET
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Come generare anteprime utilizzando Media Encoder Standard con .NET
 In questo argomento viene illustrato come utilizzare Media Services .NET SDK per codificare un asset e generare anteprime utilizzando Media Encoder Standard. L'argomento definisce i set di impostazioni dell'anteprima XML e JSON che è possibile utilizzare per creare un'attività che esegue la codifica e genera anteprime nello stesso momento. [Questo](https://msdn.microsoft.com/library/mt269962.aspx) documento contiene descrizioni degli elementi che vengono utilizzati da questi predefiniti.
 
 Assicurarsi di esaminare la sezione [Considerazioni](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) .
@@ -168,7 +172,7 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
             }
         }
 
-## <a name="<a-id="json"></a>thumbnail-json-preset"></a><a id="json"></a>Anteprima JSON predefinito
+## <a name="a-idjsonathumbnail-json-preset"></a><a id="json"></a>Anteprima JSON predefinito
 Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/library/mt269962.aspx) argomento.
 
     {
@@ -270,7 +274,7 @@ Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/librar
     }
 
 
-## <a name="<a-id="xml"></a>thumbnail-xml-preset"></a><a id="xml"></a>Anteprima XML predefinito
+## <a name="a-idxmlathumbnail-xml-preset"></a><a id="xml"></a>Anteprima XML predefinito
 Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/library/mt269962.aspx) argomento.
 
     <?xml version="1.0" encoding="utf-16"?>
@@ -357,7 +361,7 @@ Si applicano le considerazioni seguenti:
     
     È possibile combinare e associare le notazioni a piacimento.
     
-    Inoltre, Start supporta anche una Macro speciale: {Best}, che tenta di determinare il primo fotogramma "interessante" del contenuto NOTA: (Step e Range vengono ignorati quando Start è impostato su {Best})
+    Inoltre, Inizio supporta anche una Macro speciale: {Best}, che tenta di determinare il primo fotogramma "interessante" della NOTA contenuto: (Passaggio e Intervallo vengono ignorati quando Inizio è impostato su {Best})
   * Impostazioni predefinite: Start: {Best}
 * Il formato di output deve essere specificato in modo esplicito per ogni formato immagine: Jpg/Png/BmpFormat. Quando è presente, MES collegherà JpgVideo a JpgFormat e così via. OutputFormat presenta una nuova Macro specifica di codec di immagine : {Index}, che deve essere presente (una volta e una sola volta) per i formati immagine.
 
@@ -370,6 +374,9 @@ Si applicano le considerazioni seguenti:
 ## <a name="see-also"></a>Vedere anche
 [Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

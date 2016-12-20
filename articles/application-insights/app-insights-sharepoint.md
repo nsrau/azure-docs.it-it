@@ -2,10 +2,10 @@
 title: Monitorare un sito di SharePoint con Application Insights
 description: Avviare il monitoraggio di una nuova applicazione con una nuova chiave di strumentazione
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
 manager: douge
-
+ms.assetid: 2bfe5910-d673-4cf6-a5c1-4c115eae1be0
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,52 +13,56 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
+ms.openlocfilehash: 3977cbc0f111de39621a875cce2d6714559a73fd
+
 
 ---
-# Monitorare un sito di SharePoint con Application Insights
-Application Insights consente di monitorare disponibilità, prestazioni e utilizzo delle app. Di seguito verrà illustrato come impostarlo per un sito di SharePoint.
+# <a name="monitor-a-sharepoint-site-with-application-insights"></a>Monitorare un sito di SharePoint con Application Insights
+Azure Application Insights consente di monitorare disponibilità, prestazioni e utilizzo delle app. Di seguito verrà illustrato come impostarlo per un sito di SharePoint.
 
-## Creare una risorsa Application Insights
-Nel [portale di Azure](https://portal.azure.com) creare una nuova risorsa di Application Insights. Scegliere ASP.NET come tipo di applicazione.
+## <a name="create-an-application-insights-resource"></a>Creare una risorsa Application Insights
+Nel [portale di Azure](https://portal.azure.com)creare una nuova risorsa di Application Insights. Scegliere ASP.NET come tipo di applicazione.
 
 ![Fare clic su Proprietà, selezionare il tasto e premere CTRL+C](./media/app-insights-sharepoint/01-new.png)
 
 Viene visualizzato un pannello che mostra le prestazioni e i dati di utilizzo relativi all'app. Per visualizzare di nuovo questo pannello al successivo accesso ad Azure, nella schermata Start dovrebbe venire visualizzato un riquadro per l'app. In alternativa, fare clic su Sfoglia per cercarla.
 
-## Aggiungere lo script alle pagine Web
+## <a name="add-our-script-to-your-web-pages"></a>Aggiungere lo script alle pagine Web
 In Avvio rapido ottenere lo script per le pagine Web:
 
 ![](./media/app-insights-sharepoint/02-monitor-web-page.png)
 
-Inserire lo script immediatamente prima del tag &lt;/head&gt; di ogni pagina di cui si vuole tenere traccia. Se il sito Web presenta una pagina master, è possibile inserire lo script in tale posizione. Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\\Shared\_Layout.cshtml
+Inserire lo script immediatamente prima del tag &lt;/head&gt; di ogni pagina di cui si vuole tenere traccia. Se il sito Web presenta una pagina master, è possibile inserire lo script in tale posizione. Ad esempio, in un progetto ASP.NET MVC inserire lo script in View\Shared\_Layout.cshtml.
 
 Lo script contiene la chiave di strumentazione che indirizza i dati di telemetria alla risorsa di Application Insights.
 
-### Aggiungere il codice alle pagine del sito
-#### Nella pagina master
+### <a name="add-the-code-to-your-site-pages"></a>Aggiungere il codice alle pagine del sito
+#### <a name="on-the-master-page"></a>Nella pagina master
 Se è possibile modificare la pagina master del sito, che fornisce il monitoraggio per ogni pagina del sito.
 
 Consultare la pagina master e modificarla mediante SharePoint Designer o un altro editor.
 
 ![](./media/app-insights-sharepoint/03-master.png)
 
-Aggiungere il codice appena prima del tag </head>.
+Aggiungere il codice appena prima del tag </head> . 
 
 ![](./media/app-insights-sharepoint/04-code.png)
 
-#### oppure nelle singole pagine
-Per monitorare un set limitato di pagine, aggiungere lo script separatamente a ogni pagina.
+#### <a name="or-on-individual-pages"></a>oppure nelle singole pagine
+Per monitorare un set limitato di pagine, aggiungere lo script separatamente a ogni pagina. 
 
 Inserire una Web part e incorporarvi il frammento di codice.
 
 ![](./media/app-insights-sharepoint/05-page.png)
 
-## Visualizza i dati sull'app
+## <a name="view-data-about-your-app"></a>Visualizza i dati sull'app
 Ridistribuire l'app.
 
 Tornare al pannello dell'applicazione nel [portale di Azure](https://portal.azure.com).
 
-I primi eventi verranno visualizzati nella ricerca.
+I primi eventi verranno visualizzati nella ricerca. 
 
 ![](./media/app-insights-sharepoint/09-search.png)
 
@@ -76,14 +80,14 @@ Oppure gli utenti:
 
 ![](./media/app-insights-sharepoint/08-users.png)
 
-## Acquisizione dell'ID utente
+## <a name="capturing-user-id"></a>Acquisizione dell'ID utente
 Il frammento di codice della pagina Web standard non acquisisce l'ID utente da SharePoint. Per l'acquisizione è necessario eseguire una piccola modifica.
 
 1. Copiare la chiave di strumentazione dell'app dall'elenco a discesa Informazioni di base in Application Insights. 
 
     ![](./media/app-insights-sharepoint/02-props.png)
 
-1. Sostituire la chiave di strumentazione per "XXXX" nel frammento di codice riportato di seguito.
+1. Sostituire la chiave di strumentazione per "XXXX" nel frammento di codice riportato di seguito. 
 2. Incorporare lo script nell'app di SharePoint anziché il frammento di codice ottenuto dal portale.
 
 ```
@@ -135,7 +139,7 @@ function onRequestFail(sender, args) {
 
 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * [Test web](app-insights-monitor-web-app-availability.md) per monitorare la disponibilità del sito.
 * [Application Insights](app-insights-overview.md) per altri tipi di app.
 
@@ -144,4 +148,7 @@ function onRequestFail(sender, args) {
 
 
 
-<!---HONumber=AcomDC_0608_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: IP pubblico a livello di istanza (ILPIP) | Microsoft Docs
-description: Informazioni su ILPIP (PIP) e come gestirli
+title: IP pubblico a livello di istanza (classico) con PowerShell | Documentazione Microsoft
+description: Informazioni sugli ILPIP (PIP) e su come gestirli con PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 07eef6ec-7dfe-4c4d-a2c2-be0abfb48ec5
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,56 +14,63 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: f1a4dc135721a1c2a134806fbae031ee60e23074
+ms.openlocfilehash: 1aa0990f53059fa832100f9fcf88f93633ca93ce
+
 
 ---
-# Panoramica sugli indirizzi IP pubblici a livello di istanza
+# <a name="instance-level-public-ip-classic-overview"></a>Panoramica sugli indirizzi IP pubblici (classici) a livello di istanza
 Un indirizzo IP pubblico a livello di istanza (ILPIP) è un indirizzo IP pubblico che è possibile assegnare direttamente all'istanza della VM o del ruolo anziché al servizio cloud in cui risiede l'istanza. Tale indirizzo non sostituisce l'indirizzo VIP (Virtual IP) assegnato al servizio cloud. Piuttosto, si tratta di un indirizzo IP aggiuntivo che è possibile usare per connettersi direttamente all'istanza della macchina virtuale o del ruolo.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Informazioni su come [eseguire questa procedura con il modello di Resource Manager](virtual-network-ip-addresses-overview-arm.md).
-
-Verificare di conoscere il funzionamento degli [indirizzi IP](virtual-network-ip-addresses-overview-classic.md) in Azure.
-
-> [!NOTE]
-> In passato, un ILPIP veniva definito PIP, acronimo di Public IP.
-> 
-> 
+> [!IMPORTANT]
+> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare Gestione risorse per la maggior parte delle distribuzioni più recenti. Verificare di conoscere il funzionamento degli [indirizzi IP](virtual-network-ip-addresses-overview-classic.md) in Azure.
 
 ![Differenza tra ILPIP e VIP](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 
-Come illustrato nella figura 1, al servizio cloud si accede tramite un indirizzo VIP, mentre alle singole macchine virtuali in genere si accede tramite VIP:&lt;numero di porta &gt;. Assegnando un ILPIP a una macchina virtuale specifica, è possibile accedere a questa macchina virtuale direttamente tramite l’indirizzo IP.
+Come illustrato nella figura 1, al servizio cloud si accede tramite un indirizzo VIP, mentre alle singole macchine virtuali si accede in genere tramite VIP:&lt;numero di porta&gt;. Assegnando un ILPIP a una macchina virtuale specifica, è possibile accedere a questa macchina virtuale direttamente tramite l’indirizzo IP.
 
-Quando si crea un servizio cloud in Azure, i record A DNS corrispondenti vengono creati automaticamente per consentire l'accesso al servizio tramite un nome di dominio completo (FQDN) anziché tramite l'indirizzo VIP effettivo. Lo stesso processo si verifica per ILPIP, che consente l'accesso all'istanza della macchina virtuale o del ruolo mediante FQDN anziché ILPIP. Se ad esempio si crea un servizio cloud denominato *contosoadservice* e si configura un ruolo Web denominato *contosoweb* con due istanze, Azure registrerà i record A seguenti per le istanze:
+Quando si crea un servizio cloud in Azure, i record A DNS corrispondenti vengono creati automaticamente per consentire l'accesso al servizio tramite un nome di dominio completo (FQDN) anziché tramite l'indirizzo VIP effettivo. Lo stesso processo si verifica per ILPIP, che consente l'accesso all'istanza della macchina virtuale o del ruolo mediante FQDN anziché ILPIP. Se ad esempio si crea un servizio cloud denominato *contosoadservice* e si configura un ruolo Web denominato *contosoweb* con due istanze, Azure registrerà per le istanze i record A seguenti:
 
-* contosoweb\_IN\_0.contosoadservice.cloudapp.net
-* contosoweb\_IN\_1.contosoadservice.cloudapp.net
+* contosoweb\_IN_0.contosoadservice.cloudapp.net
+* contosoweb\_IN_1.contosoadservice.cloudapp.net 
 
 > [!NOTE]
 > È possibile assegnare un solo ILPIP per ogni istanza di macchina virtuale o ruolo. È possibile usare fino a 5 ILPIP per ogni sottoscrizione. Attualmente, ILPIP non è supportato per le macchine virtuali a più NIC.
 > 
 > 
 
-## Perché è necessario richiedere un ILPIP?
+## <a name="why-should-i-request-an-ilpip"></a>Perché è necessario richiedere un ILPIP?
 Se si desidera connettersi all'istanza della VM o del ruolo tramite un indirizzo IP assegnato direttamente all'istanza, anziché usare il servizio cloud VIP:&lt;numero porta&gt;, richiedere un ILPIP per l'istanza della VM o del ruolo.
 
-* **FTP passivo**: con un ILPIP sulla VM, è possibile ricevere traffico su qualsiasi porta, senza dover aprire un apposito endpoint. Questa operazione consente scenari quali FTP passivo dove le porte vengono scelte in modo dinamico.
-* **IP in uscita**: il traffico in uscita proveniente dalla VM viene trasmesso con l'ILPIP come origine e identifica in modo univoco la VM sulle entità esterne.
+* **FTP passivo** : con un ILPIP sulla VM, è possibile ricevere traffico su qualsiasi porta, senza dover aprire un apposito endpoint. Questa operazione consente scenari quali FTP passivo dove le porte vengono scelte in modo dinamico.
+* **IP in uscita** : il traffico in uscita proveniente dalla VM viene trasmesso con l'ILPIP come origine e identifica in modo univoco la VM sulle entità esterne.
 
-## Come richiedere un ILPIP durante la creazione della macchina virtuale
-Lo script di PowerShell di seguito crea un nuovo servizio cloud denominato *FTPService*, quindi recupera un'immagine da Azure e crea una macchina virtuale denominata *FTPInstance* utilizzando l'immagine recuperata, imposta la macchina virtuale per usare un ILPIP e aggiunge la macchina virtuale al nuovo servizio:
+> [!NOTE]
+> In passato, un ILPIP veniva definito PIP, acronimo di Public IP.
+> 
 
-    New-AzureService -ServiceName FTPService -Location "Central US"
-    $image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
-    New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
-    | Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
-    | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
+## <a name="how-to-request-an-ilpip-during-vm-creation-using-powershell"></a>Come richiedere un ILPIP durante la creazione della macchina virtuale mediante PowerShell
+Lo script di PowerShell riportato di seguito crea un nuovo servizio cloud denominato *FTPService*. Recupera quindi un'immagine da Azure e crea una macchina virtuale denominata *FTPInstance* usando l'immagine recuperata, imposta la macchina virtuale per usare un ILPIP e aggiunge la macchina virtuale al nuovo servizio:
 
-## Come recuperare informazioni su ILPIP per una macchina virtuale
+```powershell
+New-AzureService -ServiceName FTPService -Location "Central US"
+
+$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"} `
+New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
+| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
+| Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
+```
+
+## <a name="how-to-retrieve-ilpip-information-for-a-vm"></a>Come recuperare informazioni su ILPIP per una macchina virtuale
 Per visualizzare le informazioni su ILPIP per la macchina virtuale creata con lo script precedente, eseguire il comando PowerShell e osservare i valori per *PublicIPAddress* e *PublicIPName*:
 
-    Get-AzureVM -Name FTPInstance -ServiceName FTPService
+```powershell
+Get-AzureVM -Name FTPInstance -ServiceName FTPService
+```
 
+Output previsto:
+ 
     DeploymentName              : FTPService
     Name                        : FTPInstance
     Label                       : 
@@ -81,7 +88,7 @@ Per visualizzare le informazioni su ILPIP per la macchina virtuale creata con lo
     AvailabilitySetName         : 
     DNSName                     : http://ftpservice888.cloudapp.net/
     Status                      : ReadyRole
-    GuestAgentStatus            : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
+    GuestAgentStatus            :   Microsoft.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
     ResourceExtensionStatusList : {Microsoft.Compute.BGInfo}
     PublicIPAddress             : 104.43.142.188
     PublicIPName                : ftpip
@@ -91,22 +98,22 @@ Per visualizzare le informazioni su ILPIP per la macchina virtuale creata con lo
     OperationId                 : 568d88d2be7c98f4bbb875e4d823718e
     OperationStatus             : OK
 
-## Come rimuovere un ILPIP da una macchina virtuale
+## <a name="how-to-remove-an-ilpip-from-a-vm"></a>Come rimuovere un ILPIP da una macchina virtuale
 Per rimuovere un ILPIP aggiunto alla macchina virtuale nello script precedente, eseguire il comando PowerShell seguente:
 
-    Get-AzureVM -ServiceName FTPService -Name FTPInstance `
-    | Remove-AzurePublicIP `
-    | Update-AzureVM
+```powershell
+Get-AzureVM -ServiceName FTPService -Name FTPInstance | Remove-AzurePublicIP | Update-AzureVM
+```
 
-## Come aggiungere un ILPIP a una macchina virtuale esistente
+## <a name="how-to-add-an-ilpip-to-an-existing-vm"></a>Come aggiungere un ILPIP a una macchina virtuale esistente
 Per aggiungere un ILPIP alla VM creata usando lo script precedente, eseguire il comando seguente:
 
-    Get-AzureVM -ServiceName FTPService -Name FTPInstance `
-    | Set-AzurePublicIP -PublicIPName ftpip2 `
-    | Update-AzureVM
+```powershell
+Get-AzureVM -ServiceName FTPService -Name FTPInstance | Set-AzurePublicIP -PublicIPName ftpip2 | Update-AzureVM
+```
 
-## Come associare un ILPIP a una macchina virtuale usando un file di configurazione del servizio
-È possibile anche associare un ILPIP a una macchina virtuale usando un file di configurazione (CSCFG) del servizio. Il file XML di esempio riportato di seguito illustra come configurare un servizio cloud per l'uso di un ILPIP denominato *MyPublicIP* per un'istanza del ruolo:
+## <a name="how-to-associate-an-ilpip-to-a-vm-by-using-a-service-configuration-file"></a>Come associare un ILPIP a una macchina virtuale usando un file di configurazione del servizio
+È possibile anche associare un ILPIP a una macchina virtuale usando un file di configurazione (CSCFG) del servizio. Il file XML di esempio riportato di seguito illustra come configurare un servizio cloud per l'uso di un ILPIP denominato *MyPublicIP* per un'istanza del ruolo: 
 
     <?xml version="1.0" encoding="utf-8"?>
     <ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
@@ -132,8 +139,13 @@ Per aggiungere un ILPIP alla VM creata usando lo script precedente, eseguire il 
       </NetworkConfiguration>
     </ServiceConfiguration>
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sul funzionamento degli [indirizzi IP](virtual-network-ip-addresses-overview-classic.md) nel modello di distribuzione classica.
 * Informazioni sugli [indirizzi IP riservati](virtual-networks-reserved-public-ip.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

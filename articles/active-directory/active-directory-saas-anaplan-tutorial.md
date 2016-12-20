@@ -1,12 +1,12 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Anaplan | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Anaplan.
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Anaplan.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 4a9c2914-6c8c-4a88-93e3-3753afb40e6b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 57a2c9e4a48239dfb0f2a3bcf98adade4f5f7dc9
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-anaplan"></a>Esercitazione: Integrazione di Azure Active Directory con Anaplan
+# <a name="tutorial-azure-active-directory-integration-with-anaplan"></a>Esercitazione: Integrazione di Azure Active Directory con Anaplan
 Questa esercitazione descrive l'integrazione di Anaplan con Azure Active Directory (Azure AD).
 
 L'integrazione di Anaplan con Azure AD offre i vantaggi seguenti:
@@ -236,6 +240,6 @@ Quando si fa clic sul riquadro Anaplan nel pannello di accesso, si dovrebbe acce
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Configurare una connessione VPN tra due reti virtuali | Microsoft Docs
+title: Configurare una connessione VPN tra due reti virtuali | Documentazione Microsoft
 description: Informazioni su come configurare le connessioni VPN e la risoluzione dei nomi di dominio tra due reti virtuali di Azure e come configurare la replica geografica di HBase.
 services: hdinsight,virtual-network
-documentationcenter: ''
+documentationcenter: 
 author: mumian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 1f47b85e-d5e8-4a4a-843e-1881d969e49f
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -14,23 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/28/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4c5b3b8d4e5e35aaef1a61530ee148db9e67e5a7
+
 
 ---
-# Configurare una connessione VPN tra due reti virtuali di Azure
+# <a name="configure-a-vpn-connection-between-two-azure-virtual-networks"></a>Configurare una connessione VPN tra due reti virtuali di Azure
 > [!div class="op_single_selector"]
-> * [Configurare la connettività VPN](hdinsight-hbase-geo-replication-configure-VNETs.md)
-> * [Configurare DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-> * [Configurare la replica di HBase](hdinsight-hbase-geo-replication.md)
+> * [Configurare la connettività VPN](hdinsight-hbase-geo-replication-configure-vnets.md)
+> * [Configurare DNS](hdinsight-hbase-geo-replication-configure-dns.md)
+> * [Configurare la replica di HBase](hdinsight-hbase-geo-replication.md) 
 > 
 > 
 
 La connettività di rete virtuale di Azure Site-To-Site usa un gateway VPN per fornire un tunnel sicuro tramite Ipsec/IKE. Le reti virtuali possono trovarsi in diverse sottoscrizioni e aree geografiche diverse. È anche possibile combinare una comunicazione tra reti virtuali con configurazioni multisito. Esistono diversi motivi per la connettività tra reti virtuali:
 
-* Presenza e ridondanza in più aree geografiche
-* Applicazioni multilivello in singole aree geografiche con alto grado di isolamento
+* Presenza e ridondanza in più aree geografiche 
+* Applicazioni multilivello in singole aree geografiche con alto grado di isolamento 
 * Comunicazione tra sottoscrizioni e organizzazioni in Azure
 
-Per altre informazioni, vedere [Configurare una connessione tra reti virtuali](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+Per altre informazioni, vedere [Configurare una connessione tra reti virtuali](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). 
 
 Per visualizzare un video:
 
@@ -38,17 +42,17 @@ Per visualizzare un video:
 > 
 > 
 
-Questa esercitazione fa parte della [serie][hdinsight-hbase-replication] sulla creazione della replica geografica di HBase.
+Questa esercitazione fa parte della [serie][hdinsight-hbase-replication] sulla creazione di replica geografica di HBase. 
 
 * Configurare una connessione VPN tra due reti virtuali (questa esercitazione)
-* [Configurare il server DNS tra due reti virtuali di Azure][hdinsight-hbase-geo-replication-dns]
+* [Configurare DNS per le reti virtuali][hdinsight-hbase-geo-replication-dns]
 * [Configurare la replica geografica di HBase][hdinsight-hbase-geo-replication]
 
 Il diagramma seguente illustra le due reti virtuali create in questa esercitazione:
 
 ![Grafico della rete virtuale di replica di HBase in HDInsight][img-vnet-diagram]
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -69,7 +73,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 > 
 > 
 
-## Creare due reti virtuali di Azure
+## <a name="create-two-azure-vnets"></a>Creare due reti virtuali di Azure
 **Per creare una rete virtuale denominata Contoso-VNet-EU in Europa settentrionale**
 
 1. Accedere al [portale di Azure classico][azure-portal].
@@ -82,7 +86,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
      In questa esercitazione vengono usati i data center di Europa settentrionale e Stati Uniti orientali. È possibile scegliere il proprio data center.
 4. Digitare:
    
-   * **SERVER DNS**: (lasciare vuoto)
+   * **SERVER DNS**: (lasciare vuoto) 
      
      È necessario il proprio server DNS per la risoluzione dei nomi all'interno di reti virtuali. Per altre informazioni su quando usare la risoluzione dei nomi fornita da Azure e quando usare il proprio server DNS, vedere [Risoluzione dei nomi (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Per istruzioni su come configurare la risoluzione dei nomi tra reti virtuali, vedere [Configurare DNS tra due reti virtuali di Azure][hdinsight-hbase-dns].
    * **Configurare una VPN Point-to-Site**: (deselezionato)
@@ -98,7 +102,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
    * **Subnet-1 STARTING IP**: 10.1.0.0
    * **CIDR Subnet-1**: /24
    
-   Lo spazio degli indirizzi non può sovrapporsi con la rete virtuale degli Stati Uniti.
+   Lo spazio degli indirizzi non può sovrapporsi con la rete virtuale degli Stati Uniti.  
 
 **Per creare una rete virtuale denominata Contoso-VNet-EU in Europa occidentale**
 
@@ -114,8 +118,8 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
   * **Subnet-1 STARTING IP**: 10.2.0.0
   * **CIDR Subnet-1**: /24
 
-## Configurare una connessione VPN tra due reti virtuali
-### Creare reti locali
+## <a name="configure-a-vpn-connection-between-the-two-vnets"></a>Configurare una connessione VPN tra due reti virtuali
+### <a name="create-local-networks"></a>Creare reti locali
 Quando si crea una configurazione tra reti virtuali, è necessario configurare ciascuna rete virtuale in modo che si identifichino reciprocamente come sito di rete locale. In questa sezione si configurerà ciascuna rete virtuale come rete locale. Le reti locali condividono gli stessi spazi di indirizzi IP con la rete virtuale corrispondente.
 
 ![Configurare la connettività Site-to-Site della VPN di Azure - reti locali di Azure][img-vnet-lnet-diagram]
@@ -145,50 +149,50 @@ Quando si crea una configurazione tra reti virtuali, è necessario configurare c
   * **IP INIZIALE SPAZIO DI INDIRIZZI**: 10.2.0.0
   * **CIDR SPAZIO DI INDIRIZZI**: /16
 
-### Creare gateway VPN
+### <a name="create-vpn-gateways"></a>Creare gateway VPN
 Questa configurazione consiste in due parti: innanzitutto verrà configurata una connessione Site-to-Site della rete virtuale a una rete locale, quindi verrà creata una VON con routing dinamico. Per la connettività tra reti virtuali sono necessari gateway VPN di Azure e VPN con routing dinamico. Le VPN con routing statico di Azure non sono supportate.
 
 **Per configurare la connessione Site-to-Site tra Contoso-VNet-EU e Contoso-LNet-US**
 
 1. Dal portale di Azure classico, fare clic su **RETI** nel riquadro a sinistra,
 2. Fare clic su **Contoso-VNet-EU**.
-3. Fare clic sulla scheda **CONFIGURA**.
+3. Fare clic sulla scheda **CONFIGURA** .
 4. Selezionare **Connetti alla rete locale**.
 5. In **RETE LOCALE**, selezionare **Contoso-LNet-US**.
-6. Nella sezione relativa agli spazi di indirizzi della rete virtuale, fare clic su **Aggiungi subnet gateway**.
+6. Nella sezione relativa agli spazi di indirizzi della rete virtuale, fare clic su **Aggiungi subnet gateway** .
 7. Fare clic su **SAVE**.
 8. Fare clic su **OK** per confermare.
 
 **Per creare un gateway VPN per Contoso-VNet-EU**
 
-1. Dal portale di Azure classico, fare clic sulla scheda **DASHBOARD**.
+1. Dal portale di Azure classico, fare clic sulla scheda **DASHBOARD** .
 2. Fare clic su **CREA GATEWAY** nella parte inferiore della pagina e quindi su **Routing dinamico**.
-3. Fare clic su **Sì** per confermare. Si noti la rappresentazione grafica del gateway nella pagina diventa gialla con il testo Creazione del gateway. La creazione del gateway richiede in genere circa 15 minuti.
+3. Fare clic su **Yes** per confermare. Si noti la rappresentazione grafica del gateway nella pagina diventa gialla con il testo Creazione del gateway. La creazione del gateway richiede in genere circa 15 minuti.
    
    Quando lo stato del gateway diventa Connessione in corso, l'indirizzo IP di ogni gateway sarà visibile nel Dashboard. Annotare l'indirizzo IP corrispondente a ciascuna rete virtuale, avendo cura di non confonderli. Si tratta degli indirizzi IP che verranno usati durante la modifica degli indirizzi IP segnaposto per il dispositivo VPN nelle reti locali.
-4. Creare una copia dell'**INDIRIZZO IP DEL GATEWAY**. Verrà usato per configurare l'indirizzo IP del gateway VPN per Contoso-VNet-EU nella sezione successiva.
+4. Creare una copia dell' **INDIRIZZO IP DEL GATEWAY**. Verrà usato per configurare l'indirizzo IP del gateway VPN per Contoso-VNet-EU nella sezione successiva.
 
 **Per creare un gateway VPN per Contoso-VNet-EU**
 
 * Ripetere le ultime due procedure per configurare la connettività Site-to-Site tra Contoso-VNet-US e Contoso-LNet-EU e quindi creare un gateway VPN per Contoso-VNet-US. Al termine, si otterrà l'indirizzo IP del gateway VPN per Contoso-VNet-US.
 
-### Impostare gli indirizzi IP del dispositivo VPN per le reti locali
+### <a name="set-the-vpn-device-ip-addresses-for-local-networks"></a>Impostare gli indirizzi IP del dispositivo VPN per le reti locali
 Nell'ultima sezione verrà creato un gateway VPN per ciascuna rete virtuale. Sono disponibili gli indirizzi IP dei gateway VPN, quindi è ora possibile tornare a configurare gli indirizzi IP del dispositivo VPN nella rete locale.
 
-**Per configurare l'indirizzo IP del dispositivo VPN per Contoso-LNet-EU**
+**Per configurare l'indirizzo IP del dispositivo VPN per Contoso-LNet-EU** 
 
 1. Dal portale di Azure classico, fare clic su **RETI** nel riquadro a sinistra.
 2. Fare clic su **RETI LOCALI** nella parte superiore.
 3. Fare clic su **Contoso-LNet-EU**, quindi fare clic su **MODIFICA** nella parte inferiore.
-4. Aggiornare **INDIRIZZO IP DISPOSITIVO VPN**. Si tratta dell'indirizzo che si ottiene dalla scheda DASHBOARD della rete Contoso-VNET-EU.
+4. Aggiornare **INDIRIZZO IP DISPOSITIVO VPN**.  Si tratta dell'indirizzo che si ottiene dalla scheda DASHBOARD della rete Contoso-VNET-EU.
 5. Fare clic sul pulsante a destra.
 6. Fare quindi clic sul pulsante con il segno di spunta.
 
-**Per configurare l'indirizzo IP del dispositivo VPN per Contoso-LNet-US**
+**Per configurare l'indirizzo IP del dispositivo VPN per Contoso-LNet-US** 
 
 * Ripetere l'ultima procedura per configurare l'indirizzo IP del dispositivo VPN per Contoso-LNet-US.
 
-### Impostare le chiavi del gateway della rete virtuale
+### <a name="set-vnet-gateway-keys"></a>Impostare le chiavi del gateway della rete virtuale
 I gateway di rete virtuale usano una chiave condivisa per autenticare le connessioni tra le reti virtuali. Non è possibile configurare la chiave dal portale di Azure classico. È necessario usare PowerShell o .NET SDK.
 
 **Per impostare le chiavi**
@@ -201,12 +205,12 @@ I gateway di rete virtuale usano una chiave condivisa per autenticare le conness
         Set-AzureVNetGatewayKey -VNetName ContosoVNet-EU -LocalNetworkSiteName Contoso-LNet-US -SharedKey A1b2C3D4
         Set-AzureVNetGatewayKey -VNetName ContosoVNet-US -LocalNetworkSiteName Contoso-LNet-EU -SharedKey A1b2C3D4 
 
-## Controllare la connessione VPN
+## <a name="check-the-vpn-connection"></a>Controllare la connessione VPN
 Senza le macchine virtuali distribuite alle reti virtuali, è possibile usare il grafico visuale della rete virtuale nella pagina Dashboard della rete virtuale sul portale di Azure classico per controllare lo stato di connessione:
 
 ![Stato di connessione VPN della rete virtuale di replica di HBase in HDInsight][img-vpn-status]
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione si è appreso come configurare una connessione VPN tra due reti virtuali di Azure. Gli altri due articoli della serie trattano gli argomenti seguenti:
 
 * [Configurare DNS tra due reti virtuali di Azure][hdinsight-hbase-geo-replication-dns]
@@ -226,11 +230,15 @@ In questa esercitazione si è appreso come configurare una connessione VPN tra d
 
 
 [hdinsight-hbase-replication]: hdinsight-hbase-geo-replication.md
-[hdinsight-hbase-dns]: hdinsight-hbase-geo-replication-configure-DNS.md
+[hdinsight-hbase-dns]: hdinsight-hbase-geo-replication-configure-dns.md
 
 
-[img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.diagram.png
-[img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
-[img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
+[img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-vnets/hdinsight-hbase-vpn-diagram.png
+[img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-vnets/hdinsight-hbase-vpn-lnet-diagram.png
+[img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-vnets/hdinsight-hbase-vpn-status.png 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

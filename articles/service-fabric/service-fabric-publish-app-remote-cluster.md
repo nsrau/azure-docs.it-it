@@ -1,12 +1,12 @@
 ---
-title: Pubblicare un'applicazione in un cluster remoto con Visual Studio | Microsoft Docs
-description: Scoprire come pubblicare un'applicazione in un cluster remoto Service Fabric usando Visual Studio.
+title: Pubblicare un&quot;app in un cluster remoto con Visual Studio | Documentazione Microsoft
+description: Scoprire come pubblicare un&quot;applicazione in un cluster remoto Service Fabric usando Visual Studio.
 services: service-fabric
 documentationcenter: na
 author: cawams
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: faecd892-eb54-4d9c-8023-c67442afb8e8
 ms.service: multiple
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/29/2016
 ms.author: cawa
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2dbf8ea0ddde2e308dc0e65dba701578cd2bce43
+
 
 ---
 # <a name="publish-an-application-to-a-remote-cluster-by-using-visual-studio"></a>Pubblicare un'applicazione in un cluster remoto tramite Visual Studio
@@ -28,7 +32,7 @@ ms.author: cawa
 L'estensione Service Fabric di Azure per Visual Studio offre un modo semplice, ripetibile e configurabile tramite script per pubblicare un'applicazione su un cluster Service Fabric.
 
 ## <a name="the-artifacts-required-for-publishing"></a>Gli elementi necessari per la pubblicazione
-### <a name="deploy-fabricapplication.ps1"></a>Deploy-FabricApplication.ps1
+### <a name="deploy-fabricapplicationps1"></a>Deploy-FabricApplication.ps1
 Script di PowerShell che usa un percorso del profilo di pubblicazione come parametro per la pubblicazione di applicazioni dell'infrastruttura di servizi. Lo script fa parte dell'applicazione ed è possibile modificarlo in base alle esigenze dell'applicazione.
 
 ### <a name="publish-profiles"></a>Profili di pubblicazione
@@ -84,7 +88,7 @@ I passaggi seguenti illustrano come pubblicare un'applicazione usando la finestr
    > 
 6. Dopo aver specificato tutte le impostazioni necessarie, scegliere il pulsante **Pubblica** per pubblicare l'applicazione nel cluster dell'infrastruttura di servizi selezionato. Le impostazioni specificate vengono applicate al processo di pubblicazione.
 
-## <a name="publish-to-an-arbitrary-cluster-endpoint-(including-party-clusters)"></a>Pubblicare in un endpoint di cluster arbitrario (inclusi i party cluster)
+## <a name="publish-to-an-arbitrary-cluster-endpoint-including-party-clusters"></a>Pubblicare in un endpoint di cluster arbitrario (inclusi i party cluster)
 L'esperienza di pubblicazione di Visual Studio è ottimizzata per la pubblicazione in cluster remoti associati a una delle sottoscrizioni di Azure. Tuttavia, è possibile eseguire la pubblicazione in endpoint arbitrari (ad esempio, party cluster di Service Fabric) modificando direttamente il profilo di pubblicazione XML. Come indicato in precedenza, per impostazione predefinita sono disponibili due profili di pubblicazione, **Local.xml** e **Cloud.xml**, ma è possibile creare profili aggiuntivi per ambienti diversi. Ad esempio, è possibile creare un profilo per la pubblicazione nei party cluster denominato **Party.xml**.
 
 Se ci si connette a un cluster non protetto, è necessario unicamente l'endpoint di connessione del cluster, ad esempio `partycluster1.eastus.cloudapp.azure.com:19000`. In tal caso, l'endpoint di connessione nel profilo di pubblicazione sarà simile al seguente:
@@ -112,6 +116,6 @@ Per altre informazioni su come automatizzare il processo di pubblicazione in un 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

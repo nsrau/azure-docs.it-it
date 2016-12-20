@@ -1,25 +1,29 @@
 ---
-title: Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione
-description: Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione
+title: "Informazioni di riferimento sui cmdlet PowerShell dell&quot;Utilità di pianificazione"
+description: "Informazioni di riferimento sui cmdlet PowerShell dell&quot;Utilità di pianificazione"
 services: scheduler
 documentationcenter: .NET
-author: krisragh
-manager: dwrede
-editor: ''
-
+author: derek1ee
+manager: kevinlam1
+editor: 
+ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: krisragh
+ms.author: deli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e36a52f44bc30662a01299d2d4a2f3c36d9033a7
+
 
 ---
-# Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione
+# <a name="scheduler-powershell-cmdlets-reference"></a>Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione
 La tabella seguente include descrizioni e collegamenti alla pagina di riferimento per ciascuno dei cmdlet principali nell'Utilità di pianificazione di Azure.
 
-Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). 
 
 Per altre informazioni sui [cmdlet di Azure Resource Manager](https://msdn.microsoft.com/library/mt125356\(v=azure.200\).aspx) vedere [Uso di Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
 
@@ -43,7 +47,7 @@ Per altre informazioni sui [cmdlet di Azure Resource Manager](https://msdn.micro
 | [Set-AzureRmSchedulerServiceBusTopicJob](https://msdn.microsoft.com/library/mt490137\(v=azure.200\).aspx) |Modifica un processo di argomento del bus di servizio. |
 | [Set-AzureRmSchedulerStorageQueueJob](https://msdn.microsoft.com/library/mt490128\(v=azure.200\).aspx) |Modifica un processo di coda di archiviazione. |
 
-Per informazioni più dettagliate, è possibile eseguire i cmdlet seguenti:
+Per informazioni più dettagliate, è possibile eseguire i cmdlet seguenti: 
 
 ```
 Get-Help <cmdlet name> -Detailed
@@ -55,7 +59,7 @@ Get-Help <cmdlet name> -Examples
 Get-Help <cmdlet name> -Full
 ```
 
-## Vedere anche
+## <a name="see-also"></a>Vedere anche
  [Che cos'è l'Utilità di pianificazione?](scheduler-intro.md)
 
  [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)
@@ -72,4 +76,9 @@ Get-Help <cmdlet name> -Full
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

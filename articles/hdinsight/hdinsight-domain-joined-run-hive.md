@@ -16,12 +16,12 @@ ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff3eaafc38aef16ffe00bbd943d74cbeeac228b1
+ms.sourcegitcommit: 20ae053057e74e0bc874391dd8a9cd19e0a293e7
+ms.openlocfilehash: 2d244187585f716af8c4e6d65a445e0ab8217890
 
 
 ---
-# <a name="configure-hive-policies-in-domainjoined-hdinsight-preview"></a>Configurare criteri Hive in HDInsight aggiunto al dominio (anteprima)
+# <a name="configure-hive-policies-in-domain-joined-hdinsight-preview"></a>Configurare criteri Hive in HDInsight aggiunto al dominio (anteprima)
 Informazioni su come configurare i criteri di Apache Ranger per Hive. In questo articolo vengono creati due criteri di Ranger per limitare l'accesso a hivesampletable. La tabella hivesampletable è disponibile con i cluster HDInsight. Dopo aver configurato i criteri, usare Excel e il driver ODBC per connettersi alle tabelle Hive in HDInsight.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -31,16 +31,16 @@ Informazioni su come configurare i criteri di Apache Ranger per Hive. In questo 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Connettersi all'interfaccia utente di amministrazione di Apache Ranger
 **Per connettersi all'interfaccia utente di amministrazione di Ranger**
 
-1. Da un browser, connettersi all'interfaccia utente di amministrazione di Ranger. L'URL è https://&lt;ClusterName>.azurehdinsight.net/Ranger/. 
-   
+1. Da un browser, connettersi all'interfaccia utente di amministrazione di Ranger. L'URL è https://&lt;ClusterName>.azurehdinsight.net/Ranger/.
+
    > [!NOTE]
    > Ranger usa credenziali diverse da quelle del cluster Hadoop. Per evitare che i browser usino credenziali memorizzate nella cache di Hadoop, connettersi all'interfaccia utente di amministrazione di Ranger da una nuova finestra del browser anonima.
-   > 
-   > 
+   >
+   >
 2. Eseguire l'accesso usando il nome utente e la password di amministratore cluster:
-   
+
     ![Home page di Ranger con dominio aggiunto a HDInsight](./media/hdinsight-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
-   
+
     Attualmente, Ranger è compatibile solo con Yarn e Hive.
 
 ## <a name="create-domain-users"></a>Creazione di utenti del dominio
@@ -54,23 +54,23 @@ In questa sezione verranno creati due criteri di Ranger per accedere a hivesampl
 1. Aprire l'interfaccia utente di amministrazione di Ranger. Vedere [Connettersi all'interfaccia utente di amministrazione di Apache Ranger](#connect-to-apache-ranager-admin-ui).
 2. Fare clic su **&lt;ClusterName>_hive** in **Hive**. Verranno visualizzati due criteri preconfigurati.
 3. Fare clic su **Aggiungi nuovo criterio**, quindi immettere i valori seguenti:
-   
+
    * Nome criterio: read-hivesampletable-all
    * Database Hive: predefinito
    * Tabella: hivesampletable
    * Colonna Hive: *
    * Seleziona utente: hiveuser1
    * Autorizzazioni: selezionare
-     
+
      ![Configurazione dei criteri di Hive Ranger con dominio aggiunto a HDInsight](./media/hdinsight-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
-     
+
      > [!NOTE]
      > Se l'utente di un dominio non compare in Seleziona utente, attendere alcuni istanti per la sincronizzazione di Ranger con AAD.
-     > 
-     > 
+     >
+     >
 4. Fare clic su **Aggiungi** per salvare il criterio.
 5. Ripetere gli ultimi due passaggi per creare un altro criterio con le proprietà seguenti:
-   
+
    * Nome criterio: read-hivesampletable-devicemake
    * Database Hive: predefinito
    * Tabella: hivesampletable
@@ -101,20 +101,20 @@ Nell'ultima sezione, sono stati configurati due criteri.  hiveuser1 dispone dell
 
 1. Aprire una cartella di lavoro nuova o esistente in Excel.
 2. Nella scheda **Dati** fare clic su **From Other Data Sources** (Da altre origini dati) e quindi su **From Data Connection Wizard** (Da Connessione guidata dati) per avviare la **Connessione guidata dati**.
-   
+
     ![Aprire Connessione guidata dati][img-hdi-simbahiveodbc.excel.dataconnection]
 3. Selezionare **Nome origine dati ODBC DSN** come origine dati e quindi fare clic su **Avanti**.
 4. Nelle origini dati ODBC selezionare il nome dell'origine dati creato nel passaggio precedente e quindi fare clic su **Avanti**.
 5. Immettere nuovamente la password per il cluster nella procedura guidata e quindi fare clic su **OK**. Attendere l'apertura della finestra di dialogo **Seleziona database e tabella** . Questa operazione potrebbe richiedere alcuni secondi.
-6. Selezionare **hivesampletable**, quindi fare clic su **Avanti**. 
+6. Selezionare **hivesampletable**, quindi fare clic su **Avanti**.
 7. Fare clic su **Fine**.
-8. Nella finestra di dialogo **Importa dati** è possibile modificare o specificare la query. A questo scopo, fare clic su **Proprietà**. Questa operazione potrebbe richiedere alcuni secondi. 
+8. Nella finestra di dialogo **Importa dati** è possibile modificare o specificare la query. A questo scopo, fare clic su **Proprietà**. Questa operazione potrebbe richiedere alcuni secondi.
 9. Fare clic sulla scheda **Definizione**. Il testo del comando è:
-   
+
        SELECT * FROM "HIVE"."default"."hivesampletable"
-   
+
    In base ai criteri di Ranger che sono stati definiti, hiveuser1 dispone dell'autorizzazione di selezione su tutte le colonne.  Pertanto, questa query funziona con le credenziali di hiveuser1, ma non con quelle di hiveuser2.
-   
+
    ![Proprietà di connessione][img-hdi-simbahiveodbc-excel-connectionproperties]
 10. Fare clic su **OK** per chiudere la finestra di dialogo Proprietà connessione.
 11. Fare clic su **OK** per chiudere la finestra di dialogo **Importa dati**.  
@@ -124,29 +124,28 @@ Per il test del secondo criterio (read-hivesampletable-devicemake) creato nell'u
 
 1. Aggiungere un nuovo foglio in Excel.
 2. Seguire l'ultima procedura per importare i dati.  L'unica differenza è che verranno usate le credenziali di hiveuser2 anziché quelle di hiveuser1. L'esito sarà negativo perché hiveuser2 dispone solo dell'autorizzazione per visualizzare due colonne. Verrà visualizzato l'errore seguente:
-   
+
         [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
 3. Seguire la stessa procedura per importare i dati. Questa volta usare le credenziali di hiveuser2 e modificare l'istruzione di selezione da:
-   
+
         SELECT * FROM "HIVE"."default"."hivesampletable"
-   
+
     in:
-   
+
         SELECT clientid, devicemake FROM "HIVE"."default"."hivesampletable"
-   
+
     Al termine, verranno visualizzate due colonne di dati importati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per configurare un cluster HDInsight aggiunto al dominio, vedere [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md) (Configurare i cluster HDInsight aggiunti al dominio).
 * Per gestire cluster HDInsight aggiunti al dominio, vedere [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md) (Gestire i cluster HDInsight aggiunti al dominio).
-* Per eseguire query Hive usando SSH nei cluster HDInsight aggiunti al dominio, vedere [Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix oppure OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster).
+* Per eseguire query Hive usando SSH nei cluster HDInsight aggiunti al dominio, vedere [Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix oppure OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 * Per connettere Hive usando JDBC, vedere [Connettersi a Hive in Azure HDInsight con il driver Hive JDBC](hdinsight-connect-hive-jdbc-driver.md).
 * Per connettere Excel a Hadoop usando ODBC, vedere [Connettere Excel a Hadoop mediante Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md).
 * Per connettere Excel a Hadoop usando Power Query, vedere [Connettere Excel a Hadoop mediante Power Query](hdinsight-connect-excel-power-query.md).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

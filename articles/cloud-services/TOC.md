@@ -64,6 +64,13 @@
 #### [Portale classico](cloud-services-how-to-scale.md)
 ### [Usare Python per gestire le risorse di Azure](cloud-services-python-how-to-use-service-management.md)
 
+### [Patch per il sistema operativo guest](cloud-services-guestos-msrc-releases.md)
+### Ritiro del sistema operativo guest
+#### [Criteri di ritiro](cloud-services-guestos-retirement-policy.md)
+#### [Avviso di ritiro della famiglia 1](cloud-services-guestos-family1-retirement.md)
+### [Novità sulle versioni del sistema operativo guest](cloud-services-guestos-update-matrix.md)
+### [Foglio informativo su XPath per la configurazione di ruoli di Servizi cloud](cloud-services-role-config-xpath.md)
+
 ## Gestire i certificati
 ### [Servizi cloud e certificati di gestione](cloud-services-certs-create.md)
 ### Configurare SSL 
@@ -83,7 +90,7 @@
 ### [Tracciare un servizio cloud con Diagnostica](cloud-services-dotnet-diagnostics-trace-flow.md)
 ### [Inviare dati di diagnostica ad App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)
 
-## Risoluzione dei problemi
+## Risolvere problemi
 ### Debug 
 #### [Abilitare il debug remoto con la distribuzione di contenuti](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)
 #### [Opzioni per un servizio cloud](../vs-azure-tools-debugging-cloud-services-overview.md)
@@ -94,19 +101,13 @@
 ### [Dimensioni della cartella TEMP predefinita insufficienti per un ruolo](cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md)
 ### [Problemi di distribuzione comuni](cloud-services-troubleshoot-deployment-problems.md)
 ### [Errore di avvio di un ruolo](cloud-services-troubleshoot-roles-that-fail-start.md)
-### [Indicazioni sul ripristino](cloud-services-disaster-recovery-guidance.md)
+### [Informazioni aggiuntive sul ripristino](cloud-services-disaster-recovery-guidance.md)
 ### [Domande frequenti sui servizi cloud](cloud-services-faq.md)
 
 # Riferimento
 ## [XML Schema .csdef](https://msdn.microsoft.com/library/azure/ee758711)
 ## [XMLSchema .cscfg](https://msdn.microsoft.com/library/azure/ee758710)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
-## [Patch per il sistema operativo guest](cloud-services-guestos-msrc-releases.md)
-## Ritiro del sistema operativo guest
-### [Criteri di ritiro](cloud-services-guestos-retirement-policy.md)
-### [Avviso di ritiro della famiglia 1](cloud-services-guestos-family1-retirement.md)
-## [Novità sulle versioni del sistema operativo guest](cloud-services-guestos-update-matrix.md)
-## [Foglio informativo su XPath per la configurazione di ruoli di Servizi cloud](cloud-services-role-config-xpath.md)
 
 # Risorse
 ## [Prezzi](https://azure.microsoft.com/pricing/details/cloud-services/)
@@ -116,6 +117,6 @@
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

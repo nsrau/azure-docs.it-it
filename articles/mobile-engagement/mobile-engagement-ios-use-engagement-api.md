@@ -1,12 +1,12 @@
 ---
-title: Come usare l'API di Engagement in iOS
-description: 'iOS SDK più recente: come usare l''API di Engagement in iOS'
+title: Come usare l&quot;API di Engagement in iOS
+description: "iOS SDK più recente: come usare l&quot;API di Engagement in iOS"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 1fb4509e-3804-46c1-949f-1cf727f91f9f
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
@@ -14,34 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bf672384407588ddc2c4998f42f6893e2638c592
+
 
 ---
-# Come usare l'API di Engagement in iOS
+# <a name="how-to-use-the-engagement-api-on-ios"></a>Come usare l'API di Engagement in iOS
 Questo documento è complementare all'articolo relativo all'integrazione di Engagement in iOS e fornisce informazioni approfondite su come usare l'API di Engagement per segnalare le statistiche dell'applicazione.
 
 Tenere presente che, se si vuole impostare Engagement in modo che segnali solo le sessioni, le attività, gli arresti anomali e i dati tecnici dell'applicazione, la soluzione più semplice consiste nel fare in modo che tutti gli oggetti `UIViewController` personalizzati ereditino dalla classe `EngagementViewController` corrispondente.
 
 Se invece si hanno esigenze più complesse, ad esempio se è necessario segnalare eventi, errori e processi specifici dell'applicazione o presentare le attività dell'applicazione in modo diverso rispetto a quello implementato nelle classi `EngagementViewController`, è necessario usare l'API di Engagement.
 
-L'API di Engagement viene fornita dalla classe `EngagementAgent`. Un'istanza di questa classe può essere recuperata chiamando il metodo statico `[EngagementAgent shared]` (tenere presente che l'oggetto `EngagementAgent` restituito è un singleton).
+L'API di Engagement viene fornita dalla classe `EngagementAgent` . Un'istanza di questa classe può essere recuperata chiamando il metodo statico `[EngagementAgent shared]` (tenere presente che l'oggetto `EngagementAgent` restituito è un singleton).
 
 Prima di eseguire chiamate API, è necessario inizializzare l'oggetto `EngagementAgent` chiamando il metodo `[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];`
 
-## Concetti relativi a Mobile Engagement
+## <a name="engagement-concepts"></a>Concetti relativi a Mobile Engagement
 Le parti seguenti approfondiscono le informazioni contenute nell'articolo [Concetti relativi ad Azure Mobile Engagement](mobile-engagement-concepts.md) per la piattaforma iOS.
 
-### `Session` e `Activity`
+### <a name="session-and-activity"></a>`Session` e `Activity`
 Un'*attività* è in genere associata a una schermata dell'applicazione, ovvero l'*attività* inizia quando la schermata viene visualizzata e si arresta quando la schermata viene chiusa. Questo avviene quando l'SDK di Engagement è integrato mediante le classi `EngagementViewController`.
 
 Le *attività* possono tuttavia essere controllate anche manualmente usando l'API di Engagement. In questo modo, è possibile dividere una schermata specifica in diverse parti secondarie per ottenere maggiori dettagli sull'utilizzo della schermata, ad esempio per definire la frequenza e la durata in base alle quali le finestre di dialogo vengono usate all'interno della schermata.
 
-## Segnalazione di attività
-### L'utente inizia una nuova attività
+## <a name="reporting-activities"></a>Segnalazione di attività
+### <a name="user-starts-a-new-activity"></a>L'utente inizia una nuova attività
             [[EngagementAgent shared] startActivity:@"MyUserActivity" extras:nil];
 
 È necessario chiamare `startActivity()` ogni volta che l'attività dell'utente cambia. La prima chiamata a questa funzione avvia una nuova sessione utente.
 
-### L'utente termina l'attività corrente
+### <a name="user-ends-his-current-activity"></a>L'utente termina l'attività corrente
             [[EngagementAgent shared] endActivity];
 
 > [!WARNING]
@@ -49,8 +53,8 @@ Le *attività* possono tuttavia essere controllate anche manualmente usando l'AP
 > 
 > 
 
-## Segnalazione di eventi
-### Eventi di sessione
+## <a name="reporting-events"></a>Segnalazione di eventi
+### <a name="session-events"></a>Eventi di sessione
 Gli eventi di sessione vengono in genere usati per segnalare le azioni eseguite da un utente durante la sua sessione.
 
 **Esempio senza dati aggiuntivi:**
@@ -84,15 +88,15 @@ Gli eventi di sessione vengono in genere usati per segnalare le azioni eseguite 
        [...]
     }
 
-### Eventi autonomi
+### <a name="standalone-events"></a>Eventi autonomi
 Contrariamente agli eventi della sessione, quelli autonomi possono essere utilizzati al di fuori del contesto di una sessione.
 
 **Esempio:**
 
     [[EngagementAgent shared] sendEvent:@"received_notification" extras:nil];
 
-## Segnalazione di errori
-### Errori di sessione
+## <a name="reporting-errors"></a>Segnalazione di errori
+### <a name="session-errors"></a>Errori di sessione
 Gli errori di sessione vengono in genere usati per segnalare gli errori che hanno impatto sull'utente durante la sua sessione.
 
 **Esempio:**
@@ -109,14 +113,14 @@ Gli errori di sessione vengono in genere usati per segnalare gli errori che hann
       [...]
     }
 
-### Errori autonomi
+### <a name="standalone-errors"></a>Errori autonomi
 Contrariamente agli errori della sessione, quelli autonomi possono essere utilizzati al di fuori del contesto di una sessione.
 
 **Esempio:**
 
     [[EngagementAgent shared] sendError:@"something_failed" extras:nil];
 
-## Segnalazione di processi
+## <a name="reporting-jobs"></a>Segnalazione di processi
 **Esempio:**
 
 Si supponga di voler segnalare la durata del processo di accesso:
@@ -134,7 +138,7 @@ Si supponga di voler segnalare la durata del processo di accesso:
     }
     [...]
 
-### Segnalazione di errori durante un processo
+### <a name="report-errors-during-a-job"></a>Segnalazione di errori durante un processo
 Gli errori possono essere correlati a un processo in esecuzione invece che alla sessione utente corrente.
 
 **Esempio:**
@@ -171,7 +175,7 @@ Si consideri una situazione nella quale l'utente desidera segnalare un errore du
     };
     [...]
 
-### Eventi durante un processo
+### <a name="events-during-a-job"></a>Eventi durante un processo
 Gli eventi possono essere correlati a un processo in esecuzione invece che alla sessione utente corrente.
 
 **Esempio:**
@@ -198,7 +202,7 @@ Si supponga di disporre di un social network e di usare un processo per segnalar
     }
     [...]
 
-## Parametri aggiuntivi
+## <a name="extra-parameters"></a>Parametri aggiuntivi
 È possibile collegare dati arbitrari a eventi, errori, attività e processi.
 
 Questi dati possono essere strutturati e utilizzano la classe NSDictionary di iOS.
@@ -214,29 +218,29 @@ Tenere presente che i dati aggiuntivi possono includere `arrays(NSArray, NSMutab
 > 
 > 
 
-### Esempio
+### <a name="example"></a>Esempio
     NSMutableDictionary* extras = [NSMutableDictionary dictionaryWithCapacity:2];
     [extras setObject:[NSNumber numberWithInt:123] forKey:@"video_id"];
     [extras setObject:@"http://foobar.com/blog" forKey:@"ref_click"];
     [[EngagementAgent shared] sendEvent:@"video_clicked" extras:extras];
 
-### Limiti
-#### Chiavi
+### <a name="limits"></a>Limiti
+#### <a name="keys"></a>Chiavi
 Ogni chiave in `NSDictionary` deve corrispondere all'espressione regolare seguente:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\\_).
+Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\_).
 
-#### Dimensione
+#### <a name="size"></a>Dimensione
 I dati aggiuntivi sono limitati a **1024** caratteri per chiamata, una volta codificati in JSON dall'agente di Engagement.
 
 Nell'esempio precedente il codice JSON inviato al server è lungo 58 caratteri:
 
     {"ref_click":"http:\/\/foobar.com\/blog","video_id":"123"}
 
-## Segnalazione di informazioni sull'applicazione
-È possibile segnalare manualmente le informazioni di traccia o qualsiasi altra informazione specifica dell'applicazione mediante la funzione `sendAppInfo:`.
+## <a name="reporting-application-information"></a>Segnalazione di informazioni sull'applicazione
+È possibile segnalare manualmente le informazioni di traccia o qualsiasi altra informazione specifica dell'applicazione mediante la funzione `sendAppInfo:` .
 
 Queste informazioni possono essere inviate in modo incrementale: viene mantenuto solo l'ultimo valore per una determinata chiave per ogni dispositivo specifico.
 
@@ -249,19 +253,23 @@ Come per i dati aggiuntivi degli eventi, la classe `NSDictionary` viene usata pe
     [appInfo setObject:@"1983-12-07" forKey:@"birthdate"]; // December 7th 1983
     [[EngagementAgent shared] sendAppInfo:appInfo];
 
-### Limiti
-#### Chiavi
+### <a name="limits"></a>Limiti
+#### <a name="keys"></a>Chiavi
 Ogni chiave in `NSDictionary` deve corrispondere all'espressione regolare seguente:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\\_).
+Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\_).
 
-#### Dimensione
+#### <a name="size"></a>Dimensione
 Le informazioni sull'applicazione sono limitate a **1024** caratteri per chiamata, una volta codificate in JSON dall'agente di Engagement.
 
 Nell'esempio precedente il codice JSON inviato al server è lungo 44 caratteri:
 
     {"birthdate":"1983-12-07","gender":"female"}
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

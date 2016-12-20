@@ -1,13 +1,13 @@
 ---
-title: Ottimizzare le query Hive per l'esecuzione più rapida in HDInsight | Microsoft Docs
+title: "Ottimizzare le query Hive per l&quot;esecuzione più rapida in HDInsight | Documentazione Microsoft"
 description: Informazioni su come ottimizzare le query Hive per Hadoop in HDInsight
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: rashimg
 manager: mwinkle
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: d6174c08-06aa-42ac-8e9b-8b8718d9978e
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,25 +15,30 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/28/2015
 ms.author: rashimg
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 21f70dca7b4b5b2c55d043137c13565763ef03d3
+
 
 ---
-# Ottimizzare le query Hive per Hadoop in HDInsight
+# <a name="optimize-hive-queries-for-hadoop-in-hdinsight"></a>Ottimizzare le query Hive per Hadoop in HDInsight
 Per impostazione predefinita, i cluster Hadoop non sono ottimizzati per le prestazioni. In questo articolo vengono descritti alcuni dei metodi di ottimizzazione delle prestazioni Hive più comuni che è possibile applicare alle query.
 
-## Scalabilità orizzontale dei nodi di lavoro
+## <a name="scale-out-worker-nodes"></a>Scalabilità orizzontale dei nodi di lavoro
 Aumentando il numero di nodi di lavoro in un cluster è possibile usare più mapper e reducer da eseguire in parallelo. Esistono due modi per aumentare la scalabilità orizzontale in HDInsight:
 
-* In fase di provisioning, è possibile specificare il numero di nodi di lavoro usando il portale di Azure, Azure PowerShell o l’interfaccia della riga di comando multipiattaforma. Per altre informazioni, vedere [Effettuare il provisioning di cluster HDInsight](hdinsight-provision-clusters.md). La schermata seguente mostra la configurazione dei nodi di lavoro nel portale di Azure:
+* In fase di provisioning, è possibile specificare il numero di nodi di lavoro usando il portale di Azure, Azure PowerShell o l’interfaccia della riga di comando multipiattaforma.  Per altre informazioni, vedere [Effettuare il provisioning di cluster HDInsight](hdinsight-provision-clusters.md). La schermata seguente mostra la configurazione dei nodi di lavoro nel portale di Azure:
   
-    ![scaleout\_1][image-hdi-optimize-hive-scaleout\_1]
-* In fase di esecuzione, è inoltre possibile scalare orizzontalmente un cluster senza ricreare uno, Di seguito è riportata un'illustrazione. ![scaleout\_1][image-hdi-optimize-hive-scaleout\_2]
+    ![scaleout_1][image-hdi-optimize-hive-scaleout_1]
+* In fase di esecuzione, è inoltre possibile scalare orizzontalmente un cluster senza ricreare uno, come illustrato di seguito.
+  ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
 
 Per ulteriori informazioni sulle diverse macchine virtuali supportate da HDInsight, vedere [Dettagli prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## Abilitare Tez
+## <a name="enable-tez"></a>Abilitare Tez
 [Apache Tez](http://hortonworks.com/hadoop/tez/) è un motore di esecuzione alternativo al motore di MapReduce:
 
-![tez\_1][image-hdi-optimize-hive-tez\_1]
+![tez_1][image-hdi-optimize-hive-tez_1]
 
 Tez è più veloce perché:
 
@@ -81,20 +86,20 @@ Per i cluster HDInsight basati su Windows, è necessario abilitare Tez in fase d
 > 
 > 
 
-## Partizionamento Hive
+## <a name="hive-partitioning"></a>Partizionamento Hive
 L’operazione di I/O rappresenta il principale collo di bottiglia delle prestazioni per l'esecuzione di query Hive. Le prestazioni possono essere migliorate se è possibile ridurre la quantità di dati da leggere. Per impostazione predefinita, le query Hive analizzano intere tabelle Hive. Questa operazione è l’ideale per query del tipo analisi di tabelle, tuttavia per le query che devono analizzare solo una piccola quantità di dati, ad esempio, le query con filtro, viene creato un sovraccarico non necessario. Il partizionamento Hive consente alle query Hive di accedere solo alla quantità di dati presente nelle tabelle Hive necessaria.
 
 Il partizionamento Hive viene implementato riorganizzando i dati non elaborati in nuove directory in cui ciascuna partizione dispone di una propria directory, dove la partizione è definita dall'utente. Il diagramma seguente illustra il partizionamento di una tabella Hive mediante la colonna *Anno*. Viene creata una nuova directory per ogni anno.
 
-![partitioning][image-hdi-optimize-hive-partitioning\_1]
+![partizionamento][image-hdi-optimize-hive-partitioning_1]
 
 Alcune considerazioni sul partizionamento:
 
-* **Non creare un numero eccessivamente ridotto di partizioni**: il partizionamento in colonne con pochi valori può causare un numero molto ridotto di partizioni. Ad esempio, il partizionamento in base al sesso crea solo due partizioni (maschio e femmina) e riduce quindi la latenza solo di massimo la metà.
-* **Non creare un numero eccessivo di partizioni**: al contrario, la creazione di una partizione in una colonna con un valore univoco (ad esempio ID utente) causa più partizioni, generando un sovraccarico nel nodo dei nomi del cluster, che dovrà gestire una grande quantità di directory.
-* **Evitare lo sfasamento di dati**: scegliere la chiave di partizionamento con attenzione, in modo che tutte le partizioni siano di dimensioni pari. Ad esempio, con il partizionamento in *Stato*, il numero di record in California potrebbe essere quasi 30 volte quello del Vermont, a causa della differenza di popolazione.
+* **Non creare un numero eccessivamente ridotto di partizioni** : il partizionamento in colonne con pochi valori può causare un numero molto ridotto di partizioni. Ad esempio, il partizionamento in base al sesso crea solo due partizioni (maschio e femmina) e riduce quindi la latenza solo di massimo la metà.
+* **Non creare un numero eccessivo di partizioni** : al contrario, la creazione di una partizione in una colonna con un valore univoco (ad esempio ID utente) causa più partizioni, generando un sovraccarico nel nodo dei nomi del cluster, che dovrà gestire una grande quantità di directory.
+* **Evitare lo sfasamento di dati** : scegliere la chiave di partizionamento con attenzione, in modo che tutte le partizioni siano di dimensioni pari. Ad esempio, con il partizionamento in *Stato* , il numero di record in California potrebbe essere quasi 30 volte quello del Vermont, a causa della differenza di popolazione.
 
-Per creare una tabella di partizione, usare la clausola *Partizionato da*:
+Per creare una tabella di partizione, usare la clausola *Partizionato da* :
 
     CREATE TABLE lineitem_part
         (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
@@ -130,7 +135,7 @@ Una volta creata la tabella partizionata, è possibile creare il partizionamento
 
 Per ulteriori informazioni, vedere [Tabelle partizionate](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
 
-## Utilizzare il formato ORCFile
+## <a name="use-the-orcfile-format"></a>Utilizzare il formato ORCFile
 Hive supporta diversi formati di file. Ad esempio:
 
 * **Testo**: questo è il formato di file predefinito e funziona con la maggior parte degli scenari
@@ -178,7 +183,7 @@ Inserire quindi i dati nella tabella ORC dalla tabella di gestione temporanea. A
 
 Ulteriori informazioni sul formato ORC sono disponibili [qui](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
 
-## Vettorizzazione
+## <a name="vectorization"></a>Vettorizzazione
 La vettorizzazione consente ad Hive di elaborare un batch di 1024 righe insieme invece di elaborare una riga alla volta. Ciò significa che le operazioni semplici vengono eseguite più rapidamente poiché è necessario eseguire una quantità inferiore di codice interno.
 
 Per abilitare la vettorizzazione, anteporre alla query Hive la seguente impostazione:
@@ -187,14 +192,14 @@ Per abilitare la vettorizzazione, anteporre alla query Hive la seguente impostaz
 
 Per altre informazioni, vedere [Esecuzione di query vettorizzate](https://cwiki.apache.org/confluence/display/Hive/Vectorized+Query+Execution).
 
-## Altri metodi di ottimizzazione
+## <a name="other-optimization-methods"></a>Altri metodi di ottimizzazione
 Esistono altri metodi di ottimizzazione che è possibile considerare, ad esempio:
 
 * **Hive bucket:** una tecnica che consente di raggruppare o segmentare grandi set di dati per ottimizzare le prestazioni delle query.
 * **Ottimizzazione join:** ottimizzazione dell'esecuzione di query Hive pianificata per migliorare l'efficienza di join e ridurre la necessità di suggerimenti dell'utente. Per altre informazioni, vedere [Ottimizzazione join](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
 * **aumentare i reducer**
 
-## <a id="nextsteps"></a> Passaggi successivi
+## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Passaggi successivi
 In questo articolo sono stati illustrati vari metodi di ottimizzazione delle query comuni di Hive. Per altre informazioni, vedere gli articoli seguenti:
 
 * [Usare Apache Hive in HDInsight](hdinsight-use-hive.md)
@@ -203,6 +208,13 @@ In questo articolo sono stati illustrati vari metodi di ottimizzazione delle que
 * [Analizzare i dati dei sensori mediante Hive Query Console su Hadoop in HDInsight](hdinsight-hive-analyze-sensor-data.md)
 * [Usare Hive con HDInsight per analizzare i log dei siti Web](hdinsight-hive-analyze-website-log.md)
 
-[image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
+[image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
+[image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png
+[image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
+[image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

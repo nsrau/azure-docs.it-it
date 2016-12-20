@@ -1,30 +1,34 @@
 ---
-title: Eseguire la migrazione dello schema in SQL Data Warehouse | Microsoft Docs
+title: Eseguire la migrazione dello schema in SQL Data Warehouse | Documentazione Microsoft
 description: Suggerimenti per la migrazione dello schema in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: 538b60c9-a07f-49bf-9ea3-1082ed6699fb
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 08/25/2016
-ms.author: jrj;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1ac4db6d9404567be0d3d12f91a96fa4e31ef3bf
+
 
 ---
-# Eseguire la migrazione dello schema in SQL Data Warehouse
+# <a name="migrate-your-schema-to-sql-data-warehouse"></a>Eseguire la migrazione dello schema in SQL Data Warehouse
 I riepiloghi seguenti consentono di capire le differenze tra l'uso di SQL Server e di SQL Data Warehouse per la migrazione di un database.
 
-## Migrazione di tabelle
-Quando si esegue la migrazione di tabelle, è opportuno acquisire familiarità con le funzionalità delle tabelle di SQL Data Warehouse. La [panoramica delle tabelle][panoramica delle tabelle] è un ottimo punto di partenza. In questo articolo vengono presentate le considerazioni più importanti da tenere presenti quando si crea una tabella, ad esempio statistiche, distribuzione, partizionamento e indicizzazione di una tabella. Inoltre vengono presentate anche alcune [funzionalità non supportate][funzionalità non supportate] e soluzioni alternative.
+## <a name="table-migration"></a>Migrazione di tabelle
+Quando si esegue la migrazione di tabelle, è opportuno acquisire familiarità con le funzionalità delle tabelle di SQL Data Warehouse.  La [panoramica delle tabelle][panoramica delle tabelle] è un ottimo punto di partenza.  In questo articolo vengono presentate le considerazioni più importanti da tenere presenti quando si crea una tabella, ad esempio statistiche, distribuzione, partizionamento e indicizzazione di una tabella.  Inoltre vengono presentate anche alcune [funzionalità non supportate][funzionalità non supportate] e soluzioni alternative.
 
-SQL Data Warehouse supporta i tipi di dati business comuni. Vedere l'articolo sul [tipi di dati][tipi di dati] per un elenco dei [tipi di dati non supportati][tipi di dati non supportati] e supportati. Nell'articolo sui [tipi di dati][tipi di dati] è contenuta anche una query per identificare i [tipi di dati non supportati][tipi di dati non supportati]. Quando si convertono i tipi di dati, assicurarsi di esaminare le [procedure consigliate per il tipo di dati][procedure consigliate per il tipo di dati].
+SQL Data Warehouse supporta i tipi di dati business comuni.  Vedere l'articolo sui [tipi di dati][tipi di dati] per un elenco dei [tipi di dati non supportati][tipi di dati non supportati] e supportati.  Nell'articolo sui [tipi di dati][tipi di dati] è contenuta anche una query per identificare i [tipi di dati non supportati][tipi di dati non supportati].  Quando si convertono i tipi di dati, assicurarsi di esaminare le [procedure consigliate per il tipo di dati][procedure consigliate per il tipo di dati].
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Dopo la migrazione dello schema del database a SQL Data Warehouse, passare a uno degli articoli seguenti:
 
 * [Eseguire la migrazione dei dati][Eseguire la migrazione dei dati]
@@ -49,4 +53,8 @@ Per altre informazioni, vedere l'articolo con le [procedure consigliate][procedu
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

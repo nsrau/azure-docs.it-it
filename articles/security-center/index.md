@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
-ms.openlocfilehash: ca6b16a891f599135c193198b5b0acc7bbd6425e
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 7ac552010e41d59e07f2881750540206ffa24f5b
 
 ---
 # <a name="security-center-documentation"></a>Documentazione del Centro sicurezza
@@ -77,7 +77,7 @@ Il Centro sicurezza impedisce, rileva e risponde alle minacce mediante visibilit
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Riferimenti all'API REST del Centro sicurezza</p>
+                        <p>API REST di Centro sicurezza</p>
                     </div>
                 </div>
             </div>
@@ -96,6 +96,6 @@ Scaricare la documentazione del Centro sicurezza </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

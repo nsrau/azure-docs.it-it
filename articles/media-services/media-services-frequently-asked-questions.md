@@ -2,11 +2,11 @@
 title: Domande frequenti | Microsoft Docs
 description: Domande frequenti (FAQ)
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 5374f7f4-c189-43ef-8b7f-f2f4141e2748
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,17 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7ea1ec9bddff60d91bdd47d7d9e5312563386ae4
+
 
 ---
-# Domande frequenti
-## Domande frequenti generali su AMS
+# <a name="frequently-asked-questions"></a>Domande frequenti
+## <a name="general-ams-faqs"></a>Domande frequenti generali su AMS
 D: Come scalare l'indicizzazione?
 
 R: Le unità riservate sono le stesse per le attività di codifica e indicizzazione. Seguire le istruzioni in [Come scalare le unità riservate di codifica](media-services-scale-media-processing-overview.md). **Tenere presente** che le prestazioni dell'indicizzatore non vengono influenzate dal tipo di unità riservata.
 
 D: Ho caricato, codificato e pubblicato un video. Quale può essere il motivo per cui il video non viene riprodotto quando provo a trasmetterlo in streaming?
 
-R: Uno dei motivi più comuni per questo tipo di problema è che sull'endpoint di streaming da cui si tenta di riprodurre il video non è allocata alcuna unità riservata di streaming. Seguire le istruzioni riportate in [Come scalare unità riservate di streaming](media-services-portal-scale-streaming-endpoints.md).
+R: Uno dei motivi più comuni per questo tipo di problema è che sull'endpoint di streaming da cui si tenta di riprodurre il video non è allocata alcuna unità riservata di streaming.  Seguire le istruzioni riportate in [Come scalare unità riservate di streaming](media-services-portal-scale-streaming-endpoints.md).
 
 D: È possibile eseguire la composizione in un flusso live?
 
@@ -32,7 +36,7 @@ A: La composizione in flussi live non è attualmente disponibile in Servizi mult
 
 D: È possibile usare la rete CDN di Azure con Live Streaming?
 
-R: Servizi multimediali supporta l'integrazione con la rete CDN di Azure (per altre informazioni, vedere [Come gestire gli endpoint di streaming in un account di Servizi multimediali](media-services-portal-manage-streaming-endpoints.md)). È quindi possibile usare Live streaming con la rete CDN. Servizi multimediali di Azure fornisce output in formato Smooth Streaming, HLS e MPEG-DASH. Tutti questi formati usano il protocollo HTTP per trasferire dati e ottenere i vantaggi derivanti dalla cache HTTP. In Live Streaming i dati audio/video effettivi vengono divisi in frammenti, ciascuno dei quali viene memorizzato nella rete CDN. L'aggiornamento è necessario solo per i dati manifesto e viene effettuato periodicamente dalla rete CDN.
+R: Servizi multimediali supporta l'integrazione con la rete CDN di Azure. Per altre informazioni, vedere l'articolo su [come gestire gli endpoint di streaming in un account di Servizi multimediali](media-services-portal-manage-streaming-endpoints.md).  È quindi possibile usare Live streaming con la rete CDN. Servizi multimediali di Azure fornisce output in formato Smooth Streaming, HLS e MPEG-DASH. Tutti questi formati usano il protocollo HTTP per trasferire dati e ottenere i vantaggi derivanti dalla cache HTTP. In Live Streaming i dati audio/video effettivi vengono divisi in frammenti, ciascuno dei quali viene memorizzato nella rete CDN. L'aggiornamento è necessario solo per i dati manifesto e viene effettuato periodicamente dalla rete CDN.
 
 D: Servizi multimediali di Azure supporta anche l'archiviazione di immagini?
 
@@ -44,11 +48,11 @@ R: Per copiare gli asset da un account di Servizi multimediali a un altro con .N
 
 D: Quali sono i caratteri supportati per la denominazione dei file quando si usa AMS?
 
-R: Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione degli URL per i contenuti in streaming, ad esempio http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
+R: Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione di URL per i contenuti in streaming, ad esempio http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i [caratteri riservati per la codifica percentuale seguenti](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Inoltre, può essere presente un solo punto (.). L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
 
 D: Come connettersi usando REST?
 
-R: Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere eseguite al nuovo URI, come descritto in [Connessione a un account di Servizi multimediali mediante l'API REST](media-services-rest-connect-programmatically.md).
+R: Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere eseguite al nuovo URI, come descritto in [Connessione a un account di Servizi multimediali mediante l'API REST](media-services-rest-connect-programmatically.md). 
 
 D: Come è possibile ruotare un video durante il processo di codifica.
 
@@ -70,10 +74,15 @@ R: Il [codificatore multimediale standard](media-services-dotnet-encode-with-med
 
 
 
-## Percorsi di apprendimento di Servizi multimediali
+## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

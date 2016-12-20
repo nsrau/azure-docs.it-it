@@ -1,12 +1,12 @@
 ---
-title: Disponibilità elevata per le applicazioni Azure | Microsoft Docs
-description: Panoramiche tecniche e informazioni approfondite sulla progettazione e la creazione di applicazioni per la disponibilità elevata in Microsoft Azure.
-services: ''
+title: "Disponibilità elevata per le applicazioni Azure | Microsoft Docs"
+description: "Panoramiche tecniche e informazioni approfondite sulla progettazione e la creazione di applicazioni per la disponibilità elevata in Microsoft Azure."
+services: 
 documentationcenter: na
 author: adamglick
 manager: saladki
-editor: ''
-
+editor: 
+ms.assetid: 8be4f323-ca00-4025-9356-c9bbc998eef3
 ms.service: resiliency
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f7289c969184b518a6ff836cbb9ed7e20841206b
+
 
 ---
 # <a name="high-availability-for-applications-built-on-microsoft-azure"></a>Disponibilità elevata per le applicazioni basate su Microsoft Azure
@@ -134,6 +138,9 @@ Si noti che la figura precedente illustra un'implementazione di questo approccio
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo fa parte di una serie dedicata al [ripristino di emergenza e disponibilità elevata per le applicazioni basate su Microsoft Azure](resiliency-disaster-recovery-high-availability-azure-applications.md). L'articolo successivo della serie riguarda il [ripristino di emergenza per le applicazioni basate su Microsoft Azure](resiliency-disaster-recovery-azure-applications.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

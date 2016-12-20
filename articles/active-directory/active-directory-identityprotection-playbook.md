@@ -1,20 +1,24 @@
 ---
-title: Studio su Azure Active Directory Identity Protection | Microsoft Docs
-description: Informazioni su come Azure AD Identity Protection consente di limitare la possibilità di un utente malintenzionato di sfruttare un'identità o un dispositivo compromesso e di proteggere un'identità o un dispositivo che in precedenza è stato sospettato o ritenuto essere compromesso.
+title: Studio su Azure Active Directory Identity Protection | Documentazione Microsoft
+description: "Informazioni su come Azure AD Identity Protection consente di limitare la possibilità di un utente malintenzionato di sfruttare un&quot;identità o un dispositivo compromesso e di proteggere un&quot;identità o un dispositivo che in precedenza è stato sospettato o ritenuto essere compromesso."
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza
-documentationcenter: ''
+keywords: "azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza"
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 11/11/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 77031b3bbe2372bf2cac34bac45368ac40911641
+ms.openlocfilehash: 87070d7680a6d48e94099b47f9dc336a75332f6c
+
 
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Studio sulla protezione delle identità di Azure Active Directory
@@ -32,7 +36,7 @@ Questa sezione riporta i passaggi per la simulazione dei seguenti tipi di eventi
 
 Non è possibile simulare altri eventi di rischio in modo sicuro.
 
-### <a name="signins-from-anonymous-ip-addresses"></a>Accessi da indirizzi IP anonimi
+### <a name="sign-ins-from-anonymous-ip-addresses"></a>Accessi da indirizzi IP anonimi
 Questo tipo di evento di rischio identifica gli utenti che hanno eseguito l'accesso da un indirizzo IP riconosciuto come un indirizzo IP proxy anonimo. Questi proxy vengono usati da persone che vogliono nascondere l'indirizzo IP del dispositivo e possono essere usati per attacchi dannosi.
 
 **Per simulare un accesso da un IP anonimo, seguire questa procedura**:
@@ -43,7 +47,7 @@ Questo tipo di evento di rischio identifica gli utenti che hanno eseguito l'acce
 
 L’accesso verrà visualizzato nel dashboard Identity Protection entro 5 minuti. 
 
-### <a name="signins-from-unfamiliar-locations"></a>Accessi da posizioni non note
+### <a name="sign-ins-from-unfamiliar-locations"></a>Accessi da posizioni non note
 L'evento di rischio per gli accessi da posizioni non note è un meccanismo di valutazione dell'accesso in tempo reale che prende in considerazione le posizioni di accesso precedenti, come l'indirizzo IP, la latitudine, la longitudine e l'ASN, per determinare posizioni nuove o non note. Il sistema archivia gli indirizzi IP, la latitudine, la longitudine e gli ASN usati in precedenza da un utente e li considera posizioni "note". Una posizione di accesso viene considerata non nota se non corrisponde a nessuna delle posizioni note esistenti.
 
 Azure Active Directory Identity Protection:  
@@ -108,7 +112,7 @@ Le vulnerabilità sono punti deboli in un ambiente Azure AD che possono essere s
     ![Studio](./media/active-directory-identityprotection-playbook/201.png "Playbook")
     <br>
 
-## <a name="signin-risk"></a>Rischio di accesso
+## <a name="sign-in-risk"></a>Rischio di accesso
 **Per testare un rischio di accesso, seguire questa procedura:**
 
 1. Accedere ad [https://portal.azure.com ](https://portal.azure.com) con le credenziali di amministratore globale del tenant.
@@ -126,13 +130,16 @@ Le vulnerabilità sono punti deboli in un ambiente Azure AD che possono essere s
 9. Fare clic su **Save**.
 10. A questo punto è possibile testare l'accesso condizionale basato sul rischio simulando gli eventi di rischio relativi a posizioni insolite o indirizzi IP anonimi, perché sono entrambi eventi di rischio di livello **Medio** .
 
-<br>
+
 ![Studio](./media/active-directory-identityprotection-playbook/200.png "Playbook")
-<br>
+
 
 ## <a name="see-also"></a>Vedere anche
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Azure Storage Account List
-description: Manage your storage account settings using the Azure Toolkit for Eclipse
-services: ''
+title: Elenco di Account di archiviazione di Azure
+description: Gestire le impostazioni dell&quot;account di archiviazione tramite il Toolkit di Azure per Eclipse
+services: 
 documentationcenter: java
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: bbacfcd8-dbf5-4265-a930-59f508de5325
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: multiple
@@ -14,79 +14,83 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 91490e33ab2d524da90ae75bd71abe8005e45c54
+
 
 ---
-# <a name="azure-storage-account-list"></a>Azure Storage Account List
-Azure storage accounts enable download locations to be used for your JDK, application server, and arbitrary components, as well as for storing state when using caching. Eclipse maintains a list of known storage accounts that are available to your projects in your Eclipse workspace. To open the **Storage Accounts** dialog, which is used to manage that list, within Eclipse, click **Window**, click **Preferences**, expand **Azure**, and then click **Storage Accounts**.
+# <a name="azure-storage-account-list"></a>Elenco di Account di archiviazione di Azure
+Gli account di archiviazione di Azure abilitano dei percorsi di download da usare per il JDK, per il server dell’applicazione e per i componenti arbitrari, nonché per lo stato di archiviazione quando si utilizza la memorizzazione nella cache. Eclipse mantiene un elenco di account di archiviazione noti disponibili per i progetti nell'area di lavoro di Eclipse. Per aprire la finestra di dialogo **Account di archiviazione** che viene usata per gestire tale elenco, in Eclipse, fare clic su **Finestra**, **Preferenze**, espandere **Azure**, quindi fare clic su **Account di archiviazione**.
 
-The following shows the **Storage Accounts** dialog.
+Di seguito viene visualizzata la finestra di dialogo **Account di archiviazione** .
 
 ![][ic719496]
 
-This dialog can also be opened from an **Accounts** link on dialog boxes that use storage accounts, such as the following:
+Questa finestra di dialogo può anche essere aperta da un collegamento **Account** nelle finestre di dialogo che utilizzano gli account di archiviazione, come ad esempio le gli elementi seguenti:
 
-* The **JDK** tab of the **Server Configuration** dialog.
-* The **Server** tab of the **Server Configuration** dialog.
-* The **Add Component** dialog.
-* The **Caching** properties dialog.
+* La scheda **JDK** della finestra di dialogo **Configurazione Server**.
+* La scheda **Server** della finestra di dialogo **Configurazione Server**.
+* La finestra di dialogo **Aggiungi componente** .
+* La finestra di dialogo delle proprietà di **Memorizzazione nella cache**
 
-## <a name="to-import-your-storage-accounts-using-a-publish-settings-file"></a>To import your storage accounts using a publish settings file
-1. Within the **Storage Accounts** dialog, click **Import from PUBLISH-SETTINGS file**.
-2. (Skip this step if you have already saved a publish settings file to your local machine.) In the **Import Subscription Information** dialog, click **Download PUBLISH-SETTINGS File**. If you are not yet logged into your Azure account, you will be prompted to log in. Then you'll be prompted to save an Azure publish settings file. (You can ignore the resulting instructions shown on the logon pages - they are provided by the Azure portal and are intended for Visual Studio users.) Save it to your local machine.
-3. Still in the **Import Subscription Information** dialog, click the **Browse** button, select the publish settings file that you saved locally previously, and then click **Open**.
-4. Click **OK** to close the **Import Subscription Information** dialog.
+## <a name="to-import-your-storage-accounts-using-a-publish-settings-file"></a>Per importare gli account di archiviazione usando un file di impostazioni di pubblicazione
+1. All'interno della finestra di dialogo **Account di archiviazione** fare clic su **Importa da file IMPOSTAZIONI DI PUBBLICAZIONE**.
+2. (Saltare questo passaggio se è già stato salvato un file di impostazioni di pubblicazione nel computer locale). Nella finestra di dialogo **Import Subscription Information** (Importa informazioni sottoscrizione) fare clic su **Download PUBLISH-SETTINGS File** (Download del file PUBLISH-SETTINGS). Se non ci si è ancora connessi al proprio account Azure, verrà richiesto di farlo. Quindi verrà richiesto di salvare un file di impostazioni di pubblicazione di Azure. (È possibile ignorare le istruzioni risultanti visualizzate nelle pagine di accesso, sono fornite dal portale di Azure e sono destinate agli utenti di Visual Studio.) Salvarlo nel computer locale.
+3. Sempre nella finestra di dialogo **Import Subscription Information** (Importa informazioni sottoscrizione) fare clic sul pulsante **Browse** (Sfoglia), selezionare il file di impostazioni di pubblicazione precedentemente salvato in locale e quindi fare clic su **Open** (Apri).
+4. Fare clic su **OK** per chiudere la finestra di dialogo **Import Subscription Information** (Importa informazioni sottoscrizione).
 
-## <a name="to-create-a-new-storage-account"></a>To create a new storage account
-1. Within the **Storage Accounts** dialog, click **Add**.
-2. Within the **Add Storage Account** dialog, click **New**.
-3. Within the **New Storage Account** dialog, specify values for the following:
-   * Storage account name.
-   * Location of the storage account.
-   * Description of the storage account.
-   * The subscription to which the storage account belongs.
-4. Click **OK** to close the **New Storage Account** dialog.
+## <a name="to-create-a-new-storage-account"></a>Per creare un nuovo account di archiviazione
+1. Nella finestra di dialogo **Account di archiviazione** fare clic su **Aggiungi**.
+2. Nella finestra di dialogo **Aggiungi account di archiviazione** fare clic su **Nuovo**.
+3. All'interno della finestra di dialogo **Nuovo Account di archiviazione** , specificare i valori per le operazioni seguenti:
+   * Nome dell'account di archiviazione.
+   * Posizione dell'account di archiviazione.
+   * Descrizione dell'account di archiviazione.
+   * Sottoscrizione a cui appartiene l'account di archiviazione.
+4. Fare clic su **OK** per chiudere la finestra di dialogo **Nuovo Account di archiviazione**.
 
-It may take several minutes for your storage account to be created. After it is created, click **OK** to close the **Add Storage Account** dialog, and your new storage account will be added to the list of available storage accounts.
+Potrebbero volerci alcuni minuti per creare l'account di archiviazione. Dopo averlo creato, fare clic su **OK** per chiudere la finestra di dialogo **Aggiungi Account di archiviazione** e il nuovo account di archiviazione verrà aggiunto all'elenco di account di archiviazione disponibili.
 
-## <a name="to-add-an-existing-storage-account-to-the-list"></a>To add an existing storage account to the list
-1. If you do not already have a Azure storage account, create one by following the steps listed in the **To create a new storage account section** above. (Alternatively, you can create a new storage account at the [Azure Management Portal][Azure Management Portal].)
-2. Within the **Storage Accounts** dialog, click **Add**.
-3. Within the **Add Storage Account** dialog, enter values for **Name** and **Access Key**. The account name and access key must be for an existing Azure storage account. Use the **Storage** section of the [Azure Management Portal][Azure Management Portal] to view your storage account names and keys. Your **Add Storage Account** dialog will look similar to the following.
+## <a name="to-add-an-existing-storage-account-to-the-list"></a>Aggiungere un account di archiviazione esistente all’elenco
+1. Se non si dispone ancora di un account di archiviazione di Azure, crearne uno seguendo i passaggi elencati in **Creare una nuova sezione di account di archiviazione** . In alternativa è possibile creare un nuovo account di archiviazione nel [portale di gestione di Azure][portale di gestione di Azure].
+2. Nella finestra di dialogo **Account di archiviazione** fare clic su **Aggiungi**.
+3. Nella finestra di dialogo **Aggiungi Account di archiviazione** immettere i valori per **Nome** e **Chiave di accesso**. Ci devono essere la chiave dell'account e la chiave di accesso per un account di archiviazione di Azure esistente. Usare la sezione **Archiviazione** del [portale di gestione di Azure][portale di gestione di Azure] per visualizzare i nomi e le chiavi degli account di archiviazione. la finestra di dialogo **Aggiungi Account di archiviazione** sarà simile a quella seguente.
    
     ![][ic719497]
-4. Click **OK** to close the **Add Storage Account** dialog.
+4. Fare clic su **OK** per chiudere la finestra di dialogo **Aggiungi account di archiviazione**.
 
-## <a name="to-modify-a-storage-account-to-use-a-new-access-key"></a>To modify a storage account to use a new access key
-1. Within the **Storage Accounts** dialog, click the storage account that you want to edit and then click **Edit**.
-2. Within the **Edit Storage Account Access Key** dialog, modify the **Access Key** value.
-3. Click **OK** to close the **Edit Storage Account Access Key** dialog.
+## <a name="to-modify-a-storage-account-to-use-a-new-access-key"></a>Modificare un account di archiviazione per l'utilizzo di una nuova chiave di accesso
+1. Nella finestra di dialogo **Account di archiviazione** scegliere l'account di archiviazione da modificare e quindi fare clic su **Modifica**.
+2. Nella finestra di dialogo di modifica della **chiave di accesso dell'account di archiviazione**, modificare il valore della **chiave di accesso**.
+3. Fare clic su **OK** per chiudere la finestra di dialogo di modifica della **chiave di accesso dell'account di archiviazione**.
 
-## <a name="to-remove-a-storage-account-from-the-list-maintained-in-eclipse"></a>To remove a storage account from the list maintained in Eclipse
-1. Within the **Storage Accounts** dialog, click the storage account that you want to edit and then click **Remove**.
-2. Click **OK** when prompted to remove the storage account.
+## <a name="to-remove-a-storage-account-from-the-list-maintained-in-eclipse"></a>Per rimuovere un account di archiviazione dall'elenco gestito in Eclipse
+1. Nella finestra di dialogo **Account di archiviazione** fare clic sull'account di archiviazione da modificare e quindi fare clic su **Rimuovi**.
+2. Fare clic su **OK** quando viene richiesto di rimuovere l'account di archiviazione.
 
 > [!NOTE]
-> Removing the storage account through the **Storage Accounts** dialog only removes it from the list of storage accounts viewable within Eclipse. It does not remove the storage account from your Azure subscription. Additionally, the storage account could appear again in your list after Eclipse reloads the details of your subscription.
+> Rimuovendolo tramite la finestra di dialogo **Account di archiviazione**, l'account verrà rimosso solo dall'elenco di account di archiviazione visualizzabili in Eclipse. L'account di archiviazione non viene rimosso dalla sottoscrizione di Azure e potrebbe essere nuovamente visualizzato nell'elenco dopo che Eclipse ricarica i dettagli della sottoscrizione.
 > 
 > 
 
-## <a name="see-also"></a>See Also
-[Azure Toolkit for Eclipse][Azure Toolkit for Eclipse]
+## <a name="see-also"></a>Vedere anche
+[Toolkit di Azure per Eclipse][Toolkit di Azure per Eclipse]
 
-[Installing the Azure Toolkit for Eclipse][Installing the Azure Toolkit for Eclipse] 
+[Installare il Toolkit di Azure per Eclipse.][Installare il Toolkit di Azure per Eclipse.] 
 
-[Creating a Hello World Application for Azure in Eclipse][Creating a Hello World Application for Azure in Eclipse]
+[Creare un'applicazione Hello World per Azure in Eclipse][Creare un'applicazione Hello World per Azure in Eclipse]
 
-For more information about using Azure with Java, see the [Azure Java Developer Center][Azure Java Developer Center].
+Per altre informazioni sull'uso di Azure con Java, vedere il [Centro per sviluppatori Java in Azure][Centro per sviluppatori Java in Azure] di Azure.
 
 <!-- URL List -->
 
-[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
+[Centro per sviluppatori Java in Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[portale di gestione di Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Creare un'applicazione Hello World per Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installare il Toolkit di Azure per Eclipse.]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Novità di Azure Toolkit per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
 
@@ -97,6 +101,6 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

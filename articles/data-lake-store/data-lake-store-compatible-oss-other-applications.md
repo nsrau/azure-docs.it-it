@@ -1,12 +1,12 @@
 ---
-title: Applicazioni Big Data compatibili con l'archivio Data Lake | Microsoft Docs
+title: Applicazioni Big Data compatibili con Data Lake Store | Documentazione Microsoft
 description: Elenco di applicazioni open source di origine che funzionano con Archivio Data Lake di Azure
 services: data-lake-store
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 699e1805-cb76-4807-9ac1-8bd9d9bbb72b
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
@@ -14,10 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/25/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2966e0e59eef09f5a29945cc1e00bede6a8ade81
+
 
 ---
-# Aprire le applicazioni Big Data di origine che funzionano con Archivio Data Lake di Azure
-Questo articolo elenca le applicazioni Big Data di origine che funzionano con Archivio Data Lake di Azure Per le applicazioni nella tabella seguente, sono supportate solo le versioni disponibili con la distribuzione elencata. Per informazioni su quali versioni di queste applicazioni sono disponibili con HDInsight, vedere [Controllo delle versioni della componente HDInsight](../hdinsight/hdinsight-component-versioning.md).
+# <a name="open-source-big-data-applications-that-work-with-azure-data-lake-store"></a>Aprire le applicazioni Big Data di origine che funzionano con Archivio Data Lake di Azure
+Questo articolo elenca le applicazioni Big Data di origine che funzionano con Archivio Data Lake di Azure Per le applicazioni nella tabella seguente, sono supportate solo le versioni disponibili con la distribuzione elencata. Per sapere quali versioni di queste applicazioni sono disponibili con HDInsight, vedere [Controllo delle versioni del componente HDInsight](../hdinsight/hdinsight-component-versioning.md).
 
 | Software Open Source | Distribuzione |
 | --- | --- |
@@ -34,7 +38,12 @@ Questo articolo elenca le applicazioni Big Data di origine che funzionano con Ar
 | [Apache Tez](http://tez.apache.org/) |HDInsight 3.2 e 3.4 |
 | [Apache Spark](http://spark.apache.org/) |HDInsight 3.4 |
 
-## Vedere anche
+## <a name="see-also"></a>Vedere anche
 * [Panoramica dell’Archivio Data Lake di Azure](data-lake-store-overview.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

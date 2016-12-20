@@ -1,12 +1,12 @@
 ---
-title: Come richiamare una perdita di dati sui servizi Service Fabric | Microsoft Docs
-description: Descrive come usare l'API relativa alla perdita di dati
+title: Come richiamare una perdita di dati sui servizi Service Fabric | Documentazione Microsoft
+description: Descrive come usare l&quot;API relativa alla perdita di dati
 services: service-fabric
 documentationcenter: .net
 author: LMWF
 manager: rsinha
-editor: ''
-
+editor: 
+ms.assetid: f4e70f6f-cad9-4a3e-9655-009b4db09c6d
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,19 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/19/2016
 ms.author: lemai
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3cef3af0662ae12c301c6bca76bae05a61ce67e1
+
 
 ---
-# Come richiamare la perdita di dati nei servizi
+# <a name="how-to-invoke-data-loss-on-services"></a>Come richiamare la perdita di dati nei servizi
 > [!WARNING]
 > Questo documento descrive come causare la perdita di dati nei servizi e la procedura deve essere usata con cautela.
 > 
 > 
 
-## Introduzione
-È possibile richiamare la perdita di dati in una partizione del servizio Service Fabric chiamando StartPartitionDataLossAsync(). L'API usa il servizio di fault injection e analisi per causare condizioni di perdita dei dati.
+## <a name="introduction"></a>Introduzione
+È possibile richiamare la perdita di dati in una partizione del servizio Service Fabric chiamando StartPartitionDataLossAsync().  L'API usa il servizio di fault injection e analisi per causare condizioni di perdita dei dati.
 
-## Uso del servizio di fault injection e analisi
-Il servizio di fault injection e analisi attualmente supporta le API indicate nel grafico seguente. Il lato destro del grafico mostra il corrispondente cmdlet di PowerShell. Per altre informazioni su queste API, vedere la documentazione relativa in MSDN.
+## <a name="using-the-fault-injection-and-analysis-service"></a>Uso del servizio di fault injection e analisi
+Il servizio di fault injection e analisi attualmente supporta le API indicate nel grafico seguente.  Il lato destro del grafico mostra il corrispondente cmdlet di PowerShell.  Per altre informazioni su queste API, vedere la documentazione relativa in MSDN.
 
 | API C# | Cmdlet di PowerShell |
 | --- | ---:|
@@ -34,17 +38,19 @@ Il servizio di fault injection e analisi attualmente supporta le API indicate ne
 | [StartPartitionQuorumLossAsync][ql] |[Start-ServiceFabricPartitionQuorumLoss][psql] |
 | [StartPartitionRestartAsync][rp] |[Start-ServiceFabricPartitionRestart][psrp] |
 
-## Panoramica concettuale dell'esecuzione di un comando
-Il servizio di fault injection e analisi usa un modello asincrono in cui si avvia il comando con un'API, chiamata API “Start” in questo documento, quindi si controlla l'avanzamento del comando mediante un'API “GetProgress” fino a quando il comando raggiunge uno stato terminale o fino a quando lo si annulla. Per avviare un comando, chiamare l'API "Start" per l'API corrispondente. Questa API ritorna quando il servizio di fault injection e analisi ha accettato la richiesta. Tuttavia non indica a che punto si trova l'esecuzione del comando e neppure se è già stato avviato. Per controllare l'avanzamento di un comando chiamare l'API "GetProgress" corrispondente all'API "Start" chiamata in precedenza. L'API "GetProgress" restituirà un oggetto che indica lo stato corrente del comando all'interno della sua proprietà State. Un comando viene eseguito all'infinito finché:
+## <a name="conceptual-overview-of-running-a-command"></a>Panoramica concettuale dell'esecuzione di un comando
+Il servizio di fault injection e analisi usa un modello asincrono in cui si avvia il comando con un'API, chiamata API “Start” in questo documento, quindi si controlla l'avanzamento del comando mediante un'API “GetProgress” fino a quando il comando raggiunge uno stato terminale o fino a quando lo si annulla.
+Per avviare un comando, chiamare l'API "Start" per l'API corrispondente.  Questa API ritorna quando il servizio di fault injection e analisi ha accettato la richiesta.  Tuttavia non indica a che punto si trova l'esecuzione del comando e neppure se è già stato avviato.  Per controllare l'avanzamento di un comando chiamare l'API "GetProgress" corrispondente all'API "Start" chiamata in precedenza.  L'API "GetProgress" restituirà un oggetto che indica lo stato corrente del comando all'interno della sua proprietà State.  Un comando viene eseguito all'infinito finché:
 
-1. Viene completato correttamente. In questo caso, se si chiama "GetProgress" per esso, lo stato dell'oggetto di avanzamento sarà Completed.
-2. Si verifica un errore irreversibile. In questo caso, se si chiama "GetProgress" per esso, lo stato dell'oggetto di avanzamento sarà Faulted
-3. Lo si annulla mediante l'API [CancelTestCommandAsync][cancel] o il cmdlet di PowerShell [Stop-ServiceFabricTestCommand][cancelps]. In questo caso, se si chiama “GetProgress” per esso, lo stato dell'oggetto di avanzamento sarà Cancelled o ForceCancelled, a seconda dell'argomento dell'API. Per altri dettagli, vedere la documentazione relativa a [CancelTestCommandAsync][cancel].
+1. Viene completato correttamente.  In questo caso, se si chiama "GetProgress" per esso, lo stato dell'oggetto di avanzamento sarà Completed.
+2. Si verifica un errore irreversibile.  In questo caso, se si chiama "GetProgress" per esso, lo stato dell'oggetto di avanzamento sarà Faulted
+3. È possibile annullarlo mediante l'API [CancelTestCommandAsync][cancel] o il cmdlet di PowerShell [Stop-ServiceFabricTestCommand][cancelps].  In questo caso, se si chiama “GetProgress” per esso, lo stato dell'oggetto di avanzamento sarà Cancelled o ForceCancelled, a seconda dell'argomento dell'API.  Per altri dettagli, vedere la documentazione relativa a [CancelTestCommandAsync][cancel].
 
-## Dettagli dell'esecuzione di un comando
-Per avviare un comando, chiamare l'API Start con gli argomenti previsti. Tutte le API Start dispongono di un argomento Guid denominato operationId. È necessario tenere traccia dell'argomento operationId, poiché viene usato per monitorare l'avanzamento di questo comando. Deve essere passato nell'API "GetProgress" per tenere traccia dell'avanzamento del comando. L'operationId deve essere univoco.
+## <a name="details-of-running-a-command"></a>Dettagli dell'esecuzione di un comando
+Per avviare un comando, chiamare l'API Start con gli argomenti previsti.  Tutte le API Start dispongono di un argomento Guid denominato operationId.  È necessario tenere traccia dell'argomento operationId, poiché viene usato per monitorare l'avanzamento di questo comando.  Deve essere passato nell'API "GetProgress" per tenere traccia dell'avanzamento del comando.  L'operationId deve essere univoco.
 
-Dopo l'esito positivo della chiamata dell'API Start, deve essere chiamata l'API GetProgress in un ciclo fino a quando la proprietà State dell'oggetto di avanzamento è Completed. È necessario tentare di nuovo tutti i [FabricTransientException][fte] e OperationCanceledException. Quando il comando ha raggiunto uno stato finale (Completed, Faulted o Cancelled), la proprietà Result dell'oggetto di avanzamento restituito conterrà informazioni aggiuntive. Se lo stato è Completed, Result.SelectedPartition.PartitionId conterrà l'ID partizione selezionato. Result.Exception sarà null. Se lo stato è Faulted, Result.Exception conterrà la ragione per cui il servizio di fault injection e analisi ha generato un errore nel comando. Result.SelectedPartition.PartitionId conterrà l'ID partizione selezionato. In alcuni casi il comando potrebbe non essere stato eseguito per un tempo sufficiente per la scelta di una partizione. In tal caso PartitionId sarà 0. Se lo stato è Cancelled, Result.Exception sarà null. Come nel caso di Faulted, Result.SelectedPartition.PartitionId conterrà l'ID partizione selezionato, ma se il comando non è stato eseguito per un tempo sufficiente per la scelta di una partizione, sarà 0. Vedere anche l'esempio seguente.
+Dopo l'esito positivo della chiamata dell'API Start, deve essere chiamata l'API GetProgress in un ciclo fino a quando la proprietà State dell'oggetto di avanzamento è Completed.  È necessario tentare di nuovo tutti i [FabricTransientException][fte] e OperationCanceledException.
+Quando il comando ha raggiunto uno stato finale (Completed, Faulted o Cancelled), la proprietà Result dell'oggetto di avanzamento restituito conterrà informazioni aggiuntive.  Se lo stato è Completed, Result.SelectedPartition.PartitionId conterrà l'ID partizione selezionato.  Result.Exception sarà null.  Se lo stato è Faulted, Result.Exception conterrà la ragione per cui il servizio di fault injection e analisi ha generato un errore nel comando.  Result.SelectedPartition.PartitionId conterrà l'ID partizione selezionato.  In alcuni casi il comando potrebbe non essere stato eseguito per un tempo sufficiente per la scelta di una partizione.  In tal caso PartitionId sarà 0.  Se lo stato è Cancelled, Result.Exception sarà null.  Come nel caso di Faulted, Result.SelectedPartition.PartitionId conterrà l'ID partizione selezionato, ma se il comando non è stato eseguito per un tempo sufficiente per la scelta di una partizione, sarà 0.  Vedere anche l'esempio seguente.
 
 Il codice di esempio riportato di seguito mostra come avviare e poi controllare l'avanzamento di un comando per causare perdite di dati in una determinata partizione.
 
@@ -216,8 +222,8 @@ L'esempio seguente illustra come usare PartitionSelector per scegliere una parti
     }
 ```
 
-## Cronologia e troncamento
-Dopo che un comando ha raggiunto uno stato finale, i suoi metadati rimarranno nel servizio di fault injection e analisi per un certo periodo di tempo prima di essere rimossi per liberare spazio. Se si chiama “GetProgress” usando l'operationId di un comando dopo che è stato rimosso, restituirà una FabricException con l'ErrorCode KeyNotFound.
+## <a name="history-and-truncation"></a>Cronologia e troncamento
+Dopo che un comando ha raggiunto uno stato finale, i suoi metadati rimarranno nel servizio di fault injection e analisi per un certo periodo di tempo prima di essere rimossi per liberare spazio.  Se si chiama “GetProgress” usando l'operationId di un comando dopo che è stato rimosso, restituirà una FabricException con l'ErrorCode KeyNotFound.
 
 [dl]: https://msdn.microsoft.com/library/azure/mt693569.aspx
 [ql]: https://msdn.microsoft.com/library/azure/mt693558.aspx
@@ -229,4 +235,8 @@ Dopo che un comando ha raggiunto uno stato finale, i suoi metadati rimarranno ne
 [cancelps]: https://msdn.microsoft.com/library/mt697566.aspx
 [fte]: https://msdn.microsoft.com/library/azure/system.fabric.fabrictransientexception.aspx
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

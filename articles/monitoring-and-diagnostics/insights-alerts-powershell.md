@@ -2,25 +2,29 @@
 title: Usare PowerShell per creare avvisi per i servizi di Azure | Microsoft Docs
 description: Usare PowerShell per creare avvisi di Azure in grado di attivare notifiche o automazione quando vengono soddisfatte le condizioni specificate.
 author: rboucher
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: d26ab15b-7b7e-42a9-81c8-3ce9ead5d252
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2016
+ms.date: 10/20/2016
 ms.author: robb
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: db8ed8980335e2af9654bfe56b4e4c5807674040
+
 
 ---
 # <a name="use-powershell-to-create-alerts-for-azure-services"></a>Usare PowerShell per creare avvisi per i servizi di Azure
 > [!div class="op_single_selector"]
 > * [Portale](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
-> * [CLI](../azure-portal/insights-alerts-command-line-interface.md) 
+> * [CLI](insights-alerts-command-line-interface.md)
 > 
 > 
 
@@ -37,16 +41,16 @@ Questo articolo descrive come impostare gli avvisi di Azure tramite PowerShell.
 * inviare un messaggio di posta elettronica all'amministratore e ai coamministratori del servizio
 * inviare un messaggio di posta elettronica ad altri indirizzi specificati
 * chiamare un webhook
-* avviare l'esecuzione di un runbook di Azure (solo dal portale di Azure) 
+* avviare l'esecuzione di un runbook di Azure (solo dal portale di Azure)
 
-È possibile configurare e ottenere informazioni sulle regole degli avvisi tramite 
+È possibile configurare e ottenere informazioni sulle regole degli avvisi tramite
 
 * [Portale di Azure](insights-alerts-portal.md)
-* [PowerShell](insights-alerts-powershell.md) 
-* [interfaccia della riga di comando](../azure-portal/insights-alerts-command-line-interface.md) 
-* [API REST di Azure Insights](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [PowerShell](insights-alerts-powershell.md)
+* [interfaccia della riga di comando](insights-alerts-command-line-interface.md)
+* [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-Per altre informazioni è sempre possibile digitare ```get-help``` e quindi il comando di PowerShell da approfondire. 
+Per altre informazioni è sempre possibile digitare ```get-help``` e quindi il comando di PowerShell da approfondire.
 
 ## <a name="create-alert-rules-in-powershell"></a>Creare regole di avviso in PowerShell
 1. Accedere ad Azure.   
@@ -55,7 +59,7 @@ Per altre informazioni è sempre possibile digitare ```get-help``` e quindi il c
     Login-AzureRmAccount
    
     ```
-2. Visualizzare l'elenco delle sottoscrizioni disponibili. Assicurarsi di lavorare con la giusta sottoscrizione. In caso contrario, impostare la sottoscrizione giusta usando l'output di `Get-AzureRmSubscription`. 
+2. Visualizzare l'elenco delle sottoscrizioni disponibili. Assicurarsi di lavorare con la giusta sottoscrizione. In caso contrario, impostare la sottoscrizione giusta usando l'output di `Get-AzureRmSubscription`.
    
     ```PowerShell
     Get-AzureRmSubscription
@@ -69,12 +73,12 @@ Per altre informazioni è sempre possibile digitare ```get-help``` e quindi il c
    ```
 4. Per creare una regola, per prima cosa è necessario disporre di alcune informazioni importanti. 
    
-   * L' **ID risorsa** della risorsa per la quale impostare l'avviso
+   * L' **ID risorsa** della risorsa per la quale si intende impostare un avviso
    * Le **definizioni delle metriche** disponibili per tale risorsa
      
      È possibile ottenere l'ID della risorsa tramite il portale di Azure. Se la risorsa è già stata creata, selezionarla nel portale. Nel pannello successivo, nella sezione *Impostazioni*, selezionare *Proprietà*. L'ID RISORSA è un campo del pannello successivo. È anche possibile usare [Esplora risorse di Azure](https://resources.azure.com/).
      
-     Un esempio di ID risorsa per un'app web è 
+     Un esempio di ID risorsa per un'app web è
      
      ```
      /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename
@@ -86,7 +90,7 @@ Per altre informazioni è sempre possibile digitare ```get-help``` e quindi il c
      Get-AzureRmMetricDefinition -ResourceId <resource_id>
      ```
      
-     L'esempio seguente genera una tabella con la metrica Name e il relativo valore Unit. 
+     L'esempio seguente genera una tabella con la metrica Name e il relativo valore Unit.
      
      ```PowerShell
      Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
@@ -99,7 +103,7 @@ Per altre informazioni è sempre possibile digitare ```get-help``` e quindi il c
     Add-AzureRmMetricAlertRule -Name myMetricRuleWithWebhookAndEmail -Location "East US" -ResourceGroup myresourcegroup -TargetResourceId /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename -MetricName "BytesReceived" -Operator GreaterThan -Threshold 2 -WindowSize 00:05:00 -TimeAggregationOperator Total -Description "alert on any website activity"
    
     ```
-6. Per creare il webhook o inviare un messaggio di posta elettronica quando viene attivato l'avviso, creare prima il messaggio di posta elettronica e/o i webhook. Subito dopo creare la regola con il tag -Actions, come illustrato nell'esempio seguente. Non è possibile associare webhook o messaggi di posta elettronica a regole già create tramite PowerShell. 
+6. Per creare il webhook o inviare un messaggio di posta elettronica quando viene attivato l'avviso, creare prima il messaggio di posta elettronica e/o i webhook. Subito dopo creare la regola con il tag -Actions, come illustrato nell'esempio seguente. Non è possibile associare webhook o messaggi di posta elettronica a regole già create tramite PowerShell.
 
     ```PowerShell
     $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
@@ -141,8 +145,11 @@ Per altre informazioni è sempre possibile digitare ```get-help``` e quindi il c
 * Altre informazioni sulla [configurazione dei webhook negli avvisi](insights-webhooks-alerts.md).
 * Altre informazioni sui [runbook di automazione di Azure](../automation/automation-starting-a-runbook.md).
 * Leggere una [panoramica della raccolta dei log di diagnostica](monitoring-overview-of-diagnostic-logs.md) per raccogliere metriche dettagliate e ad alta frequenza sul servizio.
-* Leggere una [panoramica della raccolta di metriche](../azure-portal/insights-how-to-customize-monitoring.md) per verificare che il servizio sia disponibile e reattivo.
+* Leggere una [panoramica della raccolta di metriche](insights-how-to-customize-monitoring.md) per verificare che il servizio sia disponibile e reattivo.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

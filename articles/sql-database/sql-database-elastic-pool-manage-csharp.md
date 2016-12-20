@@ -1,22 +1,27 @@
 ---
-title: Monitorare e gestire un pool di database elastici con C# | Microsoft Docs
+title: Monitorare e gestire un pool di database elastici con C# | Documentazione Microsoft
 description: Usare tecniche di sviluppo di database in C# per gestire un pool di database elastici per database SQL di Microsoft Azure.
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: f6e6ff3b-6b60-43c1-afe9-575991e38237
 ms.service: sql-database
+ms.custom: sharded databases pool; how to
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 62e13424d8dd652bc20c5746f81df7958963c43a
+
 
 ---
-# <a name="monitor-and-manage-an-elastic-database-pool-with-c&#x23;"></a>Monitorare e gestire un pool di database elastici con C&#x23;
+# <a name="monitor-and-manage-an-elastic-database-pool-with-cx23"></a>Monitorare e gestire un pool di database elastici con C&#x23;
 > [!div class="op_single_selector"]
 > * [Portale di Azure](sql-database-elastic-pool-manage-portal.md)
 > * [PowerShell](sql-database-elastic-pool-manage-powershell.md)
@@ -28,7 +33,7 @@ ms.author: sstein
 Informazioni su come gestire un [pool di database elastici](sql-database-elastic-pool.md) con C&#x23;. 
 
 > [!NOTE]
-> Molte nuove funzionalità del database SQL sono supportate solo con il [modello di distribuzione Azure Resource Manager](../resource-group-overview.md). È quindi consigliabile usare sempre la **libreria di gestione di database SQL di Azure per .NET più recente ([documentazione](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [pacchetto NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Le [librerie basate sul modello di distribuzione classica](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) meno recenti sono supportate solo per la compatibilità con le versioni precedenti ed è quindi consigliabile usare le nuove librerie basate su Resource Manager.
+> Molte nuove funzionalità del database SQL sono supportate solo con il [modello di distribuzione Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). È quindi consigliabile usare sempre la **libreria di gestione di database SQL di Azure per .NET più recente ([documentazione](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [pacchetto NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Le [librerie basate sul modello di distribuzione classica](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) meno recenti sono supportate solo per la compatibilità con le versioni precedenti ed è quindi consigliabile usare le nuove librerie basate su Resource Manager.
 > 
 > 
 
@@ -106,6 +111,9 @@ Recuperare le proprietà dei pool esistenti. Modificare i valori ed eseguire il 
 * [Quando usare un pool di database elastici](sql-database-elastic-pool-guidance.md)
 * Vedere l'articolo sulla [scalabilità orizzontale con il database SQL di Azure](sql-database-elastic-scale-introduction.md): usare gli strumenti di database elastico per scalare in orizzontale, spostare dati, eseguire query o creare transazioni.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

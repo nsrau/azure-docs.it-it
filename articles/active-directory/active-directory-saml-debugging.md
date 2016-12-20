@@ -5,7 +5,7 @@ services: active-directory
 author: asmalser-msft
 documentationcenter: na
 manager: femila
-
+ms.assetid: edbe492b-1050-4fca-a48a-d1fa97d47815
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,6 +13,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/09/2016
 ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e55582ccafabd5bb305b2bf0cef65ccdb5610be2
+
 
 ---
 # <a name="how-to-debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Come eseguire il debug di single sign-on basato su SAML per applicazioni in Azure Active Directory
@@ -36,6 +40,6 @@ La risposta di Azure AD che contiene il token SAML è in genere quella che si ve
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

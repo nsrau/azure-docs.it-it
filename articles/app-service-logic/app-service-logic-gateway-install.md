@@ -1,12 +1,12 @@
 ---
-title: Installazione di App per la logica nel gateway dati locale | Microsoft Docs
-description: Informazioni su come installare il gateway dati locale per l'uso in un'app per la logica.
+title: Installare il gateway dati locale per App per la logica | Documentazione Microsoft
+description: Informazioni su come installare il gateway dati locale per l&quot;uso in un&quot;app per la logica.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ddd62d3112a2c93ea3c935ce89ff387049899c09
+
 
 ---
 # <a name="install-the-on-premises-data-gateway-for-logic-apps"></a>Installare il gateway dati locale per App per la logica
@@ -142,7 +146,7 @@ Lo strumenti di terze parti Azure Speed Test può aiutare a valutare la velocit�
 **Domanda**: Dove sono archiviate le credenziali? <br/>
 **Risposta**: Le credenziali immesse per un'origine dati vengono crittografate e archiviate nel servizio cloud del gateway. Vengono quindi decrittografate nel gateway locale.
 
-### <a name="high-availability/disaster-recovery"></a>Disponibilità elevata e ripristino di emergenza
+### <a name="high-availabilitydisaster-recovery"></a>Disponibilità elevata e ripristino di emergenza
 **Domanda**: Esistono piani per l'abilitazione di scenari a disponibilità elevata con il gateway? <br/>
 **Risposta**: Questa funzionalità verrà implementata in futuro, ma non è ancora stato definito quando.
 
@@ -175,7 +179,7 @@ Quando un utente interagisce con un elemento connesso a un'origine dati locale:
 ### <a name="update-to-the-latest-version"></a>Aggiornare alla versione più recente
 Quando la versione del gateway non è aggiornata, possono emergere numerosi problemi.  È buona norma verificare di disporre sempre della versione più recente.  Se il gateway non è stato aggiornato per un mese o più è consigliabile installarne la versione più recente e verificare se il problema può essere riprodotto.
 
-### <a name="error:-failed-to-add-user-to-group.-(-2147463168-pbiegwservice-performance-log-users-)"></a>Errore: Impossibile aggiungere l'utente al gruppo. (-2147463168 PBIEgwService Performance Log Users)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users-"></a>Errore: Impossibile aggiungere l'utente al gruppo. (-2147463168 PBIEgwService Performance Log Users)
 Questo errore viene visualizzato se si sta tentando di installare il gateway in un controller di dominio, un'operazione non consentita. È necessario distribuire il gateway in un computer che non sia un controller di dominio.
 
 ## <a name="tools"></a>Strumenti
@@ -202,6 +206,9 @@ I log di Gateway di gestione dati e PowerBIGateway sono reperibili in **Registri
 * [Funzionalità di Enterprise Integration](app-service-logic-enterprise-integration-overview.md)
 * [Connettori di App per la logica](../connectors/apis-list.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

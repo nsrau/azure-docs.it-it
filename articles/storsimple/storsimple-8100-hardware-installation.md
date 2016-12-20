@@ -5,8 +5,8 @@ services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 6098a01e-c031-488a-a8d7-0b607ce665e1
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: d07d1c838d99d0de0c5b62aaf42330b447df102c
+ms.openlocfilehash: eeb75df30811a83ecd1285ec7a38929c65995edc
+
 
 ---
-# Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8100
-## Overview
+# <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8100
+## <a name="overview"></a>Overview
 Il dispositivo Microsoft Azure StorSimple 8100 è un dispositivo a singolo enclosure montato su rack. In questa esercitazione viene illustrato come disimballare, montare su rack e cablare l'hardware del dispositivo StorSimple 8100 prima di configurare e distribuire il dispositivo.
 
-## Disimballare il dispositivo StorSimple 8100
+## <a name="unpack-your-storsimple-8100-device"></a>Disimballare il dispositivo StorSimple 8100
 Nella seguente procedura vengono fornite istruzioni chiare e dettagliate su come disimballare il dispositivo di archiviazione StorSimple 8100. Questo dispositivo viene fornito in una singola confezione.
 
-### Preparazione del disimballaggio del dispositivo
+### <a name="prepare-to-unpack-your-device"></a>Preparazione del disimballaggio del dispositivo
 Prima di disimballare il dispositivo, consultare le informazioni seguenti.
 
 ![Icona di avviso](./media/storsimple-safety/IC740879.png)![icona peso elevato](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **AVVISO**
@@ -33,7 +37,7 @@ Prima di disimballare il dispositivo, consultare le informazioni seguenti.
 
 Successivamente, completare la procedura seguente per disimballare il dispositivo.
 
-#### Per disimballare il dispositivo
+#### <a name="to-unpack-your-device"></a>Per disimballare il dispositivo
 1. Controllare le scatole e le protezioni in schiuma per verificare l'eventuale presenza di ammaccature, tagli, danni provocati dall'acqua o altri danni evidenti. Se la scatola o le protezioni risultano danneggiate in modo grave, non aprire la confezione. [Contattare il Supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) per istruzioni su come verificare il corretto funzionamento del dispositivo.
 2. Disimballare la scatola. La figura seguente illustra il dispositivo StorSimple disimballato.
    
@@ -41,7 +45,7 @@ Successivamente, completare la procedura seguente per disimballare il dispositiv
    
     **Dispositivo di archiviazione disimballato**
    
-   | Etichetta | Description |
+   | Etichetta | Descrizione |
    | --- | --- |
    |   1 |Scatola |
    |   2 |Protezione inferiore |
@@ -64,7 +68,7 @@ Successivamente, completare la procedura seguente per disimballare il dispositiv
 
 Il passaggio successivo consiste nel montaggio su rack del dispositivo.
 
-## Montare su rack il dispositivo StorSimple 8100
+## <a name="rack-mount-your-storsimple-8100-device"></a>Montare su rack il dispositivo StorSimple 8100
 Seguire questa procedura per installare il dispositivo di archiviazione StorSimple 8100 in un rack standard da 48,26 cm (19 pollici) con montanti anteriori e posteriori. Il dispositivo StorSimple 8100 è costituito da un'enclosure principale.
 
 L'installazione si articola in più passaggi, ciascuno dei quali è descritto nelle seguenti procedure.
@@ -74,10 +78,10 @@ L'installazione si articola in più passaggi, ciascuno dei quali è descritto ne
 > 
 > 
 
-### Preparare il sito
+### <a name="prepare-the-site"></a>Preparare il sito
 Il dispositivo deve essere installato su un rack standard da 48,26 cm (19 pollici) con montanti anteriori e posteriori. Utilizzare la procedura seguente per predisporre l'installazione del rack.
 
-#### Per predisporre l'ambiente per l'installazione del rack
+#### <a name="to-prepare-the-site-for-rack-installation"></a>Per predisporre l'ambiente per l'installazione del rack
 1. Assicurarsi che il dispositivo sia collocato in sicurezza su una superficie di lavoro (o simile) orizzontale, stabile e piana.
 2. Verificare che nell'ambiente in cui si intende effettuare l'installazione sia disponibile una fonte di alimentazione CA standard indipendente o un'unità PDU (Power Distribution Unit) rack con un gruppo di continuità.
 3. Assicurarsi che nel rack in cui si intende montare il dispositivo sia disponibile uno slot 2U.
@@ -86,25 +90,28 @@ Il dispositivo deve essere installato su un rack standard da 48,26 cm (19 pollic
 
 Se si prevede di trasportare il dispositivo a mano, assicurarsi che siano disponibili due persone. Un'enclosure completamente configurata può pesare fino a 32 kg.
 
-### Prerequisiti del rack
+### <a name="rack-prerequisites"></a>Prerequisiti del rack
 L'enclosure 8100 è stata progettata per essere installata in un armadio rack standard da 48,26 cm (8100 pollici) con:
 
 * Profondità minima di 70,71 cm (27,84 pollici) tra un montante del rack e un altro
 * Peso massimo del dispositivo pari a 32 kg
 * Contropressione massima di 5 Pascal (corrispondente alla pressione esercitata da una colonna di acqua di 0,5 mm).
 
-### Kit per il montaggio su rack
+### <a name="rack-mounting-rail-kit"></a>Kit per il montaggio su rack
 Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 cm (19 pollici). Le guide sono state testate per sostenere il peso massimo dell'enclosure. Inoltre, grazie alla presenza delle guide, è possibile installare anche altre enclosure senza occupare spazio all'interno del rack.
 
-#### Per installare il dispositivo sulle guide
+#### <a name="to-install-the-device-on-the-rails"></a>Per installare il dispositivo sulle guide
 1. Eseguire questo passaggio solo se nel dispositivo non sono installate guide interne. In genere, le guide sono preinstallate. In caso contrario, installare le slitte delle guide destra e sinistra ai lati dello chassis dell'enclosure. Tali slitte vengono fissate a ciascun lato con sei viti metriche. Per un migliore orientamento, le slitte delle guide sono contrassegnate con le diciture **LH – Front** (sinistra - anteriore) e **RH – Front** (destra - anteriore), mentre l'estremità a contatto con la parte posteriore dell'enclosure è affusolata.<br/>
    
-    ![Fissaggio delle slitte delle guide allo chassis dell'enclosure](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png) **Fissaggio delle slitte delle guide interne ai lati dell'enclosure**
+    ![Fissaggio delle slitte delle guide allo chassis dell'enclosure](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
+
+    **Fissaggio delle slitte delle guide interne ai lati dello chassis**
    
-   | Etichetta | Descrizione |
-   | --- | --- |
-   |   1 |Viti con testa a bottone M 3X4 |
-   |   2 |Guide dello chassis |
+    Etichetta | Descrizione
+    ----- | -----------
+    1     | Viti con testa a bottone M 3X4
+    2     | Guide dello chassis
+
 2. Fissare i gruppi guida destra esterna e guida sinistra esterna agli elementi verticali dell'armadio rack. Per un corretto orientamento, i supporti sono contrassegnati con le diciture **LH** (sinistra), **RH** (destra) e **This side up** (alto).
 3. Individuare i perni nella parte anteriore e posteriore del gruppo guida. Estendere la guida in modo da posizionarla tra i montanti del rack e inserire i perni nei fori degli elementi verticali dei montanti anteriori e posteriori. Assicurarsi che il gruppo guida sia in posizione orizzontale.
 4. Fissare il gruppo guida agli elementi verticali del rack con due delle viti metriche fornite. Usare una vite per l'elemento anteriore e una per quello posteriore.
@@ -122,10 +129,10 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
    |   4 |Vite di fissaggio |
    |   5 |Perni di posizionamento della guida sinistra (parte posteriore) |
 
-### Montaggio del dispositivo nel rack
+### <a name="mounting-the-device-in-the-rack"></a>Montaggio del dispositivo nel rack
 Per montare il dispositivo nel rack usando le guide appena installate, seguire questa procedura.
 
-#### Per montare il dispositivo
+#### <a name="to-mount-the-device"></a>Per montare il dispositivo
 1. Con l'aiuto di un'altra persona, sollevare l'enclosure e allinearla alle guide del rack.
 2. Inserire con cura il dispositivo nelle guide e spingerlo nell'armadio rack completamente.<br/>
    
@@ -146,10 +153,10 @@ Per montare il dispositivo nel rack usando le guide appena installate, seguire q
 
 Il passaggio successivo consiste nel cablare il dispositivo per l'alimentazione, l'accesso di rete e quello seriale.
 
-## Cablare il dispositivo StorSimple 8100
+## <a name="cable-your-storsimple-8100-device"></a>Cablare il dispositivo StorSimple 8100
 In questo argomento vengono illustrate le procedure per cablare il dispositivo StorSimple 8100 per l'alimentazione, la connessione di rete e quella seriale.
 
-### Prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare il cablaggio del dispositivo, è necessario avere a disposizione:
 
 * Il dispositivo di archiviazione, interamente disimballato e montato in rack.
@@ -161,19 +168,19 @@ Prima di iniziare il cablaggio del dispositivo, è necessario avere a disposizio
 * 4 schede da QSFP a SFP fornite da usare con interfacce di rete 10 GbE
 * [Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
-### Cablaggio di alimentazione
+### <a name="power-cabling"></a>Cablaggio di alimentazione
 Il dispositivo include moduli PCM (Power and Cooling Modules) Entrambi i PCM devono essere installati e collegati a una fonte di alimentazione diversa per assicurare disponibilità elevata.
 
 Per cablare il dispositivo per l'alimentazione, attenersi alla seguente procedura.
 
-[!INCLUDE [storsimple-cavo-8100-per-alimentazione](../../includes/storsimple-cable-8100-for-power.md)]
+[!INCLUDE [storsimple-cable-8100-for-power](../../includes/storsimple-cable-8100-for-power.md)]
 
-### Cablaggio di rete
+### <a name="network-cabling"></a>Cablaggio di rete
 Il dispositivo presenta una configurazione di tipo attivo-standby: in qualsiasi momento uno dei moduli controller è attivo ed elabora tutte le operazioni su disco e di rete, mentre l'altro è in standby. In caso di malfunzionamento di un controller, quello in standby si attiva immediatamente e continua tutte le operazioni su disco e di rete.
 
 Per supportare il failover del controller ridondante, è necessario cablare la rete del dispositivo come indicato nella procedura seguente.
 
-#### Per cablare il dispositivo per la connessione di rete
+#### <a name="to-cable-for-network-connection"></a>Per cablare il dispositivo per la connessione di rete
 1. Il dispositivo è dotato di sei interfacce di rete su ciascun controller: quattro porte Ethernet da 1 Gbps e due da 10 Gbps. Identificare le varie porte dati nel backplane del dispositivo.
    
     ![Backplane del dispositivo 8100](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
@@ -191,16 +198,15 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
 
     **Cablaggio di rete per il dispositivo**
 
-
-    |Etichetta | Descrizione |
-    |----- | ----------- |
-    | A | LAN con accesso a Internet |
-    | B | Controller 0 |
-    | C | PCM 0 |
-    | D | Controller 1 |
-    | E | PCM 1 |
-    | F, G | Hosts |
-    | 0-5 | Interfacce di rete |
+   |Etichetta | Descrizione |
+   |----- | ----------- |
+   | A    | LAN con accesso a Internet |
+   | B    | Controller 0 |
+   | C    | PCM 0 |
+   | D    | Controller 1 |
+   | E    | PCM 1 |
+   | F, G | Hosts |
+   | 0-5  | Interfacce di rete |
 
 
 
@@ -221,10 +227,10 @@ Per altre informazioni, consultare le **interfacce di rete** sotto i [requisiti 
 > 
 > 
 
-### Cablaggio della porta seriale
+### <a name="serial-port-cabling"></a>Cablaggio della porta seriale
 Per cablare la porta seriale, attenersi alla seguente procedura.
 
-#### Per cablare il dispositivo per la connessione seriale
+#### <a name="to-cable-for-serial-connection"></a>Per cablare il dispositivo per la connessione seriale
 1. Il dispositivo è dotato di una porta seriale su ogni controller, identificata da un'icona a forma di chiave inglese. Fare riferimento alla figura disponibile nella sezione [Cablaggio di rete](#network-cabling) per individuare le porte seriali sulla scheda madre del dispositivo.
 2. Identificare il controller attivo sul backplane del dispositivo, indicato da un LED blu lampeggiante.
 3. Usare il cavo seriale fornito (se necessario, usare il convertitore USB-seriale per il portatile) e collegare la console o il computer (con emulazione terminal al dispositivo) alla porta seriale del controller attivo.
@@ -233,13 +239,18 @@ Per cablare la porta seriale, attenersi alla seguente procedura.
 6. Verificare che la connessione funzioni premendo INVIO nella console. Deve comparire un menu della console seriale.
 
 > [!NOTE]
-> **Gestione Lights-Out:** quando il dispositivo è installato in un datacenter remoto o in una sala macchine con accesso limitato, verificare che le connessioni seriali di entrambi i controller siano sempre collegate a un interruttore della console seriale o ad apparecchiature simili. In questo modo, sono possibili operazioni di supporto e controllo remoto fuori banda in caso di interruzione della connessione di rete o malfunzionamenti imprevisti.
+> **Gestione Lights-Out:**quando il dispositivo è installato in un datacenter remoto o in una sala macchine con accesso limitato, verificare che le connessioni seriali di entrambi i controller siano sempre collegate a un interruttore della console seriale o ad apparecchiature simili. In questo modo, sono possibili operazioni di supporto e controllo remoto fuori banda in caso di interruzione della connessione di rete o malfunzionamenti imprevisti.
 > 
 > 
 
 Il dispositivo è ora collegato per l'alimentazione, l'accesso di rete e quello seriale. Il passaggio successivo prevede la configurazione del software e la distribuzione del dispositivo.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Informazioni su come [distribuire e configurare un dispositivo StorSimple locale](storsimple-deployment-walkthrough.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

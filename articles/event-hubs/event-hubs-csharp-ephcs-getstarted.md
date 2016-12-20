@@ -1,6 +1,6 @@
 ---
 title: Introduzione a Hub eventi in C# | Documentazione Microsoft
-description: Eseguire questa esercitazione per iniziare a usare gli hub eventi di Azure con C# e iniziare a usare EventProcessorHost.
+description: Eseguire questa esercitazione per iniziare a usare gli hub eventi di Azure con C# e l&quot;host processore di eventi.
 services: event-hubs
 documentationcenter: 
 author: jtaubensee
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/02/2016
+ms.date: 12/07/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 35a7e4693ef979dfb947714f2fe5ce5599991189
+ms.sourcegitcommit: 015dbab81f807cd05d1fedb97f5fc62a012f2084
+ms.openlocfilehash: 54aaf68864fc83501b860ecc3daef1c0216c0140
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 35a7e4693ef979dfb947714f2fe5ce5599991189
 ## <a name="introduction"></a>Introduzione
 Hub eventi è un servizio che consente di elaborare grandi quantità di dati di telemetria sugli eventi da applicazioni e dispositivi connessi. Dopo aver raccolto i dati in Hub eventi, è possibile archiviarli usando un cluster di archiviazione o trasformarli usando un provider di analisi in tempo reale. Questa funzionalità di elaborazione e raccolta di eventi su vasta scala rappresenta un componente chiave delle moderne architetture di applicazioni, tra cui Internet delle cose (IoT).
 
-Questa esercitazione illustra come usare il portale di Azure classico per creare un hub eventi. Illustra anche come raccogliere messaggi in un hub eventi usando un'applicazione console scritta in C# e come recuperarli in parallelo usando la libreria dell'[host processore di eventi][host processore di eventi] di C#.
+Questa esercitazione illustra come usare il portale di Azure per creare un Hub di eventi. Illustra inoltre come inserire messaggi in Hub eventi usando un'applicazione console scritta in C# e come recuperarli in parallelo usando la libreria dell'[host processore di eventi][Event Processor Host] in C#.
 
 Per completare l'esercitazione sono necessari gli elementi seguenti:
 
@@ -65,9 +65,10 @@ Premere **CTRL+C** nella finestra di dialogo **Sender** per terminare l'applicaz
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve i dati, è possibile passare ai seguenti scenari:
 
-* [Applicazione di esempio completa che usa Hub eventi][Applicazione di esempio completa che usa Hub eventi]
-* [Esempio di aumento del numero di istanze dell'elaborazione di eventi con Hub eventi][Esempio di aumento del numero di istanze dell'elaborazione di eventi con Hub eventi]
-* [Panoramica di Hub eventi][Panoramica di Hub eventi]
+* Un' [applicazione di esempio completa che usa Hub eventi][sample application that uses Event Hubs].
+* [Host processore di eventi](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
+* Esempio relativo alla [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi][Scale out Event Processing with Event Hubs].
+* [Panoramica di Hub eventi][Event Hubs overview]
 
 <!-- Images. -->
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
@@ -76,16 +77,15 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[portale di Azure classico]: https://manage.windowsazure.com/
-[Host processore di eventi]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Panoramica di Hub eventi]: event-hubs-overview.md
-[applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[soluzione di messaggistica accodata]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Event Hubs overview]: event-hubs-overview.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[queued messaging solution]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

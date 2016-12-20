@@ -1,12 +1,12 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Fuse | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Fuse.
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Fuse.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 5ef34f58-863a-4b37-875c-e8efa3e18bb3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7183f3c93b991d3ed350be7c32564d9acaa7da51
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-fuse"></a>Esercitazione: Integrazione di Azure Active Directory con Fuse
+# <a name="tutorial-azure-active-directory-integration-with-fuse"></a>Esercitazione: Integrazione di Azure Active Directory con Fuse
 Questa esercitazione descrive l'integrazione di Fuse con Azure Active Directory (Azure AD).
 
 L'integrazione di Fuse con Azure AD offre i vantaggi seguenti:
@@ -236,6 +240,6 @@ Quando si fa clic sul riquadro Fuse nel pannello di accesso, si dovrebbe acceder
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

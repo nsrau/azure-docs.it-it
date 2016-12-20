@@ -2,11 +2,11 @@
 title: Usare Servizi multimediali di Azure per distribuire licenze DRM o chiavi AES
 description: Questo articolo descrive come usare Servizi multimediali di Azure (AMS) per distribuire licenze PlayReady e/o Widevine e chiavi AES, usando server locali per tutte le altre operazioni (codifica, crittografia, streaming).
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 8546c2c1-430b-4254-a88d-4436a83f9192
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 02bf743d310519477bb87a2930a2afe687c62c4e
+
 
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Usare Servizi multimediali di Azure per distribuire licenze DRM o chiavi AES
@@ -31,7 +35,7 @@ Il diagramma seguente mostra i passaggi principali necessari per usare AMS per d
 ## <a name="download-sample"></a>Scaricare un esempio
 È possibile scaricare l'esempio descritto in questo articolo [qui](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses).
 
-## <a name=".net-code-example"></a>Esempio di codice .NET
+## <a name="net-code-example"></a>Esempio di codice .NET
 L'esempio di codice in questo argomento descrive come creare una chiave simmetrica comune e ottenere gli URL di acquisizione di una licenza PlayReady o Widevine. È necessario ottenere le informazioni seguenti da AMS e configurare il server locale: **chiave simmetrica**, **ID chiave**, **URL di acquisizione di licenze**. Dopo aver configurato il server locale, è possibile effettuare lo streaming dal server locale destinato a questo scopo. Poiché il flusso crittografato punta al server licenze AMS, il lettore richiederà una licenza da AMS. Se si sceglie l'autenticazione tramite token, il server licenze AMS esegue la convalida del token inviato tramite HTTPS e, se questo è valido, distribuisce la licenza al lettore. Nell'esempio di codice viene illustrato solo come creare una chiave simmetrica comune e ottenere gli URL di acquisizione di una licenza PlayReady o Widevine. Se si vuole distribuire chiavi AES-128, è necessario creare una chiave simmetrica envelope e ottenere un URL di acquisizione della chiave. [Questo](media-services-protect-with-aes128.md) articolo illustra come eseguire questa operazione.
 
     using System;
@@ -339,6 +343,9 @@ L'esempio di codice in questo argomento descrive come creare una chiave simmetri
 
 [Uso di partner per distribuire licenze Widevine a Servizi multimediali di Azure](media-services-licenses-partner-integration.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

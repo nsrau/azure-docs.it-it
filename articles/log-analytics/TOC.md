@@ -61,12 +61,15 @@
 ### [API REST di Log Analytics per la ricerca nei log](log-analytics-log-search-api.md)
 ### [API REST degli avvisi di Log Analytics](log-analytics-api-alerts.md)
 
+# Riferimento
+## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+
 # Risorse
 ## [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

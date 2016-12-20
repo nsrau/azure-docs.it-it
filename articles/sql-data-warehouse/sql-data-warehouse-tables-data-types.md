@@ -1,12 +1,12 @@
 ---
-title: Data types for tables in SQL Data Warehouse | Microsoft Docs
-description: Getting started with data types for Azure SQL Data Warehouse tables.
+title: Tipi di dati per le tabelle in SQL Data Warehouse | Documentazione Microsoft
+description: Introduzione ai tipi di dati per le tabelle di Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: d4a1f0a3-ba9f-44b9-95f6-16a4f30746d6
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,23 +14,27 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 616bb450217573ebd45060234313af418f525f89
+
 
 ---
-# <a name="data-types-for-tables-in-sql-data-warehouse"></a>Data types for tables in SQL Data Warehouse
+# <a name="data-types-for-tables-in-sql-data-warehouse"></a>Tipi di dati per le tabelle in SQL Data Warehouse
 > [!div class="op_single_selector"]
-> * [Overview][Overview]
-> * [Data Types][Data Types]
-> * [Distribute][Distribute]
+> * [Panoramica][Panoramica]
+> * [Tipi di dati][Tipi di dati]
+> * [Distribuzione][Distribuzione]
 > * [Index][Index]
 > * [Partition][Partition]
-> * [Statistics][Statistics]
-> * [Temporary][Temporary]
+> * [Statistiche][Statistiche]
+> * [Temporanea][Temporanea]
 > 
 > 
 
-SQL Data Warehouse supports the most commonly used data types.  Below is a list of the data types supported by SQL Data Warehouse.  For additional details on data type support, see [create table][create table].
+SQL Data Warehouse supporta i tipi di dati più diffusi.  Di seguito è riportato un elenco dei tipi di dati supportati da SQL Data Warehouse.  Per altre informazioni sul supporto dei tipi di dati, vedere l'argomento relativo a [CREATE TABLE][CREATE TABLE].
 
-| **Supported Data Types** |  |  |
+| **Tipi di dati supportati** |  |  |
 | --- | --- | --- |
 | [bigint][bigint] |[decimal][decimal] |[smallint][smallint] |
 | [binary][binary] |[float][float] |[smallmoney][smallmoney] |
@@ -41,16 +45,16 @@ SQL Data Warehouse supports the most commonly used data types.  Below is a list 
 | [datetime2][datetime2] |[real][real] |[varbinary][varbinary] |
 | [datetimeoffset][datetimeoffset] |[smalldatetime][smalldatetime] |[varchar][varchar] |
 
-## <a name="data-type-best-practices"></a>Data type best practices
- When defining your column types, using the smallest data type which will support your data will improve query performance. This is especially important for CHAR and VARCHAR columns. If the longest value in a column is 25 characters, then define your column as VARCHAR(25). Avoid defining all character columns to a large default length. In addition, define columns as VARCHAR when that is all that is needed rather than use [NVARCHAR][NVARCHAR].  Use NVARCHAR(4000) or VARCHAR(8000) when possible instead of NVARCHAR(MAX) or VARCHAR(MAX).
+## <a name="data-type-best-practices"></a>Procedure consigliate per i tipi di dati
+ Quando si definiscono i tipi delle colonne, per migliorare le prestazioni di query è consigliabile usare il tipo di dati più piccolo capace di supportare i dati. Questo aspetto è particolarmente importante per le colonne CHAR e VARCHAR. Se il valore più lungo in una colonna è di 25 caratteri, definire la colonna come VARCHAR(25). Evitare di definire tutte le colonne di tipo carattere impostando una lunghezza predefinita elevata. Definire inoltre le colonne come VARCHAR quando è sufficiente, invece di usare [NVARCHAR][NVARCHAR].  Usare NVARCHAR(4000) o VARCHAR(8000), quando è possibile, anziché usare NVARCHAR(MAX) o VARCHAR(MAX).
 
-## <a name="polybase-limitation"></a>Polybase limitation
-If you are using Polybase to load your tables, define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes.  While you can define a row with variable length data that can exceed this width and load rows with BCP, you will not be able to use Polybase to load this data.  Polybase support for wide rows will be added soon.
+## <a name="polybase-limitation"></a>Limitazione PolyBase
+Se si usa Polybase per caricare le tabelle, definire le tabelle in modo che le dimensioni massime possibili della riga, inclusa la lunghezza totale delle colonne a lunghezza variabile, non superino 32.767 byte.  Anche se è possibile definire una riga con dati a lunghezza variabile che possono superare questa larghezza e caricare righe con BCP, non è possibile usare PolyBase per caricare i dati.  Presto verrà ampliato il supporto di PolyBase per righe ampie.
 
-## <a name="unsupported-data-types"></a>Unsupported data types
-If you are migrating your database from another SQL platform like Azure SQL Database, as you migrate, you may encounter some data types that are not supported on SQL Data Warehouse.  Below are unsupported data types as well as some alternatives you can use in place of unsupported data types.
+## <a name="unsupported-data-types"></a>Tipi di dati non supportati
+Se si esegue la migrazione del database da un'altra piattaforma SQL come il database SQL di Azure, durante la migrazione è possibile incontrare tipi di dati non supportati in SQL Data Warehouse.  Di seguito sono riportati i tipi di dati non supportati e alcune alternative che è possibile usare al loro posto.
 
-| Data Type | Workaround |
+| Tipo di dati | Soluzione alternativa |
 | --- | --- |
 | [geometry][geometry] |[varbinary][varbinary] |
 | [geography][geography] |[varbinary][varbinary] |
@@ -58,14 +62,14 @@ If you are migrating your database from another SQL platform like Azure SQL Data
 | [image][ntext,text,image] |[varbinary][varbinary] |
 | [text][ntext,text,image] |[varchar][varchar] |
 | [ntext][ntext,text,image] |[nvarchar][nvarchar] |
-| [sql_variant][sql_variant] |Split column into several strongly typed columns. |
-| [table][table] |Convert to temporary tables. |
-| [timestamp][timestamp] |Rework code to use [datetime2][datetime2] and `CURRENT_TIMESTAMP` function.  Only constants are supported as defaults, therefore current_timestamp cannot be defined as a default constraint. If you need to migrate row version values from a timestamp typed column then use [BINARY][BINARY](8) or [VARBINARY][BINARY](8) for NOT NULL or NULL row version values. |
+| [sql_variant][sql_variant] |Dividere la colonna in più colonne fortemente tipizzate. |
+| [tabella][tabella] |Convertire in tabelle temporanee. |
+| [timestamp][timestamp] |Rielaborare il codice per l'uso di [datetime2][datetime2] e della funzione `CURRENT_TIMESTAMP`.  Solo le costanti sono supportate come valori predefiniti, quindi non è possibile definire current_timestamp come vincolo predefinito. Se è necessario eseguire la migrazione di valori della versione di riga da una colonna di tipo timestamp, usare [BINARY][BINARY](8) o [VARBINARY][BINARY](8) per valori della versione di riga NOT NULL o NULL. |
 | [xml][xml] |[varchar][varchar] |
-| [user defined types][user defined types] |convert back to their native types where possible |
-| default values |default values support literals and constants only.  Non-deterministic expressions or functions, such as `GETDATE()` or `CURRENT_TIMESTAMP`, are not supported. |
+| [tipi definiti dall'utente][tipi definiti dall'utente] |Riconvertirli nei tipi nativi corrispondenti, se possibile. |
+| valori predefiniti |I valori predefiniti supportano solo valori letterali e costanti.  Le espressioni o le funzioni non deterministiche, ad esempio `GETDATE()` o `CURRENT_TIMESTAMP`, non sono supportate. |
 
-The below SQL can be run on your current SQL database to identify columns which are not be supported by Azure SQL Data Warehouse:
+Il codice SQL riportato di seguito può essere eseguito nel database SQL corrente per identificare le colonne non supportate da Azure SQL Data Warehouse:
 
 ```sql
 SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_defined], y.[name]
@@ -76,25 +80,25 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
  AND  y.[is_user_defined] = 1;
 ```
 
-## <a name="next-steps"></a>Next steps
-To learn more, see the articles on [Table Overview][Overview], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  For more about best practices, see [SQL Data Warehouse Best Practices][SQL Data Warehouse Best Practices].
+## <a name="next-steps"></a>Passaggi successivi
+Per altre informazioni, vedere gli articoli relativi a [panoramica delle tabelle][Panoramica], [distribuzione di una tabella][Distribuzione], [indicizzazione di una tabella][Index], [partizionamento di una tabella][Partition], [conservazione delle statistiche delle tabelle][Statistiche] e [tabelle temporanee][Temporanea].  Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][Procedure consigliate per Azure SQL Data Warehouse].
 
 <!--Image references-->
 
 <!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Panoramica]: ./sql-data-warehouse-tables-overview.md
+[Tipi di dati]: ./sql-data-warehouse-tables-data-types.md
+[Distribuzione]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
+[Statistiche]: ./sql-data-warehouse-tables-statistics.md
+[Temporanea]: ./sql-data-warehouse-tables-temporary.md
+[Procedure consigliate per Azure SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-[create table]: https://msdn.microsoft.com/library/mt203953.aspx
+[CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 [bigint]: https://msdn.microsoft.com/library/ms187745.aspx
 [binary]: https://msdn.microsoft.com/library/ms188362.aspx
 [bit]: https://msdn.microsoft.com/library/ms177603.aspx
@@ -119,7 +123,7 @@ To learn more, see the articles on [Table Overview][Overview], [Distributing a T
 [smallmoney]: https://msdn.microsoft.com/library/ms179882.aspx
 [sql_variant]: https://msdn.microsoft.com/library/ms173829.aspx
 [sysname]: https://msdn.microsoft.com/library/ms186939.aspx
-[table]: https://msdn.microsoft.com/library/ms175010.aspx
+[tabella]: https://msdn.microsoft.com/library/ms175010.aspx
 [time]: https://msdn.microsoft.com/library/bb677243.aspx
 [timestamp]: https://msdn.microsoft.com/library/ms182776.aspx
 [tinyint]: https://msdn.microsoft.com/library/ms187745.aspx
@@ -127,10 +131,10 @@ To learn more, see the articles on [Table Overview][Overview], [Distributing a T
 [varbinary]: https://msdn.microsoft.com/library/ms188362.aspx
 [varchar]: https://msdn.microsoft.com/library/ms186939.aspx
 [xml]: https://msdn.microsoft.com/library/ms187339.aspx
-[user defined types]: https://msdn.microsoft.com/library/ms131694.aspx
+[tipi definiti dall'utente]: https://msdn.microsoft.com/library/ms131694.aspx
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

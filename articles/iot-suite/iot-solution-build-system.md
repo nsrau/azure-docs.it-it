@@ -1,12 +1,12 @@
 ---
-title: Esempio di IoT di Azure MyDriving - Compilazione | Microsoft Docs
-description: Compilare un'app che rappresenta una dimostrazione completa di come progettare un sistema IoT con Microsoft Azure, inclusi analisi di flusso, Machine Learning e hub eventi.
-services: ''
+title: 'Esempio di IoT di Azure MyDriving: compilare l&quot;applicazione | Microsoft Docs'
+description: Compilare un&quot;app che rappresenta una dimostrazione completa di come progettare un sistema IoT con Microsoft Azure, inclusi analisi di flusso, Machine Learning e hub eventi.
+services: 
 documentationcenter: .net
-suite: ''
+suite: 
 author: harikmenon
 manager: douge
-
+ms.assetid: c2fcd6ee-3bbe-43d1-a066-dce52cc3a53d
 ms.service: multiple
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/25/2016
 ms.author: harikm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 012bfc7d8431e2edb2b1056fb465421fad58193a
+
 
 ---
 # <a name="build-and-deploy-the-mydriving-solution-to-your-environment"></a>Compilare e distribuire la soluzione MyDriving nell'ambiente
@@ -192,7 +196,7 @@ Vedere le istruzioni dettagliate in **scripts/README.md**per eseguire la distrib
 
 Microsoft Azure offre un'ampia gamma di servizi diversi che è possibile usare per compilare applicazioni cloud. Anche se molti di essi possono essere usati singolarmente, ad esempio il servizio app/app Web, producono risultati ottimali quando vengono collegati per formare un sistema integrato come quello usato in MyDriving.
 
-È possibile creare e collegare manualmente i servizi di Azure, ma l'uso dei modelli di Azure Resource Manager rappresenta una soluzione molto più rapida e affidabile. [Resource Manager](../resource-group-overview.md) automatizza la distribuzione delle risorse di una soluzione e la creazione di interconnessioni tra di esse.
+È possibile creare e collegare manualmente i servizi di Azure, ma l'uso dei modelli di Azure Resource Manager rappresenta una soluzione molto più rapida e affidabile. [Resource Manager](../azure-resource-manager/resource-group-overview.md) automatizza la distribuzione delle risorse di una soluzione e la creazione di interconnessioni tra di esse.
 
 Il modello per il sistema MyDriving è disponibile nel repository GitHub in [scripts/ARM](https://github.com/Azure-Samples/MyDriving/tree/master/scripts/ARM). Offre una visualizzazione completa e concisa della modalità di interconnessione dei diversi servizi nell'architettura. Tali servizi vengono descritti in dettaglio nella [guida di riferimento a MyDriving](http://aka.ms/mydrivingdocs), ma è possibile acquisire molte informazioni anche leggendo il modello stesso.
 
@@ -394,6 +398,9 @@ Tutti i commenti e suggerimenti saranno apprezzati.
 ## <a name="next-steps"></a>Passaggi successivi
 È consigliabile leggere la [guida di riferimento a MyDriving](http://aka.ms/mydrivingdocs), una descrizione completa della progettazione del sistema e dei relativi componenti.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

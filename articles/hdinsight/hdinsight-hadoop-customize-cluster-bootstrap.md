@@ -1,13 +1,13 @@
 ---
-title: Personalizzare cluster HDInsight tramite Bootstrap | Microsoft Docs
+title: Personalizzare cluster HDInsight usando Bootstrap | Documentazione Microsoft
 description: Informazioni su come personalizzare cluster HDInsight tramite Bootstrap.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: ab2ebf0c-e961-4e95-8151-9724ee22d769
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/02/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a83b4e910dbb8421d80416286c3d1eadcbf7bba7
+
 
 ---
-# Personalizzare cluster HDInsight tramite Bootstrap
+# <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizzare cluster HDInsight tramite Bootstrap
 A volte può essere necessario modificare i file di configurazione che includono:
 
 * clusterIdentity.xml
@@ -36,7 +40,7 @@ A volte può essere necessario modificare i file di configurazione che includono
 * webhcat-site.xml
 * yarn-site.xml
 
-I cluster non possono conservare le modifiche a causa della creazione di nuove immagini. Per altre informazioni sulla creazione di nuove immagini, vedere il blog relativo ai [riavvii delle istanze del ruolo dovuti ad aggiornamenti del sistema operativo](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). Per mantenere le modifiche per l'intero ciclo di vita dei cluster, è possibile usare la personalizzazione dei cluster HDInsight durante il processo di creazione. Questo è il metodo consigliato per modificare le configurazioni di un cluster e mantenere questi eventi di riavvio Azure per la ricreazione dell'immagine. Queste modifiche alla configurazione vengono applicate prima dell'avvio del servizio, pertanto non sarà necessario riavviare i servizi.
+I cluster non possono conservare le modifiche a causa della creazione di nuove immagini. Per altre informazioni sulla creazione di nuove immagini, vedere il blog relativo ai [riavvii delle istanze del ruolo dovuti ad aggiornamenti del sistema operativo](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). Per mantenere le modifiche per l'intero ciclo di vita dei cluster, è possibile usare la personalizzazione dei cluster HDInsight durante il processo di creazione. Questo è il metodo consigliato per modificare le configurazioni di un cluster e mantenere questi eventi di riavvio Azure per la ricreazione dell'immagine. Queste modifiche alla configurazione vengono applicate prima dell'avvio del servizio, pertanto non sarà necessario riavviare i servizi. 
 
 Sono disponibili 3 metodi per usare Bootstrap:
 
@@ -51,7 +55,7 @@ Per informazioni sull'installazione di componenti aggiuntivi nel cluster HDInsig
 * [Personalizzare cluster HDInsight mediante Azione di script (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
 * [Personalizzare cluster HDInsight mediante Azione di script (Windows)](hdinsight-hadoop-customize-cluster.md)
 
-## Uso di Azure PowerShell
+## <a name="use-azure-powershell"></a>Uso di Azure PowerShell
 Il codice PowerShell seguente personalizza una configurazione Hive:
 
     # hive-site.xml configuration
@@ -75,7 +79,7 @@ Il codice PowerShell seguente personalizza una configurazione Hive:
         -HttpCredential $httpCredential `
         -Config $config 
 
-Uno script di PowerShell completo funzionante è disponibile nell'[appendice A](#hdinsight-hadoop-customize-cluster-bootstrap.md/appx-a:-powershell-sample).
+Uno script di PowerShell completo funzionante è disponibile nell' [appendice A](#hdinsight-hadoop-customize-cluster-bootstrap.md/appx-a:-powershell-sample).
 
 **Per verificare la modifica:**
 
@@ -85,9 +89,9 @@ Uno script di PowerShell completo funzionante è disponibile nell'[appendice A](
 4. Fare clic su **Dashboard** nella parte superiore del pannello per aprire l'interfaccia utente di Ambari.
 5. Fare clic su **Hive** nel menu di sinistra.
 6. Fare clic su **HiveServer2** da **Riepilogo**.
-7. Fare clic sulla scheda **Configurazioni**.
+7. Fare clic sulla scheda **Configurazioni** .
 8. Fare clic su **Hive** nel menu di sinistra.
-9. Fare clic sulla scheda **Avanzate**.
+9. Fare clic sulla scheda **Avanzate** .
 10. Scorrere verso il basso e quindi espandere le **impostazioni avanzate hive-site**.
 11. Cercare **hive.metastore.client.socket.timeout** nella sezione.
 
@@ -105,12 +109,12 @@ Ecco altri esempi relativi alla personalizzazione di altri file di configurazion
     # oozie-site.xml configuration
     $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 
-Per altre informazioni, vedere il blog di Azim Uddin relativo alla [personalizzazione della creazione di cluster HDInsight ](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
+Per altre informazioni, vedere il blog di Azim Uddin relativo alla [personalizzazione della creazione di cluster HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
 
-## Usare .NET SDK
+## <a name="use-net-sdk"></a>Usare .NET SDK
 Vedere [Creare cluster basati su Linux in HDInsight tramite .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
 
-## Usare i modelli di Resource Manager
+## <a name="use-resource-manager-template"></a>Usare i modelli di Resource Manager
 È possibile usare bootstrap in un modello di Resource Manager:
 
     "configurations": {
@@ -125,9 +129,9 @@ Vedere [Creare cluster basati su Linux in HDInsight tramite .NET SDK](hdinsight-
 
 ![hdinsight hadoop personalizzare cluster bootstrap modello di azure resource manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
-## Vedere anche
+## <a name="see-also"></a>Vedere anche
 * [Creare cluster Hadoop in HDInsight][hdinsight-provision-cluster] contiene istruzioni relative alla creazione di un cluster HDInsight con altre opzioni personalizzate.
-* [Sviluppare script di Azione di script per HDInsight][hdinsight-write-script]
+* [Sviluppare script di azione script per HDInsight][hdinsight-write-script]
 * [Installare e usare Spark nei cluster HDInsight][hdinsight-install-spark]
 * [Installare e usare R nei cluster HDInsight][hdinsight-install-r]
 * [Installare e usare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install.md).
@@ -140,9 +144,9 @@ Vedere [Creare cluster basati su Linux in HDInsight tramite .NET SDK](hdinsight-
 [powershell-install-configure]: powershell-install-configure.md
 
 
-[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Fasi durante la creazione di un cluster"
+[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Fasi durante la creazione del cluster"
 
-## Appendice A: Esempio di PowerShell
+## <a name="appx-a-powershell-sample"></a>Appendice A: Esempio di PowerShell
 Questo script di PowerShell crea un cluster HDInsight e personalizza un'impostazione Hive:
 
     ####################################
@@ -252,4 +256,8 @@ Questo script di PowerShell crea un cluster HDInsight e personalizza un'impostaz
 
     #endregion
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

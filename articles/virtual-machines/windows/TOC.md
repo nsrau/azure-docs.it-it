@@ -48,8 +48,10 @@
 ### [Creare un servizio di bilanciamento del carico](../../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Creare un IP pubblico statico](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Connettere reti virtuali classiche a reti virtuali di Resource Manager](../../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Usare DNS di Azure con le macchine virtuali](../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Usare Gestione traffico di Azure con le macchine virtuali](../../traffic-manager/traffic-manager-endpoint-types.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## Distribuire
+## Distribuisci
 ### [Usare licenze Software Assurance](../virtual-machines-windows-hybrid-use-benefit-licensing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Trovare immagini VM usando Powershell](../virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Usare immagini client Windows](../virtual-machines-windows-client-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -75,7 +77,7 @@
 ### [Modificare il set di disponibilità per una VM](../virtual-machines-windows-change-availability-set.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Spostare una VM tra sottoscrizioni](../virtual-machines-windows-move-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Ridimensionare una VM](../virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Reset a Windows password for Azure VM](../virtual-machines-windows-reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Reimpostare una password di Windows per VM di Azure)
+### [Reimpostare una password di Windows per VM di Azure](../virtual-machines-windows-reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Usare i tag](../../resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Assegnare un tag a una VM](../virtual-machines-windows-tag.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Attività comuni di PowerShell](../virtual-machines-windows-ps-common-ref.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -113,6 +115,7 @@
 ### [Panoramica della migrazione](../virtual-machines-windows-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Pianificare la migrazione](../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Eseguire la migrazione con PowerShell](../virtual-machines-windows-ps-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Errori comuni di migrazione](../virtual-machines-migration-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Strumenti della community per la migrazione](../virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Pianificare
@@ -177,22 +180,22 @@
 
 # Riferimento
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Interfaccia della riga di comando di Azure](/cli/azure/vm)
-## [Java](/java/api)
+## [Interfaccia della riga di comando di Azure 2.0 (anteprima)](/cli/azure/vm)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
-## [Creare modelli di Resource Manager](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Modelli della community](https://azure.microsoft.com/documentation/templates)
+## [Java](/java/api)
+## [Node.js](https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html)
 ## [REST di calcolo](/rest/api/compute)
-## [REST di rete](/rest/api)
-## [REST di archiviazione](/rest/api/storageservices)
 
 # Risorse
+## [Creare modelli di Resource Manager](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Modelli della community](https://azure.microsoft.com/documentation/templates)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/#Windows)
 ## [Disponibilità internazionale](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

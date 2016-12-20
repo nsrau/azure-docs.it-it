@@ -1,12 +1,12 @@
 ---
-title: 'Considerazioni di progettazione per la soluzione ibrida di gestione delle identità di Azure Active Directory: Definire la strategia di protezione dati | Microsoft Docs'
-description: Verrà definita la strategia di protezione dati in modo che la soluzione ibrida di gestione delle identità soddisfi i requisiti aziendali definiti.
-documentationcenter: ''
+title: "Considerazioni di progettazione per la soluzione ibrida di gestione delle identità di Azure Active Directory: definire la strategia di protezione dati | Documentazione Microsoft"
+description: "Verrà definita la strategia di protezione dati in modo che la soluzione ibrida di gestione delle identità soddisfi i requisiti aziendali definiti."
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: e76fd1f4-340a-492a-84d9-e05f3b7cc396
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 93ddb2715870348cbaaccfb05f332351dd27ae2c
+
 
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definire una strategia di protezione dei dati per la soluzione ibrida di gestione delle identità
@@ -54,7 +58,7 @@ Uno dei vantaggi derivanti dall'uso di Azure AD per gestire un'infrastruttura ib
 
 Le organizzazioni che si preoccupano circa la privacy dei dati, richiedono in genere la classificazione dei dati per la soluzione da adottare. Se l'infrastruttura locale corrente adotta già la classificazione dei dati, è possibile usare Azure AD come repository principale per le identità degli utenti. Uno strumento comune usato in locale per la classificazione dati è [Data Classification Toolkit](https://msdn.microsoft.com/library/Hh204743.aspx) per Windows Server 2012 R2. Questo strumento consente di identificare, classificare e proteggere i dati nei file server del cloud privato. Per questo scopo, è anche possibile usare la funzionalità di [classificazione file automatica](https://technet.microsoft.com/library/hh831672.aspx) in Windows Server 2012.
 
-Se l'organizzazione non ha implementato una soluzione di classificazione dei dati ma ha la necessità di proteggere i file sensibili senza aggiungere nuovi server locali, è disponibile Microsoft [Azure Rights Management Service](https://technet.microsoft.com/library/JJ585026.aspx).  Azure RMS usa infatti criteri di crittografia, identità e autorizzazione in grado di proteggere file e posta elettronica e può essere usato su più dispositivi, inclusi telefoni, tablet e PC. Poiché Azure RMS è un servizio cloud, per poter condividere contenuti protetti con altre organizzazioni non è necessario configurare esplicitamente dei trust con queste ultime. Se queste organizzazioni dispongono già di una directory di Office 365 o di Azure AD, la collaborazione tra organizzazioni è supportata automaticamente. È anche possibile sincronizzare solo gli attributi della directory richiesti da Azure RMS per supportare un'identità comune per gli account Active Directory locali usando i servizi di sincronizzazione di Azure Active Directory (AAD Sync) o Azure AD Connect.
+Se l'organizzazione non ha implementato una soluzione di classificazione dei dati ma ha la necessità di proteggere i file sensibili senza aggiungere nuovi server locali, è disponibile Microsoft [Azure Rights Management Service](https://technet.microsoft.com/library/JJ585026.aspx).  Azure RMS usa infatti criteri di crittografia, identità e autorizzazione in grado di proteggere file e posta elettronica e può essere usato su più dispositivi, inclusi telefoni, tablet e PC. Poiché Azure RMS è un servizio cloud, per poter condividere contenuti protetti con altre organizzazioni non è necessario configurare esplicitamente dei trust con queste ultime. Se queste organizzazioni dispongono già di una directory di Office 365 o di Azure AD, la collaborazione tra organizzazioni è supportata automaticamente. È anche possibile sincronizzare solo gli attributi della directory richiesti da Azure RMS per supportare un'identità comune per gli account Active Directory locali usando i servizi di sincronizzazione di Azure Active Directory (AAD Sync) o Azure AD Connect.
 
 Per un'efficace gestione del contenuto, è necessario sapere chi accede a una determinata risorsa, di conseguenza la soluzione di gestione delle identità deve includere funzionalità di registrazione avanzate. Azure AD fornisce la registrazione delle informazioni seguenti per un periodo di oltre 30 giorni:
 
@@ -165,6 +169,9 @@ Poiché le opzioni per le risposte agli eventi imprevisti usano un approccio mul
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

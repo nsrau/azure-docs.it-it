@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 5cf17ad514127f97319130c4f3f78cdfa1eed052
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: c75352e633f069597e7bc62650205f3c389b6909
 
 ---
 #<a name="stream-analytics-documentation"></a>Documentazione dell'analisi di flusso
@@ -174,7 +174,7 @@ Analisi di flusso di Azure è un motore di elaborazione di eventi in tempo reale
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Informazioni di riferimento sull'API REST dell'analisi di flusso</p>
+                        <p>API REST di Analisi di flusso</p>
                     </div>
                 </div>
             </div>
@@ -193,6 +193,6 @@ Scaricare la documentazione dell'analisi di flusso </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

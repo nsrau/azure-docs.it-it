@@ -2,12 +2,12 @@
 title: Esempio di configurazione per le estensioni di macchina virtuale di Linux | Microsoft Docs
 description: Configurazione di esempio per la creazione di modelli con le estensioni per le macchine virtuali di Linux.
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: kundanap
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 4f50e6b2-fce0-41ef-823d-df433957601a
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2016
 ms.author: kundanap
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 7f08d711a7d45c48fab5aab272b0446cff61e163
+
 
 ---
 # <a name="linux-vm-extension-configuration-samples"></a>Esempi di configurazione dell’estensione delle macchine virtuali di Linux.
 > [!div class="op_single_selector"]
-> * [PowerShell - Modello](virtual-machines-windows-extensions-configuration-samples.md)
-> * [Interfaccia della riga di comando - Modello](virtual-machines-linux-extensions-configuration-samples.md)
+> * [PowerShell - Modello](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [Interfaccia della riga di comando - Modello](virtual-machines-linux-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 
@@ -28,13 +32,13 @@ ms.author: kundanap
 
 Questo articolo fornisce una configurazione di esempio per la configurazione di estensioni di macchina virtuale di Azure per macchine virtuali di Linux.
 
-Per ulteriori informazioni su queste estensioni fare clic: [Panoramica delle Estensioni di macchina virtuale di Azure.](virtual-machines-windows-extensions-features.md)
+Per ulteriori informazioni su queste estensioni fare clic: [Panoramica delle Estensioni di macchina virtuale di Azure.](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-Per ulteriori informazioni sulla creazione di modelli di estensione fare clic qui [Creazione di modelli di estensione](virtual-machines-windows-extensions-authoring-templates.md)
+Per ulteriori informazioni sulla creazione di modelli di estensione fare clic qui [Creazione di modelli di estensione](virtual-machines-windows-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 In questo articolo vengono elencati i valori di configurazione previsti per alcune delle estensioni di Linux.
 
-## <a name="sample-template-snippet-for-vm-extensions."></a>Frammento di modello di esempio per le estensioni di macchina virtuale.
+## <a name="sample-template-snippet-for-vm-extensions"></a>Frammento di modello di esempio per le estensioni di macchina virtuale.
 Il frammento di modello per la distribuzione di estensioni appare come segue:
 
       {
@@ -55,7 +59,7 @@ Il frammento di modello per la distribuzione di estensioni appare come segue:
       }
       }
 
-## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets."></a>Frammento di modello di esempio per le estensioni VM con set di scalabilità di VM.
+## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets"></a>Frammento di modello di esempio per le estensioni VM con set di scalabilità di VM.
           {
            "type":"Microsoft.Compute/virtualMachineScaleSets",
           ....
@@ -90,7 +94,7 @@ Il resto dell'articolo fornisce configurazioni di esempio per le estensioni di m
             }
           }
 
-### <a name="customscript-extension-for-linux."></a>Estensione CustomScript per Linux.
+### <a name="customscript-extension-for-linux"></a>Estensione CustomScript per Linux.
     {
         "publisher": " Microsoft.Azure.Extensions",
         "type": "CustomScript",
@@ -127,7 +131,7 @@ Il resto dell'articolo fornisce configurazioni di esempio per le estensioni di m
           }
         }
 
-### <a name="vm-access-extension-(password-reset)"></a>Estensione accesso alle macchine virtuali (Reimpostazione della Password)
+### <a name="vm-access-extension-password-reset"></a>Estensione accesso alle macchine virtuali (Reimpostazione della Password)
 Per lo schema aggiornato consultare la [Documentazione VMAccessForLinux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
         {
@@ -217,6 +221,9 @@ Di seguito è riportato un modello di macchina virtuale completo per la creazion
 
 [Estensione di script personalizzato in una macchina virtuale Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

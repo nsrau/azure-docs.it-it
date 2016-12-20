@@ -1,19 +1,24 @@
 ---
-title: Case study Azure del database SQL di Microsoft Azure - Umbraco | Microsoft Docs
+title: 'Case study sul database SQL di Azure: Umbraco | Microsoft Docs'
 description: Altre informazioni su come Umbraco usa il database SQL per eseguire rapidamente il provisioning e ridimensionare i servizi per migliaia di tenant nel cloud
 services: sql-database
-documentationcenter: ''
-author: carlrabeler
+documentationcenter: 
+author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 5243d31e-3241-4cb0-9470-ad488ff28572
 ms.service: sql-database
+ms.custom: app development case study; app development
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/22/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0800f04034410c3734ef0a97afd9d41cf850381b
+
 
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco usa il database SQL di Azure per eseguire rapidamente il provisioning e il ridimensionamento di servizi per migliaia di tenant nel cloud.
@@ -23,7 +28,7 @@ Umbraco è un noto sistema di gestione di contenuti (CMS) open source che può e
 
 > "Un'ampia community di sviluppatori usa il sistema, con più di 100.000 sviluppatori nei nostri forum e oltre 350.000 siti attivi che eseguono il sistema Umbraco".
 > 
-> * Morten Christensen, responsabile tecnico, Umbraco
+> - Morten Christensen, responsabile tecnico, Umbraco
 > 
 > [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-Case-Study-Umbraco/player]
 > 
@@ -88,7 +93,7 @@ Al momento di adottare inizialmente la decisione di migrare a un modello SaaS, g
 
 > "I pool di database elastici sono perfetti per l'offerta SaaS perché consentono di aumentare o ridurre la capacità in base alle esigenze. Il provisioning è semplice e grazie alla configurazione è possibile ottimizzare il livello di utilizzo".
 > 
-> * Morten Christensen, responsabile tecnico, Umbraco
+> - Morten Christensen, responsabile tecnico, Umbraco
 > 
 > 
 
@@ -113,18 +118,21 @@ Morten è soddisfatto anche delle funzionalità di ridimensionamento disponibili
 
 Mikkel Madsen ribadisce "Abbiamo adottato il potente algoritmo di Azure che connette uno scenario SaaS comune, come l'acquisizione di nuovi clienti in tempo reale su larga scala, al modello applicativo, come il provisioning preventivo di database, sia di sviluppo sia live, insieme alla tecnologia sottostante usando le code del bus di servizio Azure in combinazione con il database SQL di Azure".
 
-## <a name="with-azure,-uaas-is-exceeding-customer-expectations"></a>Con Azure il servizio UaaS supera le aspettative dei clienti
+## <a name="with-azure-uaas-is-exceeding-customer-expectations"></a>Con Azure il servizio UaaS supera le aspettative dei clienti
 Da quando ha scelto Azure come partner cloud, Umbraco è stato in grado di fornire ai clienti UaaS prestazioni ottimali in termini di gestione dei contenuti, senza dover investire su risorse IT, come sarebbe stato necessario con una soluzione indipendente. Come afferma Morten, "Apprezziamo in particolare i vantaggi e la scalabilità che Azure mette a disposizione degli sviluppatori e i clienti sono particolarmente soddisfatti di funzionalità e affidabilità. Il successo è stato grande da ogni punto di vista".
 
 ## <a name="more-information"></a>Altre informazioni
 * Per altre informazioni sui pool di database elastici, vedere [Che cos'è un pool elastico di Azure?](sql-database-elastic-pool.md).
 * Per altre informazioni sul bus di servizio di Azure, vedere [Bus di servizio](https://azure.microsoft.com/services/service-bus/).
-* Per altre informazioni sui ruoli Web e i ruoli di lavoro, vedere l'argomento relativo ai [ruoli di lavoro](../fundamentals-introduction-to-azure.md#compute). 
+* Per altre informazioni sui ruoli Web e i ruoli di lavoro, vedere l'argomento relativo ai [ruoli di lavoro](../fundamentals-introduction-to-azure.md#compute).    
 * Per altre informazioni sulla rete virtuale, vedere [Rete virtuale](https://azure.microsoft.com/documentation/services/virtual-network/).    
-* Per altre informazioni su backup e ripristino, vedere [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).  
-* Per altre informazioni sul monitoraggio di pool, vedere [Monitorare e gestire un pool di database elastici con il portale di Azureo](sql-database-elastic-pool-manage-portal.md). 
+* Per altre informazioni su backup e ripristino, vedere [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).    
+* Per altre informazioni sul monitoraggio di pool, vedere [Monitorare e gestire un pool di database elastici con il portale di Azureo](sql-database-elastic-pool-manage-portal.md).    
 * Per altre informazioni su Umbraco-as-a-Service, vedere [Umbraco](https://umbraco.com/cloud).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

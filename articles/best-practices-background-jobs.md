@@ -1,13 +1,13 @@
 ---
-title: Indicazioni sui processi in background | Microsoft Docs
-description: Indicazioni sulle attività in background eseguite in modo indipendente dall'interfaccia utente.
-services: ''
+title: Linee guida per i processi in background | Documentazione Microsoft
+description: "Indicazioni sulle attività in background eseguite in modo indipendente dall&quot;interfaccia utente."
+services: 
 documentationcenter: na
 author: dragon119
 manager: christb
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: f6040f8c-4cbb-4c21-a886-8d54a5868421
 ms.service: best-practice
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2016
 ms.author: masashin
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 3bc7d30a8d702fd219c7fccfc241f32147c90009
+
 
 ---
 # <a name="background-jobs-guidance"></a>Linee guida per i processi in background
@@ -175,7 +179,7 @@ Per decidere se distribuire le attività in background in una macchina virtuale 
 
 ### <a name="more-information"></a>Altre informazioni
 * [Macchine virtuali](https://azure.microsoft.com/services/virtual-machines/) in Azure
-* [Domande frequenti su Macchine virtuali di Azure](virtual-machines/virtual-machines-linux-classic-faq.md)
+* [Domande frequenti su Macchine virtuali di Azure](virtual-machines/virtual-machines-linux-classic-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## <a name="design-considerations"></a>Considerazioni sulla progettazione
 Esistono diversi fattori fondamentali da considerare per la progettazione delle attività in background. Le sezioni seguenti illustrano il partizionamento, i conflitti e il coordinamento.
@@ -209,7 +213,7 @@ Il coordinamento di più attività e passaggi può essere difficile, ma sono dis
 * **Gestione dell'esecuzione dei passaggi per un'attività**. Un'applicazione potrebbe eseguire attività che comprendono diversi passaggi, alcuni dei quali potrebbero richiamare servizi remoti o accedere a risorse remote. I singoli passaggi potrebbero essere indipendenti tra loro, ma sono coordinati dalla logica dell'applicazione che implementa l'attività. Per altre informazioni, vedere [Modello di supervisione agente di pianificazione](http://msdn.microsoft.com/library/dn589780.aspx).
 * **Gestione del ripristino per i passaggi non riusciti di un'attività**. Un'applicazione potrebbe dover annullare il lavoro eseguito da una serie di passaggi (che insieme definiscono un'operazione finale coerente) in caso di esito negativo di uno o più di tali passaggi. Per altre informazioni, vedere [Modello di transazioni di compensazione](http://msdn.microsoft.com/library/dn589804.aspx).
 
-## <a name="lifecycle-(cloud-services)"></a>Ciclo di vita (Servizi cloud)
+## <a name="lifecycle-cloud-services"></a>Ciclo di vita (Servizi cloud)
  Se si decide di implementare processi in background per le applicazioni di Servizi cloud che usano i ruoli Web e di lavoro tramite la classe **RoleEntryPoint** , è importante comprendere il ciclo di vita di questa classe per usarla in modo corretto.
 
 I ruoli Web e di lavoro attraversano una serie di fasi distinte quando vengono avviati, eseguiti e arrestati. La classe **RoleEntryPoint** espone una serie di eventi che indicano quando si verificano queste fasi. Vengono usati per inizializzare, eseguire e arrestare le attività di background personalizzate. Il ciclo completo è:
@@ -241,7 +245,7 @@ Per la pianificazione della modalità di esecuzione delle attività in backgroun
     if (freeze != null)
     {
      if (Boolean.Parse(freeze))
-     {
+       {
          Thread.Sleep(System.Threading.Timeout.Infinite);
      }
     }
@@ -293,6 +297,9 @@ Le attività in background devono offrire prestazioni sufficienti a garantire ch
 * [Analogie e differenze tra le code di Azure e le code del bus di servizio](service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 * [Come abilitare il modulo Diagnostica in un servizio cloud](cloud-services/cloud-services-dotnet-diagnostics.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Cmdlet dell'anteprima di Azure Active Directory PowerShell per la gestione dei gruppi in Azure AD | Microsoft Docs
+title: Cmdlet dell&quot;anteprima di Azure Active Directory PowerShell per la gestione dei gruppi in Azure AD | Microsoft Docs
 description: Questa pagina riporta esempi di PowerShell per la gestione dei gruppi in Azure Active Directory
 keywords: Azure AD, Azure Active Directory, PowerShell, gruppi, gestione dei gruppi
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 7a5023dc-2727-4c25-8254-b531fc3244ac
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,13 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: aa5199af3fabd535e929161018db0fd5fe47e474
+
 
 ---
 # <a name="azure-active-directory-preview-cmdlets-for-group-management"></a>Cmdlet dell'anteprima di Azure Active Directory per la gestione di gruppo
 > [!div class="op_single_selector"]
 > * [Portale di Azure](active-directory-groups-create-azure-portal.md)
 > * [Portale di Azure classico](active-directory-accessmanagement-manage-groups.md)
-> * [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+> * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 > 
 > 
 
@@ -45,7 +49,7 @@ A questo punto è possibile iniziare a usare i cmdlet nel modulo. Per una descri
 ## <a name="connecting-to-the-directory"></a>Connessione alla directory
 Prima di iniziare la gestione di gruppi mediante i cmdlet dell'anteprima di Azure AD PowerShell, è necessario connettere la sessione di PowerShell alla directory da gestire. A tale scopo, eseguire il comando seguente:
 
-    PS C:\Windows\system32> Connect-AzureAD -Force
+    PS C:\Windows\system32> Connect-AzureAD
 
 Il cmdlet richiederà le credenziali da usare per accedere alla directory. In questo esempio si usa karen@drumkit.onmicrosoft.com per accedere alla directory dimostrativa. Il cmdlet restituirà un messaggio di conferma per indicare che la sessione è stata connessa correttamente alla directory:
 
@@ -173,8 +177,8 @@ Per ottenere i membri di un gruppo esistente, usare il cmdlet Get-AzureADGroupMe
 
     DeletionTimeStamp ObjectId                             ObjectType
     ----------------- --------                             ----------
-                        72cd4bbd-2594-40a2-935c-016f3cfeeeea User
-                        8120cc36-64b4-4080-a9e8-23aa98e8b34f User
+                          72cd4bbd-2594-40a2-935c-016f3cfeeeea User
+                          8120cc36-64b4-4080-a9e8-23aa98e8b34f User
 
 Per rimuovere il membro aggiunto al gruppo in precedenza, usare il cmdlet Remove-AzureADGroupMember, come illustrato di seguito:
 
@@ -192,8 +196,8 @@ Se si desidera controllare l'appartenenza di un utente con ObjectID 72cd4bbd-259
 
     PS C:\Windows\system32> Select-AzureADGroupIdsUserIsMemberOf -ObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea -GroupIdsForMembershipCheck $g
 
-    OdataMetadata                                                                                               Value
-    -------------                                                                                               -----
+    OdataMetadata                                                                                                 Value
+    -------------                                                                                                  -----
     https://graph.windows.net/85b5ff1e-0402-400c-9e3c-0f9e965325d1/$metadata#Collection(Edm.String)             {31f1ff6c-d48c-4f8a-b2e1-abca7fd399df}
 
 
@@ -214,7 +218,7 @@ Il cmdlet restituirà l'elenco dei proprietari per il gruppo specificato:
 
     DeletionTimeStamp ObjectId                             ObjectType
     ----------------- --------                             ----------
-                        e831b3fd-77c9-49c7-9fca-de43e109ef67 User
+                          e831b3fd-77c9-49c7-9fca-de43e109ef67 User
 
 Per rimuovere un proprietario da un gruppo, usare Remove-AzureADGroupOwner:
 
@@ -226,6 +230,9 @@ Per altre informazioni su Azure Active Directory PowerShell, consultare la docum
 * [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

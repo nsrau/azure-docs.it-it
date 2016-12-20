@@ -1,12 +1,12 @@
 ---
 title: Iscrizione ad Azure come organizzazione
-description: Informazioni sull'uso di un account di lavoro o di scuola per sfruttare gli account utente, i criteri e le impostazioni esistenti o le distribuzioni del server locali già configurate e migliorare l'efficienza tra l'infrastruttura di identità locale aziendale e Azure AD.
+description: "Informazioni sull&quot;uso di un account di lavoro o di scuola per sfruttare gli account utente, i criteri e le impostazioni esistenti o le distribuzioni del server locali già configurate e migliorare l&quot;efficienza tra l&quot;infrastruttura di identità locale aziendale e Azure AD."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 1b7f6dc2-bbdb-4aee-a615-db2f991f46ed
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bdbe25307b8b5e811dad374583d9ba3b96e212a5
+
 
 ---
 # <a name="sign-up-for-azure-as-an-organization"></a>Iscrizione ad Azure come organizzazione
@@ -32,6 +36,9 @@ Per iscriversi ad Azure come organizzazione [**Effettuare l'iscrizione ora**](ht
 * [Informazioni su Azure AD](active-directory-whatis.md)
 * [Usare l'infrastruttura di identità locale nel cloud](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Protocollo SAML per Single Sign-Out di Azure | Microsoft Docs
+title: Protocollo SAML per Single Sign-Out di Azure | Documentazione Microsoft
 description: Questo articolo illustra il protocollo SAML per Single Sign-Out in Azure Active Directory
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: priyamo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d05ab5c4bd813b5f371be27605a9096b0b9c9656
+
 
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocollo SAML per Single Sign-Out
@@ -72,6 +76,9 @@ Per valutare il valore dell'elemento `Issuer` usare il valore dell' **URI ID app
 ### <a name="status"></a>Stato
 Azure AD usa l'elemento `StatusCode` nell'elemento `Status` per indicare l'esito positivo o negativo della disconnessione. Quando il tentativo di disconnessione non riesce, l'elemento `StatusCode` può anche contenere messaggi di errore personalizzati.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

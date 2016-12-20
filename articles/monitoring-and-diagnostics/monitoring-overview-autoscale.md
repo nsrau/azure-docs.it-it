@@ -1,12 +1,12 @@
 ---
-title: Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services, and Web Apps | Microsoft Docs
-description: Overview of autoscale in Microsoft Azure. Applies to Virtual Machines, Cloud Services and Web Apps.
+title: Panoramica del ridimensionamento automatico in Macchine virtuali di Microsoft Azure, Servizi cloud e App Web | Microsoft Docs
+description: Panoramica del ridimensionamento automatico in Microsoft Azure. Si applica a Macchine virtuali, Servizi cloud e App Web.
 author: rboucher
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 74bf03be-e658-4239-a214-c12424b53e4c
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,101 +14,108 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: robb
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: e4ea8b18a9aba44906ed9085fa046859cc186aa1
+
 
 ---
-# <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines,-cloud-services,-and-web-apps"></a>Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services, and Web Apps
-This article describes what Microsoft Azure autoscale is, its benefits, and how to get started using it.  
+# <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Panoramica del ridimensionamento automatico in Macchine virtuali di Microsoft Azure, Servizi cloud e App Web
+Questo articolo descrive il ridimensionamento automatico di Microsoft Azure e come iniziare a usarlo.  
 
-Azure Insights autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), and [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/). 
+Il ridimensionamento automatico di Monitoraggio di Azure si applica solo a [set di scalabilità di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Servizi cloud](https://azure.microsoft.com/services/cloud-services/) e [app Web del servizio app](https://azure.microsoft.com/services/app-service/web/).
 
 > [!NOTE]
-> Azure has two autoscale methods. An older version of autoscale applies to Virtual Machines (availability sets). This feature has limited support and we recommend migrating to VM Scale Sets for faster and more reliable autoscale support. A link on how to use the older technology is included in this article.  
+> Azure offre due metodi per il ridimensionamento automatico. Una versione precedente del ridimensionamento automatico si applica alle macchine virtuali (set di disponibilità). Questa funzionalità offre supporto limitato ed è consigliabile eseguire la migrazione a set di scalabilità di macchine virtuali per ottenere un supporto per il ridimensionamento automatico più veloce e affidabile. Questo articolo include un collegamento su come usare la tecnologia precedente.  
 > 
 > 
 
-## <a name="what-is-autoscale?"></a>What is autoscale?
-Autoscale allows you to have the right amount of resources running to handle the load on your application. It allows you to add resources to handle increases in load and also save money by removing resources which are sitting idle. You specify a minimum and maximum number of instances to run and add or remove VMs automatically based on a set of rules. Having a minimum makes sure your application is always running even under no load. Having a maximum limits your total possible hourly cost. You automatically scale between these two extremes using rules you create. 
+## <a name="what-is-autoscale"></a>Informazioni sul ridimensionamento automatico
+Il ridimensionamento automatico offre la possibilità di avere la quantità corretta di risorse in esecuzione per gestire il carico dell'applicazione. Consente di aggiungere risorse per gestire gli incrementi di carico nonché di risparmiare denaro rimuovendo le risorse inattive. È possibile specificare un numero minimo e massimo di istanze da eseguire e aggiungere o rimuovere automaticamente VM in base a un set di regole. La definizione di un minimo assicura che l'applicazione sia sempre in esecuzione anche in assenza di carico. La definizione di un massimo limita il costo orario totale possibile. Il ridimensionamento viene eseguito automaticamente tra questi due estremi usando le regole create.
 
- ![Autoscale explained. Add and remove VMs](./media/monitoring-autoscale-overview/AutoscaleConcept.png)
+ ![Descrizione del ridimensionamento automatico: aggiunta e rimozione di VM](./media/monitoring-autoscale-overview/AutoscaleConcept.png)
 
-When rule conditions are met, one or more autoscale actions is triggered. You can add and remove VMs, or perform other actions. The following conceptual diagram shows this process.  
+Quando vengono soddisfatte le condizioni delle regole, vengono attivate una o più azioni di ridimensionamento automatico. È possibile aggiungere e rimuovere VM o eseguire altre azioni. Il diagramma concettuale seguente illustra questo processo.  
 
- ![Conceptual Autoscale Flow Diagram](./media/monitoring-autoscale-overview/AutoscaleOverview3.png)
+ ![Diagramma di flusso concettuale del ridimensionamento automatico](./media/monitoring-autoscale-overview/AutoscaleOverview3.png)
 
-## <a name="autoscale-process-explained"></a>Autoscale Process Explained
-The following explanation apply to the pieces of the previous diagram.   
+## <a name="autoscale-process-explained"></a>Descrizione del processo di ridimensionamento automatico
+La descrizione seguente si applica ai componenti del diagramma precedente.   
 
-### <a name="resource-metrics"></a>Resource metrics
-Resources emit metrics, which are later processed by rules. Metrics come via different methods.
-VM Scale Sets uses telemetry data from Azure diagnostics agents whereas telemetry for Web apps and Cloud services comes directly from the Azure Infrastructure. Some commonly used statistics include CPU Usage, memory usage, thread counts, queue length, and disk usage. For a list of what telemetry data you can use, see [Autoscale Common Metrics](insights-autoscale-common-metrics.md). 
+### <a name="resource-metrics"></a>Metriche delle risorse
+Le risorse generano metriche, che vengono elaborate successivamente dalle regole. Le metriche sono disponibili tramite metodi diversi.
+I set di scalabilità di macchine virtuali usano i dati di telemetria degli agenti di Diagnostica di Azure, mentre i dati di telemetria per le app Web e i servizi cloud provengono direttamente dall'infrastruttura di Azure. Alcune statistiche comunemente usate includono utilizzo della CPU, utilizzo della memoria, conteggio dei thread, lunghezza della coda e l'utilizzo del disco. Per un elenco dei dati di telemetria che è possibile usare, vedere [Metriche comuni per i ridimensionamento automatico di Azure Insights](insights-autoscale-common-metrics.md).
 
 ### <a name="time"></a>Time
-Schedule-based rules are based on UTC. You must set your time zone properly when setting up your rules.  
+Le regole basate sulla pianificazione sono basate su UTC. Quando si configurano le regole, è necessario impostare correttamente il fuso orario.  
 
-### <a name="rules"></a>Rules
-The diagram shows only one autoscale rule, but you can have many of them. You can create complex overlapping rules as needed for your situation.  Rule types include  
+### <a name="rules"></a>Regole
+Il diagramma mostra una sola regola di ridimensionamento automatico automatica, ma è possibile averne molte. È possibile creare regole complesse sovrapposte, secondo le esigenze della situazione locale.  I tipi di regole includono  
 
-* **Metric-based** - For example, do this action when CPU usage is above 50%. 
-* **Time-based** - For example, trigger a webhook every 8am on Saturday in a given time zone.
+* **Basata su metrica** : ad esempio, eseguire questa azione quando l'utilizzo della CPU è superiore al 50%.
+* **Basata sul tempo** : ad esempio, attivare un webhook alle 8:00 di ogni sabato in un determinato fuso orario.
 
-Metric-based rules measure application load and add or remove VMs based on that load. Schedule-based rules allow you to scale when you see time patterns in your load and want to scale before a possible load increase or decrease occurs.  
+Le regole basate sulle metriche misurano il carico dell'applicazione e aggiungono o rimuovono VM in base a tale carico. Le regole basate sulla pianificazione consentono di eseguire il ridimensionamento quando si rilevano modelli temporali nel carico e si vuole che il ridimensionamento venga eseguito prima di un possibile aumento o una possibile riduzione del carico.  
 
-### <a name="actions-and-automation"></a>Actions and automation
-Rules can trigger one or more types of actions.
+### <a name="actions-and-automation"></a>Azioni e automazione
+Le regole possono attivare uno o più tipi di azioni.
 
-* **Scale** - Scale VMs in or out
-* **Email** - Send email to subscription admins, co-admins, and/or additional email address you specify
-* **Automate via webhooks** - Call webhooks, which can trigger multiple complex actions inside or outside Azure. Inside Azure, you can start an Azure Automation runbook, Azure Function, or Azure Logic App. Example 3rd party URL outside Azure include services like Slack and Twilio. 
+* **Ridimensionamento** : per aumentare o ridurre il numero di istanze di macchine virtuali
+* **Posta elettronica** : per inviare un messaggio di posta elettronica ad amministratori e coamministratori di una sottoscrizione e/o ad altri indirizzi di posta elettronica specificati
+* **Automatizzare tramite webhook** : per chiamare webhook che possono attivare più azioni complesse all'interno o all'esterno di Azure. All'interno di Azure è possibile avviare un runbook di automazione di Azure, una funzione Azure o un'app per la logica di Azure. Un esempio di URL di terze parti esterno ad Azure include servizi come Slack e Twilio.
 
-## <a name="autoscale-settings"></a>Autoscale Settings
-Autoscale use the following terminology and structure. 
+## <a name="autoscale-settings"></a>Impostazioni di scalabilità automatica
+Per il ridimensionamento automatico vengono usate la terminologia e la struttura seguenti.
 
-* An **autoscale setting** is read by the autoscale engine to determine whether to scale up or down. It contains one or more profiles, information about the target resource, and notification settings.
-  * An **autoscale profile** is a combination of a capacity setting, a set of rules governing the triggers, and scale actions for the profile, and a recurrence. You can have multiple profiles, which allow you to take care of different overlapping requirements. 
-    * A **capacity setting** indicates the minimum, maximum, and default values for number of instances. [appropriate place to use fig 1]
-    * A **rule** includes a trigger—either a metric trigger or a time trigger—and a scale action, indicating whether autoscale should scale up or down when that rule is satisfied. 
-    * A **recurrence** indicates when autoscale should put this profile into effect. You can have different autoscale profiles for different times of day or days of the week, for example.
-* A **notification setting** defines what notifications should occur when an autoscale event occurs based on satisfying the criteria of one of the autoscale setting’s profiles. Autoscale can notify one or more email addresses or make calls to one or more webhooks.
+* Un' **impostazione di ridimensionamento automatico** viene letta dal motore di ridimensionamento automatico per determinare se aumentare o ridurre le prestazioni. Contiene uno o più profili, informazioni sulla risorsa di destinazione e impostazioni di notifica.
+  * Un **profilo di ridimensionamento automatico** combina un'impostazione di capacità, un set di regole che controlla i trigger, le azioni di ridimensionamento per il profilo e una ricorrenza. È possibile avere più profili per gestire diversi requisiti sovrapposti.
+    * Un'**impostazione di capacità** indica i valori minimo, massimo e predefinito per il numero di istanze. [appropriate place to use fig 1]
+    * Una **regola** include un trigger (di metrica o temporale) e un'azione di ridimensionamento, che indica se il ridimensionamento automatico deve aumentare o ridurre le prestazioni quando la regola viene soddisfatta.
+    * Una **ricorrenza** indica quando il ridimensionamento automatico renderà effettivo il profilo. È ad esempio possibile avere profili di ridimensionamento automatico per diverse ore del giorno o diversi giorni della settimana.
+* Un' **impostazione di notifica** definisce le notifiche da creare quando si verifica un evento di ridimensionamento automatico in base ai criteri di uno dei profili di impostazioni di ridimensionamento automatico. Possono essere inviate notifiche a uno o più indirizzi di posta elettronica oppure possono essere effettuate chiamate a uno o più webhook.
 
-![Azure autoscale setting, profile, and rule structure](./media/monitoring-autoscale-overview/AzureResourceManagerRuleStructure3.png)
+![Struttura delle impostazioni, dei profili e delle regole di ridimensionamento automatico in Azure](./media/monitoring-autoscale-overview/AzureResourceManagerRuleStructure3.png)
 
-The full list of configurable fields and descriptions is available in the [Autoscale REST API](https://msdn.microsoft.com/library/dn931928.aspx).
+L'elenco completo dei campi e delle descrizioni configurabili è disponibile nella documentazione sull' [API REST per il ridimensionamento automatico](https://msdn.microsoft.com/library/dn931928.aspx).
 
-For code examples, see
+Per esempi di codice, vedere
 
-* [Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md)  
-* [Autoscale REST API](https://msdn.microsoft.com/library/dn931953.aspx) 
+* [Configurazione avanzata del ridimensionamento automatico con modelli di Resource Manager per set di scalabilità di macchine virtuali](insights-advanced-autoscale-virtual-machine-scale-sets.md)  
+* [API REST per il ridimensionamento automatico](https://msdn.microsoft.com/library/dn931953.aspx)
 
-## <a name="horizontal-vs-vertical-scaling"></a>Horizontal vs vertical scaling
-Autoscale increases resources in only scales horizontally, which is an increase ("out") or decrease ("in") in the number of VM instances.  Horizontal scaling, which is more flexible in a cloud situation as it allows you to run potentially thousands of VMs to handle load. Vertical scaling is different. It keeps the same number of VMs, but makes the VM more ("up") or less ("down") powerful. Power is measured in memory, CPU speed, disk space, etc.  Vertical scaling has more limitations. It's dependent on the availability of larger hardware, which can vary by region and quickly hits and upper limit. Vertical scaling also usually requires a VM stop and start. For more information, see [Vertically scale Azure virtual machine with Azure Automation](../virtual-machines/virtual-machines-linux-vertical-scaling-automation.md). 
+## <a name="horizontal-vs-vertical-scaling"></a>Ridimensionamento orizzontale e verticale
+Il ridimensionamento automatico aumenta le risorse solo orizzontalmente, ovvero aumenta o riduce il numero di istanze di VM.  Il ridimensionamento orizzontale è più flessibile in una situazione cloud, perché consente di eseguire potenzialmente migliaia di VM per gestire il carico. Il ridimensionamento verticale è diverso, perché mantiene lo stesso numero di VM ma le rende più o meno potenti. perché mantiene lo stesso numero di VM ma le rende più o meno potenti. La potenza è misurata in memoria, velocità della CPU, spazio su disco e così via.  Il ridimensionamento verticale presenta più limitazioni. Dipende dalla disponibilità di hardware più grande, che può variare in base all'area e raggiungere rapidamente il limite massimo. In genere richiede anche l'arresto e il riavvio della macchina virtuale. Per altre informazioni, vedere [Aumento delle prestazioni delle macchine virtuali di Azure tramite Automazione di Azure](../virtual-machines/virtual-machines-linux-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="methods-of-access"></a>Methods of access
-You can set up autoscale via 
+## <a name="methods-of-access"></a>Metodi di accesso
+È possibile configurare il ridimensionamento automatico tramite:
 
-* [Azure portal](../azure-portal/insights-how-to-scale.md)
-* [PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings) 
-* [Cross-platform Command Line Interface (CLI)](insights-cli-samples.md#autoscale)
-* [Insights REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
+* [Portale di Azure](insights-how-to-scale.md)
+* [PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings)
+* [Interfaccia della riga di comando multipiattaforma](insights-cli-samples.md#autoscale)
+* [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
-## <a name="supported-services-for-autoscale"></a>Supported services for autoscale
-| Service | Schema & Docs |
+## <a name="supported-services-for-autoscale"></a>Servizi supportati per il ridimensionamento automatico
+| Service | Schema e documenti |
 | --- | --- |
-| Web Apps |[Scaling Web Apps](../azure-portal/insights-how-to-scale.md) |
-| Cloud Services |[Autoscale a Cloud Service](../cloud-services/cloud-services-how-to-scale.md) |
-| Virtual Machines : Classic |[Scaling Classic Virtual Machine Availability Sets](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
-| Virtual Machines : Windows Scale Sets |[Scaling VM Scale Sets in Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
-| Virtual Machines : Linux Scale Sets |[Scaling VM Scale Sets in Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
-| Virtual Machines : Windows Example |[Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
+| App Web |[Ridimensionamento di app Web](insights-how-to-scale.md) |
+| Servizi cloud |[Ridimensionamento automatico di un servizio cloud](../cloud-services/cloud-services-how-to-scale.md) |
+| Macchine virtuali classiche |[Scaling Classic Virtual Machine Availability Sets (Ridimensionamento di set di disponibilità di macchine virtuale classiche)](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
+| Macchine virtuali: set di scalabilità Windows |[Ridimensionare automaticamente le macchine virtuali in un set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
+| Macchine virtuali: set di scalabilità Linux |[Ridimensionare automaticamente macchine virtuali Linux in un set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
+| Macchine virtuali: esempio Windows |[Configurazione avanzata del ridimensionamento automatico con modelli di Resource Manager per set di scalabilità di macchine virtuali](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
 
-## <a name="next-steps"></a>Next steps
-To learn more about autoscale, use the Autoscale Walkthroughs listed previously or refer to the following resources: 
+## <a name="next-steps"></a>Passaggi successivi
+Per altre informazioni sul ridimensionamento automatico, usare le procedure dettagliate per il ridimensionamento automatico elencate in precedenza o vedere le risorse seguenti:
 
-* [Azure Insights autoscale common metrics](insights-autoscale-common-metrics.md)
-* [Best practices for Azure Insights autoscale](insights-autoscale-best-practices.md)
-* [Use autoscale actions to send email and webhook alert notifications](insights-autoscale-to-webhook-email.md)
-* [Autoscale REST API](https://msdn.microsoft.com/library/dn931953.aspx)
-* [Troubleshooting Virtual Machine Scale Sets Autoscale](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md) 
+* [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](insights-autoscale-common-metrics.md)
+* [Procedure consigliate per la scalabilità automatica in Monitoraggio di Azure](insights-autoscale-best-practices.md)
+* [Usare le azioni di ridimensionamento automatico per inviare notifiche di avviso di webhook e posta elettronica in Azure Insights](insights-autoscale-to-webhook-email.md)
+* [API REST per il ridimensionamento automatico](https://msdn.microsoft.com/library/dn931953.aspx)
+* [Risoluzione dei problemi di ridimensionamento automatico con set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

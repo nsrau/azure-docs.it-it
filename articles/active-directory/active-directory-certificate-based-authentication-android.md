@@ -1,11 +1,11 @@
 ---
-title: Introduzione all'autenticazione basata su certificati in Android | Microsoft Docs
-description: Informazioni su come configurare l'autenticazione basata su certificati in soluzioni con dispositivi Android
+title: Introduzione all&quot;autenticazione basata su certificati in Android | Documentazione Microsoft
+description: Informazioni su come configurare l&quot;autenticazione basata su certificati in soluzioni con dispositivi Android
 services: active-directory
 author: MarkusVi
 documentationcenter: na
 manager: femila
-
+ms.assetid: c6ad7640-8172-4541-9255-770f39ecce0e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9ab8558808dc509855d075c6bba305b8524407ff
+
 
 ---
-# <a name="get-started-with-certificate-based-authentication-on-android-public-preview"></a>Introduzione all'autenticazione basata su certificati nell'anteprima pubblica per Android
+# <a name="get-started-with-certificate-based-authentication-on-android---public-preview"></a>Introduzione all'autenticazione basata su certificati nell'anteprima pubblica per Android
 > [!div class="op_single_selector"]
 > * [iOS](active-directory-certificate-based-authentication-ios.md)
 > * [Android](active-directory-certificate-based-authentication-android.md)
@@ -60,9 +64,9 @@ La versione del sistema operativo del dispositivo deve essere Android 5.0 (Lolli
 Perché Azure Active Directory possa revocare un certificato client, il token ADFS deve avere le attestazioni seguenti:  
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`  
-  (Il numero di serie del certificato client) 
+   (Il numero di serie del certificato client) 
 * `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`  
-  (La stringa per l'autorità emittente del certificato client) 
+   (La stringa per l'autorità emittente del certificato client) 
 
 Azure Active Directory aggiunge queste attestazioni per il token di aggiornamento se sono disponibili nel token ADFS (o in qualsiasi altro token SAML). Quando il token di aggiornamento deve essere convalidato, queste informazioni vengono usate per controllare la revoca. 
 
@@ -137,7 +141,7 @@ Recuperare le autorità di certificazione attualmente archiviate in Azure Active
 ### <a name="removing-a-certificate-authority"></a>Rimozione di un'autorità di certificazione
 1. Recuperare le autorità di certificazione: 
    
-       $c=Get-AzureADTrustedCertificateAuthority 
+     $c=Get-AzureADTrustedCertificateAuthority 
 2. Rimuovere il certificato per l'autorità di certificazione: 
    
         Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
@@ -145,7 +149,7 @@ Recuperare le autorità di certificazione attualmente archiviate in Azure Active
 ### <a name="modfiying-a-certificate-authority"></a>Modifica di un'autorità di certificazione
 1. Recuperare le autorità di certificazione: 
    
-       $c=Get-AzureADTrustedCertificateAuthority 
+     $c=Get-AzureADTrustedCertificateAuthority 
 2. Modificare le proprietà dell'autorità di certificazione: 
    
         $c[0].AuthorityType=1 
@@ -192,11 +196,10 @@ I passaggi seguenti illustrano il processo per aggiornare e annullare il token d
         connect-msolservice -credential $msolcred 
 2. Recuperare il valore StsRefreshTokensValidFrom corrente per un utente: 
    
-       $user = Get-MsolUser -UserPrincipalName test@yourdomain.com` 
-       $user.StsRefreshTokensValidFrom 
+     $user = Get-MsolUser -UserPrincipalName test@yourdomain.com` $user.StsRefreshTokensValidFrom 
 3. Configurare un nuovo valore StsRefreshTokensValidFrom per l'utente uguale al timestamp corrente: 
    
-       Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
+     Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
 
 La data impostata deve essere futura. Se la data non è futura, la proprietà **StsRefreshTokensValidFrom** non viene impostata. Se la data è futura, la proprietà **StsRefreshTokensValidFrom** viene impostata sull'ora corrente, non sulla data indicata dal comando Set-MsolUser. 
 
@@ -204,6 +207,7 @@ La data impostata deve essere futura. Se la data non è futura, la proprietà **
 [1]: ./media/active-directory-certificate-based-authentication-android/ic195031.png
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

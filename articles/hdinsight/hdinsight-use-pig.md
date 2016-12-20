@@ -1,13 +1,13 @@
 ---
-title: Usare Pig di Hadoop in HDInsight | Microsoft Docs
+title: Usare Pig di Hadoop in HDInsight | Documentazione Microsoft
 description: Informazioni su come usare Pig con Hadoop in HDInsight.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: acfeb52b-4b81-4a7d-af77-3e9908407404
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,16 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/14/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7ac66acf154cde7f5241666c4c5dab0c482a0ab1
+
 
 ---
-# Usare Pig con Hadoop in HDInsight
+# <a name="use-pig-with-hadoop-on-hdinsight"></a>Usare Pig con Hadoop in HDInsight
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
 [Apache Pig](http://pig.apache.org/) è una piattaforma che consente la creazione di programmi per Hadoop usando un linguaggio procedurale denominato *Pig Latin*. Pig è un'alternativa a Java per la creazione di soluzioni *MapReduce* ed è incluso in Azure HDInsight.
 
 Questo articolo illustra come usare Pig con HDInsight.
 
-## <a id="why"></a>Perché usare Pig?
+## <a name="a-idwhyawhy-use-pig"></a><a id="why"></a>Perché usare Pig?
 Quando si elaborano dati usando MapReduce in Hadoop, uno dei problemi principali è riuscire a implementare la logica di elaborazione usando solo una mappa e una funzione di riduzione. In caso di esigenze di elaborazione complesse, è spesso necessario interrompere l'elaborazione in più operazioni di MapReduce concatenate insieme per ottenere il risultato desiderato.
 
 Pig non costringe l'utente a usare solo una mappa e una funzione di riduzione, ma consente di definire l'elaborazione come una serie di trasformazioni dei flussi dati fino a raggiungere l'output desiderato.
@@ -45,19 +49,19 @@ Per un esempio sull'uso di funzioni definite dall'utente con Pig, vedere i docum
 * [Usare Python con Pig e Hive in HDInsight](hdinsight-python.md)
 * [Usare C# con Hive e Pig in HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-## <a id="data"></a>Informazioni sui dati di esempio
-Questo esempio usa un file di esempio *log4j*, che viene archiviato in **/example/data/sample.log** nel contenitore di archiviazione BLOB. Ogni log all'interno del file è costituito da una riga di campi che contiene un campo `[LOG LEVEL]` per visualizzare il tipo e la gravità. Ad esempio:
+## <a name="a-iddataaabout-the-sample-data"></a><a id="data"></a>Informazioni sui dati di esempio
+Questo esempio usa un file di esempio *log4j*, che viene archiviato in **/example/data/sample.log** nel contenitore dell'archivio BLOB. Ogni log all'interno del file è costituito da una riga di campi che contiene un campo `[LOG LEVEL]` per visualizzare il tipo e la gravità. Ad esempio:
 
     2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
 
 Nell'esempio precedente, il livello log è ERROR.
 
 > [!NOTE]
-> È anche possibile generare un file log4j usando lo strumento di registrazione [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) e quindi caricandolo nel BLOB. Per istruzioni, vedere [Caricamento di dati in HDInsight](hdinsight-upload-data.md). Per altre informazioni sul modo in cui HDInsight usa l'archiviazione BLOB di Azure, vedere [Usare l'archiviazione BLOB di Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md).
+> È anche possibile generare un file log4j usando lo strumento di registrazione [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) e quindi caricandolo nel BLOB. Per istruzioni, vedere [Caricamento di dati in HDInsight](hdinsight-upload-data.md) . Per altre informazioni sul modo in cui HDInsight usa l'archiviazione BLOB di Azure, vedere [Usare l'archiviazione BLOB di Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md).
 > 
 > 
 
-I dati di esempio vengono archiviati nell'archiviazione BLOB di Azure, usata da HDInsight come file system predefinito per i cluster Hadoop. HDInsight può accedere ai file archiviati nei BLOB tramite il prefisso **wasb**. Ad esempio, per accedere al file sample.log, usare la sintassi seguente:
+I dati di esempio vengono archiviati nell'archiviazione BLOB di Azure, usata da HDInsight come file system predefinito per i cluster Hadoop. HDInsight può accedere ai file archiviati nei BLOB tramite il prefisso **wasb** . Ad esempio, per accedere al file sample.log, usare la sintassi seguente:
 
     wasbs:///example/data/sample.log
 
@@ -68,7 +72,7 @@ Poiché WASB è la risorsa di archiviazione predefinita per HDInsight, è anche 
 > 
 > 
 
-## <a id="job"></a>Informazioni sull'app di esempio
+## <a name="a-idjobaabout-the-sample-job"></a><a id="job"></a>Informazioni sull'app di esempio
 Il processo Pig Latin seguente carica il file **sample.log** dal percorso di archiviazione predefinito per il cluster HDInsight. Esegue quindi una serie di trasformazioni che generano un conteggio delle occorrenze di ciascun livello di log presente nei dati di input. I risultati vengono trasmessi a STDOUT.
 
     LOGS = LOAD 'wasbs:///example/data/sample.log';
@@ -83,18 +87,18 @@ L'immagine seguente illustra un riepilogo dei dati generati da ogni operazione d
 
 ![Rappresentazione grafica delle trasformazioni][image-hdi-pig-data-transformation]
 
-## <a id="run"></a>Eseguire il processo Pig Latin
+## <a name="a-idrunarun-the-pig-latin-job"></a><a id="run"></a>Eseguire il processo Pig Latin
 HDInsight è in grado di eseguire processi Pig Latin in vari modi. Usare la tabella seguente per decidere il metodo più adatto alle proprie esigenze, quindi fare clic sul collegamento per visualizzare una procedura dettagliata.
 
-| **Usare questo** se si desidera... | ...una shell **interattiva** | ...elaborazione **batch** | ...con questo **sistema operativo cluster** | ...da questo **sistema operativo client** |
+| **Usare questo** se si desidera... | ...una shell **interattiva** | ...elaborazione**batch** | ...con questo **sistema operativo cluster** | ...da questo **sistema operativo client** |
 |:--- |:---:|:---:|:--- |:--- |
 | [SSH](hdinsight-hadoop-use-pig-ssh.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X o Windows |
-| [Curl](hdinsight-hadoop-use-pig-curl.md) |& nbsp; |✔ |Linux o Windows |Linux, Unix, Mac OS X o Windows |
-| [.NET SDK per Hadoop](hdinsight-hadoop-use-pig-dotnet-sdk.md) |& nbsp; |✔ |Linux o Windows |Windows (per ora) |
-| [Windows PowerShell](hdinsight-hadoop-use-pig-powershell.md) |& nbsp; |✔ |Linux o Windows |Windows |
+| [Curl](hdinsight-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux o Windows |Linux, Unix, Mac OS X o Windows |
+| [.NET SDK per Hadoop](hdinsight-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux o Windows |Windows (per ora) |
+| [Windows PowerShell](hdinsight-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux o Windows |Windows |
 | [Desktop remoto](hdinsight-hadoop-use-pig-remote-desktop.md) |✔ |✔ |Windows |Windows |
 
-## Esecuzione di processi Pig in Azure HDInsight tramite SQL Server Integration Services
+## <a name="running-pig-jobs-on-azure-hdinsight-using-on-premises-sql-server-integration-services"></a>Esecuzione di processi Pig in Azure HDInsight tramite SQL Server Integration Services
 È inoltre possibile utilizzare SQL Server Integration Services per eseguire un processo Pig. Il Feature Pack di Azure per SSIS fornisce i seguenti componenti che funzionano con i processi Pig in HDInsight.
 
 * [Attività di Pig di Azure HDInsight][pigtask]
@@ -102,7 +106,7 @@ HDInsight è in grado di eseguire processi Pig Latin in vari modi. Usare la tabe
 
 Altre informazioni sul Feature Pack di Azure per SSIS sono disponibili [qui][ssispack].
 
-## <a id="nextsteps"></a>Passaggi successivi
+## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Passaggi successivi
 Dopo aver appreso come usare Pig con HDInsight, vedere i collegamenti seguenti per scoprire altre modalità di utilizzo di Azure HDInsight.
 
 * [Caricare dati in HDInsight][hdinsight-upload-data]
@@ -140,4 +144,8 @@ Dopo aver appreso come usare Pig con HDInsight, vedere i collegamenti seguenti p
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

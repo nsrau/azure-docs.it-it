@@ -2,11 +2,11 @@
 title: Replica Hyper-V con Azure Site Recovery | Microsoft Docs
 description: Questo articolo descrive i concetti tecnici che permettono di installare, configurare e gestire Azure Site Recovery.
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: Rajani-Janaki-Ram
 manager: mkjain
-editor: ''
-
+editor: 
+ms.assetid: 97916915-1379-47df-8369-12ddf022c4da
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/12/2016
 ms.author: rajanaki
+translationtype: Human Translation
+ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
+ms.openlocfilehash: b49771ff1e29aeb6ec582c21061085504705991b
+
 
 ---
 # <a name="hyper-v-replication-with-azure-site-recovery"></a>Replica Hyper-V con Azure Site Recovery
@@ -43,7 +47,7 @@ Quando viene attivata la replica iniziale, viene acquisito uno [snapshot della V
 
 Al termine della replica iniziale, il processo **Finalizza la protezione nella macchina virtuale** configura le impostazioni di rete e post-replica. Mentre la replica iniziale è in corso:
 
-* Vengono rilevate tutte le modifiche ai dischi. 
+* Vengono rilevate tutte le modifiche ai dischi.
 * Viene utilizzato altro spazio di archiviazione su disco per i file di log della replica Hyper-V (HRL) e degli snapshot.
 
 Al termine della replica iniziale, lo snapshot della macchina virtuale Hyper-V viene eliminato. L'eliminazione comporta l'unione delle modifiche ai dati dopo la replica iniziale nel disco padre.
@@ -55,7 +59,7 @@ Lo strumento di monitoraggio della replica Hyper-V, che fa parte del motore di r
 
 A ogni disco configurato per la replica è associato un file HRL. I log vengono inviati all'account di archiviazione del cliente al termine della replica iniziale. Quando un log è in transito verso Azure, le modifiche al database primario vengono registrate in un altro file di log nella stessa directory.
 
-Durante la replica iniziale o la replica differenziale è possibile monitorare l'integrità della replica della VM nella visualizzazione VM, come illustrato in [Monitorare lo stato della replica per la macchina virtuale](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machine).  
+Durante la replica iniziale o la replica differenziale è possibile monitorare l'integrità della replica della VM nella visualizzazione VM, come illustrato in [Monitorare lo stato della replica per la macchina virtuale](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machines).  
 
 ### <a name="resynchronization"></a>Risincronizzazione
 Una macchina virtuale viene contrassegnata per la risincronizzazione quando la replica differenziale ha esito negativo e la replica iniziale completa è dispendiosa in termini di tempo o di larghezza di banda di rete. Se, ad esempio, le dimensioni del file HRL raggiungono il 50% delle dimensioni totali del disco, la macchina virtuale viene contrassegnata per la risincronizzazione. La risincronizzazione riduce al minimo la quantità di dati inviati in rete, calcolando i checksum dei dischi delle macchine virtuali di origine e di destinazione e inviando solo il differenziale.
@@ -81,9 +85,11 @@ Per gli errori di replica viene applicata una logica di ripetizione dei tentativ
 
 ## <a name="other-references"></a>Altri riferimenti
 * [Monitorare e risolvere i problemi di protezione per le macchine virtuali e i server fisici](site-recovery-monitoring-and-troubleshooting.md)
-* [Contattare il supporto Microsoft](site-recovery-monitoring-and-troubleshooting.md#reaching-out-for-microsoft-support)
-* [Errori più comuni di Azure Site Recovery e relative soluzioni](site-recovery-monitoring-and-troubleshooting.md#common-asr-errors-and-their-resolutions)
+* [Contattare il supporto Microsoft](site-recovery-monitoring-and-troubleshooting.md#reach-out-for-microsoft-support)
+* [Errori più comuni di Azure Site Recovery e relative soluzioni](site-recovery-monitoring-and-troubleshooting.md#common-azure-site-recovery-errors-and-their-resolutions)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

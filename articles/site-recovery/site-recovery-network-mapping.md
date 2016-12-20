@@ -1,12 +1,12 @@
 ---
-title: Preparare il mapping di rete per la protezione di macchine virtuali Hyper-V con VMM in Azure Site Recovery | Microsoft Docs
+title: Preparare il mapping di rete per la protezione di macchine virtuali Hyper-V con VMM in Azure Site Recovery | Documentazione Microsoft
 description: Configurare il mapping di rete per replicare in Azure o in un sito secondario macchine virtuali Hyper-V presenti in un data center locale.
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: a798580b-b166-426b-bdca-573167b0e451
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/05/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8023643345812a9bc18dcca43cfc0ecff31a5007
+
 
 ---
 # <a name="prepare-network-mapping-for-hyper-v-virtual-machine-protection-with-vmm-in-azure-site-recovery"></a>Preparare il mapping di rete per la protezione delle macchine virtuali Hyper-V con VMM in Azure Site Recovery
@@ -99,13 +103,16 @@ Con queste impostazioni esaminare cosa accade in un paio di scenari possibili.
 | **Scenario** | **Risultato** |
 | --- | --- |
 | Nessuna modifica nelle proprietà della rete di VM-2 dopo il failover |VM-1 rimane connessa alla rete di origine. |
-| Le proprietà di rete di VM-2 cambiano dopo il failover e la macchina virtuale viene disconnessa |VM-1 viene disconnessa |
+| Le proprietà di rete di VM-2 cambiano dopo il failover e la macchina virtuale viene disconnessa  |VM-1 viene disconnessa |
 | Le proprietà di rete di VM-2 cambiano dopo il failover e la macchina virtuale viene connessa a VMNetwork2-Chicago |Se non viene eseguito il mapping di VMNetwork2-Chicago, VM-1 verrà disconnessa |
 | Il mapping di rete di VMNetwork1-Chicago viene modificato |VM-1 verrà connessa alla rete ora mappata a VMNetwork1-Chicago |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver acquisito familiarità con il mapping di rete, è ora possibile [prepararsi alla distribuzione di Site Recovery](site-recovery-best-practices.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

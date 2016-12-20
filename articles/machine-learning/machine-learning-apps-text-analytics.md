@@ -1,50 +1,54 @@
 ---
-title: 'API di Machine Learning: Analisi del testo | Microsoft Docs'
-description: Le API di Machine Learning Microsoft per l'analisi del testo possono essere usate per analizzare testo non strutturato per attività quali l'analisi del sentiment, l'estrazione di frasi chiave, il rilevamento della lingua e il rilevamento di argomenti.
+title: 'API di Machine Learning: Analisi del testo | Documentazione Microsoft'
+description: "Le API di Machine Learning Microsoft per l&quot;analisi del testo possono essere usate per analizzare testo non strutturato per attività quali l&quot;analisi del sentiment, l&quot;estrazione di frasi chiave, il rilevamento della lingua e il rilevamento di argomenti."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: onewth
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 5b60694e-5521-4e4d-bf6a-1a92fdf94b65
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/07/2016
+ms.date: 10/04/2016
 ms.author: onewth
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f4389705a81b531bd706cbabc0b4c3b171febd5f
+
 
 ---
-# API di Machine Learning: Analisi del testo per analisi del sentiment, estrazione di frasi chiave, rilevamento della lingua e rilevamento di argomenti
+# <a name="machine-learning-apis-text-analytics-for-sentiment-key-phrase-extraction-language-detection-and-topic-detection"></a>API di Machine Learning: Analisi del testo per analisi del sentiment, estrazione di frasi chiave, rilevamento della lingua e rilevamento di argomenti
 > [!NOTE]
-> Questa guida riguarda la versione 1 dell'API. Per la versione 2, [**vedere questo documento**](../cognitive-services/cognitive-services-text-analytics-quick-start.md). La versione 2 è ora la versione preferita di questa API.
+> Questa guida riguarda la versione 1 dell'API. Per la versione 2, [**fare riferimento a questo documento**](../cognitive-services/cognitive-services-text-analytics-quick-start.md). La versione 2 è ora la versione preferita di questa API.
 > 
 > 
 
-## Overview
+## <a name="overview"></a>Overview
 L'API di analisi del testo è un gruppo di [servizi Web](https://datamarket.azure.com/dataset/amla/text-analytics) per l'analisi del testo creata con Azure Machine Learning. L'API può essere usata per analizzare il testo non strutturato per attività quali l'analisi del sentiment, l'estrazione di frasi chiave, il rilevamento della lingua e il rilevamento di argomenti. Non sono necessari dati di training per usare questa API, è sufficiente inserire dati di testo. L'API usa tecniche di elaborazione avanzata del linguaggio naturale per fornire stime avanzate.
 
-È possibile vedere il funzionamento dell'analisi del testo nel [sito di demo](https://text-analytics-demo.azurewebsites.net/), in cui si trovano anche [esempi](https://text-analytics-demo.azurewebsites.net/Home/SampleCode) sull'implementazione di analisi del testo in C# e Python.
+È possibile vedere il funzionamento dell'analisi del testo nel [sito di demo](https://text-analytics-demo.azurewebsites.net/), in cui si trovano anche [esempi](https://text-analytics-demo.azurewebsites.net/Home/SampleCode) dell'implementazione di analisi del testo in C# e Python.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 - - -
-## Analisi del sentiment
+## <a name="sentiment-analysis"></a>Analisi del sentiment
 L'API restituisce un valore numerico compreso tra 0 e 1. I valori prossimi a 1 indicano una valutazione positiva, mentre i valori prossimi a 0 indicano una valutazione negativa. I valori relativi alla valutazione vengono generati utilizzando tecniche di classificazione. Le funzionalità di input per la funzione di classificazione includono n-grams, funzionalità generate da tag parti del discorso e incorporamenti di parole. Attualmente l'inglese è l'unica lingua supportata.
 
-## Estrazione di frasi chiave
+## <a name="key-phrase-extraction"></a>Estrazione di frasi chiave
 L'API restituisce un elenco di stringhe che indicano i punti principali di discussione nel testo di input. A tale scopo vengono impiegate tecniche del toolkit per l'elaborazione del linguaggio naturale sofisticato Microsoft Office. Attualmente l'inglese è l'unica lingua supportata.
 
-## Rilevamento della lingua
+## <a name="language-detection"></a>Rilevamento della lingua
 L'API restituisce la lingua rilevata e un valore punteggio numerico compreso tra 0 e 1. I punteggi prossimi a 1 indicano con una certezza del 100% che la lingua identificata è true. È supportato un totale di 120 lingue.
 
-## Rilevamento di argomenti
+## <a name="topic-detection"></a>Rilevamento di argomenti
 Si tratta di un'API rilasciata di recente che restituisce i primi argomenti rilevati a fronte di un elenco di record di testo inviati. Un argomento viene identificato da una frase chiave, che può essere costituita da una o più parole correlate. Questa API richiede un minimo di 100 record di testo da inviare, ma è progettata per rilevare gli argomenti in centinaia o addirittura migliaia di record. Si noti che con questa API viene addebitata una transazione per ogni record di testo inviato. L'API è progettata per funzionare al meglio con testi brevi in linguaggio naturale, ad esempio recensioni e commenti degli utenti.
 
 - - -
-## Definizione dell'API
-### Headers
+## <a name="api-definition"></a>Definizione dell'API
+### <a name="headers"></a>Headers
 Assicurarsi di includere le intestazioni corrette nella richiesta, che dovrebbe essere come la seguente:
 
     Authorization: Basic <creds>
@@ -55,9 +59,9 @@ Assicurarsi di includere le intestazioni corrette nella richiesta, che dovrebbe 
 È possibile trovare la chiave dell'account relativa al proprio account in [Azure Marketplace](https://datamarket.azure.com/account/keys). Si noti che per i formati di input e output è attualmente accettato solo JSON. XML non è supportato.
 
 - - -
-## API con risposta singola
-### GetSentiment
-**URL**
+## <a name="single-response-apis"></a>API con risposta singola
+### <a name="getsentiment"></a>GetSentiment
+**URL**    
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment
 
@@ -75,7 +79,7 @@ Restituirà una risposta come la seguente:
     }
 
 - - -
-### GetKeyPhrases
+### <a name="getkeyphrases"></a>GetKeyPhrases
 **URL**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases
@@ -99,7 +103,7 @@ Restituirà una risposta come la seguente:
     }
 
 - - -
-### GetLanguage
+### <a name="getlanguage"></a>GetLanguage
 **URL**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetLanguage
@@ -127,13 +131,13 @@ Restituirà una risposta come la seguente:
 `NumberOfLanguagesToDetect` è un parametro facoltativo. Il valore predefinito è 1.
 
 - - -
-## API di batch
+## <a name="batch-apis"></a>API di batch
 Il servizio di Analisi del testo consente di eseguire estrazioni di sentiment e frase chiave in modalità batch. Si noti che ogni record con punteggio conta come un'unica transazione. Quindi, ad esempio, se si richiede una valutazione per 1000 record in una singola chiamata, verranno dedotte 1000 transazioni.
 
-Gli ID immessi nel sistema corrispondono agli ID restituiti dal sistema. Il servizio Web non verifica che gli ID siano univoci. È responsabilità del chiamante verificarne l'univocità.
+Gli ID immessi nel sistema corrispondono agli ID restituiti dal sistema. Il servizio Web non verifica che gli ID siano univoci. È responsabilità del chiamante verificarne l'univocità. 
 
-### GetSentimentBatch
-**URL**
+### <a name="getsentimentbatch"></a>GetSentimentBatch
+**URL**    
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentimentBatch
 
@@ -167,14 +171,14 @@ Nella risposta di seguito viene ottenuto l'elenco dei punteggi associati agli ID
 
 
 - - -
-### GetKeyPhrasesBatch
+### <a name="getkeyphrasesbatch"></a>GetKeyPhrasesBatch
 **URL**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrasesBatch
 
 **Richiesta di esempio**
 
-In questo esempio viene richiesto l'elenco delle valutazioni delle frasi chiave nei testi seguenti:
+In questo esempio viene richiesto l'elenco delle valutazioni delle frasi chiave nei testi seguenti: 
 
 * "It was a wonderful hotel to stay at, with unique decor and friendly staff"
 * "It was an amazing build conference, with very interesting talks"
@@ -207,7 +211,7 @@ Nella risposta di seguito viene ottenuto l'elenco delle frasi chiave associate a
 
 ---
 
-### GetLanguageBatch
+### <a name="getlanguagebatch"></a>GetLanguageBatch
 
 Nella chiamata POST seguente si richiede il rilevamento delle lingua per due input di testo:
 
@@ -247,12 +251,12 @@ Restituisce la risposta seguente, in cui inglese viene rilevato nel primo parame
     }
 ---
 
-## API per il rilevamento di argomenti
+## <a name="topic-detection-apis"></a>API per il rilevamento di argomenti
 Si tratta di un'API rilasciata di recente che restituisce i primi argomenti rilevati a fronte di un elenco di record di testo inviati. Un argomento viene identificato da una frase chiave, che può essere costituita da una o più parole correlate. Si noti che con questa API viene addebitata una transazione per ogni record di testo inviato.
 
 Questa API richiede un minimo di 100 record di testo da inviare, ma è progettata per rilevare gli argomenti in centinaia o addirittura migliaia di record.
 
-### Argomenti: processo di invio
+### <a name="topics-submit-job"></a>Argomenti: processo di invio
 **URL**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection
@@ -281,9 +285,9 @@ Nella risposta seguente si ottiene l'ID processo (JobId) per il processo inviato
         "JobId":"<JobId>"
     }
 
-Un elenco di parole singole o di frasi costituite da più parole che non dovrebbero essere restituite come argomenti. Può essere usato per filtrare argomenti molto generici. Ad esempio, in un set di dati riguardante recensioni di alberghi, "albergo" e "ostello" possono esser frasi di stop sensibili.
+Un elenco di parole singole o di frasi costituite da più parole che non dovrebbero essere restituite come argomenti. Può essere usato per filtrare argomenti molto generici. Ad esempio, in un set di dati riguardante recensioni di alberghi, "albergo" e "ostello" possono esser frasi di stop sensibili.  
 
-### Argomenti: polling risultati processo
+### <a name="topics-poll-for-job-results"></a>Argomenti: polling risultati processo
 **URL**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetTopicDetectionResult
@@ -358,4 +362,9 @@ Le proprietà di ciascuna parte della risposta sono le seguenti:
 | TopicId |ID dell'argomento a cui sono stati assegnati i record. |
 | Distance |Probabilità che il record appartenga all'argomento. Un valore vicino a zero indica una probabilità elevata. |
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

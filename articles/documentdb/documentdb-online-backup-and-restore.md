@@ -1,13 +1,13 @@
 ---
-title: Backup online e ripristino con DocumentDB | Microsoft Docs
+title: Backup online e ripristino con DocumentDB | Documentazione Microsoft
 description: Informazioni su come eseguire il backup automatico e il ripristino di database NoSQL con Azure DocumentDB.
 keywords: backup e ripristino, backup online
 services: documentdb
-documentationcenter: ''
+documentationcenter: 
 author: RahulPrasad16
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 98eade4a-7ef4-4667-b167-6603ecd80b79
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: raprasa
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 23f6049bc0df133966911b2352b044cdbc777b36
+
 
 ---
 # <a name="automatic-online-backup-and-restore-with-documentdb"></a>Backup online e ripristino automatico con DocumentDB
@@ -33,7 +37,7 @@ L'immagine seguente mostra l'alto livello di ridondanza con DocumentDB.
 
 ![Alto livello di ridondanza con DocumentDB](./media/documentdb-online-backup-and-restore/azure-documentdb-nosql-database-global-distribution.png)
 
-## <a name="full,-automatic,-online-backups"></a>Backup online, completi, automatici
+## <a name="full-automatic-online-backups"></a>Backup online, completi, automatici
 Il database o la raccolta sono stati eliminati! Con DocumentDB non solo i dati ma anche i relativi backup vengono resi altamente ridondanti e resilienti alle emergenze locali. I backup automatici vengono attualmente eseguiti ogni quattro ore circa. 
 
 I backup vengono eseguiti senza influenzare le prestazioni o la disponibilità delle operazioni del database. DocumentDB esegue il backup in background senza usare le unità richieste fornite, influire sulle prestazioni e inficiare la disponibilità del database NoSQL. 
@@ -55,6 +59,9 @@ Per replicare il database NoSQL in più data center, vedere [Distribuire i dati 
 
 Per contattare il supporto di Azure, [creare un ticket dal portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

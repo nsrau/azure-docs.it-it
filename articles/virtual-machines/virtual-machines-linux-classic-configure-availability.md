@@ -1,13 +1,13 @@
 ---
-title: Set di disponibilità per macchine virtuali Linux classiche | Microsoft Docs
-description: Configurare un set di disponibilità per una macchina virtuale Linux nuova o esistente nel modello di distribuzione classica usando il portale di Azure e Azure PowerShell.
+title: "Set di disponibilità per macchine virtuali Linux classiche | Microsoft Docs"
+description: "Configurare un set di disponibilità per una macchina virtuale Linux nuova o esistente nel modello di distribuzione classica usando il portale di Azure e Azure PowerShell."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: b8624315-beca-4ec7-8441-2e98b166b548
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,16 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: c0ba77046a24346b7c197d0a0e0f9ff18f449c4a
+
 
 ---
-# Come configurare un set di disponibilità per le macchine virtuali Linux nel modello di distribuzione classica
+# <a name="how-to-configure-an-availability-set-for-linux-virtual-machines-in-the-classic-deployment-model"></a>Come configurare un set di disponibilità per le macchine virtuali Linux nel modello di distribuzione classica
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-. È anche possibile [configurare i set di disponibilità](azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets) nelle distribuzioni Azure Resource Manager.
+È anche possibile [configurare i set di disponibilità](azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets) nelle distribuzioni Azure Resource Manager.
 
 [!INCLUDE [virtual-machines-common-classic-configure-availability](../../includes/virtual-machines-common-classic-configure-availability.md)]
 
-## Passaggi successivi
-Per altri articoli sulle distribuzioni classiche, vedere [Linux ed elaborazione open source in Azure](virtual-machines-linux-opensource-links.md).
+## <a name="next-steps"></a>Passaggi successivi
+Per altri articoli sulle distribuzioni classiche, vedere [Linux ed elaborazione open source in Azure](virtual-machines-linux-opensource-links.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-<!----HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

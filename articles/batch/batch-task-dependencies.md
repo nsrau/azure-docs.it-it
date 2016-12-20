@@ -1,12 +1,12 @@
 ---
-title: Relazioni tra attività in Azure Batch | Microsoft Docs
-description: È possibile creare attività che dipendono dal completamento corretto di altre attività per l'elaborazione di carichi di lavoro di tipo MapReduce e carichi di lavoro Big Data simili in Azure Batch.
+title: "Relazioni tra attività in Azure Batch | Documentazione Microsoft"
+description: "È possibile creare attività che dipendono dal completamento corretto di altre attività per l&quot;elaborazione di carichi di lavoro di tipo MapReduce e carichi di lavoro Big Data simili in Azure Batch."
 services: batch
 documentationcenter: .net
 author: mmacy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c16850788a4c22c964037f28bf955e570551142d
+
 
 ---
 # <a name="task-dependencies-in-azure-batch"></a>Relazioni tra attività in Azure Batch
@@ -27,7 +31,7 @@ Le dipendenze dell'attività di batch consentono di creare attività pianificate
 
 È possibile creare attività che dipendono da altre attività in una relazione uno-a-uno o uno-a-molti. È anche possibile creare una dipendenza dell'intervallo in cui un'attività dipende dal corretto completamento di un gruppo di attività in un intervallo di ID attività specifico. È possibile combinare questi tre scenari di base per creare relazioni molti-a-molti.
 
-## <a name="task-dependencies-with-batch-.net"></a>Relazioni tra attività con Batch .NET
+## <a name="task-dependencies-with-batch-net"></a>Relazioni tra attività con Batch .NET
 Questo articolo illustra la configurazione di relazioni tra attività tramite la libreria [Batch .NET][net_msdn]. Viene illustrato prima come [abilitare le dipendenze tra attività](#enable-task-dependencies) nei processi, quindi viene spiegato come [configurare un'attività con dipendenze](#create-dependent-tasks). Vengono infine illustrati gli [scenari delle relazione](#dependency-scenarios) supportate da Batch.
 
 ## <a name="enable-task-dependencies"></a>Abilitare le relazioni tra attività
@@ -91,7 +95,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 ```
 
 ### <a name="one-to-many"></a>Uno-a-molti
-Per creare un'attività che dipende dal corretto completamento di più attività, è necessario fornire una raccolta di ID attività al metodo statico [TaskDependencies][net_taskdependencies].[OnId][net_onid] quando si popola la proprietà [DependsOn][net_dependson] di [CloudTask][net_cloudtask].
+Per creare un'attività che dipende dal corretto completamento di più attività, è necessario fornire una raccolta di ID attività al metodo statico [TaskDependencies][net_taskdependencies].[OnId][net_onids] quando si popola la proprietà [DependsOn][net_dependson] di [CloudTask][net_cloudtask].
 
 ```csharp
 // 'Rain' and 'Sun' don't depend on any other tasks
@@ -165,6 +169,6 @@ Per una panoramica delle diverse modalità di preparazione dei nodi per l'esecuz
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

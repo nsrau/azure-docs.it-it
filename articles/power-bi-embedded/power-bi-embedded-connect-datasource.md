@@ -1,13 +1,13 @@
 ---
-title: Microsoft Power BI Embedded - Connessione a un'origine dati
+title: Microsoft Power BI Embedded - Connessione a un&quot;origine dati
 description: Microsoft Power BI Embedded - Connettersi a origini dati
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 2a4caeb3-255d-4215-9554-0ca8e3568c13
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4b827760c2095ace72831ed579b9c309b4d8991b
+
 
 ---
 # <a name="connect-to-a-data-source"></a>Connettersi a un'origine dati
@@ -52,6 +56,9 @@ Per garantire che le prestazioni delle query inviate all'origine dati sottostant
 * [Introduzione a Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

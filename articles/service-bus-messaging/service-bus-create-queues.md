@@ -1,19 +1,23 @@
 ---
-title: Scrivere applicazioni che utilizzano le code del Bus di servizio | Microsoft Docs
+title: Scrivere applicazioni che usano le code del bus di servizio | Microsoft Docs
 description: Come scrivere una semplice applicazione basata sulle code che utilizza il Bus di servizio.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 754d91b3-1426-405e-84b4-fd36d65b114a
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2350c3e222277b6d8e837472f55a7b79346d3d21
+
 
 ---
 # <a name="create-applications-that-use-service-bus-queues"></a>Creare applicazioni che utilizzano le code del Bus di servizio
@@ -25,7 +29,7 @@ Si consideri uno scenario dal mondo della vendita al dettaglio in cui i dati di 
 
 Ogni terminale POS segnala i dati di vendita tramite l'invio di messaggi alla coda **DataCollectionQueue**. I messaggi rimangono nella coda finché vengono recuperati dal sistema di gestione dell’inventario. Questo schema viene spesso definito *messaggistica asincrona*, perché il terminale non deve attendere una risposta dal sistema di gestione inventario per continuare l'elaborazione.
 
-## <a name="why-queuing?"></a>Quali sono i vantaggi offerti dalle code?
+## <a name="why-queuing"></a>Quali sono i vantaggi offerti dalle code?
 Prima di esaminare il codice necessario per configurare questa applicazione, considerare i vantaggi dell'utilizzo di una coda in questo scenario anziché i terminali POS per parlare direttamente (in modo sincrono) con il sistema di gestione del magazzino.
 
 ### <a name="temporal-decoupling"></a>Disaccoppiamento temporaneo.
@@ -145,6 +149,9 @@ catch (Exception e)
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere appreso le nozioni di base sulle code, vedere [Creare applicazioni che usano argomenti e sottoscrizioni del bus di servizio](service-bus-create-topics-subscriptions.md) per continuare questa discussione sulle funzionalità di pubblicazione/sottoscrizione degli argomenti e delle sottoscrizioni del bus di servizio.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

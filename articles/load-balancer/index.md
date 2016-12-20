@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3c37b481761af546060e36b4a51e7d96dd4646
-ms.openlocfilehash: 7814791b5308152fa2b7d6d640401079b1a46107
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 4c909a151ec60d62ae472e24617b28fc71342eae
 
 ---
 #<a name="load-balancer-documentation"></a>Documentazione sul servizio di bilanciamento del carico
 
-Il servizio di bilanciamento del carico di Azure offre elevati livelli di disponibilità e prestazioni di rete per le applicazioni.  Load Balancer può essere configurato per bilanciare il carico del traffico Internet in ingresso verso le macchine virtuali, il traffico tra risorse cloud, il traffico in una rete virtuale cross-premise o il traffico esterno verso una macchina virtuale specifica.
+Azure Load Balancer offre elevati livelli di disponibilità e prestazioni di rete per le applicazioni.  Load Balancer può essere configurato per bilanciare il carico del traffico Internet in ingresso verso le macchine virtuali, il traffico tra risorse cloud, il traffico in una rete virtuale cross-premise o il traffico esterno verso una macchina virtuale specifica.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -111,7 +111,7 @@ Il servizio di bilanciamento del carico di Azure offre elevati livelli di dispon
                 <div class="card">
                     <div class="cardText">
                         <h3>Interfaccia della riga di comando di Azure</h3>
-                        <p>Interfaccia della riga di comando di Azure per Load Balancer</p>
+                        <p>Interfaccia della riga di comando di Azure per il bilanciamento del carico</p>
                     </div>
                 </div>
             </div>
@@ -156,7 +156,7 @@ Il servizio di bilanciamento del carico di Azure offre elevati livelli di dispon
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Informazioni di riferimento sull'API REST del servizio di bilanciamento del carico</p>
+                        <p>API REST di Bilanciamento del carico</p>
                     </div>
                 </div>
             </div>
@@ -175,6 +175,6 @@ Scaricare la documentazione sul servizio di bilanciamento del carico </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Usare componenti Python in una topologia Storm in HDinsight | Microsoft Docs
-description: Informazioni su come usare i componenti Python con Apache Storm in Azure HDInsight. Si apprenderà come usare i componenti Python da una topologia Storm basata su Java e su Clojure.
+title: Usare componenti Python in una topologia Storm in HDinsight | Documentazione Microsoft
+description: "Informazioni su come usare i componenti Python con Apache Storm in Azure HDInsight. Si apprenderà come usare i componenti Python da una topologia Storm basata su Java e su Clojure."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
 ms.devlang: python
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4b667dda33c61c44090cf89ebeebece0b19c84ea
+
 
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Sviluppare topologie Apache Storm con Python in HDInsight
@@ -39,7 +43,7 @@ Con il modulo **storm.py** è possibile creare spout Python che usano i dati e b
 
 Poiché inoltre i cluster Storm vengono eseguiti in modalità distribuita, è necessario assicurarsi che tutti i moduli richiesti dai componenti Python siano disponibili in tutti i nodi di lavoro del cluster. Storm non offre un modo semplice per eseguire questa operazione per le risorse in più linguaggi, quindi è necessario includere tutte le dipendenze come parte del file JAR per la topologia oppure installare manualmente le dipendenze in ogni nodo di lavoro del cluster.
 
-### <a name="java-vs.-clojure-topology-definition"></a>Definizione della topologia Java rispetto a Clojure
+### <a name="java-vs-clojure-topology-definition"></a>Definizione della topologia Java rispetto a Clojure
 Dei due metodi per la definizione di una topologia, Clojure è di gran lunga il più facile e chiaro, perché consente di fare riferimento direttamente ai componenti Python nella definizione della topologia. Per le definizioni della topologia basata su Java, è necessario specificare anche i componenti Java che gestiscono elementi come la dichiarazione dei campi nelle tuple restituite dai componenti Python.
 
 Entrambi i metodi sono descritti in questo documento insieme ai progetti di esempio.
@@ -92,10 +96,10 @@ Per distribuire il progetto in un cluster HDInsight che esegue Apache Storm, seg
     Verrà creato un file denominato **WordCount--1.0-SNAPSHOT.jar** nella directory `/target` di questo progetto.
 2. Caricare il file JAR nel cluster Hadoop usando uno dei metodi seguenti:
    
-   * Per i cluster HDInsight __basati su Linux: __usare `scp WordCount-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:WordCount-1.0-SNAPSHOT.jar` per copiare il file JAR nel cluster, sostituendo USERNAME con il nome utente SSH e CLUSTERNAME con il nome del cluster HDInsight.
+   * Per i cluster HDInsight **basati su Linux: **usare `scp WordCount-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:WordCount-1.0-SNAPSHOT.jar` per copiare il file JAR nel cluster, sostituendo USERNAME con il nome utente SSH e CLUSTERNAME con il nome del cluster HDInsight.
      
        Una volta che il file è stato caricato, connettersi al cluster tramite SSH e avviare la topologia con `storm jar WordCount-1.0-SNAPSHOT.jar com.microsoft.example.WordCount wordcount`
-   * Per i cluster HDInsight __basati su Windows: __connettersi al Dashboard di Storm passando a HTTPS://CLUSTERNAME.azurehdinsight.net/ nel browser. Sostituire CLUSTERNAME con il nome del cluster HDInsight e fornire il nome e la password dell'amministratore, quando richiesto.
+   * Per i cluster HDInsight **basati su Windows: **connettersi al Dashboard di Storm passando a HTTPS://CLUSTERNAME.azurehdinsight.net/ nel browser. Sostituire CLUSTERNAME con il nome del cluster HDInsight e fornire il nome e la password dell'amministratore, quando richiesto.
      
        Usando il modulo, eseguire le azioni seguenti:
      
@@ -174,6 +178,9 @@ In questo documento si è appreso come usare i componenti Python da una topologi
 * [Come usare Python per il flusso di processi MapReduce](hdinsight-hadoop-streaming-python.md)
 * [Come usare funzioni definite dall'utente Python in Pig e Hive](hdinsight-python.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

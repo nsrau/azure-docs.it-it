@@ -1,13 +1,13 @@
 ---
 title: Script personalizzati nelle macchine virtuali Linux | Microsoft Docs
-description: Automatizzare le attività di configurazione delle macchine virtuali Linux usando l'estensione script personalizzata
+description: "Automatizzare le attività di configurazione delle macchine virtuali Linux usando l&quot;estensione script personalizzata"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: cf17ab2b-8d7e-4078-b6df-955c6d5071c2
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,31 +15,35 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/22/2016
 ms.author: nepeters
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: bf6c1423ca2f88d7a881c87cf1e7d42302c33a9c
+
 
 ---
-# Uso dell'estensione script personalizzata di Azure con macchine virtuali Linux
+# <a name="using-the-azure-custom-script-extension-with-linux-virtual-machines"></a>Uso dell'estensione script personalizzata di Azure con macchine virtuali Linux
 L'estensione script personalizzata scarica ed esegue script sulle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o qualsiasi altra attività di configurazione o gestione. Gli script possono essere scaricati dall'archiviazione di Azure, o da un altro percorso Internet accessibile, oppure possono essere forniti al runtime dell'estensione. L'estensione script personalizzata è integrabile nei modelli di Azure Resource Manager e può essere eseguita anche tramite l'interfaccia della riga di comando di Azure, PowerShell, il portale di Azure o l'API REST di Macchine virtuali di Azure.
 
 Questo documento descrive come usare l'estensione script personalizzata dall'interfaccia della riga di comando di Azure, e da un modello di Azure Resource Manager, e inoltre illustra i passaggi per la risoluzione dei problemi nei sistemi Linux.
 
-## Configurazione dell'estensione
+## <a name="extension-configuration"></a>Configurazione dell'estensione
 La configurazione dell'estensione script personalizzata specifica informazioni come il percorso dello script e il comando da eseguire. Questa configurazione può essere archiviata nei file di configurazione, specificata sulla riga di comando o definita in un modello di Azure Resource Manager. I dati sensibili possono essere archiviati in una configurazione protetta, che verrà crittografata e decrittografata solo all'interno della macchina virtuale. La configurazione protetta è utile quando il comando di esecuzione include segreti, ad esempio una password.
 
-### Configurazione pubblica
+### <a name="public-configuration"></a>Configurazione pubblica
 Schema:
 
 * **commandToExecute**: (obbligatorio, stringa) script del punto di ingresso da eseguire.
 * **fileUris**: (facoltativo, matrice di stringhe) URL relativi ai file da scaricare.
-* **timestamp**: (facoltativo, intero) usare questo campo solo per attivare una nuova esecuzione dello script modificando il valore del campo.
+* **timestamp** : (facoltativo, intero) usare questo campo solo per attivare una nuova esecuzione dello script modificando il valore del campo.
 
-```none
+```json
 {
   "fileUris": ["<url>"],
   "commandToExecute": "<command-to-execute>"
 }
 ```
 
-### Configurazione protetta
+### <a name="protected-configuration"></a>Configurazione protetta
 Schema:
 
 * **commandToExecute**: (facoltativo, stringa) script del punto di ingresso da eseguire. Usare in alternativa questo campo se il comando contiene segreti, ad esempio password.
@@ -54,21 +58,24 @@ Schema:
 }
 ```
 
-## Interfaccia della riga di comando di Azure
+## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 Quando si usa l'interfaccia della riga di comando di Azure per eseguire l'estensione script personalizzata, creare uno o più file di configurazione contenenti almeno il relativo URI e il comando di esecuzione dello script.
 
-```none
-azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /scirpt-config.json
+```azurecli
+azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
+  --auto-upgrade-minor-version --public-config-path /script-config.json
 ```
 
 Facoltativamente, il comando può essere eseguito mediante le opzioni `--public-config` e `--private-config`, in modo che la configurazione possa essere specificata durante l'esecuzione e senza un file di configurazione separato.
 
-```none
-azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
+```azurecli
+azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
+  --auto-upgrade-minor-version \
+  --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
-### Esempi di interfaccia della riga di comando di Azure
-**Esempio 1**: configurazione pubblica con file di script.
+### <a name="azure-cli-examples"></a>Esempi di interfaccia della riga di comando di Azure
+**Esempio 1** : configurazione pubblica con file di script.
 
 ```json
 {
@@ -79,11 +86,12 @@ azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.E
 
 Comando dell'interfaccia della riga di comando di Azure:
 
-```none
-azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /public.json
+```azurecli
+azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
+  --auto-upgrade-minor-version --public-config-path /public.json
 ```
 
-**Esempio 2**: configurazione pubblica senza file di script.
+**Esempio 2** : configurazione pubblica senza file di script.
 
 ```json
 {
@@ -93,11 +101,12 @@ azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.E
 
 Comando dell'interfaccia della riga di comando di Azure:
 
-```none
-azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /public.json
+```azurecli
+azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
+  --auto-upgrade-minor-version --public-config-path /public.json
 ```
 
-**Esempio 3**: vengono usati un file di configurazione pubblica per specificare l'URI del file di script e un file di configurazione protetta per specificare il comando da eseguire.
+**Esempio 3** : vengono usati un file di configurazione pubblica per specificare l'URI del file di script e un file di configurazione protetta per specificare il comando da eseguire.
 
 File di configurazione pubblica:
 
@@ -107,7 +116,7 @@ File di configurazione pubblica:
 }
 ```
 
-File di configurazione protetta:
+File di configurazione protetta:  
 
 ```json
 {
@@ -117,15 +126,16 @@ File di configurazione protetta:
 
 Comando dell'interfaccia della riga di comando di Azure:
 
-```none
-azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path ./public.json --private-config-path ./protected.json
+```azurecli
+azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
+  --auto-upgrade-minor-version --public-config-path ./public.json --private-config-path ./protected.json
 ```
 
-## Modello di Resource Manager
+## <a name="resource-manager-template"></a>Modello di Resource Manager
 L'estensione script personalizzata di Azure può essere eseguita durante la fase di distribuzione della macchina virtuale usando un modello di Resource Manager. A tale scopo, aggiungere una risorsa JSON formattata correttamente al modello di distribuzione.
 
-### Esempi di Resource Manager
-**Esempio 1**: configurazione pubblica.
+### <a name="resource-manager-examples"></a>Esempi di Resource Manager
+**Esempio 1** : configurazione pubblica.
 
 ```json
 {
@@ -154,7 +164,7 @@ L'estensione script personalizzata di Azure può essere eseguita durante la fase
 }
 ```
 
-**Esempio 2**: comando di esecuzione nella configurazione protetta.
+**Esempio 2** : comando di esecuzione nella configurazione protetta.
 
 ```json
 {
@@ -187,28 +197,28 @@ L'estensione script personalizzata di Azure può essere eseguita durante la fase
 
 Per un esempio completo, vedere la demo di .NET Core Music Store: [Demo di Music Store](https://github.com/neilpeterson/nepeters-azure-templates/tree/master/dotnet-core-music-linux-vm-sql-db).
 
-## Risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 Quando viene eseguita l'estensione script personalizzata, lo script viene creato o scaricato in una directory simile all'esempio seguente. Anche l'output del comando viene salvato in questa directory, nei file `stdout` e `stderr`.
 
-```none
-/var/lib/azure/custom-script/download/0/
+```bash
+/var/lib/waagent/custom-script/download/0/
 ```
 
 L'estensione script di Azure genera un log che è possibile trovare nella directory seguente.
 
-```none
+```bash
 /var/log/azure/customscript/handler.log
 ```
 
 Lo stato dell'esecuzione dell'estensione script personalizzata può essere recuperato anche con l'interfaccia della riga di comando di Azure.
 
-```none
-azure vm extension get <resource-group> <vm-name>
+```azurecli
+azure vm extension get myResourceGroup myVM
 ```
 
 L'output ha un aspetto simile al testo seguente:
 
-```none
+```azurecli
 info:    Executing command vm extension get
 + Looking up the VM "scripttst001"
 data:    Publisher                   Name                                      Version  State
@@ -218,7 +228,12 @@ data:    Microsoft.OSTCExtensions    Microsoft.Insights.VMDiagnosticsSettings  2
 info:    vm extension get command OK
 ```
 
-## Passaggi successivi
-Per informazioni su altre estensioni script delle macchine virtuali, vedere [Azure Script Extension overview for Linux](virtual-machines-linux-extensions-features.md) (Informazioni generali sulle estensioni script di Azure per Linux).
+## <a name="next-steps"></a>Passaggi successivi
+Per informazioni su altre estensioni script delle macchine virtuali, vedere [Panoramica sulle estensioni script di Azure per Linux](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

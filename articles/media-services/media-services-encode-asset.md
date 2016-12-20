@@ -2,11 +2,11 @@
 title: Panoramica e confronto dei codificatori multimediali su richiesta di Azure | Microsoft Docs
 description: Questo argomento offre una panoramica e un confronto tra i codificatori multimediali su richiesta di Azure.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: e6bfc068-fa46-4d68-b1ce-9092c8f3a3c9
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,13 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: dc153e837a20f475c0e0b03ac698f9f84a045364
+
 
 ---
-# Panoramica e confronto dei codificatori multimediali su richiesta di Azure
-## Panoramica della codifica
+# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Panoramica e confronto dei codificatori multimediali su richiesta di Azure
+## <a name="encoding-overview"></a>Panoramica della codifica
 Servizi multimediali di Azure offre diverse opzioni per la codifica di servizi multimediali nel cloud.
 
-Quando si iniziano ad utilizzare i servizi multimediali, è importante comprendere la differenza tra codec e formati di file. I codec sono costituiti da software che implementa gli algoritmi di compressione/decompressione, mentre i formati di file sono contenitori che includono il video compresso.
+Quando si iniziano ad utilizzare i servizi multimediali, è importante comprendere la differenza tra codec e formati di file.
+I codec sono costituiti da software che implementa gli algoritmi di compressione/decompressione, mentre i formati di file sono contenitori che includono il video compresso.
 
 Servizi multimediali fornisce il servizio di creazione dinamica dei pacchetti, che consente di distribuire i contenuti codificati in formato MP4 o Smooth Streaming con velocità in bit adattiva in formati di streaming supportati da Servizi multimediali (MPEG DASH, HLS, Smooth Streaming, HDS), senza dover ricreare i pacchetti con questi formati di streaming.
 
@@ -38,47 +43,47 @@ In questo articolo è fornita una breve panoramica dei codificatori multimediali
 
 Si noti che per impostazione predefinita, in ciascun account di Servizi multimediali può essere attiva una sola attività di codifica alla volta. È tuttavia possibile riservare unità di codifica che consentano di eseguire più attività di codifica contemporaneamente, una per ciascuna unità acquistata. Per informazioni, vedere [Scalabilità dell’unità di codifica](media-services-scale-media-processing-overview.md).
 
-## Codificatore multimediale standard
-### Utilizzo
+## <a name="media-encoder-standard"></a>Codificatore multimediale standard
+### <a name="how-to-use"></a>Utilizzo
 [Come codificare con Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-### Formati
+### <a name="formats"></a>Formati
 [Codec e formati](media-services-media-encoder-standard-formats.md)
 
-### Impostazioni predefinite
+### <a name="presets"></a>Impostazioni predefinite
 Media Encoder Standard viene configurato mediante un set di impostazioni descritto [qui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
-### Metadati di input e output
+### <a name="input-and-output-metadata"></a>Metadati di input e output
 I metadati di input dei codificatori sono descritti [qui](http://msdn.microsoft.com/library/azure/dn783120.aspx).
 
 I metadati di output dei codificatori sono descritti [qui](http://msdn.microsoft.com/library/azure/dn783217.aspx).
 
-### Generare anteprime
+### <a name="generate-thumbnails"></a>Generare anteprime
 Per informazioni, vedere l'argomento [Come generare anteprime utilizzando Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#thumbnails).
 
-### Tagliare video (ritaglio)
+### <a name="trim-videos-clipping"></a>Tagliare video (ritaglio)
 Per informazioni, vedere [Come tagliare video usando Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#trim_video).
 
-### Creare sovrimpressioni
+### <a name="create-overlays"></a>Creare sovrimpressioni
 Per informazioni, vedere [Come creare sovrimpressioni usando Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#overlay).
 
-### Vedere anche
+### <a name="see-also"></a>Vedere anche
 [Blog di Servizi multimediali](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
-## Flusso di lavoro Premium del codificatore multimediale
-### Overview
+## <a name="media-encoder-premium-workflow"></a>Flusso di lavoro Premium del codificatore multimediale
+### <a name="overview"></a>Overview
 [Introduzione alla codifica Premium in Servizi multimediali di Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
-### Utilizzo
-Il flusso di lavoro Premium del codificatore multimediale viene configurato usando flussi di lavoro complessi. Per creare e aggiornare i file di un flusso di lavoro, è possibile usare lo strumento [Progettazione flussi di lavoro](media-services-workflow-designer.md).
+### <a name="how-to-use"></a>Utilizzo
+Il flusso di lavoro Premium del codificatore multimediale viene configurato usando flussi di lavoro complessi. Per creare e aggiornare i file di un flusso di lavoro, è possibile usare lo strumento [Progettazione flussi di lavoro](media-services-workflow-designer.md) .
 
 [Come usare la codifica Premium in Servizi multimediali di Azure](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
 
-### Problemi noti
-Se il video di input non contiene i sottotitoli codificati, l'asset di output conterrà comunque un file TTML vuoto.
+### <a name="known-issues"></a>Problemi noti
+Se il video di input non contiene i sottotitoli codificati, l'asset di output conterrà comunque un file TTML vuoto. 
 
-## <a id="compare_encoders"></a>Confronto tra i codificatori
-### <a id="billing"></a>Metro di fatturazione usato da ogni codificatore
+## <a name="a-idcompareencodersacompare-encoders"></a><a id="compare_encoders"></a>Confronto tra i codificatori
+### <a name="a-idbillingabilling-meter-used-by-each-encoder"></a><a id="billing"></a>Metro di fatturazione usato da ogni codificatore
 | Nome del processore multimediale | Prezzi applicabili | Note |
 | --- | --- | --- |
 | **Codificatore multimediale standard** |CODIFICATORE |Le attività di codifica verranno addebitate in base alla dimensione dell'asset di output, in gigabyte, alla tariffa specificata [qui][1], nella colonna CODIFICATORE. |
@@ -86,7 +91,7 @@ Se il video di input non contiene i sottotitoli codificati, l'asset di output co
 
 Questa sezione mette a confronto le funzionalità di codifica di **Media Encoder Standard** e di **Flusso di lavoro Premium del codificatore multimediale**.
 
-### Contenitore di input/formati di file
+### <a name="input-containerfile-formats"></a>Contenitore di input/formati di file
 | Contenitore di input/formati di file | Codificatore multimediale standard | Flusso di lavoro Premium del codificatore multimediale |
 | --- | --- | --- |
 | Adobe® Flash® F4V |Sì |Sì |
@@ -103,7 +108,7 @@ Questa sezione mette a confronto le funzionalità di codifica di **Media Encoder
 | Matroska/WebM |Sì |No |
 | QuickTime (.mov) |Sì |No |
 
-### Codec video di input
+### <a name="input-video-codecs"></a>Codec video di input
 | Codec video di input | Codificatore multimediale standard | Flusso di lavoro Premium del codificatore multimediale |
 | --- | --- | --- |
 | AVC 8 bit/10 bit, fino a 4:2:2, incluso AVCIntra |4:2:0 e 4:2:2 a 8 bit |Sì |
@@ -123,7 +128,7 @@ Questa sezione mette a confronto le funzionalità di codifica di **Media Encoder
 | Apple ProRes 4444 |Sì |No |
 | Apple ProRes 4444 XQ |Sì |No |
 
-### Codec audio di input
+### <a name="input-audio-codecs"></a>Codec audio di input
 | Codec audio di input | Codificatore multimediale standard | Flusso di lavoro Premium del codificatore multimediale |
 | --- | --- | --- |
 | AES (SMPTE 331M e 302M, AES3-2003) |No |Sì |
@@ -136,10 +141,10 @@ Questa sezione mette a confronto le funzionalità di codifica di **Media Encoder
 | Windows Media Audio |Sì |Sì |
 | WAV/PCM |Sì |Sì |
 | [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Sì |No |
-| [Opus](https://en.wikipedia.org/wiki/Opus_\(audio_format\)) |Sì |No |
+| [Opus](https://en.wikipedia.org/wiki/Opus_\(audio_format\)) |sì |No |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sì |No |
 
-### Contenitore di output/formati di file
+### <a name="output-containerfile-formats"></a>Contenitore di output/formati di file
 | Contenitore di output/formati di file | Codificatore multimediale standard | Flusso di lavoro Premium del codificatore multimediale |
 | --- | --- | --- |
 | Adobe® Flash® F4V |No |Sì |
@@ -152,18 +157,17 @@ Questa sezione mette a confronto le funzionalità di codifica di **Media Encoder
 | AVI (non compresso 8 bit/10 bit) |No |Sì |
 | Formato di file Smooth Streaming (PIFF 1.3) |No |Sì |
 
-### Codec video di output
+### <a name="output-video-codecs"></a>Codec video di output
 | Codec video di output | Codificatore multimediale standard | Flusso di lavoro Premium del codificatore multimediale |
 | --- | --- | --- |
 | AVC (H.264; 8 bit; fino a High Profile, Level 5.2; 4K Ultra HD; AVC Intra) |Solo 4:2:0 a 8 bit |Sì |
 | Avid DNxHD (in MXF) |No |Sì |
-| DVCPro/DVCProHD (in MXF) |No |Sì |
 | MPEG-2 (fino a 4:2:2 Profile e High Level; incluse varianti quali XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10) |No |Sì |
 | MPEG-1 |No |Sì |
 | Windows Media Video/VC-1 |No |Sì |
 | Creazione anteprime JPEG |No |Sì |
 
-### Codec audio di output
+### <a name="output-audio-codecs"></a>Codec audio di output
 | Codec audio di output | Codificatore multimediale standard | Flusso di lavoro Premium del codificatore multimediale |
 | --- | --- | --- |
 | AES (SMPTE 331M e 302M, AES3-2003) |No |Sì |
@@ -174,8 +178,8 @@ Questa sezione mette a confronto le funzionalità di codifica di **Media Encoder
 | MP3 (MPEG-1 Audio Layer 3) |No |Sì |
 | Windows Media Audio |No |Sì |
 
-## Codici di errore
-Nella tabella seguente sono elencati i codici di errore che potrebbero essere restituiti quando si verifica un errore durante l'esecuzione di attività di codifica. Per ottenere i dettagli dell'errore nel codice .NET, usare la classe [ErrorDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx). Per ottenere i dettagli dell'errore nel codice REST, usare l'API REST [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx).
+## <a name="error-codes"></a>Codici di errore
+Nella tabella seguente sono elencati i codici di errore che potrebbero essere restituiti quando si verifica un errore durante l'esecuzione di attività di codifica.  Per ottenere i dettagli dell'errore nel codice .NET, usare la classe [ErrorDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) . Per ottenere i dettagli dell'errore nel codice REST, usare l'API REST [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) .
 
 | ErrorDetail.Code | Le possibili cause dell'errore |
 | --- | --- |
@@ -188,21 +192,25 @@ Nella tabella seguente sono elencati i codici di errore che potrebbero essere re
 | ErrorProcessingTask |Categoria di altri errori che il processore di contenuti multimediali rileva durante l'elaborazione dell'attività non correlati al contenuto. |
 | ErrorUploadingOutputAsset |Categoria di errori durante il caricamento di asset di output |
 | ErrorCancelingTask |Categoria di errori per coprire gli errori durante il tentativo di annullare l'attività |
-| TransientError |Categoria di errori per coprire i problemi transitori (ad esempio, problemi di rete temporanei con Archiviazione di Azure) |
+| TransientError |Categoria di errori sui problemi transitori (es. problemi di rete temporanei con Archiviazione di Azure) |
 
-Per ottenere assistenza dal team di **Servizi multimediali**, aprire un [ticket di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Per ottenere assistenza dal team di **Servizi multimediali** , aprire un [ticket di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## Percorsi di apprendimento di Servizi multimediali
+## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Articoli correlati
+## <a name="related-articles"></a>Articoli correlati
 * [Eseguire attività di codifica avanzata personalizzando i set di impostazioni di Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md)
 * [Quote e limitazioni](media-services-quotas-and-limitations.md)
 
-<!--Reference links in article--> 
+<!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

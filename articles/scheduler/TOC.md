@@ -21,9 +21,8 @@
 ### [Autenticazione in uscita](scheduler-outbound-authentication.md)
 
 # Riferimento
-## [Cmdlet di PowerShell per l'Utilità di pianificazione di Azure](https://msdn.microsoft.com/en-us/library/mt490138(v=azure.200).aspx)
-## [.NET](/dotnet/api)
-## [REST](/rest/api/scheduler/)
+## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [REST](/rest/api/scheduler)
 
 # Risorse
 ## [Prezzi](https://azure.microsoft.com/pricing/details/scheduler/)
@@ -36,6 +35,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

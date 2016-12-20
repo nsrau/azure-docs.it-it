@@ -1,18 +1,22 @@
 ---
-title: Utilizzare Analytics - Il potente strumento di ricerca di Application Insights | Microsoft Docs
+title: 'Usare Analytics: il potente strumento di ricerca di Application Insights | Microsoft Docs'
 description: 'Utilizzare Analytics: lo strumento di ricerca diagnostica incluso in Application Insights '
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: danhadari
 manager: douge
-
+ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
-ms.author: danha
+ms.date: 11/16/2016
+ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
+ms.openlocfilehash: f9c02c11c6f0143f8da7a329f23033120f31ba59
+
 
 ---
 # <a name="using-analytics-in-application-insights"></a>Uso di Analytics in Application Insights
@@ -34,17 +38,20 @@ L'esercitazione inline fornisce alcune informazioni su come procedere.
 ### <a name="write-a-query"></a>Scrivere una query
 ![Visualizzazione schema](./media/app-insights-analytics-using/150.png)
 
-Iniziare con i nomi delle tabelle elencate a sinistra oppure con l'operatore [range](app-insights-analytics-reference.md#range-operator) o [union](app-insights-analytics-reference.md#union-operator). Usare `|` per creare una pipeline di [operatori](app-insights-analytics-reference.md#queries-and-operators). IntelliSense suggerisce gli operatori e alcuni elementi delle espressioni che è possibile usare.
+Iniziare con i nomi delle tabelle elencate a sinistra oppure con l'operatore [range](app-insights-analytics-reference.md#range-operator) o [union](app-insights-analytics-reference.md#union-operator). Usare `|` per creare una pipeline di [operatori](app-insights-analytics-reference.md#queries-and-operators). 
 
-Vedere la [panoramica del linguaggio di Analisi](app-insights-analytics-tour.md) e le [informazioni di riferimento sul linguaggio](app-insights-analytics-reference.md).
+IntelliSense suggerisce gli operatori e gli elementi delle espressioni che è possibile usare. Fare clic sull'icona informazioni o premere CTRL+BARRA SPAZIATRICE per una descrizione più dettagliata ed esempi di utilizzo di ogni elemento.
+
+Vedere la [panoramica del linguaggio di Analytics](app-insights-analytics-tour.md) e le [informazioni di riferimento sul linguaggio](app-insights-analytics-reference.md).
 
 ### <a name="run-a-query"></a>Eseguire una query
 ![Esecuzione di una query](./media/app-insights-analytics-using/130.png)
 
 1. Nelle query è possibile usare interruzioni di riga.
 2. Posizionare il cursore all'interno o alla fine della query da eseguire.
+3. Controllare l'intervallo di tempo della query. È possibile modificarlo o ignorarlo inserendo la propria clausola [`where...timestamp...`](app-insights-analytics-tour.md#time-range) nella query.
 3. Fare clic su Vai per eseguire la query.
-4. Non inserire righe vuote nella query. È possibile mantenere più query separate in un'unica scheda di query, separandole con righe vuote. Verrà eseguita solo quella con il cursore.
+4. Non inserire righe vuote nella query. È possibile mantenere più query separate in un'unica scheda di query, separandole con righe vuote. Viene eseguita solo la query con il cursore.
 
 ### <a name="save-a-query"></a>Salvare una query
 ![Salvataggio di una query](./media/app-insights-analytics-using/140.png)
@@ -84,15 +91,28 @@ Per ordinare più di una colonna, usare il raggruppamento. Abilitare il raggrupp
 
 ![Gruppo](./media/app-insights-analytics-using/060.png)
 
-### <a name="missing-some-results?"></a>Mancano alcuni risultati?
-È previsto un limite di 10.000 righe di risultati restituiti dal portale. Se il numero di risultati supera il limite, verrà visualizzato un avviso. In tal caso, l'ordinamento dei risultati nella tabella non permette sempre di visualizzare i primo o gli ultimi risultati effettivi. 
+### <a name="missing-some-results"></a>Mancano alcuni risultati?
 
-È consigliabile evitare di raggiungere il limite. Usare operatori quali:
+Se si ritiene che non siano visualizzati tutti i risultati previsti, esistono un paio di possibili motivi.
 
-* [where timestamp > ago(3d)](app-insights-analytics-reference.md#where-operator)
-* [timestamp top 100 by](app-insights-analytics-reference.md#top-operator) 
-* [take 100](app-insights-analytics-reference.md#take-operator)
-* [summarize ](app-insights-analytics-reference.md#summarize-operator) 
+* **Filtro intervallo di tempo**. Per impostazione predefinita, vengono visualizzati solo i risultati delle ultime 24 ore. È presente un filtro automatico che limita l'intervallo dei risultati recuperati dalle tabelle di origine. 
+
+    È possibile tuttavia modificare il filtro intervallo di tempo usando il menu a discesa.
+
+    In alternativa, è possibile ignorare l'intervallo automatico inserendo la propria clausola [`where  ... timestamp ...` ](app-insights-analytics-reference.md#where-operator) nella query. Ad esempio:
+
+    `requests | where timestamp > ago('2d')`
+
+* **Limite dei risultati**. È previsto un limite di 10.000 righe di risultati restituiti dal portale. Se il numero di risultati supera il limite, verrà visualizzato un avviso. In tal caso, l'ordinamento dei risultati nella tabella non permette sempre di visualizzare i primo o gli ultimi risultati effettivi. 
+
+    È consigliabile evitare di raggiungere il limite. Usare il filtro intervallo di tempo oppure usare gli operatori, ad esempio:
+
+  * [timestamp top 100 by](app-insights-analytics-reference.md#top-operator) 
+  * [take 100](app-insights-analytics-reference.md#take-operator)
+  * [summarize ](app-insights-analytics-reference.md#summarize-operator) 
+  * [where timestamp > ago(3d)](app-insights-analytics-reference.md#where-operator)
+
+Per visualizzare più di 10.000 righe, è consigliabile usare [Esportazione continua](app-insights-export-telemetry.md). Analytics è progettato per l'analisi e non per il recupero di dati non elaborati.
 
 ## <a name="diagrams"></a>Diagrammi
 Selezionare il tipo di diagramma desiderato:
@@ -112,13 +132,16 @@ Ciò significa che, quando si crea un dashboard per monitorare le prestazioni o 
 
 È possibile aggiungere una tabella al dashboard se contiene un massimo di quattro colonne. Verranno visualizzate solo le prime sette righe.
 
-#### <a name="dashboard-refresh"></a>Aggiornamento del dashboard
-Il grafico aggiunto al dashboard viene aggiornato automaticamente eseguendo di nuovo la query ogni mezz'ora circa.
+### <a name="dashboard-refresh"></a>Aggiornamento del dashboard
+Il grafico aggiunto al dashboard viene aggiornato automaticamente eseguendo di nuovo la query ogni due ore circa.
 
-#### <a name="automatic-simplifications"></a>Semplificazioni automatiche
-In alcuni casi, determinate semplificazioni vengono applicate a un grafico quando lo si aggiunge a un dashboard.
+### <a name="automatic-simplifications"></a>Semplificazioni automatiche
 
-Quando si aggiunge un grafico che visualizza molti bin discreti, in genere un grafico a barre, i bin meno popolati vengono raggruppati automaticamente in un unico bin denominato "other". Ad esempio, questa query:
+Quando si aggiunge a un grafico al dashboard, vengono applicate al grafico determinate semplificazioni.
+
+**Restrizione di orario:** le query vengono automaticamente limitate agli ultimi 14 giorni. Si tratta dello stesso effetto che si ottiene quando la query include `where timestamp > ago(14d)`.
+
+**Restrizione al numero di bin:** se si visualizza un grafico con numerosi bin discreti, in genere un grafico a barre, i bin meno popolati vengono automaticamente raggruppati in un unico bin "altri". Ad esempio, questa query:
 
     requests | summarize count_search = count() by client_CountryOrRegion
 
@@ -134,23 +157,66 @@ ma quando la si aggiunge un dashboard, è simile alla figura seguente:
 Dopo aver eseguito una query, è possibile scaricare un file con estensione csv. Fare clic su **Esporta in Excel**.
 
 ## <a name="export-to-power-bi"></a>Esportare in Power BI
-1. Posizionare il cursore in una query e scegliere **Esporta in Power BI**.
-   
-    ![](./media/app-insights-analytics-using/240.png)
-   
-    Verrà scaricato un file di script M.
-2. Copiare lo script del linguaggio M nell'editor di query avanzato di Power BI Desktop.
-   
-   * Aprire il file esportato.
-   * In Power BI Desktop selezionare **Recupera dati, Query vuota, Editor avanzato** e incollare lo script del linguaggio M.
-     
-     ![](./media/app-insights-analytics-using/250.png)
-3. Se necessario, modificare le credenziali e procedere alla creazione del report.
-   
-    ![](./media/app-insights-analytics-using/260.png)
+Posizionare il cursore in una query e scegliere **Esporta in Power BI**.
+
+![Esportazione da Analisi a Power BI](./media/app-insights-analytics-using/240.png)
+
+Si esegue la query in Power BI. È possibile impostarla in modo che venga aggiornata secondo una pianificazione.
+
+Con Power BI, è possibile creare i dashboard per raggruppare i dati da un'ampia gamma di origini.
+
+[Altre informazioni sull'esportazione in Power BI](app-insights-export-power-bi.md)
+
+
+## <a name="automation"></a>Automazione
+
+È possibile eseguire le query di Analytics attraverso l'[API REST di accesso ai dati](https://dev.applicationinsights.io/), ad esempio usando PowerShell.
+
+
+
+## <a name="import-data"></a>Importa dati
+
+È possibile importare i dati da un file CSV. Un utilizzo tipico consiste nell'importare i dati statici che è possibile unire alle tabelle dei dati di telemetria. 
+
+Ad esempio, se nei dati di telemetria vengono identificati utenti autenticati tramite un alias o un ID offuscato, è possibile importare una tabella che esegue il mapping degli alias sui nomi reali. Eseguendo un join nei dati di telemetria della richiesta, è possibile identificare gli utenti in base ai nomi reali nei report di Analytics.
+
+### <a name="define-your-data-schema"></a>Definire lo schema dei dati
+
+1. Fare clic su **Impostazioni** (in alto a sinistra) e quindi su **Origini dati**. 
+2. Aggiungere un'origine dati, seguendo le istruzioni. Viene chiesto di fornire un esempio dei dati che deve includere almeno dieci righe. È quindi possibile correggere lo schema.
+
+Lo schema definisce un'origine dati che sarà possibile usare per importare le singole tabelle.
+
+### <a name="import-a-table"></a>Importare una tabella
+
+1. Aprire la definizione dell'origine dati dall'elenco.
+2. Fare clic su "Carica" e seguire le istruzioni per caricare la tabella. Poiché l'operazione prevede una chiamata a un'API REST risulterà facile da automatizzare. 
+
+La tabella è ora disponibile per l'utilizzo nelle query di Analytics. Verrà visualizzata in Analytics 
+
+### <a name="use-the-table"></a>Usare la tabella
+
+Si supponga che la definizione dell'origine dati sia denominata `usermap` e che abbia due campi, `realName` e `user_AuthenticatedId`. Poiché la tabella `requests` contiene anche un campo denominato `user_AuthenticatedId`, creare un join risulterà facile:
+
+```AIQL
+
+    requests
+    | where notempty(user_AuthenticatedId) | take 10
+    | join kind=leftouter ( usermap ) on user_AuthenticatedId 
+```
+La tabella di richieste risultante ha una colonna aggiuntiva, `realName`.
+
+### <a name="import-from-logstash"></a>Importare da LogStash
+
+Se si usa [LogStash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html), è possibile usare Analytics per eseguire query nei log. Usare il [plug-in che invia pipe dei dati in Analytics](https://github.com/Microsoft/logstash-output-application-insights). 
+
+
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

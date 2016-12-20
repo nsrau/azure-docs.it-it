@@ -79,7 +79,7 @@
 ##### [Ritagliare video con Media Encoder Standard](media-services-crop-video.md)
 ### Flusso di lavoro Premium del codificatore multimediale
 #### [Codec e formati del flusso di lavoro Premium del codificatore multimediale](media-services-premium-workflow-encoder-formats.md)
-#### Codificare con il flusso di lavoro Premium del codificatore multimediale.
+#### Codificare con il flusso di lavoro Premium del codificatore multimediale
 ##### [Flusso di lavoro Premium del codificatore multimediale](media-services-encode-with-premium-workflow.md)
 ##### [Esercitazioni sul flusso di lavoro Premium del codificatore multimediale](media-services-media-encoder-premium-workflow-tutorials.md)
 ##### [Creare flussi di lavoro di codifica avanzati con Progettazione flussi di lavoro](media-services-workflow-designer.md)
@@ -195,16 +195,18 @@
 ### [Logica di ripetizione dei tentativi](media-services-retry-logic-in-dotnet-sdk.md)
 
 # riferimento
-## [Note sulla versione](media-services-release-notes.md)
-## [.NET](media-services-dotnet-how-to-use.md)
-## [REST](media-services-rest-how-to-use.md)
+## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media)
+## [PowerShell (gestione dei servizi)](/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute)
+## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
+## [REST](/rest/api/media)
 
 # Risorse
+## [Note sulla versione](media-services-release-notes.md)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Community di Servizi multimediali di Azure](media-services-community.md)
 ## [Video](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

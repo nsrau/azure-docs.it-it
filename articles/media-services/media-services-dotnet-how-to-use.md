@@ -1,22 +1,26 @@
 ---
 title: Come configurare il computer per lo sviluppo di applicazioni di Servizi multimediali con .NET
-description: Informazioni sui prerequisiti generali per l'uso di Servizi multimediali con Media Services SDK per .NET e su come creare un'app di Visual Studio.
+description: Informazioni sui prerequisiti generali per l&quot;uso di Servizi multimediali con Media Services SDK per .NET e su come creare un&quot;app di Visual Studio.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 10/24/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9cfa3ecf3788dfd90a7e1d6c79827961d3dbeb54
+
 
 ---
-# <a name="media-services-development-with-.net"></a>Sviluppo di applicazioni di Servizi multimediali con .NET
+# <a name="media-services-development-with-net"></a>Sviluppo di applicazioni di Servizi multimediali con .NET
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 Questo argomento illustra come iniziare a sviluppare applicazioni di Servizi multimediali con .NET.
@@ -36,30 +40,25 @@ Questa sezione illustra come usare **NuGet** per aggiungere Media Services .NET 
 
 In alternativa, è possibile ottenere i bit più recenti di Media Services .NET SDK da GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) e [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), compilare la soluzione e quindi aggiungere i riferimenti al progetto client. Si noti che tutte le dipendenze necessarie vengono scaricate ed estratte automaticamente.
 
-1. Creare una nuova applicazione console C# in Visual Studio 2013, Visual Studio 2012 o Visual Studio 2010 SP1. Immettere un valore nei campi **Nome**, **Percorso** e **Nome soluzione**, quindi fare clic su OK.
+1. Creare una nuova applicazione console C# in Visual Studio 2010 SP1 o versioni di Visual Studio successive. Immettere un valore nei campi **Nome**, **Percorso** e **Nome soluzione**, quindi fare clic su OK.
 2. Compilare la soluzione.
 3. Usare **NuGet** per installare e aggiungere **Azure Media Services .NET SDK Extensions**. Insieme al pacchetto viene installato anche **Media Services .NET SDK** e vengono aggiunte tutte le altre dipendenze necessarie.
-4. Verificare di aver installato la versione più aggiornata di NuGet. Per altre informazioni e per istruzioni di installazione, vedere [NuGet](http://nuget.codeplex.com/).
-5. In Esplora soluzioni fare clic con il pulsante destro del mouse sul nome del progetto e scegliere Gestisci pacchetti NuGet.
-
-Viene visualizzata la finestra di dialogo Gestione pacchetti NuGet.
-
-1. Nella raccolta Online eseguire la ricerca di Azure MediaServices Extensions, scegliere Azure Media Services .NET SDK Extensions e fare clic sul pulsante Installa.
-
-Il progetto viene modificato e vengono aggiunti riferimenti a Media Services .NET SDK, alle relative estensioni e ad altri assembly dipendenti.
-
-1. Per ottenere un ambiente di sviluppo più lineare, prendere in considerazione l'abilitazione di NuGet Package Restore. Per altre informazioni vedere l'articolo relativo al [ripristino del pacchetto NuGet](http://docs.nuget.org/consume/package-restore).
-2. Aggiungere un riferimento all'assembly **System.Configuration** . che contiene la classe**System.Configuration.ConfigurationManager** usata per accedere ai file di configurazione, ad esempio App.config.
-
-Per aggiungere riferimenti usando la finestra di dialogo Gestione riferimenti, effettuare le seguenti operazioni:
-
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul nome del progetto. Selezionare quindi Aggiungi e Riferimenti.
-
-Viene visualizzata la finestra di dialogo Gestione riferimenti.
-
-1. Negli assembly .NET Framework trovare e selezionare l'assembly System.Configuration.
-2. Premere OK.
-3. Aprire il file App.config (aggiungere il file al progetto, se non è stato aggiunto per impostazione predefinita) e aggiungere una sezione *appSettings* al file.     
+   
+    Verificare di aver installato la versione più aggiornata di NuGet. Per altre informazioni e per istruzioni di installazione, vedere [NuGet](http://nuget.codeplex.com/).
+4. In Esplora soluzioni fare clic con il pulsante destro del mouse sul nome del progetto e scegliere Gestisci pacchetti NuGet.
+   
+    Viene visualizzata la finestra di dialogo Gestione pacchetti NuGet.
+5. Nella raccolta Online eseguire la ricerca di Azure MediaServices Extensions, scegliere Azure Media Services .NET SDK Extensions e fare clic sul pulsante Installa.
+   
+    Il progetto viene modificato e vengono aggiunti riferimenti a Media Services .NET SDK, alle relative estensioni e ad altri assembly dipendenti.
+6. Per ottenere un ambiente di sviluppo più lineare, prendere in considerazione l'abilitazione di NuGet Package Restore. Per altre informazioni vedere l'articolo relativo al [ripristino del pacchetto NuGet](http://docs.nuget.org/consume/package-restore).
+7. Aggiungere un riferimento all'assembly **System.Configuration** . che contiene la classe**System.Configuration.ConfigurationManager** usata per accedere ai file di configurazione, ad esempio App.config.
+   
+    Per aggiungere riferimenti usando la finestra di dialogo Gestione riferimenti, fare clic sul nome del progetto in Esplora soluzioni. Selezionare quindi Aggiungi e Riferimenti.
+   
+    Viene visualizzata la finestra di dialogo Gestione riferimenti.
+8. Negli assembly .NET Framework trovare e selezionare l'assembly System.Configuration e premere OK.
+9. Aprire il file App.config (aggiungere il file al progetto, se non è stato aggiunto per impostazione predefinita) e aggiungere una sezione *appSettings* al file.     
    Impostare i valori per il nome e la chiave dell'account di Servizi multimediali di Azure, come visualizzato nel seguente esempio.
    
     Per trovare i valori di nome e chiave, passare al portale di Azure e selezionare l'account. Su lato destro verrà visualizzata la finestra Impostazioni. Nella finestra Impostazioni selezionare Chiavi. Facendo clic sull'icona accanto a ciascuna casella di testo, il valore viene copiato negli Appunti di sistema.
@@ -73,7 +72,7 @@ Viene visualizzata la finestra di dialogo Gestione riferimenti.
 
         </configuration>
 
-1. Sovrascrivere le istruzioni using esistenti all'inizio del file Program.cs con il seguente codice.
+1. Sovrascrivere le istruzioni **using** esistenti all'inizio del file Program.cs con il codice seguente.
    
         using System;
         using System.Collections.Generic;
@@ -93,6 +92,9 @@ A questo punto, si è pronti per iniziare a sviluppare un'applicazione di Serviz
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

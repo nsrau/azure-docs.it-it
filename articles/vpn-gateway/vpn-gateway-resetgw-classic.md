@@ -1,13 +1,13 @@
 ---
-title: Reimpostare un gateway VPN di Azure | Microsoft Docs
-description: Questo articolo illustra in modo dettagliato la reimpostazione del gateway VPN di Azure. L'articolo riguarda i gateway VPN nei modelli di distribuzione classica e Resource Manager.
+title: Reimpostare un gateway VPN di Azure | Documentazione Microsoft
+description: Questo articolo illustra in modo dettagliato la reimpostazione del gateway VPN di Azure. L&quot;articolo riguarda i gateway VPN nei modelli di distribuzione classica e Resource Manager.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: 79d77cb8-d175-4273-93ac-712d7d45b1fe
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 97ee3599f2eded9800dbb441af7299547c502397
+
 
 ---
 # <a name="reset-an-azure-vpn-gateway-using-powershell"></a>Reimpostare un gateway VPN di Azure mediante PowerShell
@@ -63,6 +67,9 @@ Risultato:
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, vedere [PowerShell Service Management cmdlet reference](https://msdn.microsoft.com/library/azure/mt617104.aspx) (Informazioni di riferimento sui cmdlet di PowerShell per la gestione dei servizi) e [PowerShell Resource Manager cmdlet reference](http://go.microsoft.com/fwlink/?LinkId=828732) (Informazioni di riferimento sui cmdlet di PowerShell per Resource Manager).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
