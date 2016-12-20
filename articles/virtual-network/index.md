@@ -2,11 +2,11 @@
 layout: LandingPage
 +toc_rel: breadcrumb.json
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: c3607bf6699b83fb3fedf7cb7ccf9f1d97ad4c56
+ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
+ms.openlocfilehash: c285a2be335bed0adada1877f94c7999d7c8b7e5
 
 ---
-#<a name="virtual-network-documentation"></a>Documentazione sulla rete virtuale
+# <a name="virtual-network-documentation"></a>Documentazione sulla rete virtuale
 
 Una rete virtuale di Azure è una rappresentazione della propria rete nel cloud.  Con una rete virtuale è possibile controllare completamente gli elementi della rete e segmentare la rete virtuale in subnet e usarla per avviare Macchine virtuali o Servizi cloud di Azure.  È anche possibile connettere la rete virtuale alla rete locale con una delle opzioni di connettività disponibili in Azure, in modo da espandere la rete nel cloud mantenendo il controllo sulle risorse.
 
@@ -105,81 +105,48 @@ Una rete virtuale di Azure è una rappresentazione della propria rete nel cloud.
 
 ---
 
-## <a name="reference"></a>Riferimento
-
+<h2>Riferimenti</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-doc">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Informazioni di riferimento su Azure PowerShell</p>
+                        <h3>Riga di comando</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell (gestione risorse)</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">PowerShell (versione classica)</a></p>
+                        <p><a href="/cli/azure">Interfaccia della riga di comando di Azure</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/network/vnet">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Interfaccia della riga di comando di Azure</h3>
-                        <p>Interfaccia della riga di comando di Azure per le reti virtuali</p>
-                    </div>
+                        <h3>Lingue</h3>
+                        <p><a href="/java/api/">Java</a></p>
+                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Informazioni di riferimento sulle API .NET</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>   
-    <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Informazioni di riferimento sulle API Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt163658">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>API REST di Rete virtuale</p>
+                        <p><a href="https://msdn.microsoft.com/library/mt163658.aspx">REST (gestione risorse)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/jj157182.aspx">REST (versione classica)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
-
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-network.pdf">
