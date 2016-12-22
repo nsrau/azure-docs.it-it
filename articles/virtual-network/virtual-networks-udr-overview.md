@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7ae1803a299a5fb569ea0ca8a1ce68c33df1a769
+ms.sourcegitcommit: d0b8e8ec88c39ce18ddfd6405faa7c11ab73f878
+ms.openlocfilehash: 673ce33f0f0836c3df3854b0e6368a6215ee6f5f
 
 
 ---
@@ -29,6 +29,7 @@ Questo flusso di comunicazione è possibile perché Azure utilizza una serie di 
 * Da una subnet a altra all'interno di una rete virtuale.
 * Da macchine virtuali a Internet.
 * Da una rete virtuale a un'altra rete virtuale tramite un gateway VPN.
+* Da una rete virtuale a un'altra tramite il peering di rete virtuale (concatenamento dei servizi).
 * Da una rete virtuale alla rete locale tramite un gateway VPN.
 
 Nella figura seguente viene illustrato un semplice programma di installazione con una rete virtuale, due subnet e alcune macchine virtuali, con le route di sistema che consentono il flusso del traffico IP.
@@ -111,6 +112,6 @@ Questo dispositivo virtuale macchina virtuale deve essere in grado di ricevere t
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 
