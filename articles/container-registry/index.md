@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: Informazioni su come creare e gestire registri di contenitore per archiviare le immagini di distribuzione con un servizio di registro Docker gestito. Esercitazioni, informazioni di riferimento sulle API e altro ancora.
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 2e77ba043efd03ecffd3e5e786046dedbed58877
+ms.sourcegitcommit: ab80e1ef9771caa4369863c0aff1cee2c3055830
+ms.openlocfilehash: c42d5fe49d099fed7b5df9901c313832d966e340
 
 ---
 
 # <a name="azure-container-registry-documentation"></a>Documentazione sul Registro del servizio contenitore di Azure
 
-Il Registro del servizio contenitore di Azure (anteprima) è un registro privato per l'hosting di immagini dei contenitori. Il Registro del servizio contenitore di Azure consente di archiviare immagini con formattazione Docker per tutti i tipi di distribuzioni dei contenitori. Il Registro del servizio contenitore di Azure si integra in modo ottimale con gli agenti di orchestrazione ospitati nel servizio contenitore di Azure, inclusi Docker Swarm, DC/OS e Kubernetes. 
+Informazioni su come usare il servizio contenitore di Azure per archiviare e gestire immagini per tutti i tipi di distribuzioni di contenitori. Esercitazioni, informazioni di riferimento sulle API REST e altri documenti in cui viene illustrato come creare e gestire registri di contenitore con questo servizio di registro Docker gestito.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -98,6 +99,7 @@ Il Registro del servizio contenitore di Azure (anteprima) è un registro privato
 </ul>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

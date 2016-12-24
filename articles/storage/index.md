@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: Informazioni su come usare l&quot;Archiviazione di Azure, gli archivi BLOB e tabella e le archiviazioni code, file e su disco macchina virtuale nel cloud. Esercitazioni, informazioni di riferimento sulle API e altri documenti.
 translationtype: Human Translation
-ms.sourcegitcommit: a6c333ae45868d5c29ce2f2587f1417fa9fafc0b
-ms.openlocfilehash: 27fd664b69ca4467daa2b0abc6e53c9cece221ae
+ms.sourcegitcommit: 3cd1ef210c363fc280cefca3c0697eb66da85a1d
+ms.openlocfilehash: 426166d22b721d45853f3f578d39e14966c57c50
 
 ---
 
 # <a name="storage-documentation"></a>Documentazione di Archiviazione
 
-Archiviazione di Azure è la soluzione di archiviazione cloud per le applicazioni moderne basate su durata, disponibilità e scalabilità per soddisfare le esigenze dei clienti.  Ha scalabilità elevata, è elastico e accessibile ovunque e bilancia automaticamente il carico dei dati in base al traffico.  Archiviazione di Azure offre i cinque servizi seguenti per soddisfare le esigenze dell'applicazione: archiviazione BLOB, archiviazione tabelle, archiviazione code, archiviazione su disco e archiviazione file.
+Informazioni su come usare l'Archiviazione di Azure, un servizio di archiviazione cloud durevole, disponibile e scalabile. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come configurare e gestire archivi BLOB e tabella e archiviazioni code, file e su disco macchina virtuale.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -148,6 +149,6 @@ Scaricare la documentazione di Archiviazione </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

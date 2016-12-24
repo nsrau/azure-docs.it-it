@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Informazioni sulla sincronizzazione di directory locali e abilitazione di Single Sign-On. La documentazione illustra come integrare una suite completa di funzionalità di gestione delle identità."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 72d219c4150ddbfd59231f9131bf3502897f0ab4
+ms.sourcegitcommit: 5a478ce5c06cd875ec4ed5ff2bed4d0cd98fac53
+ms.openlocfilehash: 500c764b124ac811432212bab50f83dc6f6b86ee
 
 ---
 
 # <a name="azure-active-directory-documentation"></a>Documentazione di Azure Active Directory
 
-Azure Active Directory Premium è una soluzione cloud di gestione degli accessi e delle identità che offre l'accesso Single Sign-On a migliaia di app cloud (SaaS) e alle app Web eseguite in locale. Azure Active Directory consente la collaborazione e la mobilità aziendali e offre protezione avanzata delle identità tramite Multi-Factor Authentication (MFA), report di sicurezza, controlli, avvisi e criteri adattivi per l'accesso condizionale basati sull'integrità del dispositivo, la posizione dell'utente e il livello di rischio.
+Informazioni sulla sincronizzazione di directory locali e abilitazione di Single Sign-On con Azure Active Directory (Azure AD). Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come integrare funzionalità di gestione delle identità, tra cui l'autenticazione a più fattori, la registrazione dei dispositivi, il controllo di accesso basato sui ruoli e le funzioni di monitoraggio e avvisi di sicurezza.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -138,6 +139,6 @@ Scaricare la documentazione di Active Directory </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

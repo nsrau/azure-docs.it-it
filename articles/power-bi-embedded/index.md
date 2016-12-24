@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come incorporare visualizzazioni di dati e report interattivi di Power BI nelle app. Esercitazioni, informazioni di riferimento sulle API e altri documenti.
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: e17065b92c3bce2463df283f82efae5965c5c02e
+ms.sourcegitcommit: 531e3606330a55563ae77d18d5fd270d799d6d30
+ms.openlocfilehash: 08270fca90bb74f166c94e0f4acc406bca936eb8
 
 ---
 # <a name="power-bi-embedded-documentation"></a>Documentazione di Power BI Embedded
 
-Power BI Embedded è un servizio di Azure che consente agli sviluppatori di applicazioni di aggiungere report interattivi di Power BI alle applicazioni. Power BI Embedded interagisce con le applicazioni esistenti senza che sia necessario riprogettarle o modificare la modalità di accesso da parte degli utenti.
+Informazioni su come aggiungere visualizzazioni di dati e report interattivi alle applicazioni con Power BI Embedded. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come incorporare facilmente report e dashboard di Power BI nelle app.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Power BI Embedded è un servizio di Azure che consente agli sviluppatori di appl
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=power-bi-embedded">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=power-bi-embedded">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -86,54 +87,47 @@ Power BI Embedded è un servizio di Azure che consente agli sviluppatori di appl
 
 ---
 
-## <a name="reference"></a>Riferimento
-
+<h2>Riferimenti</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Cmdlet di PowerShell per Power BI Embedded</p>
+                        <h3>Riga di comando</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-     <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Riferimenti gestiti di Power BI Embedded</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/powerbiembedded/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Lingue</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.powerbiembedded">.NET</a></p>
+                        <p><a href="https://www.nuget.org/profiles/powerbi">Download di .NET SDK</a></p>
+                        <p><a href="https://github.com/Microsoft/PowerBI-JavaScript">JavaScript</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>API REST di Power BI Embedded</p>
+                        <p><a href="/rest/api/powerbiembedded/">Informazioni di riferimento sulle API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
-
-
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/power-bi-embedded.pdf">
@@ -144,6 +138,7 @@ Scaricare la documentazione di Power BI Embedded </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

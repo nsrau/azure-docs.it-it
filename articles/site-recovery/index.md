@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Informazioni su come configurare il ripristino di emergenza cloud e la continuità aziendale per server fisici e macchine virtuali tramite la distribuzione e la gestione della replica."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: e13f18042677dd1cea5913d7f6658f0c5d3e1d98
+ms.sourcegitcommit: 13d77644673b86be22bf7be40f77d6ebfb1f8baa
+ms.openlocfilehash: d815422edd036711525d8c2f1eea0348295416d5
 
 ---
 # <a name="site-recovery-documentation"></a>Documentazione di Site Recovery
 
-Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza orchestrando la replica delle macchine virtuali e dei server fisici locali. È possibile replicare i server e le VM dal data center primario locale ad Azure oppure a un data center secondario. In caso di interruzioni nel sito primario, verrà eseguito il failover al sito secondario per mantenere i carichi di lavoro accessibili e disponibili.
+Informazioni su come usare Site Recovery per la continuità aziendale e la strategia di ripristino di emergenza per i cloud privati. Esercitazioni e altri documenti mostrano come pianificare, distribuire e gestire l'orchestrazione di replica di server fisici locali e macchine virtuali nel cloud o in un data center secondario.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -89,6 +90,6 @@ Scaricare la documentazione di Site Recovery </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

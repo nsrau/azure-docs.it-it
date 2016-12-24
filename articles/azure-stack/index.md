@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Informazioni su come utilizzare l&quot;anteprima di Azure Stack per offrire servizi di Azure dal data center. Informazioni e dimostrazioni di funzionalità a partire da un ambiente POC."
 translationtype: Human Translation
-ms.sourcegitcommit: cc7cf80b26a0bdc79448fc87d2d8b6fff1931d49
-ms.openlocfilehash: eb675cc7a401583cf0f2dc0605a16d5dda8b306f
+ms.sourcegitcommit: c93027a575b2f9d6507448f9f68011723b165bf3
+ms.openlocfilehash: c964ed3b3fe8b3af31c50f0aacb2ef1c0a8aad74
 
 ---
 #<a name="azure-stack-documentation"></a>Documentazione di Azure Stack
 
-Microsoft Azure Stack è una nuova piattaforma ibrida su cloud che consente di distribuire i servizi di Azure dal data center dell'organizzazione. Microsoft Azure Stack Technical Preview 2 viene reso disponibile tramite un modello di verifica (PoC). Il modello di verifica è un ambiente per l'apprendimento e la dimostrazione delle funzionalità di Azure Stack. Consente di distribuire tutti i componenti necessari in un singolo computer fisico per creare un ambiente ideale per la valutazione delle funzionalità e dei concetti chiave, oltre alla convalida del modello di estendibilità per le API.
+Informazioni su come utilizzare la versione Technical Preview di Azure Stack per offrire servizi di Azure dal data center dell'organizzazione. Esercitazioni e altri documenti in cui viene illustrato come usare l'ambiente POP per conoscere e dimostrare le funzioni di Azure Stack.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -96,6 +97,6 @@ Scaricare la documentazione di Azure Stack </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

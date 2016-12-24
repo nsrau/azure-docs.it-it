@@ -46,6 +46,7 @@
 #### [Monitoraggio delle prestazioni di rete](log-analytics-network-performance-monitor.md)
 #### [Controllo di sicurezza](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [Service Fabric](log-analytics-service-fabric.md)
+#### [Elenco dei servizi](../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [SQL Assessment](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)
 #### [VMware](log-analytics-vmware.md)
@@ -70,6 +71,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

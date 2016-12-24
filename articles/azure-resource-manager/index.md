@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come usare Resource Manager per distirbuire e gestire a gruppi le risorse di una soluzione e per creare modelli per una distribuzione coerente e ripetibile delle risorse.
 translationtype: Human Translation
-ms.sourcegitcommit: e48fea077e09518ab5005518c8e8a413df458b93
-ms.openlocfilehash: a7b6655d2314b198706177f1adaf1b88eb135307
+ms.sourcegitcommit: 0c80499b4b27b7c21473e0ed6468441fa26e965d
+ms.openlocfilehash: f687fd5682a912cf02efec097c6df4a0c1604938
 
 ---
 #<a name="azure-resource-manager-documentation"></a>Documentazione di Azure Resource Manager
 
-L'infrastruttura per l'applicazione è in genere costituita da vari componenti, ad esempio una macchina virtuale, un account di archiviazione e una rete virtuale oppure un'app Web, un database, un server di database e servizi di terze parti. Questi componenti non appaiono come entità separate, ma come parti correlate e interdipendenti di una singola entità e devono essere distribuite, gestite e monitorate come gruppo. Gestione risorse di Azure consente di usare le risorse incluse nella soluzione come un gruppo. È possibile distribuire, aggiornare o eliminare tutte le risorse della soluzione con un'unica operazione coordinata. Per la distribuzione viene usato un modello; questo modello può essere usato per diversi ambienti, ad esempio di testing, staging e produzione. Resource Manager offre funzionalità di sicurezza, controllo e categorizzazione che semplificano la gestione delle risorse dopo la distribuzione
+Informazioni su come usare Resource Manager per distribuire, monitorare e gestire a gruppi le risorse di una soluzione. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come impostare gruppi di risorse e creare modelli per una distribuzione coerente e ripetibile.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -158,6 +159,7 @@ Scaricare la documentazione di Azure Resource Manager </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

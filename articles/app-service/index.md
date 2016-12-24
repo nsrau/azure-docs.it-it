@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come usare il servizio app per creare app web e per dispositivi mobili, per tutte le piattaforme e tutti i dispositivi, con esercitazioni, video, informazioni di riferimento sulle API e altri documenti.
 translationtype: Human Translation
-ms.sourcegitcommit: ccb587af34367786ab67c7c614fdae9c0c7ed7a2
-ms.openlocfilehash: 4e95b452ef973fa459daa8e687e5ff759f330019
+ms.sourcegitcommit: e4df0029db106923e3d28f16b3dfe239cae5b032
+ms.openlocfilehash: 42f4121a53432dedf214c45897aa846e0c901a41
 
 ---
 #<a name="app-service-documentation"></a>Documentazione del servizio app
 
-Il servizio app è un'offerta di piattaforma distribuita come servizio (PaaS) di Microsoft Azure. Consente di creare app Web e per dispositivi mobili per qualsiasi piattaforma o dispositivo, integrare le app con soluzioni SaaS, connettersi con applicazioni locali e automatizzare i processi aziendali.
+Informazioni su come usare il servizio app per sviluppare e ospitare app web e per dispositivi mobili, per tutte le piattaforme e tutti i dispositivi, con esercitazioni, video, informazioni di riferimento sulle API e altri documenti. Informazioni su come integrare le app con soluzioni SaaS, connettersi con applicazioni locali e automatizzare i processi aziendali.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -130,6 +131,6 @@ Scaricare la documentazione del servizio app </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

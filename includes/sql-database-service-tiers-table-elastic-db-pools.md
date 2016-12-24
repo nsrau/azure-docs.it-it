@@ -31,7 +31,7 @@ sql-database-service-tiers.md
 | Numero massimo di eDTU per database | {10,20,<br>50} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | 
 ||||||||
 
-### <a name="standard-elastic-pool-limits-continued-"></a>Limiti del pool elastico Standard (continua) **
+### <a name="standard-elastic-pool-limits-continued"></a>Limiti del pool elastico Standard (continua) 
 
 | Dimensioni pool (eDTU)  |  **1200** | **1600** | **2000** | **2500** | **3000** |
 |:---|---:|---:|---:| ---: | ---: |
@@ -57,7 +57,7 @@ sql-database-service-tiers.md
 | Numero massimo di eDTU per database | {25,50,75,<br>125} | {25,50,75,<br>125,250} | {25,50,75,<br>125,250,500} | {25,50,75,<br>125,250,500,<br>1000} | {25,50,75,<br>125,250,500,<br>1000,1500} |  
 ||||||||
 
-### <a name="premium-elastic-pool-limits-continued-"></a>Limiti del pool elastico Premium (continua) **
+### <a name="premium-elastic-pool-limits-continued"></a>Limiti del pool elastico Premium (continua) 
 
 | Dimensioni pool (eDTU)  |  **2000** | **2500** | **3000** | **3500** | **4000** |
 |:---|---:|---:|---:| ---: | ---: | 
@@ -72,9 +72,8 @@ sql-database-service-tiers.md
 
 \* Poiché i database elastici condividono lo spazio di archiviazione del pool, lo spazio di archiviazione del database è limitato allo spazio di archiviazione del pool rimanente o allo spazio di archiviazione massimo per database
 
-\** La dimensione del pool di 3000 eDTU per un pool elastico Standard e le dimensioni del pool di 4000 eDTU per un pool elastico Premium sono attualmente disponibili solo tramite l'API REST e PowerShell. Le dimensioni del pool saranno presto disponibili nel portale di Azure. 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

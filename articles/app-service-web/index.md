@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come usare le app Web del servizio app per creare e ospitare siti e applicazioni Web. Esercitazioni, video, informazioni di riferimento sulle API e altro ancora.
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: d6fc4fe4f47571cbb8114b3de5ed9bc9466123fe
+ms.sourcegitcommit: c25534b4e5cda07ffe124ad151a3093a40137a6f
+ms.openlocfilehash: 4fda1c1635159a0bf6a502c4197b8523cd77a5f8
 
 ---
 # <a name="azure-web-apps-documentation"></a>Documentazione di App Web di Azure
 
-App Web del servizio app è una piattaforma di calcolo completamente gestita, ottimizzata per l'hosting di siti Web e applicazioni Web. Questa offerta PaaS (piattaforma distribuita come servizio) di Microsoft Azure consente di concentrarsi sulla logica di business, mentre Azure gestisce l'infrastruttura per l'esecuzione e il ridimensionamento delle app.
+Informazioni su come usare le app Web del servizio app per creare e ospitare siti e applicazioni Web. Esercitazioni, video, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come sviluppare su questa piattaforma di calcolo completamente gestita.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -229,6 +230,6 @@ Scaricare la documentazione di App Web </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

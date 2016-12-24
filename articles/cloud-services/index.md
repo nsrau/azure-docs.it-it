@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come usare Servizi cloud per ospitare ed eseguire API e applicazioni cloud a elevata disponibilità e scalabilità."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 4985185ad8cb4a21e05d4668458e82411cd88ee0
+ms.sourcegitcommit: 2b32d1a06f7db06ad3f443548b33d3c8e2032a9e
+ms.openlocfilehash: 69bcbae09192ecbb6b375bac522b433f8cd5391f
 
 ---
 # <a name="cloud-services-documentation"></a>Documentazione di Servizi cloud
 
-Servizi cloud è un esempio di implementazione PaaS (Platform-as-a-Service). È progettato per supportare applicazioni scalabili, affidabili ed economicamente convenienti. Servizi cloud offre i vantaggi della virtualizzazione, ma anche il controllo sulla macchina virtuale per la configurazione, l'applicazione di patch e l'installazione del software.  
+Informazioni su come usare Servizi cloud per ospitare ed eseguire API e applicazioni cloud a elevata disponibilità e scalabilità.  Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come gestire host di macchine virtuali e configurare, applicare patch e installare il software.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -125,6 +126,6 @@ Scaricare la documentazione di Servizi cloud </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

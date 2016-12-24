@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come usare i servizi di dominio di Active Directory per aggiungere le macchine virtuali di Azure a un dominio senza usare i controller di dominio e gestirli con criteri di gruppo.
 translationtype: Human Translation
-ms.sourcegitcommit: 55dedcab5b8e62b3666cffcfc7d9a0a31c624784
-ms.openlocfilehash: d3a6b967921edad13479c615ebec8edc9e568458
+ms.sourcegitcommit: 5c25e7f81a4f2219c244044ea70416d1e0c63b4e
+ms.openlocfilehash: b05e7bfbc89de74937daa7daf578aa8a9bb39d64
 
 ---
 # <a name="active-directory-domain-services-documentation"></a>Documentazione di Active Directory Domain Services
 
-Azure AD Domain Services (DS) offre servizi di dominio gestiti, ad esempio aggiunta a un dominio, Criteri di gruppo, LDAP e autenticazione Kerberos/NTLM, completamente compatibili con Windows Server Active Directory.  Questo servizio consente agli utenti di distribuire in modo agile un'ampia gamma di soluzioni informatiche.
+Informazioni su come usare i servizi di dominio di Active Directory per aggiungere le macchine virtuali di Azure a un dominio senza usare i controller di dominio. Esercitazioni e altri documenti mostrano come gestire le macchine virtuali usando criteri di gruppo.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -168,6 +169,6 @@ Scaricare la documentazione di Active Directory Domain Services </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

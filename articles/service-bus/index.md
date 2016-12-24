@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come impostare una messaggistica per collegare applicazioni e servici in ambienti locali e cloud.  Esercitazioni, video, informazioni di riferimento sulle API e altro ancora.
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 0ecc51f19240ecfa49852ed1eafcf78d1227af16
+ms.sourcegitcommit: 37d0de5343692516cc9644d817384ad31f58fb40
+ms.openlocfilehash: a0b419acc990e3973432540fb9907e31ddedf41c
 
 ---
 #<a name="service-bus-documentation"></a>Documentazione sul bus di servizio
 
-Il bus di servizio offre comunicazione abilitata per il cloud con messaggistica aziendale, nonché comunicazione inoltrata per la connessione delle soluzioni locali con il cloud. 
+Informazioni su come usare il bus di servizio per connettersi ad ambienti locali e cloud. Esercitazioni, video, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come impostare la messaggistica cloud tra applicazioni e servizi.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -244,6 +245,6 @@ Scaricare la documentazione sul bus di servizio </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

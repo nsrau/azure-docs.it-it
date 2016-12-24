@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Informazioni su come usare i set di scalabilità di macchina virtuale per creare VM Windows o Linux a scalabilità automatica per soluzioni Big Compute, Big Data e in contenitori."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: ace473bea761bd5219a3ca7facdf681dea04a7ff
+ms.sourcegitcommit: 7fefef291643ba0c640ba3520e7e40d50391220a
+ms.openlocfilehash: a35dcbfa56c03ca264d4c7a7f779672dc6ae7526
 
 ---
 #<a name="virtual-machine-scale-sets-documentation"></a>Documentazione dei set di scalabilità di macchine virtuali
 
-I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire un set di macchine virtuali identiche.  Poiché tutte le macchine virtuali hanno la stessa configurazione, i set di scalabilità di macchine virtuali sono stati progettati per supportare l'effettiva scalabilità automatica, senza che sia necessario effettuare il provisioning delle VM. Ciò semplifica la creazione di servizi su larga scala destinati a carichi di lavoro intensivi a livello di calcolo, carichi di lavoro Big Data e con contenitori.
+Informazioni su come usare i set di scalabilità di macchina virtuale per distribuire e gestire un set di MV Windows o Linux identiche a scalabilità automatica. La documentazione illustra come usare i set di scalabilità per supportare servizi destinati a soluzioni Big Compute, Big Data e in contenitori.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -108,6 +109,6 @@ Scaricare la documentazione dei set di scalabilità di macchine virtuali </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

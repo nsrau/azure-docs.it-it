@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come ottenere informazioni approfondite sull&quot;uso delle app per dispositivi mobili e sulla segmentazione degli utenti in tempo reale, oltre che su come abilitare le notifiche push contestualizzate e la messaggistica in-app.
 translationtype: Human Translation
-ms.sourcegitcommit: 23e9c07934b0f4e74fa365de4c13fb978c8b6b84
-ms.openlocfilehash: b8268775b09c6b8b50f3f7e089b239240e95c516
+ms.sourcegitcommit: 2dbe8c3bf665249af4a1626e38f6465d2db32a0b
+ms.openlocfilehash: fed0048ab3a7101c4461ffa14511a26ecd7a36eb
 
 ---
 # <a name="mobile-engagement-documentation"></a>Documentazione di Mobile Engagement
 
-Azure Mobile Engagement è una piattaforma di engagement degli utenti SaaS (Software-as-a-Service) che offre informazioni basate sui dati relative a utilizzo dell'app e segmentazione degli utenti e abilita le notifiche push e la messaggistica in-app.
+Informazioni su come incrementare l'uso, la conservazione e la monetizzazione delle app per dispositivi mobili con Mobile Engagement. Esercitazioni, SDK e altri documenti mostrano su come ottenere informazioni approfondite sull'uso delle app e sulla segmentazione degli utenti in tempo reale, oltre che su come abilitare le notifiche push contestualizzate e la messaggistica in-app.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Azure Mobile Engagement è una piattaforma di engagement degli utenti SaaS (Soft
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=mobile-engagement">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=mobile-engagement">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -176,6 +177,24 @@ Azure Mobile Engagement è una piattaforma di engagement degli utenti SaaS (Soft
 
 ---
 
+<h2>Riferimenti</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Lingue</h3>
+                        <p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement">.NET</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+---
+
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/mobile-engagement.pdf">
         <div class="img"></div>
@@ -187,6 +206,6 @@ Scaricare la documentazione di Azure Mobile Engagement </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

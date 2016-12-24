@@ -44,7 +44,7 @@
 ##### [Schema Media Encoder Standard](media-services-mes-schema.md)
 ##### [Metadati di input](media-services-input-metadata-schema.md)
 ##### [Metadati di output](media-services-output-metadata-schema.md)
-#### Impostazioni predefinite MES 
+#### [Impostazioni predefinite MES](media-services-mes-presets-overview.md) 
 ##### [Codec video H.264 a bitrate multiplo con risoluzione 1080p e audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md)
 ##### [Codec video H.264 a bitrate multiplo con risoluzione 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md)
 ##### [Codec video H.264 a bitrate multiplo con risoluzione 16x9 SD e audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md)
@@ -135,7 +135,7 @@
 ### [Elaborare con Face Detector](media-services-face-and-emotion-detection.md)
 ### [Elaborare con Motion Detector](media-services-motion-detection.md)
 ### [Elaborare con lo strumento di offuscamento dei volti](media-services-face-redaction.md)
-#### [Procedura dettagliata per l'offuscamento dei volti](media-services-redactor-walkthrough.md)
+#### [Procedura dettagliata per lo strumento di offuscamento dei volti](media-services-redactor-walkthrough.md)
 ### [Elaborare con Video Thumbnails](media-services-video-summarization.md)
 ### [Elaborare con OCR](media-services-video-optical-character-recognition.md)
 
@@ -207,6 +207,6 @@
 ## [Video](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

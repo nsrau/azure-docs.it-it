@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come usare l&quot;Hub eventi per inserire milioni di eventi al secondo da dispositivi e applicazioni IoT connessi su un&quot;ampia serie di piattaforme.
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 8244f410fa3337ae161657fe11ae5db2a2f378cd
+ms.sourcegitcommit: bedc8c16671de6071383659697ecd932e14cf3ba
+ms.openlocfilehash: 3d404f115c9a21c7ea62fb485a2129bca9de5c6c
 
 ---
 #<a name="event-hubs-documentation"></a>Documentazione di Hub eventi
 
-Hub di eventi è un servizio di ingresso dati altamente scalabile che può inserire milioni di eventi al secondo, in modo che sia possibile elaborare e analizzare enormi quantità di dati generati per i dispositivi connessi e le applicazioni. Hub eventi funge da "porta principale" per una pipeline di eventi. Dopo aver raccolto i dati in un hub eventi, è possibile trasformarli e archiviarli tramite qualsiasi provider di analisi in tempo reale o adattatore di invio in batch o archiviazione.
+Informazioni su come usare l'Hub eventi per raccogliere e gestire milioni di eventi al secondo da dispositivi e applicazioni IoT connessi. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come impostare inserimenti scalabili degli eventi su un'ampia serie di piattaforme.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -125,6 +126,6 @@ Scaricare la documentazione di Hub eventi </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

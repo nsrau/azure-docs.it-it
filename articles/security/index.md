@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come personalizzare le opzioni di sicurezza nei servizi Azure per soddisfare i requisiti delle distribuzioni di servizi e dati nel cloud.
 translationtype: Human Translation
-ms.sourcegitcommit: d06c292b36ef6dd6bd4f858603debfe93d498cb6
-ms.openlocfilehash: 622e8ccb62538110991c4f882ada9014ea03ffb4
+ms.sourcegitcommit: 07febed306b53cc62c882f3f7865284e96875bf8
+ms.openlocfilehash: be29bc97d4fcf8e0c1efa655d05126a3f49d9636
 
 ---
 # <a name="security-documentation"></a>Documentazione di Sicurezza
 
-L'infrastruttura di Azure è stata progettata, dalla struttura fino alle applicazioni, per ospitare milioni di clienti contemporaneamente e fornisce alle aziende una solida base per poter soddisfare le esigenze di sicurezza. Azure offre anche un'ampia gamma di opzioni di sicurezza configurabili, con la possibilità di controllarle per poter personalizzare la sicurezza e soddisfare così i requisiti univoci di ogni distribuzione.
+Informazioni su come utilizzare la sicurezza di Azure per proteggere dati e servizi nel cloud. Esercitazioni e altri documenti in cui viene illustrato come personalizzare le opzioni di sicurezza nei servizi Azure per soddisfare i requisiti delle distribuzioni.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -114,6 +115,6 @@ Scaricare la documentazione di Sicurezza </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 
