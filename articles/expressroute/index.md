@@ -1,14 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come configurare e gestire una connessione ExpressRoute privata ai servizi cloud di Microsoft dall&quot;infrastruttura locale o dall&quot;impianto di colocazione.
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 48de017fea28d3f76097095cfca17fd03ace65b2
+ms.sourcegitcommit: e8ae00040354ca800d893bc3d73ec96fc9356b39
+ms.openlocfilehash: f27eeb74d07064c616e1a77200b56a7aee154f48
 
 ---
 #<a name="expressroute-documentation"></a>Documentazione di ExpressRoute
 
-Azure ExpressRoute consente di estendere le reti locali in Microsoft Cloud tramite una connessione privata dedicata fornita da un provider di connettività. La connettività può essere stabilita da una rete (IP VPN) any-to-any, da una rete Ethernet punto a punto o da una Cross Connection virtuale tramite un provider di connettività presso una struttura di condivisione del percorso.
-
+Informazioni su come usare ExpressRoute per configurare una connessione rapida e privata ai servizi cloud di Microsoft dall'infrastruttura locale Informazioni su come usare ExpressRoute per configurare una connessione rapida e privata ai servizi cloud di Microsoft dall'infrastruttura locale o dall'impianto di colocazione. Esercitazioni, API REST e altri documenti in cui viene illustrato come configurare e gestire un circuito ExpressRoute.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -69,37 +69,32 @@ Azure ExpressRoute consente di estendere le reti locali in Microsoft Cloud trami
 
 ---
 
-## <a name="reference"></a>Riferimento
-
+<h2>Riferimenti</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Informazioni di riferimento su Azure PowerShell</p>
+                        <h3>Riga di comando</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="https://msdn.microsoft.com/library/mt586720">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>API REST di ExpressRoute</p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt586720">Informazioni di riferimento sulle API REST</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn606310">Versione classica delle informazioni di riferimento sulle API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -113,6 +108,6 @@ Scaricare la documentazione di ExpressRoute </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come sviluppare app per la logica in grado di automatizzare e semplificare i flussi di lavoro aziendali nel cloud e in locale. Esercitazioni, modelli e informazioni di riferimento sulle API.
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 87c52e5ee76ed7848061315de8c8ba8a36b0d349
+ms.sourcegitcommit: 09066e463fe42bb845ccadc98cd79ed1c5881462
+ms.openlocfilehash: e8ab6aecb3d614a7b42e0524382022eabf66ea36
 
 ---
 # <a name="logic-apps-documentation"></a>Documentazione di App per la logica
 
-App per la logica è uno strumento di progettazione per la modellazione e l'automatizzazione dei processi in flussi di lavoro. Nel cloud e in locale sono disponibili numerosi connettori per una rapida integrazione in servizi e protocolli. Un'app per la logica viene avviata con un trigger (corrispondente ad esempio all'aggiunta di un account a Dynamics CRM) e dopo l'attivazione può avviare molte azioni di combinazione, conversioni e logica condizionale.
+Informazioni su come sviluppare app per la logica in grado di semplificare e integrare flussi di lavoro scalabili nel cloud. Esercitazioni, modelli e informazioni di riferimento sulle API in cui viene illustrato come progettare e distribuire flussi di lavoro aziendali automatizzati, nel cloud e in locale.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -154,6 +155,7 @@ Scaricare la documentazione di App per la logica </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

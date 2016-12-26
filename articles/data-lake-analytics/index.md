@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come eseguire analisi di Big Data con Data Lake Analytics. Le esercitazioni illustrano come eseguire analisi batch, in tempo reale e interattive e come scrivere query U-SQL.
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 4a9b9a0aef993055e0c5400a15918a05491509eb
+ms.sourcegitcommit: 84b03eb578df1a4122b18a01c0ffba8558adc088
+ms.openlocfilehash: f36a830ede202a7519d46fa9f12299dcec4c8130
 
 ---
 # <a name="data-lake-analytics-documentation"></a>Documentazione di Data Lake Analytics
 
-Azure Data Lake Analytics è un nuovo servizio appositamente sviluppato per semplificare l'analisi dei Big Data. Questo servizio consente di concentrarsi sulla scrittura, esecuzione e gestione dei processi anziché sul funzionamento dell'infrastruttura distribuita. Anziché distribuire, configurare e ottimizzare l'hardware, è possibile scrivere query per trasformare i dati ed estrarre informazioni di interesse. Con il servizio di analisi è possibile gestire processi di qualsiasi dimensione immediatamente, semplicemente definendo il livello e l'ambito necessari. Verrà addebitato un costo solo per il processo durante la sua esecuzione, per la massima convenienza. Il servizio di analisi supporta l'integrazione di Azure Active Directory, che consente di gestire facilmente l'accesso e i ruoli, con il sistema di gestione delle identità locale in uso. È incluso anche U-SQL, un linguaggio che combina i vantaggi di SQL con la potenza espressiva del codice utente. Il runtime distribuito scalabile di U-SQL permette di analizzare in modo efficiente i dati nell'archivio e tra server SQL in Azure, il database SQL di Azure e SQL Data Warehouse di Azure.
+Informazioni su come usare Data Lake Analytics per eseguire processi di analisi su Big Data con scalabilità a set di dati di dimensioni molto grandi. Esercitazioni e altri documenti in cui viene illustrato come creare e gestire processi di analisi in tempo reale e interattive e come creare query tramite il linguaggio U-SQL.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -231,6 +232,6 @@ Scaricare la documentazione di Data Lake Analytics </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 'Passaggio 5: Distribuire il servizio Web di Machine Learning | Microsoft Docs'
+title: 'Passaggio 5: Distribuire il servizio Web di Machine Learning | Documentazione Microsoft'
 description: Passaggio 5 della procedura dettagliata Sviluppare una soluzione predittiva relativo alla distribuzione di un esperimento in Machine Learning Studio come servizio Web.
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: c7e5bf29aacbcb11bfa1db01738d234ae64b46b2
+ms.openlocfilehash: 141586d880e6a8f069ec26b3279d9787c5e046b4
+
 
 ---
-# <a name="walkthrough-step-5:-deploy-the-azure-machine-learning-web-service"></a>Passaggio 5 della procedura dettagliata: Distribuire il servizio Web di Azure Machine Learning
+# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Passaggio 5 della procedura dettagliata: Distribuire il servizio Web di Azure Machine Learning
 Questo è il quinto passaggio della procedura dettagliata [Sviluppare una soluzione predittiva in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Creare un'area di lavoro di Machine Learning](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -172,13 +176,11 @@ Dopo aver distribuito il servizio Web classico, è possibile gestirlo dal [porta
 6. Fare clic sull'endpoint "default".
 
 Da qui è possibile eseguire varie operazioni, ad esempio monitorare come opera il servizio Web e apportare piccole modifiche alle prestazioni cambiando il numero di chiamate simultanee gestite dal servizio.
-È anche possibile pubblicare il servizio Web in Azure Marketplace.
 
 Per informazioni dettagliate, vedere:
 
 * [Creazione di endpoint](machine-learning-create-endpoint.md)
 * [Ridimensionamento di un servizio Web](machine-learning-scaling-webservice.md)
-* [Pubblicare il servizio Web di Azure Machine Learning in Azure Marketplace](machine-learning-publish-web-service-to-azure-marketplace.md)
 
 **Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning**
 
@@ -192,7 +194,7 @@ Per monitorare le prestazioni del servizio Web:
 4. Fare clic su **Dashboard**.
 
 - - -
-**Passaggio successivo:[](machine-learning-walkthrough-6-access-web-service.md)Accedere al servizio Web**
+**Passaggio successivo:[ ](machine-learning-walkthrough-6-access-web-service.md)Accedere al servizio Web**
 
 [1]: ./media/machine-learning-walkthrough-5-publish-web-service/publish1.png
 [2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
@@ -215,6 +217,7 @@ Per monitorare le prestazioni del servizio Web:
 [project-columns]: https://msdn.microsoft.com/en-us/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

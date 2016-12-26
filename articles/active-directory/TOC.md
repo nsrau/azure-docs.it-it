@@ -66,7 +66,6 @@
 
 #### [Eventi di controllo](active-directory-reporting-audit-events.md)
 #### [Conservazione](active-directory-reporting-retention.md)
-#### [Recupero delle informazioni](active-directory-reporting-backfill.md)
 #### [Latenze](active-directory-reporting-latencies.md)
 #### [Notifications](active-directory-reporting-notifications.md)
 ### Informazioni sui report
@@ -203,6 +202,7 @@
 #### [Impostazioni di Criteri di gruppo](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 #### [Impostazioni di Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 #### [Domande frequenti](active-directory-windows-enterprise-state-roaming-faqs.md)
+#### [Risolvere i problemi](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 ### [Integrate partners with Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md) (Integrare i partner Azure AD B2B)
 #### [Panoramica](active-directory-b2b-collaboration-overview.md)
 #### [Funzionamento](active-directory-b2b-how-it-works.md)
@@ -297,6 +297,6 @@
 ## [Forum di commenti e suggerimenti su Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

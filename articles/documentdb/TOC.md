@@ -55,12 +55,15 @@
 ### [Tenere traccia delle modifiche con il feed delle modifiche](documentdb-change-feed.md)
 ### [Test delle prestazioni](documentdb-performance-testing.md)
 ### [Suggerimenti per incrementare le prestazioni](documentdb-performance-tips.md)
-### DocumentDB per sviluppatori MongoDB
-#### [Supporto dei protocolli per MongoDB](documentdb-protocol-mongodb.md)
-#### [Creare un account](documentdb-create-mongodb-account.md)
-#### [Connettersi all'account](documentdb-connect-mongodb-account.md)
-#### [Usare MongoChef](documentdb-mongodb-mongochef.md)
-#### [Esempi di supporto dei protocolli](documentdb-mongodb-samples.md)
+
+## Usare il supporto di DocumentDB per MongoDB
+### [Supporto dei protocolli per MongoDB](documentdb-protocol-mongodb.md)
+### [Creare un account](documentdb-create-mongodb-account.md)
+### [Connettersi all'account](documentdb-connect-mongodb-account.md)
+### [Eseguire la migrazione dei dati](documentdb-mongodb-migrate.md)
+### [Usare RoboMongo](documentdb-mongodb-robomongo.md)
+### [Usare MongoChef](documentdb-mongodb-mongochef.md)
+### [Esempi di supporto dei protocolli](documentdb-mongodb-samples.md)
 
 ## Usare il portale
 ### [Creare un account di database](documentdb-create-account.md)
@@ -117,6 +120,6 @@
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

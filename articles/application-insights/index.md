@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come usare Application Insights, un servizio estensibile per la gestione delle prestazioni delle applicazioni, per rilevare, valutare e diagnosticare i problemi in App Web e servizi.
 translationtype: Human Translation
-ms.sourcegitcommit: 7f01669fe78aebfb17ebc6a33ae29d098b62868a
-ms.openlocfilehash: 8100f42cc97155431e4d3ba47f7946b546296700
+ms.sourcegitcommit: f0fdb938519737e67849831a0751542f69c269d9
+ms.openlocfilehash: e5425bc1f39c9ca71b6eaf2c928b0d8397319d85
 
 ---
 # <a name="application-insights-documentation"></a>Documentazione di Application Insights
 
-Application Insights è un servizio estendibile di gestione delle prestazioni delle applicazioni per sviluppatori Web, che consente di monitorare un'applicazione Web live. Il servizio rileva automaticamente le anomalie nelle prestazioni e include avanzati strumenti di analisi che consentono di diagnosticare i problemi e conoscere come viene effettivamente usata l'app dagli utenti. Il servizio è progettato per supportare il miglioramento continuo delle prestazioni e dell'usabilità. Funziona per le app su un'ampia gamma di piattaforme, tra cui .NET o J2EE, ospitate in locale o nel cloud. Si integra con il processo DevOps e offre punti di connessione per diversi altri strumenti.
+Informazioni su come usare Application Insights, un servizio estendibile per la gestione delle prestazioni delle applicazioni per sviluppatori Web. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come rilevare, valutare e diagnosticare i problemi in App Web e servizi.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -161,6 +162,6 @@ Scaricare la documentazione di Application Insights </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come usare Gestione API per pubblicare le API in modo sicuro e scalabile. I documenti mostrano come creare gateway API moderni per i servizi back-end esistenti.
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 79b75ae11af07735449714d3a3034c867224ebf4
+ms.sourcegitcommit: bc1895fc3b10c9fab96a120359e25324a1132a51
+ms.openlocfilehash: cd5342474c551bfb9eb1496ffd67f3b36933f1d8
 
 ---
 # <a name="api-management-documentation"></a>Documentazione di Gestione API
 
-Gestione API consente alle organizzazioni di pubblicare API per consentire a sviluppatori esterni, partner e interni di sfruttare tutte le potenzialità dei rispettivi dati e servizi.  Gestione API fornisce le competenze fondamentali per assicurare un programma API di successo attraverso il coinvolgimento degli sviluppatori, informazioni aziendali approfondite, strumenti di analisi, sicurezza e protezione.
+Informazioni su come usare Gestione API per pubblicare API per sviluppatori esterni, partner e dipendenti in modo sicuro e scalabile. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come creare e gestire gateway API moderni per i servizi back-end esistenti ospitati in qualsiasi posizione.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -141,6 +142,6 @@ Scaricare la documentazione di Gestione API </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

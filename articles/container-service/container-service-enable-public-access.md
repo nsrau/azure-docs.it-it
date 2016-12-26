@@ -3,8 +3,8 @@ title: Abilitare l&quot;accesso pubblico a un&quot;app del servizio contenitore 
 description: Come abilitare l&quot;accesso pubblico a un servizio contenitore di Azure.
 services: container-service
 documentationcenter: 
-author: Thraka
-manager: timlt
+author: sauryadas
+manager: madhana
 editor: 
 tags: acs, azure-container-service
 keywords: Docker, Contenitori, Micro-servizi, Mesos, Azure
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
-ms.author: timlt
+ms.author: saudas
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9491ffb2683063169ab25c38b3db5de06282d654

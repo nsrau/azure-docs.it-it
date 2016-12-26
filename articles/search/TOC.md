@@ -69,7 +69,7 @@
 # Risorse
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=search)
 ## Uso delle API di ricerca
-##[Versioni dell'API](search-api-versions.md) - X
+## [Versioni dell'API](search-api-versions.md)
 ## [REST del servizio (anteprima)](search-api-2015-02-28-preview.md)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/search/)
 ## Siti di demo
@@ -87,6 +87,6 @@
 ### [Ricerca di Azure in GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

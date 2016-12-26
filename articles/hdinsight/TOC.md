@@ -10,11 +10,11 @@
 
 # Attività iniziali
 ## [Iniziare a usare Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Iniziare a usare l'anteprima di Interactive Hive](hdinsight-hadoop-use-interactive-hive.md)
 ## [Iniziare a usare R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Iniziare a usare Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Iniziare a usare HBase e NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Iniziare a usare Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
+## [Iniziare a usare l'anteprima di Interactive Hive](hdinsight-hadoop-use-interactive-hive.md)
 ## [Iniziare a usare l'anteprima di Kafka](hdinsight-apache-kafka-get-started.md)
 ## [Sandbox Hadoop](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake Tools con Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
@@ -224,6 +224,6 @@
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

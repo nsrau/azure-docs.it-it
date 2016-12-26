@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Informazioni su come sviluppare e distribuire funzioni nel linguaggio scelta per eseguire operazioni in background o con pianificazione, senza necessità di infrastrutture speciali."
 translationtype: Human Translation
-ms.sourcegitcommit: 87316969b7849396c6542decde3257774c35c454
-ms.openlocfilehash: dc15cd4e497135ea9ce07d671020af6df49ad3f6
+ms.sourcegitcommit: 76fed1f753b910007be4d9bb16630483aa225760
+ms.openlocfilehash: 91deffe385997c3e658a7fbfe194c9c2b762df58
 
 ---
 #<a name="azure-functions-documentation"></a>Documentazione di Funzioni di Azure
 
-Funzioni di Azure è una soluzione che consente di eseguire facilmente piccole parti di codice ("funzioni") nel cloud. È possibile scrivere il codice necessario per il problema effettivo, senza preoccuparsi di un'intera applicazione o dell'infrastruttura necessaria per eseguirlo. È anche possibile sviluppare usando il linguaggio preferito, ad esempio C#, F#, Node.js, Python o PHP.
+Informazioni su come utilizzare le Funzioni per sviluppare e distribuire piccole parti di codice nel linguaggio scelto e nel cloud, senza necessità di impostare un'infrastruttura. Esercitazioni, modelli e altri documenti in cui viene illustrato come creare funzioni per operazioni da eseguire in un thread di background o con pianificazione.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -115,6 +116,6 @@ Scaricare la documentazione di Funzioni di Azure </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

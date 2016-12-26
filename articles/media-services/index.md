@@ -1,15 +1,14 @@
 ---
 layout: LandingPage
+description: "Informazioni su come riprodurre in streaming in modo sicuro video live o on demand di alta qualità con Servizi multimediali, una piattaforma cloud estendibile. Esercitazioni, informazioni di riferimento sulle API e altro ancora."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 78433e8f6d66d55f7917e4abbbbe1c24e662a400
+ms.sourcegitcommit: bc22da83e1683cc8be164e9ff3ed95d2fdc95d27
+ms.openlocfilehash: 7b6ff41479fdfe332148dc2366c7e547af5e98f9
 
 ---
 # <a name="media-services-documentation"></a>Documentazione su Servizi multimediali
 
-Servizi multimediali di Azure costituisce una piattaforma estensibile basata sul cloud che consente agli sviluppatori di creare applicazioni di distribuzione e gestione di contenuti multimediali altamente scalabili. Servizi multimediali si basa su API REST che consentono di caricare, archiviare e codificare in sicurezza contenuti video o audio, nonché creare pacchetti di tali contenuti per la distribuzione su richiesta e in modalità streaming live a vari tipi di client (ad esempio, TV, PC e dispositivi mobili).
-
-È possibile creare flussi di lavoro end-to-end usando unicamente Servizi multimediali. È anche possibile usare componenti di terze parti per alcune parti del flusso di lavoro, ad esempio, è possibile usare un codificatore di terze parti per la codifica e quindi Servizi multimediali per il caricamento, la protezione, la creazione del pacchetto e la distribuzione.
+Informazioni su come riprodurre in streaming video di alta qualità con Servizi multimediali, una piattaforma cloud estendibile. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come fornire in modo sicuro flussi su audio o video live e on demand a milioni di utenti.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -210,6 +209,6 @@ Scaricare la documentazione di Servizi multimediali </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

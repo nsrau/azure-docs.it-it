@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: overview
+ms.custom: single databases
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: d772dabf84fc3b6c061c0f4607c989aabf9dd272
-ms.openlocfilehash: 6d15839ce4084a808d9ecd5900a39a4f67dec822
+ms.sourcegitcommit: c2252fc81f97019391ca2ba957f8402c4e97a9c2
+ms.openlocfilehash: f9b17c1cc77918fb1989b94b5bb359a697ceea7c
 
 
 ---
@@ -30,15 +30,15 @@ In questa esercitazione introduttiva si apprenderà come usare il portale di Azu
 * Creare un server logico di Azure SQL
 * Visualizzare le proprietà del server logico di Azure SQL
 * Creare una regola del firewall a livello di server
-* Creare il database di esempio Adventure Works LT
+* Creare il database di esempio Adventure Works LT come database singolo
 * Visualizzare le proprietà del database di esempio Adventure Works LT in Azure
 
 In questa esercitazione è inoltre possibile usare la versione più recente di SQL Server Management Studio per:
 
 * Connettersi al server logico e al database master
-* Visualizzare le proprietà del database
+* Eseguire query sul database master
 * Connettersi al database di esempio
-* Visualizzare le proprietà del database utente
+* Eseguire query sul database di esempio
 
 Al termine di questa esercitazione, si disporrà di un database di esempio e di un database vuoto in esecuzione in un gruppo di risorse di Azure e collegato a un server logico. Sarà inoltre disponibile una regola del firewall a livello di server configurata per abilitare l'entità a livello di server per accedere al server da un indirizzo IP specificato (o da un intervallo di indirizzi IP). 
 
@@ -136,7 +136,7 @@ Usando la [sottoscrizione esistente](https://account.windowsazure.com/Home/Index
 
 1. Nel pannello di SQL Server, in Impostazioni, fare clic su **Firewall** per aprire il pannello del firewall per SQL Server.
 
-    ![firewall di sql server](./media/sql-database-get-started/sql-server-firewall.png)
+    ![Firewall di SQL server](./media/sql-database-get-started/sql-server-firewall.png)
 
 2. Verificare la presenza dell'indirizzo IP del client e che questo sia l'indirizzo IP Internet che usa un browser di propria scelta (chiedere "qual è l'indirizzo IP in uso"). Talvolta non corrispondono per varie ragioni.
 
@@ -144,7 +144,7 @@ Usando la [sottoscrizione esistente](https://account.windowsazure.com/Home/Index
 
 3. Supponendo che gli indirizzi IP corrispondano, fare clic su **Aggiungi IP client** sulla barra degli strumenti.
 
-    ![aggiungi ip client](./media/sql-database-get-started/add-client-ip.png)
+    ![Aggiungi IP client](./media/sql-database-get-started/add-client-ip.png)
 
     > [!NOTE]
     > È possibile aprire il firewall del database SQL nel server a un singolo indirizzo IP o a un intero intervallo di indirizzi. L'apertura del firewall consente agli amministratori SQL e agli utenti di accedere a qualsiasi database nel server per cui hanno credenziali valide.
@@ -208,7 +208,7 @@ Usando la [sottoscrizione esistente](https://account.windowsazure.com/Home/Index
     ![credenziali del server](./media/sql-database-get-started/server-credentials.png)
 
     > [!NOTE]
-    > Quando si aggiunge un database a un server, è possibile aggiungerlo come singolo database (questo è il valore predefinito) o a un pool elastico di SQL. Per altre informazioni sui pool elastici, vedere [Elastic pools](sql-database-elastic-pool.md) (Pool elastici).
+    > Quando si aggiunge un database a un server, è possibile aggiungerlo come database singolo (questo è il valore predefinito) o aggiungerlo a un pool elastico. Per altre informazioni sui pool elastici, vedere [Elastic pools](sql-database-elastic-pool.md) (Pool elastici).
     >
 
 7. In Piano tariffario modificare il piano tariffario in **Basic** (è possibile aumentare il piano tariffario in un secondo momento, se necessario, ma ai fini dell'esercitazione si consiglia di usare il piano tariffario a costo più basso).
@@ -299,11 +299,13 @@ Dopo aver completato questa esercitazione, sono disponibili numerose altre eserc
 * Per iniziare a creare tabelle e altri oggetti, vedere l'argomento "Per creare una tabella" in [Esercitazione per la creazione di una tabella](https://msdn.microsoft.com/library/ms365315.aspx).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
-[Informazioni sul database SQL](sql-database-technical-overview.md)
+
+- Per una panoramica tecnica, vedere [Informazioni sul database SQL](sql-database-technical-overview.md).
+- Per informazioni sui prezzi, vedere [Database SQL Azure - Prezzi](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,96 +1,13 @@
 ---
-title: Domande frequenti su Azure AD Connect | Documentazione Microsoft
-description: Questa pagina contiene le domande frequenti su Azure AD Connect.
-services: active-directory
-documentationcenter: 
-author: billmath
-manager: femila
-editor: curtand
-ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/08/2016
-ms.author: billmath
+redirect_url: /azure/active-directory/connect/active-directory-aadconnect-faq
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d0433f7f2e88dcbf5e0969f0a6c8d2689816b2d1
-
+ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
+ms.openlocfilehash: b380d033e65003d7801d4ea2be58a9301b449305
 
 ---
-# <a name="azure-ad-connect-faq"></a>Domande frequenti su Azure AD Connect
-## <a name="general-installation"></a>Installazione generale
-**D: L'installazione verrà eseguita correttamente se per l'amministratore globale di Active Directory Azure è abilitata l'autenticazione a due fattori?**  
- Questa opzione è supportata nelle build rilasciate a partire da febbraio 2016.
-
-**D: Esiste un modo per eseguire l'installazione automatica di Azure AD Connect?**  
- È supportata solo l'installazione di Azure AD Connect tramite l'installazione guidata. L'installazione automatica e invisibile all'utente non è supportata.
-
-**D: Ho una foresta in cui un dominio non può essere contattato. Come installare Azure AD Connect?**  
- Questa opzione è supportata nelle build rilasciate a partire da febbraio 2016.
-
-**D: L'agente di integrità di AD DS funziona su Server Core?**  
- Sì. Dopo aver installato l'agente, è possibile completare il processo di registrazione con il commandlet di PowerShell seguente: 
-
-`Register-AzureADConnectHealthADDSAgent -Credentials $cred`
-
-## <a name="network"></a>Rete
-**D: Ho un firewall, un dispositivo di rete o qualcos’altro che limita il tempo massimo in cui le connessioni possono rimanere aperte sulla mia rete. Quanto deve durare la soglia di timeout lato client quando si utilizza Connetti AD Azure?**  
-Tutti i software di rete, i dispositivi fisici o qualsiasi altra cosa che limiti il tempo massimo delle connessioni possono rimanere aperti qualora si utilizzi una soglia di almeno 5 minuti (300 secondi) per la connettività tra il server in cui è installato il client AD Azure Connect e la Azure Active Directory. Questo vale anche per tutti gli strumenti di sincronizzazione Microsoft Identity rilasciati in precedenza.
-
-**D: I domini SDL sono supportati?**  
- No, Azure AD Connect non supporta foreste/domini in locale mediante i domini SLD.
-
-**D: Gli elementi denominati NetBios con "punti" sono supportati?**  
- No, Azure AD Connect non supporta foreste/domini in locale il cui nome NetBios contenga un periodo "." nel nome.
-
-## <a name="federation"></a>Federazione
-**D: Cosa occorre fare se si riceve un messaggio di posta elettronica che richiede il rinnovo del certificato di Office 365?**  
-Usare le indicazioni specifiche disponibili nell'argomento che spiega come [rinnovare i certificati](active-directory-aadconnect-o365-certs.md) .
-
-**D: L'opzione di aggiornamento automatico della relying party è impostata per la relying party Office 365. È necessario eseguire un'azione quando il certificato per la firma di token esegue automaticamente il rollover?**  
-Usare le linee guida descritte nell'articolo relativo al [rinnovare i certificati](active-directory-aadconnect-o365-certs.md).
-
-## <a name="environment"></a>Environment
-**D: Il fatto di rinominare il server dopo l'installazione di Azure AD Connect è supportato?**  
- No. La modifica del nome del server farà sì che il motore di sincronizzazione no sia in grado di connettersi al database SQL e il servizio non riuscirà ad avviarsi.
-
-## <a name="identity-data"></a>Dati di identità
-**D: Perché l'attributo UPN (userPrincipalName) in Azure AD non corrisponde con l’UPN locale?**  
- Vedere i seguenti articoli:
-
-* [I nomi utente in Office 365, Azure o Intune non corrispondono agli ID di accesso o alternativi dell'UPN locale](https://support.microsoft.com/en-us/kb/2523192)
-* [Le modifiche non sono sincronizzate dallo strumento di sincronizzazione di Azure Active Directory dopo aver modificato l'UPN di un account utente per usare un dominio federato diverso](https://support.microsoft.com/en-us/kb/2669550)
-
-È anche possibile configurare Azure AD per consentire al motore di sincronizzazione di aggiornare userPrincipalName come descritto in [Funzionalità del servizio di sincronizzazione di Azure AD Connect](active-directory-aadconnectsyncservice-features.md).
-
-## <a name="custom-configuration"></a>Configurazione personalizzata
-**D: Dove sono documentati i cmdlet PowerShell per Azure AD Connect?**  
- Fatta eccezione per i cmdlet documentati in questo sito, gli altri cmdlet di PowerShell disponibili in Azure AD Connect di non sono supportati per l'utilizzo da parte degli utenti.
-
-**D: Si può usare l'opzione "Server export/server import" disponibile in *Synchronization Service Manager* per spostare la configurazione tra i server?**  
-No. Questa opzione non recupererà tutte le impostazioni di configurazione e non deve essere utilizzata. Si dovrebbe invece utilizzare la procedura guidata per creare la configurazione di base sul secondo server e usare l'editor delle regole di sincronizzazione per generare script di PowerShell per spostare qualsiasi regola personalizzata tra i server. Vedere [Spostare la configurazione personalizzata da server attivo a server di gestione temporanea](active-directory-aadconnect-upgrade-previous-version.md#move-custom-configuration-from-active-to-staging-server).
-
-## <a name="troubleshooting"></a>Risoluzione dei problemi
-**D: Come è possibile ottenere informazioni su Azure AD Connect?**
-
-[Ricercare nella Microsoft Knowledge Base (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
-
-* Cercare nella Microsoft Knowledge Base (KB) soluzioni tecniche per problemi comuni in garanzia riguardanti il supporto per Azure AD Connect.
-
-[Forum di Microsoft Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-
-* Per cercare e passare in rassegna domande e risposte tecniche della community o porre domande, fare clic [qui](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
-
-[Assistenza clienti per Azure AD Connect](https://manage.windowsazure.com/?getsupport=true)
-
-* Usare questo collegamento per ottenere assistenza tramite il portale di Azure.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: Informazioni sul database SQL, DaaS (Database-as-a-service) nel cloud. Esercitazioni, video e altri documenti in cui viene illustrato come impostare, collegare e gestire un database relazionale.
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 64e7a12fea6e6ae837d7ae0aacf3ac7426605707
+ms.sourcegitcommit: e4df0029db106923e3d28f16b3dfe239cae5b032
+ms.openlocfilehash: 4c148d62e435f063810c096069c4020ef78568d8
 
 ---
-#<a name="sql-database-documentation"></a>Documentazione sul database SQL
 
-Il database SQL di Azure è un servizio di database relazionale nel cloud con funzionalità di importanza strategica basato sul motore di Microsoft SQL Server. Offre prestazioni prevedibili, scalabilità senza tempi di inattività, continuità aziendale e protezione dei dati con esigenze di amministrazione minime. Poiché si basa sul motore di SQL Server, il database SQL supporta strumenti, librerie e API di SQL Server esistenti, rendendo più facile il passaggio e l'estensione al cloud.
+# <a name="sql-database-documentation"></a>Documentazione sul database SQL
+
+Informazioni su come usare il database SQL, un database relazionale distribuito come servizio nel cloud e basato sul motore Microsoft SQL Server. Esercitazioni, video e altri documenti in cui viene illustrato come impostare, collegare e gestire un database SQL.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -104,78 +106,50 @@ Il database SQL di Azure è un servizio di database relazionale nel cloud con fu
 
 ---
 
-## <a name="reference"></a>Riferimento
-
+<h2>Riferimenti</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Informazioni di riferimento su Azure PowerShell</p>
+                        <h3>Riga di comando</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">PowerShell</a></p>
+                        <p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">PowerShell (database elastico)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Informazioni di riferimento gestite su .NET</p>
+                        <h3>Lingue</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Informazioni di riferimento su Java SDK</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/sql">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>API REST di database SQL</p>
+                        <p><a href="/rest/api/sql/">Informazioni di riferimento sulle API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/azure/bb510741">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>T-SQL</h3>
-                        <p>Informazioni di riferimento su T-SQL</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
 
@@ -189,6 +163,6 @@ Scaricare la documentazione relativa al database SQL </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

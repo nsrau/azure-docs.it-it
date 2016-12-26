@@ -1,21 +1,25 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con SuccessFactors | Microsoft Docs'
-description: Informazioni su come usare SuccessFactors con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora.
+description: Informazioni su come usare SuccessFactors con Azure Active Directory per abilitare l&quot;accesso Single Sign-On, il provisioning automatizzato e altro ancora.
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 32bd8898-c2d2-4aa7-8c46-f1f5c2aa05f1
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/16/2016
+ms.date: 11/17/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 9a8d41dcfd51d298784b932184fc8d68a9877a65
+ms.openlocfilehash: 2406a3ba5576635e801f6218e03dd74352d15368
+
 
 ---
-# Esercitazione: Integrazione di Azure Active Directory con SuccessFactors
+# <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Esercitazione: Integrazione di Azure Active Directory con SuccessFactors
 Questa esercitazione descrive l'integrazione di SuccessFactors con Azure Active Directory (Azure AD).
 
 L'integrazione di SuccessFactors con Azure AD offre i vantaggi seguenti:
@@ -26,7 +30,7 @@ L'integrazione di SuccessFactors con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per configurare l'integrazione di Azure AD con SuccessFactors, sono necessari gli elementi seguenti:
 
 * Sottoscrizione di Azure valida
@@ -42,7 +46,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 * Non usare l'ambiente di produzione, a meno che non sia necessario.
 * Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
-## Descrizione dello scenario
+## <a name="scenario-description"></a>Descrizione dello scenario
 L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
@@ -50,94 +54,99 @@ Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti 
 1. Aggiunta di SuccessFactors dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
-## Aggiunta di SuccessFactors dalla raccolta
+## <a name="adding-successfactors-from-the-gallery"></a>Aggiunta di SuccessFactors dalla raccolta
 Per configurare l'integrazione di SuccessFactors in Azure AD, è necessario aggiungerla dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere SuccessFactors dalla raccolta, seguire questa procedura:**
 
-1. Nel portale di Azure classico fare clic su **Active Directory** nel pannello di spostamento sinistro.
+1. Nel portale di Azure classico fare clic su **Active Directory**nel pannello di spostamento sinistro.
    
-   ![Configurazione dell'accesso Single Sign-On][1]
+    ![Configurazione dell'accesso Single Sign-On][1]
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
    
-   ![Configurazione dell'accesso Single Sign-On][2]
+    ![Configurazione dell'accesso Single Sign-On][2]
 4. Fare clic su **Add** nella parte inferiore della pagina.
    
-   ![Applicazioni][3]
+    ![Applicazioni][3]
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
    
-   ![Configurazione dell'accesso Single Sign-On][4]
-6. Nella **casella di ricerca**, digitare **SuccessFactors**.
+    ![Configurazione dell'accesso Single Sign-On][4]
+6. Nella **casella di ricerca** digitare **SuccessFactors**.
    
-   ![Configurazione dell'accesso Single Sign-On][5]
+    ![Configurazione dell'accesso Single Sign-On][5]
 7. Nel riquadro dei risultati selezionare **SuccessFactors**, quindi fare clic su **Completa** per aggiungere l'applicazione.
    
-   ![Configurazione dell'accesso Single Sign-On][6]
+    ![Configurazione dell'accesso Single Sign-On][6]
 
-## Configurazione e test dell'accesso Single Sign-On di Azure AD
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con SuccessFactors con un utente test di nome "Britta Simon".
 
 Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di SuccessFactors che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in SuccessFactors.
 
-La relazione di collegamento viene stabilita assegnando al valore di **nome utente** in Azure AD lo stesso valore di **Username** in SuccessFactors.
+La relazione di collegamento viene stabilita assegnando al valore di **nome utente** in Azure AD lo stesso valore di **nome utente** in SuccessFactors.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con SuccessFactors, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente test di SuccessFactors](#creating-a-successfactors-test-user)**: per avere una controparte di Britta Simon in SuccessFactors collegata alla relativa rappresentazione in Azure AD.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+3. **[Creazione di un utente test SuccessFactors](#creating-a-successfactors-test-user)** : per avere una controparte di Britta Simon in SuccessFactors collegata alla relativa rappresentazione in Azure AD.
+4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
-### Configurazione dell'accesso Single Sign-On di Azure AD
+### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure classico e viene configurato l'accesso Single Sign-On nell'applicazione SuccessFactors.
 
 **Per configurare l'accesso Single Sign-On di Azure AD con SuccessFactors, seguire questa procedura:**
 
 1. Nella pagina di integrazione dell'applicazione **SuccessFactors** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
-   ![Configurazione dell'accesso Single Sign-On][7]
-2. Nella pagina **Stabilire come si desidera che gli utenti accedano a SuccessFactors** selezionare **Single Sign-On di Microsoft Azure AD**, quindi fare clic su **Avanti**.
+    ![Configurazione dell'accesso Single Sign-On][7]
+2. Nella pagina **How would you like users to sign on to SuccessFactors** (Stabilire come si desidera che gli utenti accedano a SuccessFactors) selezionare **Single Sign-On di Microsoft Azure AD**, quindi fare clic su **Avanti**.
    
-   ![Configurazione dell'accesso Single Sign-On][8]
+    ![Configurazione dell'accesso Single Sign-On][8]
 3. Nella pagina **Configura URL app** seguire questa procedura e quindi fare clic su **Avanti**.
    
-   ![Configurazione dell'accesso Single Sign-On][9]
+    ![Configurazione dell'accesso Single Sign-On][9]
    
-   a. Nella casella di testo **URL accesso** digitare un URL corrispondente al modello seguente:
+    a. Nella casella di testo **URL accesso** digitare un URL corrispondente al modello seguente: 
    
-   |  |
-   | --- |
-   | `https://<company name>.successfactors.com/<company name>` |
-   | `https://<company name>.sapsf.com/<company name>` |
-   | `https://<company name>.successfactors.eu/<company name>` |
-   | `https://<company name>.sapsf.eu` |
+    |  |
+    | --- |
+    | `https://<company name>.successfactors.com/<company name>` |
+    | `https://<company name>.sapsf.com/<company name>` |
+    | `https://<company name>.successfactors.eu/<company name>` |
+    | `https://<company name>.sapsf.eu` |
    
-   b. Nella casella di testo **URL di risposta** digitare un URL corrispondente al modello seguente:
+    b. Nella casella di testo **URL di risposta** digitare un URL corrispondente al modello seguente: 
    
-   |  |
-   | --- |
-   | `https://<company name>.successfactors.com/<company name>` |
-   | `https://<company name>.sapsf.com/<company name>` |
-   | `https://<company name>.successfactors.eu/<company name>` |
-   | `https://<company name>.sapsf.eu` |
-   | `https://<company name>.sapsf.eu/<company name>` |
+    |  |
+    | --- |
+    | `https://<company name>.successfactors.com/<company name>` |
+    | `https://<company name>.sapsf.com/<company name>` |
+    | `https://<company name>.successfactors.eu/<company name>` |
+    | `https://<company name>.sapsf.eu` |
+    | `https://<company name>.sapsf.eu/<company name>` |
    
-   c. Fare clic su **Avanti**.
+    c. Fare clic su **Avanti**. 
 
-    > [AZURE.TIP] Si noti che questi non sono i valori reali. È necessario aggiornare questi valori con l'URL di accesso, l'ID e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto di SuccessFactors](https://www.successfactors.com/en_us/support.html).
+    > [!NOTE]
+    > Si noti che questi non sono i valori reali. È necessario aggiornare questi valori con l'URL di accesso, l'ID e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto di SuccessFactors](https://www.successfactors.com/en_us/support.html).
 
-1. Nella pagina **Configura accesso Single Sign-On in SuccessFactors** fare clic su **Download certificato** e quindi salvare il file del certificato nel computer.
+1. Nella pagina **Configure single sign-on at SuccessFactors** (Configura accesso Single Sign-On in SuccessFactors) fare clic su **Scarica certificato** e quindi salvare il file del certificato nel computer.
    
-   ![Configurazione dell'accesso Single Sign-On][10]
+    ![Configurazione dell'accesso Single Sign-On][10]
+
 2. In un'altra finestra del Web browser accedere al **portale di amministrazione di SuccessFactors** come amministratore.
-3. Vedere **Application Security** (Sicurezza delle applicazioni) e **Single Sign On Feature** (Funzionalità Single Sign-On).
-4. Inserire un valore qualsiasi nel **Reset Token** (Reimposta token) e fare clic su **Save Token** (Salva token) per abilitare SSO SAML.
+
+3. Vedere **Sicurezza applicazione** e **Single Sign On Feature** (Funzionalità di accesso Single Sign-On). 
+
+4. Inserire un valore qualsiasi in **Reset Token** (Reimposta token) e fare clic su **Save Token** (Salva token) per abilitare SSO SAML.
    
     ![Configurazione dell'accesso Single Sign-On sul lato app][11]
 
-    > [AZURE.NOTE] Questo valore viene usato solo come opzione di attivazione o disattivazione. Se viene salvato un valore, SSO SAML è ON. Se viene salvato un valore vuoto, SSO SAML è OFF.
+    > [!NOTE] 
+    > Questo valore viene usato solo come opzione di attivazione o disattivazione. Se viene salvato un valore, SSO SAML è ON. Se viene salvato un valore vuoto, SSO SAML è OFF.
 
 1. Nella schermata sottostante eseguire le azioni seguenti.
    
@@ -149,55 +158,57 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
    
     c. Nella casella di testo **SAML Issuer** (Autorità di certificazione SAML) inserire il valore di **URL autorità di certificazione** dalla configurazione guidata dell'applicazione di Azure AD.
    
-    d. Selezionare **Response(Customer Generated/IdP/AP)** (Risposta Generata da cliente(IdP/AP) per **Require Mandatory Signature** (Richiedi firma obbligatoria).
+    d. Selezionare **Response(Customer Generated/IdP/AP)** (Risposta - Generata da cliente/IdP/AP) per **Require Mandatory Signature** (Richiedi firma obbligatoria).
    
-    e. Selezionare **Enabled** (Abilitato) per **Enable SAML Flag** (Abilita il flag SAML).
+    e. Selezionare **Abilitato** per **Enable SAML Flag** (Abilita flag SAML).
    
     f. Selezionare **No** per **Login Request Signature(SF Generated/SP/RP)** (Firma richiesta di accesso - Generata da SF/SP/RP).
    
-    g. Selezionare **Browser/Post Profile** (Profilo Browser/Post) per **SAML Profile** (Profilo SAML).
+    g. Selezionare **Browser/Post Profile** (Profilo browser/post) per **SAML Profile** (Profilo SAML).
    
     h. Selezionare **No** per **Enforce Certificate Valid Period** (Applicare periodo di validità certificato).
    
     i. Copiare il contenuto del file del certificato scaricato, copiarlo e incollarlo nella casella di testo **SAML Verifying Certificate** (Verifica certificato SAML).
 
-    > [AZURE.NOTE] Il contenuto del certificato deve avere i tag di inizio e fine certificato.
+    > [!NOTE] 
+    > Il contenuto del certificato deve avere i tag di inizio e fine certificato.
 
 1. Passare a SAML V2 e seguire questa procedura:
    
     ![Configurazione dell'accesso Single Sign-On sul lato app][13]
    
-    a. Selezionare **Sì** come **Support SP-initiated Global Logout** (Supporto disconnessione globale avviata da SP).
+    a. Selezionare **Sì** per **Support SP-initiated Global Logout** (Supporto disconnessione globale avviata da SP).
    
-    b. Nella casella di testo **Global Logout Service URL** (LogoutRequest destination) (URL del servizio disconnessione globale - Destinazione LogoutRequest) inserire il valore di **URL disconnessione remota** dalla configurazione guidata dell'applicazione di Azure AD.
+    b. Nella casella di testo **Global Logout Service URL (LogoutRequest destination)** (URL del servizio disconnessione globale - Destinazione LogoutRequest) inserire il valore di **URL disconnessione remota** dalla configurazione guidata dell'applicazione di Azure AD.
    
     c. Selezionare **No** per **Require sp must encrypt all NameID element** (Richiesta a sp di crittografare tutti gli elementi NameID).
    
-    d. Selezionare **unspecified** (non specificato) per **NameID Format** (Formato NameID).
+    d. Selezionare **non specificato** per **NameID Format** (Formato NameID).
    
-    e. Selezionare **Yes** (Sì) per **Enable sp initiated login (AuthnRequest)** (Abilita accesso avviato da sp - AuthnRequest).
+    e. Selezionare **Sì** per **Enable sp initiated login (AuthnRequest)** (Abilita accesso avviato da sp - AuthnRequest).
    
     f. Nella casella di testo **Send request as Company-Wide issuer** (Invia richiesta come autorità di certificazione a livello di azienda) inserire il valore di **URL accesso remoto** dalla configurazione guidata dell'applicazione di Azure AD.
 2. Eseguire questi passaggi se si vuole che i nomi utente di account di accesso utente non facciano distinzione tra maiuscole e minuscole.
    
-   a.Vedere **Company Settings** (Impostazioni società) in basso.
+    a. Vedere **Impostazioni società** in basso.
    
-   b. Selezionare la casella di controllo accanto alla **Enable Non-Case-Sensitive Username** (Abilita nome utente senza distinzione maiuscole/minuscole).
+    b. Selezionare la casella di controllo accanto alla **Enable Non-Case-Sensitive Username**(Abilita nome utente senza distinzione maiuscole/minuscole).
    
-   c.Fare clic su **Save** (Salva).
+    c.Fare clic su **Save**(Salva).
    
-   ![Configura accesso Single Sign-On][29]
+    ![Configura accesso Single Sign-On][29]
 
-    > [AZURE.NOTE] Se si prova ad abilitare questa opzione, il sistema controlla se verrà creato un nome di account di accesso SAML duplicato. Ad esempio, se il cliente ha nomi utente Utente1 e utente1. L'annullamento della distinzione maiuscole/minuscole crea questi duplicati. Il sistema visualizza un messaggio di errore e non abilita la funzionalità. Il cliente dovrà modificare uno dei nomi utente in modo che sia effettivamente scritto diversamente.
+    > [!NOTE] 
+    > Se si prova ad abilitare questa opzione, il sistema controlla se verrà creato un nome di account di accesso SAML duplicato. Ad esempio, se il cliente ha nomi utente Utente1 e utente1. L'annullamento della distinzione maiuscole/minuscole crea questi duplicati. Il sistema visualizza un messaggio di errore e non abilita la funzionalità. Il cliente dovrà modificare uno dei nomi utente in modo che sia effettivamente scritto diversamente. 
 
-1. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+1. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Complete** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
    
-   ![Applicazioni][14]
+    ![Applicazioni][14]
 2. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
    
-   ![Applicazioni][15]
+    ![Applicazioni][15]
 
-### Creazione di un utente test di Azure AD
+### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente di test chiamato Britta Simon nel portale classico.
 
 ![Creare un utente di Azure AD][16]
@@ -208,13 +219,13 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
    
     ![Creazione di un utente test di Azure AD][17]
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
-3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti**nel menu in alto.
    
     ![Creazione di un utente test di Azure AD][18]
 4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
    
     ![Creazione di un utente test di Azure AD][19]
-5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
+5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
    
     ![Creazione di un utente test di Azure AD][20]
    
@@ -222,20 +233,20 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
    
     b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
    
-    c. Fare clic su **Next**.
-6. Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
+    c. Fare clic su **Avanti**.
+6. Nella pagina **Profilo utente** seguire questa procedura:
    
-   ![Creazione di un utente test di Azure AD][21]
+    ![Creazione di un utente test di Azure AD][21]
    
-   a. Nella casella di testo **Nome** digitare **Britta**.
+    a. Nella casella di testo **Nome** digitare **Britta**.  
    
-   b. Nella casella di testo **Cognome** digitare **Simon**.
+    b. Nella casella di testo **Cognome** digitare **Simon**.
    
-   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+    c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
    
-   d. Nell'elenco **Ruolo**, selezionare **Utente**.
+    d. Nell'elenco **Ruolo** selezionare **Utente**.
    
-   e. Fare clic su **Avanti**.
+    e. Fare clic su **Avanti**.
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
    
     ![Creazione di un utente test di Azure AD][22]
@@ -245,14 +256,15 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
    
     a. Prendere nota del valore visualizzato in **Nuova password**.
    
-    b. Fare clic su **Completa**.
+    b. Fare clic su **Completa**.  
 
-### Creazione di un utente test SuccessFactors
-Per consentire agli utenti di Azure AD di accedere a SuccessFactors, è necessario eseguirne il provisioning in SuccessFactors. Nel caso di SuccessFactors, il provisioning è un'attività manuale.
+### <a name="creating-a-successfactors-test-user"></a>Creazione di un utente test SuccessFactors
+Per consentire agli utenti di Azure AD di accedere a SuccessFactors, è necessario eseguirne il provisioning in SuccessFactors.  
+Nel caso di SuccessFactors, il provisioning è un'attività manuale.
 
 Per creare utenti in SuccessFactors, è necessario contattare il [team di supporto di SuccessFactors](https://www.successfactors.com/en_us/support.html).
 
-### Assegnazione dell'utente test di Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a SuccessFactors.
 
 ![Assegna utente][24]
@@ -265,20 +277,20 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 2. Nell'elenco di applicazioni, selezionare **SuccessFactors**.
    
     ![Configura accesso Single Sign-On][26]
-3. Scegliere **Utenti** dal menu in alto.
+3. Scegliere **Utenti**dal menu in alto.
    
     ![Assegna utente][27]
 4. Nell'elenco di utenti selezionare **Britta Simon**.
-5. Fare clic su **Assegna** sulla barra degli strumenti in basso.
+5. Fare clic su **Assegna**sulla barra degli strumenti in basso.
    
     ![Assegna utente][28]
 
-### Test dell'accesso Single Sign-On
+### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro SuccessFactors nel pannello di accesso, verrà eseguito automaticamente l'accesso all'applicazione SuccessFactors.
 
-## Risorse aggiuntive
+## <a name="additional-resources"></a>Risorse aggiuntive
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
@@ -318,4 +330,8 @@ Quando si fa clic sul riquadro SuccessFactors nel pannello di accesso, verrà es
 [28]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_10.png
 [29]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_10.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

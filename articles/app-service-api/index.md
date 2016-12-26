@@ -1,14 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come usare le app per le API nel Servizio app di Azure per sviluppare, ospitare e utilizzare API nel cloud e in locale. Esercitazioni, video e altri documenti.
 translationtype: Human Translation
-ms.sourcegitcommit: 2169b6e72c82ad4d9bf4b443d681c22c770229d5
-ms.openlocfilehash: 48b251543871b3ac3a7aad89bc025feabb83e242
-
+ms.sourcegitcommit: 410479b746b5911d1ebcb51c92a6de74686cffbe
+ms.openlocfilehash: e5b9d9322bcf5860debb93fe579665f778a41e7b
 
 ---
 # <a name="app-service---api-apps-documentation"></a>Servizio app: documentazione sulle app per le API
 
-Le app per le API sono uno dei quattro tipi di app offerti dal servizio app di Azure. Le app per le API del servizio app di Azure offrono un avanzato set di funzionalità per sviluppare, ospitare e utilizzare API nel cloud e in locale. Il servizio app di Azure è una piattaforma completamente gestita per scenari Web, mobili e di integrazione.
+Informazioni su come usare le app per le API nel Servizio app di Azure per sviluppare, ospitare e utilizzare API nel cloud e in locale. Esercitazioni, video e altri documenti mostrano come creare e distribuire app per le API.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -131,6 +131,6 @@ Scaricare la documentazione sulle app per dispositivi mobili </div>
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

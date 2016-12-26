@@ -1,15 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come inviare notifiche push da qualsiasi back-end per tutti i dispositivi mobili con hub di notifica. Esercitazioni, informazioni di riferimento sulle API e altri documenti.
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: b40dd058986a3dbe47709776a27ac949d3c4c491
+ms.sourcegitcommit: 0d46d0e04550578a81c636aa118dc02c08428838
+ms.openlocfilehash: 8a4712af44c474cea93f04bf598e6595ba0dadee
 
 ---
 #<a name="notification-hubs-documentation"></a>Documentazione su Hub di notifica
 
-Gli hub di notifica di Azure forniscono un'infrastruttura push di facile utilizzo, multipiattaforma e con numero maggiore di istanze che consente di inviare notifiche push mobili da qualsiasi back-end (nel cloud o locale) a qualsiasi piattaforma mobile.
-
-Con Hub di notifica, è possibile inviare facilmente notifiche push multipiattaforma personalizzate, astraendo i dettagli dei diversi sistemi PNS (Platform Notification System). Con una singola chiamata di API, è possibile indirizzarsi a singoli utenti o interi segmenti di destinatari contenenti milioni di utenti, in tutti i dispositivi.
+Informazioni su come usare Hub di notifica, un motore di notifica push multipiattaforma e scalabile per inviare rapidamente milioni di messaggi. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come impostare e inviare notifiche push da qualsiasi back-end a qualsiasi dispositivo mobile. 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -212,6 +211,6 @@ Scarica la documentazione su Hub di notifica </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 
