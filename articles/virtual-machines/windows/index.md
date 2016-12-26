@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come creare macchine virtuali di Windows. La documentazione consente di pianificare, distribuire e gestire un ambiente di elaborazione con macchina virtuale nel cloud.
 translationtype: Human Translation
-ms.sourcegitcommit: cd8dfa8b436cd165b3438a1823a571feebb0f4f4
-ms.openlocfilehash: 0a2b4c08e5da4d9c16e12f33c5f1a3f9ae863498
+ms.sourcegitcommit: 0970a23966dc099fe4d145ddc66f9a73c109e8a1
+ms.openlocfilehash: 1c56e72a39ff0ea47dcda600b61c937691c63dab
 
 ---
-#<a name="windows-virtual-machines-documentation"></a>Documentazione su Macchine virtuali Windows
+# <a name="windows-virtual-machines-documentation"></a>Documentazione su Macchine virtuali Windows
 
-Macchine virtuali di Azure è uno dei vari tipi di risorse di calcolo scalabili e su richiesta offerte da Azure. In genere, la scelta ricade su una VM se è necessario maggiore controllo dell'ambiente di calcolo rispetto a quanto offerto dalle altre soluzioni. Una VM di Azure offre la flessibilità della virtualizzazione senza dover acquistare e gestire l'hardware fisico su cui è in esecuzione la macchina virtuale. L'utente ha anche il controllo della configurazione, dell'applicazione di patch e dell'installazione del software che viene eseguito nella VM.
+Informazioni su come creare macchine virtuali di Windows. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come pianificare, distribuire e gestire un ambiente di elaborazione con macchina virtuale nel cloud.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -158,6 +159,6 @@ Scaricare la documentazione delle macchine virtuali Windows </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come distribuire un controller di distribuzione di applicazioni cloud. I documenti mostrano come configurare servizi di routing e bilanciamento del carico a livello di applicazione per un front-end Web.
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: e81571dc2d0d52f8b04c7ff99a76d92c784c259e
+ms.sourcegitcommit: 8f9b8cee583b9bc12df14bf5161cab1952e3e022
+ms.openlocfilehash: 5e7843adfb31fcfc56986cce44fc5d59ee558d58
 
 ---
 #<a name="application-gateway-documentation"></a>Documentazione sul gateway applicazione
 
-Il gateway applicazione di Azure offre il controller per la distribuzione di applicazioni (ADC, Application Delivery Controller) come servizio.  Consente ai clienti di ottimizzare la produttività delle Web farm tramite l'offload della terminazione SSL con utilizzo elevato di CPU al gateway applicazione.  Si tratta di un dispositivo virtuale dedicato per l'applicazione con scalabilità e disponibilità elevata, oltre a un set avanzato di diagnostica e registrazione per una gestibilità ottimale.
+Informazioni su come distribuire un gateway applicazione, un controller della distribuzione di applicazioni come servizio. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come configurare servizi di routing e bilanciamento del carico a livello di applicazione per creare un front-end Web scalabile e a disponibilità elevata.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -160,6 +161,6 @@ Scarica la documentazione del gateway applicazione </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

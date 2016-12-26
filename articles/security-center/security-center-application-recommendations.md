@@ -1,33 +1,37 @@
 ---
-title: Protezione delle applicazioni nel Centro sicurezza di Azure | Microsoft Docs
-description: Questo documento illustra le raccomandazioni presenti nel Centro sicurezza di Azure che facilitano la protezione delle applicazioni Azure e garantiscono la conformità ai criteri di sicurezza.
+title: Protezione delle applicazioni nel Centro sicurezza di Azure | Documentazione Microsoft
+description: "Questo documento illustra le raccomandazioni presenti nel Centro sicurezza di Azure che facilitano la protezione delle applicazioni Azure e garantiscono la conformità ai criteri di sicurezza."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: ''
-
+editor: 
+ms.assetid: b5fc7a9e-24b1-415f-b3b5-62a53f5dd424
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2016
+ms.date: 11/17/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 174546d59124296711731de6c8d8929bada56baf
+ms.openlocfilehash: dda826daa18182c1d415037faed5e832680392e1
+
 
 ---
-# Protezione delle applicazioni nel Centro sicurezza di Azure
-Il Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse di Azure. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari. Le raccomandazioni sono applicabili ai tipi di risorse di Azure, ovvero macchine virtuali, risorse di rete, SQL e applicazioni.
+# <a name="protecting-your-applications-in-azure-security-center"></a>Protezione delle applicazioni nel Centro sicurezza di Azure
+Il Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse di Azure. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari.  Le raccomandazioni sono applicabili ai tipi di risorse di Azure, ovvero macchine virtuali, risorse di rete, SQL e applicazioni.
 
-Questo articolo illustra le raccomandazioni relative alle applicazioni. Le raccomandazioni relative alle applicazioni sono incentrate sulla distribuzione di un web application firewall. Usare la tabella seguente come riferimento per conoscere le raccomandazioni disponibili per le applicazioni e gli effetti che producono se si decide di metterle in pratica.
+Questo articolo illustra le raccomandazioni relative alle applicazioni.  Le raccomandazioni relative alle applicazioni sono incentrate sulla distribuzione di un web application firewall.  Usare la tabella seguente come riferimento per conoscere le raccomandazioni disponibili per le applicazioni e gli effetti che producono se si decide di metterle in pratica.
 
-## Raccomandazioni disponibili sulle applicazioni
+## <a name="available-application-recommendations"></a>Raccomandazioni disponibili sulle applicazioni
 | Raccomandazione | Descrizione |
 | --- | --- |
 | [Aggiungere un Web Application Firewall](security-center-add-web-application-firewall.md) |Suggerisce di distribuire un Web application firewall (WAF) per gli endpoint Web. Per proteggere più applicazioni Web in Centro sicurezza, è possibile aggiungerle alle distribuzioni WAF esistenti. Le appliance WAF (create con il modello di distribuzione di Resource Manager) devono essere distribuite in una rete virtuale separata. Le appliance WAF (create con il modello di distribuzione classica) sono limitate all'uso di un gruppo di sicurezza di rete. In futuro tale supporto verrà esteso a una distribuzione completamente personalizzata di un'appliance WAF (versione classica). |
 | [Finalizza la protezione dell'applicazione](security-center-add-web-application-firewall.md#finalize-application-protection) |Per completare la configurazione di un Web Application Firewall, il traffico deve essere reindirizzato al dispositivo WAF. Seguendo questa raccomandazione si completeranno le modifiche di configurazione necessarie. |
 
-## Vedere anche
+## <a name="see-also"></a>Vedere anche
 Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risorse di Azure, vedere gli argomenti seguenti:
 
 * [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-recommendations.md)
@@ -36,8 +40,12 @@ Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risors
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
-* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
+* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
+* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

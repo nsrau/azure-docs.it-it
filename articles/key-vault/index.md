@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come usare l&quot;insieme di credenziali delle chiavi per creare e gestire chiavi in grado di accedere e crittografare le risorse, le app e le soluzioni cloud. Esercitazioni, informazioni di riferimento sulle API e altro ancora.
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 09d20c4c035a072d78118cb0e2184773f4642c81
+ms.sourcegitcommit: 017bbfb8485a7e449157e4ddb05149b5e1cc393f
+ms.openlocfilehash: ae529bdad36eeddb959ac4b0ad5c9ccffc3ac30a
 
 ---
 # <a name="key-vault-documentation"></a>Documentazione sull'insieme di credenziali delle chiavi
 
-L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Con l'insieme di credenziali delle chiavi è possibile crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dati, file PFX e password) usando chiavi protette da moduli di protezione hardware (HSM). Per una maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware.
+Informazioni su come usare l'insieme di credenziali delle chiavi per proteggere e gestire le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come creare e gestire chiavi in grado di accedere e crittografare risorse e soluzioni.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -160,6 +161,6 @@ Scaricare la documentazione sull'insieme di credenziali delle chiavi </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

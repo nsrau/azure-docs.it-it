@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Informazioni su come aggiungere funzionalità intelligenti alle applicazioni, tra cui vision, sintesi vocale e analisi del linguaggio. Guide introduttive e informazioni di riferimento sulle API."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: e4e35a7c13db98770295cbaa19cf33b18c1fb5e7
+ms.sourcegitcommit: d08cbd179ffb64630a37dd04e33ae50dfda3c615
+ms.openlocfilehash: 9e31044fb3be93befb18939210e0bc703462fbd6
 
 ---
 #<a name="cognitive-services-documentation"></a>Documentazione dei servizi cognitivi
 
-Servizi cognitivi (anteprima) è una serie di API che possono essere usate per consentire l'interazione naturale e contestuale all'interno delle applicazioni.  Servizi cognitivi offre API per lingua, riconoscimento vocale, visione, ricerca e Knowledge Base.
+Informazioni su come abilitare interazioni naturali e contestuali nelle applicazioni con Servizi cognitivi. Esercitazioni introduttive e informazioni di riferimento sulle API aiutano a incorporare funzionalità di intelligenza artificiale per testo, comandi vocali, vision e ricerca. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -106,6 +107,6 @@ Scaricare la documentazione dei servizi cognitivi </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

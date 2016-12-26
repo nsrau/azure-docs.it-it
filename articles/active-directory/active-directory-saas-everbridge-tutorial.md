@@ -1,22 +1,26 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Everbridge | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Everbridge.
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Everbridge.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 58d7cd22-98c0-4606-9ce5-8bdb22ee8b3e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 11/22/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 5608f38de6ae78772499a40c4e2d449cd5efc79c
+ms.openlocfilehash: 511a3883cadd9bf2fe1cc39a8626c49fa19a7d8e
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-everbridge"></a>Esercitazione: Integrazione di Azure Active Directory con Everbridge
+# <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Esercitazione: Integrazione di Azure Active Directory con EverBridge
 Questa esercitazione descrive l'integrazione di Everbridge con Azure Active Directory (Azure AD).
 
 L'integrazione di Everbridge con Azure AD offre i vantaggi seguenti:
@@ -173,17 +177,18 @@ Nell'elenco di utenti selezionare **Britta Simon**.
     c. Fare clic su **Avanti**.
 6. Nella pagina **Profilo utente** seguire questa procedura:
    
-   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-everbridge-tutorial/create_aaduser_06.png)
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-everbridge-tutorial/create_aaduser_06.png)
    
-   a. Nella casella di testo **Nome** digitare **Britta**.  
+    a. Nella casella di testo **Nome** digitare **Britta**.  
    
-   b. Nella casella di testo **Cognome** digitare **Simon**.
+    b. Nella casella di testo **Cognome** digitare **Simon**.
    
-   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+    c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
    
-   d. Nell'elenco **Ruolo** selezionare **Utente**.
+    d. Nell'elenco **Ruolo** selezionare **Utente**.
    
-   e. Fare clic su **Avanti**.
+    e. Fare clic su **Avanti**.
+
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-everbridge-tutorial/create_aaduser_07.png)
@@ -248,6 +253,6 @@ Quando si fa clic sul riquadro Everbridge nel pannello di accesso, si dovrebbe a
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

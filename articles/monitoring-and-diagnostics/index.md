@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: Informazioni su come usare i servizi di monitoraggio e diagnostica per monitorare le prestazioni, gestire la sicurezza e individuare le tendenze. Informazioni di riferimento sulle API, procedure consigliate e altro ancora.
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 23978b98ce1ffab18f4fb843ca8904062bf4253e
+ms.sourcegitcommit: edf493f70b08bdf5545127a90d7a13ea49b668c1
+ms.openlocfilehash: 0ee9faf763dbedd4046547764c5ad5ad9e3d2d07
 
 ---
 
 # <a name="monitoring-and-diagnostics-documentation"></a>Documentazione di Monitoraggio e diagnostica
 
-Monitoraggio e diagnostica è una piattaforma di sistemi distribuiti che semplifica la creazione di pacchetti, la distribuzione e la gestione di microservizi scalabili e affidabili e risolve importanti sfide legate allo sviluppo e alla gestione delle applicazioni cloud.  Monitoraggio e diagnostica rappresenta la piattaforma middleware di prossima generazione per la creazione e la gestione di applicazioni cloud di classe enterprise di primo livello.
+Informazioni su come usare i servizi di monitoraggio e diagnostica di Azure per monitorare le prestazioni, gestire la sicurezza e individuare le tendenze. Esercitazioni, informazioni di riferimento sulle API, procedure consigliate e altri documenti in cui vengono illustrati gli usi di monitoraggio e diagnostica e come pianificare e distribuire soluzioni scalabili e affidabili.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -154,6 +155,7 @@ Scaricare la documentazione di Monitoraggio e diagnostica </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

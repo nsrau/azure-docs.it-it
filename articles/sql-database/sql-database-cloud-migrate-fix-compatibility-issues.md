@@ -1,22 +1,27 @@
 ---
-title: Risolvere i problemi di compatibilità del database del server SQL prima di effettuare la migrazione al database SQL | Microsoft Docs
-description: Database SQL di Microsoft Azure, migrazione del database, compatibilità, migrazione guidata di SQL Azure
+title: "Risolvere i problemi di compatibilità del database del server SQL prima di eseguire la migrazione al database SQL | Documentazione Microsoft"
+description: "Database SQL di Microsoft Azure, migrazione del database, compatibilità, migrazione guidata di SQL Azure"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: bba0893a-3247-406c-b155-acb4b3ef479c
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 08/24/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
+ms.openlocfilehash: 78b9a2cd0691be6f02649a421d4bf94219ea8481
+
 
 ---
-# Usare la Migrazione guidata database SQL di Azure per risolvere i problemi di compatibilità dei database di SQL Server prima di eseguire la migrazione al database SQL di Azure
+# <a name="use-sql-azure-migration-wizard-to-fix-sql-server-database-compatibility-issues-before-migration-to-azure-sql-database"></a>Usare la Migrazione guidata database SQL di Azure per risolvere i problemi di compatibilità dei database di SQL Server prima di eseguire la migrazione al database SQL di Azure
 > [!div class="op_single_selector"]
 > * Usare [Migrazione guidata SQL Azure](sql-database-cloud-migrate-fix-compatibility-issues.md)
 > * Usare [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
@@ -26,8 +31,8 @@ ms.author: carlrab
 
 Questo articolo illustra come individuare e risolvere i problemi di compatibilità dei database di SQL Server usando la Migrazione guidata database SQL di Azure prima di eseguire la migrazione al database SQL di Azure.
 
-## Utilizzare la migrazione guidata di SQL Azure
-Usare lo strumento CodePlex [Migrazione guidata SQL Azure](http://sqlazuremw.codeplex.com/) per generare uno script T-SQL da un database di origine non compatibile. Questo script viene quindi trasformato dalla procedura guidata in modo da renderlo compatibile con il database SQL. È quindi possibile connettersi al database SQL di Azure per eseguire lo script. Questo strumento analizza anche i file di traccia per determinare i problemi di compatibilità. Lo script può essere generato solo con lo schema o può includere dati in formato BCP. Per una documentazione aggiuntiva, incluse indicazioni dettagliate, vedere la [Migrazione guidata di SQL Azure](http://sqlazuremw.codeplex.com/) su CodePlex.
+## <a name="using-sql-azure-migration-wizard"></a>Utilizzare la migrazione guidata di SQL Azure
+Usare lo strumento CodePlex [Migrazione guidata SQL Azure](http://sqlazuremw.codeplex.com/) per generare uno script T-SQL da un database di origine non compatibile. Questo script viene quindi trasformato dalla procedura guidata in modo da renderlo compatibile con il database SQL. È quindi possibile connettersi al database SQL di Azure per eseguire lo script. Questo strumento analizza anche i file di traccia per determinare i problemi di compatibilità. Lo script può essere generato solo con lo schema o può includere dati in formato BCP. Per una documentazione aggiuntiva, incluse indicazioni dettagliate, vedere la [Migrazione guidata di SQL Azure](http://sqlazuremw.codeplex.com/)su CodePlex.  
 
  ![Diagramma di migrazione di SAMW](./media/sql-database-cloud-migrate/02SAMWDiagram.png)
 
@@ -36,14 +41,19 @@ Usare lo strumento CodePlex [Migrazione guidata SQL Azure](http://sqlazuremw.cod
 > 
 > 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * [Scaricare la versione più recente di SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx)
 * [Scaricare SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 * [Eseguire la migrazione di un database di SQL Server compatibile nel database SQL](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
-## Risorse aggiuntive
-* [Novità della versione 12 del database SQL](sql-database-v12-whats-new.md)
+## <a name="additional-resources"></a>Risorse aggiuntive
+* [Funzionalità di database SQL](sql-database-features.md)
 * [Transact-SQL partially or unsupported functions (Funzionalità di Transact-SQL parzialmente supportate o non supportate)](sql-database-transact-sql-information.md)
 * [Migrate non-SQL Server databases using SQL Server Migration Assistant (Eseguire la migrazione di database non SQL Server mediante SQL Server Migration Assistant)](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

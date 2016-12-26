@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come configurare monitoraggio della sicurezza e gestione dei criteri per le risorse di Azure. Esercitazioni, informazioni di riferimento sulle API REST e altri documenti.
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 7ac552010e41d59e07f2881750540206ffa24f5b
+ms.sourcegitcommit: 4488a052681c0c146bf6efaf44f8ecebc400fecc
+ms.openlocfilehash: 92eb080a7234cb25a5560127edadfafeafc0253a
 
 ---
 # <a name="security-center-documentation"></a>Documentazione del Centro sicurezza
 
-Il Centro sicurezza impedisce, rileva e risponde alle minacce mediante visibilità e controllo avanzati della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
+Informazioni su come usare il Centro sicurezza per avere visibilità e controllo sulla sicurezza delle risorse di Azure.  Esercitazioni, informazioni di riferimento sull'API REST e altri documenti mostrano come configurare monitoraggio della sicurezza e gestione dei criteri compatibili con un ampio ecosistema di soluzioni di sicurezza.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Il Centro sicurezza impedisce, rileva e risponde alle minacce mediante visibilit
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=security-center">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=security-center">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -67,26 +68,23 @@ Il Centro sicurezza impedisce, rileva e risponde alle minacce mediante visibilit
 </ul>
 
 ---
-## <a name="reference"></a>Riferimento
 
+<h2>Riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://msdn.microsoft.com/en-US/library/mt704034(Azure.100)">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>API REST di Centro sicurezza</p>
+                        <p><a href="https://msdn.microsoft.com/library/mt704034(Azure.100).aspx">Informazioni di riferimento sulle API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>    
+</ul>   
 
----
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security-center.pdf">
         <div class="img"></div>
@@ -96,6 +94,7 @@ Scaricare la documentazione del Centro sicurezza </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

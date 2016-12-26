@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Informazioni su come usare l&quot;Automazione per automatizzare i processi e la gestione delle configurazioni al fine di risparmiare tempo e aumentare l&quot;affidabilità delle operazioni amministrative standard."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: c9444c341bc5746c96719e6ebfa464f294adf2f8
+ms.sourcegitcommit: 9f7b84331bd0575062518834ce1cd3db60fa6289
+ms.openlocfilehash: 98ddde79d422b692a1ded866fb12061bf942fc8a
 
 ---
 # <a name="automation-documentation"></a>Documentazione di Automazione
 
-Automazione di Azure offre agli utenti la possibilità di automatizzare le attività manuali, a esecuzione prolungata, soggette a errori e ripetute di frequente comunemente eseguite negli ambienti cloud. Consente di risparmiare tempo e aumenta l'affidabilità delle normali attività amministrative e le pianifica anche per essere eseguite automaticamente a intervalli regolari.
+Informazioni su come usare l'Automazione per risparmiare tempo e aumentare l'affidabilità delle operazioni amministrative standard eseguite in un ambiente cloud. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come automatizzare i processi tramite runbook o la gestione della configurazione tramite DSC (Desired State Configuration).
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -175,6 +176,6 @@ Scaricare la documentazione di Automazione </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
 toc_rel: breadcrumb.json
+description: Informazioni su come creare, distribuire e gestire macchine virtuali Windows o Linux. Esercitazioni, informazioni di riferimento sulle API e altri documenti.
 translationtype: Human Translation
-ms.sourcegitcommit: c086dc37b8665017de0dbbad9c7ac82931932a72
-ms.openlocfilehash: 57994a1476186696b81b05e0ce7ae645337d35b2
+ms.sourcegitcommit: eabfc16b3714006f74cdaec68efb46f651ee1b97
+ms.openlocfilehash: fc2fb1a52416e5743476a2fc4e57956b602a1689
 
 ---
-#<a name="virtual-machines-documentation"></a>Documentazione delle macchine virtuali
+# <a name="virtual-machines-documentation"></a>Documentazione delle macchine virtuali
 
-Una macchina virtuale di Azure offre la flessibilità della virtualizzazione senza dover acquistare e gestire l'hardware fisico su cui è in esecuzione la macchina virtuale. È comunque necessario gestire la macchina virtuale, ovvero occuparsi di configurazione, applicazione di patch e manutenzione del software in esecuzione nella macchina virtuale.
+Informazioni su come creare macchine virtuali di Azure. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come creare e distribuire macchine virtuali Linux e Windows, nonché modelli di macchine virtuali complessi.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -59,6 +60,6 @@ Scaricare la documentazione sulle macchina virtuale </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

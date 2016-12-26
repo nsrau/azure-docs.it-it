@@ -3,8 +3,8 @@ title: Ridimensionare il cluster del servizio contenitore di Azure con l&quot;in
 description: Come ridimensionare il cluster del servizio contenitore di Azure usando l&quot;interfaccia della riga di comando di Azure.
 services: container-service
 documentationcenter: 
-author: Thraka
-manager: timlt
+author: sauryadas
+manager: madhana
 editor: 
 tags: acs, azure-container-service
 keywords: Docker, Contenitori, Micro-servizi, Mesos, Azure
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2016
-ms.author: timlt
+ms.author: saudas
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9e8df2e68b1b7018d76da89ba9ab332b6ea216fb

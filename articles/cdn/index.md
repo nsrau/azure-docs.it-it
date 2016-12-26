@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come usare la rete per la distribuzione di contenuti (CDN) per fornire contenuti da data center globali a qualsivoglia dispositivo. Esercitazioni, informazioni di riferimento sulle API e altri documenti.
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 3042d17ac3ebfc22cc6e35430d0829a6bc22e0e2
+ms.sourcegitcommit: 565971021beec4afde15c17737ee82b812ba894d
+ms.openlocfilehash: fe5c35945f14c5023f070f25fd76e47d7952ce54
 
 ---
-#<a name="cdn-documentation"></a>Documentazione relativa alla Rete di distribuzione dei contenuti
+# <a name="cdn-documentation"></a>Documentazione relativa alla Rete di distribuzione dei contenuti
 
-La rete per la distribuzione di contenuti di Azure (rete CDN) offre agli sviluppatori una soluzione globale per distribuire contenuti a larghezza di banda elevata ospitati in Azure o in altre posizioni.  Con la rete CDN è possibile memorizzare nella cache gli oggetti disponibili pubblicamente caricati dall'archivio BLOB di Azure, un'applicazione Web, una macchina virtuale, una cartella dell'applicazione o altre posizioni HTTP/HTTPS.  In genere, la rete CDN viene usata per distribuire contenuto statico come immagini, fogli di stile, documenti, file script lato client e pagine HTML.
+Informazioni su come usare la rete per la distribuzione di contenuti (CDN) per fornire contenuto a larghezza di banda elevata ospitato in Azure o altrove. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come usare la rete CDN per fornire contenuti da data center globali a qualsivoglia dispositivo.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -67,37 +68,44 @@ La rete per la distribuzione di contenuti di Azure (rete CDN) offre agli svilupp
 
 ---
 
-## <a name="reference"></a>Riferimento
-
+<h2>Riferimenti</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell</p>
+                        <h3>Riga di comando</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/rest/api/CDN">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Lingue</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.cdn">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.cdn">Java</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>API REST</p>
+                        <p><a href="/rest/api/cdn/">Informazioni di riferimento sulle API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -112,6 +120,6 @@ Scaricare la documentazione della Rete di distribuzione dei contenuti </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

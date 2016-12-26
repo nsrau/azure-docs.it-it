@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come gestire il traffico in ingresso per ottenere prestazioni ottimali delle applicazioni. La documentazione illustra come distribuire il traffico verso Azure o endpoint di servizio esterni.
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 07d7e13862c252db61136110e04559e51a53e4b7
+ms.sourcegitcommit: 3123dc992bb821e79edceef01d2654aaff2468c1
+ms.openlocfilehash: a10c68140066de5be6690f30c89f4f6f2fad0825
 
 ---
 #<a name="traffic-manager-documentation"></a>Documentazione di Gestione traffico
 
-Gestione traffico di Azure consente di controllare la distribuzione del traffico utente per gli endpoint di servizio in diverse aree. Gestione traffico usa il sistema DNS (Domain Name System) per indirizzare le richieste del client all'endpoint più appropriato in base al metodo di routing del traffico selezionato e all'integrità degli endpoint, offrendo all'applicazione disponibilità elevata e velocità di risposta.
+Informazioni sull'utilizzo di Gestione Traffico per reindirizzare il traffico in arrivo per ottenere prestazioni e affidabilità ottimali delle applicazioni. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come gestire il traffico verso Azure o endpoint di servizio esterni.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -129,6 +130,6 @@ Scaricare la documentazione di Gestione traffico </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -19,6 +19,7 @@
 ## [Connettere un'app per la logica alla soluzione di monitoraggio remoto](iot-suite-logic-apps-tutorial.md)
 ## [Personalizzare una soluzione preconfigurata](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Usare la telemetria dinamica con la soluzione di monitoraggio remoto](iot-suite-dynamic-telemetry.md)
+## [Creare una regola personalizata nella soluzione di monitoraggio remoto](iot-suite-custom-rule.md)
 ## [Informazioni sui dispositivi nella soluzione di monitoraggio remoto](iot-suite-remote-monitoring-device-info.md)
 
 # Riferimento
@@ -42,6 +43,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

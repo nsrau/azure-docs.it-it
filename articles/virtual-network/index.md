@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
 +toc_rel: breadcrumb.json
+description: Informazioni su come usare una rete virtuale nel cloud. I documenti mostrano come distribuire una rete virtuale, usarla per avviare le risorse e integrarla con una rete locale.
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: c285a2be335bed0adada1877f94c7999d7c8b7e5
+ms.sourcegitcommit: 9a76fe5c0b518cdd95be71e0c3cf928f0ff93668
+ms.openlocfilehash: 7e2c2db7000b2ea0a4fe698e47e775cc2a7db4dd
 
 ---
 # <a name="virtual-network-documentation"></a>Documentazione sulla rete virtuale
 
-Una rete virtuale di Azure è una rappresentazione della propria rete nel cloud.  Con una rete virtuale è possibile controllare completamente gli elementi della rete e segmentare la rete virtuale in subnet e usarla per avviare Macchine virtuali o Servizi cloud di Azure.  È anche possibile connettere la rete virtuale alla rete locale con una delle opzioni di connettività disponibili in Azure, in modo da espandere la rete nel cloud mantenendo il controllo sulle risorse.
+Informazioni su come usare una rete virtuale, una rappresentazione logica della propria rete nel cloud. I documenti mostrano come configurare e gestire una rete virtuale, usarla per avviare macchine virtuali o Servizi cloud, connetterla alla propria rete locale ed espandere la rete al cloud mantenendo il controllo sulle risorse.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -158,6 +159,6 @@ Scaricare la documentazione sulla rete virtuale </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

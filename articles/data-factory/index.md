@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come usare Data Factory per configurare pipeline di dati automatizzate da e verso origini locali e cloud per spostare ed elaborare i dati per l&quot;analisi.
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: b23fd70f2941898524a848d5c0f353542f416e59
+ms.sourcegitcommit: 82f628be33ab24ef29a42121c577792768882eb5
+ms.openlocfilehash: ac936a317b6a68e2f0670ca9903dbbe100c82cdd
 
 ---
 # <a name="azure-data-factory-documentation"></a>Documentazione di Azure Data Factory
 
-Azure Data Factory è un servizio di integrazione dei dati basato sul cloud che automatizza lo spostamento e la trasformazione dei dati. Il servizio Data Factory crea soluzioni di integrazione dei dati che possono inserire dati da diversi archivi, trasformare ed elaborare i dati e pubblicare i dati risultanti negli archivi.
+Informazioni su come usare Data Factory, un servizio di integrazione dei dati nel cloud, per creare servizi di archiviazione, spostamento ed elaborazione in pipeline di dati automatizzate. Esercitazioni e altri documenti mostrano come configurare e gestire le pipeline di dati, oltre a spostare e trasformare i dati per l'analisi.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -85,7 +86,7 @@ Azure Data Factory è un servizio di integrazione dei dati basato sul cloud che 
 </ul>
 
 ---
- 
+
 <h2>Riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
@@ -101,25 +102,25 @@ Azure Data Factory è un servizio di integrazione dei dati basato sul cloud che 
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>Lingue</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.datafactories.models">.NET</a></p>
                         <p><a href="/azure/data-factory/data-factory-sdks">Guida di riferimento per gli sviluppatori di Data factory di Azure</a></p>
-                    </div>
+                   </div>
                 </div>
             </div>
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/datafactory/">API REST</a></p>
+                        <p><a href="/rest/api/datafactory/">Informazioni di riferimento sulle API REST</a></p>
                     </div>
                 </div>
             </div>
@@ -139,6 +140,6 @@ Scaricare la documentazione di Data factory </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

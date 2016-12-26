@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come configurare i gateway di rete privata virtuale (VPN) per gestire il traffico tra reti virtuali cloud e locali o tra reti virtuali di Azure (VNet) cloud.
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 844a2bb0bc702cf8e81684267677db8a8803208f
+ms.sourcegitcommit: a826f96cd679bb26b8a6cf9bb6bf55e93ba4e346
+ms.openlocfilehash: 99843baf9989378aa3d4ff6325a399dae0b632b6
 
 ---
 #<a name="vpn-gateway-documentation"></a>Documentazione del gateway VPN
 
-Il gateway VPN di Azure è un gateway di rete privata virtuale, usato per inviare traffico di rete tra reti virtuali di Azure e posizioni locali e anche tra reti virtuali in Azure (da rete virtuale a rete virtuale).  
+Informazioni su come configurare un gateway di rete privata virtuale (VPN). Nella documentazione viene illustrato come inviare il traffico di rete tra le reti virtuali di Azure e i percorsi locali o altre reti virtuali di Azure (VNet).
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -122,78 +123,33 @@ Il gateway VPN di Azure è un gateway di rete privata virtuale, usato per inviar
  
 ---
 
-## <a name="reference"></a>Riferimento
-
+<h2>Riferimenti</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Informazioni di riferimento su PowerShell</p>
+                        <h3>Riga di comando</h3>
+                        <p><a href="https://msdn.microsoft.com/library/mt163510(v=azure.300)">PowerShell (gestione risorse)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt270335(v=azure.300)">PowerShell (versione classica)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/network/vpn-gateway">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Interfaccia della riga di comando di Azure</h3>
-                        <p>Gateway VPN con l'interfaccia della riga di comando</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Informazioni di riferimento gestite su .NET</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Informazioni di riferimento su Java SDK</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/mt163859">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>API REST del gateway VPN</p>
+                        <p><a href="https://msdn.microsoft.com/library/mt163859">REST (gestione risorse)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/jj154113">REST (versione classica)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -207,6 +163,6 @@ Scaricare la documentazione del gateway VPN di Azure </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

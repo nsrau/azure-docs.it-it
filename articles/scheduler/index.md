@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Informazioni su come usare Utilità di pianificazione per pianificare e richiamare i processi, ad esempio azioni ricorrenti delle applicazioni e manutenzione di routine. Esercitazioni, informazioni di riferimento sulle API e altro ancora."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: ee469905e6b1f55def062c1d7291bde47a5518ea
+ms.sourcegitcommit: ac4d47ff2e86906252ab93407eb6a4112d102523
+ms.openlocfilehash: 0afe27b9b7ec834ab8a2b944a164d31b7708eafe
 
 ---
 # <a name="scheduler-documentation"></a>Documentazione di Utilità di pianificazione
 
-L'Utilità di pianificazione di Azure consente di descrivere in modo dichiarativo le azioni da eseguire nel cloud  e quindi pianifica ed esegue tali azioni automaticamente.  L'Utilità di pianificazione gestisce quindi una cronologia dei risultati dell'esecuzione dei processi che è possibile consultare.
+Informazioni su come usare Utilità di pianificazione per pianificare e richiamare automaticamente i processi ricorrenti nel cloud. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come pianificare e monitorare i processi, ad esempio azioni ricorrenti delle applicazioni e manutenzione di routine.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -105,6 +106,7 @@ Scaricare la documentazione di Utilità di pianificazione </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

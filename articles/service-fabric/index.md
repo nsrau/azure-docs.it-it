@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Informazioni su come usare la piattaforma middleware Service Fabric per creare pacchetti di microservizi e distribuirli alle applicazioni con scalabilità cloud. Esercitazioni, informazioni di riferimento sulle API ed esempi di codici."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 2ec806d0d00f8db624820fac72083f3e53b89dfa
+ms.sourcegitcommit: 553950d52f53f7911e6de6dde3e2d92fd2e0395a
+ms.openlocfilehash: b6e7175ab63490907bb147ab519c20ebdee6bfc0
 
 ---
 #<a name="service-fabric-documentation"></a>Documentazione di Service Fabric
 
-Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica la creazione di pacchetti, la distribuzione e la gestione di microservizi scalabili e affidabili. Service Fabric fa fronte anche alle principali problematiche correlate allo sviluppo e alla gestione delle applicazioni cloud. Gli sviluppatori e gli amministratori non devono più occuparsi di risolvere complessi problemi di infrastruttura e possono concentrarsi sull'implementazione di carichi di lavoro cruciali e impegnativi, con la certezza di assicurare scalabilità, affidabilità e gestibilità. 
+Informazioni su come usare Service Fabric per creare pacchetti di microservizi scalabili e affidabili, distribuirli e gestirli. Esercitazioni, informazioni di riferimento sulle API ed esempi di codici mostrano come usare questa piattaforma middleware per creare e gestire applicazioni con scalabilità cloud.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -106,64 +107,44 @@ Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica la
 
 ---
 
-## <a name="reference"></a>Riferimento
-
+<h2>Riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/servicefabric/vlatest/servicefabric">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Informazioni di riferimento su PowerShell per Service Fabric</p>
+                        <h3>Riga di comando</h3>
+                        <p><a href="/powershell/servicefabric/vlatest/servicefabric">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/java/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Informazioni di riferimento sulle API Java</p>
+                        <h3>Lingue</h3>
+                        <p><a href="/java/api/microsoft.servicefabric.services">API Java</a></p>
+                        <p><a href="/dotnet/api/microsoft.servicefabric.services">.NET</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>API di riferimento gestita .NET</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/servicefabric">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>API REST di Service Fabric</p>
+                        <p><a href="/rest/api/servicefabric">Informazioni di riferimento sulle API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>   
 
@@ -178,6 +159,6 @@ Scaricare la documentazione di Service Fabric </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

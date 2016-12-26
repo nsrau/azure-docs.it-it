@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Informazioni su come configurare un catalogo dati in cui l&quot;organizzazione può trovare, comprendere e usare le origini dati. Esercitazioni, informazioni di riferimento sulle API e altri documenti."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 7c2c989ca2119f7a2c14ca55a56a2bce69d94efa
+ms.sourcegitcommit: f41d4b06dfd385761780655971f69090050b967c
+ms.openlocfilehash: fed1fedd352b0bfab1729786eda990e78e14fbd1
 
 ---
 #<a name="data-catalog-documentation"></a>Documentazione di Data Catalog
 
-Azure Data Catalog è un servizio cloud completamente gestito che consente agli utenti di trovare le origini dati necessarie e ottenere informazioni su di esse e alle organizzazioni di ottenere il massimo dagli investimenti esistenti. Data Catalog offre funzionalità che consentono a tutti gli utenti, ad esempio analisti, data scientist e sviluppatori, di trovare le origini dati, ottenere informazioni su di esse e di utilizzarle. Data Catalog include un modello di crowdsourcing di metadati e annotazioni e consente a tutti gli utenti di contribuire con le proprie conoscenze per creare una community e una cultura di dati.
+Informazioni su come usare Catalogo dati per aiutare l'organizzazione e il team a trovare, comprendere e usare le origini dati. Esercitazioni, informazioni di riferimento sulle API REST e altri documenti mostrano come pianificare e configurare un repository di dati in cui gli utenti possono trovare le origini dati disponibili e acquisire conoscenze a cui hanno contribuito gli esperti di dominio.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -75,6 +76,7 @@ Scaricare la documentazione di Data Catalog </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

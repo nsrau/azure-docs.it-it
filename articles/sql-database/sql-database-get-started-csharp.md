@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
+ms.custom: single databases
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: csharp
@@ -16,20 +17,14 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0ffe433d9899610d5ff83c66b6cdaaecd16e9c57
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: d33128d8fa2bf0ba1025eff75378ccd42ce5aee0
 
 
 ---
-# <a name="try-sql-database-use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>Prova del database SQL: usare C# per creare un database SQL con la libreria del database SQL per .NET
-> [!div class="op_single_selector"]
-> * [Portale di Azure](sql-database-get-started.md)
-> * [C#](sql-database-get-started-csharp.md)
-> * [PowerShell](sql-database-get-started-powershell.md)
-> 
-> 
+# <a name="use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>Usare C# per creare un database SQL con la libreria del database SQL per .NET
 
-Informazioni su come usare C# per creare un database SQL di Azure con la [libreria di gestione di Microsoft Azure SQL per .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Questo articolo descrive come creare un database singolo con SQL e C#. Per creare pool di database elastici, vedere [Creare un pool di database elastici](sql-database-elastic-pool-create-csharp.md).
+Informazioni su come usare C# per creare un database SQL di Azure con la [libreria di gestione di Microsoft Azure SQL per .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Questo articolo descrive come creare un database autonomo con SQL e C#. Per creare pool elastici, vedere [Creare un pool elastico](sql-database-elastic-pool-create-csharp.md).
 
 La libreria di gestione di database SQL di Azure per .NET include un'API basata su [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) che esegue il wrapping dell'[API REST di database SQL basata su Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
@@ -65,7 +60,7 @@ Per creare un database SQL con C#, caricare le librerie di gestione richieste tr
 > 
 > 
 
-## <a name="create-a-sql-database-server-firewall-rule-and-sql-database-c-example"></a>Creare un server di database SQL, una regola firewall e un database SQL: esempio di C#
+## <a name="create-a-sql-database-server-firewall-rule-and-sql-database---c-example"></a>Creare un server di database SQL, una regola firewall e un database SQL: esempio di C#
 L'esempio seguente consente di creare un gruppo di risorse, un server, una regola del firewall e un database SQL. Per ottenere le variabili `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`, vedere la sezione [Creare un'entità servizio per accedere alle risorse](#create-a-service-principal-to-access-resources).
 
 Sostituire il contenuto di **Program.cs** con quanto segue e aggiornare `{variables}` con i valori dell'app, senza includere `{}`.
@@ -292,6 +287,6 @@ Dopo aver provato il database SQL e aver impostato un database con C#, è possib
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 
