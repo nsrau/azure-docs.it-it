@@ -193,12 +193,12 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 
 [Caricare i dati in SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
 [Panoramica sullo sviluppo per SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
-[Panoramica delle tabelle]: ./sql-data-warehouse-tables-overview.md
+[creazione di una tabella]: ./sql-data-warehouse-tables-overview.md
 [Statistiche]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
+[sintassi di CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
 [Area download Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
