@@ -1,25 +1,29 @@
 ---
-title: Backup di SQL Data Warehouse | Microsoft Docs
-description: Informazioni sui backup dei database predefiniti di SQL Data Warehouse che consentono di ripristinare SQL Data Warehouse di Azure in un punto di ripristino o in un'area geografica diversa.
+title: Backup di SQL Data Warehouse | Documentazione Microsoft
+description: Informazioni sui backup dei database predefiniti di SQL Data Warehouse che consentono di ripristinare SQL Data Warehouse di Azure in un punto di ripristino o in un&quot;area geografica diversa.
 services: sql-data-warehouse
-documentationcenter: ''
+documentationcenter: 
 author: lakshmi1812
-manager: barbkess
-editor: monicar
-
+manager: jhubbard
+editor: 
+ms.assetid: b5aff094-05b2-4578-acf3-ec456656febd
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/06/2016
+ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 71f2798871c946b1edce467e1f491e0d62b342c6
+ms.openlocfilehash: fb61dd8b33581740557be6e5902bbe573f11999c
+
 
 ---
 # <a name="sql-data-warehouse-backups"></a>Backup di SQL Data Warehouse
 SQL Data Warehouse offre il backup sia locale che geografico come parte delle sue funzionalità di backup del data warehouse. Queste includono gli snapshot dei BLOB di Archiviazione di Azure e l'archiviazione con ridondanza geografica. È possibile i backup del dati warehouse per ripristinare il data warehouse a un punto di ripristino nell'area primaria o per ripristinarlo a un'area geografica diversa. Questo articolo illustra le specifiche dei backup in SQL Data Warehouse.
 
-## <a name="what-is-a-data-warehouse-backup?"></a>Cos'è un backup di data warehouse?
+## <a name="what-is-a-data-warehouse-backup"></a>Cos'è un backup di data warehouse?
 Un backup di data warehouse è costituito dai dati che è possibile usare per ripristinare un data warehouse a un momento specifico.  Poiché SQL Data Warehouse è un sistema distribuito, un backup di data warehouse è costituito da molti file archiviati in BLOB di Azure. 
 
 I backup dei database sono una parte essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza, perché proteggono i dati dal danneggiamento o dall'eliminazione accidentale. Per altre informazioni, vedere [Panoramica sulla continuità aziendale](../sql-database/sql-database-business-continuity.md).
@@ -42,7 +46,7 @@ Per altre informazioni su:
 ## <a name="geo-redundant-backups"></a>Backup con ridondanza geografica
 Ogni 24 ore SQL Data Warehouse archivia il data warehouse completo nella risorsa di archiviazione standard. Il data warehouse completo viene creato in base all'ora dell'ultimo snapshot. La risorsa di archiviazione standard appartiene a un account di archiviazione con ridondanza geografica con accesso in lettura (RA-GRS). La funzionalità Archiviazione con ridondanza geografica e accesso in lettura di Archiviazione di Azure replica i file di backup in un [data center associato](../best-practices-availability-paired-regions.md). La replica geografica assicura la possibilità di ripristinare un data warehouse nel caso in cui non si possa accedere agli snapshot nell'area primaria. 
 
-Questa funzionalità è attivata per impostazione predefinita. Se non si desidera usare i backup con ridondanza geografica, è possibile disattivare la funzione. 
+Questa funzionalità è attivata per impostazione predefinita. Se non si desidera usare backup con ridondanza geografica, è possibile [rifiutare esplicitamente] (https://docs.microsoft.com/powershell/resourcemanager/Azurerm.sql/v2.1.0/Set-AzureRmSqlDatabaseGeoBackupPolicy?redirectedfrom=msdn). 
 
 > [!NOTE]
 > In Archiviazione di Azure il termine *replica* fa riferimento alla copia dei file da una località a un'altra. La *replica di database* di SQL fa riferimento a più database secondari sincronizzati con un database primario. 
@@ -67,14 +71,14 @@ order by run_id desc;
 
 Se si desidera mantenere uno snapshot per più di sette giorni, è possibile ripristinare un punto di ripristino come nuovo data warehouse. Dopo aver completato il ripristino, SQL Data Warehouse avvia la creazione di snapshot nel nuovo data warehouse. Se non si apportano modifiche al nuovo data warehouse, gli snapshot rimangono vuoti e pertanto il costo dello snapshot è minimo. È anche possibile mettere in pausa il database per impedire a SQL Data Warehouse di creare snapshot.
 
-### <a name="what-happens-to-my-backup-retention-while-my-data-warehouse-is-paused?"></a>Cosa accade alla conservazione dei backup mentre il data warehouse è in pausa?
+### <a name="what-happens-to-my-backup-retention-while-my-data-warehouse-is-paused"></a>Cosa accade alla conservazione dei backup mentre il data warehouse è in pausa?
 Mentre un data warehouse è in pausa SQL Data Warehouse non crea snapshot e non fa scadere gli snapshot. L'età degli snapshot non cambia mentre il data warehouse è in pausa. La conservazione degli snapshot è basata sul numero di giorni in cui il data warehouse rimane in linea e non sui giorni di calendario.
 
 Ad esempio se uno snapshot viene avviato il 1° ottobre alle 16.00 e il data warehouse viene messo in pausa il 3 ottobre alle 16.00, lo snapshot ha due giorni. In qualsiasi momento il data warehouse ritorni in linea, lo snapshot avrà due giorni. Se il data warehouse torna in linea il 5 ottobre alle 16.00, in quel momento lo snapshot avrà due giorni e gli rimarranno cinque giorni.
 
 Quando il data warehouse ritorna in linea, SQL Data Warehouse avvia nuovi snapshot e fa scadere gli snapshot quando superano i sette giorni di dati.
 
-### <a name="how-long-is-the-retention-period-for-a-dropped-data-warehouse?"></a>Quanto dura il periodo di conservazione di un data warehouse rimosso?
+### <a name="how-long-is-the-retention-period-for-a-dropped-data-warehouse"></a>Quanto dura il periodo di conservazione di un data warehouse rimosso?
 Quando un data warehouse viene eliminato, il data warehouse e gli snapshot vengono conservati per sette giorni e poi vengono rimossi. È possibile ripristinare il data warehouse a qualsiasi punto di ripristino salvato.
 
 > [!IMPORTANT]
@@ -112,6 +116,6 @@ Il principale utilizzo per i backup di SQL Data Warehouse è il ripristino del d
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

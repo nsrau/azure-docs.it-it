@@ -1,35 +1,63 @@
 ---
-title: Connettersi a un account DocumentDB con supporto del protocollo per MongoDB | Microsoft Docs
-description: Informazioni su come connettersi a un account DocumentDB con supporto del protocollo per MongoDB, ora disponibile in anteprima. Connettersi usando la stringa di connessione MongoDB.
+title: Stringa di connessione MongoDB per un account DocumentDB | Documentazione Microsoft
+description: Informazioni su come connettere l&quot;app MongoDB a un account Azure DocumentDB usando una stringa di connessione MongoDB.
 keywords: stringa di connessione mongodb
 services: documentdb
 author: AndrewHoh
 manager: jhubbard
-editor: ''
-documentationcenter: ''
-
+editor: 
+documentationcenter: 
+ms.assetid: e36f7375-9329-403b-afd1-4ab49894f75e
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 11/22/2016
 ms.author: anhoh
+translationtype: Human Translation
+ms.sourcegitcommit: 0e947e0eaa6755f499860d5ce6d8bf354bc7eca4
+ms.openlocfilehash: 35a281cf40cc5bb0a23c17990438ba696b22bc54
+
 
 ---
-# <a name="how-to-connect-to-a-documentdb-account-with-protocol-support-for-mongodb"></a>Procedura di connessione a un account DocumentDB con supporto del protocollo per MongoDB
-Informazioni su come connettersi a un account Azure DocumentDB con supporto del protocollo per MongoDB usando il formato URI della stringa di connessione standard di MongoDB.  
 
-## <a name="get-the-account's-connection-string-information"></a>Ottenere informazioni sulla stringa di connessione dell'account
-1. In una nuova finestra accedere al [portale di Azure](https://portal.azure.com).
-2. Nella **riquadro di spostamento sinistro** del pannello Account, fare clic su **Stringa di connessione**. Per passare al **pannello Account**, nell'indice fare clic su **Altri servizi**, quindi su **DocumentDB (NoSQL)** e selezionare l'account DocumentDB con supporto del protocollo per MongoDB.
-   
-    ![Screenshot del pannello Tutte le impostazioni](./media/documentdb-connect-mongodb-account/SettingsBlade.png)
-3. Verrà visualizzato il pannello **Informazioni sulla stringa di connessione** con tutte le informazioni necessarie per connettersi all'account usando un driver per MongoDB, inclusa una stringa di connessione predefinita.
-   
+# <a name="connect-a-mongodb-app-to-an-documentdb-account-using-a-mongodb-connection-string"></a>Connettere un'app MongoDB a un account DocumentDB usando una stringa di connessione MongoDB
+Informazioni su come connettere l'app MongoDB a un account Azure DocumentDB usando una stringa di connessione MongoDB. Connettendo l'app MongoDB a un database Azure DocumentDB, è possibile usare un database DocumentDB come archivio dati per l'app MongoDB. 
+
+Questa esercitazione illustra due modi per recuperare le informazioni della stringa di connessione:
+
+- [Metodo di avvio rapido](#QuickStartConnection), da usare con driver Python, Java, MongoDB Shell, Node.js e .NET.
+- [Metodo basato sulla stringa di connessione personalizzata](#GetCustomConnection), da usare con gli altri driver.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+- Un account Azure. Se non si ha un account Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) ora. 
+- Un account DocumentDB. Per istruzioni, vedere [Creare un account DocumentDB da usare con le app MongoDB](documentdb-create-mongodb-account.md).
+
+## <a name="a-idquickstartconnectionaget-the-mongodb-connection-string-using-the-quick-start"></a><a id="QuickStartConnection"></a>Ottenere la stringa di connessione MongoDB usando l'avvio rapido
+1. In un browser Internet accedere al [portale di Azure](https://portal.azure.com).
+2. Nel pannello **NoSQL (DocumentDB)** selezionare l'account DocumentDB con il supporto del protocollo per MongoDB. 
+3. Nella barra di **spostamento a sinistra** del pannello Account fare clic su **Avvio rapido**. 
+4. Scegliere la piattaforma (*driver .NET*, *driver Node.js*, *MongoDB Shell*, *driver Java*, *driver Python*). Se il driver o lo strumento non è visualizzato nell'elenco, tenere presente che altri frammenti di codice di connessione vengono continuamente documentati. Aggiungere un commento di seguito sull'elemento desiderato e vedere [Ottenere informazioni sulla stringa di connessione dell'account](#GetCustomConnection) per istruzioni su come creare la propria connessione.
+5. Copiare e incollare il frammento di codice nell'app MongoDB per iniziare.
+
+    ![Screenshot del pannello Avvio rapido](./media/documentdb-connect-mongodb-account/QuickStartBlade.png)
+
+## <a name="a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize"></a><a id="GetCustomConnection"></a> Ottenere la stringa di connessione MongoDB da personalizzare
+1. In un browser Internet accedere al [portale di Azure](https://portal.azure.com).
+2. Nel pannello **NoSQL (DocumentDB)** selezionare l'account DocumentDB con il supporto del protocollo per MongoDB. 
+3. Nella barra di **spostamento a sinistra** del pannello Account fare clic su **Stringa di connessione**. 
+4. Verrà visualizzato il pannello **Informazioni sulla stringa di connessione** con tutte le informazioni necessarie per connettersi all'account usando un driver per MongoDB, inclusa una stringa di connessione predefinita.
+
     ![Screenshot del pannello Stringa di connessione](./media/documentdb-connect-mongodb-account/ConnectionStringBlade.png)
 
 ## <a name="connection-string-requirements"></a>Requisiti della stringa di connessione
+> [!Important]
+> DocumentDB ha standard e requisiti di sicurezza restrittivi. Gli account DocumentDB richiedono l'autenticazione e la comunicazione sicura tramite **SSL**.
+>
+>
+
 È importante notare che DocumentDB supporta il formato URI della stringa di connessione standard di MongoDB, con un paio di requisiti specifici: gli account DocumentDB richiedono l'autenticazione e la comunicazione sicura con SSL.  Il formato della stringa di connessione è quindi:
 
     mongodb://username:password@host:port/[database]?ssl=true
@@ -50,32 +78,14 @@ Dove i valori di questa stringa sono disponibili nel pannello Stringa di conness
 
 Si consideri ad esempio l'account indicato sopra in Informazioni sulla stringa di connessione.  Una stringa di connessione valida è la seguente:
 
-    mongodb://contoso123:<password@contoso123.documents.azure.com:10250/mydatabase?ssl=true
-
-## <a name="connecting-with-the-c#-driver-for-mongodb"></a>Connessione con il driver C# per MongoDB
-Come già accennato, tutti gli account di DocumentDB richiedono l'autenticazione e la comunicazione sicura con SSL. Anche se il formato URI della stringa di connessione di MongoDB supporta un parametro della stringa di query ssl=true, l'uso del driver C# per MongoDB richiede l'oggetto MongoClientSettings durante la creazione di un elemento MongoClient.  Date le informazioni sull'account indicate in precedenza, il frammento di codice seguente illustra come connettersi all'account e usare il database "Attività".
-
-            MongoClientSettings settings = new MongoClientSettings();
-            settings.Server = new MongoServerAddress("contoso123.documents.azure.com", 10250);
-            settings.UseSsl = true;
-            settings.SslSettings = new SslSettings();
-            settings.SslSettings.EnabledSslProtocols = SslProtocols.Tls12;
-
-            MongoIdentity identity = new MongoInternalIdentity("Tasks", "contoso123");
-            MongoIdentityEvidence evidence = new PasswordEvidence("<password>");
-
-            settings.Credentials = new List<MongoCredential>()
-            {
-                new MongoCredential("SCRAM-SHA-1", identity, evidence)
-            };
-            MongoClient client = new MongoClient(settings);
-            var database = client.GetDatabase("Tasks",);
-
+    mongodb://contoso123:<password@anhohmongo.documents.azure.com:10250/mydatabase?ssl=true
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [usare MongoChef](documentdb-mongodb-mongochef.md) con un account DocumentDB con supporto del protocollo per MongoDB.
 * Esplorare DocumentDB con supporto del protocollo per trovare [esempi](documentdb-mongodb-samples.md)di MongoDB.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO4-->
 
 

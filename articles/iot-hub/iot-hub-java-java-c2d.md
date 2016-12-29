@@ -1,39 +1,43 @@
 ---
-title: Inviare messaggi da cloud a dispositivo con l’hub IoT | Microsoft Docs
-description: Seguire questa esercitazione per informazioni su come inviare messaggi da cloud a dispositivo usando l'hub IoT Azure con Java.
+title: Inviare messaggi da cloud a dispositivo con l&quot;hub IoT | Documentazione Microsoft
+description: Seguire questa esercitazione per informazioni su come inviare messaggi da cloud a dispositivo usando l&quot;hub IoT Azure con Java.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 7f785ea8-e7c2-40c5-87ef-96525e9b9e1e
 ms.service: iot-hub
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 11/23/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
+ms.openlocfilehash: 0a92676ee0ed8025e0441c65af0ef623fc7e0795
+
 
 ---
-# Esercitazione: Inviare messaggi da cloud a dispositivo con l'hub IoT e Java
+# <a name="tutorial-how-to-send-cloud-to-device-messages-with-iot-hub-and-java"></a>Esercitazione: Inviare messaggi da cloud a dispositivo con l'hub IoT e Java
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-## Introduzione
-L'hub IoT di Azure è un servizio completamente gestito che consente di abilitare comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e un back-end applicazioni. L’esercitazione [Introduzione all’hub IoT] illustra come creare un hub IoT, eseguire il provisioning dell’identità di un dispositivo al suo interno e creare il codice di un dispositivo simulato che invia messaggi da dispositivo a cloud.
+## <a name="introduction"></a>Introduzione
+L'hub IoT di Azure è un servizio completamente gestito che consente di abilitare comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi e un back-end applicazioni. L'esercitazione [Introduzione all'hub IoT] illustra come creare un hub IoT, effettuare il provisioning dell'identità di un dispositivo al suo interno e creare il codice di un'app per dispositivo simulato che invia messaggi da dispositivo a cloud.
 
-Questa esercitazione si basa su [Introduzione all'hub IoT di Azure]. Illustra le operazioni seguenti:
+Questa esercitazione si basa su [Introduzione all'hub IoT]. Illustra le operazioni seguenti:
 
 * Dal back-end cloud dell'applicazione, inviare messaggi da cloud a dispositivo a un singolo dispositivo tramite l'hub IoT.
 * Ricevere messaggi da cloud a dispositivo in un dispositivo.
 * Dal back-end cloud dell'applicazione, richiedere l'acknowledgement di recapito (*feedback*) per i messaggi inviati a un dispositivo dall'hub IoT.
 
-È possibile trovare ulteriori informazioni sui messaggi da cloud a dispositivo nella [Guida per sviluppatori di hub IoT][IoT Hub Developer Guide - C2D].
+Per altre informazioni sui messaggi da cloud a dispositivo, vedere la[Guida per gli sviluppatori dell'hub IoT][IoT Hub Developer Guide - C2D].
 
 Al termine di questa esercitazione, eseguire due applicazioni console Java:
 
-* **simulated-device**, una versione modificata dell'app creata in [Introduzione all'hub IoT di Azure], che si connette all'hub IoT e riceve messaggi da cloud a dispositivo.
-* **send-c2d-messages**, che invia un messaggio da cloud a dispositivo al dispositivo simulato tramite l'hub IoT e riceve quindi l'acknowledgement del recapito.
+* **simulated-device**, una versione modificata dell'app creata in [Introduzione all'hub IoT], che si connette all'hub IoT e riceve messaggi da cloud a dispositivo.
+* **send-c2d-messages**, che invia un messaggio da cloud a dispositivo all'app per dispositivo simulato tramite l'hub IoT e riceve quindi l'acknowledgement del recapito.
 
 > [!NOTE]
 > L’hub IoT dispone del supporto SDK per molte piattaforme e linguaggi (inclusi C, Java e Javascript) tramite gli SDK del dispositivo IoT Azure. Per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure, vedere il [Centro per sviluppatori Azure IoT].
@@ -43,14 +47,14 @@ Al termine di questa esercitazione, eseguire due applicazioni console Java:
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Java SE 8. <br/> [Preparare l'ambiente di sviluppo][lnk-dev-setup] descrive come installare Java per questa esercitazione in Windows o Linux.
-* Maven 3. <br/> [Preparare l'ambiente di sviluppo][lnk-dev-setup] descrive come installare Maven per questa esercitazione in Windows o Linux.
-* Un account Azure attivo. Se non si ha un account è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [Crea subito il tuo account Azure gratuito][lnk-free-trial].
+* Maven 3.  <br/> [Preparare l'ambiente di sviluppo][lnk-dev-setup] descrive come installare Maven per questa esercitazione in Windows o Linux.
+* Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito][lnk-free-trial] in pochi minuti.
 
-## Ricevere messaggi sul dispositivo simulato
-In questa sezione si modifica l'applicazione del dispositivo simulato creata in [Introduzione all'hub IoT di Azure per Node.js] per ricevere i messaggi da cloud a dispositivo dall'hub IoT.
+## <a name="receive-messages-in-the-simulated-device-app"></a>Ricevere messaggi nell'app per dispositivo simulato
+In questa sezione si modificherà l'app per il dispositivo simulato creata in [Introduzione all'hub IoT] per ricevere i messaggi da cloud a dispositivo dall'hub IoT.
 
-1. Usando un editor di testo, aprire il file simulated-device\\src\\main\\java\\com\\mycompany\\app\\App.java.
-2. Aggiungere la seguente classe **MessageCallback** come classe annidata all'interno della classe **App**. Il metodo **execute** viene richiamato quando il dispositivo riceve un messaggio dall'hub IoT. In questo esempio il dispositivo notifica sempre all'hub di aver completato il messaggio:
+1. Usando un editor di testo, aprire il file simulated-device\src\main\java\com\mycompany\app\App.java.
+2. Aggiungere la seguente classe **MessageCallback** come classe annidata all'interno della classe **App**. Il metodo **execute** viene richiamato quando il dispositivo riceve un messaggio dall'hub IoT. In questo esempio, il dispositivo notifica sempre all'hub IoT di aver completato il messaggio:
    
     ```
     private static class MessageCallback implements
@@ -74,12 +78,12 @@ In questa sezione si modifica l'applicazione del dispositivo simulato creata in 
     ```
    
    > [!NOTE]
-   > Se si usa HTTP/1 invece di AMQP per il trasporto, l'istanza di **DeviceClient** controlla raramente i messaggi provenienti dall'hub IoT (meno di 25 minuti). Per altre informazioni sulle differenze tra il supporto di AMQP e di HTTP/1 e sulla limitazione delle richieste dell'hub IoT, vedere [Guida per gli sviluppatori dell'hub IoT di Azure][IoT Hub Developer Guide - C2D].
+   > Se si usa HTTP/25 invece di MQTT o AMQP per il trasporto, l'istanza di **DeviceClient** controlla raramente i messaggi provenienti dall'hub IoT (meno di 25 minuti). Per altre informazioni sulle differenze tra il supporto di MQTT, AMQP e HTTP e sulla limitazione delle richieste dell'hub IoT, vedere [Guida per gli sviluppatori dell'hub IoT][IoT Hub Developer Guide - C2D].
    > 
    > 
 
-## Inviare un messaggio da cloud a dispositivo
-In questa sezione si crea un'app console Java che invia messaggi da cloud a dispositivo all'app del dispositivo simulato. È necessario l'ID del dispositivo aggiunto nell'esercitazione [Introduzione all'hub IoT di Azure]. Occorre anche la stringa di connessione per l'hub IoT, disponibile nel [portale di Azure].
+## <a name="send-a-cloud-to-device-message"></a>Inviare un messaggio da cloud a dispositivo
+In questa sezione si crea un'app console Java che invia messaggi da cloud a dispositivo all'app del dispositivo simulato. È necessario l'ID del dispositivo aggiunto nell'esercitazione [Introduzione all'hub IoT] . Occorre anche la stringa di connessione per l'hub IoT, disponibile nel [portale di Azure].
 
 1. Creare un progetto Maven denominato **send-c2d-messages** usando il comando seguente al prompt dei comandi. Si noti che si tratta di un lungo comando singolo:
    
@@ -87,17 +91,17 @@ In questa sezione si crea un'app console Java che invia messaggi da cloud a disp
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=send-c2d-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 2. Al prompt dei comandi passare alla nuova cartella send-c2d-messages.
-3. In un editor di testo aprire il file pom.xml nella cartella send-c2d-messages e aggiungere la dipendenza seguente al nodo **dependencies**. L'aggiunta della dipendenza consente di usare il pacchetto **iothub-java-service-client** nell'applicazione per comunicare con il servizio hub IoT:
+3. In un editor di testo aprire il file pom.xml nella cartella send-c2d-messages e aggiungere la dipendenza seguente al nodo **dependencies** . L'aggiunta della dipendenza consente di usare il pacchetto **iothub-java-service-client** nell'applicazione per comunicare con il servizio hub IoT:
    
     ```
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.7</version>
+      <version>1.0.10</version>
     </dependency>
     ```
 4. Salvare e chiudere il file pom.xml.
-5. In un editor di testo aprire il file send-c2d-messages\\src\\main\\java\\com\\mycompany\\app\\App.java.
+5. In un editor di testo aprire il file send-c2d-messages\src\main\java\com\mycompany\app\App.java.
 6. Aggiungere al file le istruzioni **import** seguenti:
    
     ```
@@ -110,7 +114,7 @@ In questa sezione si crea un'app console Java che invia messaggi da cloud a disp
     ```
     private static final String connectionString = "{yourhubconnectionstring}";
     private static final String deviceId = "{yourdeviceid}";
-    private static final IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
+    private static final IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQP;
     ```
 8. Sostituire il metodo **main** con il codice seguente che si connette all'hub IoT, invia un messaggio al dispositivo e quindi attende un riconoscimento che il dispositivo ha ricevuto ed elaborato il messaggio:
    
@@ -145,11 +149,11 @@ In questa sezione si crea un'app console Java che invia messaggi da cloud a disp
     ```
    
    > [!NOTE]
-   > Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling] \(Gestione degli errori temporanei).
+   > Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling](Gestione degli errori temporanei).
    > 
    > 
 
-## Eseguire le applicazioni
+## <a name="run-the-applications"></a>Eseguire le applicazioni
 A questo punto è possibile eseguire le applicazioni.
 
 1. Al prompt dei comandi nella cartella simulated-device eseguire il comando seguente per iniziare a inviare i dati di telemetria all'hub IoT e rimanere in ascolto dei messaggi da cloud a dispositivo inviati dall'hub:
@@ -167,8 +171,8 @@ A questo punto è possibile eseguire le applicazioni.
    
     ![Eseguire il comando per inviare il messaggio dal cloud al dispositivo][img-send-command]
 
-## Passaggi successivi
-In questa esercitazione è stato descritto come inviare e ricevere messaggi da cloud a dispositivo.
+## <a name="next-steps"></a>Passaggi successivi
+In questa esercitazione è stato descritto come inviare e ricevere messaggi da cloud a dispositivo. 
 
 Per avere degli esempi di soluzioni complete che utilizzano l'hub IoT, vedere la [Azure IoT Suite].
 
@@ -176,13 +180,11 @@ Per ulteriori informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere 
 
 <!-- Images -->
 [img-simulated-device]: media/iot-hub-java-java-c2d/receivec2d.png
-[img-send-command]: media/iot-hub-java-java-c2d/sendc2d.png
+[img-send-command]:  media/iot-hub-java-java-c2d/sendc2d.png
 <!-- Links -->
 
-[Introduzione all'hub IoT di Azure]: iot-hub-java-java-getstarted.md
-[Introduzione all'hub IoT di Azure per Node.js]: iot-hub-java-java-getstarted.md
-[Introduzione all’hub IoT]: iot-hub-java-java-getstarted.md
-[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
+[Introduzione all'hub IoT]: iot-hub-java-java-getstarted.md
+[IoT Hub Developer Guide - C2D]: iot-hub-devguide-messaging.md
 [Guida per gli sviluppatori dell'hub IoT]: iot-hub-devguide.md
 [Centro per sviluppatori Azure IoT]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -191,4 +193,8 @@ Per ulteriori informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere 
 [portale di Azure]: https://portal.azure.com
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO5-->
+
+

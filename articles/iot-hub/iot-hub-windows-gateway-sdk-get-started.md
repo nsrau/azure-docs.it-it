@@ -1,26 +1,30 @@
 ---
-title: Introduzione all'IoT SDK per gateway | Microsoft Docs
-description: Procedura dettagliata dell'Azure IoT SDK per gateway con Windows che illustra i concetti chiave che è necessario comprendere quando si usa l'Azure IoT SDK per gateway.
+title: Introduzione all&quot;hub IoT SDK per gateway | Documentazione Microsoft
+description: Procedura dettagliata sull&quot;SDK per gateway IoT di Azure con l&quot;uso di Windows per illustrare i concetti chiave dell&quot;SDK per gateway IoT di Azure.
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: chipalost
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9aff3724-5e4e-40ec-b95a-d00df4f590c5
 ms.service: iot-hub
 ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: andbuc
+translationtype: Human Translation
+ms.sourcegitcommit: 2d8b98fbd5345edd5dc6891df12f05eccd8e7ca8
+ms.openlocfilehash: 6f2fe4fd3442d97955519348416b35fe6f9075d1
+
 
 ---
-# <a name="iot-gateway-sdk-(beta)---get-started-using-windows"></a>IoT SDK per gateway (beta): introduzione all'uso in Windows
+# <a name="azure-iot-gateway-sdk---get-started-using-windows"></a>Azure IoT Gateway SDK: introduzione all'uso di Windows
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>Come compilare l'esempio
-Prima di iniziare, è necessario [configurare l'ambiente di sviluppo][lnk-setupdevbox] per usare l'SDK in Windows.
+Prima di iniziare, è necessario [configurare l'ambiente di sviluppo][lnk-setupdevbox] per l'uso dell'SDK in Windows.
 
 1. Aprire un **prompt dei comandi per gli sviluppatori per VS2015** .
 2. Accedere alla directory principale nella copia locale del repository **azure-iot-gateway-sdk** .
@@ -29,41 +33,47 @@ Prima di iniziare, è necessario [configurare l'ambiente di sviluppo][lnk-setupd
 ## <a name="how-to-run-the-sample"></a>Per eseguire l'esempio
 1. Lo script **build.cmd** crea una cartella denominata **build** nella copia locale del repository. Questa cartella contiene i due moduli usati in questo esempio.
    
-    Lo script di compilazione scrive **logger_hl.dll** nella cartella **build\\modules\\logger\\Debug** e **hello_world_hl.dll** nella cartella **build\\modules\\hello_world\\Debug**. Usare questi percorsi per il valore di **module path** come illustrato nel file di impostazioni JSON riportato di seguito.
-2. Il file **hello_world_win.json** nella cartella **samples\\hello_world\\src** è un file di impostazioni JSON di esempio per Windows che è possibile usare per eseguire l'esempio. Le impostazioni JSON di esempio illustrate di seguito presuppongono che sia stato clonato il repository SDK per gateway nella directory principale dell'unità **C:** . Se il repository è stato scaricato in un altro percorso, è necessario modificare di conseguenza i valori di **module path** nel file **samples\\hello_world\\src\\hello_world_win.json**.
-3. Per il modulo **logger_hl**, nella sezione **args**, impostare il valore di **filename** sul nome e percorso del file che conterrà i dati di log.
-   
-    Questo è un esempio di un file di impostazioni JSON per Windows che verrà scritto nel file **log.txt** nella directory principale dell'unità **C:**.
+    Lo script di compilazione inserisce **logger.dll** nella cartella **build\\modules\\logger\\Debug** e **hello_world.dll** nella cartella **build\\modules\\hello_world\\Debug**. Usare questi percorsi per il valore **module path**, come illustrato nel file di impostazioni JSON seguente.
+2. Il processo hello_world_sample accetta il percorso di un file di configurazione JSON come argomento nella riga di comando. Il file JSON di esempio riportato di seguito viene fornito come parte del repository in **azure-iot-gateway-sdk\samples\hello_world\src\hello_world_win.json**. Il file funziona così com'è, a meno che non sia stato modificato lo script di compilazione per inserire moduli o file eseguibili di esempio in percorsi non predefiniti. 
+
+   > [!NOTE]
+   > I percorsi dei moduli sono relativi alla directory in cui si trova il file hello_world_sample.exe. Per impostazione predefinita, il file di configurazione JSON di esempio prevede la scrittura del file "log.txt" nella directory di lavoro corrente.
    
     ```
     {
-      "modules" :
-      [
+      "modules": [
         {
-          "module name" : "logger_hl",
-          "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\logger\\Debug\\logger_hl.dll",
-          "args" : 
-          {
-            "filename":"C:\\log.txt"
-          }
+          "name": "logger",
+          "loader": {
+            "name": "native",
+            "entrypoint": {
+              "module.path": "..\\..\\..\\modules\\logger\\Debug\\logger.dll"
+            }
+          },
+          "args": { "filename": "log.txt" }
         },
         {
-          "module name" : "hello_world",
-          "module path" : "C:\\azure-iot-gateway-sdk\\build\\\\modules\\hello_world\\Debug\\hello_world_hl.dll",
-          "args" : null
-        }
+          "name": "hello_world",
+          "loader": {
+            "name": "native",
+            "entrypoint": {
+              "module.path": "..\\..\\..\\modules\\hello_world\\Debug\\hello_world.dll"
+            }
+          },
+          "args": null
+          }
       ],
-      "links" :
-      [
+      "links": [
         {
           "source": "hello_world",
-          "sink": "logger_hl"
+          "sink": "logger"
         }
       ]
     }
     ```
-4. Al prompt dei comandi, accedere alla directory principale della copia locale del repository **azure-iot-gateway-sdk** .
-5. Eseguire il comando seguente:
+3. Passare alla cartella radice nella copia locale del repository **azure-iot-gateway-sdk**.
+
+4. Eseguire il comando seguente:
    
    ```
    build\samples\hello_world\Debug\hello_world_sample.exe samples\hello_world\src\hello_world_win.json
@@ -75,6 +85,7 @@ Prima di iniziare, è necessario [configurare l'ambiente di sviluppo][lnk-setupd
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO5-->
 
 

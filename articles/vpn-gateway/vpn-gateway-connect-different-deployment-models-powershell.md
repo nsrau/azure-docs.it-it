@@ -1,13 +1,13 @@
 ---
-title: Come connettere le reti virtuali classiche alle reti virtuali di Resource Manager tramite PowerShell | Microsoft Docs
+title: Come connettere le reti virtuali classiche alle reti virtuali di Resource Manager tramite PowerShell | Documentazione Microsoft
 description: Informazioni su come creare una connessione VPN tra le reti virtuali classiche e le reti virtuali di Resource Manager usando il gateway VPN e PowerShell
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: f17c3bf0-5cc9-4629-9928-1b72d0c9340b
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 7834aefeb9eb007ffa9daf708250c9f06ec05e67
+ms.openlocfilehash: 5aa628ce651c3d768f461f5bcea2c63d693f091e
+
 
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Connettere reti virtuali da diversi modelli di distribuzione usando PowerShell
@@ -35,7 +39,8 @@ La tabella seguente verrà aggiornata man mano che per questa configurazione div
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-#### <a name="vnet-peering"></a>Peering reti virtuali
+**Peering reti virtuali**
+
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 ## <a name="before-beginning"></a>Prima di iniziare
@@ -46,7 +51,7 @@ I passaggi seguenti illustrano le impostazioni necessarie per configurare un gat
 * Gli intervalli di indirizzi per le reti virtuali non si sovrappongono l'uno con l'altro o non si sovrappongano con gli intervalli delle eventuali altre connessioni a cui i gateway potrebbero essere collegati.
 * Sono stati installati i cmdlet di PowerShell più recenti (versione 1.0.2 o successive). Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) . Assicurarsi di installare sia i cmdlet di Gestione dei servizi (SM) che i cmdlet di Resource Manager (RM). 
 
-### <a name="<a-name="exampleref"></a>example-settings"></a><a name="exampleref"></a>Impostazioni di esempio
+### <a name="a-nameexamplerefaexample-settings"></a><a name="exampleref"></a>Impostazioni di esempio
 È possibile usare le impostazioni di esempio come riferimento.
 
 **Impostazioni della rete virtuale classica**
@@ -72,7 +77,7 @@ Gateway di rete locale = ClassicVNetLocal <br>
 Nome gateway di rete virtuale = RMGateway <br>
  Configurazione di indirizzamento IP del gateway = gwipconfig
 
-## <a name="<a-name="createsmgw"></a>section-1---configure-the-classic-vnet"></a><a name="createsmgw"></a>Sezione 1: Configurare una rete virtuale classica
+## <a name="a-namecreatesmgwasection-1---configure-the-classic-vnet"></a><a name="createsmgw"></a>Sezione 1: Configurare una rete virtuale classica
 ### <a name="part-1---download-your-network-configuration-file"></a>Parte 1: Eseguire il download del file di configurazione di rete
 1. Accedere all'account Azure nella console di PowerShell con diritti elevati. Il cmdlet seguente richiede le credenziali di accesso per l'account Azure. Dopo l'accesso, vengono scaricate le impostazioni dell'account in modo che siano disponibili per Azure PowerShell. Per completare questa parte della configurazione si useranno i cmdlet PowerShell di Gestione servizi.
    
@@ -148,14 +153,14 @@ Usare l'esempio seguente per creare un gateway con routing dinamico:
 
 È possibile verificare lo stato del gateway usando il cmdlet `Get-AzureVNetGateway` .
 
-## <a name="<a-name="creatermgw"></a>section-2:-configure-the-rm-vnet-gateway"></a><a name="creatermgw"></a>Sezione 2: configurazione del gateway della rete virtuale di Gestione risorse
+## <a name="a-namecreatermgwasection-2-configure-the-rm-vnet-gateway"></a><a name="creatermgw"></a>Sezione 2: configurazione del gateway della rete virtuale di Gestione risorse
 Per creare un gateway VPN per la rete virtuale di Resource Manager, seguire le istruzioni seguenti. Non eseguire i passaggi fino a quando non si è recuperato l'indirizzo IP pubblico del gateway della rete virtuale classica. 
 
 1. **Accedere all'account di Azure** nella console PowerShell. Il cmdlet seguente richiede le credenziali di accesso per l'account Azure. Dopo l'accesso, vengono scaricate le impostazioni dell'account in modo che siano disponibili per Azure PowerShell.
    
         Login-AzureRmAccount 
    
-    Ottenere un elenco delle sottoscrizioni di Azure se si dispone di più di una sottoscrizione.
+     Ottenere un elenco delle sottoscrizioni di Azure se si dispone di più di una sottoscrizione.
    
         Get-AzureRmSubscription
    
@@ -201,7 +206,7 @@ Per creare un gateway VPN per la rete virtuale di Resource Manager, seguire le i
    
         Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName RG1
 
-## <a name="section-3:-modify-the-local-network-for-the-classic-vnet"></a>Sezione 3: Modificare la rete locale nella rete virtuale classica
+## <a name="section-3-modify-the-local-network-for-the-classic-vnet"></a>Sezione 3: Modificare la rete locale nella rete virtuale classica
 È possibile eseguire questa operazione esportando il file di configurazione di rete, modificandolo, salvandolo e importandolo nuovamente in Azure. In alternativa, è possibile modificare questa impostazione nel portale classico. 
 
 ### <a name="to-modify-in-the-portal"></a>Per eseguire la modifica nel portale
@@ -217,7 +222,7 @@ Per creare un gateway VPN per la rete virtuale di Resource Manager, seguire le i
         <VPNGatewayAddress>13.68.210.16</VPNGatewayAddress>
 3. Salvare le modifiche e importare il file modificato in Azure.
 
-## <a name="<a-name="connect"></a>section-4:-create-a-connection-between-the-gateways"></a><a name="connect"></a>Sezione 4: creazione di una connessione tra i gateway
+## <a name="a-nameconnectasection-4-create-a-connection-between-the-gateways"></a><a name="connect"></a>Sezione 4: creazione di una connessione tra i gateway
 La creazione di una connessione tra i gateway richiede PowerShell. Potrebbe essere necessario aggiungere l'account Azure per usare i cmdlet di PowerShell classico. A tale scopo, è possibile usare il cmdlet seguente: 
 
     Add-AzureAccount
@@ -243,11 +248,14 @@ La creazione di una connessione tra i gateway richiede PowerShell. Potrebbe esse
    
         Get-AzureRmVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1
 
-## <a name="<a-name="faq"></a>vnet-to-vnet-faq"></a><a name="faq"></a>Domande frequenti relative alla connessione di reti virtuali
+## <a name="a-namefaqavnet-to-vnet-faq"></a><a name="faq"></a>Domande frequenti relative alla connessione di reti virtuali
 Visualizzare i dettagli delle frequenti per altre informazioni sulle connessioni da rete virtuale a rete virtuale.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 
