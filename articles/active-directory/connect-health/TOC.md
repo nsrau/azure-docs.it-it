@@ -1,4 +1,4 @@
-# Overview
+# Panoramica
 ## [Che cos'è Azure AD Connect Health?](active-directory-aadconnect-health.md)
 
 # Introduzione
