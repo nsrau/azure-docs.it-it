@@ -53,8 +53,8 @@
 ### [Rallentamento delle prestazioni di backup di file e cartelle in Backup di Azure](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
 # Riferimento
-## [PowerShell](/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup)
-## [.NET](/dotnet/api/microsoft.azure.management.backupservices)
+## [PowerShell](/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)
+## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
 
 # Risorse
 ## [Prezzi](https://azure.microsoft.com/pricing/details/backup/)
@@ -63,6 +63,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=backup)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 
