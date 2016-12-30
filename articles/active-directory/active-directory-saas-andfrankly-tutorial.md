@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: eac9090101728718b1a71c03dd2afd171e696093
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3741616d5cd680e2430a1b1a62e66cbfe1cf49ee
 
 
 ---
@@ -245,6 +245,6 @@ Quando si fa clic sul riquadro &frankly nel pannello di accesso, si accederà au
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

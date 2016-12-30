@@ -1,12 +1,12 @@
 ---
-title: Gestione del provisioning degli utenti per app aziendali nell'anteprima di Azure Active Directory | Microsoft Docs
-description: Informazioni su come gestire il provisioning degli account utente per app aziendali usando l'anteprima di Azure Active Directory
+title: Gestione del provisioning utenti per app aziendali nell&quot;anteprima di Azure Active Directory | Documentazione Microsoft
+description: Informazioni su come gestire il provisioning degli account utente per app aziendali usando l&quot;anteprima di Azure Active Directory
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/12/2016
 ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 103eade46452d979705e06dd77441f42d7a514b8
+
 
 ---
-# <a name="preview:-managing-user-account-provisioning-for-enterprise-apps-in-the-new-azure-portal"></a>Anteprima: gestione del provisioning degli account utenti per app aziendali nel nuovo portale di Azure
+# <a name="preview-managing-user-account-provisioning-for-enterprise-apps-in-the-new-azure-portal"></a>Anteprima: gestione del provisioning degli account utenti per app aziendali nel nuovo portale di Azure
 Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) per gestire il provisioning e il deprovisioning automatici degli account per le applicazioni che li supportano, in particolare per le applicazioni aggiunte dalla categoria "In primo piano" della [raccolta di applicazioni di Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Questa esperienza di gestione nel portale di Azure è attualmente disponibile in anteprima pubblica e questo articolo illustra le nuove funzionalità, oltre ad alcune limitazioni temporanee applicate nel periodo di anteprima. [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md)
 
 Per altre informazioni sul provisioning automatico degli account utente e sul relativo funzionamento, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md).
@@ -81,6 +85,6 @@ Sono disponibili collegamenti al **report dell'attività di provisioning**, che 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

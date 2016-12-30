@@ -1,32 +1,36 @@
 ---
-title: 'Azure Active Directory Domain Services: Guida all''amministrazione | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Guida all&quot;amministrazione | Microsoft Docs'
 description: Aggiungere una macchina virtuale Windows a un dominio gestito con Azure PowerShell e il modello di distribuzione classica.
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 9143b843-7327-43c3-baab-6e24a18db25e
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 10/01/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4eb9a5c4087fc7e91d79a7789a261d590485555a
+
 
 ---
-# Aggiungere una macchina virtuale Windows Server a un dominio gestito usando PowerShell
+# <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-powershell"></a>Aggiungere una macchina virtuale Windows Server a un dominio gestito usando PowerShell
 > [!div class="op_single_selector"]
 > * [Portale di Azure classico - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
 > * [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 > 
 > 
 
-<br> 
+<br>
 
 > [!IMPORTANT]
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Servizi di dominio Active Directory non supporta attualmente il modello Resource Manager.
+> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Servizi di dominio Active Directory non supporta attualmente il modello Resource Manager.
 > 
 > 
 
@@ -34,15 +38,15 @@ In questi passaggi viene illustrato come personalizzare un set di comandi di Azu
 
 Questi passaggi seguono un approccio basato sul completamento di valori predefiniti per la creazione di set di comandi di Azure PowerShell. Questo approccio può essere utile se non si è esperti di PowerShell o per sapere semplicemente quali valori specificare per una corretta configurazione. Gli utenti esperti di PowerShell possono usare i comandi sostituendo le variabili (le righe che iniziano con "$") con i propri valori.
 
-Se non è ancora stato installato, attenersi alle istruzioni incluse nell’argomento [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per installare Azure PowerShell nel computer locale. Quindi, aprire un prompt dei comandi di Windows PowerShell.
+Se non è ancora stato installato, attenersi alle istruzioni incluse nell’argomento [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) per installare Azure PowerShell nel computer locale. Quindi, aprire un prompt dei comandi di Windows PowerShell.
 
-## Passaggio 1: Aggiungere l'account
+## <a name="step-1-add-your-account"></a>Passaggio 1: Aggiungere l'account
 1. Al prompt di PowerShell digitare **Add-AzureAccount** e premere **INVIO**.
 2. Digitare l'indirizzo di posta elettronica associato alla sottoscrizione di Azure e fare clic su **Continua**.
 3. Digitare la password per l'account.
 4. Fare clic su **Accedi**.
 
-## Passaggio 2: Impostare l'account di archiviazione e la sottoscrizione
+## <a name="step-2-set-your-subscription-and-storage-account"></a>Passaggio 2: Impostare l'account di archiviazione e la sottoscrizione
 Impostare la sottoscrizione di Azure e l'account di archiviazione eseguendo questi comandi al prompt dei comandi di Windows PowerShell. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < e >, con i nomi corretti.
 
     $subscr="<subscription name>"
@@ -50,9 +54,9 @@ Impostare la sottoscrizione di Azure e l'account di archiviazione eseguendo ques
     Select-AzureSubscription -SubscriptionName $subscr –Current
     Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-È possibile ottenere il nome della sottoscrizione corretto dalla proprietà SubscriptionName dell'output del comando **Get-AzureSubscription**. È possibile ottenere il nome dell'account di archiviazione corretto dalla proprietà Label dell'output del comando **Get-AzureStorageAccount** dopo aver eseguito il comando **Select-AzureSubscription**.
+È possibile ottenere il nome della sottoscrizione corretto dalla proprietà SubscriptionName dell'output del comando **Get-AzureSubscription** . È possibile ottenere il nome dell'account di archiviazione corretto dalla proprietà Label dell'output del comando **Get-AzureStorageAccount** dopo aver eseguito il comando **Select-AzureSubscription**.
 
-## Passaggio 3: Procedura dettagliata: eseguire il provisioning della macchina virtuale e aggiungerla al dominio gestito
+## <a name="step-3-step-by-step-walkthrough---provision-the-virtual-machine-and-join-it-to-the-managed-domain"></a>Passaggio 3: Procedura dettagliata: eseguire il provisioning della macchina virtuale e aggiungerla al dominio gestito
 Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina virtuale, con righe vuote tra ogni blocco per migliorare la leggibilità.
 
 Specificare le informazioni relative alla macchina virtuale di Windows di cui eseguire il provisioning.
@@ -84,7 +88,7 @@ Configurare la macchina virtuale: impostare il nome della macchina virtuale, le 
 
     $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-Ottenere le credenziali dell'amministratore locale della macchina virtuale. Scegliere una password di amministratore locale sicura. Per verificarne il livello di complessità, vedere [Controllo password: utilizzo di password complesse](https://www.microsoft.com/security/pc-security/password-checker.aspx).
+Ottenere le credenziali dell'amministratore locale della macchina virtuale. Scegliere una password di amministratore locale sicura.
 
     $localadmincred=Get-Credential –Message "Type the name and password of the local administrator account."
 
@@ -108,9 +112,9 @@ A questo punto, eseguire il provisioning della macchina virtuale Windows aggiunt
 
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname -Location "Central US" -DnsSettings $dns
 
-<br> 
+<br>
 
-## Script per eseguire il provisioning di una macchina virtuale Windows e aggiungerla automaticamente a un dominio gestito da Servizi di dominio Active Directory di Azure
+## <a name="script-to-provision-a-windows-vm-and-automatically-join-it-to-an-aad-domain-services-managed-domain"></a>Script per eseguire il provisioning di una macchina virtuale Windows e aggiungerla automaticamente a un dominio gestito da Servizi di dominio Active Directory di Azure
 Questo set di comandi di PowerShell crea una macchina virtuale per un server line-of-business che:
 
 * Utilizzi l'immagine Windows Server 2012 R2 Datacenter.
@@ -147,10 +151,15 @@ Di seguito è riportato lo script di esempio completo per creare la macchina vir
 
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname -Location "Central US" -DnsSettings $dns
 
-<br> 
+<br>
 
-## Contenuti correlati
-* [Servizi di dominio Azure AD: introduzione](active-directory-ds-getting-started.md)
+## <a name="related-content"></a>Contenuti correlati
+* [Guida introduttiva di Azure AD Domain Services](active-directory-ds-getting-started.md)
 * [Amministrare un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Dec16_HO4-->
+
+

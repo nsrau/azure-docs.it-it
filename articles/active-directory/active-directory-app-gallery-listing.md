@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 09/16/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: db21b02535242485439f2914b5f9ab7ef5a90d5b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: baf71c579edbb087cc16a8291cf502f90f31a49c
 
 
 ---
@@ -97,6 +97,6 @@ Qualsiasi app che supporta SAML 2.0 può essere integrata direttamente con un te
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

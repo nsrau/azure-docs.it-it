@@ -1,19 +1,23 @@
 ---
-title: Gestione delle password in Azure Active Directory | Microsoft Docs
+title: Gestire le password in Azure Active Directory | Documentazione Microsoft
 description: Come gestire password in Azure Active Directory.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a7679724-0ed5-4973-92e2-bd1285a6ef93
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 11/09/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 794b1e5deca6c3bda078e3ea9006d334bc3a8052
+
 
 ---
 # <a name="manage-passwords-in-azure-active-directory"></a>Gestire password in Azure Active Directory
@@ -29,8 +33,8 @@ La parte rimanente di questo argomento descrive il set completo di funzionalità
 
 > [!NOTE]
 > Azure AD Premium è disponibile per i clienti cinesi che usano l'istanza globale di Azure AD. Azure AD Premium non è attualmente supportato nel servizio Microsoft Azure gestito da 21Vianet in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il [forum di Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
-> 
-> 
+>
+>
 
 Usare i collegamenti seguenti per passare alla documentazione rilevante:
 
@@ -43,11 +47,13 @@ Usare i collegamenti seguenti per passare alla documentazione rilevante:
 * [Risoluzione dei problemi di gestione delle password in Azure AD](active-directory-passwords-troubleshoot.md)
 * [Domande frequenti sulla gestione delle password di Azure AD](active-directory-passwords-faq.md)
 
-## <a name="what's-next"></a>Passaggi successivi
+## <a name="whats-next"></a>Passaggi successivi
 * [Amministrazione di Azure AD](active-directory-administer.md)
 * [Creare o modificare utenti in Azure AD](active-directory-create-users.md)
 * [Gestire gruppi in Azure AD](active-directory-manage-groups.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Dec16_HO4-->
 
 

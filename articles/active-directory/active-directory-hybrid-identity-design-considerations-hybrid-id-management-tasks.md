@@ -1,12 +1,12 @@
 ---
-title: Considerazioni di progettazione dell'identità ibrida di Azure Active Directory - Determinare le attività di gestione di un'identità ibrida | Microsoft Docs
-description: Il controllo di accesso condizionale consente ad Azure Active Directory di controllare le condizioni specifiche definite durante l'autenticazione dell'utente e prima di consentire l'accesso all'applicazione. Se tali condizioni vengono soddisfatte, l'utente viene autenticato e gli viene consentito l'accesso all'applicazione.
-documentationcenter: ''
+title: "Considerazioni di progettazione dell&quot;identità ibrida di Azure Active Directory - Determinare le attività di gestione di un&quot;identità ibrida | Microsoft Docs"
+description: Il controllo di accesso condizionale consente ad Azure Active Directory di controllare le condizioni specifiche definite durante l&quot;autenticazione dell&quot;utente e prima di consentire l&quot;accesso all&quot;applicazione. Se tali condizioni vengono soddisfatte, l&quot;utente viene autenticato e gli viene consentito l&quot;accesso all&quot;applicazione.
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 65f80aea-0426-4072-83e1-faf5b76df034
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: fbb295d00f90a70b6d8505575e9260d0d8c98f1f
+
 
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Pianificare il ciclo di vita dell’identità ibrida
@@ -42,9 +46,9 @@ Per definire correttamente tali requisiti, assicurarsi che venga fornita una ris
     * In caso affermativo, quali funzionalità sono disponibili?
 * La soluzione prevede anche la gestione delle licenze basata su gruppo? 
   
-      In caso affermativo, è possibile assegnare a essa un gruppo di sicurezza? 
-       In caso affermativo, la directory cloud assegnerebbe automaticamente le licenze a tutti i membri del gruppo? 
-        Cosa accede se, in seguito, un utente viene aggiunto o rimosso dal gruppo? Anche la licenza verrà assegnata o rimossa, a seconda del caso? 
+      - In caso affermativo, è possibile assegnare ad essa un gruppo di sicurezza? 
+       - In caso affermativo, la directory cloud assegnerebbe automaticamente le licenze a tutti i membri del gruppo? 
+        - Cosa accede se, in seguito, un utente viene aggiunto o rimosso dal gruppo? Anche la licenza verrà assegnata o rimossa, a seconda del caso? 
 * Integrazione con provider di identità di terze parti:
 * È possibile integrare questa soluzione ibrida con provider di identità di terze parti per implementare accessi di tipo Single Sign-On?
 * È possibile consolidare tutti i diversi provider di identità in un sistema di identità coerente?
@@ -53,9 +57,9 @@ Per definire correttamente tali requisiti, assicurarsi che venga fornita una ris
 ## <a name="synchronization-management"></a>Gestione della sincronizzazione
 Uno dei principali obiettivi della gestione delle identità è quello di raccogliere tutti i provider di identità e mantenerli sincronizzati. Per la sincronizzazione dei dati viene usato un provider di identità autorevole. In uno scenario di identità ibrido, con un modello di gestione sincronizzato, si gestiscono tutte le identità utente e dispositivo in un server locale e, in seguito, si sincronizzano nel cloud gli account ed eventualmente le password. L'utente immette in locale la stessa password usata per il cloud e, al momento dell'accesso, la password viene verificata dalla soluzione di identità. Questo modello usa uno strumento di sincronizzazione di directory.
 
-![](./media/hybrid-id-design-considerations/Directory_synchronization.png) Per progettare correttamente la sincronizzazione della propria soluzione di identità ibrida, assicurarsi di avere una risposta alle domande seguenti: • Quali sono le opzioni di sincronizzazione disponibili per la soluzione di identità ibrida?
-• Quali sono le funzionalità di Single Sign-On disponibili?
-• Quali sono le opzioni per una federazione delle identità tra B2B e B2C?
+![](./media/hybrid-id-design-considerations/Directory_synchronization.png) Per progettare correttamente la sincronizzazione della propria soluzione di identità ibrida, assicurarsi di avere una risposta alle domande seguenti: •    Quali sono le opzioni di sincronizzazione disponibili per la soluzione di identità ibrida?
+•    Quali sono le funzionalità di Single Sign-On disponibili?
+•    Quali sono le opzioni per una federazione delle identità tra B2B e B2C?
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Determinare la strategia di adozione di una soluzione per la gestione di un'identità ibrida](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
@@ -63,6 +67,9 @@ Uno dei principali obiettivi della gestione delle identità è quello di raccogl
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

@@ -1,22 +1,26 @@
 ---
-title: 'Azure Active Directory B2C: reimpostazione password self-service | Microsoft Docs'
+title: 'Azure Active Directory B2C: reimpostazione password self-service | Documentazione Microsoft'
 description: Un argomento che dimostra come configurare la reimpostazione della password self-service per gli utenti in Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: ''
+documentationcenter: 
 author: swkrish
-manager: msmbaldwin
+manager: mbaldwin
 editor: curtand
-
+ms.assetid: c87ed86e-1520-42b1-8c31-46cd44ed5310
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2016
+ms.date: 12/06/2016
 ms.author: swkrish
+translationtype: Human Translation
+ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
+ms.openlocfilehash: 0508868e3b00c5771cc26038a3dd71fde6625a84
+
 
 ---
-# Azure Active Directory B2C: configurare la reimpostazione password self-service per gli utenti
+# <a name="azure-active-directory-b2c-set-up-self-service-password-reset-for-your-consumers"></a>Azure Active Directory B2C: configurare la reimpostazione password self-service per gli utenti
 La funzione di reimpostazione password self-service consente agli utenti che hanno effettuato la registrazione agli account locali di reimpostare le password in modo indipendente. Questo riduce notevolmente il carico per lo staff di supporto, soprattutto se l'applicazione dispone di milioni di clienti che la utilizzano regolarmente. Attualmente, è supportato solo l’utilizzo di un indirizzo di posta elettronica verificato come metodo di ripristino. Verranno aggiunti metodi di ripristino aggiuntivi (numero di telefono verificato, domande di sicurezza e così via) in futuro.
 
 > [!NOTE]
@@ -29,7 +33,7 @@ Per impostazione predefinita, la directory non avrà la reimpostazione password 
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com/) come amministratore della sottoscrizione. Si tratta dello stesso account aziendale o dell'istituto d'istruzione o dello stesso account Microsoft usato per la creazione della directory.
 2. Passare all'estensione Active Directory sulla barra di spostamento sul lato sinistro.
 3. Trovare la directory nella scheda **Directory** e selezionarla.
-4. Fare clic sulla scheda **Configure**.
+4. Fare clic sulla scheda **Configure** .
 5. Scorrere verso il basso fino alla sezione **Criteri di reimpostazione password utente** e impostare l'opzione **Utenti abilitati per la reimpostazione della password** su **SÌ**. Si noti che l'opzione **Indirizzo di posta elettronica alternativo** è selezionata. Non modificarla.
    
     ![Reimpostazione della password self-service](./media/active-directory-b2c-reference-sspr/sspr.png)
@@ -42,4 +46,9 @@ Per eseguire il test, usare la funzionalità "Esegui adesso" in ogni criterio di
 > 
 > 
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Dec16_HO4-->
+
+
