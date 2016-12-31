@@ -1,6 +1,6 @@
 ---
-title: Creare un pool di database elastici con C# | Documentazione Microsoft
-description: "Usare tecniche di sviluppo di database in C# per creare un pool di database elastici scalabile nel database SQL di Azure per poter condividere risorse tra più database."
+title: Creare un pool elastico con C# | Documentazione Microsoft
+description: "Usare tecniche di sviluppo di database in C# per creare un pool elastico scalabile nel database SQL di Azure per poter condividere risorse tra più database."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 2dedddbb-618d-462b-80dd-e4a57857c737
 ms.service: sql-database
+ms.custom: multiple databases
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: csharp
@@ -15,12 +16,12 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 28f792cd5afd194445666aeb1d17d5fbf27a835d
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: b905aa65f46f601121b6774a633e72152e8ef80a
 
 
 ---
-# <a name="create-an-elastic-database-pool-with-cx23"></a>Creare un pool di database elastici con C&#x23;
+# <a name="create-an-elastic-pool-with-cx23"></a>Creare un pool elastico con C&#x23;
 > [!div class="op_single_selector"]
 > * [Portale di Azure](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
@@ -28,7 +29,7 @@ ms.openlocfilehash: 28f792cd5afd194445666aeb1d17d5fbf27a835d
 > 
 > 
 
-Questo articolo illustra come usare C# per creare un pool di database elastici SQL di Azure con la [libreria di database SQL di Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Per creare un database SQL autonomo, vedere [Prova del database SQL: usare C# per creare un database SQL con la libreria del database SQL per .NET](sql-database-get-started-csharp.md).
+Questo articolo illustra come usare C# per creare un pool elastico SQL di Azure con la [libreria di database SQL di Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Per creare un database SQL autonomo, vedere [Prova del database SQL: usare C# per creare un database SQL con la libreria del database SQL per .NET](sql-database-get-started-csharp.md).
 
 La libreria di database SQL di Azure per .NET include un'API basata su [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) che esegue il wrapping dell'[API REST di database SQL basata su Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
@@ -59,7 +60,7 @@ Per creare un database SQL con C#, caricare le librerie di gestione richieste tr
 > 
 > 
 
-## <a name="create-a-sql-elastic-database-pool-c-example"></a>Creare un pool di database elastici - Esempio in C#
+## <a name="create-a-sql-elastic-pool---c-example"></a>Creare un pool elastico SQL - Esempio in C#
 L'esempio seguente consente di creare un gruppo di risorse, un server, una regola del firewall, un pool elastico e quindi un database SQL nel pool. Per ottenere le variabili `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`, vedere la sezione [Creare un'entità servizio per accedere alle risorse](#create-a-service-principal-to-access-resources).
 
 Sostituire il contenuto di **Program.cs** con quanto segue e aggiornare `{variables}` con i valori dell'app, senza includere `{}`.
@@ -314,6 +315,6 @@ Lo script di PowerShell seguente permette di creare l'applicazione Active Direct
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

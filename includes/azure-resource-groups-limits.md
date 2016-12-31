@@ -1,6 +1,6 @@
 | Risorsa | Limite predefinito | Limite massimo |
 | --- | --- | --- |
-| Risorse per [gruppo di risorse](../articles/resource-group-overview.md#resource-groups) (per tipo di risorsa) |800 |800 |
+| Risorse per ogni [gruppo di risorse](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (per ogni tipo di risorsa) |800 |Varia in base al tipo di risorsa |
 | Distribuzioni per gruppo di risorse |800 |800 |
 | Risorse per distribuzione |800 |800 |
 | Blocchi di gestione (per ambito univoco) |20 |20 |
@@ -8,4 +8,8 @@
 | Lunghezza della chiave dei tag |512 |512 |
 | Lunghezza del valore dei tag |256 |256 |
 
-<!---HONumber=AcomDC_0211_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

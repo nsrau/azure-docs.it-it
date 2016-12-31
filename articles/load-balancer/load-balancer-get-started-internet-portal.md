@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 196f9f002a1639867c210fc0dafdb783ed1e90af
+ms.sourcegitcommit: 5ce773311b691bf28ea3e9590ab74603a1a9b641
+ms.openlocfilehash: 052a9e6a511875dcb2a79ecad89ee09b32948d06
 
 ---
 
@@ -37,7 +37,7 @@ Questo articolo illustra il modello di distribuzione Gestione risorse. Vedere [I
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-Qui viene illustrata la sequenza delle singole attività da eseguire per creare un servizio di bilanciamento del carico e viene illustrato in dettaglio cosa viene fatto per raggiungere l'obiettivo.
+In questa sede viene illustrata la sequenza delle singole attività da eseguire per creare un servizio di bilanciamento del carico e vengono illustrate in dettaglio le operazioni da effettuare per raggiungere l'obiettivo.
 
 ## <a name="what-is-required-to-create-an-internet-facing-load-balancer"></a>Elementi necessari per creare un servizio di bilanciamento del carico Internet
 
@@ -115,6 +115,6 @@ Per eliminare un servizio di bilanciamento del carico, selezionarlo. Nel pannell
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

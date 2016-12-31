@@ -3,7 +3,7 @@ title: Introduzione all&quot;interfaccia della riga di comando di Azure Batch | 
 description: Introduzione rapida ai comandi per Batch nell&quot;interfaccia della riga di comando di Azure per la gestione delle risorse del servizio Azure Batch
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 09/30/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a874623c7ab24478af14e6cf4391dcc29052590f
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: cb1f049597d53263f0f92fe1192b285c09d78eeb
 
 
 ---
@@ -129,7 +129,7 @@ Quando si creano risorse di Batch come pool e processi, è possibile specificare
 
 Nonostante molte operazioni di creazione di risorse possano essere eseguite usando solo opzioni della riga di comando, alcune funzionalità richiedono un file in formato JSON contenente i dettagli delle risorse. È necessario usare un file JSON, ad esempio, se si vogliono specificare file di risorse per un'attività di avvio.
 
-Il codice JSON necessario per creare una risorsa è disponibile nella [documentazione di riferimento sulle API Batch REST][rest_api] su MSDN. Ogni argomento "Aggiungere *tipo di risorsa*" contiene codice JSON di esempio per creare la risorsa, che può essere usato come modello per i propri file JSON. Il codice JSON per la creazione di un pool, ad esempio, è disponibile in [Aggiungere un pool a un account][rest_add_pool].
+Il codice JSON necessario per creare una risorsa è disponibile nella documentazione di [riferimento sulle API Batch REST][rest_api] su MSDN. Ogni argomento "Aggiungere *tipo di risorsa*" contiene codice JSON di esempio per creare la risorsa, che può essere usato come modello per i propri file JSON. Il codice JSON per la creazione di un pool, ad esempio, è disponibile in [Aggiungere un pool a un account][rest_add_pool].
 
 > [!NOTE]
 > Se si specifica un file JSON durante la creazione di una risorsa, tutti gli altri parametri specificati nella riga di comando per la risorsa verranno ignorati.
@@ -264,7 +264,7 @@ Questa sezione ha lo scopo di indicare le risorse da usare per risolvere i probl
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni su come usare questa funzionalità per gestire e distribuire le applicazioni eseguite nei nodi di calcolo di Batch, vedere [Distribuzione delle applicazioni con i pacchetti dell'applicazione di Azure Batch](batch-application-packages.md) .
-* Per altre informazioni sulla riduzione del numero di elementi e del tipo di informazioni restituite per le query su Batch, vedere [Eseguire query sul servizio Azure Batch in modo efficiente](batch-efficient-list-queries.md) .
+* Per altre informazioni sulla riduzione del numero di elementi e del tipo di informazioni restituiti per le query su Batch, vedere [Eseguire query sul servizio Azure Batch in modo efficiente](batch-efficient-list-queries.md) .
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
@@ -273,6 +273,6 @@ Questa sezione ha lo scopo di indicare le risorse da usare per risolvere i probl
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

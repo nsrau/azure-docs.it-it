@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/24/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ec6bb243872b3d4794050f735122f587a299e978
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: 7f22e8fb10f61cc0bb2e7d0a83449bf2e46a12d3
 
 
 ---
-# <a name="how-to-perform-live-streaming-with-onpremise-encoders-using-the-azure-portal"></a>Come eseguire lo streaming live con codificatori locali tramite il portale di Azure
+# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Come eseguire lo streaming live con codificatori locali tramite il portale di Azure
 > [!div class="op_single_selector"]
 > * [Portale](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -80,7 +80,7 @@ Se occorre visualizzare le notifiche e gli errori generati dal portale di Azure,
 ![Notifiche](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
 
 ## <a name="configure-streaming-endpoints"></a>Configurare gli endpoint di streaming
-Servizi multimediali include la funzionalità per la creazione dinamica dei pacchetti, che consente di distribuire file MP4 a bitrate multipli nei formati MPEG DASH, HLS, Smooth Streaming o HDS, senza dover ricreare i pacchetti con questi formati di streaming. Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un singolo formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
+Servizi multimediali include la funzionalità per la creazione dinamica dei pacchetti, che consente di distribuire file MP4 a bitrate multipli nei formati MPEG DASH, HLS e Smooth Streaming, senza dover ricreare i pacchetti con questi formati di streaming. Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un singolo formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
 
 Per sfruttare i vantaggi della creazione dinamica dei pacchetti, è necessario ottenere almeno un'unità di streaming per l'endpoint di streaming da cui si prevede di distribuire il contenuto.  
 
@@ -101,7 +101,7 @@ Per creare e modificare il numero di unità riservate di streaming, seguire ques
    > 
    > 
 
-## <a name="create-and-start-passthrough-channels-and-events"></a>Creare e avviare eventi e canali pass-through
+## <a name="create-and-start-pass-through-channels-and-events"></a>Creare e avviare eventi e canali pass-through
 Un canale è associato a programmi o eventi che consentono di controllare la pubblicazione e l'archiviazione di segmenti in un flusso live. Gli eventi sono gestiti dai canali. 
 
 È possibile specificare il numero di ore per cui si vuole mantenere il contenuto registrato per il programma impostando il valore **Intervallo di archiviazione** . Il valore impostato può essere compreso tra 5 minuti e 25 ore. La lunghezza della finestra di archiviazione determina anche il limite di tempo per cui i client possono eseguire ricerche a ritroso nel tempo dalla posizione live corrente. Gli eventi possono essere eseguiti per l'intervallo di tempo specificato, ma il contenuto che supera la durata prevista viene scartato in modo continuo. Il valore della proprietà determina anche il tempo per cui i manifesti client possono crescere.
@@ -180,6 +180,6 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

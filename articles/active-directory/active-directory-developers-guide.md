@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
+ms.date: 12/09/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 46661a5cbe1a31aa8541cfc38c8f5fe519c0f6e4
+ms.sourcegitcommit: 0500d903438e0fb062ca848e6f488860e214a705
+ms.openlocfilehash: 55b6f6e03bfd1877d4f204cb5751ae46379d6951
 
 
 ---
@@ -33,17 +33,17 @@ Azure Active Directory (AD) è una piattaforma IDMaaS (Identity Management As A 
 ## <a name="getting-started"></a>Per iniziare
 Queste esercitazioni sono disponibili per diverse piattaforme e consentono di iniziare rapidamente a sviluppare con Azure Active Directory. Come prerequisito, è necessario [ottenere un tenant di Azure Active Directory](active-directory-howto-tenant.md).
 
-### <a name="mobile-and-pc-application-quickstart-guides"></a>Guide introduttive per applicazioni per dispositivi mobili e PC
+### <a name="mobile-and-pc-application-quick-start-guides"></a>Guide introduttive per applicazioni per dispositivi mobili e PC
 | [![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md) | [![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md) | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md) | [![Windows Universal](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md) | [![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md) | [![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md) | [![OAuth 2.0](./media/active-directory-developers-guide/oauth-2.png)](active-directory-protocols-oauth-code.md) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | [iOS](active-directory-devquickstarts-ios.md) |[Android](active-directory-devquickstarts-android.md) |[.NET](active-directory-devquickstarts-dotnet.md) |[Windows Universal](active-directory-devquickstarts-windowsstore.md) |[Xamarin](active-directory-devquickstarts-xamarin.md) |[Cordova](active-directory-devquickstarts-cordova.md) |[Integrare direttamente con OAuth 2.0](active-directory-protocols-oauth-code.md) |
 
-### <a name="web-application-quickstart-guides"></a>Guide introduttive per applicazioni web
+### <a name="web-application-quick-start-guides"></a>Guide introduttive per applicazioni web
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md) | [![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md) | [![AngularJS](./media/active-directory-developers-guide/angularjs.png)](active-directory-devquickstarts-angular.md) | [![JavaScript](./media/active-directory-developers-guide/javascript.png)](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | [![Node.JS](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md) | [![OpenID Connect](./media/active-directory-developers-guide/openid-connect.png)](active-directory-protocols-openid-connect-code.md) |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapp-dotnet.md) |[Java](active-directory-devquickstarts-webapp-java.md) |[AngularJS](active-directory-devquickstarts-angular.md) |[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |[Node.JS](active-directory-devquickstarts-openidconnect-nodejs.md) |[Integrare direttamente con OpenID Connect](active-directory-protocols-openid-connect-code.md) |
 
-### <a name="web-api-quickstart-guides"></a>Guide introduttive per API Web
+### <a name="web-api-quick-start-guides"></a>Guide introduttive per API Web
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md) | [![Node.JS](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md) |
 |:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapi-dotnet.md) |[Node.JS](active-directory-devquickstarts-webapi-nodejs.md) |
@@ -53,15 +53,17 @@ Queste esercitazioni sono disponibili per diverse piattaforme e consentono di in
 |:---:|
 | [API Graph](active-directory-graph-api-quickstart.md) |
 
-## <a name="howtos"></a>Procedure
+## <a name="how-tos"></a>Procedure
 Questi articoli descrivono come eseguire attività specifiche usando Azure Active Directory:
 
 * [Come ottenere un tenant di Azure Active Directory](active-directory-howto-tenant.md)
 * [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern](active-directory-devhowto-multi-tenant-overview.md)
+* [Autenticazione di un'applicazione di servizio/daemon con un certificato](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/)
 * Come abilitare l'accesso Single Sign-On tra app tramite ADAL in dispositivi [Android](active-directory-sso-android.md) e [iOS](active-directory-sso-ios.md)
 * [How to get AppSource Certified for Azure Active Directory (AD)](active-directory-devhowto-appsource-certified.md)
 * [Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](active-directory-app-gallery-listing.md)
 * [Inviare app Web per Office 365 al Dashboard venditori](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+* [Registrare un'applicazione con Azure Active Directory con il Portale di Azure](active-directory-app-registration.md)
 * [Informazioni sul manifesto dell'applicazione in Azure Active Directory](active-directory-application-manifest.md)
 * [Informazioni sulle linee guida di personalizzazione per i pulsanti di accesso e acquisizione di app nell'applicazione client](active-directory-branding-guidelines.md)
 * [Anteprima: Come compilare app che consentono agli utenti di accedere sia con un account personale che con un account aziendale o dell'istituto di istruzione](active-directory-appmodel-v2-overview.md)
@@ -116,7 +118,7 @@ Queste presentazioni generali sullo sviluppo di app tramite Azure Active Directo
 * [Identità cloud](http://www.cloudidentity.net): considerazioni sulla gestione delle identità come servizio, da un esperto PM di Azure Active Directory.  
 * [Azure Active Directory su Twitter](https://twitter.com/azuread): annunci relativi ad Azure Active Directory in 140 caratteri o meno.
 
-## <a name="windows-server-onpremises-development"></a>Sviluppo locale con Windows Server
+## <a name="windows-server-on-premises-development"></a>Sviluppo locale con Windows Server
 Per indicazioni su come usare lo sviluppo con Windows Server e Active Directory Federation Services (AD FS), vedere:
 
 * [Scenari di AD FS per gli sviluppatori](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): panoramica dei componenti di AD FS e del relativo funzionamento, con informazioni dettagliate sugli scenari di autenticazione/autorizzazione supportati.
@@ -124,7 +126,6 @@ Per indicazioni su come usare lo sviluppo con Windows Server e Active Directory 
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

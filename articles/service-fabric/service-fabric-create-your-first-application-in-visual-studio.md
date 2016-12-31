@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/26/2016
+ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 037dc010a6dc60eb49ad4fdad2861e8653e36199
+ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
+ms.openlocfilehash: 76b6934950354f94f4f68e7cfef00e890d9391a6
 
 
 ---
@@ -41,7 +41,7 @@ Il video seguente illustra i passaggi di questa esercitazione:
 > 
 
 ## <a name="create-the-application"></a>Creazione dell'applicazione
-Un'applicazione Infrastruttura di servizi può contenere uno o più servizi, ognuno dei quali contribuisce alle funzionalità dell'applicazione con un ruolo specifico. Con la Creazione guidata nuovo progetto si può creare un progetto di applicazione insieme al primo progetto di servizio. Sarà possibile aggiungere altri servizi in un secondo momento.
+Un'applicazione Infrastruttura di servizi può contenere uno o più servizi, ognuno dei quali contribuisce alle funzionalità dell'applicazione con un ruolo specifico. Creare un progetto di applicazione, oltre al primo progetto di servizio, usando la procedura guidata Nuovo progetto. Sarà anche possibile aggiungere altri servizi in un secondo momento.
 
 1. Avviare Visual Studio come amministratori.
 2. Scegliere **File > Nuovo progetto > Cloud > Applicazione di Service Fabric**.
@@ -64,7 +64,7 @@ Un'applicazione Infrastruttura di servizi può contenere uno o più servizi, ogn
     Il progetto di applicazione non contiene codice direttamente, ma fa riferimento a un set di progetti di servizio. Include inoltre altri tre tipi di contenuto:
    
    * **Profili di pubblicazione**: usati per gestire le preferenze relative agli strumenti per diversi ambienti.
-   * **Script**: include uno script di PowerShell per distribuire o aggiornare l'applicazione. Questo script viene eseguito in background da Visual Studio e può essere richiamato direttamente dalla riga di comando.
+   * **Script**: include uno script di PowerShell per distribuire o aggiornare l'applicazione. Visual Studio usa lo script in background. può essere richiamato direttamente dalla riga di comando.
    * **Definizione di applicazione**: include il manifesto dell'applicazione in *ApplicationPackageRoot*. I file dei parametri dell'applicazione associati sono disponibili in *ApplicationParameters*, definiscono l'applicazione e consentono di configurarla appositamente per un ambiente specifico.
      
      Per una panoramica del contenuto del progetto di servizio, vedere la [Guida introduttiva a Reliable Services](service-fabric-reliable-services-quick-start.md).
@@ -91,7 +91,7 @@ A questo punto, è possibile provare a eseguire l'applicazione creata.
    
     ![Dettaglio del visualizzatore eventi di diagnostica][6]
    
-    Il cluster locale include cinque nodi ospitati in un singolo computer. Simula un cluster di cinque nodi, ognuno dei quali risiede in un computer distinto. Verrà quindi portato offline uno dei nodi del cluster locale per simulare la perdita di una macchina virtuale e provare a eseguire contemporaneamente il debugger di Visual Studio.
+    Il cluster locale include cinque nodi ospitati in un singolo computer. Simula un cluster di cinque nodi, ognuno dei quali risiede in un computer distinto. Per simulare la perdita di un computer durante l'esecuzione del debugger di Visual Studio, portare offline uno dei nodi del cluster locale.
    
    > [!NOTE]
    > Gli eventi di diagnostica dell'applicazione inviati dal modello di progetto usano la classe `ServiceEventSource` inclusa. Per altre informazioni, vedere [Monitorare e diagnosticare servizi in una configurazione di sviluppo con computer locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
@@ -100,13 +100,13 @@ A questo punto, è possibile provare a eseguire l'applicazione creata.
 4. Nel progetto di servizio trovare la classe che deriva da StatefulService, ad esempio MyStatefulService, e impostare un punto di interruzione sulla prima riga del metodo `RunAsync` .
    
     ![Punto di interruzione nel metodo RunAsync del servizio con stato][7]
-5. Fare clic con il pulsante destro del mouse sull'app dell'area di notifica Local Cluster Manager e scegliere **Gestisci cluster locale** per avviare Service Fabric Explorer.
+5. Per avviare Service Fabric Explorer, fare clic con il pulsante destro del mouse sull'app dell'area di notifica Local Cluster Manager (Gestione cluster locale) e scegliere **Manage Local Cluster** (Gestisci cluster locale).
    
     ![Avvio di Service Fabric Explorer da Local Cluster Manager][systray-launch-sfx]
    
     Service Fabric Explorer offre una rappresentazione visiva del cluster, incluso il set di applicazioni distribuite al suo interno e il set di nodi fisici che lo costituiscono. Per altre informazioni su Service Fabric Explorer, vedere [Visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 6. Nel riquadro sinistro espandere **Cluster > Nodi** e individuare il nodo in cui è in esecuzione il codice.
-7. Fare clic su **Azioni > Disattiva (riavvio)** per simulare il riavvio di una macchina virtuale. È anche possibile farlo dal menu di scelta rapida nella visualizzazione elenco dei nodi nel riquadro a sinistra.
+7. Fare clic su **Azioni > Disattiva (riavvio)** per simulare il riavvio di una macchina virtuale. In alternativa, disattivare il nodo dalla vista elenco dei nodi nel riquadro a sinistra.
    
     ![Arresto di un nodo in Service Fabric Explorer][sfx-stop-node]
    
@@ -116,14 +116,14 @@ A questo punto, è possibile provare a eseguire l'applicazione creata.
     ![Visualizzatore eventi di diagnostica dopo il failover][diagnostic-events-viewer-detail-post-failover]
 
 ## <a name="switch-cluster-mode"></a>Cambiare la modalità cluster
-Per impostazione predefinita, il cluster di sviluppo locale è configurato per essere eseguito come cluster a 5 nodi perché è utile per il debug dei servizi distribuiti in più nodi. La distribuzione di un'applicazione nel cluster di sviluppo a 5 nodi, tuttavia, può richiedere tempo. Per eseguire l'iterazione delle modifiche al codice rapidamente, senza eseguire l'app in 5 nodi, è possibile cambiare il cluster di sviluppo con la modalità a 1 nodo. Per eseguire il codice in un cluster con un nodo, fare clic con il pulsante destro del mouse su Local Cluster Manager (Gestione cluster locale) nell'area di notifica e selezionare **Switch Cluster Mode -> 1 Node** (Cambia modalità cluster -> 1 nodo).  
+Per impostazione predefinita, il cluster di sviluppo locale è configurato per essere eseguito come cluster a cinque nodi. Questo è utile per il debug dei servizi distribuiti in più nodi. La distribuzione di un'applicazione nel cluster di sviluppo a cinque nodi, tuttavia, può richiedere tempo. Per eseguire l'iterazione delle modifiche al codice rapidamente e senza eseguire l'app in cinque nodi, cambiare il cluster di sviluppo con la modalità a un nodo. Per eseguire il codice in un cluster con un nodo, fare clic con il pulsante destro del mouse su Local Cluster Manager (Gestione cluster locale) nell'area di notifica e selezionare **Switch Cluster Mode -> 1 Node** (Cambia modalità cluster -> 1 nodo).  
 
 ![Cambiare la modalità cluster][switch-cluster-mode]
 
-Quando si cambia la modalità cluster, il cluster di sviluppo viene reimpostato e tutte le applicazioni di cui è stato effettuato il provisioning o che sono in esecuzione nel cluster vengono rimosse.
+Quando si cambia la modalità cluster, il cluster di sviluppo viene reimpostato e tutte le applicazioni di cui è stato effettuato il provisioning o che sono in esecuzione in tale cluster vengono rimosse.
 
 ## <a name="cleaning-up"></a>+ Cleaning up
-  Prima di concludere, è importante ricordare che il cluster locale è molto reale. L'arresto del debugger rimuove l'istanza dell'applicazione e annulla la registrazione del tipo di applicazione. L'esecuzione del cluster tuttavia continua in background. A questo scopo, sono disponibili diverse opzioni per gestire il cluster:
+Prima di concludere, è importante ricordare che il cluster locale è reale. L'arresto del debugger rimuove l'istanza dell'applicazione e annulla la registrazione del tipo di applicazione. L'esecuzione del cluster tuttavia continua in background. A questo scopo, sono disponibili diverse opzioni per gestire il cluster:
 
 1. Per arrestare il cluster mantenendo i dati applicazione e le tracce, fare clic su **Stop Local Cluster** (Arresta cluster locale) nell'app dell'area di notifica.
 2. Per eliminare completamente il cluster, fare clic su **Remove Local Cluster** (Rimuovi cluster locale) nell'app dell'area di notifica. Questa opzione comporterà un'altra distribuzione lenta la prossima volta che si preme F5 in Visual Studio. Eliminare il cluster se non si prevede di usare il cluster locale per un certo periodo o se è necessario recuperare risorse.
@@ -131,8 +131,9 @@ Quando si cambia la modalità cluster, il cluster di sviluppo viene reimpostato 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come creare un [cluster in Azure](service-fabric-cluster-creation-via-portal.md) o un [cluster autonomo in Windows](service-fabric-cluster-creation-for-windows-server.md).
 * Provare a creare un servizio con il modello di programmazione[Reliable Services](service-fabric-reliable-services-quick-start.md) o [Reliable Actors](service-fabric-reliable-actors-get-started.md).
-* Informazioni su come è possibile esporre i servizi a Internet con un [front-end di servizio Web](service-fabric-add-a-web-frontend.md).
+* Informazioni su come esporre i servizi a Internet con un [front-end di servizio Web](service-fabric-add-a-web-frontend.md).
 * Usare un' [esercitazione pratica](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) per creare un servizio senza stato, configurare i report di integrità e di monitoraggio ed eseguire un aggiornamento dell'applicazione.
+* Informazioni sulle [opzioni di supporto di Service Fabric](service-fabric-support.md)
 
 <!-- Image References -->
 
@@ -151,6 +152,6 @@ Quando si cambia la modalità cluster, il cluster di sviluppo viene reimpostato 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

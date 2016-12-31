@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 87f62d99ae8671fb3732806d8cd8bd7d9aa101e1
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: 819b40302f158d1d6224878c164cf7ff71947887
 
 
 ---
@@ -27,7 +27,7 @@ Questo articolo illustra come creare rapidamente una macchina virtuale di Azure 
 Per creare una macchina virtuale sono necessari tutti i passaggi di questo articolo e l'esecuzione di queste operazioni richiede circa 30 minuti. Sostituire i valori dei parametri di esempio nei comandi con nomi significativi per l'ambiente di riferimento.
 
 ## <a name="step-1-install-azure-powershell"></a>Passaggio 1: installare Azure PowerShell
-Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione e accedere all'account, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione e accedere all'account, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="step-2-create-a-resource-group"></a>Passaggio 2: Creare un gruppo di risorse
 Tutte le risorse devono essere contenute in un gruppo di risorse, che deve pertanto essere creato per primo.  
@@ -134,7 +134,7 @@ Ora che è tutto pronto, è possibile creare la macchina virtuale.
     ```powershell
     $myVM = Add-AzureRmVMNetworkInterface -VM $myVM -Id $myNIC.Id
     ```
-6. Definire nome e percorso del disco rigido della VM. Il file del disco rigido virtuale è archiviato in un contenitore. Questo comando consente di creare il disco in un contenitore denominato **vhds/WindowsVMosDisk.vhd** nell'account di archiviazione creato.
+6. Definire nome e percorso del disco rigido della VM. Il file del disco rigido virtuale è archiviato in un contenitore. Questo comando consente di creare il disco in un contenitore denominato **vhds/myOsDisk1.vhd** nell'account di archiviazione creato.
    
     ```powershell
     $blobPath = "vhds/myOsDisk1.vhd"
@@ -143,7 +143,7 @@ Ora che è tutto pronto, è possibile creare la macchina virtuale.
 7. Aggiungere le informazioni sul disco del sistema operativo alla configurazione della VM. Sostituire il valore di **$diskName** con un nome per il disco del sistema operativo. Creare la variabile e aggiungere le informazioni sul disco alla configurazione.
    
     ```powershell
-    $vm = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
+    $myVM = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
     ```
 8. Creare infine la macchina virtuale.
    
@@ -159,6 +159,6 @@ Ora che è tutto pronto, è possibile creare la macchina virtuale.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

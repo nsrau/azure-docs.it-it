@@ -3,7 +3,7 @@ title: Gestione di contenitori del servizio contenitore di Azure tramite l&quot;
 description: Distribuire contenitori in un cluster Mesos del servizio contenitore di Azure usando l&quot;API REST di Marathon.
 services: container-service
 documentationcenter: 
-author: neilpeterson
+author: dlepow
 manager: timlt
 editor: 
 tags: acs, azure-container-service
@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
-ms.author: timlt
+ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7b9358183d884dfeda3d200ef5ae8beb60d3957e
+ms.sourcegitcommit: 54832afbc9a7bf1d660de3fd898ad5c97715ca5d
+ms.openlocfilehash: a01993eb01b9e05b4848d5a81b841fe10ccae035
 
 
 ---
@@ -33,13 +33,13 @@ Sono disponibili framework per molti dei carichi di lavoro più comuni. Questo d
 Dopo essersi connessi al cluster del servizio contenitore di Azure, è possibile accedere a DC/OS e alle API REST correlate tramite http://localhost:local-port. Gli esempi riportati in questo documento presuppongono il tunneling sulla porta 80. Ad esempio, l'endpoint Marathon è disponibile in `http://localhost/marathon/v2/`. Per altre informazioni sulle varie API, vedere la documentazione di Mesosphere per l'[API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) e l'[API Chronos](https://mesos.github.io/chronos/docs/api.html), nonché la documentazione di Apache per l'[API dell'utilità di pianificazione Mesos](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ## <a name="gather-information-from-dcos-and-marathon"></a>Raccogliere informazioni da DC/OS e Marathon
-Prima di distribuire contenitori nel cluster DC/OS, è necessario raccogliere informazioni relative a tale cluster, ad esempio il nome e lo stato corrente degli agenti di DC/OS. A tale scopo, eseguire una query sull'endpoint `master/slaves` dell'API REST di DC/OS. Se la query riesce, verrà visualizzato un elenco di agenti di DC/OS e diverse proprietà per ognuno.
+Prima di distribuire contenitori nel cluster DC/OS, è necessario raccogliere informazioni relative a tale cluster, ad esempio il nome e lo stato corrente degli agenti di DC/OS. A tale scopo, eseguire una query sull'endpoint `master/slaves` dell'API REST di DC/OS. Se la query riesce, verrà restituito un elenco di agenti di DC/OS e diverse proprietà per ognuno.
 
 ```bash
 curl http://localhost/mesos/master/slaves
 ```
 
-A questo punto, usare l'endpoint `/apps` di DC/OS per cercare le distribuzioni correnti dell'applicazione nel cluster DC/OS. Se si tratta di un nuovo cluster, verrà visualizzata una matrice vuota di app.
+A questo punto, usare l'endpoint `/apps` di DC/OS per cercare le distribuzioni correnti dell'applicazione nel cluster DC/OS. Se si tratta di un nuovo cluster, viene visualizzata una matrice vuota di app.
 
 ```
 curl localhost/marathon/v2/apps
@@ -47,8 +47,8 @@ curl localhost/marathon/v2/apps
 {"apps":[]}
 ```
 
-## <a name="deploy-a-dockerformatted-container"></a>Distribuire un contenitore Docker formattato
-I contenitori Docker formattati vengono distribuiti tramite Marathon usando un file JSON che descrive la distribuzione prevista. L'esempio seguente mostra come distribuire il contenitore Nginx associando la porta 80 dell'agente di DC/OS alla porta 80 del contenitore. Si noti anche che la proprietà 'acceptedResourceRoles' è impostata su 'slave_public'. Il contenitore verrà distribuito a un agente nel set di scalabilità dell'agente pubblico.
+## <a name="deploy-a-docker-formatted-container"></a>Distribuire un contenitore Docker formattato
+I contenitori Docker formattati vengono distribuiti tramite Marathon usando un file JSON che descrive la distribuzione prevista. L'esempio seguente mostra come distribuire il contenitore Nginx associando la porta 80 dell'agente di DC/OS alla porta 80 del contenitore. Si noti anche che la proprietà 'acceptedResourceRoles' è impostata su 'slave_public'. Il contenitore viene distribuito a un agente nel set di scalabilità dell'agente pubblico.
 
 ```json
 {
@@ -84,7 +84,7 @@ L'output sarà simile al seguente:
 {"version":"2015-11-20T18:59:00.494Z","deploymentId":"b12f8a73-f56a-4eb1-9375-4ac026d6cdec"}
 ```
 
-Se ora si esegue una query per cercare applicazioni in Marathon, la nuova applicazione verrà visualizzata nell'output.
+Se ora si esegue una query per cercare applicazioni in Marathon, la nuova applicazione viene visualizzata nell'output.
 
 ```
 curl localhost/marathon/v2/apps
@@ -100,7 +100,7 @@ L'API Marathon può anche essere usata per aumentare o ridurre il numero di ista
 Eseguire questo comando per aumentare il numero di istanze dell'applicazione.
 
 > [!NOTE]
-> L'URI sarà http://localhost/marathon/v2/apps/ seguito dall'ID dell'applicazione da ridimensionare. Se si usa l'esempio di nginx fornito qui, l'URI sarà http://localhost/marathon/v2/apps/nginx.
+> L'URI è http://localhost/marathon/v2/apps/ seguito dall'ID dell'applicazione da ridimensionare. Se si usa l'esempio di nginx fornito qui, l'URI sarà http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 
@@ -108,7 +108,7 @@ Eseguire questo comando per aumentare il numero di istanze dell'applicazione.
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
-Infine, eseguire una query per le istanze dell'applicazione nell'endpoint Marathon. Ora sono presenti tre applicazioni del contenitore nginx.
+Infine, eseguire una query per le istanze dell'applicazione nell'endpoint Marathon. Ora sono presenti tre contenitori Nginx.
 
 ```
 curl localhost/marathon/v2/apps
@@ -159,7 +159,7 @@ L'API Marathon può anche essere usata per aumentare o ridurre il numero di ista
 Eseguire questo comando per aumentare il numero di istanze dell'applicazione.
 
 > [!NOTE]
-> L'URI sarà http://localhost/marathon/v2/apps/ seguito dall'ID dell'applicazione da ridimensionare. Se si usa l'esempio di nginx fornito qui, l'URI sarà http://localhost/marathon/v2/apps/nginx.
+> L'URI è http://localhost/marathon/v2/apps/ seguito dall'ID dell'applicazione da ridimensionare. Se si usa l'esempio di nginx fornito qui, l'URI sarà http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 
@@ -174,6 +174,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 
