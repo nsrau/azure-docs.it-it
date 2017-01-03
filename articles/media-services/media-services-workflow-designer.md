@@ -46,7 +46,7 @@ Lo strumento di progettazione consente anche di modificare i [flussi di lavoro p
 
 I video seguenti illustrano come usare la finestra di progettazione.
 
-### <a name="day-1-getting-started"></a>Giorno 1 - Introduzione
+### <a name="day-1--getting-started"></a>Giorno 1 - Introduzione
 Il video del giorno 1 riguarda:
 
 * Panoramica della finestra di progettazione

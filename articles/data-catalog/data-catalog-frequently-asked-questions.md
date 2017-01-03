@@ -116,7 +116,7 @@ L'utente che esegue il tool di registrazione di Azure Data Catalog deve avere au
 ## <a name="q-will-azure-data-catalog-be-made-available-for-on-premises-deployment-as-well"></a>Q: il Catalogo dati di Azure sarà disponibile anche per la distribuzione locale?
 Azure Data Catalog è un servizio cloud che può usare origini dati locali e del cloud, fornendo una soluzione ibrida di individuazione dell'origine dati. Al momento non è prevista una versione del servizio Azure Data Catalog da eseguire in locale.
 
-## <a name="q-can-we-extract-more-richer-metadata-from-the-data-sources-we-register"></a>D: è possibile estrarre metadati più numerosi o migliorati dalle origini dati registrate?
+## <a name="q-can-we-extract-more--richer-metadata-from-the-data-sources-we-register"></a>D: è possibile estrarre metadati più numerosi o migliorati dalle origini dati registrate?
 Si sta lavorando attivamente per ampliare le funzionalità di Azure Data Catalog. Se ci sono altri metadati che si desidera estrarre dall'origine dati durante la registrazione, scrivere un suggerimento (o esprimere il proprio sostegno se già suggerita) nel [forum del Catalogo dati di Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). In futuro verrà consentito a terze parti di aggiungere nuovi tipi di origine dati tramite un'API di estensibilità.
 
 ## <a name="q-how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>D: come si limita la visibilità degli asset di dati registrati, in modo che solo determinati utenti possano individuarli?
@@ -125,7 +125,7 @@ R: selezionare gli asset di dati nel Catalogo dati di Azure e fare clic sul puls
 ## <a name="q-how-do-i-update-the-registration-for-a-data-asset-to-that-changes-in-the-data-source-are-reflected-in-the-catalog"></a>Q: come si aggiorna la registrazione di un asset di dati in modo che le modifiche apportate nell'origine dati vengano riflesse nel catalogo?
 R: per aggiornare i metadati degli asset di dati già registrati nel catalogo, è sufficiente registrare nuovamente l'origine dati che contiene gli asset. Le modifiche nell'origine dati, ad esempio l’aggiunta o la rimozione di colonne da tabelle o viste, vengono aggiornate nel catalogo, ma tutte le annotazioni fornite dagli utenti vengono conservate.
 
-## <a name="q-my-question-isnt-answered-here-what-should-i-do"></a>D: la domanda non ha ricevuto risposta: cosa occorre fare?
+## <a name="q-my-question-isnt-answered-here--what-should-i-do"></a>D: la domanda non ha ricevuto risposta: cosa occorre fare?
 Tenere sotto controllo il [forum di Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409), dove le domande frequenti trovano risposta.
 
 

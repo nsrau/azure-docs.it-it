@@ -77,7 +77,7 @@ In questo caso, il servizio ha rilevato un problema nella piattaforma che riduce
 
 ![La risorsa non è disponibile](./media/resource-health-overview/Unavailable.png)
 
-### <a name="unavailable-customer-initiated"></a>Non disponibile a causa di azione del cliente
+### <a name="unavailable--customer-initiated"></a>Non disponibile a causa di azione del cliente
 La risorsa non è disponibile a causa di una richiesta del cliente, ad esempio l'arresto di una risorsa o un riavvio. Questo stato è indicato da un'icona informativa blu. 
 
 ![La risorsa non è disponibile a causa di un'azione avviata dall'utente](./media/resource-health-overview/userInitiated.png)

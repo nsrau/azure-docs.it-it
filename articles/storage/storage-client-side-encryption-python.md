@@ -120,7 +120,7 @@ Per eseguire operazioni di query, è necessario specificare un resolver di chiav
 
 La libreria client di archiviazione prevede la chiave KEK fornita e un resolver di chiavi per implementare l'interfaccia seguente. [insieme di credenziali delle chiavi di Azure](https://azure.microsoft.com/services/key-vault/) per la gestione delle chiavi KEK per Python è in sospeso e verrà integrato in questa libreria al termine del completamento.
 
-## <a name="client-api-interface"></a>API client/interfaccia
+## <a name="client-api--interface"></a>API client/interfaccia
 Dopo la creazione di un oggetto di servizio di archiviazione (ad esempio blockblobservice), l'utente può assegnare i valori ai campi che costituiscono un criterio di crittografia: key_encryption_key, key_resolver_function e require_encryption. Gli utenti possono fornire solo una chiave KEK, solo un resolver o entrambi. key_encryption_key è il tipo di chiave di base che viene identificato usando un identificatore di chiave e che fornisce la logica per wrapping/rimozione del wrapping. key_resolver_function viene usato per risolvere una chiave durante la procedura di decrittografia. Restituisce una chiave KEK valida in base a un identificatore di chiave. Ciò fornisce agli utenti la possibilità di scegliere tra più chiavi che vengono gestite in più posizioni.
 
 La chiave KEK deve implementare i metodi seguenti per consentire una corretta crittografia dei dati:

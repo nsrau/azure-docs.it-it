@@ -70,14 +70,14 @@ Azure RemoteApp supporta sia account Microsoft che account Azure Active Director
 | Provider di identità di terze parti supportati da Azure (come Ping) |Sì |Sì |Sì | |
 | Autenticazione a più fattori | |Sì |Sì |Sì |
 
-### <a name="cloud-and-cloud-vnet"></a>Cloud e Cloud + rete virtuale
+### <a name="cloud-and-cloud--vnet"></a>Cloud e Cloud + rete virtuale
 Con le raccolte nel cloud è possibile usare account Microsoft, account Azure AD o una combinazione dei due. Usare gli account più adatti agli utenti.
 
 Non sono previsti requisiti specifici per l'uso di account Microsoft. 
 
 Se si vuole usare gli account Azure AD, è necessario assicurarsi che il tenant di Azure AD corrisponda a quello associato alla sottoscrizione. Durante la creazione della sottoscrizione di Azure RemoteApp, il tenant di Azure AD in uso è stato associato automaticamente alla sottoscrizione. Qualsiasi utente di Azure AD a cui vengono concesse le autorizzazioni deve corrispondere allo stesso tenant. Se necessario, è possibile [modificare il tenant di Azure AD](remoteapp-changetenant.md) associato alla sottoscrizione.
 
-### <a name="hybrid-or-cloud-azure-ad-ad"></a>Ibrido (o cloud + Azure AD + Active Directory)
+### <a name="hybrid-or-cloud--azure-ad--ad"></a>Ibrido (o cloud + Azure AD + Active Directory)
 L'uso di Azure AD insieme ad Active Directory in locale è un prerequisito per una raccolta ibrida. È necessario usare AD Connect per integrare le due directory. Esistono però alcune possibilità di scelta per quanto riguarda la configurazione di AD Connect. 
 
 Esistono due scenari per AD Connect, ovvero l'uso della sincronizzazione delle password o l'uso della federazione di Active Directory. Vedere le [informazioni su AD Connect](../active-directory/active-directory-aadconnect.md) per individuare lo scenario ottimale per le specifiche esigenze.

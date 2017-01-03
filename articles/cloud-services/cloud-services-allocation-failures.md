@@ -27,7 +27,7 @@ Quando si distribuiscono istanze a un servizio Cloud o si aggiungono nuove istan
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-### <a name="background-how-allocation-works"></a>Informazioni preliminari: come funziona l'allocazione
+### <a name="background--how-allocation-works"></a>Informazioni preliminari: come funziona l'allocazione
 I server nei data center di Azure sono partizionati in cluster. Una nuova richiesta di allocazione del servizio cloud viene eseguita in più cluster. Quando la prima istanza è distribuita in un servizio cloud (in gestione temporanea o produzione), il servizio cloud viene bloccato su un cluster. Tutte le altre distribuzioni per il servizio cloud verranno eseguite nello stesso cluster. In questo articolo si farà riferimento a questa operazione con il termine "bloccata su un cluster". Il diagramma 1 seguente illustra un'allocazione normale eseguita in più cluster. Il diagramma 2 illustra un'allocazione bloccata sul Cluster 2, perché è quello che ospita il servizio cloud CS_1.
 
 ![Diagramma di allocazione](./media/cloud-services-allocation-failure/Allocation1.png)

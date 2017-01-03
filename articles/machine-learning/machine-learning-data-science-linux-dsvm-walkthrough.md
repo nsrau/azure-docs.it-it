@@ -410,7 +410,7 @@ Al termine della compilazione dei modelli, selezionare la scheda **Log** per vis
 >
 >
 
-## <a name="postgresql-squirrel-sql"></a>PostgreSQL e Squirrel SQL
+## <a name="postgresql--squirrel-sql"></a>PostgreSQL e Squirrel SQL
 La DSVM viene fornita con PostgreSQL installato. PostgreSQL è un sofisticato database relazionale open source. Questa sezione illustra come eseguire query sul set di dati di posta indesiderata dopo averlo caricato in PostgreSQL.
 
 Prima di caricare i dati è necessario consentire l'autenticazione della password da localhost. Al prompt dei comandi, eseguire:

@@ -97,7 +97,7 @@ ms.openlocfilehash: 6e2ab89f3895edcfb818ad918dfffd597f4905d3
 ### <a name="a-name100100httpspypipythonorgpypipydocumentdb100"></a><a name="1.0.0"/>[1.0.0](https://pypi.python.org/pypi/pydocumentdb/1.0.0)
 * SDK con disponibilità generale.
 
-## <a name="release-retirement-dates"></a>Date di rilascio e di ritiro
+## <a name="release--retirement-dates"></a>Date di rilascio e di ritiro
 Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata.
 
 Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente, è quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima. 

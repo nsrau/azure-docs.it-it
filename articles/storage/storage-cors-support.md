@@ -100,7 +100,7 @@ Le regole CORS vengono valutate come segue:
 
 Poiché le regole vengono elaborate nell'ordine in cui si trovano nel corpo della richiesta, nell'elenco è consigliabile specificare in primo luogo le regole più restrittive, in modo che vengano valutate per prime. Specificare le regole meno restrittive (ad esempio, una regola che consente tutte le origini) alla fine dell'elenco.
 
-### <a name="example-cors-rules-evaluation"></a>Esempio: valutazione di regole CORS
+### <a name="example--cors-rules-evaluation"></a>Esempio: valutazione di regole CORS
 Nell'esempio seguente viene illustrato il corpo di una richiesta parziale per un'operazione di impostazione delle regole CORS per i servizi di archiviazione. Per informazioni dettagliate sulla costruzione della richiesta, vedere [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx) e [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx).
 
 ```xml

@@ -26,7 +26,7 @@ ms.openlocfilehash: 5d8934ab6ac0fd29e5b389c2690b5ef42575e005
 
 Questo argomento presenta un esempio di codice Java che è possibile usare per connettersi al database SQL di Azure. L'esempio Java si basa su Java Development Kit (JDK) versione 1.8 e si connette a un database SQL di Azure tramite il driver JDBC.
 
-## <a name="step-1-configure-development-environment"></a>Passaggio 1: Configurare l'ambiente di sviluppo
+## <a name="step-1--configure-development-environment"></a>Passaggio 1: Configurare l'ambiente di sviluppo
 [Configurare l'ambiente di sviluppo Java](https://msdn.microsoft.com/library/mt720658.aspx)
 
 ## <a name="step-2-create-a-sql-database"></a>Passaggio 2: Creare un database SQL
