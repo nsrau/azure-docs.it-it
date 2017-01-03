@@ -1,12 +1,12 @@
 ---
-title: 'Servizi di dominio AD Azure: Confrontare Servizi di dominio Azure AD con controller di dominio fai da te | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: confronto tra Azure Active Directory Domain Services e controller di dominio fai da te | Documentazione Microsoft'
 description: Confronto tra Servizi di dominio Azure AD e controller di dominio fai da te
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 67575bbbb7d99ffeef3cb5dab74f4a68065bacc1
+
 
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Come decidere Servizi di dominio Azure AD è adatto alle esigenze del caso di utilizzo
@@ -87,7 +91,7 @@ Costrutti di criteri di gruppo sofisticati non sono supportati nel domino gestit
 #### <a name="geo-dispersed-deployments"></a>Distribuzioni geograficamente sparse
 I domini gestiti di Servizi di dominio Azure AD sono disponibili in una singola rete virtuale in Azure. Per scenari che richiedono controller di dominio disponibili in più aree di Azure in tutto il mondo, l'impostazione di controller di dominio in VM IaaS di Azure potrebbe essere l'alternativa migliore.
 
-## <a name="'do-it-yourself'-(diy)-ad-deployment-options"></a>Opzioni di distribuzione AD "fai da te"
+## <a name="do-it-yourself-diy-ad-deployment-options"></a>Opzioni di distribuzione AD "fai da te"
 Possono esistere situazioni di distribuzione in cui sono necessarie alcune delle funzionalità offerte da un'installazione Active Directory di Windows Server. In questi casi è possibile prendere in considerazione una delle seguenti opzioni fai da te:
 
 * **Dominio cloud autonomo:** è possibile configurare un "dominio cloud" autonomo usando macchine virtuali Azure che sono state configurate come controller di dominio. Questa infrastruttura non si integra con l'ambiente Active Directory locale. Questa opzione richiede un insieme diverso di "credenziali del cloud" per l'accesso e l'amministrazione delle VM nel cloud.
@@ -106,6 +110,9 @@ Microsoft ha pubblicato alcune [linee guida per la distribuzione di Active Direc
 * [Scenari di distribuzione - Servizi di dominio Azure AD](active-directory-ds-scenarios.md)
 * [Linee guida per la distribuzione di Active Directory di Windows Server in macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

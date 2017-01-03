@@ -1,20 +1,24 @@
 ---
-title: Installazione di una foresta Active Directory in una rete virtuale di Azure | Microsoft Docs
-description: Un'esercitazione che illustra come creare una nuova foresta di Active Directory in una macchina virtuale (VM) in una rete virtuale di Azure.
+title: Installazione di una foresta Active Directory in una rete virtuale di Azure | Documentazione Microsoft
+description: Un&quot;esercitazione che illustra come creare una nuova foresta di Active Directory in una macchina virtuale (VM) in una rete virtuale di Azure.
 services: active-directory, virtual-network
 keywords: 'macchina virtuale active directory, installazione di una foresta active directory, video su azure active directory  '
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-tags: ''
-
+tags: 
+ms.assetid: eb7170d0-266a-4caa-adce-1855589d65d1
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
-ms.author: markusvi
+ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
+ms.openlocfilehash: 69c65d0ac948563c4eaebee7319b5e5a84a0a8d8
+
 
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Installazione di una nuova foresta Active Directory in una rete virtuale di Azure
@@ -31,7 +35,7 @@ In questo scenario gli utenti esterni devono accedere alle applicazioni eseguite
 
 ![Foresta Active Directory in una macchina virtuale in Rete virtuale di Azure ][1] 7
 
-## <a name="how-does-this-differ-from-onpremises"></a>Differenze rispetto all'installazione locale
+## <a name="how-does-this-differ-from-on-premises"></a>Differenze rispetto all'installazione locale
 Non esistono molte differenze tra l'installazione locale di un controller di dominio e l'installazione in Azure. Le differenze principali sono elencate nella tabella seguente.
 
 | Configurazione | Locale | rete virtuale di Azure |
@@ -43,7 +47,7 @@ Non esistono molte differenze tra l'installazione locale di un controller di dom
 ## <a name="create-an-azure-virtual-network"></a>Creare una rete virtuale di Azure
 1. Accedere al portale di Microsoft Azure classico.
 2. Creare una rete virtuale. Fare clic su **Reti** > **Crea rete virtuale**. Usare i valori nella tabella seguente per completare la procedura guidata.
-   
+
    | Pagina della procedura guidata | Valori da specificare |
    | --- | --- |
    |  **Dettagli della rete virtuale** |<p>Nome: immettere un nome per la rete virtuale</p><p>Area: scegliere l'area più vicina</p> |
@@ -53,20 +57,20 @@ Non esistono molte differenze tra l'installazione locale di un controller di dom
 ## <a name="create-vms-to-run-the-domain-controller-and-dns-server-roles"></a>Creare una VM per l'esecuzione del controller di dominio e dei ruoli del server DNS
 Ripetere i passaggi seguenti per creare macchine virtuali per ospitare il ruolo di controller di dominio in base alle esigenze. È consigliabile distribuire almeno due controller di dominio virtuali per fornire ridondanza e tolleranza di errore. Se la rete virtuale di Azure include almeno due controller di dominio configurati in modo analogo (vale a dire se sono entrambi cataloghi globali, eseguono server DNS, non contengono alcun ruolo FSMO e così via), posizionare le macchine virtuali che eseguono tali controller di dominio in un gruppo di disponibilità per una tolleranza di errore migliorata.
 
-Per creare le macchine virtuali tramite Windows PowerShell anziché tramite l'interfaccia utente, vedere [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](../virtual-machines/virtual-machines-windows-classic-create-powershell.md).
+Per creare le macchine virtuali tramite Windows PowerShell anziché tramite l'interfaccia utente, vedere [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](../virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 1. Nel portale classico fare clic su **Nuovo** > **Calcolo** > **Macchina virtuale** > **Da raccolta**. Usare i valori nella seguente tabella per completare la procedura guidata. Accettare il valore predefinito per tutte le impostazioni a meno che non venga suggerito o richiesto un altro valore.
-   
+
    | Pagina della procedura guidata | Valori da specificare |
    | --- | --- |
    |  **Scegli un'immagine** |Windows Server 2012 R2 Datacenter |
    |  **Configurazione macchina virtuale** |<p>Nome macchina virtuale: digitare un nome con etichetta singola (ad esempio AzureDC1).</p><p>Nuovo nome utente: digitare il nome di un utente. Questo utente sarà membro del gruppo Administrators locale nella macchina virtuale. Questo nome sarà necessario per accedere alla macchina virtuale per la prima volta. L'account predefinito denominato Administrator non funzionerà.</p><p>Nuova password/conferma: digitare una password</p> |
    |  **Configurazione macchina virtuale** |<p>Servizio cloud: scegliere <b>Crea un nuovo servizio cloud</b> per la prima macchina virtuale e selezionare lo stesso nome di servizio cloud quando si creano più VM che ospiteranno il ruolo di controller di dominio.</p><p>Nome DNS del servizio cloud: specificare un nome globalmente univoco</p><p>Regione/Gruppo di affinità/Rete virtuale: specificare un nome di rete virtuale (come WestUSVNet).</p><p>Account di archiviazione: scegliere <b>Usa un account di archiviazione generato automaticamente</b> per la prima macchina virtuale e quindi selezionare lo stesso nome di account di archiviazione quando si creano più VM che ospiteranno il ruolo di controller di dominio.</p><p>Set di disponibilità: scegliere <b>Crea set di disponibilità</b>.</p><p>Nome set di disponibilità: digitare un nome per il set di disponibilità impostato quando si crea la prima VM e quindi selezionare lo stesso nome quando si creano più VM.</p> |
    |  **Configurazione macchina virtuale** |<p>Selezionare <b>Installa l'agente di macchine virtuali</b> ed eventuali altre estensioni necessarie.</p> |
-2. Collegare un disco a ogni macchina virtuale che eseguirà il ruolo del server di controller di dominio. Il disco aggiuntivo necessario per archiviare il database di Active Directory, log e SYSVOL. Specificare le dimensioni per il disco (ad esempio 10 GB) e lasciare l'opzione **Preferenze cache dell'host** impostata su **Nessuna**. Per la procedura, vedere [Come collegare un disco dati a una macchina virtuale Windows](../virtual-machines/virtual-machines-windows-classic-attach-disk.md).
+2. Collegare un disco a ogni macchina virtuale che eseguirà il ruolo del server di controller di dominio. Il disco aggiuntivo necessario per archiviare il database di Active Directory, log e SYSVOL. Specificare le dimensioni per il disco (ad esempio 10 GB) e lasciare l'opzione **Preferenze cache dell'host** impostata su **Nessuna**. Per la procedura, vedere [Come collegare un disco dati a una macchina virtuale Windows](../virtual-machines/virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. Dopo avere effettuato la prima connessione alla VM, aprire **Server Manager** > **Servizi file e archiviazione** per creare un volume in questo disco usando NTFS.
-4. Riservare un indirizzo IP statico per le macchine virtuali che eseguiranno il ruolo di controller di dominio. Per riservare un indirizzo IP statico, scaricare l'Installazione guidata piattaforma Web Microsoft e [installare Azure PowerShell](../powershell-install-configure.md) , quindi eseguire il cmdlet Set-AzureStaticVNetIP. Ad esempio:
-   
+4. Riservare un indirizzo IP statico per le macchine virtuali che eseguiranno il ruolo di controller di dominio. Per riservare un indirizzo IP statico, scaricare l'Installazione guidata piattaforma Web Microsoft e [installare Azure PowerShell](/powershell/azureps-cmdlets-docs) , quindi eseguire il cmdlet Set-AzureStaticVNetIP. Ad esempio:
+
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
 Per altre informazioni sull'impostazione di un indirizzo IP statico, vedere [Configurare un indirizzo IP interno statico per una macchina virtuale](../virtual-network/virtual-networks-reserved-private-ip.md).
@@ -88,7 +92,7 @@ Al termine dell'installazione del controller di dominio, connettersi nuovamente 
 
 ## <a name="create-vms-for-domain-members"></a>Creare macchine virtuali per i membri del dominio
 1. Ripetere i seguenti passaggi per creare macchine virtuali che vengano eseguite come server applicazioni. Accettare il valore predefinito per tutte le impostazioni a meno che non venga suggerito o richiesto un altro valore.
-   
+
    | Pagina della procedura guidata | Valori da specificare |
    | --- | --- |
    |  **Scegli un'immagine** |Windows Server 2012 R2 Datacenter |
@@ -97,7 +101,7 @@ Al termine dell'installazione del controller di dominio, connettersi nuovamente 
    |  **Configurazione macchina virtuale** |<p>Selezionare <b>Installa l'agente di macchine virtuali</b> ed eventuali altre estensioni necessarie.</p> |
 2. Dopo avere eseguito il provisioning di ogni macchina virtuale, accedere e aggiungerla al dominio. In **Server Manager** fare clic su **Server locale** > **GRUPPO DI LAVORO** > **Modifica...** e quindi selezionare **Dominio** e digitare il nome del dominio locale. Specificare le credenziali di un utente di dominio e quindi riavviare la macchina virtuale per completare l'aggiunta al dominio.
 
-Per creare le macchine virtuali tramite Windows PowerShell anziché tramite l'interfaccia utente, vedere [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](../virtual-machines/virtual-machines-windows-classic-create-powershell.md).
+Per creare le macchine virtuali tramite Windows PowerShell anziché tramite l'interfaccia utente, vedere [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](../virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a utilizzare i cmdlet di Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx) e [Informazioni di riferimento sui cmdlet di Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx).
 
@@ -109,7 +113,7 @@ Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a util
 * [Microsoft Azure IaaS per professionisti IT: (01) Dati fondamentali delle macchine virtuali](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Microsoft Azure IaaS per professionisti IT: (05) Creazione di reti virtuali e connettività cross-premise](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 * [Panoramica di Rete virtuale.](../virtual-network/virtual-networks-overview.md)
-* [Come installare e configurare Azure PowerShell](../powershell-install-configure.md)
+* [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 * [Informazioni di riferimento sui cmdlet di Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx)
 * [Impostare un indirizzo IP statico per una macchina virtuale di Azure](http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address)
@@ -122,6 +126,6 @@ Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a util
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

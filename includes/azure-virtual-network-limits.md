@@ -23,13 +23,14 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Risorsa | Limite predefinito | Limite massimo |
 | --- | --- | --- |
 | Reti virtuali per sottoscrizione |50 |500 |
+| Subnet per rete virtuale |1.000 |contattare il supporto tecnico |
 | Server DNS per rete virtuale |9 |25 |
 | Indirizzi IP privati per rete virtuale |4096 |4096 |
 | Connessioni TCP simultanee per un'istanza del ruolo o della macchina virtuale |500K |500K |
 | Interfacce di rete (NIC) |300 |10000 |
 | Gruppi di sicurezza di rete (NGS) |100 |400 |
 | Regole NSG per NSG |200 |500 |
-| Tabelle di route definite dall’utente |100 |400 |
+| Tabelle di route definite dall’utente |100 |200 |
 | Le route definite dall’utente per ogni tabella di route |100 |400 |
 | Indirizzi IP pubblici (dinamici) |60 |Contattare il supporto tecnico |
 | Indirizzi IP pubblici (statici) |20 |Contattare il supporto tecnico |
@@ -43,6 +44,6 @@ Nel caso in cui sia necessario aumentare questi limiti rispetto all'impostazione
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

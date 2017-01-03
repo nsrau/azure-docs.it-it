@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/11/2016
+ms.date: 12/15/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
-ms.openlocfilehash: 26720340d72c31016e51cc33589388780a2f4a8a
+ms.sourcegitcommit: e048e70714c260fcb13ec5ca53434173026eb8d8
+ms.openlocfilehash: 623841606367a319eadf268c8938066d98aa491d
 
 
 ---
@@ -34,7 +34,18 @@ Questa esercitazione illustra il processo di implementazione di un'applicazione 
 
 L'esercitazione descrive il flusso di lavoro di base di Servizi multimediali nonché gli oggetti e le attività di programmazione usati più di frequente per lo sviluppo basato su Servizi multimediali. Al termine dell'esercitazione sarà possibile eseguire lo streaming o il download progressivo di un file multimediale di esempio caricato, codificato e scaricato.
 
+### <a name="ams-model"></a>Modello AMS
+
+L'immagine seguente illustra alcuni degli oggetti più comuni usati durante lo sviluppo di applicazioni VoD rispetto al modello OData di Servizi multimediali. 
+
+Fare clic sull'immagine per visualizzarla a schermo intero.  
+
+<a href="./media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
+
+È possibile visualizzare il modello completo [qui](https://media.windows.net/API/$metadata?api-version=2.14).  
+
 ## <a name="what-youll-learn"></a>Contenuto dell'esercitazione
+
 Nell'esercitazione viene illustrato come eseguire le attività seguenti:
 
 1. Creare un account di Servizi multimediali (usando il portale di Azure).
@@ -55,9 +66,6 @@ Per completare l'esercitazione è necessario quanto segue.
 * Sistemi operativi: Windows 8 o versione successiva, Windows 2008 R2, Windows 7.
 * .NET Framework 4.0 o versione successiva.
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express) o versioni successive.
-
-## <a name="download-sample"></a>Scaricare un esempio
-È possibile ottenere ed eseguire un esempio [qui](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ## <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Creare un account Servizi multimediali di Azure con il portale di Azure
 I passaggi descritti in questa sezione illustrano come creare un account Servizi multimediali di Azure.
@@ -146,7 +154,7 @@ Per creare e modificare il numero di unità riservate di streaming, seguire ques
         using System.Threading;
         using System.IO;
         using Microsoft.WindowsAzure.MediaServices.Client;
-6. Creare una nuova cartella nella directory dei progetti e copiare un file MP4 o WMV di cui eseguire codifica e streaming o il download progressivo. In questo esempio viene usato il percorso "C:\VideoFiles".
+6. Creare una nuova cartella, in un punto qualsiasi nell'unità locale, e copiare un file con estensione mp4 di cui eseguire codifica e streaming o il download progressivo. In questo esempio viene usato il percorso "C:\VideoFiles".
 
 ## <a name="connect-to-the-media-services-account"></a>Connettersi all'account di Servizi multimediali
 
@@ -154,6 +162,7 @@ Quando si usa Servizi multimediali con .NET, è necessario usare la classe **Clo
 
 Sovrascrivere la classe predefinita Program con il codice seguente. Il codice mostra come leggere i valori di connessione dal file App.config e come creare l'oggetto **CloudMediaContext** per connettersi a Servizi multimediali. Per altre informazioni sulla connessione a Servizi multimediali, vedere [Connessione a Servizi multimediali con Media Services SDK per .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
+Assicurarsi di aggiornare il nome file e il percorso in cui salvare il file multimediale.
 
 La funzione **Main** chiama metodi che verranno definiti più in dettaglio in questa sezione.
 
@@ -184,7 +193,7 @@ La funzione **Main** chiama metodi che verranno definiti più in dettaglio in qu
                 _context = new CloudMediaContext(_cachedCredentials);
 
                 // Add calls to methods defined in this section.
-
+        // Make sure to update the file name and path to where you have your media file.
                 IAsset inputAsset =
                     UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
 
@@ -256,9 +265,8 @@ Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è ne
 
 Il seguente codice mostra come inviare un processo di codifica. Il processo contiene un'attività che indica di transcodificare il file in formato intermedio in un set di file MP4 a velocità in bit adattiva con **Media Encoder Standard**. Il codice invia il processo e ne attende il completamento.
 
-Al termine, è possibile eseguire lo streaming dell'asset o il download progressivo dei file MP4 creati con la transcodifica.
-Non è necessario disporre di più di 0 unità di streaming per poter eseguire il download progressivo dei file MP4.
-
+Al termine del processo di codifica, sarà possibile pubblicare gli asset e quindi eseguire lo streaming o il download progressivo dei file MP4.
+ 
 Aggiungere il seguente metodo alla classe Program.
 
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
@@ -299,23 +307,26 @@ Aggiungere il seguente metodo alla classe Program.
 
 Per eseguire lo streaming o il download di un asset è necessario prima "pubblicarlo" creando un localizzatore. I localizzatori forniscono l'accesso ai file contenuti nell'asset. Servizi multimediali supporta due tipi di localizzatori: localizzatori OnDemandOrigin, usati per lo streaming dei file multimediali (ad esempio, MPEG DASH, HLS o Smooth Streaming) e localizzatori di firma di accesso condiviso, usati per scaricare i file multimediali. Per altre informazioni sui localizzatori di firma di accesso condiviso, vedere [questo](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog.
 
-Dopo aver creato i localizzatori è possibile compilare gli URL usati per eseguire lo streaming o il download dei file.
+### <a name="some-details-about-url-formats"></a>Alcuni dettagli sui formati di URL
 
-Un URL di streaming per Smooth Streaming ha il seguente formato:
+Dopo aver creato i localizzatori, è possibile compilare gli URL usati per eseguire lo streaming o il download dei file. L'esempio in questa esercitazione restituirà URL che possono essere incollati nei browser appropriati. Questa sezione fornisce brevi esempi dei diversi formati. 
 
-     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+#### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>Un URL di streaming per MPEG DASH ha il seguente formato:
 
-Un URL di streaming per HLS ha il seguente formato:
+{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest**(format=mpd-time-csf)**
 
-     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+#### <a name="a-streaming-url-for-hls-has-the-following-format"></a>Un URL di streaming per HLS ha il seguente formato:
 
-Un URL di streaming per MPEG DASH ha il seguente formato:
+{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest**(format=m3u8-aapl)**
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+#### <a name="a-streaming-url-for-smooth-streaming-has-the-following-format"></a>Un URL di streaming per Smooth Streaming ha il seguente formato:
+
+{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest
+
 
 Un URL di firma di accesso condiviso usato per scaricare i file ha il seguente formato:
 
-    {blob container name}/{asset name}/{file name}/{SAS signature}
+{nome contenitore BLOB}/{nome asset}/{nome file}/{firma di accesso condiviso}
 
 Le estensioni dell'SDK di Servizi multimediali per .NET forniscono pratici metodi di supporto che restituiscono URL formattati per l'asset pubblicato.
 
@@ -389,6 +400,7 @@ Aggiungere il seguente metodo alla classe Program.
     }
 
 ## <a name="test-by-playing-your-content"></a>Testare riproducendo i contenuti.
+
 Dopo aver eseguito il programma definito nella sezione precedente, nella finestra della console vengono visualizzati URL simili al seguente.
 
 URL per streaming adattivo:
@@ -424,9 +436,18 @@ URL per download progressivo (audio e video).
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-Per riprodurre il video, utilizzare [Lettore di Servizi multimediali di Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+Per eseguire lo streaming del video, incollare l'URL nella casella di testo URL in [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 Per testare il download progressivo, incollare un URL in un browser (ad esempio, IE, Chrome, Safari).
+
+Per ulteriori informazioni, vedere gli argomenti seguenti:
+
+- [Riproduzione di contenuti con i lettori esistenti](media-services-playback-content-with-existing-players.md)
+- [Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md)
+- [Integrazione di uno streaming video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js](media-services-embed-mpeg-dash-in-html5.md)
+
+## <a name="download-sample"></a>Scaricare un esempio
+L'esempio di codice seguente contiene il codice creato in questa esercitazione: [esempio](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ## <a name="next-steps-media-services-learning-paths"></a>Passaggi successivi: Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -446,6 +467,6 @@ Se questo argomento non è di aiuto, non contiene ciò che si cerca o in altro m
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

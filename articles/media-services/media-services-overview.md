@@ -12,15 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/11/2016
+ms.date: 12/14/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
-ms.openlocfilehash: 698b834ffa82f2a1ab171fb5efc13a2fe916b4ec
+ms.sourcegitcommit: 0d83c6e444d74ce7f95f796ec6c53abc43c37766
+ms.openlocfilehash: 7daf4bfa80fae2aee156af5cdb3588725aebd311
 
 
 ---
 # <a name="azure-media-services-overview-and-common-scenarios"></a>Panoramica e scenari comuni di Servizi multimediali di Azure
+
 Servizi multimediali di Microsoft Azure costituisce una piattaforma estensibile basata sul cloud che consente agli sviluppatori di creare applicazioni di distribuzione e gestione di contenuti multimediali altamente scalabili. Servizi multimediali si basa su API REST che consentono di caricare, archiviare e codificare in sicurezza contenuti video o audio, nonché creare pacchetti di tali contenuti per la distribuzione su richiesta e in modalità streaming live a vari tipi di client (ad esempio, TV, PC e dispositivi mobili).
 
 È possibile creare flussi di lavoro end-to-end usando unicamente Servizi multimediali. È anche possibile usare componenti di terze parti per alcune parti del flusso di lavoro, ad esempio, la codifica con un codificatore di terze parti. Inoltre, sono possibili operazioni di caricamento, protezione, creazione di pacchetti e invio tramite Servizi multimediali.
@@ -28,17 +29,28 @@ Servizi multimediali di Microsoft Azure costituisce una piattaforma estensibile 
 È possibile scegliere di riprodurre in streaming i propri contenuti live o distribuire contenuti su richiesta. In questo argomento vengono illustrati scenari comuni per la distribuzione del contenuto [live](media-services-overview.md#live_scenarios) o [su richiesta](media-services-overview.md#vod_scenarios). L'argomento contiene inoltre collegamenti ad altri argomenti rilevanti.
 
 ## <a name="sdks-and-tools"></a>SDK e strumenti
+
 Per creare soluzioni di Servizi multimediali, è possibile usare:
 
 * [API REST di Servizi multimediali](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 * Uno dei client SDK disponibili:
-* [Azure Media Services SDK per .NET](https://github.com/Azure/azure-sdk-for-media-services)
-* [Azure SDK per Java](https://github.com/Azure/azure-sdk-for-java),
-* [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
-* [Servizi multimediali di Azure per Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js). Questa è una versione non Microsoft di Node.js SDK. È gestita da una community e attualmente non copre al 100% le API AMS.
+    * [Azure Media Services SDK per .NET](https://github.com/Azure/azure-sdk-for-media-services)
+    * [Azure SDK per Java](https://github.com/Azure/azure-sdk-for-java),
+    * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
+    * [Servizi multimediali di Azure per Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js). Questa è una versione non Microsoft di Node.js SDK. È gestita da una community e attualmente non copre al 100% le API AMS.
 * Strumenti esistenti:
-* [Portale di Azure](https://portal.azure.com/)
-* [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) è un'applicazione Winforms/C# per Windows)
+    * [Portale di Azure](https://portal.azure.com/)
+    * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) è un'applicazione Winforms/C# per Windows)
+
+L'immagine seguente illustra alcuni degli oggetti più comuni usati durante lo sviluppo rispetto al modello OData di Servizi multimediali. 
+
+Fare clic sull'immagine per visualizzarla a schermo intero.  
+
+<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
+
+
+È possibile visualizzare il modello completo [qui](https://media.windows.net/API/$metadata?api-version=2.14).  
+
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 È possibile visualizzare i percorsi di apprendimento AMS qui:
@@ -202,6 +214,6 @@ Per altre informazioni, vedere [Contratto di servizio di Microsoft Azure](https:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

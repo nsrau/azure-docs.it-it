@@ -1,4 +1,4 @@
-# Overview
+# Panoramica
 ## [Informazioni su Azure Batch](batch-technical-overview.md)
 ## [Panoramica delle funzionalità](batch-api-basics.md)
 ## [Quote e limitazioni](batch-quota-limit.md)
@@ -48,6 +48,6 @@
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

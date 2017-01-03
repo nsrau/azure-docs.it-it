@@ -1,12 +1,12 @@
 ---
-title: Considerazioni di progettazione della soluzione ibrida di gestione delle identità di Azure Active Directory - Determinare i requisiti di protezione dei dati | Microsoft Docs
-description: Quando si pianifica una soluzione ibrida di gestione delle identità, è necessario identificare i requisiti aziendali di protezione dei dati e conoscere le opzioni disponibili per soddisfare adeguatamente tali requisiti.
-documentationcenter: ''
+title: "Considerazioni di progettazione della soluzione ibrida di gestione delle identità di Azure Active Directory - Determinare i requisiti di protezione dei dati | Documentazione Microsoft"
+description: "Quando si pianifica una soluzione ibrida di gestione delle identità, è necessario identificare i requisiti aziendali di protezione dei dati e conoscere le opzioni disponibili per soddisfare adeguatamente tali requisiti."
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 40dc4baa-fe82-4ab6-a3e4-f36fa9dcd0df
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d971823ecd237c90787d4b923b5f9aad08fff4ee
+
 
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Pianificare il potenziamento della sicurezza dei dati attraverso soluzioni d’identità avanzate
@@ -81,6 +85,9 @@ Le regole, le norme e i requisiti di conformità alle normative variano in base 
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

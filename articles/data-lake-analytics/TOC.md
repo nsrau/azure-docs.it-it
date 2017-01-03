@@ -52,6 +52,6 @@
 ## [Blog di Azure Data Lake](https://blogs.msdn.microsoft.com/azuredatalake/)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

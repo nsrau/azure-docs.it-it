@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: 334d7391368509385dfc6c18ae1353d27faf7600
+ms.sourcegitcommit: 2d36bc4f9305590e7cc835bb813daf193d071fd1
+ms.openlocfilehash: 455d260248c5bcdb8f597484a98fec9320c81d19
 
 
 ---
@@ -34,7 +34,7 @@ Sono disponibili due tipi di test Web:
 È possibile creare fino a 10 test Web per ogni risorsa dell'applicazione.
 
 ## <a name="a-namecreatea1-create-a-resource-for-your-test-reports"></a><a name="create"></a>1. Creare una risorsa per i report di test
-Ignorare questo passaggio se è già stata [configurata una risorsa di Application Insights][start] per questa applicazione e si vuole visualizzare i report di disponibilità nella stessa posizione.
+Ignorare questo passaggio se è già stata [configurata una risorsa di Application Insights][start] per questa applicazione e si vogliono visualizzare i report di disponibilità nella stessa posizione.
 
 Accedere a [Microsoft Azure](http://azure.com), passare al [portale di Azure](https://portal.azure.com) e creare una risorsa di Application Insights.
 
@@ -58,7 +58,7 @@ Nella risorsa di Application Insights cercare il riquadro Disponibilità. Fare c
 
     **Risposta HTTP**: codice di stato restituito che viene conteggiato come operazione riuscita. 200 è il codice che indica che è stata restituita una normale pagina Web.
 
-    **Il contenuto corrisponde a**: stringa, ad esempio "Benvenuto", di cui viene verificata la presenza in tutte le risposte. Deve trattarsi di una stringa di testo normale, senza caratteri jolly. È importante ricordare che, se il contenuto cambia, potrebbe essere necessario aggiornare la stringa.
+    **Il contenuto corrisponde a**: stringa, ad esempio "Benvenuto", Verifichiamo che in ogni risposta ci una corrispondenza esatta di maiuscolo e minuscolo. Deve trattarsi di una stringa di testo normale, senza caratteri jolly. È importante ricordare che, se il contenuto cambia, potrebbe essere necessario aggiornare la stringa.
 * **Avvisi** vengono inviati se si verificano errori in tre posizioni in cinque minuti. Un errore in una posizione può indicare un errore di rete e non un problema con il sito. È comunque possibile modificare la soglia in modo da aumentare la sensibilità del test e modificare i destinatari a cui inviare i messaggi di posta elettronica.
 
     È possibile configurare un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) che verrà chiamato quando viene generato un avviso. Si noti però che attualmente i parametri di query non vengono passati come proprietà.
@@ -239,7 +239,7 @@ Dal pannello Panoramica aprire **Impostazioni**, **Test delle prestazioni**. Qua
 Al termine del test verranno visualizzati i tempi di risposta e le percentuali di successo.
 
 ## <a name="automation"></a>Automazione
-* [Usare script di PowerShell per configurare automaticamente un test Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) .
+* [Usare script di PowerShell per configurare automaticamente un test Web](app-insights-powershell.md#add-an-availability-test) .
 * Configurare un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) che verrà chiamato quando viene generato un avviso.
 
 ## <a name="questions-problems"></a>Domande? Problemi?
@@ -294,6 +294,6 @@ Al termine del test verranno visualizzati i tempi di risposta e le percentuali d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

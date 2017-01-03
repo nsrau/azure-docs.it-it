@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/14/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a7bd1a45d745ce16732e1887dbc952b12f4071e3
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 894e19d2873f2a7db81aa992cab569ae1a0aca60
 
 
 ---
@@ -246,6 +246,6 @@ Quando si fa clic sul riquadro Aravo nel pannello di accesso, si dovrebbe accede
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

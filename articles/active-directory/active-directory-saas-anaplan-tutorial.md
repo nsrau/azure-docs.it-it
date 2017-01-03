@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 57a2c9e4a48239dfb0f2a3bcf98adade4f5f7dc9
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 95369b2a0c1172e072aed33d075255fdcafe8a9c
 
 
 ---
@@ -240,6 +240,6 @@ Quando si fa clic sul riquadro Anaplan nel pannello di accesso, si dovrebbe acce
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

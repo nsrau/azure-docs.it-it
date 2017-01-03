@@ -1,6 +1,6 @@
 # Panoramica
 ## [Che cos'è Analisi di flusso?](stream-analytics-introduction.md)
-## [Confrontare Storm e l'analisi di flusso](stream-analytics-comparison-storm.md)
+## [Confrontare Storm e Analisi di flusso](stream-analytics-comparison-storm.md)
 
 # Introduzione
 ## [Elaborare dati di streaming IoT](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
@@ -58,6 +58,6 @@
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

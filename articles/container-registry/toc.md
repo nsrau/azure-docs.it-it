@@ -1,4 +1,4 @@
-# Overview
+# Panoramica
 
 ## [Informazioni sul Registro di sistema del contenitore di Azure](container-registry-intro.md)
 
@@ -27,6 +27,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

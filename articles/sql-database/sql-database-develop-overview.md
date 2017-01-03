@@ -1,5 +1,5 @@
 ---
-title: Panoramica dello sviluppo di database SQL | Documentazione Microsoft
+title: Panoramica dello sviluppo di applicazioni del database SQL | Documentazione Microsoft
 description: "Informazioni sulle librerie di connettività disponibili e procedure consigliate per applicazioni che si connettono al Database SQL."
 services: sql-database
 documentationcenter: 
@@ -8,20 +8,25 @@ manager: jhubbard
 editor: genemi
 ms.assetid: 67c02204-d1bd-4622-acce-92115a7cde03
 ms.service: sql-database
+ms.custom: development
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: df13648c8a76b216f596df49dd3ef617d0b35ccc
+ms.sourcegitcommit: 72a20c51416cd3022e2a749c51f25c4b3d9268df
+ms.openlocfilehash: 88b8076e740f80154e410050cd55cd2fa4783b38
 
 
 ---
-# <a name="sql-database-development-overview"></a>Panoramica dello sviluppo di database SQL
+# <a name="sql-database-application-development-overview"></a>Panoramica dello sviluppo di applicazioni del database SQL
 Questo articolo esamina le considerazioni di base di cui uno sviluppatore deve tenere conto quando scrive il codice per collegarsi al database SQL di Azure.
+
+> [!TIP]
+> Per un'esercitazione che illustra come creare un server, creare un firewall basato su server, visualizzare le proprietà del server, connettersi usando SQL Server Management Studio, eseguire query nel database master, creare un database di esempio e un database vuoto, eseguire query relative alle proprietà del database, connettersi usando SQL Server Management Studio ed eseguire query nel database di esempio, vedere l'[Esercitazione introduttiva](sql-database-get-started.md).
+>
 
 ## <a name="language-and-platform"></a>Linguaggio e piattaforma
 Sono disponibili esempi di codice per svariati linguaggi di programmazione e piattaforme. È possibile trovare collegamenti agli esempi di codice in: 
@@ -72,6 +77,6 @@ Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

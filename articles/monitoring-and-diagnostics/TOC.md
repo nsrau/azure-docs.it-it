@@ -49,6 +49,6 @@
 ## [Esempi dell'interfaccia della riga di comando di Azure 2.0 (anteprima)](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Elenco delle metriche supportate](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

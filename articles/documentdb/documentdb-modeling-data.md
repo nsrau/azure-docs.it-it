@@ -86,11 +86,11 @@ Denormalizzando i dati, è possibile che l'applicazione debba eseguire meno quer
 ### <a name="when-to-embed"></a>Quando eseguire l'incorporamento
 In generale, usare i modelli di dati incorporati quando:
 
-* - Esistono relazioni **contains** tra le entità.
-* - Esistono relazioni **one-to-few** tra le entità.
-* - Esistono dati incorporati che **cambiano raramente**.
-* - Esistono dati incorporati che non aumenteranno **senza limiti**.
-* - Esistono dati incorporati che sono parte **integrante** dei dati in un documento.
+* Esistono relazioni **contains** tra le entità.
+* Esistono relazioni **one-to-few** tra le entità.
+* Esistono dati incorporati che **cambiano raramente**.
+* Esistono dati incorporati che non aumenteranno **senza limiti**.
+* Esistono dati incorporati che sono parte **integrante** dei dati in un documento.
 
 > [!NOTE]
 > I modelli di dati denormalizzati garantiscono di solito prestazioni di **lettura** più elevate.

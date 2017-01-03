@@ -1,4 +1,4 @@
-# Overview
+# Panoramica
 ## [What is two-step verification?](multi-factor-authentication-end-user.md) (Che cos'è la verifica in due passaggi?)
 ## [How does it affect me?](../multi-factor-authentication-end-user-signin.md?toc=%2fazure&2fmulti-factor-authentication%2fend-user%2ftoc.json) (In che modo influisce sugli utenti?)
 

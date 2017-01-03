@@ -1,22 +1,27 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con FM:Systems | Microsoft Docs'
-description: Informazioni su come usare FM:Systems con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora.
+description: Informazioni su come usare FM:Systems con Azure Active Directory per abilitare l&quot;accesso Single Sign-On, il provisioning automatizzato e altro ancora.
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: f78c58c5-6e98-458b-8991-78624a245665
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/09/2016
+ms.date: 11/23/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 789ec6f0a230f49ecd935bc85ea4ad984e936da9
+ms.openlocfilehash: bd2bfa1696215ded3da40d349111efa13ddbed37
+
 
 ---
-# Esercitazione: Integrazione di Azure Active Directory con FM:Systems
-Questa esercitazione descrive l'integrazione di Azure e FM:Systems. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+# <a name="tutorial-azure-active-directory-integration-with-fmsystems"></a>Esercitazione: Integrazione di Azure Active Directory con FM:Systems
+Questa esercitazione descrive l'integrazione di Azure e FM:Systems.  
+Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 * Sottoscrizione di Azure valida
 * Sottoscrizione di FM:Systems abilitata per l'accesso Single Sign-On
@@ -32,101 +37,120 @@ Lo scenario descritto in questa esercitazione include i blocchi predefiniti segu
 
 ![Scenario](./media/active-directory-saas-fm-systems-tutorial/IC795899.png "Scenario")
 
-## Abilitazione dell'integrazione dell'applicazione per FM:Systems
+## <a name="enabling-the-application-integration-for-fmsystems"></a>Abilitazione dell'integrazione dell'applicazione per FM:Systems
 Questa sezione descrive come abilitare l'integrazione dell'applicazione per FM:Systems.
 
-### Per abilitare l'integrazione dell'applicazione per FM:Systems, seguire questa procedura:
-1. Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+### <a name="to-enable-the-application-integration-for-fmsystems-perform-the-following-steps"></a>Per abilitare l'integrazione dell'applicazione per FM:Systems, seguire questa procedura:
+1. Nel portale di Azure classico fare clic su **Active Directory**nel riquadro di spostamento sinistro.
    
-   ![Active Directory](./media/active-directory-saas-fm-systems-tutorial/IC700993.png "Active Directory")
+    ![Active Directory](./media/active-directory-saas-fm-systems-tutorial/IC700993.png "Active Directory")
+
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
    
-   ![Applicazioni](./media/active-directory-saas-fm-systems-tutorial/IC700994.png "Applicazioni")
+    ![Applications](./media/active-directory-saas-fm-systems-tutorial/IC700994.png "Applications")
+
 4. Fare clic su **Add** nella parte inferiore della pagina.
    
-   ![Aggiunta di un'applicazione](./media/active-directory-saas-fm-systems-tutorial/IC749321.png "Aggiunta di un'applicazione")
+    ![Aggiungi applicazione](./media/active-directory-saas-fm-systems-tutorial/IC749321.png "Add application")
+
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
    
-   ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-fm-systems-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
+    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-fm-systems-tutorial/IC749322.png "Add an application from gallerry")
+
 6. Nella **casella di ricerca** digitare **FM:Systems**.
    
-   ![Raccolta di applicazioni](./media/active-directory-saas-fm-systems-tutorial/IC795900.png "Raccolta di applicazioni")
+    ![Raccolta di applicazioni](./media/active-directory-saas-fm-systems-tutorial/IC795900.png "Application Gallery")
+
 7. Nel riquadro dei risultati selezionare **FM:Systems** e quindi fare clic su **Completa** per aggiungere l'applicazione.
    
-   ![FM:Systems](./media/active-directory-saas-fm-systems-tutorial/IC800213.png "FM:Systems")
+    ![FM:Systems](./media/active-directory-saas-fm-systems-tutorial/IC800213.png "FM:Systems")
    
-   ## Configurazione dell'accesso Single Sign-On
+## <a name="configuring-single-sign-on"></a>Configurazione dell'accesso Single Sign-On
 
 Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a FM:Systems tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.
 
-### Per configurare l'accesso Single Sign-On, seguire questa procedura:
-1. Nella pagina di integrazione dell'applicazione **FM:Systems** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
+1. Nella pagina di integrazione dell'applicazione **FM:Systems** del Portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-fm-systems-tutorial/IC790810.png "Configura accesso Single Sign-On")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-fm-systems-tutorial/IC790810.png "Configure Single Sign-On")
+
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a FM:Systems** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-fm-systems-tutorial/IC795901.png "Configura accesso Single Sign-On")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-fm-systems-tutorial/IC795901.png "Configure Single Sign-On")
+
 3. Nella pagina **Configura URL app** seguire questa procedura:
    
-   ![Configura URL app](./media/active-directory-saas-fm-systems-tutorial/IC795902.png "Configura URL app")
+    ![Configura URL app](./media/active-directory-saas-fm-systems-tutorial/IC795902.png "Configure App URL")
    
-   1. Nella casella di testo **FM:Systems Sign On URL** (URL di accesso FM:Systems) digitare l'**URL di risposta** di FM:Systems (ad esempio: *https://dpr.fmshosted.com/fminteract/ConsumerService2.aspx*).
+    a. Nella casella di testo **FM:Systems Sign On URL (URL di accesso a FM:Systems)**, digitare l'**URL di risposta** di FM: Systems(ad esempio: *https://dpr.fmshosted.com/fminteract/ConsumerService2.aspx*).  
       
-      > [!WARNING]
-      > Richiedere questo valore dal team di supporto di FM:Systems.
-      > 
-      > 
-   2. Fare clic su **Avanti**
-4. Nella pagina **Configura accesso Single Sign-On in FM:Systems** fare clic su **Download metadati** per scaricare il file di metadati e salvare i metadati nel computer.
+    > [!NOTE]
+    > Richiedere questo valore dal team di supporto di FM:Systems.
+    > 
+    > 
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-fm-systems-tutorial/IC795903.png "Configura accesso Single Sign-On")
+    b. Fare clic su **Avanti**
+
+4. Nella pagina **Configura accesso Single Sign-On in FM:Systems** fare clic su **Download metadata (Scarica metadati)** per scaricare il file di metadati e salvare i metadati nel computer.
+   
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-fm-systems-tutorial/IC795903.png "Configure Single Sign-On")
+
 5. Inviare il file di metadati scaricato al team di supporto di FM:Systems.
    
-   > [!NOTE]
-   > La configurazione effettiva dell'accesso Single Sign-On deve essere eseguita dal team di supporto di FM:Systems. Al termine dell'abilitazione dell'accesso Single Sign-On per la sottoscrizione si riceverà una notifica.
-   > 
-   > 
-6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+    > [!NOTE]
+    > La configurazione effettiva dell'accesso Single Sign-On deve essere eseguita dal team di supporto di FM:Systems.
+    > Una volta completata l'abilitazione dell'accesso Single Sign-On per la sottoscrizione, si riceverà una notifica.
+    > 
+    > 
+6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Complete** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-fm-systems-tutorial/IC795904.png "Configura accesso Single Sign-On")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-fm-systems-tutorial/IC795904.png "Configure Single Sign-On")
    
-   ## Configurazione del provisioning utente
+## <a name="configuring-user-provisioning"></a>Configurazione del provisioning utente
 
-Per consentire agli utenti di Azure AD di accedere ad FM:Systems, è necessario eseguirne il provisioning in FM:Systems. Nel caso di FM:Systems, il provisioning è un'attività manuale.
+Per consentire agli utenti di Azure AD di accedere ad FM:Systems, è necessario eseguirne il provisioning in FM:Systems.  
+Nel caso di FM:Systems, il provisioning è un'attività manuale.
 
-### Per configurare il provisioning utente, eseguire la procedura seguente:
+### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Per configurare il provisioning utente, eseguire la procedura seguente:
 1. In una finestra del Web browser accedere al sito aziendale di FM:Systems come amministratore.
-2. Passare a **Amministrazione sistema > Gestione sicurezza > Utenti > Lista utenti**.
+
+2. Passare a **Amministrazione del sistema \> Gestisci sicurezza \> Utenti \> Elenco utenti**.
    
-   ![System Administration](./media/active-directory-saas-fm-systems-tutorial/IC795905.png "System Administration")
+    ![System Administration](./media/active-directory-saas-fm-systems-tutorial/IC795905.png "System Administration")
+
 3. Fare clic su **Crea nuovo utente**.
    
-   ![Create New User](./media/active-directory-saas-fm-systems-tutorial/IC795906.png "Create New User")
-4. Nella sezione **Crea utente**, eseguire la procedura seguente:
-   
-   ![Create User](./media/active-directory-saas-fm-systems-tutorial/IC795907.png "Create User")
-   
-   1. Nelle apposite caselle di testo, digitare il nome utente, la password, la conferma password, l'indirizzo di posta elettronica e l'ID dipendente di un account Azure Active Directory valido di cui si vuole eseguire il provisioning.
-   2. Fare clic su **Avanti**.
+    ![Crea nuovo utente](./media/active-directory-saas-fm-systems-tutorial/IC795906.png "Create New User")
 
-> [!NOTE]
-> È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da FM:Systems per eseguire il provisioning degli account utente di AAD.
-> 
-> 
+4. Nella sezione **Crea utente** , eseguire la procedura seguente:
+   
+    ![Crea utente](./media/active-directory-saas-fm-systems-tutorial/IC795907.png "Create User")
+   
+    a. Nelle apposite caselle di testo, digitare il nome utente, la password, la conferma password, l'indirizzo di posta elettronica e l'ID dipendente di un account Azure Active Directory valido di cui si vuole eseguire il provisioning.
+   
+    b. Fare clic su **Avanti**.
+ 
 
-## Assegnazione degli utenti
+## <a name="assigning-users"></a>Assegnazione degli utenti
 Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
-### Per assegnare gli utenti a FM:Systems seguire questa procedura:
+### <a name="to-assign-users-to-fmsystems-perform-the-following-steps"></a>Per assegnare gli utenti a FM:Systems seguire questa procedura:
 1. Nel portale di Azure classico creare un account di test.
 2. Nella pagina di integrazione dell'applicazione **FM:Systems** fare clic su **Assegna utenti**.
    
-   ![Assegna utenti](./media/active-directory-saas-fm-systems-tutorial/IC795908.png "Assegna utenti")
-3. Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
+    ![Assegna utenti](./media/active-directory-saas-fm-systems-tutorial/IC795908.png "Assign Users")
+
+3. Selezionare l'utente di test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
    
-   ![Sì](./media/active-directory-saas-fm-systems-tutorial/IC767830.png "Sì")
+    ![Sì](./media/active-directory-saas-fm-systems-tutorial/IC767830.png "Yes")
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Jan17_HO1-->
+
+

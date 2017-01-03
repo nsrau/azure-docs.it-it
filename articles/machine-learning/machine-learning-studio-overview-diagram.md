@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/21/2016
+ms.date: 12/16/2016
 ms.author: haining;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 23954b17c96fd33159892b6f9254b4ae9d02ecf9
+ms.sourcegitcommit: 5e9aa39ccf91f98336e5db179b532930f7e83313
+ms.openlocfilehash: 35bf8b41288afd31ba7e6f861beb7a7bf2a36d94
 
 
 ---
@@ -27,7 +27,7 @@ Il diagramma **Panoramica delle funzionalità di Microsoft Azure Machine Learnin
 [Azure Machine Learning Studio](https://studio.azureml.net/) dispone di un numero elevato di algoritmi di apprendimento automatico, insieme a moduli che forniscono supporto con i dati di input, output, la preparazione e la visualizzazione. Usando questi componenti è possibile sviluppare un esperimento di analisi predittiva, eseguire l'iterazione su di esso e utilizzarlo per eseguire il training del modello.
 Quindi con un clic è possibile rendere operativo il modello nel cloud di Azure in modo che possa essere utilizzato per ottenere nuovi dati.
 
-Questo diagramma mostra l’interazione di tutte le parti.
+Questo diagramma mostra l'interazione di tutte le parti.
 
 > [!NOTE]
 > Vedere [Foglio informativo sugli algoritmi di Machine Learning per Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md) per altre informazioni sull'esplorazione e la scelta degli algoritmi disponibili in Machine Learning Studio.
@@ -54,6 +54,6 @@ Scaricare il diagramma **Panoramica sulla funzionalità di Microsoft Azure Machi
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

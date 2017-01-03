@@ -2,11 +2,11 @@
 title: 'Servizi di dominio Azure Active Directory: Scenari di distribuzione | Microsoft Docs'
 description: Scenari di distribuzione per i Servizi di dominio Azure Active Directory
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 359653f29adc538a4fe2f2143e8132bdd9a9d15b
+
 
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Scenari di distribuzione e casi d'uso
 Questa sezione illustra alcuni scenari e casi d'uso che traggono vantaggio dall'utilizzo di Servizi di dominio Azure Active Directory (AD).
 
-## <a name="secure,-easy-administration-of-azure-virtual-machines"></a>Gestione sicura e semplificata delle macchine virtuali di Azure
+## <a name="secure-easy-administration-of-azure-virtual-machines"></a>Gestione sicura e semplificata delle macchine virtuali di Azure
 È possibile utilizzare Servizi di dominio Azure Active Directory per gestire le macchine virtuali di Azure in modo semplificato. Le macchine virtuali di Azure possono appartenere al dominio gestito, consentendo di utilizzare le credenziali aziendali di Active Directory per effettuare l'accesso. Questo approccio consente di evitare complicazioni con la gestione delle credenziali, ad esempio la gestione degli account di amministratore locali su ciascuna delle macchine virtuali di Azure.
 
 Le macchine virtuali del server aggiunte al dominio gestito possono inoltre essere gestite e protette tramite i criteri di gruppo. È possibile applicare le linee di base della sicurezza necessaria alle macchine virtuali di Azure e bloccarle in conformità con le linee guida sulla sicurezza aziendale. Ad esempio, è possibile utilizzare le funzionalità di gestione dei criteri di gruppo per limitare i tipi di applicazioni che possono essere avviate su tali macchine virtuali.
@@ -79,6 +83,9 @@ Azure RemoteApp consente all'amministratore di Contoso di creare una raccolta ag
 
 Per altre informazioni su questo scenario di distribuzione, vedere il post del blog su Servizi Desktop remoto che illustra come [sollevare e spostare i carichi di lavoro con Azure RemoteApp e Servizi di dominio Azure Active Directory](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 1865043ca9c9019b9813f11eb4a55f7f16d79287
-ms.openlocfilehash: b0ae22b8af23c50f25740901db4a8ab9cad045be
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d3fb8e98d36c4a031458b5400147614510b1b064
 
 
 ---
@@ -235,6 +235,6 @@ Ora è possibile passare ad altri scenari.  È possibile consultare:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

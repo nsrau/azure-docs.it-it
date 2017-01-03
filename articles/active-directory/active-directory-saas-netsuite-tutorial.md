@@ -1,12 +1,12 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con NetSuite | Microsoft Docs'
-description: Informazioni su come usare NetSuite con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora.
+description: Informazioni su come usare NetSuite con Azure Active Directory per abilitare l&quot;accesso Single Sign-On, il provisioning automatizzato e altro ancora.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser-msft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: dafa0864-aef2-4f5e-9eac-770504688ef4
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,19 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/16/2016
 ms.author: asmalser-msft
+translationtype: Human Translation
+ms.sourcegitcommit: 789ec6f0a230f49ecd935bc85ea4ad984e936da9
+ms.openlocfilehash: 74642e0e8e0420bb1226c53713ccf50e0a46b776
+
 
 ---
-# <a name="tutorial:-how-to-integrate-netsuite-with-azure-active-directory"></a>Esercitazione: Come eseguire l'integrazione di NetSuite con Azure Active Directory
+# <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Esercitazione: Integrazione di Azure Active Directory con NetSuite
 Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure Active Directory (Azure AD). Verrà illustrato come configurare l'accesso Single Sign-On per NetSuite, come abilitare il provisioning automatizzato degli utenti e come assegnare gli utenti in modo che possano accedere a NetSuite. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 1. Per accedere ad Azure Active Directory tramite il [portale di Azure classico](https://manage.windowsazure.com), prima di tutto è necessario avere una sottoscrizione di Azure valida.
-2. È necessario l'accesso amministrativo alla sottoscrizione di [NetSuite](http://www.netsuite.com/portal/home.shtml) . È possibile usare un account della versione di valutazione gratuita per entrambi i servizi.
+2. È necessario l'accesso amministrativo alla sottoscrizione di [NetSuite](http://www.netsuite.com/portal/home.shtml). È possibile usare un account della versione di valutazione gratuita per entrambi i servizi.
 
-## <a name="step-1:-add-netsuite-to-your-directory"></a>Passaggio 1: Aggiungere NetSuite ad Active Directory
-1. Nel [portale di Azure classico](https://manage.windowsazure.com)fare clic su **Active Directory**nel riquadro di spostamento sinistro.
+## <a name="step-1-add-netsuite-to-your-directory"></a>Passaggio 1: Aggiungere NetSuite alla directory
+1. Nel [portale di Azure classico](https://manage.windowsazure.com) fare clic su **Active Directory** nel riquadro di spostamento sinistro.
    
-    ![Selezionare Active Directory dal pannello di navigazione di sinistra.][0]
+    ![Selezionare Active Directory dal riquadro di spostamento a sinistra.][0]
 2. Dall'elenco **Directory** selezionare la directory in cui si vuole aggiungere NetSuite.
 3. Scegliere **Applicazioni** dal menu principale.
    
@@ -39,16 +43,16 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
     ![Fare clic su Aggiungi un'applicazione dalla raccolta.][3]
 6. Nella **casella di ricerca** digitare **NetSuite**. Selezionare quindi **NetSuite** dai risultati, quindi fare clic su **Completa** per aggiungere l'applicazione.
    
-    ![Aggiungere NetSuite.][4]
+    ![Aggiungere NetSuite][4]
 7. Dovrebbe essere visualizzata la pagina Avvio rapido per NetSuite:
    
-    ![Pagina di Avvio rapido di NetSuite in Azure AD][5]
+    ![Pagina Avvio rapido di NetSuite in Azure AD][5]
 
-## <a name="step-2:-enable-single-sign-on"></a>Passaggio 2: Abilitare l'accesso Single Sign-On
-1. Nella pagina di Avvio rapido per NetSuite in Azure AD fare clic sul pulsante **Configura accesso Single Sign-On** .
+## <a name="step-2-enable-single-sign-on"></a>Passaggio 2: Abilitare l'accesso Single Sign-On
+1. Nella pagina di Avvio rapido per NetSuite in Azure AD fare clic sul pulsante **Configura accesso Single Sign-On**.
    
     ![Pulsante Configura accesso Single Sign-On][6]
-2. Verrà aperta una finestra di dialogo, in cui verrà visualizzata una schermata con messaggio analogo a "Stabilire come si desidera che gli utenti accedano a NetSuite". Selezionare **Single Sign-On di Microsoft Azure AD**, quindi fare clic su **Avanti**.
+2. Verrà aperta una finestra di dialogo, in cui verrà visualizzata una schermata con messaggio che chiede di stabilire come si desidera che gli utenti accedano a NetSuite. Selezionare **Single Sign-On di Microsoft Azure AD**, quindi fare clic su **Avanti**.
    
     ![Selezionare Single Sign-On di Microsoft Azure AD.][7]
    
@@ -84,12 +88,12 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
    * In Azure Active Directory copiare il valore di **URL accesso remoto**, quindi incollarlo nel campo **Identity Provider Login Page** (Pagina di accesso provider di identità) in NetSuite.
      
        ![Pagina SAML Setup.][13]
-   * In NetSuite selezionare **Primary Authentication Method**.
+   * In NetSuite selezionare **Primary Authentication Method** (Metodo di autenticazione primario).
    * Per il campo con etichetta **SAMLV2 Identity Provider Metadata** (Metadati provider identità SAMLV2) selezionare **Upload IDP Metadata File** (Carica file di metadati IDP). Fare quindi clic su **Browse** per caricare il file di metadati scaricato nel passaggio 4.
      
        ![Caricare i metadati.][16]
    * Fare clic su **Submit**.
-10. In Azure AD selezionare la casella di controllo di conferma della configurazione Single Sign-On per abilitare il certificato caricato in NetSuite. Quindi fare clic su **Avanti**.
+10. In Azure AD selezionare la casella di controllo di conferma della configurazione Single Sign-On per abilitare il certificato caricato in NetSuite. Quindi fare clic su **Next**.
     
      ![Selezionare la casella di controllo di conferma.][14]
 11. Nella pagina finale della finestra di dialogo immettere un indirizzo di posta elettronica se si vogliono ricevere notifiche tramite posta elettronica relative a errori e avvisi correlati alla manutenzione di questa configurazione dell'accesso Single Sign-On. 
@@ -105,15 +109,15 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
     
     ![Aggiungere l'ID dell'account NetSuite.][19]
     
-    * In NetSuite scegliere **Setup** dal menu di navigazione principale.
+    * In NetSuite scegliere **Configurazione** dal menu di navigazione principale.
     * Fare quindi clic sulla sezione **Setup Tasks** (Configura attività) del menu di navigazione sinistro, selezionare la sezione **Integration** (Integrazione), quindi fare clic su **Web Services Preferences** (Preferenze servizi Web).
-    * Copiare l'ID dell'account NetSuite e incollarlo nel campo **Attribute Value** in Azure AD.
+    * Copiare l'ID dell'account NetSuite e incollarlo nel campo **Valore attributo** in Azure AD.
       
         ![Ottenere l'ID dell'account.][20]
 15. In Azure AD fare clic su **Completa** per completare l'aggiunta dell'attributo SAML. Scegliere quindi **Applica modifiche** dal menu inferiore.
     
     ![Salvare le modifiche.][21]
-16. Per consentire l'accesso Single Sign-On a NetSuite, è prima di tutto necessario che le autorizzazioni appropriate vengano assegnate agli utenti in NetSuite. Per assegnare le autorizzazioni, seguire le istruzioni seguenti.
+16. Per consentire l'accesso Single Sign-On a NetSuite, è prima di tutto necessario che agli utenti vengano assegnate le autorizzazioni appropriate in NetSuite. Per assegnare le autorizzazioni, seguire le istruzioni seguenti.
     
     * Scegliere **Setup** (Configurazione) dal menu di navigazione principale, quindi fare clic su **Setup Manager** (Configura gestore).
       
@@ -146,7 +150,7 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
     * Fare clic su **Save**.
 17. Per testare la configurazione, vedere la sezione seguente intitolata [Assegnare utenti a NetSuite](#step-4-assign-users-to-netsuite).
 
-## <a name="step-3:-enable-automated-user-provisioning"></a>Passaggio 3: Abilitare il provisioning automatizzato degli utenti
+## <a name="step-3-enable-automated-user-provisioning"></a>Passaggio 3: Abilitare il provisioning automatizzato degli utenti
 > [!NOTE]
 > Per impostazione predefinita, gli utenti con provisioning verranno aggiunti alla filiale di radice dell'ambiente NetSuite.
 > 
@@ -157,22 +161,22 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
     ![Configura provisioning utenti][28]
 2. Nella finestra di dialogo visualizzata immettere le credenziali di amministratore per NetSuite, quindi fare clic su **Avanti**.
    
-    ![Immettere le credenziali dell'amministratore di NetSuite.][29]
+    ![Immettere le credenziali di amministratore di NetSuite.][29]
 3. Nella pagina di conferma, immettere l'indirizzo di posta elettronica per ricevere notifiche relative agli errori di provisioning.
    
     ![Confermare.][30]
 4. Fare clic su **Completa** per chiudere la finestra di dialogo.
 
-## <a name="step-4:-assign-users-to-netsuite"></a>Passaggio 4: Assegnare utenti a NetSuite
+## <a name="step-4-assign-users-to-netsuite"></a>Passaggio 4: Assegnare utenti a NetSuite
 1. Per testare la configurazione, creare prima di tutto un nuovo account di test nella directory.
-2. Nella pagina di Avvio rapido di NetSuite fare clic sul pulsante **Assegna utenti** .
+2. Nella pagina di Avvio rapido di NetSuite fare clic sul pulsante **Assegna utenti**.
    
-    ![Fare clic su Assegna utenti.][31]
+    ![Fare clic su Assegna utenti][31]
 3. Selezionare l'utente di test e quindi fare clic su **Assegna** nella parte inferiore della schermata:
    
    * Se il provisioning automatizzato degli utenti non è stato abilitato, verrà visualizzata la richiesta di conferma seguente:
      
-        ![Confirm the assignment.][32]
+        ![Confermare l'assegnazione.][32]
    * Se il provisioning automatizzato degli utenti è stato abilitato, verrà visualizzata una richiesta per definire il tipo di ruolo da assegnare all'utente in NetSuite. Gli utenti appena sottoposti a provisioning dovrebbero essere visualizzati nell'ambiente di NetSuite dopo alcuni minuti.
 4. Per testare le impostazioni dell'accesso Single Sign-On, aprire il pannello di accesso all'indirizzo [https://myapps.microsoft.com](https://myapps.microsoft.com/), quindi accedere all'account di test e fare clic su **NetSuite**.
 
@@ -216,6 +220,6 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -86,6 +86,6 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

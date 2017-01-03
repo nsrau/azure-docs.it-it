@@ -17,8 +17,8 @@ ms.workload: NA
 ms.date: 10/13/2016
 ms.author: carlrab;sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b2653afe1aeb920ef7e14f3e15501c8541c43219
+ms.sourcegitcommit: 9e331f3536bfde96d15ff5bb3a21683f67b25da2
+ms.openlocfilehash: d726a886717826368693cda6ca4141c136ea236d
 
 
 ---
@@ -38,7 +38,7 @@ La tabella seguente mette a confronto i valori ERT e RPO per i tre scenari più 
 | Replica geografica attiva |ERT < 30 sec, RPO < 5 sec |ERT < 30 sec, RPO < 5 sec |ERT < 30 sec, RPO < 5 sec |
 
 ### <a name="use-database-backups-to-recover-a-database"></a>Usare backup del database per il ripristinare
-Il database SQL esegue automaticamente una combinazione di backup completi su base settimanale, backup differenziali del database di backup ogni ora e backup dei log delle transazioni ogni 5 minuti per proteggere l'azienda dalla perdita di dati. Questi backup vengono archiviati nel servizio di archiviazione con ridondanza locale per 35 giorni per i database dei livelli di servizio Standard e Premium e per sette giorni per il database del livello Basic. Per altre informazioni sui livelli del servizio, vedere [Livelli di servizio](sql-database-service-tiers.md). Se il periodo di memorizzazione per il livello di servizio non soddisfa i requisiti aziendali, è possibile aumentare il periodo di memorizzazione [modificando il livello di servizio](sql-database-scale-up.md). I backup completi e differenziali del database vengono replicati anche su un [data center abbinato](../best-practices-availability-paired-regions.md) per la protezione da un'interruzione del data center. Per altri dettagli, vedere [Backup automatici del database SQL](sql-database-automated-backups.md).
+Il database SQL esegue automaticamente una combinazione di backup completi su base settimanale, backup differenziali del database di backup ogni ora e backup dei log delle transazioni ogni 5 minuti per proteggere l'azienda dalla perdita di dati. Questi backup vengono archiviati nel servizio di archiviazione con ridondanza geografica per 35 giorni per i database dei livelli di servizio Standard e Premium e per sette giorni per il database del livello Basic. Per altre informazioni sui livelli del servizio, vedere [Livelli di servizio](sql-database-service-tiers.md). Se il periodo di memorizzazione per il livello di servizio non soddisfa i requisiti aziendali, è possibile aumentare il periodo di memorizzazione [modificando il livello di servizio](sql-database-scale-up.md). I backup completi e differenziali del database vengono replicati anche su un [data center abbinato](../best-practices-availability-paired-regions.md) per la protezione da un'interruzione del data center. Per altri dettagli, vedere [Backup automatici del database SQL](sql-database-automated-backups.md).
 
 Se il periodo di memorizzazione predefinito non è sufficiente per l'applicazione, è possibile estenderlo configurando i criteri di conservazione a lungo termine per il database. Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine). 
 
@@ -75,6 +75,10 @@ Usare la replica geografica attiva se l'applicazione soddisfa i criteri seguenti
 * Il tempo di inattività causa la responsabilità finanziaria.
 * Ha una frequenza elevata di modifica dei dati e la perdita di un'ora di dati non è accettabile.
 * Il costo aggiuntivo della replica geografica attiva è inferiore rispetto alla potenziale responsabilità finanziaria e alla perdita di profitto associata.
+
+>
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
+>
 
 ## <a name="recover-a-database-after-a-user-or-application-error"></a>Ripristinare un database in seguito a errore di un'applicazione o un utente
 * Nessuno è perfetto! Un utente potrebbe accidentalmente eliminare alcuni dati, una tabella importante o addirittura un intero database. In alternativa un'applicazione potrebbe sovrascrivere accidentalmente dei dati con dati errati a causa di un difetto dell'applicazione. 
@@ -136,7 +140,7 @@ Se si usano backup automatici con la replica dell'archiviazione con ridondanza g
 > 
 > 
 
-### <a name="perform-post-failover-recovery-tasks"></a>Eseguire attività successive al filover/ripristino
+### <a name="perform-post-failover--recovery-tasks"></a>Eseguire attività successive al filover/ripristino
 Dopo il ripristino da un meccanismo di ripristino, è necessario eseguire le seguenti attività aggiuntive prima che utenti e applicazioni siano nuovamente attivi e in esecuzione:
 
 * Reindirizzare i client e le applicazioni client verso il nuovo server e il database ripristinato
@@ -154,6 +158,6 @@ Per una descrizione delle considerazioni sulla progettazione di applicazioni per
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

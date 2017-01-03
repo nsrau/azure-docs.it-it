@@ -13,18 +13,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/19/2016
+ms.date: 11/23/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: bf4e77ab2678d3cb74373fd3b3cfd2a5f69d7292
+ms.sourcegitcommit: 8056e7ece1942c9090a7c36447a96829febaf1a4
+ms.openlocfilehash: 81cdadcd7200f20274c2851eda8677078b8b505c
 
 
 ---
 # <a name="hbase-tutorial-get-started-using-apache-hbase-with-linux-based-hadoop-in-hdinsight"></a>Esercitazione su HBase: Introduzione all'uso di Apache HBase con Hadoop basato su Linux in HDInsight
 [!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
-Informazioni su come creare un cluster HBase in HDInsight, creare tabelle HBase ed eseguire query sulle tabelle con Hive. Per informazioni generali su HBase, vedere [Panoramica su HBase in HDInsight][hdinsight-hbase-overview].
+Informazioni su come creare un cluster HBase in HDInsight, creare tabelle HBase ed eseguire query sulle tabelle con Hive. Per informazioni generali su HBase, vedere [Panoramica di HDInsight HBase][hdinsight-hbase-overview].
 
 Le informazioni contenute in questo documento sono specifiche per i cluster HDInsight basati su Linux. Per informazioni sui cluster basati su Windows, usare il selettore di schede in alto nella pagina per passare alla scheda specifica.
 
@@ -45,7 +45,7 @@ La procedura seguente usa un modello di Azure Resource Manager per creare un clu
 
 1. Fare clic sull'immagine seguente per aprire il modello nel portale di Azure. Il modello è disponibile in un contenitore BLOB pubblico. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Compilare i campi seguenti del pannello **Distribuzione personalizzata**:
    
    * **Sottoscrizione**: consente di selezionare la sottoscrizione di Azure che verrà usata per creare il cluster.
@@ -74,7 +74,7 @@ Per la maggior parte delle persone, i dati vengono visualizzati in formato tabul
 
 In HBase, che rappresenta un'implementazione di BigTable, gli stessi dati sono simili a:
 
-![Tabella con Big Data HBase di HDInsight][img-hbase-sample-data-bigtable]
+![Dati BigTable HBase di HDInsight][img-hbase-sample-data-bigtable]
 
 Ciò può essere più utile dopo avere completato la procedura successiva.  
 
@@ -95,14 +95,14 @@ Ciò può essere più utile dopo avere completato la procedura successiva.
         put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
         scan 'Contacts'
    
-    ![shell hbase di hdinsight hadoop][img-hbase-shell]
+    ![Shell HBase Hadoop di HDInsight][img-hbase-shell]
 4. Ottenere una singola riga
    
         get 'Contacts', '1000'
    
     Verranno visualizzati gli stessi risultati usando il comando di analisi, poiché esiste solo una riga.
    
-    Per altre informazioni sullo schema di tabella HBase, vedere [Introduction to HBase Schema Design][hbase-schema] (Introduzione alla progettazione dello schema HBase). Per altri comandi di HBase, vedere la [guida di riferimento di Apache HBase][hbase-quick-start].
+    Per altre informazioni sullo schema di tabella HBase, vedere [Introduzione alla progettazione dello schema HBase][hbase-schema]. Per altri comandi HBase, vedere la [guida di riferimento di Apache HBase][hbase-quick-start].
 5. Chiudere la shell
    
         exit
@@ -124,7 +124,7 @@ Un file di dati di esempio è stato caricato in un contenitore BLOB pubblico, *w
     4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
     16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
-È possibile creare un file di testo e caricare il file nel proprio account di archiviazione. Per istruzioni, vedere [Caricare dati per processi Hadoop in HDInsight][hdinsight-upload-data].
+È possibile creare un file di testo e caricare il file nel proprio account di archiviazione. Per le istruzioni, vedere [Caricare dati per processi Hadoop in HDInsight][hdinsight-upload-data].
 
 > [!NOTE]
 > In questa procedura viene utilizzata la tabella HBase dei contatti creata nella procedura precedente.
@@ -142,10 +142,18 @@ Un file di dati di esempio è stato caricato in un contenitore BLOB pubblico, *w
 ## <a name="use-hive-to-query-hbase"></a>Usare Hive per eseguire query su HBase
 È possibile eseguire query sui dati nelle tabelle HBase tramite Hive. In questa sezione una tabella Hive mappata alla tabella HBase viene creata e usata per interrogare i dati nella tabella HBase.
 
+> [!NOTE]
+> Se Hive e HBase si trovano su cluster diversi nella stessa rete virtuale, è necessario superare il quorum di zookeeper durante la chiamata alla shell di Hive:
+>
+>       hive --hiveconf hbase.zookeeper.quorum=zk0-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk1-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk2-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net --hiveconf zookeeper.znode.parent=/hbase-unsecure  
+>
+>
+
 1. Aprire **PuTTY**e connettersi al cluster.  Vedere le istruzioni nella procedura precedente.
 2. Aprire la shell di Hive.
    
        hive
+       
 3. Eseguire il seguente script HiveQL per creare una tabella Hive mappata alla tabella HBase. Prima di eseguire questa istruzione, assicurarsi di aver creato la tabella di esempio usata precedentemente in questa esercitazione come riferimento con la shell HBase.
    
         CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
@@ -221,53 +229,21 @@ Per altre informazioni sulle API REST HBase, vedere la [Apache HBase Reference G
 ## <a name="check-cluster-status"></a>Controllare lo stato del cluster
 HBase in HDInsight viene fornito con un'interfaccia utente Web per il monitoraggio dei cluster. Usando l’interfaccia Web è possibile richiedere statistiche o informazioni sulle aree.
 
-SSH può essere usato anche per effettuare il tunneling di richieste locali, ad esempio richieste Web, al cluster HDInsight. La richiesta verrà quindi instradata alla risorsa richiesta come se provenisse dal nodo head del cluster HDInsight. Per altre informazioni, vedere [Uso di SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel).
+**Per accedere all'interfaccia utente master HBase**
 
-**Per stabilire una sessione di tunneling SSH**
+1. Aprire l'interfaccia utente Web Ambari all'indirizzo https://&lt;Nomecluster>.azurehdinsight.net.
+2. Fare clic su **HBase** nel menu di sinistra.
+3. Fare clic su **Quick links** (Collegamenti rapidi) nella parte superiore della pagina, scegliere il collegamento di nodo Zookeeper attivo e quindi fare clic su **HBase Master UI** (Interfaccia utente master HBase).  L'interfaccia utente viene aperta in un'altra scheda del browser:
 
-1. Aprire **PuTTY**.  
-2. Se è stata specificata una chiave SSH durante il processo di creazione dell'account utente, è necessario eseguire il passaggio seguente per selezionare la chiave privata da usare durante l'autenticazione nel cluster:
-   
-    In **Category** espandere **Connection**, **SSH** e selezionare **Auth**. Infine, fare clic su **Browse** e selezionare il file ppk che contiene la chiave privata.
-3. In **Categoria** fare clic su **Sessione**.
-4. Nelle opzioni di base disponibili nella schermata della sessione di PuTTY, immettere i valori seguenti:
-   
-   * **Host Name**: indirizzo SSH del server HDInsight nel campo Host Name (o IP address). L'indirizzo SSH è il nome del cluster, quindi **-ssh.azurehdinsight.net**. Ad esempio, *mycluster-ssh.azurehdinsight.net*.
-   * **Port**: 22. La porta ssh sul nodo head primario è 22.  
-5. Nella sezione **Categoria** sul lato sinistro della finestra di dialogo espandere **Connessione**, **SSH** e infine fare clic su **Tunnel**.
-6. Fornire le seguenti informazioni nel modulo "Options controlling SSH port forwarding":
-   
-   * **Source port** : la porta del client che si desidera inoltrare. Ad esempio, 9876.
-   * **Dynamic** : consente il routing tramite proxy SOCKS dinamico.
-7. Fare clic su **Add** per aggiungere le impostazioni.
-8. Fare clic su **Open** nella parte inferiore della finestra di dialogo per aprire una connessione SSH.
-9. Quando richiesto, accedere al server usando un account SSH. Verrà stabilita una sessione SSH e verrà abilitato il tunnel.
+  ![Interfaccia utente master HBase di HDInsight](./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-**Per trovare il nome di dominio completo degli zookeeper usando Ambari**
+  L'interfaccia utente master HBase contiene le sezioni seguenti:
 
-1. Passare a https://<ClusterName>.azurehdinsight.net/.
-2. Immettere le credenziali dell'account utente del cluster due volte.
-3. Nel menu a sinistra fare clic su **zookeeper**.
-4. Fare clic su uno dei tre collegamenti **ZooKeeper Server** nell'elenco di riepilogo.
-5. Copiare il valore di **Hostname**. Ad esempio, zk0-CLUSTERNAME.xxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net.
-
-**Per configurare un programma client (Firefox) e controllare lo stato del cluster**
-
-1. Aprire Firefox.
-2. Fare clic sul pulsante **Apri menu** .
-3. Fare clic su **Opzioni**.
-4. Fare clic su **Avanzate**, su **Rete** e quindi su **Impostazioni**.
-5. Selezionare **Configurazione manuale dei proxy**.
-6. Immettere i valori seguenti:
-   
-   * **Host SOCKS**: localhost
-   * **Porta**: usare la stessa porta configurata nel tunneling SSH di Putty.  Ad esempio, 9876.
-   * **SOCKS v5**: (selezionato)
-   * **DNS remoto**: (selezionato)
-7. Fare clic su **OK** per salvare le modifiche.
-8. Passare a http://&lt;FQDN di ZooKeeper>:60010/master-status.
-
-In un cluster a disponibilità elevata verrà invece visualizzato un collegamento al nodo master HBase attivo corrente che ospita l'interfaccia utente Web.
+  - server di zona
+  - master di backup
+  - tables
+  - attività
+  - attributi di software
 
 ## <a name="delete-the-cluster"></a>Eliminazione del cluster
 Per evitare incoerenze, è consigliabile disabilitare le tabelle HBase prima di eliminare il cluster.
@@ -279,7 +255,7 @@ In questa esercitazione di HBase per HDInsight si è appreso come creare tabelle
 
 Per altre informazioni, vedere:
 
-* [Panoramica su HBase in HDInsight][hdinsight-hbase-overview]: HBase è un database NoSQL open source Apache basato su Hadoop che fornisce un accesso casuale e coerenza assoluta a grandi quantità di dati non strutturati e semistrutturati.
+* [Panoramica di HDInsight HBase][hdinsight-hbase-overview]: HBase è un database NoSQL open source Apache basato su Hadoop che fornisce un accesso casuale e coerenza assoluta a grandi quantità di dati non strutturati e semistrutturati.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -310,6 +286,6 @@ Per altre informazioni, vedere:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

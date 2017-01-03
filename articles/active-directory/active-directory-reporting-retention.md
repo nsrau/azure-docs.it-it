@@ -12,48 +12,55 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/07/2016
+ms.date: 11/30/2016
 ms.author: dhanyahk
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7e0e1ede67509de9f47293eb7257ecc56c0df93d
+ms.sourcegitcommit: 8a7d1bd1db8abdac5b741d79b10c9b363afecd24
+ms.openlocfilehash: 9f8d9c845c391ec24aa3b265aa3078840fe3240a
 
 
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Criteri di conservazione dei report di Azure Active Directory
 *Questo documento fa parte della [guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).*
 
-I report di Azure Active Directory (Azure AD) conservano i dati per un determinato numero di giorni, come indicato di seguito.
 
-| Report | Descrizione |
-| --- | --- |
-| Accessi da origini sconosciute |30 giorni |
-| Accessi dopo più errori |30 giorni |
-| Accessi da più aree geografiche |30 giorni |
-| Accessi da indirizzi IP con attività sospette |30 giorni |
-| Accessi da dispositivi potenzialmente infetti |30 giorni |
-| Attività di accesso irregolare |30 giorni |
-| Utenti con anomalie dell'attività di accesso |30 giorni |
-| Utenti con credenziali perse |30 giorni |
-| Report di controllo |180 giorni |
-| Attività di reimpostazione password (Azure AD) |30 giorni |
-| Attività di reimpostazione password (Gestione delle identità) |30 giorni |
-| Attività di registrazione per la reimpostazione password (Azure AD) |30 giorni |
-| Attività di registrazione di reimpostazione della password (Gestione delle identità) |30 giorni |
-| Attività dei gruppi self-service (Azure AD) |30 giorni |
-| Attività dei gruppi self-service (Gestione delle identità) |30 giorni |
-| Utilizzo applicazioni |30 giorni |
-| Attività di provisioning dell'account |30 giorni |
-| Stato rollover della password |30 giorni |
-| Errori di provisioning dell'account |30 giorni |
-| Utilizzo di RMS |30 giorni |
-| Utenti RMS più attivi |30 giorni |
-| Utilizzo dispositivi RMS |30 giorni |
-| Utilizzo applicazioni abilitate per RMS |30 giorni |
+Questo argomento offre le risposte alle domande più comuni sulla conservazione dei dati per i diversi report attività in Azure Active Directory. 
+
+Come è possibile avviare la raccolta dei dati dell'attività?
+
+| Edizione di Azure AD | Avvio della raccolta |
+| :--              | :--   |
+|Premium e Premium 2 | Quando ci si iscrive a una licenza |
+| Gratuito | La prima volta che si apre il [pannello Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o si usano le [API di creazione report](https://aka.ms/aadreports)  |
 
 
+Quando i dati dell'attività sono disponibili nel portale di Azure?
+
+- **Immediatamente**: se si usano già i report nel portale di Azure classico
+- **Entro 2 ore**: se non si è attivata la creazione di report nel portale di Azure classico
+
+Come è possibile avviare la raccolta dei segnali di sicurezza?  
+Per i segnali di sicurezza, il processo di raccolta viene avviato quando si acconsente esplicitamente all'uso di Identity Protection Center. 
+
+Per quanto tempo rimangono archiviati i dati raccolti?
+
+**Report attività**    
+
+| Report | Azure AD Free | Azure AD Premium 1 | Azure AD Premium 2 |
+| :--    | :--           | :--                | :--                |
+| Directory Audit (Controllo directory) | 7 giorni | 30 giorni | 30 giorni |
+| Attività di accesso |    7 giorni | 30 giorni | 30 giorni |
+
+**Segnali di sicurezza**
+
+| Report | Azure AD Free | Azure AD Premium 1 | Azure AD Premium 2 |
+| :--    | :--           | :--                | :--                |
+| Accessi a rischio | 7 giorni | 30 giorni | 90 giorni |
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

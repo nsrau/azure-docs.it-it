@@ -50,6 +50,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

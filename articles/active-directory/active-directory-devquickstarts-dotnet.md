@@ -170,6 +170,6 @@ Come riferimento, viene fornito l'esempio completato (senza i valori di configur
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

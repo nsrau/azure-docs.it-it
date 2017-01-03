@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 6d5f4640556f98f9601139c318ffc578e9df2539
+ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
+ms.openlocfilehash: 3d45ec5a6636de4213c6c02dca0e5288ec3aa0e3
 
 
 ---
@@ -27,7 +27,7 @@ Questo argomento offre una panoramica sui database SQL di Azure. Per informazion
 ## <a name="what-is-azure-sql-database"></a>Informazioni sul database SQL
 Ogni database SQL di Azure è associato a un server logico. Il database può essere:
 
-- Un database autonomo con relativo [set di risorse](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU)
+- Un database singolo con relativo [set di risorse](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU)
 - Parte di un [pool elastico](sql-database-elastic-pool.md) che [condivide un set di risorse](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTU)
 - Parte di un [set di scalabilità orizzontale di database partizionati](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), che può essere singolo o in pool
 - Parte di un set di database che fanno parte di uno [schema progettuale SaaS multi-tenant](sql-database-design-patterns-multi-tenancy-saas-applications.md), i cui database possono essere singoli o in pool (o entrambi) 
@@ -71,6 +71,6 @@ Per informazioni sulle funzionalità supportate, vedere [Azure SQL Database feat
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

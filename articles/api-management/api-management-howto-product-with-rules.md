@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 73c9675490f95f68450716cd67e58df9c84daef8
 
 
 ---
@@ -31,7 +31,7 @@ Per scenari di limitazione più avanzati che usano i criteri [rate-limit-by-key]
 In questo passaggio si creerà un prodotto con una versione di valutazione gratuita che non richiede l'approvazione della sottoscrizione.
 
 > [!NOTE]
-> Se è già stato configurato un prodotto da usare in questa esercitazione, è possibile passare direttamente alla sezione [Configure call rate limit and quota policies][Configure call rate limit and quota policies] (Configurare i criteri relativi a limiti di velocità e quota delle chiamate) e seguire l'esercitazione da quel punto, usando il proprio prodotto al posto del prodotto Free Trial.
+> Se è già stato configurato un prodotto da usare in questa esercitazione, è possibile passare direttamente alla sezione [Configurare i criteri relativi a limiti di frequenza e quota delle chiamate][Configure call rate limit and quota policies] e seguire l'esercitazione da quel punto, usando il proprio prodotto al posto del prodotto Free Trial.
 > 
 > 
 
@@ -39,7 +39,7 @@ Per iniziare, fare clic sul **portale di pubblicazione** nel Portale di Azure re
 
 ![Portale di pubblicazione][api-management-management-console]
 
-> Se non è ancora stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][Creare un'istanza di Gestione API] nell'esercitazione [Gestire la prima API in Gestione API di Azure][Gestire la prima API in Gestione API di Azure].
+> Se non è ancora stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][Create an API Management service instance] nell'esercitazione [Gestire la prima API in Gestione API di Azure][Manage your first API in Azure API Management].
 > 
 > 
 
@@ -67,7 +67,7 @@ Dopo aver immesso tutti i valori, fare clic su **Salva** per creare il prodotto.
 
 Per impostazione predefinita, i nuovi prodotti sono visibili agli utenti nel gruppo **Amministratori** . Verrà ora aggiunto il gruppo **Sviluppatori** . Fare clic su **Free Trial** e fare clic sulla scheda **Visibilità**.
 
-> In Gestione API i gruppi permettono di gestire quali prodotti sono visibili per gli sviluppatori. I prodotti garantiscono la visibilità ai gruppi e gli sviluppatori possono visualizzare ed effettuare la sottoscrizione ai prodotti visibili ai gruppi ai quali appartengono. Per altre informazioni, vedere [Come creare e usare i gruppi per gestire gli account sviluppatore in Gestione API di Azure][Come creare e usare i gruppi per gestire gli account sviluppatore in Gestione API di Azure].
+> In Gestione API i gruppi permettono di gestire quali prodotti sono visibili per gli sviluppatori. I prodotti garantiscono la visibilità ai gruppi e gli sviluppatori possono visualizzare ed effettuare la sottoscrizione ai prodotti visibili ai gruppi ai quali appartengono. Per altre informazioni, vedere [Come creare e usare i gruppi in Gestione API di Azure][How to create and use groups in Azure API Management].
 > 
 > 
 
@@ -78,7 +78,7 @@ Selezionare la casella di controllo **Sviluppatori** e quindi fare clic su **Sal
 ## <a name="add-api"> </a>Per aggiungere un'API al prodotto
 In questo passaggio dell'esercitazione si aggiungerà l'API My Echo al nuovo prodotto Free Trial.
 
-> Ogni istanza del servizio Gestione API è preconfigurata con un'API Echo utilizzabile per sperimentare e ottenere altre informazioni su Gestione API. Per altre informazioni, vedere [Gestire la prima API in Gestione API di Azure][Gestire la prima API in Gestione API di Azure].
+> Ogni istanza del servizio Gestione API è preconfigurata con un'API Echo utilizzabile per sperimentare e ottenere altre informazioni su Gestione API. Per altre informazioni, vedere [Gestire la prima API in Gestione API di Azure][Manage your first API in Azure API Management].
 > 
 > 
 
@@ -113,66 +113,82 @@ I due criteri che verranno aggiunti in questa esercitazione sono [Limit call rat
 
 Dopo aver posizionato il cursore nell'elemento dei criteri **inbound**, fare clic sulla freccia accanto a **Limit call rate per subscription** (Limita frequenza chiamate per sottoscrizione) per inserire il modello dei criteri corrispondente.
 
-    <rate-limit calls="number" renewal-period="seconds">
-    <api name="name" calls="number">
-    <operation name="name" calls="number" />
-    </api>
-    </rate-limit>
+```xml
+<rate-limit calls="number" renewal-period="seconds">
+<api name="name" calls="number">
+<operation name="name" calls="number" />
+</api>
+</rate-limit>
+```
 
 **Limita frequenza chiamate per sottoscrizione** a livello di prodotto, oltre che a livello di nome di singola operazione e di API. In questa esercitazione vengono usati solo criteri a livello di prodotto, quindi eliminare gli elementi **api** e **operation** dall'elemento **rate-limit**, in modo che resti solo l'elemento **rate-limit** esterno, come illustrato nell'esempio seguente.
 
-    <rate-limit calls="number" renewal-period="seconds">
-    </rate-limit>
+```xml
+<rate-limit calls="number" renewal-period="seconds">
+</rate-limit>
+```
 
 Nel prodotto Free Trial la frequenza massima consentita è pari a 10 chiamate al minuto. Digitare quindi **10** come valore dell'attributo **calls** e **60** per l'attributo **renewal-period**.
 
-    <rate-limit calls="10" renewal-period="60">
-    </rate-limit>
+```xml
+<rate-limit calls="10" renewal-period="60">
+</rate-limit>
+```
 
 Per configurare i criteri **Set usage quota per subscription** (Imposta quota utilizzo per sottoscrizione), posizionare il cursore immediatamente sotto il nuovo elemento **rate-limit** aggiunto nell'elemento **inbound** e fare clic sulla freccia a sinistra di **Set usage quota per subscription** (Imposta quota utilizzo per sottoscrizione).
 
-    <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-    <api name="name" calls="number" bandwidth="kilobytes">
-    <operation name="name" calls="number" bandwidth="kilobytes" />
-    </api>
-    </quota>
+```xml
+<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
+<api name="name" calls="number" bandwidth="kilobytes">
+<operation name="name" calls="number" bandwidth="kilobytes" />
+</api>
+</quota>
+```
 
 Dal momento che questi criteri devono essere intesi anche a livello di prodotto, eliminare gli elementi name di **api** e **operation**, come illustrato nell'esempio seguente.
 
-    <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-    </quota>
+```xml
+<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
+</quota>
+```
 
 Le quote possono essere basate sul numero di chiamate per intervallo, larghezza di banda o entrambi. In questa esercitazione non verrà applicata la limitazione in base alla larghezza di banda, di conseguenza eliminare l'attributo **bandwidth** .
 
-    <quota calls="number" renewal-period="seconds">
-    </quota>
+```xml
+<quota calls="number" renewal-period="seconds">
+</quota>
+```
 
 Nel prodotto Free Trial la quota è pari a 200 chiamate alla settimana. Specificare **200** come valore dell'attributo **calls** e **604800** come valore dell'attributo **renewal-period**.
 
-    <quota calls="200" renewal-period="604800">
-    </quota>
+```xml
+<quota calls="200" renewal-period="604800">
+</quota>
+```
 
-> Gli intervalli dei criteri sono specificati in secondi. Per calcolare l'intervallo per una settimana, è possibile moltiplicare il numero di giorni (7) per il numero di ore in una giornata (24) per il numero di minuti in un'ora (60) per il numero di secondi in un minuto (60): * 7 * 24 * 60 * 60 = 604800 * .
+> Gli intervalli dei criteri sono specificati in secondi. Per calcolare l'intervallo per una settimana, è possibile moltiplicare il numero di giorni (7) per il numero di ore in una giornata (24) per il numero di minuti in un'ora (60) per il numero di secondi in un minuto (60): 7 * 24 * 60 * 60 = 604800.
 > 
 > 
 
 Una volta completata la configurazione, i criteri dovrebbero essere simili a quelli dell'esempio seguente.
 
-    <policies>
-        <inbound>
-            <rate-limit calls="10" renewal-period="60">
-            </rate-limit>
-            <quota calls="200" renewal-period="604800">
-            </quota>
-            <base />
-
-    </inbound>
-    <outbound>
-
+```xml
+<policies>
+    <inbound>
+        <rate-limit calls="10" renewal-period="60">
+        </rate-limit>
+        <quota calls="200" renewal-period="604800">
+        </quota>
         <base />
 
-        </outbound>
-    </policies>
+</inbound>
+<outbound>
+
+    <base />
+
+    </outbound>
+</policies>
+```
 
 Dopo avere configurato i criteri desiderati, fare clic su **Salva**.
 
@@ -286,30 +302,30 @@ Quando sono attivi i criteri dei limiti di frequenza pari a 10 chiamate al minut
 [api-management-subscription-added]: ./media/api-management-howto-product-with-rules/api-management-subscription-added.png
 [api-management-add-subscription-multiple]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-multiple.png
 
-[Come aggiungere operazioni a un'API in Gestione API di Azure]: api-management-howto-add-operations.md
-[Come aggiungere e pubblicare un prodotto]: api-management-howto-add-products.md
-[Monitoraggio e analisi]: ../api-management-monitoring.md
-[Aggiungere API a un prodotto]: api-management-howto-add-products.md#add-apis
-[Pubblicare un prodotto]: api-management-howto-add-products.md#publish-product
-[Gestire la prima API in Gestione API di Azure]: api-management-get-started.md
-[Come creare e usare i gruppi in Gestione API di Azure]: api-management-howto-create-groups.md
-[Visualizzare i sottoscrittori di un prodotto]: api-management-howto-add-products.md#view-subscribers
-[Introduzione a Gestione API di Azure]: api-management-get-started.md
-[Creare un'istanza di Gestione API]: api-management-get-started.md#create-service-instance
-[Passaggi successivi]: #next-steps
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: ../api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Manage your first API in Azure API Management]: api-management-get-started.md
+[How to create and use groups in Azure API Management]: api-management-howto-create-groups.md
+[View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Next steps]: #next-steps
 
-[Creare un prodotto]: #create-product
-[Configurare i criteri relativi a limiti di frequenza e quota delle chiamate]: #policies
-[Aggiungere un'API al prodotto]: #add-api
-[Pubblicare il prodotto]: #publish-product
-[Sottoscrivere un account per sviluppatore al prodotto]: #subscribe-account
-[Chiamare un'operazione e testare il limite di frequenza]: #test-rate-limit
+[Create a product]: #create-product
+[Configure call rate limit and quota policies]: #policies
+[Add an API to the product]: #add-api
+[Publish the product]: #publish-product
+[Subscribe a developer account to the product]: #subscribe-account
+[Call an operation and test the rate limit]: #test-rate-limit
 
-[Limitare la frequenza delle chiamate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
-[Impostare la quota di utilizzo]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
+[Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
+[Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

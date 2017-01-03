@@ -219,7 +219,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 ### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD.
 
-Passare alla pagina di accesso di Asana. Nella casella di testo dell'indirizzo di posta elettronica inserire l'indirizzo di posta elettronica britta.simon@contoso.com. Lasciare vuota la casella di testo della password e quindi fare clic su **Log In**. Si verrà reindirizzati alla pagina di accesso di Azure AA. Completare le credenziali di Azure AD. A questo punto si è connessi ad Asana.
+Passare alla pagina di accesso di Asana. Nella casella di testo dell'indirizzo di posta elettronica inserire l'indirizzo di posta elettronica britta.simon@contoso.com. Lasciare vuota la casella di testo della password e quindi fare clic su **Log In** (Accedi). Si verrà reindirizzati alla pagina di accesso di Azure AA. Completare le credenziali di Azure AD. A questo punto si è connessi ad Asana.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
@@ -248,6 +248,6 @@ Passare alla pagina di accesso di Asana. Nella casella di testo dell'indirizzo d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

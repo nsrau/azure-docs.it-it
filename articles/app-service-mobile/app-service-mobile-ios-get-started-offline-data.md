@@ -283,6 +283,6 @@ Per sincronizzare l'archivio locale con il server è stato usato il metodo `MSSy
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

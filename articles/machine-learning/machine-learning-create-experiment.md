@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/21/2016
+ms.date: 12/14/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dd3e982ba908e542ce0b536699e37e2bc95e6706
+ms.sourcegitcommit: de2c52f8db5445e3e2eee62f673109f6d38cffa0
+ms.openlocfilehash: c58ee1c07e454a711ab0d6365a5cd432b0d939c8
 
 
 ---
@@ -95,7 +95,9 @@ Di seguito viene illustrato come ottenere il set di dati nell'esperimento.
 
 1. Creare un nuovo esperimento facendo clic su **+NEW** (Nuovo) nella parte inferiore della finestra di Machine Learning Studio, selezionare **EXPERIMENT** (Esperimento) e scegliere **Blank Experiment** (Esperimento vuoto).
 
-2. All'esperimento viene assegnato un nome predefinito visualizzato nella parte superiore dell'area di disegno. Selezionare il testo e rinominarlo in modo significativo, ad esempio **Stima prezzi automobili**.
+2. All'esperimento viene assegnato un nome predefinito visualizzato nella parte superiore dell'area di disegno. Selezionare il testo e rinominarlo in modo significativo, ad esempio **Stima prezzi automobili**. Il nome non deve essere univoco.
+
+    ![Rinominare l'esperimento][rename-experiment]
 
 2. A sinistra dell'area di disegno dell'esperimento è presente una tavolozza di set di dati e moduli. Digitare **automobile** nella casella di ricerca nella parte superiore della tavolozza per trovare il set di dati denominato **Automobile price data (Raw)**. Trascinare il set di dati nell'area di disegno dell'esperimento.
 
@@ -111,7 +113,7 @@ Per visualizzare l'aspetto dei dati, fare clic sulla porta di output nella parte
 
 > [!TIP]
 > I set di dati e i moduli hanno porte di input e output rappresentate da piccoli cerchi: le porte di input nella parte superiore e le porte di output nella parte inferiore.
-Per creare un flusso di dati nell'esperimento, è necessario connettere queste porte.
+Per creare un flusso di dati nell'esperimento, connettere una porta di output di un modulo a una porta di input di un altro.
 In qualsiasi momento, è possibile fare clic sulla porta di output di un set di dati o di un modulo per visualizzare l'aspetto dei dati in tale punto specifico del flusso di dati.
 
 In questo set di dati di esempio, ogni istanza di un'automobile viene rappresentata da una riga e le variabili associate a ogni automobile vengono rappresentate da colonne. In base alle variabili per un'automobile specifica, si proverà a stimare il prezzo nella colonna che si trova all'estrema destra, ovvero la colonna 26 denominata "price" (prezzo).
@@ -169,7 +171,7 @@ Si aggiunge prima un modulo che rimuove completamente la colonna **normalized-lo
      (Pulisci dati mancanti)<br/>
     ***Impostare la modalità di pulizia a "Remove entire row" (Rimuovi riga intera) per il modulo "Clean Missing Data"***
 
-4. Eseguire l'esperimento facendo clic su **RUN** sotto l'area di disegno dell'esperimento.
+4. Eseguire l'esperimento facendo clic su **RUN** (ESEGUI) nella parte inferiore della pagina.
 
     Al termine dell'esecuzione dell'esperimento, tutti i moduli saranno contraddistinti da un segno di spunta verde per indicarne il corretto completamento. Si noti anche lo stato **Finished running** nell'angolo in alto a destra.
 
@@ -326,7 +328,7 @@ Dopo aver completato la prima esercitazione di Machine Learning e impostato l'es
 Per un esempio di come confrontare più modelli in un esperimento singolo, vedere [Compare Regressors](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) (Confrontare regressori) in [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com).
 
     > [!TIP]
-    > Usare il pulsante **SAVE AS** (Salva con nome) nell'area di disegno dell'esperimento per copiare le iterazioni dell'esperimento. È possibile visualizzare tutte le iterazioni dell'esperimento facendo clic su **VIEW RUN HISTORY** sotto l'area di disegno. Per altre informazioni, vedere [Gestire iterazioni dell'esperimento in Azure Machine Learning Studio][runhistory].
+    > Usare il pulsante **SAVE AS** (SALVA CON NOME) nella parte inferiore della pagina per copiare eventuali iterazioni dell'esperimento. È possibile visualizzare tutte le iterazioni dell'esperimento facendo clic su **VIEW RUN HISTORY** (VISUALIZZA LA CRONOLOGIA DI ESECUZIONE) nella parte inferiore della pagina. Per altre informazioni, vedere [Gestire iterazioni dell'esperimento in Azure Machine Learning Studio][runhistory].
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
@@ -340,6 +342,7 @@ Per altre informazioni: Per una procedura più completa e dettagliata del proces
 
 <!-- Images -->
 [sign-in-to-studio]: ./media/machine-learning-create-experiment/sign-in-to-studio.png
+[rename-experiment]: ./media/machine-learning-create-experiment/rename-experiment.png
 [visualize-auto-data]:./media/machine-learning-create-experiment/visualize-auto-data.png
 [select-visualize]: ./media/machine-learning-create-experiment/select-visualize.png
 [showing-excluded-column]:./media/machine-learning-create-experiment/showing-excluded-column.png
@@ -377,6 +380,6 @@ Per altre informazioni: Per una procedura più completa e dettagliata del proces
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

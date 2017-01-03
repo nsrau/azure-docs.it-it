@@ -45,6 +45,6 @@
 ## [Video](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -69,6 +69,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

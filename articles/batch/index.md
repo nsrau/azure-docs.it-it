@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come usare Azure Batch per eseguire in modo efficiente applicazioni parallele e HPC (High Performance Computing) su larga scala. Esercitazioni, informazioni di riferimento sulle API e altri documenti.
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: acf8bdbd4938583f8259c30cb253ee33b4c971ad
+ms.sourcegitcommit: aafd374ff1d72df90bd09479e18ac7ce83715cef
+ms.openlocfilehash: daf72b1a473e3940e889cd6caf78b709e08428c6
 
 ---
 #<a name="batch-documentation"></a>Documentazione di Batch
 
-Azure Batch consente di eseguire in modo efficiente applicazioni parallele e HPC (High Performance Computing) su larga scala nel cloud. Il servizio Batch consente di definire le risorse di calcolo di Azure per eseguire le applicazioni in parallelo e su larga scala. È possibile eseguire processi su richiesta o pianificati senza dover creare o gestire manualmente l'infrastruttura.
+Informazioni su come usare Azure Batch per eseguire in modo efficiente applicazioni parallele e HPC (High Performance Computing) su larga scala nel cloud. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come definire le risorse di calcolo di Azure per eseguire le applicazioni in parallelo o in scala, senza necessità di configurare o gestire manualmente l'infrastruttura.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -157,6 +158,6 @@ Scaricare la documentazione su Azure Batch </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 'Personalizzare: Gestione delle password di Azure AD | Microsoft Docs'
-description: Come personalizzare l'aspetto, il comportamento e le notifiche di Gestione delle password in Azure AD in base alle proprie esigenze.
+title: 'Personalizzare: Gestione delle password di Azure AD | Documentazione Microsoft'
+description: Come personalizzare l&quot;aspetto, il comportamento e le notifiche di Gestione delle password in Azure AD in base alle proprie esigenze.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asteen
 manager: femila
 editor: curtand
-
+ms.assetid: 2cddd150-8747-447a-a7cf-1d7d5775c0b3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: asteen
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c02f5a2b0ef127805aed0f8b8b5ec8ccac1f879f
+
 
 ---
-# <a name="customizing-password-management-to-fit-your-organization's-needs"></a>Personalizzazione di Gestione delle password in base alle esigenze dell'organizzazione
+# <a name="customizing-password-management-to-fit-your-organizations-needs"></a>Personalizzazione di Gestione delle password in base alle esigenze dell'organizzazione
 > [!IMPORTANT]
 > **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,**  [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
 > 
@@ -876,6 +880,6 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -109,7 +109,7 @@ Le vulnerabilità sono punti deboli in un ambiente Azure AD che possono essere s
 11. Fare clic su **Save**.
 12. A questo punto è possibile testare l'accesso condizionale basato sul rischio eseguendo l'accesso come un utente con un livello di rischio elevato. Se il rischio dell'utente è medio, l'accesso verrà bloccato o verrà richiesto di modificare la password, a seconda della configurazione dei criteri. 
     <br><br>
-    ![Studio](./media/active-directory-identityprotection-playbook/201.png "Playbook")
+    ![Playbook](./media/active-directory-identityprotection-playbook/201.png "Playbook")
     <br>
 
 ## <a name="sign-in-risk"></a>Rischio di accesso
@@ -131,7 +131,7 @@ Le vulnerabilità sono punti deboli in un ambiente Azure AD che possono essere s
 10. A questo punto è possibile testare l'accesso condizionale basato sul rischio simulando gli eventi di rischio relativi a posizioni insolite o indirizzi IP anonimi, perché sono entrambi eventi di rischio di livello **Medio** .
 
 
-![Studio](./media/active-directory-identityprotection-playbook/200.png "Playbook")
+![Playbook](./media/active-directory-identityprotection-playbook/200.png "Playbook")
 
 
 ## <a name="see-also"></a>Vedere anche
@@ -140,6 +140,6 @@ Le vulnerabilità sono punti deboli in un ambiente Azure AD che possono essere s
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

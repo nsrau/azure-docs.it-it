@@ -130,6 +130,6 @@
 ## [Catalogo dei dispositivi Azure Certified per IoT](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

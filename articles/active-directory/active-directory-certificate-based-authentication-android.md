@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
+ms.date: 12/16/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9ab8558808dc509855d075c6bba305b8524407ff
+ms.sourcegitcommit: ce9474f2926a856673efbab5103a308d31001343
+ms.openlocfilehash: ed1c66f72b09a14a14c6ecd0bf39cd92f2bd22b8
 
 
 ---
-# <a name="get-started-with-certificate-based-authentication-on-android---public-preview"></a>Introduzione all'autenticazione basata su certificati nell'anteprima pubblica per Android
+# <a name="get-started-with-certificate-based-authentication-on-android"></a>Introduzione all'autenticazione basata su certificati in Android
 > [!div class="op_single_selector"]
 > * [iOS](active-directory-certificate-based-authentication-ios.md)
 > * [Android](active-directory-certificate-based-authentication-android.md)
@@ -50,7 +50,7 @@ Per tutti gli scenari di questo argomento sono necessarie le seguenti attività:
 | App | Supporto |
 | --- | --- |
 | Word / Excel / PowerPoint |![Controllo][1] |
-| OneNote |Presto disponibile |
+| OneNote |![Controllo][1] |
 | OneDrive |![Controllo][1] |
 | Outlook |![Controllo][1] |
 | Yammer |![Controllo][1] |
@@ -70,9 +70,14 @@ Perché Azure Active Directory possa revocare un certificato client, il token AD
 
 Azure Active Directory aggiunge queste attestazioni per il token di aggiornamento se sono disponibili nel token ADFS (o in qualsiasi altro token SAML). Quando il token di aggiornamento deve essere convalidato, queste informazioni vengono usate per controllare la revoca. 
 
-Come procedura consigliata, è necessario aggiornare le pagine di errore di ADFS con le istruzioni su come ottenere un certificato utente. 
-
+Come procedura consigliata, è necessario aggiornare le pagine di errore di ADFS con le istruzioni su come ottenere un certificato utente.  
 Per altre informazioni, vedere [Personalizzazione delle pagine di accesso ad AD FS](https://technet.microsoft.com/library/dn280950.aspx).  
+
+Alcune app di Office, in cui non è abilitata l'autenticazione moderna, inviano "*prompt=login*" ad Azure AD nella richiesta. Per impostazione predefinita, Azure AD lo traduce in una richiesta ad AD FS di eseguire l'autorizzazione di nome utente e password, ovvero "*wauth=usernamepassworduri*", e di ignorare lo stato SSO ed eseguire una nuova autenticazione, ovvero "*wfresh=0*". Per abilitare l'autenticazione basata su certificati per queste applicazioni, è necessario modificare il comportamento predefinito di Azure AD. È sufficiente impostare "*PromptLoginBehavior*" tra le impostazioni del dominio federato su "*Disabled*" (Disabilitato). Per eseguire questa operazione è possibile usare il cmdlet [MSOLDomainFederationSettings](https://docs.microsoft.com/en-us/powershell/msonline/v1/set-msoldomainfederationsettings):
+
+`Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
+
+
 
 ### <a name="exchange-activesync-clients-support"></a>Supporto dei client Exchange ActiveSync
 Alcune applicazioni Exchange ActiveSync sono supportate in Android 5.0 (Lollipop) o versioni successive. Per determinare se l'applicazione di posta elettronica supporta questa funzionalità, contattare lo sviluppatore dell'applicazione. 
@@ -113,9 +118,9 @@ Di seguito sono riportati esempi per l'aggiunta, la rimozione e la modifica di u
 
 ### <a name="configuring-your-azure-ad-tenant-for-certificate-based-authentication"></a>Configurazione del tenant di Azure AD per l'autenticazione basata su certificati
 1. Avviare Windows PowerShell con privilegi amministrativi. 
-2. Installare il modulo Azure AD. È necessario installare la versione [1.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) o versione successiva.  
+2. Installare il modulo Azure AD. È necessario installare la versione [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) o una versione successiva.  
    
-        Install-Module -Name AzureADPreview –RequiredVersion 1.1.143.0 
+        Install-Module -Name AzureADPreview –RequiredVersion 2.0.0.33 
 3. Connettersi al tenant di destinazione: 
    
         Connect-AzureAD 
@@ -196,7 +201,7 @@ I passaggi seguenti illustrano il processo per aggiornare e annullare il token d
         connect-msolservice -credential $msolcred 
 2. Recuperare il valore StsRefreshTokensValidFrom corrente per un utente: 
    
-     $user = Get-MsolUser -UserPrincipalName test@yourdomain.com` $user.StsRefreshTokensValidFrom 
+     $user = Get-MsolUser -UserPrincipalName test@yourdomain.com`   $user.StsRefreshTokensValidFrom 
 3. Configurare un nuovo valore StsRefreshTokensValidFrom per l'utente uguale al timestamp corrente: 
    
      Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
@@ -208,6 +213,6 @@ La data impostata deve essere futura. Se la data non è futura, la proprietà **
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

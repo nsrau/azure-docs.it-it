@@ -223,6 +223,6 @@
 ## [Ottenere assistenza dagli esperti di Azure.](machine-learning-live-chat.md)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

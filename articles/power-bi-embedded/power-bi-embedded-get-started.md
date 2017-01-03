@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 12/19/2016
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b8748ffac2159661d9496b7033b510e6e584fe0f
+ms.sourcegitcommit: f1b3464526b99cad1beb8f7604887a4cc32b0706
+ms.openlocfilehash: a8d787acb4bc3f6f8a7cd408d6f5ac4313a2121f
 
 
 ---
@@ -70,7 +70,10 @@ Anche se sono disponibili due chiavi, è necessaria una sola chiave alla volta. 
 Dopo aver creato un'istanza di Power BI per l'applicazione e le **chiavi di accesso**, è possibile importare un report nell'app in uso. Prima di apprendere come importare un report, la sezione successiva descrive come creare set di dati e report di Power BI da incorporare in un'app.
 
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Creare set di dati e report di Power BI da incorporare in un'app
-Dopo avere creato un'istanza di Power BI per l'applicazione e le **chiavi di accesso**, è necessario creare i set di dati e i report di Power BI da incorporare. I set di dati e i report possono essere creati con **Power BI Desktop**. È possibile scaricare [Power BI Desktop gratuitamente](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). In alternativa, per iniziare rapidamente, è possibile scaricare l' [esempio Retail Analysis PBIX](http://go.microsoft.com/fwlink/?LinkID=780547). Per altre informazioni sull'uso di **Power BI Desktop**, vedere [Introduzione a Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
+Dopo avere creato un'istanza di Power BI per l'applicazione e le **chiavi di accesso**, è necessario creare i set di dati e i report di Power BI da incorporare. I set di dati e i report possono essere creati con **Power BI Desktop**. È possibile scaricare [Power BI Desktop gratuitamente](https://go.microsoft.com/fwlink/?LinkId=521662). In alternativa, per iniziare rapidamente, è possibile scaricare l' [esempio Retail Analysis PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
+
+> [!NOTE]
+> Per altre informazioni sull'uso di **Power BI Desktop**, vedere [Introduzione a Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
 
 **Power BI Desktop** consente di connettersi all'origine dati importando una copia dei dati in **Power BI Desktop** o tramite la connessione diretta all'origine dati con **DirectQuery**.
 
@@ -86,14 +89,11 @@ Dopo aver salvato il lavoro in **Power BI Desktop**viene creato un file PBIX. Qu
 
 > [!NOTE]
 > **Power BI Embedded** include altre API per modificare il server e il database a cui punta il set di dati e impostare le credenziali dell'account del servizio che saranno usate dal set di dati per la connessione al database. Vedere [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) (POST di SetAllConnections) e [Patch Gateway Datasource](https://msdn.microsoft.com/library/mt711498.aspx) (PATCH dell'origine dati del gateway).
-> 
-> 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Nei passaggi precedenti è stata creata una raccolta di aree di lavoro e i primi report e set di dati. A questo punto è possibile apprendere come scrivere codice per **Power BI Embedded**. Per iniziare è stata creata un'app Web da usare come [esempio introduttivo](power-bi-embedded-get-started-sample.md). L'esempio illustra come:
 
 * Effettuare il provisioning del contenuto
-  
   * Creare un'area di lavoro
   * Importare un file PBIX
   * Aggiornare le stringhe di connessione e impostare le credenziali per i set di dati.
@@ -104,9 +104,11 @@ Nei passaggi precedenti è stata creata una raccolta di aree di lavoro e i primi
 * [Autenticazione e autorizzazione con Power BI Embedded](power-bi-embedded-app-token-flow.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
+Altre domande? [Contattare la community di Power BI](http://community.powerbi.com/)
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Jan17_HO1-->
 
 

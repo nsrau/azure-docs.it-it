@@ -1,6 +1,6 @@
 ---
 title: Configurazione della registrazione automatica per i dispositivi appartenenti a un dominio di Windows 8.1| Documentazione Microsoft
-description: " Procedura di configurazione dei criteri di gruppo per i dispositivi appartenenti a un dominio di Windows 8.1 per la registrazione automatica in Azure AD. "
+description: " Procedura di configurazione dei criteri di gruppo per dispositivi Windows 8.1 aggiunti a un dominio per la registrazione automatica in Azure AD. "
 services: active-directory
 documentationcenter: 
 author: femila
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/21/2016
 ms.author: Markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 03585694b3934147f1f5d58615155ba8ae4d1bc0
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2117267c409afed40094fadf546d53bf9f5d1ec3
 
 
 ---
@@ -54,7 +54,7 @@ Annullare la registrazione dei computer Windows 8.1 appartenenti al dominio sceg
 
 Questo comando deve essere eseguito nel contesto di ogni utente di dominio che ha eseguito l'accesso al computer.
 
-## <a name="event-viewer-errors-for-windows-81-domain-joined-devices"></a>Visualizzatore eventi ed errori per i dispositivi Windows 8.1 appartenenti a un dominio
+## <a name="event-viewer--errors-for-windows-81-domain-joined-devices"></a>Visualizzatore eventi ed errori per i dispositivi Windows 8.1 appartenenti a un dominio
 Il registro eventi di Windows in un computer Windows 8.1 visualizza i messaggi relativi alla registrazione dei dispositivi. È possibile trovare messaggi per gli eventi riusciti e non. 
 
 Il registro eventi si trova nel Visualizzatore eventi sotto Applicazioni e servizi **Registri** > **Microsoft** > **Windows > Aggiunta all'area di lavoro**.
@@ -70,6 +70,6 @@ L'oggetto Criteri di gruppo abilita nel sistema un'attività pianificata che vie
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

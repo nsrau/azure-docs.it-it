@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 12/15/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
+ms.sourcegitcommit: 91aa9a15797620e985f44d2aad4ef207d3884672
+ms.openlocfilehash: f76b573737c6b38ffe61c344ac6eb70f71d6ca44
 
 
 ---
@@ -27,7 +27,7 @@ Al termine di questa esercitazione si avranno tre app di console Java:
 
 * **create-device-identity**, che crea un'identità di dispositivo e una chiave di sicurezza associata per connettere l'app per dispositivo simulato.
 * **read-d2c-messages**, che consente di visualizzare i dati di telemetria inviati dall'app per dispositivo simulato.
-* **simulated-device**, che si connette all'hub IoT con l'identità del dispositivo creata in precedenza e invia un messaggio di telemetria ogni secondo usando il protocollo AMQP.
+* **simulated-device**, che si connette all'hub IoT con l'identità del dispositivo creata in precedenza e invia un messaggio di telemetria ogni secondo usando il protocollo MQTT.
 
 > [!NOTE]
 > L'articolo [Azure IoT SDK][lnk-hub-sdks] offre informazioni sui vari Azure IoT SDK che è possibile usare per compilare applicazioni da eseguire nei dispositivi e il backend della soluzione.
@@ -205,7 +205,7 @@ In questa sezione si crea un'app console di Java che legge i messaggi da disposi
                       receivedEvent.getSystemProperties().getOffset(), 
                       receivedEvent.getSystemProperties().getSequenceNumber(), 
                       receivedEvent.getSystemProperties().getEnqueuedTime()));
-                    System.out.println(String.format("| Device ID: %s", receivedEvent.getProperties().get("iothub-connection-device-id")));
+                    System.out.println(String.format("| Device ID: %s", receivedEvent.getSystemProperties().get("iothub-connection-device-id")));
                     System.out.println(String.format("| Message Payload: %s", new String(receivedEvent.getBody(),
                       Charset.defaultCharset())));
                     batchSize++;
@@ -313,12 +313,12 @@ In questa sezione si crea un'app console di Java che simula un dispositivo che i
    
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myFirstJavaDevice;SharedAccessKey={yourdevicekey}";
-    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
+    private static IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
     private static String deviceId = "myFirstJavaDevice";
     private static DeviceClient client;
     ```
    
-    Questa app di esempio usa la variabile **protocol** quando crea un'istanza di un oggetto **DeviceClient**. È possibile usare il protocollo HTTP o AMQP per comunicare con l'hub IoT.
+    Questa app di esempio usa la variabile **protocol** quando crea un'istanza di un oggetto **DeviceClient**. È possibile usare il protocollo MQTT, AMQP o HTTP per comunicare con l'hub IoT.
 8. Aggiungere la classe **TelemetryDataPoint** annidata seguente nella classe **App** per specificare i dati di telemetria inviati dal dispositivo all'hub IoT:
    
     ```
@@ -474,6 +474,6 @@ Per informazioni sull'estensione della soluzione IoT e l'elaborazione di messagg
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 
