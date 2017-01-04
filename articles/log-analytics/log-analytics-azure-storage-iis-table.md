@@ -4,7 +4,7 @@ description: "Log Analytics è in grado di leggere i log per i servizi di Azure 
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
 ms.service: log-analytics
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -47,8 +47,8 @@ Per consentire a Log Analytics di raccogliere questi log di Diagnostica di Azure
 
 > [!NOTE]
 > I log IIS provenienti dai siti Web di Azure non sono attualmente supportati.
-> 
-> 
+>
+>
 
 Per le macchine virtuali è anche possibile installare l'[agente di Log Analytics](log-analytics-azure-vm-extension.md) nella macchina virtuale per abilitare la raccolta di informazioni aggiuntive. In questo modo è possibile analizzare i log IIS e i registri eventi, oltre che eseguire ulteriori analisi, tra cui il rilevamento delle modifiche alla configurazione, la valutazione degli aggiornamenti e la valutazione di SQL.
 
@@ -57,12 +57,12 @@ Usare la procedura seguente per abilitare la Diagnostica di Azure in una macchin
 
 ### <a name="to-enable-azure-diagnostics-in-a-virtual-machine-with-the-azure-portal"></a>Per abilitare la Diagnostica di Azure in una macchina virtuale con il portale di Azure
 1. Installare l'agente di macchine virtuali quando si crea una macchina virtuale. Se la macchina virtuale esiste già, verificare che l'agente di macchine virtuali sia già installato.
-   
+
    * Nel portale di Azure passare alla macchina virtuale, selezionare **Configurazione facoltativa**, quindi **Diagnostica** e impostare lo **Stato** su **Sì**.
-     
+
      Al termine, nella VM risulta installata e in esecuzione l'estensione di Diagnostica di Azure, che ha il compito di raccogliere i dati di diagnostica.
 2. Abilitare il monitoraggio e configurare la registrazione degli eventi su una macchina virtuale esistente. La diagnostica può essere abilitata a livello di macchina virtuale. Per abilitare la diagnostica e quindi configurare la registrazione degli eventi, eseguire la procedura seguente:
-   
+
    1. Selezionare la macchina virtuale.
    2. Fare clic su **Monitoraggio**.
    3. Fare clic su **Diagnostica**.
@@ -143,8 +143,8 @@ Nel giro di 30 minuti circa è possibile visualizzare i dati dell'account di arc
 
 > [!NOTE]
 > Il portale non conferma l'esistenza dell'origine nell'account di archiviazione e non verifica se vengono scritti nuovi dati.
-> 
-> 
+>
+>
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection-using-powershell"></a>Abilitare la diagnostica di Azure in una macchina virtuale per la raccolta di log eventi e log IIS tramite PowerShell
 Usare la procedura [Configurazione di Log Analytics per indicizzare Diagnostica di Azure](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) per leggere tramite PowerShell i dati di Diagnostica di Azure scritti nell'archiviazione tabelle.
@@ -198,7 +198,6 @@ Esaminare il seguente script di esempio, copiarlo, modificarlo se necessario, sa
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -24,7 +24,7 @@ ms.openlocfilehash: a98185bf44af2271f5ded04c05d3134321db536a
 # <a name="row-level-security-with-power-bi-embedded"></a>Sicurezza a livello di riga con Power BI Embedded
 La sicurezza a livello di riga può essere usata per limitare l'accesso utente a dati specifici in un report o a un set di dati, consentendo a più utenti diversi di usare lo stesso report visualizzando al tempo stesso dati diversi. Power BI Embedded supporta ora i set di dati configurati con la sicurezza a livello di riga.
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-flow-1.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-flow-1.png)
 
 Per sfruttare i vantaggi della sicurezza a livello di riga, è importante comprendere tre concetti principali, ovvero utenti, ruoli e regole. Ecco informazioni più approfondite su ogni concetto:
 
@@ -37,13 +37,13 @@ Per sfruttare i vantaggi della sicurezza a livello di riga, è importante compre
 ### <a name="example"></a>Esempio
 Per il resto di questo articolo verrà fornito un esempio di creazione di sicurezza a livello di riga e quindi di utilizzo di tale funzionalità in un'applicazione incorporata. Il nostro esempio usa il file PBIX [Retail Analysis Sample](http://go.microsoft.com/fwlink/?LinkID=780547) .
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-scenario-2.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-scenario-2.png)
 
 L'esempio di analisi delle vendite al dettaglio mostra le vendite per tutti i punti vendita di una catena specifica. Senza sicurezza a livello di riga, ogni manager locale che effettua l'acceso e visualizza il report vedrà gli stessi dati. I dirigenti hanno deciso che ogni manager locale deve visualizzare solo le vendite relative ai punti vendita gestiti dal manager specifico e a questo scopo è possibile usare la sicurezza a livello di riga.
 
 La sicurezza a livello di riga viene creata in Power BI Desktop. Quando il set di dati e il report vengono aperti, è possibile passare alla vista diagramma per visualizzare lo schema:
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-diagram-view-3.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-diagram-view-3.png)
 
 Ecco alcuni aspetti dello schema da notare:
 
@@ -52,34 +52,34 @@ Ecco alcuni aspetti dello schema da notare:
 * Le frecce sulle linee relative alle relazioni indicano il modo in cui i filtri possono essere applicati da una tabella a un'altra. Se, ad esempio, si posiziona un filtro su **Tempo[Data]**, nello schema corrente verrebbero filtrati solo i valori della tabella **Vendite**. Questo filtro non influirebbe su altre tabelle, perché tutte le frecce sulle linee relative alle relazioni fanno riferimento alla tabella Sales, non ad altre tabelle.
 * La tabella **District** indica il manager per ogni area:
   
-  ![](media\\power-bi-embedded-rls\\pbi-embedded-rls-district-table-4.png)
+  ![](media/power-bi-embedded-rls/pbi-embedded-rls-district-table-4.png)
 
 In base a questo schema, se si applica un filtro alla colonna **Responsabile distretto** nella tabella Distretto e se tale filtro corrisponde all'utente che visualizza il report,verranno filtrate anche le tabelle **Negozio** e **Vendite**solo i dati relativi al responsabile di distretto specifico.
 
 Ecco come:
 
 1. Nella scheda Creazione di modelli fare clic su **Gestisci ruoli**.  
-   ![](media\\power-bi-embedded-rls\\pbi-embedded-rls-modeling-tab-5.png)
+   ![](media/power-bi-embedded-rls/pbi-embedded-rls-modeling-tab-5.png)
 2. Creare un nuovo ruolo denominato **Manager**.  
-   ![](media\\power-bi-embedded-rls\\pbi-embedded-rls-manager-role-6.png)
+   ![](media/power-bi-embedded-rls/pbi-embedded-rls-manager-role-6.png)
 3. Nella tabella **Distretto** immettere l'espressione DAX seguente: **[Responsabile distretto] = USERNAME()**  
-   ![](media\\power-bi-embedded-rls\\pbi-embedded-rls-manager-role-7.png)
+   ![](media/power-bi-embedded-rls/pbi-embedded-rls-manager-role-7.png)
 4. Per assicurarsi che i ruoli funzionino correttamente, nella scheda **Creazione di modelli** fare clic su **Visualizza come ruoli** quindi immettere i valori seguenti:  
-   ![](media\\power-bi-embedded-rls\\pbi-embedded-rls-view-as-roles-8.png)
+   ![](media/power-bi-embedded-rls/pbi-embedded-rls-view-as-roles-8.png)
    
    I report mostrano ora i dati che verrebbero visualizzati se effettuasse l'accesso l'utente **Andrew Ma**.
 
 Se si applica il filtro come indicato in questa sezione, vengono filtrati tutti i record delle tabelle **Distretto**, **Negozio** e **Vendite**. A causa tuttavia della direzione del filtro nelle relazioni tra **Vendite** e **Tempo** e tra **Vendite** ed **Elemento**, le tabelle **Elemento** e **Tempo** non verranno filtrate.
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-diagram-view-9.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-diagram-view-9.png)
 
 Questo approccio potrebbe essere adatto a questo requisito, ma se non si vuole che i manager visualizzino elementi per cui non presentano vendite, è possibile attivare il filtro incrociato bidirezionale per la relazione e applicare il filtro di sicurezza in entrambe le direzioni. A questo scopo, modificare come indicato di seguito la relazione tra **Vendite** ed **Elemento**:
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-edit-relationship-10.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-edit-relationship-10.png)
 
 I filtri possono essere ora applicati anche dalla tabella Sales alla tabella **Item** :
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-diagram-view-11.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-diagram-view-11.png)
 
 **Nota** Se si usa la modalità DirectQuery per i dati, sarà necessario abilitare il filtro incrociato bidirezionale selezionando queste due opzioni:
 
@@ -97,11 +97,11 @@ Se la proprietà username è presente, è necessario passare anche almeno un val
 
 Il token dell'app completo avrà un aspetto analogo al seguente:
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-app-token-string-12.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-app-token-string-12.png)
 
 Al termine di queste procedure, se un utente accede all'applicazione per visualizzare il report, potrà vedere solo i dati che è autorizzato a vedere, in base a quanto definito dalla sicurezza a livello di riga.
 
-![](media\\power-bi-embedded-rls\\pbi-embedded-rls-dashboard-13.png)
+![](media/power-bi-embedded-rls/pbi-embedded-rls-dashboard-13.png)
 
 ## <a name="see-also"></a>Vedere anche
 [Sicurezza a livello di riga con Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)

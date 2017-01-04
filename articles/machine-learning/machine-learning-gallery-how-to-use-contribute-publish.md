@@ -48,7 +48,7 @@ Queste risorse di base possono essere raggruppate in modo logico in due modi div
 
 La sezione **[Competitions](machine-learning-gallery-competitions.md)** (Concorsi), infine, offre la possibilità di competere con la community dei data scientist per risolvere problemi complessi usando Cortana Intelligence Suite.
 
-![Home page di Cortana Intelligence Gallery](media\\machine-learning-gallery-how-to-use-contribute-publish\\gallery-home-page.png)
+![Home page di Cortana Intelligence Gallery](media/machine-learning-gallery-how-to-use-contribute-publish/gallery-home-page.png)
 
 ## <a name="discover-and-learn"></a>Fare nuove scoperte e imparare
 Tutti possono eseguire ricerche ed esplorare i diversi tipi di risorse proposti da Cortana Intelligence Gallery con il contributo di Microsoft e dalla community che si occupa di analisi avanzate.
@@ -60,25 +60,25 @@ Fare clic su **Browse all** (Esplora tutto) nell'intestazione di Cortana Intelli
 
 I contributi di uno specifico autore possono essere visualizzati facendo clic sul nome dell'autore in uno qualsiasi dei riquadri:
 
-![Visualizzare i contributi di un autore](media\\machine-learning-gallery-how-to-use-contribute-publish\\view-by-author.png)
+![Visualizzare i contributi di un autore](media/machine-learning-gallery-how-to-use-contribute-publish/view-by-author.png)
 
 Nella pagina di ogni risorsa è disponibile una sezione dedicata ai commenti in cui è possibile inserire un commento, inviare suggerimenti o porre una domanda.
 È anche possibile condividere con amici o colleghi una risorsa di particolare interesse usando le funzionalità di condivisione di LinkedIn o Twitter.
 È possibile infine inviare il collegamento alle pagine della risorsa tramite e-mail ad altri utenti.
 
-![Condividere l'elemento con amici](media\\machine-learning-gallery-how-to-use-contribute-publish\\comment-and-share.png)
+![Condividere l'elemento con amici](media/machine-learning-gallery-how-to-use-contribute-publish/comment-and-share.png)
 
 ## <a name="contribute-to-the-gallery"></a>Contribuire a Cortana Intelligence Gallery
 Quando si esegue l'accesso si diventa membri della community di Cortana Intelligence Gallery. Questo permette di pubblicare gli elementi di Cortana Intelligence Gallery e consentire a tutti di trarre vantaggio dalle soluzioni scoperte.
 
 Quando gli altri si imbattono nel contributo dell'utente a Cortana Intelligence Gallery, è possibile conoscerne il numero di visualizzazioni e download:
 
-![Condividere l'elemento con amici](media\\machine-learning-gallery-how-to-use-contribute-publish\\view-and-download-counts.png)
+![Condividere l'elemento con amici](media/machine-learning-gallery-how-to-use-contribute-publish/view-and-download-counts.png)
 
 Gli utenti possono anche aggiungere commenti e condividere il contributo di un altro utente con i membri della community di data scientist.
 È possibile accedere con uno strumento di discussione dome Disqus e ricevere notifiche in caso di commenti ai contributi.
 
-![Seguire i commenti degli utenti](media\\machine-learning-gallery-how-to-use-contribute-publish\\follow-comments.png)
+![Seguire i commenti degli utenti](media/machine-learning-gallery-how-to-use-contribute-publish/follow-comments.png)
 
 È possibile contribuire ai seguenti elementi di Cortana Intelligence Gallery; a questo scopo visitare i collegamenti seguenti per trovare altre informazioni:
 
@@ -96,6 +96,6 @@ La raccolta è stata concepita per essere creata dagli utenti per gli utenti. Pe
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

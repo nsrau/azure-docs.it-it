@@ -57,13 +57,13 @@ Per eseguire questa esercitazione, sono necessari il nome e la chiave dell'accou
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
 2. Fare clic su **Altri servizi** nel menu a sinistra e selezionare **Account di archiviazione**.
 
-    ![Sfoglia - Account di archiviazione](media\\data-factory-copy-data-from-azure-blob-storage-to-sql-database\\browse-storage-accounts.png)
+    ![Sfoglia - Account di archiviazione](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
 3. Nel pannello **Account di archiviazione** selezionare l'**account di archiviazione di Azure** da usare in questa esercitazione.
 4. Selezionare **Chiavi di accesso** in **IMPOSTAZIONI**.
 5. Fare clic sul pulsante **copia** (immagine) accanto alla casella di testo **Nome account di archiviazione** e salvarlo/incollarlo, ad esempio, in un file di testo.
 6. Ripetere il passaggio precedente per copiare o annotare la chiave denominata **key1**.
 
-    ![Chiave di accesso alle risorse di archiviazione](media\\data-factory-copy-data-from-azure-blob-storage-to-sql-database\\storage-access-key.png)
+    ![Chiave di accesso alle risorse di archiviazione](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
 7. Fare clic su **X**per chiudere tutti i pannelli.
 
 ## <a name="collect-sql-server-database-user-names"></a>Raccogliere i nomi del server, del database e dell'utente per il database SQL

@@ -42,12 +42,11 @@ Per creare soluzioni di Servizi multimediali, è possibile usare:
     * [Portale di Azure](https://portal.azure.com/)
     * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) è un'applicazione Winforms/C# per Windows)
 
-L'immagine seguente illustra alcuni degli oggetti più comuni usati durante lo sviluppo rispetto al modello OData di Servizi multimediali. 
+L'immagine seguente illustra alcuni degli oggetti più comuni usati durante lo sviluppo rispetto al modello OData di Servizi multimediali.
 
 Fare clic sull'immagine per visualizzarla a schermo intero.  
 
-<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
-
+<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a>  
 
 È possibile visualizzare il modello completo [qui](https://media.windows.net/API/$metadata?api-version=2.14).  
 
@@ -76,22 +75,22 @@ Per i concetti relativi ai Servizi multimediali di Azure, vedere [Concetti su Se
 Per una serie di procedure che illustra tutti i componenti principali di Servizi multimediali di Azure, vedere la pagina relativa alle [esercitazioni dettagliate sui Servizi multimediali di Azure](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Questa serie offre un'ottima panoramica dei concetti e usa lo strumento AMSE per illustrare le attività AMS. Si noti che AMSE è uno strumento di Windows. Supporta la maggior parte delle attività che è possibile eseguire a livello di codice con [AMS SDK per .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK per Java](https://github.com/Azure/azure-sdk-for-java) o [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
 ## <a name="a-idvodscenariosadelivering-media-on-demand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Distribuzione di contenuti multimediali su richiesta con Servizi multimediali di Azure: scenari e attività comuni
-Questa sezione descrive scenari comuni e offre collegamenti agli argomenti pertinenti. Il seguente diagramma illustra le parti principali della piattaforma di Servizi multimediali che riguardano la fornitura di contenuti su richiesta. 
+Questa sezione descrive scenari comuni e offre collegamenti agli argomenti pertinenti. Il seguente diagramma illustra le parti principali della piattaforma di Servizi multimediali che riguardano la fornitura di contenuti su richiesta.
 
 ![Flusso di lavoro VoD](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 ### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Protezione dei contenuti nella risorsa di archiviazione e distribuzione dei flussi multimediali in chiaro (non crittografati)
 1. Caricare un file in formato intermedio di qualità elevata in un asset.
-   
+
     Si consiglia di applicare all'asset l'opzione di crittografia di archiviazione, in modo da proteggere i contenuti sia durante il caricamento sia mentre si trovano nella risorsa di archiviazione.
-2. Codificare in un set di file MP4 a velocità in bit adattiva. 
-   
+2. Codificare in un set di file MP4 a velocità in bit adattiva.
+
     Si consiglia di applicare all'asset di output l'opzione di crittografia di archiviazione, in modo da proteggere i contenuti anche quando non vengono usati.
-3. Configurare i criteri di distribuzione degli asset (usati per la creazione dinamica dei pacchetti). 
-   
-    Se l'asset è protetto con crittografia di archiviazione, è **necessario** configurare i criteri di distribuzione degli asset. 
+3. Configurare i criteri di distribuzione degli asset (usati per la creazione dinamica dei pacchetti).
+
+    Se l'asset è protetto con crittografia di archiviazione, è **necessario** configurare i criteri di distribuzione degli asset.
 4. Pubblicare l'asset creando un localizzatore OnDemand.
-   
+
     Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
 5. Trasmettere in streaming i contenuti pubblicati.
 
@@ -104,28 +103,28 @@ Per poter usare la crittografia dinamica, è prima necessario ottenere almeno un
 4. Configurare i criteri di autorizzazione della chiave simmetrica.
 5. Configurare i criteri di distribuzione degli asset (usati per la creazione dinamica dei pacchetti e la crittografia dinamica).
 6. Pubblicare l'asset creando un localizzatore OnDemand.
-7. Trasmettere in streaming i contenuti pubblicati. 
+7. Trasmettere in streaming i contenuti pubblicati.
 
 ### <a name="use-media-analytics-to-derive-actionable-insights-from-your-videos"></a>Usare Analisi Servizi multimediali per derivare analisi approfondite di utilità pratica dai propri video
 Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e visione artificiale che permettono a organizzazioni e aziende di derivare in modo più semplice analisi approfondite di utilità pratica dai propri file video. Per altre informazioni, vedere [Panoramica di Analisi Servizi multimediali di Azure](media-services-analytics-overview.md).
 
 1. Caricare un file in formato intermedio di qualità elevata in un asset.
 2. Usare uno dei servizi di Analisi Servizi multimediali seguenti per elaborare i video:
-   
+
    * **Indicizzatore** : [Process videos with Azure Media Indicizzatore 2](media-services-process-content-with-indexer2.md)
    * **Hyperlapse** : [file multimediali di Hyperlapse con Azure Media Hyperlapse](media-services-hyperlapse-content.md)
    * **Rilevamento movimento** : [rilevamento del movimento per Analisi Servizi multimediali di Azure](media-services-motion-detection.md).
    * **Rilevamento viso ed emozioni** : [rilevamento dei visi e delle emozioni per Analisi Servizi multimediali di Azure](media-services-face-and-emotion-detection.md).
    * **Riepilogo video** : [uso di anteprime video multimediali di Azure per creare un riepilogo video](media-services-video-summarization.md)
-3. I processori di contenuti multimediali di Analisi Servizi multimediali producono file MP4 o JSON. Se un processore di contenuti multimediali produce un file MP4, è possibile scaricare progressivamente il file. Se un processore di contenuti multimediali produce un file JSON, è possibile scaricare il file dall'archiviazione BLOB di Azure. 
+3. I processori di contenuti multimediali di Analisi Servizi multimediali producono file MP4 o JSON. Se un processore di contenuti multimediali produce un file MP4, è possibile scaricare progressivamente il file. Se un processore di contenuti multimediali produce un file JSON, è possibile scaricare il file dall'archiviazione BLOB di Azure.
 
 ### <a name="deliver-progressive-download"></a>Definizione del download progressivo
 1. Caricare un file in formato intermedio di qualità elevata in un asset.
 2. Codificare in un singolo file MP4.
 3. Pubblicare l'asset creando un localizzatore OnDemand o SAS.
-   
+
     Se si usa un localizzatore OnDemand, accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si pianifica di trasmettere i contenuti in streaming.
-   
+
     Se si usa un localizzatore SAS, i contenuti vengono scaricati dall'archiviazione BLOB di Azure. In questo caso, non è necessario disporre di unità riservate di streaming.
 4. Eseguire il download progressivo.
 
@@ -156,8 +155,8 @@ Un **canale** rappresenta una pipeline per l'elaborazione di contenuto in stream
 
 > [!NOTE]
 > L'uso di un metodo pass-through è il modo più economico per realizzare lo streaming live quando si eseguono più eventi per un lungo periodo di tempo e si è già investito in codificatori locali. Vedere i dettagli sui [prezzi](https://azure.microsoft.com/pricing/details/media-services/) .
-> 
-> 
+>
+>
 
 * Un codificatore live locale invia un flusso a velocità in bit singola al canale abilitato per l'esecuzione della codifica live con Servizi multimediali in uno dei seguenti formati: RTP (MPEG-TS), RTMP o Smooth Streaming (MP4 frammentato). Il canale esegue quindi la codifica live del flusso in ingresso a velocità in bit singola in un flusso video a più velocità in bit (adattivo). Quando richiesto, Servizi multimediali invia il flusso ai clienti.
 
@@ -210,7 +209,6 @@ Per altre informazioni, vedere [Contratto di servizio di Microsoft Azure](https:
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 [live-overview1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
-
 
 
 

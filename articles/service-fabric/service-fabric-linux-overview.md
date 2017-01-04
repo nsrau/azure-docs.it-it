@@ -37,6 +37,7 @@ L'anteprima limitata supporta la creazione di cluster di sviluppo con un solo co
 > 
 > 
 
+
 ## <a name="supported-tooling"></a>Strumenti supportati
 L'anteprima supporta l'interazione con il cluster tramite l'interfaccia della riga di comando di Azure. Per gli sviluppatori Java viene offerta l'integrazione con Eclipse e Yeoman, con supporto di Eclipse in Linux e OSX. Per l'integrazione in OSX viene usata in background una VM Linux tramite Vagrant. Per gli sviluppatori C# viene offerta l'integrazione don Yeoman per la generazione di modelli di applicazione.
 
@@ -49,6 +50,6 @@ L'anteprima supporta l'interazione con il cluster tramite l'interfaccia della ri
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 
