@@ -134,6 +134,6 @@ Questo argomento mette a confronto le funzionalità di codifica di **Media Encod
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO5-->
 
 

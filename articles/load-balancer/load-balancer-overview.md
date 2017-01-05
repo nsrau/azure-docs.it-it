@@ -129,6 +129,6 @@ A un set di macchine virtuali è possibile assegnare più di un indirizzo IP pub
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO5-->
 
 

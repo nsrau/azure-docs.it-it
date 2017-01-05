@@ -87,6 +87,6 @@ Monitorare Surface Hub con OMS è molto simile all'attività di monitoraggio di 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

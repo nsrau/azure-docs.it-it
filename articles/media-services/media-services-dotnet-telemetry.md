@@ -237,6 +237,6 @@ L'esempio seguente illustra come abilitare la telemetria per l'account di Serviz
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO5-->
 
 

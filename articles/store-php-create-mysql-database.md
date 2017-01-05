@@ -144,6 +144,6 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

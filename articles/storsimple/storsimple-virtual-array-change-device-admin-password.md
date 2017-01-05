@@ -80,6 +80,6 @@ Informazioni su come [amministrare StorSimple Virtual Array](storsimple-ova-web-
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO4-->
 
 

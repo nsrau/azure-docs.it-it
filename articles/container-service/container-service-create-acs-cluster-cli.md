@@ -42,7 +42,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 ```azurecli
-az resource group create -n acsrg1 -l "westus"
+az group create -n acsrg1 -l "westus"
 ```
 
 ![Immagine della creazione del gruppo di risorse](media/container-service-create-acs-cluster-cli/rg-create.png)

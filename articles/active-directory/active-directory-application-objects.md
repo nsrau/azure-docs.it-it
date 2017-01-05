@@ -73,6 +73,6 @@ L'oggetto entità servizio di un'applicazione è accessibile tramite l'API Graph
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

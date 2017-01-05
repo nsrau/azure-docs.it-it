@@ -80,6 +80,6 @@ Aprire Analisi dal [pannello Panoramica](app-insights-dashboards.md) dell'app in
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO4-->
 
 

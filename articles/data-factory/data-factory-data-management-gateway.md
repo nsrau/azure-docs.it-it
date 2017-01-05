@@ -426,6 +426,6 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

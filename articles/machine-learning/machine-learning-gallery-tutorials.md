@@ -81,6 +81,6 @@ L'esercitazione fa ora parte di Cortana Intelligence Gallery. Verrà elencata ne
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

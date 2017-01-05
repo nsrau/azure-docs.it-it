@@ -772,6 +772,6 @@ Per ulteriori informazioni sull'utilizzo di Windows PowerShell con Azure, vedere
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO5-->
 
 

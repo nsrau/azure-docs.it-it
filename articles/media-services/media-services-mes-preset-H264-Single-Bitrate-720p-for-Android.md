@@ -117,6 +117,6 @@ Questo set di impostazioni genera un file MP4 con una velocità in bit di 2.000 
 ```
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO5-->
 
 
