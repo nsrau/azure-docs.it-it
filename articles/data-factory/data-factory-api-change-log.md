@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 12/21/2016
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: c2350ae447ccebf1a6b85a563e7fa1d7c12b16d7
@@ -163,17 +163,19 @@ Le classi seguenti sono state rinominate. I nuovi nomi sono i nomi originali del
 
 * I metodi **List** ora restituiscono risultati di paging. Se la risposta contiene una proprietà **NextLink** non vuota, l'applicazione client deve continuare il recupero della pagina successiva finché non vengono restituite tutte le pagine.  Di seguito è fornito un esempio:
 
-        PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");
-        var pipelines = new List<Pipeline>(response.Pipelines);
+    ```csharp
+    PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");
+    var pipelines = new List<Pipeline>(response.Pipelines);
 
-        string nextLink = response.NextLink;
-        while (string.IsNullOrEmpty(response.NextLink))
-        {
-            PipelineListResponse nextResponse = client.Pipelines.ListNext(nextLink);
-            pipelines.AddRange(nextResponse.Pipelines);
+    string nextLink = response.NextLink;
+    while (string.IsNullOrEmpty(response.NextLink))
+    {
+        PipelineListResponse nextResponse = client.Pipelines.ListNext(nextLink);
+        pipelines.AddRange(nextResponse.Pipelines);
 
-            nextLink = nextResponse.NextLink;
-        }
+        nextLink = nextResponse.NextLink;
+    }
+    ```
 * **List** restituisce solo il riepilogo di una pipeline anziché i dettagli completi. Ad esempio, le attività in un riepilogo delle pipeline può contenere solo il nome e il tipo.
 
 ### <a name="feature-additions"></a>Aggiunte di funzionalità

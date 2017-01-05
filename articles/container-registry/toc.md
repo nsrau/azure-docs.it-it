@@ -1,4 +1,4 @@
-# Panoramica
+# Overview
 
 ## [Informazioni sul Registro di sistema del contenitore di Azure](container-registry-intro.md)
 

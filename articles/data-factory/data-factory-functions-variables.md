@@ -48,10 +48,12 @@ In questo articolo vengono fornite informazioni sulle funzioni e le variabili su
 
 Nell'esempio seguente la proprietà **sqlReaderQuery** di un file JSON è assegnata a un valore restituito dalla funzione **Text.Format**. Questo esempio usa anche una variabile di sistema denominata **WindowStart**, che rappresenta l'ora di inizio della finestra di esecuzione dell'attività.
 
-    {
-        "Type": "SqlSource",
-        "sqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
-    }
+```JSON
+{
+    "Type": "SqlSource",
+    "sqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
+}
+```
 
 ### <a name="functions"></a>Funzioni
 Le tabelle seguenti elencano tutte le funzioni di Data factory di Azure.
@@ -78,12 +80,15 @@ Le tabelle seguenti elencano tutte le funzioni di Data factory di Azure.
 | Text |Format(X) |X: variabile stringa |Formatta il testo. |
 
 #### <a name="textformat-example"></a>Esempio di Text.Format
-    "defines": { 
-        "Year" : "$$Text.Format('{0:yyyy}',WindowStart)",
-        "Month" : "$$Text.Format('{0:MM}',WindowStart)",
-        "Day" : "$$Text.Format('{0:dd}',WindowStart)",
-        "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
-    }
+
+```JSON
+"defines": { 
+    "Year" : "$$Text.Format('{0:yyyy}',WindowStart)",
+    "Month" : "$$Text.Format('{0:MM}',WindowStart)",
+    "Day" : "$$Text.Format('{0:dd}',WindowStart)",
+    "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
+}
+```
 
 Vedere l'argomento [Stringhe di formato di data e ora personalizzato](https://msdn.microsoft.com/library/8kb3ddd4.aspx) che descrive diverse opzioni di formattazione che è possibile usare, ad esempio: AA e aaaa. 
 

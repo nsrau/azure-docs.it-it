@@ -72,34 +72,37 @@ Innanzitutto, installare e configurare un gateway di gestione dati. Le istruzion
 
 **Servizio collegato DB2:**
 
-    {
-        "name": "OnPremDb2LinkedService",
-        "properties": {
-            "type": "OnPremisesDb2",
-            "typeProperties": {
-                "server": "<server>",
-                "database": "<database>",
-                "schema": "<schema>",
-                "authenticationType": "<authentication type>",
-                "username": "<username>",
-                "password": "<password>",
-                "gatewayName": "<gatewayName>"
-            }
+```JSON
+{
+    "name": "OnPremDb2LinkedService",
+    "properties": {
+        "type": "OnPremisesDb2",
+        "typeProperties": {
+            "server": "<server>",
+            "database": "<database>",
+            "schema": "<schema>",
+            "authenticationType": "<authentication type>",
+            "username": "<username>",
+            "password": "<password>",
+            "gatewayName": "<gatewayName>"
         }
     }
-
+}
+```
 
 **Servizio collegato di archiviazione BLOB di Azure:**
 
-    {
-        "name": "AzureStorageLinkedService",
-        "properties": {
-            "type": "AzureStorageLinkedService",
-            "typeProperties": {
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
-            }
+```JSON
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorageLinkedService",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
         }
     }
+}
+```
 
 **Set di dati di input DB2:**
 
@@ -107,132 +110,136 @@ L'esempio presuppone che sia stata creata una tabella "MyTable" in DB2 e che con
 
 Impostando "external" su "true" si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno. Si noti che il valore **type** è impostato su **RelationalTable**.
 
-    {
-        "name": "Db2DataSet",
-        "properties": {
-            "type": "RelationalTable",
-            "linkedServiceName": "OnPremDb2LinkedService",
-            "typeProperties": {},
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "external": true,
-            "policy": {
-                "externalData": {
-                    "retryInterval": "00:01:00",
-                    "retryTimeout": "00:10:00",
-                    "maximumRetry": 3
-                }
+```JSON
+{
+    "name": "Db2DataSet",
+    "properties": {
+        "type": "RelationalTable",
+        "linkedServiceName": "OnPremDb2LinkedService",
+        "typeProperties": {},
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
             }
         }
     }
-
+}
+```
 
 **Set di dati di output del BLOB di Azure:**
 
 I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella per il BLOB viene valutato dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, giorno e ora dell'ora di inizio.
 
-    {
-        "name": "AzureBlobDb2DataSet",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-                "folderPath": "mycontainer/db2/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-                "format": {
-                    "type": "TextFormat",
-                    "rowDelimiter": "\n",
-                    "columnDelimiter": "\t"
-                },
-                "partitionedBy": [
-                    {
-                        "name": "Year",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "yyyy"
-                        }
-                    },
-                    {
-                        "name": "Month",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "MM"
-                        }
-                    },
-                    {
-                        "name": "Day",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "dd"
-                        }
-                    },
-                    {
-                        "name": "Hour",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "HH"
-                        }
-                    }
-                ]
+```JSON
+{
+    "name": "AzureBlobDb2DataSet",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+            "folderPath": "mycontainer/db2/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+            "format": {
+                "type": "TextFormat",
+                "rowDelimiter": "\n",
+                "columnDelimiter": "\t"
             },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            }
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "MM"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "dd"
+                    }
+                },
+                {
+                    "name": "Hour",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "HH"
+                    }
+                }
+            ]
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
+}
+```
 
 **Pipeline con attività di copia:**
 
 La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **RelationalSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata per la proprietà **query** seleziona i dati dalla tabella Orders.
 
-    {
-        "name": "CopyDb2ToBlob",
-        "properties": {
-            "description": "pipeline for copy activity",
-            "activities": [
-                {
-                    "type": "Copy",
-                    "typeProperties": {
-                        "source": {
-                            "type": "RelationalSource",
-                            "query": "select * from \"Orders\""
-                        },
-                        "sink": {
-                            "type": "BlobSink"
-                        }
+```JSON
+{
+    "name": "CopyDb2ToBlob",
+    "properties": {
+        "description": "pipeline for copy activity",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "RelationalSource",
+                        "query": "select * from \"Orders\""
                     },
-                    "inputs": [
-                        {
-                            "name": "Db2DataSet"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "AzureBlobDb2DataSet"
-                        }
-                    ],
-                    "policy": {
-                        "timeout": "01:00:00",
-                        "concurrency": 1
-                    },
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
-                    },
-                    "name": "Db2ToBlob"
-                }
-            ],
-            "start": "2014-06-01T18:00:00Z",
-            "end": "2014-06-01T19:00:00Z"
-        }
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "Db2DataSet"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobDb2DataSet"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "Db2ToBlob"
+            }
+        ],
+        "start": "2014-06-01T18:00:00Z",
+        "end": "2014-06-01T19:00:00Z"
     }
-
+}
+```
 
 ## <a name="db2-linked-service-properties"></a>Proprietà del servizio collegato DB2
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato DB2.
@@ -277,7 +284,9 @@ Per attività di copia con origine di tipo **RelationalSource** (che comprende D
 
 **Esempio:**
 
-    "query": "select * from "DB2ADMIN"."Customers""
+```JSON
+"query": "select * from "DB2ADMIN"."Customers""
+```
 
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
