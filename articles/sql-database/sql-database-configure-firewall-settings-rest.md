@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
-ms.openlocfilehash: cd5d47aa012b21a283e3d6482fe0afddcfa14033
+ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
+ms.openlocfilehash: cc0faa49daaafe19c71d2c765b8e865be04f81e2
 
 
 ---
@@ -39,7 +39,7 @@ Il database SQL di Microsoft Azure utilizza le regole del firewall per consentir
 > 
 
 ## <a name="manage-server-level-firewall-rules-through-rest-api"></a>Gestione delle regole del firewall a livello di server tramite l'API REST
-1. La gestione delle regole del firewall tramite l'API REST deve essere autenticata. Per informazioni, vedere [Guida per gli sviluppatori all'autorizzazione con l'API di Azure Resource Manager](../resource-manager-api-authentication.md).
+1. La gestione delle regole del firewall tramite l'API REST deve essere autenticata. Per informazioni, vedere [Guida per gli sviluppatori all'autorizzazione con l'API di Azure Resource Manager](../azure-resource-manager/resource-manager-api-authentication.md).
 2. È possibile creare, aggiornare o eliminare regole a livello di server tramite l'API REST
    
     Per creare o aggiornare una regola del firewall a livello di server, eseguire il metodo PUT con le seguenti operazioni:
@@ -79,7 +79,7 @@ Per informazioni sulla connessione a un database SQL di Azure da applicazioni op
 Per informazioni su come passare ai database, vedere [Gestire l'accesso al database e la sicurezza degli account di accesso](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
-* [Protezione del database](sql-database-security.md)
+* [Protezione del database](sql-database-security-overview.md)
 * [Centro sicurezza per il motore di Database di SQL Server e il Database SQL di Azure](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
@@ -91,6 +91,6 @@ Per informazioni su come passare ai database, vedere [Gestire l'accesso al datab
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

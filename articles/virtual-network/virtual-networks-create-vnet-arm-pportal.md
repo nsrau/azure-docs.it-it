@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 11/8/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 6e96471c4f61e1ebe15c23f87ac646001d8e30ee
-ms.openlocfilehash: d68f6a7e935f530630ee33f48cfad1b9e01e66a8
+ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
+ms.openlocfilehash: c7257faad9a41174fb1d65e04c99cd96a8af3ea9
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: d68f6a7e935f530630ee33f48cfad1b9e01e66a8
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-Azure offre due modelli di distribuzione, ovvero Azure Resource Manager e la distribuzione classica. Microsoft consiglia di creare le risorse tramite il modello di distribuzione Resource Manager. Per altre informazioni sulle differenze tra i due modelli, leggere l'articolo [Understand Azure deployment models](../resource-manager-deployment-model.md) (Informazioni sui modelli di distribuzione di Azure).
+Azure offre due modelli di distribuzione, ovvero Azure Resource Manager e la distribuzione classica. Microsoft consiglia di creare le risorse tramite il modello di distribuzione Resource Manager. Per altre informazioni sulle differenze tra i due modelli, leggere l'articolo [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md) (Informazioni sui modelli di distribuzione di Azure).
  
 Questo articolo illustra come creare una rete virtuale tramite il modello di distribuzione Resource Manager usando il portale di Azure. È anche possibile creare una rete virtuale tramite Resource Manager usando altri strumenti oppure tramite il modello di distribuzione classica selezionando un'opzione diversa dall'elenco seguente:
 
@@ -83,6 +83,6 @@ Leggere le informazioni su come connettere:
 - La rete virtuale a una rete locale tramite una rete privata virtuale (VPN) da sito a sito o il circuito ExpressRoute negli articoli [Connect a VNet to an on-premises network using a site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) (Connettere una rete virtuale a una rete locale tramite una VPN da sito a sito) e [Collegare una rete virtuale a un circuito ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -30,7 +30,7 @@
 ### [Configurare webhook in un avviso del log attività](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 ### [Archiviare il log attività](../monitoring-and-diagnostics/monitoring-archive-activity-log.md)
 ### [Trasmettere il log attività a Hub eventi](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
-### [Operazioni di controllo con Gestione risorse](../resource-group-audit.md)
+### [Operazioni di controllo con Gestione risorse](../azure-resource-manager/resource-group-audit.md)
 ## Gestire i log di diagnostica
 ### [Archiviazione](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 ### [Trasmettere un flusso a Hub eventi](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)

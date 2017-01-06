@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 07/22/2016
+ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4f6bb074a607bd8a6bd201d71973993759860937
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
 
 
 ---
@@ -45,7 +45,7 @@ Oltre al tempo necessario per installare Azure SDK per .NET, il completamento di
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Nell'esercitazione si presuppone che l'utente abbia familiarità con ASP.NET MVC e Visual Studio. Se sono necessarie informazioni introduttive, vedere l'articolo relativo all' [introduzione ad ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
-* È necessario un account Azure. È possibile [aprire un account Azure gratuito](/pricing/free-trial/?WT.mc_id=A261C142F) o [attivare i benefici della sottoscrizione di Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* È necessario un account Azure. È possibile [aprire un account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) o [attivare i benefici della sottoscrizione di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
   
     Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751). In questa pagina è possibile creare un'app di base temporanea nel servizio app. Non è richiesta una carta di credito, né alcun tipo di impegno.
 
@@ -61,8 +61,8 @@ L'esercitazione è stata scritta per Visual Studio 2015 con [Azure SDK per .NET]
 
 Se è disponibile Visual Studio 2013 e si preferisce usarlo, [scaricare la versione più recente di Azure SDK per Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Alcune schermate potrebbero essere diverse da quelle illustrate.
 
-## <a name="configure-a-new-web-project"></a>Configurare un nuovo progetto Web
-Il prossimo passaggio consiste nel creare un progetto Web in Visual Studio e un'app Web nel servizio app di Azure. In questa sezione dell'esercitazione si configurerà il nuovo progetto Web. 
+## <a name="create-a-web-application"></a>Creare un'applicazione Web
+Il prossimo passaggio consiste nel creare un progetto applicazione Web in Visual Studio e un'app Web nel servizio app di Azure. In questa sezione dell'esercitazione si configurerà il nuovo progetto Web. 
 
 1. Aprire Visual Studio 2015.
 2. Fare clic su **File > Nuovo > Progetto**.
@@ -89,7 +89,7 @@ Il prossimo passaggio consiste nel creare un progetto Web in Visual Studio e un'
     Con queste impostazioni Visual Studio crea un'app Web di Azure per il progetto Web.
 10. Fare clic su **OK**
 
-## <a name="configure-azure-resources-for-a-new-web-app"></a>Configurare le risorse di Azure per una nuova app Web
+## <a name="create-the-azure-resources"></a>Creare le risorse di Azure
 Ora si specificheranno le risorse di Azure che Visual Studio dovrà creare.
 
 1. Nella finestra di dialogo **Crea servizio app** fare clic su **Aggiungi un account** e quindi accedere ad Azure con l'ID e la password dell'account usato per gestire la sottoscrizione di Azure.
@@ -128,14 +128,14 @@ Ora si specificheranno le risorse di Azure che Visual Studio dovrà creare.
 8. Nella finestra di dialogo **Configura piano di servizio app** fare clic su **OK**.
 9. Nella finestra di dialogo **Crea servizio App** fare clic su **Crea**.
 
-## <a name="visual-studio-creates-the-project-and-web-app"></a>Visual Studio crea il progetto e l'app Web
+## <a name="inspect-the-azure-resources-in-visual-studio"></a>Controllare le risorse di Azure in Visual Studio
 In breve tempo, in genere meno di un minuto, Visual Studio crea il progetto Web e l'app Web.  
 
 Nella finestra **Esplora soluzioni** sono visualizzati i file e le cartelle presenti nel nuovo progetto.
 
 ![Esplora soluzioni](./media/web-sites-dotnet-get-started/solutionexplorer.png)
 
-Nella finestra **Attività di pubblicazione sito Web** viene visualizzato un messaggio per indicare che l'app Web è stato creata.
+La finestra **Attività del servizio app di Azure** mostra che le risorse del servizio app sono state create in Azure. È possibile fare clic sul collegamento disponibile qui per iniziare immediatamente la pubblicazione del nuovo progetto. L'esercitazione, tuttavia, illustra successivamente come pubblicare i file in qualsiasi momento.
 
 ![App Web creata nella finestra Attività del servizio app di Azure](./media/web-sites-dotnet-get-started/GS13sitecreated1.png)
 
@@ -143,8 +143,8 @@ La finestra **Cloud Explorer** consente di visualizzare e gestire le risorse di 
 
 ![App Web creata in Cloud Explorer](./media/web-sites-dotnet-get-started/siteinse.png)
 
-## <a name="deploy-the-web-project-to-the-azure-web-app"></a>Distribuire il progetto Web nell'app Web di Azure
-In questa sezione si distribuirà il progetto Web nell'app Web.
+## <a name="deploy-the-web-project-to-azure"></a>Distribuire il progetto Web in Azure
+In questa sezione il progetto Web viene distribuito nella risorsa di app Web creata nel Servizio app di Azure.
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Pubblica**.
    
@@ -152,7 +152,10 @@ In questa sezione si distribuirà il progetto Web nell'app Web.
    
     Dopo pochi secondi verrà visualizzata la procedura guidata **Pubblica sul Web** che visualizza un *profilo di pubblicazione* con le impostazioni per la distribuzione del progetto Web nella nuova app Web.
    
-    Il profilo di pubblicazione include un nome utente e una password per la distribuzione.  Queste credenziali sono state generate automaticamente e non è necessario immetterle. La password viene crittografata in un file nascosto specifico dell'utente nella cartella `Properties\PublishProfiles` .
+    > [!TIP] 
+    > Il profilo di pubblicazione include un nome utente e una password per la distribuzione.  Queste credenziali sono state generate automaticamente e non è necessario immetterle. La password viene crittografata in un file nascosto specifico dell'utente nella cartella `Properties\PublishProfiles` .
+    >
+    >
 2. Nella scheda **Connessione** della procedura guidata **Pubblica sul Web** fare clic su **Avanti**.
    
     ![Fare clic su Avanti nella scheda Connessione della procedura guidata Pubblica sito Web ](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
@@ -213,12 +216,12 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
   * [Abilitare HTTPS per un sito Web di Azure](web-sites-configure-ssl-certificate.md)
 * Una volta completate le attività, eliminare il gruppo di risorse che contiene l'app Web e le eventuali risorse di Azure correlate.
   
-    Per informazioni sull'utilizzo dei gruppi di risorse nel portale di Azure, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../resource-group-template-deploy-portal.md).   
+    Per informazioni sull'utilizzo dei gruppi di risorse nel portale di Azure, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).   
 * Per altri esempi di creazione di un'app Web ASP.NET nel servizio app, vedere [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) (Creare e distribuire un'app Web ASP.NET nel servizio app di Azure) e [Create and deploy a mobile app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service) (Creare e distribuire un'app per dispositivi mobili nel servizio app di Azure) da [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz), la [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) di Connect 2015. Per altre guide introduttive della demo HealthClinic.biz, vedere [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)(Guide introduttive agli strumenti di sviluppo di Azure).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 1268d29b0d9c4368f62918758836a73c757c0c8d
-ms.openlocfilehash: 3727972c544bb8c2724e9f38953882a7f2251a60
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 8de917236d1dcbfdf0c1232380879a33d9425291
 
 
 ---
@@ -115,13 +115,13 @@ Per preparare la distribuzione è necessario:
 * La rete deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino.
 * A seconda del modello di risorsa da usare per le VM di Azure di cui si esegue il failover, la rete di Azure viene configurata in [modalità Resource Manager](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) o in [modalità classica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 * È consigliabile configurare una rete prima di iniziare. In caso contrario sarà necessario eseguire l'operazione durante la distribuzione di Site Recovery.
-Si noti che le reti di Azure usate per Site Recovery non possono essere [spostate](../resource-group-move-resources.md) all'interno della stessa sottoscrizione o tra sottoscrizioni diverse.
+Si noti che le reti di Azure usate per Site Recovery non possono essere [spostate](../azure-resource-manager/resource-group-move-resources.md) all'interno della stessa sottoscrizione o tra sottoscrizioni diverse.
 
 ### <a name="set-up-an-azure-storage-account"></a>Configurare un account di archiviazione di Azure
 * Per contenere i dati replicati in Azure è necessario un account di archiviazione di Azure Standard. L'account deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino.
 * A seconda del modello di risorsa da usare per le macchine virtuali di Azure di cui si esegue il failover, l'account deve essere configurato in [modalità Resource Manager](../storage/storage-create-storage-account.md) o in [modalità classica](../storage/storage-create-storage-account-classic-portal.md).
 * È consigliabile configurare un account prima di iniziare. In caso contrario sarà necessario eseguire l'operazione durante la distribuzione di Site Recovery.
-- Si noti che gli account di archiviazione usati per Site Recovery non possono essere [spostati](../resource-group-move-resources.md) all'interno della stessa sottoscrizione o tra sottoscrizioni diverse.
+- Si noti che gli account di archiviazione usati per Site Recovery non possono essere [spostati](../azure-resource-manager/resource-group-move-resources.md) all'interno della stessa sottoscrizione o tra sottoscrizioni diverse.
 
 ### <a name="prepare-the-vmm-server"></a>Preparare il server VMM
 * Assicurarsi che il server VMM sia conforme ai [prerequisiti](#on-premises-prerequisites).
@@ -144,7 +144,7 @@ Durante la distribuzione di Site Recovery è necessario configurare il mapping d
 
     ![Nuovo insieme di credenziali](./media/site-recovery-vmm-to-azure/new-vault3.png)
 3. In **Nome**specificare un nome descrittivo per identificare l'insieme di credenziali. Se è disponibile più di una sottoscrizione, selezionarne una.
-4. [Creare un gruppo di risorse](../resource-group-template-deploy-portal.md)o selezionarne uno esistente. Specificare un'area di Azure. I computer verranno replicati in quest'area. Per informazioni sulla disponibilità a livello geografico e sulle aree supportate, vedere la pagina relativa ai [dettagli sui prezzi per Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/)
+4. [Creare un gruppo di risorse](../azure-resource-manager/resource-group-template-deploy-portal.md)o selezionarne uno esistente. Specificare un'area di Azure. I computer verranno replicati in quest'area. Per informazioni sulla disponibilità a livello geografico e sulle aree supportate, vedere la pagina relativa ai [dettagli sui prezzi per Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/)
 5. Per accedere rapidamente all'insieme di credenziali dal dashboard, fare clic su **Aggiungi al dashboard** > **Crea insieme di credenziali**.
 
     ![Nuovo insieme di credenziali](./media/site-recovery-vmm-to-azure/new-vault-settings.png)
@@ -509,6 +509,6 @@ Dopo aver configurato correttamente la distribuzione, vedere [altre informazioni
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

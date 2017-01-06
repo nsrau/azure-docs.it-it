@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/15/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 3ed7c49603891b9719819143003d27888f800a95
-ms.openlocfilehash: 21a7feb9eb2588643ffc67408de9f8e60aff7798
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 4a2cd02f6f9b6ac51c32314ce892e572e569eb7c
 
 
 ---
@@ -34,7 +34,7 @@ Per altre informazioni sui set di scalabilità di macchine virtuali, guardare i 
 ## <a name="creating-and-managing-vm-scale-sets"></a>Creazione e gestione dei set di scalabilità di macchine virtuali
 È possibile creare un set di scalabilità di VM nel [portale di Azure](https://portal.azure.com) selezionando *nuova* e digitando "scalabilità" nella barra di ricerca. Nei risultati verrà visualizzato "Set di scalabilità di macchine virtuali". In questa pagina è possibile compilare i campi necessari per personalizzare e distribuire il set di scalabilità. 
 
-I set di scalabilità di macchine virtuali possono anche essere definiti e distribuiti tramite modelli JSON e [API REST](https://msdn.microsoft.com/library/mt589023.aspx) esattamente come le singole macchine virtuali di Gestione risorse di Azure. Di conseguenza, è possibile usare qualsiasi metodo di distribuzione standard di Gestione risorse di Azure. Per altre informazioni sui modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
+I set di scalabilità di macchine virtuali possono anche essere definiti e distribuiti tramite modelli JSON e [API REST](https://msdn.microsoft.com/library/mt589023.aspx) esattamente come le singole macchine virtuali di Gestione risorse di Azure. Di conseguenza, è possibile usare qualsiasi metodo di distribuzione standard di Gestione risorse di Azure. Per altre informazioni sui modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Un set di modelli di esempio per i set di scalabilità di macchine virtuali è disponibile [qui](https://github.com/Azure/azure-quickstart-templates) (cercare i modelli contenenti *vmss* nel titolo).
 
@@ -148,6 +148,6 @@ Questa sezione mostra un elenco di alcuni scenari di set di scalabilità di macc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

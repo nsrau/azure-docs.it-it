@@ -173,8 +173,7 @@
 #### [Domande frequenti su Marketplace](machine-learning-marketplace-faq.md)
 
 # Riferimento
-## [PowerShell](/azure/machine-learning/machine-learning-powershell-module)
-## [Modulo PowerShell per Machine Learning](machine-learning-powershell-module.md)
+## [PowerShell](machine-learning-powershell-module.md)
 ## [Informazioni di riferimento su algoritmi e moduli](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [REST](/rest/api/machinelearning)
 

@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 890ca8d9b7a3a76c6584f9d06cc8bdf3b36f87c0
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 1f7a1f6f4cc970cf12851e48d0f1b3c6ae46279c
 
 
 ---
@@ -77,7 +77,7 @@ Per informazioni sulla connessione a un database SQL di Azure da applicazioni op
 Per informazioni su come passare ai database, vedere [Gestire l'accesso al database e la sicurezza degli account di accesso](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
-* [Protezione del database](sql-database-security.md)
+* [Protezione del database](sql-database-security-overview.md)
 * [Centro sicurezza per il motore di Database di SQL Server e il Database SQL di Azure](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
@@ -87,6 +87,6 @@ Per informazioni su come passare ai database, vedere [Gestire l'accesso al datab
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

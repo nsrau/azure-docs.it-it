@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 77ca34a56a827e8a69ab9a2b60d14cc7c7a71bfc
+ms.sourcegitcommit: e2e5c302d04a41386bfc98dd4e3f8546265dd9f3
+ms.openlocfilehash: e686952a7363e4758f8a3532b54cf5e7f05ce865
 
 
 ---
@@ -126,7 +126,7 @@ Per altre informazioni sui dati che vengono usati per la reimpostazione delle pa
 ### <a name="step-3-reset-your-azure-ad-password-as-a-user"></a>Passaggio 3: Reimpostare la password di Azure AD come utente
 A questo punto, dopo aver configurato i criteri di reimpostazione della password utente e aver specificato i dati di contatto dell'utente, tale utente potrà eseguire la reimpostazione della password self-service.
 
-#### <a name="to-perform-a-selfservice-password-reset"></a>Per eseguire la reimpostazione della password self-service
+#### <a name="to-perform-a-self-service-password-reset"></a>Per eseguire la reimpostazione della password self-service
 1. In un sito come [**portal.microsoftonline.com**](http://portal.microsoftonline.com) viene visualizzata una schermata di accesso simile alla seguente.  Fare clic sul collegamento **Problemi di accesso all'account?** per testare l'interfaccia utente di reimpostazione della password.
    
    ![][011]
@@ -185,7 +185,7 @@ Per poter abilitare e usare il writeback delle password, verificare che vengano 
   > Se si esegue una versione precedente di Windows Server 2008 o 2008 R2, è comunque possibile usare questa funzionalità, ma sarà necessario [scaricare e installare la KB 2386717](https://support.microsoft.com/kb/2386717) per poter applicare i criteri delle password di Active Directory locale nel cloud.
   > 
   > 
-* È necessario che sia installato lo strumento Azure AD Connect e che l'ambiente Active Directory sia stato preparato per la sincronizzazione con il cloud.  Per altre informazioni, vedere [Usare l'infrastruttura di identità locale nel cloud](active-directory-aadconnect.md).
+* È necessario che sia installato lo strumento Azure AD Connect e che l'ambiente Active Directory sia stato preparato per la sincronizzazione con il cloud.  Per altre informazioni, vedere [Usare l'infrastruttura di identità locale nel cloud](connect/active-directory-aadconnect.md).
   
   > [!NOTE]
   > Prima di testare il writeback delle password, assicurarsi di eseguire un'importazione completa e una sincronizzazione completa sia da AD che da Azure AD Connect.
@@ -199,7 +199,7 @@ Per poter abilitare e usare il writeback delle password, verificare che vengano 
   > 
 
 ### <a name="step-1-download-the-latest-version-of-azure-ad-connect"></a>Passaggio 1: Scaricare la versione più recente di Azure AD Connect
-Il writeback delle password è disponibile nelle versioni di Azure AD Connect o nello strumento Azure AD Sync a partire dalla versione **1.0.0419.0911** .  Il writeback delle password con sblocco automatico dell'account è disponibile nelle versioni di Azure AD Connect o nello strumento Azure AD Sync a partire dalla versione **1.0.0485.0222** . Se si esegue una versione precedente, aggiornarla almeno a questa versione prima di procedere. [Fare clic qui per scaricare la versione più recente di Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect).
+Il writeback delle password è disponibile nelle versioni di Azure AD Connect o nello strumento Azure AD Sync a partire dalla versione **1.0.0419.0911** .  Il writeback delle password con sblocco automatico dell'account è disponibile nelle versioni di Azure AD Connect o nello strumento Azure AD Sync a partire dalla versione **1.0.0485.0222** . Se si esegue una versione precedente, aggiornarla almeno a questa versione prima di procedere. [Fare clic qui per scaricare la versione più recente di Azure AD Connect](connect/active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### <a name="to-check-the-version-of-azure-ad-sync"></a>Per verificare la versione di Azure AD Sync
 1. Passare a **%ProgramFiles%\Azure Active Directory Sync\**.
@@ -236,7 +236,7 @@ Dopo aver scaricato lo strumento Azure AD Connect, è possibile abilitare il wri
 #### <a name="to-enable-password-writeback-using-windows-powershell"></a>Per abilitare il writeback delle password con Windows PowerShell
 1. Nel **computer in cui è installato Directory Sync** aprire una nuova **finestra di Windows PowerShell con privilegi elevati**.
 2. Se il modulo non è già stato caricato, immettere il comando `import-module ADSync` per caricare i cmdlet di Azure AD Connect nella sessione attuale.
-3. Ottenere l'elenco dei connettori di Azure AD nel sistema eseguendo il cmdlet `Get-ADSyncConnector` e archiviando i risultati in `$aadConnectorName``$connectors = ADSyncConnector|where-object {$\_.name -like "\*AAD"}`.
+3. Ottenere l'elenco dei connettori di Azure AD nel sistema eseguendo il cmdlet `Get-ADSyncConnector` e archiviando i risultati in `$aadConnectorName``$connectors = Get-ADSyncConnector|where-object {$\_.name -like "\*AAD"}`.
 4. Ottenere lo stato corrente del writeback per il connettore corrente eseguendo il cmdlet seguente: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`.
 5. Abilitare il writeback delle password eseguendo il cmdlet: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`.
 
@@ -256,12 +256,40 @@ Per verificare che il servizio sia stato installato correttamente, è anche poss
   ![][023]
 
 ### <a name="step-3-configure-your-firewall"></a>Passaggio 3: Configurare il firewall
-Dopo aver abilitato il writeback delle password nello strumento Azure AD Connect, è necessario verificare che il servizio possa connettersi al cloud.
+Dopo avere abilitato il writeback delle password, è necessario assicurarsi che il computer che esegue Azure AD Connect possa raggiungere i servizi cloud Microsoft per ricevere le richieste di writeback delle password. Questo passaggio implica l'aggiornamento delle regole di connessione nelle appliance di rete (server proxy, firewall e così via) per consentire le connessioni in uscita verso determinati URL e indirizzi IP di proprietà di Microsoft tramite porte di rete specifiche. Queste modifiche possono variare in base alla versione dello strumento Azure AD Connect. Per altre informazioni sul contesto, è possibile leggere le sezioni sul [funzionamento del writeback delle password](active-directory-passwords-learn-more.md#how-password-writeback-works) e sul [modello di sicurezza del writeback delle password](active-directory-passwords-learn-more.md#password-writeback-security-model).
 
-1. Una volta completata l'installazione, se si bloccano le connessioni in uscita sconosciute nell'ambiente di installazione, sarà anche necessario aggiungere le seguenti regole del firewall. Assicurarsi di riavviare il computer con AAD Connect dopo aver apportato queste modifiche:
-   * Consentire le connessioni in uscita sulla porta TCP 443
-   * Consentire le connessioni in uscita a https://ssprsbprodncu-sb.accesscontrol.windows.net/
-   * Se si usa un proxy o si hanno problemi di connettività in generale, consentire le connessioni in uscita sulla porta TCP 9350-9354 e 5671
+#### <a name="why-do-i-need-to-do-this"></a>Perché è necessario eseguire questa operazione?
+
+Affinché il writeback delle password funzioni correttamente, il computer che esegue Azure AD Connect deve essere in grado di stabilire connessioni HTTPS in uscita verso **.servicebus.windows.net* e l'indirizzo IP specifico usato da Azure, come definito nell'[elenco intervalli IP del data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+
+Per le versioni 1.0.8667.0 e successive dello strumento Azure AD Connect:
+
+- **Opzione 1:** consentire di eseguire tutte le connessioni HTTPS in uscita sulla porta 443 (usando l'indirizzo IP o l'URL).
+    - Quando usare questa opzione:
+        - Usare questa opzione se si desidera eseguire la configurazione più semplice che non deve essere aggiornata quando gli intervalli IP dei data center di Azure cambiano.
+    - Procedura:
+        - Consentire di eseguire tutte le connessioni HTTPS in uscita sulla porta 443 usando l'indirizzo IP o l'URL.
+<br><br>
+- **Opzione 2:** consentire di eseguire le connessioni HTTPS in uscita verso determinati intervalli IP e URL
+    - Quando usare questa opzione:
+        - Usare questa opzione se l'ambiente di rete presenta restrizioni oppure se non ci si sente a proprio agio nel consentire le connessioni in uscita.
+        - In questa configurazione, affinché il writeback delle password continui a funzionare, è necessario assicurarsi che le appliance di rete vengano aggiornate settimanalmente con gli indirizzi IP più recenti dall'elenco di intervalli IP dei data center di Microsoft Azure. Questi intervalli IP sono disponibili sotto forma di file XML che viene aggiornato ogni mercoledì (orario del Pacifico) e diventa effettivo il lunedì successivo (orario del Pacifico).
+    - Procedura:
+        - Consentire tutte le connessioni HTTPS in uscita verso *.servicebus.windows.net
+        - Consentire tutte le connessioni HTTPS in uscita verso tutti gli indirizzi IP nell'elenco di intervalli IP dei data center di Microsoft Azure e mantenere la configurazione aggiornata con frequenza settimanale.
+
+> [!NOTE]
+> Se è stato configurato il writeback delle password seguendo le istruzioni precedenti e non vengono visualizzati errori nel log eventi di Azure AD Connect, ma si ricevono errori di connettività durante il test, il problema potrebbe essere legato a un'appliance di rete nell'ambiente in uso che blocca le connessioni HTTPS agli indirizzi IP. Ad esempio, se viene consentita una connessione a *https://*.servicebus.windows.net*, potrebbe essere bloccata un'altra connessione a un indirizzo IP specifico all'interno dell'intervallo. Per risolvere questo problema, è necessario configurare l'ambiente di rete per consentire tutte le connessioni HTTPS in uscita sulla porta 443 verso qualsiasi indirizzo IP o URL (Opzione 1 sopra) o consultare il team responsabile della rete per consentire le connessioni HTTPS verso indirizzi IP specifici (Opzione 2 sopra) in modo esplicito.
+
+**Per le versioni precedenti:**
+
+- Consentire le connessioni TCP in uscita sulla porta 443, 9350-9354 e sulla porta 5671 
+- Consentire le connessioni in uscita verso *https://ssprsbprodncu-sb.accesscontrol.windows.net/*
+
+> [!NOTE]
+> Se si usa una versione di Azure AD Connect precedente alla versione 1.0.8667.0, è consigliabile eseguire l'aggiornamento alla [versione più recente di Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594), che include determinati miglioramenti della rete di writeback per semplificare la configurazione.
+
+Dopo aver configurato le appliance di rete, riavviare il computer che esegue lo strumento Azure AD Connect.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Passaggio 4: Impostare le autorizzazioni di Active Directory appropriate
 Per ogni foresta che contiene utenti di cui verranno reimpostate le password, se X è l'account specificato per tale foresta nella configurazione guidata iniziale, sarà necessario assegnare a X i diritti estesi **Reimposta password**, **Modifica password**, **Autorizzazioni di scrittura** per `lockoutTime` e **Autorizzazioni di scrittura** per `pwdLastSet` sull'oggetto radice per ogni dominio della foresta. I diritti devono essere contrassegnati come ereditati da tutti gli oggetti utente.  
@@ -365,6 +393,6 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

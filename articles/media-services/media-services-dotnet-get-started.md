@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/15/2016
+ms.date: 12/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e048e70714c260fcb13ec5ca53434173026eb8d8
-ms.openlocfilehash: 623841606367a319eadf268c8938066d98aa491d
+ms.sourcegitcommit: f01cd8d3a68776dd12d2930def1641411e6a4994
+ms.openlocfilehash: a9f77a58cdb13c357b6c3734bd9e3efa4ff5087b
 
 
 ---
@@ -25,9 +25,9 @@ ms.openlocfilehash: 623841606367a319eadf268c8938066d98aa491d
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 > [!NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). 
-> 
-> 
+> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+>
+>
 
 ## <a name="overview"></a>Overview
 Questa esercitazione illustra il processo di implementazione di un'applicazione di distribuzione di contenuti Video on Demand (VoD) usando l'SDK di Servizi multimediali di Azure per .NET.
@@ -36,11 +36,11 @@ L'esercitazione descrive il flusso di lavoro di base di Servizi multimediali non
 
 ### <a name="ams-model"></a>Modello AMS
 
-L'immagine seguente illustra alcuni degli oggetti più comuni usati durante lo sviluppo di applicazioni VoD rispetto al modello OData di Servizi multimediali. 
+L'immagine seguente illustra alcuni degli oggetti più comuni usati durante lo sviluppo di applicazioni VoD rispetto al modello OData di Servizi multimediali.
 
 Fare clic sull'immagine per visualizzarla a schermo intero.  
 
-<a href="./media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
+<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
 È possibile visualizzare il modello completo [qui](https://media.windows.net/API/$metadata?api-version=2.14).  
 
@@ -60,8 +60,8 @@ Nell'esercitazione viene illustrato come eseguire le attività seguenti:
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare l'esercitazione è necessario quanto segue.
 
-* Per completare l'esercitazione, è necessario un account Azure. 
-  
+* Per completare l'esercitazione, è necessario un account Azure.
+
     Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). sono inclusi crediti da usare per provare i servizi di Azure a pagamento. Una volta esauriti i crediti, è possibile mantenere l'account e usare le funzionalità e i servizi di Azure gratuiti, ad esempio la funzionalità App Web nel servizio app di Azure.
 * Sistemi operativi: Windows 8 o versione successiva, Windows 2008 R2, Windows 7.
 * .NET Framework 4.0 o versione successiva.
@@ -72,26 +72,26 @@ I passaggi descritti in questa sezione illustrano come creare un account Servizi
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **+Nuovo** > **Contenuti multimediali e rete CDN** > **Servizi multimediali**.
-   
+
     ![Creare Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-new1.png)
 3. In **CREARE UN ACCOUNT DEL SERVIZIO MULTIMEDIALE** immettere i valori richiesti.
-   
+
     ![Creare Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-new3.png)
-   
+
    1. In **Nome account**immettere il nome del nuovo account di AMS. Un nome di account di Servizi multimediali deve essere composto da tutte lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri.
    2. In Sottoscrizione selezionare una delle diverse sottoscrizioni di Azure per le quali è disponibile l'accesso.
    3. In **Gruppo di risorse**selezionare la risorsa nuova o esistente.  Un gruppo di risorse è una raccolta di risorse che condividono il ciclo di vita, le autorizzazioni e i criteri. Fare clic [qui](../azure-resource-manager/resource-group-overview.md#resource-groups) per altre informazioni.
-   4. In **Località** selezionare l'area geografica usata per archiviare i contenuti multimediali e i record di metadati per l'account Servizi multimediali. Questa area viene usata per elaborare e riprodurre in streaming il contenuto multimediale. Nella casella dell'elenco a discesa vengono visualizzate solo le aree di Servizi multimediali disponibili. 
+   4. In **Località** selezionare l'area geografica usata per archiviare i contenuti multimediali e i record di metadati per l'account Servizi multimediali. Questa area viene usata per elaborare e riprodurre in streaming il contenuto multimediale. Nella casella dell'elenco a discesa vengono visualizzate solo le aree di Servizi multimediali disponibili.
    5. In **Account di archiviazione**selezionare un account di archiviazione per l'archivio BLOB del contenuto multimediale dell'account Servizi multimediali. È possibile scegliere un account di archiviazione esistente nella stessa area geografica dell'account Servizi multimediali oppure è possibile crearne uno. Un nuovo account di archiviazione viene creato nella stessa area geografica. Per i nomi degli account di archiviazione vengono seguite le stesse regole dei nomi degli account di Servizi multimediali.
-      
+
        Altre informazioni sull'archiviazione sono disponibili [qui](../storage/storage-introduction.md).
    6. Selezionare **Aggiungi al dashboard** per visualizzare lo stato della distribuzione di account.
 4. Fare clic su **Crea** nella parte inferiore del form.
-   
-    Dopo aver creato l'account, lo stato diventa **In esecuzione**. 
-   
+
+    Dopo aver creato l'account, lo stato diventa **In esecuzione**.
+
     ![Impostazioni di Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-settings.png)
-   
+
     Per gestire l'account AMS, ad esempio per caricare video, codificare asset, monitorare lo stato dei processi, usare la finestra **Impostazioni** .
 
 ## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Configurare endpoint di streaming usando il portale di Azure
@@ -108,19 +108,19 @@ Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in
 
 Per creare e modificare il numero di unità riservate di streaming, seguire questa procedura:
 
-1. Nella finestra **Impostazioni** fare clic su **Endpoint di streaming**. 
-2. Fare clic sull'endpoint di streaming predefinito. 
-   
+1. Nella finestra **Impostazioni** fare clic su **Endpoint di streaming**.
+2. Fare clic sull'endpoint di streaming predefinito.
+
     Verrà visualizzata la finestra **DETTAGLI ENDPOINT DI STREAMING PREDEFINITO** .
 3. Per specificare il numero di unità di streaming, usare il dispositivo di scorrimento di **Unità di streaming** .
-   
+
     ![Unità di streaming](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
 4. Fare clic sul pulsante **Salva** per salvare le modifiche apportate.
-   
+
    > [!NOTE]
    > Il completamento dell'allocazione di nuove unità può richiedere fino a 20 minuti.
-   > 
-   > 
+   >
+   >
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
@@ -131,20 +131,20 @@ Per creare e modificare il numero di unità riservate di streaming, seguire ques
 
 3. Aggiungere un riferimento all'assembly System.Configuration, che contiene la classe **System.Configuration.ConfigurationManager** usata per accedere ai file di configurazione, ad esempio App.config.
 
-    Per aggiungere un riferimento, seguire questa procedura: in Esplora soluzioni fare clic con il pulsante destro del mouse sul nome del progetto e scegliere **Aggiungi** > **Riferimento** e digitare la configurazione nella casella di ricerca. 
+    Per aggiungere un riferimento, seguire questa procedura: in Esplora soluzioni fare clic con il pulsante destro del mouse sul nome del progetto e scegliere **Aggiungi** > **Riferimento** e digitare la configurazione nella casella di ricerca.
 
 4. Aprire il file App.config (aggiungere il file al progetto, se non è stato aggiunto per impostazione predefinita) e aggiungere una sezione *appSettings* al file. Impostare i valori per il nome e la chiave dell'account di Servizi multimediali di Azure, come visualizzato nel seguente esempio. Per ottenere il nome dell'account e la chiave, accedere al [portale di Azure](https://portal.azure.com/) e selezionare l'account AMS. Selezionare poi **Impostazioni** > **Chiavi**. Nella finestra Gestisci chiavi sono visualizzati il nome dell'account e le chiavi primaria e secondaria. Copiare i valori del nome dell'account e della chiave primaria.
-   
+
         <configuration>
         ...
           <appSettings>
             <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
             <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
           </appSettings>
-   
+
         </configuration>
 5. Sovrascrivere le istruzioni **using** esistenti all'inizio del file Program.cs con il codice seguente.
-   
+
         using System;
         using System.Collections.Generic;
         using System.Linq;
@@ -266,7 +266,7 @@ Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è ne
 Il seguente codice mostra come inviare un processo di codifica. Il processo contiene un'attività che indica di transcodificare il file in formato intermedio in un set di file MP4 a velocità in bit adattiva con **Media Encoder Standard**. Il codice invia il processo e ne attende il completamento.
 
 Al termine del processo di codifica, sarà possibile pubblicare gli asset e quindi eseguire lo streaming o il download progressivo dei file MP4.
- 
+
 Aggiungere il seguente metodo alla classe Program.
 
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
@@ -309,7 +309,7 @@ Per eseguire lo streaming o il download di un asset è necessario prima "pubblic
 
 ### <a name="some-details-about-url-formats"></a>Alcuni dettagli sui formati di URL
 
-Dopo aver creato i localizzatori, è possibile compilare gli URL usati per eseguire lo streaming o il download dei file. L'esempio in questa esercitazione restituirà URL che possono essere incollati nei browser appropriati. Questa sezione fornisce brevi esempi dei diversi formati. 
+Dopo aver creato i localizzatori, è possibile compilare gli URL usati per eseguire lo streaming o il download dei file. L'esempio in questa esercitazione restituirà URL che possono essere incollati nei browser appropriati. Questa sezione fornisce brevi esempi dei diversi formati.
 
 #### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>Un URL di streaming per MPEG DASH ha il seguente formato:
 
@@ -324,7 +324,7 @@ Dopo aver creato i localizzatori, è possibile compilare gli URL usati per esegu
 {nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest
 
 
-Un URL di firma di accesso condiviso usato per scaricare i file ha il seguente formato:
+#### <a name="a-sas-url-used-to-download-files-has-the-following-format"></a>Un URL di firma di accesso condiviso usato per scaricare i file ha il seguente formato:
 
 {nome contenitore BLOB}/{nome asset}/{nome file}/{firma di accesso condiviso}
 
@@ -449,14 +449,14 @@ Per ulteriori informazioni, vedere gli argomenti seguenti:
 ## <a name="download-sample"></a>Scaricare un esempio
 L'esempio di codice seguente contiene il codice creato in questa esercitazione: [esempio](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-## <a name="next-steps-media-services-learning-paths"></a>Passaggi successivi: Percorsi di apprendimento di Servizi multimediali
+## <a name="next-steps"></a>Passaggi successivi 
+
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else"></a>Se si è alla ricerca di qualcos’altro.
-Se questo argomento non è di aiuto, non contiene ciò che si cerca o in altro modo non soddisfa le esigenze, è possibile inviare commenti e suggerimenti tramite il thread di Disqus riportato di seguito.
+
 
 <!-- Anchors. -->
 

@@ -2,8 +2,8 @@
 layout: LandingPage
 description: Informazioni su come eseguire analisi di Big Data con Data Lake Analytics. Le esercitazioni illustrano come eseguire analisi batch, in tempo reale e interattive e come scrivere query U-SQL.
 translationtype: Human Translation
-ms.sourcegitcommit: 84b03eb578df1a4122b18a01c0ffba8558adc088
-ms.openlocfilehash: f36a830ede202a7519d46fa9f12299dcec4c8130
+ms.sourcegitcommit: 003cc86e182c55621db9e41fa35d871f37245a91
+ms.openlocfilehash: dcf7aea439c02e2bdb1563c6573376a3f87765d1
 
 ---
 # <a name="data-lake-analytics-documentation"></a>Documentazione di Data Lake Analytics
@@ -162,7 +162,7 @@ Informazioni su come usare Data Lake Analytics per eseguire processi di analisi 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -173,11 +173,29 @@ Informazioni su come usare Data Lake Analytics per eseguire processi di analisi 
         </div>
         </a>
     </li>
+    <li>
+        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-python">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/python.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Introduzione ad Azure Data Lake Store con Python</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 </ul>
 
 ---
  
-<h2>riferimento</h2>
+<h2>Riferimenti</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -232,6 +250,6 @@ Scaricare la documentazione di Data Lake Analytics </div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

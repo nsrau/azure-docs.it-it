@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 7269613c5f181b4b1ce931b335a88e501e345dac
-ms.openlocfilehash: d4db9515f213963722fc181cbf97dc78e7f1bb70
+ms.sourcegitcommit: 9990e3ae2a978f0024c17f445ea07eae8aef5197
+ms.openlocfilehash: 3f36162dd0826270a7e2a69e7d940ba5516ecef0
 
 
 ---
@@ -36,7 +36,7 @@ In questo articolo viene usato un modello di Azure Resource Manager per creare l
 ## <a name="prerequisites"></a>Prerequisiti
 * Vedere la [panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md) ed eseguire i passaggi relativi ai **prerequisiti** .
 * Seguire le istruzioni disponibili nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) per installare la versione più recente di Azure PowerShell nel computer.
-* Per informazioni sulla creazione di modelli di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](../resource-group-authoring-templates.md) . 
+* Per informazioni sulla creazione di modelli di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) . 
 
 ## <a name="in-this-tutorial"></a>Contenuto dell'esercitazione:
 | Entità | Descrizione |
@@ -320,6 +320,7 @@ Creare un file JSON denominato **ADFTutorialARM-Parameters.json** contenente i p
     ```PowerShell
     New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFTutorialARM-Parameters.json
     ```
+
 ## <a name="monitor-pipeline"></a>Monitorare la pipeline
 1. Dopo l'accesso al [portale di Azure](https://portal.azure.com/) fare clic su **Esplora** e selezionare **Data factory**.
      ![Esplorare->Data factory](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
@@ -618,6 +619,6 @@ Questo modello crea una data factory denominata GatewayUsingArmDF con un gateway
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 
