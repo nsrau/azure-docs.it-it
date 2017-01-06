@@ -323,6 +323,6 @@ Per rimuovere l'accesso di un'applicazione multi-tenant alla directory (dopo ave
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -98,6 +98,6 @@ Se il tenant di B2C include più applicazioni e criteri, è possibile gestire le
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -70,6 +70,6 @@ L'oggetto Criteri di gruppo abilita nel sistema un'attività pianificata che vie
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

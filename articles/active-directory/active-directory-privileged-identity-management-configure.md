@@ -124,6 +124,6 @@ Prima di essere disponibile a livello generale, Azure AD PIM è stato disponibil
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

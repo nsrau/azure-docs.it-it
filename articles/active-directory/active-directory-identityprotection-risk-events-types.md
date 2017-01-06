@@ -88,6 +88,6 @@ I report di Anomalie dell'attività di Azure AD seguenti non sono inclusi come e
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

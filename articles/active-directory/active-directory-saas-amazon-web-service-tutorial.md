@@ -425,6 +425,6 @@ Quando si fa clic sul riquadro Amazon Web Service (AWS) nel riquadro di accesso,
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

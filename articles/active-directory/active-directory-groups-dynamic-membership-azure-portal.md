@@ -206,6 +206,6 @@ Questi articoli forniscono informazioni aggiuntive sui gruppi in Azure Active Di
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

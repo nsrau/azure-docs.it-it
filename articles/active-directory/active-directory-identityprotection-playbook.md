@@ -140,6 +140,6 @@ Le vulnerabilità sono punti deboli in un ambiente Azure AD che possono essere s
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

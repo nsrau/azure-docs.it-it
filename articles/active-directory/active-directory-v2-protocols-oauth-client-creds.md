@@ -211,6 +211,6 @@ Per un esempio di un'applicazione che implementa la concessione delle credenzial
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

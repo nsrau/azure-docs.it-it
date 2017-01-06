@@ -124,6 +124,6 @@ Vedere [Azure Active Directory B2C: Inviare richieste di supporto](active-direct
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 
