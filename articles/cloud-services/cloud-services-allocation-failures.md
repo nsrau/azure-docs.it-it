@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 1/6/2017
 ms.author: v-six
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -53,25 +53,24 @@ Ecco gli scenari di allocazione comuni che causano una richiesta di allocazione 
 
 ## <a name="solutions"></a>Soluzioni
 1. Ridistribuzione in un nuovo servizio cloud. Questa soluzione potrebbe essere la più efficace in quanto consente alla piattaforma di scegliere tra tutti i cluster in tale area.
-   
+
    * Distribuire il carico di lavoro in un nuovo servizio cloud  
    * Aggiornare il CNAME o un record per puntare il traffico al nuovo servizio cloud
    * Quando nel sito precedente non c’è nessun traffico, è possibile eliminare il precedente servizio cloud. Questa soluzione non deve causare tempi di inattività.
 2. Eliminazione di slot di produzione e di gestione temporanea: questa soluzione conserverà il nome DNS esistente, ma determinerà tempi di inattività dell'applicazione.
-   
+
    * Eliminare slot di produzione e di gestione temporanea di un servizio cloud esistente in modo che il servizio cloud sia vuoto, quindi
    * creare una nuova distribuzione nel servizio cloud esistente. Questo tenterà nuovamente di eseguire l'allocazione in tutti i cluster nell'area. Assicurarsi che il servizio cloud non sia associato a un gruppo di affinità.
 3. IP riservato: questa soluzione consente di mantenere l'indirizzo IP esistente, ma determinerà tempi di inattività dell'applicazione.  
-   
+
    * Creare un ReservedIP per la distribuzione esistente utilizzando Powershell
-     
+
      ```
      New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
      ```
    * Seguire #2 dall'alto, assicurandosi di specificare il nuovo ReservedIP nel CSCFG del servizio.
 4. Rimuovere il gruppo di affinità per le nuove distribuzioni: i gruppi di affinità non sono più consigliati. Attenersi alla procedura #1 indicata in precedenza per distribuire un nuovo servizio cloud. Assicurarsi che il servizio cloud non sia in un gruppo di affinità.
 5. Eseguire la conversione a una rete virtuale regionale: vedere [Come eseguire la migrazione da gruppi di affinità a una rete virtuale (VNet) regionale](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-
 
 
 
