@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/22/2016
+ms.date: 01/06/2017
 ms.author: dastrock
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -35,8 +35,8 @@ Ogni app che usa Azure AD B2C deve essere registrata nella directory B2C del [po
 Dopo la registrazione, l'app comunica con Azure AD inviando richieste all'endpoint 2.0:
 
 ```
-https://login.microsoftonline.com/common/oauth2/v2.0/authorize
-https://login.microsoftonline.com/common/oauth2/v2.0/token
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 ```
 
 In quasi tutti i flussi di OAuth e OpenID Connect sono coinvolte nello scambio quattro parti:
@@ -69,6 +69,6 @@ Per esaminare alcuni esempi di richieste, è possibile iniziare con una delle es
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 
