@@ -1,22 +1,26 @@
 ---
-title: Gruppi dedicati in Azure Active Directory | Microsoft Docs
+title: Gruppi dedicati in Azure Active Directory | Documentazione Microsoft
 description: Panoramica del funzionamento dei gruppi dedicati in Azure Active Directory e della loro creazione.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 86158909-083a-41fe-8090-955e96ad1865
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 11/01/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3cacf9edde4ed2cabf996e390bb1e00113bc47cb
+
 
 ---
-# Gruppi dedicati in Azure Active Directory
+# <a name="dedicated-groups-in-azure-active-directory"></a>Gruppi dedicati in Azure Active Directory
 In Azure Active Directory (Azure AD), la funzionalità gruppi dedicati crea e popola automaticamente l'appartenenza per gruppi di Azure AD predefiniti. Non è possibile aggiungere o rimuovere membri nei gruppi dedicati tramite il portale di Azure classico, i cmdlet di Windows PowerShell oppure a livello di codice.
 
 > [!NOTE]
@@ -29,11 +33,11 @@ In Azure Active Directory (Azure AD), la funzionalità gruppi dedicati crea e po
 
 **Per abilitare i gruppi dedicati**
 
-1. Nel [portale di Azure classico](https://manage.windowsazure.com) selezionare **Active Directory** e aprire la directory dell'organizzazione.
+1. Nel [portale di Azure classico](https://manage.windowsazure.com)selezionare **Active Directory**e aprire la directory dell'organizzazione.
 2. Selezionare la scheda **Gruppi** e aprire il gruppo da modificare.
 3. Selezionare la scheda **Configura** e impostare **Abilita gruppi dedicati** su **Sì**.
 
-Dopo aver impostato l'opzione Abilita gruppi dedicati su **Sì**, è inoltre possibile consentire alla directory di creare automaticamente il gruppo dedicato Tutti gli utenti mediante l'impostazione dell'opzione **Abilita il gruppo "Tutti gli utenti"** su **Sì**. È quindi possibile modificare il nome di questo gruppo dedicato digitando il nuovo nome nel campo **Nome visualizzato per il gruppo “Tutti gli utenti”**.
+Dopo aver impostato l'opzione Abilita gruppi dedicati su **Sì**, è anche possibile consentire alla directory di creare automaticamente il gruppo dedicato Tutti gli utenti impostando l'opzione **Abilita il gruppo "Tutti gli utenti"** su **Sì**. È quindi possibile modificare il nome di questo gruppo dedicato digitando il nuovo nome nel campo **Nome visualizzato per il gruppo “Tutti gli utenti”** .
 
 Il gruppo Tutti gli utenti può essere usato per assegnare le stesse autorizzazioni a tutti gli utenti in una directory. Ad esempio, è possibile consentire a tutti gli utenti di una directory di accedere a un'applicazione SaaS tramite l'assegnazione dell'accesso a tale applicazione al gruppo dedicato Tutti gli utenti.
 
@@ -54,4 +58,9 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 * [Informazioni su Azure Active Directory](active-directory-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO4-->
+
+

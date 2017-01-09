@@ -47,16 +47,16 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Bene
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
    
-   ![Applications](./media/active-directory-saas-benefitsolver-tutorial/IC700994.png "Applications")
+   ![Applicazioni](./media/active-directory-saas-benefitsolver-tutorial/IC700994.png "Applicazioni")
 4. Fare clic su **Add** nella parte inferiore della pagina.
    
-   ![Aggiungi applicazione](./media/active-directory-saas-benefitsolver-tutorial/IC749321.png "Add application")
+   ![Aggiungere un'applicazione](./media/active-directory-saas-benefitsolver-tutorial/IC749321.png "Aggiungere un'applicazione")
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
    
-   ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-benefitsolver-tutorial/IC749322.png "Add an application from gallerry")
+   ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-benefitsolver-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 6. Nella **casella di ricerca** digitare **Benefitsolver**.
    
-   ![Raccolta di applicazioni](./media/active-directory-saas-benefitsolver-tutorial/IC804821.png "Application Gallery")
+   ![Raccolta di applicazioni](./media/active-directory-saas-benefitsolver-tutorial/IC804821.png "Raccolta di applicazioni")
 7. Nel riquadro dei risultati selezionare **Benefitsolver** e quindi fare clic su **Completa** per aggiungere l'applicazione.
    
    ![Benefitssolver](./media/active-directory-saas-benefitsolver-tutorial/IC804822.png "Benefitssolver")
@@ -67,25 +67,25 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 L'applicazione Benefitsolver prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione di **Attributi token SAML**.  
 La schermata seguente illustra un esempio relativo a questa operazione.
 
-![Attributi](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Attributes")
+![Attributi](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Attributi")
 
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
 1. Nella pagina di integrazione dell'applicazione **Benefitsolver** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804824.png "Configure Single Sign-On")
+   ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804824.png "Configurare l'accesso Single Sign-On")
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Benefitsolver** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804825.png "Configure Single Sign-On")
+   ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804825.png "Configurare l'accesso Single Sign-On")
 3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
    
-   ![Configurare le impostazioni dell'app](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Configure App Settings")
+   ![Configurare le impostazioni dell'app](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Configurare le impostazioni dell'app")
    
    1. Nella casella di testo **URL di accesso** digitare **http://azure.benefitsolver.com**.
    2. Nella casella di testo **URL di risposta** digitare **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.  
    3. Fare clic su **Avanti**.
 4. Nella pagina **Configura accesso Single Sign-On in Benefitsolver** fare clic su **Download metadati** per scaricare il file di metadati e quindi salvarlo nel computer.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804827.png "Configure Single Sign-On")
+   ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804827.png "Configurare l'accesso Single Sign-On")
 5. Inviare il file di metadati scaricato al team di supporto di Benefitsolver.
    
    > [!NOTE]
@@ -95,13 +95,13 @@ La schermata seguente illustra un esempio relativo a questa operazione.
    > 
 6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Complete** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804828.png "Configure Single Sign-On")
+   ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804828.png "Configurare l'accesso Single Sign-On")
 7. Nel menu in alto fare clic su **Attributi** to open the **SAML Token Attributi** .
    
-   ![Attributi](./media/active-directory-saas-benefitsolver-tutorial/IC795920.png "Attributes")
+   ![Attributi](./media/active-directory-saas-benefitsolver-tutorial/IC795920.png "Attributi")
 8. Per aggiungere i mapping di attributi obbligatori, eseguire la procedura seguente:
    
-   ![Attributi](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Attributes")
+   ![Attributi](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Attributi")
    
    | Nome attributo | Valore attributo |
    | --- | --- |
@@ -132,16 +132,16 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 1. Nel portale di Azure classico creare un account di test.
 2. Nella pagina di integrazione dell'applicazione **Benefitsolver** fare clic su **Assegna utenti**.
    
-   ![Assegna utenti](./media/active-directory-saas-benefitsolver-tutorial/IC804829.png "Assign Users")
+   ![Assegnare utenti](./media/active-directory-saas-benefitsolver-tutorial/IC804829.png "Assegnare utenti")
 3. Selezionare l'utente di test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
    
-   ![Sì](./media/active-directory-saas-benefitsolver-tutorial/IC767830.png "Yes")
+   ![Sì](./media/active-directory-saas-benefitsolver-tutorial/IC767830.png "Sì")
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -4,7 +4,7 @@ description: "È possibile usare la soluzione di pianificazione della capacità 
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
 ms.service: log-analytics
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 57e7fbdaa393e078b62a6d6a0b181b67d532523d
@@ -27,8 +27,8 @@ Ad esempio, una proiezione potrebbe identificare quando saranno necessari core a
 
 > [!NOTE]
 > La soluzione di gestione della capacità non può essere aggiunta ad aree di lavoro, ma i clienti che hanno già installato la soluzione di gestione della capacità possono continuare a usarla.  
-> 
-> 
+>
+>
 
 In anteprima privata è disponibile una soluzione alternativa per la gestione di limiti di capacità e prestazioni. Questa soluzione è dedicata alla risoluzione dei problemi riscontrati con la soluzione di gestione della capacità originale:
 
@@ -173,7 +173,6 @@ Grazie allo strumento di proiezione è possibile visualizzare le tendenze cronol
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per visualizzare informazioni dettagliate sulla gestione della capacità, usare [Ricerche nei log in Log Analytics](log-analytics-log-searches.md) .
-
 
 
 

@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 12/01/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 654acd092f9e8469d7014e1ff15cb7d812918e8b
-
+ms.sourcegitcommit: 1eada96773b1d9c6adb9326c9100da7cde8abf77
+ms.openlocfilehash: e3143d787104ffbba9fb0c3806b187382d9d5c5b
 
 ---
+
+
 # <a name="troubleshoot-application-proxy"></a>Risolvere i problemi del Proxy applicazione
 Se si verificano errori durante l'accesso a un'applicazione pubblicata o durante la pubblicazione di applicazioni, controllare le opzioni seguenti per verificare se il Proxy applicazione di Microsoft Azure AD funziona correttamente: 
 
@@ -53,7 +54,7 @@ Se la registrazione non riesce durante l'installazione guidata del connettore, e
 | La registrazione del connettore non è riuscita: assicurarsi di avere abilitato il Proxy applicazione nel portale di gestione di Azure e di avere immesso il nome utente e la password di Active Directory corretti. Errore: "Si sono verificati uno o più errori". |Se la finestra di registrazione si apre e poi si chiude immediatamente senza consentire all'utente di accedere, è probabile che venga visualizzato questo errore. L'errore si verifica quando viene rilevato un errore di rete nel sistema. |Assicurarsi che sia possibile connettersi da un browser a un sito Web pubblico e che le porte siano aperte come specificato in [Prerequisiti del Proxy dell’applicazione](active-directory-application-proxy-enable.md). |
 | La registrazione del connettore non è riuscita: assicurarsi che il computer sia connesso a Internet. Errore: "Nessun endpoint in ascolto su `https://connector.msappproxy.net :9090/register/RegisterConnector` in grado di accettare il messaggio. Ciò è spesso causato da un'azione SOAP o un indirizzo non corretto. Per altri dettagli, vedere InnerException, se presente". |Se si accede con il nome utente e la password di Azure AD e viene visualizzato questo errore, è possibile che tutte le porte oltre la 8081 siano bloccate. |Assicurarsi che tutte le porte necessarie siano aperte. Per altre informazioni, vedere [Prerequisiti del proxy dell'applicazione](active-directory-application-proxy-enable.md). |
 | Viene visualizzato un errore di cancellazione nella finestra di registrazione. Non è possibile continuare. È solo possibile chiudere la finestra. |È stato immesso un nome utente o una password non valida. |Riprovare. |
-| La registrazione del connettore non è riuscita: assicurarsi di avere abilitato il Proxy applicazione nel portale di gestione di Azure e di avere immesso il nome utente e la password di Active Directory corretti. Errore: "AADSTS50059: non sono state trovate informazioni di identificazione del tenant nella richiesta o incluse in modo implicito nelle credenziali fornite e la ricerca in base all'URI dell'entità servizio non è riuscita". |Si sta provando ad accedere con un account Microsoft e non con un dominio che fa parte dell'ID organizzazione della directory a cui si vuole accedere. |Verificare che l'amministratore appartenga allo stesso nome di dominio del dominio tenant. Se ad esempio il dominio di Azure AD è contoso.com, l'account dell'amministratore deve essere admin@contoso.com. |
+| La registrazione del connettore non è riuscita: assicurarsi di avere abilitato il Proxy applicazione nel portale di gestione di Azure e di avere immesso il nome utente e la password di Active Directory corretti. Errore: "AADSTS50059: non sono state trovate informazioni di identificazione del tenant nella richiesta o incluse in modo implicito nelle credenziali fornite e la ricerca in base all'URI dell'entità servizio non è riuscita". |Si sta provando ad accedere con un account Microsoft e non con un dominio che fa parte dell'ID organizzazione della directory a cui si vuole accedere. |Assicurarsi che l'amministratore faccia parte dello stesso nome di dominio del dominio tenant. Ad esempio, se il dominio di Azure AD è contoso.com, l'amministratore dovrà essere admin@contoso.com. |
 | Non è possibile recuperare i criteri di esecuzione correnti per l'esecuzione degli script PowerShell. |Se l'installazione del connettore non riesce, verificare che il criterio di esecuzione di PowerShell non sia disabilitato. |Aprire l'Editor Criteri di gruppo. Passare a **Configurazione computer** > **Modelli amministrativi** > **Componenti di Windows** > **Windows PowerShell** e fare doppio clic su **Attiva l'esecuzione di script**. Questa opzione può essere impostata su **Non configurato** o **Abilitato**. Se l'impostazione è **Abilitato**, verificare che in Opzioni la voce Criteri di esecuzione sia impostata su **Consenti script locali e script remoti firmati** o su **Consenti tutti gli script**. |
 | Non è stato possibile configurare il connettore. |Il certificato client del connettore usato per l'autenticazione è scaduto. Questo errore può essere visualizzato anche se l'installazione del connettore è protetta da un proxy. In questo caso il connettore non può accedere a Internet e non riuscirà a fornire applicazioni agli utenti remoti. |Rinnovare manualmente l'attendibilità con il cmdlet `Register-AppProxyConnector` in Windows PowerShell. Se il connettore è protetto da un proxy, è necessario concedere l'accesso a Internet agli account del connettore "servizi di rete" e "sistema locale". A questo scopo, è possibile concedere agli account l'accesso al proxy o impostarli perché ignorino il proxy. |
 | La registrazione del connettore non è riuscita: per registrare il connettore, è necessario essere un amministratore globale di Active Directory. Errore: "La richiesta di registrazione è stata negata". |L'alias con cui si sta provando ad accedere non è un amministratore nel dominio. Il connettore viene sempre installato per la directory a cui appartiene il dominio dell'utente. |Assicurarsi che l'account amministratore con cui si sta provando ad accedere abbia le autorizzazioni globali per il tenant di Azure AD. |
@@ -86,6 +87,6 @@ Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog]
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

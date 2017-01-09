@@ -1,12 +1,12 @@
 ---
-title: 'Risoluzione dei problemi: Gestione delle password di Azure AD | Microsoft Docs'
+title: 'Risoluzione dei problemi: Gestione delle password di Azure AD | Documentazione Microsoft'
 description: Passaggi comuni per la risoluzione dei problemi di gestione delle password di Azure AD, tra cui reimpostazione, modifica, writeback, registrazione e informazioni da includere per ottenere assistenza.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asteen
 manager: femila
 editor: curtand
-
+ms.assetid: 18f3dcf7-9314-4a2b-8fed-54b00c0026dd
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,45 +14,49 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: asteen
+translationtype: Human Translation
+ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
+ms.openlocfilehash: 3515091cf71ecb595d8c08902ff13549a9ddd2f4
+
 
 ---
-# Come risolvere i problemi relativi alla gestione delle password
+# <a name="how-to-troubleshoot-password-management"></a>Come risolvere i problemi relativi alla gestione delle password
 > [!IMPORTANT]
-> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,**  [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
 > 
 > 
 
 Questo articolo fornisce informazioni su come risolvere i problemi relativi alla gestione delle password. È possibile risolvere la maggior parte dei problemi che potrebbero verificarsi con i pochi semplici passaggi illustrati di seguito, che spiegano come risolvere i problemi della distribuzione:
 
-* [**Informazioni da includere quando è necessaria l’assistenza**](#information-to-include-when-you-need-help)
-* [**Problemi relativi alla configurazione di gestione delle password nel portale di gestione di Azure**](#troubleshoot-password-reset-configuration-in-the-azure-management-portal)
+* [**Informazioni da includere quando è necessaria assistenza**](#information-to-include-when-you-need-help)
+* [**Problemi relativi alla configurazione della gestione delle password nel portale di gestione di Azure**](#troubleshoot-password-reset-configuration-in-the-azure-management-portal)
 * [**Problemi relativi ai report di gestione delle password nel portale di gestione di Azure**](#troubleshoot-password-management-reports-in-the-azure-management-portal)
 * [**Problemi relativi al portale di registrazione per la reimpostazione della password**](#troubleshoot-the-password-reset-registration-portal)
-* [**Problemi relativi al portale di reimpostazione della password**](#troubleshoot-the-password-reset-portal)
-* [**Problemi relativi al writeback della password**](#troubleshoot-password-writeback)
+* [**Problemi relativi al portale per la reimpostazione della password**](#troubleshoot-the-password-reset-portal)
+* [**Problemi relativi al writeback delle password**](#troubleshoot-password-writeback)
   * [Codici errore del registro eventi di writeback della password](#password-writeback-event-log-error-codes)
   * [Problemi relativi alla connettività di writeback della password](#troubleshoot-password-writeback-connectivity)
 
 Se dopo aver eseguito i passaggi seguenti i problemi non vengono risolti, è possibile pubblicare una domanda nei [forum di Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD) o contattare il personale del supporto tecnico che analizzerà il problema il prima possibile.
 
-## Informazioni da includere quando è necessaria assistenza
+## <a name="information-to-include-when-you-need-help"></a>Informazioni da includere quando è necessaria assistenza
 Se non è possibile risolvere il problema con le indicazioni fornite di seguito, è possibile contattare il personale del supporto tecnico. Al momento di contattarli, è consigliabile includere le informazioni seguenti:
 
-* **Descrizione generale dell'errore**: qual è esattamente il messaggio di errore visualizzato? Se non è stato visualizzato alcun messaggio di errore, descrivere dettagliatamente il comportamento imprevisto riscontrato.
-* **Pagina**: in quale pagina ci si trovava quando è stato visualizzato l'errore? (Includere l'URL)
-* **Data /Ora/ Fuso orario** - quando (ora e data) è stato visualizzato l'errore? (Includere il fuso orario)
-* **Codice di supporto** - qual è stato il codice di supporto generato quando è stato visualizzato l'errore? (Per trovare questo codice, riprodurre l'errore, quindi fare clic sul collegamento Codice di supporto nella parte inferiore della schermata e inviare al personale del supporto tecnico il GUID risultante).
+* **Descrizione generale dell'errore** : qual è esattamente il messaggio di errore visualizzato?  Se non è stato visualizzato alcun messaggio di errore, descrivere dettagliatamente il comportamento imprevisto riscontrato.
+* **Pagina** : la pagina che si stava consultando quando è stato visualizzato l'errore (includere l'URL).
+* **Data/Ora/Fuso orario**: data e ora in cui è stato visualizzato l'errore (includere il fuso orario).
+* **Codice di supporto**: codice di supporto generato quando è stato visualizzato l'errore. Per trovare questo codice, riprodurre l'errore, quindi fare clic sul collegamento Codice di supporto nella parte inferiore della schermo e inviare al personale del supporto tecnico il GUID risultante.
   
   * Se è visualizzata una pagina senza un codice di supporto nella parte inferiore, premere F12 ed eseguire una ricerca di SID e CID, quindi inviare i due risultati al personale del supporto tecnico.
     
     ![][001]
-* **ID utente**: l'ID dell'utente che ha visualizzato l'errore, ad esempio user@contoso.com.
-* **Informazioni sull'utente**: specificare se si tratta di un utente federato, con sincronizzazione di hash della password o solo cloud, All'utente è assegnata una licenza AAD Premium o AAD Basic?
-* **Registro eventi dell'applicazione**: se si usa il writeback della password e l'errore si verifica nell'infrastruttura locale, comprimere una copia del registro eventi dell'applicazione dal server Azure AD Connect e inviarla insieme alla richiesta.
+* **ID utente**: ID dell'utente che ha visualizzato l'errore, ad esempio user@contoso.com)?
+* **Informazioni sull'utente**: specificare se si tratta di un utente federato, con sincronizzazione di hash della password o solo cloud.  All'utente è assegnata una licenza AAD Premium o AAD Basic?
+* **Registro eventi dell'applicazione** : se si usa il writeback della password e l'errore si verifica nell'infrastruttura locale, comprimere una copia del registro eventi dell'applicazione dal server Azure AD Connect e inviarla insieme alla richiesta.
 
 Queste informazioni consentiranno di risolvere il problema nel più breve tempo possibile.
 
-## Risolvere i problemi relativi alla configurazione di reimpostazione password nel portale di gestione di Azure
+## <a name="troubleshoot-password-reset-configuration-in-the-azure-management-portal"></a>Risolvere i problemi relativi alla configurazione di reimpostazione password nel portale di gestione di Azure
 Se si verifica un errore mentre si configura la reimpostazione della password, è possibile provare a risolverlo attenendosi ai passaggi di risoluzione dei problemi seguenti:
 
 <table>
@@ -75,25 +79,25 @@ Se si verifica un errore mentre si configura la reimpostazione della password, �
           </tr>
           <tr>
             <td>
-              <p>Non è possibile visualizzare la sezione <strong>Criteri di reimpostazione password utente</strong> nella scheda <strong>Configura</strong> del portale di gestione di Azure</p>
+              <p>Non è possibile visualizzare la sezione <strong>Criteri di reimpostazione password utente </strong>nella scheda <strong>Configura</strong> del portale di gestione di Azure</p>
             </td>
             <td>
-              <p>La sezione <strong>Criteri di reimpostazione password utente</strong> non è visibile nella scheda <strong>Configura</strong> del portale di gestione di Azure.</p>
+              <p>La sezione <strong>Criteri di reimpostazione password utente </strong>non è visibile nella scheda <strong>Configura</strong> del portale di gestione di Azure.</p>
             </td>
             <td>
               <p>Questo problema può verificarsi se all'amministratore che esegue l'operazione non è assegnata una licenza AAD Premium o AAD Basic. </p>
-              <p>Per correggere l'errore, assegnare una licenza AAD Premium o AAD Basic all'account amministratore in questione tramite la scheda <strong>Licenze</strong> e riprovare.</p>
+              <p>Per correggere l'errore, assegnare una licenza AAD Premium o AAD Basic all'account amministratore specifico nella scheda <strong>Licenze</strong> e riprovare.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Nella sezione <strong>Criteri di reimpostazione password utente</strong> non è possibile visualizzare le opzioni di configurazione descritte nella documentazione</p>
+              <p>Nella sezione <strong>Criteri di reimpostazione password utente</strong> non è possibile visualizzare alcuna opzione di configurazione descritta nella documentazione.</p>
             </td>
             <td>
-              <p>La sezione <strong>Criteri di reimpostazione password utente</strong> è visibile, ma il solo flag visualizzato nella sezione è <strong>Utenti abilitati per la reimpostazione della password</strong>.</p>
+              <p>La sezione <strong>Criteri di reimpostazione password utente </strong>è visibile, ma solo il flag visualizzato nella sezione è <strong>Utenti abilitati per la reimpostazione della password</strong>.</p>
             </td>
             <td>
-              <p>Le restanti opzioni dell'interfaccia utente verranno visualizzate dopo avere impostato il flag <strong>Utenti abilitati per la reimpostazione della password</strong> su <strong>Sì</strong>.</p>
+              <p>Le altre opzioni dell'interfaccia utente vengono visualizzate dopo che il flag <strong>Utenti abilitati per la reimpostazione della password</strong> è stato impostato su <strong>Sì.</strong></p>
             </td>
           </tr>
           <tr>
@@ -101,11 +105,11 @@ Se si verifica un errore mentre si configura la reimpostazione della password, �
               <p>Non è possibile visualizzare un'opzione di configurazione specifica</p>
             </td>
             <td>
-              <p>Ad esempio, l'opzione <strong>Numero di giorni dopo cui gli utenti devono confermare i propri dati di contatto</strong> non è visibile scorrendo la sezione <strong>Criteri di reimpostazione password utente</strong> (o altri esempi dello stesso problema).</p>
+              <p>L'opzione <strong>Numero di giorni dopo cui gli utenti devono confermare i propri dati di contatto</strong>, ad esempio, non è visibile se si scorre la sezione <strong>Criteri di reimpostazione password utente</strong> (o altri esempi dello stesso problema).</p>
             </td>
             <td>
               <p>Molti elementi dell'interfaccia utente rimangono nascosti finché non sono necessari. Provare ad abilitare tutte le opzioni che si desidera visualizzare nella pagina.</p>
-              <p>Vedere <a href="active-directory-passwords-customize.md#password-management-behavior">Comportamento di Gestione delle password</a> per altre informazioni su tutti i controlli disponibili.</p>
+              <p>Per altre informazioni su tutti i controlli disponibili, vedere <a href="active-directory-passwords-customize.md#password-management-behavior">Comportamento di Gestione delle password</a>.</p>
             </td>
           </tr>
           <tr>
@@ -113,16 +117,16 @@ Se si verifica un errore mentre si configura la reimpostazione della password, �
               <p>Non è possibile visualizzare l'opzione di configurazione <strong>Writeback delle password in Active Directory locale</strong></p>
             </td>
             <td>
-              <p>L'opzione <strong>Writeback delle password in Active Directory locale</strong> non è visibile nella scheda <strong>Configura</strong> del portale di gestione di Azure.</p>
+              <p>L'opzione <strong>Writeback delle password in Active Directory locale</strong> non è visibile nella scheda <strong>Configura</strong> del portale di gestione di Azure</p>
             </td>
             <td>
               <p>Questa opzione è visibile solo se è stato scaricato Azure AD Connect ed è stata eseguita la configurazione del writeback della password. Dopo avere eseguito queste operazioni, l'opzione verrà visualizzata consentendo di abilitare o disabilitare il writeback dal cloud.</p>
-              <p>Vedere <a href="active-directory-passwords-getting-started.md#step-2-enable-password-writeback-in-azure-ad-connect">Abilitare il writeback delle password in Azure AD Connect</a> per altre informazioni su come eseguire questa operazione.</p>
+              <p>Per altre informazioni su come eseguire questa operazione, vedere <a href="active-directory-passwords-getting-started.md#step-2-enable-password-writeback-in-azure-ad-connect">Abilitare il writeback delle password in Azure AD Connect</a>.</p>
             </td>
           </tr>
         </tbody></table>
 
-## Risolvere i problemi relativi ai report di gestione delle password nel portale di gestione di Azure
+## <a name="troubleshoot-password-management-reports-in-the-azure-management-portal"></a>Risolvere i problemi relativi ai report di gestione delle password nel portale di gestione di Azure
 Se si verifica un errore mentre si usano i report di gestione delle password, è possibile provare a risolverlo attenendosi ai passaggi di risoluzione dei problemi seguenti:
 
 <table>
@@ -152,7 +156,7 @@ Se si verifica un errore mentre si usano i report di gestione delle password, è
             </td>
             <td>
               <p>Questo problema può verificarsi se all'amministratore che esegue l'operazione non è assegnata una licenza AAD Premium o AAD Basic. </p>
-              <p>Per correggere l'errore, assegnare una licenza AAD Premium o AAD Basic all'account amministratore in questione tramite la scheda <strong>Licenze</strong> e riprovare.</p>
+              <p>Per correggere l'errore, assegnare una licenza AAD Premium o AAD Basic all'account amministratore specifico nella scheda <strong>Licenze</strong> e riprovare.</p>
             </td>
           </tr>
           <tr>
@@ -169,7 +173,7 @@ Se si verifica un errore mentre si usano i report di gestione delle password, è
           </tr>
         </tbody></table>
 
-## Risolvere i problemi relativi al portale di registrazione per la reimpostazione della password
+## <a name="troubleshoot-the-password-reset-registration-portal"></a>Risolvere i problemi relativi al portale di registrazione per la reimpostazione della password
 Se si verifica un errore mentre si registra un utente per la reimpostazione della password, è possibile provare a risolverlo attenendosi ai passaggi di risoluzione dei problemi seguenti:
 
 <table>
@@ -198,7 +202,7 @@ Se si verifica un errore mentre si registra un utente per la reimpostazione dell
               <p>L'amministratore non ha abilitato l'utente all'uso di questa funzionalità.</p>
             </td>
             <td>
-              <p>Impostare il flag <strong>Utenti abilitati per la reimpostazione della password</strong> su <strong>Sì</strong> e scegliere <strong>Salva</strong> nella scheda di configurazione della directory nel portale di gestione di Azure. È necessario che all'amministratore che esegue l'operazione sia assegnata una licenza Azure AD Premium o Basic.</p>
+              <p>Impostare il flag <strong>Utenti abilitati per la reimpostazione della password</strong> su <strong>Sì</strong> e selezionare <strong>Salva</strong> nella scheda di configurazione della directory nel portale di gestione di Azure. È necessario che all'amministratore che esegue l'operazione sia assegnata una licenza Azure AD Premium o Basic.</p>
             </td>
           </tr>
           <tr>
@@ -209,7 +213,7 @@ Se si verifica un errore mentre si registra un utente per la reimpostazione dell
               <p>L'amministratore non ha abilitato l'utente all'uso di questa funzionalità.</p>
             </td>
             <td>
-              <p>Assegnare all'utente una licenza Azure AD Premium o Azure AD Basic tramite la scheda <strong>Licenze</strong> nel portale di gestione di Azure. È necessario che all'amministratore che esegue l'operazione sia assegnata una licenza Azure AD Premium o Basic.</p>
+              <p>Assegnare una licenza Azure AD Premium o Azure AD Basic all'utente nella scheda <strong>Licenze</strong> nel portale di gestione di Azure. È necessario che all'amministratore che esegue l'operazione sia assegnata una licenza Azure AD Premium o Basic.</p>
             </td>
           </tr>
           <tr>
@@ -226,12 +230,12 @@ Se si verifica un errore mentre si registra un utente per la reimpostazione dell
             </td>
             <td>
               <p>Questo errore può essere causato da molti problemi, ma in genere è dovuto a un'interruzione del servizio o a un problema di configurazione che non è possibile risolvere. </p>
-              <p>Se viene visualizzato questo errore e il suo impatto sull'attività aziendale è significativo, contattare il supporto tecnico che fornirà assistenza nel più breve tempo possibile. Vedere <a href="#information-to-include-when-you-need-help">Informazioni da includere quando è necessaria assistenza</a> per sapere cosa è necessario fornire al personale del supporto tecnico per agevolare una risoluzione rapida.</p>
+              <p>Se viene visualizzato questo errore e il suo impatto sull'attività aziendale è significativo, contattare il supporto tecnico che fornirà assistenza nel più breve tempo possibile. Per conoscere i dati da comunicare al personale del supporto tecnico per agevolare una risoluzione rapida, vedere <a href="#information-to-include-when-you-need-help">Informazioni da includere quando è necessaria assistenza</a>.</p>
             </td>
           </tr>
         </tbody></table>
 
-## Risolvere i problemi relativi al portale di reimpostazione della password
+## <a name="troubleshoot-the-password-reset-portal"></a>Risolvere i problemi relativi al portale di reimpostazione della password
 Se si verifica un errore mentre si reimposta una password per un utente, è possibile provare a risolverlo attenendosi ai passaggi di risoluzione dei problemi seguenti:
 
 <table>
@@ -265,7 +269,7 @@ Se si verifica un errore mentre si reimposta una password per un utente, è poss
               <p>Se necessario, Microsoft può contattare un amministratore dell'organizzazione e richiedere la reimpostazione della password.</p>
             </td>
             <td>
-              <p>Impostare il flag <strong>Utenti abilitati per la reimpostazione della password</strong> su <strong>Sì</strong> e scegliere <strong>Salva</strong> nella scheda di configurazione della directory nel portale di gestione di Azure. È necessario che all'amministratore che esegue l'operazione sia assegnata una licenza Azure AD Premium o Basic.</p>
+              <p>Impostare il flag <strong>Utenti abilitati per la reimpostazione della password</strong> su <strong>Sì</strong> e selezionare <strong>Salva</strong> nella scheda di configurazione della directory nel portale di gestione di Azure. È necessario che all'amministratore che esegue l'operazione sia assegnata una licenza Azure AD Premium o Basic.</p>
             </td>
           </tr>
           <tr>
@@ -276,7 +280,7 @@ Se si verifica un errore mentre si reimposta una password per un utente, è poss
               <p>Le password degli account non amministrativi non possono essere reimpostate automaticamente, tuttavia è possibile contattare l'amministratore dell'organizzazione per richiedere la reimpostazione.</p>
             </td>
             <td>
-              <p>Assegnare all'utente una licenza Azure AD Premium o Azure AD Basic tramite la scheda <strong>Licenze</strong> nel portale di gestione di Azure. È necessario che all'amministratore che esegue l'operazione sia assegnata una licenza Azure AD Premium o Basic.</p>
+              <p>Assegnare una licenza Azure AD Premium o Azure AD Basic all'utente nella scheda <strong>Licenze</strong> nel portale di gestione di Azure. È necessario che all'amministratore che esegue l'operazione sia assegnata una licenza Azure AD Premium o Basic.</p>
             </td>
           </tr>
           <tr>
@@ -292,7 +296,7 @@ Se si verifica un errore mentre si reimposta una password per un utente, è poss
               <p>Se necessario, Microsoft può contattare un amministratore dell'organizzazione e richiedere la reimpostazione della password.</p>
             </td>
             <td>
-              <p>Prima di procedere, verificare che i dati di contatto dell'utente archiviati nella directory siano corretti. Vedere <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">Dati usati per la reimpostazione della password</a> per informazioni su come configurare le informazioni di autenticazione nella directory in modo che non venga visualizzato questo errore.</p>
+              <p>Prima di procedere, verificare che i dati di contatto dell'utente archiviati nella directory siano corretti. Per informazioni su come configurare le informazioni di autenticazione nella directory in modo che questo errore non venga visualizzato, vedere <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">Dati usati per la reimpostazione della password</a>.</p>
             </td>
           </tr>
           <tr>
@@ -308,7 +312,7 @@ Se si verifica un errore mentre si reimposta una password per un utente, è poss
               <p>Se necessario, Microsoft può contattare un amministratore dell'organizzazione e richiedere la reimpostazione della password.</p>
             </td>
             <td>
-              <p>Prima di procedere verificare che per l'utente siano disponibili almeno due metodi di contatto configurati correttamente, (ad esempio Cellulare e Telefono ufficio). Vedere <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">Dati usati per la reimpostazione della password</a> per informazioni su come configurare le informazioni di autenticazione nella directory in modo che non venga visualizzato questo errore.</p>
+              <p>Prima di procedere verificare che per l'utente siano disponibili almeno due metodi di contatto configurati correttamente, (ad esempio Cellulare e Telefono ufficio). Per informazioni su come configurare le informazioni di autenticazione nella directory in modo che questo errore non venga visualizzato, vedere <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">Dati usati per la reimpostazione della password</a>.</p>
             </td>
           </tr>
           <tr>
@@ -316,7 +320,7 @@ Se si verifica un errore mentre si reimposta una password per un utente, è poss
               <p>La directory è abilitata per la reimpostazione della password, ma non è possibile contattare l'utente anche se questo è configurato correttamente </p>
             </td>
             <td>
-              <p>Errore imprevisto durante il tentativo di contattare l'utente.</p>
+              <p>Errore imprevisto  durante il tentativo di contattare l'utente.</p>
             </td>
             <td>
               <p>Questo errore può essere causato da un problema temporaneo del servizio o da dati di contatto configurati in modo errato che non sono stati rilevati correttamente. Se l'utente attende 10 secondi, verrà visualizzato un messaggio in cui si chiede di riprovare, con un collegamento per «contattare l'amministratore». Facendo clic sull'opzione per riprovare, la chiamata verrà nuovamente inviata, mentre facendo clic sul collegamento per «contattare l'amministratore» verrà inviato tramite posta elettronica agli amministratori utenti, password o globali (in tale ordine di precedenza) un modulo per richiedere la reimpostazione della password per tale account utente.</p>
@@ -330,7 +334,7 @@ Se si verifica un errore mentre si reimposta una password per un utente, è poss
               <p>L'utente fa clic su "Invia messaggio di testo" o "Chiama utente", ma non riceve mai il messaggio o la chiamata.</p>
             </td>
             <td>
-              <p>Il numero di telefono nella directory potrebbe non essere corretto. Verificare che il numero di telefono sia nel formato "+ccc xxxyyyzzzzXeeee". Per altre informazioni sulla formattazione dei numeri di telefono da usare con la reimpostazione della password, vedere <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">Dati usati per la reimpostazione della password</a>.</p>
+              <p>Il numero di telefono nella directory potrebbe non essere corretto. Verificare che il numero di telefono sia nel formato "+ccc xxxyyyzzzzXeeee". Per altre informazioni sulla formattazione dei numeri di telefono da usare per la reimpostazione della password, vedere <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">Dati usati per la reimpostazione della password</a>.</p>
               <p>Se è necessario un interno per contattare l'utente in questione, tenere presente che la reimpostazione della password non supporta numeri interni, anche se ne viene specificato uno nella directory (vengono rimossi prima dell'invio della chiamata). Provare a usare un numero senza interno o a integrare l'interno nel numero di telefono nel proprio PBX.</p>
             </td>
           </tr>
@@ -343,7 +347,7 @@ Se si verifica un errore mentre si reimposta una password per un utente, è poss
             </td>
             <td>
               <p>La causa più comune di questo problema è il rifiuto del messaggio da parte di un filtro protezione da posta indesiderata. Cercare il messaggio di posta elettronica nella cartella della posta indesiderata o della posta eliminata.</p>
-              <p>Assicurarsi anche di cercare il messaggio nell'indirizzo di posta elettronica corretto. Molte persone usano indirizzi di posta elettronica molto simili e cercano il messaggio nella cartella Posta in arrivo sbagliata. Se nessuna di queste opzioni funziona, è anche possibile che l'indirizzo di posta elettronica nella directory non sia corretto. Assicurarsi che l'indirizzo di posta elettronica sia quello corretto e quindi riprovare. Per altre informazioni sulla formattazione degli indirizzi di posta elettronica da usare con la reimpostazione della password, vedere <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">Dati usati per la reimpostazione della password</a>.</p>
+              <p>Assicurarsi anche di cercare il messaggio nell'indirizzo di posta elettronica corretto. Molte persone usano indirizzi di posta elettronica molto simili e cercano il messaggio nella cartella Posta in arrivo sbagliata. Se nessuna di queste opzioni funziona, è anche possibile che l'indirizzo di posta elettronica nella directory non sia corretto. Assicurarsi che l'indirizzo di posta elettronica sia quello corretto e quindi riprovare. Per altre informazioni sulla formattazione degli indirizzi di posta elettronica da usare per la reimpostazione della password, vedere <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">Dati usati per la reimpostazione della password</a>.</p>
             </td>
           </tr>
           <tr>
@@ -351,7 +355,7 @@ Se si verifica un errore mentre si reimposta una password per un utente, è poss
               <p>Sono stati impostati criteri di reimpostazione password, ma quando la funzionalità viene usata con un account amministratore i criteri non vengono applicati</p>
             </td>
             <td>
-              <p>Per gli account amministratore che reimpostano le password vengono visualizzate le stesse opzioni abilitate per reimpostazione della password, indirizzo di posta elettronica e numero di cellulare, indipendentemente dai criteri impostati nella sezione <strong>Criteri di reimpostazione password utente</strong> della scheda <strong>Configura</strong>.</p>
+              <p>Per gli account amministratore che reimpostano le password vengono visualizzate le stesse opzioni abilitate per reimpostazione della password, indirizzo di posta elettronica e numero di cellulare, indipendentemente dai criteri impostati nella sezione <strong>Criteri di reimpostazione password utente</strong> nella scheda <strong>Configura</strong>.</p>
             </td>
             <td>
               <p>Le opzioni configurate nella sezione <strong>Criteri di reimpostazione password utente</strong> della scheda <strong>Configura</strong> si applicano solo agli utenti finali dell'organizzazione.</p>
@@ -375,11 +379,11 @@ Se si verifica un errore mentre si reimposta una password per un utente, è poss
               <p>Per impedire agli utenti di provare a reimpostare le password troppe volte in un breve intervallo di tempo, viene applicato un meccanismo di limitazione automatico. Il meccanismo viene applicato quando:</p>
               <ol class="ordered">
                 <li>
-                                        L'utente tenta di convalidare un numero di telefono 5 volte in un'ora.<br\><br\></li>
+L'utente tenta di convalidare un numero di telefono 5 volte in un'ora.<br\><br\></li>
                 <li>
-                                        L'utente tenta di usare il controllo per le domande di sicurezza 5 volte in un'ora.<br\><br\></li>
+L'utente tenta di usare il controllo per le domande di sicurezza 5 volte in un'ora.<br\><br\></li>
                 <li>
-                                        L'utente tenta di reimpostare una password per lo stesso account utente 5 volte in un'ora.<br\><br\></li>
+L'utente tenta di reimpostare una password per lo stesso account utente 5 volte in un'ora.<br\><br\></li>
               </ol>
               <p>Per correggere l'errore, chiedere all'utente di attendere 24 ore dopo l'ultimo tentativo, dopodiché sarà in grado di reimpostare la password.</p>
             </td>
@@ -414,12 +418,12 @@ Se si verifica un errore mentre si reimposta una password per un utente, è poss
             </td>
             <td>
               <p>Questo errore può essere causato da molti problemi, ma in genere è dovuto a un'interruzione del servizio o a un problema di configurazione che non è possibile risolvere. </p>
-              <p>Se viene visualizzato questo errore e il suo impatto sull'attività aziendale è significativo, contattare il supporto tecnico che fornirà assistenza nel più breve tempo possibile. Vedere <a href="#information-to-include-when-you-need-help">Informazioni da includere quando è necessaria assistenza</a> per sapere cosa è necessario fornire al personale del supporto tecnico per agevolare una risoluzione rapida.</p>
+              <p>Se viene visualizzato questo errore e il suo impatto sull'attività aziendale è significativo, contattare il supporto tecnico che fornirà assistenza nel più breve tempo possibile. Per conoscere i dati da comunicare al personale del supporto tecnico per agevolare una risoluzione rapida, vedere <a href="#information-to-include-when-you-need-help">Informazioni da includere quando è necessaria assistenza</a>.</p>
             </td>
           </tr>
         </tbody></table>
 
-## Risolvere i problemi relativi al writeback della password
+## <a name="troubleshoot-password-writeback"></a>Risolvere i problemi relativi al writeback della password
 Se si verifica un errore mentre si abilita, disabilita o usa il writeback della password, è possibile provare a risolverlo attenendosi ai passaggi di risoluzione dei problemi seguenti:
 
 <table>
@@ -466,7 +470,7 @@ Se si verifica un errore mentre si abilita, disabilita o usa il writeback della 
                             </p>
             </td>
             <td>
-              <p>[Trovare l'account Active Directory](active-directory-aadconnect-accounts-permissions.md#active-directory-account) per Azure AD Connect e reimpostare la password in modo che non contenga più di 127 caratteri. Aprire quindi **Synchronization Service** dal menu Start. Passare a **Connettori** e trovare **Active Directory Connector**. Selezionarlo e fare clic su **Proprietà**. Passare alla pagina **Credenziali** e immettere la nuova password. Scegliere **OK** per chiudere la pagina.
+              <p>[Trovare l'account Active Directory](connect/active-directory-aadconnect-accounts-permissions.md#active-directory-account) per Azure AD Connect e reimpostare la password in modo che non contenga più di 127 caratteri. Fare clic sul menu Start, quindi scegliere **Synchronization Service**. Passare a **Connettori** e trovare **Active Directory Connector**. Selezionarlo e fare clic su **Proprietà**. Passare alla pagina **Credenziali** e immettere la nuova password. Fare clic su **OK** per chiudere la pagina.
                             </p>
             </td>
           </tr>
@@ -485,11 +489,11 @@ Se si verifica un errore mentre si abilita, disabilita o usa il writeback della 
               <p>Questo errore si verifica nei due casi seguenti:</p>
               <ul>
                 <li class="unordered">
-                                        È stata specificata una password non corretta per l'account amministratore globale specificato all'inizio del processo di installazione di Azure AD Connect.<br\><br\></li>
+È stata specificata una password non corretta per l'account amministratore globale specificato all'inizio del processo di installazione di Azure AD Connect.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        È stato eseguito un tentativo di usare un utente federato per l'account amministratore globale specificato all'inizio del processo di installazione di Azure AD Connect.<br\><br\></li>
+È stato eseguito un tentativo di usare un utente federato per l'account amministratore globale specificato all'inizio del processo di installazione di Azure AD Connect.<br\><br\></li>
               </ul>
               <p>Per correggere l'errore, accertarsi di non usare un account federato per l'amministratore globale specificato all'inizio del processo di installazione di Azure AD Connect e che la password specificata sia corretta.</p>
             </td>
@@ -516,11 +520,11 @@ Se si verifica un errore mentre si abilita, disabilita o usa il writeback della 
               <p>Accertarsi che il firewall consenta le connessioni in uscita per:</p>
               <ul>
                 <li class="unordered">
-                                        Tutto il traffico su TCP 443 (HTTPS)<br\><br\></li>
+Tutto il traffico su TCP 443 (HTTPS)<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        Le connessioni in uscita <br\><br\></li>
+Connessioni in uscita <br\><br\></li>
               </ul>
               <p>
 
@@ -536,7 +540,7 @@ Se si verifica un errore mentre si abilita, disabilita o usa il writeback della 
               <p>Dopo un certo periodo di tempo, gli utenti federati o con sincronizzazione di hash della password non possono reimpostare le password.</p>
             </td>
             <td>
-              <p>In rari casi, è possibile che il servizio di writeback della password non venga riavviato quando si riavvia Azure AD Connect. In questi casi, controllare innanzitutto se il writeback della password risulta abilitato in locale. A tale scopo, è possibile usare la procedura guidata di Azure AD Connect o PowerShell (vedere la sezione precedente relativa alle procedure). Se la funzionalità appare abilitata, provare ad abilitarla o a disabilitarla di nuovo tramite l'interfaccia utente o PowerShell. Per altre informazioni su come eseguire questa operazione, vedere il passaggio 2, relativo a come abilitare il writeback della password nel computer di sincronizzazione della directory e configurare le regole del firewall, in <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Come abilitare/disabilitare il writeback della password</a></p>
+              <p>In rari casi, è possibile che il servizio di writeback della password non venga riavviato quando si riavvia Azure AD Connect. In questi casi, controllare innanzitutto se il writeback della password risulta abilitato in locale. A tale scopo, è possibile usare la procedura guidata di Azure AD Connect o PowerShell (vedere la sezione precedente relativa alle procedure). Se la funzionalità appare abilitata, provare ad abilitarla o a disabilitarla di nuovo tramite l'interfaccia utente o PowerShell. Per altre informazioni su come eseguire questa operazione, vedere "Passaggio 2: Abilitare il writeback delle password nel computer di Directory Sync &amp; configurare le regole del firewall" in <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Come abilitare/disabilitare il writeback delle password</a>.</p>
               <p>
 
               </p>
@@ -574,13 +578,13 @@ Se si verifica un errore mentre si abilita, disabilita o usa il writeback della 
               <p>C'è un bug noto nella versione rilasciata di Azure AD Connect che si manifesta nella situazione seguente:</p>
               <ol class="ordered">
                 <li>
-                                        Si configura Azure AD Connect per il tenant abc.com (dominio verificato) usando le credenziali. Di conseguenza, viene creato il connettore AAD denominato "abc.com - AAD".<br\><br\></li>
+Si configura Azure AD Connect per il tenant abc.com (dominio verificato) usando le credenziali. Viene creato il connettore AAD denominato "abc.com - AAD".<br\><br\></li>
                 <li>
-                                        Si modificano quindi le credenziali di AAD per il connettore, tramite l'interfaccia utente di sincronizzazione precedente (si noti che si tratta dello stesso tenant, ma di un nome di dominio diverso). <br\><br\></li>
+Si modificano le credenziali di AAD per il connettore nell'interfaccia di sincronizzazione precedente (si noti che si tratta dello stesso tenant, ma di un nome di dominio diverso). <br\><br\></li>
                 <li>
-                                        A questo punto si tenta di abilitare/disabilitare il writeback della password. La procedura guidata costruirà il nome del connettore, "abc.onmicrosoft.com - AAD", usando le credenziali e lo passerà al cmdlet per il writeback della password. L'operazione non riuscirà perché non esiste un connettore creato con questo nome.<br\><br\></li>
+A questo punto si tenta di abilitare/disabilitare il writeback della password. La procedura guidata costruirà il nome del connettore, "abc.onmicrosoft.com - AAD", usando le credenziali e lo passerà al cmdlet per il writeback della password. L'operazione non riuscirà perché non esiste un connettore creato con questo nome.<br\><br\></li>
               </ol>
-              <p>Tale problema è stato risolto nelle build più recenti. Se si dispone di una build precedente, l'unica soluzione alternativa consiste nell'usare il cmdlet di PowerShell per abilitare/disabilitare la funzionalità. Per altre informazioni su come eseguire questa operazione, vedere il passaggio 2, relativo a come abilitare il writeback della password nel computer di sincronizzazione della directory e configurare le regole del firewall, in <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Come abilitare/disabilitare il writeback della password</a></p>
+              <p>Tale problema è stato risolto nelle build più recenti. Se si dispone di una build precedente, l'unica soluzione alternativa consiste nell'usare il cmdlet di PowerShell per abilitare/disabilitare la funzionalità. Per altre informazioni su come eseguire questa operazione, vedere "Passaggio 2: Abilitare il writeback delle password nel computer di Directory Sync &amp; configurare le regole del firewall" in <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Come abilitare/disabilitare il writeback delle password</a>.</p>
             </td>
           </tr>
           <tr>
@@ -644,7 +648,7 @@ Se si verifica un errore mentre si abilita, disabilita o usa il writeback della 
               <p>Le operazioni con le password non riescono a causa di un errore di configurazione. Il registro eventi dell'applicazione contiene l'errore 6329 di Azure AD Connect con un testo simile al seguente: 0x8023061f (Operazione non riuscita perché la sincronizzazione della password non è abilitata in questo agente di gestione).</p>
             </td>
             <td>
-              <p>Ciò si verifica se si modifica la configurazione di Azure AD Connect per aggiungere una nuova foresta AD (o per rimuovere e aggiungere nuovamente una foresta esistente) <strong>dopo</strong> avere abilitato la funzionalità di writeback della password. Le operazioni con le password per gli utenti in queste foreste appena aggiunte avranno esito negativo. Per risolvere il problema, disabilitare e riabilitare la funzionalità di writeback della password dopo avere completato le modifiche di configurazione della foresta.</p>
+              <p>Ciò si verifica se si modifica la configurazione di Azure AD Connect per aggiungere&nbsp;una nuova foresta AD (o per rimuovere e aggiungere nuovamente una foresta esistente) <strong>dopo</strong> aver abilitato la funzionalità di writeback delle password. Le operazioni con le password per gli utenti in queste foreste appena aggiunte avranno esito negativo. Per risolvere il problema, disabilitare e riabilitare la funzionalità di writeback della password dopo avere completato le modifiche di configurazione della foresta.</p>
             </td>
           </tr>
           <tr>
@@ -655,13 +659,13 @@ Se si verifica un errore mentre si abilita, disabilita o usa il writeback della 
               <p>Quando si tenta di reimpostare una password per conto di un utente dal portale di gestione di Azure, viene visualizzato il messaggio seguente: "Il servizio di reimpostazione delle password in esecuzione nell'ambiente locale non supporta la reimpostazione delle password utente da parte degli amministratori. Per risolvere il problema, eseguire l'aggiornamento alla versione più recente di Azure AD Connect".</p>
             </td>
             <td>
-              <p>Ciò si verifica quando la versione del motore di sincronizzazione non supporta l'operazione di writeback della password specifica che è stata usata. Le versioni di Azure AD Connect successive alla 1.0.0419.0911 supportano tutte le operazioni di gestione delle password, incluso il writeback di reimpostazione della password, il writeback di modifica della password e il writeback di reimpostazione della password avviato dall'amministratore dal portale di gestione di Azure.&#160; Le versioni di DirSync successive alla 1.0.6862 supportano solo il writeback di reimpostazione della password. Per risolvere questo problema, è consigliabile installare la versione più recente di Azure AD Connect o Azure Active Directory Connect (per altre informazioni, vedere <a href="active-directory-aadconnect">Strumenti di integrazione di directory</a>). In questo modo, sarà anche possibile usare al meglio il writeback della password nell'organizzazione.</p>
+              <p>Ciò si verifica quando la versione del motore di sincronizzazione non supporta l'operazione di writeback della password specifica che è stata usata. Le versioni di Azure AD Connect successive alla 1.0.0419.0911 supportano tutte le operazioni di gestione delle password, incluso il writeback di reimpostazione e di modifica della password e il writeback di reimpostazione della password avviato dall'amministratore dal portale di gestione di Azure.&nbsp; Le versioni di DirSync successive alla 1.0.6862 supportano solo il writeback di reimpostazione della password. Per risolvere questo problema, è consigliabile installare la versione più recente di Azure AD Connect o Azure Active Directory Connect. Per altre informazioni, vedere [Integrazione delle identità locali](connect/active-directory-aadconnect.md) per risolvere questo problema e sfruttare al meglio il writeback delle password nell'organizzazione.</p>
             </td>
           </tr>
         </tbody></table>
 
 
-## Codici errore del registro eventi di writeback della password
+## <a name="password-writeback-event-log-error-codes"></a>Codici errore del registro eventi di writeback della password
 Una procedura consigliata per la risoluzione dei problemi relativi al writeback della password consiste nell'esaminare il registro eventi dell'applicazione nel computer che esegue Azure AD Connect. Questo registro conterrà eventi di due origini di interesse per il writeback della password. L'origine PasswordResetService descrive le operazioni e i problemi correlati all'operazione di writeback della password. L'origine ADSync descrive le operazioni e i problemi correlati all'impostazione delle password nell'ambiente AD.
 
 <table>
@@ -701,19 +705,19 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
               <p>Questo evento si verifica quando il servizio di writeback della password tenta di impostare una password nella directory locale che non soddisfa i requisiti di validità, cronologia, complessità o filtro del dominio.</p>
               <ul>
                 <li class="unordered">
-                                        Se è prevista una validità minima della password e di recente la password è stata modificata in tale intervallo di tempo, non sarà possibile modificarla di nuovo finché non si raggiunge il periodo di validità specificato nel dominio. A scopo di test, è consigliabile impostare la validità minima su 0.<br\><br\></li>
+Se è prevista una validità minima della password e di recente la password è stata modificata in tale intervallo di tempo, non sarà possibile modificarla di nuovo finché non si raggiunge il periodo di validità specificato nel dominio. A scopo di test, è consigliabile impostare la validità minima su 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        Se sono abilitati requisiti per la cronologia delle password, sarà necessario selezionare una password che non sia stata usata nelle ultime N volte, dove N è l'impostazione della cronologia delle password. Se si seleziona una password che è stata usata nelle ultime N volte, si verifica un errore. A scopo di test, è consigliabile impostare la cronologia su 0.<br\><br\></li>
+Se sono abilitati requisiti per la cronologia delle password, sarà necessario selezionare una password che non sia stata usata nelle ultime N volte, dove N è l'impostazione della cronologia delle password. Se si seleziona una password che è stata usata nelle ultime N volte, si verifica un errore. A scopo di test, è consigliabile impostare la cronologia su 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        Se sono abilitati requisiti di complessità della password, verranno applicati tutti quando l'utente tenta di modificare o reimpostare la password.<br\><br\></li>
+Se abilitati, tutti i requisiti di complessità della password vengono applicati quando l'utente tenta di modificare o reimpostare la password.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        Se sono abilitati filtri delle password e un utente sceglie una password che non soddisfa i criteri di filtro, l'operazione di reimpostazione o di modifica non riuscirà.<br\><br\></li>
+Se sono abilitati filtri delle password e un utente sceglie una password che non soddisfa i criteri di filtro, l'operazione di reimpostazione o di modifica non riuscirà.<br\><br\></li>
               </ul>
             </td>
           </tr>
@@ -728,7 +732,7 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
               <p>ADSync</p>
             </td>
             <td>
-              <p>Questo evento si verifica quando lo stesso id utente è abilitato in più domini. Ad esempio, se si esegue la sincronizzazione di foreste di Account/Resource e lo stesso id utente è presente e abilitato in ciascuna di esse, questo errore può verificarsi.  </p>
+              <p>Questo evento si verifica quando lo stesso id utente è abilitato in più domini.  Ad esempio, se si esegue la sincronizzazione di foreste di Account/Resource e lo stesso id utente è presente e abilitato in ciascuna di esse, questo errore può verificarsi.  </p>
               <p>Questo errore può verificarsi anche se si utilizza un attributo di ancoraggio non univoco (come alias o UPN) e due utenti condividono lo stesso attributo di ancoraggio.</p>
               <p>Per risolvere questo problema, assicurarsi di non avere alcun utente duplicato all'interno dei domini e di utilizzare un attributo di ancoraggio univoco per ogni utente.</p>
             </td>
@@ -775,17 +779,17 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
               <p>Questo evento indica che un utente ha selezionato una password che è pervenuta correttamente all'ambiente locale, ma quando si è tentato di impostare la password nell'ambiente AD locale si è verificato un errore. Questo problema può verificarsi per diversi motivi:</p>
               <ul>
                 <li class="unordered">
-                                        La password dell'utente non soddisfa i requisiti di validità, cronologia, complessità o filtro per il dominio. Per risolvere il problema, provare una password completamente nuova.<br\><br\></li>
+La password dell'utente non soddisfa i requisiti di validità, cronologia, complessità o filtro per il dominio. Per risolvere il problema, provare a usare una password completamente nuova.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        L'account del servizio dell'agente di gestione non dispone delle autorizzazioni appropriate per impostare la nuova password nell'account utente in questione.<br\><br\></li>
+L'account del servizio dell'agente di gestione non dispone delle autorizzazioni appropriate per impostare la nuova password per l'account utente specifico.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        L'account dell'utente appartiene a un gruppo protetto, ad esempio Domain Admins o Enterprise Admins, che non consente operazioni di impostazione delle password.<br\><br\></li>
+L'account dell'utente appartiene a un gruppo protetto, ad esempio Domain Admins o Enterprise Admins, che non consente operazioni di impostazione delle password.<br\><br\></li>
               </ul>
-              <p>Per altre informazioni su altre situazioni che possono causare questo errore, vedere <a href="#troubleshoot-password-writeback">Risolvere i problemi relativi al writeback della password</a>.</p>
+              <p>Per altre informazioni su altre situazioni che possono causare questo errore, vedere <a href="#troubleshoot-password-writeback">Risolvere i problemi relativi al writeback delle password</a>.</p>
             </td>
           </tr>
           <tr>
@@ -858,17 +862,17 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
               <p>Questo evento indica che un utente ha selezionato una password che è pervenuta correttamente all'ambiente locale, ma quando si è tentato di impostare la password nell'ambiente AD locale si è verificato un errore. Questo problema può verificarsi per diversi motivi:</p>
               <ul>
                 <li class="unordered">
-                                        La password dell'utente non soddisfa i requisiti di validità, cronologia, complessità o filtro per il dominio. Per risolvere il problema, provare una password completamente nuova.<br\><br\></li>
+La password dell'utente non soddisfa i requisiti di validità, cronologia, complessità o filtro per il dominio. Per risolvere il problema, provare a usare una password completamente nuova.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        L'account del servizio dell'agente di gestione non dispone delle autorizzazioni appropriate per impostare la nuova password nell'account utente in questione.<br\><br\></li>
+L'account del servizio dell'agente di gestione non dispone delle autorizzazioni appropriate per impostare la nuova password per l'account utente specifico.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        L'account dell'utente appartiene a un gruppo protetto, ad esempio Domain Admins o Enterprise Admins, che non consente operazioni di impostazione delle password.<br\><br\></li>
+L'account dell'utente appartiene a un gruppo protetto, ad esempio Domain Admins o Enterprise Admins, che non consente operazioni di impostazione delle password.<br\><br\></li>
               </ul>
-              <p>Per altre informazioni su altre situazioni che possono causare questo errore, vedere <a href="#troubleshoot-password-writeback">Risolvere i problemi relativi al writeback della password</a>.</p>
+              <p>Per altre informazioni su altre situazioni che possono causare questo errore, vedere <a href="#troubleshoot-password-writeback">Risolvere i problemi relativi al writeback delle password</a>.</p>
             </td>
           </tr>
           <tr>
@@ -913,17 +917,17 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
               <p>L'amministratore ha selezionato una password per conto di un utente, che è pervenuta correttamente all'ambiente locale, ma quando si è tentato di impostare la password nell'ambiente AD locale si è verificato un errore. Questo problema può verificarsi per diversi motivi:</p>
               <ul>
                 <li class="unordered">
-                                        La password dell'utente non soddisfa i requisiti di validità, cronologia, complessità o filtro per il dominio. Per risolvere il problema, provare una password completamente nuova.<br\><br\></li>
+La password dell'utente non soddisfa i requisiti di validità, cronologia, complessità o filtro per il dominio. Per risolvere il problema, provare a usare una password completamente nuova.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        L'account del servizio dell'agente di gestione non dispone delle autorizzazioni appropriate per impostare la nuova password nell'account utente in questione.<br\><br\></li>
+L'account del servizio dell'agente di gestione non dispone delle autorizzazioni appropriate per impostare la nuova password per l'account utente specifico.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        L'account dell'utente appartiene a un gruppo protetto, ad esempio Domain Admins o Enterprise Admins, che non consente operazioni di impostazione delle password.<br\><br\></li>
+L'account dell'utente appartiene a un gruppo protetto, ad esempio Domain Admins o Enterprise Admins, che non consente operazioni di impostazione delle password.<br\><br\></li>
               </ul>
-              <p>Per altre informazioni su altre situazioni che possono causare questo errore, vedere <a href="#troubleshoot-password-writeback">Risolvere i problemi relativi al writeback della password</a>.</p>
+              <p>Per altre informazioni su altre situazioni che possono causare questo errore, vedere <a href="#troubleshoot-password-writeback">Risolvere i problemi relativi al writeback delle password</a>.</p>
             </td>
           </tr>
           <tr>
@@ -1189,7 +1193,7 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Questo evento indica che il servizio locale non è stato in grado di comunicare correttamente con il servizio Web di reimpostazione della password per avviare il processo di caricamento. Potrebbe dipendere da una regola del firewall o da un problema nel recupero di un token di autorizzazione per il tenant. Per risolvere il problema, assicurarsi che le connessioni in uscita su TCP 443 e TCP 9350-9354 o verso <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a> non siano bloccate e che l'account amministratore AAD usato per il caricamento non sia federato. </p>
+              <p>Questo evento indica che il servizio locale non è stato in grado di comunicare correttamente con il servizio Web di reimpostazione della password per avviare il processo di caricamento. Potrebbe dipendere da una regola del firewall o da un problema nel recupero di un token di autorizzazione per il tenant. Per risolvere il problema, verificare che le connessioni in uscita su TCP 443 e TCP 9350-9354 o verso <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a> non siano bloccate e che l'account amministratore AAD usato per il caricamento non sia federato. </p>
             </td>
           </tr>
           <tr>
@@ -1301,7 +1305,7 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Questo evento indica che l'account del servizio agente di gestione non dispone delle autorizzazioni appropriate nell'account in questione per impostare una nuova password. Assicurarsi che l'account agente di gestione nella foresta dell'utente disponga delle autorizzazioni di modifica e reimpostazione della password per tutti gli oggetti nella foresta. Per altre informazioni su come eseguire questa operazione, vedere <a href="active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions">Passaggio 4: Impostare le autorizzazioni di Active Directory appropriate</a>.</p>
+              <p>Questo evento indica che l'account del servizio agente di gestione non dispone delle autorizzazioni appropriate nell'account in questione per impostare una nuova password. Assicurarsi che l'account agente di gestione nella foresta dell'utente disponga delle autorizzazioni di modifica e reimpostazione della password per tutti gli oggetti nella foresta.  Per altre informazioni su come eseguire questa operazione, vedere <a href="active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions">Passaggio 4: Impostare le autorizzazioni di Active Directory appropriate</a>.</p>
             </td>
           </tr>
           <tr>
@@ -1360,19 +1364,19 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
               <p>Questo evento si verifica quando il servizio di writeback della password tenta di impostare una password nella directory locale che non soddisfa i requisiti di validità, cronologia, complessità o filtro del dominio.</p>
               <ul>
                 <li class="unordered">
-                                        Se è prevista una validità minima della password e di recente la password è stata modificata in tale intervallo di tempo, non sarà possibile modificarla di nuovo finché non si raggiunge il periodo di validità specificato nel dominio. A scopo di test, è consigliabile impostare la validità minima su 0.<br\><br\></li>
+Se è prevista una validità minima della password e di recente la password è stata modificata in tale intervallo di tempo, non sarà possibile modificarla di nuovo finché non si raggiunge il periodo di validità specificato nel dominio. A scopo di test, è consigliabile impostare la validità minima su 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        Se sono abilitati requisiti per la cronologia delle password, sarà necessario selezionare una password che non sia stata usata nelle ultime N volte, dove N è l'impostazione della cronologia delle password. Se si seleziona una password che è stata usata nelle ultime N volte, si verifica un errore. A scopo di test, è consigliabile impostare la cronologia su 0.<br\><br\></li>
+Se sono abilitati requisiti per la cronologia delle password, sarà necessario selezionare una password che non sia stata usata nelle ultime N volte, dove N è l'impostazione della cronologia delle password. Se si seleziona una password che è stata usata nelle ultime N volte, si verifica un errore. A scopo di test, è consigliabile impostare la cronologia su 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        Se sono abilitati requisiti di complessità della password, verranno applicati tutti quando l'utente tenta di modificare o reimpostare la password.<br\><br\></li>
+Se abilitati, tutti i requisiti di complessità della password vengono applicati quando l'utente tenta di modificare o reimpostare la password.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        Se sono abilitati filtri delle password e un utente sceglie una password che non soddisfa i criteri di filtro, l'operazione di reimpostazione o di modifica non riuscirà.<br\><br\></li>
+Se sono abilitati filtri delle password e un utente sceglie una password che non soddisfa i criteri di filtro, l'operazione di reimpostazione o di modifica non riuscirà.<br\><br\></li>
               </ul>
             </td>
           </tr>
@@ -1434,7 +1438,7 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
           </tr>
         </tbody></table>
 
-## Risolvere i problemi relativi alla connettività di writeback della password
+## <a name="troubleshoot-password-writeback-connectivity"></a>Risolvere i problemi relativi alla connettività di writeback della password
 Se si verificano interruzioni del servizio con il componente di writeback della password di Azure AD Connect, ecco alcuni passaggi rapidi che è possibile eseguire per risolvere il problema:
 
 * [Riavviare il servizio di sincronizzazione di Azure AD Connect](#restart-the-azure-AD-Connect-sync-service)
@@ -1444,33 +1448,33 @@ Se si verificano interruzioni del servizio con il componente di writeback della 
 
 In generale, è consigliabile eseguire questi passaggi nell'ordine indicato per ripristinare il servizio nel modo più rapido.
 
-### Riavviare il servizio di sincronizzazione di Azure AD Connect
+### <a name="restart-the-azure-ad-connect-sync-service"></a>Riavviare il servizio di sincronizzazione di Azure AD Connect
 Il riavvio del servizio di sincronizzazione di Azure AD Connect può aiutare a risolvere i problemi di connettività o altri problemi temporanei con il servizio.
 
-1. Con un account amministratore fare clic su **Avvia** nel server che esegue **Azure AD Connect**.
-2. Digitare **"services.msc"** nella casella di ricerca e premere **INVIO**.
-3. Cercare la voce **Microsoft Azure AD Connect**.
-4. Fare clic con il pulsante destro del mouse sulla voce relativa al servizio, scegliere **Riavvia** e attendere il completamento dell'operazione.
+1. Con un account amministratore, fare clic sul pulsante **Start** nel server che esegue **Azure AD Connect**.
+2. Digitare **services.msc** nella casella di ricerca e premere **INVIO**.
+3. Cercare la voce **Microsoft Azure AD Connect** .
+4. Fare clic con il pulsante destro del mouse sulla voce relativa al servizio, scegliere **Riavvia**e attendere il completamento dell'operazione.
    
    ![][002]
 
-Questi passaggi consentiranno di ristabilire la connessione con il servizio cloud e risolvere eventuali interruzioni che si sono verificate. Se il riavvio del servizio di sincronizzazione non risolve il problema, come passaggio successivo è consigliabile provare a disabilitare e riabilitare la funzionalità di writeback della password.
+Questi passaggi consentiranno di ristabilire la connessione con il servizio cloud e risolvere eventuali interruzioni che si sono verificate.  Se il riavvio del servizio di sincronizzazione non risolve il problema, come passaggio successivo è consigliabile provare a disabilitare e riabilitare la funzionalità di writeback della password.
 
-### Disabilitare e riabilitare la funzionalità di writeback della password
+### <a name="disable-and-re-enable-the-password-writeback-feature"></a>Disabilitare e riabilitare la funzionalità di writeback della password
 Disabilitando e riabilitando la funzionalità di writeback della password è possibile risolvere i problemi di connettività.
 
 1. Con un account amministratore aprire la **Configurazione guidata di Azure AD Connect**.
-2. Nella finestra di dialogo **Connessione ad Azure AD** immettere le **credenziali di amministratore globale di Azure AD**.
-3. Nella finestra di dialogo **Connessione a Servizi di dominio Active Directory** immettere le **credenziali di amministratore di Servizi di dominio Active Directory**.
-4. Nella finestra di dialogo **Identificazione univoca per gli utenti** fare clic sul pulsante **Avanti**.
+2. Nella finestra di dialogo **Connessione ad Azure AD** immettere le **credenziali di amministratore globale di Azure AD**
+3. Nella finestra di dialogo **Connessione a Servizi di dominio Active Directory** immettere le **credenziali di amministratore di AD Domain Services**.
+4. Nella finestra di dialogo **Identificazione univoca per gli utenti** fare clic su **Avanti**.
 5. Nella finestra di dialogo **Funzionalità facoltative** deselezionare la casella di controllo **Writeback password**.
    
    ![][003]
 6. Fare clic su **Avanti** nelle pagine rimanenti senza apportare alcuna modifica fino a quando non viene visualizzata la pagina **Pronto per la configurazione**.
-7. Assicurarsi che nella pagina di configurazione l'**opzione Writeback password sia disabilitata** e quindi fare clic sul pulsante verde **Configura** per salvare le modifiche.
-8. Nella finestra di dialogo **Operazione completata** deselezionare l'opzione **Sincronizza adesso** e quindi fare clic su **Fine** per chiudere la procedura guidata.
+7. Verificare che nella pagina di configurazione l'**opzione Writeback password sia disabilitata** e quindi fare clic sul pulsante verde **Configura** per salvare le modifiche.
+8. Nella finestra di dialogo **Operazione completata** deselezionare l'opzione **Sincronizza ora** e quindi fare clic su **Fine** per chiudere la procedura guidata.
 9. Aprire di nuovo la **Configurazione guidata di Azure AD Connect**.
-10. **Ripetere i passaggi da 2 a 8**, assicurandosi però di **selezionare l'opzione Writeback password** nella schermata **Funzionalità facoltative** per riabilitare il servizio.
+10. **Ripetere i passaggi da 2 a 8**, verificando di **selezionare l'opzione Writeback password** nella schermata **Funzionalità facoltative** per riabilitare il servizio.
     
     ![][004]
 
@@ -1478,36 +1482,43 @@ Questi passaggi consentiranno di ristabilire la connessione con il servizio clou
 
 Se la disabilitazione e la riabilitazione della funzionalità di writeback della password non risolvono il problema, come passaggio successivo è consigliabile provare a reinstallare Azure AD Connect.
 
-### Installare la versione più recente di Azure AD Connect
-La reinstallazione del pacchetto Azure AD Connect consente di risolvere eventuali problemi di configurazione che potrebbero impedire la connessione ai servizi cloud o la gestione delle password nell'ambiente Active Directory locale. Si consiglia di eseguire questo passaggio solo dopo aver provato a eseguire i due passaggi descritti in precedenza.
+### <a name="install-the-latest-azure-ad-connect-release"></a>Installare la versione più recente di Azure AD Connect
+La reinstallazione del pacchetto Azure AD Connect consente di risolvere eventuali problemi di configurazione che potrebbero impedire la connessione ai servizi cloud o la gestione delle password nell'ambiente Active Directory locale.
+Si consiglia di eseguire questo passaggio solo dopo aver provato a eseguire i due passaggi descritti in precedenza.
 
-1. Scaricare la versione più recente di Azure AD Connect [qui](active-directory-aadconnect.md#install-azure-ad-connect).
+1. Scaricare la versione più recente di Azure AD Connect [qui](connect/active-directory-aadconnect.md#install-azure-ad-connect).
 2. Poiché Azure AD Connect è già stato installato, è sufficiente eseguire un aggiornamento sul posto per aggiornare l'installazione di Azure AD Connect alla versione più recente.
-3. Eseguire il pacchetto scaricato e seguire le istruzioni visualizzate per aggiornare il computer che esegue Azure AD Connect. Non sono necessarie altre operazioni manuali, a meno che non siano state personalizzate le regole di sincronizzazione. In tal caso, è necessario **eseguire il backup prima di procedere con l'aggiornamento e ridistribuire manualmente le regole dopo aver completato l'operazione**.
+3. Eseguire il pacchetto scaricato e seguire le istruzioni visualizzate per aggiornare il computer che esegue Azure AD Connect.  Non sono necessarie altre operazioni manuali, a meno che non siano state personalizzate le regole di sincronizzazione. In tal caso, è necessario **eseguire il backup prima di procedere con l'aggiornamento e ridistribuire manualmente le regole dopo aver completato l'operazione**.
 
 Questi passaggi consentiranno di ristabilire la connessione con il servizio cloud e risolvere eventuali interruzioni che si sono verificate.
 
 Se la reinstallazione della versione più recente del server Azure AD Connect non risolve il problema, come ultimo passaggio è consigliabile provare a disabilitare e riabilitare il writeback della password dopo aver installato la versione più recente del QFE di sincronizzazione.
 
-Se anche in questo modo il problema non si risolve, vedere [Risolvere i problemi relativi al writeback della password](#troubleshoot-password-writeback) e le [domande frequenti sulla gestione delle password di Azure AD](active-directory-passwords-faq.md) per verificare se il problema viene trattato in queste pagine.
+Se il problema persiste, vedere [Risolvere i problemi relativi al writeback delle password](#troubleshoot-password-writeback) e le [domande frequenti sulla gestione delle password di Azure AD](active-directory-passwords-faq.md) per verificare se il problema viene trattato.
 
-<br/> <br/> <br/>
+<br/>
+<br/>
+<br/>
 
-## Collegamenti alla documentazione relativa alla reimpostazione della password
+## <a name="links-to-password-reset-documentation"></a>Collegamenti alla documentazione relativa alla reimpostazione della password
 Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,**  [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
 * [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
 * [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
 * [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
 * [**Procedure consigliate**](active-directory-passwords-best-practices.md): informazioni su come distribuire rapidamente e gestire in modo efficace le password nell'organizzazione
 * [**Informazioni dettagliate**](active-directory-passwords-get-insights.md): informazioni sulle funzionalità di creazione report integrate
-* [**Domande frequenti**](active-directory-passwords-faq.md): risposte alle domande frequenti
-* [**Ulteriori informazioni**](active-directory-passwords-learn-more.md): approfondimenti sui dettagli tecnici del funzionamento del servizio
+* [**Domande frequenti**](active-directory-passwords-faq.md) : risposte alle domande frequenti
+* [**Altre informazioni**](active-directory-passwords-learn-more.md): approfondimenti sui dettagli tecnici del funzionamento del servizio
 
 [001]: ./media/active-directory-passwords-troubleshoot/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-troubleshoot/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Dec16_HO4-->
+
+

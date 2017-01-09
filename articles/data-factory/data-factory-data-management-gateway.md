@@ -3,7 +3,7 @@ title: Gateway di gestione dati per Data Factory | Documentazione Microsoft
 description: Configurare un gateway dati per spostare dati tra origini locali e il cloud. Usare Gateway di gestione dati in Azure Data Factory per spostare dati.
 services: data-factory
 documentationcenter: 
-author: linda33wj
+author: nabhishek
 manager: jhubbard
 editor: monicar
 ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2016
-ms.author: jingwang
+ms.author: abnarain
 translationtype: Human Translation
 ms.sourcegitcommit: 1b2514e1e6f39bb3ce9d8a46f4af01835284cdcc
 ms.openlocfilehash: f0b3d45ea72ec3e7e0b19bc97ff9d8051067d1fa
@@ -21,7 +21,7 @@ ms.openlocfilehash: f0b3d45ea72ec3e7e0b19bc97ff9d8051067d1fa
 
 ---
 # <a name="data-management-gateway"></a>Gateway di gestione dati
-Il Gateway di gestione dati è un agente client che deve essere installato nell'ambiente locale per copiare i dati tra archivi dati cloud e locali. Gli archivi dati locali supportati da Data Factory sono disponibili nella sezione [Archivi dati e formati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . 
+Il Gateway di gestione dati è un agente client che deve essere installato nell'ambiente locale per copiare i dati tra archivi dati cloud e locali. Gli archivi dati locali supportati da Data Factory sono disponibili nella sezione [Archivi dati e formati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats) .
 
 > [!NOTE]
 > Attualmente il gateway supporta solo l'attività di copia e l'attività di stored procedure in Data Factory. Non è possibile usare il gateway da un'attività personalizzata per accedere alle origini dati locali.

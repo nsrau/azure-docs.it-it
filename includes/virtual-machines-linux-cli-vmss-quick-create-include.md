@@ -1,16 +1,23 @@
-Se non è già stato fatto, è possibile ottenere [una versione di valutazione gratuita di una sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/) e l'[interfaccia della riga di comando di Azure](../articles/xplat-cli-install.md) [connessa all'account Azure](../articles/xplat-cli-connect.md). Al termine dell'operazione, è possibile eseguire i comandi seguenti per creare rapidamente un set di scalabilità:
+Se non è già stato fatto, è possibile ottenere [una versione di valutazione gratuita di una sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/) e l'[interfaccia della riga di comando di Azure](../articles/xplat-cli-install.md) [connessa all'account Azure](../articles/xplat-cli-connect.md). Verificare che l'interfaccia della riga di comando di Azure sia in modalità Resource Manager come indicato di seguito:
 
-```bash
-# make sure we are in Resource Manager mode (https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/)
+```azurecli
 azure config mode arm
+```
 
-# quick-create a scale set
-#
-# generic syntax:
-# azure vmss quick-create -n SCALE-SET-NAME -g RESOURCE-GROUP-NAME -l LOCATION -u USERNAME -p PASSWORD -C INSTANCE-COUNT -Q IMAGE-URN
-#
-# example:
-azure vmss quick-create -n negatvmss -g negatvmssrg -l westus -u negat -p P4ssw0rd -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
+A questo punto creare i set di scalabilità usando il comando `azure vmss quick-create`. Nell'esempio seguente viene creato un set di scalabilità di Linux denominato `myVMSS` con 5 istanze di macchine virtuali nel gruppo di risorse denominato `myResourceGroup`:
+
+```azurecli
+azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
+    -u ops -p P@ssw0rd! \
+    -C 5 -Q Canonical:UbuntuServer:16.04.0-LTS:latest
+```
+
+Nell'esempio seguente viene creato un set di scalabilità di Windows con la stessa configurazione:
+
+```azurecli
+azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
+    -u ops -p P@ssw0rd! \
+    -C 5 -Q MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest
 ```
 
 Se si vuole personalizzare la località o l'URN dell'immagine, esaminare i comandi `azure location list` e `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
@@ -30,7 +37,8 @@ line=$(azure network lb list -g negatvmssrg | grep negatvmssrg)
 split_line=( $line )
 lb_name=${split_line[1]}
 
-# now that we have the name of the load balancer, we can show the details to find which Public IP (PIP) is associated to it
+# now that we have the name of the load balancer, we can show the details to find which Public IP (PIP) is 
+# associated to it
 #
 # generic syntax:
 # azure network lb show -g RESOURCE-GROUP-NAME -n LOAD-BALANCER-NAME
@@ -56,6 +64,6 @@ FQDN=${split_line[3]}
 ssh -p 50000 negat@$FQDN
 ```
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

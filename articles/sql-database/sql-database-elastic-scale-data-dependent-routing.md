@@ -90,7 +90,7 @@ Una procedura consigliata nello sviluppo di applicazioni di accesso ai dati nel 
 
 La gestione degli errori temporanei può coesistere naturalmente con il modello di routing dipendente dai dati. Il requisito principale consiste nel ripetere l'intera richiesta di accesso ai dati, incluso il blocco **using** che ha ottenuto la connessione di routing dipendente dai dati. L'esempio precedente potrebbe essere riscritto come riportato di seguito (notare la modifica evidenziata). 
 
-### <a name="example-data-dependent-routing-with-transient-fault-handling"></a>Esempio: routing dipendente dai dati con gestione degli errori temporanei
+### <a name="example--data-dependent-routing-with-transient-fault-handling"></a>Esempio: routing dipendente dai dati con gestione degli errori temporanei
 <pre><code>int customerId = 12345; 
 int newPersonId = 4321; 
 

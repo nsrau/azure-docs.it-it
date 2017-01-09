@@ -42,7 +42,6 @@
 
 # Riferimento
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell (classico)](https://msdn.microsoft.com/library/azure/mt613507)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (originale)](/rest/api/apimanagement/ApiManagementREST/API-Management-REST)
 
@@ -67,6 +66,6 @@
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

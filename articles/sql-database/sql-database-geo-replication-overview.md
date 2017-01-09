@@ -3,21 +3,26 @@ title: Replica geografica attiva per il database SQL di Azure
 description: La replica geografica attiva consente di configurare 4 repliche del database in qualsiasi data center di Azure.
 services: sql-database
 documentationcenter: na
-author: stevestein
+author: anosov1960
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 2a29f657-82fb-4283-9a83-e14a144bfd93
 ms.service: sql-database
+ms.custom: business continuity
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/26/2016
-ms.author: sstein
+ms.author: sashan;carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 521bdc1bc13451210ccc3f5eefcfa903166031bc
+ms.openlocfilehash: ad5172865becf203cc42d84805ecaf40b046bd98
+
 
 ---
-# <a name="overview:-sql-database-active-geo-replication"></a>Panoramica: Replica geografica attiva per il database SQL di Azure
-La replica geografica attiva consente di configurare fino a quattro database secondari accessibili in lettura nella stessa posizione del data center o in posizioni (aree) diverse. Sono disponibili database secondari per l'esecuzione di query e il failover in caso di interruzione di un data center o dell'impossibilità di connettersi al database primario.
+# <a name="overview-sql-database-active-geo-replication"></a>Panoramica: Replica geografica attiva per il database SQL di Azure
+La replica geografica attiva consente di configurare fino a quattro database secondari accessibili in lettura nella stessa posizione del data center o in posizioni (aree) diverse. Sono disponibili database secondari per l'esecuzione di query e il failover in caso di interruzione di un data center o dell'impossibilità di connettersi al database primario. La replica geografica attiva deve essere avvenire tra database della stessa sottoscrizione.
 
 > [!NOTE]
 > La replica geografica attiva (database secondari accessibili in lettura) è ora disponibile per tutti i database in tutti i livelli di servizio. Nell'aprile 2017 il tipo di database secondario non leggibile verrà ritirato e i database non leggibili esistenti verranno aggiornati automaticamente a database secondari accessibili in lettura.
@@ -97,7 +102,7 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 * **API di Azure Resource Manager e sicurezza basata sui ruoli**: la replica geografica attiva include un set di [API di Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx) per la gestione, inclusi i [cmdlet di PowerShell basati su Azure Resource Manager](sql-database-geo-replication-powershell.md). Queste API richiedono l'uso di gruppi di risorse e supportano la sicurezza basata sui ruoli (Controllo degli accessi in base al ruolo). Per altre informazioni su come implementare i ruoli di accesso, vedere [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md).
 
 > [!NOTE]
-> Molte nuove funzionalità della replica geografica attiva sono supportate solo con [Azure Resource Manager](../resource-group-overview.md) e in particolare con le [API REST SQL di Azure](https://msdn.microsoft.com/library/azure/mt163571.aspx) e con i [cmdlet di PowerShell per il database SQL di Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx). L'API REST (versione classica) (https://msdn.microsoft.com/library/azure/dn505719.aspx e i [cmdlet del database SQL di Azure (versione classica)](https://msdn.microsoft.com/library/azure/dn546723.aspx) sono supportati per la compatibilità con le versioni precedenti, ma è consigliabile usare le API basate su Azure Resource Manager. 
+> Molte nuove funzionalità della replica geografica attiva sono supportate solo con [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) e in particolare con le [API REST SQL di Azure](https://msdn.microsoft.com/library/azure/mt163571.aspx) e con i [cmdlet di PowerShell per il database SQL di Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx). L'API REST (versione classica) (https://msdn.microsoft.com/library/azure/dn505719.aspx e i [cmdlet del database SQL di Azure (versione classica)](https://msdn.microsoft.com/library/azure/dn546723.aspx) sono supportati per la compatibilità con le versioni precedenti, ma è consigliabile usare le API basate su Azure Resource Manager. 
 > 
 > 
 
@@ -141,6 +146,9 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 * Per altre informazioni sull'uso dei backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md).
 * Per ulteriori informazioni sui requisiti di autenticazione per un nuovo database e server primario, vedere l'articolo sulla [sicurezza del database SQL di Azure dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

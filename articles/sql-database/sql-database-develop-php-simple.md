@@ -26,7 +26,7 @@ ms.openlocfilehash: 162c89b07a0bc690600f0cc59e3f4c70e02eac91
 
 Questo argomento illustra come connettersi al database SQL di Azure da un'applicazione client scritta in PHP che viene eseguita in Windows.
 
-## <a name="step-1-configure-development-environment"></a>Passaggio 1: Configurare l'ambiente di sviluppo
+## <a name="step-1--configure-development-environment"></a>Passaggio 1: Configurare l'ambiente di sviluppo
 [Configurare l'ambiente di sviluppo PHP](https://msdn.microsoft.com/library/mt720663.aspx)
 
 ## <a name="step-2-create-a-sql-database"></a>Passaggio 2: Creare un database SQL

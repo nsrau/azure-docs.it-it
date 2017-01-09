@@ -38,14 +38,14 @@ Da questa pagina è possibile accedere a tutte le soluzioni presenti in Gallery 
 
  Fare clic su una soluzione qualsiasi per aprirne la pagina dei dettagli e leggere maggiori informazioni su di essa. In questa pagina è disponibile una sezione dedicata ai commenti in cui è possibile inserire un commento, inviare suggerimenti o porre una domanda. Usando le funzionalità di condivisione di LinkedIn o Twitter è anche possibile condividere la pagina con amici o colleghi. È inoltre possibile invitare altri utenti a visualizzare la pagina inviando loro un collegamento alla soluzione tramite posta elettronica.
 
-![Condividere l'elemento con amici](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![Condividere l'elemento con amici](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![Aggiungere un commento](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![Aggiungere un commento](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="deploy"></a>Distribuisci
 Se si vuole usare una soluzione, fare clic su **Deploy** (Distribuisci). Seguire la procedura descritta per configurare e distribuire la soluzione nella propria area di lavoro.
 
-![Distribuire una soluzione di Gallery](media\\machine-learning-gallery-solutions\\deploy-solution.png)
+![Distribuire una soluzione di Gallery](media/machine-learning-gallery-solutions/deploy-solution.png)
 
 **[VAI A GALLERY >>](http://gallery.cortanaintelligence.com)**
 

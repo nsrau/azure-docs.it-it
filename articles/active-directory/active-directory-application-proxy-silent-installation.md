@@ -26,7 +26,7 @@ Può essere necessario inviare uno script di installazione a più server Windows
 ## <a name="enabling-access"></a>Abilitazione dell'accesso
 Il proxy dell’applicazione funziona mediante l'installazione di un servizio di Windows Server slim chiamato connettore all'interno della rete. Per il corretto funzionamento del connettore del proxy di applicazione, è necessario registrarlo nella directory di Azure AD con un account di amministratore globale e una password. Queste informazioni vengono in genere immesse durante l'installazione del connettore in una finestra di dialogo popup. In alternativa, è possibile usare Windows PowerShell per creare un oggetto credenziale in modo da immettere le informazioni di registrazione oppure è possibile creare un token personale e usarlo per immettere le informazioni di registrazione.
 
-## <a name="step-1-install-the-connector-without-registration"></a>Passaggio 1: Installare il connettore senza registrazione
+## <a name="step-1--install-the-connector-without-registration"></a>Passaggio 1: Installare il connettore senza registrazione
 Per installare i file MSI del connettore senza registrare il connettore, procedere come segue:
 
 1. Aprire un prompt dei comandi.

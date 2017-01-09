@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni sulla fatturazione di Azure e su come gestire e monitorare usi e costi. Esercitazioni, FAQ, informazioni di riferimento sulle API e altri documenti.
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 2ea3999e6292de1f515f8d2fdd6cc0b79d306d16
+ms.sourcegitcommit: 640915b6305b2865b21937e19c324e8e7f1ba0a7
+ms.openlocfilehash: 401406bccbb6e6e7b92b431efe57e49d6745e8c2
 
 ---
 # <a name="azure-billing-documentation"></a>Documentazione della fatturazione di Azure
 
-Clienti e partner richiedono la possibilità di prevedere e gestire i costi di Azure con precisione. Nel passaggio da un modello basato sugli investimenti a un modello basato sui costi operativi, devono inoltre avere la possibilità di eseguire analisi di showback e chargeback, nonché fornire fedeltà di modalità per la stima e la fatturazione, specialmente per le distribuzioni di cloud di grandi dimensioni.
+Informazioni sulla fatturazione di Azure e su come monitorare usi e costi. Esercitazioni, FAQ, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come gestire l'account.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -68,22 +69,33 @@ Clienti e partner richiedono la possibilità di prevedere e gestire i costi di A
 
 ---
 
-## <a name="reference"></a>Riferimento
-
+<h2>Riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://msdn.microsoft.com/en-us/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>API REST</p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c">Informazioni di riferimento sulle API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Altre</h3>
+                        <p><a href="https://docs.microsoft.com/azure/billing-usage-rate-card-overview">Panoramica API</a></p>
+                        <p><a href="https://docs.microsoft.com/azure/billing-usage-rate-card-partner-solution-cloudcruiser">Soluzione di un partner: Cloud Cruiser</a></p>
+                        <p><a href="https://docs.microsoft.com/azure/billing-usage-rate-card-partner-solution-cloudyn">Soluzione di un partner: Cloudyn</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
 
@@ -98,6 +110,7 @@ Scaricare la documentazione della fatturazione </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO1-->
 
 

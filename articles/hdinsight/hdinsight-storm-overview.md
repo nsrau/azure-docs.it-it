@@ -16,12 +16,12 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e2fa11046adf828497b142e1043ac1c2a15443ef
+ms.sourcegitcommit: bccec1e4078c38e1cc9205a36d3a5df579df35b6
+ms.openlocfilehash: d5ff397e947a7edc8310da59ff9fe8896829e35d
 
 
 ---
-# <a name="introduction-to-apache-storm-on-hdinsight-realtime-analytics-for-hadoop"></a>Introduzione ad Apache Storm in HDInsight: Analisi in tempo reale per Hadoop
+# <a name="introduction-to-apache-storm-on-hdinsight-real-time-analytics-for-hadoop"></a>Introduzione ad Apache Storm in HDInsight: Analisi in tempo reale per Hadoop
 Apache Storm in HDInsight consente di creare soluzioni di analisi distribuite e in tempo reale nell'ambiente Azure usando [Apache Hadoop](http://hadoop.apache.org).
 
 ## <a name="what-is-apache-storm"></a>Che cos'è Apache Storm?
@@ -36,8 +36,9 @@ Apache Storm in HDInsight è un cluster gestito integrato nell'ambiente Azure ch
   * Supporta una combinazione di linguaggi di programmazione. Ad esempio, legge i dati usando Java e li elabora in C.#
     
     > [!NOTE]
-    > Le topologie di C# sono supportate solo nei cluster HDInsight basati su Windows.
+    > Per usare una topologia C# con un cluster basato su Linux, è necessario aggiornare il pacchetto NuGet Microsoft.SCP.Net.SDK usato dal progetto alla versione 0.10.0.6 o successiva. La versione del pacchetto deve anche corrispondere alla versione principale di Storm installata in HDInsight. Ad esempio, le versioni 3.3 e 3.4 di Storm in HDInsight usano Storm versione 0.10.x, mentre HDInsight 3.5 usa Storm 1.0.x.
     > 
+    > Le topologie C# nei cluster basati su Linux devono usare .NET 4.5 e devono usare Mono per l'esecuzione nel cluster HDInsight. Anche se non dovrebbero verificarsi problemi, è consigliabile vedere il documento sulla [compatibilità di Mono](http://www.mono-project.com/docs/about-mono/compatibility/) per le potenziali incompatibilità.
     > 
   * Usa l'interfaccia Java **Trident** per creare topologie Storm che supportano l'elaborazione di tipo"exactly-once" dei messaggi, la persistenza "transazionale" del datastore e un insieme di operazioni di analisi del flusso di uso comune.
 * Include funzionalità di scalabilità orizzontale e scalabilità verticale. Consente di ridimensionare un cluster HDInsight senza alcun impatto sull'esecuzione delle topologie Storm.
@@ -53,7 +54,7 @@ Per un'introduzione all'uso di Storm, vedere [Introduzione a Storm in HDInsight]
 Il provisioning di un nuovo cluster Storm in HDInsight richiede solo alcuni minuti. Specificare il nome, le dimensioni, l'account amministratore e l'account di archiviazione del cluster. Azure creerà il cluster, inclusi topologie di esempio e un dashboard di gestione Web.
 
 > [!NOTE]
-> È anche possibile effettuare il provisioning di cluster Storm usando l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) o [Azure PowerShell](../powershell-install-configure.md).
+> È anche possibile effettuare il provisioning di cluster Storm usando l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) o [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 > 
 > 
 
@@ -107,7 +108,7 @@ Anche se è possibile specificare il numero di nodi del cluster durante la fase 
 ### <a name="support"></a>Supporto
 Storm in HDInsight viene fornito con supporto completo di livello enterprise 24 ore su 24, 7 giorni su 7. Storm in HDInsight dispone inoltre di un contratto di servizio con disponibilità del 99,9%. Questo garantisce che il cluster avrà connettività esterna per almeno il 99,9% del tempo.
 
-## <a name="common-use-cases-for-realtime-analytics"></a>Casi comuni di uso dell’analisi in tempo reale
+## <a name="common-use-cases-for-real-time-analytics"></a>Casi comuni di uso dell’analisi in tempo reale
 Di seguito sono descritti alcuni scenari comuni in cui è possibile usare Apache Storm in HDInsight. Per informazioni sugli scenari reali, leggere l'articolo che descrive [in che modo le società stanno usando Storm](https://storm.apache.org/documentation/Powered-By.html).
 
 * Internet delle cose
@@ -206,6 +207,6 @@ Per altre informazioni sulle soluzioni di analisi in tempo reale con Apache Stor
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

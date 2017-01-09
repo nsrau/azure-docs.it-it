@@ -1,6 +1,6 @@
 ---
-title: Tipi di eventi di rischio rilevati da Azure Active Directory Identity Protection | Documentazione Microsoft
-description: Questo argomento presenta una panoramica dettagliata dei tipi di eventi di rischio disponibili in Azure Active Directory Identity Protection
+title: Tipi di eventi di rischio rilevati da Azure Active Directory | Documentazione Microsoft
+description: Questo argomento presenta una panoramica dettagliata dei tipi di eventi di rischio disponibili in Azure Active Directory.
 services: active-directory
 keywords: "azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza"
 documentationcenter: 
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 11/30/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fd1fb445a78d12046d52cb27798eaa9d058629c3
+ms.sourcegitcommit: ffc64fc0469cd3588d6d13524411575b423ab4e5
+ms.openlocfilehash: dc04ebb3c205c01ed42c9d8bc3e0eb009881074a
 
 
 ---
-# <a name="types-of-risk-events-detected-by-azure-active-directory-identity-protection"></a>Tipi di eventi di rischio rilevati da Azure Active Directory Identity Protection
-In Azure Active Directory Identity Protection gli eventi di rischio sono eventi che:
+# <a name="types-of-risk-events-detected-by-azure-active-directory"></a>Tipi di eventi di rischio rilevati da Azure Active Directory 
+In Azure Active Directory gli eventi di rischio sono eventi che:
 
 * sono stati contrassegnati come sospetti
 * indicano che un'identità potrebbe essere stata compromessa. 
@@ -30,7 +30,7 @@ In Azure Active Directory Identity Protection gli eventi di rischio sono eventi 
 Questo argomento presenta una panoramica dettagliata dei tipi di eventi di rischio disponibili.
 
 ## <a name="leaked-credentials"></a>Credenziali perse
-I ricercatori Microsoft sulla sicurezza trovano le credenziali perse pubblicate nel Dark Web, in genere in formato testo normale. Queste vengono confrontate con le credenziali di Azure AD e, in caso di corrispondenza, vengono segnalate come "credenziali perse" in Identity Protection.
+I ricercatori Microsoft sulla sicurezza trovano le credenziali perse pubblicate nel Dark Web, in genere in formato testo normale. Queste vengono confrontate con le credenziali di Azure AD e, in caso di corrispondenza, vengono segnalate come "credenziali perse".
 
 La gravità degli eventi di rischio correlati a credenziali perse è classificata come "alta", perché sono un chiaro indizio del fatto che il nome utente e la password sono a disposizione degli utenti malintenzionati.
 
@@ -67,7 +67,7 @@ Questo tipo di evento di rischio è un meccanismo di valutazione dell'accesso in
 ## <a name="azure-ad-anomalous-activity-reports"></a>Report Anomalie dell'attività di Azure AD
 Alcuni di questi eventi di rischio sono disponibili nei report di Anomalie dell'attività di Azure AD nel portale di Azure. La tabella seguente riporta un elenco dei vari tipi di eventi di rischio e i report di **Anomalie dell'attività di Azure AD** corrispondenti. Microsoft continua a investire in questo spazio e intende migliorare la precisione di rilevamento degli eventi di rischio esistenti e aggiungere nuovi tipi di eventi di rischio in modo continuativo. 
 
-| Tipo di evento di rischio di Identity Protection | Report di Anomalie dell'attività di Azure AD corrispondente |
+| Tipo di evento di rischio | Report di Anomalie dell'attività di Azure AD corrispondente |
 |:--- |:--- |
 | Credenziali perse |Utenti con credenziali perse |
 | Trasferimento impossibile a posizioni atipiche |Attività di accesso irregolare |
@@ -77,7 +77,7 @@ Alcuni di questi eventi di rischio sono disponibili nei report di Anomalie dell'
 | Accessi da posizioni non note |- |
 | Eventi di blocco |- |
 
-I report di Anomalie dell'attività di Azure AD seguenti non sono inclusi come eventi di rischio in Azure AD Identity Protection e non sono quindi disponibili in Identity Protection. Questi report sono ancora disponibili nel portale di Azure, ma in futuro saranno deprecati perché progressivamente sostituiti dagli eventi di rischio di Identity Protection.
+I report di Anomalie dell'attività di Azure AD seguenti non sono inclusi come eventi di rischio in Azure AD e non sono quindi disponibili in Azure AD. Questi report sono ancora disponibili nel portale di Azure, ma in futuro saranno deprecati perché progressivamente sostituiti dagli eventi di rischio di Azure AD.
 
 * Accessi dopo più errori
 * Accessi da più aree geografiche
@@ -88,6 +88,6 @@ I report di Anomalie dell'attività di Azure AD seguenti non sono inclusi come e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

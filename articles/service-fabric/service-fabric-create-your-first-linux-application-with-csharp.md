@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9486fcb56b05b22120aef5a8373c6558b2d88d6c
+ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
+ms.openlocfilehash: e3632d89501c1c25b76e9160f0ad82f2b76327d7
 
 
 ---
@@ -50,7 +50,7 @@ Un'applicazione Infrastruttura di servizi può contenere uno o più servizi, ogn
 ## <a name="build-the-application"></a>Compilare l'applicazione.
 I modelli Yeoman di Service Fabric includono uno script di compilazione che è possibile usare per compilare l'app dal terminale (dopo il passaggio alla cartella dell'applicazione).
 
-  ```bash
+  ```sh
  cd myapp 
  ./build.sh 
   ```
@@ -60,7 +60,7 @@ Dopo aver compilato l'applicazione, è possibile distribuirla nel cluster locale
 
 1. Connettersi al cluster locale di Service Fabric.
    
-    ```bash
+    ```sh
     azure servicefabric cluster connect
     ```
 2. Usare lo script di installazione messo a disposizione nel modello per copiare il pacchetto dell'applicazione nell'archivio immagini del cluster, registrare il tipo di applicazione e creare un'istanza dell'applicazione.
@@ -83,11 +83,18 @@ I progetti Actor non eseguono alcuna operazione in modo indipendente. Richiedono
 2. In Service Fabric Explorer individuare il nodo che ospita la replica primaria del servizio Actor. Nello screenshot seguente si tratta del nodo 3.
    
     ![Ricerca della replica primaria in Service Fabric Explorer][sfx-primary]
-3. Fare clic sul nodo trovato nel passaggio precedente, quindi selezionare **Disattiva (riavvio)** dal menu Azioni. Questa operazione consente di riavviare uno dei cinque nodi nel cluster locale forzando il failover in una delle repliche secondarie in esecuzione in un altro nodo. Durante l'operazione, prestare attenzione all'output del client di test e notare che l'incremento del contatore prosegue nonostante il failover.
+3. Fare clic sul nodo trovato nel passaggio precedente, quindi selezionare **Disattiva (riavvio)** dal menu Azioni. Questa operazione consente di riavviare un nodo nel cluster locale forzando il failover in una replica secondaria in esecuzione in un altro nodo. Durante l'operazione, prestare attenzione all'output del client di test e notare che l'incremento del contatore prosegue nonostante il failover.
+
+## <a name="adding-more-services-to-an-existing-application"></a>Aggiunta di altri servizi a un'applicazione esistente
+
+Per aggiungere un altro servizio a un'applicazione già creata mediante `yo`, seguire questa procedura: 
+1. Modificare la directory impostandola sulla radice dell'applicazione esistente.  Ad esempio, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` è l'applicazione creata da Yeoman.
+2. Eseguire `yo azuresfcsharp:AddService`
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Altre informazioni su Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Uso dell'interfaccia della riga di comando di Azure per interagire con un cluster di Service Fabric](service-fabric-azure-cli.md)
+* Informazioni sulle [opzioni di supporto di Service Fabric](service-fabric-support.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png
@@ -95,6 +102,6 @@ I progetti Actor non eseguono alcuna operazione in modo indipendente. Richiedono
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

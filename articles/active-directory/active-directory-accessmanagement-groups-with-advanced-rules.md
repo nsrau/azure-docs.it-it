@@ -1,20 +1,23 @@
-
 ---
-title: Uso di attributi per la creazione di regole avanzate | Microsoft Docs
+title: Uso di attributi per la creazione di regole avanzate | Documentazione Microsoft
 description: Procedura per creare regole avanzate per un gruppo inclusi gli operatori delle regole di espressione e i parametri.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 04813a42-d40a-48d6-ae96-15b7e5025884
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/01/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: c404c8708ec6d33f272733e438b8c3559fa40ce9
+ms.openlocfilehash: 07cf3e27f34c705367aa62650d2b17ed1ea3ec82
+
 
 ---
 # <a name="using-attributes-to-create-advanced-rules"></a>Uso di attributi per la creazione di regole avanzate
@@ -42,11 +45,18 @@ Di seguito sono riportati alcuni esempi di regola avanzata con il formato corret
 
 Per l'elenco completo dei parametri supportati e degli operatori delle regole di espressione, vedere le sezioni riportate di seguito.
 
+Si noti che la proprietà deve avere come prefisso il tipo di oggetto corretto, ovvero user o device.
+La convalida della regola seguente avrà esito negativo: mail –ne null
+
+Ecco la regola corretta: 
+
+user.mail –ne null
+
 La lunghezza totale del corpo della regola avanzata non può superare i 2048 caratteri.
 
 > [!NOTE]
-> Le operazioni di stringa ed espressione regolare non fanno distinzione tra maiuscole e minuscole. È inoltre possibile eseguire controlli Null usando $null come costante, ad esempio user.department -eq $null.
-> Le stringhe contenenti virgolette (") devono essere precedute dal carattere di escape ', ad esempio user.department -eq \`"Sales".
+> Le operazioni di stringa ed espressione regolare non fanno distinzione tra maiuscole e minuscole. Le stringhe contenenti virgolette (") devono essere precedute dal carattere di escape ', ad esempio user.department -eq \`"Sales".
+> Usare le virgolette solo per i valori di tipo stringa e usare solo le virgolette singole.
 > 
 > 
 
@@ -63,6 +73,20 @@ Nella tabella seguente sono elencati tutti gli operatori delle regole di espress
 | Contiene |-contains |
 | Non corrispondente |-notMatch |
 | Corrispondente |-match |
+
+## <a name="operator-precedence"></a>Precedenza degli operatori
+
+Tutti gli operatori sono elencati in seguito in base alla precedenza, dal minore al maggiore. Gli operatori sulla stessa riga hanno la stessa precedenza. -any -all -or -and -not -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch
+ 
+Tutti gli operatori possono essere usati con o senza trattino come prefisso.
+
+Si noti che le parentesi non sono sempre necessarie. Le parentesi devono essere aggiunte solo quando la precedenza non rispetta i requisiti specifici, ad esempio:
+
+   user.department –eq "Marketing" –and user.country –eq "US" 
+   
+Equivale a: 
+
+   (user.department –eq "Marketing") –and (user.country –eq "US")
 
 ## <a name="query-error-remediation"></a>Correzione degli errori di query
 Nella tabella seguente sono elencati errori potenziali e indica come correggerli se si verificano
@@ -138,6 +162,12 @@ Operatori consentiti
 | otherMails |Qualsiasi valore stringa. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
+## <a name="use-of-null-values"></a>Uso dei valori Null
+
+Per specificare un valore Null in una regola, è possibile usare "null" o $null. Esempio: 
+
+   user.mail –ne null equivale a user.mail –ne $null
+
 ## <a name="extension-attributes-and-custom-attributes"></a>Attributi di estensione ed attributi personalizzati
 Gli attributi di estensione e gli attributi personalizzati sono supportati nelle regole di appartenenza dinamica.
 
@@ -153,8 +183,14 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 
 È possibile trovare il nome dell'attributo personalizzato nella directory eseguendo una query sull'attributo nell'utente con Esplora grafico e cercando il nome dell'attributo.
 
+## <a name="support-for-multi-value-properties"></a>Supporto per proprietà multivalore
+
+Per includere una proprietà multivalore in una regola, usare l'operatore "-any", ad esempio:
+
+  user.assignedPlans -any assignedPlan.service -startsWith "SCO"
+  
 ## <a name="direct-reports-rule"></a>Regola per i dipendenti diretti
-Ora è possibile popolare i membri di un gruppo in base all'attributo di manager di un utente.
+È possibile popolare i membri di un gruppo in base all'attributo manager di un utente.
 
 **Per configurare un gruppo come gruppo "Manager"**
 
@@ -178,16 +214,16 @@ Ora è possibile popolare i membri di un gruppo in base all'attributo di manager
 | displayName |Qualsiasi valore stringa. |(device.displayName - eq "Iphone di Rob") |
 | deviceOSType |Qualsiasi valore stringa. |(device.deviceOSType -eq "IOS") |
 | deviceOSVersion |Qualsiasi valore stringa. |(device.OSVersion -eq "9.1") |
-| isDirSynced |true false null |(device.isDirSynced -eq "true") |
-| isManaged |true false null |(device.isManaged -eq "false") |
-| isCompliant |true false null |(device.isCompliant -eq "true") |
+| isDirSynced |true false null |(device.isDirSynced -eq true) |
+| isManaged |true false null |(device.isManaged -eq false) |
+| isCompliant |true false null |(device.isCompliant -eq true) |
 | deviceCategory |Qualsiasi valore stringa. |(device.deviceCategory -eq "") |
 | deviceManufacturer |Qualsiasi valore stringa. |(device.deviceManufacturer -eq "Microsoft") |
 | deviceModel |Qualsiasi valore stringa. |(device.deviceModel -eq "IPhone 7+") |
 | deviceOwnership |Qualsiasi valore stringa. |(device.deviceOwnership -eq "") |
 | domainName |Qualsiasi valore stringa. |(device.domainName -eq "contoso.com") |
 | enrollmentProfileName |Qualsiasi valore stringa. |(device.enrollmentProfileName -eq "") |
-| isRooted |true false null |(device.deviceOSType -eq "true") |
+| isRooted |true false null |(device.isRooted -eq true) |
 | managementType |Qualsiasi valore stringa. |(device.managementType -eq "") |
 | organizationalUnit |Qualsiasi valore stringa. |(device.organizationalUnit -eq "") |
 | deviceId |un deviceId valido |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
@@ -206,6 +242,9 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

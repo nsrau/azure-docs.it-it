@@ -1,4 +1,4 @@
-# Overview
+# Panoramica
 ## [Che cos'è il servizio Gateway applicazione?](application-gateway-introduction.md)
 ## [Web application firewall](application-gateway-webapplicationfirewall-overview.md)
 ## [Monitoraggio dello stato](application-gateway-probe-overview.md)
@@ -67,6 +67,6 @@
 ## [Contratto di servizio](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

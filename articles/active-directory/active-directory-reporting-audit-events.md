@@ -2,26 +2,30 @@
 title: Eventi del report di controllo di Azure Active Directory | Microsoft Docs
 description: Eventi controllati disponibili per la visualizzazione e il download dalla propria istanza di Azure Active Directory
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 307eedf7-05bc-448d-a84d-bead5a4c5770
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2016
+ms.date: 12/14/2016
 ms.author: dhanyahk
+translationtype: Human Translation
+ms.sourcegitcommit: 6950072b8970dfc1b80674efe0be6cb7496fd5ce
+ms.openlocfilehash: 2dda60160bbcaa729bc8e5cec4f47efc10d120cf
+
 
 ---
-# Eventi del report di controllo di Azure Active Directory
+# <a name="azure-active-directory-audit-report-events"></a>Eventi del report di controllo di Azure Active Directory
 *Questo documento fa parte della [guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).*
 
 Il report di controllo di Azure Active Directory consente ai clienti di identificare le azioni con privilegi che si sono verificate nella propria istanza di Azure Active Directory. Le azioni con privilegi includono modifiche di elevazione dei privilegi, ad esempio la creazione dei ruoli o le reimpostazioni delle password, la modifica delle configurazioni dei criteri, ad esempio i criteri delle password o le modifiche alla configurazione della directory, ad esempio le modifiche alle impostazioni di federazione del dominio. Nei report è incluso il record di controllo per il nome dell'evento, l'attore che ha eseguito l'azione, la risorsa di destinazione interessata dalla modifica e la data e l'ora (UTC). I clienti possono recuperare l'elenco degli eventi di controllo per la propria istanza di Azure Active Directory tramite il [portale di Azure](https://portal.azure.com/), come descritto in [Visualizzare i log di controllo](active-directory-reporting-azure-portal.md).
 
-## Elenco degli eventi del report di controllo
+## <a name="list-of-audit-report-events"></a>Elenco degli eventi del report di controllo
 <!--- audit event descriptions should be in the past tense --->
 
 | Eventi | Descrizione evento |
@@ -38,10 +42,8 @@ Il report di controllo di Azure Active Directory consente ai clienti di identifi
 | Aggiornamento delle credenziali dell'utente |L'utente ha modificato la password. |
 | **Eventi del gruppo** | |
 | Aggiungi gruppo |È stato creato un gruppo nella directory. |
-| Aggiornare un gruppo |È stato aggiornato un gruppo nella directory Per visualizzare le proprietà dei gruppi aggiornate, vedere le [proprietà dei gruppi controllate](#update-group-attributes) nella sezione seguente. |
+| Aggiornare un gruppo |È stato aggiornato un gruppo nella directory Per visualizzare le proprietà dei gruppi aggiornate, vedere le [proprietà dei gruppi controllate](#update-group-attributes) nella sezione seguente |
 | Eliminare gruppo |È stato eliminato un gruppo dalla directory. |
-| Aggiungere un membro al gruppo |È stato aggiunto un membro a un gruppo nella directory. |
-| Rimuovere un membro dal gruppo |È stato rimosso un membro da un gruppo nella directory. |
 | CreateGroupSettings |Sono state create impostazioni del gruppo. |
 | UpdateGroupSettings |Sono state aggiornate impostazioni del gruppo. Per visualizzare le impostazioni dei gruppi aggiornate, vedere le [proprietà dei gruppi controllate](#update-group-attributes) nella sezione seguente. |
 | DeleteGroupSettings |Sono state eliminate impostazioni del gruppo. |
@@ -62,23 +64,8 @@ Il report di controllo di Azure Active Directory consente ai clienti di identifi
 | **Eventi del ruolo** | |
 | Aggiunta di un membro del ruolo al ruolo |È stato aggiunto un utente a un ruolo della directory. |
 | Rimozione di un membro ruolo dal ruolo |È stato rimosso un utente da un ruolo della directory. |
-| Impostazione delle informazioni di contatto della società |Sono state impostate le preferenze di contatto a livello aziendale. Sono inclusi gli indirizzi di posta elettronica per le attività di marketing, oltre alle notifiche tecniche relative ai Microsoft Online Services. |
-| Aggiunta di una voce di delega |Creazione di un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) nella directory. |
-| Impostazione voce di delega |Aggiornamento di un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) nella directory. |
-| Rimozione voce di delega |Eliminazione di un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) nella directory. |
-| AddSevicePrincipalOwner |È stato aggiunto un proprietario all'entità servizio. |
-| RemoveSevicePrincipalOwner |È stato rimosso il proprietario dall'entità servizio. |
-| AddApplication |Viene aggiunta un'applicazione. |
-| UpdateApplication |Viene aggiornata un'applicazione. Per visualizzare le impostazioni delle app aggiornate, vedere le [proprietà delle applicazioni controllate](#update-application-attributes) nella sezione seguente. |
-| DeleteApplication |Viene eliminata un'applicazione. |
-| RestoreApplication |Viene ripristinata l'applicazione. |
-| AddApplicationOwner |Viene aggiunto un proprietario all'applicazione. |
-| RemoveApplicationOwner |Viene rimosso il proprietario dall'applicazione. |
-| **Eventi del ruolo** | |
-| Aggiunta di un membro del ruolo al ruolo |È stato aggiunto un utente a un ruolo della directory. |
-| Rimozione di un membro ruolo dal ruolo |È stato rimosso un utente da un ruolo della directory. |
 | AddRoleDefinition |È stata aggiunta la definizione del ruolo. |
-| UpdateRoleDefinition |È stata aggiornata la definizione del ruolo. Per visualizzare le impostazioni dei ruoli aggiornate, vedere le [proprietà delle definizioni dei ruoli controllate](#update-role-definition-attributes) nella sezione seguente. |
+| UpdateRoleDefinition |È stata aggiornata la definizione del ruolo. Per visualizzare le impostazioni dei ruoli aggiornate, vedere le [proprietà delle definizioni dei ruoli controllate](#update-role-definition-attributes) nella sezione seguente |
 | DeleteRoleDefinition |È stata eliminata la definizione del ruolo. |
 | AddRoleAssignmentToRoleDefinition |È stata aggiunta l'assegnazione del ruolo alla definizione del ruolo. |
 | RemoveRoleAssignmentFromRoleDefinition |È stata rimossa l'assegnazione del ruolo dalla definizione del ruolo. |
@@ -127,7 +114,7 @@ Il report di controllo di Azure Active Directory consente ai clienti di identifi
 | Verifica del dominio tramite la verifica di posta elettronica |È stato verificato un dominio nella directory tramite la verifica di posta elettronica. |
 | Impostazione del flag DirSyncEnabled per la società |È stata impostata la proprietà che abilita una directory per Azure AD Sync. |
 | Impostazione criteri password |Sono stati impostati vincoli di lunghezza e caratteri per le password utente. |
-| Impostazione informazioni società |Sono state aggiornate le impostazioni a livello aziendale. Per altre informazioni, vedere il cmdlet di PowerShell [Get-MsolCompanyInformation](https://msdn.microsoft.com/library/azure/dn194126.aspx). |
+| Impostazione informazioni società |Sono state aggiornate le impostazioni a livello aziendale. Per altre informazioni, vedere il cmdlet di PowerShell [Get-MsolCompanyInformation](https://msdn.microsoft.com/library/azure/dn194126.aspx) . |
 | SetCompanyAllowedDataLocation |È stata configurata la posizione dei dati consentita per l'azienda. |
 | SetCompanyDirSyncEnabled |È stato impostato il flag DirSyncEnabled. |
 | SetCompanyDirSyncFeature |È stata configurata la funzionalità Set DirSync. |
@@ -152,12 +139,12 @@ Il report di controllo di Azure Active Directory consente ai clienti di identifi
 | RemoveDefaultPolicyServicePrincipal |Vengono rimossi criteri dall'entità servizio. |
 | RemovePolicyCredentials |Vengono rimosse le credenziali dei criteri. |
 
-## Conservazione dei report di controllo
+## <a name="audit-report-retention"></a>Conservazione dei report di controllo
 Gli eventi nel report di controllo di Azure Active Directory vengono conservati per 180 giorni. Per altre informazioni sulla conservazione dei report, vedere la pagina relativa ai [criteri di conservazione dei report di Azure Active Directory](active-directory-reporting-retention.md).
 
-Per i clienti interessati alla conservazione gli eventi di controllo per periodi più lunghi, l'API di creazione report consente di eseguire regolarmente il pull degli eventi di controllo in un archivio dati separato. Per i dettagli, vedere la pagina relativa all'[introduzione all'API di creazione report](active-directory-reporting-api-getting-started.md).
+Per i clienti interessati alla conservazione gli eventi di controllo per periodi più lunghi, l'API di creazione report consente di eseguire regolarmente il pull degli eventi di controllo in un archivio dati separato. Per i dettagli, vedere la pagina relativa all' [introduzione all'API di creazione report](active-directory-reporting-api-getting-started.md) .
 
-## Proprietà incluse in ogni evento di controllo
+## <a name="properties-included-with-each-audit-event"></a>Proprietà incluse in ogni evento di controllo
 | Proprietà | Descrizione |
 | --- | --- |
 | Data e ora |Data e ora in cui si è verificato l'evento |
@@ -165,7 +152,7 @@ Per i clienti interessati alla conservazione gli eventi di controllo per periodi
 | Azione |Azione eseguita |
 | Destinazione |Utente o entità servizio su cui è stata eseguita l'azione |
 
-## Attributi "Aggiornamento utente"
+## <a name="update-user-attributes"></a>Attributi "Aggiornamento utente"
 L'evento di controllo di aggiornamento dell'utente include informazioni aggiuntive sugli attributi utente che sono stati aggiornati. Per ogni attributo, sono inclusi sia il valore precedente che quello nuovo.
 
 | Attributo | Descrizione |
@@ -188,7 +175,7 @@ L'evento di controllo di aggiornamento dell'utente include informazioni aggiunti
 | InviteReplyUrl |Elenco di URL di risposta per l'accettazione dell'invito. |
 | InviteResources |Elenco di risorse a cui l'utente è stato invitato. |
 | LastDirSyncTime |Ultima volta in cui l'oggetto è stato aggiornato a causa della sincronizzazione dalla directory autorevole (cliente, locale). |
-| MSExchRemoteRecipientType |Esegue il mapping ai tipi di destinatari MSO. Per informazioni ai tipi di destinatari, vedere [Tipi di destinatari MSO] https://msdn.microsoft.com/library/microsoft.office.interop.outlook.recipient.type.aspx |
+| MSExchRemoteRecipientType |Esegue il mapping ai tipi di destinatari MSO. Vedere [tipi di destinatari MSO] https://msdn.microsoft.com/library/microsoft.office.interop.outlook.recipient.type.aspx per i tipi di destinatari |
 | PreferredDataLocation |Posizione preferita per i dati dell'utente, del gruppo, del contatto, della cartella pubblica o del dispositivo. |
 | ProxyAddresses |Indirizzo da cui un oggetto destinatario di Exchange Server viene riconosciuto in un sistema di posta elettronica esterno. |
 | StsRefreshTokensValidFrom |Fornisce informazioni sulla revoca dei token di aggiornamento. Eventuali token di aggiornamento del servizio token di sicurezza emessi prima di questa data vengono considerati scaduti. |
@@ -197,7 +184,7 @@ L'evento di controllo di aggiornamento dell'utente include informazioni aggiunti
 | UserStateChangedOn |Timestamp dell'ultima modifica a UserState. Viene usato per attivare i flussi di lavoro del ciclo di vita. |
 | UserType |Tipo di utente. Membro (0), guest (1), virale (2). |
 
-## Attributi di "Aggiornamento gruppo"
+## <a name="update-group-attributes"></a>Attributi di "Aggiornamento gruppo"
 | Attributo | Descrizione |
 | --- | --- |
 | Classificazione |Classificazione per un gruppo unificato (HBI, MBI e così via). |
@@ -219,7 +206,7 @@ L'evento di controllo di aggiornamento dell'utente include informazioni aggiunti
 | SecurityEnabled |Indica se l'appartenenza al gruppo può influire sulle decisioni di autorizzazione. |
 | WellKnownObject |Applica un'etichetta a un oggetto directory, designandolo come parte di un set predefinito. |
 
-## Attributi di "Aggiornamento dispositivo"
+## <a name="update-device-attributes"></a>Attributi di "Aggiornamento dispositivo"
 | Attributo | Descrizione |
 | --- | --- |
 | AccountEnabled |Indica se un'entità di sicurezza può eseguire l'autenticazione. |
@@ -240,13 +227,13 @@ L'evento di controllo di aggiornamento dell'utente include informazioni aggiunti
 | IsManaged |Questo attributo viene usato per indicare che il dispositivo viene gestito da un MDM cloud. |
 | LastDirSyncTime |Ultima volta in cui l'oggetto è stato aggiornato a causa della sincronizzazione dalla directory autorevole (cliente, locale). |
 
-## Attributi di "Aggiornamento configurazione dispositivi"
+## <a name="update-device-configuration-attributes"></a>Attributi di "Aggiornamento configurazione dispositivi"
 | Attributo | Descrizione |
 | --- | --- |
 | MaximumRegistrationInactivityPeriod |Numero massimo di giorni per cui un dispositivo può essere inattivo prima che venga considerato per la rimozione. |
 | RegistrationQuota |Criterio usato per limitare il numero di registrazioni di dispositivi consentito per un singolo utente. |
 
-## Attributi di "Aggiornamento configurazione delle entità servizio"
+## <a name="update-service-principal-configuration-attributes"></a>Attributi di "Aggiornamento configurazione delle entità servizio"
 | Attributo | Descrizione |
 | --- | --- |
 | AccountEnabled |Indica se un'entità di sicurezza può eseguire l'autenticazione. |
@@ -254,12 +241,12 @@ L'evento di controllo di aggiornamento dell'utente include informazioni aggiunti
 | DisplayName |Nome visualizzato per un oggetto. |
 | ServicePrincipalName |Nome di un'entità servizio contenente "name/authority" in cui name specifica un valore della classe applicazione e authority contiene almeno hostname[:port] o "name" che specifica un identificatore per l'entità servizio. |
 
-## Attributi di "Aggiornamento app"
+## <a name="update-app-attributes"></a>Attributi di "Aggiornamento app"
 | Attributo | Descrizione |
 | --- | --- |
 | AppAddress |Set di indirizzi (URL di reindirizzamento) assegnati a un'entità servizio. |
 | AppId |ID applicazione dell'app. |
-| AppIdentifierUri |URI di applicazione che identifica l'applicazione. Corrisponde in genere all'URL di accesso all'applicazione. |
+| AppIdentifierUri |URI di applicazione che identifica l'applicazione.  Corrisponde in genere all'URL di accesso all'applicazione. |
 | AppLogoUrl |URL per l'immagine del logo dell'applicazione archiviato in una rete CDN. |
 | AvailableToOtherTenants |Se True, indica che l'applicazione è multi-tenant, ovvero può essere usata da altri tenant. |
 | DisplayName |Nome visualizzato per il nome dell'applicazione. |
@@ -272,7 +259,7 @@ L'evento di controllo di aggiornamento dell'utente include informazioni aggiunti
 | WebApp |Se True, indica che questa applicazione è un'app Web. |
 | WwwHomepage |Pagina Web primaria. |
 
-## Attributi di "Aggiornamento ruolo"
+## <a name="update-role-attributes"></a>Attributi di "Aggiornamento ruolo"
 | Attributo | Descrizione |
 | --- | --- |
 | AppAddress |Set di indirizzi (URL di reindirizzamento) assegnati a un'entità servizio. |
@@ -288,20 +275,20 @@ L'evento di controllo di aggiornamento dell'utente include informazioni aggiunti
 | ValidationError |Informazioni pubblicate da un servizio federato che descrivono un errore non temporaneo, specifico del servizio relativo alle proprietà o al collegamento da un'azione di amministratore oggetti da risolvere. |
 | WellKnownObject |Applica un'etichetta a un oggetto directory, designandolo come parte di un set predefinito. |
 
-## Attributi di "Aggiornamento definizione ruolo"
+## <a name="update-role-definition-attributes"></a>Attributi di "Aggiornamento definizione ruolo"
 | Attributo | Descrizione |
 | --- | --- |
 | AssignableScopes |Raccolta di ambiti di autorizzazione a cui è possibile fare riferimento durante l'assegnazione di questo valore RoleDefinition a un'entità di sicurezza. |
 | DisplayName |Nome visualizzato per un oggetto. |
 | GrantedPermissions |Autorizzazioni concesse da questo valore RoleDefinition. |
 
-## Attributi di "Aggiornamento unità amministrativa"
+## <a name="update-administrative-unit-attributes"></a>Attributi di "Aggiornamento unità amministrativa"
 | Attributo | Descrizione |
 | --- | --- |
 | Descrizione |Questa proprietà viene aggiornata quando si modifica la descrizione di un'unità amministrativa. |
 | DisplayName |Questa proprietà viene aggiornata quando si modifica il nome di un'unità amministrativa. |
 
-## Attributi di "Aggiornamento azienda"
+## <a name="update-company-attributes"></a>Attributi di "Aggiornamento azienda"
 | Attributo | Descrizione |
 | --- | --- |
 | AllowedDataLocation |Località in cui è autorizzato il provisioning degli utenti dell'azienda. |
@@ -326,7 +313,7 @@ L'evento di controllo di aggiornamento dell'utente include informazioni aggiunti
 | TenantType |Tipo di tenant. Se questo valore non è specificato, il tenant è un'azienda. In caso contrario, i valori possibili sono MicrosoftSupport (0), SyndicatePartner (1), BreadthPartner (2) BreadthPartnerDelegatedAdmin (3) ResellerPartnerDelegatedAdmin (4) ValueAddedResellerPartnerDelegatedAdmin (5). |
 | VerifiedDomain |Set di nomi di dominio DNS associati a un'azienda. |
 
-## Attributi di "Aggiornamento dominio"
+## <a name="update-domain-attributes"></a>Attributi di "Aggiornamento dominio"
 | Attributo | Descrizione |
 | --- | --- |
 | Capabilities |Flag di bit che descrivono le funzionalità del dominio, se presenti. |
@@ -339,4 +326,9 @@ L'evento di controllo di aggiornamento dell'utente include informazioni aggiunti
 
 I record di controllo rappresentano un controllo obbligatorio per molte normative per la conformità. Per i clienti che usano i report di controllo di Azure Active Directory per garantire la conformità alle normative, è consigliabile inviare una copia di questo argomento della guida insieme al report di controllo esportato del cliente per fornire una descrizione delle informazioni contenute nel report. Per altre informazioni sulle normative di conformità attualmente soddisfatte da Azure, suggerire al revisore di visitare la pagina relativa alla [conformità](https://azure.microsoft.com/support/trust-center/compliance/) del Centro protezione Microsoft Azure.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Dec16_HO4-->
+
+

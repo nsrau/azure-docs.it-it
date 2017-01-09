@@ -1,6 +1,6 @@
 
 ## <a name="start-your-powershell-session"></a>Avviare la sessione di PowerShell
-È prima di tutto necessario che sia installata e in esecuzione la versione più recente di [Azure PowerShell](https://msdn.microsoft.com/library/mt619274\(v=azure.300\).aspx). Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+È prima di tutto necessario che sia installata e in esecuzione la versione più recente di Azure PowerShell. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 > [!NOTE]
 > Molte nuove funzionalità del database SQL sono supportate solo con il [modello di distribuzione Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). Negli esempi vengono quindi usati i [cmdlet di PowerShell per il database SQL di Azure](https://msdn.microsoft.com/library/azure/mt574084\(v=azure.300\).aspx) per Resource Manager. I [cmdlet di gestione del servizio database SQL di Azure](https://msdn.microsoft.com/library/azure/dn546723\(v=azure.300\).aspx) del modello di distribuzione classica della gestione dei servizi sono supportati per compatibilità con le versioni precedenti, ma è consigliabile usare i cmdlet per Resource Manager.
@@ -16,6 +16,6 @@ Se si hanno più sottoscrizioni, usare il cmdlet [**Set-AzureRmContext**](https:
     Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,11 +1,11 @@
 ---
-title: 'collectd: statistiche sulle prestazioni per Java in Unix in Application Insights'
-description: Monitoraggio esteso del sito Web Java con il plug-in CollectD per Application Insights
+title: 'collectd: statistiche sulle prestazioni per Java su Linux in Azure Application Insights | Microsoft Docs'
+description: Monitoraggio esteso delle prestazioni delle applicazioni del sito Web Java con il plug-in CollectD per Application Insights.
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: harelbr
 manager: douge
-
+ms.assetid: 40c68f45-197a-4624-bf89-541eb7323002
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,26 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 8c5324742e42a1f82bb3031af4380fc5f0241d7f
+ms.openlocfilehash: 6a9edd88dd49dd8d8edd687f8808f7d49b774139
+
 
 ---
-# collectd: metriche delle prestazioni Unix in Application Insights
-*Application Insights è disponibile in Anteprima.*
+# <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: metriche delle prestazioni Linux in Application Insights
 
-Per esplorare le metriche delle prestazioni del sistema Unix in [Application Insights](app-insights-overview.md), installare [collectd](http://collectd.org/), insieme al rispettivo plug-in di Application Insights. Questa soluzione open source raccoglie diverse che relative al sistema e alla rete.
 
-In genere, si usa collectd se è già stato [instrumentato il servizio Web Java con Application Insights][java]. Fornisce una maggiore quantità di dati che consentono di migliorare le prestazioni dell'app o diagnosticare i problemi.
+Per esplorare le metriche delle prestazioni del sistema Linux in [Application Insights](app-insights-overview.md), installare [collectd](http://collectd.org/) insieme al rispettivo plug-in di Application Insights. Questa soluzione open source raccoglie diverse che relative al sistema e alla rete.
+
+In genere, si usa collectd se è già stato [instrumentato il servizio Web Java con Application Insights][java]. Fornisce una maggiore quantità di dati che consentono di migliorare le prestazioni dell'app o diagnosticare i problemi. 
 
 ![Grafici di esempio](./media/app-insights-java-collectd/sample.png)
 
-## Ottenere la chiave di strumentazione
-Nel [portale di Microsoft Azure](https://portal.azure.com) aprire la risorsa [Application Insights](app-insights-overview.md) in cui devono essere visualizzati i dati. In alternativa, [creare una nuova risorsa](app-insights-create-new-resource.md).
+## <a name="get-your-instrumentation-key"></a>Ottenere la chiave di strumentazione
+Nel [Portale di Microsoft Azure](https://portal.azure.com) aprire la risorsa [Application Insights](app-insights-overview.md) in cui devono essere visualizzati i dati. In alternativa, [creare una nuova risorsa](app-insights-create-new-resource.md).
 
 Copiare la chiave di strumentazione, che identifica la risorsa.
 
 ![Visualizzare tutto, aprire la risorsa e quindi nell'elenco a discesa Informazioni di base selezionare e copiare la chiave di strumentazione](./media/app-insights-java-collectd/02-props.png)
 
-## Installare collectd e il plug-in
-Nei computer server Unix:
+## <a name="install-collectd-and-the-plug-in"></a>Installare collectd e il plug-in
+Nei computer server Linux:
 
 1. Installare [collectd](http://collectd.org/) versione 5.4.0 o successive.
 2. Scaricare il [plug-in di scrittura collectd di Application Insights](https://aka.ms/aijavasdk). Annotare il numero di versione.
@@ -79,35 +83,35 @@ Di seguito è riportata una parte di un file di configurazione di esempio:
       # Other plugin configurations ...
       ...
     </Plugin>
-. ...
+.   ...
 
 Configurare altri [plug-in collectd](https://collectd.org/wiki/index.php/Table_of_Plugins), che possono raccogliere diversi dati da origini diverse.
 
 Riavviare collectd, come indicato nel rispettivo [manuale](https://collectd.org/wiki/index.php/First_steps).
 
-## Visualizzare i dati in Application Insights
+## <a name="view-the-data-in-application-insights"></a>Visualizzare i dati in Application Insights
 Nella risorsa di Application Insights aprire [Esplora metriche e aggiungere grafici][metrics], selezionando le metriche da visualizzare dalla categoria personalizzata.
 
 ![](./media/app-insights-java-collectd/result.png)
 
 Per impostazione predefinita, le metriche vengono aggregate per tutti i computer host da cui vengono raccolte le metriche. Per visualizzare le metriche dei singoli host, nel pannello di dettagli del grafico attivare l'opzione Raggruppamento e quindi scegliere di eseguire il raggruppamento in base a CollectD-Host.
 
-## Per escludere il caricamento di statistiche specifiche
-Per impostazione predefinita, il plug-in di Application Insights invia tutti i dati raccolti da tutti i plug-in di tipo 'read' di collectd.
+## <a name="to-exclude-upload-of-specific-statistics"></a>Per escludere il caricamento di statistiche specifiche
+Per impostazione predefinita, il plug-in di Application Insights invia tutti i dati raccolti da tutti i plug-in di tipo 'read' di collectd. 
 
 Per escludere dati da plug-in specifici oppure origini dati specifiche:
 
-* Modificare il file di configurazione.
-* In `<Plugin ApplicationInsightsWriter>` aggiungere righe di direttive analoghe alle seguenti:
+* Modificare il file di configurazione. 
+* In `<Plugin ApplicationInsightsWriter>`aggiungere righe di direttive analoghe alle seguenti:
 
 | Direttiva | Effetto |
 | --- | --- |
-| `Exclude disk` |Esclusione di tutti i dati raccolti dal plug-in `disk`. |
+| `Exclude disk` |Esclusione di tutti i dati raccolti dal plug-in `disk` . |
 | `Exclude disk:read,write` |Esclusione delle origini denominate `read` e `write` dal plug-in `disk`. |
 
 Separare le direttive con un valore NewLine.
 
-## Problemi?
+## <a name="problems"></a>Problemi?
 *I dati non vengono visualizzati nel portale*
 
 * Aprire [Cerca][diagnostic] per verificare se gli eventi non elaborati sono stati ricevuti. In alcuni casi necessitano di più tempo per la visualizzazione in Esplora metriche.
@@ -127,8 +131,12 @@ Separare le direttive con un valore NewLine.
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
+[uso]: app-insights-web-track-usage.md
 
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO4-->
+
+

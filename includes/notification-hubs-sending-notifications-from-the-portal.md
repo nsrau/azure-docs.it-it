@@ -13,6 +13,6 @@ Nella sezione successiva dell'esercitazione si apprenderà come usare l' [interf
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

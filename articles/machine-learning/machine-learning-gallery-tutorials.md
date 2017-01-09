@@ -39,9 +39,9 @@ Da questa pagina è possibile accedere a tutte le esercitazioni presenti in Gall
  Fare clic su un'esercitazione qualsiasi per aprirne la pagina dei dettagli e leggere maggiori informazioni su di essa.
 In questa pagina è disponibile una sezione dedicata ai commenti in cui è possibile inserire un commento, inviare suggerimenti o porre una domanda. Usando le funzionalità di condivisione di LinkedIn o Twitter è anche possibile condividere la pagina con amici o colleghi. È inoltre possibile invitare altri utenti a visualizzare la pagina inviando loro un collegamento all'esercitazione tramite posta elettronica.
 
-![Condividere l'elemento con amici](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![Condividere l'elemento con amici](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![Aggiungere un commento](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![Aggiungere un commento](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="contribute"></a>Contribuire
 È possibile pubblicare un'esercitazione in Gallery per aiutare altri utenti a risolvere un problema o capire meglio un concetto.
@@ -52,16 +52,16 @@ Seguire questi passaggi per creare e pubblicare un'esercitazione in Cortana Inte
 * Accedere alla raccolta con il proprio account Microsoft
 * Fare clic sulla propria immagine nella parte superiore della finestra e quindi sul proprio nome
   
-    ![Fare clic sul nome del proprio account](media\\machine-learning-gallery-tutorials\\click-account-name.png)
+    ![Fare clic sul nome del proprio account](media/machine-learning-gallery-tutorials/click-account-name.png)
 * Fare clic su **New Item** (Nuovo elemento)
   
-    ![Fare clic su "New Item" (Nuovo elemento)](media\\machine-learning-gallery-collections\\click-new-item.png)
+    ![Fare clic su "New Item" (Nuovo elemento)](media/machine-learning-gallery-collections/click-new-item.png)
 * Per **Item Type** (Tipo di elemento) selezionare **Collection** (Raccolta), assegnare alla raccolta un nome, un breve riepilogo, una descrizione ed eventuali tag che consentiranno agli utenti di trovarla più facilmente
   
-    ![Immettere informazioni per la nuova raccolta](media\\machine-learning-gallery-tutorials\\create-tutorial-page-1.png)
+    ![Immettere informazioni per la nuova raccolta](media/machine-learning-gallery-tutorials/create-tutorial-page-1.png)
 * Fare clic su **Next** (Avanti): è possibile caricare un file di immagine, o selezionare un'immagine predefinita, che verrà visualizzata con la raccolta; scegliere un'immagine che consenta agli utenti di identificare facilmente il contenuto e lo scopo della raccolta
   
-    ![Immettere informazioni per la nuova raccolta](media\\machine-learning-gallery-tutorials\\create-tutorial-page-2.png)
+    ![Immettere informazioni per la nuova raccolta](media/machine-learning-gallery-tutorials/create-tutorial-page-2.png)
 * Fare clic su **Next** (Avanti): è possibile decidere che l'esercitazione sia **Public** (Pubblica), ovvero che possa essere visualizzata da chiunque, o **Unlisted** (Non in elenco), ovvero che possano visualizzarla solo gli utenti con un collegamento diretto.
   
   > [!IMPORTANT]
@@ -69,7 +69,7 @@ Seguire questi passaggi per creare e pubblicare un'esercitazione in Cortana Inte
   > 
   > 
   
-    ![Selezionare Public (Pubblica) o Unlisted (Non in elenco)](media\\machine-learning-gallery-tutorials\\create-tutorial-page-3.png)
+    ![Selezionare Public (Pubblica) o Unlisted (Non in elenco)](media/machine-learning-gallery-tutorials/create-tutorial-page-3.png)
 * Fare clic su **Crea**
 
 L'esercitazione fa ora parte di Cortana Intelligence Gallery. Verrà elencata nella pagina del proprio account, all'interno della scheda **Items** (Elementi).

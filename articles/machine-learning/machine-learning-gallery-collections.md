@@ -39,9 +39,9 @@ Da questa pagina è possibile accedere a tutte le raccolte presenti in Gallery o
  Fare clic su una raccolta qualsiasi per aprirne la pagina dei dettagli e leggere maggiori informazioni su di essa.
 In questa pagina è disponibile una sezione dedicata ai commenti in cui è possibile inserire un commento, inviare suggerimenti o porre una domanda. Usando le funzionalità di condivisione di LinkedIn o Twitter è anche possibile condividere la pagina con amici o colleghi. È inoltre possibile invitare altri utenti a visualizzare la pagina inviando loro un collegamento all'esperimento tramite posta elettronica.
 
-![Condividere l'elemento con amici](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![Condividere l'elemento con amici](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![Aggiungere un commento](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![Aggiungere un commento](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="contribute"></a>Contribuire
 È possibile creare una raccolta contenente elementi inseriti personalmente o forniti dalla community. Possono essere costituiti da qualsiasi elemento presente in Gallery dedicato a una soluzione o un concetto specifico.
@@ -56,17 +56,17 @@ Seguire questi passaggi per creare e pubblicare una raccolta in Cortana Intellig
 
 * Fare clic sulla propria immagine nella parte superiore della finestra e quindi sul proprio nome
   
-    ![Fare clic sul nome del proprio account](media\\machine-learning-gallery-collections\\click-account-name.png)
+    ![Fare clic sul nome del proprio account](media/machine-learning-gallery-collections/click-account-name.png)
 
 1. Fare clic su **New Item** (Nuovo elemento)
    
-    ![Fare clic su "New Item" (Nuovo elemento)](media\\machine-learning-gallery-collections\\click-new-item.png)
+    ![Fare clic su "New Item" (Nuovo elemento)](media/machine-learning-gallery-collections/click-new-item.png)
 2. Per **Item Type** (Tipo di elemento) selezionare **Collection** (Raccolta), assegnare alla raccolta un nome, un breve riepilogo, una descrizione ed eventuali tag che consentiranno agli utenti di trovarla più facilmente
    
-    ![Immettere informazioni per la nuova raccolta](media\\machine-learning-gallery-collections\\create-collection-page-1.png)
+    ![Immettere informazioni per la nuova raccolta](media/machine-learning-gallery-collections/create-collection-page-1.png)
 3. Fare clic su **Next** (Avanti): è possibile caricare un file di immagine, o selezionare un'immagine predefinita, che verrà visualizzata con la raccolta; scegliere un'immagine che consenta agli utenti di identificare facilmente il contenuto e lo scopo della raccolta
    
-    ![Immettere informazioni per la nuova raccolta](media\\machine-learning-gallery-collections\\create-collection-page-2.png)
+    ![Immettere informazioni per la nuova raccolta](media/machine-learning-gallery-collections/create-collection-page-2.png)
 4. Fare clic su **Next** (Avanti): è possibile decidere che la raccolta sia **Public** (Pubblica), ovvero che possa essere visualizzata da chiunque, o **Unlisted** (Non in elenco), ovvero che possano visualizzarla solo gli utenti con un collegamento diretto.
    
    > [!IMPORTANT]
@@ -74,7 +74,7 @@ Seguire questi passaggi per creare e pubblicare una raccolta in Cortana Intellig
    > 
    > 
    
-    ![Selezionare Public (Pubblica) o Unlisted (Non in elenco)](media\\machine-learning-gallery-collections\\create-collection-page-3.png)
+    ![Selezionare Public (Pubblica) o Unlisted (Non in elenco)](media/machine-learning-gallery-collections/create-collection-page-3.png)
 5. Fare clic su **Crea**
 
 La raccolta fa ora parte di Cortana Intelligence Gallery. Verrà elencata nella pagina del proprio account, all'interno della scheda **Collections** (Raccolte).
@@ -82,20 +82,20 @@ La raccolta fa ora parte di Cortana Intelligence Gallery. Verrà elencata nella 
 ### <a name="add-items-to-a-collection"></a>Aggiungere elementi a una raccolta
 Per aggiungere elementi alla propria raccolta, aprire la raccolta, fare clic su **Edit** (Modifica) e quindi su **Add item** (Aggiungi elemento).
 
-![Aggiungere elementi a una raccolta dalla pagina dei dettagli](media\\machine-learning-gallery-collections\\add-to-collection-from-details-page.png)
+![Aggiungere elementi a una raccolta dalla pagina dei dettagli](media/machine-learning-gallery-collections/add-to-collection-from-details-page.png)
 
 Verrà visualizzato l'elenco degli elementi precedentemente pubblicati in Gallery; in alternativa, è possibile cercare in Gallery gli elementi da aggiungere. Fare clic su un elemento per selezionarlo. Ogni elemento selezionato viene incluso nel set di elementi da aggiungere. Il pulsante **Add** (Aggiungi) indica quanti elementi sono stati selezionati.
 
-![Aggiungere alla raccolta](media\\machine-learning-gallery-collections\\add-to-collection.png)
+![Aggiungere alla raccolta](media/machine-learning-gallery-collections/add-to-collection.png)
 
 Se durante la ricerca in Gallery si trova un elemento che si vuole includere, è sufficiente aprire l'elemento, fare clic su **Add to collection** (Aggiungi alla raccolta) e specificare la raccolta a cui si vuole aggiungerlo.
 
-![Aggiungere elementi a una raccolta dalla pagina dei dettagli](media\\machine-learning-gallery-collections\\add-to-collection-from-item-details.png)
+![Aggiungere elementi a una raccolta dalla pagina dei dettagli](media/machine-learning-gallery-collections/add-to-collection-from-item-details.png)
 
 È possibile modificare il riepilogo, la descrizione o i tag della raccolta aprendola e facendo clic su **Modifica**.
 Mentre si modifica la raccolta, è anche possibile modificare l'ordine degli elementi nella raccolta usando i pulsanti freccia accanto a un elemento per spostarlo nell'elenco. Per aggiungere note per gli elementi nella raccolta, è sufficiente fare clic nell'angolo superiore destro di un elemento e selezionare **Aggiungi/Modifica nota**. Per rimuovere un elemento da una raccolta, selezionare **Remove** (Rimuovi).
 
-![Modificare i dettagli di una raccolta](media\\machine-learning-gallery-collections\\change-collection-details.png)
+![Modificare i dettagli di una raccolta](media/machine-learning-gallery-collections/change-collection-details.png)
 
 **[VAI A GALLERY >>](http://gallery.cortanaintelligence.com)**
 

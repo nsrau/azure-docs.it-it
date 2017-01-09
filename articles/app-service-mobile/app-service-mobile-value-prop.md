@@ -68,7 +68,7 @@ Le funzionalità della piattaforma seguenti in genere sono utili per i siti di p
   Altre informazioni sugli [ambienti del servizio app].
 
 ## <a name="getting-started"></a>Introduzione
-Per iniziare a usare il servizio app per dispositivi mobili, seguire l'esercitazione [Attività iniziali] .  Questa esercitazione illustrerà le informazioni di base relative a produzione di un back-end e di un client per dispositivi mobili scelti dall'utente, integrazione dell'autenticazione, sincronizzazione offline e notifiche push.  È possibile ripetere l' [esercitazione introduttiva] più volte, una per ogni applicazione client.
+Per iniziare a usare il servizio app per dispositivi mobili, seguire l'esercitazione [Attività iniziali] .  Questa esercitazione illustrerà le informazioni di base relative a produzione di un back-end e di un client per dispositivi mobili scelti dall'utente, integrazione dell'autenticazione, sincronizzazione offline e notifiche push.  È possibile ripetere l' [Attività iniziali] più volte, una per ogni applicazione client.
 
 Per altre informazioni sulle app per dispositivi mobili di Azure, vedere la [mappa di apprendimento].
 Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Informazioni sul servizio app di Azure].
@@ -80,7 +80,7 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Info
 
 <!-- URLs. -->
 [Migrare il servizio mobile al servizio app]: app-service-mobile-migrating-from-mobile-services.md
-[servizio app di Azure]: ../app-service/app-service-value-prop-what-is.md
+[Informazioni sul servizio app di Azure]: ../app-service/app-service-value-prop-what-is.md
 [Attività iniziali]: app-service-mobile-ios-get-started.md
 [Archiviazione tabelle di Azure]: ../storage/storage-getting-started-guide.md
 [DocumentDB]: ../documentdb/documentdb-get-started.md
@@ -91,10 +91,10 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Info
 [Android]: ./app-service-mobile-android-how-to-use-client-library.md
 [Windows]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin per iOS e Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
-[Moduli Xamarin]: ./app-service-mobile-xamarin-forms-get-started.md
+[Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[auto scaling]: ../app-service-web/web-sites-scale.md
-[staging environments]: ../app-service-web/web-sites-staged-publishing.md
+[scalabilità automatica]: ../app-service-web/web-sites-scale.md
+[ambienti di staging]: ../app-service-web/web-sites-staged-publishing.md
 [opzioni di distribuzione]: ../app-service-web/web-sites-deploy.md
 [connessioni ibride]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 [reti virtuali]: ../app-service-web/web-sites-integrate-with-vnet.md

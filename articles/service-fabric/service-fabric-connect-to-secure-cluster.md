@@ -1,45 +1,35 @@
 ---
-title: Autenticare l'accesso client a un cluster | Microsoft Docs
-description: Descrive come autenticare l'accesso client a un cluster Service Fabric tramite i certificati e come proteggere le comunicazioni tra i client e un cluster.
+title: Autenticare l&quot;accesso client a un cluster | Documentazione Microsoft
+description: Descrive come autenticare l&quot;accesso client a un cluster di Service Fabric e come proteggere la comunicazione tra i client e un cluster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 11/11/2016
 ms.author: ryanwi
+translationtype: Human Translation
+ms.sourcegitcommit: 4ba0f864dc28beebb80567d3fac7f12cc42df677
+ms.openlocfilehash: 09557bd9c83318b2bdff8ecdefedc141eb7f80db
+
 
 ---
-# <a name="connect-to-a-secure-cluster-without-aad"></a>Connettersi a un cluster sicuro senza AAD
-Quando un client si connette a un nodo di un cluster Service Fabric, è possibile autenticare il client e proteggere la comunicazione stabilita mediante la sicurezza dei certificati. Questa autenticazione garantisce che solo gli utenti autorizzati possano accedere al cluster e alle applicazioni distribuite ed eseguire attività di gestione.  La sicurezza basata su certificati deve essere stata attivata in precedenza sul cluster durante la creazione del cluster stesso.  È necessario usare almeno due certificati per proteggere il cluster, uno per il certificato del server e del cluster e un altro per l'accesso client.  È consigliabile usare anche altri certificati secondari e certificati di accesso client.  Per altre informazioni sugli scenari di sicurezza dei cluster, vedere [Sicurezza del cluster](service-fabric-cluster-security.md).
+# <a name="connect-to-a-secure-cluster"></a>Connettersi a un cluster sicuro
+Quando un client si connette a un nodo di un cluster di Service Fabric, è possibile autenticare il client e proteggere la comunicazione stabilita usando la sicurezza basata su certificati o Azure Active Directory (AAD). Questa autenticazione garantisce che solo gli utenti autorizzati possano accedere al cluster e alle applicazioni distribuite ed eseguire attività di gestione.  La sicurezza basata su certificati o AAD deve essere stata abilitata in precedenza nel cluster durante la creazione del cluster stesso.  Per altre informazioni sugli scenari di sicurezza dei cluster, vedere [Sicurezza del cluster](service-fabric-cluster-security.md). Se ci si connette a un cluster protetto con certificati, [configurare il certificato client](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) nel computer che si connetterà al cluster.
 
-Per proteggere la comunicazione tra un client e un nodo del cluster con la sicurezza basata su certificati, è prima necessario ottenere e installare il certificato client. Il certificato può essere installato nell'archivio personale del computer locale o dell'utente corrente.  È necessaria anche l'identificazione personale del certificato del server in modo che il client possa autenticare il cluster.
-
-Per configurare il certificato del client nel computer che si userà per accedere al cluster, eseguire il cmdlet PowerShell seguente.
-
-```powershell
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-        -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
-        -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-```
-
-Se si tratta di un certificato autofirmato, è necessario importarlo nell'archivio "Persone attendibili" del computer prima di poterlo usare per la connessione a un cluster sicuro.
-
-```powershell
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople `
--FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
--Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-```
 <a id="connectsecureclustercli"></a> 
 
-## <a name="connect-to-a-secure-cluster-using-azure-cli-without-aad"></a>Connettersi a un cluster sicuro usando l'interfaccia della riga di comando di Azure senza AAD
-I comandi dell'interfaccia della riga di comando di Azure seguenti illustrano come connettersi a un cluster sicuro. I dettagli del certificato devono corrispondere a un certificato sui nodi del cluster. 
+## <a name="connect-to-a-secure-cluster-using-azure-cli"></a>Connettersi a un cluster sicuro usando l'interfaccia della riga di comando di Azure
+I comandi dell'interfaccia della riga di comando di Azure seguenti illustrano come connettersi a un cluster sicuro. 
+
+### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Connettersi a un cluster sicuro con un certificato client
+I dettagli del certificato devono corrispondere a un certificato sui nodi del cluster. 
 
 Se il certificato ha autorità di certificazione (CA), è necessario aggiungere il parametro `--ca-cert-path` come illustrato nell'esempio seguente: 
 
@@ -70,8 +60,29 @@ Dopo la connessione, sarà possibile eseguire altri comandi dell'interfaccia del
 
 <a id="connectsecurecluster"></a>
 
-## <a name="connect-to-a-secure-cluster-using-powershell-without-aad"></a>Connettersi a un cluster sicuro usando PowerShell senza AAD
-Eseguire il comando di PowerShell seguente per connettersi a un cluster sicuro. I dettagli del certificato devono corrispondere a un certificato sui nodi del cluster.
+## <a name="connect-to-a-secure-cluster-using-powershell"></a>Connettersi a un cluster sicuro mediante PowerShell
+Prima di eseguire operazioni su un cluster tramite PowerShell, stabilire una connessione al cluster. La connessione al cluster verrà usata per tutti i successivi comandi nella specifica sessione di PowerShell.
+
+### <a name="connect-to-an-unsecure-cluster"></a>Connettersi a un cluster non sicuro
+
+Per connettersi a un cluster non sicuro, specificare l'indirizzo dell'endpoint del cluster nel comando **Connect-ServiceFabricCluster**:
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 
+```
+
+### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Connettersi a un cluster sicuro con Azure Active Directory
+
+Per connettersi a un cluster sicuro che usa Azure Active Directory per autorizzare l'accesso di amministratore al cluster, specificare l'identificazione personale del certificato del cluster e usare il flag *AzureActiveDirectory*.  
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+-ServerCertThumbprint <Server Certificate Thumbprint> `
+-AzureActiveDirectory
+```
+
+### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Connettersi a un cluster sicuro con un certificato client
+Per connettersi a un cluster sicuro che usa certificati client per autorizzare l'accesso di amministratore, eseguire il comando di PowerShell seguente. Specificare l'identificazione personale del certificato del cluster nonché l'identificazione personale del certificato client a cui sono state concesse le autorizzazioni per la gestione del cluster. I dettagli del certificato devono corrispondere a un certificato sui nodi del cluster.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -93,10 +104,28 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
 ```
 
 
-
+<a id="connectsecureclusterfabricclient"></a>
 
 ## <a name="connect-to-a-secure-cluster-using-the-fabricclient-apis"></a>Connettersi a un cluster sicuro mediante le API FabricClient
-Per altre informazioni sulle API FabricClient, vedere [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). I nodi del cluster devono avere certificati validi il cui nome comune o nome DNS nella rete SAN è contenuto nella [proprietà RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) impostata in [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Questo processo consente l'autenticazione reciproca tra il client e i nodi del cluster.
+Service Fabric SDK fornisce la classe [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) per la gestione del cluster. 
+
+### <a name="connect-to-an-unsecure-cluster"></a>Connettersi a un cluster non sicuro
+
+Per connettersi a un cluster remoto non protetto, creare semplicemente un'istanza di FabricClient e specificare l'indirizzo del cluster:
+
+```csharp
+FabricClient fabricClient = new FabricClient("clustername.westus.cloudapp.azure.com:19000");
+```
+
+Per il codice in esecuzione in un cluster, ad esempio in un servizio Reliable Services, creare un'istanza di FabricClient *senza* specificare l'indirizzo del cluster. FabricClient si connette al gateway di gestione locale nel nodo in cui il codice è attualmente in esecuzione, evitando un hop di rete aggiuntivo.
+
+```csharp
+FabricClient fabricClient = new FabricClient();
+```
+
+### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Connettersi a un cluster sicuro con un certificato client
+
+I nodi del cluster devono avere certificati validi il cui nome comune o nome DNS nella rete SAN è contenuto nella [proprietà RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) impostata in [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Questo processo consente l'autenticazione reciproca tra il client e i nodi del cluster.
 
 ```csharp
 string clientCertThumb = "71DE04467C9ED0544D021098BCD44C71E183414E";
@@ -142,6 +171,155 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 }
 ```
 
+### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Connettersi a un cluster sicuro con Azure Active Directory
+
+Questo processo abilita Azure Active Directory per l'identità del client e il certificato del server per l'identità del server.
+
+Per usare la modalità interattiva, con visualizzazione di una finestra di dialogo di accesso interattiva di AAD:
+
+```csharp
+string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
+string connection = "clustername.westus.cloudapp.azure.com:19000";
+
+ClaimsCredentials claimsCredentials = new ClaimsCredentials();
+claimsCredentials.ServerThumbprints.Add(serverCertThumb);
+
+FabricClient fc = new FabricClient(
+    claimsCredentials,
+    connection);
+
+try
+{
+    var ret = fc.ClusterManager.GetClusterManifestAsync().Result;
+    Console.WriteLine(ret.ToString());
+}
+catch (AggregateException ae)
+{
+    Console.WriteLine("Connect failed: {0}", ae.InnerException.Message);
+}
+catch (Exception e)
+{
+    Console.WriteLine("Connect failed: {0}", e.Message);
+}
+```
+
+Per usare la modalità non interattiva, senza intervento dell'utente, usare il codice seguente.
+
+L'esempio è basato su Microsoft.IdentityModel.Clients.ActiveDirectory versione 2.19.208020213.
+
+Per altre informazioni, ad esempio su come acquisire il token, vedere lo [spazio dei nomi Microsoft.IdentityModel.Clients.ActiveDirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx).
+
+```csharp
+string tenantId = "c15cfcea-02c1-40dc-8466-fbd0ee0b05d2";
+string clientApplicationId = "118473c2-7619-46e3-a8e4-6da8d5f56e12";
+string webApplicationId = "53E6948C-0897-4DA6-B26A-EE2A38A690B4";
+
+string token = GetAccessToken(
+    tenantId,
+    webApplicationId,
+    clientApplicationId,
+    "urn:ietf:wg:oauth:2.0:oob"
+    );
+
+string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
+string connection = "clustername.westus.cloudapp.azure.com:19000";
+ClaimsCredentials claimsCredentials = new ClaimsCredentials();
+claimsCredentials.ServerThumbprints.Add(serverCertThumb);
+claimsCredentials.LocalClaims = token;
+
+FabricClient fc = new FabricClient(
+   claimsCredentials,
+   connection);
+
+try
+{
+    var ret = fc.ClusterManager.GetClusterManifestAsync().Result;
+    Console.WriteLine(ret.ToString());
+}
+catch (AggregateException ae)
+{
+    Console.WriteLine("Connect failed: {0}", ae.InnerException.Message);
+}
+catch (Exception e)
+{
+    Console.WriteLine("Connect failed: {0}", e.Message);
+}
+
+...
+
+static string GetAccessToken(
+    string tenantId,
+    string resource,
+    string clientId,
+    string redirectUri)
+{
+    string authorityFormat = @"https://login.microsoftonline.com/{0}";
+    string authority = string.Format(CultureInfo.InvariantCulture, authorityFormat, tenantId);
+    AuthenticationContext authContext = new AuthenticationContext(authority);
+
+    string token = "";
+    try
+    {
+        var authResult = authContext.AcquireToken(
+            resource,
+            clientId,
+            new UserCredential("TestAdmin@clustenametenant.onmicrosoft.com", "TestPassword"));
+        token = authResult.AccessToken;
+    }
+    catch (AdalException ex)
+    {
+        Console.WriteLine("Get AccessToken failed: {0}", ex.Message);
+    }
+
+    return token;
+}
+
+```
+
+<a id="connectsecureclustersfx"></a>
+
+## <a name="connect-to-a-secure-cluster-using-service-fabric-explorer"></a>Connettersi a un cluster sicuro usando Service Fabric Explorer
+Per raggiungere [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) per un determinato cluster, inserire nel browser l'indirizzo seguente:
+
+`http://<your-cluster-endpoint>:19080/Explorer`
+
+L'URL completo è disponibile anche nel riquadro essentials del cluster del portale di Azure.
+
+### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Connettersi a un cluster sicuro con Azure Active Directory
+
+Per connettersi a un cluster protetto con AAD, inserire nel browser l'indirizzo seguente:
+
+`https://<your-cluster-endpoint>:19080/Explorer`
+
+Verrà automaticamente richiesto di accedere con AAD.
+
+### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Connettersi a un cluster sicuro con un certificato client
+
+Per connettersi a un cluster protetto con certificati, inserire nel browser l'indirizzo seguente:
+
+`https://<your-cluster-endpoint>:19080/Explorer`
+
+Verrà automaticamente richiesto di selezionare un certificato del client.
+
+<a id="connectsecureclustersetupclientcert"></a>
+## <a name="set-up-a-client-certificate-on-the-remote-computer"></a>Configurare un certificato client nel computer remoto
+È necessario usare almeno due certificati per proteggere il cluster, uno per il certificato del server e del cluster e un altro per l'accesso client.  È consigliabile usare anche altri certificati secondari e certificati di accesso client.  Per proteggere la comunicazione tra un client e un nodo del cluster con la sicurezza basata su certificati, è prima necessario ottenere e installare il certificato client. Il certificato può essere installato nell'archivio personale del computer locale o dell'utente corrente.  È necessaria anche l'identificazione personale del certificato del server in modo che il client possa autenticare il cluster.
+
+Per configurare il certificato del client nel computer che si userà per accedere al cluster, eseguire il cmdlet PowerShell seguente.
+
+```powershell
+Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+        -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+        -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+```
+
+Se si tratta di un certificato autofirmato, è necessario importarlo nell'archivio "Persone attendibili" del computer prima di poterlo usare per la connessione a un cluster sicuro.
+
+```powershell
+Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople `
+-FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+-Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Processo di aggiornamento del cluster di infrastruttura di servizi e operazioni eseguibile dall'utente](service-fabric-cluster-upgrade.md)
@@ -149,6 +327,9 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 * [Introduzione al modello di integrità di Infrastruttura di servizi](service-fabric-health-introduction.md)
 * [Sicurezza delle applicazioni e RunAs](service-fabric-application-runas-security.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

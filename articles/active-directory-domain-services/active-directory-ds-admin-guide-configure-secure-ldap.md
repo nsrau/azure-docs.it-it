@@ -1,12 +1,12 @@
 ---
-title: Configurare l'accesso LDAP sicuro (LDAPS) in Servizi di dominio Azure AD | Microsoft Docs
-description: Configurare l'accesso LDAP sicuro (LDAPS) per un dominio gestito di Servizi di dominio Azure AD
+title: Configurare l&quot;accesso LDAP sicuro (LDAPS) in Azure Active Directory Domain Services | Documentazione Microsoft
+description: Configurare l&quot;accesso LDAP sicuro (LDAPS) per un dominio gestito Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 53cf596d1c1df77872696f2a55363cf3a83d5efe
+
 
 ---
-# <a name="configure-secure-ldap-(ldaps)-for-an-azure-ad-domain-services-managed-domain"></a>Configurare l'accesso LDAP sicuro (LDAPS) per un dominio gestito di Servizi di dominio Azure AD
+# <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurare l'accesso LDAP sicuro (LDAPS) per un dominio gestito di Servizi di dominio Azure AD
 Questo articolo illustra come abilitare l'accesso LDAPS (Secure Lightweight Directory Access Protocol) per il dominio gestito di Servizi di dominio Azure AD. L'accesso LDAP sicuro è noto anche come LDAP (Lightweight Directory Access Protocol) su SSL (Secure Sockets Layer) / TLS (Transport Layer Security).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
@@ -49,7 +53,7 @@ La prima attività consiste nell'ottenere un certificato da usare per l'accesso 
 * Ottenere un certificato da un'autorità di certificazione. Può trattarsi dell'autorità di certificazione della propria organizzazione o di un'autorità di certificazione pubblica.
 * Creare un certificato autofirmato.
 
-### <a name="option-a-(recommended)---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>Opzione A (scelta consigliata): ottenere un certificato LDAP sicuro da un'autorità di certificazione
+### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>Opzione A (scelta consigliata): ottenere un certificato LDAP sicuro da un'autorità di certificazione
 Se l'organizzazione distribuisce un'infrastruttura a chiave pubblica (PKI) aziendale, è necessario ottenere un certificato dall'autorità di certificazione (CA) aziendale dell'organizzazione. Se l'organizzazione ottiene i certificati da un'autorità di certificazione pubblica, è necessario ottenere il certificato LDAP sicuro dall'autorità di certificazione pubblica.
 
 Quando si richiede un certificato, assicurarsi di rispettare i requisiti descritti nella sezione [Requisiti per il certificato LDAP sicuro](#requirements-for-the-secure-ldap-certificate).
@@ -79,7 +83,7 @@ Nell'esempio precedente sostituire "contoso100.com" con il nome di dominio DNS d
 
 Il certificato autofirmato appena creato viene inserito nell'archivio certificati del computer locale.
 
-## <a name="task-2---export-the-secure-ldap-certificate-to-a-.pfx-file"></a>Attività 2: Esportare il certificato LDAP sicuro in un file PFX
+## <a name="task-2---export-the-secure-ldap-certificate-to-a-pfx-file"></a>Attività 2: Esportare il certificato LDAP sicuro in un file PFX
 Prima di iniziare questa attività, assicurarsi di aver ottenuto il certificato LDAP sicuro dall'autorità di certificazione dell'azienda o da un'autorità di certificazione pubblica oppure di aver creato un certificato autofirmato.
 
 Per esportare il certificato LDAPS in un file PFX, seguire questa procedura.
@@ -225,6 +229,9 @@ La procedura è terminata ed è possibile connettersi al dominio gestito usando 
 ## <a name="related-content"></a>Contenuti correlati
 * [Amministrare un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

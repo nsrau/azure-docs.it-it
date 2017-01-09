@@ -1,4 +1,4 @@
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. In una nuova finestra accedere al [portale di Azure](https://portal.azure.com/).
 2. Nell'indice scegliere **Nuovo**, fare clic su **Database** e quindi su **NoSQL (DocumentDB)**.
    
    ![Screenshot del portale di Azure, in cui sono evidenziati More Services (Altri servizi) e DocumentDB (NoSQL)](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
@@ -20,13 +20,13 @@
 
    ![Schermata che illustra come aprire l'account del database DocumentDB di Azure nel portale di Azure](./media/documentdb-create-dbaccount/azure-documentdb-database-open-account-portal.png)  
 
-   La coerenza predefinita dell'account DocumentDB è impostata su **Sessione**.  Per modificarla è possibile fare clic su **Coerenza predefinita** nel menu della risorsa. Per altre informazioni sui livelli di coerenza offerti da DocumentDB, vedere [Livelli di coerenza in DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
+   La coerenza predefinita dell'account DocumentDB è impostata su **Sessione**.  È possibile regolare la coerenza predefinita selezionando una delle altre opzioni di coerenza disponibili. Per altre informazioni sui livelli di coerenza offerti da DocumentDB, vedere [Livelli di coerenza in DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
 [documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -122,7 +122,7 @@ La tabella seguente mette a confronto la previsione di carico a breve e a lungo 
 
 Come si può notare dalla tabella, la distinzione tra scenari di previsione a breve e lungo termine è molto importante dal momento che rappresentano esigenze commerciali diverse e possono avere schemi di distribuzione e consumo differenti.
 
-### <a name="example-use-case-1-esmart-systems-overload-optimization"></a>Caso d'uso di esempio 1: eSmart Systems - Ottimizzazione del sovraccarico
+### <a name="example-use-case-1-esmart-systems--overload-optimization"></a>Caso d'uso di esempio 1: eSmart Systems - Ottimizzazione del sovraccarico
 Tra i compiti importanti di una [smart grid](https://en.wikipedia.org/wiki/Smart_grid) c'è quello di eseguire l'ottimizzazione e la regolazione in modo dinamico e costante in base agli schemi di variazione dei consumi. Il consumo energetico può essere influenzato da cambiamenti a breve termine causati principalmente da variazioni della temperatura. *Ad esempio*, i maggiori consumi dovuti all'uso del riscaldamento o dell'aria condizionata. Allo stesso tempo, il consumo energetico è influenzato anche da tendenze a lungo termine. Sono inclusi, ad esempio, effetti stagionali, festività nazionali, aumento del consumo a lungo termine e persino fattori economici come l'indice al consumo, il prezzo del greggio e il PIL.
 
 In questo caso d'uso [eSmart Systems](http://www.esmartsystems.com/) vuole distribuire una soluzione basata sul cloud che consenta di prevedere la propensione a una situazione di sovraccarico per una data sottostazione della rete. In particolare, eSmart Systems vuole identificare le sottostazioni con una maggiore probabilità di sovraccarico nell'ora successiva, per poter intervenire immediatamente ed evitare o risolvere tale situazione.
@@ -139,7 +139,7 @@ I modelli a breve e a lungo termine vengono distribuiti singolarmente per ogni s
 
 Altre informazioni su questo caso d'uso sono disponibili [qui](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18945).
 
-#### <a name="use-case-qualification-criteria-prerequisites"></a>Criteri di qualificazione dei casi d'uso - Prerequisiti
+#### <a name="use-case-qualification-criteria--prerequisites"></a>Criteri di qualificazione dei casi d'uso - Prerequisiti
 Il punto di forza di Cortana Intelligence è la grande capacità di distribuire e ridimensionare soluzioni incentrate sul Machine Learning. È progettato per supportare l'esecuzione simultanea di migliaia di previsioni. Consente la scalabilità automatica in base ai cambiamenti dello schema di consumo. La soluzione è quindi incentrata sulla precisione e sulle prestazioni di calcolo. Si prenda, ad esempio, un'azienda di pubblici servizi interessata alla produzione di una previsione accurata della domanda di energia per l'ora successiva e per ogni ora del giorno. È meno interessante sapere perché la domanda viene prevista come tale, dato che è il modello stesso a occuparsi di questo aspetto.
 
 È quindi importante tenere presente che non tutti i casi d'uso e i problemi aziendali possono essere risolti in modo efficace con l'uso dell'apprendimento automatico.

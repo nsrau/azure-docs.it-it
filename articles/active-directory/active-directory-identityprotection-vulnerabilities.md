@@ -25,7 +25,7 @@ ms.openlocfilehash: f526af67a94ce0cab61591d9250f4742b1ede579
 Le vulnerabilità sono punti deboli in un ambiente che possono essere sfruttati da un utente malintenzionato. È consigliabile risolvere le vulnerabilità per migliorare le condizioni di sicurezza dell'organizzazione e impedire che vengano sfruttate da utenti malintenzionati.
 
 
-![vulnerabilità](./media/active-directory-identityprotection-vulnerabilities/101.png "vulnerabilities")
+![vulnerabilità](./media/active-directory-identityprotection-vulnerabilities/101.png "vulnerabilità")
 
 
 
@@ -64,6 +64,6 @@ Per altre informazioni, vedere [Azure AD Privileged Identity Management](active-
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

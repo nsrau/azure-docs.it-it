@@ -1,0 +1,61 @@
+---
+title: Indicazioni sulle comunicazioni da cloud a dispositivo dell&quot;Hub IoT di Azure | Documentazione Microsoft
+description: "Guida per gli sviluppatori dell&quot;Hub IoT di Azure: indicazioni su quando usare i metodi diretti, le proprietà desiderate del dispositivo gemello o i messaggi da cloud a dispositivo."
+services: iot-hub
+documentationcenter: 
+author: fsautomata
+manager: timlt
+editor: 
+ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/09/2016
+ms.author: elioda
+translationtype: Human Translation
+ms.sourcegitcommit: 53f14e6fe115ed5f96d25b9ec5ab04abe23712d5
+ms.openlocfilehash: 83801ce4a5450b220f305518cd38025e56adafd8
+
+
+---
+# <a name="cloud-to-device-communications-guidance"></a>Indicazioni sulle comunicazioni da cloud a dispositivo
+L'hub IoT fornisce tre opzioni per le app per dispositivo che consentono di esporre le funzionalità a un back-end:
+
+* [Metodi diretti][lnk-methods], per comunicazioni che necessitano di una conferma immediata del risultato, in genere per il controllo interattivo del dispositivo, ad esempio l'accensione di un ventilatore.
+* [Proprietà desiderate del dispositivo gemello][lnk-twins], per comandi a esecuzione prolungata che consentono di impostare uno stato specifico per il dispositivo, ad esempio per impostare l'intervallo di invio dei dati di telemetria su 30 minuti.
+* [Messaggi da cloud a dispositivo][lnk-c2d], per le notifiche unidirezionali verso l'app per dispositivo.
+
+Ecco un confronto dettagliato delle diverse opzioni di comunicazione da cloud a dispositivo.
+
+|  | Metodi diretti | Proprietà desiderate del dispositivo gemello | Messaggi da cloud a dispositivo |
+| ---- | ------- | ---------- | ---- |
+| Scenario | Comandi che richiedono una conferma immediata, ad esempio l'accensione di un ventilatore. | Comandi a esecuzione prolungata che consentono di impostare uno stato specifico per il dispositivo, ad esempio per impostare l'intervallo di invio dei dati di telemetria su 30 minuti. | Notifiche unidirezionali verso l'app per dispositivo. |
+| Flusso di dati | Bidirezionale. L'app per dispositivo può rispondere immediatamente al metodo. Il back-end riceve il risultato insieme alla richiesta. | Unidirezionale. L'app per dispositivo riceve una notifica quando la proprietà viene modificata. | Unidirezionale. L'app per dispositivo riceve il messaggio.
+| Durabilità | I dispositivi disconnessi non vengono contattati. Il back-end riceve una notifica che indica che il dispositivo non è connesso. | I valori delle proprietà vengono conservati nel dispositivo gemello. Il dispositivo li leggerà alla riconnessione successiva. I valori delle proprietà possono essere recuperati con il [linguaggio di query dell'hub IoT][lnk-query]. | I messaggi possono essere conservati dall'hub IoT per un massimo di 48 ore. |
+| Destinazioni | Singolo dispositivo che usa **deviceId** o più dispositivi che usano [processi][lnk-jobs]. | Singolo dispositivo che usa **deviceId** o più dispositivi che usano [processi][lnk-jobs]. | Singolo dispositivo in base a **deviceId**. |
+| Dimensione | Fino a 8 KB di richieste e 8 KB di risposte. | Le dimensioni massime per le proprietà desiderate sono 8 KB. | Fino a 256 KB di messaggi. |
+| Frequenza | Elevata. Per altre informazioni, vedere i [limiti dell'hub IoT][lnk-quotas]. | Media. Per altre informazioni, vedere i [limiti dell'hub IoT][lnk-quotas]. | Bassa. Per altre informazioni, vedere i [limiti dell'hub IoT][lnk-quotas]. |
+| Protocol | Disponibile su MQTT e AMQP. | Attualmente disponibile solo quando si usa MQTT. | Disponibile in tutti i protocolli. Il dispositivo deve eseguire il polling quando usa HTTP. |
+
+Informazioni su come usare i metodi diretti, le proprietà desiderate e messaggi da cloud a dispositivo nelle esercitazioni seguenti:
+
+* [Usare i metodi diretti ][lnk-methods-tutorial], per i metodi diretti.
+* [Usare le proprietà desiderate per configurare i dispositivi][lnk-twin-properties], per le proprietà desiderate del dispositivo gemello. 
+* [Inviare messaggi da cloud a dispositivo][lnk-c2d-tutorial], per messaggi da cloud a dispositivo.
+
+[lnk-twins]: iot-hub-devguide-device-twins.md
+[lnk-quotas]: iot-hub-devguide-quotas-throttling.md
+[lnk-query]: iot-hub-devguide-query-language.md
+[lnk-jobs]: iot-hub-devguide-jobs.md
+[lnk-c2d]: iot-hub-devguide-messaging.md#cloud-to-device-messages
+[lnk-methods]: iot-hub-devguide-direct-methods.md
+[lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
+[lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
+[lnk-c2d-tutorial]: iot-hub-node-node-c2d.md
+
+
+<!--HONumber=Nov16_HO5-->
+
+

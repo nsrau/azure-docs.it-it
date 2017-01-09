@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/18/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bc77a43199a2d90978739eb1db89994a64990b76
+ms.sourcegitcommit: 32f0a3d9e8ee2c419a4171cd6702ce625648da94
+ms.openlocfilehash: 9de55f53d2bf574022f2a37222f58ee3a72d62ec
 
 
 ---
@@ -252,6 +252,6 @@ Quando si fa clic sul riquadro Atomic Learning nel pannello di accesso, si dovre
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/29/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2e988c717eabff71a47556eaf37aac10b081fc1e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4ca129307925c0a4fa8207e2c92ae7b9290e1446
 
 
 ---
@@ -255,6 +255,6 @@ Supporto dell'applicazione Blackboard Learn Quando si fa clic sul riquadro Black
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

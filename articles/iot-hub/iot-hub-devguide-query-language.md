@@ -1,12 +1,12 @@
 ---
-title: 'Guida per sviluppatori: linguaggio di query | Microsoft Docs'
-description: 'Guida per sviluppatori dell''hub IoT di Azure: descrizione del linguaggio di query usato per recuperare informazioni su dispositivi gemelli, metodi e processi dall''hub IoT.'
+title: 'Guida per sviluppatori: linguaggio di query dell&quot;hub IoT | Documentazione Microsoft'
+description: 'Guida per sviluppatori dell&quot;hub IoT di Azure: descrizione del linguaggio di query simile a SQL usato per recuperare informazioni su dispositivi gemelli e processi dall&quot;hub IoT'
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 851a9ed3-b69e-422e-8a5d-1d79f91ddf15
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
+translationtype: Human Translation
+ms.sourcegitcommit: 627de0ca1647e98e08165521e7d3a519e1950296
+ms.openlocfilehash: 8007c6864368868d9cb489236d958eeada8789bd
+
 
 ---
-# <a name="reference---query-language-for-twins-and-jobs"></a>Informazioni di riferimento: linguaggio di query per dispositivi gemelli e processi
+# <a name="reference---iot-hub-query-language-for-device-twins-and-jobs"></a>Informazioni di riferimento: linguaggio di query dell'hub IoT per dispositivi gemelli e processi
 ## <a name="overview"></a>Panoramica
 L'hub IoT fornisce un linguaggio simile a SQL avanzato per recuperare informazioni su [dispositivi gemelli][lnk-twins] e [processi][lnk-jobs]. Questo articolo contiene:
 
 * Un'introduzione alle principali funzionalità del linguaggio di query dell'hub IoT
 * La descrizione dettagliata del linguaggio
 
-## <a name="getting-started-with-twin-queries"></a>Introduzione alle query dei dispositivi gemelli
+## <a name="getting-started-with-device-twin-queries"></a>Introduzione alle query dei dispositivi gemelli
 I [dispositivi gemelli][lnk-twins] possono contenere oggetti JSON arbitrari come tag e proprietà. L'hub IoT consente di effettuare una query dei dispositivi gemelli come singolo documento JSON contenente tutte le informazioni sui dispositivi gemelli.
 Si supponga, ad esempio, che i dispositivi gemelli dell'hub IoT abbiano la struttura seguente:
 
@@ -71,8 +75,8 @@ Quindi la query seguente recupera l'intero set di dispositivi:
 
 > [!NOTE]
 > Gli [SDK dell'hub IoT][lnk-hub-sdks] supportano il paging di risultati di grandi dimensioni.
-> 
-> 
+>
+>
 
 L'hub IoT consente di recuperare i dispositivi gemelli applicando filtri con condizioni arbitrarie. Ad esempio,
 
@@ -91,7 +95,12 @@ recupera tutti i dispositivi gemelli situati negli Stati Uniti configurati per l
         SELECT * FROM devices
         WHERE property.reported.connectivity IN ['wired', 'wifi']
 
-recupera tutti i dispositivi gemelli che hanno segnalato una connettività Wi-Fi o cablata. Per informazioni di riferimento complete sulle funzionalità di filtro, vedere la sezione [Clausola WHERE][lnk-query-where].
+recupera tutti i dispositivi gemelli che hanno segnalato una connettività WiFi o cablata. È spesso necessario identificare tutti i dispositivi gemelli che contengono una proprietà specifica. L'hub IoT supporta la funzione `is_defined()` per questo scopo. Ad esempio,
+
+        SELECT * FROM devices
+        WHERE is_defined(property.reported.connectivity)
+
+recupera tutti i dispositivi gemelli che definiscono la proprietà segnalata `connectivity`. Per informazioni di riferimento complete sulle funzionalità di filtro, vedere la sezione [Clausola WHERE][lnk-query-where].
 
 Sono supportati anche il raggruppamento e le aggregazioni. Ad esempio,
 
@@ -119,7 +128,7 @@ restituisce il numero di dispositivi in ogni stato di configurazione della telem
 
 L'esempio precedente illustra una situazione in cui tre dispositivi hanno segnalato che la configurazione è riuscita, due stanno ancora applicando la configurazione e uno ha segnalato un errore.
 
-### <a name="c#-example"></a>Esempio in C
+### <a name="c-example"></a>Esempio in C#
 La funzionalità di query viene esposta dall'[SDK del servizio C#][lnk-hub-sdks] nella classe **RegistryManager**.
 Ecco un esempio di una query semplice:
 
@@ -127,14 +136,14 @@ Ecco un esempio di una query semplice:
         while (query.HasMoreResults)
         {
             var page = await query.GetNextAsTwinAsync();
-            foreach (var twin in page) 
+            foreach (var twin in page)
             {
                 // do work on twin object
             }
         }
 
 Si noti come venga creata un'istanza dell'oggetto **query** con dimensioni della pagina (fino a 1000) e quindi si possano recuperare più pagine chiamando più volte i metodi **GetNextAsTwinAsync**.
-È importante notare che l'oggetto query espone più **Next\***, a seconda dell'opzione di deserializzazione richiesta dalla query, ad esempio se devono essere usati oggetti twin o job oppure il normale codice JSON quando si ricorre alle proiezioni.
+È importante notare che l'oggetto query espone più **next\***, a seconda dell'opzione di deserializzazione richiesta dalla query, ad esempio se devono essere usati oggetti twin o job oppure il normale codice JSON quando si ricorre alle proiezioni.
 
 ### <a name="node-example"></a>Esempio in Node
 La funzionalità di query viene esposta dall'[SDK del servizio Node][lnk-hub-sdks] nell'oggetto **Registry**.
@@ -161,7 +170,7 @@ Si noti come venga creata un'istanza dell'oggetto **query** con dimensioni della
 È importante notare che l'oggetto query espone più **next\***, a seconda dell'opzione di deserializzazione richiesta dalla query, ad esempio se devono essere usati oggetti twin o job oppure il normale codice JSON quando si ricorre alle proiezioni.
 
 ### <a name="limitations"></a>Limitazioni
-Attualmente le proiezioni sono supportate solo quando si usano le aggregazioni, vale a dire che le query non aggregate possono usare solo `SELECT *`. Oltre a ciò, le aggregazioni sono supportate solo in combinazione con il raggruppamento.
+I confronti sono attualmente supportati solo tra tipi primitivi (non oggetti), ad esempio `... WHERE properties.desired.config = properties.reported.config` è supportato solo se tali proprietà hanno valori primitivi.
 
 ## <a name="getting-started-with-jobs-queries"></a>Introduzione alle query dei processi
 I [processi][lnk-jobs] consentono di eseguire operazioni su set di dispositivi. Ogni dispositivo gemello contiene le informazioni dei processi di cui fa parte in una raccolta denominata **jobs**.
@@ -177,7 +186,7 @@ La struttura logica è la seguente.
                 ...                                                                 
             },
             "jobs": [
-                { 
+                {
                     "deviceId": "myDeviceId",
                     "jobId": "myJobId",    
                     "jobType": "scheduleTwinUpdate",            
@@ -196,6 +205,11 @@ La struttura logica è la seguente.
 
 Attualmente è possibile effettuare una query di questa raccolta come **devices.jobs** nel linguaggio di query dell'hub IoT.
 
+> [!IMPORTANT]
+> Attualmente la proprietà dei processi non viene mai restituita quando si eseguono query sui dispositivi gemelli, ad esempio query che contengono 'FROM devices'. È possibile accedervi direttamente solo con le query che usano `FROM devices.jobs`.
+>
+>
+
 Ad esempio, per ottenere tutti i processi (passati e pianificati) che influiscono su un singolo dispositivo, è possibile usare la query seguente:
 
         SELECT * FROM devices.jobs
@@ -211,7 +225,7 @@ Ad esempio, la query seguente:
             AND devices.jobs.status = 'completed'
             AND devices.jobs.createdTimeUtc > '2016-09-01'
 
-recupera tutti i processi di aggiornamento completati per il dispositivo **myDeviceId** creati dopo settembre 2016.
+recupera tutti i processi di aggiornamento del dispositivo gemello completati per il dispositivo **myDeviceId** e creati dopo settembre 2016.
 
 È anche possibile recuperare i risultati per ogni dispositivo di un singolo processo.
 
@@ -221,7 +235,7 @@ recupera tutti i processi di aggiornamento completati per il dispositivo **myDev
 ### <a name="limitations"></a>Limitazioni
 Attualmente le query su **devices.jobs** non supportano:
 
-* Proiezioni, vale a dire che è possibile solo `SELECT *`
+* Proiezioni, quindi è possibile solo `SELECT *`
 * Condizioni che fanno riferimento al dispositivo gemello oltre alle proprietà del processo, come illustrato sopra
 * Esecuzione di aggregazioni, ad esempio count, avg, group by.
 
@@ -258,11 +272,11 @@ Questa è la sintassi della clausola SELECT:
             | <aggregate>
 
         <aggregate> :==
-            count(<projection_element>) | count()
-            | avg(<projection_element>) | avg()
-            | sum(<projection_element>) | sum()
-            | min(<projection_element>) | min()
-            | max(<projection_element>) | max()
+            count()
+            | avg(<projection_element>)
+            | sum(<projection_element>)
+            | min(<projection_element>)
+            | max(<projection_element>)
 
 dove **attribute_name** si riferisce alle proprietà del documento JSON nella raccolta FROM. Alcuni esempi di clausola SELECT sono disponibili nella sezione [Introduzione alle query dei dispositivi gemelli][lnk-query-getstarted].
 
@@ -285,34 +299,37 @@ La sintassi formale di GROUP BY è:
             attribute_name
             | < group_by_element > '.' attribute_name
 
-dove **attribute_name** si riferisce alle proprietà del documento JSON nella raccolta FROM. 
+dove **attribute_name** si riferisce alle proprietà del documento JSON nella raccolta FROM.
 
-Attualmente la clausola GROUP BY è supportata solo quando si effettua una query dei dispositivi gemelli.
+Attualmente la clausola GROUP BY è supportata solo quando si effettua una query sui dispositivi gemelli.
 
 ## <a name="expressions-and-conditions"></a>Espressioni e condizioni
 In generale, un'*espressione*:
 
-* Restituisce un'istanza di un tipo JSON (ad esempio, Boolean, number, string, array o object)
+* Restituisce un'istanza di un tipo JSON, ad esempio Boolean, number, string, array o object
 * Viene definita modificando i dati provenienti dalle costanti e dal documento JSON dei dispositivi, che usano funzioni e operatori predefiniti.
 
-Le *condizioni* sono espressioni che restituiscono un valore booleano, vale a dire che una costante diversa dal valore booleano **true** viene considerata **false** (inclusi **null**, **undefined**, qualsiasi istanza di oggetto o matrice, qualsiasi stringa e ovviamente il valore booleano **false**).
+Le *condizioni* sono espressioni che restituiscono un valore booleano, quindi una costante diversa dal valore booleano **true** viene considerata **false** (inclusi **null**, **undefined**, qualsiasi istanza di oggetto o matrice, qualsiasi stringa e ovviamente il valore booleano **false**).
 
 La sintassi delle espressioni è:
 
         <expression> ::=
             <constant> |
             attribute_name |
-            unary_operator <expression> |
+            <function_call> |
             <expression> binary_operator <expression> |
             <create_array_expression> |
             '(' <expression> ')'
 
+        <function_call> ::=
+            <function_name> '(' expression ')'
+
         <constant> ::=
             <undefined_constant>
-            | <null_constant> 
-            | <number_constant> 
-            | <string_constant> 
-            | <array_constant> 
+            | <null_constant>
+            | <number_constant>
+            | <string_constant>
+            | <array_constant>
 
         <undefined_constant> ::= undefined
         <null_constant> ::= null
@@ -325,8 +342,8 @@ dove:
 | Simbolo | Definizione |
 | --- | --- |
 | attribute_name |Proprietà del documento JSON nella raccolta FROM. |
-| unary_operator |Operatore unario come indicato nella sezione Operatori. |
 | binary_operator |Operatore binario come indicato nella sezione Operatori. |
+| function_name| L'unico valore supportato è `is_defined()` |
 | decimal_literal |Float espresso in una notazione decimale. |
 | hexadecimal_literal |Numero espresso dalla stringa "0x" seguita da una stringa costituita da cifre esadecimali. |
 | string_literal |I valori letterali stringa sono stringhe Unicode rappresentate da una sequenza di zero o più caratteri Unicode o sequenze di escape. I valori letterali stringa sono racchiusi tra virgolette singole (apostrofo: ') o virgolette doppie (virgolette inglesi: "). Caratteri di escape consentiti: `\'`, `\"`, `\\`, `\uXXXX` per i caratteri Unicode definiti da 4 cifre esadecimali. |
@@ -345,7 +362,7 @@ Informazioni su come eseguire query nelle app usando gli [SDK dell'hub IoT][lnk-
 
 [lnk-query-where]: iot-hub-devguide-query-language.md#where-clause
 [lnk-query-expressions]: iot-hub-devguide-query-language.md#expressions-and-conditions
-[lnk-query-getstarted]: iot-hub-devguide-query-language.md#getting-started-with-twin-queries
+[lnk-query-getstarted]: iot-hub-devguide-query-language.md#getting-started-with-device-twin-queries
 
 [lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-jobs]: iot-hub-devguide-jobs.md
@@ -356,6 +373,7 @@ Informazioni su come eseguire query nelle app usando gli [SDK dell'hub IoT][lnk-
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO5-->
 
 

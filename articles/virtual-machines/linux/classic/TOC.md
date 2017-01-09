@@ -69,7 +69,7 @@
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/vm)
 ## [Java](/java/api)
-## [Creare modelli di Resource Manager](../../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Creare modelli di Resource Manager](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Modelli della community](https://azure.microsoft.com/documentation/templates)
 ## [REST di calcolo](/rest/api/compute)
 ## [REST di rete](/rest/api)
@@ -83,6 +83,6 @@
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

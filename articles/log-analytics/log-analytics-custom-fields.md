@@ -44,7 +44,7 @@ Le sezioni seguenti illustrano la procedura per la creazione di un campo persona
 > 
 > 
 
-### <a name="step-1-identify-records-that-will-have-the-custom-field"></a>Passaggio 1: Identificare i record che conterranno il campo personalizzato
+### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Passaggio 1: Identificare i record che conterranno il campo personalizzato
 Il primo passaggio consiste nell'identificare i record che conterranno il campo personalizzato.  Iniziare con una [ricerca nei log standard](log-analytics-log-searches.md) e quindi selezionare un record che faccia da modello di apprendimento per Log Analytics.  Quando si specifica l'intenzione di estrarre i dati in un campo personalizzato, viene aperta l' **estrazione guidata campi** che permette di convalidare e affinare i criteri.
 
 1. Passare alla **ricerca log** e usare una [query per recuperare i record](log-analytics-log-searches.md) che conterranno il campo personalizzato.
@@ -60,7 +60,7 @@ Dopo aver identificato i record che conterranno il campo personalizzato, occorre
 2. Fare clic su **Extract** per eseguire un'analisi dei record raccolti.  
 3. Le sezioni **Riepilogo** e **Risultati della ricerca** visualizzano i risultati dell'estrazione e consentono di verificarne l'accuratezza.  **Summary** visualizza i criteri usati per identificare i record e un conteggio per ciascuno dei valori di dati identificati.  **Search Results** contiene un elenco dettagliato dei record corrispondenti ai criteri.
 
-### <a name="step-3-verify-accuracy-of-the-extract-and-create-custom-field"></a>Passaggio 3: Verificare l'accuratezza dell'estrazione e creare il campo personalizzato
+### <a name="step-3--verify-accuracy-of-the-extract-and-create-custom-field"></a>Passaggio 3: Verificare l'accuratezza dell'estrazione e creare il campo personalizzato
 Dopo aver eseguito l'estrazione iniziale, Log Analytics ne visualizza i risultati in base ai dati già raccolti.  Se i risultati sono accurati è possibile creare direttamente il campo personalizzato.  In caso contrario, è possibile limitare i risultati per permettere a Log Analytics di migliorare la logica.
 
 1. Se i valori dell'estrazione iniziale non sono corretti, fare clic sull'icona di **modifica** accanto a un record non corretto e selezionare **Modifica questa evidenziazione** per modificare la selezione.

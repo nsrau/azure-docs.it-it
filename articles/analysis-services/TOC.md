@@ -18,6 +18,6 @@
 # Risorse correlate
 ##[Connessioni alle origini dati](analysis-services-datasource.md)
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

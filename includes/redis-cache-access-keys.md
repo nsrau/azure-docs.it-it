@@ -14,6 +14,6 @@ Per recuperare le chiavi di accesso, fare clic su **Chiavi di accesso**.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

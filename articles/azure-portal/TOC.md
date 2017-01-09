@@ -2,18 +2,18 @@
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 
 # Attività iniziali
-## [Eseguire la distribuzione con il modello di Resource Manager](../resource-group-template-deploy.md)
+## [Eseguire la distribuzione con il modello di Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
 
 # Procedure
 ## Distribuire
-### [Creare modelli di Azure Resource Manager](../resource-group-authoring-templates.md)
+### [Creare modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## Gestisci
-### [Usare il portale di anteprima per gestire le risorse](resource-group-portal.md)
+### [Usare il portale di anteprima per gestire le risorse](../azure-resource-manager/resource-group-portal.md)
 ### [Gestire l'accesso con il controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md)
-### [Usare tag per organizzare le risorse](../resource-group-using-tags.md)
+### [Usare tag per organizzare le risorse](../azure-resource-manager/resource-group-using-tags.md)
 ### [Ridimensionare le risorse](../monitoring-and-diagnostics/insights-how-to-scale.md)
-### [Creare una nuova entità servizio di Azure](../resource-group-create-service-principal-portal.md)
+### [Creare una nuova entità servizio di Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ## Monitorare
 ### [Monitorare le metriche del servizio](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)
 ### [Abilitare il monitoraggio e la diagnostica](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
@@ -23,7 +23,7 @@
 ### [Ricevere notifiche di avviso](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 # Risorse correlate
-## [Funzioni del modello di Azure Resource Manager](../resource-group-template-functions.md)
+## [Funzioni del modello di Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md)
 ## [Procedure consigliate per la scalabilità automatica](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Metriche comuni per la scalabilità automatica](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ## [Webhook per le notifiche di scalabilità automatica](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
@@ -42,6 +42,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

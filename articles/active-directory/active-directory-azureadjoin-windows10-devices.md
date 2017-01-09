@@ -1,20 +1,24 @@
 ---
-title: Uso di dispositivi Windows 10 in azienda | Microsoft Docs
-description: Offre una panoramica delle funzionalità a disposizione degli utenti e degli amministratori IT, mettendo a confronto i diversi modi in cui è possibile effettuare il provisioning di un dispositivo e usarlo in una organizzazione con Windows 10.
+title: Uso di dispositivi Windows 10 in azienda | Documentazione Microsoft
+description: "Offre una panoramica delle funzionalità a disposizione degli utenti e degli amministratori IT, mettendo a confronto i diversi modi in cui è possibile effettuare il provisioning di un dispositivo e usarlo in una organizzazione con Windows 10."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: 94ccc8fd-b17b-4fda-8d56-9d87aa37a9f9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 10/17/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 053c04ed222eb9c9203a25153e45e31ba842b223
+
 
 ---
 # <a name="using-windows-10-devices-in-your-workplace"></a>Uso di dispositivi Windows 10 in azienda
@@ -71,7 +75,7 @@ Distretti scolastici e università, ad esempio, possono gestire il personale di 
 
 Per altre informazioni su Aggiunta ad Azure AD, vedere [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory](active-directory-azureadjoin-overview.md).
 
-## <a name="when-to-use-domain-join-(or-keep-using-it)"></a>Quando usare o continuare a usare l'aggiunta a un dominio
+## <a name="when-to-use-domain-join-or-keep-using-it"></a>Quando usare o continuare a usare l'aggiunta a un dominio
 Sono molte le organizzazioni che negli ultimi 15 anni hanno usato l'aggiunta a un dominio per connettere i dispositivi aziendali. L'aggiunta a un dominio consente agli utenti di accedere ai dispositivi con il proprio account aziendale o dell'istituto di istruzione di Active Directory e consente ai responsabili IT di gestire tali dispositivi in modo centralizzato e completo. In genere le aziende si basano su metodi di creazione dell'immagine per effettuare il provisioning dei dispositivi e, per gestirli, usano System Center Configuration Manager (SCCM) o Criteri di gruppo.
 
 **L'organizzazione dovrebbe usare o continuare a usare l'aggiunta a un dominio nei casi seguenti**:
@@ -117,9 +121,9 @@ L'aggiunta a un dominio continua a funzionare normalmente. Per usufruire dei van
 * Criterio che consentano l'accesso ai dispositivi aggiunti a un dominio per poter limitare l'accesso per alcuni dispositivi.
 * System Center Configuration Manager versione 1509 per Technical Preview, per abilitare regole per la richiesta di dispositivi compatibili. Per informazioni, vedere la documentazione di TechNet e il post di blog.
 
-Per altre informazioni sull'aggiunta a un dominio di Windows 10, vedere <link-to-DJ-in-Win10-deployment-guide>.
+Per altre informazioni sull'aggiunta a un dominio in Windows 10, vedere [Connettere dispositivi aggiunti a un dominio ad Azure AD in ambiente Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 
-## <a name="requirements-for-using-byod-and-"add-a-work-or-school-account""></a>Requisiti per l'uso di BYOD con l'opzione Aggiungi un account aziendale o dell'istituto di istruzione
+## <a name="requirements-for-using-byod-and-add-a-work-or-school-account"></a>Requisiti per l'uso di BYOD con l'opzione Aggiungi un account aziendale o dell'istituto di istruzione
 Per consentire l'uso di BYOD (Bring Your Own Device) con gli account aziendali o dell'istituto di istruzione, è necessario quanto segue:
 
 * Una sottoscrizione di Azure AD.
@@ -141,18 +145,19 @@ Come alternativa all'infrastruttura PKI, è possibile abilitare Microsoft Passpo
 Per altre informazioni su Microsoft Passport e Windows Hello in Windows 10, vedere <link-to-MS-Passport-and-Windows-Hello-document>.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
-### <a name="which-partner-mobile-device-management-products-integrate-with-azure-ad?"></a>Quali prodotti partner di gestione di dispositivi mobili si integrano con Azure AD?
+### <a name="which-partner-mobile-device-management-products-integrate-with-azure-ad"></a>Quali prodotti partner di gestione di dispositivi mobili si integrano con Azure AD?
 I prodotti dei fornitori seguenti si integrano con Azure AD per la registrazione unificata e l'accesso condizionale in Windows 10:
 
 * AirWatch di VMware
 * Citrix Xenmobile
 * Lightspeed Mobile Manager
 * Gestione di dispositivi mobili locale SOTI
+* MobileIron
 
-### <a name="what-about-workplace-join-in-windows-10?"></a>Come funziona Aggiunta all'area di lavoro in Windows 10?
+### <a name="what-about-workplace-join-in-windows-10"></a>Come funziona Aggiunta all'area di lavoro in Windows 10?
 Aggiunta all'area di lavoro viene usato in Windows 8.1 per abilitare BYOD. In Windows 10 BYOD viene abilitato tramite l'opzione Aggiungi un account aziendale o dell'istituto di istruzione, come illustrato in precedenza. Per le organizzazioni che non integrano la gestione di dispositivi mobili con Azure AD, gli utenti possono registrare il dispositivo nella gestione manualmente con **Impostazioni** > **Account** > **Accesso società**.
 
-### <a name="can-users-connect-their-microsoft-account-to-their-domain-account-in-windows-10?"></a>Gli utenti possono connettere l'account Microsoft all'account di dominio in Windows 10?
+### <a name="can-users-connect-their-microsoft-account-to-their-domain-account-in-windows-10"></a>Gli utenti possono connettere l'account Microsoft all'account di dominio in Windows 10?
 Non in Windows 10. In Windows 8.1 gli utenti dei dispositivi aggiunti a un dominio possono "connettere" l'account Microsoft, ad esempio Hotmail, Live, Outlook, Xbox e così via, all'account di dominio per abilitare alcune esperienze, ad esempio SSO per servizi Live, l'uso di Windows Store e il roaming delle impostazioni utente tra i dispositivi. In Windows 10 la funzionalità di connessione dell'account Microsoft è stata disattivata. L'utente può aggiungere uno o più account Microsoft come account aggiuntivi per abilitare la funzionalità SSO per i servizi consumer, ad esempio Windows Store. Questa operazione viene eseguita in **Impostazioni** > **Account** > **Il tuo account**.
 
 L'account Microsoft connesso degli utenti che eseguono l'aggiornamento da dispositivi Windows 8.1 aggiunti a un dominio verrà aggiunto automaticamente all'elenco di account aggiuntivi usati.
@@ -164,6 +169,9 @@ L'account Microsoft connesso degli utenti che eseguono l'aggiornamento da dispos
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

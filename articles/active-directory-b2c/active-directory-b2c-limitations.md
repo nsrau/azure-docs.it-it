@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2016
+ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b12985be3822bb605004fc70490f6cf9cb803ec7
+ms.sourcegitcommit: 3ff8fba42e6455b33103c931da731b0affa8a0fb
+ms.openlocfilehash: b5fbd15729da2674b34a227861e65b89548dad39
 
 
 ---
@@ -34,13 +34,13 @@ Per impostazione predefinita, in un tenant B2C il numero di utenti è limitato a
 ## <a name="branding-issues-on-verification-email"></a>Problemi relativi alla personalizzazione nei messaggi di posta elettronica di verifica
 Il messaggio di posta elettronica di verifica predefinito include la personalizzazione "Microsoft", che verrà rimossa in futuro. Per il momento è possibile rimuoverla tramite la [funzionalità di personalizzazione della società](../active-directory/active-directory-add-company-branding.md).
 
+## <a name="branding-issues-on-local-account-sign-in-page-in-a-sign-in-policy"></a>Problemi relativi alla personalizzazione nella pagina di accesso all'account locale in un criterio di accesso
+Per personalizzare la pagina di accesso all'account locale in un criterio di accesso è possibile usare unicamente la [funzionalità di personalizzazione della società](../active-directory/active-directory-add-company-branding.md) e non la funzionalità di personalizzazione dell'interfaccia utente della pagina descritta [qui](active-directory-b2c-reference-ui-customization.md). Inoltre, non sono disponibili etichette o segnaposto nei campi nome utente e password. Per risolvere questo problema, è consigliabile usare il "criterio di iscrizione o di accesso", completamente personalizzabile. Se si vuole avere la possibilità di personalizzare interamente la pagina di accesso all'account locale in un criterio di accesso, votare per la funzionalità in [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/13062033-b2c-fully-customizable-sign-in-page).
+
 ## <a name="restrictions-on-applications"></a>Restrizioni relative alle applicazioni
 I tipi di applicazioni seguenti non sono attualmente supportati in Azure AD B2C. Per una descrizione dei tipi di applicazioni supportati, vedere [Azure Active Directory B2C: tipi di applicazioni](active-directory-b2c-apps.md).
 
-### <a name="single-page-applications-javascript"></a>Applicazioni a pagina singola (JavaScript)
-Molte applicazioni moderne dispongono di un front-end per applicazioni a pagina singola scritto principalmente in JavaScript e spesso tramite appositi framework, ad esempio AngularJS, Ember.js, Durandal e così via. Questo flusso non è ancora disponibile in Azure AD B2C.
-
-### <a name="daemons-server-side-applications"></a>Applicazioni daemon e sul lato server
+### <a name="daemons--server-side-applications"></a>Applicazioni daemon e sul lato server
 Anche le applicazioni che contengono processi a esecuzione prolungata o che funzionano senza la presenza di un utente necessitano di un modo per accedere alle risorse protette, ad esempio le API Web. Tali applicazioni possono autenticarsi e ottenere i token usando la propria identità, invece di un'identità delegata dell'utente, mediante il [flusso di credenziali client OAuth 2.0](active-directory-b2c-reference-protocols.md). Questo flusso non è ancora disponibile in Azure AD B2C, quindi attualmente le applicazioni possono ottenere i token solo dopo l'esecuzione di un flusso di accesso utente interattivo.
 
 ### <a name="standalone-web-apis"></a>API Web autonome
@@ -96,6 +96,6 @@ Le richieste ai criteri di accesso, con autenticazione MFA attivata, hanno esito
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

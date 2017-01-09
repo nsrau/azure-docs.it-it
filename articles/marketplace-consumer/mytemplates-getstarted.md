@@ -17,13 +17,13 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: vybavar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cada217a967597ecb44d84c469367157c7bc785e
+ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
+ms.openlocfilehash: 01657619cbe579c6818a790cc3ab95a33936a565
 
 
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Introduzione ai modelli privati nel portale di Azure
-Un modello di [Azure Resource Manager](../resource-group-authoring-templates.md) è un modello dichiarativo usato per definire la distribuzione. Permette di definire le risorse da distribuire per una soluzione e di specificare i parametri e le variabili che consentono di immettere valori per diversi ambienti. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione.
+Un modello di [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) è un modello dichiarativo usato per definire la distribuzione. Permette di definire le risorse da distribuire per una soluzione e di specificare i parametri e le variabili che consentono di immettere valori per diversi ambienti. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione.
 
 È possibile usare la nuova funzionalità **Modelli** nel [portale di Azure](https://portal.azure.com) insieme al provider di risorse **Microsoft.Gallery** come estensione di [Azure Marketplace](https://azure.microsoft.com/marketplace/), per consentire agli utenti di creare, gestire e distribuire modelli privati da una raccolta personale.
 
@@ -35,16 +35,16 @@ I suggerimenti riportati di seguito permettono di sfruttare al meglio i **modell
 * Un **modello** è una risorsa di incapsulamento contenente un modello di Resource Manager e metadati aggiuntivi. Si comporta in modo molto simile a un elemento di Marketplace. La differenza principale è che si tratta di un elemento privato, mentre gli elementi di Marketplace sono pubblici.
 * La raccolta **Modelli** è efficace per gli utenti che vogliono personalizzare le distribuzioni.
 * **modelli** permettono di usare un repository semplice all'interno di Azure.
-* Iniziare con un modello di Resource Manager esistente. In [GitHub](https://github.com/Azure/azure-quickstart-templates) o nel post di blog relativo all'[esportazione modelli](../resource-manager-export-template.md) è possibile trovare modelli a partire da un gruppo di risorse esistente.
+* Iniziare con un modello di Resource Manager esistente. In [GitHub](https://github.com/Azure/azure-quickstart-templates) o nel post di blog relativo all'[esportazione modelli](../azure-resource-manager/resource-manager-export-template.md) è possibile trovare modelli a partire da un gruppo di risorse esistente.
 * **modelli** sono legati all'utente che li pubblica. Il nome dell'autore è visibile a chiunque abbia accesso in lettura.
 * **modelli** sono risorse di Resource Manager e non possono essere rinominati dopo la pubblicazione.
 
 ## <a name="add-a-template-resource"></a>Aggiungere una risorsa modello
 Per creare una risorsa **modello** nel portale di Azure è possibile procedere in due modi.
 
-### <a name="method-1-create-a-new-template-resource-from-a-running-resource-group"></a>Metodo 1: creare una nuova risorsa modello da un gruppo di risorse in esecuzione
+### <a name="method-1--create-a-new-template-resource-from-a-running-resource-group"></a>Metodo 1: creare una nuova risorsa modello da un gruppo di risorse in esecuzione
 1. Passare a un gruppo di risorse esistente nel portale di Azure. In **Impostazioni** selezionare **Esporta modello**.
-2. Dopo aver esportato il modello di Resource Manager, fare clic sul pulsante **Salva modello** per salvarlo nel repository **Modelli**. Per informazioni dettagliate sull'esportazione di modelli, vedere questa pagina.
+2. Dopo aver esportato il modello di Resource Manager, fare clic sul pulsante **Salva modello** per salvarlo nel repository **Modelli**. Per informazioni dettagliate sull'esportazione di modelli, vedere questa [pagina](../azure-resource-manager/resource-manager-export-template.md).
    <br /><br />
    ![Esportazione di un gruppo di risorse](media/rg-export-portal1.PNG)  <br />
 3. Fare clic sul pulsante di comando **Salva modello** .
@@ -62,7 +62,7 @@ Per creare una risorsa **modello** nel portale di Azure è possibile procedere i
    > 
    > 
 
-### <a name="b-method-2-add-a-new-template-resource-from-browse"></a>B. Metodo 2: aggiungere una nuova risorsa modello dall'esplorazione
+### <a name="method-2--add-a-new-template-resource-from-browse"></a>Metodo 2: aggiungere una nuova risorsa modello dall'esplorazione
 È anche possibile aggiungere un nuovo **modello** da zero usando il pulsante di comando +Aggiungi in **Esplora > Modelli**. È necessario specificare un nome, una descrizione e il file JSON del modello di Resource Manager.
 
 ![Aggiungi modello](media/add-template-portal1.PNG)  <br />
@@ -129,13 +129,13 @@ Fare clic su **Seleziona** e quindi su **OK**. Ora è possibile visualizzare gli
 > 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per informazioni sulla creazione di modelli di Resource Manager, vedere [Creazione di modelli](../resource-group-authoring-templates.md)
-* Per informazioni sulle funzioni disponibili in un modello di Resource Manager, vedere [Funzioni del modello](../resource-group-template-functions.md)
-* Per informazioni aggiuntive sulla progettazione di modelli, vedere [Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure](../best-practices-resource-manager-design-templates.md)
+* Per informazioni sulla creazione di modelli di Resource Manager, vedere [Creazione di modelli](../azure-resource-manager/resource-group-authoring-templates.md)
+* Per informazioni sulle funzioni disponibili in un modello di Resource Manager, vedere [Funzioni del modello](../azure-resource-manager/resource-group-template-functions.md)
+* Per informazioni aggiuntive sulla progettazione di modelli, vedere [Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure](../azure-resource-manager/best-practices-resource-manager-design-templates.md)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

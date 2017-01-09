@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 93ddb2715870348cbaaccfb05f332351dd27ae2c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d4f5d9dbe60e549d270e190e626a87a66696f07c
 
 
 ---
@@ -172,6 +172,6 @@ Poiché le opzioni per le risposte agli eventi imprevisti usano un approccio mul
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

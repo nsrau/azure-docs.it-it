@@ -18,8 +18,8 @@ ms.workload: data-management
 ms.date: 11/23/2016
 ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: b5417e02f2c4e50c89afcfa007ccdd208775f374
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: ae1cacf0ff003e69a16d6beac48abc36a7f18896
 
 
 ---
@@ -37,7 +37,7 @@ Il database SQL di Microsoft Azure fornisce un servizio di database relazionale 
 
 Per configurare il firewall, creare regole del firewall che specificano gli intervalli di indirizzi IP accettabili. È possibile creare regole del firewall a livello di server e database.
 
-* **Regole del firewall a livello di server:** queste regole consentono ai client di accedere all'intero server SQL di Azure, ovvero tutti i database all'interno dello stesso server logico. Queste regole sono archiviate nel database **master** . Le regole del firewall a livello di server possono essere configurate usando il portale o istruzioni Transact-SQL.
+* **Regole del firewall a livello di server:** queste regole consentono ai client di accedere all'intero server SQL di Azure, ovvero tutti i database all'interno dello stesso server logico. Queste regole sono archiviate nel database **master** . Le regole del firewall a livello di server possono essere configurate usando il portale o istruzioni Transact-SQL. Per creare regole del firewall a livello di server usando il portale di Azure o PowerShell, è necessario essere il proprietario o un collaboratore della sottoscrizione. Per creare una regola del firewall a livello di server usando Transact-SQL, è necessario connettersi all'istanza di database SQL come account di accesso entità di livello server o amministratore di Azure Active Directory, il che implica che una regola del firewall a livello di server debba essere prima creata da un utente con autorizzazioni a livello di Azure.
 * **Regole del firewall a livello di database:** queste regole consentono ai client di accedere ai singoli database nel server di database SQL di Azure. È possibile creare queste regole per ogni database ed esse sono archiviate nei singoli database (è possibile creare regole del firewall a livello di database per il database **master**). Tali regole possono essere utili per limitare l'accesso a determinati database (accesso sicuro) all'interno dello stesso server logico. Le regole del firewall a livello di database possono essere configurate solo con istruzioni Transact-SQL.
 
 **Indicazione:** è consigliabile usare le regole del firewall a livello di database quando è possibile, allo scopo di migliorare la sicurezza e la portabilità del database. Usare le regole del firewall a livello di server per gli amministratori e quando sono disponibili molti database che presentano gli stessi requisiti di accesso e non si vuole dedicare tempo alla configurazione di ogni singolo database.
@@ -142,7 +142,7 @@ Per informazioni sulla connessione a un database SQL di Azure da applicazioni op
 Per informazioni su come passare ai database, vedere [Gestire l'accesso al database e la sicurezza degli account di accesso](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
-* [Protezione del database](sql-database-security.md)
+* [Protezione del database](sql-database-security-overview.md)
 * [Centro sicurezza per il motore di Database di SQL Server e il Database SQL di Azure](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
@@ -150,6 +150,6 @@ Per informazioni su come passare ai database, vedere [Gestire l'accesso al datab
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -12,28 +12,40 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/07/2016
+ms.date: 12/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 0d9d87d0dc26d2fcaa3886a9f8c0849b71b26847
-ms.openlocfilehash: 61ea806ec3ad620d454e2de0910fa2b49de66493
+ms.sourcegitcommit: f01cd8d3a68776dd12d2930def1641411e6a4994
+ms.openlocfilehash: a9f77a58cdb13c357b6c3734bd9e3efa4ff5087b
 
 
 ---
+
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introduzione alla distribuzione di contenuti su richiesta utilizzando .NET SDK
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 > [!NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
-> 
-> 
+> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+>
+>
 
 ## <a name="overview"></a>Overview
 Questa esercitazione illustra il processo di implementazione di un'applicazione di distribuzione di contenuti Video on Demand (VoD) usando l'SDK di Servizi multimediali di Azure per .NET.
 
 L'esercitazione descrive il flusso di lavoro di base di Servizi multimediali nonché gli oggetti e le attività di programmazione usati più di frequente per lo sviluppo basato su Servizi multimediali. Al termine dell'esercitazione sarà possibile eseguire lo streaming o il download progressivo di un file multimediale di esempio caricato, codificato e scaricato.
 
+### <a name="ams-model"></a>Modello AMS
+
+L'immagine seguente illustra alcuni degli oggetti più comuni usati durante lo sviluppo di applicazioni VoD rispetto al modello OData di Servizi multimediali.
+
+Fare clic sull'immagine per visualizzarla a schermo intero.  
+
+<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
+
+È possibile visualizzare il modello completo [qui](https://media.windows.net/API/$metadata?api-version=2.14).  
+
 ## <a name="what-youll-learn"></a>Contenuto dell'esercitazione
+
 Nell'esercitazione viene illustrato come eseguire le attività seguenti:
 
 1. Creare un account di Servizi multimediali (usando il portale di Azure).
@@ -48,47 +60,44 @@ Nell'esercitazione viene illustrato come eseguire le attività seguenti:
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare l'esercitazione è necessario quanto segue.
 
-* Per completare l'esercitazione, è necessario un account Azure. 
-  
-    Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F). sono inclusi crediti da usare per provare i servizi di Azure a pagamento. Una volta esauriti i crediti, è possibile mantenere l'account e usare le funzionalità e i servizi di Azure gratuiti, ad esempio la funzionalità App Web nel servizio app di Azure.
+* Per completare l'esercitazione, è necessario un account Azure.
+
+    Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). sono inclusi crediti da usare per provare i servizi di Azure a pagamento. Una volta esauriti i crediti, è possibile mantenere l'account e usare le funzionalità e i servizi di Azure gratuiti, ad esempio la funzionalità App Web nel servizio app di Azure.
 * Sistemi operativi: Windows 8 o versione successiva, Windows 2008 R2, Windows 7.
 * .NET Framework 4.0 o versione successiva.
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express) o versioni successive.
-
-## <a name="download-sample"></a>Scaricare un esempio
-È possibile ottenere ed eseguire un esempio [qui](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ## <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Creare un account Servizi multimediali di Azure con il portale di Azure
 I passaggi descritti in questa sezione illustrano come creare un account Servizi multimediali di Azure.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **+Nuovo** > **Contenuti multimediali e rete CDN** > **Servizi multimediali**.
-   
+
     ![Creare Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-new1.png)
 3. In **CREARE UN ACCOUNT DEL SERVIZIO MULTIMEDIALE** immettere i valori richiesti.
-   
+
     ![Creare Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-new3.png)
-   
+
    1. In **Nome account**immettere il nome del nuovo account di AMS. Un nome di account di Servizi multimediali deve essere composto da tutte lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri.
    2. In Sottoscrizione selezionare una delle diverse sottoscrizioni di Azure per le quali è disponibile l'accesso.
    3. In **Gruppo di risorse**selezionare la risorsa nuova o esistente.  Un gruppo di risorse è una raccolta di risorse che condividono il ciclo di vita, le autorizzazioni e i criteri. Fare clic [qui](../azure-resource-manager/resource-group-overview.md#resource-groups) per altre informazioni.
-   4. In **Località** selezionare l'area geografica usata per archiviare i contenuti multimediali e i record di metadati per l'account Servizi multimediali. Questa area viene usata per elaborare e riprodurre in streaming il contenuto multimediale. Nella casella dell'elenco a discesa vengono visualizzate solo le aree di Servizi multimediali disponibili. 
+   4. In **Località** selezionare l'area geografica usata per archiviare i contenuti multimediali e i record di metadati per l'account Servizi multimediali. Questa area viene usata per elaborare e riprodurre in streaming il contenuto multimediale. Nella casella dell'elenco a discesa vengono visualizzate solo le aree di Servizi multimediali disponibili.
    5. In **Account di archiviazione**selezionare un account di archiviazione per l'archivio BLOB del contenuto multimediale dell'account Servizi multimediali. È possibile scegliere un account di archiviazione esistente nella stessa area geografica dell'account Servizi multimediali oppure è possibile crearne uno. Un nuovo account di archiviazione viene creato nella stessa area geografica. Per i nomi degli account di archiviazione vengono seguite le stesse regole dei nomi degli account di Servizi multimediali.
-      
+
        Altre informazioni sull'archiviazione sono disponibili [qui](../storage/storage-introduction.md).
    6. Selezionare **Aggiungi al dashboard** per visualizzare lo stato della distribuzione di account.
 4. Fare clic su **Crea** nella parte inferiore del form.
-   
-    Dopo aver creato l'account, lo stato diventa **In esecuzione**. 
-   
+
+    Dopo aver creato l'account, lo stato diventa **In esecuzione**.
+
     ![Impostazioni di Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-settings.png)
-   
+
     Per gestire l'account AMS, ad esempio per caricare video, codificare asset, monitorare lo stato dei processi, usare la finestra **Impostazioni** .
 
 ## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Configurare endpoint di streaming usando il portale di Azure
-Uno degli scenari più frequenti dell'utilizzo di Servizi multimediali di Azure riguarda la distribuzione ai client di contenuto video in streaming a bitrate adattivo. Servizi multimediali supporta le seguenti tecnologie di streaming a velocità in bit adattiva: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di licenza Adobe PrimeTime/Access).
+Uno degli scenari più frequenti dell'utilizzo di Servizi multimediali di Azure riguarda la distribuzione ai client di contenuto video in streaming a bitrate adattivo. Servizi multimediali supporta le tecnologie di streaming a bitrate adattivo seguenti: HTTP Live Streaming (HLS), Smooth Streaming e MPEG DASH.
 
-Servizi multimediali include la funzionalità per la creazione dinamica dei pacchetti, che consente di distribuire contenuto con codifica MP4 a bitrate adattivo nei formati supportati da Servizi multimediali, come MPEG DASH, HLS, Smooth Streaming, HDS, in modalità JIT senza dover archiviare le versioni predefinite di ognuno di questi formati di streaming.
+Servizi multimediali include la funzionalità per la creazione dinamica dei pacchetti, che consente di distribuire contenuto con codifica MP4 a bitrate adattivo nei formati supportati da Servizi multimediali, come MPEG DASH, HLS e Smooth Streaming in modalità JIT, senza dover archiviare le versioni predefinite di ognuno di questi formati di streaming.
 
 Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è necessario seguire questa procedura:
 
@@ -99,19 +108,19 @@ Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in
 
 Per creare e modificare il numero di unità riservate di streaming, seguire questa procedura:
 
-1. Nella finestra **Impostazioni** fare clic su **Endpoint di streaming**. 
-2. Fare clic sull'endpoint di streaming predefinito. 
-   
+1. Nella finestra **Impostazioni** fare clic su **Endpoint di streaming**.
+2. Fare clic sull'endpoint di streaming predefinito.
+
     Verrà visualizzata la finestra **DETTAGLI ENDPOINT DI STREAMING PREDEFINITO** .
 3. Per specificare il numero di unità di streaming, usare il dispositivo di scorrimento di **Unità di streaming** .
-   
+
     ![Unità di streaming](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
 4. Fare clic sul pulsante **Salva** per salvare le modifiche apportate.
-   
+
    > [!NOTE]
    > Il completamento dell'allocazione di nuove unità può richiedere fino a 20 minuti.
-   > 
-   > 
+   >
+   >
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
@@ -122,20 +131,20 @@ Per creare e modificare il numero di unità riservate di streaming, seguire ques
 
 3. Aggiungere un riferimento all'assembly System.Configuration, che contiene la classe **System.Configuration.ConfigurationManager** usata per accedere ai file di configurazione, ad esempio App.config.
 
-    Per aggiungere un riferimento, seguire questa procedura: in Esplora soluzioni fare clic con il pulsante destro del mouse sul nome del progetto e scegliere **Aggiungi** > **Riferimento** e digitare la configurazione nella casella di ricerca. 
+    Per aggiungere un riferimento, seguire questa procedura: in Esplora soluzioni fare clic con il pulsante destro del mouse sul nome del progetto e scegliere **Aggiungi** > **Riferimento** e digitare la configurazione nella casella di ricerca.
 
 4. Aprire il file App.config (aggiungere il file al progetto, se non è stato aggiunto per impostazione predefinita) e aggiungere una sezione *appSettings* al file. Impostare i valori per il nome e la chiave dell'account di Servizi multimediali di Azure, come visualizzato nel seguente esempio. Per ottenere il nome dell'account e la chiave, accedere al [portale di Azure](https://portal.azure.com/) e selezionare l'account AMS. Selezionare poi **Impostazioni** > **Chiavi**. Nella finestra Gestisci chiavi sono visualizzati il nome dell'account e le chiavi primaria e secondaria. Copiare i valori del nome dell'account e della chiave primaria.
-   
+
         <configuration>
         ...
           <appSettings>
             <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
             <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
           </appSettings>
-   
+
         </configuration>
 5. Sovrascrivere le istruzioni **using** esistenti all'inizio del file Program.cs con il codice seguente.
-   
+
         using System;
         using System.Collections.Generic;
         using System.Linq;
@@ -145,7 +154,7 @@ Per creare e modificare il numero di unità riservate di streaming, seguire ques
         using System.Threading;
         using System.IO;
         using Microsoft.WindowsAzure.MediaServices.Client;
-6. Creare una nuova cartella nella directory dei progetti e copiare un file MP4 o WMV di cui eseguire codifica e streaming o il download progressivo. In questo esempio viene usato il percorso "C:\VideoFiles".
+6. Creare una nuova cartella, in un punto qualsiasi nell'unità locale, e copiare un file con estensione mp4 di cui eseguire codifica e streaming o il download progressivo. In questo esempio viene usato il percorso "C:\VideoFiles".
 
 ## <a name="connect-to-the-media-services-account"></a>Connettersi all'account di Servizi multimediali
 
@@ -153,6 +162,7 @@ Quando si usa Servizi multimediali con .NET, è necessario usare la classe **Clo
 
 Sovrascrivere la classe predefinita Program con il codice seguente. Il codice mostra come leggere i valori di connessione dal file App.config e come creare l'oggetto **CloudMediaContext** per connettersi a Servizi multimediali. Per altre informazioni sulla connessione a Servizi multimediali, vedere [Connessione a Servizi multimediali con Media Services SDK per .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
+Assicurarsi di aggiornare il nome file e il percorso in cui salvare il file multimediale.
 
 La funzione **Main** chiama metodi che verranno definiti più in dettaglio in questa sezione.
 
@@ -183,7 +193,7 @@ La funzione **Main** chiama metodi che verranno definiti più in dettaglio in qu
                 _context = new CloudMediaContext(_cachedCredentials);
 
                 // Add calls to methods defined in this section.
-
+        // Make sure to update the file name and path to where you have your media file.
                 IAsset inputAsset =
                     UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
 
@@ -246,7 +256,7 @@ Aggiungere il seguente metodo alla classe Program.
 ## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>Codificare il file di origine in un set di file MP4 a velocità in bit adattiva
 Dopo aver inserito gli asset in Servizi multimediali, i file multimediali possono essere codificati, sottoposti a transmux e all'applicazione di filigrana e così via prima di essere distribuiti ai client. Queste attività vengono pianificate ed eseguite in più istanze del ruolo in background per assicurare prestazioni e disponibilità elevate. Queste attività vengono chiamate processi. Ogni processo è formato da attività atomiche che svolgono le procedure effettive nel file di asset.
 
-Come indicato prima, quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Servizi multimediali può creare dinamicamente un pacchetto di un set di file MP4 a velocità in bit adattiva in uno dei seguenti formati: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di licenza Adobe PrimeTime/Access).
+Come indicato prima, quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Servizi multimediali può creare dinamicamente un pacchetto di un set di file MP4 a velocità in bit adattiva in uno dei formati seguenti: HTTP Live Streaming (HLS), Smooth Streaming e MPEG DASH.
 
 Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è necessario seguire questa procedura:
 
@@ -255,8 +265,7 @@ Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è ne
 
 Il seguente codice mostra come inviare un processo di codifica. Il processo contiene un'attività che indica di transcodificare il file in formato intermedio in un set di file MP4 a velocità in bit adattiva con **Media Encoder Standard**. Il codice invia il processo e ne attende il completamento.
 
-Al termine, è possibile eseguire lo streaming dell'asset o il download progressivo dei file MP4 creati con la transcodifica.
-Non è necessario disporre di più di 0 unità di streaming per poter eseguire il download progressivo dei file MP4.
+Al termine del processo di codifica, sarà possibile pubblicare gli asset e quindi eseguire lo streaming o il download progressivo dei file MP4.
 
 Aggiungere il seguente metodo alla classe Program.
 
@@ -298,23 +307,26 @@ Aggiungere il seguente metodo alla classe Program.
 
 Per eseguire lo streaming o il download di un asset è necessario prima "pubblicarlo" creando un localizzatore. I localizzatori forniscono l'accesso ai file contenuti nell'asset. Servizi multimediali supporta due tipi di localizzatori: localizzatori OnDemandOrigin, usati per lo streaming dei file multimediali (ad esempio, MPEG DASH, HLS o Smooth Streaming) e localizzatori di firma di accesso condiviso, usati per scaricare i file multimediali. Per altre informazioni sui localizzatori di firma di accesso condiviso, vedere [questo](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog.
 
-Dopo aver creato i localizzatori è possibile compilare gli URL usati per eseguire lo streaming o il download dei file.
+### <a name="some-details-about-url-formats"></a>Alcuni dettagli sui formati di URL
 
-Un URL di streaming per Smooth Streaming ha il seguente formato:
+Dopo aver creato i localizzatori, è possibile compilare gli URL usati per eseguire lo streaming o il download dei file. L'esempio in questa esercitazione restituirà URL che possono essere incollati nei browser appropriati. Questa sezione fornisce brevi esempi dei diversi formati.
 
-     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+#### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>Un URL di streaming per MPEG DASH ha il seguente formato:
 
-Un URL di streaming per HLS ha il seguente formato:
+{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest**(format=mpd-time-csf)**
 
-     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+#### <a name="a-streaming-url-for-hls-has-the-following-format"></a>Un URL di streaming per HLS ha il seguente formato:
 
-Un URL di streaming per MPEG DASH ha il seguente formato:
+{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest**(format=m3u8-aapl)**
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+#### <a name="a-streaming-url-for-smooth-streaming-has-the-following-format"></a>Un URL di streaming per Smooth Streaming ha il seguente formato:
 
-Un URL di firma di accesso condiviso usato per scaricare i file ha il seguente formato:
+{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest
 
-    {blob container name}/{asset name}/{file name}/{SAS signature}
+
+#### <a name="a-sas-url-used-to-download-files-has-the-following-format"></a>Un URL di firma di accesso condiviso usato per scaricare i file ha il seguente formato:
+
+{nome contenitore BLOB}/{nome asset}/{nome file}/{firma di accesso condiviso}
 
 Le estensioni dell'SDK di Servizi multimediali per .NET forniscono pratici metodi di supporto che restituiscono URL formattati per l'asset pubblicato.
 
@@ -388,6 +400,7 @@ Aggiungere il seguente metodo alla classe Program.
     }
 
 ## <a name="test-by-playing-your-content"></a>Testare riproducendo i contenuti.
+
 Dopo aver eseguito il programma definito nella sezione precedente, nella finestra della console vengono visualizzati URL simili al seguente.
 
 URL per streaming adattivo:
@@ -423,28 +436,37 @@ URL per download progressivo (audio e video).
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-Per riprodurre il video, utilizzare [Lettore di Servizi multimediali di Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+Per eseguire lo streaming del video, incollare l'URL nella casella di testo URL in [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 Per testare il download progressivo, incollare un URL in un browser (ad esempio, IE, Chrome, Safari).
 
-## <a name="next-steps-media-services-learning-paths"></a>Passaggi successivi: Percorsi di apprendimento di Servizi multimediali
+Per ulteriori informazioni, vedere gli argomenti seguenti:
+
+- [Riproduzione di contenuti con i lettori esistenti](media-services-playback-content-with-existing-players.md)
+- [Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md)
+- [Integrazione di uno streaming video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js](media-services-embed-mpeg-dash-in-html5.md)
+
+## <a name="download-sample"></a>Scaricare un esempio
+L'esempio di codice seguente contiene il codice creato in questa esercitazione: [esempio](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+
+## <a name="next-steps"></a>Passaggi successivi 
+
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else"></a>Se si è alla ricerca di qualcos’altro.
-Se questo argomento non è di aiuto, non contiene ciò che si cerca o in altro modo non soddisfa le esigenze, è possibile inviare commenti e suggerimenti tramite il thread di Disqus riportato di seguito.
+
 
 <!-- Anchors. -->
 
 
 <!-- URLs. -->
-[Installazione guidata piattaforma Web]: http://go.microsoft.com/fwlink/?linkid=255386
-[Portale]: http://manage.windowsazure.com/
+[Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
+[Portal]: http://manage.windowsazure.com/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

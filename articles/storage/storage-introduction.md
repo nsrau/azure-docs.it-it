@@ -3,8 +3,8 @@ title: Introduzione ad Archiviazione | Documentazione Microsoft
 description: Una panoramica di Archiviazione di Azure, l&quot;archiviazione dei dati online di Microsoft nel cloud. Informazioni su come usare nelle applicazioni la migliore soluzione di archiviazione cloud disponibile.
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 73bd16f44f0848c74ce3edd5042900525e4811db
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: 40ab7632f47de4d4eef277f4c4071ce2d4de1eed
 
 
 ---
@@ -75,7 +75,7 @@ Per gli utenti con grandi quantità di dati oggetto non strutturati da archiviar
 * Dati di configurazione per applicazioni cloud
 * Big Data, come log e altri set di dati di grandi dimensioni
 
-Ogni BLOB è organizzato in un contenitore. I contenitori sono inoltre una soluzione utile per assegnare criteri di sicurezza a gruppi di oggetti. Un account di archiviazione può contenere un numero qualsiasi di contenitori e un contenitore può contenere un numero qualsiasi di BLOB, fino a che non viene raggiunto il limite di capacità di 500 TB dell'account di archiviazione.  
+Ogni BLOB è organizzato in un contenitore. I contenitori sono inoltre una soluzione utile per assegnare criteri di sicurezza a gruppi di oggetti. Un account di archiviazione può contenere un numero qualsiasi di contenitori e un contenitore può contenere un numero qualsiasi di BLOB, fino a che non viene raggiunto il limite di capacità di 500 TB dell'account di archiviazione.
 
 Gli archivi BLOB offrono tre tipi di BLOB: i BLOB in blocchi , i BLOB di accodamento e i BLOB di pagine (dischi).
 
@@ -104,7 +104,7 @@ Un account di archiviazione può contenere il numero desiderato di code. Una cod
 ## <a name="file-storage"></a>Archiviazione file
 Archiviazione file offre condivisioni file SMB basate sul cloud per consentire la migrazione delle applicazioni legacy ad Azure in modo veloce e senza costi di riscrittura. Archiviazione di File di Azure, le applicazioni in esecuzione in macchine virtuali di Azure o i servizi cloud consentono di montare una condivisione di file nel cloud, esattamente come un'applicazione desktop che consente di montare una condivisione SMB tipica. Non ci sono limiti per i componenti delle applicazioni che possono montare e accedere contemporaneamente alla condivisione di archiviazione file.
 
-Poiché una condivisione di archiviazione file è una condivisione file SMB standard, le applicazioni in esecuzione in Azure possono accedere ai dati nella condivisione tramite le API di I/O del file system. Gli sviluppatori possono quindi riutilizzare il codice esistente e le competenze acquisite per eseguire la migrazione delle applicazioni esistenti. I professionisti IT possono usare i cmdlet di PowerShell per creare, montare e gestire condivisioni di archiviazione file nell'ambito delle attività di amministrazione per le applicazioni Azure.
+Poiché una condivisione di archiviazione file è una condivisione file SMB standard, le applicazioni in esecuzione in Azure possono accedere ai dati nella condivisione tramite le API di I/O del file di sistema. Gli sviluppatori possono quindi riutilizzare il codice esistente e le competenze acquisite per eseguire la migrazione delle applicazioni esistenti. I professionisti IT possono usare i cmdlet di PowerShell per creare, montare e gestire condivisioni di archiviazione file nell'ambito delle attività di amministrazione per le applicazioni Azure.
 
 Come altri servizi di archiviazione di Azure, archiviazione file espone un'API REST per l'accesso ai dati in una condivisione. Le applicazioni locali possono chiamare l'API REST di archiviazione file per accedere ai dati in una condivisione file. Le aziende possono quindi decidere di eseguire la migrazione di alcune applicazioni legacy ad Azure e di continuare a eseguirne altre dall'interno dell'organizzazione locale. Si noti che è possibile montare una condivisione file solo per le applicazioni in esecuzione in Azure. Le applicazioni locali possono accedere alla condivisione file solo tramite l'API REST.
 
@@ -128,32 +128,32 @@ Per altre informazioni sulle firme di accesso condiviso, vedere [Using Shared Ac
 ## <a name="replication-for-durability-and-high-availability"></a>Replica per garantire la durabilità e la disponibilità elevata
 I dati nell'account di archiviazione di Microsoft Azure vengono sempre replicati per assicurarne la durabilità e la disponibilità elevata. La replica copia i dati nello stesso data center o in uno secondario, a seconda dell'opzione di replica scelta. Consente di proteggere i dati e mantiene operativa l'applicazione in caso di errori hardware temporanei. Se i dati vengono replicati in un secondo data center, la replica li protegge anche in caso di un errore irreversibile nella posizione primaria.
 
-Garantisce infine che l'account di archiviazione soddisfi il [Contratto di servizio per Archiviazione](https://azure.microsoft.com/support/legal/sla/storage/) anche in caso di errori. Altre informazioni sulla garanzia di durabilità e disponibilità di Archiviazione di Azure sono reperibili nel Contratto di servizio. 
+Garantisce infine che l'account di archiviazione soddisfi il [Contratto di servizio per Archiviazione](https://azure.microsoft.com/support/legal/sla/storage/) anche in caso di errori. Altre informazioni sulla garanzia di durabilità e disponibilità di Archiviazione di Azure sono reperibili nel Contratto di servizio.
 
-Quando si crea un account di archiviazione, è possibile selezionare una delle opzioni di replica seguenti:  
+Quando si crea un account di archiviazione, è possibile selezionare una delle opzioni di replica seguenti:
 
-* **Archiviazione con ridondanza locale (LRS).**  Con l'archiviazione con ridondanza locale vengono conservate tre copie dei dati. Tale tipo di archiviazione viene replicato per tre volte all'interno di un unico data center di una singola area. Questa opzione di replica protegge i dati dai normali errori hardware ma non dagli errori di un unico data center.  
-  
+* **Archiviazione con ridondanza locale (LRS).**  Con l'archiviazione con ridondanza locale vengono conservate tre copie dei dati. Tale tipo di archiviazione viene replicato per tre volte all'interno di un unico data center di una singola area. Questa opzione di replica protegge i dati dai normali errori hardware ma non dagli errori di un unico data center.
+
     L'archiviazione con ridondanza locale viene offerta a tariffe scontate. Per la massima durabilità, è consigliabile usare l'archiviazione con ridondanza geografica descritta di seguito.
-* **Archiviazione con ridondanza della zona (ZRS).**  Con l'archiviazione con ridondanza della zona vengono conservate tre copie dei dati. Tale tipo di archiviazione viene replicato per tre volte in due o tre strutture all'interno di una singola area o in due aree, fornendo una durabilità maggiore rispetto all'archiviazione con ridondanza locale. Questa opzione di replica assicura la durabilità dei dati all'interno di una singola area.  
-  
-    L'archiviazione con ridondanza della zona fornisce un livello di durabilità maggiore rispetto all'archiviazione con ridondanza locale. Tuttavia, per la massima durabilità, è consigliabile usare l'archiviazione con ridondanza geografica descritta di seguito.  
-  
+* **Archiviazione con ridondanza della zona (ZRS).**  Con l'archiviazione con ridondanza della zona vengono conservate tre copie dei dati. Tale tipo di archiviazione viene replicato per tre volte in due o tre strutture all'interno di una singola area o in due aree, fornendo una durabilità maggiore rispetto all'archiviazione con ridondanza locale. Questa opzione di replica assicura la durabilità dei dati all'interno di una singola area.
+
+    L'archiviazione con ridondanza della zona fornisce un livello di durabilità maggiore rispetto all'archiviazione con ridondanza locale. Tuttavia, per la massima durabilità, è consigliabile usare l'archiviazione con ridondanza geografica descritta di seguito.
+
   > [!NOTE]
   > ZRS è attualmente disponibile solo per i BLOB in blocchi ed è supportata solo nelle versioni 2014-02-14 e versioni successive.
-  > 
+  >
   > Dopo aver creato l'account di archiviazione e selezionato l'archiviazione con ridondanza della zona, non è possibile convertirlo per usarlo con un altro tipo di replica o viceversa.
-  > 
-  > 
+  >
+  >
 * **Archiviazione con ridondanza geografica (GRS)**. Con tale tipo di archiviazione vengono conservate sei copie dei dati. Con questa opzione di replica, i dati vengono replicati per tre volte all'interno dell'area primaria e per tre volte in un'area secondaria situata a centinaia di chilometri di distanza dall'area primaria, fornendo il massimo livello di durabilità. In caso di errore nell'area primaria, il servizio di archiviazione di Azure eseguirà il failover all'area secondaria. L'archiviazione con ridondanza geografica assicura la durabilità dei dati in due aree distinte.
-  
+
     Per informazioni sulle associazioni primarie e secondarie per area, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
-* **Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)**. L'archiviazione con ridondanza geografica e accesso in lettura replica i dati in una posizione geografica secondaria e fornisce inoltre l'accesso in lettura ai dati nella posizione secondaria. È possibile accedere ai dati dalla posizione primaria o secondaria, qualora una di queste diventi non disponibile. L'archiviazione con ridondanza geografica e accesso in lettura è abilitata per impostazione predefinita quando si crea l'account di archiviazione. 
-  
+* **Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)**. L'archiviazione con ridondanza geografica e accesso in lettura replica i dati in una posizione geografica secondaria e fornisce inoltre l'accesso in lettura ai dati nella posizione secondaria. È possibile accedere ai dati dalla posizione primaria o secondaria, qualora una di queste diventi non disponibile. L'archiviazione con ridondanza geografica e accesso in lettura è abilitata per impostazione predefinita quando si crea l'account di archiviazione.
+
   > [!IMPORTANT]
   > È possibile cambiare la modalità di replica dei dati dopo la creazione dell'account di archiviazione, a meno che non sia stata specificata l'archiviazione con ridondanza della zona al momento della creazione dell'account. Si noti tuttavia che se si passa dall'archiviazione con ridondanza locale all'archiviazione con ridondanza geografica o all'archiviazione con ridondanza geografica e accesso in lettura, potrebbe essere addebitato un costo una tantum per il trasferimento dei dati.
-  > 
-  > 
+  >
+  >
 
 Per altri dettagli sulle opzioni di replica di archiviazione, vedere [Replica di Archiviazione di Azure](storage-redundancy.md) .
 
@@ -200,7 +200,7 @@ Le risorse di archiviazione di Azure sono accessibile da qualsiasi linguaggio in
 * [Strumento client di Archiviazione di Azure](storage-explorers.md)
 * [Azure SDK e strumenti](https://azure.microsoft.com/tools/)
 * [Emulatore di archiviazione di Azure](http://www.microsoft.com/download/details.aspx?id=43709)
-* [Azure PowerShell](../powershell-install-configure.md)
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Utilità da riga di comando di AzCopy](http://aka.ms/downloadazcopy)
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -246,9 +246,12 @@ Per altre informazioni su Archiviazione di Azure, vedere le risorse seguenti:
 * [Come usare l'archiviazione di accodamento da Python](storage-python-how-to-use-queue-storage.md)
 * [Come usare l'archiviazione file da Python](storage-python-how-to-use-file-storage.md)
 
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Creare un account di archiviazione](storage-create-storage-account.md)
+* [Introduzione a Azure Storage in cinque minuti](storage-getting-started-guide.md)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

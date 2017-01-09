@@ -1,12 +1,12 @@
 ---
-title: Panoramica dell'endpoint v2.0 | Microsoft Docs
-description: Introduzione alla compilazione di app con l'accesso sia per account Microsoft che per Azure Active Directory.
+title: Panoramica dell&quot;endpoint v2.0 | Documentazione Microsoft
+description: Introduzione alla compilazione di app con l&quot;accesso sia per account Microsoft che per Azure Active Directory.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dstrockis
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 2dee579f-fdf6-474b-bc2c-016c931eaa27
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e98ec55dbe5ff0411af124b45bd7ef6177aa957e
+
 
 ---
-# <a name="sign-in-microsoft-account-&-azure-ad-users-in-a-single-app"></a>Accesso per account Microsoft e utenti di Azure AD nella stessa app
+# <a name="sign-in-microsoft-account--azure-ad-users-in-a-single-app"></a>Accesso per account Microsoft e utenti di Azure AD nella stessa app
 In passato, gli sviluppatori di app che intendevano supportare sia gli account Microsoft che Azure Active Directory dovevano eseguire l'integrazione con due sistemi separati.  È ora disponibile una nuova versione dell'API di autenticazione che consente agli utenti di accedere con entrambi i tipi di account usando il sistema Azure AD.  Questo sistema di autenticazione convergente è chiamato **endpoint v2.0**.  Con l'endpoint v2.0 è sufficiente una semplice integrazione per raggiungere un pubblico costituito da milioni di utenti, sia con account personali che con account aziendali o dell'istituto di istruzione.
 
 Le applicazioni con l'endpoint v2.0 possono inoltre usare le API REST da [Microsoft Graph](https://graph.microsoft.io) e [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) con entrambi i tipi di account.
@@ -32,7 +36,7 @@ Scegliere dall'elenco seguente la piattaforma preferita per compilare un'app usa
 <!-- TODO: Finalize this table  -->
 [!INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-## <a name="what's-new"></a>Novità
+## <a name="whats-new"></a>Novità
 Le informazioni di carattere generale fornite di seguito saranno utili per individuare le operazioni che possono essere eseguite o meno con l'endpoint v2.0.
 
 * Informazioni sui [tipi di app che si possono creare con l'endpoint v2.0](active-directory-v2-flows.md).
@@ -48,10 +52,13 @@ I collegamenti seguenti sono utili per un'esplorazione più approfondita della p
 * [Riferimento al token v2.0](active-directory-v2-tokens.md)
 * [Informazioni di riferimento sulla libreria v2.0](active-directory-v2-libraries.md)
 * [Ambiti e consenso nell'endpoint v2.0](active-directory-v2-scopes.md)
-* [Portale di registrazione delle app Microsoft](https://apps.dev.microsoft.com)
+* [Portale di registrazione delle app Microsoft](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)
 * [Riferimento all'API REST di Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 * [Microsoft Graph](https://graph.microsoft.io)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

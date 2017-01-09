@@ -10,6 +10,6 @@ Si pagano due cose: i costi di calcolo orari per il gateway di rete virtuale e i
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

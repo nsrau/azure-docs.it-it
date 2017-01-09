@@ -186,21 +186,25 @@ Ad esempio: nella schermata seguente è stato identificato un problema relativo 
 
 Per sospendere una pipeline, eseguire il comando di PowerShell seguente:
 
-    Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
-
+```powershell
+Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
+```
 Ad esempio:
 
-    Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
+```powershell
+Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
+```
 
 Una volta risolto il problema relativo a **PartitionProductsUsagePipeline**, la pipeline sospesa può essere ripresa eseguendo il comando di PowerShell seguente:
 
-    Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
-
+```powershell
+Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
+```
 ad esempio:
 
-    Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
-
-
+```powershell
+Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
+```
 ## <a name="debug-pipelines"></a>Eseguire il debug delle pipeline
 Tramite il portale di Azure e Azure PowerShell, Data factory di Azure offre funzionalità avanzate per il debug e la risoluzione dei problemi relativi alle pipeline.
 
@@ -221,49 +225,60 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
 #### <a name="use-the-powershell-to-debug-an-error"></a>Usare PowerShell per eseguire il debug di un errore
 1. Avviare **Azure PowerShell**.
 2. Eseguire il comando **Get-AzureRmDataFactorySlice** per vedere le sezioni e i relativi stati. Verrà visualizzata una sezione con lo stato **Non riuscito**.        
-   
-         Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
-   
+
+    ```powershell   
+    Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+    ```   
    Ad esempio:
-   
-         Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
+
+    ```powershell   
+    Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
+    ```
    
    Sostituire **StartDateTime** con il valore StartDateTime specificato per Set-AzureRmDataFactoryPipelineActivePeriod.
 3. Eseguire ora il cmdlet **Get-AzureRmDataFactoryRun** per ottenere i dettagli sull'esecuzione dell'attività per la sezione.
-   
-        Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] 
-        <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
-   
+
+    ```powershell   
+    Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] 
+    <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
+    ```
+  
     Ad esempio:
-   
-        Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
+
+    ```powershell   
+    Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
+    ```
    
     Il valore di StartDateTime è l'orario di inizio per la sezione con errori/problemi di cui si è preso nota nel passaggio precedente. La data e ora dovrebbe essere racchiusa tra virgolette doppie.
 4. Si otterrà l'output con informazioni dettagliate sull'errore (simile al seguente):
-   
-        Id                      : 841b77c9-d56c-48d1-99a3-8c16c3e77d39
-        ResourceGroupName       : ADF
-        DataFactoryName         : LogProcessingFactory3
-        DatasetName               : EnrichedGameEventsTable
-        ProcessingStartTime     : 10/10/2014 3:04:52 AM
-        ProcessingEndTime       : 10/10/2014 3:06:49 AM
-        PercentComplete         : 0
-        DataSliceStart          : 5/5/2014 12:00:00 AM
-        DataSliceEnd            : 5/6/2014 12:00:00 AM
-        Status                  : FailedExecution
-        Timestamp               : 10/10/2014 3:04:52 AM
-        RetryAttempt            : 0
-        Properties              : {}
-        ErrorMessage            : Pig script failed with exit code '5'. See wasb://        adfjobs@spestore.blob.core.windows.net/PigQuery
-                                        Jobs/841b77c9-d56c-48d1-99a3-
-                    8c16c3e77d39/10_10_2014_03_04_53_277/Status/stderr' for
-                    more details.
-        ActivityName            : PigEnrichLogs
-        PipelineName            : EnrichGameLogsPipeline
-        Type                    :
+
+    ```   
+    Id                      : 841b77c9-d56c-48d1-99a3-8c16c3e77d39
+    ResourceGroupName       : ADF
+    DataFactoryName         : LogProcessingFactory3
+    DatasetName               : EnrichedGameEventsTable
+    ProcessingStartTime     : 10/10/2014 3:04:52 AM
+    ProcessingEndTime       : 10/10/2014 3:06:49 AM
+    PercentComplete         : 0
+    DataSliceStart          : 5/5/2014 12:00:00 AM
+    DataSliceEnd            : 5/6/2014 12:00:00 AM
+    Status                  : FailedExecution
+    Timestamp               : 10/10/2014 3:04:52 AM
+    RetryAttempt            : 0
+    Properties              : {}
+    ErrorMessage            : Pig script failed with exit code '5'. See wasb://        adfjobs@spestore.blob.core.windows.net/PigQuery
+                                    Jobs/841b77c9-d56c-48d1-99a3-
+                8c16c3e77d39/10_10_2014_03_04_53_277/Status/stderr' for
+                more details.
+    ActivityName            : PigEnrichLogs
+    PipelineName            : EnrichGameLogsPipeline
+    Type                    :
+    ```
 5. È possibile eseguire il cmdlet **Save-AzureRmDataFactoryLog** con il valore ID visualizzato nell'output riportato sopra e scaricare i file di log usando l'opzione **-DownloadLogsoption** del cmdlet.
    
-        Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
+    ```powershell
+    Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
+    ```
 
 ## <a name="rerun-failures-in-a-pipeline"></a>Eseguire nuovamente le operazioni non riuscite in una pipeline
 ### <a name="using-azure-portal"></a>Uso del portale di Azure
@@ -281,8 +296,9 @@ Se non è possibile eseguire la convalida della sezione a causa di un errore rel
 
 UpdateType è impostato su UpstreamInPipeline. Ciò significa che lo stato di ogni sezione della tabella e di tutte le tabelle dipendenti (upstream) viene impostato su "In attesa". Un altro possibile valore per questo parametro è "Individuale".
 
-    Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
-
+```powershell
+Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
+```
 
 ## <a name="create-alerts"></a>Creare avvisi
 Azure registra eventi utente quando una risorsa di Azure (ad esempio, una data factory) viene creata, aggiornata o eliminata. È possibile creare avvisi per questi eventi. Data factory consente di acquisire diverse metriche e di creare avvisi per le metriche. Si consiglia di usare gli eventi per il monitoraggio in tempo reale e le metriche per motivi cronologici. 
@@ -304,48 +320,52 @@ Gli eventi di Azure forniscono utili informazioni su quanto accade alle risorse 
 #### <a name="specifying-an-alert-definition"></a>Specifica di una definizione di avviso:
 Per specificare una definizione di avviso, creare un file JSON che descrive le operazioni per cui si desidera essere avvisati. Nell'esempio seguente l'avviso invia una notifica tramite posta elettronica per l'operazione RunFinished. In particolare, viene inviata una notifica tramite posta elettronica quando un'esecuzione nella data factory viene completata, ma l'esito è negativo (stato = FailedExecution).
 
-    {
-        "contentVersion": "1.0.0.0",
-         "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-        "parameters": {},
-        "resources": 
-        [
+```JSON
+{
+    "contentVersion": "1.0.0.0",
+     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "parameters": {},
+    "resources": 
+    [
+        {
+            "name": "ADFAlertsSlice",
+            "type": "microsoft.insights/alertrules",
+            "apiVersion": "2014-04-01",
+            "location": "East US",
+            "properties": 
             {
                 "name": "ADFAlertsSlice",
-                "type": "microsoft.insights/alertrules",
-                "apiVersion": "2014-04-01",
-                "location": "East US",
-                "properties": 
+                "description": "One or more of the data slices for the Azure Data Factory has failed processing.",
+                "isEnabled": true,
+                "condition": 
                 {
-                    "name": "ADFAlertsSlice",
-                    "description": "One or more of the data slices for the Azure Data Factory has failed processing.",
-                    "isEnabled": true,
-                    "condition": 
+                    "odata.type": "Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition",
+                    "dataSource": 
                     {
-                        "odata.type": "Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition",
-                        "dataSource": 
-                        {
-                            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
-                            "operationName": "RunFinished",
-                            "status": "Failed",
-                            "subStatus": "FailedExecution"   
-                        }
-                    },
-                    "action": 
-                    {
-                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
-                        "customEmails": [ "<your alias>@contoso.com" ]
+                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
+                        "operationName": "RunFinished",
+                        "status": "Failed",
+                        "subStatus": "FailedExecution"   
                     }
+                },
+                "action": 
+                {
+                    "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
+                    "customEmails": [ "<your alias>@contoso.com" ]
                 }
             }
-        ]
-    }
+        }
+    ]
+}
+```
 
 **subStatus** può essere rimosso dalla definizione JSON se non si desidera ricevere un avviso in caso di errore specifico.
 
 Questo esempio configura l'avviso per tutte le data factory nella sottoscrizione. Se si desidera che venga impostato l'avviso per una data factory specifica, è possibile indicare la data factory **resourceUri** nel blocco **dataSource**:
 
-    "resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>"
+```JSON
+"resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>"
+```
 
 La tabella seguente fornisce l'elenco di operazioni e di stati (e degli stati secondari) disponibili.
 
@@ -362,24 +382,28 @@ Vedere [Crea regola di avviso](https://msdn.microsoft.com/library/azure/dn510366
 #### <a name="deploying-the-alert"></a>Distribuzione dell'avviso
 Per distribuire l'avviso, usare il cmdlet **New-AzureRmResourceGroupDeployment**di Azure PowerShell, come mostrato nell'esempio seguente:
 
-    New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
+```
 
 Una volta completata la distribuzione del gruppo di risorse, si notano i messaggi seguenti:
 
-    VERBOSE: 7:00:48 PM - Template is valid.
-    WARNING: 7:00:48 PM - The StorageAccountName parameter is no longer used and will be removed in a future release.
-    Please update scripts to remove this parameter.
-    VERBOSE: 7:00:49 PM - Create template deployment 'ADFAlertFailedSlice'.
-    VERBOSE: 7:00:57 PM - Resource microsoft.insights/alertrules 'ADFAlertsSlice' provisioning status is succeeded
+```
+VERBOSE: 7:00:48 PM - Template is valid.
+WARNING: 7:00:48 PM - The StorageAccountName parameter is no longer used and will be removed in a future release.
+Please update scripts to remove this parameter.
+VERBOSE: 7:00:49 PM - Create template deployment 'ADFAlertFailedSlice'.
+VERBOSE: 7:00:57 PM - Resource microsoft.insights/alertrules 'ADFAlertsSlice' provisioning status is succeeded
 
-    DeploymentName    : ADFAlertFailedSlice
-    ResourceGroupName : adf
-    ProvisioningState : Succeeded
-    Timestamp         : 10/11/2014 2:01:00 AM
-    Mode              : Incremental
-    TemplateLink      :
-    Parameters        :
-    Outputs           :
+DeploymentName    : ADFAlertFailedSlice
+ResourceGroupName : adf
+ProvisioningState : Succeeded
+Timestamp         : 10/11/2014 2:01:00 AM
+Mode              : Incremental
+TemplateLink      :
+Parameters        :
+Outputs           :
+```
 
 > [!NOTE]
 > È possibile usare l'API REST di [Crea regola avviso](https://msdn.microsoft.com/library/azure/dn510366.aspx) per creare una regola di avviso. Il payload JSON è simile all'esempio JSON riportato sopra.  
@@ -389,17 +413,20 @@ Una volta completata la distribuzione del gruppo di risorse, si notano i messagg
 #### <a name="retrieving-the-list-of-azure-resource-group-deployments"></a>Recupero dell'elenco di distribuzioni del gruppo di risorse Azure
 Per recuperare l'elenco di distribuzioni del gruppo di risorse di Azure distribuite, usare il cmdlet **Get-AzureRmResourceGroupDeployment**, come mostrato nell'esempio seguente:
 
-    Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
+```powershell
+Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
+```
 
-    DeploymentName    : ADFAlertFailedSlice
-    ResourceGroupName : adf
-    ProvisioningState : Succeeded
-    Timestamp         : 10/11/2014 2:01:00 AM
-    Mode              : Incremental
-    TemplateLink      :
-    Parameters        :
-    Outputs           :
-
+```
+DeploymentName    : ADFAlertFailedSlice
+ResourceGroupName : adf
+ProvisioningState : Succeeded
+Timestamp         : 10/11/2014 2:01:00 AM
+Mode              : Incremental
+TemplateLink      :
+Parameters        :
+Outputs           :
+```
 
 #### <a name="troubleshooting-user-events"></a>Risoluzione dei problemi relativi agli eventi utente
 1. È possibile visualizzare tutti gli eventi generati dopo aver selezionato il riquadro **Metriche e operazioni**.
@@ -420,58 +447,74 @@ Per recuperare l'elenco di distribuzioni del gruppo di risorse di Azure distribu
 
 Vedere l’articolo [Cmdlet di Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx) per i cmdlet PowerShell che è possibile usare per gli avvisi add/get/remove. Ecco alcuni esempi di uso del cmdlet **Get-AlertRule** : 
 
-    PS C:\> get-alertrule -res $resourceGroup -n ADFAlertsSlice -det
+```powershell
+get-alertrule -res $resourceGroup -n ADFAlertsSlice -det
+```
 
-            Properties :
-            Action      : Microsoft.Azure.Management.Insights.Models.RuleEmailAction
-            Condition   :
-            DataSource :
-            EventName             :
-            Category              :
-            Level                 :
-            OperationName         : RunFinished
-            ResourceGroupName     :
-            ResourceProviderName  :
-            ResourceId            :
-            Status                : Failed
-            SubStatus             : FailedExecution
-            Claims                : Microsoft.Azure.Management.Insights.Models.RuleManagementEventClaimsDataSource
-            Condition      :
-            Description : One or more of the data slices for the Azure Data Factory has failed processing.
-            Status      : Enabled
-            Name:       : ADFAlertsSlice
-            Tags       :
-            $type          : Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage
-            Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/ADFAlertsSlice
-            Location   : West US
-            Name       : ADFAlertsSlice
+```
+Properties :
+Action      : Microsoft.Azure.Management.Insights.Models.RuleEmailAction
+Condition   :
+DataSource :
+EventName             :
+Category              :
+Level                 :
+OperationName         : RunFinished
+ResourceGroupName     :
+ResourceProviderName  :
+ResourceId            :
+Status                : Failed
+SubStatus             : FailedExecution
+Claims                : Microsoft.Azure.Management.Insights.Models.RuleManagementEventClaimsDataSource
+Condition      :
+Description : One or more of the data slices for the Azure Data Factory has failed processing.
+Status      : Enabled
+Name:       : ADFAlertsSlice
+Tags       :
+$type          : Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage
+Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/ADFAlertsSlice
+Location   : West US
+Name       : ADFAlertsSlice
+```
 
-    PS C:\> Get-AlertRule -res $resourceGroup
+```powershell
+Get-AlertRule -res $resourceGroup
+```
+```
+Properties : Microsoft.Azure.Management.Insights.Models.Rule
+Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+Location   : West US
+Name       : FailedExecutionRunsWest0
 
-            Properties : Microsoft.Azure.Management.Insights.Models.Rule
-            Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
-            Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
-            Location   : West US
-            Name       : FailedExecutionRunsWest0
+Properties : Microsoft.Azure.Management.Insights.Models.Rule
+Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest3
+Location   : West US
+Name       : FailedExecutionRunsWest3
+```
 
-            Properties : Microsoft.Azure.Management.Insights.Models.Rule
-            Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
-            Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest3
-            Location   : West US
-            Name       : FailedExecutionRunsWest3
+```powershell
+Get-AlertRule -res $resourceGroup -Name FailedExecutionRunsWest0
+```
 
-    PS C:\> Get-AlertRule -res $resourceGroup -Name FailedExecutionRunsWest0
-
-            Properties : Microsoft.Azure.Management.Insights.Models.Rule
-            Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
-            Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
-            Location   : West US
-            Name       : FailedExecutionRunsWest0
+```
+Properties : Microsoft.Azure.Management.Insights.Models.Rule
+Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+Location   : West US
+Name       : FailedExecutionRunsWest0
+```
 
 Eseguire i seguenti comandi get-help per visualizzare informazioni dettagliate ed esempi per il cmdlet Get-AlertRule. 
 
-    get-help Get-AlertRule -detailed 
-    get-help Get-AlertRule -examples
+```powershell
+get-help Get-AlertRule -detailed
+```
+
+```powershell 
+get-help Get-AlertRule -examples
+```
 
 
 * Se si visualizzano gli eventi di generazione avvisi nel pannello del portale, ma non si ricevono le notifiche di posta elettronica, controllare se l'indirizzo di posta elettronica specificato è impostato per la ricezione di messaggi da mittenti esterni. I messaggi di avviso potrebbero essere stati bloccati dalle impostazioni di posta elettronica.
@@ -539,43 +582,45 @@ Questo comportamento è diverso da quello degli eventi in cui viene inviata una 
 
 **Definizione dell'avviso:**
 
+```JSON
+{
+    "contentVersion" : "1.0.0.0",
+    "$schema" : "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "parameters" : {},
+    "resources" : [
     {
-        "contentVersion" : "1.0.0.0",
-        "$schema" : "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-        "parameters" : {},
-        "resources" : [
-        {
+            "name" : "FailedRunsGreaterThan5",
+            "type" : "microsoft.insights/alertrules",
+            "apiVersion" : "2014-04-01",
+            "location" : "East US",
+            "properties" : {
                 "name" : "FailedRunsGreaterThan5",
-                "type" : "microsoft.insights/alertrules",
-                "apiVersion" : "2014-04-01",
-                "location" : "East US",
-                "properties" : {
-                    "name" : "FailedRunsGreaterThan5",
-                    "description" : "Failed Runs greater than 5",
-                    "isEnabled" : true,
-                    "condition" : {
-                        "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.ThresholdRuleCondition, Microsoft.WindowsAzure.Management.Mon.Client",
-                        "odata.type" : "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
-                        "dataSource" : {
-                            "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource, Microsoft.WindowsAzure.Management.Mon.Client",
-                            "odata.type" : "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
-                            "resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName
-    >/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>",
-                            "metricName" : "FailedRuns"
-                        },
-                        "threshold" : 5.0,
-                        "windowSize" : "PT3H",
-                        "timeAggregation" : "Total"
+                "description" : "Failed Runs greater than 5",
+                "isEnabled" : true,
+                "condition" : {
+                    "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.ThresholdRuleCondition, Microsoft.WindowsAzure.Management.Mon.Client",
+                    "odata.type" : "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+                    "dataSource" : {
+                        "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource, Microsoft.WindowsAzure.Management.Mon.Client",
+                        "odata.type" : "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+                        "resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName
+>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>",
+                        "metricName" : "FailedRuns"
                     },
-                    "action" : {
-                        "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction, Microsoft.WindowsAzure.Management.Mon.Client",
-                        "odata.type" : "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
-                        "customEmails" : ["abhinav.gpt@live.com"]
-                    }
+                    "threshold" : 5.0,
+                    "windowSize" : "PT3H",
+                    "timeAggregation" : "Total"
+                },
+                "action" : {
+                    "$type" : "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction, Microsoft.WindowsAzure.Management.Mon.Client",
+                    "odata.type" : "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
+                    "customEmails" : ["abhinav.gpt@live.com"]
                 }
             }
-        ]
-    }
+        }
+    ]
+}
+```
 
 Sostituire subscriptionId, resourceGroupName e dataFactoryName dell'esempio precedente con i valori appropriati.
 
@@ -588,24 +633,27 @@ Sostituire subscriptionId, resourceGroupName e dataFactoryName dell'esempio prec
 
 Per distribuire l'avviso, usare il cmdlet **New-AzureRmResourceGroupDeployment**di Azure PowerShell, come mostrato nell'esempio seguente:
 
-    New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
+```
 
 Dopo il completamento della distribuzione, verrà visualizzato il messaggio seguente:
 
-    VERBOSE: 12:52:47 PM - Template is valid.
-    VERBOSE: 12:52:48 PM - Create template deployment 'FailedRunsGreaterThan5'.
-    VERBOSE: 12:52:55 PM - Resource microsoft.insights/alertrules 'FailedRunsGreaterThan5' provisioning status is succeeded
+```
+VERBOSE: 12:52:47 PM - Template is valid.
+VERBOSE: 12:52:48 PM - Create template deployment 'FailedRunsGreaterThan5'.
+VERBOSE: 12:52:55 PM - Resource microsoft.insights/alertrules 'FailedRunsGreaterThan5' provisioning status is succeeded
 
 
-    DeploymentName    : FailedRunsGreaterThan5
-    ResourceGroupName : adf
-    ProvisioningState : Succeeded
-    Timestamp         : 7/27/2015 7:52:56 PM
-    Mode              : Incremental
-    TemplateLink      :
-    Parameters        :
-    Outputs           
-
+DeploymentName    : FailedRunsGreaterThan5
+ResourceGroupName : adf
+ProvisioningState : Succeeded
+Timestamp         : 7/27/2015 7:52:56 PM
+Mode              : Incremental
+TemplateLink      :
+Parameters        :
+Outputs           
+```
 
 È anche possibile usare il cmdlet **Add-AlertRule** per distribuire una regola di avviso. Per informazioni dettagliate ed esempi, vedere l'argomento [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) .  
 

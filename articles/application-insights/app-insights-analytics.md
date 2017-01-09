@@ -1,30 +1,35 @@
 ---
-title: Analytics - Il potente strumento di ricerca di Application Insights | Microsoft Docs
+title: 'Analisi: il potente strumento di ricerca di Application Insights | Microsoft Docs'
 description: 'Panoramica di Analytics: lo strumento di ricerca diagnostica avanzato incluso in Application Insights. '
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
-manager: douge
-
+manager: carmonm
+ms.assetid: 0a2f6011-5bcf-47b7-8450-40f284274b24
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2016
+ms.date: 11/23/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: f760494cbe7341391f0ce51bb1161cb1395cbe5c
+ms.openlocfilehash: b56ac6e0b75492e8d784c5fc67e555f8f450b65f
+
 
 ---
-# Analytics in Application Insights
-L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analisi.
+# <a name="analytics-in-application-insights"></a>Analytics in Application Insights
+L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analisi. 
 
 * **[Guardare il video introduttivo](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Eseguire la versione di test di Analisi sui dati simulati](https://analytics.applicationinsights.io/demo)** se l'app non invia ancora i dati ad Application Insights.
+* Il **[foglio informativo sugli utenti SQL](https://aka.ms/sql-analytics)** traduce i linguaggi più comuni.
 
-## Query in Analytics
-Una query tipica è costituita da una tabella *di origine* seguita da una serie di *operatori* separati da `|`.
+## <a name="queries-in-analytics"></a>Query in Analytics
+Una query tipica è costituita da una tabella di *origine* seguita da una serie di *operatori* separati da `|`. 
 
-Ad esempio, è possibile sapere a che ora del giorno gli abitanti di Hyderabad sperimentano l'app Web. Inoltre, è possibile sapere quali codici di risultato sono restituiti per le richieste HTTP.
+Ad esempio, è possibile sapere a che ora del giorno gli abitanti di Hyderabad sperimentano l'app Web. Inoltre, è possibile sapere quali codici di risultato sono restituiti per le richieste HTTP. 
 
 ```AIQL
 
@@ -35,7 +40,7 @@ Ad esempio, è possibile sapere a che ora del giorno gli abitanti di Hyderabad s
     | extend local_hour = (tod_UTC + 5h + 30min) % 24h + datetime("2001-01-01") 
 ```
 
-Si contano indirizzi IP client distinti, raggruppandoli in base all'ora del giorno negli ultimi 7 giorni.
+Si contano indirizzi IP client distinti, raggruppandoli in base all'ora del giorno negli ultimi 7 giorni. 
 
 Verranno visualizzati i risultati in una presentazione con grafico a barre, con lo stack dei risultati ottenuti da codici di risposta diversi:
 
@@ -51,21 +56,30 @@ Il linguaggio include diverse funzionalità utili, è possibile:
 
 * [Filtrare](app-insights-analytics-reference.md#where-operator) i dati di telemetria app non elaborati in base a qualsiasi campo, comprese proprietà personalizzate e metriche.
 * [Unire](app-insights-analytics-reference.md#join-operator) più tabelle: correlare le richieste a visualizzazioni di pagina, chiamate a dipendenze, eccezioni e tracce di log.
-* [Aggregazioni](app-insights-analytics-reference.md#aggregations) statistiche avanzate.
+* [Aggregazioni](app-insights-analytics-reference.md#aggregations)statistiche avanzate.
 * Altrettanto efficace come SQL, ma molto più semplice per le query complesse: anziché nidificare le istruzioni, i dati vengono inviati tramite pipe da un'operazione semplice alla successiva.
 * Visualizzazioni immediate e avanzate.
+* [Aggiungere grafici ai dashboard di Azure](app-insights-analytics-using.md#pin-to-dashboard).
+* [Esportare le query in Power BI](app-insights-analytics-using.md#export-to-power-bi).
+* Esiste un'[API REST](https://dev.applicationinsights.io/) che è possibile usare per eseguire query in modo programmatico, ad esempio da PowerShell.
 
-## Connettersi ai dati di Application Insights
-Aprire Analisi dal [pannello Panoramica](app-insights-dashboards.md) dell'app in Application Insights:
+
+## <a name="connect-to-your-application-insights-data"></a>Connettersi ai dati di Application Insights
+Aprire Analisi dal [pannello Panoramica](app-insights-dashboards.md) dell'app in Application Insights: 
 
 ![In portal.azure.com, aprire la risorsa di Application Insights e selezionare Analytics.](./media/app-insights-analytics/001.png)
 
-## Limiti
-Attualmente sono disponibili i risultati delle query per una settimana di dati.
+
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * È consigliabile iniziare con una [panoramica sul linguaggio](app-insights-analytics-tour.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

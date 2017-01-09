@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: Informazioni su come eseguire analisi IoT nel cloud con un&quot;elaborazione degli eventi completamente gestita. Analisi in tempo reale da applicazioni, sensori, dispositivi e altro ancora.
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: c75352e633f069597e7bc62650205f3c389b6909
+ms.sourcegitcommit: 5fbbb4ad21bbc4c4206d051e9585cd5d9888a545
+ms.openlocfilehash: 7d19b3b972bf5fdd9545f87f48eb924da8333ff7
 
 ---
-#<a name="stream-analytics-documentation"></a>Documentazione dell'analisi di flusso
 
-Analisi di flusso di Azure è un motore di elaborazione di eventi in tempo reale completamente gestito che permette di ottenere informazioni dettagliate dai dati.  Analisi di flusso facilita la configurazione di calcoli analitici in tempo reale sullo streaming di dati da dispositivi, sensori, siti Web, social media, applicazioni, sistema di infrastruttura e molto altro.
+# <a name="stream-analytics-documentation"></a>Documentazione dell'analisi di flusso
+
+Informazioni su come eseguire analisi Internet delle cose (IoT) nel cloud con analisi di flusso, un motore di elaborazione degli eventi completamente gestito. Esercitazioni e altri documenti in cui viene illustrato come analizzare dati in tempo reale da applicazioni, sensori, dispositivi, social media e altro ancora. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -122,66 +124,43 @@ Analisi di flusso di Azure è un motore di elaborazione di eventi in tempo reale
 
 ---
 
-## <a name="reference"></a>riferimento
-
+<h2>riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Informazioni di riferimento su Azure PowerShell</p>
+                    <div class="Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Informazioni di riferimento gestite su .NET</p>
+                    <div class="Languages</h3>
+                        <p><a href="/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn834998">Linguaggio di query</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/dn834998">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardText">
-                        <h3>Linguaggio di query</h3>
-                        <p>Informazioni di riferimento sul linguaggio di query per l'analisi di flusso</p>
+                    <div class="REST</h3>
+                        <p><a href="/rest/api/streamanalytics">Informazioni di riferimento sulle API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    <li>
-        <a href="/rest/api/streamanalytics">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>API REST di Analisi di flusso</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-</ul>   
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/stream-analytics.pdf">
@@ -193,6 +172,6 @@ Scaricare la documentazione dell'analisi di flusso </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

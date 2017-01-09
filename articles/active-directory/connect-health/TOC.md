@@ -1,10 +1,10 @@
-# Overview
+# Panoramica
 ## [Che cos'è Azure AD Connect Health?](active-directory-aadconnect-health.md)
 
 # Introduzione
 ## [Uso di Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
 ## [Uso di Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md)
-## [Uso di Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adds.md)
+## [Uso di Azure AD Connect Health con Servizi di dominio Active Directory](active-directory-aadconnect-health-adds.md)
 
 # Procedure
 ## [Installare l'agente di Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
@@ -20,10 +20,10 @@
 ## [Guide alla progettazione della soluzione ibrida di gestione delle identità](../active-directory-hybrid-identity-design-considerations-overview.md)
 
 # Risorse
-##[Domande frequenti su Azure AD Connect](active-directory-aadconnect-health-faq.md)
+##[Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

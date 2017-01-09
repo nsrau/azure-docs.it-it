@@ -17,14 +17,14 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: d33128d8fa2bf0ba1025eff75378ccd42ce5aee0
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 32c18821ac9cf5516fba9762ca5bb834194dcdc9
 
 
 ---
 # <a name="use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>Usare C# per creare un database SQL con la libreria del database SQL per .NET
 
-Informazioni su come usare C# per creare un database SQL di Azure con la [libreria di gestione di Microsoft Azure SQL per .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Questo articolo descrive come creare un database autonomo con SQL e C#. Per creare pool elastici, vedere [Creare un pool elastico](sql-database-elastic-pool-create-csharp.md).
+Informazioni su come usare C# per creare un database SQL di Azure con la [libreria di gestione di Microsoft Azure SQL per .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Questo articolo descrive come creare un database singolo con SQL e C#. Per creare pool elastici, vedere [Creare un pool elastico](sql-database-elastic-pool-create-csharp.md).
 
 La libreria di gestione di database SQL di Azure per .NET include un'API basata su [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) che esegue il wrapping dell'[API REST di database SQL basata su Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
@@ -223,7 +223,7 @@ Sostituire il contenuto di **Program.cs** con quanto segue e aggiornare `{variab
 
 
 ## <a name="create-a-service-principal-to-access-resources"></a>Creare un'entità servizio per accedere alle risorse
-Lo script di PowerShell seguente permette di creare l'applicazione Active Directory (AD) e l'entità servizio necessarie per autenticare l'app C#. Lo script restituisce i valori necessari per l'esempio di C# precedente. Per informazioni dettagliate, vedere [Usare Azure PowerShell per creare un'entità servizio per accedere alle risorse](../resource-group-authenticate-service-principal.md).
+Lo script di PowerShell seguente permette di creare l'applicazione Active Directory (AD) e l'entità servizio necessarie per autenticare l'app C#. Lo script restituisce i valori necessari per l'esempio di C# precedente. Per informazioni dettagliate, vedere [Usare Azure PowerShell per creare un'entità servizio per accedere alle risorse](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
     # Sign in to Azure.
     Add-AzureRmAccount
@@ -287,6 +287,6 @@ Dopo aver provato il database SQL e aver impostato un database con C#, è possib
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

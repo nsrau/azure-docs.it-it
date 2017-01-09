@@ -1,13 +1,13 @@
 ---
-title: Configurazione di un dispositivo Windows 10 con Azure AD da Impostazioni| Microsoft Docs
+title: Configurazione di un dispositivo Windows 10 con Azure AD da Impostazioni| Documentazione Microsoft
 description: Illustra come gli utenti possono partecipare ad Azure AD tramite il menu Impostazioni.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: b844e1d9-ad43-4e4a-a398-5c4a43bf2f5c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 70610ec2c5a056d63ed854b33d84e29951940c2f
+
 
 ---
 # <a name="set-up-a-windows-10-device-with-azure-ad-from-settings"></a>Configurazione di un dispositivo Windows 10 con Azure AD da Impostazioni
@@ -43,6 +47,9 @@ Se si sta usando Windows 7 o Windows 8 e il computer o il dispositivo è stato a
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 * [Autenticazione delle identità senza password con Microsoft Passport](active-directory-azureadjoin-passport.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

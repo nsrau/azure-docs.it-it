@@ -43,16 +43,16 @@ Per usare Baidu, è necessario un account Baidu. Se è già disponibile un accou
 
 1. Andare al [portale di Baidu] e fare clic sul collegamento **登录** (**Accedi**). Fare clic su **立即注册** per avviare il processo di registrazione di un nuovo account.
    
-       ![][1]
+   ![][1]
 2. Immettere i dettagli richiesti, ovvero numero di telefono/indirizzo di posta elettronica, password e codice di verifica, quindi fare clic su **Signup**.
    
-       ![][2]
+   ![][2]
 3. Si riceverà un messaggio di posta elettronica all'indirizzo specificato, contenente un collegamento per l'attivazione dell'account Baidu.
    
-       ![][3]
+   ![][3]
 4. Accedere all'account di posta elettronica, aprire il messaggio per l'attivazione di Baidu e fare clic sul collegamento per attivare l'account.
    
-       ![][4]
+   ![][4]
 
 Dopo l'attivazione di un account Baidu, accedere al [portale di Baidu].
 

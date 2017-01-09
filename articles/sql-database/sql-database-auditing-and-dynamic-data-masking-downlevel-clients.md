@@ -21,7 +21,7 @@ ms.openlocfilehash: 06c1dfbcfa365f6c34708021f63a756e295e2ab4
 
 
 ---
-# <a name="sql-database---downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>Database SQL: supporto dei client di livello inferiore e modifiche all'endpoint IP per Controllo
+# <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>Database SQL: supporto dei client di livello inferiore e modifiche all'endpoint IP per Controllo
 [Controllo](sql-database-auditing-get-started.md) funziona automaticamente con i client SQL che supportano il reindirizzamento TDS.
 
 ## <a name="a-idsubheading-1adownlevel-clients-support"></a><a id="subheading-1"></a>Supporto dei client di livello inferiore

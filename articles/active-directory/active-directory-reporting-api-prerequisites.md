@@ -168,6 +168,6 @@ Per ottenere il segreto client dell'applicazione, è necessario creare una nuova
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

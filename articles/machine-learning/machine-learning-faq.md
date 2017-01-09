@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/26/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 36fd6b01dae6aa9a48985a252766d3f2d0b19342
+ms.sourcegitcommit: c5479dd817e8929ff5e9129d4643d49758e7ab16
+ms.openlocfilehash: 82d4d74a14ec31453f0d3eb9a18140c3569f806c
 
 
 ---
@@ -101,7 +101,7 @@ Per i set di dati con dimensioni maggiori di un paio di GB, caricare i dati in A
 
 **È possibile leggere i dati da Amazon S3?**
 
-Se la quantità di dati è limitata e si vuole esporli con un URL HTTP, è possibile usare il modulo [Import Data][import-data] (Importa dati). Per quantità di dati maggiori, trasferire prima di tutto i dati in Archiviazione di Azure e quindi usare il modulo [Import Data][import-data] (Importa dati) per passarli all'esperimento.
+Se la quantità di dati è limitata e si vuole esporli con un URL HTTP, è possibile usare il modulo [Import Data][import-data] (Importa dati). Per quantità di dati maggiori, trasferirli prima di tutto in Archiviazione di Azure e quindi usare il modulo [Import Data][import-data] (Importa dati) per passarli all'esperimento.
 <!--
 
 <SEE CLOUD DS PROCESS>
@@ -140,7 +140,7 @@ Poiché la quantità di dati trasmessi al browser può essere elevata, la dimens
 ### <a name="algorithms"></a>Algoritmi
 **Quali algoritmi esistenti sono supportati in Machine Learning Studio?**
 
-Machine Learning Studio offre algoritmi all'avanguardia, ad esempio gli alberi delle decisioni con boosting scalabili, i sistemi di raccomandazione bayesiani, le reti neurali basate su Machine Deep Learning e le giungle delle decisioni sviluppati da Microsoft Research. Sono inclusi anche i pacchetti open source di Machine Learning scalabili come Vowpal Wabbit. Machine Learning Studio supporta gli algoritmi di Machine Learning per la classificazione multiclasse e binaria, la regressione e il clustering. Vedere l'elenco completo dei [Machine Learning Modules][machine-learning-modules] (Moduli di Machine Learning).
+Machine Learning Studio offre algoritmi all'avanguardia, ad esempio gli alberi delle decisioni con boosting scalabili, i sistemi di raccomandazione bayesiani, le reti neurali basate su Machine Deep Learning e le giungle delle decisioni sviluppati da Microsoft Research. Sono inclusi anche i pacchetti open source di Machine Learning scalabili come Vowpal Wabbit. Machine Learning Studio supporta gli algoritmi di Machine Learning per la classificazione multiclasse e binaria, la regressione e il clustering. Vedere l'elenco completo dei [moduli di Machine Learning][machine-learning-modules].
 
 **L'algoritmo di Machine Learning più appropriato per i dati viene suggerito automaticamente?**
 
@@ -289,9 +289,6 @@ Machine Learning Studio si basa su un account di archiviazione di Azure fornito 
 
 Se sono state modificate le chiavi di accesso dell'account di archiviazione, sincronizzare di nuovo le chiavi di accesso nell'area di lavoro usando il portale di Azure classico.  
 
-## <a name="azure-marketplace"></a>Azure Marketplace
-Vedere [Domande frequenti sulla pubblicazione e sull'uso delle app di Machine Learning in Azure Marketplace](machine-learning-marketplace-faq.md).
-
 ## <a name="support-and-training"></a>Supporto e training
 **Dove si trovano i training per Azure Machine Learning?**
 
@@ -332,7 +329,7 @@ Per altre informazioni sulla fatturazione e sui prezzi, vedere [Prezzi di Machin
 
  Azure Machine Learning offre un'opzione di sottoscrizione gratuita (vedere [Prezzi di Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/) per informazioni dettagliate) e Machine Learning Studio offre una versione di valutazione rapida di 8 ore (per questa versione, accedere a [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2)).
 
- Quando ci si iscrive a una versione di valutazione gratuita di Azure, è inoltre possibile provare tutti i servizi Azure per un mese. Per altre informazioni sulla versione di valutazione gratuita, vedere [Domande frequenti sulla versione di valutazione gratuita di Azure](/pricing/free-trial-faq/).
+ Quando ci si iscrive a una versione di valutazione gratuita di Azure, è inoltre possibile provare tutti i servizi Azure per un mese. Per altre informazioni sulla versione di valutazione gratuita, vedere [Domande frequenti sulla versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial-faq/).
 
 **Che cos'è una transazione?**
 
@@ -432,7 +429,7 @@ I nuovi piani di fatturazione sono disponibili nelle tre aree di produzione in c
 
 Sì. I prezzi dei piani variano in base all'area. Quando si distribuisce un servizio Web in un'altra area, è necessario assegnare al servizio un piano specifico di tale regione.
 
-### <a name="new-web-services-overages"></a>Nuovi servizi Web: eccedenze
+### <a name="new-web-services---overages"></a>Nuovi servizi Web: eccedenze
 **Come si controlla se si è verificata un'eccedenza nell'utilizzo del servizio Web?**
 
 È possibile visualizzare l'uso in tutti i propri piani nella pagina Plans (Piani) del portale Azure Machine Learning Web Services (Servizi Web di Microsoft Azure Machine Learning). Accedere al portale e fare clic sull'opzione di menu Plans (Piani).
@@ -545,6 +542,6 @@ L'accesso guest è un'esperienza di valutazione limitata che consente di creare 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

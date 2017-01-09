@@ -11,11 +11,11 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: c8e745f7e1385c5ca569a9b8fbc3f5db070f102e
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 96e8177f57977f88c5a4a1ec0b9243b5b348f078
 
 ---
 
@@ -29,7 +29,7 @@ ms.openlocfilehash: c8e745f7e1385c5ca569a9b8fbc3f5db070f102e
 >
 >
 
-Questo articolo illustra come eseguire query su un indice con l' [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Questo articolo illustra come eseguire query su un indice con l' [API REST di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/).
 
 Prima di iniziare questa procedura dettagliata, è necessario avere [creato un indice di Ricerca di Azure](search-what-is-an-index.md) e [averlo popolato con dati](search-what-is-data-import.md).
 
@@ -48,7 +48,7 @@ Il servizio avrà *chiavi amministratore* e *chiavi di query*.
 Ai fini di una query su un indice, è possibile usare una delle chiavi di query. Si possono anche usare le chiavi amministratore per le query, ma è necessario usare una chiave di query nel codice dell'applicazione, perché questo approccio è più coerente con il [principio del privilegio minimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
 ## <a name="ii-formulate-your-query"></a>II. Formulare la query
-Esistono due modi per [eseguire una ricerca nell'indice usando l'API REST](https://msdn.microsoft.com/library/azure/dn798927.aspx). Uno consiste nell'inviare una richiesta HTTP POST in cui i parametri di query verranno definiti in un oggetto JSON nel corpo della richiesta. L'altro consiste nell'inviare una richiesta HTTP GET in cui i parametri di query verranno definiti nell'URL della richiesta. Si noti che POST ha [limiti più ridotti](https://msdn.microsoft.com/library/azure/dn798927.aspx) per quanto riguarda le dimensioni dei parametri di query rispetto a GET. Per questo motivo, è consigliabile usare POST, a meno di non avere circostanze particolari in cui l'uso di GET potrebbe essere più conveniente.
+Esistono due modi per [eseguire una ricerca nell'indice usando l'API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Uno consiste nell'inviare una richiesta HTTP POST in cui i parametri di query verranno definiti in un oggetto JSON nel corpo della richiesta. L'altro consiste nell'inviare una richiesta HTTP GET in cui i parametri di query verranno definiti nell'URL della richiesta. Si noti che POST ha [limiti più ridotti](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) per quanto riguarda le dimensioni dei parametri di query rispetto a GET. Per questo motivo, è consigliabile usare POST, a meno di non avere circostanze particolari in cui l'uso di GET potrebbe essere più conveniente.
 
 Sia per POST che per GET è necessario fornire il *nome del servizio*, il *nome dell'indice* e la *versione dell'API* corretta nell'URL della richiesta. Al momento della pubblicazione di questo documento la versione dell'API corrente è `2016-09-01`. Per GET i parametri di query devono essere forniti nella *stringa di query* alla fine dell'URL. Per il formato dell'URL, vedere di seguito:
 
@@ -162,10 +162,10 @@ Una richiesta di query riuscita restituirà un codice di stato `200 OK` e i risu
 }
 ```
 
-Per altre informazioni, vedere la sezione "Risposta" di [Eseguire ricerche nei documenti](https://msdn.microsoft.com/library/azure/dn798927.aspx). Per altre informazioni su altri codici di stato HTTP che possono essere restituiti in caso di errore, vedere [Codici di stato HTTP (Ricerca di Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+Per altre informazioni, vedere la sezione "Risposta" di [Eseguire ricerche nei documenti](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Per altre informazioni su altri codici di stato HTTP che possono essere restituiti in caso di errore, vedere [Codici di stato HTTP (Ricerca di Azure)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

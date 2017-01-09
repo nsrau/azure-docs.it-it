@@ -9,16 +9,16 @@ manager: jhubbard
 editor: 
 ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 12/06/2016
+ms.date: 12/14/2016
 ms.author: CarlRabeler
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 829229542c05477d427b15a9d862f414d9c730d6
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 2c0ee201e719c542cf801372e6a270a7b88598fb
 
 
 ---
@@ -37,24 +37,24 @@ Un modello di applicazione SaaS molto diffuso è il modello di database a singol
 >
 >
 
-Nel database SQL, la misura relativa della capacità del database di gestire le richieste delle risorse è espressa in unità di transazione del database (DTU) per i singoli database e in DTU elastiche (eDTU) per i database elastici in un pool elastico. Per altre informazioni su DTU ed eDTU, vedere [Introduzione al database SQL](sql-database-technical-overview.md).
+Nel database SQL, la misura relativa della capacità del database di gestire le richieste delle risorse è espressa in unità di transazione del database (DTU) per i database autonomi e in DTU elastiche (eDTU) per i database elastici in un pool elastico. Per altre informazioni su DTU ed eDTU, vedere [Introduzione al database SQL](sql-database-technical-overview.md).
 
-A un pool viene assegnato un numero definito di eDTU per un prezzo prestabilito. All'interno del pool i singoli database sono sufficientemente flessibili da assicurare una scalabilità automatica nell'ambito di parametri prefissati. Se il carico di lavoro è importante, un database può utilizzare più eDTU per soddisfare la domanda. Se invece il carico di lavoro è più leggero, i database in assenza di carico non utilizzano gli eDTU. La possibilità di effettuare il provisioning delle risorse per l'intero pool e non per i singoli database semplifica le attività di gestione. Il budget del pool, inoltre, è facilmente prevedibile.
+A un pool viene assegnato un numero definito di eDTU per un prezzo prestabilito. All'interno del pool i singoli database sono sufficientemente flessibili da assicurare una scalabilità automatica nell'ambito di parametri prefissati. Se il carico di lavoro è importante, un database può utilizzare più eDTU per soddisfare la domanda. Se invece il carico di lavoro è più leggero, i database in assenza di carico non utilizzano gli eDTU. La possibilità di effettuare il provisioning delle risorse per l'intero pool e non per i database autonomi semplifica le attività di gestione. Il budget del pool, inoltre, è facilmente prevedibile.
 
 È possibile aggiungere ulteriori eDTU a un pool esistente senza causare tempi di inattività del database o effetti negativi sui database nel pool elastico. Analogamente, se gli eDTU aggiuntivi non sono più necessari, è possibile rimuoverli da un pool esistente in qualsiasi momento.
 
 È possibile aggiungere e rimuovere database dal pool. Se si prevede che un database sottoutilizzerà le proprie risorse, è possibile rimuoverlo.
 
 ## <a name="which-databases-go-in-a-pool"></a>Scelta dei database da inserire in un pool
-![Database SQL che condividono eDTU in un pool di database elastici.][1]
+![Database SQL che condividono eDTU in un pool elastico.][1]
 
-I database che sono ottimi candidati per i pool elastici sono in genere caratterizzati da periodi di attività e da periodi di inattività. Nell'esempio sopra riportato è possibile visualizzare l'attività di un database singolo, di 4 database e infine di un pool elastico con 20 database. I database con livelli di attività variabili nel corso del tempo sono ottimi candidati per i pool elastici in quanto non sono tutti attivi nello stesso momento e possono condividere gli eDTU. Non tutti i database seguono questo modello. I database che hanno una richiesta di risorse più costante sono più indicati per i livelli di servizio Basic, Standard e Premium, nei quali le risorse vengono assegnate singolarmente.
+I database che sono ottimi candidati per i pool elastici sono in genere caratterizzati da periodi di attività e da periodi di inattività. Nell'esempio sopra riportato è possibile visualizzare l'attività di un database autonomo, di 4 database e infine di un pool elastico con 20 database. I database con livelli di attività variabili nel corso del tempo sono ottimi candidati per i pool elastici in quanto non sono tutti attivi nello stesso momento e possono condividere gli eDTU. Non tutti i database seguono questo modello. I database che hanno una richiesta di risorse più costante sono più indicati per i livelli di servizio Basic, Standard e Premium, nei quali le risorse vengono assegnate singolarmente.
 
 [Considerazioni di prezzo e prestazioni per un pool elastico](sql-database-elastic-pool-guidance.md).
 
 ## <a name="edtu-and-storage-limits-for-elastic-pools-and-elastic-databases"></a>Limiti di archiviazione e di eDTU dei pool elastici e dei database elastici
 
-La tabella seguente descrive le caratteristiche dei pool di database elastici Basic, Standard e Premium.
+La tabella seguente descrive le caratteristiche dei pool elastici Basic, Standard e Premium.
 
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
@@ -88,7 +88,7 @@ L'uso di un pool permette di semplificare le attività di gestione con l'esecuzi
 Per altre informazioni sugli strumenti dei database elastici, vedere [Aumentare il numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md).
 
 ## <a name="business-continuity-features-for-databases-in-a-pool"></a>Funzionalità di continuità aziendale per i database in un pool
-In genere, i database elastici supportano le stesse [funzionalità di continuità aziendale](sql-database-business-continuity.md) disponibili per i singoli database nei server V12.
+In genere, i database elastici supportano le stesse [funzionalità di continuità aziendale](sql-database-business-continuity.md) disponibili per i database autonomi.
 
 ### <a name="point-in-time-restore"></a>Ripristino temporizzato
 Il ripristino temporizzato usa i backup automatici del database per ripristinare un database in un pool a un punto specifico nel tempo. Vedere [Ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore)

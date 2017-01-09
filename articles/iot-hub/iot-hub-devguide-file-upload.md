@@ -1,12 +1,12 @@
 ---
-title: Developer guide - file upload | Microsoft Docs
-description: Azure IoT Hub developer guide - uploading files from a device to IoT Hub
+title: Guida per gli sviluppatori - Caricamento file | Documentazione Microsoft
+description: Guida per gli sviluppatori dell&quot;hub IoT di Azure - Caricamento di file da un dispositivo all&quot;hub IoT
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: a0427925-3e40-4fcd-96c1-2a31d1ddc14b
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,51 +14,96 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
+ms.openlocfilehash: 69c541a7884d84d1b72c95225e2ad53f666d73af
+
 
 ---
-# <a name="upload-files-from-a-device"></a>Upload files from a device
-## <a name="overview"></a>Overview
-As detailed in the [IoT Hub endpoints][lnk-endpoints] article, devices can initiate file uploads by sending a notification through a device-facing endpoint (**/devices/{deviceId}/files**).  When a device notifies IoT Hub of a completed upload, IoT Hub generates file upload notifications that you can receive through a service-facing endpoint (**/messages/servicebound/filenotifications**) as messages.
+# <a name="upload-files-from-a-device"></a>Caricare file da un dispositivo
+## <a name="overview"></a>Panoramica
+Come descritto nell'articolo [IoT Hub endpoints][lnk-endpoints] (Endpoint dell'hub IoT), i dispositivi possono avviare caricamenti di file inviando una notifica tramite un endpoint per dispositivo (**/devices/{deviceId}/files**).  Quando un dispositivo notifica all'hub IoT il completamento di un caricamento, l'hub IoT genera notifiche di caricamento file che possono essere ricevute sotto forma di messaggi tramite un endpoint per servizio (**/messages/servicebound/filenotifications**).
 
-Instead of brokering messages through IoT Hub itself, IoT Hub instead acts as a dispatcher to an associated Azure Storage account. A device requests a storage token from IoT Hub that is specific to the file the device wishes to upload. The device uses the SAS URI to upload the file to storage, and when the upload is complete the device sends a notification of completion to IoT Hub. IoT Hub verifies that the file was uploaded and then adds a file upload notification to the new service-facing file notification messaging endpoint.
+I messaggi non vengono negoziati tramite l'hub IoT, che funge invece da strumento di recapito per un account di archiviazione di Azure associato. Un dispositivo richiede dall'hub IoT un token di archiviazione specifico del file che intende caricare. Il dispositivo usa l'URI di firma di accesso condiviso per caricare il file nella risorsa di archiviazione e al termine del caricamento invia una notifica di completamento all'hub IoT. L'hub IoT verifica che il file sia stato caricato e quindi aggiunge una notifica di caricamento file al nuovo endpoint di messaggistica per servizio per le notifiche relative ai file.
 
-Before you upload a file to IoT Hub from a device, you must configure your hub by [associating an Azure Storage][lnk-associate-storage] account to it.
+Prima di caricare un file in un hub IoT da un dispositivo, è necessario configurare l'hub [associando un account di archiviazione di Azure][lnk-associate-storage] all'hub.
 
-Your device can then [initialize an upload][lnk-initialize] and then [notify IoT hub][lnk-notify] when the upload completes. Optionally, when a device notifies IoT Hub that the upload is complete, the service can generate a [notification message][lnk-service-notification].
+Il dispositivo può quindi [inizializzare un'operazione di caricamento][lnk-initialize] e quindi [Inviare una notifica all'hub IoT][lnk-notify] al termine del caricamento. Facoltativamente, quando un dispositivo comunica all'hub IoT che il caricamento è completo, il servizio può generare un [messaggio di notifica][lnk-service-notification].
 
-### <a name="when-to-use"></a>When to use
-Use this IoT Hub feature when you need to upload a file from a device to your back-end service instead of sending a message through IoT Hub.
+### <a name="when-to-use"></a>Quando usare le autorizzazioni
+Usare il caricamento di file per inviare file multimediali e batch di telemetria di grandi dimensioni caricati da dispositivi con connessione intermittente o compressi per risparmiare la larghezza di banda.
 
-## <a name="associate-an-azure-storage-account-with-iot-hub"></a>Associate an Azure Storage account with IoT Hub
-To use the file upload functionality, you must first link an Azure Storage account to the IoT Hub. You can do this either through the [Azure portal][lnk-management-portal], or programmatically through the [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis]. Once you have associated a storage account with your IoT Hub, the service returns a SAS URI to a device when the device initiates a file upload request.
+Vedere [Device-to-cloud communication guidance][lnk-d2c-guidance] (Indicazioni sulla comunicazione da dispositivo a cloud) in caso di dubbi tra l'uso delle proprietà indicate, dei messaggi da dispositivo a cloud o del caricamento di file.
+
+## <a name="associate-an-azure-storage-account-with-iot-hub"></a>Associare un account di archiviazione di Azure all'hub IoT
+Per usare la funzionalità di caricamento file, è prima necessario collegare un account di archiviazione di Azure all'hub IoT. Questa operazione può essere eseguita con il [portale di Azure][lnk-management-portal] oppure a livello di codice con le [API REST del provider di risorse dell'hub IoT][lnk-resource-provider-apis]. Dopo l'associazione di un account di archiviazione di Azure all'hub IoT, quando un dispositivo avvia una richiesta di caricamento file il servizio restituisce al dispositivo un URI di firma di accesso condiviso.
 
 > [!NOTE]
-> The [Azure IoT Hub SDKs][lnk-sdks] automatically handle retrieving the SAS URI, uploading the file, and notifying IoT Hub of a completed upload.
+> Gli [Azure IoT SDKs][lnk-sdks] (SDK di IoT di Azure) gestiscono automaticamente il recupero dell'URI di firma di accesso condiviso, il caricamento del file e la notifica all'hub IoT del completamento del caricamento.
 > 
 > 
 
-## <a name="initialize-a-file-upload"></a>Initialize a file upload
-IoT Hub has two REST endpoints to support file upload, one to get the SAS URI for storage and the other to notify the IoT hub of a completed upload. The device initiates the file upload process by sending a GET to the IoT hub at `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. The hub returns a SAS URI specific to the file to be uploaded, and a correlation ID to be used once the upload is completed.
+## <a name="initialize-a-file-upload"></a>Inizializzazione del caricamento di un file
+L'hub IoT dispone di un endpoint dedicato in modo specifico ai dispositivi che consente di richiedere un URI di firma di accesso condiviso con cui l'archiviazione possa caricare un file. Il dispositivo avvia il processo di caricamento file inviando una richiesta POST all'hub IoT in `{iot hub}.azure-devices.net/devices/{deviceId}/files` con il corpo JSON seguente:
 
-## <a name="notify-iot-hub-of-a-completed-file-upload"></a>Notify IoT Hub of a completed file upload
-The device is responsible for uploading the file to storage using the Azure Storage SDKs. Once the upload is completed, the device sends a POST to the IoT hub at `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications/{correlationId}` using the correlation ID received from the initial GET.
+```
+{
+    "blobName": "{name of the file for which a SAS URI will be generated}"
+}
+```
 
-## <a name="reference"></a>Reference
-### <a name="file-upload-notifications"></a>File upload notifications
-When a device uploads a file and notifies IoT Hub of upload completion, the service optionally generates a notification message that contains the name and storage location of the file.
+L'hub IoT restituisce il risultato seguente, che il dispositivo usa per caricare il file:
 
-As explained in [Endpoints][lnk-endpoints], IoT Hub delivers file upload notifications through a service-facing endpoint (**/messages/servicebound/fileuploadnotifications**) as messages. The receive semantics for file upload notifications are the same as for cloud-to-device messages and have the same [message lifecycle][lnk-lifecycle]. Each message retrieved from the file upload notification endpoint is a JSON record with the following properties:
+```
+{
+    "correlationId": "somecorrelationid",
+    "hostname": "contoso.azure-devices.net",
+    "containerName": "testcontainer",
+    "blobName": "test-device1/image.jpg",
+    "sasToken": "1234asdfSAStoken"
+}
+```
 
-| Property | Description |
+### <a name="deprecated-initialize-a-file-upload-with-a-get"></a>Obsoleto: inizializzare un caricamento di file con un'operazione GET
+> [!NOTE]
+> In questa sezione viene descritta la funzionalità obsoleta per indicazioni su come ricevere un URI di firma di accesso condiviso dall'hub IoT. Usare il metodo POST descritto in precedenza.
+> 
+> 
+
+Per supportare il caricamento di file, l'hub IoT usa due endpoint REST: uno per ottenere l'URI di firma di accesso condiviso per l'archiviazione e uno per la notifica all'hub IoT del completamento del caricamento. Il dispositivo avvia il processo di caricamento file inviato una richiesta GET all'hub IoT in `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. L'hub IoT restituisce un URI di firma di accesso condiviso specifico del file da caricare e un ID di correlazione da usare al termine del caricamento.
+
+## <a name="notify-iot-hub-of-a-completed-file-upload"></a>Notifica all'hub IoT del completamento del caricamento di un file
+Il dispositivo è responsabile del caricamento del file nella risorsa di archiviazione con Azure Storage SDK. Al termine del caricamento, il dispositivo invia una richiesta POST all'hub IoT in `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` con il corpo JSON seguente:
+
+```
+{
+    "correlationId": "{correlation ID received from the initial request}",
+    "isSuccess": bool,
+    "statusCode": XXX,
+    "statusDescription": "Description of status"
+}
+```
+
+Il valore di `isSuccess` è un valore booleano che indica se il file è stato caricato correttamente oppure no. Il codice di stato per `statusCode` è lo stato per il caricamento del file nell'archiviazione e `statusDescription` corrisponde a `statusCode`.
+
+## <a name="reference-topics"></a>Argomenti di riferimento:
+Negli argomenti di riferimento seguenti vengono offerte altre informazioni sul caricamento dei file da un dispositivo.
+
+## <a name="file-upload-notifications"></a>Notifiche di caricamento file
+Quando un dispositivo carica un file e notifica all'hub IoT il completamento del caricamento, il servizio genera facoltativamente un messaggio di notifica contenente il nome e la posizione di archiviazione del file.
+
+Come illustrato nella sezione [Endpoint][lnk-endpoints], , l'hub IoT recapita le notifiche di caricamento file sotto forma di messaggi tramite un endpoint per servizio (**/messages/servicebound/fileuploadnotifications**). La semantica di ricezione per le notifiche di caricamento file è uguale a quella dei messaggi da cloud a dispositivo e ha lo stesso [ciclo di vita dei messaggi][lnk-lifecycle]. Ogni messaggio recuperato dall'endpoint delle notifiche di caricamento file è un record JSON con le proprietà seguenti.
+
+| Proprietà | Descrizione |
 | --- | --- |
-| EnqueuedTimeUtc |Timestamp indicating when the notification was created. |
-| DeviceId |**DeviceId** of the device which uploaded the file. |
-| BlobUri |URI of the uploaded file. |
-| BlobName |Name of the uploaded file. |
-| LastUpdatedTime |Timestamp indicating when the file was last updated. |
-| BlobSizeInBytes |Size of the uploaded file. |
+| EnqueuedTimeUtc |Timestamp che indica quando è stata creata la notifica. |
+| deviceId |**DeviceId** del dispositivo che ha caricato il file. |
+| BlobUri |URI del file caricato. |
+| BlobName |Nome del file caricato. |
+| LastUpdatedTime |Timestamp che indica quando è stato eseguito l'ultimo aggiornamento del file. |
+| BlobSizeInBytes |Dimensioni del file caricato. |
 
-**Example**. This is an example body of a file upload notification message.
+**Esempio**. Esempio del corpo di un messaggio di notifica di caricamento file:
 
 ```
 {
@@ -71,37 +116,37 @@ As explained in [Endpoints][lnk-endpoints], IoT Hub delivers file upload notific
 }
 ```
 
-### <a name="file-upload-notification-configuration-options"></a>File upload notification configuration options
-Each IoT hub exposes the following configuration options for file upload notifications:
+## <a name="file-upload-notification-configuration-options"></a>Opzioni di configurazione per le notifiche di caricamento file
+Ogni hub IoT espone le opzioni di configurazione seguenti per le notifiche di caricamento file.
 
-| Property | Description | Range and default |
+| Proprietà | Descrizione | Intervallo e valore predefinito |
 | --- | --- | --- |
-| **enableFileUploadNotifications** |Controls whether file upload notifications are written to the file notifications endpoint. |Bool. Default: True. |
-| **fileNotifications.ttlAsIso8601** |Default TTL for file upload notifications. |ISO_8601 interval up to 48H (minimum 1 minute). Default: 1 hour. |
-| **fileNotifications.lockDuration** |Lock duration for the file upload notifications queue. |5 to 300 seconds (minimum 5 seconds). Default: 60 seconds. |
-| **fileNotifications.maxDeliveryCount** |Maximum delivery count for the file upload notification queue. |1 to 100. Default: 100. |
+| **enableFileUploadNotifications** |Controlla se verranno scritte notifiche di caricamento file nell'endpoint per le notifiche relative ai file. |Valore booleano. Predefinito: True. |
+| **fileNotifications.ttlAsIso8601** |Durata (TTL) predefinita per le notifiche di caricamento file. |Intervallo ISO_8601 fino a 48 ore (minimo 1 minuto). Predefinito: 1 ora. |
+| **fileNotifications.lockDuration** |Durata del blocco per la coda delle notifiche di caricamento file. |Da 5 a 300 secondi (minimo 5 secondi). Predefinito: 60 secondi. |
+| **fileNotifications.maxDeliveryCount** |Numero massimo di recapiti per la coda delle notifiche di caricamento file. |Da 1 a 100. Predefinito: 100. |
 
-### <a name="additional-reference-material"></a>Additional reference material
-Other reference topics in the Developer Guide include:
+## <a name="additional-reference-material"></a>Materiale di riferimento
+Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per sviluppatori:
 
-* [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
-* [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
-* [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
-* [Query language for twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
-* [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
+* [IoT Hub endpoints][lnk-endpoints] (Endpoint dell'hub IoT) illustra i diversi endpoint esposti da ogni hub IoT per operazioni della fase di esecuzione e di gestione.
+* [Quote e limitazioni][lnk-quotas] descrive le quote applicabili al servizio Hub IoT e il comportamento di limitazione previsto quando si usa il servizio.
+* [Azure IoT device and service SDKs][lnk-sdks] (Azure IoT SDK per dispositivi e servizi) elenca gli SDK nei diversi linguaggi da usare quando si sviluppano applicazioni per dispositivi e servizi che interagiscono con l'hub IoT.
+* [Linguaggio di query per dispositivi gemelli e processi][lnk-query] illustra il linguaggio di query dell'hub IoT che è possibile usare per recuperare informazioni dall'hub IoT sui dispositivi gemelli e sui processi.
+* [Supporto di MQTT nell'hub IoT][lnk-devguide-mqtt] offre altre informazioni sul supporto dell'hub IoT per il protocollo MQTT.
 
-## <a name="next-steps"></a>Next steps
-Now you have learned how to upload files from devices using IoT Hub, you may be interested in the following Developer Guide topics:
+## <a name="next-steps"></a>Passaggi successivi
+In questa esercitazione si è appreso come caricare i file dai dispositivi tramite l'hub IoT. Altri argomenti di interesse reperibili nella Guida per sviluppatori:
 
-* [Manage device identities in IoT Hub][lnk-devguide-identities]
-* [Control access to IoT Hub][lnk-devguide-security]
-* [Use device twins to synchronize state and configurations][lnk-devguide-device-twins]
-* [Invoke a direct method on a device][lnk-devguide-directmethods]
-* [Schedule jobs on multiple devices][lnk-devguide-jobs]
+* [Gestire le identità dei dispositivi nell'hub IoT][lnk-devguide-identities]
+* [Controllare l'accesso all'hub IoT][lnk-devguide-security]
+* [Use device twins to synchronize state and configurations][lnk-devguide-device-twins] (Usare dispositivi gemelli per sincronizzare lo stato e le configurazioni)
+* [Richiamare un metodo diretto in un dispositivo][lnk-devguide-directmethods]
+* [Pianificare processi in più dispositivi][lnk-devguide-jobs]
 
-If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorial:
+Per provare alcuni dei concetti descritti in questo articolo, può essere utile l'esercitazione seguente sull'hub IoT:
 
-* [How to upload files from devices to the cloud with IoT Hub][lnk-fileupload-tutorial]
+* [Come caricare file dai dispositivi al cloud con l'hub IoT][lnk-fileupload-tutorial]
 
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 [lnk-endpoints]: iot-hub-devguide-endpoints.md
@@ -116,6 +161,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-notify]: iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload
 [lnk-service-notification]: iot-hub-devguide-file-upload.md#file-upload-notifications
 [lnk-lifecycle]: iot-hub-devguide-messaging.md#message-lifecycle
+[lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
 
 [lnk-devguide-identities]: iot-hub-devguide-identity-registry.md
 [lnk-devguide-security]: iot-hub-devguide-security.md
@@ -124,6 +170,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO5-->
 
 

@@ -19,7 +19,7 @@ Grazie per l'interesse dimostrato nei confronti della documentazione di Azure.
 ## <a name="ways-to-contribute"></a>Come fornire il proprio contributo
 È possibile inviare gli aggiornamenti alla [documentazione di Azure](http://docs.microsoft.com/azure) come indicato di seguito:
 
-* È possibile contribuire facilmente agli articoli tecnici nell'interfaccia utente di GitHub. Trovare l'articolo in questo repository oppure all'indirizzo [http://docs.microsoft.com/azur](http://docs.microsoft.com/azur) e fare clic sul collegamento presente nell'articolo che rimanda all'origine GitHub dell'articolo desiderato.
+* È possibile contribuire facilmente agli articoli tecnici nell'interfaccia utente di GitHub. Trovare l'articolo in questo repository oppure all'indirizzo [http://docs.microsoft.com/azure](http://docs.microsoft.com/azure) e fare clic sul collegamento presente nell'articolo che rimanda all'origine GitHub dell'articolo desiderato.
 * Se si apportano modifiche sostanziali a un articolo esistente, aggiungendo o modificando immagini oppure fornendo il proprio contributo con un nuovo articolo, è necessario creare una copia tramite fork di questo repository, installare Git Bash, Markdown Pad e apprendere alcuni comandi git.
 
 ## <a name="code-of-conduct"></a>Codice di comportamento
@@ -87,6 +87,6 @@ Per un elenco di tutti gli argomenti, vedere l'[indice della Guida per i collabo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

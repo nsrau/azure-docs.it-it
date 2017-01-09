@@ -1,4 +1,4 @@
-# Overview
+# Panoramica
 ## [Panoramica](active-directory-b2c-overview.md)
 ## [Tipi di applicazioni](active-directory-b2c-apps.md)
 ## [Tenant B2C a livello di produzione e di anteprima](active-directory-b2c-reference-tenant-type.md)

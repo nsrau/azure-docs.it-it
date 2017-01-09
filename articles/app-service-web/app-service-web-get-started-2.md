@@ -11,17 +11,17 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.date: 05/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 310bf3656db6ae6e0a8d3c1cc13442e2aa4e7752
+ms.sourcegitcommit: b2c501b6e048d569ebf43b8f40d6b08f687ab624
+ms.openlocfilehash: 549b84788259796c2146fa19763fb00d4e03019c
 
 
 ---
 # <a name="add-functionality-to-your-first-web-app"></a>Aggiungere funzionalità alla prima app Web
-In [Distribuire la prima app Web in Azure in cinque minuti](app-service-web-get-started.md) è stata distribuita un'app Web di esempio nel [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md). In questo articolo viene illustrato come aggiungere rapidamente alcune funzionalità utili all'app Web distribuita. In pochi minuti sarà possibile eseguire queste operazioni:
+In [Distribuire la prima app Web in Azure in cinque minuti](app-service-web-get-started-cli-nodejs.md) è stata distribuita un'app Web di esempio nel [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md). In questo articolo viene illustrato come aggiungere rapidamente alcune funzionalità utili all'app Web distribuita. In pochi minuti sarà possibile eseguire queste operazioni:
 
 * Applicare l'autenticazione per gli utenti
 * Ridimensionare automaticamente l'app
@@ -157,6 +157,6 @@ Con l'app distribuita è possibile eseguire altre operazioni. Ecco un elenco par
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

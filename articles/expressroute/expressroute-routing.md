@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2016
-ms.author: osamazia
+ms.date: 12/12/2016
+ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 111975ba10aaafb97673f4e8b813ba3523b76ffb
+ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
+ms.openlocfilehash: e04763fa711eed4c699f2bc3f20834849dfe52e0
 
 
 ---
@@ -117,7 +117,7 @@ Le route predefinite sono consentite solo nelle sessioni di peering privato di A
 > 
 > 
 
-## <a name="support-for-bgp-communities-preview"></a>Supporto per BGP Community (anteprima)
+## <a name="support-for-bgp-communities"></a>Supporto per le community BGP
 Questa sezione fornisce una panoramica che illustra come vengono usate le community BGP con ExpressRoute. Microsoft annuncerà le route nei percorsi per il peering pubblico e il peering Microsoft con route contrassegnate con i valori della community appropriati. I motivi per questa operazione e i dettagli sui valori della community sono descritti di seguito. Microsoft, tuttavia, non rispetterà eventuali valori della community contrassegnati in base a route annunciate a Microsoft.
 
 Se si effettua la connessione a Microsoft tramite ExpressRoute presso una qualsiasi località di peering all'interno di un'area geopolitica, sarà possibile accedere a tutti i servizi cloud Microsoft in tutte le aree all'interno dell'area geopolitica. 
@@ -185,6 +185,8 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 > Microsoft non riconosce eventuali valori di BGP Community impostati sulle route pubblicate su Microsoft.
 > 
 > 
+
+### <a name="bgp-community-support-in-national-clouds-preview"></a>Supporto della Community BGP nei cloud nazionali (anteprima)
 
 | **Area di Azure per cloud nazionali**| **Valore della community BGP** |
 | --- | --- |

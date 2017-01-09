@@ -39,7 +39,7 @@ A questo scopo è necessario:
 
 Per iniziare, [scaricare la struttura dell'app](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) o [scaricare l'esempio completato](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip).  Ognuno è una soluzione di Visual Studio 2013.  Sarà necessario anche un tenant di Azure AD in cui registrare l'applicazione.  Se non si ha già un tenant, vedere le [informazioni su come ottenerne uno](active-directory-howto-tenant.md).
 
-## <a name="1-register-an-application-with-azure-ad"></a>*1.    Registrare un'applicazione con Azure AD*
+## <a name="1----register-an-application-with-azure-ad"></a>*1.    Registrare un'applicazione con Azure AD*
 Per proteggere l'applicazione, si dovrà per prima cosa creare un'applicazione nel proprio tenant e fornire ad Azure AD alcune informazioni fondamentali.
 
 * Accedere al [portale di gestione di Azure](https://manage.windowsazure.com)
@@ -119,7 +119,7 @@ public IEnumerable<TodoItem> Get()
   * `ida:Tenant` è il nome del tenant di Azure AD, ad esempio, "contoso.onmicrosoft.com".
   * `ida:Audience` è l'URI ID app dell'applicazione immesso nel portale di Azure.
 
-## <a name="3-configure-a-client-application-run-the-service"></a>*3.    Configurare un'applicazione client ed eseguire il servizio*
+## <a name="3----configure-a-client-application--run-the-service"></a>*3.    Configurare un'applicazione client ed eseguire il servizio*
 Prima di poter vedere Todo List Service in azione, è necessario configurare Todo List Client, in modo che possa ricevere i token da AAD ed effettuare chiamate al servizio.
 
 * Ritornare al [portale di gestione di Azure](https://manage.windowsazure.com)

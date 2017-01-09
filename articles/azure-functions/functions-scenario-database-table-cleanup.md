@@ -1,13 +1,13 @@
 ---
-title: Usare Funzioni di Azure per eseguire un'attività di pulizia pianificata | Microsoft Docs
+title: "Usare Funzioni di Azure per eseguire un&quot;attività di pulizia pianificata | Documentazione Microsoft"
 description: Usare Funzioni di Azure per creare una funzione C# che viene eseguita in base a un timer di eventi.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/26/2016
 ms.author: glenga
+translationtype: Human Translation
+ms.sourcegitcommit: b873a7d0ef9efa79c9a173a8bfd3522b12522322
+ms.openlocfilehash: c0b4a963275dae5bbf203388cb61086393803b15
+
 
 ---
 # <a name="use-azure-functions-to-perform-a-scheduled-clean-up-task"></a>Usare Funzioni di Azure per eseguire un'attività di pulizia pianificata
@@ -48,16 +52,20 @@ A questo punto, è possibile aggiungere il codice della funzione C# che si conne
    
     ![Creare una nuova funzione attivata tramite timer](./media/functions-create-an-event-processing-function/functions-create-new-timer-trigger.png)
 2. Nel riquadro **Codice** della scheda **Sviluppo** aggiungere i riferimenti in assembly seguenti all'inizio del codice della funzione esistente:
-   
+    ```cs
         #r "System.Configuration"
         #r "System.Data"
+    ```
+
 3. Aggiungere le istruzioni `using` seguenti alla funzione:
-   
+    ```cs
         using System.Configuration;
         using System.Data.SqlClient;
-        using System.Threading.Tasks; 
+        using System.Threading.Tasks;
+    ```
+
 4. Sostituire la funzione **Run** esistente con il codice seguente:
-   
+    ```cs
         public static async Task Run(TimerInfo myTimer, TraceWriter log)
         {
             var str = ConfigurationManager.ConnectionStrings["sqldb_connection"].ConnectionString;
@@ -73,6 +81,8 @@ A questo punto, è possibile aggiungere il codice della funzione C# che si conne
                 }
             }
         }
+    ```
+
 5. Fare clic su **Salva**, osservare le finestre **Log** per l'esecuzione della funzione successiva e quindi prendere nota del numero di righe eliminate dalla tabella TodoItems.
 6. (Facoltativo) Utilizzando l' [app di guida introduttiva dell'App per dispositivi mobili](../app-service-mobile/app-service-mobile-ios-get-started.md), contrassegnare elementi aggiuntivi, come "completati", quindi tornare alle finestre **Log** e osservare che lo stesso numero di righe vengono eliminate dalla funzione durante l'esecuzione successiva. 
 
@@ -80,14 +90,17 @@ A questo punto, è possibile aggiungere il codice della funzione C# che si conne
 Vedere gli argomenti seguenti per altre informazioni su Funzioni di Azure.
 
 * [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)  
-  Informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
+   Informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
 * [Test di Funzioni di Azure](functions-test-a-function.md)  
-  Descrive diversi strumenti e tecniche per il test delle funzioni.
+   Descrive diversi strumenti e tecniche per il test delle funzioni.
 * [Come aumentare le prestazioni di Funzioni di Azure](functions-scale.md)  
-  Presenta i piani di servizio disponibili con Funzioni di Azure, tra cui il piano di servizio dinamico, e come scegliere quello più appropriato.  
+  Presenta i piani di servizio disponibili con Funzioni di Azure, tra cui il piano a consumo, e spiega come scegliere quello più appropriato.  
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO5-->
 
 

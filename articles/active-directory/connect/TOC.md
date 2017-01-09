@@ -80,6 +80,7 @@
 
 
 # Risorse correlate
+## [Monitorare l'infrastruttura di gestione delle identità locale e i servizi di sincronizzazione nel cloud](../connect-health/active-directory-aadconnect-health.md)
 ## [Guide alla progettazione della soluzione ibrida di gestione delle identità](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/)
 
 
@@ -88,6 +89,6 @@
 ##[Deprecazione di DirSync](active-directory-aadconnect-dirsync-deprecated.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

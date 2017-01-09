@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 35b0d0e7dd73852900384c34b8b842754434cc93
-ms.openlocfilehash: 4fbdb64918a642dbe899ab8b606fbf58e1fb94d3
+ms.sourcegitcommit: ccf25aab4d6454e27a57f9a18305ef752421896f
+ms.openlocfilehash: 6e4af8f21a3ec9613d9dc36ebceb710c0d8c9906
 
 
 ---
@@ -33,7 +33,7 @@ Il dispositivo virtuale StorSimple è disponibile in due modelli, Standard 8010 
 | **Macchina virtuale di Azure** |Standard_A3 (4 core, 7 GB di memoria) |Standard_DS3 (4 core, 14 GB di memoria) |
 | **Compatibilità tra le versioni** |Versioni con aggiornamenti precedenti a Update 2 o successivi |Versioni con aggiornamenti Update 2 o successivi |
 | **Aree di disponibilità** |Tutte le aree di Azure |Aree di Azure che supportano l'archiviazione Premium<br></br>Per un elenco delle aree, vedere [Aree supportate per il modello 8020](#supported-regions-for-8020) |
-| **Tipo di archiviazione** |Usa l'Archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard](../storage/storage-create-storage-account.md) |Usa l'Archiviazione Standard di Azure<sup>2</sup> <br></br>Informazioni su come [creare un account di archiviazione Premium](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
+| **Tipo di archiviazione** |Usa l'Archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard](../storage/storage-create-storage-account.md) |Usa l'Archiviazione Standard di Azure<sup>2</sup> <br></br>Informazioni su come [creare un account di archiviazione Premium](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **Indicazioni relative al carico di lavoro** |Recupero a livello di elemento per i file dai backup |Scenari di sviluppo e test cloud, bassa latenza, carichi di lavoro a prestazioni superiori  <br></br>Dispositivo secondario per il ripristino di emergenza |
 
 <sup>1</sup> *precedentemente noto come 1100*.
@@ -41,7 +41,7 @@ Il dispositivo virtuale StorSimple è disponibile in due modelli, Standard 8010 
 <sup>2</sup> *Entrambi i modelli 8010 e 8020 usano l'archiviazione di Azure Standard per il livello cloud. La differenza è solo nel livello locale nel dispositivo*.
 
 #### <a name="supported-regions-for-8020"></a>Aree supportate per il modello 8020
-Le aree di archiviazione Premium attualmente supportate per il modello 8020 sono elencate nella tabella seguente. L'elenco verrà aggiornato in base all'aumento delle aree in cui è disponibile l'archiviazione Premium. 
+Le aree di archiviazione Premium attualmente supportate per il modello 8020 sono elencate nella tabella seguente. L'elenco verrà aggiornato in base all'aumento delle aree in cui è disponibile l'archiviazione Premium.
 
 | Numero di serie | Attualmente supportato nelle aree |
 | --- | --- |
@@ -68,7 +68,7 @@ Questo articolo illustra il processo dettagliato per la distribuzione di un disp
 * Connettersi al dispositivo virtuale.
 * Usare il dispositivo virtuale.
 
-Questa esercitazione si applica a tutti i dispositivi virtuali StorSimple con versione Update 2 e successiva. 
+Questa esercitazione si applica a tutti i dispositivi virtuali StorSimple con versione Update 2 e successiva.
 
 ## <a name="how-the-virtual-device-differs-from-the-physical-device"></a>Differenze tra il dispositivo virtuale e il dispositivo fisico
 Il dispositivo virtuale StorSimple consiste in una versione esclusivamente software di StorSimple che viene eseguita in un singolo nodo di una macchina virtuale di Microsoft Azure. Il dispositivo virtuale supporta il ripristino di emergenza nei casi in cui il dispositivo fisico non sia disponibile e può essere usato in scenari di recupero a livello di elemento dai backup, ripristino di emergenza locale e negli scenari di sviluppo e test basati su cloud.
@@ -91,9 +91,9 @@ Prima di eseguire il provisioning del dispositivo virtuale, è necessario effett
 
 * Nel caso del dispositivo virtuale, [configurare una rete virtuale in Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Se si usa l'archiviazione Premium, sarà necessario creare una rete virtuale in un'area di Azure che supporta l'archiviazione Premium. Altre informazioni sulle [aree attualmente supportate per il modello 8020](#supported-regions-for-8020).
 * È consigliabile utilizzare il server DNS predefinito fornito da Azure invece di specificare il nome del proprio server DNS. Se il nome del server DNS non è valido o se il server DNS non riesce a risolvere correttamente l'indirizzo IP, non sarà possibile creare il dispositivo virtuale.
-* Le opzioni point-to-site e da sito a sito non sono obbligatorie, ma facoltative. Se si desidera, è possibile configurarle per scenari più avanzati. 
+* Le opzioni point-to-site e da sito a sito non sono obbligatorie, ma facoltative. Se si desidera, è possibile configurarle per scenari più avanzati.
 * È possibile creare [Macchine virtuali di Azure](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (server host) nella rete virtuale che possono usare i volumi esposti dal dispositivo virtuale. Tali server devono soddisfare i seguenti requisiti:                             
-  
+
   * Svolgere il ruolo di macchine virtuali Windows o Linux nelle quali è installato il software iSCSI Initiator
   * Essere in esecuzione nella stessa rete virtuale del dispositivo virtuale
   * Essere in grado di connettersi alla destinazione iSCSI del dispositivo virtuale utilizzando l'indirizzo IP interno del dispositivo virtuale
@@ -103,7 +103,7 @@ Prima di eseguire il provisioning del dispositivo virtuale, è necessario effett
 Effettuare i seguenti aggiornamenti del servizio StorSimple di Azure, prima di creare un dispositivo virtuale:
 
 * Aggiungere i [record controllo di accesso](storsimple-manage-acrs.md) per le macchine virtuali che svolgeranno il ruolo di server host per il dispositivo virtuale.
-* Usare un [account di archiviazione](storsimple-manage-storage-accounts.md#add-a-storage-account) nella stessa area del dispositivo virtuale. Gli account di archiviazione posti in aree diverse possono causare una riduzione delle prestazioni. È possibile usare un account di archiviazione Standard o Premium con il dispositivo virtuale. Altre informazioni su come creare un [account di archiviazione Standard]((../storage/storage-create-storage-account.md) o un [account di archiviazione Premium](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
+* Usare un [account di archiviazione](storsimple-manage-storage-accounts.md#add-a-storage-account) nella stessa area del dispositivo virtuale. Gli account di archiviazione posti in aree diverse possono causare una riduzione delle prestazioni. È possibile usare un account di archiviazione Standard o Premium con il dispositivo virtuale. Altre informazioni su come creare un [account di archiviazione Standard](../storage/storage-create-storage-account.md) o un [account di archiviazione Premium](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
 * Usare un account di archiviazione differente rispetto a quello usato per creare i dati. Se si utilizza lo stesso account di archiviazione, si potrebbe verificare una riduzione delle prestazioni.
 
 Prima di iniziare, verificare quanto segue:
@@ -112,9 +112,9 @@ Prima di iniziare, verificare quanto segue:
 * Copia della chiave DEK del servizio ottenuta dal dispositivo fisico.
 
 ## <a name="create-and-configure-the-virtual-device"></a>Creare e configurare il dispositivo virtuale
-Prima di eseguire queste procedure, assicurarsi che siano soddisfatti i [prerequisiti per il dispositivo virtuale](#prerequisites-for-the-virtual-device). 
+Prima di eseguire queste procedure, assicurarsi che siano soddisfatti i [prerequisiti per il dispositivo virtuale](#prerequisites-for-the-virtual-device).
 
-Dopo aver creato una rete virtuale, configurato un servizio StorSimple Manager e registrato il dispositivo StorSimple fisico nel servizio, è possibile seguire questa procedura per creare e configurare un dispositivo virtuale StorSimple. 
+Dopo aver creato una rete virtuale, configurato un servizio StorSimple Manager e registrato il dispositivo StorSimple fisico nel servizio, è possibile seguire questa procedura per creare e configurare un dispositivo virtuale StorSimple.
 
 ### <a name="step-1-create-a-virtual-device"></a>Passaggio 1: Creare un dispositivo virtuale
 Per creare il dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito:
@@ -144,8 +144,8 @@ Il software di Gestione snapshot StorSimple si trova nell'host di Windows e cons
 
 > [!NOTE]
 > Per il dispositivo virtuale, l'host di Windows è costituito da una macchina virtuale di Azure.
-> 
-> 
+>
+>
 
 Quando si configura un dispositivo in StorSimple Snapshot Manager, verrà richiesto di specificare l'indirizzo IP del dispositivo StorSimple e la password per autenticare il dispositivo di archiviazione. Per informazioni dettagliate sulla procedura, vedere [Configurare la password di StorSimple Snapshot Manager](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password).
 
@@ -167,13 +167,13 @@ Dopo avere abilitato la gestione remota nella pagina di configurazione del dispo
 
 > [!WARNING]
 > **Per una maggiore sicurezza, si consiglia di utilizzare HTTPS quando ci si connette agli endpoint e di eliminare gli endpoint dopo aver completato la sessione remota in PowerShell.**
-> 
-> 
+>
+>
 
 Eseguire le procedure descritte in [Connettersi in remoto al dispositivo StorSimple](storsimple-remote-connect.md) per impostare la connessione in remoto al dispositivo virtuale.
 
 ## <a name="connect-directly-to-the-virtual-device"></a>Connettersi direttamente al dispositivo virtuale
-È anche possibile connettersi direttamente al dispositivo virtuale. Se ci si vuole connettere direttamente al dispositivo virtuale da un altro computer non compreso nella rete virtuale oppure nell'ambiente Microsoft Azure, è necessario creare endpoint aggiuntivi, come descritto nella procedura seguente. 
+È anche possibile connettersi direttamente al dispositivo virtuale. Se ci si vuole connettere direttamente al dispositivo virtuale da un altro computer non compreso nella rete virtuale oppure nell'ambiente Microsoft Azure, è necessario creare endpoint aggiuntivi, come descritto nella procedura seguente.
 
 Per creare  un endpoint pubblico nel dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito:
 
@@ -227,8 +227,8 @@ Il ripristino di emergenza (DR, Disaster Recovery) rappresenta una delle situazi
 > [!NOTE]
 > * Quando si usa un dispositivo virtuale come dispositivo secondario per il ripristino di emergenza, occorre ricordare che 8010 ha 30 TB di archiviazione Standard e 8020 ha 64 TB di archiviazione Premium. La capacità superiore del dispositivo virtuale 8020 potrebbe essere più adatta per uno scenario di ripristino di emergenza.
 > * Non è possibile eseguire il failover o la clonazione da un dispositivo con versione del software con Update 2 a un dispositivo con una versione precedente a Update 1. È tuttavia possibile eseguire il failover di un dispositivo che esegue la versione con Update 2 in un dispositivo con Update 1 (1.1 o 1.2)
-> 
-> 
+>
+>
 
 Per una procedura dettagliata, vedere [Failover su un dispositivo virtuale StorSimple](storsimple-device-failover-disaster-recovery.md#fail-over-to-a-storsimple-virtual-device).
 
@@ -245,21 +245,20 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
 Se durante la creazione di un dispositivo virtuale non è disponibile connettività a Internet, il passaggio di creazione avrà esito negativo. Se l'errore è causato dalla connettività Internet, per risolvere il problema seguire questa procedura nel portale di Azure classico:
 
 1. Creare una macchina virtuale Windows Server 2012 in Azure. Questa macchina virtuale dovrà usare lo stesso account di archiviazione, la stessa rete virtuale e la stessa subnet usati dal dispositivo virtuale. Se si ha già un host Windows Server esistente in Azure che usa lo stesso account di archiviazione, la stessa rete virtuale e la stessa subnet, è anche possibile risolvere i problemi di connettività Internet usando tale host.
-2. Eseguire l'accesso remoto alla macchina virtuale creata nel passaggio precedente. 
+2. Eseguire l'accesso remoto alla macchina virtuale creata nel passaggio precedente.
 3. Aprire una finestra di comando nella macchina virtuale (premere tasto WINDOWS + R e quindi digitare `cmd`).
 4. Al prompt eseguire questo comando:
-   
+
     `nslookup windows.net`
-5. Se `nslookup` ha esito negativo, l'errore di connettività Internet impedisce la registrazione del dispositivo virtuale nel servizio StorSimple Manager. 
+5. Se `nslookup` ha esito negativo, l'errore di connettività Internet impedisce la registrazione del dispositivo virtuale nel servizio StorSimple Manager.
 6. Apportare alla rete virtuale le modifiche necessarie perché il dispositivo virtuale possa accedere a siti di Azure come "windows.net".
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [Usare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
-* Informazioni su come [Ripristinare un volume StorSimple da un set di backup](storsimple-restore-from-backup-set.md). 
+* Informazioni su come [Ripristinare un volume StorSimple da un set di backup](storsimple-restore-from-backup-set.md).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

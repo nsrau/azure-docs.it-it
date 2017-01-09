@@ -1,19 +1,23 @@
 ---
-title: Esempi dell'API di creazione report di Azure Active Directory | Microsoft Docs
-description: Come iniziare a usare l'API di creazione report di Azure Active Directory
+title: Esempi dell&quot;API di controllo di creazione report di Azure Active Directory | Documentazione Microsoft
+description: Come iniziare a usare l&quot;API di creazione report di Azure Active Directory
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: de8b8ec3-49b3-4aa8-93fb-e38f52c99743
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/28/2016
+ms.date: 11/16/2016
 ms.author: dhanyahk;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 665b613db31b15b6f6d2826a0795be6275c832ca
+ms.openlocfilehash: 8216fa7ab092b2d0225d075d933fa56fbab56f40
+
 
 ---
 # <a name="azure-active-directory-reporting-audit-api-samples"></a>Esempi dell'API di creazione report di Azure Active Directory
@@ -54,7 +58,7 @@ L'autenticazione dell'applicazione non funziona se il tenant si trova nell'area 
     if ($oauth.access_token -ne $null) {   
         $i=0
         $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-        $url = 'https://graph.windows.net/' + $tenantdomain + 'activities/audit?api-version=beta&`$filter=eventTime gt ' + $7daysago
+        $url = 'https://graph.windows.net/' + $tenantdomain + 'activities/audit?api-version=beta&`$filter=activityDate gt ' + $7daysago
 
         # loop through each query page (1 through n)
         Do{
@@ -162,6 +166,9 @@ Lo script restituisce l'output del report di controllo in formato JSON. Crea anc
 * Se si desidera visualizzare una panoramica completa sull'uso dell'API di creazione report di Azure Active Directory, vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Per altre informazioni sulla creazione di report di Azure Active Directory, vedere [Guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

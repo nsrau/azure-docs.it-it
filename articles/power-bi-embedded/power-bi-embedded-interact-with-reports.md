@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 83d997577d3a5854eafd9906bd38d3e703c09f5e
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: 28eddb52c33d9883219f146480b110574f728f89
 
 
 ---
@@ -26,18 +26,18 @@ L'API JavaScript per Power BI consente di incorporare facilmente i report di Pow
 
 Per incorporare un report di Power BI nell'applicazione, usare un iframe ospitato nell'ambito dell'applicazione. L'iframe viene usato come limite tra l'applicazione e il report, come si può osservare nell'immagine seguente. 
 
-![Iframe di Power BI Embedded senza l'API Javascript](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-1.png)
+![Iframe di Power BI Embedded senza l'API Javascript](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-1.png)
 
 L'iframe facilita considerevolmente il processo di incorporamento, ma senza l'API JavaScript il report e l'applicazione non possono interagire. Questa mancanza di interazione può far credere che il report non faccia effettivamente parte dell'applicazione. Il report e l'applicazione devono effettivamente comunicare in entrambe le direzioni, come nell'immagine seguente.
 
-![Iframe di Power BI Embedded con l'API Javascript](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-2.png)
+![Iframe di Power BI Embedded con l'API Javascript](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-2.png)
 
 L'API JavaScript per Power BI consente di scrivere codice che può passare in modo sicuro attraverso il limite dell'iframe. Ciò consente all'applicazione di eseguire a livello di codice un'azione in un report e di essere in ascolto degli eventi generati dalle azioni eseguite dagli utenti nel report.
 
 ## <a name="what-can-you-do-with-the-power-bi-javascript-api"></a>Che cosa si può fare con l'API JavaScript per Power BI?
 Con l'API JavaScript è possibile gestire i report, accedere alle pagine di un report, filtrare un report e gestire l'incorporamento degli eventi. Il diagramma seguente mostra la struttura dell'API.
 
-![Diagramma dell'API JavaScript per Power BI](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-3.png)
+![Diagramma dell'API JavaScript per Power BI](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-3.png)
 
 ### <a name="manage-reports"></a>Gestire i report
 L'API Javascript consente di gestire il comportamento a livello di pagina e di report:
@@ -139,6 +139,6 @@ Per altre informazioni sull'API JavaScript per Power BI, vedere i collegamenti s
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

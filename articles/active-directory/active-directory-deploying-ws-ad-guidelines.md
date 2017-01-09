@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 497d8b17fe29328008fd2d13cf61432a913aa898
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5172ce4edbea0f5587075308c97d07aac98e9699
 
 
 ---
@@ -219,7 +219,7 @@ La tabella seguente confronta il funzionamento dei processi di accesso con e sen
 | Single Sign-On in Office 365 con AD FS e DirSync | Lo stesso Single Sign-On in Office 365 con DirSync e sincronizzazione password |
 | --- | --- |
 | 1. L'utente accede a una rete aziendale e viene autenticato in Active Directory di Windows Server. |1. L'utente accede a una rete aziendale e viene autenticato in Active Directory di Windows Server. |
-| 2. L'utente prova ad accedere a Office 365 (nomeutente@contoso.com). |2. L'utente prova ad accedere a Office 365 (nomeutente@contoso.com). |
+| 2. L'utente prova ad accedere a Office 365 (nome utente @contoso.com). |2. L'utente prova ad accedere a Office 365 (nome utente @contoso.com). |
 | 3. Office 365 reindirizza l'utente ad Azure AD. |3. Office 365 reindirizza l'utente ad Azure AD. |
 | 4. Azure AD non può autenticare l'utente e rileva l'esistenza di una relazione di trust con AD FS in locale, quindi reindirizza l'utente ad AD FS. |4.  Azure AD non può accettare direttamente i ticket Kerberos e non esiste alcuna relazione di trust, quindi richiede all'utente di immettere le credenziali. |
 | 5. L'utente invia un ticket Kerberos al servizio token di sicurezza di AD FS. |5. L'utente immette la stessa password locale e Azure AD la convalida rispetto al nome utente e alla password sincronizzati da DirSync. |
@@ -393,7 +393,7 @@ Per motivi di prestazioni e tolleranza di errore, la soluzione ottimale consiste
 
 Le VM registrano il relativo nome DNS automaticamente all'avvio o in caso di modifica di un nome.
 
-Per altre informazioni su questo esempio e su un altro che illustra il provisioning della prima VM e l'installazione in quest'ultima di Servizi di dominio Active Directory, vedere [Installare una nuova foresta Active Directory in una rete virtuale di Azure](active-directory-new-forest-virtual-machine.md). Per altre informazioni sull'uso di Windows PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) e [Cmdlet di gestione di Azure](https://msdn.microsoft.com/library/azure/jj152841).
+Per altre informazioni su questo esempio e su un altro che illustra il provisioning della prima VM e l'installazione in quest'ultima di Servizi di dominio Active Directory, vedere [Installare una nuova foresta Active Directory in una rete virtuale di Azure](active-directory-new-forest-virtual-machine.md). Per altre informazioni sull'uso di Windows PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) e [Cmdlet di gestione di Azure](https://msdn.microsoft.com/library/azure/jj152841).
 
 ### <a name="a-namebkmkdistributeddcsageo-distributed-dcs"></a><a name="BKMK_DistributedDCs"></a>Controller di dominio con distribuzione geografica
 Azure offre vantaggi quando si ospitano più controller di dominio in reti virtuali diverse:
@@ -501,6 +501,6 @@ Per stabilire le opzioni di configurazione della distribuzione che meglio soddis
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

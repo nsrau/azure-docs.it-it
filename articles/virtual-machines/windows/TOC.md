@@ -11,7 +11,7 @@
 ### [Disponibilità di VM](../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Centro sicurezza](../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Gestione risorse](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Modelli di distribuzione](../../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Modelli di distribuzione](../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Set di scalabilità delle macchine virtuali](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Contenitori](../virtual-machines-windows-containers.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Domande frequenti](../virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -21,9 +21,9 @@
 ### [Accedere a una VM](../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Installare un ruolo e aprire le porte](../virtual-machines-windows-hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Diversi modi di creare una VM](../virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Installare Azure PowerShell](../../powershell-install-configure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Installare Azure PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Creare una VM con PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Procedura dettagliata sui modelli](../../resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Procedura dettagliata sui modelli](../../azure-resource-manager/resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Creare e distribuire modelli di macchine virtuali complessi](../virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Architettura dell'applicazione](../virtual-machines-windows-dotnet-core-2-architecture.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Accesso e sicurezza](../virtual-machines-windows-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -59,7 +59,7 @@
 ### [Ridimensionare più VM con set di scalabilità di VM](../virtual-machines-windows-vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Creazione di più macchine virtuali di Azure](../virtual-machines-windows-multiple-vms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Creare VM con monitoraggio e diagnostica](../virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Eseguire la distribuzione usando Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Eseguire la distribuzione usando Visual Studio](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Eseguire la distribuzione usando C#](../virtual-machines-windows-csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Eseguire la distribuzione usando C# e i modelli](../virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Distribuire framework applicazioni da un modello](../virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -67,6 +67,7 @@
 #### [Preparare un disco rigido virtuale per il caricamento](../virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Generalizzare una VM usando Sysprep](../virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Caricare un'immagine di VM](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Agente Windows di Azure](../virtual-machines-windows-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Acquisire una VM di Azure generalizzata](../virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Copiare una VM di Azure specializzata](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Creare una VM da un disco rigido virtuale generalizzato](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -103,7 +104,9 @@
 #### [DSC e set di scalabilità di macchine virtuali con modelli](../virtual-machines-windows-extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Estensione Agente di raccolta log di Azure](../virtual-machines-windows-log-collector-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Estensione Diagnostica di Azure](../virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Estensione agente OMS](../virtual-machines-windows-extensions-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Estensioni nei modelli](../virtual-machines-windows-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Esportazione delle estensioni delle macchine virtuali](../virtual-machines-windows-extensions-export-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Esempi di configurazione](../virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Risoluzione dei problemi relativi alle estensioni](../virtual-machines-windows-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Panoramica di Automazione di Azure](../virtual-machines-windows-manage-using-azure-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -177,8 +180,11 @@
 ### [Risolvere i problemi relativi all'accesso alle applicazioni](../virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Risolvere i problemi relativi agli errori di allocazione](../virtual-machines-windows-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Ridistribuire una VM](../virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### Collegare un disco rigido virtuale alla VM di risoluzione dei problemi
+#### [Azure PowerShell](../virtual-machines-windows-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 
+#### [Portale di Azure](../virtual-machines-windows-troubleshoot-recovery-disks-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-# Riferimento
+# riferimento
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Interfaccia della riga di comando di Azure 2.0 (anteprima)](/cli/azure/vm)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
@@ -188,7 +194,7 @@
 ## [REST di calcolo](/rest/api/compute)
 
 # Risorse
-## [Creare modelli di Resource Manager](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Creare modelli di Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Modelli della community](https://azure.microsoft.com/documentation/templates)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/#Windows)
 ## [Disponibilità internazionale](https://azure.microsoft.com/regions/services/)
@@ -196,6 +202,6 @@
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

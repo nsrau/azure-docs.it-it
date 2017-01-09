@@ -1,4 +1,4 @@
-# Overview
+# Panoramica
 ## [Informazioni sulle macchine virtuali](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Dischi e dischi rigidi virtuali](../../virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Reti virtuali](../../../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
@@ -9,7 +9,7 @@
 # Introduzione
 ## [Creare una macchina virtuale con il portale](../../virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Accedere a una VM](../../virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-## [Installare Azure PowerShell](../../../powershell-install-configure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+## [Installare Azure PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Installare l'interfaccia da riga di comando di Azure](../../../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 # Procedure
@@ -119,6 +119,6 @@
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

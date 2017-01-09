@@ -75,7 +75,7 @@ Se non è possibile accedere all'applicazione, verificare le seguenti impostazio
 
 * Il firewall host nella macchina virtuale di destinazione consente il traffico delle richieste in ingresso e delle risposte in uscita.
 * Il software per il rilevamento intrusione o il monitoraggio di rete in esecuzione nella macchina virtuale di destinazione consente il traffico.
-* Gli endpoint dei servizi cloud o i gruppi di sicurezza di rete consentono il traffico.
+* Gli endpoint dei servizi cloud o i gruppi di sicurezza di rete consentono il traffico:
   * [Modello Classico: Gestire gli endpoint dei servizi cloud](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
   * [Modello di Resource Manager: Gestire gruppi di sicurezza di rete](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 * Un componente separato in esecuzione nella macchina virtuale nel percorso tra la macchina virtuale di test e la macchina virtuale, ad esempio un servizio di bilanciamento del carico o un firewall, consente il traffico.
@@ -93,13 +93,13 @@ Se non è possibile accedere all'applicazione, verificare le seguenti impostazio
 
 * VM create con il modello di distribuzione classica:
   
-  * La configurazione dell'endpoint per la VM consente il traffico in ingresso, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata.
-  * Gli elenchi di controllo di accesso (ACL) nell'endpoint non impediscono il traffico in ingresso da Internet.
+  * Verificare che la configurazione dell'endpoint per la VM consenta il traffico in ingresso, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata.
+  * Verificare che gli elenchi di controllo di accesso (ACL) nell'endpoint non impediscano il traffico in ingresso da Internet.
   * Per altre informazioni, vedere [Come configurare gli endpoint in una macchina virtuale](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Per le VM create con il modello di distribuzione di Resource Manager:
   
-  * La configurazione della regola NAT in ingresso consente il traffico in ingresso, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata.
-  * Che i Gruppi di sicurezza di rete consentano il traffico della richiesta in ingresso e della risposta in uscita.
+  * Verificare che la configurazione della regola NAT in ingresso consenta il traffico in ingresso, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata.
+  * Verificare che i gruppi di sicurezza di rete consentano il traffico della richiesta in ingresso e della risposta in uscita.
   * Per ulteriori informazioni, vedere [Che cos'è un gruppo di sicurezza di rete](../articles/virtual-network/virtual-networks-nsg.md)
 
 Se la macchina virtuale o un endpoint è un membro di un set con carico bilanciato:
@@ -121,6 +121,6 @@ Se è possibile accedere all'applicazione, verificare che il dispositivo perifer
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

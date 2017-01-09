@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/30/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 21adeddc5896a4c9123bf3525e9b9ab4abbf6fa5
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: 56dd9b73a31d27c2c953bf4350e55e851f634b79
 
 
 ---
@@ -45,7 +45,7 @@ I controller di dominio eseguono la replica reciproca e con controller di domini
 
 ## <a name="create-an-azure-virtual-network"></a>Creare una rete virtuale di Azure
 1. Nel [portale di Azure classico](https://manage.windowsazure.com) fare clic su **Nuovo** > **Servizi di rete** > **Rete virtuale** > **Creazione personalizzata** e usare i valori seguenti per completare la procedura guidata.
-   
+
    | Pagina della procedura guidata | Valori da specificare |
    | --- | --- |
    |  **Dettagli della rete virtuale** |<p>Nome: digitare un nome per la rete virtuale, ad esempio WestUSVNet.</p><p>Area: scegliere l'area più vicina.</p> |
@@ -60,7 +60,7 @@ Ripetere i passaggi seguenti per creare macchine virtuali per ospitare il ruolo 
 Per creare le macchine virtuali tramite Windows PowerShell anziché tramite l'interfaccia utente, vedere [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](../virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 1. Nel [portale di Azure classico](https://manage.windowsazure.com) fare clic su **Nuovo** > **Calcolo** > **Macchina virtuale** > **Da raccolta**. Usare i valori nella seguente tabella per completare la procedura guidata. Accettare il valore predefinito per tutte le impostazioni a meno che non venga suggerito o richiesto un altro valore.
-   
+
    | Pagina della procedura guidata | Valori da specificare |
    | --- | --- |
    |  **Scegli un'immagine** |Windows Server 2012 R2 Datacenter |
@@ -69,8 +69,8 @@ Per creare le macchine virtuali tramite Windows PowerShell anziché tramite l'in
    |  **Configurazione macchina virtuale** |<p>Selezionare <b>Installa l'agente di macchine virtuali</b> ed eventuali altre estensioni necessarie.</p> |
 2. Collegare un disco a ogni macchina virtuale che eseguirà il ruolo del server di controller di dominio. Il disco aggiuntivo necessario per archiviare il database di Active Directory, log e SYSVOL. Specificare le dimensioni per il disco (ad esempio 10 GB) e lasciare l'opzione **Preferenze cache dell'host** impostata su **Nessuna**. Per la procedura, vedere [Come collegare un disco dati a una macchina virtuale Windows](../virtual-machines/virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. Dopo avere effettuato la prima connessione alla VM, aprire **Server Manager** > **Servizi file e archiviazione** per creare un volume in questo disco usando NTFS.
-4. Riservare un indirizzo IP statico per le macchine virtuali che eseguiranno il ruolo di controller di dominio. Per riservare un indirizzo IP statico, scaricare l'Installazione guidata piattaforma Web Microsoft e [installare Azure PowerShell](../powershell-install-configure.md) , quindi eseguire il cmdlet Set-AzureStaticVNetIP. Ad esempio:
-   
+4. Riservare un indirizzo IP statico per le macchine virtuali che eseguiranno il ruolo di controller di dominio. Per riservare un indirizzo IP statico, scaricare l'Installazione guidata piattaforma Web Microsoft e [installare Azure PowerShell](/powershell/azureps-cmdlets-docs) , quindi eseguire il cmdlet Set-AzureStaticVNetIP. Ad esempio:
+
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
 Per altre informazioni sull'impostazione di un indirizzo IP statico, vedere [Configurare un indirizzo IP interno statico per una macchina virtuale](../virtual-network/virtual-networks-reserved-private-ip.md).
@@ -84,7 +84,7 @@ Accedere a una macchina virtuale e verificare che sia disponibile la connettivit
 
 ## <a name="create-vms-for-application-servers"></a>Creare macchine virtuali per server applicazioni
 1. Ripetere i seguenti passaggi per creare macchine virtuali che vengano eseguite come server applicazioni. Accettare il valore predefinito per tutte le impostazioni a meno che non venga suggerito o richiesto un altro valore.
-   
+
    | Pagina della procedura guidata | Valori da specificare |
    | --- | --- |
    |  **Scegli un'immagine** |Windows Server 2012 R2 Datacenter |
@@ -112,6 +112,6 @@ Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a util
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/14/2016
+ms.date: 12/16/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 63a4eaf9fbb76480e0617b36d15aebae03ec3da4
+ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
+ms.openlocfilehash: 2863bfb48d0fed706fbd3c3f14dfb6a8d77eb9ea
 
 
 ---
-# <a name="hadoop-tutorial-get-started-using-linuxbased-hadoop-in-hdinsight"></a>Esercitazione di Hadoop: Introduzione all'uso di Hadoop basato su Linux in HDInsight
+# <a name="hadoop-tutorial-get-started-using-linux-based-hadoop-in-hdinsight"></a>Esercitazione di Hadoop: Introduzione all'uso di Hadoop basato su Linux in HDInsight
 > [!div class="op_single_selector"]
 > * [Basato su Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 > * [Basato su Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 > 
 > 
 
-Informazioni su come creare cluster [Hadoop](http://hadoop.apache.org/) basati su in HDInsight e come eseguire processi Hive in HDInsight. [Apache Hive](https://hive.apache.org/) è il componente più diffuso dell'ecosistema Hadoop. HDInsight include attualmente quattro tipi di cluster diversi, ovvero [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md) e [Storm](hdinsight-storm-overview.md).  Ogni tipo di cluster supporta un set diverso di componenti. Tutti i quattro tipi di cluster supportano Hive. Per un elenco dei componenti supportati in HDInsight, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight](hdinsight-component-versioning.md)  
+Informazioni su come creare cluster [Hadoop](http://hadoop.apache.org/) basati su in HDInsight e come eseguire processi Hive in HDInsight. [Apache Hive](https://hive.apache.org/) è il componente più diffuso dell'ecosistema Hadoop. Attualmente HDInsight viene fornito con tipi di cluster diversi: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Interactive Hive (anteprima)](hdinsight-hadoop-use-interactive-hive.md) e [R server](hdinsight-hadoop-r-server-overview.md).  Ogni tipo di cluster supporta un set diverso di componenti. I sei tipi di cluster supportano Hive. Per un elenco dei componenti supportati in HDInsight, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -41,36 +41,48 @@ Prima di iniziare questa esercitazione, è necessario avere:
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-cluster"></a>Creare cluster
-La maggior parte dei processi Hadoop è costituita da processi batch. Viene creato un cluster, si eseguono alcuni processi e quindi si elimina il cluster. In questa sezione si creerà un cluster Hadoop basato su Linux in HDInsight usando il [modello di Azure Resource Manager](../resource-group-template-deploy.md). Il modello di Resource Manager è completamente personalizzabile e consente di creare facilmente risorse di Azure come HDInsight. Per questa esercitazione non è necessario conoscere il modello di Resource Manager. Per altri metodi di creazione di cluster e per informazioni sulle proprietà usate in questa esercitazione, vedere [Creare cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Il modello di Resource Manager usato in questa esercitazione si trova in un contenitore BLOB pubblico, [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json). 
 
-1. Fare clic sull'immagine seguente per accedere ad Azure e aprire il modello di Azure Resource Manager nel portale di Azure. 
+La maggior parte dei processi Hadoop è costituita da processi batch. Viene creato un cluster, si eseguono alcuni processi e quindi si elimina il cluster. In questa sezione si creerà un cluster Hadoop basato su Linux in HDInsight usando un [modello di Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Il modello di Resource Manager è completamente personalizzabile e consente di creare facilmente risorse di Azure come HDInsight. Per questa esercitazione non è necessario conoscere il modello di Resource Manager. Per altri metodi di creazione di cluster e per informazioni sulle proprietà usate in questa esercitazione, vedere [Creare cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Usare il selettore nella parte superiore della pagina per scegliere le opzioni di creazione del cluster.
+
+Il modello di Resource Manager usato in questa esercitazione è disponibile in [Github](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). 
+
+1. Fare clic sull'immagine seguente per accedere ad Azure e aprire il modello di Resource Manager nel portale di Azure. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. Nel pannello **Parametri** immettere le informazioni seguenti:
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
+2. Immettere o selezionare i valori seguenti:
    
     ![Modello iniziale di Resource Manager per HDInsight Linux nel portale](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png).
    
-   * **ClusterName**: immettere un nome per il cluster Hadoop che verrà creato.
-   * **Cluster login name and password**: il nome dell'account di accesso predefinito è **admin**.
-   * **SSH username and password**: il nome utente predefinito è **sshuser**.  È possibile rinominarlo. 
+    * **Sottoscrizione**: selezionare una sottoscrizione di Azure.
+    * **Gruppo di risorse**: creare un nuovo gruppo di risorse o selezionarne uno esistente.  Un gruppo di risorse è un contenitore di componenti di Azure.  In questo caso, il gruppo di risorse contiene il cluster HDInsight e l'account di Archiviazione di Azure dipendente. 
+    * **Località**: selezionare una località di Azure in cui si vuole creare il cluster.  Scegliere una località vicina all'utente per ottenere prestazioni migliori. 
+    * **Tipo di cluster**: selezionare **hadoop** per questa esercitazione.
+    * **Nome cluster**: immettere un nome per il cluster Hadoop che verrà creato.
+    * **Cluster login name and password**: il nome dell'account di accesso predefinito è **admin**.
+    * **SSH username and password**: il nome utente predefinito è **sshuser**.  È possibile rinominarlo. 
      
-     Gli altri parametri sono facoltativi per il completamento di questa esercitazione. È possibile lasciarli invariati. 
-     
+    Alcune proprietà sono state impostate come hardcoded nel modello.  È possibile configurare questi valori dal modello.
+
+    * **Località**: sia la località del cluster che quella dell'account di archiviazione dipendente usano la stessa posizione del gruppo di risorse.
+    * **Versione del cluster**: 3.4
+    * **Tipo di sistema operativo**: Linux
+    * **Numero di nodi del ruolo di lavoro**: 2
+
      Ogni cluster ha una dipendenza dall'account di archiviazione BLOB di Azure. Viene in genere indicato come account di archiviazione predefinito. Il cluster HDInsight e l'account di archiviazione predefinito devono avere un percorso condiviso nella stessa area di Azure. L'eliminazione dei cluster non comporta l'eliminazione dell'account di archiviazione. Il nome dell'account di archiviazione predefinito nel modello corrisponde al nome del cluster a cui viene aggiunto "store". 
-3. Fare clic su **OK** per salvare i parametri.
-4. Nel pannello **Distribuzione personalizzata** immettere un **Nuovo nome gruppo di risorse** per creare un nuovo gruppo di risorse.  Il gruppo di risorse è un contenitore che raggruppa il cluster, l'account di archiviazione dipendente e altre risorse. La posizione del gruppo di risorse può essere diversa dalla posizione del cluster.
-5. Fare clic su **Note legali** e quindi su **Crea**.
-6. Verificare che la casella di controllo **Aggiungi al dashboard** sia selezionata e quindi fare clic su **Crea**. Verrà visualizzato un nuovo riquadro con nome **Distribuzione dell'entità Distribuzione modello in corso**. La creazione di un cluster richiede circa 20 minuti. 
-7. Dopo la creazione del cluster, la didascalia del riquadro viene cambiata nel nome del gruppo di risorse specificato. Nel portale vengono aperti automaticamente due pannelli con il cluster e le impostazioni del cluster. 
+
+3. Selezionare **Accetto le condizioni riportate sopra** e **Aggiungi al dashboard** e quindi fare clic su **Acquista**. Verrà visualizzato un nuovo riquadro denominato **Distribuzione di Distribuzione modello** nel dashboard del portale. La creazione di un cluster richiede circa 20 minuti. Dopo la creazione del cluster, la didascalia del riquadro viene cambiata nel nome del gruppo di risorse specificato. Il portale apre automaticamente il gruppo di risorse in un nuovo pannello. È possibile visualizzare sia la risorsa di archiviazione predefinita sia il cluster.
    
-   ![Impostazioni introduttive del cluster HDInsight basato su Linux](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png).
-   
-   Vengono elencate due risorse, ovvero il cluster e l'account di archiviazione predefinito.
+    ![Introduzione al gruppo di risorse HDInsight basato su Linux](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png).
+
+4. Fare clic sul nome del cluster per aprire il cluster in un nuovo pannello.
+
+   ![Impostazioni introduttive del cluster HDInsight basato su Linux](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png)
+
 
 ## <a name="run-hive-queries"></a>Eseguire query Hive
 [Apache Hive](hdinsight-use-hive.md) è il componente più diffuso usato in HDInsight. Esistono diversi modi per eseguire processi Hive in HDInsight. In questa esercitazione si userà la visualizzazione di Ambari Hive dal portale per eseguire alcuni processi Hive. Per altri metodi di esecuzione di processi Hive, vedere [Usare Hive in HDInsight](hdinsight-use-hive.md).
 
-1. Passare a **https://&lt;ClusterName>.azurehdinsight.net**, dove &lt;ClusterName> è il cluster creato nella sezione precedente per aprire Ambari.
+1. Nella schermata precedente fare clic su **Dashboard cluster** e quindi su **Dashboard cluster HDInsight**.  È inoltre possibile passare a **https://&lt;NomeCluster>.azurehdinsight.net**, dove &lt;NomeCluster> è il cluster creato nella sezione precedente per aprire Ambari.
 2. Immettere il nome utente e la password Hadoop specificati nella sezione precedente. Il nome utente predefinito è **admin**.
 3. Aprire la **visualizzazione Hive** come illustrato nella schermata seguente:
    
@@ -149,8 +161,8 @@ Per altre informazioni sulla creazione o la gestione di un cluster HDInsight, ve
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
 [powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[powershell-install-configure]: powershell-install-configure.md
-[powershell-open]: powershell-install-configure.md#Install
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
+[powershell-open]: /powershell/azureps-cmdlets-docs#Install
 
 [img-hdi-dashboard]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.png
 [img-hdi-dashboard-query-select]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.select.png
@@ -163,6 +175,6 @@ Per altre informazioni sulla creazione o la gestione di un cluster HDInsight, ve
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

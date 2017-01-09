@@ -14,7 +14,7 @@ Per iniziare a usare gli argomenti e le sottoscrizioni del bus di servizio in Az
 
 Per creare uno spazio dei nomi:
 
-1. Accedere al [portale di Azure][portale di Azure].
+1. Accedere al [portale di Azure][Azure portal].
 2. Nel riquadro di spostamento sinistro del portale fare clic su **Nuovo**, quindi su **Enterprise Integration** e infine su **Bus di servizio**.
 3. Nella finestra di dialogo **Crea spazio dei nomi** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
 4. Dopo aver verificato che il nome dello spazio dei nomi sia disponibile, scegliere il piano tariffario, ovvero Basic, Standard o Premium.
@@ -35,7 +35,7 @@ Per creare uno spazio dei nomi:
    
     ![connection-string][connection-string]
 
-[Portale di Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [create-namespace]: ./media/howto-service-bus-topics/create-namespace.png
 [connection-info]: ./media/howto-service-bus-topics/connection-info.png
 [connection-string]: ./media/howto-service-bus-topics/connection-string.png
@@ -43,6 +43,6 @@ Per creare uno spazio dei nomi:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

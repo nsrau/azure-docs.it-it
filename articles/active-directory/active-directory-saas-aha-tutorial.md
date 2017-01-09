@@ -47,16 +47,16 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Aha!
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
    
-   ![Applications](./media/active-directory-saas-aha-tutorial/IC700994.png "Applications")
+   ![Applicazioni](./media/active-directory-saas-aha-tutorial/IC700994.png "Applicazioni")
 4. Fare clic su **Add** nella parte inferiore della pagina.
    
-   ![Aggiungi applicazione](./media/active-directory-saas-aha-tutorial/IC749321.png "Add application")
+   ![Aggiungere un'applicazione](./media/active-directory-saas-aha-tutorial/IC749321.png "Aggiungere un'applicazione")
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
    
-   ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-aha-tutorial/IC749322.png "Add an application from gallerry")
+   ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-aha-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 6. Nella **casella di ricerca** digitare **Aha!**.
    
-   ![Raccolta di applicazioni](./media/active-directory-saas-aha-tutorial/IC798945.png "Application Gallery")
+   ![Raccolta di applicazioni](./media/active-directory-saas-aha-tutorial/IC798945.png "Raccolta di applicazioni")
 7. Nel riquadro dei risultati selezionare **Aha!** e quindi fare clic su **Completa** per aggiungere l'applicazione.
    
    ![Aha!](./media/active-directory-saas-aha-tutorial/IC802746.png "Aha!")
@@ -68,29 +68,29 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
 1. Nella pagina di integrazione dell'applicazione **Aha!** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On **.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798946.png "Configure Single Sign-On")
+   ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798946.png "Configurare l'accesso Single Sign-On")
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Aha!** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798947.png "Configure Single Sign-On")
+   ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798947.png "Configurare l'accesso Single Sign-On")
 3. Nella pagina **Configura URL app** digitare l'URL usato dagli utenti per accedere all'applicazione Aha! nella casella di testo **URL di accesso a Aha! URL app** digitare l'URL usato dagli utenti per accedere all'applicazione Aha!, ad esempio "*https://company.aha.io/session/new*", e quindi fare clic su **Avanti**.
    
-   ![Configura URL app](./media/active-directory-saas-aha-tutorial/IC798948.png "Configure App URL")
+   ![Configurare l'URL dell'app](./media/active-directory-saas-aha-tutorial/IC798948.png "Configurare l'URL dell'app")
 4. Nella pagina **Configura accesso Single Sign-On in Aha!** scaricare il file di metadati, fare clic su **Scarica metadati** e quindi salvare il file di metadati localmente nel computer.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798949.png "Configure Single Sign-On")
+   ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798949.png "Configurare l'accesso Single Sign-On")
 5. In un'altra finestra del Web browser accedere al sito aziendale di Aha! come amministratore.
 6. Nel menu in alto fare clic su **Impostazioni**.
    
-   ![Impostazioni](./media/active-directory-saas-aha-tutorial/IC798950.png "Settings")
+   ![Impostazioni](./media/active-directory-saas-aha-tutorial/IC798950.png "Impostazioni")
 7. Fare clic su **Account**.
    
-   ![Profilo](./media/active-directory-saas-aha-tutorial/IC798951.png "Profile")
+   ![Profilo](./media/active-directory-saas-aha-tutorial/IC798951.png "Profilo")
 8. Fare clic su **Sicurezza e single sign-on**.
    
-   ![Sicurezza e single sign-on](./media/active-directory-saas-aha-tutorial/IC798952.png "Security and single sign-on")
+   ![Sicurezza e Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798952.png "Sicurezza e Single Sign-On")
 9. Nella sezione **Single Sign-On** in **Identity Provider** (Provider di identità) selezionare **SAML2.0**.
    
-   ![Sicurezza e single sign-on](./media/active-directory-saas-aha-tutorial/IC798953.png "Security and single sign-on")
+   ![Sicurezza e Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798953.png "Sicurezza e Single Sign-On")
 10. Nella pagina di configurazione **Single Sign-On** eseguire la procedura seguente:
     
     ![Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798954.png "Single Sign-On")
@@ -101,7 +101,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     4. Fare clic su **Aggiorna**.
 11. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Complete** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
     
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798955.png "Configure Single Sign-On")
+    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798955.png "Configurare l'accesso Single Sign-On")
     
     ## <a name="configuring-user-provisioning"></a>Configurazione del provisioning utente
 
@@ -123,16 +123,16 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 1. Nel portale di Azure classico creare un account di test.
 2. Nella pagina di integrazione dell'applicazione **Aha! **fare clic su **Assegna utenti**.
    
-   ![Assegna utenti](./media/active-directory-saas-aha-tutorial/IC798956.png "Assign Users")
+   ![Assegnare utenti](./media/active-directory-saas-aha-tutorial/IC798956.png "Assegnare utenti")
 3. Selezionare l'utente di test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
    
-   ![Sì](./media/active-directory-saas-aha-tutorial/IC767830.png "Yes")
+   ![Sì](./media/active-directory-saas-aha-tutorial/IC767830.png "Sì")
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 
