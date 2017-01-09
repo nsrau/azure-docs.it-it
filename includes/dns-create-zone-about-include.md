@@ -13,6 +13,6 @@ Creazione di una zona DNS in DNS di Azure:
 > 
 > Per altre informazioni, vedere [Delegare un dominio a DNS di Azure](../articles/dns/dns-domain-delegation.md).
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
