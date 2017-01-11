@@ -84,7 +84,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
    
    Nella pagina **Proxy Web** :
    
-   1. Fornire l'**URL proxy Web** in questo formato: *http://indirizzo IP-host&lt; o &gt;FDQN:Numero della porta*. Notare che gli URL HTTPS non sono supportati.
+   1. Fornire l'**URL proxy Web** in questo formato: *http://&lt;indirizzo IP-host o FDQN&gt;:Numero della porta*. Notare che gli URL HTTPS non sono supportati.
    2. Specificare **Autenticazione** come **Basic** o **Nessuna**.
    3. Se si usa l'autenticazione, è necessario anche fornire **Nome utente** e **Password**.
    4. Fare clic su **Apply**. Le impostazioni proxy Web configurate vengono così convalidate e applicate.
