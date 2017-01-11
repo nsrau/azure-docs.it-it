@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ce449d6a64b4ef9022939f0487a30157f7014673
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 59ecf25dfe445343c0908c0955f9a17bad12226f
 
 
 ---
@@ -246,6 +246,6 @@ Quando si fa clic sul riquadro eDigitalResearch nel pannello di accesso, si dovr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

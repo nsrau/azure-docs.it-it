@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b8eab5dd14cf6e3e29cfa9fc62d4a1101a17bec2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6e3d3151bc45f346467781543262052a05018c1e
 
 
 ---
@@ -235,6 +235,6 @@ Quando si fa clic sul riquadro Predictix Ordering nel pannello di accesso, verr√
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Tidemark | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Tidemark.
+title: 'Esercitazione: Integrazione di Azure Active Directory con Tidemark | Documentazione Microsoft'
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Tidemark.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 5cf80d4e-6e8b-48ec-81c8-27872af5e5d5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5b32c40c1887d6695c4ad1379ac14e0aa525bb43
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-tidemark"></a>Esercitazione: Integrazione di Azure Active Directory con Tidemark
+# <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Esercitazione: Integrazione di Azure Active Directory con Tidemark
 Questa esercitazione descrive l'integrazione di Tidemark con Azure Active Directory (Azure AD).
 
 L'integrazione di Tidemark con Azure AD offre i vantaggi seguenti:
@@ -232,6 +236,6 @@ Quando si fa clic sul riquadro Tidemark nel pannello di accesso, si dovrebbe acc
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

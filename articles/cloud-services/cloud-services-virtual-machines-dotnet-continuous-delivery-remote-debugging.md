@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 0ea8060b13fe7e2e974d4d5c7fe3dd58c2daf32e
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: d9f325c515e0a8e2cdbcbde657c3f7d6b793a9da
 
 
 ---
@@ -40,7 +40,7 @@ Per abilitare il debug remoto in Azure, per i servizi cloud o le macchine virtua
 1. Creare una macchina virtuale di Azure. Per informazioni, vedere l'articolo su come [creare una macchina virtuale che esegue Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) oppure l'articolo su come [Creare e gestire macchine virtuali di Azure in Visual Studio](../virtual-machines/virtual-machines-windows-classic-manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 2. Nella [pagina del portale di Azure classico](http://go.microsoft.com/fwlink/p/?LinkID=269851)visualizzare il dashboard della macchina virtuale per individuare **L’IDENTIFICAZIONE PERSONALE CERTIFICATO RDP**della macchina virtuale. Questo valore viene utilizzato per il valore `ServerThumbprint` nella configurazione dell'estensione.
 3. Creare un certificato client come descritto in [Panoramica sui certificati per i servizi cloud di Azure](cloud-services-certs-create.md) (conservare il file .pfx e l'identificazione personale del certificato RDP).
-4. Installare Azure Powershell (versione 0.7.4 o versione successiva) come descritto in [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+4. Installare Azure Powershell (versione 0.7.4 o versione successiva) come descritto in [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 5. Eseguire lo script seguente per abilitare l'estensione RemoteDebug. Sostituire i percorsi e i dati personali con i dati personali dell'utente, ad esempio nome della sottoscrizione, nome del servizio e identificazione personale.
    
    > [!NOTE]
@@ -77,6 +77,6 @@ Per abilitare il debug remoto in Azure, per i servizi cloud o le macchine virtua
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

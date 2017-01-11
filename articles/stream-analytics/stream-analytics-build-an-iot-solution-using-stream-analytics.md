@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 11/16/2016
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: eb8cf20a5dbe34fb823b4e05430dee544fc271d1
-ms.openlocfilehash: a16bdb85b7915dfe5bd6afda51b21a39cb041e9b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 65dea49959402b66ba7513051dfe16d91d68ef3b
 
 
 ---
@@ -36,7 +36,7 @@ Dopo aver completato questa esercitazione, si sarà in grado di:
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione, sono necessari i prerequisiti seguenti:
 
-* La versione più recente di [Azure PowerShell](../powershell-install-configure.md)
+* La versione più recente di [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * Visual Studio 2015 o la versione gratuita [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 * Una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Privilegi di amministratore nel computer
@@ -137,7 +137,7 @@ Questa esercitazione richiede due hub eventi per ricevere i flussi di dati *in i
 
 Scaricare e salvare la cartella e i file di supporto di [TollApp](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) .
 
-Aprire una finestra di **Microsoft Azure PowerShell***come amministratore*. Se ancora non si ha Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per istruzioni su come installarlo.
+Aprire una finestra di **Microsoft Azure PowerShell***come amministratore*. Se ancora non si ha Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) per istruzioni su come installarlo.
 
 Dato che Windows blocca automaticamente i file con estensione ps1, dll ed exe, è necessario impostare i criteri di esecuzione prima di eseguire lo script. Assicurarsi che la finestra di Azure PowerShell sia in esecuzione *come amministratore*. Eseguire **Set-ExecutionPolicy unrestricted**. Quando richiesto, digitare **Y**.
 
@@ -445,6 +445,6 @@ Per altre informazioni su Analisi di flusso di Azure, vedere la [documentazione 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
