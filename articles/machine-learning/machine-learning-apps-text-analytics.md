@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/09/2017
 ms.author: onewth
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -209,8 +209,7 @@ Nella risposta di seguito viene ottenuto l'elenco delle frasi chiave associate a
         "Errors":[]
     }
 
----
-
+- - -
 ### <a name="getlanguagebatch"></a>GetLanguageBatch
 
 Nella chiamata POST seguente si richiede il rilevamento delle lingua per due input di testo:
@@ -249,14 +248,14 @@ Restituisce la risposta seguente, in cui inglese viene rilevato nel primo parame
        }],
        "Errors": []
     }
----
 
+- - -
 ## <a name="topic-detection-apis"></a>API per il rilevamento di argomenti
 Si tratta di un'API rilasciata di recente che restituisce i primi argomenti rilevati a fronte di un elenco di record di testo inviati. Un argomento viene identificato da una frase chiave, che può essere costituita da una o più parole correlate. Si noti che con questa API viene addebitata una transazione per ogni record di testo inviato.
 
 Questa API richiede un minimo di 100 record di testo da inviare, ma è progettata per rilevare gli argomenti in centinaia o addirittura migliaia di record.
 
-### <a name="topics-submit-job"></a>Argomenti: processo di invio
+### <a name="topics--submit-job"></a>Argomenti: processo di invio
 **URL**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection
@@ -287,7 +286,7 @@ Nella risposta seguente si ottiene l'ID processo (JobId) per il processo inviato
 
 Un elenco di parole singole o di frasi costituite da più parole che non dovrebbero essere restituite come argomenti. Può essere usato per filtrare argomenti molto generici. Ad esempio, in un set di dati riguardante recensioni di alberghi, "albergo" e "ostello" possono esser frasi di stop sensibili.  
 
-### <a name="topics-poll-for-job-results"></a>Argomenti: polling risultati processo
+### <a name="topics--poll-for-job-results"></a>Argomenti: polling risultati processo
 **URL**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetTopicDetectionResult

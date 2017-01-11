@@ -4,7 +4,7 @@ description: 'Creazione di un tenant di Azure Active Directory o di un tenant di
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
-manager: msmbaldwin
+manager: mbaldwin
 editor: bryanla
 ms.assetid: 7ba4c6b2-161b-45b5-b3bd-ccb662f5d7a0
 ms.service: active-directory-b2c
