@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/01/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8cbeaaf6bfba41bbf52f26aa0e408b7b1ac9405e
+ms.sourcegitcommit: cd256c403cc8094a135157cdc69dbdd3971978ca
+ms.openlocfilehash: 9f8a898f265bc27fc47ea2e3d00d123f3f47dad6
 
 
 ---
@@ -31,6 +31,7 @@ La soluzione per questo problema di configurazione è costituita da un set di se
 ### <a name="default-services"></a>Servizi predefiniti
 Le applicazioni di infrastruttura di servizi sono costituite da una raccolta di istanze del servizio. Anche se è possibile creare un'applicazione vuota e quindi tutte le istanze del servizio dinamicamente, la maggior parte delle applicazioni include un set di servizi di base che devono essere sempre creati quando si creano istanze dell'applicazione. Questi servizi sono detti "servizi predefiniti" e vengono specificati nel manifesto dell'applicazione, con i segnaposto per la configurazione specifica dei singoli ambienti racchiusi tra parentesi quadre:
 
+```xml
     <DefaultServices>
         <Service Name="Stateful1">
             <StatefulService
@@ -46,14 +47,17 @@ Le applicazioni di infrastruttura di servizi sono costituite da una raccolta di 
         </StatefulService>
     </Service>
   </DefaultServices>
+```
 
 Ogni parametro denominato deve essere definito nell'elemento Parameters del manifesto dell'applicazione:
 
+```xml
     <Parameters>
         <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="2" />
         <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />
         <Parameter Name="Stateful1_TargetReplicaSetSize" DefaultValue="3" />
     </Parameters>
+```
 
 L'attributo DefaultValue specifica il valore da usare in assenza di un parametro più specifico per un determinato ambiente.
 
@@ -67,12 +71,14 @@ Il [modello applicativo di Service Fabric](service-fabric-application-model.md) 
 
 Si supponga di avere la seguente impostazione nel file Config\Settings.xml per il servizio `Stateful1`:
 
+```xml
     <Section Name="MyConfigSection">
       <Parameter Name="MaxQueueSize" Value="25" />
     </Section>
-
+```
 Per eseguire l'override di questo valore per una coppia applicazione/ambiente specifica, creare un valore `ConfigOverride` durante l'importazione del manifesto del servizio nel manifesto dell'applicazione.
 
+```xml
     <ConfigOverrides>
      <ConfigOverride Name="Config">
         <Settings>
@@ -82,7 +88,7 @@ Per eseguire l'override di questo valore per una coppia applicazione/ambiente sp
         </Settings>
      </ConfigOverride>
   </ConfigOverrides>
-
+```
 Questo parametro può quindi essere configurato dall'ambiente, come illustrato in precedenza, dichiarandolo nella sezione Parameters del manifesto dell'applicazione e definendo i valori specifici per il singolo ambiente nel file di parametri dell'applicazione.
 
 > [!NOTE]
@@ -93,6 +99,7 @@ Questo parametro può quindi essere configurato dall'ambiente, come illustrato i
 ### <a name="application-parameter-files"></a>File di parametri dell'applicazione
 Il progetto di applicazione di Service Fabric può includere uno o più file di parametri dell'applicazione, ognuno dei quali definisce i valori specifici per i parametri definiti nel manifesto dell'applicazione:
 
+```xml
     <!-- ApplicationParameters\Local.xml -->
 
     <Application Name="fabric:/Application1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -102,7 +109,7 @@ Il progetto di applicazione di Service Fabric può includere uno o più file di 
             <Parameter Name="Stateful1_TargetReplicaSetSize" Value="3" />
         </Parameters>
     </Application>
-
+```
 Per impostazione predefinita, una nuova applicazione include tre file di parametro dell'applicazione, denominati Local.1Node.xml, Local.5Node.xml e Cloud.xml:
 
 ![File di parametri dell'applicazione in Esplora soluzioni][app-parameters-solution-explorer]
@@ -134,6 +141,6 @@ Per altre informazioni su alcuni concetti di base illustrati in questo argomento
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

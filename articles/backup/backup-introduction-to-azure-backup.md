@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/6/2016
+ms.date: 12/7/2016
 ms.author: jimpark; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: b9737c3da308aecf25d5f18088f96c319edeafd5
-ms.openlocfilehash: 76ec51a75240710b24c0e91042d6229e60eeada9
+ms.sourcegitcommit: 9de8032bc69b054d5d13857159ff994f505497a6
+ms.openlocfilehash: 08e7d4402ad52835d193b2083e3c9b2776e0332e
 
 
 ---
@@ -33,9 +33,10 @@ Le soluzioni di backup tradizionali si sono evolute e considerano ora il cloud c
 
 **Scalabilità illimitata**. Backup di Azure usa le potenzialità e la scalabilità illimitata del cloud di Azure per offrire disponibilità elevata, senza costi generali di manutenzione o monitoraggio. È possibile impostare avvisi per fornire informazioni sugli eventi, ma non è necessario preoccuparsi della disponibilità elevata dei dati nel cloud.
 
-**Più opzioni di archiviazione**. Un aspetto della disponibilità elevata è la replica di archiviazione. Backup di Azure offre due tipi di replica: [archiviazione con ridondanza locale](../storage/storage-redundancy.md#locally-redundant-storage) e [archiviazione con replica geografica](../storage/storage-redundancy.md#geo-redundant-storage). Scegliere l'opzione di archiviazione di backup in base alle esigenze:
+**Più opzioni di archiviazione**. Un aspetto della disponibilità elevata è la replica di archiviazione. Backup di Azure offre due tipi di replica: [archiviazione con ridondanza locale](../storage/storage-redundancy.md#locally-redundant-storage) e [archiviazione con ridondanza geografica](../storage/storage-redundancy.md#geo-redundant-storage). Scegliere l'opzione di archiviazione di backup in base alle esigenze:
 
-* L'archiviazione con ridondanza locale replica i dati tre volte (crea tre copie dei dati) in un data center associato nella stessa area. L'archiviazione con ridondanza locale è un'opzione a basso costo ideale per i clienti attenti ai prezzi perché protegge i dati da errori hardware locali.
+* L'archiviazione con ridondanza locale replica i dati tre volte (crea tre copie dei dati) in un data center associato nella stessa area. L'archiviazione con ridondanza locale è un'opzione a costo contenuto per la protezione dei dati da errori hardware locali.
+
 * L'archiviazione con ridondanza geografica replica i dati in un'area secondaria a centinaia di chilometri di distanza dalla posizione primaria dei dati di origine. L'archiviazione con ridondanza geografica è più costosa dell'archiviazione con ridondanza locale, ma offre un livello più elevato di durabilità per i dati, anche in presenza di un'interruzione di area.
 
 **Trasferimento dati illimitato**. Backup di Azure non limita la quantità di dati trasferiti in ingresso o in uscita. Backup di Azure non addebita costi per i dati trasferiti. Se tuttavia si usa il servizio Importazione/esportazione di Azure per importare grandi quantità di dati, viene applicato un costo per i dati in ingresso. Per altre informazioni su questi costi, vedere [Flusso di lavoro del backup offline in Backup di Azure](backup-azure-backup-import-export.md). I dati in uscita sono i dati trasferiti da un insieme di credenziali di Backup durante un'operazione di ripristino.
@@ -113,11 +114,11 @@ Le sezioni seguenti indicano tabelle che riepilogano la disponibilità o il supp
 ### <a name="storage"></a>Archiviazione
 | Funzionalità | Agente di Backup di Azure | System Center DPM | Server di backup di Azure | Backup di VM IaaS di Azure |
 | --- | --- | --- | --- | --- |
-| Insieme di credenziali di Backup di Azure |![sì][green] |![Sì][green] |![Sì][green] |![sì][green] |
+| Insieme di credenziali di Backup di Azure |![sì][green] |![sì][green] |![sì][green] |![sì][green] |
 | Archiviazione su disco | |![sì][green] |![sì][green] | |
 | Archiviazione su nastro | |![Sì][green] | | |
-| Compressione <br/>(nell'insieme di credenziali di Backup) |![Sì][green] |![Sì][green] |![sì][green] | |
-| Backup incrementale |![sì][green] |![Sì][green] |![Sì][green] |![sì][green] |
+| Compressione <br/>(nell'insieme di credenziali di Backup) |![Sì][green] |![sì][green] |![sì][green] | |
+| Backup incrementale |![sì][green] |![sì][green] |![sì][green] |![sì][green] |
 | Deduplicazione dei dischi | |![Parzialmente][yellow] |![Parzialmente][yellow] | |
 
 ![chiave tabella](./media/backup-introduction-to-azure-backup/table-key.png)
@@ -141,8 +142,8 @@ Ogni componente supporta il backup incrementale indipendentemente dall'archivio 
 ### <a name="security"></a>Sicurezza
 | Funzionalità | Agente di Backup di Azure | System Center DPM | Server di backup di Azure | Backup di VM IaaS di Azure |
 | --- | --- | --- | --- | --- |
-| Sicurezza di rete<br/> (in Azure) |![Sì][green] |![Sì][green] |![sì][green] |![Parzialmente][yellow] |
-| Sicurezza dei dati<br/> (in Azure) |![Sì][green] |![Sì][green] |![sì][green] |![Parzialmente][yellow] |
+| Sicurezza di rete<br/> (in Azure) |![Sì][green] |![sì][green] |![sì][green] |![Parzialmente][yellow] |
+| Sicurezza dei dati<br/> (in Azure) |![Sì][green] |![sì][green] |![sì][green] |![Parzialmente][yellow] |
 
 ![chiave tabella](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -161,7 +162,7 @@ Per il backup delle VM di Azure, è necessario configurare la crittografia *nell
 | Funzionalità | Agente di Backup di Azure | System Center DPM | Server di backup di Azure | Backup di VM IaaS di Azure |
 | --- | --- | --- | --- | --- |
 | Compressione di rete <br/>(nel **server di backup**) | |![Sì][green] |![Sì][green] | |
-| Compressione di rete <br/>(nell'**insieme di credenziali di Backup**) |![Sì][green] |![Sì][green] |![Sì][green] | |
+| Compressione di rete <br/>(nell'**insieme di credenziali di Backup**) |![Sì][green] |![sì][green] |![Sì][green] | |
 | Protocollo di rete <br/>(nel **server di backup**) | |TCP |TCP | |
 | Protocollo di rete <br/>(nell'**insieme di credenziali di Backup**) |HTTPS |HTTPS |HTTPS |HTTPS |
 
@@ -176,17 +177,26 @@ L'agente di Backup di Azure consente di limitare la larghezza di banda per contr
 
 ### <a name="backup-and-retention"></a>Backup e conservazione
 
-Backup di Azure ha un limite di 9999 punti di ripristino, noti anche come copie di backup o snapshot, per ogni insieme di credenziali di backup. La tabella seguente illustra la frequenza massima di backup (nell'insieme di credenziali) per ogni componente. La configurazione dei criteri di backup determina la rapidità con cui si utilizzano i punti di ripristino. Ad esempio, se si crea un punto di ripristino ogni giorno, è possibile mantenere i punti di ripristino per 27 anni prima di eseguirli. Se si gestisce un punto di ripristino mensile, è possibile mantenere i punti di ripristino per 833 anni prima di eseguirli. Il servizio Backup non imposta un limite di tempo di scadenza su un punto di ripristino.
+Backup di Azure ha un limite di 9999 punti di ripristino, noti anche come copie di backup o snapshot, per ogni *istanza protetta*. Un'istanza protetta è un computer, un server (fisico o virtuale) o un carico di lavoro configurato per eseguire il backup dei dati in Azure. Per altre informazioni, vedere la sezione [Che cos'è un'istanza protetta?](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Un'istanza è protetta dopo il salvataggio di una copia di backup dei dati. La protezione è data dalla copia di backup dei dati. Se i dati di origine sono andati persi o danneggiati, la copia di backup può ripristinare i dati di origine. La tabella seguente illustra la frequenza massima di backup per ogni componente. La configurazione dei criteri di backup determina la rapidità con cui si utilizzano i punti di ripristino. Ad esempio, se si crea un punto di ripristino ogni giorno, è possibile mantenere i punti di ripristino per 27 anni prima di eseguirli. Se si gestisce un punto di ripristino mensile, è possibile mantenere i punti di ripristino per 833 anni prima di eseguirli. Il servizio Backup non imposta un limite di tempo di scadenza su un punto di ripristino.
 
 |  | Agente di Backup di Azure | System Center DPM | Server di backup di Azure | Backup di VM IaaS di Azure |
 | --- | --- | --- | --- | --- |
 | Frequenza di backup<br/> (nell'insieme di credenziali di Backup) |3 backup al giorno |2 backup al giorno |2 backup al giorno |1 backup al giorno |
 | Frequenza di backup<br/> (nel disco) |Non applicabile |<li>Ogni 15 minuti per SQL Server <li>Ogni ora per altri carichi di lavoro |<li>Ogni 15 minuti per SQL Server <li>Ogni ora per altri carichi di lavoro</p> |Non applicabile |
 | Opzioni di conservazione |Giornaliera, settimanale, mensile, annuale |Giornaliera, settimanale, mensile, annuale |Giornaliera, settimanale, mensile, annuale |Giornaliera, settimanale, mensile, annuale |
-| Punti di ripristino massimo per ogni server |9999|9999|9999|9999|
+| Punti di ripristino massimo per ogni istanza protetta |9999|9999|9999|9999|
 | Periodo massimo di conservazione |Dipende dalla frequenza dei backup |Dipende dalla frequenza dei backup |Dipende dalla frequenza dei backup |Dipende dalla frequenza dei backup |
 | Punti di ripristino nel disco locale |Non applicabile |<li>64 per i file server<li>448 per i server applicazioni |<li>64 per i file server<li>448 per i server applicazioni |Non applicabile |
 | Punti di ripristino su nastro |Non applicabile |Senza limiti |Non applicabile |Non applicabile |
+
+## <a name="what-is-a-protected-instance"></a>Che cos'è un'istanza protetta?
+Un'istanza protetta è un riferimento generico a un computer Windows, un server (fisico o virtuale) o un database SQL che è stato configurato per eseguire il backup in Azure. Un'istanza è protetta dopo la configurazione di un criterio di backup per il computer, il server o il database e la creazione di una copia di backup dei dati. Le copie successive dei dati di backup per tale istanza protetta (denominate punti di ripristino) aumentano la quantità di spazio di archiviazione utilizzato. Per un'istanza protetta, è possibile creare fino a 9999 punti di ripristino. Se si elimina un punto di ripristino da una risorsa di archiviazione, non tiene conto dei 9999 punti di ripristino totali.
+Alcuni esempi comuni di istanze protette sono macchine virtuali, server applicazioni, database e personal computer che eseguono il sistema operativo Windows. Ad esempio:
+
+* Una macchina virtuale che esegue l'infrastruttura di hypervisor Hyper-V o IaaS di Azure. I sistemi operativi guest per la macchina virtuale possono essere Windows Server o Linux.
+* Un server applicazioni: il server applicazioni può essere una macchina fisica o virtuale che esegue Windows Server e i carichi di lavoro con i dati di cui è necessario eseguire il backup. I carichi di lavoro comuni sono Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server, Microsoft Dynamics e il ruolo File server di Windows Server. Per eseguire il backup di questi carichi di lavoro è necessario System Center Data Protection Manager (DPM) o il server di Backup di Azure.
+* Un personal computer o un computer portatile con il sistema operativo Windows.
+
 
 ## <a name="what-is-the-vault-credential-file"></a>Informazioni sul file delle credenziali di insieme
 Il file delle credenziali dell'insieme di credenziali è un certificato generato dal portale per ogni insieme di credenziali di backup. Il portale carica quindi la chiave pubblica nel Servizio di controllo di accesso (o ACS). La chiave privata viene indicata all'utente quando si scaricano le credenziali. Usarla per registrare i computer da proteggere. La chiave privata consente di autenticare i server o i computer per l'invio di dati di backup a uno specifico insieme di credenziali di Backup.
