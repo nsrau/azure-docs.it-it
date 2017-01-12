@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/22/2016
+ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: a977cb509fb64d7c986e2e0f7e2b5e4e3e45dec0
-ms.openlocfilehash: afc0249def57095e58e4d57230faee01daf7bb52
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1062af9abfd167dd251621a43943dea399aed027
 
 
 ---
@@ -50,7 +50,7 @@ In Azure AD B2C, ogni esperienza utente è definita da [criteri](active-director
 Dopo aver creato i tre criteri, è possibile passare alla compilazione dell'app.
 
 ## <a name="download-the-code"></a>Scaricare il codice
-Il codice per questa esercitazione è [disponibile in GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Per compilare l'esempio passo dopo passo, è possibile [scaricare un progetto scheletro come file ZIP](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). È anche possibile clonare la struttura:
+Il codice per questa esercitazione è [disponibile in GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Per compilare l'esempio passo dopo passo, è possibile [scaricare un progetto bozza come file ZIP](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). È anche possibile clonare la struttura:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet.git
@@ -217,6 +217,6 @@ You can now move onto more advanced B2C topics. You may try:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 
