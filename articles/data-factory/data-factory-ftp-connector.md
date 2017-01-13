@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 01/12/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
@@ -258,7 +258,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 ```
 
 ### <a name="using-port-enablessl-enableservercertificatevalidation"></a>Uso di porta, enableSsl, enableServerCertificateValidation
- 
+
 ```JSON
 {
     "name": "FTPLinkedService",
@@ -278,7 +278,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 ```
 
 ### <a name="using-encryptedcredential-for-authentication-and-gateway"></a>Uso di encryptedCredential per autenticazione e gateway
-    
+
 ```JSON
 {
     "name": "FTPLinkedService",
