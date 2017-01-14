@@ -1,22 +1,25 @@
 ---
-title: Provisioning dell'app basato su attributi con filtri per la definizione dell'ambito | Microsoft Docs
-description: Informazioni su come usare i filtri per la definizione dell'ambito per evitare che venga eseguito il provisioning degli oggetti inclusi nelle app che supportano il provisioning automatico degli utenti se un oggetto non soddisfa i requisiti aziendali.
+title: Provisioning dell&quot;app basato su attributi con filtri per la definizione dell&quot;ambito | Microsoft Docs
+description: Informazioni su come usare i filtri per la definizione dell&quot;ambito per evitare che venga eseguito il provisioning degli oggetti inclusi nelle app che supportano il provisioning automatico degli utenti se un oggetto non soddisfa i requisiti aziendali.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+ms.assetid: bcfbda74-e4d4-4859-83bc-06b104df3918
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: markusvi
+ms.date: 01/10/2017
+ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4b95782793956470fd147a98c17759a1a1a3a0de
+
 
 ---
-# <a name="attributebased-app-provisioning-with-scoping-filters"></a>Provisioning dell'app basato su attributi con filtri per la definizione dell'ambito
+# <a name="attribute-based-app-provisioning-with-scoping-filters"></a>Provisioning dell'app basato su attributi con filtri per la definizione dell'ambito
 Questa sezione spiega come usare i filtri per la definizione dell'ambito per definire regole basate su attributi per determinare gli utenti per i quali verrà eseguito il provisioning nell'applicazione.
 
 ## <a name="clauses-and-scope-groups"></a>Clausole e gruppi di ambiti
@@ -63,6 +66,6 @@ In base a questo filtro per la definizione dell'ambito, affinché sia possibile 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

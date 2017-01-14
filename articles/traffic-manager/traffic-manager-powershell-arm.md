@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: c5df6d998812568c764ccb6914b3c81fe4e568ec
-ms.openlocfilehash: d9d9630487f9eeb381198230a20d01c1c5f6678d
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: f97ba8ebc940d4b3eec5d2610503f8a86af8dbe2
 
 ---
 
@@ -38,9 +38,9 @@ Il supporto di Azure Resource Manager per Gestione traffico usa una terminologia
 | Termine di Resource Manager | Termine classico |
 | --- | --- |
 | Metodo di routing del traffico |Metodo di bilanciamento del carico |
-| Metodo Priority |Metodo di failover |
-| Metodo Weighted |Metodo round robin |
-| Metodo Performance |Metodo Performance |
+| Metodo Priorità |Metodo Failover |
+| Metodo Ponderato |Metodo Round robin |
+| Metodo Prestazioni |Metodo Prestazioni |
 
 Questa modifica è stata introdotta in base ai commenti degli utenti per migliorare la chiarezza e ridurre le incomprensioni comuni. Non esistono differenze in termini di funzionalità.
 
@@ -52,7 +52,7 @@ Quando si fa riferimento a un endpoint di tipo "AzureEndpoints" per un App Web, 
 
 In queste istruzioni viene usato Microsoft Azure PowerShell. L'articolo seguente illustra come installare e configurare Azure PowerShell.
 
-* [Come installare e configurare Azure PowerShell](../powershell-install-configure.md)
+* [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 Negli esempi inclusi in questo articolo si presuppone che esista un gruppo di risorse. È possibile creare un gruppo di risorse usando il comando seguente:
 
@@ -342,6 +342,6 @@ Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remov
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

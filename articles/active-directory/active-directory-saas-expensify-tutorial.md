@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: acc5c94d90820c8d9b43f6e082dd750f4541f688
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: dae5382a07ca1308f9c543155dd93ecbecf72f4f
 
 
 ---
@@ -244,6 +244,6 @@ Quando si fa clic sul riquadro Expensify nel pannello di accesso, verrà eseguit
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

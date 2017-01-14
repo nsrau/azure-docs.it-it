@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
-ms.openlocfilehash: a68481073ea07b4c7775da6682e1753b32f0793c
+ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
+ms.openlocfilehash: 3e11bc1e196b263f758394d1abd4c21d9e12aeef
 
 
 ---
@@ -36,7 +36,7 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute di Azure
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-* Ottenere la versione più recente dei moduli di Azure PowerShell (almeno la versione 1.0). Per istruzioni dettagliate sulla configurazione del computer per l'uso dei moduli PowerShell, seguire le istruzioni in [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+* Ottenere la versione più recente dei moduli di Azure PowerShell (almeno la versione 1.0). Per istruzioni dettagliate sulla configurazione del computer per l'uso dei moduli PowerShell, seguire le istruzioni in [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Prima di iniziare la configurazione, verificare i [prerequisiti](expressroute-prerequisites.md) e i [flussi di lavoro](expressroute-workflows.md).
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Creare un circuito ExpressRoute ed eseguirne il provisioning
@@ -384,6 +384,6 @@ Dopo aver creato il circuito, verificare di eseguire le operazioni seguenti:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

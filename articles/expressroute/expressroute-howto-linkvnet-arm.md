@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 99d5facce236b82ea84c708edf5e934a0d69919c
-ms.openlocfilehash: e362ef6d35316df0410ae84933df27639ab8c562
+ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
+ms.openlocfilehash: ba71cabd6b9ed88813c65c4ce82e5809606699b9
 
 
 ---
@@ -36,7 +36,7 @@ Questo articolo spiega come collegare le reti virtuali ai circuiti di Azure Expr
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Prerequisiti di configurazione
-* È necessaria la versione più recente dei moduli di Azure PowerShell (almeno la versione 1.0). Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) .
+* È necessaria la versione più recente dei moduli di Azure PowerShell (almeno la versione 1.0). Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 * Prima di procedere con la configurazione, è necessario verificare i [prerequisiti](expressroute-prerequisites.md), i [requisiti di routing](expressroute-routing.md) e i [flussi di lavoro](expressroute-workflows.md).
 * È necessario avere un circuito ExpressRoute attivo. 
   * Seguire le istruzioni per [creare un circuito ExpressRoute](expressroute-howto-circuit-arm.md) e fare in modo che venga abilitato dal provider di connettività. 
@@ -152,6 +152,6 @@ Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressR
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

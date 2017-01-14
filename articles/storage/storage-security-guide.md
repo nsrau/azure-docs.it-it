@@ -4,7 +4,7 @@ description: Descrive in dettaglio i vari metodi di protezione di Archiviazione 
 services: storage
 documentationcenter: .net
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 6f931d94-ef5a-44c6-b1d9-8a3c9c327fb2
 ms.service: storage
@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8f674c34cfbfd5c107258d7acd33583947cd61d6
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: c5e6c3a63a7dbe0a598136a32990f65f7ee077d9
 
 
 ---
 # <a name="azure-storage-security-guide"></a>Guida alla sicurezza di Archiviazione di Azure
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, che consentono agli sviluppatori di creare applicazioni sicure. Lo stesso account di archiviazione può essere protetto tramite il controllo degli accessi in base al ruolo e Azure Active Directory. È possibile proteggere i dati in transito tra un'applicazione e Azure usando la [crittografia lato client](storage-client-side-encryption.md), HTTPS o SMB 3.0. I dati possono essere impostati per la crittografia automatica quando vengono scritti in Archiviazione di Azure con [Crittografia del servizio di archiviazione di Azure (SSE)](storage-service-encryption.md). I dischi dati e del sistema operativo usati dalle macchine virtuali possono essere impostati per essere crittografati con [Crittografia dischi di Azure](../security/azure-security-disk-encryption.md). È possibile concedere l'accesso delegato agli oggetti dati nell'archiviazione di Azure usando [firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
 Questo articolo include una panoramica di ognuna di queste funzionalità di sicurezza che possono essere usate con Archiviazione di Azure. Sono disponibili i collegamenti ad articoli contenenti informazioni dettagliate per ogni funzionalità, per poter approfondire facilmente i concetti per ogni argomento.
@@ -55,7 +55,7 @@ Quando si crea un nuovo account di archiviazione, si seleziona un modello di dis
 Questa guida è incentrata sul modello di Resource Manager, ovvero il mezzo consigliato per la creazione di account di archiviazione. Con gli account di archiviazione di Resource Manager, invece di concedere l'accesso all'intera sottoscrizione, è possibile controllare l'accesso al piano di gestione in base a un livello più limitato usando il controllo degli accessi in base al ruolo.
 
 ### <a name="how-to-secure-your-storage-account-with-role-based-access-control-rbac"></a>Come proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo
-Si vedrà ora cos'è il controllo degli accessi in base al ruolo e come è possibile usarlo. Ogni sottoscrizione di Azure è associata a un'istanza di Azure Active Directory. A utenti, gruppi e applicazioni in questa directory può essere consentito l'accesso per gestire le risorse nella sottoscrizione di Azure che usa il modello di distribuzione di Resource Manager. Questo approccio è detto controllo degli accessi in base al ruolo. Per gestire l'accesso è possibile usare il [portale di Azure](https://portal.azure.com/), gli [strumenti dell'interfaccia della riga di comando di Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) o le [API REST del provider di risorse di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
+Si vedrà ora cos'è il controllo degli accessi in base al ruolo e come è possibile usarlo. Ogni sottoscrizione di Azure è associata a un'istanza di Azure Active Directory. A utenti, gruppi e applicazioni in questa directory può essere consentito l'accesso per gestire le risorse nella sottoscrizione di Azure che usa il modello di distribuzione di Resource Manager. Questo approccio è detto controllo degli accessi in base al ruolo. Per gestire l'accesso è possibile usare il [portale di Azure](https://portal.azure.com/), gli [strumenti dell'interfaccia della riga di comando di Azure](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) o le [API REST del provider di risorse di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
 
 Con il modello di Resource Manager si inserisce l'account di archiviazione in un gruppo di risorse e si controlla l'accesso al piano di quell'account di archiviazione specifico tramite Azure Active Directory. Ad esempio, è possibile concedere a utenti specifici la possibilità di accedere alle chiavi dell'account di archiviazione, mentre altri utenti possono visualizzare le informazioni sull'account di archiviazione, ma non accedere alle relative chiavi.
 
@@ -89,7 +89,7 @@ Ecco i punti principali che occorre conoscere sull'uso del controllo degli acces
 * [RBAC: Ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md)
   
   Questo articolo illustra tutti i ruoli predefiniti disponibili nel controllo degli accessi in base al ruolo.
-* [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../resource-manager-deployment-model.md)
+* [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md)
   
   In questo articolo sono illustrati i modelli di distribuzione classica e Resource Manager e sono descritti i vantaggi dell'uso di Resource Manager e dei gruppi di risorse. Viene spiegato il funzionamento dei provider di calcolo, rete e archiviazione di Azure nel modello di Resource Manager.
 * [Gestione del controllo degli accessi in base al ruolo con l'API REST](../active-directory/role-based-access-control-manage-access-rest.md)
@@ -259,7 +259,7 @@ Per informazioni più dettagliate sull'uso di firme di accesso condiviso e crite
   * [Esercitazione introduttiva sulle firme di accesso condiviso](https://github.com/Azure-Samples/storage-dotnet-sas-getting-started)
 
 ## <a name="encryption-in-transit"></a>Crittografia in transito
-### <a name="transport-level-encryption-using-https"></a>Crittografia a livello di trasporto: uso di HTTPS
+### <a name="transport-level-encryption--using-https"></a>Crittografia a livello di trasporto: uso di HTTPS
 Un altro passaggio da adottare per garantire la sicurezza dei dati di archiviazione di Azure consiste nel crittografare i dati tra il client e l'archiviazione di Azure. Il primo suggerimento consiste nell'usare sempre il protocollo [HTTPS](https://en.wikipedia.org/wiki/HTTPS) che garantisce una comunicazione protetta sulla rete Internet pubblica.
 
 È consigliabile usare sempre HTTPS quando si chiamano le API REST o si accede a oggetti nella risorsa di archiviazione. Le **firme di accesso condiviso**, che possono essere usate per delegare l'accesso a oggetti di archiviazione di Azure, includono anche un'opzione per specificare che quando si usano firme di accesso condiviso si può usare solo il protocollo HTTPS, assicurando che chiunque invii collegamenti con token di firma di accesso condiviso userà il protocollo corretto.
@@ -527,6 +527,6 @@ Per altre informazioni su CORS e su come abilitarlo, vedere queste risorse.
   Questo articolo illustra l'uso della modalità FIPS in computer Windows meno recenti.
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 8be23107d3a377854a4bd17d99652fb5b84c99dc
-ms.openlocfilehash: d1b92b46b23dc4410089c5b842439d81b989d1d1
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 8ba5713731c5e62a9eac0ced9f50a2af0c165bc4
 
 
 ---
@@ -114,7 +114,7 @@ Si noti che va effettuata la stessa operazione per l'NSG back-end della subnet b
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>Distribuire il modello tramite clic per la distribuzione
 Il modello di esempio disponibile nel repository pubblico usa un file di parametro che contiene i valori predefiniti usati per generare lo scenario descritto in precedenza. Distribuire [questo modello](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR)tramite clic per la distribuzione, fare clic su **Distribuisci in Azure**, sostituire i valori del parametro predefinito se necessario e seguire le istruzioni nel portale.
 
-1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
+1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 2. Usare il comando seguente per creare un gruppo di risorse:
 
     ```powershell
@@ -409,6 +409,6 @@ Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Az
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

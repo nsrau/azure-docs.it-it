@@ -1,19 +1,23 @@
 ---
-title: Introduzione all'Hub eventi in C# con Apache Storm | Microsoft Docs
+title: Introduzione all&quot;Hub eventi in C# con Apache Storm | Documentazione Microsoft
 description: Eseguire questa esercitazione per iniziare a usare gli hub eventi di Azure, inviare gli eventi in C# e riceverli in un cluster di Apache Storm.
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: f64cb2bd-2e38-4c78-8d0d-9af14c000d9f
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 12/07/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: f603a3c3304af3e64ef40f2cdef3745e3b2085b3
+ms.openlocfilehash: 508b1390bee1e61514e6e7499071d0503a051c10
+
 
 ---
 # <a name="get-started-with-event-hubs"></a>Introduzione all'Hub eventi
@@ -49,20 +53,19 @@ A questo punto è possibile eseguire le applicazioni.
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve i dati, è possibile passare ai seguenti scenari:
 
-* Un' [applicazione di esempio completa che usa Hub eventi][applicazione di esempio completa che usa Hub eventi].
-* Esempio relativo alla [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi][scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi] .
+* Un' [applicazione di esempio completa che usa Hub eventi][sample application that uses Event Hubs].
+* Esempio relativo alla [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi][Scale out Event Processing with Event Hubs].
 
 <!-- Images. -->
 [22]: ./media/event-hubs-csharp-storm-getstarted/receive-storm1.png
 
 <!-- Links -->
-[portale di Azure classico]: https://manage.windowsazure.com/
 [Panoramica di Hub eventi]: event-hubs-overview.md
-[applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 
