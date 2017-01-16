@@ -2,12 +2,12 @@
 title: Migrazione di risorse IaaS supportata dalla piattaforma dal modello classico al modello di Azure Resource Manager | Microsoft Docs
 description: Questo articolo illustra la migrazione di risorse supportata dalla piattaforma dal modello classico al modello di Azure Resource Manager
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: singhkays
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,10 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2016
 ms.author: kasing
+translationtype: Human Translation
+ms.sourcegitcommit: 66b1bcdf0f79ff4743f466c3737696f53ef6a44c
+ms.openlocfilehash: 8eb70339785ca15131b5ce8debd6a232a8a693b9
+
 
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migrazione di risorse IaaS supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager
-Questo articolo illustra il modo in cui viene abilitata la migrazione di risorse dell'infrastruttura distribuita come servizio (IaaS) dal modello di distribuzione classica al modello di Azure Resource Manager. Altre informazioni su [funzionalità e vantaggi di Azure Resource Manager](../resource-group-overview.md). Sono disponibili indicazioni su come connettere le risorse dai due modelli di distribuzione che coesistono nella sottoscrizione mediante i gateway da sito a sito per le reti virtuali. 
+Questo articolo illustra il modo in cui viene abilitata la migrazione di risorse dell'infrastruttura distribuita come servizio (IaaS) dal modello di distribuzione classica al modello di Azure Resource Manager. Altre informazioni su [funzionalità e vantaggi di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Sono disponibili indicazioni su come connettere le risorse dai due modelli di distribuzione che coesistono nella sottoscrizione mediante i gateway da sito a sito per le reti virtuali.
 
 ## <a name="goal-for-migration"></a>Obiettivo della migrazione
 Resource Manager consente di distribuire applicazioni complesse mediante modelli, configura le macchine virtuali tramite le estensioni di macchina virtuale e incorpora la gestione degli accessi e l'uso dei tag. Azure Resource Manager include anche una distribuzione parallela e scalabile per le macchine virtuali nei set di disponibilità. Il nuovo modello di distribuzione offre inoltre la gestione del ciclo di vita delle risorse di calcolo, rete e archiviazione, in modo indipendente. Infine, ci si concentra anche sull'abilitazione della sicurezza predefinita tramite l'imposizione di macchine virtuali in una rete virtuale.
@@ -36,13 +40,13 @@ Prima di esaminare i dettagli, è necessario notare la differenza tra le operazi
 
 > [!NOTE]
 > In alcuni scenari di migrazione, la piattaforma Azure interrompe, dealloca e riavvia le macchine virtuali. Questa operazione comporta brevi tempi di inattività del piano dati.
-> 
-> 
+>
+>
 
 ## <a name="supported-scopes-of-migration"></a>Ambiti di migrazione supportati
-Esistono tre ambiti di migrazione che hanno come obiettivi principali il calcolo, la rete e l'archiviazione. 
+Esistono tre ambiti di migrazione che hanno come obiettivi principali il calcolo, la rete e l'archiviazione.
 
-### <a name="migration-of-virtual-machines-(not-in-a-virtual-network)"></a>Migrazione di macchine virtuali (non in una rete virtuale)
+### <a name="migration-of-virtual-machines-not-in-a-virtual-network"></a>Migrazione di macchine virtuali (non in una rete virtuale)
 Nel modello di distribuzione Resource Manager la sicurezza delle applicazioni è applicata per impostazione predefinita. Nel modello di Resource Manager tutte le macchine virtuali devono trovarsi in una rete virtuale. La piattaforma Azure riavvia (`Stop`, `Deallocate`, e `Start`) le VM nell'ambito della migrazione. Per le reti virtuali sono disponibili due opzioni:
 
 * È possibile richiedere alla piattaforma di creare una nuova rete virtuale ed eseguire la migrazione della macchina virtuale nella nuova rete virtuale.
@@ -50,10 +54,10 @@ Nel modello di distribuzione Resource Manager la sicurezza delle applicazioni è
 
 > [!NOTE]
 > In questo ambito di migrazione, le operazioni del piano di gestione e del piano dati potrebbero non essere consentite per un determinato periodo di tempo durante la migrazione.
-> 
-> 
+>
+>
 
-### <a name="migration-of-virtual-machines-(in-a-virtual-network)"></a>Migrazione di macchine virtuali (in una rete virtuale)
+### <a name="migration-of-virtual-machines-in-a-virtual-network"></a>Migrazione di macchine virtuali (in una rete virtuale)
 Per la maggior parte delle configurazioni di VM, viene eseguita solo la migrazione dei metadati tra il modello di distribuzione classica e il modello Resource Manager. Le VM sottostanti sono in esecuzione nello stesso hardware, nella stessa rete e con la stessa risorsa di archiviazione. È possibile che le operazioni del piano di gestione non siano consentite per un determinato periodo di tempo durante la migrazione. Tuttavia il piano dati continua a funzionare. Ovvero le applicazioni in esecuzione sulle VM (modello classico) non subiscono alcun tempo di inattività durante la migrazione.
 
 Le seguenti configurazioni non sono attualmente supportate. Se in futuro verrà aggiunto il supporto, è possibile che alcune VM in questa configurazione subiscano tempi di inattività (arresto, deallocazione e riavvio).
@@ -63,16 +67,16 @@ Le seguenti configurazioni non sono attualmente supportate. Se in futuro verrà 
 
 > [!NOTE]
 > In questo ambito di migrazione è possibile che le operazioni del piano di gestione non siano consentite per un determinato periodo di tempo durante la migrazione. Per alcune configurazioni, come illustrato in precedenza, il piano dati subisce tempi di inattività.
-> 
-> 
+>
+>
 
 ### <a name="storage-accounts-migration"></a>Migrazione degli account di archiviazione
-Per consentire una migrazione senza problemi, è possibile distribuire VM di Resource Manager in un account di archiviazione classico. Questa funzionalità consente di eseguire la migrazione di risorse di calcolo e di rete indipendentemente dagli account di archiviazione. Una volta eseguita la migrazione su macchine virtuali e rete virtuale, sarà necessario fare lo stesso sugli account di archiviazione per completare la procedura di migrazione. 
+Per consentire una migrazione senza problemi, è possibile distribuire VM di Resource Manager in un account di archiviazione classico. Questa funzionalità consente di eseguire la migrazione di risorse di calcolo e di rete indipendentemente dagli account di archiviazione. Una volta eseguita la migrazione su macchine virtuali e rete virtuale, sarà necessario fare lo stesso sugli account di archiviazione per completare la procedura di migrazione.
 
 > [!NOTE]
-> Il modello di distribuzione Resource Manager non prevede il concetto di immagini e dischi classici. Quando viene migrato l'account di archiviazione, le immagini e i dischi classici non sono visualizzati nello stack di Resource Manager ma i VHD di supporto rimangono nell'account di archiviazione. 
-> 
-> 
+> Il modello di distribuzione Resource Manager non prevede il concetto di immagini e dischi classici. Quando viene migrato l'account di archiviazione, le immagini e i dischi classici non sono visualizzati nello stack di Resource Manager ma i VHD di supporto rimangono nell'account di archiviazione.
+>
+>
 
 ## <a name="unsupported-features-and-configurations"></a>Funzionalità e configurazioni non supportate
 Alcune funzionalità e configurazioni non sono attualmente supportate. Nelle sezioni seguenti sono descritti i consigli in merito.
@@ -85,8 +89,8 @@ Le seguenti funzionalità non sono attualmente supportate. È possibile rimuover
 | Calcolo |Dischi di macchine virtuali non associati. |
 | Calcolo |Immagini di macchine virtuali. |
 | Rete |ACL endpoint. |
-| Rete |Gateway di rete virtuale (da sito a sito, Azure ExpressRoute, gateway applicazione, da punto a sito). |
-| Rete |Reti virtuali usando il peering delle reti virtuali (eseguire la migrazione della rete virtuale ad ARM, quindi eseguire il peering) Altre informazioni su [Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md). |
+| Rete |Gateway di rete virtuale (gateway Azure ExpressRoute e gateway applicazione). |
+| Rete |Reti virtuali usando il peering delle reti virtuali. (Eseguire la migrazione della rete virtuale a ARM, quindi eseguire il peering) Ulteriori informazioni su [Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md). |
 | Rete |Profili di Gestione traffico. |
 
 ### <a name="unsupported-configurations"></a>Configurazioni non supportate
@@ -105,7 +109,8 @@ Le seguenti configurazioni non sono attualmente supportate.
 | Servizio app di Azure |Rete virtuale contenente ambienti del servizio app |Non supportato attualmente. |
 | HDInsight di Azure |Rete virtuale contenente servizi HDInsight |Non supportato attualmente. |
 | Servizi del ciclo di vita Microsoft Dynamics |Rete virtuale contenente macchine virtuali gestite da Dynamics Lifecycle Services |Non supportato attualmente. |
-| Calcolo |Estensioni del Centro sicurezza di Azure con una rete virtuale che dispone di un gateway VPN o ER con server DNS locale |Il Centro sicurezza di Azure installa automaticamente le estensioni nelle macchine virtuali per monitorarne la protezione e generare avvisi. Queste estensioni vengono in genere installate automaticamente se i criteri di sicurezza del Centro sicurezza di Azure sono abilitati nella sottoscrizione. Dal momento che non è attualmente supportata la migrazione di gateway e che il gateway deve essere eliminato prima di procedere all'esecuzione del commit della migrazione, l'accesso Internet all'account di archiviazione della VM viene perso quando si elimina il gateway. In questo caso la migrazione si interrompe poiché il BLOB di stato dell'agent guest non può essere popolato. È consigliabile disabilitare i criteri di sicurezza del Centro sicurezza di Azure nella sottoscrizione 3 ore prima di procedere con la migrazione. |
+| Servizi di dominio Azure Active Directory |Reti virtuali che contengono i servizi di dominio Azure AD |Non supportato attualmente. |
+| Calcolo |Estensioni del Centro sicurezza di Azure con una rete virtuale che dispone di un gateway VPN in connettività di transito o ExpressRoute con server DNS locale |Il Centro sicurezza di Azure installa automaticamente le estensioni nelle macchine virtuali per monitorarne la protezione e generare avvisi. Queste estensioni vengono in genere installate automaticamente se i criteri di sicurezza del Centro sicurezza di Azure sono abilitati nella sottoscrizione. La migrazione del gateway ExpressRoute non è attualmente supportata e i gateway VPN con connettività di transito perdono l'accesso locale. L'eliminazione del gateway ExpressRoute o la migrazione del gateway VPN con connettività di transito causano la perdita dell'accesso internet all'account di archiviazione della macchina virtuale quando si procede all'esecuzione del commit della migrazione. In questo caso la migrazione si interrompe poiché il BLOB di stato dell'agent guest non può essere popolato. È consigliabile disabilitare i criteri di sicurezza del Centro sicurezza di Azure nella sottoscrizione 3 ore prima di procedere con la migrazione. |
 
 ## <a name="the-migration-experience"></a>Esperienza di migrazione
 Prima di iniziare l'esperienza di migrazione, si consiglia di:
@@ -123,8 +128,8 @@ Il flusso di lavoro della migrazione è il seguente:
 
 > [!NOTE]
 > Tutte le operazioni descritte nelle sezioni seguenti sono idempotenti. Se vengono rilevati errori diversi da una funzionalità non supportata o un errore di configurazione, è consigliabile provare a ripetere l'operazione di preparazione, interruzione o commit. La piattaforma Azure tenterà di ripetere l'azione.
-> 
-> 
+>
+>
 
 ### <a name="validate"></a>Convalida
 L'operazione di convalida è il primo passaggio del processo di migrazione. L'obiettivo di tale passaggio è analizzare i dati in background per le risorse in fase di migrazione, restituendo un esito positivo/negativo se le risorse sono idonee per la migrazione.
@@ -147,10 +152,10 @@ Al termine dell'operazione di preparazione, è possibile visualizzare le risorse
 
 > [!NOTE]
 > Le macchine virtuali che non sono in una rete virtuale classica vengono interrotte e deallocate in questa fase della migrazione.
-> 
-> 
+>
+>
 
-### <a name="check-(manual-or-scripted)"></a>Verifica (manuale o tramite script)
+### <a name="check-manual-or-scripted"></a>Verifica (manuale o tramite script)
 Nel passaggio di verifica è possibile usare la configurazione scaricata in precedenza per convalidare la correttezza della migrazione. In alternativa, è possibile accedere al portale e controllare le proprietà e le risorse per convalidare la correttezza della migrazione dei metadati.
 
 Se si esegue la migrazione di una rete virtuale, la maggior parte delle configurazioni delle macchine virtuali non viene riavviata. Per le applicazioni disponibili in tali VM, è possibile verificare che l'applicazione sia ancora attiva e in esecuzione.
@@ -165,17 +170,17 @@ Se si verificano problemi, è sempre possibile interrompere la migrazione e torn
 L'interruzione è un passaggio facoltativo che consente di annullare le modifiche al modello di distribuzione classica e di arrestare la migrazione.
 
 > [!NOTE]
-> Questa operazione non può essere eseguita dopo l'avvio dell'operazione di commit.  
-> 
-> 
+> Questa operazione non può essere eseguita dopo l'avvio dell'operazione di commit.     
+>
+>
 
 ### <a name="commit"></a>Commit
 Dopo aver completato la convalida, è possibile eseguire il commit della migrazione. Le risorse non sono più mostrate nel modello di distribuzione classica e sono disponibili solo nel modello di distribuzione Resource Manager. Le risorse migrate possono essere gestite solo nel nuovo portale.
 
 > [!NOTE]
 > Si tratta di un'operazione idempotente. In caso di esito negativo, si consiglia di riprovare. Se l'esito continua a essere negativo, creare un ticket di supporto o un post con il tag ClassicIaaSMigration nel [forum sulle VM](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows).
-> 
-> 
+>
+>
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 **Il piano di migrazione influisce sui servizi o sulle applicazioni esistenti in esecuzione nelle macchine virtuali di Azure?**
@@ -184,7 +189,7 @@ No. Le VM (classiche) sono servizi completamente supportati con disponibilità g
 
 **Che cosa accade alle macchine virtuali se non è prevista la migrazione a breve?**
 
-Le API classiche e il modello di risorse classico non saranno deprecati. L'obiettivo è quello di semplificare la migrazione, tenendo conto delle funzionalità avanzate disponibili nel modello di distribuzione di Resource Manager. È quindi consigliabile esaminare [alcuni dei miglioramenti](virtual-machines-windows-compare-deployment-models.md) apportati come parte di IaaS in Resource Manager.
+Le API classiche e il modello di risorse classico non saranno deprecati. L'obiettivo è quello di semplificare la migrazione, tenendo conto delle funzionalità avanzate disponibili nel modello di distribuzione di Resource Manager. È quindi consigliabile esaminare [alcuni dei miglioramenti](../azure-resource-manager/resource-manager-deployment-model.md) apportati come parte di IaaS in Resource Manager.
 
 **Qual è l'impatto di questo piano di migrazione per gli strumenti esistenti?**
 
@@ -212,7 +217,7 @@ Durante la migrazione le risorse si trasformano dal modello di distribuzione cla
 
 **Che cosa succede se sono attualmente in uso Azure Site Recovery o i servizi di backup di Azure?**
 
-Per eseguire la migrazione di macchine virtuali abilitate per il backup, vedere [È stato eseguito il backup delle macchine virtuali in modalità classica nell'insieme di credenziali per il backup. Si vuole eseguire la migrazione delle macchine virtuali dalla modalità classica alla modalità Resource Manager. Come è possibile eseguirne il backup nell'insieme di credenziali di Servizi di ripristino?](../backup/backup-azure-backup-ibiza-faq.md#i-have-backed-up-my-classic-vms-in-backup-vault-now-i-want-to-migrate-my-vms-from-classic-mode-to-resource-manager-mode-how-can-i-backup-them-in-recovery-services-vault)
+Per eseguire la migrazione di macchine virtuali abilitate per il backup, vedere [È stato eseguito il backup delle macchine virtuali in modalità classica nell'insieme di credenziali per il backup. Si vuole eseguire la migrazione delle macchine virtuali dalla modalità classica alla modalità Resource Manager. Come è possibile eseguirne il backup nell'insieme di credenziali per i servizi di ripristino?](../backup/backup-azure-backup-ibiza-faq.md)È stato eseguito il backup delle macchine virtuali classiche nell'insieme di credenziali di backup. Si vuole eseguire la migrazione delle macchine virtuali dalla modalità classica alla modalità Resource Manager.  Come è possibile eseguirne il backup nell'insieme di credenziali di Servizi di ripristino?
 
 **È possibile convalidare la sottoscrizione o le risorse per verificare se sono idonee per la migrazione?**
 
@@ -240,8 +245,11 @@ Dopo avere compreso i concetti fondamentali della migrazione di risorse IaaS cla
 * [Approfondimento tecnico sulla migrazione supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 * [Usare PowerShell per eseguire la migrazione di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](virtual-machines-windows-ps-migration-classic-resource-manager.md)
 * [Usare l'interfaccia della riga di comando per eseguire la migrazione di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md)
-* [Clonare una macchina virtuale classica in Azure Resource Manager usando script PowerShell della community](virtual-machines-windows-migration-scripts.md)
+* [Clonare una macchina virtuale classica in Azure Resource Manager usando script PowerShell della community](virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Rivedere gli errori di migrazione più comuni](virtual-machines-migration-errors.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO4-->
 
 

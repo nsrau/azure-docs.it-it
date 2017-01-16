@@ -15,13 +15,13 @@ ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: d07d1c838d99d0de0c5b62aaf42330b447df102c
-ms.openlocfilehash: eeb75df30811a83ecd1285ec7a38929c65995edc
+ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
+ms.openlocfilehash: 9d6d4ca99d5733f4e586ccba44307d8f5ffa09e8
 
 
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8100
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Il dispositivo Microsoft Azure StorSimple 8100 è un dispositivo a singolo enclosure montato su rack. In questa esercitazione viene illustrato come disimballare, montare su rack e cablare l'hardware del dispositivo StorSimple 8100 prima di configurare e distribuire il dispositivo.
 
 ## <a name="unpack-your-storsimple-8100-device"></a>Disimballare il dispositivo StorSimple 8100
@@ -246,7 +246,7 @@ Per cablare la porta seriale, attenersi alla seguente procedura.
 Il dispositivo è ora collegato per l'alimentazione, l'accesso di rete e quello seriale. Il passaggio successivo prevede la configurazione del software e la distribuzione del dispositivo.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Informazioni su come [distribuire e configurare un dispositivo StorSimple locale](storsimple-deployment-walkthrough.md).
+Informazioni su come [distribuire e configurare un dispositivo StorSimple locale](storsimple-deployment-walkthrough-u2.md).
 
 
 
