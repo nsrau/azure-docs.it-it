@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 10/10/2016
-ms.author: brendalee
+ms.author: brendal
 translationtype: Human Translation
-ms.sourcegitcommit: 4febeb038f1007e1e20981d120debe4db1d7731a
-ms.openlocfilehash: dd511273e8ce3b9dd98b3d26534a9ddb7aee8ebf
+ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
+ms.openlocfilehash: 89aa44df74effec7da2eb008faf8f01dda0d27ca
 
 
 ---
 # <a name="azure-resource-manager"></a>Gestione risorse di Azure
-Per altre informazioni sui provider, le versioni API e gli schemi di Resource Manager, vedere [qui](../resource-manager-supported-services.md). Le tabelle seguenti elencano i servizi supportati in Azure per enti pubblici tramite Resource Manager.
+Per altre informazioni sui provider, le versioni API e gli schemi di Resource Manager, vedere [qui](../azure-resource-manager/resource-manager-supported-services.md). Le tabelle seguenti elencano i servizi supportati in Azure per enti pubblici tramite Resource Manager.
 
 ## <a name="compute"></a>Calcolo
 | Servizio | Gestione risorse abilitato |
@@ -45,7 +45,7 @@ Per altre informazioni sui provider, le versioni API e gli schemi di Resource Ma
 | Reti virtuali |Sì |
 | Gateway VPN |sì |
 
-## <a name="data-storage"></a>Dati e archiviazione
+## <a name="data--storage"></a>Dati e archiviazione
 | Servizio | Gestione risorse abilitato |
 | --- | --- |
 | DocumentDB |No |
@@ -56,7 +56,7 @@ Per altre informazioni sui provider, le versioni API e gli schemi di Resource Ma
 | SQL Data Warehouse |sì |
 | StorSimple |No |
 
-## <a name="web-mobile"></a>Web e dispositivi mobili
+## <a name="web--mobile"></a>Web e dispositivi mobili
 | Servizio | Gestione risorse abilitato |
 | --- | --- |
 | App per le API |Sì |
@@ -89,7 +89,7 @@ Per altre informazioni sui provider, le versioni API e gli schemi di Resource Ma
 | Hub IoT |No |
 | Hub di notifica |No |
 
-## <a name="media-cdn"></a>Supporti multimediali e CDN
+## <a name="media--cdn"></a>Supporti multimediali e CDN
 | Servizio | Gestione risorse abilitato |
 | --- | --- |
 | RETE CDN |No |
@@ -131,6 +131,6 @@ Per informazioni aggiuntive e aggiornamenti, sottoscrivere il <a href="https://b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

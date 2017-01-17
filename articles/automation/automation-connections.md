@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a4b1092ec4d7f4784e8f421fc633affce7f7185e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: efe77f2a98a64fbcea0880966dfad2e9e46da963
 
 
 ---
@@ -31,7 +31,7 @@ Quando si crea una connessione, è necessario specificare un *tipo di connession
 > 
 
 ## <a name="windows-powershell-cmdlets"></a>Cmdlet di Windows PowerShell
-I cmdlet della tabella seguente vengono usati per creare e gestire connessioni di automazione con Windows PowerShell. Sono inclusi nel [modulo Azure PowerShell](../powershell-install-configure.md) , disponibile per l'uso nei runbook di Automazione e nelle configurazioni DSC.
+I cmdlet della tabella seguente vengono usati per creare e gestire connessioni di automazione con Windows PowerShell. Sono inclusi nel [modulo Azure PowerShell](/powershell/azureps-cmdlets-docs) , disponibile per l'uso nei runbook di Automazione e nelle configurazioni DSC.
 
 | Cmdlet | Descrizione |
 |:--- |:--- |
@@ -117,6 +117,6 @@ La figura seguente mostra lo stesso esempio precedente ma usa il set di parametr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

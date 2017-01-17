@@ -1,12 +1,12 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Novatus | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Novatus.
+title: 'Esercitazione: Integrazione di Azure Active Directory con Novatus | Documentazione Microsoft'
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Novatus.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d2f13779-bdb7-4408-9738-be67ed3de4e5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f14f89b10145787bb2729f741ce8620238a7f246
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-novatus"></a>Esercitazione: Integrazione di Azure Active Directory con Novatus
+# <a name="tutorial-azure-active-directory-integration-with-novatus"></a>Esercitazione: Integrazione di Azure Active Directory con Novatus
 Questa esercitazione descrive l'integrazione di Novatus con Azure Active Directory (Azure AD).
 
 L'integrazione di Novatus con Azure AD offre i vantaggi seguenti:
@@ -234,6 +238,6 @@ Quando si fa clic sul riquadro Novatus nel pannello di accesso, si dovrebbe acce
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

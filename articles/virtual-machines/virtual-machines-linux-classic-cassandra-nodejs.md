@@ -13,20 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: hanuk;robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 57c4eb16fbb0e3038c1a5988a8ae9b04a56f99cb
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: cc20606655321826f24ffeab80920a8a4caaf50d
 
 
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Esecuzione di Cassandra con Linux in Azure e accesso da Node.js
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Vedere i modelli di Resource Manager per cluster [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) e [Spark e Cassandra in CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
 
-Vedere i modelli di Resource Manager per cluster [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) e [Spark e Cassandra in CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
-
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Microsoft Azure è una piattaforma cloud aperta che esegue software sia Microsoft che non Microsoft, inclusi sistemi operativi, server applicazioni, middleware di messaggistica, oltre a database SQL e NoSQL da modelli sia commerciali che open source. La compilazione di servizi resilienti su cloud pubblici, incluso Azure, richiede un'attenta pianificazione e un'architettura mirata sia per i server applicazioni che per i livelli di archiviazione. L'architettura di archiviazione distribuita di Cassandra aiuta a compilare con facilità sistemi a disponibilità elevata a tolleranza di errore del cluster. Cassandra è un database NoSQL con scalabilità cloud gestito da Apache Software Foundation all'indirizzo cassandra.apache.org. Cassandra, essendo scritto in Java, viene eseguito su piattaforme sia Windows che Linux.
 
 Lo scopo di questo articolo è mostrare la distribuzione di Cassandra in Ubuntu come cluster di uno solo o di più data center sfruttando le macchine virtuali di Microsoft Azure e le reti virtuali. La distribuzione del cluster per i carichi di lavoro ottimizzati per la produzione esula dall'ambito di questo articolo perché richiede una configurazione nodi a più dischi, una progettazione appropriata della topologia ad anello e la modellazione dati per supportare i requisiti necessari di replica, coerenza dei dati, velocità effettiva e disponibilità elevata.
@@ -689,6 +688,6 @@ Microsoft Azure è una piattaforma flessibile che consente di eseguire software 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/10/2016
 ms.author: nicking
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d2095543e6cb964c9f1aa036c62e9ff6f80dc7c3
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: 172b55a68662dd98c4af946d51f3ece51f7835e1
 
 
 ---
@@ -49,7 +49,7 @@ L'URL di firma di accesso condiviso può essere generato con PowerShell. Di segu
         $sasUrl = New-AzureStorageContainerSASToken -Name $blobContainerName -Permission rwdl -Context $context -ExpiryTime (Get-Date).AddMonths(1) -FullUri
 
 ## <a name="install-azure-powershell-132-or-greater"></a>Installare Azure PowerShell 1.3.2 o versioni successive
-Per istruzioni sull'installazione e sull'uso di Azure PowerShell, vedere [Uso di Azure PowerShell con Azure Resource Manager](../powershell-install-configure.md) .
+Per istruzioni sull'installazione e sull'uso di Azure PowerShell, vedere [Uso di Azure PowerShell con Azure Resource Manager](/powershell/azureps-cmdlets-docs) .
 
 ## <a name="create-a-backup"></a>Creare un backup
 Usare il cmdlet New-AzureRmWebAppBackup per creare un backup di un'app Web.
@@ -154,6 +154,6 @@ Per eliminare un backup, usare il cmdlet Remove-AzureRmWebAppBackup. Il backup v
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

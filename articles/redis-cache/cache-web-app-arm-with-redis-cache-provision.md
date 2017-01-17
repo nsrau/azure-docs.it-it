@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4c8982461142223f0b339fa542b0bfb6b4ce68a8
+ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
+ms.openlocfilehash: a58aa47c21b34f3b54877bb12ceb1b6e20953ea7
 
 
 ---
@@ -43,7 +43,7 @@ Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 [!INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
 ## <a name="variables-for-names"></a>Variabili per i nomi
-Questo modello si serve di variabili per costruire i nomi delle risorse. Tramite la funzione [uniqueString](../resource-group-template-functions.md#uniquestring) viene creato un valore in base all'ID del gruppo di risorse.
+Questo modello si serve di variabili per costruire i nomi delle risorse. Tramite la funzione [uniqueString](../azure-resource-manager/resource-group-template-functions.md#uniquestring) viene creato un valore in base all'ID del gruppo di risorse.
 
     "variables": {
       "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -58,7 +58,7 @@ Questo modello si serve di variabili per costruire i nomi delle risorse. Tramite
 ### <a name="redis-cache"></a>Cache Redis
 Crea la Cache Redis di Azure che viene utilizzata con l'app Web. Il nome della cache è specificato nella variabile **cacheName** .
 
-Il modello crea la cache nella stessa posizione in cui si trova il gruppo di risorse. 
+Il modello crea la cache nella stessa posizione in cui si trova il gruppo di risorse.
 
     {
       "name": "[variables('cacheName')]",
@@ -128,8 +128,6 @@ Si noti che l'app Web è configurata con proprietà di impostazione dell’app c
 
 
 
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

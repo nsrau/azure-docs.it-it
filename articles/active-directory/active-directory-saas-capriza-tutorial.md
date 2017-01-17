@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 11/30/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c16e1e10b721ac80c27f97223b4dbd975954fa01
+ms.sourcegitcommit: 1a2ff324cfa65977685f6a0eee9cd398b0717519
+ms.openlocfilehash: 1dd99c8fb989921a4d0b6f0b1545a1cf67fb6902
 
 
 ---
@@ -155,17 +155,17 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
     c. Fare clic su **Avanti**.
 6. Nella pagina **Profilo utente** seguire questa procedura:
    
-   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_06.png) 
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_06.png) 
    
-   a. Nella casella di testo **Nome** digitare **Britta**.  
+    a. Nella casella di testo **Nome** digitare **Britta**.  
    
-   b. Nella casella di testo **Cognome** digitare **Simon**.
+    b. Nella casella di testo **Cognome** digitare **Simon**.
    
-   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+    c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
    
-   d. Nell'elenco **Ruolo** selezionare **Utente**.
+    d. Nell'elenco **Ruolo** selezionare **Utente**.
    
-   e. Fare clic su **Avanti**.
+    e. Fare clic su **Avanti**.
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_07.png) 
@@ -236,6 +236,6 @@ Quando si fa clic sul riquadro Capriza nel pannello di accesso, si dovrebbe acce
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

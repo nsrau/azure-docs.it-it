@@ -1,12 +1,12 @@
 ---
 title: Distribuire e gestire hub di notifica tramite PowerShell
-description: Come creare e gestire Hub di notifica utilizzando PowerShell per l'automazione
+description: Come creare e gestire Hub di notifica utilizzando PowerShell per l&quot;automazione
 services: notification-hubs
-documentationcenter: ''
+documentationcenter: 
 author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7c58f2c8-0399-42bc-9e1e-a7f073426451
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: powershell
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 4db058e4bd91dc287b14e887abc6c378c65c4a2b
+
 
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Distribuire e gestire hub di notifica tramite PowerShell
@@ -34,7 +38,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 * Un computer con Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell].
 * Conoscenza generale degli script di PowerShell, dei pacchetti NuGet e di .NET Framework.
 
-## <a name="including-a-reference-to-the-.net-assembly-for-service-bus"></a>Inclusione di un riferimento all'assembly .NET per il bus di servizio
+## <a name="including-a-reference-to-the-net-assembly-for-service-bus"></a>Inclusione di un riferimento all'assembly .NET per il bus di servizio
 La gestione degli hub di notifica di Azure non è ancora inclusa con i cmdlet PowerShell di Azure PowerShell. Per eseguire il provisioning degli hub di notifica, è possibile utilizzare il client .NET nel [pacchetto NuGet degli hub di notifica di Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 Innanzitutto, assicurarsi che lo script sia in grado di individuare l'assembly **Microsoft.Azure.NotificationHubs.dll** , che viene installato con il pacchetto NuGet in un progetto Visual Studio. Per essere flessibile, lo script esegue i passaggi seguenti:
@@ -152,8 +156,8 @@ Sono disponibili per il download anche alcuni script predefiniti:
 
 [Opzioni di acquisto]: http://azure.microsoft.com/pricing/purchase-options/
 [Offerte per i membri]: http://azure.microsoft.com/pricing/member-offers/
-[versione di prova gratuita]: http://azure.microsoft.com/pricing/free-trial/
-[Come installare e configurare Azure PowerShell]: ../powershell-install-configure.md
+[Versione di valutazione gratuita]: http://azure.microsoft.com/pricing/free-trial/
+[Come installare e configurare Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [API .NET per Hub di notifica]: https://msdn.microsoft.com/library/azure/mt414893.aspx
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
@@ -162,6 +166,6 @@ Sono disponibili per il download anche alcuni script predefiniti:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

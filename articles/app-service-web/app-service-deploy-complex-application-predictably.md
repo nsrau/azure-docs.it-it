@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cb840bf9432fb03bb35db3fa082abde1f035d5eb
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a48fa69b198f832de8c0ee42564dfea15bd871c1
 
 
 ---
@@ -46,7 +46,7 @@ Per altre informazioni sui modelli di Gestione risorse di Azure, vedere [Creazio
 ### <a name="azure-sdk-26-for-visual-studio"></a>Azure SDK 2.6 per Visual Studio
 L'SDK più recente include miglioramenti a livello di supporto per i modelli di Gestione risorse di Azure nell'editor JSON. È possibile usarlo per creare rapidamente da zero un modello di gruppo di risorse o aprire un modello JSON esistente (ad esempio, un modello della raccolta scaricato) per modificarlo, popolare il file di parametri e distribuire il gruppo di risorse direttamente da una soluzione del gruppo di risorse di Azure.
 
-Per altre informazioni, vedere [Azure SDK 2.6 per Visual Studio](/blog/2015/04/29/announcing-the-azure-sdk-2-6-for-net/).
+Per altre informazioni, vedere [Azure SDK 2.6 per Visual Studio](https://azure.microsoft.com/blog/2015/04/29/announcing-the-azure-sdk-2-6-for-net/).
 
 ### <a name="azure-powershell-080-or-later"></a>Azure PowerShell 0.8.0 o versione successiva
 A partire dalla versione 0.8.0, l'installazione di Azure PowerShell include il modulo Gestione risorse di Azure, oltre al modulo Azure. Il nuovo modulo permette di creare script per la distribuzione di gruppi di risorse.
@@ -57,7 +57,7 @@ Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di 
 Questo [strumento in anteprima](https://resources.azure.com) consente di esplorare le definizioni JSON di tutti i gruppi di risorse nella sottoscrizione e delle singole risorse. Con lo strumento è possibile modificare le definizioni JSON di una risorsa, eliminare l'intera gerarchia di risorse e crearne di nuove.  Le informazioni immediatamente disponibili nello strumento sono molto utili per la modifica del modello, perché mostrano quali proprietà è necessario impostare per un tipo di risorsa particolare, i valori corretti e così via. È anche possibile creare un gruppo di risorse personalizzato nel [Portale di Azure](https://portal.azure.com/) e ispezionarne quindi le definizioni JSON nello strumento di esplorazione per creare un modello del gruppo di risorse.
 
 ### <a name="deploy-to-azure-button"></a>Pulsante Deploy to Azure per la distribuzione in Azure
-Se si usa GitHub per il controllo del codice sorgente, è possibile inserire nel file README.MD un [pulsante Deploy to Azure](/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) , che abilita un'interfaccia utente di distribuzione in Azure pronta all'uso. Mentre si può procedere in questo modo per qualsiasi app Web semplice, è possibile estendere questa opzione per abilitare la distribuzione di un intero gruppo di risorse inserendo un file azuredeploy.json nella radice del repository. Questo file JSON, che contiene il modello di gruppo di risorse, verrà usato dal pulsante Deploy to Azure per creare il gruppo di risorse. Per un esempio vedere [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) , l'app di esempio che verrà usata in questa esercitazione.
+Se si usa GitHub per il controllo del codice sorgente, è possibile inserire nel file README.MD un [pulsante Deploy to Azure](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) , che abilita un'interfaccia utente di distribuzione in Azure pronta all'uso. Mentre si può procedere in questo modo per qualsiasi app Web semplice, è possibile estendere questa opzione per abilitare la distribuzione di un intero gruppo di risorse inserendo un file azuredeploy.json nella radice del repository. Questo file JSON, che contiene il modello di gruppo di risorse, verrà usato dal pulsante Deploy to Azure per creare il gruppo di risorse. Per un esempio vedere [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) , l'app di esempio che verrà usata in questa esercitazione.
 
 ## <a name="get-the-sample-resource-group-template"></a>Ottenere il modello del gruppo di risorse di esempio
 Ecco come scaricarlo.
@@ -275,6 +275,6 @@ Scoprire come [applicare facilmente le metodologie Agile e la pubblicazione cont
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
