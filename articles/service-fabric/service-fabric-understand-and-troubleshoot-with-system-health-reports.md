@@ -1,19 +1,23 @@
 ---
-title: Risoluzione dei problemi con i report sull'integrità del sistema | Microsoft Docs
-description: Descrive i report di integrità inviati dai componenti dell’Infrastruttura dei servizi di Azure e il relativo utilizzo per la risoluzione dei problemi del cluster o dei problemi delle applicazioni.
+title: "Risoluzione dei problemi con i report sull&quot;integrità del sistema | Documentazione Microsoft"
+description: "Descrive i report di integrità inviati dai componenti dell’Infrastruttura dei servizi di Azure e il relativo utilizzo per la risoluzione dei problemi del cluster o dei problemi delle applicazioni."
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 52574ea7-eb37-47e0-a20a-101539177625
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2016
+ms.date: 01/12/2017
 ms.author: oanapl
+translationtype: Human Translation
+ms.sourcegitcommit: d20b8d5848d1a11326c60d998099571a4ab8056e
+ms.openlocfilehash: 0306b8c38a7dd86dff56f6cc7bb9eab7e0428762
+
 
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usare i report sull'integrità del sistema per la risoluzione dei problemi
@@ -54,7 +58,7 @@ Il report specifica il timeout di lease globale come durata (TTL). Il report vie
 ## <a name="node-system-health-reports"></a>Report sull'integrità del sistema di nodi
 **System.FM**, che rappresenta il servizio Gestione failover, è l'autorità che gestisce le informazioni sui nodi del cluster. Ogni nodo deve avere un report generato da System.FM che mostra il relativo stato. Le entità nodo vengono rimosse quando viene rimosso lo stato del nodo (vedere [RemoveNodeStateAsync](https://msdn.microsoft.com/library/azure/mt161348.aspx)).
 
-### <a name="node-up/down"></a>Nodo attivo/inattivo
+### <a name="node-updown"></a>Nodo attivo/inattivo
 System.FM restituisce OK quando il nodo viene aggiunto all'anello, ovvero è operativo. Segnala un errore quando il nodo non fa più parte dell'anello, ovvero è inattivo perché è in corso un aggiornamento o semplicemente perché si è verificato un errore. La gerarchia di integrità creata dall'archivio integrità agisce sulle entità distribuite in correlazione con i report sui nodi di System.FM. Considera il nodo un elemento padre virtuale di tutte le entità distribuite. Le entità distribuite in tale nodo vengono esposte tramite query se il nodo è segnalato come attivo da System.FM, con la stessa istanza associata alle entità. Quando System.FM segnala che il nodo è inattivo o riavviato (nuova istanza), l'archivio integrità elimina automaticamente le entità distribuite eventualmente esistenti solo nel nodo inattivo o nell'istanza precedente del nodo.
 
 * **SourceId**: System.FM
@@ -678,6 +682,9 @@ HealthEvents          :
 
 [Aggiornamento di un'applicazione di infrastruttura di servizi](service-fabric-application-upgrade.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO2-->
 
 

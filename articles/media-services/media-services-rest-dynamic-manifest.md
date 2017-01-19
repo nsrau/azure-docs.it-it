@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/10/2017
 ms.author: juliako;cenkdin
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 5483304fd0f912dc2ab921253813f8fd6d3945f7
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: e10c7b29469f9756803aaba64596bf86830893fa
 
 
 ---
@@ -36,10 +36,10 @@ Questo argomento illustra come usare le API REST per creare, aggiornare ed elimi
 ## <a name="types-used-to-create-filters"></a>Tipi usati per la creazione dei filtri
 Durante la creazione dei filtri vengono usati i tipi seguenti:  
 
-* [Filter](http://msdn.microsoft.com/library/azure/mt149056.aspx)
-* [AssetFilter](http://msdn.microsoft.com/library/azure/mt149053.aspx)
-* [PresentationTimeRange](http://msdn.microsoft.com/library/azure/mt149052.aspx)
-* [FilterTrackSelect e FilterTrackPropertyCondition](http://msdn.microsoft.com/library/azure/mt149055.aspx)
+* [Filter](https://docs.microsoft.com/rest/api/media/operations/filter)
+* [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
+* [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
+* [FilterTrackSelect e FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
 > [!NOTE]
 > Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
@@ -341,6 +341,6 @@ Gli esempi seguenti illustrano come aggiungere filtri agli URL di streaming.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 
