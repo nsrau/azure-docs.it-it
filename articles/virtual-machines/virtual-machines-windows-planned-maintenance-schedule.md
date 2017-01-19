@@ -2,12 +2,12 @@
 title: Come pianificare la manutenzione per le macchine virtuali di Azure | Microsoft Docs
 description: Informazioni su come pianificare la manutenzione nelle VM di Azure.
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: igalf
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: ab33e5da-6bb6-4e95-a7a6-a6303d21b15c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2016
 ms.author: igalf
+translationtype: Human Translation
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 2bb49a5533b2aef9cb22f5d0abd1862ad4274da4
+
 
 ---
-# Come pianificare la manutenzione nelle VM di Azure
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+# <a name="how-to-schedule-planned-maintenance-on-azure-vms"></a>Come pianificare la manutenzione nelle VM di Azure
+> [!IMPORTANT] 
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per informazioni sulla manutenzione pianificata nel modello di Resource Manager, vedere [qui](virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-planned-maintenance-schedule](../../includes/virtual-machines-common-planned-maintenance-schedule.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+
+<!--HONumber=Dec16_HO1-->
+
+

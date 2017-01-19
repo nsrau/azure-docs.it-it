@@ -8,6 +8,7 @@ author: ddove
 editor: 
 ms.assetid: d15a2e3f-5adf-41f0-95fa-4b945448e184
 ms.service: sql-database
+ms.custom: sharded databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,8 +16,8 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 95232dff95c3f2593d16719492f480b44be9f525
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: aa234364a8277154e486b8eca79ec30ccaa9fb0d
 
 
 ---
@@ -106,6 +107,6 @@ Per visualizzare le specifiche del pool dei database elastici, vedere [Price and
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: jimpark;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: ee95dd7f96adcb2a271f3bddf56a4b6c85c4afd5
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 41d02237708517c782d64aeadcafd053fcd6523d
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: ee95dd7f96adcb2a271f3bddf56a4b6c85c4afd5
 
 In questo articolo è disponibile una panoramica delle attività di gestione dei backup disponibili tramite il portale di Azure classico e l'agente di Backup di Microsoft Azure.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT]
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
 
 ## <a name="management-portal-tasks"></a>Attività del portale di gestione
 1. Accedere al [portale di gestione](https://manage.windowsazure.com).
@@ -195,6 +196,6 @@ Per abilitare la limitazione della larghezza di banda della rete:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

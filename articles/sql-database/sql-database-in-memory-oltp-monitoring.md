@@ -13,26 +13,26 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 12/19/2016
 ms.author: jodebrui
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 475af239e4c77626d4c069f1238bc32d3b440a0e
+ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
+ms.openlocfilehash: 86b2358b045bd5bc0c9f4fc2674efd03b098212f
 
 
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Monitorare l'archiviazione OLTP in memoria
-Quando si usa [OLTP in memoria](sql-database-in-memory.md), i dati nelle tabelle con ottimizzazione per la memoria e le variabili di tabella si trovano nell'archiviazione OLTP in memoria. Ogni livello di servizio Premium ha dimensioni di archiviazione OLTP in memoria massime documentate nell'articolo [Livelli di servizio del database SQL](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels). Dopo il superamento di questo limite, è possibile che le operazioni di inserimento e aggiornamento abbiano esito negativo con errore 41823. Sarà quindi necessario eliminare dati per recuperare memoria oppure aggiornare il livello di prestazioni del database.
+Quando si usa [OLTP in memoria](sql-database-in-memory.md), i dati nelle tabelle con ottimizzazione per la memoria e le variabili di tabella si trovano nell'archiviazione OLTP in memoria. Ogni livello di servizio Premium ha dimensioni di archiviazione OLTP in memoria massime documentate nell'articolo [Livelli di servizio del database SQL](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels). Dopo il superamento di questo limite, è possibile che le operazioni di inserimento e aggiornamento abbiano esito negativo con errore 41823. Sarà quindi necessario eliminare dati per recuperare memoria oppure aggiornare il livello di prestazioni del database.
 
 ## <a name="determine-whether-data-will-fit-within-the-in-memory-storage-cap"></a>Determinare se i dati rientreranno nel limite di archiviazione in memoria
-Determinare il limite di archiviazione: consultare l'articolo [Livelli di servizio del database SQL](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) per informazioni sui limiti di archiviazione dei diversi livelli di servizio Premium.
+Determinare il limite di archiviazione: consultare l'articolo [Livelli di servizio del database SQL](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) per informazioni sui limiti di archiviazione dei diversi livelli di servizio Premium.
 
 La stima dei requisiti di memoria per una tabella con ottimizzazione per la memoria in SQL Server è analoga alla stima eseguita nel database SQL di Azure. È consigliabile rivedere l'argomento corrispondente su [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 
 Si noti che la tabella e le righe di variabili tabella, oltre agli indici, vengono incluse nel calcolo delle dimensioni massime dei dati utente. ALTER TABLE, inoltre, necessita di spazio sufficiente per creare una nuova versione dell'intera tabella e dei relativi indici.
 
 ## <a name="monitoring-and-alerting"></a>Monitoraggio e avviso
-È possibile monitorare l'uso dell'archiviazione in memoria come percentuale del [limite di archiviazione per il livello di prestazioni](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) nel [portale](https://portal.azure.com/) di Azure: 
+È possibile monitorare l'uso dell'archiviazione in memoria come percentuale del [limite di archiviazione per il livello di prestazioni](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) nel [portale](https://portal.azure.com/) di Azure: 
 
 * Nel pannello Database individuare la casella Utilizzo risorse e fare clic su Modifica.
 * Quindi selezionare la metrica `In-Memory OLTP Storage percentage`.
@@ -58,6 +58,6 @@ Altre informazioni sul [Monitoraggio del database SQL di Azure tramite le visual
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

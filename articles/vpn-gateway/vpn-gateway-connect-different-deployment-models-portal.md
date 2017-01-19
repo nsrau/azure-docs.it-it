@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/03/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 7834aefeb9eb007ffa9daf708250c9f06ec05e67
-ms.openlocfilehash: 96c709d8df311e649a2f8fe9dc177d43615c65ad
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 2c6ffb6c175612c57ddff3a71b2c7a1855c52348
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: 96c709d8df311e649a2f8fe9dc177d43615c65ad
 > 
 > 
 
-Azure offre attualmente due modelli di gestione: classico e Resource Manager. Se si usa Azure da qualche tempo, si dispone probabilmente di VM e istanze del ruolo di Azure in esecuzione su una rete virtuale classica. Le macchine virtuali e le istanze del ruolo più recenti potrebbero invece essere in esecuzione su una rete virtuale creata in Resource Manager. Questo articolo descrive come connettere le reti virtuali classiche alle reti virtuali di Resource Manager per consentire alle risorse presenti nei modelli di distribuzione separati di comunicare tra di loro tramite una connessione gateway. 
+Azure offre attualmente due modelli di gestione: classico e Resource Manager. Se si usa Azure da qualche tempo, si dispone probabilmente di VM e istanze del ruolo di Azure in esecuzione su una rete virtuale classica. Le macchine virtuali e le istanze del ruolo più recenti potrebbero invece essere in esecuzione su una rete virtuale creata in Resource Manager. Questo articolo descrive come connettere le reti virtuali classiche alle reti virtuali di Resource Manager per consentire alle risorse presenti nei modelli di distribuzione separati di comunicare tra di loro tramite una connessione gateway.
 
 È possibile creare una connessione tra reti virtuali in sottoscrizioni diverse e in aree diverse. È anche possibile connettere reti virtuali che già dispongono di connessioni alle reti locali, purché il gateway con cui sono state configurate sia dinamico o basato su route. Per altre informazioni sulle connessioni da rete virtuale a rete virtuale, vedere la sezione [Domande frequenti relative alla connessione da rete virtuale a rete virtuale](#faq) alla fine di questo articolo.
 
@@ -53,7 +53,7 @@ In questo articolo vengono usati il portale classico, il portale di Azure e Powe
 ### <a name="prerequisites"></a>Prerequisiti
 * Entrambe le reti virtuali sono già state create.
 * Gli intervalli di indirizzi per le reti virtuali non si sovrappongono l'uno con l'altro o non si sovrappongano con gli intervalli delle eventuali altre connessioni a cui i gateway potrebbero essere collegati.
-* Sono stati installati i cmdlet di PowerShell più recenti (versione 1.0.2 o successive). Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) . Assicurarsi di installare sia i cmdlet di Gestione dei servizi (SM) che i cmdlet di Resource Manager (RM). 
+* Sono stati installati i cmdlet di PowerShell più recenti (versione 1.0.2 o successive). Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) . Assicurarsi di installare sia i cmdlet di Gestione dei servizi (SM) che i cmdlet di Resource Manager (RM). 
 
 ### <a name="a-namevaluesaexample-settings"></a><a name="values"></a>Impostazioni di esempio
 È possibile usare le impostazioni di esempio come riferimento.
@@ -185,6 +185,6 @@ Visualizzare i dettagli delle frequenti per altre informazioni sulle connessioni
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 7834aefeb9eb007ffa9daf708250c9f06ec05e67
-ms.openlocfilehash: 5aa628ce651c3d768f461f5bcea2c63d693f091e
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 42cc83b058f504ba5eb7a918fbcc775f14c632fd
 
 
 ---
@@ -49,7 +49,7 @@ I passaggi seguenti illustrano le impostazioni necessarie per configurare un gat
 ### <a name="prerequisites"></a>Prerequisiti
 * Entrambe le reti virtuali sono già state create.
 * Gli intervalli di indirizzi per le reti virtuali non si sovrappongono l'uno con l'altro o non si sovrappongano con gli intervalli delle eventuali altre connessioni a cui i gateway potrebbero essere collegati.
-* Sono stati installati i cmdlet di PowerShell più recenti (versione 1.0.2 o successive). Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) . Assicurarsi di installare sia i cmdlet di Gestione dei servizi (SM) che i cmdlet di Resource Manager (RM). 
+* Sono stati installati i cmdlet di PowerShell più recenti (versione 1.0.2 o successive). Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) . Assicurarsi di installare sia i cmdlet di Gestione dei servizi (SM) che i cmdlet di Resource Manager (RM). 
 
 ### <a name="a-nameexamplerefaexample-settings"></a><a name="exampleref"></a>Impostazioni di esempio
 È possibile usare le impostazioni di esempio come riferimento.
@@ -256,6 +256,6 @@ Visualizzare i dettagli delle frequenti per altre informazioni sulle connessioni
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

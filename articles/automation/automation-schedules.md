@@ -1,19 +1,23 @@
 ---
-title: Pianificazioni in Automazione di Azure | Microsoft Docs
-description: Le pianificazioni di Automazione di Azure vengono usate per pianificare l'esecuzione automatica dei runbook in Automazione di Azure. Illustra come creare e gestire una pianificazione in modo da poter avviare automaticamente un runbook a una determinata ora o in base a una pianificazione ricorrente.
+title: Pianificazioni in Automazione di Azure | Documentazione Microsoft
+description: Le pianificazioni di Automazione di Azure vengono usate per pianificare l&quot;esecuzione automatica dei runbook in Automazione di Azure. Illustra come creare e gestire una pianificazione in modo da poter avviare automaticamente un runbook a una determinata ora o in base a una pianificazione ricorrente.
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 1c2da639-ad20-4848-920b-88e471b2e1d9
 ms.service: automation
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: mgoedtel
+ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d12b1522e1935e4e9ebefd1a49fdfda8b339286c
+
 
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Pianificazione di un runbook in Automazione di Azure
@@ -25,7 +29,7 @@ Per pianificare un runbook in Automazione di Azure per l'avvio a un'ora specific
 > 
 
 ## <a name="windows-powershell-cmdlets"></a>Cmdlet di Windows PowerShell
-I cmdlet della tabella seguente vengono usati per creare e gestire pianificazioni con Windows PowerShell in Automazione di Azure. Vengono forniti nel [modulo Azure PowerShell](../powershell-install-configure.md).
+I cmdlet della tabella seguente vengono usati per creare e gestire pianificazioni con Windows PowerShell in Automazione di Azure. Vengono forniti nel [modulo Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 | Cmdlet | Descrizione |
 |:--- |:--- |
@@ -162,6 +166,9 @@ I comandi di esempio seguenti mostrano come disabilitare una pianificazione usan
 ## <a name="next-steps"></a>Passaggi successivi
 * Per iniziare a usare i runbook in Automazione di Azure, vedere [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md) 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

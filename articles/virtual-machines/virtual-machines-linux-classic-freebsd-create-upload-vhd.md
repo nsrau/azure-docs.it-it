@@ -16,17 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: kyliel
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: d988b30457e1882a90ce6aac4efaf87a0d71c858
+ms.sourcegitcommit: 94afcefe2e6f2b51914993f7219f5e0fd2466ead
+ms.openlocfilehash: 321ea57a292bfcc74732d600c35703484bf6d23f
 
 
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Creare e caricare un disco rigido virtuale con FreeBSD in Azure
 Questo articolo descrive come creare e caricare un disco rigido virtuale (VHD) che contiene il sistema operativo FreeBSD. Dopo il caricamento, è possibile usarlo come immagine personalizzata per creare una macchina virtuale in Azure.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Per informazioni sul caricamento di un disco rigido virtuale usando il modello di Resource Manager, vedere [qui](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!IMPORTANT] 
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per informazioni sul caricamento di un disco rigido virtuale usando il modello di Resource Manager, vedere [qui](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="prerequisites"></a>Prerequisiti
 In questo articolo si presuppone che l'utente disponga degli elementi seguenti:
@@ -177,7 +176,7 @@ Prima di poter caricare un file VHD, è necessario stabilire una connessione sic
 
    Per altre informazioni, vedere [Iniziare a usare i cmdlet di Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
 
-   Per altre informazioni sull'installazione e la configurazione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+   Per altre informazioni sull'installazione e la configurazione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="step-4-upload-the-vhd-file"></a>Passaggio 4: caricare il file VHD
 È possibile caricare il file VHD in qualsiasi posizione all'interno dell'archivio BLOB. Di seguito sono riportati alcuni termini che saranno quando si carica il file:
@@ -215,6 +214,6 @@ Dopo avere caricato il file VHD, è possibile aggiungerlo come immagine all'elen
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 
