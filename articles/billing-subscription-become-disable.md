@@ -5,7 +5,7 @@ keywords: sottoscrizione di Azure disabilitata
 services: 
 documentationcenter: 
 author: genlin
-manager: mbaldwin
+manager: narmstr
 editor: 
 tags: billing
 ms.assetid: 4529d685-3a87-49d9-8d7a-49baad552d76
