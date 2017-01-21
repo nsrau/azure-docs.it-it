@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 12/01/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: d5169c25d09966ca72ee49ca995a8453ad764177
-ms.openlocfilehash: 0e136d81ee3dbe57785d136755d3e800041aca1f
+ms.sourcegitcommit: 8368622c5b531cc2a4fe97359d40d95d7b4a2e90
+ms.openlocfilehash: 75b762d25910c402f475cc54a46c3c4c5839a11f
 
 
 ---
