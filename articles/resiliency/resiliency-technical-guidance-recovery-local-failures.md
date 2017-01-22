@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: e3e07066d5fc8fd9ceb45cb4b397e7a1e2869c38
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 6df92e3c43a9e7ae2e13f21b05cbb94088c46516
 
 
 ---
@@ -128,13 +128,13 @@ Per fare in modo che le macchine virtuali dei servizi cloud di Azure distribuite
 ### <a name="azure-only-high-availability-solutions"></a>Solo Azure: soluzioni a disponibilità elevata
 È possibile disporre di una soluzione a disponibilità elevata per i database di SQL Server in Azure tramite i gruppi di disponibilità AlwaysOn o il mirroring del database.
 
-La figura seguente illustra l'architettura di Gruppi di disponibilità AlwaysOn in esecuzione in macchine virtuali di Azure. Questa figura è tratta dall'articolo di approfondimento sull'argomento [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+La figura seguente illustra l'architettura di Gruppi di disponibilità AlwaysOn in esecuzione in macchine virtuali di Azure. Questa figura è tratta dall'articolo di approfondimento sull'argomento [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md).
 
 ![Gruppi di disponibilità AlwaysOn in Microsoft Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-1.png)
 
 È anche possibile effettuare automaticamente il provisioning della distribuzione di un gruppo di disponibilità AlwaysOn end-to-end in VM di Azure usando il modello AlwaysOn nel portale di Azure. Per altre informazioni, vedere l' [offerta di SQL Server AlwaysOn nella raccolta del portale di Microsoft Azure](https://blogs.technet.microsoft.com/dataplatforminsider/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery/).
 
-La figura seguente illustra l'uso del mirroring del database nelle macchine virtuali di Azure. Anche questa figura è tratta dall'argomento di approfondimento [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+La figura seguente illustra l'uso del mirroring del database nelle macchine virtuali di Azure. Anche questa figura è tratta dall'argomento di approfondimento [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md).
 
 ![Mirroring del database in Microsoft Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-2.png)
 
@@ -197,6 +197,6 @@ Questo articolo fa parte della serie [Materiale sussidiario sulla resilienza di 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

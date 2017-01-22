@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 01/11/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 61a73b69fe88263910b854ac34a8cd7aa472b0c2
-ms.openlocfilehash: f244b0c9ae81cedbad35f02043fbeedc6f964dd0
+ms.sourcegitcommit: 6d53de158a44116058ab8241d5182414f8f306fb
+ms.openlocfilehash: 243e81ecd1e1648bfd6b2ca6e6268ea1a18d2036
 
 
 ---
@@ -123,7 +123,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_04.png) 
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Atlassian Cloud adottando il modello seguente: `https://<company name>.predictix.com/sso/request`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Atlassian Cloud adottando il modello seguente: `https://<instancename>.atlassian.net`
     
     b. Nella casella di testo **Identificatore** digitare l'URL usando il modello seguente: `https://id.atlassian.com/login`
 
@@ -335,6 +335,6 @@ Quando si fa clic sul riquadro Atlassian Cloud nel pannello di accesso, si dovre
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

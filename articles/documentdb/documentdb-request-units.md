@@ -1,19 +1,23 @@
 ---
-title: Unità richiesta in DocumentDB | Microsoft Docs
-description: Informazioni su come comprendere, specificare e stimare i requisiti relativi alle unità richiesta in DocumentDB.
+title: "Unità richiesta in DocumentDB | Documentazione Microsoft"
+description: "Informazioni su come comprendere, specificare e stimare i requisiti relativi alle unità richiesta in DocumentDB."
 services: documentdb
 author: syamkmsft
 manager: jhubbard
 editor: mimig
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: d0a3c310-eb63-4e45-8122-b7724095c32f
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2016
+ms.date: 11/16/2016
 ms.author: syamk
+translationtype: Human Translation
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: 8b2d13dd16f629fbb2108856cd1e1b2954ece8bf
+
 
 ---
 # <a name="request-units-in-documentdb"></a>Unità richiesta in DocumentDB
@@ -35,6 +39,12 @@ Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 DocumentDB offre prestazioni veloci e prevedibili, *riservando* risorse per soddisfare le esigenze a livello di velocità effettiva dell'applicazione.  Poiché i modelli di carico e accesso dell'applicazione cambiano nel tempo, DocumentDB consente di aumentare o diminuire facilmente la quantità di velocità effettiva riservata disponibile per l'applicazione.
 
 Con DocumentDB la velocità effettiva riservata è specificata in termini di elaborazione di unità richiesta al secondo.  Si possono considerare le unità richiesta come una specie di valuta della velocità effettiva, secondo cui si *riserva* una quantità garantita di unità richiesta disponibili al secondo per l'applicazione.  Ogni operazione in DocumentDB, ovvero scrittura di un documento, esecuzione di una query, aggiornamento di un documento, utilizza CPU, memoria e operazioni di I/O al secondo.  In altre parole, ogni operazione comporta un *addebito richiesta* espresso in *unità richiesta*.  La conoscenza dei fattori che influiscono sugli addebiti delle unità richiesta, insieme ai requisiti di velocità effettiva dell'applicazione, consente di eseguire l'applicazione nel modo più economicamente conveniente possibile. 
+
+Si consiglia di iniziare guardando il video seguente, in cui Aravind Ramachandran illustra le unità richiesta e le prestazioni prevedibili con DocumentDB.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]
+> 
+> 
 
 ## <a name="specifying-request-unit-capacity"></a>Specifica della capacità delle unità richiesta
 Quando si crea una raccolta di DocumentDB, si specifica il numero di unità richiesta al secondo da riservare per la raccolta.  Dopo aver creato la raccolta, l'intera allocazione di unità richiesta specificata viene riservata all'uso da parte della raccolta.  A ogni raccolta è garantita la disponibilità di caratteristiche di velocità effettiva dedicate e isolate.  
@@ -114,50 +124,50 @@ Considerare il documento da ~1 KB seguente:
 
     {
      "id": "08259",
-    "description": "Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX",
-    "tags": [
+      "description": "Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX",
+      "tags": [
         {
-        "name": "cereals ready-to-eat"
+          "name": "cereals ready-to-eat"
         },
         {
-        "name": "kellogg"
+          "name": "kellogg"
         },
         {
-        "name": "kellogg's crispix"
+          "name": "kellogg's crispix"
         }
     ],
-    "version": 1,
-    "commonName": "Includes USDA Commodity B855",
-    "manufacturerName": "Kellogg, Co.",
-    "isFromSurvey": false,
-    "foodGroup": "Breakfast Cereals",
-    "nutrients": [
+      "version": 1,
+      "commonName": "Includes USDA Commodity B855",
+      "manufacturerName": "Kellogg, Co.",
+      "isFromSurvey": false,
+      "foodGroup": "Breakfast Cereals",
+      "nutrients": [
         {
-        "id": "262",
-        "description": "Caffeine",
-        "nutritionValue": 0,
-        "units": "mg"
+          "id": "262",
+          "description": "Caffeine",
+          "nutritionValue": 0,
+          "units": "mg"
         },
         {
-        "id": "307",
-        "description": "Sodium, Na",
-        "nutritionValue": 611,
-        "units": "mg"
+          "id": "307",
+          "description": "Sodium, Na",
+          "nutritionValue": 611,
+          "units": "mg"
         },
         {
-        "id": "309",
-        "description": "Zinc, Zn",
-        "nutritionValue": 5.2,
-        "units": "mg"
+          "id": "309",
+          "description": "Zinc, Zn",
+          "nutritionValue": 5.2,
+          "units": "mg"
         }
-    ],
-    "servings": [
+      ],
+      "servings": [
         {
-        "amount": 1,
-        "description": "cup (1 NLEA serving)",
-        "weightInGrams": 29
+          "amount": 1,
+          "description": "cup (1 NLEA serving)",
+          "weightInGrams": 29
         }
-    ]
+      ]
     }
 
 > [!NOTE]
@@ -199,7 +209,7 @@ Con queste informazioni è possibile stimare i requisiti relativi alle unità ri
 
 In questo caso, è previsto un requisito di velocità effettiva medio di 1.275 unità richiesta/secondo.  Arrotondando alle 100 più vicine, si dovrà effettuare il provisioning di 1.300 unità richiesta/secondo per la raccolta dell'applicazione.
 
-## <a name="<a-id="requestratetoolarge"></a>-exceeding-reserved-throughput-limits"></a><a id="RequestRateTooLarge"></a> Superamento dei limiti della velocità effettiva riservata
+## <a name="a-idrequestratetoolargea-exceeding-reserved-throughput-limits"></a><a id="RequestRateTooLarge"></a> Superamento dei limiti della velocità effettiva riservata
 Tenere presente che il consumo delle unità richiesta è valutato in base a una frequenza al secondo. Per le applicazioni che superano il livello di unità di richiesta con provisioning per una raccolta, le richieste a tale raccolta saranno limitate fino al ritorno del livello sotto il valore riservato. Nel caso di una limitazione, il server termina preventivamente la richiesta con RequestRateTooLargeException (codice di stato HTTP 429) e restituisce l'intestazione x-ms-retry-after-ms, che indica la quantità di tempo, in millisecondi, che l'utente deve attendere prima di eseguire di nuovo la richiesta.
 
     HTTP Status 429
@@ -214,7 +224,6 @@ Se più client operano collettivamente al di sopra della frequenza delle richies
 Per altre informazioni sulla velocità effettiva riservata con i database Azure DocumentDB, vedere queste risorse:
 
 * [Prezzi di DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/)
-* [Gestire la capacità e le prestazioni di DocumentDB](documentdb-manage.md) 
 * [Modellazione dei dati in DocumentDB](documentdb-modeling-data.md)
 * [Livelli di prestazioni in DocumentDB](documentdb-partition-data.md)
 
@@ -230,6 +239,6 @@ Per informazioni sulle attività iniziali relative al test delle prestazioni e d
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

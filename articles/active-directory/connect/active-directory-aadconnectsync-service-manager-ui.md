@@ -12,18 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 01/09/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9665a1bae782f4f77e28449cbdc7cbebdb780b3f
+ms.sourcegitcommit: 898b3d317aac7c1a3e5593e8c5ab5aaedee179e1
+ms.openlocfilehash: 06e738c2d81665baa4e21a574cdbd2997a17ff73
 
 
 ---
 # <a name="azure-ad-connect-sync-synchronization-service-manager"></a>Servizio di sincronizzazione Azure AD Connect: Synchronization Service Manager
-| [Operazioni](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Connectors (Connettori) (Connettori)](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Finestra di progettazione metaverse](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Ricerca metaverse](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) |
-| --- | --- | --- | --- |
-|  | | | |
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/ssmui.png)
 
@@ -41,7 +38,6 @@ Ulteriori informazioni su [Integrazione delle identità locali con Azure Active 
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

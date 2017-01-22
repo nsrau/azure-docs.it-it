@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b67594033bfa89fc6ff8d80dd064d766c4048a3b
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 09c4c9d43d6e29872ed6484b27334c8e9aa428b5
 
 
 ---
@@ -43,6 +43,7 @@ Questo argomento illustra come usare Servizi multimediali di Azure per crittogra
 >
 
 ## <a name="requirements-and-considerations"></a>Problemi e considerazioni
+
 * Se si usa AMS per distribuire contenuti HLS crittografati con FairPlay e licenze FairPlay, è necessario:
 
   * Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
@@ -162,8 +163,7 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
                 <add key="Audience" value="urn:test"/>
               </appSettings>
         </configuration>
-5. Ottenere almeno un'unità di streaming per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti. Per altre informazioni, vedere [Configurare gli endpoint di streaming](media-services-dotnet-get-started.md#configure-streaming-endpoints-using-the-azure-portal).
-6. Sovrascrivere il codice nel file Program.cs con il codice riportato in questa sezione.
+7. Sovrascrivere il codice nel file Program.cs con il codice riportato in questa sezione.
 
         using System;
         using System.Collections.Generic;
@@ -566,6 +566,6 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

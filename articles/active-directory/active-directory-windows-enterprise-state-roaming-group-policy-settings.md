@@ -1,3 +1,4 @@
+
 ---
 title: Impostazioni di Criteri di gruppo e MDM | Documentazione Microsoft
 description: "Fornisce informazioni sulle impostazioni di Criteri di gruppo e di gestione di dispositivi mobili che dovrebbero essere usate in dispositivi di proprietà aziendale. Questi criteri vengono applicati all&quot;intero dispositivo dell&quot;utente."
@@ -16,8 +17,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1b9e0ab4be96bec6deeaf50ec411c37b9379598a
+ms.sourcegitcommit: 6bdec7bf35bb4a233200def36c0e697baaf15fec
+ms.openlocfilehash: 5ca48cf3cc4b2f4d86463e36c73de47e386cff25
 
 
 ---
@@ -57,10 +58,11 @@ Le impostazioni di Criteri di gruppo sono applicabili ai dispositivi Windows 10 
 * [Abilitare Enterprise State Roaming in Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
 * [Domande frequenti su impostazioni e dati in roaming](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Riferimento alle impostazioni di roaming di Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
+* [Risoluzione dei problemi](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

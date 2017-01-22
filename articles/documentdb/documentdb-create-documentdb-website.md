@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2016
+ms.date: 12/08/2016
 ms.author: hawong
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ea624ffc9a33fe89aea065de8c96efd79d6c2b9a
+ms.sourcegitcommit: 08b101f42558280d8ffa690829570257d8d6deca
+ms.openlocfilehash: 6f519ac78d28fac69171b083f18d783cf1d9b24a
 
 
 ---
@@ -73,6 +73,7 @@ Si procederà a questo punto alla distribuzione del primo modello.
       
       ![Screenshot dell'interfaccia utente della distribuzione del modello](./media/documentdb-create-documentdb-website/TemplateDeployment4.png)
 5. Scegliere un gruppo di risorse esistente o fornire un nome per creare un nuovo gruppo di risorse, quindi selezionare la relativa posizione.
+
     ![Screenshot dell'interfaccia utente della distribuzione del modello](./media/documentdb-create-documentdb-website/TemplateDeployment5.png)
 6. Fare clic su **Rivedere le note legali**, **Acquista**, quindi su **Crea** per iniziare la distribuzione.  Selezionare **Aggiungi al dashboard** per rendere facilmente visibile la distribuzione ottenuta nella home page del portale di Azure.
    ![Screenshot dell'interfaccia utente della distribuzione del modello](./media/documentdb-create-documentdb-website/TemplateDeployment6.png)
@@ -113,6 +114,7 @@ Si procederà ora alla distribuzione del secondo modello.  Questo modello è uti
       
       ![Screenshot dell'interfaccia utente della distribuzione del modello](./media/documentdb-create-documentdb-website/TemplateDeployment4.png)
 5. Scegliere un gruppo di risorse esistente o fornire un nome per creare un nuovo gruppo di risorse, quindi selezionare la relativa posizione.
+
     ![Screenshot dell'interfaccia utente della distribuzione del modello](./media/documentdb-create-documentdb-website/TemplateDeployment5.png)
 6. Fare clic su **Rivedere le note legali**, **Acquista**, quindi su **Crea** per iniziare la distribuzione.  Selezionare **Aggiungi al dashboard** per rendere facilmente visibile la distribuzione ottenuta nella home page del portale di Azure.
    ![Screenshot dell'interfaccia utente della distribuzione del modello](./media/documentdb-create-documentdb-website/TemplateDeployment6.png)
@@ -121,6 +123,7 @@ Si procederà ora alla distribuzione del secondo modello.  Questo modello è uti
 8. Fare clic sulla risorsa dell'App Web nell'elenco delle risorse, quindi su **Impostazioni applicazione**
     ![Screenshot del gruppo di risorse](./media/documentdb-create-documentdb-website/TemplateDeployment9.png)  
 9. Notare la presenza di impostazioni dell'applicazione per l'endpoint di DocumentDB e per ognuna delle relative chiavi master.
+
     ![Screenshot delle impostazioni dell'applicazione](./media/documentdb-create-documentdb-website/TemplateDeployment10.png)  
 10. È possibile continuare a esplorare il portale di Azure o seguire uno degli [esempi](http://go.microsoft.com/fwlink/?LinkID=402386) di DocumentDB per creare la propria applicazione DocumentDB.
 
@@ -145,6 +148,6 @@ Congratulazioni. Si è completata la distribuzione di DocumentDB, di un'app Web 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

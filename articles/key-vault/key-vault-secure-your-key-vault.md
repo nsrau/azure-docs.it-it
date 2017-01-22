@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/07/2016
+ms.date: 01/07/2017
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5d58210a155666642cec8c180249c4e43b69fb9c
+ms.sourcegitcommit: 36e0a52013b8d12c7e66c5955756a61a2c72b7dc
+ms.openlocfilehash: c3507aed3cc44d6360b8ba3ddf172e1437c1227a
 
 
 ---
@@ -71,8 +71,8 @@ I controlli di accesso al piano di gestione e al piano dati funzionano in manier
 ## <a name="management-plane-access-control"></a>Controllo di accesso al piano di gestione
 Il piano di gestione è costituito da operazioni che interessano l'insieme di credenziali delle chiavi. È ad esempio possibile creare o eliminare un insieme di credenziali, ottenere l'elenco degli insiemi di credenziali di una sottoscrizione, recuperare le proprietà dell'insieme (come SKU e tag), nonché impostare i criteri di accesso che controllano le applicazioni e gli utenti autorizzati ad accedere alle chiavi e ai segreti nell'insieme di credenziali delle chiavi. Il controllo di accesso al piano di gestione è basato sul controllo degli accessi in base al ruolo. Per l'elenco completo delle operazioni relative all'insieme di credenziali delle chiavi che possono essere eseguite tramite il piano di gestione, vedere la tabella nella sezione precedente. 
 
-### <a name="rolebased-access-control-rbac"></a>Controllo degli accessi in base al ruolo
-Ogni sottoscrizione di Azure è associata a un'istanza di Azure Active Directory. A utenti, gruppi e applicazioni di questa directory può essere concesso l'accesso per gestire le risorse della sottoscrizione di Azure che usano il modello di distribuzione Azure Resource Manager. Questo approccio è definito controllo degli accessi in base al ruolo. Per gestire l'accesso è possibile usare il [portale di Azure](https://portal.azure.com/), gli [strumenti dell'interfaccia della riga di comando di Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) o le [API REST di Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+### <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
+Ogni sottoscrizione di Azure è associata a un'istanza di Azure Active Directory. A utenti, gruppi e applicazioni di questa directory può essere concesso l'accesso per gestire le risorse della sottoscrizione di Azure che usano il modello di distribuzione Azure Resource Manager. Questo approccio è definito controllo degli accessi in base al ruolo. Per gestire l'accesso è possibile usare il [portale di Azure](https://portal.azure.com/), gli [strumenti dell'interfaccia della riga di comando di Azure](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) o le [API REST di Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 Con il modello di Azure Resource Manager si crea l'insieme di credenziali delle chiavi in un gruppo di risorse e si controlla l'accesso al piano di gestione dell'insieme di credenziali delle chiavi usando Azure Active Directory. È ad esempio possibile consentire agli utenti o a un gruppo di gestire gli insiemi di credenziali delle chiavi in un gruppo di risorse specifico.
 
@@ -89,7 +89,7 @@ Il piano dati dell'insieme di credenziali delle chiavi è costituito da operazio
 L'accesso al piano dati viene concesso impostando criteri di accesso per un insieme di credenziali delle chiavi. Per essere in grado di impostare i criteri di accesso per un insieme di credenziali delle chiavi, un utente, un gruppo o un'applicazione deve disporre delle autorizzazioni di collaboratore (controllo degli accessi in base al ruolo) per il piano di gestione relativo a tale insieme. A un utente, un gruppo o un'applicazione può essere concesso l'accesso per eseguire operazioni specifiche relative a segreti o chiavi in un insieme di credenziali delle chiavi. Per un insieme di credenziali delle chiavi sono supportate fino a 16 voci di criteri di accesso. Per concedere a più utenti l'accesso del piano dati a un insieme di credenziali delle chiavi, creare un gruppo di sicurezza di Azure Active Directory e aggiungere utenti a tale gruppo.
 
 ### <a name="key-vault-access-policies"></a>Criteri di accesso all'insieme di credenziali delle chiavi
-I criteri di accesso all'insieme di credenziali delle chiavi concedono autorizzazioni separate per chiavi, segreti e certificati. È ad esempio possibile concedere a un utente l'accesso alle chiavi, ma non le autorizzazioni per i segreti. Tuttavia, le autorizzazioni per accedere a chiavi, segreti o certificati vengono definite a livello di insieme di credenziali. In altre parole, i criteri di accesso dell'insieme di credenziali delle chiavi non supportano le autorizzazioni a livello di oggetto. Per impostare i criteri di accesso per un insieme di credenziali delle chiavi è possibile usare il [portale di Azure](https://portal.azure.com/), gli [strumenti dell'interfaccia dalla riga di comando di Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) o le [API REST di gestione dell'insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/mt620024.aspx).
+I criteri di accesso all'insieme di credenziali delle chiavi concedono autorizzazioni separate per chiavi, segreti e certificati. È ad esempio possibile concedere a un utente l'accesso alle chiavi, ma non le autorizzazioni per i segreti. Tuttavia, le autorizzazioni per accedere a chiavi, segreti o certificati vengono definite a livello di insieme di credenziali. In altre parole, i criteri di accesso dell'insieme di credenziali delle chiavi non supportano le autorizzazioni a livello di oggetto. Per impostare i criteri di accesso per un insieme di credenziali delle chiavi è possibile usare il [portale di Azure](https://portal.azure.com/), gli [strumenti dell'interfaccia dalla riga di comando di Azure](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) o le [API REST di gestione dell'insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 
 > [!IMPORTANT]
 > Si noti che i criteri di accesso dell'insieme di credenziali delle chiavi si applicano a livello di insieme di credenziali. Ad esempio, quando a un utente viene concessa l'autorizzazione per creare ed eliminare chiavi, potrà eseguire tali operazioni su tutte le chiavi dell'insieme di credenziali.
@@ -210,7 +210,7 @@ Questo esempio illustra uno scenario semplice. Gli scenari reali possono essere 
 * [Controllo degli accessi in base al ruolo: Ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md)
   
   Questo articolo illustra tutti i ruoli predefiniti disponibili nel controllo degli accessi in base al ruolo.
-* [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../resource-manager-deployment-model.md)
+* [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md)
   
   Questo articolo illustra i modelli di distribuzione classica e di Resource Manager e descrive i vantaggi dell'uso di Resource Manager e dei gruppi di risorse.
 * [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
@@ -233,7 +233,7 @@ Questo esempio illustra uno scenario semplice. Gli scenari reali possono essere 
   Questo documento include informazioni di riferimento sulle API REST dell'insieme di credenziali delle chiavi.
 * [Key access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl) (Controllo di accesso per le chiavi)
   
-  Questa sezione include informazioni di riferimento sul controllo di accesso per le chiavi.
+  Collegamento alla documentazione di riferimento sul controllo di accesso per i segreti.
 * [Secret access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl) (Controllo di accesso per i segreti)
   
   Questa sezione include informazioni di riferimento sul controllo di accesso per i segreti.
@@ -253,6 +253,6 @@ In caso di domande sull'insieme di credenziali delle chiavi, visitare i [forum d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

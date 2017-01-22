@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c8ebad8e615e3bcc47d06ad3f77ad2752394f7e4
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 727891d92c047abe405415ea544db6f77a0db9f9
 
 
 ---
@@ -70,8 +70,8 @@ Si userà anche la tipica strategia di diramazione, in cui il codice viene spost
 > [!NOTE]
 > Per completare l'esercitazione, è necessario un account Azure.
 > 
-> * È possibile [creare un account Azure gratuitamente](/pricing/free-trial/): si riceveranno crediti da usare per provare i servizi di Azure a pagamento e, anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio App Web.
-> * È possibile [attivare i benefici della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+> * È possibile [creare un account Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/): si riceveranno crediti da usare per provare i servizi di Azure a pagamento e, anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio App Web.
+> * È possibile [attivare i benefici della sottoscrizione Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 > 
 > Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
@@ -263,12 +263,12 @@ Agile Software Development è uno strumento indispensabile per molte aziende che
 * [Distribuire un'applicazione complessa in modo prevedibile in Azure](app-service-deploy-complex-application-predictably.md)
 * [Sviluppo Agile in pratica: suggerimenti e consigli per un ciclo di sviluppo rinnovato](http://channel9.msdn.com/Events/Ignite/2015/BRK3707)
 * [Strategie di distribuzione avanzate per le app Web di Azure che usano modelli di Gestione risorse](http://channel9.msdn.com/Events/Build/2015/2-620)
-* [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md)
+* [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 * [JSONLint - Il validator JSON](http://jsonlint.com/)
 * [ARMClient - Configurare la pubblicazione GitHub nel sito](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
 * [Diramazione Git - Diramazione e unione di base](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * [Blog di David Ebbo](http://blog.davidebbo.com/)
-* [Azure PowerShell](../powershell-install-configure.md)
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Strumenti della riga di comando multipiattaforma di Azure](../xplat-cli-install.md)
 * [Creare o modificare utenti in Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 * [Wiki del progetto Kudu](https://github.com/projectkudu/kudu/wiki)
@@ -276,6 +276,6 @@ Agile Software Development è uno strumento indispensabile per molte aziende che
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,19 +1,23 @@
 ---
 title: Progettazione viste di Log Analytics | Microsoft Docs
-description: Progettazione viste di Log Analytics consente di creare viste personalizzate nella console di OMS contenenti visualizzazioni diverse dei dati nel repository di OMS. In questo articolo è presentata una panoramica su Progettazione viste e sulle procedure per creare e modificare viste personalizzate.
+description: "Progettazione viste di Log Analytics consente di creare viste personalizzate nella console di OMS contenenti visualizzazioni diverse dei dati nel repository di OMS. In questo articolo è presentata una panoramica su Progettazione viste e sulle procedure per creare e modificare viste personalizzate."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: efe0eeb6c9389545f51f22bbf0a2d6389939c375
+
 
 ---
 # <a name="log-analytics-view-designer"></a>Progettazione viste di Log Analytics
@@ -62,7 +66,7 @@ Per eliminare una vista esistente, aprirla facendo clic sul relativo riquadro ne
 ![Eliminazione di una vista](media/log-analytics-view-designer/edit-menu-delete.png)
 
 ### <a name="export-an-existing-view"></a>Esportazione di una vista esistente
-È possibile esportare una vista in un file JSON che può essere importato in un'altra area di lavoro o usare in un [modello di Azure Resource Manager](../resource-group-authoring-templates.md).  Per esportare una vista esistente, aprirla facendo clic sul relativo riquadro nel dashboard principale di OMS.  Fare clic sul pulsante **Esporta** per creare un file nella cartella di download del browser.  Il nome del file corrisponderà al nome della vista con estensione *omsview*.
+È possibile esportare una vista in un file JSON che può essere importato in un'altra area di lavoro o usare in un [modello di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).  Per esportare una vista esistente, aprirla facendo clic sul relativo riquadro nel dashboard principale di OMS.  Fare clic sul pulsante **Esporta** per creare un file nella cartella di download del browser.  Il nome del file corrisponderà al nome della vista con estensione *omsview*.
 
 ![Esportazione di una vista](media/log-analytics-view-designer/edit-menu-export.png)
 
@@ -92,6 +96,9 @@ Le viste hanno solo di una riga di parti della visualizzazione.  Ridisporre le p
 * Aggiungere [Riquadri](log-analytics-view-designer-tiles.md) alla vista personalizzata.
 * Aggiungere [parti della visualizzazione](log-analytics-view-designer-parts.md) alla vista personalizzata.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

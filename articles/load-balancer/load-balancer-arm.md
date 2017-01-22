@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: b0046511f1a56cd72423bbbcfb5bf1e17e60ce5b
-ms.openlocfilehash: 15147a201fa053e72a840294ade4ccb6197c78ac
+ms.sourcegitcommit: b0bbde6828ed556eef8063a56a35b325fee1865c
+ms.openlocfilehash: d06c924f384a2684b5a91c202039c581796c1091
 
 ---
 
@@ -42,7 +42,7 @@ Gestione risorse di Azure consente di effettuare il provisioning delle applicazi
 
 I modelli possono includere definizioni per macchine virtuali, reti virtuali, set di disponibilità, interfacce di rete, account di archiviazione, bilanciamenti del carico, gruppi di sicurezza di rete e IP pubblici. Con i modelli è possibile creare tutto il necessario per un'applicazione complessa. Il file modello può essere verificato nel sistema di gestione dei contenuti per il controllo della versione e la collaborazione.
 
-[Altre informazioni sui modelli](../resource-manager-template-walkthrough.md)
+[Altre informazioni sui modelli](../azure-resource-manager/resource-manager-template-walkthrough.md)
 
 [Altre informazioni sulle risorse di rete](../virtual-network/resource-groups-networking.md)
 
@@ -71,6 +71,6 @@ Informazioni su come gestire [le impostazioni del timeout di inattività TCP per
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

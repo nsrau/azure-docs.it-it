@@ -1,30 +1,35 @@
 ---
-title: Distribuire un'area di lavoro di Machine Learning con il modello di Azure Resource Manager | Microsoft Docs
-description: Come distribuire un'area di lavoro per Azure Machine Learning usando il modello di Azure Resource Manager
+title: Distribuire un&quot;area di lavoro di Machine Learning con il modello di Azure Resource Manager | Documentazione Microsoft
+description: Come distribuire un&quot;area di lavoro per Azure Machine Learning usando il modello di Azure Resource Manager
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: ahgyger
 manager: haining
 editor: garye
-
+ms.assetid: 4955ac4d-ff99-4908-aa27-69b6bfcc8e85
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 12/12/2016
 ms.author: ahgyger
+translationtype: Human Translation
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: e0a06c070159a87932cda4b31d9363e54c008a35
+
 
 ---
-# Distribuire un'area di lavoro di Machine Learning con Azure Resource Manager
-## Introduzione
-L'uso di un modello di distribuzione Azure Resource Manager consente di risparmiare tempo perché è possibile distribuire in modo scalabile i componenti interconnessi con un meccanismo di convalida e di ripetizione dei tentativi. Per configurare le aree di lavoro di Azure Machine Learning, ad esempio, è necessario configurare prima un account di archiviazione di Azure e quindi distribuire l'area di lavoro. Si immagini di doverlo fare manualmente per centinaia di aree di lavoro. Un'alternativa più semplice prevede l'uso di un modello di Azure Resource Manager per distribuire un'area di lavoro di Azure Machine Learning e tutte le dipendenze. Questo articolo illustra il processo in dettaglio. Per una panoramica generale di Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md).
+# <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Distribuire un'area di lavoro di Machine Learning con Azure Resource Manager
+## <a name="introduction"></a>Introduzione
+L'uso di un modello di distribuzione Azure Resource Manager consente di risparmiare tempo perché è possibile distribuire in modo scalabile i componenti interconnessi con un meccanismo di convalida e di ripetizione dei tentativi. Per configurare le aree di lavoro di Azure Machine Learning, ad esempio, è necessario configurare prima un account di archiviazione di Azure e quindi distribuire l'area di lavoro. Si immagini di doverlo fare manualmente per centinaia di aree di lavoro. Un'alternativa più semplice prevede l'uso di un modello di Azure Resource Manager per distribuire un'area di lavoro di Azure Machine Learning e tutte le dipendenze. Questo articolo illustra il processo in dettaglio. Per una panoramica generale di Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
-## Procedura dettagliata: Creare un'area di lavoro di Machine Learning
+## <a name="step-by-step-create-a-machine-learning-workspace"></a>Procedura dettagliata: Creare un'area di lavoro di Machine Learning
 Verrà creato un gruppo di risorse di Azure, quindi verranno distribuiti un nuovo account di archiviazione di Azure e una nuova area di lavoro di Azure Machine Learning usando un modello di Resource Manager. Una volta completata la distribuzione, verranno visualizzate importanti informazioni sulle aree di lavoro create (la chiave primaria, l'ID area di lavoro e l'URL dell'area di lavoro).
 
-### Creare un modello di Azure Resource Manager
-Un'area di lavoro di Machine Learning richiede un account di archiviazione di Azure per archiviare il set di dati collegato. Il modello seguente usa il nome del gruppo di risorse per generare il nome dell'account di archiviazione e il nome dell'area di lavoro. Usa anche il nome dell'account di archiviazione come proprietà durante la creazione dell'area di lavoro.
+### <a name="create-an-azure-resource-manager-template"></a>Creare un modello di Azure Resource Manager
+Un'area di lavoro di Machine Learning richiede un account di archiviazione di Azure per archiviare il set di dati collegato.
+Il modello seguente usa il nome del gruppo di risorse per generare il nome dell'account di archiviazione e il nome dell'area di lavoro.  Usa anche il nome dell'account di archiviazione come proprietà durante la creazione dell'area di lavoro.
 
 ```
 {
@@ -71,11 +76,11 @@ Un'area di lavoro di Machine Learning richiede un account di archiviazione di Az
 }
 
 ```
-Salvare questo modello come file mlworkspace.json in c:\\temp.
+Salvare questo modello come file mlworkspace.json in c:\temp\.
 
-### Distribuire il gruppo di risorse in base al modello
+### <a name="deploy-the-resource-group-based-on-the-template"></a>Distribuire il gruppo di risorse in base al modello
 * Aprire PowerShell
-* Installare i moduli per Azure Resource Manager e Azure Service Management
+* Installare i moduli per Azure Resource Manager e Azure Service Management  
 
 ```
 # Install the Azure Resource Manager modules from the PowerShell Gallery (press “A”)
@@ -85,9 +90,9 @@ Install-Module AzureRM -Scope CurrentUser
 Install-Module Azure -Scope CurrentUser
 ```
 
-   Con questi passaggi vengono scaricati e installati i moduli necessari per completare i passaggi rimanenti. È necessario eseguirli una sola volta nell'ambiente in cui si eseguono i comandi di PowerShell.
+   Con questi passaggi vengono scaricati e installati i moduli necessari per completare i passaggi rimanenti. È necessario eseguirli una sola volta nell'ambiente in cui si eseguono i comandi di PowerShell.   
 
-* Eseguire l'autenticazione ad Azure
+* Eseguire l'autenticazione ad Azure  
 
 ```
 # Authenticate (enter your credentials in the pop-up window)
@@ -106,9 +111,10 @@ $rg = New-AzureRmResourceGroup -Name "uniquenamerequired523" -Location "South Ce
 $rg
 ```
 
-Verificare che il provisioning del gruppo di risorse venga effettuato correttamente. **ProvisioningState** deve essere "Succeeded". Il nome del gruppo di risorse viene usato dal modello per generare il nome dell'account di archiviazione. Il nome dell'account di archiviazione deve essere di lunghezza compresa tra 3 e 24 caratteri e usare solo numeri e lettere minuscole.
+Verificare che il provisioning del gruppo di risorse venga effettuato correttamente. **ProvisioningState** deve essere "Succeeded".
+Il nome del gruppo di risorse viene usato dal modello per generare il nome dell'account di archiviazione. Il nome dell'account di archiviazione deve essere di lunghezza compresa tra 3 e 24 caratteri e usare solo numeri e lettere minuscole.
 
-![Gruppo di risorse][2] 
+![Gruppo di risorse][2]
 
 * Usando la distribuzione del gruppo di risorse, distribuire una nuova area di lavoro di Machine Learning.
 
@@ -132,16 +138,20 @@ Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |
 ```
 Dopo il provisioning dell'area di lavoro, è anche possibile automatizzare diverse attività di Azure Machine Learning Studio usando il [modulo PowerShell per Azure Machine Learning](http://aka.ms/amlps).
 
-## Passaggi successivi
-* Altre informazioni sulla [Creazione di modelli di Azure Resource Manager](../resource-group-authoring-templates.md).
-* Vedere il [repository di modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates).
-* Guardare questo video su [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
+## <a name="next-steps"></a>Passaggi successivi
+* Altre informazioni sulla [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). 
+* Vedere il [repository di modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates). 
+* Guardare questo video su [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
 
-<!--Image references--> 
+<!--Image references-->
 [1]: ../media/machine-learning-deploy-with-resource-manager-template/azuresubscription.png
 [2]: ../media/machine-learning-deploy-with-resource-manager-template/resourcegroupprovisioning.png
 
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Dec16_HO4-->
+
+

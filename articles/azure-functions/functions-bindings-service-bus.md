@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: f5ea64ffc044faceec08e9a2b756a414e446a1b1
+ms.sourcegitcommit: 7ff4286d6006eb362b6fba705e2afca1fd872f72
+ms.openlocfilehash: afefa826577999897a537add7a6c6301144fa38c
 
 
 ---
@@ -43,7 +43,7 @@ I trigger della coda e dell'argomento dell'Hub di notifica per una funzione usa 
         "name" : "<Name of input parameter in function signature>",
         "queueName" : "<Name of the queue>",
         "connection" : "<Name of app setting that has your queue's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>"
+        "accessRights" : "<Access rights for the connection string - see below>",
         "type" : "serviceBusTrigger",
         "direction" : "in"
     }
@@ -57,7 +57,7 @@ I trigger della coda e dell'argomento dell'Hub di notifica per una funzione usa 
         "topicName" : "<Name of the topic>",
         "subscriptionName" : "<Name of the subscription>",
         "connection" : "<Name of app setting that has your topic's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>"
+        "accessRights" : "<Access rights for the connection string - see below>",
         "type" : "serviceBusTrigger",
         "direction" : "in"
     }
@@ -196,7 +196,7 @@ In C# e F#, Funzioni di Azure può creare un messaggio di coda del bus di serviz
   Funzioni deserializza l'oggetto in un messaggio JSON. Se il valore di output è null quando la funzione viene chiusa, Funzioni crea il messaggio con un oggetto null.
 * `string`: la definizione dei parametri è simile a `out string paraName` (C#). Se il valore del parametro è diverso da null quando termina la funzione, Funzioni crea un messaggio.
 * `byte[]`: la definizione dei parametri è simile a `out byte[] paraName` (C#). Se il valore del parametro è diverso da null quando termina la funzione, Funzioni crea un messaggio.
-* `BrokeredMessage`: la definizione dei parametri è simile a `out byte[] paraName` (C#). Se il valore del parametro è diverso da null quando termina la funzione, Funzioni crea un messaggio.
+* `BrokeredMessage`: la definizione dei parametri è simile a `out BrokeredMessage paraName` (C#). Se il valore del parametro è diverso da null quando termina la funzione, Funzioni crea un messaggio.
 
 Per la creazione di più messaggi in una funzione C# è possibile usare `ICollector<T>` o `IAsyncCollector<T>`. Quando si chiama il metodo `Add` viene creato un messaggio.
 
@@ -303,6 +303,6 @@ module.exports = function (context, myTimer) {
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

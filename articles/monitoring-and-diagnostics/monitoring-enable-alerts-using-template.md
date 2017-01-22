@@ -1,28 +1,32 @@
 ---
-title: Creare un avviso metrica con un modello di Resource Manager | Microsoft Docs
+title: Creare un avviso di metrica con un modello di Resource Manager | Microsoft Docs
 description: Informazioni su come usare un modello di Resource Manager per creare un avviso metrica per ricevere notifiche tramite posta elettronica o webhook.
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 41d62044-6bc5-4674-b277-45b919f58efe
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/28/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: 4ea07a1cade7e3007b0f85214b4d41a61b527001
+
 
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creare un avviso metrica con un modello di Resource Manager
-Questo articolo mostra come usare un [modello di Resource Manager di Azure](../resource-group-authoring-templates.md) per configurare gli avvisi sulle metriche in Azure. Consente di configurare automaticamente gli avvisi relativi alle risorse al momento della loro creazione, per assicurarsi che tutte le risorse siano correttamente monitorate.
+Questo articolo mostra come usare un [modello di Resource Manager di Azure](../azure-resource-manager/resource-group-authoring-templates.md) per configurare gli avvisi sulle metriche in Azure. Consente di configurare automaticamente gli avvisi relativi alle risorse al momento della loro creazione, per assicurarsi che tutte le risorse siano correttamente monitorate.
 
 I passaggi di base sono i seguenti:
 
 1. Creare un modello come file JSON che descrive come creare l'avviso.
-2. [Distribuire il modello con un metodo di distribuzione qualsiasi](../resource-group-template-deploy.md).
+2. [Distribuire il modello con un metodo di distribuzione qualsiasi](../azure-resource-manager/resource-group-template-deploy.md).
 
 Di seguito viene descritto come creare un modello di Resource Manager prima per un avviso, quindi per un avviso durante la creazione di un'altra risorsa.
 
@@ -139,7 +143,7 @@ Per creare un avviso usando un modello di Resource Manager, creare una risorsa d
             "type": "Microsoft.Insights/alertRules",
             "name": "[parameters('alertName')]",
             "location": "[resourceGroup().location]",
-            "apiVersion": "2014-04-01",
+            "apiVersion": "2016-03-01",
             "properties": {
                 "name": "[parameters('alertName')]",
                 "description": "[parameters('alertDescription')]",
@@ -361,7 +365,7 @@ In genere, un avviso in un modello di Resource Manager è più utile quando si c
                 "[variables('vmID')]"
             ],
             "location": "[variables('location')]",
-            "apiVersion": "2014-04-01",
+            "apiVersion": "2016-03-01",
             "properties": {
                 "name": "[variables('alertName')]",
                 "description": "variables('alertDescription')",
@@ -397,9 +401,12 @@ In genere, un avviso in un modello di Resource Manager è più utile quando si c
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Altre informazioni sugli avvisi](../azure-portal/insights-receive-alert-notifications.md)
+* [Altre informazioni sugli avvisi](insights-receive-alert-notifications.md)
 * [Aggiungere impostazioni di diagnostica](monitoring-enable-diagnostic-logs-using-template.md) al modello di Resource Manager
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

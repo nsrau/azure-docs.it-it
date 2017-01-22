@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 2890efbfec90ef0e8e205a801c6e9cf6166985f0
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: c3a6df9f91af5227526e06fe7e9ebb3006bd6948
 
 
 ---
@@ -69,7 +69,7 @@ Il mirroring del database può anche estendersi su server locali e nel cloud in 
 
 ![Backup di SQL Server in un archivio BLOB di Azure in un'architettura di cloud ibrido](./media/resiliency-technical-guidance-recovery-on-premises-azure/SQL_Server_Disaster_Recovery-6.png)
 
-Per altre informazioni, vedere [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Backup e ripristino per SQL Server nelle macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Per altre informazioni, vedere [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md) e [Backup e ripristino per SQL Server nelle macchine virtuali di Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md).
 
 ## <a name="checklists-for-on-premises-recovery-in-microsoft-azure"></a>Elenchi di controllo per il ripristino locale in Microsoft Azure
 ### <a name="networking"></a>Rete
@@ -99,6 +99,6 @@ Questo articolo fa parte della serie [Materiale sussidiario sulla resilienza di 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

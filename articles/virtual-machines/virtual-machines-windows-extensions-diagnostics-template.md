@@ -1,13 +1,13 @@
 ---
-title: Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante i modelli di Gestione risorse di Azure | Microsoft Docs
-description: Usare un modello di Gestione risorse di Azure per creare una nuova macchina virtuale Windows con l'estensione Diagnostica di Azure.
+title: Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante i modelli di Azure Resource Manager | Microsoft Docs
+description: Usare un modello di Gestione risorse di Azure per creare una nuova macchina virtuale Windows con l&quot;estensione Diagnostica di Azure.
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: sbtron
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,10 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
+translationtype: Human Translation
+ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
+ms.openlocfilehash: b84b4c0bd31d2e0bebafa2053a725e5e78bc3c9f
+
 
 ---
 # <a name="create-a-windows-virtual-machine-with-monitoring-and-diagnostics-using-azure-resource-manager-template"></a>Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante i modelli di Gestione risorse di Azure
-L'estensione Diagnostica di Azure offre le funzionalità di monitoraggio e diagnostica in una macchina virtuale Windows basata su Azure. È possibile abilitare queste funzionalità nella macchina virtuale includendo l'estensione come parte del modello di Gestione risorse di Azure. Per altre informazioni sull'inclusione di un'estensione come parte di un modello di macchina virtuale, vedere [Creazione di modelli di Gestione risorse di Azure con le estensioni di macchina virtuale](virtual-machines-windows-extensions-authoring-templates.md) . Questo articolo illustra come aggiungere l'estensione Diagnostica di Azure a un modello di macchina virtuale Windows.  
+L'estensione Diagnostica di Azure offre le funzionalità di monitoraggio e diagnostica in una macchina virtuale Windows basata su Azure. È possibile abilitare queste funzionalità nella macchina virtuale includendo l'estensione come parte del modello di Gestione risorse di Azure. Per altre informazioni sull'inclusione di un'estensione come parte di un modello di macchina virtuale, vedere [Creazione di modelli di Gestione risorse di Azure con le estensioni di macchina virtuale](virtual-machines-windows-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . Questo articolo illustra come aggiungere l'estensione Diagnostica di Azure a un modello di macchina virtuale Windows.  
 
 ## <a name="add-the-azure-diagnostics-extension-to-the-vm-resource-definition"></a>Aggiungere l'estensione Diagnostica di Azure alla definizione della risorsa della VM
 Per abilitare l'estensione Diagnostica in una macchina virtuale Windows, è necessario aggiungere l'estensione come risorsa della VM nel modello di Gestione risorse.
@@ -88,7 +92,7 @@ Il frammento di codice JSON dell'estensione Diagnostica precedente presuppone du
             "type": "string",
             "metadata": {
         "description": "The resource group for the storage account specified in existingdiagnosticsStorageAccountName"
-            }
+              }
         }
 
 È consigliabile specificare un account di archiviazione di diagnostica in un gruppo di risorse diverso rispetto al gruppo di risorse per la macchina virtuale. Un gruppo di risorse può essere considerato come un'unità di distribuzione con una durata specifica. È possibile distribuire e ridistribuire una macchina virtuale ogni volta che vengono applicati aggiornamenti della configurazione, ma è consigliabile continuare ad archiviare i dati di diagnostica nello stesso account di archiviazione nelle distribuzioni della macchina virtuale. La disponibilità dell'account di archiviazione in una risorsa diversa consente all'account di archiviazione di accettare i dati da diverse distribuzioni di macchina virtuale, semplificando la risoluzione dei problemi nelle diverse versioni.
@@ -161,9 +165,12 @@ Ogni tabella WADMetrics includerà le colonne seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per un modello di esempio completo di macchina virtuale Windows con estensione Diagnostica, vedere [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
-* Distribuire il modello di Resource Manager con [Azure PowerShell](virtual-machines-windows-ps-manage.md) o la [riga di comando di Azure](virtual-machines-linux-cli-deploy-templates.md)
-* Altre informazioni sulla [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md)
+* Distribuire il modello di Resource Manager con [Azure PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o la [riga di comando di Azure](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* Altre informazioni sulla [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

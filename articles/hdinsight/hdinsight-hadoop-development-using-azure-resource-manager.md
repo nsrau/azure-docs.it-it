@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/05/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ed11d7883de119f18491faa4080c0758bf8d6d02
+ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
+ms.openlocfilehash: 660ea89373fe77dac9b77e529adf37025a0a80cc
 
 
 ---
@@ -95,7 +95,7 @@ I cmdlet ARM di Azure PowerShell possono essere installati side-by-side con i cm
 
 Prima di poter usare i cmdlet di HDInsight, è necessario connettersi con il proprio account Azure e creare un nuovo gruppo di risorse:
 
-* Login-AzureRmAccount o [Select-AzureRmProfile](https://msdn.microsoft.com/library/mt619310.aspx). Vedere [Autenticazione di un'entità servizio con Azure Resource Manager](../resource-group-authenticate-service-principal.md)
+* Login-AzureRmAccount o [Select-AzureRmProfile](https://msdn.microsoft.com/library/mt619310.aspx). Vedere [Autenticazione di un'entità servizio con Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)
 
 ### <a name="renamed-cmdlets"></a>Cmdlet rinominati
@@ -366,6 +366,6 @@ Di seguito sono riportati alcuni esempi sulla modalità di esecuzione di un'oper
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

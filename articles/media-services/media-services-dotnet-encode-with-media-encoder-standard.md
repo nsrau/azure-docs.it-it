@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6031391dddc9f5c283974bd22ad22d60d0697a4d
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 775578cb4e89f561449eea10b21a300f20646424
 
 
 ---
@@ -25,7 +25,7 @@ I processi di codifica sono tra le operazioni di elaborazione più frequenti in 
 
 Questo argomento illustra come usare .NET per codificare gli asset con Media Encoder Standard (MES). Media Encoder Standard viene configurato mediante un set di impostazioni descritto [qui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
-È consigliabile codificare sempre i file in formato intermedio con un set MP4 a velocità in bit adattiva e quindi convertire il set nel formato desiderato mediante la [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md). Per avvalersi della creazione dinamica dei pacchetti, è necessario ottenere prima almeno un'unità di streaming on demand per l'endpoint di streaming da cui si intende distribuire il contenuto. Per altre informazioni, vedere la sezione relativa al [ridimensionamento di Servizi multimediali](media-services-portal-manage-streaming-endpoints.md).
+È consigliabile codificare sempre i file in formato intermedio con un set MP4 a velocità in bit adattiva e quindi convertire il set nel formato desiderato mediante la [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md). 
 
 Se l'asset di output è protetto con crittografia di archiviazione, è necessario configurare i criteri di distribuzione degli asset. Per altre informazioni, vedere [Procedura: Configurare i criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md).
 
@@ -43,9 +43,9 @@ Media Encoder Standard viene configurato mediante un set di impostazioni descrit
 ### <a name="input-and-output-metadata"></a>Metadati di input e output
 Quando si codifica un asset di input (o asset) tramite MES, al completamento dell'attività di codifica si ottiene un asset di output. L'asset di output contiene video, audio, anteprime, manifesto e così via a seconda del set di impostazioni di codifica che si usa.
 
-L'asset di output include anche un file contenente i metadati dell'asset di input. Il nome del file XML dei metadati ha il seguente formato: <asset_id>_metadata.xml (ad esempio, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), dove <asset_id> è il valore AssetId dell'asset di input. Lo schema di questo file XML di metadati di input è descritto [qui](http://msdn.microsoft.com/library/azure/dn783120.aspx).
+L'asset di output include anche un file contenente i metadati dell'asset di input. Il nome del file XML dei metadati ha il seguente formato: <asset_id>_metadata.xml (ad esempio, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), dove <asset_id> è il valore AssetId dell'asset di input. Lo schema di questo file XML di metadati di input è descritto [qui](media-services-input-metadata-schema.md).
 
-L'asset di output include anche un file contenente i metadati dell'asset di output. Il nome del file XML dei metadati ha il seguente formato: <nome_file_origine>_manifest.xml (ad esempio BigBuckBunny_manifest.xml). Lo schema del file XML dei metadati di output viene descritto [qui](http://msdn.microsoft.com/library/azure/dn783217.aspx).
+L'asset di output include anche un file contenente i metadati dell'asset di output. Il nome del file XML dei metadati ha il seguente formato: <nome_file_origine>_manifest.xml (ad esempio BigBuckBunny_manifest.xml). Lo schema del file XML dei metadati di output viene descritto [qui](media-services-output-metadata-schema.md).
 
 Se si desidera esaminare uno dei due file di metadati, è possibile creare un localizzatore SAS e scaricare il file nel computer locale. È possibile trovare un esempio su come creare un localizzatore SAS e scaricare un file tramite le estensioni dell'SDK .NET di Servizi multimediali.
 
@@ -150,6 +150,6 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 
