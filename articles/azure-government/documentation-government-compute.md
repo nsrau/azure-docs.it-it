@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 09/29/2016
+ms.date: 11/18/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: a0374d6aeae42641e906a7f8e39bfc58eaacf096
-ms.openlocfilehash: b351229c474e84a9e385d2ed81f2eb73267d9fd1
+ms.sourcegitcommit: ca01baebd755e92aff1ef080af1fcd4606b9a2ec
+ms.openlocfilehash: 200caac4b480495b0bbb8f10cc89fdd73c42dbe2
 
 
 ---
@@ -26,16 +26,18 @@ ms.openlocfilehash: b351229c474e84a9e385d2ed81f2eb73267d9fd1
 Per informazioni dettagliate su questo servizio e come usarlo, vedere [Dimensioni delle macchine virtuali in Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="variations"></a>Varianti
-Le SKU delle VM seguenti sono disponibili a livello generale (GA) in Microsoft Azure per enti pubblici:
+I prodotti (VM) sono disponibili in Azure per enti pubblici:
 
-| SKU di VM | US Gov VA | US Gov IA | Note |
-| --- | --- | --- | --- |
-| A |GA |GA |None |
-| Dv1 |GA |- |None |
-| DSv1 |GA |- |None |
-| Dv2 |GA |GA |15 - presto disponibile |
-| F |GA |GA |None |
-| G |Pianificata |- |None |
+| Prodotti (VM) | US Gov VA | US Gov IA |
+| --- | --- | --- |
+| A0-A7 |S |S |
+| Serie D |S |N |
+| Serie Dv2 |S |S |
+| Serie DS |S |N |
+| Serie F |S |S |
+| Serie FS |N |N |
+| Serie G |S |N |
+| Serie GS |S |N |
 
 ### <a name="data-considerations"></a>Considerazioni sui dati
 Le informazioni seguenti identificano il limite di Azure per enti pubblici per Macchine virtuali di Azure:
@@ -50,6 +52,6 @@ Per informazioni aggiuntive e aggiornamenti, sottoscrivere il <a href="https://b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

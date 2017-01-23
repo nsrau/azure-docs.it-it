@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/02/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a83b4e910dbb8421d80416286c3d1eadcbf7bba7
+ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
+ms.openlocfilehash: 37114071cb9c3da187e8d96d7a49680ee828832a
 
 
 ---
@@ -131,7 +131,7 @@ Vedere [Creare cluster basati su Linux in HDInsight tramite .NET SDK](hdinsight-
 
 ## <a name="see-also"></a>Vedere anche
 * [Creare cluster Hadoop in HDInsight][hdinsight-provision-cluster] contiene istruzioni relative alla creazione di un cluster HDInsight con altre opzioni personalizzate.
-* [Sviluppare script di azione script per HDInsight][hdinsight-write-script]
+* [Sviluppare script di Azione script per HDInsight][hdinsight-write-script]
 * [Installare e usare Spark nei cluster HDInsight][hdinsight-install-spark]
 * [Installare e usare R nei cluster HDInsight][hdinsight-install-r]
 * [Installare e usare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install.md).
@@ -141,10 +141,10 @@ Vedere [Creare cluster basati su Linux in HDInsight tramite .NET SDK](hdinsight-
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
 [hdinsight-provision-cluster]: hdinsight-provision-clusters.md
-[powershell-install-configure]: powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 
-[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Fasi durante la creazione del cluster"
+[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Fasi durante la creazione di un cluster"
 
 ## <a name="appx-a-powershell-sample"></a>Appendice A: Esempio di PowerShell
 Questo script di PowerShell crea un cluster HDInsight e personalizza un'impostazione Hive:
@@ -258,6 +258,6 @@ Questo script di PowerShell crea un cluster HDInsight e personalizza un'impostaz
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

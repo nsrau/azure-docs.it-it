@@ -2,12 +2,12 @@
 title: Comprendere e risolvere gli errori di WebHCat in HDInsight
 description: Informazioni sugli errori comuni restituiti da WebHCat in HDInsight e su come risolverli.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 1b3d94b1-207d-4550-aece-21dc45485549
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6b50b1c0522db3efe3bb5a10fd978dfaa41e2987
+
 
 ---
-# <a name="understand-and-resolve-errors-received-from-webhcat-(templeton,)-on-hdinsight"></a>Comprendere e risolvere gli errori ricevuti da WebHCat (Templeton,) in HDInsight
+# <a name="understand-and-resolve-errors-received-from-webhcat-templeton-on-hdinsight"></a>Comprendere e risolvere gli errori ricevuti da WebHCat (Templeton,) in HDInsight
 Quando si usa WebHCat (precedentemente noto come Templeton,) con HDInsight, possono verificarsi degli errori. In questo documento vengono fornite indicazioni su errori comuni, perché si verificano e come è possibile risolverli.
 
-## <a name="what-is-webhcat?"></a>Informazioni su WebHCat
+## <a name="what-is-webhcat"></a>Informazioni su WebHCat
 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) è una API REST per [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), un livello di gestione tabella e archiviazione per Hadoop. WebHCat è abilitato per impostazione predefinita nei cluster HDInsight e viene usato da vari strumenti per inviare processi, recuperare lo stato dei processi e così via, senza effettuare l'accesso al cluster.
 
 ## <a name="modifying-configuration"></a>Modifica della configurazione
@@ -55,7 +59,7 @@ Di seguito sono riportati i valori di configurazione predefiniti che possono inf
 | --- | --- |
 | Il problema si verifica in genere durante il failover tra il nodo head primario e secondario per il cluster |Attendere due minuti, quindi ripetere l'operazione |
 
-## <a name="bad-request-content:-could-not-find-job"></a>Contenuto richiesta non valido: impossibile trovare il processo
+## <a name="bad-request-content-could-not-find-job"></a>Contenuto richiesta non valido: impossibile trovare il processo
 **Codice di stato HTTP**: 400
 
 | Causa | Risoluzione |
@@ -82,6 +86,6 @@ Di seguito sono riportati i valori di configurazione predefiniti che possono inf
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

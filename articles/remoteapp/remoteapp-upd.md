@@ -149,6 +149,6 @@ In questo modo è possibile ignorare il parametro - Credential nel cmdlet New-PS
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 
