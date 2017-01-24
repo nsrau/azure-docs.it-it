@@ -23,7 +23,7 @@ ms.openlocfilehash: 60d4bcafa51a6eedea06901a0557d13b4e85ec7a
 # <a name="how-to-use-file-storage-from-java"></a>Come usare l'archiviazione file da Java
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-files.md)]
+[!INCLUDE [storage-check-out-samples-java](../../includes/storage-check-out-samples-java.md)]
 
 ## <a name="overview"></a>Panoramica
 In questa guida verrà illustrato come eseguire operazioni di base nel servizio di archiviazione file di Microsoft Azure. Gli esempi scritti in Java consentono di apprendere come creare condivisioni e directory, caricare, elencare ed eliminare file. Se non si conosce ancora il servizio di condivisione dei file di Microsoft Azure, la lettura delle seguenti sezioni sarà molto utile per comprendere gli esempi.
