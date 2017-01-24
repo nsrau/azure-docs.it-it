@@ -12,28 +12,28 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ad14ed8b36d6d0a2121c32fd9a54de97e8b02342
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: de47ff52eac40c4b4c57eef89763b71fd525ffa4
 
 
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure
 Gestione API offre la possibilità di proteggere l'accesso al servizio back-end di un'API usando i certificati client. Questa guida illustra come gestire i certificati nel portale di pubblicazione delle API e come configurare un'API per l'uso di un certificato per accedere al servizio back-end.
 
-Per informazioni sulla gestione dei certificati mediante l'API REST di Gestione API, vedere [Entità certificato dell'API REST di Gestione API di Azure][Entità certificato dell'API REST di Gestione API di Azure].
+Per informazioni sulla gestione dei certificati con l'API REST di Gestione API, vedere [Azure API Management REST API Certificate entity][Azure API Management REST API Certificate entity] (Entità certificato dell'API REST di Gestione API di Azure).
 
 ## <a name="prerequisites"> </a>Prerequisiti
-In questa guida viene illustrato come configurare un'istanza del servizio di Gestione API per l'uso dell'autenticazione con certificati client per accedere al servizio back-end di un'API. Prima di seguire la procedura indicata in questo argomento è necessario aver configurato il servizio back-end per l'autenticazione del certificato client ([per la configurazione dell'autenticazione del certificato client nei siti Web di Azure][per la configurazione dell'autenticazione del certificato client nei siti Web di Azure]) e disporre dell'accesso al certificato e alla relativa password per il caricamento nel portale di pubblicazione di Gestione API.
+In questa guida viene illustrato come configurare un'istanza del servizio di Gestione API per l'uso dell'autenticazione con certificati client per accedere al servizio back-end di un'API. Prima di seguire i passaggi indicati in questo argomento è necessario aver configurato il servizio back-end per l'autenticazione del certificato client ([per la configurazione dell'autenticazione del certificato client nei siti Web di Azure, vedere questo articolo ][to configure certificate authentication in Azure WebSites refer to this article]) e avere l'accesso al certificato e alla relativa password per il caricamento nel portale di pubblicazione di Gestione API.
 
 ## <a name="step1"> </a>Caricare un certificato client
 Per iniziare, fare clic sul **portale di pubblicazione** nel Portale di Azure relativo al servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API.
 
 ![Portale di pubblicazione delle API][api-management-management-console]
 
-> Se non è ancora stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][Creare un'istanza di Gestione API] nell'esercitazione [Introduzione a Gestione API di Azure][Introduzione a Gestione API di Azure].
+> Se non è stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][Create an API Management service instance] nell'esercitazione [Introduzione a Gestione API di Azure][Get started with Azure API Management].
 > 
 > 
 
@@ -61,7 +61,7 @@ Fare clic su **Carica** per caricare il certificato.
 
 ![Certificato caricato][api-management-certificate-uploaded]
 
-Una volta caricato il certificato, questo viene visualizzato nella scheda **Certificati client** . Se si hanno più certificati, prendere nota dell'oggetto o degli ultimi quattro caratteri dell'identificazione personale, che vengono usati per selezionare il certificato quando si configura un'API per l'uso dei certificati, come illustrato nella sezione [Configurare un'API per l'uso di un certificato client per l'autenticazione gateway][Configurare un'API per l'uso di un certificato client per l'autenticazione gateway] che segue.
+Una volta caricato il certificato, questo viene visualizzato nella scheda **Certificati client** . Se si hanno più certificati, prendere nota dell'oggetto o degli ultimi quattro caratteri dell'identificazione personale, che vengono usati per selezionare il certificato quando si configura un'API per l'uso dei certificati, come illustrato nella sezione [Configurare un'API per l'uso di un certificato client per l'autenticazione gateway][Configure an API to use a client certificate for gateway authentication] che segue.
 
 > Per disattivare la convalida della catena di certificati quando si usa, ad esempio, un certificato autofirmato, seguire i passaggi descritti in questa [voce](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end) delle Domande frequenti.
 > 
@@ -130,32 +130,32 @@ Per ulteriori informazioni su altri modi per proteggere il servizio back-end, ad
 
 
 
-[Come aggiungere operazioni a un'API in Gestione API di Azure]: api-management-howto-add-operations.md
-[Come aggiungere e pubblicare un prodotto]: api-management-howto-add-products.md
-[Monitoraggio e analisi]: ../api-management-monitoring.md
-[Aggiungere API a un prodotto]: api-management-howto-add-products.md#add-apis
-[Pubblicare un prodotto]: api-management-howto-add-products.md#publish-product
-[Introduzione a Gestione API di Azure]: api-management-get-started.md
-[Informazioni di riferimento per i criteri di Gestione API di Azure]: api-management-policy-reference.md
-[Criteri di memorizzazione nella cache]: api-management-policy-reference.md#caching-policies
-[Creare un'istanza di Gestione API]: api-management-get-started.md#create-service-instance
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: ../api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Get started with Azure API Management]: api-management-get-started.md
+[API Management policy reference]: api-management-policy-reference.md
+[Caching policies]: api-management-policy-reference.md#caching-policies
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[Entità certificato dell'API REST di Gestione API di Azure]: http://msdn.microsoft.com/library/azure/dn783483.aspx
+[Azure API Management REST API Certificate entity]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[per la configurazione dell'autenticazione del certificato client nei siti Web di Azure]: https://azure.microsoft.com/en-us/documentation/articles/app-service-web-configure-tls-mutual-auth/
+[to configure certificate authentication in Azure WebSites refer to this article]: https://azure.microsoft.com/en-us/documentation/articles/app-service-web-configure-tls-mutual-auth/
 
-[Prerequisiti]: #prerequisites
-[Caricare un certificato client]: #step1
-[Eliminare un certificato client]: #step1a
-[Configurare un'API per l'uso di un certificato client per l'autenticazione gateway]: #step2
-[Testare la configurazione chiamando un'operazione nel portale per sviluppatori]: #step3
-[Passaggi successivi]: #next-steps
-
-
+[Prerequisites]: #prerequisites
+[Upload a client certificate]: #step1
+[Delete a client certificate]: #step1a
+[Configure an API to use a client certificate for gateway authentication]: #step2
+[Test the configuration by calling an operation in the Developer Portal]: #step3
+[Next steps]: #next-steps
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+<!--HONumber=Dec16_HO3-->
 
 

@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 07/14/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: f5bdbd801107650f87993b395338adfb1b26d17e
-ms.openlocfilehash: 3e3d9daf8a45f87f0d1d666dc1054cd1b530e35f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 738c6ecb40118491dd2e833443c91891e99941d3
 
 
 ---
 # <a name="data-partitioning-guidance"></a>Linee guida di partizionamento di dati
 [!INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 In molte soluzioni su larga scala, i dati vengono suddivisi in partizioni separate per poter essere gestiti e per poter accedervi separatamente. La strategia di partizionamento deve essere scelta attentamente per ottimizzare le prestazioni riducendo al minimo gli effetti negativi. Il partizionamento può aiutare a migliorare la scalabilità, ridurre i conflitti e ottimizzare le prestazioni. Un altro vantaggio offerto dal partizionamento è costituito dalla possibilità di suddividere i dati in base al modello di utilizzo. È possibile ad esempio archiviare i dati meno recenti e usati raramente in un archivio dati più economico.
 
 ## <a name="why-partition-data"></a>Perché la partizione di dati?
@@ -566,7 +566,7 @@ Quando si esaminano le strategie per l'implementazione della coerenza dei dati, 
 [Data Types]: http://redis.io/topics/data-types
 [DocumentDB limiti e quote]: documentdb/documentdb-limits.md
 [Panoramica sulle funzionalità di database elastico]: sql-database/sql-database-elastic-scale-introduction.md
-[Utilità di migrazione delle federazioni]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
+[Federations Migration Utility]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
 [Index Table Pattern]: http://aka.ms/Index-Table-Pattern
 [gestire le esigenze di capacità di DocumentDB]: documentdb/documentdb-manage.md
 [Materialized View Pattern]: http://aka.ms/Materialized-View-Pattern
@@ -588,6 +588,6 @@ Quando si esaminano le strategie per l'implementazione della coerenza dei dati, 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

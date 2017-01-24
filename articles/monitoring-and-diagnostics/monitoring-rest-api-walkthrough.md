@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: mcollier
 translationtype: Human Translation
-ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
-ms.openlocfilehash: 81564726dd03dbbb93629ebd296e288290d37778
+ms.sourcegitcommit: 1fe845d442c7010580d4592f205e92e8ef70e34a
+ms.openlocfilehash: 6d66a8fa6eac5bc0ecdddc12b67697045556bf46
 
 
 ---
@@ -30,7 +30,7 @@ Oltre a essere compatibile con vari punti dati della metrica, come illustrato in
 ## <a name="authenticating-azure-monitor-requests"></a>Autenticazione delle richieste di monitoraggio di Azure
 Innanzitutto è necessario autenticare la richiesta.
 
-Tutte le attività eseguite sull'API di monitoraggio di Azure usano il modello di autenticazione Azure Resource Manager. Di conseguenza, tutte le richieste devono essere autenticate con Azure Active Directory (Azure AD). Un approccio per autenticare l'applicazione client consiste nel creare un'entità servizio di Azure AD e recuperare il token di autenticazione (JTW). Il seguente script di esempio mostra la creazione di un'entità servizio di Azure AD tramite PowerShell. Per una procedura più dettagliata, fare riferimento alla documentazione sull' [uso di Azure PowerShell per creare un'entità servizio per accedere alle risorse](../resource-group-authenticate-service-principal.md#create-service-principal-with-password). È anche possibile [creare un'entità servizio tramite il portale di Azure](../resource-group-create-service-principal-portal.md).
+Tutte le attività eseguite sull'API di monitoraggio di Azure usano il modello di autenticazione Azure Resource Manager. Di conseguenza, tutte le richieste devono essere autenticate con Azure Active Directory (Azure AD). Un approccio per autenticare l'applicazione client consiste nel creare un'entità servizio di Azure AD e recuperare il token di autenticazione (JTW). Il seguente script di esempio mostra la creazione di un'entità servizio di Azure AD tramite PowerShell. Per una procedura più dettagliata, fare riferimento alla documentazione sull' [uso di Azure PowerShell per creare un'entità servizio per accedere alle risorse](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-password). È anche possibile [creare un'entità servizio tramite il portale di Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
@@ -191,12 +191,12 @@ L'ID risorsa può anche essere ottenuto dal portale di Azure. A tale scopo, acce
 ### <a name="azure-powershell"></a>Azure PowerShell
 L'ID risorsa può essere recuperato anche tramite i cmdlet di Azure PowerShell. Ad esempio, per ottenere l'ID risorsa per un'App Web di Azure, eseguire il cmdlet Get-AzureRmWebApp, come illustrato nella seguente schermata:
 
-![Alt "ID risorsa ottenuto tramite PowerShell"](./media\\monitoring-rest-api-walkthrough\\resourceid_powershell.png)
+![Alt "ID risorsa ottenuto tramite PowerShell"](./media/monitoring-rest-api-walkthrough/resourceid_powershell.png)
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 Per recuperare l'ID risorsa tramite l'interfaccia della riga di comando di Azure, eseguire il comando 'azure webapp show', specificando l'opzione '-json' come mostrato nella schermata seguente:
 
-![Alt "ID risorsa ottenuto tramite PowerShell"](./media\\monitoring-rest-api-walkthrough\\resourceid_azurecli.png)
+![Alt "ID risorsa ottenuto tramite PowerShell"](./media/monitoring-rest-api-walkthrough/resourceid_azurecli.png)
 
 ## <a name="retrieve-activity-log-data"></a>Recuperare i dati del registro attività
 Oltre a lavorare con le definizioni delle metriche e i valori correlati, è anche possibile recuperare interessanti informazioni aggiuntive relative alle risorse di Azure. Ad esempio, è possibile eseguire query sui dati del [registro attività](https://msdn.microsoft.com/library/azure/dn931934.aspx) . Nell'esempio seguente viene illustrato l'uso dell'API REST di monitoraggio di Azure per eseguire query sui dati del registro attività all'interno di un intervallo di date specifico per una sottoscrizione di Azure:
@@ -219,6 +219,6 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/provide
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

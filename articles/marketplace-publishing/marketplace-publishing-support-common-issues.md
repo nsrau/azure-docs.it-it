@@ -1,12 +1,12 @@
 ---
-title: Come risolvere i problemi di supporto comuni degli editori | Microsoft Docs
+title: Come risolvere i problemi di supporto comuni degli editori | Documentazione Microsoft
 description: Informazioni su come risolvere i problemi di supporto comuni degli editori e come ottenere supporto
 services: marketplace-publishing
 documentationcenter: na
 author: v-jeana
 manager: lakoch
-editor: ''
-
+editor: 
+ms.assetid: f8465448-8328-41f3-8288-48c1c4098134
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2016
 ms.author: v-jeana; hascipio; v-dabosl
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 11b5fb0ed1b3939d8278156fcf2c831befc5f7ff
+
 
 ---
-# Come risolvere i problemi comuni degli editori in Azure Marketplace
+# <a name="how-to-troubleshoot-common-azure-marketplace-publisher-issues"></a>Come risolvere i problemi comuni degli editori in Azure Marketplace
 Questo articolo spiega come risolvere o ottenere supporto per alcuni scenari comuni relativi al Marketplace.
 
-## Crediti e rimborsi
-In alcuni casi, potrebbe essere necessario richiedere un credito o un rimborso per conto di un cliente. Il supporto Microsoft può assicurare che le richieste di credito e di rimborso del cliente vengano prese in considerazione e che venga fornita una risposta a tempo debito.
+## <a name="credits-and-refunds"></a>Crediti e rimborsi
+In alcuni casi, potrebbe essere necessario richiedere un credito o un rimborso per conto di un cliente.  Il supporto Microsoft può assicurare che le richieste di credito e di rimborso del cliente vengano prese in considerazione e che venga fornita una risposta a tempo debito.
 
 Di seguito viene illustrato come richiedere un credito o un rimborso per conto di un cliente.
 
@@ -29,14 +33,14 @@ Di seguito viene illustrato come richiedere un credito o un rimborso per conto d
 > 
 > 
 
-  ![1\_RequestRefund][1] 
+  ![1_RequestRefund][1]
 
-1. Passare alle pagine di supporto qui: [https://support.microsoft.com/it-IT/getsupport?tenant=ClassicCommercial&locale=it-IT&supportregion=it-IT&pesid=15635&sd=&oaspworkflow=start\_1.0.0.0&wf=0&ccsid=635562546535117884](https://support.microsoft.com/it-IT/getsupport?tenant=ClassicCommercial&locale=it-IT&supportregion=it-IT&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884).
+1. Passare alle pagine di supporto all'indirizzo: [https://support.microsoft.com/en-us/getsupport?tenant=ClassicCommercial&locale=en-us&supportregion=en-us&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884](https://support.microsoft.com/en-us/getsupport?tenant=ClassicCommercial&locale=en-us&supportregion=en-us&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884).
 2. Nella casella **Tipo di problema** selezionare **Gestione dei clienti**.
 3. Nella casella **Categoria** selezionare **Approvare o richiedere un rimborso per un cliente**.
 4. Fare clic su **Avvio richiesta**.
    
-   ![2\_RequestRefund][2]
+   ![2_RequestRefund][2]
 
 1. Fornire informazioni di contatto.
 2. Nella casella **Tipo di problema** immettere le informazioni seguenti:
@@ -50,7 +54,7 @@ Di seguito viene illustrato come richiedere un credito o un rimborso per conto d
 
 Entro 24 ore si riceverà un messaggio di posta elettronica che conferma la ricezione delle informazioni fornite. Una volta presa una decisione in relazione alla richiesta, si verrà informati del risultato.
 
-## Convalida della sottoscrizione del cliente
+## <a name="customer-subscription-validation"></a>Convalida della sottoscrizione del cliente
 In alcuni casi, è necessario convalidare i dettagli della sottoscrizione per uno dei propri clienti. A tale scopo, è possibile contattare il supporto Microsoft. Il supporto Microsoft fornirà assistenza per verificare che un ID sottoscrizione e un indirizzo di fatturazione appartengano a un cliente noto.
 
   ![subscriptionvalidation][3]
@@ -61,7 +65,7 @@ In alcuni casi, è necessario convalidare i dettagli della sottoscrizione per un
 * Sarà necessario specificare un ID sottoscrizione e un indirizzo di fatturazione del cliente.
 * Si verrà contattati da Microsoft per fornire la conferma che l'indirizzo di fatturazione e l'ID sottoscrizione siano noti.
 
-## Com'è possibile aggiornare il profilo di pubblicazione?
+## <a name="how-do-i-update-my-publisher-profile"></a>Com'è possibile aggiornare il profilo di pubblicazione?
 Per aggiornare il proprio profilo di pubblicazione, usare Microsoft Dev Center:
 
 **1. Accedere a Windows Dev Center**.
@@ -71,9 +75,9 @@ Per aggiornare il proprio profilo di pubblicazione, usare Microsoft Dev Center:
 
 ![inprivate][4]
 
-**2. Accedere con l'account aziendale o dell'istituto di istruzione, vale a dire** AzureStore@yourcompany.com.
+**2. Accedere con l'account aziendale o dell'istituto di istruzione**, vale a dire AzureStore@yourcompany.com)..
 
-![signin][5] 
+![signin][5]
 
 **3. Completare la verifica per la protezione dell'account**.
 
@@ -88,7 +92,7 @@ Per aggiornare il proprio profilo di pubblicazione, usare Microsoft Dev Center:
 
 ![acctdetails][7]
 
-## Com'è possibile aggiungere o eliminare un amministratore dall'account di pubblicazione?
+## <a name="how-do-i-add-or-delete-an-administrator-from-my-publishing-account"></a>Com'è possibile aggiungere o eliminare un amministratore dall'account di pubblicazione?
 ![manageadmins][8]
 
 1. Passare al portale di pubblicazione.
@@ -97,7 +101,7 @@ Per aggiornare il proprio profilo di pubblicazione, usare Microsoft Dev Center:
 4. Aggiungere l'indirizzo di posta elettronica del coamministratore che si desidera aggiungere o rimuovere.
 5. Selezionare **Salva**.
 
-## Passaggi successivi: altre richieste di supporto
+## <a name="next-steps--other-support-queries"></a>Passaggi successivi: altre richieste di supporto
 Per i problemi seguenti, registrare un problema all'indirizzo [https://portal.azure.com](https://portal.azure.com):
 
 * Com'è possibile segnalare un errore di fatturazione?
@@ -118,4 +122,8 @@ Per i problemi seguenti, creare una richiesta di supporto all'indirizzo [http://
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

@@ -16,8 +16,8 @@ ms.workload: azure-government
 ms.date: 08/25/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 628536e90ee682a1a1e64444f490fdaace6b125f
+ms.sourcegitcommit: 48f19f5085108b87d22951da049223ef9d4cd188
+ms.openlocfilehash: ea01213d375d93c47b9fa1e710f1e225adb85f92
 
 
 ---
@@ -69,7 +69,7 @@ La crittografia di base disponibile per la connettività ad Azure per enti pubbl
 * Macchine virtuali IaaS: usare la Crittografia dischi di Azure. Attivare Crittografia del servizio di archiviazione per crittografare i file VHD usati per eseguire il backup di questi dischi nella risorsa di archiviazione di Azure, ma vengono crittografati solo dati appena scritti. Ciò significa che se si crea una macchina virtuale e quindi si abilita Crittografia del servizio di archiviazione nell'account di archiviazione che contiene il file VHD, verranno crittografate solo le modifiche, non il file VHD originale.
 * Crittografia lato client: è il metodo più sicuro per crittografare i dati, perché li crittografa prima della trasmissione e crittografa i dati inattivi. Richiede tuttavia l'aggiunta di codice alle applicazioni tramite l'archiviazione, un'operazione che si potrebbe non voler eseguire. In questi casi, è possibile usare HTTPS per i dati in transito e Crittografia del servizio di archiviazione per crittografare i dati inattivi. La crittografia lato client comporta anche un carico maggiore sul client ed è necessario considerare questo aspetto nei piani di scalabilità, soprattutto se viene crittografata e trasferita una grande quantità di dati.
 
-Per altre informazioni sulle opzioni di crittografia in Azure, vedere il [Guida alla sicurezza di Archiviazione di Azure](/storage-security-guide).
+Per altre informazioni sulle opzioni di crittografia in Azure, vedere il [Guida alla sicurezza di Archiviazione di Azure](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
 
 ## <a name="protecting-customer-data-by-managing-secrets"></a>Protezione dei dati dei clienti tramite la gestione dei segreti
 La gestione delle chiavi di protezione è fondamentale della protezione dei dati nel cloud. I clienti devono cercare di semplificare la gestione delle chiavi e mantenere il controllo delle chiavi usate dai servizi e dalle applicazioni cloud per crittografare i dati.
@@ -99,6 +99,6 @@ Per informazioni aggiuntive e aggiornamenti, sottoscrivere il <a href="https://b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

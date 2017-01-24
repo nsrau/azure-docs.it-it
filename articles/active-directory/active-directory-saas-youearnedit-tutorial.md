@@ -1,12 +1,12 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con YouEarnedIt | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e YouEarnedIt.
+title: 'Esercitazione: Integrazione di Azure Active Directory con YouEarnedIt | Documentazione Microsoft'
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e YouEarnedIt.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 3011d44d-dfcf-4061-888f-cff90fbc8150
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 370f81a618da4605581b70443fd0cf3641185ca0
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-youearnedit"></a>Esercitazione: Integrazione di Azure Active Directory con YouEarnedIt
+# <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Esercitazione: Integrazione di Azure Active Directory con YouEarnedIt
 Questa esercitazione descrive come integrare YouEarnedIt con Azure Active Directory (Azure AD).
 
 L'integrazione di YouEarnedIt con Azure AD offre i vantaggi seguenti:
@@ -235,6 +239,6 @@ Quando si fa clic sul riquadro YouEarnedIt nel pannello di accesso, si dovrebbe 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

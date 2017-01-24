@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
+ms.date: 12/01/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 64f6f245b86d9194a52e40ed226de9960a36f3f9
-ms.openlocfilehash: 96e0c65dd57505b816843ac6290ea19ca02c88f9
+ms.sourcegitcommit: aa0193e741b1a84c03230b2458eec96b5504f031
+ms.openlocfilehash: add539351066f9ff94febeebfd5334773b360e8f
 
 
 ---
@@ -43,7 +43,7 @@ I percorsi multipli in Linux sono costituiti da componenti kernel e spazio utent
 
 * **Kernel**: il componente principale è il *mapper dei dispositivi* che reindirizza l'I/O e supporta il failover per i percorsi e i gruppi di percorsi.
 
-1. **Spazio utente**: si tratta di *strumenti per percorsi multipli* che gestiscono i dispositivi a percorsi multipli, indicando il modulo a percorsi multipli del mapper dei dispositivi le operazioni da eseguire. Questi strumenti sono:
+* **Spazio utente**: si tratta di *strumenti per percorsi multipli* che gestiscono i dispositivi a percorsi multipli, indicando il modulo a percorsi multipli del mapper dei dispositivi le operazioni da eseguire. Questi strumenti sono:
    
    * **Multipath**: elenca e configura i dispositivi a percorsi multipli.
    * **Multipathd**: daemon che esegue i percorsi multipli e monitora i percorsi.
@@ -56,12 +56,11 @@ Il file di configurazione `/etc/multipath.conf` rende configurabili dall'utente 
 
 Il file multipath.conf è composto da cinque sezioni:
 
-* **System level defaults** *(defaults)*: è possibile ignorare i valori predefiniti a livello di sistema.
-
-1. **Blacklisted devices** *(blacklist)*: è possibile specificare l'elenco dei dispositivi che il mapper dei dispositivi non deve controllare.
-2. **Blacklist exceptions** *(blacklist_exceptions)*: è possibile identificare i dispositivi specifici da considerare come dispositivi a percorsi multipli anche se elencati nella blacklist.
-3. **Storage controller specific settings** *(devices)*: è possibile specificare impostazioni di configurazione che verranno applicate ai dispositivi con informazioni sul fornitore e sul prodotto.
-4. **Device specific settings** *(multipaths)*: è possibile usare questa sezione per ottimizzare le impostazioni di configurazione per le singole unità logiche.
+- **System level defaults** *(defaults)*: è possibile ignorare i valori predefiniti a livello di sistema.
+- **Blacklisted devices** *(blacklist)*: è possibile specificare l'elenco dei dispositivi che il mapper dei dispositivi non deve controllare.
+- **Blacklist exceptions** *(blacklist_exceptions)*: è possibile identificare i dispositivi specifici da considerare come dispositivi a percorsi multipli anche se elencati nella blacklist.
+- **Storage controller specific settings** *(devices)*: è possibile specificare impostazioni di configurazione che verranno applicate ai dispositivi con informazioni sul fornitore e sul prodotto.
+- **Device specific settings** *(multipaths)*: è possibile usare questa sezione per ottimizzare le impostazioni di configurazione per le singole unità logiche.
 
 ## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>Configurare percorsi multipli in dispositivi StorSimple connessi all'host Linux
 Un dispositivo StorSimple connesso a un host Linux può essere configurato per l'elevata disponibilità e il bilanciamento del carico. Ad esempio, se l'host Linux ha due interfacce connesse alla SAN e il dispositivo ha due interfacce connesse alla SAN in modo che queste interfacce siano tutte nella stessa subnet, saranno disponibili quattro percorsi. Tuttavia, se ogni interfaccia DATA sull'interfaccia del dispositivo e dell'host si trova in una diversa subnet IP (non instradabile), saranno disponibili solo due percorsi. È possibile configurare percorsi multipli per trovare automaticamente tutti i percorsi disponibili, scegliere un algoritmo di bilanciamento del carico per tali percorsi, applicare impostazioni di configurazione specifiche per i volumi solo StorSimple, quindi abilitare e verificare i percorsi multipli.
@@ -155,8 +154,7 @@ Il dispositivo StorSimple deve avere:
      2. Assicurarsi che le interfacce di rete abbiano la stessa velocità, cioè 1 GbE o 10 GbE.
      3. Prendere nota degli indirizzi IPv4 delle interfacce abilitate per iSCSI e salvarli per un uso successivo nell'host.
 * Le interfacce iSCSI sul dispositivo StorSimple devono essere raggiungibili dal server CentOS.
-  
-    Per verificarlo, è necessario fornire gli indirizzi IP delle interfacce di rete abilitate per iSCSI StorSimple nel server host. I comandi usati e l'output corrispondente con DATA2 (10.126.162.25) e DATA3 (10.126.162.26) sono illustrati di seguito:
+      Per verificarlo, è necessario fornire gli indirizzi IP delle interfacce di rete abilitate per iSCSI StorSimple nel server host. I comandi usati e l'output corrispondente con DATA2 (10.126.162.25) e DATA3 (10.126.162.26) sono illustrati di seguito:
   
         [root@centosSS ~]# iscsiadm -m discovery -t sendtargets -p 10.126.162.25:3260
         10.126.162.25:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g44mt-target
@@ -190,12 +188,12 @@ I dispositivi supportati da percorsi multipli possono essere individuati e confi
 
 1. Inizializzare il file `/etc/multipath.conf` . Digitare:
    
-     `Copy mpathconf --enable`
+     `mpathconf --enable`
    
     Il comando precedente creerà un file `sample/etc/multipath.conf` .
 2. Avviare il servizio a percorsi multipli. Digitare:
    
-    ``Copy service multipathd start``
+    `service multipathd start`
    
     Viene visualizzato l'output seguente:
    
@@ -300,38 +298,37 @@ Questo algoritmo di bilanciamento del carico usa tutti i percorsi multipli dispo
 
     Se in questo caso vengono visualizzati due percorsi e una sola interfaccia host, sarà necessario abilitare entrambe le interfacce sull'host per iSCSI. Consultare le [istruzioni dettagliate nella documentazione Linux](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
+2. Un volume viene esposto al server CentOS dal dispositivo StorSimple. Per altre informazioni, vedere la procedura [Passaggio 6: Creare un volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume) nel portale di Azure classico dal dispositivo StorSimple.
 
-   c. Un volume viene esposto al server CentOS dal dispositivo StorSimple. Per altre informazioni, vedere la procedura [Passaggio 6: Creare un volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume) nel portale di Azure classico dal dispositivo StorSimple.
+3. Verificare i percorsi disponibili. Digitare:
 
-   d. Verificare i percorsi disponibili. Digitare:
+      ```
+      multipath –l
+      ```
 
-   ```
-   multipath –l
-   ```
+      L'esempio seguente illustra l'output di due interfacce di rete su un dispositivo StorSimple connesso a una singola interfaccia di rete host con due percorsi disponibili.
 
-   L'esempio seguente illustra l'output di due interfacce di rete su un dispositivo StorSimple connesso a una singola interfaccia di rete host con due percorsi disponibili.
-
-   ```
-    mpathb (36486fd20cc081f8dcd3fccb992d45a68) dm-3 MSFT,STORSIMPLE 8100
-    size=100G features='0' hwhandler='0' wp=rw
-    `-+- policy='round-robin 0' prio=0 status=active
+        ```
+        mpathb (36486fd20cc081f8dcd3fccb992d45a68) dm-3 MSFT,STORSIMPLE 8100
+        size=100G features='0' hwhandler='0' wp=rw
+        `-+- policy='round-robin 0' prio=0 status=active
         |- 7:0:0:1 sdc 8:32 active undef running
         `- 6:0:0:1 sdd 8:48 active undef running
-   ```
+        ```
 
-   L'esempio seguente illustra l'output di due interfacce di rete su un dispositivo StorSimple connesso a due interfacce di rete host con quattro percorsi disponibili.
+        The following example shows the output for two network interfaces on a StorSimple device connected to two host network interfaces with four available paths.
 
-   ```
-    mpathb (36486fd27a23feba1b096226f11420f6b) dm-2 MSFT,STORSIMPLE 8100
-    size=100G features='0' hwhandler='0' wp=rw
-    `-+- policy='round-robin 0' prio=0 status=active
+        ```
+        mpathb (36486fd27a23feba1b096226f11420f6b) dm-2 MSFT,STORSIMPLE 8100
+        size=100G features='0' hwhandler='0' wp=rw
+        `-+- policy='round-robin 0' prio=0 status=active
         |- 17:0:0:0 sdb 8:16 active undef running
         |- 15:0:0:0 sdd 8:48 active undef running
         |- 14:0:0:0 sdc 8:32 active undef running
         `- 16:0:0:0 sde 8:64 active undef running
-   ```
+        ```
 
-   Dopo aver configurati i percorsi, vedere le istruzioni specifiche sul sistema operativo dell'host (CentOS 6.6) per montare e formattare il volume.
+        After the paths are configured, refer to the specific instructions on your host operating system (Centos 6.6) to mount and format this volume.
 
 ## <a name="troubleshoot-multipathing"></a>Risoluzione dei problemi relativi ai percorsi multipli
 Questa sezione contiene alcuni suggerimenti utili in caso di problemi durante la configurazione dei percorsi multipli.
@@ -358,7 +355,8 @@ Potrebbe anche essere opportuno verificare che si possano visualizzare alcuni di
 * Digitare i comandi seguenti:
   
     `$ dmesg | grep sd*`
-* Oppure
+     
+     Oppure
   
     `$ fdisk –l`
   
@@ -452,6 +450,6 @@ Nella configurazione di MPIO sull'host Linux può anche essere necessario consul
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

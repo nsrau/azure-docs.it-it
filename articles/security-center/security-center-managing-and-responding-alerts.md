@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/17/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8bf0ca0768939cbc99947191eab80a789f551363
+ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
+ms.openlocfilehash: 7a4413c6d2ecf497e72e2909e627761f0a9ff23a
 
 
 ---
@@ -42,20 +42,19 @@ Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log 
 1. Nel dashboard del Centro sicurezza è disponibile il riquadro **Avvisi di sicurezza** .
    
     ![Riquadro Avvisi di sicurezza nel Centro sicurezza di Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1-ga.png)
+
 2. Fare clic sul riquadro per aprire il pannello **Avvisi di sicurezza** contenente altri dettagli sugli avvisi, come illustrato di seguito.
    
    ![Pannello Avvisi di sicurezza nel Centro sicurezza](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
 
 Nella parte inferiore del pannello sono riportati i dettagli relativi ad ogni avviso. Per ordinarli, fare clic sulla colonna in base alle quale si vuole ordinare. Di seguito è riportata una definizione per ogni colonna:
 
-* **Avviso**: breve spiegazione dell'avviso.
+* **Descrizione**: breve spiegazione dell'avviso.
 * **Conteggio**: elenco di tutti gli avvisi di questo tipo rilevati in un giorno specifico.
 * **Rilevato da**: servizio responsabile dell'attivazione dell'avviso.
 * **Data**: data in cui si è verificato l'evento.
 * **Stato**: stato corrente dell'avviso. Esistono due tipi di stato:
-  
   * **Attivo**: l'avviso di sicurezza è stato rilevato.
-  * **Ignorato**: l'avviso di sicurezza è stato ignorato dall'utente. Questo stato viene usato generalmente per gli avvisi che, dopo essere stati esaminati, non sono stati valutati come un attacco effettivo oppure di cui ne sono stati attenuati gli effetti.
 * **Gravità**: livello di gravità, che può essere alto, medio o basso.
 
 ### <a name="filtering-alerts"></a>Filtro degli avvisi
@@ -63,10 +62,7 @@ Nella parte inferiore del pannello sono riportati i dettagli relativi ad ogni av
 
 1. Fare clic su **Filtro** nel pannello **Avvisi di sicurezza**. Verrà visualizzato il pannello **Filtro** in cui è possibile selezionare i valori di data, stato e gravità da visualizzare.
    
-    ![Filtro degli avvisi nel Centro sicurezza](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-ga.png)
-2. Dopo avere analizzato un avviso di sicurezza, si potrebbe scoprire che si tratta di un falso positivo per il proprio ambiente o di un comportamento previsto per una determinata risorsa. In ogni caso, se si ritiene che un avviso di sicurezza non sia applicabile, è possibile ignorarlo ed escluderlo dalla visualizzazione. Esistono due modi per ignorare un avviso di sicurezza. Fare clic con il pulsante destro del mouse su un avviso e scegliere **Ignora** oppure passare il puntatore del mouse su un elemento, fare clic sui tre punti a destra e selezionare **Ignora**. È possibile visualizzare gli avvisi di sicurezza ignorati facendo clic su **Filtro** e selezionando **Ignorato**.
-   
-   ![Ignorare gli avvisi nel Centro sicurezza](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig4-ga.png)
+    ![Filtro degli avvisi nel Centro sicurezza](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-2017.png)
 
 ### <a name="respond-to-security-alerts"></a>Rispondere agli avvisi di sicurezza
 Selezionare un avviso di sicurezza per altre informazioni sugli eventi che hanno attivato l'avviso e, se presenti, i passaggi da eseguire per correggere un attacco. Gli avvisi di sicurezza sono raggruppati per tipo e data. Se si fa clic su un avviso di sicurezza, viene aperto un pannello contenente un elenco degli avvisi raggruppati.
@@ -98,6 +94,6 @@ In questo documento si è appreso come configurare i criteri di sicurezza nel Ce
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

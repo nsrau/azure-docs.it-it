@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/02/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: 70a4c5ee79a5c74d63d461371f70b49a23d5cf25
+ms.sourcegitcommit: 1116ae1c699f59b7f75f25bed105a53b508801b2
+ms.openlocfilehash: f3fd30791d9110ec0a72e9ec9e51b5e762020fe7
 
 
 ---
@@ -91,7 +91,7 @@ Gli scenari illustrati di seguito includono la configurazione delle regole di au
 Per un esempio pratico completo di un'applicazione del bus di servizio che illustra la configurazione e usa l'autorizzazione con firma di accesso condiviso, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](http://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Un esempio correlato che illustra l'uso delle regole di autorizzazione con firma di accesso condiviso configurate negli spazi dei nomi o negli argomenti per proteggere le sottoscrizioni del bus di servizio è disponibile nella pagina relativa all' [uso dell'autenticazione con firma di accesso condiviso con le sottoscrizioni del bus di servizio](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
 
 ## <a name="access-shared-access-authorization-rules-on-a-namespace"></a>Accesso alle regole di autorizzazione per l'accesso condiviso in uno spazio dei nomi
-Per le operazioni nella radice dello spazio dei nomi del bus di servizio è necessaria l'autenticazione tramite certificati. È necessario caricare un certificato di gestione per la sottoscrizione di Azure. Per caricare un certificato di gestione, fare clic su **Impostazioni** nel riquadro a sinistra del [portale di Azure classico][portale di Azure classico]. Per altre informazioni sui certificati di gestione di Azure, vedere la [Panoramica sui certificati di Azure](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
+Per le operazioni nella radice dello spazio dei nomi del bus di servizio è necessaria l'autenticazione tramite certificati. È necessario caricare un certificato di gestione per la sottoscrizione di Azure. Per caricare un certificato di gestione, fare clic su **Impostazioni** nel riquadro a sinistra del [portale di Azure classico][Azure classic portal]. Per altre informazioni sui certificati di gestione di Azure, vedere la [Panoramica sui certificati di Azure](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
 L'endpoint per l'accesso alle regole di autorizzazione per l'accesso condiviso in uno spazio dei nomi del bus di servizio è il seguente:
 
@@ -208,7 +208,7 @@ La tabella seguente illustra i diritti di accesso necessari per l'esecuzione di 
 | Creare una coda |Manage |Qualsiasi indirizzo dello spazio dei nomi |
 | Eliminare una coda |Manage |Qualsiasi indirizzo valido della coda |
 | Enumerare le code |Manage |/$Resources/Queues |
-| Ottenere la descrizione di una coda |Manage o Send |Qualsiasi indirizzo valido della coda |
+| Ottenere la descrizione di una coda |Gestire |Qualsiasi indirizzo valido della coda |
 | Configurare le regole di autorizzazione per una coda |Manage |Qualsiasi indirizzo valido della coda |
 | Effettuare un invio alla coda |Invio |Qualsiasi indirizzo valido della coda |
 | Ricevere messaggi da una coda |Attesa |Qualsiasi indirizzo valido della coda |
@@ -221,38 +221,33 @@ La tabella seguente illustra i diritti di accesso necessari per l'esecuzione di 
 | Creare un argomento |Manage |Qualsiasi indirizzo dello spazio dei nomi |
 | Eliminare un argomento |Manage |Qualsiasi indirizzo valido dell'argomento |
 | Enumerare gli argomenti |Manage |/$Resources/Topics |
-| Ottenere la descrizione di un argomento |Manage o Send |Qualsiasi indirizzo valido dell'argomento |
+| Ottenere la descrizione di un argomento |Gestire |Qualsiasi indirizzo valido dell'argomento |
 | Configurare le regole di autorizzazione per un argomento |Manage |Qualsiasi indirizzo valido dell'argomento |
 | Effettuare un invio all'argomento |Invio |Qualsiasi indirizzo valido dell'argomento |
 | **Sottoscrizione** | | |
 | Creare una sottoscrizione |Manage |Qualsiasi indirizzo dello spazio dei nomi |
 | Eliminare una sottoscrizione |Manage |../myTopic/Subscriptions/mySubscription |
 | Enumerare le sottoscrizioni |Manage |../myTopic/Subscriptions |
-| Ottenere la descrizione di una sottoscrizione |Manage o Listen |../myTopic/Subscriptions/mySubscription |
+| Ottenere la descrizione di una sottoscrizione |Gestire |../myTopic/Subscriptions/mySubscription |
 | Abbandonare o completare messaggi dopo la ricezione del messaggio in modalità PeekLock (blocco di visualizzazione) |Attesa |../myTopic/Subscriptions/mySubscription |
 | Rinviare un messaggio per il successivo recupero |Attesa |../myTopic/Subscriptions/mySubscription |
 | Spostare un messaggio nella coda dei messaggi non recapitabili |Attesa |../myTopic/Subscriptions/mySubscription |
 | Ottenere lo stato associato a una sessione dell'argomento |Attesa |../myTopic/Subscriptions/mySubscription |
 | Impostare lo stato associato a una sessione dell'argomento |Attesa |../myTopic/Subscriptions/mySubscription |
-| **Regola** | | |
+| **Regole** | | |
 | Creare una regola |Manage |../myTopic/Subscriptions/mySubscription |
 | Eliminare una regola |Manage |../myTopic/Subscriptions/mySubscription |
 | Enumerare le regole |Manage o Listen |../myTopic/Subscriptions/mySubscription/Rules |
-| **Hub di notifica** | | |
-| Creare un hub di notifica |Manage |Qualsiasi indirizzo dello spazio dei nomi |
-| Creare o aggiornare la registrazione per un dispositivo attivo |Listen o Manage |../notificationHub/tags/{tag}/registrations |
-| Aggiornare le informazioni PNS |Listen o Manage |../notificationHub/tags/{tag}/registrations/updatepnshandle |
-| Effettuare un invio a un hub di notifica |Invio |../notificationHub/messages |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per una panoramica generale della firma di accesso condiviso nel bus di servizio, vedere [Firme di accesso condiviso](service-bus-sas-overview.md).
 
 Per altre informazioni sull’autenticazione del bus di servizi, vedere [Autenticazione e autorizzazione del bus di servizio](service-bus-authentication-and-authorization.md) .
 
-[portale di Azure classico]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

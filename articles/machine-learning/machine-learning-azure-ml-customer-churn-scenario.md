@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/20/2016
 ms.author: jeannt
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4dcbfbfdb02ac52a42b9f1995e39abdfe1bd3368
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: cfaa14eb1dd8d958c210f95997d291aba79c5da7
 
 
 ---
@@ -253,6 +253,6 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

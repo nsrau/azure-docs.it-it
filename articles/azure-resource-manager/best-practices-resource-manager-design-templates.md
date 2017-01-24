@@ -12,27 +12,27 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 1af799b60c3e6053db302168faede1f7d90249b3
+ms.sourcegitcommit: c38d7120de7d31f1079dd84bcc073eb2f9618775
+ms.openlocfilehash: c66032ef65a523528e2610f7a2e13595a47d9587
 
 
 ---
 # <a name="patterns-for-designing-azure-resource-manager-templates"></a>Procedure consigliate per la progettazione di modelli di Azure Resource Manager
-Nel nostro lavoro con aziende, integratori di sistemi (SI), fornitori di servizi cloud (CSV) e team di progetto per software open source (OSS), è spesso necessario distribuire rapidamente ambienti, carichi di lavoro o unità di scala. Queste distribuzioni devono essere supportate, seguire procedure consolidate ed essere conformi ai criteri identificati. Usando un approccio flessibile basato sui modelli di Azure Resource Manager, è possibile distribuire topologie complesse in modo rapido e coerente. È possibile adattare facilmente queste distribuzioni man mano che le offerte principali cambiano o inserire varianti per scenari o clienti esterni.
+Usando un approccio flessibile basato sui modelli di Azure Resource Manager, è possibile distribuire topologie complesse in modo rapido e coerente. È possibile adattare facilmente queste distribuzioni man mano che le offerte principali cambiano o inserire varianti per scenari o clienti esterni.
 
 Questo argomento fa parte di un white paper di dimensioni maggiori. Per leggere il documento completo, scaricare [World Class Azure Resource Manager Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf) (Considerazioni e procedure consigliate sui modelli di Azure Resource Manager a livello internazionale).
 
-I modelli uniscono i vantaggi della Gestione risorse di Azure sottostante con l’adattabilità e la leggibilità di JavaScript Object Notation (JSON). Utilizzando i modelli, è possibile:
+I modelli uniscono i vantaggi della Gestione risorse di Azure sottostante con l'adattabilità e la leggibilità di JavaScript Object Notation (JSON). Utilizzando i modelli, è possibile:
 
 * Distribuire in modo coerente le topologie e i relativi carichi di lavoro.
-* Gestire tutte le risorse di un’applicazione contemporaneamente utilizzando gruppi di risorse.
+* Gestire tutte le risorse di un'applicazione contemporaneamente utilizzando gruppi di risorse.
 * Applicare il controllo dell'accesso basato sui ruoli (RBAC) per concedere l'accesso appropriato a utenti, gruppi e servizi.
 * Utilizzare le associazioni di assegnazione di tag per semplificare attività come i rollup di fatturazione.
 
-In questo articolo vengono fornite informazioni dettagliate su scenari di utilizzo, architettura e modelli di implementazione identificati durante le sessioni di progettazione e implementazioni reali dei modelli con i clienti di Azure Customer Advisory Team (AzureCAT). Lungi dall'essere accademici, questi approcci sono procedure consolidate derivanti dallo sviluppo di modelli per 12 delle principali tecnologie OSS basate su Linux, tra cui: Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise basato su Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis e Nagios. La maggior parte di questi modelli è stata sviluppata con un noto fornitore di una specifica distribuzione e influenzata dai requisiti di clienti aziendali e SI di Microsoft durante progetti recenti.
+In questo articolo vengono fornite informazioni dettagliate su scenari di utilizzo, architettura e modelli di implementazione identificati durante le sessioni di progettazione e implementazioni reali dei modelli con i clienti di Azure Customer Advisory Team (AzureCAT). Lungi dall'essere accademici, questi approcci sono procedure consolidate derivanti dallo sviluppo di modelli per 12 delle principali tecnologie OSS basate su Linux, tra cui: Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise basato su Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis e Nagios. 
 
 Nel presente articolo vengono proposte queste procedure consolidate allo scopo di agevolare la progettazione di modelli di Gestione risorse di Azure di elevata qualità.  
 
@@ -42,24 +42,24 @@ Lavorando con i clienti, è stata identificata una serie di esperienze di utiliz
 Nelle organizzazioni di grandi dimensioni, si osservano comunemente due consumer di modelli di Resource Manager: team di sviluppo di software interno e IT aziendale. È risultato evidente che gli scenari relativi agli SI sono associati a quelli delle grandi imprese, quindi si applicano le stesse considerazioni.
 
 ### <a name="internal-software-development-teams"></a>Team di sviluppo di software interno
-Se il team sviluppa software per supportare l’azienda, i modelli forniscono un modo semplice per distribuire rapidamente le tecnologie da utilizzare in soluzioni specifiche per l’azienda. I modelli possono inoltre essere utilizzati per creare rapidamente ambienti di formazione che consentano ai membri del team di acquisire le competenze necessarie.
+Se il team sviluppa software per supportare l'azienda, i modelli forniscono un modo semplice per distribuire rapidamente le tecnologie da utilizzare in soluzioni specifiche per l'azienda. I modelli possono inoltre essere utilizzati per creare rapidamente ambienti di formazione che consentano ai membri del team di acquisire le competenze necessarie.
 
-È possibile utilizzare modelli così come sono oppure estenderli o comporli per adeguarli alle proprie esigenze. Utilizzando l’associazione di tag all’interno dei modelli, è possibile fornire un riepilogo di fatturazione con varie viste quali team, progetto, utente e formazione.
+È possibile utilizzare modelli così come sono oppure estenderli o comporli per adeguarli alle proprie esigenze. Utilizzando l'associazione di tag all'interno dei modelli, è possibile fornire un riepilogo di fatturazione con varie viste quali team, progetto, utente e formazione.
 
-Le aziende spesso desiderano team di sviluppo software per creare un modello per la distribuzione coerente di una soluzione offrendo al contempo vincoli per mantenere fissi alcuni elementi all'interno di tale ambiente e impedire che possano essere sottoposti a override. Ad esempio una banca potrebbe richiedere un modello per includere lo RBAC al fine di evitare che un programmatore possa modificare una soluzione di banking per inviare dati a un account di archiviazione personale.
+Spesso le aziende chiedono ai team di sviluppo software di creare un modello che consenta la distribuzione uniforme di una soluzione. Il modello semplifica i vincoli in modo che alcuni elementi all'interno di tale ambiente rimangono fissi e non possano essere sottoposti a override. Ad esempio una banca potrebbe richiedere un modello per includere lo RBAC al fine di evitare che un programmatore possa modificare una soluzione di banking per inviare dati a un account di archiviazione personale.
 
 ### <a name="corporate-it"></a>IT aziendale
 Le organizzazioni IT aziendali in genere utilizzano modelli per la distribuzione di capacità cloud e funzionalità ospitate su cloud.
 
 #### <a name="cloud-capacity"></a>Capacità cloud
-Un metodo comune adottato dai gruppi IT aziendali per fornire capacità cloud ai team sono le "taglie", ovvero dimensioni di offerta standard quali small, medium e large. Le offerte basate sulle taglie possono combinare tipi e quantità differenti di risorse fornendo al tempo stesso un livello di standardizzazione che consente di utilizzare i modelli. I modelli offrono capacità in modo coerente permettendo l’applicazione dei criteri aziendali e l’utilizzo dell’associazione di tag per fornire funzionalità di chargeback alle organizzazioni che ne fanno uso.
+Un metodo comune adottato dai gruppi IT aziendali per fornire capacità cloud ai team sono le "taglie", ovvero dimensioni di offerta standard quali small, medium e large. Le offerte basate sulle taglie possono combinare tipi e quantità differenti di risorse fornendo al tempo stesso un livello di standardizzazione che consente di utilizzare i modelli. I modelli offrono capacità in modo coerente permettendo l'applicazione dei criteri aziendali e l'utilizzo dell'associazione di tag per fornire funzionalità di chargeback alle organizzazioni che ne fanno uso.
 
-Ad esempio, potrebbe essere necessario fornire ambienti di sviluppo, test o produzione all'interno dei quali i team di sviluppo software possono distribuire le relative soluzioni. L'ambiente ha una topologia di rete predefinita ed elementi non modificabili dai team di sviluppo software, quali le regole che controllano l'accesso alla rete Internet pubblica e l'ispezione dei pacchetti. Per tali ambienti potrebbero anche esistere regole specifiche dell’organizzazione con diritti di accesso distinti per l’ambiente.
+Ad esempio, potrebbe essere necessario fornire ambienti di sviluppo, test o produzione all'interno dei quali i team di sviluppo software possono distribuire le relative soluzioni. L'ambiente ha una topologia di rete predefinita ed elementi non modificabili dai team di sviluppo software, quali le regole che controllano l'accesso alla rete Internet pubblica e l'ispezione dei pacchetti. Per tali ambienti potrebbero anche esistere regole specifiche dell'organizzazione con diritti di accesso distinti per l'ambiente.
 
 #### <a name="cloud-hosted-capabilities"></a>Funzionalità ospitate nel cloud
-È possibile utilizzare modelli per supportare funzionalità ospitate nel cloud, tra cui singoli pacchetti software oppure offerte combinate disponibili per le linee interne di business. Un esempio di offerta combinata è l’analytics-as-a-service, tecnologie di analisi, virtualizzazione e altre tecnologie, fornita in una configurazione ottimizzata e connessa in una topologia di rete predefinita.
+È possibile utilizzare modelli per supportare funzionalità ospitate nel cloud, tra cui singoli pacchetti software oppure offerte combinate disponibili per le linee interne di business. Un esempio di offerta combinata è l'analytics-as-a-service, tecnologie di analisi, virtualizzazione e altre tecnologie, fornita in una configurazione ottimizzata e connessa in una topologia di rete predefinita.
 
-Le funzionalità ospitate nel cloud sono influenzate da considerazioni in materia di sicurezza e ruoli, determinate dall’offerta di capacità cloud su cui sono basate come descritto in precedenza. Queste funzionalità sono disponibili così come sono oppure come servizio gestito. Per quest’ultimo, sono richiesti ruoli con limiti di accesso per abilitare l’accesso all’ambiente a scopo di gestione.
+Le funzionalità ospitate nel cloud sono influenzate da considerazioni in materia di sicurezza e di ruoli, determinate dall'offerta di capacità cloud su cui sono basate. Queste funzionalità sono disponibili così come sono oppure come servizio gestito. Per quest'ultimo, sono richiesti ruoli con limiti di accesso per abilitare l'accesso all'ambiente a scopo di gestione.
 
 ## <a name="cloud-service-vendors"></a>Fornitori di servizi cloud
 Dopo avere parlato con molti CSV, sono stati identificati molteplici approcci adottabili per distribuire servizi per i clienti e i requisiti associati.
@@ -67,13 +67,13 @@ Dopo avere parlato con molti CSV, sono stati identificati molteplici approcci ad
 ### <a name="csv-hosted-offering"></a>Offerta ospitata su CSV
 Quando l'offerta viene ospitata nella propria sottoscrizione di Azure, sono comunemente adottati due approcci di hosting: distribuzione di una implementazione distinta per ogni cliente o distribuzione di unità di scala che supportano un'infrastruttura condivisa usata per tutti i clienti.
 
-* **Distribuzioni distinte per ogni cliente.**  Le distribuzioni distinte per ogni cliente richiedono topologie fisse di configurazioni note differenti. Queste distribuzioni possono contenere macchine virtuali (VM) di dimensioni differenti, un numero variabile di nodi e volumi diversi di memoria associata. L’associazione di tag alle distribuzioni è utilizzata per i roll-up di fatturazione per ogni cliente. Lo RBAC può essere abilitato per consentire ai clienti di accedere agli aspetti dell’ambiente cloud.
-* **Unità di scala in ambienti multi-tenant condivisi.**  Un modello può rappresentare un'unità di scala per ambienti multi-tenant. In questo caso, la stessa infrastruttura viene utilizzata per supportare tutti i clienti. Le distribuzioni rappresentano un gruppo di risorse che forniscono un livello di capacità per le offerte ospitate, ad esempio numero di utenti e numero di transazioni. Tali unità di scala sono aumentate o diminuite secondo necessità.
+* **Distribuzioni distinte per ogni cliente.** Le distribuzioni distinte per ogni cliente richiedono topologie fisse di configurazioni note differenti. Queste distribuzioni possono contenere macchine virtuali (VM) di dimensioni differenti, un numero variabile di nodi e volumi diversi di memoria associata. L'associazione di tag alle distribuzioni è utilizzata per i roll-up di fatturazione per ogni cliente. Lo RBAC può essere abilitato per consentire ai clienti di accedere agli aspetti dell'ambiente cloud.
+* **Unità di scala in ambienti multi-tenant condivisi.** Un modello può rappresentare un'unità di scala per ambienti multi-tenant. In questo caso, la stessa infrastruttura viene utilizzata per supportare tutti i clienti. Le distribuzioni rappresentano un gruppo di risorse che forniscono un livello di capacità per le offerte ospitate, ad esempio numero di utenti e numero di transazioni. Tali unità di scala sono aumentate o diminuite secondo necessità.
 
 ### <a name="csv-offering-injected-into-customer-subscription"></a>Offerta CSV inserita nella sottoscrizione del cliente
 Potrebbe essere necessario distribuire il software in sottoscrizioni appartenenti a clienti finali. È possibile utilizzare modelli per distribuire distribuzioni distinte in un account Azure del cliente.
 
-Queste distribuzioni utilizzano lo RBAC, pertanto è possibile aggiornare e gestire la distribuzione all'interno dell’account cliente.
+Queste distribuzioni utilizzano lo RBAC, pertanto è possibile aggiornare e gestire la distribuzione all'interno dell'account cliente.
 
 ### <a name="azure-marketplace"></a>Azure Marketplace
 Per pubblicizzare e vendere le proprie offerte tramite un marketplace, ad esempio Azure Marketplace, è possibile sviluppare modelli per la fornitura di tipi distinti di distribuzioni che vengono eseguiti nell'account Azure di un cliente. Queste distribuzioni distinte possono essere descritte in genere come taglia (small, medium, large), tipo di prodotto/pubblico (community, sviluppatore, grande impresa) o tipo di funzionalità (di base, disponibilità elevata).  In alcuni casi, tali tipi consentono di specificare determinati attributi di distribuzione, ad esempio il tipo di VM o il numero di dischi.
@@ -83,7 +83,7 @@ All'interno dei progetti open source, i modelli di Gestione delle risorse consen
 
 Nelle sezioni seguenti vengono identificati gli aspetti da considerare prima di progettare la soluzione.
 
-## <a name="identifying-what-is-outside-and-inside-of-a-vm"></a>Identificare gli elementi esterni e interni di una VM
+## <a name="identifying-what-is-outside-and-inside-a-vm"></a>Identificazione degli elementi esterni e interni di una VM
 Quando si progetta il modello, è utile esaminare i requisiti in termini di elementi interni ed esterni delle macchine virtuali (VM):
 
 * Per elementi esterni si intendono le VM e altre risorse della distribuzione, quali la topologia di rete, associazione di tag, riferimenti a certificati o chiavi private e controllo di accesso basato sui ruoli. Tutte queste risorse fanno parte del modello.
@@ -104,7 +104,7 @@ Esempi comuni di attività eseguite "inside the box" sono:
 * Eseguire gli script nativi (Windows PowerShell, bash e così via)
 
 ### <a name="desired-state-configuration-dsc"></a>Configurazione dello stato desiderato (DSC)
-Relativamente allo stato interno delle VM dopo la distribuzione, è opportuno verificare che tale distribuzione non "devii" dalla configurazione definita e controllata nel controllo del codice sorgente. Con questo approccio gli sviluppatori o il personale addetto alle operazioni potranno apportare a un ambiente solo le modifiche ad hoc che sono state esaminate, testate o registrate nel controllo del codice sorgente. Questo controllo è importante perché le modifiche manuali non sono presenti nel controllo del codice sorgente e non fanno nemmeno parte della distribuzione standard e avranno un impatto sulle future distribuzioni automatiche del software.
+Relativamente allo stato interno delle VM dopo la distribuzione, è opportuno verificare che tale distribuzione non "devii" dalla configurazione definita e controllata nel controllo del codice sorgente. Con questo approccio gli sviluppatori o il personale addetto alle operazioni potranno apportare a un ambiente solo le modifiche ad hoc che sono state esaminate, testate o registrate nel controllo del codice sorgente. Questo controllo è importante, in quanto le modifiche manuali non sono presenti nel controllo del codice sorgente. Inoltre, non fanno parte della distribuzione standard e avranno un impatto sulle future distribuzioni automatiche del software.
 
 Oltre che dal punto di vista dei dipendenti interni, la configurazione dello stato desiderato è importante anche in termini di sicurezza. I pirati informatici tentano regolarmente di compromettere e sfruttare i sistemi software. Quando il tentativo riesce, lo scopo è in genere l'installazione di file o altrimenti la modifica dello stato di un sistema compromesso. Utilizzando la configurazione dello stato desiderato, è possibile identificare i delta tra lo stato desiderato e quello effettivo e ripristinare una configurazione nota.
 
@@ -122,10 +122,10 @@ Un ambito di funzionalità è incentrato sulla distribuzione e configurazione di
 ### <a name="end-to-end-solution-scope"></a>Ambito di soluzione end-to-end
 Un ambito di soluzione end-to-end non riguarda una singola funzionalità ma è invece incentrato sulla fornitura di una soluzione end-to-end costituita da più funzionalità.  
 
-Un ambito di modello con ambito soluzione si manifesta come un set di uno o più modelli con ambito funzionalità con risorse, logica e stato desiderato specifici della soluzione. Un esempio di modello con ambito soluzione è un modello di soluzione di pipeline di dati end-to-end. Il modello può combinare una topologia e uno stato specifici della soluzione con più modelli di soluzione con ambito funzionalità, ad esempio Kafka, Storm e Hadoop.
+Un ambito di modello con ambito soluzione si manifesta come un set di uno o più modelli con ambito funzionalità con risorse, logica e stato desiderato specifici della soluzione. Un esempio di modello con ambito soluzione è un modello di soluzione di pipeline di dati end-to-end. Il modello può combinare una topologia e uno stato specifici della soluzione con più modelli di soluzione con ambito di funzionalità, ad esempio Kafka, Storm e Hadoop.
 
 ## <a name="choosing-free-form-vs-known-configurations"></a>Scelta del formato libero rispetto a configurazioni note
-Inizialmente si potrebbe pensare che un modello debba fornire ai fruitori la massima flessibilità, ma sulla scelta di utilizzare configurazioni in formato libero o configurazioni note influiscono molteplici considerazioni. In questa sezione vengono identificati i principali requisiti dei clienti e le considerazioni tecniche che hanno plasmato l’approccio illustrato nel presente documento.
+Inizialmente si potrebbe pensare che un modello debba fornire ai fruitori la massima flessibilità, ma sulla scelta di utilizzare configurazioni in formato libero o configurazioni note influiscono molteplici considerazioni. In questa sezione vengono identificati i principali requisiti dei clienti e le considerazioni tecniche che hanno plasmato l'approccio illustrato nel presente documento.
 
 ### <a name="free-form-configurations"></a>Configurazioni in formato libero
 In apparenza, le configurazioni in formato libero sembrano ideali. Consentono di selezionare un tipo di VM e specificare un numero arbitrario di nodi e dischi collegati per tali nodi, come parametri di un modello. Questo approccio, tuttavia, non è l'ideale per alcuni scenari.
@@ -136,19 +136,19 @@ Una configurazione in formato libero consente di selezionare varie istanze di VM
 
 È comune che una distribuzione disponga di più tipi di nodi, ad esempio nodi master e nodi dati, pertanto questa flessibilità viene spesso fornita per ogni tipo di nodo.
 
-Man mano che si inizia a distribuire cluster di una qualsiasi importanza, si inizia a lavorare con multipli di tali elementi. Distribuendo un cluster di Hadoop, ad esempio, con 8 nodi master e 200 nodi dati e 4 dischi collegati in pool in ogni nodo master e 16 dischi collegati in pool per ogni nodo dati, occorrerà gestire 208 VM e 3.232 dischi.
+Man mano che si inizia a distribuire cluster di una qualsiasi importanza, si inizia a lavorare con questi scenari complessi. Distribuendo un cluster di Hadoop, ad esempio, con 8 nodi master e 200 nodi dati e 4 dischi collegati in pool in ogni nodo master e 16 dischi collegati in pool per ogni nodo dati, occorrerà gestire 208 VM e 3.232 dischi.
 
-Un account di archiviazione limiterà le richieste che superano il limite identificato di 20.000 transazioni/secondo, è pertanto opportuno prendere in considerazione il partizionamento dell’account di archiviazione e utilizzare calcoli per determinare il numero appropriato di account di archiviazione per adattare questa topologia. Data la grande varietà di combinazioni supportate dall'approccio in formato libero, sono necessari calcoli dinamici per determinare il partizionamento appropriato. Il linguaggio del modello di Gestione risorse di Azure non fornisce attualmente funzioni matematiche, pertanto è necessario eseguire tali calcoli nel codice, generando un modello univoco hardcoded con i dettagli appropriati.
+Un account di archiviazione limiterà le richieste che superano il limite identificato di 20.000 transazioni/secondo, è pertanto opportuno prendere in considerazione il partizionamento dell'account di archiviazione e utilizzare calcoli per determinare il numero appropriato di account di archiviazione per adattare questa topologia. Data la grande varietà di combinazioni supportate dall'approccio in formato libero, sono necessari calcoli dinamici per determinare il partizionamento appropriato. Il linguaggio del modello di Gestione risorse di Azure non fornisce attualmente funzioni matematiche, pertanto è necessario eseguire tali calcoli nel codice, generando un modello univoco hardcoded con i dettagli appropriati.
 
-Negli scenari di IT aziendale e SI, un utente deve gestire i modelli e fornire supporto per le topologie distribuite per una o più organizzazioni. Questo sovraccarico aggiuntivo, ovvero configurazioni e modelli differenti per ogni cliente, è tutt’altro che auspicabile.
+Negli scenari di IT e SI aziendali, qualcuno deve gestire i modelli e fornire supporto per le topologie distribuite per una o più organizzazioni. Questo sovraccarico aggiuntivo, ovvero configurazioni e modelli differenti per ogni cliente, è tutt'altro che auspicabile.
 
-È possibile usare questi modelli per distribuire gli ambienti nella sottoscrizione di Azure del cliente, ma sia i team IT aziendali che i CSV in genere li distribuiscono nelle proprie sottoscrizioni, usando una funzione di chargeback per la fatturazione dei clienti. In questi scenari, l'obiettivo è distribuire capacità per più clienti in un pool di sottoscrizioni e mantenere le distribuzioni densamente popolate nelle sottoscrizioni per ridurne al minimo la proliferazione, vale a dire più sottoscrizioni da gestire. Con dimensioni di distribuzione realmente dinamiche, per ottenere questo tipo di densità occorre un'attenta pianificazione e un ulteriore sviluppo per l’attività di scaffolding effettuato per conto dell'organizzazione.
+È possibile usare questi modelli per distribuire gli ambienti nella sottoscrizione di Azure del cliente, ma sia i team IT aziendali che i CSV in genere li distribuiscono nelle proprie sottoscrizioni, usando una funzione di chargeback per la fatturazione dei clienti. In questi scenari, l'obiettivo è distribuire capacità per più clienti in un pool di sottoscrizioni e mantenere le distribuzioni densamente popolate nelle sottoscrizioni per ridurne al minimo la proliferazione, vale a dire più sottoscrizioni da gestire. Con dimensioni di distribuzione realmente dinamiche, per ottenere questo tipo di densità occorre un'attenta pianificazione e un ulteriore sviluppo per l'attività di scaffolding effettuato per conto dell'organizzazione.
 
 Non è poi possibile creare sottoscrizioni tramite una chiamata API, ma è necessaria un'operazione manuale tramite il portale. Man mano che aumenta il numero di sottoscrizioni, l'eventuale proliferazione di sottoscrizioni risultante richiede l'intervento degli operatori perché non può essere gestita in modo automatizzato. Con così tanta variabilità nelle dimensioni delle distribuzioni, è necessario il pre-provisioning manuale di varie sottoscrizioni per garantirne la disponibilità.
 
-Considerando tutti questi fattori, l’adozione di una configurazione in formato libero risulta meno accattivante che a prima vista.
+Considerando tutti questi fattori, l'adozione di una configurazione in formato libero risulta meno accattivante che a prima vista.
 
-### <a name="known-configurations--the-t-shirt-sizing-approach"></a>Configurazioni note: l’approccio a taglie
+### <a name="known-configurations--the-t-shirt-sizing-approach"></a>Configurazioni note: l'approccio a taglie
 Anziché offrire un modello che fornisce massima flessibilità e innumerevoli variazioni, secondo la nostra esperienza uno schema diffuso è fornire la possibilità di selezionare configurazioni note, ovvero taglie standard quali sandbox, small, medium e large. Altri esempi di taglie sono le offerte di prodotti, come Community Edition o Enterprise Edition.  In altri casi, potrebbero essere configurazioni specifiche per i carichi di lavoro di una determinata tecnologia, ad esempio map reduce o no sql.
 
 Molteplici organizzazioni IT aziendali, fornitori di OSS e SI oggi rendono disponibili le loro offerte utilizzando questo approccio in ambienti locali virtualizzati (aziende) o come offerte software-as-a-service (SaaS) (CSV e OSV).
@@ -163,7 +163,7 @@ Le taglie basate su offerte di prodotti, quali Community o Enterprise, possono d
 
 Ai clienti è inoltre possibile offrire varianti specifiche utilizzando modelli basati su JSON. Quando si utilizzano gli outlier, è possibile incorporare la pianificazione appropriata e considerazioni relative a sviluppo, supporto e costi.
 
-Sulla base degli scenari di utilizzo dei modelli da parte dei clienti, dei requisiti identificati all’inizio di questo documento e alla nostra esperienza pratica nella creazione di numerosi modelli, abbiamo identificato uno schema per la scomposizione dei modelli.
+Sulla base degli scenari di utilizzo dei modelli da parte dei clienti e dei requisiti identificati all'inizio di questo documento, abbiamo identificato uno schema per la scomposizione dei modelli.
 
 ## <a name="capacity-and-capability-scoped-solution-templates"></a>Modelli di soluzione con ambito di capacità e funzionalità
 La scomposizione offre un approccio modulare allo sviluppo dei modelli in grado di supportare riutilizzo, estendibilità e strumenti. In questa sezione vengono forniti dettagli sulla modalità di applicazione di un approccio di scomposizione a modelli con un ambito di capacità o funzionalità.
@@ -312,13 +312,13 @@ Un modello di soluzione con ambito di soluzione end-to-end è incentrato sulla f
 
 Come evidenziato nell'immagine riportata di seguito, lo stesso modello utilizzato per i modelli con ambito di funzionalità viene esteso per i modelli con ambito di soluzione End-to-End.
 
-Un modello di risorse condivise e i modelli di risorse facoltative hanno la stessa funzione degli approcci di modelli con ambito di capacità e di funzionalità ma l’ambito è la soluzione end-to-end.
+Un modello di risorse condivise e i modelli di risorse facoltative hanno la stessa funzione degli approcci di modelli con ambito di capacità e di funzionalità ma l'ambito è la soluzione end-to-end.
 
 Dato che anche i modelli con ambito di soluzione end-to-end possono in genere avere taglie, il modello di risorse di configurazione note riflette ciò che è necessario per una specifica configurazione nota della soluzione.
 
 Il modello di risorse di configurazione note crea un collegamento a uno o più modelli di soluzione con ambito funzionalità pertinenti per la soluzione end-to-end nonché ai modelli di risorse membro necessari per la soluzione end-to-end.
 
-Dato che la taglia della soluzione può differire dal modello con ambito di funzionalità individuale, vengono utilizzate variabili all’interno del modello di risorse di configurazione note per fornire i valori appropriati ai modelli di soluzione con ambito di funzionalità downstream allo scopo di distribuire la taglia appropriata.
+Dato che la taglia della soluzione può differire dal modello con ambito di funzionalità individuale, vengono utilizzate variabili all'interno del modello di risorse di configurazione note per fornire i valori appropriati ai modelli di soluzione con ambito di funzionalità downstream allo scopo di distribuire la taglia appropriata.
 
 ![End-to-end](./media/best-practices-resource-manager-design-templates/end-to-end.png)
 
@@ -337,7 +337,7 @@ Per rimuovere il parametro in ingresso denominato tshirtSize vengono innanzitutt
 
 Sebbene i tipi di distribuzione separati eseguano il mapping al modello di risorse di configurazione note, sono necessarie anche le risorse comuni e la configurazione trovate nel modello di risorse condivise e potenzialmente quelle dei modelli di risorse facoltative.
 
-Se si desidera pubblicare il modello in marketplace, è sufficiente stabilire copie distinte del modello principale che sostituiscano il parametro in ingresso precedentemente disponibile di tshirtSize in una variabile incorporata all'interno del modello.
+Se si desidera pubblicare il modello nel marketplace, occorre stabilire copie distinte del modello principale che sostituiscano il parametro in ingresso precedentemente disponibile di tshirtSize in una variabile incorporata all'interno del modello.
 
 ![Marketplace](./media/best-practices-resource-manager-design-templates/marketplace.png)
 
@@ -345,12 +345,12 @@ Se si desidera pubblicare il modello in marketplace, è sufficiente stabilire co
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per consigli su come gestire la protezione in Gestione risorse di Azure, vedere [Considerazioni sulla protezione per Gestione risorse di Azure](best-practices-resource-manager-security.md)
-* Per ulteriori informazioni sulla condivisione dello stato all’interno e all'esterno dei modelli, vedere [Condivisione dello stato nei modelli di Gestione risorse di Azure](best-practices-resource-manager-state.md)
+* Per ulteriori informazioni sulla condivisione dello stato all'interno e all'esterno dei modelli, vedere [Condivisione dello stato nei modelli di Gestione risorse di Azure](best-practices-resource-manager-state.md)
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

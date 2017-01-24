@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 01/04/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 7d06def30876877626ceca1dd8c362d0ce519856
+ms.sourcegitcommit: 3219df0e45d516ea332725b3e1955026cc1db231
+ms.openlocfilehash: 88fb93b8f3e196121b635d5ce7a21bf8f8c46be5
 
 
 ---
@@ -27,7 +27,6 @@ Per comprendere il funzionamento delle attività di avvio e in particolare la mo
 
 > [!NOTE]
 > Le attività di avvio non sono applicabili ai ruoli VM, ma solo ai ruoli Web e di lavoro del servizio cloud.
-> 
 > 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>Definire le variabili di ambiente prima dell'avvio di un ruolo
@@ -387,7 +386,7 @@ In Visual Studio non è previsto un debugger per analizzare i file batch, pertan
 
     "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 
-Per semplificare il xml, è possibile creare un file wrapper *cmd* che chiama tutte le attività di avvio insieme alla registrazione e assicura che ogni attività figlio condivida le stesse variabili di ambiente. Ciò potrebbe avere un 
+Per semplificare il xml, è possibile creare un file wrapper *cmd* che chiama tutte le attività di avvio insieme alla registrazione e assicura che ogni attività figlio condivida le stesse variabili di ambiente.
 
 Può risultare fastidioso usare `>> "%TEMP%\StartupLog.txt" 2>&1` al termine di ogni attività di avvio. È possibile applicare la registrazione dell'attività tramite la creazione di un wrapper che gestisce la registrazione al posto dell'utente. Il wrapper chiama il file batch reale che si desidera eseguire. L'output del file batch di destinazione verrà reindirizzato sul file *Startuplog.txt*.
 
@@ -521,6 +520,6 @@ Altre informazioni sul funzionamento delle [attività](cloud-services-startup-ta
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

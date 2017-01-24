@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 12/14/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fe034613c537ce0940f7220e4695727bdc2277c2
+ms.sourcegitcommit: 7b1b50f71158e62da6b8ceb741a5b8cf9795e3a4
+ms.openlocfilehash: 8e171d56bb67c971337fa383014988074ec828b1
 
 
 ---
@@ -219,7 +219,7 @@ namespace WorkerRole1
 ## <a name="network-traffic-rules-to-control-role-communication"></a>Regole di traffico di rete per controllare la comunicazione di ruolo
 Dopo aver definito gli endpoint interni, è possibile aggiungere regole del traffico di rete (in base agli endpoint che sono stati creati) per controllare il modo in cui le istanze del ruolo possono comunicare tra loro. Nel diagramma seguente vengono illustrati alcuni scenari comuni relativi al controllo della comunicazione del ruolo:
 
-![Scenari di regole del traffico di rete](./media/cloud-services-enable-communication-role-instances/scenarios.png "Network Traffic Rules Scenarios")
+![Scenari di regole del traffico di rete](./media/cloud-services-enable-communication-role-instances/scenarios.png "Scenari di regole del traffico di rete")
 
 Il seguente esempio di codice mostra le definizioni di ruolo per i ruoli illustrati nel diagramma precedente. Ogni definizione di ruolo include almeno un endpoint interno definito:
 
@@ -375,6 +375,6 @@ Ulteriori informazioni sul [modello](cloud-services-model-and-package.md)del ser
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

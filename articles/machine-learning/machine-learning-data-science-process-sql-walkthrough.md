@@ -1,5 +1,5 @@
 ---
-title: 'Processo di analisi scientifica dei dati per i team in azione: uso di SQL Sever | Documentazione Microsoft'
+title: 'Processo di analisi scientifica dei dati per i team in azione: uso di SQL Server | Documentazione Microsoft'
 description: Advanced Analytics Process and Technology in azione
 services: machine-learning
 documentationcenter: 
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: fashah;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e9ceeecb3a603cd029117e1b7003aed16628f04f
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: 76fe2f70ca297be153d1223a219c9a2b18203a96
 
 
 ---
-# <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Sever
-In questa esercitazione si assisterà alla procedura dettagliata di costruzione e distribuzione di un modello di Machine Learning usando SQL Server e un set di dati disponibili pubblicamente: il set di dati [Corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/) . La procedura segue un flusso di lavoro di analisi scientifica dei dati standard: acquisizione ed esplorazione dei dati, funzionalità ingegneristiche per facilitare l'apprendimento e quindi compilazione e distribuzione di un modello.
+# <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Server
+Questa esercitazione illustra la procedura dettagliata di costruzione e distribuzione di un modello di Machine Learning usando SQL Server e un set di dati disponibili pubblicamente: il set di dati [Corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/) . La procedura segue un flusso di lavoro di analisi scientifica dei dati standard: acquisizione ed esplorazione dei dati, funzionalità ingegneristiche per facilitare l'apprendimento e quindi compilazione e distribuzione di un modello.
 
 ## <a name="a-namedatasetanyc-taxi-trips-dataset-description"></a><a name="dataset"></a>Descrizione del set di dati relativo alle corse dei taxi di New York
 I dati relativi alle corse dei taxi a NYC hanno dimensioni di circa 20 GB sotto forma di file CSV compressi(circa 48 GB senza compressione), e includono oltre 173 milioni di corse singole nonché le tariffe pagate per ciascuna corsa. Il record di ogni corsa include la località di partenza e di arrivo, il numero di patente anonimo (del tassista) e il numero di licenza (ID univoco del taxi). I dati sono relativi a tutte le corse per l'anno 2013 e vengono forniti nei due set di dati seguenti per ciascun mese:
@@ -139,7 +139,7 @@ Per copiare i dati usando AzCopy:
 12. I dati di Corse dei taxi di NYC vengono caricati in due tabelle distinte. Per migliorare le operazioni di unione, è consigliabile indicizzare le tabelle. Lo script di esempio **create\_partitioned\_index.sql** consente di creare indici partizionati sulla chiave di join composita **medallion, hack\_license, and pickup\_datetime**.
 
 ## <a name="a-namedbexploreadata-exploration-and-feature-engineering-in-sql-server"></a><a name="dbexplore"></a>Esplorazione dei dati e progettazione di funzionalità in SQL Server
-In questa sezione, verranno eseguite l'esplorazione dei dati e la generazione di funzionalità mediante l'esecuzione di query SQL direttamente in **SQL Server Management Studio** tramite un database SQL Server creato in precedenza. Uno cript di esempio denominato **sample\_queries.sql** viene fornito nella cartella **Script di esempio**. Modificare lo script per cambiare il nome del database, se è diverso da quello predefinito: **TaxiNYC**.
+In questa sezione, verranno eseguite l'esplorazione dei dati e la generazione di funzionalità mediante l'esecuzione di query SQL direttamente in **SQL Server Management Studio** tramite un database SQL Server creato in precedenza. Uno script di esempio denominato **sample\_queries.sql** viene fornito nella cartella **Script di esempio**. Modificare lo script per cambiare il nome del database, se è diverso da quello predefinito: **TaxiNYC**.
 
 In questo esercizio, verranno effettuate le seguenti operazioni:
 
@@ -152,8 +152,8 @@ In questo esercizio, verranno effettuate le seguenti operazioni:
 
 Una volta pronti a proseguire con Azure Machine Learning, è possibile effettuare una delle seguenti operazioni:  
 
-1. Salvare la query SQL per estrarre e campionare i dati e copiare e incollare la query direttamente in un modulo [Importa dati][import-data] in Azure Machine Learning, oppure
-2. Salvare in modo definitivo i dati campionati e compilati che si prevede di usare per la creazione di modelli in una nuova tabella di database e usare la nuova tabella nel modulo [Importa dati][import-data] in Azure Machine Learning.
+1. Salvare la query SQL finale per estrarre e campionare i dati e copiare e incollare la query direttamente in un modulo [Import Data][import-data] (Importa dati) in Azure Machine Learning, oppure
+2. Salvare in modo definitivo i dati campionati e compilati che si prevede di usare per la creazione di modelli in una nuova tabella di database e usare la nuova tabella nel modulo [Import Data][import-data] (Importa dati) in Azure Machine Learning.
 
 In questa sezione verrà salvata la query finale per estrarre e campionare i dati. Il secondo metodo viene illustrato nella sezione [Esplorazione dei dati e progettazione di funzionalità in IPython Notebook](#ipnb) .
 
@@ -235,7 +235,7 @@ In questo esempio, la longitudine e la latitudine del prelievo e dello scarico v
 Le query di esplorazione per la generazione delle etichette e la conversione geografica possono inoltre essere utilizzate per generare etichette/funzionalità se si rimuove la parte relativa al conteggio. Ulteriori esempi SQL di progettazione di funzionalità vengono forniti nella sezione [Esplorazione dei dati e progettazione di funzionalità in IPython Notebook](#ipnb) . È più efficiente eseguire le query di generazione di funzionalità sull'intero set di dati o su un subset di grandi dimensioni tramite query SQL che si eseguono direttamente sull'istanza di database SQL Server. Le query possono essere eseguite in **SQL Server Management Studio**, IPython Notebook o in qualsiasi strumento o ambiente di sviluppo in grado di accedere al database localmente o in remoto.
 
 #### <a name="preparing-data-for-model-building"></a>Preparazione dei dati per la creazione di modelli
-Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e **nyctaxi\_fare**, generare un'etichetta di classificazione binaria **tipped**, un'etichetta di classificazione multiclasse **tip\_class** e di estrarre un campione casuale dell'1% dall'intero set di dati unito. La query può essere copiata e incollata direttamente nel modulo [Importa dati][import-data] di [Azure Machine Learning Studio](https://studio.azureml.net) per l'inserimento diretto dei dati dall'istanza del database SQL Server in Azure. La query esclude i record con le coordinate errate (0, 0).
+Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e **nyctaxi\_fare**, generare un'etichetta di classificazione binaria **tipped**, un'etichetta di classificazione multiclasse **tip\_class** e di estrarre un campione casuale dell'1% dall'intero set di dati unito. La query può essere copiata e incollata direttamente nel modulo [Import Data][import-data] (Importa dati) di [Azure Machine Learning Studio](https://studio.azureml.net) per l'inserimento diretto dei dati dall'istanza del database SQL Server in Azure. La query esclude i record con le coordinate errate (0, 0).
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -266,8 +266,8 @@ La sequenza consigliata quando si utilizzano i Big Data è la seguente:
 
 Una volta pronti a proseguire con Azure Machine Learning, è possibile effettuare una delle seguenti operazioni:  
 
-1. Salvare la query SQL per estrarre e campionare i dati e copiare e incollare la query direttamente in un modulo [Importa dati][import-data] in Azure Machine Learning. Questo metodo è illustrato nella sezione [Creazione di modelli in Azure Machine Learning](#mlmodel) .    
-2. Salvare in modo definitivo i dati campionati e compilati che si prevede di usare per la creazione di modelli in una nuova tabella di database, quindi usare la nuova tabella nel modulo [Importa dati][import-data].
+1. Salvare la query SQL finale per estrarre e campionare i dati e copiare e incollare la query direttamente in un modulo [Import Data][import-data] (Importa dati) in Azure Machine Learning. Questo metodo è illustrato nella sezione [Creazione di modelli in Azure Machine Learning](#mlmodel) .    
+2. Salvare in modo definitivo i dati campionati e compilati che si prevede di usare per la creazione di modelli in una nuova tabella di database, quindi usare la nuova tabella nel modulo [Import Data][import-data] (Importa dati).
 
 Di seguito vengono forniti alcuni esempi di esplorazione dei dati, visualizzazione dei dati e progettazione di funzionalità. Per ulteriori esempi, vedere il blocco di appunti di esempio SQL IPython nella cartella **Blocchi di appunti IPython di esempio** .
 
@@ -378,7 +378,7 @@ Allo stesso modo, è possibile verificare la relazione tra **rate\_code** e **tr
 ![Grafico n. 8][8]
 
 ### <a name="sub-sampling-the-data-in-sql"></a>Sottocampionamento dei dati in SQL
-Quando si preparano i dati per la creazione di modelli in [Azure Machine Learning Studio](https://studio.azureml.net), è possibile decidere la **query SQL da usare direttamente nel modulo Importa dati** o salvare in modo definitivo i dati compilati e campionati in una nuova tabella e poi usarla nel modulo [Importa dati][import-data] con un semplice **SELECT * FROM <nome\_della\_nuova\_tabella>**.
+Quando si preparano i dati per la creazione di modelli in [Azure Machine Learning Studio](https://studio.azureml.net), è possibile decidere la **query SQL da usare direttamente nel modulo Import data (Importa dati)** o salvare in modo definitivo i dati compilati e campionati in una nuova tabella e poi usarla nel modulo [Import data][import-data] (Importa dati) con un semplice **SELECT * FROM <nome\_della\_nuova\_tabella>**.
 
 In questa sezione verrà creata una nuova tabella per contenere i dati campionati e compilati. Un esempio di query SQL diretta per la creazione di modelli viene fornita nella sezione [Esplorazione dei dati e progettazione di funzionalità in SQL Server](#dbexplore) .
 
@@ -574,7 +574,7 @@ Un tipico esperimento training consiste nelle seguenti operazioni:
 
 In questo esercizio, i dati sono già stati esplorati e compilati in SQL Server, ed è stata decisa la dimensione del campione da inserire in Azure Machine Learning. Per creare uno o più modelli di stima è stato deciso di effettuare le seguenti operazioni:
 
-1. Inserire i dati in Azure Machine Learning tramite il modulo [Importa dati][import-data], disponibile nella sezione **Data Input and Output** (Input e output dei dati). Per altre informazioni, vedere la pagina di riferimento sul modulo [Importa dati][import-data].
+1. Inserire i dati in Azure Machine Learning tramite il modulo [Import Data][import-data] (Importa dati), disponibile nella sezione **Data Input and Output** (Input e output dei dati). Per altre informazioni, vedere la pagina di riferimento sul modulo [Import Data][import-data] (Importa dati).
    
     ![Dati di importazione di Azure Machine Learning][17]
 2. Selezione del **Database SQL Azure** come **Origine dati** nel pannello **Proprietà**.
@@ -591,7 +591,7 @@ Nella figura seguente viene fornito un esempio di un esperimento di classificazi
 > [!IMPORTANT]
 > Negli esempi di estrazione dei dati di modellazione e di query di campionamento forniti nelle sezioni precedenti, **tutte le etichette per i tre esercizi sulla creazione dei modelli sono incluse nella query**. Un passaggio importante (richiesto) in ciascun esercizio sulla modellazione consiste nell'**escludere** le etichette non necessarie per gli altri due problemi ed eventuali **perdite di destinazione**. Ad esempio, con la classificazione binaria, usare l'etichetta **tipped** ed escludere i campi **tip\_class**, **tip\_amount** e **total\_amount**. Questi ultimi sono perdite di destinazione in quanto implicano la mancia pagata.
 > 
-> Per escludere le colonne non necessarie e/o le perdite di destinazione, è possibile usare il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) o [Edit Metadata][edit-metadata] (Modifica metadati). Per altre informazioni, vedere le pagine di riferimento per [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e [Edit Metadata][edit-metadata] (Modifica metadati).
+> Per escludere le colonne non necessarie e/o le perdite di destinazione, è possibile usare il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) o [Edit Metadata][edit-metadata] (Modifica metadati). Per altre informazioni, vedere le pagine di riferimento per [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) ed [Edit Metadata][edit-metadata] (Modifica metadati).
 > 
 > 
 
@@ -603,7 +603,7 @@ Per distribuire un nuovo servizio Web, è necessario effettuare le seguenti oper
 1. Creare un esperimento di assegnazione di punteggio.
 2. Distribuire il servizio web.
 
-Per creare un esperimento di assegnazione del punteggio da un esperimento di training **completato**, fare clic su **CREATE SCORING EXPERIMENT** (CREA ESPERIMENTO DI ASSEGNAZIONE PUNTEGGIO) nella barra delle azioni inferiore.
+Per creare un esperimento di assegnazione dei punteggi da un esperimento di training **completato**, fare clic su **CREATE SCORING EXPERIMENT** (CREA ESPERIMENTO DI ASSEGNAZIONE PUNTEGGI) nella barra delle azioni inferiore.
 
 ![Valutazione di Azure][18]
 
@@ -613,9 +613,9 @@ Azure Machine Learning tenterà di creare un esperimento di assegnazione di punt
 2. Identificazione di una **porta di input** logica per rappresentare lo schema di dati di input previsto.
 3. Identificazione di una **porta di output** logica per rappresentare lo schema di output del servizio Web previsto.
 
-Una volta creato l'esperimento di assegnazione del punteggio, esaminarlo e regolarlo in base alle esigenze. Una regolazione tipica consiste nel sostituire il set di dati di input e/o la query con uno che escluda i campi etichetta, in quanto questi non saranno disponibili quando si chiama il servizio. È inoltre buona norma ridurre la dimensione del set di dati di input e/o della query a pochi record, sufficienti a indicare lo schema di input. Per la porta di output, di solito vengono esclusi tutti i campi di input e inclusi soltanto **Scored Labels** (Etichette con punteggio) e **Scored Probabilities** (Probabilità con punteggio) nell'output, tramite il modulo [Select Columns in Dataset][select-columns].
+Una volta creato l'esperimento di assegnazione del punteggio, esaminarlo e regolarlo in base alle esigenze. Una regolazione tipica consiste nel sostituire il set di dati di input e/o la query con uno che escluda i campi etichetta, in quanto questi non saranno disponibili quando si chiama il servizio. È inoltre buona norma ridurre la dimensione del set di dati di input e/o della query a pochi record, sufficienti a indicare lo schema di input. Per la porta di output, di solito vengono esclusi tutti i campi di input e inclusi soltanto **Scored Labels** (Etichette con punteggio) e **Scored Probabilities** (Probabilità con punteggio) nell'output, tramite il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati).
 
-Nella figura di seguito viene fornito un esperimento di assegnazione di punteggio di esempio. Quando si è pronti per la distribuzione, fare clic sul pulsante **PUBBLICA SERVIZIO WEB** nella barra delle azioni inferiore.
+Nella figura seguente viene fornito un esperimento di assegnazione di punteggio di esempio. Quando si è pronti per la distribuzione, fare clic sul pulsante **PUBBLICA SERVIZIO WEB** nella barra delle azioni inferiore.
 
 ![Pubblicazione di Azure Machine Learning][11]
 
@@ -656,6 +656,6 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

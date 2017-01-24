@@ -12,25 +12,26 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2016
+ms.date: 11/22/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d2a3f912b9c3532c41219c68a948acea8416624a
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 04f5800cd2870067548c8cad25f10749d8459e32
 
 
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Abilitare una connessione Desktop remoto per un ruolo in Servizi cloud di Azure con PowerShell
 > [!div class="op_single_selector"]
+> * [Portale di Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [Portale di Azure classico](cloud-services-role-enable-remote-desktop.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
-> 
-> 
+>
+>
 
 Desktop remoto consente di accedere al desktop di un ruolo in esecuzione in Azure. È possibile usare una connessione Desktop remoto per risolvere e diagnosticare i problemi dell'applicazione mentre è in esecuzione.
 
-Questo articolo descrive come abilitare Desktop remoto nei ruoli dei servizi cloud con PowerShell. Per i prerequisiti necessari per questo articolo, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) . PowerShell usa l'estensione di Desktop remoto per poter abilitare Desktop remoto dopo la distribuzione dell'applicazione.
+Questo articolo descrive come abilitare Desktop remoto nei ruoli dei servizi cloud con PowerShell. Per i prerequisiti necessari per questo articolo, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) . PowerShell usa l'estensione di Desktop remoto per poter abilitare Desktop remoto dopo la distribuzione dell'applicazione.
 
 ## <a name="configure-remote-desktop-from-powershell"></a>Configurare Remote Desktop da PowerShell
 Il cmdlet [Set AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) consente di abilitare Desktop remoto su tutti o specifici ruoli di distribuzione del servizio cloud. Il cmdlet consente di specificare il nome utente e la password per l'utente Desktop remoto tramite il parametro *Credential* che accetta un oggetto PSCredential.
@@ -53,8 +54,8 @@ ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-S
 
 > [!IMPORTANT]
 > Quando si imposta la password, assicurarsi che soddisfi i [requisiti di complessità](https://technet.microsoft.com/library/cc786468.aspx).
-> 
-> 
+>
+>
 
 Per creare l'oggetto credential dal file della password di protezione, è necessario leggere il contenuto del file e riconvertirlo in una stringa sicura con [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
 
@@ -100,17 +101,16 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 > [!NOTE]
 > Per rimuovere completamente la configurazione dell'estensione, è necessario chiamare il cmdlet *remove* con il parametro **UninstallConfiguration** .
-> 
+>
 > Il parametro **UninstallConfiguration** disinstalla qualsiasi configurazione dell'estensione applicata al servizio. Ogni configurazione dell'estensione è associata alla configurazione del servizio. Se si chiama il cmdlet *remove* senza **UninstallConfiguration**, la <mark>distribuzione</mark> verrà dissociata dalla configurazione dell'estensione, che verrà così rimossa. La configurazione dell'estensione rimane comunque associata al servizio.
-> 
-> 
+>
+>
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 [Come configurare i servizi cloud](cloud-services-how-to-configure.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -2,22 +2,26 @@
 title: Distribuzione di un nuovo servizio Web
 description: Il flusso di lavoro di implementazione di un servizio Web basato su ARM
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: vDonGlover
 manager: raymondl
-editor: ''
-
+editor: 
+ms.assetid: a358b04f-0d08-4d50-820e-eeac971854cf
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/11/2017
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 201b07536bcee58e2b7102379dff1c1c93c4b675
+ms.openlocfilehash: 70db87762757c42790047362ded24263157e6ae7
+
 
 ---
 # <a name="deploy-a-new-web-service"></a>Distribuire un nuovo servizio Web
-Microsoft Azure Machine Learning offre ora servizi Web basati su [Azure Resource Manager](../resource-group-overview.md) consentendo nuove opzioni del piano di fatturazione e la distribuzione del servizio Web in più aree.
+Microsoft Azure Machine Learning offre ora servizi Web basati su [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) consentendo nuove opzioni del piano di fatturazione e la distribuzione del servizio Web in più aree.
 
 Il flusso di lavoro generale per distribuire un servizio Web usando i servizi Web di Microsoft Azure Machine Learning è:
 
@@ -99,6 +103,6 @@ Per altre informazioni sull'utilizzo dei servizi Web, vedere:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

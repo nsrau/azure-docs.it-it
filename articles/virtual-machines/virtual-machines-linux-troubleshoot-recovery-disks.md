@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: d5623b9d9e87731d99d12c6445722acefdc3ff66
-ms.openlocfilehash: 2eb29b7f01e5e56a7a5acf3ababc339a216c2047
+ms.sourcegitcommit: 08499c4242fdc59ef932d6b8f2e8442e5cdc55b2
+ms.openlocfilehash: 89094f69fab8b30a16fcc5bc1bcd628ed52da757
 
 
 ---
@@ -232,9 +232,9 @@ azure vm enable-diag --resource-group myResourceGroup --name myDeployedVM
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se si sono verificati problemi durante la connessione alla macchina virtuale, vedere l'articolo sulla [risoluzione dei problemi di connessione SSH a una macchina virtuale di Azure](virtual-machines-linux-troubleshoot-ssh-connection?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Per problemi relativi all'accesso alle applicazioni in esecuzione nella macchina virtuale, vedere [Risolvere i problemi di connettività delle applicazioni in una macchina virtuale di Azure per Linux](virtual-machines-linux-troubleshoot-app-connection?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Se si sono verificati problemi durante la connessione alla macchina virtuale, vedere l'articolo sulla [risoluzione dei problemi di connessione SSH a una macchina virtuale di Azure](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Per problemi relativi all'accesso alle applicazioni in esecuzione nella macchina virtuale, vedere [Risolvere i problemi di connettività delle applicazioni in una macchina virtuale di Azure per Linux](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

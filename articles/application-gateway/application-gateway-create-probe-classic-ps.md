@@ -4,7 +4,7 @@ description: Informazioni su come creare un probe personalizzato per il gateway 
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 338a7be1-835c-48e9-a072-95662dc30f5e
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/13/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 3a8e5583f213c6d35f8e41dd31fe2ccad7389977
-ms.openlocfilehash: 7812179e56372237f9760eccea5ebf8db2cb8d2d
+ms.sourcegitcommit: aaf13418331f29287399621cb911e4b9f5b33dc0
+ms.openlocfilehash: a995495f003edbff6cd0a4a15d09585458664f78
 
 
 ---
@@ -27,14 +27,12 @@ ms.openlocfilehash: 7812179e56372237f9760eccea5ebf8db2cb8d2d
 > * [Portale di Azure](application-gateway-create-probe-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [PowerShell per Azure classico](application-gateway-create-probe-classic-ps.md)
-> 
-> 
+
 
 [!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Informazioni su come [eseguire questa procedura con il modello di Resource Manager](application-gateway-create-probe-ps.md).
+> [!IMPORTANT]
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Informazioni su come [eseguire questa procedura con il modello di Resource Manager](application-gateway-create-probe-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -48,7 +46,7 @@ Per creare un gateway applicazione:
 
 ### <a name="create-an-application-gateway-resource"></a>Creare una risorsa del gateway applicazione
 
-Per creare il gateway, usare il cmdlet **New-AzureApplicationGateway** , sostituendo i valori esistenti con quelli personalizzati. La fatturazione per il gateway non viene applicata a partire da questo punto. La fatturazione viene applicata a partire da un passaggio successivo, dopo l'avvio corretto del gateway.
+Per creare il gateway, usare il cmdlet `New-AzureApplicationGateway`, sostituendo i valori esistenti con quelli personalizzati. La fatturazione per il gateway non viene applicata a partire da questo punto. La fatturazione viene applicata a partire da un passaggio successivo, dopo l'avvio corretto del gateway.
 
 L'esempio seguente mostra come creare un gateway applicazione usando una rete virtuale denominata "testvnet1" e una subnet denominata "subnet-1".
 
@@ -56,7 +54,7 @@ L'esempio seguente mostra come creare un gateway applicazione usando una rete vi
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 ```
 
-Per convalidare la creazione del gateway, è possibile usare il cmdlet **Get-AzureApplicationGateway** .
+Per convalidare la creazione del gateway, è possibile usare il cmdlet `Get-AzureApplicationGateway`.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -88,7 +86,7 @@ Copiare il testo seguente in Blocco note.
         <Name>fip1</Name>
         <Type>Private</Type>
     </FrontendIPConfiguration>
-</FrontendIPConfigurations>    
+</FrontendIPConfigurations>
 <FrontendPorts>
     <FrontendPort>
         <Name>port1</Name>
@@ -147,12 +145,10 @@ Copiare il testo seguente in Blocco note.
 
 Modificare i valori tra parentesi per gli elementi di configurazione. Salvare il file con estensione XML.
 
-L'esempio seguente mostra come usare un file di configurazione per impostare il gateway applicazione per il bilanciamento del carico del traffico HTTP sulla porta pubblica 80 e l'invio del traffico di rete alla porta back-end 80 tra due indirizzi IP con un probe personalizzato.
+L'esempio seguente mostra come usare un file di configurazione per impostare il gateway applicazione per il bilanciamento del carico del traffico HTTP sulla porta pubblica 80 e inviare il traffico di rete alla porta back-end 80 tra due indirizzi IP usando un probe personalizzato.
 
 > [!IMPORTANT]
 > L'elemento del protocollo HTTP o HTTPS deve rispettare la distinzione tra maiuscole e minuscole.
-> 
-> 
 
 Viene aggiunto un nuovo elemento di configurazione \<Probe\> per configurare i probe personalizzati.
 
@@ -165,7 +161,7 @@ I parametri di configurazione sono:
 * **Timeout** : definisce il timeout del probe per un controllo della risposta HTTP.
 * **UnhealthyThreshold** : numero di risposte HTTP non riuscite necessario per contrassegnare l'istanza back-end come *non integra*.
 
-Si fa riferimento al nome del probe nella configurazione <BackendHttpSettings> per assegnare il pool back-end che usa le impostazioni di probe personalizzato.
+Nella configurazione \<BackendHttpSettings\> viene fatto riferimento al nome del probe per assegnare il pool back-end che userà le impostazioni del probe personalizzato.
 
 ## <a name="add-a-custom-probe-configuration-to-an-existing-application-gateway"></a>Aggiungere una configurazione di probe personalizzata a un gateway applicazione esistente
 
@@ -173,7 +169,7 @@ Per modificare la configurazione corrente di un gateway applicazione sono necess
 
 ### <a name="step-1"></a>Passaggio 1
 
-Ottenere il file XML usando get-AzureApplicationGatewayConfig. Il file XML di configurazione verrà esportato e potrà essere modificato per aggiungere un'impostazione di probe.
+Ottenere il file XML usando `Get-AzureApplicationGatewayConfig`. Questo cmdlet esporta il file XML di configurazione, che potrà quindi essere modificato per aggiungere un'impostazione di probe.
 
 ```powershell
 Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
@@ -214,7 +210,7 @@ Salvare il file XML.
 
 ### <a name="step-3"></a>Passaggio 3
 
-Aggiornare la configurazione del gateway applicazione con il nuovo file XML usando **Set-AzureApplicationGatewayConfig**. Il gateway applicazione verrà aggiornato con la nuova configurazione.
+Aggiornare la configurazione del gateway applicazione con il nuovo file XML usando `Set-AzureApplicationGatewayConfig`. Questo cmdlet aggiorna il gateway applicazione con la nuova configurazione.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
@@ -229,6 +225,6 @@ Per configurare un gateway applicazione da usare con un servizio di bilanciament
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

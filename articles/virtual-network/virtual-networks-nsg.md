@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: c3b96b583260bc8975082b952929d524e4040730
-ms.openlocfilehash: ba8bfc32b6662f629fc2203f605f8d9f51b3b559
+ms.sourcegitcommit: 1de0827c01c772a4298b7b568363e89f08910ff7
+ms.openlocfilehash: 46dce57f509872580c57bb1d8d93af51623211ac
 
 
 ---
@@ -120,17 +120,11 @@ Come illustrato dalle regole predefinite seguenti, il traffico che ha origine e 
 
 | Documentazione di distribuzione | Classico | Gestione risorse |
 | --- | --- | --- |
-| Portale classico |![No](./media/virtual-network-nsg-overview/red.png) |![No](./media/virtual-network-nsg-overview/red.png) |
-| Portale di Azure |![Sì](./media/virtual-network-nsg-overview/green.png) |[![Sì][verde]](virtual-networks-create-nsg-arm-pportal.md) |
-| PowerShell |[![Sì][verde]](virtual-networks-create-nsg-classic-ps.md) |[![Sì][verde]](virtual-networks-create-nsg-arm-ps.md) |
-| Interfaccia della riga di comando di Azure |[![Sì][verde]](virtual-networks-create-nsg-classic-cli.md) |[![Sì][verde]](virtual-networks-create-nsg-arm-cli.md) |
-| Modello ARM |![No](./media/virtual-network-nsg-overview/red.png) |[![Sì][verde]](virtual-networks-create-nsg-arm-template.md) |
-
-**Chiave**
-
-![Sì](./media/virtual-network-nsg-overview/green.png) Supportato.
-
-![No](./media/virtual-network-nsg-overview/red.png) Non supportato.
+| Portale classico | No  | No |
+| Portale di Azure   | Sì | [Sì](virtual-networks-create-nsg-arm-pportal.md) |
+| PowerShell     | [Sì](virtual-networks-create-nsg-classic-ps.md) | [Sì](virtual-networks-create-nsg-arm-ps.md) |
+| Interfaccia della riga di comando di Azure      | [Sì](virtual-networks-create-nsg-classic-cli.md) | [Sì](virtual-networks-create-nsg-arm-cli.md) |
+| Modello ARM   | No  | [Sì](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>Pianificazione
 Prima di implementare i gruppi di sicurezza di rete, è necessario rispondere alle domande seguenti:
@@ -265,12 +259,8 @@ Poiché alcuni gruppi di sicurezza di rete devono essere associati a singole sch
 * [Distribuire gli NSG nella Gestione risorse](virtual-networks-create-nsg-arm-pportal.md).
 * [Gestire i log dei gruppi di sicurezza di rete](virtual-network-nsg-manage-log.md).
 
-[verde]: ./media/virtual-network-nsg-overview/green.png
-[yellow]: ./media/virtual-network-nsg-overview/yellow.png
-[red]: ./media/virtual-network-nsg-overview/red.png
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

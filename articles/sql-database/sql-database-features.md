@@ -8,15 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: d1a46fa4-53d2-4d25-a0a7-92e8f9d70828
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 11/28/2016
-ms.author: carlrab
+ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 717d84bbfbc51912bca7c2d279a6a0603ea97107
-ms.openlocfilehash: 10dcc43035169ec399dfe93835c2d872a518170a
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
 
 
 ---
@@ -26,7 +27,7 @@ Questo argomento fornisce una panoramica dei database e server logici del databa
 ## <a name="what-is-an-azure-sql-database-logical-server"></a>Informazioni sul server logico del database SQL di Azure
 Un server logico del database SQL di Azure funge da punto di gestione centrale per più database. Nel database SQL un server è un costrutto logico diverso da un'istanza di SQL Server, familiare al mondo locale. In particolare, il servizio del database SQL non fornisce alcuna garanzia sulla posizione dei database in relazione ai server logici collegati e non espone funzionalità o accessi a livello di istanza. Per altre informazioni sui server logici SQL di Azure, vedere [Logical servers](sql-database-server-overview.md) (Server logici). 
 
-## <a name="what-is-azure-sql-database"></a>Informazioni sul database SQL
+## <a name="what-is-an-azure-sql-database"></a>Che cos'è un database SQL di Azure?
 Ogni database SQL di Azure è associato a un server logico. Il database può essere:
 
 - Un database singolo con relativo [set di risorse](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU)
@@ -68,7 +69,7 @@ Altre funzionalità continueranno a essere aggiunte alla versione 12. È quindi 
 | Rilevamento modifiche | [Supportato](https://msdn.microsoft.com/library/bb933875.aspx) | [Supportato](https://msdn.microsoft.com/library/bb933875.aspx) |
 | Istruzioni sulle regole di confronto | [Supportato](https://msdn.microsoft.com/library/ff848763.aspx) | [Supportato](https://msdn.microsoft.com/library/ff848763.aspx) |
 | Indici Columnstore | [Supportato](https://msdn.microsoft.com/library/gg492088.aspx) | [Solo edizione Premium](https://msdn.microsoft.com/library/gg492088.aspx) |
-| Common Language Runtime (CLR) | [Supportato](https://msdn.microsoft.com/library/ms131102.aspx) | [Supportato](https://msdn.microsoft.com/library/ms131102.aspx) |
+| Common Language Runtime (CLR) | [Supportato](https://msdn.microsoft.com/library/ms131102.aspx) | Non supportate |
 | Database indipendenti | [Supportato](https://msdn.microsoft.com/library/ff929071.aspx) | Predefinito |
 | Utenti indipendenti | [Supportato](https://msdn.microsoft.com/library/ff929188.aspx) | [Supportato](sql-database-manage-logins.md#non-administrator-users) |
 | Controllo delle parole chiave del linguaggio di flusso | [Supportato](https://msdn.microsoft.com/library/ms174290.aspx) | [Supportato](https://msdn.microsoft.com/library/ms174290.aspx) |
@@ -89,7 +90,7 @@ Altre funzionalità continueranno a essere aggiunte alla versione 12. È quindi 
 | Istruzioni DML | [Supportato](https://msdn.microsoft.com/library/ff848766.aspx) | [La maggior parte](https://msdn.microsoft.com/library/ff848766.aspx) |
 | Trigger DML | [Supportato](https://msdn.microsoft.com/library/ms178110.aspx) | [Supportato](https://msdn.microsoft.com/library/ms178110.aspx) |
 | Viste a gestione dinamica | [Tutti](https://msdn.microsoft.com/library/ms188754.aspx) | [Alcuni](https://msdn.microsoft.com/library/ms188754.aspx) |
-| Pool di database elastici | Non supportate | [Supportato](sql-database-elastic-pool.md) |
+| pool elastici | Non supportate | [Supportato](sql-database-elastic-pool.md) |
 | Processi elastici | Non supportato: vedere [SQL Server Agent](https://msdn.microsoft.com/library/ms189237.aspx) | [Supportato](sql-database-elastic-jobs-getting-started.md) | 
 | Query elastiche | Non supportato: vedere [Query tra database](https://msdn.microsoft.com/library/dn584627.aspx) | [Supportato](sql-database-elastic-query-overview.md) |
 | Notifiche degli eventi | [Supportato](https://msdn.microsoft.com/library/ms186376.aspx) | [Supportato](sql-database-insights-alerts-portal.md) |
@@ -122,7 +123,7 @@ Altre funzionalità continueranno a essere aggiunte alla versione 12. È quindi 
 | Istruzioni per la sicurezza | [Supportato](https://msdn.microsoft.com/library/ff848791.aspx) | [Alcuni](https://msdn.microsoft.com/library/ff848791.aspx) |
 | Ricerca semantica | [Supportato](https://msdn.microsoft.com/library/gg492075.aspx) | Non supportate |
 | Numeri di sequenza | [Supportato](https://msdn.microsoft.com/library/ff878058.aspx) | [Supportato](https://msdn.microsoft.com/library/ff878058.aspx) |
-| Broker di servizio | [Supportato](https://msdn.microsoft.com/library/bb522893.aspx) | [Solo all'interno del database](https://msdn.microsoft.com/library/bb522893.aspx) |
+| Broker di servizio | [Supportato](https://msdn.microsoft.com/library/bb522893.aspx) | Non supportate |
 | Opzioni di configurazione del server | [Supportato](https://msdn.microsoft.com/library/ms189631.aspx) | Non supportato: vedere [Opzioni di configurazione del database](https://msdn.microsoft.com/library/mt629158.aspx) |
 | Istruzioni SET | [Supportato](https://msdn.microsoft.com/library/ms190356.aspx) | [La maggior parte](https://msdn.microsoft.com/library/ms190356.aspx) 
 | Spatial | [Supportato](https://msdn.microsoft.com/library/bb933790.aspx) | [Supportato](https://msdn.microsoft.com/library/bb933790.aspx) |
@@ -131,7 +132,7 @@ Altre funzionalità continueranno a essere aggiunte alla versione 12. È quindi 
 | SQL Server Integration Services (SSIS) | [Supportato](https://msdn.microsoft.com/library/ms141026.aspx) | Non supportato: vedere [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |
 | SQL Server PowerShell | [Supportato](https://msdn.microsoft.com/library/hh245198.aspx) | [Supportato](https://msdn.microsoft.com/library/hh245198.aspx) |
 | SQL Server Profiler | [Supportato](https://msdn.microsoft.com/library/ms181091.aspx) | Non supportato: vedere [Eventi estesi](https://msdn.microsoft.com/library/ms181091.aspx) |
-| Replica SQL Server | [Supportato](https://msdn.microsoft.com/library/ms151198.aspx) | [Solo per iscritti alla replica transazionale](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
+| Replica SQL Server | [Supportato](https://msdn.microsoft.com/library/ms151198.aspx) | [Solo per iscritti alla replica transazionale e snapshot](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
 | SQL Server Reporting Services (SSRS) | [Supportato](https://msdn.microsoft.com/library/ms159106.aspx) | Non supportate |
 | Stored procedure | [Supportato](https://msdn.microsoft.com/library/ms190782.aspx) | [Supportato](https://msdn.microsoft.com/library/ms190782.aspx) |
 | Funzioni archiviate dal sistema | [Supportato](https://msdn.microsoft.com/library/ff848780.aspx) | [Alcuni](https://msdn.microsoft.com/library/ff848780.aspx) |
@@ -155,11 +156,11 @@ Altre funzionalità continueranno a essere aggiunte alla versione 12. È quindi 
 - Per una panoramica sui database SQL di Azure, vedere [Panoramica del database SQL](sql-database-overview.md).
 - Per informazioni sul supporto di Transact-SQL e sulle differenze, vedere [Differenze di Transact-SQL del Database SQL di Azure](sql-database-transact-sql-information.md).
 - Informazioni sulle quote specifiche di risorse e sulle limitazioni in base al **livello di servizio**. Per una panoramica dei livelli di servizio, vedere [Livelli di servizio del Database SQL](sql-database-service-tiers.md).
-- Per le linee guida relative alla sicurezza, vedere [Linee guida e limitazioni per il database SQL di Azure](sql-database-security-guidelines.md).
+- Per una panoramica della sicurezza, vedere [Azure SQL Database Security Overview](sql-database-security-overview.md) (Panoramica della sicurezza del database SQL di Azure).
 - Per informazioni sulla disponibilità di driver e sul supporto per il database SQL, vedere [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md).
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO4-->
 
 

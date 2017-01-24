@@ -1,26 +1,37 @@
 ---
-title: Ripetere il training di un nuovo servizio Web usando i cmdlet di gestione di PowerShell per Machine Learning | Microsoft Docs
-description: Informazioni su come ripetere il training di un modello a livello di codice e aggiornare il servizio Web per l'uso del modello appena sottoposto a training in Azure Machine Learning con i cmdlet di gestione di PowerShell.
+title: Ripetere il training di un nuovo servizio Web usando i cmdlet di gestione di PowerShell per Machine Learning | Documentazione Microsoft
+description: Informazioni su come ripetere il training di un modello in modo programmatico e aggiornare il servizio Web per l&quot;uso del modello appena sottoposto a training in Azure Machine Learning con i cmdlet di gestione di PowerShell.
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: vDonGlover
 manager: raymondlaghaeian
-editor: ''
-
+editor: 
+ms.assetid: 3953a398-6174-4d2d-8bbd-e55cf1639415
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/13/2016
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 066ff1d2c8255c895fbfcb0ad8c0b1fef298f8c7
+ms.openlocfilehash: d0decc1da1444254c319e7c2e1bbe4f567ef386e
+
 
 ---
 # <a name="retrain-a-new-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Ripetere il training di un nuovo servizio Web usando i cmdlet di gestione di PowerShell per Machine Learning
-Quando si ripete il training di un nuovo servizio Web, si aggiorna la definizione del servizio Web predittivo perché faccia riferimento al nuovo modello con training.  
+Quando si ripete il training di un nuovo servizio Web, si aggiorna la definizione del servizio Web predittivo perché faccia riferimento al nuovo modello sottoposto a training.  
 
 ## <a name="prerequisites"></a>Prerequisiti
-È necessario impostare un esperimento di training e un esperimento predittivo come illustrato in Ripetere il training dei modelli di Machine Learning a livello di codice. Per informazioni sulla creazione degli esperimenti predittivo e di training, vedere [Ripetere il training dei modelli di Machine Learning a livello di codice](machine-learning-retrain-models-programmatically.md).
+È necessario impostare un esperimento di training e un esperimento predittivo come illustrato in [Ripetere il training dei modelli di Machine Learning in modo programmatico](machine-learning-retrain-models-programmatically.md). 
+
+> [!IMPORTANT]
+> L'esperimento predittivo deve essere distribuito come servizio Web nuovo di Machine Learning basato su Azure Resource Manager. 
+> 
+> 
+
+Per altre informazioni sulla distribuzione di servizi Web, vedere [Distribuire un servizio Web di Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
 Questo processo richiede che siano stati installati i cmdlet di Azure Machine Learning. Per l'installazione dei cmdlet di Machine Learning, vedere le informazioni di riferimento sui [cmdlet di Azure Machine Learning](https://msdn.microsoft.com/library/azure/mt767952.aspx) in MSDN.
 
@@ -42,7 +53,7 @@ I passaggi da eseguire sono:
 È prima necessario accedere al proprio account Azure dall'interno dell'ambiente di PowerShell tramite il cmdlet [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) .
 
 ## <a name="get-the-web-service-definition"></a>Ottenere la definizione del servizio Web
-Ottenere quindi il servizio Web chiamando il cmdlet [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) . La definizione del servizio Web è una rappresentazione interna del modello con training del servizio Web e non è direttamente modificabile. Assicurarsi di recuperare la definizione del servizio Web per l'esperimento predittivo e non per l'esperimento di training.
+Ottenere quindi il servizio Web chiamando il cmdlet [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) . La definizione del servizio Web è una rappresentazione interna del modello sottoposto a training del servizio Web e non è direttamente modificabile. Assicurarsi di recuperare la definizione del servizio Web per l'esperimento predittivo e non per l'esperimento di training.
 
     $wsd = Get-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
@@ -65,8 +76,8 @@ Per modificare la definizione per l'uso del modello appena sottoposto a training
 
     Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
 
-## <a name="update-the-reference-to-the-ilearner-blob-in-the-json."></a>Aggiornare il riferimento al BLOB ilearner nel file JSON.
-Negli asset individuare il [modello con training] e aggiornare il valore *uri* nel nodo *locationInfo* con l'URI del BLOB ilearner. L'URI viene generato combinando i valori di *BaseLocation* e *RelativeLocation* dell'output della chiamata di ripetizione del training del servizio Esecuzione batch.
+## <a name="update-the-reference-to-the-ilearner-blob-in-the-json"></a>Aggiornare il riferimento al BLOB ilearner nel file JSON.
+Negli asset individuare il [modello con training] e aggiornare il valore *uri* nel nodo *locationInfo* con l'URI del BLOB ilearner. L'URI viene generato combinando i valori di *BaseLocation* e *RelativeLocation* dell'output della chiamata di ripetizione del training del servizio Esecuzione batch. Il percorso viene così aggiornato in modo da fare riferimento al nuovo modello sottoposto a training.
 
      "asset3": {
         "name": "Retrain Samp.le [trained model]",
@@ -82,13 +93,13 @@ Negli asset individuare il [modello con training] e aggiornare il valore *uri* n
       },
 
 ## <a name="import-the-json-into-a-web-service-definition"></a>Importare il file JSON in una definizione del servizio Web
-È necessario usare il cmdlet [Import-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767925.aspx) per convertire di nuovo il file JSON modificato in una definizione del servizio Web che è possibile usare per aggiornare l'esperimento predicativo.
+È necessario usare il cmdlet [Import-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767925.aspx) per convertire di nuovo il file JSON modificato in una definizione del servizio Web che possa essere usata per il relativo aggiornamento.
 
     $wsd = Import-AzureRmMlWebService -InputFile "C:\temp\mlservice_export.json"
 
 
 ## <a name="update-the-web-service-with-new-web-service-definition"></a>Aggiornare il servizio Web con la nuova definizione
-Usare infine il cmdlet [Update-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) per aggiornare l'esperimento predittivo.
+Usare infine il cmdlet [Update-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) per aggiornare la definizione del servizio Web.
 
     Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'  -ServiceUpdates $wsd
 
@@ -98,6 +109,9 @@ Usando i cmdlet di gestione PowerShell per Machine Learning, è possibile aggior
 * Ripetizione periodica del training del modello con nuovi dati.
 * Distribuzione di un modello ai clienti per fare in modo che possano ripetere il training del modello con i propri dati.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO3-->
 
 

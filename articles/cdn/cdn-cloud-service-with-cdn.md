@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: casoper
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3d5c371c8753b4ddaffcbf373d078b819fd2d687
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 750488e2855546418dd27ca511b9f8b3d06aa1da
 
 
 ---
@@ -50,8 +50,8 @@ Per completare questa esercitazione, è necessario disporre dei prerequisiti seg
 > [!NOTE]
 > Per completare l'esercitazione, è necessario un account Azure.
 > 
-> * È possibile [aprire un account Azure gratuitamente](/pricing/free-trial/): si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e, anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio Siti Web.
-> * È possibile [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+> * È possibile [aprire un account Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/): si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e, anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio Siti Web.
+> * È possibile [attivare i benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 > 
 > 
 
@@ -603,6 +603,6 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

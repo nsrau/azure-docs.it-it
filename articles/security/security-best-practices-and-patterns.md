@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/16/2016
+ms.date: 01/07/2017
 ms.author: terrylan
 translationtype: Human Translation
 ms.sourcegitcommit: 0821ec479f21ddcc6dc370070d9a40221054877f
@@ -47,7 +47,6 @@ Per ogni procedura consigliata verrà illustrato nel miglior modo possibile:
 * Come imparare ad abilitare la procedura consigliata
 
 È possibile offrire molti altri articoli sull'architettura e le procedure consigliate per la sicurezza di Azure. Richiedere eventuali argomenti specifici nell'area di discussione nella parte inferiore della pagina.
-
 
 
 

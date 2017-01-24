@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: c886e8e61b00de2f07d7f5a98c2d2f4d5b29b7cf
-ms.openlocfilehash: dd264dfc73962a575f0d4b1a32a9ec02752c33ba
+ms.sourcegitcommit: ebbb31eb9387d68afab7559a3827682ed2551d5a
+ms.openlocfilehash: de0b000b56ea90caeb1e2aa9a0b8c87e25c7c237
 
 
 ---
@@ -64,13 +64,13 @@ Il cmdlet [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azur
 > 
 > 
 
-     $exportRequest = New-AzureRmSqlDatabaseExport –ResourceGroupName $ResourceGroupName –ServerName $ServerName `
-       –DatabaseName $DatabaseName –StorageKeytype $StorageKeytype –StorageKey $StorageKey -StorageUri $BacpacUri `
-       –AdministratorLogin $creds.UserName –AdministratorLoginPassword $creds.Password
+     $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
+       -DatabaseName $DatabaseName -StorageKeytype $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri `
+       -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
 
 
 ## <a name="monitor-the-progress-of-the-export-operation"></a>Monitorare lo stato dell’operazione di esportazione
-Dopo aver eseguito il cmdlet [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt603644\(v=azure.300\).aspx), è possibile controllare lo stato della richiesta eseguendo il cmdlet [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/azure/mt707794\(v=azure.300\).aspx). L'esecuzione di questo cmdlet subito dopo la richiesta restituisce in genere **Status: InProgress**. A esportazione completa, il messaggio restituito è **Status : Succeeded** .
+Dopo aver eseguito il cmdlet [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt603644\(v=azure.300\).aspx), è possibile controllare lo stato della richiesta eseguendo il cmdlet [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/azure/mt707794\(v=azure.300\).aspx). L'esecuzione di questo cmdlet subito dopo la richiesta restituisce in genere **Status: InProgress**. Al termine dell'esportazione, il messaggio restituito è **Status: Succeeded**.
 
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
 
@@ -94,8 +94,8 @@ Sostituire quanto segue `VARIABLE-VALUES` con i valori relativi alle specifiche 
     $ServerName = "SERVER-NAME"
     $serverAdmin = "ADMIN-NAME"
     $serverPassword = "ADMIN-PASSWORD" 
-    $securePassword = ConvertTo-SecureString –String $serverPassword –AsPlainText -Force
-    $creds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+    $securePassword = ConvertTo-SecureString -String $serverPassword -AsPlainText -Force
+    $creds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
     # Generate a unique filename for the BACPAC
     $bacpacFilename = $DatabaseName + (Get-Date).ToString("yyyyMMddHHmm") + ".bacpac"
@@ -106,9 +106,9 @@ Sostituire quanto segue `VARIABLE-VALUES` con i valori relativi alle specifiche 
     $StorageKeytype = "StorageAccessKey"
     $StorageKey = "YOUR STORAGE KEY"
 
-    $exportRequest = New-AzureRmSqlDatabaseExport –ResourceGroupName $ResourceGroupName –ServerName $ServerName `
-       –DatabaseName $DatabaseName –StorageKeytype $StorageKeytype –StorageKey $StorageKey -StorageUri $BacpacUri `
-       –AdministratorLogin $creds.UserName –AdministratorLoginPassword $creds.Password
+    $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
+       -DatabaseName $DatabaseName -StorageKeytype $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri `
+       -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
     $exportRequest
 
     # Check status of the export
@@ -116,7 +116,8 @@ Sostituire quanto segue `VARIABLE-VALUES` con i valori relativi alle specifiche 
 
 ## <a name="automate-export-using-azure-automation"></a>Automatizzare l'esportazione mediante Automazione di Azure
 
-È possibile usare l'automazione di Azure per archiviare periodicamente i database SQL in base alla pianificazione preferita. È possibile scaricare lo [script di esempio da GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). Per altri dettagli su Automazione di Azure, vedere [Panoramica di Automazione di Azure](../automation/automation-intro.md).
+La funzionalità di esportazione automatizzata di database SQL di Azure, ora disponibile in anteprima, verrà ritirata il 1° marzo 2017. A partire dal 1° dicembre 2016, non è più possibile configurare l'esportazione automatizzata per database SQL. Tutti i processi di esportazione automatizzata esistenti continueranno a funzionare fino al 1° marzo 2017. Dal 1° dicembre 2016, è possibile usare la [conservazione dei backup a lungo termine](sql-database-long-term-retention.md) o [Automazione di Azure](../automation/automation-intro.md) per archiviare periodicamente i database SQL con PowerShell in base alla pianificazione desiderata. È possibile scaricare uno [script di esempio da GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni su come importare un database SQL di Azure tramite Powershell, vedere [Importare un file BACPAC per creare un nuovo database SQL di Azure tramite PowerShell](sql-database-import-powershell.md).
@@ -128,6 +129,6 @@ Sostituire quanto segue `VARIABLE-VALUES` con i valori relativi alle specifiche 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

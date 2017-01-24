@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
-ms.author: narayanannamalai;annahar
+ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: bd5f3b3cd46ce347896ed9ef229e438b2a3c830f
-ms.openlocfilehash: 3556e4a10f17490fd08357d644c664a2b74705dd
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 547a2c0ab49c0b79d85bab1bd3abd800c9288ccf
 
 
 ---
@@ -30,7 +30,7 @@ ms.openlocfilehash: 3556e4a10f17490fd08357d644c664a2b74705dd
 
 Per creare un peering reti virtuali con i modelli di Resource Manager, seguire questa procedura:
 
-1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
+1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
    
    > [!NOTE]
    > Il cmdlet di PowerShell per la gestione di un peering reti virtuali viene fornito con [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
@@ -101,7 +101,7 @@ Per creare un peering reti virtuali con i modelli di Resource Manager, seguire q
    | UseRemoteGateways |Consente di usare il gateway di rete virtuale del peer. Per la rete virtuale peer deve essere configurato un gateway ed essere selezionata l'opzione AllowGatewayTransit. Non è possibile usare questa opzione se si ha un gateway configurato. |No |
    
     Ogni collegamento nel peering reti virtuali include un set delle proprietà precedenti. Ad esempio, è possibile impostare AllowVirtualNetworkAccess su True per il collegamento per il peering reti virtuali da VNet1 a VNet2 e su False per il collegamento per il peering reti virtuali nella direzione opposta.
-4. Per distribuire il file modello, è possibile eseguire il cmdlet New-AzureRmResourceGroupDeployment per creare o aggiornare la distribuzione. Per altre informazioni sull'uso di modelli di Resource Manager, vedere questo [articolo](../resource-group-template-deploy.md).
+4. Per distribuire il file modello, è possibile eseguire il cmdlet New-AzureRmResourceGroupDeployment per creare o aggiornare la distribuzione. Per altre informazioni sull'uso di modelli di Resource Manager, vedere questo [articolo](../azure-resource-manager/resource-group-template-deploy.md).
    
         New-AzureRmResourceGroupDeployment -ResourceGroupName <resource group name> -TemplateFile <template file path> -DeploymentDebugLogLevel all
    
@@ -382,6 +382,6 @@ Dopo avere stabilito il peering tra una rete virtuale classica e una rete virtua
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

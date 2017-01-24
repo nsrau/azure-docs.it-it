@@ -133,7 +133,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel Porta
     b. Fare clic su **Next**.
 5. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il team di supporto di FieldGlass e fornire gli elementi seguenti: 
    
-    - File del **certificato scaricato**
+    - File del **certificato scaricato**
    
     - **ID entità**
    

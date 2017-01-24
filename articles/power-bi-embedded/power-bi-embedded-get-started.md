@@ -1,6 +1,6 @@
 ---
 title: Introduzione a Microsoft Power BI Embedded
-description: Power BI Embedded, aggiungere report di Power BI interattivi nell&quot;applicazione di Business Intelligence
+description: 'Power BI Embedded: aggiungere report di Power BI interattivi all&quot;applicazione di Business Intelligence'
 services: power-bi-embedded
 documentationcenter: 
 author: guyinacube
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 12/19/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: f1b3464526b99cad1beb8f7604887a4cc32b0706
-ms.openlocfilehash: a8d787acb4bc3f6f8a7cd408d6f5ac4313a2121f
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: cedf69c6e50470e9d16d8e1e361bb51eb8abed72
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: a8d787acb4bc3f6f8a7cd408d6f5ac4313a2121f
 
 Il provisioning delle risorse di **Microsoft Power BI Embedded** viene effettuato tramite le [API di Azure Resource Manager](https://msdn.microsoft.com/library/mt712306.aspx). In questo caso, la risorsa di cui si effettua il provisioning è una **Raccolta di aree di lavoro di Power BI**.
 
-![](media\\power-bi-embedded-get-started\\introduction.png)
+![](media/power-bi-embedded-get-started/introduction.png)
 
 ## <a name="create-a-workspace-collection"></a>Creare una raccolta di aree di lavoro
 Una **Raccolta di aree di lavoro** è la risorsa di primo livello di Azure e un contenitore per il contenuto che verrà incorporato nell'applicazione. Una **Raccolta di aree di lavoro** può essere creata in due modi:
@@ -39,16 +39,16 @@ Di seguito è descritta la procedura per compilare una **Raccolta di aree di lav
 1. Aprire il **portale di Azure**ed eseguire l'accesso: [http://portal.azure.com](http://portal.azure.com).
 2. Fare clic su **+ Nuovo** nel pannello in alto.
    
-   ![](media\\power-bi-embedded-get-started\\create-workspace-1.png)
+   ![](media/power-bi-embedded-get-started/create-workspace-1.png)
 3. In **Dati e analisi** fare clic su **Power BI Embedded**.
 4. Nel **pannello di creazione**immettere le informazioni necessarie. Per **Prezzi**, vedere [Prezzi di Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527).
    
-   ![](media\\power-bi-embedded-get-started\\create-workspace-2.png)
+   ![](media/power-bi-embedded-get-started/create-workspace-2.png)
 5. Fare clic su **Create**.
 
 Il provisioning della **Raccolta di aree di lavoro** richiederà alcuni istanti. Al termine verrà visualizzato il **pannello della Raccolta di aree di lavoro**.
 
-   ![](media\\power-bi-embedded-get-started\\create-workspace-3.png)
+   ![](media/power-bi-embedded-get-started/create-workspace-3.png)
 
 Questo **pannello di creazione** contiene le informazioni necessarie per chiamare le API che creano le aree di lavoro e vi distribuiscono il contenuto.
 
@@ -57,11 +57,11 @@ Questo **pannello di creazione** contiene le informazioni necessarie per chiamar
 ## <a name="view-power-bi-api-access-keys"></a>Visualizzare le chiavi di accesso dell'API Power BI
 Le **chiavi di accesso**sono tra le informazioni più importanti necessarie per chiamare le API REST Power BI. Vengono usate per generare i **token delle app** che servono per autenticare le richieste delle API. Per visualizzare le **chiavi di accesso** fare clic su **Chiavi di accesso** nel pannello **Impostazioni**. Per altre informazioni sui **token delle app**, vedere [Autenticazione e autorizzazione con Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
-   ![](media\\power-bi-embedded-get-started\\access-keys.png)
+   ![](media/power-bi-embedded-get-started/access-keys.png)
 
 Come si noterà, sono disponibili due chiavi.
 
-   ![](media\\power-bi-embedded-get-started\\access-keys-2.png)
+   ![](media/power-bi-embedded-get-started/access-keys-2.png)
 
 Copiarle e archiviarle in modo sicuro nell'applicazione. È molto importante gestire queste chiavi come una password, perché forniscono l'accesso a tutto il contenuto della **Raccolta di aree di lavoro**.
 

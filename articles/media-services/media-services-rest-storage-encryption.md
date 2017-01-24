@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8b0758e1fa5f12dc49d8548b733aefdf1f43d6f0
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: d649ce6bcb5629cb820befd3478afa3f70293ccb
 
 
 ---
@@ -59,7 +59,7 @@ Di seguito sono descritti i passaggi generali per la generazione di chiavi simme
 1. Per la crittografia di archiviazione, generare in modo casuale una chiave AES a 32 byte. 
    
     Questa sarà la chiave simmetrica dell'asset. Ciò significa che tutti i file associati all'asset dovranno usare la stessa chiave simmetrica durante la decrittografia. 
-2. Chiamare i metodi [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) per ottenere il certificato X.509 corretto da usare per crittografare la chiave simmetrica.
+2. Chiamare i metodi [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) per ottenere il certificato X.509 corretto da usare per crittografare la chiave simmetrica.
 3. Crittografare la chiave simmetrica con la chiave pubblica del certificato X.509. 
    
    L'SDK di Servizi multimediali per .NET usa RSA con OAEP durante l'esecuzione della crittografia.  È disponibile un esempio .NET nella [funzione EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
@@ -300,7 +300,7 @@ Risposta:
     HTTP/1.1 204 No Content 
 
 ## <a name="create-an-assetfile"></a>Creare un'entità AssetFile
-L'entità [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) rappresenta un file video o audio archiviato in un contenitore BLOB. Un file di asset è sempre associato a un asset e un asset può contenere uno o più file. Se un oggetto di file di asset non è associato a un file digitale in un contenitore BLOB, l'attività del codificatore di Servizi multimediali restituisce un errore.
+L'entità [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) rappresenta un file video o audio archiviato in un contenitore BLOB. Un file di asset è sempre associato a un asset e un asset può contenere uno o più file. Se un oggetto di file di asset non è associato a un file digitale in un contenitore BLOB, l'attività del codificatore di Servizi multimediali restituisce un errore.
 
 Si noti che l'istanza di **AssetFile** e l'effettivo file multimediale sono due oggetti distinti. L'istanza di AssetFile contiene metadati relativi al file multimediale, mentre quest'ultimo contiene l'effettivo contenuto multimediale.
 
@@ -368,6 +368,6 @@ Dopo avere caricato il file multimediale digitale in un contenitore BLOB, è nec
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

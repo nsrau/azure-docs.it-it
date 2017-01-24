@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aa0f2dd07ffa8437ff224c278135744202adcd73
+ms.sourcegitcommit: ec710057c2016175f65578a9d6884f7273b65169
+ms.openlocfilehash: f2a762ad64feeef91802429cdd959cec67b73473
 
 
 ---
@@ -33,6 +33,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="connect-to-azure-hdinsight"></a>Connettersi ad Azure HDInsight
+
 Sono necessari i pacchetti NuGet seguenti:
 
     Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
@@ -79,10 +80,6 @@ L'esempio di codice indica come connettersi ad Azure prima di poter amministrare
             /// <summary>
             /// Authenticate to an Azure subscription and retrieve an authentication token
             /// </summary>
-            /// <param name="TenantId">The AAD tenant ID</param>
-            /// <param name="ClientId">The AAD client ID</param>
-            /// <param name="SubscriptionId">The Azure subscription ID</param>
-            /// <returns></returns>
             static TokenCloudCredentials Authenticate(string TenantId, string ClientId, string SubscriptionId)
             {
                 var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + TenantId);
@@ -167,14 +164,14 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
     
     L'interfaccia utente Web di Storm è disponibile nel cluster HDInsight:
     
-    ![hdinsight scala ribilanciamento di storm](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![Ribilanciamento di HDInsight Storm](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
     
     Di seguito viene fornito un esempio d'uso del comando CLI per ribilanciare la topologia di Storm:
     
-    ## <a name="reconfigure-the-topology-mytopology-to-use-5-worker-processes"></a>Riconfigurare la topologia "mytopology" in modo da usare 5 processi di lavoro,
-    ## <a name="the-spout-blue-spout-to-use-3-executors-and"></a>lo spout "blu-spout" in modo da usare 3 esecutori e
-    ## <a name="the-bolt-yellow-bolt-to-use-10-executors"></a>il bolt "giallo-bolt" in modo da usare 10 esecutori
-      $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ## Reconfigure the topology "mytopology" to use 5 worker processes,
+        ## the spout "blue-spout" to use 3 executors, and
+        ## the bolt "yellow-bolt" to use 10 executors
+        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 Il frammento di codice seguente indica come ridimensionare un cluster in modo sincrono o asincrono:
 
@@ -217,7 +214,7 @@ Per concedere:
 > 
 > 
 
-Questa operazione può essere eseguita anche tramite il portale. Vedere [Amministrare HDInsight tramite il Portale di Azure][hdinsight-admin-portal].
+Questa operazione può essere eseguita anche tramite il portale. Vedere l'articolo su come [amministrare HDInsight con il portale di Azure][hdinsight-admin-portal].
 
 ## <a name="update-http-user-credentials"></a>Aggiornare le credenziali utente HTTP
 È la stessa procedura di [Concedere/revocare l'accesso HTTP](#grant/revoke-access). Se al cluster è stato concesso l'accesso HTTP, è necessario prima revocarlo.  E quindi concedere l'accesso con le nuove credenziali utente HTTP.
@@ -254,12 +251,12 @@ Vedere [Usare Sqoop con Hadoop in HDInsight](hdinsight-hadoop-use-sqoop-dotnet-s
 Vedere [Usare Oozie con Hadoop per definire ed eseguire un flusso di lavoro in HDInsight](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Caricare dati nell'archivio BLOB di Azure
-Vedere [Caricare dati in HDInsight][hdinsight-upload-data].
+Vedere[Caricare dati in HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Vedere anche
 * [Documentazione di riferimento su HDInsight .NET SDK](https://msdn.microsoft.com/library/mt271028.aspx)
-* [Amministrare HDInsight tramite il Portale di Azure][hdinsight-admin-portal]
-* [Amministrare HDInsight tramite l'interfaccia della riga di comando][hdinsight-admin-cli]
+* [Amministrare HDInsight con il portale di Azure][hdinsight-admin-portal]
+* [Amministrare HDInsight con l'interfaccia della riga di comando][hdinsight-admin-cli]
 * [Creare cluster HDInsight][hdinsight-provision]
 * [Caricare dati in HDInsight][hdinsight-upload-data]
 * [Introduzione ad Azure HDInsight][hdinsight-get-started]
@@ -285,6 +282,6 @@ Vedere [Caricare dati in HDInsight][hdinsight-upload-data].
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

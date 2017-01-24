@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/16/2016
+ms.date: 01/10/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: ce9474f2926a856673efbab5103a308d31001343
@@ -120,7 +120,7 @@ Di seguito sono riportati esempi per l'aggiunta, la rimozione e la modifica di u
 1. Avviare Windows PowerShell con privilegi amministrativi. 
 2. Installare il modulo Azure AD. È necessario installare la versione [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) o una versione successiva.  
    
-        Install-Module -Name AzureADPreview –RequiredVersion 2.0.0.33 
+        Install-Module -Name AzureAD –RequiredVersion 2.0.0.33 
 3. Connettersi al tenant di destinazione: 
    
         Connect-AzureAD 

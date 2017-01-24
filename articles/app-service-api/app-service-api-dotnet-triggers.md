@@ -15,37 +15,37 @@ ms.topic: article
 ms.date: 08/25/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f3970e39dab23f65c623e134d9e38df9831b37f8
+ms.sourcegitcommit: 015ca80c952110d3289888ed82d7a543be29950c
+ms.openlocfilehash: cf020b0f5f14d73635cf44e0157b53b35eb00d60
 
 
 ---
 # <a name="azure-app-service-api-app-triggers"></a>Trigger delle app per le API del servizio app di Azure
 > [!NOTE]
 > Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per le API.
-> 
-> 
+>
+>
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Questo articolo spiega come implementare i trigger delle app per le API e usarli da un'app per la logica.
 
-Tutti i frammenti di codice in questo argomento sono stati copiati dall' [esempio di codice di app per le API FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802). 
+Tutti i frammenti di codice in questo argomento sono stati copiati dall' [esempio di codice di app per le API FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
 
 Per la corretta compilazione ed esecuzione del codice riportato in questo articolo, sarà inoltre necessario scaricare il pacchetto NuGet seguente: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
 
 ## <a name="what-are-api-app-triggers"></a>Cosa sono i trigger delle app per le API?
-In genere, le app per le API generano eventi in modo che i client dell'app per le API possano eseguire l'azione appropriata in risposta all'evento. Il meccanismo basato sull'API REST che supporta questo scenario è definito come trigger dell'app per le API. 
+In genere, le app per le API generano eventi in modo che i client dell'app per le API possano eseguire l'azione appropriata in risposta all'evento. Il meccanismo basato sull'API REST che supporta questo scenario è definito come trigger dell'app per le API.
 
-Si supponga, ad esempio, che il codice client usi l' [app per le API Twitter Connector](../app-service-logic/app-service-logic-connector-twitter.md) e che il codice debba eseguire un'azione in base ai nuovi tweet che contengono parole specifiche. In questo caso, è possibile configurare un trigger di polling o di push.
+Si supponga, ad esempio, che il codice client usi l' [app per le API Twitter Connector](../connectors/connectors-create-api-twitter.md) e che il codice debba eseguire un'azione in base ai nuovi tweet che contengono parole specifiche. In questo caso, è possibile configurare un trigger di polling o di push.
 
 ## <a name="poll-trigger-versus-push-trigger"></a>Trigger di polling e trigger di push
 Attualmente sono supportati due tipi di trigger:
 
-* Trigger di polling: il client esegue il polling dell'app per le API per la notifica di un evento generato 
-* Trigger di push: il client riceve una notifica dall'app per le API quando viene generato un evento 
+* Trigger di polling: il client esegue il polling dell'app per le API per la notifica di un evento generato
+* Trigger di push: il client riceve una notifica dall'app per le API quando viene generato un evento
 
 ### <a name="poll-trigger"></a>Trigger di polling
-Un trigger di polling viene implementato come un'API REST normale e prevede che i client, ad esempio un'app per la logica, ne eseguano il polling per ricevere la notifica. Mentre il client può mantenere il suo stato, il trigger di polling stesso è senza stato. 
+Un trigger di polling viene implementato come un'API REST normale e prevede che i client, ad esempio un'app per la logica, ne eseguano il polling per ricevere la notifica. Mentre il client può mantenere il suo stato, il trigger di polling stesso è senza stato.
 
 Le informazioni seguenti relative ai pacchetti di richiesta e di risposta illustrano alcuni aspetti fondamentali del contratto del trigger di polling:
 
@@ -302,7 +302,7 @@ Per i metadati statici, è possibile modificare direttamente il file */metadata/
 
 Per le app per le API che usano metadati dinamici, è possibile modificare il file SwaggerConfig.cs e aggiungervi un filtro per le operazioni in grado di aggiungere queste estensioni.
 
-    GlobalConfiguration.Configuration 
+    GlobalConfiguration.Configuration
         .EnableSwagger(c =>
             {
                 ...
@@ -343,7 +343,6 @@ Di seguito è riportato un esempio di come è possibile implementare questa clas
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

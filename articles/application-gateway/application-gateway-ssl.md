@@ -4,7 +4,7 @@ description: Questo articolo fornisce istruzioni per la creazione di un gateway 
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 63f28d96-9c47-410e-97dd-f5ca1ad1b8a4
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1cb291817462a2af59a17693a29b8667750c877f
-ms.openlocfilehash: b4fc6b09069022967b572327647dd5d848712932
+ms.sourcegitcommit: 1506729fb346a8a67930a5a2cd4c15f375c52e3f
+ms.openlocfilehash: 0f565431f03527c4fac463f93c5664504a90662f
 
 
 ---
@@ -26,8 +26,6 @@ ms.openlocfilehash: b4fc6b09069022967b572327647dd5d848712932
 > * [Portale di Azure](application-gateway-ssl-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-ssl-arm.md)
 > * [PowerShell per Azure classico](application-gateway-ssl.md)
-> 
-> 
 
 Il gateway applicazione di Azure può essere configurato per terminare la sessione Secure Sockets Layer (SSL) nel gateway ed evitare costose attività di decrittografia SSL nella Web farm. L'offload SSL semplifica anche la configurazione e la gestione del server front-end dell'applicazione Web.
 
@@ -56,7 +54,7 @@ New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subn
 
 Per convalidare la creazione del gateway, è possibile usare il cmdlet `Get-AzureApplicationGateway`.
 
-In questo esempio *Description*, *InstanceCount* e *GatewaySize* sono parametri facoltativi. Il valore predefinito per *InstanceCount* è 2, con un valore massimo di 10. Il valore predefinito per *GatewaySize* è Medium. Small e Large sono altri valori disponibili. *VirtualIPs* e *DnsName* vengono visualizzati vuoti perché il gateway non è stato ancora avviato. Questi valori vengono creati quando il gateway è in esecuzione.
+In questo esempio *Description*, *InstanceCount* e *GatewaySize* sono parametri facoltativi. Il valore predefinito per *InstanceCount* è 2, con un valore massimo pari a 10. Il valore predefinito per *GatewaySize* è Medium. Small e Large sono altri valori disponibili. *VirtualIPs* e *DnsName* vengono visualizzati vuoti perché il gateway non è stato ancora avviato. Questi valori vengono creati quando il gateway è in esecuzione.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -92,8 +90,6 @@ State..........: Provisioned
 
 > [!NOTE]
 > La password del certificato deve contenere da 4 a 12 caratteri, lettere o numeri. Non sono ammessi caratteri speciali.
-> 
-> 
 
 ## <a name="configure-the-gateway"></a>Configurare il gateway
 
@@ -218,6 +214,6 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

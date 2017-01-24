@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9c851bda4ec024c62f0d05796806fcff75fbf427
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e27741abd73025efa12e1e765fbf9c4248b6cf24
 
 
 ---
@@ -502,10 +502,10 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [Uso di Live Streaming di Servizi multimediali di Azure]: http://msdn.microsoft.com/library/azure/dn783466.aspx
 [Uso della crittografia dinamica AES-128 e del servizio di distribuzione delle chiavi]: http://msdn.microsoft.com/library/azure/dn783457.aspx
 [Uso della crittografia dinamica PlayReady e del server di distribuzione di licenze PlayReady]: http://msdn.microsoft.com/library/azure/dn783467.aspx
-[Funzionalità di anteprima]: http://azure.microsoft.com/services/preview/
+[Preview features]: http://azure.microsoft.com/services/preview/
 [Panoramica del modello di licenza PlayReady di Servizi multimediali]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [Streaming di contenuto crittografato di archiviazione]: http://msdn.microsoft.com/library/azure/dn783451.aspx
-[portale di Azure classico]: https://manage.windowsazure.com
+[Azure Classic Portal]: https://manage.windowsazure.com
 [Dynamic Packaging]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [blog di Nick Drouin]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protezione di Smooth Streaming e MPEG DASH con PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx
@@ -526,6 +526,6 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

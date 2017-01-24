@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.date: 09/26/2016
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c954e85aa61803b4afe82c2e9d30729035ac094f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: da0d9ec01e72639459b3afe745d82a8f1a38727e
 
 
 ---
-# <a name="stream-analytics-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Analisi di flusso e Power BI: un dashboard di analisi in tempo reale per il flusso di dati
+# <a name="stream-analytics--power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Analisi di flusso e Power BI: un dashboard di analisi in tempo reale per il flusso di dati
 Analisi di flusso di Azure consente l’uso di uno dei principali strumenti di business intelligence, Microsoft Power BI. Imparare a usare Analisi di flusso di Azure per l'analisi di volumi elevati di flussi di dati e per ottenere informazioni in un dashboard di analisi di Power BI in tempo reale.
 
 Utilizzare [Microsoft Power BI](https://powerbi.com/) per creare rapidamente un dashboard in tempo reale. [Guardare un video che illustra lo scenario](https://www.youtube.com/watch?v=SGUpT-a99MA).
@@ -241,6 +241,6 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

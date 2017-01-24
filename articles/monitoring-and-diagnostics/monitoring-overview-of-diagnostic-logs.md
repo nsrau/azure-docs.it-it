@@ -1,5 +1,5 @@
 ---
-title: Panoramica dei log di diagnostica di Azure | Microsoft Docs
+title: Panoramica dei log di diagnostica di Azure | Documentazione Microsoft
 description: Informazioni sui log di diagnostica di Azure e su come usarli per comprendere gli eventi che si verificano all&quot;interno di una risorsa di Azure.
 author: johnkemnetz
 manager: rboucher
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 12/20/2016
 ms.author: johnkem; magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 61a54b3cb170b7961a4900d2c353bea48ae83d64
+ms.sourcegitcommit: 142aa206431d05505c7990c5e5b07b3766fb0a37
+ms.openlocfilehash: 0b5458c64226007b058bcd185b3880f72cf9613c
 
 
 ---
@@ -28,16 +28,18 @@ I **log di diagnostica di Azure** sono log generati da una risorsa che forniscon
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>Che cosa si può fare con i log di diagnostica
 Ecco alcune delle attività che è possibile eseguire con i log di diagnostica:
 
-* Salvarli in un **account di archiviazione** per il controllo o l'ispezione manuale. È possibile specificare il tempo di conservazione in giorni tramite le **Impostazioni di diagnostica**.
+* Salvarli in un [**account di archiviazione**](monitoring-archive-diagnostic-logs.md) per il controllo o l'ispezione manuale. È possibile specificare il tempo di conservazione in giorni tramite le **Impostazioni di diagnostica**.
 * [Trasmetterli a **Hub eventi**](monitoring-stream-diagnostic-logs-to-event-hubs.md) per l'inserimento da parte di un servizio di terze parti o una soluzione di analisi personalizzata come Power BI.
 * Analizzarli con [OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
+
+Lo spazio dei nomi dell'account di archiviazione o per l'hub eventi non deve trovarsi nella stessa sottoscrizione della risorsa che emette i log, fintanto che l'utente che configura l'impostazione ha un accesso RBAC appropriato a entrambe le sottoscrizioni.
 
 ## <a name="diagnostic-settings"></a>Impostazioni di diagnostica
 I log di diagnostica per le risorse non di calcolo vengono configurati tramite le impostazioni di diagnostica. **Impostazioni di diagnostica** per una risorsa permettono di controllare quanto segue:
 
 * Destinazione dei log di diagnostica, ad esempio un account di archiviazione, un hub eventi e/o OMS Log Analytics.
 * Categorie di log da inviare.
-* Tempo di conservazione di ogni categoria di log in un account di archiviazione. Se impostato su zero giorni, i log vengono conservati all'infinito. In caso contrario, questo valore può variare da 1 a 2147483647. Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, ad esempio se sono selezionate solo le opzioni Hub eventi o OMS, i criteri di conservazione non hanno alcun effetto.
+* Tempo di conservazione di ogni categoria di log in un account di archiviazione. Se impostato su zero giorni, i log vengono conservati all'infinito. In caso contrario, questo valore può variare da 1 a 2147483647. Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, ad esempio se sono selezionate solo le opzioni Hub eventi o OMS, i criteri di conservazione non hanno alcun effetto. I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata, i log relativi a tale giornata che non rientrano più nei criteri di conservazione verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata vengono eliminati i log relativi al giorno precedente.
 
 È possibile configurare facilmente queste impostazioni usando il pannello Diagnostica della risorsa nel portale di Azure, i comandi di Azure PowerShell o l'interfaccia della riga di comando oppure l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
@@ -91,14 +93,13 @@ L'ID regola del bus di servizio è una stringa nel formato seguente: `{service b
 
 Per consentire l'invio dei log di diagnostica all'area di lavoro di Log Analytics , usare questo comando:
 
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [log analytics workspace id] -Enabled $true
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 
-> [!NOTE]
-> Il parametro WorkspaceId non è disponibile nella versione di ottobre. Sarà disponibile nella versione di novembre.
-> 
-> 
+È possibile ottenere l'ID risorsa dell'area di lavoro di Log Analytics usando il comando seguente:
 
-È possibile ottenere l'ID dell'area di lavoro di Log Analytics nel portale di Azure.
+```powershell
+(Get-AzureRmOperationalInsightsWorkspace).ResourceId
+```
 
 È possibile combinare questi parametri per abilitare più opzioni di output.
 
@@ -119,14 +120,7 @@ L'ID regola del bus di servizio è una stringa nel formato seguente: `{service b
 
 Per consentire l'invio dei log di diagnostica all'area di lavoro di Log Analytics , usare questo comando:
 
-    azure insights diagnostic set --resourceId <resourceId> --workspaceId <workspaceId> --enabled true
-
-> [!NOTE]
-> Il parametro workspaceId non è disponibile nella versione di ottobre. Sarà disponibile nella versione di novembre.
-> 
-> 
-
-È possibile ottenere l'ID dell'area di lavoro di Log Analytics nel portale di Azure.
+    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
 
 È possibile combinare questi parametri per abilitare più opzioni di output.
 
@@ -160,7 +154,7 @@ Lo schema per i log di diagnostica varia a seconda della risorsa e della categor
 
 | Service | Schema e documenti |
 | --- | --- |
-| Servizio di bilanciamento del carico software |[Analisi dei log per il servizio di bilanciamento del carico di Azure (anteprima)](../load-balancer/load-balancer-monitor-log.md) |
+| Bilanciamento del carico |[Analisi dei log per il servizio di bilanciamento del carico di Azure (anteprima)](../load-balancer/load-balancer-monitor-log.md) |
 | Gruppi di sicurezza di rete |[Analisi dei log per i gruppi di sicurezza di rete](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Gateway applicazione |[Registrazione diagnostica per il gateway applicazione](../application-gateway/application-gateway-diagnostics.md) |
 | Insieme di credenziali di chiave |[Registrazione dell'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-logging.md) |
@@ -175,41 +169,42 @@ Lo schema per i log di diagnostica varia a seconda della risorsa e della categor
 | Analisi dei flussi |Nessuno schema disponibile |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorie di log supportate per tipo di risorsa
-| Tipo di risorsa | Categoria | Nome visualizzato della categoria |
-| --- | --- | --- |
-| Microsoft.Automation/automationAccounts |JobLogs |Log del processo |
-| Microsoft.Automation/automationAccounts |JobStreams |Flussi del processo |
-| Microsoft.Batch/batchAccounts |ServiceLog |Log del servizio |
-| Microsoft.DataLakeAnalytics/accounts |Audit |Log di controllo |
-| Microsoft.DataLakeAnalytics/accounts |Requests |Log delle richieste |
-| Microsoft.DataLakeStore/accounts |Audit |Log di controllo |
-| Microsoft.DataLakeStore/accounts |Requests |Log delle richieste |
-| Microsoft.EventHub/namespaces |ArchiveLogs |Log di archiviazione |
-| Microsoft.EventHub/namespaces |OperationalLogs |Log operativi |
-| Microsoft.KeyVault/vaults |AuditEvent |Log di controllo |
-| Microsoft.Logic/workflows |WorkflowRuntime |Eventi di diagnostica del runtime del flusso di lavoro |
-| Microsoft.Network/networksecuritygroups |NetworkSecurityGroupEvent |Event del gruppo di sicurezza di rete |
-| Microsoft.Network/networksecuritygroups |NetworkSecurityGroupRuleCounter |Contatore di regole del gruppo di sicurezza di rete |
-| Microsoft.Network/networksecuritygroups |NetworkSecurityGroupFlowEvent |Evento del flusso di regole del gruppo di sicurezza di rete |
-| Microsoft.Network/loadBalancers |LoadBalancerAlertEvent |Eventi di avviso del servizio di bilanciamento del carico |
-| Microsoft.Network/loadBalancers |LoadBalancerProbeHealthStatus |Stato di integrità dei probe del servizio di bilanciamento del carico |
-| Microsoft.Network/applicationGateways |ApplicationGatewayAccessLog |Log di accesso del gateway applicazione |
-| Microsoft.Network/applicationGateways |ApplicationGatewayPerformanceLog |Log delle prestazioni del gateway applicazione |
-| Microsoft.Network/applicationGateways |ApplicationGatewayFirewallLog |Log del firewall del gateway applicazione |
-| Microsoft.Search/searchServices |OperationLogs |Log delle operazioni |
-| Microsoft.ServerManagement/nodes |RequestLogs |Log delle richieste |
-| Microsoft.ServiceBus/namespaces |OperationalLogs |Log operativi |
-| Microsoft.StreamAnalytics/streamingjobs |Esecuzione |Esecuzione |
-| Microsoft.StreamAnalytics/streamingjobs |Creazione |Creazione |
+|Tipo di risorsa|Categoria|Nome visualizzato della categoria|
+|---|---|---|
+|Microsoft.Automation/automationAccounts|JobLogs|Log del processo|
+|Microsoft.Automation/automationAccounts|JobStreams|Flussi del processo|
+|Microsoft.Batch/batchAccounts|ServiceLog|Log del servizio|
+|Microsoft.DataLakeAnalytics/accounts|Audit|Log di controllo|
+|Microsoft.DataLakeAnalytics/accounts|Requests|Log delle richieste|
+|Microsoft.DataLakeStore/accounts|Audit|Log di controllo|
+|Microsoft.DataLakeStore/accounts|Requests|Log delle richieste|
+|Microsoft.EventHub/namespaces|ArchiveLogs|Log di archiviazione|
+|Microsoft.EventHub/namespaces|OperationalLogs|Log operativi|
+|Microsoft.KeyVault/vaults|AuditEvent|Log di controllo|
+|Microsoft.Logic/workflows|WorkflowRuntime|Eventi di diagnostica del runtime del flusso di lavoro|
+|Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Eventi di rilevamento degli account di integrazione|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Event del gruppo di sicurezza di rete|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Contatore di regole del gruppo di sicurezza di rete|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Evento del flusso di regole del gruppo di sicurezza di rete|
+|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Eventi di avviso del servizio di bilanciamento del carico|
+|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Stato di integrità dei probe del servizio di bilanciamento del carico|
+|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Log di accesso del gateway applicazione|
+|Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Log delle prestazioni del gateway applicazione|
+|Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Log del firewall del gateway applicazione|
+|Microsoft.Search/searchServices|OperationLogs|Log delle operazioni|
+|Microsoft.ServerManagement/nodes|RequestLogs|Log delle richieste|
+|Microsoft.ServiceBus/namespaces|OperationalLogs|Log operativi|
+|Microsoft.StreamAnalytics/streamingjobs|Esecuzione|Esecuzione|
+|Microsoft.StreamAnalytics/streamingjobs|Creazione|Creazione|
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Trasmettere log di diagnostica di Azure a **Hub eventi**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Modificare le impostazioni di diagnostica usando l'API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [Analyze the logs with OMS Log Analytics (Analizzare i log con OMS Log Analytics)](../log-analytics/log-analytics-azure-storage-json.md)
+* [Analyze the logs with OMS Log Analytics (Analizzare i log con OMS Log Analytics)](../log-analytics/log-analytics-azure-storage.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

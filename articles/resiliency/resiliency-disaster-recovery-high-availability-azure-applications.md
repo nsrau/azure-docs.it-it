@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 448a1728b94c695d719acafdf4ef9e1d577414db
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: ee3e7103bd647c2d8651ec912fbb764a342781e2
 
 
 ---
@@ -112,7 +112,7 @@ Quando si crea un piano di disponibilità e ripristino di emergenza dell'applica
 
 [Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL](../sql-database/sql-database-business-continuity.md)
 
-[Disponibilità elevata e ripristino di emergenza di SQL Server in Macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Disponibilità elevata e ripristino di emergenza di SQL Server in Macchine virtuali di Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)
 
 [FailSafe: Informazioni aggiuntive per architetture cloud resilienti](https://channel9.msdn.com/Series/FailSafe)
 
@@ -124,6 +124,6 @@ Questo articolo fa parte di una serie dedicata a ripristino di emergenza e dispo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

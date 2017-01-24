@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: c404c8708ec6d33f272733e438b8c3559fa40ce9
-ms.openlocfilehash: 07cf3e27f34c705367aa62650d2b17ed1ea3ec82
+ms.sourcegitcommit: d83372fbce5f49d7cd038a15bd271e9d8a463b7b
+ms.openlocfilehash: f1cff67f31da87d6361603f0216a68c55686db0e
 
 
 ---
@@ -24,6 +24,15 @@ ms.openlocfilehash: 07cf3e27f34c705367aa62650d2b17ed1ea3ec82
 Il portale di Azure classico offre la possibilità di creare regole avanzate per consentire appartenenze dinamiche basate su attributi più complesse ai gruppi di Azure Active Directory (Azure AD).  
 
 Quando gli attributi di un utente cambiano, il sistema valuta tutte le regole dinamiche del gruppo in una directory per verificare se la modifica degli attributi dell'utente attiverà aggiunte o rimozioni nel gruppo. Se un utente soddisfa una regola in un gruppo, viene aggiunto come membro a tale gruppo. Se non soddisfa più la regola di un gruppo di cui è membro, viene rimosso come membro da tale gruppo.
+
+> [!NOTE]
+> È possibile configurare una regola per l'appartenenza dinamica nei gruppi di sicurezza o nei gruppi di Office 365. Le appartenenze a gruppi annidati non sono attualmente supportate per l'assegnazione alle applicazioni in base al gruppo.
+> 
+> Le appartenenze dinamiche ai gruppi richiedono che venga assegnata una licenza Azure AD Premium a:
+> 
+> * L'amministratore che gestisce la regola in un gruppo
+> * Tutti i membri del gruppo
+> 
 
 ## <a name="to-create-the-advanced-rule"></a>Per creare la regola avanzata
 1. Nel [portale di Azure classico](https://manage.windowsazure.com)selezionare **Active Directory**e aprire la directory dell'organizzazione.
@@ -245,6 +254,6 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

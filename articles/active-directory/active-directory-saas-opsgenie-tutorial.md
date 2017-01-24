@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 552b1a2a7ef63bc1c958adf8e06cd1c92c5c0ea2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7ab60cc289d5202be4c22b4adf46bd2aff7a7d24
 
 
 ---
@@ -277,6 +277,6 @@ Quando si fa clic sul riquadro OpsGenie nel pannello di accesso, si dovrebbe acc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
-ms.author: milangada;cenkdin;juliako
+ms.author: milanga;cenkdin;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: a979519dc617f40e6f090a412d17aa7778cbcf69
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 8321f677d344109e35da3d8ba1109d8bece70db1
 
 
 ---
@@ -37,13 +37,13 @@ Servizi multimediali dipende da una chiave di archiviazione fornita. In particol
 ## <a name="step-1-regenerate-secondary-storage-access-key"></a>Passaggio 1: Rigenerare la chiave di accesso alle risorse di archiviazione secondaria
 Iniziare con la rigenerazione della chiave di archiviazione secondaria. Per impostazione predefinita, infatti, la chiave secondaria non viene usata da Servizi multimediali.  Per informazioni su come ripristinare le chiavi di archiviazione, vedere [Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
-## <a name="a-idstep2astep-2-update-media-services-to-use-the-new-secondary-storage-key"></a><a id="step2"></a>Passaggio 2: Aggiornare Servizi multimediali per l'uso della nuova chiave di archiviazione secondaria
+## <a name="a-idstep2astep-2--update-media-services-to-use-the-new-secondary-storage-key"></a><a id="step2"></a>Passaggio 2: Aggiornare Servizi multimediali per l'uso della nuova chiave di archiviazione secondaria
 Aggiornare Servizi multimediali per l'uso della chiave di accesso alle risorse di archiviazione secondaria. Per sincronizzare la chiave di archiviazione rigenerata con Servizi multimediali è possibile usare uno dei due seguenti metodi.
 
 * Usare il portale di Azure: per trovare i valori per nome e chiave, accedere al portale di Azure e selezionare l'account. Su lato destro verrà visualizzata la finestra Impostazioni. Nella finestra Impostazioni selezionare Chiavi. A seconda della chiave di archiviazione che si desidera sincronizzare con Servizi multimediali, selezionare il pulsante relativo alla sincronizzazione con la chiave primaria o secondaria. In questo caso, usare la chiave secondaria.
 * Usare l'API REST di gestione di Servizi multimediali.
 
-L'esempio di codice seguente mostra come costruire la richiesta https://endpoint/*subscriptionId*/services/mediaservices/Accounts/*accountName*/StorageAccounts/*storageAccountName*/Key per sincronizzare la chiave di archiviazione specificata con Servizi multimediali. In questo caso, viene usato il valore relativo alla chiave di archiviazione secondaria. Per altre informazioni, vedere [Procedura: Usare l'API REST di gestione dei servizi multimediali](http://msdn.microsoft.com/library/azure/dn167656.aspx).
+L'esempio di codice seguente mostra come costruire la richiesta https://endpoint/*subscriptionId*/services/mediaservices/Accounts/*accountName*/StorageAccounts/*storageAccountName*/Key per sincronizzare la chiave di archiviazione specificata con Servizi multimediali. In questo caso, viene usato il valore relativo alla chiave di archiviazione secondaria. Per altre informazioni, vedere [Procedura: Usare l'API REST di gestione dei servizi multimediali](https://docs.microsoft.com/rest/api/media/management/how-to-use-media-services-management-rest-api).
 
     public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
     {
@@ -103,13 +103,25 @@ Si noti che, quando si aggiorna (o si ricrea) un localizzatore SAS, l’URL camb
 
 Nell'esempio di .NET riportato di seguito viene illustrato come ricreare un localizzatore con lo stesso ID.
 
-private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator) { // Save properties of existing locator.
-var asset = locator.Asset; var accessPolicy = locator.AccessPolicy; var locatorId = locator.Id; var startDate = locator.StartTime; var locatorType = locator.Type; var locatorName = locator.Name;
+    private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator)
+    {
+    // Save properties of existing locator.
+    var asset = locator.Asset;
+    var accessPolicy = locator.AccessPolicy;
+    var locatorId = locator.Id;
+    var startDate = locator.StartTime;
+    var locatorType = locator.Type;
+    var locatorName = locator.Name;
 
-// Delete old locator.
-locator.Delete();
+    // Delete old locator.
+    locator.Delete();
 
-if (locator.ExpirationDateTime <= DateTime.UtcNow) { throw new Exception(String.Format( "Cannot recreate locator Id={0} because its locator expiration time is in the past", locator.Id)); }
+    if (locator.ExpirationDateTime <= DateTime.UtcNow)
+        {
+            throw new Exception(String.Format(
+                "Cannot recreate locator Id={0} because its locator expiration time is in the past",
+                locator.Id));
+        }
 
         // Create new locator using saved properties.
         var newLocator = context.Locators.CreateLocator(
@@ -126,7 +138,7 @@ if (locator.ExpirationDateTime <= DateTime.UtcNow) { throw new Exception(String.
     }
 
 
-## <a name="step-5-regenerate-primary-storage-access-key"></a>Passaggio 5: Rigenerare la chiave di accesso alle risorse di archiviazione primaria
+## <a name="step-5-regenerate--primary-storage-access-key"></a>Passaggio 5: Rigenerare la chiave di accesso alle risorse di archiviazione primaria
 Rigenerare la chiave di accesso alle risorse di archiviazione primaria. Per informazioni su come ripristinare le chiavi di archiviazione, vedere [Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 ## <a name="step-6-update-media-services-to-use-the-new-primary-storage-key"></a>Passaggio 6: Aggiornare Servizi multimediali per l'uso della nuova chiave di archiviazione primaria
@@ -153,6 +165,6 @@ Siamo lieti di conferire un riconoscimento alle seguenti persone che hanno contr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

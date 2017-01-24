@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: ce8244bbad3aa73f98ab9bd7e967cd69309c80da
+ms.sourcegitcommit: 0dee2c3b92adc4098a51014dd7379aa3d53c1627
+ms.openlocfilehash: 6f352b000ce4e284a1f1cc9ba9b384827ee62003
 
 
 ---
@@ -255,7 +255,7 @@ Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello d
 
 La funzione `copyIndex` viene usata più volte nel modello di esempio di Music Store. Le risorse e le funzioni che usano `copyIndex` includono dati specifici di una singola istanza della macchina virtuale, come l'interfaccia di rete, le regole del servizio di bilanciamento del carico e altri elementi, a seconda della funzione. 
 
-Per altre informazioni sulla funzione copy, vedere [Creare più istanze di risorse in Azure Resource Manager](../resource-group-create-multiple.md).
+Per altre informazioni sulla funzione copy, vedere [Creare più istanze di risorse in Azure Resource Manager](../azure-resource-manager/resource-group-create-multiple.md).
 
 ## <a name="next-step"></a>Passaggio successivo
 <hr>
@@ -265,6 +265,6 @@ Per altre informazioni sulla funzione copy, vedere [Creare più istanze di risor
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

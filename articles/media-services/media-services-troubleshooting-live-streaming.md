@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c1e8a4befdf4d233bf00d1697ea3d9ff64cc6bbd
+ms.sourcegitcommit: 0c77ee0f612c1cbef551a129a22cf3f125e6f29d
+ms.openlocfilehash: 69fa0a7802ca39f86ada0af47b7a99e56436f973
 
 
 ---
@@ -62,11 +62,6 @@ In questa sezione sono disponibili suggerimenti su come risolvere i problemi rel
   
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle10.png)
 
-### <a name="problem-unable-to-playback-the-published-stream"></a>Problema: non è possibile riprodurre il flusso pubblicato.
-* **Potenziale problema**: nessun endpoint di streaming in esecuzione o non esiste alcuna unità di streaming (unità di scala) allocata. 
-  
-    **Passaggi per la risoluzione dei problemi**: passare alla scheda "Endpoint streaming" nello strumento AMSE e verificare che vi sia un endpoint di streaming in esecuzione con una unità di streaming. 
-
 > [!NOTE]
 > Se dopo aver seguito le procedure di risoluzione dei problemi non è ancora possibile eseguire correttamente il flusso, inviare un ticket di supporto tramite il portale di Azure.
 > 
@@ -81,6 +76,6 @@ In questa sezione sono disponibili suggerimenti su come risolvere i problemi rel
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

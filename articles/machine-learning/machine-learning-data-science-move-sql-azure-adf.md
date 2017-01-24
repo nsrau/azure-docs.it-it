@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 61176151652f9c9d79ebe07d2a4aedf8702e2d16
-ms.openlocfilehash: a329d1ef98e2ab59df2f11b5095fe87a8cc9f94a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: adbede3de17f055f5e39630658f526dd239d50da
 
 
 ---
@@ -56,7 +56,7 @@ Il tutorial presuppone:
 * Una **sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile iscriversi per provare una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Un **account di archiviazione Azure**. In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](../storage/storage-create-storage-account.md#create-a-storage-account) . Dopo avere creato l'account di archiviazione, è necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere la sezione [Gestire le chiavi di accesso alle risorse di archiviazione](../storage/storage-create-storage-account.md#manage-your-storage-access-keys).
 * Accesso a un **database SQL di Azure**. Se è necessario impostare un database di SQL Azure, l'argomento [Guida introduttiva al database SQL di Microsoft Azure ](../sql-database/sql-database-get-started.md) fornisce informazioni su come eseguire il provisioning di una nuova istanza di un database di SQL Azure.
-* Installazione e configurazione di **Azure PowerShell** in locale. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+* Installazione e configurazione di **Azure PowerShell** in locale. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 > [!NOTE]
 > In questa procedura viene utilizzato il [portale di Azure](https://portal.azure.com/).
@@ -315,7 +315,7 @@ Copiare la definizione JSON della pipeline in un file denominato *pipelinedef.js
 
 Accertarsi che sia possibile visualizzare la pipeline nel file ADF sul portale di Azure classico come indicato di seguito (quando si fa clic sul diagramma)
 
-![](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
+![Pipeline ADF](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
 
 ## <a name="a-nameadf-pipeline-startastart-the-pipeline"></a><a name="adf-pipeline-start"></a>Avviare la pipeline
 La pipeline è avviabile con il comando seguente:
@@ -330,6 +330,6 @@ Si noti che non abbiamo utilizzato la funzionalità fornita da ADF per dirigere 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

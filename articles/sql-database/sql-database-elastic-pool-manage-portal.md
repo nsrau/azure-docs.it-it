@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 3dc9b7a3-4b10-423a-8e44-9174aca5cf3d
 ms.service: sql-database
+ms.custom: sharded databases pool; how to
 ms.devlang: NA
 ms.date: 11/17/2016
 ms.author: ninarn
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 37249c24c3e74ff9f4fcf9362b6053d1ba7b0cbd
-ms.openlocfilehash: 10bb7d9672824b00a1e3ba02e0e3d1db4260b128
+ms.sourcegitcommit: c17cedb24dacc6aeefa02a963b4dffcf22e246ec
+ms.openlocfilehash: 285be87188be8fa426e42d6ec43cd066100f423d
 
 
 ---
@@ -60,20 +61,21 @@ Per eseguire i passaggi descritti in questo articolo è necessaria un'istanza di
 
 È possibile modificare il grafico e il pannello Metrica per visualizzare altre metriche, ad esempio la percentuale di CPU, la percentuale di IO dei dati e la percentuale di IO del log usata.
 
-2. Nel pannello Metrica fare clic su **Modifica**.
+1. Nel pannello Metrica fare clic su **Modifica**.
 
     ![Fare clic su Modifica][6]
 
-- Nel pannello **Modifica grafico** selezionare un nuovo intervallo di tempo, ad esempio ora precedente, oggi o settimana precedente, oppure fare clic su **personalizzato** per impostare un qualsiasi intervallo di tempo nelle due settimane precedenti. Selezionare il tipo di grafico (a barre o a linee), quindi selezionare le risorse da monitorare.
+2. Nel pannello **Modifica grafico** selezionare un nuovo intervallo di tempo, ad esempio ora precedente, oggi o settimana precedente, oppure fare clic su **personalizzato** per impostare un qualsiasi intervallo di tempo nelle due settimane precedenti. Selezionare il tipo di grafico (a barre o a linee), quindi selezionare le risorse da monitorare.
 
-> [!Note]
-> Solo le metriche con la stessa unità di misura possono essere visualizzate nel grafico nello stesso momento. Se, ad esempio, si seleziona "eDTU percentage" (Percentuale eDTU), sarà possibile selezionare solo altre metriche con percentuale come unità di misura.
->
->
+   > [!Note]
+   > Solo le metriche con la stessa unità di misura possono essere visualizzate nel grafico nello stesso momento. Se, ad esempio, si seleziona "eDTU percentage" (Percentuale eDTU), sarà possibile selezionare solo altre metriche con percentuale come unità di misura.
+   >
 
-    ![Click edit](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
+    ![Fare clic su Modifica](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
 
-- Fare quindi clic su **OK**.
+    
+
+3. Fare quindi clic su **OK**.
 
 
 ## <a name="elastic-database-monitoring"></a>Monitoraggio di database elastici
@@ -226,6 +228,6 @@ Vedere l'articolo sull' [aumento del numero di istanze con il database SQL di Az
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 87f6d18ddc97921b62cbf111738044f24a0a940b
+ms.sourcegitcommit: 2549c876ee35d6a7fa425d43e2f86d24131ca791
+ms.openlocfilehash: 3d999d9e27844bc0164cc3572522b9ec022118a1
 
 
 ---
@@ -24,14 +24,14 @@ ms.openlocfilehash: 87f6d18ddc97921b62cbf111738044f24a0a940b
 > [!div class="op_single_selector"]
 > * [Portale](media-services-portal-create-account.md)
 > * [PowerShell](media-services-manage-with-powershell.md)
-> * [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/media/mediaservice)
 > 
 > [!NOTE]
 > Per poter creare un account di Servizi multimediali di Azure, è necessario un account di Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">versione di valutazione gratuita di Azure</a>.
 > 
 > 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Questo articolo fornisce un elenco dei cmdlet di Azure PowerShell per Servizi multimediali di Azure (AMS) nel framework di Azure Resource Manager. I cmdlet esistono nello spazio dei nomi **Microsoft.Azure.Commands.Media** .
 
 ## <a name="versions"></a>Versioni
@@ -466,6 +466,6 @@ Vedere i percorsi di apprendimento di Servizi multimediali.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

@@ -1,20 +1,24 @@
 ---
-title: Ridimensionamento automatico e set di scalabilità di macchine virtuali | Microsoft Docs
-description: Informazioni sull'uso della diagnostica e delle risorse di scalabilità automatica per ridimensionare automaticamente le macchine virtuali in un set di scalabilità.
+title: "Ridimensionamento automatico e set di scalabilità di macchine virtuali | Microsoft Docs"
+description: "Informazioni sull&quot;uso della diagnostica e delle risorse di scalabilità automatica per ridimensionare automaticamente le macchine virtuali in un set di scalabilità."
 services: virtual-machine-scale-sets
-documentationcenter: ''
-author: davidmu1
+documentationcenter: 
+author: Thraka
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: davidmu
+ms.date: 10/18/2016
+ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 090374b057a62251e40ccc41f60f61e84e08a03f
+ms.openlocfilehash: ff137ead5e3490a129b36c959040d3571bff7669
+
 
 ---
 # <a name="automatic-scaling-and-virtual-machine-scale-sets"></a>Ridimensionamento automatico e set di scalabilità di macchine virtuali
@@ -22,10 +26,10 @@ Il ridimensionamento automatico delle macchine virtuali in un set di scalabilit�
 
 Il ridimensionamento automatico è un processo automatico che semplifica il sovraccarico di gestione. Riducendo il sovraccarico, non è necessario monitorare le prestazioni del sistema continuamente o decidere come gestire le risorse. Il ridimensionamento è un processo elastico. È possibile aggiungere ulteriori risorse con l'aumento del carico, tuttavia man mano che la richiesta diminuisce le risorse possono essere rimosse per ridurre al minimo i costi e mantenere i livelli di prestazioni.
 
-Configurare il ridimensionamento automatico di un set di scalabilità tramite un modello di Azure Resource Manager, usando Azure PowerShell o l'interfaccia della riga di comando di Azure.
+Configurare il ridimensionamento automatico di un set di scalabilità tramite un modello di Azure Resource Manager, usando Azure PowerShell, l'interfaccia della riga di comando di Azure o il portale di Azure.
 
 ## <a name="set-up-scaling-by-using-resource-manager-templates"></a>Configurare il ridimensionamento usando modelli di Resource Manager
-Invece di distribuire e gestire separatamente ogni risorsa dell'applicazione, usare un modello che distribuisce tutte le risorse in un'unica operazione coordinata. Nel modello vengono definite le risorse dell'applicazione e vengono specificati i parametri di distribuzione per diversi ambienti. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione. Per altre informazioni, vedere [Creazione di modelli di Azure Resource Manager](../resource-group-authoring-templates.md).
+Invece di distribuire e gestire separatamente ogni risorsa dell'applicazione, usare un modello che distribuisce tutte le risorse in un'unica operazione coordinata. Nel modello vengono definite le risorse dell'applicazione e vengono specificati i parametri di distribuzione per diversi ambienti. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione. Per altre informazioni, vedere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Nel modello si specifica l'elemento capacità:
 
@@ -193,14 +197,17 @@ Inoltre, una macchina virtuale viene aggiunta al set di scalabilità:
 Dopo un periodo di attesa di cinque minuti, se il numero medio di thread nelle macchine virtuali rimane oltre 600, viene aggiunta un'altra macchina virtuale al set. Se il numero medio di thread rimane sotto 550, la capacità del set di scalabilità viene ridotta di uno e una macchina virtuale viene rimossa dal set.
 
 ## <a name="set-up-scaling-using-azure-powershell"></a>Impostare la scalabilità con Azure PowerShell
-Per visualizzare esempi d'uso di PowerShell per configurare la scalabilità automatica, vedere [Esempi di avvio rapido con PowerShell per Azure Insights](../monitoring-and-diagnostics/insights-powershell-samples.md).
+Per visualizzare esempi d'uso di PowerShell per configurare il ridimensionamento automatico, vedere [Azure Monitor PowerShell quick start samples](../monitoring-and-diagnostics/insights-powershell-samples.md) (Esempi di avvio rapido di PowerShell per Monitoraggio di Azure).
 
 ## <a name="set-up-scaling-using-azure-cli"></a>Impostare la scalabilità con l'interfaccia della riga di comando di Azure
-Per visualizzare esempi d'uso dell'interfaccia della riga di comando di Azure per configurare il ridimensionamento automatico, vedere [Esempi di avvio rapido dell'interfaccia della riga di comando multipiattaforma di Azure Insights](../monitoring-and-diagnostics/insights-cli-samples.md).
+Per visualizzare esempi d'uso dell'interfaccia della riga di comando di Azure per configurare il ridimensionamento automatico, vedere [Azure Monitor Cross-platform CLI quick start samples](../monitoring-and-diagnostics/insights-cli-samples.md) (Esempi di avvio rapido dell'interfaccia della riga di comando multipiattaforma per Monitoraggio di Azure).
+
+## <a name="set-up-scaling-using-the-azure-portal"></a>Impostare il ridimensionamento con il portale di Azure
+Per visualizzare un esempio d'uso del portale di Azure per impostare il ridimensionamento automatico, vedere [Creare un set di scalabilità di macchine virtuali tramite il portale di Azure](virtual-machine-scale-sets-portal-create.md).
 
 ## <a name="investigate-scaling-actions"></a>Analisi delle azioni di ridimensionamento
-* [Portale di Azure]() : attualmente è possibile ottenere una quantità limitata di informazioni tramite il portale.
-* [Esplora risorse di Azure]() : si tratta dello strumento migliore per esaminare lo stato corrente del set di scalabilità. Seguire questo percorso per visualizzare l'istanza del set di scalabilità creato: sottoscrizioni > {sottoscrizione} > resourceGroups > {gruppo di risorse} > provider > Microsoft.Compute > virtualMachineScaleSets > {set di scalabilità} > virtualMachines
+* Portale di Azure: attualmente è possibile ottenere una quantità limitata di informazioni tramite il portale.
+* Esplora risorse di Azure: si tratta dello strumento migliore per esaminare lo stato corrente del set di scalabilità. Seguire questo percorso per visualizzare l'istanza del set di scalabilità creato: sottoscrizioni > {sottoscrizione} > resourceGroups > {gruppo di risorse} > provider > Microsoft.Compute > virtualMachineScaleSets > {set di scalabilità} > virtualMachines
 * Azure PowerShell: per ottenere alcune informazioni, usare il comando seguente:
   
         Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
@@ -209,11 +216,14 @@ Per visualizzare esempi d'uso dell'interfaccia della riga di comando di Azure pe
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per un esempio sulla modalità di creazione di un set di scalabilità configurando il ridimensionamento automatico, vedere [Ridimensionare automaticamente le macchine virtuali in un set di scalabilità di macchine virtuali](virtual-machine-scale-sets-windows-autoscale.md) .
-* Per alcuni esempi delle funzionalità di monitoraggio di Azure Insights, vedere [Esempi di avvio rapido con PowerShell per Azure Insights](../monitoring-and-diagnostics/insights-powershell-samples.md)
-* Per informazioni sulle funzionalità di notifica, vedere [Usare le azioni di scalabilità automatica per inviare notifiche di avviso di webhook e posta elettronica in Azure Insights](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md).
-* Per informazioni, vedere [Usare i log di controllo per inviare notifiche di avviso di webhook e posta elettronica in Azure Insights](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
+* Per alcuni esempi delle funzionalità di monitoraggio in Monitoraggio di Azure, vedere [Azure Monitor PowerShell quick start samples](../monitoring-and-diagnostics/insights-powershell-samples.md) (Esempi di avvio rapido di PowerShell per Monitoraggio di Azure).
+* Per informazioni sulle funzionalità di notifica, vedere [Use autoscale actions to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) (Usare le azioni di ridimensionamento automatico per inviare notifiche di avviso di webhook ed e-mail in Monitoraggio di Azure).
+* Per informazioni, vedere [Use audit logs to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md) (Usare i log di controllo per inviare notifiche di avviso di webhook in Monitoraggio di Azure).
 * Informazioni sugli [scenari di scalabilità automatica avanzata](virtual-machine-scale-sets-advanced-autoscale.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO2-->
 
 

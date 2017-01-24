@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 8ae59a99a8397676160c032b744460c0b2bcc1d7
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 979ff03320063fc02366c738a10f028bcecba76b
 
 
 ---
@@ -59,7 +59,7 @@ L'uso della funzionalità Rete accelerata presenta le limitazioni seguenti:
 Le modifiche apportate a queste limitazioni verranno annunciate nella pagina relativa agli [aggiornamenti sulla rete virtuale di Azure](https://azure.microsoft.com/updates/accelerated-networking-in-preview).
 
 ## <a name="create-a-windows-vm-with-accelerated-networking"></a>Creare una macchina virtuale Windows con Rete accelerata
-1. Aprire un prompt dei comandi di PowerShell e completare i passaggi rimanenti in questa sezione in una singola sessione di PowerShell. Se PowerShell non è già installato e configurato, completare la procedura disponibile nell'articolo [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) .
+1. Aprire un prompt dei comandi di PowerShell e completare i passaggi rimanenti in questa sezione in una singola sessione di PowerShell. Se PowerShell non è già installato e configurato, completare la procedura disponibile nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 2. Per registrarsi all'anteprima, inviare un messaggio di posta elettronica a [Sottoscrizioni di Rete accelerata](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) con l'ID sottoscrizione e l'uso previsto. Non completare i passaggi rimanenti finché non si riceve un messaggio di posta elettronica che comunica che si è stati accettati nell'anteprima.
 3. Registrare la funzionalità nella sottoscrizione immettendo i comandi seguenti:
    
@@ -129,6 +129,6 @@ Le modifiche apportate a queste limitazioni verranno annunciate nella pagina rel
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

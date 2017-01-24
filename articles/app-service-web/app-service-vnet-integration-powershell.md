@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: ccompy
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7b0dcf833981364abfbc77d0cd6dfde8beb081b7
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e8763f1ab7e51e10ae59cf2b6b2c609f0f45dcd3
 
 
 ---
 # <a name="connect-your-app-to-your-virtual-network-by-using-powershell"></a>Connettere l'app alla rete virtuale tramite PowerShell
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Nel servizio app di Azure è possibile connettere l'app Web, l'app per dispositivi mobili o l'app per le API a una rete virtuale (VNet) di Azure nella sottoscrizione. Questa funzionalità è detta integrazione rete virtuale. La funzionalità di integrazione rete virtuale non deve essere confusa con la funzionalità Ambiente del servizio app, che consente di eseguire un'istanza del servizio app di Azure nella rete virtuale.
 
 La funzionalità di integrazione rete virtuale ha un'interfaccia utente nel nuovo portale che può essere usata per l'integrazione con le reti virtuali che vengono distribuite tramite il modello di distribuzione classica o il modello di distribuzione Azure Resource Manager. Per altre informazioni sulla funzionalità, vedere [Integrare un'app in una rete virtuale di Azure](web-sites-integrate-with-vnet.md).
@@ -47,7 +47,7 @@ Per connettere un'app a una rete virtuale, seguire questa procedura:
 2. Caricare il certificato dell'app Web nella rete virtuale e quindi recuperare l'URI del pacchetto VPN da punto a sito.
 3. Aggiornare la connessione alla rete virtuale dell'app Web con l'URI del pacchetto da punto a sito.
 
-Il primo e il terzo passaggio sono completamente configurabili tramite script, mentre il secondo passaggio richiede un'unica azione manuale tramite il portale o l'accesso per eseguire azioni **PUT** o **PATCH** sull'endpoint di Azure Resource Manager della rete virtuale. Contattare il supporto di Azure per questa opzione. Prima di iniziare, assicurarsi che sia già abilitata una rete virtuale classica con connettività da punto a sito e che sia disponibile un gateway distribuito. Per creare il gateway e abilitare la connettività da punto a sito è necessario usare il portale, come descritto in [Creazione di un gateway VPN][createvpngateway].
+Il primo e il terzo passaggio sono completamente configurabili tramite script, mentre il secondo passaggio richiede un'unica azione manuale tramite il portale o l'accesso per eseguire azioni **PUT** o **PATCH** sull'endpoint di Azure Resource Manager della rete virtuale. Contattare il supporto di Azure per questa opzione. Prima di iniziare, assicurarsi che sia già abilitata una rete virtuale classica con connettività da punto a sito e che sia disponibile un gateway distribuito. Per creare il gateway e abilitare la connettività da punto a sito, è necessario usare il portale, come descritto in [Creazione di un gateway VPN][createvpngateway].
 
 La rete virtuale classica deve essere nella stessa sottoscrizione del piano di servizio app che contiene l'app con cui si sta eseguendo l'integrazione.
 
@@ -706,6 +706,6 @@ Anche se lo script usa il termine "delete", non elimina effettivamente la rete v
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

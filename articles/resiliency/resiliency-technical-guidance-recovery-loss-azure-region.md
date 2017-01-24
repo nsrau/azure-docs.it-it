@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 15f0183d8ada59227a412788f1d53a9db0e712c8
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 0062dc90d8e1a823e17183e96a91a9f224e8cf48
 
 
 ---
@@ -97,7 +97,7 @@ Il database SQL di Azure offre due tipi di ripristino: il ripristino geografico 
 [Replica geografica attiva](../sql-database/sql-database-geo-replication-overview.md) è disponibile per i database a tutti i livelli. È stata progettata per le applicazioni che hanno requisiti di ripristino più elevati di quelli supportati dal ripristino geografico. Usando la funzionalità di replica geografica attiva, è possibile creare fino a quattro database secondari leggibili su server in diverse aree geografiche. È possibile avviare il failover su qualsiasi database secondario. Inoltre, la replica geografica attiva può essere usata per supportare gli scenari di aggiornamento o riposizionamento dell'applicazione e anche di bilanciamento dei carichi di lavoro di sola lettura. Per informazioni dettagliate, vedere [Configurare la replica geografica](../sql-database/sql-database-geo-replication-portal.md) e l'articolo sul [failover al database secondario](../sql-database/sql-database-geo-replication-failover-portal.md). Per informazioni dettagliate su come progettare e implementare applicazioni e relativi aggiornamenti senza tempi di inattività, vedere [Progettare un'applicazione per il ripristino di emergenza cloud tramite la replica geografica attiva nel database SQL](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Gestione degli aggiornamenti in sequenza delle applicazioni cloud con la replica geografica attiva del database SQL](../sql-database/sql-database-manage-application-rolling-upgrade.md).
 
 ### <a name="sql-server-on-virtual-machines"></a>SQL Server nelle macchine virtuali
-Sono disponibili numerose opzioni per il ripristino e la disponibilità elevata per SQL Server 2012 e versioni successive in esecuzione in macchine virtuali di Azure. Per altre informazioni, vedere [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Sono disponibili numerose opzioni per il ripristino e la disponibilità elevata per SQL Server 2012 e versioni successive in esecuzione in macchine virtuali di Azure. Per altre informazioni, vedere [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md).
 
 ## <a name="other-azure-platform-services"></a>Altri servizi della piattaforma Azure
 Quando si prova a eseguire il servizio cloud in più aree di Azure è necessario considerare le implicazioni per ognuna delle dipendenze. Nelle sezioni seguenti, il materiale sussidiario specifico del servizio presuppone che sia necessario usare lo stesso servizio Azure in un data center di Azure alternativo. Ciò comporta attività di configurazione e di replica dei dati.
@@ -188,6 +188,6 @@ Questo articolo fa parte della serie [Materiale sussidiario sulla resilienza di 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

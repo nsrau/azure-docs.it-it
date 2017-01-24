@@ -14,15 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/15/2015
-ms.author: v-ahsab
+ms.author: asabbour
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: a10524fe9025d83bb033e9cbab864795dffbd8d2
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: ace15c99b53b786de9924a6dbe2c8a86645709e9
 
 
 ---
 # <a name="mariadb-mysql-cluster---azure-tutorial"></a>Cluster MariaDB (MySQL) - Esercitazione su Azure
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
 
 > [!NOTE]
 > Il cluster MariaDB Enterprise è ora disponibile in Azure Marketplace.  La nuova offerta distribuirà automaticamente un cluster MariaDB Galera su ARM. È consigliabile usare la nuova offerta da https://azure.microsoft.com/en-us/marketplace/partners/mariadb/cluster-maxscale/ 
@@ -328,23 +329,23 @@ In questo articolo è stato creato un cluster a disponibilità elevata MariaDB +
 Può essere utile consultare gli articoli sul [metodo alternativo per creare un cluster MySQL su Linux](virtual-machines-linux-classic-mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) e sui metodi per [ottimizzare e testare le prestazioni di MySQL in macchine virtuali Linux di Azure](virtual-machines-linux-classic-optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 <!--Anchors-->
-[Panoramica dell'architettura]: #architecture-overview
-[Creazione del modello]: #creating-the-template
-[Creazione del cluster]: #creating-the-cluster
-[Bilanciamento del carico del cluster]: #load-balancing-the-cluster
-[Convalida del cluster]: #validating-the-cluster
-[Passaggi successivi]: #next-steps
+[Architecture overview]: #architecture-overview
+[Creating the template]: #creating-the-template
+[Creating the cluster]: #creating-the-cluster
+[Load balancing the cluster]: #load-balancing-the-cluster
+[Validating the cluster]: #validating-the-cluster
+[Next steps]: #next-steps
 
 <!--Image references-->
 
 <!--Link references-->
 [Galera]: http://galeracluster.com/products/
-[MariaDB]: https://mariadb.org/en/about/
+[MariaDBs]: https://mariadb.org/en/about/
 [creare una chiave SSH per l'autenticazione]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
 [problema noto n. 1268 nell’interfaccia della riga di comando di Azure]:https://github.com/Azure/azure-xplat-cli/issues/1268
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

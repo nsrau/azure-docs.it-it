@@ -1,5 +1,5 @@
 ---
-title: Usare efficacemente gli ambienti DevOps per l&quot;app Web
+title: Usare efficacemente gli ambienti DevOps per l&quot;App Web | Microsoft Docs
 description: "Informazioni su come usare gli slot di distribuzione per configurare e gestire più ambienti di sviluppo per l&quot;applicazione"
 services: app-service\web
 documentationcenter: 
@@ -15,107 +15,108 @@ ms.workload: web
 ms.date: 10/24/2016
 ms.author: sumuth
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3760409bacab7731711d6749e5c083c65865cc49
+ms.sourcegitcommit: 385eb87ec32f5f605b28cc8c76b1c89c7e90bfec
+ms.openlocfilehash: 5284022ea473db893800b0f64b5bf4f811d994aa
 
 
 ---
 # <a name="use-devops-environments-effectively-for-your-web-apps"></a>Usare efficacemente gli ambienti DevOps per le app Web
-Questo articolo illustra come configurare e gestire le distribuzioni di applicazioni Web per più versioni dell'applicazione, ad esempio sviluppo, staging, controllo qualità e produzione. Ogni versione dell'applicazione può essere considerata come un ambiente di sviluppo per esigenze specifiche del processo di distribuzione. Un ambiente di controllo di qualità, ad esempio, può essere usato dal team di sviluppatori per testare la qualità dell'applicazione prima di eseguire il push delle modifiche in produzione.
-La configurazione di più ambienti di sviluppo può essere un'attività complessa, perché prevede il monitoraggio, la gestione delle risorse (calcolo, app Web, database, cache e così via) e la distribuzione di codice in diversi ambienti.
+Questo articolo illustra come configurare e gestire le distribuzioni di applicazioni Web per più versioni dell'applicazione, ad esempio sviluppo, gestione temporanea, controllo qualità e produzione. Ogni versione dell'applicazione può essere considerata come un ambiente di sviluppo per lo scopo specifico del processo di distribuzione. Ad esempio, gli sviluppatori possono usare l'ambiente di controllo di qualità per testare la qualità dell'applicazione prima di effettuare il push delle modifiche in produzione.
+La presenza di più ambienti di sviluppo può creare difficoltà, perché prevede il tracciamento del codice, la gestione delle risorse (calcolo, App Web, database, cache e così via) e la distribuzione del codice in diversi ambienti.
 
-## <a name="setting-up-a-non-production-environment-stagedevqa"></a>Configurazione di un ambiente non di produzione (staging, sviluppo, controllo qualità)
-Una volta che l'app Web è operativa, il passaggio successivo prevede la creazione di un ambiente non di produzione. Per usare gli slot di distribuzione, assicurarsi che sia in esecuzione la modalità **Standard** o **Premium** del piano di servizio app. Gli slot di distribuzione sono in realtà app Web dal vivo con nomi host specifici. È possibile scambiare il contenuto dell'app Web e gli elementi delle configurazioni tra i due slot di distribuzione, incluso lo slot di produzione. La distribuzione dell'applicazione in uno slot di distribuzione presenta i seguenti vantaggi:
+## <a name="set-up-a-non-production-environment-stage-dev-qa"></a>Configurare un ambiente non di produzione (gestione temporanea, sviluppo, controllo qualità)
+Quando l'App Web è operativa, il passaggio successivo prevede la creazione di un ambiente non di produzione. Per usare gli slot di distribuzione, assicurarsi che sia in esecuzione la modalità Standard o Premium del piano di servizio app di Azure. Gli slot di distribuzione sono App Web live con i propri nomi host. È possibile scambiare il contenuto dell'app Web e gli elementi delle configurazioni tra i due slot di distribuzione, incluso lo slot di produzione. Quando si distribuisce l'applicazione in uno slot di distribuzione, si ottengono i vantaggi seguenti:
 
-1. È possibile convalidare le modifiche alle app Web in uno slot di distribuzione temporaneo prima di scambiarlo con quello di produzione.
-2. La distribuzione preliminare di un'app Web in uno slot e la successiva implementazione in un ambiente di produzione garantiscono che tutte le istanze dello slot vengano effettivamente eseguite prima di passare alla fase di produzione. Ciò consente di evitare i tempi di inattività al momento della distribuzione dell'app Web. Il reindirizzamento del traffico è lineare e nessuna richiesta viene eliminata in seguito alle operazioni di scambio. L'intero flusso di lavoro può essere automatizzata tramite la configurazione di [scambio automatico](web-sites-staged-publishing.md#configure-auto-swap-for-your-web-app) quando non è necessario spazio di pre-swapping convalida.
-3. Dopo uno scambio, lo slot con l'app Web gestita temporaneamente includerà l'app Web di produzione precedente. Se le modifiche applicate nello slot di produzione non risultano corrette, è possibile ripetere immediatamente lo scambio dei due slot per recuperare l'ultima app Web con i dati corretti.
+- È possibile convalidare le modifiche alle App Web in uno slot di distribuzione di gestione temporanea prima di scambiare l'app con lo slot di produzione.
+- Quando si esegue la distribuzione preliminare di un'App Web in uno slot e poi la si implementa in un ambiente di produzione, tutte le istanze dello slot vengano effettivamente eseguite prima di passare alla fase di produzione. Questo processo consente di evitare i tempi di inattività al momento della distribuzione dell'App Web. Il reindirizzamento del traffico è lineare e nessuna richiesta viene eliminata in seguito alle operazioni di scambio. Per automatizzare l'intero flusso di lavoro, configurare lo [scambio automatico](web-sites-staged-publishing.md#configure-auto-swap) quando non è necessaria la convalida preliminare.
+- Dopo uno scambio, lo slot con l'App Web gestita temporaneamente include l'App Web di produzione precedente. Se le modifiche applicate nello slot di produzione non sono quelle previste, è possibile ripetere immediatamente lo scambio per recuperare l'ultima App Web con i dati corretti.
 
-Per configurare uno slot di distribuzione di staging, vedere [Configurare gli ambienti di staging per le app Web nel Servizio app di Azure](web-sites-staged-publishing.md). Ogni ambiente deve includere un set di risorse dedicato, ad esempio, se l'app Web usa un database, sia l'app Web di produzione che quella di staging devono usare database diversi. Aggiungere le risorse dell'ambiente di sviluppo di staging, ad esempio il database, le risorse di archiviazione o la cache per impostare l'ambiente di sviluppo di staging.
+Per configurare uno slot di distribuzione di staging, vedere [Configurare gli ambienti di staging per le app Web nel Servizio app di Azure](web-sites-staged-publishing.md). Ogni ambiente deve includere un proprio set di risorse. Ad esempio, se l'App Web usa un database, allora sia l'App Web di gestione temporanea che quella di produzione devono usare database diversi. Aggiungere le risorse dell'ambiente di sviluppo di gestione temporanea, ad esempio il database, l'archiviazione o la cache, per impostare l'ambiente di sviluppo di gestione temporanea.
 
 ## <a name="examples-of-using-multiple-development-environments"></a>Esempi di utilizzo di più ambienti di sviluppo
-Per tutti i progetti è necessario prevedere la gestione del codice sorgente con almeno due ambienti, uno di sviluppo e uno di produzione. Tuttavia, quando si usano sistemi di gestione del contenuto (CMS), framework applicazioni e così via, le applicazioni potrebbero non supportare questo scenario predefinito. Questo accade per alcuni dei framework più diffusi descritti di seguito. Quando si usano framework o sistemi di gestione del contenuto, possono sorgere gli interrogativi seguenti:
+Qualsiasi progetto deve seguire la gestione del codice sorgente con almeno due ambienti: sviluppo e produzione. Se si usano sistemi di gestione dei contenuti (CMS), framework di applicazione e così via, l'applicazione potrebbe non supportare questo scenario senza personalizzazione. Questa eventualità è vera per alcuni dei framework più diffusi di cui si parla nelle sezioni successive. Quando si usano framework o CMS, possono sorgere gli interrogativi seguenti:
 
-1. Come eseguire la suddivisione in ambienti diversi
-2. Quali sono i file che si possono modificare senza alcun impatto sugli aggiornamenti della versione del framework
-3. Come gestire la configurazione per ambiente
-4. Come gestire gli aggiornamenti delle versioni dei moduli/plug-in e gli aggiornamenti delle versioni principali dei framework
+- Come si suddivide il contenuto in ambienti diversi?
+- Quali file è possibile modificare senza influire sugli aggiornamenti di versione del framework?
+- Come si gestiscono le configurazioni per ambiente?
+- Come si gestiscono gli aggiornamenti delle versioni per i moduli, i plug-in e il framework di base?
 
-Esistono diversi modi per configurare più ambienti per il progetto. Gli esempi seguenti rappresentano solo uno di questi metodi per le rispettive applicazioni.
+Esistono diversi modi per configurare più ambienti per il progetto. Negli esempi seguenti viene illustrato un metodo per ogni applicazione.
 
 ### <a name="wordpress"></a>WordPress
-Questa sezione descrive come configurare un flusso di lavoro di distribuzione usando gli slot per WordPress. WordPress, come la maggior parte delle soluzioni CMS, non supporta per impostazione predefinita l'utilizzo di più ambienti di sviluppo. Il servizio app Web del servizio app offre alcune funzionalità che semplificano l'archiviazione delle impostazioni di configurazione all'esterno del codice.
+Questa sezione descrive come configurare un flusso di lavoro di distribuzione usando gli slot per WordPress. Come la maggior parte delle soluzioni CMS, WordPress non supporta l'uso di più ambienti di sviluppo senza personalizzazione. La funzionalità App Web del servizio app di Azure offre alcune funzionalità che semplificano l'archiviazione delle impostazioni di configurazione all'esterno del codice.
 
-Prima di creare uno slot di staging, configurare il codice dell'applicazione in modo che supporti più ambienti. Per supportare più ambienti in WordPress, è necessario modificare `wp-config.php` nell'app Web di sviluppo locale e aggiungere il codice seguente all'inizio del file. In questo modo, l'applicazione selezionerà la configurazione corretta in base all'ambiente selezionato.
+1. Prima di creare uno slot di gestione temporanea, configurare il codice dell'applicazione in modo che supporti più ambienti. Per supportare più ambienti in WordPress, è necessario modificare `wp-config.php` nell'App Web di sviluppo locale e aggiungere il codice seguente all'inizio del file. Con questo processo, l'applicazione selezionerà la configurazione corretta in base all'ambiente selezionato.
 
-```
-// Support multiple environments
-// set the config file based on current environment
-if (strpos($_SERVER['HTTP_HOST'],'localhost') !== false) {
-// local development
- $config_file = 'config/wp-config.local.php';
-}
-elseif ((strpos(getenv('WP_ENV'),'stage') !== false) || (strpos(getenv('WP_ENV'),'prod' )!== false ))
-//single file for all azure development environments
- $config_file = 'config/wp-config.azure.php';
-}
-$path = dirname(__FILE__). '/';
-if (file_exists($path. $config_file)) {
-// include the config file if it exists, otherwise WP is going to fail
-require_once $path. $config_file;
-```
+    ```
+    // Support multiple environments
+    // set the config file based on current environment
+    if (strpos($_SERVER['HTTP_HOST'],'localhost') !== false) {
+    // local development
+     $config_file = 'config/wp-config.local.php';
+    }
+    elseif ((strpos(getenv('WP_ENV'),'stage') !== false) || (strpos(getenv('WP_ENV'),'prod' )!== false ))
+    //single file for all azure development environments
+     $config_file = 'config/wp-config.azure.php';
+    }
+    $path = dirname(__FILE__). '/';
+    if (file_exists($path. $config_file)) {
+    // include the config file if it exists, otherwise WP is going to fail
+    require_once $path. $config_file;
+    ```
 
-Nella directory radice dell'app Web creare una cartella denominata `config` e aggiungere due file: `wp-config.azure.php` e `wp-config.local.php` che rappresentano rispettivamente l'ambiente Azure e l'ambiente locale.
+2. Nella directory radice dell'App Web creare una cartella denominata `config` e aggiungere i file `wp-config.azure.php` e `wp-config.local.php`, che rappresentano rispettivamente l'ambiente Azure e l'ambiente locale.
 
-Copiare quanto segue in `wp-config.local.php`:
+3. Copiare quanto segue in `wp-config.local.php`:
 
-```
-<?php
-// MySQL settings
-/** The name of the database for WordPress */
+    ```
+    <?php
+    // MySQL settings
+    /** The name of the database for WordPress */
 
-define('DB_NAME', 'yourdatabasename');
+    define('DB_NAME', 'yourdatabasename');
 
-/** MySQL database username */
-define('DB_USER', 'yourdbuser');
+    /** MySQL database username */
+    define('DB_USER', 'yourdbuser');
 
-/** MySQL database password */
-define('DB_PASSWORD', 'yourpassword');
+    /** MySQL database password */
+    define('DB_PASSWORD', 'yourpassword');
 
-/** MySQL hostname */
-define('DB_HOST', 'localhost');
-/**
- * For developers: WordPress debugging mode.
- * * Change this to true to enable the display of notices during development.
- * It is strongly recommended that plugin and theme developers use WP_DEBUG
- * in their development environments.
- */
-define('WP_DEBUG', true);
+    /** MySQL hostname */
+    define('DB_HOST', 'localhost');
+    /**
+     * For developers: WordPress debugging mode.
+     * * Change this to true to enable the display of notices during development.
+     * It is strongly recommended that plugin and theme developers use WP_DEBUG
+     * in their development environments.
+     */
+    define('WP_DEBUG', true);
 
-//Security key settings
-define('AUTH_KEY', 'put your unique phrase here');
-define('SECURE_AUTH_KEY','put your unique phrase here');
-define('LOGGED_IN_KEY','put your unique phrase here');
-define('NONCE_KEY', 'put your unique phrase here');
-define('AUTH_SALT', 'put your unique phrase here');
-define('SECURE_AUTH_SALT', 'put your unique phrase here');
-define('LOGGED_IN_SALT', 'put your unique phrase here');
-define('NONCE_SALT', 'put your unique phrase here');
+    //Security key settings
+    define('AUTH_KEY', 'put your unique phrase here');
+    define('SECURE_AUTH_KEY','put your unique phrase here');
+    define('LOGGED_IN_KEY','put your unique phrase here');
+    define('NONCE_KEY', 'put your unique phrase here');
+    define('AUTH_SALT', 'put your unique phrase here');
+    define('SECURE_AUTH_SALT', 'put your unique phrase here');
+    define('LOGGED_IN_SALT', 'put your unique phrase here');
+    define('NONCE_SALT', 'put your unique phrase here');
 
-/**
- * WordPress Database Table prefix.
- *
- * You can have multiple installations in one database if you give each a unique
- * prefix. Only numbers, letters, and underscores please!
- */
-$table_prefix = 'wp_';
-```
+    /**
+     * WordPress Database Table prefix.
+     *
+     * You can have multiple installations in one database if you give each a unique
+     * prefix. Only numbers, letters, and underscores please!
+     */
+    $table_prefix = 'wp_';
+    ```
 
-Impostando le chiavi di sicurezza è possibile prevenire potenziali attacchi all'app Web, quindi usare valori univoci. Per generare la stringa per le chiavi di sicurezza indicate sopra, fare clic su questo [collegamento](https://api.wordpress.org/secret-key/1.1/salt)
+    Impostando le chiavi di sicurezza come illustrato nel codice precedente è possibile impedire eventuali attacchi all'App Web, quindi è necessario usare valori univoci. Per generare la stringa per le chiavi di sicurezza indicate nel codice, [accedere al generatore automatico](https://api.wordpress.org/secret-key/1.1/salt) e creare nuove coppie chiave-valore.
 
-Copiare il codice seguente in `wp-config.azure.php`:
+4. Copiare il codice seguente in `wp-config.azure.php`:
 
-```    <?php
+    ```    
+    <?php
     // MySQL settings
     /** The name of the database for WordPress */
 
@@ -166,7 +167,7 @@ Copiare il codice seguente in `wp-config.azure.php`:
 ```
 
 #### <a name="use-relative-paths"></a>Usare percorsi relativi
-Consentire infine all'app WordPress di usare i percorsi relativi. WordPress archivia le informazioni relative all'URL nel database. Questo rende più difficile lo spostamento del contenuto da un ambiente a un altro, perché è necessario aggiornare il database ogni volta che si passa dall'ambiente locale a quello di staging o da quello di staging a quello di produzione. Per ridurre i rischi associati alla distribuzione del database ogni volta che si esegue la distribuzione da un ambiente a un altro, usare il [plug-in per i collegamenti relativi alla radice](https://wordpress.org/plugins/root-relative-urls/) che può essere installato dal dashboard di amministrazione di WordPress o scaricato manualmente da [qui](https://downloads.wordpress.org/plugin/root-relative-urls.zip).
+Infine è necessario configurare i percorsi relativi nell'app WordPress. WordPress archivia le informazioni relative all'URL nel database. Questo tipo di archiviazione rende più difficile il trasferimento dei contenuti da un ambiente all'altro. È necessario aggiornare il database ogni volta che si spostano contenuti da ambiente locale ad ambiente di gestione temporanea o da ambiente di gestione temporanea ad ambiente di produzione. Per ridurre i rischi associati alla distribuzione del database ogni volta che si esegue la distribuzione da un ambiente a un altro, usare il [plug-in per i collegamenti relativi alla radice](https://wordpress.org/plugins/root-relative-urls/), che può essere installato usando il dashboard di amministrazione di WordPress.
 
 Aggiungere le voci seguenti al file `wp-config.php` prima del commento `That's all, stop editing!`:
 
@@ -181,7 +182,7 @@ Aggiungere le voci seguenti al file `wp-config.php` prima del commento `That's a
 Attivare il plug-in dal menu `Plugins` nel dashboard di amministrazione di WordPress. Salvare le impostazioni relative al collegamento permanente per l'app WordPress.
 
 #### <a name="the-final-wp-configphp-file"></a>Il file `wp-config.php` finale
-Gli eventuali aggiornamenti principali di WordPress non avranno effetto sui file `wp-config.php`, `wp-config.azure.php` e `wp-config.local.php`. Questo è l'aspetto finale che avrà il file `wp-config.php`
+Gli eventuali aggiornamenti principali di WordPress non avranno effetto sui file `wp-config.php`, `wp-config.azure.php` e `wp-config.local.php`. Di seguito è riportata la versione finale del file `wp-config.php`:
 
 ```
 <?php
@@ -239,21 +240,21 @@ require_once(ABSPATH. 'wp-settings.php');
 ```
 
 #### <a name="set-up-a-staging-environment"></a>Configurare un ambiente di staging
-Partendo dal presupposto che l'app Web WordPress sia già in esecuzione nell'app Web di Azure, accedere al [portale di anteprima per la gestione di Azure](http://portal.azure.com) e passare all'app Web WordPress. In caso contrario, è possibile crearne una dal Marketplace. Per altre informazioni, [fare clic qui](web-sites-php-web-site-gallery.md).
-Fare clic su Impostazioni -> Slot di distribuzione -> Aggiungi per creare uno slot di distribuzione con il nome "stage". Uno slot di distribuzione è un'altra applicazione Web che condivide le stesse risorse dell'app Web primaria creata sopra.
+1. Se l'App Web WordPress è già in esecuzione nella sottoscrizione di Azure, accedere al [Portale di Azure](http://portal.azure.com) e passare all'App Web WordPress. Se non si dispone di un'App Web WordPress, è possibile crearne una da Azure Marketplace. Per altre informazioni, vedere [Creare un'App Web WordPress nel servizio app di Azure](web-sites-php-web-site-gallery.md).
+Fare clic su **Impostazioni** > **Slot di distribuzione** > **Aggiungi** per creare uno slot di distribuzione con il nome *stage*. Uno slot di distribuzione è un'altra applicazione Web che condivide le stesse risorse dell'App Web primaria creata in precedenza.
 
-![Creare lo slot di distribuzione "stage"](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstage.png)
+    ![Creare lo slot di distribuzione "stage"](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstage.png)
 
-Aggiungere un altro database MySQL, `wordpress-stage-db`, al gruppo di risorse `wordpressapp-group`.
+2. Aggiungere un altro database MySQL, `wordpress-stage-db`, al gruppo di risorse `wordpressapp-group`.
 
- ![Aggiungere il database MySQL al gruppo di risorse](./media/app-service-web-staged-publishing-realworld-scenarios/2addmysql.png)
+    ![Aggiungere il database MySQL al gruppo di risorse](./media/app-service-web-staged-publishing-realworld-scenarios/2addmysql.png)
 
-Aggiornare le stringhe di connessione per lo slot di distribuzione "stage" affinché facciano riferimento al database appena creato, `wordpress-stage-db`. Si noti che l'app Web di produzione `wordpressprodapp` e l'app Web di staging `wordpressprodapp-stage` devono fare riferimento a database diversi.
+3. Aggiornare le stringhe di connessione per lo slot di distribuzione di gestione temporanea affinché scelgano il nuovo database, `wordpress-stage-db`. L'App Web di produzione `wordpressprodapp` e l'App Web di gestione temporanea `wordpressprodapp-stage` devono scegliere database diversi.
 
 #### <a name="configure-environment-specific-app-settings"></a>Configurare impostazioni app specifiche dell'ambiente
-Gli sviluppatori possono archiviare le coppie di stringhe chiave-valore in Azure come parte delle informazioni di configurazione associate a un'app Web, denominate Impostazioni app. In fase di esecuzione, le app Web del servizio app recuperano automaticamente questi valori e li rendono disponibili al codice in esecuzione nell'app Web. Dal punto di vista della sicurezza, si tratta di un vantaggio significativo, perché le informazioni sensibili, ad esempio le stringhe di connessione di database e le relative password, non vengono mai visualizzate come testo normale in un file come `wp-config.php`.
+Gli sviluppatori possono archiviare le coppie di stringhe chiave-valore in Azure come parte delle informazioni di configurazione associate a un'App Web, denominate **Impostazioni app**. In fase di esecuzione, le App Web recuperano automaticamente questi valori e li rendono disponibili al codice in esecuzione nell'App Web. Dal punto di vista della sicurezza, si tratta di un vantaggio significativo, perché le informazioni sensibili, ad esempio le stringhe di connessione di database e le relative password, non vengono mai visualizzate come testo normale in un file come `wp-config.php`.
 
-È utile eseguire il processo illustrato sotto perché include sia le modifiche dei file che le modifiche di database per l'app WordPress:
+Questo processo, spiegato nei paragrafi seguenti, è utile perché include le modifiche sia ai file che ai database per l'app WordPress:
 
 * Aggiornamento della versione di WordPress
 * Aggiungere, modificare o aggiornare i plug-in
@@ -261,172 +262,177 @@ Gli sviluppatori possono archiviare le coppie di stringhe chiave-valore in Azure
 
 Configurare le impostazioni app per:
 
-* informazioni sul database
-* attivazione/disattivazione della registrazione per WordPress
+* Informazioni sul database
+* Attivazione/disattivazione della registrazione a WordPress
 * impostazioni di sicurezza di WordPress
 
 ![Impostazioni app per l'app Web WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/3configure.png)
 
-Assicurarsi di aver aggiunto le impostazioni app seguenti per l'app Web di produzione e lo slot di staging. Si noti che l'app Web di produzione e quella di staging usano database diversi.
-Deselezionare la casella di controllo **Impostazione slot** per tutti i parametri delle impostazioni, ad eccezione di WP_ENV. In questo modo, la configurazione per l'app Web verrà scambiata, insieme al contenuto del file e al database. Se la casella di controllo **Impostazione slot** è **Controllati**, nelle impostazioni app dell'app Web, la configurazione delle stringhe di connessione NON verrà spostata da un ambiente all'altro durante le operazioni di SCAMBIO e quindi, se sono state apportate modifiche al database, queste non influiranno negativamente sull'app Web di produzione.
+Assicurarsi di aver aggiunto le impostazioni app seguenti per l'App Web di produzione e lo slot di gestione temporanea. Si noti che l'App Web di produzione e quella di gestione temporanea usano database diversi.
 
-Distribuire l'app Web dell'ambiente di sviluppo locale nell'app Web e nel database di staging usando WebMatrix o altri strumenti, ad esempio FTP, Git o PhpMyAdmin.
+1. Deselezionare la casella di controllo **Impostazione slot** per tutti i parametri delle impostazioni, ad eccezione di WP_ENV. Grazie a questo processo, la configurazione per l'App Web, il contenuto del file e il database verrà scambiata. Se la casella di controllo **Impostazione slot** è selezionata, le impostazioni app dell'App Web e la configurazione delle stringhe di connessione *non* verranno spostate da un ambiente all'altro durante un'operazione di **scambio**. Eventuali modifiche al database non interrompono l'App Web di produzione.
 
-![Finestra di dialogo di pubblicazione di WebMatrix per l'app Web WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/4wmpublish.png)
+2. Distribuire l'App Web dell'ambiente di sviluppo locale nell'App Web e nel database dell'area di gestione temporanea usando WebMatrix o altri strumenti, ad esempio FTP, Git o PhpMyAdmin.
 
-Esplorare e testare l'app Web di staging. Si consideri uno scenario in cui è necessario aggiornare il tema dell'app Web. Ecco l'app Web di staging.
+    ![Finestra di dialogo di pubblicazione di WebMatrix per l'app Web WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/4wmpublish.png)
 
-![Esplorare l'app Web di staging prima dello scambio degli slot](./media/app-service-web-staged-publishing-realworld-scenarios/5wpstage.png)
+3. Esplorare e testare l'app Web di staging. Si consideri uno scenario in cui è necessario aggiornare il tema dell'app Web. Ecco l'app Web di staging.
 
- Se tutto sembra corretto, fare clic sul pulsante **Scambia** nell'app Web di staging per spostare il contenuto all'ambiente di produzione. In questo caso, l'app Web e il database vengono scambiati da un ambiente all'altro nel corso di ogni operazione di **scambio** .
+    ![Esplorare l'app Web di staging prima dello scambio degli slot](./media/app-service-web-staged-publishing-realworld-scenarios/5wpstage.png)
 
-![Anteprima modifiche dello scambio per WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
+4. Se tutto sembra corretto, fare clic sul pulsante **Scambia** nell'App Web di gestione temporanea per spostare il contenuto all'ambiente di produzione. In questo caso l'App Web e il database vengono scambiati da un ambiente all'altro nel corso di ogni operazione di **scambio**.
 
-> [!NOTE]
-> Se invece è presente uno scenario in cui è solo necessario eseguire il push dei file (senza aggiornamenti del database), **selezionare** la casella di controllo **Impostazione slot** per tutte le *impostazioni app* e le *impostazioni delle stringhe di connessione* relative al database nel pannello delle impostazioni dell'app Web nel portale di anteprima di Azure prima di fare clic su SCAMBIA. In questo caso, le impostazioni DB_NAME, DB_HOST, DB_PASSWORD, DB_USER e la stringa di connessione predefinita non verranno visualizzate nell'anteprima modifiche quando si esegue un'operazione di **scambio**. In questa fase, al termine dell'operazione di **scambio** l'app Web WordPress conterrà **SOLO** i file aggiornati.
-> 
-> 
+    ![Anteprima modifiche dello scambio per WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
-Prima di eseguire uno SCAMBIO, l'app Web WordPress di produzione ha un aspetto analogo al seguente ![App Web di produzione prima dello scambio di slot](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
+    > [!NOTE]
+    > Se invece è presente uno scenario in cui è solo necessario effettuare il push dei file (senza aggiornamenti del database), selezionare **Impostazione slot** per tutte le *impostazioni app* e le *impostazioni delle stringhe di connessione* relative al database nel pannello **Impostazioni app Web** del Portale di Azure prima di procedere con lo **scambio**. In questo caso le impostazioni DB_NAME, DB_HOST, DB_PASSWORD, DB_USER e la stringa di connessione predefinita non verranno visualizzate nell'anteprima modifiche quando si esegue un'operazione di **scambio**. In questa fase, al termine dell'operazione di **scambio** l'App Web WordPress conterrà solo i file aggiornati.
+    >
+    >
 
-Dopo l'operazione di SCAMBIO, il tema è stato aggiornato nell'app Web di produzione.
+    Ecco l'App Web WordPress di produzione prima dell'operazione di **scambio**.
+    ![App Web di produzione prima dello scambio degli slot](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
 
-![App Web di produzione dopo lo scambio degli slot](./media/app-service-web-staged-publishing-realworld-scenarios/8afswap.png)
+    Dopo l'operazione di **scambio**, il tema è stato aggiornato nell'App Web di produzione.
 
-Se è necessario eseguire il **rollback**, è possibile passare alle impostazioni dell'app Web di produzione e fare clic su pulsante **Scambia** per eseguire lo scambio dell'app Web e del database dallo slot di produzione a quello di staging. È importante ricordare che se un'operazione di **scambio** include modifiche del database in un determinato momento, alla ridistribuzione successiva nell'app Web di staging sarà necessario distribuire le modifiche del database nel database corrente per l'app Web di staging che può essere un database di produzione o di staging precedente.
+    ![App Web di produzione dopo lo scambio degli slot](./media/app-service-web-staged-publishing-realworld-scenarios/8afswap.png)
+
+5. Quando è necessario eseguire il rollback, è possibile accedere alle **impostazioni dell'App** Web di produzione e fare clic su pulsante **Scambia** per eseguire lo scambio dell'App Web e del database dallo slot di produzione a quello di gestione temporanea. È importante ricordare che se un'operazione di **scambio** include modifiche del database, alla ridistribuzione successiva nell'App Web di gestione temporanea sarà necessario distribuire le modifiche del database nel database corrente per l'App Web di gestione temporanea, che può essere un database di produzione o di gestione temporanea precedente.
 
 #### <a name="summary"></a>Riepilogo
-Per generalizzare il processo per tutte le applicazioni con un database
+Di seguito è illustrato un processo generalizzato per qualsiasi applicazione con un database:
 
-1. Installare l'applicazione nell'ambiente locale
-2. Includere la configurazione specifica dell'ambiente (locale e app Web di Azure)
-3. Configurare gli ambienti (staging e produzione) nell'app Web del servizio app
-4. Se è già presente un'applicazione di produzione in esecuzione in Azure, sincronizzare il contenuto di produzione (file/codice e database) con l'ambiente locale e di staging.
-5. Sviluppare l'applicazione nell'ambiente locale
-6. Impostare l'app Web di produzione nella modalità di manutenzione o bloccata e sincronizzare il contenuto del database dall'ambiente di produzione agli ambienti di staging e di sviluppo
-7. Eseguire la distribuzione nell'ambiente di staging e procedere al test
-8. Eseguire la distribuzione nell'ambiente di produzione
-9. Ripetere i passaggi da 4 a 6
+1. Installare l'applicazione nell'ambiente locale.
+2. Includere le configurazioni specifiche dell'ambiente (locale e App Web di Azure).
+3. Configurare l'ambiente di produzione e di gestione temporanea per le App Web.
+4. Se è già presente un'applicazione di produzione in esecuzione in Azure, sincronizzare il contenuto di produzione (file/codice e database) con l'ambiente locale e di gestione temporanea.
+5. Sviluppare l'applicazione nell'ambiente locale.
+6. Impostare l'App Web di produzione nella modalità di manutenzione o di blocco e sincronizzare il contenuto del database dall'ambiente di produzione agli ambienti di gestione temporanea e di sviluppo.
+7. Eseguire la distribuzione nell'ambiente di gestione temporanea e procedere al test.
+8. Eseguire la distribuzione nell'ambiente di produzione.
+9. Ripetere i passaggi da 4 a 6.
 
 ### <a name="umbraco"></a>Umbraco
-In questa sezione verrà illustrato il modo in cui Umbraco CMS usa un modulo personalizzato per la distribuzione da più ambienti DevOps. Questo esempio illustra un approccio diverso alla gestione di più ambienti di sviluppo.
+In questa sezione verrà illustrato il modo in cui Umbraco CMS usa un modulo personalizzato per la distribuzione in più ambienti DevOps. Questo esempio illustra un approccio diverso alla gestione di più ambienti di sviluppo.
 
-[Umbraco CMS](http://umbraco.com/) è una delle soluzioni .NET CMS più diffuse, usata da molti sviluppatori. Offre il modulo [Courier2](http://umbraco.com/products/more-add-ons/courier-2) per la distribuzione dall'ambiente di sviluppo all'ambiente di staging e di produzione. Per creare un ambiente di sviluppo locale per un'app Web Umbraco CMS è possibile usare Visual Studio o WebMatrix.
+[Umbraco CMS](http://umbraco.com/) è una soluzione .NET CMS diffusa che viene usata da molti sviluppatori. Offre il modulo [Courier2](http://umbraco.com/products/more-add-ons/courier-2) per la distribuzione dall'ambiente di sviluppo a quello di gestione temporanea a quello di produzione. Per creare facilmente un ambiente di sviluppo locale per un'App Web Umbraco CMS è possibile usare Visual Studio o WebMatrix.
 
-1. Per creare un'app Web Umbraco con Visual Studio, [fare clic qui](https://our.umbraco.org/documentation/Installation/install-umbraco-with-nuget).
-2. Per creare un'app Web Umbraco con WebMatrix, [fare clic qui](http://umbraco.com/help-and-support/video-tutorials/getting-started/working-with-webmatrix).
+- [Creare un'App Web Umbraco con Visual Studio](https://our.umbraco.org/documentation/Installation/install-umbraco-with-nuget)
+- [Creare un'App Web Umbraco con WebMatrix](http://umbraco.tv/videos/umbraco-v7/implementor/fundamentals/installation/creating-umbraco-site-from-webmatrix-web-gallery/)
 
-Ricordare sempre di rimuovere la cartella `install` nell'applicazione e di non caricarla mai nelle app Web di staging o di produzione. Per questa esercitazione, si userà WebMatrix
+È necessario ricordare sempre di rimuovere la cartella `install` nell'applicazione e di non caricarla mai nelle App Web di gestione temporanea o di produzione. In questa esercitazione viene usato WebMatrix.
 
 #### <a name="set-up-a-staging-environment"></a>Configurare un ambiente di staging
-* Creare uno slot di distribuzione come indicato in precedenza per un'app Web Umbraco CMS, presupponendo esista già un'app Web Umbraco CMS operativa. In caso contrario, è possibile crearne una dal Marketplace.
-* Aggiornare le stringhe di connessione per lo slot di distribuzione "stage" perché facciano riferimento al database appena creato, **umbraco-stage-db**. L'app Web di produzione, (umbraositecms-1), e l'app Web di staging (umbracositecms-1-stage) **DEVONO** fare riferimento a database diversi.
+1. Creare uno slot di distribuzione come indicato in precedenza per un'App Web Umbraco CMS, presupponendo esista già un'App Web Umbraco CMS operativa. In caso contrario, è possibile crearne una dal Marketplace.
+2. Aggiornare la stringa di connessione per lo slot di distribuzione di gestione temporanea perché scelga il nuovo database, **umbraco-stage-db**. L'App Web di produzione (umbraositecms-1) e l'App Web di gestione temporanea (umbracositecms-1-stage) *devono* scegliere database diversi.
 
-![Aggiornare la stringa di connessione per l'app Web di staging con il nuovo database di staging](./media/app-service-web-staged-publishing-realworld-scenarios/9umbconnstr.png)
+    ![Aggiornare la stringa di connessione per l'app Web di staging con il nuovo database di staging](./media/app-service-web-staged-publishing-realworld-scenarios/9umbconnstr.png)
 
-* Fare clic su **Get Publish settings** (Ottieni impostazioni di pubblicazione) per lo slot di distribuzione **stage**. Verrà scaricato un file di impostazioni di pubblicazione in cui sono archiviate tutte le informazioni richieste da Visual Studio o WebMatrix per pubblicare l'applicazione dall'app Web di sviluppo locale all'app Web di Azure.
-  
-  ![Ottenere le impostazioni di pubblicazione per l'app Web di staging](./media/app-service-web-staged-publishing-realworld-scenarios/10getpsetting.png)
-* Aprire l'app Web di sviluppo locale in **WebMatrix** o **Visual Studio**. Per questa esercitazione si usa WebMatrix ed è prima necessario importare il file di impostazioni di pubblicazione per l'app Web di staging
+3. Fare clic su **Get Publish settings** (Ottieni impostazioni di pubblicazione) per lo slot di distribuzione di **gestione temporanea**. Con questo processo verrà scaricato un file di impostazioni di pubblicazione in cui sono archiviate tutte le informazioni richieste da Visual Studio o WebMatrix per pubblicare l'applicazione dall'App Web di sviluppo locale all'App Web di Azure.
 
-![Importare le impostazioni di pubblicazione per Umbraco tramite WebMatrix](./media/app-service-web-staged-publishing-realworld-scenarios/11import.png)
+    ![Ottenere le impostazioni di pubblicazione per l'app Web di staging](./media/app-service-web-staged-publishing-realworld-scenarios/10getpsetting.png)
+4. Aprire l'App Web di sviluppo locale in WebMatrix o Visual Studio. In questa esercitazione viene usato WebMatrix. È innanzitutto necessario importare il file di impostazioni di pubblicazione per l'App Web di gestione temporanea.
 
-* Esaminare le modifiche nella finestra di dialogo e distribuire l'app Web locale nell'app Web di Azure, *umbracositecms-1-stage*. Quando si distribuiscono i file direttamente nell'app Web di staging è necessario omettere i file nella cartella `~/app_data/TEMP/` perché questi verranno rigenerati al primo avvio dell'app Web di staging. Omettere il file `~/app_data/umbraco.config` perché anche questo verrà rigenerato.
+    ![Importare le impostazioni di pubblicazione per Umbraco tramite WebMatrix](./media/app-service-web-staged-publishing-realworld-scenarios/11import.png)
 
-![Rivedere le modifiche da pubblicare in WebMatrix](./media/app-service-web-staged-publishing-realworld-scenarios/12umbpublish.png)
+5. Esaminare le modifiche nella finestra di dialogo e distribuire l'App Web locale nell'App Web di Azure, *umbracositecms-1-stage*. Quando si distribuiscono i file direttamente nell'App Web di gestione temporanea è necessario omettere i file nella cartella `~/app_data/TEMP/`, perché verranno rigenerati al primo avvio dell'App Web di gestione temporanea. Omettere il file `~/app_data/umbraco.config` perché verrà rigenerato anch'esso.
 
-* Dopo aver pubblicato l'app Web locale Umbraco nell'app Web di staging, esplorarla ed eseguire alcuni test per rilevare eventuali problemi.
+    ![Rivedere le modifiche da pubblicare in WebMatrix](./media/app-service-web-staged-publishing-realworld-scenarios/12umbpublish.png)
 
-#### <a name="set-up-courier2-deployment-module"></a>Configurare il modulo di distribuzione Courier2
-Grazie al modulo [Courier2](http://umbraco.com/products/more-add-ons/courier-2) è possibile fare clic con il pulsante destro del mouse per eseguire il push di contenuto, fogli di stile, moduli di sviluppo e altro ancora da un'app Web di staging a un'app Web di produzione in modo da semplificare le operazioni di distribuzione e ridurre il rischio di interrompere l'app Web di produzione durante la distribuzione di aggiornamenti.
-Acquistare una licenza di Courier2 per il dominio `*.azurewebsites.net` e il dominio personalizzato, ad esempio http://abc.com. Dopo aver acquistato la licenza, salvare il file di licenza (file LIC) nella cartella `bin`.
+6. Dopo aver pubblicato l'App Web locale Umbraco nell'App Web di gestione temporanea, esplorarla ed eseguire alcuni test per rilevare eventuali problemi.
+
+#### <a name="set-up-the-courier2-deployment-module"></a>Configurare il modulo di distribuzione Courier2
+Con il modulo [Courier2](http://umbraco.com/products/more-add-ons/courier-2) è possibile semplicemente fare doppio clic per effettuare il push di contenuti, fogli di stile e moduli di sviluppo da un'App Web di gestione temporaea a un'App Web di produzione. Questo processo riduce il rischio di interrompere l'App Web di produzione quando si distribuisce un aggiornamento.
+Acquistare una licenza per Courier2 per il dominio `*.azurewebsites.net` e il dominio personalizzato (ad esempio http://abc.com). Dopo aver acquistato la licenza, posizionare la licenza scaricata (file .LIC) nella cartella `bin`.
 
 ![Salvare il file di licenza nella cartella bin](./media/app-service-web-staged-publishing-realworld-scenarios/13droplic.png)
 
-Scaricare il pacchetto di Courier2 da [qui](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/). Accedere all'app Web di staging, ad esempio http://umbracocms-site-stage.azurewebsites.net/umbraco, quindi scegliere **Packages** (Pacchetti) dal menu **Developer** (Sviluppatore). Fare clic sul pacchetto locale **Install**
+1. [Scaricare il pacchetto di Courier2](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/). Accedere all'App Web di gestione temporanea, ad esempio http://umbracocms-site-stage.azurewebsites.net/umbraco, fare clic sul menu **Sviluppatore**, quindi fare clic su **Pacchetti** > **Install local package** (Installa pacchetto locale).
 
-![Programma di installazione del pacchetto Umbraco](./media/app-service-web-staged-publishing-realworld-scenarios/14umbpkg.png)
+    ![Programma di installazione del pacchetto Umbraco](./media/app-service-web-staged-publishing-realworld-scenarios/14umbpkg.png)
 
-Caricare il pacchetto Courier2 usando il programma di installazione.
+2. Caricare il pacchetto Courier2 usando il programma di installazione.
 
-![Caricare il pacchetto per il modulo Courier](./media/app-service-web-staged-publishing-realworld-scenarios/15umbloadpkg.png)
+    ![Caricare il pacchetto per il modulo Courier](./media/app-service-web-staged-publishing-realworld-scenarios/15umbloadpkg.png)
 
-Per procedere con la configurazione è necessario aggiornare il file courier.config nella cartella **Config** dell'app Web.
+3. Per configurare il pacchetto, è necessario aggiornare il file courier.config nella cartella **Config** dell'App Web.
 
-```xml
-<!-- Repository connection settings -->
- <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
- <repositories>
-    <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear: -->
-    <repository name="production web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
-      <url>http://umbracositecms-1.azurewebsites.net</url>
-      <user>0</user>
-      <!--<login>user@email.com</login> -->
-      <!-- <password>user_password</password>-->
-      <!-- <passwordEncoding>Clear</passwordEncoding>-->
-      </repository>
- </repositories>
- ```
+    ```xml
+    <!-- Repository connection settings -->
+     <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
+     <repositories>
+        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear: -->
+        <repository name="production web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
+          <url>http://umbracositecms-1.azurewebsites.net</url>
+          <user>0</user>
+          <!--<login>user@email.com</login> -->
+          <!-- <password>user_password</password>-->
+          <!-- <passwordEncoding>Clear</passwordEncoding>-->
+          </repository>
+     </repositories>
+     ```
 
-In `<repositories>`immettere l’URL del sito di produzione e le informazioni dell’utente. Se si usa il provider di appartenenze Umbraco predefinito, aggiungere l'ID per l'utente di amministrazione nella sezione <user>. Se si usa il provider di appartenenze Umbraco personalizzato, usare `<login>`,`<password>` affinché il modulo Courier2 possa connettersi al sito di produzione. Per altre informazioni, consultare la [documentazione](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) relativa al modulo Courier.
+4. In `<repositories>`immettere l’URL del sito di produzione e le informazioni dell’utente.
+    Se si usa il provider di appartenenze Umbraco predefinito, aggiungere l'ID per l'utente Administration nella sezione &lt;user&gt;.
+    Se si usa un provider di appartenenze Umbraco personalizzato, usare `<login>`,`<password>` nel modulo Courier2 per connettersi al sito di produzione.
+    Per altre informazioni, [consultare la documentazione relativa al modulo Courier2](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation).
 
-Analogamente, installare il modulo Courier nel sito di produzione e configurarlo affinché gestisca in modo temporaneo l'app Web nel relativo file courier.config, come illustrato di seguito
+5. Analogamente, installare il modulo Courier2 nel sito di produzione e configurarlo affinché scelga l'App Web di gestione temporanea nel relativo file courier.config, come illustrato di seguito.
 
-```xml
- <!-- Repository connection settings -->
- <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
- <repositories>
-    <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear: -->
-    <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
-      <url>http://umbracositecms-1-stage.azurewebsites.net</url>
-      <user>0</user>
-      </repository>
- </repositories>
-```
+    ```xml
+     <!-- Repository connection settings -->
+     <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
+     <repositories>
+        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear: -->
+        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
+          <url>http://umbracositecms-1-stage.azurewebsites.net</url>
+          <user>0</user>
+          </repository>
+     </repositories>
+    ```
 
-Fare clic sulla scheda Courier2 nel dashboard dell'app Web Umbraco CMS e selezionare la località. Verrà visualizzato il nome del repository come indicato in `courier.config`. Ripetere la stessa operazione sia per l'app Web di staging che di produzione.
+6. Fare clic sulla scheda **Courier2** nel dashboard dell'App Web Umbraco CMS, quindi fare clic su **Posizioni**. Verrà visualizzato il nome del repository, come indicato in `courier.config`. Eseguire questo processo nell'App Web di produzione e di gestione temporanea.
 
-![Visualizzare il repository dell'app Web di destinazione](./media/app-service-web-staged-publishing-realworld-scenarios/16courierloc.png)
+    ![Visualizzare il repository dell'app Web di destinazione](./media/app-service-web-staged-publishing-realworld-scenarios/16courierloc.png)
 
-Si passerà ora alla distribuzione del contenuto dal sito di staging al sito di produzione. Passare a Content e selezionare una pagina esistente o crearne una nuova. In questo caso, verrà selezionata una pagina esistente dell'app Web in cui il titolo della pagina è stato modificato e sostituito con **Getting Started – new** (Introduzione - Nuovo) e quindi fare clic su **Save and Publish** (Salva e pubblica).
+7. Per distribuire il contenuto dal sito di gestione temporanea al sito di produzione, andare su **Contenuto**e selezionare una pagina esistente oppure crearne una nuova. In questo caso, verrà selezionata una pagina esistente dell'App Web in cui il titolo della pagina è **Getting Started – new** (Introduzione - Nuovo) e quindi fare clic su **Salva e pubblica**.
 
-![Modificare il titolo della pagina e pubblicare](./media/app-service-web-staged-publishing-realworld-scenarios/17changepg.png)
+    ![Modificare il titolo della pagina e pubblicare](./media/app-service-web-staged-publishing-realworld-scenarios/17changepg.png)
 
-Selezionare la pagina modificata e quindi *fare clic con il pulsante destro del mouse* per visualizzare tutte le opzioni. Fare clic su **Courier** per visualizzare la finestra di dialogo per la distribuzione. Fare clic su **Deploy** per avviare la distribuzione
+8. Fare clic con il pulsante destro del mouse sulla pagina modificata per visualizzare tutte le opzioni. Fare clic su **Courier** per aprire la finestra di dialogo **Distribuzione**. Fare clic su **Distribuisci** per avviare la distribuzione.
 
-![Finestra di dialogo per la distribuzione del modulo Courier](./media/app-service-web-staged-publishing-realworld-scenarios/18dialog1.png)
+    ![Finestra di dialogo per la distribuzione del modulo Courier](./media/app-service-web-staged-publishing-realworld-scenarios/18dialog1.png)
 
-Esaminare le modifiche e fare clic su Continue.
+9. Esaminare le modifiche, quindi fare clic su **Continua**.
 
-![Verifica delle modifiche nella finestra di dialogo per la distribuzione del modulo Courier](./media/app-service-web-staged-publishing-realworld-scenarios/19dialog2.png)
+    ![Verifica delle modifiche nella finestra di dialogo per la distribuzione del modulo Courier](./media/app-service-web-staged-publishing-realworld-scenarios/19dialog2.png)
 
-Il log di distribuzione indica se la distribuzione è riuscita.
+    Il log di distribuzione indica se la distribuzione ha avuto esito positivo.
 
- ![Visualizzare i log di distribuzione del modulo Courier](./media/app-service-web-staged-publishing-realworld-scenarios/20successdlg.png)
+     ![Visualizzare i log di distribuzione del modulo Courier](./media/app-service-web-staged-publishing-realworld-scenarios/20successdlg.png)
 
-Passare all'app Web di produzione per vedere se riflette le modifiche.
+10. Passare all'app Web di produzione per vedere se riflette le modifiche.
 
- ![Esplorare l'app Web di produzione](./media/app-service-web-staged-publishing-realworld-scenarios/21umbpg.png)
+     ![Esplorare l'app Web di produzione](./media/app-service-web-staged-publishing-realworld-scenarios/21umbpg.png)
 
 Per altre informazioni su come usare Courier, vedere la documentazione.
 
-#### <a name="how-to-upgrade-umbraco-cms-version"></a>Come aggiornare la versione di Umbraco CMS
-Con Courier non verrà distribuita la guida durante l'aggiornamento da una versione di Umbraco CMS a un'altra. Durante l'aggiornamento della versione di Umbraco CMS, è necessario controllare le eventuali incompatibilità con i moduli personalizzati o i moduli di terze parti e le librerie di base di Umbraco. Procedure consigliate:
+#### <a name="how-to-upgrade-the-umbraco-cms-version"></a>Come aggiornare la versione di Umbraco CMS
+Courier non aiuta nell'aggiornamento da una versione di Umbraco CMS a un'altra. Durante l'aggiornamento della versione di Umbraco CMS, è necessario controllare le eventuali incompatibilità con i moduli personalizzati o i moduli dei partner e le librerie di base di Umbraco. Alcune procedure consigliate:
 
-1. Eseguire SEMPRE un backup dell'app Web e del database prima di installare un aggiornamento. Nell'app Web di Azure è possibile configurare i backup automatici per i siti Web tramite la funzionalità di backup e ripristinare il sito, se necessario, con la funzionalità di ripristino. Per altri dettagli, vedere [Come eseguire il backup dell'app Web](web-sites-backup.md) e [Come ripristinare l'app Web](web-sites-restore.md).
-2. Verificare se i pacchetti di terze parti in uso sono compatibili con la versione a cui si esegue l'aggiornamento. Nella pagina di download del pacchetto, vedere le informazioni sulla compatibilità del progetto con la versione di Umbraco CMS.
+* Eseguire sempre un backup dell'App Web e del database prima di un aggiornamento. Nelle App Web di Azure è possibile configurare i backup automatici per i siti Web tramite la funzionalità di backup e ripristinare il sito, se necessario, con l'apposita funzionalità. Per altri dettagli, vedere [Come eseguire il backup dell'app Web](web-sites-backup.md) e [Come ripristinare l'app Web](web-sites-restore.md).
+* Verificare se i pacchetti dei partner sono compatibili con la versione a cui si esegue l'aggiornamento. Nella pagina di download del pacchetto vedere le informazioni sulla compatibilità del progetto con la versione di Umbraco CMS.
 
-Per altri dettagli su come aggiornare l'app Web in locale, seguire le indicazioni disponibili [qui](https://our.umbraco.org/documentation/getting-started/set up/upgrading/general).
+Per altre informazioni su come aggiornare l'App Web locale, [vedere le indicazioni generali sull'aggiornamento](https://our.umbraco.org/documentation/getting-started/setup/upgrading/general).
 
-Dopo aver aggiornato il sito di sviluppo locale, pubblicare le modifiche nell'app Web di staging. Testare l'applicazione e, se tutto sembra corretto, fare clic sul pulsante **Scambia** per **scambiare** il sito di staging con l'app Web di produzione. Durante l'operazione di **scambio** , è possibile visualizzare le modifiche che influiscono sulla configurazione dell'app Web. Con l'operazione di **scambio** vengono scambiati i database e le app Web. Questo significa che dopo l'operazione di SCAMBIO, l'app Web di produzione farà riferimento al database umbraco-stage-db e l'app Web di staging farà riferimento al database umbraco-prod-db.
+Dopo aver aggiornato il sito di sviluppo locale, pubblicare le modifiche nell'App Web di gestione temporanea. Testare l'applicazione. Se tutto sembra corretto, fare clic sul pulsante **Scambia** per scambiare il sito di gestione temporanea con l'App Web di produzione. Durante l'operazione di **scambio**, è possibile visualizzare le modifiche alla configurazione dell'App Web. Con l'operazione di **scambio** vengono scambiati i database e le App Web. Dopo lo **scambio**, l'App Web di produzione sceglie il database umbraco-stage-db e l'App Web di gestione temporanea sceglie il database umbraco-prod-db.
 
 ![Anteprima dello scambio per la distribuzione di Umbraco CMS.](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
-Vantaggi dello scambio dell'app Web e del database:
+I vantaggi dello scambio dell'App Web e del database sono:
 
-1. È possibile eseguire il rollback alla versione precedente dell'app Web con un'altra operazione di **scambio** in caso di errori dell'applicazione.
-2. Per gli aggiornamenti, è necessario distribuire i file e il database dall'app Web di staging all'app Web e al database di produzione. Durante la distribuzione di file e database, esistono molti aspetti che potrebbero non funzionare come previsto. La funzionalità di **scambio** degli slot consente di ridurre i tempi di inattività durante gli aggiornamenti e di ridurre i rischi di errori che possono verificarsi durante la distribuzione delle modifiche.
-3. Consente di eseguire il **test A/B** tramite la funzionalità di [test in produzione](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
+* È possibile eseguire il rollback alla versione precedente dell'App Web con un'altra operazione di **scambio** in caso di errori dell'applicazione.
+* Per gli aggiornamenti, è necessario distribuire i file e i database dall'App Web di gestione temporanea all'App Web e al database di produzione. Quando si distribuiscono file e database, molti aspetti potrebbero andare per il verso sbagliato. La funzionalità di **scambio** degli slot consente di ridurre i tempi di inattività durante gli aggiornamenti e di ridurre i rischi di errori che possono verificarsi durante la distribuzione delle modifiche.
+* È possibile eseguire **test A/B** usando la funzionalità [Testing in production](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/).
 
 Questo esempio illustra la flessibilità della piattaforma in cui è possibile creare moduli personalizzati simili al modulo Umbraco Courier per gestire la distribuzione in più ambienti.
 
@@ -439,7 +445,6 @@ Questo esempio illustra la flessibilità della piattaforma in cui è possibile c
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

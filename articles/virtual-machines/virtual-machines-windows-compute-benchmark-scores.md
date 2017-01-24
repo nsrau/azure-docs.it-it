@@ -2,12 +2,12 @@
 title: Calcolare i punteggi di benchmark per le VM Windows | Microsoft Docs
 description: Confrontare i punteggi di benchmark di SPECint calcolo per le VM di Azure che eseguono Windows Server
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: 69ae72ec-e8be-4e46-a8f0-e744aebb5cc2
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/22/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 37b20ab17cc2b241e0d8a7d73dcd4433317cc0d8
+ms.openlocfilehash: 835399cfa3d6b9ce8e45cec76e5e8dc17cb59855
+
 
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Calcolare i punteggi di benchmark per le VM Windows
-I seguenti punteggi del benchmark SPECInt mostrano le prestazioni di calcolo per la linea di VM ad alte prestazioni di Azure con Windows Server. I punteggi di benchmark sul calcolo sono disponibili anche per le [VM Linux](virtual-machines-linux-compute-benchmark-scores.md).
+I seguenti punteggi del benchmark SPECInt mostrano le prestazioni di calcolo per la linea di VM ad alte prestazioni di Azure con Windows Server. I punteggi di benchmark sul calcolo sono disponibili anche per le [VM Linux](virtual-machines-linux-compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="a-series---compute-intensive"></a>Serie A - Elevato utilizzo di calcolo
 | Dimensione | vCPU | Nodi NUMA | CPU | Esecuzioni | Velocità di base media | Deviazione standard |
@@ -41,7 +45,7 @@ I seguenti punteggi del benchmark SPECInt mostrano le prestazioni di calcolo per
 | Standard_D13_v2 |8 |1 |Intel Xeon E5-2673 v3 @ 2,4 GHz |17 |235,8 |3.8 |
 | Standard_D14_v2 |16 |2 |Intel Xeon E5-2673 v3 @ 2,4 GHz |15 |460,8 |6,5 |
 
-## <a name="g-series,-gs-series"></a>Serie G, GS serie
+## <a name="g-series-gs-series"></a>Serie G, GS serie
 | Dimensione | vCPU | Nodi NUMA | CPU | Esecuzioni | Velocità di base media | Deviazione standard |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_G1, Standard_GS1 |2 |1 |Intel Xeon E5-2698B v3 @ 2 GHz |31 |71,8 |6,5 |
@@ -51,7 +55,7 @@ I seguenti punteggi del benchmark SPECInt mostrano le prestazioni di calcolo per
 | Standard_G5, Standard_GS5 |32 |2 |Intel Xeon E5-2698B v3 @ 2 GHz |22 |762,8 |3,7 |
 
 ## <a name="h-series"></a>Serie H
-| Dimensione | vCPU | Nodi NUMA | CPU | Esecuzioni | Iterazioni/sec | Deviazione standard |
+| Dimensione | vCPU | Nodi NUMA | CPU | Esecuzioni | Velocità di base media  | Deviazione standard |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_H8 |8 |1 |Intel Xeon E5-2667 v3 @ 3,2 GHz |5 |297.4 |0.9 |
 | Standard_H16 |16 |2 |Intel Xeon E5-2667 v3 @ 3,2 GHz |5 |575.8 |6.8 |
@@ -64,8 +68,11 @@ I seguenti punteggi del benchmark SPECInt mostrano le prestazioni di calcolo per
 I valori di Windows sono stati calcolati eseguendo [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) in Windows Server. SPECint è stato eseguito utilizzando la velocità di base (SPECint_rate2006), con una copia per core. SPECint consiste in 12 test distinti, ognuno eseguito tre volte prendendo i valori mediani di tutti i test e ponderandoli in modo da ottenere un punteggio composito. Questi test sono stati quindi eseguiti su più VM per ottenere la media dei punteggi illustrata.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per conoscere le capacità di archiviazione, i dettagli sul disco e per considerazioni aggiuntive sulla scelta delle dimensioni delle macchine virtuali, vedere [Dimensioni delle macchine virtuali in Azure](virtual-machines-windows-sizes.md).
+* Per conoscere le capacità di archiviazione, i dettagli sul disco e per considerazioni aggiuntive sulla scelta delle dimensioni delle macchine virtuali, vedere [Dimensioni delle macchine virtuali in Azure](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO5-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2016
+ms.date: 12/08/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: bd4d6f59ac4fbaa9bd0cb6a33a697cac0d13eb8c
-ms.openlocfilehash: 7a86469a9513869362eb37b21b155889dcee7942
+ms.sourcegitcommit: 8b82801a26c15248480a261945b37a0c38e3fa47
+ms.openlocfilehash: e32d21efd8d90bac223cbc0a213df65d19c40670
 
 
 ---
@@ -37,7 +37,7 @@ La tabella seguente fornisce una mappa di aree di Azure e di località ExpressRo
 | --- | --- | --- |
 | **America del Nord** |Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Canada centrale, Canada orientale |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto |
 | **America del Sud** |Brasile meridionale |Sao Paulo |
-| **Europa** |Europa settentrionale, Europa occidentale, Regno Unito occidentale, Regno Unito meridionale |Amsterdam, Dublino, Londra, Newport(Galles)+, Parigi |
+| **Europa** |Europa settentrionale, Europa occidentale, Regno Unito occidentale, Regno Unito meridionale |Amsterdam, Dublino, Londra, Newport (Galles), Parigi |
 | **Asia** |Asia orientale, Asia sudorientale |Hong Kong, Singapore |
 | **Giappone** |Giappone occidentale, Giappone orientale |Osaka, Tokyo |
 | **Australia** |Australia sudorientale, Australia orientale |Melbourne, Sydney |
@@ -83,11 +83,11 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **Parigi** |Interxion, Equinix+ |
 | **Sao Paulo** |Equinix, Telefonica |
 | **Seattle** |Equinix, Level 3 Communications, Megaport |
-| **Silicon Valley** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
+| **Silicon Valley** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **Singapore** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Sydney** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Tokyo** |Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
-| **Toronto** |Cologix, Equinix, Megaport, Zayo Group |
+| **Toronto** |Bell Canada, Cologix, Equinix, Megaport, Zayo Group |
 | **Washington DC** |Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Verizon, Zayo Group |
 
  **+** indica disponibile a breve
@@ -134,11 +134,13 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
 
 | **Posizione** | **Exchange** | **Provider di connettività** |
 | --- | --- | --- |
+| **Londra** | Equinix | Esponenziale E |
 | **New York** |Equinix |Lightower |
 | **Seattle** |Equinix |Alaska Communications |
 | **Silicon Valley** |Equinix |XO Communications |
 | **Singapore** |Equinix |1CLOUDSTAR |
-| **Washington DC** |Equinix |Lightower |
+| **Sydney** | Megaport | Macquarie |
+| **Washington DC** |Equinix | Lightower, Masergy |
 
 ## <a name="expressroute-system-integrators"></a>Integratori di sistemi ExpressRoute
 L'abilitazione della connettività privata per soddisfare le proprie esigenze può risultare complessa, in base alle dimensioni della rete. Per ottenere supporto per l'onboarding in ExpressRoute, è possibile collaborare con uno degli Integratori di sistemi elencati nella seguente tabella.
@@ -158,6 +160,6 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

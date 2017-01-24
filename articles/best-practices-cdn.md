@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ea811d7315298132a45a8d1873da8a2bf5600c1c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5989d31306aa896a404b29b2c71c9ddf7e23da01
 
 
 ---
@@ -66,7 +66,7 @@ L'elenco seguente include esempi di tempi per il primo byte (TTFB), da diverse a
 Esistono varie problematiche da considerare quando si intende utilizzare la rete CDN:  
 
 * **Distribuzione**. È necessario decidere l'origine da cui la rete CDN recupererà il contenuto e se è necessario distribuire il contenuto in più di un sistema di archiviazione, ad esempio nella rete CDN e in una posizione alternativa.
-  
+
   Il meccanismo di distribuzione delle applicazioni deve tener conto del processo per la distribuzione di contenuto statico e risorse, nonché dei file dell'applicazione, ad esempio le pagine ASPX. Ad esempio, potrebbe essere necessario implementare un passaggio separato per caricare il contenuto nell'archivio BLOB di Azure.
 * **Controllo delle versioni e controllo della cache**. È necessario stabilire come aggiornare il contenuto statico e distribuire nuove versioni. Il contenuto della rete CDN può essere [eliminato](cdn/cdn-purge-endpoint.md) tramite il portale di Azure quando sono disponibili nuove versioni degli asset. Questo è un problema simile alla gestione della cache sul lato client, come quello che si verifica in un Web browser.
 * **Test**. Può essere difficile eseguire il test locale delle impostazioni della rete CDN durante lo sviluppo e la verifica di un'applicazione in locale o in un ambiente di staging.
@@ -74,7 +74,7 @@ Esistono varie problematiche da considerare quando si intende utilizzare la rete
 * **Sicurezza del contenuto**. Molti servizi CDN come la rete CDN di Azure non offrono attualmente alcun tipo di controllo di accesso al contenuto.
 * **Sicurezza del client**. I client possono connettersi da un ambiente che non consente l'accesso alle risorse nella rete CDN. Potrebbe trattarsi di un ambiente con limitazioni di sicurezza che limita l'accesso solo a una serie di origini note oppure di un ambiente che impedisce il caricamento delle risorse da una posizione diversa dall'origine della pagina. Per gestire questi casi è necessaria un'implementazione del fallback.
 * **Resilienza**. La rete CDN è un singolo punto di guasto potenziale per un'applicazione. Presenta un contratto di servizio della disponibilità inferiore all’archiviazione BLOB (che può essere utilizzata per distribuire contenuto direttamente), per cui potrebbe essere necessario implementare un meccanismo di fallback per il contenuto critico.
-  
+
   È possibile monitorare la disponibilità del contenuto della rete CDN, la larghezza di banda, i dati trasferiti, gli accessi, la percentuale di riscontri nella cache e la metrica della cache dal portale di Azure in [tempo reale](cdn/cdn-real-time-stats.md) e [aggregare i report](cdn/cdn-analyze-usage-patterns.md).
 
 Scenari in cui la rete CDN può essere meno utile sono:  
@@ -151,7 +151,7 @@ Se di distribuiscono script lato client utilizzando la rete CDN, si potrebbero v
 * Se l'origine da cui si distribuisce il contenuto è una cartella all'interno dell'applicazione, ad esempio la cartella radice *cdn*, è possibile configurare le regole in uscita nel file di configurazione dell'applicazione per impostare un'intestazione *Access-Control-Allow-Origin* in tutte le risposte. Per ulteriori informazioni sull'utilizzo delle regole di riscrittura, vedere [Modulo di riscrittura URL](http://www.iis.net/learn/extensions/url-rewrite-module).
 
 ### <a name="custom-domains"></a>Domini personalizzati
-La rete CDN di Azure consente di specificare un [nome di dominio personalizzato](cdn/cdn-map-content-to-custom-domain.md) e usarlo per accedere alle risorse tramite la rete CDN. È inoltre possibile impostare un nome di sottodominio personalizzato utilizzando un record *CNAME* nel sistema DNS. L’utilizzo di questo approccio fornisce un ulteriore livello di astrazione e controllo.
+La rete di Azure consente di specificare un [nome di dominio personalizzato](cdn/cdn-map-content-to-custom-domain.md) e usarlo per accedere alle risorse tramite la rete CDN. È inoltre possibile impostare un nome di sottodominio personalizzato utilizzando un record *CNAME* nel sistema DNS. L’utilizzo di questo approccio fornisce un ulteriore livello di astrazione e controllo.
 
 Se si usa un *CNAME*, non è possibile usare anche SSL, perché la rete CDN usa il proprio certificato SSL singolo, che non corrisponderà ai nomi di dominio o sottodominio personalizzati.
 
@@ -247,7 +247,6 @@ L'uso della riscrittura di URL richiede di apportare alcune modifiche alla creaz
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 7b7bcc8d73796908f02c77f2df2f2a7c96e1ba47
-ms.openlocfilehash: 38388ead8e80217b44ec5d103c35d6eb5c13d0d3
+ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
+ms.openlocfilehash: 86cd149d351cc957577d213d77db732bd5e16658
 
 
 ---
+
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Risoluzione degli errori del gateway non valido nel gateway applicazione
 
 ## <a name="overview"></a>Overview
 
-Dopo aver configurato un gateway applicazione di Azure, uno degli errori che gli utenti possono incontrare è "Errore del server: 502 - Risposta non valida ricevuta dal server Web in funzione come server proxy o gateway". Ciò può verificarsi a causa dei principali motivi seguenti:
+Dopo aver configurato un gateway applicazione di Azure, uno degli errori che gli utenti possono incontrare è "Errore del server: 502 - Risposta non valida ricevuta dal server Web in funzione come server proxy o gateway". Questo errore può verificarsi a causa dei principali motivi seguenti:
 
 * Il pool back-end del gateway applicazione di Azure non è configurato o è vuoto.
 * Nessuna delle macchine virtuali o istanze nel set di scalabilità di macchine virtuali è integra.
@@ -116,11 +117,11 @@ Il probe di integrità personalizzato consente una maggiore flessibilità per la
 | Proprietà probe | Descrizione |
 | --- | --- |
 | Nome |Nome del probe. Questo nome viene usato per fare riferimento al probe nelle impostazioni HTTP back-end |
-| Protocol |Protocollo usato per inviare il probe. Il probe userà il protocollo definito nelle impostazioni HTTP del back-end. |
+| Protocol |Protocollo usato per inviare il probe. Il probe usa il protocollo definito nelle impostazioni HTTP del back-end. |
 | Host |Nome host per inviare il probe. Applicabile solo quando vengono configurati più siti nel gateway applicazione. Questo nome è diverso dal nome host della macchina virtuale. |
 | Path |Percorso relativo del probe. Il percorso valido inizia da "/". Il probe viene inviato a \<protocollo\>://\<host\>:\<porta\>\<percorso\> |
 | Interval |Intervallo di probe in secondi. Si tratta dell'intervallo di tempo tra due probe consecutivi. |
-| Timeout |Timeout del probe in secondi. Il probe viene contrassegnato come non riuscito se non viene ricevuta una risposta valida entro questo periodo di timeout |
+| Timeout |Timeout del probe in secondi. Se non viene ricevuta una risposta valida entro questo periodo di timeout, il probe viene contrassegnato come non riuscito. |
 | Soglia non integra |Numero di tentativi di probe. Il server back-end viene contrassegnato come inattivo dopo che il numero di errori di probe consecutivi ha raggiunto una soglia non integra. |
 
 ### <a name="solution"></a>Soluzione
@@ -130,7 +131,7 @@ Verificare che il probe di integrità personalizzato sia configurato correttamen
 * Verificare che il probe sia specificato correttamente secondo le istruzioni della [guida](application-gateway-create-probe-ps.md).
 * Se il gateway applicazione è configurato per un singolo sito, per impostazione predefinita il nome dell'host deve essere specificato come "127.0.0.1", se non diversamente configurato nel probe personalizzato.
 * Verificare che la chiamata a http://\<host\>:\<porta\>\<percorso\> restituisca un codice risultato HTTP di 200.
-* Assicurarsi che Intervallo, Timeout e Soglia non integra siano compresi in intervalli accettabili.
+* Assicurarsi che i valori di Interval, Time-out e UnhealtyThreshold siano compresi in intervalli accettabili.
 
 ## <a name="request-time-out"></a>Timeout della richiesta
 
@@ -142,7 +143,9 @@ Quando viene ricevuta una richiesta dell'utente, il gateway applicazione applica
 
 Il gateway applicazione consente agli utenti di configurare questa impostazione tramite BackendHttpSetting, applicabile a pool diversi. I diversi pool back-end possono avere BackendHttpSetting differenti e quindi una diversa configurazione del timeout della richiesta.
 
+```powershell
     New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -151,6 +154,6 @@ Se i passaggi precedenti non risolvono il problema, aprire un [ticket di support
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/16/2016
+ms.date: 01/12/2017
 ms.author: yushwang
 translationtype: Human Translation
-ms.sourcegitcommit: 5f270d383750dc6308f01807e04469e3873d70f9
-ms.openlocfilehash: 6d2a72831726f59ff79a7f4c1ff0e258275bfe4f
+ms.sourcegitcommit: 5961c73c3f147ab6b3eca4e9d920003df1ca2c82
+ms.openlocfilehash: 298eab8ad562cfb32edf8609ac29052dc403f406
 
 
 ---
@@ -35,11 +35,6 @@ BGP offre nuove funzionalità e numerosi vantaggi, illustrati di seguito.
 Con BGP, è sufficiente dichiarare un prefisso minimo a un peer BGP specifico attraverso il tunnel VPN S2S IPsec. La dimensione minima consentita è quella di un prefisso dell'host (/32) dell'indirizzo IP del peer BGP per il dispositivo VPN locale. È possibile controllare quali prefissi di rete locale segnalare in Azure per consentire alla rete virtuale di Azure di accedere.
 
 È anche possibile segnalare prefissi più grandi che possono includere alcuni dei prefissi di indirizzo della rete virtuale, come uno spazio di indirizzi IP privato di grandi dimensioni, ad esempio 10.0.0.0/8. Si noti che i prefissi non possono essere identici a uno qualsiasi dei prefissi della rete virtuale. Le route identiche ai prefissi della rete virtuale verranno rifiutate.
-
-> [!IMPORTANT]
-> La segnalazione della route predefinita (0.0.0.0/0) ai gateway VPN di Azure è attualmente bloccata. Verranno forniti ulteriori aggiornamenti una volta abilitata questa funzionalità.
-> 
-> 
 
 ### <a name="support-multiple-tunnels-between-a-vnet-and-an-on-premises-site-with-automatic-failover-based-on-bgp"></a>Supporto di più tunnel tra una rete virtuale e un sito locale con failover automatico basato su BGP
 È possibile stabilire più connessioni tra la rete virtuale di Azure e i dispositivi VPN locali nella stessa località. Questa funzionalità fornisce più tunnel, o percorsi, tra le due reti in una configurazione di tipo attivo/attivo. Se uno dei tunnel viene disconnesso, la route corrispondente verrà ritirata tramite BGP e il traffico si sposterà automaticamente nei tunnel restanti.
@@ -64,6 +59,6 @@ Per i passaggi di configurazione di BGP per le connessioni cross-premise e tra r
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

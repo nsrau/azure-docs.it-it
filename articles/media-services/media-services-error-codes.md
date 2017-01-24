@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3ee46dc265669d3520677b474181c9c7c720644c
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: eae360dd3e627a82986cef32ef39860f60ffe51f
 
 
 ---
@@ -33,13 +33,13 @@ La richiesta contiene informazioni non valide e viene rifiutata a causa di uno d
   > Se si usano gli SDK .NET o Java per connettersi a Servizi multimediali, la versione dell'API viene specificata automaticamente ogni volta che si tenta di eseguire un'azione su Servizi multimediali.
   > 
   > 
-* Viene specificata una proprietà non definita. Il nome della proprietà è nel messaggio di errore. Solo le proprietà che fanno parte di una determinata entità possono essere specificate. Per un elenco delle entità e delle relative proprietà, vedere [Azure Media Services REST API Reference](http://msdn.microsoft.com/library/azure/hh973617.aspx) (Informazioni di riferimento relative all'API REST di Servizi multimediali di Azure).
+* Viene specificata una proprietà non definita. Il nome della proprietà è nel messaggio di errore. Solo le proprietà che fanno parte di una determinata entità possono essere specificate. Per un elenco delle entità e delle relative proprietà, vedere [Azure Media Services REST API Reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference) (Informazioni di riferimento relative all'API REST di Servizi multimediali di Azure).
 * Viene specificato un valore di proprietà non valido. Il nome della proprietà è nel messaggio di errore. Per i tipi di proprietà validi e i relativi valori, fare clic sul collegamento precedente.
 * Il valore di una proprietà risulta mancante ed è obbligatorio.
 * Parte dell'URL specificato contiene un valore non valido.
 * È stato effettuato un tentativo di aggiornamento di una proprietà WriteOnce.
 * È stato effettuato un tentativo di creazione di un'istanza di Job che dispone di un'istanza di Asset di input con un'istanza di AssetFile primaria che non è stata specificata o non può essere determinata.
-* È stato effettuato un tentativo di aggiornamento di un localizzatore di firma di accesso condiviso. I localizzatori di firma di accesso condiviso possono solo essere creati o eliminati. I localizzatori di flusso possono essere aggiornati. Per altre informazioni, vedere [Locators](http://msdn.microsoft.com/library/azure/hh974308.aspx) (Localizzatori).
+* È stato effettuato un tentativo di aggiornamento di un localizzatore di firma di accesso condiviso. I localizzatori di firma di accesso condiviso possono solo essere creati o eliminati. I localizzatori di flusso possono essere aggiornati. Per altre informazioni, vedere [Locators](https://docs.microsoft.com/rest/api/media/operations/locator) (Localizzatori).
 * È stata inviata un'operazione o una query non supportata.
 
 ## <a name="401-unauthorized"></a>401 - Non autorizzato
@@ -127,6 +127,6 @@ Per gestire questo errore, è consigliabile usare la logica di ripetizione dei t
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

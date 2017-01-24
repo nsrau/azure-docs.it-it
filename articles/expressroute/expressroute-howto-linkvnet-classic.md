@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 99d5facce236b82ea84c708edf5e934a0d69919c
-ms.openlocfilehash: 1c0891c79081f068fd6e4a60a05a6b58ebdc9598
+ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
+ms.openlocfilehash: 7b0eef9e6ec4bc8da9e68eabbc515f78001bc9d6
 
 
 ---
@@ -36,7 +36,7 @@ Questo articolo spiega come collegare le reti virtuali ai circuiti di Azure Expr
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Prerequisiti di configurazione
-1. È necessario scaricare la versione più recente dei moduli di Azure PowerShell. È possibile scaricare i moduli di PowerShell più recenti dalla sezione relativa a PowerShell della [pagina Download di Azure](https://azure.microsoft.com/downloads/). Per istruzioni dettagliate sulla configurazione del computer per l'uso dei moduli di Azure PowerShell, seguire le istruzioni contenute in [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) .
+1. È necessario scaricare la versione più recente dei moduli di Azure PowerShell. È possibile scaricare i moduli di PowerShell più recenti dalla sezione relativa a PowerShell della [pagina Download di Azure](https://azure.microsoft.com/downloads/). Per istruzioni dettagliate sulla configurazione del computer per l'uso dei moduli di Azure PowerShell, seguire le istruzioni contenute in [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 2. Prima di procedere con la configurazione, è necessario verificare i [prerequisiti](expressroute-prerequisites.md), i [requisiti di routing](expressroute-routing.md) e i [flussi di lavoro](expressroute-workflows.md).
 3. È necessario avere un circuito ExpressRoute attivo.
    * Seguire le istruzioni per [creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md) e fare in modo che il circuito venga abilitato dal provider di connettività.
@@ -162,6 +162,6 @@ Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressR
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

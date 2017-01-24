@@ -4,25 +4,25 @@ description: Esercitazione che illustra la risoluzione dei problemi end-to-end m
 services: storage
 documentationcenter: dotnet
 author: robinsh
-manager: carmonm
+manager: timlt
 ms.assetid: 6b23cba5-0d53-439e-870b-de8e406107d8
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: f2032f3a4fa559b9772ee63d39d66408b3f92175
-ms.openlocfilehash: 5a07c355259c61cfde9f2c1e5f056a0b7f794861
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 82f0e5b9d0bfca1921367a2fd91259eeb4254285
 
 
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Diagnostica e risoluzione dei problemi sono competenze fondamentali per la creazione e il supporto di applicazioni client con Archiviazione di Microsoft Azure. Data la natura distribuita di un'applicazione Azure, la diagnostica e la risoluzione dei problemi di prestazioni possono risultare più complesse che in ambienti tradizionali.
 
 In questa esercitazione viene illustrato come identificare alcuni errori che potrebbero influire sulle prestazioni e come risolverli in modo end-to-end usando gli strumenti forniti da Microsoft e Archiviazione di Azure, per ottimizzare l'applicazione client. 
@@ -103,7 +103,7 @@ Per configurare la registrazione e la metrica per l'account di archiviazione tra
 
 **Tramite PowerShell**
 
-Per informazioni introduttive su PowerShell per Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+Per informazioni introduttive su PowerShell per Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 1. Usare il cmdlet [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) per aggiungere l'account utente di Azure alla finestra di PowerShell:
    
@@ -383,6 +383,6 @@ Per altre informazioni sugli scenari end-to-end di risoluzione dei problemi di a
 * [Guida operativa di Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

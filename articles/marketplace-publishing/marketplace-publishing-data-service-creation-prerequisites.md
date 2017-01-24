@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f073d32da4038d2691d8b5dbe604d2cf8bf2bcf6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 52827723477677bc292c645e2390c435fbad3ee4
 
 
 ---
 # <a name="technical-pre-requisites-for-creating-a-data-service-offer-for-the-azure-marketplace"></a>Prerequisiti tecnici per la creazione di un’offerta del servizio dati per Azure Marketplace
 > [!IMPORTANT]
-> **In questo momento non stiamo più caricando nuovi editori di servizi dati. I nuovi servizi dati non saranno approvati per l'elencazione.** Se si vuole pubblicare una propria applicazione aziendale SaaS in AppSource, è possibile trovare altre informazioni [qui](https://appsource.microsoft.com/partners). Se vuole invece pubblicare un'applicazione IaaS o un servizio per gli sviluppatori in Azure Marketplace, è possibile trovare altre informazioni [qui](https://azure.microsoft.com/marketplace/programs/certified/).
+> **In questo momento non stiamo più caricando nuovi editori di servizi dati. I nuovi servizi dati non saranno approvati per l'elencazione.** Se si dispone di un'applicazione aziendale SaaS che si vuole pubblicare in AppSource, è possibile trovare altre informazioni [qui](https://appsource.microsoft.com/partners). Se vuole invece pubblicare un'applicazione IaaS o un servizio per gli sviluppatori in Azure Marketplace, è possibile trovare altre informazioni [qui](https://azure.microsoft.com/marketplace/programs/certified/).
 > 
 > 
 
@@ -70,6 +70,6 @@ Se si desidera rivedere il processo generale e i rispettivi articoli per ognuna 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

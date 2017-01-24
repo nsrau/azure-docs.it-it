@@ -1,4 +1,4 @@
-# Panoramica
+# Overview
 ## [Informazioni sui set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md)
 
 # Attività iniziali
@@ -40,6 +40,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

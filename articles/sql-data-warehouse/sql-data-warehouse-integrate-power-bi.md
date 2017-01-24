@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1f20835c98badbcd7f179555c4740127efbedb79
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 201efc5225d6c12028b48ccaf6764c60b44dce58
 
 
 ---
@@ -57,8 +57,8 @@ Oltre a usare il pulsante Apri in Power BI, gli utenti possono connettersi a SQL
 <!--Image references-->
 
 <!--Article references-->
-[Panoramica sullo sviluppo per SQL Data Warehouse]:  ./sql-data-warehouse-overview-develop/
-[Panoramica dell'integrazione di SQL Data Warehouse]:  ./sql-data-warehouse-overview-integration/
+[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+[SQL Data Warehouse integration overview]:  ./sql-data-warehouse-overview-integration/
 
 <!--MSDN references-->
 
@@ -66,6 +66,6 @@ Oltre a usare il pulsante Apri in Power BI, gli utenti possono connettersi a SQL
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

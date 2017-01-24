@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: java
 ms.topic: article
-ms.date: 08/16/2016
+ms.date: 11/30/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 1b4573db5c4e03aba8b98408765e7c2debfb9a30
+ms.sourcegitcommit: 33a960ae39ab8fa89126201fd67f13e5536413ef
+ms.openlocfilehash: 7bad4df26d10ba8edae311b41d0c07be2db374f4
 
 
 ---
@@ -52,30 +52,28 @@ A questo punto è possibile eseguire le applicazioni.
 
 > [!NOTE]
 > In questa esercitazione si usa Storm in modalità locale solo per finalità di sviluppo. Per altre informazioni sulle distribuzioni e sui modelli di Storm, vedere [HDInsight Storm overview] (Introduzione ad Apache Storm in HDInsight) e la documentazione ufficiale su [Apache Storm].
-> 
-> 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per lo sviluppo di applicazioni per l'integrazione di Hub eventi e Storm sono disponibili le seguenti risorse.
 
-* [Analisi dei dati dei sensori con Storm e HDInsight][Analisi dei dati dei sensori con Storm e HDInsight] è un'esercitazione relativa a uno scenario completo che usa Hub eventi, Storm e HBase per inserire dati dei sensori in un cluster Hadoop.
-* [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm e HDInsight][Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm e HDInsight] è un'esercitazione relativa alla scrittura di pipeline di Storm in C#.
+* [Analisi dei dati dei sensori con Storm e HDInsight][Analyzing sensor data with Storm and HDInsight] è un'esercitazione relativa a uno scenario completo che usa Hub eventi, Storm e HBase per inserire dati dei sensori in un cluster Hadoop.
+* [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm e HDInsight][Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight] è un'esercitazione relativa alla scrittura di pipeline di Storm in C#.
 
 <!-- Images. -->
 [23]: ./media/event-hubs-c-storm-getstarted/receive-storm3.png
 
 <!-- Links -->
-[portale di Azure classico]: https://manage.windowsazure.com/
-[Host processore di eventi]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Azure classic portal]: https://manage.windowsazure.com/
+[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Panoramica di Hub eventi]: event-hubs-overview.md
 
 [Apache Storm]: https://storm.incubator.apache.org
 [HDInsight Storm overview]: ../hdinsight/hdinsight-storm-overview.md (Introduzione ad Apache Storm in HDInsight)
-[Analisi dei dati dei sensori con Storm e HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
-[Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm e HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
+[Analyzing sensor data with Storm and HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
+[Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 
