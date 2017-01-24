@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/21/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -55,8 +55,8 @@ Selezionando più asset di dati nel portale di Data Catalog, gli utenti possono 
 
 > [!NOTE]
 > I tag e gli esperti possono essere specificati anche durante la registrazione degli asset di dati con il tool di registrazione delle origini dati di Data Catalog.
-> 
-> 
+>
+>
 
 Quando si selezionano più tabelle e viste, nel portale di Data Catalog verranno visualizzate solo le colonne comuni a tutti gli asset di dati selezionati. In questo modo gli utenti possono fornire tag e descrizioni per tutte le colonne con lo stesso nome per tutti gli asset selezionati.
 
@@ -68,7 +68,6 @@ La registrazione di un'origine dati in Data Catalog rende individuabili tali dat
 
 ## <a name="see-also"></a>Vedere anche
 * [Introduzione ad Azure Data Catalog](data-catalog-get-started.md) .
-
 
 
 

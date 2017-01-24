@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: hascipio; v-divte
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 440ca979dd8ae99e004ab856dc49c5e363bb734b
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 6e3088d372b6036c37828549fda2c9c39092e478
 
 
 ---
@@ -36,7 +36,7 @@ SKU è il nome commerciale per un'immagine di macchina virtuale. Un'immagine di 
 Indipendentemente dal sistema operativo usato, aggiungere solo il numero minimo di dischi dati necessari per lo SKU. In fase di distribuzione i clienti non possono rimuovere i dischi che fanno parte di un'immagine, ma possono sempre aggiungerne altri durante o dopo la distribuzione se necessario.
 
 > [!IMPORTANT]
-> **Non modificare il numero di dischi in una nuova versione dell'immagine.**  Se è necessario riconfigurare i dischi dati nell'immagine, definire un nuovo SKU. La pubblicazione di una nuova versione dell'immagine con un numero di dischi diverso può compromettere le attività di sviluppo basate sulla nuova versione dell'immagine in caso di scalabilità automatica, distribuzione automatica di soluzioni tramite modelli di Azure Resource Manager e altri scenari.
+> **Non modificare il numero di dischi in una nuova versione dell'immagine.** Se è necessario riconfigurare i dischi dati nell'immagine, definire un nuovo SKU. La pubblicazione di una nuova versione dell'immagine con un numero di dischi diverso può compromettere le attività di sviluppo basate sulla nuova versione dell'immagine in caso di scalabilità automatica, distribuzione automatica di soluzioni tramite modelli di Azure Resource Manager e altri scenari.
 > 
 > 
 
@@ -48,13 +48,13 @@ Indipendentemente dal sistema operativo usato, aggiungere solo il numero minimo 
 ### <a name="12-define-a-sku"></a>1.2 Definire uno SKU
 Dopo aver aggiunto l'offerta, è necessario definire e identificare gli SKU. È possibile avere più offerte e ogni offerta può includere più SKU. Quando un'offerta passa all'ambiente di staging, passano a tale fase anche tutti i relativi SKU.
 
-1. **Aggiungere uno SKU.**  Per lo SKU è necessario un identificatore, che viene usato nell'URL. L'identificatore deve essere univoco nel profilo di pubblicazione, ma non vi è alcun rischio di conflitto tra identificatori con altri editori.
+1. **Aggiungere uno SKU.** Per lo SKU è necessario un identificatore, che viene usato nell'URL. L'identificatore deve essere univoco nel profilo di pubblicazione, ma non vi è alcun rischio di conflitto tra identificatori con altri editori.
    
    > [!NOTE]
    > L'identificatore dell'offerta e quello dello SKU vengono visualizzati nell'URL dell'offerta nel Marketplace.
    > 
    > 
-2. **Aggiungere una descrizione di riepilogo per lo SKU.**  Le descrizioni di riepilogo sono visibili ai clienti, è quindi consigliabile che siano facili da leggere. Non è necessario bloccare queste informazioni fino al raggiungimento della fase "Passa a gestione temporanea". Fino a quel momento, è possibile modificarle liberamente.
+2. **Aggiungere una descrizione di riepilogo per lo SKU.** Le descrizioni di riepilogo sono visibili ai clienti, è quindi consigliabile che siano facili da leggere. Non è necessario bloccare queste informazioni fino al raggiungimento della fase "Passa a gestione temporanea". Fino a quel momento, è possibile modificarle liberamente.
 3. Se si usano SKU basati su Windows, seguire i collegamenti consigliati per acquistare le versioni approvate di Windows Server.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. Creare un VHD compatibile con Azure (basato su Linux)
@@ -122,7 +122,7 @@ Con pochi semplici passaggi, dal portale di Microsoft Azure è possibile creare 
 > 
 > 
 
-**Connettersi con RDP usando il [portale di Microsoft Azure][link-azure-portal]**
+**Connettersi tramite RDP usando il [portale di Microsoft Azure][link-azure-portal]**
 
 1. Selezionare **Sfoglia** > **Macchine virtuali**.
 2. Verrà visualizzato il pannello Macchine virtuali. Assicurarsi che la macchina virtuale a cui connettersi sia in esecuzione e selezionarla nell'elenco delle macchine virtuali distribuite.
@@ -131,7 +131,7 @@ Con pochi semplici passaggi, dal portale di Microsoft Azure è possibile creare 
 
 **Connettersi tramite RDP usando PowerShell**
 
-Per scaricare un file desktop remoto in una macchina locale, usare il [cmdlet Get-AzureRemoteDesktopFile][link-technet-2]. Per usare questo cmdlet, è necessario conoscere il nome del servizio e quello della macchina virtuale. Se la macchina virtuale è stata creata nel [portale di Microsoft Azure][link-azure-portal], queste informazioni sono disponibili nella sezione delle proprietà della macchina virtuale.
+Per scaricare un file desktop remoto in una macchina locale, usare il [cmdlet Get-AzureRemoteDesktopFile][link-technet-2]. Per usare questo cmdlet, è necessario conoscere il nome del servizio e quello della macchina virtuale. Se la macchina virtuale è stata creata nel [portale di Microsoft Azure][link-azure-portal], queste informazioni sono disponibili nella sezione delle proprietà della macchina virtuale:
 
 1. Nel portale di Microsoft Azure selezionare **Sfoglia** > **Macchine virtuali**.
 2. Verrà visualizzato il pannello Macchine virtuali. Selezionare la macchina virtuale distribuita.
@@ -142,7 +142,7 @@ Per scaricare un file desktop remoto in una macchina locale, usare il [cmdlet Ge
     ![disegno][img-portal-vm-rdp]
 6. Il cmdlet per scaricare il file RDP per la macchina virtuale creata nel desktop locale dell'amministratore è il seguente:
    
-        Get‐AzureRemoteDesktopFile ‐ServiceName “baseimagevm‐6820cq00” ‐Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
+        Get-AzureRemoteDesktopFile -ServiceName “baseimagevm-6820cq00” -Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
 
 Altre informazioni su RDP sono disponibili nell'articolo di MSDN [Connettersi a una macchina virtuale di Azure con RDP o SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx).
 
@@ -186,7 +186,7 @@ Per altre informazioni sulle immagini di macchina virtuale, vedere i post di blo
 * [Informazioni sulle immagini di macchine virtuali in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
 ### <a name="set-up-the-necessary-tools-powershell-and-azure-cli"></a>Configurare gli strumenti necessari, PowerShell e l'interfaccia della riga di comando di Azure
-* [Come configurare PowerShell](../powershell-install-configure.md)
+* [Come configurare PowerShell](/powershell/azureps-cmdlets-docs)
 * [Come configurare l'interfaccia della riga di comando](../xplat-cli-install.md)
 
 ### <a name="41-create-a-user-vm-image"></a>4.1 Creare un'immagine di macchina virtuale degli utenti
@@ -224,11 +224,11 @@ Per distribuire una macchina virtuale da un'immagine di macchina virtuale degli 
 
 Per distribuire una macchina virtuale di grandi dimensioni dall'immagine di macchina virtuale generalizzata appena creata, è possibile usare i cmdlet seguenti.
 
-    $img = Get‐AzureVMImage ‐ImageName "myVMImage"
+    $img = Get-AzureVMImage -ImageName "myVMImage"
     $user = "user123"
     $pass = "adminPassword123"
-    $myVM = New‐AzureVMConfig ‐Name "VMImageVM" ‐InstanceSize "Large" ‐ImageName $img.ImageName | Add‐AzureProvisioningConfig ‐Windows ‐AdminUsername $user ‐Password $pass
-    New‐AzureVM ‐ServiceName "VMImageCloudService" ‐VMs $myVM ‐Location "West US" ‐WaitForBoot
+    $myVM = New-AzureVMConfig -Name "VMImageVM" -InstanceSize "Large" -ImageName $img.ImageName | Add-AzureProvisioningConfig -Windows -AdminUsername $user -Password $pass
+    New-AzureVM -ServiceName "VMImageCloudService" -VMs $myVM -Location "West US" -WaitForBoot
 
 > [!IMPORTANT]
 > Per maggiori informazioni, consultare l'articolo Risoluzione di problemi comuni incontrati durante la creazione del disco rigido virtuale.
@@ -296,11 +296,11 @@ L'URI di firma di accesso condiviso deve soddisfare i requisiti seguenti:
 
 Per creare un URI di firma di accesso condiviso, è possibile seguire le istruzioni disponibili in [Firme di accesso condiviso, parte 1: Informazioni sul modello di firma di accesso condiviso][link-azure-1] e [Firme di accesso condiviso, parte 2: Creare e usare una firma di accesso condiviso con il servizio BLOB][link-azure-2].
 
-Invece di generare una chiave di accesso condiviso con il codice, è possibile usare anche strumenti di archiviazione, ad esempio [Esplora archivi di Azure][link-azure-codeplex].
+Invece di generare una chiave di accesso condiviso con il codice, è possibile usare anche strumenti di archiviazione, ad esempio [Azure Storage Explorer][link-azure-codeplex].
 
 **Usare Azure Storage Explorer per generare una chiave di accesso condiviso**
 
-1. Scaricare [Esplora archivi di Azure][link-azure-codeplex] 6 o versioni successive da CodePlex.
+1. Scaricare [Azure Storage Explorer][link-azure-codeplex] 6 o versioni successive da CodePlex.
 2. Al termine dell'installazione, aprire l'applicazione.
 3. Fare clic su **Add Account**.
    
@@ -365,7 +365,7 @@ Dopo aver creato l'offerta e lo SKU, è necessario immettere i dettagli relativi
     ![disegno](media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-3.png)
 
 ## <a name="next-step"></a>Passaggio successivo
-Dopo aver specificato i dettagli dello SKU, passare alla [guida ai contenuti di marketing di Azure Marketplace][link-pushstaging]. In questo passaggio del processo di pubblicazione vengono forniti i contenuti marketing, i prezzi e le altre informazioni necessarie prima di continuare con il **Passaggio 3: Test dell'offerta di macchina virtuale nell'ambiente di staging**, dove vengono testati diversi scenari di casi d'uso prima di distribuire l'offerta in Azure Marketplace per la visibilità pubblica e l'acquisto.  
+Dopo aver specificato i dettagli dello SKU, passare alla [Guida ai contenuti di marketing di Azure Marketplace][link-pushstaging]. In questo passaggio del processo di pubblicazione vengono forniti i contenuti marketing, i prezzi e le altre informazioni necessarie prima di continuare con il **Passaggio 3: Test dell'offerta di macchina virtuale nell'ambiente di staging**, dove vengono testati diversi scenari di casi d'uso prima di distribuire l'offerta in Azure Marketplace per la visibilità pubblica e l'acquisto.  
 
 ## <a name="see-also"></a>Vedere anche
 * [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -423,6 +423,6 @@ Dopo aver specificato i dettagli dello SKU, passare alla [guida ai contenuti di 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

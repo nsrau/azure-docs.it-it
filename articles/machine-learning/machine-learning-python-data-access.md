@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/09/2016
 ms.author: huvalo;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b1efa86208ef45f84de5143a6a906c871d958e9d
+ms.sourcegitcommit: 045e40bccad59586987c0a18253dafff2f955a93
+ms.openlocfilehash: ea5005e7cff775c798b030748324781ef7dcfe7d
 
 
 ---
@@ -78,7 +78,7 @@ Per ottenere il token di autorizzazione, è possibile eseguire una di queste ope
 
 * Chiedere un token a un proprietario. I proprietari possono accedere ai propri token di autorizzazione dalla pagina Settings dell'area di lavoro personale in Studio. Selezionare **Settings** (Impostazioni) dal riquadro sinistro e fare clic su **AUTHORIZATION TOKENS** (Token di autorizzazione) per visualizzare i token primari e secondari.  Sebbene per il frammento di codice sia possibile usare sia i token di autorizzazione primari sia quelli secondari, è consigliabile che i proprietari condividano solo i token di autorizzazione secondari.
 
-![](./media/machine-learning-python-data-access/ml-python-access-settings-tokens.png)
+![Token di autorizzazione](./media/machine-learning-python-data-access/ml-python-access-settings-tokens.png)
 
 * Chiedere di essere promossi al ruolo di proprietario.  A questo scopo, è necessario prima essere rimossi dall'area di lavoro da un proprietario corrente dell'area di lavoro, quindi essere nuovamente invitati con il ruolo di proprietario.
 
@@ -114,11 +114,11 @@ Sono supportati i formati seguenti (le costanti per questi formati sono disponib
 
 È possibile determinare il formato passando il puntatore del mouse su un nodo di output del modulo. Il formato viene visualizzato in una descrizione comando insieme al nome del nodo.
 
-Alcuni moduli, ad esempio [Split][split] (Dividi), eseguono l'output in un formato denominato `Dataset`, che non è supportato dalla libreria client Python.
+Alcuni moduli, ad esempio [Split][split], eseguono l'output in un formato denominato `Dataset`, che non è supportato dalla libreria client Python.
 
 ![Formato del set di dati][dataset-format]
 
-Per ottenere un output in un formato supportato, è necessario usare un modulo di conversione, ad esempio [Convert to CSV][convert-to-csv].
+Per ottenere un output in un formato supportato, è necessario usare un modulo di conversione, ad esempio [Convert to CSV][convert-to-csv] (Converti in CSV).
 
 ![Formato GenericCSV][csv-format]
 
@@ -127,9 +127,9 @@ I passaggi seguenti illustrano un esempio in cui si crea e si esegue un esperime
 1. Creare un nuovo esperimento.
 2. Inserire un modulo **Adult Census Income Binary Classification dataset** .
 3. Inserire un modulo [Split][split] e connetterne l'input all'output del modulo del set di dati.
-4. Inserire un modulo [Convert to CSV][convert-to-csv] e connetterne l'input a uno degli output del modulo [Split][split].
+4. Inserire un modulo [Convert to CSV][convert-to-csv] (Converti in CSV) e connetterne l'input a uno degli output del modulo [Split][split] (Dividi).
 5. Salvare l'esperimento, eseguirlo e attendere il completamento dell'esecuzione.
-6. Fare clic sul nodo di output del modulo [Convert to CSV][convert-to-csv].
+6. Fare clic sul nodo di output del modulo [Convert to CSV][convert-to-csv] (Converti in CSV).
 7. Nel menu di scelta rapida visualizzato selezionare **Generate Data Access Code** (Genera codice di accesso ai dati).
    
     ![Menu di scelta rapida][experiment]
@@ -338,6 +338,6 @@ Se i dati sono già serializzati, usare `update_from_raw_data` anziché `update_
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

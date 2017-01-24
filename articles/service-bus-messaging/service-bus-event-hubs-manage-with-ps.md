@@ -1,19 +1,23 @@
 ---
 title: Usare PowerShell per gestire le risorse del bus di servizio e di Hub eventi | Microsoft Docs
 description: Uso di PowerShell per creare e gestire le risorse del bus di servizio e di Hub eventi
-services: service-bus,event-hubs
+services: service-bus-messaging,event-hubs
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: f6436f6f-2156-41ea-a4ca-08cfaecbb778
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
+ms.openlocfilehash: 41bef0e62c86e5cc3c27d02702a1b330fc76c915
+
 
 ---
 # <a name="use-powershell-to-manage-service-bus-and-event-hubs-resources"></a>Usare PowerShell per gestire le risorse del bus di servizio e di Hub eventi
@@ -22,11 +26,11 @@ Microsoft Azure PowerShell è un ambiente di scripting che può essere usato per
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, è necessario disporre di quanto segue:
 
-* Una sottoscrizione di Azure. Azure è una piattaforma basata su sottoscrizione. Per altre informazioni su come ottenere una sottoscrizione, vedere le [opzioni di acquisto][opzioni di acquisto], le [offerte per i membri][offerte per i membri] oppure l'[account gratuito][account gratuito].
-* Un computer con Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][Come installare e configurare Azure PowerShell].
+* Una sottoscrizione di Azure. Azure è una piattaforma basata su sottoscrizione. Per altre informazioni su come ottenere una sottoscrizione, vedere le [opzioni di acquisto][purchase options], le [offerte per i membri][member offers] oppure l'[account gratuito][free account].
+* Un computer con Azure PowerShell. Per istruzioni, vedere [Installare e configurare Azure PowerShell][Install and configure Azure PowerShell].
 * Conoscenza generale degli script di PowerShell, dei pacchetti NuGet e di .NET Framework.
 
-## <a name="include-a-reference-to-the-.net-assembly-for-service-bus"></a>Includere un riferimento all'assembly .NET per il bus di servizio
+## <a name="include-a-reference-to-the-net-assembly-for-service-bus"></a>Includere un riferimento all'assembly .NET per il bus di servizio
 Il numero di cmdlet PowerShell disponibili per la gestione del bus di servizio è limitato. Per eseguire il provisioning di entità non esposte tramite i cmdlet esistenti, è possibile usare il client .NET per il bus di servizio di PowerShell facendo riferimento al [pacchetto NuGet del bus di servizio].
 
 Innanzitutto, assicurarsi che lo script sia in grado di individuare l'assembly **Microsoft.ServiceBus.dll** , che viene installato con il pacchetto NuGet. Per essere flessibile, lo script esegue i passaggi seguenti:
@@ -98,7 +102,7 @@ Questa parte dello script esegue le operazioni seguenti:
         Write-Host "The [$Namespace] namespace in the [$Location] region has been successfully created."
     }
     ```
-   Per il provisioning di altre entità del bus di servizio, viene creata un'istanza dell'oggetto `NamespaceManager` dall'SDK. È possibile usare il cmdlet [Get-AzureSBAuthorizationRule][Get-AzureSBAuthorizationRule] per recuperare una regola di autorizzazione usata per fornire una stringa di connessione. Questo esempio archivia un riferimento all'istanza `NamespaceManager` nella variabile `$NamespaceManager`. Lo script in seguito usa `$NamespaceManager` per il provisioning di altre entità.
+   Per il provisioning di altre entità del bus di servizio, viene creata un'istanza dell'oggetto `NamespaceManager` dall'SDK. È possibile usare il cmdlet [Get-AzureSBAuthorizationRule][Get-AzureSBAuthorizationRule] per recuperare una regola di autorizzazione usata per specificare una stringa di connessione. Questo esempio archivia un riferimento all'istanza `NamespaceManager` nella variabile `$NamespaceManager`. Lo script in seguito usa `$NamespaceManager` per il provisioning di altre entità.
    
     ``` powershell
     $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -109,7 +113,7 @@ Questa parte dello script esegue le operazioni seguenti:
     ```
 
 ## <a name="provisioning-other-service-bus-entities"></a>Provisioning di altre entità del bus di servizio
-Per eseguire il provisioning di altre entità, ad esempio, code, argomenti e hub eventi, è possibile usare l'[API .NET per il bus di servizio][]. Alla fine di questo articolo sono presenti riferimenti ad esempi più dettagliati, incluse altre entità.
+Per eseguire il provisioning di altre entità, ad esempio code, argomenti e hub eventi, è possibile usare l'[API .NET per il bus di servizio][.NET API for Service Bus]. Alla fine di questo articolo sono presenti riferimenti ad esempi più dettagliati, incluse altre entità.
 
 ### <a name="create-an-event-hub"></a>Creare un hub eventi
 Questa parte dello script crea altre quattro variabili locali che vengono usate per creare istanze dell'oggetto `EventHubDescription`. Lo script effettua le operazioni seguenti:
@@ -255,18 +259,18 @@ Sono disponibili per il download anche alcuni script predefiniti:
 
 <!--Anchors-->
 
-[opzioni di acquisto]: http://azure.microsoft.com/pricing/purchase-options/
-[offerte per i membri]: http://azure.microsoft.com/pricing/member-offers/
-[account gratuito]: http://azure.microsoft.com/pricing/free-trial/
+[purchase options]: http://azure.microsoft.com/pricing/purchase-options/
+[member offers]: http://azure.microsoft.com/pricing/member-offers/
+[free account]: http://azure.microsoft.com/pricing/free-trial/
 [pacchetto NuGet del bus di servizio]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[API .NET API per il bus di servizio]: https://msdn.microsoft.com/en-us/library/azure/mt419900.aspx
-[Come installare e configurare Azure PowerShell]: ../powershell-install-configure.md
+[.NET API for Service Bus]: https://msdn.microsoft.com/en-us/library/azure/mt419900.aspx
+[Install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

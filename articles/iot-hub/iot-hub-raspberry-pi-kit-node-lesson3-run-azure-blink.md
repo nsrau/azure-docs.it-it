@@ -1,5 +1,5 @@
 ---
-title: Eseguire un&quot;applicazione di esempio per inviare messaggi da dispositivo a cloud | Documentazione Microsoft
+title: Inviare messaggi da dispositivo a cloud all&quot;hub IoT di Azure |Documentazione Microsoft
 description: Distribuire ed eseguire un&quot;applicazione di esempio nel dispositivo Raspberry Pi 3 che invia messaggi all&quot;hub IoT e fa lampeggiare il LED.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: 0c60200f87bf2c1df0a32b1887b1f9412ba69b39
+ms.sourcegitcommit: c0ddd7e68accf28ee65ba70ea992acd413da6f5b
+ms.openlocfilehash: ac844b94151c4f9f5105ece63075529779f0efb6
 
 
 ---
@@ -29,45 +29,53 @@ Questo articolo illustra come distribuire ed eseguire nel dispositivo Raspberry 
 Si apprenderà come usare lo strumento gulp per distribuire ed eseguire l'applicazione Node.js di esempio nel dispositivo Pi.
 
 ## <a name="what-you-need"></a>Elementi necessari
-Prima di iniziare questa attività è necessario aver completato [Creare un'app per le funzioni di Azure e un account di archiviazione di Azure per elaborare e archiviare i messaggi dell'hub IoT](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md).
+* Prima di iniziare questa attività è necessario aver completato [Creare un'app per le funzioni di Azure e un account di archiviazione di Azure per elaborare e archiviare i messaggi dell'hub IoT](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md).
 
 ## <a name="get-your-iot-hub-and-device-connection-strings"></a>Ottenere le stringhe di connessione dell'hub IoT e del dispositivo
-La stringa di connessione del dispositivo viene usata per connettere il dispositivo Pi all'hub IoT. La stringa di connessione dell'hub IoT viene usata per connettere l'hub IoT all'identità che rappresenta il dispositivo Pi nell'hub IoT.
+La stringa di connessione del dispositivo viene usata dal dispositivo Pi per connettersi all'hub IoT. La stringa di connessione dell'hub IoT viene usata per connettersi al registro delle identità nell'hub IoT per gestire i dispositivi che possono connettersi all'hub IoT. 
+
+* Elencare tutti gli hub IoT nel gruppo di risorse eseguendo questo comando dell'interfaccia della riga di comando di Azure:
+
+```bash
+az iot hub list -g iot-sample --query [].name
+```
+
+Usare `iot-sample` come valore di `{resource group name}` se non si è modificato il valore.
 
 * Ottenere la stringa di connessione dell'hub IoT eseguendo il comando seguente dell'interfaccia della riga di comando di Azure:
 
 ```bash
-az iot hub show-connection-string --name {my hub name} --resource-group iot-sample
+az iot hub show-connection-string --name {my hub name} -g iot-sample
 ```
 
-`{my hub name}` è il nome specificato quando è stato creato l'hub IoT ed è stato registrato il dispositivo Pi. Usare `iot-sample` come valore di `{resource group name}` se non si è modificato il valore.
+`{my hub name}` è il nome specificato quando è stato creato l'hub IoT ed è stato registrato il dispositivo Pi.
 
 * Ottenere la stringa di connessione del dispositivo usando il comando seguente:
 
 ```bash
-az iot device show-connection-string --hub {my hub name} --device-id myraspberrypi --resource-group iot-sample
+az iot device show-connection-string --hub-name {my hub name} --device-id myraspberrypi -g iot-sample
 ```
 
-`{my hub name}` ha lo stesso valore che è stato usato con il comando precedente. Usare `iot-sample` come valore di `{resource group name}` e `myraspberrypi` come valore di `{device id}` se non si è modificato il valore.
+Usare `myraspberrypi` come valore di `{device id}` se non si è modificato il valore.
 
 ## <a name="configure-the-device-connection"></a>Configurare la connessione del dispositivo
 1. Inizializzare il file di configurazione usando i comandi seguenti:
    
-    ```bash
-    npm install
-    gulp init
-    ```
+   ```bash
+   npm install
+   gulp init
+   ```
 2. Aprire il file di configurazione del dispositivo `config-raspberrypi.json` in Visual Studio Code usando il comando seguente:
    
-    ```bash
-    # For Windows command prompt
-    code %USERPROFILE%\.iot-hub-getting-started\config-raspberrypi.json
-   
-    # For macOS or Ubuntu
-    code ~/.iot-hub-getting-started/config-raspberrypi.json
-    ```
-   
-    ![config.json](media/iot-hub-raspberry-pi-lessons/lesson3/config.png)
+   ```bash
+   # For Windows command prompt
+   code %USERPROFILE%\.iot-hub-getting-started\config-raspberrypi.json
+  
+   # For macOS or Ubuntu
+   code ~/.iot-hub-getting-started/config-raspberrypi.json
+   ```
+  
+   ![config.json](media/iot-hub-raspberry-pi-lessons/lesson3/config.png)
 3. Sostituire i valori seguenti nel file `config-raspberrypi.json`:
    
    * Sostituire **[device hostname or IP address]** con l'indirizzo IP o il nome host del dispositivo ottenuto da `device-discovery-cli` o con il valore ereditato quando è stato configurato il dispositivo.
@@ -97,6 +105,6 @@ Il LED connesso al dispositivo Pi dovrebbe lampeggiare ogni due secondi. Ogni vo
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 
