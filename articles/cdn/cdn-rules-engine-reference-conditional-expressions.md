@@ -1,0 +1,51 @@
+---
+title: Espressioni condizionali per il motore regole della rete per la distribuzione di contenuti di Azure | Documentazione Microsoft
+description: "Questo argomento descrive le funzionalità e le condizioni di corrispondenza del motore regole"
+services: cdn
+documentationcenter: 
+author: Lichard
+manager: akucer
+editor: 
+ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
+ms.service: cdn
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/29/2016
+ms.author: rli
+translationtype: Human Translation
+ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
+ms.openlocfilehash: 92cb8832de934c19164bc26e688142538a8ba96c
+
+
+---
+
+# <a name="conditional-expressions-for-azure-content-delivery-network-cdn-rules-engine"></a>Espressioni condizionali per il motore regole della rete per la distribuzione di contenuti di Azure
+Questo argomento offre descrizioni dettagliate delle espressioni condizionali disponibili per il [motore regole](cdn-rules-engine.md) della rete per la distribuzione di contenuti (CDN, Content Delivery Network) di Azure.
+
+La prima parte di una regola è l'espressione condizionale.
+
+Espressione condizionale | Descrizione
+-----------------------|-------------
+IF | Un'espressione IF è sempre una parte della prima istruzione in una regola. Come tutte le altre espressioni condizionali, l'istruzione IF deve essere associata a una corrispondenza. Se non sono definite altre espressioni condizionali, questa corrispondenza determina il criterio che deve essere soddisfatto prima che sia possibile applicare un set di funzionalità a una richiesta.
+AND IF | Un'espressione AND IF può essere aggiunta solo dopo i seguenti tipi di espressioni condizionali: IF e AND IF. Indica che esiste un'altra condizione che deve essere soddisfatta per l'istruzione IF iniziale.
+ELSE IF| Un'espressione ELSE IF specifica una condizione alternativa che deve essere soddisfatta prima che venga eseguita una serie di funzionalità specifiche di questa istruzione ELSE IF. La presenza di un'istruzione ELSE IF indica la fine dell'istruzione precedente. L'unica espressione condizionale che può essere inserita dopo un'istruzione ELSE IF è un'altra istruzione ELSE IF. Ciò significa che un'istruzione ELSE IF può essere utilizzata solo per specificare una sola condizione aggiuntiva da soddisfare.
+
+**Esempio**: ![condizione di corrispondenza della rete CDN](./media/cdn-rules-engine-reference/cdn-rules-engine-conditional-expression.png)
+
+ > [!TIP]
+   > Una regola successiva potrebbe seguire l'override delle azioni specificate da una regola precedente. Esempio: una regola di catch-all protegge tutte le richieste tramite l'autenticazione basata su token. È possibile creare un'altra regola direttamente sotto questa per creare un'eccezione per alcuni tipi di richieste.
+
+### <a name="next-steps"></a>Passaggi successivi
+* [Panoramica della rete CDN di Azure](cdn-overview.md)
+* [Informazioni di riferimento sul motore regole](cdn-rules-engine-reference.md)
+* [Condizioni di corrispondenza del motore regole](cdn-rules-engine-reference-match-conditions.md)
+* [Funzionalità del motore regole](cdn-rules-engine-reference-features.md)
+* [Override del comportamento HTTP predefinito mediante il motore regole](cdn-rules-engine.md)
+
+
+
+<!--HONumber=Dec16_HO3-->
+
+

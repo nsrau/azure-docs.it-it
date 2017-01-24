@@ -16,14 +16,27 @@ ms.workload: azure-government
 ms.date: 10/13/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: 004860b319b7b32955415ac2d6c7308c32037848
-ms.openlocfilehash: 36312ce195e931d174e00d54cab4cb071a85b618
+ms.sourcegitcommit: e9287ab74e9bed8681b66fa9a168c8d7c403c63b
+ms.openlocfilehash: 8c9488e302540ca0c67926f6aa6fad591c6ce037
 
 
 ---
 # <a name="azure-government-storage"></a>Archiviazione di Azure per enti pubblici
 ## <a name="azure-storage"></a>Archiviazione di Azure
 Per informazioni dettagliate su questo servizio e su come usarlo, vedere la [documentazione pubblica sull'Archiviazione di Azure](../storage/index.md).
+
+### <a name="storage-service-availability-by-azure-government-region"></a>Disponibilità del servizio di archiviazione in base all'area di Azure
+
+| Service | Governo degli Stati Uniti - Virginia | Governo degli Stati Uniti - Iowa | Note
+| --- | --- | --- | --- |
+| [Archiviazione BLOB] (../storage/storage-introduction.md#blob-storage) |GA |GA |
+| [Archiviazione tabelle] (../storage/storage-introduction.md#table-storage) |GA  |GA |
+| [Archiviazione code] (../storage/storage-introduction.md#queue-storage) |GA | GA |
+| [Archiviazione file] (../storage/storage-introduction.md#file-storage) |GA |GA |
+| [Archiviazione BLOB per accesso frequente/sporadico] (../storage/storage-blob-storage-tiers.md) |ND |ND |
+| [Crittografia servizio di archiviazione] (../storage/storage-service-encryption.md) |GA |GA |
+| [Archiviazione Premium] (../storage/storage-premium-storage.md) |GA |ND | Ciò vale anche per le macchine virtuali serie DS. |
+| [Importazione/Esportazione BLOB] (../storage/storage-import-export-service.md) |GA |GA | Al momento sono supportati solo gli account di archiviazione classici. |
 
 ### <a name="variations"></a>Varianti
 Gli URL degli account di archiviazione in Azure per enti pubblici sono diversi:
@@ -33,6 +46,7 @@ Gli URL degli account di archiviazione in Azure per enti pubblici sono diversi:
 | Archiviazione BLOB |*.blob.core.windows.net |*.blob.core.usgovcloudapi.net |
 | Archiviazione di accodamento |*.queue.core.windows.net |*.queue.core.usgovcloudapi.net |
 | Archiviazione tabelle |*.table.core.windows.net |*.table.core.usgovcloudapi.net |
+| Archiviazione file |*.file.core.windows.net |*.file.core.usgovcloudapi.net | 
 
 > [!NOTE]
 > Tutti gli script e il codice devono tenere conto dei dovuti endpoint.  Vedere [Configurare le stringhe di connessione di archiviazione di Azure](../storage/storage-configure-connection-string.md). 
@@ -43,6 +57,17 @@ Per ulteriori informazioni sulle API, vedere <a href="https://msdn.microsoft.com
 
 Il suffisso dell'endpoint da usare in questi overload è core.usgovcloudapi.net
 
+> [!NOTE]
+> [Microsoft Azure Storage Explorer] (../vs-azure-tools-storage-manage-with-storage-explorer.md) al momento non supporta la [connessione a una sottoscrizione di Azure] (../vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-an-azure-subscription) tramite aggiunta di un account in Azure per enti pubblici. Usare altri metodi di [connessione a un account di archiviazione] (../vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service).
+Quando si effettua il [collegamento a un account di archiviazione esterno] (../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-to-an-external-storage-account), nel **passaggio 3**, selezionare **Altro (specificare di seguito)** come dominio di endpoint di archiviazione e specificare **core.usgovcloudapi.net** per Azure per enti pubblici.
+>
+>
+
+> [!NOTE]
+> Se viene visualizzato l'errore 53 "Impossibile trovare il percorso di rete" mentre si effettua il [montaggio della condivisione file] (... / storage/storage-dotnet-how-to-use-files.md#mount-the-file-share), questo errore può essere dovuto al firewall che blocca la porta in uscita. Provare a montare la condivisione di file nella macchina virtuale che risiede nella stessa sottoscrizione di Azure dell'account di archiviazione.
+>
+>
+
 ### <a name="considerations"></a>Considerazioni
 Le informazioni seguenti identificano il limite di Azure per enti pubblici per Archiviazione di Azure:
 
@@ -50,20 +75,11 @@ Le informazioni seguenti identificano il limite di Azure per enti pubblici per A
 | --- | --- |
 | I dati immessi, archiviati ed elaborati in un prodotto di Archiviazione di Azure possono contenere dati soggetti al controllo all'esportazione. Autenticatori statici, ad esempio le password e i PIN delle smart card per l'accesso ai componenti della piattaforma Azure. Chiavi private o i certificati usati per gestire i componenti della piattaforma Azure. Altri segreti di sicurezza o informazioni, ad esempio chiavi di crittografia, chiavi master, chiavi di archiviazione e certificati archiviati nei servizi di Azure. |I metadati di Archiviazione di Azure non possono contenere dati soggetti al controllo all'esportazione. Questi metadati includono tutti i dati di configurazione immessi durante la creazione e la gestione del prodotto di archiviazione.  Non immettere dati regolamentati o controllati nei campi relativi a gruppi di risorse, nomi delle distribuzioni, nomi delle risorse e tag delle risorse. |
 
-## <a name="premium-storage"></a>Archiviazione Premium
-Per ulteriori informazioni su questo servizio e su come usarlo, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage.md).
-
-### <a name="variations"></a>Varianti
-L'archiviazione Premium disponibile a livello generale nell'area Governo degli Stati Uniti - Virginia. Ciò vale anche per le macchine virtuali serie DS.
-
-### <a name="considerations"></a>Considerazioni
-Per gli account di archiviazione Premium valgono le stesse considerazioni sull'archiviazione dei dati di cui sopra.
-
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni e aggiornamenti, iscriversi al <a href="https://blogs.msdn.microsoft.com/azuregov/">blog di Microsoft Azure per enti pubblici</a>.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

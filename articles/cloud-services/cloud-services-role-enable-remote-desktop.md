@@ -12,42 +12,42 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 11/22/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 19cce7ade633f79ae42b634af3df86231b5211b1
-ms.openlocfilehash: 5b1e6d9b286bbda50b4e08b4cf53a8b51e89be1a
-
+ms.sourcegitcommit: eb34bf45fde1fdaa1d7938967e659a13515a0f56
+ms.openlocfilehash: 914d391fa314de5893da462af3e9b59e6f8ce185
 
 ---
 
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure
 
 > [!div class="op_single_selector"]
+> * [Portale di Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [Portale di Azure classico](cloud-services-role-enable-remote-desktop.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
-È possibile abilitare una connessione Desktop remoto nel ruolo durante lo sviluppo includendo i moduli di Desktop remoto nella definizione del servizio o è possibile scegliere di abilitare Desktop remoto tramite la relativa estensione. L'approccio migliore consiste nell'usare l'estensione di Desktop remoto, in quanto è possibile abilitare Desktop remoto anche dopo che l'applicazione viene distribuita senza doverla ridistribuire. 
+È possibile abilitare una connessione Desktop remoto nel ruolo durante lo sviluppo includendo i moduli di Desktop remoto nella definizione del servizio o è possibile scegliere di abilitare Desktop remoto tramite la relativa estensione. L'approccio migliore consiste nell'usare l'estensione di Desktop remoto, in quanto è possibile abilitare Desktop remoto anche dopo che l'applicazione viene distribuita senza doverla ridistribuire.
 
 ## <a name="configure-remote-desktop-from-the-azure-classic-portal"></a>Configurare Remote Desktop dal portale di Azure classico
-Il portale di Azure classico usa l'approccio dell'estensione di Desktop remoto per poter abilitare Desktop remoto anche dopo la distribuzione dell'applicazione. La pagina **Configura** per il servizio cloud consente di abilitare Desktop remoto, modificare l'account amministratore locale usato per connettersi alle macchine virtuali e il certificato usato nell'autenticazione e impostare la data di scadenza. 
+Il portale di Azure classico usa l'approccio dell'estensione di Desktop remoto per poter abilitare Desktop remoto anche dopo la distribuzione dell'applicazione. La pagina **Configura** per il servizio cloud consente di abilitare Desktop remoto, modificare l'account amministratore locale usato per connettersi alle macchine virtuali e il certificato usato nell'autenticazione e impostare la data di scadenza.
 
 1. Fare clic su **Servizi cloud**, quindi sul nome del servizio cloud e infine su **Configura**.
 2. Fare clic sul pulsante **Remoto** nella parte inferiore.
-   
+
     ![Servizi cloud remoti](./media/cloud-services-role-enable-remote-desktop/CloudServices_Remote.png)
-   
+
    > [!WARNING]
    > Tutte le istanze del ruolo verranno riavviate la prima volta che si abilita Desktop remoto e si fa clic su OK (segno di spunta). Per evitare un riavvio, è necessario che nel ruolo sia installato il certificato usato per crittografare la password. Per evitare un riavvio, [caricare un certificato per il servizio cloud](cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) e quindi tornare alla finestra di dialogo.
 
 3. In **Ruolo** selezionare il ruolo da aggiornare oppure selezionare **Tutti** per tutti i ruoli.
 4. Apportare una delle modifiche seguenti:
-   
+
    * Per abilitare Desktop remoto, selezionare la casella di controllo **Enable Remote Desktop** . Per disabilitare Desktop remoto, deselezionare la casella di controllo.
    * Creare un account da usare nelle connessioni Desktop remoto alle istanze del ruolo.
    * Aggiornare la password dell'account esistente.
-   * Selezionare un certificato caricato da usare per l'autenticazione (caricare il certificato scegliendo **Carica** nella pagina **Certificati**) oppure creare un nuovo certificato. 
+   * Selezionare un certificato caricato da usare per l'autenticazione (caricare il certificato scegliendo **Carica** nella pagina **Certificati**) oppure creare un nuovo certificato.
    * Cambiare la data di scadenza per la configurazione di Desktop remoto.
 
 5. Dopo aver completato gli aggiornamenti della configurazione, fare clic su **OK** (segno di spunta).
@@ -59,8 +59,8 @@ Per connettersi a un'istanza del ruolo dal portale di Azure classico:
 
 1. Fare clic su **Istanze** per aprire la pagina **Istanze**.
 2. Selezionare un'istanza del ruolo per cui è configurato Desktop remoto.
-3. Fare clic su **Connetti**e seguire le istruzioni visualizzate per aprire il desktop. 
-4. Fare clic su **Apri** e quindi su **Connetti** per avviare la connessione Desktop remoto. 
+3. Fare clic su **Connetti**e seguire le istruzioni visualizzate per aprire il desktop.
+4. Fare clic su **Apri** e quindi su **Connetti** per avviare la connessione Desktop remoto.
 
 ### <a name="use-visual-studio-to-remote-into-a-role-instance"></a>Usare Visual Studio per collegarsi in remoto a un'istanza del ruolo
 In Esplora server di Visual Studio:
@@ -68,7 +68,7 @@ In Esplora server di Visual Studio:
 1. Espandere il nodo **Azure** > **Servizi cloud** > **[nome servizio cloud]**.
 2. Espandere **Gestione temporanea** o **Produzione**.
 3. Espandere il singolo ruolo.
-4. Fare clic con il pulsante destro del mouse su una delle istanze del ruolo, fare clic su **Connessione tramite desktop remoto**e quindi immettere il nome utente e la password. 
+4. Fare clic con il pulsante destro del mouse su una delle istanze del ruolo, fare clic su **Connessione tramite desktop remoto**e quindi immettere il nome utente e la password.
 
 ![Desktop remoto di Esplora server](./media/cloud-services-role-enable-remote-desktop/ServerExplorer_RemoteDesktop.png)
 
@@ -76,7 +76,7 @@ In Esplora server di Visual Studio:
 Per recuperare il file RDP è possibile usare il cmdlet [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) . Sarà quindi possibile usare il file RDP con Connessione Desktop remoto per accedere al servizio cloud.
 
 ### <a name="programmatically-download-the-rdp-file-through-the-service-management-rest-api"></a>Scaricare il file RDP a livello di codice tramite l'API REST di gestione dei servizi
-Per scaricare il file RDP, è possibile usare l'operazione REST [Scarica file RDP](https://msdn.microsoft.com/library/jj157183.aspx) . 
+Per scaricare il file RDP, è possibile usare l'operazione REST [Scarica file RDP](https://msdn.microsoft.com/library/jj157183.aspx) .
 
 ## <a name="to-configure-remote-desktop-in-the-service-definition-file"></a>Per configurare Desktop remoto nel file di definizione del servizio
 Questo metodo consente di abilitare Desktop remoto per l'applicazione durante lo sviluppo. Questo approccio richiede l'archiviazione delle password crittografate nel file cscfg ed eventuali aggiornamenti della configurazione di Desktop remoto richiederebbero una ridistribuzione dell'applicazione. Se si desidera evitare questi svantaggi, usare l'approccio basato sull'estensione di Desktop remoto descritto in precedenza.  
@@ -137,7 +137,6 @@ Il file [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) 
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

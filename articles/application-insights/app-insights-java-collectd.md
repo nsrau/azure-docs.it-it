@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8c5324742e42a1f82bb3031af4380fc5f0241d7f
-ms.openlocfilehash: 6a9edd88dd49dd8d8edd687f8808f7d49b774139
+ms.sourcegitcommit: 193c1836fc8076c2486684a7ec4a92ece948050c
+ms.openlocfilehash: 2419f7bd69b9d7fab1a37330b68283012e43f5fd
 
 
 ---
@@ -47,7 +47,7 @@ Nei computer server Linux:
    * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
    * Aggiungere questo frammento di codice usando la chiave di strumentazione dalla risorsa:
 
-```
+```XML
 
      LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
      <Plugin ApplicationInsightsWriter>
@@ -56,6 +56,8 @@ Nei computer server Linux:
 ```
 
 Di seguito è riportata una parte di un file di configurazione di esempio:
+
+```XML
 
     ...
     # collectd plugins
@@ -83,7 +85,8 @@ Di seguito è riportata una parte di un file di configurazione di esempio:
       # Other plugin configurations ...
       ...
     </Plugin>
-.   ...
+    ...
+```
 
 Configurare altri [plug-in collectd](https://collectd.org/wiki/index.php/Table_of_Plugins), che possono raccogliere diversi dati da origini diverse.
 
@@ -131,12 +134,12 @@ Separare le direttive con un valore NewLine.
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[uso]: app-insights-web-track-usage.md
+[usage]: app-insights-web-track-usage.md
 
 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

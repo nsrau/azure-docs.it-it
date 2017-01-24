@@ -12,36 +12,45 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 12/15/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1a7f34989dce97f32bfbbbede9acd96a1dd58e14
+ms.sourcegitcommit: ea24ad915b3d6f5180182a454c03edc578f7b761
+ms.openlocfilehash: 3751d1a24684bbf9b7230eb3ab4827ee2ba52379
 
 
 ---
 # <a name="monitor-documentdb-requests-usage-and-storage"></a>Monitorare le richieste, l'uso e l'archiviazione di DocumentDB
-È possibile monitorare gli account Azure DocumentDB nel [portale di Azure](https://portal.azure.com/). Per ogni account DocumentDB sono disponibili metriche delle prestazioni, quali richieste ed errori del server, e metriche di utilizzo, ad esempio l'utilizzo di risorse di archiviazione.
+È possibile monitorare gli account Azure DocumentDB nel [portale di Azure](https://portal.azure.com/). Per ogni account DocumentDB sono disponibili metriche delle prestazioni, quali le richieste e gli errori del server, e metriche di utilizzo, ad esempio l'utilizzo di risorse di archiviazione.
 
-È possibile esaminare le metriche nel pannello Account o nel nuovo pannello Metriche.
+È possibile esaminare le metriche nel pannello Account, nel nuovo pannello Metriche o in Monitoraggio di Azure.
 
 ## <a name="view-performance-metrics-on-the-metrics-blade"></a>Visualizzare le metriche delle prestazioni nel pannello Metriche
-1. In una nuova finestra aprire il [portale di Azure](https://portal.azure.com/), fare clic su **More Services** (Altri servizi), **DocumentDB (NoSQL)** e quindi fare clic sul nome dell'account DocumentDB per il quale si desidera visualizzare le metriche delle prestazioni.
-2. Nel menu delle risorse fare clic su **Metriche**.
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Altri servizi**, scorrere fino a **Database**, fare clic su **NoSQL (DocumentDB)** e quindi fare clic sul nome dell'account di DocumentDB per il quale si desidera visualizzare le metriche delle prestazioni.
+2. Nel menu delle risorse, sotto **Monitoraggio**, fare clic su **Metriche**.
 
-Viene visualizzato il pannello Metriche, in cui è possibile selezionare la raccolta da esaminare. È possibile esaminare le metriche di disponibilità, richieste, velocità effettiva e archiviazione e confrontarle con i con i contratti di servizio DocumentDB.
+Viene visualizzato il pannello Metriche, in cui è possibile selezionare la raccolta da esaminare. È possibile esaminare le metriche di disponibilità, richieste, velocità effettiva e archiviazione e confrontarle con i contratti di servizio DocumentDB.
+
+## <a name="view-performance-metrics-by-using-azure-monitoring"></a>Visualizzare le metriche delle prestazioni utilizzando Monitoraggio di Azure
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Monitoraggio** sull'indice.
+2. Nel menu delle risorse fare clic su **Metriche**.
+3. Nella finestra **Monitoraggio - Metriche** finestra, nel menu a discesa **Gruppo di risorse**, selezionare il gruppo di risorse associato all'account di DocumentDB che si desidera monitorare. 
+4. Nel menu a discesa **Risorsa** selezionare l'account di database da monitorare.
+5. Nell'elenco delle **Metriche disponibili** selezionare le metriche da visualizzare. Utilizzare il tasto CTRL per selezionare più voci. 
+
+    Le metriche vengono visualizzate nella finestra **Grafico**. 
 
 ## <a name="view-performance-metrics-on-the-account-blade"></a>Visualizzare le metriche delle prestazioni nel pannello Account
-1. In una nuova finestra aprire il [portale di Azure](https://portal.azure.com/), fare clic su **More Services** (Altri servizi), **DocumentDB (NoSQL)** e quindi fare clic sul nome dell'account DocumentDB per il quale si desidera visualizzare le metriche delle prestazioni.
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Altri servizi**, scorrere fino a **Database**, fare clic su **NoSQL (DocumentDB)** e quindi fare clic sul nome dell'account di DocumentDB per il quale si desidera visualizzare le metriche delle prestazioni.
 2. La sezione **Monitoraggio** visualizza i seguenti riquadri per impostazione predefinita:
    
    * Richieste totali per il giorno corrente.
    * Spazio di archiviazione usato.
    
-   Se la tabella visualizza il messaggio **Nessun dato disponibile** e si ritiene che siano presenti dati nel database, vedere la sezione [Risoluzione dei problemi](#troubleshooting) .
+   Se la tabella visualizza il messaggio **Nessun dato disponibile** e si ritiene che siano presenti dati nel database, vedere la sezione [Risoluzione dei problemi](#troubleshooting).
    
    ![Schermata della sezione Monitoraggio che mostra le richieste e l'uso delle risorse di archiviazione](./media/documentdb-monitor-accounts/documentdb-total-requests-and-usage.png)
-3. Se si fa clic sul riquadro **Richieste** o **Archiviazione**, viene visualizzato un pannello **Metrica** dettagliato.
+3. Se si fa clic sul riquadro **Richieste** o **Quota di utilizzo**, viene visualizzato un pannello **Metrica** dettagliato.
 4. Il pannello **Metrica** mostra i dettagli relativi alle metriche selezionate.  Nella parte superiore del pannello è riportato un grafico delle richieste rilevate su base oraria, mentre sotto il grafico è riportata una tabella che mostra i valori aggregati per le richieste limitate e totali.  Nel pannello Metrica viene anche visualizzato l'elenco degli avvisi definiti, filtrato in base alle metriche visualizzate nel pannello Metrica corrente. In questo modo, se sono presenti più avvisi, nel pannello verranno presentati solo quelli pertinenti.   
    
    ![Schermata del pannello Metrica che include le richieste limitate](./media/documentdb-monitor-accounts/documentdb-metric-blade.png)
@@ -118,6 +127,6 @@ Per altre informazioni sulla capacità di DocumentDB, vedere [Gestire la capacit
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 
