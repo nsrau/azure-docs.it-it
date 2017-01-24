@@ -1,12 +1,12 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Mixpanel | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Mixpanel.
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Mixpanel.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a2df26ef-d441-44ac-a9f3-b37bf9709bcb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 58c8e1b6bcc90ecf5cc630aa0249ea811c1d1174
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-mixpanel"></a>Esercitazione: Integrazione di Azure Active Directory con Mixpanel
+# <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>Esercitazione: Integrazione di Azure Active Directory con Mixpanel
 Questa esercitazione descrive l'integrazione di Mixpanel con Azure Active Directory (Azure AD).
 
 L'integrazione di Mixpanel con Azure AD offre i vantaggi seguenti:
@@ -254,6 +258,6 @@ Quando si fa clic sul riquadro Mixpanel nel pannello di accesso, si dovrebbe acc
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

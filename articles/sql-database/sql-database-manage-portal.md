@@ -1,26 +1,27 @@
 ---
 title: Gestire un database SQL di Azure tramite il portale di Azure |Documentazione Microsoft
-description: Informazioni su come usare il portale di Azure per gestire un database relazionale nel cloud tramite il portale di Azure.
+description: Informazioni di riferimento rapide su come usare il portale di Azure per gestire un database relazionale nel cloud usando il portale di Azure.
 services: sql-database
 documentationcenter: 
-author: stevestein
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: 3a56e9de-c21a-40ba-9a35-958172cb4e5b
 ms.service: sql-database
+ms.custom: how to
 ms.devlang: NA
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.date: 09/19/2016
-ms.author: sstein
+ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bb40c67d6b355fd2fe0799c781a28657f24f825d
+ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
+ms.openlocfilehash: dde22adda13b88a6cd0f1d033c2730ddc3288050
 
 
 ---
-# <a name="managing-azure-sql-databases-using-the-azure-portal"></a>Gestione dei database SQL di Azure tramite il portale di Azure
+# <a name="manage-azure-sql-databases-using-the-azure-portal"></a>Gestire database SQL di Azure mediante il portale di Azure
 > [!div class="op_single_selector"]
 > * [Portale di Azure](sql-database-manage-portal.md)
 > * [SSMS](sql-database-manage-azure-ssms.md)
@@ -88,7 +89,7 @@ Per monitorare e migliorare le prestazioni di un database SQL, fare clic su **In
 ## <a name="how-do-i-configure-geo-replication"></a>Come si configura la replica geografica?
 Per configurare la replica geografica per un database SQL, fare clic su **Replica geografica** nel pannello **Database SQL**. Per informazioni dettagliate, vedere [Configurare la replica geografica per il database SQL di Azure con il portale di Azure](sql-database-geo-replication-portal.md).
 
-## <a name="how-do-i-failover-to-a-geo-replicated-sql-database"></a>Come si esegue il failover a un database SQL con replica geografica?
+## <a name="how-do-i-fail-over-to-a-geo-replicated-sql-database"></a>Come si esegue il failover a un database SQL con replica geografica?
 Per eseguire il failover a un database secondario con replica geografica, fare clic su **Replica geografica** nel pannello **Database SQL** e quindi fare clic su **Failover**. Per informazioni dettagliate, vedere [Avviare un failover pianificato o non pianificato per il database SQL di Azure con il portale di Azure](sql-database-geo-replication-failover-portal.md).
 
 ## <a name="how-do-i-copy-a-sql-database"></a>Come si copia un database SQL?
@@ -126,6 +127,6 @@ Per eliminare un database SQL, fare clic su **Elimina** nel pannello **Database 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

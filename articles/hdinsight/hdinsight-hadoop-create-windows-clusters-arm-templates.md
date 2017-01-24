@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/19/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: c387472d961fa42d1fc085c1c83d0095fb965f71
+ms.sourcegitcommit: 72ca562c53f813599f19069cfac7ef3ac1957968
+ms.openlocfilehash: 14cd1d8a9e278fa54168efb3c66cf6d693b57054
 
 
 ---
@@ -108,7 +108,7 @@ La procedura seguente consente di creare un cluster HDInsight.
 
     Lo script di PowerShell configura solo il nome del cluster e il nome dell’account di archiviazione.  È possibile impostare altri valori del modello di Resource Manager.
 
-Per altre informazioni, vedere [Distribuire con PowerShell](../resource-group-template-deploy.md#deploy-with-powershell).
+Per altre informazioni, vedere [Distribuire con PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy).
 
 ## <a name="deploy-with-azure-cli"></a>Distribuire con l'interfaccia della riga di comando di Azure
 L'esempio seguente crea un cluster e i relativi account di archiviazione e contenitore dipendenti chiamando un modello di Resource Manager:
@@ -290,6 +290,6 @@ Il modello di Gestione risorse di Azure seguente crea un cluster Hadoop basato s
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

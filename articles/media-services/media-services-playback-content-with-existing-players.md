@@ -15,18 +15,13 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1f7e9b0c1a3bfc53153900ed353ba8805fff075e
+ms.sourcegitcommit: 0c77ee0f612c1cbef551a129a22cf3f125e6f29d
+ms.openlocfilehash: 41049570b1858010c338c149c5d3545e58a197b2
 
 
 ---
 # <a name="playing-your-content-with-existing-players"></a>Riproduzione di contenuti con i lettori esistenti
 Servizi multimediali di Azure supporta molti formati di streaming noti, ad esempio Smooth Streaming, HTTP Live Streaming (HLS) e MPEG-DASH. Questo argomento descrive i lettori esistenti che possono essere usati per testare i propri flussi.
-
-> [!NOTE]
-> Per riprodurre contenuti organizzati in pacchetti dinamici o con crittografia dinamica, assicurarsi di disporre di almeno un'unità di streaming per l'endpoint di streaming da cui si prevede di inviare il contenuto. Per informazioni sul ridimensionamento delle unità di streaming, vedere la sezione relativa al [ridimensionamento di unità di streaming](media-services-portal-manage-streaming-endpoints.md)
-> 
-> 
 
 ### <a name="the-azure-portal-media-services-content-player"></a>Lettore di contenuti di Servizi multimediali del portale di Azure
 Il portale di **Azure** fornisce un lettore di contenuti che può essere usato per testare il proprio video.
@@ -82,6 +77,6 @@ Per informazioni su come sviluppare i propri lettori, vedere [Sviluppo di lettor
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

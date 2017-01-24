@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 01/12/2017
 ms.author: alkohli
 translationtype: Human Translation
 ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
@@ -194,7 +194,7 @@ Eseguire la procedura seguente per avviare l'array virtuale a cui connettersi.
 
     1. Per abilitare la modalità FIPS, eseguire il cmdlet seguente:
 
-        `Enter-HcsFIPSMode`
+        `Enable-HcsFIPSMode`
     2. Riavviare il dispositivo dopo aver abilitato la modalità FIPS in modo che le convalide di crittografia abbiano effetto.
 
        > [!NOTE]

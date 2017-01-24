@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 61289770-69b9-4ae3-9252-d0e94d709331
 ms.service: sql-database
+ms.custom: sharded databases pool; how to
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
@@ -15,8 +16,8 @@ ms.workload: data-management
 ms.date: 06/22/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 8b0893b159b6ed086cd3fcb41f7671c7c41cd176
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2f8b2bc9ddac435582306d0105a636666aebbac7
 
 
 ---
@@ -36,7 +37,7 @@ Per i codici di errore comuni, vedere [Codici di errore SQL per le applicazioni 
 I valori per i pool sono disponibili in [Limiti di archiviazione e di eDTU dei pool elastici e dei database elastici](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Azure PowerShell 1.0 o versioni successive. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+* Azure PowerShell 1.0 o versioni successive. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * I pool di database elastici sono disponibili unicamente nei server database SQL V12. Se si usa un server di database SQL V11, [usare PowerShell per eseguire l'aggiornamento a V12 e creare un pool](sql-database-upgrade-server-portal.md) in un unico passaggio.
 
 ## <a name="move-a-database-into-an-elastic-pool"></a>Spostare un database in un pool elastico
@@ -270,6 +271,6 @@ Il cmdlet Stop comporta l'annullamento non la sospensione. Non è possibile ripr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

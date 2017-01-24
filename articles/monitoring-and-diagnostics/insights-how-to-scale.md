@@ -2,7 +2,7 @@
 title: "Scalare il conteggio delle istanze manualmente o mediante scalabilità automatica con il Portale di Azure | Microsoft Docs"
 description: Informazioni su come scalare i servizi di Azure.
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics

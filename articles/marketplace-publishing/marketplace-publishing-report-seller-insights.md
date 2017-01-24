@@ -1,19 +1,23 @@
 ---
-title: Informazioni sui report basati sull'utilizzo di Azure Marketplace e i report sulle informazioni dettagliate del venditore | Microsoft Docs
-description: In qualità di venditore in Azure Marketplace, comprendere i report basati sull'utilizzo, detti anche report sulle informazioni dettagliate del venditore
+title: Informazioni sui report basati sull&quot;uso di Azure Marketplace e sui report sulle informazioni dettagliate del venditore | Documentazione Microsoft
+description: "In qualità di venditore in Azure Marketplace, comprendere i report basati sull&quot;utilizzo, detti anche report sulle informazioni dettagliate del venditore"
 services: Azure Marketplace
 documentationcenter: na
 author: v-jeana
 manager: lakoch
-editor: ''
-
+editor: 
+ms.assetid: f1ffde66-98f0-4c3e-ad94-fee1f97cae03
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/05/2016
-ms.author: v-jeana; hascipio
+ms.date: 10/03/2016
+ms.author: v-jeana; hascipio; v-dabosl
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 408394e529c262c0a47aae680c8f6ea1bc8eb7c6
+
 
 ---
 # <a name="understand-your-seller-insights-report"></a>Descrizione del report sulle informazioni dettagliate del venditore
@@ -26,7 +30,7 @@ Tutti gli editori di servizi per gli sviluppatori di fatturazione basata sull'ut
 * **Messaggio di benvenuto:** i nuovi editori ricevono un messaggio di benvenuto che comunica la cadenza mensile dei report sulle informazioni dettagliate del venditore.
 * **Report mensili sulle vendite:** se l'offerta genera utilizzo, si riceve un secondo messaggio di posta elettronica contenente i report e istruzioni su come accedere alla password:
   
-  * Se lo SKU di servizi per gli sviluppatori di fatturazione basata sull'utilizzo o su VM genera utilizzo, il report mensile contiene informazioni dettagliate su ordini, utilizzo, mercati e clienti per le offerte non-BYOL (Bring Your Own License).
+  * Se lo SKU di servizi per gli sviluppatori di soluzioni di fatturazione basata sull'uso o su macchina virtuale genera utilizzo, il report mensile conterrà informazioni dettagliate su ordini, utilizzo, mercati e clienti per le offerte.
   * I report sono protetti da una password nota solo all'utente e a Microsoft, per salvaguardare i dati dei clienti.
   * Se nessuna delle offerte ha generato utilizzo durante il mese, Microsoft non invia alcun report.
 
@@ -113,6 +117,6 @@ In caso di domande relative ai report e alle informazioni dettagliate, contattar
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

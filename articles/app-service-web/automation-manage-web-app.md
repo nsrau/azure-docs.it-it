@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/29/2016
 ms.author: magoedte;csand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d9b12c074417e51057dea68e8cff04df5081e111
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: 4fcfa2e7ec2e8257407026ed4cca0e15fd0b5bb6
 
 
 ---
@@ -31,7 +31,7 @@ Automazione di Azure offre un motore di esecuzione del flusso di lavoro a elevat
 Il servizio consente di ridurre i costi operativi e di liberare risorse dello staff IT e DevOp consentendo loro di concentrarsi su attività a valore aggiunto grazie al trasferimento delle attività di gestione del cloud all'esecuzione automatica di Automazione di Azure.
 
 ## <a name="how-can-azure-automation-help-manage-azure-web-app"></a>In che modo Automazione di Azure può rappresentare un aiuto nella gestione di App Web di Azure?
-È possibile gestire le app Web in Automazione di Azure usando i cmdlet di PowerShell disponibili nei [moduli di Azure PowerShell](../powershell-install-configure.md). È possibile [installare questi cmdlet di PowerShell per app Web in Automazione di Azure](https://azure.microsoft.com/blog/announcing-azure-resource-manager-support-azure-automation-runbooks/)per eseguire tutte le attività di gestione delle app Web dall'interno del servizio. È anche possibile abbinare tali cmdlet in Automazione di Azure ai cmdlet per altri servizi di Azure per automatizzare attività complesse in tutti i servizi di Azure e nei sistemi di terze parti.
+È possibile gestire le app Web in Automazione di Azure usando i cmdlet di PowerShell disponibili nei [moduli di Azure PowerShell](/powershell/azureps-cmdlets-docs). È possibile [installare questi cmdlet di PowerShell per app Web in Automazione di Azure](https://azure.microsoft.com/blog/announcing-azure-resource-manager-support-azure-automation-runbooks/)per eseguire tutte le attività di gestione delle app Web dall'interno del servizio. È anche possibile abbinare tali cmdlet in Automazione di Azure ai cmdlet per altri servizi di Azure per automatizzare attività complesse in tutti i servizi di Azure e nei sistemi di terze parti.
 
 Di seguito sono riportati alcuni esempi di gestione dei servizi app con Automazione:
 
@@ -45,6 +45,6 @@ A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

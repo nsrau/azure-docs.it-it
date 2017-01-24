@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 6a652890260c21deb64826fb73920ba5d17f61da
+ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
+ms.openlocfilehash: e8be3cd9aeb3ff39c808f5ee39bdf3091d45feec
 
 
 ---
@@ -34,11 +34,11 @@ In questa esercitazione si usa il portale di Azure per creare un'istanza di SQL 
 ## <a name="prerequisites"></a>Prerequisiti
 Per iniziare, è necessario:
 
-* **Account di Azure**: vedere la [versione di valutazione gratuita][versione di valutazione gratuita] o [Crediti Azure MSDN][Crediti Azure MSDN] per creare un account.
-* **Server SQL di Azure**: per altre informazioni vedere [Creare un server logico del database SQL di Azure][Creare un server logico del database SQL di Azure].
+* **Account Azure**: per creare un account, vedere la [versione di valutazione gratuita][Azure Free Trial] o [MSDN Azure Credits][MSDN Azure Credits] (Crediti Azure MSDN).
+* **Server SQL di Azure**: per altri dettagli, vedere la sezione su come [creare un server logico del database SQL di Azure con il portale di Azure][Create an Azure SQL Database logical server with the Azure portal].
 
 > [!NOTE]
-> La creazione di un'istanza di SQL Data Warehouse può avere come risultato un nuovo servizio fatturabile.  Per informazioni dettagliate sui prezzi, vedere [Prezzi di SQL Data Warehouse][Prezzi di SQL Data Warehouse].
+> La creazione di un'istanza di SQL Data Warehouse può avere come risultato un nuovo servizio fatturabile.  Per altri dettagli, vedere la pagina relativa ai [prezzi di SQL Data Warehouse][SQL Data Warehouse pricing].
 >
 >
 
@@ -53,15 +53,15 @@ Per iniziare, è necessario:
 
    * **Server**: è consigliabile selezionare prima di tutto il server.  
    * **Nome database**: nome che verrà usato per fare riferimento a SQL Data Warehouse.  Il nome deve essere univoco per il server.
-   * **Prestazioni**: è consigliabile iniziare con 400 [DWU][DWU]. È possibile spostare il dispositivo di scorrimento a sinistra o a destra per regolare le prestazioni del data warehouse oppure aumentare o ridurre le prestazioni dopo la creazione.  Per altre informazioni sulle DWU, vedere la documentazione sul [ridimensionamento](sql-data-warehouse-manage-compute-overview.md) o la [pagina dei prezzi][Prezzi di SQL Data Warehouse].
+   * **Prestazioni**: è consigliabile iniziare con 400 [DWU][DWU]. È possibile spostare il dispositivo di scorrimento a sinistra o a destra per regolare le prestazioni del data warehouse oppure aumentare o ridurre le prestazioni dopo la creazione.  Per altre informazioni sulle DWU, vedere la documentazione sul [ridimensionamento](sql-data-warehouse-manage-compute-overview.md) o la [pagina relativa ai prezzi][SQL Data Warehouse pricing].
    * **Sottoscrizione**: selezionare la [sottoscrizione] per la fatturazione di questa istanza di SQL Data Warehouse.
-   * **Gruppo di risorse**: i [Gruppo di risorses][Gruppo di risorse] sono contenitori progettati per semplificare la gestione di una raccolta di risorse di Azure. Altre informazioni sui [gruppi di risorse](../azure-resource-manager/resource-group-overview.md).
+   * **Gruppo di risorse**: i [gruppi di risorse][Resource group] sono contenitori progettati per semplificare la gestione di una raccolta di risorse di Azure. Altre informazioni sui [gruppi di risorse](../azure-resource-manager/resource-group-overview.md).
    * **Selezionare l'origine**: fare clic su **Selezionare l'origine** > **Esempio**. Azure inserisce automaticamente AdventureWorksDW per l'opzione **Selezionare l'esempio selezionare** .
 
-> [!NOTE]
-> Le regole di confronto predefinite per un'istanza di SQL Data Warehouse sono SQL_Latin1_General_CP1_CI_AS. Se sono necessarie regole di confronto diverse, è possibile usare [T-SQL][T-SQL] per creare il database con regole di confronto diverse.
->
->
+   > [!NOTE]
+   > Le regole di confronto predefinite per un'istanza di SQL Data Warehouse sono SQL_Latin1_General_CP1_CI_AS. Se sono necessarie regole di confronto diverse, è possibile usare [T-SQL][T-SQL] per creare il database con altre regole di confronto.
+   >
+   >
 
 1. Fare clic su **Crea** per creare l'istanza di SQL Data Warehouse.
 2. Attendere alcuni minuti. Quando il data warehouse è pronto, verrà visualizzato di nuovo il [portale di Azure](https://portal.azure.com). SQL Data Warehouse è disponibile nel dashboard, elencato tra i database SQL o nel gruppo di risorse usato per crearlo.
@@ -79,13 +79,13 @@ Se si sta cercando di eseguire la migrazione di un database esistente a SQL Data
 
 Le regole firewall possono anche essere configurate con Transact-SQL. Per altre informazioni, vedere [sp_set_firewall_rule][sp_set_firewall_rule] e [sp_set_database_firewall_rule][sp_set_database_firewall_rule].
 
-È anche opportuno vedere le [procedure consigliate][procedure consigliate].
+È anche opportuno vedere le [procedure consigliate][Best practices].
 
 <!--Article references-->
-[Creare un server logico del database SQL di Azure]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
-[Creare un server logico del database SQL di Azure con Powershell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[resource groups]: ../resource-group-template-deploy-portal.md
-[procedure consigliate]: sql-data-warehouse-best-practices.md
+[Create an Azure SQL Database logical server with the Azure portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
+[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[resource groups]: ../azure-resource-manager/resource-group-template-deploy-portal.md
+[Best practices]: sql-data-warehouse-best-practices.md
 [DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [sottoscrizione]: ../azure-glossary-cloud-terminology.md#subscription
 [resource group]: ../azure-glossary-cloud-terminology.md#resource-group
@@ -96,12 +96,12 @@ Le regole firewall possono anche essere configurate con Transact-SQL. Per altre 
 [sp_set_database_firewall_rule]: https://msdn.microsoft.com/library/dn270010.aspx
 
 <!--Other Web references-->
-[Prezzi di SQL Data Warehouse]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
-[versione di valutazione gratuita]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
-[Crediti Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+[SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
+[MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

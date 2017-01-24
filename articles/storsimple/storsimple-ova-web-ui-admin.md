@@ -1,25 +1,29 @@
 ---
-title: Amministrazione dell'interfaccia utente Web dell'array virtuale StorSimple | Microsoft Docs
-description: Viene illustrato come eseguire attività di amministrazione di base del dispositivo tramite l'interfaccia utente Web dell'array virtuale StorSimple.
+title: Amministrazione dell&quot;interfaccia utente Web dell&quot;array virtuale StorSimple | Microsoft Docs
+description: "Viene illustrato come eseguire attività di amministrazione di base del dispositivo tramite l&quot;interfaccia utente Web dell&quot;array virtuale StorSimple."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: ea65b4c7-a478-43e6-83df-1d9ea62916a6
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/07/2016
+ms.date: 12/1/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 6c5fa51bdaad808d90cac6c8b8adeafe7d1cafc9
+ms.openlocfilehash: 989e7b697f9b527df549fb32be18edd1d3c8d224
+
 
 ---
-# Usare l'interfaccia utente Web per amministrare StorSimple Virtual Array
+# <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Usare l'interfaccia utente Web per amministrare StorSimple Virtual Array
 ![flusso del processo di installazione](./media/storsimple-ova-web-ui-admin/manage4.png)
 
-## Panoramica
+## <a name="overview"></a>Panoramica
 Le esercitazioni in questo articolo si applicano a Microsoft Azure StorSimple Virtual Array (noto anche come dispositivo virtuale locale StorSimple) che esegue la versione di disponibilità generale (GA) di marzo 2016. Questo articolo illustra una parte dei flussi di lavoro e delle attività di gestione complessi eseguibili sull'array virtuale StorSimple. È possibile gestire StorSimple Virtual Array usando l'interfaccia utente del servizio StorSimple Manager (interfaccia utente del portale) e l'interfaccia utente Web locale per il dispositivo. Questo articolo è incentrato sulle attività che è possibile eseguire con l'interfaccia utente Web.
 
 L'articolo include le esercitazioni seguenti:
@@ -29,21 +33,21 @@ L'articolo include le esercitazioni seguenti:
 * Generare un pacchetto di log
 * Arrestare o riavviare il dispositivo
 
-## Ottenere la chiave DEK del servizio
+## <a name="get-the-service-data-encryption-key"></a>Ottenere la chiave DEK del servizio
 Una chiave DEK del servizio viene generata quando si registra il primo dispositivo con il servizio StorSimple Manager. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio StorSimple Manager.
 
 Se la chiave DEK del servizio è stata smarrita ed è necessario recuperarla, eseguire i passaggi seguenti nell'interfaccia utente Web locale del dispositivo registrato con il servizio.
 
-#### Per ottenere la chiave DEK del servizio
+#### <a name="to-get-the-service-data-encryption-key"></a>Per ottenere la chiave DEK del servizio
 1. Connettersi all'interfaccia utente Web locale. Passare a **Configurazione** > **Impostazioni cloud**.
 2. Nella parte inferiore della pagina fare clic su **Ottieni chiave DEK del servizio**. Viene visualizzata una chiave. Copiare e salvare questa chiave.
    
     ![ottenere la chiave DEK del servizio 1](./media/storsimple-ova-web-ui-admin/image27.png)
 
-## Risolvere i problemi relativi agli errori di installazione dell'interfaccia utente Web
+## <a name="troubleshoot-web-ui-setup-errors"></a>Risolvere i problemi relativi agli errori di installazione dell'interfaccia utente Web
 In alcuni casi, quando si configura il dispositivo tramite l'interfaccia utente Web locale, è possibile riscontrare alcuni errori. Per diagnosticare e risolvere questi errori, è possibile eseguire i test di diagnostica.
 
-#### Per eseguire i test di diagnostica
+#### <a name="to-run-the-diagnostic-tests"></a>Per eseguire i test di diagnostica
 1. Nell'interfaccia utente Web locale passare a **Risoluzione dei problemi** > **Test diagnostici**.
    
     ![eseguire diagnostica 1](./media/storsimple-ova-web-ui-admin/image29.png)
@@ -52,10 +56,10 @@ In alcuni casi, quando si configura il dispositivo tramite l'interfaccia utente 
    
     ![eseguire diagnostica 2](./media/storsimple-ova-web-ui-admin/image30.png)
 
-## Generare un pacchetto di log
+## <a name="generate-a-log-package"></a>Generare un pacchetto di log
 Un pacchetto di log è costituito da tutti i log rilevanti utili al supporto tecnico Microsoft nella risoluzione dei problemi del dispositivo. In questa versione, un pacchetto di log può essere generato tramite l'interfaccia utente Web locale.
 
-#### Per generare il pacchetto di log
+#### <a name="to-generate-the-log-package"></a>Per generare il pacchetto di log
 1. Nell'interfaccia utente Web locale passare a **Risoluzione dei problemi** > **Log di sistema**.
    
     ![generare pacchetto di log 1](./media/storsimple-ova-web-ui-admin/image31.png)
@@ -71,15 +75,15 @@ Un pacchetto di log è costituito da tutti i log rilevanti utili al supporto tec
     ![generare pacchetto di log 4](./media/storsimple-ova-web-ui-admin/image34.png)
 4. È possibile decomprimere il pacchetto di log scaricato e visualizzare i file di log del sistema.
 
-## Arrestare e riavviare il dispositivo
-È possibile arrestare o riavviare il dispositivo virtuale tramite l'interfaccia utente Web locale. Prima di riavviare, si consiglia di portare offline i volumi o le condivisioni sull'host e quindi sul dispositivo. Questa operazione consente di eliminare qualsiasi rischio di danneggiamento dei dati.
+## <a name="shut-down-and-restart-your-device"></a>Arrestare e riavviare il dispositivo
+È possibile arrestare o riavviare il dispositivo virtuale tramite l'interfaccia utente Web locale. Prima di riavviare, si consiglia di portare offline i volumi o le condivisioni sull'host e quindi sul dispositivo. Questa operazione consente di eliminare qualsiasi  rischio di danneggiamento dei dati. 
 
-#### Per arrestare il dispositivo virtuale
+#### <a name="to-shut-down-your-virtual-device"></a>Per arrestare il dispositivo virtuale
 1. Nell'interfaccia utente Web locale passare a **Manutenzione** > **Impostazioni di risparmio energia**.
 2. Nella parte inferiore della pagina fare clic su **Arresto**.
    
     ![arresto del dispositivo 1](./media/storsimple-ova-web-ui-admin/image36.png)
-3. Verrà visualizzato un avviso per segnalare che l'arresto del dispositivo interromperà ogni IO in corso, causando un periodo di inattività. Fare clic sull’icona del segno di spunta ![icona del segno di spunta](./media/storsimple-ova-web-ui-admin/image3.png).
+3. Verrà visualizzato un avviso per segnalare che l'arresto del dispositivo interromperà ogni IO in corso, causando un periodo di inattività. Fare clic sull’icona del segno di spunta  ![icona del segno di spunta](./media/storsimple-ova-web-ui-admin/image3.png).
    
     ![avviso di arresto del dispositivo](./media/storsimple-ova-web-ui-admin/image37.png)
    
@@ -89,12 +93,12 @@ Un pacchetto di log è costituito da tutti i log rilevanti utili al supporto tec
    
     Il dispositivo viene ora arrestato. Se si desidera avviare il dispositivo, è necessario farlo tramite la console di gestione Hyper-V.
 
-#### Per riavviare il dispositivo virtuale
+#### <a name="to-restart-your-virtual-device"></a>Per riavviare il dispositivo virtuale
 1. Nell'interfaccia utente Web locale passare a **Manutenzione** > **Impostazioni di risparmio energia**.
 2. Nella parte inferiore della pagina fare clic su **Riavvia**.
    
     ![riavvio del dispositivo](./media/storsimple-ova-web-ui-admin/image36.png)
-3. Viene visualizzato un avviso in cui si informa che il riavvio del dispositivo interromperà ogni IO in corso, causando un tempo di inattività. Fare clic sull’icona del segno di spunta ![icona del segno di spunta](./media/storsimple-ova-web-ui-admin/image3.png).
+3. Viene visualizzato un avviso in cui si informa che il riavvio del dispositivo interromperà ogni IO in corso, causando un tempo di inattività. Fare clic sull’icona del segno di spunta  ![icona del segno di spunta](./media/storsimple-ova-web-ui-admin/image3.png).
    
     ![avviso di riavvio](./media/storsimple-ova-web-ui-admin/image37.png)
    
@@ -104,7 +108,12 @@ Un pacchetto di log è costituito da tutti i log rilevanti utili al supporto tec
    
     Durante il riavvio, si perde la connessione all'interfaccia utente. È possibile monitorare il riavvio aggiornando periodicamente l'interfaccia utente. In alternativa, è possibile monitorare lo stato di riavvio del dispositivo tramite la console di gestione Hyper-V.
 
-## Passaggi successivi
-Informazioni su come [Utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
+## <a name="next-steps"></a>Passaggi successivi
+Informazioni su come [Utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-virtual-array-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+
+<!--HONumber=Dec16_HO1-->
+
+

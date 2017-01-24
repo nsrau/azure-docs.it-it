@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/25/2016
+ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 8131002ba48a85b5116f13aa72d713526b56ac0a
-ms.openlocfilehash: 20ca7cad38537be3f7f8dce9f9ac24ce82f85e79
+ms.sourcegitcommit: ab9c4bc6e2e68a3522bbc3fe23ea33760f03b620
+ms.openlocfilehash: fe40bc372a63735b0130bcbb115c312fa2e45fa6
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 20ca7cad38537be3f7f8dce9f9ac24ce82f85e79
 
 Quando si crea un cluster di Spark in HDInsight, si creano risorse di calcolo di Azure con Spark installato e configurato. Bastano circa dieci minuti per creare un cluster di Spark in HDInsight. I dati per la varianza sono archiviati nell'archivio BLOB di Azure. Vedere [Use Azure Blob Storage with HDInsight][hdinsight-storage] (Usare Archiviazione BLOB di Azure con HDInsight).
 
-![Apache Spark in Azure HDInsight](./media/hdinsight-apache-spark-overview/hdispark.architecture.png "Apache Spark on Azure HDInsight")
+![Apache Spark in Azure HDInsight](./media/hdinsight-apache-spark-overview/hdispark.architecture.png "Apache Spark in Azure HDInsight")
 
 **Si vuole iniziare a usare Apache Spark in Azure HDInsight?** Vedere [Guida introduttiva: creare un cluster di Spark in HDInsight ed eseguire applicazioni di esempio usando Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
 
@@ -43,7 +43,7 @@ Azure HDInsight offre un servizio Spark completamente gestito. I vantaggi dell'u
 | Facilità di creazione dei cluster |È possibile creare un nuovo cluster Spark in HDInsight in pochi minuti mediante il portale di gestione di Azure, Azure PowerShell o l’SDK HDInsight .NET. Vedere [Introduzione ai cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) |
 | Semplicità d'uso |I cluster Spark in HDInsight includono i notebook Jupyter preconfigurati. È possibile usarli per la visualizzazione e l'elaborazione interattiva di dati. L'URL per il notebook Jupyter è https://CLUSTERNAME.azurehdinsight.net/jupyter. Sostituire **CLUSTERNAME** con il nome del cluster Spark HDInsight. |
 | API REST |Spark in HDInsight include [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), un server di processo Spark basato su REST-API per inviare e monitorare i processi in esecuzione in modalità remota. |
-| Supporto per Archivio Azure Data Lake |Spark in HDInsight può essere configurato per usare Archivio Azure Data Lake come risorsa di archiviazione aggiuntiva. Per altre informazioni su Archivio Data Lake, vedere [Panoramica di Archivio Azure Data Lake](../data-lake-store/data-lake-store-overview.md). |
+| Supporto per Archivio Azure Data Lake |È possibile configurare Spark in HDInsight per l'uso di Azure Data Lake Store come spazio di archiviazione aggiuntivo o come risorsa di archiviazione primaria (solo con cluster HDInsight 3.5). Per altre informazioni su Archivio Data Lake, vedere [Panoramica di Archivio Azure Data Lake](../data-lake-store/data-lake-store-overview.md). |
 | Integrazione con servizi di Azure |Spark in HDInsight viene fornito con un connettore per Hub eventi di Azure. Gli utenti possono creare applicazioni di streaming mediante Hub eventi, oltre a [Kafka](http://kafka.apache.org/)che è già disponibile come parte di Spark. |
 | Supporto per R Server |È possibile impostare R Server in un cluster HDInsight Spark per eseguire calcoli R distribuiti con la velocità garantita da un cluster Spark. Per altre informazioni, vedere [Introduzione all'uso di R Server su HDInsight](hdinsight-hadoop-r-server-get-started.md). |
 | Integrazione con IntelliJ IDEA |È possibile usare il plug-in HDInsight per IntelliJ per creare e inviare applicazioni a un cluster HDInsight Spark. Per altre informazioni, vedere [Use HDInsight Tools Plugin for IntelliJ IDEA to create Spark applications for HDInsight Spark Linux cluster](hdinsight-apache-spark-intellij-tool-plugin.md)(Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per creare applicazioni Spark per il cluster HDInsight Spark Linux). |
@@ -115,6 +115,6 @@ Iniziare con la creazione di un cluster Spark in HDInsight Linux. Vedere [Guida 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

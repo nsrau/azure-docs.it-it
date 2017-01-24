@@ -6,18 +6,18 @@ documentationcenter:
 author: mgoedtel
 manager: jwhit
 editor: 
-keywords: "nome entità servizio, setspn, autenticazione di Azure"
+keywords: "nome dell&quot;entità servizio, setspn, autenticazione di Azure"
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 01/05/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1e7529de2968b2745b42001cc16b54d70b2a5b86
+ms.sourcegitcommit: aec8fd057bd31fc933d19996567437b2a897623b
+ms.openlocfilehash: 889c9a53e3ce454ee9ac9fc0f24b2ff8244e87c6
 
 
 ---
@@ -54,7 +54,7 @@ Prima di procedere, è consigliabile comprendere e considerare alcuni aspetti.
 La procedura descritta in questa sezione consente di creare un nuovo account di Automazione di Azure dal portale di Azure.  Vengono così creati l'account RunAs e l'account RunAs classico.  
 
 > [!NOTE]
-> L'utente che esegue questa procedura *deve* essere membro del ruolo Amministratori della sottoscrizione e coamministratore della sottoscrizione che concede l'accesso alla sottoscrizione per l'utente.  Deve anche essere aggiunto come utente alla directory di Active Directory predefinita della sottoscrizione. Non è necessario che all'account sia assegnato un ruolo con privilegi.
+> L'utente che segue questa procedura deve essere membro del ruolo Amministratori del servizio o coamministratore della sottoscrizione che concede l'accesso alla sottoscrizione per l'utente. Deve anche essere aggiunto come utente alla directory di Active Directory predefinita della sottoscrizione. Non è necessario che all'account sia assegnato un ruolo con privilegi. Gli utenti che non sono membri dell'istanza di Active Directory della sottoscrizione prima dell'aggiunta al ruolo di coamministratore della sottoscrizione verranno aggiunti ad Active Directory come guest e riceveranno un avviso di "autorizzazioni non sufficienti" nel pannello **Aggiungi account di Automazione**. Gli utenti che prima sono stati aggiunti al ruolo di coamministratore possono essere rimossi dall'istanza di Active Directory della sottoscrizione e aggiunti nuovamente per renderli utenti completi in Active Directory. Per verificare questa situazione è possibile usare il riquadro **Azure Active Directory** nel portale di Azure. A tale scopo selezionare **Utenti e gruppi**, **Tutti gli utenti**, selezionare l'utente specifico e quindi scegliere **Profilo**.  Il valore dell'attributo **Tipo utente** nel profilo utente non deve essere **Guest**.  
 > 
 > 
 
@@ -137,7 +137,7 @@ Prima di procedere, verificare quanto segue:
 
 1. È stato scaricato e installato [Windows Management Framework (WMF) 4.0](https://www.microsoft.com/download/details.aspx?id=40855) , se si esegue Windows 7.   
     Se si esegue Windows Server 2012 R2, Windows Server 2012, Windows 2008 R2, Windows 8.1 o Windows 7 SP1, è disponibile per l'installazione [Windows Management Framework 5.0](https://www.microsoft.com/download/details.aspx?id=50395) .
-2. Azure PowerShell 1.0. Per informazioni su questa versione e su come installarla, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+2. Azure PowerShell 1.0. Per informazioni su questa versione e su come installarla, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 3. È stato creato un account di automazione.  A questo account verrà fatto riferimento come valore per i parametri -AutomationAccountName e -ApplicationDisplayName in entrambi gli script riportati più avanti in questo articolo.
 
 Per ottenere i valori per *SubscriptionID*, *ResourceGroup* e *AutomationAccountName*, che costituiscono parametri obbligatori per gli script, nel portale di Azure selezionare l'account di Automazione nel pannello **Account di automazione** e quindi **Tutte le impostazioni**.  Nel pannello **Tutte le impostazioni** selezionare **Proprietà** in **Impostazioni account**.  Nel pannello **Proprietà** è possibile prendere nota di questi valori.<br> ![Proprietà dell'account di Automazione](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
@@ -394,6 +394,6 @@ Si noti che il cmdlet usato per l'autenticazione nel runbook (**Add-AzureRmAccou
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

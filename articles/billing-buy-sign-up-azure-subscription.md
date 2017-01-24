@@ -4,7 +4,7 @@ description: Descrive come acquistare o iscriversi per ottenere una sottoscrizio
 services: 
 documentationcenter: 
 author: genlin
-manager: mbaldwin
+manager: adpick
 editor: 
 tags: billing,top-support-issue
 ms.assetid: 71fc2b94-4da1-460c-9aa9-3cfe29cda035

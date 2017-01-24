@@ -12,18 +12,18 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4c8982461142223f0b339fa542b0bfb6b4ce68a8
+ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
+ms.openlocfilehash: 20af9a9bfa1086d13a770e4cd7cd8c58a8060b0b
 
 
 ---
 # <a name="create-a-web-app-plus-redis-cache-using-a-template"></a>Creare un’app Web più Cache Redis utilizzando un modello
 In questo argomento viene illustrato come creare un modello di Gestione risorse di Azure che consente di distribuire un'app Web di Azure con Cache Redis. Verrà illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
 
-Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
+Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Per il modello completo, vedere l’articolo relativo all’ [app Web con modello Cache Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json).
 
@@ -43,7 +43,7 @@ Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 [!INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
 ## <a name="variables-for-names"></a>Variabili per i nomi
-Questo modello si serve di variabili per costruire i nomi delle risorse. Tramite la funzione [uniqueString](../resource-group-template-functions.md#uniquestring) viene creato un valore in base all'ID del gruppo di risorse.
+Questo modello si serve di variabili per costruire i nomi delle risorse. Tramite la funzione [uniqueString](../azure-resource-manager/resource-group-template-functions.md#uniquestring) viene creato un valore in base all'ID del gruppo di risorse.
 
     "variables": {
       "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -58,7 +58,7 @@ Questo modello si serve di variabili per costruire i nomi delle risorse. Tramite
 ### <a name="redis-cache"></a>Cache Redis
 Crea la Cache Redis di Azure che viene utilizzata con l'app Web. Il nome della cache è specificato nella variabile **cacheName** .
 
-Il modello crea la cache nella stessa posizione in cui si trova il gruppo di risorse. 
+Il modello crea la cache nella stessa posizione in cui si trova il gruppo di risorse.
 
     {
       "name": "[variables('cacheName')]",
@@ -128,8 +128,6 @@ Si noti che l'app Web è configurata con proprietà di impostazione dell’app c
 
 
 
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

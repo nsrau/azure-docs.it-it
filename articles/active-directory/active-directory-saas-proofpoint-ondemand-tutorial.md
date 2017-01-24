@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/05/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5c6129050dacf098fa60439175b91b3a2d219182
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7aa746b8c6f4b747a7dca0e9bf75e61b2707b7e1
 
 
 ---
@@ -222,6 +222,6 @@ Quando si fa clic sul riquadro **Proofpoint on Demand** nel pannello in accesso,
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

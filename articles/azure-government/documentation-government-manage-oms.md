@@ -8,8 +8,8 @@ author: sacha
 manager: jobruno
 editor: 
 translationtype: Human Translation
-ms.sourcegitcommit: ccbcf15eaf9b13625338ea1d66554eae7dc7d2eb
-ms.openlocfilehash: 0d010bb21d807239da37172bc2885ddadc5c8028
+ms.sourcegitcommit: 1f44321bc0ec33362c64da9a19d3309c45783ed2
+ms.openlocfilehash: fb38649d6f40e24849ba5a8de371b1c911089fc7
 
 ---
 
@@ -40,7 +40,7 @@ Per le macchine virtuali è sufficiente scaricare manualmente l'agente dall'area
 È anche possibile connetterle a livello di codice e/o configurare l'estensione OMS nei modelli di Azure Resource Manager. Vedere le istruzioni per i computer basati su Windows [qui](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents) e per quelli basati su Linux [qui](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-linux-agents).
 
 ## <a name="onboarding-storage-accounts-and-scom-to-oms"></a>Onboarding di account di archiviazione e SCOM in OMS
-OMS può anche connettersi all'account di archiviazione e/o alle distribuzioni di SCOM 2013 esistenti per consentire la gestione delle operazioni in scenari ibridi (in provider di servizi cloud o in infrastrutture cloud/locali).
+OMS può anche connettersi all'account di archiviazione e/o alle distribuzioni di System Center Operations Manager esistenti per consentire la gestione delle operazioni in scenari ibridi (in provider di servizi cloud o in infrastrutture cloud/locali).
 
 ![Figura 2: Connessione di Archiviazione di Azure e SCOM a OMS](./media/documentation-government-oms-figure2.png)
 <p align="center">Figura 2: Connessione di Archiviazione di Azure e SCOM a OMS</p>
@@ -105,6 +105,6 @@ Per altre informazioni su OMS, vedere la pagina della documentazione all'indiriz
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

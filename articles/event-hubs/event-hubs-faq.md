@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/01/2016
+ms.date: 12/07/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eb8a1f5b46ed5bfbdc61789ffc48a79927d9c19d
+ms.sourcegitcommit: a584086e459c5446a814bbca3e50ac343fa9201e
+ms.openlocfilehash: f7b3974bf789df8c87254cc4186d8c7c85282aaa
 
 
 ---
@@ -71,16 +71,8 @@ Per i mittenti, i costi di connessione si applicano solo quando viene utilizzato
 Il livello Standard di Hub eventi offre funzionalità superiori a quelle disponibili con il livello Basic e con alcuni sistemi della concorrenza. Le funzionalità includono periodi di conservazione superiori a 24 ore e la possibilità di usare una singola connessione AMQP per inviare comandi a un numero elevato di dispositivi con latenze inferiori al secondo, oltre a inviare dati di telemetria da tali dispositivi a Hub eventi. Per l'elenco delle funzionalità, vedere i [dettagli dei prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## <a name="geographic-availability"></a>Disponibilità a livello geografico
-Hub eventi è disponibile nelle seguenti aree:
 
-| Area geografica | Regioni |
-| --- | --- |
-| Stati Uniti |Stati Uniti centrali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centro-meridionali, Stati Uniti occidentali |
-| Europa |Europa settentrionale, Europa occidentale |
-| Asia/Pacifico |Asia orientale, Asia sudorientale |
-| Giappone |Giappone orientale, Giappone occidentale |
-| Brasile |Brasile meridionale |
-| Australia |Australia orientale, Australia sudorientale |
+Hub eventi di Azure è disponibile in tutte le aree di Azure supportate. Per un elenco, visitare la pagina [Aree di Azure][].  
 
 ## <a name="support-and-sla"></a>Contratto di servizio e supporto
 Il supporto tecnico per Hub eventi è disponibile tramite i [forum della community](https://social.msdn.microsoft.com/forums/azure/home). Il supporto per fatturazione e gestione delle sottoscrizioni viene fornito gratuitamente.
@@ -90,14 +82,15 @@ Per altre informazioni sul Contratto di servizio, visitare la pagina [Contratti 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni su Hub eventi, vedere i seguenti articoli:
 
-* [Panoramica di Hub eventi][Panoramica di Hub eventi].
-* [applicazione di esempio completa che usa Hub eventi][applicazione di esempio completa che usa Hub eventi]
+* [Panoramica di Hub eventi][Event Hubs overview].
+* Un' [applicazione di esempio completa che usa Hub eventi][sample application that uses Event Hubs].
 
-[Panoramica di Hub eventi]: event-hubs-overview.md
-[applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Event Hubs overview]: event-hubs-overview.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Aree di Azure]: https://azure.microsoft.com/regions/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

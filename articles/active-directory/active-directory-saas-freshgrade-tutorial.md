@@ -1,12 +1,12 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con FreshGrade | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e FreshGrade.
+title: 'Esercitazione: Integrazione di Azure Active Directory con FreshGrade | Documentazione Microsoft'
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e FreshGrade.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 1055bba6-f4df-462e-bc9b-1ad5ada0f638
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 07177be14dfdd4331bd23ac3eca4053782d77753
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-freshgrade"></a>Esercitazione: Integrazione di Azure Active Directory con FreshGrade
+# <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Esercitazione: Integrazione di Azure Active Directory con FreshGrade
 Questa esercitazione descrive come integrare FreshGrade con Azure Active Directory (Azure AD).
 
 L'integrazione di FreshGrade con Azure AD offre i vantaggi seguenti:
@@ -224,6 +228,6 @@ Quando si fa clic sul riquadro FreshGrade nel pannello di accesso, si accederà 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/02/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: e37eb89227ce8927f1c7f53306168962dce9b8f1
+ms.sourcegitcommit: 28bda592a685de4b2b938da21c3f3aa0a60e632d
+ms.openlocfilehash: 241a22429e8e0fbd2625292890baf4b2c3d77d81
 
 
 ---
@@ -122,7 +122,7 @@ Usare il modello seguente:
     "parameters": { 
       "org": { 
          "type": "array", 
-             "defaultValue": [ 
+         "defaultValue": [ 
              "Contoso", 
              "Fabrikam", 
              "Coho" 
@@ -168,13 +168,13 @@ L'elemento **dependsOn** consente di specificare che una risorsa sia distribuita
                      "count": 3 
                   }
             },
-           {
-               "apiVersion": "2015-06-15", 
-               "type": "Microsoft.Compute/virtualMachines", 
-               "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
-               "dependsOn": ["storagecopy"],
-               ...
-           }
+            {
+                "apiVersion": "2015-06-15", 
+                "type": "Microsoft.Compute/virtualMachines", 
+                "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
+                "dependsOn": ["storagecopy"],
+                ...
+            }
         ],
         "outputs": {}
     }
@@ -428,7 +428,7 @@ Nella sezione delle risorse distribuire più istanze del modello che definisce i
 },
 ```
 
-Nella stessa sezione distribuire più istanze della macchina virtuale. Per i dischi dati, fare riferimento alla distribuzione nidificata che contiene il numero e i nomi corretti dei dischi dati.
+Nella stessa sezione distribuire più istanze della macchina virtuale. Per i dischi dati, fare riferimento alla distribuzione annidata che contiene il numero e i nomi corretti dei dischi dati.
 
 ```
 {
@@ -556,6 +556,6 @@ A questo punto, creare un modello padre che dispone di un'istanza statica del mo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

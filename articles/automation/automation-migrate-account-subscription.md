@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 98f5a017221f0aaba04e2b90afc674e4c42d1bb3
-ms.openlocfilehash: 1c768e4e09f2b452804c65f751963a8d0c312c64
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 687da15bdaf854254321b59350f47549781676f5
 
 
 ---
 # <a name="migrate-automation-account-and-resources"></a>Eseguire la migrazione delle risorse e dell’account di Automazione
-Per gli account di Automazione e le risorse associate (ad esempio asset, runbook, moduli, e così via) creati nel portale di Azure per i quali si vuole eseguire la migrazione da un gruppo di risorse a un altro o da una sottoscrizione a un'altra, è possibile farlo facilmente grazie alla funzionalità per [spostare le risorse](../resource-group-move-resources.md) disponibile nel portale di Azure. Tuttavia, prima di procedere, è necessario rivedere il [Controllo prima di spostare le risorse](../azure-resource-manager/resource-group-move-resources.md#checklist-before-moving-resources) e, in più, l'elenco seguente specifico per Automazione.   
+Per gli account di Automazione e le risorse associate (ad esempio asset, runbook, moduli, e così via) creati nel portale di Azure per i quali si vuole eseguire la migrazione da un gruppo di risorse a un altro o da una sottoscrizione a un'altra, è possibile farlo facilmente grazie alla funzionalità per [spostare le risorse](../azure-resource-manager/resource-group-move-resources.md) disponibile nel portale di Azure. Tuttavia, prima di procedere, è necessario rivedere il [Controllo prima di spostare le risorse](../azure-resource-manager/resource-group-move-resources.md#checklist-before-moving-resources) e, in più, l'elenco seguente specifico per Automazione.   
 
 1. Il gruppo di risorse/sottoscrizioni di destinazione deve essere nella stessa area di origine.  Pertanto, gli account di Automazione non possono essere spostati tra le aree.
 2. Durante lo spostamento di risorse (ad es. runbook, processi, ecc.), sia il gruppo di origine che il gruppo di destinazione sono bloccati per la durata dell'operazione. Le operazioni di scrittura ed eliminazione sono bloccate nei gruppi fino al completamento dello spostamento.  
@@ -61,13 +61,13 @@ Per eseguire lo spostamento in una nuova sottoscrizione, includere un valore per
 Come per l’esempio precedente, viene chiesto di confermare l’operazione di spostamento.  
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per altre informazioni sullo spostamento delle risorse in un nuovo gruppo di risorse o sottoscrizione, vedere [Spostare le risorse in un nuovo gruppo di risorse o sottoscrizione](../resource-group-move-resources.md)
+* Per altre informazioni sullo spostamento delle risorse in un nuovo gruppo di risorse o sottoscrizione, vedere [Spostare le risorse in un nuovo gruppo di risorse o sottoscrizione](../azure-resource-manager/resource-group-move-resources.md)
 * Per altre informazioni sul controllo degli accessi in base al ruolo in Automazione di Azure, vedere [Controllo degli accessi in base al ruolo in Automazione di Azure](automation-role-based-access-control.md).
-* Per informazioni sui cmdlet di PowerShell per la gestione della sottoscrizione, vedere [Uso di Azure PowerShell con Resource Manager](../powershell-azure-resource-manager.md)
-* Per informazioni sulle funzionalità del portale per la gestione della sottoscrizione, vedere [Gestire le risorse mediante il Portale di Azure](../azure-portal/resource-group-portal.md).
+* Per informazioni sui cmdlet di PowerShell per la gestione della sottoscrizione, vedere [Uso di Azure PowerShell con Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
+* Per informazioni sulle funzionalità del portale per la gestione della sottoscrizione, vedere [Gestire le risorse mediante il Portale di Azure](../azure-resource-manager/resource-group-portal.md).
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

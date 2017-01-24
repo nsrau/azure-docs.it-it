@@ -13,10 +13,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 10/08/2015
-ms.author: cawaMS
+ms.author: cawa
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2d0009e23a9eb3a87628c8b4b70ba1d00f8a4fa2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a02d3840555df0d9c16d179023b3bc763274701a
 
 
 ---
@@ -41,7 +41,7 @@ La finestra di dialogo **Selezionare Cluster di Infrastruttura di servizi** cons
 1. Assicurarsi che sia possibile accedere a uno dei certificati client attendibili per il cluster di destinazione. Il certificato viene condiviso in genere come un file di scambio di informazioni personali (.pfx). Vedere [Configurazione di cluster di infrastruttura di servizi dal portale di Azure](service-fabric-cluster-creation-via-portal.md) per informazioni su come configurare il server e garantire l'accesso a un client.
 2. Installare il certificato attendibile. A tale scopo, fare doppio clic sul file .pfx, o usare lo script di PowerShell Import-PfxCertificate per importare i certificati. Installare il certificato in **Cert:\LocalMachine\My**. È anche possibile accettare tutte le impostazioni predefinite durante l'importazione del certificato.
 3. Scegliere il comando **Pubblica...** nel menu di scelta rapida del progetto per aprire la finestra di dialogo **Pubblica applicazione Azure** e quindi selezionare il cluster di destinazione. Lo strumento automaticamente risolve la connessione e salva i parametri di connessione protetta nel profilo di pubblicazione.
-4. [Facoltativo]: You can edit the publish profile to specify a secure cluster connection.
+4. [Optional]: You can edit the publish profile to specify a secure cluster connection.
    
    Poiché si sta modificando manualmente il file XML del profilo di pubblicazione per specificare le informazioni del certificato, assicurarsi di prendere nota del nome di archivio del certificati, la posizione dell’archivio e l’identificazione personale del certificato. È necessario fornire questi valori per il nome dell'archivio del certificato e il percorso dell'archivio. Per altre informazioni, vedere [Procedura: recuperare l'identificazione personale di un certificato](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx).
    
@@ -53,7 +53,7 @@ La finestra di dialogo **Selezionare Cluster di Infrastruttura di servizi** cons
    
    Di seguito è riportato un esempio per la connessione a un cluster protetto basato sul certificato x509:
    
-   ```
+   ```xml
    <ClusterConnectionParameters
    ConnectionEndpoint="mycluster.westus.cloudapp.azure.com:19000"
    X509Credential="true"
@@ -74,6 +74,6 @@ Per ulteriori informazioni sull'accesso ai cluster di Infrastruttura di servizi,
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

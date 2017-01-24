@@ -1,6 +1,6 @@
 ---
-title: Come eseguire un aggiornamento del firmware | Documentazione Microsoft
-description: Questa esercitazione illustra come eseguire un aggiornamento del firmware
+title: Aggiornamento firmware del dispositivo con l&quot;hub IoT di Azure (Node) | Documentazione Microsoft
+description: Come usare la gestione dei dispositivi nell&quot;hub IoT di Azure per avviare un aggiornamento del firmware del dispositivo. Usare Azure IoT SDK per Node.js per implementare un&quot;app per dispositivo simulato e un&quot;app di servizio che attiva l&quot;aggiornamento del firmware.
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -15,21 +15,21 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 632b9b38808e033b1fee2676b353f2649c4a282c
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: fdc8dca46f5bd0feb8e6ce24af32327be4c8ebb6
 
 
 ---
-# <a name="tutorial-how-to-do-a-firmware-update"></a>Esercitazione: Come eseguire un aggiornamento del firmware
+# <a name="use-device-management-to-initiate-a-device-firmware-update-node"></a>Usare la gestione dei dispositivi per avviare un aggiornamento del firmware del dispositivo (Node)
 ## <a name="introduction"></a>Introduzione
 Nell'esercitazione [Introduzione alla gestione dei dispositivi][lnk-dm-getstarted] è stato illustrato come usare il [dispositivo gemello][lnk-devtwin] e le primitive dei [metodi diretti][lnk-c2dmethod] per riavviare un dispositivo in modalità remota. Questa esercitazione usa le stesse primitive dell'hub IoT, offre indicazioni e illustra come eseguire un aggiornamento del firmware simulato completo.  Questo schema viene usato nell'implementazione dell'aggiornamento del firmware per il dispositivo di esempio Intel Edison.
 
 Questa esercitazione illustra come:
 
-* Creare un'applicazione console che chiama il metodo diretto firmwareUpdate nell'app per dispositivo simulato tramite l'hub IoT.
+* Creare un'app console Node.js che chiama il metodo diretto firmwareUpdate nell'app per dispositivo simulato tramite l'hub IoT.
 * Creare un'app per dispositivo simulato che implementa un metodo diretto firmwareUpdate che esegue un processo in più fasi che attende di scaricare l'immagine del firmware, la scarica e infine la applica.  Durante l'esecuzione di ogni fase, il dispositivo usa le proprietà segnalate per aggiornare lo stato.
 
-Al termine di questa esercitazione si avranno due applicazioni console Node.js:
+Al termine di questa esercitazione si avranno due app console Node.js:
 
 **dmpatterns_fwupdate_service.js**, che chiama un metodo diretto nell'app per dispositivo simulato, visualizza la risposta e visualizza regolarmente (ogni 500 ms) le proprietà segnalate aggiornate.
 
@@ -40,7 +40,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 * Node.js 0.12.x o versione successiva. <br/>  [Prepare your development environment][lnk-dev-setup] (Preparare l'ambiente di sviluppo) descrive come installare Node.js per questa esercitazione in Windows o Linux.
 * Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito][lnk-free-trial] in pochi minuti.
 
-Vedere l'articolo [Introduzione alla gestione dei dispositivi](iot-hub-node-node-device-management-get-started.md) per creare l'hub IoT e ottenere la stringa di connessione.
+Vedere l'articolo [Introduzione alla gestione dei dispositivi](iot-hub-node-node-device-management-get-started.md) per creare l'hub IoT e ottenere la stringa di connessione relativa.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -72,7 +72,7 @@ Questa sezione consente di:
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Aggiungere una variabile **connectionString** e usarla per creare un client dispositivo.  
+5. Aggiungere una variabile **connectionString** e usarla per creare un'istanza **Client**.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
@@ -359,12 +359,12 @@ Per informazioni su come estendere la soluzione IoT e pianificare le chiamate al
 [lnk-dm-getstarted]: iot-hub-node-node-device-management-get-started.md
 [lnk-tutorial-jobs]: iot-hub-node-node-schedule-jobs.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

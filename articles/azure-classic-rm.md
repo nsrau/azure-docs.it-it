@@ -1,5 +1,5 @@
 ---
-title: Modelli di distribuzione di Resource Manager e Service Management (versione classica) | Documentazione Microsoft
+title: Modelli di distribuzione di Resource Manager e Service Management (classica) | Documentazione Microsoft
 description: Comprendere le differenze tra i modelli di distribuzione Gestione risorse e Classico.
 services: virtual-network
 documentationcenter: 
@@ -7,6 +7,7 @@ author: telmosampaio
 manager: carmonm
 editor: 
 tags: azure-resource-manager,azure-service-management
+redirect_url: ./azure-resource-manager/resource-manager-deployment-model
 ms.assetid: 18a235d8-38ac-4886-9e56-b3855c73ffff
 ms.service: virtual-network
 ms.devlang: na
@@ -16,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: telmos
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: b08630777e9cb66e3baae24ad9befc93a47e65db
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: 0843651c8fcddbc171bb485ce9c96b53b170881d
 
 
 ---
@@ -54,7 +55,7 @@ Azure offre due portali:
 Alcune risorse e funzionalità possono essere create e configurate solo in un portale o nell'altro. Non è ancora possibile creare o configurare alcune risorse o funzionalità in entrambi i portali, ma solo con PowerShell, l'interfaccia della riga di comando o entrambi. La documentazione per ciascuna risorsa di Azure descrive nel dettaglio con quale metodo può essere creata. 
 
 ## <a name="powershell"></a>PowerShell
-Con [PowerShell](powershell-install-configure.md) è possibile usare una riga di comando o creare script per creare e configurare le risorse di Azure da un computer Windows.  Le singole risorse di Azure contengono [cmdlet di Resource Manager](https://msdn.microsoft.com/library/azure/mt125356.aspx), [cmdlet di Gestione dei servizi](https://msdn.microsoft.com/library/azure/dn708504.aspx) o entrambi.  Alcune risorse e funzionalità possono essere create e/o configurate solo usando PowerShell oppure l'interfaccia della riga di comando. A seconda della risorsa, quando si usano i cmdlet PowerShell di Gestione risorse potrebbero essere disponibili due opzioni per la creazione e la configurazione delle risorse di Azure:
+Con [PowerShell](/powershell/azureps-cmdlets-docs) è possibile usare una riga di comando o creare script per creare e configurare le risorse di Azure da un computer Windows.  Le singole risorse di Azure contengono [cmdlet di Resource Manager](https://msdn.microsoft.com/library/azure/mt125356.aspx), [cmdlet di Gestione dei servizi](https://msdn.microsoft.com/library/azure/dn708504.aspx) o entrambi.  Alcune risorse e funzionalità possono essere create e/o configurate solo usando PowerShell oppure l'interfaccia della riga di comando. A seconda della risorsa, quando si usano i cmdlet PowerShell di Gestione risorse potrebbero essere disponibili due opzioni per la creazione e la configurazione delle risorse di Azure:
 
 * **Solo cmdlet PowerShell:** è possibile creare e configurare singolarmente ciascuna risorsa di Azure usando i cmdlet per ogni risorsa. È possibile eseguire questa operazione dalla riga di comando o includendo più comandi in uno script di PowerShell archiviabile e la cui versione può essere controllata.
 * **Cmdlet PowerShell con un modello di Gestione risorse di Azure:** è possibile usare PowerShell per creare risorse di Azure con un modello di Gestione risorse di Azure. È possibile salvare i modelli e controllarne la versione. Per altre informazioni leggere l'articolo [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md) . Esistono anche diversi [modelli di Guida introduttiva](https://azure.microsoft.com/documentation/templates/) per soluzioni comuni che è possibile scaricare e modificare.
@@ -69,6 +70,6 @@ Con [PowerShell](powershell-install-configure.md) è possibile usare una riga di
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,22 +1,26 @@
 ---
-title: 'App Machine Learning: Servizio di rilevamento delle anomalie  | Microsoft Docs'
-description: API di rilevamento delle anomalie è un esempio compilato con Microsoft Azure Machine Learning che consente di rilevare anomalie nei dati della serie temporale con i valori numerici disposti in modo uniforme nel tempo.
+title: 'App Machine Learning: Servizio di rilevamento delle anomalie | Documentazione Microsoft'
+description: "API di rilevamento delle anomalie è un esempio compilato con Microsoft Azure Machine Learning che consente di rilevare anomalie nei dati della serie temporale con i valori numerici disposti in modo uniforme nel tempo."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: alokkirpal
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
 ms.devlang: na
-ms.topic: reference
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 10/11/2016
-ms.author: alokkirpal
+ms.author: alok
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: cbcd469f39b42d741d73f9d96daf17d011b7ebc7
+
 
 ---
-# <a name="machine-learning-anomaly-detection-service#"></a>Servizio di rilevamento delle anomalie Machine Learning
+# <a name="machine-learning-anomaly-detection-service"></a>Servizio di rilevamento delle anomalie Machine Learning
 ## <a name="overview"></a>Panoramica
 [API di rilevamento delle anomalie](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) è un esempio compilato con Azure Machine Learning che consente di rilevare anomalie nei dati della serie temporale con i valori numerici disposti in modo uniforme nel tempo. 
 
@@ -36,7 +40,7 @@ L'offerta per il rilevamento anomalie include strumenti utili per iniziare.
 > [!NOTE]
 > Provare la **soluzione IT Anomaly Insights** supportata da [questa API](https://datamarket.azure.com/dataset/aml_labs/anomalydetection)
 > 
-> Per distribuire questa soluzione end-to-end nella sottoscrizione di Azure <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank"> **Iniziare da qui >**</a>
+> Per distribuire questa soluzione end-to-end nella sottoscrizione di Azure <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Iniziare da qui >**</a>
 > 
 > 
 
@@ -139,10 +143,10 @@ La risposta alla richiesta sarà:
         "odata.metadata": "https://api.datamarket.azure.com/data.ashx/aml_labs/anomalydetection/v2/$metadata#AnomalyDetection.FrontEndService.Models.AnomalyDetectionResult",
         "ADOutput": "{
             "ColumnNames":["Time","OriginalData","ProcessedData","TSpike","ZSpike","PScore","PAlert","RPScore","RPAlert","TScore","TAlert"],
-            "ColumnTypes":["DateTime","Double","Double","Double","Double","Double","Int32","Double","Int32","Double","Int32"],
-            "Values":[
+              "ColumnTypes":["DateTime","Double","Double","Double","Double","Double","Int32","Double","Int32","Double","Int32"],
+              "Values":[
                 ["9/21/201411: 20: 00AM","10","10","0","0","-1.30229513613974","0","-1.30229513613974","0","-1.173800281031","0"]
-            ]
+              ]
         }"
     }
 
@@ -152,7 +156,7 @@ L'API di rilevamento anomalie supporta funzionalità di rilevamento in 3 categor
 | Categoria di rilevamento | Funzionalità di rilevamento | Descrizione | Parametri di input | Output |
 | --- | --- | --- | --- | --- |
 | Rilevamento picchi |Rilevamento picchi TSpike |Rileva picchi e flessioni in base alla distanza dei valori dal primo e dal terzi quartile |*tspikedetector.sensitivity:* accetta il valore intero nell'intervallo 1-10, predefinito: 3; i valori più elevati accetteranno valori più estremi, riducendo però la sensibilità |TSpike: valori binari, '1' se viene rilevato un picco o una flessione. In caso contrario '0'. |
-| Rilevamento picchi ZSpike |Rileva picchi e flessioni in base alla distanza dei punti dati dalla loro media |*tspikedetector.sensitivity:* accetta il valore intero nell'intervallo 1-10, predefinito: 3; i valori più elevati accetteranno valori più estremi, riducendo la sensibilità |ZSpike: valori binari, '1' se viene rilevato un picco o una flessione. In caso contrario '0'. | |
+| Rilevamento picchi ZSpike |Rileva picchi e flessioni in base alla distanza dei punti dati dalla loro media |*zspikedetector.sensitivity:* accetta il valore intero nell'intervallo 1-10, predefinito: 3; i valori più elevati accetteranno valori più estremi, riducendo la sensibilità |ZSpike: valori binari, '1' se viene rilevato un picco o una flessione. In caso contrario '0'. | |
 | Rilevamento di tendenza lenta |Rilevamento di tendenza lenta |Rileva la tendenza positiva lenta in base alla sensibilità impostata. |*trenddetector.sensitivity:* soglia relativa al punteggio di rilevamento. Impostazione predefinita: 3,25. I valori compresi tra 3,25 e 5 rappresentano un intervallo di selezione ragionevole. Più alto è il valore, minore sarà la sensibilità |tscore: numero mobile che rappresenta il punteggio dell'anomalia nella tendenza |
 | Rilevamento della modifica di livello |Rilevamento unidirezionale della modifica di livello |Rileva la modifica di livello verso l'alto in base alla sensibilità impostata. |*upleveldetector.sensitivity:* soglia relativa al punteggio di rilevamento. Impostazione predefinita: 3,25. I valori compresi tra 3,25 e 5 rappresentano un intervallo di selezione ragionevole. Più alto è il valore, minore sarà la sensibilità |pscore: numero mobile che rappresenta il punteggio dell'anomalia nella modifica di livello verso l'alto |
 | Rilevamento bidirezionale della modifica di livello |Rileva la modifica di livello verso l'alto e verso il basso in base alla sensibilità impostata. |*bileveldetector.sensitivity:* soglia relativa al punteggio di rilevamento. Impostazione predefinita: 3,25. I valori compresi tra 3,25 e 5 rappresentano un intervallo di selezione ragionevole. Più alto è il valore, minore sarà la sensibilità |RPScore: numero mobile che rappresenta il punteggio dell'anomalia nella modifica di livello verso l'alto e verso il basso | |
@@ -204,6 +208,6 @@ Questo output può essere analizzato con un [semplice parser](https://adresultpa
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: d0cae49b3d45be153daf53cd3ff352e25c447ed1
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 7618f94574fd02d29a55ccbe8723a0228ad64f7f
 
 
 ---
@@ -49,11 +49,11 @@ Le informazioni sono organizzate negli articoli seguenti:
   Questo articolo è un indice di servizi di Azure e offre collegamenti per il materiale sussidiario sul ripristino di emergenza e la progettazione.
 * [Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL](../sql-database/sql-database-business-continuity.md).
   Questo articolo illustra le tecniche del database SQL di Azure per la disponibilità. Tratta principalmente le strategie di backup e ripristino. Se si usa il database SQL Azure nel servizio cloud, è consigliabile esaminare questo documento e le relative risorse correlate.
-* [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md).
   Questo articolo descrive le opzioni di disponibilità presenti quando si usa l'infrastruttura distribuita come servizio (IaaS) per ospitare i servizi di database. Illustra Gruppi di disponibilità AlwaysOn, mirroring del database, log shipping e backup e ripristino. Numerose esercitazioni illustrano come usare queste tecniche.
 * [Procedure consigliate per la progettazione di servizi su larga scala nei servizi cloud di Azure](https://azure.microsoft.com//blog/best-practices-for-designing-large-scale-services-on-windows-azure/).
   Questo articolo è incentrato sullo sviluppo di architetture cloud altamente scalabili. Molte delle tecniche che si usano per migliorare la scalabilità migliorano anche la disponibilità. Se l'applicazione non è scalabile in caso di aumento del carico, la scalabilità diventa un problema di disponibilità.
-* [Backup e ripristino per SQL Server in Macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* [Backup e ripristino per SQL Server in Macchine virtuali di Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md).
   Questo articolo offre materiale sussidiario su come eseguire backup e ripristino di Microsoft SQL Server in Macchine virtuali di Azure.
 * [Failsafe: Guidance for resilient cloud architectures](https://channel9.msdn.com/Series/FailSafe)(FailSafe: Materiale sussidiario per architetture cloud resilienti).
   Questo articolo fornisce indicazioni per la creazione di architetture cloud resilienti, linee guida per implementare queste architetture nelle tecnologie Microsoft e soluzioni per l'implementazione di queste architetture per scenari specifici.
@@ -66,6 +66,6 @@ Questo articolo fa parte di una serie relativa al materiale sussidiario sulla re
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

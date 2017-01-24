@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: 7ee42899d1f50d562a8e776c840f0cbde12b13fe
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 09c4c9d43d6e29872ed6484b27334c8e9aa428b5
 
 
 ---
@@ -43,9 +43,10 @@ Questo argomento illustra come usare Servizi multimediali di Azure per crittogra
 >
 
 ## <a name="requirements-and-considerations"></a>Problemi e considerazioni
+
 * Se si usa AMS per distribuire contenuti HLS crittografati con FairPlay e licenze FairPlay, è necessario:
 
-  * Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+  * Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
   * Account di Servizi multimediali. Per creare un account di Servizi multimediali, vedere l'argomento relativo alla [creazione di un account](media-services-portal-create-account.md).
   * Eseguire l'iscrizione all' [Apple Development Program](https://developer.apple.com/).
   * Apple richiede che il proprietario del contenuto ottenga il [pacchetto di distribuzione](https://developer.apple.com/contact/fps/). Indicare nella richiesta che è già stato implementato il modulo KSM (Key Security Module) con Servizi multimediali di Azure e che si sta richiedendo il pacchetto FPS finale. Nel pacchetto FPS finale saranno presenti istruzioni per generare la certificazione e ottenere la chiave privata dell'applicazione (ASK) che verrà usata per configurare FairPlay.
@@ -162,8 +163,7 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
                 <add key="Audience" value="urn:test"/>
               </appSettings>
         </configuration>
-5. Ottenere almeno un'unità di streaming per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti. Per altre informazioni, vedere [Configurare gli endpoint di streaming](media-services-dotnet-get-started.md#configure-streaming-endpoints-using-the-azure-portal).
-6. Sovrascrivere il codice nel file Program.cs con il codice riportato in questa sezione.
+7. Sovrascrivere il codice nel file Program.cs con il codice riportato in questa sezione.
 
         using System;
         using System.Collections.Generic;
@@ -566,6 +566,6 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,19 +1,23 @@
 ---
-title: Risoluzione dei problemi relativi alla ripetizione del training di un servizio Web classico di Azure Machine Learning | Microsoft Docs
+title: Risoluzione dei problemi relativi alla ripetizione del training di un servizio Web classico di Azure Machine Learning | Documentazione Microsoft
 description: Identificare e correggere i problemi comuni rilevati durante la ripetizione del training del modello per un servizio Web di Azure Machine Learning.
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: VDonGlover
 manager: raymondl
-editor: ''
-
+editor: 
+ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 01/11/2017
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 201b07536bcee58e2b7102379dff1c1c93c4b675
+ms.openlocfilehash: e8d9043630f16fa65902e11f459f85b5821a6a61
+
 
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>Risoluzione dei problemi relativi alla ripetizione del training di un servizio Web classico di Azure Machine Learning
@@ -36,7 +40,7 @@ Quando tutto è pronto, i passaggi principali da eseguire per ripetere il traini
 
 1. Chiamare il servizio Web di training: la chiamata è per il servizio Esecuzione batch, non per il servizio di richiesta-risposta. È possibile usare il codice C# di esempio nella pagina della guida dell'API per eseguire la chiamata. 
 2. Trovare i valori di *BaseLocation*, *RelativeLocation* e *SasBlobToken*: questi valori vengono restituiti nell'output dalla chiamata al servizio Web di training. 
-     ![Visualizzazione dell'output dell'esempio di ripetizione del training e dei valori di BaseLocation, RelativeLocation e SasBlobToken.][image6]
+   ![Visualizzazione dell'output dell'esempio di ripetizione del training e dei valori di BaseLocation, RelativeLocation e SasBlobToken.][image6]
 3. Aggiornare l'endpoint aggiunto dal servizio Web di assegnazione dei punteggi con il nuovo modello con training: usando il codice di esempio fornito in Ripetere il training dei modelli di Machine Learning a livello di codice, aggiornare il nuovo endpoint aggiunto al modello di assegnazione dei punteggi con il nuovo modello con training dal servizio Web di training.
 
 ## <a name="common-obstacles"></a>Ostacoli comuni
@@ -58,7 +62,7 @@ Per ottenere l'URL PATCH corretto:
 
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 2. Aprire la scheda Machine Learning. 
-    ![Scheda Machine Learning.][image4]
+   ![Scheda Machine Learning.][image4]
 3. Fare clic sul nome dell'area di lavoro, quindi su **Servizi Web**.
 4. Fare clic sul servizio Web di assegnazione dei punteggi in uso. Se il nome del servizio Web non è stato modificato, terminerà con [Scoring Exp.].
 5. Fare clic su **Aggiungi endpoint**.
@@ -88,7 +92,7 @@ Per verificare in quale servizio Web si trova l'endpoint, visitare il portale di
 
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 2. Aprire la scheda Machine Learning. 
-    ![Interfaccia utente dell'area di lavoro di Machine Learning.][image4]
+   ![Interfaccia utente dell'area di lavoro di Machine Learning.][image4]
 3. Selezionare l'area di lavoro.
 4. Fare clic su **Servizi Web**.
 5. Selezionare il servizio Web predittivo.
@@ -97,20 +101,21 @@ Per verificare in quale servizio Web si trova l'endpoint, visitare il portale di
 ### <a name="check-the-workspace-that-your-web-service-is-in-to-ensure-it-is-in-the-correct-region"></a>Controllare l'area di lavoro in cui si trova il servizio Web per assicurarsi che sia nell'area corretta
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 2. Scegliere Machine Learning dal menu.
-     ![Interfaccia utente dell'area di Machine Learning.][image4]
+   ![Interfaccia utente dell'area di Machine Learning.][image4]
 3. Verificare la posizione dell'area di lavoro.
 
 <!-- Image Links -->
 
-[Image1]: ./media/machine-learning-troubleshooting-retraining-a-model/ml-studio-tm-connnected-to-web-service-out.png
-[Image2]: ./media/machine-learning-troubleshooting-retraining-a-model/addEndpoint-output.png
-[Image3]: ./media/machine-learning-troubleshooting-retraining-a-model/azure-portal-update-resource.png
-[Image4]: ./media/machine-learning-troubleshooting-retraining-a-model/azure-portal-machine-learning-tab.png
-[Image5]: ./media/machine-learning-troubleshooting-retraining-a-model/ml-help-page-patch-url.png
-[Image6]: ./media/machine-learning-troubleshooting-retraining-a-model/retraining-output.png
-[Image7]: ./media/machine-learning-troubleshooting-retraining-a-model/web-services-tab.png
+[image1]: ./media/machine-learning-troubleshooting-retraining-a-model/ml-studio-tm-connnected-to-web-service-out.png
+[image2]: ./media/machine-learning-troubleshooting-retraining-a-model/addEndpoint-output.png
+[image3]: ./media/machine-learning-troubleshooting-retraining-a-model/azure-portal-update-resource.png
+[image4]: ./media/machine-learning-troubleshooting-retraining-a-model/azure-portal-machine-learning-tab.png
+[image5]: ./media/machine-learning-troubleshooting-retraining-a-model/ml-help-page-patch-url.png
+[image6]: ./media/machine-learning-troubleshooting-retraining-a-model/retraining-output.png
+[image7]: ./media/machine-learning-troubleshooting-retraining-a-model/web-services-tab.png
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Jan17_HO2-->
 
 

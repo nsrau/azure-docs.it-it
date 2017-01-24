@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 01/20/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 1f5bbbe4285c1635138d40af25cd0cb1d0177300
-ms.openlocfilehash: 76d0ba4334d647008b4b1508d231059d21d0f128
+ms.sourcegitcommit: 653c9a04016c0157b2107710e170ba63b3a499f7
+ms.openlocfilehash: 38f68d6df19d24492a234933e10d5d5cf34d1b23
 
 
 ---
@@ -43,7 +43,7 @@ Azure Analysis Services è compatibile con SQL Server 2016 Analysis Services Ent
 ## <a name="use-the-tools-you-already-know"></a>Usare gli strumenti noti
 ![Strumenti di sviluppo di Business Intelligence](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-Durante la creazione di modelli dati per Azure Analysis Services, usare gli stessi strumenti di SQL Server Analysis Services. Creare e distribuire i modelli tabulari usando le versioni più recenti di [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) o i modelli di [Azure Powershell](../powershell-install-configure.md) e [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+Durante la creazione di modelli dati per Azure Analysis Services, usare gli stessi strumenti di SQL Server Analysis Services. Creare e distribuire i modelli tabulari usando le versioni più recenti di [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) o i modelli di [Azure Powershell](/powershell/azureps-cmdlets-docs) e [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## <a name="connect-to-data-sources"></a>Connettersi alle origini dati
 I modelli dati distribuiti ai server in Azure supportano la connessione alle origini dati locali nell'organizzazione o nel cloud. Combinare i dati provenienti dall'ambiente locale e dalle origini dati cloud per una soluzione di Business Intelligence ibrida.
@@ -106,7 +106,7 @@ Per l'anteprima, le origini dati seguenti sono supportate nei modelli tabulari 1
 | --- | --- |
 | Database SQL |SQL Server |
 | SQL Data Warehouse |APS |
-| Oracle | |
+| Oracle | Oracle |
 | Teradata | |
 
 ### <a name="data-source-providers"></a>Provider di origini dati
@@ -123,6 +123,6 @@ Dopo aver ottenuto alcune informazioni su Azure Analysis Services, è possibile 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

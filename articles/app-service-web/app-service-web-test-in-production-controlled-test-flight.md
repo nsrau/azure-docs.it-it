@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/02/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 1a95c3589d5843635667007aaca8209eeae894c2
-ms.openlocfilehash: 4c5b76ec652035e8357765de87cb240e94b59a56
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 152b08cf72c48109f17b5c4715e4ca5fafbb1b7b
 
 
 ---
@@ -53,8 +53,8 @@ In questa esercitazione si apprenderà come combinare gli scenari seguenti per t
 > [!NOTE]
 > Per completare l'esercitazione, è necessario un account Azure.
 >
-> * È possibile [creare un account Azure gratuitamente](/pricing/free-trial/): si riceveranno crediti da usare per provare i servizi di Azure a pagamento e, anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio App Web.
-> * È possibile [attivare i benefici della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+> * È possibile [creare un account Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/): si riceveranno crediti da usare per provare i servizi di Azure a pagamento e, anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio App Web.
+> * È possibile [attivare i benefici della sottoscrizione Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 >
 > Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 >
@@ -351,14 +351,14 @@ Il servizio app di Azure consente alle piccole e medie imprese di testare le pro
 * [Agile Software Development con il servizio app di Azure](app-service-agile-software-development.md)
 * [Configurare ambienti di staging per le app Web nel servizio app di Azure](web-sites-staged-publishing.md)
 * [Distribuire un'applicazione complessa in modo prevedibile in Azure](app-service-deploy-complex-application-predictably.md)
-* [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md)
+* [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 * [JSONLint - Il validator JSON](http://jsonlint.com/)
 * [Diramazione Git - Diramazione e unione di base](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
-* [Azure PowerShell](../powershell-install-configure.md)
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Wiki del progetto Kudu](https://github.com/projectkudu/kudu/wiki)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

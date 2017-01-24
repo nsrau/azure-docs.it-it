@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 12/06/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b4bd777b454a68ee06bbc4dffaff91213d58f28c
+ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
+ms.openlocfilehash: 51cebc84593aec8d7c12dd4061b78354f785d153
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: b4bd777b454a68ee06bbc4dffaff91213d58f28c
 Il database SQL di Azure offre tre [livelli di servizio](sql-database-service-tiers.md): Basic, Standard e Premium. Ogni livello di servizio isola rigorosamente le risorse che possono essere usate dal database SQL e assicura prestazioni prevedibili per tale livello di servizio. In questo articolo sono disponibili indicazioni utili per scegliere il livello di servizio per l'applicazione. Viene illustrato anche come ottimizzare l'applicazione per ottenere il massimo dal database SQL di Azure.
 
 > [!NOTE]
-> Questo articolo è incentrato sulle indicazioni relative alle prestazioni per singoli database nel database SQL di Azure. Per indicazioni sulle prestazioni relative ai pool di database elastici, vedere [Considerazioni di prezzo e prestazioni per pool di database flessibili](sql-database-elastic-pool-guidance.md). Si noti, tuttavia, che è possibile applicare molte indicazioni di ottimizzazione disponibili in questo articolo a un pool di database elastici e ottenere vantaggi simili a livello di prestazioni.
+> Questo articolo è incentrato sulle indicazioni relative alle prestazioni per singoli database nel database SQL di Azure. Per indicazioni sulle prestazioni relative ai pool elastici, vedere le [considerazioni su prezzo e prestazioni per i pool elastici](sql-database-elastic-pool-guidance.md). Si noti, tuttavia, che molte raccomandazioni sull'ottimizzazione contenute in questo articolo possono essere applicate ai database in un pool elastico ottenendo vantaggi simili a livello di prestazioni.
 > 
 > 
 
@@ -68,7 +68,7 @@ Le sezioni successive includono altre informazioni su come visualizzare l'uso co
 Per monitorare l'uso dell'archiviazione in memoria di Azure è possibile usare la vista **sys.dm_db_resource_stats**. Per altre informazioni sul monitoraggio, vedere [Monitorare l'archiviazione OLTP in memoria](sql-database-in-memory-oltp-monitoring.md).
 
 > [!NOTE]
-> L'anteprima di OLTP (Online Transaction Processing) in memoria di Azure è attualmente supportata solo per i singoli database. Non è possibile usarlo nei database inclusi in pool di database elastici.
+> L'anteprima di OLTP (Online Transaction Processing) in memoria di Azure è attualmente supportata solo per i singoli database. Non può essere usata nei database in pool elastici.
 > 
 > 
 
@@ -93,7 +93,7 @@ Per avere un'idea della frequenza degli accessi, è possibile analizzare i model
 Se più client usano la stessa stringa di connessione, il servizio autentica ogni account di accesso. Se 10 utenti si connettono contemporaneamente a un database con nome utente e password identici, ci saranno dieci account di accesso simultanei. Questo limite si applica solo alla durata dell'account di accesso e dell'autenticazione. Se gli stessi 10 utenti si connettono in sequenza al database, il numero di account di accesso simultanei non sarà mai superiore a uno.
 
 > [!NOTE]
-> Questo limite attualmente non si applica ai database nel pool di database elastici.
+> Questo limite attualmente non si applica ai database in pool elastici.
 > 
 > 
 
@@ -439,12 +439,12 @@ Alcune applicazioni di database contengono carichi di lavoro con intensa attivit
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sui livelli di servizio, vedere [Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL](sql-database-service-tiers.md)
-* Per altre informazioni sui pool di database elastici, vedere [Informazioni su un pool di database elastici](sql-database-elastic-pool.md)
-* Per informazioni sulle prestazioni e sui pool di database elastici, vedere [Quando usare un pool di database elastici](sql-database-elastic-pool-guidance.md)
+* Per altre informazioni sui pool elastici, vedere [Informazioni sui pool elastici di Azure](sql-database-elastic-pool.md)
+* Per informazioni sulle prestazioni e sui pool elastici, vedere [Quando usare un pool elastico](sql-database-elastic-pool-guidance.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

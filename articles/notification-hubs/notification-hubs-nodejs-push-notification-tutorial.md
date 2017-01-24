@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 40b1c0870bca02fd6d948dfc1f67ba5c76c698aa
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: facd5c50cb65bc1f656c0b5adf1e81087644934a
 
 
 ---
@@ -45,7 +45,7 @@ Per ulteriori informazioni sugli hub di notifica, vedere la sezione [Passaggi su
 Hub di notifica di Azure offre un'infrastruttura scalabile, multipiattaforma e di semplice utilizzo per l'invio di notifiche push ai dispositivi mobili. Per informazioni dettagliate sull'infrastruttura del servizio, vedere la pagina [Hub di notifica di Azure](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx) .
 
 ## <a name="create-a-nodejs-application"></a>Creazione di un'applicazione Node.js
-Il primo passaggio in questa esercitazione consiste nel creare una nuova applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creare e distribuire un sito Web Microsoft Azure][nodejswebsite], [Creare e distribuire un'applicazione Node.js a un servizio cloud di Azure][Servizio cloud Node.js], se si usa Windows PowerShell, oppure [Sito Web con WebMatrix].
+Il primo passaggio in questa esercitazione consiste nel creare una nuova applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web di Azure][nodejswebsite], [Servizio cloud Node.js][Node.js Cloud Service] con Windows PowerShell o [Sito Web con WebMatrix].
 
 ## <a name="configure-your-application-to-use-notification-hubs"></a>Configurare l'applicazione per l'uso di Hub di notifica
 Per usare Hub di notifica di Azure, è necessario scaricare e usare il [pacchetto Azure](https://www.npmjs.com/package/azure)di Node.js, che comprende un set integrato di librerie di supporto che comunicano con i servizi REST di notifica push.
@@ -80,7 +80,7 @@ Il valore **connectionstring** della connessione può essere recuperato dal [por
 ![Portale di Azure - Hub di notifica](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
-> La stringa di connessione può essere recuperata anche usando il cmdlet **Get-AzureSbNamespace** specificato da [Azure PowerShell](../powershell-install-configure.md) o il comando **azure sb namespace show** con l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+> La stringa di connessione può essere recuperata anche usando il cmdlet **Get-AzureSbNamespace** specificato da [Azure PowerShell](/powershell/azureps-cmdlets-docs) o il comando **azure sb namespace show** con l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 > 
 > 
 
@@ -183,38 +183,38 @@ I frammenti di codice di esempio riportati sopra consentono di creare facilmente
 
 [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [Next Steps]: #nextsteps
-[Cosa sono gli argomenti e le sottoscrizioni del bus di servizio?]: #what-are-service-bus-topics
-[Creare uno spazio dei nomi del servizio]: #create-a-service-namespace
-[Recuperare le credenziali di gestione predefinite per lo spazio dei nomi]: #obtain-default-credentials
-[Creazione di un'applicazione Node.js]: #Create_a_Nodejs_Application
-[Configurare l'applicazione per l'uso del bus di servizio]: #Configure_Your_Application_to_Use_Service_Bus
-[Procedura: Creare un argomento]: #How_to_Create_a_Topic
-[Procedura: Creare sottoscrizioni]: #How_to_Create_Subscriptions
-[Procedura: Inviare messaggi a un argomento]: #How_to_Send_Messages_to_a_Topic
-[Procedura: Ricevere messaggi da una sottoscrizione]: #How_to_Receive_Messages_from_a_Subscription
-[Procedura: Gestire arresti anomali e messaggi illeggibili dell'applicazione]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
-[Procedura: Eliminare argomenti e sottoscrizioni]: #How_to_Delete_Topics_and_Subscriptions
+[What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
+[Create a Service Namespace]: #create-a-service-namespace
+[Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
+[Create a Node.js Application]: #Create_a_Nodejs_Application
+[Configure Your Application to Use Service Bus]: #Configure_Your_Application_to_Use_Service_Bus
+[How to: Create a Topic]: #How_to_Create_a_Topic
+[How to: Create Subscriptions]: #How_to_Create_Subscriptions
+[How to: Send Messages to a Topic]: #How_to_Send_Messages_to_a_Topic
+[How to: Receive Messages from a Subscription]: #How_to_Receive_Messages_from_a_Subscription
+[How to: Handle Application Crashes and Unreadable Messages]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
+[How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
 [1]: #Next_Steps
-[Concetti relativi agli argomenti]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
-[Portale di Azure classico]: http://manage.windowsazure.com
-[immagine]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
+[Topic Concepts]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
+[Azure Classic Portal]: http://manage.windowsazure.com
+[image]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
 [2]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
 [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
 [4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
 [5]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png
 [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Hub di notifica del bus di servizio di Azure]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
+[Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
 [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
 [Sito Web con WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
-[Servizio cloud Node.js]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Portale di gestione precedente]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
+[Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
 [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
-[Servizio cloud Node.js con Archiviazione]: /develop/nodejs/tutorials/web-app-with-storage/
-[Creazione di un'applicazione Web Node.js con Archiviazione]: /develop/nodejs/tutorials/web-site-with-storage/
+[Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
+[Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
 [portale di Azure]: https://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

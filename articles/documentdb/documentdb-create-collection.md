@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 12/13/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: f480b8155c7bee797f1fed0f80200eec500e95a2
-ms.openlocfilehash: f8e0b05301b83223a7cb15d55be7001f3299213f
+ms.sourcegitcommit: 8f3e6b271f3ca5973a00f2a5a9e11dafeb9637aa
+ms.openlocfilehash: 45371ca337f291f37e1ac5c388170b7079dfad52
 
 
 ---
@@ -41,9 +41,9 @@ Per informazioni sulle raccolte, vedere [Creare una raccolta DocumentDB](#what-i
 
     Una **partizione singola** ha una capacità di archiviazione riservata di 10 GB e può avere livelli di velocità effettiva tra 400 e 10.000 unità richiesta al secondo (UR/sec). Una unità richiesta corrisponde alla velocità effettiva dell'operazione di lettura di un documento da 1 KB. Per altre informazioni sulle unità richiesta, vedere l'articolo [Unità richiesta in DocumentDB](documentdb-request-units.md).
 
-    Una **raccolta partizionata** può essere ridimensionata per gestire uno spazio di archiviazione illimitato in più partizioni e può avere livelli di velocità effettiva a partire da 10.100 UR/sec. La quantità massima di spazio di archiviazione che è possibile riservare nel portale è di 250 GB, la velocità effettiva massima che è possibile riservare è di 250.000 UR/sec. Per aumentare tali quote, inviare una richiesta come descritto nell'articolo [Richiedere un aumento dei limiti di account DocumentDB](documentdb-increase-limits.md). Per altre informazioni sulle raccolte partizionate, vedere [Raccolte a partizione singola e raccolte partizionate](documentdb-partition-data.md#single-partition-and-partitioned-collections).
+    Una **raccolta partizionata** può essere ridimensionata per gestire uno spazio di archiviazione illimitato in più partizioni e può avere livelli di velocità effettiva a partire da 10.100 UR/sec. Per altre informazioni sulle raccolte partizionate, vedere [Raccolte a partizione singola e raccolte partizionate](documentdb-partition-data.md#single-partition-and-partitioned-collections).
 
-    Per impostazione predefinita, la velocità effettiva di una nuova raccolta partizionata singola è impostata su 1000 UR/s con una capacità di archiviazione di 10 GB. Per una raccolta partizionata, la velocità effettiva è impostata su 10.100 UR/s con una capacità di archiviazione di 250 GB. Dopo la creazione della raccolta, è possibile modificarne la velocità effettiva e l'archiviazione.
+    Per impostazione predefinita, la velocità effettiva di una nuova raccolta partizionata singola è impostata su 1000 UR/s con una capacità di archiviazione di 10 GB. Per una raccolta partizionata, la velocità effettiva è impostata su 10100 UR/s senza limite massimo di capacità o velocità effettiva.
 6. Se si sta creando una raccolta partizionata, selezionare la **chiave di partizione** per la raccolta. Quando si crea una raccolta ad alte prestazioni è importante selezionare la chiave di partizione corretta. Per altre informazioni sulla selezione di una chiave di partizione, vedere [Progettazione per il partizionamento](documentdb-partition-data.md#designing-for-partitioning).
 7. Nel pannello **Database** creare un nuovo database o usarne uno esistente. I nomi dei database devono avere una lunghezza compresa tra 1 e 255 caratteri e non possono contenere `/ \ # ?` o spazi finali. Per convalidare il nome, fare clic all'esterno della casella di testo. Quando il nome è convalidato, viene visualizzato un segno di spunta verde nella casella.
 8. Fare su **OK** nella parte inferiore della schermata per creare la nuova raccolta.
@@ -83,6 +83,6 @@ Quando sono presenti documenti in una raccolta, è possibile usare [DocumentDB S
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

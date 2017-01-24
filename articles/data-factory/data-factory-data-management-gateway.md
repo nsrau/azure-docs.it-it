@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: abnarain
 translationtype: Human Translation
-ms.sourcegitcommit: 1b2514e1e6f39bb3ce9d8a46f4af01835284cdcc
-ms.openlocfilehash: f0b3d45ea72ec3e7e0b19bc97ff9d8051067d1fa
+ms.sourcegitcommit: 355de60c6a06f4694b8bce4a6ff3b6c2f65b2233
+ms.openlocfilehash: f4ec798bcd1da7f2067929382c37915022fc1eed
 
 
 ---
@@ -255,12 +255,15 @@ Lo stato dell'operazione di aggiornamento, manuale o automatica, viene visualizz
 1. Avviare Windows PowerShell nel computer gateway.
 2. Passare alla cartella C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript.
 3. Eseguire il comando seguente per disattivare (disabilitare) la funzionalità di aggiornamento automatico.   
-
-        .\GatewayAutoUpdateToggle.ps1  -off
+    
+    ```PowerShell
+    .\GatewayAutoUpdateToggle.ps1  -off
+    ```
 4. Per riattivarla:
-
-        .\GatewayAutoUpdateToggle.ps1  -on  
-
+    
+    ```PowerShell
+    .\GatewayAutoUpdateToggle.ps1  -on  
+    ```
 ## <a name="configuration-manager"></a>Gestione configurazione
 Dopo aver installato il gateway, è possibile avviare Gestione configurazione di Gateway di gestione dati in uno dei modi seguenti:
 
@@ -349,25 +352,28 @@ Per crittografare le credenziali in Data Factory Editor, attenersi a questa proc
    4. Fare clic su **OK** per crittografare le credenziali e chiudere la finestra di dialogo.
 8. Verrà ora visualizzata una proprietà **encryptedCredential** in **connectionString**.        
 
-         {
-             "name": "SqlServerLinkedService",
-             "properties": {
-                 "type": "OnPremisesSqlServer",
-                 "description": "",
-                 "typeProperties": {
-                     "connectionString": "data source=myserver;initial catalog=mydatabase;Integrated Security=False;EncryptedCredential=eyJDb25uZWN0aW9uU3R",
-                     "gatewayName": "adftutorialgateway"
-                 }
-             }
-         }
-
+    ```JSON
+    {
+        "name": "SqlServerLinkedService",
+        "properties": {
+            "type": "OnPremisesSqlServer",
+            "description": "",
+            "typeProperties": {
+                "connectionString": "data source=myserver;initial catalog=mydatabase;Integrated Security=False;EncryptedCredential=eyJDb25uZWN0aW9uU3R",
+                "gatewayName": "adftutorialgateway"
+            }
+        }
+    }
+    ```
 Se si accede al portale da un computer diverso dal computer del gateway, è necessario assicurarsi che l'applicazione di gestione credenziali possa connettersi al computer del gateway. Se l'applicazione non riesce a raggiungere il computer gateway, non è possibile impostare le credenziali per l'origine dati e testare la connessione all'origine dati.  
 
 Quando si usa l'applicazione di **Impostazione credenziali**, il portale crittografa le credenziali usando il certificato specificato nella scheda **Certificato** di **Gestione configurazione di Gateway** del computer gateway.
 
 Se si vuole un approccio basato su API per crittografare le credenziali, è possibile usare il cmdlet di PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) . Questo cmdlet consente di crittografare le credenziali mediante il certificato usato dal gateway. Aggiungere le credenziali crittografate all'elemento **EncryptedCredential** di **connectionString** nell'oggetto JSON. Usare l'oggetto JSON con il cmdlet [New AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) o nell'editor di Data Factory.
 
-    "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+```JSON
+"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+```
 
 Esiste un altro approccio per impostare le credenziali usando l'editor delle data factory. Se si crea un servizio collegato di SQL Server usando l'editor e si immettono le credenziali in testo normale, le credenziali vengono crittografate tramite un certificato che appartiene al servizio Data Factory, NON tramite il certificato usato dal gateway. Anche se questo approccio può apparire leggermente più veloce, in alcuni casi risulta meno sicuro. È pertanto consigliabile seguire questo approccio solo per scopi di sviluppo o di test.
 
@@ -376,49 +382,64 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 
 1. Avviare **Azure PowerShell** in modalità di amministrazione.
 2. Accedere all'account Azure eseguendo il comando seguente e immettendo le credenziali di Azure.
-
+    
+    ```PowerShell
     Login-AzureRmAccount
+    ```
 3. Usare il cmdlet **New-AzureRmDataFactoryGateway** per creare un gateway logico come illustrato di seguito:
 
-        $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
-
+    ```PowerShell
+    $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
+    ```
     **Comando di esempio e output**:
 
-        PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+    ```
+    PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
-        Name              : MyGateway
-        Description       : gateway for walkthrough
-        Version           :
-        Status            : NeedRegistration
-        VersionStatus     : None
-        CreateTime        : 9/28/2014 10:58:22
-        RegisterTime      :
-        LastConnectTime   :
-        ExpiryTime        :
-        ProvisioningState : Succeeded
-        Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
-
+    Name              : MyGateway
+    Description       : gateway for walkthrough
+    Version           :
+    Status            : NeedRegistration
+    VersionStatus     : None
+    CreateTime        : 9/28/2014 10:58:22
+    RegisterTime      :
+    LastConnectTime   :
+    ExpiryTime        :
+    ProvisioningState : Succeeded
+    Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
+    ```
 
 1. In Azure PowerShell, passare alla cartella: **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\**. Eseguire **RegisterGateway.ps1** associato alla variabile locale **$Key** come illustrato nel comando seguente. Lo script registra l'agente client installato nel computer con il gateway logico creato in precedenza.
 
-        PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
-
-        Agent registration is successful!
-
+    ```PowerShell
+    PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
+    ```
+    ```
+    Agent registration is successful!
+    ```
     È possibile registrare il gateway in un computer remoto usando il parametro IsRegisterOnRemoteMachine. Esempio:
 
-        .\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
+    ```PowerShell
+    .\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
+    ```
 2. È possibile usare il cmdlet **Get-AzureRmDataFactoryGateway** per ottenere l'elenco di gateway nell'istanza di Data factory. Quando lo **stato** è **online**, il gateway è pronto per essere usato.
 
-        Get-AzureRmDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
-
+    ```PowerShell        
+    Get-AzureRmDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
+    ```
 È possibile rimuovere un gateway con il cmdlet **Remove-AzureRmDataFactoryGateway** e aggiornare la descrizione per un gateway usando i cmdlet **Set-AzureRmDataFactoryGateway**. Per la sintassi e altri dettagli relativi a questi cmdlet, vedere Riferimento ai cmdlet di Data Factory.  
 
 ### <a name="list-gateways-using-powershell"></a>Elencare i gateway usando PowerShell
-    Get-AzureRmDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -ResourceGroupName ADF_ResourceGroup
+    
+```PowerShell
+Get-AzureRmDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -ResourceGroupName ADF_ResourceGroup
+```
 
 ### <a name="remove-gateway-using-powershell"></a>Rimuovere il gateway usando PowerShell
-    Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
+    
+```PowerShell
+Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
+```
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -426,6 +447,6 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

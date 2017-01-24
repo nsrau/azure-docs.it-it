@@ -1,22 +1,26 @@
 ---
-title: Guida al protocollo AMQP 1.0 nel bus di servizio e in Hub eventi di Azure | Microsoft Docs
+title: Guida al protocollo AMQP 1.0 in Hub eventi e nel bus di servizio di Azure | Microsoft Docs
 description: Guida al protocollo per le espressioni e descrizione di AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
-services: service-bus,event-hubs
+services: service-bus-messaging,event-hubs
 documentationcenter: .net
 author: clemensv
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2016
 ms.author: clemensv;jotaub;hillaryc;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 3cd9b1e94bde10b4da8fcb91c39abdcc2591d5ba
+ms.openlocfilehash: a93eb9a3afa0ceaa42b42b4274f2164da2d7faa8
+
 
 ---
-# <a name="amqp-1.0-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guida al protocollo AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
+# <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guida al protocollo AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 AMQP (Advanced Message Queueing Protocol) 1.0 è un protocollo di frame e di trasferimento che consente di trasferire messaggi tra due parti in modo asincrono, sicuro e affidabile. È il protocollo principale della messaggistica del bus di servizio e di Hub eventi di Azure. Entrambi i servizi supportano anche HTTPS. Il protocollo SBMP proprietario supportato verrà gradualmente sostituito da AMQP.
 
 AMQP 1.0 è il risultato di un'ampia collaborazione a livello di settore, tra fornitori di middleware, ad esempio Microsoft e Red Hat, e molti utenti di middleware di messaggistica, ad esempio JP Morgan Chase, che rappresenta il settore di servizi finanziari. Il forum relativo alla standardizzazione tecnica per il protocollo AMQP e le specifiche relative alle estensioni è OASIS e ha ottenuto l'approvazione formale come standard internazionale in base alle norme ISO/IEC 19494.
@@ -32,7 +36,7 @@ Nella discussione seguente si presuppone che la gestione di connessioni, session
 
 Durante l'analisi delle funzionalità avanzate del bus di servizio di Azure, ad esempio l'esplorazione dei messaggi o la gestione delle sessioni, questi aspetti verranno illustrati dal punto di vista di AMQP, ma anche dal punto di vista di pseudo-implementazione a più livelli su questa presupposta astrazione di API.
 
-## <a name="what-is-amqp?"></a>Informazioni su AMQP
+## <a name="what-is-amqp"></a>Informazioni su AMQP
 AMQP è un protocollo di frame e di trasferimento. Un protocollo di frame fornisce una struttura per i flussi di dati in ogni direzione di una connessione di rete. La struttura fornisce una descrizione di blocchi distinti di dati, ovvero i frame, da scambiare tra le parti connesse. Le funzionalità di trasferimento assicurano che entrambe le parti possano raggiungere un accordo condiviso in merito al momento in cui i frame devono essere trasferiti e al momento in cui i trasferimenti devono essere considerati completi.
 
 A differenza delle versioni provvisorie scadute precedenti prodotte dal gruppo di lavoro di AMQP e ancora in uso da parte di alcuni broker messaggi, il protocollo AMQP 1.0 finale e standardizzato del gruppo di lavoro non richiede la presenza di un broker messaggi o di qualsiasi topologia specifica per entità all'interno di un broker messaggi.
@@ -44,7 +48,7 @@ Il protocollo AMQP 1.0 è progettato in modo da essere estendibile, consentendo 
 ## <a name="basic-amqp-scenarios"></a>Scenari AMQP di base
 Questa sezione illustra l'utilizzo di base di AMQP 1.0 con il bus di servizio di Azure, che include la creazione di connessioni, sessioni e collegamenti e il trasferimento di messaggi verso e da entità del bus di servizio, come code, argomenti e sottoscrizioni.
 
-La fonte più autorevole per informazioni sul funzionamento di AMQP è costituita dalla specifica relativa ad AMQP 1.0, ma questa specifica è stata scritta in modo da illustrare l'implementazione, non per fornire istruzioni relative al protocollo. Questa sezione è incentrata sull'introduzione della terminologia necessaria per descrivere l'uso di AMQP 1.0 da parte del bus di servizio. Per un'introduzione più completa ad AMQP e per una discussione più ampia su AMQP 1.0, vedere [questo video][].
+La fonte più autorevole per informazioni sul funzionamento di AMQP è costituita dalla specifica relativa ad AMQP 1.0, ma questa specifica è stata scritta in modo da illustrare l'implementazione, non per fornire istruzioni relative al protocollo. Questa sezione è incentrata sull'introduzione della terminologia necessaria per descrivere l'uso di AMQP 1.0 da parte del bus di servizio. Per un'introduzione più completa ad AMQP e per una discussione più ampia su AMQP 1.0, vedere [questa esercitazione video][this video course].
 
 ### <a name="connections-and-sessions"></a>Connessioni e sessioni
 ![][1]
@@ -141,25 +145,25 @@ Le frecce mostrano la direzione del flusso performativo.
 | --> attach(<br/>name={nome collegamento},<br/>handle={handle numerico},<br/>role=**sender**,<br/>source={ID collegamento client},<br/>target={nome entità}<br/>) |Nessuna azione |
 | Nessuna azione |<-- attach(<br/>name={nome collegamento},<br/>handle={handle numerico},<br/>role=**receiver**,<br/>source={ID collegamento client},<br/>target={nome entità}<br/>) |
 
-#### <a name="create-message-sender-(error)"></a>Creare il mittente dei messaggi (errore)
+#### <a name="create-message-sender-error"></a>Creare il mittente dei messaggi (errore)
 | Client | BUS DI SERVIZIO |
 | --- | --- |
 | --> attach(<br/>name={nome collegamento},<br/>handle={handle numerico},<br/>role=**sender**,<br/>source={ID collegamento client},<br/>target={nome entità}<br/>) |Nessuna azione |
 | Nessuna azione |<-- attach(<br/>name={nome collegamento},<br/>handle={handle numerico},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={handle numerico},<br/>closed=**true**,<br/>error={informazioni errore}<br/>) |
 
-#### <a name="close-message-receiver/sender"></a>Chiudere il ricevitore/mittente del messaggio
+#### <a name="close-message-receiversender"></a>Chiudere il ricevitore/mittente del messaggio
 | Client | BUS DI SERVIZIO |
 | --- | --- |
 | --> detach(<br/>handle={handle numerico},<br/>closed=**true**<br/>) |Nessuna azione |
 | Nessuna azione |<-- detach(<br/>handle={handle numerico},<br/>closed=**true**<br/>) |
 
-#### <a name="send-(success)"></a>Inviare (Operazione riuscita)
+#### <a name="send-success"></a>Inviare (Operazione riuscita)
 | Client | BUS DI SERVIZIO |
 | --- | --- |
 | --> transfer(<br/>delivery-id={handle numerico},<br/>delivery-tag={handle binario},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nessuna azione |
 | Nessuna azione |<-- disposition(<br/>role=receiver,<br/>first={ID consegna},<br/>last={ID consegna},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
 
-#### <a name="send-(error)"></a>Inviare (errore)
+#### <a name="send-error"></a>Inviare (errore)
 | Client | BUS DI SERVIZIO |
 | --- | --- |
 | --> transfer(<br/>delivery-id={handle numerico},<br/>delivery-tag={handle binario},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nessuna azione |
@@ -297,7 +301,7 @@ Per altre informazioni su AMQP, vedere i collegamenti seguenti:
 * [Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio]
 * [AMQP nel bus di servizio per Windows Server]
 
-[video]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
+[this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
 [1]: ./media/service-bus-amqp/amqp1.png
 [2]: ./media/service-bus-amqp/amqp2.png
 [3]: ./media/service-bus-amqp/amqp3.png
@@ -308,6 +312,7 @@ Per altre informazioni su AMQP, vedere i collegamenti seguenti:
 [AMQP nel bus di servizio per Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

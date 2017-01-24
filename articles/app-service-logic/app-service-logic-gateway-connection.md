@@ -15,8 +15,8 @@ ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 814ad11e130c197f91e597091fca3afbe8f61cbd
+ms.sourcegitcommit: fc61aa855fbcdb8f3ee90f64cbfc73f070f4bbfe
+ms.openlocfilehash: f0d079fd13be7fb2b10d1a3556046f93d59b640c
 
 
 ---
@@ -24,16 +24,10 @@ ms.openlocfilehash: 814ad11e130c197f91e597091fca3afbe8f61cbd
 I connettori delle app per la logica supportati consentono di configurare la connessione per accedere ai dati locali tramite il gateway dati locale.  La procedura seguente illustra come installare e configurare il gateway dati locale per integrarsi con una app per la logica.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Uso di un indirizzo di posta elettronica aziendale o dell'istituto di istruzione in Azure per associare il gateway dati locale con l'account (account basato su Azure Active Directory)
-  * Se si usa un account Microsoft, ad esempio @outlook.com, o @live.com), è possibile usare l'account Azure per creare un indirizzo di posta elettronica aziendale o dell'istituito d'istruzione [seguendo questa procedura](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal)
-
-> [!WARNING]
-> A causa di un'attuale limitazione, l'installazione del gateway locale verrà completata solo se viene usato un account registrato in Power BI.  Per completare correttamente l'installazione, registrare nel frattempo qualsiasi account in "Power BI (gratuito)".
-> 
-> 
-
-* Gateway dati locale [installato in un computer locale](app-service-logic-gateway-install.md).
-* Per il gateway non deve esistere un'attestazione da parte di un altro gateway dati locale di Azure. L'[attestazione viene eseguita con la creazione illustrata nel passaggio 2 di seguito](#2-create-an-azure-on-premises-data-gateway-resource). Un'installazione può essere associata a una sola risorsa gateway.
+  * Uso di un indirizzo di posta elettronica aziendale o dell'istituto di istruzione in Azure per associare il gateway dati locale con l'account (account basato su Azure Active Directory)
+  * Se si usa un account Microsoft, ad esempio @outlook.com, o @live.com), è possibile usare l'account Azure per creare un indirizzo di posta elettronica aziendale o dell'istituito d'istruzione [seguendo questa procedura](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal) 
+  * Gateway dati locale [installato in un computer locale](app-service-logic-gateway-install.md).
+  * Per il gateway non deve esistere un'attestazione da parte di un altro gateway dati locale di Azure. L'[attestazione viene eseguita con la creazione illustrata nel passaggio 2 di seguito](#2-create-an-azure-on-premises-data-gateway-resource). Un'installazione può essere associata a una sola risorsa gateway.
 
 ## <a name="installing-and-configuring-the-connection"></a>Installazione e configurazione della connessione
 ### <a name="1-install-the-on-premises-data-gateway"></a>1. Installare il gateway dati locale
@@ -73,6 +67,6 @@ La connessione deve ora essere configurata correttamente per l'uso nella app per
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

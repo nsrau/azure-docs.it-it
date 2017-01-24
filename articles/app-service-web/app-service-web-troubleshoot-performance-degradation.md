@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0f49f7b9a1db2498d6a78031496a2d3c51888d8b
-ms.openlocfilehash: 926b0e9b75e84ecfef48d1c27524a8e33ef8c3fd
+ms.sourcegitcommit: 5ea043ce3bcd0f500fd765f13764ea3ee83e1ba9
+ms.openlocfilehash: 83c3592014c73c0cf36d371d2752bc76b7c8a4e8
 
 
 ---
@@ -79,7 +79,7 @@ Il tempo di attività viene monitorato mediante codici di risposta HTTP e il tem
 
 Per configurarlo, vedere [Eseguire il monitoraggio delle app nel servizio app di Azure](web-sites-monitor.md).
 
-Per altre informazioni sul monitoraggio degli endpoint, vedere anche il video che illustra come [mantenere attivi i siti Web di Azure e monitorare gli endpoint con Stefan Schackow](/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/) .
+Per altre informazioni sul monitoraggio degli endpoint, vedere anche il video che illustra come [mantenere attivi i siti Web di Azure e monitorare gli endpoint con Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) .
 
 #### <a name="application-performance-monitoring-using-extensions"></a>Monitoraggio delle prestazioni dell'applicazione usando le estensioni
 È anche possibile monitorare le prestazioni dell'applicazione sfruttando le *estensioni del sito*.
@@ -113,7 +113,7 @@ Per istruzioni dettagliate su come configurare l'applicazione per la registrazio
 #### <a name="use-remote-profiling"></a>Usare la profilatura remota
 Nel servizio app di Azure è possibile profilare in modalità remota app Web, app per le API e processi Web. Se l'esecuzione del processo è più lenta del previsto o se la latenza delle richieste HTTP è superiore al normale e anche l'utilizzo della CPU da parte del processo è elevato, è possibile profilare il processo in modalità remota e ottenere campioni di stack di chiamate della CPU per analizzare l'attività del processo e i percorsi critici del codice.
 
-Per altre informazioni, vedere il post di blog sul [supporto per la profilatura remota nel servizio app di Azure](/blog/remote-profiling-support-in-azure-app-service).
+Per altre informazioni, vedere il post di blog sul [supporto per la profilatura remota nel servizio app di Azure](https://azure.microsoft.com/blog/remote-profiling-support-in-azure-app-service).
 
 #### <a name="use-the-azure-app-service-support-portal"></a>Usare il portale di supporto del servizio app di Azure
 Il servizio app Web consente di risolvere i problemi relativi all'app Web grazie ai dati disponibili nei log HTTP, nei log eventi, nei dump dei processi e così via. È possibile accedere a tutte queste informazioni tramite il portale di supporto disponibile all'indirizzo **http://&lt;nome app>.scm.azurewebsites.net/Support**
@@ -130,7 +130,7 @@ Una volta raccolti i dati, verrà eseguita l'analisi dei dati e verrà generato 
 
 Per impostazione predefinita, i dati verranno archiviati nella cartella D:\home\data\DaaS, da cui sarà possibile scaricarli.
 
-Per altre informazioni sul portale di supporto del servizio app di Azure, vedere il post di blog relativo ai [nuovi aggiornamenti all'estensione del sito di supporto per Siti Web di Azure](/blog/new-updates-to-support-site-extension-for-azure-websites).
+Per altre informazioni sul portale di supporto del servizio app di Azure, vedere il post di blog relativo ai [nuovi aggiornamenti all'estensione del sito di supporto per Siti Web di Azure](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites).
 
 #### <a name="use-the-kudu-debug-console"></a>Usare la console di debug Kudu
 Il servizio App Web include una console di debug che è possibile usare per il debug, l'esplorazione e il caricamento di file, nonché endpoint JSON per ottenere informazioni sull'ambiente in uso. Questa console è chiamata *console Kudu* o *dashboard SCM* dell'app Web.
@@ -146,7 +146,7 @@ Elementi forniti dalla console Kudu:
 
 Inoltre, nel caso in cui l'applicazione generi eccezioni first-chance, è possibile usare Kudu e l'utilità della riga di comando Procdump dello strumento SysInternals per creare dump della memoria. I dump della memoria sono snapshot del processo e semplificano la risoluzione di problemi più complessi riscontrati nell'app Web.
 
-Per altre informazioni sulle funzionalità disponibili in Kudu, vedere il post di blog relativo agli [strumenti di Azure Websites Team Services che è opportuno conoscere](/blog/windows-azure-websites-online-tools-you-should-know-about/).
+Per altre informazioni sulle funzionalità disponibili in Kudu, vedere il post di blog relativo agli [strumenti di Azure Websites Team Services che è opportuno conoscere](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 
@@ -163,7 +163,7 @@ Per altre informazioni sul ridimensionamento, vedere [Ridimensionare un'app Web 
 #### <a name="use-autoheal"></a>Usare la funzionalità AutoHeal
 La funzionalità AutoHeal consente di riciclare il processo di lavoro per l'app in base alle impostazioni specificate, ad esempio modifiche di configurazione, richieste, limiti basati sulla memoria o il tempo necessario per l'esecuzione di una richiesta. Nella maggior parte dei casi, riciclare il processo costituisce il modo più veloce per risolvere un problema. Anche se è possibile riavviare l'app Web direttamente dall'interno del portale di Azure, la funzionalità AutoHeal eseguirà questa operazione automaticamente. È sufficiente aggiungere alcuni trigger nel file web.config radice per l'app Web. Si noti che queste impostazioni funzionano allo stesso modo anche per le applicazioni non .NET.
 
-Per altre informazioni, vedere il post di blog relativo alla [correzione automatica di Siti Web di Azure](/blog/auto-healing-windows-azure-web-sites/).
+Per altre informazioni, vedere il post di blog relativo alla [correzione automatica di Siti Web di Azure](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 
 #### <a name="restart-the-web-app"></a>Riavviare l'app Web
 Questo è spesso il modo più semplice per risolvere problemi occasionali. Nel pannello dell'app Web del [portale di Azure](https://portal.azure.com/)sono disponibili le opzioni per arrestare o riavviare l'app.
@@ -174,6 +174,6 @@ Questo è spesso il modo più semplice per risolvere problemi occasionali. Nel p
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

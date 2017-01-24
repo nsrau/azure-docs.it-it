@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e22d28c76902fbfe549f2a7aeb22b62eb0a540fb
+ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
+ms.openlocfilehash: a63cedc57b863d03f65b99d4c2490d5e8aec25b5
 
 
 ---
@@ -31,8 +31,8 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 * [Apache Maven](http://maven.apache.org/)
 * **Una sottoscrizione di Azure**
 * **Interfaccia della riga di comando di Azure**
-  
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ## <a name="configure-environment-variables"></a>Configurare le variabili di ambiente
 Quando si installa Java e JDK, è possibile impostare le variabili di ambiente indicate di seguito. È tuttavia necessario verificare che esistano e che contengano i valori corretti per il sistema in uso.
@@ -272,6 +272,6 @@ Per altre informazioni, vedere anche il [Centro per sviluppatori Java](https://a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

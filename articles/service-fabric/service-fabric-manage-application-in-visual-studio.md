@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2016
+ms.date: 01/05/2017
 ms.author: seanmck;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d2766c64f4ffdcaf8e583493060116a244e89f3d
+ms.sourcegitcommit: 60d440c75d6352d5e65e0158e439df9db2315ecd
+ms.openlocfilehash: 70c393f1185844bb26ff1f89cb69cb06b51fc155
 
 
 ---
@@ -40,7 +40,7 @@ Per impostazione predefinita, Visual Studio rimuove le istanze esistenti del tip
 #### <a name="to-set-the-application-debug-mode-property"></a>Per impostare la proprietà Modalità di debug applicazione
 1. Dal menu di scelta rapida del progetto dell'applicazione, scegliere **Proprietà** (o premere il pulsante **F4**).
 2. Nella finestra **Proprietà** impostare la proprietà **Modalità di debug applicazione**.
-   
+
     ![Impostare la proprietà Modalità di debug applicazione][debugmodeproperty]
 
 Di seguito sono indicate le opzioni di **modalità di debug applicazione** disponibili.
@@ -55,8 +55,8 @@ Nell'opzione **Aggiornamento automatico** i dati vengono conservati applicando l
 
 > [!NOTE]
 > Questa proprietà non è presente nelle versioni precedenti alla versione 1.1 di Strumenti di Service Fabric per Visual Studio. Per ottenere lo stesso comportamento nelle versioni precedenti alla versione 1.1, usare la proprietà **Conserva dati all'avvio** . L'opzione "Mantieni applicazione" è stata introdotta nella versione 1.2 di Strumenti di Service Fabric per Visual Studio.
-> 
-> 
+>
+>
 
 ## <a name="add-a-service-to-your-service-fabric-application"></a>Aggiungere un servizio all'applicazione di Service Fabric
 È possibile aggiungere nuovi servizi all'applicazione per estenderne le funzionalità.  Per essere certi che il servizio venga incluso nel pacchetto applicazione, aggiungere il servizio usando la voce di menu **New Fabric Service** .
@@ -81,8 +81,8 @@ In Visual Studio è possibile eseguire operazioni di gestione dei cluster di bas
 
 > [!TIP]
 > Per funzionalità di gestione dei cluster più avanzate, vedere [Visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-> 
-> 
+>
+>
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passaggi successivi
@@ -102,6 +102,6 @@ In Visual Studio è possibile eseguire operazioni di gestione dei cluster di bas
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

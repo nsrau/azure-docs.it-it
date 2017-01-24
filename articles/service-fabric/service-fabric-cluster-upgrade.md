@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/10/2016
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9ce7911ef1d69cae1b7fd7a46dafbdee29174f4e
+ms.sourcegitcommit: 0231c3148d03ffef0a518a68bb79398462da2605
+ms.openlocfilehash: 89721efbb9f05871716ca1b16ad0d54eaf1ffd62
 
 
 ---
@@ -75,7 +75,9 @@ Eseguendo questo comando si otterrà un output simile al seguente.
 "supportExpiryUtc" indica la scadenza di una determinata versione. La versione più recente non ha una data valida, ma un valore "9999-12-31T23:59:59.9999999", che indica che la data di scadenza non è ancora stata impostata.
 
 ```REST
-GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/clusterVersions?api-version= 2016-09-01
+GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2016-09-01
+
+Example: https://management.azure.com/subscriptions/1857f442-3bce-4b96-ad95-627f76437a67/providers/Microsoft.ServiceFabric/locations/eastus/clusterVersions?api-version=2016-09-01
 
 Output:
 {
@@ -218,12 +220,12 @@ Se è necessario aggiornare l'immagine del sistema operativo nelle macchine virt
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes2.PNG
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 [HealthPolices]: ./media/service-fabric-cluster-upgrade/Manage_AutomodeWadvSettings.PNG
-[Modalità di aggiornamento tramite Azure Resource Manager]: ./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG
-[Creazione - Modalità manuale]: ./media/service-fabric-cluster-upgrade/Create_Manualmode.PNG
-[Gestione - Modalità automatica]: ./media/service-fabric-cluster-upgrade/Manage_Automaticmode.PNG
+[ARMUpgradeMode]: ./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG
+[Create_Manualmode]: ./media/service-fabric-cluster-upgrade/Create_Manualmode.PNG
+[Manage_Automaticmode]: ./media/service-fabric-cluster-upgrade/Manage_Automaticmode.PNG
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

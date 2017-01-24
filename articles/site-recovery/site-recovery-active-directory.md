@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/16/2016
+ms.date: 12/19/2016
 ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8e9b7dcc2c7011a616d96c8623335c913f647a9b
+ms.sourcegitcommit: c5e80c3cd3caac07e250d296c61fb3813e0000dd
+ms.openlocfilehash: 9f3d87fe08b13f08622b4bd169240a2ec0683b00
 
 
 ---
@@ -75,17 +75,21 @@ Il failover di test si verifica in una rete isolata dalla rete di produzione, in
 La maggior parte delle applicazioni richiede anche la presenza di un controller di dominio e di un server DNS per funzionare, quindi, prima del failover dell'applicazione, è necessario creare un controller di dominio nella rete isolata da usare per il failover di test. Il modo più semplice per eseguire questa operazione è abilitare la protezione nella macchina virtuale controller di dominio/DNS con Site Recovery ed eseguire un failover di test di tale macchina virtuale, prima di eseguire un failover di test del piano di ripristino per l'applicazione. Di seguito viene indicato come procedere:
 
 1. Abilitare la protezione in Site Recovery per la macchina virtuale controller di dominio/DNS.
-2. Creare una rete isolata. Qualsiasi rete virtuale creata in Azure per impostazione predefinita è isolata dalle altre reti. È consigliabile che l'intervallo di indirizzi IP di questa rete sia lo stesso della rete di produzione. Non abilitare la connettività da sito a sito in questa rete.
-3. Specificare un indirizzo IP DNS nella rete creata, come indirizzo IP previsto per la macchina virtuale DNS. Se si esegue la replica in Azure, fornire l'indirizzo IP per la VM che verrà usata in caso di failover in base alle impostazioni **IP di destinazione** nella proprietà della VM. Se si esegue la replica in un altro sito locale e si usa DHCP, seguire le istruzioni per [configurare DNS e DHCP per il failover di test](site-recovery-failover.md#prepare-dhcp)
+1. Creare una rete isolata. Qualsiasi rete virtuale creata in Azure per impostazione predefinita è isolata dalle altre reti. È consigliabile che l'intervallo di indirizzi IP di questa rete sia lo stesso della rete di produzione. Non abilitare la connettività da sito a sito in questa rete.
+1. Specificare un indirizzo IP DNS nella rete creata, come indirizzo IP previsto per la macchina virtuale DNS. Se si esegue la replica in Azure, fornire l'indirizzo IP per la VM che verrà usata in caso di failover in base alle impostazioni **IP di destinazione** nella proprietà della VM. Se si esegue la replica in un altro sito locale e si usa DHCP, seguire le istruzioni per [configurare DNS e DHCP per il failover di test](site-recovery-failover.md#prepare-dhcp)
 
-> [!NOTE]
-> L'indirizzo IP allocato a una macchina virtuale durante un failover di test corrisponde all'indirizzo IP che otterrebbe durante un failover pianificato o non pianificato, se l'indirizzo IP è disponibile nella rete di failover di test. Se non lo è, la macchina virtuale riceve un altro indirizzo IP disponibile nella rete di failover di test.
-> 
-> 
+    > [!NOTE]
+    > L'indirizzo IP allocato a una macchina virtuale durante un failover di test corrisponde all'indirizzo IP che otterrebbe durante un failover pianificato o non pianificato, se l'indirizzo IP è disponibile nella rete di failover di test. Se non lo è, la macchina virtuale riceve un altro indirizzo IP disponibile nella rete di failover di test.
+    > 
+    > 
 
-1. Nella macchina virtuale controller di dominio eseguire un failover di test nella rete isolata. Per eseguire il failover di test usare il più recente punto di ripristino coerente con l'applicazione disponibile della macchina virtuale controller di dominio. 
-2. Eseguire un failover di test per il piano di ripristino dell'applicazione.
-3. Dopo avere completato il test, contrassegnare il processo di failover di test della macchina virtuale controller di dominio del piano di ripristino come "Completato" nella scheda **Processi** nel portale di Site Recovery.
+1. Nella macchina virtuale controller di dominio eseguire un failover di test nella rete isolata. Per effettuare il failover di test, usare il più recente punto di ripristino **coerente con l'applicazione** disponibile della macchina virtuale controller di dominio. 
+1. Eseguire un failover di test per il piano di ripristino dell'applicazione.
+1. Dopo avere completato il test, contrassegnare il processo di failover di test della macchina virtuale controller di dominio del piano di ripristino come "Completato" nella scheda **Processi** nel portale di Site Recovery.
+
+### <a name="removing-reference-to-other-domain-controllers"></a>Rimozione del riferimento ad altri controller di dominio
+Quando si effettua un failover di test, nella rete di test non si includono tutti i controller di dominio. Per rimuovere il riferimento ad altri controller di dominio presenti nell'ambiente di produzione, è necessario [riassegnare i ruoli FSMO di Active Directory ed eseguire la pulizia dei metadati](http://aka.ms/ad_seize_fsmo) per i controller di dominio mancanti. 
+
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>DNS e controller di dominio su computer diversi
 Se DNS non è presente nella stessa macchina virtuale del controller di dominio, è necessario creare una VM DNS per il failover di test. Se si trovano nella stessa VM, è possibile ignorare questa sezione.
@@ -114,6 +118,6 @@ Per altre informazioni sulla protezione dei carichi di lavoro aziendali con Azur
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

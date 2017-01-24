@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/15/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: febc8fef864f88fa07accf91efc9b87727a48b32
-ms.openlocfilehash: 4d4d49801c84fa585b5e54bb16a9604a4891acc9
+ms.sourcegitcommit: 6b50b65fa1ad86c8e80fff0fb92352b1be52632e
+ms.openlocfilehash: d4589b5e9ca7f08b2152605dc26a96d4b5d656c8
 
 
 ---
@@ -29,9 +29,15 @@ Se viene visualizzato questo errore, il provider di risorse di Azure Data Factor
 
 1. Avviare Azure PowerShell.
 2. Accedere al proprio account di Azure usando il comando seguente.
-        Login-AzureRmAccount
+
+    ```powershell
+    Login-AzureRmAccount
+    ```
 3. Eseguire il comando seguente per registrare il provider di Azure Data Factory.
-        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    
+    ```powershell        
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```
 
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problema: errore di mancata autorizzazione quando si esegue un cmdlet di Data factory
 È probabile che non si stia usando l'account o la sottoscrizione di Azure corretta con Azure PowerShell. Usare i cmdlet seguenti per selezionare l'account e la sottoscrizione di Azure corretti per Azure PowerShell.
@@ -60,29 +66,31 @@ Per l'uso della proprietà **external** , vedere l'esempio seguente. È possibil
 
 Per altre informazioni su questa proprietà, vedere [Set di dati in Azure Data Factory](data-factory-create-datasets.md) .
 
-    {
-      "name": "CustomerTable",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "MyLinkedService",
-        "typeProperties": {
-          "folderPath": "MyContainer/MySubFolder/",
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": ",",
-            "rowDelimiter": ";"
-          }
-        },
-        "external": true,
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
-        },
-        "policy": {
-          }
-        }
+```json
+{
+  "name": "CustomerTable",
+  "properties": {
+    "type": "AzureBlob",
+    "linkedServiceName": "MyLinkedService",
+    "typeProperties": {
+      "folderPath": "MyContainer/MySubFolder/",
+      "format": {
+        "type": "TextFormat",
+        "columnDelimiter": ",",
+        "rowDelimiter": ";"
+      }
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    },
+    "policy": {
       }
     }
+  }
+}
+```
 
 Per risolvere l'errore, aggiungere la proprietà **external** e la sezione **externalData** facoltativa alla definizione JSON della tabella di input e ricreare la tabella.
 
@@ -92,7 +100,9 @@ Per le procedure di risoluzione dei problemi relativi alla copia da e verso un a
 ### <a name="problem-on-demand-hdinsight-provisioning-fails"></a>Problema: non è possibile eseguire il provisioning di HDInsight su richiesta
 Quando si usa un servizio collegato di tipo HDInsightOnDemand, è necessario specificare un linkedServiceName che punta a un archivio BLOB di Azure. Il servizio Data Factory usa questa risorsa di archiviazione per archiviare Questo account di archiviazione verrà usato per copiare i log e i file di supporto per il cluster HDInsight su richiesta.  In alcuni casi il provisioning di un cluster HDInsight su richiesta ha esito negativo con l'errore seguente:
 
-        Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.
+```
+Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.
+```
 
 Questo errore di solito indica che il percorso dell'account di archiviazione specificato nel linkedServiceName non si trova nella stessa posizione del data center in cui viene eseguito il provisioning di HDInsight. Esempio: se il Data Factory si trova negli Stati Uniti occidentali e l'archiviazione di Azure è negli Stati Uniti orientali, il provisioning su richiesta ha esito negativo negli Stati Uniti occidentali.
 
@@ -143,6 +153,6 @@ Per informazioni su come monitorare le pipeline di Data Factory con Azure PowerS
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

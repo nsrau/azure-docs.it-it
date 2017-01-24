@@ -1,6 +1,6 @@
 ---
-title: Usare i set di dati di esempio in Azure Machine Learning Studio | Microsoft Docs
-description: "Descrizione dei set di dati usati nei modelli di esempio inclusi in ML Studio. È possibile usare questi set di dati di esempio per gli esperimenti."
+title: Usare i set di dati di esempio in Azure Machine Learning Studio | Documentazione Microsoft
+description: "Descrizione dei set di dati usati nei modelli di esempio inclusi in Machine Learning Studio. È possibile usare questi set di dati di esempio per gli esperimenti."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -12,29 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 12/14/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0a19e10d9bc4c2d0f6579518583f100b5ca76c23
+ms.sourcegitcommit: 4ebd5dc2da50db93061e92660c97dcca3866c713
+ms.openlocfilehash: c4adae8125a6780ddb4c7c64baf4df6aae139104
 
 
 ---
-# <a name="use-the-sample-data-sets-in-azure-machine-learning-studio"></a>Usare i set di dati di esempio in Azure Machine Learning Studio
+# <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Usare i set di dati di esempio in Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
 
-Quando si crea una nuova area di lavoro in Azure Machine Learning, per impostazione predefinita è inclusa una serie di set di dati e di esperimenti di esempio. Molti di questi set di dati esempio vengono usati dai modelli di esempio in [Azure Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/), altri sono inclusi come esempi dei diversi tipi di dati usati in Machine Learning.
+Quando si crea una nuova area di lavoro in Azure Machine Learning, per impostazione predefinita è inclusa una serie di set di dati e di esperimenti di esempio. Molti di questi set di dati di esempio vengono usati dai modelli di esempio in [Azure Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/). Altri sono inclusi come esempi di diversi tipi di dati usati in genere per l'apprendimento automatico.
 
-Alcuni di questi set di dati sono disponibili nell'archivio BLOB di Azure. Per questi set di dati la tabella seguente fornisce il link diretto. È possibile usare questi set di dati in esperimenti usando il modulo [Import Data][import-data].
+Alcuni di questi set di dati sono disponibili nell'archivio BLOB di Azure. La tabella seguente include un collegamento diretto per questi set di dati. È possibile usare questi set di dati negli esperimenti tramite il modulo [Import Data][import-data] (Importazione dati).
 
-I restanti set di dati di esempio sono elencati in **Set di dati salvati** nella tavolozza del modulo a sinistra dell'area di disegno dell'esperimento quando si apre o si crea un nuovo esperimento in ML Studio.
-Per usare uno qualsiasi di questi set di dati in un esperimento personalizzato, trascinarlo sull'area di disegno dell'esperimento.
+I restanti set di dati di esempio sono disponibili nell'area di lavoro in **Saved Datasets** (Set di dati salvati) nella tavolozza del modulo a sinistra dell'area di disegno dell'esperimento quando si apre o si crea un nuovo esperimento in Machine Learning Studio.
+Per usare uno qualsiasi di questi set di dati in un esperimento personalizzato, trascinarlo all'area di disegno dell'esperimento.
 
-<!--
-For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments][sample-experiments].
-
-[sample-experiments]: machine-learning-sample-experiments.md
--->
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -61,7 +56,7 @@ Codici degli aeroporti degli Stati Uniti.<p> </p>Questo set di dati contiene una
 <tr>
   <td valign=top>Automobile price data (Raw)</td>
   <td valign=top>
-Informazioni sulle automobili in base a marchio e modello, inclusi il prezzo, funzionalità quali il numero di cilindri e il consumo di carburante, oltre a un punteggio relativo al rischio assicurativo.<p> </p>Il punteggio di rischio viene inizialmente associato al prezzo dell'automobile e quindi viene adeguato in base al rischio effettivo in un processo noto agli attuari come simbolizzazione. Un valore pari a +3 indica che l'automobile è rischiosa e un valore pari a -3 indica che è probabilmente abbastanza sicura.<p> </p><b>Uso:</b> prevedere il punteggio di rischio in base alle funzionalità, usando la regressione o la classificazione multivariata. <p> </p><b>Ricerca correlata:</b> Schlimmer, J.C. (1987). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+Informazioni sulle automobili in base a marchio e modello, inclusi il prezzo, funzionalità quali il numero di cilindri e il consumo di carburante, oltre a un punteggio relativo al rischio assicurativo.<p> </p>Il punteggio di rischio viene inizialmente associato al prezzo dell'automobile e quindi viene adeguato in base al rischio effettivo in un processo noto agli attuari come simbolizzazione. Un valore pari a +3 indica che l'automobile è rischiosa e un valore pari a -3 indica che è probabilmente sicura.<p> </p><b>Uso:</b> prevedere il punteggio di rischio in base alle funzionalità, usando la regressione o la classificazione multivariata. <p> </p><b>Ricerca correlata:</b> Schlimmer, J.C. (1987). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
 </tr>
 
 <tr ID=bike-rental-uci-dataset>
@@ -143,13 +138,13 @@ Etichette dalla competizione KDD Cup 2009 di previsione delle relazioni con i cl
 <tr>
   <td valign=top>Energy Efficiency Regression data</td>
   <td valign=top>
-Raccolta di profili energetici simulati, basati su 12 forme di edifici diverse. Gli edifici si differenziano in base a 8 caratteristiche specifiche, ad esempio il numero di finestre e la distribuzione e l'orientamento delle finestre.<p> </p><b>Uso:</b> usare la regressione o la classificazione per prevedere il livello di efficienza energetica in base a una delle due risposte con valori reali. Per la classificazione a più classi, la variabile di risposta verrà arrotondata al valore Integer più vicino. <p> </p><b>Ricerca correlata:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+Raccolta di profili energetici simulati, basati su 12 forme di edifici diverse. Gli edifici si differenziano in base a 8 caratteristiche specifiche, ad esempio il numero di finestre e la distribuzione e l'orientamento delle finestre.<p> </p><b>Utilizzo:</b> usare la regressione o la classificazione per prevedere il livello di efficienza energetica in base a una delle due risposte con valori reali. Per la classificazione a più classi, la variabile di risposta verrà arrotondata al valore Integer più vicino. <p> </p><b>Ricerca correlata:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
 </tr>
 
 <tr ID=flight-delays-data>
   <td valign=top>Flight Delays Data</td>
   <td valign=top>
-Dati relativi alle prestazioni nel tempo dei voli passeggeri ottenuti dalla raccolta dati TranStats del Dipartimento dei trasporti degli Stati Uniti (<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">On-Time</a>).<p> </p>Il set di dati copre il periodo aprile-ottobre 2013. Prima del caricamento in Azure ML Studio, il set di dati è stato elaborato come segue:<ul><li>Il set di dati è stato filtrato in modo da coprire solo i 70 aeroporti più trafficati degli Stati Uniti continentali</li><li>I voli cancellati sono stati etichettati in modo da indicare un ritardo superiore a 15 minuti</li><li>I voli deviati sono stati esclusi</li><li>Sono state selezionate le colonne seguenti: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Cancelled</li></ul>
+Dati relativi alle prestazioni nel tempo dei voli passeggeri ottenuti dalla raccolta dati TranStats del Dipartimento dei trasporti degli Stati Uniti (<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">On-Time</a>).<p> </p>Il set di dati copre il periodo aprile-ottobre 2013. Prima del caricamento in Azure Machine Learning Studio, il set di dati è stato elaborato come segue:<ul><li>Il set di dati è stato filtrato in modo da coprire solo i 70 aeroporti più trafficati degli Stati Uniti continentali</li><li>I voli cancellati sono stati etichettati in modo da indicare un ritardo superiore a 15 minuti</li><li>I voli deviati sono stati esclusi</li><li>Sono state selezionate le colonne seguenti: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Canceled</li></ul>
 </td>
 </tr>
 
@@ -177,14 +172,14 @@ Set di dati UCI Statlog (German Credit Card) (<a href="http://archive.ics.uci.ed
 <tr ID=imdb-movie-titles>
   <td valign=top>IMDB Movie Titles</td>
   <td valign=top>
-Il set di dati contiene informazioni sui film che sono stati valutati nei tweet di Twitter: ID del film nel database IMDB, nome e genere del film, anno di produzione. Il set di dati contiene 17.000 film. Il set di dati è stato introdotto nel documento di S. Dooms, T. De Pessemier e L. Martens. "MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013."
+Il set di dati contiene informazioni sui film che sono stati valutati nei tweet di Twitter: ID del film nel database IMDB, nome, genere e anno di produzione del film. Il set di dati contiene 17.000 film. Il set di dati è stato introdotto nel documento di S. Dooms, T. De Pessemier e L. Martens. "MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013."
   </td>
 </tr>
 
 <tr>
   <td valign=top>Iris two class data</td>
   <td valign=top>
-Si tratta probabilmente del database più conosciuto disponibile nella letteratura relativa al riconoscimento di schemi. Il set di dati è relativamente piccolo, poiché contiene 50 esempi di misurazione di ogni petalo di tre varietà di iris.<p> </p><b>Uso:</b> prevedere il tipo di iris in base alle misurazioni.  <p> </p><b>Ricerca correlata:</b> Fisher, R.A. (1988). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+Si tratta probabilmente del database più conosciuto disponibile nella letteratura relativa al riconoscimento di schemi. Il set di dati è relativamente piccolo, perché contiene 50 esempi di misurazione di ogni petalo di tre varietà di iris.<p> </p><b>Uso:</b> prevedere il tipo di iris in base alle misurazioni.  <p> </p><b>Ricerca correlata:</b> Fisher, R.A. (1988). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
 </tr>
 
 <tr ID=movie-tweets>
@@ -209,28 +204,28 @@ Sottoinsieme di dati del database del National Institute of Diabetes and Digesti
 <tr>
   <td valign=top>Restaurant customer data</td>
   <td valign=top>
-Set di metadati relativi ai clienti, inclusi dati demografici e preferenze.<p> </p><b>Uso:</b> usare questo set di dati, insieme ad altri due set di dati relativi ai ristoranti, per il training e il test di un sistema di raccomandazione. <p> </p><b>Ricerca correlata:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+Set di metadati relativi ai clienti, inclusi dati demografici e preferenze.<p> </p><b>Utilizzo:</b> usare questo set di dati, con altri due set di dati relativi ai ristoranti, per il training e il test di un sistema di raccomandazione. <p> </p><b>Ricerca correlata:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Restaurant feature data</td>
   <td valign=top>
-Set di metadati relativi ai ristoranti e alle rispettive caratteristiche, ad esempio tipo di cibo, stile del ristorante e ubicazione.<p> </p><b>Uso:</b> usare questo set di dati, insieme ad altri due set di dati relativi ai ristoranti, per il training e il test di un sistema di raccomandazione. <p> </p><b>Ricerca correlata:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+Set di metadati relativi ai ristoranti e alle rispettive caratteristiche, ad esempio tipo di cibo, stile del ristorante e ubicazione.<p> </p><b>Utilizzo:</b> usare questo set di dati, con altri due set di dati relativi ai ristoranti, per il training e il test di un sistema di raccomandazione. <p> </p><b>Ricerca correlata:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Restaurant ratings</td>
   <td valign=top>
-Include le valutazioni assegnate dagli utenti ai ristoranti in una scala da 0 a 2.<p> </p><b>Uso:</b> usare questo set di dati, insieme ad altri due set di dati relativi ai ristoranti, per il training e il test di un sistema di raccomandazione. <p> </p><b>Ricerca correlata:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+Include le valutazioni assegnate dagli utenti ai ristoranti in una scala da 0 a 2.<p> </p><b>Utilizzo:</b> usare questo set di dati, con altri due set di dati relativi ai ristoranti, per il training e il test di un sistema di raccomandazione. <p> </p><b>Ricerca correlata:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Steel Annealing multi-class dataset</td>
   <td valign=top>
-Questo set di dati include una serie di record relativi a tentativi di ricottura di acciaio, con gli attributi fisici (larghezza, spessore e tipo, ad esempio spirale, lamina e così via) dei tipi di acciaio risultanti.<p> </p><b>Uso:</b> prevedere uno dei due attributi numerici della classe, ovvero durezza o forza. È anche possibile analizzare le correlazioni tra gli attributi.<p> </p>Le designazioni dell'acciaio sono basate su uno standard definito da SAE e da altre organizzazioni. Si cerca una 'designazione' specifica (variabile della classe) e si vogliono comprendere i valori necessari. <p> </p><b>Ricerca correlata:</b> Sterling, D. & Buntine, W., (NA). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  <p> </p>Una guida utile alle designazioni dell'acciaio è disponibile qui: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
+Questo set di dati include una serie di record relativi a tentativi di ricottura di acciaio, con gli attributi fisici (larghezza, spessore e tipo, ad esempio spirale, lamina e così via) dei tipi di acciaio risultanti.<p> </p><b>Uso:</b> prevedere uno dei due attributi numerici della classe, ovvero durezza o forza. È anche possibile analizzare le correlazioni tra gli attributi.<p> </p>Le designazioni dell'acciaio sono basate su uno standard definito da SAE e da altre organizzazioni. Si cerca una 'designazione' specifica (variabile della classe) e si vogliono comprendere i valori necessari. <p> </p><b>Ricerca correlata:</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  <p> </p>Una guida utile alle designazioni dell'acciaio è disponibile qui: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
 </tr>
 
@@ -243,14 +238,14 @@ Record di esplosioni di particelle gamma a energia elevata insieme alla radiazio
 <tr ID=weather-dataset>
   <td valign=top>Weather Dataset</td>
   <td valign=top>
-Le osservazioni meteo sono su base oraria e al suolo e vengono fornite dalla NOAA (<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">dati uniti dal mese di aprile al mese di ottobre 2013</a>).<p> </p>I dati relativi al meteo riguardano le osservazioni effettuate dalle stazioni meteo degli aeroporti nel periodo aprile-ottobre 2013. Prima del caricamento in Azure ML Studio, il set di dati è stato elaborato come segue:<ul><li>Gli ID delle stazioni meteo sono stati mappati agli ID degli aeroporti corrispondenti</li><li>Le stazioni meteo non associate ai 70 aeroporti più trafficati sono state escluse</li><li>La colonna Date è stata suddivisa in colonne Year, Month e Day distinte</li><li>Sono state selezionate le seguenti colonne: AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li></ul>
+Le osservazioni meteo sono su base oraria e al suolo e vengono fornite dalla NOAA (<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">dati uniti dal mese di aprile al mese di ottobre 2013</a>).<p> </p>I dati relativi al meteo riguardano le osservazioni effettuate dalle stazioni meteo degli aeroporti nel periodo aprile-ottobre 2013. Prima del caricamento in Azure Machine Learning Studio, il set di dati è stato elaborato come segue:<ul><li>Gli ID delle stazioni meteo sono stati mappati agli ID degli aeroporti corrispondenti</li><li>Le stazioni meteo non associate ai 70 aeroporti più trafficati sono state escluse</li><li>La colonna Date è stata suddivisa in colonne Year, Month e Day distinte</li><li>Sono state selezionate le seguenti colonne: AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li></ul>
   </td>
 </tr>
 
 <tr ID=wikipedia-sp-500-dataset>
   <td valign=top>Wikipedia SP 500 Dataset</td>
   <td valign=top>
-I dati sono tratti da articoli di Wikipedia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>)su ognuna delle società incluse nell'indice S&P 500, archiviati come dati XML.<p> </p>Prima del caricamento in Azure ML Studio, il set di dati è stato elaborato come segue:<ul><li>Estrazione del contenuto di testo per ogni specifica società</li><li>Rimozione della formattazione wiki</li><li>Rimozione dei caratteri non alfanumerici</li><li>Conversione di tutto il testo in minuscolo</li><li>Aggiunta delle categorie di società note</li></ul><p> </p>Tenere presente che per alcune società non sono stati trovati articoli, dunque il numero dei record è inferiore a 500.
+I dati sono tratti da articoli di Wikipedia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>)su ognuna delle società incluse nell'indice S&P 500, archiviati come dati XML.<p> </p>Prima del caricamento in Azure Machine Learning Studio, il set di dati è stato elaborato come segue:<ul><li>Estrazione del contenuto di testo per ogni specifica società</li><li>Rimozione della formattazione wiki</li><li>Rimozione dei caratteri non alfanumerici</li><li>Conversione di tutto il testo in minuscolo</li><li>Aggiunta delle categorie di società note</li></ul><p> </p>Tenere presente che per alcune società non sono stati trovati articoli, dunque il numero dei record è inferiore a 500.
   </td>
 </tr>
 
@@ -282,7 +277,7 @@ Funzionalità degli esempi di training nel set di dati relativi alle notizie RCV
 <tr ID=intrusion-detection>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
   <td valign=top>
-Set di dati dalla KDD Cup 1999 Knowledge Discovery and Data Mining Tools Competition (<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).<p> </p>Questo set di dati è stato scaricato e memorizzato nell'archiviazione BLOB di Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>) e include set di dati sia di training che di test. Il set di dati di training contiene circa 126.000 righe e 43 colonne, comprese le etichette; 3 colonne fanno parte delle informazioni sulle etichette e 40 colonne, composte da funzioni numeriche, stringa o categoriali, sono disponibili per il training del modello. I dati di test contengono circa 225.000 esempi di test con le stesse 43 colonne nei dati di training.
+Set di dati dalla KDD Cup 1999 Knowledge Discovery and Data Mining Tools Competition (<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).<p> </p>Questo set di dati è stato scaricato e memorizzato nell'archiviazione BLOB di Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>) e include set di dati sia di training che di test. Il set di dati di training contiene circa 126K righe e 43 colonne, comprese le etichette. Tre colonne fanno parte delle informazioni sulle etichette e 40 colonne, composte da funzioni numeriche, stringa o categoriali, sono disponibili per il training del modello. I dati di test contengono circa 225.000 esempi di test con le stesse 43 colonne nei dati di training.
 
   </td>
 </tr>
@@ -290,14 +285,14 @@ Set di dati dalla KDD Cup 1999 Knowledge Discovery and Data Mining Tools Competi
 <tr ID=rcv1-v2-topics-qrels>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td valign=top>
-Assegnazioni degli argomenti per gli articoli del set di dati relativo alle notizie RCV1-V2 Reuters. Un articolo può essere assegnato a più argomenti. Il formato di ciascuna riga è "<topic name> <document id> 1". Il set di dati contiene 2,6 milioni di assegnazioni di argomenti. Il set di dati è stato messo a disposizione da David. D. Lewis.
+Assegnazioni degli argomenti per gli articoli del set di dati relativo alle notizie RCV1-V2 Reuters. Un articolo può essere assegnato a più argomenti. Il formato di ogni riga è "&lt;nome argomento&gt; &lt;ID documento&gt; 1". Il set di dati contiene 2,6 milioni di assegnazioni di argomenti. Il set di dati è stato messo a disposizione da David. D. Lewis.
   </td>
 </tr>
 
 <tr ID=student-performance>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td valign=top>
-Questi dati provengono dalla competizione KDD Cup 2010 Student performance evaluation (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">student performance evaluation</a>). Il set di dati usato è il training set Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Algebra I 2008-2009. Il training è disponibile in <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> o <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.<p> </p>Il set di dati è stato scaricato e memorizzato Archiviazione BLOB di Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) e contiene i file di log provenienti dal sistema relativo alle lezioni private per gli studenti. Le funzionalità fornite includono: ID del problema e breve descrizione, ID dello studente, timestamp e numero di tentativi effettuati dallo studente prima di risolvere il problema nel modo corretto. Il set di dati originale contiene 8,9 milioni di record e questo set di dati è stato ridotto alle prime 100.000 righe. Nel set di dati sono presenti 23 colonne separate da tabulazioni, di vari tipi: numerico, categorico e timestamp.
+Questi dati provengono dalla competizione KDD Cup 2010 Student performance evaluation (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">student performance evaluation</a>). Il set di dati usato è il training set Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Set di dati di competizione dalla KDD Cup 2010 dedicata al data mining in ambito didattico. Il training è disponibile in <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> o <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.<p> </p>Il set di dati è stato scaricato e memorizzato Archiviazione BLOB di Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) e contiene i file di log provenienti dal sistema relativo alle lezioni private per gli studenti. Le funzionalità fornite includono: ID del problema e breve descrizione, ID dello studente, timestamp e numero di tentativi effettuati dallo studente prima di risolvere il problema nel modo corretto. Il set di dati originale contiene 8,9 milioni di record e questo set di dati è stato ridotto alle prime 100.000 righe. Nel set di dati sono presenti 23 colonne separate da tabulazioni, di vari tipi: numerico, categorico e timestamp.
 
   </td>
 </tr>
@@ -313,6 +308,6 @@ Questi dati provengono dalla competizione KDD Cup 2010 Student performance evalu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -15,27 +15,27 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 567a998102558626df73878865b317b830ba1faa
+ms.sourcegitcommit: 206b958b4c266b9977a9beb8ffb6a0576f068a9a
+ms.openlocfilehash: cc4fbb67baf14f4a104a5de6dbf11ad195a42d15
 
 
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparare l'ambiente di sviluppo in Linux
 > [!div class="op_single_selector"]
-> -[ Windows](service-fabric-get-started.md)
-> 
+> * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
 > * [OSX](service-fabric-get-started-mac.md)
 > 
-> 
+>  
 
  Per distribuire ed eseguire [applicazioni di Azure Service Fabric](service-fabric-application-model.md) in un computer di sviluppo Linux, installare il runtime e l'SDK comune. È anche possibile installare SDK facoltativi per Java e .NET Core.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 ### <a name="supported-operating-system-versions"></a>Versioni del sistema operativo supportate
 Per lo sviluppo, sono supportati i sistemi operativi seguenti:
 
-* Ubuntu 16.04 (Xenial Xerus)
+* Ubuntu 16.04 ("Xenial Xerus")
 
 ## <a name="update-your-apt-sources"></a>Aggiornare le origini apt
 Per installare l'SDK e il pacchetto di runtime associato tramite apt-get, è prima necessario aggiornare le origini apt.
@@ -71,8 +71,9 @@ Dopo aver aggiornato le origini, è possibile installare l'SDK.
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
 
-## <a name="set-up-the-azure-crossplatform-cli"></a>Configurare l'interfaccia della riga di comando multipiattaforma di Azure
-L'[interfaccia della riga di comando multipiattaforma di Azure][azure-xplat-cli-github] include comandi per l'interazione con entità di Service Fabric, come cluster e applicazioni. Dato che è basata su Node.js, prima di procedere con le istruzioni riportate di seguito [assicurarsi di avere installato Node][install-node].
+
+## <a name="set-up-the-azure-cross-platform-cli"></a>Configurare l'interfaccia della riga di comando multipiattaforma di Azure
+L'[interfaccia della riga di comando multipiattaforma di Azure][azure-xplat-cli-github] include comandi per l'interazione con entità di Service Fabric, come cluster e applicazioni. Dato che è basata su Node.js, prima di procedere con le istruzioni riportate di seguito [assicurarsi di aver installato Node][install-node].
 
 1. Clonare il repository di GitHub nel computer di sviluppo.
    
@@ -110,7 +111,13 @@ Se tutti gli elementi sono stati installati, sarà possibile avviare un cluster 
    
     ![Service Fabric Explorer in Linux][sfx-linux]
 
-A questo punto, è possibile distribuire pacchetti di applicazione di Service Fabric predefiniti o nuovi pacchetti basati su contenitori o eseguibili guest. Per creare nuovi servizi usando gli SDK per Java o .NET Core, seguire le procedure di configurazione facoltative riportate di seguito.
+A questo punto, è possibile distribuire pacchetti di applicazione di Service Fabric predefiniti o nuovi pacchetti basati su contenitori o eseguibili guest. Per creare nuovi servizi usando gli SDK per Java o .NET Core, seguire le procedure di configurazione facoltative riportate nelle sezioni successive.
+
+
+> [!NOTE]
+> In Linux non sono supportati cluster autonomi. Nell'anteprima sono supportati solo cluster con un solo computer e più computer Linux di Azure.
+> 
+> 
 
 ## <a name="install-the-java-sdk-and-eclipse-neon-plugin-optional"></a>Installare Java SDK e il plug-in Eclipse Neon (facoltativo)
 Java SDK offre le librerie e i modelli necessari per creare servizi di Service Fabric con Java.
@@ -142,18 +149,32 @@ Java SDK offre le librerie e i modelli necessari per creare servizi di Service F
 
 1. Installare il pacchetto .NET Core SDK.
    
-    ```bash
-    sudo apt-get install servicefabricsdkcsharp
-    ```
+   ```bash
+   sudo apt-get install servicefabricsdkcsharp
+   ```
+
 2. Eseguire lo script di configurazione dell'SDK.
    
-    ```bash
-    sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
-    ```
+   ```bash
+   sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
+   ```
+
+## <a name="updating-the-sdk-and-runtime"></a>Aggiornamento di SDK e runtime
+
+Per aggiornare l'SDK e il runtime alla versione più recente, seguire questa procedura (nell'elenco che non si vuole aggiornare o installare, rimuovere gli SDK):
+
+   ```bash
+   sudo apt-get update
+   sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
+   ```
+
+Per aggiornare l'interfaccia della riga di comando, passare alla directory in cui è stata clonata l'interfaccia della riga di comando ed eseguire `git pull` per l'aggiornamento. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Creare la prima applicazione Java in Linux](service-fabric-create-your-first-linux-application-with-java.md)
+* [Creare la prima applicazione CSharp in Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Preparare l'ambiente di sviluppo in OSX](service-fabric-get-started-mac.md)
+* [Usare l'interfaccia della riga di comando di Azure per gestire le applicazioni di Service Fabric](service-fabric-azure-cli.md)
 
 <!-- Links -->
 
@@ -168,6 +189,6 @@ Java SDK offre le librerie e i modelli necessari per creare servizi di Service F
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

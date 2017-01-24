@@ -49,28 +49,28 @@ Quando si crea un'attività con **Azure Media Motion Detector**è necessario spe
 
 ### <a name="json-example"></a>Esempio di JSON
     {
-      'version': '1.0',
-      'options': {
-        'sensitivityLevel': 'medium',
-        'frameSamplingValue': 1,
-        'detectLightChange': 'False',
+      "version": "1.0",
+      "options": {
+        "sensitivityLevel": "medium",
+        "frameSamplingValue": 1,
+        "detectLightChange": "False",
         "mergeTimeThreshold":
-        '00:00:02',
-        'detectionZones': [
+        "00:00:02",
+        "detectionZones": [
           [
-            {'x': 0, 'y': 0},
-            {'x': 0.5, 'y': 0},
-            {'x': 0, 'y': 1}
+            {"x": 0, "y": 0},
+            {"x": 0.5, "y": 0},
+            {"x": 0, "y": 1}
            ],
           [
-            {'x': 0.3, 'y': 0.3},
-            {'x': 0.55, 'y': 0.3},
-            {'x': 0.8, 'y': 0.3},
-            {'x': 0.8, 'y': 0.55},
-            {'x': 0.8, 'y': 0.8},
-            {'x': 0.55, 'y': 0.8},
-            {'x': 0.3, 'y': 0.8},
-            {'x': 0.3, 'y': 0.55}
+            {"x": 0.3, "y": 0.3},
+            {"x": 0.55, "y": 0.3},
+            {"x": 0.8, "y": 0.3},
+            {"x": 0.8, "y": 0.55},
+            {"x": 0.8, "y": 0.8},
+            {"x": 0.55, "y": 0.8},
+            {"x": 0.3, "y": 0.8},
+            {"x": 0.3, "y": 0.55}
           ]
         ]
       }
@@ -165,28 +165,28 @@ Il programma seguente illustra come:
 2. Creare un processo con un'attività di rilevamento movimento video in base al file di configurazione che contiene il set di impostazioni JSON seguente. 
    
         {
-          'Version': '1.0',
-          'Options': {
-            'SensitivityLevel': 'medium',
-            'FrameSamplingValue': 1,
-            'DetectLightChange': 'False',
+          "Version": "1.0",
+          "Options": {
+            "SensitivityLevel": "medium",
+            "FrameSamplingValue": 1,
+            "DetectLightChange": "False",
             "MergeTimeThreshold":
-            '00:00:02',
-            'DetectionZones': [
+            "00:00:02",
+            "DetectionZones": [
               [
-                {'x': 0, 'y': 0},
-                {'x': 0.5, 'y': 0},
-                {'x': 0, 'y': 1}
+                {"x": 0, "y": 0},
+                {"x": 0.5, "y": 0},
+                {"x": 0, "y": 1}
                ],
               [
-                {'x': 0.3, 'y': 0.3},
-                {'x': 0.55, 'y': 0.3},
-                {'x': 0.8, 'y': 0.3},
-                {'x': 0.8, 'y': 0.55},
-                {'x': 0.8, 'y': 0.8},
-                {'x': 0.55, 'y': 0.8},
-                {'x': 0.3, 'y': 0.8},
-                {'x': 0.3, 'y': 0.55}
+                {"x": 0.3, "y": 0.3},
+                {"x": 0.55, "y": 0.3},
+                {"x": 0.8, "y": 0.3},
+                {"x": 0.8, "y": 0.55},
+                {"x": 0.8, "y": 0.8},
+                {"x": 0.55, "y": 0.8},
+                {"x": 0.3, "y": 0.8},
+                {"x": 0.3, "y": 0.55}
               ]
             ]
           }

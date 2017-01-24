@@ -195,6 +195,6 @@ Informazioni su come usare App per dispositivi mobili nel Servizio app di Azure 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

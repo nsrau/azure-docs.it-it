@@ -1,51 +1,56 @@
 ---
-title: Introduzione ai processi di database elastici
+title: Introduzione ai processi di Database Elastici
 description: come utilizzare i processi di database elastici
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 manager: jhubbard
 author: ddove
-
+ms.assetid: 2540de0e-2235-4cdd-9b6a-b841adba00e5
 ms.service: sql-database
+ms.custom: jobs
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 873ccdcb41cbfd6b1778be14b7dc955e95fbd117
+
 
 ---
-# Introduzione ai processi di Database Elastici
+# <a name="getting-started-with-elastic-database-jobs"></a>Introduzione ai processi di Database Elastici
 I processi di database elastici (anteprima) per il database SQL di Azure consentono di eseguire in maniera affidabile script T-SQL che si estendono su più database e effettuano tentativi automatici per garantire il completamento delle operazioni . Per ulteriori informazioni sulla funzionalità dei processi di database elastici, vedere la [panoramica della funzionalità](sql-database-elastic-jobs-overview.md).
 
 Questo argomento supporta l'esempio presentato in [Introduzione agli strumenti del Database elastico](sql-database-elastic-scale-get-started.md). Al termine, si apprenderà come creare e gestire processi di gestione di un gruppo di database correlati. Non è necessario usare gli strumenti di scalabilità elastica per sfruttare i vantaggi dei processi elastici.
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Scaricare ed eseguire [Introduzione allo strumento di esempio del Database elastico](sql-database-elastic-scale-get-started.md).
 
-## Creare un gestore mappe partizione utilizzando l'applicazione di esempio
+## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Creare un gestore mappe partizione utilizzando l'applicazione di esempio
 Di seguito si creerà un gestore mappe partizione con diverse partizioni, seguita dall'inserimento di dati nelle partizioni. Se si dispone già di programma di installazione di partizioni con dati partizionati in essi, è possibile ignorare i passaggi seguenti e passare alla sezione successiva.
 
-1. Compilare ed eseguire l’applicazione di esempio **Introduzione agli strumenti del Database elastico**. Seguire i passaggi fino al passaggio 7 nella sezione [Scaricare ed eseguire l'app di esempio](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). Alla fine del passaggio 7, verrà visualizzato il seguente prompt dei comandi:
-   
+1. Compilare ed eseguire l’applicazione di esempio **Introduzione agli strumenti del Database elastico** . Seguire la procedura fino al passaggio 7 nella sezione [Scaricare ed eseguire l'app di esempio](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). Alla fine del passaggio 7, verrà visualizzato il seguente prompt dei comandi:
+
     ![Aprire il prompt dei comandi.][1]
 2. Nella finestra di comando, digitare "1" e premere **Invio**. Viene creato il gestore delle mappe partizioni e aggiunge due partizioni al server. Digitare "3" e premere **Invia**. Ripetere l'operazione quattro volte. Consente di inserire righe di dati di esempio nelle partizioni.
 3. Nel [portale di Azure](https://portal.azure.com) dovrebbero essere visualizzati tre nuovi database nel server v12:
-   
+
    ![Conferma di Visual Studio][2]
-   
+
    A questo punto, si creerà un insieme di database personalizzati che riflette tutti i database del mapping della partizione. Questo consentirà di creare ed eseguire un processo che aggiunge una nuova tabella tra le partizioni.
 
-Si creerà una destinazione di partizionamento della mappa, utilizzando il cmdlet **New-AzureSqlJobTarget**. Il database di gestione della mappa di partizione deve essere impostato come destinazione di database e quindi il mapping di partizione specifico viene specificato come destinazione. In questo caso, invece, tutti i database nel server dovranno essere enumerati e aggiunti alla nuova raccolta personalizzata, ad eccezione del database master.
+Si creerà una destinazione di partizionamento della mappa, utilizzando il cmdlet **New-AzureSqlJobTarget** . Il database di gestione della mappa di partizione deve essere impostato come destinazione di database e quindi il mapping di partizione specifico viene specificato come destinazione. In questo caso, invece, tutti i database nel server dovranno essere enumerati e aggiunti alla nuova raccolta personalizzata, ad eccezione del database master.
 
-## Crea una raccolta personalizzata e aggiunge tutti i database nel server alla destinazione della raccolta personalizzata ad eccezione del database master.
+## <a name="creates-a-custom-collection-and-adds-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Crea una raccolta personalizzata e aggiunge tutti i database nel server alla destinazione della raccolta personalizzata ad eccezione del database master.
     $customCollectionName = "dbs_in_server"
-    New-AzureSqlJobTarget -CustomCollectionName $customCollectionName 
+    New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
     $ServerName = "samples"
-    $dbsinserver = Get-AzureRMSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
+    $dbsinserver = Get-AzureRMSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName
     $dbsinserver | %{
-    $currentdb = $_.DatabaseName 
+    $currentdb = $_.DatabaseName
     $ErrorActionPreference = "Stop"
     Write-Output ""
 
@@ -53,14 +58,14 @@ Si creerà una destinazione di partizionamento della mappa, utilizzando il cmdle
     {
        New-AzureSqlJobTarget -ServerName $ServerName -DatabaseName $currentdb | Write-Output
     }
-    Catch 
+    Catch
     {
         $ErrorMessage = $_.Exception.Message
         $ErrorCategory = $_.CategoryInfo.Reason
 
         if ($ErrorCategory -eq 'UniqueConstraintViolatedException')
         {
-             Write-Host $currentdb "is already a database target." 
+             Write-Host $currentdb "is already a database target."
         }
 
         else
@@ -84,7 +89,7 @@ Si creerà una destinazione di partizionamento della mappa, utilizzando il cmdle
         }
 
     }
-    Catch 
+    Catch
     {
         $ErrorMessage = $_.Exception.Message
         $ErrorCategory = $_.CategoryInfo.Reason
@@ -102,7 +107,7 @@ Si creerà una destinazione di partizionamento della mappa, utilizzando il cmdle
     $ErrorActionPreference = "Continue"
 }
 
-## Creare uno Script T-SQL per l'esecuzione tra database
+## <a name="create-a-t-sql-script-for-execution-across-databases"></a>Creare uno Script T-SQL per l'esecuzione tra database
     $scriptName = "NewTable"
     $scriptCommandText = "
     IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'Test')
@@ -119,7 +124,7 @@ Si creerà una destinazione di partizionamento della mappa, utilizzando il cmdle
     $script = New-AzureSqlJobContent -ContentName $scriptName -CommandText $scriptCommandText
     Write-Output $script
 
-## Creare il processo per eseguire uno script in un gruppo personalizzato di database
+## <a name="create-the-job-to-execute-a-script-across-the-custom-group-of-databases"></a>Creare il processo per eseguire uno script in un gruppo personalizzato di database
     $jobName = "create on server dbs"
     $scriptName = "NewTable"
     $customCollectionName = "dbs_in_server"
@@ -129,24 +134,24 @@ Si creerà una destinazione di partizionamento della mappa, utilizzando il cmdle
     Write-Output $job
 
 
-## Eseguire il processo
+## <a name="execute-the-job"></a>Eseguire il processo
 Il seguente script PowerShell può essere utilizzato per eseguire un processo esistente:
 
 Aggiornare la variabile seguente per riflettere il nome del processo desiderato da eseguire:
 
     $jobName = "create on server dbs"
-    $jobExecution = Start-AzureSqlJobExecution -JobName $jobName 
+    $jobExecution = Start-AzureSqlJobExecution -JobName $jobName
     Write-Output $jobExecution
 
-## Recuperare lo stato di un singolo processo di esecuzione
-Utilizzare la stessa cmdlet**Get-AzureSqlJobExecution**con il parametro**IncludeChildren**per visualizzare lo stato di esecuzioni del processo figlio, vale a dire lo stato specifico per ogni esecuzione del processo in tutti i database di destinazione del processo.
+## <a name="retrieve-the-state-of-a-single-job-execution"></a>Recuperare lo stato di un singolo processo di esecuzione
+Usare lo stesso cmdlet **Get-AzureSqlJobExecution** con il parametro **IncludeChildren** per visualizzare lo stato delle esecuzioni del processo figlio, ovvero lo stato specifico per ogni esecuzione del processo in ogni database di destinazione del processo.
 
     $jobExecutionId = "{Job Execution Id}"
     $jobExecutions = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId -IncludeChildren
-    Write-Output $jobExecutions 
+    Write-Output $jobExecutions
 
-## Visualizzare lo stato su più esecuzioni del processo
-Il cmdlet **Get-AzureSqlJobExecution**ha più parametri facoltativi che possono essere utilizzati per visualizzare più esecuzioni di processo, filtrate tramite i parametri forniti. Di seguito vengono illustrati alcuni dei possibili modi per utilizzare Get-AzureSqlJobExecution:
+## <a name="view-the-state-across-multiple-job-executions"></a>Visualizzare lo stato su più esecuzioni del processo
+Il cmdlet **Get-AzureSqlJobExecution** ha più parametri facoltativi che possono essere utilizzati per visualizzare più esecuzioni di processo, filtrate tramite i parametri forniti. Di seguito vengono illustrati alcuni dei possibili modi per utilizzare Get-AzureSqlJobExecution:
 
 Recuperare tutte le esecuzioni attive di processo di primo livello:
 
@@ -185,7 +190,7 @@ Recuperare l'elenco delle esecuzioni delle attività di processo in una esecuzio
 
     $jobExecutionId = "{Job Execution Id}"
     $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
-    Write-Output $jobTaskExecutions 
+    Write-Output $jobTaskExecutions
 
 Recuperare i dettagli di esecuzione delle attività di processo:
 
@@ -195,12 +200,12 @@ Il seguente script PowerShell può essere utilizzato per visualizzare i dettagli
     $jobTaskExecution = Get-AzureSqlJobTaskExecution -JobTaskExecutionId $jobTaskExecutionId
     Write-Output $jobTaskExecution
 
-## Recuperare gli errori all'interno delle esecuzioni delle attività di processo
-L'oggetto JobTaskExecution include una proprietà per il ciclo di vita dell'attività insieme ad una proprietà del messaggio. Se un'esecuzione delle attività di processo ha esito negativo,la proprietà del ciclo di vita verrà impostata su *Non riuscita* e la proprietà del messaggio verrà impostata sul messaggio di eccezione risultante e il relativo stack. Se un processo ha esito negativo, è importante visualizzare i dettagli delle attività di processo che non sono riuscite per un determinato processo.
+## <a name="retrieve-failures-within-job-task-executions"></a>Recuperare gli errori all'interno delle esecuzioni delle attività di processo
+L'oggetto JobTaskExecution include una proprietà per il ciclo di vita dell'attività insieme ad una proprietà del messaggio. Se un'esecuzione delle attività di processo ha esito negativo,la proprietà del ciclo di vita verrà impostata su *Non riuscita* e la proprietà del messaggio verrà impostata sul messaggio di eccezione risultante e il  relativo stack. Se un processo ha esito negativo, è importante visualizzare i dettagli delle attività di processo che non sono riuscite per un determinato processo.
 
     $jobExecutionId = "{Job Execution Id}"
     $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
-    Foreach($jobTaskExecution in $jobTaskExecutions) 
+    Foreach($jobTaskExecution in $jobTaskExecutions)
         {
         if($jobTaskExecution.Lifecycle -ne 'Succeeded')
             {
@@ -208,13 +213,13 @@ L'oggetto JobTaskExecution include una proprietà per il ciclo di vita dell'atti
             }
         }
 
-## In attesa del completamento dell’esecuzione del processo
-Il seguente script PowerShell può essere utilizzato per attendere che un’attività di processo venga completata:
+## <a name="waiting-for-a-job-execution-to-complete"></a>In attesa del completamento dell’esecuzione del processo
+Il seguente script PowerShell può essere utilizzato per attendere che un’attività di processo venga completata: 
 
     $jobExecutionId = "{Job Execution Id}"
-    Wait-AzureSqlJobExecution -JobExecutionId $jobExecutionId 
+    Wait-AzureSqlJobExecution -JobExecutionId $jobExecutionId
 
-## Creare un criterio di esecuzione personalizzata
+## <a name="create-a-custom-execution-policy"></a>Creare un criterio di esecuzione personalizzata
 I processi di database elastici supportano la creazione di criteri di esecuzione personalizzati che possono essere applicati all'avvio dei processi.
 
 Criteri di esecuzione che attualmente consentono la definizione di:
@@ -223,7 +228,7 @@ Criteri di esecuzione che attualmente consentono la definizione di:
 * Timeout del processo: tempo totale prima che un processo venga annullato dai processi di database elastici.
 * Intervallo tra tentativi iniziale: intervallo di attesa prima del primo tentativo.
 * Intervallo massimo di tentativi: estremità degli intervalli tra i tentativi da utilizzare.
-* Coefficiente di backoff dell’intervallo tra tentativi: coefficiente utilizzato per calcolare l’intervallo successivo tra i tentativi. Viene utilizzata la seguente formula: (Intervallo tentativi iniziale) * Math.pow((Coefficiente di backoff dell’intervallo), (Numero di tentativi) - 2).
+* Coefficiente di backoff dell’intervallo tra tentativi: coefficiente utilizzato per calcolare l’intervallo successivo tra i tentativi.  Viene utilizzata la seguente formula: (Intervallo tentativi iniziale) * Math.pow((Coefficiente di backoff dell’intervallo), (Numero di tentativi) - 2).
 * Numero massimo di tentativi: Il numero massimo di tentativi all'interno di un processo.
 
 Il criterio di esecuzione predefinito utilizza i valori seguenti:
@@ -246,7 +251,7 @@ Creare il criterio di esecuzione desiderato:
     $executionPolicy = New-AzureSqlJobExecutionPolicy -ExecutionPolicyName $executionPolicyName -InitialRetryInterval $initialRetryInterval -JobTimeout $jobTimeout -MaximumAttempts $maximumAttempts -MaximumRetryInterval $maximumRetryInterval -RetryIntervalBackoffCoefficient $retryIntervalBackoffCoefficient
     Write-Output $executionPolicy
 
-### Aggiornare il criterio di esecuzione personalizzato
+### <a name="update-a-custom-execution-policy"></a>Aggiornare il criterio di esecuzione personalizzato
 Aggiornare l'aggiornamento del criterio di esecuzione desiderato:
 
     $executionPolicyName = "{Execution Policy Name}"
@@ -258,49 +263,49 @@ Aggiornare l'aggiornamento del criterio di esecuzione desiderato:
     $updatedExecutionPolicy = Set-AzureSqlJobExecutionPolicy -ExecutionPolicyName $executionPolicyName -InitialRetryInterval $initialRetryInterval -JobTimeout $jobTimeout -MaximumAttempts $maximumAttempts -MaximumRetryInterval $maximumRetryInterval -RetryIntervalBackoffCoefficient $retryIntervalBackoffCoefficient
     Write-Output $updatedExecutionPolicy
 
-## Annullare un processo
-I processi di database elastico supportano le richieste di annullamento dei processi. Se i processi di database elastici rilevano una richiesta di annullamento per un processo in fase di esecuzione, verrà effettuato un tentativo di arresto del processo.
+## <a name="cancel-a-job"></a>Annullare un processo
+I processi di database elastico supportano le richieste di annullamento dei processi.  Se i processi di database elastici rilevano una richiesta di annullamento per un processo in fase di esecuzione, verrà effettuato un tentativo di arresto del processo.
 
 E’ possibile cancellare un processo in due modi diversi tramite i processi di database elastici:
 
-1. Annullamento delle attività attualmente in esecuzione: se viene rilevato un annullamento mentre un'attività è attualmente in esecuzione, si tenterà di cancellare l’aspetto di esecuzione corrente dell’attività. Ad esempio: se viene eseguita una query con esecuzione prolungata quando si tenta di eseguire un annullamento, si verificherà un tentativo di annullare la query.
+1. Annullamento delle attività attualmente in esecuzione: se viene rilevato un annullamento mentre un'attività è attualmente in esecuzione, si tenterà di cancellare l’aspetto di esecuzione corrente dell’attività.  Ad esempio: se viene eseguita una query con esecuzione prolungata quando si tenta di eseguire un annullamento, si verificherà un tentativo di annullare la query.
 2. Annullamento attività tentativi: Se un annullamento viene rilevato dal thread di controllo prima dell’avvio dell’esecuzione di un'attività, il thread di controllo eviterà l’avvio dell'attività e annullerà la richiesta.
 
 Se viene richiesto un annullamento del processo per un processo padre, tale richiesta verrà rispettata per il processo padre e per tutti i relativi processi figlio.
 
-Per inviare una richiesta di annullamento, utilizzare il cmdlet**Stop-AzureSqlJobExecution**e impostare il parametro**JobExecutionId**.
+Per inviare una richiesta di annullamento, usare il cmdlet **Stop-AzureSqlJobExecution** e impostare il parametro **JobExecutionId**.
 
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
 
-## Eliminare un processo in base al nome e la cronologia del processo
-I processi di database elastici supportano l'eliminazione asincrona dei processi. Un processo può essere contrassegnato per l'eliminazione e il sistema lo eliminerà con tutta la relativa cronologia dopo il completamento di tutte le esecuzioni di processo per tale processo. Il sistema non annullerà automaticamente le esecuzioni di processo attive.
+## <a name="delete-a-job-by-name-and-the-jobs-history"></a>Eliminare un processo in base al nome e la cronologia del processo
+I processi di database elastici supportano l'eliminazione asincrona dei processi. Un processo può essere contrassegnato per l'eliminazione e il sistema lo eliminerà con tutta la relativa cronologia dopo il completamento di tutte le esecuzioni di processo per tale processo. Il sistema non annullerà automaticamente le esecuzioni di processo attive.  
 
 Al contrario, è necessario richiamare Stop-AzureSqlJobExecution per annullare le esecuzioni di processo attive.
 
-Per attivare l'eliminazione di processi, utilizzare il cmdlet**Remove-AzureSqlJob**e impostare il parametro**JobName**.
+Per attivare l'eliminazione di processi, usare il cmdlet **Remove-AzureSqlJob** e impostare il parametro **JobName**.
 
     $jobName = "{Job Name}"
     Remove-AzureSqlJob -JobName $jobName
 
-## Creare una destinazione database personalizzata
-Le destinazioni personalizzate per i database possono essere definite nei processi di database elastici che possono essere utilizzati per l'esecuzione diretta o per l'inclusione in un gruppo di database personalizzato. Poiché i**pool di database elastici**non sono ancora direttamente supportati tramite le API PowerShell, è sufficiente creare una destinazione database personalizzata e una destinazione per la raccolta dei database personalizzata che comprenda tutti i database nel pool.
+## <a name="create-a-custom-database-target"></a>Creare una destinazione database personalizzata
+Le destinazioni personalizzate per i database possono essere definite nei processi di database elastici che possono essere utilizzati per l'esecuzione diretta o per l'inclusione in un gruppo di database personalizzato. Poiché i **pool di database elastici** non sono ancora direttamente supportati tramite le API PowerShell, è sufficiente creare una destinazione  database personalizzata e una destinazione per la raccolta dei database personalizzata che comprenda tutti i database nel pool.
 
 Impostare le seguenti variabili in modo da riflettere le informazioni desiderate sul database:
 
     $databaseName = "{Database Name}"
     $databaseServerName = "{Server Name}"
-    New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName 
+    New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName
 
-## Creare una destinazione per la raccolta dei database personalizzata
+## <a name="create-a-custom-database-collection-target"></a>Creare una destinazione per la raccolta dei database personalizzata
 È possibile definire una destinazione per la raccolta dei database personalizzata per consentire l'esecuzione in più destinazioni dei database definiti. Dopo aver creato un gruppo di database, i database possono essere associati alla destinazione della raccolta personalizzata.
 
 Impostare le seguenti variabili in modo da riflettere la configurazione della destinazione della raccolta personalizzata desiderata:
 
     $customCollectionName = "{Custom Database Collection Name}"
-    New-AzureSqlJobTarget -CustomCollectionName $customCollectionName 
+    New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
 
-### Aggiungere database a una destinazione per la raccolta dei database personalizzata
+### <a name="add-databases-to-a-custom-database-collection-target"></a>Aggiungere database a una destinazione per la raccolta dei database personalizzata
 Le destinazioni di database possono essere associate alle destinazioni delle raccolte di database personalizzate per creare un gruppo di database. Ogni volta che viene creato un processo destinato a una destinazione della raccolta di database personalizzata, esso verrà esteso ai database associati al gruppo al momento dell’esecuzione.
 
 Aggiungere il database desiderato a una raccolta personalizzata specifica:
@@ -308,18 +313,18 @@ Aggiungere il database desiderato a una raccolta personalizzata specifica:
     $serverName = "{Database Server Name}"
     $databaseName = "{Database Name}"
     $customCollectionName = "{Custom Database Collection Name}"
-    Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName 
+    Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName
 
-#### Verificare i database in una destinazione per la raccolta dei database personalizzata
-Utilizzare il cmdlet**Get-AzureSqlJobTarget**per recuperare i database figlio all'interno di una destinazione di una raccolta database personalizzata.
+#### <a name="review-the-databases-within-a-custom-database-collection-target"></a>Verificare i database in una destinazione per la raccolta dei database personalizzata
+Utilizzare il cmdlet **Get-AzureSqlJobTarget** per recuperare i database figlio all'interno di una destinazione di una raccolta database personalizzata.
 
     $customCollectionName = "{Custom Database Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $childTargets = Get-AzureSqlJobTarget -ParentTargetId $target.TargetId
     Write-Output $childTargets
 
-### Creare un processo per eseguire uno script in una destinazione di una raccolta database personalizzata
-Utilizzare il cmdlet**New-AzureSqlJob**per creare un processo su un gruppo di database definito da una destinazione di raccolta database personalizzata. I processi di database elastici espanderanno il processo in più processi figlio, ognuno corrispondente a un database associato alla destinazione di raccolta database personalizzata e eseguiranno lo script in tutti i database. Anche in questo caso, è importante che gli script siano idempotenti per essere flessibili ai tentativi.
+### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>Creare un processo per eseguire uno script in una destinazione di una raccolta database personalizzata
+Utilizzare il cmdlet **New-AzureSqlJob** per creare un processo su un gruppo di database definito da una destinazione di raccolta database personalizzata. I processi di database elastici espanderanno il processo in più processi figlio, ognuno corrispondente a un database associato alla destinazione di raccolta database personalizzata e eseguiranno lo script in tutti i database. Anche in questo caso, è importante che gli script siano idempotenti per essere flessibili ai tentativi.
 
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
@@ -329,8 +334,8 @@ Utilizzare il cmdlet**New-AzureSqlJob**per creare un processo su un gruppo di da
     $job = New-AzureSqlJob -JobName $jobName -CredentialName $credentialName -ContentName $scriptName -TargetId $target.TargetId
     Write-Output $job
 
-## Raccolta dei dati tra database
-I**Processi di database elastici**supportano l'esecuzione di una query su un gruppo di database e inviano i risultati alla tabella del database specificata. E’ possibile eseguire una query sulla tabella dopo aver visualizzato i risultati della query da ciascun database. Questo fornisce un meccanismo asincrono per eseguire una query in molti database. I casi di errore, come quando ad esempio uno dei database viene reso temporaneamente non disponibile, vengono gestiti automaticamente tramite tentativi.
+## <a name="data-collection-across-databases"></a>Raccolta dei dati tra database
+**Processi di database elastici** supportano l'esecuzione di una query su un gruppo di database e inviano i risultati alla tabella del database specificata. E’ possibile eseguire una query sulla tabella dopo aver visualizzato i risultati della query da ciascun database. Questo fornisce un meccanismo asincrono per eseguire una query in molti database. I casi di errore, come quando ad esempio uno dei database viene reso temporaneamente non disponibile, vengono gestiti automaticamente tramite tentativi.
 
 La tabella di destinazione specificata verrà creata automaticamente se non esiste ancora una corrispondenza con lo schema del set di risultati restituito. Se un'esecuzione di script restituisce più set di risultati, i processi di database elastici invieranno solo il primo risultato alla tabella di destinazione specificata.
 
@@ -349,13 +354,13 @@ Impostare quanto segue in modo da riflettere lo script, le credenziali e la dest
     $destinationTableName = "{Destination Table Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
 
-### Creare e avviare un processo per scenari di raccolta dati
+### <a name="create-and-start-a-job-for-data-collection-scenarios"></a>Creare e avviare un processo per scenari di raccolta dati
     $job = New-AzureSqlJob -JobName $jobName -CredentialName $executionCredentialName -ContentName $scriptName -ResultSetDestinationServerName $destinationServerName -ResultSetDestinationDatabaseName $destinationDatabaseName -ResultSetDestinationSchemaName $destinationSchemaName -ResultSetDestinationTableName $destinationTableName -ResultSetDestinationCredentialName $destinationCredentialName -TargetId $target.TargetId
     Write-Output $job
     $jobExecution = Start-AzureSqlJobExecution -JobName $jobName
     Write-Output $jobExecution
 
-## Creare una pianificazione per l'esecuzione del processo utilizzando un trigger di processo
+## <a name="create-a-schedule-for-job-execution-using-a-job-trigger"></a>Creare una pianificazione per l'esecuzione del processo utilizzando un trigger di processo
 Il seguente script di PowerShell può essere utilizzato per creare una pianificazione ricorrente. Questo script usa l'intervallo di minuti, ma New-AzureSqlJobSchedule supporta anche i parametri -DayInterval, -HourInterval, -MonthInterval e -WeekInterval. Le pianificazioni che vengono eseguite una sola volta possono essere create specificando -OneTime.
 
 Creare una nuova pianificazione:
@@ -363,10 +368,10 @@ Creare una nuova pianificazione:
     $scheduleName = "Every one minute"
     $minuteInterval = 1
     $startTime = (Get-Date).ToUniversalTime()
-    $schedule = New-AzureSqlJobSchedule -MinuteInterval $minuteInterval -ScheduleName $scheduleName -StartTime $startTime 
+    $schedule = New-AzureSqlJobSchedule -MinuteInterval $minuteInterval -ScheduleName $scheduleName -StartTime $startTime
     Write-Output $schedule
 
-### Creare un trigger di processo per eseguire un processo in una pianificazione temporale
+### <a name="create-a-job-trigger-to-have-a-job-executed-on-a-time-schedule"></a>Creare un trigger di processo per eseguire un processo in una pianificazione temporale
 È possibile definire un trigger di processo per eseguire un processo in base a una pianificazione temporale. Il seguente script di PowerShell può essere utilizzato per creare un trigger di processo.
 
 Impostare le seguenti variabili in modo che corrispondano al processo e alla pianificazione desiderati:
@@ -376,8 +381,9 @@ Impostare le seguenti variabili in modo che corrispondano al processo e alla pia
     $jobTrigger = New-AzureSqlJobTrigger -ScheduleName $scheduleName –JobName $jobName
     Write-Output $jobTrigger
 
-### Rimuovere un'associazione pianificata per arrestare l'esecuzione di processo pianificata
-Per sospendere l'esecuzione del processo ricorrente tramite un trigger di processo, è possibile rimuovere il trigger di processo. Rimuovere un trigger di processo per arrestare l’esecuzione di un processo in base a una pianificazione mediante il cmdlet **Remove-AzureSqlJobTrigger**.
+### <a name="remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>Rimuovere un'associazione pianificata per arrestare l'esecuzione di processo pianificata
+Per sospendere l'esecuzione del processo ricorrente tramite un trigger di processo, è possibile rimuovere il trigger di processo.
+Rimuovere un trigger di processo per arrestare l’esecuzione di un processo in base a una pianificazione mediante il cmdlet **Remove-AzureSqlJobTrigger** .
 
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
@@ -387,25 +393,25 @@ Per sospendere l'esecuzione del processo ricorrente tramite un trigger di proces
 
 
 
-## Importare i risultati della query database elastica in Excel
+## <a name="import-elastic-database-query-results-to-excel"></a>Importare i risultati della query database elastica in Excel
  È possibile importare i risultati da di una query a un file di Excel.
 
 1. Avviare Excel 2013.
 2. Individuare il **dati** della barra multifunzione.
-3. Fare clic su**Da altre fonti**quindi**Da SQL Server**.
-   
+3. Fare clic su **Da altre origini** e quindi su **Da SQL Server**.
+
    ![Importazione di Excel da altre origini][5]
-4. In **Connessione guidata dati** digitare le credenziali di accesso e il nome del server. Quindi fare clic su **Avanti**.
-5. Nella finestra di dialogo **Selezionare il database che contiene i dati che si desidera**, selezionare il database **ElasticDBQuery**.
-6. Selezionare la tabella **Clienti** nella visualizzazione elenco e fare clic su **Avanti**. Fare clic su **Fine**.
-7. Nel modulo **Importazione dati** sotto **Selezionare come si desidera visualizzare i dati nella cartella di lavoro**, selezionare **Tabella** e fare clic su **OK**.
+4. In **Connessione guidata dati** digitare le credenziali di accesso e il nome del server. Quindi fare clic su **Next**.
+5. Nella finestra di dialogo **Selezionare il database contenente i dati desiderati** selezionare il database **ElasticDBQuery**.
+6. Selezionare la tabella **Customers** nella visualizzazione elenco e fare clic su **Avanti**. Fare clic su **Fine**.
+7. Nel modulo **Importa dati** in **Specificare come visualizzare i dati nella cartella di lavoro** selezionare **Tabella** e fare clic su **OK**.
 
-Tutte le righe dalla tabella **Clienti**, archiviate in diverse partizioni sono riportate nel foglio Excel.
+Tutte le righe dalla tabella **Clienti** , archiviate in diverse partizioni sono riportate nel foglio Excel.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 È ora possibile usare le funzioni dei dati di Excel. Usare la stringa di connessione con il nome del server, il nome del database e le credenziali per connettere gli strumenti di integrazione e di Business Intelligence al database di query elastico. Assicurarsi che SQL Server sia supportato come origine dati per lo strumento. Fare riferimento al database di query elastico e alle tabelle esterne come a qualsiasi database di SQL Server e tabella di SQL Server a cui ci si connette con lo strumento.
 
-### Costi
+### <a name="cost"></a>Costi
 L'uso della funzione di query di database elastico non comporta alcun costo aggiuntivo. In questo momento questa funzionalità è disponibile solo sui database premium come punto finale, tuttavia, le partizioni possono essere di qualsiasi livello di servizio.
 
 Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
@@ -420,4 +426,8 @@ Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](https://a
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

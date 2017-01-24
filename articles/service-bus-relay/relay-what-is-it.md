@@ -1,22 +1,22 @@
 ---
 title: Informazioni sul servizio di inoltro di Azure | Microsoft Docs
 description: Panoramica del servizio di inoltro di Azure
-services: service-bus
+services: service-bus-relay
 documentationcenter: .net
 author: banisadr
 manager: timlt
 editor: 
 ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 10/28/2016
-ms.author: babanisa
+ms.date: 11/16/2016
+ms.author: babanisa,sethm
 translationtype: Human Translation
-ms.sourcegitcommit: dc81f26a64b376eb34894268ea0b17152647ed79
-ms.openlocfilehash: c4c01d1a7a82fe9d696223a5abc05f559ead0f6a
+ms.sourcegitcommit: 14a5c029eef714134079b960109e58d821d0a609
+ms.openlocfilehash: 34b54d54b20d9aec69486c5ef98c97beee21bd94
 
 
 ---
@@ -32,7 +32,7 @@ Le principali funzionalità offerte dal servizio di inoltro sono la comunicazion
 Il servizio di inoltro di Azure include due funzionalità.
 
 1. [Connessioni ibride](#hybrid-connections): questa funzionalità usa WebSocket basati su standard aperti per supportare scenari multipiattaforma.
-2. [Inoltri WCF](#wcf-relays): questa funzionalità usa Windows Communication Foundation (WCF) per supportare chiamate RPC.
+2. [Inoltri WCF](#wcf-relays): questa funzionalità usa Windows Communication Foundation (WCF) per supportare chiamate RPC. L'inoltro WCF è la soluzione di inoltro legacy che molti clienti potrebbero già usare con i propri modelli di programmazione WCF.
 
 Sia le connessioni ibride che gli inoltri WCF consentono la connessione sicura ad asset presenti all'interno di una rete aziendale. L'uso dell'una o dell'altra funzionalità dipende dalle specifiche esigenze, come illustrato nella tabella seguente:
 
@@ -49,15 +49,13 @@ Sia le connessioni ibride che gli inoltri WCF consentono la connessione sicura a
 *In base alla disponibilità generale
 
 ## <a name="hybrid-connections"></a>Connessioni ibride
-La funzionalità Connessioni ibride del servizio di inoltro di Azure è un'evoluzione sicura basata su protocolli aperti delle funzionalità di inoltro esistenti e può essere implementata in qualsiasi piattaforma e linguaggio con funzionalità WebSocket di base. Questo include esplicitamente l'API WebSocket dei comuni Web browser. La funzionalità Connessioni ibride è basata su HTTP e WebSocket.
+La funzionalità [Connessioni ibride del servizio di inoltro di Azure](relay-hybrid-connections-protocol.md) è un'evoluzione sicura basata su protocolli aperti delle funzionalità di inoltro esistenti e può essere implementata in qualsiasi piattaforma e linguaggio con funzionalità WebSocket di base. Questo include esplicitamente l'API WebSocket dei comuni Web browser. La funzionalità Connessioni ibride è basata su HTTP e WebSocket.
 
 ## <a name="wcf-relays"></a>Inoltri WCF
 L'inoltro WCF si applica all'intero .NET Framework (NETFX) e a WCF. È possibile avviare la connessione tra il servizio locale e il servizio di inoltro usando una suite di associazioni di "inoltro" WCF. Dietro le quinte, eseguire il mapping delle associazioni di inoltro ai nuovi elementi di associazione di trasporto progettati per creare i componenti di canale WCF che si integrano con il bus di servizio nel cloud.
 
 ## <a name="service-history"></a>Storia del servizio
-Le connessioni ibride sostituiscono la precedente funzionalità con lo stesso nome di "Servizi BizTalk", basata sull'inoltro WCF del bus di servizio di Azure. La nuova funzionalità Connessioni ibride è complementare all'inoltro WCF esistente e nel prossimo futuro queste due funzionalità coesisteranno fianco a fianco nel servizio di inoltro. Condividono un gateway comunque, ma costituiscono per il resto implementazioni diverse.
-
-L'inoltro WCF è la soluzione di inoltro legacy che molti clienti potrebbero già usare con i propri modelli di programmazione WCF.
+Le connessioni ibride sostituiscono la precedente funzionalità con nome simile di "Servizi BizTalk", basata sull'inoltro WCF del bus di servizio di Azure. La nuova funzionalità Connessioni ibride è complementare all'inoltro WCF esistente e nel prossimo futuro queste due funzionalità coesisteranno fianco a fianco nel servizio di inoltro. Condividono un gateway comune, ma costituiscono per il resto implementazioni diverse.
 
 ## <a name="next-steps"></a>Passaggi successivi:
 * [Domande frequenti sul servizio di inoltro](relay-faq.md)
@@ -68,6 +66,6 @@ L'inoltro WCF è la soluzione di inoltro legacy che molti clienti potrebbero gi�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

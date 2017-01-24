@@ -157,6 +157,6 @@ Questi argomenti illustrano come progettare applicazioni con resilienza in caso 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

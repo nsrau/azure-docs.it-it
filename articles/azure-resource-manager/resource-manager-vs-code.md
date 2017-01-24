@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2016
+ms.date: 01/03/2017
 ms.author: chmatsk;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f839784aaef511c60ec1c3eea0b64bfdd5f67a4f
+ms.sourcegitcommit: 10c7051c9b1218081d95cb10403006bfd95126ba
+ms.openlocfilehash: 2ac1c2cce7a9e045990894b0bbaa045df3d48954
 
 
 ---
 # <a name="working-with-azure-resource-manager-templates-in-visual-studio-code"></a>Utilizzo dei modelli di Azure Resource Manager nel codice di Visual Studio
-I modelli di Azure Resource Manager sono file JSON che descrivono una risorsa e le relative dipendenze. Questi file possono talvolta essere grandi e complessi, perciò è importante avere strumenti di supporto. Visual Studio Code è un nuovo editor di codice, leggero, open source e multipiattaforma. Supporta la creazione e la modifica dei modelli di Resource Manager tramite una [nuova estensione](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). Visual Studio Code viene eseguito ovunque e non richiede l'accesso a Internet, a meno che non si vogliano distribuire i modelli di Resource Manager.
+I modelli di Azure Resource Manager sono file JSON che descrivono una risorsa e le relative dipendenze. Questi file possono talvolta essere grandi e complessi, perciò è importante avere strumenti di supporto. Visual Studio Code è un nuovo editor di codice, leggero, open source e multipiattaforma. Supporta la creazione e la modifica dei modelli di Resource Manager tramite una [nuova estensione](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). Visual Studio Code viene eseguito ovunque e richiede l'accesso a Internet unicamente per la distribuzione dei modelli di Resource Manager nella sottoscrizione di Azure.
 
 Se Visual Studio Code non è già disponibile, è possibile installarlo da [https://code.visualstudio.com/](https://code.visualstudio.com/).
 
@@ -42,7 +42,7 @@ Nei passaggi precedenti è stato installato il supporto degli strumenti, ma ora 
 
 1. Copiare il contenuto del file dal repository [azure-xplat-arm-tooling](https://raw.githubusercontent.com/Azure/azure-xplat-arm-tooling/master/VSCode/armsnippets.json) negli Appunti.
 2. Avviare Visual Studio Code 
-3. In Visual Studio Code è possibile aprire il file di frammenti JSON passando a **File** -> **Preferenze** -> **User Snippets** ->  (Frammenti di codice utente)**JSON** oppure premendo **F1** e digitando **preferences** (preferenze) fino a quando non è possibile selezionare **Preferences: Snippets** (Preferenze: frammenti).
+3. Per aprire il file dei frammenti di codice JSON in Visual Studio Code è possibile passare a **File** -> **Preferences (Preferenze)** -> **User Snippets (Frammenti utente)** -> **JSON**. In alternativa, premere **F1** e digitare **preferences** fino a quando non è possibile selezionare **Preferences: Snippets** (Preferenze: frammenti).
    
     ![frammenti di preferenze](./media/resource-manager-vs-code/preferences-snippets.png)
    
@@ -61,19 +61,19 @@ Il modo più semplice per iniziare a utilizzare un modello consiste nello scegli
 1. Se è stato esportato un modello da un gruppo di risorse, aprire i file estratti in Visual Studio Code.
    
     ![visualizzare i file](./media/resource-manager-vs-code/show-files.png)
-2. Aprire il file template.json per poterlo modificare e aggiungere alcune risorse aggiuntive. Dopo **"resources": [** premere INVIO per iniziare una nuova riga. Se si digita **arm**, verrà visualizzato un elenco di opzioni. Queste opzioni sono i frammenti di codice del modello installato. L'aspetto dovrebbe risultare simile al seguente: 
+2. Aprire il file template.json per poterlo modificare e aggiungere alcune risorse aggiuntive. Dopo `"resources": [` premere INVIO per iniziare una nuova riga. Se si digita **arm**, viene visualizzato un elenco di opzioni. Queste opzioni sono i frammenti di codice del modello installato. 
    
     ![visualizzare frammenti di codice](./media/resource-manager-vs-code/type-snippets.png)
-3. Scegliere il frammento desiderato. Per questo articolo si sceglierà **ip arm** per creare un nuovo indirizzo IP pubblico. Inserire una virgola dopo la parentesi di chiusura "}" della risorsa appena creata per assicurarsi che la sintassi del modello sia valida.
+3. Scegliere il frammento desiderato. Per questo articolo si sceglierà **ip arm** per creare un nuovo indirizzo IP pubblico. Inserire una virgola dopo la parentesi di chiusura `}` della risorsa appena creata per assicurarsi che la sintassi del modello sia valida.
    
      ![aggiungere una virgola](./media/resource-manager-vs-code/add-comma.png)
-4. Visual Studio Code include IntelliSense. Quando si modificano i modelli, Visual Studio Code suggerisce i valori disponibili. Ad esempio, per aggiungere una sezione di variabili al modello, aggiungere **""** (due virgolette doppie) e premere **CTRL+BARRA SPAZIATRICE** tra le virgolette. Verranno visualizzata le opzioni che includono **variabili**.
+4. Visual Studio Code include IntelliSense. Quando si modificano i modelli, Visual Studio Code suggerisce i valori disponibili. Ad esempio, per aggiungere una sezione di variabili al modello, aggiungere due virgolette doppie, `""`, e premere **CTRL+BARRA SPAZIATRICE** tra le virgolette. Verranno visualizzate le opzioni che includono **variabili**.
    
     ![aggiungere variabili](./media/resource-manager-vs-code/add-variables.png)
-5. IntelliSense può anche suggerire valori o funzioni disponibili. Per impostare una proprietà su un valore di parametro, creare un'espressione con **"[]"** e **CTRL+BARRA SPAZIATRICE**. È possibile iniziare a digitare il nome di una funzione. Premere **TAB** quando è stata trovata la funzione desiderata.
+5. IntelliSense può anche suggerire valori o funzioni disponibili. Per impostare una proprietà su un valore di parametro, creare un'espressione con `"[]"` e **CTRL+BARRA SPAZIATRICE**. È possibile iniziare a digitare il nome di una funzione. Premere **TAB** quando è stata trovata la funzione desiderata.
    
     ![aggiungere un parametro](./media/resource-manager-vs-code/select-parameters.png)
-6. Premere di nuovo **CTRL+BARRA SPAZIATRICE** all'interno della funzione per visualizzare un elenco di parametri disponibili all'interno del modello.
+6. Per visualizzare un elenco dei parametri disponibili all'interno del modello, premere di nuovo **CTRL+BARRA SPAZIATRICE** all'interno della funzione.
    
     ![aggiungere un parametro](./media/resource-manager-vs-code/select-avail-parameters.png)
 7. In caso di problemi di convalida dello schema nel modello, nell'editor saranno visibili le familiari indicazioni del controllo ortografia. È possibile visualizzare l'elenco di errori e avvisi premendo **CTRL+MAIUSC+M** o selezionando i glifi sulla barra di stato in basso a sinistra.
@@ -85,35 +85,51 @@ Il modo più semplice per iniziare a utilizzare un modello consiste nello scegli
     ![messaggio di errore](./media/resource-manager-vs-code/unrecognized-function.png)
 
 ## <a name="deploy-your-new-resources"></a>Distribuire le nuove risorse
-Quando il modello è pronto, è possibile distribuire le nuove risorse seguendo le istruzioni riportate di seguito: 
+Quando il modello è pronto, è possibile distribuire le nuove risorse seguendo queste istruzioni: 
 
 ### <a name="windows"></a>Windows
 1. Aprire un prompt dei comandi di PowerShell 
-2. Per accedere digitare: 
+2. Per accedere, digitare: 
    
-        Login-AzureRmAccount 
+  ```powershell
+  Login-AzureRmAccount
+  ```
+
 3. Se sono disponibili più sottoscrizioni, ottenere un elenco delle sottoscrizioni con:
-   
-        Get-AzureRmSubscription
+
+  ```powershell 
+  Get-AzureRmSubscription
+  ```
    
     Selezionare quindi la sottoscrizione da usare.
-   
-        Select-AzureRmSubscription -SubscriptionId <Subscription Id>
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionId <Subscription Id>
+  ```
+
 4. Aggiornare i parametri nel file parameters.json
 5. Eseguire Deploy.ps1 per distribuire il modello in Azure
 
 ### <a name="osxlinux"></a>OSX/Linux
 1. Aprire una finestra del terminale 
-2. Per accedere digitare:
-   
-        azure login 
+2. Per accedere, digitare:
+
+  ```azurecli
+  azure login
+  ```
+
 3. Se sono disponibili più sottoscrizioni, selezionare la sottoscrizione appropriata con:
-   
-        azure account set <subscriptionNameOrId> 
+
+  ```azurecli
+  azure account set <subscriptionNameOrId> 
+  ```
+
 4. Aggiornare i parametri nel file parameters.json.
 5. Per distribuire il modello, eseguire:
-   
-        azure group deployment create -f <PathToTemplate> 
+
+  ```azurecli 
+  azure group deployment create -f <PathToTemplate>
+  ``` 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sui modelli, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).
@@ -123,6 +139,6 @@ Quando il modello è pronto, è possibile distribuire le nuove risorse seguendo 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

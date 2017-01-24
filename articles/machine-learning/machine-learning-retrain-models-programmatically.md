@@ -1,32 +1,36 @@
 ---
-title: Ripetere il training dei modelli di Machine Learning a livello di codice | Microsoft Docs
-description: Informazioni su come ripetere il training di un modello a livello di codice e aggiornare il servizio Web per l'uso del modello appena sottoposto a training in Azure Machine Learning.
+title: Ripetere il training dei modelli di Machine Learning a livello di codice | Documentazione Microsoft
+description: Informazioni su come ripetere il training di un modello a livello di codice e aggiornare il servizio Web per l&quot;uso del modello appena sottoposto a training in Azure Machine Learning.
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: raymondlaghaeian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/12/2017
 ms.author: raymondl;garye;v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8544f04360c44d54b9c3e69448b6d5b29826f06c
+
 
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>Ripetere il training dei modelli di Machine Learning a livello di codice
 Questa procedura dettagliata descrive come ripetere il training di un servizio Web di Azure Machine Learning a livello di codice usando C# e il servizio Esecuzione batch di Machine Learning.
 
-Dopo aver ripetuto il training del modello, le procedure dettagliate seguenti descrivono come aggiornare il modello nel servizio Web predittivo:
+Dopo aver ripetuto il training del modello, attenersi alle procedure dettagliate seguenti che descrivono come aggiornare il modello nel servizio Web predittivo:
 
 * Se è stato distribuito un servizio Web classico nel portale dei servizi Web di Machine Learning, vedere [Ripetere il training di un servizio Web classico](machine-learning-retrain-a-classic-web-service.md). 
-* Se è stato distribuito un nuovo servizio Web, vedere [Ripetere il training di un nuovo servizio Web usando i cmdlet di gestione di PowerShell per Machine Learning](machine-learning-retrain-new-web-service-using-powershell.md).
+* Se è stato distribuito un nuovo servizio Web, vedere [Ripetere il training di un nuovo servizio Web usando i cmdlet di gestione di Machine Learning](machine-learning-retrain-new-web-service-using-powershell.md).
 
 Per una panoramica del processo di ripetizione del training, vedere [Ripetere il training di un modello di Machine Learning](machine-learning-retrain-machine-learning-model.md).
 
-Se si vuole iniziare con il servizio Web esistente basato sul nuovo Azure Resource Manager, vedere [Ripetere il training di un servizio Web predittivo esistente](machine-learning-retrain-existing-resource-manager-based-web-service.md).
+Se si vuole iniziare con il servizio Web esistente basato sul nuovo Azure Resource Manager, vedere [Retrain an existing Predictive web service](machine-learning-retrain-existing-resource-manager-based-web-service.md) (Ripetere il training di un servizio Web predittivo esistente).
 
 ## <a name="create-a-training-experiment"></a>Creare un esperimento di training
 Per questo esempio, si userà "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" che fa parte degli esempi di Microsoft Azure Machine Learning. 
@@ -53,15 +57,15 @@ Ora viene creato un esperimento predicativo.
 3. Al termine dell'esecuzione dell'esperimento, fare clic su **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]) o **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]).
 
 ## <a name="deploy-the-training-experiment-as-a-training-web-service"></a>Distribuire l'esperimento di training come servizio Web di training
-Per ripetere il training del modello con training, è necessario distribuire l'esperimento di training creato come servizio Web di ripetizione del training. Per poter produrre nuovi modelli con training, questo servizio Web necessita di un modulo *Web Service Output* (Output servizio Web) connesso al modulo *[Train Model][train-model]* (Modello di training).
+Per ripetere il training del modello con training, è necessario distribuire l'esperimento di training creato come servizio Web di ripetizione del training. Per produrre nuovi modelli con training, questo servizio Web necessita di un modulo *Web Service Output* connesso al modulo *[Train Model][train-model]*.
 
 1. Per tornare all'esperimento di training, fare clic sull'icona Experiments (Esperimenti) nel riquadro sinistro e quindi sull'esperimento denominato Census Model.  
 2. Nella casella di ricerca Search Experiment Items (Cerca elementi esperimento) digitare Web service. 
 3. Trascinare un modulo *Web Service Input* (Input servizio Web) nell'area di disegno dell'esperimento e connetterne l'output al modulo *Clean Missing Data* (Pulisci dati mancanti).  In questo modo, i dati di ripetizione del training vengono elaborati allo stesso modo dei dati di training originali.
-4. Trascinare due moduli *Web service Output* nell'area di disegno dell'esperimento. Connettere l'output del modulo *Train Model* (Modello di training) a un modulo e l'output del modulo *Evaluate Model* (Modello di valutazione) all'altro. Con l'output del servizio Web per **Train Model** è possibile ottenere il nuovo modello con training. L'output collegato al modulo **Evaluate Model** (Modello di valutazione) restituisce l'output del modulo, che corrisponde ai risultati sulle prestazioni.
+4. Trascinare due moduli *Web service Output* (Output servizio Web) nell'area di disegno dell'esperimento. Connettere l'output del modulo *Train Model* (Modello di training) a un modulo e l'output del modulo *Evaluate Model* (Modello di valutazione) all'altro. Con l'output del servizio Web per **Train Model** (Modello di training) è possibile ottenere il nuovo modello con training. L'output collegato al modulo **Evaluate Model** (Modello di valutazione) restituisce l'output del modulo, che corrisponde ai risultati sulle prestazioni.
 5. Fare clic su **Run**. 
 
-Sarà quindi necessario distribuire l'esperimento di training come un servizio Web che produce un modello con training e risultati di valutazione del modello. A tale scopo, il set di azioni successivo dipende dall'uso di un servizio Web classico o di un nuovo servizio Web.  
+Sarà quindi necessario distribuire l'esperimento di training come un servizio Web che produce un modello sottoposto a training e risultati di valutazione del modello. A tale scopo, il set di azioni successivo dipende dall'uso di un servizio Web classico o di un nuovo servizio Web.  
 
 **Servizio Web classico**
 
@@ -69,7 +73,7 @@ Nella parte inferiore dell'area di disegno dell'esperimento fare clic su **Set U
 
 **Nuovo servizio Web**
 
-Nella parte inferiore dell'area di disegno dell'esperimento fare clic su **Set Up Web Service** (Configura servizio Web) e selezionare **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]). Il portale di Microsoft Azure Machine Learning Web Services (Servizi Web Microsoft Azure Machine Learning) visualizzerà la pagina Deploy Web service (Distribuisci servizio Web). Digitare un nome per il servizio Web e scegliere un piano di pagamento, quindi fare clic su **Deploy**(Distribuisci). È possibile usare solo il metodo di esecuzione batch per la creazione di modelli di training
+Nella parte inferiore dell'area di disegno dell'esperimento fare clic su **Set Up Web Service** (Configura servizio Web) e selezionare **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]). Il portale dei servizi Web di Azure Machine Learning visualizzerà la pagina Deploy Web service (Distribuisci servizio Web). Digitare un nome per il servizio Web e scegliere un piano di pagamento, quindi fare clic su **Distribuisci**. È possibile usare solo il metodo di esecuzione batch per la creazione di modelli di training
 
 Al termine dell'esecuzione dell'esperimento, il flusso di lavoro sarà in ogni caso simile al seguente:
 
@@ -85,13 +89,13 @@ Per chiamare le API per la ripetizione del training:
 1. Creare un'applicazione console C# in Visual Studio. A tale scopo, selezionare Nuovo->Progetto->Windows Desktop->Applicazione console.
 2. Accedere al portale dei servizi Web di Machine Learning.
 3. Se si usa un servizio Web classico, fare clic su **Classic Web Services**(Servizi Web classici).
-   1. Fare clic sul servizio Web usato.
+   1. Fare clic sul servizio Web in uso.
    2. Fare clic sull'endpoint predefinito.
    3. Fare clic su **Consume**(Uso).
    4. Nella sezione **Sample Code** (Codice di esempio) nella parte inferiore della pagina **Consume** (Uso) fare clic su **Batch**.
    5. Procedere al passaggio 5 di questa procedura.
-4. Se si usa un nuovo servizio Web, fare clic su **Web Services**(Servizi Web).
-   1. Fare clic sul servizio Web usato.
+4. Se si usa un nuovo servizio Web, fare clic su **Servizi Web**.
+   1. Fare clic sul servizio Web in uso.
    2. Fare clic su **Consume**(Uso).
    3. Nella sezione **Sample Code** (Codice di esempio) nella parte inferiore della pagina Consume (Uso) fare clic su **Batch**.
 5. Copiare il codice C# di esempio per l'esecuzione batch e incollarlo nel file Program.cs, verificando che lo spazio dei nomi rimanga invariato.
@@ -160,11 +164,11 @@ Esaminare i risultati per determinare se le prestazioni del modello appena sotto
 Copiare *BaseLocation*, *RelativeLocation* e *SasBlobToken* dai risultati di output. Verranno usati durante il processo di ripetizione del training.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Ripetere il training di un servizio Web classico](machine-learning-retrain-a-classic-web-service.md)
+Se è stato distribuito il servizio Web predittivo facendo clic su **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]), vedere [Ripetere il training di un servizio Web classico](machine-learning-retrain-a-classic-web-service.md).
 
-[Ripetere il training di un nuovo servizio Web usando i cmdlet di gestione per Machine Learning](machine-learning-retrain-new-web-service-using-powershell.md)
+Se è stato distribuito un nuovo servizio Web facendo clic su **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]), vedere [Ripetere il training di un nuovo servizio Web usando i cmdlet di gestione di Machine Learning](machine-learning-retrain-new-web-service-using-powershell.md).
 
-<!-- Retrain a New Web service using the Machine Learning Management REST API -->
+<!-- Retrain a New web service using the Machine Learning Management REST API -->
 
 
 [1]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE01.png
@@ -180,6 +184,7 @@ Copiare *BaseLocation*, *RelativeLocation* e *SasBlobToken* dai risultati di out
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Dec16_HO2-->
 
 

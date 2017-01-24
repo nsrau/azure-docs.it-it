@@ -102,6 +102,6 @@
 ## [Richiedere una funzionalità](https://feedback.azure.com/forums/270578-azure-data-factory)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

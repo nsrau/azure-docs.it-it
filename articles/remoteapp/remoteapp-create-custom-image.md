@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 550d46d4e280af2423a494857ffb808e6dffca37
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e28f4004e3cafcfa09309ff0143c83af5fa5493a
 
 
 ---
@@ -55,7 +55,7 @@ Prima di creare il servizio, è necessario eseguire le seguenti operazioni:
 * [Iscriversi](https://azure.microsoft.com/services/remoteapp/) a RemoteApp.
 * Creare in Active Directory un account utente da usare come account del servizio RemoteApp. Limitare le autorizzazioni per l'account in modo che possa aggiungere computer al dominio. Per altre informazioni, vedere [Configurare Azure Active Directory per RemoteApp](remoteapp-ad.md) .
 * Raccogliere informazioni sulla rete locale: informazioni sull'indirizzo IP e dettagli sul dispositivo VPN.
-* Installare il modulo [Azure PowerShell](../powershell-install-configure.md) .
+* Installare il modulo [Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 * Raccogliere informazioni sugli utenti a cui concedere l'accesso. Le informazioni possono essere relative all'account Microsoft o all'account di lavoro Active Directory per gli utenti.
 
 ## <a name="create-a-template-image"></a>Creazione di un'immagine modello
@@ -146,6 +146,6 @@ Ora che si dispone di un'immagine modello personalizzata, è necessario caricarl
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
