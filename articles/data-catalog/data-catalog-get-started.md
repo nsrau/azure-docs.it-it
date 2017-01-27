@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/20/2016
+ms.date: 01/19/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 115668dae46557f6d6caefc9e7c1178768e7e775
+ms.sourcegitcommit: 2b128e2771ea89d1c0d6b8d52357d1bcc993115a
+ms.openlocfilehash: a9629d0a4bfc44f5d035a29f8e97d76922cc0060
 
 
 ---
@@ -117,7 +117,7 @@ Per installare il database di esempio Adventure Works:
 In questo esercizio si userà lo strumento di registrazione per registrare gli asset di dati del database Adventure Works nel catalogo. La registrazione è il processo di estrazione dei metadati strutturali chiave, quali nomi, tipi e percorsi, dall'origine dati e dagli asset che contiene e di copia dei metadati nel catalogo. Le origini dati e gli asset di dati rimangono dove sono, ma i metadati vengono usati dal catalogo per renderli più facilmente individuabili e comprensibili.
 
 ### <a name="register-a-data-source"></a>Registrazione di un'origine dati
-1. Passare alla [home page di Azure Data Catalog](https://azuredatacatalog.com) e fare clic su **Pubblica dati**.
+1. Passare alla [home page di Azure Data Catalog](http://azuredatacatalog.com) e fare clic su **Pubblica dati**.
    
    ![Azure Data Catalog - Pulsante Pubblica dati](media/data-catalog-get-started/data-catalog-publish-data.png)
 2. Fare clic su **Avvia applicazione** per scaricare, installare ed eseguire lo strumento di registrazione nel computer.
@@ -366,6 +366,6 @@ In questa esercitazione sono state analizzate le funzionalità di base di Azure 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

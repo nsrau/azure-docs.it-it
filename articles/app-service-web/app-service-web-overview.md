@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/28/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
-ms.openlocfilehash: 69f3bd4759e879c6f3b55d8126f34e8ebf4be52d
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 18959934c53e2e1c719cc627ffa286acbdcaa967
 
 
 ---
@@ -57,14 +57,26 @@ Un'app Web può anche sfruttare le funzionalità offerte dalle [app per le API](
 
 Oltre ad App Web nel servizio app, Azure offre altri servizi che possono essere usati per l'hosting di siti e applicazioni Web. Per la maggior parte degli scenari App Web è la scelta migliore.  Per un'architettura di microservizi, prendere in considerazione [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric). Se è necessario maggiore controllo sulle VM in cui viene eseguito il codice, prendere in considerazione [Macchine virtuali di Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Per altre informazioni su come scegliere uno di questi servizi di Azure, vedere [Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud](choose-web-site-cloud-service-vm.md).
 
-## <a name="getting-started"></a>Introduzione
-Per iniziare a distribuire codice di esempio in una nuova app Web nel servizio app, seguire l'esercitazione [Distribuire la prima app Web in Azure in 5 minuti](app-service-web-get-started.md) . Sarà necessario un account Azure gratuito.
+## <a name="getting-started"></a>introduttiva
+Per iniziare a distribuire codice di esempio in una nuova app Web nel servizio app, usare una delle esercitazioni nella casella di riepilogo a discesa seguente. Sarà necessario un account Azure gratuito.
 
-Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> [!div class="op_single_selector"]
+> * [Distribuire il primo sito HTML in Azure in 5 minuti](app-service-web-get-started-html-cli-nodejs.md)
+> * [Distribuire la prima app Web ASP.NET in Azure in 5 minuti](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [Distribuire la prima app Web PHP in Azure in 5 minuti](app-service-web-get-started-php-cli-nodejs.md)
+> * [Distribuire la prima app Web Node.js in Azure in 5 minuti](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [Distribuire la prima app Web Python in Azure in 5 minuti](app-service-web-get-started-python-cli-nodejs.md)
+> * [Distribuire la prima app Web Java in Azure in 5 minuti](app-service-web-get-started-java.md)
+> 
+> 
+
+> [!NOTE]
+> È possibile [provare il servizio app](https://azure.microsoft.com/try/app-service/) senza avere un account Azure. Creare un'app iniziale e provarla per un'ora, senza impegno e senza dover usare la carta di credito.
+> 
+> 
 
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cf8f9a06c4d720dade11ea67fc1befe07a56cf85
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: ed289d0755bbad08de01b0f311d14f5514ce0631
 
 
 ---
@@ -36,7 +36,7 @@ Per completare questa esercitazione è necessario soddisfare i prerequisiti segu
 * Un computer Mac in cui siano stati installati Xcode v7.0 o versione successiva e Xamarin Studio Community. Vedere [Configurazione e installazione per Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) e [Configurazione, installazione e verifiche per gli utenti Mac](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 
 > [!NOTE]
-> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](https://tryappservice.azure.com/?appServiceName=mobile). È possibile creare immediatamente un'app per dispositivi mobili di base temporanea nel servizio app. Non è richiesta una carta di credito, né occorre impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](https://azure.microsoft.com/try/app-service/mobile/). È possibile creare immediatamente un'app per dispositivi mobili di base temporanea nel servizio app. Non è richiesta una carta di credito, né occorre impegnarsi in alcun modo.
 > 
 > 
 
@@ -81,9 +81,9 @@ Seguire questa procedura per configurare il progetto server per l'uso del back-e
 * [Come usare il client gestito per App per dispositivi mobili di Azure](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Anchors. -->
-[Introduzione ai back-end di app per dispositivi mobili]:#getting-started
-[Creare un nuovo back-end dell'app per dispositivi mobili]:#create-new-service
-[Passaggi successivi]:#next-steps
+[Getting started with mobile app backends]:#getting-started
+[Create a new mobile app backend]:#create-new-service
+[Next Steps]:#next-steps
 
 <!-- Images. -->
 [6]: ./media/app-service-mobile-xamarin-ios-get-started/xamarin-ios-quickstart.png
@@ -92,10 +92,10 @@ Seguire questa procedura per configurare il progetto server per l'uso del back-e
 [10]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Portale di Azure]: https://portal.azure.com/
+[portale di Azure]: https://portal.azure.com/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

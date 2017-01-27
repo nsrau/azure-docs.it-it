@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/25/2016
+ms.date: 01/19/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 3cbfe3c0ad08990d5c41630ebacc47432b2c6307
-ms.openlocfilehash: 31b4635c1350428f589b708543ffb64f2a456b0b
+ms.sourcegitcommit: d98bf3a76459ed1e87f25a93a8246e2a2110a488
+ms.openlocfilehash: a41f45d277732d38b17db1fe9684cfde0027bd84
 
 
 ---
@@ -72,10 +72,10 @@ Creare un account DocumentDB. Se si ha già un account, è possibile ignorare qu
 1. Aprire **Visual Studio 2015** nel computer.
 2. Scegliere **Nuovo** dal menu **File** e quindi selezionare **Progetto**.
 3. Nella finestra di dialogo **Nuovo progetto** selezionare **Modelli** / **Visual C#** / **.NET Core**/**Applicazione console (.NET Core)**, assegnare un nome al progetto e quindi fare clic su **OK**.
-   ![Screenshot della finestra Nuovo progetto](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
+   ![Screenshot della finestra Nuovo progetto](./media/documentdb-dotnetcore-get-started/nosql-tutorial-new-project-2.png)
 4. In **Esplora soluzioni**, fare clic sulla nuova applicazione console che si trova nella soluzione di Visual Studio.
 5. Scegliere **Gestisci pacchetti NuGet** dal menu.
-   ![Screenshot del menu del progetto aperto facendo clic con il pulsante destro del mouse](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+   ![Screenshot del menu del progetto aperto facendo clic con il pulsante destro del mouse](./media/documentdb-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. Nella scheda **NuGet** fare clic su **Sfoglia** e digitare **azure documentdb** nella casella di ricerca.
 7. Nei risultati trovare **Microsoft.Azure.DocumentDB.Core** e fare clic su **Installa**.
    L'ID pacchetto per la libreria client di DocumentDB è [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core).
@@ -369,7 +369,7 @@ Premere **F5** per eseguire l'applicazione.
 
 Congratulazioni. La creazione di due documenti di DocumentDB è stata completata.  
 
-![Diagramma che illustra la relazione gerarchica tra l'account, il database online, la raccolta e i documenti usati nell'esercitazione su NoSQL per creare un'applicazione console C#](./media/documentdb-get-started/nosql-tutorial-account-database.png)
+![Diagramma che illustra la relazione gerarchica tra l'account, il database online, la raccolta e i documenti usati nell'esercitazione su NoSQL per creare un'applicazione console C#](./media/documentdb-dotnetcore-get-started/nosql-tutorial-account-database.png)
 
 ## <a name="a-idqueryastep-7-query-documentdb-resources"></a><a id="Query"></a>Passaggio 7: Eseguire query sulle risorse di DocumentDB
 DocumentDB supporta [query](documentdb-sql-query.md) complesse sui documenti JSON archiviati in ogni raccolta.  Il codice di esempio seguente mostra diverse query che usano la sintassi SQL di DocumentDB e LINQ e che è possibile eseguire sui documenti inseriti nel passaggio precedente.
@@ -423,7 +423,7 @@ Congratulazioni. L'esecuzione di una query in una raccolta di DocumentDB è stat
 
 Nel diagramma seguente viene illustrato come la sintassi di query di SQL DocumentDB viene chiamata sulla raccolta creata e la stessa logica viene applicata alla query di LINQ.
 
-![Diagramma che illustra l'ambito e il significato della query usata nell'esercitazione su NoSQL per creare un'applicazione console C#](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
+![Diagramma che illustra l'ambito e il significato della query usata nell'esercitazione su NoSQL per creare un'applicazione console C#](./media/documentdb-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
 La parola chiave [FROM](documentdb-sql-query.md#from-clause) è facoltativa nella query perché le query di DocumentDB sono già limitate a una singola raccolta. Di conseguenza, "FROM Families f" può essere scambiata con "FROM root r" o con il nome di qualsiasi altra variabile scelta. DocumentDB dedurrà che Families, root o il nome della variabile scelta, si riferisce per impostazione predefinita alla raccolta attuale.
 
@@ -558,10 +558,10 @@ Per ripristinare i riferimenti a DocumentDB .NET Core SDK in Visual Studio, fare
 * Per altre informazioni sul modello di programmazione, vedere la sezione relativa allo sviluppo nella pagina [Documentazione di DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
-[keys]: media/documentdb-get-started/nosql-tutorial-keys.png
+[keys]: media/documentdb-dotnetcore-get-started/nosql-tutorial-keys.png
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 
