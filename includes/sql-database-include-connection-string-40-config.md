@@ -8,19 +8,19 @@ Latest Freshness check:  2015-09-04 , GeneMi.
 -->
 
 
-### File di configurazione di esempio per la sicurezza delle stringhe di connessione
+### <a name="example-config-file-for-connection-string-security"></a>File di configurazione di esempio per la sicurezza delle stringhe di connessione
 Non è corretto inserire la stringa di connessione come valori letterali nel codice C#. È consigliabile inserire la stringa di connessione nel file di configurazione. Lì è possibile modificare la stringa in qualsiasi momento senza dover ricompilare.
 
-Si supponga che il programma compilato C# sia denominato **ConsoleApplication1.exe**, e che questo .exe risieda in una directory **bin\\debug**.
+Si supponga che il programma compilato C# sia denominato **ConsoleApplication1.exe** e che questo file EXE risieda in una directory **bin\debug\**.
 
-In questo esempio, la maggior parte delle parti della stringa di connessione vengono archiviate in un file di configurazione denominato esattamente **ConsoleApplication1.exe.config**. Questo file di configurazione deve risiedere anche in **bin\\debug**.
+In questo esempio, la maggior parte delle parti della stringa di connessione vengono archiviate in un file di configurazione denominato esattamente **ConsoleApplication1.exe.config**. Anche questo file di configurazione deve risiedere in **bin\debug\**.
 
 Nel codice XML del file di configurazione seguente viene visualizzata una stringa di connessione denominata **ConnectionString4NoUserIDNoPassword**. Il codice C# cerca questa stringa.
 
 È necessario modificare i nomi reali per i segnaposto:
 
-* {your\_serverName\_here}
-* {your\_databaseName\_here}
+* {your_serverName_here}
+* {your_databaseName_here}
 
         <?xml version="1.0" encoding="utf-8" ?>
         <configuration>
@@ -46,8 +46,8 @@ Nel codice XML del file di configurazione seguente viene visualizzata una string
 
 Per questa figura è stato scelto di omettere i due parametri:
 
-* ID utente = {your\_userName\_here};
-* Password = {your\_password\_here};
+* ID utente = {your_userName_here};
+* Password = {your_password_here};
 
 È possibile includerli, ma a volte è preferibile far ottenere i valori dal programma tramite inserimento nella tastiera dell'utente. Dipende.
 
@@ -59,4 +59,7 @@ includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Jan17_HO3-->
+
+

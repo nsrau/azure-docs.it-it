@@ -1,6 +1,6 @@
-La cache di token dovrebbe funzionare in una situazione semplice, ma cosa succede alla scadenza o alla revoca del token? È possibile che il token scada quando l'app non è in esecuzione. La cache del token non sarebbe quindi valida. È inoltre possibile che il token scada mentre l'app è in esecuzione. In questo caso si ottiene un codice di stato HTTP 401 "Non autorizzato".
+La cache di token dovrebbe funzionare in una situazione semplice, ma cosa succede alla scadenza o alla revoca del token? È possibile che il token scada quando l'app non è in esecuzione. La cache del token non sarebbe quindi valida. È inoltre possibile che il token scada mentre l'app è in esecuzione. In questo caso si ottiene un codice di stato HTTP 401 "Non autorizzato". 
 
-È necessario essere in grado di rilevare un token scaduto e aggiornarlo. Si usa quindi un filtro [ServiceFilter](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/ServiceFilter.html) dalla [libreria del client Android](http://dl.windowsazure.com/androiddocs/).
+È necessario essere in grado di rilevare un token scaduto e aggiornarlo. Si usa quindi un filtro [ServiceFilter](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/ServiceFilter.html) della [libreria client Android](http://dl.windowsazure.com/androiddocs/).
 
 In questa sezione viene definito un filtro ServiceFilter che rileva una risposta di tipo codice di stato HTTP 401 e attiva un aggiornamento del token e della cache di token. ServiceFilter bloccherà anche altre richieste in uscita durante l'autenticazione, in modo che queste richieste possano usare il token aggiornato.
 
@@ -10,7 +10,7 @@ In questa sezione viene definito un filtro ServiceFilter che rileva una risposta
         import java.util.concurrent.ExecutionException;
    
         import com.microsoft.windowsazure.mobileservices.MobileServiceException;
-2. Aggiungere i membri seguenti alla classe `ToDoActivity`:
+2. Aggiungere i membri seguenti alla classe `ToDoActivity`: 
    
         public boolean bAuthenticating = false;
         public final Object mAuthenticationLock = new Object();
@@ -45,7 +45,7 @@ In questa sezione viene definito un filtro ServiceFilter che rileva una risposta
    
             return detected;
         }
-4. Nel file ToDoActivity.java aggiungere il metodo seguente alla classe ToDoActivity. Questo metodo attiva l'attesa e quindi aggiorna il token nelle richieste in uscita al termine dell'autenticazione.
+4. Nel file ToDoActivity.java aggiungere il metodo seguente alla classe ToDoActivity. Questo metodo attiva l'attesa e quindi aggiorna il token nelle richieste in uscita al termine dell'autenticazione. 
 
         /**
          * Waits for authentication to complete then adds or updates the token 
@@ -193,7 +193,7 @@ In questa sezione viene definito un filtro ServiceFilter che rileva una risposta
             }
         }
 
-    Questo filtro del servizio controllerà ogni risposta, alla ricerca del codice di stato HTTP 401 "Non autorizzato". In caso di errore 401, nel thread dell'interfaccia utente sarà configurata una nuova richiesta di accesso per ottenere un nuovo token. Altre chiamate verranno bloccate finché non viene completato l'accesso o dopo 5 tentativi non riusciti. Se si recupera il nuovo token, la richiesta che ha attivato il codice di stato 401 sarà ritentata con il nuovo token ed eventuali chiamate bloccate saranno ritentate con il nuovo token.
+    Questo filtro del servizio controllerà ogni risposta, alla ricerca del codice di stato HTTP 401 "Non autorizzato". In caso di errore 401, nel thread dell'interfaccia utente sarà configurata una nuova richiesta di accesso per ottenere un nuovo token. Altre chiamate verranno bloccate finché non viene completato l'accesso o dopo 5 tentativi non riusciti. Se si recupera il nuovo token, la richiesta che ha attivato il codice di stato 401 sarà ritentata con il nuovo token ed eventuali chiamate bloccate saranno ritentate con il nuovo token. 
 
 1. Nel file ToDoActivity.java aggiungere il codice per una nuova classe `ProgressFilter` nella classe ToDoActivity:
    
@@ -272,6 +272,11 @@ In questa sezione viene definito un filtro ServiceFilter che rileva una risposta
             }
         }
 
-       `RefreshTokenCacheFilter` viene usato nel codice in aggiunta a `ProgressFilter`. Durante `onCreate` è anche necessario che sia caricata la cache di token. A tale scopo, `false` viene passato al metodo `authenticate`.
+       In this code, `RefreshTokenCacheFilter` is used in addition to `ProgressFilter`. Also during `onCreate` we want to load the token cache. So `false` is passed in to the `authenticate` method.
 
-<!---HONumber=AcomDC_1210_2015-->
+
+
+
+<!--HONumber=Jan17_HO3-->
+
+

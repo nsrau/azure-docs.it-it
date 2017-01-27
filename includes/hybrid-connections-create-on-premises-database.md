@@ -1,43 +1,43 @@
 
-In questa sezione viene illustrato come installare SQL Server Express, abilitare TCP/IP, impostare una porta statica e creare un database che può essere utilizzato con le connessioni ibride.
+In questa sezione viene illustrato come installare SQL Server Express, abilitare TCP/IP, impostare una porta statica e creare un database che può essere utilizzato con le connessioni ibride.  
 
-### Installare SQL Server Express
+### <a name="install-sql-server-express"></a>Installare SQL Server Express
 Per usare un'istanza di SQL Server locale o un database SQL Server Express con una connessione ibrida, TCP/IP deve essere abilitato su una porta statica. A differenza delle istanze denominate, le istanze predefinite di SQL Server usano la porta statica 1433. Per questo motivo, verrà installata l'istanza predefinita. Se si dispone già dell'istanza predefinita di SQL Server Express installata, è possibile ignorare questa sezione.
 
-1. Per installare SQL Server Express, eseguire il file **SQLEXPRWT\_x64\_ENU.exe** o **SQLEXPR\_x86\_ENU.exe** scaricato. Viene visualizzata la procedura guidata Centro installazione SQL Server.
+1. Per installare SQL Server Express, eseguire il file **SQLEXPRWT_x64_ENU.exe** o **SQLEXPR_x86_ENU.exe** scaricato. Viene visualizzata la procedura guidata Centro installazione SQL Server.
 2. Scegliere **Nuova installazione autonoma di SQL Server o aggiunta di funzionalità a un'installazione esistente**, quindi seguire le istruzioni, accettando le scelte predefinite finché non viene visualizzata la pagina **Configurazione istanza**.
 3. In **Configurazione istanza** selezionare **Istanza predefinita**, quindi accettare le impostazioni predefinite nella pagina **Configurazione server**.
    
    > [!NOTE]
-   > Se si dispone già di un'istanza predefinita di SQL Server installata, è possibile passare alla sezione successiva e utilizzare questa istanza con le connessioni ibride.
+   > Se si dispone già di un'istanza predefinita di SQL Server installata, è possibile passare alla sezione successiva e utilizzare questa istanza con le connessioni ibride. 
    > 
    > 
-4. Nella pagina **Configurazione del motore di database**, in **Modalità di autenticazione**, scegliere **Modalità mista (autenticazione di SQL Server e autenticazione di Windows)** e fornire una password di protezione per l'account amministratore **sa** incorporato.
+4. Nella pagina **Configurazione del motore di database**, in **Modalità di autenticazione** scegliere **Modalità mista (autenticazione di SQL Server e autenticazione di Windows)** e specificare una password di protezione per l'account amministratore **sa** predefinito.
    
     In questa esercitazione l'utente userà l'autenticazione SQL Server. Prendere nota della password specificata, perché sarà necessaria in seguito.
 5. Eseguire gli altri passaggi della procedura guidata per completare l'installazione.
 
-### Abilitare TCP/IP e l'impostazione di una porta statica.
-In questa sezione viene utilizzato SQL Server Configuration Manager, installato al momento dell'installazione di SQL Express, per abilitare il protocollo TCP/IP e imp0stare un indirizzo IP statico.
+### <a name="enable-tcpip-and-setting-a-static-port"></a>Abilitare TCP/IP e l'impostazione di una porta statica.
+In questa sezione viene utilizzato SQL Server Configuration Manager, installato al momento dell'installazione di SQL Express, per abilitare il protocollo TCP/IP e imp0stare un indirizzo IP statico. 
 
-1. Prima di continuare, seguire la procedura riportata in [Abilitare un protocollo di rete TCP/IP per SQL Server](http://technet.microsoft.com/library/hh231672%28v=sql.110%29.aspx).
-2. (Facoltativo) Se non si è in grado di utilizzare l'istanza predefinita, è necessario seguire i passaggi descritti in [Configurare un Server per l'attesa su una porta TCP specifica](https://msdn.microsoft.com/library/ms177440.aspx) per impostare una porta statica per l'istanza. Se si completa questo passaggio, verrà effettuata la connessione utilizzando la nuova porta definita anziché la porta 1433.
+1. Prima di continuare, seguire la procedura riportata in [Abilitare un protocollo di rete TCP/IP per SQL Server](http://technet.microsoft.com/library/hh231672%28v=sql.110%29.aspx) .
+2. (Facoltativo) Se non si è in grado di utilizzare l'istanza predefinita, è necessario seguire i passaggi descritti in [Configurare un Server per l'attesa su una porta TCP specifica ](https://msdn.microsoft.com/library/ms177440.aspx) per impostare una porta statica per l'istanza. Se si completa questo passaggio, verrà effettuata la connessione utilizzando la nuova porta definita anziché la porta 1433.
 3. (Facoltativo) Se necessario, aggiungere le eccezioni nel firewall per consentire l'accesso remoto per il processo di SQL Server (sqlservr.exe).
 
-### Creare un nuovo database nell'istanza di SQL Server locale
-1. In SQL Server Management Studio connettersi all'istanza di SQL Server appena installata (se la finestra di dialogo **Connetti al server** non viene visualizzata automaticamente, passare a **Esplora oggetti** nel riquadro sinistro, fare clic su **Connetti** e quindi su **Motore di database**).     
+### <a name="create-a-new-database-in-the-on-premises-sql-server-instance"></a>Creare un nuovo database nell'istanza di SQL Server locale
+1. In SQL Server Management Studio connettersi all'istanza di SQL Server appena installata (se la finestra di dialogo **Connetti al server** non viene visualizzata automaticamente, passare a **Esplora oggetti** nel riquadro sinistro, fare clic su **Connetti** e quindi fare clic su **Motore di database**).     
    
     ![Connetti al server](./media/hybrid-connections-create-on-premises-database/A04SSMSConnectToServer.png)
    
-    In **Tipo server** scegliere **Motore di database**. In **Nome server** è possibile usare **localhost** o il nome del computer. Scegliere **Autenticazione di SQL Server**, quindi accedere con il nome utente e la password creati in precedenza.
+    In **Tipo server** scegliere **Motore di database**. In **Nome server** è possibile usare **localhost** o il nome del computer nel quale è stato installato SQL Server. Scegliere **Autenticazione di SQL Server**, quindi accedere con il nome utente e la password creati in precedenza. 
 2. Per creare un nuovo database usando SQL Server Management Studio, fare clic con il pulsante destro del mouse su **Database** in Esplora oggetti, quindi fare clic su **Nuovo database**.
-3. Nella finestra di dialogo **Nuovo database** finestra di dialogo, digitare `OnPremisesDB`, quindi fare clic su **OK**.
-4. In Esplora oggetti, se si espande **Database** si noterà che il database di appartenenza è stato creato.
+3. Nella finestra di dialogo **Nuovo database** digitare `OnPremisesDB`, quindi fare clic su **OK**. 
+4. In Esplora oggetti, se si espande **Database**si noterà che il database di appartenenza è stato creato.
 
-### Creare un nuovo account di accesso di SQL Server e impostare le autorizzazioni
+### <a name="create-a-new-sql-server-login-and-set-permissions"></a>Creare un nuovo account di accesso di SQL Server e impostare le autorizzazioni
 Infine, si creerà un nuovo account di accesso di SQL Server con autorizzazioni limitate. Il servizio di Azure si connetterà al sistema SQL Server locale utilizzando questo account di accesso anziché l'account di accesso sa incorporato, che dispone di autorizzazioni complete nel server.
 
-1. In Esplora oggetti di SQL Server Management Studio il database **OnPremisesDB** database e fare clic su **Nuova Query**.
+1. In Esplora oggetti di SQL Server Management Studio fare clic con il pulsante destro del mouse sul database **OnPremisesDB** e scegliere **Nuova query**.
 2. Incollare la seguente query TSQL nella relativa finestra.
    
        USE [master]
@@ -65,4 +65,8 @@ Infine, si creerà un nuovo account di accesso di SQL Server con autorizzazioni 
 3. Nello script precedente, sostituire la stringa `<**secure_password**>` con una password di protezione per il nuovo elemento *HybridConnectionsLogin*.
 4. **Eseguire** la query per creare il nuovo account di accesso e concedere le autorizzazioni necessarie nel database locale.
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

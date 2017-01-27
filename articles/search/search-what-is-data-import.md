@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/09/2016
+ms.date: 01/11/2017
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 72cc0d9ff35ff656a6134b52812b64c39a295a6f
-ms.openlocfilehash: 53786d60d9971d9f976bf0f3ef4e40346c3101f4
+ms.sourcegitcommit: 292c9150822363aba3336b1efce579dc5362cb14
+ms.openlocfilehash: e522d608e8ff51e00b3c1a461bf9ba909b0105af
 
 
 ---
@@ -29,10 +29,7 @@ ms.openlocfilehash: 53786d60d9971d9f976bf0f3ef4e40346c3101f4
 > 
 > 
 
-## <a name="data-upload-models-in-azure-search"></a>Modelli di caricamento dei dati in Ricerca di Azure
-Esistono due modi per popolare l'indice di Ricerca di Azure con i dati. La prima opzione consiste nell'effettuare manualmente il push dei dati nell'indice tramite l'[API REST](search-import-data-rest-api.md) o [.NET SDK](search-import-data-dotnet.md) di Ricerca di Azure. La seconda opzione consiste nell' [indirizzare un'origine dati supportata](search-indexer-overview.md) all'indice di Ricerca di Azure e lasciare che il servizio effettui automaticamente il pull dei dati nel servizio di ricerca.
-
-Questa guida include solo istruzioni sull'uso del modello push di caricamento dei dati, supportato solo nell'[API REST](search-import-data-rest-api.md) e in [.NET SDK](search-import-data-dotnet.md), ma è comunque possibile apprendere altre informazioni sul modello pull riportate di seguito.
+È possibile popolare un indice con i dati in due modi. La prima opzione consiste nell'effettuare manualmente il push dei dati nell'indice tramite l'[API REST](search-import-data-rest-api.md) o [.NET SDK](search-import-data-dotnet.md) di Ricerca di Azure. La seconda opzione consiste nell'[indirizzare un'origine dati supportata](search-indexer-overview.md) all'indice e lasciare che Ricerca di Azure esegua automaticamente il pull dei dati.
 
 ## <a name="push-data-to-an-index"></a>Push dei dati in un indice
 Questo approccio si riferisce all'invio di dati a livello di codice a Ricerca di Azure per renderli disponibili per la ricerca. Per applicazioni con requisiti di latenza molto bassa, ad esempio se è necessario che le operazioni di ricerca siano sincronizzate con i database di inventario dinamici, il modello push è l'unica opzione disponibile.
@@ -41,16 +38,27 @@ Questo approccio si riferisce all'invio di dati a livello di codice a Ricerca di
 
 Questo approccio è più flessibile rispetto al modello pull, perché si possono caricare i documenti individualmente o in batch, fino a 1000 per batch o 16 MB, a seconda del limite che viene raggiunto per primo. Il modello push consente anche di caricare i documenti in Ricerca di Azure indipendentemente dalla posizione dei dati.
 
+Il formato dei dati riconosciuto da Ricerca di Azure è JSON e tutti i documenti del set di dati devono avere campi mappati ai campi definiti nello schema di indice. 
+
 ## <a name="pull-data-into-an-index"></a>Effettuare il pull dei dati in un indice
-Il modello pull effettua una ricerca per indicizzazione su un'origine dati supportata e carica automaticamente i dati nell'indice di Ricerca di Azure. Tramite il rilevamento di modifiche ed eliminazioni nei documenti esistenti, oltre al riconoscimento di nuovi documenti, gli indicizzatori eliminano la necessità di gestire attivamente i dati nell'indice.
+Il modello pull effettua una ricerca per indicizzazione su un'origine dati supportata e carica automaticamente i dati nell'indice. In Ricerca di Azure questa funzionalità viene implementata tramite *indicizzatori*, attualmente disponibili per [Archivio BLOB](search-howto-indexing-azure-blob-storage.md), [Archivio tabelle](search-howto-indexing-azure-tables.md), [DocumentDB](http://aka.ms/documentdb-search-indexer), [Database SQL di Azure e SQL Server nelle VM di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
 
-In Ricerca di Azure questa funzionalità viene implementata tramite *indicizzatori*, attualmente disponibili per [Archivio BLOB (anteprima)](search-howto-indexing-azure-blob-storage.md), [DocumentDB](http://aka.ms/documentdb-search-indexer), [Database SQL di Azure e SQL Server nelle VM di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md).
+Gli indicizzatori connettono un indice a un'origine dati, in genere una tabella, una vista o una struttura equivalente, e mappano i campi di origine ai campi equivalenti nell'indice. Durante l'esecuzione il set di righe viene automaticamente trasformato in JSON e caricato nell'indice specificato. Tutti gli indicizzatori supportano la pianificazione, in modo da consentire di specificare la frequenza dell'aggiornamento dei dati. La maggior parte degli indicizzatori fornisce il rilevamento delle modifiche se l'origine dati lo supporta. Tramite il rilevamento di modifiche ed eliminazioni nei documenti esistenti, oltre al riconoscimento di nuovi documenti, gli indicizzatori eliminano la necessità di gestire attivamente i dati nell'indice. 
 
-La funzionalità di indicizzatore viene esposta nel [portale di Azure ](search-import-data-portal.md) e nell'[API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations).
+La funzionalità di indicizzatore viene esposta nel [portale di Azure](search-import-data-portal.md), nell'[API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) e in [.NET SDK](https://docs.microsoft.com/otnet/api/microsoft.azure.search.iindexersoperations?redirectedfrom=MSDN#microsoft_azure_search_iindexersoperations). 
+
+Un vantaggio dell'uso del portale consiste nel fatto che Ricerca di Azure può solitamente generare automaticamente uno schema di indice predefinito leggendo i metadati del set di dati di origine. È possibile modificare l'indice generato fino al termine dell'elaborazione dell'indice. In seguito, sono consentite solo le modifiche che non richiedono la reindicizzazione. Se le modifiche da apportare influiscono direttamente sullo schema, è necessario ricompilare l'indice. 
+
+Al termine del popolamento dell'indice, è possibile usare **Esplora ricerche** sulla barra dei comandi del portale come passaggio di verifica.
+
+## <a name="query-an-index-using-search-explorer"></a>Eseguire query in un indice usando Esplora ricerche
+
+Un modo rapido per eseguire un controllo preliminare sul caricamento del documento consiste nell'usare **Esplora ricerche** nel portale. Esplora ricerche consente di eseguire query su un indice senza che sia necessario scrivere codice. L'esperienza di ricerca è basata sulle impostazioni predefinite, ad esempio la [sintassi semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) e il [parametro di query searchMode](https://docs.microsoft.com/rest/api/searchservice/search-documents) predefinito. I risultati vengono restituiti in JSON, in modo che sia possibile esaminare l'intero documento.
+
+> [!TIP]
+> Numerosi [esempi di codice di Ricerca di Azure](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) includono set di dati incorporati o immediatamente disponibili, che consentono di iniziare con facilità. Il portale offre anche un indicizzatore e un'origine dati di esempio, costituita da un piccolo set di dati immobiliari, denominato "realestate-us-sample". Quando si esegue l'indicizzatore preconfigurato nell'origine dati di esempio, viene creato un indice, che viene caricato con i documenti su cui possono essere eseguite query in Esplora ricerche o tramite codice scritto dall'utente.
 
 
-
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 
