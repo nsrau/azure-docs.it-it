@@ -12,26 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 12/13/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: d5af6e3d9ba35558e0d7850820f4b9a479a259be
-ms.openlocfilehash: 7c73de46500ac565680f2d16da05b4821507cd93
+ms.sourcegitcommit: 803d295f0d9f08fdfe7ee4550bd093b98bd80631
+ms.openlocfilehash: 594f8c79e6e98a3e727416b0bf1867481b33dd2c
 
 
 ---
 # <a name="request-increased-documentdb-account-quotas"></a>Richiedere un aumento delle quote di account DocumentDB
-[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) dispone di un set di quote predefinite che è possibile modificare contattando il supporto tecnico di Azure.  Questo articolo spiega come richiedere un aumento delle quote.
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) è un database con scalabilità globale in cui la velocità effettiva e lo spazio di archiviazione possono essere ridimensionati in modo da gestire qualsiasi requisito dell'applicazione. Per eventuali domande sulla scalabilità offerta da DocumentDB, inviare un messaggio di posta elettronica all'indirizzo askdocdb@microsoft.com.
 
-Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:  
-
-* Quali quote del database DocumentDB possono essere modificate contattando il supporto tecnico Azure?
-* Come è possibile richiedere una modifica delle quote dell'account DocumentDB?
-
-## <a name="a-idquotasa-documentdb-account-quotas"></a><a id="Quotas"></a> Quote dell'account DocumentDB
-La tabella seguente descrive le quote DocumentDB. Le quote elencate con un asterisco (*) possono essere modificate contattando il supporto tecnico Azure:
-
-[!INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
+Questo articolo illustra come richiedere al supporto di Azure un aumento delle quote.
 
 ## <a name="a-idrequestquotaincreasea-request-a-quota-adjustment"></a><a id="RequestQuotaIncrease"></a> Richiedere una modifica delle quote
 I passaggi seguenti mostrano come richiedere una modifica delle quote.
@@ -60,6 +52,6 @@ Una volta creato il ticket di supporto, si dovrebbe ricevere per posta elettroni
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -16,17 +16,17 @@ ms.workload: big-data
 ms.date: 09/20/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f322b95e3ade4318ccd64f5e2222194bd2fb9361
+ms.sourcegitcommit: 4f8d2956e9f0240392ba839b076d632ccc45d728
+ms.openlocfilehash: df8a5124b35ee00fcbe2c25a032443a1a55b7b1d
 
 
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-cli"></a>Creare cluster basati su Linux in HDInsight tramite l'interfaccia della riga di comando di Azure
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-L'interfaccia della riga di comando di Azure è un'utilità della riga di comando multipiattaforma che consente di gestire i servizi di Azure. Può essere usata con i modelli di Gestione risorse di Azure per creare un cluster HDInsight insieme agli account di archiviazione associati e ad altri servizi.
+L'interfaccia della riga di comando di Azure è un'utilità della riga di comando multipiattaforma che consente di gestire i servizi di Azure. Può essere usata con i modelli di Azure Resource Manager per creare un cluster HDInsight, insieme agli account di archiviazione associati e ad altri servizi.
 
-I modelli di Gestione risorse di Azure sono documenti JSON che descrivono un **gruppo di risorse** e tutte le risorse in esso contenute, ad esempio HDInsight. Questo approccio basato su modelli consente di definire tutte le risorse necessarie per HDInsight in un singolo modello. Consente anche di gestire le modifiche apportate al gruppo nel suo insieme tramite le **distribuzioni**, che applicano le modifiche all'intero gruppo.
+I modelli di Azure Resource Manager sono documenti JSON che descrivono un **gruppo di risorse** e tutte le risorse in esso contenute, ad esempio HDInsight. Questo approccio basato su modelli consente di definire tutte le risorse necessarie per HDInsight in un singolo modello. Consente anche di gestire le modifiche apportate al gruppo nel suo insieme tramite le **distribuzioni**, che applicano le modifiche all'intero gruppo.
 
 I passaggi illustrati in questo documento descrivono il processo di creazione di un nuovo cluster HDInsight tramite l'interfaccia della riga di comando di Azure e un modello:
 
@@ -38,12 +38,13 @@ I passaggi illustrati in questo documento descrivono il processo di creazione di
 > 
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Interfaccia della riga di comando di Azure**. La procedura descritta in questo documento è stata testata con la versione dell'interfaccia della riga di comando di Azure 0.10.1.
   
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
 ### <a name="access-control-requirements"></a>Requisiti di controllo di accesso
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
@@ -130,6 +131,6 @@ Dopo aver creato un cluster HDInsight tramite l'interfaccia della riga di comand
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

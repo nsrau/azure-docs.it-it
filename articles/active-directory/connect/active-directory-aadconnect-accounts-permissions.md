@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b2baa9ea093a36cadb2251bbd1f4390552d8ec0e
+ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
+ms.openlocfilehash: e5f643d444fb2bf00aa91083f5d09962372e0dbb
 
 
 ---
@@ -29,11 +29,13 @@ L'installazione guidata di Azure AD Connect offre due percorsi diversi:
 ## <a name="related-documentation"></a>Documentazione correlata
 Se non è stata letta la documentazione in [Integrazione delle identità locali con Azure Active Directory](../active-directory-aadconnect.md), la tabella seguente fornisce collegamenti ad argomenti correlati.
 
-| Argomento |
+|Argomento |Collegamento|  
 | --- | --- |
-| Eseguire l'installazione con le Impostazioni rapide |
-| Eseguire l'installazione mediante le impostazioni personalizzate |
-| Aggiornamento da DirSync |
+|Scaricare Azure AD Connect | [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Eseguire l'installazione con le Impostazioni rapide | [Installazione rapida di Azure AD Connect](./active-directory-aadconnect-get-started-express.md)|
+|Eseguire l'installazione mediante le impostazioni personalizzate | [Installazione personalizzata di Azure AD Connect](./active-directory-aadconnect-get-started-custom.md)|
+|Aggiornamento da DirSync | [Aggiornamento dallo strumento di sincronizzazione di Azure AD (DirSync)](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
+|Dopo l'installazione | [Verificare l'installazione e assegnare le licenze ](active-directory-aadconnect-whats-next.md)|
 
 ## <a name="express-settings-installation"></a>Installazione mediante le impostazioni rapide
 Nell'installazione guidata mediante le impostazioni rapide vengono richieste le credenziali di amministratore dell'organizzazione di Servizi di dominio Active Directory, in modo che l'istanza locale di Active Directory possa essere configurata con le autorizzazioni richieste per Azure AD Connect. Se si esegue l'aggiornamento da DirSync, le credenziali di amministratore dell'organizzazione di Servizi di dominio Active Directory vengono usate per reimpostare la password per l'account usato da DirSync. Sono necessarie anche le credenziali di amministratore globale di Azure AD.
@@ -45,7 +47,7 @@ Nell'installazione guidata mediante le impostazioni rapide vengono richieste le 
 | Connettersi ad AD DS |Credenziali Active Directory locali |Membro del gruppo Enterprise Admins (EA) in Active Directory |<li>Creazione di un [account](#active-directory-account) in Active Directory e concessione delle relative autorizzazioni. L'account creato viene usato per leggere e scrivere informazioni di directory durante la sincronizzazione.</li> |
 
 ### <a name="enterprise-admin-credentials"></a>Credenziali di amministratore dell'organizzazione
-Queste credenziali vengono usate solo durante l'installazione e dopo il completamento di quest'ultima. È l'amministratore dell'organizzazione, non l'amministratore di dominio, a garantire che le autorizzazioni in Active Directory possano essere impostate in tutti i domini.
+Queste credenziali vengono usate solo durante l'installazione e non dopo il completamento di quest'ultima. L'amministratore dell'organizzazione, non l'amministratore di dominio, deve garantire che le autorizzazioni in Active Directory possano essere impostate in tutti i domini.
 
 ### <a name="global-admin-credentials"></a>Credenziali di amministratore globale
 Queste credenziali vengono usate solo durante l'installazione e non dopo il completamento di quest'ultima. Vengono usate per creare l'[account Azure AD](#azure-ad-service-account) utile per sincronizzare le modifiche apportate ad Azure AD. e per abilitare la sincronizzazione come funzionalità in Azure AD.
@@ -84,9 +86,9 @@ Le autorizzazioni necessarie dipendono dalle funzionalità facoltative abilitate
 | Funzionalità | Autorizzazioni |
 | --- | --- |
 | Sincronizzazione delle password |<li>Replica modifiche directory</li>  <li>Replica modifiche directory - Tutto |
-| Distribuzione ibrida di Exchange |Autorizzazioni di scrittura per gli attributi documentati in [Writeback della distribuzione ibrida Exchange](../active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) per utenti, gruppi e contatti. |
+| Distribuzione ibrida di Exchange |Autorizzazioni di scrittura per gli attributi documentati in [Writeback della distribuzione ibrida Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) per utenti, gruppi e contatti. |
 | Writeback delle password |Autorizzazioni di scrittura per gli attributi documentati in [Introduzione alla gestione delle password](../active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) per gli utenti. |
-| Writeback dispositivi |Autorizzazioni concesse con uno script di PowerShell come descritto in [Writeback dei dispositivi](../active-directory-aadconnect-feature-device-writeback.md). |
+| Writeback dispositivi |Autorizzazioni concesse con uno script di PowerShell come descritto in [Writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md). |
 | Writeback dei gruppi |Lettura, creazione, aggiornamento ed eliminazione di oggetti di gruppo nell'unità organizzativa in cui devono trovarsi i gruppi di distribuzione. |
 
 ## <a name="upgrade"></a>Aggiornamento
@@ -134,6 +136,6 @@ Altre informazioni su [Integrazione delle identità locali con Azure Active Dire
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

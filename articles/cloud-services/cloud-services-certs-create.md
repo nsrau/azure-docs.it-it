@@ -12,30 +12,33 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 12/20/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 1624b53ee68c0c46512037af26d986cd8bc5423e
+ms.sourcegitcommit: c530f08842efde1ab87cfd111f1957ae685748f3
+ms.openlocfilehash: 77d3cb18c52a10236eb40e6ffde1ed9e2753af3f
 
 
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Panoramica sui certificati per i servizi cloud di Azure
-I [certificati di servizio](#what-are-service-certificates) vengono usati in Azure per i servizi cloud, mentre i [certificati di gestione](#what-are-management-certificates) vengono usati per l'autenticazione con l'API di gestione e sono legati all'uso del portale di Azure classico e non di Azure Resource Manager. Questo argomento offre informazioni generali su entrambi i tipi di certificati, su come [crearli](#create) e come [distribuirli](#deploy) in Azure.
+I certificati vengono utilizzati in Azure per i servizi cloud ([certificati di servizio](#what-are-service-certificates)) e per l'autenticazione con l'API di gestione ([certificati di gestione](#what-are-management-certificates) quando si usa il portale di Azure classico e non il portale di Azure non classico). Questo argomento offre informazioni generali su entrambi i tipi di certificati, su come [crearli](#create) e come [distribuirli](#deploy) in Azure.
 
-Quelli usati in Azure sono certificati x.509 v3 e possono essere firmati da un altro certificato attendibile o essere autofirmati. Un certificato autofirmato viene firmato dal creatore e pertanto non è attendibile per impostazione predefinita. La maggior parte dei browser può ignorarlo. I certificati autofirmati dovrebbero essere usati solo dall'utente quando sviluppa e testa i servizi cloud. 
+Quelli usati in Azure sono certificati x.509 v3 e possono essere firmati da un altro certificato attendibile o essere autofirmati. Un certificato autofirmato viene firmato dall'autore e pertanto non è attendibile per impostazione predefinita. La maggior parte dei browser può ignorare questo problema. È consigliabile utilizzare i certificati autofirmati solo quando si sviluppano e si testano servizi cloud. 
 
 I certificati usati da Azure possono contenere una chiave privata o una pubblica. I certificati hanno un'identificazione personale che consente di identificarli in modo non ambiguo. Questa identificazione personale viene usata nel [file di configurazione](cloud-services-configure-ssl-certificate.md) di Azure per identificare il certificato che un servizio cloud dovrebbe usare. 
 
 ## <a name="what-are-service-certificates"></a>Cosa sono i certificati di servizio?
 I certificati di servizio sono associati ai servizi cloud e consentono la comunicazione sicura verso e dal servizio. Ad esempio, se si distribuisse un ruolo Web, si fornirebbe un certificato per autenticare un endpoint HTTPS esposto. I certificati di servizio, definiti nella definizione del servizio, vengono automaticamente distribuiti nella macchina virtuale che esegue un'istanza del ruolo. 
 
-È possibile caricare i certificati di servizio nel portale di Azure classico usando il portale di Azure classico o usando l'API di gestione dei servizi. I certificati di servizio vengono associati a un servizio cloud specifico e assegnati a una distribuzione nel file di definizione del servizio.
+È possibile caricare i certificati di servizio nel portale di Azure classico tramite il portale di Azure classico o usando il modello di distribuzione classico. I certificati di servizio sono associati a uno specifico servizio cloud. Vengono assegnati a una distribuzione nel file di definizione del servizio.
 
-I certificati di servizio possono essere gestiti separatamente dai servizi e da persone diverse. Ad esempio, uno sviluppatore può caricare un pacchetto del servizio che fa riferimento a un certificato caricato in precedenza in Azure da un responsabile IT. Un responsabile IT può gestire e rinnovare tale certificato modificando la configurazione del servizio senza dover caricare un nuovo pacchetto del servizio. Questa operazione è possibile poiché il nome logico per il certificato e il relativo nome di archivio e il percorso vengono specificati nel file di definizione del servizio, mentre l'identificazione personale del certificato viene specificata nel file di configurazione del servizio. Per aggiornare il certificato, è sufficiente caricare un nuovo certificato e modificare il valore dell'identificazione personale nel file di configurazione del servizio.
+I certificati di servizio possono essere gestiti separatamente dai servizi e da persone diverse. Ad esempio, uno sviluppatore può caricare un pacchetto del servizio che fa riferimento a un certificato caricato in precedenza in Azure da un responsabile IT. Un responsabile IT può gestire e rinnovare tale certificato, modificando la configurazione del servizio, senza dover caricare un nuovo pacchetto del servizio. Questa operazione è possibile poiché il nome logico, il nome di archivio e il percorso vengono specificati nel file di definizione del servizio, mentre l'identificazione personale del certificato viene specificata nel file di configurazione del servizio. Per aggiornare il certificato, è sufficiente caricare un nuovo certificato e modificare il valore dell'identificazione personale nel file di configurazione del servizio.
+
+>[!Note]
+>L'articolo [domande frequenti su Servizi cloud](cloud-services-faq.md#certificates) contiene alcune utili informazioni sui certificati.
 
 ## <a name="what-are-management-certificates"></a>Cosa sono i certificati di gestione?
-I certificati di gestione consentono di eseguire l'autenticazione con l'API di gestione dei servizi fornita da Azure classico. Molti programmi e strumenti (ad esempio Visual Studio o Azure SDK) useranno questi certificati per automatizzare la configurazione e la distribuzione dei vari servizi di Azure. Questi non sono realmente correlati ai servizi cloud. 
+I certificati di gestione consentono di eseguire l'autenticazione con il modello di distribuzione classico. Molti programmi e strumenti (ad esempio Visual Studio o Azure SDK) usano questi certificati per automatizzare la configurazione e la distribuzione di vari servizi di Azure. Questi non sono realmente correlati ai servizi cloud. 
 
 > [!WARNING]
 > Fare attenzione. Questi tipi di certificati consentono a chiunque esegua l'autenticazione di gestire la sottoscrizione a cui sono associati. 
@@ -48,7 +51,6 @@ I certificati di gestione consentono di eseguire l'autenticazione con l'API di g
 Prima di aggiungere più di 100 certificati, verificare se è possibile riutilizzarne uno esistente. L'uso di coamministratori potrebbe rendere più complesso il processo di gestione dei certificati.
 
 <a name="create"></a>
-
 ## <a name="create-a-new-self-signed-certificate"></a>Creare un nuovo certificato autofirmato
 È possibile usare qualsiasi strumento disponibile per creare un certificato autofirmato purché rispetti queste impostazioni:
 
@@ -63,7 +65,7 @@ Prima di aggiungere più di 100 certificati, verificare se è possibile riutiliz
 Sono disponibili due semplici modi per creare un certificato in Windows: con l'utilità `makecert.exe` o con IIS.
 
 ### <a name="makecertexe"></a>Makecert.exe
-Questa utilità è stata deprecata e di seguito non è più disponibile la relativa documentazione. Per altre informazioni, vedere [questo articolo di MSDN](https://msdn.microsoft.com/library/windows/desktop/aa386968) .
+Questa utilità è stata deprecata e di seguito non è più disponibile la relativa documentazione. Per altre informazioni, vedere [questo articolo di MSDN](https://msdn.microsoft.com/library/windows/desktop/aa386968).
 
 ### <a name="powershell"></a>PowerShell
 ```powershell
@@ -105,6 +107,6 @@ Caricare il [certificato dell'API di gestione](../azure-api-management-certs.md)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

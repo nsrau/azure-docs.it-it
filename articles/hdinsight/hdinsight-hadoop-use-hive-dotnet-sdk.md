@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/16/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 2168147972184e14705781765b9afb3f2ee902e3
+ms.sourcegitcommit: 4ef2546b34461a8303c5ced22adec0d1e36dfa96
+ms.openlocfilehash: 47849e2700d5da391a5cc3b3f1dbf00dd8c8deea
 
 
 ---
@@ -32,7 +32,7 @@ Informazioni su come inviare query Hive tramite HDInsight .NET SDK.
 > 
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per eseguire le procedure descritte nell'articolo è necessario:
+Per eseguire le procedure descritte nell'articolo sono necessari gli elementi seguenti:
 
 * **Un cluster Hadoop in HDInsight**. Vedere [Introduzione all'uso di Hadoop basato su Linux in HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 * **Visual Studio 2012/2013/2015**.
@@ -43,7 +43,7 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei clus
 **Inviare i processi**
 
 1. Creare un'applicazione console C# in Visual Studio.
-2. Eseguire il comando seguente dalla console di Gestione pacchetti NuGet.
+2. Dalla console di Gestione pacchetti NuGet eseguire il comando seguente:
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 3. Usare il codice seguente:
@@ -132,12 +132,16 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei clus
     ```
 4. Premere **F5** per eseguire l'applicazione.
 
+L'output dell'applicazione sarà simile al seguente:
+
+![Output processo Hive Hadoop di HDInsight](./media/hdinsight-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png)
+
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre informazioni, vedere gli articoli seguenti:
 
 * [Introduzione ad Azure HDInsight][hdinsight-get-started]
 * [Creare cluster Hadoop in HDInsight][hdinsight-provision]
-* [Gestire cluster Hadoop in HDInsight tramite il portale di Azure](hdinsight-administer-use-management-portal.md)
+* [Gestire cluster Hadoop in HDInsight con il portale di Azure](hdinsight-administer-use-management-portal.md)
 * [Riferimento a HDInsight .NET SDK](https://msdn.microsoft.com/library/mt271028.aspx)
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare Sqoop con Hadoop in HDInsight](hdinsight-use-sqoop-mac-linux.md)
@@ -150,6 +154,6 @@ Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

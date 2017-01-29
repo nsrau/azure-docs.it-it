@@ -1,79 +1,87 @@
 ---
-title: Come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure
-description: Informazioni su come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure.
+title: "Come distribuire un&quot;istanza del servizio Gestione API di Azure in più aree di Azure"
+description: "Informazioni su come distribuire un&quot;istanza del servizio Gestione API di Azure in più aree di Azure."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 47389ad6-f865-4706-833f-846115e22e4d
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
+translationtype: Human Translation
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 62a69761575d4d0afdc58e43117407c2c0ca916f
+
 
 ---
-# Come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure
-Gestione API supporta la distribuzione in più aree che consente agli autori di API di distribuire un solo servizio Gestione API in qualsiasi numero di aree di Azure. Ciò consente di ridurre la latenza delle richieste percepita dagli utenti dell'API distribuiti geograficamente, oltre a migliorare la disponibilità del servizio se un'area viene portata offline.
+# <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure
+Gestione API supporta la distribuzione in più aree che consente agli autori di API di distribuire un solo servizio Gestione API in qualsiasi numero di aree di Azure. Ciò consente di ridurre la latenza delle richieste percepita dagli utenti dell'API distribuiti geograficamente, oltre a migliorare la disponibilità del servizio se un'area viene portata offline. 
 
-Quando un servizio di gestione API viene creato, inizialmente contiene una sola [unità][unità] e si trova in una sola area di Azure, designata come area primaria. È possibile aggiungere facilmente altre aree tramite il portale di Azure classico. Il server gateway di gestione API viene distribuito in ogni area il traffico delle chiamate verrà indirizzato al gateway più vicino. Quando un'area passa offline, il traffico viene automaticamente reindirizzato al gateway successivo più vicino.
+Quando un servizio di gestione API viene creato, inizialmente contiene una sola [unità][unit] e si trova in una sola area di Azure, designata come area primaria. È possibile aggiungere facilmente altre aree tramite il portale di Azure. Un server gateway di gestione API viene distribuito in ogni area e il traffico delle chiamate verrà indirizzato al gateway più vicino. Quando un'area passa offline, il traffico viene automaticamente reindirizzato al gateway successivo più vicino. 
 
 > [!IMPORTANT]
 > La distribuzione in più aree è disponibile solo nel livello **[Premium][Premium]**.
 > 
 > 
 
-## <a name="add-region"></a>Distribuire un'istanza del servizio Gestione API in una nuova area
-Per iniziare, fare clic su **Gestisci** nel portale di Azure classico per il servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API.
-
-![Portale di pubblicazione][api-management-management-console]
-
-> Se non è stato creata un'istanza del servizio Gestione API, vedere [Creare un'istanza del servizio Gestione API][Creare un'istanza del servizio Gestione API] nell'esercitazione [Introduzione a Gestione API di Azure][Introduzione a Gestione API di Azure].
+## <a name="add-region"> </a>Distribuire un'istanza del servizio Gestione API in una nuova area
+> [!NOTE]
+> Se non è stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][Create an API Management service instance] nell'esercitazione [Introduzione a Gestione API di Azure][Get started with Azure API Management].
 > 
 > 
 
-Passare alla scheda **Ridimensiona** nel portale di Azure classico per l'istanza del servizio Gestione API.
+Passare alla pagina **Scalabilità** nel portale di Azure per l'istanza del servizio di Gestione API. 
 
 ![Scheda Scalabilità][api-management-scale-service]
 
-Per la distribuzione in una nuova area, fare clic sull'elenco a discesa sotto l'area primaria e selezionare un'area nell'elenco.
+Per distribuire una nuova area, fare clic su **+ Aggiungi area** dalla barra degli strumenti.
 
 ![Aggiungere un'area][api-management-add-region]
 
-Una volta selezionata l'area, selezionare il numero di unità per la nuova area nell'elenco a discesa delle unità.
+Selezionare la posizione dall'elenco a discesa e impostare il numero di unità con il dispositivo di scorrimento.
 
-![Specificare le unità][api-management-select-units]
+![Specificare le unità][api-management-select-location-units]
 
-Dopo avere configurato le aree e le unità desiderate, fare clic su **Salva**.
+Fare clic su **Aggiungi** per inserire la selezione nella tabella Posizioni. 
 
-## <a name="remove-region"> </a>Eliminare un'istanza di Gestione API da un'area
-Per rimuovere un'istanza del servizio Gestione API da un'area, passare alla scheda **Ridimensiona** nel portale di Azure classico per l'istanza del servizio Gestione API.
+Ripetere l'operazione per configurare tutte le posizioni e fare clic su **Salva** dalla barra degli strumenti per avviare il processo di distribuzione.
+
+## <a name="remove-region"> </a>Eliminare un'istanza del servizio di Gestione API da una posizione
+Passare alla pagina **Scalabilità** nel portale di Azure per l'istanza del servizio di Gestione API. 
 
 ![Scheda Scalabilità][api-management-scale-service]
 
-Fare clic su **X** a destra dell'area da rimuovere.
+Per la località che si vuole rimuovere aprire il menu di scelta rapida usando il pulsante **...** sul lato destro della tabella. Selezionare l'opzione **Elimina**.
 
 ![Rimuovere un'area][api-management-remove-region]
 
-Dopo aver rimosso le aree desiderate, fare clic su **Salva**.
+Confermare l'eliminazione e fare clic su **Salva** per applicare le modifiche.
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
 
 [api-management-scale-service]: ./media/api-management-howto-deploy-multi-region/api-management-scale-service.png
 [api-management-add-region]: ./media/api-management-howto-deploy-multi-region/api-management-add-region.png
-[api-management-select-units]: ./media/api-management-howto-deploy-multi-region/api-management-select-units.png
+[api-management-select-location-units]: ./media/api-management-howto-deploy-multi-region/api-management-select-location-units.png
 [api-management-remove-region]: ./media/api-management-howto-deploy-multi-region/api-management-remove-region.png
 
-[Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
-[Introduzione a Gestione API di Azure]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
 
 [Deploy an API Management service instance to a new region]: #add-region
 [Delete an API Management service instance from a region]: #remove-region
 
-[unità]: http://azure.microsoft.com/pricing/details/api-management/
+[unit]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Dec16_HO3-->
+
+

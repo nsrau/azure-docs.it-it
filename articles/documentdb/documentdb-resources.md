@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 12/19/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9867dcb3300aab020bdda341b5b14e40c3a01075
+ms.sourcegitcommit: 51c5694379d3f35ed2595f0cafeb00c6cc527854
+ms.openlocfilehash: 94549905816707fa3dcce3c3e443122162a2c4e8
 
 
 ---
@@ -43,11 +43,11 @@ Come illustrato nel diagramma seguente, il **modello di risorse** gerarchico di 
 ![Modello di risorse gerarchico di DocumentDB][1]  
 **Modello di risorse gerarchico**   
 
-Per iniziare a usare le risorse è necessario [creare un account di database DocumentDB](documentdb-create-account.md) usando la sottoscrizione di Azure. Un account di database può essere costituito da un set di **database**, ciascuno contenente più **raccolte**, ognuna delle quali include a sua volta **stored procedure, trigger, UDF, documenti** e gli **allegati** correlati (funzionalità di anteprima). Un database include anche gli **utenti** associati, ognuno dei quali possiede un set di **autorizzazioni** per accedere a raccolte, stored procedure, trigger, UDF, documenti o allegati. Mentre i database, gli utenti, le autorizzazioni e le raccolte sono ricorse definite dal sistema con schemi noti, i documenti e gli allegati includono contenuto JSON arbitrario definito dagli utenti.  
+Per iniziare a usare le risorse è necessario [creare un account di database DocumentDB](documentdb-create-account.md) usando la sottoscrizione di Azure. Un account di database può essere costituito da un set di **database**, ognuno contenente più **raccolte**. Ogni raccolta include a propria volta **stored procedure, trigger, funzioni definite dall'utente, documenti** e **allegati** correlati. Un database include anche gli **utenti** associati, ognuno dei quali possiede un set di **autorizzazioni** per accedere a raccolte, stored procedure, trigger, UDF, documenti o allegati. Mentre i database, gli utenti, le autorizzazioni e le raccolte sono ricorse definite dal sistema con schemi noti, i documenti e gli allegati includono contenuto JSON arbitrario definito dagli utenti.  
 
 | Risorsa | Descrizione |
 | --- | --- |
-| Account di database |Un account di database è associato a un set di database e a una quantità fissa di archiviazione BLOB per gli allegati (funzionalità di anteprima). È possibile creare uno o più account di database usando la sottoscrizione di Azure. Per altre informazioni, visitare la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/documentdb/). |
+| Account di database |Un account di database è associato a un set di database e a una quantità fissa di archivio BLOB per gli allegati. È possibile creare uno o più account di database usando la sottoscrizione di Azure. Per altre informazioni, visitare la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/documentdb/). |
 | Database |Un database è un contenitore logico di archiviazione documenti partizionato nelle raccolte. Un database è anche un contenitore degli utenti |
 | Utente |Spazio dei nomi logico per la definizione dell'ambito delle autorizzazioni. |
 | Autorizzazione |Token di autorizzazione associato a un utente per l'accesso a una risorsa specifica. |
@@ -56,7 +56,7 @@ Per iniziare a usare le risorse è necessario [creare un account di database Doc
 | Trigger |Logica dell'applicazione scritta in JavaScript ed eseguita prima o dopo un'operazione di inserimento, sostituzione o eliminazione. |
 | UDF |Logica dell'applicazione scritta in JavaScript. Consente di modellare un operatore query personalizzato e quindi di estendere il linguaggio di query di base di DocumentDB. |
 | Documento |Contenuto JSON definito dall'utente (arbitrario). Per impostazione predefinita, non è necessario definire alcuno schema, né fornire indici secondari per tutti i documenti aggiunti a una raccolta. |
-| (Anteprima) Allegato |Un allegato è un documento speciale contenente riferimenti e metadati associati per BLOB/file multimediali esterni. Lo sviluppatore può definire se il BLOB debba essere gestito da DocumentDB o archiviato con un provider di servizi BLOB esterno come OneDrive, Dropbox e così via. |
+| Attachment |Un allegato è un documento speciale contenente riferimenti e metadati associati per BLOB/file multimediali esterni. Lo sviluppatore può definire se il BLOB debba essere gestito da DocumentDB o archiviato con un provider di servizi BLOB esterno come OneDrive, Dropbox e così via. |
 
 ## <a name="system-vs-user-defined-resources"></a>Risorse definite dal sistema e risorse definite dall'utente
 Tutte le risorse quali account di database, database, raccolte, utenti, autorizzazioni, stored procedure, trigger e funzioni UDF hanno uno schema fisso e sono definite risorse di sistema. Per le risorse quali documenti e allegati, invece, non sono previste restrizioni a livello di schema. Si tratta di risorse definite dall'utente. In DocumentDB le risorse definite dal sistema e definite dall'utente sono rappresentate e gestite come risorse JSON conformi allo standard. Tutte le risorse, di sistema o definite dall'utente, presentano le proprietà comuni indicate di seguito.
@@ -413,11 +413,6 @@ Essendo un servizio database effettivamente aperto, DocumentDB non propone tipo 
 Analogamente a tutte le altre risorse, i documenti possono essere creati, sostituiti, eliminati, letti, enumerati e sottoposti a query con facilità tramite le API REST o uno degli [SDK dei client](https://msdn.microsoft.com/library/azure/dn781482.aspx). Se si elimina un documento, la quota corrispondente a tutti gli allegati annidati sarà resa immediatamente disponibile. Il livello di coerenza di lettura dei documenti segue i criteri di coerenza applicati all'account di database. È possibile eseguire l'override di questo criterio per le singole richieste, in base ai requisiti di coerenza dei dati specifici dell'applicazione. Durante l'esecuzione di query nei documenti, la coerenza di lettura si basa sulla modalità di indicizzazione impostata per la raccolta. Ai fini della coerenza, si basa sui criteri di coerenza dell'account. 
 
 ## <a name="attachments-and-media"></a>Allegati e file multimediali
-> [!NOTE]
-> Allegati e risorse multimediali sono funzionalità di anteprima.
-> 
-> 
-
 DocumentDB permette di archiviare BLOB/file multimediali binari tramite DocumentDB o in un archivio remoto specifico per i file multimediali. Permette anche di rappresentare i metadati dei file multimediali sotto forma di un documento speciale definito allegato. Un allegato in DocumentDB è un documento speciale (JSON) che fa riferimento a file multimediali/BLOB archiviati altrove. Un allegato è semplicemente un documento speciale che acquisisce i metadati, come percorso, autore e così via, di un file multimediale archiviato in una risorsa di archiviazione multimediale remota. 
 
 Si prenda in considerazione un'applicazione di lettura di social media che usa DocumentDB per archiviare annotazioni a penna e metadati, inclusi commenti, evidenziazioni, segnalibri, valutazioni, commenti di tipo mi piace/non mi piace e così via, associati a un e-book di un utente specifico.   
@@ -469,6 +464,6 @@ Per altre informazioni sull'utilizzo di risorse tramite comandi HTTP, vedere [In
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

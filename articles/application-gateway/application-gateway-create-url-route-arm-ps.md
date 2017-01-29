@@ -4,7 +4,7 @@ description: Questa pagina fornisce istruzioni per la creazione e la configurazi
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: jdial
+manager: timlt
 editor: tysonn
 ms.assetid: d141cfbb-320a-4fc9-9125-10001c6fa4cf
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/15/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 9af41bac2f073e5d3770ac17357306e1af86c3e6
+ms.sourcegitcommit: aaf13418331f29287399621cb911e4b9f5b33dc0
+ms.openlocfilehash: 54ec0b039b14246e3c64d1721b4562035e39efa5
 
 
 ---
@@ -25,8 +25,6 @@ ms.openlocfilehash: 9af41bac2f073e5d3770ac17357306e1af86c3e6
 > [!div class="op_single_selector"]
 > * [Portale di Azure](application-gateway-create-url-route-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-create-url-route-arm-ps.md)
-> 
-> 
 
 Il routing basato sul percorso dell'URL consente di associare le route in base al percorso dell'URL della richiesta HTTP. Verifica se è disponibile una route per il pool back-end configurato per gli elenchi di URL nel gateway applicazione e invia il traffico di rete al pool back-end definito. In genere il routing basato su URL viene usato per le richieste di bilanciamento del carico per diversi tipi di contenuto tra vari pool di server back-end.
 
@@ -34,14 +32,12 @@ Il routing basato su URL introduce un nuovo tipo di regola per i gateway applica
 
 > [!IMPORTANT]
 > PathPattern: elenco dei modelli di percorso usati per la corrispondenza. Ognuno deve iniziare con una barra / e l'unica posizione in cui è consentito il carattere "\*" è alla fine. Alcuni esempi validi: /xyz, /xyz* o /xyz/*. La stringa inviata al selettore di percorsi non include alcun testo dopo il primo carattere "?" o "#" e questi caratteri non sono consentiti. 
-> 
-> 
 
 ## <a name="scenario"></a>Scenario
 
 Nell'esempio seguente il gateway applicazione gestisce il traffico per contoso.com con due pool di server back-end: pool di server video e pool di server immagini.
 
-Le richieste per http://contoso.com/image* vengono instradate al pool di server di immagini (pool1), mentre quelle per http://contoso.com/video* vengono instradate al pool di server video (pool2). In caso di mancata corrispondenza dei percorsi, viene selezionato un pool di server predefinito (pool1).
+Le richieste per http://contoso.com/image* vengono instradate al pool di server di immagini (pool1), mentre quelle per http://contoso.com/video* vengono instradate al pool di server video (pool2). In caso di mancata corrispondenza dei modelli di percorso, viene selezionato un pool di server predefinito (pool1).
 
 ![route dell'URL](./media/application-gateway-create-url-route-arm-ps/figure1.png)
 
@@ -225,7 +221,7 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protoc
 
 Configurare i percorsi della regola per gli URL per i pool back-end. Questo passaggio configura il percorso relativo usato dal gateway applicazione per definire il mapping tra il percorso dell'URL e il pool back-end selezionato per gestire il traffico di rete in ingresso.
 
-L'esempio seguente mostra come creare due regole: una per il percorso "/image" che indirizza il traffico al pool back-end "pool1" e un'altra per il percorso "/video/ che indirizza il traffico al pool back-end "pool2".
+L'esempio seguente crea due regole: una per il percorso "/image" che instrada il traffico al pool back-end "pool1" e un'altra per il percorso "/video/" che instrada il traffico al pool back-end "pool2".
 
 ```powershell
 $imagePathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule1" -Paths "/image/*" -BackendAddressPool $pool1 -BackendHttpSettings $poolSetting01
@@ -233,7 +229,7 @@ $imagePathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule1" -
 $videoPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule2" -Paths "/video/*" -BackendAddressPool $pool2 -BackendHttpSettings $poolSetting02
 ```
 
-La configurazione del mapping dei percorsi della regola configura anche un pool back-end predefinito da usare in caso di mancata corrispondenza con le regole di percorso predefinite. 
+In caso di mancata corrispondenza con le regole di percorso predefinite, la configurazione del mapping dei percorsi della regola configura anche un pool di indirizzi back-end predefinito. 
 
 ```powershell
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $videoPathRule, $imagePathRule -DefaultBackendAddressPool $pool1 -DefaultBackendHttpSettings $poolSetting02
@@ -265,7 +261,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 
 ## <a name="get-application-gateway-dns-name"></a>Ottenere il nome DNS del gateway applicazione
 
-Dopo avere creato il gateway, il passaggio successivo prevede la configurazione del front-end per la comunicazione. Quando si usa un IP pubblico, il gateway applicazione richiede un nome DNS assegnato in modo dinamico, non descrittivo. Per assicurarsi che gli utenti finali possano raggiungere il gateway applicazione, è possibile usare un record CNAME per fare riferimento all'endpoint pubblico del gateway applicazione. [Configurazione di un nome di dominio personalizzato in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). A questo scopo, recuperare i dettagli del gateway applicazione e il nome DNS e l'IP associati, usando l'elemento PublicIPAddress collegato al gateway applicazione. Il nome DNS del gateway applicazione dovrà essere usato per creare un record CNAME che associa le due applicazioni Web a questo nome DNS. Non è consigliabile usare record A perché l'indirizzo VIP può cambiare al riavvio del gateway applicazione.
+Dopo avere creato il gateway, il passaggio successivo prevede la configurazione del front-end per la comunicazione. Quando si usa un IP pubblico, il gateway applicazione richiede un nome DNS assegnato in modo dinamico, non descrittivo. Per assicurarsi che gli utenti finali possano raggiungere il gateway applicazione, è possibile usare un record CNAME per fare riferimento all'endpoint pubblico del gateway applicazione. [Configurazione di un nome di dominio personalizzato in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Per configurare il record CNAME per l'IP front-end, recuperare i dettagli del gateway applicazione e il nome DNS e l'IP associati usando l'elemento PublicIPAddress collegato al gateway applicazione. Il nome DNS del gateway applicazione dovrà essere usato per creare un record CNAME che associa le due applicazioni Web a questo nome DNS. Non è consigliabile usare record A perché l'indirizzo VIP può cambiare al riavvio del gateway applicazione.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
@@ -300,6 +296,6 @@ Per informazioni sull'offload SSL (Secure Sockets Layer), vedere [Configurare un
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

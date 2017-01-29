@@ -1,8 +1,8 @@
 ---
 title: Uso del servizio di importazione/esportazione per trasferire dati nell&quot;archiviazione BLOB | Microsoft Docs
-description: Informazioni su come creare processi di importazione ed esportazione nel portale di Azure classico per trasferire dati nell&quot;archivio BLOB.
-author: renashahmsft
-manager: aungoo
+description: Informazioni su come creare ed esportare processi nel portale di Azure per trasferire dati all&quot;archivio BLOB.
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: renash
+ms.date: 1/15/2017
+ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a1993b2aef38cb76111bbb793f02e4bd307eb64e
+ms.sourcegitcommit: 787f54ca2c19d87866ede452ea1cce0b1c37f263
+ms.openlocfilehash: 50f66d229b80489e429b5db3f2c6cc5787b6884c
 
 
 ---
@@ -24,14 +24,9 @@ ms.openlocfilehash: a1993b2aef38cb76111bbb793f02e4bd307eb64e
 ## <a name="overview"></a>Panoramica
 Il servizio Importazione/Esportazione di Azure consente di trasferire in modo sicuro grandi quantità di dati nell'archiviazione BLOB di Azure tramite la spedizione delle unità disco rigido a un data center di Azure. È anche possibile usare questo servizio per trasferire i dati dall'archivio BLOB di Azure a unità disco rigido per la spedizione al sito locale. Questo servizio è adatto in situazioni in cui si desidera trasferire vari terabyte di dati da o verso Azure ma non è possibile eseguire il caricamento o il download sulla rete a causa della larghezza di banda limitata o degli elevati costi della rete.
 
-Il servizio richiede che le unità disco rigido siano crittografate con crittografica bitlocker per la protezione dei dati. Il servizio supporta gli account di archiviazione classici presenti in tutte le aree di Azure pubblico. È necessario spedire l'unità disco rigido a una delle località supportate specificate più avanti in questo articolo.
+Il servizio richiede che le unità disco rigido siano crittografate con crittografia bitlocker per la protezione dei dati. Il servizio supporta gli account di archiviazione classici e Azure Resource Manager (livelli standard e accesso sporadico) presenti in tutte le aree di Azure pubblico. È necessario spedire l'unità disco rigido a una delle località supportate specificate più avanti in questo articolo.
 
 Questo articolo fornisce informazioni più approfondite sul servizio Importazione/Esportazione di Azure e su come spedire le unità per la copia dei dati da e verso l'archivio BLOB di Azure.
-
-> [!IMPORTANT]
-> Per creare e gestire i processi di importazione ed esportazione per l'archiviazione classica è possibile usare il portale classico o le [API REST del servizio Importazione/Esportazione](http://go.microsoft.com/fwlink/?LinkID=329099). Al momento non sono supportati gli account di archiviazione di Resource Manager.
-> 
-> 
 
 ## <a name="when-should-i-use-the-azure-importexport-service"></a>Quando usare il servizio Importazione/Esportazione di Azure
 È possibile usare il servizio Importazione/Esportazione di Azure quando il caricamento o il download dei dati attraverso la rete è troppo lento o l'acquisizione di maggiore larghezza di banda di rete comporta costi proibitivi.
@@ -43,11 +38,11 @@ Il servizio può essere usato in scenari simili ai seguenti:
 * Backup: esecuzione di backup dei dati locali da memorizzare nell'archivio BLOB di Azure.
 * Ripristino di dati: ripristino di una grande quantità di dati memorizzati nell'archivio BLOB perché vengano recapitati al percorso locale.
 
-## <a name="pre-requisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 In questa sezione sono riportati i prerequisiti necessari per usare il servizio. Si consiglia di esaminarli attentamente prima di spedire le unità.
 
 ### <a name="storage-account"></a>Account di archiviazione
-Per usare il servizio Importazione/Esportazione di Azure, sono necessari una sottoscrizione di Azure esistente e uno o più account di archiviazione **classici** . Ogni processo può essere usato per trasferire dati da o verso un solo account di archiviazione classico. In altre parole, un singolo processo di importazione/esportazione non può estendersi su più account di archiviazione. Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-create-storage-account.md#create-a-storage-account).
+Per usare il servizio Importazione/Esportazione di Azure, sono necessari una sottoscrizione di Azure esistente e uno o più account di archiviazione . Ogni processo può essere usato per trasferire dati da o verso un solo account di archiviazione. In altre parole, un singolo processo di importazione/esportazione non può estendersi su più account di archiviazione. Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-create-storage-account.md#create-a-storage-account).
 
 ### <a name="blob-types"></a>Tipi di BLOB
 È possibile usare il servizio Importazione/Esportazione di Azure per copiare dati in BLOB in **blocchi** o in BLOB di **pagine**. Al contrario, usando questo servizio è possibile esportare solo BLOB in **blocchi**, BLOB di **pagine** o BLOB di **aggiunta** da Archiviazione di Azure.
@@ -64,53 +59,45 @@ Quando si crea un processo, si notifica al servizio Importazione/Esportazione ch
 * Per un processo di esportazione, si spediranno dischi rigidi vuoti.
 * È possibile spedire fino a 10 unità disco rigido per ogni processo.
 
-Per creare un processo di importazione o di esportazione è possibile usare il [portale classico](https://manage.windowsazure.com/) o l'[API REST del servizio Importazione/Esportazione di Archiviazione di Azure](http://go.microsoft.com/fwlink/?LinkID=329099).
+Per creare un processo di importazione o di esportazione è possibile usare il portale di Azure o l'[API REST del servizio Importazione/Esportazione di Archiviazione di Azure](/rest/api/storageimportexport).
 
-### <a name="client-tool"></a>Strumento client
-Il primo passaggio nella creazione di un processo di **importazione** consiste nel preparare l'unità che verrà spedita per l'importazione. Per preparare l'unità, è necessario connetterla a un server locale ed eseguire lo strumento client di Importazione/Esportazione di Azure nel server locale. Questo strumento client facilita la copia dei dati sull'unità, crittografando i dati sull'unità con BitLocker e generando i file journal dell'unità.
+### <a name="waimportexport-tool"></a>Strumento WAImportExport
+Il primo passaggio nella creazione di un processo di **importazione** consiste nel preparare le unità che verranno spedita per l'importazione. Per preparare le unità, è necessario connetterle a un server locale ed eseguire lo strumento WAImportExport nel server locale. Questo strumento facilita la copia dei dati sull'unità, crittografando i dati sull'unità con BitLocker e generando i file journal dell'unità.
 
 I file journal contengono le informazioni di base sul processo e sull'unità, come il numero di serie dell'unità e il nome dell'account di archiviazione. Questo file journal non è archiviato nell'unità. Viene usato durante la creazione del processo di importazione. La procedura dettagliata sulla creazione dei processi è riportata più avanti in questo articolo.
 
-Lo strumento client è compatibile solo con il sistema operativo Windows a 64 bit. Vedere la sezione [Sistema operativo](#operating-system) per le versioni specifiche del sistema operativo supportate.
+Lo strumento WAImportExport è compatibile solo con il sistema operativo Windows a 64 bit. Vedere la sezione [Sistema operativo](#operating-system) per le versioni specifiche del sistema operativo supportate.
 
-Scaricare la versione più recente dello [strumento client di Importazione/Esportazione di Azure](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409). Per altri dettagli sull'uso dello strumento di importazione/esportazione di Azure, vedere [Riferimento dello strumento di importazione/esportazione di Azure](http://go.microsoft.com/fwlink/?LinkId=329032).
+Scaricare la versione più recente dello [strumento WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip). Per ulteriori dettagli sull'uso dello strumento WAImportExport, vedere [Uso dello strumento WAImportExport](storage-import-export-tool-how-to.md).
+
+>[!NOTE]
+>**Versione precedente:** è possibile [scaricare la versione WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) dello strumento e fare riferimento alla [guida all'uso di WAImportExport V1](storage-import-export-tool-how-to-v1.md). La versione WAImportExport V1 dello strumento offre supporto per la **preparazione di dischi quando i dati sono già scritti in precedenza sul disco**. Sarà inoltre necessario usare lo strumento WaImportExport V1 se è disponibile solo una chiave SAS.
+>
 
 ### <a name="hard-disk-drives"></a>Unità disco rigido
-Con il servizio Importazione/Esportazione sono supportati solo i dischi rigidi interni SATA II/III da 3,5 pollici. È possibile usare dischi rigidi fino a 10 TB.
+Con il servizio Importazione/Esportazione sono supportati solo le unità SSD da 2,5 pollici o i dischi rigidi interni SATA II/III da 2,5 o 3,5 pollici. È possibile usare dischi rigidi fino a 10 TB.
 Per i processi di importazione, verrà elaborato solo il primo volume di dati sull'unità. Il volume di dati deve essere formattato con NTFS.
-Quando si copiano dati sul disco rigido, è possibile collegarlo direttamente tramite un connettore SATA oppure collegarlo esternamente tramite un adattatore USB SATA II/III esterno. Si consiglia di usare uno degli adattatori USB SATA II/III esterni seguenti:
-
-* Anker 68UPSATAA-02BU
-* Anker 68UPSHHDS-BU
-* Startech SATADOCK22UE
-* Sharkoon QuickPort XT HC
-
-Se si ha un convertitore non incluso nell'elenco precedente, prima di acquistare un convertitore supportato è possibile provare a eseguire lo strumento Importazione/Esportazione di Azure con il convertitore per preparare l'unità e vedere se funziona.
+Quando si copiano dati sul disco rigido, è possibile collegarlo direttamente tramite un connettore per SSD da 2,5 pollici o per SATA II o III da 2,5 o 3,5 pollici, oppure collegarlo esternamente tramite un adattatore USB per SSD da 2,5 pollici o per SATA II o III da 2,5 o 3,5 pollici.
 
 > [!IMPORTANT]
-> Questo servizio non supporta i dischi rigidi esterni forniti con un adattatore USB incorporato. Non possono essere usati o inviati neanche dischi inseriti nell'involucro di un'unità disco rigido esterna.
+> Questo servizio non supporta i dischi rigidi esterni dotati di un adattatore USB incorporato. Non possono essere usati o inviati neanche dischi inseriti nell'involucro di un'unità disco rigido esterna.
 > 
 > 
 
 ### <a name="encryption"></a>Crittografia
 I dati sull'unità devono essere crittografati mediante Crittografia unità BitLocker, che protegge i dati mentre sono in transito.
 
-Per i processi di importazione, la crittografia può essere eseguita in due modi. Il primo modo consiste nell'usare il parametro /encrypt quando si esegue lo strumento client durante la preparazione dell'unità. Il secondo consiste invece nell'abilitare manualmente la crittografia BitLocker nell'unità e specificare la chiave di crittografia nella riga di comando dello strumento client durante la preparazione dell'unità.
+Per i processi di importazione, la crittografia può essere eseguita in due modi. Il primo modo consiste nello specificare l'opzione tramite file CSV durante l'esecuzione dello strumento WAImportExport nella preparazione dell'unità. Il secondo consiste invece nell'abilitare manualmente la crittografia BitLocker nell'unità e specificare la chiave di crittografia nel file CSV del driveset durante l'esecuzione della riga di comando dello strumento WAImportExport nella preparazione dell'unità.
 
-Per i processi di esportazione, dopo la copia dei dati nelle unità, il servizio applica la crittografia BitLocker all'unità prima di rispedirla all'utente. La chiave di crittografia viene fornita all'utente tramite il portale classico.  
+Per i processi di esportazione, dopo la copia dei dati nelle unità, il servizio applica la crittografia BitLocker all'unità prima di rispedirla all'utente. La chiave di crittografia viene indicata all'utente tramite il portale di Azure.  
 
 ### <a name="operating-system"></a>Sistema operativo
-Per preparare il disco rigido con lo strumento di importazione/esportazione di Azure prima della spedizione dell'unità ad Azure, è possibile usare uno dei sistemi operativi a 64 bit seguenti:
+Per preparare il disco rigido con lo strumento WAImportExport prima della spedizione dell'unità ad Azure, è possibile usare uno dei sistemi operativi a 64 bit seguenti:
 
 Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10<sup>1</sup>, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Tutti questi sistemi operativi supportano la funzionalità Crittografia unità BitLocker.
 
-> [!IMPORTANT]
-> <sup>1</sup>Se per preparare il disco rigido si usa un computer Windows 10, scaricare la versione più recente dello strumento di importazione/esportazione di Azure.
-> 
-> 
-
 ### <a name="locations"></a>Località
-Il servizio Importazione/Esportazione di Azure supporta la copia dei dati da e verso tutti gli account di archiviazione di Azure pubblici. È possibile spedire le unità disco rigido a una delle seguenti posizioni. Se l'account di archiviazione si trova in una località di Azure pubblica non specificata qui, quando si crea il processo con il portale classico o tramite l'API REST del servizio Importazione/Esportazione verrà fornita una località di spedizione alternativa.
+Il servizio Importazione/Esportazione di Azure supporta la copia dei dati da e verso tutti gli account di archiviazione di Azure pubblici. È possibile spedire le unità disco rigido a una delle seguenti posizioni. Se l'account di archiviazione si trova in una località di Azure pubblica non specificata qui, quando si crea il processo con il portale di Azure o tramite l'API REST del servizio Importazione/Esportazione verrà indicata una località di spedizione alternativa.
 
 Località di spedizione supportate:
 
@@ -129,6 +116,9 @@ Località di spedizione supportate:
 * Giappone occidentale
 * Giappone orientale
 * India centrale
+* Canada
+* US Gov
+* Cina
 
 ### <a name="shipping"></a>Spedizione
 **Spedizione di unità al data center:**
@@ -141,12 +131,12 @@ Per spedire le unità all'indirizzo di destinazione è possibile usare vettori c
 
 Quando si crea un processo di importazione o esportazione, è necessario fornire a Microsoft un indirizzo mittente a cui rispedire le unità al termine del processo. Assicurarsi di fornire un indirizzo di restituzione valido per evitare ritardi nell'elaborazione.
 
-È necessario fornire anche un numero di account del vettore FedEx o DHL valido, che Microsoft possa usare per restituire le unità. Per la restituzione di unità da località negli Stati Uniti e in Europa è necessario un numero di account FedEx. Per la restituzione di unità da località in Asia e in Australia è necessario un numero di account DHL. Se non è già disponibile, è possibile creare un account del vettore [FedEx](http://www.fedex.com/us/oadr/), per Stati Uniti ed Europa o [DHL](http://www.dhl.com/), per Asia e Australia. Se si dispone già di un numero di account vettore, verificare che sia valido.
+È possibile usare un vettore di propria scelta per spedire il disco rigido. Il gestore deve disporre di strumenti di tracciabilità appropriati al fine di mantenere la catena di custodia. È necessario fornire anche un numero di account del vettore FedEx o DHL valido, che Microsoft possa usare per restituire le unità. Per la restituzione di unità da località negli Stati Uniti e in Europa è necessario un numero di account FedEx. Per la restituzione di unità da località in Asia e in Australia è necessario un numero di account DHL. Se non è già disponibile, è possibile creare un account del vettore [FedEx](http://www.fedex.com/us/oadr/), per Stati Uniti ed Europa o [DHL](http://www.dhl.com/), per Asia e Australia. Se si dispone già di un numero di account vettore, verificare che sia valido.
 
 Durante la spedizione dei pacchetti, seguire le condizioni di [Condizioni per l’Uso dei Servizi di Microsoft Azure](https://azure.microsoft.com/support/legal/services-terms/).
 
 > [!IMPORTANT]
-> È possibile che i supporti fisici spediti debbano passare i confini internazionali. È responsabilità del cliente assicurarsi che i supporti fisici e i dati siano importati e/o esportati conformemente alle leggi vigenti. Prima di spedire i supporti fisici, rivolgersi ai consulenti per verificare che i supporti e i dati possano essere spediti ai data center specificati in modo lecito. Ciò assicura che la spedizione raggiunga Microsoft in modo tempestivo. Ad esempio, i pacchetti che superano i confini internazionali necessitano di fattura commerciale da allegare al pacchetto (tranne confini all'interno dell'Unione Europea). È possibile stampare una copia della fattura commerciale compilata dal sito Web del vettore. Esempi di fattura commerciale sono [fattura commerciale DHL](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) o [fattura commerciale FedEx](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Assicurarsi che Microsoft non sia stato indicato come l'esportatore.
+> È possibile che i supporti fisici spediti debbano passare i confini internazionali. È responsabilità del cliente assicurarsi che i supporti fisici e i dati siano importati e/o esportati conformemente alle leggi vigenti. Prima di spedire i supporti fisici, rivolgersi ai consulenti per verificare che i supporti e i dati possano essere spediti ai data center specificati in modo lecito. Ciò assicura che la spedizione raggiunga Microsoft in modo tempestivo. Ad esempio, i pacchetti che superano i confini internazionali necessitano di fattura commerciale da allegare al pacchetto (tranne confini all'interno dell'Unione Europea). È possibile stampare una copia della fattura commerciale compilata dal sito Web del vettore. Esempi di fattura commerciale sono [fattura commerciale DHL](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) e [fattura commerciale FedEx](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Assicurarsi che Microsoft non sia stato indicato come l'esportatore.
 > 
 > 
 
@@ -159,9 +149,9 @@ In questa sezione presenteremo una descrizione generale dei passaggi necessari p
 In generale, un processo di importazione prevede i passaggi seguenti:
 
 * Determinare i dati da importare e il numero di unità necessarie.
-* Identificare i BLOB di destinazione per i dati nell'archiviazione BLOB.
-* Usare lo strumento di importazione/esportazione di Azure per copiare i dati in una o più unità disco rigido e crittografarli con BitLocker.  
-* Creare un processo di importazione nell'account di archiviazione classico di destinazione usando il portale classico o l'API REST del servizio Importazione/Esportazione. Se si usa il portale classico, caricare i file journal dell'unità.
+* Identificare la posizione dei BLOB di destinazione per i dati nell'archivio BLOB.
+* Usare lo strumento WAImportExport per copiare i dati in una o più unità disco rigido e crittografarli con BitLocker.
+* Creare un processo di importazione nell'account di archiviazione di destinazione usando il portale di Azure o l'API REST del servizio Importazione/Esportazione. Se si usa il portale di Azure, caricare i file journal dell'unità.
 * Specificare l'indirizzo mittente e il numero di account del vettore da usare per la restituzione.
 * Spedire le unità disco rigido all'indirizzo di spedizione fornito durante la creazione del processo.
 * Aggiornare il numero di tracciabilità della consegna nei dettagli del processo di importazione e inviare il processo di importazione.
@@ -175,29 +165,56 @@ In generale, un processo di esortazione prevede i passaggi seguenti:
 
 * Determinare i dati da esportare e il numero di unità necessarie.
 * Identificare i BLOB di origine o i percorsi dei contenitori dei dati nell'archiviazione BLOB.
-* Creare un processo di esportazione nell'account di archiviazione di origine usando il portale classico o l'API REST del servizio Importazione/Esportazione.
+* Creare un processo di esportazione nell'account di archiviazione di origine usando il portale di Azure o l'API REST del servizio Importazione/Esportazione.
 * Specificare i BLOB di origine o i percorsi dei contenitori dei dati nel processo di esportazione.
 * Specificare l'indirizzo mittente e il numero di account del vettore da usare per la restituzione.
 * Spedire le unità disco rigido all'indirizzo di spedizione fornito durante la creazione del processo.
 * Aggiornare il numero di tracciabilità della consegna nei dettagli del processo di esportazione e inviare il processo di esportazione.
 * Le unità vengono ricevute ed elaborate presso il data center di Azure.
-* Le unità vengono crittografate con BitLocker e le chiavi sono disponibili tramite il portale classico.  
+* Le unità vengono crittografate con BitLocker e le chiavi sono disponibili tramite il portale di Azure.  
 * Le unità vengono restituite usando l'account del vettore all'indirizzo mittente specificato nel processo di importazione.
   
     ![Figura 2: esportazione del flusso di processo](./media/storage-import-export-service/exportjob.png)
 
-### <a name="viewing-your-job-status"></a>Visualizzazione dello stato dei processi
-È possibile tenere traccia dello stato dei processi di importazione ed esportazione dal portale classico. Passare all'account di archiviazione nel portale classico e fare clic sulla scheda **Importazione/Esportazione** . Nella pagina verrà visualizzato un elenco dei processi. È possibile filtrare l'elenco per stato processo, nome processo, tipo di processo o numero di spedizione.
+### <a name="viewing-your-job-and-drive-status"></a>Visualizzazione dello stato dei processi e delle unità
+È possibile tenere traccia dello stato dei processo di importazione o esportazione dal portale di Azure. Fare clic sulla scheda **Importazione/Esportazione**. Nella pagina verrà visualizzato un elenco dei processi.
+
+![Visualizzare lo stato dei processi](./media/storage-import-export-service/jobstate.png)
 
 Verrà visualizzato uno degli stati del processo seguenti, in base al punto in cui si trova l'unità nel processo.
 
 | Stato processo | Descrizione |
 |:--- |:--- |
-| Creating |Il processo è stato creato, ma non sono ancora state specificate le informazioni per la spedizione. |
-| Spedizione |Il processo è stato creato e sono state specificate le informazioni per la spedizione. **Nota**: quando l'unità viene recapitata al data center di Azure, lo stato potrebbe rimanere impostato su "Spedizione" per un certo periodo di tempo. Quando il servizio inizia a copiare i dati, lo stato diventa "Trasferimento". Per visualizzare informazioni più specifiche sullo stato dell'unità, è possibile usare l'API REST del servizio Importazione/Esportazione. |
-| Transferring |È in corso il trasferimento dei dati dal disco rigido (per un processo di importazione) o al disco rigido (per un processo di esportazione). |
-| Packaging |Il trasferimento dei vostri dati è stato completato ed è in corso la preparazione del disco rigido per la spedizione all'utente. |
-| Complete |Il disco rigido è stato spedito all'utente. |
+| Creating | Dopo aver creato un processo, lo stato è impostato su Creazione. Mentre il processo si trova nello stato Creazione, il servizio Importazione/Esportazione presuppone che le unità non siano state spedite al data center. Un processo può rimanere nello stato Creazione fino a due settimane; al termine di questo periodo viene automaticamente eliminato dal servizio. |
+| Spedizione | Dopo aver spedito il pacchetto, è consigliabile aggiornare le informazioni di tracciabilità nel portale di Azure.  Il processo passerà allo stato "Spedizione". Il processo rimarrà in tale stato per un massimo di due settimane. 
+| Ricevuto | Dopo che tutte le unità sono state ricevute nel data center, il processo verrà impostato sullo stato Ricevuto. |
+| Transferring | Dopo l'avvio dell'elaborazione per almeno un'unità, il processo passerà allo stato Trasferimento. Vedere la sezione Stato delle unità di seguito per informazioni dettagliate. |
+| Packaging | Una volta completata l'elaborazione di tutte le unità, il processo verrà inserito nello stato Finalizzazione fino a quando le unità non vengono spedite di nuovo all'utente. |
+| Completed | Dopo che tutte le unità sono state rispedite al cliente, il processo verrà impostato sullo stato Completato se non si sono verificati errori. Il processo verrà eliminato automaticamente dopo 90 giorni in cui si trova nello stato Completato. |
+| Chiuso | Dopo che tutte le unità sono state rispedite al cliente, se si sono verificati errori durante l'elaborazione del processo, il processo verrà impostato sullo stato Chiuso. Il processo verrà eliminato automaticamente dopo 90 giorni in cui si trova nello stato Chiuso. |
+
+La tabella di seguito descrive il ciclo di vita di una singola unità attraverso un processo di importazione o esportazione. Lo stato attuale di ogni unità in un processo è ora visibile dal portale di Azure.
+La tabella seguente descrive ogni stato in cui può trovarsi un'unità in un processo.
+
+![Visualizza stato dell'unità](./media/storage-import-export-service/drivestate.png)
+
+| Stato dell'unità | Descrizione |
+|:--- |:--- |
+| Specificata | Per un processo di importazione, quando il processo viene dal portale di Azure, lo stato iniziale di un'unità è Specificata. Per un processo di esportazione, lo stato iniziale dell'unità è Ricevuta perché non è stata specificata un'unità in fase di creazione del processo. |
+| Ricevuto | Le unità passano allo stato Ricevuta quando l'operatore del servizio Importazione/Esportazione elabora le unità ricevute dallo spedizioniere per un processo di importazione. Per un processo di esportazione, lo stato iniziale dell'unità è Ricevuta. |
+| MaiRicevuta | L'unità passa allo stato MaiRicevuta se il pacchetto di un processo viene ricevuto ma senza che contenga l'unità. Un'unità può inoltre passare a questo stato se sono trascorse due settimane da quando il servizio ha ricevuto le informazioni sulla spedizione, ma il pacchetto non è ancora stato ricevuto nel data center. |
+| Transferring | Un'unità passa allo stato Trasferimento quando il servizio inizia a trasferire i dati dall'unità in Archiviazione di Microsoft Azure. |
+| Completed | Un'unità passa allo stato Completata se il servizio trasferisce correttamente tutti i dati senza che si verifichino errori.
+| CompletataPiùInformazioni | Un'unità passa allo stato CompletataPiùInformazioni se il servizio ha riscontrato dei problemi durante la copia dei dati da o verso l'unità. Le informazioni possono includere errori, avvisi o messaggi informativi sulla sovrascrittura dei BLOB.
+| Rispedita | L'unità passa allo stato Rispedita quando viene spedita dal data center all'indirizzo di restituzione. |
+
+La tabella seguente descrive gli stati di errore delle unità e le azioni intraprese per ogni stato.
+
+| Stato dell'unità | Evento | Risoluzione/Passaggio successivo |
+|:--- |:--- |:--- |
+| MaiRicevuta | Un'unità contrassegnata come MaiRicevuta (perché non è stata ricevuta come parte della spedizione del processo) viene ricevuta con un'altra spedizione. | Il team operativo sposterà l'unità nello stato Ricevuta. |
+| N/D | Un'unità che non fa parte di alcun processo arriva al data center come parte di un altro processo. | L'unità verrà contrassegnata come unità aggiuntiva e verrà restituita al cliente una volta completato il processo associato al pacchetto originale. |
+
 
 ### <a name="time-to-process-job"></a>Tempo di elaborazione del processo
 Il tempo impiegato per elaborare un processo di importazione/esportazione varia in base a diversi fattori, ad esempio i tempi di spedizione, il tipo di processo, il tipo e la dimensione dei dati da copiare e la dimensione dei dischi forniti. Il servizio Importazione/Esportazione non prevede un Contratto di servizio. È possibile usare l'API REST per tenere traccia più da vicino dell'avanzamento del processo. È disponibile un parametro indicante la percentuale di completamento nell'operazione Elencare i processi che fornisce un'indicazione dell'avanzamento della copia. In caso di processi di importazione/esportazione che richiedono una precisa tempistica, invitiamo gli utenti a contattarci per avere una stima dei tempi di completamento.
@@ -219,7 +236,7 @@ Non ci sono costi di transazione quando si importano dati nell'archiviazione BLO
 Questa sezione fornisce istruzioni dettagliate per la creazione di un processo di importazione ed esportazione. Verificare che siano soddisfatti tutti i [prerequisiti](#pre-requisites) prima di procedere.
 
 ## <a name="how-to-create-an-import-job"></a>Come creare un processo di importazione
-È possibile creare un processo di importazione per copiare dati nel proprio account di archiviazione di Azure da dischi rigidi spedendo una o più unità contenenti dati al data center specificato. Il processo di importazione fornisce al servizio Importazione/Esportazione di Azure informazioni sulla spedizione e informazioni dettagliate sulle unità disco rigido, sui dati da copiare e sull'account di archiviazione di destinazione. La creazione di un processo di importazione è un processo in tre fasi. In primo luogo si preparano le unità mediante lo strumento client di Importazione/Esportazione di Azure. In secondo luogo si invia un processo di importazione usando il portale classico. In terzo luogo si spediscono le unità all'indirizzo di spedizione fornito durante la creazione del processo e si aggiornano le informazioni di spedizione nei dettagli del processo.   
+È possibile creare un processo di importazione per copiare dati nel proprio account di archiviazione di Azure da dischi rigidi spedendo una o più unità contenenti dati al data center specificato. Il processo di importazione fornisce al servizio Importazione/Esportazione di Azure informazioni sulla spedizione e informazioni dettagliate sulle unità disco rigido, sui dati da copiare e sull'account di archiviazione di destinazione. La creazione di un processo di importazione è un processo in tre fasi. Innanzitutto si preparano le unità usando lo strumento WAImportExport. In secondo luogo si invia un processo di importazione usando il portale di Azure. In terzo luogo si spediscono le unità all'indirizzo di spedizione fornito durante la creazione del processo e si aggiornano le informazioni di spedizione nei dettagli del processo.   
 
 > [!IMPORTANT]
 > È possibile inviare un solo processo per ogni account di archiviazione. Ogni unità che si spedisce può essere importata in un account di archiviazione. Si immagini ad esempio di voler importare dati in due account di archiviazione. È necessario usare dischi rigidi separati per ogni account di archiviazione e creare processi separati per ogni account di archiviazione.
@@ -227,70 +244,99 @@ Questa sezione fornisce istruzioni dettagliate per la creazione di un processo d
 > 
 
 ### <a name="prepare-your-drives"></a>Preparare le unità
-Il primo passaggio nell'importazione di dati tramite il servizio Importazione/Esportazione di Azure consiste nel preparare le unità usando lo strumento client di importazione/esportazione di Azure. Per preparare le unità, seguire questa procedura.
+Il primo passaggio nell'importazione di dati tramite il servizio Importazione/Esportazione di Azure consiste nel preparare le unità usando lo strumento WAImportExport. Per preparare le unità, seguire questa procedura.
 
 1. Identificare i dati da importare. Potrebbe trattarsi di directory e file autonomi nel server locale o in una condivisione di rete.  
-2. Determinare il numero di unità che serviranno in base alla dimensione totale dei dati. Procurare il numero necessario di dischi rigidi SATA II/III da 3,5 pollici.
+2. Determinare il numero di unità che serviranno in base alla dimensione totale dei dati. Procurare il numero necessario di unità SSD da 2,5 pollici o dischi rigidi SATA II/III da 2,5 o 3,5 pollici.
 3. Identificare l'account di archiviazione di destinazione, il contenitore, le directory virtuali e i BLOB.
-4. Determinare le directory e/o i file autonomi che verranno copiati in ciascuna unità disco rigido.
-5. Usare lo [strumento di importazione/esportazione di Azure](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) per copiare i dati in uno o più dischi rigidi.
+4.  Determinare le directory e/o i file autonomi che verranno copiati in ciascuna unità disco rigido.
+5.  Creare i file CSV per set di dati e driveset.
+    
+    **File CSV del set di dati**
+    
+    Di seguito è riportato un esempio di file CSV del set di dati:
+    
+    ```
+    BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
+    "F:\50M_original\100M_1.csv.txt","containername/100M_1.csv.txt",BlockBlob,rename,"None",None
+    "F:\50M_original\","containername/",BlockBlob,rename,"None",None 
+    ```
    
-   * Lo strumento Importazione/Esportazione di Azure consente di creare sessioni di copia per copiare i dati dall'origine alle unità disco rigido. In una sessione di copia, lo strumento può copiare una singola directory con le relative sottodirectory o un singolo file.
-   * Potrebbero essere necessarie più sessioni di copia se i dati di origine occupano molte directory.
-   * Ogni unità disco rigido che si prepara richiederà almeno una sessione di copia.
-6. È possibile specificare il parametro /encrypt per abilitare la crittografia Bitlocker nell'unità disco rigido. In alternativa è possibile anche abilitare la crittografia Bitlocker manualmente nell'unità disco rigido e fornire la chiave durante l'esecuzione dello strumento.
-7. Lo strumento Importazione/Esportazione di Azure genera un file journal dell'unità per ogni unità preparata. Il file journal dell'unità viene archiviato nel computer locale, non nell'unità stessa. Il file journal verrà caricato quando si creerà il processo di importazione. Un file journal di unità include l'ID unità e la chiave BitLocker, nonché altre informazioni sull'unità.
-   **Importante**: ogni unità disco rigido preparata darà luogo a un file journal. Quando si crea il processo di importazione usando il portale classico, è necessario caricare tutti i file journal delle unità che fanno parte del processo di importazione. Le unità senza i file journal non saranno elaborate.
+    Nell'esempio precedente, il file 100M_1.csv.txt verrà copiato nella radice del contenitore denominato "containername". Se il nome di contenitore "containername" non esiste, ne verrà creato uno. Tutti i file e le cartelle in 50M_original verranno copiati in containername in modo ricorsivo. La struttura delle cartelle verrà mantenuta.
+
+    Ulteriori informazioni su [come preparare un file CSV del set di dati](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
+    
+    **Nota**: per impostazione predefinita, i dati vengono importati come BLOB in blocchi. È possibile usare il valore di campo BlobType per importare i dati come un BLOB di pagine. Ad esempio, se si importano file di dischi rigidi virtuali che verranno montati come dischi in una VM di Azure, è necessario importarli come BLOB di pagine.
+
+    **File CSV del driveset**
+
+    Il valore del flag del driveset è un file CSV che contiene l'elenco dei dischi in cui vengono mappate le lettere di unità in modo che lo strumento possa rilevare correttamente l'elenco dei dischi da preparare. 
+
+    Di seguito è riportato l'esempio di un file CSV del driveset:
+    
+    ```
+    DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+    G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
+    H,Format,SilentMode,Encrypt,
+    ```
+
+    Nell'esempio precedente, si presuppone che siano associati due dischi e che siano stati creati volumi NTFS di base con lettere G:\ e H:\. Lo strumento formatterà e crittograferà il disco con il volume H:\, ma non quello con il volume G:\.
+
+    Ulteriori informazioni su [come preparare un file CSV del driveset](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file).
+
+6.  Usare lo [strumento WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) per copiare i dati in uno o più dischi rigidi.
+7.  È possibile specificare il parametro "Encrypt" nel campo di crittografia del CSV del driveset per abilitare la crittografia BitLocker sull'unità disco rigido. In alternativa è possibile anche abilitare la crittografia BitLocker manualmente nell'unità disco rigido, specificare "AlreadyEncrypted" e indicare la chiave nel CSV del driveset durante l'esecuzione dello strumento.
+
 8. Non modificare i dati sulle unità disco rigido o sul file journal dopo aver completato la preparazione del disco.
 
-Di seguito sono riportati i comandi e gli esempi per preparare l'unità disco rigido usando lo strumento client Importazione/Esportazione di Azure.
+> [!IMPORTANT]
+> Ogni unità disco rigido preparata darà luogo a un file journal. Quando si crea il processo di importazione usando il portale di Azure, è necessario caricare tutti i file journal delle unità che fanno parte del processo di importazione. Le unità senza i file journal non saranno elaborate.
+> 
+>
 
-Il comando PrepImport dello strumento client Importazione/Esportazione di Azure per la prima sessione di copia in un'operazione di copia di una directory:
+Di seguito sono riportati i comandi e gli esempi per preparare l'unità disco rigido usando lo strumento WAImportExport.
+
+Comando PrepImport dello strumento WAImportExport per la prima sessione di copia per copiare directory e/o file con una nuova sessione di copia:
 
 ```
-WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
 ```
 
 **Esempio:**
 
-Nell'esempio seguente tutti i file e le sottodirectory vengono copiati da H:\Video all'unità disco rigido montata su X:. I dati vengono importati nell'account di archiviazione di destinazione specificato dalla chiave dell'account di archiviazione e nel contenitore di archiviazione denominato "video". Se il contenitore di archiviazione non è presente, verrà creato. Questo comando inoltre formatterà e crittograferà l'unità disco rigido di destinazione.
-
 ```
-WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:storageaccountkey /t:x /format /encrypt /srcdir:H:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
+WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
 ```
 
-Il comando PrepImport dello strumento client Importazione/Esportazione di Azure per le sessioni di copia successive in un'operazione di copia di una directory:
+Per **aggiungere ulteriori unità**, è possibile creare un nuovo file del driveset ed eseguire il comando come indicato di seguito. Per le sessioni di copia successive in unità disco diverse rispetto a quelle specificate nel file .csv InitialDriveset, specificare un nuovo file CSV del driveset e indicarlo come valore nel parametro "AdditionalDriveSet". Usare il **medesimo file journal** e indicare un **nuovo ID di sessione**. Il formato del file CSV AdditionalDriveset corrisponde a quello del file InitialDriveSet.
 
 ```
-WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
 ```
 
-Per le sessioni di copia successive verso la stessa unità disco rigido è necessario specificare lo stesso nome di file journal e un nuovo ID sessione. Non è necessario fornire nuovamente la chiave dell'account di archiviazione e l'unità di destinazione né formattare o crittografare l'unità. In questo esempio vengono copiate la cartella H:\Photo e le relative sottodirectory nella stessa unità di destinazione, nel contenitore di archiviazione denominato "photo".
-
+**Esempio**
 ```
-WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Photo /srcdir:H:\Photo /dstdir:photo/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
-```
-
-Comando PrepImport dello strumento client di importazione/esportazione di Azure per la prima sessione di copia per la copia di un file:
-
-```
-WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3  /AdditionalDriveSet:driveset-2.csv
 ```
 
-Comando PrepImport dello strumento client di importazione/esportazione di Azure per le sessioni di copia successive per la copia di un file:
+Per aggiungere ulteriori dati allo stesso driveset, è possibile chiamare il comando PrepImport dello strumento WAImportExport per sessioni di copia successive, al fine di copiare file o directory aggiuntivi: per le sessioni di copia successive sulle medesime unità disco rigido specificate nel file InitialDriveset.csv, specificare il nome del **medesimo file journal** e indicare un **nuovo ID di sessione**. Non è necessario indicare una chiave dell'account di archiviazione.
 
 ```
-WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>
 ```
 
-**Nota**: per impostazione predefinita, i dati vengono importati come BLOB in blocchi. È possibile usare il parametro /BlobType per importare i dati come un BLOB di pagine. Ad esempio, se si importano file di dischi rigidi virtuali che verranno montati come dischi in una VM di Azure, è necessario importarli come BLOB di pagine. Se non si è certi del tipo di BLOB da usare, è possibile specificare /blobType:auto per ricevere aiuto nella determinazione del tipo corretto. In questo caso verranno importati tutti i file vhd e vhdx come BLOB di pagine e il resto verrà importato come BLOB in blocchi.
+**Esempio:**
 
-Per altre informazioni sull'uso dello strumento client di importazione/esportazione di Azure, vedere [Predisposizione dei dischi rigidi a un processo di importazione](https://msdn.microsoft.com/library/dn529089.aspx).
+```
+WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
+```
 
-Per istruzioni più dettagliate, vedere anche [Flusso di lavoro di esempio per predisporre i dischi rigidi a un processo di importazione](https://msdn.microsoft.com/library/dn529097.aspx) .  
+Per altre informazioni sull'uso dello strumento WAImportExport, vedere [Predisposizione dei dischi rigidi a un processo di importazione](storage-import-export-tool-preparing-hard-drives-import.md).
+
+Per istruzioni più dettagliate, vedere anche [Flusso di lavoro di esempio per predisporre i dischi rigidi a un processo di importazione](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md) .  
 
 ### <a name="create-the-import-job"></a>Creare il processo di importazione
-1. Dopo avere preparato l'unità, passare all'account di archiviazione nel [portale classico](https://manage.windowsazure.com) e visualizzare il dashboard. In **Riepilogo rapido** fare clic **su Crea processo di importazione**. Rivedere i passaggi e selezionare la casella di controllo per indicare di aver preparato l'unità e che il file journal dell'unità è disponibile.
+1. Dopo aver preparato l'unità, passare all'account di archiviazione nel portale di Azure e visualizzare il dashboard. In **Riepilogo rapido** fare clic **su Crea processo di importazione**. Rivedere i passaggi e selezionare la casella di controllo per indicare di aver preparato l'unità e che il file journal dell'unità è disponibile.
 2. Nel passaggio 1 fornire le informazioni di contatto per la persona responsabile di questo processo di importazione e un indirizzo di restituzione valido. Per salvare i dati del log dettagliato per il processo di importazione, selezionare l'opzione **Salva log dettagliato nel contenitore BLOB 'waimportexport'**.
 3. Nel passaggio 2 caricare i file journal dell'unità ottenuti durante il passaggio di preparazione dell'unità. Sarà necessario caricare un file per ogni unità preparata.
    
@@ -303,7 +349,7 @@ Per istruzioni più dettagliate, vedere anche [Flusso di lavoro di esempio per p
    Se è disponibile il numero di tracciabilità, selezionare il vettore di consegna dall'elenco e immettere tale numero.
    
    Se non si dispone ancora di un numero di spedizione, scegliere **I will provide my shipping information for this import job once I have shipped my package**, quindi completare il processo di importazione.
-6. Per immettere il numero di tracciabilità dopo la spedizione del pacco, tornare alla pagina **Importazione/Esportazione** dell'account di archiviazione nel portale classico, selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
+6. Per immettere il numero di spedizione dopo aver spedito il pacchetto, tornare nella pagina **Importazione/Esportazione** dell'account di archiviazione nel portale di Azure, selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
    
     Se il numero di tracciabilità non viene aggiornato entro due settimane dalla creazione del processo, il processo scadrà.
    
@@ -316,11 +362,11 @@ Creare un processo di esportazione per notificare al servizio Importazione/Espor
 ### <a name="prepare-your-drives"></a>Preparare le unità
 Per preparare le unità per un processo di esportazione si consiglia di eseguire i controlli preliminari seguenti:
 
-1. Verificare il numero di dischi richiesti usando il comando PreviewExport dello strumento di importazione/esportazione di Azure. Per altre informazioni, vedere l'articolo sull' [anteprima dell'uso del disco per un processo di esportazione](https://msdn.microsoft.com/library/azure/dn722414.aspx). Consente di visualizzare l'anteprima dell'utilizzo di unità per il Blob è selezionato, in base alla dimensione delle unità che si desidera utilizzare.
+1. Verificare il numero di dischi richiesti usando il comando PreviewExport dello strumento WAImportExport. Per altre informazioni, vedere l'articolo sull' [anteprima dell'uso del disco per un processo di esportazione](https://msdn.microsoft.com/library/azure/dn722414.aspx). Consente di visualizzare l'anteprima dell'utilizzo di unità per il Blob è selezionato, in base alla dimensione delle unità che si desidera utilizzare.
 2. Controllare che sia possibile leggere/scrivere sul disco rigido che verrà inviato per il processo di esportazione.
 
 ### <a name="create-the-export-job"></a>Creare il processo di esportazione
-1. Per creare un processo di esportazione, passare all'account di archiviazione nel [portale classico](https://manage.windowsazure.com)e visualizzare il dashboard. In **Riepilogo rapido** fare clic su **Crea processo di esportazione** e continuare con la procedura guidata.
+1. Per creare un processo di esportazione, passare all'account di archiviazione nel portale di Azure e visualizzare il dashboard. In **Riepilogo rapido** fare clic su **Crea processo di esportazione** e continuare con la procedura guidata.
 2. Nel passaggio 2 fornire le informazioni di contatto per la persona responsabile di questo processo di esportazione. Per salvare i dati del log dettagliato per il processo di esportazione, selezionare l'opzione **Salva log dettagliato nel contenitore BLOB 'waimportexport'**.
 3. Nel passaggio 3 specificare i dati BLOB da esportare dall'account di archiviazione a una o più unità vuote. È possibile scegliere di esportare tutti i dati Blob nell'account di archiviazione o specificare singoli Blob o set di Blob.
    
@@ -351,7 +397,7 @@ Per preparare le unità per un processo di esportazione si consiglia di eseguire
    Se è disponibile il numero di tracciabilità, selezionare il vettore di consegna dall'elenco e immettere tale numero.
    
    Se non si dispone ancora di un numero di spedizione, scegliere **Fornirò le informazioni sulla spedizione per questo processo di esportazione dopo aver spedito il pacchetto**, quindi completare il processo di esportazione.
-6. Per immettere il numero di tracciabilità dopo la spedizione del pacco, tornare alla pagina **Importazione/Esportazione** dell'account di archiviazione nel portale classico, selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
+6. Per immettere il numero di spedizione dopo aver spedito il pacchetto, tornare nella pagina **Importazione/Esportazione** dell'account di archiviazione nel portale di Azure, selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
    
     Se il numero di tracciabilità non viene aggiornato entro due settimane dalla creazione del processo, il processo scadrà.
    
@@ -361,24 +407,14 @@ Per preparare le unità per un processo di esportazione si consiglia di eseguire
    > Se il blob da esportare è in uso al momento della copia sul disco rigido, servizio di Importazione/Esportazione di Azure creare uno snapshot del blob e copiare lo snapshot.
    > 
    > 
-7. È possibile monitorare lo stato del processo nel dashboard del portale classico. Vedere il significato di ogni stato del processo nella sezione precedente "Visualizzazione dello stato dei processi".
-8. Dopo aver ricevuto le unità con i dati esportati, è possibile visualizzare e copiare le chiavi BitLocker generate dal servizio per l'unità. Passare all'account di archiviazione nel portale classico e fare clic sulla scheda Importazione/Esportazione. Selezionare il processo di esportazione nell'elenco e fare clic sul pulsante Visualizza chiavi. Le chiavi BitLocker vengono visualizzate come illustrato:
+7. È possibile monitorare lo stato del processo nel dashboard del portale di Azure. Vedere il significato di ogni stato del processo nella sezione precedente "Visualizzazione dello stato dei processi".
+8. Dopo aver ricevuto le unità con i dati esportati, è possibile visualizzare e copiare le chiavi BitLocker generate dal servizio per l'unità. Passare all'account di archiviazione nel portale di Azure e fare clic sulla scheda Importazione/Esportazione. Selezionare il processo di esportazione nell'elenco e fare clic sul pulsante Visualizza chiavi. Le chiavi BitLocker vengono visualizzate come illustrato:
    
-   ![Visualizzare le chiavi BitLocker per il processo di esportazione](.\\media\\storage-import-export-service\\export-job-bitlocker-keys.png)
+   ![Visualizzare le chiavi BitLocker per il processo di esportazione](./media/storage-import-export-service/export-job-bitlocker-keys.png)
 
 Vedere la sezione delle domande frequenti che riporta le domande più comuni relative all'uso del servizio.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
-**Quanto tempo sarà necessario per la copia dei dati dopo che le unità saranno giunte al data center?**
-
-Il tempo impiegato per la copia varia in base a diversi fattori, come il tipo di processo, il tipo e la dimensione dei dati da copiare, la dimensione dei dischi forniti e il carico di lavoro esistente e va da un paio di giorni a un paio di settimane. È difficile fornire una stima generale. Il servizio cerca di ottimizzare il processo copiando più unità in parallelo quando possibile. Per i processi di importazione/esportazione che richiedono una precisa tempistica invitiamo gli utenti a contattarci per avere una stima.
-
-**Quando si deve usare il servizio Importazione/Esportazione di Azure?**
- Se il caricamento o il download in rete richiede più di 7 giorni, è opportuno considerare l'utilizzo di Importazione/Esportazione di Microsoft Azure. Per calcolare il tempo necessario, è possibile usare qualsiasi calcolatrice online oppure [scaricare](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/archive/master.zip) quella dell'API REST di esempio per l'importazione/esportazione di Azure dal repository degli esempi di Azure, alla voce delle [calcolatrici della velocità di trasferimento dati](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html). Il valore calcolato non sarà esatto, ma solo un'indicazione approssimativa.
-
-**È possibile usare il servizio Importazione/Esportazione di Azure con un account di archiviazione di Resource Manager?**
-
-No, non è possibile copiare direttamente dati in o da un account di archiviazione di Resource Manager usando il servizio Importazione/Esportazione di Azure. Il servizio supporta unicamente gli account di archiviazione della versione classica. Il supporto per gli account di archiviazione di Resource Manager sarà presto disponibile. In alternativa è possibile importare i dati in un account di archiviazione classico ed eseguirne la migrazione in un account di archiviazione di Resource Manager usando [AzCopy](storage-use-azcopy.md) o CopyBlob.
 
 **È possibile copiare file di Azure usando il servizio Importazione/Esportazione di Azure?**
 
@@ -390,11 +426,11 @@ No, il servizio Importazione/Esportazione di Azure non supporta le sottoscrizion
 
 **È possibile saltare il passaggio di preparazione dell'unità per un processo di importazione o preparare un disco senza copiare?**
 
-Qualsiasi unità da spedire per l'importazione di dati deve essere preparata con lo strumento client di importazione/esportazione di Azure. È necessario usare lo strumento client per copiare i dati nell'unità.
+Qualsiasi unità da spedire per l'importazione di dati deve essere preparata con lo strumento WAImportExport. È necessario usare lo strumento WAImportExport per copiare i dati nell'unità.
 
 **È necessario eseguire la preparazione del disco durante la creazione di un processo di esportazione?**
 
-No, ma alcuni controlli preliminari sono consigliati Verificare il numero di dischi richiesti usando il comando PreviewExport dello strumento di importazione/esportazione di Azure. Per altre informazioni, vedere l'articolo sull' [anteprima dell'uso del disco per un processo di esportazione](https://msdn.microsoft.com/library/azure/dn722414.aspx). Consente di visualizzare l'anteprima dell'utilizzo di unità per il Blob è selezionato, in base alla dimensione delle unità che si desidera utilizzare. Controllare anche che sia possibile eseguire operazioni di lettura e scrittura sul disco rigido da spedire per il processo di esportazione.
+No, ma alcuni controlli preliminari sono consigliati Verificare il numero di dischi richiesti usando il comando PreviewExport dello strumento WAImportExport. Per altre informazioni, vedere l'articolo sull' [anteprima dell'uso del disco per un processo di esportazione](https://msdn.microsoft.com/library/azure/dn722414.aspx). Consente di visualizzare l'anteprima dell'utilizzo di unità per il Blob è selezionato, in base alla dimensione delle unità che si desidera utilizzare. Controllare anche che sia possibile eseguire operazioni di lettura e scrittura sul disco rigido da spedire per il processo di esportazione.
 
 **Cosa accade se si invia per errore un disco rigido non conforme ai requisiti supportati?**
 
@@ -404,17 +440,13 @@ Il data center di Azure restituirà all'utente l'unità non conforme ai requisit
 
 È possibile annullare un processo quando lo stato è Creating o Shipping.
 
-**Per quanto tempo è possibile visualizzare lo stato dei processi completati nel portale classico?**
+**Per quanto tempo è possibile visualizzare lo stato dei processi completati nel portale di Azure?**
 
 Lo stato dei processi completati può essere visualizzato per un massimo di 90 giorni. I processi completi vengono eliminati dopo 90 giorni.
 
 **Che cosa si deve fare, se si desidera importare o esportare più di 10 unità?**
 
 Un unico processo di importazione o esportazione può fare riferimento solo a 10 unità in un singolo processo del servizio di importazione/esportazione. Se si desidera spedire più di 10 unità, è possibile creare più processi. Le unità associate con lo stesso processo devono essere spedite insieme nello stesso pacco.
-
-**È possibile usare un adattatore USB SATA non incluso nell'elenco consigliato?**
-
-Se si ha un convertitore non incluso nell'elenco precedente, prima di acquistare un convertitore supportato è possibile provare a eseguire lo strumento Importazione/Esportazione di Azure con il convertitore per preparare l'unità e vedere se funziona.
 
 **Il servizio formatta le unità prima di restituirle?**
 
@@ -426,14 +458,14 @@ No. Sarà necessario spedire le unità per i processi sia di importazione che di
 
 **Al termine del processo di importazione, come si presenteranno i dati nell'account di archiviazione? Verrà mantenuta la gerarchia delle directory?**
 
-Quando si prepara un disco rigido per un processo di importazione, la destinazione viene specificata dal parametro /dstdir:. Si tratta del contenitore di destinazione nell'account di archiviazione in cui vengono copiati i dati dal disco rigido. In questo contenitore di destinazione vengono create directory virtuali per le cartelle del disco rigido e BLOB per i file.
+Quando si prepara un disco rigido per un processo di importazione, la destinazione viene specificata dal campo DstBlobPathOrPrefix nel file CSV del set di dati. Si tratta del contenitore di destinazione nell'account di archiviazione in cui vengono copiati i dati dal disco rigido. In questo contenitore di destinazione vengono create directory virtuali per le cartelle del disco rigido e BLOB per i file.
 
 **Se l'unità contiene file già presenti nell'account di archiviazione, il servizio sovrascriverà i BLOB esistenti nell'account di archiviazione?**
 
-Quando si prepara l'unità, è possibile specificare se i file di destinazione devono essere sovrascritti o ignorati usando il parametro denominato /Disposition:<rename|no-overwrite|overwrite>. Per impostazione predefinita, il servizio rinomina i nuovi file anziché sovrascrivere i BLOB esistenti.
+Quando si prepara l'unità, è possibile specificare se i file di destinazione devono essere sovrascritti o ignorati usando il campo denominato Disposition:<rename|no-overwrite|overwrite> nel file CSV del set di dati. Per impostazione predefinita, il servizio rinomina i nuovi file anziché sovrascrivere i BLOB esistenti.
 
-**Lo strumento client di importazione/esportazione di Azure è compatibile con i sistemi operativi a 32 bit?**
-No. Lo strumento client è compatibile unicamente con sistemi operativi Windows a 64 bit. Per un elenco completo delle versioni del sistema operativo supportate, vedere la sezione Sistema operativo in [Prerequisiti](#pre-requisites) .
+**Lo strumento WAImportExport è compatibile con i sistemi operativi a 32 bit?**
+No. Lo strumento WAImportExport è compatibile solo con i sistemi operativo Windows a 64 bit. Per un elenco completo delle versioni del sistema operativo supportate, vedere la sezione Sistema operativo in [Prerequisiti](#pre-requisites) .
 
 **È consigliabile includere qualcos'altro oltre all'unità disco rigido nel pacco?**
 
@@ -451,10 +483,6 @@ Per spedire le unità al data center è possibile servirsi di uno dei vettori pi
 
 Alcuni percorsi dell'account di archiviazione sono mappati a indirizzi di spedizione alternativi. Le località di spedizione disponibili in precedenza possono essere temporaneamente mappate a posizioni alternative. Controllare sempre l'indirizzo di spedizione fornito durante la creazione del processo prima di spedire le unità.
 
-**Perché lo stato del processo nel portale classico risulta in "Spedizione" mentre il sito Web del vettore indica che il pacco è stato consegnato?**
-
-Lo stato indicato nel portale classico passa da "Spedizione" a "Trasferimento" quando inizia l'elaborazione dell'unità. Se l'unità ha raggiunto la struttura, ma l'elaborazione non è iniziata, lo stato del processo mostrato sarà "Spedizione".
-
 **Al momento della spedizione dell'unità, il vettore richiede il nome e il numero di telefono di contatto del data center. Cosa devo fornire?**
 
 Il numero di telefono viene fornito all'utente durante la creazione del processo. Se è richiesto un nome di contatto, rivolgersi a waimportexport@microsoft.com per ottenere tali informazioni.
@@ -468,13 +496,13 @@ Vedere [Importare file PST o dati di SharePoint in Office 365](https://technet.m
 Vedere [Flusso di lavoro di Backup offline in Backup di Azure](../backup/backup-azure-backup-import-export.md).
 
 ## <a name="see-also"></a>Vedere anche la pagina relativa alla
-* [Configurazione dello strumento client di importazione/esportazione di Azure](https://msdn.microsoft.com/library/dn529112.aspx)
+* [Setting up the WAImportExport tool](storage-import-export-tool-how-to.md) (Configurazione dello strumento WAImportExport)
 * [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 * [Esempio di API REST del servizio Importazione/Esportazione di Azure](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 
