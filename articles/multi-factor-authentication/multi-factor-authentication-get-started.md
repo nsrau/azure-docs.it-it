@@ -1,5 +1,5 @@
 ---
-title: Confronto tra Azure MFA nel cloud e Azure MFA Server| Microsoft Docs
+title: Scegliere tra Azure MFA nel cloud e Azure MFA Server| Documentazione Microsoft
 description: "Scegliere la soluzione di sicurezza Multi-Factor Authentication adatta alle proprie esigenze considerando i contenuti da proteggere e il luogo in cui si trovano gli utenti.  Scegliere quindi cloud, Server di autenticazione a più fattori o AD FS."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/15/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: b160a4f4ad4d1e383b460a3d17078908da1f4ef1
-ms.openlocfilehash: bcf8a709b9c457f517386b4a4baf9fdf5864cc65
+ms.sourcegitcommit: 92c552f42f2645281f5039242825cfdaf6b683c9
+ms.openlocfilehash: 1a42c137204c2d2f6fff9a005b2b0e885c2002b2
 
 
 ---
@@ -36,7 +36,7 @@ Per individuare la soluzione di verifica in due passaggi corretta, è necessario
 | --- |:---:|:---:|
 | App prodotte direttamente da Microsoft |● |● |
 | App SaaS nella Raccolta di app |● |● |
-| Le applicazioni IIS pubblicate tramite proxy app per Azure AD |● |● |
+| Applicazioni Web pubblicate tramite il proxy di applicazione di Azure AD |● |● |
 | Le applicazioni IIS non pubblicate tramite proxy app per Azure AD | |● |
 | Accesso remoto, ad esempio VPN, RDG | |● |
 
@@ -62,18 +62,18 @@ La tabella seguente confronta le funzionalità disponibili nella soluzione Multi
 | SMS unidirezionale come secondo fattore | ● | ● |
 | SMS bidirezionale come secondo fattore | | ● |
 | Token hardware come secondo fattore | | ● |
-| Password di app per i client che non supportano MFA | ● | |
-| Controllo amministrazione sui metodi di autenticazione | | ● |
+| Password di app per i client Office 365 che non supportano MFA | ● | |
+| Controllo amministrazione sui metodi di autenticazione | ● | ● |
 | Modalità PIN | | ● |
 | Avviso di illecito |● | ● |
 | Report MFA |● | ● |
-| Bypass monouso | ● | ● |
+| Bypass monouso | | ● |
 | Messaggi di saluto personalizzati per le telefonate | ● | ● |
 | ID chiamante personalizzabile per le telefonate | ● | ● |
 | IP attendibili | ● | ● |
 | Memorizzazione di MFA per dispositivi attendibili | ● | |
 | Accesso condizionale | ● | ● |
-| Cache | ● | ● |
+| Cache |  | ● |
 
 Dopo aver stabilito se è necessario utilizzare la modalità Multi-Factor Authentication nel cloud o il server MFA locale, sarà possibile iniziare a impostare e utilizzare Azure Multi-Factor Authentication. **Selezionare l'icona che rappresenta lo scenario.**
 
@@ -87,6 +87,6 @@ Dopo aver stabilito se è necessario utilizzare la modalità Multi-Factor Authen
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

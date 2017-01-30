@@ -1,6 +1,6 @@
 ---
-title: Panoramica del database SQL di Azure | Documentazione Microsoft
-description: Questa pagina offre una panoramica sui database SQL di Azure.
+title: "Che cos&quot;è un database SQL di Azure? | Documentazione Microsoft"
+description: Questo articolo offre una panoramica dei database SQL di Azure.
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 315fb49ba25c46afaa6571d9249ecd1c8da13e91
+ms.sourcegitcommit: 06639080dec485395d6821c371a4f792c7c02845
+ms.openlocfilehash: 5e3ac3a08ea3e5c72082dcc7faa209d848acf2fe
 
 
 ---
@@ -71,6 +71,6 @@ Per informazioni sulle funzionalità supportate, vedere [Azure SQL Database feat
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

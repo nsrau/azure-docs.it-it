@@ -1,5 +1,5 @@
 ---
-title: Introduzione a Registro contenitori di Azure | Documentazione Microsoft
+title: Registro per contenitori Docker privati in Azure | Documentazione Microsoft
 description: Introduzione al servizio Registro contenitori di Azure, che offre registri Docker privati, gestiti e basati sul cloud.
 services: container-registry
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: 597d27932e1faf82498d5a9eb458a08a4b72a1d1
-ms.openlocfilehash: dadb65611489bf57781e223290c13bb52d59a944
+ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
+ms.openlocfilehash: 44bfd57feecc45e037717a35b64dd8e4bfb6a1b3
 
 ---
 # <a name="what-is-azure-container-registry"></a>Informazioni su Registro contenitori di Azure
@@ -26,7 +26,7 @@ ms.openlocfilehash: dadb65611489bf57781e223290c13bb52d59a944
 > Registro contenitori è attualmente disponibile in anteprima.
 
 
-Registro contenitori di Azure è un servizio gestito di [registri Docker](https://docs.docker.com/registry/) basato sull'applicazione open source Docker Registry versione 2. Creare e gestire registri contenitori di Azure per archiviare e gestire immagini [contenitore Docker](https://www.docker.com/what-docker) private. È possibile usare i registri contenitori in Azure con la pipeline di sviluppo e distribuzione di contenitori esistente e attingere alle competenze della community Docker.
+Registro contenitori di Azure è un servizio gestito di [registri Docker](https://docs.docker.com/registry/) basato sull'applicazione open source Docker Registry versione&2;. Creare e gestire registri contenitori di Azure per archiviare e gestire immagini [contenitore Docker](https://www.docker.com/what-docker) private. È possibile usare i registri contenitori in Azure con la pipeline di sviluppo e distribuzione di contenitori esistente e attingere alle competenze della community Docker.
 
 Per informazioni su Docker e sui contenitori, vedere:
 
@@ -56,7 +56,7 @@ Effettuare il pull di immagini da un registro contenitori di Azure a varie desti
 * **Sistemi di orchestrazione scalabili** che gestiscono applicazioni in contenitori in cluster di host, quali [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) e [Kubernetes](http://kubernetes.io/docs/).
 * **Servizi di Azure** che supportano la creazione e l'esecuzione di applicazioni su vasta scala, quali [Servizio contenitore](../container-service/index.md), [Servizio app](/app-service/index.md), [Batch](../batch/index.md) e [Service Fabric](../service-fabric/index.md). 
 
-Gli sviluppatori possono anche effettuare il push in un registro contenitori nell'ambito di un flusso di lavoro di sviluppo di contenitori, ad esempio specificando come destinazione un registro contenitori da uno strumento di sviluppo e integrazione continua come [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) o [Jenkins](https://jenkins.io/).
+Gli sviluppatori possono anche effettuare il push in un registro contenitori nell'ambito di un flusso di lavoro di sviluppo di contenitori, ad esempio specificando come destinazione un Registro di sistema del contenitore da uno strumento di distribuzione e integrazione continua, quali [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) o [Jenkins](https://jenkins.io/).
 
 
 
@@ -66,10 +66,11 @@ Gli sviluppatori possono anche effettuare il push in un registro contenitori nel
 * [Creare un registro contenitori con il portale di Azure](container-registry-get-started-portal.md)
 * [Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md) (Creare un registro contenitori con l'interfaccia della riga di comando di Azure)
 * [Effettuare il push della prima immagine con l'interfaccia della riga di comando di Docker](container-registry-get-started-docker-cli.md)
-* Se si vuole usare un registro Docker privato in Azure (senza un endpoint pubblico), vedere [Distribuzione del registro Docker privato in Azure](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).
+* Per compilare un'integrazione continua e un flusso di lavoro di distribuzione usando Visual Studio Team Services, servizio contenitore di Azure e Registro di sistema del contenitore di Azure, vedere [questa esercitazione](../container-service/container-service-setup-ci-cd.md).
+* Se si vuole impostare un registro Docker privato in Azure (senza un endpoint pubblico), vedere [Distribuzione del registro Docker privato in Azure](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Usare Data Lake Store .NET SDK per sviluppare le applicazioni | Documentazione Microsoft
-description: Usare .NET SDK con Azure Data Lake Store per sviluppare applicazioni
+title: Usare .NET SDK per sviluppare applicazioni in Azure Data Lake Store | Documentazione Microsoft
+description: Usare .NET SDK con Azure Data Lake Store per creare un account Data Lake Store ed eseguire le relative operazioni di base
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
-ms.openlocfilehash: 03faf2594c9c3d7612127d46bdaa99b937c78475
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
 
 
 ---
@@ -261,6 +261,6 @@ Il frammento seguente illustra il metodo `DownloadFile` da usare per scaricare u
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Autenticazione e autorizzazione del database SQL | Documentazione Microsoft
+title: Account di accesso e utenti SQL di Azure | Documentazione Microsoft
 description: "Informazioni sulla gestione della sicurezza del database SQL, in particolare la modalità di gestione dell&quot;accesso al database e la sicurezza degli account di accesso tramite l&quot;account delle entità di sicurezza a livello di server."
 keywords: sicurezza del database sql, gestione della sicurezza del database, sicurezza degli account di accesso, sicurezza del database, accesso al database
 services: sql-database
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/17/2017
+ms.date: 01/23/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 435fca81cda845200467fbc0d6ed4d41de41aaf6
-ms.openlocfilehash: 324fd91b415a4744cb472bbd8a8b795a8fbb8080
+ms.sourcegitcommit: f59bae58b946647fd74354dc465b399651f8ec12
+ms.openlocfilehash: 3e2874716d673af0d2627501b46d0e4a29e6ebf1
 
 
 ---
@@ -193,6 +193,6 @@ Quando si gestiscono gli accessi e gli utenti nel database SQL, prendere in cons
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

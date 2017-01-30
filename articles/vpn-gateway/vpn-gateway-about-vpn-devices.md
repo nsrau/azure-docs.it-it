@@ -1,6 +1,6 @@
 ---
-title: Informazioni sui dispositivi VPN per le connessioni gateway VPN da sito a sito per reti virtuali di Azure | Microsoft Docs
-description: Questo articolo tratta i dispositivi VPN e i parametri IPsec per le connessioni di gateway VPN S2S e contiene collegamenti a istruzioni ed esempi sulla configurazione.
+title: Informazioni sui dispositivi VPN per connessioni di Azure cross-premise | Documentazione Microsoft
+description: Questo articolo illustra i dispositivi VPN e i parametri IPsec per connessioni cross-premise del Gateway VPN da sito a sito. Vengono forniti collegamenti alle istruzioni di configurazione e agli esempi.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: bbaf89bca07fd2d4c4a12403d2daa8323f4d7be5
-ms.openlocfilehash: 12e7768665b8d360fe7241c9879bd1f7bfc63664
+ms.sourcegitcommit: bf262073b46daa8b7dcf50fabf5f455d7d5850e7
+ms.openlocfilehash: b8e65f6c314457b76bd062ea09bda53099fb79d9
 
 
 ---
 # <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>Informazioni sui dispositivi VPN per le connessioni di gateway VPN
-Per configurare una connessione VPN da sito a sito (S2S), è necessario un dispositivo VPN. Le connessioni da sito a sito possono essere utilizzate per creare una soluzione ibrida o se si desidera una connessione sicura tra la rete locale e la rete virtuale. In questo articolo vengono illustrati i dispositivi VPN compatibili e i parametri di configurazione.
+Per configurare una connessione VPN cross-premise da sito a sito usando un Gateway VPN, è necessario un dispositivo VPN. Le connessioni da sito a sito possono essere utilizzate per creare una soluzione ibrida o se si desidera una connessione sicura tra la rete locale e la rete virtuale. In questo articolo vengono illustrati i dispositivi VPN compatibili e i parametri di configurazione.
 
 > [!NOTE]
 > Quando si configura una connessione da sito a sito, è necessario un indirizzo IP IPv4 pubblico per il dispositivo VPN.                                                                                                                                                                               
@@ -115,7 +115,7 @@ Dopo aver scaricato l'esempio di configurazione di dispositivo VPN fornito, è n
 | **Proprietà** | **PolicyBased** | **Gateway VPN RouteBased e con prestazioni elevate o standard** |
 | --- | --- | --- |
 | Versione IKE |IKEv1 |IKEv2 |
-| Algoritmo di hash |SHA1(SHA128) |SHA1(SHA128) |
+| Algoritmo di hash |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
 | Durata (tempo) associazione di sicurezza (SA) fase 2 |3.600 secondi |3.600 secondi |
 | Durata (velocità effettiva) associazione di sicurezza (SA) fase 2 |102.400.000 KB |- |
 | Offerte di autenticazione e crittografia SA IPsec (in ordine di preferenza) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D |Vedere *Offerte di associazione di sicurezza (SA) IPsec gateway RouteBased* (di seguito) |
@@ -153,6 +153,6 @@ La tabella seguente include l'elenco delle offerte di autenticazione e crittogra
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

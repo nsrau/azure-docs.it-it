@@ -1,5 +1,5 @@
 ---
-title: Creare, avviare o eliminare un gateway applicazione tramite Azure Resource Manager | Documentazione Microsoft
+title: Creare e gestire un gateway applicazione di Azure - PowerShell | Documentazione Microsoft
 description: Questa pagina fornisce istruzioni per la creazione, la configurazione, l&quot;avvio e l&quot;eliminazione di un gateway applicazione di Azure usando Gestione risorse di Azure
 documentationcenter: na
 services: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: cb2b7bc626294e12c6e19647c1e787e1f671595b
-ms.openlocfilehash: 5da4b087131b0adef49f7019297db834d7bb9416
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: baf389dcdfb38053b9feb976d19b471838f1315e
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 5da4b087131b0adef49f7019297db834d7bb9416
 > * [Modello di Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [Interfaccia della riga di comando di Azure](application-gateway-create-gateway-cli.md)
 
-Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. Il gateway applicazione offre numerose funzionalità di controller per la distribuzione di applicazioni (ADC, Application Delivery Controller), tra cui bilanciamento del carico HTTP, affinità di sessione basata su cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati, supporto per più siti e molte altre. Per un elenco completo delle funzionalità supportate, vedere [Panoramica del gateway applicazione](application-gateway-introduction.md)
+Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello&7;. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. Il gateway applicazione offre numerose funzionalità di controller per la distribuzione di applicazioni (ADC, Application Delivery Controller), tra cui bilanciamento del carico HTTP, affinità di sessione basata su cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati, supporto per più siti e molte altre. Per un elenco completo delle funzionalità supportate, vedere [Panoramica del gateway applicazione](application-gateway-introduction.md)
 
 Questo articolo illustra in dettaglio i passaggi necessari per creare e configurare, avviare ed eliminare un gateway applicazione.
 
@@ -303,6 +303,6 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

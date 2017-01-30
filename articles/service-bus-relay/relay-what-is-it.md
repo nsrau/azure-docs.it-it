@@ -1,5 +1,5 @@
 ---
-title: Informazioni sul servizio di inoltro di Azure | Microsoft Docs
+title: Panoramica del servizio di inoltro di Azure e dei relativi vantaggi | Documentazione Microsoft
 description: Panoramica del servizio di inoltro di Azure
 services: service-bus-relay
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: babanisa,sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 14a5c029eef714134079b960109e58d821d0a609
-ms.openlocfilehash: 34b54d54b20d9aec69486c5ef98c97beee21bd94
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 1b9423c22ff6e003a6236e01118b600a2c746db4
 
 
 ---
@@ -66,6 +66,6 @@ Le connessioni ibride sostituiscono la precedente funzionalità con nome simile 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

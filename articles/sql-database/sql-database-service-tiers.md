@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 01/11/2017
 ms.author: carlrab; janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 0a00aff343bfd31c956f6cbc831e89cc1cc84b23
-ms.openlocfilehash: 95ae4bd67b7d08755035e7b5559ca9648d45bdaa
+ms.sourcegitcommit: a909265ce7e6cc5915bb6cd999a887b9798e5b0b
+ms.openlocfilehash: 5d37d2b31a04baa14b456b96de70e2299a933b8e
 
 
 ---
@@ -83,6 +83,6 @@ Ciascun database all'interno di un pool è inoltre conforme alle caratteristiche
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

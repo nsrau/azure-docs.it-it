@@ -1,5 +1,5 @@
 ---
-title: Distribuire un cluster del servizio contenitore di Azure con l&quot;interfaccia della riga di comando | Documentazione Microsoft
+title: Distribuire un cluster per contenitori Docker - Interfaccia della riga di comando di Azure | Documentazione Microsoft
 description: Distribuire un cluster del servizio contenitore di Azure usando la versione 2.0 (anteprima) dell&quot;interfaccia della riga di comando di Azure
 services: container-service
 documentationcenter: 
@@ -11,14 +11,14 @@ keywords:
 ms.assetid: 8da267e8-2aeb-4c24-9a7a-65bdca3a82d6
 ms.service: container-service
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2016
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: 855f0fe77bd55f6ec0dacad4bc28603ac1c6979c
-ms.openlocfilehash: c4a513686433e802f27f78de60e8b7fca21b4634
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: 991e91fe7699840fe126e22fc55c9f28ea150a8c
 
 
 ---
@@ -124,6 +124,6 @@ az acs delete -g acsrg1 -n acs-cluster
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

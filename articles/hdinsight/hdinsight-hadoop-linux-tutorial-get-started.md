@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione di Linux: Introduzione a Hadoop e Hive | Documentazione Microsoft'
-description: Seguire questa esercitazione di Linux per iniziare a utilizzare Hadoop in HDInsight. Informazioni su come eseguire il provisioning di cluster Linux ed eseguire query sui dati con Hive.
+title: 'Esercitazione su Hadoop: Introduzione a Hadoop e Hive in HDInsight | Documentazione Microsoft'
+description: Seguire questa esercitazione per iniziare a usare Hadoop in HDInsight. Informazioni su come creare cluster Linux ed eseguire query sui dati con Hive.
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -13,22 +13,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/16/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
-ms.openlocfilehash: 2863bfb48d0fed706fbd3c3f14dfb6a8d77eb9ea
+ms.sourcegitcommit: e026008afcdb86fa80c80cb13c7ff4d94027d6ee
+ms.openlocfilehash: a86350fcdbcf3312d3b1d0dd7c895d9402609245
 
 
 ---
-# <a name="hadoop-tutorial-get-started-using-linux-based-hadoop-in-hdinsight"></a>Esercitazione di Hadoop: Introduzione all'uso di Hadoop basato su Linux in HDInsight
-> [!div class="op_single_selector"]
-> * [Basato su Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
-> * [Basato su Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
-> 
-> 
+# <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Esercitazione su Hadoop: Introduzione all'uso di Hadoop in HDInsight
 
-Informazioni su come creare cluster [Hadoop](http://hadoop.apache.org/) basati su in HDInsight e come eseguire processi Hive in HDInsight. [Apache Hive](https://hive.apache.org/) è il componente più diffuso dell'ecosistema Hadoop. Attualmente HDInsight viene fornito con tipi di cluster diversi: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Interactive Hive (anteprima)](hdinsight-hadoop-use-interactive-hive.md) e [R server](hdinsight-hadoop-r-server-overview.md).  Ogni tipo di cluster supporta un set diverso di componenti. I sei tipi di cluster supportano Hive. Per un elenco dei componenti supportati in HDInsight, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight](hdinsight-component-versioning.md)  
+Informazioni su come creare cluster [Hadoop](http://hadoop.apache.org/) in HDInsight e come eseguire processi Hive in HDInsight. [Apache Hive](https://hive.apache.org/) è il componente più diffuso dell'ecosistema Hadoop. Attualmente HDInsight viene fornito con tipi di cluster diversi: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Interactive Hive (anteprima)](hdinsight-hadoop-use-interactive-hive.md) e [R server](hdinsight-hadoop-r-server-overview.md).  Ogni tipo di cluster supporta un set diverso di componenti. I sei tipi di cluster supportano Hive. Per un elenco dei componenti supportati in HDInsight, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -42,7 +37,7 @@ Prima di iniziare questa esercitazione, è necessario avere:
 
 ## <a name="create-cluster"></a>Creare cluster
 
-La maggior parte dei processi Hadoop è costituita da processi batch. Viene creato un cluster, si eseguono alcuni processi e quindi si elimina il cluster. In questa sezione si creerà un cluster Hadoop basato su Linux in HDInsight usando un [modello di Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Il modello di Resource Manager è completamente personalizzabile e consente di creare facilmente risorse di Azure come HDInsight. Per questa esercitazione non è necessario conoscere il modello di Resource Manager. Per altri metodi di creazione di cluster e per informazioni sulle proprietà usate in questa esercitazione, vedere [Creare cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Usare il selettore nella parte superiore della pagina per scegliere le opzioni di creazione del cluster.
+La maggior parte dei processi Hadoop è costituita da processi batch. Viene creato un cluster, si eseguono alcuni processi e quindi si elimina il cluster. In questa sezione viene creato un cluster Hadoop in HDInsight usando un [modello di Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Il modello di Resource Manager è completamente personalizzabile e consente di creare facilmente risorse di Azure come HDInsight. Per questa esercitazione non è necessario conoscere il modello di Resource Manager. Per altri metodi di creazione di cluster e per informazioni sulle proprietà usate in questa esercitazione, vedere [Creare cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Usare il selettore nella parte superiore della pagina per scegliere le opzioni di creazione del cluster.
 
 Il modello di Resource Manager usato in questa esercitazione è disponibile in [Github](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). 
 
@@ -57,7 +52,7 @@ Il modello di Resource Manager usato in questa esercitazione è disponibile in [
     * **Gruppo di risorse**: creare un nuovo gruppo di risorse o selezionarne uno esistente.  Un gruppo di risorse è un contenitore di componenti di Azure.  In questo caso, il gruppo di risorse contiene il cluster HDInsight e l'account di Archiviazione di Azure dipendente. 
     * **Località**: selezionare una località di Azure in cui si vuole creare il cluster.  Scegliere una località vicina all'utente per ottenere prestazioni migliori. 
     * **Tipo di cluster**: selezionare **hadoop** per questa esercitazione.
-    * **Nome cluster**: immettere un nome per il cluster Hadoop che verrà creato.
+    * **Nome del cluster**: immettere un nome per il cluster Hadoop.
     * **Cluster login name and password**: il nome dell'account di accesso predefinito è **admin**.
     * **SSH username and password**: il nome utente predefinito è **sshuser**.  È possibile rinominarlo. 
      
@@ -68,7 +63,9 @@ Il modello di Resource Manager usato in questa esercitazione è disponibile in [
     * **Tipo di sistema operativo**: Linux
     * **Numero di nodi del ruolo di lavoro**: 2
 
-     Ogni cluster ha una dipendenza dall'account di archiviazione BLOB di Azure. Viene in genere indicato come account di archiviazione predefinito. Il cluster HDInsight e l'account di archiviazione predefinito devono avere un percorso condiviso nella stessa area di Azure. L'eliminazione dei cluster non comporta l'eliminazione dell'account di archiviazione. Il nome dell'account di archiviazione predefinito nel modello corrisponde al nome del cluster a cui viene aggiunto "store". 
+     Ogni cluster ha una dipendenza dall'account di archiviazione BLOB di Azure. Viene in genere indicato come account di archiviazione predefinito. Il cluster HDInsight e l'account di archiviazione predefinito devono avere un percorso condiviso nella stessa area di Azure. L'eliminazione dei cluster non comporta l'eliminazione dell'account di archiviazione. 
+     
+     Per una spiegazione più approfondita di queste proprietà, vedere l'articolo su come [create cluster Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 3. Selezionare **Accetto le condizioni riportate sopra** e **Aggiungi al dashboard** e quindi fare clic su **Acquista**. Verrà visualizzato un nuovo riquadro denominato **Distribuzione di Distribuzione modello** nel dashboard del portale. La creazione di un cluster richiede circa 20 minuti. Dopo la creazione del cluster, la didascalia del riquadro viene cambiata nel nome del gruppo di risorse specificato. Il portale apre automaticamente il gruppo di risorse in un nuovo pannello. È possibile visualizzare sia la risorsa di archiviazione predefinita sia il cluster.
    
@@ -80,7 +77,7 @@ Il modello di Resource Manager usato in questa esercitazione è disponibile in [
 
 
 ## <a name="run-hive-queries"></a>Eseguire query Hive
-[Apache Hive](hdinsight-use-hive.md) è il componente più diffuso usato in HDInsight. Esistono diversi modi per eseguire processi Hive in HDInsight. In questa esercitazione si userà la visualizzazione di Ambari Hive dal portale per eseguire alcuni processi Hive. Per altri metodi di esecuzione di processi Hive, vedere [Usare Hive in HDInsight](hdinsight-use-hive.md).
+[Apache Hive](hdinsight-use-hive.md) è il componente più diffuso usato in HDInsight. Esistono diversi modi per eseguire processi Hive in HDInsight. In questa esercitazione si usa la visualizzazione Hive di Ambari dal portale per eseguire alcuni processi Hive. Per altri metodi di esecuzione di processi Hive, vedere [Usare Hive in HDInsight](hdinsight-use-hive.md).
 
 1. Nella schermata precedente fare clic su **Dashboard cluster** e quindi su **Dashboard cluster HDInsight**.  È inoltre possibile passare a **https://&lt;NomeCluster>.azurehdinsight.net**, dove &lt;NomeCluster> è il cluster creato nella sezione precedente per aprire Ambari.
 2. Immettere il nome utente e la password Hadoop specificati nella sezione precedente. Il nome utente predefinito è **admin**.
@@ -97,7 +94,7 @@ Il modello di Resource Manager usato in questa esercitazione è disponibile in [
    > 
 5. Fare clic su **Execute**. Sotto Query Editor (Editor di query) verrà visualizzata la sezione **Query Process Results** (Risultati elaborazione query) con le informazioni sul processo. 
    
-    Al termine dell'elaborazione della query, la sezione **Query Process Results** (Risultati elaborazione query) mostrerà i risultati dell'operazione. Verrà visualizzata una tabella denominata **hivesampletable**. Questa tabella Hive di esempio è disponibile in tutti i cluster HDInsight.
+    Al termine dell'elaborazione della query, nella sezione **Query Process Results** (Risultati elaborazione query) vengono visualizzati i risultati dell'operazione. Verrà visualizzata una tabella denominata **hivesampletable**. Questa tabella Hive di esempio è disponibile in tutti i cluster HDInsight.
    
     ![Visualizzazioni Hive di HDInsight](./media/hdinsight-hadoop-linux-tutorial-get-started/hiveview.png).
 6. Ripetere i passaggi 4 e 5 per eseguire questa query:
@@ -153,28 +150,16 @@ Per altre informazioni sulla creazione o la gestione di un cluster HDInsight, ve
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
+[hdinsight-provision]: hdinsight-provision-linux-clusters.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-[powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-open]: /powershell/azureps-cmdlets-docs#Install
-
-[img-hdi-dashboard]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.png
-[img-hdi-dashboard-query-select]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.select.png
-[img-hdi-dashboard-query-select-result]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.select.result.png
-[img-hdi-dashboard-query-select-result-output]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.select.result.output.png
-[img-hdi-dashboard-query-browse-output]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.browse.output.png
-[image-hdi-clusterstatus]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.ClusterStatus.png
-[image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
-[image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
 
 
-<!--HONumber=Dec16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

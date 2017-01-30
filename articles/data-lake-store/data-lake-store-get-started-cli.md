@@ -1,5 +1,5 @@
 ---
-title: Introduzione ad Azure Data Lake Store utilizzando l&quot;interfaccia della riga di comando multipiattaforma | Microsoft Docs
+title: Usare l&quot;interfaccia della riga di comando di Azure per iniziare a usare Azure Data Lake Store | Documentazione Microsoft
 description: Usare la riga di comando multipiattaforma di Azure per creare un account di Data Lake Store ed eseguire operazioni di base
 services: data-lake-store
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b4b2449f00e298385579c4d7b229ceea18dcc598
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: f4b31e03f454f889b4e0be807697c06e32f484c8
 
 
 ---
@@ -28,13 +28,14 @@ ms.openlocfilehash: b4b2449f00e298385579c4d7b229ceea18dcc598
 > * [SDK per Java](data-lake-store-get-started-java-sdk.md)
 > * [API REST](data-lake-store-get-started-rest-api.md)
 > * [Interfaccia della riga di comando di Azure](data-lake-store-get-started-cli.md)
-> * [Node.js](data-lake-store-manage-use-nodejs.md)
-> 
-> 
+> * [Node.JS](data-lake-store-manage-use-nodejs.md)
+> * [Python](data-lake-store-get-started-python.md)
+>
+>
 
 Informazioni su come la riga di comando di Azure per creare un account di Azure Data Lake Store ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare i file di dati, eliminare l'account e così via. Per altre informazioni su Data Lake Store, vedere [Panoramica di Data Lake Store](data-lake-store-overview.md).
 
-L'interfaccia della riga di comando di Azure viene implementata in Node.js. Può essere usato in tutte le piattaforme che supportano Node.js, incluse Windows, Mac e Linux. L'interfaccia della riga di comando di Azure è open source. Il codice sorgente viene gestito in GitHub all'indirizzo <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. In questo articolo viene illustrato solo l’uso dell’interfaccia della riga di comando di Azure con Data Lake Store. Per una guida generale sull'uso dell’interfaccia della riga di comando di Azure vedere [Come utilizzare l’interfaccia della riga di comando di Azure][azure-command-line-tools].
+L'interfaccia della riga di comando di Azure viene implementata in Node.js. Può essere usato in tutte le piattaforme che supportano Node.js, incluse Windows, Mac e Linux. L'interfaccia della riga di comando di Azure è open source. Il codice sorgente viene gestito in GitHub all'indirizzo <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. In questo articolo viene illustrato solo l’uso dell’interfaccia della riga di comando di Azure con Data Lake Store. Per una guida generale sull'uso dell'interfaccia della riga di comando di Azure, vedere l'articolo su [come usare l'interfaccia della riga di comando di Azure][azure-command-line-tools].
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per eseguire le procedure descritte nell'articolo è necessario:
@@ -176,6 +177,6 @@ Quando viene richiesto, immettere **Y** per eliminare l'account.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

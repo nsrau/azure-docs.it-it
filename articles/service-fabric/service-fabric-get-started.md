@@ -1,5 +1,5 @@
 ---
-title: Configurare l&quot;ambiente di sviluppo | Documentazione Microsoft
+title: Configurare un ambiente di sviluppo per i microservizi di Azure | Documentazione Microsoft
 description: "Installare il runtime, l&quot;SDK e gli strumenti e creare un cluster di sviluppo locale. Al termine della configurazione, sarà possibile iniziare a sviluppare applicazioni."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2016
-ms.author: ryanwi
+ms.date: 12/15/2016
+ms.author: ryanwi, mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 04092b735fa77c72ffe6c492a3fc975eac2e99fd
-ms.openlocfilehash: a71b77a320e9321eaa857acfcfae8822de0ac9e5
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: 122b672c784357d781ac55e11fb9f648fdbbac24
 
 
 ---
@@ -37,6 +37,7 @@ Per lo sviluppo, sono supportati i sistemi operativi seguenti:
 * Windows 7
 * Windows 8 e Windows 8.1
 * Windows Server 2012 R2
+* Windows Server 2016
 * Windows 10
 
 > [!NOTE]
@@ -44,17 +45,21 @@ Per lo sviluppo, sono supportati i sistemi operativi seguenti:
 > 
 > 
 
-## <a name="install-the-runtime-sdk-and-tools"></a>Installare il runtime, l'SDK e gli strumenti
-Installazione guidata piattaforma Web offre due configurazioni per lo sviluppo di Service Fabric.
+## <a name="install-the-sdk-and-tools"></a>Installare l'SDK e gli strumenti
+### <a name="to-use-visual-studio-2017-rc"></a>Per usare Visual Studio 2017 RC
+Gli strumenti di Service Fabric fanno parte del carico di lavoro di sviluppo e gestione di Azure in Visual Studio 2017 RC. È necessario abilitare questo carico di lavoro durante l'installazione di Visual Studio.
+È anche necessario installare Microsoft Azure Service Fabric SDK, usando Installazione guidata piattaforma Web.
 
-Visual Studio 2017 (è necessario installare Azure Development and Management Workload):
+* [Installare Microsoft Azure Service Fabric SDK][core-sdk]
 
-* [Installare il runtime di Service Fabric e l'SDK (nessuno strumento di Visual Studio)][core-sdk]
+### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Per usare Visual Studio 2015 (è necessario Visual Studio 2015 Update 2 o versioni successive)
+Per Visual Studio 2015, gli strumenti di Service Fabric vengono installati con l'SDK, usando Installazione guidata piattaforma Web:
 
-Visual Studio 2015 (richiede Visual Studio 2015 Update 2 o versioni successive):
+* [Installare Microsoft Azure Service Fabric SDK e gli strumenti][full-bundle-vs2015]
 
-* [Installare il runtime di Service Fabric, l'SDK e gli strumenti][full-bundle-vs2015]
-* [Installare il runtime di Service Fabric e solo l'SDK (nessuno strumento di Visual Studio)][core-sdk]
+### <a name="sdk-installation-only"></a>Installazione solo dell'SDK
+Se è necessario solo l'SDK, è possibile installare questo pacchetto:
+* [Installare Microsoft Azure Service Fabric SDK][core-sdk]
 
 > [!WARNING]
 > Alcuni clienti hanno segnalato errori durante l'installazione mediante questi collegamenti di avvio o quando hanno usato tali collegamenti nel browser Chrome. Sono problemi noti dell'Installazione guidata piattaforma Web attualmente in corso di risoluzione.  Come soluzione alternativa, provare quanto segue:
@@ -97,6 +102,6 @@ Dopo avere configurato l'ambiente di sviluppo, iniziare a compilare ed eseguire 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

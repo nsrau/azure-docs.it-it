@@ -1,5 +1,5 @@
 ---
-title: Adozione di Azure Data Catalog | Documentazione Microsoft
+title: Approccio e processo per l&quot;adozione di Azure Data Catalog | Documentazione Microsoft
 description: Questo articolo presenta un approccio e un processo per le organizzazioni intenzionate ad adottare Azure Data Catalog, inclusa la definizione di una visione, l&quot;identificazione dei principali casi d&quot;uso di business e la scelta di un progetto pilota.
 services: data-catalog
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/11/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: c2350ae447ccebf1a6b85a563e7fa1d7c12b16d7
-ms.openlocfilehash: 4c6a07c4b3597e357c520bcafde501bc0850e685
+ms.sourcegitcommit: 15e72950ef30b8540d0303292fb9882f500c875e
+ms.openlocfilehash: 646a7611f5680a4c08e9a5f5ff4e2a3e5631276f
 
 
 ---
-# <a name="adopting-azure-data-catalog"></a>Adozione di Catalogo dati di Azure
+# <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Approccio e processo per l'adozione di Azure Data Catalog
 Questo articolo illustra come iniziare ad adottare **Azure Data Catalog** nell'organizzazione. Per adottare **Azure Data Catalog**, è opportuno tenere presenti tre elementi chiave: definire il proprio punto di vista, identificare i principali casi d'uso di business nell'organizzazione e scegliere un progetto pilota.
 
 ## <a name="introducing-the-azure-data-catalog"></a>Introduzione a Catalogo dati di Azure
@@ -169,6 +169,6 @@ Questo articolo ha illustrato come iniziare a usare **Catalogo dati di Azure** n
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

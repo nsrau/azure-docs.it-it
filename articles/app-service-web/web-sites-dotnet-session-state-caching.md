@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 06/27/2016
 ms.author: riande
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7ac0fde19d61a9c3a9f54b42982c7096434cb965
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: a682e51bfaed9056b170c3e9473180ca210557b9
 
 
 ---
@@ -86,10 +86,10 @@ Il codice seguente recupera questo valore dallo stato sessione.
        strValue = (string)objValue;    
 
 È inoltre possibile usare Cache Redis per nascondere gli oggetti nell'app Web. Per altre informazioni, vedere il blog relativo all' applicazione per filmati [MVC con Cache Redis di Azure in 15 minuti](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/).
-Per altre informazioni su come usare lo stato sessione ASP.NET, vedere [Cenni preliminari sullo stato della sessione ASP.NET][Cenni preliminari sullo stato della sessione ASP.NET].
+Per altre informazioni su come usare lo stato sessione ASP.NET, vedere [Cenni preliminari sullo stato della sessione ASP.NET][ASP.NET Session State Overview].
 
 > [!NOTE]
-> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 
@@ -98,8 +98,8 @@ Per altre informazioni su come usare lo stato sessione ASP.NET, vedere [Cenni pr
   
   *Autore: [Rick Anderson](https://twitter.com/RickAndMSFT)*
 
-[installata la versione più recente]: http://www.windowsazure.com/downloads/?sdk=net  
-[Cenni preliminari sullo stato della sessione ASP.NET]: http://msdn.microsoft.com/library/ms178581.aspx
+[installed the latest]: http://www.windowsazure.com/downloads/?sdk=net  
+[ASP.NET Session State Overview]: http://msdn.microsoft.com/library/ms178581.aspx
 
 [NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
 [NewCacheDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CreateOptions.png
@@ -113,6 +113,6 @@ Per altre informazioni su come usare lo stato sessione ASP.NET, vedere [Cenni pr
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

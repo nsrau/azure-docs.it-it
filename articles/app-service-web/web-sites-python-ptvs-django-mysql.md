@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/07/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 759441c5d64ee59f13d50eb415fbaa884dd4821a
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 1c29cfc0a5b6361a7f526c37d5421ee4be3fe2c1
 
 
 ---
@@ -28,7 +28,7 @@ In questa esercitazione si userà [Python Tools per Visual Studio](https://www.v
 > [!NOTE]
 > Le informazioni contenute in questa esercitazione sono disponibili anche nel video seguente:
 > 
-> Video [PTVS 2.1: Django app with MySQL][ (PTVS 2.1: app Django con MySQL)]
+> [PTVS 2.1: Django app with MySQL][video] (PTVS 2.1: app Django con MySQL)
 > 
 > 
 
@@ -47,7 +47,7 @@ Vedere il [Centro per sviluppatori Python] per altri articoli che trattano lo sv
 <!-- This note should not render as part of the the previous include. -->
 
 > [!NOTE]
-> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 
@@ -163,7 +163,7 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/devel
 <!--External Link references-->
 
 [Portale di Azure]: https://portal.azure.com
-[Python Tools per Visual Studio]: https://www.visualstudio.com/vs/python/
+[Python Tools for Visual Studio]: https://www.visualstudio.com/vs/python/
 [Python Tools 2.2 per Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [VSIX degli esempi di Python Tools 2.2 per Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Strumenti di Azure SDK per Visual Studio 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
@@ -179,6 +179,6 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/devel
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

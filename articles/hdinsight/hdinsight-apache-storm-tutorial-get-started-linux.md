@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione di Apache Storm: Introduzione a Storm basato su Linux in HDInsight | Microsoft Docs'
+title: Introduzione ad Apache Storm in Azure HDInsight | Documentazione Microsoft
 description: Introduzione all&quot;analisi di Big Data mediante Apache Storm ed esempi di Storm Starter in HDInsight basato su Linux. Informazioni su come usare Storm per elaborare i dati in tempo reale.
 keywords: apache storm,esercitazione su apache storm,analisi Big Data,storm starter
 services: hdinsight
@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7ade85d98c41bddddb61fe75d212b351ff62eef0
-ms.openlocfilehash: 1e24cebace0e6b7de7ae318f06d6430b3caa342a
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 9b38cd0aa542c0fd73b73edefce230e5a463e608
 
 
 ---
@@ -216,6 +216,6 @@ Di seguito sono riportati alcuni esempi delle topologie che si possono usare con
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

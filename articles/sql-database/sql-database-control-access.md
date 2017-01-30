@@ -1,6 +1,6 @@
 ---
-title: Controllo dell&quot;accesso al database SQL di Azure | Documentazione Microsoft
-description: Informazioni sul controllo dell&quot;accesso al database SQL di Microsoft Azure.
+title: Concessione dell&quot;accesso al database SQL di Azure | Documentazione Microsoft
+description: Informazioni sulla concessione dell&quot;accesso al database SQL di Microsoft Azure.
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/18/2016
-ms.author: rickbyh
+ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 356cc4c6d8e25d36880e4b12bf471326e61990c3
-ms.openlocfilehash: f12ed9d76e7c6db5e14ed3c00d7d4087dbd4069c
+ms.sourcegitcommit: 6fca50ad2a9d875a87c9b7713e7f0f6641db1d26
+ms.openlocfilehash: 563a26512e58d1c9905647c26ef780b2729cb459
 
 
 ---
@@ -27,8 +27,6 @@ Per garantire la sicurezza, il database SQL controlla l'accesso con regole del f
 
 > [!IMPORTANT]
 > Per una panoramica delle funzionalità di sicurezza del database SQL, vedere la [panoramica della sicurezza in SQL](sql-database-security-overview.md). Per un'esercitazione che illustra l'uso dell'autenticazione di SQL Server, vedere [SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md) (Esercitazione sul database SQL: autenticazione di SQL Server, account di accesso e utente, ruoli del database, autorizzazioni e regole del firewall a livello di server e a livello di database). Per un'esercitazione che illustra l'uso dell'autenticazione di Azure Active Directory, vedere [Esercitazione sul database SQL: autenticazione di AAD, account di accesso e utente, ruoli del database, autorizzazioni e regole del firewall a livello di server e a livello di database](sql-database-control-access-aad-authentication-get-started.md).
-
->
 
 ## <a name="firewall-and-firewall-rules"></a>Firewall e regole del firewall
 Il database SQL di Microsoft Azure fornisce un servizio di database relazionale per Azure e altre applicazioni basate su Internet. Per proteggere i dati, il firewall impedisce qualsiasi accesso al server di database finché non vengono specificati i computer autorizzati. Il firewall concede l'accesso ai database in base all'indirizzo IP di origine di ogni richiesta. Per altre informazioni, vedere [Panoramica sulle regole del firewall per il database SQL di Azure](sql-database-firewall-configure.md).
@@ -48,7 +46,7 @@ Il motore di Database chiude le connessioni che rimangono inattive per più di 3
 
 È possibile creare gli account utente nel database master e concedere le relative autorizzazioni in tutti i database sul server oppure creare gli account nel database stesso (utenti indipendenti). Per informazioni sulla creazione e sulla gestione, vedere l'articolo su come [gestire gli account di accesso](sql-database-manage-logins.md). Per migliorare la portabilità e la scalabilità, usare utenti di database indipendente. Per altre informazioni sugli utenti indipendenti, vedere [Utenti di database indipendente: rendere portabile un database](https://msdn.microsoft.com/library/ff929188.aspx), [CREATE USER (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx) e [Database indipendenti](https://technet.microsoft.com/library/ff929071.aspx).
 
-Si consiglia che per l'applicazione si utilizzi un account diverso per l'autenticazione; SSL/TLSin questo modo è possibile limitare le autorizzazioni concesse all'applicazione e ridurre i rischi di attività dannose nel caso in cui il codice dell'applicazione sia vulnerabile a un attacco SQL injection. L'approccio consigliato consiste nel creare un [utente di database indipendente](https://msdn.microsoft.com/library/ff929188), consentendo così l'autenticazione dell'app direttamente nel database. È possibile creare un utente del database che utilizza l’autenticazione SQL tramite l'esecuzione dell'istruzione T-SQL seguente durante la connessione al database utente con l'account di accesso di amministrazione del server:
+Si consiglia che per l'applicazione si utilizzi un account diverso per l'autenticazione; SSL/TLSin questo modo è possibile limitare le autorizzazioni concesse all'applicazione e ridurre i rischi di attività dannose nel caso in cui il codice dell'applicazione sia vulnerabile a un attacco SQL injection. L'approccio consigliato consiste nel creare un [utente di database indipendente](https://msdn.microsoft.com/library/ff929188), consentendo così l'autenticazione dell'app direttamente nel database. 
 
 ## <a name="authorization"></a>Authorization
 
@@ -65,7 +63,7 @@ Queste funzionalità possono essere usate anche per limitare o elevare le autori
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica di tutte le funzionalità di sicurezza del database SQL, vedere la [panoramica della sicurezza in SQL](sql-database-security-overview.md).
+- Per una panoramica delle funzionalità di sicurezza del database SQL, vedere la [panoramica della sicurezza in SQL](sql-database-security-overview.md).
 - Per altre informazioni sulle regole del firewall, vedere l'articolo sul [firewall del database SQL di Azure](sql-database-firewall-configure.md).
 - Per informazioni su utenti e account di accesso, vedere l'articolo su come [gestire gli account di accesso](sql-database-manage-logins.md). 
 - Per informazioni sull'uso delle funzionalità di protezione dei dati nel database SQL, vedere l'articolo su [protezione e sicurezza dei dati](sql-database-protect-data.md).
@@ -75,6 +73,6 @@ Queste funzionalità possono essere usate anche per limitare o elevare le autori
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

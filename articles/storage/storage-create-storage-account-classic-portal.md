@@ -4,7 +4,7 @@ description: Creare un nuovo account di archiviazione, gestire le chiavi di acce
 services: storage
 documentationcenter: 
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 5e4f4360-3f81-4d63-a0b1-e7771b67af11
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2016
+ms.date: 01/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 90e9fcf933173b5609eff70fa1ce4bfa027fee3d
+ms.sourcegitcommit: c5fedb8c4a6e3722e2f37dd432cec60513c73e0d
+ms.openlocfilehash: 599d509d00e8366a5095cac7503b11cf818e6a34
 
 
 ---
@@ -99,7 +99,7 @@ L'URL per accedere a un oggetto in un account di archiviazione viene formato agg
 
 È anche possibile configurare un nome di dominio personalizzato da usare con l'account di archiviazione. Per altri dettagli, vedere [Configurare un nome di dominio personalizzato per l'endpoint di archiviazione BLOB](storage-custom-domain-name.md) .
 
-### <a name="service-colocation-with-an-affinity-group"></a>Condivisione del percorso del servizio con un gruppo di affinità
+### <a name="service-co-location-with-an-affinity-group"></a>Condivisione del percorso del servizio con un gruppo di affinità
 Un *gruppo di affinità* è un raggruppamento geografico dei servizi e delle VM di Azure con l'account di archiviazione di Azure. che consente di migliorare le prestazioni del servizio individuando i carichi di lavoro del computer nello stesso data center o in prossimità dei destinatari. Non sono inoltre addebitate spese per l'uscita in caso di accesso ai dati di un account di archiviazione da parte di un altro servizio appartenente allo stesso gruppo di affinità.
 
 > [!NOTE]
@@ -175,6 +175,6 @@ Per rimuovere un account di archiviazione non più in uso, usare **Elimina** nel
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

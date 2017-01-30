@@ -1,6 +1,6 @@
 ---
-title: Configurare una regola firewall a livello di server per il database SQL di Azure | Microsoft Docs
-description: Come configurare il firewall per gli indirizzi IP che accedono a database SQL di Azure.
+title: 'Portale di Azure: regole firewall a livello di server del database SQL di Azure | Documentazione Microsoft'
+description: Come configurare le regole del firewall a livello di server per gli indirizzi IP che accedono a un server SQL Azure usando il portale di Azure.
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/28/2016
 ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: a87bb18aeacbc980fc6859c7c83a102dce0263a8
+ms.sourcegitcommit: 70fdb8e0dceb75bcbfca05d89bc3e093952d6a05
+ms.openlocfilehash: 31f40c802c7330984365645e2960c7ec32da7a59
 
 
 ---
@@ -51,7 +51,7 @@ Ripetere i passaggi per gestire le regole del firewall a livello di server.
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per un'esercitazione introduttiva, vedere [Esercitazione sul database SQL: creare un server, una regola del firewall a livello di server, un database di esempio, una regola del firewall a livello di database ed eseguire la connessione ad SQL Server](sql-database-get-started.md).
-- Per un'esercitazione introduttiva sulla sicurezza, vedere [Get started with security](sql-database-get-started-security.md) (Introduzione alla sicurezza)
+- Per un'esercitazione introduttiva sulla sicurezza, vedere [Get started with security](sql-database-control-access-sql-authentication-get-started.md) (Introduzione alla sicurezza)
 - Per informazioni sulla connessione a un database SQL di Azure da applicazioni open source o di terze parti, vedere [Esempi di codice di avvio rapido del client per il database SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - Per informazioni su come creare utenti aggiuntivi che possano connettersi ai database, vedere [Autenticazione e autorizzazione per database SQL: concessione dell'accesso](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
@@ -64,6 +64,6 @@ Ripetere i passaggi per gestire le regole del firewall a livello di server.
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

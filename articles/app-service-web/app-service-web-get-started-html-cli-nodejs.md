@@ -1,5 +1,5 @@
 ---
-title: Distribuire la prima app Web in Azure in cinque minuti | Documentazione Microsoft
+title: Distribuire la prima app Web HTML in Azure in cinque minuti | Documentazione Microsoft
 description: "Informazioni su come eseguire facilmente app Web nel servizio app mediante la distribuzione di un&quot;app di esempio. È possibile eseguire rapidamente vere e proprie attività di sviluppo con risultati immediati."
 services: app-service\web
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
-ms.openlocfilehash: 4e2d846ef3ce6e78d5789c7b8e1b8228617837b6
+ms.sourcegitcommit: 5e532c130910e292d8b742353dfe7e24f1bf865e
+ms.openlocfilehash: 37c364ab2a3948acd20b016639887a46ee18c470
 
 
 ---
-# <a name="deploy-your-first-web-app-to-azure-in-five-minutes"></a>Distribuire la prima app Web in Azure in cinque minuti
+# <a name="deploy-your-first-html-web-app-to-azure-in-five-minutes"></a>Distribuire la prima app Web HTML in Azure in cinque minuti
 
 > [!div class="op_single_selector"]
 > * [Primo sito HTML](app-service-web-get-started-html-cli-nodejs.md)
@@ -57,7 +57,7 @@ Si apprenderà come:
 * Un account Microsoft Azure. Se non si ha un account, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) oppure [attivare i vantaggi per i sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> È possibile [provare il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751) senza avere un account Azure. Creare un'app iniziale e provarla per un'ora, senza impegno e senza dover usare la carta di credito.
+> È possibile [provare il servizio app](https://azure.microsoft.com/try/app-service/) senza avere un account Azure. Creare un'app iniziale e provarla per un'ora, senza impegno e senza dover usare la carta di credito.
 > 
 > 
 
@@ -135,6 +135,6 @@ In alternativa, è possibile fare altre prove con la prima app Web, ad esempio:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

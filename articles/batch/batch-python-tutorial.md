@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Introduzione al client Python di Azure Batch | Documentazione Microsoft'
+title: 'Esercitazione: Usare la libreria client di Azure Batch per Python | Documentazione Microsoft'
 description: Informazioni sui concetti di base di Azure Batch e sullo sviluppo del servizio Batch con uno scenario semplice
 services: batch
 documentationcenter: python
@@ -12,11 +12,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 11/30/2016
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 3c1efaa277c6fba7965d6fe10cc5991cb02281d7
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: 155c535c66788d807c47a3eaae50c94ab6b94164
 
 
 ---
@@ -109,7 +109,7 @@ Il diagramma seguente illustra le operazioni principali eseguite dagli script cl
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Ogni attività scarica i rispettivi dati di input da Archiviazione di Azure e quindi avvia l'esecuzione.<br/>
 [**Passaggio 6.**](#step-6-monitor-tasks) Monitorare le attività.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Dopo il completamento, le attività caricano i rispettivi dati di output in Archiviazione di Azure.<br/>
-[**Passaggio 7.**](#step-7-download-task-output)  Scaricare l'output delle attività dal servizio di archiviazione.
+[**Passaggio 7.**](#step-7-download-task-output) Scaricare l'output delle attività dal servizio di archiviazione.
 
 Come indicato, non tutte le soluzioni Batch eseguono esattamente questi passaggi e potrebbero includerne molti altri, ma l'esempio illustra i processi comuni presenti in una soluzione Batch.
 
@@ -708,6 +708,6 @@ Dopo avere acquisito familiarità con il flusso di lavoro di base di una soluzio
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

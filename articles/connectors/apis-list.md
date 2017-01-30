@@ -1,10 +1,10 @@
 ---
 title: Elenco di connettori gestiti da Microsoft da usare in App per la logica di Microsoft Azure | Microsoft Docs
-description: "Ottenere un elenco completo dei connettori gestiti da Microsoft che è possibile usare per creare app per la logica nel servizio app di Azure"
+description: "Ottenere un elenco completo dei connettori gestiti da Microsoft che è possibile usare per creare app per la logica"
 services: logic-apps
 documentationcenter: 
-author: MSFTMAN
-manager: erikre
+author: MandiOhlinger
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: f1f1fd50-b7f9-4d13-824a-39678619aa7a
@@ -13,11 +13,11 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/07/2016
-ms.author: deonhe
+ms.date: 01/25/2017
+ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: d2eefb6b99955f9b9a1bd5b5c94617d538f079ec
-ms.openlocfilehash: 8e1b8cee12406628dae1deff15406beb13778b40
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: b6216b75094822707cffd945ff78c9fc5c7245c4
 
 
 ---
@@ -38,14 +38,15 @@ Selezionare un connettore per informazioni su come creare rapidamente flussi di 
 |[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP-Requesticon]<br/>**Richiesta<br/>HTTP**][HTTP-Requestdoc]|[![API Icon][HTTP-Responseicon]<br/>**Risposta<br/>HTTP**][HTTP-Responsedoc]|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|
 |![Icona API][Insightlyicon]<br/>**Insightly**|![Icona API][Instagramicon]<br/>**Instagram**|![Icona API][Instapapericon]<br/>**Instapaper**|![Icona API][JIRAicon]<br/>**JIRA**|
 |[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![Icona API][Mandrillicon]<br/>**Mandrill**|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|[![API Icon][Nested-Logic-Appicon]<br/>**App per la logica<br/>annidata**][Nested-Logic-Appdoc]|
-[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Office 365<br/>Users**|[![API Icon][Office-365-Videoicon]<br/>**Video di<br/>Office 365**][office365-videodoc]|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive for<br/>Business**][OneDrive-for-Businessdoc]|
-[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![Icona API][PagerDutyicon]<br/>**PagerDuty**|![Icona API][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|
-[![API Icon][Queryicon]<br/>**Query**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Ricorrenza**][Recurrencedoc]|![Icona API][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|
-[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![API Icon][Service-Busicon]<br/>**Bus di servizio**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc]|
-[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|![Icona API][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc]|![Icona API][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|
-|![Icona API][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|
-|![Icona API][Vimeoicon]<br/>**Vimeo**|![Icona API][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![Icona API][WordPressicon]<br/>**WordPress**|
-|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|![Icona API][YouTubeicon]<br/>**YouTube**|[![API Icon][FileSystemIcon]<br/>**File System**][FileSystemdoc]
+|[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Office 365<br/>Users**|[![API Icon][Office-365-Videoicon]<br/>**Video di<br/>Office 365**][office365-videodoc]|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive for<br/>Business**][OneDrive-for-Businessdoc]|
+|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![Icona API][PagerDutyicon]<br/>**PagerDuty**|![Icona API][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|
+|[![API Icon][Queryicon]<br/>**Query**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Ricorrenza**][Recurrencedoc]|![Icona API][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|
+|[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![API Icon][Service-Busicon]<br/>**Bus di servizio**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc]|
+|[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|![Icona API][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc]
+|![Icona API][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|![Icona API][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|
+|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|![Icona API][Vimeoicon]<br/>**Vimeo**|![Icona API][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|
+|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![Icona API][WordPressicon]<br/>**WordPress**|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|
+|![Icona API][YouTubeicon]<br/>**YouTube**|[![API Icon][FileSystemIcon]<br/>**File System**][FileSystemdoc]|
 
 ### <a name="integration-account-connectors"></a>Connettori dell'account di integrazione 
 
@@ -82,9 +83,9 @@ Sono disponibili due tipi di trigger:
 I connettori possono anche essere usati come azioni all'interno delle app. Le azioni sono utili per cercare i dati da usare nell'esecuzione dell'app. Può essere necessario ad esempio cercare in un database SQL dati su un cliente quando si elabora un ordine. Oppure può essere necessario scrivere, aggiornare o eliminare dati in una tabella di destinazione. A tale scopo, usare le azioni fornite dai connettori. Le azioni vengono mappate alle operazioni definite nei metadati Swagger.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-* [Creare un connettore personalizzato](../app-service-logic/app-service-logic-create-api-app.md)
-* [Monitorare le app per la logica](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
+* [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)  
+* [Creare un connettore personalizzato](../logic-apps/logic-apps-create-api-app.md)
+* [Monitorare le app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 
 <!--Connectors Documentation-->
 [azureblobstoragedoc]: ./connectors-create-api-azureblobstorage.md "Connect to Azure blob to manage files in your blob container" (Connettersi al BLOB di Azure per gestire i file nel contenitore BLOB)
@@ -120,18 +121,18 @@ I connettori possono anche essere usati come azioni all'interno delle app. Le az
 [twitterdoc]: ./connectors-create-api-twitter.md "Connects to Twitter and get timelines, post tweets, and more" (Connettersi a Twitter e ottenere le sequenze temporali, pubblicare tweet e così via)
 [wunderlistdoc]: ./connectors-create-api-wunderlist.md "Keep your life in sync" (Sincronizzare la propria vita)
 [yammerdoc]: ./connectors-create-api-yammer.md "Connects to Yammer to post messages and get new messages" (Connettersi a Yammer per pubblicare messaggi e ottenerne di nuovi)
-[as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Learn about enterprise integration AS2" (Informazioni su Enterprise Integration: AS2)
-[x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Learn about enterprise integration X12" (Informazioni su Enterprise Integration: X12)
-[flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Learn about enterprise integration flat file" (Informazioni su Enterprise Integration: Flat File)
-[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Learn about enterprise integration flat file" (Informazioni su Enterprise Integration: Flat File)
-[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "Learn about enterprise integration XML validation" (Informazioni su Enterprise Integration: convalida XML)
-[xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Learn about enterprise integration transforms" (Informazioni su Enterprise Integration: trasformazioni)
-[as2decode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-decode.md "Learn about enterprise integration AS2 decode" (Informazioni su Enterprise Integration: decodifica AS2)
-[as2encode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-encode.md "Learn about enterprise integration AS2 encode" (Informazioni su Enterprise Integration: codifica AS2)
-[X12decode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-decode.md "Learn about enterprise integration X12 decode" (Informazioni su Enterprise Integration: decodifica X12)
-[X12encode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-encode.md "Learn about enterprise integration X12 encode" (Informazioni su Enterprise Integration: codifica X12)
-[EDIFACTdecode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-decode.md "Learn about enterprise integration EDIFACT decode" (Informazioni su Enterprise Integration: decodifica EDIFACT)
-[EDIFACTencode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-encode.md "Learn about enterprise integration EDIFACT encode" (Informazioni su Enterprise Integration: codifica EDIFACT)
+[as2doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Learn about enterprise integration AS2" (Informazioni su Enterprise Integration: AS2)
+[x12doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Learn about enterprise integration X12" (Informazioni su Enterprise Integration: X12)
+[flatfiledoc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file" (Informazioni su Enterprise Integration: Flat File)
+[flatfiledecodedoc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file" (Informazioni su Enterprise Integration: Flat File)
+[xmlvalidatedoc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Learn about enterprise integration XML validation" (Informazioni su Enterprise Integration: convalida XML)
+[xmltransformdoc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Learn about enterprise integration transforms" (Informazioni su Enterprise Integration: trasformazioni)
+[as2decode]: ..//logic-apps/logic-apps-enterprise-integration-as2-decode.md "Learn about enterprise integration AS2 decode" (Informazioni su Enterprise Integration: decodifica AS2)
+[as2encode]:../logic-apps/logic-apps-enterprise-integration-as2-encode.md "Learn about enterprise integration AS2 encode" (Informazioni su Enterprise Integration: codifica AS2)
+[X12decode]: ..//logic-apps/logic-apps-enterprise-integration-X12-decode.md "Learn about enterprise integration X12 decode" (Informazioni su Enterprise Integration: decodifica X12)
+[X12encode]: ..//logic-apps/logic-apps-enterprise-integration-X12-encode.md "Learn about enterprise integration X12 encode" (Informazioni su Enterprise Integration: codifica X12)
+[EDIFACTdecode]: ..//logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Learn about enterprise integration EDIFACT decode" (Informazioni su Enterprise Integration: decodifica EDIFACT)
+[EDIFACTencode]: ..//logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Learn about enterprise integration EDIFACT encode" (Informazioni su Enterprise Integration: codifica EDIFACT)
 [httpdoc]: ./connectors-native-http.md "HTTP connector to make HTTP calls" (Connettore HTTP per effettuare chiamate HTTP)
 [http-requestdoc]: ./connectors-native-reqres.md "Request and Response actions" (Azioni di richiesta e di risposta)
 [http-responsedoc]: ./connectors-native-reqres.md "Request and Response actions" (Azioni di richiesta e di risposta)
@@ -139,9 +140,9 @@ I connettori possono anche essere usati come azioni all'interno delle app. Le az
 [http-swaggerdoc]: ./connectors-native-http-swagger.md "HTTP + Swagger connector to make HTTP calls" (Connettore HTTP e Swagger per effettuare chiamate HTTP)
 [querydoc]: ./connectors-native-query.md "Query action to select and filter arrays" (Azione di query per selezionare e filtrare matrici)
 [webhookdoc]: ./connectors-native-webhook.md "Webhook action and trigger for logic apps" (Azione e trigger di webhook per app per la logica)
-[azure-functionsdoc]: ../app-service-logic/app-service-logic-azure-functions.md "Integrate logic apps with Azure Functions" (Integrazione delle app per la logica con Funzioni di Azure)
-[api/web-appdoc]: ../app-service-logic/app-service-logic-custom-hosted-api.md "Integrate logic apps with App Service API Apps" (Integrazione delle app per la logica con app per le API del servizio app)
-[nested-logic-appdoc]: ../app-service-logic/app-service-logic-http-endpoint.md "Integrate logic apps with a nested workflow" (Integrazione delle app per la logica con un flusso di lavoro annidato)
+[azure-functionsdoc]: ../logic-apps/logic-apps-azure-functions.md "Integrate logic apps with Azure Functions" (Integrazione delle app per la logica con Funzioni di Azure)
+[api/web-appdoc]: ../logic-apps/logic-apps-custom-hosted-api.md "Integrate logic apps with App Service API Apps" (Integrazione delle app per la logica con app per le API del servizio app)
+[nested-logic-appdoc]: ../logic-apps/logic-apps-http-endpoint.md "Integrate logic apps with a nested workflow" (Integrazione delle app per la logica con un flusso di lavoro annidato)
 [recurrencedoc]:  ./connectors-native-recurrence.md "Recurrence trigger for logic apps" (Trigger di ricorrenza per app per la logica)
 [google-sheetsdoc]: ./connectors-create-api-googlesheet.md "Connects to Google Sheets and can modify sheets" (Connettersi a Fogli Google e modificare i fogli)
 [google-tasksdoc]: ./connectors-create-api-googletasks.md "Connects to Google Tasks and can manage tasks" (Connettersi a Google Tasks e gestire le attività)
@@ -150,8 +151,8 @@ I connettori possono anche essere usati come azioni all'interno delle app. Le az
 [mandrilldoc]: ./connectors-create-api-mandrill.md "Connects to Mandrill and can be used for communication" (Connettersi a Mandrill e usarlo per la comunicazione)
 [youtubedoc]: ./connectors-create-api-youtube.md "Connects to YouTube and can interact with videos and channels" (Connettersi a YouTube e interagire con video e canali)
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "Connects to SparkPost and can be used for communication" (Connettersi a SparkPost e usarlo per la comunicazione)
-[filesystemdoc]: ..//app-service-logic/app-service-logic-use-file-connector.md "Use file system connector to communicate with on-premises file system" (Usare il connettore di file system per comunicare con il file system locale)
-[sapconnector]: ..//app-service-logic/app-service-logic-enterprise-connector-sap-connector.md "Informazioni sul connettore SAP"
+[filesystemdoc]: ..//logic-apps/logic-apps-using-file-connector.md "Use file system connector to communicate with on-premises file system" (Usare il connettore di file system per comunicare con il file system locale)
+[sapconnector]: ..//logic-apps/logic-apps-using-sap-connector.md "Informazioni sul connettore SAP"
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png

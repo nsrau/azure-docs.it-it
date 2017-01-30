@@ -1,10 +1,10 @@
 ---
-title: Domande frequenti sul gateway VPN della rete virtuale | Microsoft Docs
-description: Domande frequenti sul gateway VPN. Domande frequenti relative alle connessioni cross-premise di Rete virtuale di Microsoft Azure, alle connessioni con configurazioni ibride e ai gateway VPN
+title: Domande frequenti sul gateway VPN di Azure | Documentazione Microsoft
+description: Domande frequenti sul gateway VPN. Domande frequenti relative alle connessioni cross-premise di Rete virtuale di Microsoft Azure, alle connessioni con configurazioni ibride e ai gateway VPN.
 services: vpn-gateway
 documentationcenter: na
-author: yushwang
-manager: rossort
+author: cherylmc
+manager: timlt
 editor: 
 ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
 ms.service: vpn-gateway
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2016
-ms.author: yushwang
+ms.date: 01/10/2017
+ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: d653865993d75cf926151a14cc4f059e4eaba035
-ms.openlocfilehash: f0e7c08a0783452665028ea3479c14b02a27258f
+ms.sourcegitcommit: fa909503d13805bec32698e039ad24424d5fa8e9
+ms.openlocfilehash: 964b0f781891bce671172e2cf27557624e8ddbd4
 
 
 ---
 # <a name="vpn-gateway-faq"></a>Domande frequenti sul gateway VPN
 ## <a name="connecting-to-virtual-networks"></a>Connessione a reti virtuali
 ### <a name="can-i-connect-virtual-networks-in-different-azure-regions"></a>È possibile connettere reti virtuali in diverse aree di Azure?
-Sì. Non esistono vincoli di area. Una rete virtuale può connettersi a un'altra rete virtuale nella stessa area o in un'area diversa di Azure.
+Sì. Non esistono vincoli di area. Una rete virtuale può connettersi a un'altra rete virtuale nella stessa area o in un'area diversa di Azure. 
 
 ### <a name="can-i-connect-virtual-networks-in-different-subscriptions"></a>È possibile connettere reti virtuali in diverse sottoscrizioni?
 Sì.
@@ -102,7 +102,7 @@ Per impostazione predefinita, tramite il computer client non verrà ristabilita 
 La riconnessione automatica e il DNS dinamico non sono supportati attualmente nelle VPN da punto a sito.
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-coexist-for-the-same-virtual-network"></a>È possibile la coesistenza di configurazioni da sito a sito e punto a sito per la stessa rete virtuale?
-Sì. Entrambe queste soluzioni funzionano se si ha un tipo di VPN basata su route per il gateway. Per il modello di distribuzione classica è necessario un gateway dinamico. Non viene fornito il supporto per i gateway VPN con routing statico da punto a sito o i gateway che usano -VpnType PolicyBased.
+Sì. Entrambe queste soluzioni funzionano se si ha un tipo di VPN basata su route per il gateway. Per il modello di distribuzione classica è necessario un gateway dinamico. Non viene fornito il supporto per i gateway VPN con routing statico da punto a sito o i gateway che usano il cmdlet `-VpnType PolicyBased`.
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>È possibile configurare un client da punto a sito per connettersi contempo a più reti virtuali?
 Sì, è possibile. I prefissi IP delle reti virtuali non devono tuttavia essere sovrapposti e gli spazi di indirizzi da punto a sito non devono sovrapporsi tra le reti virtuali.
@@ -129,18 +129,25 @@ Sì, è possibile usare l'API di impostazione della chiave precondivisa e il cmd
 ### <a name="can-i-use-other-authentication-options"></a>È possibile usare altre opzioni di autenticazione?
 Per l'autenticazione possono essere usate solo chiavi precondivise.
 
-### <a name="what-is-the-gateway-subnet-and-why-is-it-needed"></a>Cos'è la subnet del gateway e perché è necessaria?
+### <a name="what-is-the-gatewaysubnet-and-why-is-it-needed"></a>Che cos'è "GatewaySubnet" e perché è necessaria?
 È disponibile un servizio gateway che viene eseguito per abilitare la connettività cross-premise.
 
 È necessario creare una subnet del gateway per la rete virtuale configurare un gateway VPN. Per poter funzionare correttamente, tutte le subnet del gateway devono essere denominate GatewaySubnet. Non assegnare un nome diverso alla subnet del gateway. Non distribuire VM o altri elementi alla subnet del gateway.
 
-Le dimensioni minime della subnet del gateway dipendono interamente dalla configurazione che si vuole creare. Anche se è possibile creare una subnet del gateway pari a/29 per alcune configurazioni, è consigliabile creare una subnet del gateway di /28 o superiore (/ 28, /27, /26 e così via.).
+Le dimensioni minime della subnet del gateway dipendono interamente dalla configurazione che si vuole creare. Anche se è possibile creare una subnet del gateway pari a/29 per alcune configurazioni, è consigliabile creare una subnet del gateway di /28 o superiore (/&28;, /27, /26 e così via.).
 
 ### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>È possibile distribuire macchine virtuali o istanze del ruolo alla subnet del gateway?
 No.
 
 ### <a name="how-do-i-specify-which-traffic-goes-through-the-vpn-gateway"></a>In che modo è possibile specificare il traffico che può passare attraverso il gateway VPN?
-Se si utilizza il portale di Azure classico, aggiungere tutti gli intervalli che si desidera inviare tramite il gateway per la rete virtuale nella pagina Reti in Reti locali.
+
+####<a name="resource-manager-deployment-model"></a>Modello di distribuzione di Gestione risorse
+* PowerShell: usare "AddressPrefix" per specificare il traffico per il gateway di rete locale.
+* Portale di Azure: passare al gateway di rete locale > Configurazione > Spazio indirizzi.
+
+####<a name="classic-deployment-model"></a>Modello di distribuzione classica
+* Portale di Azure: passare alla rete virtuale classica > Connessioni VPN > Connessioni VPN da sito a sito > Local site name (Nome sito locale) > Sito locale > Spazio indirizzi client. 
+* Portale classico: aggiungere tutti gli intervalli che si vuole inviare tramite il gateway per la rete virtuale nella pagina Reti in Reti locali. 
 
 ### <a name="can-i-configure-forced-tunneling"></a>È possibile configurare il tunneling forzato?
 Sì. Vedere [Configurare il tunneling forzato](vpn-gateway-about-forced-tunneling.md).
@@ -167,7 +174,7 @@ No, entrambe le reti virtuali devono usare VPN basate su route con routing dinam
 Sì, è protetto mediante la crittografia IPsec/IKE.
 
 ### <a name="does-vnet-to-vnet-traffic-travel-over-the-azure-backbone"></a>Il traffico da rete virtuale a rete virtuale scorre attraverso il backbone di Azure?
-Sì.
+Sì, questo traffico attraversa il backbone di Azure. Non passa da Internet.
 
 ### <a name="how-many-on-premises-sites-and-virtual-networks-can-one-virtual-network-connect-to"></a>A quanti siti locali e reti virtuali può connettersi una rete virtuale?
 Max. 10 combinate per i gateway con routing dinamico base e standard, 30 per i gateway VPN con Prestazioni elevate.
@@ -176,7 +183,7 @@ Max. 10 combinate per i gateway con routing dinamico base e standard, 30 per i g
 Sì, è possibile usare VPN da punto a sito (P2S) con i gateway VPN che si connettono a più siti locali e altre reti virtuali.
 
 ### <a name="can-i-configure-multiple-tunnels-between-my-virtual-network-and-my-on-premises-site-using-multi-site-vpn"></a>È possibile configurare più tunnel tra una rete virtuale e un sito locale usando una VPN multisito?
-No, non sono supportati i tunnel ridondanti tra una rete virtuale di Azure e un sito locale.
+Sì, ma è necessario configurare BGP in entrambi i tunnel per la stessa località.
 
 ### <a name="can-there-be-overlapping-address-spaces-among-the-connected-virtual-networks-and-on-premises-local-sites"></a>Possono esistere spazi di indirizzi sovrapposti tra le reti virtuali connesse e i siti locali?
 No. In presenza di spazi di indirizzi sovrapposti, il caricamento del file di configurazione di rete o la creazione della rete virtuale hanno esito negativo.
@@ -185,10 +192,12 @@ No. In presenza di spazi di indirizzi sovrapposti, il caricamento del file di co
 No, tutti i tunnel VPN, incluse le VPN da punto a sito, condividono lo stesso gateway VPN di Azure e la larghezza di banda disponibile.
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>È possibile usare un gateway VPN di Azure per il transito del traffico tra i siti locali o verso un'altra rete virtuale?
-**Modello di distribuzione classica**<br>
- Con il modello di distribuzione classica il transito del traffico attraverso il gateway VPN di Azure è possibile, ma si basa su spazi di indirizzi definiti in modo statico nel file di configurazione di rete. Il protocollo BGP non è ancora supportato con le reti virtuali di Azure e i gateway VPN con il modello di distribuzione classica. Senza BGP la definizione manuale degli spazi di indirizzi in transito è soggetta a errori e non è consigliata.<br>
-**Modello di distribuzione Resource Manager**<br>
-Se si usa il modello di distribuzione Resource Manager, vedere la sezione [BGP](#bgp) per altre informazioni.
+
+####<a name="resource-manager-deployment-model"></a>Modello di distribuzione di Gestione risorse
+Sì. Per altre informazioni, vedere la sezione [BGP](#bgp).
+
+####<a name="classic-deployment-model"></a>Modello di distribuzione classica
+Con il modello di distribuzione classica il transito del traffico attraverso il gateway VPN di Azure è possibile, ma si basa su spazi di indirizzi definiti in modo statico nel file di configurazione di rete. Il protocollo BGP non è ancora supportato con le reti virtuali di Azure e i gateway VPN con il modello di distribuzione classica. Senza BGP la definizione manuale degli spazi di indirizzi in transito è soggetta a errori e non è consigliata.<br>
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>Azure genera la stessa chiave precondivisa IPsec/IKE per tutte le connessioni VPN per una stessa rete virtuale?
 No, per impostazione predefinita vengono generate chiavi precondivise diverse per connessioni VPN diverse. È tuttavia possibile usare la nuova API REST di impostazione della chiave gateway VPN o il cmdlet di PowerShell per impostare il valore di chiave che si preferisce. La chiave DEVE essere una stringa alfanumerica di lunghezza compresa tra 1 e 128 caratteri.
@@ -216,6 +225,6 @@ Vengono visualizzate informazioni sulla rete virtuale aggiuntive in [Domande fre
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

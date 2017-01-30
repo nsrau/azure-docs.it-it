@@ -1,6 +1,6 @@
 ---
 title: Introduzione a Microsoft Power BI Embedded
-description: 'Power BI Embedded: aggiungere report di Power BI interattivi all&quot;applicazione di Business Intelligence'
+description: Power BI Embedded, aggiungere report di Power BI interattivi nell&quot;applicazione di Business Intelligence
 services: power-bi-embedded
 documentationcenter: 
 author: guyinacube
@@ -16,8 +16,8 @@ ms.workload: powerbi
 ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: cedf69c6e50470e9d16d8e1e361bb51eb8abed72
+ms.sourcegitcommit: 49ca55f435239611350045cca31b6c2a9ca140e1
+ms.openlocfilehash: 602509d5dc977e8d559bc7f504bfab3d077829fa
 
 
 ---
@@ -41,7 +41,7 @@ Di seguito è descritta la procedura per compilare una **Raccolta di aree di lav
    
    ![](media/power-bi-embedded-get-started/create-workspace-1.png)
 3. In **Dati e analisi** fare clic su **Power BI Embedded**.
-4. Nel **pannello di creazione**immettere le informazioni necessarie. Per **Prezzi**, vedere [Prezzi di Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527).
+4. Nel **pannello della Raccolta di aree di lavoro** immettere le informazioni necessarie. Per **Prezzi**, vedere [Prezzi di Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527).
    
    ![](media/power-bi-embedded-get-started/create-workspace-2.png)
 5. Fare clic su **Create**.
@@ -109,6 +109,6 @@ Altre domande? [Contattare la community di Power BI](http://community.powerbi.co
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 
