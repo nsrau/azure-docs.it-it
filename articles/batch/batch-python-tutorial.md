@@ -1,9 +1,9 @@
 ---
-title: 'Esercitazione: Introduzione al client Python di Azure Batch | Documentazione Microsoft'
+title: 'Esercitazione: Usare la libreria client di Azure Batch per Python | Documentazione Microsoft'
 description: Informazioni sui concetti di base di Azure Batch e sullo sviluppo del servizio Batch con uno scenario semplice
 services: batch
 documentationcenter: python
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 42cae157-d43d-47f8-88f5-486ccfd334f4
@@ -12,11 +12,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 09/27/2016
-ms.author: marsma
+ms.date: 01/23/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: a72a726b9c5ac2b3698d79aff00591c444c26594
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: 155c535c66788d807c47a3eaae50c94ab6b94164
 
 
 ---
@@ -24,10 +24,10 @@ ms.openlocfilehash: a72a726b9c5ac2b3698d79aff00591c444c26594
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
-> 
-> 
+>
+>
 
-Questo articolo illustra i concetti di base relativi ad [Azure Batch][azure_batch] e al client [Python di Batch][py_azure_sdk] esaminando una piccola applicazione scritta in Python. Verrà illustrato il modo in cui due script di esempio usano il servizio Batch per elaborare un carico di lavoro parallelo in macchine virtuali Linux nel cloud e come interagiscono con [Archiviazione di Azure](../storage/storage-introduction.md) per lo staging e il recupero di file. Saranno disponibili informazioni su un flusso di lavoro comune dell'applicazione Batch e sui principali componenti di Batch, ad esempio processi, attività, pool e nodi di calcolo.
+Questo articolo illustra i concetti di base relativi ad [Azure Batch][azure_batch] e al client [Python di Batch][py_azure_sdk] esaminando una piccola applicazione Batch scritta in Python. Verrà illustrato il modo in cui due script di esempio usano il servizio Batch per elaborare un carico di lavoro parallelo in macchine virtuali Linux nel cloud e come interagiscono con [Archiviazione di Azure](../storage/storage-introduction.md) per lo staging e il recupero di file. Saranno disponibili informazioni su un flusso di lavoro comune dell'applicazione Batch e sui principali componenti di Batch, ad esempio processi, attività, pool e nodi di calcolo.
 
 ![Flusso di lavoro della soluzione Batch (di base)][11]<br/>
 
@@ -52,25 +52,25 @@ Per eseguire lo script di esempio *python_tutorial_client.py* nella workstation 
 È necessario installare le dipendenze per la libreria [cryptography][crypto], richieste dai pacchetti Python `azure-batch` e `azure-storage`. Eseguire una di queste operazioni appropriate per la piattaforma o vedere i dettagli dell'[installazione di cryptography][crypto_install] per altre informazioni:
 
 * Ubuntu
-  
+
     `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`
 * CentOS
-  
+
     `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`
 * SLES/OpenSUSE
-  
+
     `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
 * Windows
-  
+
     `pip install cryptography`
 
 > [!NOTE]
 > Se si esegue l'installazione per Python 3.3+ in Linux, usare gli equivalenti di python3 per le dipendenze di Python. Ad esempio, in Ubuntu: `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
-> 
-> 
+>
+>
 
 ### <a name="azure-packages"></a>Pacchetti di Azure
-Installare poi i pacchetti Python per **Azure Batch** e **Archiviazione di Azure**. A tale scopo, usare **pip** e il file *requirements.txt* disponibile qui:
+Installare poi i pacchetti Python per **Azure Batch** e **Archiviazione di Azure**. È possibile installare entrambi i pacchetti usando **pip** e *requirements.txt* disponibili qui:
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
 
@@ -84,9 +84,9 @@ In alternativa, è possibile installare i pacchetti Python [azure-batch][pypi_ba
 `pip install azure-storage`
 
 > [!TIP]
-> Potrebbe essere necessario anteporre `sudo` ai comandi, se si usa un account senza privilegi. ad esempio `sudo pip install -r requirements.txt`. Per altre informazioni sull'installazione dei pacchetti Python, vedere [Installing Packages][pypi_install] (Installazione di pacchetti) in readthedocs.io.
-> 
-> 
+> Se si una un account senza privilegi, può essere necessario anteporre `sudo` ai comandi. Ad esempio: `sudo pip install -r requirements.txt`. Per altre informazioni sull'installazione dei pacchetti Python, vedere [Installing Packages][pypi_install] (Installazione di pacchetti) in python.org.
+>
+>
 
 ## <a name="batch-python-tutorial-code-sample"></a>Esempio di codice per l'esercitazione di Batch Python
 L'esempio di codice per l'esercitazione di Batch Python è costituito da due script Python e alcuni file di dati.
@@ -109,7 +109,7 @@ Il diagramma seguente illustra le operazioni principali eseguite dagli script cl
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Ogni attività scarica i rispettivi dati di input da Archiviazione di Azure e quindi avvia l'esecuzione.<br/>
 [**Passaggio 6.**](#step-6-monitor-tasks) Monitorare le attività.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Dopo il completamento, le attività caricano i rispettivi dati di output in Archiviazione di Azure.<br/>
-[**Passaggio 7.**](#step-7-download-task-output)  Scaricare l'output delle attività dal servizio di archiviazione.
+[**Passaggio 7.**](#step-7-download-task-output) Scaricare l'output delle attività dal servizio di archiviazione.
 
 Come indicato, non tutte le soluzioni Batch eseguono esattamente questi passaggi e potrebbero includerne molti altri, ma l'esempio illustra i processi comuni presenti in una soluzione Batch.
 
@@ -177,8 +177,8 @@ Dopo la creazione dei contenitori, l'applicazione può caricare i file che verra
 
 > [!TIP]
 > [Come usare l'archiviazione BLOB di Azure da Python](../storage/storage-python-how-to-use-blob-storage.md) offre utili informazioni generali sull'uso dei contenitori e dei BLOB di Archiviazione di Azure, quindi è consigliabile prenderne visione quando si inizia a usare Batch.
-> 
-> 
+>
+>
 
 ## <a name="step-2-upload-task-script-and-data-files"></a>Passaggio 2: Caricare lo script attività e i file di dati
 ![Caricare l'applicazione dell'attività e i file di input (dati) nei contenitori][2]
@@ -266,8 +266,8 @@ Le firme di accesso condiviso sono stringhe che consentono l'accesso sicuro a co
 
 > [!TIP]
 > Per altre informazioni su come fornire un accesso sicuro ai dati nell'account di archiviazione, vedere la serie in due parti sulle firme di accesso condiviso, [Parte 1: Informazioni sul modello di firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md) e [Parte 2: Creare e usare una firma di accesso condiviso con il servizio BLOB](../storage/storage-dotnet-shared-access-signature-part-2.md).
-> 
-> 
+>
+>
 
 ## <a name="step-3-create-batch-pool"></a>Passaggio 3: Creare un pool di Batch
 ![Creare un pool di Batch][3]
@@ -359,7 +359,7 @@ def create_pool(batch_service_client, pool_id,
 
 Quando si crea un pool, si definisce un elemento [PoolAddParameter][py_pooladdparam] che specifica diverse proprietà per il pool:
 
-* **ID** del pool (*id*: obbligatorio)<p/>Così come la maggior parte delle entità in Batch, il nuovo pool deve avere un ID univoco all'interno dell'account Batch. Il codice fa riferimento a questo pool usando il relativo ID, che costituisce anche il modo con cui si identifica il pool nel [portale][azure_portal].
+* **ID** del pool (*id*: obbligatorio)<p/>Così come la maggior parte delle entità in Batch, il nuovo pool deve avere un ID univoco all'interno dell'account Batch. Il codice fa riferimento a questo pool usando il relativo ID, che costituisce anche il modo con cui si identifica il pool nel [portale][azure_portal] di Azure.
 * **Numero di nodi di calcolo** (*target_dedicated*: obbligatorio)<p/>Questa proprietà specifica il numero di macchine virtuali da distribuire nel pool. È importante notare che tutti gli account Batch hanno una **quota** predefinita che limita il numero di **core** e di conseguenza di nodi di calcolo in un account Batch. Le quote predefinite e le istruzioni su come [aumentare una quota](batch-quota-limit.md#increase-a-quota), ad esempio il numero massimo di core nell'account Batch, sono riportate in [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md). Se il pool non raggiunge più di X nodi, ad esempio, questa quota di core può essere la causa.
 * **Sistema operativo** per i nodi (*virtual_machine_configuration* **o** *cloud_service_configuration*: obbligatorio)<p/>In *python_tutorial_client.py* viene creato un pool di nodi Linux tramite [VirtualMachineConfiguration][py_vm_config]. La funzione `select_latest_verified_vm_image_with_node_agent_sku` in `common.helpers` semplifica l'uso delle immagini di [Marketplace per Macchine virtuali di Azure][vm_marketplace]. Per altre informazioni sull'uso delle immagini del Marketplace, vedere [Effettuare il provisioning di nodi di calcolo Linux nei pool di Azure Batch](batch-linux-nodes.md) .
 * **Dimensione dei nodi di calcolo** (*vm_size*: obbligatorio)<p/>Dato che vengono specificati nodi Linux per [VirtualMachineConfiguration][py_vm_config], viene specificata una dimensione di VM, in questo esempio `STANDARD_A1`, in base a quanto descritto in [Dimensioni delle macchine virtuali in Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Per altre informazioni, vedere [Effettuare il provisioning di nodi di calcolo Linux nei pool di Azure Batch](batch-linux-nodes.md) .
@@ -371,8 +371,8 @@ Nel frammento di codice precedente si può notare anche l'uso di due variabili d
 
 > [!TIP]
 > Per altre informazioni sulle variabili di ambiente disponibili nei nodi di calcolo di un pool di Batch, oltre a informazioni sulle directory di lavoro delle attività, vedere **Impostazioni di ambiente per le attività** e **File e directory** in [Panoramica delle funzionalità di Batch per sviluppatori](batch-api-basics.md).
-> 
-> 
+>
+>
 
 ## <a name="step-4-create-batch-job"></a>Passaggio 4: Creare un processo di Batch
 ![Creare un processo di Batch][4]<br/>
@@ -381,7 +381,7 @@ Un **processo** di Batch è una raccolta di attività ed è associato a un pool 
 
 È possibile usare un processo non solo per organizzare le attività nei carichi di lavoro correlati e tenerne traccia, ma anche per imporre determinati vincoli, ad esempio il tempo di esecuzione massimo per il processo e, per estensione, per le rispettive attività, nonché per imporre la priorità dei processi rispetto ad altri nell'account Batch. In questo esempio, tuttavia, il processo viene associato solo al pool creato nel Passaggio 3. Non vengono configurate proprietà aggiuntive.
 
-Tutti i processi di Batch sono associati a un pool specifico. Questa associazione indica i nodi in cui verranno eseguite le attività del processo. Il pool viene specificato con la proprietà [PoolInformation][py_poolinfo], come illustrato nel frammento di codice di seguito.
+Tutti i processi di Batch sono associati a un pool specifico. Questa associazione indica i nodi in cui verranno eseguite le attività del processo. Il pool viene specificato con la proprietà [PoolInformation][py_poolinfo], come illustrato nel frammento di codice seguente.
 
 ```python
 def create_job(batch_service_client, job_id, pool_id):
@@ -460,8 +460,8 @@ def add_tasks(batch_service_client, job_id, input_files,
 
 > [!IMPORTANT]
 > Quando accedono a variabili di ambiente come `$AZ_BATCH_NODE_SHARED_DIR` o eseguono un'applicazione non presente nell'elemento `PATH` del nodo, le righe di comando delle attività devono richiamare la shell in modo esplicito, ad esempio con `/bin/sh -c MyTaskApplication $MY_ENV_VAR`. Questo requisito è superfluo se le attività eseguono un'applicazione nell'elemento `PATH` del nodo e non fanno riferimento a variabili di ambiente.
-> 
-> 
+>
+>
 
 Nel ciclo `for` del frammento di codice precedente, la riga di comando per l'attività è costruita con cinque argomenti della riga di comando che vengono passati a *python_tutorial_task.py*:
 
@@ -487,7 +487,7 @@ blob_client = azureblob.BlockBlobService(account_name=args.storageaccount,
 
 Quando le attività vengono aggiunte a un processo, vengono accodate automaticamente e ne viene pianificata l'esecuzione nei nodi di calcolo entro il pool associato al progetto. In base alle impostazioni specificate, Batch gestisce tutte le operazioni di accodamento, pianificazione, ripetizione di tentativi dell'attività e tutte le altre operazioni amministrative relative all'attività.
 
-Sono disponibili molti approcci al monitoraggio dell'esecuzione delle attività. La funzione `wait_for_tasks_to_complete` in *python_tutorial_client.py* offre un esempio semplice di monitoraggio delle attività per un determinato stato, in questo caso lo stato [completed][py_taskstate].
+Sono disponibili molti approcci al monitoraggio dell'esecuzione delle attività. La funzione `wait_for_tasks_to_complete` in *python_tutorial_client.py* offre un esempio semplice di monitoraggio delle attività per un determinato stato, in questo caso lo stato [Completed][py_taskstate].
 
 ```python
 def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
@@ -563,11 +563,11 @@ def download_blobs_from_container(block_blob_client,
 
 > [!NOTE]
 > La chiamata a `download_blobs_from_container` in *python_tutorial_client.py* specifica che i file devono essere scaricati nella home directory dell'utente. È possibile modificare questo percorso di output.
-> 
-> 
+>
+>
 
 ## <a name="step-8-delete-containers"></a>Passaggio 8: Eliminare i contenitori
-Poiché vengono effettuati addebiti per i dati che risiedono in Archiviazione di Azure, è consigliabile rimuovere eventuali BLOB non più necessari per i processi di Batch. In *python_tutorial_client.py* questa operazione viene eseguita con tre chiamate a [BlockBlobService.delete_container][py_delete_container]:
+Poiché vengono effettuati addebiti per i dati che risiedono in Archiviazione di Azure, è consigliabile rimuovere eventuali BLOB non più necessari per i processi di Batch. In *python_tutorial_client.py*, questa operazione viene eseguita con tre chiamate a [BlockBlobService.delete_container][py_delete_container]:
 
 ```
 # Clean up storage resources
@@ -593,16 +593,16 @@ if query_yes_no('Delete pool?') == 'yes':
 
 > [!IMPORTANT]
 > Occorre ricordare che vengono effettuati addebiti per le risorse di calcolo e che l'eliminazione di pool inutilizzati consente di ridurre al minimo i costi. Si noti anche che l'eliminazione di un pool comporta l'eliminazione di tutti i nodi di calcolo in quel pool e che eventuali dati disponibili nei nodi non potranno essere più recuperati dopo l'eliminazione del pool.
-> 
-> 
+>
+>
 
 ## <a name="run-the-sample-script"></a>Eseguire lo script di esempio
 Quando si esegue lo script *python_tutorial_client.py* dal [codice di esempio][github_article_samples] dell'esercitazione, l'output della console sarà simile al seguente. Si riscontra una pausa in corrispondenza di `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` mentre vengono creati e avviati i nodi di calcolo del pool e vengono eseguiti i comandi nell'attività iniziale del pool. Usare il [portale di Azure][azure_portal] per monitorare il pool, i nodi di calcolo, il processo e le attività durante e dopo l'esecuzione. Usare il [portale di Azure][azure_portal] o [Microsoft Azure Storage Explorer][storage_explorer] per visualizzare le risorse di archiviazione (contenitori e BLOB) create dall'applicazione.
 
 > [!TIP]
-> Eseguire lo script *python_tutorial_client.py* dalla directory `azure-batch-samples/Python/Batch/article_samples`. che usa un percorso relativo per l'importazione del modulo `common.helpers`. Perciò potrebbe venire visualizzato il messaggio `ImportError: No module named 'common'` se non si esegue lo script da questa directory.
-> 
-> 
+> Eseguire lo script *python_tutorial_client.py* dalla directory `azure-batch-samples/Python/Batch/article_samples`. che usa un percorso relativo per l'importazione del modulo `common.helpers`. Perciò se non si esegue lo script da questa directory, è possibile che venga visualizzato il messaggio `ImportError: No module named 'common'`.
+>
+>
 
 Se si esegue l'esempio con la configurazione predefinita, il tempo di esecuzione tipico è di **circa 5-7 minuti** .
 
@@ -689,8 +689,7 @@ Dopo avere acquisito familiarità con il flusso di lavoro di base di una soluzio
 [py_vm_config]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.VirtualMachineConfiguration
 [pypi_batch]: https://pypi.python.org/pypi/azure-batch
 [pypi_storage]: https://pypi.python.org/pypi/azure-storage
-
-[pypi_install]: http://python-packaging-user-guide.readthedocs.io/en/latest/installing/
+[pypi_install]: https://packaging.python.org/installing/
 [storage_explorer]: http://storageexplorer.com/
 [visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
@@ -709,6 +708,6 @@ Dopo avere acquisito familiarità con il flusso di lavoro di base di una soluzio
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

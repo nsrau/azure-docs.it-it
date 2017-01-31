@@ -1,6 +1,6 @@
 ---
-title: 'Guida per gli sviluppatori: glossario | Documentazione Microsoft'
-description: Un glossario dei termini comuni relativi all&quot;hub IoT
+title: Glossario dell&quot;hub IoT di Azure | Documentazione Microsoft
+description: Guida per sviluppatori - Glossario dei termini comuni relativi all&quot;hub IoT di Azure.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: d4bf4e03321255385dbb15d7559ea94f191183b5
+ms.sourcegitcommit: 1f795dd5b3d99731b2e683085d889ed7943d6281
+ms.openlocfilehash: 3661ad7374fd91cf7bbc485b8ce0805b78518899
 
 
 ---
@@ -42,7 +42,7 @@ Sono disponibili _SDK per servizi_ per più linguaggi che consentono di creare [
 Il [portale di Microsoft Azure](https://portal.azure.com) è una posizione centrale in cui è possibile effettuare il provisioning e gestire le risorse di Azure. Organizza il contenuto usando i _pannelli_. In alcune esercitazioni su Hub IoT è possibile che venga chiesto di usare il [portale di Azure classico](https://manage.windowsazure.com).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell](../powershell-install-configure.md) è una raccolta di cmdlet che è possibile usare per gestire Azure con Windows PowerShell. È possibile utilizzare i cmdlet per creare, testare, distribuire e gestire soluzioni e servizi offerti tramite la piattaforma Azure.
+[Azure PowerShell](/powershell/azureps-cmdlets-docs) è una raccolta di cmdlet che è possibile usare per gestire Azure con Windows PowerShell. È possibile utilizzare i cmdlet per creare, testare, distribuire e gestire soluzioni e servizi offerti tramite la piattaforma Azure.
 
 ## <a name="azure-resource-manager"></a>Gestione risorse di Azure
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) consente di usare le risorse incluse nella soluzione come un gruppo. È possibile distribuire, aggiornare o eliminare le risorse della soluzione con un'unica operazione coordinata.
@@ -63,7 +63,9 @@ Un gateway cloud abilita la connettività per i dispositivi che non possono conn
 Si riferisce ai messaggi inviati da un hub IoT a un dispositivo connesso. Spesso, questi messaggi sono comandi che indicano al dispositivo di eseguire un'azione. Per altre informazioni, vedere [Inviare e ricevere messaggi con l'hub IoT](iot-hub-devguide-messaging.md).
 
 ## <a name="connection-string"></a>Stringa di connessione
-Le stringhe di connessione vengono usate nel codice dell'app per incapsulare le informazioni necessarie per connettersi a un endpoint. Una stringa di connessione include in genere l'indirizzo dell'endpoint e le informazioni di sicurezza, ma il formato della stringa di connessione dipende dal servizio.
+Le stringhe di connessione vengono usate nel codice dell'app per incapsulare le informazioni necessarie per connettersi a un endpoint. Una stringa di connessione contiene in genere l'indirizzo dell'endpoint e informazioni di sicurezza, ma il formato della stringa può variare nei diversi servizi. Esistono due tipi di stringa di connessione associato al servizio hub IoT:
+- *Stringhe di connessione dispositivo* che consentono ai dispositivi di connettersi agli endpoint che usano dispositivi in un hub IoT.
+- *Stringhe di connessione hub IoT* che consentono alle app back-end di connettersi agli endpoint che usano i servizi in un hub IoT.
 
 ## <a name="custom-gateway"></a>Gateway personalizzato
 Un gateway abilita la connettività per i dispositivi che non possono connettersi direttamente a [Hub IoT](#iot-hub). È possibile usare [Azure IoT Gateway SDK](#azure-iot-gateway-sdk) per compilare gateway personalizzati che implementano la logica personalizzata per gestire i messaggi e le conversioni dei protocolli personalizzati.
@@ -147,13 +149,13 @@ Un gateway abilita la connettività per i dispositivi che non possono connetters
 Il [registro delle identità](iot-hub-devguide-identity-registry.md) è il componente integrato di un hub IoT che archivia le informazioni sui singoli dispositivi a cui è consentito connettersi a un hub IoT.
 
 ## <a name="interactive-message"></a>Messaggio interattivo
-Un messaggio interattivo è un messaggio [da cloud a dispositivo](#cloud-to-device) che attiva un'azione immediata nel back-end dell'applicazione. Ad esempio, un dispositivo potrebbe inviare un allarme relativo a un errore che deve essere registrato automaticamente in un sistema CRM.
+Un messaggio interattivo è un messaggio [da cloud a dispositivo](#cloud-to-device) che attiva un'azione immediata nel back-end della soluzione. Ad esempio, un dispositivo potrebbe inviare un allarme relativo a un errore che deve essere registrato automaticamente in un sistema CRM.
 
 ## <a name="iot-hub"></a>Hub IoT
 Hub IoT è un servizio completamente gestito di Azure che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi e un back-end della soluzione. Per altre informazioni, vedere [Che cos'è l'hub IoT di Azure?](iot-hub-what-is-iot-hub.md) Usando la [sottoscrizione di Azure](#subscription), è possibile creare hub IoT per gestire i carichi di lavoro di messaggistica IoT.
 
 ## <a name="iot-hub-metrics"></a>Metriche di Hub IoT
-Le [metriche di Hub IoT](iot-hub-metrics.md) forniscono dati sullo stato degli hub IoT nella [sottoscrizione di Azure](#subscription). La metrica consente di valutare l'integrità complessiva del servizio e dei dispositivi ad esso connessi. Le metriche consentono di vedere le attività in corso nell'hub IoT e di esaminare la causa radice dei problemi senza dover contattare il supporto di Azure.
+Le [metriche di Hub IoT](iot-hub-metrics.md) forniscono dati sullo stato degli hub IoT nella [sottoscrizione di Azure](#subscription). Le metriche dell'hub IoT consentono di valutare l'integrità complessiva del servizio e dei dispositivi connessi. Le metriche consentono di visualizzare le attività in corso nell'hub IoT e di esaminare la causa radice dei problemi senza la necessità di contattare il supporto di Azure.
 
 ## <a name="iot-hub-query-language"></a>Linguaggio di query di Hub IoT
 Il [linguaggio di query di Hub IoT](iot-hub-devguide-query-language.md) è un linguaggio simile a SQL che consente di effettuare una query dei [processi](#job) e dei dispositivi gemelli.
@@ -225,7 +227,7 @@ In una sottoscrizione di Azure viene eseguita la fatturazione. Ogni risorsa di A
 Nell'ambito di un [dispositivo gemello](iot-hub-devguide-device-twins.md), le proprietà di sistema sono di sola lettura e includono informazioni riguardanti l'uso dei dispositivi, ad esempio lo stato della connessione e l'ora dell'ultima attività.
 
 ## <a name="tags"></a>Tag
-Nell'ambito di un [dispositivo gemello](iot-hub-devguide-device-twins.md), i tag sono metadati del dispositivo archiviati e recuperati dal back-end dell'applicazione sotto forma di documento JSON. I tag non sono visibili alle app in un dispositivo.
+Nell'ambito di un [dispositivo gemello](iot-hub-devguide-device-twins.md), i tag sono metadati del dispositivo archiviati e recuperati dal back-end della soluzione in forma di documento JSON. I tag non sono visibili alle app in un dispositivo.
 
 ## <a name="telemetry"></a>Telemetria
 I dispositivi raccolgono dati di telemetria, ad esempio la velocità del vento o la temperatura, e usano i [messaggi dei punti dati](#data-point-messages) per inviare i dati di telemetria a un hub IoT.
@@ -237,6 +239,6 @@ I dispositivi raccolgono dati di telemetria, ad esempio la velocità del vento o
 Un dispositivo può usare un certificato X.509 per autenticarsi con [Hub IoT](#iot-hub). Usare un certificato X.509 è un'alternativa all'uso di un [token di firma di accesso condiviso](#shared-access-signature).
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

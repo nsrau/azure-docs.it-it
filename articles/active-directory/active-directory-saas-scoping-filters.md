@@ -42,7 +42,7 @@ Se sono stati definiti più gruppi di ambiti, ogni utente deve superarne almeno 
 
 In altre parole, è come se i gruppi di ambiti fossero collegati tramite operatore OR e le clausole in essi contenute fossero collegate tramite operatore AND. Vedere ad esempio il filtro per la definizione dell'ambito seguente:
 
-![Nome del gruppo di ambiti][2]  
+![Nome del gruppo di ambiti][3]  
 
 In base a questo filtro per la definizione dell'ambito, affinché sia possibile eseguire il provisioning degli utenti nell'applicazione, questi devono soddisfare i criteri seguenti:
 
@@ -62,7 +62,7 @@ In base a questo filtro per la definizione dell'ambito, affinché sia possibile 
 <!--Image references-->
 [1]: ./media/active-directory-saas-scoping-filters/ic782811.png
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
-[3]: ./active-directory-saas-scoping-filters/ic782813.png
+[3]: ./media/active-directory-saas-scoping-filters/ic782813.png
 
 
 

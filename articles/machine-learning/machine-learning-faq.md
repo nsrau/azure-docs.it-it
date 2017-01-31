@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti su Azure Machine Learning | Documentazione di Microsoft
+title: Domande frequenti su Azure Machine Learning | Documentazione Microsoft
 description: "Introduzione ad Azure Machine Learning; domande frequenti su fatturazione, funzionalità e limitazioni di un servizio cloud per la modellazione predittiva semplificata."
 keywords: "introduzione al machine learning, modellazione predittiva, cos’è il machine learning"
 services: machine-learning
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/26/2016
+ms.date: 01/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: c5479dd817e8929ff5e9129d4643d49758e7ab16
-ms.openlocfilehash: 82d4d74a14ec31453f0d3eb9a18140c3569f806c
+ms.sourcegitcommit: 0813611f581a68efb8f09a1e041cfbe429bf0c5c
+ms.openlocfilehash: fd03dbfa0ba71e166e8201daf284363a179693ee
 
 
 ---
@@ -542,6 +542,6 @@ L'accesso guest è un'esperienza di valutazione limitata che consente di creare 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

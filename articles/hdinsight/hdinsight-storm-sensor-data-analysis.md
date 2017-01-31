@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 676f0aec3bdbeae7f5522847a9676fd832b271f6
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 0d2743f10d828aaf5ef401ac5378c94384e0a46b
 
 
 ---
@@ -27,8 +27,8 @@ Il modello di Azure Resource Manager usato in questo documento illustra come cre
 
 > [!NOTE]
 > Le informazioni contenute in questo documento e l'esempio fornito sono stati testati con le versioni cluster di HDInsight 3.3 e 3.4 basate su Linux .
-> 
-> 
+>
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -272,7 +272,7 @@ Prima di eseguire il test, è necessario avviare il dashboard per visualizzare l
 3. Dopo aver verificato il corretto funzionamento di questo meccanismo, arrestare la topologia usando CTRL+C. È possibile usare CTRL+C anche per arrestare il server Web locale.
 
 ## <a name="create-a-storm-and-hbase-cluster"></a>Creare un cluster Storm e HBase
-Per eseguire la topologia in HDInsight e per abilitare il bolt HBase, è necessario creare nuovi cluster Storm e HBase. Per i passaggi in questa sezione si usa un [modello di Azure Resource Manager](../resource-group-template-deploy.md) per creare una nuova rete virtuale di Azure e un cluster Storm e HBase nella rete virtuale. Il modello crea anche un'app Web di Azure e consente di distribuire una copia del dashboard al suo interno.
+Per eseguire la topologia in HDInsight e per abilitare il bolt HBase, è necessario creare nuovi cluster Storm e HBase. Per i passaggi in questa sezione si usa un [modello di Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md) per creare una nuova rete virtuale di Azure e un cluster Storm e HBase nella rete virtuale. Il modello crea anche un'app Web di Azure e consente di distribuire una copia del dashboard al suo interno.
 
 > [!NOTE]
 > Viene usata una rete virtuale in modo che la topologia in esecuzione nel cluster Storm possa comunicare direttamente con il cluster HBase tramite l'API Java HBase.
@@ -283,7 +283,7 @@ Il modello di Resource Manager usato in questo documento si trova in un contenit
 
 1. Fare clic sul pulsante seguente per accedere ad Azure e aprire il modello di Resource Manager nel portale di Azure.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="./media/hdinsight-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Nel pannello **Parametri** immettere le informazioni seguenti:
    
     ![Parametri di HDInsight](./media/hdinsight-storm-sensor-data-analysis/parameters.png)
@@ -499,6 +499,6 @@ In questo articolo si è appreso come usare Storm per leggere dati dagli hub eve
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

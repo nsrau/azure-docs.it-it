@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2016
+ms.date: 12/15/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f574a3cd837e4fc9cf292d672432a7960cae177b
+ms.sourcegitcommit: 8867cda9d4b35fa908db8749aaad74d85cec67f3
+ms.openlocfilehash: 5f82274838de2e6d2a753a685760b5f144065d94
 
 
 ---
@@ -156,13 +156,13 @@ Esistono alcune limitazioni riguardo ai dati pubblicati nell'API per la raccolta
 * Il numero massimo di campi consigliato per un determinato tipo è 50. Si tratta di un limite pratico dal punto di vista dell'usabilità e dell'esperienza di ricerca.  
 
 ## <a name="return-codes"></a>Codici restituiti
-Il codice di stato HTTP 202 indica che la richiesta è stata accettata per l'elaborazione, ma l'elaborazione non è ancora terminata. L'operazione è stata completata correttamente.
+Il codice di stato HTTP 200 indica che è stata ricevuta la richiesta per l'elaborazione. L'operazione è stata completata correttamente.
 
 Questa tabella elenca il set completo di codici di stato che il servizio può restituire:
 
 | Codice | Stato | Codice di errore | Descrizione |
 |:--- |:--- |:--- |:--- |
-| 202 |Accepted | |La richiesta è stata accettata. |
+| 200 |OK | |La richiesta è stata accettata. |
 | 400 |Richiesta non valida |InactiveCustomer |L'area di lavoro è stata chiusa. |
 | 400 |Richiesta non valida |InvalidApiVersion |La versione API specificata non è stata riconosciuta dal servizio. |
 | 400 |Richiesta non valida |InvalidCustomerId |L'ID area di lavoro specificato non è valido. |
@@ -173,6 +173,8 @@ Questa tabella elenca il set completo di codici di stato che il servizio può re
 | 400 |Richiesta non valida |MissingLogType |Il tipo di log dei valori non è stato specificato. |
 | 400 |Richiesta non valida |UnsupportedContentType |Il tipo di contenuto non è stato impostato su **application/json**. |
 | 403 |Accesso negato |InvalidAuthorization |Il servizio non è riuscito ad autenticare la richiesta. Verificare che l'ID dell'area di lavoro e la chiave di connessione siano validi. |
+| 404 |Non trovato | | L'URL specificato non è corretto o la richiesta è di dimensioni eccessive. |
+| 429 |Troppe richieste | | Il servizio sta ricevendo un elevato volume di dati dall'account. Si prega di ripetere la richiesta più tardi. |
 | 500 |Internal Server Error |UnspecifiedError |Errore interno del servizio. Si prega di ripetere la richiesta. |
 | 503 |Servizio non disponibile |ServiceUnavailable |Il servizio non è attualmente disponibile per la ricezione delle richieste. Si prega di ripetere la richiesta. |
 
@@ -416,7 +418,7 @@ def post_data(customer_id, shared_key, body, log_type):
     }
 
     response = requests.post(uri,data=body, headers=headers)
-    if (response.status_code == 202):
+    if (response.status_code >= 200 and response.status_code <= 299):
         print 'Accepted'
     else:
         print "Response code: {}".format(response.status_code)
@@ -430,6 +432,6 @@ post_data(customer_id, shared_key, body, log_type)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

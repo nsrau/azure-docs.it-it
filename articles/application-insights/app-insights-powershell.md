@@ -1,21 +1,21 @@
 ---
-title: "Creare test di disponibilità, avviso e risorse di Application Insights in PowerShell | Microsoft Docs"
+title: "Creare test di disponibilità, avviso e risorse di Azure Application Insights in PowerShell | Documentazione Microsoft"
 description: Automatizzare la gestione delle risorse di Application Insights usando un modello di Azure Resource Manager.
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 12/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fc2d3c3fee5abbab0eab16c106c88c8753e703cc
-ms.openlocfilehash: f6302d7d11691635c286164f11be74ff3a1ad8dd
+ms.sourcegitcommit: 86118ebfcb0c7c55ff414d381645025f41c74eb7
+ms.openlocfilehash: ba52b3dc55d80cc5944f16c238a2ea0d66c94990
 
 
 ---
@@ -32,103 +32,116 @@ Installare il modulo Azure Powershell nel computer in cui si desidera eseguire g
 1. Installare [Installazione guidata piattaforma Web Microsoft (v5 o versione successiva)](http://www.microsoft.com/web/downloads/platform.aspx).
 2. Usarla per installare Microsoft Azure Powershell.
 
-## <a name="copy-the-json-for-existing-resources"></a>Copiare i JSON per le risorse esistenti
-1. Impostare [Application Insights](app-insights-overview.md) per progetti simili a quelli che si desidera generare automaticamente. Se si desidera, aggiungere i test web e gli avvisi.
-2. Creare un nuovo file con estensione .json - definirlo `template1.json` in questo esempio. Copiare questo contenuto al suo interno:
+## <a name="create-an-azure-resource-manager-template"></a>Creare un modello di Azure Resource Manager
+Creare un nuovo file con estensione .json - definirlo `template1.json` in questo esempio. Copiare questo contenuto al suo interno:
 
-    ```JSON
-
-        {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+```JSON
+{
+          "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {
-            "appName": { "type": "string" },
-            "webTestName": { "type": "string" },
-            "url": { "type": "string" },
-            "text": { "type" : "string" }
+            "appName": {
+              "type": "string",
+              "metadata": {
+                "description": "Enter the application name."
+              }
+            },
+            "applicationType": {
+              "type": "string",
+              "defaultValue": "ASP.NET web application",
+              "allowedValues": [ "ASP.NET web application", "Java web application", "HockeyApp bridge application", "Other (preview)" ],
+              "metadata": {
+                "description": "Enter the application type."
+              }
+            },
+            "appLocation": {
+              "type": "string",
+              "defaultValue": "East US",
+              "allowedValues": [ "South Central US", "West Europe", "East US", "North Europe" ],
+              "metadata": {
+                "description": "Enter the application location."
+              }
+            },
+            "priceCode": {
+              "type": "int",
+              "defaultValue": 1,
+              "allowedValues": [ 1, 2 ],
+              "metadata": {"description": "1 = Basic, 2 = Enterprise"}
+            },
+            "dailyQuota": {
+              "type": "int",
+              "defaultValue": 100,
+              "minValue": 1,
+              "metadata": {
+                "description": "Enter daily quota in GB."
+              }
+            },
+            "dailyQuotaResetTime": {
+              "type": "int",
+              "defaultValue": 24,
+              "metadata": {
+                "description": "Enter daily quota reset hour in UTC (0 to 23). Values outside the range will get a random reset hour."
+              }
+            },
+            "warningThreshold": {
+              "type": "int",
+              "defaultValue": 90,
+              "minValue": 1,
+              "maxValue": 100,
+              "metadata": {
+                "description": "Enter the % value of daily quota after which warning mail to be sent. "
+              }
+            }
           },
-          "variables": {
-            "testName": "[concat(parameters('webTestName'), 
-               '-', toLower(parameters('appName')))]"
-            "alertRuleName": "[concat(parameters('webTestName'), 
-               '-', toLower(parameters('appName')), 
-               '-', subscription().subscriptionId)]"
+
+         "variables": {
+           "priceArray": [ "Basic", "Application Insights Enterprise" ],
+           "pricePlan": "[take(variables('priceArray'),parameters('priceCode'))]",
+           "billingplan": "[concat(parameters('appName'),'/', variables('pricePlan')[0])]"
           },
+
           "resources": [
             {
-              // component JSON file contents
+              "apiVersion": "2014-08-01",
+              "location": "[parameters('appLocation')]",
+              "name": "[parameters('appName')]",
+              "type": "microsoft.insights/components",
+              "properties": {
+                "Application_Type": "[parameters('applicationType')]",
+                "ApplicationId": "[parameters('appName')]",
+                "Name": "[parameters('appName')]",
+                "Flow_Type": "Redfield",
+                "Request_Source": "IbizaAIExtension"
+              }
             },
             {
-              //web test JSON file contents
+              "name": "[variables('billingplan')]",
+              "type": "microsoft.insights/components/CurrentBillingFeatures",
+              "location": "[parameters('appLocation')]",
+              "apiVersion": "2015-05-01",
+              "dependsOn": [
+                "[resourceId('microsoft.insights/components', parameters('appName'))]"
+              ],
+              "properties": {
+                "CurrentBillingFeatures": "[variables('pricePlan')]",
+                "DataVolumeCap": {
+                  "Cap": "[parameters('dailyQuota')]",
+                  "WarningThreshold": "[parameters('warningThreshold')]",
+                  "ResetTime": "[parameters('dailyQuotaResetTime')]"
+                }
+              }
             },
-            {
-              //alert rule JSON file contents
-            }
 
-            // Any other resources go here
+          "__comment":"web test, alert, and any other resources go here"
           ]
         }
 
-    ```
-
-    Questo modello configura un test di disponibilità oltre alla risorsa principale.
+```
 
 
-1. Aprire [Gestione risorse di Azure](https://resources.azure.com/). Scorrere verso il basso `subscriptions/resourceGroups/<your resource group>/providers/Microsoft.Insights/components` fino alla risorsa dell'applicazione. 
-   
-    ![Navigare in Esplora risorse di Azure](./media/app-insights-powershell/01.png)
-   
-    *Componenti* sono le risorse base di Application Insights per la visualizzazione di applicazioni. Sono disponibili risorse separate per le regole di avviso associate e i test web di disponibilità.
-2. Copiare i JSON del componente nella posizione appropriata in `template1.json`.
-3. Eliminare queste proprietà:
-   
-   * `id`
-   * `InstrumentationKey`
-   * `CreationDate`
-   * `TenantId`
-4. Aprire le sezioni webtests e alertrules e copiare i JSON per i singoli elementi nel modello. (Non copiare dai nodi webtests e alertrules: passare agli elementi sotto ad essi.)
-   
-    Ciascun test web dispone di una regola di avviso associata, perciò è necessario copiarli entrambi.
-   
-    Ogni test Web dispone di una regola di avviso corrispondente. Il test Web ha la precedenza.
-   
-    È possibile includere anche avvisi nelle metriche. [Nomi delle metriche](app-insights-powershell-alerts.md#metric-names).
-5. Inserire questa riga in ciascuna risorsa:
-   
-    `"apiVersion": "2015-05-01",`
-
-## <a name="parameterize-the-template"></a>Impostazione dei parametri per il modello
-È necessario sostituire i nomi specifici con i parametri. Per [impostare i parametri di un modello](../azure-resource-manager/resource-group-authoring-templates.md), si scrivono espressioni mediante un [set di funzioni di supporto](../azure-resource-manager/resource-group-template-functions.md). 
-
-È Impossibile impostare i parametri per una sola parte di una stringa, quindi utilizzare `concat()` per compilare stringhe.
-
-Di seguito sono riportati esempi delle sostituzioni che si possono apportare. Sono presenti più occorrenze di ogni sostituzione. Potrebbero esserne necessarie altre nel modello. Questi esempi utilizzano i parametri e le variabili definite nella parte superiore del modello.
-
-| find | sostituire con |
-| --- | --- |
-| `"hidden-link:/subscriptions/.../components/MyAppName"` |`"[concat('hidden-link:',`<br/>` resourceId('microsoft.insights/components',` <br/> ` parameters('appName')))]"` |
-| `"/subscriptions/.../alertrules/myAlertName-myAppName-subsId",` |`"[resourceId('Microsoft.Insights/alertrules', variables('alertRuleName'))]",` |
-| `"/subscriptions/.../webtests/myTestName-myAppName",` |`"[resourceId('Microsoft.Insights/webtests', parameters('webTestName'))]",` |
-| `"myWebTest-myAppName"` |`"[variables(testName)]"'` |
-| `"myTestName-myAppName-subsId"` |`"[variables('alertRuleName')]"` |
-| `"myAppName"` |`"[parameters('appName')]"` |
-| `"myappname"` (minuscolo) |`"[toLower(parameters('appName'))]"` |
-| `"<WebTest Name=\"myWebTest\" ...`<br/>` Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`<br/>Eliminare GUID e ID. |
-
-## <a name="set-dependencies-between-the-resources"></a>Impostazione di dipendenze tra le risorse
-Azure deve configurare le risorse in ordine fisso. Per assicurarsi che un programma di installazione venga completato prima che inizi il successivo, aggiungere le righe delle dipendenze:
-
-* Nella risorsa del test di disponibilità:
-  
-    `"dependsOn": ["[resourceId('Microsoft.Insights/components', parameters('appName'))]"],`
-* Nella risorsa di avviso:
-  
-    `"dependsOn": ["[resourceId('Microsoft.Insights/webtests', variables('testName'))]"],`
-
-Si noti che un test di disponibilità è in realtà composto da due parti: il test stesso e una regola di avviso che viene attivata a seconda dei risultati dei test.
 
 ## <a name="create-application-insights-resources"></a>Creare risorse di Application Insights
-1. In PowerShell, accedere ad Azure
+1. In PowerShell accedere ad Azure:
    
     `Login-AzureRmAccount`
 2. Eseguire un comando simile al seguente:
@@ -136,20 +149,32 @@ Si noti che un test di disponibilità è in realtà composto da due parti: il te
     ```PS
    
         New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
-               -templateFile .\template1.json `
-               -appName myNewApp `
-               -webTestName aWebTest `
-               -url http://myapp.com `
-               -text "Welcome!"
-   
+               -TemplateFile .\template1.json `
+               -appName myNewApp
+
     ``` 
    
-   * -ResourceGroupName è il gruppo in cui si desidera creare le nuove risorse.
-   * -templateFile deve precedere i parametri personalizzati.
-   * -appName è il nome della risorsa da creare.
-   * -webTestName è il nome del test web da creare.
-   * -Url è l'url dell'app web.
-   * -text è una stringa che viene visualizzata nella pagina web.
+   * `-ResourceGroupName` è il gruppo in cui si vogliono creare le nuove risorse.
+   * `-TemplateFile` deve precedere i parametri personalizzati.
+   * `-appName` è il nome della risorsa da creare.
+
+È possibile aggiungere altri parametri le cui descrizioni sono disponibili nella sezione del modello dedicata ai parametri.
+
+## <a name="enterprise-price-plan"></a>Piano tariffario Enterprise
+
+Per creare una risorsa app con il piano tariffario Enterprise, usando il modello precedente:
+
+```PS
+   
+
+        New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
+               -TemplateFile .\template1.json `
+               -priceCode 2 `
+               -appName myNewApp
+```
+
+* Per usare solo il piano tariffario Basic predefinito, è possibile omettere la risorsa piano tariffario dal modello.
+
 
 ## <a name="to-get-the-instrumentation-key"></a>Per impostare la chiave di strumentazione
 Dopo la creazione di una risorsa dell'applicazione, è necessaria la chiave di strumentazione: 
@@ -161,138 +186,40 @@ Dopo la creazione di una risorsa dell'applicazione, è necessaria la chiave di s
     $resource.Properties.InstrumentationKey
 ```
 
+## <a name="add-a-metric-alert"></a>Aggiungere un avviso per la metrica
 
-## <a name="an-example"></a>un esempio
-Questo è il modello completo che è stato creato. Ha il componente dell'applicazione, il test di disponibilità, l'avviso del test di disponibilità e un avviso sulla metrica del tempo di risposta.
+Per configurare un avviso per la metrica contemporaneamente alla risorsa app, unire il codice seguente nel file modello:
 
-``` JSON
+```JSON
 
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "webTestName": { "type": "string" },
-    "appName": { "type": "string" },
-    "URL": { "type": "string" },
-    "text": { "type": "string" }
-  },
-  "variables": {
-    "alertRuleName": "[concat(parameters('webTestName'), '-', toLower(parameters('appName')), '-', subscription().subscriptionId)]",
-    "testName": "[concat(parameters('webTestName'), '-', toLower(parameters('appName')))]",
-    "responseAlertName": "[concat('ResponseTime-', toLower(parameters('appName')))]"
-  },
-  "resources": [
-    {
-      //
-      // App resource
-      //
-      "name": "[parameters('appName')]",
-      "type": "Microsoft.Insights/components",
-      "apiVersion": "2014-04-01",
-      "kind": "web",
-      "location": "East US", // Set to preferred location 
-      "properties": {
-        "Application_Type": "web",
-        "Flow_Type": "Brownfield",
-        "Request_Source": "VSIX3.3.1.0",
-        "Name": "[parameters('appName')]",
-        "PackageId": null,
-        "ApplicationId": "[parameters('appName')]"
-      },
-      "tags": { "applicationType": "web" }
+    parameters: { ... // existing parameters ...
+       ,       
+            "responseTime": {
+              "type": "int",
+              "defaultValue": 3,
+              "minValue": 1,
+              "metadata": {
+                "description": "Enter response time threshold in seconds."
+              }
     },
-    {
-      //
-      // Availability test
-      //
-      "name": "[variables('testName')]",
-      "type": "Microsoft.Insights/webtests",
-      "apiVersion": "2014-04-01",
-      "location": "East US", // Set to preferred location
-      "dependsOn": [
-        "[resourceId('Microsoft.Insights/components', parameters('appName'))]"
-      ],
-      "tags": {
-        "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource"
-      },
-      "properties": {
-        "Name": "[parameters('webTestName')]",
-        "Description": "n",
-        "Enabled": true,
-        "Frequency": 900, // 15 minutes
-        "Timeout": 120, // 2 minutes
-        "Kind": "ping", // single URL test
-        "RetryEnabled": true,
-        "Locations": [
-          {
-            "Id": "us-va-ash-azr"
-          },
-          {
-            "Id": "emea-nl-ams-azr"
-          },
-          {
-            "Id": "apac-jp-kaw-edge"
-          }
-        ],
-        "Configuration": {
-          "WebTest": "[concat('<WebTest   Name=\"', parameters('webTestName'), '\"   Enabled=\"True\"         CssProjectStructure=\"\"    CssIteration=\"\"  Timeout=\"120\"  WorkItemIds=\"\"         xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\"         Description=\"\"  CredentialUserName=\"\"  CredentialPassword=\"\"         PreAuthenticate=\"True\"  Proxy=\"default\"  StopOnError=\"False\"         RecordedResultFile=\"\"  ResultsLocale=\"\">  <Items>  <Request Method=\"GET\"    Version=\"1.1\"  Url=\"', parameters('Url'),   '\" ThinkTime=\"0\"  Timeout=\"300\" ParseDependentRequests=\"True\"         FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\"         ResponseTimeGoal=\"0\"  Encoding=\"utf-8\"  ExpectedHttpStatusCode=\"200\"         ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" />        </Items>  <ValidationRules> <ValidationRule  Classname=\"Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleFindText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\" DisplayName=\"Find Text\"         Description=\"Verifies the existence of the specified text in the response.\"         Level=\"High\"  ExectuionOrder=\"BeforeDependents\">  <RuleParameters>        <RuleParameter Name=\"FindText\" Value=\"',   parameters('text'), '\" />  <RuleParameter Name=\"IgnoreCase\" Value=\"False\" />  <RuleParameter Name=\"UseRegularExpression\" Value=\"False\" />  <RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />  </RuleParameters> </ValidationRule>  </ValidationRules>  </WebTest>')]"
-        },
-        "SyntheticMonitorId": "[variables('testName')]"
-      }
-    },
-    {
-      //
-      // Alert rule for the availability test
-      //
-      "name": "[variables('alertRuleName')]",
-      "type": "Microsoft.Insights/alertrules",
-      "apiVersion": "2014-04-01",
-      "location": "East US", // Must be East US at present
-      "dependsOn": [
-        "[resourceId('Microsoft.Insights/webtests', variables('testName'))]"
-      ],
-      "tags": {
-        "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource",
-        "[concat('hidden-link:', resourceId('Microsoft.Insights/webtests', variables('testName')))]": "Resource"
-      },
-      "properties": {
-        "name": "[variables('alertRuleName')]",
-        "description": "alert for web test",
-        "isEnabled": true,
-        "condition": {
-          "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.LocationThresholdRuleCondition, Microsoft.WindowsAzure.Management.Mon.Client",
-          "odata.type": "Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition",
-          "dataSource": {
-            "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource, Microsoft.WindowsAzure.Management.Mon.Client",
-            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
-            "resourceUri": "[resourceId('microsoft.insights/webtests', variables('testName'))]",
-            "metricName": "GSMT_AvRaW"
-          },
-          "windowSize": "PT15M", // Take action if changed state for 15 minutes
-          "failedLocationCount": 2
-        },
-        "actions": [
-          {
-            "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction, Microsoft.WindowsAzure.Management.Mon.Client",
-            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
-            "sendToServiceOwners": true,
-            "customEmails": []
-          }
-        ]
-      }
-
-    },
-    {
+    variables: { ... // existing variables ...
+      ,
+      // Alert names must be unique within resource group.
+      "responseAlertName": "[concat('ResponseTime-', toLower(parameters('appName')))]"
+    }, 
+    resources: { ... // existing resources ...
+     ,
+     {
       //
       // Metric alert on response time
       //
       "name": "[variables('responseAlertName')]",
       "type": "Microsoft.Insights/alertrules",
       "apiVersion": "2014-04-01",
-      "location": "East US", // Must be East US at present
+      "location": "[parameters('appLocation')]",
+      // Ensure this resource is created after the app resource:
       "dependsOn": [
-        "[resourceId('Microsoft.Insights/components', parameters('appName'))]",
-        "[resourceId('Microsoft.Insights/alertrules', variables('alertRuleName'))]"
+        "[resourceId('Microsoft.Insights/components', parameters('appName'))]"
       ],
       "tags": {
         "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource"
@@ -310,7 +237,7 @@ Questo è il modello completo che è stato creato. Ha il componente dell'applica
             "resourceUri": "[resourceId('microsoft.insights/components', parameters('appName'))]",
             "metricName": "request.duration"
           },
-          "threshold": 3, //seconds
+          "threshold": "[parameters('responseTime')]", //seconds
           "windowSize": "PT15M" // Take action if changed state for 15 minutes
         },
         "actions": [
@@ -323,11 +250,179 @@ Questo è il modello completo che è stato creato. Ha il componente dell'applica
         ]
       }
     }
-  ]
-}
-
 
 ```
+
+Quando si richiama il modello, se si vuole, è possibile aggiungere questo parametro:
+
+    `-responseTime 2`
+
+È possibile impostare parametri anche per altri campi. 
+
+Per trovare i nomi dei tipi e i dettagli di configurazione di altre regole di avviso, creare una regola manualmente e quindi esaminarla in [Azure Resource Manager](https://resources.azure.com/). 
+
+
+## <a name="add-an-availability-test"></a>Aggiungere un test di disponibilità
+
+Questo esempio è relativo a un test di ping (per testare una singola pagina).  
+
+**Sono due le parti** di un test di disponibilità: il test stesso e l'avviso che notifica gli errori.
+
+Unire il codice seguente nel file modello che crea l'app.
+
+```JSON
+
+    parameters: { ... // existing parameters here ...
+      ,
+      "pingURL": { "type": "string" },
+      "pingText": { "type": "string" , defaultValue: ""}
+    },
+    variables: { ... // existing variables here ...
+      ,
+      "pingTestName":"[concat('PingTest-', toLower(parameters('appName')))]",
+      "pingAlertRuleName": "[concat('PingAlert-', toLower(parameters('appName')), '-', subscription().subscriptionId)]"
+    },
+    resources: { ... // existing resources here ...
+    ,  
+    { //
+      // Availability test: part 1 configures the test
+      //
+      "name": "[variables('pingTestName')]",
+      "type": "Microsoft.Insights/webtests",
+      "apiVersion": "2014-04-01",
+      "location": "[parameters('appLocation')]",
+      // Ensure this is created after the app resource:
+      "dependsOn": [
+        "[resourceId('Microsoft.Insights/components', parameters('appName'))]"
+      ],
+      "tags": {
+        "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource"
+      },
+      "properties": {
+        "Name": "[variables('pingTestName')]",
+        "Description": "Basic ping test",
+        "Enabled": true,
+        "Frequency": 900, // 15 minutes
+        "Timeout": 120, // 2 minutes
+        "Kind": "ping", // single URL test
+        "RetryEnabled": true,
+        "Locations": [
+          {
+            "Id": "us-va-ash-azr"
+          },
+          {
+            "Id": "emea-nl-ams-azr"
+          },
+          {
+            "Id": "apac-jp-kaw-edge"
+          }
+        ],
+        "Configuration": {
+          "WebTest": "[concat('<WebTest   Name=\"', variables('pingTestName'), '\"   Enabled=\"True\"         CssProjectStructure=\"\"    CssIteration=\"\"  Timeout=\"120\"  WorkItemIds=\"\"         xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\"         Description=\"\"  CredentialUserName=\"\"  CredentialPassword=\"\"         PreAuthenticate=\"True\"  Proxy=\"default\"  StopOnError=\"False\"         RecordedResultFile=\"\"  ResultsLocale=\"\">  <Items>  <Request Method=\"GET\"    Version=\"1.1\"  Url=\"', parameters('Url'),   '\" ThinkTime=\"0\"  Timeout=\"300\" ParseDependentRequests=\"True\"         FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\"         ResponseTimeGoal=\"0\"  Encoding=\"utf-8\"  ExpectedHttpStatusCode=\"200\"         ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" />        </Items>  <ValidationRules> <ValidationRule  Classname=\"Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleFindText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\" DisplayName=\"Find Text\"         Description=\"Verifies the existence of the specified text in the response.\"         Level=\"High\"  ExectuionOrder=\"BeforeDependents\">  <RuleParameters>        <RuleParameter Name=\"FindText\" Value=\"',   parameters('pingText'), '\" />  <RuleParameter Name=\"IgnoreCase\" Value=\"False\" />  <RuleParameter Name=\"UseRegularExpression\" Value=\"False\" />  <RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />  </RuleParameters> </ValidationRule>  </ValidationRules>  </WebTest>')]"
+        },
+        "SyntheticMonitorId": "[variables('pingTestName')]"
+      }
+    },
+
+    {
+      //
+      // Availability test: part 2, the alert rule
+      //
+      "name": "[variables('pingAlertRuleName')]",
+      "type": "Microsoft.Insights/alertrules",
+      "apiVersion": "2014-04-01",
+      "location": "[parameters('appLocation')]", 
+      "dependsOn": [
+        "[resourceId('Microsoft.Insights/webtests', variables('pingTestName'))]"
+      ],
+      "tags": {
+        "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource",
+        "[concat('hidden-link:', resourceId('Microsoft.Insights/webtests', variables('pingTestName')))]": "Resource"
+      },
+      "properties": {
+        "name": "[variables('pingAlertRuleName')]",
+        "description": "alert for web test",
+        "isEnabled": true,
+        "condition": {
+          "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.LocationThresholdRuleCondition, Microsoft.WindowsAzure.Management.Mon.Client",
+          "odata.type": "Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition",
+          "dataSource": {
+            "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource, Microsoft.WindowsAzure.Management.Mon.Client",
+            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+            "resourceUri": "[resourceId('microsoft.insights/webtests', variables('pingTestName'))]",
+            "metricName": "GSMT_AvRaW"
+          },
+          "windowSize": "PT15M", // Take action if changed state for 15 minutes
+          "failedLocationCount": 2
+        },
+        "actions": [
+          {
+            "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction, Microsoft.WindowsAzure.Management.Mon.Client",
+            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
+            "sendToServiceOwners": true,
+            "customEmails": []
+          }
+        ]
+      }
+    }
+
+```
+
+Per trovare i codici per altre posizioni di test o per automatizzare la creazione di test Web più complessi, creare un esempio manualmente e quindi impostare i parametri per il codice da [Azure Resource Manager](https://resources.azure.com/).
+
+## <a name="add-more-resources"></a>Aggiungere altre risorse
+
+Per automatizzare la creazione di altre risorse di qualsiasi tipo, creare un esempio manualmente e quindi copiare il codice e impostarne i parametri da [Azure Resource Manager](https://resources.azure.com/). 
+
+1. Aprire [Gestione risorse di Azure](https://resources.azure.com/). Scorrere verso il basso `subscriptions/resourceGroups/<your resource group>/providers/Microsoft.Insights/components` fino alla risorsa dell'applicazione. 
+   
+    ![Navigare in Esplora risorse di Azure](./media/app-insights-powershell/01.png)
+   
+    *Componenti* sono le risorse base di Application Insights per la visualizzazione di applicazioni. Sono disponibili risorse separate per le regole di avviso associate e i test web di disponibilità.
+2. Copiare i JSON del componente nella posizione appropriata in `template1.json`.
+3. Eliminare queste proprietà:
+   
+   * `id`
+   * `InstrumentationKey`
+   * `CreationDate`
+   * `TenantId`
+4. Aprire le sezioni webtests e alertrules e copiare i JSON per i singoli elementi nel modello. (Non copiare dai nodi webtests e alertrules: passare agli elementi sotto ad essi.)
+   
+    Ciascun test web dispone di una regola di avviso associata, perciò è necessario copiarli entrambi.
+   
+    È possibile includere anche avvisi nelle metriche. [Nomi delle metriche](app-insights-powershell-alerts.md#metric-names).
+5. Inserire questa riga in ciascuna risorsa:
+   
+    `"apiVersion": "2015-05-01",`
+
+### <a name="parameterize-the-template"></a>Impostazione dei parametri per il modello
+È necessario sostituire i nomi specifici con i parametri. Per [impostare i parametri di un modello](../azure-resource-manager/resource-group-authoring-templates.md), si scrivono espressioni mediante un [set di funzioni di supporto](../azure-resource-manager/resource-group-template-functions.md). 
+
+È Impossibile impostare i parametri per una sola parte di una stringa, quindi utilizzare `concat()` per compilare stringhe.
+
+Di seguito sono riportati esempi delle sostituzioni che si possono apportare. Sono presenti più occorrenze di ogni sostituzione. Potrebbero esserne necessarie altre nel modello. Questi esempi utilizzano i parametri e le variabili definite nella parte superiore del modello.
+
+| find | sostituire con |
+| --- | --- |
+| `"hidden-link:/subscriptions/.../components/MyAppName"` |`"[concat('hidden-link:',`<br/>` resourceId('microsoft.insights/components',` <br/> ` parameters('appName')))]"` |
+| `"/subscriptions/.../alertrules/myAlertName-myAppName-subsId",` |`"[resourceId('Microsoft.Insights/alertrules', variables('alertRuleName'))]",` |
+| `"/subscriptions/.../webtests/myTestName-myAppName",` |`"[resourceId('Microsoft.Insights/webtests', parameters('webTestName'))]",` |
+| `"myWebTest-myAppName"` |`"[variables(testName)]"'` |
+| `"myTestName-myAppName-subsId"` |`"[variables('alertRuleName')]"` |
+| `"myAppName"` |`"[parameters('appName')]"` |
+| `"myappname"` (minuscolo) |`"[toLower(parameters('appName'))]"` |
+| `"<WebTest Name=\"myWebTest\" ...`<br/>` Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`<br/>Eliminare GUID e ID. |
+
+### <a name="set-dependencies-between-the-resources"></a>Impostazione di dipendenze tra le risorse
+Azure deve configurare le risorse in ordine fisso. Per assicurarsi che un programma di installazione venga completato prima che inizi il successivo, aggiungere le righe delle dipendenze:
+
+* Nella risorsa del test di disponibilità:
+  
+    `"dependsOn": ["[resourceId('Microsoft.Insights/components', parameters('appName'))]"],`
+* Nella risorsa avviso per un test di disponibilità:
+  
+    `"dependsOn": ["[resourceId('Microsoft.Insights/webtests', variables('testName'))]"],`
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -343,6 +438,6 @@ Altri articoli di automazione:
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

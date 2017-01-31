@@ -17,13 +17,17 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 319978579ae6ad868030d2ec99bce6e6aaa22299
-ms.openlocfilehash: 24a8b9c4e78971199236553802a71134bd12829c
+ms.sourcegitcommit: bcc2d3468c8a560105aa2c2feb0d969ec3cccdcb
+ms.openlocfilehash: 5296586b9266f432042f847f4dff9e6ff62ebc8b
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Connettersi a un cluster del servizio contenitore di Azure
 I cluster DC/OS, Kubernetes e Docker Swarm distribuiti dal servizio contenitore di Azure espongono gli endpoint REST.  Per Kubernetes, questo endpoint viene esposto in modo sicuro su internet ed è possibile accedervi direttamente da qualsiasi computer connesso a internet. Per DC/OS e Docker Swarm è necessario creare un tunnel SSH per connettersi in modo sicuro all'endpoint REST. Ogni connessione viene illustrata di seguito.
+
+> [!NOTE]
+> Il supporto per Kubernetes nel servizio contenitore di Azure è attualmente disponibile in anteprima.
+>
 
 ## <a name="connecting-to-a-kubernetes-cluster"></a>Connessione a un cluster Kubernetes.
 Per connettersi a un cluster Kubernetes, è necessario avere lo strumento da riga di comando `kubectl` installato.  Il modo più semplice per installare questo strumento è usare lo strumento da riga di comando `az` di Azure 2.0.
@@ -172,6 +176,6 @@ Distribuire e gestire contenitori con DC/OS o Swarm:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

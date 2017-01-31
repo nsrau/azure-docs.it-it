@@ -13,27 +13,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: garye;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3d9cceb28de1cfd43a2d2de79de3a59517908ec9
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: a35bc89044ebe8ea8e4a0e4a883c30fb8e8d879a
 
 
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importare dati di training in Azure Machine Learning Studio da varie origini dati
 Per usare i propri dati in Machine Learning Studio per sviluppare ed eseguire il training di una soluzione di analisi predittiva, è possibile: 
 
-* Caricare anticipatamente i dati da un **file locale** nel disco rigido per creare un modulo di set di dati nell'area di lavoro.  
-* Accedere ai dati da una delle varie **origini dati online** mentre l’esperimento viene eseguito tramite il modulo [Import Data][import-data]. 
-* Usare i dati da un altro esperimento di Azure Machine Learning salvato come un **set di dati**. 
+* Caricare anticipatamente i dati da un **file locale** nel disco rigido per creare un modulo di set di dati nell'area di lavoro
+* Accedere ai dati da una delle diverse **origini dati online** mentre l'esperimento viene eseguito tramite il modulo [Import Data][import-data] 
+* Usare i dati da un altro **esperimento** di Azure Machine Learning salvato come un set di dati.
+* Usare i dati da un **database di SQL Server** locale
+
+Ciascuna di queste opzioni viene descritta in uno degli argomenti del menu sottostante. Questi argomenti illustrano come importare dati da diverse origini dati da utilizzare in Machine Learning Studio. 
 
 [!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
-Ciascuna di queste opzioni viene descritta in uno degli argomenti del precedente menu. Questi argomenti illustrano come importare dati da diverse origini dati per l'uso in Machine Learning Studio. 
-
 > [!NOTE]
-> In Machine Learning Studio sono disponibili numerosi esempi che è possibile usare per questo scopo. Per informazioni, vedere [Usare i set di dati di esempio in Azure Machine Learning Studio](machine-learning-use-sample-datasets.md).
+> In Machine Learning Studio sono disponibili numerosi set di dati di esempio che è possibile usare per questo scopo. Per informazioni, vedere [Usare i set di dati di esempio in Azure Machine Learning Studio](machine-learning-use-sample-datasets.md).
 > 
 > 
 
@@ -50,7 +51,7 @@ Machine Learning Studio è progettato per lavorare con dati tabulari o rettangol
 
 In Machine Learning Studio sono tuttavia disponibili moduli che consentono di eseguire alcune modifiche dei dati all'interno dell'esperimento. A seconda degli algoritmi di Machine Learning usati, potrebbe essere necessario stabilire come gestire problemi strutturali di dati, ad esempio valori mancanti e dati di tipo sparse. A tale scopo, esistono moduli che possono rivelarsi utili. Vedere la sezione **Trasformazione dei dati** della tavolozza dei moduli per i moduli che eseguono queste funzioni.
 
-In qualsiasi momento dell'esperimento, è possibile visualizzare o scaricare i dati prodotti da un modulo facendo clic con il pulsante destro del mouse sulla porta di output. A seconda del modulo, potrebbero essere disponibili opzioni di download diverse, oppure l’utente potrebbe essere in grado di visualizzare i dati dal browser Web in Machine Learning Studio.
+In qualsiasi momento dell'esperimento, è possibile visualizzare o scaricare i dati prodotti da un modulo facendo clic sulla porta di output. A seconda del modulo, potrebbero essere disponibili opzioni di download diverse, oppure l'utente potrebbe essere in grado di visualizzare i dati dal browser Web in Machine Learning Studio.
 
 ## <a name="data-formats-and-data-types-supported"></a>Tipi di dati e formati di dati supportati
 È possibile importare diversi tipi di dati nell'esperimento, a seconda del meccanismo usato per importare dati e della relativa provenienza:
@@ -72,7 +73,7 @@ Se si importano dati in un formato quale ARFF che include metadati, Machine Lear
 
 Se si importano dati in un formato quale TSV o CSV che non include metadati, Machine Learning Studio deduce il tipo di dati per ogni colonna tramite il campionamento dei dati. Se nemmeno i dati presentano intestazioni di colonna, Machine Learning Studio fornisce nomi predefiniti.
 
-È possibile specificare in modo esplicito o modificare le intestazioni e i tipi di dati delle colonne tramite il modulo [Edit Metadata][edit-metadata] (Modifica metadati).
+È possibile specificare in modo esplicito o modificare le intestazioni e i tipi di dati delle colonne tramite l'[Editor metadati][edit-metadata].
 
 I seguenti **tipi di dati** vengono riconosciuti da Machine Learning Studio:
 
@@ -83,7 +84,7 @@ I seguenti **tipi di dati** vengono riconosciuti da Machine Learning Studio:
 * DateTime
 * TimeSpan
 
-Machine Learning Studio usa un tipo di dati interno denominato ***Tabella dati*** per passare i dati tra i moduli. È possibile convertire in modo esplicito i dati nel formato Tabella dati tramite il modulo [Convert to Dataset][convert-to-dataset] (Converti in set di dati).
+Machine Learning Studio usa un tipo di dati interno denominato ***Tabella dati*** per passare i dati tra i moduli. È possibile convertire in modo esplicito i dati in formato Tabella dati tramite il modulo [Convertire in set di dati][convert-to-dataset].
 
 I moduli che accettano formati diversi da Tabella dati convertiranno i dati in Tabella dati in modo automatico, prima di passare al modulo successivo.
 
@@ -97,6 +98,6 @@ Esaminare la sezione **Conversioni di formati di dati** della tavolozza dei modu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

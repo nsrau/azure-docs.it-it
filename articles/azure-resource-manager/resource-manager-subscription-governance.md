@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: cd39256ae2132e25631d0264ae1fa2c5a1d76a6a
+ms.sourcegitcommit: 927098a992a74a9b24795b5952d8e06361966580
+ms.openlocfilehash: 6a07a3cda187abc7383e4134285b3b0dabb46ef1
 
 
 ---
@@ -256,6 +256,6 @@ Questo argomento è stato scritto in collaborazione con *[Karl Kuhnhausen](https
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

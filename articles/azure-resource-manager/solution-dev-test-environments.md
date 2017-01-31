@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/22/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
-ms.openlocfilehash: e5a090acb88db0139ad1cea627060e5076ece1b4
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 01a554815a48cf1b81037eaa2f55bc4f07838721
 
 
 ---
@@ -235,7 +235,7 @@ Dopo la visualizzazione per alcuni minuti di un messaggio di attesa del completa
     data:    requestedServiceObjectiveName  String        S0
     info:    group deployment create command OKx
 
-Se il comando ha esito negativo, risolvere eventuali messaggi di errore e riprovare.  I problemi comuni consistono nell'uso di valori di parametri non conformi ai vincoli di denominazione delle risorse di Azure. Per altri suggerimenti sulla risoluzione dei problemi, vedere l'articolo [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](resource-manager-troubleshoot-deployments-cli.md) .
+Se il comando ha esito negativo, risolvere eventuali messaggi di errore e riprovare.  I problemi comuni consistono nell'uso di valori di parametri non conformi ai vincoli di denominazione delle risorse di Azure. Per altri suggerimenti sulla risoluzione dei problemi, vedere l'articolo [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](resource-manager-common-deployment-errors.md) .
 
 Dalla riga di comando dell'interfaccia della riga di comando digitare il comando seguente per distribuire risorse nel gruppo di risorse creato dall'ambiente di test, sostituendo [path] con il percorso nei file salvati nei passaggi precedenti.
 
@@ -278,7 +278,7 @@ Dopo la visualizzazione di un cursore intermittente per alcuni minuti, se il com
 
     Outputs           :
 
-  Se il comando ha esito negativo, risolvere eventuali messaggi di errore e riprovare.  I problemi comuni consistono nell'uso di valori di parametri non conformi ai vincoli di denominazione delle risorse di Azure. Per altri suggerimenti sulla risoluzione dei problemi, vedere l'articolo [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](resource-manager-troubleshoot-deployments-powershell.md) .
+  Se il comando ha esito negativo, risolvere eventuali messaggi di errore e riprovare.  I problemi comuni consistono nell'uso di valori di parametri non conformi ai vincoli di denominazione delle risorse di Azure. Per altri suggerimenti sulla risoluzione dei problemi, vedere l'articolo [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](resource-manager-common-deployment-errors.md) .
 
   Da un prompt dei comandi di PowerShell digitare il comando seguente per distribuire risorse nel gruppo di risorse creato dall'ambiente di test, sostituendo [path] con il percorso nei file salvati nei passaggi precedenti.
 
@@ -364,6 +364,6 @@ Dopo avere constatato la semplicità dei processi di creazione, gestione ed elim
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

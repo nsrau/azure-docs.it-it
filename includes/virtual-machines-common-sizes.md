@@ -13,7 +13,7 @@ In Azure sono disponibili più dimensioni standard. Si tengano presenti le consi
 *   Le VM di serie A e Av2 possono essere distribuite su una vasta gamma di tipi di hardware e processori. La dimensione è limitata in base all'hardware per offrire prestazioni del processore coerenti per l'istanza in esecuzione, indipendentemente dall'hardware in cui è distribuita. Per determinare l'hardware fisico in cui viene distribuita questa dimensione, eseguire una query nell'hardware virtuale dall'interno della macchina virtuale.
 * La sottoscrizione della dimensione A0 è eccessiva nell'hardware fisico. Solo per questa dimensione specifica, altre distribuzioni dei clienti possono compromettere le prestazioni del carico di lavoro in esecuzione. Le prestazioni relative sono indicate di seguito come linea di base prevista, con variabilità approssimativa del 15%.
 
-La dimensione della macchina virtuale influisce sul prezzo. Influisce, inoltre, sull’elaborazione, sulla memoria e sulla capacità di archiviazione della macchina virtuale. I costi di archiviazione vengono calcolati separatamente in base alle pagine usate nell'account di archiviazione. Per altre informazioni, vedere [Dettagli prezzi per le macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/) e [Dettagli prezzi di archiviazione](https://azure.microsoft.com/pricing/details/storage/). 
+La dimensione della macchina virtuale influisce sul prezzo. Influisce, inoltre, sull'elaborazione, sulla memoria e sulla capacità di archiviazione della macchina virtuale. I costi di archiviazione vengono calcolati separatamente in base alle pagine usate nell'account di archiviazione. Per altre informazioni, vedere [Dettagli prezzi per le macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/) e [Dettagli prezzi di archiviazione](https://azure.microsoft.com/pricing/details/storage/). 
 
 Le considerazioni seguenti potrebbero essere utili all’utente per scegliere una dimensione:
 
@@ -128,10 +128,11 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 | Standard_D12_v2 |4 |28 |200 |8 |8x500 |4/alta |
 | Standard_D13_v2 |8 |56 |400 |16 |16x500 |8/alta |
 | Standard_D14_v2 |16 |112 |800 |32 |32x500 |8/estremamente alta |
-| Standard_D15_v2 |20 |140 |1.000 |40 |40x500 |8/estremamente alta* |
+| Standard_D15_v2** |20 |140 |1.000 |40 |40x500 |8/estremamente alta* |
 
 * In alcune aree, per le dimensioni Standard_D15_v2 è disponibile la rete accelerata. Per altre informazioni sull'uso e la disponibilità, vedere [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (Rete accelerata disponibile in anteprima) e [Rete accelerata per macchine virtuali](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
 
+**L'istanza è isolata e prevede hardware dedicato per un singolo cliente. **L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
 <br>
 
 ## <a name="ds-series"></a>Serie DS*
@@ -164,7 +165,7 @@ MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 | Standard_DS12_v2 |4 |28 |56 |8 |16.000/128 (144) |12.800/192 |4/alta |
 | Standard_DS13_v2 |8 |56 |112 |16 |32.000/256 (288) |25.600/384 |8/alta |
 | Standard_DS14_v2 |16 |112 |224 |32 |64.000/512 (576) |51.200/768 |8/estremamente alta |
-| Standard_DS15_v2 |20 |140 |280 |40 |80.000/640 (720) |64.000/960 |8 estremamente alta* |
+| Standard_DS15_v2*** |20 |140 |280 |40 |80.000/640 (720) |64.000/960 |8 estremamente alta* |
 
 MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 
@@ -172,6 +173,7 @@ MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 
 * In alcune aree, per le dimensioni Standard_DS15_v2 è disponibile la rete accelerata. Per altre informazioni sull'uso e la disponibilità, vedere [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (Rete accelerata disponibile in anteprima) e [Rete accelerata per macchine virtuali](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
 
+***L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
 <br>
 
 ## <a name="f-series"></a>Serie F
@@ -207,8 +209,9 @@ MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 | Standard_G2 |4 |56 |768 |8 |8x500 |2/alta |
 | Standard_G3 |8 |112 |1.536 |16 |16x500 |4/molto alta |
 | Standard_G4 |16 |224 |3.072 |32 |32x500 |8/estremamente alta |
-| Standard_G5 |32 |448 |6.144 |64 |64 x 500 |8/estremamente alta |
+| Standard_G5* |32 |448 |6.144 |64 |64 x 500 |8/estremamente alta |
 
+*L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
 <br>
 
 ## <a name="gs-series"></a>Serie GS*
@@ -218,18 +221,21 @@ MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 | Standard_GS2 |4 |56 |112 |8 |20.000/200 (528) |10.000/250 |2/alta |
 | Standard_GS3 |8 |112 |224 |16 |40.000/400 (1.056) |20.000/500 |4/molto alta |
 | Standard_GS4 |16 |224 |448 |32 |80.000/800 (2,112) |40.000/1.000 |8/estremamente alta |
-| Standard_GS5 |32 |448 |896 |64 |160.000/1.600 (4.224) |80.000/2.000 |8/estremamente alta |
+| Standard_GS5** |32 |448 |896 |64 |160.000/1.600 (4.224) |80.000/2.000 |8/estremamente alta |
 
 MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 
 *La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie GS può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati. 
 
+**L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
 <br>
 
 ## <a name="h-series"></a>Serie H
 Le macchine virtuali serie H di Azure sono le VM high performance computing di prossima generazione che puntano a risolvere esigenze di calcolo di fascia alta, come modellazione molecolare e fluidodinamica computazionale. Queste VM a 8 e 16 core sono basate sulla tecnologia del processore Intel Haswell E5-2667 V3 con memoria DDR4 e archiviazione basata su SSD locale. 
 
 Oltre alla sostanziale potenza della CPU, la serie H offre diverse opzioni per rete RDMA a bassa latenza con FDR InfiniBand e diverse configurazioni di memoria a supporto di requisiti di calcolo a elevato uso di memoria.
+
+Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 | Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco max: IOPS | Larghezza di banda della rete/scheda NIC max |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -244,31 +250,48 @@ Oltre alla sostanziale potenza della CPU, la serie H offre diverse opzioni per r
 
 <br>
 
-## <a name="n-series-preview"></a>Serie N (anteprima)
-Le dimensioni NC e NV sono dette anche istanze abilitate tramite GPU. Si tratta di macchine virtuali specializzate dotate di schede GPU NVIDIA e ottimizzate per diversi scenari e casi d'uso. Le dimensioni NV sono ottimizzate e progettate per le operazioni di visualizzazione remota, streaming, giochi, codifica e scenari VDI che utilizzano framework come OpenGL e DirectX. Le dimensioni NC sono più adatte per applicazioni a elevato utilizzo di calcolo e reti, nonché algoritmi, tra cui applicazioni e simulazioni basate su CUDA e OpenCL. 
+## <a name="n-series"></a>Serie N
+Le dimensioni NC e NV sono dette anche istanze abilitate tramite GPU. Si tratta di macchine virtuali specializzate dotate di schede GPU NVIDIA e ottimizzate per diversi scenari e casi d'uso. Le dimensioni NV sono ottimizzate e progettate per le operazioni di visualizzazione remota, streaming, giochi, codifica e scenari VDI che utilizzano framework come OpenGL e DirectX. Le dimensioni NC sono più adatte per applicazioni e algoritmi a elevato utilizzo di calcolo e reti, tra cui applicazioni e simulazioni basate su CUDA e OpenCL. 
 
 ### <a name="nv-instances"></a>Istanze NV
-Le istanze NV sono basate su GPU NVIDIA Tesla M60 e NVIDIA GRID per applicazioni con accelerazione grafica per desktop e desktop virtuali con cui i clienti potranno visualizzare i propri dati o le proprie simulazioni. Gli utenti potranno visualizzare i flussi di lavoro con utilizzo intensivo di grafica nelle istanze NV per ottenere una funzionalità grafica di livello superiore e inoltre eseguire singoli carichi di lavoro di precisione, come la codifica e il rendering. Il modello Tesla M60 ospita 4.096 core CUDA in una dual GPU con un massimo di 36 flussi H264 da 1080p.
+Le istanze NV sono basate su GPU NVIDIA Tesla M60 e NVIDIA GRID per applicazioni con accelerazione grafica per desktop e desktop virtuali con cui i clienti potranno visualizzare i propri dati o le proprie simulazioni. Gli utenti potranno visualizzare i flussi di lavoro con utilizzo intensivo di grafica nelle istanze NV per ottenere una funzionalità grafica di livello superiore e inoltre eseguire singoli carichi di lavoro di precisione, come la codifica e il rendering. Il modello Tesla M60 ospita 4.096 core CUDA in una dual GPU con un massimo di 36 flussi H264 da 1080p. 
+
 
 | Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | GPU |
 | --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |380 |1 x NVIDIA M60 |
-| Standard_NV12 |12 |112 |680 |2 x NVIDIA M60 |
-| Standard_NV24 |24 |224 |1.440 |4 x NVIDIA M60 |
+| Standard_NV6 |6 |56 |380 | 1 |
+| Standard_NV12 |12 |112 |680 | 2 |
+| Standard_NV24 |24 |224 |1.440 | 4 |
+
+1 GPU = Pari a metà scheda M60.
+
+**Sistemi operativi supportati**
+
+* Windows Server 2016, Windows Server 2012 R2. Vedere [N-series driver setup for Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md) (Configurazione dei driver serie N per Windows)
 
 ### <a name="nc-instances"></a>Istanze NC
-Le istanze NC sono basate su GPU NVIDIA Tesla K80. Gli utenti possono ora elaborare i dati molto più velocemente sfruttando i core CUDA per eseguire l'analisi del consumo delle applicazioni, simulazioni di arresto anomalo, rendering con ray tracing, analisi dettagliate e altro ancora. Il modello Tesla K80 ospita 4.992 core CUDA in una dual GPU con prestazioni che raggiungono 2,91 teraflop di precisione doppia e 8,93 teraflop di precisione singola. 
+Le istanze NC sono basate sulla scheda NVIDIA Tesla K80. Gli utenti possono ora elaborare i dati molto più velocemente sfruttando i core CUDA per eseguire l'analisi del consumo delle applicazioni, simulazioni di arresto anomalo, rendering con ray tracing, analisi dettagliate e altro ancora. Il modello Tesla K80 ospita 4.992 core CUDA in una dual GPU con prestazioni che raggiungono 2,91 teraflop di precisione doppia e 8,93 teraflop di precisione singola.
 
 | Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | GPU |
 | --- | --- | --- | --- | --- |
-| Standard_NC6 |6 |56 |380 |1 x NVIDIA K80 |
-| Standard_NC12 |12 |112 |680 |2 x NVIDIA K80 |
-| Standard_NC24 |24 |224 |1.440 |4 x NVIDIA K80 |
+| Standard_NC6 |6 |56 | 380 | 1 |
+| Standard_NC12 |12 |112 | 680 | 2 |
+| Standard_NC24 |24 |224 | 1.440 | 4 |
+| Standard_NC24r* |24 |224 | 1.440 | 4 |
+
+1 GPU = Pari a metà scheda K80.
+
+*Con supporto di RDMA
+
+**Sistemi operativi supportati**
+
+* Windows Server 2016, Windows Server 2012 R2. Vedere [N-series driver setup for Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md) (Configurazione dei driver serie N per Windows)
+* Ubuntu 16.04 LTS. Vedere [N-series driver setup for Linux](../articles/virtual-machines/virtual-machines-linux-n-series-driver-setup.md) (Configurazione dei driver serie N per Linux)
 
 <br>
 
 ## <a name="notes-standard-a0---a4-using-cli-and-powershell"></a>Note: Standard A0 - A4 che utilizza l’interfaccia della riga di comando e PowerShell
-Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggermente diversi in PowerShell e nell’interfaccia della riga di comando:
+Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggermente diversi in PowerShell e nell'interfaccia della riga di comando:
 
 * Standard_A0 è ExtraSmall 
 * Standard_A1 è Small
@@ -282,6 +305,6 @@ Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggerm
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

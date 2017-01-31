@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: anilmur;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 770eaaba800ed9847a34d38813ebbda82014a697
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7b0d7469e9c3688092bf7f98962ede0e4d7ef951
 
 
 ---
@@ -29,7 +29,7 @@ Si supponga di avere come input un video che ha una risoluzione di 1920x1080 pix
 
 Il ritaglio in MES è una fase di pre-elaborazione, quindi i parametri di ritaglio nel set di impostazioni di codifica si applicano al video di input originale. La codifica è una fase successiva e le impostazioni di larghezza/altezza si applicano al video *pre-elaborato* e non al video originale. Quando si progetta il set di impostazioni è necessario eseguire queste operazioni: (a) selezionare i parametri di ritaglio in base al video di input originale e (b) selezionare le impostazioni di codifica in base al video ritagliato. Se le impostazioni di codifica non corrispondono al video ritagliato, l'output non sarà quello previsto.
 
-L'argomento [seguente](media-services-advanced-encoding-with-mes.md#encoding_with_dotnet) illustra come creare un processo di codifica con MES e come specificare un set di impostazioni personalizzato per l'attività di codifica. 
+L'argomento [seguente](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) illustra come creare un processo di codifica con MES e come specificare un set di impostazioni personalizzato per l'attività di codifica. 
 
 ## <a name="creating-a-custom-preset"></a>Creazione di un set di impostazioni personalizzato
 Nell'esempio illustrato nel diagramma:
@@ -145,7 +145,6 @@ Vedere i percorsi di apprendimento di Servizi multimediali di Azure per informaz
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

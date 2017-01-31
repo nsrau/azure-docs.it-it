@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -22,14 +22,14 @@ ms.openlocfilehash: 53c18f6bb294c42456a0a4cd3c2a83812e9b13d0
 
 ---
 # <a name="determine-twitter-trending-topics-with-apache-storm-on-hdinsight"></a>Determinare i temi di tendenza Twitter con Apache Storm in HDInsight
+
 Informazioni su come usare Trident per creare una topologia Storm in grado di determinare i temi di tendenza (hashtag) in Twitter.
 
 Trident è un'astrazione generale che fornisce strumenti quali join, aggregazioni, raggruppamento, funzioni e filtri. Trident fornisce inoltre primitive per l'elaborazione incrementale e con informazioni sullo stato. Questo esempio illustra come creare una topologia usando uno spout e una funzione personalizzati, oltre a diverse funzioni predefinite fornite da Trident.
 
 > [!NOTE]
 > L'articolo si basa in larga misura sull'esempio [Trident Storm](https://github.com/jalonsoramos/trident-storm) di Juan Alonso.
-> 
-> 
+
 
 ## <a name="requirements"></a>Requisiti
 * <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java e JDK 1.7</a>
@@ -49,8 +49,7 @@ Di seguito è illustrata la topologia di questo esempio:
 
 > [!NOTE]
 > Si tratta di una visualizzazione semplificata della topologia. Tra i nodi del cluster verranno infatti distribuite più istanze dei componenti.
-> 
-> 
+
 
 Il codice Trident che implementa la topologia è il seguente:
 

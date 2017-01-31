@@ -6,13 +6,8 @@ I gateway di rete virtuale ExpressRoute possono usare i seguenti SKU:
 * HighPerformance
 * UltraPerformance
 
-> [!IMPORTANT]
-> Il gateway ExpressRoute UltraPerformance è attualmente disponibile nelle aree Stati Uniti centro occidentali e Stati Uniti centrali e può essere collegato a circuiti ExpressRoute a Chicago e Dallas. Nelle prossime settimane saranno disponibili altre aree di Azure e località di ExpressRoute. 
-> 
-> 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

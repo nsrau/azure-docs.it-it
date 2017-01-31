@@ -12,22 +12,23 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 12/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: afcbb8ef1e8ca6b688ed556ee67f2f3d3da5bd45
+ms.sourcegitcommit: a8f597086aca67d41b23487c384d6d614bc9968a
+ms.openlocfilehash: 17c89493d83bcfbd04c9e7f617c2bb8fa1964636
 
 
 ---
 # <a name="analyze-real-time-twitter-sentiment-with-hbase-in-hdinsight"></a>Analisi dei sentimenti Twitter in tempo reale con HBase in HDInsight
-Istruzioni per l'esecuzione dell' [analisi dei sentimenti](http://en.wikipedia.org/wiki/Sentiment_analysis) dei Big Data in tempo reale da Twitter usando HBase in un cluster HDInsight (Hadoop).
+Informazioni su come eseguire l'[analisi del sentiment](http://en.wikipedia.org/wiki/Sentiment_analysis) di Big Data in tempo reale da Twitter usando un cluster HBase in HDInsight.
 
 I siti Web di social networking rappresentano una delle principali forze trainanti per l'adozione di Big Data. Le API pubbliche offerte da siti quali Twitter costituiscono un'utile origine di dati per l'analisi e la comprensione delle tendenze più popolari. In questa esercitazione viene spiegato come sviluppare un'applicazione di servizio per lo streaming su console e un'applicazione Web ASP.NET al fine di:
 
 ![Analisi del sentiment di Twitter con HBase in HDInsight][img-app-arch]
 
 * Applicazione di streaming
+
   * ottenere tweet geotaggati in tempo reale usando l'API di streaming di Twitter
   * valutare i sentimenti di tali tweet
   * memorizzare i dati sui sentimenti in HBase usando la SDK di Microsoft HBase
@@ -44,7 +45,7 @@ Un esempio di soluzione completa di Visual Studio è disponibile su GitHub, ovve
 ### <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-* **Un cluster HBase in HDInsight**. Per istruzioni sulla creazione dei cluster, vedere [Introduzione all'uso di HBase con Hadoop in HDInsight][hbase-get-started]. Per completare l'esercitazione sono necessari i dati seguenti:
+* **Un cluster HBase in HDInsight**. Per istruzioni sulla creazione di cluster, vedere l'[introduzione all'uso di HBase con Hadoop in HDInsight][hbase-get-started]. Per completare l'esercitazione sono necessari i dati seguenti:
 
     <table border="1">
     <tr><th>Proprietà del cluster</th><th>Descrizione</th></tr>
@@ -633,41 +634,40 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
         *
         * Requirements:
         * The heatmap layer itself is created dynamically on the client-side using
-        * the HTML5 <canvas> element, and therefore requires a browser that supports
+        * the HTML5 &lt;canvas> element, and therefore requires a browser that supports
         * this element. It has been tested on IE9, Firefox 3.6/4 and 
         * Chrome 10 browsers. If you can confirm whether it works on other browsers or
         * not, I'd love to hear from you!
-   
+        *
         * Usage:
         * The HeatMapLayer constructor requires:
         * - A reference to a map object
         * - An array or Microsoft.Maps.Location items
         * - Optional parameters to customise the appearance of the layer
         *  (Radius,, Unit, Intensity, and ColourGradient), and a callback function
-        *
         */
-   
+
         var HeatMapLayer = function (map, locations, options) {
-   
+
             /* Private Properties */
             var _map = map,
-              _canvas,
-              _temperaturemap,
-              _locations = [],
-              _viewchangestarthandler,
-              _viewchangeendhandler;
-   
+                _canvas,
+                _temperaturemap,
+                _locations = [],
+                _viewchangestarthandler,
+                _viewchangeendhandler;
+
             // Set default options
             var _options = {
                 // Opacity at the centre of each heat point
                 intensity: 0.5,
-   
+
                 // Affected radius of each heat point
                 radius: 1000,
-   
+
                 // Whether the radius is an absolute pixel value or meters
                 unit: 'meters',
-   
+
                 // Colour temperature gradient of the map
                 colourgradient: {
                     "0.00": 'rgba(255,0,255,20)',  // Magenta
@@ -676,55 +676,55 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
                     "0.75": 'rgba(255,255,0,120)', // Yellow
                     "1.00": 'rgba(255,0,0,150)'    // Red
                 },
-   
+
                 // Callback function to be fired after heatmap layer has been redrawn 
                 callback: null
             };
-   
+
             /* Private Methods */
             function _init() {
                 var _mapDiv = _map.getRootElement();
-   
+
                 if (_mapDiv.childNodes.length >= 3 && _mapDiv.childNodes[2].childNodes.length >= 2) {
                     // Create the canvas element
                     _canvas = document.createElement('canvas');
                     _canvas.style.position = 'relative';
-   
+
                     var container = document.createElement('div');
                     container.style.position = 'absolute';
                     container.style.left = '0px';
                     container.style.top = '0px';
                     container.appendChild(_canvas);
-   
+
                     _mapDiv.childNodes[2].childNodes[1].appendChild(container);
-   
+
                     // Override defaults with any options passed in the constructor
                     _setOptions(options);
-   
+
                     // Load array of location data
                     _setPoints(locations);
-   
+
                     // Create a colour gradient from the suppied colourstops
                     _temperaturemap = _createColourGradient(_options.colourgradient);
-   
+
                     // Wire up the event handler to redraw heatmap canvas
                     _viewchangestarthandler = Microsoft.Maps.Events.addHandler(_map, 'viewchangestart', _clearHeatMap);
                     _viewchangeendhandler = Microsoft.Maps.Events.addHandler(_map, 'viewchangeend', _createHeatMap);
-   
+
                     _createHeatMap();
-   
+
                     delete _init;
                 } else {
                     setTimeout(_init, 100);
                 }
             }
-   
+
             // Resets the heat map
             function _clearHeatMap() {
                 var ctx = _canvas.getContext("2d");
                 ctx.clearRect(0, 0, _canvas.width, _canvas.height);
             }
-   
+
             // Creates a colour gradient from supplied colour stops on initialisation
             function _createColourGradient(colourstops) {
                 var ctx = document.createElement('canvas').getContext('2d');
@@ -736,7 +736,7 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
                 ctx.fillRect(0, 0, 256, 1);
                 return ctx.getImageData(0, 0, 256, 1).data;
             }
-   
+
             // Applies a colour gradient to the intensity map
             function _colouriseHeatMap() {
                 var ctx = _canvas.getContext("2d");
@@ -753,90 +753,90 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
                 }
                 ctx.putImageData(dat, 0, 0);
             }
-   
+
             // Sets any options passed in
             function _setOptions(options) {
                 for (attrname in options) {
                     _options[attrname] = options[attrname];
                 }
             }
-   
+
             // Sets the heatmap points from an array of Microsoft.Maps.Locations  
             function _setPoints(locations) {
                 _locations = locations;
             }
-   
+
             // Main method to draw the heatmap
             function _createHeatMap() {
                 // Ensure the canvas matches the current dimensions of the map
                 // This also has the effect of resetting the canvas
                 _canvas.height = _map.getHeight();
                 _canvas.width = _map.getWidth();
-   
+
                 _canvas.style.top = -_canvas.height / 2 + 'px';
                 _canvas.style.left = -_canvas.width / 2 + 'px';
-   
+
                 // Calculate the pixel radius of each heatpoint at the current map zoom
                 if (_options.unit == "pixels") {
                     radiusInPixel = _options.radius;
                 } else {
                     radiusInPixel = _options.radius / _map.getMetersPerPixel();
                 }
-   
+
                 var ctx = _canvas.getContext("2d");
-   
+
                 // Convert lat/long to pixel location
                 var pixlocs = _map.tryLocationToPixel(_locations, Microsoft.Maps.PixelReference.control);
                 var shadow = 'rgba(0, 0, 0, ' + _options.intensity + ')';
                 var mapWidth = 256 * Math.pow(2, _map.getZoom());
-   
+
                 // Create the Intensity Map by looping through each location
                 for (var i = 0, len = pixlocs.length; i < len; i++) {
                     var x = pixlocs[i].x;
                     var y = pixlocs[i].y;
-   
+
                     if (x < 0) {
                         x += mapWidth * Math.ceil(Math.abs(x / mapWidth));
                     }
-   
+
                     // Create radial gradient centred on this point
                     var grd = ctx.createRadialGradient(x, y, 0, x, y, radiusInPixel);
                     grd.addColorStop(0.0, shadow);
                     grd.addColorStop(1.0, 'transparent');
-   
+
                     // Draw the heatpoint onto the canvas
                     ctx.fillStyle = grd;
                     ctx.fillRect(x - radiusInPixel, y - radiusInPixel, 2 * radiusInPixel, 2 * radiusInPixel);
                 }
-   
+
                 // Apply the specified colour gradient to the intensity map
                 _colouriseHeatMap();
-   
+
                 // Call the callback function, if specified
                 if (_options.callback) {
                     _options.callback();
                 }
             }
-   
+
             /* Public Methods */
-   
+
             this.Show = function () {
                 if (_canvas) {
                     _canvas.style.display = '';
                 }
             };
-   
+
             this.Hide = function () {
                 if (_canvas) {
                     _canvas.style.display = 'none';
                 }
             };
-   
+
             // Sets options for intensity, radius, colourgradient etc.
             this.SetOptions = function (options) {
                 _setOptions(options);
             }
-   
+
             // Sets an array of Microsoft.Maps.Locations from which the heatmap is created
             this.SetPoints = function (locations) {
                 // Reset the existing heatmap layer
@@ -846,14 +846,14 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
                 // Recreate the layer
                 _createHeatMap();
             }
-   
+
             // Removes the heatmap layer from the DOM
             this.Remove = function () {
                 _canvas.parentNode.parentNode.removeChild(_canvas.parentNode);
-   
+
                 if (_viewchangestarthandler) { Microsoft.Maps.Events.removeHandler(_viewchangestarthandler); }
                 if (_viewchangeendhandler) { Microsoft.Maps.Events.removeHandler(_viewchangeendhandler); }
-   
+
                 _locations = null;
                 _temperaturemap = null;
                 _canvas = null;
@@ -861,11 +861,11 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
                 _viewchangestarthandler = null;
                 _viewchangeendhandler = null;
             }
-   
+
             // Call the initialisation routine
             _init();
         };
-   
+
         // Call the Module Loaded method
         Microsoft.Maps.moduleLoaded('HeatMapModule');
 
@@ -1141,7 +1141,7 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
         @{
             ViewBag.Title = "Tweet Sentiment";
         }
-   
+
         <div class="map_container">
             <div id="map_canvas"/>
         </div>
@@ -1192,15 +1192,15 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
 4. Selezionare **Positive** (Positivo), **Neutral** (Neutro) e **Negative** (Negativo) per confrontare i sentimenti sull'argomento.
 5. Lasciare il servizio streaming in esecuzione per un'altra ora, quindi cercare le stesse parole chiave e confrontare i risultati.
 
-In alternativa, è possibile distribuire l'applicazione in Siti Web di Azure. Per istruzioni, vedere [Introduzione a Siti Web di Azure e ASP.NET][website-get-started].
+In alternativa, è possibile distribuire l'applicazione in Siti Web di Azure. Per le istruzioni vedere l'[introduzione ai siti Web di Azure e ASP.NET][website-get-started].
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione si è appreso come ricevere tweet, analizzare i sentimenti dei tweet, salvare i dati sui sentimenti su HBase e presentare i dati sui sentimenti di Twitter in tempo reale sulle mappe Bing. Per altre informazioni, vedere:
 
-* [Introduzione all'uso di HDInsight][hdinsight-get-started]
-* [Configurare la replica di HBase in HDInsight](hdinsight-hbase-geo-replication.md) 
+* [Introduzione a HDInsight][hdinsight-get-started]
+* [Configurare la replica di HBase in HDInsight](hdinsight-hbase-replication.md) 
 * [Analizzare i dati di Twitter con Hadoop in HDInsight][hdinsight-analyze-twitter-data]
-* [Analizzare i dati sui ritardi dei voli usando HDInsight][hdinsight-analyze-flight-delay-data]
+* [Analizzare i dati sui ritardi dei voli con HDInsight][hdinsight-analyze-flight-delay-data]
 * [Sviluppare programmi MapReduce Java per HDInsight][hdinsight-develop-mapreduce]
 
 [hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
@@ -1230,7 +1230,7 @@ In questa esercitazione si è appreso come ricevere tweet, analizzare i sentimen
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-install]: powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
@@ -1245,6 +1245,6 @@ In questa esercitazione si è appreso come ricevere tweet, analizzare i sentimen
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

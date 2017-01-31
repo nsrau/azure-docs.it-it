@@ -1,5 +1,5 @@
 ---
-title: Configurare l&quot;ambiente di sviluppo | Documentazione Microsoft
+title: Configurare un ambiente di sviluppo per i microservizi di Azure | Documentazione Microsoft
 description: "Installare il runtime, l&quot;SDK e gli strumenti e creare un cluster di sviluppo locale. Al termine della configurazione, sarà possibile iniziare a sviluppare applicazioni."
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 12/15/2016
 ms.author: ryanwi, mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: d9050347434a22fa79f5e751c676f77bf025d176
-ms.openlocfilehash: e2919b07b8fc6e9dff6823cb6995f52106612b8a
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: 122b672c784357d781ac55e11fb9f648fdbbac24
 
 
 ---
@@ -102,6 +102,6 @@ Dopo avere configurato l'ambiente di sviluppo, iniziare a compilare ed eseguire 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,14 +1,13 @@
 ---
 layout: LandingPage
-description: Informazioni sulla fatturazione di Azure e su come gestire e monitorare usi e costi. Esercitazioni, FAQ, informazioni di riferimento sulle API e altri documenti.
 translationtype: Human Translation
-ms.sourcegitcommit: 640915b6305b2865b21937e19c324e8e7f1ba0a7
-ms.openlocfilehash: 401406bccbb6e6e7b92b431efe57e49d6745e8c2
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: c67a65aa1053a3acb6059625877ec1c515d49258
 
 ---
 # <a name="azure-billing-documentation"></a>Documentazione della fatturazione di Azure
 
-Informazioni sulla fatturazione di Azure e su come monitorare usi e costi. Esercitazioni, FAQ, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come gestire l'account.
+Clienti e partner richiedono la possibilità di prevedere e gestire i costi di Azure con precisione. Nel passaggio da un modello basato sugli investimenti a un modello basato sui costi operativi, devono inoltre avere la possibilità di eseguire analisi di showback e chargeback, nonché fornire fedeltà di modalità per la stima e la fatturazione, specialmente per le distribuzioni di cloud di grandi dimensioni.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -110,7 +109,6 @@ Scaricare la documentazione della fatturazione </div>
 </div>
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

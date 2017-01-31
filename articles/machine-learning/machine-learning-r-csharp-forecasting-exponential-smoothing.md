@@ -3,7 +3,7 @@ title: Forecasting-Exponential Smoothing | Documentazione Microsoft
 description: 'Servizio Web: Forecasting-Exponential Smoothing'
 services: machine-learning
 documentationcenter: 
-author: xueshanz
+author: yijichen
 manager: jhubbard
 editor: cgronlun
 ms.assetid: a4150681-6eac-4145-9eca-0cdf60781dde
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
-ms.author: xueshzha
+ms.date: 12/13/2016
+ms.author: yijichen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 712bfc1ec3bf3dcc8ab3de9a3e610ae86b6f4410
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 47ef9bce59b62bbd5b2c630ee101a655814d96d2
 
 
 ---
@@ -90,7 +90,7 @@ Sono disponibili molte opzioni per l'uso del servizio in modalità automatica. P
 > 
 > 
 
-In Azure Machine Learning è stato creato un nuovo esperimento vuoto. Sono stati caricati dati di input di esempio con uno schema dati predefinito. Un modulo [Esegui script R][execute-r-script] è collegato allo schema dati e genera il modello di previsione ETS usando le funzioni 'ets' e 'forecast' di R. 
+In Azure Machine Learning è stato creato un nuovo esperimento vuoto. Sono stati caricati dati di input di esempio con uno schema dati predefinito. Un modulo [Execute R Script][execute-r-script] (Esegui script R) è collegato allo schema dati e genera i modelli di previsione ETS usando le funzioni 'ets' e 'forecast' di R. 
 
 ![Flusso dell'esperimento][2]
 
@@ -143,6 +143,6 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

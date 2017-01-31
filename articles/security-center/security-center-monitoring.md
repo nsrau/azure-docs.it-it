@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2016
+ms.date: 01/03/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 73510d618f414ebedd7cd1df979397e0b00570b8
+ms.sourcegitcommit: 7f074883c2330c5814eef415f193e1775caec432
+ms.openlocfilehash: ddb38f99adef288958fd3828cb685912bf35f218
 
 
 ---
@@ -35,7 +35,7 @@ Il riquadro **Integrità sicurezza delle risorse** consente di monitorare lo sta
 
 ![Riquadro Integrità sicurezza delle risorse](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
 
-Se il Centro sicurezza identifica una vulnerabilità che deve essere risolta, ad esempio una macchina virtuale in cui mancano aggiornamenti della sicurezza o una subnet senza un [gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md), la vulnerabilità verrà riportata qui.
+Se il Centro sicurezza identifica una vulnerabilità che deve essere risolta, ad esempio una macchina virtuale in cui mancano aggiornamenti della sicurezza o una subnet senza un [gruppo di sicurezza di rete](/virtual-network/virtual-networks-nsg.md), la vulnerabilità verrà riportata qui.
 
 ### <a name="monitor-virtual-machines"></a>Monitorare le macchine virtuali
 Quando si fa clic su **Macchine virtuali** nel riquadro **Integrità sicurezza delle risorse**, viene aperto il pannello **Macchine virtuali** con altri dettagli sulle operazioni di caricamento e di prevenzione e un elenco di tutte le macchine virtuali monitorate dal Centro sicurezza, come illustrato nello screenshot seguente.
@@ -162,22 +162,22 @@ Questa tabella è ordinata (macchine virtuali e subnet) in base alla gravità:
 * Arancione: priorità media e da risolvere appena possibile
 * Verde (ultimo): stato di integrità
 
-Nella visualizzazione della topologia il primo livello include [Reti virtuali](../virtual-network/virtual-networks-overview.md), [Gateway di rete virtuale](../vpn-gateway/vpn-gateway-site-to-site-create.md) e [Rete virtuale (versione classica)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Il secondo livello include le subnet e il terzo livello include le macchine virtuali appartenenti alle subnet. La colonna destra include lo stato attuale del gruppo di sicurezza di rete per queste risorse, come illustrato nell'esempio seguente:
+Nella visualizzazione della topologia il primo livello include [Reti virtuali](../virtual-network/virtual-networks-overview.md), [Gateway di rete virtuale](/vpn-gateway/vpn-gateway-site-to-site-create.md) e [Rete virtuale (versione classica)](/virtual-network/virtual-networks-create-vnet-classic-pportal.md). Il secondo livello include le subnet e il terzo livello include le macchine virtuali appartenenti alle subnet. La colonna destra include lo stato attuale del gruppo di sicurezza di rete per queste risorse, come illustrato nell'esempio seguente:
 
 ![Stato del gruppo di sicurezza di rete nella sezione Topologia di rete](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
 
 La parte inferiore del pannello include le raccomandazioni per questa macchina virtuale, simili a quanto illustrato in precedenza. È possibile fare clic su una raccomandazione per ottenere altre informazioni o per applicare la configurazione o il controllo di sicurezza necessario.
 
 ### <a name="monitor-data"></a>Monitorare di dati
-Quando si fa clic su **Dati** nel riquadro **Integrità sicurezza delle risorse**, viene aperto il pannello **SQL** con le raccomandazioni relative a problemi come la mancata abilitazione del controllo e di Transparent Data Encryption. Il pannello include anche [raccomandazioni](security-center-sql-service-recommendations.md) sullo stato di integrità generale del database.
+Quando si fa clic su **Dati** nel riquadro **Resources security health** (Integrità della sicurezza delle risorse) viene aperto il pannello **Risorse dati** con raccomandazioni relative a SQL e all'archiviazione. Il pannello include anche [raccomandazioni](security-center-sql-service-recommendations.md) sullo stato di integrità generale del database. Per altre informazioni sulla crittografia per l'archiviazione, vedere l'articolo su come abilitare la crittografia per l'account di archiviazione di Azure nel Centro sicurezza di Azure.
 
-![Integrità delle risorse SQL](./media/security-center-monitoring/security-center-monitoring-fig13-ga.png)
+![Risorse dati](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
 
-È possibile fare clic su qualsiasi raccomandazione e ottenere maggiori dettagli su altre azioni per risolvere il problema. L'esempio seguente illustra l'espansione della raccomandazione **Controllo database non abilitato**.
+In **Raccomandazioni su SQL** è possibile fare clic su qualsiasi raccomandazione e ottenere maggiori dettagli sulle ulteriori azioni per risolvere un problema. L'esempio seguente illustra l'espansione della raccomandazione **Database Auditing & Threat detection on SQL databases** (Controllo database e rilevamento minacce nei database SQL).
 
-![Informazioni dettagliate su una raccomandazione SQL](./media/security-center-monitoring/security-center-monitoring-fig14-ga.png)
+![Informazioni dettagliate su una raccomandazione SQL](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
 
-Il pannello **Abilita il controllo sui database SQL** contiene le informazioni seguenti:
+Il pannello **Abilita il controllo e il rilevamento minacce nei database SQL** contiene le informazioni seguenti:
 
 * Elenco di database SQL.
 * Server in cui si trovano.
@@ -185,14 +185,15 @@ Il pannello **Abilita il controllo sui database SQL** contiene le informazioni s
 * Stato corrente.
 * Gravità del problema.
 
-Quando si fa clic sul database per applicare la raccomandazione, viene aperto il pannello **Controllo e rilevamento minacce**, come illustrato nello screenshot seguente.
+Quando si fa clic sul database per applicare la raccomandazione, viene aperto il pannello **Controllo e rilevamento minacce** come illustrato nella schermata seguente.
 
 ![Pannello Controllo e rilevamento minacce](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
 
 Per abilitare il controllo, selezionare semplicemente **SÌ** nell'opzione **Controllo**.
 
 ### <a name="monitor-applications"></a>Monitorare le applicazioni
-Se il carico di lavoro di Azure include applicazioni che si trovano nelle [macchine virtuali create tramite Azure Resource Manager](../resource-manager-deployment-model.md) con porte Web esposte (porte TCP 80 e 443), il Centro sicurezza può monitorarle per identificare potenziali problemi di sicurezza, raccomandando le procedure di correzione. Quando si fa clic sul riquadro **Applicazioni**, viene aperto il pannello **Applicazioni** con una serie di raccomandazioni nella sezione relativa alla **procedura di prevenzione**. Visualizza anche il dettaglio dell'applicazione per host/IP virtuale, come illustrato nello screenshot seguente.
+
+Se il carico di lavoro di Azure include applicazioni che si trovano nelle [macchine virtuali create tramite Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) con porte Web esposte (porte TCP 80 e 443), il Centro sicurezza può monitorarle per identificare potenziali problemi di sicurezza, raccomandando le procedure di correzione. Quando si fa clic sul riquadro **Applicazioni**, viene aperto il pannello **Applicazioni** con una serie di raccomandazioni nella sezione **Application recommendations** (Raccomandazioni applicazione). Visualizza anche il dettaglio dell'applicazione per host/IP virtuale, come illustrato nello screenshot seguente.
 
 ![Integrità sicurezza delle applicazioni](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
 
@@ -216,6 +217,6 @@ Questo articolo descrive come usare le funzionalità di monitoraggio nel Centro 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1d22ea894852608bbe3e698b3e365df257dcc0b0
+ms.sourcegitcommit: 385eb87ec32f5f605b28cc8c76b1c89c7e90bfec
+ms.openlocfilehash: 09ec6d1aae5dc893e92b7c4ca1c30a251d02443d
 
 
 ---
@@ -39,7 +39,7 @@ La funzionalità cache locale del servizio app di Azure offre una visualizzazion
 * Risentono di un minor numero di riavvii delle app a seguito di modifiche alla condivisione dell'archiviazione.
 
 ## <a name="how-local-cache-changes-the-behavior-of-app-service"></a>Modalità di modifica del comportamento del servizio app da parte della cache locale
-* La cache locale è una copia delle cartelle /site e /siteextensions dell'app Web. Viene creata nell'istanza di VM locale all'avvio dell'app web. Le dimensioni della cache locale di ogni app Web è limitata a 300 MB per impostazione predefinita, ma possono essere aumentate fino a 1 GB.
+* La cache locale è una copia delle cartelle /site e /siteextensions dell'app Web. Viene creata nell'istanza di VM locale all'avvio dell'app web. Le dimensioni della cache locale di ogni app Web sono limitate a 300 MB per impostazione predefinita, ma possono essere aumentate fino a 2 GB.
 * La cache locale è di lettura/scrittura. Le eventuali modifiche vengono tuttavia rimosse quando l'app Web sposta le macchine virtuali o viene riavviata. È consigliabile non usare la cache locale per le app che archiviano dati cruciali nell'archivio del contenuto.
 * Le app Web possono continuare a scrivere file di log e dati di diagnostica come avviene attualmente. File di log e dati vengono tuttavia archiviati in locale nella VM, quindi vengono copiati periodicamente nell'archivio del contenuto condiviso. La copia nell'archivio del contenuto condiviso è una soluzione basata sul principio del "massimo sforzo". I writeback potrebbero infatti andare persi a seguito di un arresto anomalo improvviso dell'istanza di una VM.
 * La struttura delle cartelle LogFiles e Data delle app Web che usano la cache locale è stata modificata. Le cartelle LogFiles e Data della risorsa di archiviazione includono ora sottocartelle che seguono il modello di denominazione "identificatore univoco" + timestamp. Ogni sottocartella corrisponde a un'istanza di VM in cui l'app Web è o era in esecuzione.  
@@ -83,7 +83,7 @@ La cache locale viene abilitata per ogni app Web con questa impostazione dell'ap
 ```
 
 ## <a name="change-the-size-setting-in-local-cache"></a>Modificare l'impostazione delle dimensioni nella cache locale
-Per impostazione predefinita le dimensioni della cache locale corrispondono a **300 MB**. Sono incluse le cartelle /site e /siteextensions copiate dall'archivio del contenuto, nonché eventuali log e cartelle di dati creati in locale. Per aumentare questo limite, usare l'impostazione dell'app `WEBSITE_LOCAL_CACHE_SIZEINMB`. È possibile aumentare le dimensioni fino a **1 GB** (1000 MB) per ogni app Web.
+Per impostazione predefinita le dimensioni della cache locale corrispondono a **300 MB**. Sono incluse le cartelle /site e /siteextensions copiate dall'archivio del contenuto, nonché eventuali log e cartelle di dati creati in locale. Per aumentare questo limite, usare l'impostazione dell'app `WEBSITE_LOCAL_CACHE_SIZEINMB`. È possibile aumentare le dimensioni fino a **2 GB** (2000 MB) per ogni app Web.
 
 ## <a name="best-practices-for-using-app-service-local-cache"></a>Procedure consigliate per l'uso della cache locale del servizio app
 È consigliabile usare la cache locale insieme alla funzionalità degli [ambienti di gestione temporanea](../app-service-web/web-sites-staged-publishing.md) .
@@ -91,12 +91,12 @@ Per impostazione predefinita le dimensioni della cache locale corrispondono a **
 * Aggiungere l'impostazione dell'app *permanente* `WEBSITE_LOCAL_CACHE_OPTION` con il valore `Always` nello slot di **produzione**. Se si usa `WEBSITE_LOCAL_CACHE_SIZEINMB`, aggiungerla anch'essa come impostazione permanente nello slot di produzione.
 * Creare uno slot di **gestione temporanea** e pubblicare in questo slot. Se si sfruttano i vantaggi della cache locale per lo slot di produzione, in genere non si imposta l'uso della cache locale nello slot di gestione temporanea per abilitare un ciclo di vita di compilazione-distribuzione-test lineare per la gestione temporanea.
 * Testare il sito nello slot di gestione temporanea.  
-* Al termine, eseguire un' [operazione di scambio](../app-service-web/web-sites-staged-publishing.md#to-swap-deployment-slots) tra lo slot di gestione temporanea e lo slot di produzione.  
+* Al termine, eseguire un' [operazione di scambio](../app-service-web/web-sites-staged-publishing.md#Swap) tra lo slot di gestione temporanea e lo slot di produzione.  
 * Le impostazioni permanenti includono il nome e sono permanenti in uno slot. Di conseguenza, quando lo slot di gestione temporanea viene scambiato in slot di produzione, erediterà le impostazioni dell'app della cache locale. Il nuovo slot di produzione scambiato verrà eseguito nella cache locale dopo alcuni minuti e verrà preparato durante la fase di preparazione dello slot successiva allo scambio. Quando lo scambio di slot è stato completato, lo slot di produzione verrà quindi eseguito nella cache locale.
 
 ## <a name="frequently-asked-questions-faq"></a>Domande frequenti
 ### <a name="how-can-i-tell-if-local-cache-applies-to-my-web-app"></a>Come è possibile stabilire se la cache locale si applica all'app Web?
-Se l'app Web richiede un archivio del contenuto a prestazioni elevate e affidabile e non usa l'archivio del contenuto per scrivere dati critici in fase di esecuzione e ha una dimensione totale inferiore a 1 GB, è possibile usare la cache locale. Per determinare le dimensioni totale delle cartelle /site e /siteextensions è possibile usare l'estensione del sito relativa all'utilizzo del disco delle app Web di Azure.  
+Se l'app Web richiede un archivio del contenuto a prestazioni elevate e affidabile e non usa l'archivio del contenuto per scrivere dati critici in fase di esecuzione e ha una dimensione totale inferiore a 2 GB, è possibile usare la cache locale. Per determinare le dimensioni totale delle cartelle /site e /siteextensions è possibile usare l'estensione del sito relativa all'utilizzo del disco delle app Web di Azure.  
 
 ### <a name="how-can-i-tell-if-my-site-has-switched-to-using-local-cache"></a>Come è possibile verificare se il sito usa la cache locale?
 Se viene usata la funzionalità della cache locale con gli ambienti di gestione temporanea, l'operazione di scambio non verrà completata fino a quando la cache locale non viene preparata. Per verificare se il sito viene eseguito nella cache locale, è possibile controllare la variabile di ambiente del processo di lavoro `WEBSITE_LOCALCACHE_READY`. Per accedere alle variabili di ambiente del processo di lavoro in più istanze, seguire le istruzioni disponibili nella pagina relativa alla [variabile di ambiente del processo di lavoro](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) .  
@@ -112,7 +112,6 @@ La cache locale consente di evitare i riavvii dell'app Web correlati all'archivi
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

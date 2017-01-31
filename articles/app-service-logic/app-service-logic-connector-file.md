@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 09/01/2016
 ms.author: rajram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 61b3644214a7cb067dbb59e8fbd1464af78ae3e1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0fd71a72040ecf4e51fc118ce881b6c8ceb51b61
 
 
 ---
 # <a name="get-started-with-the-file-connector-and-add-it-to-your-logic-app"></a>Iniziare a usare il connettore File e aggiungerlo all'app per la logica
 > [!NOTE]
 > Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
-> 
-> 
+>
+>
 
-Connettersi a un file system per caricare, scaricare ed eseguire altre operazioni sui file in un computer host. Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati. È possibile aggiungere il connettore File al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica. 
+Connettersi a un file system per caricare, scaricare ed eseguire altre operazioni sui file in un computer host. Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati. È possibile aggiungere il connettore File al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica.
 
 Il connettore File usa Gestione connessione ibrida per la connettività ibrida al file system host.
 
@@ -39,7 +39,7 @@ Per usare il connettore File, è prima di tutto necessario creare un'istanza del
 4. Selezionare il pulsante **Crea** .
 5. Configurare il connettore file come segue:   
    ![][1]
-   
+
    * **Name** (Nome): specificare un nome per il connettore file.
    * **Impostazioni pacchetto**
      * **Cartella radice**: specificare il percorso della cartella radice nel computer host. ed esempio D:\FileConnectorTest
@@ -69,8 +69,8 @@ Dopo aver creato l'app per le API, è possibile usare il connettore File come az
 
 > [!NOTE]
 > Una volta letto dalla cartella, il trigger del file eliminerà il file.
-> 
-> 
+>
+>
 
 ## <a name="file-connector-rest-apis"></a>API REST del connettore File
 Per usare il connettore all'esterno di un'app per la logica, è possibile sfruttare le API REST esposte dal connettore. È possibile visualizzare le definizioni delle API selezionando Esplora-> App per le API->File Connector. Fare ora clic su API Definition nella sezione di riepilogo per visualizzare tutte le API esposte dal connettore:   
@@ -83,12 +83,12 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro a
 
 > [!NOTE]
 > Per iniziare a usare le app per la logica di Azure prima di registrarsi per ottenere un account Azure, passare a [Prova l'app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
-> 
-> 
+>
+>
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
+È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Monitorare le app per la logica](app-service-logic-monitor-your-logic-apps.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-file/img1.PNG
@@ -99,10 +99,10 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 <!-- Links -->
 [creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
 [File connector API definition]: https://msdn.microsoft.com/library/dn936296.aspx
-[uso di Gestione connessione ibrida]: app-service-logic-hybrid-connection-manager.md
+[uso di Gestione connessione ibrida]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

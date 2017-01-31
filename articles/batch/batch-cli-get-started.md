@@ -1,5 +1,5 @@
 ---
-title: Introduzione all&quot;interfaccia della riga di comando di Azure Batch | Microsoft Docs
+title: Introduzione all&quot;interfaccia della riga di comando di Azure per Batch | Documentazione Microsoft
 description: Introduzione rapida ai comandi per Batch nell&quot;interfaccia della riga di comando di Azure per la gestione delle risorse del servizio Azure Batch
 services: batch
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: cb1f049597d53263f0f92fe1192b285c09d78eeb
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: a2efffa5e250e02fec1a1834c9256ffef79b9be3
 
 
 ---
@@ -273,6 +273,6 @@ Questa sezione ha lo scopo di indicare le risorse da usare per risolvere i probl
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -17,75 +17,12 @@ ms.topic: hero-article
 ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: bc36f38c0089940e8f4f53a0abb13d9bb756eb1e
+ms.sourcegitcommit: a9adc82faab977ad5da1c9dc281d45db3101d8c8
+ms.openlocfilehash: 3fb97f80d5012e993f92eb592d877faabc94c43e
 
 
 ---
-<!------------------
-This topic is annotated with TEMPLATE guidelines for TUTORIAL TOPICS.
-
-
-Metadata guidelines
-
-title
-    60 characters or less. Tells users clearly what they will do (deploy an ASP.NET web app to App Service). Not the same as H1. It's 60 characters or fewer including all characters between the quotes and the Microsoft Docs site identifier.
-
-description
-    115-145 characters. Duplicate of the first sentence in the introduction. This is the abstract of the article that displays under the title when searching in Bing or Google. 
-
-    Example: "This tutorial shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015."
------------------->
-
-<!----------------
-
-TEMPLATE GUIDELINES for tutorial topics
-
-The tutorial topic shows users how to solve a problem using a product or service. It includes the prerequisites and steps users need to be successful.  
-
-It is a "solve a problem" topic, not a "learn concepts" topic.
-
-DO include this:
-    • What users will do
-    • What they will create or accomplish by the end of the tutorial
-    • Time estimate
-    • Optional but useful: Include a diagram or video. Diagrams help users see the big picture of what they are doing. A video of the steps can be used by customers as an alternative to following the steps in the topic.
-    • Prerequisites: Technical expertise and software requirements
-    • End-to-end steps. At the end, include next steps to deeper or related tutorials so users can learn more about the service
-
-DON'T include this:
-    • Conceptual info about the service. This info is in overview topics that you can link to in the prerequisites section if necessary
-
-------------------->
-
-<!------------------
-GUIDELINES for the H1 
-    
-    The H1 should answer the question "What will I do in this topic?" Write the H1 heading in conversational language and use search keywords as much as possible. Since this is a "solve a problem" topic, make sure the title indicates that. Use a strong, specific verb like "Deploy."  
-        
-    Heading must use an industry standard term. If your feature is a proprietary name like "elastic pools", use a synonym. For example: "Learn about elastic pools for multi-tenant databases." In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
-
--------------------->
-
 # <a name="get-started-with-backup-and-restore-for-data-protection-and-recovery"></a>Introduzione a Backup e ripristino per la protezione dei dati e il ripristino
-
-<!------------------
-    GUIDELINES for introduction
-    
-    The introduction is 1-2 sentences.  It is optimized for search and sets proper expectations about what to expect in the article. It should contain the top keywords that you are using throughout the article.The introduction should be brief and to the point of what users will do and what they will accomplish. 
-
-    In this example:
-     
-
-Sentence #1 Explains what the user will do. This is also the metadata description. 
-    This tutorial shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015. 
-
-Sentence #2 Explains what users will learn and the benefit.  
-    When you’re finished, you’ll have a simple web application up and running in the cloud.
-
--------------------->
-
-
 In questa esercitazione introduttiva si apprenderà come usare il portale di Azure per:
 
 - Visualizzare backup esistenti di un database
@@ -95,6 +32,9 @@ In questa esercitazione introduttiva si apprenderà come usare il portale di Azu
 
 **Tempo stimato**: per questa esercitazione saranno necessari circa 30 minuti (presupponendo che i prerequisiti siano già soddisfatti).
 
+> [!TIP]
+> Per eseguire queste stesse attività in un'esercitazione introduttiva, è possibile usare [PowerShell](sql-database-get-started-backup-recovery-powershell.md).
+>
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -104,13 +44,12 @@ In questa esercitazione introduttiva si apprenderà come usare il portale di Azu
 
 * Aver completato l'esercitazione [Introduzione ai server del database SQL di Azure, ai database e alle regole del firewall usando il portale di Azure ed SQL Server Management Studio](sql-database-get-started.md) o la [versione per PowerShell](sql-database-get-started-powershell.md) equivalente. In caso contrario, completare questa esercitazione obbligatoria oppure eseguire lo script di PowerShell in fondo alla [versione per PowerShell](sql-database-get-started-powershell.md) di questa esercitazione prima di continuare.
 
-<!------------------
-> [!TIP]
-> You can perform these same tasks in a getting started tutorial by using either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
->
--------------------->
 
-## <a name="sign-in-by-using-your-existing-account"></a>Accedere usando un account esistente
+> [!NOTE]
+> Questa esercitazione offre informazioni sul contenuto di questi argomenti: [backup del database SQL](sql-database-automated-backups.md), [conservazione dei backup a lungo termine](sql-database-long-term-retention.md) e [ripristino di un database SQL di Azure con i backup automatizzati del database](sql-database-recovery-using-backups.md).
+>  
+
+## <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Accedere al portale di Azure con il proprio account Azure
 Usando la [sottoscrizione esistente](https://account.windowsazure.com/Home/Index), seguire questa procedura per connettersi al portale di Azure.
 
 1. Aprire il browser preferito e connettersi al [portale di Azure](https://portal.azure.com/).
@@ -118,7 +57,6 @@ Usando la [sottoscrizione esistente](https://account.windowsazure.com/Home/Index
 3. Nella **pagina di accesso** specificare le credenziali per la sottoscrizione.
    
    ![pagina di accesso](./media/sql-database-get-started/login.png)
-
 
 <a name="create-logical-server-bk"></a>
 
@@ -128,15 +66,15 @@ In questa sezione dell'esercitazione verranno visualizzate informazioni sul punt
 
 1. Aprire il pannello **Database SQL** del database: **sqldbtutorialdb**.
 
-    ![nuovo pannello del database di esempio](./media/sql-database-get-started/new-sample-db-blade.png)
+   ![nuovo pannello del database di esempio](./media/sql-database-get-started/new-sample-db-blade.png)
 
 2. Sulla barra degli strumenti fare clic su **Ripristina**.
 
-    ![barra degli strumenti di ripristino](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
+   ![barra degli strumenti di ripristino](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
 
 3. Nel pannello Ripristina individuare il punto di ripristino meno recente.
 
-    ![punto di ripristino meno recente](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)
+   ![punto di ripristino meno recente](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Ripristinare un database a un momento precedente
 
@@ -144,45 +82,50 @@ In questa sezione dell'esercitazione si eseguirà il ripristino del database a u
 
 1. Nel pannello **Ripristina** del database verificare il nome predefinito del nuovo database al quale si esegue il ripristino del proprio database in corrispondenza di un precedente punto nel tempo (il nome coincide con il nome del database esistente, seguito da un timestamp). Nei prossimi passaggi il nome verrà modificato in modo da riflettere la data e l'ora di ripristino specificate.
 
-    ![nome del database ripristinato](./media/sql-database-get-started-backup-recovery/restored-database-name.png)
+   ![nome del database ripristinato](./media/sql-database-get-started-backup-recovery/restored-database-name.png)
 
 2. Fare clic sull'icona **Calendario** nella casella di input **Punto di ripristino (UTC)**.
 
-    ![punto di ripristino](./media/sql-database-get-started-backup-recovery/restore-point.png)
+   ![punto di ripristino](./media/sql-database-get-started-backup-recovery/restore-point.png)
 
 2. Nel calendario selezionare una data compresa nel periodo di conservazione.
 
-    ![data punto di ripristino](./media/sql-database-get-started-backup-recovery/restore-point-date.png)
+   ![data punto di ripristino](./media/sql-database-get-started-backup-recovery/restore-point-date.png)
 
 3. Nella casella di input **Punto di ripristino (UTC)** specificare l'ora della data selezionata a cui si vuole ripristinare i dati del database dai backup automatizzati.
 
-    ![ora punto di ripristino](./media/sql-database-get-started-backup-recovery/restore-point-time.png)
+   ![ora punto di ripristino](./media/sql-database-get-started-backup-recovery/restore-point-time.png)
 
-    >[!NOTE]
-    >Osservare come il nome del database sia cambiato in funzione della data e dell'ora selezionate. Tenere presente inoltre che non è possibile modificare il server su cui si vuole eseguire il ripristino in un determinato momento nel tempo. Per eseguire il ripristino su un server diverso, usare la funzionalità [Ripristino geografico](sql-database-disaster-recovery.md#recover-using-geo-restore). Tenere presente infine che è possibile eseguire il ripristino in un [pool elastico](sql-database-elastic-jobs-overview.md) o in un altro piano tariffario. 
-    >
+   >[!NOTE]
+   >Osservare come il nome del database sia cambiato in funzione della data e dell'ora selezionate. Tenere presente inoltre che non è possibile modificare il server su cui si vuole eseguire il ripristino in un determinato momento nel tempo. Per eseguire il ripristino su un server diverso, usare la funzionalità [Ripristino geografico](sql-database-disaster-recovery.md#recover-using-geo-restore). Tenere presente infine che è possibile eseguire il ripristino in un [pool elastico](sql-database-elastic-jobs-overview.md) o in un altro piano tariffario. 
+   >
 
 4. Fare clic su **OK** per ripristinare il database a un nuovo database in corrispondenza di un punto precedente nel tempo.
 
 5. Sulla barra degli strumenti fare clic sull'icona di notifica per visualizzare lo stato del processo di ripristino.
 
-    ![avanzamento processo di ripristino](./media/sql-database-get-started-backup-recovery/restore-job-progress.png)
+   ![avanzamento processo di ripristino](./media/sql-database-get-started-backup-recovery/restore-job-progress.png)
 
 6. Al termine del processo di ripristino, aprire il pannello **Database SQL** per visualizzare il database appena ripristinato.
 
-    ![database ripristinato](./media/sql-database-get-started-backup-recovery/restored-database.png)
+   ![database ripristinato](./media/sql-database-get-started-backup-recovery/restored-database.png)
 
-   > [!NOTE]
-   > A questo punto è possibile connettersi al database ripristinato usando SQL Server Management Studio per eseguire le attività necessarie, ad esempio per [estrarre un bit di dati dal database ripristinato da copiare nel database esistente o per eliminare il database esistente e rinominare il database ripristinato con il nome del database esistente](sql-database-recovery-using-backups.md#point-in-time-restore).
-   >
+> [!NOTE]
+> A questo punto è possibile connettersi al database ripristinato usando SQL Server Management Studio per eseguire le attività necessarie, ad esempio per [estrarre un bit di dati dal database ripristinato da copiare nel database esistente o per eliminare il database esistente e rinominare il database ripristinato con il nome del database esistente](sql-database-recovery-using-backups.md#point-in-time-restore).
+>
 
 ## <a name="configure-long-term-retention-of-automated-backups-in-an-azure-recovery-services-vault"></a>Configurare la conservazione a lungo termine di backup automatizzati in un insieme di credenziali di Servizi di ripristino di Azure 
 
 In questa sezione dell'esercitazione si [configurerà un insieme di credenziali di Servizi di ripristino di Azure per conservare i backup automatizzati](sql-database-long-term-retention.md) per un periodo più lungo rispetto al periodo di conservazione associato al livello di servizio. 
 
+
+> [!TIP]
+> Per eliminare i backup, vedere [Delete long-term retention backups](sql-database-long-term-retention-delete.md) (Eliminare i backup con conservazione a lungo termine).
+>
+
 1. Aprire il pannello **SQL Server** relativo al server: **sqldbtutorialserver**.
 
-    ![pannello di sql server](./media/sql-database-get-started/sql-server-blade.png)
+   ![pannello di sql server](./media/sql-database-get-started/sql-server-blade.png)
 
 2. Fare clic su **Conservazione backup a lungo termine**.
 
@@ -242,9 +185,9 @@ In questa sezione dell'esercitazione si [configurerà un insieme di credenziali 
 
    ![visualizzazione dell'insieme di credenziali dei servizi di ripristino](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault.png)
 
-   > [!IMPORTANT]
-   > Dopo essere stati configurati, i backup verranno visualizzati nell'insieme di credenziali entro i successivi sette giorni. Non continuare questa esercitazione finché i backup non verranno visualizzati nell'insieme di credenziali.
-   >
+> [!IMPORTANT]
+> Dopo essere stati configurati, i backup verranno visualizzati nell'insieme di credenziali entro i successivi sette giorni. Non continuare questa esercitazione finché i backup non verranno visualizzati nell'insieme di credenziali.
+>
 
 ## <a name="view-backups-in-long-term-retention"></a>Visualizzare i backup nella conservazione a lungo termine
 
@@ -256,17 +199,17 @@ In questa sezione dell'esercitazione si visualizzeranno informazioni sui backup 
 
 2. Aprire il pannello **Database SQL** del database: **sqldbtutorialdb**.
 
-    ![nuovo pannello del database di esempio](./media/sql-database-get-started/new-sample-db-blade.png)
+   ![nuovo pannello del database di esempio](./media/sql-database-get-started/new-sample-db-blade.png)
 
 3. Sulla barra degli strumenti fare clic su **Ripristina**.
 
-    ![barra degli strumenti di ripristino](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
+   ![barra degli strumenti di ripristino](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
 
 4. Nel pannello di ripristino fare clic su **A lungo termine**.
 
 5. Nei backup dell'insieme di credenziali di Azure fare clic su **Selezionare un backup** per visualizzare i backup di database disponibili nella conservazione dei backup a lungo termine.
 
-    ![backup nell'insieme di credenziali](./media/sql-database-get-started-backup-recovery/view-backups-in-vault.png)
+   ![backup nell'insieme di credenziali](./media/sql-database-get-started-backup-recovery/view-backups-in-vault.png)
 
 ## <a name="restore-a-database-from-a-backup-in-long-term-backup-retention"></a>Ripristinare un database da un backup nella conservazione dei backup a lungo termine
 
@@ -274,37 +217,34 @@ In questa sezione dell'esercitazione si ripristinerà il database a un nuovo dat
 
 1. Nel pannello **Backup dell'insieme di credenziali Azure** fare clic sul backup da ripristinare e quindi su **Seleziona**.
 
-    ![selezione del backup dell'insieme di credenziali](./media/sql-database-get-started-backup-recovery/select-backup-in-vault.png)
+   ![selezione del backup dell'insieme di credenziali](./media/sql-database-get-started-backup-recovery/select-backup-in-vault.png)
 
 2. Nella casella di testo **Nome database** immettere un nome per il database ripristinato.
 
-    ![nuovo nome database](./media/sql-database-get-started-backup-recovery/new-database-name.png)
+   ![nuovo nome database](./media/sql-database-get-started-backup-recovery/new-database-name.png)
 
 3. Fare clic su **OK** per ripristinare il database dal backup presente nell'insieme di credenziali al nuovo database.
 
 4. Sulla barra degli strumenti fare clic sull'icona di notifica per visualizzare lo stato del processo di ripristino.
 
-    ![avanzamento del processo di ripristino dall'insieme di credenziali](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
+   ![avanzamento del processo di ripristino dall'insieme di credenziali](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
 
 5. Al termine del processo di ripristino, aprire il pannello **Database SQL** per visualizzare il database appena ripristinato.
 
-    ![database ripristinato dall'insieme di credenziali](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
+   ![database ripristinato dall'insieme di credenziali](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
 
-   > [!NOTE]
-   > A questo punto è possibile connettersi al database ripristinato usando SQL Server Management Studio per eseguire le attività necessarie, ad esempio per [estrarre un bit di dati dal database ripristinato da copiare nel database esistente o per eliminare il database esistente e rinominare il database ripristinato con il nome del database esistente](sql-database-recovery-using-backups.md#point-in-time-restore).
-   >
-
-
-<!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
+> [!NOTE]
+> A questo punto è possibile connettersi al database ripristinato usando SQL Server Management Studio per eseguire le attività necessarie, ad esempio per [estrarre un bit di dati dal database ripristinato da copiare nel database esistente o per eliminare il database esistente e rinominare il database ripristinato con il nome del database esistente](sql-database-recovery-using-backups.md#point-in-time-restore).
+>
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sui backup automatici generati dal servizio, vedere [backup automatici](: https://azure.microsoft.com/en-us/documentation/articles/)sql-database-automated-backups.MD)
+- Per informazioni sui backup automatici generati dal servizio, vedere l'articolo relativo ai [backup automatici](sql-database-automated-backups.md)
 - Per altre informazioni sulla conservazione dei backup a lungo termine, vedere [conservazione dei backup a lungo termine](sql-database-long-term-retention.md)
 - Per altre informazioni sul ripristino da backup, vedere [ripristino dal backup](sql-database-recovery-using-backups.md)
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

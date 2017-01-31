@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 05e9e10d9a37f90b679175a3ed9d78ed05d9e447
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: cab40991e5b0628f422b9eb91130d8135c1434f1
 
 
 ---
@@ -121,7 +121,7 @@ Azure Resource Manager consente di creare un modello semplice (in formato JSON) 
 
 Includendo l'agente di Log Analytics nel modello di Resource Manager è possibile accertarsi che ogni macchina virtuale sia preconfigurata per la segnalazione di dati all'area di lavoro di Log Analytics.
 
-Per altre informazioni sui modelli di Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](../resource-group-authoring-templates.md).
+Per altre informazioni sui modelli di Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Di seguito è riportato un modello di Resource Manager di esempio usato per distribuire una macchina virtuale che esegue Windows e in cui è installata l'estensione Microsoft Monitoring Agent. Si tratta di un modello tipico di macchina virtuale con le aggiunte seguenti:
 
@@ -161,7 +161,7 @@ Di seguito è riportato un modello di Resource Manager di esempio usato per dist
     "workspaceName": {
       "type": "string",
       "metadata": {
-         "description": "OMD workspace name"
+         "description": "OMS workspace name"
       }
     },
     "windowsOSVersion": {
@@ -404,6 +404,6 @@ Per i computer non inclusi in Azure è possibile installare l'agente di Log Anal
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

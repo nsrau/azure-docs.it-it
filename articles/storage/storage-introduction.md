@@ -1,5 +1,5 @@
 ---
-title: Introduzione ad Archiviazione | Documentazione Microsoft
+title: Introduzione ad Archiviazione di Azure | Documentazione Microsoft
 description: Una panoramica di Archiviazione di Azure, l&quot;archiviazione dei dati online di Microsoft nel cloud. Informazioni su come usare nelle applicazioni la migliore soluzione di archiviazione cloud disponibile.
 services: storage
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: 40ab7632f47de4d4eef277f4c4071ce2d4de1eed
+ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
+ms.openlocfilehash: 52982a24b7e252c7c14256128e372675d5aa0ba7
 
 
 ---
@@ -132,10 +132,10 @@ Garantisce infine che l'account di archiviazione soddisfi il [Contratto di servi
 
 Quando si crea un account di archiviazione, è possibile selezionare una delle opzioni di replica seguenti:
 
-* **Archiviazione con ridondanza locale (LRS).**  Con l'archiviazione con ridondanza locale vengono conservate tre copie dei dati. Tale tipo di archiviazione viene replicato per tre volte all'interno di un unico data center di una singola area. Questa opzione di replica protegge i dati dai normali errori hardware ma non dagli errori di un unico data center.
+* **Archiviazione con ridondanza locale (LRS).** Con l'archiviazione con ridondanza locale vengono conservate tre copie dei dati. Tale tipo di archiviazione viene replicato per tre volte all'interno di un unico data center di una singola area. Questa opzione di replica protegge i dati dai normali errori hardware ma non dagli errori di un unico data center.
 
     L'archiviazione con ridondanza locale viene offerta a tariffe scontate. Per la massima durabilità, è consigliabile usare l'archiviazione con ridondanza geografica descritta di seguito.
-* **Archiviazione con ridondanza della zona (ZRS).**  Con l'archiviazione con ridondanza della zona vengono conservate tre copie dei dati. Tale tipo di archiviazione viene replicato per tre volte in due o tre strutture all'interno di una singola area o in due aree, fornendo una durabilità maggiore rispetto all'archiviazione con ridondanza locale. Questa opzione di replica assicura la durabilità dei dati all'interno di una singola area.
+* **Archiviazione con ridondanza della zona (ZRS).** Con l'archiviazione con ridondanza della zona vengono conservate tre copie dei dati. Tale tipo di archiviazione viene replicato per tre volte in due o tre strutture all'interno di una singola area o in due aree, fornendo una durabilità maggiore rispetto all'archiviazione con ridondanza locale. Questa opzione di replica assicura la durabilità dei dati all'interno di una singola area.
 
     L'archiviazione con ridondanza della zona fornisce un livello di durabilità maggiore rispetto all'archiviazione con ridondanza locale. Tuttavia, per la massima durabilità, è consigliabile usare l'archiviazione con ridondanza geografica descritta di seguito.
 
@@ -252,6 +252,6 @@ Per altre informazioni su Archiviazione di Azure, vedere le risorse seguenti:
 * [Introduzione a Azure Storage in cinque minuti](storage-getting-started-guide.md)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

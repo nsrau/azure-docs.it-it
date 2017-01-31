@@ -1,4 +1,4 @@
-Azure Marketplace rende disponibile un'ampia varietà di applicazioni Web ampiamente diffuse, sviluppate da Microsoft, da terze parti e tramite iniziative software open source. Le app Web create da Azure Marketplace non richiedono l'installazione di software, oltre al browser utilizzato per connettersi al [Portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+Azure Marketplace rende disponibile un'ampia varietà di applicazioni Web ampiamente diffuse, sviluppate da Microsoft, da terze parti e tramite iniziative software open source. Le app Web create da Azure Marketplace non richiedono l'installazione di software, oltre al browser utilizzato per connettersi al [Portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715). 
 
 In questa esercitazione si apprenderà come:
 
@@ -10,49 +10,49 @@ Verrà creato un blog WordPress basato su un modello predefinito. Nella figura s
 ![Wordpress blog][13]
 
 > [!NOTE]
-> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 
-## Creare un'app Web nel portale
+## <a name="create-a-web-app-in-the-portal"></a>Creare un'app Web nel portale
 1. Accedere al portale di anteprima di Azure.
-2. Aprire Azure Marketplace facendo clic sull’icona **Marketplace**:
+2. Aprire Azure Marketplace facendo clic sull’icona **Marketplace** :
    
     ![Icona Marketplace][marketplace]
    
-    Oppure facendo clic sull’icona **Nuovo** in alto a destra del dashboard e selezionando **Marketplace** in fondo all’elenco.
+    Oppure facendo clic sull'icona **Nuovo** in alto a destra del dashboard e selezionando **Marketplace** in fondo all'elenco.
    
     ![Creazione di un nuovo sito][5]
-3. Selezionare **Web + Mobile**. Cercare **WordPress** e scegliere il **WordPress** icona.
+3. Selezionare **Web + Mobile**. Cercare **WordPress** e fare clic sull'icona **WordPress**.
    
     ![WordPress nell'elenco][7]
 4. Dopo aver letto la descrizione dell'app WordPress, selezionare **Crea**.
-5. Fare clic su **App Web** e fornire i valori richiesti per la configurazione dell'app web.
+5. Fare clic su **App Web**e fornire i valori richiesti per la configurazione dell'app web.
    
     ![configurazione dell'app][8]
-6. Fare clic su **Database** e fornire i valori richiesti per la configurazione del database MySQL.
+6. Fare clic su **Database**e fornire i valori richiesti per la configurazione del database MySQL. 
    
     ![configurare il database][database]
 7. Fornire un nome per un nuovo gruppo di risorse.
    
     ![Impostazione di un gruppo di risorse][groupname]
-8. Se necessario, fare clic su **SOTTOSCRIZIONE**, e specificare la sottoscrizione da utilizzare.
+8. Se necessario, fare clic su **SOTTOSCRIZIONE**, e specificare la sottoscrizione da utilizzare. 
 9. Al termine della definizione di applicazione web, fare clic su **Crea**, e attendere che la nuova applicazione web viene creato.
    
    Quando l'applicazione è stata creata, verrà visualizzato il gruppo di risorse contenente il database e applicazioni web.
    
    ![Mostra il gruppo][resourcegroup]
 
-## Avviare e gestire l'app Web WordPress
+## <a name="launch-and-manage-your-wordpress-web-app"></a>Avviare e gestire l'app Web WordPress
 1. Fare clic su della nuova applicazione web per visualizzare i dettagli sull'app.
    
     ![avvio del dashboard][10]
-2. Nella pagina **Essentials**, fare clic su **Sfoglia** o sul collegamento sotto **Url** per aprire la pagina di benvenuto dell'app Web.
+2. Nella pagina **Informazioni di base** fare clic su **Esplora** o sul collegamento sotto **URL** per aprire la pagina di benvenuto dell'app Web.
    
     ![URL sito][browse]
 3. Se non è stato installato WordPress, immettere le informazioni di configurazione appropriate richieste da WordPress e fare clic su **Installa WordPress** per finalizzare la configurazione e aprire la pagina di accesso all'app Web.
-4. Fare clic su **Accesso** e immettere le credenziali.
-5. La nuova app Web WordPress avrà un aspetto simile al seguente.
+4. Fare clic su **Accesso** e immettere le credenziali.  
+5. La nuova app Web WordPress avrà un aspetto simile al seguente.    
    
     ![sito WordPress][13]
 
@@ -70,4 +70,7 @@ Verrà creato un blog WordPress basato su un modello predefinito. Nella figura s
 [marketplace]: ./media/website-from-gallery/marketplace-icon.png
 [groupname]: ./media/website-from-gallery/set-rg.png
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Jan17_HO3-->
+
+

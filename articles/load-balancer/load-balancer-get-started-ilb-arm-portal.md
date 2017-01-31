@@ -1,10 +1,10 @@
 ---
-title: Informazioni sulla creazione di un servizio di bilanciamento del carico interno in Resource Manager con il portale di Azure | Documentazione Microsoft
+title: Creare un servizio di bilanciamento del carico interno - Portale di Azure | Documentazione Microsoft
 description: Informazioni su come creare un servizio di bilanciamento del carico interno in Resource Manager con il portale di Azure
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 1ac14fb9-8d14-4892-bfe6-8bc74c48ae2c
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
-ms.author: sewhee
+ms.date: 01/23/2017
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 7d8eb43fea032eb5aa72f448a7c1022be62a7b81
-ms.openlocfilehash: 5a0a701638950e750a9aac104845ef1a7248760a
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
 
 ---
 
@@ -32,7 +32,7 @@ ms.openlocfilehash: 5a0a701638950e750a9aac104845ef1a7248760a
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!NOTE]
-> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md).  Questo articolo illustra l'uso del modello di distribuzione Resource Manager che Microsoft consiglia di usare invece del [modello di distribuzione classica](load-balancer-get-started-ilb-classic-ps.md) per le distribuzioni più recenti.
+> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md).  Questo articolo illustra l'uso del modello di distribuzione Resource Manager che Microsoft consiglia di usare invece del [modello di distribuzione classica](load-balancer-get-started-ilb-classic-ps.md) per le distribuzioni più recenti.
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -107,6 +107,6 @@ Prima di configurare una regola di bilanciamento del carico, è necessario innan
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

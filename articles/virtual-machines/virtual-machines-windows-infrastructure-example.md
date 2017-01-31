@@ -1,28 +1,32 @@
 ---
-title: Procedura dettagliata per un'infrastruttura di esempio di Azure | Microsoft Docs
-description: Informazioni sulle principali linee guida di progettazione e implementazione per la distribuzione di un'infrastruttura di esempio in Azure.
-documentationcenter: ''
+title: Procedura dettagliata per un&quot;infrastruttura di esempio di Azure | Documentazione Microsoft
+description: Informazioni sulle principali linee guida di progettazione e implementazione per la distribuzione di un&quot;infrastruttura di esempio in Azure.
+documentationcenter: 
 services: virtual-machines-windows
 author: iainfoulds
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 7032b586-e4e5-4954-952f-fdfc03fc1980
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 1e52ae69951b6b1feee6207033a85a583d13bcc2
+ms.openlocfilehash: 851dd4a2a76eff0e2f95c9a0a7280986cfb3e26a
+
 
 ---
-# Procedura dettagliata per un'infrastruttura di esempio di Azure
+# <a name="example-azure-infrastructure-walkthrough"></a>Procedura dettagliata per un'infrastruttura di esempio di Azure
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Questo articolo illustra le modalità di compilazione di un'infrastruttura di applicazione di esempio. Sarà trattata la progettazione di un'infrastruttura per un semplice negozio online che riunisce tutte le linee guida e le decisioni sulle convenzioni di denominazione, i set di disponibilità, le reti virtuali e i servizi di bilanciamento del carico e l'effettiva distribuzione delle macchine virtuali.
 
-## Carico di lavoro di esempio
+## <a name="example-workload"></a>Carico di lavoro di esempio
 Adventure Works Cycles desidera compilare un'applicazione per un negozio online in Azure, che è costituita da:
 
 * Due server IIS che eseguono il client front-end in un livello Web
@@ -30,7 +34,7 @@ Adventure Works Cycles desidera compilare un'applicazione per un negozio online 
 * Due istanze di Microsoft SQL Server con gruppi di disponibilità AlwaysOn (due SQL Server e un server di controllo del nodo di maggioranza) per archiviare dati sui prodotti e ordini in un livello di database
 * Due controller di dominio di Active Directory per gli account dei clienti e dei fornitori in un livello di autenticazione
 * Tutti i server si trovano in due subnet:
-  * una subnet front-end per i server Web
+  * una subnet front-end per i server Web 
   * una subnet back-end per i server applicazioni, i cluster SQL e i controller di dominio
 
 ![Diagramma dei diversi livelli di infrastruttura dell'applicazione](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
@@ -56,16 +60,16 @@ Tutti gli elementi devono rispettare le convenzioni di denominazione seguenti:
 * I set di disponibilità usano azos-use-as-**[ruolo]**
 * I nomi delle macchine virtuali usano azos-use-vm-**[nomevm]**
 
-## Sottoscrizioni e account di Azure
+## <a name="azure-subscriptions-and-accounts"></a>Sottoscrizioni e account di Azure
 Adventure Works Cycles usa la propria sottoscrizione aziendale, denominata Adventure Works Enterprise Subscription, per fornire la fatturazione per questo carico di lavoro IT.
 
-## Account di archiviazione
+## <a name="storage-accounts"></a>Account di archiviazione
 Adventure Works Cycles ha stabilito che sono necessari due account di archiviazione:
 
 * **adventureazosusesawebapp** per l’archiviazione standard di server Web, server applicazioni, controller di dominio e relativi dischi dati aggiuntivi
 * **adventureazosusesasql** per l'archiviazione Premium per le VM di SQL Server e i relativi dischi dati.
 
-## Rete virtuale e subnet
+## <a name="virtual-network-and-subnets"></a>Rete virtuale e subnet
 Poiché la rete virtuale non necessita di connettività costante alla rete locale Adventure Work Cycles, l’azienda ha optato per una rete virtuale solo cloud.
 
 Contoso ha creato una rete virtuale solo cloud con le impostazioni seguenti tramite il portale di Azure:
@@ -80,7 +84,7 @@ Contoso ha creato una rete virtuale solo cloud con le impostazioni seguenti tram
   * Nome: BackEnd
   * Spazio degli indirizzi: 10.0.2.0/24
 
-## Set di disponibilità
+## <a name="availability-sets"></a>Set di disponibilità
 Per mantenere elevata la disponibilità di tutti i quattro i livelli del negozio online, Adventure Works Cycles ha optato per quattro set di disponibilità:
 
 * **azos-use-as-web** per i server Web
@@ -88,13 +92,13 @@ Per mantenere elevata la disponibilità di tutti i quattro i livelli del negozio
 * **azos-use-as-sql** per SQL Server
 * **azos-use-as-dc** per i controller di dominio
 
-## Macchine virtuali
+## <a name="virtual-machines"></a>Macchine virtuali
 Adventure Works Cycles ha optato per i seguenti nomi per le macchine virtuali di Azure:
 
 * **azos-use-vm-web01** per il primo server Web
 * **azos-use-vm-web02** per il secondo server Web
 * **azos-use-vm-app01** per il primo server applicazioni
-* **azos-use-vm-app02**, per il secondo server applicazioni
+* **azos-use-vm-app02** , per il secondo server applicazioni
 * **azos-use-vm-sql01** per il primo SQL Server del cluster
 * **azos-use-vm-sql02** per il secondo SQL Server del cluster
 * **azos-use-vm-dc01** per il primo controller di dominio
@@ -114,7 +118,12 @@ Questa configurazione include:
 * Un set interno con bilanciamento del carico per il traffico Web crittografato dai server Web ai server applicazioni
 * Un unico gruppo di risorse
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Dec16_HO3-->
+
+

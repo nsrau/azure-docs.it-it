@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9dea1f48904a0d505f95636f178b24f8a6e174a7
+ms.sourcegitcommit: 2e8cdbbd7f97c5095a151d0ef228cfdeb671345a
+ms.openlocfilehash: 1f5eb285e061b1e221e1d68f894bbd9dd0a50b32
 
 
 ---
@@ -663,7 +663,7 @@ Questo articolo descrive come usare il nuovo supporto file in Azure Mobile SDK p
   
       + `IFileSyncHandler.ProcessFileSynchronizationAction` viene richiamato nell'ambito del flusso di sincronizzazione dei file. Vengono forniti un riferimento a file e un valore di enumerazione FileSynchronizationAction per poter decidere in che modo l'applicazione dovrà gestire l'evento. Ad esempio, scaricare automaticamente un file quando questo viene creato o aggiornato, eliminare un file dal dispositivo locale quando il file viene eliminato nel server.
 * È possibile usare un oggetto `MobileServiceFile` in modalità online oppure offline, usando rispettivamente `IMobileServiceTable` o `IMobileServiceSyncTable`. Nello scenario offline, il caricamento viene eseguito quando l'app chiama `PushFileChangesAsync`, attivando l'elaborazione della coda operazioni offline. attivando l'elaborazione della coda operazioni offline. Per ogni operazione su file, Azure Mobile SDK per client richiama il metodo `GetDataSource` nell'istanza di `IFileSyncHandler` per recuperare il contenuto del file per il caricamento.
-* Per recuperare i file di un elemento, chiamare l'istanza ``GetFilesAsync` method on the  `IMobileServiceTable<T>` or IMobileServiceSyncTable<T>`. Questo metodo restituisce un elenco di file associato all'elemento di dati fornito. Nota: questa è un'operazione *locale* che restituirà i file in base allo stato dell'oggetto al momento dell'ultima sincronizzazione. Per ottenere un elenco aggiornato di file dal server, è necessario avviare prima un'operazione di sincronizzazione.
+* Per recuperare i file di un elemento, chiamare il metodo `GetFilesAsync` nell'istanza di `IMobileServiceTable<T>` o `IMobileServiceSyncTable<T>`. Questo metodo restituisce un elenco di file associato all'elemento di dati fornito. Nota: questa è un'operazione *locale* che restituirà i file in base allo stato dell'oggetto al momento dell'ultima sincronizzazione. Per ottenere un elenco aggiornato di file dal server, è necessario avviare prima un'operazione di sincronizzazione.
   
         IEnumerable<MobileServiceFile> files = await myTable.GetFilesAsync(myItem);
 * La funzionalità di sincronizzazione file usa le notifiche di modifica dei record nell'archivio locale per recuperare i record che il client ha ricevuto come parte di un'operazione push o pull. A questo scopo, attivare le notifiche locali e del server per il contesto di sincronizzazione con il parametro `StoreTrackingOptions` . 
@@ -691,6 +691,6 @@ Questo articolo descrive come usare il nuovo supporto file in Azure Mobile SDK p
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

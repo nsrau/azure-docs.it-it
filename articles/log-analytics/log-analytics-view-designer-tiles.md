@@ -1,19 +1,23 @@
 ---
 title: Informazioni di riferimento sul riquadro Progettazione viste di Log Analytics | Microsoft Docs
-description: Progettazione viste di Log Analytics consente di creare viste personalizzate nella console di OMS contenenti visualizzazioni diverse dei dati nel repository di OMS. In questo articolo vengono fornite informazioni di riferimento sulle impostazioni relative a ciascun riquadro disponibile per l'uso nelle viste personalizzate.
+description: Progettazione viste di Log Analytics consente di creare viste personalizzate nella console di OMS contenenti visualizzazioni diverse dei dati nel repository di OMS. In questo articolo vengono fornite informazioni di riferimento sulle impostazioni relative a ciascun riquadro disponibile per l&quot;uso nelle viste personalizzate.
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 41787c8f-6c13-4520-b0d3-5d3d84fcf142
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/26/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: c00a472e2dda12874dd7bee4ccb6c4d53bf104a7
+ms.openlocfilehash: 1f4a42ea42000c3a8dd25baea610332ea6cd6a71
+
 
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Informazioni di riferimento sul riquadro Progettazione viste di Log Analytics
@@ -40,7 +44,7 @@ Il riquadro **Numero** visualizza un numero singolo che indica la quantità di r
 
 ![Riquadro Numero](media/log-analytics-view-designer/tile-number.png)
 
-| Impostazione | Descrizione |
+| Impostazione | Description |
 |:--- |:--- |
 | Nome |Testo da visualizzare nella parte superiore del riquadro. |
 | Descrizione |Testo da visualizzare sotto il nome del riquadro. |
@@ -51,16 +55,14 @@ Il riquadro **Numero** visualizza un numero singolo che indica la quantità di r
 | Enabled |Selezionare se la verifica del flusso di dati deve essere abilitata per il riquadro.  Viene fornito un messaggio alternativo se non sono disponibili dati per il riquadro.  In genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
 | Query |La query da eseguire per verificare se sono disponibili i dati per la vista.  Se la query non restituisce risultati, viene visualizzato un messaggio anziché il valore dalla query principale. |
 | Message |Il messaggio da visualizzare se la query di verifica del flusso di dati non restituisce dati.  Se non si specifica alcun messaggio, viene visualizzato *Esecuzione della valutazione*. |
-| **Intervallo di tempo** | |
-| Durata |La durata del periodo che inizia a partire dalla data corrente da usare come intervallo di tempo per la query.  Ad esempio, se si specifica **7 giorni**, la query è limitata ai record creati nel periodo che va da 7 giorni fa fino a oggi. |
-| Offset finale dei dati |L'offset facoltativo che inizia a partire dalla data corrente da usare come intervallo di tempo per la query principale.  Ad esempio, se si usa **-1 giorno** come **offset finale di dati** e **7 giorni** come **durata**, la query è limitata ai record creati nel periodo che va da 8 giorni fa fino a ieri. |
+
 
 ## <a name="two-numbers-tile"></a>Riquadro Due numeri
 Nel riquadro **Due numeri** vengono visualizzati due numeri che mostrano il conteggio dei record provenienti da due query di log diverse e un'etichetta per ciascuno.
 
 ![Riquadro Due numeri](media/log-analytics-view-designer/tile-two-numbers.png)
 
-| Impostazione | Descrizione |
+| Impostazione | Description |
 |:--- |:--- |
 | Nome |Testo da visualizzare nella parte superiore del riquadro. |
 | Descrizione |Testo da visualizzare sotto il nome del riquadro. |
@@ -74,9 +76,7 @@ Nel riquadro **Due numeri** vengono visualizzati due numeri che mostrano il cont
 | Enabled |Selezionare se la verifica del flusso di dati deve essere abilitata per il riquadro.  Viene fornito un messaggio alternativo se non sono disponibili dati per il riquadro.  In genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
 | Query |La query da eseguire per verificare se sono disponibili i dati per la vista.  Se la query non restituisce risultati, viene visualizzato un messaggio anziché il valore dalla query principale. |
 | Message |Il messaggio da visualizzare se la query di verifica del flusso di dati non restituisce dati.  Se non si specifica alcun messaggio, viene visualizzato *Esecuzione della valutazione*. |
-| **Intervallo di tempo** | |
-| Durata |La durata del periodo che inizia a partire dalla data corrente da usare come intervallo di tempo per la query.  Ad esempio, se si specifica **7 giorni**, la query è limitata ai record creati nel periodo che va da 7 giorni fa fino a oggi. |
-| Offset finale dei dati |L'offset facoltativo che inizia a partire dalla data corrente da usare come intervallo di tempo per la query principale.  Ad esempio, se si usa **-1 giorno** come **offset finale di dati** e **7 giorni** come **durata**, la query è limitata ai record creati nel periodo che va da 8 giorni fa fino a ieri. |
+
 
 ## <a name="donut-tile"></a>Riquadro Anello
 Nel riquadro **Anello** viene visualizzato un singolo numero riepilogato da una colonna di valore in una query di log.  L'anello visualizza graficamente i risultati dei tre record principali.
@@ -86,7 +86,7 @@ Nel riquadro **Anello** viene visualizzato un singolo numero riepilogato da una 
 | Impostazione | Description |
 |:--- |:--- |
 | Nome |Testo da visualizzare nella parte superiore del riquadro. |
-| Description |Testo da visualizzare sotto il nome del riquadro. |
+| Descrizione |Testo da visualizzare sotto il nome del riquadro. |
 | **Anello** | |
 | Query |La query da eseguire per l'anello.  La prima proprietà deve essere un valore di testo, mentre la seconda proprietà un valore numerico.  In genere si tratta di una query che usa la parola chiave **measure** per riepilogare i risultati. |
 | **Anello** |**> Centro** |
@@ -100,16 +100,14 @@ Nel riquadro **Anello** viene visualizzato un singolo numero riepilogato da una 
 | Enabled |Selezionare se la verifica del flusso di dati deve essere abilitata per il riquadro.  Viene fornito un messaggio alternativo se non sono disponibili dati per il riquadro.  In genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
 | Query |La query da eseguire per verificare se sono disponibili i dati per la vista.  Se la query non restituisce risultati, viene visualizzato un messaggio anziché il valore dalla query principale. |
 | Message |Il messaggio da visualizzare se la query di verifica del flusso di dati non restituisce dati.  Se non si specifica alcun messaggio, viene visualizzato *Esecuzione della valutazione*. |
-| **Intervallo di tempo** | |
-| Durata |La durata del periodo che inizia a partire dalla data corrente da usare come intervallo di tempo per la query.  Ad esempio, se si specifica **7 giorni**, la query è limitata ai record creati nel periodo che va da 7 giorni fa fino a oggi. |
-| Offset finale dei dati |L'offset facoltativo che inizia a partire dalla data corrente da usare come intervallo di tempo per la query principale.  Ad esempio, se si usa **-1 giorno** come **offset finale di dati** e **7 giorni** come **durata**, la query è limitata ai record creati nel periodo che va da 8 giorni fa fino a ieri. |
+
 
 ## <a name="line-chart-tile"></a>Riquadro Grafico a linee
 Nel riquadro **Grafico a linee** viene visualizzato un grafico a linee con più serie prodotte da una query di log nel tempo.  
 
 ![Riquadro Grafico a linee e callout](media/log-analytics-view-designer/tile-line-chart.png)
 
-| Impostazione | Descrizione |
+| Impostazione | Description |
 |:--- |:--- |
 | Nome |Testo da visualizzare nella parte superiore del riquadro. |
 | Descrizione |Testo da visualizzare sotto il nome del riquadro. |
@@ -123,11 +121,9 @@ Nel riquadro **Grafico a linee** viene visualizzato un grafico a linee con più 
 | Enabled |Selezionare se la verifica del flusso di dati deve essere abilitata per il riquadro.  Viene fornito un messaggio alternativo se non sono disponibili dati per il riquadro.  In genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
 | Query |La query da eseguire per verificare se sono disponibili i dati per la vista.  Se la query non restituisce risultati, viene visualizzato un messaggio anziché il valore dalla query principale. |
 | Message |Il messaggio da visualizzare se la query di verifica del flusso di dati non restituisce dati.  Se non si specifica alcun messaggio, viene visualizzato *Esecuzione della valutazione*. |
-| **Intervallo di tempo** | |
-| Durata |La durata del periodo che inizia a partire dalla data corrente da usare come intervallo di tempo per la query.  Ad esempio, se si specifica **7 giorni**, la query è limitata ai record creati nel periodo che va da 7 giorni fa fino a oggi. |
-| Offset finale dei dati |L'offset facoltativo che inizia a partire dalla data corrente da usare come intervallo di tempo per la query principale.  Ad esempio, se si usa **-1 giorno** come **offset finale di dati** e **7 giorni** come **durata**, la query è limitata ai record creati nel periodo che va da 8 giorni fa fino a ieri. |
 
-## <a name="line-chart-&-callout-tile"></a>Riquadro Grafico a linee e callout
+
+## <a name="line-chart--callout-tile"></a>Riquadro Grafico a linee e callout
 Nel riquadro **Grafico a linee e callout** viene visualizzato un grafico a linee con più serie prodotto da una query di log nel tempo e un callout con un valore riepilogato.  
 
 ![Riquadro Grafico a linee e callout](media/log-analytics-view-designer/tile-line-chart-callout.png)
@@ -141,7 +137,7 @@ Nel riquadro **Grafico a linee e callout** viene visualizzato un grafico a linee
 | **Grafico a linee** |**> Callout** |
 | Callout |Il testo del titolo da visualizzare sopra il valore di callout. |
 | Nome della serie |Il valore della proprietà per la serie da usare per il valore di callout.  Se non viene fornita alcuna serie, vengono usati tutti i record prodotti dalla query. |
-| Operazione |L'operazione da eseguire sulla proprietà di valore per riepilogare in un singolo valore per il callout.<br>- Media: la media del valore di tutti i record.<br><br>- Numero: la quantità di tutti i record restituiti dalla query.<br>- Ultimo campione: il valore dell'ultimo intervallo incluso nel grafico.<br>- Max: il valore massimo degli intervalli inclusi nel grafico.<br>- Min: il valore minimo degli intervalli inclusi nel grafico.<br>- Somma: la somma del valore di tutti i record. |
+| Operazione |L'operazione da eseguire sulla proprietà di valore per riepilogare in un singolo valore per il callout.<br>- Media: la media del valore di tutti i record.<br><br>- Numero: la quantità di tutti i record restituiti dalla query.<br>- Ultimo campione: il valore dell'ultimo intervallo incluso nel grafico.<br>- Max: il valore massimo degli intervalli inclusi nel grafico.<br>- Min: il valore minimo risultante dagli intervalli inclusi nel grafico.<br>- Somma: la somma del valore di tutti i record. |
 | **Grafico a linee** |**> Asse Y** |
 | Usa scala logaritmica |Selezionare questa opzione per usare una scala logaritmica per l'asse Y. |
 | Unità |Specifica le unità per i valori restituiti dalla query.  Queste informazioni vengono usate per visualizzare le etichette del grafico che indicano i tipi di valore e, facoltativamente, per convertire i valori.  **Tipo di unità** specifica la categoria dell'unità e definisce i valori **Tipo di unità corrente** che sono disponibili.  Se si seleziona un valore in **Converti in**, i valori numerici vengono convertiti dal tipo **Unità corrente** al tipo **Converti in**. |
@@ -150,9 +146,7 @@ Nel riquadro **Grafico a linee e callout** viene visualizzato un grafico a linee
 | Enabled |Selezionare se la verifica del flusso di dati deve essere abilitata per il riquadro.  Viene fornito un messaggio alternativo se non sono disponibili dati per il riquadro.  In genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
 | Query |La query da eseguire per verificare se sono disponibili i dati per la vista.  Se la query non restituisce risultati, viene visualizzato un messaggio anziché il valore dalla query principale. |
 | Message |Il messaggio da visualizzare se la query di verifica del flusso di dati non restituisce dati.  Se non si specifica alcun messaggio, viene visualizzato *Esecuzione della valutazione*. |
-| **Intervallo di tempo** | |
-| Durata |La durata del periodo che inizia a partire dalla data corrente da usare come intervallo di tempo per la query.  Ad esempio, se si specifica **7 giorni**, la query è limitata ai record creati nel periodo che va da 7 giorni fa fino a oggi. |
-| Offset finale dei dati |L'offset facoltativo che inizia a partire dalla data corrente da usare come intervallo di tempo per la query principale.  Ad esempio, se si usa **-1 giorno** come **offset finale di dati** e **7 giorni** come **durata**, la query è limitata ai record creati nel periodo che va da 8 giorni fa fino a ieri. |
+
 
 ## <a name="two-timelines-tile"></a>Riquadro Due sequenze temporali
 Il riquadro **Due sequenze temporali** visualizza come istogramma i risultati di due query di log nel tempo.  Viene visualizzato un callout per ogni serie.  
@@ -177,14 +171,15 @@ Il riquadro **Due sequenze temporali** visualizza come istogramma i risultati di
 | Enabled |Selezionare se la verifica del flusso di dati deve essere abilitata per il riquadro.  Viene fornito un messaggio alternativo se non sono disponibili dati per il riquadro.  In genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
 | Query |La query da eseguire per verificare se sono disponibili i dati per la vista.  Se la query non restituisce risultati, viene visualizzato un messaggio anziché il valore dalla query principale. |
 | Message |Il messaggio da visualizzare se la query di verifica del flusso di dati non restituisce dati.  Se non si specifica alcun messaggio, viene visualizzato *Esecuzione della valutazione*. |
-| **Intervallo di tempo** | |
-| Durata |La durata del periodo che inizia a partire dalla data corrente da usare come intervallo di tempo per la query.  Ad esempio, se si specifica **7 giorni**, la query è limitata ai record creati nel periodo che va da 7 giorni fa fino a oggi. |
-| Offset finale dei dati |L'offset facoltativo che inizia a partire dalla data corrente da usare come intervallo di tempo per la query principale.  Ad esempio, se si usa **-1 giorno** come **offset finale di dati** e **7 giorni** come **durata**, la query è limitata ai record creati nel periodo che va da 8 giorni fa fino a ieri. |
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per supportare le query nei riquadri.
 * Aggiungere [parti della visualizzazione](log-analytics-view-designer-parts.md) per la vista personalizzata.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

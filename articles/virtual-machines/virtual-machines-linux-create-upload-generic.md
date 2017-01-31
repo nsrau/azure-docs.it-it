@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2016
+ms.date: 12/02/2016
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 76d82d5bfc9c57583ea722e76f13bdd4b17ec444
+ms.sourcegitcommit: 8ba7633f7d5c4bf9e7160b27f5d5552676653d55
+ms.openlocfilehash: ad632fd894a56a490b48c81ae63d641412368f35
 
 
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informazioni per le distribuzioni non approvate
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-**Importante**: il contratto di servizio della piattaforma di Azure si applica alle macchine virtuali che utilizzano il sistema operativo Linux solo quando viene utilizzata una delle [distribuzioni supportate](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) di PowerShell. Tutte le distribuzioni di Linux disponibili nella raccolta immagini di Azure sono distribuzioni approvate con la configurazione richiesta.
+Il contratto di servizio della piattaforma Azure si applica alle macchine virtuali che eseguono il sistema operativo Linux solo quando viene usata una delle [distribuzioni approvate](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Tutte le distribuzioni di Linux disponibili nella raccolta immagini di Azure sono distribuzioni approvate con la configurazione richiesta.
 
 * [Linux in Azure - Distribuzioni supportate](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Supporto delle immagini Linux in Microsoft Azure](https://support.microsoft.com/kb/2941892)
@@ -80,6 +80,7 @@ Per risolvere questo problema, è possibile ridimensionare la macchina virtuale 
 1. Il ridimensionamento diretto del disco rigido virtuale con strumenti quali `qemu-img` o `vbox-manage` può determinare un disco rigido virtuale che non può essere avviato.  Pertanto, è consigliabile convertire prima il VHD in un'immagine disco RAW.  Se l'immagine della VM è già stata creata come immagine disco RAW (questa è l'impostazione predefinita per alcuni hypervisor, ad esempio KVM), è possibile saltare questo passaggio:
    
        # qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
+
 2. Calcolare le dimensioni richieste dell'immagine disco per assicurare che le dimensioni virtuali siano allineate a 1 MB.  A questo scopo, può essere utile il seguente script bash shell.  Lo script usa "`qemu-img info`" per determinare le dimensioni virtuali dell'immagine disco, quindi calcola le dimensioni al successivo 1 MB:
    
        rawdisk="MyLinuxVM.raw"
@@ -91,12 +92,18 @@ Per risolvere questo problema, è possibile ridimensionare la macchina virtuale 
    
        rounded_size=$((($size/$MB + 1)*$MB))
        echo "Rounded Size = $rounded_size"
+
 3. Ridimensionare il disco RAW usando $rounded_size, come impostato nello script precedente:
    
        # qemu-img resize MyLinuxVM.raw $rounded_size
+
 4. A questo punto, convertire nuovamente il disco RAW in un disco rigido virtuale a dimensione fissa:
    
        # qemu-img convert -f raw -o subformat=fixed -O vpc MyLinuxVM.raw MyLinuxVM.vhd
+
+   Oppure, con qemu versione **2.6+** includere l'opzione `force_size`:
+
+       # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc MyLinuxVM.raw MyLinuxVM.vhd
 
 ## <a name="linux-kernel-requirements"></a>Requisiti del kernel Linux
 I driver di Linux Integration Services (LIS) per Hyper-V e Azure vengono forniti direttamente nel kernel Linux upstream. Per molte distribuzioni che includono una versione recente del kernel Linux (cioè 3.x) questi driver sono già disponibili; in alternativa, fornire versioni backport dei driver con i relativi kernel.  Questi driver vengono aggiornati costantemente nel kernel upstream con nuove correzioni e funzionalità, pertanto, quando è possibile, è consigliabile eseguire una [distribuzione approvata](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , che include tali correzioni e aggiornamenti.
@@ -177,6 +184,6 @@ L' [agente Linux di Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d4b6db263becb722cabfab2160c0a460034eae72
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8e9cf3d1a2ae950f4f843458ae8b22d99beddd7e
 
 
 ---
@@ -65,7 +65,7 @@ I cluster HDInsight basati su Linux forniscono una serie di esempi MapReduce che
 **Codice sorgente**: il codice sorgente per questi esempi è incluso nel cluster HDInsight in **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples**
 
 > [!NOTE]
->  `2.2.4.9-1` è la versione di Hortonworks Data Platform per il cluster HDInsight e può cambiare quando si aggiorna HDInsight.
+> `2.2.4.9-1` è la versione di Hortonworks Data Platform per il cluster HDInsight e può cambiare quando si aggiorna HDInsight.
 > 
 > 
 
@@ -137,7 +137,7 @@ Esiste un modo certo per creare un puzzle Sudoku in base al quale non è possibi
     ? ? ? ? 4 5 ? 7 8
 
 > [!NOTE]
->  `2.2.4.9-1` del percorso può variare quando il cluster HDInsight viene aggiornato.
+> `2.2.4.9-1` del percorso può variare quando il cluster HDInsight viene aggiornato.
 > 
 > 
 
@@ -206,7 +206,7 @@ In questo articolo si è appreso come eseguire gli esempi inclusi nei cluster HD
 
 * [Usare Pig con Hadoop in HDInsight][hdinsight-use-pig]
 * [Usare Hive con Hadoop in HDInsight][hdinsight-use-hive]
-* [Usare MapReduce in Hadoop su HDInsight][hdinsight-use-mapreduce]
+* [Usare MapReduce con Hadoop in HDInsight][hdinsight-use-mapreduce]
 
 [hdinsight-errors]: hdinsight-debug-jobs.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
@@ -224,6 +224,6 @@ In questo articolo si è appreso come eseguire gli esempi inclusi nei cluster HD
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 60343b409c734bcc9bb50d6216ff2295aede783b
-ms.openlocfilehash: f4f56614bab80849820c31127b190953e2ef8b87
+ms.sourcegitcommit: 1fe845d442c7010580d4592f205e92e8ef70e34a
+ms.openlocfilehash: e9bcf8a893ff209337f6a5763b631a22f8514e20
 
 
 ---
@@ -27,13 +27,13 @@ ms.openlocfilehash: f4f56614bab80849820c31127b190953e2ef8b87
 > * [Portale](virtual-network-manage-nsg-arm-portal.md)
 > * [PowerShell](virtual-network-manage-nsg-arm-ps.md)
 > * [Interfaccia della riga di comando di Azure](virtual-network-manage-nsg-arm-cli.md)
-> 
+>
 
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
 > [!NOTE]
 > Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione Resource Manager che Microsoft consiglia di usare invece del modello di distribuzione classica per le distribuzioni più recenti.
-> 
+>
 
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
@@ -68,7 +68,7 @@ Per visualizzare l'elenco di NSG nel gruppo di risorse **RG-NSG** , seguire ques
 
 ### <a name="list-all-rules-for-an-nsg"></a>Elencare tutte le regole per un NSG
 
-Per visualizzare le regole di un NSG denominato **NSG-FrontEnd**, seguire questa procedura: 
+Per visualizzare le regole di un NSG denominato **NSG-FrontEnd**, seguire questa procedura:
 
 1. Nel pannello **Gruppi di sicurezza di rete** o nel pannello **Risorse** illustrato in precedenza fare clic su **NSG-FrontEnd**.
 
@@ -84,7 +84,7 @@ Per visualizzare le regole di un NSG denominato **NSG-FrontEnd**, seguire questa
 
     > [!NOTE]
     > Per visualizzare le regole predefinite, fare clic sull'icona **Regole predefinite** nella parte superiore del pannello in cui sono visualizzate le regole.
-    > 
+    >
 
 ### <a name="view-nsgs-associations"></a>Visualizzare le associazioni di NSG
 
@@ -182,7 +182,7 @@ Per associare di nuovo l'NSG **NSG-FrontEnd** alla subnet **FronEnd**, seguire q
 
 > [!NOTE]
 > Per associare un NSG a una subnet è anche possibile usare il pannello **Impostazioni** dell'NSG.
-> 
+>
 
 ## <a name="delete-an-nsg"></a>Eliminare un gruppo di sicurezza di rete
 È possibile eliminare un NSG solo se non è associato ad alcuna risorsa. Per eliminare un NSG, seguire questa procedura:
@@ -195,13 +195,13 @@ Per associare di nuovo l'NSG **NSG-FrontEnd** alla subnet **FronEnd**, seguire q
 6. Se sono elencate subnet, scegliere la subnet ed eseguire i passaggi 2 e 3 in [Annullare l'associazione tra un NSG e una subnet](#Dissociate-an-NSG-from-a-subnet).
 7. Scorrere a sinistra fino al pannello**NSG-FrontEnd**, quindi fare clic su **Elimina** > **Sì**.
 
-    [Portale di Azure - NSG](./media/virtual-network-manage-nsg-arm-portal/figure16.png)
+    ![Portale di Azure - Gruppi di sicurezza di rete](./media/virtual-network-manage-nsg-arm-portal/figure16.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Abilitare la registrazione](virtual-network-nsg-manage-log.md) per gli NSG.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/24/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1a73f51b182cd9ce4634deeb33153345b935b13b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: caf6dd414bd8f8180c90835dd9744dcd98f7709c
 
 
 ---
@@ -81,7 +81,8 @@ Sostituire il tag PublicIPorFQDN con l'IP o il nome FQDN effettivo, in base alle
 
 È possibile usare PowerShell o l'interfaccia della riga di comando per interagire con il cluster di Service Fabric per Linux creato con il portale di Azure. 
 
-**Attenzione:** questi cluster non sono sicuri, quindi c'è la possibilità di aprire l'unica finestra di dialogo aggiungendo l'indirizzo IP pubblico nel manifesto del cluster.
+> [!WARNING]
+> Questi cluster non sono protetti, quindi c'è la possibilità di aprire l'unica finestra di dialogo aggiungendo l'indirizzo IP pubblico nel manifesto del cluster.
 
 ## <a name="using-the-azure-cli-to-connect-to-a-service-fabric-cluster"></a>Uso dell'interfaccia della riga di comando di Azure per connettersi a un cluster di Service Fabric
 I comandi dell'interfaccia della riga di comando di Azure seguenti illustrano come connettersi a un cluster sicuro. I dettagli del certificato devono corrispondere a un certificato sui nodi del cluster.
@@ -149,6 +150,24 @@ Ora è possibile avviare l'aggiornamento dell'applicazione con il comando seguen
 
 Ora è possibile monitorare l'aggiornamento dell'applicazione usando SFX. In pochi minuti, l'applicazione risulterà aggiornata.  È anche possibile provare un'app aggiornata con un errore e controllare la funzionalità di ripristino dello stato precedente automatico in Service Fabric.
 
+## <a name="converting-from-pfx-to-pem-and-vice-versa"></a>Conversione da PFX PEM e viceversa
+
+Potrebbe essere necessario installare un certificato nel computer locale (con Windows o Linux) per accedere a cluster protetti che possono trovarsi in un ambiente diverso. Durante l'accesso a un cluster Linux protetto da un computer Windows e viceversa, ad esempio, può essere necessario convertire il certificato PFX in PEM e viceversa. 
+
+Per eseguire la conversione da un file PEM a un file PFX, usare il comando seguente:
+
+```bash
+openssl pkcs12 -export -out certificate.pfx -inkey mycert.pem -in mycert.pem -certfile mycert.pem
+```
+
+Per eseguire la conversione da un file PFX a un file PEM, usare il comando seguente:
+
+```bash
+openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
+```
+
+Per informazioni dettagliate, vedere la [documentazione di OpenSSL](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html).
+
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 ### <a name="copying-of-the-application-package-does-not-succeed"></a>Non è possibile copiare il pacchetto dell'applicazione
 Controllare se `openssh` è installato. Per impostazione predefinita, in Ubuntu Desktop non è installato. Installarlo usando il comando seguente:
@@ -176,12 +195,14 @@ Se il problema persiste ancora, provare ad aumentare il numero di sessioni SSH e
 ```
 Poiché l'uso di chiavi per l'autenticazione SSH (invece che di password) non è ancora supportato (perché la piattaforma usa SSH per copiare i pacchetti), usare l'autenticazione della password.
 
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 Configurare l'ambiente di sviluppo e distribuire un'applicazione di Service Fabric in un cluster Linux.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

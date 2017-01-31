@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 03466b412405d45553d80ebf4e283038b7894727
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: febecd5f53077c2e3daa0845964e95025b97893b
 
 
 ---
@@ -34,7 +34,7 @@ Questo articolo illustra i concetti di base relativi alla protezione del proprio
 ## <a name="connection-security"></a>Sicurezza delle connessioni
 La sicurezza delle connessioni fa riferimento al modo che si limitano e proteggono le connessioni al database mediante regole del firewall e crittografia di connessione.
 
-Le regole del firewall vengono usate dal server e dal database per rifiutare i tentativi di connessione da indirizzi IP che non sono stati esplicitamente inclusi nell'elenco di IP consentiti. Prima di consentire le connessioni dall'applicazione o dall'indirizzo IP pubblico del computer client è necessario creare una regola firewall di livello server tramite il portale di Azure, l'API REST o PowerShell. Come procedura consigliata, si suggerisce di limitare gli intervalli di indirizzi IP consentiti attraverso il firewall del server quanto più possibile.  Per accedere ad Azure SQL Data Warehouse dal computer locale, verificare che il firewall in rete e nel computer locale consenta le comunicazioni in uscita sulla porta TCP 1433.  Per altre informazioni, vedere [Firewall di database SQL di Azure][Firewall di database SQL di Azure] (Firewall per il database SQL di Azure), [sp_set_firewall_rule][sp_set_firewall_rule] e [sp_set_database_firewall_rule][sp_set_database_firewall_rule].
+Le regole del firewall vengono usate dal server e dal database per rifiutare i tentativi di connessione da indirizzi IP che non sono stati esplicitamente inclusi nell'elenco di IP consentiti. Prima di consentire le connessioni dall'applicazione o dall'indirizzo IP pubblico del computer client è necessario creare una regola firewall di livello server tramite il portale di Azure, l'API REST o PowerShell. Come procedura consigliata, si suggerisce di limitare gli intervalli di indirizzi IP consentiti attraverso il firewall del server quanto più possibile.  Per accedere ad Azure SQL Data Warehouse dal computer locale, verificare che il firewall in rete e nel computer locale consenta le comunicazioni in uscita sulla porta TCP 1433.  Per altre informazioni, vedere il [firewall per il database SQL di Azure][Azure SQL Database firewall], [sp_set_firewall_rule][sp_set_firewall_rule] e [sp_set_database_firewall_rule][sp_set_database_firewall_rule].
 
 Le connessioni a SQL Data Warehouse vengono crittografate per impostazione predefinita.  La modifica delle impostazioni di connessione per disabilitare la crittografia viene ignorata.
 
@@ -60,7 +60,7 @@ Quindi connettersi al **database di SQL Data Warehouse** con l'account di access
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-Se un utente esegue altre operazioni, ad esempio crea accessi o nuovi database, avrà anche bisogno dell'assegnazione dei ruoli `Loginmanager` e `dbmanager` nel database master. Per altre informazioni sui questi ruoli aggiuntivi e sull'autenticazione per un database SQL, vedere [Gestione di database, account di accesso e utenti in database SQL di Azure][Gestione di database, account di accesso e utenti in database SQL di Azure] (Gestione di database e account di accesso in database SQL di Azure).  Per altre informazioni su Azure AD per SQL Data Warehouse, vedere [Connessione al database SQL oppure a SQL Data Warehouse con l'autenticazione di Azure Active Directory][Connessione a SQL Data Warehouse con l'autenticazione di Azure Active Directory].
+Se un utente esegue altre operazioni, ad esempio crea accessi o nuovi database, avrà anche bisogno dell'assegnazione dei ruoli `Loginmanager` e `dbmanager` nel database master. Per altre informazioni sui questi ruoli aggiuntivi e sull'autenticazione a un database SQL, vedere [Gestione di database e account di accesso in database SQL di Azure][Managing databases and logins in Azure SQL Database].  Per altre informazioni su Azure AD per SQL Data Warehouse, vedere [Connessione a SQL Data Warehouse con l'autenticazione di Azure Active Directory][Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication].
 
 ## <a name="authorization"></a>Authorization
 Per autorizzazione si intendono le operazioni che è possibile effettuare all'interno di un database di Azure SQL Data Warehouse e questa funzionalità viene controllata mediante le autorizzazioni e le appartenenze ai ruoli dell'account utente. Come procedura consigliata, è opportuno concedere agli utenti i privilegi minimi necessari. Azure SQL Data Warehouse ne semplifica la gestione con i ruoli in T-SQL:
@@ -74,44 +74,44 @@ L'account di amministrazione del server a cui ci si sta connettendo è un membro
 
 Esistono modi per limitare ulteriormente le operazioni possibili con il database SQL di Azure:
 
-* Le [autorizzazioni][autorizzazioni] granulari che consentono di controllare le operazioni possibili per le singole colonne, tabelle, viste, procedure e altri oggetti nel database. Usare le autorizzazioni granulari per avere il massimo controllo e concedere solo le autorizzazioni necessarie. Il sistema di autorizzazioni granulari è complesso; per usarlo in modo efficace è necessario un certo grado di preparazione.
-* È possibile usare [ruoli del database][ruoli del database] diversi da db_datareader e db_datawriter per creare account utente dell'applicazione più potenti o account di gestione meno potenti. I ruoli del database predefiniti incorporati sono una soluzione semplice per la concessione di autorizzazioni, ma possono concedere più autorizzazioni di quelle necessarie.
-* Le [Stored procedure][Stored procedure] consentono di limitare le operazioni che possono essere eseguite nel database.
+* Le [autorizzazioni][Permissions] granulari consentono di controllare le operazioni possibili per le singole colonne, tabelle, viste, procedure e altri oggetti nel database. Usare le autorizzazioni granulari per avere il massimo controllo e concedere solo le autorizzazioni necessarie. Il sistema di autorizzazioni granulari è complesso; per usarlo in modo efficace è necessario un certo grado di preparazione.
+* È possibile usare [ruoli del database][Database roles] diversi da db_datareader e db_datawriter per creare account utente dell'applicazione più potenti o account di gestione meno potenti. I ruoli del database predefiniti incorporati sono una soluzione semplice per la concessione di autorizzazioni, ma possono concedere più autorizzazioni di quelle necessarie.
+* È possibile usare [stored procedure][Stored procedures] per limitare le operazioni che possono essere eseguite nel database.
 
-La gestione di database e server logici dal portale di Azure classico o mediante l'API di gestione risorse di Azure viene controllata dalle assegnazioni di ruolo dell'account utente del portale. Per altre informazioni su questo argomento, vedere [Controllo di accesso basato sui ruoli nel portale di Azure][Controllo di accesso basato sui ruoli nel portale di Azure] (Controllo degli accessi in base al ruolo nel portale di Azure).
+La gestione di database e server logici dal portale di Azure classico o mediante l'API di gestione risorse di Azure viene controllata dalle assegnazioni di ruolo dell'account utente del portale. Per altre informazioni su questo argomento, vedere [Controllo degli accessi in base al ruolo nel portale di Azure][Role-based access control in Azure Portal].
 
 ## <a name="encryption"></a>Crittografia
 La funzionalità Transparent Data Encryption (TDE) di Azure SQL Data Warehouse consente di proteggersi da attività dannose eseguendo in tempo reale la crittografia e la decrittografia dei dati inattivi.  Quando si crittografa il database, i file di log delle transazioni e i backup associati vengono crittografati senza bisogno di apportare modifiche alle applicazioni. TDE esegue la crittografia dell'archiviazione di un intero database usando una chiave simmetrica detta "chiave di crittografia del database". Nel database SQL la chiave di crittografia del database è protetta da un certificato server incorporato. Il certificato server incorporato è univoco per ogni server di database SQL. Microsoft ruota automaticamente questi certificati almeno ogni 90 giorni. L’algoritmo di crittografia utilizzato da SQL Data Warehouse è AES-256. Per una descrizione generale della funzionalità TDE, vedere [Transparent Data Encryption][Transparent Data Encryption].
 
-È possibile crittografare il database mediante il [portale][Crittografia con il portale] o [T-SQL][Crittografia con TSQL].
+È possibile crittografare il database usando il [portale di Azure][Encryption with Portal] o [T-SQL][Encryption with TSQL].
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni dettagliate ed esempi di connessione a SQL Data Warehouse con protocolli diversi, vedere [Connettersi ad Azure SQL Data Warehouse][Connettersi ad Azure SQL Data Warehouse].
+Per informazioni dettagliate ed esempi di connessione a SQL Data Warehouse con protocolli diversi, vedere [Connettersi ad Azure SQL Data Warehouse][Connect to SQL Data Warehouse].
 
 <!--Image references-->
 
 <!--Article references-->
-[Connettersi ad Azure SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
-[Crittografia con il portale]: ./sql-data-warehouse-encryption-tde.md
-[Crittografia con TSQL]: ./sql-data-warehouse-encryption-tde-tsql.md
-[Connessione a SQL Data Warehouse con l'autenticazione di Azure Active Directory]: ./sql-data-warehouse-authentication.md
+[Connect to SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
+[Encryption with Portal]: ./sql-data-warehouse-encryption-tde.md
+[Encryption with TSQL]: ./sql-data-warehouse-encryption-tde-tsql.md
+[Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
-[Firewall di database SQL di Azure]: https://msdn.microsoft.com/library/ee621782.aspx
+[Azure SQL Database firewall]: https://msdn.microsoft.com/library/ee621782.aspx
 [sp_set_firewall_rule]: https://msdn.microsoft.com/library/dn270017.aspx
 [sp_set_database_firewall_rule]: https://msdn.microsoft.com/library/dn270010.aspx
-[ruoli del database]: https://msdn.microsoft.com/library/ms189121.aspx
-[Gestione di database, account di accesso e utenti in database SQL di Azure]: https://msdn.microsoft.com/library/ee336235.aspx
-[autorizzazioni]: https://msdn.microsoft.com/library/ms191291.aspx
-[Stored procedure]: https://msdn.microsoft.com/library/ms190782.aspx
+[Database roles]: https://msdn.microsoft.com/library/ms189121.aspx
+[Managing databases and logins in Azure SQL Database]: https://msdn.microsoft.com/library/ee336235.aspx
+[Permissions]: https://msdn.microsoft.com/library/ms191291.aspx
+[Stored procedures]: https://msdn.microsoft.com/library/ms190782.aspx
 [Transparent Data Encryption]: https://msdn.microsoft.com/library/bb934049.aspx
-[portale di Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 <!--Other Web references-->
-[Controllo di accesso basato sui ruoli nel portale di Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
+[Role-based access control in Azure Portal]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

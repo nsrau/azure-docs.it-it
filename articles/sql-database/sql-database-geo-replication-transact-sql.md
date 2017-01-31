@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: d94d89a6-3234-46c5-8279-5eb8daad10ac
 ms.service: sql-database
-ms.custom: business continuity; how to
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,12 +16,12 @@ ms.workload: NA
 ms.date: 10/13/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 702a01f7ea56e8af6286149bcb42590294cb618b
+ms.sourcegitcommit: 7b9803d7d0b4982dece276d6f5a7ec8293ce4361
+ms.openlocfilehash: 37725b1abe0ad13124b9206c9aa6fcf1185b6db4
 
 
 ---
-# <a name="configure-geo-replication-for-azure-sql-database-with-transact-sql"></a>Configurare la replica geografica per il database SQL di Azure con Transact-SQL
+# <a name="configure-active-geo-replication-for-azure-sql-database-with-transact-sql"></a>Configurare la replica geografica attiva per il database SQL di Azure con Transact-SQL
 > [!div class="op_single_selector"]
 > * [Panoramica](sql-database-geo-replication-overview.md)
 > * [Portale di Azure](sql-database-geo-replication-portal.md)
@@ -53,8 +53,8 @@ Per configurare la replica geografica attiva con Transact-SQL, sono necessari gl
 > 
 
 ## <a name="add-secondary-database"></a>Aggiungere un database secondario
-È possibile usare l'istruzione **ALTER DATABASE** per creare un database secondario in un server partner. Eseguire questa istruzione sul database master del server che contiene il database da replicare. Il database con replica geografica, ovvero il "database primario", avrà lo stesso nome del database che viene replicato e, per impostazione predefinita, lo stesso livello di servizio del database primario. Il database secondario può essere accessibile o non accessibile in lettura e può essere un database singolo o un database elastico. Per altre informazioni, vedere [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Livelli di servizio](sql-database-service-tiers.md).
-Dopo la creazione e il seeding del database secondario, inizierà la replica asincrona dei dati dal database primario. I passaggi seguenti descrivono come configurare la replica geografica tramite Management Studio. Vengono descritti i passaggi per creare database secondari accessibili e non accessibili in lettura con un database singolo o un database elastico.
+È possibile usare l'istruzione **ALTER DATABASE** per creare un database secondario in un server partner. Eseguire questa istruzione sul database master del server che contiene il database da replicare. Il database con replica geografica, ovvero il "database primario", avrà lo stesso nome del database che viene replicato e, per impostazione predefinita, lo stesso livello di servizio del database primario. Il database secondario può essere leggibile o non leggibile e può essere un database singolo o in un pool elastico. Per altre informazioni, vedere [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Livelli di servizio](sql-database-service-tiers.md).
+Dopo la creazione e il seeding del database secondario, inizierà la replica asincrona dei dati dal database primario. I passaggi seguenti descrivono come configurare la replica geografica tramite Management Studio. Vengono descritte le procedure per creare database secondari leggibili o non leggibili, come database singoli o in un pool elastico.
 
 > [!NOTE]
 > Se nel server partner specificato è presente un database con lo stesso nome del database primario, il comando avrà esito negativo.
@@ -88,8 +88,8 @@ Usare la procedura seguente per creare un database secondario accessibile in let
            ADD SECONDARY ON SERVER <MySecondaryServer2> WITH (ALLOW_CONNECTIONS = ALL);
 4. Fare clic su **Execute** per eseguire la query.
 
-### <a name="add-non-readable-secondary-elastic-database"></a>Aggiungere un database secondario non accessibile in lettura (database elastico)
-Usare la procedura seguente per creare un database secondario non accessibile in lettura come database elastico.
+### <a name="add-non-readable-secondary-elastic-pool"></a>Aggiungere un database secondario non leggibile (pool elastico)
+Usare la procedura seguente per creare un database secondario non leggibile in un pool elastico.
 
 1. In Management Studio connettersi al server logico di database SQL di Azure.
 2. Aprire la cartella Database, espandere la cartella **Database di sistema**, fare clic con il pulsante destro del mouse su **master** e quindi scegliere **Nuova query**.
@@ -100,8 +100,8 @@ Usare la procedura seguente per creare un database secondario non accessibile in
            , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool1));
 4. Fare clic su **Execute** per eseguire la query.
 
-### <a name="add-readable-secondary-elastic-database"></a>Aggiungere un database secondario accessibile in lettura (database elastico)
-Usare la procedura seguente per creare un database secondario accessibile in lettura come database elastico.
+### <a name="add-readable-secondary-elastic-pool"></a>Aggiungere un database secondario leggibile (pool elastico)
+Usare la procedura seguente per creare un database secondario leggibile in un pool elastico.
 
 1. In Management Studio connettersi al server logico di database SQL di Azure.
 2. Aprire la cartella Database, espandere la cartella **Database di sistema**, fare clic con il pulsante destro del mouse su **master** e quindi scegliere **Nuova query**.
@@ -125,10 +125,11 @@ Usare la procedura seguente per rimuovere il database secondario con replica geo
            REMOVE SECONDARY ON SERVER <MySecondaryServer1>;
 4. Fare clic su **Execute** per eseguire la query.
 
-## <a name="monitor-geo-replication-configuration-and-health"></a>Monitorare la configurazione della replica geografica e l'integrità
+## <a name="monitor-active-geo-replication-configuration-and-health"></a>Monitorare l'integrità e la configurazione della replica geografica attiva
+
 Le attività di monitoraggio includono il controllo della configurazione della replica geografica e dell'integrità della replica dei dati.  È possibile usare la vista a gestione dinamica (DMV) **sys.dm_geo_replication_links** in un database master per restituire informazioni su tutti i collegamenti di replica esistenti per ogni database nel server logico di database SQL di Azure. Questa vista include una riga per ogni collegamento di replica tra i database primari e secondari. È possibile usare la DMV **sys.dm_replication_link_status** per restituire una riga per ogni database SQL di Azure attualmente interessato da un collegamento di replica. Sono inclusi il database primario e i database secondari. Se esiste più di un collegamento di replica continua per un determinato database primario, questa tabella contiene una riga per ogni relazione. La vista viene creata in tutti i database, incluso il database master logico. Eseguendo query su questa vista in tale database, verrà tuttavia restituito un set vuoto. È possibile usare la DMV **sys.dm_operation_status** per visualizzare lo stato di tutte le operazioni di database, incluso lo stato dei collegamenti di replica. Per altre informazioni, vedere [sys.geo_replication_links (database SQL di Azure)](https://msdn.microsoft.com/library/mt575501.aspx), [sys.dm_geo_replication_link_status (database SQL di Azure)](https://msdn.microsoft.com/library/mt575504.aspx) e [sys.dm_operation_status (database SQL di Azure)](https://msdn.microsoft.com/library/dn270022.aspx).
 
-Usare la procedura seguente per monitorare una relazione di replica geografica.
+Usare la procedura seguente per monitorare una relazione di replica geografica attiva.
 
 1. In Management Studio connettersi al server logico di database SQL di Azure.
 2. Aprire la cartella Database, espandere la cartella **Database di sistema**, fare clic con il pulsante destro del mouse su **master** e quindi scegliere **Nuova query**.
@@ -170,6 +171,6 @@ Nell'aprile 2017 il tipo di database secondario non leggibile verrà ritirato e 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

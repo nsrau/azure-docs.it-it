@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 717d84bbfbc51912bca7c2d279a6a0603ea97107
-ms.openlocfilehash: 1ea0b7032d35e793033c0d4ca96c2f4c3ff6671b
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 17e2830dceeaa313dd0fd7d406bf68a75b6f900e
 
 
 ---
@@ -48,10 +48,10 @@ Un server logico del database di Azure:
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-sql-database-logical-server"></a>Come connettersi ed eseguire l'autenticazione a un server logico del database SQL Azure
 
-- **Autenticazione e autorizzazione**: il database SQL Azure supporta l'autenticazione di SQL e l'autenticazione di Azure Active Directory, con alcune limitazioni: vedere [Connessione al database SQL oppure a SQL Data Warehouse con l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md) per l'autenticazione. È possibile connettersi ed eseguire l'autenticazione al database SQL di Azure tramite il database master del server oppure direttamente a un database utente. Per altre informazioni, vedere [Gestione di database e account di accesso in database SQL di Azure](sql-database-manage-logins.md). L'autenticazione Windows non è supportata. 
+- **Autenticazione e autorizzazione**: il database SQL Azure supporta l'autenticazione di SQL e l'autenticazione di Azure Active Directory, con alcune limitazioni: vedere [Connessione al database SQL oppure a SQL Data Warehouse con l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md) per l'autenticazione. È possibile connettersi ed eseguire l’autenticazione al database SQL di Azure tramite il database master del server oppure direttamente a un database utente. Per altre informazioni, vedere [Gestione di database e account di accesso in database SQL di Azure](sql-database-manage-logins.md). L'autenticazione Windows non è supportata. 
 - **TDS**: il database SQL di Microsoft Azure supporta la versione client 7.3 o successiva del protocollo TDS (Tabular Data Stream).
 - **TCP/IP**: sono consentite solo connessioni TCP/IP.
-- **Firewall del database SQL**: per proteggere i dati, il firewall del database SQL impedisce qualsiasi accesso al server di database o ai propri database finché non vengono specificati i computer autorizzati. Vedere [Panoramica sulle regole del firewall per il database SQL di Azure](sql-database-firewall-configure.md)
+- **Firewall del database SQL**: per proteggere i dati, il firewall del database SQL impedisce qualsiasi accesso al server di database o ai propri database finché non vengono specificati i computer autorizzati. Vedere [Panoramica sulle regole del firewall per il database SQL di Azure](sql-database-firewall-configure.md).
 
 ## <a name="what-collations-are-supported"></a>Regole di confronto supportate
 
@@ -79,12 +79,12 @@ Per informazioni sulle funzionalità supportate, vedere [Azure SQL Database feat
 - Per una panoramica sui database SQL di Azure, vedere [Panoramica del database SQL](sql-database-overview.md).
 - Per informazioni sul supporto di Transact-SQL e sulle differenze, vedere [Differenze di Transact-SQL del Database SQL di Azure](sql-database-transact-sql-information.md).
 - Informazioni sulle quote specifiche di risorse e sulle limitazioni in base al **livello di servizio**. Per una panoramica dei livelli di servizio, vedere [Livelli di servizio del Database SQL](sql-database-service-tiers.md).
-- Per le linee guida relative alla sicurezza, vedere [Linee guida e limitazioni per il database SQL di Azure](sql-database-security-guidelines.md).
+- Per una panoramica della sicurezza, vedere [Azure SQL Database Security Overview](sql-database-security-overview.md) (Panoramica della sicurezza del database SQL di Azure).
 - Per informazioni sulla disponibilità di driver e sul supporto per il database SQL, vedere [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md).
 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO4-->
 
 

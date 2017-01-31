@@ -4,7 +4,7 @@ description: Descrive come eseguire la risoluzione di alcuni problemi di accesso
 services: 
 documentationcenter: 
 author: genlin
-manager: mbaldwin
+manager: jlian
 editor: 
 tags: billing
 ms.assetid: d1545298-99db-4941-8e97-f24a06bb7cb6
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 12/2/2016
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1ef20a830c96b0f0d5e85186f757441f256746f5
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 030b41eaa405ff70081a4c15cabded08a1b0b07a
 
 
 ---
@@ -36,7 +36,7 @@ Se si blocca la pagina del browser Internet, provare ciascuna delle seguenti ope
   B.    Andare al [portale di Azure](https://portal.azure.com), quindi accedere al portale.
 
 ## <a name="error-message-no-subscriptions-found"></a>Messaggio di errore "Nessuna sottoscrizione trovata"
-Se l'account non dispone di autorizzazioni sufficienti, è possibile che venga visualizzato il messaggio di errore **Nessuna sottoscrizione trovata**. Solo un amministratore account può accedere al [Centro Account](https://account.windowsazure.com/), non gli amministratori del servizio (SA) e i co-amministratori (CA).
+Se l'account non dispone di autorizzazioni sufficienti, è possibile che venga visualizzato il messaggio di errore **Nessuna sottoscrizione trovata**. Assicurarsi di accedere con l'account amministratore corretto. Un amministratore account può accedere solo al [Centro account](https://account.windowsazure.com/Subscriptions). Gli amministratori del servizio (SA) e i co-amministratori (CA) hanno accesso solo al [portale di Azure](https://portal.azure.com) o al portale di Azure classico.
 
 **Scenario 1: il messaggio di errore appare nel [portale di Azure](https://portal.azure.com)**
 
@@ -52,7 +52,7 @@ Controllare se l'account utilizzato è l'amministratore account. Per verificare 
 4. Selezionare **Proprietà**. L'amministratore account della sottoscrizione viene visualizzato nella casella **Amministratore account** .
 
 ## <a name="you-are-automatically-signed-in-as-a-different-user"></a>Viene eseguito l'accesso automaticamente come utente diverso
-Questo problema può verificarsi se si utilizza più di un account utente in un browser Internet.
+Questo problema può verificarsi se si usa più di un account utente in un browser Internet.
 
 Per risolvere il problema, utilizzare uno dei seguenti metodi alternativi:
 
@@ -66,6 +66,6 @@ Se si necessita ancora di assistenza, [contattare il supporto tecnico](http://go
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

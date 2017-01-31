@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6709e134242f80bfaf74671b3d6d37b6a1eb0c6a
+ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
+ms.openlocfilehash: 461ff9ce5aac5b2bf87671c314b38a4b1adad233
 
 
 ---
@@ -203,7 +203,7 @@ Dall'interfaccia utente Web Ambari, selezionare il servizio per il quale si desi
 ## <a name="how-to-configure-the-node-size"></a>Come configurare le dimensioni del nodo
 È possibile selezionare le dimensioni del nodo head solo durante la creazione del cluster. È possibile trovare un elenco delle varie dimensioni di VM disponibili per HDInsight, inclusi core, memoria e archiviazione locale per ognuna, sulla [pagina dei prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Quando si crea un nuovo cluster, è possibile specificare le dimensioni dei nodi. Di seguito viene illustrato come specificare le dimensioni usando il [portale di Azure][preview-portal], [Azure PowerShell][azure-powershell] e l'[interfaccia della riga di comando di Azure][azure-cli]:
+Quando si crea un nuovo cluster, è possibile specificare le dimensioni dei nodi. Di seguito viene spiegato come specificare le dimensioni usando il [portale di Azure][preview-portal], [Azure PowerShell][azure-powershell] e l'[interfaccia della riga di comando di Azure][azure-cli]:
 
 * **Portale di Azure**: quando si crea un nuovo cluster, è possibile impostare le dimensioni (piano tariffario) dei nodi head, di lavoro e ZooKeeper, se usato dal tipo di cluster, per il cluster:
   
@@ -216,16 +216,16 @@ In questo documento si è appreso il modo in cui Azure HDInsight fornisce dispon
 
 * [Riferimento REST Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md)
-* [Installare e configurare Azure PowerShell](../powershell-install-configure.md)
+* [Installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Gestire HDInsight tramite Ambari](hdinsight-hadoop-manage-ambari.md)
-* [provisioning di cluster HDInsight basati su Linux](hdinsight-hadoop-provision-linux-clusters.md)
+* [Effettuare il provisioning di cluster HDInsight basati su Linux](hdinsight-hadoop-provision-linux-clusters.md)
 
 [preview-portal]: https://portal.azure.com/
-[azure-powershell]: ../powershell-install-configure.md
+[azure-powershell]: /powershell/azureps-cmdlets-docs
 [azure-cli]: ../xplat-cli-install.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

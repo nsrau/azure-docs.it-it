@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: 8eea2b930c9182f43cb1f1e416652ce8378d70b0
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 876b6a81c5fba7cd9567f913860dd5bdc2391c15
 
 
 ---
@@ -35,8 +35,8 @@ Quando si sviluppano applicazioni di Servizi multimediali che usano l'archiviazi
 
 * Il servizio di accodamento non garantisce un recapito ordinato dei messaggi di tipo FIFO (First-In-First-Out). Per altre informazioni, vedere [Analogie e differenze tra le code di Azure e le code del bus di servizio](https://msdn.microsoft.com/library/azure/hh767287.aspx).
 * Le code di archiviazione di Azure non costituiscono un servizio di pushing ed è quindi necessario eseguire il polling della coda.
-* È possibile disporre di un qualsiasi numero di code. Per altre informazioni, vedere [API REST del servizio di accodamento](https://msdn.microsoft.com/library/azure/dd179363.aspx).
-* Le code di archiviazione di Azure hanno delle limitazioni e le informazioni dettagliate sono descritte nel seguente articolo: [Analogie e differenze tra le code di Azure e le code del bus di servizio](https://msdn.microsoft.com/library/azure/hh767287.aspx).
+* È possibile disporre di un qualsiasi numero di code. Per altre informazioni, vedere [API REST del servizio di accodamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/Queue-Service-REST-API).
+* Le code di archiviazione di Azure hanno delle limitazioni e le informazioni dettagliate sono descritte nel seguente articolo: [Analogie e differenze tra le code di Azure e le code del bus di servizio](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
 ### <a name="code-example"></a>Esempio di codice
 L'esempio di codice contenuto in questa sezione effettua quanto segue:
@@ -354,6 +354,6 @@ Analizzare i percorsi di apprendimento dei Servizi multimediali
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -2,12 +2,12 @@
 title: Distribuire le risorse di Azure tramite C# | Microsoft Docs
 description: Informazioni su come usare C# e Azure Resource Manager per creare risorse di Microsoft Azure.
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: davidmu1
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 87524373-5f52-4f4b-94af-50bf7b65c277
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
@@ -15,20 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/06/2016
 ms.author: davidmu
+translationtype: Human Translation
+ms.sourcegitcommit: 37ab64cb40def50342eb31c240aa301e9d751055
+ms.openlocfilehash: 6fa33715484a4bb371148410b43c5ac606744160
+
 
 ---
-# <a name="deploy-azure-resources-using-c#"></a>Distribuire le risorse di Azure tramite C
+# <a name="deploy-azure-resources-using-c"></a>Distribuire le risorse di Azure tramite C## #
 In questo articolo viene illustrato come creare risorse di Azure mediante C#.
 
 Prima di tutto è necessario verificare di aver completato queste attività:
 
 * Installare [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 * Verificare l'installazione di [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
-* Ottenere un [token di autenticazione](../resource-group-authenticate-service-principal.md)
+* Ottenere un [token di autenticazione](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 L'esecuzione di questi passaggi richiede circa 30 minuti.
 
-## <a name="step-1:-create-a-visual-studio-project-and-install-the-libraries"></a>Passaggio 1: Creare un progetto di Visual Studio e installare le librerie
+## <a name="step-1-create-a-visual-studio-project-and-install-the-libraries"></a>Passaggio 1: Creare un progetto di Visual Studio e installare le librerie
 I pacchetti NuGet sono il modo più semplice per installare le librerie necessarie per completare questa esercitazione. Per ottenere le librerie necessarie in Visual Studio, eseguire questa procedura:
 
 1. Fare clic su **File** > **Nuovo** > **Progetto**.
@@ -42,7 +46,7 @@ I pacchetti NuGet sono il modo più semplice per installare le librerie necessar
 
 È ora possibile iniziare a usare le librerie per creare l'applicazione.
 
-## <a name="step-2:-create-the-credentials-that-are-used-to-authenticate-requests"></a>Passaggio 2: Creare le credenziali da usare per autenticare le richieste
+## <a name="step-2-create-the-credentials-that-are-used-to-authenticate-requests"></a>Passaggio 2: Creare le credenziali da usare per autenticare le richieste
 Ora le informazioni sull'applicazione create prima vengono formattate come credenziali usate per autenticare le richieste ad Azure Resource Manager.
 
 1. Aprire il file Program.cs per il progetto creato e quindi aggiungere le istruzioni using seguenti all'inizio del file:
@@ -79,7 +83,7 @@ Ora le informazioni sull'applicazione create prima vengono formattate come crede
         var credential = new TokenCredentials(token.Result.AccessToken);
 4. Salvare il file Program.cs.
 
-## <a name="step-3:-register-the-resource-providers-and-create-the-resources"></a>Passaggio 3: Registrare i provider di risorse e creare le risorse
+## <a name="step-3-register-the-resource-providers-and-create-the-resources"></a>Passaggio 3: Registrare i provider di risorse e creare le risorse
 ### <a name="register-the-providers-and-create-a-resource-group"></a>Registrare i provider e creare un gruppo di risorse
 Tutte le risorse devono essere contenute in un gruppo di risorse. Per poter aggiungere risorse a un gruppo, la sottoscrizione deve essere registrata con i provider di risorse.
 
@@ -428,7 +432,7 @@ Dopo avere creato tutte le risorse di supporto, è possibile creare una macchina
         }
    
    > [!NOTE]
-   > Questa esercitazione illustra come creare una macchina virtuale in cui è in esecuzione una versione del sistema operativo Windows Server. Per altre informazioni sulla selezione di altre immagini, vedere [Esplorare e selezionare immagini delle macchine virtuali di Azure con Windows PowerShell e l'interfaccia della riga di comando di Azure](virtual-machines-linux-cli-ps-findimage.md).
+   > Questa esercitazione illustra come creare una macchina virtuale in cui è in esecuzione una versione del sistema operativo Windows Server. Per altre informazioni sulla selezione di altre immagini, vedere [Esplorare e selezionare immagini delle macchine virtuali di Azure con Windows PowerShell e l'interfaccia della riga di comando di Azure](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
    > 
    > 
 2. Per chiamare il metodo aggiunto prima, aggiungere questo codice al metodo Main:
@@ -447,30 +451,35 @@ Dopo avere creato tutte le risorse di supporto, è possibile creare una macchina
         Console.WriteLine(vmResult.Result.ProvisioningState);
         Console.ReadLine();
 
-## <a name="step-4:-delete-the-resources"></a>Passaggio 4: Eliminare le risorse
+## <a name="step-4-delete-the-resources"></a>Passaggio 4: Eliminare le risorse
 Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre consigliabile eliminare le risorse che non sono più necessarie. Per eliminare le macchine virtuali e tutte le risorse di supporto, è sufficiente eliminare il gruppo di risorse.
 
 1. Per eliminare il gruppo di risorse, aggiungere questo metodo alla classe Program:
    
-       public static async void DeleteResourceGroupAsync(
-         TokenCredentials credential,
-         string groupName,
-         string subscriptionId)
-       {
-         Console.WriteLine("Deleting resource group...");
-         var resourceManagementClient = new ResourceManagementClient(credential)
-           { SubscriptionId = subscriptionId };
-         await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
-       }
+   ```
+   public static async void DeleteResourceGroupAsync(
+     TokenCredentials credential,
+     string groupName,
+     string subscriptionId)
+   {
+     Console.WriteLine("Deleting resource group...");
+     var resourceManagementClient = new ResourceManagementClient(credential)
+       { SubscriptionId = subscriptionId };
+     await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
+   }
+   ```
+
 2. Per chiamare il metodo aggiunto prima, aggiungere questo codice al metodo Main:
    
-       DeleteResourceGroupAsync(
-         credential,
-         groupName,
-         subscriptionId);
-       Console.ReadLine();
+   ```   
+   DeleteResourceGroupAsync(
+     credential,
+     groupName,
+     subscriptionId);
+   Console.ReadLine();
+   ```
 
-## <a name="step-5:-run-the-console-application"></a>Passaggio 5: Eseguire l'applicazione console
+## <a name="step-5-run-the-console-application"></a>Passaggio 5: Eseguire l'applicazione console
 1. Per eseguire l'applicazione console, fare clic su **Avvia** in Visual Studio e accedere ad Azure AD usando lo stesso nome utente e la stessa password specificati per la sottoscrizione.
 2. Premere **INVIO** dopo la restituzione di tutti i codici di stato per creare ciascuna risorsa. Dopo avere creato la macchina virtuale, eseguire il passaggio successivo prima di premere INVIO per eliminare tutte le risorse.
    
@@ -480,9 +489,12 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
     ![Sfogliare i log di controllo nel portale di Azure](./media/virtual-machines-windows-csharp/crpportal.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per usare un modello per creare una macchina virtuale, vedere le informazioni contenute in [Distribuire una macchina virtuale di Azure con C# e un modello di Resource Manager](virtual-machines-windows-csharp-template.md).
-* Per informazioni su come gestire la macchina virtuale creata, vedere [Gestire macchine virtuali con Azure Resource Manager e PowerShell](virtual-machines-windows-csharp-manage.md).
+* Per usare un modello per creare una macchina virtuale, vedere le informazioni contenute in [Distribuire una macchina virtuale di Azure con C# e un modello di Resource Manager](virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Per informazioni su come gestire la macchina virtuale creata, vedere [Gestire macchine virtuali con Azure Resource Manager e PowerShell](virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

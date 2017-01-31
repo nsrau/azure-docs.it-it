@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
+ms.custom: secure and protect
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: article
 ms.date: 10/05/2016
 ms.author: CarlRabeler; ronitr; giladm
 translationtype: Human Translation
-ms.sourcegitcommit: 80680647559fe8b42cfa09985b9da3713b9c9305
-ms.openlocfilehash: cf0152b0cbcc85befa1b753b92f1593af958dd89
+ms.sourcegitcommit: 7b3c6d29ad7ded2ea65f378a1f807235c688d738
+ms.openlocfilehash: 9f51fcdb291021064dc02a71afdf849f1f4a3d85
 
 
 ---
-# <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
+# <a name="get-started-with-sql-database--auditing"></a>Introduzione al controllo del database SQL
 Il controllo del database SQL di Azure tiene traccia degli eventi che si verificano nel database e li registra in un log di controllo nell'account di Archiviazione di Azure dell'utente.
 
 Il controllo consente di agevolare la conformità alle normative, comprendere le attività del database e ottenere informazioni su eventuali discrepanze e anomalie che potrebbero indicare problemi aziendali o sospette violazioni della sicurezza.
@@ -183,7 +184,7 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 3. Tornare al pannello di configurazione del controllo, cambiare **Chiave di accesso alle risorse di archiviazione** da *Secondaria* a *Primaria* e fare clic su **OK** in fondo. Fare clic su **SALVA** nella parte superiore del pannello di configurazione del controllo.
 4. Tornare al pannello di configurazione e **rigenerare** il *Tasto di scelta secondario* (in preparazione al successivo ciclo di aggiornamento delle chiavi).
 
-## <a name="a-idsubheading-7aautomation-powershell-rest-api"></a><a id="subheading-7"></a>Automazione (API di PowerShell/REST)
+## <a name="a-idsubheading-7aautomation-powershell--rest-api"></a><a id="subheading-7"></a>Automazione (API di PowerShell/REST)
 È possibile configurare il controllo nel database SQL di Azure anche mediante gli strumenti di automazione seguenti:
 
 1. **Cmdlet di PowerShell**
@@ -213,9 +214,9 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 [Panoramica del controllo del database SQL di Azure]: #subheading-1
 [Configurare il controllo per il database]: #subheading-2
 [Analizzare i log di controllo e i report]: #subheading-3
-[Procedure per l'uso in produzione]: #subheading-5
-[Rigenerazione delle chiavi di archiviazione]: #subheading-6
-[Automazione (API di PowerShell/REST)]: #subheading-7
+[Practices for usage in production]: #subheading-5
+[Storage Key Regeneration]: #subheading-6
+[Automation (PowerShell / REST API)]: #subheading-7
 
 
 <!--Image references-->
@@ -241,6 +242,6 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

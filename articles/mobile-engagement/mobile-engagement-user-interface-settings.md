@@ -1,12 +1,12 @@
 ---
 title: Interfaccia utente di Azure Mobile Engagement - Impostazioni
-description: Informazioni su come gestire le impostazioni globali dell'applicazione usando Azure Mobile Engagement
+description: Informazioni su come gestire le impostazioni globali dell&quot;applicazione usando Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 858f4cb4-14de-4bb5-826f-28cadbfc928b
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,81 +14,85 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f3c20ee0d5abb40d7650eeaa722e87142275448d
+
 
 ---
-# Come gestire le impostazioni globali dell'applicazione
-Le opzioni del menu **Impostazioni** disponibili per un'applicazione variano a seconda della piattaforma dell'applicazione e delle autorizzazioni di cui si dispone per l'applicazione. Sono disponibili le impostazioni seguenti: Dettagli, Progetti, Push nativo, Velocità push, Tag (info app) e Pressione commerciale. L'opzione di menu Tag (info app) della sezione Impostazioni può essere gestita dall'applicazione (utilizzando l’SDK) o dal back-end (utilizzando l'API dispositivo).
+# <a name="how-to-manage-the-global-settings-of-your-application"></a>Come gestire le impostazioni globali dell'applicazione
+Le opzioni del menu **Impostazioni** disponibili per un'applicazione variano a seconda della piattaforma dell'applicazione e delle autorizzazioni di cui si dispone per l'applicazione. Sono disponibili le impostazioni seguenti: Dettagli, Progetti, Push nativo, Velocità push, Tag (info app) e Pressione commerciale. L'opzione di menu Tag (info app) della sezione Impostazioni può essere gestita dall'applicazione (utilizzando l’SDK) o dal back-end (utilizzando l'API dispositivo). 
 
 > [!NOTE]
-> Molte sezioni dell’interfaccia utente del portale **Mobile Engagement** contengono il pulsante **MOSTRA GUIDA**. Premere questo pulsante per ottenere ulteriori informazioni contestuali su una sezione.
+> Molte sezioni dell'interfaccia utente del portale **Mobile Engagement** contengono il pulsante **MOSTRA GUIDA**. Premere questo pulsante per ottenere ulteriori informazioni contestuali su una sezione.
 > 
 > 
 
-## Dettagli
-Consente di modificare il nome e la descrizione dell'applicazione e di visualizzare il proprietario dell'applicazione e le autorizzazioni del ruolo.
+## <a name="details"></a>Dettagli
+Consente di modificare il nome e la descrizione dell'applicazione e di visualizzare il proprietario dell'applicazione e le autorizzazioni del ruolo. 
 
 La configurazione di Analytics consente di visualizzare o modificare il giorno da cui iniziano le settimane e il tempo di conservazione in giorni.
 
   ![settings1][46]
 
-## Progetti
-Consente di selezionare tutti i progetti in cui deve essere visualizzata l'applicazione.
+## <a name="projects"></a>Progetti
+Consente di selezionare tutti i progetti in cui deve essere visualizzata l'applicazione. 
 
 È inoltre possibile eseguire la ricerca di un progetto e visualizzare il nome, la descrizione, il proprietario e le autorizzazioni del ruolo di qualsiasi progetto di cui l'applicazione fa parte.
 
-Per altre informazioni, vedere: [Documentazione UI - Home][Link 13].
+Per altre informazioni, vedere: [Documentazione UI - Home][Link 13]
 
   ![settings3][48]
 
-## Push nativo
-Consente di registrare un nuovo certificato o di eliminare un certificato esistente per l'utilizzo con push nativo. Il push nativo consente a Azure Mobile Engagement di effettuare il push all'applicazione in qualsiasi momento, anche quando non è in esecuzione.
+## <a name="native-push"></a>Push nativo
+Consente di registrare un nuovo certificato o di eliminare un certificato esistente per l'utilizzo con push nativo. Il push nativo consente a Azure Mobile Engagement di effettuare il push all'applicazione in qualsiasi momento, anche quando non è in esecuzione. 
 
 Dopo aver fornito le credenziali o i certificati per almeno un servizio di push nativo, è possibile selezionare "In qualsiasi momento" in fase di creazione di campagne Reach, nonché usare il parametro "notifier" nell'API PUSH.
 
-### Apple Push Notification Service (APNS)
+### <a name="apple-push-notification-service-apns"></a>Apple Push Notification Service (APNS)
 Per abilitare il push nativo tramite Apple Push Notification Service è necessario registrare il certificato. Occorre specificare il tipo di certificato: sviluppo (DEV) o produzione (PROD) e quindi caricare il certificato e la password.
 
-Per ulteriori informazioni, vedere: [Documentazione SDK - iOS - Come preparare l'applicazione per le notifiche push Apple][Link 5]
+Per altre informazioni, vedere: [Documentazione SDK - iOS - Come preparare l'applicazione per le notifiche push Apple][Link 5]
 
 ![settings4][49]
 
-### Servizio notifica Push Windows (WPNS)
+### <a name="windows-push-notification-service-wpns"></a>Servizio notifica Push Windows (WPNS)
 Per abilitare il push nativo tramite il Servizio notifica Push Windows, è necessario fornire le credenziali dell'applicazione. Sono necessari l'identificatore di sicurezza del pacchetto (SID) e la chiave segreta.
 
 ![settings5][50]
 
-### Google Cloud Messaging per Android (GCM)
+### <a name="google-cloud-messaging-for-android-gcm"></a>Google Cloud Messaging per Android (GCM)
 Per abilitare il push nativo tramite GCM, è necessario seguire le istruzioni fornite da Google. È necessario, quindi, incollare una chiave API semplice del server, configurata senza restrizioni IP. Richiede l'integrazione con SDK per Android v1.12.0+.
 
-Per altre informazioni, vedere:
+Per altre informazioni, vedere: 
 
-* [Documentazione SDK Android Come integrare GCM][Link 5]
+* [Documentazione SDK - Android - Come integrare GCM][Link 5]
 * [Guida GCM di Google per sviluppatori](http://developer.android.com/guide/google/gcm/gs.html)
 
-### Amazon Device Messaging for Android (ADM)
-Per abilitare il push nativo mediante ADM, è necessario specificare le <credenziali OAuth> di Amazon costituite da ID e segreto client (è necessaria l'integrazione con l'SDK per Android v2.1.0+).
+### <a name="amazon-device-messaging-for-android-adm"></a>Amazon Device Messaging for Android (ADM)
+Per abilitare il push nativo mediante ADM, è necessario specificare le <OAuth credentials> Amazon costituite da ID e segreto client (è necessaria l'integrazione con l'SDK per Android v2.1.0+).
 
-Per altre informazioni, vedere:
+Per altre informazioni, vedere: 
 
 * [Documentazione SDK - Android - Come integrare ADM][Link 5]
 * [Documentazione ADM di Amazon per sviluppatori](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
 
 ![settings6][51]
 
-## Velocità di push
+## <a name="push-speed"></a>Velocità di push
 Mostra la velocità di push corrente dell'applicazione e consente di definire la velocità di push dell'applicazione.
 
   ![settings7][52]
 
-## Tag (info app)
+## <a name="tag-app-info"></a>Tag (info app)
 ![settings11][56]
 
-## Pressione commerciale
+## <a name="commercial-pressure"></a>Pressione commerciale
 ![settings12][57]
 
-## Vedere anche
+## <a name="see-also"></a>Vedere anche
 * [Concetti][Link 6]
-* [Guida per la risoluzione dei problemi - Assistenza][Link 24]
+* [Guida alla risoluzione dei problemi - Assistenza][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -186,4 +190,8 @@ Mostra la velocità di push corrente dell'applicazione e consente di definire la
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

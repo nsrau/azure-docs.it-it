@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 8d149069c95b5b68904ab6a5a47b1fa6215da23d
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 0eb72af5c0f904655fc4a0d8fd44d6e481c73645
 
 
 ---
 # <a name="monitoring-and-diagnostics-guidance"></a>Indicazioni di monitoraggio e diagnostica
 [!INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Le applicazioni distribuite e i servizi in esecuzione nel cloud sono, per loro natura, componenti software complessi che comprendono molte parti mobili. In un ambiente di produzione è importante essere in grado di rilevare il modo in cui gli utenti usano il sistema, di tracciare l'utilizzo delle risorse e, in generale, di monitorare l'integrità e le prestazioni del sistema stesso. Queste informazioni possono essere usate come strumento diagnostico per rilevare e correggere i problemi, nonché per individuare potenziali problemi e impedire che si verifichino.
 
 ## <a name="monitoring-and-diagnostics-scenarios"></a>Scenari di monitoraggio e diagnostica
@@ -703,13 +703,13 @@ In molti casi, i processi batch possono generare report in base a una pianificaz
 * [Abilitazione di Diagnostica in servizi cloud e macchine virtuali di Azure](cloud-services/cloud-services-dotnet-diagnostics.md)
 * [Cache Redis di Azure](https://azure.microsoft.com/services/cache/), [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) e [HDInsight](https://azure.microsoft.com/services/hdinsight/)
 * [Come usare le code del bus di servizio](service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
-* [SQL Server Business Intelligence in Macchine virtuali di Azure](virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [SQL Server Business Intelligence in Macchine virtuali di Azure](virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-bi.md)
 * [Ricevere notifiche di avviso](monitoring-and-diagnostics/insights-receive-alert-notifications.md) e [Tenere traccia dell'integrità del servizio](monitoring-and-diagnostics/insights-service-health.md)
 * [Application Insights](application-insights/app-insights-overview.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

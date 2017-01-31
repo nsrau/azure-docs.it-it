@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2016
-ms.author: markusvi
+ms.date: 01/19/2017
+ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0f7070d9d691e2471978a2986025ebfdafbeaa7c
+ms.sourcegitcommit: 45f44f6f3724e60a49efe82e266223224e544be8
+ms.openlocfilehash: 0f261624f6039bb080c4d6e5491f3ef8bf5a1d5e
 
 
 ---
@@ -43,6 +43,18 @@ Per informazioni dettagliate, vedere:
 Tutti gli utenti abilitati per Microsoft Online Services sono in effetti definiti come account utente in una o più istanze di Azure AD. È possibile abilitare questi account per funzionalità di Azure AD gratuite come l'accesso alle applicazioni cloud.
 
 I servizi a pagamento di Azure AD, ad esempio Azure AD Basic, Premium, EMS e così via, sono inoltre complementari ad altri servizi online, come Office 365 e Microsoft Azure, con soluzioni di gestione e di sicurezza complete di scala aziendale.
+
+**D: Perché è possibile accedere al portale di Azure, ma non al portale classico?**
+**R:** Per il nuovo portale di Azure non è necessaria una sottoscrizione valida, che è invece necessaria per il portale classico.  Senza una sottoscrizione non è possibile accedere al portale classico.
+
+**D:** Qual è la differenza tra Amministratore della sottoscrizione e Amministratore directory?**
+
+**R:** Per impostazione predefinita, al momento dell'iscrizione ad Azure all'utente viene assegnato il ruolo di Amministratore della sottoscrizione. L'amministratore della sottoscrizione può usare un account Microsoft oppure un account aziendale o dell'istituto di istruzione della directory a cui è associata la sottoscrizione di Azure.  Questo ruolo è autorizzato a gestire i servizi nel portale di Azure.
+Se altri utenti devono accedere ai servizi con la stessa sottoscrizione, è possibile aggiungerli come coamministratori. Questo ruolo ha gli stessi privilegi di accesso dell'amministratore del servizio, ma non può modificare l'associazione di sottoscrizioni alle directory di Azure.  Per altre informazioni sugli amministratori della sottoscrizione, vedere [questo articolo](../billing-add-change-azure-subscription-administrator.md) e [questo articolo](active-directory-how-subscriptions-associated-directory.md).
+
+In Azure AD è invece disponibile un set di ruoli amministrativi diverso per gestire la directory e le funzionalità relative alle identità.  Questi amministratori hanno accesso a diverse funzionalità nel portale di Azure o nel portale di Azure classico e, a seconda del ruolo, possono, tra le altre cose, creare o modificare gli utenti, assegnare ruoli amministrativi ad altri, reimpostare le password utente, gestire le licenze utente e gestire i domini.  Per altre informazioni sugli amministratori di directory di Azure AD e sui relativi ruoli, vedere [questo articolo](active-directory-assign-admin-roles.md).
+
+
 
 - - -
 ## <a name="getting-started-with-hybrid-azure-ad"></a>Introduzione alla gestione ibrida di Azure AD
@@ -94,6 +106,18 @@ Per altri dettagli, vedere [Introduzione alla gestione delle password](active-di
 **R:** Sì. Se il writeback delle password è abilitato, le operazioni relative alle password eseguite da un amministratore vengono sottoposte a writeback nell'ambiente locale.  
 
 Per altre risposte a domande relative alle password, vedere [Domande frequenti sulla gestione delle password](active-directory-passwords-faq.md).
+
+**D: Cosa si può fare se non si ricorda la password di Office 365/Azure AD esistente durante il tentativo di modificare la password?**
+
+**R:** In situazioni di questo tipo è possibile procedere in due modi.  Se l'organizzazione ha abilitato la reimpostazione password self-service, è possibile provare in questo modo.  L'opzione può funzionare o meno in base a come è stata configurata la reimpostazione password self-service.  Per altre informazioni, vedere [Funzionamento del portale di reimpostazione delle password](active-directory-passwords-learn-more.md#how-does-the-password-reset-portal-work).
+
+Per gli utenti di Office 365, l'amministratore può reimpostare la password seguendo la procedura descritta [in questo articolo](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
+
+Per gli account Azure AD, gli amministratori possono reimpostare le password in uno dei modi seguenti:
+
+- [Reimpostare gli account nel portale di Azure](active-directory-users-reset-password-azure-portal.md)
+- [Reimpostare gli account nel portale classico](active-directory-create-users-reset-password.md) 
+- [Uso di PowerShell](https://docs.microsoft.com/en-us/powershell/msonline/v1/Set-MsolUserPassword?redirectedfrom=msdn)
 
 - - -
 ## <a name="application-access"></a>Accesso all'applicazione
@@ -157,10 +181,13 @@ Per altri dettagli, vedere [Accesso condizionale di Azure Active Directory](acti
 
 Per altre informazioni, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md)
 
+**D: È possibile configurare una connessione LDAP sicura con Azure Active Directory?**
+**R:** No.  Azure AD non supporta l'uso del protocollo LDAP.
+
 - - -
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

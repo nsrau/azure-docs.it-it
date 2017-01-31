@@ -3,7 +3,7 @@ title: Modellazione dei dati in Azure DocumentDB | Documentazione Microsoft
 description: Informazioni sulla modellazione dei dati per DocumentDB un database di documenti NoSQL.
 keywords: modellazione di dati
 services: documentdb
-author: kiratp
+author: arramac
 manager: jhubbard
 editor: mimig1
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2016
-ms.author: kipandya
+ms.date: 01/03/2016
+ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ba0dbc287964aa700cbded834e4b5da09144efe8
+ms.sourcegitcommit: 09f42bae67f794f12c7c37cd25c25f4c991fe893
+ms.openlocfilehash: 93d0d7276e4ff426e87bdc3dadd736de8d6525fb
 
 
 ---
@@ -119,11 +119,6 @@ Consideriamo questo frammento JSON.
     }
 
 Questo potrebbe essere l'aspetto di un'entità post con commenti incorporati, se si modellasse un tipico sistema di blog, o CMS. Il problema di questo esempio è che la matrice di commenti non è **limitata**, vale a dire che non esiste in pratica un limite al numero di commenti per i singoli post. Questo sarà un problema qualora le dimensioni del documento aumentassero considerevolmente.
-
-> [!TIP]
-> I documenti in DocumentDB hanno una dimensione massima. Per altre informazioni su questo argomento, fare riferimento a [Limiti di DocumentDB](documentdb-limits.md).
-> 
-> 
 
 Quando le dimensioni del documento aumentano, diventa più difficile trasmettere i dati nella rete come anche leggere e aggiornare il documento.
 
@@ -409,6 +404,6 @@ E infine, per informazioni aggiuntive sulla modellazione di dati e il partiziona
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

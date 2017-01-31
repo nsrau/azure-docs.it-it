@@ -100,6 +100,6 @@ Informazioni su come usare il servizio contenitore di Azure per archiviare e ges
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

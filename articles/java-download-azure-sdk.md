@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 25b7e591172ea810ce370f946eb46258c801ba36
+ms.sourcegitcommit: 9b2d456d8dba33af224ea147f5f8ec49ba7397f9
+ms.openlocfilehash: 8d4042a270af2ba143b45d23c3f0c01f836c4592
 
 
 ---
 # <a name="download-the-azure-sdk-for-java"></a>Download di Azure SDK per Java
 Questo articolo contiene le istruzioni per scaricare e installare le librerie di Azure per Java.
 
-**Nota:** Le librerie di Azure per Java vengono distribuite con la [licenza Apache versione 2.0][license].
+**Nota:** le librerie di Azure per Java vengono distribuite con la [licenza Apache versione 2.0][license].
 
 ## <a name="azure-libraries-for-java---manual-download"></a>Librerie di Azure per Java - Download manuale
 Per installare manualmente le librerie di Azure per Java, fare clic su <http://go.microsoft.com/fwlink/?LinkId=690320> per scaricare un file ZIP che contiene tutte le librerie e tutte le dipendenze.
@@ -35,19 +35,19 @@ Dopo aver scaricato il file zip sul computer, estrarre il contenuto e usare una 
 
 Per informazioni dettagliate sull'impostazione dei percorsi di compilazione in Eclipse, vedere l’articolo [Java Build Path] sul sito Web Eclipse.
 
-**Nota:** Per i dettagli sulla licenza e altre informazioni, vedere i file license.txt e ThirdPartyNotices.txt all'interno dell'archivio ZIP.
+**Nota:** per i dettagli sulla licenza e altre informazioni, vedere i file license.txt e ThirdPartyNotices.txt all'interno dell'archivio ZIP.
 
 ## <a name="azure-libraries-for-java---building-with-maven"></a>Librerie di Azure per Java - Compilazione con Maven
 ### <a name="step-1---set-up-your-project-to-use-maven-for-build"></a>Passaggio 1: configurare il progetto per usare Maven per la compilazione
-Per creare progetti Maven in Eclipse, che usano le librerie di Azure per Java, seguire le istruzioni presenti nell'articolo [Introduzione ad Azure Management Libraries per Java][maven-getting-started]. 
+Per creare in Eclipse progetti Maven che usano le librerie di Azure per Java, seguire le istruzioni nell'articolo [Getting Started with Azure Management Libraries for Java][maven-getting-started] (Introduzione alle librerie di gestione di Azure per Java).
 
 ### <a name="step-2---configure-your-maven-settings-with-the-requisite-dependencies"></a>Passaggio 2 - configurare le impostazioni di Maven con le dipendenze necessarie
-Una volta che il progetto è stato configurato per l’uso di Maven per la compilazione, è possibile aggiungere le dipendenze necessarie al file pom.xml usando una sintassi simile a quella dell’esempio seguente. Notare che non è necessario aggiungere tutte le dipendenze elencate nel seguente esempio; è sufficiente aggiungere le dipendenze specifiche richieste dal progetto.
+Dopo aver configurato il progetto per l'uso di Maven per la compilazione, è possibile aggiungere le dipendenze necessarie al file pom.xml usando una sintassi simile a quella dell'esempio seguente. Notare che non è necessario aggiungere tutte le dipendenze elencate nel seguente esempio; è sufficiente aggiungere le dipendenze specifiche richieste dal progetto.
 
 > [!NOTE]
 > All'interno di ogni elemento `<version>` nell'esempio seguente, sostituire i segnaposto "n.n.n" di questo esempio con numeri di versione validi, che possono essere ottenuti dall'[archivio delle librerie di Azure su Maven].
-> 
-> 
+>
+>
 
     <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -113,7 +113,7 @@ Il Toolkit di Azure per Eclipse usa l'ultima versione dell’SDK di Azure. Quest
 ## <a name="see-also"></a>Vedere anche
 [Toolkit di Azure per Eclipse]
 
-[Installazione del Toolkit di Azure per Eclipse] 
+[Installazione del Toolkit di Azure per Eclipse]
 
 [Creare un'applicazione Hello World per Azure in Eclipse]
 
@@ -134,6 +134,6 @@ Per altre informazioni su come usare Azure con Java, visitare il [Centro per svi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

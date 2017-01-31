@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a48fa69b198f832de8c0ee42564dfea15bd871c1
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 37a10d284afa6b9ee2aa65e7ec015c3c364f551d
 
 
 ---
@@ -41,7 +41,7 @@ In questa esercitazione si useranno gli strumenti seguenti. Non essendo una disc
 ### <a name="azure-resource-manager-templates-json"></a>Modelli di Gestione risorse di Azure (JSON)
 Ogni volta che si crea, ad esempio, un'app Web nel servizio app di Azure, Gestione risorse di Azure usa un modello JSON per creare l'intero gruppo di risorse con le risorse del componente. Un modello complesso disponibile in [Azure Marketplace](/marketplace), come l'app [WordPress scalabile](/marketplace/partners/wordpress/scalablewordpress/), può includere il database MySQL, account di archiviazione, il piano di servizio app, la stessa app Web, regole di avviso, impostazioni dell'app, impostazioni di scalabilità automatica e altro. Tutti questi modelli sono disponibili tramite PowerShell. Per informazioni su come scaricare e usare questi modelli, vedere [Uso di Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-Per altre informazioni sui modelli di Gestione risorse di Azure, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md)
+Per altre informazioni sui modelli di Gestione risorse di Azure, vedere [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>Azure SDK 2.6 per Visual Studio
 L'SDK più recente include miglioramenti a livello di supporto per i modelli di Gestione risorse di Azure nell'editor JSON. È possibile usarlo per creare rapidamente da zero un modello di gruppo di risorse o aprire un modello JSON esistente (ad esempio, un modello della raccolta scaricato) per modificarlo, popolare il file di parametri e distribuire il gruppo di risorse direttamente da una soluzione del gruppo di risorse di Azure.
@@ -129,7 +129,7 @@ Nel codice JSON evidenziato notare quando indicato di seguito:
 * Le risorse annidate in `“resources”: […]`, dove sono definite le regole di database e del firewall, includono un elemento `dependsOn` che specifica l'ID risorsa della risorsa SQLServer a livello di radice. Questo elemento indica a Gestione risorse di Azure che "prima di creare questa risorsa, deve esistere già l'altra risorsa e se l'altra risorsa è definita nel modello, dev'essere creata prima quella".
   
   > [!NOTE]
-  > Per altre informazioni sull'uso della funzione `resourceId()`, vedere [Funzioni del modello di Azure Resource Manager](../resource-group-template-functions.md).
+  > Per altre informazioni sull'uso della funzione `resourceId()`, vedere [Funzioni del modello di Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md).
   > 
   > 
 * L'elemento `dependsOn` indica a Gestione risorse di Azure quali risorse possono essere create in parallelo e quali devono essere create in sequenza. 
@@ -265,16 +265,16 @@ Scoprire come [applicare facilmente le metodologie Agile e la pubblicazione cont
 <a name="resources"></a>
 
 ## <a name="more-resources"></a>Altre risorse
-* [Linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md)
-* [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md)
-* [Funzioni del modello di Gestione risorse di Azure](../resource-group-template-functions.md)
-* [Distribuire un'applicazione con un modello di Gestione risorse di Azure](../resource-group-template-deploy.md)
-* [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md)
-* [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](../resource-manager-troubleshoot-deployments-portal.md)
+* [Linguaggio del modello di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Funzioni del modello di Gestione risorse di Azure](../azure-resource-manager/resource-group-template-functions.md)
+* [Distribuire un'applicazione con un modello di Gestione risorse di Azure](../azure-resource-manager/resource-group-template-deploy.md)
+* [Uso di Azure PowerShell con Gestione risorse di Azure](../azure-resource-manager/powershell-azure-resource-manager.md)
+* [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

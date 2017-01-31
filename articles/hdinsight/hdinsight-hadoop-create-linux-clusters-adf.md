@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/06/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 5566e80f7d105944be6e10915b3b6ee2852c05e2
+ms.sourcegitcommit: 060bcf7cfac365e93b988cda0f402df6ba605dfc
+ms.openlocfilehash: 4dcc519e74cf1a5fbc7be3ddbd506fcbc25ed882
 
 
 ---
@@ -57,13 +57,14 @@ L'uso di HDInsight con Data Factory comporta vari vantaggi:
 >
 >
 
-## <a name="prerequisites"></a>Prerequisiti:
+## <a name="prerequisites"></a>Prerequisiti
+
 Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre dei seguenti elementi:
 
 * [Sottoscrizione di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Interfaccia della riga di comando di Azure o Azure PowerShell.
 
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ## <a name="prepare-storage-account"></a>Preparare un account di archiviazione
 In questo scenario, è possibile usare fino a tre account di archiviazione:
@@ -106,7 +107,7 @@ Per semplificare l'esercitazione, si usa un solo account di archiviazione per tu
     azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted"
     azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted"
 
-Il nome del contenitore è *adfgetstarted*.  Mantenerlo invariato, altrimenti sarebbe necessario aggiornare il modello di Gestione risorse.
+Il nome del contenitore è *adfgetstarted*.  Mantenerlo invariato, altrimenti sarebbe necessario aggiornare il modello di modello di Resource Manager.
 
 Se occorre assistenza per questo script dell'interfaccia della riga di comando, vedere [Utilizzo dell'interfaccia della riga di comando di Azure con archiviazione di Azure](../storage/storage-azure-cli.md).
 
@@ -197,9 +198,9 @@ Se occorre assistenza per questo script di PowerShell, vedere [Uso di Azure Powe
 7. Aprire le cartelle e controllare i file al loro interno.
 
 ## <a name="create-data-factory"></a>Creare un'istanza di Data Factory
-Con l'account di archiviazione, i dati di input e lo script HiveQL preparato, si è pronti per creare un'istanza di Azure Data Factory. Esistono diversi metodi per creare un'istanza di Data Factory. In questa esercitazione viene usato il portale di Azure per chiamare un modello personalizzato di Gestione risorse. In alternativa, è possibile chiamare il modello di Gestione risorse dall'[interfaccia della riga di comando di Azure](../resource-group-template-deploy-cli.md) o da [Azure PowerShell](../resource-group-template-deploy.md#deploy-with-powershell). Per altri metodi di creazione di un'istanza di Data Factory, vedere [l'esercitazione per creare la prima istanza di Data Factory](../data-factory/data-factory-build-your-first-pipeline.md).
+Con l'account di archiviazione, i dati di input e lo script HiveQL preparato, si è pronti per creare un'istanza di Azure Data Factory. Esistono diversi metodi per creare un'istanza di Data Factory. In questa esercitazione viene usato il portale di Azure per chiamare un modello di Resource Manager personalizzato. È anche possibile chiamare il modello di Resource Manager dall'[interfaccia della riga di comando di Azure](../resource-group-template-deploy-cli.md) o da [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy). Per altri metodi di creazione di un'istanza di Data Factory, vedere [l'esercitazione per creare la prima istanza di Data Factory](../data-factory/data-factory-build-your-first-pipeline.md).
 
-Il modello di Gestione risorse di livello superiore contiene:
+Il modello di Resource Manager di livello principale contiene:
 
     {
         "contentVersion": "1.0.0.0",
@@ -327,9 +328,9 @@ La risorsa *hdinsight-hive-on-demand* contiene quattro risorse:
 
 **Per creare un'istanza di Data Factory**
 
-1. Fare clic sull'immagine seguente per accedere ad Azure e aprire il modello Gestione risorse nel portale di Azure. Il modello si trova all'indirizzo https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json.
+1. Fare clic sull'immagine seguente per accedere ad Azure e aprire il modello di Resource Manager nel portale di Azure. Il modello si trova all'indirizzo https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="./media/hdinsight-hadoop-create-linux-clusters-adf/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Immettere **DATAFACTORYNAME**, **STORAGEACCOUNTNAME** e **STORAGEACCOUNTKEY** per l'account creato all'ultima sezione e fare clic su **OK**. Il nome dell'istanza Data Factory deve essere globalmente univoco.
 3. In **Gruppo di risorse**selezionare lo stesso gruppo di risorse usato nella sezione precedente.
 4. Fare clic su **Note legali** e quindi su **Crea**.
@@ -340,7 +341,7 @@ La risorsa *hdinsight-hive-on-demand* contiene quattro risorse:
 
     ![Diagramma della pipeline attività Hive di HDInsight on demand in Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-pipeline-diagram.png)
 
-    I nomi sono definiti nel modello di Gestione risorse.
+    I nomi sono definiti nel modello di Resource Manager.
 9. Fare doppio clic su **AzureBlobOutput**.
 10. Tra le **sezioni aggiornate di recente**verrà visualizzata una sezione. Se lo stato è **In corso**, attendere finché non diventa **Pronto**.
 
@@ -351,7 +352,7 @@ La risorsa *hdinsight-hive-on-demand* contiene quattro risorse:
    * adfhdinsight-hive-on-demand-hdinsightondemandlinked-xxxxxxxxxxxxx: questo è il contenitore predefinito per il cluster HDInsight. Il nome predefinito del contenitore segue lo schema:  "adf<yourdatafactoryname>-linkedservicename-datetimestamp".
    * adfjobs: questo è il contenitore per i log dei processi ADF.
 
-     L'output della data factory viene archiviato in afgetstarted, come definito nel modello di Gestione risorse.
+     L'output di Data Factory viene archiviato in afgetstarted, in base alla configurazione definita nel modello di Resource Manager.
 2. Fare clic su **adfgetstarted**.
 3. Fare doppio clic su **partitioneddata**. Verrà visualizzata una cartella **year = 2014** perché tutti i log Web sono datati 2014.
 
@@ -377,7 +378,7 @@ Con il servizio collegato HDInsight on demand viene creato un cluster HDInsight 
 
 Se non si desidera eliminare l'account di archiviazione quando si elimina il gruppo di risorse, è possibile progettare l'architettura in modo da separare i dati aziendali dall'account di archiviazione predefinito. In questo caso, ci sarà un gruppo di risorse per l'account di archiviazione con i dati aziendali e un secondo gruppo di risorse per l'account di archiviazione predefinito e l'istanza Data Factory.  L'eliminazione del secondo gruppo di risorse non influirà sull'account di archiviazione dei dati aziendali.  A tale scopo, procedere come segue:
 
-* Aggiungere quanto segue al gruppo di risorse di livello principale insieme alla risorsa Microsoft.DataFactory/datafactories nel modello di Gestione risorse. Crea un nuovo account di archiviazione.
+* Aggiungere quanto segue al gruppo di risorse di livello principale insieme alla risorsa Microsoft.DataFactory/datafactories nel modello di Resource Manager. Crea un nuovo account di archiviazione.
 
         {
             "name": "[parameters('defaultStorageAccountName')]",
@@ -443,6 +444,6 @@ Questo articolo ha descritto come usare Azure Data Factory per creare il cluster
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

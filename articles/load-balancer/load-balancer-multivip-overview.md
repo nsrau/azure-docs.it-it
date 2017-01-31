@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 08/11/2016
 ms.author: chkuhtz
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 0cedf46bd0b8c352c8a8d87407ed7fbbc58e3b46
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: e9ffa674363b250a5e286c6e34200fa2b3323173
 
 ---
 
@@ -65,8 +65,8 @@ Si definiscono due regole:
 
 | Regola | Mapping frontend | Al pool back-end |
 | --- | --- | --- |
-| 1 |![Indirizzo VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  DIP2:80 |
-| 2 |![Indirizzo VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  DIP2:81 |
+| 1 |![Indirizzo VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
+| 2 |![Indirizzo VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
 
 Il mapping completo in Azure Load Balancer sarà ora il seguente:
 
@@ -113,8 +113,8 @@ Si definiscono due regole:
 
 | Regola | Mapping frontend | Al pool back-end |
 | --- | --- | --- |
-| 1 |![Regola](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 (in VM1 e VM2) |
-| 2 |![Regola](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 (in VM1 e VM2) |
+| 1 |![Regola](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 (in VM1 e VM2) |
+| 2 |![Regola](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 (in VM1 e VM2) |
 
 La tabella seguente illustra il mapping completo nel servizio di bilanciamento del carico:
 
@@ -127,7 +127,7 @@ La destinazione del flusso in ingresso è l'indirizzo VIP nell'interfaccia di lo
 
 Si noti che in questo esempio non viene modificata la porta di destinazione. Anche se questo è uno scenario con indirizzo IP mobile, Azure Load Balancer supporta anche la definizione di una regola per la riscrittura della porta di destinazione back-end e per differenziarla dalla porta di destinazione front-end.
 
-Il tipo di regola con indirizzo IP mobile è alla base di diversi modelli di configurazione del servizio di bilanciamento di carico. Un esempio attualmente disponibile è la configurazione [SQL AlwaysOn con più listener](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . Altri scenari di questo tipo verranno documentati nel tempo.
+Il tipo di regola con indirizzo IP mobile è alla base di diversi modelli di configurazione del servizio di bilanciamento di carico. Un esempio attualmente disponibile è la configurazione [SQL AlwaysOn con più listener](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) . Altri scenari di questo tipo verranno documentati nel tempo.
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -138,6 +138,6 @@ Il tipo di regola con indirizzo IP mobile è alla base di diversi modelli di con
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

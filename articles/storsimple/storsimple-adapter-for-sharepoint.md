@@ -15,13 +15,13 @@ ms.workload: TBD
 ms.date: 07/11/2016
 ms.author: v-sharos
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a108e20c36208fd211e45d180fc77a65e501b191
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6ad7aa62fec678d94898b6f749d51e25e99b4d1f
 
 
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Installare e configurare l’adattatore StorSimple per SharePoint
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 L'adattatore StorSimple per SharePoint è un componente che consente di fornire a Microsoft Azure StorSimple archiviazione flessibile e protezione dei dati per server farm di SharePoint. È possibile utilizzare l'adattatore per spostare il contenuto di oggetti BLOB (Binary Large Object) dai database del contenuto di SQL Server al dispositivo di archiviazione cloud ibrida StorSimple di Microsoft Azure.
 
 L'adattatore StorSimple per SharePoint funziona come provider di archiviazione BLOB remoti (RBS) e utilizza la funzionalità di archiviazione BLOB remoti di SQL Server per archiviare il contenuto di SharePoint non strutturato (sotto forma di BLOB) in un file server supportato da un dispositivo StorSimple.
@@ -31,7 +31,7 @@ L'adattatore StorSimple per SharePoint funziona come provider di archiviazione B
 > 
 > 
 
-* Per scaricare l'adattatore StorSimple per SharePoint, visitare la pagina relativa all'[adattatore StorSimple per SharePoint][1] nell'Area download Microsoft.
+* Per scaricare l'adattatore StorSimple per SharePoint, visitare la pagina dell'[adattatore StorSimple per SharePoint][1] nell'Area download Microsoft.
 * Per informazioni sulla pianificazione per RBS e le limitazioni di RBS, vedere [Stabilire se usare RBS in SharePoint 2013][2] o [Pianificare RBS (SharePoint Server 2010)][3].
 
 Nella parte rimanente di questa panoramica vengono descritti brevemente il ruolo dell'adattatore StorSimple per SharePoint e i limiti di capacità e prestazioni di SharePoint che è necessario conoscere prima di installare e configurare l'adattatore. Dopo avere esaminato le informazioni, andare a [Installazione dell'adattatore StorSimple per SharePoint](#storsimple-adapter-for-sharepoint-installation) per iniziare a configurare l'adattatore.
@@ -178,7 +178,7 @@ Quando gli oggetti vengono eliminati da un sito di SharePoint, non vengono elimi
 
 Questo programma di manutenzione (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) viene installato automaticamente su tutti i server WFE e server applicazioni di SharePoint quando si abilita RBS. Il programma viene installato nel percorso seguente: *unità di avvio*:\Programmi\Microsoft SQL Remote Blob Storage 10.50\Maintainer\
 
-Per informazioni su configurazione e uso del programma di manutenzione, vedere [Eseguire la manutenzione di RBS in SharePoint Server 2013][8].
+Per informazioni su configurazione e uso del programma di manutenzione, vedere l'articolo sulla [manutenzione di archivi BLOB remoti in SharePoint Server 2013][8].
 
 > [!IMPORTANT]
 > Il programma di manutenzione RBS è ad elevato consumo delle risorse. È consigliabile pianificarne l'esecuzione solo durante i periodi di minore attività della farm di SharePoint.
@@ -275,6 +275,6 @@ Dopo aver spostato nuovamente i BLOB nei database del contenuto di SQL Server, u
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

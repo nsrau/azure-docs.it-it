@@ -1,5 +1,5 @@
 ---
-title: Uso del Centro sicurezza di Azure per rispondere agli eventi imprevisti | Microsoft Docs
+title: Rispondere agli eventi imprevisti della sicurezza con il Centro sicurezza di Azure | Documentazione Microsoft
 description: Questo documento illustra come usare il Centro sicurezza di Azure per uno scenario di risposta agli eventi imprevisti.
 services: security-center
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 01/23/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 31311194c051a1fd7c889a956e06e88ca83a74db
+ms.sourcegitcommit: f40f64906bf87d8505fa1a209222163256326d14
+ms.openlocfilehash: a2cc4729ca5cb1dcc10630158ec3d94315fb01a5
 
 
 ---
@@ -52,7 +52,7 @@ Ai fini di questo scenario verranno presi in esame i ruoli degli utenti seguenti
 
 Alice si occupa delle attività di sicurezza. Le sue responsabilità includono:
 
-* Monitoraggio e risposta alle minacce per la sicurezza 24 ore su 24.
+* Monitoraggio e risposta alle minacce per la sicurezza&24; ore su&24;.
 * Escalation al proprietario dei carichi di lavoro nel cloud o all'analista della sicurezza in base alle esigenze.
 
 Guido è un analista della sicurezza e le sue responsabilità includono:
@@ -78,13 +78,13 @@ Alice ha effettuato l'accesso al portale di Azure e si trova nella console del C
 
 1. Fare clic sul riquadro **Avvisi di sicurezza** e accedere al pannello **Avvisi di sicurezza**.
     ![Pannello Avvisi di sicurezza](./media/security-center-incident-response/security-center-incident-response-fig4.png)
-   
+
    > [!NOTE]
    > Ai fini di questo scenario, Alice eseguirà la valutazione dell'avviso riguardante attività SQL dannose, come illustrato nella figura precedente.
-   > 
-   > 
+   >
+   >
 2. Fare clic su **Malicious SQL Activity** (Attività SQL dannosa) ed esaminare le risorse che hanno subito l'attacco nel pannello **Malicious SQL Activity** (Attività SQL dannosa):  ![Dettagli dell'evento imprevisto](./media/security-center-incident-response/security-center-incident-response-fig5.png)
-   
+
     In questo pannello Alice può vedere le risorse che hanno subito l'attacco, quante volte si è verificato l'attacco e quando è stato rilevato.
 3. Fare clic sulla **risorsa che ha subito l'attacco** per ottenere altre informazioni sull'attacco.
 
@@ -103,7 +103,6 @@ La creazione di un team prima che si verifichi un evento imprevisto è molto imp
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -4,7 +4,7 @@ description: Informazioni su come risolvere i problemi relativi alla carta di cr
 services: 
 documentationcenter: 
 author: JiangChen79
-manager: mbaldwin
+manager: adpick
 editor: 
 tags: billing,top-support-issue
 keywords: carta di credito rifiutata, carta di debito rifiutata, carta di credito non accettata, carta di credito non riconosciuta

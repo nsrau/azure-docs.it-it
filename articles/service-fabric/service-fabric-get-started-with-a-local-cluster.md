@@ -1,6 +1,6 @@
 ---
-title: Introduzione alla distribuzione e all&quot;aggiornamento di app nel cluster locale | Documentazione Microsoft
-description: Configurare un cluster di Infrastruttura di servizi locale, distribuire un&quot;applicazione esistente al suo interno e quindi aggiornare l&quot;applicazione.
+title: Distribuire e aggiornare localmente i microservizi di Azure | Documentazione Microsoft
+description: Informazioni su come configurare un cluster di Service Fabric locale, distribuire un&quot;applicazione esistente al suo interno e quindi aggiornare l&quot;applicazione.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 12/14/2016
 ms.author: ryanwi;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: efe9845280de3bcd882a7c879b53576600aae0a7
-ms.openlocfilehash: 1bc418f3cadfc83fbec0f2e2c508c77d97b84285
+ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
+ms.openlocfilehash: d1320daaf4b0bd8c1a7b7c8e37fa8b81c4a53e64
 
 
 ---
@@ -29,7 +29,7 @@ Azure Service Fabric SDK include un ambiente di sviluppo locale completo che pu�
 > 
 
 ## <a name="create-a-local-cluster"></a>Creare un cluster locale
-Un cluster di Service Fabric rappresenta un set di risorse hardware in cui è possibile distribuire le applicazioni. In genere un cluster è costituito da un minimo di 5 fino a diverse migliaia di macchine virtuali, tuttavia Service Fabric SDK include una configurazione cluster che può essere eseguita in una singola macchina virtuale.
+Un cluster di Service Fabric rappresenta un set di risorse hardware in cui è possibile distribuire le applicazioni. In genere un cluster è costituito da un minimo di&5; fino a diverse migliaia di macchine virtuali, tuttavia Service Fabric SDK include una configurazione cluster che può essere eseguita in una singola macchina virtuale.
 
 È importante comprendere che il cluster locale di Service Fabric non è un emulatore o un simulatore. Esegue lo stesso codice della piattaforma eseguito nei cluster costituiti da più macchine virtuali. La differenza sta nel fatto che esegue in una sola macchina virtuale i processi della piattaforma che normalmente vengono eseguiti in cinque macchine virtuali.
 
@@ -243,6 +243,6 @@ In alternativa, modificare la modalità di cluster usando PowerShell:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

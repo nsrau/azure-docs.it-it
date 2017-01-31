@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: c3b96b583260bc8975082b952929d524e4040730
-ms.openlocfilehash: 08041e873df1850d459aea1b49440956de1d4748
+ms.sourcegitcommit: c934f78e514230958fad8b2aa9be4d2e56a3a835
+ms.openlocfilehash: be3fbc2c14be06cac2b9213ee2da58545e34fc0e
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 08041e873df1850d459aea1b49440956de1d4748
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-Azure offre due modelli di distribuzione, ovvero Azure Resource Manager e la distribuzione classica. Microsoft consiglia di creare le risorse tramite il modello di distribuzione Resource Manager. Per altre informazioni sulle differenze tra i due modelli, leggere l'articolo [Understand Azure deployment models](../resource-manager-deployment-model.md) (Informazioni sui modelli di distribuzione di Azure).
+Azure offre due modelli di distribuzione, ovvero Azure Resource Manager e la distribuzione classica. Microsoft consiglia di creare le risorse tramite il modello di distribuzione Resource Manager. Per altre informazioni sulle differenze tra i due modelli, leggere l'articolo [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md) (Informazioni sui modelli di distribuzione di Azure).
  
 Questo articolo illustra come creare una rete virtuale tramite il modello di distribuzione Resource Manager usando un modello di Azure Resource Manager. È anche possibile creare una rete virtuale tramite Resource Manager usando altri strumenti oppure tramite il modello di distribuzione classica selezionando un'opzione diversa dall'elenco seguente:
 
@@ -110,7 +110,7 @@ Se si sta distribuendo semplicemente il modello di Gestione risorse di Azure dir
 
 Per distribuire il modello scaricato tramite PowerShell, seguire questa procedura:
 
-1. Installare e configurare Azure PowerShell eseguendo i passaggi descritti nell'articolo [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+1. Installare e configurare Azure PowerShell eseguendo i passaggi descritti nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 2. Usare il comando seguente per creare un nuovo gruppo di risorse:
 
     ```powershell
@@ -244,6 +244,6 @@ Leggere le informazioni su come connettere:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

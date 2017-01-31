@@ -3,8 +3,8 @@ title: Aggiornare la sottoscrizione gratuita di Azure alla sottoscrizione con pa
 description: Descrive il processo e i requisiti per aggiornare una sottoscrizione gratuita alla sottoscrizione con pagamento in base al consumo
 services: 
 documentationcenter: 
-author: jlian
-manager: mbaldwin
+author: adpick
+manager: adpick
 editor: 
 tags: billing
 ms.assetid: 0b4ac8f3-3df0-478a-8a07-b18b40f0cf5f

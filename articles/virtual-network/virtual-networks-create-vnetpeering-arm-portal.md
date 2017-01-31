@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
-ms.author: narayanannamalai;annahar
+ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 2ae62a2e657e3b20e258b5afaa1d03b6825e8019
-ms.openlocfilehash: e40af1e363f7add88ead6e552290926abe4db328
+ms.sourcegitcommit: ed7c37ee5482b3ec91489b7aba9b5a9d5df5c97e
+ms.openlocfilehash: 06130f18bad86dbbe009548ac95ac0e6c4953db2
 
 
 ---
@@ -82,8 +82,7 @@ Ogni collegamento nel peering reti virtuali include un set delle proprietà prec
 4. Nel pannello Aggiungi accesso fare clic per selezionare un ruolo e scegliere Collaboratore Rete. Fare clic su Aggiungi utenti, digitare il nome di accesso dell'utente B e fare clic su OK.
    
     ![Controllo degli accessi in base al ruolo](./media/virtual-networks-create-vnetpeering-arm-portal/figure10.png)
-   
-    Questo non è un requisito, perché il peering può essere stabilito anche se gli utenti generano singolarmente richieste di peering per le rispettive reti virtuali, purché le richieste corrispondano. L'aggiunta di utenti con privilegi dell'altra rete virtuale come utenti nella rete virtuale locale facilita la configurazione nel portale.
+
 5. Accedere quindi al portale di Azure come utente B, ovvero l'utente con privilegi per la sottoscrizione B. Seguire i passaggi precedenti per aggiungere l'utente A come Collaboratore Rete.
    
     ![Controllo degli accessi in base al ruolo 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)
@@ -138,6 +137,6 @@ Ogni collegamento nel peering reti virtuali include un set delle proprietà prec
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

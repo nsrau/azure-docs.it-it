@@ -1,4 +1,4 @@
-# Panoramica
+# Overview
 ## [Che cos'è DNS di Azure?](dns-overview.md)
 ## [Zone e record DNS](dns-zones-records.md)
 
@@ -59,6 +59,6 @@
 ## [Blog sulle reti](http://azure.microsoft.com/blog/topics/networking)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Operazioni Docker su un registro di contenitori | Documentazione Microsoft
+title: Immagini Docker in un registro contenitori di Azure | Documentazione Microsoft
 description: Effettuare il push e il pull di immagini Docker in un registro di contenitori di Azure tramite l&quot;interfaccia della riga di comando di Docker
 services: container-registry
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: aa4b960ed75b5a4702317bf557b4588e7a54fa0e
-ms.openlocfilehash: 923e1a045062a817dd6726dfce94485be7211ca2
+ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
+ms.openlocfilehash: df15eebf0052aa4713263a810df605fa1016c306
 
 ---
 # <a name="push-your-first-image-to-a-container-registry-using-the-docker-cli"></a>Effettuare il push della prima immagine in un registro di contenitori tramite l'interfaccia della riga di comando di Docker
@@ -118,6 +118,6 @@ Una volta apprese le nozioni di base, si è pronti per iniziare a usare il propr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

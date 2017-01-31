@@ -1,5 +1,5 @@
 ---
-title: Introduzione a Reliable Services | Documentazione Microsoft
+title: Guida introduttiva a Reliable Services | Documentazione Microsoft
 description: "Introduzione alla creazione di un’applicazione dell’infrastruttura di servizi di Microsoft Azure con i servizi con e senza stato."
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5c1faabdf07f7cc7692ef7600d1c21d6685f72ca
+ms.sourcegitcommit: 4b12d221b057161013aa3401e343ec41e4637f7c
+ms.openlocfilehash: ae77871a30e0768f6848056223cacf55b064bf1a
 
 
 ---
@@ -27,7 +27,9 @@ ms.openlocfilehash: 5c1faabdf07f7cc7692ef7600d1c21d6685f72ca
 > 
 > 
 
-Un'applicazione di Azure Service Fabric contiene uno o più servizi che consentono l'esecuzione del codice. Questa guida illustra come creare applicazioni di Service Fabric con e senza stato con i servizi [Reliable Services](service-fabric-reliable-services-introduction.md).
+Un'applicazione di Azure Service Fabric contiene uno o più servizi che consentono l'esecuzione del codice. Questa guida illustra come creare applicazioni di Service Fabric con e senza stato con i servizi [Reliable Services](service-fabric-reliable-services-introduction.md).  Questo video di Microsoft Virtual Academy illustra anche come creare un servizio Reliable Services senza stato: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
+<img src="./media/service-fabric-reliable-services-quick-start/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
 
 ## <a name="basic-concepts"></a>Concetti di base
 Per iniziare a usare Reliable Services, è sufficiente comprendere solo alcuni concetti di base:
@@ -229,6 +231,6 @@ Dopo l'avvio dell'esecuzione dei servizi, è possibile visualizzare gli eventi g
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
