@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2016
+ms.date: 12/07/2016
 ms.author: gauravbh;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: bdc759341e1f9707ddf688512249c3297d85c29b
+ms.sourcegitcommit: 223a890fd18405b2d1331e526403da89354a68f2
+ms.openlocfilehash: 467e9f4f7372c619f41bb64445784485de18a863
 
 
 ---
 # <a name="use-policy-to-manage-resources-and-control-access"></a>Usare i criteri per gestire le risorse e controllare l'accesso
-Gestione risorse di Azure consente ora di controllare l'accesso tramite criteri personalizzati. Con i criteri è possibile impedire agli utenti dell'organizzazione di violare le convenzioni necessarie per gestire le risorse dell'organizzazione. 
+Azure Resource Manager consente ora di controllare l'accesso tramite criteri personalizzati. Con i criteri è possibile impedire agli utenti dell'organizzazione di violare le convenzioni necessarie per gestire le risorse dell'organizzazione. 
 
 È possibile creare definizioni dei criteri che descrivono le azioni o le risorse specificamente negate. Le definizioni dei criteri vengono assegnate all'ambito desiderato, ad esempio la sottoscrizione, un gruppo di risorse o una singola risorsa. I criteri vengono ereditati da tutte le risorse figlio. Se quindi un criterio viene applicato a un gruppo di risorse, è applicabile a tutte le risorse in tale gruppo.
 
@@ -46,7 +46,41 @@ Questi scenari possono essere facilmente realizzati con i criteri.
 ## <a name="policy-definition-structure"></a>Struttura delle definizioni di criteri
 La definizione dei criteri viene creata tramite JSON. È costituita da uno o più condizioni/operatori logici che definiscono le azioni e un effetto che indica cosa succede quando sono soddisfatte le condizioni. Lo schema è pubblicato in [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
 
-I criteri includono fondamentalmente gli elementi seguenti:
+L'esempio seguente illustra un criterio che è possibile usare per limitare i punti in cui vengono distribuite le risorse:
+
+```json
+{
+  "properties": {
+    "parameters": {
+      "listOfAllowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "An array of permitted locations for resources.",
+          "strongType": "location",
+          "displayName": "List of locations"
+        }
+      }
+    },
+    "displayName": "Geo-compliance policy template",
+    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "location",
+          "in": "[parameters('listOfAllowedLocations')]"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
+```
+
+I criteri includono fondamentalmente le sezioni seguenti:
+
+**Parametri:** valori specificati al momento dell'assegnazione del criterio.
 
 **Condizioni/operatori logici:** set di condizioni che possono essere modificate tramite un set di operatori logici.
 
@@ -68,6 +102,30 @@ I criteri vengono valutati quando vengono create le risorse. Per la distribuzion
 > I tipi di risorsa che non supportano tag, tipologia, percorso non vengono attualmente valutati dal criterio, come ad esempio il tipo di risorsa Microsoft.Resources/deployments. Il supporto di questo tipo di risorsa verrà aggiunto in futuro. Per evitare problemi di compatibilità con le versioni precedenti, è consigliabile specificare in modo esplicito il tipo durante la creazione di criteri. A tutti i tipi viene ad esempio applicato un criterio per i tag che non specifica i tipi, in modo che la distribuzione del modello non venga completata in presenza di una risorsa annidata che non supporta il tag, mentre il tipo di risorsa della distribuzione sarà aggiunto alla valutazione criteri. 
 > 
 > 
+
+## <a name="parameters"></a>Parametri
+Dall'API versione 2016-12-01, è possibile usare i parametri nella definizione di criteri. L'uso dei parametri consente di semplificare la gestione dei criteri, riducendone il numero di definizioni. I valori per i parametri vengono specificati si assegnano i criteri.
+
+I parametri vengono dichiarati quando si creano le definizioni dei criteri.
+
+    "parameters": {
+      "listOfLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "An array of permitted locations for resources.",
+          "displayName": "List Of Locations"
+        }
+      }
+    }
+
+Il tipo di un parametro può essere stringa o matrice. La proprietà dei metadati viene usata per gli strumenti come il portale di Azure per visualizzare informazioni di tipo descrittivo. 
+
+Nella regola dei criteri è possibile fare riferimento a parametri in modo analogo a come ci si comporta per i modelli. Ad esempio: 
+        
+    { 
+        "field" : "location",
+        "in" : "[parameters(listOfLocations)]"
+    }
 
 ## <a name="logical-operators"></a>Operatori logici
 Ecco gli operatori logici supportati con la relativa sintassi:
@@ -148,7 +206,6 @@ Attualmente, gli alias supportati sono:
 | Microsoft.SQL/servers/elasticPools/dtu | |
 | Microsoft.SQL/servers/elasticPools/edition | |
 
-Attualmente, il criterio funziona solo su richieste PUT. 
 
 ## <a name="effect"></a>Effetto
 Il criterio supporta tre tipi di effetto: **negazione**, **controllo** e **aggiunta**. 
@@ -159,7 +216,6 @@ Il criterio supporta tre tipi di effetto: **negazione**, **controllo** e **aggiu
 
 In caso di **aggiunta**, è necessario specificare questi dettagli:
 
-    ....
     "effect": "append",
     "details": [
       {
@@ -169,6 +225,7 @@ In caso di **aggiunta**, è necessario specificare questi dettagli:
     ]
 
 Il valore può essere una stringa o un oggetto formato JSON. 
+
 
 ## <a name="policy-definition-examples"></a>Esempi di definizioni di criteri
 Di seguito viene illustrato come definire i criteri per ottenere gli scenari precedenti.
@@ -356,25 +413,34 @@ Per creare un criterio, eseguire:
 
     PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 
-Per api-version, usare *2016-04-01*. Includere un corpo della richiesta in modo simile all'esempio seguente:
+Per api-version usare *2016-04-01* o *2016-12-01* . Includere un corpo della richiesta in modo simile all'esempio seguente:
 
     {
-      "properties":{
-        "policyType":"Custom",
-        "description":"Test Policy",
-        "policyRule":{
-          "if" : {
-            "not" : {
-              "field" : "tags",
-              "containsKey" : "costCenter"
+      "properties": {
+        "parameters": {
+          "listOfAllowedLocations": {
+            "type": "array",
+            "metadata": {
+              "description": "An array of permitted locations for resources.",
+              "strongType": "location",
+              "displayName": "List Of Locations"
+            }
+          }
+        },
+        "displayName": "Geo-compliance policy template",
+        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",
+        "policyRule": {
+          "if": {
+            "not": {
+              "field": "location",
+              "in": "[parameters('listOfAllowedLocations')]"
             }
           },
-          "then" : {
-            "effect" : "deny"
+          "then": {
+            "effect": "deny"
           }
         }
-      },
-      "name":"testdefinition"
+      }
     }
 
 È possibile applicare la definizione dei criteri all'ambito desiderato tramite l' [API REST per le assegnazioni dei criteri](https://docs.microsoft.com/rest/api/resources/policyassignments). L'API REST consente di creare ed eliminare le assegnazioni dei criteri e ottenere informazioni sulle assegnazioni esistenti.
@@ -383,17 +449,20 @@ Per creare un'assegnazione di criteri, eseguire:
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policy-assignment} è il nome dell'assegnazione di criteri. Per api-version, usare *2016-04-01*. 
+{policy-assignment} è il nome dell'assegnazione di criteri. Per api-version usare *2016-04-01* or *2016-12-01* (per i parametri). 
 
 Con un corpo della richiesta simile all'esempio seguente:
 
     {
       "properties":{
-        "displayName":"VM_Policy_Assignment",
+        "displayName":"West US only policy assignment on the subscription ",
+        "description":"Resources can only be provisioned in West US regions",
+        "parameters": {
+             "listOfAllowedLocations": ["West US", "West US2"]
+         },
         "policyDefinitionId":"/subscriptions/########/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
         "scope":"/subscriptions/########-####-####-####-############"
       },
-      "name":"VMPolicyAssignment"
     }
 
 ### <a name="powershell"></a>PowerShell
@@ -510,6 +579,6 @@ Per ottenere un criterio, usare l'operazione [Ottieni definizione criteri](https
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
