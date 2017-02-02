@@ -1,5 +1,6 @@
 > [!div class="op_single_selector"]
-> * [Panoramica](../articles/application-insights/app-insights-analytics.md)
+> * [Overview](../articles/application-insights/app-insights-analytics.md)	
+
 > * [Presentazione](../articles/application-insights/app-insights-analytics-tour.md)
 > * [Se si usa](../articles/application-insights/app-insights-analytics-using.md)
 > * [Informazioni di riferimento sul linguaggio](../articles/application-insights/app-insights-analytics-reference.md)
@@ -7,4 +8,8 @@
 > 
 > 
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

@@ -8,4 +8,8 @@ Fare clic su **Visualizza registro** per visualizzare l'output dello script di d
 
 ![](./media/web-sites-python-troubleshoot-deployment/portal-deployment-log.png)
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

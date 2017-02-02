@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: e862002a5b1406196516e5ddd786790da7bd5a4d
+ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
+ms.openlocfilehash: 88d5148806e58d61b7b64327e07809eea5126211
 
 
 ---
@@ -34,10 +34,10 @@ Prima di iniziare questa procedura dettagliata, è necessario avere [creato un i
 
 Si noti che tutto il codice di esempio in questo articolo è scritto in C#. Il codice sorgente completo è disponibile su [GitHub](http://aka.ms/search-dotnet-howto).
 
-## <a name="i-identify-your-azure-search-services-query-api-key"></a>I. Identificare la chiave API di query del servizio Ricerca di Azure
+## <a name="identify-your-azure-search-services-query-api-key"></a>Identificare la chiave API di query del servizio Ricerca di Azure
 Dopo avere creato un indice di Ricerca di Azure, si è quasi pronti per eseguire query con .NET SDK. Prima di tutto è necessario ottenere una delle chiavi API di query generate per il servizio di ricerca di cui è stato effettuato il provisioning. .NET SDK invierà questa chiave API a ogni richiesta al servizio. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
-1. Per trovare le chiavi API del servizio, è necessario accedere al [portale di Azure](https://portal.azure.com/)
+1. Per trovare le chiavi API del servizio, è possibile accedere al [portale di Azure](https://portal.azure.com/)
 2. Passare al pannello del servizio Ricerca di Azure.
 3. Fare clic sull'icona "Chiavi".
 
@@ -48,7 +48,7 @@ Il servizio avrà *chiavi amministratore* e *chiavi di query*.
 
 Ai fini di una query su un indice, è possibile usare una delle chiavi di query. Si possono anche usare le chiavi amministratore per le query, ma è necessario usare una chiave di query nel codice dell'applicazione, perché questo approccio è più coerente con il [principio del privilegio minimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-## <a name="ii-create-an-instance-of-the-searchindexclient-class"></a>II. Creare un'istanza della classe SearchIndexClient
+## <a name="create-an-instance-of-the-searchindexclient-class"></a>Creare un'istanza della classe SearchIndexClient
 Per eseguire query con Azure Search .NET SDK, è necessario creare un'istanza della classe `SearchIndexClient` . Questa classe ha diversi costruttori. Quello appropriato accetta il nome del servizio di ricerca, il nome dell'indice e un oggetto `SearchCredentials` come parametri. `SearchCredentials` esegue il wrapping della chiave API.
 
 Il codice seguente crea un nuovo oggetto `SearchIndexClient` per l'indice "hotels" (creato in [Creare un indice di Ricerca di Azure con .NET SDK](search-create-index-dotnet.md)) usando i valori archiviati nel file di configurazione dell'applicazione (`app.config` o `web.config`) per il nome del servizio di ricerca e la chiave API:
@@ -62,7 +62,7 @@ SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels
 
 `SearchIndexClient` include una proprietà `Documents`. Questa proprietà fornisce tutti i metodi necessari per eseguire query sugli indici di Ricerca di Azure.
 
-## <a name="iii-query-your-index"></a>III. Eseguire query sull'indice
+## <a name="query-your-index"></a>Eseguire query sull'indice
 Per eseguire una ricerca con .NET SDK è sufficiente chiamare il metodo `Documents.Search` sull'oggetto `SearchIndexClient`. Questo metodo accetta alcuni parametri, incluso il testo di ricerca, nonché un oggetto `SearchParameters` che può essere usato per perfezionare ulteriormente la query.
 
 #### <a name="types-of-queries"></a>Tipi di query
@@ -127,7 +127,7 @@ results = indexClient.Documents.Search<Hotel>("motel", parameters);
 WriteDocuments(results);
 ```
 
-## <a name="iv-handle-search-results"></a>IV. Gestire i risultati della ricerca
+## <a name="handle-search-results"></a>Gestire i risultati della ricerca
 Il metodo `Documents.Search` restituisce un oggetto `DocumentSearchResult` che contiene i risultati della query. Nell'esempio nella sezione precedente viene usato un metodo denominato `WriteDocuments` per restituire i risultati di ricerca nella console:
 
 ```csharp
@@ -169,6 +169,6 @@ Il codice di esempio precedente usa la console per restituire i risultati della 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

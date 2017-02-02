@@ -1,6 +1,6 @@
 ---
 title: "Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate | Microsoft Docs"
-description: "Questo argomento descrive come configurare un canale che riceve un flusso live a velocità in bit singola da un codificatore locale e quindi esegue la codifica live in un flusso a velocità in bit adattiva con Servizi multimediali. Il flusso può essere quindi distribuito alle applicazioni di riproduzione client tramite uno o più endpoint di streaming, usando uno dei seguenti protocolli di streaming adattivi: HLS, Smooth Stream, MPEG DASH, HDS."
+description: "Questo argomento descrive come configurare un canale che riceve un flusso live a velocità in bit singola da un codificatore locale e quindi esegue la codifica live in un flusso a velocità in bit adattiva con Servizi multimediali. Il flusso può essere quindi distribuito alle applicazioni di riproduzione client tramite uno o più endpoint di streaming, usando uno dei protocolli di flusso adattivo seguenti: HLS, Smooth Stream o MPEG-DASH."
 services: media-services
 documentationcenter: 
 author: anilmur
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 12/11/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 42dc5d5019bfb6a4740b16c8db149718c0cf072a
+ms.sourcegitcommit: f6ce639dd0ee8386d3bd9ff48f5a05cb392d7979
+ms.openlocfilehash: 82662d0c52262ca2febc54e45a4fd497fe9cf264
 
 
 ---
+
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 In Servizi multimediali di Azure (AMS) un **canale** rappresenta una pipeline per l'elaborazione dei contenuti in streaming live. Un **canale** riceve i flussi di input live in uno dei due modi seguenti:
 
 * Un codificatore live locale invia un flusso a velocità in bit singola al canale abilitato per l'esecuzione della codifica live con Servizi multimediali in uno dei seguenti formati: RTP (MPEG-TS), RTMP o Smooth Streaming (MP4 frammentato). Il canale esegue quindi la codifica live del flusso in ingresso a velocità in bit singola in un flusso video a più velocità in bit (adattivo). Quando richiesto, Servizi multimediali invia il flusso ai clienti.
@@ -125,7 +126,7 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 Se **Tipo di codificatore** è impostato su **Standard**, le opzioni valide sono le seguenti:
 
 * **RTP** (MPEG-TS): MPEG-2 Transport Stream su RTP.  
-*  **RTMP**
+* **RTMP**
 * **MP4 frammentato** (Smooth Streaming) a velocità in bit singola
 
 #### <a name="rtp-mpeg-ts---mpeg-2-transport-stream-over-rtp"></a>RTP (MPEG-TS): MPEG-2 Transport Stream su RTP.
@@ -316,7 +317,7 @@ Facoltativo. Segnala al codificatore live di passare all'immagine dello [slate p
 
 L'immagine usata sarà quella specificata tramite la proprietà ID asset dello slate predefinito al momento della creazione del canale. Lo slate verrà esteso per adattarsi alle dimensioni dell'immagine visualizzata. 
 
-## <a name="insert-slate-images"></a>Inserire immagini dello slate
+## <a name="insert-slate--images"></a>Inserire immagini dello slate
 È possibile inviare un segnale al codificatore live all'interno del canale per passare a un'immagine dello slate. È anche possibile inviare un segnale perché venga terminato uno slate in corso. 
 
 Il codificatore live può essere configurato per passare a un'immagine dello slate e nascondere il segnale video in ingresso in determinate situazioni, ad esempio, durante un'interruzione pubblicitaria. Se non è configurato uno slate, il video di input non viene mascherato durante l'interruzione pubblicitaria.
@@ -328,9 +329,12 @@ Durata dello slate in secondi. Per avviare lo slate, deve essere un valore posit
 Quando è impostata su true, questa opzione configura il codificatore live in modo che venga inserita un'immagine dello slate durante un'interruzione pubblicitaria. Il valore predefinito è true. 
 
 ### <a name="a-iddefaultslateadefault-slate-asset-id"></a><a id="default_slate"></a>ID asset dello slate predefinito
+
 Facoltativo. Specifica l'ID asset di Servizi multimediali che contiene l'immagine dello slate. Il valore predefinito è Null. 
 
-**Nota**: prima di creare il canale, è necessario caricare l'immagine dello slate con le seguenti limitazioni come asset dedicato, nel quale non dovranno essere presenti altri file. 
+>
+>[!NOTE] 
+>Prima di creare il canale, è necessario caricare l'immagine di slate con le limitazioni seguenti come asset dedicato, nel quale non dovranno essere presenti altri file. 
 
 * Risoluzione massima: 1920x1080.
 * Dimensione massima: 3 MB.
@@ -434,6 +438,6 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

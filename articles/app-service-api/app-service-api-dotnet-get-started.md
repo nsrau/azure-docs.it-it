@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 45e8331e0953dd646f132478741394a5b4907a9e
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c7b4e39e01ae335c3e6a5cf9cb1efe8a64490e35
 
 
 ---
@@ -56,12 +56,12 @@ L'esercitazione successiva della serie distribuisce il front-end dell'applicazio
 
 ## <a name="prerequisites"></a>Prerequisiti
 * API Web ASP.NET: le istruzioni dell'esercitazione presuppongono che l'utente abbia una conoscenza di base dell'uso dell' [API Web 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) ASP.NET in Visual Studio.
-* Account Azure: è possibile [aprire un account Azure gratuito](/pricing/free-trial/?WT.mc_id=A261C142F) o [attivare i benefici della sottoscrizione di Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+* Account Azure: è possibile [aprire un account Azure gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) o [attivare i benefici della sottoscrizione di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
   
-    Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751). In questa pagina è possibile creare immediatamente un'app iniziale temporanea nel servizio app, **senza carta di credito**e senza impegno.
+    Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](https://azure.microsoft.com/try/app-service/). In questa pagina è possibile creare immediatamente un'app iniziale temporanea nel servizio app, **senza carta di credito**e senza impegno.
 * Visual Studio 2015 con [Azure SDK per .NET](https://azure.microsoft.com/downloads/archive-net-downloads/) : l'SDK installa Visual Studio 2015 automaticamente se non è già disponibile.
   
-  * In Visual Studio fare clic su ? -> Informazioni su Microsoft Visual Studio e assicurarsi di aver installato "Strumenti del servizio app di Azure versione 2.9.1" o versioni successive.
+  * In Visual Studio fare clic su ? -> Informazioni su Microsoft Visual Studio e assicurarsi di aver installato "Strumenti del servizio app di Azure versione&2;.9.1" o versioni successive.
     
     ![Versione di Strumenti del servizio app di Azure](./media/app-service-api-dotnet-get-started/apiversion.png)
     
@@ -442,6 +442,6 @@ Scegliere il modello di progetto **App per le API di Azure** equivale a sceglier
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

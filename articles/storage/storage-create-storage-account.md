@@ -4,7 +4,7 @@ description: Creare un nuovo account di archiviazione, gestire le chiavi di acce
 services: storage
 documentationcenter: 
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 87c37da0-6cc6-4d88-a330-ef2896a1531d
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2016
+ms.date: 01/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d5b24b28f82c53b880e025dc43169aaad49e8434
+ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
+ms.openlocfilehash: eb9e9ca5082559ee0e30ea67bf53229d38f81589
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: d5b24b28f82c53b880e025dc43169aaad49e8434
 
 [!INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Un account di archiviazione di Azure offre uno spazio dei nomi univoco per archiviare gli oggetti dati di Archiviazione di Azure e accedere a tali oggetti. Tutti gli oggetti in un account di archiviazione vengono fatturati insieme come gruppo. Per impostazione predefinita, i dati nel proprio account sono accessibili solo all'utente, ovvero al proprietario dell'account.
 
 [!INCLUDE [storage-account-types-include](../../includes/storage-account-types-include.md)]
@@ -59,7 +59,7 @@ L'URL per accedere a un oggetto in un account di archiviazione viene formato agg
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nel menu Hub selezionare **Nuovo** -> **Dati e archiviazione** -> **Account di archiviazione**.
+2. Dal menu Hub scegliere **Nuovo** -> **Archiviazione** -> **Account di archiviazione**.
 3. Immettere un nome per l'account di archiviazione. Per informazioni dettagliate sul modo in cui questo nome verrà usato per indirizzare oggetti in Archiviazione di Azure, vedere [Endpoint dell'account di archiviazione](#storage-account-endpoints) .
    
    > [!NOTE]
@@ -68,7 +68,7 @@ L'URL per accedere a un oggetto in un account di archiviazione viene formato agg
    > Nome dell'account di archiviazione deve essere univoco all'interno di Azure. Il portale di Azure indica se il nome dell'account di archiviazione selezionato è già in uso.
    > 
    > 
-4. Specificare il modello di distribuzione da usare: **Resource Manager** o **Classica**. **Gestione risorse** è il modello di distribuzione consigliato. Per altre informazioni, vedere [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../resource-manager-deployment-model.md).
+4. Specificare il modello di distribuzione da usare: **Resource Manager** o **Classica**. **Gestione risorse** è il modello di distribuzione consigliato. Per altre informazioni, vedere [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md).
    
    > [!NOTE]
    > Gli account di archiviazione BLOB possono essere creati solo usando il modello di distribuzione di Resource Manager.
@@ -162,6 +162,6 @@ Per altre informazioni, vedere [Macchine virtuali - Documentazione](http://azure
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Aggiungere funzionalità alla prima app Web"
+title: "Aggiungere funzionalità alla prima app Web | Documentazione Microsoft"
 description: "Aggiungere funzionalità accattivanti alla prima app Web in pochi minuti."
 services: app-service\web
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b2c501b6e048d569ebf43b8f40d6b08f687ab624
-ms.openlocfilehash: 549b84788259796c2146fa19763fb00d4e03019c
+ms.sourcegitcommit: 9916000ddf38fdda1dcbdcf8818c5833a445efc8
+ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
 
 
 ---
@@ -52,9 +52,9 @@ Come verrà illustrato, l'aggiunta di autenticazione all'app è molto semplice. 
     Una volta applicata la modifica, l'icona a forma di campanella diventerà verde e verrà visualizzato un messaggio descrittivo.
 6. Nel pannello del portale dell'app fare clic sul collegamento **URL** o su **Esplora** nella barra dei menu. Il collegamento è un indirizzo HTTP.  
     ![Autenticazione: passare all'URL](./media/app-service-web-get-started/aad-login-browse-click.png)  
-     Dopo che l'app è stata aperta in una nuova scheda, nella casella URL vengono visualizzati diversi reindirizzamenti finché l'app passa infine a un indirizzo HTTPS. A questo punto si è già eseguito l'accesso alla sottoscrizione di Azure e si viene autenticati automaticamente nell'app.  
+    Dopo che l'app è stata aperta in una nuova scheda, nella casella URL vengono visualizzati diversi reindirizzamenti finché l'app passa infine a un indirizzo HTTPS. A questo punto si è già eseguito l'accesso alla sottoscrizione di Azure e si viene autenticati automaticamente nell'app.  
     ![Autenticazione: accesso effettuato](./media/app-service-web-get-started/aad-login-browse-http-postclick.png)  
-     Se quindi si apre una sessione non autenticata in un browser diverso, verrà visualizzata una schermata di accesso quando si passa allo stesso URL.  
+    Se quindi si apre una sessione non autenticata in un browser diverso, verrà visualizzata una schermata di accesso quando si passa allo stesso URL.  
     <!-- ![Authenticate - login page](./media/app-service-web-get-started/aad-login-browse.png)  -->
     Se non si è mai usato Azure Active Directory, è possibile che la directory predefinita non includa utenti di Azure AD. In tal caso, l'unico account presente è probabilmente l'account Microsoft con la sottoscrizione di Azure. È per questo che prima è stato automaticamente eseguito l'accesso all'app nello stesso browser.
    È possibile usare lo stesso account Microsoft anche per accedere a questa pagina di accesso.
@@ -157,6 +157,6 @@ Con l'app distribuita è possibile eseguire altre operazioni. Ecco un elenco par
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

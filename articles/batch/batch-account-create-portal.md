@@ -1,5 +1,5 @@
 ---
-title: Creare un account Azure Batch | Microsoft Docs
+title: Creare un account Batch nel portale di Azure | Documentazione Microsoft
 description: Informazioni su come creare un account Azure Batch nel portale di Azure per eseguire carichi di lavoro paralleli su larga scala nel cloud
 services: batch
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/19/2016
+ms.date: 01/23/2016
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 6f05aa3f06c8ec86d58cafd406c2752ddb2eecc1
-ms.openlocfilehash: cf5b560028f3f80e3ba46ef96ae7a157dad7847d
+ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
+ms.openlocfilehash: fb53c1748d42e605048d1ab4e033460399c75911
 
 
 ---
@@ -128,6 +128,6 @@ Oltre a usare il portale di Azure, è anche possibile creare e gestire account B
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

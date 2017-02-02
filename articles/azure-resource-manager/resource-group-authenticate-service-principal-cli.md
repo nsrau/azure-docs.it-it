@@ -1,5 +1,5 @@
 ---
-title: "Creare un&quot;entità servizio con l&quot;interfaccia della riga di comando di Azure | Microsoft Docs"
+title: "Creare un&quot;entità servizio con l&quot;interfaccia della riga di comando di Azure | Documentazione Microsoft"
 description: "Descrive come usare l&quot;interfaccia della riga di comando di Azure per creare un&quot;applicazione Active Directory e un&quot;entità servizio e concedere l&quot;accesso alle risorse tramite il controllo degli accessi in base al ruolo. Illustra come autenticare l&quot;applicazione con una password o un certificato."
 services: azure-resource-manager
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 12/14/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 1fd051e2955ca48936b7bb977088d88b25fd76c6
+ms.sourcegitcommit: 5181bfc1c68bc2b3fd203b21172ef1e792368070
+ms.openlocfilehash: 13600cccca19e45aa3b74d7199d403051a204113
 
 
 ---
@@ -45,9 +45,7 @@ Ci si potrebbe chiedere perché siano necessari entrambi gli oggetti. Questo app
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
 Per completare questo argomento è necessario avere autorizzazioni sufficienti sia nell'istanza di Azure Active Directory che nella sottoscrizione di Azure. In particolare, è necessario poter creare un'app in Active Directory e assegnare l'entità servizio a un ruolo. 
 
-In Active Directory, l'account deve avere un ruolo di amministratore (ad esempio **Amministratore globale** o **Amministratore utenti**). Se l'account è assegnato al ruolo **Utente** , è necessario che le autorizzazioni vengano elevate da un amministratore.
-
-Nella sottoscrizione, l'account deve avere l'accesso `Microsoft.Authorization/*/Write`, che viene concesso tramite il ruolo [Proprietario](../active-directory/role-based-access-built-in-roles.md#owner) o [Amministratore Accesso utenti](../active-directory/role-based-access-built-in-roles.md#user-access-administrator). Se l'account è assegnato al ruolo **Collaboratore** , quando si prova ad assegnare l'entità servizio a un ruolo viene visualizzato un errore. Anche in questo caso, l'amministratore della sottoscrizione deve concedere diritti di accesso sufficienti.
+Il modo più semplice per verificare se l'account dispone delle autorizzazioni appropriate è tramite il portale. Vedere [Controllare le autorizzazioni necessarie](resource-group-create-service-principal-portal.md#required-permissions).
 
 Passare ora alla sezione relativa all'autenticazione della [password](#create-service-principal-with-password) o del [certificato](#create-service-principal-with-certificate).
 
@@ -58,30 +56,50 @@ Vediamo la procedura.
 
 1. Accedere al proprio account.
    
-        azure login
+   ```
+   azure login
+   ```
 2. L'applicazione AD può essere creata in due modi. È possibile crearla con il servizio entità in un unico passaggio oppure creare entrambi separatamente. La prima ipotesi è indicata quando non è necessario specificare gli URI identificatori e della home page per l'applicazione. La seconda, invece, è indicata quando è necessario impostare questi valori per un'app Web. Entrambe le opzioni sono illustrate di seguito.
    
    * Per creare l'applicazione AD e l'entità servizio in un unico passaggio, fornire il nome dell'app e la relativa password, come illustrato nel comando seguente:
      
-          azure ad sp create -n exampleapp -p {your-password}     
+     ```
+     azure ad sp create -n exampleapp -p {your-password}
+     ```
    * Per creare l'applicazione AD separatamente, specificare il nome dell'app, l'URI della home page, gli URI identificatori e una password, come illustrato nel comando seguente:
      
-          azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example -p <Your_Password>
-     
+     ```
+     azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example -p {Your_Password}
+     ```
+
        Il comando precedente restituisce un valore AppId. Per creare un'entità servizio, specificare tale valore come parametro nel comando seguente:
      
-          azure ad sp create -a <AppId>
+     ```
+     azure ad sp create -a {AppId}
+     ```
      
      Se l'account non ha le [autorizzazioni necessarie](#required-permissions) in Active Directory, viene visualizzato un messaggio di errore che indica che l'autenticazione non è stata autorizzata o non è stata trovata alcuna sottoscrizione nel contesto.
      
      In entrambi i casi, viene restituita la nuova entità servizio. Quando si concedono autorizzazioni, è necessario l'**ID oggetto**. Il GUID indicato in **Service Principal Names** (Nomi dell'entità servizio) è necessario al momento di eseguire l'accesso. Si tratta dello stesso valore di ID app. Nelle applicazioni di esempio, questo valore viene definito **ID client**. 
      
-      info:    Eseguire il comando AD sp create
+     ```
+     info:    Executing command ad sp create
      
-     * Creare un'app di esempio/Creare un'entità servizio per l'applicazione 7132aca4-1bdb-4238-ad81-996ff91d8db+ data:    Object Id:               ff863613-e5e2-4a6b-af07-fff6f2de3f4e data:    Display Name:            appesempio data:    Service Principal Names: data:                             7132aca4-1bdb-4238-ad81-996ff91d8db4 data:                             https://www.contoso.org/example info:    comando ad sp create OK
-3. Concedere le autorizzazioni dell'entità servizio nella sottoscrizione. In questo esempio viene aggiunta l'entità servizio al ruolo **Lettore** , concedendo così l'autorizzazione per la lettura di tutte le risorse nella sottoscrizione. Per gli altri ruoli, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md). Per il parametro **ServicePrincipalName**, specificare il valore **ObjectId** usato quando è stata creata l'applicazione. 
+     Creating application exampleapp
+       / Creating service principal for application 7132aca4-1bdb-4238-ad81-996ff91d8db+
+       data:    Object Id:               ff863613-e5e2-4a6b-af07-fff6f2de3f4e
+       data:    Display Name:            exampleapp
+       data:    Service Principal Names:
+       data:                             7132aca4-1bdb-4238-ad81-996ff91d8db4
+       data:                             https://www.contoso.org/example
+       info:    ad sp create command OK
+      ```
+
+3. Concedere le autorizzazioni dell'entità servizio nella sottoscrizione. In questo esempio viene aggiunta l'entità servizio al ruolo **Lettore** , concedendo così l'autorizzazione per la lettura di tutte le risorse nella sottoscrizione. Per gli altri ruoli, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md). Per il parametro **ServicePrincipalName**, specificare il valore **ObjectId** usato quando è stata creata l'applicazione. Prima di eseguire questo comando, è necessario lasciare che la nuova entità servizio si propaghi in Active Directory. Quando si eseguono questi comandi manualmente, in genere trascorre tempo sufficiente tra le attività. In uno script, è necessario aggiungere un passaggio di sospensione tra i comandi (ad esempio `sleep 15`). Se viene visualizzato un errore indicante che l'entità non esiste nella directory, eseguire nuovamente il comando.
    
-        azure role assignment create --objectId ff863613-e5e2-4a6b-af07-fff6f2de3f4e -o Reader -c /subscriptions/{subscriptionId}/
+   ```
+   azure role assignment create --objectId ff863613-e5e2-4a6b-af07-fff6f2de3f4e -o Reader -c /subscriptions/{subscriptionId}/
+   ```
    
      Se l'account non ha autorizzazioni sufficienti per assegnare un ruolo, verrà visualizzato un messaggio di errore. Il messaggio segnala che l'account **non è autorizzato a eseguire l'azione 'Microsoft.Authorization/roleAssignments/write' sull'ambito '/subscriptions/{guid}'**. 
 
@@ -92,47 +110,61 @@ A questo punto è necessario accedere come applicazione per eseguire operazioni.
 
 1. Ogni volta che si accede come un'entità servizio, è necessario fornire l'ID tenant della directory per l'app AD. Un tenant è un'istanza di Active Directory. Per recuperare l'ID tenant per la sottoscrizione attualmente autenticata, usare il comando seguente:
    
-        azure account show
+   ```
+   azure account show
+   ```
    
      Che restituisce:
    
-        info:    Executing command account show
-        data:    Name                        : Windows Azure MSDN - Visual Studio Ultimate
-        data:    ID                          : {guid}
-        data:    State                       : Enabled
-        data:    Tenant ID                   : {guid}
-        data:    Is Default                  : true
-        ...
+   ```
+   info:    Executing command account show
+   data:    Name                        : Windows Azure MSDN - Visual Studio Ultimate
+   data:    ID                          : {guid}
+   data:    State                       : Enabled
+   data:    Tenant ID                   : {guid}
+   data:    Is Default                  : true
+   ...
+   ```
    
      Se è necessario ottenere l'ID tenant di un'altra sottoscrizione, usare il comando seguente:
    
-        azure account show -s {subscription-id}
+   ```
+   azure account show -s {subscription-id}
+   ```
 2. Se è necessario recuperare l'ID client da usare per l'accesso, usare:
    
-        azure ad sp show -c exampleapp --json
+   ```
+   azure ad sp show -c exampleapp --json
+   ```
    
      Il valore da usare per eseguire l'accesso è il GUID nei nomi dell'entità servizio.
    
-        [
-          {
-            "objectId": "ff863613-e5e2-4a6b-af07-fff6f2de3f4e",
-            "objectType": "ServicePrincipal",
-            "displayName": "exampleapp",
-            "appId": "7132aca4-1bdb-4238-ad81-996ff91d8db4",
-            "servicePrincipalNames": [
-              "https://www.contoso.org/example",
-              "7132aca4-1bdb-4238-ad81-996ff91d8db4"
-            ]
-          }
-        ]
+   ```
+   [
+     {
+       "objectId": "ff863613-e5e2-4a6b-af07-fff6f2de3f4e",
+       "objectType": "ServicePrincipal",
+       "displayName": "exampleapp",
+       "appId": "7132aca4-1bdb-4238-ad81-996ff91d8db4",
+       "servicePrincipalNames": [
+         "https://www.contoso.org/example",
+         "7132aca4-1bdb-4238-ad81-996ff91d8db4"
+       ]
+     }
+   ]
+   ```
 3. Accedere come entità servizio.
    
-        azure login -u 7132aca4-1bdb-4238-ad81-996ff91d8db4 --service-principal --tenant {tenant-id}
+   ```
+   azure login -u 7132aca4-1bdb-4238-ad81-996ff91d8db4 --service-principal --tenant {tenant-id}
+   ```
    
     Verrà richiesto di specificare la password. Fornire la password specificata durante la creazione dell'applicazione Active Directory.
    
-        info:    Executing command login
-        Password: ********
+   ```
+   info:    Executing command login
+   Password: ********
+   ```
 
 A questo punto è stata eseguita l'autenticazione come entità servizio per l'entità servizio creata.
 
@@ -147,37 +179,59 @@ Per completare i passaggi è necessario aver installato [OpenSSL](http://www.ope
 
 1. Creare un certificato autofirmato.
    
-        openssl req -x509 -days 3650 -newkey rsa:2048 -out cert.pem -nodes -subj '/CN=exampleapp'
+   ```
+   openssl req -x509 -days 3650 -newkey rsa:2048 -out cert.pem -nodes -subj '/CN=exampleapp'
+   ```
 2. Combinare le chiavi pubblica e privata.
    
-        cat privkey.pem cert.pem > examplecert.pem
+   ```
+   cat privkey.pem cert.pem > examplecert.pem
+   ```
 3. Aprire il file **examplecert.pem** e cercare la lunga sequenza di caratteri tra **-----BEGIN CERTIFICATE-----** e **-----END CERTIFICATE-----**. Copiare i dati del certificato. Questi dati verranno passati come parametri durante la creazione dell'entità servizio.
 4. Accedere al proprio account.
    
-        azure login
+   ```
+   azure login
+   ```
 5. L'applicazione AD può essere creata in due modi. È possibile crearla con il servizio entità in un unico passaggio oppure creare entrambi separatamente. La prima ipotesi è indicata quando non è necessario specificare gli URI identificatori e della home page per l'applicazione. La seconda, invece, è indicata quando è necessario impostare questi valori per un'app Web. Entrambe le opzioni sono illustrate di seguito.
    
    * Per creare l'entità servizio e l'applicazione AD in un unico passaggio, fornire il nome dell'app e i dati del certificato, come illustrato nel comando seguente:
      
-          azure ad sp create -n exampleapp --cert-value <certificate data>
+     ```
+     azure ad sp create -n exampleapp --cert-value {certificate data}
+     ```
    * Per creare l'applicazione AD separatamente, specificare il nome dell'app, l'URI della home page, gli URI identificatori e i dati del certificato, come illustrato nel comando seguente:
      
-          azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example --cert-value <certificate data>
+     ```
+     azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example --cert-value {certificate data}
+     ```
      
        Il comando precedente restituisce un valore AppId. Per creare un'entità servizio, specificare tale valore come parametro nel comando seguente:
      
-          azure ad sp create -a <AppId>
+     ```
+     azure ad sp create -a {AppId}
+     ```
      
      Se l'account non ha le [autorizzazioni necessarie](#required-permissions) in Active Directory, viene visualizzato un messaggio di errore che indica che l'autenticazione non è stata autorizzata o non è stata trovata alcuna sottoscrizione nel contesto.
      
      In entrambi i casi, viene restituita la nuova entità servizio. Quando si concedono autorizzazioni, è necessario l'Id oggetto. Il GUID indicato in **Service Principal Names** (Nomi dell'entità servizio) è necessario al momento di eseguire l'accesso. Si tratta dello stesso valore di ID app. Nelle applicazioni di esempio, questo valore viene definito **ID client**. 
      
-      info:    Eseguire il comando AD sp create
+     ```
+     info:    Executing command ad sp create
      
-     * Creare un'entità servizio per l'applicazione 4fd39843-c338-417d-b549-a545f584a74+ data:    Object Id:        7dbc8265-51ed-4038-8e13-31948c7f4ce7 data:    Display Name:     appesempio data:    Service Principal Names: data:                      4fd39843-c338-417d-b549-a545f584a745 data:                      https://www.contoso.org/example info:    comando ad sp create OK
-6. Concedere le autorizzazioni dell'entità servizio nella sottoscrizione. In questo esempio viene aggiunta l'entità servizio al ruolo **Lettore** , concedendo così l'autorizzazione per la lettura di tutte le risorse nella sottoscrizione. Per gli altri ruoli, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md). Per il parametro **ServicePrincipalName**, specificare il valore **ObjectId** usato quando è stata creata l'applicazione. 
+     Creating service principal for application 4fd39843-c338-417d-b549-a545f584a74+
+       data:    Object Id:        7dbc8265-51ed-4038-8e13-31948c7f4ce7
+       data:    Display Name:     exampleapp
+       data:    Service Principal Names:
+       data:                      4fd39843-c338-417d-b549-a545f584a745
+       data:                      https://www.contoso.org/example
+       info:    ad sp create command OK
+     ```
+6. Concedere le autorizzazioni dell'entità servizio nella sottoscrizione. In questo esempio viene aggiunta l'entità servizio al ruolo **Lettore** , concedendo così l'autorizzazione per la lettura di tutte le risorse nella sottoscrizione. Per gli altri ruoli, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md). Per il parametro **ServicePrincipalName**, specificare il valore **ObjectId** usato quando è stata creata l'applicazione. Prima di eseguire questo comando, è necessario lasciare che la nuova entità servizio si propaghi in Active Directory. Quando si eseguono questi comandi manualmente, in genere trascorre tempo sufficiente tra le attività. In uno script, è necessario aggiungere un passaggio di sospensione tra i comandi (ad esempio `sleep 15`). Se viene visualizzato un errore indicante che l'entità non esiste nella directory, eseguire nuovamente il comando.
    
-        azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
+   ```
+   azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
+   ```
    
      Se l'account non ha autorizzazioni sufficienti per assegnare un ruolo, verrà visualizzato un messaggio di errore. Il messaggio segnala che l'account **non è autorizzato a eseguire l'azione 'Microsoft.Authorization/roleAssignments/write' sull'ambito '/subscriptions/{guid}'**. 
 
@@ -186,51 +240,84 @@ A questo punto è necessario accedere come applicazione per eseguire operazioni.
 
 1. Ogni volta che si accede come un'entità servizio, è necessario fornire l'ID tenant della directory per l'app AD. Un tenant è un'istanza di Active Directory. Per recuperare l'ID tenant per la sottoscrizione attualmente autenticata, usare il comando seguente:
    
-        azure account show
+   ```
+   azure account show
+   ```
    
      Che restituisce:
    
-        info:    Executing command account show
-        data:    Name                        : Windows Azure MSDN - Visual Studio Ultimate
-        data:    ID                          : {guid}
-        data:    State                       : Enabled
-        data:    Tenant ID                   : {guid}
-        data:    Is Default                  : true
-        ...
+   ```
+   info:    Executing command account show
+   data:    Name                        : Windows Azure MSDN - Visual Studio Ultimate
+   data:    ID                          : {guid}
+   data:    State                       : Enabled
+   data:    Tenant ID                   : {guid}
+   data:    Is Default                  : true
+   ...
+   ```
    
      Se è necessario ottenere l'ID tenant di un'altra sottoscrizione, usare il comando seguente:
    
-        azure account show -s {subscription-id}
+   ```
+   azure account show -s {subscription-id}
+   ```
 2. Per recuperare l'identificazione personale del certificato e rimuovere i caratteri non necessari, usare:
    
-        openssl x509 -in "C:\certificates\examplecert.pem" -fingerprint -noout | sed 's/SHA1 Fingerprint=//g'  | sed 's/://g'
+   ```
+   openssl x509 -in "C:\certificates\examplecert.pem" -fingerprint -noout | sed 's/SHA1 Fingerprint=//g'  | sed 's/://g'
+   ```
    
      Viene restituito un valore di identificazione personale simile a:
    
-        30996D9CE48A0B6E0CD49DBB9A48059BF9355851
+   ```
+   30996D9CE48A0B6E0CD49DBB9A48059BF9355851
+   ```
 3. Se è necessario recuperare l'ID client da usare per l'accesso, usare:
    
-        azure ad sp show -c exampleapp
+   ```
+   azure ad sp show -c exampleapp
+   ```
    
      Il valore da usare per eseguire l'accesso è il GUID nei nomi dell'entità servizio.
-   
-        [
-          {
-            "objectId": "7dbc8265-51ed-4038-8e13-31948c7f4ce7",
-            "objectType": "ServicePrincipal",
-            "displayName": "exampleapp",
-            "appId": "4fd39843-c338-417d-b549-a545f584a745",
-            "servicePrincipalNames": [
-              "https://www.contoso.org/example",
-              "4fd39843-c338-417d-b549-a545f584a745"
-            ]
-          }
-        ]
+     
+   ```
+   [
+     {
+       "objectId": "7dbc8265-51ed-4038-8e13-31948c7f4ce7",
+       "objectType": "ServicePrincipal",
+       "displayName": "exampleapp",
+       "appId": "4fd39843-c338-417d-b549-a545f584a745",
+       "servicePrincipalNames": [
+         "https://www.contoso.org/example",
+         "4fd39843-c338-417d-b549-a545f584a745"
+       ]
+     }
+   ]
+   ```
 4. Accedere come entità servizio.
    
-        azure login --service-principal --tenant {tenant-id} -u 4fd39843-c338-417d-b549-a545f584a745 --certificate-file C:\certificates\examplecert.pem --thumbprint {thumbprint}
+   ```
+   azure login --service-principal --tenant {tenant-id} -u 4fd39843-c338-417d-b549-a545f584a745 --certificate-file C:\certificates\examplecert.pem --thumbprint {thumbprint}
+   ```
 
 A questo punto è stata eseguita l'autenticazione come entità servizio per l'applicazione di Active Directory creata.
+
+## <a name="change-credentials"></a>Modificare le credenziali
+
+Per modificare le credenziali per un'app di Active Directory, a causa di una violazione della protezione o di credenziali scadute, usare `azure ad app set`.
+
+Per modificare una password, usare:
+
+```
+azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --password p@ssword
+```
+
+Per modificare un valore del certificato, usare:
+
+```
+azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-value {certificate data}
+```
+
 
 ## <a name="sample-applications"></a>Applicazioni di esempio
 Le applicazioni di esempio seguenti illustrano come effettuare l'accesso come entità servizio.
@@ -267,6 +354,6 @@ Le applicazioni di esempio seguenti illustrano come effettuare l'accesso come en
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

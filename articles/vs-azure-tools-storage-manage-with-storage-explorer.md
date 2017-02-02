@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: a538ceef7d9aeaca0e6f54443f3a5dabd06c22a1
-ms.openlocfilehash: 9914051f5f509a657e91aa66c1efb99ceb9f4817
+ms.sourcegitcommit: 0550f5fecd83ae9dc0acb2770006156425baddf3
+ms.openlocfilehash: 0617d2e668fe719d6002254b6d13ca729887c0e3
 
 
 ---
 # <a name="getting-started-with-storage-explorer-preview"></a>Guida introduttiva a Storage Explorer (anteprima)
-## <a name="overview"></a>Overview
-Microsoft Azure Storage Explorer (anteprima), è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, OS X e Linux. Questo articolo illustra diversi modi per connettersi agli account di archiviazione di Azure e per gestirli.
+## <a name="overview"></a>Panoramica
+Microsoft Azure Storage Explorer (anteprima) è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux. Questo articolo illustra diversi modi per connettersi agli account di archiviazione di Azure e per gestirli.
 
 ![Microsoft Azure Storage Explorer (anteprima)][15]
 
@@ -30,11 +30,11 @@ Microsoft Azure Storage Explorer (anteprima), è un'app autonoma che consente di
 * [Scaricare e installare Storage Explorer (anteprima)](http://www.storageexplorer.com)
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Connettersi a un account o a un servizio di archiviazione
-Storage Explorer (anteprima) offre numerosi modi per connettersi agli account di archiviazione, tra cui la connessione agli account di archiviazione associati alle sottoscrizioni di Azure, la connessione agli account e ai servizi di archiviazione condivisi da altre sottoscrizioni di Azure e anche la connessione e la gestione della risorsa di archiviazione locale con Emulatore di archiviazione di Azure. Inoltre, è possibile usare gli account di archiviazione in Azure globale e nazionale:
+Storage Explorer (anteprima) offre diversi modi per connettersi agli account di archiviazione, tra cui la connessione agli account di archiviazione associati alle sottoscrizioni di Azure, la connessione agli account e ai servizi di archiviazione condivisi da altre sottoscrizioni di Azure e anche la connessione e la gestione della risorsa di archiviazione locale con Emulatore di archiviazione di Azure. Inoltre, è possibile usare gli account di archiviazione in Azure globale e nazionale:
 
 * [Connettersi a una sottoscrizione di Azure.](#connect-to-an-azure-subscription) : gestire le risorse di archiviazione appartenenti alla sottoscrizione di Azure.
 * [Utilizzare la risorsa di archiviazione locale](#work-with-local-development-storage) : gestire la risorsa di archiviazione locale usando l'Emulatore di archiviazione di Azure.
-* [Collegarsi a una risorsa di archiviazione esterna](#attach-or-detach-an-external-storage-account) : gestire le risorse di archiviazione appartenenti a un'altra sottoscrizione di Azure o ai cloud di Azure nazionale usando il nome, la chiave e gli endpoint dell'account di archiviazione.
+* [Collegarsi a una risorsa di archiviazione esterna](#attach-or-detach-an-external-storage-account): gestire le risorse di archiviazione appartenenti a un'altra sottoscrizione di Azure o ai cloud di Azure nazionale usando il nome, la chiave e gli endpoint dell'account di archiviazione.
 * [Collegare l'account di archiviazione usando la firma di accesso condiviso](#attach-storage-account-using-sas) : gestire le risorse di archiviazione appartenenti a un'altra sottoscrizione di Azure usando una firma di accesso condiviso.
 * [Collegare il servizio usando la firma di accesso condiviso](#attach-service-using-sas) : gestire un servizio di archiviazione specifico (contenitore BLOB, coda o tabella) appartenente a un'altra sottoscrizione di Azure usando una firma di accesso condiviso.
 
@@ -47,14 +47,14 @@ Storage Explorer (anteprima) offre numerosi modi per connettersi agli account di
 1. In Storage Explorer (anteprima), selezionare **Azure Account settings**(Impostazioni account Azure).
 
     ![Azure Account settings][0]
-2. Nel riquadro sinistro verranno ora visualizzati tutti gli account Microsoft a cui si è connessi. Per connettersi a un altro account, selezionare **Aggiungi un account**e seguire le istruzioni nelle finestre di dialogo per accedere con un account Microsoft associato ad almeno una sottoscrizione di Azure attiva.
+2. Il riquadro sinistro mostra tutti gli account Microsoft a cui si è connessi. Per connettersi a un altro account, selezionare **Aggiungi un account**e seguire le istruzioni nelle finestre di dialogo per accedere con un account Microsoft associato ad almeno una sottoscrizione di Azure attiva.
 > [!NOTE]
->Connessione ad Azure nazionale, ad esempio Black Forest Azure, Fairfax Azure e Mooncake Azure tramite accesso non supportata al momento. Vedere la sezione **Collegare o scollegare un account di archiviazione esterno** per la modalità di connessione agli account di archiviazione Azure nazionali.
+>La connessione ad Azure nazionale, ad esempio Black Forest Azure, Fairfax Azure e Mooncake Azure tramite accesso non è attualmente supportata. Vedere la sezione **Collegare o scollegare un account di archiviazione esterno** per la modalità di connessione agli account di archiviazione Azure nazionali.
 
-3. Dopo avere effettuato l'acceso con un account Microsoft, il riquadro sinistro verrà popolato con le sottoscrizioni di Azure associate a quell'account. Selezionare le sottoscrizioni di Azure da utilizzare e quindi selezionare **Applica**. Selezionando **Tutte le sottoscrizioni** , viene alternata la selezione di tutte o di nessuna delle sottoscrizioni di Azure elencate.
+3. Dopo aver effettuato l'acceso con un account Microsoft, il riquadro sinistro viene popolato con le sottoscrizioni di Azure associate a tale account. Selezionare le sottoscrizioni di Azure da utilizzare e quindi selezionare **Applica**. Selezionando **Tutte le sottoscrizioni** , viene alternata la selezione di tutte o di nessuna delle sottoscrizioni di Azure elencate.
 
     ![Selezionare le sottoscrizioni di Azure][3]
-4. Il riquadro sinistro visualizzerà ora gli account di archiviazione associati alle sottoscrizioni di Azure selezionate.
+4. Il riquadro sinistro mostra gli account di archiviazione associati alle sottoscrizioni di Azure selezionate.
 
     ![Sottoscrizioni di Azure selezionate][4]
 
@@ -69,10 +69,10 @@ Storage Explorer (anteprima) consente di lavorare con la risorsa di archiviazion
 1. Nel riquadro sinistro di Storage Explorer (anteprima) espandere il nodo **(Local and Attached)** (Locale e collegato)  > **Account di archiviazione** > **(Sviluppo)**.
 
     ![Nodo di sviluppo locale][21]
-2. Se Emulatore di archiviazione di Azure non è ancora stato installato, verrà chiesto di farlo tramite una barra informazioni. Se la barra informazioni è visualizzata, selezionare **Scarica la versione più recente**e installare l'emulatore.
+2. Se Emulatore di archiviazione di Azure non è ancora stato installato, verrà richiesto di farlo tramite una barra informazioni. Se la barra informazioni è visualizzata, selezionare **Scarica la versione più recente**e installare l'emulatore.
 
     ![Richiesta di download dell'Emulatore di archiviazione di Azure][22]
-3. Una volta installato l'emulatore, sarà possibile creare e usare BLOB, code e tabelle locali. Per informazioni su come usare ogni tipo di account di archiviazione, selezionare sotto il collegamento appropriato:
+3. Dopo aver installato l'emulatore è possibile creare e usare BLOB, code e tabelle locali. Per informazioni su come usare i vari tipi di account di archiviazione, scegliere uno dei collegamenti riportati di seguito:
 
    * [Gestire le risorse dell'archivio BLOB di Azure](vs-azure-tools-storage-explorer-blobs.md)
    * Manage Azure file share storage resources (Gestire risorse di archiviazione tabelle di Azure): *presto disponibile*
@@ -83,7 +83,7 @@ Storage Explorer (anteprima) consente di lavorare con la risorsa di archiviazion
 Storage Explorer (anteprima) consente di collegarsi agli account di archiviazione esterni per poter condividere facilmente gli account di archiviazione. Questa sezione illustra come collegarsi (e scollegarsi) agli account di archiviazione esterni.
 
 ### <a name="get-the-storage-account-credentials"></a>Ottenere le credenziali dell'account di archiviazione
-Per condividere un account di archiviazione esterno, il proprietario di tale account deve ottenere prima le credenziali (nome e chiave dell'account) per l'account e quindi condividere tali informazioni con la persona che vuole collegarsi a tale account (esterno). Per ottenere le credenziali dell'account di archiviazione, è possibile seguire questa procedura nel portale di Azure:
+Per condividere un account di archiviazione esterno, il proprietario di tale account deve prima ottenere le credenziali, ovvero il nome e la chiave dell'account, e quindi condividere tali informazioni con la persona che vuole collegarsi a tale account esterno. Per ottenere le credenziali dell'account di archiviazione, è possibile seguire questa procedura nel portale di Azure:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Esplora**.
@@ -97,7 +97,7 @@ Per condividere un account di archiviazione esterno, il proprietario di tale acc
    ![Chiavi di accesso][6]
 
 ### <a name="attach-to-an-external-storage-account"></a>Collegarsi a un account di archiviazione esterno
-Per connettersi a un account di archiviazione esterno, sono necessari la chiave e il nome dell'account. La sezione *Ottenere le credenziali dell'account di archiviazione* spiega come ottenere questi valori dal portale di Azure. Tuttavia, si noti che nel portale la chiave dell'account viene chiamata "chiave 1", quindi nel punto in cui Storage Explorer (anteprima) richiede una chiave dell'account, si dovrà immettere o incollare il valore della "chiave 1".
+Per il collegamento a un account di archiviazione esterno è necessario avere la chiave e il nome dell'account. La sezione *Ottenere le credenziali dell'account di archiviazione* spiega come ottenere questi valori dal portale di Azure. Tuttavia, si noti che nel portale la chiave dell'account viene chiamata "chiave 1", quindi nel punto in cui Storage Explorer (anteprima) richiede una chiave dell'account, si dovrà immettere o incollare il valore della "chiave 1".
 
 1. In Storage Explorer (anteprima), selezionare **Connect to Azure storage**(Connetti ad Archiviazione di Azure).
 
@@ -111,8 +111,8 @@ Per connettersi a un account di archiviazione esterno, sono necessari la chiave 
 3. Nella finestra di dialogo **Associa archiviazione esterna** immettere il nome dell'account di archiviazione nella casella **Nome account**, specificare eventuali altre impostazioni e selezionare **Avanti** al termine.
 
    ![Finestra di dialogo Associa archiviazione esterna][8]
-4. Nella finestra di dialogo **Riepilogo connessione** verificare le informazioni. Se si vogliono apportare modifiche, selezionare **Indietro** e immettere di nuovo le impostazioni desiderate. Al termine, selezionare **Connetti**.
-5. Una volta connessi, l'account di archiviazione esterno verrà visualizzato con il testo **(Esterno)** aggiunto al nome dell'account di archiviazione.
+4. Nella finestra di dialogo **Riepilogo connessione** verificare le informazioni. Per apportare modifiche, selezionare **Indietro** e immettere nuovamente le impostazioni. Al termine, selezionare **Connetti**.
+5. Dopo la connessione, l'account di archiviazione esterno viene visualizzato con il testo **(Esterno)** aggiunto al nome dell'account di archiviazione.
 
    ![Risultato della connessione a un account di archiviazione esterno][9]
 
@@ -138,7 +138,7 @@ Per illustrare questo concetto, si supponga che l'utente A sia l'amministratore 
 2. Nella finestra di dialogo **Firma di accesso condiviso** specificare l'intervallo di tempo e le autorizzazioni per l'account e selezionare **Crea**.
 
     ![Finestra di dialogo Get SAS (Ottieni firma di accesso condiviso)][14]
-3. Verrà visualizzata una seconda finestra di dialogo **Shared Access Signature** (Firma di accesso condiviso) contenente la firma di accesso condiviso. Selezionare **Copia** accanto a **Stringa di connessione** per copiarla negli Appunti. Selezionare **Chiudi** per chiudere la finestra di dialogo.
+3. La firma di accesso condiviso viene visualizzata in una seconda finestra di dialogo **Shared Access Signature** (Firma di accesso condiviso). Selezionare **Copia** accanto a **Stringa di connessione** per copiarla negli Appunti. Selezionare **Chiudi** per chiudere la finestra di dialogo.
 
 ### <a name="attach-to-the-shared-account-using-the-sas"></a>Collegarsi all'account condiviso usando la firma di accesso condiviso
 1. In Storage Explorer (anteprima), selezionare **Connect to Azure storage**(Connetti ad Archiviazione di Azure).
@@ -147,8 +147,8 @@ Per illustrare questo concetto, si supponga che l'utente A sia l'amministratore 
 2. Nella finestra di dialogo **Connetti ad Archiviazione di Azure** specificare la stringa di connessione e quindi selezionare **Avanti**.
 
    ![Finestra di dialogo Connect to Azure storage (Connetti ad Archiviazione di Azure)][24]
-3. Nella finestra di dialogo **Riepilogo connessione** verificare le informazioni. Se si vogliono apportare modifiche, selezionare **Indietro** e immettere di nuovo le impostazioni desiderate. Al termine, selezionare **Connetti**.
-4. Una volta collegato, l'account di archiviazione verrà visualizzato con il testo (SAS) aggiunto al nome dell'account fornito.
+3. Nella finestra di dialogo **Riepilogo connessione** verificare le informazioni. Per apportare modifiche, selezionare **Indietro** e immettere nuovamente le impostazioni. Al termine, selezionare **Connetti**.
+4. Dopo il collegamento, l'account di archiviazione viene visualizzato con il testo (SAS) aggiunto al nome dell'account specificato.
 
    ![Risultato del collegamento a un account con firma di accesso condiviso][17]
 
@@ -170,15 +170,15 @@ In questo contesto, un servizio può essere un contenitore BLOB, una coda o una 
 2. Nella finestra di dialogo **Connetti ad Archiviazione di Azure** specificare l'URI della firma di accesso condiviso e quindi selezionare **Avanti**.
 
    ![Finestra di dialogo Connect to Azure storage (Connetti ad Archiviazione di Azure)][24]
-3. Nella finestra di dialogo **Riepilogo connessione** verificare le informazioni. Se si vogliono apportare modifiche, selezionare **Indietro** e immettere di nuovo le impostazioni desiderate. Al termine, selezionare **Connetti**.
-4. Una volta collegato, il nuovo servizio collegato verrà visualizzato nel nodo **(Service SAS)** (Firma di accesso condiviso servizio).
+3. Nella finestra di dialogo **Riepilogo connessione** verificare le informazioni. Per apportare modifiche, selezionare **Indietro** e immettere nuovamente le impostazioni. Al termine, selezionare **Connetti**.
+4. Dopo il collegamento, il nuovo servizio collegato viene visualizzato nel nodo **(Service SAS)** (Firma di accesso condiviso servizio).
 
    ![Risultato della connessione a un servizio condiviso usando una firma di accesso condiviso][20]
 
 ## <a name="search-for-storage-accounts"></a>Cercare gli account di archiviazione
 Se l'elenco di account di archiviazione è lungo, è possibile trovare rapidamente un determinato account di archiviazione usando la casella di ricerca nella parte superiore del riquadro sinistro.
 
-Mentre si digita nella casella di ricerca, il riquadro sinistro visualizzerà solo gli account di archiviazione che corrispondono al valore di ricerca immesso fino a quel momento. Lo screenshot seguente illustra un esempio in cui sono stati cercati tutti gli account di archiviazione il cui nome contiene il testo "tarcher".
+Mentre si digita nella casella di ricerca, il riquadro sinistro mostra solo gli account di archiviazione che corrispondono al valore di ricerca immesso fino a quel momento. Lo screenshot seguente illustra un esempio in cui sono stati cercati tutti gli account di archiviazione il cui nome contiene il testo "tarcher".
 
 ![Ricerca dell'account di archiviazione][11]
 
@@ -210,6 +210,6 @@ Per cancellare i criteri di ricerca, selezionare **x** nella casella di ricerca.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

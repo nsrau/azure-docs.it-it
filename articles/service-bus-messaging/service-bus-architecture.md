@@ -1,37 +1,37 @@
 ---
-title: Architettura del bus di servizio | Documentazione Microsoft
+title: Panoramica dell&quot;architettura di elaborazione dei messaggi del bus di servizio di Azure | Documentazione Microsoft
 description: Descrive l&quot;architettura di elaborazione e inoltro dei messaggi del bus di servizio di Azure.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: baf94c2d-0e58-4d5d-a588-767f996ccf7f
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2016
+ms.date: 11/30/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3c69783341eaed67ac29ab63d2127a4038bc0f6d
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: cd0e53955495752cd91323b9926f9494a70c5797
 
 
 ---
 # <a name="service-bus-architecture"></a>Architettura del bus di servizio
-Questo articolo descrive l'architettura di elaborazione e inoltro dei messaggi del bus di servizio di Azure.
+Questo articolo descrive l'architettura di elaborazione dei messaggi del bus di servizio di Azure.
 
 ## <a name="service-bus-scale-units"></a>Unità di scala del bus di servizio
 Il bus di servizio è organizzato in base a *unità di scala*. Un'unità di scala è un'unità di distribuzione e contiene tutti i componenti necessari per eseguire il servizio. Ogni area distribuisce una o più unità di scala del bus di servizio.
 
 Uno spazio dei nomi del bus di servizio è mappato a un'unità di scala. L'unità di scala gestisce tutti i tipi di entità del bus di servizio, ovvero inoltri ed entità di messaggistica negoziata come code, argomenti e sottoscrizioni. Un’unità di scala del bus di servizio include i seguenti componenti:
 
-* **Un set di nodi del gateway.**  I nodi del gateway autenticano le richieste in ingresso e gestiscono le richieste di inoltro. Ogni nodo del gateway ha un indirizzo IP pubblico.
-* **Un set di nodi del broker di messaggistica.**  I nodi del broker di messaggistica elaborano le richieste relative alle entità di messaggistica.
-* **Un archivio del gateway.**  Questo archivio contiene i dati per ogni entità definita nell'unità di scala. L'archivio del gateway viene implementato in un database SQL Azure.
-* **Più archivi di messaggistica.**  Gli archivi di messaggistica contengono i messaggi di tutte le code, gli argomenti e le sottoscrizioni definiti nell'unità di scala. Contiene anche tutti i dati di sottoscrizione. A meno che non siano abilitate le [entità di messaggistica partizionate](service-bus-partitioning.md), una coda o un argomento viene mappato a un archivio di messaggistica. Le sottoscrizioni vengono archiviate nello stesso archivio di messaggistica del relativo argomento padre. A eccezione del [livello di messaggistica Premium](service-bus-premium-messaging.md)del bus di servizio, gli archivi di messaggistica vengono implementati nei database SQL Azure.
+* **Un set di nodi del gateway.** I nodi del gateway autenticano le richieste in ingresso e gestiscono le richieste di inoltro. Ogni nodo del gateway ha un indirizzo IP pubblico.
+* **Un set di nodi del broker di messaggistica.** I nodi del broker di messaggistica elaborano le richieste relative alle entità di messaggistica.
+* **Un archivio del gateway.** Questo archivio contiene i dati per ogni entità definita nell'unità di scala. L'archivio del gateway viene implementato in un database SQL Azure.
+* **Più archivi di messaggistica.** Gli archivi di messaggistica contengono i messaggi di tutte le code, gli argomenti e le sottoscrizioni definiti nell'unità di scala. Contiene anche tutti i dati di sottoscrizione. A meno che non siano abilitate le [entità di messaggistica partizionate](service-bus-partitioning.md), una coda o un argomento viene mappato a un archivio di messaggistica. Le sottoscrizioni vengono archiviate nello stesso archivio di messaggistica del relativo argomento padre. A eccezione del [livello di messaggistica Premium](service-bus-premium-messaging.md)del bus di servizio, gli archivi di messaggistica vengono implementati nei database SQL Azure.
 
 ## <a name="containers"></a>Contenitori
 A ciascuna entità di messaggistica viene assegnato un contenitore specifico. Un contenitore è un costrutto logico che utilizza esattamente un archivio di messaggistica per archiviare tutti i dati pertinenti per questo contenitore. Ciascun contenitore viene assegnato a un nodo del broker di messaggistica. In genere, esistono più contenitori che nodi del broker di messaggistica. Pertanto, ogni nodo del broker di messaggistica carica più contenitori. La distribuzione dei contenitori in un nodo del broker di messaggistica è organizzata in modo che tutti i nodi del broker di messaggistica vengano caricati in modo uniforme. Se il modello di caricamento viene modificato (ad esempio, uno dei contenitori diventa troppo occupato) o se un nodo del broker di messaggistica diventa temporaneamente non disponibile, i contenitori vengono ridistribuiti tra i nodi dei broker di messaggistica.
@@ -49,7 +49,7 @@ Quando viene stabilita la connessione di inoltro, i client possono scambiare mes
 ![Elaborazione delle richieste di inoltro Web application firewa in ingresso](./media/service-bus-architecture/IC690645.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ora che è stata esaminata una panoramica dell'architettura del bus di servizio, visitare i collegamenti seguenti per iniziare:
+Ora che è stata letta una panoramica dell'architettura del bus di servizio, vedere i collegamenti seguenti per altre informazioni:
 
 * [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
 * [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
@@ -58,6 +58,6 @@ Ora che è stata esaminata una panoramica dell'architettura del bus di servizio,
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

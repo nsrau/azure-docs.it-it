@@ -1,6 +1,6 @@
 ---
-title: Creare un hub IoT usando un modello di Azure Resource Manager e C# | Documentazione Microsoft
-description: Seguire questa esercitazione per iniziare a usare modelli di Azure Resource Manager per creare un hub IoT con un programma C#.
+title: Creare un hub IoT di Azure con un modello (.NET) | Documentazione Microsoft
+description: Come usare un modello di Azure Resource Manager per creare un hub IoT con un programma C#.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: 118ab90d7886ad48e7476abd732b16b69375d214
+ms.sourcegitcommit: e4343cfece7286e0a4035239967ab2e0a928b188
+ms.openlocfilehash: cc284c0cd445bbfe2f4424d3251ca07da0538192
 
 
 ---
-# <a name="create-an-iot-hub-using-a-c-program-with-an-azure-resource-manager-template"></a>Creare un hub IoT usando un programma C# con un modello di Azure Resource Manager
+# <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Creare un hub IoT usando un modello di Azure Resource Manager (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>Introduzione
@@ -36,7 +36,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 * Microsoft Visual Studio 2015
 * Un account Azure attivo. <br/>Se non si ha un account, è possibile crearne uno [gratuito][lnk-free-trial] in pochi minuti.
 * Un [account di archiviazione di Azure][lnk-storage-account] in cui è possibile archiviare i file del modello di Azure Resource Manager.
-* [Microsoft Azure PowerShell 1.0][lnk-powershell-install] o versione successiva.
+* [Azure PowerShell 1.0][lnk-powershell-install] o versione successiva.
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -206,7 +206,7 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: ../powershell-install-configure.md
+[lnk-powershell-install]: /powershell/azureps-cmdlets-docs
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-storage-account]: ../storage/storage-create-storage-account.md
@@ -218,6 +218,6 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

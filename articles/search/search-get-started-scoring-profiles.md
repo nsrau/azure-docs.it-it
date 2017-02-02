@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/17/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ee211328a1c89ca1267c96bdd3b235f24b4fb741
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a7a0c49b6fcac84a61005f330b07f5ea47ce1961
 
 
 ---
@@ -110,12 +110,12 @@ Altre informazioni sulla sintassi di ricerca e sui parametri di query. Per infor
 Per altre informazioni sulla creazione degli indici, [Guardare questo video](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh) per comprendere le nozioni di base.
 
 <!--Anchors-->
-[Prerequisiti]: #sub-1
-[Scaricare l'applicazione di esempio]: #sub-2
-[Modificare il file app.config]: #sub-3
-[Esplorare l'applicazione]: #sub-4
-[Compilare ed eseguire l'applicazione]: #sub-5
-[Passaggi successivi]: #next-steps
+[Prerequisites]: #sub-1
+[Download the sample application]: #sub-2
+[Edit app.config]: #sub-3
+[Explore the application]: #sub-4
+[Build and run the application]: #sub-5
+[Next steps]: #next-steps
 
 <!--Image references-->
 [12]: ./media/search-get-started-scoring-profiles/AzureSearch_CodeplexDownload.PNG
@@ -125,6 +125,6 @@ Per altre informazioni sulla creazione degli indici, [Guardare questo video](htt
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

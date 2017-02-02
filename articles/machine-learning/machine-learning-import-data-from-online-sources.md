@@ -16,22 +16,23 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: bradsev;garye
 translationtype: Human Translation
-ms.sourcegitcommit: bac1b01a40b3e7bed2edaf1f694daf0ab70de68c
-ms.openlocfilehash: 26353f84e22aec1964f520edc60d036c2ab57c28
+ms.sourcegitcommit: 701c54bac16cbf208fd655fd72f2d4acfc0ba891
+ms.openlocfilehash: 89856f6509d0d2e2e472a61db70b9b04dc1ac7b7
 
 
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Importare i dati in Azure Machine Learning Studio da diverse origini dati online con il modulo Import Data
+
+[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
+
 Questo articolo illustra il supporto per l'importazione di dati online da varie origini e le informazioni necessarie per spostare i dati da queste origini a un esperimento di Azure Machine Learning.
 
 > [!NOTE]
-> Questo articolo fornisce informazioni generali sul modulo [Import Data][import-data]. Per altre informazioni sui tipi di dati a cui è possibile accedere, i formati, i parametri e le risposte alle domande comuni, vedere l'argomento di riferimento per il modulo [Import Data][import-data].
+> Questo articolo fornisce informazioni generali sul modulo [Import Data][import-data]. Per altre informazioni sui tipi di dati a cui è possibile accedere, i formati, i parametri e le risposte alle domande comuni, vedere l'argomento di riferimento del modulo per il modulo [Import Data][import-data].
 > 
 > 
 
 <!-- -->
-
-[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 ## <a name="introduction"></a>Introduzione
 In Azure Machine Learning Studio è possibile accedere ai dati provenienti da una delle origini dati online disponibili durante l'esecuzione degli esperimenti tramite il modulo [Import Data][import-data]:
@@ -44,7 +45,7 @@ In Azure Machine Learning Studio è possibile accedere ai dati provenienti da un
 * Database SQL Server locale
 * Provider di feed di dati, attualmente OData
 
-Il flusso di lavoro per l'esecuzione di esperimenti in Azure Machine Learning Studio è costituito dal trascinamento e dal rilascio di componenti nell'area di disegno. Per accedere alle origini dati online, aggiungere il modulo [Import Data][import-data] all'esperimento, selezionare l'**origine dati** e quindi fornire i parametri necessari per l'accesso ai dati. Le origini dati online supportate vengono illustrate nella tabella seguente. Questa tabella riepiloga anche i formati di file supportati e i parametri usati per accedere ai dati.
+Il flusso di lavoro per l'esecuzione di esperimenti in Azure Machine Learning Studio è costituito dal trascinamento e dal rilascio di componenti nell'area di disegno. Per accedere alle origini dati online, aggiungere il modulo [Import Data][import-data] all'esperimento, selezionare l'**origine dati** e quindi fornire i parametri necessari per accedere ai dati. Le origini dati online supportate vengono illustrate nella tabella seguente. Questa tabella riepiloga anche i formati di file supportati e i parametri usati per accedere ai dati.
 
 Si noti che poiché si accede a questi dati di training durante l'esecuzione dell'esperimento, saranno disponibili solo durante l'esperimento. I dati archiviati in un modulo del set di dati sono invece disponibili per ogni esperimento nell'area di lavoro.
 
@@ -82,6 +83,6 @@ Il modulo **Import data** di Azure Machine Learning supporta le origini dati seg
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

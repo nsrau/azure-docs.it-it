@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 0b7c4c95328eb3ca573694b8eca0b0abda646fc5
-ms.openlocfilehash: a8fcbf069d1d06249b27687c3dd9f993dc40d40d
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 3451e6d13119bacc66e9ccd861862edea5a5b4fe
 
 
 ---
@@ -37,7 +37,7 @@ Si possono usare diversi modi per configurare un'applicazione Java in un'app Web
 
 1. Creare un'app e quindi configurare l'opzione **Impostazioni dell'applicazione**.
    
-    Il servizio App fornisce diverse versioni di Tomcat e Jetty con una configurazione predefinita. Se l'applicazione che si ospiterà funziona con una delle versioni predefinite, questo metodo di configurazione di un contenitore Web è il più semplice ed è l'ideale quando si vuole solo caricare un file WAR in un contenitore Web. Per questo metodo, creare un'app nel portale di Azure e quindi passare al pannello **Impostazioni applicazione** per l'app per scegliere la versione di Java con il contenitore Web Java preferito. Quando si usa questo metodo, sia Java che il contenitore Web vengono eseguiti da Programmi. Gli altri metodi inseriscono il contenitore Web e potenzialmente la JVM sul disco usandone lo spazio. Quando si usa questo modello, non si ha accesso per modificare i file in questa parte del file system. Non è quindi possibile eseguire operazioni come configurare il file *server.xml* o inserire file di libreria nella cartella */lib*. Per altre informazioni, vedere la sezione [Creare e configurare un'app Web Java](#appsettings) più avanti in questa esercitazione.
+    Il servizio App fornisce diverse versioni di Tomcat e Jetty con una configurazione predefinita. Se l'applicazione che si ospiterà funziona con una delle versioni predefinite, questo metodo di configurazione di un contenitore Web è il più semplice ed è l'ideale quando si vuole solo caricare un file WAR in un contenitore Web. Per questo metodo, creare un'app nel portale di Azure e quindi passare al pannello **Impostazioni applicazione** per l'app per scegliere la versione di Java con il contenitore Web Java preferito. Quando si usa questo metodo, sia Java che il contenitore Web vengono eseguiti da Programmi. Gli altri metodi inseriscono il contenitore Web e potenzialmente la JVM sul disco usandone lo spazio. Quando si usa questo modello, non si ha accesso per modificare i file in questa parte del file system. Non è quindi possibile eseguire operazioni come configurare il file *server.xml* o inserire file di libreria nella cartella */lib*. Per altre informazioni, vedere la sezione [Creare e configurare un'app Web Java](#portal) più avanti in questa esercitazione.
 2. Usare un modello da Azure Marketplace.
    
     In Azure Marketplace sono disponibili modelli per i creare e configurare automaticamente app Web Java con Tomcat o contenitori Web Jetty. I contenitori Web creati con i modelli sono configurabili. Per altre informazioni, vedere la sezione [Usare un modello Java da Azure Marketplace](#marketplace) di questa esercitazione.
@@ -147,7 +147,7 @@ Per altre informazioni sullo sviluppo di applicazioni Java in Azure, visitare la
 [portale di Azure]: https://portal.azure.com/
 [attivare i benefici della sottoscrizione Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [iscriversi per ottenere una versione di valutazione gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
-[Prova il servizio app]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Prova il servizio app]: https://azure.microsoft.com/try/app-service/
 [App Web Java nel Servizio app di Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Java Developer Center]: /develop/java/
 [Panoramica di Resource Manager]: ../azure-resource-manager/resource-group-overview.md
@@ -169,6 +169,6 @@ Per altre informazioni sullo sviluppo di applicazioni Java in Azure, visitare la
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

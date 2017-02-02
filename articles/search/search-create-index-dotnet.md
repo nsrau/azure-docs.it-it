@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 01/13/2017
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: a607ab6bf73f59f55109f9ee60ab69aa15d74db3
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: 3a5131323f438109d94137cb4f577054ec13227f
 
 
 ---
@@ -36,10 +36,10 @@ Prima di seguire le indicazioni di questa guida e creare un indice, è necessari
 
 Si noti che tutto il codice di esempio in questo articolo è scritto in C#. Il codice sorgente completo è disponibile su [GitHub](http://aka.ms/search-dotnet-howto).
 
-## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identificare la chiave API amministratore del servizio Ricerca di Azure
+## <a name="identify-your-azure-search-services-admin-api-key"></a>Identificare la chiave API amministratore del servizio Ricerca di Azure
 Dopo avere effettuato il provisioning di un servizio di Ricerca di Azure, è possibile inviare richieste rispetto all'endpoint di servizio usando .NET SDK. Innanzitutto, è necessario ottenere una delle chiavi API amministratore generate per il servizio di ricerca di cui è stato effettuato il provisioning. .NET SDK invierà questa chiave API a ogni richiesta del servizio. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
-1. Per trovare le chiavi API del servizio, è necessario accedere al [portale di Azure](https://portal.azure.com/)
+1. Per trovare le chiavi API del servizio, accedere al [portale di Azure](https://portal.azure.com/)
 2. Passare al pannello del servizio Ricerca di Azure.
 3. Fare clic sull'icona "Chiavi".
 
@@ -52,7 +52,7 @@ Per la creazione di un indice è possibile usare la chiave primaria o secondaria
 
 <a name="CreateSearchServiceClient"></a>
 
-## <a name="ii-create-an-instance-of-the-searchserviceclient-class"></a>II. Creare un'istanza della classe SearchServiceClient
+## <a name="create-an-instance-of-the-searchserviceclient-class"></a>Creare un'istanza della classe SearchServiceClient
 Per iniziare a usare Azure Search .NET SDK, è necessario creare un'istanza della classe `SearchServiceClient` . Questa classe ha diversi costruttori. Il costruttore in uso accetta il nome del servizio di ricerca e un oggetto `SearchCredentials` come parametri. `SearchCredentials` esegue il wrapping della chiave API.
 
 Il codice seguente crea un nuovo oggetto `SearchServiceClient` usando i valori del nome del servizio di ricerca e la chiave API archiviati nel file di configurazione dell'applicazione (`app.config` o `web.config`):
@@ -73,7 +73,7 @@ SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, n
 
 <a name="DefineIndex"></a>
 
-## <a name="iii-define-your-azure-search-index"></a>III. Definire l'indice di ricerca di Azure
+## <a name="define-your-azure-search-index"></a>Definire l'indice di ricerca di Azure
 Una singola chiamata al metodo `Indexes.Create` consente di creare l'indice. Questo metodo accetta come parametro un oggetto `Index` che definisce l'indice di Ricerca di Azure. È necessario creare un oggetto `Index` e inizializzarlo come indicato di seguito:
 
 1. Impostare la proprietà `Name` dell'oggetto `Index` sul nome dell'indice.
@@ -156,7 +156,7 @@ var definition = new Index()
 };
 ```
 
-## <a name="iv-create-the-index"></a>IV. Creare l'indice
+## <a name="create-the-index"></a>Creare l'indice
 Dopo aver creato un oggetto `Index` inizializzato, è possibile creare l'indice chiamando `Indexes.Create` sull'oggetto `SearchServiceClient`.
 
 ```csharp
@@ -176,12 +176,12 @@ serviceClient.Indexes.Delete("hotels");
 > 
 > 
 
-## <a name="next"></a>Avanti
+## <a name="next-steps"></a>Passaggi successivi
 Dopo avere creato un indice di Ricerca di Azure, sarà possibile [caricare il contenuto nell'indice](search-what-is-data-import.md) , in modo che si possa iniziare a eseguire ricerche nei dati.
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 10/24/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 61985bf2e112fe7b0a46ece07fd56eb14ccc3d45
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d06ec1c7a643c92fd11b532abc26fb1597d969f5
 
 
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>Autorizzazioni per il sito azureiotsuite.com
 ## <a name="what-happens-when-you-sign-in"></a>Cosa accade quando si accede
-Quando si accede per la prima volta a [azureiotsuite.com][lnk-azureiotsuite], il sito determina i livelli di autorizzazione in base al tenant di Azure Active Directory (AAD) attualmente selezionato e alla sottoscrizione di Azure.
+Quando si accede per la prima volta ad [azureiotsuite.com][lnk-azureiotsuite], il sito determina i livelli di autorizzazione in base al tenant di Azure Active Directory (AAD) attualmente selezionato e alla sottoscrizione di Azure.
 
 1. Il sito cerca prima in Azure a quale tenant di AAD appartiene l'utente per popolare l'elenco di tenant visualizzato accanto al nome utente connesso. A questo punto, il sito può ricevere solo i token utente per un tenant alla volta. Di conseguenza, quando si passa a un tenant diverso usando l'elenco a discesa nell'angolo superiore destro, il sito registra di nuovo l'utente nel tenant per ottenere il token di tale tenant.
 2. Successivamente, il sito cerca in Azure quali sottoscrizioni sono state associate dall'utente al tenant selezionato. Le sottoscrizioni disponibili vengono visualizzate quando si crea una nuova soluzione preconfigurata.
@@ -34,18 +34,18 @@ Le sezioni seguenti descrivono i ruoli che controllano l'accesso alle soluzioni 
 ## <a name="aad-roles"></a>Ruoli AAD
 I ruoli AAD controllano la capacità di provisioning delle soluzioni preconfigurate e gestiscono gli utenti in una soluzione preconfigurata.
 
-Per altre informazioni sui ruoli di amministratore in AAD, vedere [Assegnazione dei ruoli di amministratore in Azure AD][lnk-aad-admin]. Questo articolo è tuttavia incentrato principalmente sui ruoli **Amministratore globale** e **Utente/Membro dominio** usati nelle soluzioni preconfigurate.
+Per altre informazioni sui ruoli di amministratore in AAD, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory][lnk-aad-admin]. Questo articolo è tuttavia incentrato principalmente sui ruoli **Amministratore globale** e **Utente/membro di dominio** usati nelle soluzioni preconfigurate.
 
 **Amministratore globale:** in un tenant di AAD possono essere presenti molti amministratori globali. Quando si crea un tenant di AAD, si è per impostazione predefinita l'amministratore globale del tenant. L'amministratore globale può eseguire il provisioning di una soluzione preconfigurata e gli viene assegnato un ruolo **AMMINISTRATORE** per l'applicazione all'interno di tenant di AAD. Tuttavia, se un altro utente nello stesso tenant di AAD crea un'applicazione, il ruolo predefinito concesso all'amministratore globale è **SOLA LETTURA IMPLICITO**. Gli amministratori globali possono assegnare ruoli per le applicazioni tramite il [portale di Azure classico][lnk-classic-portal].
 
-**Utente/membro di dominio:** per ogni tenant di AAD possono essere presenti molti utenti o membri del dominio. Un utente di dominio può effettuare il provisioning di una soluzione preconfigurata tramite il sito [azureiotsuite.com][lnk-azureiotsuite]. Il ruolo predefinito concesso per l'applicazione di cui effettuano il provisioning è **AMMINISTRATORE**. Possono creare un'applicazione usando lo script build.cmd nel repository [azure-iot-remote-monitoring][lnk-rm-github-repo] o [azure-iot-predictive-maintenance][lnk-pm-github-repo], ma il ruolo predefinito concesso è **IMPLICIT READONLY** (SOLA LETTURA IMPLICITO) perché non hanno l'autorizzazione per assegnare i ruoli. Se un altro utente nel tenant di AAD crea un'applicazione, gli verrà assegnato il ruolo **SOLA LETTURA IMPLICITO** per impostazione predefinita per l'applicazione. Non hanno la possibilità di assegnare ruoli per le applicazioni, quindi non possono aggiungere utenti o ruoli per gli utenti per un'applicazione anche se ne hanno effettuato il provisioning.
+**Utente/membro di dominio:** per ogni tenant di AAD possono essere presenti molti utenti o membri del dominio. Un utente di dominio può effettuare il provisioning di una soluzione preconfigurata tramite il sito [azureiotsuite.com][lnk-azureiotsuite]. Il ruolo predefinito concesso per l'applicazione di cui effettuano il provisioning è **AMMINISTRATORE**. È possibile creare un'applicazione usando lo script build.cmd nel repository [azure-iot-remote-monitoring][lnk-rm-github-repo] o [azure-iot-predictive-maintenance][lnk-pm-github-repo], ma il ruolo predefinito concesso è **IMPLICIT READONLY** (SOLA LETTURA IMPLICITO) perché gli utenti non hanno l'autorizzazione per assegnare i ruoli. Se un altro utente nel tenant di AAD crea un'applicazione, gli verrà assegnato il ruolo **SOLA LETTURA IMPLICITO** per impostazione predefinita per l'applicazione. Non hanno la possibilità di assegnare ruoli per le applicazioni, quindi non possono aggiungere utenti o ruoli per gli utenti per un'applicazione anche se ne hanno effettuato il provisioning.
 
 **Utente guest/Guest:** per ogni tenant AAD possono essere presenti molti utenti guest o guest. Gli utenti guest hanno un set di diritti limitato nel tenant di AAD. Di conseguenza, gli utenti guest non possono effettuare il provisioning di una soluzione preconfigurata nel tenant di AAD.
 
 Per altre informazioni, vedere le seguenti risorse:
 
 * [Creare o modificare utenti in Azure AD][lnk-create-edit-users]
-* [Assegnare ruoli App in AAD][lnk-assign-app-roles]
+* [Assegnare i ruoli app in AAD][lnk-assign-app-roles]
 
 ## <a name="azure-subscription-administrator-roles"></a>Ruoli di amministratore della sottoscrizione di Azure
 I ruoli di amministrazione di Azure controllano la possibilità di eseguire il mapping di una sottoscrizione di Azure a un tenant di AD.
@@ -66,7 +66,7 @@ Nell'applicazione sono presenti due ruoli definiti e un ruolo implicito creati q
 
 Per modificare i ruoli per un utente, è necessario essere un amministratore globale di AAD:
 
-1. Passare al [Portale di Azure classico][lnk-classic-portal].
+1. Passare al [portale di Azure classico][lnk-classic-portal].
 2. Selezionare **Active Directory**.
 3. Fare clic sul nome del tenant AAD, ovvero la directory selezionata in azureiotsuite.com durante il provisioning della soluzione.
 4. Fare clic su **Applicazioni**.
@@ -77,7 +77,7 @@ Per modificare i ruoli per un utente, è necessario essere un amministratore glo
 
 ## <a name="faq"></a>Domande frequenti
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-do-this"></a>Un amministratore del servizio vuole modificare il mapping della directory tra la sottoscrizione e un tenant di AAD specifico. Come deve procedere?
-1. Accedere al [portale di Azure classico][lnk-classic-portal], fare clic su **Impostazioni** nell'elenco dei servizi sul lato sinistro.
+1. Accedere al [portale di Azure classico][lnk-classic-portal] e fare clic su **Impostazioni** nell'elenco dei servizi sul lato sinistro.
 2. Selezionare la sottoscrizione per cui si vuole modificare il mapping della directory.
 3. Fare clic su **Modifica directory**.
 4. Nell'elenco a discesa selezionare la **Directory** si vuole usare. Fare clic sulla freccia Avanti.
@@ -131,6 +131,6 @@ Per altre informazioni su IoT Suite, vedere come [personalizzare una soluzione p
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

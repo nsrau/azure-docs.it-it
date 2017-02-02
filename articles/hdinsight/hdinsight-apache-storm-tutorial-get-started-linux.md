@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione di Apache Storm: Introduzione a Storm basato su Linux in HDInsight | Microsoft Docs'
+title: Introduzione ad Apache Storm in Azure HDInsight | Documentazione Microsoft
 description: Introduzione all&quot;analisi di Big Data mediante Apache Storm ed esempi di Storm Starter in HDInsight basato su Linux. Informazioni su come usare Storm per elaborare i dati in tempo reale.
 keywords: apache storm,esercitazione su apache storm,analisi Big Data,storm starter
 services: hdinsight
@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: b9fda8b5f4ffa6679cc8ca9696a4c51084c80645
-ms.openlocfilehash: 7c3d73ca6f4f567247ec9796199e68f764a52808
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 9b38cd0aa542c0fd73b73edefce230e5a463e608
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: 7c3d73ca6f4f567247ec9796199e68f764a52808
 
 Apache Storm è un sistema di calcolo in tempo reale scalabile, a tolleranza di errore e distribuito per l'elaborazione di flussi di dati. Con Storm in Azure HDInsight è possibile creare un cluster Storm basato sul cloud che esegue analisi di Big Data in tempo reale.
 
-> [!NOTE]
-> I passaggi descritti in questo articolo consentono di creare un cluster HDInsight basato su Linux. Per la procedura necessaria per creare un cluster Storm basato su Windows nel cluster HDInsight, vedere [Esercitazione di Apache Storm: Introduzione all'esempio Storm Starter usando l'analisi dei dati in HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
+> [!IMPORTANT]
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -80,7 +80,7 @@ In questa sezione si crea un cluster HDInsight versione 3.5 (Storm versione 1.0.
      > * [Usare SSH con Hadoop basato su Linux in HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
      > * [Usare SSH con Hadoop basato su Linux in HDInsight da Windows con PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-3. Selezionare __Accetto le condizioni riportate sopra__ e fare clic su **OK** quindi selezionare __Aggiungi al dashboard__.
+3. Selezionare __Accetto le condizioni riportate sopra__ e fare clic su **OK**, quindi selezionare __Aggiungi al dashboard__.
 
 6. Fare clic su **Acquista**. Verrà visualizzato un nuovo riquadro denominato Invio della distribuzione per Distribuzione modello. La creazione di un cluster richiede circa 20 minuti.
 
@@ -184,7 +184,7 @@ Usare la procedura seguente per monitorare la topologia con l'interfaccia utente
         2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
         2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
    
-    Da questi dati è possibile vedere che la parola **seven** è stata rilevata 1493957 volte. In altri termini, il numero 1493957 indica le occorrenze della parola dall'avvio della topologia.
+    Da questi dati è possibile vedere che la parola **seven** è stata rilevata 1493957 volte. In altri termini, il numero&14939;57 indica le occorrenze della parola dall'avvio della topologia.
 
 ## <a name="stop-the-topology"></a>Arrestare la topologia
 
@@ -216,6 +216,6 @@ Di seguito sono riportati alcuni esempi delle topologie che si possono usare con
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Usare Data Lake Store Java SDK per sviluppare le applicazioni | Documentazione Microsoft
-description: Usare Azure Data Lake Store Java SDK per lo sviluppo di applicazioni
+title: Usare Java SDK per sviluppare applicazioni in Azure Data Lake Store | Documentazione Microsoft
+description: Usare Java SDK con Azure Data Lake Store per creare un account Data Lake Store ed eseguire le relative operazioni di base
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/17/2016
+ms.date: 12/23/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 255e8def5179e544a4fb919774f3b18148566898
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 0d8c4b4af9672ca40da44b19938604f668390569
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 255e8def5179e544a4fb919774f3b18148566898
 > * [API REST](data-lake-store-get-started-rest-api.md)
 > * [Interfaccia della riga di comando di Azure](data-lake-store-get-started-cli.md)
 > * [Node.JS](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 Informazioni su come usare l'SDK Java con Azure Data Lake Store per eseguire le operazioni di base, ad esempio creare cartelle, caricare e scaricare i file di dati e così via. Per altre informazioni su Data Lake, vedere [Azure Data Lake Store](data-lake-store-overview.md).
@@ -63,7 +64,7 @@ Il codice di esempio disponibile in [GitHub](https://azure.microsoft.com/documen
           <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-data-lake-store-sdk</artifactId>
-            <version>2.0.4-SNAPSHOT</version>
+            <version>2.1.1</version>
           </dependency>
           <dependency>
             <groupId>org.slf4j</groupId>
@@ -148,6 +149,6 @@ Si noti che i file vengono letti e scritti attraverso i flussi Java standard. Ci
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

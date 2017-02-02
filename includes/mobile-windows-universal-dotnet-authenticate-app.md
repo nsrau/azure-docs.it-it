@@ -49,11 +49,11 @@
                 await RefreshTodoItems();
             }
         }
-4. Nel progetto dell'app di Windows Store, aprire il file di progetto MainPage.xaml e aggiungere il seguente elemento **Button** giusto prima dell'elemento che definisce il pulsante **Save**:
+4. Nel progetto dell'app di Windows Store, aprire il file di progetto MainPage.xaml e aggiungere il seguente elemento **Button** appena prima dell'elemento che definisce il pulsante **Save**:
    
         <Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
-5. Nel progetto di app Windows Phone Store, aggiungere l'elemento **Button** seguente in **ContentPanel** dopo l'elemento **TextBox**:
+5. Nel progetto dell'app di Windows Phone Store, aggiungere l'elemento **Button** seguente in **ContentPanel** dopo l'elemento **TextBox**:
    
         <Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
             Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
@@ -75,9 +75,13 @@
         }
    
     Se il metodo **OnActivated** è già presente, aggiungere solamente il blocco di codice `#if...#endif`.
-7. Premere il tasto F5 per eseguire l'app di Windows Store, fare clic sul pulsante **Sign in** e accedere all'app con il provider di identità desiderato.
+7. Premere il tasto F5 per eseguire l'app di Windows Store, fare clic sul pulsante **Sign in** e accedere all'app con il provider di identità desiderato. 
    
-       Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query nell'app mobile e aggiornare i dati.
-8. Fare clic con il pulsante destro del mouse sul progetto dell'app di Windows Phone Store, selezionare **Imposta come progetto di avvio**, quindi ripetere il passaggio precedente per verificare la corretta esecuzione dell'app di Windows Phone Store.
+       When you are successfully logged-in, the app should run without errors, and you should be able to query your backend and make updates to data.
+8. Fare clic con il pulsante destro del mouse sul progetto dell'app di Windows Phone Store, selezionare **Imposta come progetto di avvio**, quindi ripetere il passaggio precedente per verificare la corretta esecuzione dell'app di Windows Phone Store.  
 
-<!---HONumber=AcomDC_1203_2015-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

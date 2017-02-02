@@ -13,20 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2016
+ms.date: 11/16/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: b820e3011a1cd5472604e8cfa98fc22f9a4ebf77
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 68786e2c2f92f8d716c7aa2b3584342ea96c073d
 
 
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Come reimpostare la password o la chiave SSH di una VM Linux, correggere la configurazione SSH e verificare la coerenza dei dischi che utilizzano l'estensione VMAccess
 Se non è possibile connettersi a una macchina virtuale Linux su Azure perché si è dimenticata la password o una chiave SSH (Secure Shell) non è valida o per un problema di configurazione di SSH, usare l'estensione VMAccessForLinux con l'interfaccia della riga di comando di Azure per reimpostare la password o la chiave SSH, correggere la configurazione SSH e verificare la coerenza del disco. 
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Informazioni su come [eseguire questa procedura con il modello di Resource Manager](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
+> [!IMPORTANT] 
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Informazioni su come [eseguire questa procedura con il modello di Resource Manager](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
 
 Con l'interfaccia della riga di comando di Azure, per accedere ai comandi si usa il comando **azure vm extension set** dell'interfaccia della riga di comando (Bash, terminale, prompt dei comandi). Per informazioni dettagliate sull'uso dell'estensione, eseguire **azure help vm extension set** .
 
@@ -47,46 +46,60 @@ Sarà necessario eseguire le operazioni seguenti:
 
 * Sarà necessario [installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e [connettersi alla proprio sottoscrizione](../xplat-cli-connect.md) per usare le risorse di Azure associate al proprio account.
 * Impostare la modalità corretta per il modello di distribuzione classico digitando quanto segue al prompt dei comandi:
-  
+    ``` 
         azure config mode asm
+    ```
 * Procurarsi una nuova password o un set di chiavi SSH, se si desidera reimpostare l'una o l'altro. Queste non saranno necessarie se si vuole reimpostare la configurazione di SSH.
 
 ## <a name="a-namepwresetcliareset-the-password"></a><a name="pwresetcli"></a>Reimpostare la password
-1. Creare un file denominato PrivateConf.json con queste righe. Sostituire le parentesi e i valori &#60;segnaposto&#62; con le informazioni personalizzate.
-   
+1. Creare un file denominato PrivateConf.json nel computer locale con queste righe. Sostituire **myUserName** e ** myP@ssW0rd ** con il proprio nome utente e password e impostare la data di scadenza.
+
+    ```   
         {
-        "username":"<currentusername>",
-        "password":"<newpassword>",
-        "expiration":"<2016-01-01>"
+        "username":"myUserName",
+        "password":"myP@ssW0rd",
+        "expiration":"2020-01-01"
         }
-2. Eseguire questo comando, sostituendo il nome della macchina virtuale in &#60;nome-vm&#62;.
-   
-        azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* –-private-config-path PrivateConf.json
+    ```
+        
+2. Eseguire questo comando, sostituendo il nome della macchina virtuale in **myVM**.
+
+    ```   
+        azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* –-private-config-path PrivateConf.json
+    ```
 
 ## <a name="a-namesshkeyresetcliareset-the-ssh-key"></a><a name="sshkeyresetcli"></a>Reimpostare la chiave SSH
-1. Creare un file denominato PrivateConf.json con questo contenuto. Sostituire le parentesi e i valori &#60;segnaposto&#62; con le informazioni personalizzate.
-   
+1. Creare un file denominato PrivateConf.json con questo contenuto. Sostituire i valori **myUserName** e **mySSHKey** con le proprie informazioni.
+
+    ```   
         {
-        "username":"<currentusername>",
-        "ssh_key":"<contentofsshkey>"
+        "username":"myUserName",
+        "ssh_key":"mySSHKey"
         }
-2. Eseguire questo comando, sostituendo il nome della macchina virtuale in &#60;nome-vm&#62;.
+    ```
+2. Eseguire questo comando, sostituendo il nome della macchina virtuale in **myVM**.
    
-        azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
+        azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
 ## <a name="a-nameresetbothcliareset-both-the-password-and-the-ssh-key"></a><a name="resetbothcli"></a>Reimpostare sia la password sia la chiave SSH
-1. Creare un file denominato PrivateConf.json con questo contenuto. Sostituire le parentesi e i valori &#60;segnaposto&#62; con le informazioni personalizzate.
-   
+1. Creare un file denominato PrivateConf.json con questo contenuto. Sostituire i valori **myUserName**, **mySSHKey** e **myP@ssW0rd** con le proprie informazioni.
+
+    ``` 
         {
-        "username":"<currentusername>",
-        "ssh_key":"<contentofsshkey>",
-        "password":"<newpassword>"
+        "username":"myUserName",
+        "ssh_key":"mySSHKey",
+        "password":"myP@ssW0rd"
         }
-2. Eseguire questo comando, sostituendo il nome della macchina virtuale in &#60;nome-vm&#62;.
-   
-        azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
+    ```
+
+2. Eseguire questo comando, sostituendo il nome della macchina virtuale in **myVM**.
+
+    ```   
+        azure vm extension set MyVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
+    ```
 
 ## <a name="a-namecreatenewsudocliacreate-a-new-sudo-user-account"></a><a name="createnewsudocli"></a>Creare un nuovo account utente sudo
+
 Se si dimentica il nome utente, è possibile usare VMAccess per crearne uno nuovo con privilegi sudo. In questo caso, il nome utente e la password esistenti non verranno modificati.
 
 Per creare un nuovo utente sudo con accesso tramite password, usare lo script in [Reimpostare la password](#pwresetcli) e specificare il nuovo nome utente.
@@ -104,55 +117,77 @@ Se la configurazione SSH è in uno stato indesiderato, si potrebbe perdere anche
 > 
 
 1. Creare un file denominato PrivateConf.json con questo contenuto.
-   
+
+    ```   
         {
         "reset_ssh":"True"
         }
-2. Eseguire questo comando, sostituendo il nome della macchina virtuale in &#60;nome-vm&#62;. 
-   
-        azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
+    ```
+
+2. Eseguire questo comando, sostituendo il nome della macchina virtuale in **myVM**. 
+
+    ```   
+        azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
+    ```
 
 ## <a name="a-namedeletecliadelete-a-user"></a><a name="deletecli"></a>Eliminare un utente
 Se si desidera eliminare un account utente senza accedere alla macchina virtuale direttamente, è possibile usare questo script.
 
-1. Creare un file denominato PrivateConf json con questo contenuto, sostituendo il nome utente da rimuovere in &#60;usernametoremove&#62;. 
-   
+1. Creare un file denominato PrivateConf.json con questo contenuto, sostituendo il nome utente da rimuovere in **removeUserName**. 
+
+    ```   
         {
-        "remove_user":"<usernametoremove>"
+        "remove_user":"removeUserName"
         }
-2. Eseguire questo comando, sostituendo il nome della macchina virtuale in &#60;nome-vm&#62;. 
-   
-        azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
+    ```
+
+2. Eseguire questo comando, sostituendo il nome della macchina virtuale in **myVM**. 
+
+    ```   
+        azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
+    ```
 
 ## <a name="a-namestatuscliadisplay-the-status-of-the-vmaccess-extension"></a><a name="statuscli"></a>Visualizzare lo stato dell'estensione VMAccess
 Per visualizzare lo stato dell'estensione VMAccess, eseguire questo comando.
 
+```
         azure vm extension get
+```
 
-## <a name="a-namecheckdiskacheck-consistency-of-added-disks"></a><a name='checkdisk'<</a>Verificare la coerenza dei dischi aggiunti
+## <a name="a-namecheckdiskacheck-consistency-of-added-disks"></a><a name='checkdisk'></a>Verificare la coerenza dei dischi aggiunti
 Per eseguire fsck su tutti i dischi nella macchina virtuale Linux, è necessario eseguire le operazioni seguenti:
 
 1. Creare un file denominato PublicConf.json con questo contenuto. Il controllo del disco accetta un valore booleano che indica se controllare o meno i dischi collegati alla macchina virtuale. 
-   
+
+    ```   
         {   
         "check_disk": "true"
         }
-2. Eseguire questo comando, sostituendo il nome della macchina virtuale in &#60;nome-vm&#62;.
-   
-        azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json 
+    ```
+
+2. Eseguire questo comando, sostituendo il nome della macchina virtuale in **myVM**.
+
+    ```   
+        azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json 
+    ```
 
 ## <a name="a-namerepairdiskarepair-disks"></a><a name='repairdisk'></a>Riparare i dischi
-Per ripristinare i dischi che presentano problemi di montaggio o errori di configurazione di montaggio, usare l'estensione VMAccess per reimpostare la configurazione di montaggio nella macchina virtuale Linux. Sostituendo il nome del disco in &#60; disco&#62;.
+Per ripristinare i dischi che presentano problemi di montaggio o errori di configurazione di montaggio, usare l'estensione VMAccess per reimpostare la configurazione di montaggio nella macchina virtuale Linux. Sostituire il nome del disco in **myDisk**.
 
 1. Creare un file denominato PublicConf.json con questo contenuto. 
-   
+
+    ```   
         {
         "repair_disk":"true",
-        "disk_name":"<yourdisk>"
+        "disk_name":"myDisk"
         }
-2. Eseguire questo comando, sostituendo il nome della macchina virtuale in &#60;nome-vm&#62;.
-   
-        azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json
+    ```
+
+2. Eseguire questo comando, sostituendo il nome della macchina virtuale in **myVM**.
+
+    ```   
+        azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json
+    ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Se per reimpostare la password o la chiave SSH, correggere la configurazione SSH e verificare la coerenza dei dischi si vogliono usare cmdlet Azure PowerShell o modelli di Azure Resource Manager, vedere la [documentazione dell'estensione VMAccess in GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). 
@@ -162,6 +197,6 @@ Per ripristinare i dischi che presentano problemi di montaggio o errori di confi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

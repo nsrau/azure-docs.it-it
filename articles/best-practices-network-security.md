@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jonor;sivae
 translationtype: Human Translation
-ms.sourcegitcommit: f5bdbd801107650f87993b395338adfb1b26d17e
-ms.openlocfilehash: 634f0c28c833612fdd1a6cd656c364eb3f5e43e5
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 42fe3f1789344f98782c3e24cdc19fe299ac7c02
 
 
 ---
@@ -33,7 +33,7 @@ Il grafico logico seguente indirizza a un esempio specifico delle numerose tecni
 [Esempio 4: Aggiungere una connessione ibrida con un'appliance virtuale da sito a sito e con una rete virtuale privata (VPN).](#example-4-add-a-hybrid-connection-with-a-site-to-site-virtual-appliance-virtual-private-network)</br>
 [Esempio 5: Aggiungere una connessione ibrida con un gateway VPN di Azure da sito a sito.](#example-5-add-a-hybrid-connection-with-a-site-to-site-azure-gateway-vpn)</br>
 [Esempio 6: Aggiungere una connessione ibrida con ExpressRoute.](#example-6-add-a-hybrid-connection-with-expressroute)</br>
- Nei prossimi mesi saranno resi disponibili in questo documento esempi per l'aggiunta di connessioni tra reti virtuali, la disponibilità elevata e il concatenamento dei servizi.
+Nei prossimi mesi saranno resi disponibili in questo documento esempi per l'aggiunta di connessioni tra reti virtuali, la disponibilità elevata e il concatenamento dei servizi.
 
 ## <a name="microsoft-compliance-and-infrastructure-protection"></a>Conformità Microsoft e protezione dell'infrastruttura
 Microsoft ha assunto una posizione di leadership nel supporto delle iniziative di conformità necessarie per i clienti aziendali. Queste sono alcune certificazioni di conformità ottenute da Azure: ![Notifiche sulla conformità di Azure][1]
@@ -512,7 +512,7 @@ L'aggiunta di una connessione di rete con peering privato di ExpressRoute può e
 ## <a name="references"></a>Riferimenti
 ### <a name="helpful-websites-and-documentation"></a>Siti Web e documentazione utili
 * Accedere ad Azure tramite Azure Resource Manager:
-* Accesso ad Azure con PowerShell: [https://azure.microsoft.com/documentation/articles/powershell-install-configure/](powershell-install-configure.md)
+* Accesso ad Azure con PowerShell: [https://azure.microsoft.com/documentation/articles/powershell-install-configure/](/powershell/azureps-cmdlets-docs)
 * Documentazione sulle reti virtuali: [https://azure.microsoft.com/documentation/services/virtual-network/](https://azure.microsoft.com/documentation/services/virtual-network/)
 * Documentazione sui gruppi di sicurezza di rete: [https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/](virtual-network/virtual-networks-nsg.md)
 * Documentazione sul routing definito dall'utente: [https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/](virtual-network/virtual-networks-udr-overview.md)
@@ -532,8 +532,8 @@ L'aggiunta di una connessione di rete con peering privato di ExpressRoute può e
 [8]: ./media/best-practices-network-security/example2design.png "Rete perimetrale in ingresso con appliance virtuale di rete e gruppo di sicurezza di rete"
 [9]: ./media/best-practices-network-security/example3design.png "Rete perimetrale bidirezionale con appliance virtuale di rete, gruppo di sicurezza di rete e routing definito dall'utente"
 [10]: ./media/best-practices-network-security/example3firewalllogical.png "Visualizzazione logica delle regole del firewall"
-[11]: ./media/best-practices-network-security/example4designoptions.png "Rete perimetrale con appliance virtuale di rete connessa tramite rete ibrida"
-[12]: ./media/best-practices-network-security/example4designs2s.png "Rete perimetrale con appliance virtuale di rete connessa tramite VPN da sito a sito"
+[11]: ./media/best-practices-network-security/example4designoptions.png "Rete perimetrale con appliance virtuale di rete connesso tramite rete ibrida"
+[12]: ./media/best-practices-network-security/example4designs2s.png "Rete perimetrale con appliance virtuale di rete connesso tramite VPN da sito a sito"
 [13]: ./media/best-practices-network-security/example4networklogical.png "Rete logica dal punto di vista dell'appliance virtuale di rete"
 [14]: ./media/best-practices-network-security/example5designoptions.png "Rete perimetrale con gateway di Azure connesso tramite rete ibrida da sito a sito"
 [15]: ./media/best-practices-network-security/example5designs2s.png "Rete perimetrale con gateway di Azure che usa la VPN da sito a sito"
@@ -552,6 +552,6 @@ L'aggiunta di una connessione di rete con peering privato di ExpressRoute può e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

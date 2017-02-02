@@ -28,7 +28,7 @@ Microsoft Azure IoT Suite consente di sfruttare la protezione e la privacy integ
 
 Per descrivere al meglio le funzionalità di protezione e privacy incorporate, la soluzione Azure IoT Suite è stata scomposta nelle tre principali aree di sicurezza. 
 
-![Azure IoT Suite](media/iot-security-ground-up/securing-iot-ground-up-fig2.png)
+![Azure IoT Suite](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
 
 ### <a name="secure-device-provisioning-and-authentication"></a>Proteggere il provisioning dei dispositivi e l'autenticazione
 Azure IoT Suite protegge i dispositivi durante l'operatività, fornendo una chiave di identità univoca per ogni dispositivo, che l'infrastruttura IoT può usare per comunicare con il dispositivo mentre è in funzione. Il processo è rapido e semplice da configurare. La chiave generata con un ID dispositivo scelto dall'utente costituisce la base di un token usato in tutte le comunicazioni tra il dispositivo e l'hub IoT di Azure.

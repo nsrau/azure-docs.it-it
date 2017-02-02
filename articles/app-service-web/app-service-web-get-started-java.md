@@ -1,5 +1,5 @@
 ---
-title: Distribuire la prima app Web Java in Azure in cinque minuti | Documentazione Microsoft
+title: Distribuire la prima app Web Java in Azure in cinque minuti (anteprima dell&quot;interfaccia della riga di comando 2.0) | Documentazione Microsoft
 description: "Informazioni su come eseguire facilmente app Web nel servizio app mediante la distribuzione di un&quot;app di esempio. È possibile eseguire rapidamente vere e proprie attività di sviluppo con risultati immediati."
 services: app-service\web
 documentationcenter: 
@@ -12,15 +12,26 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 90c1099f7970fc490ca01f2d815679f967c46187
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: af27369b0ae8de0ece6da38a78b434e595fbfc4e
 
 
 ---
-# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes"></a>Distribuire la prima app Web Java in Azure in cinque minuti
+# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Distribuire la prima app Web Java in Azure in cinque minuti (anteprima dell'interfaccia della riga di comando 2.0)
+
+> [!div class="op_single_selector"]
+> * [Primo sito HTML](app-service-web-get-started-html-cli-nodejs.md)
+> * [Prima app .NET](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [Prima app PHP](app-service-web-get-started-php-cli-nodejs.md)
+> * [Prima app Node.js](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [Prima app Python](app-service-web-get-started-python-cli-nodejs.md)
+> * [Prima app Java](app-service-web-get-started-java.md)
+> 
+> 
+
 Questa esercitazione illustra come distribuire una semplice app Web Java nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md).
 Il servizio app consente di creare app Web, [back-end di app per dispositivi mobili](/documentation/learning-paths/appservice-mobileapps/) e [app per le API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
@@ -35,7 +46,7 @@ Si apprenderà come:
 * Ottenere un account Microsoft Azure. Se non si ha un account, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) oppure [attivare i vantaggi per i sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> È possibile [provare il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751) senza avere un account Azure. Creare un'app iniziale e provarla per un'ora, senza impegno e senza dover usare la carta di credito.
+> È possibile [provare il servizio app](https://azure.microsoft.com/try/app-service/) senza avere un account Azure. Creare un'app iniziale e provarla per un'ora, senza impegno e senza dover usare la carta di credito.
 > 
 > 
 
@@ -73,7 +84,7 @@ Verrà ora illustrato come distribuire un'app Java in Azure con FTPS.
     ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
 2. In **Versione Java** selezionare **Java 8** e fare clic su **Salva**.
    
-    ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
+    ![](./media/app-service-web-get-started-languages/set-java.png)
    
     Quando viene visualizzata la notifica **Le impostazioni dell'app Web sono state aggiornate**, passare a http://*&lt;nomeapp>*.azurewebsites.net per osservare il funzionamento del servlet JSP predefinito.
 3. Tornare al pannello dell'app Web e scorrere verso il basso fino alla voce **Credenziali per la distribuzione** oppure cercarla e quindi fare clic su di essa.
@@ -120,6 +131,6 @@ In alternativa, è possibile fare altre prove con la prima app Web, ad esempio:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2016
+ms.date: 12/20/2016
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 51325cf5f473123c5efeb571f52e04b540b182ad
+ms.sourcegitcommit: ff7ab2560e544beb8110af9f78074aa184227885
+ms.openlocfilehash: cc74dd3400018a09433b83cd62b8d893fe118f04
 
 
 ---
@@ -26,7 +26,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 Attualmente Azure Data Factory supporta solo lo spostamento di dati da Salesforce verso gli [archivi dati sink supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats), ma non supporta lo spostamento di dati da altri archivi dati a Salesforce.
 
 ## <a name="supported-versions"></a>Versioni supportate
-Questo connettore supporta le seguenti edizioni di Salesforce: Developer Edition, Professional Edition, Enterprise Edition o Unlimited Edition.
+Questo connettore supporta le edizioni di Salesforce seguenti: Developer Edition, Professional Edition, Enterprise Edition o Unlimited Edition. Supporta anche la copia dall'ambiente di produzione, dalla sandbox e dal dominio personalizzato di Salesforce.
 
 ## <a name="prerequisites"></a>Prerequisiti
 * È necessario abilitare l'autorizzazione API. Vedere [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
@@ -192,7 +192,6 @@ Per l'elenco delle proprietà supportate da RelationalSource, vedere [Proprietà
 > [!IMPORTANT]
 > La parte "__c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.
 >
->
 
 ![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
@@ -202,6 +201,7 @@ La tabella seguente include le descrizioni degli elementi JSON specifici del ser
 | Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | type |La proprietà type deve essere impostata su **Salesforce**. |Sì |
+| environmentUrl | Specificare l'URL dell'istanza di Salesforce. <br><br> - Il valore predefinito è "https://login.salesforce.com". <br> - Per copiare i dati dalla sandbox, specificare "https://test.salesforce.com". <br> - Per copiare i dati dal dominio personalizzato, specificare "https://[dominio].my.salesforce.com". |No |
 | username |Specificare un nome utente per l'account utente. |Sì |
 | password |Specificare la password per l'account utente. |Sì |
 | securityToken |Specificare un token di sicurezza per l'account utente. Per istruzioni su come ottenere o reimpostare un token di sicurezza, vedere [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Ottenere un token di sicurezza). Per informazioni generali sui token di sicurezza, vedere [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sicurezza e API). |Sì |
@@ -290,6 +290,6 @@ Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spos
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

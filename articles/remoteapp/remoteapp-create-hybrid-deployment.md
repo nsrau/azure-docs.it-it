@@ -3,7 +3,7 @@ title: Come creare una raccolta ibrida per Azure RemoteApp | Microsoft Docs
 description: Informazioni su come creare una distribuzione di RemoteApp si connette alla rete interna.
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 editor: 
 ms.assetid: 08ea0ce3-3a2c-4ddf-9394-6d75c8030cb1
@@ -12,11 +12,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 79434166999d4f847f28cf6a05a21f1cd002d75f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 15430904979108cbebe4a64a8ae07f2f01b82690
 
 
 ---
@@ -51,7 +51,7 @@ Prima di creare la raccolta, è necessario eseguire le operazioni seguenti:
 * [Accedere](https://azure.microsoft.com/services/remoteapp/) ad Azure RemoteApp.
 * Creare in Active Directory un account utente da usare come account del servizio RemoteApp di Azure. Limitare le autorizzazioni per l'account in modo che possa aggiungere computer al dominio.
 * Raccogliere informazioni sulla rete locale: informazioni sull'indirizzo IP e dettagli sul dispositivo VPN.
-* Installare il modulo [Azure PowerShell](../powershell-install-configure.md) .
+* Installare il modulo [Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 * Raccogliere informazioni sugli utenti a cui concedere l'accesso. È necessario il nome dell'entità utente Azure Active Directory (ad esempio, name@contoso.com)) per ogni utente. Assicurarsi che il nome UPN corrisponda tra Azure Active Directory e Active Directory.
 * Scegliere un'immagine modello. Un'immagine modello di RemoteApp di Azure contiene le app e i programmi da pubblicare per gli utenti. Per altre informazioni, vedere [Opzioni immagine di RemoteApp di Azure](remoteapp-imageoptions.md) .
 * Se si desidera usare l'immagine di Office 365 ProPlus, consultare le informazioni in [questo articolo](remoteapp-officesubscription.md).
@@ -126,7 +126,7 @@ A questo punto, dopo avere creato la raccolta, è necessario aggiungere gli uten
    
    **Note:**
    
-   Assicurarsi di usare il formato “user@domain.com”.
+   Assicurarsi di usare il formato *user@domain.com*.
    
    Se si usa Office 365 ProPlus alla raccolta, è necessario usare le identità di Active Directory per gli utenti. Ciò consente di convalidare la licenza.
 3. Dopo la convalida degli utenti, fare clic su **Salva**.
@@ -140,6 +140,6 @@ Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

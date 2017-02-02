@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/04/2017
+ms.date: 01/11/2017
 ms.author: carlrab; janeng
 translationtype: Human Translation
-ms.sourcegitcommit: a40319d3e53c07a94bc34714ca7393c2747fb50c
-ms.openlocfilehash: 340656b896763914c2f6d37c72ce1d5323d1411e
+ms.sourcegitcommit: a909265ce7e6cc5915bb6cd999a887b9798e5b0b
+ms.openlocfilehash: 5d37d2b31a04baa14b456b96de70e2299a933b8e
 
 
 ---
@@ -41,7 +41,7 @@ Nella tabella seguente sono riportati esempi dei livelli ottimali adatti ai cari
 Innanzitutto, decidere se si vuole eseguire un database singolo o se si vuole raggruppare i database che condividono risorse. Fare riferimento alle [considerazioni sul pool elastico](sql-database-elastic-pool-guidance.md). Per decidere il livello di servizio da usare, stabilire innanzitutto le funzionalità minime necessarie del database:
 
 * Dimensioni massime del database per database singoli: 2 GB massimo per Basic, 250 GB massimo per Standard e da 500 GB a 1 TB massimo per Premium per livelli di prestazioni elevati
-* Archiviazione totale massima in caso di pool elastico: 117 GB per Basic, 1200 per Standard e 750 per Premium
+* Archiviazione totale massima in caso di pool elastico: 117 GB per Basic, 1200 GB per Standard e 750 GB per Premium
 * Numero massimo di database per ogni pool: 400 per Basic, 400 per Standard e 50 per Premium
 * Periodo di conservazione dei backup del database: 7 giorni per Basic e 35 giorni per Standard e Premium
 
@@ -49,8 +49,7 @@ Dopo aver determinato il livello di servizio minimo, è possibile determinare il
 
 Dopo aver selezionato inizialmente un livello di prestazioni, è possibile ridimensionare il [database singolo](sql-database-scale-up.md) o il [pool elastico](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) in modo dinamico in base all'esperienza effettiva. Per gli scenari di migrazione, è anche possibile usare lo strumento per il [calcolo di DTU](http://dtucalculator.azurewebsites.net/) per simulare il numero di DTU necessario. 
 
->
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>Livelli di servizio e di prestazioni per database singoli
@@ -84,6 +83,6 @@ Ciascun database all'interno di un pool è inoltre conforme alle caratteristiche
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

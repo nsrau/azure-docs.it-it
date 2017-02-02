@@ -1,11 +1,10 @@
 ---
 services: virtual-machines
-title: Using Azure CLI with Azure Resource Manager
+title: Usare l&quot;interfaccia della riga di comando di Azure con Azure Resource Manager
 author: squillace
-solutions: ''
+solutions: 
 manager: timlt
 editor: tysonn
-
 ms.service: virtual-machine
 ms.devlang: na
 ms.topic: article
@@ -13,9 +12,13 @@ ms.tgt_pltfrm: linux
 ms.workload: infrastructure
 ms.date: 04/13/2015
 ms.author: rasquill
+translationtype: Human Translation
+ms.sourcegitcommit: e664ce9426a2852a35dfdade5d41a9ce8b37a3b7
+ms.openlocfilehash: e2f9d2c74e5dfa0a08f25685062903a985ba641c
+
 
 ---
-## Utilizzare l'interfaccia della riga di comando di Azure con Gestione risorse di Azure
+## <a name="using-azure-cli-with-azure-resource-manager-arm"></a>Utilizzare l'interfaccia della riga di comando di Azure con Gestione risorse di Azure
 Prima di utilizzare l'interfaccia della riga di comando di Azure con i comandi e i modelli di Gestione risorse al fine di distribuire i carichi di lavoro e le risorse di Azure tramite gruppi di risorse, è necessario disporre di un account Azure. Se non si dispone di un account, è possibile ottenere un [Azure qui versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 > [!NOTE]
@@ -23,7 +26,7 @@ Prima di utilizzare l'interfaccia della riga di comando di Azure con i comandi e
 > 
 > 
 
-### Passaggio 1: verificare la versione dell'interfaccia della riga di comando di Azure
+### <a name="step-1-verify-the-azure-cli-version"></a>Passaggio 1: verificare la versione dell'interfaccia della riga di comando di Azure
 Al fine di utilizzare l'interfaccia della riga di comando di Azure per comandi imperativi e modelli di Gestione risorse, è necessario verificare che sia disponibile almeno la versione 0.8.17. Per verificare la versione, digitare `azure --version`. Dovrebbe essere visualizzata una schermata analoga alla seguente:
 
     $ azure --version
@@ -31,8 +34,8 @@ Al fine di utilizzare l'interfaccia della riga di comando di Azure per comandi i
 
 Se si desidera aggiornare la versione dell'interfaccia della riga di comando di Azure vedere [Interfaccia della riga di comando di Azure](https://github.com/Azure/azure-xplat-cli).
 
-### Passaggio 2: Verificare che si utilizza un lavoro o scuola identità con Azure
-È possibile utilizzare la modalità di comando ARM solo se si utilizza un [tenant Azure Active Directory](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) o [nome dell'entità servizio](https://msdn.microsoft.com/library/azure/dn132633.aspx). (Detti anche *ID organizzativo*.)
+### <a name="step-2-verify-you-are-using-a-work-or-school-identity-with-azure"></a>Passaggio 2: Verificare che si utilizza un lavoro o scuola identità con Azure
+È possibile usare la modalità di comando Azure Resource Manager solo se si usa un [tenant Azure Active Directory](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) o un [nome dell'entità servizio](https://msdn.microsoft.com/library/azure/dn132633.aspx). (Detti anche *ID organizzativo*.)
 
 Per vedere se si dispone di uno, connettersi digitando `azure login` e l'utilizzo del lavoro o scuola username e password quando richiesto. Se si dispone di uno, si otterrà qualcosa di simile al seguente:
 
@@ -47,10 +50,10 @@ Per vedere se si dispone di uno, connettersi digitando `azure login` e l'utilizz
     +
     info:    login command OK
 
-Se questo non è visualizzato, è necessario creare un nuovo tenant (o entità servizio) con l'identità dell'account Microsoft. (Si tratta spesso avviene per gli abbonamenti MSDN personali o sottoscrizioni di valutazione gratuite.) Per creare un id di lavoro o scuola dall'account creato con un id di Microsoft Azure, vedere [associare una Directory di Azure AD una nuova sottoscrizione Azure](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). Se si ritiene di che aver già un id organizzazione, potrebbe essere necessario comunicare con la persona che ha creato l'account per l'utente.
+Se questo non è visualizzato, è necessario creare un nuovo tenant (o entità servizio) con l'identità dell'account Microsoft. Questo problema si verifica spesso con le sottoscrizioni di MSDN personali o con le sottoscrizioni di una versione di valutazione gratuita. Per creare un ID aziendale o dell'istituto di istruzione dall'account Azure creato con un ID Microsoft, vedere [Associare una directory di Azure AD a una nuova sottoscrizione di Azure](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). Se si ritiene di che aver già un id organizzazione, potrebbe essere necessario comunicare con la persona che ha creato l'account per l'utente.
 
-### Passaggio 3: Scegliere la sottoscrizione di Azure
-Se si dispone solo una sottoscrizione nell'account Azure, l'interfaccia della riga di comando di Azure viene associata con quell'abbonamento (impostazione predefinita). Se si dispone di più di una sottoscrizione, è necessario selezionare la sottoscrizione che si desidera utilizzare digitando `azure account set <subscription id or name> true` dove *nome o id sottoscrizione* è l'id sottoscrizione o il nome della sottoscrizione che si desidera utilizzare nella sessione corrente.
+### <a name="step-3-choose-your-azure-subscription"></a>Passaggio 3: Scegliere la sottoscrizione di Azure
+Se si dispone solo una sottoscrizione nell'account Azure, l'interfaccia della riga di comando di Azure viene associata con quell'abbonamento (impostazione predefinita). Se si ha più di una sottoscrizione, è necessario selezionare la sottoscrizione che si vuole usare digitando `azure account set <subscription id or name> true` dove *subscription id or name* è l'ID sottoscrizione o il nome della sottoscrizione che si vuole usare nella sessione corrente.
 
 Verrà visualizzata una schermata simile alla seguente:
 
@@ -60,7 +63,7 @@ Verrà visualizzata una schermata simile alla seguente:
     info:    Changes saved
     info:    account set command OK
 
-### Passaggio 4: inserire l'interfaccia della riga di comando di Azure nella modalità Gestione risorse di Azure
+### <a name="step-4-place-your-azure-cli-in-the-arm-mode"></a>Passaggio 4: inserire l'interfaccia della riga di comando di Azure nella modalità Gestione risorse di Azure
 Per utilizzare la modalità Gestione risorse di Azure con l'interfaccia della riga di comando di Azure, digitare `azure config mode arm`. Verrà visualizzata una schermata simile alla seguente:
 
     $ azure config mode arm
@@ -71,4 +74,9 @@ Per utilizzare la modalità Gestione risorse di Azure con l'interfaccia della ri
 > 
 > 
 
-<!---HONumber=AcomDC_0128_2016-->
+
+
+
+<!--HONumber=Jan17_HO3-->
+
+

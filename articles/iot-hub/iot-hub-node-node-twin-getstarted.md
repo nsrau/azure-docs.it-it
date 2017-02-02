@@ -1,12 +1,12 @@
 ---
-title: Introduzione ai dispositivi gemelli | Microsoft Docs
-description: Questa esercitazione illustra come usare i dispositivi gemelli.
+title: Introduzione ai dispositivi gemelli dell&quot;hub IoT di Azure (Node) | Documentazione Microsoft
+description: Come usare i dispositivi gemelli dell&quot;hub IoT di Azure per aggiungere tag e quindi usare una query dell&quot;hub IoT. Usare Azure IoT SDK per Node.js per implementare l&quot;app per dispositivo simulato e un&quot;app di servizio che aggiunge i tag ed esegue la query dell&quot;hub IoT.
 services: iot-hub
 documentationcenter: node
 author: fsautomata
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 314c88e4-cce1-441c-b75a-d2e08e39ae7d
 ms.service: iot-hub
 ms.devlang: node
 ms.topic: article
@@ -14,30 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
 ms.author: elioda
+translationtype: Human Translation
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 527aed57517f04d1b0fdcad5feac5488123b89c7
+
 
 ---
-# <a name="tutorial:-get-started-with-device-twins-(preview)"></a>Esercitazione: Introduzione ai dispositivi gemelli (anteprima)
+# <a name="get-started-with-device-twins-node"></a>Introduzione ai dispositivi gemelli (Node)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
-Al termine di questa esercitazione si avranno due applicazioni console Node.js:
+Al termine di questa esercitazione si avranno due app console Node.js:
 
-* **AddTagsAndQuery.js**, un'app Node.js che deve essere eseguita dal back-end, che aggiunge tag ed effettua query dei dispositivi gemelli.
+* **AddTagsAndQuery.js**, un'app back-end di Node.js, che aggiunge tag ed esegue query sui dispositivi gemelli.
 * **TwinSimulatedDevice.js**, un'app Node.js che simula un dispositivo che si connette all'hub IoT con l'identità del dispositivo creata prima e segnala la condizione della connettività.
 
 > [!NOTE]
-> L'articolo [SDK Hub IoT][lnk-hub-sdks] fornisce informazioni sui vari SDK che consentono di compilare le applicazioni per dispositivi e back-end.
+> L'articolo [Azure IoT SDK][lnk-hub-sdks] contiene informazioni sui componenti Azure IoT SDK che consentono di compilare le app back-end e per dispositivi.
 > 
 > 
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Node.js 0.10.x o versione successiva.
-* Un account Azure attivo. Se non si ha un account è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][lnk-free-trial].
+* Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito][lnk-free-trial] in pochi minuti.
 
-[!INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
+[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+
+[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-the-service-app"></a>Creare l'app di servizio
-In questa sezione si crea a un'app console Node.js che aggiunge i metadati della posizione al dispositivo gemello associato a **myDeviceId**. Viene quindi effettua una query dei dispositivi gemelli archiviati nell'hub selezionando i dispositivi situati negli Stati Uniti e quindi quelli che segnalano una rete cellulare.
+In questa sezione si crea a un'app console Node.js che aggiunge i metadati della posizione al dispositivo gemello associato a **myDeviceId**. Viene quindi effettua una query dei dispositivi gemelli archiviati nell'hub IoT selezionando i dispositivi situati negli Stati Uniti e quindi quelli che segnalano una rete cellulare.
 
 1. Creare una nuova cartella vuota denominata **addtagsandqueryapp**. Nella cartella **addtagsandqueryapp** creare un nuovo file package.json immettendo il comando seguente al prompt dei comandi. Accettare tutte le impostazioni predefinite:
    
@@ -47,14 +53,14 @@ In questa sezione si crea a un'app console Node.js che aggiunge i metadati della
 2. Eseguire questo comando al prompt dei comandi nella cartella **addtagsandqueryapp** per installare il pacchetto **azure-iothub**:
    
     ```
-    npm install azure-iothub@dtpreview --save
+    npm install azure-iothub --save
     ```
 3. Usando un editor di testo, creare un nuovo file **AddTagsAndQuery.js** nella cartella **addtagsandqueryapp**.
-4. Aggiungere il codice seguente al file **AddTagsAndQuery.js** e sostituire il segnaposto **{service connection string}** con la stringa di connessione copiata quando si è creato l'hub:
+4. Aggiungere il codice seguente al file **AddTagsAndQuery.js** e sostituire il segnaposto **{iot hub connection string}** con la stringa di connessione dell'hub IoT copiata quando è stato creato l'hub:
    
         'use strict';
         var iothub = require('azure-iothub');
-        var connectionString = '{service hub connection string}';
+        var connectionString = '{iot hub connection string}';
         var registry = iothub.Registry.fromConnectionString(connectionString);
    
         registry.getTwin('myDeviceId', function(err, twin){
@@ -81,7 +87,7 @@ In questa sezione si crea a un'app console Node.js che aggiunge i metadati della
             }
         });
    
-    L'oggetto **Registry** espone tutti i metodi necessari per interagire con i dispositivi gemelli dal servizio. Il codice precedente prima inizializza l'oggetto **Registry**, quindi recupera il dispositivo gemello per **myDeviceId** e infine ne aggiorna i tag con le informazioni sulla posizione desiderate.
+    L'oggetto **Registry** espone tutti i metodi necessari per interagire con i dispositivi gemelli dal servizio. Il codice precedente inizializza prima l'oggetto **Registry**, quindi recupera il dispositivo gemello per **myDeviceId** e infine ne aggiorna i tag con le informazioni sulla posizione desiderate.
    
     Dopo avere aggiornato i tag, chiama la funzione **queryTwins**.
 5. Aggiungere il codice seguente alla fine di **AddTagsAndQuery.js** per implementare la funzione **queryTwins**:
@@ -123,7 +129,7 @@ Nella sezione successiva si crea un'app per dispositivo che segnala le informazi
 In questa sezione si crea un'app console Node.js che si connette all'hub come **myDeviceId** e quindi aggiorna le proprietà segnalate del dispositivo gemello per poter contenere le informazioni relative alla connessione usando una rete cellulare.
 
 > [!NOTE]
-> Al momento i dispositivi gemelli sono accessibili solo dai dispositivi che si connettono all'hub IoT usando il protocollo MQTT. Per istruzioni su come convertire l'app per dispositivo esistente in modo che usi MQTT, leggere l'articolo [Supporto di MQTT][lnk-devguide-mqtt].
+> Al momento i dispositivi gemelli sono accessibili solo dai dispositivi che si connettono all'hub IoT tramite il protocollo MQTT. Per istruzioni su come convertire l'app per dispositivo esistente in modo che usi MQTT, vedere l'articolo [Supporto di MQTT][lnk-devguide-mqtt].
 > 
 > 
 
@@ -135,10 +141,10 @@ In questa sezione si crea un'app console Node.js che si connette all'hub come **
 2. Eseguire questo comando al prompt dei comandi nella cartella **reportconnectivity** per installare i pacchetti **azure-iot-device** e **azure-iot-device-mqtt**:
    
     ```
-    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
+    npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. Usando un editor di testo, creare un nuovo file **ReportConnectivity.js** nella cartella **reportconnectivity**.
-4. Aggiungere il codice seguente al file **ReportConnectivity.js** e sostituire il segnaposto **{device connection string}** con la stringa di connessione copiata quando si è creata l'identità del dispositivo **myDeviceId**:
+4. Aggiungere il codice seguente al file **ReportConnectivity.js** e sostituire il segnaposto **{device connection string}** con la stringa di connessione del dispositivo copiata quando si è creata l'identità del dispositivo **myDeviceId**:
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -191,13 +197,13 @@ In questa sezione si crea un'app console Node.js che si connette all'hub come **
     ![][3]
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione è stato configurato un nuovo hub IoT nel portale ed è stata quindi creata un'identità del dispositivo nel registro delle identità dell'hub. Sono stati aggiunti i metadati del dispositivo come tag da un'applicazione back-end ed è stata scritta un'app per dispositivo simulata per segnalare le informazioni sulla connettività del dispositivo nel dispositivo gemello. Si è anche appreso come effettuare una query di queste informazioni usando il linguaggio di query simile a SQL dell'hub IoT.
+In questa esercitazione è stato configurato un nuovo hub IoT nel Portale di Azure ed è stata quindi creata un'identità del dispositivo nel registro di identità dell'hub IoT. Sono stati aggiunti i metadati del dispositivo come tag da un'app back-end ed è stata scritta un'app per dispositivo simulato per segnalare le informazioni sulla connettività del dispositivo nel dispositivo gemello. Si è anche appreso come effettuare una query di queste informazioni usando il linguaggio di query simile a SQL dell'hub IoT.
 
 Per altre informazioni, vedere le risorse seguenti:
 
 * Per inviare dati di telemetria dai dispositivi, vedere l'esercitazione [Introduzione all'hub IoT][lnk-iothub-getstarted].
-* Per configurare i dispositivi usando le proprietà desiderate del dispositivo gemello, vedere l'esercitazione [Use desired properties to configure devices][lnk-twin-how-to-configure] (Usare le proprietà desiderate per configurare i dispositivi).
-* Per controllare i dispositivi in modo interattivo (ad esempio, per attivare una ventola da un'app controllata dall'utente), vedere l'esercitazione [Use direct methods][lnk-methods-tutorial] (Usare metodi diretti).
+* Per configurare i dispositivi usando le proprietà desiderate del dispositivo gemello, vedere l'esercitazione [Usare le proprietà desiderate per configurare i dispositivi][lnk-twin-how-to-configure].
+* Per controllare i dispositivi in modo interattivo, ad esempio per attivare un ventilatore da un'app controllata dall'utente, vedere l'esercitazione [Use direct methods][lnk-methods-tutorial] (Usare metodi diretti).
 
 <!-- images -->
 [1]: media/iot-hub-node-node-twin-getstarted/service1.png
@@ -214,17 +220,18 @@ Per altre informazioni, vedere le risorse seguenti:
 [lnk-identity]: iot-hub-devguide-identity-registry.md
 
 [lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md
-[lnk-device-management]: iot-hub-device-management-get-started.md
+[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 [lnk-twin-how-to-configure]: iot-hub-node-node-twin-how-to-configure.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
-[lnk-methods-tutorial]: iot-hub-c2d-methods.md
+[lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Dec16_HO1-->
 
 

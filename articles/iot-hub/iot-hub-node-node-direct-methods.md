@@ -1,6 +1,6 @@
 ---
-title: Usare metodi diretti | Documentazione Microsoft
-description: Questa esercitazione illustra come usare metodi diretti
+title: Metodi diretti dell&quot;Hub IoT di Azure (Node) | Documentazione Microsoft
+description: Come usare metodi diretti dell&quot;Hub IoT di Azure. Usare Azure IoT SDK per Node.js per implementare un&quot;app per dispositivo simulato che include un metodo diretto e un&quot;app di servizio che richiama il metodo diretto.
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/11/2017
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: fd80a245f2cc2415bec487f98360980534df8730
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 52eb502054120af4c03c649dee810366f99d326b
 
 
 ---
-# <a name="tutorial-use-direct-methods"></a>Esercitazione: Usare metodi diretti
+# <a name="use-direct-methods-node"></a>Usare metodi diretti (Node)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
-Al termine di questa esercitazione si avranno due applicazioni console Node.js:
+Al termine di questa esercitazione si avranno due app console Node.js:
 
 * **CallMethodOnDevice.js**, che chiama un metodo nell'app per dispositivo simulato e visualizza la risposta.
 * **SimulatedDevice.js**, che si connette all'hub IoT con l'identità del dispositivo creata in precedenza e risponde al metodo chiamato dal cloud.
@@ -64,7 +64,7 @@ In questa sezione viene creata un'applicazione console Node.js che risponde a un
     var Mqtt = require('azure-iot-device-mqtt').Mqtt;
     var DeviceClient = require('azure-iot-device').Client;
     ```
-5. Aggiungere una variabile **connectionString** e usarla per creare un client dispositivo. Sostituire **{stringa di connessione dispositivo}** con la stringa di connessione generata nella sezione *Creare un'identità del dispositivo*:
+5. Aggiungere una variabile **connectionString** e usarla per creare un'istanza di **DeviceClient**. Sostituire **{device connection string}** con la stringa di connessione del dispositivo generata nella sezione *Creare un'identità del dispositivo*:
    
     ```
     var connectionString = '{device connection string}';
@@ -167,7 +167,7 @@ A questo punto è possibile eseguire le app.
     ```
    
     ![][7]
-2. Al prompt dei comandi nella cartella **callmethodondevice** eseguire il comando seguente per iniziare a monitorare l'hub IoT:
+2. Al prompt dei comandi nella cartella **callmethodondevice** eseguire questo comando per iniziare a monitorare l'hub IoT:
    
     ```
     node CallMethodOnDevice.js 
@@ -196,7 +196,7 @@ Per informazioni su come estendere la soluzione IoT e pianificare le chiamate al
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -213,6 +213,6 @@ Per informazioni su come estendere la soluzione IoT e pianificare le chiamate al
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

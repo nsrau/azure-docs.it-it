@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: f5bdbd801107650f87993b395338adfb1b26d17e
-ms.openlocfilehash: 28f0a833ca410a518291c99b308ac52a1318761e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d408b5affc166ae4fae6b94ab3e069b51ecfdd3c
 
 
 ---
@@ -42,7 +42,7 @@ La tabella seguente riepiloga le caratteristiche dei meccanismi di ripetizione d
 | **[Ricerca di Azure](#azure-storage-retry-guidelines)** |Native nel client |Programmatica |Client |ETW o personalizzato |
 | **[Active Directory](#azure-active-directory-retry-guidelines)** |Topaz* (con strategia di rilevamento personalizzata) |Dichiarativa e a livello di codice |Blocchi di codice |Personalizzate |
 
-*Topaz come nome descrittivo per il Blocco di applicazioni per la gestione degli errori temporanei incluso nella [Enterprise Library 6.0][entlib]. Con Topaz è possibile usare una strategia di rilevamento personalizzata per la maggior parte dei servizi, come descritto in questo articolo. La sezione [Strategie del Blocco di applicazioni per la gestione degli errori temporanei (Topaz)](#transient-fault-handling-application-block-topaz-strategies) , alla fine di questo articolo, illustra le strategie predefinite per Topaz. Tenere presente che il blocco è ora un framework open source e non è direttamente supportato da Microsoft.
+*Topaz come nome descrittivo per il blocco di applicazioni per la gestione degli errori temporanei incluso nella [Enterprise Library 6.0][entlib]. Con Topaz è possibile usare una strategia di rilevamento personalizzata per la maggior parte dei servizi, come descritto in questo articolo. La sezione [Strategie del Blocco di applicazioni per la gestione degli errori temporanei (Topaz)](#transient-fault-handling-application-block-topaz-strategies) , alla fine di questo articolo, illustra le strategie predefinite per Topaz. Tenere presente che il blocco è ora un framework open source e non è direttamente supportato da Microsoft.
 
 > [!NOTE]
 > Per la maggior parte dei meccanismi di ripetizione dei tentativi incorporati in Azure, non è attualmente possibile applicare criteri di ripetizione dei tentativi differenti per diversi tipi di errore o eccezione, oltre alle funzionalità previste dai criteri stessi. Al momento della stesura di questo documento, quindi, il consiglio migliore è quello di configurare criteri che forniscano una combinazione ottimale di prestazioni e disponibilità. I criteri possono essere successivamente ottimizzati analizzando i file di log per determinare i tipi di errori temporanei che si sono verificati. Ad esempio, se la maggior parte degli errori è correlata a problemi di connettività di rete, si potrebbe optare per un tentativo immediato anziché attendere molto tempo per ripetere il primo tentativo.
@@ -926,7 +926,7 @@ Quando si usa Azure Active Directory, tenere presente le linee guida seguenti:
 | **Contesto** | **Destinazione di esempio E2E<br />latenza massima** | **Strategia di ripetizione dei tentativi** | **Impostazioni** | **Valori** | **Funzionamento** |
 | --- | --- | --- | --- | --- | --- |
 | Interattivo, interfaccia utente<br />o in primo piano |2 secondi |FixedInterval |Numero tentativi<br />Intervallo tentativi<br />Primo tentativo rapido |3<br />500 ms<br />true |Tentativo di 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di 500 ms<br />Tentativo 3 - intervallo di 500 ms |
-| Background<br /> o batch |60 secondi |ExponentialBackoff |Numero tentativi<br />Interruzione temporanea minima<br />Interruzione temporanea massima<br />Interruzione temporanea delta<br />Primo tentativo rapido |5<br />0 secondi<br />60 secondi<br />2 secondi<br />false |Tentativo di 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di ~2 sec<br />Tentativo 3 - intervallo di ~6 sec<br />Tentativo 4 - intervallo di ~14 sec<br />Tentativo 5 - intervallo di 30 sec |
+| Background<br />o batch |60 secondi |ExponentialBackoff |Numero tentativi<br />Interruzione temporanea minima<br />Interruzione temporanea massima<br />Interruzione temporanea delta<br />Primo tentativo rapido |5<br />0 secondi<br />60 secondi<br />2 secondi<br />false |Tentativo di 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di ~2 sec<br />Tentativo 3 - intervallo di ~6 sec<br />Tentativo 4 - intervallo di ~14 sec<br />Tentativo 5 - intervallo di 30 sec |
 
 ### <a name="examples"></a>esempi
 L'esempio di codice seguente illustra come usare il Blocco di applicazioni per la gestione degli errori temporanei (Topaz) per definire una strategia personalizzata di rilevamento degli errori temporanei idonea per il client ADAL. Il codice crea una nuova istanza **RetryPolicy** basata su una strategia di rilevamento personalizzata di tipo **AdalDetectionStrategy**, come definito nel codice riportato di seguito. Le strategie di rilevamento personalizzate per Topaz implementano l'interfaccia **ITransientErrorDetectionStrategy** e restituiscono true se deve essere eseguito un nuovo tentativo, **false** se l'errore sembra non essere temporaneo e, quindi, non deve essere eseguito un nuovo tentativo.
@@ -1101,6 +1101,6 @@ Per esempi di uso del Blocco di applicazioni per la gestione degli errori tempor
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
