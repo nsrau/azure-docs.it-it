@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: f33928b445ab93c48e9967cd6a2f64c6686e1a58
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 9f262eb2fa4c0bd8bf1442a7a3d013af6d9ad649
 
 
 ---
@@ -31,17 +31,22 @@ Si apprenderà come:
 * Osservare il codice in esecuzione nell'ambiente di produzione.
 * Aggiornare l'app Web nello stesso modo in cui si effettua il [push dei commit Git](https://git-scm.com/docs/git-push).
 
-> [!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
-> 
-> 
+[!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
+
+## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività
+
+È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
+
+- [Interfaccia della riga di comando di Azure 1.0](app-service-web-get-started-cli-nodejs.md): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](app-service-web-get-started.md): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [Git](http://www.git-scm.com/downloads).
-* [Interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+* [Interfaccia della riga di comando di Azure 2.0 (anteprima)](/cli/azure/install-az-cli2).
 * Un account Microsoft Azure. Se non si ha un account, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) oppure [attivare i vantaggi per i sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> È possibile [provare il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751) senza avere un account Azure. Creare un'app iniziale e provarla per un'ora, senza impegno e senza dover usare la carta di credito.
+> È possibile [provare il servizio app](https://azure.microsoft.com/try/app-service/) senza avere un account Azure. Creare un'app iniziale e provarla per un'ora, senza impegno e senza dover usare la carta di credito.
 > 
 > 
 
@@ -50,25 +55,40 @@ Verrà ora distribuita un'app Web in Servizio app di Azure.
 
 1. Aprire un nuovo prompt dei comandi di Windows, una finestra di PowerShell, una shell di Linux o un terminale di OS X. Eseguire `git --version` e `azure --version` per verificare che Git e l'interfaccia della riga di comando di Azure siano installati nel computer.
    
-    ![Installazione di prova degli strumenti dell'interfaccia della riga di comando per la prima app Web in Azure](./media/app-service-web-get-started/1-test-tools.png)
+    ![Installazione di prova degli strumenti dell'interfaccia della riga di comando per la prima app Web in Azure](./media/app-service-web-get-started/1-test-tools-2.0.png)
    
     Se gli strumenti non sono stati installati, vedere i collegamenti di download nella sezione [Prerequisiti](#Prerequisites) .
+
 2. Accedere ad Azure come segue:
    
-        azure login
+        az login
    
     Seguire le istruzioni del messaggio della Guida per continuare il processo di accesso.
    
-    ![Accedere ad Azure per creare la prima app Web](./media/app-service-web-get-started/3-azure-login.png)
-3. Impostare l'interfaccia della riga di comando di Azure sulla modalità Azure Service Management, quindi impostare l'utente della distribuzione per il servizio app. Si distribuirà il codice usando le credenziali in un secondo momento.
+    ![Accedere ad Azure per creare la prima app Web](./media/app-service-web-get-started/3-azure-login-2.0.png)
+
+3. Impostare l'utente di distribuzione per il servizio app. Si distribuirà il codice usando queste credenziali in un secondo momento.
    
-        azure config mode asm
-        azure site deployment user set --username <username> --pass <password>
-4. Passare alla directory di lavoro `CD` e clonare l'app di esempio come segue:
+        az appservice web deployment user set --user-name <username> --password <password>
+
+3. Creare un nuovo [gruppo di risorse](../azure-resource-manager/resource-group-overview.md). Per questa prima esercitazione di servizio app, non è strettamente necessario conoscerne tutte le caratteristiche e funzioni.
+
+        az group create --location "<location>" --name my-first-app-group
+
+    Per visualizzare i possibili valori utilizzabili per `<location>`, usare il comando `az appservice list-locations` nell'interfaccia della riga di comando.
+
+3. Creare un nuovo [piano di servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) "GRATUITO". Per questa prima esercitazione di servizio app, è sufficiente sapere che non sono previsti costi per le app Web in questo piano.
+
+        az appservice plan create --name my-free-appservice-plan --resource-group my-first-app-group --sku FREE
+
+4. Creare una nuova app Web con un nome univoco in `<app_name>`.
+
+        az appservice web create --name <app_name> --resource-group my-first-app-group --plan my-free-appservice-plan
+
+4. Successivamente, verrà fornito un codice di esempio da distribuire. Passare alla directory di lavoro `CD` e clonare l'app di esempio come segue:
    
+        cd <working_directory>
         git clone <github_sample_url>
-   
-    ![Clonare il codice dell'app di esempio per la prima app Web in Azure](./media/app-service-web-get-started/2-clone-sample.png)
    
     Per *&lt;github_sample_url>* usare uno degli URL seguenti, a seconda del framework preferito.
    
@@ -78,18 +98,28 @@ Verrà ora distribuita un'app Web in Servizio app di Azure.
    * Node.js (Express): [https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git](https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git)
    * Java: [https://github.com/Azure-Samples/app-service-web-java-get-started.git](https://github.com/Azure-Samples/app-service-web-java-get-started.git)
    * Python (Django): [https://github.com/Azure-Samples/app-service-web-python-get-started.git](https://github.com/Azure-Samples/app-service-web-python-get-started.git)
-5. Passare al repository dell'app di esempio. ad esempio:
+
+    ![Clonare il codice dell'app di esempio per la prima app Web in Azure](./media/app-service-web-get-started/2-clone-sample.png)
+   
+5. Passare al repository dell'app di esempio. Ad esempio:
    
         cd app-service-web-html-get-started
-6. Creare la risorsa app del servizio app in Azure con un nome app univoco e l'utente della distribuzione configurato prima. Quando richiesto, specificare il numero dell'area desiderata.
+
+5. Configurare la distribuzione Git locale pe l'app Web del servizio app con il comando seguente:
+
+        az appservice web source-control config-local-git --name <app_name> --resource-group my-first-app-group
+
+    Si otterrà un output JSON come questo, a indicare la configurazione del repository Git remoto:
+
+        {
+        "url": "https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git"
+        }
+
+6. Aggiungere l'URL in JSON come Git remoto per il repository locale (chiamato `azure` per motivi di semplicità).
+
+        git remote add azure https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git
    
-        azure site create <app_name> --git --gitusername <username>
-   
-    ![Creare la risorsa di Azure per la prima app Web in Azure](./media/app-service-web-get-started/4-create-site.png)
-   
-    Ora l'app viene creata in Azure. La directory corrente viene inizializzata da Git e connessa alla nuova app del servizio app come Git remoto.
-    È possibile passare all'URL dell'app (http://&lt;app_name>.azurewebsites.net) per visualizzare la pagina HTML predefinita. A questo punto, inserire il codice.
-7. Distribuire il codice di esempio nell'app Azure nello stesso modo in cui si effettua il push di qualsiasi codice con Git. Quando richiesto, usare la password configurata prima.
+7. Distribuire il codice di esempio per l'elemento Git remoto `azure`. Quando richiesto, utilizzare le credenziali di distribuzione configurate in precedenza.
    
         git push azure master
    
@@ -100,11 +130,13 @@ Verrà ora distribuita un'app Web in Servizio app di Azure.
 La distribuzione dell'app in Servizio app di Azure è stata completata.
 
 ## <a name="see-your-app-running-live"></a>Visualizzare l'app eseguita dinamicamente
-Per visualizzare l'app eseguita dinamicamente in Azure, eseguire questo comando da qualsiasi directory del repository:
 
-    azure site browse
+Per visualizzare l'app in esecuzione dinamicamente in Azure, eseguire questo comando:
+
+    az appservice web browse --name <app_name> --resource-group my-first-app-group
 
 ## <a name="make-updates-to-your-app"></a>Eseguire aggiornamenti dell'app
+
 Ora è possibile usare Git per effettuare in qualsiasi momento il push dalla radice del progetto (repository) per eseguire un aggiornamento del sito live. La procedura è simile a quella usata per la prima distribuzione del codice. Quando si vuole effettuare il push di una nuova modifica testata in locale, ad esempio, è sufficiente eseguire i comandi seguenti dalla radice del progetto (repository):
 
     git add .
@@ -112,16 +144,14 @@ Ora è possibile usare Git per effettuare in qualsiasi momento il push dalla rad
     git push azure master
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Trovare la procedura di sviluppo e distribuzione più adatta al framework del linguaggio:
 
-> [!div class="op_single_selector"]
-> * [.NET](web-sites-dotnet-get-started.md)
-> * [PHP](app-service-web-php-get-started.md)
-> * [Node.js](app-service-web-nodejs-get-started.md)
-> * [Python](web-sites-python-ptvs-django-mysql.md)
-> * [Java](web-sites-java-get-started.md)
-> 
-> 
+* [.NET](web-sites-dotnet-get-started.md)
+* [PHP](app-service-web-php-get-started.md)
+* [Node.js](app-service-web-nodejs-get-started.md)
+* [Python](web-sites-python-ptvs-django-mysql.md)
+* [Java](web-sites-java-get-started.md)
 
 In alternativa, è possibile fare altre prove con la prima app Web, ad esempio:
 
@@ -131,6 +161,6 @@ In alternativa, è possibile fare altre prove con la prima app Web, ad esempio:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

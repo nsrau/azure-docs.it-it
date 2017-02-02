@@ -1,5 +1,5 @@
 ---
-title: Introduzione alle connessioni ibride di inoltro | Documentazione Microsoft
+title: Introduzione alle connessioni ibride di inoltro di Azure in .NET | Documentazione Microsoft
 description: Come scrivere un&quot;applicazione console in C# per le connessioni ibride
 services: service-bus-relay
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: jotaub,sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 849d7995e9c74bc929c4f791ae9155ca18ddb77b
-ms.openlocfilehash: 3ab92ba4e5c19d4b713ceb2da30835542f343d68
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: a645d742c1e6d80e86ac29d78d78422b5b47a286
 
 
 ---
@@ -74,6 +74,6 @@ A questo punto è stata creata un'applicazione per le connessioni ibride end-to-
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

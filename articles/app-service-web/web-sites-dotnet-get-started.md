@@ -1,5 +1,5 @@
 ---
-title: Distribuire un&quot;app ASP.NET nel Servizio app di Azure con Visual Studio | Microsoft Docs
+title: Distribuire un&quot;app ASP.NET in Azure usando Visual Studio | Documentazione Microsoft
 description: Informazioni su come distribuire un progetto Web ASP.NET in una nuova app Web nel servizio app di Azure con Visual Studio.
 services: app-service\web
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
+ms.sourcegitcommit: 9b7e0b429575d080819f25e04d492a2b09d4d63a
+ms.openlocfilehash: 946552d1b268c6e70a9e8fcd4c40bd6e2ab76178
 
 
 ---
@@ -47,7 +47,7 @@ Oltre al tempo necessario per installare Azure SDK per .NET, il completamento di
 * Nell'esercitazione si presuppone che l'utente abbia familiarità con ASP.NET MVC e Visual Studio. Se sono necessarie informazioni introduttive, vedere l'articolo relativo all' [introduzione ad ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
 * È necessario un account Azure. È possibile [aprire un account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) o [attivare i benefici della sottoscrizione di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
   
-    Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751). In questa pagina è possibile creare un'app di base temporanea nel servizio app. Non è richiesta una carta di credito, né alcun tipo di impegno.
+    Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](https://azure.microsoft.com/try/app-service/). In questa pagina è possibile creare un'app di base temporanea nel servizio app. Non è richiesta una carta di credito, né alcun tipo di impegno.
 
 ## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Configurare l'ambiente di sviluppo
 L'esercitazione è stata scritta per Visual Studio 2015 con [Azure SDK per .NET](../dotnet-sdk.md) 2.9 o versione successiva. 
@@ -222,6 +222,6 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

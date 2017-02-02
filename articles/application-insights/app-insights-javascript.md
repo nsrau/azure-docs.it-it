@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 57daba3f23b2a35afc2d704e4913584f21259ec7
+ms.sourcegitcommit: 601045a6048266cbd317f3a8ff328caa7edf877f
+ms.openlocfilehash: a7b17961ea23c109dc840192fa3f7cea1d88326e
 
 
 ---
@@ -129,17 +129,17 @@ Il grafico mostra la media di tutti i caricamenti di pagina nell'app. Per verifi
 
 Si noti il conteggio delle visualizzazioni pagina e la deviazione standard. Se il conteggio delle pagine è molto basso, il problema non influisce molto sugli utenti. Una deviazione standard elevata, paragonabile alla media stessa, indica grandi differenze tra le singole misure.
 
-**Ingrandire un URL e una visualizzazione pagina.**  Fare clic su un nome di pagina per visualizzare un pannello relativo ai grafici del browser filtrati in base a tale URL e quindi fare clic sull'istanza di una visualizzazione pagina.
+**Ingrandire un URL e una visualizzazione pagina.** Fare clic su un nome di pagina per visualizzare un pannello relativo ai grafici del browser filtrati in base a tale URL e quindi fare clic sull'istanza di una visualizzazione pagina.
 
 ![](./media/app-insights-javascript/35.png)
 
 Fare clic su `...` per un elenco completo delle proprietà dell'evento oppure controllare le chiamate AJAX e gli eventi correlati. La lentezza delle chiamate AJAX influisce sul tempo di caricamento totale delle pagine se le chiamate sono sincrone. Gli eventi correlati includono le richieste server per lo stesso URL, se Application Insights è stato configurato nel server Web.
 
-**Prestazioni delle pagine nel tempo.**  Tornare al pannello Browser e trasformare la griglia del tempo di caricamento della visualizzazione pagina in un grafico a linee per verificare se ci sono stati picchi in orari specifici:
+**Prestazioni delle pagine nel tempo.** Tornare al pannello Browser e trasformare la griglia del tempo di caricamento della visualizzazione pagina in un grafico a linee per verificare se ci sono stati picchi in orari specifici:
 
 ![Fare clic sull'intestazione della griglia e selezionare un nuovo tipo di grafico](./media/app-insights-javascript/10-page-perf-area.png)
 
-**Segmentare in base ad altre dimensioni.**  Il caricamento delle pagine potrebbe risultare più lento in un determinato browser, un sistema operativo client o una località utente. Aggiungere un nuovo grafico e provare la dimensione **Raggruppamento** .
+**Segmentare in base ad altre dimensioni.** Il caricamento delle pagine potrebbe risultare più lento in un determinato browser, un sistema operativo client o una località utente. Aggiungere un nuovo grafico e provare la dimensione **Raggruppamento** .
 
 ![](./media/app-insights-javascript/21.png)
 
@@ -170,7 +170,7 @@ Fare clic su una riga per visualizzare i dettagli specifici.
 Fare clic su `...` per visualizzare i dati di telemetria completi per una chiamata AJAX.
 
 ### <a name="no-ajax-calls-reported"></a>Nessuna chiamata AJAX segnalata
-Le chiamate AJAX includono tutte le chiamate HTTP inviate dallo script della pagina Web. Se non vengono segnalate, controllare che nel frammento di codice non siano impostati i [parametri](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` o `maxAjaxCallsPerView` .
+Le chiamate AJAX includono tutte le chiamate HTTP/HTTPS inviate dallo script della pagina Web. Se non vengono segnalate, controllare che nel frammento di codice non siano impostati i [parametri](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` o `maxAjaxCallsPerView` .
 
 ## <a name="browser-exceptions"></a>Eccezioni del browser
 Nel pannello Browser è presente un grafico di riepilogo delle eccezioni, una griglia dei tipi di eccezione è disponibile più in basso nel pannello.
@@ -193,7 +193,7 @@ Selezionare qualsiasi evento per visualizzare altri dettagli. Nella pagina dei d
 > 
 > 
 
-Per eseguire ricerche sulle visualizzazioni di pagina, è anche possibile usare il [linguaggio di query di Analisi](app-insights-analytics-tour.md) avanzato.
+Per eseguire ricerche sulle visualizzazioni di pagina, è anche possibile usare il [linguaggio di query di Analisi](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) avanzato.
 
 ### <a name="page-view-properties"></a>Proprietà delle visualizzazioni di pagina
 * **Durata della visualizzazione pagina** 
@@ -230,6 +230,6 @@ Per sapere in che modo gli utenti usano l'app,
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

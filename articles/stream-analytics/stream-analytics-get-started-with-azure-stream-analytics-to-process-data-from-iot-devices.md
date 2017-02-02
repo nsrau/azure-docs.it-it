@@ -1,5 +1,5 @@
 ---
-title: Introduzione ad Analisi di flusso di Azure per l&quot;elaborazione di dati da dispositivi IoT | Documentazione Microsoft
+title: Flussi di dati in tempo reale IoT e Analisi di flusso di Azure | Documentazione Microsoft
 description: Tag dei sensori IoT e flussi di dati con l&quot;elaborazione dei dati in tempo reale e l&quot;analisi di flusso
 keywords: soluzione IoT, introduzione a IoT
 services: stream-analytics
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/19/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6b6910b4f1b408c4574b1632375764d51c4fab8a
+ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
+ms.openlocfilehash: 9624405d8bc454e886e8011c1cb4920fdf7e0640
 
 
 ---
@@ -105,7 +105,7 @@ Si noti che la query, con distinzione tra maiuscole e minuscole, confronta un va
 ### <a name="query-alert-to-trigger-a-business-workflow"></a>Query: Avviso per attivare un flusso di lavoro aziendale
 La query verrà ora resa più dettagliata. Per ogni tipo di sensore, si vuole monitorare la temperatura media in una finestra di 30 secondi e visualizzare i risultati solo se tale temperatura supera i 100 gradi. A tale scopo, scrivere la query seguente e quindi fare clic su **Test** per visualizzare i risultati. La query si trova nel file ThresholdAlerting.txt.
 
-![Query di filtro per 30 secondi](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
+![Query di filtro per&30; secondi](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
 I risultati visualizzati conterranno ora solo 245 righe e i nomi dei sensori in cui temperatura media è superiore a 100. La query raggruppa il flusso di eventi in base al nome del sensore (**dspl**) su una **finestra a cascata** di 30 secondi. Le query temporali devono specificare come si vuole definire l'avanzamento del tempo. Usando la clausola **TIMESTAMP BY** è stata specificata la colonna **OUTPUTTIME** per associare l'ora a tutti i calcoli temporali. Per informazioni dettagliate, vedere gli articoli di MSDN relativi alla [gestione del tempo](https://msdn.microsoft.com/library/azure/mt582045.aspx) e alle [funzioni finestra](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
@@ -122,6 +122,6 @@ Lo scopo di questa esercitazione è illustrare come scrivere diverse query nel l
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

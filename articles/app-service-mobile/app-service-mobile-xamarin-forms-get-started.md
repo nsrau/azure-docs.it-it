@@ -15,15 +15,15 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a48181c6c22e6042dd8ef39c12415979e384f8b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 6b8c5c2ac2e721c4d6f73c7c17f34eadc041e0c9
 
 
 ---
 # <a name="create-a-xamarinforms-app"></a>Creare un'app Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per dispositivi mobili Xamarin.Forms mediante un back-end per app per dispositivi mobili di Azure. Verranno creati un nuovo back-end di app per dispositivi mobili e una semplice app Xamarin.Forms *Todo list* che archivia dati delle app in Azure.
 
 Il completamento di questa esercitazione è un prerequisito per tutte le altre esercitazioni relative alle app per dispositivi mobili per Xamarin.Forms.
@@ -36,7 +36,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 * Un computer Mac in cui siano stati installati Xcode v7.0 o versione successiva e Xamarin Studio Community. Vedere [Configurazione e installazione per Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) e [Configurazione, installazione e verifiche per gli utenti Mac](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 
 > [!NOTE]
-> Per iniziare a usare il servizio app di Azure prima di iscriversi per ottenere un account Azure, passare alla pagina in cui è possibile [provare il servizio app](https://tryappservice.azure.com/?appServiceName=mobile)e creare immediatamente un'app per dispositivi mobili di base temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di iscriversi per ottenere un account Azure, passare alla pagina in cui è possibile [provare il servizio app](https://azure.microsoft.com/try/app-service/mobile/)e creare immediatamente un'app per dispositivi mobili di base temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 
@@ -161,9 +161,9 @@ Verrà inviata una richiesta POST al nuovo back-end dell'app per dispositivi mob
   : informazioni su come usare l'SDK del client gestito nell'app Xamarin. 
 
 <!-- Anchors. -->
-[Introduzione ai back-end di app per dispositivi mobili]:#getting-started
-[Creare un nuovo back-end dell'app per dispositivi mobili]:#create-new-service
-[Passaggi successivi]:#next-steps
+[Getting started with mobile app backends]:#getting-started
+[Create a new mobile app backend]:#create-new-service
+[Next Steps]:#next-steps
 
 
 <!-- Images. -->
@@ -177,12 +177,12 @@ Verrà inviata una richiesta POST al nuovo back-end dell'app per dispositivi mob
 
 <!-- URLs. -->
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
-[Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
+[Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [portale di Azure]: https://portal.azure.com/
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

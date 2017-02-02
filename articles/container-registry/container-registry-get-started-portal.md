@@ -1,5 +1,5 @@
 ---
-title: Creare un registro contenitori nel portale | Documentazione Microsoft
+title: Creare un registro contenitori di Azure - Portale | Documentazione Microsoft
 description: Introduzione alla creazione e gestione dei registri di contenitori di Azure con il portale di Azure
 services: container-registry
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: aa4b960ed75b5a4702317bf557b4588e7a54fa0e
-ms.openlocfilehash: c22fee1a9172eba28d8f841d973704934cdb3ebb
+ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
+ms.openlocfilehash: 5302121ff65eec4f15a7ce3a06a1e3ed744117e9
 
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Creare un registro contenitori con il portale di Azure
@@ -77,6 +77,6 @@ Dopo aver creato il registro, trovare le impostazioni iniziando dal pannello **C
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

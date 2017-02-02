@@ -1,58 +1,55 @@
 ---
-title: 'Guida per gli sviluppatori: metodi diretti | Microsoft Docs'
-description: 'Guida per gli sviluppatori dell''hub IoT di Azure: usare metodi diretti per richiamare il codice nei dispositivi'
+title: Informazioni sui metodi diretti dell&quot;hub IoT di Azure | Documentazione Microsoft
+description: 'Guida per gli sviluppatori: usare metodi diretti per richiamare il codice nei dispositivi da un&quot;app di servizio.'
 services: iot-hub
 documentationcenter: .net
 author: nberdy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9f0535f1-02e6-467a-9fc4-c0950702102d
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/11/2017
 ms.author: nberdy
+translationtype: Human Translation
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: fc2d81ce5d1562bcc71584626d8e45a2d788b2e3
+
 
 ---
-# <a name="invoke-a-direct-method-on-a-device-preview"></a>Richiamare un metodo diretto in un dispositivo (anteprima)
+# <a name="direct-methods"></a>Metodi diretti
 ## <a name="overview"></a>Panoramica
-L'hub IoT offre la possibilità di richiamare metodi nei dispositivi dal cloud. I metodi rappresentano un'interazione di tipo richiesta-risposta con un dispositivo simile a una chiamata HTTP, dato che dopo il timeout specificato dall'utente l'esito positivo o negativo viene comunicato immediatamente per far conoscere all'utente lo stato della chiamata. Questo risulta utile in scenari in cui l'azione immediata da intraprendere varia a seconda che il dispositivo sia riuscito o meno a rispondere. Un esempio è rappresentato dall'invio di un SMS di riattivazione a un dispositivo offline, in cui l'invio di un SMS ha un costo maggiore rispetto a una chiamata a un metodo.
+L'hub IoT offre la possibilità di richiamare metodi diretti nei dispositivi dal cloud. I metodi diretti rappresentano un'interazione di tipo richiesta-risposta con un dispositivo simile a una chiamata HTTP, dato che dopo il timeout specificato dall'utente l'esito positivo o negativo viene comunicato immediatamente. Questo risulta utile in scenari in cui l'azione immediata da intraprendere varia a seconda che il dispositivo sia riuscito o meno a rispondere. Un esempio è rappresentato dall'invio di un SMS di riattivazione a un dispositivo offline, in cui l'invio di un SMS ha un costo maggiore rispetto a una chiamata a un metodo.
 
-Un metodo è paragonabile a una chiamata di procedura remota che raggiunge direttamente il dispositivo. Dal cloud è possibile chiamare solo i metodi che sono stati implementati in un dispositivo. Se il cloud prova a richiamare un metodo in un dispositivo in cui tale metodo non è definito, la chiamata al metodo ha esito negativo.
-
-Ogni metodo del dispositivo è destinato a un unico dispositivo. I [processi][lnk-devguide-jobs] permettono di richiamare i metodi in più dispositivi e di inserire in coda la chiamata al metodo per i dispositivi disconnessi.
+Ogni metodo del dispositivo è destinato a un unico dispositivo. I [processi][lnk-devguide-jobs] permettono di richiamare i metodi diretti in più dispositivi e di pianificare la chiamata al metodo per i dispositivi disconnessi.
 
 Chiunque abbia autorizzazioni di **connessione servizio** per l'hub IoT può richiamare un metodo in un dispositivo.
 
-### <a name="when-to-use"></a>Quando usare la funzionalità
-I metodi dei dispositivi sono simili ai [messaggi da cloud a dispositivo][file lnk-devguide-messaggi] per il fatto che entrambi consentono al back-end cloud di passare informazioni a un dispositivo, ma presentano alcune differenze fondamentali. A livello concettuale, i metodi sono sincroni e non durevoli, mentre i messaggi da cloud a dispositivo sono asincroni e hanno una durabilità fino a 48 ore.
+### <a name="when-to-use"></a>Quando usare le autorizzazioni
+I metodi diretti si basano su un modello di tipo richiesta- risposta e sono destinati a comunicazioni che necessitano di una conferma immediata del risultato, in genere per il controllo interattivo del dispositivo, ad esempio l'accensione di un ventilatore.
 
-I metodi seguono un modello richiesta-risposta e non sono durevoli. La mancanza di durabilità offre due vantaggi immediati nell'invio di comandi a dispositivi:
-
-* **Commenti immediati sull'esecuzione del metodo**, che eliminano la necessità di gestire la correlazione tra richiesta e risposta.
-* **Velocità effettiva più elevata**, che permette di eseguire le operazioni più velocemente dato che l'hub IoT non dà alcuna durabilità. Rispetto ai messaggi da cloud a dispositivo, l'hub IoT consente un numero maggiore di chiamate al metodo per ogni unità.
-
-I messaggi da cloud a dispositivo non sono necessariamente comandi per il dispositivo. Rappresentano piuttosto un passaggio di informazioni da un servizio cloud al dispositivo, che può acquisirle in qualsiasi momento e rispondere o meno. I messaggi da cloud a dispositivo hanno un periodo di timeout più lungo, fino a 48 ore, mentre i metodi scadono molto più rapidamente.
-
-Usare i metodi dei dispositivi per richiamare immediatamente i comandi in un dispositivo. Usare i processi per pianificare la chiamata di comandi in un dispositivo.
+Vedere [Cloud-to-device communication guidance][lnk-c2d-guidance] (Indicazioni sulla comunicazione da cloud a dispositivo) in caso di dubbi tra l'uso delle proprietà specifiche, dei metodi diretti o dei messaggi da cloud a dispositivo.
 
 ## <a name="method-lifecycle"></a>Ciclo di vita dei metodi
-I metodi vengono implementati nel dispositivo. Per creare correttamente un'istanza possono essere necessari zero o più input nel payload del metodo. Per richiamare un metodo diretto è possibile usare un URI per il servizio (`{iot hub}/twins/{device id}/methods/`). Il dispositivo riceve i metodi diretti tramite un argomento MQTT specifico del dispositivo (`$iothub/methods/POST/{method name}/`). In futuro potranno essere supportati metodi su altri protocolli di rete sul lato dispositivo.
+I metodi diretti vengono implementati nel dispositivo. Per creare correttamente un'istanza possono essere necessari zero o più input nel payload del metodo. Per richiamare un metodo diretto è possibile usare un URI per il servizio (`{iot hub}/twins/{device id}/methods/`). Il dispositivo riceve i metodi diretti tramite un argomento MQTT specifico del dispositivo (`$iothub/methods/POST/{method name}/`). In futuro potranno essere supportati metodi diretti su altri protocolli di rete sul lato dispositivo.
 
 > [!NOTE]
 > Quando si richiama un metodo diretto in un dispositivo, i valori e i nomi di proprietà possono contenere solo caratteri alfanumerici stampabili US-ASCII, ad eccezione dei seguenti: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
 > 
 > 
 
-I metodi sono sincroni e possono solo avere esito positivo o negativo dopo il periodo di timeout. Il valore predefinito è 30 secondi, ma il valore massimo impostabile è 3600 secondi. Risultano utili negli scenari interattivi in cui si vuole che il dispositivo agisca esclusivamente se è online e riceve comandi, ad esempio nel caso dell'accensione di una luce da un telefono. In questi scenari l'esito positivo o negativo deve essere immediato, in modo che il servizio cloud possa agire in base al risultato il prima possibile. Il dispositivo può restituire un corpo del messaggio come risultato del metodo, ma non è necessario che il metodo esegua questa operazione. Nelle chiamate ai metodi non esiste alcuna garanzia di ordinamento o semantica di concorrenza.
+I metodi diretti sono sincroni e possono solo avere esito positivo o negativo dopo il periodo di timeout. Il valore predefinito è 30 secondi, ma il valore massimo impostabile è 3600 secondi. Risultano utili negli scenari interattivi in cui si vuole che il dispositivo agisca esclusivamente se è online e riceve comandi, ad esempio nel caso dell'accensione di una luce da un telefono. In questi scenari l'esito positivo o negativo deve essere immediato, in modo che il servizio cloud possa agire in base al risultato il prima possibile. Il dispositivo può restituire un corpo del messaggio come risultato del metodo, ma non è necessario che il metodo esegua questa operazione. Nelle chiamate ai metodi non esiste alcuna garanzia di ordinamento o semantica di concorrenza.
 
 Le chiamate ai metodi dei dispositivi sono solo HTTP dal lato cloud e solo MQTT dal lato dispositivo.
 
-## <a name="reference"></a>Riferimento
-### <a name="servicefacing"></a>Per il servizio
-#### <a name="method-invocation"></a>Chiamata al metodo
+## <a name="reference-topics"></a>Argomenti di riferimento:
+Gli argomenti di riferimento seguenti offrono altre informazioni sull'uso dei metodi diretti.
+
+## <a name="invoke-a-direct-method-from-a-back-end-app"></a>Richiamare un metodo diretto da un'app back-end
+### <a name="method-invocation"></a>Chiamata al metodo
 Le chiamate a metodi diretti in un dispositivo sono chiamate HTTP e includono:
 
 * *URI* specifico del dispositivo (`{iot hub}/twins/{device id}/methods/`)
@@ -63,7 +60,7 @@ Le chiamate a metodi diretti in un dispositivo sono chiamate HTTP e includono:
 ```
 {
     "methodName": "reboot",
-    "timeoutInSeconds": 200,
+    "responseTimeoutInSeconds": 200,
     "payload": {
         "input1": "someInput",
         "input2": "anotherInput"
@@ -71,10 +68,10 @@ Le chiamate a metodi diretti in un dispositivo sono chiamate HTTP e includono:
 }
 ```
 
-  Il timeout è espresso in secondi. Se il timeout non è impostato, il valore predefinito è 30 secondi.
+Il timeout è espresso in secondi. Se il timeout non è impostato, il valore predefinito è 30 secondi.
 
-#### <a name="response"></a>Response
-Il back-end riceve una risposta che include:
+### <a name="response"></a>Response
+L'app back-end riceve una risposta che include:
 
 * *Codice di stato HTTP*, usato per errori provenienti dall'hub IoT, incluso un errore 404 per i dispositivi attualmente non connessi
 * *Intestazioni* contenenti l'ETag, l'ID richiesta, il tipo di contenuto e la codifica del contenuto
@@ -82,15 +79,15 @@ Il back-end riceve una risposta che include:
 
 ```
 {
-    "status" : "OK",
+    "status" : 201,
     "payload" : {...}
 }
 ```
 
    Sia `status` che `body` vengono forniti dal dispositivo e usati per rispondere con la descrizione e/o il codice di stato del dispositivo.
 
-### <a name="devicefacing"></a>Per il dispositivo
-#### <a name="method-invocation"></a>Chiamata al metodo
+## <a name="handle-a-direct-method-on-a-device"></a>Gestire un metodo diretto in un dispositivo
+### <a name="method-invocation"></a>Chiamata al metodo
 I dispositivi ricevono richieste di metodi diretti nell'argomento MQTT: `$iothub/methods/POST/{method name}/?$rid={request id}`
 
 Il corpo ricevuto dal dispositivo è nel formato seguente:
@@ -104,7 +101,7 @@ Il corpo ricevuto dal dispositivo è nel formato seguente:
 
 Le richieste di metodo sono QoS 0.
 
-#### <a name="response"></a>Response
+### <a name="response"></a>Response
 Il dispositivo invia risposte a `$iothub/methods/res/{status}/?$rid={request id}`, in cui:
 
 * La proprietà `status` è lo stato di esecuzione del metodo fornito dal dispositivo.
@@ -112,23 +109,23 @@ Il dispositivo invia risposte a `$iothub/methods/res/{status}/?$rid={request id}
 
 Il corpo è impostato dal dispositivo e accetta qualsiasi stato.
 
-### <a name="additional-reference-material"></a>Materiale di riferimento
-Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per sviluppatori:
+## <a name="additional-reference-material"></a>Materiale di riferimento
+Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per gli sviluppatori dell'hub IoT:
 
-* [IoT Hub endpoints][lnk-endpoints] (Endpoint dell'hub IoT) illustra i diversi endpoint esposti da ogni hub IoT per operazioni della fase di esecuzione e di gestione.
-* [Throttling and quotas][lnk-quotas] (Quote e limitazione) descrive le quote applicabili al servizio Hub IoT e il comportamento di limitazione previsto quando si usa il servizio.
-* [IoT Hub device and service SDKs][lnk-sdks] (SDK di servizi e dispositivi dell'hub IoT) elenca gli SDK nei diversi linguaggi da usare quando si sviluppano applicazioni per dispositivo e servizi che interagiscono con l'hub IoT.
-* [Query language for twins, methods, and jobs][lnk-query] (Linguaggio di query per dispositivi gemelli, metodi e processi) descrive il linguaggio di query da usare per recuperare informazioni dall'hub IoT su dispositivi gemelli, metodi e processi.
+* [Endpoint dell'hub IoT][lnk-endpoints] illustra i diversi endpoint esposti da ogni hub IoT per operazioni della fase di esecuzione e di gestione.
+* [Quote e limitazioni][lnk-quotas] descrive le quote applicabili al servizio Hub IoT e il comportamento di limitazione previsto quando si usa il servizio.
+* [Azure IoT SDK per dispositivi e servizi][lnk-sdks] elenca gli SDK nei diversi linguaggi da usare quando si sviluppano app per dispositivi e servizi che interagiscono con l'hub IoT.
+* [Linguaggio di query per dispositivi gemelli e processi][lnk-query] illustra il linguaggio di query dell'hub IoT che è possibile usare per recuperare informazioni dall'hub IoT sui dispositivi gemelli e sui processi.
 * [Supporto di MQTT nell'hub IoT][lnk-devguide-mqtt] offre altre informazioni sul supporto dell'hub IoT per il protocollo MQTT.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ora che si è appreso come usare i metodi diretti, è possibile vedere un altro argomento di interesse reperibile nella Guida per sviluppatori:
+Ora che si è appreso come usare i metodi diretti, è possibile vedere un altro argomento di interesse reperibile nell'argomento seguente della Guida per gli sviluppatori dell'hub IoT:
 
-* [Schedule jobs on multiple devices][lnk-devguide-jobs] (Pianificare processi in più dispositivi)
+* [Pianificare processi in più dispositivi][lnk-devguide-jobs]
 
 Per provare alcuni dei concetti descritti in questo articolo, può essere utile l'esercitazione seguente sull'hub IoT:
 
-* [Use cloud-to-device methods][lnk-methods-tutorial] (Usare metodi da cloud a dispositivo)
+* [Usare metodi diretti][lnk-methods-tutorial]
 
 <!-- links and images -->
 
@@ -139,11 +136,12 @@ Per provare alcuni dei concetti descritti in questo articolo, può essere utile 
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
-[lnk-methods-tutorial]: iot-hub-c2d-methods.md
-[file lnk-devguide-messaggi]: iot-hub-devguide-messaging.md
+[lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
+[lnk-devguide-messages]: iot-hub-devguide-messaging.md
+[lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
 
 
 
-<!---HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

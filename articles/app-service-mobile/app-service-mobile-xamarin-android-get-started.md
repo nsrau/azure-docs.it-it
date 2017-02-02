@@ -15,15 +15,15 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e59a87ec6017061078d5cb5df93207c7f93ec00b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 4d34bb29df95ae83952d8f421f3f2a9118ad5e1d
 
 
 ---
 # <a name="create-a-xamarinandroid-app"></a>Creare un'app per Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app Xamarin.Android. Per altre informazioni, vedere [Informazioni sulle app per dispositivi mobili](app-service-mobile-value-prop.md).
 
 Di seguito è riportata una schermata dell'app completata:
@@ -39,7 +39,7 @@ Per completare questa esercitazione è necessario soddisfare i prerequisiti segu
 * Visual Studio con Xamarin. Per le istruzioni vedere [Configurazione e installazione di Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) .
 
 > [!NOTE]
-> Per iniziare a usare il servizio app di Azure prima di creare un account di Azure, passare alla pagina in cui è possibile [provare il servizio app](https://tryappservice.azure.com/?appServiceName=mobile).  È possibile creare immediatamente un'app per dispositivi mobili di base temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di creare un account di Azure, passare alla pagina in cui è possibile [provare il servizio app](https://azure.microsoft.com/try/app-service/mobile/).  È possibile creare immediatamente un'app per dispositivi mobili di base temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 
@@ -83,11 +83,11 @@ Seguire questa procedura per creare un back-end dell'app per dispositivi mobili.
 [10]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-startup-android.png
 
 <!-- URLs. -->
-[portale di Azure]: https://azure.portal.com/
+[Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

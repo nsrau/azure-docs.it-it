@@ -1,5 +1,5 @@
 ---
-title: Creare la prima applicazione Infrastruttura di servizi in Visual Studio | Documentazione Microsoft
+title: Creare la prima applicazione di microservizi di Azure | Documentazione Microsoft
 description: Creare, distribuire ed eseguire il debug di un&quot;applicazione Infrastruttura di servizi con Visual Studio
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
-ms.openlocfilehash: 76b6934950354f94f4f68e7cfef00e890d9391a6
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: 23699d8d44ccd101519920e5f20e9b13cd15cc38
 
 
 ---
@@ -131,6 +131,7 @@ Prima di concludere, è importante ricordare che il cluster locale è reale. L'a
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come creare un [cluster in Azure](service-fabric-cluster-creation-via-portal.md) o un [cluster autonomo in Windows](service-fabric-cluster-creation-for-windows-server.md).
 * Provare a creare un servizio con il modello di programmazione[Reliable Services](service-fabric-reliable-services-quick-start.md) o [Reliable Actors](service-fabric-reliable-actors-get-started.md).
+* Provare a distribuire un [contenitore Windows](service-fabric-deploy-container.md) o un'app esistente come [eseguibile guest](service-fabric-deploy-existing-app.md).
 * Informazioni su come esporre i servizi a Internet con un [front-end di servizio Web](service-fabric-add-a-web-frontend.md).
 * Usare un' [esercitazione pratica](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) per creare un servizio senza stato, configurare i report di integrità e di monitoraggio ed eseguire un aggiornamento dell'applicazione.
 * Informazioni sulle [opzioni di supporto di Service Fabric](service-fabric-support.md)
@@ -152,6 +153,6 @@ Prima di concludere, è importante ricordare che il cluster locale è reale. L'a
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

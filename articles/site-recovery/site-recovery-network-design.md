@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: a425de26cacc9525d0dc9a6842b5060f8c37a462
+ms.sourcegitcommit: c5e80c3cd3caac07e250d296c61fb3813e0000dd
+ms.openlocfilehash: 2c19472c93d097f29692af18063404f3bf28b6bd
 
 
 ---
-# <a name="designing-your-network-infrastructure-for-disaster-recovery"></a>Progettazione dell'infrastruttura di rete per il ripristino di emergenza
+# <a name="designing-your-network-for-disaster-recovery"></a>Progettazione della rete per il ripristino di emergenza
 Questo articolo si rivolge ai professionisti IT che sono responsabili dell'architettura, dell'implementazione e del supporto dell'infrastruttura di continuità aziendale e ripristino di emergenza (BCDR, Business Continuity and Disaster Recovery) e che vogliono sfruttare Microsoft Azure Site Recovery (ASR) per supportare e migliorare i servizi BCDR. Questo documento illustra le considerazioni pratiche per la distribuzione di server System Center Virtual Machine Manager, i pro e i contro delle subnet estese rispetto al failover su subnet e come strutturare il ripristino di emergenza per siti virtuali in Microsoft Azure.
 
 ## <a name="overview"></a>Overview
@@ -83,9 +83,8 @@ Nel sito secondario la subnet è locale e si usa un server VMM per gestirla, qui
 
 ![Mantenere l'indirizzo IP](./media/site-recovery-network-design/network-design4.png)
 
-Figura 5
 
-La figura 5 indica le impostazioni TCP/IP del failover per la macchina virtuale di replica (nella console di Hyper-V). Queste impostazioni verranno popolate subito prima dell'avvio della macchina virtuale dopo un failover.
+L'immagine precedente illustra le impostazioni TCP/IP del failover per la macchina virtuale di replica (nella console di Hyper-V). Queste impostazioni verranno popolate subito prima dell'avvio della macchina virtuale dopo un failover.
 
 Se non è disponibile lo stesso IP, ASR allocherà un altro indirizzo IP disponibile dal pool di indirizzi IP definiti.
 
@@ -137,15 +136,13 @@ Verrà ora esaminato lo scenario in cui si pianifica di usare IP diversi nel sit
 
 ![Indirizzo IP diverso - Prima del failover](./media/site-recovery-network-design/network-design10.png)
 
-Figura 11
 
-Nella figura 11 sono presenti alcune applicazioni ospitate nella subnet 192.168.1.0/24 nel sito primario e configurate per passare al sito di ripristino nella subnet 172.16.1.0/24 dopo un failover. La configurazione dei percorsi di rete o delle connessioni VPN è avvenuta in modo corretto, pertanto tutti e tre i siti dispongono dell'accesso reciproco.
+Nell'immagine precedente, alcune applicazioni sono ospitate nella subnet 192.168.1.0/24 nel sito primario e sono state configurate per passare al sito di ripristino nella subnet 172.16.1.0/24 in seguito a un failover. La configurazione dei percorsi di rete o delle connessioni VPN è avvenuta in modo corretto, pertanto tutti e tre i siti dispongono dell'accesso reciproco.
 
-Come illustrato nella figura 12, dopo il failover di una o più applicazioni, queste verranno ripristinate nella subnet di ripristino. In questo caso non esiste il vincolo di effettuare il failover dell'intera subnet contemporaneamente. Non sono necessarie modifiche per riconfigurare la VPN o le route di rete. Un failover e alcuni aggiornamenti DNS verificheranno che le applicazioni rimangano accessibili. Se il DNS è configurato per consentire aggiornamenti dinamici, le macchine virtuali potrebbero registrarsi con il nuovo IP, una volta avviate dopo un failover.
+Come illustrato nell'immagine seguente, dopo il failover di una o più applicazioni, queste verranno ripristinate nella subnet di ripristino. In questo caso non esiste il vincolo di effettuare il failover dell'intera subnet contemporaneamente. Non sono necessarie modifiche per riconfigurare la VPN o le route di rete. Un failover e alcuni aggiornamenti DNS verificheranno che le applicazioni rimangano accessibili. Se il DNS è configurato per consentire aggiornamenti dinamici, le macchine virtuali potrebbero registrarsi con il nuovo IP, una volta avviate dopo un failover.
 
 ![Indirizzo IP diverso - Dopo il failover](./media/site-recovery-network-design/network-design11.png)
 
-Figura 12
 
 Al termine del failover, la macchina virtuale di replica potrebbe avere un indirizzo IP diverso da quello della macchina virtuale primaria. Le macchine virtuali aggiorneranno il server DNS in uso dopo l'avvio. Di solito, occorre modificare o cancellare le voci DNS in tutta la rete, così come occorre aggiornare o cancellare le voci memorizzate nella cache nelle tabelle di rete, pertanto non è insolito riscontrare tempi di inattività durante tali modifiche. È possibile ridurre tale problema nei modi seguenti:
 
@@ -162,7 +159,7 @@ Al termine del failover, la macchina virtuale di replica potrebbe avere un indir
         $newrecord.RecordData[0].IPv4Address  =  $IP
         Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
-### <a name="changing-the-ip-addresses-dr-to-azure"></a>Modifica degli indirizzi IP - Ripristino di emergenza in Azure
+### <a name="changing-the-ip-addresses--dr-to-azure"></a>Modifica degli indirizzi IP - Ripristino di emergenza in Azure
 Il post di blog dedicato alla [configurazione dell'infrastruttura di rete per Microsoft Azure come sito di ripristino di emergenza](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) spiega come configurare l'infrastruttura di rete di Azure necessaria quando non è obbligatorio mantenere gli indirizzi IP. All'inizio viene descritta l'applicazione, quindi viene illustrato come configurare la rete in locale e in Azure e infine viene illustrato come effettuare un failover di test e un failover pianificato.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -170,6 +167,6 @@ Il post di blog dedicato alla [configurazione dell'infrastruttura di rete per Mi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

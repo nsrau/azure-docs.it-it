@@ -1,9 +1,9 @@
 ---
-title: Uso della rete CDN di Azure | Documentazione Microsoft
-description: Questo argomento illustra come abilitare la rete per la distribuzione di contenuti (CDN) per Azure. Questa esercitazione illustra la creazione di un nuovo profilo ed endpoint della rete CDN.
+title: Introduzione alla rete CDN di Azure | Documentazione Microsoft
+description: Questo argomento illustra come abilitare la rete per la distribuzione di contenuti (CDN) di Azure. Questa esercitazione illustra la creazione di un nuovo profilo ed endpoint della rete CDN.
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e5568503541e773fa11bcde530da09befc51b2ad
+ms.sourcegitcommit: bdf6e27463fcc6186a3b15a55653fa468da91bdc
+ms.openlocfilehash: d263e911d0d0b3cdc1e48e300a3c8a0994b38c39
 
 
 ---
-# <a name="using-azure-cdn"></a>Uso della rete CDN di Azure
+# <a name="getting-started-with-azure-cdn"></a>Introduzione alla rete CDN di Azure
 Questo argomento descrive in dettaglio l'abilitazione della rete CDN di Azure creando un nuovo profilo di rete CDN e un endpoint.
 
 > [!IMPORTANT]
@@ -43,7 +43,7 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN.  Ogni profilo
 ## <a name="create-a-new-cdn-endpoint"></a>Creare un nuovo endpoint della rete CDN
 **Per creare nuovo endpoint della rete CDN**
 
-1. Nel [portale di Azure](https://portal.azure.com)passare al profilo della rete CDN.  Lo si potrebbe aver bloccato nel dashboard nel passaggio precedente.  Se così non fosse, è possibile trovarlo cliccando su **Esplora**, quindi su **Profili rete CDN** e facendo clic sul profilo in cui si prevede di aggiungere l'endpoint.
+1. Nel [portale di Azure](https://portal.azure.com)passare al profilo della rete CDN.  Lo si potrebbe aver bloccato nel dashboard nel passaggio precedente.  Se così non fosse, è possibile trovarlo facendo clic su **Esplora**, quindi su **Profili rete CDN** e facendo clic sul profilo in cui si prevede di aggiungere l'endpoint.
    
     Viene visualizzato il pannello del profilo di rete CDN.
    
@@ -106,6 +106,6 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN.  Ogni profilo
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

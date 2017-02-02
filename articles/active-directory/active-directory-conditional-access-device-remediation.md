@@ -6,18 +6,17 @@ keywords: accesso condizionale basato su dispositivo, registrazione dispositivo,
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/11/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 77031b3bbe2372bf2cac34bac45368ac40911641
-ms.openlocfilehash: 81dcda2e11ff98f7f21495a83043a546786979c7
+ms.sourcegitcommit: fbabf6f2e1e588ba509c4da84ab1700b1b5d4f87
+ms.openlocfilehash: ad9f9a8c5b370ffa916b9089ef3ce523fe0266c7
 
 
 ---
@@ -132,6 +131,6 @@ L'unica correzione consiste nell'usare un browser supportato dall'applicazione p
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

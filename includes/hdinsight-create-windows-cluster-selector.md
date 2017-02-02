@@ -1,12 +1,16 @@
 > [!div class="op_single_selector"]
-> * [Linux-based](../articles/hdinsight/hdinsight-hadoop-provision-linux-clusters.md)
-> * [Overview](../articles/hdinsight/hdinsight-provision-clusters.md)
-> * [Azure portal](../articles/hdinsight/hdinsight-hadoop-create-windows-clusters-portal.md)
-> * [Azure CLI](../articles/hdinsight/hdinsight-hadoop-create-windows-clusters-cli.md)
+> * [Basato su Linux](../articles/hdinsight/hdinsight-hadoop-provision-linux-clusters.md)
+> * [Panoramica](../articles/hdinsight/hdinsight-provision-clusters.md)
+> * [Portale di Azure](../articles/hdinsight/hdinsight-hadoop-create-windows-clusters-portal.md)
+> * [Interfaccia della riga di comando di Azure](../articles/hdinsight/hdinsight-hadoop-create-windows-clusters-cli.md)
 > * [Azure PowerShell](../articles/hdinsight/hdinsight-hadoop-create-windows-clusters-powershell.md)
 > * [.NET SDK](../articles/hdinsight/hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md)
-> * [ARM templates](../articles/hdinsight/hdinsight-hadoop-create-windows-clusters-arm-templates.md)
+> * [Modelli di Azure Resource Manager](../articles/hdinsight/hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 > 
 > 
 
-<!---HONumber=AcomDC_0107_2016-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

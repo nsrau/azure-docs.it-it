@@ -1,5 +1,5 @@
 ---
-title: Distribuire un cluster del servizio contenitore di Azure | Documentazione Microsoft
+title: Distribuire un cluster per contenitori Docker in Azure | Documentazione Microsoft
 description: Distribuire un cluster del servizio contenitore di Azure usando il portale di Azure, l&quot;interfaccia della riga di comando di Azure o PowerShell.
 services: container-service
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 12/20/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: dc7ce9f0524567b861a40940f02cd07e0b7b22bf
-ms.openlocfilehash: 52331c92a4e3e254c044c9cba85a937b6ba95011
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: 047e939df8ba61245644793bb156315cfb32f042
 
 
 ---
@@ -199,6 +199,6 @@ Ora che si ha a disposizione un cluster funzionante, vedere i documenti seguenti
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

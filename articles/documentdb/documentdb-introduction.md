@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: cb1fd606fa03650980a02325b82774ce9ef8cf77
+ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
+ms.openlocfilehash: 18f2c1876fab914073c8aea67f67724f281a65aa
 
 
 ---
@@ -44,7 +44,7 @@ Azure DocumentDB offre le funzionalità chiave e i vantaggi seguenti:
 * **Livelli di coerenza perfezionabili:** è possibile scegliere tra quattro livelli di coerenza ben definiti per ottenere il compromesso ottimale tra coerenza e prestazioni. Per query e operazioni di lettura, DocumentDB offre quattro livelli di coerenza distinti, ovvero avanzata, con obsolescenza associata, sessione e futura. Questi livelli di coerenza granulari e ben definiti permettono di ottenere compromessi efficaci tra coerenza, disponibilità e latenza. Ulteriori informazioni sono disponibili in [Utilizzo dei livelli di coerenza per ottimizzare la disponibilità e le prestazioni di DocumentDB](documentdb-consistency-levels.md).
 * **Completamente gestito:** è possibile eliminare la necessità di gestire risorse di database e computer. Questo servizio Microsoft Azure completamente gestito non richiede la gestione di macchine virtuali, la distribuzione e la configurazione di software, la gestione del ridimensionamento o complessi aggiornamenti di livello dati. Il backup di ogni database è eseguito automaticamente e ogni database è protetto da errori nell'area geografica specifica. La possibilità di aggiungere con facilità account e capacità di provisioning di DocumentDB in base alla necessità permette di concentrarsi sull'applicazione invece che sul funzionamento e sulla gestione del database. 
 * **Progettazione aperta:** è possibile iniziare subito a lavorare usando le competenze e gli strumenti esistenti. La programmazione per DocumentDB è semplice, intuitiva e non richiede l'adozione di nuovi strumenti o l'adesione a estensioni personalizzate per JSON o JavaScript. È possibile accedere a tutte le funzionalità del database, incluso CRUD, l'elaborazione di JavaScript e query in una semplice interfaccia HTTP RESTful. DocumentDB accetta i formati, i linguaggi e gli standard esistenti, offrendo al tempo stesso capacità di database di livello elevato.
-* **Indicizzazione automatica:** per impostazione predefinita, DocumentDB [indicizza automaticamente](documentdb-indexing.md) tutti i documenti nel database e non prevede né richiede schemi o la creazione di indici secondari. Se non si vuole indicizzare ogni elemento, è anche possibile [rifiutare esplicitamente i percorsi nei file JSON](documentdb-indexing-policies.md).
+* **Indicizzazione automatica:** per impostazione predefinita, DocumentDB indicizza automaticamente tutti i documenti nel database e non prevede né richiede schemi o la creazione di indici secondari. Se non si vuole indicizzare ogni elemento, è anche possibile [rifiutare esplicitamente i percorsi nei file JSON](documentdb-indexing-policies.md).
 
 ## <a name="a-namedata-managementahow-does-documentdb-manage-data"></a><a name="data-management"></a>Modalità di gestione dei dati da parte di DocumentDB
 Azure DocumentDB gestisce i dati JSON tramite risorse di database ben definite. Queste risorse sono replicate per ottenere disponibilità elevata e sono indirizzabili in modo univoco da parte dei rispettivi URI logici. DocumentDB offre un semplice modello di programmazione RESTful basato su HTTP per tutte le risorse. 
@@ -103,6 +103,6 @@ Quindi, quando si è pronti per ulteriori informazioni, visitare il [percorso di
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

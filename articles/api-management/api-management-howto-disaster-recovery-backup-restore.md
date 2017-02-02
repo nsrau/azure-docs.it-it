@@ -2,21 +2,25 @@
 title: Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure | Microsoft Docs
 description: Informazioni su come usare il backup e il ripristino per eseguire il ripristino di emergenza in Gestione API di Azure.
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6f10be3c-f796-4a6c-bacd-7931b6aa82af
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
+translationtype: Human Translation
+ms.sourcegitcommit: a7ff82a47b4e972db96929acb47fcce760b244b3
+ms.openlocfilehash: 73bb12643a5c94e364ac4040f6e1678cb1495fb2
+
 
 ---
-# Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
+# <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
 Scegliendo di pubblicare e gestire le API tramite Gestione API di Azure è possibile sfruttare molte funzionalità di tolleranza di errore e di infrastruttura che sarebbe altrimenti necessario progettare, implementare e gestire. La piattaforma di Azure permette di mitigare una vasta gamma di potenziali errori a un costo nettamente inferiore.
 
 Per risolvere i problemi di disponibilità che colpiscono l'area in cui è ospitato il servizio di Gestione API, è necessario essere pronti a ripristinare il servizio in un'area diversa in qualsiasi momento. In base ai propri obiettivi in termini di disponibilità e tempi di ripristino, è consigliabile riservare un servizio di backup in una o più aree e provare a mantenere sincronizzati la configurazione e il contenuto con il servizio attivo. La funzionalità di backup e ripristino dei servizi fornisce il blocco predefinito necessario per implementare la propria strategia di ripristino di emergenza.
@@ -25,16 +29,16 @@ Questa guida descrive come autenticare le richieste di Gestione risorse di Azure
 
 > [!NOTE]
 > Il processo di backup e ripristino di un'istanza del servizio Gestione API per il ripristino di emergenza può essere usato anche per la replica delle istanze del servizio Gestione API per scenari quali la gestione temporanea.
-> 
-> Si noti che ogni backup scade dopo 7 giorni. Se si tenta di ripristinare un backup dopo la scadenza del periodo di 7 giorni, il ripristino avrà esito negativo e verrà visualizzato il messaggio `Cannot restore: backup expired`.
-> 
-> 
+>
+> Si noti che ogni backup scade dopo 7 giorni. Se si tenta di ripristinare un backup dopo la scadenza del periodo di 7 giorni, il ripristino avrà esito negativo e verrà visualizzato il messaggio `Cannot restore: backup expired` .
+>
+>
 
-## Autenticazione delle richieste di Gestione risorse di Azure
+## <a name="authenticating-azure-resource-manager-requests"></a>Autenticazione delle richieste di Gestione risorse di Azure
 > [!IMPORTANT]
 > L'API REST per il backup e ripristino usa Gestione risorse di Azure e include un meccanismo di autenticazione diverso rispetto alle API REST per la gestione delle entità di Gestione API. I passaggi descritti in questa sezione descrivono come autenticare le richieste di Gestione risorse di Azure. Per altre informazioni, vedere [Autenticazione delle richieste di Gestione risorse di Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
-> 
-> 
+>
+>
 
 Tutte le attività che è possibile eseguire sulle risorse tramite Gestione risorse di Azure devono essere autenticate con Azure Active Directory usando la procedura seguente.
 
@@ -45,9 +49,9 @@ Tutte le attività che è possibile eseguire sulle risorse tramite Gestione riso
 Il primo passaggio consiste nel creare un'applicazione Azure Active Directory. Accedere al [portale di Azure classico](http://manage.windowsazure.com/) usando la sottoscrizione che include l'istanza del servizio Gestione API e passare alla scheda **Applicazioni** per la directory predefinita di Azure Active Directory.
 
 > [!NOTE]
-> Se la directory predefinita di Azure Active Directory non è visibile nel proprio account, contattare l'amministratore della sottoscrizione di Azure perché conceda le autorizzazioni necessarie per l'account. Per informazioni su come trovare la directory predefinita, vedere l'articolo sulle modalità per [trovare la directory predefinita](../virtual-machines/resource-group-create-work-id-from-persona.md#locate-your-default-directory-in-the-azure-portal).
-> 
-> 
+> Se la directory predefinita di Azure Active Directory non è visibile nel proprio account, contattare l'amministratore della sottoscrizione di Azure perché conceda le autorizzazioni necessarie per l'account. Per informazioni su come individuare la directory predefinita, vedere "Individuare la directory predefinita nel portale di Azure classico" in [Creazione di un'identità di lavoro o scuola in Azure Active Directory da usare con macchine virtuali Windows](../virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+>
+>
 
 ![Creare un'applicazione Azure Active Directory][api-management-add-aad-application]
 
@@ -57,38 +61,40 @@ Dopo il salvataggio dell'applicazione, fare clic su **Configura**, scorrere vers
 
 ![Aggiungere autorizzazioni][api-management-aad-permissions-add]
 
-Selezionare **API** **di gestione del servizio Microsoft Azure** e selezionare la casella di controllo per aggiungere l'applicazione.
+Selezionare **Windows** **API di gestione del servizio Microsoft Azure** e fare clic sulla casella di controllo per aggiungere l'applicazione.
 
 ![Aggiungere autorizzazioni][api-management-aad-permissions]
 
-Fare clic su **Autorizzazioni delegate** accanto all'applicazione di **API** **di gestione del servizio Microsoft Azure** appena aggiunta, selezionare la casella per **Accesso a Gestione del servizio Azure (anteprima)**, e fare clic su **Salva**.
+Fare clic su **Autorizzazioni delegate** accanto all'applicazione di **Windows** **API di gestione del servizio Microsoft Azure** appena aggiunta, selezionare la casella per **Accesso a Gestione del servizio Azure (anteprima)** e fare clic su **Salva**.
 
 ![Aggiungere autorizzazioni][api-management-aad-delegated-permissions]
 
 Prima di richiamare le API che generano il backup e ripristino, è necessario ottenere un token. L'esempio seguente usa il pacchetto NuGet [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) per recuperare il token.
 
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using System;
+```c#
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using System;
 
-    namespace GetTokenResourceManagerRequests
+namespace GetTokenResourceManagerRequests
+{
+    class Program
     {
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
-            {
-                var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
-                var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
+            var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
+            var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
 
-                if (result == null) {
-                    throw new InvalidOperationException("Failed to obtain the JWT token");
-                }
-
-                Console.WriteLine(result.AccessToken);
-
-                Console.ReadLine();
+            if (result == null) {
+                throw new InvalidOperationException("Failed to obtain the JWT token");
             }
+
+            Console.WriteLine(result.AccessToken);
+
+            Console.ReadLine();
         }
     }
+}
+```
 
 Sostituire `{tentand id}`, `{application id}` e `{redirect uri}` usando le istruzioni seguenti.
 
@@ -108,7 +114,9 @@ Dopo avere specificato i valori, l'esempio di codice dovrebbe restituire un toke
 
 Prima di chiamare le operazioni di backup e ripristino descritte nelle sezioni seguenti, impostare l'intestazione della richiesta di autorizzazione per la chiamata REST.
 
-    request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
+```c#
+request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
+```
 
 ## <a name="step1"> </a>Backup di un servizio di Gestione API
 Per eseguire il backup di un servizio di gestione API, emettere la seguente richiesta HTTP:
@@ -117,30 +125,32 @@ Per eseguire il backup di un servizio di gestione API, emettere la seguente rich
 
 dove:
 
-* `subscriptionId`: ID della sottoscrizione contenente il servizio di Gestione API di cui si sta tentando di eseguire il backup.
+* `subscriptionId` : ID della sottoscrizione contenente il servizio di Gestione API di cui si sta tentando di eseguire il backup.
 * `resourceGroupName`: una stringa nel formato "Api-Default-{service-region}", dove `service-region` identifica l'area di Azure in cui è ospitato il servizio di Gestione API di cui si sta tentando di eseguire il backup, ad esempio `North-Central-US`.
-* `serviceName`: il nome del servizio di Gestione API di cui sta eseguendo il backup specificato quando è stato creato.
-* `api-version`: sostituire con `2014-02-14`.
+* `serviceName` : il nome del servizio di Gestione API di cui sta eseguendo il backup specificato quando è stato creato.
+* `api-version` - sostituire con `2014-02-14`
 
 Nel corpo della richiesta, specificare il nome dell'account di archiviazione, la chiave di accesso, il nome del contenitore BLOB e il nome del backup di destinazione di Azure:
 
-    '{  
-        storageAccount : {storage account name for the backup},  
-        accessKey : {access key for the account},  
-        containerName : {backup container name},  
-        backupName : {backup blob name}  
-    }'
+```
+'{  
+    storageAccount : {storage account name for the backup},  
+    accessKey : {access key for the account},  
+    containerName : {backup container name},  
+    backupName : {backup blob name}  
+}'
+```
 
 Impostare il valore dell'intestazione della richiesta `Content-Type` su `application/json`.
 
-Il backup è un'operazione a lunga esecuzione che potrebbe richiedere diversi minuti per essere completata. Se la richiesta viene eseguita correttamente e il processo di backup viene avviato, si riceverà un codice di stato risposta `202 Accepted` con un'intestazione `Location`. Effettuare richieste "GET" all'URL nell'intestazione `Location` per conoscere lo stato dell'operazione. Durante l'esecuzione del backup si continuerà a ricevere il codice di stato "202 - Accettato". Il codice risposta `200 OK` indicherà il completamento dell'operazione di backup.
+Il backup è un'operazione a lunga esecuzione che potrebbe richiedere diversi minuti per essere completata.  Se la richiesta viene eseguita correttamente e il processo di backup viene avviato, si riceverà un codice di stato risposta `202 Accepted` con un'intestazione `Location`.  Effettuare richieste "GET" all'URL nell'intestazione `Location` per conoscere lo stato dell'operazione. Durante l'esecuzione del backup si continuerà a ricevere il codice di stato "202 - Accettato". Il codice risposta `200 OK` indicherà il completamento dell'operazione di backup.
 
-**Nota**:
+Quando si crea una richiesta di backup, occorre notare i vincoli seguenti.
 
 * Il **contenitore** specificato nel corpo della richiesta **deve esistere**.
-* Mentre il backup è in corso, **non tentare di eseguire alcuna operazione di gestione dei servizi**, ad esempio l'aggiornamento o il downgrade di SKU, la modifica di nomi di dominio e così via.
+* Mentre il backup è in corso, **non tentare di eseguire alcuna operazione di gestione dei servizi** , ad esempio l'aggiornamento o il downgrade di SKU, la modifica di nomi di dominio e così via.
 * Il ripristino di un **backup è garantito solo per 7 giorni** dal momento della sua creazione.
-* I **dati di utilizzo** usati per creare report analitici **non sono inclusi** nel backup. Usare l'[API REST di Gestione API di Azure][API REST di Gestione API di Azure] per recuperare periodicamente i report analitici e custodirli al sicuro.
+* I **dati di utilizzo** usati per creare report analitici **non sono inclusi** nel backup. Usare l'[API REST di Gestione API di Azure][Azure API Management REST API] per recuperare periodicamente i report analitici e custodirli al sicuro.
 * La frequenza con cui si eseguono i backup dei servizi influenzerà i propri obiettivi relativi ai punti di ripristino. Per ridurla al minimo, si consiglia di implementare backup regolari e di eseguire backup su richiesta dopo aver apportato modifiche importanti al servizio di Gestione API.
 * Le **modifiche** apportate alla configurazione del servizio (ad esempio alle API, ai criteri, all'aspetto del portale per sviluppatori) durante l'esecuzione del processo di backup **potrebbero non essere incluse nel backup e potrebbero quindi andare perse**.
 
@@ -151,32 +161,34 @@ Per ripristinare un servizio di Gestione API da un backup creato in precedenza, 
 
 dove:
 
-* `subscriptionId`: ID della sottoscrizione contenente il servizio di Gestione API in cui si sta ripristinando un backup.
+* `subscriptionId` : ID della sottoscrizione contenente il servizio di Gestione API in cui si sta ripristinando un backup.
 * `resourceGroupName`: una stringa nel formato "Api-Default-{service-region}", dove `service-region` identifica l'area di Azure in cui è ospitato il servizio di Gestione API in cui si ripristinando un backup, ad esempio `North-Central-US`.
-* `serviceName`: il nome del servizio di Gestione API in cui si sta effettuando il ripristino specificato quando è stato creato.
-* `api-version`: sostituire con `2014-02-14`.
+* `serviceName` : il nome del servizio di Gestione API in cui si sta effettuando il ripristino specificato quando è stato creato.
+* `api-version` - sostituire con `2014-02-14`
 
 Nel corpo della richiesta, specificare la posizione del file di backup, ad esempio il nome dell'account di archiviazione, la chiave di accesso, il nome del contenitore BLOB e il nome del backup di Azure:
 
-    '{  
-        storageAccount : {storage account name for the backup},  
-        accessKey : {access key for the account},  
-        containerName : {backup container name},  
-        backupName : {backup blob name}  
-    }'
+```
+'{  
+    storageAccount : {storage account name for the backup},  
+    accessKey : {access key for the account},  
+    containerName : {backup container name},  
+    backupName : {backup blob name}  
+}'
+```
 
 Impostare il valore dell'intestazione della richiesta `Content-Type` su `application/json`.
 
-Il ripristino è un'operazione a lunga esecuzione che potrebbe richiedere 30 minuti o più per essere completata. Se la richiesta viene eseguita correttamente e il processo di ripristino viene avviato, si riceverà un codice di stato risposta `202 Accepted` con un'intestazione `Location`. Effettuare richieste "GET" all'URL nell'intestazione `Location` per conoscere lo stato dell'operazione. Durante l'esecuzione del ripristino si continuerà a ricevere il codice di stato "202 - Accettato". Il codice risposta `200 OK` indicherà il completamento dell'operazione di ripristino.
+Il ripristino è un'operazione a lunga esecuzione che potrebbe richiedere 30 minuti o più per essere completata.  Se la richiesta viene eseguita correttamente e il processo di ripristino viene avviato, si riceverà un codice di stato risposta `202 Accepted` con un'intestazione `Location`.  Effettuare richieste "GET" all'URL nell'intestazione `Location` per conoscere lo stato dell'operazione. Durante l'esecuzione del ripristino si continuerà a ricevere il codice di stato "202 - Accettato". Il codice risposta `200 OK` indicherà il completamento dell'operazione di ripristino.
 
 > [!IMPORTANT]
 > Lo **SKU** del servizio in cui si effettua il ripristino **deve corrispondere** allo SKU del servizio sottoposto a backup da ripristinare.
-> 
+>
 > Le **modifiche** apportate alla configurazione del servizio (ad esempio alle API, ai criteri, all'aspetto del portale per sviluppatori) durante l'operazione di ripristino **potrebbero essere sovrascritte**.
-> 
-> 
+>
+>
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Consultare i blog Microsoft seguenti per due diverse procedure dettagliate del processo di backup e ripristino.
 
 * [Replicare account di Gestione API di Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
@@ -188,7 +200,7 @@ Consultare i blog Microsoft seguenti per due diverse procedure dettagliate del p
 [Restore an API Management service]: #step2
 
 
-[API REST di Gestione API di Azure]: http://msdn.microsoft.com/library/azure/dn781421.aspx
+[Azure API Management REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
 
 [api-management-add-aad-application]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-add-aad-application.png
 
@@ -201,4 +213,7 @@ Consultare i blog Microsoft seguenti per due diverse procedure dettagliate del p
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
 
 
-<!---HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Dec16_HO3-->
+
+

@@ -4,7 +4,7 @@ description: Informazioni su come creare una regola basata sul percorso per un g
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 87bd93bc-e1a6-45db-a226-555948f1feb7
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/13/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0cae4172b9317784e7ed6f671c5722304e2f0e92
+ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
+ms.openlocfilehash: 2889716d6b5b6079c311d6a7f1eb97b001098b45
 
 
 ---
@@ -26,8 +26,6 @@ ms.openlocfilehash: 0cae4172b9317784e7ed6f671c5722304e2f0e92
 > [!div class="op_single_selector"]
 > * [Portale di Azure](application-gateway-create-url-route-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-create-url-route-arm-ps.md)
-> 
-> 
 
 Il routing basato sul percorso dell'URL consente di associare le route in base al percorso dell'URL della richiesta HTTP. Verifica se è disponibile una route per il pool back-end configurato per gli elenchi di URL nel gateway applicazione e invia il traffico di rete al pool back-end definito. In genere il routing basato su URL viene usato per le richieste di bilanciamento del carico per diversi tipi di contenuto tra vari pool di server back-end.
 
@@ -46,7 +44,7 @@ Una regola basata sul percorso richiede un proprio listener. Prima di creare la 
 
 ### <a name="step-1"></a>Passaggio 1
 
-Passare a http://portal.azure.com e selezionare un gateway applicazione esistente. Fare clic su **Regole**
+Passare al [portale di Azure](http://portal.azure.com) e selezionare un gateway applicazione esistente. Fare clic su **Regole**
 
 ![Panoramica del gateway applicazione][1]
 
@@ -74,8 +72,6 @@ Il pannello **Add path-based rule** (Aggiungi regola basata sul percorso) contie
 
 > [!IMPORTANT]
 > Percorsi: elenco dei modelli di percorso usati per la corrispondenza. Ognuno deve iniziare con una barra / e l'unica posizione in cui è consentito il carattere "\*" è alla fine. Alcuni esempi validi: /xyz, /xyz* o /xyz/*.  
-> 
-> 
 
 ![Pannello Add path-based rule (Aggiungi regola basata sul percorso)][2]
 
@@ -94,6 +90,6 @@ Per informazioni su come configurare l'offload SSL con un gateway applicazione d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

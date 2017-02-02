@@ -1,6 +1,6 @@
 ---
 title: Introduzione alla distribuzione di contenuto su richiesta tramite Java | Documentazione di Microsoft
-description: "Descrive come usare Servizi multimediali di Azure per eseguire attività comuni, tra cui codifica, crittografia e streaming delle risorse."
+description: Questa esercitazione illustra il processo di implementazione di un servizio per la distribuzione di contenuto video on demand (VoD) di base con l&quot;applicazione Servizi multimediali di Azure (AMS) usando Java.
 services: media-services
 documentationcenter: java
 author: juliako
@@ -12,28 +12,32 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 12/20/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 18054a72c3ead02311465d97dc13b7b5e4d87321
-ms.openlocfilehash: 401b3c931fa046ee2bdf0a12e9e837b820ec5464
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 55ecdb72c85276cbc8bb5c9ce67978e648ebddb1
 
 
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-java"></a>Introduzione alla distribuzione di contenuto su richiesta tramite Java
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-## <a name="setting-up-an-azure-account-for-media-services"></a>Configurare un account Azure per Servizi multimediali
-Per configurare l'account Servizi multimediali, usare il portale di Azure. Vedere l'argomento [Come creare un account di Servizi multimediali](media-services-portal-create-account.md). Dopo avere creato l'account nel portale di Azure, è possibile configurare il computer per lo sviluppo con Servizi multimediali.
+Questa esercitazione illustra il processo di implementazione di un servizio per la distribuzione di contenuto video on demand (VoD) di base con l'applicazione Servizi multimediali di Azure (AMS) usando Java.
 
-## <a name="setting-up-for-media-services-development"></a>Configurazioni per lo sviluppo con Servizi multimediali
-In questa sezione vengono illustrati i prerequisiti generali per lo sviluppo di applicazioni Servizi multimediali tramite Media Services SDK per Java.
+## <a name="prerequisites"></a>Prerequisiti
 
-### <a name="prerequisites"></a>Prerequisiti
-* Un account di Servizi multimediali ottenuto con una sottoscrizione di Azure nuova o esistente. Vedere l'argomento [Come creare un account di Servizi multimediali](media-services-portal-create-account.md).
+Per completare l'esercitazione è necessario quanto segue:
+
+* Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
+* Account di Servizi multimediali. Per creare un account Servizi multimediali, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
 * Librerie di Azure per Java, che si possono installare dal [Centro per sviluppatori Java in Azure][Azure Java Developer Center].
 
 ## <a name="how-to-use-media-services-with-java"></a>Procedura: come usare Servizi multimediali con Java
+
+>[!NOTE]
+>Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
+
 Il codice seguente illustra come creare un asset, caricare un file multimediale nell'asset, eseguire un processo con un'attività per trasformare l'asset e creare un localizzatore per trasmettere il video.
 
 Prima di usare il codice, è necessario configurare un account Servizi multimediali. Per informazioni su come configurare un account, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
@@ -270,6 +274,6 @@ Per la documentazione Java per Servizi multimediali, vedere le [librerie di Azur
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

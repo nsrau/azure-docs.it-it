@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 12/05/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 3db5c8a80f72c7af20c501daf035337f23d3d2c9
-ms.openlocfilehash: 29825a205e88809bcfc197e9dc82140db8fd885d
+ms.sourcegitcommit: f8d515c6a8b1332ccb338cb5ec2c16daa5725281
+ms.openlocfilehash: c8bdd686deff888c9029b88ceeb32c147398eca2
 
 
 ---
@@ -33,7 +33,9 @@ Non sono previsti requisiti di firewall in ingresso per supportare Hybrid Runboo
 
 > [!NOTE]
 > Attualmente i ruoli di lavoro ibrido per runbook non supportano l'applicazione di [configurazioni DSC](automation-dsc-overview.md) al computer che ospita questo tipo di ruolo.
->
+><br><br>
+>Attualmente se si abilita la [soluzione Gestione aggiornamenti](../operations-management-suite/oms-solution-update-management.md), qualsiasi computer Windows connesso all'area di lavoro OMS verrà automaticamente configurato come ruolo di lavoro ibrido per runbook per supportare i runbook che fanno parte di questa soluzione.  Tuttavia, la soluzione non è registrata con tutti i gruppi del ruolo di lavoro ibrido creati nell'account di Automazione e non è possibile aggiungerla a un gruppo di lavoro ibrido per l'esecuzione dei runbook personalizzati.  Se un computer Windows è già definito come ruolo di lavoro ibrido per runbook e connesso all'area di lavoro OMS, è necessario rimuoverlo dall'area di lavoro OMS prima di aggiungere la soluzione per evitare che i runbook non funzionino come previsto.  
+
 
 ## <a name="hybrid-runbook-worker-groups"></a>Gruppi di computer di lavoro runbook ibridi
 Ogni computer di lavoro runbook ibrido è un membro di un gruppo di computer di lavoro runbook ibridi che è possibile specificare quando si installa l'agente.  Un gruppo può includere un solo agente, ma è possibile installarvi più agenti per garantire una disponibilità elevata.
@@ -76,36 +78,71 @@ Se si ha un account di automazione definito per un'area specifica e si vuole lim
 | Australia sud-orientale |ase-jobruntimedata-prod-su1.azure-automation.net |
 
 ## <a name="installing-hybrid-runbook-worker"></a>Installazione di Hybrid Runbook Workers
-La procedura riportata di seguito descrive come installare e configurare il ruolo di lavoro ibrido per runbook.  Eseguire i primi due passaggi una volta per l'ambiente di automazione e quindi ripetere i passaggi rimanenti per ogni computer di lavoro.
 
-### <a name="1-create-operations-management-suite-workspace"></a>1. Creare l'area di lavoro di Operations Management Suite
+Di seguito vengono descritti due metodi per installare e configurare il ruolo di lavoro ibrido per runbook.  Il primo metodo è uno script di PowerShell che consente di automatizzare tutti i passaggi necessari per configurare il computer Windows. Questo è l'approccio consigliato perché semplifica l'intero processo di distribuzione.  Il secondo metodo prevede l'esecuzione di una procedura dettagliata per installare e configurare il ruolo manualmente.   
+
+### <a name="automated-deployment"></a>Distribuzione automatizzata
+
+Seguire questa procedura per automatizzare l'installazione e configurazione del ruolo di lavoro ibrido.  
+
+1. Scaricare lo script *New-OnPremiseHybridWorker.ps1* da [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.0/DisplayScript) direttamente dal computer che esegue il ruolo di lavoro ibrido per runbook o da un altro computer nell'ambiente e copiarlo nel ruolo di lavoro.  
+
+    Per l'esecuzione dello script *New-OnPremiseHybridWorker.ps1* sono necessari i parametri seguenti:
+
+  * *AutomationAccountName* (obbligatorio) - nome dell'account di Automazione.  
+  * *ResourceGroupName* (obbligatorio) - nome del gruppo di risorse associato all'account di Automazione.  
+  * *HybridGroupName* (obbligatorio) - nome di un gruppo di ruoli di lavoro ibridi per runbook che verrà specificato come destinazione per i runbook che supportano questo scenario. 
+  *  *SubscriptionID* (obbligatorio) - ID della sottoscrizione di Azure in cui è disponibile l'account di Automazione.
+  *  *WorkspaceName* (facoltativo) - nome dell'area di lavoro OMS.  Se non è disponibile un'area di lavoro OMS, lo script ne crea e configura una.
+
+    > [!NOTE]
+    > Le uniche aree di Automazione supportate per l'integrazione con OMS sono attualmente: **Australia sud-orientale**, **Stati Uniti orientali 2**, **Asia sud-orientale** ed **Europa occidentale**.  Se l'account di Automazione non si trova in una di queste aree, lo script creerà l'area di lavoro OMS ma avviserà l'utente che non è possibile collegarli.  
+
+2. Nel computer in uso avviare **Windows PowerShell** dalla schermata **Start** in modalità amministratore.  
+3. Dalla shell della riga di comando di PowerShell passare alla cartella che contiene lo script scaricato ed eseguirlo modificando i valori per i parametri *-AutomationAccountName*, *-ResourceGroupName*, *-HybridGroupName*, *-SubscriptionId* e *-WorkspaceName*.
+
+    > [!NOTE] 
+    > Verrà richiesto di autenticarsi con Azure dopo aver eseguito lo script.  È **necessario** accedere con un account membro del ruolo Amministratori della sottoscrizione e coamministratore della sottoscrizione.   
+    
+        .\New-OnPremiseHybridWorker.ps1 -AutomationAccountName <NameofAutomationAccount> `
+        -ResourceGroupName <NameofOResourceGroup> -HybridGroupName <NameofHRWGroup> `
+        -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfOMSWorkspace>
+
+4. Verrà richiesto di accettare di installare **NuGet** e verrà richiesto di eseguire l'autenticazione con le credenziali di Azure.<br><br> ![Esecuzione dello script New-OnPremiseHybridWorker](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
+
+5. Dopo aver completato lo script, il pannello Gruppi di ruoli di lavoro ibridi mostrerà il nuovo gruppo e il numero di membri oppure, nel caso di un gruppo esistente, il numero di membri verrà incrementato di conseguenza.  È possibile selezionare il gruppo nell'elenco nel pannello **Gruppi di ruoli di lavoro ibridi** e selezionare il riquadro **Ruoli di lavoro per runbook**.  Nel pannello **Ruoli di lavoro per runbook** verrà visualizzato ogni membro del gruppo elencato.  
+
+### <a name="manual-deployment"></a>Distribuzione manuale 
+Eseguire i primi due passaggi una volta per l'ambiente di automazione e quindi ripetere i passaggi rimanenti per ogni computer di lavoro.
+
+#### <a name="1-create-operations-management-suite-workspace"></a>1. Creare l'area di lavoro di Operations Management Suite
 Se non si ha ancora un'area di lavoro di Operations Management Suite, crearne una seguendo le istruzioni per [configurare l'area di lavoro](https://technet.microsoft.com/library/mt484119.aspx). Se già si dispone di un'area di lavoro, è possibile usarla.
 
-### <a name="2-add-automation-solution-to-operations-management-suite-workspace"></a>2. Aggiungere la soluzione di automazione all'area di lavoro di Operations Management Suite
+#### <a name="2-add-automation-solution-to-operations-management-suite-workspace"></a>2. Aggiungere la soluzione di automazione all'area di lavoro di Operations Management Suite
 Le soluzioni aggiungono funzionalità a Operations Management Suite.  La soluzione di automazione aggiunge funzionalità per Automazione di Azure, incluso il supporto per il ruolo di lavoro ibrido per runbook.  Quando si aggiunge la soluzione all'area di lavoro, i componenti del ruolo di lavoro vengono automaticamente propagati al computer dell'agente che verrà installato nel passaggio successivo.
 
 Per aggiungere la soluzione [Automazione](../log-analytics/log-analytics-add-solutions.md) all'area di lavoro di Operations Management Suite, seguire le istruzioni contenute nell'articolo relativo a **come aggiungere una soluzione tramite la raccolta soluzioni** .
 
-### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Installare Microsoft Monitoring Agent
+#### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Installare Microsoft Monitoring Agent
 Microsoft Monitoring Agent connette i computer a Operations Management Suite.  Quando si installa l'agente nel computer locale e lo si connette all'area di lavoro, viene eseguito automaticamente il download dei componenti necessari per il ruolo di lavoro ibrido per runbook.
 
 Per installare l'agente nel computer locale, seguire le istruzioni contenute in [Connettere computer Windows a Log Analytics](../log-analytics/log-analytics-windows-agents.md).  È possibile ripetere questo processo per più computer per aggiungere più ruoli di lavoro nell'ambiente.
 
 Dopo che l'agente si è connesso a Operations Management Suite, viene elencato nella scheda **Origini connesse** del riquadro **Impostazioni** di Operations Management Suite.  È possibile verificare che l'agente abbia scaricato correttamente la soluzione di automazione se include una cartella **AzureAutomationFiles** in C:\Programmi\Microsoft Monitoring Agent\Agent.  Per verificare la versione della funzionalità dei ruoli di lavoro ibridi per runbook, passare a C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ e prendere nota della sottocartella \\*version*.   
 
-### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4. Installare l'ambiente runbook e connettersi ad Automazione di Azure
+#### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4. Installare l'ambiente runbook e connettersi ad Automazione di Azure
 Quando si aggiunge un agente a Operations Management Suite, la soluzione di automazione esegue il push del modulo **HybridRegistration** di PowerShell, che contiene il cmdlet **Add-HybridRunbookWorker**.  È possibile usare questo cmdlet per installare l'ambiente runbook nel computer e registrarlo in Automazione di Azure.
 
 Aprire una sessione di PowerShell in modalità amministratore ed eseguire i comandi seguenti per importare il modulo.
 
     cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\<version>\HybridRegistration"
-    Import-Module HybridRegistration.psd1
+    Import-Module .\HybridRegistration.psd1
 
 Eseguire quindi il cmdlet **Add-HybridRunbookWorker** con la sintassi seguente:
 
     Add-HybridRunbookWorker –Name <String> -EndPoint <Url> -Token <String>
 
-È possibile ottenere le informazioni necessarie per questo cmdlet dal pannello **Gestisci chiavi** del portale di Azure.  Aprire questo pannello facendo clic sull'icona della chiave nel pannello Elementi per l'account di automazione.
+È possibile ottenere le informazioni necessarie per questo cmdlet dal pannello **Gestisci chiavi** del portale di Azure.  Aprire il pannello selezionando l'opzione **Chiavi** nel pannello **Impostazioni** dall'account di Automazione.
 
 ![Panoramica di Hybrid Runbook Workers](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
@@ -115,17 +152,23 @@ Eseguire quindi il cmdlet **Add-HybridRunbookWorker** con la sintassi seguente:
 
 Usare l'opzione **-Verbose** con **Add-HybridRunbookWorker** per ricevere informazioni dettagliate sull'installazione.
 
-### <a name="5-install-powershell-modules"></a>5. Installare i moduli di PowerShell
+#### <a name="5-install-powershell-modules"></a>5. Installare i moduli di PowerShell
 I runbook possono usare tutte le attività e i cmdlet definiti nei moduli installati nell'ambiente di Automazione di Azure.  Questi moduli tuttavia non vengono distribuiti automaticamente nei computer locali, pertanto è necessario installarli manualmente.  L'unica eccezione è rappresentata dal modulo Azure, che viene installato per impostazione predefinita, garantendo l'accesso ai cmdlet per tutte le attività e i servizi di Azure per Automazione di Azure.
 
 Poiché lo scopo principale della funzionalità Hybrid Runbook Workers è gestire le risorse locali, probabilmente sarà necessario installare i moduli che supportano tali risorse.  Per informazioni sull'installazione dei moduli di Windows PowerShell, vedere il [relativo articolo](http://msdn.microsoft.com/library/dd878350.aspx).
 
-## <a name="removing-hybrid-runbook-worker"></a>Rimozione del ruolo di lavoro ibrido per runbook
-È possibile rimuovere uno o più ruoli di lavoro ibrido per runbook da un gruppo o è possibile rimuovere il gruppo, a seconda dei requisiti.  Per rimuovere un ruolo di lavoro ibrido per runbook da un computer locale, aprire una sessione di PowerShell in modalità Amministratore ed eseguire il comando seguente: cmdlet **Remove-HybridRunbookWorker**.  Per un log dettagliato del processo di rimozione, usare l'opzione **-Verbose** .
+## <a name="removing-hybrid-runbook-worker"></a>Rimozione del ruolo di lavoro ibrido per runbook 
+È possibile rimuovere uno o più ruoli di lavoro ibrido per runbook da un gruppo o è possibile rimuovere il gruppo, a seconda dei requisiti.  Per rimuovere un ruolo di lavoro ibrido per runbook da un computer locale, seguire questa procedura.
 
-Questa operazione non rimuove Microsoft Monitoring Agent dal computer, ma solo la funzionalità e la configurazione del ruolo di lavoro ibrido per runbook.  
+1. Nel portale di Azure passare all'account di Automazione.  
+2. Nel pannello **Impostazioni** selezionare **Chiavi** e prendere nota dei valori per il campo **URL** e **Chiave di accesso primaria**.  Queste informazioni saranno necessarie per il passaggio successivo.
+3. Aprire una sessione di PowerShell in modalità amministratore ed eseguire il comando seguente - `Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>`.  Per un log dettagliato del processo di rimozione, usare l'opzione **-Verbose** .
 
-Per rimuovere un gruppo, è innanzitutto necessario rimuovere il ruolo di lavoro ibrido per runbook da ogni computer membro del gruppo usando il comando illustrato in precedenza e quindi attenersi alla procedura seguente per rimuovere il gruppo.  
+> [!NOTE]
+> Questa operazione non rimuove Microsoft Monitoring Agent dal computer, ma solo la funzionalità e la configurazione del ruolo di lavoro ibrido per runbook.  
+
+## <a name="remove-hybrid-worker-groups"></a>Rimuovere gruppi di ruoli di lavoro ibridi
+Per rimuovere un gruppo, è innanzitutto necessario rimuovere il ruolo di lavoro ibrido per runbook da ogni computer membro del gruppo usando la procedura descritta in precedenza e quindi attenersi alla procedura seguente per rimuovere il gruppo.  
 
 1. Nel portale di Azure aprire l'account di automazione.
 2. Selezionare il riquadro **Gruppi di ruoli di lavoro ibridi** e nel pannello **Gruppi di lavoro ibridi** selezionare il gruppo che si desidera eliminare.  Dopo aver selezionato il gruppo specifico, viene visualizzato il pannello delle proprietà del **Gruppo di lavoro ibrido**.<br> ![Pannello Gruppi di ruoli di lavoro ibridi ](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)   
@@ -208,6 +251,6 @@ Per determinare se per le proprie esigenze sia più opportuno ricorrere ad Autom
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

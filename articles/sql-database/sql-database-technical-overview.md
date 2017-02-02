@@ -1,5 +1,5 @@
 ---
-title: Informazioni sul database SQL Introduzione al database SQL | Documentazione Microsoft
+title: Informazioni sul servizio database SQL di Azure | Documentazione Microsoft
 description: 'Get an introduction to SQL Database: technical details and capabilities of Microsoft''s relational database management system (RDBMS) in the cloud.'
 keywords: introduzione a sql,intro a sql,informazioni sul database sql
 services: sql-database
@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 12/20/2016
 ms.author: shkurhek;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 262583a2a11c41cf7acb55599041692137165e8f
+ms.sourcegitcommit: 7a7e9ab9e01f3775061c0b4aee6c558a15aaff44
+ms.openlocfilehash: b3e8f5a6c5a2304bbe8b567fa0d25f27e6a917d7
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>Informazioni sul database SQL Introduzione al Database SQL
@@ -26,7 +26,7 @@ Il database SQL è un servizio di database relazionale sul cloud Microsoft basat
 
 Questo articolo è un'introduzione dei concetti fondamentali sul database SQL e delle funzionalità correlate a prestazioni, scalabilità e gestibilità, con collegamenti per esplorare i dettagli. Se si è pronti per passare alle esercitazioni pratiche, vedere [Creare il primo database SQL](sql-database-get-started.md) o [Creare un pool elastico](sql-database-elastic-pool-create-portal.md). Per una breve dimostrazione, guardare questo video.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
 > 
 > 
 
@@ -62,6 +62,6 @@ Dopo avere letto l'introduzione al database SQL e avere ottenuto informazioni su
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

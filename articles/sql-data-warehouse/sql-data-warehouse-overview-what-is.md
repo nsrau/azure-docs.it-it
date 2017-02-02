@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;mausher;kevin;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff2d30fcf53028754fc5e1a4b6b52323855a48b4
+ms.sourcegitcommit: 6241eb0e7ea091dffcb0ae770f8d89f24a19eb67
+ms.openlocfilehash: ff2f688d42924edb1596cb2db474a58748f2b44c
 
 
 ---
@@ -25,7 +25,7 @@ Azure SQL Data Warehouse è un database basato sul cloud, con possibilità di au
 
 SQL Data Warehouse:
 
-* Combina il database relazionale di SQL Server con le funzionalità di aumento del numero di istanze del cloud di Azure. È possibile aumentare, ridurre, sospendere o riprendere il calcolo in pochi secondi. È possibile ridurre i costi aumentando l'uso della CPU quando occorre e riducendo l'utilizzo negli orari non di punta.
+* Combina il database relazionale di SQL Server con le funzionalità di aumento del numero di istanze del cloud di Azure. È possibile aumentare, ridurre, sospendere o riprendere il calcolo in pochi minuti o secondi. È possibile ridurre i costi aumentando l'uso della CPU quando occorre e riducendo l'utilizzo negli orari non di punta.
 * Sfrutta la piattaforma Azure. È facile da distribuire, può essere mantenuto senza problemi ed è completamente a tolleranza di errore grazie ai backup automatici.
 * È complementare all'ecosistema di SQL Server. È possibile sviluppare con il familiare linguaggio Transact-SQL (T-SQL) e gli strumenti di SQL Server.
 
@@ -96,21 +96,21 @@ SQL Data Warehouse si basa sul motore di database relazionale di SQL Server e in
 
 * SQL Data Warehouse usa la sintassi T-SQL per molte operazioni. Supporta anche un'ampia gamma di costrutti SQL tradizionali, ad esempio stored procedure, funzioni definite dall'utente, partizionamento delle tabelle, indici e regole di confronto.
 * SQL Data Warehouse include anche una serie di funzionalità recenti di SQL Server, tra cui gli indici **columnstore** cluster, l'integrazione di PolyBase e il controllo dei dati, inclusa la valutazione delle minacce.
-* Alcuni elementi del linguaggio T-SQL meno comuni per i carichi di lavoro di data warehousing o più recenti in SQL Server potrebbero non essere disponibili al momento. Per altre informazioni, vedere la [documentazione sulla migrazione][documentazione sulla migrazione].
+* Alcuni elementi del linguaggio T-SQL meno comuni per i carichi di lavoro di data warehousing o più recenti in SQL Server potrebbero non essere disponibili al momento. Per altre informazioni, vedere la [documentazione sulla migrazione][Migration documentation].
 
 Grazie a Transact-SQL e alle funzionalità in comune tra SQL Server, SQL Data Warehouse, il database SQL e Analytics Platform System, è possibile sviluppare una soluzione adatta alle esigenze dei dati di cui si dispone. È possibile decidere dove mantenere i dati in base ai requisiti di prestazioni, sicurezza e scalabilità e quindi trasferirli secondo le necessità tra i diversi sistemi.
 
 ## <a name="data-protection"></a>Protezione dati
-SQL Data Warehouse archivia tutti i dati nella risorsa di archiviazione con ridondanza locale Premium di Azure. Nel data center locale vengono mantenute più copie sincrone dei dati per garantire una protezione trasparente degli stessi in caso di problemi localizzati. SQL Data Warehouse esegue anche il backup automatico dei database attivi (non in pausa) a intervalli regolari usando gli snapshot di Archiviazione di Azure. Per altre informazioni sul funzionamento del backup e ripristino, vedere la [panoramica su backup e ripristino][panoramica su backup e ripristino].
+SQL Data Warehouse archivia tutti i dati nella risorsa di archiviazione con ridondanza locale Premium di Azure. Nel data center locale vengono mantenute più copie sincrone dei dati per garantire una protezione trasparente degli stessi in caso di problemi localizzati. SQL Data Warehouse esegue anche il backup automatico dei database attivi (non in pausa) a intervalli regolari usando gli snapshot di Archiviazione di Azure. Per altre informazioni sul funzionamento del backup e ripristino, vedere la [panoramica su backup e ripristino][Backup and restore overview].
 
 ## <a name="integrated-with-microsoft-tools"></a>Integrato con strumenti di Microsoft
 SQL Data Warehouse si integra anche con molti degli strumenti di SQL Server con cui gli utenti possono avere familiarità, Sono inclusi:
 
 **Strumenti tradizionali di SQL Server:** SQL Data Warehouse è completamente integrato con SQL Server Analysis Services, Integration Services e Reporting Services.
 
-**Strumenti basati sul cloud:** SQL Data Warehouse può essere usato insieme a numerosi nuovi strumenti di Azure, tra cui Data factory, Analisi di flusso, Machine Learning e Power BI. Per un elenco più completo, vedere la [panoramica degli strumenti integrati][panoramica degli strumenti integrati].
+**Strumenti basati sul cloud:** SQL Data Warehouse può essere usato insieme a numerosi nuovi strumenti di Azure, tra cui Data factory, Analisi di flusso, Machine Learning e Power BI. Per un elenco più completo, vedere la [panoramica degli strumenti integrati][Integrated tools overview].
 
-**Strumenti di terze parti:** numerosi provider di strumenti di terze parti hanno certificato l'integrazione dei propri strumenti con SQL Data Warehouse. Per l'elenco completo, vedere [Partner di soluzioni per SQL Data Warehouse][Partner di soluzioni per SQL Data Warehouse].
+**Strumenti di terze parti:** numerosi provider di strumenti di terze parti hanno certificato l'integrazione dei propri strumenti con SQL Data Warehouse. Per l'elenco completo, vedere [Partner di soluzioni per SQL Data Warehouse][SQL Data Warehouse solution partners].
 
 ## <a name="hybrid-data-sources-scenarios"></a>Scenari di origini dati ibride
 L'uso di SQL Data Warehouse con PolyBase offre agli utenti funzionalità senza precedenti per spostare dati nel proprio ecosistema, consentendo di configurare scenari ibridi avanzati con origini dati locali e non relazionali.
@@ -122,10 +122,10 @@ Polybase consente di sfruttare i dati provenienti da origini diverse eseguendo i
 * È possibile usare PolyBase per accedere all'archivio BLOB che viene usato anche come risorsa di archiviazione per un cluster HDInsight. Ciò consente di accedere agli stessi dati con strumenti relazionali e non relazionali.
 
 ## <a name="sla"></a>Contratto di servizio
-SQL Data Warehouse offre un contratto di servizio a livello di prodotto come parte del Contratto di servizio di Microsoft Online Services. Per altre informazioni, vedere [Contratto di servizio per SQL Data Warehouse][Contratto di servizio per SQL Data Warehouse]. Per informazioni sul contratto di servizio di tutti gli altri prodotti, visitare la pagina di Azure [Contratti di servizio] o eseguirne il download nella pagina [Contratti multilicenza][Contratti multilicenza]. 
+SQL Data Warehouse offre un contratto di servizio a livello di prodotto come parte del Contratto di servizio di Microsoft Online Services. Per altre informazioni, vedere [Contratto di servizio per SQL Data Warehouse][SLA for SQL Data Warehouse]. Per informazioni sul contratto di servizio di tutti gli altri prodotti, visitare la pagina di Azure [Contratti di servizio] o eseguirne il download nella pagina [Contratti multilicenza][Volume Licensing]. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver appreso alcune informazioni su SQL Data Warehouse, vedere come [creare un Azure SQL Data Warehouse][creare un Azure SQL Data Warehouse] rapidamente e [caricare dati di esempio][caricare dati di esempio]. Se non si ha familiarità con Azure, il [glossario di Azure][glossario di Azure] può essere utile quando si incontrano termini nuovi. In alternativa, vedere alcune delle risorse seguenti per SQL Data Warehouse.  
+Dopo aver appreso alcune informazioni su SQL Data Warehouse, vedere come [creare un SQL Data Warehouse][create a SQL Data Warehouse] rapidamente e [caricare i dati di esempio][load sample data]. Se non si ha familiarità con Azure, il [glossario di Azure][Azure glossary] può essere utile quando si incontrano termini nuovi. In alternativa, vedere alcune delle risorse seguenti per SQL Data Warehouse.  
 
 * [Casi di successo dei clienti]
 * [Blog]
@@ -142,13 +142,13 @@ Dopo aver appreso alcune informazioni su SQL Data Warehouse, vedere come [creare
 
 <!--Article references-->
 [Creare un ticket di supporto]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Caricare i dati di esempio in SQL Data Warehouse]: ./sql-data-warehouse-load-sample-databases.md
-[Creare un Azure SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
-[documentazione sulla migrazione]: ./sql-data-warehouse-overview-migrate.md
-[Partner di soluzioni per SQL Data Warehouse]: ./sql-data-warehouse-partner-business-intelligence.md
-[panoramica degli strumenti integrati]: ./sql-data-warehouse-overview-integrate.md
-[panoramica su backup e ripristino]: ./sql-data-warehouse-restore-database-overview.md
-[glossario di Azure]: ../azure-glossary-cloud-terminology.md
+[load sample data]: ./sql-data-warehouse-load-sample-databases.md
+[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[Migration documentation]: ./sql-data-warehouse-overview-migrate.md
+[SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
+[Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
+[Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
@@ -161,12 +161,12 @@ Dopo aver appreso alcune informazioni su SQL Data Warehouse, vedere come [creare
 [Forum su Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Video]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[Contratto di servizio per SQL Data Warehouse]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
-[Contratti multilicenza]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
+[SLA for SQL Data Warehouse]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
+[Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Contratti di servizio]: https://azure.microsoft.com/en-us/support/legal/sla/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

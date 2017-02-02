@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 07/07/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ef47e420a55164277b70dd504daa14ed12718853
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2f5e6d100effee99b1a1576c0e21f1a311f8131b
 
 
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud
 ## <a name="overview"></a>Panoramica
-Azure offre vari modi per ospitare siti Web: [Servizio app di Azure][Servizio app di Azure], [Macchine virtuali][Macchine virtuali], [Service Fabric][Service Fabric] e [Servizi cloud][Servizi cloud]. In questo articolo vengono fornite informazioni utili per comprendere le opzioni disponibili ed effettuare la scelta appropriata per l'applicazione Web.
+Azure offre vari modi per ospitare siti Web: [Servizio app di Azure][Azure App Service], [Macchine virtuali][Virtual Machines], [Service Fabric][Service Fabric] e [Servizi cloud][Cloud Services]. In questo articolo vengono fornite informazioni utili per comprendere le opzioni disponibili ed effettuare la scelta appropriata per l'applicazione Web.
 
-Azure App Service è la scelta migliore per la maggior parte delle app Web. La distribuzione e la gestione sono integrate nella piattaforma ed è possibile scalare rapidamente i siti per gestire carichi di traffico elevato; inoltre, il bilanciamento del carico e la gestione del traffico predefiniti offrono disponibilità elevata. È possibile spostare facilmente siti esistenti in Azure App Service con uno [strumento di migrazione online](https://www.migratetoazure.net/), usare un'app open source della raccolta di applicazioni Web oppure creare un nuovo sito tramite il framework e gli strumenti di propria scelta. La funzionalità [WebJobs][WebJobs] semplifica l'aggiunta di elaborazione di processi in background all'app Web di servizio app.
+Azure App Service è la scelta migliore per la maggior parte delle app Web. La distribuzione e la gestione sono integrate nella piattaforma ed è possibile scalare rapidamente i siti per gestire carichi di traffico elevato; inoltre, il bilanciamento del carico e la gestione del traffico predefiniti offrono disponibilità elevata. È possibile spostare facilmente siti esistenti in Azure App Service con uno [strumento di migrazione online](https://www.migratetoazure.net/), usare un'app open source della raccolta di applicazioni Web oppure creare un nuovo sito tramite il framework e gli strumenti di propria scelta. La funzionalità [Processi Web][WebJobs] semplifica l'aggiunta di elaborazione di processi in background all'app Web del servizio app.
 
 Service Fabric è una scelta valida se si crea una nuova app o si riscrive un'app esistente per usare un'architettura di microservizio. Le app, eseguite in un pool condiviso di computer, possono essere inizialmente di piccole dimensioni ed espandersi su vasta scala con centinaia o migliaia di computer in base alle esigenze. I servizi con stato facilitano un'archiviazione coerente e affidabile dello stato delle app e Service Fabric gestisce automaticamente il partizionamento, la scalabilità e la disponibilità dei servizi.  Service Fabric supporta anche WebAPI con Open Web Interface for .NET (OWIN) e ASP.NET Core.  Rispetto al servizio app, Service Fabric offre anche un maggiore livello di controllo, o accesso diretto, sull'infrastruttura sottostante. È possibile accedere in remoto ai server e configurarne le attività di avvio. Servizi cloud è simile a Service Fabric in termini di rapporto tra controllo e semplicità d'uso, ma è un servizio legacy e per le nuove attività di sviluppo è consigliabile usare Service Fabric.
 
@@ -54,7 +54,7 @@ Nella tabella seguente vengono confrontate le funzionalità del Servizio app, di
 | Integrazione di Visual Studio |X |X |X |X | |
 | Debug remoto |X |X |X | | |
 | Distribuzione codice con TFS |X |X |X |X | |
-| Isolamento rete con la [rete virtuale di Azure](/services/virtual-network/) |X |X |X |X |Vedere anche [Integrazione della rete virtuale di Siti Web di Azure](/blog/2014/09/15/azure-websites-virtual-network-integration/) |
+| Isolamento rete con la [rete virtuale di Azure](/services/virtual-network/) |X |X |X |X |Vedere anche [Integrazione della rete virtuale di Siti Web di Azure](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) |
 | Supporto per [Gestione traffico di Azure](/services/traffic-manager/) |X |X |X |X | |
 | Monitoraggio integrato degli endpoint |X |X |X | | |
 | Accesso al server tramite Desktop remoto | |X |X |X | |
@@ -77,7 +77,7 @@ Di seguito sono riportati alcuni scenari applicativi comuni con indicazioni rigu
 * [Voglio ospitare un'API REST o un servizio Web per client mobili.](#mobile)
 
 ### <a name="a-idonprema-i-need-a-web-front-end-with-background-processing-and-database-backend-to-run-business-applications-integrated-with-on-premise-assets"></a><a id="onprem"></a> Mi serve un front-end Web con funzionalità di elaborazione in background e un back-end di database per eseguire applicazioni aziendali integrate con risorse locali.
-Azure App Service è un'ottima soluzione per applicazioni aziendali complesse. Consente di sviluppare app scalabili automaticamente su una piattaforma con carico bilanciato, è protetto con Active Directory e si connette alle risorse locali. Semplifica la gestione di tali app tramite un portale e delle API di qualità superiore e consente di ottenere informazioni sul modo in cui i clienti le usano con strumenti di analisi approfondita delle app. La funzionalità [Processi Web][Processi Web] consente di eseguire processi e attività in background nell'ambito del livello Web, mentre la connettività ibrida e le funzionalità di rete virtuale semplificano la connessione alle risorse locali. Azure App Service offre contratti di servizio con garanzia di disponibilità del 99,999% per le app Web e consente di:
+Azure App Service è un'ottima soluzione per applicazioni aziendali complesse. Consente di sviluppare app scalabili automaticamente su una piattaforma con carico bilanciato, è protetto con Active Directory e si connette alle risorse locali. Semplifica la gestione di tali app tramite un portale e delle API di qualità superiore e consente di ottenere informazioni sul modo in cui i clienti le usano con strumenti di analisi approfondita delle app. La funzionalità [Processi Web][Webjobs] consente di eseguire processi e attività in background nell'ambito del livello Web, mentre la connettività ibrida e le funzionalità di rete virtuale semplificano la connessione alle risorse locali. Azure App Service offre contratti di servizio con garanzia di disponibilità del 99,999% per le app Web e consente di:
 
 * Eseguire le applicazioni in modo affidabile su una piattaforma cloud con funzionalità automatiche di riparazione e di applicazione di patch.
 * Scalare automaticamente in una rete globale di data center.
@@ -113,10 +113,10 @@ Azure App Service è un'ottima soluzione per questo scenario, perché è possibi
 ### <a name="a-iddesignera-im-a-web-or-graphic-designer-and-i-want-to-design-and-build-websites-for-my-customers"></a><a id="designer"></a> Sono un Web designer o un progettista grafico e voglio progettare e realizzare siti Web per i miei clienti
 Per gli sviluppatori e i progettisti Azure App Service si integra facilmente con una varietà di framework e strumenti, include il supporto della distribuzione per Git e FTP e offre una stretta integrazione con strumenti e servizi quali Visual Studio e il database SQL. Con il servizio app, è possibile:
 
-* Usare strumenti da riga di comando per lo [script] di [attività automatizzate].
-* Lavorare con i linguaggi più usati, come [.Net][dotnet], [PHP][PHP], [Node.js][nodejs] e [Python][Python].
+* Usare strumenti da riga di comando per [attività automatiche][scripting].
+* Lavorare con i linguaggi più diffusi, ad esempio [.Net][dotnet], [PHP][PHP], [Node.js][nodejs], e [Python][Python].
 * Selezionare tre diversi livelli di scalabilità per aumentare la capacità fino a livelli molto elevati.
-* Integrare questo con altri servizi di Azure, come il [database SQL][sqldatabase], il [bus di servizio][servicebus] e [Archiviazione][Archiviazione], oppure con offerte di partner disponibili in [Azure Store][azurestore], come MySQL e MongoDB.
+* Eseguire l'integrazione con altri servizi di Azure, ad esempio [database SQL][sqldatabase], [bus di servizio][servicebus] e [archiviazione][Storage] oppure con offerte di partner disponibili in [Azure Store][azurestore], ad esempio MySQL e MongoDB.
 * Effettuare l'integrazione con strumenti quali Visual Studio, Git, WebMatrix, WebDeploy, TFS e FTP.
 
 ### <a name="a-idmultitieraim-migrating-my-multi-tier-application-with-a-web-front-end-to-the-cloud"></a><a id="multitier"></a>Sto migrando la mia applicazione multilivello con un front-end Web al cloud
@@ -135,7 +135,7 @@ Se l'applicazione richiede la complessa installazione o configurazione di softwa
 ### <a name="a-idossamy-site-uses-open-source-software-and-i-want-to-host-it-in-azure"></a><a id="oss"></a>Il mio sito usa software open source e voglio ospitarlo in Azure
 Se il framework open source è supportato su Azure App Service, le lingue e i framework richiesti dall'applicazione sono configurati automaticamente. Il servizio app consente di:
 
-* Usare molti linguaggi open source tra i più diffusi, come [.NET][dotnet], [PHP][PHP], [Node.js][nodejs] e [Python][Python].
+* Usare molti linguaggi open source tra i più diffusi, ad esempio [.NET][dotnet], [PHP][PHP], [Node.js][nodejs] e [Python][Python].
 * Configurare WordPress, Drupal, Umbraco, DNN e molte altre applicazioni Web di terze parti.
 * Eseguire la migrazione di un'applicazione esistente o crearne una nuova dalla raccolta di applicazioni.
 
@@ -169,13 +169,13 @@ Per iniziare a usare le opzioni scelte per l'applicazione, vedere le risorse seg
 
 <!-- URL List -->
 
-[Servizio app di Azure]: /services/app-service/
-[Servizi cloud]: http://go.microsoft.com/fwlink/?LinkId=306052
-[Macchine virtuali]: http://go.microsoft.com/fwlink/?LinkID=306053
+[Azure App Service]: /services/app-service/
+[Cloud Services]: http://go.microsoft.com/fwlink/?LinkId=306052
+[Virtual Machines]: http://go.microsoft.com/fwlink/?LinkID=306053
 [Service Fabric]: /services/service-fabric
 [ClearDB]: http://www.cleardb.com/
 [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-[Configurazione di un certificato SSL per un sito Web di Azure]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
+[Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
 [azurestore]: http://www.windowsazure.com/gallery/store/
 [scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
 [dotnet]: http://www.windowsazure.com/develop/net/
@@ -184,7 +184,7 @@ Per iniziare a usare le opzioni scelte per l'applicazione, vedere le risorse seg
 [Python]: http://www.windowsazure.com/develop/python/
 [servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
 [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
-[Archiviazione]: http://www.windowsazure.com/documentation/services/storage/
+[Storage]: http://www.windowsazure.com/documentation/services/storage/
 
 <!-- IMG List -->
 
@@ -192,6 +192,6 @@ Per iniziare a usare le opzioni scelte per l'applicazione, vedere le risorse seg
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

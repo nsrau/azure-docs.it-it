@@ -1,5 +1,5 @@
 ---
-title: "Panoramica delle funzionalità di Batch per sviluppatori | Microsoft Docs"
+title: Panoramica di Azure Batch per sviluppatori | Documentazione Microsoft
 description: "Informazioni sulle funzionalità del servizio Batch e le relative API dal punto di vista dello sviluppatore."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 4bd60ab3b1be1fa590b20fbe292da69f6a2dac8e
-ms.openlocfilehash: 0b63ea1e6308732f6993357466d7e372ec53a78f
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: 582339ae078b9b7fbded2913e56afc36ce2120d5
 
 
 ---
@@ -312,7 +312,7 @@ Un approccio combinato viene in genere usato per la gestione di un carico variab
 
 Quando si crea un pool di nodi di calcolo in Azure Batch, è possibile specificare l'ID di una [rete virtuale (VNet)](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/) di Azure nella quale devono essere creati i nodi di calcolo del pool.
 
-* Solo i pool di **configurazione dei servizi cloud** possono essere assegnati a una rete virtuale.
+* È possibile assegnare una rete virtuale solo ai pool di **configurazione dei servizi cloud**.
 
 * La rete virtuale deve:
 
@@ -321,9 +321,9 @@ Quando si crea un pool di nodi di calcolo in Azure Batch, è possibile specifica
    * Essere una rete virtuale **classica**. Le reti virtuali create con il modello di distribuzione di Azure Resource Manager non sono supportate.
 
 * La rete virtuale deve avere sufficienti **indirizzi IP** liberi per includere la proprietà `targetDedicated` del pool. Se la subnet non ha sufficienti indirizzi IP liberi, il servizio Batch alloca parzialmente i nodi di calcolo nel pool e restituisce un errore di ridimensionamento.
-* L'entità del servizio *MicrosoftAzureBatch* deve avere il ruolo di controllo di accesso basato sui ruoli (RBAC) ovvero [Collaboratore Macchina virtuale classica](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) per la rete virtuale specificata. Nel portale di Azure:
+* L'entità servizio *MicrosoftAzureBatch* deve avere il ruolo di controllo di accesso basato sui ruoli (RBAC) ovvero [Collaboratore Macchina virtuale classica](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) per la rete virtuale specificata. Nel portale di Azure:
 
-  * Selezionare la **rete virtuale** scegliere **Controllo di accesso (IAM)** > **Ruoli** > **Collaboratore Macchina virtuale classica** > **Aggiungi**
+  * Selezionare la **rete virtuale**, scegliere **Controllo di accesso (IAM)** > **Ruoli** > **Collaboratore Macchina virtuale classica** > **Aggiungi**
   * Digitare "MicrosoftAzureBatch" nella casella **Ricerca**
   * Selezionare la casella di controllo **MicrosoftAzureBatch**
   * Fare clic sul pulsante **Seleziona**
@@ -489,6 +489,6 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

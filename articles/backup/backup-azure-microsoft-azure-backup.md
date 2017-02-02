@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: jimpark;trinadhk;pullabhk;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
-ms.openlocfilehash: 52b37f9fe5adcc69554520d90e2be84de26f5fad
+ms.sourcegitcommit: 482205d4b28099def12173bc253ce1c5d7725587
+ms.openlocfilehash: 6b454e42f60e779763d08d2d4bc8c9db5531e555
 
 
 ---
@@ -30,7 +30,14 @@ ms.openlocfilehash: 52b37f9fe5adcc69554520d90e2be84de26f5fad
 > 
 > 
 
-Questo articolo illustra la preparazione dell'ambiente per eseguire il backup dei carichi di lavoro con il server di Backup di Azure. Con il server di Backup di Azure è possibile proteggere i carichi di lavoro dell'applicazione, ad esempio macchine virtuali Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange e i client di Windows, da una singola console. In Azure è possibile proteggere anche carichi di lavoro IaaS, ad esempio VM.
+Questo articolo illustra la preparazione dell'ambiente per eseguire il backup dei carichi di lavoro con il server di Backup di Azure. Con il server di Backup di Azure è possibile proteggere i carichi di lavoro dell'applicazione, ad esempio macchine virtuali Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange e i client di Windows, da una singola console. 
+
+> [!NOTE]
+> Il server di Backup di Azure ora consente di proteggere le VM VMware e offre migliori funzionalità di sicurezza. È necessario installare il prodotto come illustrato nelle sezioni seguenti e applicare l'aggiornamento 1 e l'agente di Backup di Azure più recente. Per altre informazioni sul backup VMware con il server di Backup di Azure, vedere il [blog delle procedure](https://azure.microsoft.com/blog/four-simple-steps-to-backup-vmware-vms-using-azure-backup-server/). Per informazioni sulle funzionalità di sicurezza, vedere la [documentazione sulle funzionalità di sicurezza di Backup di Azure](backup-azure-security-feature.md).
+> 
+> 
+
+In Azure è possibile proteggere anche carichi di lavoro IaaS, ad esempio VM.
 
 > [!NOTE]
 > Azure offre due modelli di distribuzione per creare e usare le risorse: [Resource Manager e distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo include informazioni e procedure per il ripristino di VM distribuite con il modello Resource Manager.
@@ -266,6 +273,6 @@ Per informazioni dettagliate sulla [preparazione dell'ambiente per DPM](https://
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

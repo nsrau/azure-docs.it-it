@@ -3,7 +3,7 @@ title: Analizzare i modelli di utilizzo della rete CDN di Azure | Microsoft Docs
 description: "È possibile visualizzare i modelli di utilizzo per la rete CDN utilizzando i seguenti report: larghezza di banda, dati trasferiti, riscontri, stati della Cache, percentuale riscontri Cache, dati trasferiti IPV4/IPV6."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 5a0d9018-8bdb-48ff-84df-23648ebcf763
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ec6a021e087d9218856370e8bf067359de54bdb9

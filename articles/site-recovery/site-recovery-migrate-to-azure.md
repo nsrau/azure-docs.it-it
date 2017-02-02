@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 20aecf6df4af0b89fb6cafbd2047facdb345bae5
-ms.openlocfilehash: 8f658cb80a43e0eb21585ea851251b1339ab546b
+ms.sourcegitcommit: f82634af931a1e9a9646c5631ebd0e5923a0adcc
+ms.openlocfilehash: cbb6de4587871c40c9d4e97c9fb2a88eab4945a6
 
 
 ---
@@ -47,7 +47,7 @@ Questo articolo descrive la distribuzione nel [portale di Azure](https://portal.
 
 ## <a name="migrate-on-premises-vms-and-physical-servers"></a>Eseguire la migrazione di server fisici e VM locali
 
-Per eseguire la migrazione di server fisici e VM VMware e Hyper-V locali, si segue approssimativamente la stessa procedura usata per la replica regolare. Si configurano un insieme di credenziali di Servizi di ripristino e quindi i server di gestione necessari (in base agli elementi di cui si vuole eseguire la migrazione), si aggiungono tali server all'insieme di credenziali e si specificano le impostazioni di replica. Dopo aver abilitato la replica per i computer di cui si vuole eseguire la migrazione, si effettua un rapido failover di test per verificare che tutto funzioni come previsto.
+Per eseguire la migrazione di server fisici e VM VMware e Hyper-V locali, si segue approssimativamente la stessa procedura usata per la replica normale. Si configurano un insieme di credenziali di Servizi di ripristino e quindi i server di gestione necessari (in base agli elementi di cui si vuole eseguire la migrazione), si aggiungono tali server all'insieme di credenziali e si specificano le impostazioni di replica. Dopo aver abilitato la replica per i computer di cui si vuole eseguire la migrazione, si effettua un rapido failover di test per verificare che tutto funzioni come previsto.
 
 Dopo aver verificato il funzionamento dell'ambiente di replica, si usa un failover pianificato o non pianificato a seconda della [tipologia supportata](site-recovery-failover.md#failover-and-failback) per lo scenario. Per la migrazione, non è necessario eseguire il commit del failover o eliminare elementi. Si seleziona invece l'opzione **Completa la migrazione** per ogni computer di cui si vuole eseguire la migrazione. L'azione **Completa la migrazione** porta a termine il processo di migrazione, rimuove la replica per il computer e interrompe la relativa fatturazione di Site Recovery.
 
@@ -73,6 +73,6 @@ Dopo aver verificato il funzionamento dell'ambiente di replica, si usa un failov
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

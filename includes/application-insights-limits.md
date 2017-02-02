@@ -2,33 +2,23 @@ Esistono alcuni limiti sul numero di metriche e eventi per applicazione (ovvero,
 
 I limiti dipendono dal [piano tariffario](https://azure.microsoft.com/pricing/details/application-insights/) scelto.
 
-| **Risorsa** | **Limite predefinito** | **Limite massimo** |
+| **Risorsa** | **Limite predefinito** | **Nota**
 | --- | --- | --- |
-| Punti dati di sessione<sup>1, 2</sup> al mese |senza limiti | |
-| Totale dei punti dati mensile per la visualizzazione di richieste, eventi, dipendenze, tracce, eccezioni e pagine |5 milioni |50 milioni<sup>3</sup> |
-| [di traccia e di log](../articles/application-insights/app-insights-search-diagnostic-logs.md)  |200 dp/s |500 dp/s |
-| [di eccezione](../articles/application-insights/app-insights-asp-net-exceptions.md)  |50 dp/s |50 dp/s |
-| Totale della velocità dati per richieste, eventi, dipendenze e telemetria delle visualizzazioni di pagine |200 dp/s |500 dp/s |
-| Conservazione dei dati non elaborati per [Ricerca](../articles/application-insights/app-insights-diagnostic-search.md) e [Analytics](../articles/application-insights/app-insights-analytics.md) |7 giorni | |
-| Conservazione dei dati aggregati per [Esplora metriche](../articles/application-insights/app-insights-metrics-explorer.md) |90 giorni | |
-| [proprietà](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties)  |100 | |
-| Lunghezza nome proprietà |150 | |
-| Lunghezza valore proprietà |8192 | |
-| Lunghezza messaggio di traccia e di eccezione |10000 | |
-| [metriche](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties)  |100 | |
-| Lunghezza nome di metrica |150 | |
-| [Test della disponibilità](../articles/application-insights/app-insights-monitor-web-app-availability.md) |10 | |
+| Totale dati al giorno | 500 GB | È possibile ridurre impostando un limite. Se sono necessarie altre informazioni, inviare un messaggio di posta elettronica all'indirizzo AIDataCap@microsoft.com 
+| Dati gratuiti al mese<br/> (piano tariffario base) | 1 GB | Dati aggiuntivi addebitati per GB
+| Limitazione | 16.000 eventi/secondo | Misurazione nell'arco di un minuto. 
+| Conservazione dei dati | 90 giorni | per [ricerca](../articles/application-insights/app-insights-diagnostic-search.md), [analisi](../articles/application-insights/app-insights-analytics.md) ed [Esplora metriche](../articles/application-insights/app-insights-metrics-explorer.md)
+| Conservazione dei risultati dettagliati di [test di disponibilità in più passi](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) | 90 giorni | Risultati dettagliati di ogni passo
+| Lunghezza nomi di proprietà e metriche | 150 |
+| Lunghezza stringa valore di proprietà | 8192 |
+| Lunghezza messaggio di traccia e di eccezione | 10000 |
+| Numero di [test di disponibilità](../articles/application-insights/app-insights-monitor-web-app-availability.md) per app  | 10 |
 
-<sup>1</sup> Un punto dati è un evento o un valore di metrica singolo, con proprietà e misurazioni associate.
-
-<sup>2</sup> Un punto dati di sessione registra l'inizio o la fine di una sessione, registrando l'identità dell'utente.
-
-<sup>3</sup> È possibile acquistare capacità aggiuntiva per oltre 50 milioni.
+1. Tutti i numeri si riferiscono a ogni chiave di strumentazione.
 
 [Informazioni su prezzi e quote in Application Insights](../articles/application-insights/app-insights-pricing.md)
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

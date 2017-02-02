@@ -17,8 +17,8 @@ ms.workload: NA
 ms.date: 10/13/2016
 ms.author: carlrab;sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 9e331f3536bfde96d15ff5bb3a21683f67b25da2
-ms.openlocfilehash: d726a886717826368693cda6ca4141c136ea236d
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: d04eb659bcf4df53c5f44c1a4b01763844476267
 
 
 ---
@@ -77,7 +77,7 @@ Usare la replica geografica attiva se l'applicazione soddisfa i criteri seguenti
 * Il costo aggiuntivo della replica geografica attiva è inferiore rispetto alla potenziale responsabilità finanziaria e alla perdita di profitto associata.
 
 >
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
 
 ## <a name="recover-a-database-after-a-user-or-application-error"></a>Ripristinare un database in seguito a errore di un'applicazione o un utente
@@ -158,6 +158,6 @@ Per una descrizione delle considerazioni sulla progettazione di applicazioni per
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

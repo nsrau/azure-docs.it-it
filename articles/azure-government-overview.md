@@ -1,19 +1,18 @@
 ---
 title: Panoramica su Azure per enti pubblici | Documentazione Microsoft
 description: "In questo articolo viene fornita una panoramica delle funzionalità cloud di Azure Government, della sicurezza e del design attendibile per supportare i requisiti di conformità applicabili alle organizzazioni governative, statali e federali e ai relativi partner. "
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: 
 ms.assetid: c579ece3-a46c-4cdc-b650-453fd36b211a
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/18/2016
+ms.date: 11/14/2016
 ms.author: ryansoc
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb

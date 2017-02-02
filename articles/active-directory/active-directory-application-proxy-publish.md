@@ -1,26 +1,31 @@
 ---
 title: Pubblicare app con il proxy di applicazione di Azure AD | Documentazione Microsoft
-description: Pubblicare applicazioni locali nel cloud con il proxy di applicazione di Azure AD.
+description: Pubblicare applicazioni locali nel cloud con il proxy di applicazione di Azure AD nel portale classico.
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
+editor: harshja
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/19/2016
+ms.date: 11/30/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0ba28b2708045a216e1b9fdd7601010b2b554737
+ms.sourcegitcommit: d7fe552e0c8856a8d7799ae8a7732e57a350fee3
+ms.openlocfilehash: 2a42605c75fe183d57030e4a3ff3f3218a7dbc2b
 
 
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Pubblicare applicazioni mediante il proxy di applicazione AD Azure
+
+> [!div class="op_single_selector"]
+> * [Portale di Azure](application-proxy-publish-azure-portal.md)
+> * [Portale di Azure classico](active-directory-application-proxy-publish.md)
+
 Il proxy di applicazione di Azure AD consente di supportare lavoratori remoti pubblicando applicazioni locali in modo che siano accessibili tramite Internet. A questo punto dovrebbe essere già stato [abilitato il proxy di applicazione nel portale di Azure classico](active-directory-application-proxy-enable.md). Questo articolo illustra i passaggi per pubblicare le applicazioni in esecuzione nella rete locale e fornire un accesso remoto sicuro dall'esterno della rete. Al termine di questo articolo, sarà possibile configurare l'applicazione con informazioni o requisiti di sicurezza personalizzati.
 
 > [!NOTE]
@@ -101,6 +106,6 @@ Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog]
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

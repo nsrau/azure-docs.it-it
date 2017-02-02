@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/15/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
-ms.openlocfilehash: 4a2cd02f6f9b6ac51c32314ce892e572e569eb7c
+ms.sourcegitcommit: 078eed417b925263712d0be74b27d5802b091ca5
+ms.openlocfilehash: d8aea5b46e4ef48bf253194df603c772631a787d
 
 
 ---
@@ -45,7 +45,7 @@ Nelle pagine dei dettagli per questi modelli verrà visualizzato un pulsante per
 ## <a name="scaling-a-vm-scale-set-out-and-in"></a>Aumento e riduzione di risorse e capacità di un set di scalabilità di macchine virtuali
 Per aumentare o ridurre il numero di macchine virtuali in un set di scalabilità di VM, è sufficiente modificare la proprietà *capacity* e ridistribuire il modello. Questa semplificazione agevola la scrittura di un livello di scalabilità personalizzato per definire eventi di scalabilità personalizzati non supportati dalla funzionalità di scalabilità automatica di Azure.
 
-Se si sta ridistribuendo un modello per modificare la capacità, è possibile definire un modello molto più piccolo che include solo lo SKU e la capacità aggiornata.  [qui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing)
+Se si sta ridistribuendo un modello per modificare la capacità, è possibile definire un modello molto più piccolo che include solo lo SKU e la capacità aggiornata. [qui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing)
 
 Per eseguire la procedura di creazione di un set di scalabilità che viene ridimensionato automaticamente, vedere [Ridimensionare automaticamente le macchine virtuali in un set di scalabilità di macchine virtuali](virtual-machine-scale-sets-windows-autoscale.md)
 
@@ -90,15 +90,15 @@ Questa sezione mostra un elenco di alcuni scenari di set di scalabilità di macc
 * Il numero di VM che è possibile creare è limitato dalla quota di memoria centrale nell'area in cui si esegue la distribuzione. Potrebbe essere necessario contattare il supporto tecnico per richiedere l'aumento della quota di calcolo anche se l'attuale limite di core da usare con i servizi cloud o IaaS v1 è elevato. Per informazioni sulla quota, è possibile eseguire il comando dell'interfaccia della riga di comando di Azure `azure vm list-usage` e il comando di PowerShell `Get-AzureRmVMUsage`. Se si usa una versione di PowerShell precedente alla 1.0, usare `Get-AzureVMUsage`.
 
 ## <a name="vm-scale-set-frequently-asked-questions"></a>Domande frequenti sui set di scalabilità di macchine virtuali
-**D.**  Quante macchine virtuali si possono includere in un set di scalabilità?
+**D.** Quante macchine virtuali si possono includere in un set di scalabilità?
 
-**R.**  100 se si usano immagini della piattaforma che è possibile distribuire in più account di archiviazione. Se si usano immagini personalizzate, fino a 40 (se la proprietà *overprovision* è impostata su "false", 20 per impostazione predefinita), perché attualmente le immagini personalizzate sono limitate a un solo account di archiviazione.
+**R.** &100; se si usano immagini della piattaforma che è possibile distribuire in più account di archiviazione. Se si usano immagini personalizzate, fino a 40 (se la proprietà *overprovision* è impostata su "false", 20 per impostazione predefinita), perché attualmente le immagini personalizzate sono limitate a un solo account di archiviazione.
 
 **Quali altri limiti di risorse esistono per i set di scalabilità di macchine virtuali?**
 
-**R.**  Non è possibile creare più di 500 VM in più set di scalabilità per area durante un periodo di 10 minuti. Si applicano i [limiti del servizio per la sottoscrizione di Azure/](../azure-subscription-service-limits.md) esistenti.
+**R.** Non è possibile creare più di 500 VM in più set di scalabilità per area durante un periodo di 10 minuti. Si applicano i [limiti del servizio per la sottoscrizione di Azure](../azure-subscription-service-limits.md) esistenti.
 
-**D.**  I dischi dati sono supportati nei set di scalabilità di macchine virtuali?
+**D.** I dischi dati sono supportati nei set di scalabilità di macchine virtuali?
 
 **R.** Non nella versione iniziale, anche se i dischi dati sono attualmente disponibili nell'anteprima. Le opzioni per l'archiviazione dei dati sono:
 
@@ -108,13 +108,13 @@ Questa sezione mostra un elenco di alcuni scenari di set di scalabilità di macc
 * Servizi dati di Azure (ad esempio tabelle di Azure, BLOB di Azure)
 * Servizi dati esterni (ad esempio, database remoto)
 
-**D.**  Quali aree di Azure supportano i set di scalabilità di VM?
+**D.** Quali aree di Azure supportano i set di scalabilità di VM?
 
-**R.**  Tutte le aree che supportano Gestione risorse di Azure supportano i set di scalabilità di macchine virtuali.
+**R.** Tutte le aree di Azure supportano i set di scalabilità di macchine virtuali.
 
-**D.**  Come si crea un set di scalabilità di VM con un'immagine personalizzata?
+**D.** Come si crea un set di scalabilità di VM con un'immagine personalizzata?
 
-**R.**  Lasciare vuota la proprietà vhdContainers, ad esempio:
+**R.** Lasciare vuota la proprietà vhdContainers oppure ometterla e specificare l'URI della proprietà dell'immagine, ad esempio:
 
     "storageProfile": {
         "osDisk": {
@@ -129,25 +129,25 @@ Questa sezione mostra un elenco di alcuni scenari di set di scalabilità di macc
     },
 
 
-**D.**  Se si riduce la capacità del set di scalabilità di macchine virtuali da 20 a 15, quali macchine virtuali verranno rimosse?
+**D.** Se si riduce la capacità del set di scalabilità di macchine virtuali da 20 a 15, quali macchine virtuali verranno rimosse?
 
-**R.**  Le macchine virtuali vengono rimossi dal set di scalabilità in modo uniforme tra domini di aggiornamento e domini di errore per ottimizzare la disponibilità. Le VM con ID più alto sono rimosse per prime.
+**R.** Le macchine virtuali vengono rimossi dal set di scalabilità in modo uniforme tra domini di aggiornamento e domini di errore per ottimizzare la disponibilità. Le VM con ID più alto sono rimosse per prime.
 
-**D.**  Cosa accade se poi si aumenta la capacità da 15 a 18?
+**D.** Cosa accade se poi si aumenta la capacità da 15 a 18?
 
-**R.**  Se si aumenta la capacità a 18, verranno create 3 nuove VM. Ogni volta l'ID istanza di VM verrà incrementato dal valore più elevato precedente (ad esempio 20, 21, 22). Le VM vengono bilanciate tra domini di aggiornamento e domini di errore.
+**R.** Se si aumenta la capacità a 18, verranno create 3 nuove VM. Ogni volta l'ID istanza di VM verrà incrementato dal valore più elevato precedente (ad esempio 20, 21, 22). Le VM vengono bilanciate tra domini di aggiornamento e domini di errore.
 
-**D.**  Quando si usano più estensioni in un set di scalabilità di macchine virtuali, è possibile imporre una sequenza di esecuzione?
+**D.** Quando si usano più estensioni in un set di scalabilità di macchine virtuali, è possibile imporre una sequenza di esecuzione?
 
 **R.** Non direttamente, ma, per l'estensione customScript, lo script potrebbe attendere il completamento di un'altra estensione,[ad esempio monitorando il log dell'estensione](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh). Sono disponibili informazioni aggiuntive sulla sequenziazione di estensione in questo post di blog: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)(Sequenziazione dell'estensione in set di disponibilità di macchine virtuali di Azure).
 
-**D.**  I set di scalabilità di macchine virtuali si integrano con i set di disponibilità di Azure?
+**D.** I set di scalabilità di macchine virtuali si integrano con i set di disponibilità di Azure?
 
-**R.**  Sì. Un set di scalabilità di VM è un set di disponibilità implicito impostato con 5 domini di errore e 5 domini di aggiornamento. Non è necessario configurare nulla in virtualMachineProfile. Nelle versioni future i set di scalabilità di macchine virtuali si estenderanno probabilmente su più tenant, ma per ora un set di scalabilità è un set di disponibilità singolo.
-
-
+**R.** Sì. Un set di scalabilità di VM è un set di disponibilità implicito impostato con 5 domini di errore e 5 domini di aggiornamento. Non è necessario configurare nulla in virtualMachineProfile. Nelle versioni future i set di scalabilità di macchine virtuali si estenderanno probabilmente su più tenant, ma per ora un set di scalabilità è un set di disponibilità singolo.
 
 
-<!--HONumber=Dec16_HO4-->
+
+
+<!--HONumber=Jan17_HO4-->
 
 

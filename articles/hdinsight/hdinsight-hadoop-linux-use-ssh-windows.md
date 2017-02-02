@@ -1,5 +1,5 @@
 ---
-title: Usare chiavi SSH con Hadoop in cluster basati su Linux da Windows | Documentazione Microsoft
+title: Usare SSH con cluster HDInsight da PuTTY in Windows | Documentazione Microsoft
 description: Informazioni su come creare e usare chiavi SSH per l&quot;autenticazione a cluster HDInsight basati su Linux da client basati su Windows mediante il client SSH PuTTY.
 services: hdinsight
 documentationcenter: 
@@ -13,18 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/30/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: b72443c0ca60196535ac093a6ac03df456f776ea
-ms.openlocfilehash: 5498cfa6b8bcf50b1f375daa2e9adea585ce0d75
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 744d41a85d39cb468a17ac5a60cd2517f3e60147
 
 
 ---
-# <a name="use-ssh-with-linux-based-hadoop-on-hdinsight-from-windows-with-putty"></a>Usare SSH con Hadoop basato su Linux in HDInsight da Windows con PuTTY
+# <a name="use-ssh-with-hdinsight-hadoop-from-putty-on-windows"></a>Usare SSH con HDInsight (Hadoop) da PuTTY in Windows
+
 > [!div class="op_single_selector"]
-> * [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-> * [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+> * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
+> * [SSH (Windows, Linux, Unix, OS X)](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) consente di eseguire in modalità remota operazioni nei cluster di HDInsight basati su Linux usando un'interfaccia della riga di comando. Questo documento fornisce informazioni sulla connessione a HDInsight da client basati su Windows mediante il client SSH PuTTY.
 
@@ -97,9 +98,9 @@ Quando si crea un cluster HDInsight basato su Linux, è necessario fornire la ch
 
 Ognuno di questi metodi richiede la chiave pubblica. Per informazioni dettagliate sulla creazione di un cluster HDInsight basato su Linux, vedere l'articolo [Provisioning di cluster Hadoop Linux in HDInsight con opzioni personalizzate](hdinsight-hadoop-provision-linux-clusters.md).
 
-### <a name="azure-portal"></a>portale di Azure
+### <a name="azure-portal"></a>Portale di Azure
 
-Quando si usa il [portale di Azure][preview-portal] per creare un cluster HDInsight basato su Linux, è necessario immettere un **nome utente SSH** e selezionare **Password** o **Chiave pubblica SSH**.
+Quando si usa il [portale di Azure][preview-portal] per creare un cluster HDInsight basato su Linux, è necessario inserire un **nome utente SSH** e scegliere se specificare una **PASSWORD** o una **CHIAVE PUBBLICA SSH**.
 
 Se si seleziona **Chiave pubblica SSH**, incollare la chiave pubblica, visualizzata nel campo **Public key for pasting into OpenSSH authorized\_keys file** (Chiave pubblica da incollare nel file OpenSSH autorized_keys) di PuttyGen, nel campo **Chiave pubblica SSH** oppure selezionare **Selezionare un file** per cercare e selezionare il file contenente la chiave pubblica.
 
@@ -241,6 +242,6 @@ Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è p
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

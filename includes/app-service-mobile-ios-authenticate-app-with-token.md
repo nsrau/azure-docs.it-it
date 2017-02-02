@@ -1,7 +1,7 @@
 
 L'esempio precedente contatta sia il provider di identità che il servizio mobile ogni volta che l'app viene avviata. È possibile invece memorizzare nella cache il token di autorizzazione e provare a usarlo per primo.
 
-* Il modo consigliato per crittografare e archiviare i token di autenticazione in un client iOS consiste nell'usare il Portachiavi iOS. Verrà usato [SSKeychain](https://github.com/soffes/sskeychain), un semplice wrapper intorno al Portachiavi iOS. Seguire le istruzioni riportate nella pagina SSKeychain e aggiungerlo al progetto. Verificare che l'impostazione per **abilitare i moduli** sia abilitata nelle **impostazioni di creazione** del progetto (sezione **Apple LLVM - Lingue - Moduli**).
+* Il modo consigliato per crittografare e archiviare i token di autenticazione in un client iOS consiste nell'usare il Portachiavi iOS. Verrà usato [SSKeychain](https://github.com/soffes/sskeychain) , un semplice wrapper intorno al Portachiavi iOS. Seguire le istruzioni riportate nella pagina SSKeychain e aggiungerlo al progetto. Verificare che l'impostazione **Enable Modules** (Abilita moduli) sia abilitata in **Build Settings** (Impostazioni compilazione) del progetto nella sezione **Apple LLVM - Languages - Modules** (Apple LLVM - Lingue - Moduli).
 * Aprire **QSTodoListViewController.m** e aggiungere il codice seguente:
 
 ```
@@ -33,4 +33,7 @@ L'esempio precedente contatta sia il provider di identità che il servizio mobil
                 [self loadAuthInfo];
 ```
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Jan17_HO3-->
+
+

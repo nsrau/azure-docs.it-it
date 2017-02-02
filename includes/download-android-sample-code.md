@@ -2,12 +2,15 @@ Questa esercitazione è basata su **GetStartedWithData**, che è un'app per Andr
 
 1. Scaricare il repository degli esempi da gitHub facendo clic <a href="https://github.com/Azure/mobile-services-samples" target="blank">qui</a>, quindi scegliere **Download ZIP**.
 2. Decomprimere il file scaricato e prendere nota del relativo percorso oppure spostarlo nella directory dei progetti di Android Studio.
-3. Aprire Android Studio. Se viene visualizzato l'ultimo progetto al quale si è lavorato, chiuderlo (**File => Close Project**).
-4. Selezionare **Open an existing Android Studio project**, passare al percorso del progetto nella cartella *AndroidStudio* di *GettingStartedWithData* e fare clic su **OK**.
+3. Aprire Android Studio. Se il progetto visualizzato non è quello a cui si sta lavorando, chiuderlo scegliendo **File => Close Project** (Chiudi progetto).
+4. Selezionare **Open an existing Android Studio project** (Apri un progetto di Android Studio esistente), passare al percorso del progetto nella cartella *AndroidStudio* di *GettingStartedWithData* e fare clic su **OK**. 
 
      ![](./media/mobile-services-android-get-started/android-studio-import-project.png)
 
     È ora possibile usare il progetto.
 
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Jan17_HO3-->
+
+

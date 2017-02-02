@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 06/28/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4c5b3b8d4e5e35aaef1a61530ee148db9e67e5a7
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f9b2192dfb40e2dd3cd2afa308f1cf84491e0580
 
 
 ---
@@ -42,34 +42,34 @@ Per visualizzare un video:
 > 
 > 
 
-Questa esercitazione fa parte della [serie][hdinsight-hbase-replication] sulla creazione di replica geografica di HBase. 
+Questa esercitazione fa parte della [serie][hdinsight-hbase-replication] sulla creazione della replica geografica di HBase. 
 
 * Configurare una connessione VPN tra due reti virtuali (questa esercitazione)
-* [Configurare DNS per le reti virtuali][hdinsight-hbase-geo-replication-dns]
+* [Configurare il server DNS tra due reti virtuali di Azure][hdinsight-hbase-geo-replication-dns]
 * [Configurare la replica geografica di HBase][hdinsight-hbase-geo-replication]
 
 Il diagramma seguente illustra le due reti virtuali create in questa esercitazione:
 
-![Grafico della rete virtuale di replica di HBase in HDInsight][img-vnet-diagram]
+![Diagramma della rete virtuale di replica di HBase in HDInsight][img-vnet-diagram]
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Workstation con Azure PowerShell**.
   
-    Prima di eseguire script PowerShell, assicurarsi di essere connessi alla sottoscrizione di Azure utilizzando il seguente cmdlet:
+    Prima di eseguire script PowerShell, assicurarsi di essere connessi alla sottoscrizione di Azure usando il cmdlet seguente:
   
         Add-AzureAccount
   
-    Se si dispone di più sottoscrizioni di Azure, usare il seguente cmdlet per impostare la sottoscrizione corrente:
+    Se si hanno più sottoscrizioni di Azure, usare il cmdlet seguente per impostare la sottoscrizione corrente:
   
         Select-AzureSubscription <AzureSubscriptionName>
   
     [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 > [!NOTE]
-> I nomi dei servizi Azure e i nomi delle macchine virtuali devono essere univoci. Il nome usato in questa esercitazione è Contoso-[servizio di Azure/nome macchina virtuale]-[EU/US]. Ad esempio, Contoso-VNet-EU è la rete virtuale di Azure nel data center in Europa settentrionale; Contoso-DNS-US è la macchina virtuale del server DNS nel data center degli Stati Uniti orientali. È necessario indicare dei nomi a scelta.
+> I nomi dei servizi di Azure e i nomi delle macchine virtuali devono essere univoci. Il nome usato in questa esercitazione è Contoso-[servizio di Azure/nome macchina virtuale]-[EU/US]. Ad esempio, Contoso-VNet-EU è la rete virtuale di Azure nel data center in Europa settentrionale; Contoso-DNS-US è la macchina virtuale del server DNS nel data center degli Stati Uniti orientali. È necessario indicare dei nomi a scelta.
 > 
 > 
 
@@ -89,7 +89,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
    * **SERVER DNS**: (lasciare vuoto) 
      
      È necessario il proprio server DNS per la risoluzione dei nomi all'interno di reti virtuali. Per altre informazioni su quando usare la risoluzione dei nomi fornita da Azure e quando usare il proprio server DNS, vedere [Risoluzione dei nomi (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Per istruzioni su come configurare la risoluzione dei nomi tra reti virtuali, vedere [Configurare DNS tra due reti virtuali di Azure][hdinsight-hbase-dns].
-   * **Configurare una VPN Point-to-Site**: (deselezionato)
+   * **Configura una VPN Point-to-Site**: (deselezionato)
      
      Point-to-site non è valido per questo scenario.
    * **Configurare una VPN Site-to-Site**: (deselezionato)
@@ -111,7 +111,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
   * **NOME**: Contoso-VNet-US
   * **LOCALITÀ**: Stati Uniti orientali
   * **SERVER DNS**: (lasciare vuoto)
-  * **Configurare una VPN Point-to-Site**: (deselezionato)
+  * **Configura una VPN Point-to-Site**: (deselezionato)
   * **Configurare una VPN Site-to-Site**: (deselezionato)
   * **IP INIZIALE SPAZIO DI INDIRIZZI**: 10.2.0.0
   * **CIDR SPAZIO DI INDIRIZZI**: /16
@@ -239,6 +239,6 @@ In questa esercitazione si è appreso come configurare una connessione VPN tra d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

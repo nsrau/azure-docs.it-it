@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/21/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -38,8 +38,8 @@ Il glossario aziendale di Data Catalog dati consente alle organizzazioni di spie
 
 > [!NOTE]
 > Le funzionalità descritte in questo articolo sono disponibili solo nell'edizione Standard di Azure Data Catalog. L'edizione gratuita non prevede l'assegnazione di tag regolamentata né un glossario aziendale tra le funzionalità.
-> 
-> 
+>
+>
 
 ## <a name="glossary-availability-and-privileges"></a>Disponibilità e privilegi del glossario
 *Il glossario aziendale è disponibile nell'edizione Standard di Azure Data Catalog. L'edizione gratuita di Data Catalog non include un glossario.*
@@ -74,8 +74,8 @@ Dopo aver definito i termini di glossario, è possibile assegnare tag agli asset
 
 > [!NOTE]
 > I tag utente sono l'unico tipo di tag supportato nell'edizione gratuita di Data Catalog.
-> 
-> 
+>
+>
 
 ### <a name="hover-behavior-on-tags"></a>Comportamento al passaggio del mouse sui tag
 Nel portale di Data Catalog i due tipi di tag sono visivamente distinti e il comportamento al passaggio del mouse su questi tag è diverso. Quando il mouse viene spostato su un tag utente, è possibile visualizzare il testo del tag e l'utente o gli utenti che lo hanno aggiunto. Quando il mouse viene spostato su un tag di glossario, vengono visualizzati anche la definizione del termine di glossario e un collegamento per aprire il glossario aziendale e visualizzare la definizione completa del termine.
@@ -88,7 +88,6 @@ Il glossario aziendale di Azure Data Catalog e la relativa assegnazione di tag r
 
 ## <a name="see-also"></a>Vedere anche
 * [Documentazione relativa all'API REST per operazioni che riguardano il glossario aziendale](https://msdn.microsoft.com/library/mt708855.aspx)
-
 
 
 

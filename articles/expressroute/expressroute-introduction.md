@@ -1,10 +1,10 @@
 ---
-title: Introduzione a ExpressRoute | Documentazione Microsoft
-description: Questa pagina fornisce una panoramica del servizio ExpressRoute, incluso il funzionamento di una connessione ExpressRoute.
+title: 'Panoramica di ExpressRoute: estendere la rete locale in Azure su una connessione privata dedicata | Documentazione Microsoft'
+description: Questa panoramica tecnica relativa a ExpressRoute illustra il funzionamento di una connessione ExpressRoute per l&quot;estensione della rete locale in Azure su una connessione privata dedicata.
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: fd95dcd5-df1d-41d6-85dd-e91d0091af05
 ms.service: expressroute
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 01/24/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 57b95d5018fa197096992f7cd255a54501875dea
+ms.sourcegitcommit: c47ff077a1a3193559e98278bc930101bed26ba0
+ms.openlocfilehash: 96e2205a57f3abb44559eb417965409a9e1e1d13
 
 
 ---
 # <a name="expressroute-technical-overview"></a>Panoramica tecnica relativa a ExpressRoute
 Microsoft Azure ExpressRoute consente di estendere le reti locali nel cloud Microsoft tramite una connessione privata dedicata fornita da un provider di connettività. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, come Microsoft Azure, Office 365 e CRM Online. La connettività può essere stabilita da una rete (IP VPN) any-to-any, da una rete Ethernet punto a punto o da una Cross Connection virtuale tramite un provider di connettività presso una struttura di condivisione del percorso. Le connessioni ExpressRoute non sfruttano la rete Internet pubblica. In questo modo possono offrire un livello di sicurezza superiore, maggiore affidabilità, velocità più elevate e minori latenze rispetto alle connessioni Internet tradizionali.
 
-![](./media/expressroute-introduction/expressroute-basic.png)
+![](./media/expressroute-introduction/expressroute-connection-overview-diagram.png)
 
 **I vantaggi principali includono:**
 
@@ -51,7 +51,7 @@ Nel caso di percorso condiviso in una struttura con scambio cloud, è possibile 
 
 I provider di connettività possono fornire uno o più modelli di connettività. È possibile interagire con il provider di connettività per scegliere il modello più appropriato.
 
-![](./media/expressroute-introduction/expressroute-connectivitymodels.png)
+![](./media/expressroute-introduction/expressroute-connectivity-models-diagram.png)
 
 ## <a name="expressroute-features"></a>Funzionalità di ExpressRoute
 ExpressRoute supporta le funzionalità e le caratteristiche seguenti: 
@@ -125,6 +125,6 @@ Microsoft gestisce ambienti cloud isolati per aree geopolitiche speciali e segme
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

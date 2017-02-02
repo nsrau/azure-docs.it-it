@@ -1,5 +1,5 @@
 ---
-title: Creare un servizio di bilanciamento del carico Internet in Gestione risorse con un modello | Documentazione di Microsoft
+title: Creare un servizio di bilanciamento del carico con connessione Internet - Modello di Azure | Documentazione Microsoft
 description: Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse con un modello.
 services: load-balancer
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
-ms.openlocfilehash: 9200174563523f40e425d4f6570e97f732d84129
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 29d0fb3160b43d1733d843b4cf103ad821b46018
 
 ---
 
@@ -44,7 +44,7 @@ Il modello di esempio disponibile nel repository pubblico usa un file di paramet
 
 Per distribuire il modello scaricato tramite PowerShell, seguire questa procedura.
 
-1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
+1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 2. Per creare un gruppo di risorse usando il modello, eseguire il cmdlet **New-AzureRmResourceGroupDeployment** .
 
     ```powershell
@@ -85,6 +85,6 @@ Per distribuire il modello tramite l'interfaccia della riga di comando di Azure,
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

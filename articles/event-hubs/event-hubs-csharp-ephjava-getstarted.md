@@ -1,5 +1,5 @@
 ---
-title: Introduzione a Hub eventi in C# | Documentazione Microsoft
+title: Inviare eventi con hub eventi di Azure in C# e riceverli in Java | Documentazione Microsoft
 description: Eseguire questa esercitazione per iniziare a usare gli hub eventi di Azure, inviare gli eventi in C# e riceverli in Java usando EventProcessorHost.
 services: event-hubs
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: c9aa7cebab12eafe71476ee45ef578d3201e69e5
-ms.openlocfilehash: e7c38aa5a778d5e8a653e753e5794d7c7da31dc1
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: b58ae52cfb825fe9fe782e2f1bac4a067bdba469
 
 
 ---
@@ -67,6 +67,6 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Installare applicazioni Hadoop in HDInsight | Microsoft Azure
-description: Informazioni su come installare applicazioni HDInsight in applicazioni HDInsight.
+title: Installare applicazioni Hadoop di terze parti in Azure HDInsight | Documentazione Microsoft
+description: Informazioni su come installare applicazioni Hadoop di terze parti in Azure HDInsight.
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -13,25 +13,26 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/14/2016
+ms.date: 11/23/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b53d8c78817e94ec30bd7cb3becf0c7d4accbd23
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: a6097a28e0d13b7fe86e044713050823535b7f71
 
 
 ---
-# <a name="install-hdinsight-applications"></a>Installare applicazioni HDInsight
-Un'applicazione HDInsight è un'applicazione che gli utenti possono installare in un cluster HDInsight basato su Linux. Queste applicazioni possono essere sviluppate da Microsoft, da fornitori di software indipendenti (ISV) o dall'utente. In questo articolo si apprenderà come installare un'applicazione pubblicata. Per installare un'applicazione personalizzata, vedere [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md). 
+# <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Installare applicazioni Hadoop di terze parti in Azure HDInsight
 
-Attualmente è disponibile un'applicazione pubblicata:
+Questo articolo illustra come installare un'applicazione Hadoop di terze parti già pubblicata in Azure HDInsight. Per istruzioni sull'installazione di un'applicazione personalizzata, vedere l'articolo su come [installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md).
+
+Un'applicazione HDInsight è un'applicazione che gli utenti possono installare in un cluster HDInsight basato su Linux. Queste applicazioni possono essere sviluppate da Microsoft, da fornitori di software indipendenti (ISV) o dall'utente.  
+
+Attualmente sono disponibili tre applicazioni pubblicate:
 
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) offre agli analisti un modo interattivo per rilevare, analizzare e visualizzare i risultati nei Big Data. Consente di effettuare il pull di altre origini dati con facilità per individuare nuove relazioni e ottenere rapidamente le risposte necessarie.
+* **Streamsets Data Collector for HDnsight** offre un ambiente di sviluppo integrato (IDE) completo che consente di progettare, testare, distribuire e gestire pipeline di inserimento any-to-any che uniscono dati batch e del flusso e includono varie trasformazioni all'interno del flusso, senza dover scrivere codice personalizzato. 
+* **Cask CDAP 3.5 for HDInsight** offre la prima piattaforma di integrazione unificata per big data che consente di ridurre dell'80% i tempi di inattività nell'ambiente di produzione per applicazioni dati e Data Lake. Questa applicazione supporta solo i cluster Standard HBase 3.4.
 
-> [!NOTE]
-> Datameer è attualmente supportata solo nei cluster Azure HDInsight versione 3.2.
-> 
-> 
 
 Nelle istruzioni illustrate in questo articolo si usa il portale di Azure. È anche possibile esportare il modello di Azure Resource Manager dal portale oppure ottenere una copia del modello di Resource Manager dai fornitori e usare l'interfaccia della riga di comando di Azure e Azure PowerShell per distribuire il modello.  Vedere [Creare cluster Hadoop basati su Linux in HDInsight tramite modelli ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
@@ -46,7 +47,7 @@ La procedura seguente illustra come installare applicazioni HDInsight in un clus
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Fare clic su **Cluster HDInsight** nel menu a sinistra.  Se non è visualizzato, fare clic su **Esplora** e quindi su **Cluster HDInsight**.
 3. Fare clic su un cluster HDInsight.  Se non ci sono cluster disponibili, è necessario crearne uno.  Vedere [Creare cluster](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. Nel pannello **Impostazioni** fare clic su **Applicazioni** nella categoria **Generale**. Il pannello **App installate** elenca tutte le applicazioni installate. 
+4. Fare clic su **Applicazioni** nella categoria **Configurazioni**. È possibile visualizzare un elenco delle eventuali applicazioni installate.
    
     ![menu del portale applicazioni hdinsight](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Fare clic su **Aggiungi** nel menu del pannello. 
@@ -120,6 +121,6 @@ Vedere [Risolvere i problemi di installazione](hdinsight-apps-install-custom-app
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -2,88 +2,110 @@
 title: Domande frequenti su Database SQL di Azure
 description: Le risposte a domande comuni dei clienti su database cloud e Database SQL di Azure, sistema di gestione di database relazionali di Microsoft (RDBMS) e database come servizio nel cloud.
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 1da12abc-0646-43ba-b564-e3b049a6487f
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 08/16/2016
+ms.date: 12/19/2016
 ms.author: sashan;carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: ad6fb631f05b1e88e8cbaaca83f9863cfb643269
+ms.openlocfilehash: aba60bf5108a4e5ad95e3c634b9fcbca7393c700
+
 
 ---
-# Domande frequenti sul database SQL
-## Come viene indicato l'utilizzo del database SQL in fattura?
-Il Database SQL emette fattura in base a una in una tariffa oraria stimabile in base al livello di servizio + il livello di prestazioni per singoli database o DTU per ogni pool di database elastici. L'utilizzo effettivo è calcolato e ripartito su base oraria. È quindi possibile che nella fattura siano indicate frazioni di un’ora. Ad esempio, se un database esiste per 12 ore in un mese, nella fattura viene indicato l'utilizzo di 0,5 giorni. Inoltre, i livelli di servizio + i livelli delle prestazioni e le DTU per ogni pool sono suddivisi in fattura per permettere di vedere più facilmente il numero di giorni di database utilizzati per ognuno di essi in un singolo mese.
+# <a name="sql-database-faq"></a>Domande frequenti sul database SQL
+## <a name="how-does-the-usage-of-sql-database-show-up-on-my-bill"></a>Come viene indicato l'utilizzo del database SQL in fattura?
+Database SQL emette fattura in base a una tariffa oraria stimabile in base al livello di servizio + il livello di prestazioni per database singoli o eDTU per ogni pool elastico. L'utilizzo effettivo è calcolato e ripartito su base oraria. È quindi possibile che nella fattura siano indicate frazioni di un'ora. Ad esempio, se un database esiste per 12 ore in un mese, nella fattura viene indicato l'utilizzo di 0,5 giorni. Inoltre, i livelli di servizio + i livelli delle prestazioni e le DTU per ogni pool sono suddivisi in fattura per permettere di vedere più facilmente il numero di giorni di database utilizzati per ognuno di essi in un singolo mese.
 
-## Cosa succede se un database singolo è attivo per meno di un'ora o utilizza un maggiore livello di servizio per meno di un'ora?
-Viene fatturata ogni ora per cui un database esiste utilizzando il livello di servizio più elevato + il livello di prestazioni applicati in quell'ora, indipendentemente dall'utilizzo o dal fatto che il database sia stato attivo per meno di un'ora. Ad esempio, se si crea un database singolo che viene eliminato cinque minuti dopo, in fattura viene riportato l'addebito relativo a un'ora di database.
+## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>Cosa succede se un database singolo è attivo per meno di un'ora o utilizza un maggiore livello di servizio per meno di un'ora?
+Viene fatturata ogni ora per cui un database esiste utilizzando il livello di servizio più elevato + il livello di prestazioni applicati in quell'ora, indipendentemente dall'utilizzo o dal fatto che il database sia stato attivo per meno di un'ora. Ad esempio, se si crea un database singolo che viene eliminato cinque minuti dopo, in fattura viene riportato l'addebito relativo a un'ora di database. 
 
 esempi
 
 * Se si crea un database di livello Basic e quindi si esegue immediatamente l'aggiornamento al livello Standard S1, sarà addebitata la tariffa Standard S1 per la prima ora.
-* Se si aggiorna un database da Basic a Premium alle 10:00 della sera e l'aggiornamento viene completato all’1:35 della mattina del giorno successivo, la tariffa Premium sarà addebitata solo a partire dall’1:00.
-* Se si effettua il downgrade di un database Premium a Basic alle ore 11:00 di mattina e viene completato alle ore 2:15 dei pomeriggio, per il database viene addebitata la tariffa Premium fino alle 3:00 del pomeriggio. Dopo tale ora si addebiteranno le tariffe Basic.
+* Se si aggiorna un database da Basic a Premium alle 22:00 e l'aggiornamento viene completato alle ore 01:35 del giorno successivo, viene addebitata la tariffa Premium a partire dalle ore 01:00. 
+* Se si esegue il downgrade di un database da Premium a Basic alle 11:00 e viene completato alle 14:15, viene addebitata la tariffa Premium per il database fino alle 15:00 e successivamente viene addebitata la tariffa Basic.
 
-## Come viene indicato l'utilizzo del pool di database elastici nella fattura e cosa accade quando si modificano le DTU per ciascun pool?
-Gli addebiti relativi ai pool di database elastici vengono mostrati in fattura come DTU di database elastico (eDTU) sotto agli incrementi mostrati nelle DTU per ciascun pool nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/sql-database/). Non è previsto alcun costo per ogni database per i pool di database elastici. Viene fatturata ogni ora che un pool esiste con le DTU più alte, indipendentemente dall'utilizzo o dal fatto che il pool sia stato attivo per meno di un'ora.
+## <a name="how-does-elastic-pool-usage-show-up-on-my-bill-and-what-happens-when-i-change-edtus-per-pool"></a>Come viene indicato l'utilizzo del pool elastico nella fattura e cosa accade quando si modificano le eDTU per ciascun pool?
+Gli addebiti relativi ai pool elastici vengono mostrati in fattura come DTU elastiche (eDTU) sotto agli incrementi mostrati nelle eDTU per ciascun pool nella [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/sql-database/). Non è previsto alcun costo per database per i pool elastici. Viene fatturata ogni ora che un pool esiste con le eDTU più alte, indipendentemente dall'utilizzo o dal fatto che il pool sia stato attivo per meno di un'ora. 
 
-esempi
+Esempi
 
-* Se si crea un pool di database elastici Standard con 200 DTU alle ore 11:18 di mattina, aggiungendo cinque database al pool, vengono addebitate 200 DTU per l'intera ora, a partire dalle 11 di mattina per tutto il resto del giorno.
-* Nel giorno 2, alle ore 5:05 di mattina, il Database 1 inizia a utilizzare 50 DTU e rimane stabile per tutto il giorno. Il Database 2-5 fluttua tra le 0 e le 80 DTU. Durante il giorno vengono aggiunti altri cinque database che utilizzano DTU che variano nel corso della giornata. Il giorno 2 viene fatturato interamente a 200 DTU.
-* Il giorno 3, alle ore 5 di mattina vengono aggiunti altri 15 database. L'utilizzo dei database aumenta nel corso della giornata fino a quando si decide di aumentare le DTU per il pool da 200 a 400 alle ore 8:05 di sera. Gli addebiti a livello di 200 DTU sono stati applicabili fino alle 8 di sera e sono aumentate fino a 400 per le quattro ore rimanenti.
+* Se si crea un pool elastico Standard con 200 eDTU alle 11:18, con l'aggiunta di cinque database al pool viene addebitato il costo di 200 eDTU per l'intera ora a partire dalle 11:00 e per la restante parte della giornata.
+* Nel giorno 2, alle ore 5:05 di mattina, il Database 1 inizia a utilizzare 50 DTU e rimane stabile per tutto il giorno. Il Database 2-5 fluttua tra le 0 e le 80 DTU. Durante il giorno vengono aggiunti altri cinque database che utilizzano DTU che variano nel corso della giornata. Il giorno 2 viene fatturato interamente a 200 DTU. 
+* Il terzo giorno alle 05:00 vengono aggiunti altri 15 database. L'utilizzo dei database aumenta nel corso della giornata fino a quando si decide di aumentare le DTU per il pool da 200 a 400 alle ore 8:05 di sera. Gli addebiti a livello di 200 eDTU sono stati applicabili fino alle 8 di sera e sono aumentate fino a 400 per le quattro ore rimanenti. 
 
-## Come viene indicato l'uso della replica geografica attiva in un pool di database elastici nella fattura?
-A differenza dei singoli database, l'uso della [replica geografica attiva](sql-database-geo-replication-overview.md) con i database elastici non ha un impatto diretto sulla fatturazione. Vengono addebitate solo le DTU della quali si è effettuato il provisioning per ognuno dei pool (pool primario e secondario)
+## <a name="elastic-pool-billing-and-pricing-information"></a>Informazioni su prezzi e fatturazione dei pool elastici
+I pool elastici vengono fatturati in base alle caratteristiche seguenti:
 
-## In che modo l'utilizzo della funzionalità di controllo influisce sulla fatturazione?
+* Un pool elastico viene fatturato al momento della creazione, persino quando nel pool non sono presenti database.
+* Un pool elastico viene fatturato su base oraria. Si tratta della stessa frequenza di controllo dei livelli di prestazioni dei database singoli.
+* Se un pool elastico viene ridimensionato per una nuova quantità di eDTU, non viene fatturato in base alla nuova quantità di eDTU fino al completamento dell'operazione di ridimensionamento. Tale comportamento segue lo stesso modello della modifica del livello di prestazioni dei database singoli.
+* Il prezzo di un pool elastico è basato sul numero di eDTU del pool. Il prezzo di un pool elastico è indipendente dal numero e dall'uso dei database elastici in esso contenuti.
+* Il prezzo di base viene calcolato da (numero di eDTU del pool) x (prezzo unitario per eDTU).
+
+Il prezzo unitario delle eDTU per un pool elastico è superiore al prezzo unitario delle DTU per un database singolo nello stesso livello di servizio. Per ulteriori informazioni, vedere [Database SQL Prezzi](https://azure.microsoft.com/pricing/details/sql-database/). 
+
+Per comprendere i livelli di eDTU e servizio, vedere l'articolo relativo a [opzioni e prestazioni del database SQL](sql-database-service-tiers.md).
+## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>Come viene indicato in fattura l'uso della replica geografica attiva in un pool elastico?
+A differenza dei database singoli, l'uso della [replica geografica attiva](sql-database-geo-replication-overview.md) con i database elastici non ha un impatto diretto sulla fatturazione.  Vengono addebitate solo le DTU della quali si è effettuato il provisioning per ognuno dei pool (pool primario e secondario)
+
+## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>In che modo l'utilizzo della funzionalità di controllo influisce sulla fatturazione?
 La funzionalità di controllo è integrata nel servizio del database SQL, senza costi aggiuntivi, ed è disponibile per i database Basic, Standard e Premium. Tuttavia, per archiviare i log di controllo, la funzionalità di controllo utilizza un account di archiviazione di Azure e le tariffe per le tabelle e code di archiviazione di Azure si applicano in base alle dimensioni del registro di controllo.
 
-## Come è possibile trovare i livelli di servizio e delle prestazioni corretti per i singoli database e per i pool di database elastici?
-Sono disponibili alcuni strumenti.
+## <a name="how-do-i-find-the-right-service-tier-and-performance-level-for-single-databases-and-elastic-pools"></a>Come è possibile trovare i livelli di servizio e delle prestazioni corretti per i database singoli e per i pool elastici?
+Sono disponibili alcuni strumenti. 
 
-* Per i database locali, utilizzare la [gestione del ridimensionamento delle DTU](http://dtucalculator.azurewebsites.net/), che consiglia i database e le DTU necessarie e valuta più database per i pool di database elastici.
-* Se un database singolo potrebbe trarre vantaggio nel far parte di in un pool, il motore intelligente di Azure consiglia un pool di database elastici se rileva un modello di utilizzo cronologico che garantisca tale vantaggio. Vedere [Monitorare e gestire un pool di database elastici con il portale di Azure](sql-database-elastic-pool-manage-portal.md). Vedere [Considerazioni sul prezzo e sulle prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md) per informazioni su come eseguire i calcoli matematici personalmente.
+* Per i database locali, utilizzare la [gestione del ridimensionamento delle DTU](http://dtucalculator.azurewebsites.net/), che consiglia i database e le DTU necessarie e valuta più database per i pool elastici.
+* Se un database singolo potrebbe trarre vantaggio dal far parte di un pool, il motore intelligente di Azure consiglia un pool elastico se rileva un modello di utilizzo cronologico che garantisca tale vantaggio. Vedere [Monitorare e gestire un pool elastico con il portale di Azure](sql-database-elastic-pool-manage-portal.md). Per informazioni dettagliate su come eseguire i calcoli di persona, vedere [Considerazioni sul prezzo e sulle prestazioni per un pool elastico](sql-database-elastic-pool-guidance.md).
 * Per vedere se è necessario aumentare o diminuire il livello di un database singolo, vedere [Indicazioni sulle prestazioni per database singoli](sql-database-performance-guidance.md).
 
-## Con quale frequenza è possibile modificare il livello di servizio o di prestazioni di un database singolo?
+## <a name="how-often-can-i-change-the-service-tier-or-performance-level-of-a-single-database"></a>Con quale frequenza è possibile modificare il livello di servizio o di prestazioni di un database singolo?
 Con i database V12 è possibile modificare il livello di servizio (tra Basic, Standard e Premium) o il livello di prestazioni all'interno di un livello di servizio (ad esempio, da S1 a S2) con la frequenza che più si desidera. Per i database con le versioni precedenti, è possibile modificare il livello di prestazioni o di servizio fino a quattro volte in un periodo di 24 ore.
 
-## Con quale frequenza è possibile modificare le DTU per un pool?
+## <a name="how-often-can-i-adjust-the-edtus-per-pool"></a>Con quale frequenza è possibile modificare le DTU per un pool?
 Numero di volte desiderato.
 
-## Quanto tempo è necessario per modificare il livello di servizio e il livello di prestazioni di un database singolo o spostare un database da e verso un pool di database elastici?
-La modifica del livello di servizio di un database e lo spostamento da e verso un pool richiede che il database venga copiato nella piattaforma come operazione in background. A seconda delle dimensioni dei database, la modifica del livello di servizio può richiedere un periodo di tempo che va da pochi minuti ad alcune ore. In entrambi i casi, i database rimangono in linea e disponibili durante lo spostamento. Per ulteriori informazioni sulla modifica dei singoli database vedere [Modificare il livello di servizio di un database](sql-database-scale-up.md).
+## <a name="how-long-does-it-take-to-change-the-service-tier-or-performance-level-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>Quanto tempo è necessario per modificare il livello di servizio o il livello di prestazioni di un database singolo o per aggiungere o rimuovere un database da un pool elastico?
+La modifica del livello di servizio di un database e lo spostamento da e verso un pool richiede che il database venga copiato nella piattaforma come operazione in background. A seconda delle dimensioni dei database, la modifica del livello di servizio può richiedere un periodo di tempo che va da pochi minuti ad alcune ore. In entrambi i casi, i database rimangono in linea e disponibili durante lo spostamento. Per ulteriori informazioni sulla modifica dei database singoli vedere [Modificare il livello di servizio di un database](sql-database-scale-up.md). 
 
-## Quando è meglio usare un database singolo e quando invece è meglio usare database elastici?
-In generale, i pool di database elastici sono progettati per un [modello di applicazione tipico di software-as-a-service (SaaS)](sql-database-design-patterns-multi-tenancy-saas-applications.md), in cui è presente un solo database per client o tenant. L'acquisto di singoli database e l'overprovisioning al fine di soddisfare una domanda variabile e i picchi di domanda per ogni database non sono spesso metodi convenienti. Per i pool, è possibile gestire le prestazioni collettive del pool e i database aumentano e diminuiscono automaticamente.
+## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>Quando è meglio usare un database singolo e quando invece è meglio usare database elastici?
+In generale, i pool elastici sono progettati per un [modello di applicazione tipico di software-as-a-service (SaaS)](sql-database-design-patterns-multi-tenancy-saas-applications.md), in cui è presente un solo database per client o tenant. L'acquisto di database singoli e l'overprovisioning al fine di soddisfare una domanda variabile e i picchi di domanda per ogni database non sono spesso metodi convenienti. Per i pool, è possibile gestire le prestazioni collettive del pool e i database aumentano e diminuiscono automaticamente. 
 
-Il motore intelligente di Azure consiglia un pool per i database se garantito da un modello di utilizzo. Per altri dettagli, vedere [Indicazioni sui piani tariffari del database SQL](sql-database-service-tier-advisor.md). Per istruzioni dettagliate sulla scelta tra database singoli e elastici, consultare [Considerazioni su prezzi e prestazioni per i pool di database elastici](sql-database-elastic-pool-guidance.md).
+Il motore intelligente di Azure consiglia un pool per i database se garantito da un modello di utilizzo. Per altri dettagli, vedere [Indicazioni sui piani tariffari del database SQL](sql-database-service-tier-advisor.md). Per istruzioni dettagliate sulla scelta tra database singoli e elastici, consultare [Considerazioni su prezzi e prestazioni per i pool elastici](sql-database-elastic-pool-guidance.md).
 
-## Che cosa significa avere fino al 200% delle risorse di archiviazione massime del database sottoposto a provisioning per l'archiviazione di backup?
-L'archiviazione di backup è l'archiviazione associata ai backup automatizzati dei database, usati per il [ripristino temporizzato](sql-database-recovery-using-backups.md#-point-in-time-restore) e il [ripristino geografico](sql-database-recovery-using-backups.md#geo-restore). Il database SQL di Microsoft Azure offre fino al 200% delle risorse di archiviazione massime del database sottoposto a provisioning per la risorsa di archiviazione di backup senza costi aggiuntivi. Ad esempio, se si usa un'istanza di database Standard con una dimensione di database con provisioning pari a 250 GB, sono disponibili 500 GB di archiviazione di backup senza costi aggiuntivi. Se il database supera lo spazio di archiviazione di backup fornito, è possibile scegliere di ridurre il periodo di conservazione contattando il supporto tecnico di Azure oppure di pagare lo spazio di archiviazione di backup aggiuntivo, che viene addebitato in base alla tariffa standard per l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS, Read-Access Geographically Redundant Storage). Per altre informazioni sui costi per il servizio RA-GRS, vedere Dettagli prezzi di archiviazione.
+## <a name="what-does-it-mean-to-have-up-to-200-of-your-maximum-provisioned-database-storage-for-backup-storage"></a>Che cosa significa avere fino al 200% delle risorse di archiviazione massime del database sottoposto a provisioning per l'archiviazione di backup?
+L'archiviazione dei backup è l'archiviazione associata ai backup dei database automatizzati che vengono usati per il [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore) e il [ripristino geografico](sql-database-recovery-using-backups.md#geo-restore). Il database SQL di Microsoft Azure offre fino al 200% delle risorse di archiviazione massime del database sottoposto a provisioning per la risorsa di archiviazione di backup senza costi aggiuntivi. Ad esempio, se si usa un'istanza di database Standard con una dimensione di database con provisioning pari a 250 GB, sono disponibili 500 GB di archiviazione di backup senza costi aggiuntivi. Se il database supera lo spazio di archiviazione di backup fornito, è possibile scegliere di ridurre il periodo di conservazione contattando il supporto tecnico di Azure oppure di pagare lo spazio di archiviazione di backup aggiuntivo, che viene addebitato in base alla tariffa standard per l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS, Read-Access Geographically Redundant Storage). Per altre informazioni sui costi per il servizio RA-GRS, vedere Dettagli prezzi di archiviazione.
 
-## Se si sta passando da un livello Web/Business a nuovi livelli di servizio, cosa è necessario sapere?
+## <a name="im-moving-from-webbusiness-to-the-new-service-tiers-what-do-i-need-to-know"></a>Se si sta passando da un livello Web/Business a nuovi livelli di servizio, cosa è necessario sapere?
 I database SQL di Azure Web e Business sono stati ritirati e sostituiti dai livelli Basic, Standard, Premium ed Elastic. Sono presenti domande frequenti aggiuntive che dovrebbe aiutare in questo periodo di transizione. [Domande frequenti sul ritiro dell'edizione Web e Business](sql-database-web-business-sunset-faq.md)
 
-## Qual è l'intervallo di replica previsto durante la replica geografica di un database tra due aree della stessa area geografica di Azure?
+## <a name="what-is-an-expected-replication-lag-when-geo-replicating-a-database-between-two-regions-within-the-same-azure-geography"></a>Qual è l'intervallo di replica previsto durante la replica geografica di un database tra due aree della stessa area geografica di Azure?
 È supportato un RPO pari a cinque secondi e l'intervallo di replica è minore se la replica geografica secondaria è ospitata nell'area associata di Azure consigliata e appartiene allo stesso livello di servizio.
 
-## Qual è l'intervallo di replica previsto quando la replica geografica secondaria viene creata nella stessa area del database primario?
-In base ai dati empirici non c'è molta differenza tra l'intervallo di replica intra-area e l'intervallo inter-area quando viene usata l'area associata di Azure consigliata.
+## <a name="what-is-an-expected-replication-lag-when-geo-secondary-is-created-in-the-same-region-as-the-primary-database"></a>Qual è l'intervallo di replica previsto quando la replica geografica secondaria viene creata nella stessa area del database primario?
+In base ai dati empirici non c'è molta differenza tra l'intervallo di replica intra-area e l'intervallo inter-area quando viene usata l'area associata di Azure consigliata. 
 
-## Se si verifica un errore di rete tra due aree, come funziona la logica di ripetizione quando è impostata la replica geografica?
+## <a name="if-there-is-a-network-failure-between-two-regions-how-does-the-retry-logic-work-when-geo-replication-is-set-up"></a>Se si verifica un errore di rete tra due aree, come funziona la logica di ripetizione quando è impostata la replica geografica?
 Se si verifica una disconnessione, viene eseguito un tentativo ogni 10 secondi per ristabilire le connessioni.
 
-## Cosa si può fare per garantire che una modifica importante al database primario venga replicata?
-La replica geografica secondaria è una replica asincrona per la quale non viene eseguita la sincronizzazione completa con la replica primaria. Ma viene fornito un metodo per forzare la sincronizzazione al fine di garantire la replica delle modifiche importanti (ad esempio, gli aggiornamenti della password). La sincronizzazione forzata si riflette sulle prestazioni poiché blocca il thread delle chiamante fino a quando non vengono replicate tutte le transazioni. Per informazioni dettagliate, vedere [sp\_wait\_for\_database\_copy\_sync](https://msdn.microsoft.com/library/dn467644.aspx).
+## <a name="what-can-i-do-to-guarantee-that-a-critical-change-on-the-primary-database-is-replicated"></a>Cosa si può fare per garantire che una modifica importante al database primario venga replicata?
+La replica geografica secondaria è una replica asincrona per la quale non viene eseguita la sincronizzazione completa con la replica primaria. Ma viene fornito un metodo per forzare la sincronizzazione al fine di garantire la replica delle modifiche importanti (ad esempio, gli aggiornamenti della password). La sincronizzazione forzata si riflette sulle prestazioni poiché blocca il thread delle chiamante fino a quando non vengono replicate tutte le transazioni. Per informazioni dettagliate, vedere [sp_wait_for_database_copy_sync](https://msdn.microsoft.com/library/dn467644.aspx). 
 
-## Quali strumenti sono disponibili per monitorare l'intervallo di replica tra il database primario e la replica geografica secondaria?
-L'intervallo di replica in tempo reale tra il database primario e la replica geografica secondaria è esposto attraverso una vista a gestione dinamica (DMV). Per informazioni dettagliate, vedere [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx).
+## <a name="what-tools-are-available-to-monitor-the-replication-lag-between-the-primary-database-and-geo-secondary"></a>Quali strumenti sono disponibili per monitorare l'intervallo di replica tra il database primario e la replica geografica secondaria?
+L'intervallo di replica in tempo reale tra il database primario e la replica geografica secondaria è esposto attraverso una vista a gestione dinamica (DMV). Per informazioni dettagliate, vedere [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO3-->
+
+

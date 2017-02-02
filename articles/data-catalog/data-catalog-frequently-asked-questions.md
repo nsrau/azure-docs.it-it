@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -77,15 +77,15 @@ Le proprietà specifiche variano in base all'origine dati, ma in genere il servi
 
 > [!IMPORTANT]
 > La registrazione degli asset di dati con Azure Data Catalog non sposta o copia i dati nel cloud. Registrando gli asset da un'origine dati si copiano i metadati degli asset in Azure, ma i dati rimangono nel percorso esistente dell’origine dati. L'unica eccezione a questa regola si rileva quando un utente sceglie di caricare i record di anteprima o un profilo dei dati durante la registrazione degli asset. Quando è prevista un'anteprima, vengono copiati fino a 20 record da ogni asset e vengono archiviati come snapshot in Azure Data Catalog. Quando si include un profilo dei dati, le informazioni di aggregazione (ad esempio le dimensioni di tabelle, i valori null in percentuale per ogni colonna e i valori minimi, massimi e medi per le colonne) verranno calcolate e incluse nei metadati archiviati nel catalogo.
-> 
-> 
+>
+>
 
 <br/>
 
 > [!NOTE]
 > Per le origini dati come SQL Server Analysis Services che hanno una proprietà **Description** ottimale, l'applicazione di pubblicazione di Azure Data Catalog estrae il valore della proprietà. Per i database relazionali di SQL Server, che non hanno una proprietà **Description** ottimale, l'applicazione di pubblicazione di Azure Data Catalog estrae il valore dalla proprietà estesa ms_description per oggetti e colonne. Per altre informazioni, vedere [Uso di proprietà estese su oggetti di database](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx)in TechNet.
-> 
-> 
+>
+>
 
 ## <a name="q-how-long-should-it-take-for-newly-registered-assets-to-appear-in-azure-data-catalog"></a>D: quanto tempo deve trascorrere prima che gli asset appena registrati vengano visualizzati nel Catalogo dati di Azure?
 Dopo aver registrato gli asset in Azure Data Catalog è possibile che trascorrano 5-10 secondi prima che vengano visualizzati nel portale di Azure Data Catalog.
@@ -127,7 +127,6 @@ R: per aggiornare i metadati degli asset di dati già registrati nel catalogo, �
 
 ## <a name="q-my-question-isnt-answered-here--what-should-i-do"></a>D: la domanda non ha ricevuto risposta: cosa occorre fare?
 Tenere sotto controllo il [forum di Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409), dove le domande frequenti trovano risposta.
-
 
 
 

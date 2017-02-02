@@ -1,5 +1,5 @@
 ---
-title: "Introduzione alla creazione del servizio di bilanciamento del carico Internet nel modello di distribuzione classica tramite l’interfaccia della riga di comando di Azure | Documentazione Microsoft"
+title: Creare un servizio di bilanciamento del carico con connessione Internet - Interfaccia della riga di comando di Azure classica | Documentazione Microsoft
 description: Informazioni su come creare un servizio di bilanciamento del carico Internet nel modello di distribuzione classica mediante l&quot;interfaccia della riga di comando di Azure
 services: load-balancer
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
-ms.openlocfilehash: 337399d1f832830665be92a97a8458b7a959845b
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: cf5ecd7652bf1b10d24731a5b6829995fea81e41
 
 ---
 
@@ -154,6 +154,6 @@ azure vm endpoint delete web1 tcp-80-80
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 
