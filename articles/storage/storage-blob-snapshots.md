@@ -3,8 +3,8 @@ title: Creare snapshot di sola lettura di un BLOB | Microsoft Docs
 description: "Scoprire come creare snapshot di un BLOB per eseguire il backup dei dati BLOB in un determinato momento. Comprendere come vengono fatturati gli snapshot e come utilizzarli per ridurre i costi di capacità."
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: 3710705d-e127-4b01-8d0f-29853fb06d0d
 ms.service: storage
@@ -12,24 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: tamram
+ms.date: 12/07/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 664f03a8492178daf342b659595f035b7cccec5a
+ms.sourcegitcommit: cedc76bc46137a5d53fd76c0fdb6ff2db79566a4
+ms.openlocfilehash: 05e999d62d3ffdde708c9898807e79fabcff992e
 
 
 ---
 # <a name="create-a-blob-snapshot"></a>Creare uno snapshot del BLOB
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Uno snapshot è una versione di sola lettura di un BLOB eseguito in un determinato momento. Gli snapshot sono utili per il backup dei BLOB. Dopo aver creato uno snapshot, è possibile leggerlo, copiarlo o eliminarlo, ma non modificarlo.
 
-Uno snapshot di un BLOB è identico al relativo BLOB di base, ad eccezione del fatto che all'URI del BLOB viene aggiunto un valore **DateTime** per indicare data e ora di acquisizione dello snapshot. Ad esempio, se un URI del BLOB di pagine è `http://storagesample.core.blob.windows.net/mydrives/myvhd`, l'URI dello snapshot è simile a `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`. 
+Uno snapshot di un BLOB è identico al relativo BLOB di base, ad eccezione del fatto che all'URI del BLOB viene aggiunto un valore **DateTime** per indicare data e ora di acquisizione dello snapshot. Ad esempio, se un URI del BLOB di pagine è `http://storagesample.core.blob.windows.net/mydrives/myvhd`, l'URI dello snapshot è simile a `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
 
 > [!NOTE]
 > Tutti gli snapshot condividono l'URI del BLOB di base. L'unica distinzione tra il BLOB di base e lo snapshot è il valore **DateTime** aggiunto.
-> 
-> 
+>
+>
 
 Un BLOB può avere un numero qualsiasi di snapshot. Gli snapshot vengono mantenuti fino all'eliminazione esplicita. Uno snapshot non può sopravvivere al relativo BLOB di base. È possibile enumerare gli snapshot associati al BLOB di base per tenere traccia degli snapshot correnti.
 
@@ -98,7 +98,6 @@ Per usare snapshot con Archiviazione Premium è necessario attenersi alle regole
 
 * Il numero massimo di snapshot per BLOB di pagine in un account di archiviazione Premium è 100. Se tale limite viene superato, l'operazione Snapshot BLOB restituisce il codice errore 409 (**SnapshotCountExceeded**).
 * È possibile creare uno snapshot di un BLOB di pagine in un account di archiviazione Premium una volta ogni 10 minuti. Se tale frequenza viene superata, l'operazione Snapshot BLOB restituisce il codice errore 409 (**SnaphotOperationRateExceeded**).
-* Non è possibile chiamare Get Blob per leggere uno snapshot di un BLOB di pagine in un account di archiviazione Premium. La chiamata Get BLOB per uno snapshot in un account di Archiviazione Premium restituisce il codice errore 400 (**InvalidOperation**). Tuttavia, è possibile chiamare Get Blob Properties e Get Blob Metadata su uno snapshot in un account di archiviazione Premium.
 * Per leggere uno snapshot, è possibile usare l'operazione Copy BLOB per copiare uno snapshot in un altro BLOB di pagine nell'account. Il BLOB di destinazione per l'operazione di copia non deve contenere snapshot. Se il BLOB di destinazione contiene degli snapshot, l'operazione Copy BLOB restituisce il codice errore 409 (**SnapshotsPresent**).
 
 ## <a name="return-the-absolute-uri-to-a-snapshot"></a>Restituire l'URI assoluto a uno snapshot
@@ -137,11 +136,11 @@ Nell'elenco seguente sono inclusi i punti principali da considerare quando si cr
 
 > [!NOTE]
 > Le procedure consigliate indicano di gestire gli snapshot con attenzione per evitare costi supplementari. È consigliabile gestire gli snapshot nel modo descritto di seguito:
-> 
+>
 > * Eliminare e ricreare gli snapshot associati a un BLOB ogni volta che si aggiorna il BLOB, persino se l'aggiornamento viene eseguito con dati identici, a meno che la progettazione dell'applicazione non richieda di mantenerli. Eliminando e ricreando gli snapshot del BLOB è possibile essere sicuri che il BLOB e gli snapshot non differiscano.
 > * Se si stanno gestendo gli snapshot di un BLOB, evitare di chiamare **UploadFile**, **UploadText**, **UploadStream** o **UploadByteArray** per aggiornare il BLOB. Questi metodi sostituiscono tutti i blocchi nel BLOB, quindi il BLOB di base e gli snapshot differiscono in modo significativo. Aggiornare invece il minor numero possibile di blocchi usando i metodi **PutBlock** e **PutBlockList**.
-> 
-> 
+>
+>
 
 ### <a name="snapshot-billing-scenarios"></a>Scenari di fatturazione degli snapshot
 Gli scenari seguenti dimostrano in che modo aumentano i costi per un BLOB in blocchi e i relativi snapshot.
@@ -163,11 +162,11 @@ Nello Scenario 4, il BLOB di base è stato completamente aggiornato e non contie
 ![Risorse di archiviazione di Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altri esempi di uso dell'archiviazione BLOB, vedere [Esempi di codice per Azure](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). È possibile scaricare un'applicazione di esempio ed eseguirla oppure esaminare il codice in GitHub. 
+Per altri esempi di uso dell'archiviazione BLOB, vedere [Esempi di codice per Azure](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). È possibile scaricare un'applicazione di esempio ed eseguirla oppure esaminare il codice in GitHub.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
