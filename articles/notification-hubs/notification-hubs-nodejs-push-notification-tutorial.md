@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: facd5c50cb65bc1f656c0b5adf1e81087644934a
+ms.sourcegitcommit: 88e8ead2b22bf53510c9c6008e34647272326690
+ms.openlocfilehash: 32d93f1ff6cf4ae78051b7208e38b6915509210f
 
 
 ---
@@ -215,6 +215,6 @@ I frammenti di codice di esempio riportati sopra consentono di creare facilmente
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

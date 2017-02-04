@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: fc5ec9d446ea2133fb78de08443fcac75de35ded
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 54ae907409bd860f26216e85e52932bc4bd825c1
 
 
 ---
@@ -32,7 +32,7 @@ Di seguito è riportata una schermata dell'applicazione completata:
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 
@@ -116,6 +116,6 @@ Se si verificano problemi con l'applicazione dopo la distribuzione in Azure, ved
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

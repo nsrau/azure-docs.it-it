@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2e30909f2917fc01f6066d8489961ca94f34f429
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 77e106d9170fc49d66d322bd9c92bf0e14869259
 
 
 ---
@@ -29,7 +29,7 @@ Project Online è una soluzione flessibile online per la gestione del portfolio 
 > 
 > 
 
-Per iniziare subito a creare un'app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per iniziare subito a creare un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Trigger e azioni
 Il connettore ProjectOnline può essere usato come un'azione e dispone di trigger. Tutti i connettori supportano dati nei formati JSON e XML. 
@@ -444,11 +444,11 @@ Registra e pubblica un progetto: registra e pubblica un progetto esistente nel s
 | Contatto |stringa |No |
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: e211d0878a7f9bd43c95c727935ad883fae0db3a
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: bb6bef230f4ba4f7019fd2f120c2115d97649b81
 
 
 ---
@@ -35,7 +35,7 @@ Con Box è possibile:
 * Usare i trigger quando un file viene creato o aggiornato.
 * Usare le azioni per copiare un file, eliminarlo e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, quando un file viene modificato in Box, è possibile usare il file e la posta elettronica tramite Office 365.
 
-Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Trigger e azioni
 Box include i trigger e le azioni seguenti.
@@ -262,11 +262,11 @@ Quando un file viene modificato in una cartella di Box, attiva un flusso.
 | FileLocator |string |no |
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

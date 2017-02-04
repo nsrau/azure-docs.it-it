@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 11/08/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: cf0baa0bb9dab87a3ac0376a0aa115dca198f790
-ms.openlocfilehash: 82a7dc272d101e6c608209121f3edf1062ad1b5f
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 1fbf8cd4347c5a49fe7769fd8d02c2dbfddfc74e
 
 
 ---
@@ -34,6 +34,10 @@ Per altre informazioni sull'interfaccia Hive JDBC, vedere [HiveJDBCInterface](ht
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
 * Un cluster Hadoop in HDInsight. Andranno bene i cluster basati su Linux o basati su Windows.
+
+  > [!IMPORTANT]
+  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL è un'applicazione client JDBC.
 
 Per compilare ed eseguire l'applicazione di esempio Java collegata da questo articolo, è necessario quanto segue.
@@ -195,6 +199,6 @@ Dopo avere appreso come usare JDBC con Hive, vedere i collegamenti seguenti per 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

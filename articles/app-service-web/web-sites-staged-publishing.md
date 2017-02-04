@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: b7890150da382e4ef08323654c076ff8236e3e79
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 05b32525566b4e03ea3905668163e2d93f6a13a1
 
 
 ---
@@ -268,7 +268,7 @@ Per eliminare uno slot di distribuzione non più necessario, usare il comando **
 
 - - -
 > [!NOTE]
-> Verificare il funzionamento di un'app Web. [provare il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751) immediatamente e creare un'app iniziale temporanea, senza necessità di fornire una carta di credito e senza impegni.
+> Verificare il funzionamento di un'app Web. [provare il servizio app](https://azure.microsoft.com/try/app-service/) immediatamente e creare un'app iniziale temporanea, senza necessità di fornire una carta di credito e senza impegni.
 > 
 > 
 
@@ -295,6 +295,6 @@ Per eliminare uno slot di distribuzione non più necessario, usare il comando **
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

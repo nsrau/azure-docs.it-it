@@ -1,13 +1,13 @@
 ---
 title: Informazioni su come usare il connettore Salesforce nelle app per la logica | Microsoft Docs
-description: Creare app per la logica con Servizio app di Azure. Il connettore Salesforce offre un'API per lavorare con gli oggetti Salesforce.
+description: Creare app per la logica con Servizio app di Azure. Il connettore Salesforce offre un&quot;API per lavorare con gli oggetti Salesforce.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 54fe5af8-7d2a-4da8-94e7-15d029e029bf
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/05/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
+ms.openlocfilehash: b6758aa36120c9c187e91ee5d9e7ceb5041eae6a
+
 
 ---
 # <a name="get-started-with-the-salesforce-connector"></a>Introduzione al connettore Salesforce
 Il connettore Salesforce offre un'API per lavorare con gli oggetti Salesforce.
 
-Per usare [qualsiasi connettore](apis-list.md), è necessario innanzitutto creare un'app per la logica. Come prima operazione [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per usare [qualsiasi connettore](apis-list.md), è necessario innanzitutto creare un'app per la logica. Come prima operazione [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-salesforce-connector"></a>Connettersi al connettore Salesforce
 Perché l'app per la logica possa accedere a qualsiasi servizio, è necessario creare una *connessione* al servizio. Una [connessione](connectors-overview.md) fornisce la connettività tra un'app per la logica e un altro servizio.  
@@ -31,7 +35,7 @@ Perché l'app per la logica possa accedere a qualsiasi servizio, è necessario c
 > 
 
 ## <a name="use-a-salesforce-connector-trigger"></a>Usare un trigger del connettore Salesforce
-Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 > [!INCLUDE [Steps to create a Salesforce trigger](../../includes/connectors-create-api-salesforce-trigger.md)]
 > 
@@ -43,7 +47,7 @@ Un trigger è un evento che può essere usato per avviare il flusso di lavoro de
 > 
 
 ## <a name="use-a-salesforce-connector-action"></a>Usare un'azione del connettore Salesforce
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 > [!INCLUDE [Steps to create a Salesforce action](../../includes/connectors-create-api-salesforce-action.md)]
 > 
@@ -224,8 +228,11 @@ Le azioni e i trigger riportati sopra possono restituire uno o più dei seguenti
 | default |Operazione non riuscita. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO3-->
 
 

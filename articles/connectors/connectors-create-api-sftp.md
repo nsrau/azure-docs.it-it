@@ -16,15 +16,15 @@ ms.workload: integration
 ms.date: 07/20/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 93b77197d69d8c6261ea786aecb653c69129dc9d
+ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
+ms.openlocfilehash: 2977404fb408ea5301c88caa7ce6767a906ca9c7
 
 
 ---
 # <a name="get-started-with-the-sftp-connector"></a>Introduzione al connettore SFTP
 Usare il connettore SFTP per accedere a un account SFTP al fine di inviare e ricevere file. È possibile eseguire varie operazioni come creare, aggiornare, recuperare o eliminare file.  
 
-Per usare [qualsiasi connettore](apis-list.md), è necessario innanzitutto creare un'app per la logica. Come prima operazione [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per usare [qualsiasi connettore](apis-list.md), è necessario innanzitutto creare un'app per la logica. Come prima operazione [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-sftp"></a>Connettersi a SFTP
 Perché l'app per la logica possa accedere a qualsiasi servizio, è necessario creare una *connessione* al servizio. Una [connessione](connectors-overview.md) fornisce la connettività tra un'app per la logica e un altro servizio.  
@@ -35,7 +35,7 @@ Perché l'app per la logica possa accedere a qualsiasi servizio, è necessario c
 > 
 
 ## <a name="use-an-sftp-trigger"></a>Usare un trigger SFTP
-Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
 
 Questo esempio spiega come usare il trigger **SFTP - Quando viene aggiunto o modificato un file** per avviare un flusso di lavoro dell'app per la logica quando viene aggiunto o modificato un file in un server SFTP. Nell'esempio si apprenderà anche come aggiungere una condizione che controlla il contenuto del file nuovo o modificato e decide di estrarre il file se il relativo contenuto indica che il file deve essere estratto prima di usare il contenuto. Infine si apprenderà come aggiungere un'azione per estrarre il contenuto di un file e inserire il contenuto estratto in una cartella sul server SFTP. 
 
@@ -51,7 +51,7 @@ In un esempio riguardante un'organizzazione si potrebbe usare questo trigger per
 > 
 
 ## <a name="use-an-sftp-action"></a>Usare un'azione SFTP
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create an SFTP action](../../includes/connectors-create-api-sftp-action.md)]
 > 
@@ -242,7 +242,7 @@ BlobMetadata
 | MediaType |string |
 | IsFolder |boolean |
 | ETag |string |
-| FileLocator |string |
+| FileLocator |stringa |
 
 ### <a name="when-a-file-is-added-or-modified"></a>When a file is added or modified (Quando un file viene aggiunto o modificato)
 Questa operazione attiva un flusso quando viene aggiunto o modificato un file in una cartella. 
@@ -341,11 +341,11 @@ Le azioni e i trigger riportati sopra possono restituire uno o più dei seguenti
 | default |Operazione non riuscita. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 
