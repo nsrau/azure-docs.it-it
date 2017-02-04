@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 12/12/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5368e5a3e75e488487613c76bb4895668d3c3e0e
+ms.sourcegitcommit: 69473976eb0a9b6a0e9aa929581c0a7cf0c8d188
+ms.openlocfilehash: 49779d5d15e81a50e32b87255152d996600d23eb
 
 
 ---
@@ -63,19 +63,25 @@ Per configurare l'integrazione di FileCloud in Azure AD, è necessario aggiunger
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
    
     ![Active Directory][1]
+
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
    
     ![Applications][2]
+
 4. Fare clic su **Add** nella parte inferiore della pagina.
    
     ![Applicazioni][3]
+
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
    
     ![Applicazioni][4]
+
 6. Nella casella di ricerca digitare **FileCloud**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_01.png)
+
 7. Nel riquadro dei risultati selezionare **FileCloud**, e quindi fare clic su **Completa** per aggiungere l'applicazione.
    
     ![Selezione dell'app nella raccolta](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_0001.png)
@@ -103,9 +109,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 1. Nella pagina di integrazione dell'applicazione **FileCloud** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
     ![Configura accesso Single Sign-On][6] 
+
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a FileCloud** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_03.png)
+
 3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura e fare clic su **Avanti**:
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_04.png)
@@ -116,10 +124,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
    
     c. Fare clic su **Avanti**
    
-   > [!NOTE]
-   > È necessario aggiornare questi valori con l'URL di accesso e l'ID effettivi. Per ottenere questi valori, contattare il team di supporto di FileCloud all'indirizzo <mailto:support@codelathe.com>.
-   > 
-   > 
+    > [!NOTE]
+    > È necessario aggiornare questi valori con l'URL di accesso e l'ID effettivi. Per ottenere questi valori, contattare il team di supporto di FileCloud all'indirizzo <mailto:support@codelathe.com>.
+    > 
+    > 
+
 4. Nella pagina **Configura accesso Single Sign-On in FileCloud** seguire questa procedura e fare clic su **Avanti**:
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_05.png)
@@ -127,26 +136,35 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     a. Fare clic su **Scarica metadati**e quindi salvare il file nel computer.
    
     b. Fare clic su **Next**.
+
 5. In un'altra finestra del browser Web accedere al tenant FileCloud come amministratore.
+
 6. Nella barra di spostamento a sinistra fare clic su **Settings**(Impostazioni). 
    
     ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
+
 7. Fare clic sulla scheda **SSO** nella sezione Settings (Impostazioni). 
    
     ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
+
 8. Impostare **SAML** come **Default SSO Type** (Tipo SSO predefinito) nel riquadro **Single Sign On (SSO) Settings** (Impostazioni Single Sign-On - SSO).
    
     ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
+
 9. Nella casella di testo **IdP End Point URL** (URL endpoint IdP) immettere il valore di **ID entità** della configurazione guidata dell'applicazione di Azure AD nel riquadro **SAML Settings** (Impostazioni SAML).
    
     ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
+
 10. Aprire il file di metadati scaricato in Blocco note, copiare i contenuti negli Appunti, quindi incollarli nella casella di testo **IdP Meta Data** (Metadati IdP) nel riquadro **SAML Settings** (Impostazioni SAML).
     
     ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
+
 11. Fare clic sul pulsante **Salva** .
+
 12. Nel portale di Azure classico selezionare la conferma della configurazione e fare clic su **Avanti**.
     
     ![Single Sign-On di Microsoft Azure AD][10]
+
 13. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.  
     
     ![Single Sign-On di Microsoft Azure AD][11]
@@ -161,13 +179,17 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-filecloud-tutorial/create_aaduser_09.png)
+
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+
 3. Per visualizzare l'elenco di utenti, fare clic su **Utenti**nel menu in alto.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-filecloud-tutorial/create_aaduser_03.png)
+
 4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-filecloud-tutorial/create_aaduser_04.png)
+
 5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-filecloud-tutorial/create_aaduser_05.png)
@@ -177,22 +199,25 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
     b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
    
     c. Fare clic su **Avanti**.
+
 6. Nella pagina **Profilo utente** seguire questa procedura:
    
-   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-filecloud-tutorial/create_aaduser_06.png)
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-filecloud-tutorial/create_aaduser_06.png)
    
-   a. Nella casella di testo **Nome** digitare **Britta**.  
+    a. Nella casella di testo **Nome** digitare **Britta**.  
    
-   b. Nella casella di testo **Cognome** digitare **Simon**.
+    b. Nella casella di testo **Cognome** digitare **Simon**.
    
-   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+    c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
    
-   d. Nell'elenco **Ruolo** selezionare **Utente**.
+    d. Nell'elenco **Ruolo** selezionare **Utente**.
    
-   e. Fare clic su **Avanti**.
+    e. Fare clic su **Avanti**.
+
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-filecloud-tutorial/create_aaduser_07.png)
+
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-filecloud-tutorial/create_aaduser_08.png)
@@ -221,13 +246,17 @@ L'obiettivo di questa sezione consiste nell'abilitare Britta Simon all'uso dell'
 1. Per aprire la visualizzazione delle applicazioni nel portale classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
    
     ![Assegna utente][201]
+
 2. Nell'elenco delle applicazioni, selezionare **FileCloud**.
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_50.png)
+
 3. Scegliere **Utenti**dal menu in alto.
    
     ![Assegna utente][203]
+
 4. Nell'elenco di utenti selezionare **Britta Simon**.
+
 5. Fare clic su **Assegna**sulla barra degli strumenti in basso.
    
     ![Assegna utente][205]
@@ -261,6 +290,6 @@ Quando si fa clic sul riquadro FileCloud nel pannello di accesso, si dovrebbe ac
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
