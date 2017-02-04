@@ -15,7 +15,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 12/20/2016
-ms.author: shkurhek;carlrab
+ms.author: shkurhek
 translationtype: Human Translation
 ms.sourcegitcommit: 7a7e9ab9e01f3775061c0b4aee6c558a15aaff44
 ms.openlocfilehash: b3e8f5a6c5a2304bbe8b567fa0d25f27e6a917d7
