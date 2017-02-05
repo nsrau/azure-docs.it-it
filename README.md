@@ -1,5 +1,5 @@
 # <a name="azure-technical-documentation-contributor-guide"></a>Guida per i collaboratori alla documentazione tecnica di Azure
-Questo è il repository GitHub in cui è disponibile l'origine della documentazione tecnica di Azure pubblicata in [http://docs.microsoft.com/azure](http://docs.microsoft.com/azure).
+Questo è il repository GitHub in cui è disponibile l'origine della documentazione tecnica di Azure pubblicata in [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure).
 
 Questo repository include anche informazioni aggiuntive per chi volesse fornire il proprio contributo al miglioramento della documentazione tecnica. Per un elenco degli articoli della Guida per i collaboratori, vedere [l'indice](contributor-guide/contributor-guide-index.md).
 
@@ -17,9 +17,9 @@ Grazie per l'interesse dimostrato nei confronti della documentazione di Azure.
 * [Indice di tutti gli articoli della Guida per i collaboratori](contributor-guide/contributor-guide-index.md) (viene aperta una nuova pagina)
 
 ## <a name="ways-to-contribute"></a>Come fornire il proprio contributo
-È possibile inviare gli aggiornamenti alla [documentazione di Azure](http://docs.microsoft.com/azure) come indicato di seguito:
+È possibile inviare gli aggiornamenti alla [documentazione di Azure](https://docs.microsoft.com/azure) come indicato di seguito:
 
-* È possibile contribuire facilmente agli articoli tecnici nell'interfaccia utente di GitHub. Trovare l'articolo in questo repository oppure all'indirizzo [http://docs.microsoft.com/azure](http://docs.microsoft.com/azure) e fare clic sul collegamento presente nell'articolo che rimanda all'origine GitHub dell'articolo desiderato.
+* È possibile contribuire facilmente agli articoli tecnici nell'interfaccia utente di GitHub. Trovare l'articolo in questo repository oppure all'indirizzo [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) e fare clic sul collegamento presente nell'articolo che rimanda all'origine GitHub dell'articolo desiderato.
 * Se si apportano modifiche sostanziali a un articolo esistente, aggiungendo o modificando immagini oppure fornendo il proprio contributo con un nuovo articolo, è necessario creare una copia tramite fork di questo repository, installare Git Bash, Markdown Pad e apprendere alcuni comandi git.
 
 ## <a name="code-of-conduct"></a>Codice di comportamento
@@ -33,10 +33,10 @@ Le correzioni secondarie o i chiarimenti inviati per la documentazione e gli ese
 Se si invia una richiesta pull con modifiche nuove o significative alla documentazione e agli esempi di codice, verrà visualizzato un commento in GitHub con la richiesta di inviare un contratto di licenza online per i contributi (Contribution License Agreement, CLA) se non si è dipendenti Microsoft. Prima che la richiesta pull venga accettata, è necessario completare il modulo online.
 
 ## <a name="repository-organization"></a>Organizzazione del repository
-Il contenuto del repository azure-docs è organizzato in modo analogo alla documentazione disponibile in http://docs.microsoft.com/azure. Questo repository contiene due cartelle radice:
+Il contenuto del repository azure-docs è organizzato in modo analogo alla documentazione disponibile in https://docs.microsoft.com/azure. Questo repository contiene due cartelle radice:
 
 ### <a name="articles"></a>\articles
-La cartella *\articles* contiene gli articoli della documentazione formattati come file markdown con estensione *md*. Gli articoli vengono in genere raggruppati in base al servizio di Azure. 
+La cartella *\articles* contiene gli articoli della documentazione formattati come file markdown con estensione *md*. Gli articoli vengono in genere raggruppati in base al servizio di Azure.
 
 Gli articoli devono rispettare convenzioni di denominazione molto rigorose. Per informazioni dettagliate, vedere le [convenzioni di denominazione dei file](contributor-guide/file-names-and-locations.md).
 
@@ -49,7 +49,7 @@ La cartella *\articles* contiene la cartella *\media* per i file multimediali de
 Questa cartella contiene il modello markdown standard con la formattazione markdown di base necessaria per un articolo.
 
 ### <a name="contributor-guide"></a>\contributor-guide
-Questa cartella contiene gli articoli che fanno parte della Guida per i collaboratori.  
+Questa cartella contiene gli articoli che fanno parte della Guida per i collaboratori.
 
 ## <a name="use-github-git-and-this-repository"></a>Usare GitHub, Git e questo repository
 Per informazioni su come fornire il proprio contributo, usare l'interfaccia utente di GitHub per contribuire con piccole modifiche, creare una copia tramite fork del repository e clonarlo per i contributi più significativi, vedere [Install and set up tools for authoring in GitHub](contributor-guide/tools-and-setup.md) (Installare e configurare gli strumenti per la creazione in GitHub).
@@ -87,6 +87,6 @@ Per un elenco di tutti gli argomenti, vedere l'[indice della Guida per i collabo
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

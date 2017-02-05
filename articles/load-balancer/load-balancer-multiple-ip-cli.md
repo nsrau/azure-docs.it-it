@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 5c4e6fd9b560d3005294a02a5ec52c140690c819
-ms.openlocfilehash: 79bb6d74c4eba99386b44e8464214d84abf882c6
+ms.sourcegitcommit: 57df4ab0b2a1df6631eb6e67a90f69cebb1dfe75
+ms.openlocfilehash: 64748a540b20bbd4b354f0b4e1d7de4a969381c6
 
 
 ---
@@ -47,7 +47,7 @@ Per ottenere lo scenario descritto in questo articolo, seguire questa procedura:
 
 1. [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) seguendo la procedura riportata nell'articolo collegato e accedere all'account Azure.
 2. [Creare un gruppo di risorse](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-groups-and-choose-deployment-locations) denominato *contosofabrikam*, come descritto in precedenza.
- 
+
     ```azurecli
     azure group create contosofabrikam westcentralus
     ```
@@ -58,7 +58,7 @@ Per ottenere lo scenario descritto in questo articolo, seguire questa procedura:
     azure availset create --resource-group contosofabrikam --location westcentralus --name myAvailabilitySet
     ```
 
-4. [Creare una rete virtuale](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet) denominata *myVNet* e una subnet denominata *mySubnet*: 
+4. [Creare una rete virtuale](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet) denominata *myVNet* e una subnet denominata *mySubnet*:
 
     ```azurecli
     azure network vnet create --resource-group contosofabrikam --name myVnet --address-prefixes 10.0.0.0/16  --location westcentralus
@@ -105,7 +105,7 @@ Per ottenere lo scenario descritto in questo articolo, seguire questa procedura:
     azure network lb show --resource-group contosofabrikam --name mylb
     ```
 
-10. [Creare un indirizzo IP pubblico](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-public-ip-address-pip) denominato *myPublicIp* e un [account di archiviazione](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-storage-account) denominato *mystorageaccont1* per la prima macchina virtuale VM1, come illustrato di seguito:
+10. [Creare un indirizzo IP pubblico](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-public-ip-address) denominato *myPublicIp* e un [account di archiviazione](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-storage-account) denominato *mystorageaccont1* per la prima macchina virtuale VM1, come illustrato di seguito:
 
     ```azurecli
     azure network public-ip create --resource-group contosofabrikam --location westcentralus --name myPublicIP --domain-name-label mypublicdns345 --allocation-method Dynamic
@@ -134,6 +134,7 @@ Per ottenere lo scenario descritto in questo articolo, seguire questa procedura:
 13. Infine, è necessario configurare i record risorsa DNS in modo che puntino all'indirizzo IP front-end corrispondente di Azure Load Balancer. È possibile ospitare i domini nel servizio DNS di Azure. Per altre informazioni sull'uso del servizio DNS di Azure con Azure Load Balancer, vedere [Uso del servizio DNS di Azure con altri servizi di Azure](../dns/dns-for-azure-services.md).
 
 
-<!--HONumber=Nov16_HO5-->
+
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/03/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dddbcbcd82900d7537c2d60631cc1753554d9486
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 02623fc3d663a674e2184380915d651dff5760bc
 
 
 ---
@@ -27,7 +27,7 @@ Questa introduzione senza codice permette di iniziare a usare Ricerca di Microso
 L'esercitazione presuppone un [database di Azure DocumentDB di esempio](#apdx-sampledata) semplice da creare usando i dati e le istruzioni, ma è anche possibile adattare questi passaggi ai dati esistenti in DocumentDB o nel database SQL.
 
 > [!NOTE]
-> Questa esercitazione introduttiva richiede una [sottoscrizione di Azure](/pricing/free-trial/?WT.mc_id=A261C142F) e un [servizio Ricerca di Azure](search-create-service-portal.md). 
+> Questa esercitazione introduttiva richiede una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) e un [servizio Ricerca di Azure](search-create-service-portal.md). 
 > 
 > 
 
@@ -181,6 +181,6 @@ Verrà restituito l'output JSON, a partire dal numero di documento 386 fino al d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

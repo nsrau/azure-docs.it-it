@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 7d969e4d0cc804320f4fb9c7384e72158c5a32c0
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 05a3d3e1c6c608b1dcfd0a4d4ed795cb1d22456b
 
 
 ---
@@ -245,7 +245,7 @@ La figura seguente illustra i contenuti del nuovo gruppo di risorse, dopo la dis
 ![Gruppo di risorse di back-end](./media/virtual-network-deploy-multinic-arm-template/Figure2.png)
 
 ## <a name="deploy-the-template-by-using-powershell"></a>Distribuire il modello tramite PowerShell
-Per distribuire il modello scaricato mediante PowerShell, installare e configurare PowerShell seguendo la procedura riportata nell'articolo [Installare e configurare PowerShell](../powershell-install-configure.md). Seguire quindi questa procedura:
+Per distribuire il modello scaricato mediante PowerShell, installare e configurare PowerShell seguendo la procedura riportata nell'articolo [Installare e configurare PowerShell](/powershell/azureps-cmdlets-docs). Seguire quindi questa procedura:
 
 Eseguire il cmdlet **`New-AzureRmResourceGroup`** per creare un gruppo di risorse usando il modello.
 
@@ -319,6 +319,6 @@ Per distribuire il modello tramite l'interfaccia della riga di comando di Azure,
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

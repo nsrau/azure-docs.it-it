@@ -8,15 +8,16 @@ manager: swadhwa
 editor: 
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 12/01/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fe043cd4438612ada9a31ae895aae75b913b0a37
+ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
+ms.openlocfilehash: 888b9786de8302ccd2e11f271aa417bcbcc2620b
 
 
 ---
@@ -148,7 +149,7 @@ Questa opzione consente principalmente al reparto IT di identificare rapidamente
 
 ![Intelligence per le minacce](./media/oms-security-getting-started/oms-getting-started-fig12.png)
 
-Questa opzione può essere usata anche durante l'analisi della risposta agli eventi imprevisti per eseguire la valutazione e ottenere altre informazioni sull'attacco.
+È possibile usare questa opzione anche durante l'[analisi della risposta agli eventi imprevisti](https://blogs.msdn.microsoft.com/azuresecurity/2016/11/30/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) per eseguire la valutazione e ottenere altre informazioni sull'attacco.
 
 > [!NOTE]
 > Per altre informazioni su come usare OMS per la risposta agli eventi imprevisti, guardare il video [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Come sfruttare le funzionalità del Centro sicurezza di Azure e di Microsoft Operations Management Suite per rispondere agli eventi imprevisti).
@@ -186,6 +187,6 @@ In questo documento è stata introdotta la soluzione Sicurezza e controllo di OM
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 
