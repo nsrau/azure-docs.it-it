@@ -73,6 +73,6 @@ In questo articolo si è appreso come usare io.js con Siti Web di Azure, usando 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

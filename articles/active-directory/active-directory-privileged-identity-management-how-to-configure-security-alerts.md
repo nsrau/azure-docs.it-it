@@ -3,7 +3,7 @@ title: Come configurare gli avvisi di sicurezza | Documentazione Microsoft
 description: Informazioni su come configurare gli avvisi di sicurezza per l&quot;estensione Azure Privileged Identity Management.
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 4e0c911a-36c6-42a0-8f79-a01c03d2d04f
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/02/2016
-ms.author: kgremban
+ms.date: 02/03/2017
+ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: dd8987a05c71643b49e0ac9e3c8ae43d47743225
@@ -59,7 +59,6 @@ Questo avviso viene attivato se un utente non attiva un ruolo dopo un determinat
 
 * **Numero di giorni**: specificare il numero di giorni, da 0 a 100, per cui un utente può non attivare un ruolo.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

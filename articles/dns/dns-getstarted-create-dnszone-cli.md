@@ -123,6 +123,6 @@ Dopo aver creato una zona DNS, [creare record e set di record DNS](dns-getstarte
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 
