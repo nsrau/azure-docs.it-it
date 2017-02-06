@@ -172,6 +172,6 @@ Poiché le opzioni per le risposte agli eventi imprevisti usano un approccio mul
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

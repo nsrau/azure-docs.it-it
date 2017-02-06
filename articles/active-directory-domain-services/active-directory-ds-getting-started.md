@@ -66,6 +66,6 @@ L'attività di configurazione successiva consiste nel [creare o selezionare una 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

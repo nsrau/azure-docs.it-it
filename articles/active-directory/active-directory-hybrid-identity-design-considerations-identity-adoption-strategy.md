@@ -1,12 +1,12 @@
 ---
-title: 'Considerazioni di progettazione per la soluzione ibrida di gestione delle identità di Azure Active Directory: Definire la strategia di adozione della soluzione ibrida di gestione delle identità | Microsoft Docs'
-description: Il controllo di accesso condizionale consente ad Azure Active Directory di controllare le condizioni specifiche definite durante l'autenticazione dell'utente e prima di consentire l'accesso all'applicazione. Se tali condizioni vengono soddisfatte, l'utente viene autenticato e gli viene consentito l'accesso all'applicazione.
-documentationcenter: ''
+title: "Considerazioni di progettazione per la soluzione ibrida di gestione delle identità di Azure Active Directory: definire la strategia di adozione della soluzione ibrida di gestione delle identità | Documentazione Microsoft"
+description: Il controllo di accesso condizionale consente ad Azure Active Directory di controllare le condizioni specifiche definite durante l&quot;autenticazione dell&quot;utente e prima di consentire l&quot;accesso all&quot;applicazione. Se tali condizioni vengono soddisfatte, l&quot;utente viene autenticato e gli viene consentito l&quot;accesso all&quot;applicazione.
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
+ms.openlocfilehash: 47fb1724ac72df8b83012bcacdc435ea847547da
+
 
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definire una strategia di adozione della soluzione ibrida di gestione delle identità
@@ -38,7 +42,7 @@ Gli scenari definiti nella figura precedente sono:
 * **Identità federate**: si tratta di identità che esistono sia in locale che nel cloud.  Grazie ad Azure AD Connect, questi utenti vengono creati o associati ad account Azure AD esistenti.  
 
 > [!NOTE]
-> Per altre informazioni sulle opzioni di sincronizzazione, vedere [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
+> Per altre informazioni sulle opzioni di sincronizzazione, vedere [Integrazione delle identità locali con Azure Active Directory](connect/active-directory-aadconnect.md).
 > 
 > 
 
@@ -106,7 +110,7 @@ Quando si definisce una strategia di sincronizzazione, è necessario determinare
 ![](./media/hybrid-id-design-considerations/single-forest.png) Scenario a foresta singola Le organizzazioni di grandi e piccole dimensioni hanno spesso più foreste, come illustrato nella figura 5.
 
 > [!NOTE]
-> Per altre informazioni sulle diverse topologie locali e di Azure AD con il servizio di sincronizzazione Azure AD Connect, vedere l'articolo [Topologie per Azure AD Connect](active-directory-aadconnect-topologies.md).
+> Per altre informazioni sulle diverse topologie locali e di Azure AD con il servizio di sincronizzazione Azure AD Connect, vedere l'articolo [Topologie per Azure AD Connect](connect/active-directory-aadconnect-topologies.md).
 > 
 > 
 
@@ -126,7 +130,7 @@ In questo caso, se le affermazioni seguenti sono vere, sarà necessario valutare
 * Se è disponibile una cassetta postale collegata, è presente anche un altro account in una foresta diversa usato per l'accesso.
 
 > [!NOTE]
-> Gli oggetti presenti sia in locale sia nel cloud sono "connessi" tramite un identificatore univoco. Nel contesto della sincronizzazione della directory questo identificatore univoco viene indicato come SourceAnchor. Nel contesto del servizio Single Sign-On invece questo identificatore viene indicato come ImmutableId. [Concetti di progettazione per Azure AD Connect](active-directory-aadconnect-design-concepts.md#sourceanchor) .
+> Gli oggetti presenti sia in locale sia nel cloud sono "connessi" tramite un identificatore univoco. Nel contesto della sincronizzazione della directory questo identificatore univoco viene indicato come SourceAnchor. Nel contesto del servizio Single Sign-On invece questo identificatore viene indicato come ImmutableId. [Concetti di progettazione per Azure AD Connect](connect/active-directory-aadconnect-design-concepts.md#sourceanchor) .
 > 
 > 
 
@@ -209,6 +213,9 @@ La modalità Multi-Factor Authentication è disponibile per impostazione predefi
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

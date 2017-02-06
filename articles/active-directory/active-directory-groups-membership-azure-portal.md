@@ -57,6 +57,6 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

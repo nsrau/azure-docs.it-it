@@ -113,6 +113,6 @@ Microsoft ha pubblicato alcune [linee guida per la distribuzione di Active Direc
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 
