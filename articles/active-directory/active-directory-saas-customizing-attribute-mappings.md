@@ -1,19 +1,23 @@
 ---
-title: Personalizzazione dei mapping degli attributi | Microsoft Docs
-description: Informazioni sui mapping degli attributi per app SaaS in Azure Active Directory e su come è possibile modificarli in base alle esigenze aziendali.
+title: Personalizzazione dei mapping degli attributi | Documentazione Microsoft
+description: "Informazioni sui mapping degli attributi per app SaaS in Azure Active Directory e su come è possibile modificarli in base alle esigenze aziendali."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 549e0b8c-87ce-4c9b-b487-b7bf0155dc77
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: markusvi
+ms.date: 01/10/2017
+ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b73c9dc8edd341898ede06f67f383b86010e1e39
+
 
 ---
 # <a name="customizing-attribute-mappings"></a>Personalizzazione dei mapping degli attributi
@@ -54,7 +58,8 @@ I mapping degli attributi permettono di controllare il modo in cui gli attribuit
 
 * **Diretto:** l'attributo di destinazione viene popolato con il valore di un attributo dell'oggetto collegato in Azure AD.
 * **Costante:** l'attributo di destinazione viene popolato con una stringa specificata.
-* **Espressione:** l'attributo di destinazione viene popolato in base al risultato di un'espressione simile a uno script. Per informazioni dettagliate, vedere [Scrittura di espressioni per il mapping degli attributi in Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
+* **Espressione:** l'attributo di destinazione viene popolato in base al risultato di un'espressione simile a uno script. 
+  Per informazioni dettagliate, vedere [Scrittura di espressioni per il mapping degli attributi in Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 * **Nessuno:** l'attributo di destinazione viene lasciato invariato. Se l'attributo di destinazione viene lasciato vuoto, verrà però popolato con il valore predefinito specificato.
 
 In aggiunta a questi quattro tipi base di mapping di attributi, i mapping di attributi personalizzati supportano il concetto di assegnazione di un valore **predefinito** . L'assegnazione di un valore predefinito garantisce che un attributo di destinazione venga popolato con un valore nel caso in cui non sia presente un valore né in Azure AD, né nell'oggetto di destinazione.
@@ -78,6 +83,6 @@ Microsoft Azure AD offre un'implementazione estremamente efficiente di un proces
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

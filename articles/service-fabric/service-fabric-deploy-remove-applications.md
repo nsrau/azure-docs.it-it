@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 4dea75987df0cf05126564d2c7e20d59b842dc1c
-ms.openlocfilehash: a9aa385d8c18600c50797a76e5a67754c695fdf8
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 286a4f46e19b9ed38f9920e169bdadd013186ef6
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: a9aa385d8c18600c50797a76e5a67754c695fdf8
 
 <br/>
 
-Dopo aver creato un [pacchetto di un tipo di applicazione][10], è possibile distribuirlo in un cluster di Azure Service Fabric. La distribuzione prevede i tre passaggi seguenti:
+Dopo aver creato il [pacchetto di un tipo di applicazione][10], è possibile distribuirlo in un cluster di Azure Service Fabric. La distribuzione prevede i tre passaggi seguenti:
 
 1. Caricare il pacchetto applicazione
 2. Registrare il tipo di applicazione
@@ -248,6 +248,6 @@ PS D:\temp>
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
