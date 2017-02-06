@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/11/2016
 ms.author: cgronlun;olgali
 translationtype: Human Translation
-ms.sourcegitcommit: 35579eda8b92a481525ad987e99e7d9c9ed6b942
-ms.openlocfilehash: 7c712cb20d9e008c74436fc602326afa00250c63
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9c710e6f959afd8a4f4b965931ed4868d94c6d25
 
 
 ---
@@ -42,8 +42,8 @@ Per esplorare tutti gli esperimenti:
 2. In **Refine by** (Affina per) selezionare **Experiment** (Esperimento) per visualizzare tutti gli esperimenti nella raccolta.
 3. È possibile trovare esperimenti che soddisfano i requisiti in due modi diversi:
    * **Selezionare i filtri a sinistra.** Ad esempio, per esaminare gli esperimenti che fanno uso di un algoritmo di rilevamento delle anomalie basato su PCA, selezionare **Experiment** (Esperimento) in **Categories** (Categorie) e **PCA-Based Anomaly Detection** (Rilevamento anomalie basato su PCA) in **Algorithms Used** (Algoritmi usati). Se l'algoritmo non è visualizzato, fare clic su **Show all** (Mostra tutto) nella parte inferiore dell'elenco.<br></br>
-     ![](./media/machine-learning-sample-experiments/refine-the-view.png)
-   * **Usare la casella di ricerca.**  Ad esempio, per trovare esperimenti Microsoft sul riconoscimento di cifre che usano un algoritmo di macchine a vettori di supporto a due classi, immettere "digit recognition" nella casella di ricerca. Selezionare quindi i filtri **Experiment** (Esperimento), **Microsoft content only** (Solo contenuto Microsoft) e **Two-Class Support Vector Machine** (Macchina a vettori di supporto a due classi): ![](./media/machine-learning-sample-experiments/search-for-experiments.png)
+     ![Selezione dei filtri](./media/machine-learning-sample-experiments/refine-the-view.png)
+   * **Usare la casella di ricerca.**  Ad esempio, per trovare esperimenti Microsoft sul riconoscimento di cifre che usano un algoritmo di macchine a vettori di supporto a due classi, immettere "digit recognition" nella casella di ricerca. Selezionare quindi i filtri **Experiment** (Esperimento), **Microsoft content only** (Solo contenuto Microsoft) e **Two-Class Support Vector Machine** (Macchina a vettori di supporto a due classi): ![Uso della casella di ricerca](./media/machine-learning-sample-experiments/search-for-experiments.png)
 4. Per altre informazioni su un esperimento, fare clic su di esso.
 5. Per eseguire e/o modificare l'esperimento, fare clic su **Open in Studio** (Apri in Studio) nella pagina dell'esperimento.
 
@@ -52,7 +52,7 @@ Per esplorare tutti gli esperimenti:
    >
    >
 
-    ![](./media/machine-learning-sample-experiments/example-experiment.png)
+    ![Esperimento di esempio](./media/machine-learning-sample-experiments/example-experiment.png)
 
 ## <a name="use-a-template-in-machine-learning-studio"></a>Usare un modello in Machine Learning Studio
 È anche possibile creare un nuovo esperimento in Machine Learning Studio usando come modello un esempio di Cortana Intelligence Gallery.
@@ -70,6 +70,6 @@ Viene creato un nuovo esperimento nell'area di lavoro usando l'esperimento di es
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

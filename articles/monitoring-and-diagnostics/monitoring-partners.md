@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 11/28/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8a971b0dc1f216deaa93045857d6220d0fcbf8c1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ebbd4166bc3f76c91823ee17b8b9c460feb9e194
 
 
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrazioni partner del monitoraggio di Azure
 | Partner |  |  |
 | --- | --- | --- |
-| [![Partner Logo][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] |[![Partner Logo][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] |[![Partner Logo][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |[![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] |[![Partner Logo][datadog-logo]<br/>**DataDog**][datadog-anchor] |
-| [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |[![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] |[![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] |
-| [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |[![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] |[![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] |
+| [![Logo partner][logo-alertlogic]<br/>**AlertLogic**][alertlogic-anchor] |[! [Logo partner] [logo-appdynamics] <br/> **AppDynamics**][appdynamics-anchor] |[! [Logo partner] [logo-atlassian] <br/> **Atlassian**][atlassian-anchor] |
+| [! [Logo partner] [logo-cloudmonix] <br/> **CloudMonix**][cloudmonix-anchor] |[! [Logo partner] [logo-cloudyn] <br/>**Cloudyn**][cloudyn-anchor] |[! [Logo partner] [logo-datadog] <br/>**DataDog**][datadog-anchor] |
+| [! [Logo partner] [logo-dynatrace] <br/> **Dynatrace**][dynatrace-anchor] |[! [Logo partner] [logo-newrelic] <br/> **NewRelic**][newrelic-anchor] |[! [Logo partner] [logo-opsgenie] <br/> **OpsGenie**][opsgenie-anchor] |
+| [! [Logo partner] [logo-pagerduty] <br/> **PagerDuty**][pagerduty-anchor] |[! [Logo partner] [logo-splunk] <br/>**Splunk**][splunk-anchor] |[![Logo partner][logo-sumologic]<br/>**Sumo Logic**][sumologic-anchor] |
 
 ## <a name="alertlogic-log-manager"></a>Gestione log AlertLogic
 Gestione log AlertLogic raccoglie i log della piattaforma di Azure, delle applicazioni e delle VM a fini di analisi di sicurezza e conservazione. Sono inclusi i log di controllo di Azure tramite l'API di Monitoraggio di Azure.  Queste informazioni vengono usate per rilevare eventuali infrazioni e soddisfare i requisiti di conformità.
@@ -41,7 +41,7 @@ La gestione delle prestazioni delle applicazioni (APM) di AppDynamics consente a
 ## <a name="atlassian-jira"></a>Atlassian JIRA
 È possibile creare ticket JIRA sugli avvisi di Monitoraggio di Azure.
 
-[Accedere alla documentazione.][atlassian-doc]
+[Vai alla documentazione.][atlassian-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
 CloudMonix offre servizi di monitoraggio, automazione e riparazione automatica per la piattaforma Microsoft Azure.
@@ -85,6 +85,8 @@ Il componente aggiuntivo Splunk per i servizi cloud Microsoft è [disponibile qu
 [Vai alla documentazione.][splunk-doc]
 
 ## <a name="sumo-logic"></a>SumoLogic
+Sumo Logic è un servizio protetto di analisi dei dati del computer nativo del cloud che offre funzioni di intelligence continue e in tempo reale da dati strutturati, semi-strutturati e non strutturati durante l'intero ciclo di vita dell'applicazione e nello stack. Più di 1.000 clienti in tutto il mondo si affidano a Sumo Logic per eseguire analisi approfondite al fine di creare, eseguire e proteggere le proprie applicazioni e infrastrutture cloud moderne. Grazie a Sumo Logic, i clienti possono sfruttare un modello di servizio multi-tenant per accelerare il percorso verso una continua innovazione e per aumentare il vantaggio competitivo, il valore aziendale e la crescita.
+
 [Altre informazioni.][sumologic-doc]
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -103,7 +105,7 @@ Il componente aggiuntivo Splunk per i servizi cloud Microsoft è [disponibile qu
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"
 [splunk-anchor]: #splunk-add-on-for-microsoft-cloud-services "Splunk"
-[sumologic-anchor]: #sumologic "Sumo Logic"
+[sumologic-anchor]: #sumo-logic "Sumo Logic"
 
 <!--Icon references-->
 [alertlogic-logo]: ./media/partner-logos/alertlogic.png
@@ -123,18 +125,18 @@ Il componente aggiuntivo Splunk per i servizi cloud Microsoft è [disponibile qu
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "Documentazione di AlertLogic."
 [appdynamics-doc]: https://docs.appdynamics.com/display/PRO42/Register+for+AppDynamics+for+Windows+Azure "Documentazione di AppDynamics."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
-[cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "Introduzione a CloudMonix."
-[cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Introduzione a Cloudyn."
+[cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "Documentazione di CloudMonix."
+[cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Documentazione di Cloudyn."
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Documentazione di DataDog."
 [dynatrace-doc]: https://blog.ruxit.com/ruxit-monitoring-azure-web-apps/ "Documentazione di Dynatrace."
 [newrelic-doc]: https://newrelic.com/azure "Documentazione di NewRelic."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "Documentazione di OpsGenie."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "Documentazione di PagerDuty"
-[splunk-doc]: http://docs.splunk.com/Documentation/AddOns/released/MSCloudServices/About "Documentazione di Splunk"
+[splunk-doc]: http://docs.splunk.com/Documentation/AddOns/released/MSCloudServices/About "Documentazione di Splunk."
 [sumologic-doc]: https://www.sumologic.com/azure "Documentazione di SumoLogic"
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,14 +1,13 @@
 ---
 layout: LandingPage
-description: Informazioni su come creare una macchina virtuale con la distribuzione Linux di propria scelta. I documenti mostrano modi diversi per creare modelli di macchine virtuali.
 translationtype: Human Translation
-ms.sourcegitcommit: eabfc16b3714006f74cdaec68efb46f651ee1b97
-ms.openlocfilehash: 4ae49635b13d564a4bf03ea12e233c1b18985cce
+ms.sourcegitcommit: f368f2700bd349e106169d1828af7a148daa5cc2
+ms.openlocfilehash: f87947ed5f072ba4f0927ade1b1d3ec0e1424f3c
 
 ---
-# <a name="linux-virtual-machine-documentation"></a>Documentazione delle macchine virtuali Linux
+#<a name="linux-virtual-machine-documentation"></a>Documentazione delle macchine virtuali Linux
 
-Informazioni su come eseguire macchine virtuali in Azure con la distribuzione Linux di propria scelta. Documenti, informazioni di riferimento sulle API e campioni mostrano i diversi modi per creare e distribuire i modelli di macchine virtuali.
+Usare le macchine virtuali di Azure per creare ed eseguire macchine virtuali Linux nell'infrastruttura di calcolo, rete e archiviazione di Azure.  Ridimensionare fino a ottenere migliaia di macchine virtuali per distribuzioni a livello Internet oppure eseguire una sola macchina virtuale per qualche minuto per completare calcoli complessi, in modo da ottenere velocità e coerenza.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -141,6 +140,6 @@ Scaricare la documentazione delle macchine virtuali Linux </div>
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -2,11 +2,11 @@
 title: Interfaccia utente di Azure Mobile Engagement - Contenuti di Reach
 description: Informazioni su come gestire il contenuto univoco dei diversi tipi di campagne di notifica push in Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: add64f06-43c9-475c-8722-51cd00bb844b
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,126 +14,137 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 626db03a7b858d060b01332a67f0b491066a6625
+
 
 ---
-# Come gestire il contenuto univoco dei diversi tipi di campagne di notifica push
-È possibile usare la sezione Contenuto di una nuova campagna di copertura per modificare il contenuto di annunci, sondaggi, push di dati e riquadri (solo per Windows Phone). L'impostazione del contenuto delle campagne di push è specifico per il tipo di campagna.
+# <a name="how-to-manage-the-unique-content-of-the-different-types-of-push-notification-campaigns"></a>Come gestire il contenuto univoco dei diversi tipi di campagne di notifica push
+È possibile usare la sezione Contenuto di una nuova campagna di copertura per modificare il contenuto di annunci, sondaggi, push di dati e riquadri (solo per Windows Phone). L'impostazione del contenuto delle campagne di push è specifico per il tipo di campagna. 
 
-### Tipi di contenuti:
+### <a name="content-types"></a>Tipi di contenuti:
 * Annunci
 * Sondaggi
 * Push di dati
 * Riquadri (solo per Windows Phone)
 
-## Contenuto degli annunci
- ![Reach-Content1][30]
+## <a name="content-of-announcements"></a>Contenuto degli annunci
+ ![Reach-Content1][30] 
 
-### Scegliere il tipo di annuncio:
+### <a name="choose-the-type-of-your-announcement"></a>Scegliere il tipo di annuncio:
 * Solo notifica: una semplice notifica standard. Vale a dire che se un utente fa clic, non apparirà alcuna ulteriore visualizzazione, ma si verificherà semplicemente l'azione associata.
 * Annuncio di testo: una notifica che invita l'utente a esaminare una visualizzazione testo.
 * Annuncio Web: una notifica che incoraggia l'utente a esaminare una visualizzazione Web.
 
-### Vedere anche
-* [Reach - Procedure - Annunci][Link 3]
+### <a name="see-also"></a>Vedere anche
+* [Reach - Procedure - Annunci][Link 3] 
 
-### Informazioni sugli annunci di visualizzazione Web:
-Le ricorrenze del modello "{deviceid}" nel codice HTML o nel codice JavaScript fornito in questa sezione verranno automaticamente sostituite dall'identificatore del dispositivo che visualizza l'annuncio. Si tratta di un metodo semplice per recuperare gli identificatori dei dispositivi di Azure Mobile Engagement in un servizio Web esterno ospitato sul back-office. Se si desidera creare una visualizzazione Web a schermo intero (senza i pulsanti di azione e uscita predefiniti forniti), è possibile usare le funzioni seguenti dal codice JavaScript dell'annuncio di visualizzazione Web:
+### <a name="about-web-view-announcements"></a>Informazioni sugli annunci di visualizzazione Web:
+Le ricorrenze del modello "{deviceid}" nel codice HTML o nel codice JavaScript fornito in questa sezione verranno automaticamente sostituite dall'identificatore del dispositivo che visualizza l'annuncio. Si tratta di un metodo semplice per recuperare gli identificatori dei dispositivi di Azure Mobile Engagement in un servizio Web esterno ospitato sul back-office.
+Se si desidera creare una visualizzazione Web a schermo intero (senza i pulsanti di azione e uscita predefiniti forniti), è possibile usare le funzioni seguenti dal codice JavaScript dell'annuncio di visualizzazione Web: 
 
 * Per eseguire l'azione di annuncio: ReachContent.actionContent()
 * Per uscire dall'annuncio: ReachContent.exitContent()
 
-### Scegliere l'azione:
-### Informazioni sugli URL di azione:
-qualsiasi URL che può essere interpretato dal sistema operativo di un dispositivo di destinazione può essere usato come un URL di azione. Qualsiasi URL dedicato che potrebbe essere supportato dall'applicazione (ad esempio per far sì che gli utenti passino a una schermata specifica) può essere usato anche come URL di azione. Ogni ricorrenza del modello {deviceid} verrà automaticamente sostituita dall'identificatore del dispositivo che esegue l'azione. Questo metodo consente di recuperare facilmente gli identificatori dei dispositivi di Azure Mobile Engagement tramite un servizio Web esterno ospitato sul back-office.
+### <a name="choose-your-action"></a>Scegliere l'azione:
+### <a name="about-action-urls"></a>Informazioni sugli URL di azione:
+qualsiasi URL che può essere interpretato dal sistema operativo di un dispositivo di destinazione può essere usato come un URL di azione.
+Qualsiasi URL dedicato che potrebbe essere supportato dall'applicazione (ad esempio per far sì che gli utenti passino a una schermata specifica) può essere usato anche come URL di azione.
+Ogni ricorrenza del modello {deviceid} verrà automaticamente sostituita dall'identificatore del dispositivo che esegue l'azione. Questo metodo consente di recuperare facilmente gli identificatori dei dispositivi di Azure Mobile Engagement tramite un servizio Web esterno ospitato sul back-office.
 
 * **Azioni di Android e iOS**
   * Aprire una pagina Web
-  * http://[web-site-domain\]
-  * Esempio:http://www.azure.com
+  * http://\[dominio-sito-Web\] 
+  * Esempio: http://www.azure.com
   * Inviare un messaggio di posta elettronica
-  * mailto:[destinatario]?subject=[oggetto]&body=[messaggio]
-  * Esempio: mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
+  * mailto:\[destinatario-messaggio\]?subject=\[oggetto\]&body=\[messaggio\] 
+  * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
   * Inviare un SMS
-  * sms:[numero di telefono]
+  * sms:\[numero-telefonico\] 
   * Esempio:sms:2125551212
   * Comporre un numero di telefono
-  * tel:[numero di telefono]
+  * tel:\[numero-telefonico\] 
   * Esempio:tel:2125551212
 * **Azioni solo di Android**
   * Scaricare un'applicazione in Play Store
-  * market://details?id=[app pacchetto]
+  * market://details?id=\[pacchetto app\] 
   * Esempio:market://details?id=com.microsoft.office.word
   * Avviare una ricerca di localizzazione geografica
-  * geo:0,0?q=[query di ricerca]
+  * geo:0,0?q=\[query di ricerca\] 
   * Esempio:geo:0,0?q=starbucks,paris
 * **Azioni solo di iOS**
   * Scaricare un'applicazione in App Store
-  * http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8
-  * Esempio:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
+  * http://itunes.apple.com/[paese]/app/[nome app]/id[ID app]?mt=8 
+  * Esempio: http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
   * Azioni di Windows
   * Aprire una pagina Web
-  * http://[web-site-domain\]
-  * Esempio:http://www.azure.com
+  * http://\[dominio-sito-Web\] 
+  * Esempio: http://www.azure.com
   * Inviare un messaggio di posta elettronica
-  * mailto:[destinatario]?subject=[oggetto]&body=[messaggio]
-  * Esempio: mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
+  * mailto:\[destinatario-messaggio\]?subject=\[oggetto\]&body=\[messaggio\] 
+  * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
   * Inviare un SMS (è necessario Skype Store App)
-  * sms:[numero di telefono]
+  * sms:\[numero-telefonico\] 
   * Esempio:sms:2125551212
   * Comporre un numero di telefono (è necessario Skype Store App)
-  * tel:[numero di telefono]
+  * tel:\[numero-telefonico\] 
   * Esempio:tel:2125551212
   * Scaricare un'applicazione in Play Store
-  * ms-windows-store:PDP?PFN=[ID pacchetto app]
+  * ms-windows-store:PDP?PFN=\[ID pacchetto app\] 
   * Esempio:ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
   * Avviare una ricerca in Bing Mappe
-  * bingmaps:?q=[query di ricerca]
+  * bingmaps:?q=\[query ricerca\] 
   * Esempio:bingmaps:?q=starbucks,paris
   * Usare uno schema personalizzato
-  * [schema personalizzato]://[parametri schema personalizzato]
+  * \[schema personalizzato\]://\[parametri schema personalizzato\] 
   * Esempio:myCustomProtocol://myCustomParams
   * Usare dati di un pacchetto (è necessario App Store per la lettura dell'estensione)
-  * [cartella][dati].[estensione]
+  * \[cartella\]\[dati\].\[estensione\] 
   * Esempio:myfolderdata.txt
 
-### Creare un URL di rilevamento:
-* Per istruzioni sulla creazione di un URL di rilevamento che consente agli utenti di scaricare una delle altre applicazioni, vedere la sezione "Impostazioni" della <Documentazione dell'interfaccia utente>.
+### <a name="build-a-tracking-url"></a>Creare un URL di rilevamento:
+* Per istruzioni sulla creazione di un URL di rilevamento che consente agli utenti di scaricare una delle altre applicazioni, vedere la sezione "Impostazioni" della <UI Documentation>.
 
-### Definire il testo dell'annuncio
+### <a name="define-the-texts-of-your-announcement"></a>Definire il testo dell'annuncio
 Compilare il titolo, il contenuto e il testo dei pulsanti dell'annuncio. È possibile definire i destinatari di una campagna futura in base al feedback di copertura sulla risposta degli utenti alla campagna corrente. È possibile definire i destinatari a seconda che la campagna sia stata solo oggetto di push, che gli utenti abbiano risposto, abbiano eseguito un'azione o si siano scollegati.
 
-### Vedere anche
-* [Documentazione dell'interfaccia utente - Reach - Nuovi criteri push][Link 28]
+### <a name="see-also"></a>Vedere anche
+* [Documentazione dell'interfaccia utente - Reach - Nuovi criteri di push][Link 28]
 
-## Contenuto dei sondaggi
-![Reach-Content2][31] Compilare il titolo, la descrizione e il testo dei pulsanti dell'annuncio. Aggiungere quindi domande e opzioni per le risposte alle domande. È possibile definire i destinatari di una campagna futura in base al feedback di copertura sulla risposta degli utenti alla campagna corrente. È possibile definire i destinatari a seconda che la campagna sia stata solo oggetto di push, che gli utenti abbiano risposto, eseguito un'azione o si siano scollegati. La definizione dei destinatari può essere basata anche sul feedback di risposta ai sondaggi, dove domande e opzioni di risposta vengono usate come criteri.
+## <a name="content-of-polls"></a>Contenuto dei sondaggi
+![Reach-Content2][31] 
 
-### Vedere anche
-* [Documentazione dell'interfaccia utente - Reach - Nuovi criteri push][Link 28]
+Compilare il titolo, la descrizione e il testo dei pulsanti dell'annuncio. Aggiungere quindi domande e opzioni per le risposte alle domande.
+È possibile definire i destinatari di una campagna futura in base al feedback di copertura sulla risposta degli utenti alla campagna corrente. È possibile definire i destinatari a seconda che la campagna sia stata solo oggetto di push, che gli utenti abbiano risposto, eseguito un'azione o si siano scollegati. La definizione dei destinatari può essere basata anche sul feedback di risposta ai sondaggi, dove domande e opzioni di risposta vengono usate come criteri.
 
-## Contenuto dei push di dati
-![Reach-Content3][32]
+### <a name="see-also"></a>Vedere anche
+* [Documentazione dell'interfaccia utente - Reach - Nuovi criteri di push][Link 28]
 
-### Scegliere il tipo di testo dei dati:
+## <a name="content-of-data-pushes"></a>Contenuto dei push di dati
+![Reach-Content3][32] 
+
+### <a name="choose-the-type-of-your-data"></a>Scegliere il tipo di testo dei dati:
 * Text
 * Dati binari
 * Dati Base64
 
-### Definire il contenuto dei dati
+### <a name="define-the-content-of-your-data"></a>Definire il contenuto dei dati
 * Se si seleziona il push dei dati di testo, copiare e incollare il testo nella casella "contenuto".
 * Se si seleziona il push dei dati binari o base64, usare il pulsante "carica il file" per caricare il file.
 * È possibile definire i destinatari di una campagna futura in base al feedback di copertura sulla risposta degli utenti alla campagna corrente. È possibile definire i destinatari a seconda che la campagna sia stata solo oggetto di push, che gli utenti abbiano risposto, eseguito un'azione o si siano scollegati.
 
-### Vedere anche
-* [Documentazione dell'interfaccia utente - Reach - Nuovi criteri push][Link 28]
+### <a name="see-also"></a>Vedere anche
+* [Documentazione dell'interfaccia utente - Reach - Nuovi criteri di push][Link 28]
 
-## Contenuto dei riquadri (solo per Windows Phone)
+## <a name="content-of-tiles-windows-phone-only"></a>Contenuto dei riquadri (solo per Windows Phone)
 ![Reach-Content4][33]
 
-### Definire il contenuto del riquadro
-Il payload dei riquadri è il testo da visualizzare nel riquadro dell'app sui dispositivi Windows Phone. Un push di riquadri è la versione Servizio di notifica Push di Microsoft (MPNS) di un push nativo per Windows Phone. Il tipo di push di riquadri è l'unico tipo di push che non ha risposta e pertanto non è possibile creare i destinatari delle campagne future in base ai risultati di una campagna di push di riquadri.
+### <a name="define-the-content-of-your-tile"></a>Definire il contenuto del riquadro
+Il payload dei riquadri è il testo da visualizzare nel riquadro dell'app sui dispositivi Windows Phone.
+Un push di riquadri è la versione Servizio di notifica Push di Microsoft (MPNS) di un push nativo per Windows Phone. Il tipo di push di riquadri è l'unico tipo di push che non ha risposta e pertanto non è possibile creare i destinatari delle campagne future in base ai risultati di una campagna di push di riquadri. 
 
-### Vedere anche
+### <a name="see-also"></a>Vedere anche
 * [Documentazione dell'API - API Reach - Push nativo][Link 4]
 
 <!--Image references-->
@@ -228,4 +239,8 @@ Il payload dei riquadri è il testo da visualizzare nel riquadro dell'app sui di
 [Link 29]: mobile-engagement-user-interface-reach-content.md
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

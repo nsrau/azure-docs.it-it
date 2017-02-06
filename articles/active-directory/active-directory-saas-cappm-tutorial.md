@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5bccef79845fc16c0154ec774817156f5be95884
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 910e4730c05193ae43309f0e67db629ff15b09b5
 
 
 ---
@@ -233,6 +233,6 @@ Quando si fa clic sul riquadro CA PPM nel pannello di accesso, si dovrebbe acced
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

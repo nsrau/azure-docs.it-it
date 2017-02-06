@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/29/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d56e03d45969f80e8f1121741c0342268efb3ca0
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: aa5cb974f0181b675faa0c1a064098e4a011ca51
 
 
 ---
@@ -310,6 +310,6 @@ Quando si fa clic sul riquadro Hightail nel pannello di accesso, viene effettuat
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
