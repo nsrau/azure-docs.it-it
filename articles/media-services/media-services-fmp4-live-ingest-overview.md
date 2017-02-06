@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
-ms.author: cenkdin;juliako
+ms.date: 12/07/2016
+ms.author: cenkd;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7d312fe973f0de2a17c9203ebcd6b8bae1cb14b0
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 307c9a377fce32c056a54d35f173efd1bafc4df5
 
 
 ---
@@ -32,12 +32,12 @@ Il diagramma seguente illustra l'architettura di alto livello del servizio di li
 1. Il codificatore live invia feed live a canali che sono stati creati e di cui è stato eseguito il provisioning tramite l'SDK di Servizi multimediali di Microsoft Azure.
 2. In Servizi multimediali la gestione di tutte le funzionalità di live streaming è affidata a entità Channel, Program e StreamingEndpoint, compresi inserimento, formattazione, DVR cloud, sicurezza, scalabilità e ridondanza.
 3. Facoltativamente, i clienti possono scegliere di distribuire un livello di rete CDN tra l'endpoint di streaming e gli endpoint client.
-4. Gli endpoint client trasmettono in streaming dall'endpoint di streaming tramite protocolli di streaming adattivi HTTP (ad esempio Smooth Streaming, DASH, HDS o HLS).
+4. Gli endpoint client trasmettono dall'endpoint di streaming tramite protocolli di flusso adattivo HTTP, ad esempio Smooth Streaming, DASH o HLS.
 
 ![Immagine1][image1]
 
-## <a name="3-bit-stream-format-iso-14496-12-fragmented-mp4"></a>3. Formato del flusso di bit: MP4 frammentato ISO 14496-12
-Il formato di trasmissione per il processo di inserimento di un live streaming illustrato in questo documento si basa sullo standard [ISO 14496-12]. Fare riferimento a [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx) per una spiegazione dettagliata del formato MP4 frammentato e delle estensioni disponibili sia per i file video on demand sia per l'inserimento di uno streaming live.
+## <a name="3-bit-stream-format--iso-14496-12-fragmented-mp4"></a>3. Formato del flusso di bit: MP4 frammentato ISO 14496-12
+Il formato di trasmissione per il processo di inserimento di un live streaming illustrato in questo documento si basa sullo standard [ISO&14496;-12]. Fare riferimento a [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx) per una spiegazione dettagliata del formato MP4 frammentato e delle estensioni disponibili sia per i file video on demand sia per l'inserimento di uno streaming live.
 
 ### <a name="live-ingest-format-definitions"></a>Definizioni del formato di inserimento live
 Di seguito sono elencate alcune speciali definizioni di formato applicabili all'inserimento live in Servizi multimediali di Microsoft Azure.
@@ -46,12 +46,12 @@ Di seguito sono elencate alcune speciali definizioni di formato applicabili all'
 2. La sezione 3.3.2 di [1] definisce una finestra facoltativa denominata StreamManifestBox per l'inserimento live. A causa della logica di routing del bilanciamento del carico di Microsoft Azure, questa finestra è stata deprecata e non dovrebbe (SHOULD NOT) quindi essere presente durante l'inserimento in Servizi multimediali di Microsoft Azure. Se questa finestra è presente, Servizi multimediali di Azure automaticamente la ignora.
 3. L'elemento TrackFragmentExtendedHeaderBox definito nella sezione 3.2.3.2 di [1] deve (MUST) essere presente per ogni segmento.
 4. La versione 2 dell'elemento TrackFragmentExtendedHeaderBox dovrebbe (SHOULD) essere usata per generare segmenti multimediali con URL identici in più data center. Il campo di indice del frammento è obbligatorio (REQUIRED) per il failover tra data center di formati di streaming basati su indice, quali Apple HTTP Live Streaming (HLS) e MPEG-DASH basato su indice.  Per abilitare il failover tra data center, l'indice del frammento deve (MUST) essere sincronizzato tra più codificatori e aumentare di un'unità per ogni frammento multimediale successivo, anche in caso di riavvii o errori del codificatore.
-5. La sezione 3.3.6 di [1] definisce la casella denominata MovieFragmentRandomAccessBox ("mfra"), che può (MAY) essere inviata al termine dell'operazione di inserimento live per indicare al canale la fine del flusso. A causa della logica di inserimento di Servizi multimediali di Azure, la fine del flusso è deprecata e per l'inserimento live non dovrebbe (SHOULD NOT) essere inviata la casella "mfra". Se viene inviata, Servizi multimediali di Azure automaticamente la ignora. È consigliabile usare la funzione di [reimpostazione del canale](https://msdn.microsoft.com/library/azure/dn783458.aspx#reset_channels) per reimpostare lo stato del punto di inserimento e l'opzione di [interruzione del programma](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) per terminare una presentazione e un flusso.
+5. La sezione 3.3.6 di [1] definisce la casella denominata MovieFragmentRandomAccessBox ("mfra"), che può (MAY) essere inviata al termine dell'operazione di inserimento live per indicare al canale la fine del flusso. A causa della logica di inserimento di Servizi multimediali di Azure, la fine del flusso è deprecata e per l'inserimento live non dovrebbe (SHOULD NOT) essere inviata la casella "mfra". Se viene inviata, Servizi multimediali di Azure automaticamente la ignora. È consigliabile usare la funzione di [reimpostazione del canale](https://docs.microsoft.com/rest/api/media/operations/channel#reset_channels) per reimpostare lo stato del punto di inserimento e l'opzione di [interruzione del programma](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) per terminare una presentazione e un flusso.
 6. La durata del frammento MP4 dovrebbe (SHOULD) essere costante, in modo da ridurre le dimensioni dei manifesti client e migliorare l'approccio euristico di download del client tramite l'utilizzo di tag di ripetizione.  La durata può (MAY) variare per compensare frequenze di fotogrammi costituite da valori non interi.
 7. La durata del frammento MP4 dovrebbe (SHOULD) essere compresa tra 2 e 6 secondi circa.
 8. I timestamp e gli indici (TrackFragmentExtendedHeaderBox fragment_absolute_time e fragment_index) del frammento MP4 dovrebbero (SHOULD) arrivare in ordine crescente.  Sebbene Servizi multimediali di Azure sia resiliente alla duplicazione di frammenti, presenta una capacità molto limitata di riordinare i frammenti in base alla sequenza temporale dei contenuti.
 
-## <a name="4-protocol-format-http"></a>4. Formato del protocollo: HTTP
+## <a name="4-protocol-format--http"></a>4. Formato del protocollo: HTTP
 L'inserimento live basato sul formato ISO MP4 frammentato per Servizi multimediali di Microsoft Azure usa una richiesta HTTP POST standard con esecuzione prolungata per trasmettere al servizio dati multimediali codificati in formato MP4 frammentato. Ogni HTTP POST invia un flusso in bit MP4 frammentato completo ("flusso") iniziando con le caselle di intestazione ("ftyp", "Live Server Manifest Box" e casella "moov") e continuando con una sequenza di frammenti (caselle "moof" e "mdat"). Fare riferimento alla sezione 9.2 di [1] per la sintassi dell'URL relativo alla richiesta HTTP POST. Un esempio di URL POST è: 
 
     http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
@@ -160,7 +160,7 @@ Di seguito è illustrata la procedura consigliata per l'inserimento di una tracc
    3. Durante il periodo in cui i dati di segnalazione non sono disponibili, il codificatore dovrebbe (SHOULD) chiudere la richiesta HTTP POST  e inviare i dati mentre la richiesta POST è ancora attiva. 
    4. Quando si inviano frammenti di tipo sparse, il codificatore può impostare esplicitamente l'intestazione Content-Length, se disponibile.
    5. Quando si inviano frammenti di tipo sparse con una nuova connessione, il codificatore dovrebbe (SHOULD) inviare prima le caselle di intestazione, quindi i nuovi frammenti. Questo consente di gestire casi in cui il failover si verifica tra una connessione e l'altra e la nuova connessione di tipo sparse viene stabilita con un nuovo server che non ha mai visto prima la traccia di tipo sparse.
-   6. Il frammento della traccia di tipo sparse viene reso disponibile al client nel momento in cui il frammento della traccia padre corrispondente, uguale o maggiore rispetto al valore timestamp, viene reso disponibile al client. Ad esempio, se il frammento di tipo sparse presenta un timestamp di t = 1000, dopo che il client rileva il timestamp del frammento video (presupponendo che il nome della traccia padre sia "video"), uguale o superiore a 1000, è possibile scaricare il frammento di tipo sparse t = 1000. Tenere presente che il segnale effettivo può essere usato anche per una posizione diversa nella sequenza temporale della presentazione rispetto a quella designata. Nell'esempio precedente, è possibile che il frammento di tipo sparse con t = 1000 disponga di un payload XML che consente di inserire un annuncio in una posizione di pochi secondi successiva.
+   6. Il frammento della traccia di tipo sparse viene reso disponibile al client nel momento in cui il frammento della traccia padre corrispondente, uguale o maggiore rispetto al valore timestamp, viene reso disponibile al client. Ad esempio, se il frammento di tipo sparse presenta un timestamp di t = 1000, dopo che il client rileva il timestamp del frammento video (presupponendo che il nome della traccia padre sia "video"), uguale o superiore a 1000, è possibile scaricare il frammento di tipo sparse t = 1000. Tenere presente che il segnale effettivo può essere usato anche per una posizione diversa nella sequenza temporale della presentazione rispetto a quella designata. Nell'esempio precedente, è possibile che il frammento di tipo sparse con t =&1000; disponga di un payload XML che consente di inserire un annuncio in una posizione di pochi secondi successiva.
    7. Il payload del frammento della traccia di tipo sparse può essere di vari formati (ad esempio, XML, testo o binario), a seconda dello scenario. 
 
 ### <a name="redundant-audio-track"></a>Traccia audio ridondante
@@ -183,17 +183,17 @@ Di seguito è illustrata la procedura consigliata per l'inserimento di tracce au
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-[Immagine1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png
+[image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png
 [image2]: ./media/media-services-fmp4-live-ingest-overview/media-services-image2.png
 [image3]: ./media/media-services-fmp4-live-ingest-overview/media-services-image3.png
-[Image4]: ./media/media-services-fmp4-live-ingest-overview/media-services-image4.png
-[Image5]: ./media/media-services-fmp4-live-ingest-overview/media-services-image5.png
-[Image6]: ./media/media-services-fmp4-live-ingest-overview/media-services-image6.png
-[Image7]: ./media/media-services-fmp4-live-ingest-overview/media-services-image7.png
+[image4]: ./media/media-services-fmp4-live-ingest-overview/media-services-image4.png
+[image5]: ./media/media-services-fmp4-live-ingest-overview/media-services-image5.png
+[image6]: ./media/media-services-fmp4-live-ingest-overview/media-services-image6.png
+[image7]: ./media/media-services-fmp4-live-ingest-overview/media-services-image7.png
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 
