@@ -4,7 +4,7 @@ description: Questo documento consente di comprendere i tipi di avvisi di sicure
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
 ms.service: security-center
@@ -12,7 +12,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -25,8 +25,8 @@ Questo documento consente di comprendere i diversi tipi di avvisi di sicurezza d
 
 > [!NOTE]
 > Per abilitare le funzionalità di rilevamento avanzato, eseguire l'aggiornamento al livello Standard del Centro sicurezza di Azure. È disponibile una versione di valutazione gratuita di 90 giorni. Per eseguire l'aggiornamento, selezionare il piano tariffario nei [criteri di sicurezza](security-center-policies.md). Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/) .
-> 
-> 
+>
+>
 
 ## <a name="what-type-of-alerts-are-available"></a>Quali tipi di avvisi sono disponibili?
 Centro sicurezza di Azure offre una serie di avvisi in linea con le fasi delle catene di attacco. La figura seguente illustra alcuni esempi di diversi avvisi relativi ad alcune di queste fasi.
@@ -65,8 +65,8 @@ Il Centro sicurezza di Azure può usare le analisi del comportamento per identif
 
 > [!NOTE]
 > Per altre informazioni sulle funzionalità di rilevamento del Centro sicurezza, vedere [Funzionalità di rilevamento del Centro sicurezza di Azure](security-center-detection-capabilities.md).
-> 
-> 
+>
+>
 
 ### <a name="crash-analysis"></a>Analisi degli arresti anomali
 L'analisi della memoria del dump di arresto anomalo è un metodo usato per rilevare malware sofisticato in grado di eludere le soluzioni di sicurezza tradizionali. Varie forme di malware provano a ridurre le probabilità di essere rilevate dai prodotti antivirus non scrivendo mai sul disco oppure crittografando i componenti software scritti sul disco. Ciò rende il malware difficile da rilevare con gli approcci antimalware tradizionali. Il malware può essere tuttavia rilevato tramite l'analisi della memoria, perché per funzionare il malware deve lasciare tracce in memoria.
@@ -88,7 +88,7 @@ Questo avviso fornisce il campo aggiuntivo seguente:
 
 Esempio di questo tipo di avviso:
 
-![Avviso per shellcode](./media/security-center-alerts-type/security-center-alerts-type-fig2.png) 
+![Avviso per shellcode](./media/security-center-alerts-type/security-center-alerts-type-fig2.png)
 
 ### <a name="module-hijacking-discovered"></a>Individuato hijack del modulo
 Windows si basa sulle librerie a collegamento dinamico (DLL) per consentire al software di usare funzionalità del sistema di Windows comuni. L'hijack della DLL si verifica quando il malware modifica l'ordine di caricamento della DLL per caricare payload dannosi in memoria, dove è possibile eseguire codice arbitrario. Questo avviso indica che l'analisi di dump di arresto anomalo del sistema ha rilevato un modulo con un nome simile caricato da due percorsi diversi, dove uno dei percorsi caricati proviene da un percorso binario del sistema Windows comune.
@@ -104,7 +104,7 @@ Oltre ai campi comuni descritti nella sezione "Individuato shellcode" precedente
 
 Esempio di questo tipo di avviso:
 
-![Avviso di hijack del modulo](./media/security-center-alerts-type/security-center-alerts-type-fig3.png) 
+![Avviso di hijack del modulo](./media/security-center-alerts-type/security-center-alerts-type-fig3.png)
 
 ### <a name="masquerading-windows-module-detected"></a>Rilevato modulo Windows mascherato
 Il malware può usare nomi comuni di file binari di sistema Windows, ad esempio SVCHOST.EXE, oppure moduli, come NTDLL.DLL, per mimetizzarsi e nascondere la natura del software dannoso agli amministratori di sistema. Questo avviso indica che l'analisi di dump di arresto anomalo del sistema ha rilevato che il file di dump di arresto anomalo del sistema contiene moduli che usano nomi di moduli di sistema Windows ma che non soddisfano i criteri tipici dei moduli di Windows. L'analisi della copia su disco del modulo mascherato può fornire altre informazioni in merito alla natura legittima o dannosa di questo modulo. L'analisi può includere:
@@ -123,7 +123,7 @@ Questo avviso, inoltre, estrae e visualizza determinati campi dell'intestazione 
 
 Esempio di questo tipo di avviso:
 
-![Avviso di modulo Windows mascherato](./media/security-center-alerts-type/security-center-alerts-type-fig4.png) 
+![Avviso di modulo Windows mascherato](./media/security-center-alerts-type/security-center-alerts-type-fig4.png)
 
 ### <a name="modified-system-binary-discovered"></a>Individuato file binario di sistema modificato
 Il malware può modificare i file binari del sistema di base per accedere di nascosto ai dati o per essere furtivamente salvato in modo permanente in un sistema compromesso. Questo avviso indica che l'analisi di dump di arresto anomalo del sistema ha rilevato che i file binari del sistema operativo Windows di base sono stati modificati in memoria o su disco.
@@ -136,7 +136,7 @@ Oltre ai campi comuni descritti nella sezione "Individuato shellcode" precedente
 
 Esempio di questo tipo di avviso:
 
-![Avviso di file binario di sistema](./media/security-center-alerts-type/security-center-alerts-type-fig5.png) 
+![Avviso di file binario di sistema](./media/security-center-alerts-type/security-center-alerts-type-fig5.png)
 
 ### <a name="suspicious-process-executed"></a>Processo sospetto eseguito
 Centro sicurezza identifica il processo sospetto in esecuzione nella macchina virtuale di destinazione e attiva un avviso. Il rilevamento non avviene in base al nome specifico, ma in base al parametro, quindi anche se l'autore dell'attacco rinomina il file eseguibile, Centro sicurezza è comunque in grado di eseguire il rilevamento.
@@ -158,7 +158,7 @@ Il sistema di rilevamento delle minacce di rete del Centro sicurezza funziona me
 ### <a name="suspicious-outgoing-traffic-detected"></a>Rilevamento di traffico in uscita sospetto
 I dispositivi di rete possono essere individuati e profilati così come altri tipi di sistemi. L'attacco ha in genere inizio con la scansione o la scansione sistematica delle porte. Nell'esempio di seguito è presente un traffico SSH sospetto da una VM che può eseguire un attacco di scansione sistematica delle porte o di forza bruta SSH contro una risorsa esterna.
 
-![Avviso per traffico in uscita sospetto](./media/security-center-alerts-type/security-center-alerts-type-fig8.png) 
+![Avviso per traffico in uscita sospetto](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
 
 L'avviso contiene informazioni che consentono di identificare la risorsa usata per avviare l'attacco, il computer compromesso, la data e l'ora di rilevamento, il protocollo e la porta usata. Il pannello contiene anche un elenco dei passaggi di correzione che possono essere usati per attenuare il problema.
 
@@ -169,7 +169,10 @@ Sfruttando i feed di intelligence per le minacce di Microsoft, il Centro sicurez
 
 L'avviso contiene informazioni che consentono di identificare la risorsa usata per avviare l'attacco, la risorsa che ha subito attacchi, l'IP vittima, l'IP dell'utente malintenzionato e la data e l'ora di rilevamento.
 
-[AZURE.NOTE] Gli indirizzi IP attivi sono stati rimossi dallo screenshot per motivi di privacy.
+> [!NOTE]
+> Gli indirizzi IP attivi sono stati rimossi dallo screenshot per motivi di privacy.
+>
+>
 
 ### <a name="possible-outgoing-denial-of-service-attack-detected"></a>Rilevato possibile attacco Denial of Service in uscita
 Il traffico di rete anomalo generato da una macchina virtuale può indurre il Centro sicurezza ad attivare un avviso di potenziale attacco Denial of Service.
@@ -184,8 +187,8 @@ L'analisi delle risorse del Centro sicurezza si concentra sui servizi PaaS, ad e
 ### <a name="potential-sql-injection"></a>Potenziale attacco SQL injection
 In un attacco SQL injection, il malware viene inserito in stringhe che vengono successivamente passate a un'istanza di SQL Server per l'analisi e l'esecuzione. È consigliabile verificare la presenza di vulnerabilità a questo tipo di attacco in qualsiasi procedura che crea istruzioni SQL, perché SQL Server esegue tutte le query sintatticamente valide che riceve. Il rilevamento delle minacce SQL usa Machine Learning, l'analisi del comportamento e il rilevamento delle anomalie per individuare eventi sospetti che possono verificarsi nei database SQL di Azure. Ad esempio:
 
-* Tentativo di accesso al database da parte di un ex dipendente 
-* Attacchi SQL injection 
+* Tentativo di accesso al database da parte di un ex dipendente
+* Attacchi SQL injection
 * Accesso insolito al database di produzione da parte di un utente da casa
 
 ![Avviso di potenziale SQL injection](./media/security-center-alerts-type/security-center-alerts-type-fig11.png)
@@ -210,7 +213,6 @@ In questo documento sono stati descritti i diversi tipi di avvisi di sicurezza d
 * [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md)
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure.
-
 
 
 
