@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 02/07/2017
 ms.author: genli
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -56,13 +56,13 @@ Per risolvere questi problemi, è necessario identificare il disco rigido virtua
 ### <a name="step-1-identify-the-problem-vhd-and-the-associated-vm"></a>Passaggio 1: Identificare il problema del disco rigido virtuale e della macchina virtuale associata
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Dal menu **Hub** scegliere **Tutte le risorse**. Passare all'account di archiviazione che si vuole eliminare e quindi selezionare **BLOB** > **dischi rigidi virtuali**.
-   
+
     ![Schermata del portale, con l'account di archiviazione e il contenitore "vhds" evidenziato](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/opencontainer.png)
 3. Controllare le proprietà di ogni disco rigido virtuale nel contenitore. Individuare il disco rigido virtuale in stato **Con lease** e quindi determinare quale macchina virtuale sta usando il disco rigido virtuale. In genere, è possibile determinare la macchina virtuale che contiene il disco rigido virtuale selezionando il nome di tale disco:
-   
+
    * I dischi del sistema operativo in genere seguono questa convenzione di denominazione: VMNameYYYYMMDDHHMMSS.vhd
    * I dischi dati in genere seguono questa convenzione di denominazione: VMName-YYYYMMDD-HHMMSS.vhd
-     
+
      ![Schermata delle informazioni di contenitore nel portale, con il nome della macchina virtuale e lo stato di lease "Bloccato e "Con lease" evidenziato](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/locatevm.png)
 
 ### <a name="step-2-remove-the-lease-from-the-vhd"></a>Passaggio 2: Rimuovere il lease dal disco rigido virtuale
@@ -96,7 +96,6 @@ Un lease è un blocco che può essere usato per controllare l'accesso a un BLOB 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Eliminare un account di archiviazione](storage-create-storage-account.md#delete-a-storage-account)
 * [Procedura: Interrompere il lease bloccato di archiviazione BLOB in Microsoft Azure (PowerShell)](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)
-
 
 
 
