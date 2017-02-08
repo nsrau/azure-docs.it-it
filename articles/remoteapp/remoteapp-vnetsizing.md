@@ -1,24 +1,27 @@
-
 ---
-title: Informazioni sul ridimensionamento di una rete virtuale in Azure RemoteApp | Microsoft Docs
+title: Informazioni sul ridimensionamento di una rete virtuale in Azure RemoteApp | Documentazione Microsoft
 description: Informazioni sui requisiti relativi agli indirizzi IP per Azure RemoteApp in esecuzione con una rete virtuale
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: b6e1c4ba-0236-42b2-bced-69353bf211be
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: 0639e19423adc842a708982997852fb8d10df779
+
 
 ---
-# Informazioni sul ridimensionamento di una rete virtuale in Azure RemoteApp
+# <a name="sizing-information-for-a-vnet-in-azure-remoteapp"></a>Informazioni sul ridimensionamento di una rete virtuale in Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -31,4 +34,9 @@ Consultare le informazioni seguenti per assicurarsi che la rete virtuale sia con
 * [Come eseguire la migrazione da una rete virtuale personale a una rete virtuale di Azure](remoteapp-migratevnet.md)
 * [Convalidare la rete virtuale di Azure da usare con Azure RemoteApp](remoteapp-vnet.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

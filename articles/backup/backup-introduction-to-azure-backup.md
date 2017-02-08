@@ -114,11 +114,11 @@ Le sezioni seguenti indicano tabelle che riepilogano la disponibilità o il supp
 ### <a name="storage"></a>Archiviazione
 | Funzionalità | Agente di Backup di Azure | System Center DPM | Server di backup di Azure | Backup di VM IaaS di Azure |
 | --- | --- | --- | --- | --- |
-| Insieme di credenziali di Backup di Azure |![sì][green] |![sì][green] |![sì][green] |![sì][green] |
+| Insieme di credenziali di Backup di Azure |![sì][green] |![Sì][green] |![Sì][green] |![sì][green] |
 | Archiviazione su disco | |![sì][green] |![sì][green] | |
 | Archiviazione su nastro | |![Sì][green] | | |
-| Compressione <br/>(nell'insieme di credenziali di Backup) |![Sì][green] |![sì][green] |![sì][green] | |
-| Backup incrementale |![sì][green] |![sì][green] |![sì][green] |![sì][green] |
+| Compressione <br/>(nell'insieme di credenziali di Backup) |![Sì][green] |![Sì][green] |![sì][green] | |
+| Backup incrementale |![sì][green] |![Sì][green] |![Sì][green] |![sì][green] |
 | Deduplicazione dei dischi | |![Parzialmente][yellow] |![Parzialmente][yellow] | |
 
 ![chiave tabella](./media/backup-introduction-to-azure-backup/table-key.png)
@@ -142,8 +142,8 @@ Ogni componente supporta il backup incrementale indipendentemente dall'archivio 
 ### <a name="security"></a>Sicurezza
 | Funzionalità | Agente di Backup di Azure | System Center DPM | Server di backup di Azure | Backup di VM IaaS di Azure |
 | --- | --- | --- | --- | --- |
-| Sicurezza di rete<br/> (in Azure) |![Sì][green] |![sì][green] |![sì][green] |![Parzialmente][yellow] |
-| Sicurezza dei dati<br/> (in Azure) |![Sì][green] |![sì][green] |![sì][green] |![Parzialmente][yellow] |
+| Sicurezza di rete<br/> (in Azure) |![Sì][green] |![Sì][green] |![sì][green] |![Parzialmente][yellow] |
+| Sicurezza dei dati<br/> (in Azure) |![Sì][green] |![Sì][green] |![sì][green] |![Parzialmente][yellow] |
 
 ![chiave tabella](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -162,7 +162,7 @@ Per il backup delle VM di Azure, è necessario configurare la crittografia *nell
 | Funzionalità | Agente di Backup di Azure | System Center DPM | Server di backup di Azure | Backup di VM IaaS di Azure |
 | --- | --- | --- | --- | --- |
 | Compressione di rete <br/>(nel **server di backup**) | |![Sì][green] |![Sì][green] | |
-| Compressione di rete <br/>(nell'**insieme di credenziali di Backup**) |![Sì][green] |![sì][green] |![Sì][green] | |
+| Compressione di rete <br/>(nell'**insieme di credenziali di Backup**) |![Sì][green] |![Sì][green] |![Sì][green] | |
 | Protocollo di rete <br/>(nel **server di backup**) | |TCP |TCP | |
 | Protocollo di rete <br/>(nell'**insieme di credenziali di Backup**) |HTTPS |HTTPS |HTTPS |HTTPS |
 

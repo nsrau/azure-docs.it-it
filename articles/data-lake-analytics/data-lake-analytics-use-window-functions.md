@@ -1,5 +1,5 @@
 ---
-title: Uso delle funzioni finestra di U-SQL per i processi di Analisi Azure Data Lake | Documentazione Microsoft
+title: Uso delle funzioni finestra di U-SQL per i processi di Azure Data Lake Analytics | Documentazione Microsoft
 description: 'Informazioni su come usare le funzioni finestra di U-SQL. '
 services: data-lake-analytics
 documentationcenter: 
@@ -11,12 +11,12 @@ ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/16/2016
+ms.workload: big-data`
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 22aafaa80d8d7a5d7e57819acadc6c7985bf2c93
-ms.openlocfilehash: fde657c6c59852a07fd8f565572732f7a25d9e55
+ms.sourcegitcommit: 5137ccfd2c809fe17cc7fdf06941ebd797288d81
+ms.openlocfilehash: 7afbd2de08b5702371ef7dc8676fcd8d75d5e7fd
 
 
 ---
@@ -31,7 +31,7 @@ Le funzioni finestra sono classificate come segue:
 
 * [Funzioni di aggregazione di report](#reporting-aggregation-functions), ad esempio SUM o AVG
 * [Funzioni di rango](#ranking-functions), ad esempio DENSE_RANK, ROW_NUMBER, NTILE e RANK
-* [Funzioni analitiche](#analytic-functions), ad esempio distribuzione cumulativa, percentili o accessi ai dati da una riga precedente nello stesso set di risultati senza usare un self-join
+* [Funzioni analitiche](#analytic-functions), ad esempio distribuzione cumulativa o percentili, accessi ai dati da una riga precedente (nello stesso set di risultati) senza usare un self-join
 
 **Prerequisiti:**
 
@@ -70,7 +70,7 @@ Questa esercitazione usa due set di dati:
         AS T(Query,Latency,Vertical);
     ```
 
-    In pratica, i dati vengono per lo più archiviati in un file di dati. Si accederà a questi dati in un file con valori delimitati da tabulazioni usando il codice seguente: 
+    In pratica, i dati vengono generalmente archiviati in un file. Si accederà ai dati in un file con valori delimitati da tabulazioni tramite il codice seguente: 
   
     ```
     @querylog = 
@@ -120,7 +120,7 @@ Questa esercitazione usa due set di dati:
 
 Quando si testano gli esempi nell'esercitazione, è necessario includere le definizioni dei set di righe. U-SQL richiede la definizione solo dei set di righe usati. Alcuni esempi richiedono un solo set di righe.
 
-È anche necessario aggiungere l'istruzione seguente per generare il set di righe di risultati in un file di dati:
+Aggiungere l'istruzione seguente per generare il set di righe di risultati in un file di dati:
 
     OUTPUT @result TO "/wfresult.csv" 
         USING Outputters.Csv();
@@ -143,7 +143,7 @@ La query seguente usa un'aggregazione per calcolare le retribuzioni totali per t
 > 
 > 
 
-Il risultato è una singola riga con una singola colonna. $ 165000 è la somma del valore Salary dell'intera tabella. 
+Il risultato è una singola riga con una singola colonna. $&16500;0 è la somma del valore Salary dell'intera tabella. 
 
 | TotalSalary |
 | --- |
@@ -170,15 +170,15 @@ I risultati sono:
 | Executive |50000 |
 | Marketing |25000 |
 
-La somma della colonna SalaryByDept è $ 165000, che corrisponde all'importo nell'ultimo script.
+La somma della colonna SalaryByDept è $&16500;0, che corrisponde all'importo nell'ultimo script.
 
 In entrambi i casi sono presenti meno righe di output che righe di input:
 
 * Senza GROUP BY l'aggregazione comprime tutte le righe in una sola. 
-* Con GROUP BY sono presenti N righe di output, dove N è il numero di valori distinti visualizzati nei dati. In questo caso, saranno restituite 4 righe nell'output.
+* Con GROUP BY sono presenti N righe di output, dove N è il numero di valori distinti visualizzati nei dati.  In questo caso, saranno restituite&4; righe nell'output.
 
 ### <a name="use-a-window-function"></a>Usare una funzione finestra
-La clausola OVER nell'esempio seguente è vuota. Definisce la "finestra" per includere tutte le righe. SUM in questo esempio viene applicata alla clausola OVER che la precede.
+La clausola OVER nell'esempio seguente è vuota e quindi la finestra include tutte le righe. SUM in questo esempio viene applicata alla clausola OVER che la precede.
 
 È possibile leggere questa query come: "La somma della retribuzione in una finestra di tutte le righe".
 
@@ -316,10 +316,10 @@ I risultati sono:
 | 8 |Ava |Marketing |400 |15000 |10000 |
 | 9 |Ethan |Marketing |400 |10000 |10000 |
 
-Sostituire MIN con MAX, quindi provare a eseguire la query.
+Per visualizzare la retribuzione più alta di ogni reparto, sostituire MIN con MAX ed eseguire nuovamente la query.
 
 ## <a name="ranking-functions"></a>Funzioni di rango
-Le funzioni di rango restituiscono un valore di rango (long) per ogni riga in ogni partizione definita dalle clausole PARTITION BY e OVER. L'ordine di rango viene controllato da ORDER BY nella clausola OVER.
+Le funzioni di rango restituiscono un valore di rango (LONG) per ogni riga in ogni partizione definita dalle clausole PARTITION BY e OVER. L'ordine di rango viene controllato da ORDER BY nella clausola OVER.
 
 Di seguito sono elencate le funzioni di rango supportate:
 
@@ -336,10 +336,10 @@ Di seguito sono elencate le funzioni di rango supportate:
             [ORDER BY <identifier, > …[n] [ASC|DESC]] 
     ) AS <alias>
 
-* La clausola ORDER BY è facoltativa per le funzioni di rango. Se ORDER BY viene specificata, determina l'ordine di rango. Se ORDER BY non viene specificata, U-SQL assegna i valori in base all'ordine in cui legge i record. Nel caso in cui la clausola ORDER BY non sia specificata, viene restituito un valore non deterministico di numero di riga, rango o rango di tipo dense.
+* La clausola ORDER BY è facoltativa per le funzioni di rango. Se la clausola ORDER BY non è specificata, U-SQL assegna i valori in base all'ordine di lettura del record, restituendo valori non deterministici per ROW_NUMBER, RANK o DENSE_RANK.
 * NTILE richiede un'espressione che restituisce un intero positivo. Questo numero specifica il numero di gruppi in cui è necessario suddividere ogni partizione. Questo identificatore viene usato solo con la funzione di rango NTILE. 
 
-Per altre informazioni sulla clausola OVER, vedere [Riferimento al linguaggio U-SQL]().
+Per altre informazioni sulla clausola OVER, vedere [Riferimento al linguaggio U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 Le funzioni ROW_NUMBER, RANK e DENSE_RANK assegnano tutte numeri alle righe in una finestra. Invece di descriverle separatamente, è più intuitivo vedere come rispondono allo stesso input.
 
@@ -353,7 +353,7 @@ Le funzioni ROW_NUMBER, RANK e DENSE_RANK assegnano tutte numeri alle righe in u
 
 Si noti che le clausole OVER sono identiche. Ecco il risultato:
 
-| Query | Latency:int | Vertical | RowNumber | RANK | DenseRank |
+| Query | Latency: INT | Vertical | RowNumber | RANK | DenseRank |
 | --- | --- | --- | --- | --- | --- |
 | Banana |300 |Image |1 |1 |1 |
 | Cherry |300 |Image |2 |1 |1 |
@@ -371,20 +371,20 @@ All'interno di ogni finestra (Vertical, che sia Image o Web), il numero di riga 
 ![Funzione finestra ROW_NUMBER di U-SQL](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-row-number-result.png)
 
 ### <a name="rank"></a>RANK
-Diversamente da ROW_NUMBER (), RANK() prende in considerazione il valore di Latency specificato nella clausola ORDER BY per la finestra.
+Diversamente da ROW_NUMBER (), RANK() utilizza il valore di Latency specificato nella clausola ORDER BY per la finestra.
 
-RANK inizia con (1,1,3) perché i primi due valori per Latency sono uguali. Il valore successivo è quindi 3, perché il valore di Latency è passato a 500. Il punto chiave è che anche se ai valori duplicati viene attribuito lo stesso rango, il numero di RANK "passerà" al valore ROW_NUMBER successivo. Come si può vedere, questo schema viene ripetuto con la sequenza (2,2,4) in Vertical "Web".
+RANK inizia con (1, 1, 3) perché i primi due valori per Latency sono uguali. Il valore successivo è quindi 3, perché il valore di Latency è passato a 500. Il punto chiave è che anche se ai valori duplicati viene attribuito lo stesso rango, il numero di RANK passerà al valore ROW_NUMBER successivo. Come si può vedere, questo schema viene ripetuto con la sequenza (2, 2, 4) in Vertical "Web".
 
 ![Funzione finestra RANK di U-SQL](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-rank-result.png)
 
 ### <a name="denserank"></a>DENSE_RANK
-DENSE_RANK è uguale a RANK, eccetto il fatto che non "passa" al valore ROW_NUMBER successivo, ma al numero successivo nella sequenza. Notare le sequenze (1,1,2) e (2,2,3) nell'esempio.
+DENSE_RANK è simile a RANK ad eccezione del fatto che non passa al valore ROW_NUMBER successivo. DENSE_RANK passa al numero successivo nella sequenza. Notare le sequenze (1, 1, 2) e (2, 2, 3) nell'esempio.
 
 ![Funzione finestra DENSE_RANK di U-SQL](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-dense-rank-result.png)
 
 ### <a name="remarks"></a>Osservazioni
-* Se non si specifica ORDER BY, la funzione di rango verrà applicata al set di righe senza alcun tipo di ordinamento. Si avrà quindi un comportamento non deterministico nel modo di applicare la funzione di rango.
-* Non è possibile garantire che le righe restituite da una query tramite ROW_NUMBER siano ordinate esattamente allo stesso modo in ogni esecuzione, a meno che siano rispettate le condizioni seguenti.
+* Se ORDER BY non è specificato, la funzione di rango viene applicata al set di righe senza alcun tipo di ordinamento, causando un comportamento non deterministico.
+* Le condizioni seguenti devono essere rispettate per garantire che le righe restituite da una query tramite ROW_NUMBER siano ordinate allo stesso modo in ogni esecuzione.
   
   * I valori della colonna partizionata sono univoci.
   * I valori delle colonne ORDER BY sono univoci.
@@ -393,11 +393,11 @@ DENSE_RANK è uguale a RANK, eccetto il fatto che non "passa" al valore ROW_NUMB
 ### <a name="ntile"></a>NTILE
 NTILE distribuisce le righe in una partizione ordinata in un numero di gruppi specificato. I gruppi sono numerati a partire da uno. 
 
-L'esempio seguente divide il set di righe in ogni partizione (Vertical) in 4 gruppi nell'ordine di latenza della query e restituisce il numero di gruppo per ogni riga. 
+L'esempio seguente divide il set di righe in ogni partizione (Vertical) in quattro gruppi, ordinati per latenza, e restituisce il numero di gruppo per ogni riga. 
 
-Per Vertical, Image, sono presenti 3 righe, quindi 3 gruppi. 
+Per Vertical "Image" sono presenti tre righe e quindi dispone di tre gruppi. 
 
-Per Vertical, Web, sono presenti 6 righe, le due righe aggiuntive vengono distribuite ai primi due gruppi. Per questo motivo, sono presenti 2 righe nei gruppi 1 e 2 e solo 1 riga nei gruppi 3 e 4.  
+Per Vertical "Web" sono presenti sei righe.  Le due righe aggiuntive vengono distribuite ai primi due gruppi. Per questo motivo, sono presenti due righe nei gruppi 1 e 2 e solo una riga nei gruppi 3 e 4.  
 
     @result =
         SELECT 
@@ -430,7 +430,7 @@ ad esempio:
 * 102 righe divise in 4 gruppi: [26, 26, 25, 25]
 
 ### <a name="top-n-records-per-partition-via-rank-denserank-or-rownumber"></a>Primi N record per partizione tramite RANK, DENSE_RANK o ROW_NUMBER
-Molti utenti preferiscono selezionare solo le PRIME n righe per ogni gruppo. Questo non è possibile con la tradizionale clausola GROUP BY. 
+Molti utenti vogliono selezionare solo le PRIME n righe per gruppo, ma questa operazione non può essere eseguita con il tradizionale GROUP BY. 
 
 L'esempio seguente è riportato all'inizio della sezione Funzioni di rango. Non visualizza i primi N record per ogni partizione:
 
@@ -457,7 +457,7 @@ I risultati sono:
 | Durian |500 |Web |6 |5 |6 |
 
 ### <a name="top-n-with-dense-rank"></a>PRIMI N con DENSE RANK
-L'esempio seguente restituisce i primi 3 record di ogni gruppo senza interruzioni nella numerazione di rango sequenziale delle righe in ogni partizione finestra.
+L'esempio seguente restituisce i primi tre record di ogni gruppo, senza interruzioni nella numerazione di rango sequenziale delle righe in ogni partizione.
 
     @result =
     SELECT 
@@ -549,9 +549,9 @@ Le funzioni analitiche vengono usate per comprendere le distribuzioni di valori 
 * PERCENTILE_DISC
 
 ### <a name="cumedist"></a>CUME_DIST
-CUME_DIST calcola la posizione relativa di un valore specificato in un gruppo di valori. Calcola la percentuale di query con una latenza inferiore o uguale alla latenza di query corrente nello stesso parametro Vertical. Per una riga R, supponendo un ordinamento crescente, la funzione CUME_DIST di R è il numero di righe con valori inferiori o uguali al valore di R, diviso per il numero di righe valutato nel set di risultati di query o partizione. CUME_DIST restituisce numeri nell'intervallo 0 < x < = 1.
+CUME_DIST calcola la posizione relativa di un valore specificato in un gruppo di valori. Calcola la percentuale di query con una latenza inferiore o uguale alla latenza di query corrente nello stesso parametro Vertical. Supponendo un ordinamento crescente, la funzione CUME_DIST per una riga R rappresenta il numero di righe con valori inferiori o uguali al valore di R, diviso per il numero di righe valutato nella partizione. CUME_DIST restituisce numeri nell'intervallo 0 < x < = 1.
 
-** Sintassi**
+**Sintassi:**
 
     CUME_DIST() 
         OVER (
@@ -581,27 +581,27 @@ I risultati sono:
 | Papaya |200 |Web |0,5 |
 | Apple |100 |Web |0,166666666666667 |
 
-Sono presenti 6 righe nella partizione in cui la chiave di partizione è "Web" (quarta riga e successive):
+Sono presenti sei righe nella partizione in cui la chiave di partizione è "Web" (quarta riga e successive):
 
-* Sono presenti 6 righe con valore uguale o minore di 500, quindi CUME_DIST è uguale a 6/6=1
-* Sono presenti 5 righe con valore uguale o minore di 400, quindi CUME_DIST è uguale a 5/6=0,83.
-* Sono presenti 4 righe con valore uguale o minore di 300, quindi CUME_DIST è uguale a 4/6=0.66
-* Sono presenti 3 righe con valore uguale o minore di 200, quindi CUME_DIST è uguale a 3/6=0,5. Sono presenti due righe con lo stesso valore di latenza.
-* È presente 1 riga con valore uguale o minore di 100, quindi CUME_DIST è uguale a 1/6=0,16. 
+* Sono presenti sei righe con valore uguale o minore di 500 e quindi CUME_DIST è uguale a 6/6=1
+* Sono presenti cinque righe con valore uguale o minore di 400 e quindi CUME_DIST è uguale a 5/6=0,83
+* Sono presenti quattro righe con valore uguale o minore di 300 e quindi CUME_DIST è uguale a 4/6=0,66
+* Sono presenti tre righe con valore uguale o minore di 200 e quindi CUME_DIST è uguale a 3/6=0,5 Sono presenti due righe con lo stesso valore di latenza.
+* È presente una riga con valore uguale o minore di 100 e quindi CUME_DIST è uguale a 1/6=0,16 
 
 **Note sull'utilizzo:**
 
 * I valori equivalenti restituiscono sempre lo stesso valore di distribuzione cumulativa.
 * I valori NULL vengono considerati come i valori più bassi possibile.
-* È necessario specificare la clausola ORDER BY per calcolare CUME_DIST.
+* Una clausola ORDER BY deve calcolare CUME_DIST.
 * CUME_DIST è simile alla funzione PERCENT_RANK
 
-Nota: la clausola ORDER BY non è consentita se l'istruzione SELECT non è seguita da OUTPUT. La clausola ORDER BY nell'istruzione OUTPUT determina quindi l'ordine di visualizzazione del set di righe risultante.
+Nota: se l'istruzione SELECT non è seguita da OUTPUT, la clausola ORDER BY non è consentita.
 
 ### <a name="percentrank"></a>PERCENT_RANK
 PERCENT_RANK calcola il rango relativo di una riga in un gruppo di righe. PERCENT_RANK si usa per valutare il rango relativo di un valore all'interno di un set di righe o una partizione. L'intervallo di valori restituiti da PERCENT_RANK è maggiore di 0 e minore o uguale a 1. A differenza di CUME_DIST, PERCENT_RANK è sempre 0 per la prima riga.
 
-** Sintassi**
+** Sintassi:**
 
     PERCENT_RANK() 
         OVER (
@@ -613,7 +613,7 @@ PERCENT_RANK calcola il rango relativo di una riga in un gruppo di righe. PERCEN
 
 * La prima riga in qualsiasi set ha un valore PERCENT_RANK pari a 0.
 * I valori NULL vengono considerati come i valori più bassi possibile.
-* È necessario specificare la clausola ORDER BY per calcolare PERCENT_RANK.
+* PERCENT_RANK richiede una clausola ORDER BY.
 * CUME_DIST è simile alla funzione PERCENT_RANK 
 
 L'esempio seguente usa la funzione PERCENT_RANK per calcolare il percentile della latenza per ogni query all'interno di un parametro Vertical. 
@@ -630,7 +630,7 @@ Il valore restituito dalla funzione PERCENT_RANK rappresenta il rango della late
 
 I risultati sono:
 
-| Query | Latency:int | Vertical | PercentRank |
+| Query | Latency: INT | Vertical | PercentRank |
 | --- | --- | --- | --- |
 | Banana |300 |Image |0 |
 | Cherry |300 |Image |0 |
@@ -642,10 +642,10 @@ I risultati sono:
 | Cherry |400 |Web |0,8 |
 | Durian |500 |Web |1 |
 
-### <a name="percentilecont-percentiledisc"></a>PERCENTILE_CONT e PERCENTILE_DISC
+### <a name="percentilecont--percentiledisc"></a>PERCENTILE_CONT e PERCENTILE_DISC
 Queste due funzioni calcolano un percentile in base a una distribuzione continua o discreta dei valori di colonna.
 
-**Sintassi**
+**Sintassi:**
 
     [PERCENTILE_CONT | PERCENTILE_DISC] ( numeric_literal ) 
         WITHIN GROUP ( ORDER BY <identifier> [ ASC | DESC ] )
@@ -653,7 +653,7 @@ Queste due funzioni calcolano un percentile in base a una distribuzione continua
 
 **numeric_literal**: percentile da calcolare. Il valore deve essere compreso tra 0,0 e 1,0.
 
-WITHIN GROUP ( ORDER BY <identifier> [ ASC | DESC ]): specifica un elenco di valori numerici per ordinare e calcolare il percentile. È consentito un solo identificatore di colonna. L'espressione deve restituire un tipo numerico. Non sono consentiti altri tipi di dati. L'ordinamento predefinito è crescente.
+WITHIN GROUP (ORDER BY <identifier> [ ASC | DESC ]): specifica un elenco di valori numerici per ordinare e calcolare il percentile. È consentito un solo identificatore di colonna. L'espressione deve restituire un tipo numerico. Non sono consentiti altri tipi di dati. L'ordinamento predefinito è crescente.
 
 OVER ([ PARTITION BY <identificativo,>…[n] ] ): divide il set di righe di input in partizioni in base alla chiave di partizione a cui si applica la funzione percentile. Per altre informazioni, vedere la sezione RANKING di questo documento.
 Nota: gli eventuali valori Null nel set di dati vengono ignorati.
@@ -679,7 +679,7 @@ Nota: gli eventuali valori Null nel set di dati vengono ignorati.
 
 I risultati sono:
 
-| Query | Latency:int | Vertical | PercentileCont50 | PercentilDisc50 |
+| Query | Latency: INT | Vertical | PercentileCont50 | PercentilDisc50 |
 | --- | --- | --- | --- | --- |
 | Banana |300 |Image |300 |300 |
 | Cherry |300 |Image |300 |300 |
@@ -697,19 +697,19 @@ PERCENTILE_DISC non esegue l'interpolazione dei valori, quindi il valore mediano
 
 ## <a name="see-also"></a>Vedere anche
 * [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* [Introduzione a Analisi Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md)
+* [Esercitazione: Introduzione ad Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-get-started-portal.md)
 * [Introduzione ad Azure Data Lake Analytics con Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Sviluppare script U-SQL con Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Usare le esercitazioni interattive di Analisi Azure Data Lake](data-lake-analytics-use-interactive-tutorials.md)
 * [Analizzare i log dei siti Web con Analisi Azure Data Lake](data-lake-analytics-analyze-weblogs.md)
-* [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md)
-* [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)
+* [Introduzione al linguaggio U-SQL di Analisi Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
+* [Gestire Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)
 * [Gestire Azure Data Lake Analytics tramite Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 * [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

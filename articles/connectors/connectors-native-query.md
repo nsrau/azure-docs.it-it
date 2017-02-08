@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d45ada934ad9211dbe8534b210ff06653c40afd1
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: a992fa17a07d6167297c4cf5fe9fb3b58181d7df
 
 
 ---
@@ -27,7 +27,7 @@ Con l'azione di query è possibile usare batch e matrici per poter eseguire flus
 * Creare un'attività per tutti i record ad alta priorità di un database.
 * Salvare tutti gli allegati PDF per i messaggi di posta elettronica in un BLOB di Azure.
 
-Per iniziare a usare l'azione di query in un'app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per iniziare a usare l'azione di query in un'app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="use-the-query-action"></a>Usare l'azione di query
 Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](connectors-overview.md).  
@@ -78,11 +78,11 @@ Di seguito sono riportati i dettagli di output per la risposta HTTP.
 | Matrice filtrata |array |Matrice che contiene un oggetto per ogni risultato filtrato |
 
 ## <a name="next-steps"></a>Passaggi successivi
-Provare ora a usare la piattaforma e [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
+Provare ora a usare la piattaforma e [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

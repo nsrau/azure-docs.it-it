@@ -85,6 +85,6 @@ Per distribuire il modello tramite l'interfaccia della riga di comando di Azure,
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

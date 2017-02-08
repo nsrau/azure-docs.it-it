@@ -1,40 +1,55 @@
 ---
 title: Soluzione Azure Networking Analytics in Log Analytics | Microsoft Docs
-description: È possibile usare la soluzione Azure Networking Analytics in Log Analytics per esaminare i log dei gruppi di sicurezza di rete di Azure e i log dei gateway applicazione di Azure Application Gateway.
+description: "È possibile usare la soluzione Azure Networking Analytics in Log Analytics per esaminare i log dei gruppi di sicurezza di rete di Azure e i log dei gateway applicazione di Azure Application Gateway."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: richrundmsft
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: 66a3b8a1-6c55-4533-9538-cad60c18f28b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2016
+ms.date: 12/1/2016
 ms.author: richrund
+translationtype: Human Translation
+ms.sourcegitcommit: a86819102797b0e243d28cd9ddb3d2c88c74bfca
+ms.openlocfilehash: 7ea593885c1b380236a49ec030c00ad19097e2fa
+
 
 ---
-# <a name="azure-networking-analytics-(preview)-solution-in-log-analytics"></a>Soluzione Azure Networking Analytics (anteprima) in Log Analytics
+# <a name="azure-networking-analytics-preview-solution-in-log-analytics"></a>Soluzione Azure Networking Analytics (anteprima) in Log Analytics
+
+È possibile usare la soluzione di analisi di rete di Azure in Log Analytics per esaminare gli elementi seguenti:
+
+* Log di gateway applicazione di Azure
+* Metriche di gateway applicazione di Azure 
+* Log dei gruppi di sicurezza di rete di Azure
+
 > [!NOTE]
-> Si tratta di una [soluzione disponibile in anteprima](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features).
+> Analisi di rete di Azure è una [soluzione di anteprima](log-analytics-add-solutions.md#preview-management-solutions-and-features).
 > 
 > 
 
-È possibile usare la soluzione Azure Networking Analytics in Log Analytics per esaminare i log dei gateway applicazione di Azure e i log dei gruppi di sicurezza di rete di Azure.
-
-È possibile abilitare la registrazione per i log dei gateway applicazione di Azure e dei gruppi di sicurezza di rete di Azure. Questi log vengono scritti nell'archivio BLOB, in cui possono essere quindi indicizzati da Log Analytics per la ricerca e l'analisi.
+Per usare la soluzione, abilitare la diagnostica per i log di gateway applicazione di Azure e dei gruppi di sicurezza di rete di Azure e indirizzare la diagnostica a un'area di lavoro di Log Analytics. Non è necessario inserire i log nell'Archiviazione BLOB di Azure.
 
 I log seguenti sono supportati per i gateway applicazione:
 
 * ApplicationGatewayAccessLog
 * ApplicationGatewayPerformanceLog
+* ApplicationGatewayFirewallLog
+
+Le metriche seguenti sono supportate per i gateway applicazione:
+
+* Velocità effettiva di 5 minuti
 
 I log seguenti sono supportati per i gruppi di sicurezza di rete:
 
 * NetworkSecurityGroupEvent
 * NetworkSecurityGroupRuleCounter
+* NetworkSecurityGroupFlowEvent
 
 ## <a name="install-and-configure-the-solution"></a>Installare e configurare la soluzione
 Usare le istruzioni seguenti per installare e configurare la soluzione Azure Networking Analytics di Azure:
@@ -42,18 +57,30 @@ Usare le istruzioni seguenti per installare e configurare la soluzione Azure Net
 1. Abilitare la registrazione diagnostica per le risorse da monitorare:
    * [Gateway applicazione](../application-gateway/application-gateway-diagnostics.md)
    * [Gruppo di sicurezza di rete](../virtual-network/virtual-network-nsg-manage-log.md)
-2. Configurare Log Analytics per la lettura dei log dall'archivio BLOB usando il processo illustrato in [File JSON nell'archivio BLOB](log-analytics-azure-storage-json.md).
-3. Abilitare la soluzione Azure Networking Analytics seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).  
+2. Abilitare la soluzione Azure Networking Analytics seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).  
 
-Se non si abilita la registrazione diagnostica per un tipo specifico di risorsa, i pannelli del dashboard per quella risorsa saranno vuoti.
+Lo script PowerShell consente di abilitare la registrazione diagnostica per gateway applicazione e gruppi di sicurezza di rete 
+```
+$workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
+
+$gateway = Get-AzureRmApplicationGateway -Name 'ContosoGateway'
+
+Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+
+$nsg = Get-AzureRmNetworkSecurityGroup -Name 'ContosoNSG'
+
+Set-AzureRmDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+```
+
+
+Se non si abilita la registrazione diagnostica per un tipo specifico di risorsa, i pannelli del dashboard per quella risorsa sono vuoti.
 
 ## <a name="review-azure-networking-analytics-data-collection-details"></a>Esaminare i dettagli della raccolta di dati di Azure Networking Analytics
-La soluzione Azure Networking Analytics raccoglie log di diagnostica dall'archivio BLOB di Azure per i gateway applicazione di Azure e per i gruppi di sicurezza di rete.
-Non sono necessari agenti per la raccolta di dati.
+La soluzione di analisi di rete di Azure raccoglie i log di diagnostica direttamente dal gateway applicazione e dai gruppi di sicurezza di rete di Azure. Non è necessario inserire i log in Archiviazione BLOB di Azure né è necessario alcun agente per la raccolta dati.
 
 La tabella seguente illustra i metodi di raccolta dei dati e altri dettagli sulla modalità di raccolta dei dati per Azure Networking Analytics.
 
-| Piattaforma | Agente diretto | Agente di Systems Center Operations Manager (SCOM) | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | Frequenza della raccolta |
+| Piattaforma | Agente diretto | Agente di Systems Center Operations Manager | Azure | È necessario Operations Manager? | Dati dell'agente Operations Manager inviati con il gruppo di gestione | Frequenza della raccolta |
 | --- | --- | --- | --- | --- | --- | --- |
 | Azure |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![Sì](./media/log-analytics-azure-networking/oms-bullet-green.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |10 minuti |
 
@@ -96,6 +123,9 @@ Dopo avere selezionato il riquadro **Panoramica**, è possibile visualizzare i r
 ## <a name="next-steps"></a>Passaggi successivi
 * Usare le [Ricerche nei log in Log Analytics](log-analytics-log-searches.md) per visualizzare i dati dettagliati per Azure Networking Analytics.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,14 +1,13 @@
 ---
 layout: LandingPage
-description: Informazioni su come usare hub IoT per connettersi a miliardi di asset IoT (Internet of Things) per monitorarli e controllarli. Esercitazioni, informazioni di riferimento sulle API, video e altri documenti.
 translationtype: Human Translation
-ms.sourcegitcommit: 771a82342a40b62cbb4b31316f08e474a797ff34
-ms.openlocfilehash: 9dd5f81cacf774eff651597e1a4920466e5c6fa3
+ms.sourcegitcommit: 62cc285a4dc0b85f364a6306e3fc4b0727c439db
+ms.openlocfilehash: 4a165d2f3e4447d2490296a76934cba98b9dcd79
 
 ---
 #<a name="iot-hub-documentation"></a>Documentazione sull'hub IoT
 
-Informazioni su come usare hub IoT per connettersi a miliardi di asset IoT (Internet of Things) per monitorarli e controllarli. Esercitazioni, informazioni di riferimento sulle API, video e altri documenti in cui viene illustrato come distribuire comunicazioni affidabili e bidirezionali tra dispositivi IoT e un backend di soluzione. 
+L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e un back-end della soluzione.  Offre anche il monitoraggio completo della connettività dei dispositivi e include librerie di dispositivi per le piattaforme e i linguaggi più comuni. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -162,6 +161,6 @@ Scaricare la documentazione dell'hub IoT </div>
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

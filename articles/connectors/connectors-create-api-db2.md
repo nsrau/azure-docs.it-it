@@ -1,13 +1,13 @@
 ---
 title: Aggiungere il connettore DB2 alle app per la logica | Microsoft Docs
-description: Panoramica del connettore DB2 con i parametri dell'API REST
-services: ''
-documentationcenter: ''
+description: Panoramica del connettore DB2 con i parametri dell&quot;API REST
+services: 
+documentationcenter: 
 author: gplarsen
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 1c6b010c-beee-496d-943a-a99e168c99aa
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen
+translationtype: Human Translation
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: bba03cfb21e8eebdbf67152de9c6e2da6f22f5a2
+
 
 ---
 # <a name="get-started-with-the-db2-connector"></a>Introduzione al connettore DB2
@@ -36,7 +40,7 @@ Il connettore DB2 supporta le operazioni di database seguenti:
 
 Questo argomento illustra come usare il connettore in un'app per la logica per elaborare operazioni su database.
 
-Per altre informazioni sulle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per altre informazioni sulle app per la logica, vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="available-actions"></a>Azioni disponibili
 Il connettore DB2 supporta le azioni delle app per la logica seguenti:
@@ -170,7 +174,7 @@ Il connettore può accedere a un database DB2 cloud.
 3. Nel trigger **Ricorrenza**, fare clic su **Modifica**, poi sull'elenco a discesa **Frequenza** per selezionare **Giorno** e infine fare clic su **Intervallo** per digitare **7**. 
 4. Fare clic sulla casella **+ Nuovo passaggio** e su **Aggiungi un'azione**.
 5. Nell'elenco delle **azioni **digitare **db2** nella casella di modifica** Cercare altre azioni** e quindi fare clic su **DB2 - Inserisci riga - anteprima**.
-6. Nell'azione **Ottieni righe - anteprima** fare clic su **Cambia connessione**. 
+6. Nell'azione **DB2 - Ottieni righe (anteprima)** fare clic su **Cambia connessione**. 
 7. Nel riquadro di configurazione **Connessioni**selezionare una connessione, ad esempio, selezionare **hisdemo2**.
    
     ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
@@ -225,7 +229,7 @@ Il connettore può accedere a un database DB2 cloud.
 3. Nel trigger **Ricorrenza**, fare clic su **Modifica**, poi sull'elenco a discesa **Frequenza** per selezionare **Giorno** e infine fare clic su **Intervallo** per digitare **7**. 
 4. Fare clic sulla casella **+ Nuovo passaggio** e su **Aggiungi un'azione**.
 5. Nell'elenco delle **azioni** digitare **db2** nella casella di modifica **Cercare altre azioni** e quindi fare clic su **DB2 - Aggiorna riga - anteprima**.
-6. Nell'azione **Ottieni righe - anteprima** fare clic su **Cambia connessione**. 
+6. Nell'azione **DB2 - Aggiorna righe (anteprima)** fare clic su **Cambia connessione**. 
 7. Nel riquadro di configurazione **Connessioni** fare clic per selezionare una connessione esistente. ad esempio, selezionare **hisdemo2**.
    
     ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
@@ -252,7 +256,7 @@ Il connettore può accedere a un database DB2 cloud.
 3. Nel trigger **Ricorrenza**, fare clic su **Modifica**, poi sull'elenco a discesa **Frequenza** per selezionare **Giorno** e infine fare clic su **Intervallo** per digitare **7**. 
 4. Fare clic sulla casella **+ Nuovo passaggio** e su **Aggiungi un'azione**.
 5. Nell'elenco delle **azioni** selezionare **db2** nella casella di modifica **Cercare altre azioni** e quindi fare clic su **DB2 - Elimina riga - anteprima**.
-6. Nell'azione **Ottieni righe - anteprima** fare clic su **Cambia connessione**. 
+6. Nell'azione **DB2 - Elimina righe (anteprima)** fare clic su **Cambia connessione**. 
 7. Nel riquadro di configurazione **Connessioni** selezionare una connessione esistente. ad esempio, selezionare **hisdemo2**.
    
     ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
@@ -405,8 +409,11 @@ Il connettore supporta le piattaforme e le versioni di IBM DB2 seguenti, nonché
 * IBM DB2 per LUW 10.5
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).
+[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO3-->
 
 

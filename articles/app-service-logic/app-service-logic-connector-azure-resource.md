@@ -15,8 +15,8 @@ ms.workload: integration
 ms.date: 09/01/2016
 ms.author: stepsic
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff72e6b0465f25be94c6852f3cdd3417817b8056
+ms.sourcegitcommit: 7ff7874538f23c8dd8c4aaa789018c77dfe2ab9a
+ms.openlocfilehash: 7923735d9ed382ee8c554e7e0c6b1fb4a22208bb
 
 
 ---
@@ -93,10 +93,10 @@ In **Metriche** relative alle risorse è possibile:
 | Ottenere metriche |Ottenere una metrica in base a un ID risorsa. |
 
 ## <a name="do-more-with-your-connector"></a>Altri vantaggi del connettore
-Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
+Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](../logic-apps/logic-apps-what-are-logic-apps.md)
 
 > [!NOTE]
-> Per iniziare a usare le app per la logica di Azure prima di registrarsi per ottenere un account Azure, passare a [Prova l'app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare le app per la logica di Azure prima di registrarsi per ottenere un account Azure, passare a [Prova l'app per la logica](https://azure.microsoft.com/try/app-service/logic/), dove è possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 
@@ -105,10 +105,10 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 <!--References -->
 
 <!--Links -->
-[Creazione di un'app per la logica]: app-service-logic-create-a-logic-app.md
+[Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

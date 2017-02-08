@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/29/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e2e814559282de3e5409e3215d824e1309debe5a
+ms.sourcegitcommit: e1cf5ed3f2434a9e98027afd0225207ad5d2f1b1
+ms.openlocfilehash: ce70835a4f8f39d320b1effdb0dee11abd22cd81
 
 
 ---
@@ -34,7 +34,7 @@ Per compilare l'esempio:
 
 1. Aprire una shell.
 2. Accedere alla directory principale nella copia locale del repository **azure-iot-gateway-sdk** .
-3. Eseguire lo script **tools/build.sh --skip-unittests**. Questo script usa l'utilità **cmake** per creare una cartella denominata **build** nella directory principale della copia locale del repository **azure-iot-gateway-sdk** e generare un makefile. Lo script quindi compila la soluzione senza eseguire i test dell'unità. Rimuovere il parametro **--skip-unittests** se si desidare compilare ed eseguire i test dell'unità. 
+3. Eseguire lo script **tools/build.sh** . Questo script usa l'utilità **cmake** per creare una cartella denominata **build** nella directory principale della copia locale del repository **azure-iot-gateway-sdk** e generare un makefile. Lo script quindi compila la soluzione senza eseguire i test dell'unità e i test end-to-end. Rimuovere il parametro **--run-unittests** per compilare ed eseguire i test dell'unità. Rimuovere il parametro **--run-e2e-tests** per compilare ed eseguire i test end-to-end. 
 
 > [!NOTE]
 > Ogni volta che si esegue lo script **build.sh**, la cartella **build** viene eliminata e ricreata nella directory principale della copia locale del repository **azure-iot-gateway-sdk**.
@@ -185,6 +185,6 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

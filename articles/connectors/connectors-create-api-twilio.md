@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 09/19/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0999d96b4819d6bf03faa843750c5c4b19649774
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 6770aa8387fe3d381fd9c566ca0c38c88a4b1e55
 
 
 ---
@@ -34,7 +34,7 @@ Con Twilio è possibile:
 * Creare il flusso aziendale in base ai dati ottenuti da Twilio. 
 * Usare le azioni per recuperare un messaggio, elencare i messaggi e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, quando si recupera un nuovo messaggio di Twilio, è possibile usarlo come flusso di lavoro del bus di servizio. 
 
-Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Trigger e azioni
 Il connettore Twilio include le azioni seguenti. Non sono disponibili trigger. 
@@ -91,7 +91,7 @@ Restituisce un elenco di messaggi associati all'account.
 | --- | --- | --- | --- | --- | --- |
 | To |string |no |query |Nessuno |Al numero di telefono |
 | Da |string |no |query |Nessuno |Dal numero di telefono |
-| DateSent |string |no |query |Nessuno |Mostra solo i messaggi inviati in questa data (in formato GMT), specificata come AAAA-MM-GG. Ad esempio: DateSent = 2009-07-06. È inoltre possibile specificare la disuguaglianza, ad esempio DateSent<=AAAA-MM-GG per i messaggi che sono stati inviati a mezzanotte o prima in una data e DateSent>=AAAA-MM-GG per i messaggi inviati a mezzanotte o dopo in una data. |
+| DateSent |string |no |query |Nessuno |Mostra solo i messaggi inviati in questa data (in formato GMT), specificata come AAAA-MM-GG. Ad esempio: DateSent =&2009;-07-06. È inoltre possibile specificare la disuguaglianza, ad esempio DateSent<=AAAA-MM-GG per i messaggi che sono stati inviati a mezzanotte o prima in una data e DateSent>=AAAA-MM-GG per i messaggi inviati a mezzanotte o dopo in una data. |
 | PageSize |integer |no |query |50 |Numero di risorse da restituire in ogni pagina dell'elenco. Il valore predefinito è 50 |
 | Page |integer |no |query |0 |Numero di pagina. Il valore predefinito è 0. |
 
@@ -238,11 +238,11 @@ Invia un nuovo messaggio a un numero di telefono cellulare.
 | end_date |string |no |
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

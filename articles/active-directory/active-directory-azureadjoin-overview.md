@@ -1,13 +1,13 @@
 ---
-title: Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory | Microsoft Docs
-description: Panoramica dettagliata dell'uso di Aggiunta ad Azure AD da parte di dispositivi Windows 10 per la registrazione in Azure Active Directory.
+title: "Estensione delle funzionalità del cloud ai dispositivi Windows 10 con Aggiunta ad Azure Active Directory | Documentazione Microsoft"
+description: Panoramica dettagliata dell&quot;uso di Aggiunta ad Azure AD da parte di dispositivi Windows 10 per la registrazione in Azure Active Directory.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: 0cd4942f-7d54-474e-bd12-8e6764b0d42a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,10 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 31574a82d190b9b157f8df3308fac298924eada5
+
 
 ---
 # <a name="extending-cloud-capabilities-to-windows-10-devices-through-azure-active-directory-join"></a>Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory
-## <a name="what-is-azure-active-directory-join?"></a>Informazioni su Aggiunta ad Azure Active Directory
+## <a name="what-is-azure-active-directory-join"></a>Informazioni su Aggiunta ad Azure Active Directory
 Aggiunta ad Azure Active Directory (Aggiunta ad Azure AD) è la funzionalità che permette di registrare i dispositivi di proprietà di una società in Azure Active Directory per poterli gestire in modo centralizzato. Permette agli utenti come studenti o dipendenti di connettersi al cloud dell'organizzazione tramite Azure Active Directory. In questo modo è possibile ottenere distribuzioni di Windows semplificate e accesso alle app e risorse aziendali da qualsiasi dispositivo Windows, di proprietà della società o degli utenti (BYOD).
 
 Aggiunta ad Azure AD è destinato alle aziende basate prima di tutto o esclusivamente sul cloud, in genere piccole e medie imprese che non hanno un'infrastruttura Windows Server Active Directory locale. Aggiunta ad Azure AD potrà essere usato anche dalle aziende di grandi dimensioni che non hanno la possibilità di eseguire un'aggiunta a un dominio tradizionale, ad esempio per l'uso di dispositivi mobili, o dagli utenti che necessitano principalmente di accedere a Office 365 o ad altre app SaaS in Azure AD.
@@ -27,13 +31,13 @@ Nonostante l'aggiunta al dominio tradizionale offra ancora un'esperienza miglior
 
 ![Panoramica dei dispositivi aziendali e dei dispositivi personali con Azure AD e Active Directory in locale](./media/active-directory-azureadjoin/active-directory-azureadjoin-overview.png)
 
-## <a name="why-should-enterprises-adopt-azure-ad-join?"></a>Vantaggi dell'adozione di Aggiunta ad Azure AD
+## <a name="why-should-enterprises-adopt-azure-ad-join"></a>Vantaggi dell'adozione di Aggiunta ad Azure AD
 * **Aziende che operano prevalentemente nel cloud**: se è stato eseguito o pianificato il passaggio a un modello che prevede la riduzione della superficie in locale per una maggiore operatività nel cloud, Aggiunta ad Azure AD può risultare molto utile. Gli account Azure AD creati manualmente o con la sincronizzazione di Active Directory in locale possono essere usati per accedere a Windows 10. Gli utenti possono aggiungere i propri computer ad Azure AD usando la Configurazione guidata o il menu Impostazioni. Dopo l'aggiunta gli utenti potranno usufruire dell'accesso Single Sign-On (SSO) a risorse cloud come Office 365, nel browser o nelle applicazioni Office.
 * **Istituti di istruzione**: gli istituti di istruzione hanno due tipi di utenti, i docenti e gli studenti. I docenti sono considerati membri dell'organizzazione più a lungo termine, per i quali è consigliabile creare account locali. Gli studenti sono invece membri dell'organizzazione a breve termine e possono quindi essere gestiti in Azure AD. Ciò significa che è possibile eseguire il push di tutta la directory nel cloud anziché archiviarle in locale. Significa anche che gli studenti possono accedere a Windows con i propri account Azure AD e usufruire delle risorse di Office 365, nel browser o nelle applicazioni Office.
 * **Attività commerciali**: alcuni clienti hanno bisogno di soluzioni che permettano di gestire più facilmente i lavoratori stagionali.  Anche in questo caso, è possibile creare account locali per i dipendenti a tempo pieno con contratti a lungo termine in computer aggiunti a un dominio. I lavoratori stagionali sono invece membri dell'organizzazione più a breve termine ed è quindi preferibile gestirli dove è possibile spostare le licenze utente con maggiore facilità. La creazione degli account utente nel cloud con licenze di Office 365 permette agli utenti di sfruttare i vantaggi dell'accesso a Windows e alle applicazioni Office con un account Azure AD e offre ai datori di lavoro una maggiore flessibilità con le relative licenze al termine della collaborazione.
 * **Altre aziende**: l'aggiunta degli utenti ad Azure AD può rappresentare un vantaggio anche se si gestiscono gli utenti nell'istanza di Active Directory locale. Azure AD, infatti, semplifica notevolmente l'esperienza di aggiunta, la gestione efficiente dei dispositivi e la registrazione per la gestione di dispositivi mobili automatica, oltre a offrire funzionalità Single Sign-On per le risorse locali e di Azure AD.  
 
-## <a name="what-capabilities-does-azure-ad-join-offer?"></a>Funzionalità offerte da Aggiunta di Azure AD
+## <a name="what-capabilities-does-azure-ad-join-offer"></a>Funzionalità offerte da Aggiunta di Azure AD
 Aggiunta di Azure AD offre le funzionalità seguenti:
 
 * **Provisioning self-service dei dispositivi di proprietà della società**: con Windows 10, gli utenti possono configurare un dispositivo completamente nuovo con wrapping di riduzione nella Configurazione guidata, senza rivolgersi al reparto IT.
@@ -44,7 +48,7 @@ Aggiunta di Azure AD offre le funzionalità seguenti:
 * **Roaming dello stato del sistema operativo**: impostazioni di accessibilità, siti Web, password Wi-Fi e altre impostazioni vengono sincronizzati in tutti i dispositivi di proprietà della società senza la necessità di un account Microsoft personale.
 * **Windows Store per le aziende**: Windows Store supporta l'acquisizione e la gestione delle licenze delle app con account Azure AD. Le organizzazioni possono acquisire contratti multilicenza per le app e metterle a disposizione degli utenti dell'organizzazione.
 
-## <a name="how-do-different-devices-work-with-azure-ad-join?"></a>Differenze di funzionamento dei dispositivi con Aggiunta ad Azure AD
+## <a name="how-do-different-devices-work-with-azure-ad-join"></a>Differenze di funzionamento dei dispositivi con Aggiunta ad Azure AD
 | Dispositivo aziendale (aggiunto a un dominio locale) | Dispositivo aziendale (aggiunto al cloud) | Dispositivo personale |
 | --- | --- | --- |
 | Gli utenti possono accedere a Windows con le credenziali dell'account aziendale, come già accade attualmente. |Gli utenti possono accedere a Windows con le credenziali dell'account aziendale gestite in Azure AD. Questo riguarda i dispositivi aziendali in tre scenari: 1) L'organizzazione non ha Active Directory in locale, ad esempio nel caso di un'azienda di piccole dimensioni. 2) L'organizzazione non crea tutti gli account utente in Active Directory, ad esempio nel caso di account per studenti, consulenti o lavoratori stagionali che non vengono creati in Active Directory. 3) L'organizzazione usa dispositivi aziendali che non possono essere aggiunti a un dominio locale, come telefoni o tablet che eseguono uno SKU per dispositivi mobili, ad esempio nel caso di un dispositivo secondario in un piano o di un negozio o di una fabbrica. Aggiunta ad Azure AD supporta l'aggiunta di dispositivi aziendali per le organizzazioni federate e quelle gestite. |Gli utenti accedono a Windows con le credenziali dell'account Microsoft, come già accade attualmente. |
@@ -60,6 +64,9 @@ Aggiunta di Azure AD offre le funzionalità seguenti:
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

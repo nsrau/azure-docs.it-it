@@ -1,13 +1,13 @@
 ---
 title: Flask e archiviazione tabelle di Azure con Python Tools 2.2 per Visual Studio
-description: Informazioni su come usare Python Tools per Visual Studio per creare un'app Web Flask che archivia i dati nel servizio di archiviazione tabelle di Azure e per distribuirla in App Web del servizio app di Azure.
+description: Informazioni su come usare Python Tools per Visual Studio per creare un&quot;app Web Flask che archivia i dati nel servizio di archiviazione tabelle di Azure e per distribuirla in App Web del servizio app di Azure.
 services: app-service\web
 tags: python
 documentationcenter: python
 author: huguesv
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: d8e70a29-aca1-4010-95f5-cfe769e3be06
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: python
 ms.topic: article
 ms.date: 07/07/2016
 ms.author: huvalo
+translationtype: Human Translation
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 96b27bdd528b0f57b9e0a9959ead23b8f820a82d
+
 
 ---
-# Flask e archiviazione tabelle di Azure con Python Tools 2.2 per Visual Studio
+# <a name="flask-and-azure-table-storage-on-azure-with-python-tools-22-for-visual-studio"></a>Flask e archiviazione tabelle di Azure con Python Tools 2.2 per Visual Studio
 In questa esercitazione si userà [Python Tools per Visual Studio] al fine di creare una semplice app Web per sondaggi con uno dei modelli di esempio PTVS. Questa esercitazione è anche disponibile in formato [video](https://www.youtube.com/watch?v=qUtZWtPwbTk).
 
 L'app Web per sondaggi definisce un'astrazione per il proprio repository; in questo modo, è possibile passare facilmente tra diversi tipi di repository (in memoria, archiviazione tabelle di Azure, MongoDB).
@@ -26,7 +30,7 @@ Si apprenderà come creare un account di archiviazione di Azure, come configurar
 
 Vedere il [Centro per sviluppatori Python] per consultare altri articoli che trattano lo sviluppo di app Web del servizio app di Azure con PTVS usando i framework Web di Bottle, Flask e Django con i servizi di MongoDB, archiviazione tabelle di Azure, MySQL e Database SQL. Sebbene questo articolo sia incentrato sul servizio app, i passaggi sono simili a quelli previsti per lo sviluppo dei [servizi cloud di Azure].
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Visual Studio 2015
 * [Python Tools 2.2 per Visual Studio]
 * [VSIX degli esempi di Python Tools 2.2 per Visual Studio]
@@ -36,11 +40,11 @@ Vedere il [Centro per sviluppatori Python] per consultare altri articoli che tra
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 
-## Creare il progetto
+## <a name="create-the-project"></a>Creare il progetto
 In questa sezione verrà creato un progetto di Visual Studio usando un modello di esempio. Verrà creato un ambiente virtuale e verranno installati i pacchetti necessari. L'applicazione verrà quindi eseguita in locale tramite il repository in memoria predefinito.
 
 1. In Visual Studio selezionare **File**, **Nuovo progetto**.
@@ -58,11 +62,11 @@ In questa sezione verrà creato un progetto di Visual Studio usando un modello d
    
      ![Web browser](./media/web-sites-python-ptvs-flask-table-storage/PollsFlaskInMemoryBrowser.png)
 
-## Creare un account di Archiviazione di Azure
+## <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure
 Per effettuare operazioni di archiviazione, è necessario un account di archiviazione di Azure. Per creare un account di archiviazione, attenersi alla procedura riportata di seguito
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** > **Account di archiviazione**. Fare clic su **Crea** quindi assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../resource-group-overview.md) ad esso correlato.
+2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** > ** Account di archiviazione**. Fare clic su **Crea**quindi assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../azure-resource-manager/resource-group-overview.md) correlato.
    
       ![Quick Create](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzureStorageCreate.png)
    
@@ -73,33 +77,33 @@ Per effettuare operazioni di archiviazione, è necessario un account di archivia
    
     Queste informazioni sono necessarie per configurare il progetto nella sezione successiva.
 
-## Configurare il progetto
+## <a name="configure-the-project"></a>Configurare il progetto
 In questa sezione verrà configurata l'applicazione per usare l'account di archiviazione appena creato. Verranno fornite informazioni su come ottenere le impostazioni di connessione dal portale di Azure. quindi verrà eseguita l'applicazione in locale.
 
-1. In Visual Studio fare clic con il pulsante destro del mouse sul nodo del progetto in Esplora soluzioni e scegliere **Proprietà**. Fare clic sulla scheda **Debug**.
+1. In Visual Studio fare clic con il pulsante destro del mouse sul nodo del progetto in Esplora soluzioni e scegliere **Proprietà**. Fare clic sulla scheda **Debug** .
    
      ![Impostazioni di debug del progetto](./media/web-sites-python-ptvs-flask-table-storage/PollsFlaskAzureTableStorageProjectDebugSettings.png)
-2. Impostare i valori delle variabili di ambiente richieste dall'applicazione in **Comando debug server**, **Ambiente**.
+2. Impostare i valori delle variabili di ambiente richieste dall'applicazione in **Debug Server Command**, **Environment**.
    
        REPOSITORY_NAME=azuretablestorage
        STORAGE_NAME=<storage account name>
        STORAGE_KEY=<primary access key>
    
-   In questo modo verranno impostate le variabili di ambiente quando si sceglie **Avvia debug**. Se si vuole che le variabili vengano impostate quando si sceglie l'opzione **Avvia senza eseguire debug**, impostare gli stessi valori anche in **Esegui comando server**.
+   In questo modo verranno impostate le variabili di ambiente quando si sceglie **Avvia debug**. Se si vuole che le variabili vengano impostate quando si **avvia senza eseguire il debug**, impostare gli stessi valori anche in **Run Server Command**.
    
    In alternativa, è possibile definire variabili di ambiente usando il Pannello di controllo di Windows. Si tratta di un'opzione migliore se si vuole evitare di archiviare le credenziali nel codice sorgente/nel file del progetto. Si noti che è necessario riavviare Visual Studio affinché i nuovi valori di ambiente siano disponibili per l'applicazione.
-3. Il codice che implementa il repository di archiviazione tabelle di Azure si trova in **models/azuretablestorage.py**. Per altre informazioni su come usare il servizio tabelle da Python, vedere la [documentazione].
+3. Il codice che implementa il repository di archiviazione tabelle di Azure si trova in **models/azuretablestorage.py**. Per altre informazioni su come usare il servizio tabelle da Python, vedere la [documentazione] .
 4. Eseguire l'applicazione con `F5`. I sondaggi creati con **Create Sample Polls** e i dati inviati mediante voto verranno serializzati nell'archiviazione tabelle di Azure.
    
    > [!NOTE]
-   > L'ambiente virtuale Python 2.7 può causare un'interruzione di eccezioni in Visual Studio. Premere `F5` per continuare il caricamento del progetto web.
+   > L'ambiente virtuale Python 2.7 può causare un'interruzione di eccezioni in Visual Studio.  Premere `F5` per continuare il caricamento del progetto web.
    > 
    > 
 5. Passare alla pagina **About** per verificare che l'applicazione usi il repository di **archiviazione tabelle di Azure**.
    
      ![Web browser](./media/web-sites-python-ptvs-flask-table-storage/PollsFlaskAzureTableStorageAbout.png)
 
-## Esplorare l'archiviazione tabelle di Azure
+## <a name="explore-the-azure-table-storage"></a>Esplorare l'archiviazione tabelle di Azure
 È facile visualizzare e modificare le tabelle di archiviazione tramite Cloud Explorer in Visual Studio. In questa sezione si userà Esplora server per visualizzare il contenuto delle tabelle dell'applicazione di sondaggio.
 
 > [!NOTE]
@@ -110,14 +114,14 @@ In questa sezione verrà configurata l'applicazione per usare l'account di archi
 1. Aprire **Cloud Explorer**. Espandere **Account di archiviazione**, l'account di archiviazione di riferimento e quindi **Tabelle**.
    
      ![Cloud Explorer](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonServerExplorer.png)
-2. Fare doppio clic sulla tabella **polls** o **choices** per visualizzare i contenuti della tabella in una finestra di documento e per aggiungere, rimuovere o modificare entità.
+2. Fare doppio clic su **sondaggi** o **opzioni** per visualizzarne i contenuti in una finestra di documento, nonché aggiungere/rimuovere/modificare entità.
    
      ![Risultati della query relativa alla tabella](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonServerExplorerTable.png)
 
-## Pubblicare l'app Web nel servizio app di Azure
+## <a name="publish-the-web-app-to-azure-app-service"></a>Pubblicare l'app Web nel servizio app di Azure
 L'SDK .NET di Azure offre un modo semplice di distribuire l'app Web nel servizio app di Azure.
 
-1. In **Esplora soluzioni**, fare clic con il pulsante destro del mouse sul nodo del progetto e scegliere **Pubblica**.
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul nodo di progetto e scegliere **Pubblica**.
    
      ![Finestra di dialogo Pubblica sito Web](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonPublishWebSiteDialog.png)
 2. Fare clic su **App Web di Microsoft Azure**.
@@ -128,13 +132,13 @@ L'SDK .NET di Azure offre un modo semplice di distribuire l'app Web nel servizio
    * **Piano di servizio app**
    * **Gruppo di risorse**
    * **Area**
-   * Lasciare **Server database** impostato su **Nessun database**
+   * Lasciare **Server database** impostato su **Nessun database**.
 5. Accettare tutte le altre impostazioni predefinite e fare clic su **Pubblica**.
-6. L'app Web pubblicata verrà aperto automaticamente nel Web browser. Se si passa alla pagina relativa alle informazioni, si noterà che viene usato il repository **in memoria** anziché il repository di **archiviazione tabelle di Azure**.
+6. L'app Web pubblicata verrà aperto automaticamente nel Web browser. Se si passa alla pagina relativa alle informazioni, si noterà che viene usato il repository **in memoria**, non il repository di **archiviazione tabelle di Azure**.
    
    Ciò avviene perché le variabili di ambiente non sono impostate per l'istanza app Web in Azure App Service; pertanto vengono usati i valori predefiniti specificati in **settings.py**.
 
-## Configurare l'istanza di app Web
+## <a name="configure-the-web-apps-instance"></a>Configurare l'istanza di app Web
 In questa sezione verranno configurate le variabili dell'istanza di App Web.
 
 1. Nel [portale di Azure](https://portal.azure.com) aprire il pannello dell'app Web facendo clic su **Sfoglia** > **Servizi app** > nome dell'app Web.
@@ -143,13 +147,13 @@ In questa sezione verranno configurate le variabili dell'istanza di App Web.
    
      ![Impostazioni app](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png)
 4. Fare clic su **Save**. Dopo aver ricevuto le notifiche relative all'applicazione delle modifiche, fare clic su **Sfoglia** dal pannello principale dell'app Web.
-5. L'app Web dovrebbe funzionare come previsto, usando il repository di **archiviazione tabelle di Azure**.
+5. L'app Web dovrebbe funzionare come previsto, usando il repository di **archiviazione tabelle di Azure** .
    
    Congratulazioni.
    
      ![Web browser](./media/web-sites-python-ptvs-flask-table-storage/PollsFlaskAzureBrowser.png)
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual Studio, Flask e archiviazione tabelle di Azure.
 
 * [Documentazione di Python Tools per Visual Studio]
@@ -161,14 +165,14 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 * [Azure SDK per Python]
 * [Come usare il servizio di archiviazione tabelle di Python]
 
-## Modifiche apportate
+## <a name="whats-changed"></a>Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!--Link references-->
 [Centro per sviluppatori Python]: /develop/python/
-[servizi cloud di Azure]: ../cloud-services-python-ptvs.md
-[documentazione]: ../storage-python-how-to-use-table-storage.md
-[Come usare il servizio di archiviazione tabelle di Python]: ../storage-python-how-to-use-table-storage.md
+[servizi cloud di Azure]: ../cloud-services/cloud-services-python-ptvs.md
+[documentazione]: ../storage/storage-python-how-to-use-table-storage.md
+[Come usare il servizio di archiviazione tabelle di Python]: ../storage/storage-python-how-to-use-table-storage.md
 
 <!--External Link references-->
 [Azure Portal]: https://portal.azure.com
@@ -188,4 +192,7 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Azure SDK per Python]: https://github.com/Azure/azure-sdk-for-python
 
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Jan17_HO3-->
+
+

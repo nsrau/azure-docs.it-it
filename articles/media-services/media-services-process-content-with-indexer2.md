@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 12/07/2016
 ms.author: adsolank;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 17571acfab870974186af9849d030e9702f3be76
+ms.sourcegitcommit: 7065d5e87dbf47153bc89b37b56af81927b8b92b
+ms.openlocfilehash: 902e872b224b267c989f741345efdd8ef3fa8ce3
 
 
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indicizzazione dei file multimediali con Azure Media Indexer 2 Preview
 ## <a name="overview"></a>Overview
-Il processore di contenuti multimediali **Azure Media Indexer 2 Preview** consente di rendere disponibili per la ricerca file e contenuti multimediali, oltre a generare tracce e parole chiave per i sottotitoli codificati. Rispetto alla versione precedente di [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Preview** offre prestazioni di indicizzazione superiori e un supporto più ampio per le lingue. Le lingue supportate includono l'inglese, lo spagnolo, il francese, il tedesco, l'italiano, il cinese, il portoghese e l'arabo.
+Il processore di contenuti multimediali **Azure Media Indexer 2 Preview** consente di rendere disponibili per la ricerca file e contenuti multimediali, oltre a generare tracce e parole chiave per i sottotitoli codificati. Rispetto alla versione precedente di [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Preview** offre prestazioni di indicizzazione superiori e un supporto più ampio per le lingue. Le lingue supportate includono l'italiano, l'inglese, il francese, il tedesco, lo spagnolo, il portoghese, il giapponese, il cinese, mandarino semplificato, e l'arabo.
 
 Il processore di contenuti multimediali **Azure Media Indexer 2 Preview** è attualmente disponibile in anteprima.
 
@@ -32,8 +32,6 @@ Questo argomento illustra come creare processi di indicizzazione con **Azure Med
 > Si applicano le considerazioni seguenti:
 > 
 > Indexer 2 non è supportato in Azure Cina e in Azure per enti pubblici.
-> 
-> L'anteprima è limitata a ~10 minuti di elaborazione ma è gratuita per tutti i clienti.
 > 
 > Durante l'indicizzazione dei contenuti, assicurarsi di usare file multimediali con contenuto vocale molto chiaro (senza musica, rumore, effetti o fruscio del microfono). Alcuni esempi di contenuto appropriato includono riunioni registrate, lezioni o presentazioni. Il seguente contenuto potrebbe non essere adatto per l'indicizzazione: film, programmi televisivi, contenuto con una combinazione di audio ed effetti sonori e contenuto registrato di scarsa qualità che presenta rumori di fondo (fruscio).
 > 
@@ -78,14 +76,16 @@ Azure Media Indexer 2 Preview supporta il riconoscimento vocale per le lingue se
 
 * Inglese [EnUs]
 * Spagnolo [EsEs]
-* Cinese [ZhCn]
+* Cinese (mandarino, semplificato) [ZhCn]
 * Francese [FrFr]
 * Tedesco [DeDe]
 * Italiano [ItIt]
 * Portoghese [PtBr]
 * Arabo (egiziano) [ArEg]
+* Giapponese [JaJp]
 
 ## <a name="sample-code"></a>Codice di esempio
+
 Il programma seguente illustra come:
 
 1. Creare un asset e caricare un file multimediale nell'asset.
@@ -282,6 +282,6 @@ Il programma seguente illustra come:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

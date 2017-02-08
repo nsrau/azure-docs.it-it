@@ -10,22 +10,25 @@ tags: azure-resource-manager
 ms.assetid: 0a036d51-77ae-4fee-9ddb-35f040fbdcdf
 ms.service: expressroute
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/05/2016
+ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 5da660fc36ac0ebef26ed815da6dbba6668643d3
-ms.openlocfilehash: 57e8ee6f067a61c1262a8902dd56393e4803c3c6
+ms.sourcegitcommit: ec5e547b88bedd50f451997616c7d72b0b1b4bd4
+ms.openlocfilehash: 2a1215b5065fc690e539000aa1e89049617f8902
 
 
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Creare e modificare il routing per un circuito ExpressRoute
 > [!div class="op_single_selector"]
-> * [Portale di Azure - Gestione risorse](expressroute-howto-routing-portal-resource-manager.md)
-> * [PowerShell - Gestione risorse](expressroute-howto-routing-arm.md)
-> * [PowerShell - Classico](expressroute-howto-routing-classic.md)
+> * [Resource Manager - Portale di Azure](expressroute-howto-routing-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-routing-arm.md)
+> * [Classico - PowerShell](expressroute-howto-routing-classic.md)
+> * [Video - Peering privato](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Video - Peering pubblico](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [Video - Peering Microsoft](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > 
 > 
 
@@ -389,6 +392,6 @@ Successivamente, [collegare una rete virtuale a un circuito ExpressRoute](expres
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

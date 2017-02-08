@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/31/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: fb25351de7f4b64ab36d5a1f2629677f0acece47
-ms.openlocfilehash: 3d1d6ea9ea933c5aaf27b58b9f49a5b845f610ce
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: c1fd18ad8889033cba8a92f6ae255ba6478e6595
 
 
 ---
@@ -169,7 +169,7 @@ Configurare un gateway di routing dinamico per ogni rete virtuale. Questa config
 2. Nel **specificare lo spazio degli indirizzi** pagina fare clic sul segno di spunta in basso a destra senza apportare alcuna modifica.
 
 ## <a name="step-7---create-the-vpn-connection"></a>Passaggio 7: Creare la connessione VPN
-Quando tutti i passaggi precedenti sono stati completati, impostare le chiavi già condivise IPsec/IKE e creare la connessione. Questa serie di passaggi usa PowerShell e non può essere configurata nel portale. Per altre informazioni sull'installazione dei cmdlet di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) . Assicurarsi di scaricare l'ultima versione dei cmdlet di gestione del servizio. 
+Quando tutti i passaggi precedenti sono stati completati, impostare le chiavi già condivise IPsec/IKE e creare la connessione. Questa serie di passaggi usa PowerShell e non può essere configurata nel portale. Per altre informazioni sull'installazione dei cmdlet di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) . Assicurarsi di scaricare l'ultima versione dei cmdlet di gestione del servizio. 
 
 1. Aprire Windows PowerShell ed effettuare l'accesso.
    
@@ -200,6 +200,6 @@ Quando tutti i passaggi precedenti sono stati completati, impostare le chiavi gi
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

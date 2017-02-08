@@ -3,7 +3,7 @@ title: Come eseguire una verifica dell&quot;accesso | Documentazione Microsoft
 description: Informazioni su come eseguire una verifica con l&quot;applicazione Azure Privileged Identity Management.
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 49ee2feb-7d2e-4acf-82c1-40ff23062862
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2016
-ms.author: kgremban
+ms.date: 02/03/2017
+ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 5b5dabe301fae4000112aa467a22cc5c37b9b592
@@ -55,6 +55,6 @@ Seguire questa procedura per trovare e completare la verifica dell'accesso:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 286dfa2ca12ec937b57472444612cff64b3608d3
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 97cadfc4e94e425abf2b6b2268fe3478e92ef47f
 
 
 ---
@@ -59,7 +59,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 4. Trasformare i dati in un formato tabulare pulito.
 5. Salvare i dati trasformati in BLOB di Azure.
 6. Accedere a [Azure Machine Learning Studio](https://studio.azureml.net/).
-7. Leggere i dati dal BLOB di Azure usando il modulo [Import Data][import-data].
+7. Leggere i dati dai BLOB di Azure usando il modulo [Import Data][import-data] (Importa dati).
 8. Compilare un flusso di esperimento di Azure Machine Learning iniziando con il set di dati inserito.
 
 ## <a name="a-namelargelocalascenario-3-large-dataset-of-local-files-targeting-azure-blobs"></a><a name="largelocal"></a>Scenario \#3: Set di dati di grandi dimensioni in file locali, con destinazione BLOB di Azure
@@ -74,13 +74,13 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 6. Estrarre un campione di dati medio-piccolo.
 7. Salvare i dati campionati in BLOB di Azure.
 8. Accedere a [Azure Machine Learning Studio](https://studio.azureml.net/).
-9. Leggere i dati dal BLOB di Azure usando il modulo [Import Data][import-data].
+9. Leggere i dati dai BLOB di Azure usando il modulo [Import Data][import-data] (Importa dati).
 10. Compilare un flusso di esperimento di Azure Machine Learning iniziando con il set di dati inserito.
 
 ## <a name="a-namesmalllocaltodbascenario-4-small-to-medium-dataset-of-local-files-targeting-sql-server-in-an-azure-virtual-machine"></a><a name="smalllocaltodb"></a>Scenario \#4: Set di dati di medie o piccole dimensioni in un file locale, con destinazione SQL Server in una macchina virtuale di Azure
 ![File locali medio-piccoli al database SQL in Azure][4]
 
-#### <a name="additional-azure-resources-azure-virtual-machine-sql-server-ipython-notebook-server"></a>Risorse di Azure aggiuntive: macchina virtuale di Azure (SQL Server/server IPython Notebook)
+#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Risorse di Azure aggiuntive: macchina virtuale di Azure (SQL Server/server IPython Notebook)
 1. Creare una macchina virtuale di Azure Virtual Machine che esegue SQL Server e IPython Notebook.
 2. Caricare i dati in un contenitore di archiviazione di Azure.
 3. Pre-elaborare e pulire i dati nel contenitore di archiviazione di Azure usando IPython Notebook.
@@ -104,13 +104,13 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 7. Esaminare i dati e creare le funzionalità necessarie. Si noti che le funzionalità non devono essere materializzare nelle tabelle del database. Notare solo la query necessaria per crearle.
 8. Scegliere le dimensioni del campione di dati, se necessario e/o lo si desidera.
 9. Accedere a [Azure Machine Learning Studio](https://studio.azureml.net/).
-10. Leggere i dati direttamente da SQL Server usando il modulo [Import Data][import-data]. Se necessario, incollare la query che consente di estrarre i campi, creare le funzionalità ed eseguire il campionamento dei dati direttamente nella query [Import Data][import-data].
+10. Leggere i dati direttamente da SQL Server usando il modulo [Import Data][import-data] (Importa dati). Incollare la query richiesta che estrae i campi, crea le funzionalità ed esegue il campionamento dei dati, se necessario, direttamente nella query di [Import Data][import-data] (Importa dati).
 11. Compilare un flusso di esperimento di Azure Machine Learning iniziando con il set di dati inserito.
 
 ## <a name="a-namelargelocaltodbascenario-5-large-dataset-in-a-local-files-target-sql-server-in-azure-vm"></a><a name="largelocaltodb"></a>Scenario \#5: Set di dati di grandi dimensioni in file locali, con destinazione SQL Server in una macchina virtuale di Azure
 ![File locali di grandi dimensioni al database SQL in Azure][5]
 
-#### <a name="additional-azure-resources-azure-virtual-machine-sql-server-ipython-notebook-server"></a>Risorse di Azure aggiuntive: macchina virtuale di Azure (SQL Server/server IPython Notebook)
+#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Risorse di Azure aggiuntive: macchina virtuale di Azure (SQL Server/server IPython Notebook)
 1. Creare una macchina virtuale di Azure che esegue SQL Server e il server IPython Notebook.
 2. Caricare i dati in un contenitore di archiviazione di Azure.
 3. (Facoltativo) Pre-elaborare e pulire i dati.
@@ -145,13 +145,13 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 5. Esaminare i dati e creare le funzionalità necessarie. Si noti che le funzionalità non devono essere materializzare nelle tabelle del database. Notare solo la query necessaria per crearle.
 6. Scegliere le dimensioni del campione di dati, se necessario e/o lo si desidera.
 7. Accedere a [Azure Machine Learning Studio](https://studio.azureml.net/).
-8. Leggere i dati direttamente da SQL Server usando il modulo [Import Data][import-data]. Se necessario, incollare la query che consente di estrarre i campi, creare le funzionalità ed eseguire il campionamento dei dati direttamente nella query [Import Data][import-data].
+8. Leggere i dati direttamente da SQL Server usando il modulo [Import Data][import-data] (Importa dati). Incollare la query richiesta che estrae i campi, crea le funzionalità ed esegue il campionamento dei dati, se necessario, direttamente nella query di [Import Data][import-data] (Importa dati).
 9. Semplificare il flusso di esperimento di Azure Machine Learning iniziando con il set di dati caricato
 
 ## <a name="a-namelargedbtodbascenario-6-large-dataset-in-a-sql-server-database-on-prem-targeting-sql-server-in-an-azure-virtual-machine"></a><a name="largedbtodb"></a>Scenario \#6: Set di dati di grandi dimensioni in un database SQL Server locale, con destinazione SQL Server nella macchina virtuale di Azure
 ![Database SQL locale di grandi dimensioni  al database SQL locale in Azure][6]
 
-#### <a name="additional-azure-resources-azure-virtual-machine-sql-server-ipython-notebook-server"></a>Risorse di Azure aggiuntive: macchina virtuale di Azure (SQL Server/server IPython Notebook)
+#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Risorse di Azure aggiuntive: macchina virtuale di Azure (SQL Server/server IPython Notebook)
 1. Creare una macchina virtuale di Azure che esegue SQL Server e il server IPython Notebook.
 2. Usare uno dei metodi di esportazione dei dati per esportare i dati da SQL Server in file di dump.
    
@@ -181,13 +181,13 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 5. Esaminare i dati e creare le funzionalità necessarie. Si noti che le funzionalità non devono essere materializzare nelle tabelle del database. Notare solo la query necessaria per crearle.
 6. Scegliere le dimensioni del campione di dati, se necessario e/o lo si desidera.
 7. Accedere a [Azure Machine Learning Studio](https://studio.azureml.net/).
-8. Leggere i dati direttamente da SQL Server usando il modulo [Import Data][import-data]. Se necessario, incollare la query che consente di estrarre i campi, creare le funzionalità ed eseguire il campionamento dei dati direttamente nella query [Import Data][import-data].
+8. Leggere i dati direttamente da SQL Server usando il modulo [Import Data][import-data] (Importa dati). Incollare la query richiesta che estrae i campi, crea le funzionalità ed esegue il campionamento dei dati, se necessario, direttamente nella query di [Import Data][import-data] (Importa dati).
 9. Semplificare il flusso di esperimento di Azure Machine Learning iniziando con il set di dati caricato.
 
-### <a name="alternate-method-to-copy-a-full-database-from-an-on-premises-sql-server-to-azure-sql-database"></a>Metodo alternativo per copiare un intero database da un server SQL locale al database SQL di Azure
+### <a name="alternate-method-to-copy-a-full-database-from-an-on-premises--sql-server-to-azure-sql-database"></a>Metodo alternativo per copiare un intero database da un server SQL locale al database SQL di Azure
 ![Scollegare il database locale e collegarlo al database SQL in Azure][7]
 
-#### <a name="additional-azure-resources-azure-virtual-machine-sql-server-ipython-notebook-server"></a>Risorse di Azure aggiuntive: macchina virtuale di Azure (SQL Server/server IPython Notebook)
+#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Risorse di Azure aggiuntive: macchina virtuale di Azure (SQL Server/server IPython Notebook)
 Per replicare l'intero database SQL Server nella macchina virtuale di SQL Server, è necessario copiare un database da un percorso/server a un altro, supponendo che il database possa essere portato temporaneamente offline. Eseguire questa operazione in SQL Server Management Studio, oppure utilizzando i comandi Transact-SQL equivalenti.
 
 1. Scollegare il database nel percorso di origine. Per altre informazioni, vedere [Scollegamento di un database](https://technet.microsoft.com/library/ms191491\(v=sql.110\).aspx).
@@ -237,7 +237,7 @@ Per replicare l'intero database SQL Server nella macchina virtuale di SQL Server
    d.  Eseguire le query Hive nella riga di comando di Hadoop nel nodo head del cluster Hadoop per esplorare i dati e creare le funzionalità necessarie.
 7. Se necessario e/o lo si desidera, campionare i dati in modo da adattarli a Azure Machine Learning Studio.
 8. Accedere a [Azure Machine Learning Studio](https://studio.azureml.net/).
-9. Leggere i dati direttamente da `Hive Queries` usando il modulo [Import Data][import-data]. Se necessario, incollare la query che consente di estrarre i campi, creare le funzionalità ed eseguire il campionamento dei dati direttamente nella query [Import Data][import-data].
+9. Leggere i dati direttamente da `Hive Queries` usando il modulo [Import Data][import-data] (Importa dati). Incollare la query richiesta che estrae i campi, crea le funzionalità ed esegue il campionamento dei dati, se necessario, direttamente nella query di [Import Data][import-data] (Importa dati).
 10. Semplificare il flusso di esperimento di Azure Machine Learning iniziando con il set di dati caricato.
 
 ## <a name="a-namedecisiontreeadecision-tree-for-scenario-selection"></a><a name="decisiontree"></a>Albero delle decisioni per la scelta degli scenari
@@ -268,6 +268,6 @@ Per procedure dettagliate end-to-end di Azure Machine Learning che usano ADAPT t
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

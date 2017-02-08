@@ -20,7 +20,7 @@ ms.openlocfilehash: b7e47a469127d2a06aa1be07f46ef04a2c23d351
 
 
 ---
-# <a name="expressroute-prerequisites-checklist"></a>Prerequisiti di ExpressRoute ed elenco di controllo
+# <a name="expressroute-prerequisites--checklist"></a>Prerequisiti di ExpressRoute ed elenco di controllo
 Per connettersi ai servizi cloud Microsoft usando ExpressRoute, sarà necessario verificare che siano stati soddisfatti i requisiti elencati nelle sezioni seguenti.
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]

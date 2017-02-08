@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d60ca38364d7ea7991af18e39407f42a8c9abb84
+ms.sourcegitcommit: 30abc823a72431dfd12f1051434191ea904533f6
+ms.openlocfilehash: 4970db1f7b780ed0048f4c1839fff33bed640278
 
 
 ---
@@ -114,7 +114,7 @@ Il modello di app per le API precedente contiene API per l'individuazione di alt
 4. In fase di distribuzione, popolare le impostazioni app di tutte le app per le API (e dei client) con gli endpoint delle altre app per le API. Questo è possibile nelle distribuzioni di modelli, anche grazie al controllo dell'URL ora offerto dalle app per le API.
 
 ## <a name="using-api-apps-with-logic-apps"></a>Uso delle app per le API con app per la logica
-Il nuovo modello di app per le API interagisce in modo ottimale con lo [schema delle app per la logica versione 2015-08-01](../app-service-logic/app-service-logic-schema-2015-08-01.md).
+Il nuovo modello di app per le API interagisce in modo ottimale con lo [schema delle app per la logica versione 2015-08-01](../logic-apps/logic-apps-schema-2015-08-01.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, leggere gli articoli nella sezione [Documentazione di App per le API](https://azure.microsoft.com/documentation/services/app-service/api/). Gli articoli sono stati aggiornati in base al nuovo modello di app per le API. Per informazioni dettagliate o indicazioni sulla migrazione è possibile rivolgersi ai forum:
@@ -125,6 +125,6 @@ Per altre informazioni, leggere gli articoli nella sezione [Documentazione di Ap
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

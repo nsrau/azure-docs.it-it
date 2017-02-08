@@ -3,7 +3,7 @@ title: Come creare una raccolta cloud di Azure RemoteApp | Microsoft Docs
 description: Informazioni su come creare una distribuzione di Azure RemoteApp che salva i dati nel cloud Azure.
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 editor: 
 ms.assetid: 4d7c6956-7e4a-4a41-b7f2-7e5832bf01e3
@@ -12,11 +12,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 21d6cabf44d2a2b63b158f1ebd567cc8945e0333
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 59619d78959f9fcc3144a30af883021a8f5f3044
 
 
 ---
@@ -94,7 +94,7 @@ A questo punto, dopo avere creato la raccolta, è necessario aggiungere gli uten
    
    **Note:** 
    
-   Assicurarsi di usare il formato “user@domain.com”.
+   Assicurarsi di usare il formato *user@domain.com*.
    
    Se si usa Office 365 ProPlus alla raccolta, è necessario usare le identità di Active Directory per gli utenti. Ciò consente di convalidare la licenza. 
 3. Dopo la convalida degli utenti, fare clic su **Salva**.
@@ -108,6 +108,6 @@ Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

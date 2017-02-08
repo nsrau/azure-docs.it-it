@@ -1,6 +1,6 @@
 ---
-title: Simulare un dispositivo con IoT Gateway SDK | Documentazione Microsoft
-description: Procedura dettagliata dell&quot;Azure IoT SDK per gateway con Windows che illustra l&quot;invio di dati di telemetria da un dispositivo simulato con Azure IoT SDK per gateway.
+title: Simulare un dispositivo con Azure IoT Gateway SDK (Windows) | Documentazione Microsoft
+description: Come usare Azure IoT Gateway SDK in Windows per creare un dispositivo simulato che invia dati di telemetria attraverso un gateway a un hub IoT.
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/29/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: f5eeea933dbd5b63c6a8f2bd5b065a13286a4bae
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 432fa33d0b7340e075270f4959217978e89b8c69
 
 
 ---
-# <a name="azure-iot-gateway-sdk--send-device-to-cloud-messages-with-a-simulated-device-app-using-windows"></a>Azure IoT Gateway SDK: inviare messaggi da dispositivo a cloud con un dispositivo simulato usando Windows
+# <a name="use-the-azure-iot-gateway-sdk-to-send-device-to-cloud-messages-with-a-simulated-device-windows"></a>Usare Azure IoT Gateway SDK per inviare messaggi da dispositivo a cloud con un dispositivo simulato (Windows)
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## <a name="build-and-run-the-sample"></a>Compilare ed eseguire l'esempio
@@ -28,7 +28,7 @@ Prima di iniziare:
 
 * [Configurare l'ambiente di sviluppo][lnk-setupdevbox] per l'uso dell'SDK in Windows.
 * [Creare un hub IoT][lnk-create-hub] nella sottoscrizione di Azure. Il nome dell'hub sarà necessario per completare questa procedura. Se non si ha un account, è possibile crearne uno [gratuito][lnk-free-trial] in pochi minuti.
-* Aggiungere due dispositivi all'hub IoT e annotare i relativi ID e le chiavi di dispositivo. È possibile usare lo strumento [Esplora dispositivi o iothub-explorer][lnk-explorer-tools] per aggiungere i dispositivi all'hub IoT creato nel passaggio precedente e recuperarne le chiavi relative.
+* Aggiungere due dispositivi all'hub IoT e annotare i relativi ID e le chiavi di dispositivo. È possibile usare lo strumento [Esplora dispositivi o iothub-explorer][lnk-explorer-tools] per aggiungere i dispositivi all'hub IoT creato nel passaggio precedente e recuperarne le chiavi.
 
 Per compilare l'esempio:
 
@@ -152,7 +152,7 @@ Per ottenere informazioni più avanzate su IOT SDK per gateway e provare alcuni 
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-* [Guida per sviluppatori][lnk-devguide]
+* [Guida per gli sviluppatori dell'hub IoT][lnk-devguide]
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
@@ -167,6 +167,6 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

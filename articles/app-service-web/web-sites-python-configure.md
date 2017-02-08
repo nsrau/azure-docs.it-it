@@ -1,13 +1,13 @@
 ---
 title: Configurazione di Python con App Web del servizio app di Azure
-description: Questa esercitazione descrive le opzioni per la creazione e la configurazione di un'applicazione Python di base conforme all'interfaccia WSGI (Web Server Gateway Interface) in App Web del servizio app di Azure.
+description: Questa esercitazione descrive le opzioni per la creazione e la configurazione di un&quot;applicazione Python di base conforme all&quot;interfaccia WSGI (Web Server Gateway Interface) in App Web del servizio app di Azure.
 services: app-service
 documentationcenter: python
 tags: python
 author: huguesv
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: fd00dc91-9935-4331-b955-4bd71e66d518
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,31 +15,35 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
+translationtype: Human Translation
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c4fe19e608061c4b69f3856313ece87e9870bbf9
+
 
 ---
-# Configurazione di Python con App Web del servizio app di Azure
+# <a name="configuring-python-with-azure-app-service-web-apps"></a>Configurazione di Python con App Web del servizio app di Azure
 Questa esercitazione descrive le opzioni per la creazione e la configurazione di un'applicazione Python di base conforme all'interfaccia WSGI (Web Server Gateway Interface) in [App Web del servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 Descrive le funzionalità aggiuntive della distribuzione Git, ad esempio l'ambiente virtuale e l'installazione del pacchetto con requirements.txt.
 
-## Bottle, Django o Flask?
+## <a name="bottle-django-or-flask"></a>Bottle, Django o Flask?
 Azure Marketplace contiene modelli per i framework Bottle, Django e Flask. Se si sta sviluppando la prima app Web nel servizio app di Azure o non si ha familiarità con Git, è consigliabile seguire una delle esercitazioni seguenti, che includono istruzioni dettagliate per la creazione di un'applicazione funzionante dalla raccolta tramite la distribuzione Git da Windows o Mac:
 
 * [Creazione di app Web con Bottle](web-sites-python-create-deploy-bottle-app.md)
 * [Creazione di app Web con Django](web-sites-python-create-deploy-django-app.md)
 * [Creazione di app Web con Flask](web-sites-python-create-deploy-flask-app.md)
 
-## Creazione di un'app Web nel portale di Azure
+## <a name="web-app-creation-on-azure-portal"></a>Creazione di un'app Web nel portale di Azure
 Per seguire questa esercitazione è necessaria una sottoscrizione di Azure e l'accesso al portale di Azure.
 
-Se non si dispone di un'app Web esistente, è possibile crearne una dal [portale di Azure](https://portal.azure.com). Fare clic sul pulsante NUOVO nell'angolo superiore sinistro e quindi su **Web e dispositivi mobili** > **App Web**.
+Se non si dispone di un'app Web esistente, è possibile crearne una dal [portale di Azure](https://portal.azure.com).  Fare clic sul pulsante NUOVO nell'angolo superiore sinistro e quindi su **Web e dispositivi mobili** > **App Web**.
 
-## Pubblicazione Git
+## <a name="git-publishing"></a>Pubblicazione Git
 Configurare la pubblicazione Git per l'app Web appena creata seguendo le istruzioni disponibili in [Distribuzione del repository Git locale nel servizio app di Azure](app-service-deploy-local-git.md). Questa esercitazione usa Git per creare, gestire e pubblicare l'app Web Python nel servizio app di Azure.
 
 Dopo aver configurato la pubblicazione Git, verrà creato un repository che verrà associato all'app Web. L'URL del repository verrà visualizzato e potrà pertanto essere usato per effettuare il push dei dati dall'ambiente di sviluppo locale al cloud. Per pubblicare applicazioni tramite Git, assicurarsi che sia stato installato anche il client Git e attenersi alle istruzioni fornite per eseguire il push dei contenuti dell'app Web nel servizio app di Azure.
 
-## Informazioni generali sull'applicazione
+## <a name="application-overview"></a>Informazioni generali sull'applicazione
 Nelle sezioni successive vengono creati i seguenti file. Devono essere posizionati nella radice del repository Git.
 
     app.py
@@ -49,7 +53,7 @@ Nelle sezioni successive vengono creati i seguenti file. Devono essere posiziona
     ptvs_virtualenv_proxy.py
 
 
-## Gestore WSGI
+## <a name="wsgi-handler"></a>Gestore WSGI
 WSGI è uno standard Python descritto da [PEP 3333](http://www.python.org/dev/peps/pep-3333/) che definisce un'interfaccia tra il server Web e Python che consente di scrivere varie applicazioni e framework Web tramite Python. Oggi i più comuni framework Web Python usano l'interfaccia WSGI. App Web del servizio app di Azure offre assistenza per qualsiasi framework. Inoltre, gli utenti avanzati possono anche creare il proprio framework a patto che il gestore personalizzato si attenga alle linee guida delle specifiche WSGI.
 
 Di seguito è riportato un esempio di un `app.py` che definisce un gestore personalizzato:
@@ -69,7 +73,7 @@ Di seguito è riportato un esempio di un `app.py` che definisce un gestore perso
 
 È possibile eseguire l'applicazione localmente con `python app.py`, quindi passare a `http://localhost:5555` nel Web browser.
 
-## Ambiente virtuale
+## <a name="virtual-environment"></a>Ambiente virtuale
 Sebbene l'app dell'esempio precedente non necessiti di pacchetti esterni, è probabile che l'applicazione creata ne richieda alcuni.
 
 Per gestire le dipendenze di pacchetti esterni, la distribuzione Git di Azure supporta la creazione di ambienti virtuali.
@@ -78,7 +82,7 @@ Quando Azure rileva un file requirements.txt nella radice del repository, crea a
 
 È opportuno creare un ambiente virtuale locale per lo sviluppo, ma evitare di includerlo nel repository Git.
 
-## Gestione dei pacchetti
+## <a name="package-management"></a>Gestione dei pacchetti
 I pacchetti elencati in requirements.txt verranno installati automaticamente nell'ambiente virtuale tramite pip. Ciò avviene in ogni distribuzione, tuttavia pip non eseguirà l'installazione se un pacchetto è già installato.
 
 Esempio `requirements.txt`:
@@ -86,7 +90,7 @@ Esempio `requirements.txt`:
     azure==0.8.4
 
 
-## Versione di Python
+## <a name="python-version"></a>Versione di Python
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
 Esempio `runtime.txt`:
@@ -94,12 +98,12 @@ Esempio `runtime.txt`:
     python-2.7
 
 
-## Web.config
+## <a name="webconfig"></a>Web.config
 È necessario creare un file web.config per specificare il modo in cui il server deve gestire le richieste.
 
 Si noti che se nel repository si dispone di un file web.x.y.config, dove x.y corrisponde al runtime di Python selezionato, Azure copierà automaticamente il file appropriato come web.config.
 
-I seguenti esempi di file web.config si basano su uno script proxy dell'ambiente virtuale, descritto nella sezione successiva. Funzionano con il gestore WSGI usato nell'`app.py` di esempio precedente.
+I seguenti esempi di file web.config si basano su uno script proxy dell'ambiente virtuale, descritto nella sezione successiva.  Funzionano con il gestore WSGI usato nell' `app.py` di esempio precedente.
 
 `web.config` di esempio per Python 2.7:
 
@@ -203,11 +207,11 @@ I file statici verranno gestiti direttamente dal server Web, senza passare per i
 
 Negli esempi precedenti il percorso dei file statici sul disco deve corrispondere al percorso nell'URL. Ciò significa che una richiesta per `http://pythonapp.azurewebsites.net/static/site.css` servirà il file sul disco nel percorso `\static\site.css`.
 
-In `WSGI_ALT_VIRTUALENV_HANDLER` viene specificato il gestore WSGI. Negli esempi precedenti corrisponde a `app.wsgi_app` perché il gestore è una funzione denominata `wsgi_app` in `app.py` nella cartella radice.
+`WSGI_ALT_VIRTUALENV_HANDLER` viene specificato il gestore WSGI. Negli esempi precedenti corrisponde a `app.wsgi_app` perché il gestore è una funzione denominata `wsgi_app` in `app.py` nella cartella radice.
 
 `PYTHONPATH` può essere personalizzato ma, se si installano tutte le dipendenze nell'ambiente virtuale specificandole in requirements.txt, non è necessario modificarlo.
 
-## Proxy dell'ambiente virtuale
+## <a name="virtual-environment-proxy"></a>Proxy dell'ambiente virtuale
 Il seguente script viene usato per recuperare il gestore WSGI, attivare l'ambiente virtuale e registrare gli errori. È progettato per essere generico e per essere usato senza doverlo modificare.
 
 Contenuto di `ptvs_virtualenv_proxy.py`:
@@ -266,7 +270,7 @@ Contenuto di `ptvs_virtualenv_proxy.py`:
             except: 
                 log('ptvsd.enable_attach failed\n')
         except ImportError:
-            log('error importing ptvsd.\n');
+            log('error importing ptvsd.\n')
 
     def get_wsgi_handler(handler_name):
         if not handler_name:
@@ -336,24 +340,29 @@ Contenuto di `ptvs_virtualenv_proxy.py`:
         return handler
 
 
-## Personalizzare la distribuzione Git
+## <a name="customize-git-deployment"></a>Personalizzare la distribuzione Git
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-deployment.md)]
 
-## Risoluzione dei problemi - Installazione dei pacchetti
+## <a name="troubleshooting---package-installation"></a>Risoluzione dei problemi - Installazione dei pacchetti
 [!INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
 
-## Risoluzione dei problemi - Ambiente virtuale
+## <a name="troubleshooting---virtual-environment"></a>Risoluzione dei problemi - Ambiente virtuale
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/develop/python/).
 
 > [!NOTE]
-> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 
-## Modifiche apportate
+## <a name="whats-changed"></a>Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+<!--HONumber=Jan17_HO3-->
+
+

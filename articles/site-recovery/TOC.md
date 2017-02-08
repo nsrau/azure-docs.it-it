@@ -64,6 +64,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 

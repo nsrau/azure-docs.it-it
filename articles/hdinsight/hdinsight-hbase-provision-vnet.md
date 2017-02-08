@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 11/18/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 62b443f8e2252d913b44ab5582450234e9b76844
-ms.openlocfilehash: 81f29f1dc6efa24e7eb23490ac5a0d043b6ca1ad
+ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
+ms.openlocfilehash: 6dd149808a89ccf7da2989751788e074d5340d5c
 
 
 ---
@@ -37,7 +37,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 * **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 ## <a name="create-hbase-cluster-into-virtual-network"></a>Creare cluster HBase nella rete virtuale
-In questa sezione viene creato un cluster HBase basato su Linux con l'account di archiviazione di Azure dipendente in una rete virtuale di Azure tramite un [modello di Azure Resource Manager](../resource-group-template-deploy.md). Per altri metodi di creazione di cluster e per informazioni sulle impostazioni, vedere l'articolo sulla [creazione di cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Per altre informazioni sull'uso di un modello per creare cluster Hadoop in HDInsight, vedere l'articolo relativo alla [creazione di cluster Hadoop in HDInsight tramite modelli di Azure Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
+In questa sezione viene creato un cluster HBase basato su Linux con l'account di archiviazione di Azure dipendente in una rete virtuale di Azure tramite un [modello di Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Per altri metodi di creazione di cluster e per informazioni sulle impostazioni, vedere l'articolo sulla [creazione di cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Per altre informazioni sull'uso di un modello per creare cluster Hadoop in HDInsight, vedere l'articolo relativo alla [creazione di cluster Hadoop in HDInsight tramite modelli di Azure Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 
 > [!NOTE]
 > Alcune proprietà sono state impostate come hardcoded nel modello. Ad esempio:
@@ -299,6 +299,6 @@ In questa esercitazione si è appreso come creare un cluster HBase. Per altre in
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

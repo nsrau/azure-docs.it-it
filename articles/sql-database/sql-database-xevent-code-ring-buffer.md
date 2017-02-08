@@ -14,7 +14,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 02/03/2017
 ms.author: genemi
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -23,6 +23,7 @@ ms.openlocfilehash: 4421506f516e6a65b7ff9207ce13dfb86e7c3540
 
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Codice di destinazione del buffer circolare per gli eventi estesi nel database SQL
+
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 Si desidera un esempio di codice completo per il modo più semplice e rapido per acquisire e segnalare informazioni per un evento esteso durante un test. La destinazione più semplice per i dati degli eventi estesi è la [destinazione del buffer circolare](http://msdn.microsoft.com/library/ff878182.aspx).
@@ -44,6 +45,7 @@ In questo argomento viene presentato un esempio di codice Transact-SQL che:
 8. Elimina la sessione dell'evento e la tabella dimostrativa.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 * Un account e una sottoscrizione di Azure. È possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Qualsiasi database in cui è possibile creare una tabella.
   
@@ -55,6 +57,7 @@ In questo argomento viene presentato un esempio di codice Transact-SQL che:
   * [Un collegamento diretto al download.](http://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>Esempio di codice
+
 Con alcune lievi modifiche, è possibile eseguire il seguente esempio di codice di buffer circolare nel database SQL di Azure o in Microsoft SQL Server. La differenza è la presenza del nodo '_database' nel nome di alcune viste a gestione dinamica (DMV) nella clausola FROM nel passaggio 5. ad esempio:
 
 * sys.dm_xe**_database**_session_targets
@@ -62,7 +65,7 @@ Con alcune lievi modifiche, è possibile eseguire il seguente esempio di codice 
 
 &nbsp;
 
-```
+```tsql
 GO
 ----  Transact-SQL.
 ---- Step set 1.
@@ -216,6 +219,7 @@ GO
 &nbsp;
 
 ## <a name="ring-buffer-contents"></a>Contenuto del buffer circolare
+
 È stato usato ssms.exe per eseguire l'esempio di codice.
 
 Per visualizzare i risultati, è stato fatto clic sulla cella sotto l'intestazione di colonna **target_data_XML**.
@@ -315,9 +319,10 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 
 
 #### <a name="release-resources-held-by-your-ring-buffer"></a>Rilasciare le risorse usate dal buffer circolare
+
 Al termine dell'uso del buffer circolare, è possibile rimuoverlo e rilasciare le relative risorse eseguendo un'istruzione **ALTER** simile alla seguente:
 
-```
+```tsql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     DROP TARGET package0.ring_buffer;
@@ -327,7 +332,7 @@ GO
 
 La definizione della sessione dell'evento viene aggiornata, ma non eliminata. Successivamente, è possibile aggiungere un'altra istanza del buffer circolare alla sessione dell'evento:
 
-```
+```tsql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     ADD TARGET
@@ -339,6 +344,7 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 
 
 ## <a name="more-information"></a>Altre informazioni
+
 L'argomento principale per gli eventi estesi in un database SQL di Azure è:
 
 * [Considerazioni sugli eventi estesi nel database SQL](sql-database-xevent-db-diff-from-svr.md), che illustra alcuni aspetti degli eventi estesi che presentano differenze tra il database SQL di Azure e Microsoft SQL Server.
