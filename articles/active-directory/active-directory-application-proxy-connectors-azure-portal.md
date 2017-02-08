@@ -1,12 +1,12 @@
 ---
-title: Utilizzo dei connettori del proxy di applicazione di Azure AD | Microsoft Docs
+title: Uso dei connettori proxy di applicazione di Azure AD | Microsoft Docs
 description: Illustra come creare e gestire i gruppi di connettori nel proxy di applicazione di Azure AD.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 5404372d-3092-4054-aeee-26afb1399f33
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ba87b73be45cb0893f418453bc0efb3293772c95
+
 
 ---
-# Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori - Anteprima pubblica
+# <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups---public-preview"></a>Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori - Anteprima pubblica
 > [!div class="op_single_selector"]
 > * [Portale di Azure](active-directory-application-proxy-connectors-azure-portal.md)
 > * [Portale di Azure classico](active-directory-application-proxy-connectors.md)
@@ -32,10 +36,10 @@ I gruppi di connettori sono utili in varie situazioni, ad esempio:
 * I gruppi di connettori possono essere usati nei siti di ripristino di emergenza per il rilevamento del failover o come backup per il sito principale.
 * I gruppi di connettori possono essere anche usati per offrire i servizi a più società da un singolo tenant.
 
-## Prerequisito: creare i connettori
-Per raggruppare i connettori è necessario assicurarsi di avere [installato più connettori](active-directory-application-proxy-enable.md). Quando si installa un nuovo connettore, questo si aggiunge automaticamente al gruppo di connettori **predefinito**.
+## <a name="prerequisite-create-your-connectors"></a>Prerequisito: creare i connettori
+Per raggruppare i connettori è necessario assicurarsi di avere [installato più connettori](active-directory-application-proxy-enable.md). Quando si installa un nuovo connettore, questo si aggiunge automaticamente al gruppo di connettori **predefinito** .
 
-## Passaggio 1: Creare gruppi di connettori
+## <a name="step-1-create-connector-groups"></a>Passaggio 1: Creare gruppi di connettori
 È possibile creare tutti i gruppi di connettori desiderati. La creazione di un gruppo di connettori viene eseguita nel [portale di Azure](https://portal.azure.com).
 
 1. Selezionare **Azure Active Directory** per passare al dashboard di gestione per la directory. Da qui selezionare **Applicazioni aziendali** > **Proxy dell'applicazione**.
@@ -43,19 +47,24 @@ Per raggruppare i connettori è necessario assicurarsi di avere [installato più
 3. Assegnare un nome al nuovo gruppo di connettori, quindi usare il menu a discesa per selezionare i connettori appartenenti a questo gruppo.
 4. Selezionare **Salva** al termine dell'operazione.
 
-## Passaggio 2: Assegnare applicazioni ai gruppi di connettori
+## <a name="step-2-assign-applications-to-your-connector-groups"></a>Passaggio 2: Assegnare applicazioni ai gruppi di connettori
 L'ultimo passaggio prevede l'assegnazione di ogni applicazione al gruppo di connettori da cui verrà gestita.
 
 1. Nel dashboard di gestione per la directory selezionare **Applicazioni aziendali** > **All applications** (Tutte le applicazioni) > l'applicazione che si vuole assegnare a un gruppo di connettori > **Proxy dell'applicazione**.
-2. In **Gruppo di connettori** usare il menu a discesa per selezionare il gruppo che si vuole venga usato dall'applicazione.
+2. In **Gruppo di connettori**usare il menu a discesa per selezionare il gruppo che si vuole venga usato dall'applicazione.
 3. Fare clic su **Salva** per salvare la modifica.
 
-## Vedere anche
+## <a name="see-also"></a>Vedere anche
 * [Abilitare il proxy dell’applicazione](active-directory-application-proxy-enable.md)
 * [Abilitare l'accesso Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
 * [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md)
 * [Risolvere i problemi che si verificano con il proxy di applicazione](active-directory-application-proxy-troubleshoot.md)
 
-Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (Blog del proxy di applicazione)
+Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Dec16_HO4-->
+
+

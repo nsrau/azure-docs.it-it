@@ -1,36 +1,39 @@
-
 ---
-title: Caricare un'immagine personalizzata per Azure RemoteApp | Microsoft Docs
-description: Informazioni su come caricare un'immagine personalizzata per RemoteApp di Azure
+title: Caricare un&quot;immagine personalizzata per Azure RemoteApp | Documentazione Microsoft
+description: Informazioni su come caricare un&quot;immagine personalizzata per RemoteApp di Azure
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: ericorman
 manager: mbaldwin
-
+ms.assetid: 299e0510-1a6b-4fdf-914a-3631b061a360
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/23/2016
 ms.author: ericor
+translationtype: Human Translation
+ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
+ms.openlocfilehash: b948a8c0394fffcfa63b5b48646639118cba8953
+
 
 ---
-# Caricare un'immagine personalizzata per RemoteApp di Azure
+# <a name="upload-a-custom-image-for-azure-remoteapp"></a>Caricare un'immagine personalizzata per RemoteApp di Azure
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
 Dopo aver creato o aggiornato con le modifiche l'immagine modello personalizzata, è necessario caricare l'immagine nella raccolta immagini di Azure RemoteApp. Usare i passaggi seguenti.
 
-## Prima di iniziare
-1. Verificare che l'immagine personalizzata soddisfi i [requisiti per l'immagine](remoteapp-imagereqs.md) e i [requisiti per l'applicazione](remoteapp-appreqs.md).
-2. Installare il [modulo Azure PowerShell](../powershell-install-configure.md).
+## <a name="before-you-start"></a>Prima di iniziare
+1. Verificare che l'immagine personalizzata soddisfi i [requisiti dell'immagine](remoteapp-imagereqs.md) e i [requisiti dell'applicazione](remoteapp-appreqs.md).
+2. Installare il [modulo Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-## Istruzioni dettagliate su come caricare un'immagine personalizzata
+## <a name="step-by-step-on-how-to-upload-custom-image"></a>Istruzioni dettagliate su come caricare un'immagine personalizzata
 1. Aprire il portale di gestione di Azure e passare alla pagina RemoteApp.
-2. Nella scheda **Immagini modello** fare clic su **Carica** nella parte inferiore della pagina.
+2. Nella scheda **Immagini modello** fare clic su **Carica** in fondo alla pagina.
 3. Immettere un nome descrittivo per l'immagine e specificare il percorso dell'account di archiviazione. Verificare che il percorso sia uguale a quello della raccolta RemoteApp oppure che sia il percorso dove verrà creata una nuova raccolta.
 4. Quando richiesto, scaricare lo script nel PC locale.
 5. Copiare negli Appunti i parametri del comando contenuti nella casella di testo.
@@ -46,9 +49,14 @@ Dopo aver creato o aggiornato con le modifiche l'immagine modello personalizzata
 > 
 > 
 
-## Problemi frequenti
+## <a name="common-problems"></a>Problemi frequenti
 * Assicurarsi di usare Windows PowerShell, e non Azure PowerShell. È necessario installare il modulo Azure PowerShell perché alcuni moduli sono necessari durante il processo di caricamento.
 * Non modificare in nessun caso lo script. Le convalide sono state applicate per semplificare l'utilizzo da parte degli utenti.
-* Se il file VHD si blocca durante il caricamento, copiare il file o spostarlo in un nuovo percorso e riprovare il caricamento. Il caricamento potrebbe essere ostacolato da qualche processo di Windows in esecuzione.
+* Se il file VHD si blocca durante il caricamento, copiare il file o spostarlo in un nuovo percorso e riprovare il caricamento. Il caricamento potrebbe essere ostacolato da qualche processo di Windows in esecuzione.  
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

@@ -1,27 +1,31 @@
-
 ---
-title: 'Acquisizione di consigli in batch: API Recommendations di Machine Learning | Microsoft Docs'
+title: 'Acquisizione di consigli in batch: API Recommendations di Machine Learning | Documentazione Microsoft'
 description: 'Consigli di Azure Machine Learning: acquisizione di consigli in batch'
 services: cognitive-services
-documentationcenter: ''
+documentationcenter: 
 author: luiscabrer
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 325d4922-8a07-4e67-99e0-f513201f14f7
 ms.service: cognitive-services
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 11/28/2016
 ms.author: luisca
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: e63218d9c882d84342a3992f05e0a8c9f306d9c6
+
 
 ---
-# Ottenere consigli in batch
+# <a name="get-recommendations-in-batches"></a>Ottenere consigli in batch
 > [!NOTE]
 > Ottenere consigli in batch è più complicato che ottenere un singolo consiglio alla volta. Cercare nelle API informazioni su come ottenere consigli per una singola richiesta:
 > 
-> [Item-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d4) (Consigli da elemento a elemento)<br> [User-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd) (Consigli da utente a elemento)
+> [Item-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d4)<br>
+> [User-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd)
 > 
 > Il punteggio batch funziona solo per le build create dopo il 21 luglio 2016.
 > 
@@ -29,7 +33,7 @@ ms.author: luisca
 
 In alcune situazioni è necessario ottenere consigli per più di un elemento alla volta. È ad esempio possibile che si voglia creare una cache di consigli oppure analizzare i tipi di consigli ottenuti.
 
-Le operazioni di assegnazione del punteggio batch, come vengono chiamate, sono operazioni asincrone. È necessario inviare la richiesta, attendere la fine dell'operazione e quindi recuperare i risultati.
+Le operazioni di assegnazione del punteggio batch, come vengono chiamate, sono operazioni asincrone. È necessario inviare la richiesta, attendere la fine dell'operazione e quindi recuperare i risultati.  
 
 Per una maggiore precisione, questi sono i passaggi da seguire:
 
@@ -41,12 +45,13 @@ Per una maggiore precisione, questi sono i passaggi da seguire:
 
 Di seguito viene illustrato ognuno di questi passaggi.
 
-## Creare un contenitore di archiviazione se non è già disponibile
-Andare al [portale di Azure](https://portal.azure.com) e creare un nuovo account di archiviazione, se necessario. A questo scopo, andare a **Nuovo** > **Dati** e **archiviazione** > **Account di archiviazione**.
+## <a name="create-a-storage-container-if-you-dont-have-one-already"></a>Creare un contenitore di archiviazione se non è già disponibile
+Andare al [portale di Azure](https://portal.azure.com) e creare un nuovo account di archiviazione, se necessario. A questo scopo, selezionare **Nuovo** > **Dati** + **Archiviazione** > **Account di archiviazione**.
 
 Dopo aver creato un account di archiviazione, è necessario creare i contenitori BLOB in cui verranno archiviati l'input e l'output dell'esecuzione batch.
 
-Caricare un file di input che descrive tutte le richieste di consigli all'archivio BLOB. In questo caso, il nome del file è input.json. Dopo aver creato un contenitore, è necessario caricare un file che descrive tutte le richieste da eseguire dal servizio Consigli.
+Caricare un file di input che descrive tutte le richieste di consigli all'archivio BLOB. In questo caso, il nome del file è input.json.
+Dopo aver creato un contenitore, è necessario caricare un file che descrive tutte le richieste da eseguire dal servizio Consigli.
 
 Un batch può eseguire un solo tipo di richiesta da una specifica build. Nella sezione successiva verrà illustrato come definire queste informazioni. Per il momento, si presupporrà che i consigli sugli elementi vengano eseguiti esternamente a una build specifica. Il file di input contiene quindi le informazioni di input, in questo caso gli elementi seme, per ognuna delle richieste.
 
@@ -67,7 +72,7 @@ Di seguito è illustrato un esempio di file input.json:
 
 Come si può notare, si tratta di un file JSON nel quale ognuna delle richieste ha le informazioni necessarie per inviare una richiesta di consigli. Creare un file JSON simile per le proprie richieste e copiarlo nel contenitore appena creato nell'archivio BLOB.
 
-## Avviare il processo batch
+## <a name="kick-start-the-batch-job"></a>Avviare il processo batch
 Il passaggio successivo consiste nell'inviare un nuovo processo batch. Per altre informazioni, vedere le [informazioni di riferimento sulle API](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/).
 
 Il corpo della richiesta dell'API deve definire le posizioni in cui archiviare i file di input, output e di errore. Deve definire anche le credenziali necessarie per accedere a tali posizioni. Sarà anche necessario specificare alcuni parametri che riguardano l'intero batch, ovvero il tipo di consigli da richiedere, il modello/build da usare, il numero di risultati per ogni chiamata e così via.
@@ -105,14 +110,15 @@ Il corpo della richiesta sarà simile al seguente:
 
 Ecco alcuni aspetti importanti da notare:
 
-* **authenticationType** deve essere attualmente sempre impostato su **PublicOrSas**.
+* Al momento, **authenticationType** deve essere sempre impostato su **PublicOrSas**.
 * È necessario ottenere un token di firma di accesso condiviso per consentire all'API Recommendations di leggere e scrivere da e verso l'account di archiviazione BLOB. Altre informazioni su come generare i token di firma di accesso condiviso sono disponibili nella [pagina dell'API Recommendations](../storage/storage-dotnet-shared-access-signature-part-1.md).
 * L'unico **apiName** attualmente supportato è **ItemRecommend**, usato per i consigli da elemento a elemento. L'invio in batch attualmente non supporta i consigli da utente a elemento.
 
-## Attendere la fine dell'operazione asincrona
-Quando si avvia l'operazione batch, la risposta restituisce l'intestazione Operation-Location con le informazioni necessarie per tenere traccia dell'operazione. È possibile tenere traccia dell'operazione usando l'[API per il recupero dello stato operazione](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3da), come nel caso di un'operazione di compilazione.
+## <a name="wait-for-the-asynchronous-operation-to-finish"></a>Attendere la fine dell'operazione asincrona
+Quando si avvia l'operazione batch, la risposta restituisce l'intestazione Operation-Location con le informazioni necessarie per tenere traccia dell'operazione.
+È possibile tenere traccia dell'operazione usando l' [API per il recupero dello stato operazione](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3da), come nel caso di un'operazione di compilazione.
 
-## Ottenere i risultati
+## <a name="get-the-results"></a>Ottenere i risultati
 Al termine dell'operazione, supponendo che non si siano verificati errori, è possibile raccogliere i risultati dall'archivio BLOB di output.
 
 L'esempio seguente illustra come potrebbe essere l'output. Questo esempio descrive i risultati per un batch con solo due richieste, per brevità.
@@ -188,8 +194,13 @@ L'esempio seguente illustra come potrebbe essere l'output. Questo esempio descri
     ]}
 
 
-## Informazioni sulle limitazioni
+## <a name="learn-about-the-limitations"></a>Informazioni sulle limitazioni
 * È possibile chiamare un solo processo batch per sottoscrizione alla volta.
 * Un file di input del processo batch non può essere di dimensioni superiori a 2 MB.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

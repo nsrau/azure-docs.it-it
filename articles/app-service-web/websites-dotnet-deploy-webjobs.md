@@ -2,11 +2,11 @@
 title: Distribuzione di processi Web usando Visual Studio
 description: Informazioni su come distribuire processi Web di Azure in Servizio app per app Web di Azure.
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: tdykstra
 manager: wpickett
 editor: jimbe
-
+ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
 ms.service: app-service
 ms.devlang: dotnet
 ms.topic: article
@@ -14,36 +14,40 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2016
 ms.author: tdykstra
+translationtype: Human Translation
+ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
+ms.openlocfilehash: 9f792f6ea082461f3304516fc9b4c3273e2f50b8
+
 
 ---
-# Distribuzione di processi Web usando Visual Studio
-## Panoramica
-Questo argomento illustra come usare Visual Studio per distribuire un progetto di applicazione console in un'app Web in [Servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) come [Processo Web Azure](http://go.microsoft.com/fwlink/?LinkId=390226). Per informazioni su come distribuire processi Web usando il [portale di Azure](https://portal.azure.com), vedere [Eseguire attività in background con processi Web](web-sites-create-web-jobs.md).
+# <a name="deploy-webjobs-using-visual-studio"></a>Distribuzione di processi Web usando Visual Studio
+## <a name="overview"></a>Overview
+Questo argomento illustra come usare Visual Studio per distribuire un progetto di applicazione console in un'app Web in [Servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) come un [processo Web Azure](http://go.microsoft.com/fwlink/?LinkId=390226). Per informazioni su come distribuire processi Web usando il [portale di Azure](https://portal.azure.com), vedere [Eseguire attività in background con processi Web](web-sites-create-web-jobs.md).
 
 Quando distribuisce un progetto di applicazione console abilitato per i processi Web, Visual Studio esegue due attività:
 
-* Copia i file di runtime nella cartella appropriata nel sito Web di Azure (*App\_Data/jobs/continuous* per i processi Web in modalità continua, *App\_Data/jobs/triggered* per i processi Web pianificati e su richiesta).
+* Copia i file di runtime nella cartella appropriata nell'app Web (*App_Data/jobs/continuous* per i processi Web in modalità continua, *App_Data/jobs/triggered* per i processi Web pianificati e su richiesta).
 * Configura i [processi dell'utilità di pianificazione di Azure](#scheduler) per i processi Web pianificati per essere eseguiti a orari specifici. Tale operazione non è necessaria per l'esecuzione dei processi Web in modalità continua.
 
 A un progetto abilitato per i processi Web vengono aggiunti gli elementi seguenti:
 
-* Pacchetto NuGet [Microsoft.Web.WebJobs.Publish](http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/).
+* Pacchetto NuGet [Microsoft.Web.WebJobs.Publish](http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) .
 * File [webjob-publish-settings.json](#publishsettings) che contiene le impostazioni di distribuzione e dell'utilità di pianificazione. 
 
 ![Diagramma che mostra gli elementi aggiunti a un'app console per abilitare la distribuzione come processo Web](./media/websites-dotnet-deploy-webjobs/convert.png)
 
-È possibile aggiungere questi elementi a un progetto di applicazione console esistente o usare un modello per creare un nuovo progetto di applicazione console abilitato per i processi Web.
+È possibile aggiungere questi elementi a un progetto di applicazione console esistente o usare un modello per creare un nuovo progetto di applicazione console abilitato per i processi Web. 
 
 È possibile distribuire un progetto come processo Web indipendente o collegarlo a un progetto Web in modo tale che venga distribuito automaticamente ogni volta che viene distribuito il progetto Web. Per collegare i progetti, Visual Studio include il nome del progetto abilitato per i processi Web in un file [webjobs-list.json](#webjobslist) nel progetto Web.
 
 ![Diagramma che mostra il collegamento del progetto processo Web al progetto Web](./media/websites-dotnet-deploy-webjobs/link.png)
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Le funzionalità di distribuzione di Processi Web sono disponibili in Visual Studio 2015 quando si installa Azure SDK per .NET:
 
 * [Azure SDK per .NET (Visual Studio 2015)](http://go.microsoft.com/fwlink/?linkid=518003).
 
-## <a id="convert"></a>Abilitare la distribuzione dei processi Web per un progetto di applicazione console esistente
+## <a name="a-idconvertaenable-webjobs-deployment-for-an-existing-console-application-project"></a><a id="convert"></a>Abilitare la distribuzione dei processi Web per un progetto di applicazione console esistente
 Sono disponibili due opzioni:
 
 * [Abilitare la distribuzione automatica con un progetto Web](#convertlink).
@@ -53,28 +57,28 @@ Sono disponibili due opzioni:
   
     Configurare un progetto di applicazione console esistente in modo tale che venga distribuito come processo Web indipendente senza alcun collegamento a un progetto Web. Usare questa opzione quando si vuole eseguire un processo Web in un'app Web in modo indipendente senza l'esecuzione dell'applicazione Web nell'app Web. Questa opzione potrebbe essere utile per scalare le risorse del processo Web indipendentemente dalle risorse dell'applicazione Web.
 
-### <a id="convertlink"></a> Abilitare la distribuzione automatica dei processi Web con un progetto Web
-1. Fare clic con il pulsante destro del mouse sul progetto Web in **Esplora soluzioni**, quindi scegliere **Aggiungi** > **Progetto esistente come processo Web Azure**.
+### <a name="a-idconvertlinka-enable-automatic-webjobs-deployment-with-a-web-project"></a><a id="convertlink"></a> Abilitare la distribuzione automatica dei processi Web con un progetto Web
+1. Fare clic con il pulsante destro del mouse sul progetto Web in **Esplora soluzioni**, quindi scegliere **Aggiungi** > **Progetto esistente come processo Web di Azure**.
    
     ![Progetto esistente come processo Web Azure](./media/websites-dotnet-deploy-webjobs/eawj.png)
    
-    Viene visualizzata la finestra di dialogo [Aggiungi processo Web Azure](#configure).
+    Viene visualizzata la finestra di dialogo [Aggiungi processo Web Azure](#configure) .
 2. Nell'elenco a discesa **Nome progetto** selezionare il progetto di applicazione console da aggiungere come processo Web.
    
     ![Selezione del progetto nella finestra di dialogo Aggiungi processo Web Azure](./media/websites-dotnet-deploy-webjobs/aaw1.png)
-3. Completare la finestra di dialogo [Aggiungi processo Web Azure](#configure), quindi fare clic su **OK**.
+3. Completare la finestra di dialogo [Aggiungi processo Web Azure](#configure) , quindi fare clic su **OK**. 
 
-### <a id="convertnolink"></a> Abilitare la distribuzione dei processi Web senza un progetto Web
+### <a name="a-idconvertnolinka-enable-webjobs-deployment-without-a-web-project"></a><a id="convertnolink"></a> Abilitare la distribuzione dei processi Web senza un progetto Web
 1. Fare clic con il pulsante destro del mouse sul progetto di applicazione console in **Esplora soluzioni**, quindi scegliere **Pubblica come processo Web Azure**. 
    
     ![Pubblica come processo Web Azure](./media/websites-dotnet-deploy-webjobs/paw.png)
    
-    Viene visualizzata la finestra di dialogo [Aggiungi processo Web Azure](#configure) con il progetto selezionato nella casella **Nome progetto**.
-2. Completare la finestra di dialogo [Aggiungi processo Web Azure](#configure), quindi fare clic su **OK**.
+    Viene visualizzata la finestra di dialogo [Aggiungi processo Web Azure](#configure) con il progetto selezionato nella casella **Nome progetto** .
+2. Completare la finestra di dialogo [Aggiungi processo Web Azure](#configure) , quindi fare clic su **OK**.
    
-   Viene visualizzata la procedura guidata **Pubblica sito Web**. Se non si vuole eseguire subito la pubblicazione, chiudere la procedura guidata. Le impostazioni immesse vengono salvate in modo da poter essere usate quando si vuole [distribuire il progetto](#deploy).
+   Viene visualizzata la procedura guidata **Pubblica sito Web** .  Se non si vuole eseguire subito la pubblicazione, chiudere la procedura guidata. Le impostazioni immesse vengono salvate in modo da poter essere usate quando si vuole [distribuire il progetto](#deploy).
 
-## <a id="create"></a>Creare un nuovo progetto abilitato per i processi Web
+## <a name="a-idcreateacreate-a-new-webjobs-enabled-project"></a><a id="create"></a>Creare un nuovo progetto abilitato per i processi Web
 Per creare un nuovo progetto abilitato per i processi Web, è possibile usare il modello del progetto di applicazione console e abilitare la distribuzione dei processi Web come descritto nella [sezione precedente](#convert). In alternativa, è possibile usare il modello nuovo-progetto di processi Web:
 
 * [Usare il modello nuovo-progetto di processi Web per un processo Web indipendente](#createnolink)
@@ -89,42 +93,42 @@ Per creare un nuovo progetto abilitato per i processi Web, è possibile usare il
 > 
 > 
 
-### <a id="createnolink"></a> Usare il modello nuovo-progetto di processi Web per un processo Web indipendente
+### <a name="a-idcreatenolinka-use-the-webjobs-new-project-template-for-an-independent-webjob"></a><a id="createnolink"></a> Usare il modello nuovo-progetto di processi Web per un processo Web indipendente
 1. Fare clic su **File** > **Nuovo progetto**, quindi nella finestra di dialogo **Nuovo progetto** fare clic su **Cloud** > **Processo Web Microsoft Azure**.
    
     ![Finestra di dialogo Nuovo progetto con il modello processo Web](./media/websites-dotnet-deploy-webjobs/np.png)
 2. Seguire le istruzioni illustrate in precedenza per [rendere il progetto di applicazione console un progetto processi Web indipendente](#convertnolink).
 
-### <a id="createlink"></a> Usare il modello nuovo-progetto di processi Web per un processo Web collegato a un progetto Web
+### <a name="a-idcreatelinka-use-the-webjobs-new-project-template-for-a-webjob-linked-to-a-web-project"></a><a id="createlink"></a> Usare il modello nuovo-progetto di processi Web per un processo Web collegato a un progetto Web
 1. Fare clic con il pulsante destro del mouse sul progetto Web in **Esplora soluzioni**, quindi scegliere **Aggiungi** > **Nuovo progetto processo Web Azure**.
    
     ![Voce del menu Nuovo progetto processo Web Azure](./media/websites-dotnet-deploy-webjobs/nawj.png)
    
-    Viene visualizzata la finestra di dialogo [Aggiungi processo Web Azure](#configure).
-2. Completare la finestra di dialogo [Aggiungi processo Web Azure](#configure), quindi fare clic su **OK**.
+    Viene visualizzata la finestra di dialogo [Aggiungi processo Web Azure](#configure) .
+2. Completare la finestra di dialogo [Aggiungi processo Web Azure](#configure) , quindi fare clic su **OK**.
 
-## <a id="configure"></a>Finestra di dialogo Aggiungi processo Web Azure
-La finestra di dialogo **Aggiungi processo Web Azure** consente di immettere il nome del processo Web e le impostazioni di pianificazione per il processo Web.
+## <a name="a-idconfigureathe-add-azure-webjob-dialog"></a><a id="configure"></a>Finestra di dialogo Aggiungi processo Web Azure
+La finestra di dialogo **Aggiungi processo Web Azure** consente di immettere il nome del processo Web e le impostazioni di pianificazione per il processo Web. 
 
 ![Finestra di dialogo Aggiungi processo Web Azure](./media/websites-dotnet-deploy-webjobs/aaw2.png)
 
 I campi in questa finestra di dialogo corrispondono ai campi presenti nella finestra di dialogo **Nuovo processo** del portale di Azure. Per ulteriori informazioni, vedere [attività in Background eseguito con WebJobs](web-sites-create-web-jobs.md).
 
-Per un processo Web pianificato (non per i processi Web in modalità continua), Visual Studio crea una raccolta di processi dell'[utilità di pianificazione di Azure](/services/scheduler/), se non ne esiste ancora una, e crea un processo nella raccolta:
+Per un processo Web pianificato (non per i processi Web in modalità continua), Visual Studio crea una raccolta di processi dell' [utilità di pianificazione di Azure](/services/scheduler/) , se non ne esiste ancora una, e crea un processo nella raccolta:
 
-* La raccolta di processi dell'utilità di pianificazione viene denominata *WebJobs-{nomearea}*, dove *{nomearea}* si riferisce all'area in cui è ospitato il sito Web. Ad esempio: Ad esempio: WebJobs WestUS.
+* La raccolta di processi dell'utilità di pianificazione viene denominata *WebJobs-{nomearea}* dove *{nomearea}* si riferisce all'area in cui è ospitata l'app Web. Ad esempio: Ad esempio: WebJobs WestUS.
 * Il processo dell'utilità di pianificazione viene denominato *{nomesitoweb}-{nomeprocessoweb}*. Ad esempio: MyWebJob MyWebApp. 
 
 > [!NOTE]
-> * Per informazioni sulla distribuzione da riga di comando, vedere [Abilitazione della riga di comando o del recapito continuo di processi Web Azure](/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/).
+> * Per informazioni sulla distribuzione da riga di comando, vedere [Abilitazione della riga di comando o del recapito continuo di processi Web Azure](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/).
 > * Se si configura un **Processo ricorrente** e si imposta una frequenza di ricorrenza su un numero di minuti, il servizio dell'utilità di pianificazione di Azure non è gratuito. Altre frequenze (ore, giorni e così via) sono gratuite.
 > * Se si distribuisce un processo Web e si desidera modificare il tipo di processo Web e ridistribuire, è necessario eliminare il file settings.json webjobs di pubblicazione. In questo modo Visual Studio Mostra le opzioni di pubblicazione, è possibile modificare il tipo di processo Web.
 > * Se si distribuisce un processo Web e successivamente si modifica la modalità di esecuzione da continua a non continua o viceversa, Visual Studio crea un nuovo processo Web in Azure quando si esegue nuovamente la distribuzione. Se si modificano le altre impostazioni di pianificazione lasciando invariata la modalità di esecuzione o passando dalla modalità pianificata a quella su richiesta o viceversa, Visual Studio aggiorna il processo esistente anziché crearne uno nuovo.
 > 
 > 
 
-## <a id="publishsettings"></a>webjob-publish-settings.json
-Quando si configura un'applicazione console per la distribuzione dei processi Web, Visual Studio installa il pacchetto NuGet [Microsoft.Web.WebJobs.Publish](http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) e archivia le informazioni di pianificazione in un file *webjob-publish-settings.json* nel cartella *Proprietà* del progetto processi Web. Di seguito è riportato un esempio di tale file:
+## <a name="a-idpublishsettingsawebjob-publish-settingsjson"></a><a id="publishsettings"></a>webjob-publish-settings.json
+Quando si configura un'applicazione console per la distribuzione dei processi Web, Visual Studio installa il pacchetto NuGet [Microsoft.Web.WebJobs.Publish](http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) e archivia le informazioni di pianificazione in un file *webjob-publish-settings.json* nella cartella *Proprietà* del progetto processi Web. Di seguito è riportato un esempio di tale file:
 
         {
           "$schema": "http://schemastore.org/schemas/json/webjob-publish-settings.json",
@@ -136,15 +140,15 @@ Quando si configura un'applicazione console per la distribuzione dei processi We
           "runMode": "Scheduled"
         }
 
-È possibile modificare questo file direttamente e Visual Studio fornisce IntelliSense. Lo schema del file viene archiviato in [http://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json) da dove può essere visualizzato.
+È possibile modificare questo file direttamente e Visual Studio fornisce IntelliSense. Lo schema del file viene archiviato in [http://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json) da dove può essere visualizzato.  
 
 > [!NOTE]
 > * Se si configura un **Processo ricorrente** e si imposta una frequenza di ricorrenza su un numero di minuti, il servizio dell'utilità di pianificazione di Azure non è gratuito. Altre frequenze (ore, giorni e così via) sono gratuite.
 > 
 > 
 
-## <a id="webjobslist"></a>webjobs-list.json
-Quando si collega un progetto abilitato per i processi Web in un progetto Web, Visual Studio archivia il nome del progetto processi Web in un file *webjobs-list.json* nella cartella *Proprietà* del progetto Web. L'elenco può contenere più progetti processi Web, come illustrato nell'esempio seguente:
+## <a name="a-idwebjobslistawebjobs-listjson"></a><a id="webjobslist"></a>webjobs-list.json
+Quando si collega un progetto abilitato per i processi Web a un progetto Web, Visual Studio archivia il nome del progetto processi Web in un file *webjobs-list.json* nella cartella *Proprietà* del progetto Web. L'elenco può contenere più progetti processi Web, come illustrato nell'esempio seguente:
 
         {
           "$schema": "http://schemastore.org/schemas/json/webjobs-list.json",
@@ -160,16 +164,21 @@ Quando si collega un progetto abilitato per i processi Web in un progetto Web, V
 
 È possibile modificare questo file direttamente e Visual Studio fornisce IntelliSense. Lo schema del file viene archiviato in [http://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) da dove può essere visualizzato.
 
-## <a id="deploy"></a>Distribuire un progetto processi Web
+## <a name="a-iddeployadeploy-a-webjobs-project"></a><a id="deploy"></a>Distribuire un progetto processi Web
 Un progetto processi Web collegato a un progetto Web viene distribuito automaticamente con il progetto Web. Per informazioni sulla distribuzione dei progetti Web, vedere [Come distribuire su App Web](web-sites-deploy.md).
 
-Per distribuire un progetto processi Web indipendente, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni**, quindi scegliere **Pubblica come processo Web Azure**.
+Per distribuire un progetto processi Web indipendente, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni**, quindi scegliere **Pubblica come processo Web Azure**. 
 
 ![Pubblica come processo Web Azure](./media/websites-dotnet-deploy-webjobs/paw.png)
 
 Per un processo Web indipendente viene visualizzata la stessa procedura guidata **Pubblica sito Web** usata per i progetti Web ma con meno impostazioni disponibili da modificare.
 
-## <a id="nextsteps"></a>Passaggi successivi
+## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Passaggi successivi
 Questo articolo ha descritto come distribuire processi Web tramite Visual Studio. Per altre informazioni su come distribuire Processi Web di Azure, vedere [Risorse di documentazione di Processi Web di Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
 
-<!---HONumber=AcomDC_0504_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

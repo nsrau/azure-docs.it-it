@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 08/15/2016
+ms.date: 11/23/2016
 ms.author: piotrci
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6dcadbfb99d4d111ab9ddde9d74db65b5542a8f5
 
 
 ---
@@ -26,9 +26,9 @@ ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
 > 
 > 
 
-Questo articolo illustra come pubblicare applicazioni per singoli utenti in una raccolta di Azure RemoteApp. Si tratta di una nuova funzionalità di Azure RemoteApp, attualmente disponibile in "anteprima privata" e solo per alcuni utenti selezionati per finalità di valutazione.
+Questo articolo illustra come pubblicare applicazioni per singoli utenti in una raccolta di Azure RemoteApp. Si tratta di una nuova funzionalità di Azure RemoteApp, attualmente disponibile in anteprima privata e solo per alcuni utenti selezionati per finalità di valutazione.
 
-In origine Azure RemoteApp consentiva solo un modo per "pubblicare" le applicazioni: l'amministratore pubblicava le app dall'immagine e le app risultavano visibili a tutti gli utenti della raccolta.
+In origine Azure RemoteApp consentiva solo un modo per pubblicare le applicazioni: l'amministratore pubblicava le app dall'immagine e le app risultavano visibili a tutti gli utenti della raccolta.
 
 Uno scenario comune consiste nell'includere molte applicazioni in una singola immagine e distribuire una sola raccolta per ridurre i costi di gestione. Spesso non tutte le applicazioni sono rilevanti per tutti gli utenti. Gli amministratori preferirebbero pubblicare app per i singoli utenti, in modo che gli utenti non vedano applicazioni non necessari nei rispettivi feed dell'applicazione.
 
@@ -36,8 +36,8 @@ Questa operazione è ora possibile in Azure RemoteApp, attualmente disponibile c
 
 1. È possibile impostare una delle due modalità seguenti per una raccolta:
    
-   * La "modalità raccolta" originale, in cui tutti gli utenti di una raccolta possono visualizzare tutte le applicazioni pubblicate. Si tratta della modalità predefinita.
-   * La nuova "modalità applicazione", in cui gli utenti possono visualizzare solo le applicazioni assegnate in modo specifico a loro.
+   * La modalità raccolta originale, in cui tutti gli utenti di una raccolta possono visualizzare tutte le applicazioni pubblicate. Si tratta della modalità predefinita.
+   * La nuova modalità applicazione, in cui gli utenti possono visualizzare solo le applicazioni assegnate in modo esplicito a loro.
 2. In questo momento è possibile abilitare la modalità applicazione solo usando i cmdlet di PowerShell di Azure RemoteApp.
    
    * Se viene abilitata la modalità applicazione, l'assegnazione utente nella raccolta non può essere gestita tramite il portale di Azure. L'assegnazione utente deve essere gestita tramite cmdlet di PowerShell.
@@ -49,7 +49,7 @@ Questa operazione è ora possibile in Azure RemoteApp, attualmente disponibile c
 ## <a name="how-to-get-azure-remoteapp-powershell-cmdlets"></a>Come ottenere i cmdlet di PowerShell di Azure RemoteApp
 Per provare la nuova funzionalità in anteprima, è necessario usare i cmdlet di Azure PowerShell. Non è attualmente possibile usare il portale di gestione di Azure per abilitare la nuova modalità di pubblicazione delle applicazioni.
 
-Assicurarsi prima di tutto che il [modulo Azure PowerShell](../powershell-install-configure.md) sia installato.
+Assicurarsi prima di tutto che il [modulo Azure PowerShell](/powershell/azureps-cmdlets-docs) sia installato.
 
 Avviare quindi la console di PowerShell in modalità amministratore ed eseguire il cmdlet seguente:
 
@@ -106,6 +106,6 @@ Se non si è ancora autorizzati a provare l'anteprima, usare questo [sondaggio](
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

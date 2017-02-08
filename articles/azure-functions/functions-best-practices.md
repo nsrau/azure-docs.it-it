@@ -26,7 +26,7 @@ ms.openlocfilehash: 04a5e190a69b1a1a4d0fe6c49c16ddb15593ba38
 
 ##<a name="overview"></a>Panoramica
 
-Questo articolo offre una raccolta di procedure consigliate da tenere in considerazione quando si implementano app per le funzioni. Ricordare che l'applicazione Funzioni di Azure è un servizio app di Azure. Pertanto, tali procedure consigliate sono valide.  
+Questo articolo offre una raccolta di procedure consigliate da tenere in considerazione quando si implementano app per le funzioni. Ricordare che l'applicazione Funzioni di Azure è un servizio app di Azure. Pertanto, tali procedure consigliate sono valide.
 
 
 ## <a name="avoid-large-long-running-functions"></a>Evitare funzioni di grandi dimensioni con esecuzione prolungata

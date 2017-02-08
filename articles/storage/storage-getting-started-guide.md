@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 11/17/2016
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 369e45ed8303735976813c1224ce74842f886536
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a8f90f07a4402c0d2fb9ffc3bd35de18e2a39927
 
 
 ---
@@ -47,10 +47,9 @@ Ora verrà creata una semplice applicazione di Archiviazione di Azure usando uno
 3. Nella finestra di dialogo **Nuovo progetto**, fare clic su **Installati** > **Modelli** > **Visual C#** > **Cloud** > **QuickStarts** > **Servizi dati**.
     a. Scegliere uno dei modelli seguenti: **Archiviazione di Azure: BLOB**, **Archiviazione di Azure: file**, **Archiviazione di Azure: code** o **Archiviazione di Azure: tabelle**.
     b. Assicurarsi che come framework di destinazione sia selezionata l'opzione **.NET Framework 4.5**.
-   
-   * 3.c. Specificare un nome per il progetto e creare la nuova soluzione di Visual Studio, come illustrato:
+    c. Specificare un nome per il progetto e creare la nuova soluzione di Visual Studio, come illustrato:
      
-     ![Avvio rapido di Azure][Image1]
+    ![Avvio rapido di Azure][Image1]
 
 È possibile esaminare il codice sorgente prima di eseguire l'applicazione. Per esaminare il codice, selezionare **Esplora soluzioni** nel menu **Visualizza** di Visual Studio. Quindi, fare doppio clic sul file Program.cs.
 
@@ -59,7 +58,10 @@ A questo punto, eseguire l'applicazione di esempio:
 1. In Visual Studio, selezionare **Esplora Soluzioni** sul menu **Visualizza**. Aprire il file App.config e impostare come commento la stringa di connessione per l'emulatore di archiviazione di Azure:
    
    `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
-2. Rimuovere i simboli di commento dalla stringa di connessione per il servizio di archiviazione di Azure e fornire il nome e la chiave di accesso dell'account di archiviazione nel file App.config: `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
+
+2. Rimuovere i simboli di commento dalla stringa di connessione per il servizio di archiviazione di Azure e fornire il nome e la chiave di accesso dell'account di archiviazione nel file App.config:
+   
+   `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
    
    Per recuperare la chiave di accesso dell'account di archiviazione, vedere [Gestire le chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#manage-your-storage-access-keys).
 3. Dopo aver specificato il nome e la chiave di accesso dell'account di archiviazione nel file App.config, nel menu **File** fare clic su **Salva tutto** per salvare tutti i file di progetto.
@@ -79,11 +81,12 @@ Proviamo, verrà creata una semplice applicazione di Archiviazione di Azure usan
     c. Specificare un nome per il progetto e creare la nuova soluzione di Visual Studio, come illustrato:
    
     ![Avvio rapido di Azure][Image1]
+
 4. In Visual Studio, selezionare **Esplora Soluzioni** sul menu **Visualizza**. Aprire il file App.config e impostare come commento la stringa di connessione per l'account di archiviazione di Azure, se è già stato aggiunto. Quindi rimuovere il commento della stringa di connessione per l'emulatore di archiviazione di Azure:
    
    `<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>`
 
-È possibile esaminare il codice sorgente prima di eseguire l'applicazione. Per esaminare il codice, selezionare **Esplora soluzioni** nel menu **Visualizza** di Visual Studio. Quindi, fare doppio clic sul file Program.cs.
+È possibile esaminare il codice sorgente prima di eseguire l'applicazione. Per esaminare il codice, selezionare **Esplora soluzioni** nel menu **Visualizza** di Visual Studio. Quindi fare doppio clic sul file Program.cs.
 
 Successivamente, eseguire l'applicazione di esempio nell'emulatore di archiviazione di Azure:
 
@@ -109,6 +112,6 @@ Per ulteriori informazioni sull'archiviazione Azure, vedere la risorsa seguente:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

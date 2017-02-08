@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 453c71fe4636eddb4e96eef7acc7e62b99dca4dd
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 02d8de2e37af9ccbf79bb77180b0eda0d187eb5c
 
 
 ---
@@ -169,7 +169,7 @@ Dove `yourdomainname` è il nome di dominio configurato con Azure Active Directo
 
 ### <a name="join-a-windows-81-device-using-azure-active-directory-device-registration"></a>Aggiungere un dispositivo Windows 8.1 con Registrazione dispositivo di Azure Active Directory
 1. Nel dispositivo Windows 8.1 passare a **Impostazioni PC** > **Rete** > **Area di lavoro**.
-2. Immettere il proprio nome utente in formato UPN, Ad esempio dan@contoso.com.
+2. Immettere il proprio nome utente in formato UPN, Ad esempio: dan@contoso.com..
 3. Selezionare **Aggiungi**.
 4. Quando richiesto, accedere con le proprie credenziali. Il dispositivo ora è aggiunto.
 
@@ -238,6 +238,6 @@ A questo punto, quando gli utenti accedono all'applicazione da un dispositivo no
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

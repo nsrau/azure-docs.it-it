@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
-ms.openlocfilehash: df2b27fd7016294f14d2ad87325a2acf24c15d85
+ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
+ms.openlocfilehash: cd66296718d8ae3cd2bcd69c66f54684f57d7ece
 
 
 ---
@@ -83,7 +83,7 @@ Per gli scenari da servizio a servizio, proteggere l'app per le API chiamata usa
 
 Per gestire uno scenario da servizio a servizio senza l'autenticazione del servizio app, è possibile usare i certificati client o l'autenticazione di base. Per informazioni sui certificati client in Azure, vedere [Come configurare l'autenticazione reciproca TLS per un'app Web](../app-service-web/app-service-web-configure-tls-mutual-auth.md). Per informazioni sull'autenticazione di base in ASP.NET, vedere il blog sui [filtri di autenticazione nell'API Web 2 ASP.NET](http://www.asp.net/web-api/overview/security/authentication-filters).
 
-L'autenticazione dell'account da un'app per la logica del servizio app per un'app per le API è un caso speciale ed è illustrata nell'articolo [Uso dell'API personalizzata ospitata nel servizio app con App per la logica](../app-service-logic/app-service-logic-custom-hosted-api.md).
+L'autenticazione dell'account da un'app per la logica del servizio app per un'app per le API è un caso speciale ed è illustrata nell'articolo [Uso dell'API personalizzata ospitata nel servizio app con App per la logica](../logic-apps/logic-apps-custom-hosted-api.md).
 
 ## <a name="mobile-client-authentication"></a>Autenticazione dei client per dispositivi mobili
 Per informazioni su come gestire l'autenticazione dai client per dispositivi mobili, vedere la [documentazione sull'autenticazione per le app per dispositivi mobili](../app-service-mobile/app-service-mobile-ios-get-started-users.md). L'autenticazione del servizio app funziona allo stesso modo per le app per dispositivi mobili e per le app per le API.
@@ -112,6 +112,6 @@ Questo articolo ha illustrato le funzionalità di autenticazione e autorizzazion
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

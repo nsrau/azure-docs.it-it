@@ -1,12 +1,12 @@
 ---
-title: Assegnare punteggi a modelli di apprendimento automatico compilati con Spark | Microsoft Docs
+title: Assegnare punteggi a modelli di apprendimento automatico compilati con Spark | Documentazione Microsoft
 description: Informazioni su come assegnare punteggi a modelli di apprendimento salvati in BLOB di Archiviazione di Azure (WASB).
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 626305a2-0abf-4642-afb0-dad0f6bd24e9
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: deguhath;bradsev;gokuma
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4aa61eb5fb6c441bdfebd8bcc46ad62fbaf78548
+
 
 ---
 # <a name="score-spark-built-machine-learning-models"></a>Assegnare punteggi a modelli di apprendimento automatico compilati con Spark
@@ -27,7 +31,7 @@ Questo argomento descrive come caricare modelli di Machine Learning compilati co
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="setup:-storage-locations,-libraries,-and-the-preset-spark-context"></a>Configurazione: percorsi di archiviazione, librerie e contesto Spark preimpostato
+## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>Configurazione: percorsi di archiviazione, librerie e contesto Spark preimpostato
 Spark può eseguire operazioni di lettura e scrittura in un BLOB del servizio di archiviazione di Azure (WASB). I dati esistenti archiviati in WASB possono essere elaborati con Spark e i relativi risultati possono essere memorizzati nuovamente in BLOB di Archiviazione di Azure.
 
 Per salvare file o modelli in WASB, è necessario specificare correttamente il percorso. È possibile fare riferimento al contenitore predefinito collegato al cluster Spark usando un percorso che inizia con: *"wasb//"*. L'esempio di codice seguente specifica il percorso dei dati da leggere e il percorso della directory di archiviazione del modello in cui viene salvato l'output del modello. 
@@ -174,7 +178,7 @@ Tempo impiegato per eseguire questa cella: 46,37 secondi.
 ## <a name="prepare-data-for-scoring-in-spark"></a>Preparare i dati per l'assegnazione dei punteggi in Spark
 Questa sezione illustra come indicizzare, codificare e ridimensionare le caratteristiche categoriche per prepararle all'uso in algoritmi di apprendimento supervisionato di MLlib, per la classificazione e la regressione.
 
-### <a name="feature-transformation:-index-and-encode-categorical-features-for-input-into-models-for-scoring"></a>Trasformazione di funzionalità: indicizzare e codificare funzionalità categoriche per l'inserimento in modelli per l'assegnazione dei punteggi
+### <a name="feature-transformation-index-and-encode-categorical-features-for-input-into-models-for-scoring"></a>Trasformazione di funzionalità: indicizzare e codificare funzionalità categoriche per l'inserimento in modelli per l'assegnazione dei punteggi
 Questa sezione illustra come indicizzare dati categorici con `StringIndexer` e codificare funzionalità con `OneHotEncoder` per l'inserimento nei modelli.
 
 [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) esegue la codifica di una colonna stringa di etichette in una colonna di indici etichetta. Gli indici sono ordinati in base alla frequenza delle etichette. 
@@ -393,7 +397,7 @@ Il codice riportato in questa sezione illustra come caricare i modelli di forest
     # RECORD START TIME
     timestart = datetime.datetime.now()
 
-    #IMPORT MLLIB LIBRARIES 
+    #IMPORT MLLIB LIBRARIES    
     from pyspark.mllib.tree import RandomForest, RandomForestModel
 
 
@@ -571,11 +575,14 @@ Se si preferisce non ricorrere al codice, usare [App per la logica di Azure](htt
 * Per visualizzare **Progettazione app per la logica**, immettere il nome dell'app per la logica e il piano di servizio app.
 * Selezionare un'azione HTTP e immettere i parametri mostrati nella figura seguente:
 
-![](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)
+![Progettazione app per la logica](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)
 
-## <a name="what's-next?"></a>Passaggi successivi
+## <a name="whats-next"></a>Passaggi successivi
 **Convalida incrociata e sweep di iperparametri**: vedere [Esplorazione e modellazione avanzate dei dati con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) per informazioni su come istruire i modelli sulla convalida incrociata e lo sweep di iperparametri.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

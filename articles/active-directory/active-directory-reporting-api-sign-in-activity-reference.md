@@ -1,12 +1,12 @@
 ---
-title: Riferimento API del report sull'attività di accesso di Azure Active Directory | Microsoft Docs
-description: Riferimento API del report sull'attività di accesso di Azure Active Directory
+title: "Riferimento API del report sull&quot;attività di accesso di Azure Active Directory | Documentazione Microsoft"
+description: "Riferimento API del report sull&quot;attività di accesso di Azure Active Directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2016
 ms.author: dhanyahk;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: dce65678f9fc96d5802a7b705689cc63e6532c84
+
 
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Riferimento API del report sull'attività di accesso di Azure Active Directory
@@ -28,7 +32,7 @@ Vedere:
 
 Per domande, problemi o suggerimenti, contattare la [Guida per la creazione di report AAD](mailto:aadreportinghelp@microsoft.com).
 
-## <a name="who-can-access-the-api-data?"></a>Chi può accedere ai dati dell'API?
+## <a name="who-can-access-the-api-data"></a>Chi può accedere ai dati dell'API?
 * Gli utenti con ruolo di amministratore della sicurezza o con autorizzazioni di lettura per la sicurezza
 * Gli amministratori globali
 * Qualsiasi applicazione che dispone di autorizzazione per accedere all'API. L'autorizzazione dell'app può essere configurata solo in base alle autorizzazioni dell'amministratore globale.
@@ -94,7 +98,7 @@ Per restringere l'ambito dei dati restituiti, è possibile creare combinazioni d
 
 Uso di una data specifica
 
-    $filter=signinDateTime+eq+2016-04-25T23:59:00Z  
+    $filter=signinDateTime+eq+2016-04-25T23:59:00Z    
 
 
 
@@ -177,6 +181,9 @@ Sono disponibili due opzioni per loginStatus: 0 - esito positivo, 1 - esito nega
 * Si desidera vedere esempi sulle attività di accesso filtrate? Consultare la pagina [Esempi dell'API del report sull'attività di accesso di Azure Active Directory](active-directory-reporting-api-sign-in-activity-samples.md).
 * Si desiderano altre informazioni sull'API di creazione report di Azure AD? Vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

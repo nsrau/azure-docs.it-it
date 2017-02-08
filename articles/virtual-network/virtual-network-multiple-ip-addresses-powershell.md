@@ -4,7 +4,7 @@ description: "Informazioni su come assegnare più indirizzi IP a una macchina vi
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: c44ea62f-7e54-4e3b-81ef-0b132111f1f8
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 11/30/2016
 ms.author: jdial;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: a0d8a6dbe793bc4ea5211e772439d931c8e84a04
-ms.openlocfilehash: cf2a57f96576b18692dd42a9680d7f3b8d8f7c69
+ms.sourcegitcommit: 11e490ee3b2d2f216168e827154125807a61a73f
+ms.openlocfilehash: 39b45b276c50922878e9918b225f6fa399d42edf
 
 
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Assegnare più indirizzi IP alle macchine virtuali usando PowerShell
 
 > [!div class="op_single_selector"]
-> * [portale di Azure](virtual-network-multiple-ip-addresses-portal.md)
+> * [Portale](virtual-network-multiple-ip-addresses-portal.md)
 > * [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 > * [CLI](virtual-network-multiple-ip-addresses-cli.md)
 >
@@ -35,7 +35,7 @@ Una macchina virtuale di Azure può essere associata a una o più interfacce di 
 * Fungere da appliance virtuale di rete, ad esempio un firewall o un servizio di bilanciamento del carico.
 * Aggiungere qualsiasi indirizzo IP per qualsiasi scheda di interfaccia di rete a un pool back-end di Azure Load Balancer. In passato, era possibile aggiungere a un pool di back-end solo gli indirizzi IP primari per la scheda di interfaccia di rete primaria. Per altre informazioni su come bilanciare il carico di più configurazioni IP, leggere l'articolo [Load balancing multiple IP configurations](../load-balancer/load-balancer-multiple-ip.md) (Bilanciamento del carico di più configurazioni IP).
 
-Ogni scheda di interfaccia di rete collegata a una macchina virtuale dispone di una o più configurazioni IP associate. A ogni configurazione viene assegnato un indirizzo IP privato statico o dinamico. Ogni configurazione può anche avere una risorsa di indirizzo IP pubblico associata. Una risorsa indirizzo IP pubblico dispone di un indirizzo IP dinamico o statico assegnato. Se non si ha familiarità con gli indirizzi IP in Azure, leggere l'articolo [Indirizzi IP in Azure](virtual-network-ip-addresses-overview-arm.md) per ottenere altre informazioni.
+Ogni scheda di interfaccia di rete collegata a una macchina virtuale dispone di una o più configurazioni IP associate. A ogni configurazione viene assegnato un indirizzo IP privato statico o dinamico. Ogni configurazione può anche avere una risorsa di indirizzo IP pubblico associata. Una risorsa indirizzo IP pubblico dispone di un indirizzo IP dinamico o statico assegnato. Per altre informazioni sugli indirizzi IP in Azure, leggere l'articolo sugli [indirizzi IP in Azure](virtual-network-ip-addresses-overview-arm.md).
 
 In questo articolo viene illustrato come usare il portale di Azure per assegnare più indirizzi IP a una VM creata tramite il modello di distribuzione Azure Resource Manager. Non è possibile a assegnare più indirizzi IP alle risorse create tramite il modello di distribuzione classica. Per altre informazioni sui modelli di distribuzione di Azure, leggere l'articolo [Understand Azure deployment models](../resource-manager-deployment-model.md) (Informazioni sui modelli di distribuzione di Azure).
 
@@ -56,7 +56,7 @@ Le configurazioni IP vengono associate alla scheda di interfaccia di rete al mom
 
 La procedura seguente illustra come creare una macchina virtuale di esempio con più indirizzi IP, come descritto nello scenario. Modificare i nomi delle variabili e i tipi di indirizzi IP come richiesto per l'implementazione.
 
-1. Aprire un prompt dei comandi di PowerShell e completare i passaggi rimanenti in questa sezione in una singola sessione di PowerShell. Se PowerShell non è già installato e configurato, completare la procedura disponibile nell'articolo [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) .
+1. Aprire un prompt dei comandi di PowerShell e completare i passaggi rimanenti in questa sezione in una singola sessione di PowerShell. Se PowerShell non è già installato e configurato, completare la procedura disponibile nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 2. Registrarsi all'anteprima inviando un messaggio di posta elettronica a [IP multipli](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) con l'ID sottoscrizione e l'uso previsto. Non completare i passaggi rimanenti:
     - Finché non si riceve un messaggio di posta elettronica che comunica che si è stati accettati nell'anteprima.
     - Senza seguire le istruzioni nel messaggio di posta elettronica ricevuto.
@@ -129,150 +129,13 @@ La procedura seguente illustra come creare una macchina virtuale di esempio con 
     ```powershell
     $myNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
     ```
-
-## <a name="a-nameosconfigaadd-ip-addresses-to-a-vm-operating-system"></a><a name="OsConfig"></a>Aggiungere indirizzi IP a un sistema operativo VM
-
-Connettersi e accedere alla VM creata con più indirizzi IP privati. È necessario aggiungere manualmente tutti gli indirizzi IP privati aggiunti alla VM, incluso l'indirizzo primario. Completare i passaggi seguenti per il sistema operativo VM:
-
-### <a name="windows"></a>Windows
-
-1. Da un prompt dei comandi digitare *ipconfig /all*.  Viene visualizzato solo l'indirizzo IP privato *Primary* , tramite DHCP.
-2. Digitare *ncpa.cpl* nel prompt dei comandi per aprire la finestra **Connessioni di rete**.
-3. Aprire le proprietà per**Connessione alla rete locale (LAN)**.
-4. Fare doppio clic su Protocollo Intenret versione 4 (IPv4).
-5. Selezionare **Utilizza il seguente indirizzo IP** e immettere i valori seguenti:
-
-    * **Indirizzo IP**: immettere l'indirizzo IP privato *Primary* .
-    * **Subnet mask**: configurare questo valore in base alla subnet. Se, ad esempio, la subnet è di tipo /24, la subnet mask è 255.255.255.0.
-    * **Gateway predefinito**: primo indirizzo IP nella subnet. Se la subnet è 10.0.0.0/24, l'indirizzo IP del gateway è 10.0.0.1.
-    * Fare clic su **Utilizza i seguenti indirizzi server DNS** e immettere i valori seguenti:
-        * **Server DNS preferito**: immettere 168.63.129.16 se non si usa il proprio server DNS.  Se si usa il proprio server DNS, immettere il relativo indirizzo IP.
-    * Fare clic sul pulsante **Avanzate** e aggiungere altri indirizzi IP. Aggiungere ogni indirizzo IP privato secondario elencato nel passaggio 8 all'interfaccia di rete con la stessa subnet specificata per l'indirizzo IP primario.
-    * Fare clic su **OK** per chiudere le impostazioni TCP/IP e quindi di nuovo su **OK** per chiudere le impostazioni della scheda. Viene ristabilita la connessione RDP.
-6. Da un prompt dei comandi digitare *ipconfig /all*. Tutti gli indirizzi IP aggiunti vengono visualizzati e DHCP viene disattivato.
-    
-### <a name="linux-ubuntu"></a>Linux (Ubuntu)
-
-1. Aprire una finestra del terminale.
-2. Assicurarsi di essere l'utente ROOT. In caso contrario, immettere il comando seguente:
-
-    ```bash
-    sudo -i
-    ```
-
-3. Aggiornare il file di configurazione dell'interfaccia di rete, presupponendo 'eth0'.
-
-    * Mantenere la voce esistente per dhcp. L'indirizzo IP primario conserva la configurazione precedente.
-    * Aggiungere una configurazione per un indirizzo IP statico aggiuntivo con i comandi seguenti:
-
-        ```bash
-        cd /etc/network/interfaces.d/
-        ls
-        ```
-
-    Dovrebbe essere visualizzato un file con estensione cfg.
-4. Aprire il file: vi *filename*.
-
-    Dovrebbero essere visualizzate le righe seguenti alla fine del file:
-
-    ```bash
-    auto eth0
-    iface eth0 inet dhcp
-    ```
-
-5. Aggiungere le righe seguenti dopo le righe esistenti nel file:
-
-    ```bash
-    iface eth0 inet static
-    address <your private IP address here>
-    ```
-
-6. Salvare il file usando il comando seguente:
-
-    ```bash
-    :wq
-    ```
-
-7. Reimpostare l'interfaccia di rete con il comando seguente:
-
-    ```bash
-    sudo ifdown eth0 && sudo ifup eth0
-    ```
-
-    > [!IMPORTANT]
-    > Eseguire ifdown e ifup nella stessa riga se si usa una connessione remota.
-    >
-
-8. Verificare che l'indirizzo IP venga aggiunto all'interfaccia di rete con il comando seguente:
-
-    ```bash
-    Ip addr list eth0
-    ```
-
-    L'indirizzo IP aggiunto dovrebbe essere incluso nell'elenco.
-    
-### <a name="linux-redhat-centos-and-others"></a>Linux (Redhat, CentOS e altro)
-
-1. Aprire una finestra del terminale.
-2. Assicurarsi di essere l'utente ROOT. In caso contrario, immettere il comando seguente:
-
-    ```bash
-    sudo -i
-    ```
-
-3. Immettere la password e seguire le istruzioni visualizzate. Quando si è l'utente ROOT, passare alla cartella degli script di rete con il comando seguente:
-
-    ```bash
-    cd /etc/sysconfig/network-scripts
-    ```
-
-4. Elencare i file ifcfg correlati usando il comando seguente:
-
-    ```bash
-    ls ifcfg-*
-    ```
-
-    Uno dei file visualizzati dovrebbe essere *ifcfg-eth0* .
-
-5. Copiare il file *ifcfg-eth0* e denominarlo *ifcfg-eth0:0* con il comando seguente:
-
-    ```bash
-    cp ifcfg-eth0 ifcfg-eth0:0
-    ```
-
-6. Modificare il file *ifcfg-eth0:0* con il comando seguente:
-
-    ```bash
-    vi ifcfg-eth1
-    ```
-
-7. Cambiare il dispositivo specificando il nome appropriato nel file, in questo caso *eth0:0* , con il comando seguente:
-
-    ```bash
-    DEVICE=eth0:0
-    ```
-
-8. Cambiare la riga *IPADDR = YourPrivateIPAddress* in modo che rispecchi l'indirizzo IP.
-9. Salvare il file usando il comando seguente:
-
-    ```bash
-    :wq
-    ```
-
-10. Riavviare i servizi di rete e assicurarsi che le modifiche siano riuscite eseguendo i comandi seguenti:
-
-    ```bash
-    /etc/init.d/network restart
-    Ipconfig
-    ```
-
-    L'indirizzo IP aggiunto, *eth0:0*, dovrebbe essere incluso nell'elenco restituito.
+9. Aggiungere gli indirizzi IP privati al sistema operativo della VM completando i passaggi per il proprio sistema operativo indicati nella sezione [Aggiungere indirizzi IP al sistema operativo di una VM](#os-config) in questo articolo. Non aggiungere gli indirizzi IP pubblici al sistema operativo.
 
 ## <a name="a-nameaddaadd-ip-addresses-to-a-vm"></a><a name="add"></a>Aggiungere indirizzi IP a una macchina virtuale
 
-È possibile aggiungere indirizzi IP privati e pubblici a una scheda di interfaccia di rete esistente completando la procedura seguente. Gli esempi si basano sullo [scenario](#Scenario) descritto in questo articolo.
+È possibile aggiungere indirizzi IP privati e pubblici a una scheda di interfaccia di rete esistente completando la procedura seguente. Gli esempi delle sezioni seguenti presuppongono che si disponga già di una VM con le tre configurazioni IP descritte nello [scenario](#Scenario) di questo articolo, ma questa condizione non è indispensabile.
 
-1. Aprire un prompt dei comandi di PowerShell e completare i passaggi rimanenti in questa sezione in una singola sessione di PowerShell. Se PowerShell non è già installato e configurato, completare la procedura disponibile nell'articolo [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) .
+1. Aprire un prompt dei comandi di PowerShell e completare i passaggi rimanenti in questa sezione in una singola sessione di PowerShell. Se PowerShell non è già installato e configurato, completare la procedura disponibile nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 2. Registrarsi all'anteprima inviando un messaggio di posta elettronica a [IP multipli](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) con l'ID sottoscrizione e l'uso previsto. Non completare i passaggi rimanenti:
     - Finché non si riceve un messaggio di posta elettronica che comunica che si è stati accettati nell'anteprima.
     - Senza seguire le istruzioni nel messaggio di posta elettronica ricevuto.
@@ -314,24 +177,27 @@ Connettersi e accedere alla VM creata con più indirizzi IP privati. È necessar
 6. Completare i passaggi in una delle sezioni seguenti, a seconda delle esigenze:
 
     **Aggiungere un indirizzo IP privato**
-    
+
     Per aggiungere un indirizzo IP privato a una scheda di interfaccia di rete, è necessario creare una configurazione IP. Il comando seguente crea una configurazione con un indirizzo IP statico 10.0.0.7. Se si desidera aggiungere un indirizzo IP privato dinamico, rimuovere `-PrivateIpAddress 10.0.0.7` prima di immettere il comando. Quando si specifica un indirizzo IP statico, deve essere un indirizzo non usato per la subnet. Si consiglia di verificare l'indirizzo per assicurarsi che sia disponibile tramite il comando `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet`. Se l'indirizzo IP è disponibile, l'output restituisce *True*. Se non è disponibile, l'output restituisce *False* e un elenco di indirizzi disponibili.
 
     ```powershell
     Add-AzureRmNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `
      $myNIC -Subnet $Subnet -PrivateIpAddress 10.0.0.7
     ```
+
     Creare tutte le configurazioni usando nomi di configurazione univoci e indirizzi IP privati (per le configurazioni con indirizzi IP statici).
 
+    Aggiungere l'indirizzo IP privato al sistema operativo della VM completando i passaggi relativi al sistema operativo indicati nella sezione [Aggiungere indirizzi IP al sistema operativo di una VM](#os-config) di questo articolo.
+
     **Aggiungere un indirizzo IP pubblico**
-    
-    L'indirizzo IP pubblico viene aggiunto associandolo a una nuova configurazione IP o a una configurazione IP esistente. Completare i passaggi in una delle sezioni che seguono, a seconda del caso.
+
+    Per aggiungere un indirizzo IP pubblico è necessario associare una risorsa indirizzo IP pubblico a una configurazione IP nuova o esistente. Completare i passaggi in una delle sezioni che seguono, a seconda del caso.
 
     > [!NOTE]
     > Per gli indirizzi IP pubblici è prevista una tariffa nominale. Per altre informazioni sui prezzi degli indirizzi IP, vedere la pagina [Prezzi per gli indirizzi IP](https://azure.microsoft.com/pricing/details/ip-addresses) . È previsto un limite per il numero di indirizzi IP pubblici che possono essere usati in una sottoscrizione. Per altre informazioni sui limiti, vedere l'articolo [Limiti di Azure](../azure-subscription-service-limits.md#networking-limits).
     >
 
-    **Associare la risorsa a una nuova configurazione IP**
+    **Associare la risorsa indirizzo IP pubblico a una nuova configurazione IP**
     
     Ogni volta che si aggiunge un indirizzo IP pubblico a una nuova configurazione IP, è necessario aggiungere anche un indirizzo IP privato, perché tutte le configurazioni IP devono avere un indirizzo IP privato. È possibile aggiungere una risorsa indirizzo IP pubblico esistente o crearne una nuova. Per crearne una nuova, usare il comando seguente:
     
@@ -347,8 +213,9 @@ Connettersi e accedere alla VM creata con più indirizzi IP privati. È necessar
      $myNIC -Subnet $Subnet -PublicIpAddress $myPublicIp3
     ```
 
-    **Associare la risorsa a una configurazione IP esistente**
-    Una risorsa indirizzo IP pubblico può essere associata a una configurazione IP che non dispone ancora di una risorsa associata. È possibile stabilire se una configurazione IP dispone di un indirizzo IP pubblico associato immettendo il comando seguente:
+    **Associare la risorsa indirizzo IP pubblico a una configurazione IP esistente**
+
+    Una risorsa indirizzo IP pubblico può essere associata a una configurazione IP cui non ne sia associata alcuna. È possibile stabilire se una configurazione IP dispone di un indirizzo IP pubblico associato immettendo il comando seguente:
 
     ```powershell
     $myNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
@@ -386,11 +253,11 @@ Connettersi e accedere alla VM creata con più indirizzi IP privati. È necessar
     ```powershell   
     $myNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
     ```
+9. Aggiungere l'indirizzo IP privato al sistema operativo della VM completando i passaggi relativi al sistema operativo indicati nella sezione [Aggiungere indirizzi IP al sistema operativo di una VM](#os-config) di questo articolo. Non aggiungere l'indirizzo IP pubblico al sistema operativo.
 
-9. Aggiungere gli indirizzi IP aggiunti alla scheda di interfaccia di rete al sistema operativo della macchina virtuale seguendo le istruzioni disponibili nella sezione [Aggiungere indirizzi IP a un sistema operativo VM](#OsConfig) in questo articolo.
+[!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,19 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/13/2016
 ms.author: jeannt
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: aff024314d3e0d6c50c321b0a058fa02c01c566a
+ms.sourcegitcommit: 8ea727f7b8d93401b35a7b9dbd2f00a5534c3072
+ms.openlocfilehash: e54c37f688e8d107f5323125ea42d63ec91a4c84
 
 
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Guida al linguaggio di specifica Net# delle reti neurali per Azure Machine Learning
-## <a name="overview"></a>Overview
-Net# è un linguaggio sviluppato da Microsoft e usato per definire le architetture di reti neurali per moduli di rete neurale in Microsoft Azure Machine Learning. Contenuto dell'articolo:  
+## <a name="overview"></a>Panoramica
+Net# è un linguaggio sviluppato da Microsoft e usato per definire le architetture di reti neurali. È possibile usare Net# in moduli di reti neurali in Microsoft Azure Machine Learning o nella funzione `rxNeuralNetwork()` in [MicrosoftML](https://msdn.microsoft.com/microsoft-r/microsoftml/microsoftml). 
 
-* Concetti di base correlati alle reti neurali
+Questo articolo illustra i concetti base necessari per lo sviluppo di una rete neurale personalizzata: 
+
 * Requisiti relativi alla rete neurale e come definire i componenti principali
 * Sintassi e parole chiave del linguaggio di specifica Net#
 * Esempi di reti neurali personalizzate create usando Net# 
@@ -411,6 +412,6 @@ Il linguaggio Net # per personalizzare l'architettura delle reti neurali è stat
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

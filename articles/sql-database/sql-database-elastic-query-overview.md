@@ -7,6 +7,7 @@ manager: jhubbard
 author: torsteng
 ms.assetid: a8bf0e2c-bc74-44d0-9b1e-bcc9a6aa2e33
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,8 +15,8 @@ ms.topic: article
 ms.date: 04/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b86649db4afb6208212647c4858fe25ed2398170
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 06d1d0e4b72a50c093aaa1337b518a9f11ffbaa0
 
 
 ---
@@ -67,7 +68,7 @@ Gli scenari relativi ai clienti per la query elastica sono caratterizzati dalle 
 > 
 
 ## <a name="elastic-database-query-topologies"></a>Topologie di query su database elastico
-### <a name="topology-1-vertical-partitioning-cross-database-queries"></a>Topologia 1: Partizionamento verticale - Query tra database
+### <a name="topology-1-vertical-partitioning--cross-database-queries"></a>Topologia 1: Partizionamento verticale - Query tra database
 Per iniziare a scrivere codice, vedere [Introduzione alle query tra database (partizionamento verticale)](sql-database-elastic-query-getting-started-vertical.md).
 
 È possibile usare una query elastica per rendere disponibili i dati situati in un database SQL ad altri database SQL. Ciò consente alle query di un database di fare riferimento alle tabelle in qualsiasi altro database SQL remoto. Il primo passaggio consiste nel definire un'origine dati esterna per ogni database remoto. L'origine dati esterna viene definita nel database locale da cui si vuole ottenere l'accesso alle tabelle situate nel database remoto. Non è necessaria alcuna modifica al database remoto. Per scenari tipici di partizionamento verticale in cui i diversi database hanno schemi diversi, è possibile usare le query elastiche per implementare casi di utilizzo comuni, ad esempio l'accesso a dati di riferimento e l'esecuzione di query tra database.
@@ -84,7 +85,7 @@ Per iniziare a scrivere codice, vedere [Introduzione alle query tra database (pa
 
 ![ Partizionamento verticale - Uso delle query elastiche per eseguire query in diversi database][4]
 
-### <a name="topology-2-horizontal-partitioning-sharding"></a>Topologia 2: Partizionamento orizzontale - Partizionamento orizzontale
+### <a name="topology-2-horizontal-partitioning--sharding"></a>Topologia 2: Partizionamento orizzontale - Partizionamento orizzontale
 L'uso delle query elastiche per eseguire attività di reporting su un livello dati con partizionamento orizzontale richiede una [mappa partizioni dei database elastici](sql-database-elastic-scale-shard-map-management.md) per rappresentare i database del livello dati. In genere in questo scenario viene usata solo una mappa partizioni e un database dedicato con capacità di query elastiche viene usato come punto di ingresso per le query di reporting. L'accesso alla mappa partizioni è necessario solo per questo database dedicato. La Figura 4 illustra questa topologia e la relativa configurazione, con il database sottoposto a query elastiche e la mappa partizioni. I database del livello dati possono essere database SQL di Azure di qualsiasi versione o edizione. Per altre informazioni sulla libreria client dei database elastici e sulla creazione di mappe partizioni, vedere [Gestione delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md).
 
 **Figura 4** Partizionamento orizzontale - Uso delle query elastiche per la creazione di report relativi ai livelli dati con partizionamento orizzontale
@@ -173,6 +174,6 @@ Per altre informazioni sugli scenari di partizionamento orizzontale, vedere:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

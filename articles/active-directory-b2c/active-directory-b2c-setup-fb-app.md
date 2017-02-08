@@ -70,6 +70,6 @@ Per utilizzare Facebook come provider di identità in Azure Active Directory (Az
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

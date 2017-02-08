@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 16d3db2737db70119c75991388c8c763208ad1fa
+ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
+ms.openlocfilehash: 6871ab3bc25ab3ec7b3c60852aa06bee047d8e9a
 
 
 ---
@@ -27,32 +27,32 @@ ms.openlocfilehash: 16d3db2737db70119c75991388c8c763208ad1fa
 > * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 > * [REST](sql-data-warehouse-manage-compute-rest-api.md)
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
-> 
-> 
+>
+>
 
-L'architettura di SQL Data Warehouse separa le risorse di archiviazione e calcolo consentendo a entrambe di eseguire il ridimensionamento in modo indipendente. Di conseguenza, è possibile ridimensionare le prestazioni e ridurre i costi pagando solo per le prestazioni necessarie. 
+L'architettura di SQL Data Warehouse separa le risorse di archiviazione e calcolo consentendo a entrambe di eseguire il ridimensionamento in modo indipendente. Di conseguenza, è possibile ridimensionare le prestazioni e ridurre i costi pagando solo per le prestazioni necessarie.
 
-Questa panoramica descrive le funzionalità di ridimensionamento delle prestazioni di SQL Data Warehouse seguenti e fornisce indicazioni su come e quando usarle. 
+Questa panoramica descrive le funzionalità di ridimensionamento delle prestazioni di SQL Data Warehouse seguenti e fornisce indicazioni su come e quando usarle.
 
-* Ridimensionare la potenza di calcolo modificando le [Unità Data Warehouse (DWU)][Unità Data Warehouse (DWU)]
+* Ridimensionare la potenza di calcolo modificando le [Unità Data Warehouse (DWU)][data warehouse units (DWUs)]
 * Sospendere o riavviare le risorse di calcolo
 
 <a name="scale-performance-bk"></a>
 
 ## <a name="scale-performance"></a>Ridimensionare le prestazioni
-In SQL Data Warehouse è possibile ridimensionare rapidamente le prestazioni aumentando o riducendo le risorse di calcolo di CPU, memoria e larghezza di banda I/O. Per ridimensionare le prestazioni, è sufficiente modificare il numero di [Unità Data Warehouse (DWU)][Unità Data Warehouse (DWU)] allocate al proprio database da SQL Data Warehouse. SQL Data Warehouse apporta rapidamente la modifica e gestisce tutte le modifiche sottostanti all'hardware o al software.
+In SQL Data Warehouse è possibile ridimensionare rapidamente le prestazioni aumentando o riducendo le risorse di calcolo di CPU, memoria e larghezza di banda I/O. Per ridimensionare le prestazioni, è sufficiente modificare il numero di [Unità Data Warehouse (DWU)][data warehouse units (DWUs)] allocate al proprio database da SQL Data Warehouse. SQL Data Warehouse apporta rapidamente la modifica e gestisce tutte le modifiche sottostanti all'hardware o al software.
 
-Sono ormai passati i tempi in cui occorreva individuare il tipo di processori, la quantità di memoria o il tipo di archiviazione appropriati per garantire prestazioni ottimali nel data warehouse. Allestendo il proprio data warehouse nel cloud, non è più necessario occuparsi dei problemi hardware di base. SQL Data Warehouse invece chiede semplicemente con quale velocità si intende elaborare i dati. 
+Sono ormai passati i tempi in cui occorreva individuare il tipo di processori, la quantità di memoria o il tipo di archiviazione appropriati per garantire prestazioni ottimali nel data warehouse. Allestendo il proprio data warehouse nel cloud, non è più necessario occuparsi dei problemi hardware di base. SQL Data Warehouse invece chiede semplicemente con quale velocità si intende elaborare i dati.
 
 ### <a name="how-do-i-scale-performance"></a>Come ridimensionare le prestazioni?
-Per aumentare o diminuire la potenza di calcolo in modo elastico, è sufficiente modificare l'impostazione relativa alle [Unità Data Warehouse (DWU)][Unità Data Warehouse (DWU)] per il database. Le prestazioni aumenteranno in modo lineare man mano che si aggiungono altre DWU.  A livelli superiori di DWU, è necessario aggiungere più di 100 DWU per osservare un miglioramento significativo delle prestazioni. Per consentire la selezione di variazioni di DWU significative, vengono forniti livelli di DWU in grado di offrire i migliori risultati.
+Per aumentare o diminuire la potenza di calcolo in modo elastico, è sufficiente modificare l'impostazione di [Unità Data Warehouse (DWU)][data warehouse units (DWUs)] per il database. Le prestazioni aumenteranno in modo lineare man mano che si aggiungono altre DWU.  A livelli superiori di DWU, è necessario aggiungere più di 100 DWU per osservare un miglioramento significativo delle prestazioni. Per consentire la selezione di variazioni di DWU significative, vengono forniti livelli di DWU in grado di offrire i migliori risultati.
 
 Per modificare le DWU, è possibile usare uno di questi metodi singoli.
 
-* [Scale compute power with Azure portal ][Scale compute power with Azure portal (Ridimensionare la potenza di calcolo con il portale di Azure)] (Ridimensionare la potenza di calcolo con il portale di Azure)
-* [Scale compute power with PowerShell (Ridimensionare la potenza di calcolo con PowerShell)][Scale compute power with PowerShell (Ridimensionare la potenza di calcolo con PowerShell)] (Ridimensionare la potenza di calcolo con PowerShell)
-* [Scale compute power with REST APIs (Ridimensionare la potenza di calcolo con le API REST)][Scale compute power with REST APIs (Ridimensionare la potenza di calcolo con le API REST)] (Ridimensionare la potenza di calcolo con le API REST)
-* [Scale compute power with TSQL (Ridimensionare la potenza di calcolo con TSQL)][Scale compute power with TSQL (Ridimensionare la potenza di calcolo con TSQL)] (Ridimensionare la potenza di calcolo con TSQL)
+* [Ridimensionare la potenza di calcolo con il portale di Azure][Scale compute power with Azure portal]
+* [Ridimensionare la potenza di calcolo con PowerShell][Scale compute power with PowerShell]
+* [Ridimensionare la potenza di calcolo con le API REST][Scale compute power with REST APIs]
+* [Ridimensionare la potenza di calcolo con TSQL][Scale compute power with TSQL]
 
 ### <a name="how-many-dwus-should-i-use"></a>Quante DWU è consigliabile usare?
 Le prestazioni in SQL Data Warehouse vengono scalate in modo lineare e il passaggio da una scala di calcolo a un'altra (ad esempio, da 100 DWU a 2000 DWU) avviene nel giro di pochi secondi. Ciò consente di sperimentare diverse impostazioni DWU fino a determinare lo scenario più adatto alle proprie esigenze.
@@ -68,7 +68,7 @@ Raccomandazioni per individuare l'impostazione DWU più adatta al proprio carico
 5. Continuare ad apportare modifiche finché non si raggiunge un livello di prestazioni ottimale per i propri requisiti aziendali.
 
 ### <a name="when-should-i-scale-dwus"></a>Quando è necessario ridimensionare le DWU?
-Quando sono necessari risultati più rapidi, aumentare le DWUs e pagare il costo di prestazioni più elevate.  Quando è richiesta una minore quantità di potenza di calcolo, diminuire le DWU e pagare solo per le prestazioni necessarie 
+Quando sono necessari risultati più rapidi, aumentare le DWUs e pagare il costo di prestazioni più elevate.  Quando è richiesta una minore quantità di potenza di calcolo, diminuire le DWU e pagare solo per le prestazioni necessarie
 
 Raccomandazioni sul momento più indicato per il ridimensionamento delle DWU:
 
@@ -82,9 +82,9 @@ Raccomandazioni sul momento più indicato per il ridimensionamento delle DWU:
 
 Per sospendere un database, usare uno di questi metodi singoli.
 
-* [Pause compute with Azure portal][Pause compute with Azure portal] (Sospendere le risorse di calcolo con il portale di Azure)
-* [Sospendere le risorse di calcolo con PowerShell][Sospendere le risorse di calcolo con PowerShell] (Sospendere le risorse di calcolo con PowerShell)
-* [Sospendere le risorse di calcolo con le API REST][Sospendere le risorse di calcolo con le API REST] (Sospendere le risorse di calcolo con le API REST)
+* [Sospendere le risorse di calcolo con il portale di Azure][Pause compute with Azure portal]
+* [Sospendere le risorse di calcolo con PowerShell][Pause compute with PowerShell]
+* [Sospendere le risorse di calcolo con le API REST][Pause compute with REST APIs]
 
 <a name="resume-compute-bk"></a>
 
@@ -93,65 +93,65 @@ Per sospendere un database, usare uno di questi metodi singoli.
 
 Per riavviare un database, usare uno di questi metodi singoli.
 
-* [Resume compute with Azure portal][Resume compute with Azure portal] (Riavviare le risorse di calcolo con il portale di Azure)
-* [Riavviare le risorse di calcolo con PowerShell][Riavviare le risorse di calcolo con PowerShell] (Riavviare le risorse di calcolo con PowerShell)
-* [Riavviare le risorse di calcolo con le API REST][Riavviare le risorse di calcolo con le API REST] (Riavviare le risorse di calcolo con le API REST)
+* [Riavviare le risorse di calcolo con il portale di Azure][Resume compute with Azure portal]
+* [Riavviare le risorse di calcolo con PowerShell][Resume compute with PowerShell]
+* [Riavviare le risorse di calcolo con le API REST][Resume compute with REST APIs]
 
 ## <a name="permissions"></a>Autorizzazioni
-Il ridimensionamento del database richiede le autorizzazioni descritte in [ALTER DATABASE][ALTER DATABASE].  La sospensione e la ripresa richiedono l'autorizzazione [Collaboratore database SQL][Collaboratore database SQL], in particolare Microsoft.Sql/servers/databases/action.
+Il ridimensionamento del database richiede le autorizzazioni descritte in [ALTER DATABASE][ALTER DATABASE].  La sospensione e la ripresa richiedono l'autorizzazione [Collaboratore Database SQL][SQL DB Contributor], in particolare Microsoft.Sql/servers/databases/action.
 
 <a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per comprendere più facilmente altri concetti importanti sulle prestazioni, vedere gli articoli seguenti:
 
-* [Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse][Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse]
-* [Overview of tables in SQL Data Warehouse (Panoramica sulle tabelle in SQL Data Warehouse)][Overview of tables in SQL Data Warehouse (Panoramica sulle tabelle in SQL Data Warehouse)] (Panoramica sulla progettazione di tabelle)
-* [Distribuzione di tabelle in SQL Data Warehouse][Distribuzione di tabelle in SQL Data Warehouse] (Distribuzione di tabelle)
-* [Indicizzazione di tabelle in SQL Data Warehouse][Indicizzazione di tabelle in SQL Data Warehouse] (Indicizzazione di tabelle)
-* [Partizionamento delle tabelle][Partizionamento delle tabelle] (Partizionamento delle tabelle)
-* [Managing statistics on tables in SQL Data Warehouse (Gestione delle statistiche nelle tabelle in SQL Data Warehouse)][Managing statistics on tables in SQL Data Warehouse (Gestione delle statistiche nelle tabelle in SQL Data Warehouse)] (Statistiche delle tabelle)
-* [procedure consigliate][procedure consigliate] (Procedure consigliate)
+* [Gestione della concorrenza e del carico di lavoro][Workload and concurrency managment]
+* [Panoramica delle tabelle][Table design overview]
+* [Distribuzione di tabelle][Table distribution]
+* [Indicizzazione di tabelle][Table indexing]
+* [Partizionamento di tabelle][Table partitioning]
+* [Statistiche delle tabelle][Table statistics]
+* [Procedure consigliate][Best practices]
 
 <!--Image reference-->
 
 <!--Article references-->
-[Unità Data Warehouse (DWU)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[data warehouse units (DWUs)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 
-[Scale compute power with Azure portal (Ridimensionare la potenza di calcolo con il portale di Azure)]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-bk
-[Scale compute power with PowerShell (Ridimensionare la potenza di calcolo con PowerShell)]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
-[Scale compute power with REST APIs (Ridimensionare la potenza di calcolo con le API REST)]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk
-[Scale compute power with TSQL (Ridimensionare la potenza di calcolo con TSQL)]: ./sql-data-warehouse-manage-compute-tsql.md#scale-compute-bk
+[Scale compute power with Azure portal]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-power
+[Scale compute power with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
+[Scale compute power with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk
+[Scale compute power with TSQL]: ./sql-data-warehouse-manage-compute-tsql.md#scale-compute-bk
 
-[limiti di capacità]: ./sql-data-warehouse-service-capacity-limits.md
+[capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 
-[Pause compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md#pause-compute-bk (Sospendere le risorse di calcolo con il portale di Azure)
-[Sospendere le risorse di calcolo con PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#pause-compute-bk
-[Sospendere le risorse di calcolo con le API REST]: ./sql-data-warehouse-manage-compute-rest-api.md#pause-compute-bk
+[Pause compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md#pause-compute-bk
+[Pause compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#pause-compute-bk
+[Pause compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#pause-compute-bk
 
-[Resume compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md#resume-compute-bk (Riavviare le risorse di calcolo con il portale di Azure)
-[Riavviare le risorse di calcolo con PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#resume-compute-bk
-[Riavviare le risorse di calcolo con le API REST]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
+[Resume compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md#resume-compute-bk
+[Resume compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#resume-compute-bk
+[Resume compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
 
-[Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse]: ./sql-data-warehouse-develop-concurrency.md
-[Overview of tables in SQL Data Warehouse (Panoramica sulle tabelle in SQL Data Warehouse)]: ./sql-data-warehouse-tables-overview.md
-[Distribuzione di tabelle in SQL Data Warehouse]: ./sql-data-warehouse-tables-distribute.md
-[Indicizzazione di tabelle in SQL Data Warehouse]: ./sql-data-warehouse-tables-index.md
-[Partizionamento delle tabelle]: ./sql-data-warehouse-tables-partition.md
-[Managing statistics on tables in SQL Data Warehouse (Gestione delle statistiche nelle tabelle in SQL Data Warehouse)]: ./sql-data-warehouse-tables-statistics.md
-[procedure consigliate]: ./sql-data-warehouse-best-practices.md 
-[panoramica sullo sviluppo]: ./sql-data-warehouse-overview-develop.md
+[Workload and concurrency managment]: ./sql-data-warehouse-develop-concurrency.md
+[Table design overview]: ./sql-data-warehouse-tables-overview.md
+[Table distribution]: ./sql-data-warehouse-tables-distribute.md
+[Table indexing]: ./sql-data-warehouse-tables-index.md
+[Table partitioning]: ./sql-data-warehouse-tables-partition.md
+[Table statistics]: ./sql-data-warehouse-tables-statistics.md
+[Best practices]: ./sql-data-warehouse-best-practices.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
 
-[Collaboratore database SQL]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
+[SQL DB Contributor]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
 
 <!--MSDN references-->
 [ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
 
 <!--Other Web references-->
-[Portale di Azure]: http://portal.azure.com/
+[Azure portal]: http://portal.azure.com/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

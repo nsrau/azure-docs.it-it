@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 9f944edcafb55634c9338bc8dd518a5f032f56e0
-ms.openlocfilehash: edab3b3058a2e28ce74e62434b85b1643f267493
+ms.sourcegitcommit: 2d31365c7de59fc50da9b4d675dc5cf64302ea6a
+ms.openlocfilehash: 4041cc528f07b678bd6a6daebc44007cad095d6e
 
 
 ---
@@ -68,7 +68,7 @@ azure storage blob upload --blobtype page --account-name mystorageaccount \
     --account-key key1 --container myimages /path/to/disk/mydisk.vhd
 ```
 
-È ora possibile creare una macchina virtuale dal disco virtuale caricato [utilizzando un modello di Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd). È anche possibile utilizzare l'interfaccia della riga di comando specificando l'URI sul disco (`--image-urn`). L'esempio seguente crea una VM denominata `myVM` usando il disco virtuale caricato in precedenza:
+È ora possibile creare una macchina virtuale dal disco virtuale caricato [utilizzando un modello di Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd). È anche possibile utilizzare l'interfaccia della riga di comando specificando l'URI sul disco (`--image-urn`). L'esempio seguente crea una VM denominata `myVM` usando il disco virtuale caricato in precedenza:
 
 ```bash
 azure vm create myVM -l "WestUS" --resource-group myResourceGroup \
@@ -243,6 +243,6 @@ Dopo avere preparato e caricato il disco rigido virtuale, è possibile ottenere 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

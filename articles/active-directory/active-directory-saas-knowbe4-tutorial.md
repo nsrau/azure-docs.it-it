@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/29/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 49767ad0e8fb9222c088217f1c349ed8a1d4f67e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1dfcc57a23a473bae9417496bfbe4c0c209de564
 
 
 ---
@@ -232,6 +232,6 @@ Quando si fa clic sul riquadro KnowBe4 nel pannello di accesso, si dovrebbe acce
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

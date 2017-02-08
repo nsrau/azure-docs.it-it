@@ -16,15 +16,15 @@ ms.workload: integration
 ms.date: 07/22/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f08180c196a1f573529c9fed52c7ae5c3869da6d
+ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
+ms.openlocfilehash: 2634d0101c1cd4535922e8844f0beb6b523e2dea
 
 
 ---
 # <a name="get-started-with-the-ftp-connector"></a>Introduzione al connettore FTP
 Usare il connettore FTP per monitorare, gestire e creare file in un server FTP. 
 
-Per usare [qualsiasi connettore](apis-list.md), è necessario innanzitutto creare un'app per la logica. Come prima operazione [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per usare [qualsiasi connettore](apis-list.md), è necessario innanzitutto creare un'app per la logica. Come prima operazione [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-ftp"></a>Connettersi a FTP
 Perché l'app per la logica possa accedere a qualsiasi servizio, è necessario creare una *connessione* al servizio. Una [connessione](connectors-overview.md) fornisce la connettività tra un'app per la logica e un altro servizio.  
@@ -35,7 +35,7 @@ Perché l'app per la logica possa accedere a qualsiasi servizio, è necessario c
 > 
 
 ## <a name="use-a-ftp-trigger"></a>Usare un trigger FTP
-Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
 
 > [!IMPORTANT]
 > Il connettore FTP richiede un server FTP che sia accessibile da Internet e sia configurato per operare con la modalità passiva. Il connettore FTP, inoltre, **non è compatibile con FTPS implicito (FTP su SSL)**. Il connettore FTP supporta solo FTPS esplicito (FTP su SSL).  
@@ -61,7 +61,7 @@ A questo punto, l’app per la logica è stata configurata con un trigger che av
 > 
 
 ## <a name="use-a-ftp-action"></a>Usare un'azione FTP
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
 
 Dopo aver aggiunto un trigger, seguire questi passaggi per aggiungere un'azione che otterrà il contenuto del file nuovo o modificato individuato dal trigger.    
 
@@ -370,11 +370,11 @@ Le azioni e i trigger riportati sopra possono restituire uno o più dei seguenti
 | default |Operazione non riuscita. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

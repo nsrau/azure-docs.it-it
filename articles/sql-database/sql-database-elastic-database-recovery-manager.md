@@ -7,6 +7,7 @@ manager: jhubbard
 author: ddove
 ms.assetid: 45520ca3-6903-4b39-88ba-1d41b22da9fe
 ms.service: sql-database
+ms.custom: sharded databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 1d13dff37bd170b1b98dd8ec3bbff769678a2079
-ms.openlocfilehash: 9c108714c3dd1218191d25133b743d0db068348a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9c96cbf6d63164cc70608d9d114cef9c5163681c
 
 
 ---
@@ -48,9 +49,11 @@ Per altre informazioni sugli strumenti di database elastici per i database SQL d
 ## <a name="retrieving-recoverymanager-from-a-shardmapmanager"></a>Ripristino di RecoveryManager da un oggetto ShardMapManager
 Il primo passaggio consiste nel creare un'istanza di RecoveryManager. Il [metodo GetRecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager.aspx) restituisce la funzionalità di Gestione ripristino per l'istanza corrente di [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx). Per risolvere eventuali incoerenze in una mappa partizioni, è necessario ripristinare prima di tutto RecoveryManager per una mappa partizioni specifica. 
 
+   ```
     ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString,  
              ShardMapManagerLoadPolicy.Lazy);
              RecoveryManager rm = smm.GetRecoveryManager(); 
+   ```
 
 In questo esempio RecoveryManager viene inizializzato da ShardMapManager. Anche ShardMapManager che contiene un oggetto ShardMap è già inizializzato. 
 
@@ -60,13 +63,17 @@ Poiché questo codice dell'applicazione manipola la mappa partizioni stessa, le 
 Il [metodo DetachShard](https://msdn.microsoft.com/library/azure/dn842083.aspx) scollega la partizione specificata dalla mappa partizioni ed elimina i mapping associati alla partizione.  
 
 * Il parametro location corrisponde al percorso della partizione, cioè il nome del server e il nome del database, della partizione che viene scollegata. 
-* Il parametro shardMapName è il nome della mappa partizioni. È richiesto solo quando più mappe partizioni sono gestite dallo stesso gestore delle mappe partizioni. Facoltativo. 
+* Il parametro shardMapName è il nome della mappa partizioni. È richiesto solo quando più mappe partizioni sono gestite dallo stesso gestore delle mappe partizioni. facoltativo. 
 
-**Importante**: usare questa tecnica solo se si è certi che l'intervallo per il mapping aggiornato sia vuoto. Poiché i metodi descritti precedentemente non controllano i dati dell'intervallo da spostare, è consigliabile includere i controlli nel codice.
+> [!IMPORTANT]
+> usare questa tecnica solo se si è certi che l'intervallo per il mapping aggiornato sia vuoto. Poiché i metodi descritti precedentemente non controllano i dati dell'intervallo da spostare, è consigliabile includere i controlli nel codice.
+>
 
 Questo esempio rimuove le partizioni dalla mappa partizioni. 
 
-    rm.DetachShard(s.Location, customerMap); 
+   ```
+   rm.DetachShard(s.Location, customerMap);
+   ``` 
 
 Quindi esegue il mapping del percorso della partizione nella mappa globale partizioni precedente all'eliminazione della partizione. Poiché la partizione è stata eliminata, si presuppone che questa operazione sia stata intenzionale che l'intervallo di chiavi di partizionamento orizzontale non venga più usato. Se non è questo il caso, è possibile eseguire un ripristino temporizzato. Per ripristinare le partizioni da un punto nel tempo precedente. In questo caso, vedere la sezione seguente per rilevare le incoerenze della partizione. Per eseguire il ripristino, vedere [Recupero temporizzato](sql-database-point-in-time-restore-portal.md).
 
@@ -75,7 +82,9 @@ Presupponendo che l'eliminazione del database sia stata intenzionale, l'azione d
 ## <a name="to-detect-mapping-differences"></a>Per rilevare le differenze nei mapping
 Il [metodo DetectMappingDifferences](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences.aspx) seleziona e restituisce una della mappe partizioni, locale o globale, come origine di dati reali e riconcilia i mapping in entrambi i tipi di mappa partizioni, globale e locale.
 
-    rm.DetectMappingDifferences(location, shardMapName);
+   ```
+   rm.DetectMappingDifferences(location, shardMapName);
+   ```
 
 * Il *percorso* specifica il nome del server e il nome del database. 
 * Il parametro *shardMapName* è il nome della mappa partizioni. È richiesto solo se più mappe partizioni sono gestite dallo stesso gestore delle mappe partizioni. Facoltativo. 
@@ -83,7 +92,9 @@ Il [metodo DetectMappingDifferences](https://msdn.microsoft.com/library/azure/mi
 ## <a name="to-resolve-mapping-differences"></a>Per risolvere le differenze nei mapping
 Il [metodo ResolveMappingDifferences](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) seleziona una delle mappe partizioni, locale o globale, come origine di dati reali e riconcilia i mapping in entrambi i tipi di mappa partizioni, globale e locale.
 
-    ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
+   ```
+   ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
+   ```
 
 * Il parametro *RecoveryToken* enumera le differenze nei mapping tra la mappa globale di partizioni e la mappa locale di partizioni per la partizione specifica. 
 * L' [enumerazione MappingDifferenceResolution](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx) viene usata per indicare il metodo per risolvere la differenza tra i mapping di partizione. 
@@ -92,19 +103,23 @@ Il [metodo ResolveMappingDifferences](https://msdn.microsoft.com/library/azure/m
 ## <a name="attach-a-shard-to-the-shardmap-after-a-shard-is-restored"></a>Collegare una partizione a ShardMap dopo il ripristino di una partizione
 Il [metodo AttachShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard.aspx) collega la partizione specificata alla mappa partizioni. Rileva quindi eventuali incoerenze nella mappa partizioni e aggiorna i mapping in modo che la partizione corrisponda al punto di ripristino della partizione. Si presuppone che venga rinominato anche il database per riflettere il nome del database originale, precedente al ripristino della partizione, perché per impostazione predefinita il ripristino temporizzato usa un nuovo database a cui aggiunge il timestamp. 
 
-    rm.AttachShard(location, shardMapName) 
+   ```
+   rm.AttachShard(location, shardMapName)
+   ``` 
 
 * Il parametro *location* corrisponde al nome del server e al nome del database della partizione che viene collegata. 
 * Il parametro *shardMapName* è il nome della mappa partizioni. È richiesto solo quando più mappe partizioni sono gestite dallo stesso gestore delle mappe partizioni. Facoltativo. 
 
 Questo esempio aggiunge una partizione alla mappa partizioni ripristinata di recente da una condizione precedente. Poiché la partizione, ovvero il mapping per la partizione nella mappa locale partizioni, è stata ripristinata, è potenzialmente incoerenze con la voce della partizione nella mappa globale partizioni. Esternamente a questo codice di esempio, la partizione è stata ripristinata e rinominata con il nome originale del database. Essendo stata ripristinata, si presuppone che il mapping nella mappa locale partizioni sia quello attendibile. 
 
-    rm.AttachShard(s.Location, customerMap); 
-    var gs = rm.DetectMappingDifferences(s.Location); 
+   ```
+   rm.AttachShard(s.Location, customerMap); 
+   var gs = rm.DetectMappingDifferences(s.Location); 
       foreach (RecoveryToken g in gs) 
        { 
        rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
        } 
+   ```
 
 ## <a name="updating-shard-locations-after-a-geo-failover-restore-of-the-shards"></a>Aggiornamento dei percorsi della partizioni dopo un failover geografico, o ripristino, delle partizioni
 Nel caso di failover geografico, il database secondario è reso accessibile in scrittura e diventa il database primario. Il nome del server, e potenzialmente il database a seconda della configurazione, può essere diverso da quello primario originale. È quindi necessario correggere le voci dei mapping per la partizione nella mappa globale partizioni e nella mappa locale partizioni. In modo analogo, se il database viene ripristinato con un nome e un percorso diversi, oppure a una condizione precedente, potrebbero verificarsi incoerenze nelle mappe partizioni. Il gestore delle mappe partizioni controlla la distribuzione delle connessioni aperte ai database corretti. La distribuzione si basa sui dati contenuti nella mappa partizioni e sul valore della chiave di partizionamento orizzontale di destinazione della richiesta dell'applicazione. Dopo un failover geografico queste informazioni devono essere aggiornate con il nome del server, il nome del database e il mapping di partizione corretti del database ripristinato. 
@@ -125,7 +140,11 @@ L'esempio segue questa procedura:
 3. Recupera i token di ripristino rilevando le differenze dei mapping tra la mappa globale partizioni e la mappa locale partizioni per ogni partizione. 
 4. Risolve le incoerenze considerando attendibile il mapping dalla mappa locale partizioni di ogni partizione. 
    
-    var shards = smm.GetShards();  foreach (shard s in shards)  {   if (s.Location.Server == Configuration.PrimaryServer) 
+   ```
+   var shards = smm.GetShards(); 
+   foreach (shard s in shards) 
+   { 
+     if (s.Location.Server == Configuration.PrimaryServer) 
    
          { 
           ShardLocation slNew = new ShardLocation(Configuration.SecondaryServer, s.Location.Database); 
@@ -142,6 +161,7 @@ L'esempio segue questa procedura:
             } 
         } 
     } 
+   ```
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -151,6 +171,6 @@ L'esempio segue questa procedura:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

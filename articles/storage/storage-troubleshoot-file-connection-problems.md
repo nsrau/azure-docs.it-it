@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/13/2016
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: afce238686f5b35a094f0792f8197b686d317fa5
-ms.openlocfilehash: b75e80b66e00be0022102c06113eb414f5b4b6e9
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 71da2f8aaa994c8cfc48f968a5275f7f79604251
 
 
 ---
@@ -103,7 +103,7 @@ Non creare né aprire mai un file per l'I/O nella cache, che richiede l'accesso 
 
 <a id="error53"></a>
 
-## <a name="error-53-when-you-try-to-mount-or-unmount-an-azure-file-share"></a>Errore 53 durante il tentativo di montare una condivisione file di Azure
+## <a name="error-53-or-error-67-when-you-try-to-mount-or-unmount-an-azure-file-share"></a>"Errore 53" o "Errore 67" quando si prova a montare o smontare una condivisione file di Azure
 Questo problema può essere causato dalle circostanze seguenti:
 
 ### <a name="cause-1"></a>Causa 1
@@ -113,7 +113,7 @@ Questo problema può essere causato dalle circostanze seguenti:
 Effettuare la connessione da un client che soddisfa i requisiti di Windows 8, Windows Server 2012 o versioni successive o che si connette da una macchina virtuale presente nello stesso data center dell'account di archiviazione di Azure usato per la condivisione file di Azure.
 
 ### <a name="cause-2"></a>Causa 2
-Durante il montaggio di una condivisione file di Azure può verificarsi un errore di sistema 53 se la comunicazione in uscita dalla porta 445 verso il data center di File di Azure è bloccata. Fare clic [qui](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) per visualizzare un riepilogo degli ISP in grado di consentire o proibire l'accesso dalla porta 445.
+Durante il montaggio di una condivisione file di Azure può verificarsi un errore di sistema 53 o 67 se la comunicazione in uscita dalla porta 445 verso il data center di File di Azure è bloccata. Fare clic [qui](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) per visualizzare un riepilogo degli ISP in grado di consentire o proibire l'accesso dalla porta 445.
 
 Comcast e alcune organizzazioni IT bloccano la porta. Per comprendere se l'errore di sistema 53 viene visualizzato per questo motivo, è possibile eseguire una query sull'endpoint TCP:445 mediante Portqry. Se l'endpoint TCP:445 risulta filtrato, la porta TCP è bloccata. Di seguito è fornito un esempio di query:
 
@@ -153,7 +153,7 @@ Montare la condivisione da una riga di comando senza privilegi di amministratore
 
 <a id="slashfails"></a>
 
-## <a name="my-storage-account-contains-and-the-net-use-command-fails"></a>L'account di archiviazione contiene "/" e il comando net use non viene eseguito
+## <a name="my-storage-account-contains--and-the-net-use-command-fails"></a>L'account di archiviazione contiene "/" e il comando net use non viene eseguito
 ### <a name="cause"></a>Causa
 Quando il comando **net use** viene eseguito al prompt dei comandi (cmd.exe), viene analizzato aggiungendo "/" come opzione della riga di comando. Tale aggiunta impedisce di eseguire il mapping delle unità.
 
@@ -242,6 +242,6 @@ Se **serverino** non è presente, smontare e montare nuovamente File di Azure co
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

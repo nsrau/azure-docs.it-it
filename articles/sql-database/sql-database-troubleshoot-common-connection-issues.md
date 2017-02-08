@@ -4,7 +4,7 @@ description: Passaggi per identificare e risolvere gli errori di connessione com
 services: sql-database
 documentationcenter: 
 author: dalechen
-manager: cshepard
+manager: felixwu
 editor: 
 ms.assetid: ac463d1c-aec8-443d-b66e-fa5eadcccfa8
 ms.service: sql-database
@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 08/31/2016
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: 7e443a350e5f3597e9d59fe934c28bd8cd93be26
-ms.openlocfilehash: 8ccf72046e95b12316685d1de9632e18f0943948
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 48ccd940efb75427461c3a8018aa6b31f46a626e
 
 
 ---
@@ -77,9 +77,9 @@ La tabella seguente elenca tutti gli argomenti relativi ai problemi di connessio
 | 4 |[Risolvere i problemi di connettività del database SQL di Microsoft Azure](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database) |Questo strumento aiuta a identificare e risolvere gli errori di connettività. |
 | 5 |[Risolvere l'errore "Il database &lt;x&gt; nel server &lt;y&gt; non è attualmente disponibile. Eseguire nuovamente la connessione in un secondo momento"](sql-database-troubleshoot-connection.md) |Descrive come identificare e risolvere un errore 40613: "Il database &lt;x&gt; sul server &lt;y&gt; non è attualmente disponibile. Eseguire nuovamente la connessione in un secondo momento. |
 | 6 |[Codici di errore SQL per le applicazioni client del database SQL: errore di connessione e altri problemi del database](sql-database-develop-error-messages.md) |Offre informazioni sui codici di errore SQL per le applicazioni client del database SQL, ad esempio errori di connessione comuni del database, problemi di copia del database ed errori generali. |
-| 7 |[Indicazioni sulle prestazioni del database SQL di Azure per i singoli database](sql-database-performance-guidance.md) |Fornisce indicazioni per determinare quale livello di servizio è più adatto per l'applicazione. Fornisce inoltre suggerimenti per ottimizzare l'applicazione in modo da sfruttare al meglio il database SQL di Azure. |
+| 7 |[Indicazioni sulle prestazioni del database SQL di Azure per i database autonomi](sql-database-performance-guidance.md). |Fornisce indicazioni per determinare quale livello di servizio è più adatto per l'applicazione. Fornisce inoltre suggerimenti per ottimizzare l'applicazione in modo da sfruttare al meglio il database SQL di Azure. |
 | 8 |[Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md) |Offre collegamenti agli esempi di codice per le varie tecnologie che è possibile usare per connettersi e interagire con il database SQL di Azure. |
-| 9 |Pagina sull'aggiornamento al database SQL di Azure versione 12 ([portale di Azure](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) |Fornisce istruzioni per l'aggiornamento di server e database SQL di Azure versione 11 esistenti alla versione 12 mediante il portale di Azure o PowerShell. |
+| 9 |Pagina sull'aggiornamento al database SQL di Azure versione&12; ([portale di Azure](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) |Fornisce istruzioni per l'aggiornamento di server e database SQL di Azure versione&11; esistenti alla versione&12; mediante il portale di Azure o PowerShell. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Risoluzione dei problemi di prestazioni del database SQL di Azure](sql-database-troubleshoot-performance.md)
@@ -97,6 +97,6 @@ La tabella seguente elenca tutti gli argomenti relativi ai problemi di connessio
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -17,8 +17,8 @@ ms.devlang: na
 ms.date: 09/06/2016
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 9baff59be09c168b31ec78ccdb58c4b8b26de274
+ms.sourcegitcommit: 17ddda372f3a232be62e565b700bb1be967fb8e3
+ms.openlocfilehash: 5e9fb48fdf0da9a1c75f4d08ab7d97976859340c
 
 
 ---
@@ -265,7 +265,7 @@ Esistono due modi per abilitare la funzione TRIM in una VM Linux. Come di consue
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
-* In alternativa, è possibile eseguire il comando `fstrim` manualmente dalla riga di comando oppure aggiungerlo a crontab per eseguirlo a intervalli regolari:
+* In alcuni casi l'opzione `discard` può avere implicazioni sulle prestazioni. In alternativa, è possibile eseguire il comando `fstrim` manualmente dalla riga di comando oppure aggiungerlo a crontab per eseguirlo a intervalli regolari:
   
     **Ubuntu**
   
@@ -292,6 +292,6 @@ Esistono due modi per abilitare la funzione TRIM in una VM Linux. Come di consue
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

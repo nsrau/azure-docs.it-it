@@ -12,16 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/18/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2689c8db4beb07d42da836795f9d85b53ed8f076
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: dcf0ff5c4d6ebb7d0aea0b9518cbbe66c9f0a649
 
 
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Sostituire un modulo controller nel dispositivo StorSimple
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 In questa esercitazione viene illustrato come rimuovere e sostituire uno o entrambi i moduli controller in un dispositivo StorSimple. Viene inoltre illustrata la logica sottostante per gli scenari di sostituzione controller singoli e doppi.
 
 > [!NOTE]
@@ -39,7 +39,7 @@ Nella tabella seguente vengono illustrati gli scenari di sostituzione del contro
 | Caso | Scenario di sostituzione | Procedura applicabile |
 |:--- |:--- |:--- |
 | 1 |Un controller è in stato di errore, l’altro controller è integro e attivo. |[Sostituzione di un singolo controller](#replace-a-single-controller), che descrive la [logica alla base della sostituzione di un singolo controller](#single-controller-replacement-logic), nonché la [procedura per la sostituzione](#single-controller-replacement-steps). |
-| 2 |Entrambi i controller hanno avuto esito negativo e richiedono la sostituzione. Lo chassis, i dischi, e l’enclosure del disco sono integri. |[Sostituzione di un controller doppio](#replace-both-controllers), che descrive la [logica alla base della sostituzione di un controller doppio](#dual-controller-replacement-logic), nonché la [procedura per la sostituzione](#dual-controller-replacement-steps). |
+| 2 |Entrambi i controller hanno avuto esito negativo e richiedono la sostituzione. Lo chassis, i dischi, e lo chassis del disco sono integri. |[Sostituzione di un controller doppio](#replace-both-controllers), che descrive la [logica alla base della sostituzione di un controller doppio](#dual-controller-replacement-logic), nonché la [procedura per la sostituzione](#dual-controller-replacement-steps). |
 | 3 |I controller dallo stesso dispositivo o da diversi dispositivi vengono invertiti. Lo chassis, i dischi e l’enclosure del disco sono integri. |Verrà visualizzato un messaggio di avviso di mancata corrispondenza dello slot. |
 | 4 |Un controller non è presente e l'altro controller ha avuto esito negativo. |[Sostituzione di un controller doppio](#replace-both-controllers), che descrive la [logica alla base della sostituzione di un controller doppio](#dual-controller-replacement-logic), nonché la [procedura per la sostituzione](#dual-controller-replacement-steps). |
 | 5 |Uno o entrambi i controller hanno avuto esito negativo.. Non è possibile accedere al dispositivo tramite la console seriale o Windows PowerShell in remoto. |[Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) per una procedura di sostituzione manuale. |
@@ -250,6 +250,6 @@ Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di St
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

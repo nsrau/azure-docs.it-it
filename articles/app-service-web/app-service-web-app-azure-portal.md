@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/26/2016
 ms.author: jaime-espinosa
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4d5b580977f0104cb45e8b304183abd0607a1342
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 00617f4d508c843000d69c02464a1bef36320a8e
 
 
 ---
@@ -74,11 +74,11 @@ Oltre al nome del marchio, alcuni altri elementi nel portale sono stati rinomina
 ![](./media/app-service-web-app-azure-portal/AppSettings.png)
 
 ## <a name="more-resources"></a>Altre risorse
-[Portale di Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Azure Marketplace]: /marketplace/
 
 > [!NOTE]
-> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 
@@ -88,6 +88,6 @@ Oltre al nome del marchio, alcuni altri elementi nel portale sono stati rinomina
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

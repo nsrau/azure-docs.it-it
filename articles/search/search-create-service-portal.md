@@ -11,11 +11,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 11/29/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5975bd5b2a2e7fe8799155ab47d96c3ecd0093ee
+ms.sourcegitcommit: d5800e53349c3f2f6146a7d62381a531537dba90
+ms.openlocfilehash: 990c679bc9937b3a684a7933fb7b8656eb798b69
 
 
 ---
@@ -27,7 +27,7 @@ La guida presuppone che sia già stata eseguita la sottoscrizione di Azure e si 
 ## <a name="find-azure-search-in-the-azure-portal"></a>Individuare la Ricerca di Azure nel portale di Azure
 1. Aprire il [portale di Azure](https://portal.azure.com/) ed eseguire l’accesso.
 2. Fare clic sul segno più ("+") nell'angolo superiore sinistro.
-3. Selezionare **Dati e archiviazione**.
+3. Selezionare **Web + Mobile**.
 4. Selezionare **Ricerca di Azure**.
 
 ![](./media/search-create-service-portal/find-search.png)
@@ -67,8 +67,7 @@ Le ***repliche*** consentono al servizio di gestire un carico superiore di query
 1. Passare al pannello di gestione del servizio Ricerca di Azure nel portale di Azure.
 2. Nel pannello **Impostazioni** selezionare **Ridimensiona**.
 3. È possibile ridimensionare il servizio mediante l'aggiunta di repliche o partizioni.
-   * Non è possibile ridimensionare il servizio per oltre 36 unità di ricerca. Il numero totale di unità di ricerca è il prodotto delle partizioni e repliche (repliche * partizioni = unità di ricerca totali).
-   * Se è stato scelto il piano Basic, è possibile ridimensionare soltanto 3 repliche. I servizi Basic sono associati a un'unica partizione.
+   * Ogni livello di servizio presenta [limiti](search-limits-quotas-capacity.md) diversi per il numero totale di unità di ricerca consentite in un singolo servizio (repliche * partizioni = unità di ricerca totali).
 
 ![](./media/search-create-service-portal/scale-service.png)
 
@@ -80,6 +79,6 @@ Per una breve esercitazione, vedere [Introduzione a Ricerca di Azure nel portale
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

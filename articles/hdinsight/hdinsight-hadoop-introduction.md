@@ -209,6 +209,6 @@ Gli strumenti di BI seguenti sono utili per l'analisi dei Big Data:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

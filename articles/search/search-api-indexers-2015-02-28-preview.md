@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.date: 11/01/2016
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 844abce7941b7285c88aa0eda9eca43e1e5e42da
+ms.sourcegitcommit: c98251147bca323d31213a102f607e995b37e0ec
+ms.openlocfilehash: 801a9d0e92a248d2e9843f13cfce74b948cf0d4b
 
 
 ---
 # <a name="indexer-operations-azure-search-service-rest-api-2015-02-28-preview"></a>Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2015-02-28-Preview)
 > [!NOTE]
-> Questo articolo descrive gli indicizzatori nell' [API REST 2015-02-28-Preview](search-api-2015-02-28-preview.md). Questa versione dell'API aggiunge le versioni di anteprima dell'indicizzatore di archiviazione BLOB di Azure con estrazione di documenti, l'indicizzatore di archiviazione tabelle e altri miglioramenti. L'API supporta anche indicizzatori disponibili a livello generale (GA), compresi gli indicizzatori per il Database di SQL Azure, SQL Server in VM di Azure e Azure DocumentDB.
+> Questo articolo descrive gli indicizzatori nell' [API REST&2015;-02-28-Preview](search-api-2015-02-28-preview.md). Questa versione dell'API aggiunge le versioni di anteprima dell'indicizzatore di archiviazione BLOB di Azure con estrazione di documenti, l'indicizzatore di archiviazione tabelle e altri miglioramenti. L'API supporta anche indicizzatori disponibili a livello generale (GA), compresi gli indicizzatori per il Database di SQL Azure, SQL Server in VM di Azure e Azure DocumentDB.
 > 
 > 
 
@@ -42,7 +42,7 @@ Un' **origine dati** specifica i dati da indicizzare, le credenziali per acceder
 Sono attualmente supportate le origini dati seguenti:
 
 * **Database SQL di Azure** e **SQL Server in Macchine virtuali di Azure**. Per una procedura dettagliata, vedere [questo articolo](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
-* **Azure DocumentDB**. Per una procedura dettagliata, vedere [questo articolo](../documentdb/documentdb-search-indexer.md). 
+* **Azure DocumentDB**. Per una procedura dettagliata, vedere [questo articolo](search-howto-index-documentdb.md). 
 * **Archiviazione BLOB di Azure**, inclusi i seguenti formati di documenti: PDF, Microsoft Office (DOCX/DOC, XLS/XSLX, PPTX/PPT, MSG), HTML, XML, ZIP e file di testo normale (incluso JSON). Per una procedura dettagliata, vedere [questo articolo](search-howto-indexing-azure-blob-storage.md).
 * **Archivio tabelle di Azure**. Per una procedura dettagliata, vedere [questo articolo](search-howto-indexing-azure-tables.md).
 
@@ -411,7 +411,7 @@ Un indicizzatore può facoltativamente specificare diversi parametri che ne infl
 
 * `maxFailedItems` : numero di elementi per cui l'indicizzazione può avere esito negativo prima che l'indicizzatore venga considerato in errore. Il valore predefinito è 0. Le informazioni sugli elementi non riusciti vengono restituite dall'operazione per [ottenere lo stato di un indicizzatore](#GetIndexerStatus) . 
 * `maxFailedItemsPerBatch` : numero di elementi per cui l'indicizzazione può avere esito negativo in ogni batch prima che l'indicizzatore venga considerato in errore. Il valore predefinito è 0.
-* `base64EncodeKeys`: specifica se le chiavi del documento saranno codificate in base 64. Ricerca di Azure impone restrizioni sui caratteri che possono essere presenti in una chiave del documento. Tuttavia, i valori nei dati di origine possono contenere caratteri non validi. Se è necessario indicizzare questi valori come chiavi del documento, questo contrassegno può essere impostato su true. Il valore predefinito è `false`.
+* `base64EncodeKeys`: specifica se le chiavi del documento saranno codificate in base&64;. Ricerca di Azure impone restrizioni sui caratteri che possono essere presenti in una chiave del documento. Tuttavia, i valori nei dati di origine possono contenere caratteri non validi. Se è necessario indicizzare questi valori come chiavi del documento, questo contrassegno può essere impostato su true. Il valore predefinito è `false`.
 * `batchSize`: specifica il numero di elementi che vengono letti dall'origine dati e indicizzati in un batch unico per migliorare le prestazioni. Il valore predefinito dipende dal tipo di origine dati: 1000 per SQL Azure e DocumentDB e 10 per archiviazione BLOB di Azure.
 
 **Mapping dei campi**
@@ -458,7 +458,7 @@ L'esempio seguente crea un indicizzatore che copia i dati dalla tabella a cui fa
 
 **Risposta**
 
-Se la richiesta ha esito positivo, viene restituito il codice di stato 201 - Creato.
+Se la richiesta ha esito positivo, viene restituito il codice di stato&201; - Creato.
 
 <a name="UpdateIndexer"></a>
 
@@ -799,6 +799,6 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

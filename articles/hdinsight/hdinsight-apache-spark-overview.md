@@ -116,6 +116,6 @@ Iniziare con la creazione di un cluster Spark in HDInsight Linux. Vedere [Guida 
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

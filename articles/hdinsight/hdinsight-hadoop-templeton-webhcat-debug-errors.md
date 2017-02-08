@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6b50b1c0522db3efe3bb5a10fd978dfaa41e2987
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 2fbbfd3d221ef2f6bce302ed169eddf5a8b0d73e
 
 
 ---
@@ -30,11 +30,13 @@ Quando si usa WebHCat (precedentemente noto come Templeton,) con HDInsight, poss
 ## <a name="modifying-configuration"></a>Modifica della configurazione
 > [!IMPORTANT]
 > Alcuni degli errori elencati in questo documento si verificano perché è stato superato un valore massimo configurato. La procedura di risoluzione indica che è possibile modificare un valore, per eseguire la modifica è necessario usare uno dei seguenti passaggi:
-> 
-> 
+
 
 * Per cluster **Windows** : usare un'azione di script per configurare il valore durante la creazione del cluster. Per altre informazioni, vedere [Sviluppare azioni di script](hdinsight-hadoop-script-actions.md).
 * Per cluster **Linux** : usare Ambari (web o API REST) per modificare il valore. Per altre informazioni, vedere [Gestire HDInsight tramite Ambari](hdinsight-hadoop-manage-ambari.md)
+
+> [!IMPORTANT]
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ### <a name="default-configuration"></a>Configurazione predefinita
 Di seguito sono riportati i valori di configurazione predefiniti che possono influire sulle prestazioni di WebHCat o causare errori se vengono superati:
@@ -86,6 +88,6 @@ Di seguito sono riportati i valori di configurazione predefiniti che possono inf
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

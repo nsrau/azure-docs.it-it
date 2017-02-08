@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/24/2016
 ms.author: kdotchko
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 97317edb8f97360281a0bfcc6d8c11f70b204897
+ms.sourcegitcommit: 0fc92fd63118dd1b3c9bad5cf7d5d8397bc3a0b6
+ms.openlocfilehash: 2f952b85a99300d0a52a59f639675d6f02fafe08
 
 
 ---
@@ -53,9 +53,9 @@ Quando si esegue questa operazione, controllare gli elementi seguenti:
 Se un dispositivo non può usare gli SDK per dispositivi, può comunque connettersi agli endpoint pubblici del dispositivo tramite il protocollo MQTT. Nel pacchetto **CONNECT** il dispositivo deve usare i valori seguenti:
 
 * Per il campo **ClientId** usare **deviceId**.
-* Per il campo **Username** usare `{iothubhostname}/{device_id}`, dove {iothubhostname} rappresenta il record CName completo dell'hub IoT.
+* Per il campo **Username** usare `{iothubhostname}/{device_id}/api-version=2016-11-14`, dove {iothubhostname} rappresenta il record CName completo dell'hub IoT.
 
-    Ad esempio, se il nome dell'hub IoT è **contoso.azure-devices.net** e il nome del dispositivo è **MyDevice01**, il campo **Username** completo deve contenere `contoso.azure-devices.net/MyDevice01`.
+    Ad esempio, se il nome dell'hub IoT è **contoso.azure-devices.net** e il nome del dispositivo è **MyDevice01**, il campo **Username** completo deve contenere `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`.
 * Per il campo **Password** usare un token di firma di accesso condiviso. Il formato del token di firma di accesso condiviso è identico a quello per i protocolli HTTP e AMQP:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
 
     Per altre informazioni su come generare i token di firma di accesso condiviso, vedere la sezione sui dispositivi nell'articolo [Uso dei token di sicurezza dell'hub IoT][lnk-sas-tokens].
@@ -67,9 +67,9 @@ Se un dispositivo non può usare gli SDK per dispositivi, può comunque connette
   3. In **SASTokenForm** selezionare il dispositivo nell'elenco a discesa **DeviceID**. Impostare il valore **TTL**.
   4. Fare clic su **Generate** per creare il token.
 
-     Il token di firma di accesso condiviso generato ha questa struttura: `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fMyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802`.
+     Il token di firma di accesso condiviso generato ha questa struttura: `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`.
 
-     La porzione di questo token da usare come campo **Password** per connettersi usando MQTT è: `SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802g%3d&se=1456481802`.
+     La porzione di questo token da usare come campo **Password** per connettersi usando MQTT è: `SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`.
 
 Per i pacchetti di connessione e disconnessione di MQTT l'hub IoT genera un evento nel canale **Monitoraggio operazioni** con ulteriori informazioni in grado di contribuire a risolvere i problemi di connettività.
 
@@ -168,7 +168,9 @@ Quando un dispositivo è connesso, l'hub IoT invia notifiche all'argomento `$iot
 
 Come per gli aggiornamenti delle proprietà, i valori `null` indicano l'eliminazione del membro dell'oggetto JSON.
 
-> [AZURE.IMPORTANT] L'hub IoT genera notifiche di modifica solo quando i dispositivi sono connessi. Implementare il [flusso di riconnessione del dispositivo][lnk-devguide-twin-reconnection] per mantenere le proprietà desiderate sincronizzate tra l'hub IoT e l'app per dispositivo.
+
+> [!IMPORTANT] 
+> L'hub IoT genera notifiche di modifica solo quando i dispositivi sono connessi. Implementare il [flusso di riconnessione del dispositivo][lnk-devguide-twin-reconnection] per mantenere le proprietà desiderate sincronizzate tra l'hub IoT e l'app per dispositivo.
 
 Per altre informazioni, vedere la [Guida per gli sviluppatori dei dispositivi gemelli][lnk-devguide-twin].
 
@@ -197,18 +199,18 @@ Per altre informazioni sulla pianificazione della distribuzione dell'hub IoT, ve
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-* [Guida per sviluppatori dell'hub IoT][lnk-devguide]
+* [Guida per gli sviluppatori dell'hub IoT][lnk-devguide]
 * [Simulazione di un dispositivo con IoT Gateway SDK][lnk-gateway]
 
-[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
+[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-mqtt-org]: http://mqtt.org/
 [lnk-mqtt-docs]: http://mqtt.org/documentation
-[lnk-sample-node]: https://github.com/Azure/azure-iot-sdks/blob/develop/node/device/samples/simple_sample_device.js
-[lnk-sample-java]: https://github.com/Azure/azure-iot-sdks/blob/develop/java/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
-[lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
-[lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
-[lnk-sample-python]: https://github.com/Azure/azure-iot-sdks/tree/master/python/device/samples
-[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md
+[lnk-sample-node]: https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js
+[lnk-sample-java]: https://github.com/Azure/azure-iot-sdk-java/tree/master/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
+[lnk-sample-c]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt
+[lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device/samples
+[lnk-sample-python]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples
+[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
 [lnk-sas-tokens]: iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app
 [lnk-mqtt-devguide]: iot-hub-devguide-messaging.md#notes-on-mqtt-support
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
@@ -228,6 +230,7 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-devguide-twin]: iot-hub-devguide-device-twins.md
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO2-->
 
 

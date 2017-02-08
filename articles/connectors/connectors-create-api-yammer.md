@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 274ddce2bd3586dfba9ee214055accdba52f3ba9
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: c69f7af9f9427eb295481657eaefcdad76b48ccb
 
 
 ---
@@ -35,7 +35,7 @@ Con Yammer è possibile:
 * Usare i trigger quando c'è un nuovo messaggio in un gruppo o un feed che si sta seguendo.
 * Usare le azioni per pubblicare un messaggio, recuperare tutti i messaggi e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, quando viene visualizzato un nuovo messaggio, è possibile inviare un messaggio di posta elettronica tramite Office 365.
 
-Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Trigger e azioni
 Yammer include i trigger e le azioni seguenti. 
@@ -180,7 +180,7 @@ Se viene fornito l'ID del gruppo, il messaggio verrà inviato al gruppo specific
 | full_name |string |no |
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 [1]: ./media/connectors-create-api-yammer/connectionconfig1.png
 [2]: ./media/connectors-create-api-yammer/connectionconfig2.png 
@@ -190,6 +190,6 @@ Se viene fornito l'ID del gruppo, il messaggio verrà inviato al gruppo specific
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 
