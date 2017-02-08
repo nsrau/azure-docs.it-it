@@ -32,7 +32,7 @@ Per utilizzare i modelli JSON in Visual Studio Code, è necessario installare un
 2. Aprire Apertura rapida (CTRL+P) 
 3. Eseguire il comando seguente: 
    
-        ext install azurerm-vscode-tools
+        ext install msazurermtools.azurerm-vscode-tools
 4. Riavviare Visual Studio Code quando richiesto per abilitare l'estensione. 
    
    L'operazione è stata completata.
