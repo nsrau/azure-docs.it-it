@@ -8,7 +8,7 @@ manager: erikre
 editor: 
 tags: connectors
 ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
-ms.service: app-service-logic
+ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,15 +16,15 @@ ms.workload: integration
 ms.date: 07/15/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7e70351bda39d58b653273a5c3a795a1c6048c2c
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: 3a0fdef111fbd4a9f7491e247f2236cf70b89dca
 
 
 ---
 # <a name="get-started-with-the-smtp-connector"></a>Introduzione al connettore SMTP
 Connettersi a SMTP per inviare messaggi di posta elettronica.
 
-Per usare [qualsiasi connettore](apis-list.md), è necessario innanzitutto creare un'app per la logica. Come prima operazione [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per usare [qualsiasi connettore](apis-list.md), è necessario innanzitutto creare un'app per la logica. Come prima operazione [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-smtp"></a>Connettersi a un server SMTP
 Perché l'app per la logica possa accedere a qualsiasi servizio, è necessario creare una *connessione* al servizio. Una [connessione](connectors-overview.md) fornisce la connettività tra un'app per la logica e un altro servizio. Ad esempio, per connettersi a un server SMTP, è necessaria innanzitutto una *connessione* SMTP. Per creare una connessione, è necessario fornire le credenziali che si usano normalmente per accedere al servizio a cui si vuole connettersi. Pertanto, nell'esempio di SMTP, per creare la connessione SMTP sono necessarie le credenziali riguardanti il nome della connessione, l'indirizzo del server SMTP e le informazioni di accesso utente. [Altre informazioni sulle connessioni]()  
@@ -35,7 +35,7 @@ Perché l'app per la logica possa accedere a qualsiasi servizio, è necessario c
 > 
 
 ## <a name="use-an-smtp-trigger"></a>Usare un trigger SMTP
-Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 In questo esempio, poiché SMTP non ha un trigger proprio, si userà il trigger **Salesforce - Quando viene creato un oggetto**. Questo trigger viene attivato quando viene creato un nuovo oggetto in Salesforce. Per questo esempio verrà impostato in modo che, ogni volta che viene creato un nuovo cliente potenziale in Salesforce, venga eseguita un'azione di *invio messaggio di posta elettronica* usando il connettore SMTP con una notifica della creazione del nuovo cliente potenziale.
 
@@ -49,7 +49,7 @@ In questo esempio, poiché SMTP non ha un trigger proprio, si userà il trigger 
    ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
 
 ## <a name="use-an-smtp-action"></a>Usare un'azione SMTP
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 Ora che il trigger è stato aggiunto, seguire questi passaggi per aggiungere un'azione SMTP che viene eseguita quando viene creato un nuovo cliente potenziale in Salesforce.
 
@@ -116,11 +116,11 @@ Le azioni e i trigger riportati sopra possono restituire uno o più dei seguenti
 | default |Operazione non riuscita. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

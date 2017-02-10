@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 11/30/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 38efa35e126a83de7ff2377428a5ec76ada101db
+ms.sourcegitcommit: 82e5a947d48f8a289deb2f6e85bbb47990a9fcd7
+ms.openlocfilehash: a378ca7be4c5a7df066c5450f9205c02c2acda0f
 
 
 ---
@@ -73,7 +73,7 @@ Per configurare l'integrazione di AppBlade in Azure AD, è necessario aggiungere
     ![Applicazioni][4]
 6. Nella casella di ricerca digitare **AppBlade**.
 
-![Creazione di un utente test di Azure AD](./media/active-directory-saas-appblade-tutorial/tutorial_appblade_01.png)
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-appblade-tutorial/tutorial_appblade_01.png)
 
 1. Nel riquadro dei risultati selezionare **AppBlade** e quindi fare clic su **Completa** per aggiungere l'applicazione.
    
@@ -156,17 +156,18 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
     c. Fare clic su **Avanti**.
 6. Nella pagina **Profilo utente** seguire questa procedura:
    
-   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-appblade-tutorial/create_aaduser_06.png) 
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-appblade-tutorial/create_aaduser_06.png) 
    
-   a. Nella casella di testo **Nome** digitare **Britta**.  
+    a. Nella casella di testo **Nome** digitare **Britta**.  
    
-   b. Nella casella di testo **Cognome** digitare **Simon**.
+    b. Nella casella di testo **Cognome** digitare **Simon**.
    
-   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+    c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+    
+    d. Nell'elenco **Ruolo** selezionare **Utente**.
    
-   d. Nell'elenco **Ruolo** selezionare **Utente**.
-   
-   e. Fare clic su **Avanti**.
+    e. Fare clic su **Avanti**.
+
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-appblade-tutorial/create_aaduser_07.png) 
@@ -239,6 +240,6 @@ Quando si fa clic sul riquadro AppBlade nel pannello di accesso, si dovrebbe acc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

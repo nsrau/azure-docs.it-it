@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3df3dfa25bc438cfe4a340ba50868d2f2263b44a
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: cee2c702c705e1451c0a6d01b140e6291b1e5ce1
 
 
 ---
@@ -29,7 +29,7 @@ MailChimp è un servizio SaaS che consente alle aziende di gestire e automatizza
 > 
 > 
 
-Per iniziare subito a creare un'app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per iniziare subito a creare un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Trigger e azioni
 Il connettore MailChimp può essere usato come azione e include trigger. Tutti i connettori supportano dati nei formati JSON e XML.
@@ -592,11 +592,11 @@ Non sono disponibili parametri per questa chiamata
 | _links |array |No |
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

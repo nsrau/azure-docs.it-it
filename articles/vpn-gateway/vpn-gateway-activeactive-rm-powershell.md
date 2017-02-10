@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/26/2016
 ms.author: yushwang
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 397928e851524fb43d3ffa114b45024b0158a410
+ms.sourcegitcommit: b8b663d802fde83f3435f2d97ceb51d5b5c802bb
+ms.openlocfilehash: ef17c0226528fef35c0317cebbaa14b7bbe28b1d
 
 
 ---
@@ -227,14 +227,15 @@ Creare la connessione da TestVNet1 a Site5_2 con "EnableBGP" impostato su $True.
 #### <a name="3-vpn-and-bgp-parameters-for-your-second-on-premises-vpn-device"></a>3. Parametri di VPN e BGP per il secondo dispositivo VPN locale
 In modo analogo, di seguito sono elencati i parametri che verranno immessi nel secondo dispositivo VPN:
 
-    - Site5 ASN            : 65050
-    - Site5 BGP IP         : 10.52.255.254
-    - Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
-    - Azure VNet ASN       : 65010
-    - Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
-    - Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
-    - Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5                        Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
-    - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
+      - Site5 ASN            : 65050
+      - Site5 BGP IP         : 10.52.255.254
+      - Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
+      - Azure VNet ASN       : 65010
+      - Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
+      - Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
+      - Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
+                             Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
+      - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 
 Una volta che viene stabilita la connessione (tunnel), si disporrà di dispositivi VPN a doppia ridondanza e di tunnel che connettono la rete locale e Azure:
 
@@ -381,6 +382,6 @@ Dopo aver completato la connessione, è possibile aggiungere macchine virtuali a
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

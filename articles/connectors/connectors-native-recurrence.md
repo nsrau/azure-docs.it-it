@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d85eb09283bc464e78bf84401eeb0ff366ef5773
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: fe558958c316c8dba42163e277ae01451f712e5a
 
 
 ---
@@ -29,7 +29,7 @@ Ad esempio, è possibile:
 * Pianificare un flusso di lavoro per eseguire una stored procedure SQL ogni giorno.
 * Inviare un messaggio di posta elettronica con il riepilogo di tutti i tweet dell'ultima settimana riguardanti un determinato hashtag.
 
-Per informazioni su come iniziare a usare un trigger di ricorrenza in un'app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per informazioni su come iniziare a usare un trigger di ricorrenza in un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="use-a-recurrence-trigger"></a>Usare un trigger di ricorrenza
 Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](connectors-overview.md).
@@ -59,11 +59,11 @@ Un asterisco (*) indica che è un campo obbligatorio.
 <br>
 
 ## <a name="next-steps"></a>Passaggi successivi
-Provare ora a usare la piattaforma e [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
+Provare ora a usare la piattaforma e [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

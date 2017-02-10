@@ -3,7 +3,7 @@ title: Eseguire la migrazione al database SQL tramite la replica transazionale |
 description: Database SQL di Microsoft Azure, migrazione del database, importazione del database, replica transazionale
 services: sql-database
 documentationcenter: 
-author: CarlRabeler
+author: jognanay
 manager: jhubbard
 editor: 
 ms.assetid: eebdd725-833d-4151-9b2b-a0303f39e30f
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
-ms.date: 11/08/2016
-ms.author: carlrab
+ms.date: 12/09/2016
+ms.author: carlrab; jognanay;
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: 891c10b2f8e560a3c97f93198c742f657a92e927
+ms.sourcegitcommit: 8baeadbf7ef24e492c4115745c0d384e4f526188
+ms.openlocfilehash: 8380925a56d39bd53fe737bed539b862cc835fad
 
 
 ---
@@ -41,19 +41,41 @@ Con la replica transazionale, tutte le modifiche ai dati o allo schema vengono v
 
  ![Diagramma di SeedCloudTR](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 
+## <a name="how-transactional-replication-works"></a>Funzionamento della replica transazionale
+
+La replica transazionale è costituita da tre componenti principali: il server di pubblicazione, il distributore e il server di sottoscrizione. Insieme, questi tre componenti eseguono la replica. Il distributore è responsabile del controllo dei processi che consentono lo spostamento dei dati tra i server. Quando si configura la distribuzione, SQL creerà un database di distribuzione. Ogni server di pubblicazione deve essere associato a un database di distribuzione. Il database di distribuzione contiene i metadati per ogni pubblicazione associata e i dati sullo stato di avanzamento di ogni replica. Nel caso della replica transazionale, conterrà tutte le transazioni che devono essere eseguite nel server di sottoscrizione.
+
+Il server di pubblicazione è il database in cui hanno origine tutti i dati per la migrazione. All'interno del server di pubblicazione possono essere presenti più pubblicazioni. Queste pubblicazioni contengono articoli mappati a tutte le tabelle e i dati che devono essere replicati. A seconda di come si definiscono la pubblicazione e gli articoli, è possibile replicare l'intero database o parte di esso. 
+
+Nella replica il server di sottoscrizione è il server che riceve tutti i dati e le transazioni dalla pubblicazione. Ogni pubblicazione può avere più repliche.
+
 ## <a name="transactional-replication-requirements"></a>Requisiti della replica transazionale
-La replica transazionale è una tecnologia integrata in SQL Server a partire dalla versione 6.5. Si tratta di una tecnologia sperimentata e consolidata che la maggior parte degli amministratori di database conosce e con cui ha esperienza. Con [SQL Server 2016](https://www.microsoft.com/sql-server/sql-server-2016) è ora possibile configurare il database SQL di Azure come [sottoscrittore di replica transazionale](https://msdn.microsoft.com/library/mt589530.aspx) per la pubblicazione locale. L'esperienza che si ottiene impostando il database da Management Studio è identica alla configurazione di un sottoscrittore di replica transazionale in un server locale. Questo scenario è supportato quando i server di pubblicazione e di distribuzione sono almeno una delle seguenti versioni di SQL Server:
-
-* SQL Server 2016 e versioni successive 
-* SQL Server 2014 SP1 CU3 e versioni successive
-* SQL Server 2014 RTM CU10 e versioni successive
-* SQL Server 2012 SP2 CU8 e versioni successive
-* SQL Server 2012 SP3 e versioni successive
-
+[Fare clic su questo link per un elenco aggiornato dei requisiti.](https://msdn.microsoft.com/en-US/library/mt589530.aspx)
 > [!IMPORTANT]
 > Usare sempre la versione più aggiornata di SQL Server Management Studio per restare sincronizzati con gli aggiornamenti di Microsoft Azure e del database SQL. Le versioni precedenti di SQL Server Management Studio non sono in grado di impostare il database SQL come sottoscrittore. [Aggiornare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 > 
-> 
+
+## <a name="migration-to-sql-database-using-transaction-replication-workflow"></a>Migrazione al database SQL tramite il flusso di lavoro della replica transazionale
+
+1. Configurare la distribuzione
+   -  [Usando SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_1)
+   -  [Usando Transact-SQL](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_2)
+2. Creare la pubblicazione
+   -  [Usando SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_1)
+   -  [Usando Transact-SQL](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
+3. Creare la sottoscrizione
+   -  [Usando SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_0)
+   -  [Usando Transact-SQL](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
+
+## <a name="some-tips-and-differences-for-migrating-to-sql-database"></a>Suggerimenti e differenze per la migrazione al database SQL
+
+1. Usare un server di distribuzione locale. 
+   - Ciò causerà un impatto sulle prestazioni a livello del server. 
+   - Se l'impatto sulle prestazioni non è accettabile, è possibile usare un altro server, ma aumenterà la complessità delle operazioni di gestione e amministrazione.
+2. Quando si seleziona una cartella snapshot, accertarsi che la cartella selezionata sia sufficientemente grande da contenere un BCP di ogni tabella da replicare. 
+3. Si noti che la creazione di snapshot bloccherà le tabelle associate fino al completamento dell'operazione; tenerlo presente durante la pianificazione dello snapshot. 
+4. Nel database SQL di Azure sono supportate solo le sottoscrizioni push.
+   - È possibile aggiungere solo server di sottoscrizione dal lato del database locale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Scaricare SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
@@ -61,14 +83,11 @@ La replica transazionale è una tecnologia integrata in SQL Server a partire dal
 * [SQL Server 2016 ](https://www.microsoft.com/sql-server/sql-server-2016)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
-* [Replica transazionale](https://msdn.microsoft.com/library/mt589530.aspx)
-* [Funzionalità di database SQL](sql-database-features.md)
-* [Transact-SQL partially or unsupported functions (Funzionalità di Transact-SQL parzialmente supportate o non supportate)](sql-database-transact-sql-information.md)
-* [Migrate non-SQL Server databases using SQL Server Migration Assistant (Eseguire la migrazione di database non SQL Server mediante SQL Server Migration Assistant)](http://blogs.msdn.com/b/ssma/)
+* Per altre informazioni sulla replica transazionale, vedere [Replica transazionale](https://msdn.microsoft.com/library/mt589530.aspx).
+* Per informazioni sul processo di migrazione generale e le relative opzioni, vedere [Migrazione di un database SQL Server al database SQL nel cloud](sql-database-cloud-migrate.md).
 
 
 
-
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

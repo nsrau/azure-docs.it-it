@@ -1,12 +1,12 @@
 ---
-title: 'Azure Active Directory Domain Services: Guida all''amministrazione | Microsoft Docs'
-description: Creare un'unità organizzativa (OU) nei domini gestiti di Servizi di dominio Azure AD
+title: 'Azure Active Directory Domain Services: Guida all&quot;amministrazione | Documentazione Microsoft'
+description: "Creare un&quot;unità organizzativa (OU) nei domini gestiti di Servizi di dominio Azure AD"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0707a8efd91d646bf7c417f881ccb9ebb6f2a470
+
 
 ---
-# <a name="create-an-organizational-unit-(ou)-on-an-azure-ad-domain-services-managed-domain"></a>Creare un'unità organizzativa (OU) in un dominio gestito di Servizi di dominio Azure AD
+# <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Creare un'unità organizzativa (OU) in un dominio gestito di Servizi di dominio Azure AD
 I domini gestiti di Servizi di dominio Azure AD includono due contenitori predefiniti denominati rispettivamente "AADDC Computers" e "AADDC Users". Il contenitore "AADDC Computers" include oggetti computer per tutti i computer aggiunti al dominio gestito. Il contenitore "AADDC Users" include utenti e gruppi nel tenant Azure AD. In alcuni casi può essere necessario creare account del servizio nel dominio gestito per distribuire i carichi di lavoro. A questo scopo, è possibile creare un'unità organizzativa (OU) personalizzata nel dominio gestito e creare gli account del servizio nell'unità organizzativa. Questo articolo descrive come creare una OU nel dominio gestito.
 
 ## <a name="install-ad-administration-tools-on-a-domain-joined-virtual-machine-for-remote-administration"></a>Installare gli strumenti di amministrazione di AD in una macchina virtuale aggiunta al dominio per l'amministrazione remota
@@ -50,7 +54,7 @@ Dopo aver installato gli strumenti di amministrazione di AD nella macchina virtu
    
     ![Centro di amministrazione di Active Directory - OU creata](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
 
-## <a name="permissions/security-for-newly-created-ous"></a>Autorizzazioni/sicurezza per le OU appena create
+## <a name="permissionssecurity-for-newly-created-ous"></a>Autorizzazioni/sicurezza per le OU appena create
 Per impostazione predefinita, all'utente, membro del gruppo "AAD DC Administrators", che ha creato l'unità organizzativa personalizzata verranno concessi privilegi amministrativi con controllo completo per l'unità organizzativa. L'utente può quindi procedere alla concessione di autorizzazioni ad altri utenti o al gruppo "AAD DC Administrators" secondo le esigenze. Come illustrato nello screenshot seguente, all'utente 'bob@domainservicespreview.onmicrosoft.com' che ha creato la nuova unità organizzativa "MyCustomOU" è concesso il controllo completo dell'unità organizzativa.
 
  ![Centro di amministrazione di Active Directory - Sicurezza della nuova OU](./media/active-directory-domain-services-admin-guide/create-ou-permissions.png)
@@ -68,6 +72,9 @@ Dopo avere creato un'unità organizzativa personalizzata, è possibile procedere
 * [Centro di amministrazione di Active Directory: Introduzione](https://technet.microsoft.com/library/dd560651.aspx)
 * [Guida dettagliata agli account del servizio gestiti](https://technet.microsoft.com/library/dd548356.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

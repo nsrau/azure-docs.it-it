@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/21/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: fa6c9b6b60aef689568c58699eeb89d14b1ae2bf
-ms.openlocfilehash: 73c47bcfbe018947930bb23fbbcc201b91a49944
+ms.sourcegitcommit: 08499c4242fdc59ef932d6b8f2e8442e5cdc55b2
+ms.openlocfilehash: a606f06de55b1db4392d066a3e1d026eb3b54d74
 
 
 ---
@@ -77,7 +77,7 @@ ClientAliveCountMax 0
 
 SSHD è il server SSH eseguito nella VM Linux.  SSH è un client eseguito da una shell nella workstation MacBook o Linux o tramite bash in Windows.  SSH è anche il protocollo usato per proteggere e crittografare le comunicazioni tra la workstation e la VM Linux, ed è pertanto anche una rete privata virtuale (VPN, Virtual Private Network).
 
-Ai fini di questo articolo è molto importante mantenere aperto un accesso alla VM Linux per l'intera procedura.  Dopo aver stabilito la connessione SSH, la sessione rimane aperta fino a quando la finestra non viene chiusa.  La connessione di un terminale consente di apportare le modifiche al servizio SSHD senza rimanere bloccati se viene apportata una modifica di rilievo.  Se la VM Linux viene bloccata da una configurazione SSHD interrotta, Azure consente di reimpostare la configurazione SSHD interrotta con l'[estensione dell'accesso alle macchine virtuali di Azure](virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Ai fini di questo articolo è molto importante mantenere aperto un accesso alla VM Linux per l'intera procedura.  Dopo aver stabilito la connessione SSH, la sessione rimane aperta fino a quando la finestra non viene chiusa.  La connessione di un terminale consente di apportare le modifiche al servizio SSHD senza rimanere bloccati se viene apportata una modifica di rilievo.  Se la VM Linux viene bloccata da una configurazione SSHD interrotta, Azure consente di reimpostare la configurazione SSHD interrotta con l'[estensione dell'accesso alle macchine virtuali di Azure](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Per questo motivo vengono aperti due terminali che usano entrambi SSH per comunicare con la VM Linux.  Il primo terminale viene usato per apportare modifiche al file di configurazione SSHD e per riavviare il servizio SSHD.  Il secondo terminale viene usato per testare le modifiche apportate dopo il riavvio del servizio.  Poiché si eseguirà la disabilitazione delle password SSH e ci si affiderà esclusivamente alle chiavi SSH, se le chiavi SSH non sono corrette e si chiude la connessione alla VM, quest'ultima verrà definitivamente bloccata. Nessuno sarà più in grado di accedervi e la macchina virtuale dovrà essere eliminata e ricreata.
 
@@ -177,14 +177,14 @@ azure vm reset-access \
 
 Dopo aver configurato e bloccato il server SSH nella VM Linux, è possibile eseguire alcune procedure di sicurezza aggiuntive.  
 
-* [Gestire utenti, SSH e dischi di controllo o di ripristino in VM Linux di Azure tramite l'estensione VMAccess](virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Gestire utenti, SSH e dischi di controllo o di ripristino in VM Linux di Azure tramite l'estensione VMAccess](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-* [Crittografare i dischi di una VM Linux usando l'interfaccia della riga di comando di Azure](virtual-machines-linux-encrypt-disks?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Crittografare i dischi di una VM Linux usando l'interfaccia della riga di comando di Azure](virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-* [Accesso e sicurezza nei modelli di Azure Resource Manager](virtual-machines-linux-dotnet-core-3-access-security?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Accesso e sicurezza nei modelli di Azure Resource Manager](virtual-machines-linux-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

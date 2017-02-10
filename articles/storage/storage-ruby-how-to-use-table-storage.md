@@ -3,8 +3,8 @@ title: Come usare l&quot;archiviazione tabelle di Azure da Ruby | Microsoft Docs
 description: Archiviare dati non strutturati nel cloud con il servizio di archiviazione tabelle di Azure, ovvero un archivio dati NoSQL.
 services: storage
 documentationcenter: ruby
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: 
 ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: c05d8d244f22998113b0fa9c7508ecc287bdbd64
-ms.openlocfilehash: d43160bf1fa7dd08bb6c3fd5e2d0f3111134239b
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: e1df2fcf4478ef7f58c5686e85abd6ae94b5a2d3
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: d43160bf1fa7dd08bb6c3fd5e2d0f3111134239b
 
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Questa guida illustra come eseguire scenari comuni con il servizio tabelle di Azure. Gli esempi sono scritti utilizzando l'API Ruby. Gli scenari presentati includono **creazione ed eliminazione di una tabella, inserimento di entità ed esecuzione di query sulle entità in una tabella**.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -59,18 +59,18 @@ Azure.config.storage_access_key = "<your azure storage access key>"
 
 Per ottenere questi valori da un account di archiviazione classico o di Resource Manager nel portale di Azure:
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [Portale di Azure](https://portal.azure.com).
 2. Passare all'account di archiviazione che si desidera utilizzare.
 3. Nel pannello Impostazioni a destra fare clic su **Chiavi di accesso**.
-4. Nel pannello Chiavi di accesso visualizzato notare la chiave di accesso 1 e la chiave di accesso 2. È possibile usare una di queste indifferentemente. 
-5. Fare clic sull'icona Copia per copiare la chiave negli Appunti. 
+4. Nel pannello Chiavi di accesso visualizzato notare la chiave di accesso 1 e la chiave di accesso 2. È possibile usare una di queste indifferentemente.
+5. Fare clic sull'icona Copia per copiare la chiave negli Appunti.
 
 Per ottenere questi valori da un account di archiviazione classico nel portale di Azure classico:
 
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 2. Passare all'account di archiviazione che si desidera utilizzare.
 3. Fare clic su **GESTISCI CHIAVI DI ACCESSO** nella parte inferiore del riquadro di spostamento.
-4. Nella finestra di dialogo popup saranno visualizzati il nome dell'account di archiviazione, la chiave di accesso primaria e la chiave di accesso secondaria. Per la chiave di accesso è possibile usare sia la chiave primaria che secondaria. 
+4. Nella finestra di dialogo popup saranno visualizzati il nome dell'account di archiviazione, la chiave di accesso primaria e la chiave di accesso secondaria. Per la chiave di accesso è possibile usare sia la chiave primaria che secondaria.
 5. Fare clic sull'icona Copia per copiare la chiave negli Appunti.
 
 ## <a name="create-a-table"></a>Creare una tabella
@@ -143,8 +143,8 @@ result, token = azure_table_service.query_entities("testtable", query)
 
 > [!NOTE]
 > Se il risultato impostato è troppo grande affinché sia restituito da un'unica query, verrà restituito un token di continuazione per recuperare le pagine successive.
-> 
-> 
+>
+>
 
 ## <a name="query-a-subset-of-entity-properties"></a>Eseguire query su un subset di proprietà di entità
 Mediante una query su una tabella è possibile recuperare solo alcune proprietà da un'entità. Questa tecnica, denominata "proiezione", consente di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. Utilizzare la clausola select e passare i nomi delle proprietà da inoltrare al client.
@@ -178,6 +178,6 @@ Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di ar
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

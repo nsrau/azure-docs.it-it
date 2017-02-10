@@ -1,24 +1,27 @@
-
 ---
-title: Uso previsto della larghezza di banda di rete di Azure RemoteApp | Microsoft Docs
+title: Uso previsto della larghezza di banda di rete di Azure RemoteApp | Documentazione Microsoft
 description: Informazioni sui requisiti relativi alla larghezza di banda di rete per le raccolte e le app Azure RemoteApp.
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: 3127f4c7-f532-46c3-ba9b-649f647abec1
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
+ms.openlocfilehash: 045410664ec70c846abbf32a36dcc8f70ac471be
+
 
 ---
-# Uso previsto della larghezza di banda di rete di Azure RemoteApp
+# <a name="estimate-azure-remoteapp-network-bandwidth-usage"></a>Uso previsto della larghezza di banda di rete di Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -34,11 +37,16 @@ Per i dettagli, tra cui i fattori da considerare, consigli di base ed elementi n
 * [Scenari comuni di test relativi all'utilizzo della larghezza di banda di rete](remoteapp-bandwidthtests.md)
 * [Linee guida rapide se non è possibile o non si ha tempo di effettuare test](remoteapp-bandwidthguidelines.md)
 
-## Cosa non è considerato
+## <a name="what-are-we-not-including"></a>Cosa non è considerato
 Quando si esaminano i test proposti e i consigli generali, effettivamente piuttosto generici, tenere presente che alcuni fattori non vengono considerati, ad esempio le complicazioni dell'esperienza utente dovute all'asimmetria della larghezza di banda di download rispetto a quella di upload. La natura asimmetrica della maggior parte delle reti Wi-Fi, inoltre, influisce sulle prestazioni e sulla percezione dell'esperienza utente. Per gli scenari interattivi il traffico downstream potrebbe avere una priorità inferiore rispetto al traffico upstream. Ciò potrebbe aumentare il numero di fotogrammi video o audio persi e pertanto influire sulla percezione dell'utente dell'esperienza di streaming. È possibile eseguire esperimenti personalizzati per conoscere i fattori in grado di migliorare l'esperienza utente nel proprio caso specifico e con la propria rete.
 
 Verrà esaminato il reindirizzamento dei dispositivi, ma non verrà preso in considerazione l'impatto sulla larghezza di banda del traffico di rete causato da dispositivi collegati, ad esempio risorse di archiviazione, stampanti, scanner, fotocamere Web e altri dispositivi USB. Tali dispositivi di solito causano picchi temporanei nella richiesta di larghezza di banda, che si ridimensionano al termine di ciascuna attività. Se questo accade di frequente, tuttavia, la mancanza di larghezza di banda potrebbe rendersi evidente.
 
 Inoltre non verrà esaminato in che modo un utente possa influire sugli altri utenti all'interno della stessa rete. Ad esempio, un utente che usa video 4K in una rete a 100 MB/s può influire in modo significativo sugli altri utenti della stessa rete che tentano di eseguire la stessa attività. Purtroppo diventa sempre più difficile determinare l'impatto dell'uso simultaneo per offrire una soluzione comune o esaustiva per le prestazioni del sistema nel complesso. È possibile affermare solo che la tecnologia del protocollo sottostante usa al meglio la larghezza di banda disponibile, ma presenta comunque alcune limitazioni.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

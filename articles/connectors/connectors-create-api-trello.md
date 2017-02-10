@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d7a8111e299e846eb384f97bdef5a8c214214578
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 2616db980cb37c1c3759096ec3c05b98d687e047
 
 
 ---
@@ -29,7 +29,7 @@ Trello offre una panoramica di tutti i progetti, al lavoro e a casa.  È un modo
 > 
 > 
 
-Per iniziare subito a creare un'app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per iniziare subito a creare un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Trigger e azioni
 Il connettore Trello può essere usato come azione e include trigger. Tutti i connettori supportano dati nei formati JSON e XML.
@@ -546,11 +546,11 @@ Ottiene l'elenco in base all'ID: ottiene l'elenco in base all'ID
 | board |non definito |No |
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

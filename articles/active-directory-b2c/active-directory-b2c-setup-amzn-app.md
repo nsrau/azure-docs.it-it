@@ -51,6 +51,6 @@ Per usare Amazon come provider di identità in Azure Active Directory (Azure AD)
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

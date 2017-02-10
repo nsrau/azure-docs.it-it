@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1a6dd35278f0a4a4f972642c40a0976986dd79ae
-ms.openlocfilehash: 79c9f2d8c683be493160fffe40992006b039f60f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f86a70a5207f19063e9992325c8f8d696ca7823e
 
 
 ---
 # <a name="tutorial-get-started-with-the-preconfigured-solutions"></a>Esercitazione: Introduzione alle soluzioni preconfigurate
 ## <a name="introduction"></a>Introduzione
-Le [soluzioni preconfigurate][lnk-preconfigured-solutions] di Azure IoT Suite combinano più servizi IoT di Azure per fornire soluzioni end-to-end per l'implementazione di scenari aziendali IoT comuni. La soluzione preconfigurata per il *monitoraggio remoto* si connette ai dispositivi e li monitora. È possibile usare la soluzione per analizzare il flusso di dati dai dispositivi e di migliorare i risultati aziendali facendo in modo che i processi rispondano automaticamente a quel flusso di dati.
+Le [soluzioni preconfigurate][lnk-preconfigured-solutions] di Azure IoT Suite combinano più servizi IoT di Azure per fornire soluzioni end-to-end che implementano scenari aziendali IoT comuni. La soluzione preconfigurata per il *monitoraggio remoto* si connette ai dispositivi e li monitora. È possibile usare la soluzione per analizzare il flusso di dati dai dispositivi e di migliorare i risultati aziendali facendo in modo che i processi rispondano automaticamente a quel flusso di dati.
 
 Questa esercitazione illustra come effettuare il provisioning della soluzione preconfigurata per il monitoraggio remoto. Ne descrive anche le funzionalità di base. È possibile accedere a molte di queste funzionalità tramite il dashboard distribuito insieme alla soluzione preconfigurata:
 
@@ -32,7 +32,7 @@ Questa esercitazione illustra come effettuare il provisioning della soluzione pr
 Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva.
 
 > [!NOTE]
-> Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [Versione di valutazione gratuita di Azure][lnk_free_trial].
+> Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][lnk_free_trial].
 > 
 > 
 
@@ -98,7 +98,7 @@ La procedura seguente illustra come aggiungere un dispositivo simulato alla solu
    
    ![Impostare i dettagli del nuovo dispositivo nel dashboard][img-addnew]
    
-   Oltre a creare un nuovo dispositivo simulato, è anche possibile aggiungere un dispositivo fisico se si sceglie di creare un **dispositivo personalizzato**. Per altre informazioni sulla connessione di dispositivi fisici alla soluzione, vedere [Connettere il dispositivo alla soluzione preconfigurata per il monitoraggio remoto][lnk-connect-rm].
+   Oltre a creare un nuovo dispositivo simulato, è anche possibile aggiungere un dispositivo fisico se si sceglie di creare un **dispositivo personalizzato**. Per altre informazioni sulla connessione di dispositivi fisici alla soluzione, vedere [Connettere il dispositivo alla soluzione preconfigurata per il monitoraggio remoto IoT Suite][lnk-connect-rm].
 4. Selezionare **Let me define my own Device ID** (Definire l'ID dispositivo personale) e immettere un nome di ID dispositivo univoco, ad esempio **mydevice_01**.
 5. Fare clic su **Crea**.
    
@@ -151,7 +151,7 @@ Non sono presenti regole per il nuovo dispositivo appena aggiunto. In questa sez
     ![Elenco delle azioni per il dispositivo][img-actions]
 
 > [!NOTE]
-> È possibile definire azioni che possono inviare un messaggio di posta elettronica o un SMS in risposta a una regola oppure eseguire un'integrazione con un sistema line-of-business tramite un'[app per la logica][lnk-logic-apps]. Per altre informazioni, vedere [Connect Logic App to your Azure IoT Suite Remote Monitoring preconfigured solution][lnk-logicapptutorial] (Connettere l'app per la logica alla soluzione preconfigurata per il monitoraggio remoto di Azure IoT Suite).
+> È possibile definire azioni che possono inviare un messaggio di posta elettronica o un SMS in risposta a una regola oppure eseguire un'integrazione con un sistema line-of-business tramite un'[app per la logica][lnk-logic-apps]. Per altre informazioni, vedere [Connettere l'app per la logica alla soluzione preconfigurata per il monitoraggio remoto Azure IoT Suite][lnk-logicapptutorial].
 > 
 > 
 
@@ -180,7 +180,7 @@ Quando si distribuisce una soluzione preconfigurata, il processo di distribuzion
 Al termine, è possibile eliminare la soluzione preconfigurata dalla sottoscrizione di Azure nel sito [azureiotsuite.com][lnk-azureiotsuite]. Questo sito consente di eliminare facilmente tutte le risorse di cui è stato effettuato il provisioning quando si è creata la soluzione preconfigurata.
 
 > [!NOTE]
-> Per assicurarsi di eliminare tutti gli elementi correlati alla soluzione preconfigurata, eliminarli nel sito [azureiotsuite.com][lnk-azureiotsuite] e non eliminare il gruppo di risorse nel portale.
+> Per assicurarsi di eliminare tutti gli elementi correlati alla soluzione preconfigurata, eliminarli dal sito [azureiotsuite.com][lnk-azureiotsuite] e non eliminare il gruppo di risorse nel portale.
 > 
 > 
 
@@ -229,6 +229,6 @@ Dopo aver distribuito una soluzione preconfigurata è possibile proseguire con l
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

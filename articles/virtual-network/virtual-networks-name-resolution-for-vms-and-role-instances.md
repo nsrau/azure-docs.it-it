@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 12/06/2016
 ms.author: telmos
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6b178c399cd3e29c97bc68c6c1494a015920a0a1
+ms.sourcegitcommit: b574360cce92350a9bf52c21678bf0e91ceb270e
+ms.openlocfilehash: 479cf8cf358d0b242d8ce030d8639b493e4767d8
 
 
 ---
@@ -182,6 +182,6 @@ Modello di distribuzione classica:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

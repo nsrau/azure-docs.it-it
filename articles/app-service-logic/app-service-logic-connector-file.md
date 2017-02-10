@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/01/2016
 ms.author: rajram
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0fd71a72040ecf4e51fc118ce881b6c8ceb51b61
+ms.sourcegitcommit: 7ff7874538f23c8dd8c4aaa789018c77dfe2ab9a
+ms.openlocfilehash: 61410d8b3c4a2a800d8fc9804fc9e7c72bd8abe4
 
 
 ---
@@ -79,16 +79,16 @@ Per usare il connettore all'esterno di un'app per la logica, è possibile sfrutt
 Per informazioni dettagliate sulle API, vedere l'articolo relativo alla [definizione delle API del connettore file].
 
 ## <a name="do-more-with-your-connector"></a>Altri vantaggi del connettore
-Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
+Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](../logic-apps/logic-apps-what-are-logic-apps.md)
 
 > [!NOTE]
-> Per iniziare a usare le app per la logica di Azure prima di registrarsi per ottenere un account Azure, passare a [Prova l'app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare le app per la logica di Azure prima di registrarsi per ottenere un account Azure, passare a [Prova l'app per la logica](https://azure.microsoft.com/try/app-service/logic/), dove è possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 >
 >
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Monitorare le app per la logica](app-service-logic-monitor-your-logic-apps.md).
+È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Monitorare le app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-file/img1.PNG
@@ -103,6 +103,6 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

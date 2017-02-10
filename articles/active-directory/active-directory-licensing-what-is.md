@@ -155,6 +155,6 @@ A questo punto si è pronti per configurare e utilizzare alcune delle funzionali
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

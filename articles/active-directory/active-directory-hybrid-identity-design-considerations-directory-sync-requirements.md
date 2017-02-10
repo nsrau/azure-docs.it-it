@@ -1,12 +1,12 @@
 ---
-title: Considerazioni di progettazione della soluzione ibrida di gestione delle identità di Azure Active Directory - Determinare i requisiti di sincronizzazione delle directory | Microsoft Docs
+title: "Considerazioni di progettazione della soluzione ibrida di gestione delle identità di Azure Active Directory - Determinare i requisiti di sincronizzazione delle directory | Microsoft Docs"
 description: Identificare i requisiti necessari per sincronizzare tutti gli utenti per le applicazioni locali e nel cloud.
-documentationcenter: ''
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 593eaa71-17eb-4c16-8c98-43cc62987e65
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 32039e6c9291879a4151cd12dfa5dac11a153ee0
+
 
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Determinare i requisiti di sincronizzazione delle directory
@@ -70,6 +74,9 @@ Dopo aver individuato i requisiti di sincronizzazione e lo strumento corretto pe
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

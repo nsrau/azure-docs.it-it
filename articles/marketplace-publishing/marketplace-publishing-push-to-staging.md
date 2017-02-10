@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/17/2016
 ms.author: hascipio
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 766ef5da584341fba08607a9b04ac85be8333db6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 766ef5da584341fba08607a9b04ac85be8333db6
 In questo passaggio del processo di pubblicazione, sarà necessario fornire alcuni contenuti di marketing e informazioni dettagliate sull'offerta e/o sugli SKU in Azure Marketplace. Ad esempio, si fornirà una descrizione del prodotto, i logo aziendali, piani di prezzo, dettagli dei piani e altre informazioni necessarie per portare l'offerta e/o SKU in gestione temporanea. Queste informazioni vengono utilizzate come contenuto di marketing nel portale di Azure. Si inizierà il processo nel [portale di pubblicazione][link-pubportal].
 
 ## <a name="step-1-provide-marketplace-marketing-content"></a>Passaggio 1: Fornire contenuti di marketing di Marketplace
-**Inglese è il valore predefinito e la sola lingua supportata.**  Assicurarsi che tutte le informazioni contenute nei campi siano in inglese. Tutte le informazioni possono essere modificate in qualsiasi momento fino al passaggio alla gestione temporanea.
+**Inglese è il valore predefinito e la sola lingua supportata.** Assicurarsi che tutte le informazioni contenute nei campi siano in inglese. Tutte le informazioni possono essere modificate in qualsiasi momento fino al passaggio alla gestione temporanea.
 
 1. Passare al portale di pubblicazione, [https://publish.windowsazure.com](https://publish.windowsazure.com).
 2. Nel menu a sinistra fare clic sulla scheda **Marketing** .
@@ -140,12 +140,12 @@ Per le offerte per macchina virtuale, una volta che l'offerta o lo SKU è elenca
 |  | Solo Base | Solo Consumo | Base + Consumo |
 | --- | --- | --- | --- |
 | Immagine di macchina virtuale |No |Sì |No |
-| Servizio per gli sviluppatori |Sì |sì |Sì |
+| Servizio per gli sviluppatori |Sì |Sì |Sì |
 
 ### <a name="21-set-your-vm-prices"></a>2.1. Impostare i prezzi della VM
 Attualmente per le macchine virtuali sono disponibili i **tre tipi di modelli di fatturazione**
 
-* **Oraria:** i clienti ricevono un addebito su base oraria secondo le tariffe stabilite dagli editori in base alle dimensioni della macchina virtuale. In caso di **fatturazione oraria** degli SKU, il prezzo totale sarà la somma del costo del software addebitato dall'editore più il costo dell'infrastruttura addebitato da Microsoft. Questo costo totale sarà visualizzato al cliente come prezzo orario e mensile quando prende in considerazione l'acquisto (vedere la schermata riportata di seguito). **L'autore riceve l'80% del costo del software addebitato.**  Di conseguenza è necessario assicurarsi di eseguire il calcolo relativo prima di impostare i prezzi per gli SKU.
+* **Oraria:** i clienti ricevono un addebito su base oraria secondo le tariffe stabilite dagli editori in base alle dimensioni della macchina virtuale. In caso di **fatturazione oraria** degli SKU, il prezzo totale sarà la somma del costo del software addebitato dall'editore più il costo dell'infrastruttura addebitato da Microsoft. Questo costo totale sarà visualizzato al cliente come prezzo orario e mensile quando prende in considerazione l'acquisto (vedere la schermata riportata di seguito). **L'autore riceve l'80% del costo del software addebitato.** Di conseguenza è necessario assicurarsi di eseguire il calcolo relativo prima di impostare i prezzi per gli SKU.
   
     ![disegno](media/marketplace-publishing-push-to-staging/img2.1-01.png)
 * **Versione di valutazione gratuita:** si tratta di un'altra versione del modello orario. In questo caso al cliente non viene addebitato il costo del software per i primi 30 giorni (gratuiti) dopo la distribuzione della VM. Dopo 30 giorni i clienti ricevono un addebito su base oraria secondo le tariffe stabilite dagli autori nel modello orario.
@@ -194,7 +194,7 @@ Per configurare il modello di prezzi orario per uno SKU, seguire i passaggi ripo
 10. Verrà aperta la procedura guidata di impostazione automatica dei prezzi. La prima pagina consente di selezionare il mercato di base. Eseguire la selezione e passare alla pagina successiva facendo clic sul pulsante "->".
     
     ![disegno](media/marketplace-publishing-push-to-staging/img2.1.1_10.png)
-11. La pagina 2 mostra le opzioni per la selezione delle memorie centrali e dei piani. Selezionare i piani desiderati e fare clic sul pulsante “->”. Fare clic sul pulsante **Toggle All** (Attiva/Disattiva tutto) per selezionare tutti i **piani di servizio** e i **misuratori** oppure selezionare manualmente le caselle di controllo. **È necessario fornire il prezzo per tutte le memorie centrali di uno SKU anche se lo SKU non lo supporta.**  Assicurarsi pertanto che siano selezionate tutte le dimensioni di memoria centrale.
+11. La pagina 2 mostra le opzioni per la selezione delle memorie centrali e dei piani. Selezionare i piani desiderati e fare clic sul pulsante “->”. Fare clic sul pulsante **Toggle All** (Attiva/Disattiva tutto) per selezionare tutti i **piani di servizio** e i **misuratori** oppure selezionare manualmente le caselle di controllo. **È necessario fornire il prezzo per tutte le memorie centrali di uno SKU anche se lo SKU non lo supporta.** Assicurarsi pertanto che siano selezionate tutte le dimensioni di memoria centrale.
     
     ![disegno](media/marketplace-publishing-push-to-staging/img2.1.1_11.png)
 12. La pagina 3 mostra i mercati/aree. Fare clic sul pulsante **Toggle All** (Attiva/Disattiva tutto) per selezionare tutte le aree oppure selezionare manualmente le caselle per l'area. Fare clic sul pulsante "->" per passare alla pagina successiva. **Nota:** i paesi in cui Microsoft riscuote e versa le imposte sono contrassegnati da un simbolo che raffigura una casa. Per altre informazioni, consultare il sezione "Paesi in cui vendere lo SKU" di questa pagina.
@@ -290,6 +290,6 @@ Ora che il contenuto del Marketplace è caricato, è possibile passare al test d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

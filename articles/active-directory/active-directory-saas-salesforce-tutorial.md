@@ -39,13 +39,13 @@ Se si usa un ambiente Salesforce Sandbox, vedere l' [Esercitazione: Integrazione
 ## <a name="video-tutorials"></a>Esercitazioni video
 È possibile seguire questa esercitazione tramite i video seguenti.
 
-**Esercitazione video - Parte 1: Come abilitare l'accesso Single Sign-On**
+**Esercitazione video - Parte&1;: Come abilitare l'accesso Single Sign-On**
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Integrating-Salesforce-with-Azure-AD-How-to-enable-Single-Sign-On-12/player]
 > 
 > 
 
-**Esercitazione video - Parte 2: Come automatizzare il provisioning degli utenti**
+**Esercitazione video - Parte&2;: Come automatizzare il provisioning degli utenti**
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Integrating-Salesforce-with-Azure-AD-How-to-automate-User-Provisioning-22/player]
 > 

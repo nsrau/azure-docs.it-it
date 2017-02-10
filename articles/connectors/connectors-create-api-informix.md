@@ -1,13 +1,13 @@
 ---
-title: Aggiungere il connettore Informix alle app per la logica | Microsoft Docs
-description: Panoramica del connettore Informix con i parametri dell'API REST
-services: ''
-documentationcenter: ''
+title: Aggiungere il connettore Informix alle app per la logica | Documentazione Microsoft
+description: Panoramica del connettore Informix con i parametri dell&quot;API REST
+services: 
+documentationcenter: 
 author: gplarsen
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: ca2393f0-3073-4dc2-8438-747f5bc59689
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen
+translationtype: Human Translation
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 614400a8787fdd2081fa8e981c0fc6b6dd794a58
+
 
 ---
 # <a name="get-started-with-the-informix-connector"></a>Introduzione al connettore Informix
@@ -36,7 +40,7 @@ Il connettore supporta le operazioni di database seguenti:
 
 Questo argomento illustra come usare il connettore in un'app per la logica per elaborare operazioni su database.
 
-Per altre informazioni sulle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per altre informazioni sulle app per la logica, vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="available-actions"></a>Azioni disponibili
 Il connettore supporta le azioni delle app per la logica seguenti:
@@ -400,8 +404,11 @@ Il connettore supporta le versioni di IBM Informix seguenti, in caso di configur
 * IBM Informix 11.7
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).
+[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO3-->
 
 

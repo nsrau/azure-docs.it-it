@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a4230f1dc65e0b5bb5c4904a1c2780f0c3c907f1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a8c557ea07cbccb913bc47c510f6759dd832c861
 
 
 ---
@@ -47,15 +47,15 @@ SQL Server Integration Services (SSIS) è un set di strumenti flessibile che off
 
 1. Usare una destinazione ADO.NET per connettersi a SQL Data Warehouse. Questa esercitazione usa una destinazione ADO.NET perché include il minor numero di opzioni di configurazione.
 2. Usare una destinazione OLE DB per connettersi a SQL Data Warehouse. Questa opzione può fornire prestazioni leggermente migliori rispetto alla destinazione ADO.NET.
-3. Usare l'attività di caricamento BLOB di Azure per inserire i dati nell'archivio BLOB di Azure. Usare quindi l'attività Esegui SQL di SSIS per avviare uno script di Polybase che carica i dati in SQL Data Warehouse. Delle tre opzioni elencate qui, questa è quella che offre le prestazioni migliori. Per ottenere l'attività di caricamento BLOB di Azure, scaricare [Microsoft SQL Server 2016 Integration Services Feature Pack for Azure][Microsoft SQL Server 2016 Integration Services Feature Pack for Azure]. Per altre informazioni su Polybase, vedere la [guida di PolyBase][guida di PolyBase].
+3. Usare l'attività di caricamento BLOB di Azure per inserire i dati nell'archivio BLOB di Azure. Usare quindi l'attività Esegui SQL di SSIS per avviare uno script di Polybase che carica i dati in SQL Data Warehouse. Delle tre opzioni elencate qui, questa è quella che offre le prestazioni migliori. Per ottenere l'attività di caricamento BLOB di Azure, scaricare [Microsoft SQL Server 2016 Integration Services Feature Pack for Azure][Microsoft SQL Server 2016 Integration Services Feature Pack for Azure]. Per altre informazioni su Polybase, vedere la [Guida di PolyBase][PolyBase Guide].
 
 ## <a name="before-you-start"></a>Prima di iniziare
 Per eseguire questa esercitazione, è necessario:
 
-1. **SQL Server Integration Services (SSIS)**. SSIS è un componente di SQL Server e richiede una versione di valutazione o una versione con licenza di SQL Server. Per ottenere una versione di valutazione di SQL Server 2016 Preview, vedere la pagina delle [versioni di valutazione di SQL Server][versioni di valutazione di SQL Server].
-2. **Visual Studio**. Per ottenere la versione gratuita di Visual Studio 2015 Community Edition, vedere [Visual Studio Community][Visual Studio Community].
-3. **SQL Server Data Tools per Visual Studio (SSDT)**. Per ottenere SQL Server Data Tools per Visual Studio 2015, vedere [Scaricare la versione più recente di SQL Server Data Tools][Scaricare la versione più recente di SQL Server Data Tools].
-4. **Dati di esempio**. Questa esercitazione usa dati di esempio, archiviati nel database di esempio AdventureWorks in SQL Server, come dati di origine da caricare in SQL Data Warehouse. Per ottenere il database di esempio AdventureWorks, vedere la pagina dei [database di esempio AdventureWorks 2014][database di esempio AdventureWorks 2014].
+1. **SQL Server Integration Services (SSIS)**. SSIS è un componente di SQL Server e richiede una versione di valutazione o una versione con licenza di SQL Server. Per ottenere una versione di valutazione di SQL Server 2016 Preview, vedere la pagina delle [versioni di valutazione di SQL Server][SQL Server Evaluations].
+2. **Visual Studio** Per ottenere la versione gratuita di Visual Studio 2015 Community Edition, vedere [Visual Studio Community][Visual Studio Community].
+3. **SQL Server Data Tools per Visual Studio (SSDT)**. Per ottenere SQL Server Data Tools per Visual Studio 2015, vedere [Scaricare SQL Server Data Tools (SSDT)][Download SQL Server Data Tools (SSDT)].
+4. **Dati di esempio**. Questa esercitazione usa dati di esempio, archiviati nel database di esempio AdventureWorks in SQL Server, come dati di origine da caricare in SQL Data Warehouse. Per ottenere il database di esempio AdventureWorks, vedere la pagina dei [database di esempio AdventureWorks 2014][AdventureWorks 2014 Sample Databases].
 5. **Database di SQL Data Warehouse e relative autorizzazioni**. Questa esercitazione si connette a un'istanza di SQL Data Warehouse e vi carica i dati. È necessario avere le autorizzazioni per creare una tabella e caricare i dati.
 6. **Regola del firewall**. Per poter caricare dati in SQL Data Warehouse, è necessario creare una regola del firewall in SQL Data Warehouse con l'indirizzo IP del computer locale.
 
@@ -167,9 +167,9 @@ Al termine dell'esecuzione del pacchetto vengono visualizzati segni di spunta ve
 Congratulazioni. SQL Server Integration Services è stato usato correttamente per caricare i dati in Azure SQL Data Warehouse.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni relative al flusso di dati SSIS. Iniziare da qui: [Flusso di dati][Flusso di dati].
-* Informazioni su come eseguire il debug e risolvere i problemi relativi ai pacchetti direttamente nell'ambiente di progettazione. Iniziare da qui: [Strumenti per la risoluzione dei problemi di sviluppo di pacchetti][Strumenti per la risoluzione dei problemi di sviluppo di pacchetti].
-* Informazioni su come distribuire i progetti e i pacchetti SSIS nel server Integration Services o in un altro percorso di archiviazione. Iniziare da qui: [Distribuzione di progetti e pacchetti][Distribuzione di progetti e pacchetti].
+* Altre informazioni relative al flusso di dati SSIS. Iniziare da qui: [Flusso di dati][Data Flow].
+* Informazioni su come eseguire il debug e risolvere i problemi relativi ai pacchetti direttamente nell'ambiente di progettazione. Iniziare da qui: [Strumenti per la risoluzione dei problemi di sviluppo di pacchetti][Troubleshooting Tools for Package Development].
+* Informazioni su come distribuire i progetti e i pacchetti SSIS nel server Integration Services o in un altro percorso di archiviazione. Iniziare da qui: [Distribuzione di progetti e pacchetti][Deployment of Projects and Packages].
 
 <!-- Image references -->
 [01]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ssis-designer-01.png
@@ -192,21 +192,21 @@ Congratulazioni. SQL Server Integration Services è stato usato correttamente pe
 <!-- Article references -->
 
 <!-- MSDN references -->
-[guida di PolyBase]: https://msdn.microsoft.com/library/mt143171.aspx
-[Scaricare la versione più recente di SQL Server Data Tools]: https://msdn.microsoft.com/library/mt204009.aspx
+[PolyBase Guide]: https://msdn.microsoft.com/library/mt143171.aspx
+[Download SQL Server Data Tools (SSDT)]: https://msdn.microsoft.com/library/mt204009.aspx
 [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)]: https://msdn.microsoft.com/library/mt203953.aspx
-[Flusso di dati]: https://msdn.microsoft.com/library/ms140080.aspx
-[Strumenti per la risoluzione dei problemi di sviluppo di pacchetti]: https://msdn.microsoft.com/library/ms137625.aspx
-[Distribuzione di progetti e pacchetti]: https://msdn.microsoft.com/library/hh213290.aspx
+[Data Flow]: https://msdn.microsoft.com/library/ms140080.aspx
+[Troubleshooting Tools for Package Development]: https://msdn.microsoft.com/library/ms137625.aspx
+[Deployment of Projects and Packages]: https://msdn.microsoft.com/library/hh213290.aspx
 
 <!--Other Web references-->
 [Microsoft SQL Server 2016 Integration Services Feature Pack for Azure]: http://go.microsoft.com/fwlink/?LinkID=626967
-[versioni di valutazione di SQL Server]: https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016
+[SQL Server Evaluations]: https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016
 [Visual Studio Community]: https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx
-[database di esempio AdventureWorks 2014]: https://msftdbprodsamples.codeplex.com/releases/view/125550
+[AdventureWorks 2014 Sample Databases]: https://msftdbprodsamples.codeplex.com/releases/view/125550
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

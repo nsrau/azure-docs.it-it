@@ -81,6 +81,6 @@ Per l'elenco delle aree di Azure in cui è disponibile Azure Active Directory Do
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

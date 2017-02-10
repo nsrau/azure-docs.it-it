@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/23/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d904de6370c1c6bd5116471465ec63fd8999a7ee
+ms.sourcegitcommit: e4ef793b2c1bc0026581fa4b414300721678d7d3
+ms.openlocfilehash: ecf2afc7a6e35b99a110e2e259e005e2164ebb27
 
 
 ---
@@ -157,7 +157,7 @@ La memorizzazione nella cache consente di impostare uno specifico periodo di tem
 <center>![Cloud](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
 ## <a name="trusted-ips"></a>Indirizzi IP attendibili
-Gli indirizzi IP attendibili sono una funzionalità di Multi-Factor Authentication che offre agli amministratori di un tenant gestito o federato la possibilità di ignorare Multi-Factor Authentication per gli utenti che accedono dalla rete Intranet locale dell'azienda. Le funzionalità sono disponibili per i tenant di Azure AD che dispongono di licenze Azure AD Premium, Enterprise Mobility Suite o Azure Multi-Factor Authentication.
+Gli indirizzi IP attendibili sono una funzionalità di Multi-Factor Authentication che offre agli amministratori di un tenant gestito o federato la possibilità di ignorare Multi-Factor Authentication per gli utenti che accedono dalla rete Intranet locale dell'azienda. Questa funzionalità è disponibile con la versione completa di Azure Multi-Factor Authentication. Per informazioni dettagliate su come ottenere la versione completa di Azure Multi-Factor Authentication, vedere [Come ottenere Azure Multi-Factor Authentication](multi-factor-authentication.md#how-to-get-azure-multi-factor-authentication).
 
 | Tipo di tenant di Azure AD | Opzioni disponibili per gli indirizzi IP attendibili |
 |:--- |:--- |
@@ -222,7 +222,7 @@ Per le password dell'app è consigliabile usare nomi che riflettano il dispositi
 Azure AD supporta la federazione con Servizi di dominio Active Directory (AD DS) di Windows Server in locale. Se l'organizzazione è federata (SSO) con Azure AD e si intende usare Azure Multi-Factor Authentication, di seguito sono riportate importanti informazioni che occorre tenere presente per l'uso di password dell'app. Questo vale solo per i clienti federati (SSO).
 
 * La password dell'app è verificata da Azure AD e di conseguenza ignora la federazione. La federazione viene usata attivamente solo durante l'impostazione della password dell'app.
-* Per gli utenti federati (SSO) non viene mai usato il provider di identità (IdP), diversamente dal flusso passivo. Le password vengono archiviate nell'ID organizzazione. Se l'utente lascia l'azienda, tali informazioni devono essere trasmesse nell'ID organizzazione tramite DirSync in tempo reale. La disabilitazione o l'eliminazione dell'account può richiedere fino a 3 ore per la sincronizzazione, ritardando la disabilitazione o l'eliminazione della password dell'app in Azure AD.
+* Per gli utenti federati (SSO) non viene mai usato il provider di identità (IdP), diversamente dal flusso passivo. Le password vengono archiviate nell'ID organizzazione. Se l'utente lascia l'azienda, tali informazioni devono essere trasmesse nell'ID organizzazione tramite DirSync in tempo reale. La disabilitazione o l'eliminazione dell'account può richiedere fino a&3; ore per la sincronizzazione, ritardando la disabilitazione o l'eliminazione della password dell'app in Azure AD.
 * Le impostazioni locali di controllo dell'accesso client non vengono rispettate dalla password dell'app
 * Per la password dell'app non è disponibile alcuna funzionalità di registrazione o controllo dell'autenticazione in locale
 * Per il client Microsoft Lync 2013 è necessaria ulteriore formazione per gli utenti finali. Per i passaggi necessari, vedere Come modificare la password nella posta elettronica per la password dell'app.
@@ -349,6 +349,6 @@ Quando gli utenti registrano i propri account per l'autenticazione MFA, scelgono
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

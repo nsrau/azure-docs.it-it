@@ -53,6 +53,6 @@ Questa operazione può essere eseguita anche usando [Microsoft PowerShell](https
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

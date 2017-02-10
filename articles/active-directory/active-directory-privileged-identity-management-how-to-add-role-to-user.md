@@ -3,7 +3,7 @@ title: Come aggiungere o rimuovere un ruolo utente | Documentazione Microsoft
 description: "Informazioni su come aggiungere ruoli alle identità con privilegi con l&quot;applicazione Azure Active Directory Privileged Identity Management."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 6a47ced8-cf34-4ce8-bea2-e4fc548cfe22
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
-ms.author: kgremban
+ms.date: 02/03/2017
+ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 5dde6b98f72306d6fe78f3c12377d3ce2ec5ddea
@@ -32,8 +32,6 @@ Per aggiungere o rimuovere un utente in un ruolo usando Privileged Identity Mana
 
 > [!NOTE]
 > Se ancora non è stato abilitato il servizio PIM nel portale di Azure, vedere [Introduzione ad Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) .
-> 
-> 
 
 Per concedere a un altro utente l'accesso al servizio PIM stesso, vedere [come concedere l'accesso a PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md)per informazioni dettagliate sui ruoli utente necessari per l'uso di PIM.
 
@@ -49,8 +47,6 @@ Per concedere a un altro utente l'accesso al servizio PIM stesso, vedere [come c
 > [!NOTE]
 > Per impostazione predefinita, i nuovi utenti in un ruolo sono idonei solo per il ruolo. Se si desidera rendere permanente il ruolo, fare clic sull'utente nell'elenco. Le informazioni relative all'utente verranno visualizzate in un nuovo pannello. Scegliere **Rendi permanente** nel menu delle informazioni dell'utente.  
 > Se un utente non riesce a eseguire la registrazione ad Azure Multi-Factor Authentication (MFA) o usa un account Microsoft, in genere @outlook.com),, è necessario rendere l'utente permanente in tutti i relativi ruoli. Gli amministratori idonei devono effettuare la registrazione a MFA durante l'attivazione.
-> 
-> 
 
 Ora che l'utente è idoneo per un ruolo, è necessario comunicargli che può attivarlo in base alle istruzioni fornite in [Come attivare o disattivare un ruolo](active-directory-privileged-identity-management-how-to-activate-role.md).
 
@@ -66,7 +62,6 @@ Per rimuovere un utente specifico da un ruolo, seguire questa procedura:
 
 Se non si è certi se gli utenti necessitano ancora delle assegnazioni di ruoli, è possibile [avviare una verifica di accesso per il ruolo](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

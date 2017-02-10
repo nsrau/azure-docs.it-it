@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 883b3a27b4b06785068d04a143bae6c33fbed99b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0374fea21dbecabc0008cf6cd9096cd8c2d3f206
 
 
 ---
@@ -75,10 +75,10 @@ Prima di installare il servizio Web app per dispositivi mobili, tenere presente 
 
 <li>Aprire un Web browser da qualsiasi computer e andare all'URL in cui è stato installato il servizio Web app per dispositivi mobili (ad esempio, https://www.publicwebsite.com/PA). Assicurarsi che non vengano visualizzati errori o avvisi relativi al certificato.</li>
 
-### <a name="configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>Configurare le impostazioni dell'app per dispositivi mobili nel server Azure Multi-Factor Authentication
+### <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Configurare le impostazioni dell'app per dispositivi mobili nel server Azure Multi-Factor Authentication
 Il servizio Web app per dispositivi mobili è ora installato. È necessario configurare il server Azure Multi-Factor Authentication per l'utilizzo con il portale.
 
-#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>Per configurare le impostazioni dell'app per dispositivi mobili nel server Azure Multi-Factor Authentication
+#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Per configurare le impostazioni dell'app per dispositivi mobili nel server Azure Multi-Factor Authentication
 1. Nel server Azure Multi-Factor Authentication fare clic sull'icona del portale utenti. Se gli utenti sono autorizzati a controllare i relativi metodi di autenticazione, nella scheda Impostazioni, in Consenti agli utenti di selezionare il metodo, selezionare app per dispositivi mobili. Se questa funzionalità non è attivata, agli utenti finali verrà chiesto di contattare l'Help Desk per completare l'attivazione dell'app per dispositivi mobili.
 2. Selezionare la casella Consenti agli utenti di attivare l'app per dispositivi mobili.
 3. Selezionare la casella Consenti registrazione utente.
@@ -89,6 +89,6 @@ Il servizio Web app per dispositivi mobili è ora installato. È necessario conf
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

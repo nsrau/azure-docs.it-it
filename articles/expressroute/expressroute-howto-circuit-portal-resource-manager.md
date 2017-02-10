@@ -14,20 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: cherylmc
+ms.author: cherylmc;ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
-ms.openlocfilehash: 8eb67e0800671f4d41612780db52a243023b9e5a
+ms.sourcegitcommit: 5c6ee9ef23e8594391a4fce313f945b31e6870a7
+ms.openlocfilehash: ed4bd2e039196e60b7366fd9d2e8a8b43ce00f30
 
 
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Creare e modificare un circuito ExpressRoute
 > [!div class="op_single_selector"]
-> * [Portale di Azure - Gestione risorse](expressroute-howto-circuit-portal-resource-manager.md)
-> * [PowerShell - Gestione risorse](expressroute-howto-circuit-arm.md)
-> * [PowerShell - Classico](expressroute-howto-circuit-classic.md)
+> * [Resource Manager - Portale di Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
+> * [Classica: PowerShell](expressroute-howto-circuit-classic.md)
+> * [Video - Portale di Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
-> 
+>
 
 Questo articolo descrive la procedura di creazione di un circuito ExpressRoute di Azure usando il portale di Azure e il modello di distribuzione di Azure Resource Manager. I passaggi seguenti descrivono anche come controllare lo stato del circuito ed eseguirne l'aggiornamento, l'eliminazione e il deprovisioning.
 
@@ -39,6 +40,7 @@ Questo articolo descrive la procedura di creazione di un circuito ExpressRoute d
 * Prima di iniziare la configurazione, verificare i [prerequisiti](expressroute-prerequisites.md) e i [flussi di lavoro](expressroute-workflows.md).
 * Verificare di avere accesso al [portale di Azure](https://portal.azure.com).
 * Verificare di avere le autorizzazioni necessarie per creare nuove risorse di rete. Se non si hanno le autorizzazioni appropriate, contattare l'amministratore dell'account.
+* È possibile [visualizzare un video](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) prima di iniziare, per ottenere una comprensione migliore della procedura.
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Creare un circuito ExpressRoute ed eseguirne il provisioning
 ### <a name="1-sign-in-to-the-azure-portal"></a>1. Accedere al portale di Azure
@@ -56,7 +58,7 @@ In un browser passare al [portale di Azure](http://portal.azure.com) e accedere 
 2. Dopo aver fatto clic su **ExpressRoute**, verrà visualizzato il pannello **Crea un circuito ExpressRoute**. Quando si compila questo pannello, verificare che siano specificati i valori corretti per il livello SKU e la misurazione dei dati.
    
    * **livello** determina se è abilitato un componente aggiuntivo ExpressRoute Standard o ExpressRoute Premium. È possibile specificare **Standard** per ottenere lo SKU Standard o **Premium** per il componente aggiuntivo Premium.
-   * **misurazione dei dati** determina il tipo di fatturazione. È possibile specificare **A consumo** per un piano dati a consumo e **Senza limiti** per un piano dati illimitato. Si noti che è possibile modificare il tipo di fatturazione da **A consumo** a **Senza limiti**, ma non è possibile effettuare il passaggio inverso.
+   * **misurazione dei dati** determina il tipo di fatturazione. È possibile specificare **A consumo** per un piano dati a consumo e **Senza limiti** per un piano dati illimitato. Si noti che è possibile modificare il tipo di fatturazione da **A consumo** a **Senza limiti**, ma non è possibile passare da **Senza limiti** ad **A consumo**.
      
      ![Configurazione del livello SKU e misurazione dei dati](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit2.png)
 
@@ -84,19 +86,19 @@ In questo pannello **Stato provider** offre informazioni sullo stato di provisio
 Quando si crea un nuovo circuito ExpressRoute, il circuito ha lo stato seguente:
 
 Stato provider: Senza provisioning<BR>
- Stato circuito: Abilitato
+Stato circuito: Abilitato
 
 ![Avvio del processo di provisioning](./media/expressroute-howto-circuit-portal-resource-manager/viewstatus.png)
 
 Il circuito passa allo stato seguente quando è in corso l'abilitazione da parte del provider di connettività:
 
 Stato provider: Provisioning in corso<BR>
- Stato circuito: Abilitato
+Stato circuito: Abilitato
 
 Per poterlo usare, un circuito ExpressRoute deve avere lo stato seguente:
 
 Stato provider: Provisioning eseguito<BR>
- Stato circuito: Abilitato
+Stato circuito: Abilitato
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Controllare periodicamente lo stato e la condizione della chiave del circuito
 Selezionare il circuito desiderato per visualizzare le relative proprietà. Prima di continuare, controllare che **Stato provider** sia passato a **Provisioning eseguito**.
@@ -147,6 +149,6 @@ Dopo aver creato il circuito, verificare di eseguire le operazioni seguenti:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

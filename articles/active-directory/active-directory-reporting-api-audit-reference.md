@@ -1,19 +1,23 @@
 ---
-title: Informazioni di riferimento sull'API di controllo di Azure Active Directory | Microsoft Docs
-description: Come iniziare a usare l'API di controllo di Azure Active Directory
+title: Informazioni di riferimento sull&quot;API di controllo di Azure Active Directory | Microsoft Docs
+description: Come iniziare a usare l&quot;API di controllo di Azure Active Directory
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
+ms.date: 11/16/2016
 ms.author: dhanyahk;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: b1de516d907826d3e6ede0783649f6101b381852
+ms.openlocfilehash: 261cce0b8424f73df4c7ca86784a14e95a8336f1
+
 
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Informazioni di riferimento sull'API di controllo di Azure Active Directory
@@ -28,7 +32,7 @@ Vedere:
 
 Per domande, problemi o suggerimenti, contattare la [Guida per la creazione di report AAD](mailto:aadreportinghelp@microsoft.com).
 
-## <a name="who-can-access-the-data?"></a>Chi può accedere ai dati?
+## <a name="who-can-access-the-data"></a>Chi può accedere ai dati?
 * Gli utenti con ruolo di amministratore della sicurezza o con autorizzazioni di lettura per la sicurezza
 * Gli amministratori globali
 * Qualsiasi applicazione che dispone di autorizzazione per accedere all'API. L'autorizzazione dell'app può essere configurata solo in base alle autorizzazioni dell'amministratore globale.
@@ -86,7 +90,7 @@ Per specificare il tipo di record da restituire, è possibile compilare un'istru
 
 **Esempio**:
 
-    $filter=tdomain + 'activities/audit?api-version=beta&`$filter=eventTime gt ' + $7daysago    
+    $filter=tdomain + 'activities/audit?api-version=beta&`$filter=activityDate gt ' + $7daysago    
 
 **Note**:
 
@@ -98,7 +102,7 @@ datetime deve essere in formato UTC
 
 **Esempio**:
 
-    $filter=activityType eq 'User'  
+    $filter=activityType eq 'User'    
 
 **Note**:
 
@@ -110,26 +114,26 @@ fa distinzione tra maiuscole e minuscole
 
 **Esempio**:
 
-    $filter=activity eq 'Add application' or contains(activity, 'Application') or startsWith(activity, 'Add')   
+    $filter=activity eq 'Add application' or contains(activity, 'Application') or startsWith(activity, 'Add')    
 
 **Note**:
 
 fa distinzione tra maiuscole e minuscole
 
 - - -
-### <a name="actor/name"></a>actor/name
+### <a name="actorname"></a>actor/name
 **Operatori supportati**: eq, contains, startsWith
 
 **Esempio**:
 
-    $filter=actor/name eq 'test' or contains(actor/name, 'test') or startswith(actor/name, 'test')  
+    $filter=actor/name eq 'test' or contains(actor/name, 'test') or startswith(actor/name, 'test')    
 
 **Note**:
 
 non fa distinzione tra maiuscole e minuscole
 
 - - -
-### <a name="actor/objectid"></a>actor/objectid
+### <a name="actorobjectid"></a>actor/objectid
 **Operatori supportati**: eq
 
 **Esempio**:
@@ -137,24 +141,24 @@ non fa distinzione tra maiuscole e minuscole
     $filter=actor/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba'    
 
 - - -
-### <a name="target/name"></a>target/name
+### <a name="targetname"></a>target/name
 **Operatori supportati**: eq, contains, startsWith
 
 **Esempio**:
 
-    $filter=targets/any(t: t/name eq 'some name')   
+    $filter=targets/any(t: t/name eq 'some name')    
 
 **Note**:
 
 non fa distinzione tra maiuscole e minuscole
 
 - - -
-### <a name="target/upn"></a>target/upn
+### <a name="targetupn"></a>target/upn
 **Operatori supportati**: eq, startsWith
 
 **Esempio**:
 
-    $filter=targets/any(t: startswith(t/Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity/userPrincipalName,'abc')) 
+    $filter=targets/any(t: startswith(t/Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity/userPrincipalName,'abc'))    
 
 **Note**:
 
@@ -162,7 +166,7 @@ non fa distinzione tra maiuscole e minuscole
 * È necessario aggiungere lo spazio dei nomi completo quando si eseguono query su Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity
 
 - - -
-### <a name="target/objectid"></a>target/name
+### <a name="targetobjectid"></a>target/name
 **Operatori supportati**: eq
 
 **Esempio**:
@@ -170,12 +174,12 @@ non fa distinzione tra maiuscole e minuscole
     $filter=targets/any(t: t/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba')    
 
 - - -
-### <a name="actor/upn"></a>actor/upn
+### <a name="actorupn"></a>actor/upn
 **Operatori supportati**: eq, startsWith
 
 **Esempio**:
 
-    $filter=startswith(actor/Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity/userPrincipalName,'abc')  
+    $filter=startswith(actor/Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity/userPrincipalName,'abc')    
 
 **Note**:
 
@@ -187,6 +191,9 @@ non fa distinzione tra maiuscole e minuscole
 * Si desidera vedere esempi sulle attività di sistema filtrate? Vedere gli [esempi dell'API di controllo Azure Active Directory](active-directory-reporting-api-audit-samples.md).
 * Si desiderano altre informazioni sull'API di creazione report di Azure AD? Vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

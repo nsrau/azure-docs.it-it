@@ -17,19 +17,19 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 04b081d265c53ddcf77c79bf604296a0d44be4ed
+ms.sourcegitcommit: c0edbe421050ad46f6d31fd6416df4b344b233ad
+ms.openlocfilehash: ade380b7fc6adfb929f42c0e6c75b3fa613c45b1
 
 
 ---
 # <a name="get-started-with-the-http--swagger-action"></a>Introduzione all'azione HTTP + Swagger
 Con l'azione HTTP + Swagger è possibile creare un connettore di prima classe a qualsiasi endpoint REST tramite un [documento di Swagger](https://swagger.io). È anche possibile estendere un'app per la logica per chiamare qualsiasi endpoint REST con un'eccellente esperienza di progettazione delle app per la logica.
 
-Per iniziare a usare un'azione HTTP + Swagger in un'app per la logica, vedere l'articolo su come [Creare una nuova app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per iniziare a usare un'azione HTTP + Swagger in un'app per la logica, vedere l'articolo su come [Creare una nuova app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 - - -
 ## <a name="use-http--swagger-as-a-trigger-or-an-action"></a>Usare HTTP + Swagger come trigger o azione
-Il trigger e l'azione HTTP + Swagger funzionano come l'[azione HTTP](connectors-native-http.md), ma offrono un'esperienza di progettazione migliore mostrando la forma dell'API e i risultati nella finestra di progettazione grazie ai [metadati Swagger](https://swagger.io). In aggiunta, è possibile usare HTTP + Swagger come trigger. Se si vuole implementare un trigger di poll, è necessario seguire lo schema di polling descritto in [Creazione di un'API personalizzata da usare con le app per la logica](../app-service-logic/app-service-logic-create-api-app.md#polling-triggers).
+Il trigger e l'azione HTTP + Swagger funzionano come l'[azione HTTP](connectors-native-http.md), ma offrono un'esperienza di progettazione migliore mostrando la forma dell'API e i risultati nella finestra di progettazione grazie ai [metadati Swagger](https://swagger.io). In aggiunta, è possibile usare HTTP + Swagger come trigger. Se si vuole implementare un trigger di poll, è necessario seguire lo schema di polling descritto in [Creazione di un'API personalizzata da usare con le app per la logica](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
 [Altre informazioni sui trigger e le azioni nelle app per la logica.](connectors-overview.md)
 
@@ -64,14 +64,14 @@ Ecco i passaggi per creare, configurare e archiviare i documenti di Swagger in A
 Di seguito sono riportati i dettagli per i trigger e le azioni supportati da questo connettore HTTP + Swagger.
 
 ## <a name="http--swagger-triggers"></a>Trigger HTTP + Swagger
-Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger.](connectors-overview.md)  Il connettore HTTP + Swagger supporta un solo trigger.
+Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger.](connectors-overview.md) Il connettore HTTP + Swagger supporta un solo trigger.
 
 | Trigger | Descrizione |
 | --- | --- |
 | HTTP + Swagger |Esegue una chiamata HTTP e restituisce il contenuto della risposta |
 
 ## <a name="http--swagger-actions"></a>Azioni HTTP + Swagger
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Ulteriori informazioni sulle azioni.](connectors-overview.md)  Il connettore HTTP + Swagger supporta una sola azione possibile.
+Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Ulteriori informazioni sulle azioni.](connectors-overview.md) Il connettore HTTP + Swagger supporta una sola azione possibile.
 
 | Azione | Descrizione |
 | --- | --- |
@@ -117,11 +117,11 @@ Quando si eseguono chiamate a varie azioni, è possibile ottenere determinate ri
 
 - - -
 ## <a name="next-steps"></a>Passaggi successivi
-Provare ora a usare la piattaforma e [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md) . È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
+Provare ora a usare la piattaforma e [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md) . È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

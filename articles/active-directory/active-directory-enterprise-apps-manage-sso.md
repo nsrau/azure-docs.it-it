@@ -1,12 +1,12 @@
 ---
-title: Gestione dell'accesso Single Sign-On per app aziendali nell'anteprima di Azure Active Directory | Microsoft Docs
-description: Informazioni su come gestire l'accesso Single Sign-On per app aziendali usando Azure Active Directory
+title: Gestione dell&quot;accesso Single Sign-On per app aziendali nell&quot;anteprima di Azure Active Directory | Documentazione Microsoft
+description: Informazioni su come gestire l&quot;accesso Single Sign-On per app aziendali usando Azure Active Directory
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/30/2016
 ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2f03079498568f52802b34ce57242a414e648fe3
+
 
 ---
-# <a name="preview:-managing-single-sign-on-for-enterprise-apps-in-the-new-azure-portal"></a>Anteprima: gestione dell'accesso Single Sign-On per app aziendali nel nuovo portale di Azure
+# <a name="preview-managing-single-sign-on-for-enterprise-apps-in-the-new-azure-portal"></a>Anteprima: gestione dell'accesso Single Sign-On per app aziendali nel nuovo portale di Azure
 > [!div class="op_single_selector"]
 > * [Portale di Azure](active-directory-enterprise-apps-manage-sso.md)
 > * [Portale di Azure classico](active-directory-sso-integrate-saas-apps.md)
@@ -41,9 +45,9 @@ Per gestire le impostazioni dell'accesso Single Sign-On, selezionare **Single Si
 ## <a name="single-sign-on-modes"></a>Modalità dell'accesso Single Sign-On
 Il pannello **Single Sign-On** inizia con un menu **Modalità** che consente di configurare la modalità Single Sign-On. Le opzioni disponibili includono:
 
-* **SAML-based sign on** (Accesso basato su SAML): questa opzione è disponibile se l'applicazione supporta l'accesso Single Sign-On completamente federato con Azure Active Directory mediante il protocollo SAML 2.0. Questo
+* **SAML-based sign on** (Accesso basato su SAML): questa opzione è disponibile se l'applicazione supporta l'accesso Single Sign-On completamente federato con Azure Active Directory mediante il protocollo SAML 2.0.
 * **Password-based sign on** (Accesso basato su password): questa opzione è disponibile se Azure AD supporta la compilazione di moduli con password per questa applicazione.
-* **Linked sign on** (Accesso collegato): nota in precedenza come "Accesso Single Sign-On esistente", questa opzione consente agli amministratori di inserire un collegamento all'applicazione nel riquadro di accesso di Azure AD degli utenti o nella schermata di avvio delle applicazioni di Office 3645.
+* **Linked sign on** (Accesso collegato): nota in precedenza come "Accesso Single Sign-On esistente", questa opzione consente agli amministratori di inserire un collegamento all'applicazione nel riquadro di accesso di Azure AD degli utenti o nella schermata di avvio delle applicazioni di Office 365.
 
 Per altre informazioni su queste modalità, vedere [Come funziona Single Sign-On con Azure Active Directory (PHP)?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
@@ -100,6 +104,6 @@ Se supportato dall'applicazione, la selezione della modalità di accesso Single 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

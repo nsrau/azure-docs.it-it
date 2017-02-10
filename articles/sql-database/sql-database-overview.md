@@ -71,6 +71,6 @@ Per informazioni sulle funzionalità supportate, vedere [Azure SQL Database feat
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 
