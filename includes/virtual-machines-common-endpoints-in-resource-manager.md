@@ -19,8 +19,6 @@ I gruppi di sicurezza di rete sono una nuova funzionalità che offre un livello 
 
 > [!TIP]
 > I gruppi di sicurezza di rete possono essere assegnati a più subnet o interfacce di rete. Non esiste un mapping 1:1 ed è quindi possibile creare un gruppo di sicurezza di rete con un set comune di regole ACL e applicarlo a più subnet o interfacce di rete. Il gruppo di sicurezza di rete può anche essere applicato a risorse all'interno della sottoscrizione, con il [controllo degli accessi in base al ruolo](../articles/active-directory/role-based-access-control-what-is.md).
-> 
-> 
 
 ## <a name="load-balancers-overview"></a>Panoramica dei servizi di bilanciamento del carico
 Nel modello di distribuzione classica, tutte le operazioni Network Address Translation (NAT) e di port forwarding in un servizio cloud vengono eseguite da Azure. Quando si crea un endpoint, si specifica la porta esterna da esporre con la porta interna a cui indirizzare il traffico. I gruppi di sicurezza di rete non eseguono autonomamente le stesse operazioni NAT e di port forwarding. 
@@ -60,8 +58,6 @@ In tutti i casi indicati, è necessario creare regole ACL per la VM per consenti
 
 > [!NOTE]
 > Per le connessioni remote, è comunque necessario un indirizzo IP pubblico assegnato a una VM. L'assenza di un gruppo di sicurezza di rete per la subnet o l'interfaccia di rete non espone la VM a tutto il traffico esterno. Quando si crea una VM con il portale, l'azione predefinita prevede la creazione di un nuovo IP pubblico. In tutte le altre forme di creazione di una VM, come PowerShell, l'interfaccia della riga di comando di Azure o un modello di Resource Manager, non viene creato automaticamente un IP pubblico se non esplicitamente richiesto. L'azione predefinita con il portale prevede anche la creazione di un gruppo di sicurezza di rete. Con questa azione predefinita non si dovrebbe quindi verificare la situazione di una VM esposta senza filtri di rete.
-> 
-> 
 
 ## <a name="understanding-load-balancers-and-nat-rules"></a>Informazioni su servizi di bilanciamento del carico e regole NAT
 Nel modello di distribuzione classica, è possibile creare endpoint che eseguono anche il port forwarding. Quando si crea una macchina virtuale nel modello di distribuzione classica, le regole ACL per RDP o SSH vengono create automaticamente. La porta TCP 3389 o la porta TCP 22 rispettivamente non vengono esposte all'esterno. Viene invece esposta una porta TCP di valore elevato con mapping alla porta interna appropriata. È anche possibile creare regole ACL personalizzate in modo analogo, ad esempio esporre un server Web al mondo esterno sulla porta TCP 4280. Lo screenshot seguente del portale classico illustra queste regole ACL e i mapping delle porte:
@@ -74,9 +70,6 @@ Con i gruppi di sicurezza di rete, la funzione di port forwarding è gestita da 
 
 > [!NOTE]
 > Quando si implementa un servizio di bilanciamento del carico, in genere non si assegna un indirizzo IP pubblico alla VM. Al servizio di bilanciamento del carico viene invece assegnato un indirizzo IP pubblico. È comunque necessario creare un gruppo di sicurezza di rete e regole ACL per definire il flusso del traffico in ingresso e in uscita dalla VM. Le regole NAT del servizio di bilanciamento del carico hanno semplicemente lo scopo di definire le porte consentite tramite il servizio di bilanciamento del carico e come vengono distribuite tra le VM back-end. È quindi necessario creare una regola NAT perché il traffico possa transitare attraverso il servizio di bilanciamento del carico. Creare una regola ACL del gruppo di sicurezza di rete per consentire al traffico di raggiungere la VM.
-> 
-> 
-
 
 
 <!--HONumber=Nov16_HO3-->
