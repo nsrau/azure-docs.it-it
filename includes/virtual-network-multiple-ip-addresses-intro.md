@@ -14,6 +14,6 @@ Una macchina virtuale di Azure può essere associata a una o più interfacce di 
 Ogni scheda di interfaccia di rete collegata a una macchina virtuale dispone di una o più configurazioni IP associate. A ogni configurazione viene assegnato un indirizzo IP privato statico o dinamico. Ogni configurazione può anche avere una risorsa di indirizzo IP pubblico associata. Una risorsa indirizzo IP pubblico dispone di un indirizzo IP dinamico o statico pubblico assegnato. Per altre informazioni sugli indirizzi IP in Azure, leggere l'articolo sugli [indirizzi IP in Azure](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md). È possibile assegnare al massimo 250 indirizzi IP privati a ogni interfaccia di rete. Anche se è possibile assegnare più indirizzi IP pubblici a ogni interfaccia di rete, sono previsti limiti al numero di indirizzi IP che possono essere usati in una sottoscrizione di Azure. Per informazioni dettagliate, vedere l'articolo [Limiti di Azure](../articles/azure-subscription-service-limits.md#networking-limits).
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

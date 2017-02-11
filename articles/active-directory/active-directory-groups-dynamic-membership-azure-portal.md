@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
@@ -26,16 +26,16 @@ Il portale di Azure offre la possibilità di creare regole avanzate per consenti
 ## <a name="to-create-the-advanced-rule"></a>Per creare la regola avanzata
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
 2. Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi premere **INVIO**.
-   
+
    ![Apertura di Gestione utenti](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)
 3. Nel pannello **Utenti e gruppi** selezionare **Tutti i gruppi**.
-   
+
    ![Apertura del pannello Gruppi](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
 4. Nel pannello **Utenti e gruppi - Tutti i gruppi** selezionare il comando **Aggiungi**.
-   
+
    ![Aggiungere un nuovo gruppo](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
 5. Nel pannello **Gruppo** immettere un nome e una descrizione per il nuovo gruppo. Selezionare un **Tipo di appartenenza** di **Utente dinamico** o **Dispositivo dinamico**, a seconda che si intenda creare una regola per gli utenti o per i dispositivi e quindi selezionare **Aggiungi query dinamica**. Per gli attributi usati per le regole di dispositivo, vedere [Uso degli attributi per creare regole per gli oggetti dispositivo](#using-attributes-to-create-rules-for-device-objects).
-   
+
    ![Aggiungere una regola di appartenenza dinamica](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
 6. Nel pannello **Regole di appartenenza dinamica** immettere la regola nella casella **Aggiungi regola avanzata per l'appartenenza dinamica**, premere INVIO e quindi selezionare **Crea** nella parte inferiore del pannello.
 7. Selezionare **Crea** on the **Gruppo** per creare il gruppo.
@@ -61,8 +61,8 @@ La lunghezza totale del corpo della regola avanzata non può superare i 2048 car
 > [!NOTE]
 > Le operazioni di stringa ed espressione regolare non fanno distinzione tra maiuscole e minuscole. È inoltre possibile eseguire controlli Null usando $null come costante, ad esempio user.department -eq $null.
 > Le stringhe contenenti virgolette (") devono essere precedute dal carattere di escape ', ad esempio user.department -eq \`"Sales".
-> 
-> 
+>
+>
 
 ## <a name="supported-expression-rule-operators"></a>Operatori delle regole di espressione supportati
 Nella tabella seguente sono elencati tutti gli operatori delle regole di espressione supportati e la relativa sintassi da usare nel corpo della regola avanzata:
@@ -174,11 +174,11 @@ Ora è possibile popolare i membri di un gruppo in base all'attributo di manager
 
 1. Eseguire i passaggi da 1 a 5 in [Per creare la regola avanzata](#to-create-the-advanced-rule) e selezionare **Utente dinamico** come **Tipo di appartenenza**.
 2. Nel pannello **Dynamic membership rules** (Regole di appartenenza dinamica) immettere la regola con la sintassi seguente:
-   
+
     Dipendenti diretti per *Dipendenti diretti per {obectID_of_manager}*. Ecco un esempio di regola valida per dipendenti diretti:
-   
+
                     Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
-   
+
     dove "62e19b97-8b3d-4d4a-a106-4ce66896a863" è il parametro objectID del manager. L'ID oggetto è disponibile in Azure AD nella **scheda Profilo** della pagina utente dell'utente che rappresenta il manager.
 3. Quando si salva questa regola, tutti gli utenti che soddisfano la regola verranno aggiunta come membri del gruppo. Possono essere necessari alcuni minuti per il popolamento iniziale del gruppo.
 
@@ -202,7 +202,6 @@ Questi articoli forniscono informazioni aggiuntive sui gruppi in Azure Active Di
 * [Gestire le impostazioni di un gruppo](active-directory-groups-settings-azure-portal.md)
 * [Gestire le appartenenze di un gruppo](active-directory-groups-membership-azure-portal.md)
 * [Gestire le regole dinamiche per gli utenti in un gruppo](active-directory-groups-dynamic-membership-azure-portal.md)
-
 
 
 

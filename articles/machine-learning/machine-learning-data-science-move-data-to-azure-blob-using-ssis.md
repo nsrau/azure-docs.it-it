@@ -92,6 +92,6 @@ Il Feature Pack di SSIS consente di gestire flussi più complessi creando pacche
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

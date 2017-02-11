@@ -31,6 +31,6 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

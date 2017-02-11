@@ -160,6 +160,6 @@ Per altre informazioni sulla creazione o la gestione di un cluster HDInsight, ve
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

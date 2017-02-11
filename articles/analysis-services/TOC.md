@@ -19,6 +19,6 @@
 ##[Provider di dati](analysis-services-data-providers.md) 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

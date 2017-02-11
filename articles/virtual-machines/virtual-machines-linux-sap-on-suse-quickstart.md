@@ -159,6 +159,6 @@ Non esiste alcuna limitazione di supporto da parte di Oracle su Linux in ambient
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

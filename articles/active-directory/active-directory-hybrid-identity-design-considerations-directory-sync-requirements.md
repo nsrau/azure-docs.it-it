@@ -77,6 +77,6 @@ Dopo aver individuato i requisiti di sincronizzazione e lo strumento corretto pe
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

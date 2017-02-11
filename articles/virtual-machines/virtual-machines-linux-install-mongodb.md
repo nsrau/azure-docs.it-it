@@ -186,6 +186,6 @@ I modelli di Azure Resource Manager usano l'estensione dello script personalizza
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

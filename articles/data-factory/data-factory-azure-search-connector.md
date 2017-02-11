@@ -37,11 +37,11 @@ L'esempio seguente fornisce le definizioni JSON si esempio da usare per creare u
 
 L'esempio seguente mostra:
 
-1.  Un servizio collegato di tipo [AzureSearch](#azure-search-linked-service-properties).
-2.  Un servizio collegato di tipo [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
-3.  Un [set di dati](data-factory-create-datasets.md) di tipo [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties).
-4.  Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureSearchIndex](#azure-search-index-dataset-properties).
-4.  Una [pipeline](data-factory-create-pipelines.md) con un'attività di copia che usa [SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) e [AzureSearchIndexSink](#azure-search-index-sink-properties).
+1.    Un servizio collegato di tipo [AzureSearch](#azure-search-linked-service-properties).
+2.    Un servizio collegato di tipo [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
+3.    Un [set di dati](data-factory-create-datasets.md) di tipo [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties).
+4.    Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureSearchIndex](#azure-search-index-dataset-properties).
+4.    Una [pipeline](data-factory-create-pipelines.md) con un'attività di copia che usa [SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) e [AzureSearchIndexSink](#azure-search-index-sink-properties).
 
 Nell'esempio i dati della serie temporale vengono copiati ogni ora da un database di SQL Server locale in un indice di Ricerca di Azure. Le proprietà JSON usate in questo esempio sono descritte nelle sezioni riportate dopo gli esempi.
 
@@ -52,13 +52,13 @@ Come primo passaggio è necessario configurare Gateway di gestione dati nel comp
 ```JSON
 {
     "name": "AzureSearchLinkedService",
-    "properties": {
+       "properties": {
         "type": "AzureSearch",
-        "typeProperties": {
+           "typeProperties": {
             "url": "https://<service>.search.windows.net",
             "key": "<AdminKey>"
         }
-    }
+       }
 }
 ```
 
@@ -118,7 +118,7 @@ Nell'esempio i dati vengono copiati in un indice di Ricerca di Azure denominato 
     "properties": {
         "type": "AzureSearchIndex",
         "linkedServiceName": "AzureSearchLinkedService",
-        "typeProperties" : {
+         "typeProperties" : {
             "indexName": "products",
         },
         "availability": {
@@ -330,6 +330,6 @@ Vedere gli articoli seguenti:
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

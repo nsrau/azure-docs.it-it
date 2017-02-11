@@ -103,6 +103,6 @@ Esaminare la tabella seguente per un confronto tra le opzioni di sincronizzazion
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 
