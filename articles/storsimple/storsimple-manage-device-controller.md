@@ -2,11 +2,11 @@
 title: Gestire i controller del dispositivo StorSimple | Microsoft Docs
 description: Informazioni su come interrompere, riavviare, arrestare o reimpostare i controller del dispositivo StorSimple.
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 4ee989d0-956f-4c14-951e-fd4e490ea09d
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 815ada25a548ddf419ac073f57a5153f60a40a58
+
 
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gestire i controller del dispositivo StorSimple
@@ -201,6 +205,9 @@ In questa sezione vengono riportate alcune delle domande frequenti relative alla
 * Se si verificano problemi con i controller del dispositivo StorSimple che non si risolvono usando le procedure elencate in questa esercitazione, [contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
 * Per altre informazioni sull’utilizzo del servizio StorSimple Manager, passare a [Usare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

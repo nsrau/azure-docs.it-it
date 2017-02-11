@@ -1,13 +1,13 @@
 ---
-title: Spostare i circuiti ExpressRoute dal modello di distribuzione classica a quello Resource Manager | Microsoft Docs
+title: Spostare i circuiti ExpressRoute dal modello classico al modello Resource Manager | Microsoft Docs
 description: Questa pagina illustra come spostare un circuito classico nel modello di distribuzione Resource Manager.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 08152836-23e7-42d1-9a56-8306b341cd91
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1c3bd8e01e02fb66bf5e04c307863bbe54176128
+
 
 ---
 # <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Spostare i circuiti ExpressRoute dal modello di distribuzione classica a quello Resource Manager
@@ -28,7 +32,7 @@ ms.author: ganesr
 ## <a name="move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Spostare il circuito ExpressRoute nel modello di distribuzione Resource Manager
 È necessario spostare un circuito ExpressRoute nel modello di distribuzione Resource Manager, in modo che sia possibile usarlo nei modelli di distribuzione classica e Resource Manager. A questo scopo è possibile eseguire i comandi di PowerShell seguenti.
 
-### <a name="step-1:-gather-circuit-details-from-the-classic-deployment-model"></a>Passaggio 1: Raccogliere informazioni dettagliate sul circuito dal modello di distribuzione classica
+### <a name="step-1-gather-circuit-details-from-the-classic-deployment-model"></a>Passaggio 1: Raccogliere informazioni dettagliate sul circuito dal modello di distribuzione classica
 È necessario raccogliere prima di tutto le informazioni sul circuito ExpressRoute.
 
 Accedere all'ambiente Azure classico e quindi ottenere la chiave servizio. È possibile usare il frammento di codice di PowerShell seguente per raccogliere le informazioni:
@@ -48,7 +52,7 @@ Accedere all'ambiente Azure classico e quindi ottenere la chiave servizio. È po
 
 Copiare la **chiave servizio** del circuito da spostare nel modello di distribuzione Resource Manager.
 
-### <a name="step-2:-sign-in-to-the-resource-manager-environment,-and-create-a-new-resource-group"></a>Passaggio 2: Accedere all'ambiente Resource Manager e creare un nuovo gruppo di risorse
+### <a name="step-2-sign-in-to-the-resource-manager-environment-and-create-a-new-resource-group"></a>Passaggio 2: Accedere all'ambiente Resource Manager e creare un nuovo gruppo di risorse
 È possibile creare un nuovo gruppo di risorse usando il frammento di codice seguente:
 
     # Sign in to your Azure Resource Manager environment
@@ -62,7 +66,7 @@ Copiare la **chiave servizio** del circuito da spostare nel modello di distribuz
 
 È anche possibile usare un gruppo di risorse esistente, se è già disponibile.
 
-### <a name="step-3:-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Passaggio 3: Spostare il circuito ExpressRoute nel modello di distribuzione Resource Manager
+### <a name="step-3-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Passaggio 3: Spostare il circuito ExpressRoute nel modello di distribuzione Resource Manager
 È ora possibile spostare il circuito ExpressRoute dal modello di distribuzione classica al modello Resource Manager. Prima di continuare, verificare le informazioni disponibili in [Spostamento di un circuito ExpressRoute dal modello di distribuzione classica a quello Resource Manager](expressroute-move.md) .
 
 Per completare questa operazione, eseguire il frammento di codice seguente:
@@ -119,6 +123,9 @@ Dopo aver creato il circuito, verificare di eseguire le operazioni seguenti:
 * [Creare e modificare il routing per un circuito ExpressRoute](expressroute-howto-routing-arm.md)
 * [Collegare la rete virtuale al circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

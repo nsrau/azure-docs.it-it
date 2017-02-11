@@ -1,15 +1,14 @@
 ---
 layout: LandingPage
-description: Informazioni su come eseguire analisi IoT nel cloud con un&quot;elaborazione degli eventi completamente gestita. Analisi in tempo reale da applicazioni, sensori, dispositivi e altro ancora.
 translationtype: Human Translation
-ms.sourcegitcommit: 5fbbb4ad21bbc4c4206d051e9585cd5d9888a545
-ms.openlocfilehash: 7d19b3b972bf5fdd9545f87f48eb924da8333ff7
+ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
+ms.openlocfilehash: c57faa7c307420bb92bec2f661e6739a7cfca7ee
 
 ---
 
 # <a name="stream-analytics-documentation"></a>Documentazione dell'analisi di flusso
 
-Informazioni su come eseguire analisi Internet delle cose (IoT) nel cloud con analisi di flusso, un motore di elaborazione degli eventi completamente gestito. Esercitazioni e altri documenti in cui viene illustrato come analizzare dati in tempo reale da applicazioni, sensori, dispositivi, social media e altro ancora. 
+Analisi di flusso di Azure è un motore di elaborazione di eventi in tempo reale completamente gestito che permette di ottenere informazioni dettagliate dai dati.  Analisi di flusso facilita la configurazione di calcoli analitici in tempo reale sullo streaming di dati da dispositivi, sensori, siti Web, social media, applicazioni, sistema di infrastruttura e molto altro.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -172,6 +171,6 @@ Scaricare la documentazione dell'analisi di flusso </div>
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

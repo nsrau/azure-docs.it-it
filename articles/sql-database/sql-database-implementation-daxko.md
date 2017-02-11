@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: 00c8a713-f20c-4d6b-b8b7-0c1b9ba5f05b
 ms.service: sql-database
-ms.custom: app development case study; app development
+ms.custom: app development case study
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/08/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 357b402955187a08a35faacdcb178af75698433d
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 98a83c735a79cdba080dd74af8e2677788c075e3
 
 
 ---
@@ -32,7 +32,7 @@ Dopo la migrazione ad Azure, CSI Software necessita di uno staff operativo compo
 
 Molina continua: "I clienti hanno avvertito immediatamente il cambiamento. Prima di adoperare i pool elastici, i clienti registravano occasionalmente timeout e altri problemi durante i picchi di attività. Con i pool elastici di Azure, possono eseguire picchi di attività in base alle esigenze e usare il software senza problemi".
 
-Oltre a migliorare le prestazioni per i clienti, i pool di database elastici di Azure liberano risorse CSI Software, che possono concentrarsi sullo sviluppo di nuovi servizi e funzionalità, invece di occuparsi della gestione e delle operazioni. Tali risorse IT hanno aiutato CSI Software a migliorare l'offerta del software aziendale, SpectrumNG, per coinvolgere i membri della palestra, migliorare l'efficienza del personale e fornire al personale e ai membri accesso mobile per operazioni interattive e notifiche in tempo reale.
+Oltre a migliorare le prestazioni per i clienti, i pool elastici di Azure liberano risorse CSI Software, che possono concentrarsi sullo sviluppo di nuovi servizi e funzionalità, invece di occuparsi della gestione e delle operazioni. Tali risorse IT hanno aiutato CSI Software a migliorare l'offerta del software aziendale, SpectrumNG, per coinvolgere i membri della palestra, migliorare l'efficienza del personale e fornire al personale e ai membri accesso mobile per operazioni interattive e notifiche in tempo reale.
 
 Azure ha anche consentito a CSI Software di accelerare e migliorare il ciclo di sviluppo e di controllo di qualità (QA) tramite opzioni di automazione. Grazie all'implementazione di Azure nell'azienda, i responsabili della compilazione possono creare pacchetti di componenti con un semplice clic. Come descritto da Molina, "come parte del ciclo di rilascio, il controllo di qualità è ora in grado di eseguire la distribuzione in un ambiente di test in Azure, che riproduce fedelmente il nostro stack di produzione. Siamo in grado di distribuire immediatamente le compilazioni nell'ambiente di sviluppo per vagliare le modifiche. Questo fattore rappresenta per noi una vera conquista, poiché in precedenza non disponevamo di un sistema di parità per i test".
 
@@ -61,10 +61,10 @@ Lo staff IT di CSI Software ha usato la seguente procedura per avviare i nuovi c
 
 Oggi, circa il 99% dei clienti di CSI Software è ospitato in Azure, in quattro datacenter regionali (centro-settentrionale, centro-meridionale, est e ovest). Grazie alla presenza di datacenter nell'area geografica di ogni cliente, la latenza viene ridotta al minimo.
 
-## <a name="azure-elastic-database-pools-free-up-it-resources"></a>I pool di database elastici di Aure liberano risorse IT
-Numerose funzionalità di Azure sono risultate utili a CSI Software per spostare il focus dall'infrastruttura e dalle operazioni allo sviluppo. Probabilmente il vantaggio più importante è dato dal pool di database elastici.
+## <a name="azure-elastic-pools-free-up-it-resources"></a>I pool elastici di Aure liberano risorse IT
+Numerose funzionalità di Azure sono risultate utili a CSI Software per spostare il focus dall'infrastruttura e dalle operazioni allo sviluppo. Probabilmente il vantaggio più importante è dato dai pool elastici.
 
-Al momento, CSI Software fornisce ai clienti circa 550 database. Prima dei pool elastici, era difficile gestire i numerosi database all'interno della struttura di un livello. I responsabili delle operazioni dovevano assegnare livelli di prestazioni in base alle esigenze di picco dei clienti, che richiedeva notevole dispendio di risorse IT. Grazie ai pool di database elastici,i responsabili possono assegnare ai tenant pool Premium o Standard, a seconda delle esigenze, e quindi spostare i clienti in base alle dimensioni e alle esigenze. I clienti hanno avvertito gli effetti dei pool di database elastici quasi immediatamente. Prima di adoperare i pool elastici, i clienti registravano timeout e altri problemi durante i picchi. Con i pool elastici, gli utenti possono eseguire picchi di attività in base alle esigenze e continuare a usare SpectrumNG senza problemi.
+Al momento, CSI Software fornisce ai clienti circa 550 database. Prima dei pool elastici, era difficile gestire i numerosi database all'interno della struttura di un livello. I responsabili delle operazioni dovevano assegnare livelli di prestazioni in base alle esigenze di picco dei clienti, che richiedeva notevole dispendio di risorse IT. Grazie ai pool elastici, i responsabili possono assegnare ai tenant pool Premium o Standard, a seconda delle esigenze, e quindi spostare i clienti in base alle dimensioni e alle esigenze. I clienti hanno avvertito gli effetti dei pool elastici quasi immediatamente. Prima di adoperare i pool elastici, i clienti registravano timeout e altri problemi durante i picchi. Con i pool elastici, gli utenti possono eseguire picchi di attività in base alle esigenze e continuare a usare SpectrumNG senza problemi.
 
 ## <a name="azure-active-geo-replication-accelerates-reporting"></a>La replica geografica attiva di Azure accelera la creazione di report
 Numerosi clienti CSI Software stanno traendo vantaggio dalla replica geografica attiva di Azure. La replica geografica attiva consente di configurare fino a quattro database secondari accessibili in lettura nella stessa area del datacenter o in aree diverse. CSI Software usa la replica geografica attiva in due modi: innanzitutto, i database secondari sono disponibili nel caso di un'interruzione del datacenter o di impossibilità di connettersi al database primario. In secondo luogo, i database secondari sono leggibili e possono essere usati per l'offload dei carichi di lavoro di sola lettura, come ad esempio i processi di creazione di report. Alcuni clienti CSI Software usano la replica per accelerare i flussi di lavoro per la creazione di report.
@@ -87,7 +87,7 @@ La piattaforma usa Service Oriented Architecture (SOA) per creare un singolo com
 Il database SQL di Azure non rappresenta solo un enorme vantaggio per i clienti SpectrumNG, che usufruiscono di un servizio veloce e affidabile, ma è anche un grande successo per lo staff IT e gli sviluppatori di CSI Software. Trasferendo le operazioni nel cloud di Azure, CSI Software ha ridotto i costi legati a risorse e infrastruttura, ha accelerato notevolmente i cicli di sviluppo e non necessita più di gestire i database nel dettaglio per ottimizzare le prestazioni dei tenant.
 
 ## <a name="more-information"></a>Altre informazioni
-* Per altre informazioni sui pool di database elastici, vedere [Che cos'è un pool elastico di Azure?](sql-database-elastic-pool.md).
+* Per altre informazioni sui pool elastici, vedere [pool elastici](sql-database-elastic-pool.md).
 * Per altre informazioni sugli strumenti del database e sulla scalabilità elastica, vedere [Iniziare a utilizzare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md).
 * Per altre informazioni sulla migrazione di un database SQL Server, vedere [Eseguire la migrazione del database del server SQL al database SQL tramite la procedura guidata Distribuire il database nel database di Microsoft Azure](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md).
 * Per altre informazioni sulla replica geografica attiva, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)
@@ -98,6 +98,6 @@ Il database SQL di Azure non rappresenta solo un enorme vantaggio per i clienti 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

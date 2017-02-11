@@ -1,30 +1,34 @@
 ---
-title: Come usare il servizio Inoltro del bus di servizio con .NET | Microsoft Docs
-description: Informazioni sull'uso del servizio di inoltro del bus di servizio di Azure per connettere due applicazioni ospitate in posizioni diverse.
-services: service-bus
+title: Come usare il servizio di inoltro del bus di servizio con .NET | Microsoft Docs
+description: Informazioni sull&quot;uso del servizio di inoltro del bus di servizio di Azure per connettere due applicazioni ospitate in posizioni diverse.
+services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 5493281a-c2e5-49f2-87ee-9d3ffb782c75
+ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9f7f9dc2eb6332c8f179fc35c9f746cbe5a7985e
+
 
 ---
-# <a name="how-to-use-the-azure-service-bus-relay-service"></a>Come usare il servizio Inoltro del bus di servizio di Azure
+# <a name="how-to-use-the-service-bus-wcf-relay-with-net"></a>Come usare il servizio di inoltro del bus di servizio con .NET
 Questo articolo descrive come usare il servizio Inoltro del bus di servizio. Negli esempi, scritti in C#, viene usata l'API di Windows Communication Foundation (WCF) con le estensioni contenute nell'assembly del bus di servizio. Per altre informazioni sul servizio di inoltro del bus di servizio, vedere la panoramica in [Messaggistica inoltrata del bus di servizio](service-bus-relay-overview.md).
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="what-is-the-service-bus-relay?"></a>Informazioni sul servizio Inoltro del bus di servizio
+## <a name="what-is-the-service-bus-relay"></a>Informazioni sul servizio Inoltro del bus di servizio
 Il servizio di *inoltro* del [bus di servizio](service-bus-relay-overview.md) consente di creare applicazioni ibride che vengono eseguite in un data center di Azure e nell'ambiente aziendale locale. A tale scopo, consente di esporre in modo sicuro nel cloud servizi WCF (Windows Communication Foundation) che risiedono in una rete aziendale sul cloud pubblico, senza dover aprire una connessione firewall o richiedere modifiche di notevole impatto a un'infrastruttura di rete aziendale.
 
-![Concetti relativi all'inoltro](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
+![Concetti sull'inoltro con WCF](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
 
 Il servizio Inoltro del bus di servizio consente di ospitare servizi WCF nell'ambiente aziendale esistente. È quindi possibile delegare al servizio del bus di servizio in esecuzione in Azure l'ascolto delle sessioni in ingresso e delle richieste a questi servizi WCF. In questo modo è possibile esporre tali servizi al codice dell'applicazione in esecuzione in Azure oppure ad ambienti destinati a personale che accede da dispositivi mobili o a partner che accedono tramite Extranet. Il bus di servizio consente di controllare in modo sicuro ed estremamente dettagliato gli utenti autorizzati ad accedere ai servizi. È uno strumento efficace e sicuro per esporre dati e funzionalità dell'applicazione dalle soluzioni aziendali esistenti e di sfruttarle dal cloud.
 
@@ -117,7 +121,7 @@ sh.Close();
 
 Nell'esempio vengono creati due endpoint inclusi nella stessa implementazione del contratto: Uno è locale e uno viene proiettato tramite il bus di servizio.  Le differenze principali tra i due endpoint sono costituite dalle associazioni [NetTcpBinding](https://msdn.microsoft.com/library/azure/system.servicemodel.nettcpbinding.aspx) per l'endpoint locale e [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) per l'endpoint e gli indirizzi del bus di servizio. L'endpoint locale è dotato di un indirizzo di rete locale con una porta distinta. L'endpoint del bus di servizio include un indirizzo composto dalla stringa `sb`, dal nome dello spazio dei nomi e dal percorso "solver". Si ottiene in tal modo l'URI `sb://[serviceNamespace].servicebus.windows.net/solver`, che identifica l'endpoint del servizio come endpoint TCP del bus di servizio con un nome DNS esterno completo. Se si inserisce il codice sostituendo i segnaposto nella funzione `Main` dell'applicazione **Service**, si otterrà un servizio funzionante. Se si vuole che il servizio sia in ascolto esclusivamente sul bus di servizio, rimuovere la dichiarazione dell'endpoint locale.
 
-### <a name="configure-a-service-host-in-the-app.config-file"></a>Come configurare un host del servizio nel file App.config
+### <a name="configure-a-service-host-in-the-appconfig-file"></a>Come configurare un host del servizio nel file App.config
 È anche possibile configurare l'host usando il file App.config. L'esempio seguente in questo caso visualizza il codice del servizio di hosting.
 
 ```
@@ -182,7 +186,7 @@ using (var ch = cf.CreateChannel())
 
 È ora possibile compilare il client e il servizio ed eseguirli (con il servizio per primo), in modo che il client chiami il servizio e visualizzi **9**. È possibile eseguire il client e il server in computer diversi, persino in reti diverse, senza riscontrare problemi di comunicazione. Il codice client può inoltre essere eseguito nel cloud o in locale.
 
-#### <a name="configure-a-client-in-the-app.config-file"></a>Configurare un client nel file App.config
+#### <a name="configure-a-client-in-the-appconfig-file"></a>Configurare un client nel file App.config
 Il codice seguente illustra come configurare il client usando il file App.config.
 
 ```
@@ -220,13 +224,14 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di inoltro del
 
 * [Panoramica della messaggistica inoltrata del bus di servizio](service-bus-relay-overview.md)
 * [Panoramica dell'architettura del bus di servizio di Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
-* Scaricare esempi del bus di servizio da [Esempi di Azure][Esempi di Azure] o vedere la [panoramica degli esempi del bus di servizio][panoramica degli esempi del bus di servizio].
+* Scaricare esempi del bus di servizio da [Esempi di Azure][Esempi di Azure] o vedere la [Panoramica degli esempi del bus di servizio][Panoramica degli esempi del bus di servizio].
 
 [Autenticazione della firma di accesso condiviso con il bus di servizio]: ../service-bus-messaging/service-bus-shared-access-signature-authentication.md
 [Esempi di Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 [Panoramica degli esempi del bus di servizio]: ../service-bus-messaging/service-bus-samples.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

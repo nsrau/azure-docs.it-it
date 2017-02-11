@@ -1,13 +1,13 @@
 ---
 title: Linee guida sulle macchine virtuali di Windows | Microsoft Docs
 description: Informazioni sulle principali linee guida di progettazione e implementazione per la distribuzione di macchine virtuali di Windows in Azure.
-documentationcenter: ''
+documentationcenter: 
 services: virtual-machines-windows
 author: iainfoulds
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: f932e65a-437b-48b0-8d70-f61ded8ce1c6
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,14 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 923f2128eef294a4d5f14638f4be622618ed812d
+
 
 ---
-# Linee guida per le macchine virtuali
+# <a name="virtual-machines-guidelines"></a>Linee guida per le macchine virtuali
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Questo articolo è incentrato sulla comprensione dei passaggi di pianificazione necessari per la creazione e la gestione di macchine virtuali all'interno dell'ambiente di Azure.
 
-## Linee guida per l'implementazione di macchine virtuali
+## <a name="implementation-guidelines-for-vms"></a>Linee guida per l'implementazione di macchine virtuali
 Decisioni:
 
 * Qual è il numero di macchine virtuali necessario per i vari componenti e livelli di applicazione dell'infrastruttura?
@@ -36,20 +40,25 @@ Attività:
 * Definire la convenzione di denominazione della macchina virtuale.
 * Creare le VM tramite Azure PowerShell, il portale Web o i modelli di Resource Manager.
 
-## Macchine virtuali
+## <a name="virtual-machines"></a>Macchine virtuali
 Uno dei principali componenti all'interno dell'ambiente Azure è costituito molto probabilmente dalle macchine virtuali. È qui che vengono eseguite applicazioni, database, servizi di autenticazione, e così via.
 
-È importante comprendere le [diverse dimensioni delle macchine virtuali](virtual-machines-windows-sizes.md) perché questo consente di dimensionare correttamente l'ambiente dal punto di vista dei costi e delle prestazioni. Se le macchine virtuali non hanno una quantità sufficiente di core CPU o di memoria, le prestazioni dell'applicazione ne risentono indipendentemente da come la stessa è stata progettata e sviluppata. Esaminare i carichi di lavoro suggeriti per ogni serie di macchine virtuali quale punto di partenza per stabilire le dimensioni della macchina virtuale da usare per ogni componente dell'infrastruttura. Dopo la distribuzione sarà possibile [modificare le dimensioni della VM](https://azure.microsoft.com/blog/resize-virtual-machines/).
+È importante comprendere le [diverse dimensioni delle macchine virtuali](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) poiché questo consente di dimensionare correttamente l'ambiente dal punto di vista dei costi e delle prestazioni. Se le macchine virtuali non hanno una quantità sufficiente di core CPU o di memoria, le prestazioni dell'applicazione ne risentono indipendentemente da come la stessa è stata progettata e sviluppata. Esaminare i carichi di lavoro suggeriti per ogni serie di macchine virtuali quale punto di partenza per stabilire le dimensioni della macchina virtuale da usare per ogni componente dell'infrastruttura. Dopo la distribuzione sarà possibile [modificare le dimensioni della macchina virtuale](https://azure.microsoft.com/blog/resize-virtual-machines/) .
 
-L'archiviazione svolge un ruolo fondamentale nelle prestazioni della macchina virtuale. È possibile usare l'archiviazione Standard che usa dischi in rotazione normali oppure l'archiviazione Premium per carichi di lavoro I/O elevati e prestazioni massime che usano dischi SSD. Come per le dimensioni della macchina virtuale, quando si tratta di selezionare il supporto di archiviazione si devono considerare anche i costi. È possibile leggere le [linee guida sull'infrastruttura di archiviazione](virtual-machines-windows-infrastructure-storage-solutions-guidelines.md) per comprendere come progettare l'archiviazione appropriata ai fini dell'ottimizzazione delle prestazioni delle VM.
+L'archiviazione svolge un ruolo fondamentale nelle prestazioni della macchina virtuale. È possibile usare l'archiviazione Standard che usa dischi in rotazione normali oppure l'archiviazione Premium per carichi di lavoro I/O elevati e prestazioni massime che usano dischi SSD. Come per le dimensioni della macchina virtuale, quando si tratta di selezionare il supporto di archiviazione si devono considerare anche i costi. È possibile leggere le [linee guida sull'infrastruttura di archiviazione](virtual-machines-windows-infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per comprendere come progettare l'archiviazione appropriata ai fini dell'ottimizzazione delle prestazioni delle macchine virtuali.
 
-## Gruppi di risorse
-I componenti come ad esempio le macchine virtuali sono raggruppati in modo logico per una più facile gestione e manutenzione con i [gruppi di risorse di Azure](../resource-group-overview.md). L'uso dei gruppi di risorse consente di creare, gestire e monitorare tutte le risorse che costituiscono una determinata applicazione. È anche possibile implementare [i controlli degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md) per consentire l'accesso ad altri utenti all'interno del team solo in relazione alle risorse necessarie. I gruppi di risorse e le assegnazioni dei ruoli devono essere pianificati in modo appropriato. Esistono diversi approcci che consentono di progettare e implementare nel concreto i gruppi di risorse; a questo proposito, leggere le [linee guida sui gruppi di risorse](virtual-machines-windows-infrastructure-resource-groups-guidelines.md) per comprendere come creare al meglio le macchine virtuali.
+## <a name="resource-groups"></a>Gruppi di risorse
+I componenti come ad esempio le VM sono raggruppati in modo logico per una più facile gestione e manutenzione con i [gruppi di risorse di Azure](../azure-resource-manager/resource-group-overview.md). L'uso dei gruppi di risorse consente di creare, gestire e monitorare tutte le risorse che costituiscono una determinata applicazione. È anche possibile implementare [i controlli degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md) per consentire l'accesso ad altri utenti all'interno del team solo in relazione alle risorse necessarie. I gruppi di risorse e le assegnazioni dei ruoli devono essere pianificati in modo appropriato. Esistono diversi approcci che consentono di progettare ed implementare nel concreto i gruppi di risorse; a questo proposito, leggere le [linee guida sui gruppi di risorse](virtual-machines-windows-infrastructure-resource-groups-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per comprendere come creare al meglio le macchine virtuali.
 
-## Modelli
-Per creare le macchine virtuali, è possibile creare modelli definiti tramite file JSON dichiarativi. In genere i modelli creano anche l'archiviazione necessaria, la rete, le interfacce di rete, gli indirizzi IP e così via, insieme alle macchine virtuali stesse. È possibile usare modelli per creare ambienti coerenti riproducibili per scopi di sviluppo e test. Questo consente di replicare facilmente ambienti di produzione e viceversa. Altre informazioni sulla [creazione e uso dei modelli](../resource-group-overview.md#template-deployment) per la creazione e la distribuzione di macchine virtuali.
+## <a name="templates"></a>Modelli
+Per creare le macchine virtuali, è possibile creare modelli definiti tramite file JSON dichiarativi. In genere i modelli creano anche l'archiviazione necessaria, la rete, le interfacce di rete, gli indirizzi IP e così via, insieme alle macchine virtuali stesse. È possibile usare modelli per creare ambienti coerenti riproducibili per scopi di sviluppo e test. Questo consente di replicare facilmente ambienti di produzione e viceversa. Altre informazioni sulla [creazione e uso dei modelli](../azure-resource-manager/resource-group-overview.md#template-deployment) utili per la creazione e la distribuzione di VM.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

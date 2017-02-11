@@ -2,6 +2,7 @@
 ## [Che cos'è DocumentDB?](documentdb-introduction.md)
 ## [Concetti principali ](documentdb-resources.md)
 ## [Distribuzione globale](documentdb-distribute-data-globally.md)
+## [Analisi del costo totale di proprietà NoSQL](https://aka.ms/documentdb-tco-paper)
 ## Scenari
 ### [Casi d'uso comuni](documentdb-use-cases.md)
 ### [Uso di DocumentDB per i social media](documentdb-social-media-apps.md)
@@ -10,6 +11,7 @@
 ## Scrivere la prima app
 ### [App console .NET](documentdb-get-started.md)
 ### [App console .NET Core](documentdb-dotnetcore-get-started.md)
+### [App console Java](documentdb-java-get-started.md)
 ### [App console Node.js](documentdb-nodejs-get-started.md)
 ### [App console C++](documentdb-cpp-get-started.md)
 ## Creare un'app Web
@@ -24,7 +26,6 @@
 # Procedure
 
 ## Pianificare
-### [Archiviazione e prestazioni](documentdb-manage.md)
 ### [Partizionamento e ridimensionamento](documentdb-partition-data.md)
 ### [Coerenza](documentdb-consistency-levels.md)
 ### [NoSQL e SQL](documentdb-nosql-vs-sql.md)
@@ -39,8 +40,6 @@
 ### [Proteggere l'accesso ai dati](documentdb-secure-access-to-data.md)
 ### [Backup e ripristino](documentdb-online-backup-and-restore.md)
 ### [Livelli di prestazioni](documentdb-performance-levels.md)
-### [Quote di risorse](documentdb-limits.md)
-### [Aumentare le quote](documentdb-increase-limits.md)
 ### [Unità richiesta](documentdb-request-units.md)
 ### Interfaccia della riga di comando di Azure
 #### [Creare un account](documentdb-automation-resource-manager-cli.md)
@@ -120,6 +119,6 @@
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

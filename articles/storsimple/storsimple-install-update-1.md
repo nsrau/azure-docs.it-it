@@ -1,12 +1,12 @@
 ---
-title: Installare l'aggiornamento 1.2 nel dispositivo StorSimple | Microsoft Docs
-description: Illustra come installare l'aggiornamento 1.2 di StorSimple serie 8000 sul dispositivo StorSimple serie 8000.
+title: Installare l&quot;aggiornamento 1.2 nel dispositivo StorSimple | Microsoft Docs
+description: Illustra come installare l&quot;aggiornamento 1.2 di StorSimple serie 8000 sul dispositivo StorSimple serie 8000.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 7a513923-eb77-4078-b0ab-f8e90183796a
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,15 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/22/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f16ae589c160338450a41857f88fe29763e1b9eb
+
 
 ---
-# Installare l'aggiornamento 1.2 nel dispositivo StorSimple
-## Overview
+# <a name="install-update-12-on-your-storsimple-device"></a>Installare l'aggiornamento 1.2 nel dispositivo StorSimple
+## <a name="overview"></a>Overview
 In questa esercitazione viene illustrato come installare l'aggiornamento 1.2 in un dispositivo StorSimple in cui è in esecuzione una versione del software prima dell'aggiornamento 1. L'esercitazione illustra anche le ulteriori procedure richieste per l'aggiornamento quando un gateway è configurato su un'interfaccia di rete diversa da DATA 0 del dispositivo StorSimple.
 
 L'aggiornamento 1.2 include aggiornamenti del software del dispositivo, aggiornamenti del driver LSI e aggiornamenti del firmware del disco. Gli aggiornamenti del software e del driver LSI non sono problematici e possono essere applicati attraverso il portale di Azure classico. Gli aggiornamenti del firmware del disco sono problematici e possono essere applicati solo tramite l'interfaccia di Windows PowerShell del dispositivo.
 
-In base alla versione eseguita dal dispositivo, è possibile determinare se verrà applicato l'aggiornamento 1.2. È possibile verificare la versione del software del dispositivo passando alla sezione **riepilogo rapido** del **Dashboard** del dispositivo.
+In base alla versione eseguita dal dispositivo, è possibile determinare se verrà applicato l'aggiornamento 1.2. È possibile verificare la versione del software del dispositivo passando alla sezione **Riepilogo rapido** del **Dashboard** del dispositivo.
 
 </br>
 
@@ -46,21 +50,21 @@ In base alla versione eseguita dal dispositivo, è possibile determinare se verr
 
 [!INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
-## Installare l'aggiornamento 1.2 tramite il portale di Azure classico.
+## <a name="install-update-12-via-the-azure-classic-portal"></a>Installare l'aggiornamento 1.2 tramite il portale di Azure classico.
 Seguire questa procedura per aggiornare il dispositivo a [Aggiornamento 1.2](storsimple-update1-release-notes.md). Usare questa procedura solo se è presente un gateway configurato sull'interfaccia di rete DATA 0 sul dispositivo.
 
 [!INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-1. Verificare che nel dispositivo sia in esecuzione l'**aggiornamento 1.2 della serie 8000 di StorSimple (6.3.9600.17584)**. Inoltre, è necessario modificare la **data dell'ultimo aggiornamento**. Saranno anche disponibili gli aggiornamenti in modalità manutenzione. Questo messaggio potrebbe essere visualizzato fino a 24 ore dopo l’installazione degli aggiornamenti.
+1. Verificare che nel dispositivo sia in esecuzione l' **aggiornamento 1.2 della serie 8000 di StorSimple (6.3.9600.17584)**. Inoltre, è necessario modificare la **data dell'ultimo aggiornamento** . Saranno anche disponibili gli aggiornamenti in modalità manutenzione. Questo messaggio potrebbe essere visualizzato fino a 24 ore dopo l’installazione degli aggiornamenti.
    
    Gli aggiornamenti in modalità manutenzione sono aggiornamenti problematici che comportano tempi di inattività del dispositivo e possono essere applicati solo tramite l'interfaccia di Windows PowerShell del dispositivo.
    
-   ![Pagina di manutenzione](./media/storsimple-install-update-1/InstallUpdate12_10M.png "Pagina di manutenzione")
+   ![Pagina di manutenzione](./media/storsimple-install-update-1/InstallUpdate12_10M.png "Maintenance page")
 2. Scaricare gli aggiornamenti in modalità manutenzione utilizzando la procedura indicata in [Scaricare gli aggiornamenti rapidi](#to-download-hotfixes) per cercare e scaricare KB3063416, che installa gli aggiornamenti del firmware del disco (gli altri aggiornamenti devono essere già installati a questo punto).
 3. Seguire i passaggi elencati nella sezione [Installare e verificare gli aggiornamenti rapidi in modalità manutenzione](#to-install-and-verify-maintenance-mode-hotfixes) per installare gli aggiornamenti in modalità manutenzione.
-4. Nel portale di Azure classico, passare alla pagina **Manutenzione** e, nella parte inferiore della pagina, fare clic su **Cerca aggiornamenti** per verificare la presenza di eventuali aggiornamenti di Windows e quindi fare clic su **Installa aggiornamenti**. Attendere che tutti gli aggiornamenti vengano installati correttamente.
+4. Nel portale di Azure classico passare alla pagina **Manutenzione** e, nella parte inferiore della pagina, fare clic su **Cerca aggiornamenti** per verificare la presenza di eventuali aggiornamenti di Windows e quindi fare clic su **Installa aggiornamenti**. Attendere che tutti gli aggiornamenti vengano installati correttamente.
 
-## Installare l'aggiornamento 1.2 in un dispositivo con un gateway configurato per un'interfaccia di rete non DATA 0
+## <a name="install-update-12-on-a-device-that-has-a-gateway-configured-for-a-non-data-0-network-interface"></a>Installare l'aggiornamento 1.2 in un dispositivo con un gateway configurato per un'interfaccia di rete non DATA 0
 Usare questa procedura solo se la verifica del gateway non riesce quando si cerca di installare gli aggiornamenti tramite il portale di Azure classico. La verifica non riesce quando un gateway è assegnato a un'interfaccia di rete non DATA 0e sul dispositivo è in esecuzione una versione del software precedente all'aggiornamento 1. Se il dispositivo non dispone di un gateway su un'interfaccia di rete 0 non di dati, è possibile aggiornare il dispositivo direttamente dal portale di Azure classico. Vedere [Installare l'aggiornamento 1.2 tramite il portale di Azure classico](#install-update-1.2-via-the-azure-classic-portal).
 
 Le versioni software che possono essere aggiornate usando questo metodo sono Aggiornamento 0.1, Aggiornamento 0.2 e Aggiornamento 0.3.
@@ -78,7 +82,7 @@ Se sul dispositivo è in esecuzione un software precedente all'aggiornamento 1 e
 
 Nelle sezioni seguenti vengono fornite istruzioni dettagliate per ciascuno di essi.
 
-## Opzione 1: usare Windows PowerShell per StorSimple per applicare l'aggiornamento 1.2 come hotfix
+## <a name="option-1-use-windows-powershell-for-storsimple-to-apply-update-12-as-a-hotfix"></a>Opzione 1: usare Windows PowerShell per StorSimple per applicare l'aggiornamento 1.2 come hotfix
 Usare questa procedura solo se si esegue l'aggiornamento 0.1, 0.2, 0.3 e se la verifica del gateway non è riuscita quando si è provato a installare gli aggiornamenti tramite il portale di Azure classico. Se si esegue la versione finale (GA), contattare il [supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) per aggiornare il dispositivo.
 
 Per installare l'Aggiornamento 1.2 come un aggiornamento rapido, è necessario scaricare e installare i seguenti aggiornamenti rapidi:
@@ -95,20 +99,25 @@ Prima di utilizzare questa procedura per applicare l'aggiornamento, verificare q
 
 Seguire questa procedura per applicare l'aggiornamento 1.2 **Il completamento degli aggiornamenti potrebbe richiedere circa 2 ore (circa 30 minuti per il software, 30 minuti per il driver, 45 minuti per il firmware del disco).**
 
-[!INCLUDE [installazione di storsimple-opzione1 di aggiornamento](../../includes/storsimple-install-update-option1.md)]
+[!INCLUDE [storsimple-install-update-option1](../../includes/storsimple-install-update-option1.md)]
 
-## Opzione 2: usare il portale di Azure classico per applicare l'aggiornamento 1.2 dopo aver rimosso la configurazione del gateway
+## <a name="option-2-use-the-azure-classic-portal-to-apply-update-12-after-removing-the-gateway-configuration"></a>Opzione 2: usare il portale di Azure classico per applicare l'aggiornamento 1.2 dopo aver rimosso la configurazione del gateway
 Questa procedura si applica solo ai dispositivi StorSimple che eseguono una versione del software precedente all'aggiornamento 1 e hanno un gateway impostato su un'interfaccia di rete diversa da DATA 0. È necessario deselezionare l'impostazione gateway prima di applicare l'aggiornamento.
 
 L'aggiornamento potrebbe richiedere alcune ore. Se l'host si trovano in subnet diverse, rimuovendo la configurazione del gateway sulle interfacce iSCSI può comportare tempi di inattività. Si consiglia di configurare DATA 0 per il traffico iSCSI per ridurre il tempo di inattività.
 
 Seguire la procedura seguente per disabilitare l'interfaccia di rete con il gateway e quindi applicare l'aggiornamento.
 
-[!INCLUDE [installazione di storsimple-opzione2 di aggiornamento](../../includes/storsimple-install-update-option2.md)]
+[!INCLUDE [storsimple-install-update-option2](../../includes/storsimple-install-update-option2.md)]
 
 [!INCLUDE [storsimple-install-troubleshooting](../../includes/storsimple-install-troubleshooting.md)]
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni sulla [versione dell'aggiornamento 1.2](storsimple-update1-release-notes.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

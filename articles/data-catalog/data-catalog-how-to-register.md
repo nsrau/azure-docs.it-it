@@ -1,20 +1,24 @@
 ---
-title: Come registrare le origini dati | Microsoft Docs
+title: Come registrare le origini dati | Documentazione Microsoft
 description: Articolo sulle procedure che illustra come registrare origini dati in Azure Data Catalog, inclusi i campi di metadati estratti durante la registrazione.
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: bab89906-186f-4d35-9ffd-61b1d903905d
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 25c2b279487f099a0e688621e63faaa4ed265e6e
+
 
 ---
 # <a name="how-to-register-data-sources"></a>Come registrare le origini dati
@@ -50,8 +54,8 @@ Lo strumento di registrazione dell'origine dati del **Catalogo dati di Azure** c
 
 > [!NOTE]
 > Nell'anteprima delle tabelle di grandi dimensioni con un numero elevato di colonne potrebbero essere inclusi meno di 20 record.
-> 
-> 
+>
+>
 
 ## <a name="including-data-profiles"></a>Includere profili dati
 Esattamente come l’inclusione delle anteprime può offrire un contesto utile per la ricerca di origini dati nel **Catalogo dati di Azure**da parte degli utenti, anche l’inclusione di un profilo dati può semplificare la comprensione delle origini dati individuate.
@@ -67,8 +71,8 @@ Queste statistiche vengono quindi copiate nel catalogo insieme ai metadati strut
 
 > [!NOTE]
 > Le colonne del testo e della data non includeranno le statistiche della media o della deviazione standard nel profilo dati.
-> 
-> 
+>
+>
 
 ## <a name="updating-registrations"></a>Aggiornamento delle registrazioni
 La registrazione di un'origine dati la renderà individuabile nel **Catalogo dati di Azure** usando i metadati e l'anteprima facoltativa estratti durante la registrazione. Se l'origine dati deve essere aggiornata nel Catalogo (ad esempio, se lo schema di un oggetto è stato modificato o le tabelle escluse in origine devono essere incluse oppure un utente vuole aggiornare i dati inclusi nelle anteprime), è possibile eseguire di nuovo lo strumento di registrazione dell'origine dati.
@@ -81,6 +85,8 @@ La registrazione di un'origine dati con il **Catalogo dati di Azure** rende più
 ## <a name="see-also"></a>Vedere anche
 * [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md) .
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,14 +1,14 @@
 ---
 title: Panoramica di DSC (Desired State Configuration) per Azure | Microsoft Docs
-description: Panoramica sull'uso del gestore dell'estensione di Microsoft Azure per PowerShell DSC (Desired State Configuration). Inclusi prerequisiti, architettura, cmdlet e così via.
+description: "Panoramica sull&quot;uso del gestore dell&quot;estensione di Microsoft Azure per PowerShell DSC (Desired State Configuration). Inclusi prerequisiti, architettura, cmdlet e così via."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: zjalexander
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-keywords: ''
-
+keywords: 
+ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -16,30 +16,34 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 09/15/2016
 ms.author: zachal
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: d2668d6dcdc7e7af45f2fdfa317565e541e035ba
+
 
 ---
-# Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure
+# <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 L'agente di macchine virtuali di Azure e le relative estensioni associate fanno parte dei servizi di infrastruttura di Microsoft Azure. Le estensioni di VM sono componenti software che estendono la funzionalità di una VM e semplificano varie operazioni di gestione delle VM. Ad esempio, l'estensione VMAccess consente di reimpostare la password dell'amministratore; l'estensione Script personalizzato invece può essere usata per eseguire uno script nella VM.
 
 Questo articolo illustra l'estensione DSC (Desired State Configuration) PowerShell per le VM di Azure in Azure PowerShell SDK. È possibile usare i nuovi cmdlet per caricare e applicare una configurazione DSC PowerShell in una macchina virtuale di Azure abilitata con l'estensione DSC PowerShell. L'estensione DSC PowerShell esegue una chiamata in PowerShell DSC per applicare la configurazione DSC ricevuta nella VM. Questa funzionalità è disponibile anche tramite il portale di Azure.
 
-## Prerequisiti
-**Computer locale**: per interagire con l'estensione della VM di Azure, è necessario usare il portale di Azure o Azure PowerShell SDK.
+## <a name="prerequisites"></a>Prerequisiti
+**Computer locale** : per interagire con l'estensione della VM di Azure, è necessario usare il portale di Azure o Azure PowerShell SDK. 
 
-**Agente guest**: la VM di Azure in cui applicare la configurazione DSC deve essere un sistema operativo che supporta Windows Management Framework 4.0 o 5.0. L'elenco completo delle versioni dei sistemi operativi supportati è disponibile nella [cronologia delle versioni dell'estensione DSC](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/).
+**Agente guest** : la VM di Azure in cui applicare la configurazione DSC deve essere un sistema operativo che supporta Windows Management Framework 4.0 o 5.0. L'elenco completo delle versioni dei sistemi operativi supportati è disponibile nella [cronologia delle versioni dell'estensione DSC](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/).
 
-## Termini e concetti
+## <a name="terms-and-concepts"></a>Termini e concetti
 Questa guida presuppone che si abbia familiarità con i concetti seguenti:
 
-Configurazione: documento di configurazione DSC.
+Configurazione: documento di configurazione DSC. 
 
 Nodo: destinazione per una configurazione DSC. In questo documento, "nodo" fa sempre riferimento a una VM di Azure.
 
 Dati di configurazione: file con estensione psd1 contenente i dati ambientali per una configurazione.
 
-## Panoramica dell'architettura
+## <a name="architectural-overview"></a>Panoramica dell'architettura
 L'estensione DSC di Azure usa il framework dell'agente VM di Azure per recapitare, applicare e generare report sulle configurazioni DSC in esecuzione nelle VM di Azure. L'estensione DSC prevede un file ZIP contenente almeno un documento di configurazione e un set di parametri fornito tramite Azure PowerShell SDK oppure tramite il portale di Azure.
 
 Quando viene chiamata per la prima volta, l'estensione esegue un processo di installazione. Tale processo installa una versione di Windows Management Framework adottando la logica seguente:
@@ -48,22 +52,22 @@ Quando viene chiamata per la prima volta, l'estensione esegue un processo di ins
 2. Se la proprietà `wmfVersion` è specificata, viene installata la versione di WMF corrispondente a meno che non sia incompatibile con il sistema operativo della VM.
 3. Se la proprietà `wmfVersion` non è specificata, viene installata la versione più recente applicabile di WMF.
 
-L'installazione di Windows Management Framework richiede il riavvio del sistema. Dopo il riavvio, l'estensione scarica il file .zip specificato nella proprietà `modulesUrl`. Se tale percorso si trova nell'archiviazione BLOB di Azure, è possibile specificare un token di firma di accesso condiviso nella proprietà `sasToken` per accedere al file. Dopo aver scaricato e decompresso il file .zip, la funzione di configurazione definita in `configurationFunction` viene eseguita per generare il file MOF. L'estensione esegue quindi `Start-DscConfiguration -Force` nel file MOF generato, acquisisce l'output e lo riscrive nel canale di stato di Azure. Da questo momento, Gestione configurazione locale DSC gestisce il monitoraggio e la correzione come di consueto.
+L'installazione di Windows Management Framework richiede il riavvio del sistema. Dopo il riavvio, l'estensione scarica il file .zip specificato nella proprietà `modulesUrl`. Se tale percorso si trova nell'archiviazione BLOB di Azure, è possibile specificare un token di firma di accesso condiviso nella proprietà `sasToken` per accedere al file. Dopo aver scaricato e decompresso il file .zip, la funzione di configurazione definita in `configurationFunction` viene eseguita per generare il file MOF. L'estensione esegue quindi `Start-DscConfiguration -Force` nel file MOF generato, acquisisce l'output e lo riscrive nel canale di stato di Azure. Da questo momento, Gestione configurazione locale DSC gestisce il monitoraggio e la correzione come di consueto. 
 
-## Cmdlet PowerShell
-I cmdlet di PowerShell possono essere usati con ARM o ASM per aggiungere a un pacchetto, pubblicare e monitorare le distribuzioni dell'estensione DSC. I cmdlet elencati di seguito sono i moduli di Gestione dei servizi di Azure, ma è possibile sostituire "Azure" con "AzureRM" per usare il modello di Azure Resource Manager. Ad esempio, `Publish-AzureVMDscConfiguration` usa ASM, in cui `Publish-AzureRmVMDscConfiguration` usa ARM.
+## <a name="powershell-cmdlets"></a>Cmdlet PowerShell
+I cmdlet di PowerShell possono essere usati con ARM o ASM per aggiungere a un pacchetto, pubblicare e monitorare le distribuzioni dell'estensione DSC. I cmdlet elencati di seguito sono i moduli di Gestione dei servizi di Azure, ma è possibile sostituire "Azure" con "AzureRM" per usare il modello di Azure Resource Manager. Ad esempio, `Publish-AzureVMDscConfiguration` usa ASM, in cui `Publish-AzureRmVMDscConfiguration` usa ARM. 
 
 `Publish-AzureVMDscConfiguration` riceve un file di configurazione, lo analizza per cercare risorse DSC dipendenti e crea un file .zip contenente la configurazione e le risorse DSC necessarie per applicare la configurazione. Può anche creare il pacchetto in locale usando il parametro `-ConfigurationArchivePath` oppure pubblica il file .zip nell'archiviazione BLOB di Azure e lo protegge con un token di firma di accesso condiviso.
 
-Il file ZIP creato da questo cmdlet include lo script di configurazione con estensione ps1 nella radice della cartella di archiviazione. Per le risorse, la cartella del modulo è posizionata nella cartella di archiviazione.
+Il file ZIP creato da questo cmdlet include lo script di configurazione con estensione ps1 nella radice della cartella di archiviazione. Per le risorse, la cartella del modulo è posizionata nella cartella di archiviazione. 
 
 `Set-AzureVMDscExtension` inserisce le impostazioni necessarie per l'estensione DSC PowerShell in un oggetto di configurazione di VM, che poi può essere applicato a una VM di Azure con `Update-AzureVM`.
 
-`Get-AzureVMDscExtension` recupera lo stato dell'estensione DSC di una determinata VM.
+`Get-AzureVMDscExtension` recupera lo stato dell'estensione DSC di una determinata VM. 
 
 `Get-AzureVMDscExtensionStatus` recupera lo stato della configurazione DSC applicata dal gestore dell'estensione DSC. Questa azione può essere eseguita su una singola VM o su un gruppo di VM.
 
-`Remove-AzureVMDscExtension` rimuove il gestore dell'estensione da una determinata macchina virtuale. Questo cmdlet **non** rimuove la configurazione, non disinstalla WMF e non modifica le impostazioni applicate nella macchina virtuale. Rimuove soltanto il gestore dell'estensione.
+`Remove-AzureVMDscExtension` rimuove il gestore dell'estensione da una determinata macchina virtuale. Questo cmdlet **non** rimuove la configurazione, non disinstalla WMF e non modifica le impostazioni applicate nella macchina virtuale. Rimuove soltanto il gestore dell'estensione. 
 
 **Differenze principali tra i cmdlet di Azure Resource Manager e Gestione dei servizi di Azure**
 
@@ -73,20 +77,21 @@ Il file ZIP creato da questo cmdlet include lo script di configurazione con este
 * ConfigurationArchive è detto ArchiveBlobName in Azure Resource Manager.
 * ContainerName è detto ArchiveContainerName in Azure Resource Manager.
 * StorageEndpointSuffix è detto ArchiveStorageEndpointSuffix in Azure Resource Manager.
-* L'opzione AutoUpdate è stata aggiunta in Azure Resource Manager per consentire l'aggiornamento automatico del gestore dell'estensione alla versione più recente, non appena disponibile. Questo potrebbe causare il riavvio della VM quando viene rilasciata una nuova versione di WMF.
+* L'opzione AutoUpdate è stata aggiunta in Azure Resource Manager per consentire l'aggiornamento automatico del gestore dell'estensione alla versione più recente, non appena disponibile. Questo potrebbe causare il riavvio della VM quando viene rilasciata una nuova versione di WMF. 
 
-## Funzionalità del portale di Azure
+## <a name="azure-portal-functionality"></a>Funzionalità del portale di Azure
 Passare a una macchina virtuale classica. In Impostazioni -> Generale fare clic su "Estensioni". Verrà creato un nuovo riquadro. Fare clic su Add e selezionare PowerShell DSC.
 
-Il portale richiede un input. **Configuration Modules or Script** (Moduli o script di configurazione): questo è un campo obbligatorio. Richiede un file con estensione .ps1 contenente uno script di configurazione oppure un file .zip con uno script di configurazione con estensione ps1 nella directory radice e tutte le risorse dipendenti nelle cartelle del modulo all'interno del file .zip. Può essere creato con il cmdlet `Publish-AzureVMDscConfiguration -ConfigurationArchivePath` incluso in Azure PowerShell SDK. Il file .zip viene caricato nell'archiviazione BLOB dell'utente protetta da un token di firma di accesso condiviso.
+Il portale richiede un input.
+**Configuration Modules or Script**(Moduli o script di configurazione): questo è un campo obbligatorio. Richiede un file con estensione .ps1 contenente uno script di configurazione oppure un file .zip con uno script di configurazione con estensione ps1 nella directory radice e tutte le risorse dipendenti nelle cartelle del modulo all'interno del file .zip. Può essere creato con il cmdlet `Publish-AzureVMDscConfiguration -ConfigurationArchivePath` incluso in Azure PowerShell SDK. Il file .zip viene caricato nell'archiviazione BLOB dell'utente protetta da un token di firma di accesso condiviso. 
 
-**Configuration Data PSD1 File** (File PSD1 dati configurazione): questo è un campo facoltativo. Se la configurazione usata richiede un file di dati della configurazione con estensione .psd1, usare questo campo per selezionarlo e quindi caricarlo nell'archiviazione BLOB dell'utente, in cui sarà protetto da un token di firma di accesso condiviso.
+**Configuration Data PSD1 File**(File PSD1 dati di configurazione): questo è un campo facoltativo. Se la configurazione usata richiede un file di dati della configurazione con estensione .psd1, usare questo campo per selezionarlo e quindi caricarlo nell'archiviazione BLOB dell'utente, in cui sarà protetto da un token di firma di accesso condiviso. 
 
-**Module-Qualified Name of Configuration**: i file con estensione .ps1 possono avere più funzioni di configurazione. Immettere il nome dello script di configurazione con estensione ps1 seguito da "\" e dal nome della funzione di configurazione. Ad esempio, se lo script con estensione .ps1 ha il nome "configuration.ps1" e la configurazione è "IisInstall", immettere: `configuration.ps1\IisInstall`
+**Module-Qualified Name of Configuration**: i file con estensione .ps1 possono avere più funzioni di configurazione. Immettere il nome dello script di configurazione con estensione ps1 seguito da '\' e dal nome della funzione di configurazione. Ad esempio, se lo script con estensione .ps1 ha il nome "configuration.ps1" e la configurazione è "IisInstall", immettere: `configuration.ps1\IisInstall`
 
-**Configuration Arguments**: se la funzione di configurazione accetta argomenti, immetterli qui nel formato `argumentName1=value1,argumentName2=value2`. Questo formato è diverso rispetto a quello in cui vengono accettati gli argomenti di configurazione tramite i cmdlet di PowerShell o i modelli di Resource Manager.
+**Configuration Arguments**: se la funzione di configurazione accetta argomenti, immetterli qui nel formato `argumentName1=value1,argumentName2=value2`. Questo formato è diverso rispetto a quello in cui vengono accettati gli argomenti di configurazione tramite i cmdlet di PowerShell o i modelli di Resource Manager. 
 
-## Introduzione
+## <a name="getting-started"></a>Introduzione
 L'estensione DSC di Azure riceve i documenti di configurazione DSC e li applica nelle macchine virtuali di Azure. Di seguito è riportato un semplice esempio di configurazione. Salvarlo in locale come "IisInstall.ps1":
 
 ```powershell
@@ -125,18 +130,23 @@ $demoVM | Update-AzureVM -Verbose
 Get-AzureVMDscExtensionStatus -VM $demovm -Verbose
 ```
 
-## Registrazione
+## <a name="logging"></a>Registrazione
 I log vengono inseriti in:
 
-C:\\WindowsAzure\\Logs\\Plugins\\Microsoft.Powershell.DSC[numero di versione]
+C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Numero versione]
 
-## Passaggi successivi
-Per altre informazioni su PowerShell DSC, [vedere il centro di documentazione di PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
+## <a name="next-steps"></a>Passaggi successivi
+Per altre informazioni su PowerShell DSC, [vedere il centro di documentazione di PowerShell](https://msdn.microsoft.com/powershell/dsc/overview). 
 
-Esaminare il [modello di Azure Resource Manager per l'estensione DSC](virtual-machines-windows-extensions-dsc-template.md).
+Esaminare il [modello di Azure Resource Manager per l'estensione DSC](virtual-machines-windows-extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 Per trovare altre funzionalità che è possibile gestire con PowerShell DSC, [cercare in PowerShell Gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) altre risorse DSC.
 
-Per altre informazioni sul passaggio di parametri sensibili nelle configurazioni, vedere l'articolo [Passaggio sicuro di credenziali al gestore estensione DSC di Azure](virtual-machines-windows-extensions-dsc-credentials.md).
+Per altre informazioni sul passaggio di parametri sensibili nelle configurazioni, vedere l'articolo [Gestione sicura delle credenziali con il gestore estensione DSC](virtual-machines-windows-extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

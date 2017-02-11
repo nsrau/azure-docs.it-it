@@ -1,23 +1,27 @@
 ---
-title: Indicizzazione di BLOB CSV con l'indicizzatore di BLOB di Ricerca di Azure | Microsoft Docs
+title: Indicizzazione di BLOB CSV con l&quot;indicizzatore di BLOB di Ricerca di Azure | Documentazione Microsoft
 description: Informazioni su come indicizzare BLOB CSV con Ricerca di Azure
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: chaosrealm
 manager: pablocas
-editor: ''
-
+editor: 
+ms.assetid: ed3c9cff-1946-4af2-a05a-5e0b3d61eb25
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/12/2016
+ms.date: 12/15/2016
 ms.author: eugenesh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 82c9d68bc3f1650648fac0597f4a329ef053b109
+
 
 ---
-# Indicizzazione di BLOB CSV con l'indicizzatore di BLOB di Ricerca di Azure
-Per impostazione predefinita, l'[indicizzatore di BLOB di Ricerca di Azure](search-howto-indexing-azure-blob-storage.md) analizza i BLOB di testo delimitato come blocco singolo di testo. Nel caso dei BLOB che contengono dati, tuttavia, è spesso consigliabile gestire ogni riga del BLOB come documento separato. Nel caso del testo delimitato da virgole seguente, ad esempio:
+# <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indicizzazione di BLOB CSV con l'indicizzatore di BLOB di Ricerca di Azure
+Per impostazione predefinita, l' [indicizzatore di BLOB di Ricerca di Azure](search-howto-indexing-azure-blob-storage.md) analizza i BLOB di testo delimitato come blocco singolo di testo. Nel caso dei BLOB che contengono dati, tuttavia, è spesso consigliabile gestire ogni riga del BLOB come documento separato. Nel caso del testo delimitato da virgole seguente, ad esempio: 
 
     id, datePublished, tags
     1, 2016-01-12, "azure-search,azure,cloud" 
@@ -25,15 +29,15 @@ Per impostazione predefinita, l'[indicizzatore di BLOB di Ricerca di Azure](sear
 
 È consigliabile analizzarlo in due documenti, ognuno dei quali contiene campi "id", "datePublished" e "tags".
 
-In questo articolo verrà illustrato come analizzare i BLOB CSV con un indicizzatore di BLOB di Ricerca di Azure.
+In questo articolo verrà illustrato come analizzare i BLOB CSV con un indicizzatore di BLOB di Ricerca di Azure. 
 
 > [!IMPORTANT]
-> Questa funzionalità è attualmente disponibile in anteprima. È disponibile solo nell'API REST con la versione **2015-02-28-Preview**. Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione.
+> Questa funzionalità è attualmente disponibile in anteprima. È disponibile solo nell'API REST con la versione **2015-02-28-Preview**. Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione. 
 > 
 > 
 
-## Configurazione dell'indicizzazione di CSV
-Per indicizzare BLOB CSV, creare o aggiornare la definizione di un indicizzatore con la modalità di analisi `delimitedText`:
+## <a name="setting-up-csv-indexing"></a>Configurazione dell'indicizzazione di CSV
+Per indicizzare BLOB CSV, creare o aggiornare la definizione di un indicizzatore con la modalità di analisi `delimitedText` :  
 
     {
       "name" : "my-csv-indexer",
@@ -43,7 +47,8 @@ Per indicizzare BLOB CSV, creare o aggiornare la definizione di un indicizzatore
 
 Per altre informazioni sull'API di creazione di un indicizzatore, vedere [Creare un indicizzatore](search-api-indexers-2015-02-28-preview.md#create-indexer).
 
-`firstLineContainsHeaders` indica che la prima riga (non vuota) di ogni BLOB contiene un'intestazione. Se i BLOB non contengono una riga di intestazione iniziale, è necessario specificare le intestazioni nella configurazione dell'indicizzatore:
+`firstLineContainsHeaders` indica che la prima riga (non vuota) di ogni BLOB contiene un'intestazione.
+Se i BLOB non contengono una riga di intestazione iniziale, è necessario specificare le intestazioni nella configurazione dell'indicizzatore: 
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
@@ -54,10 +59,10 @@ Per altre informazioni sull'API di creazione di un indicizzatore, vedere [Creare
 > 
 > 
 
-## Esempi di richiesta
-Per concludere, ecco gli esempi completi del payload.
+## <a name="request-examples"></a>Esempi di richiesta
+Per concludere, ecco gli esempi completi del payload. 
 
-Origine dati:
+Origine dati: 
 
     POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
     Content-Type: application/json
@@ -66,7 +71,7 @@ Origine dati:
     {
         "name" : "my-blob-datasource",
         "type" : "azureblob",
-        "credentials" : { "connectionString" : "<my storage connection string>" },
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "<optional, my-folder>" }
     }   
 
@@ -83,7 +88,12 @@ Indicizzatore:
       "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } }
     }
 
-## Come contribuire al miglioramento di Ricerca di Azure
+## <a name="help-us-make-azure-search-better"></a>Come contribuire al miglioramento di Ricerca di Azure
 Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

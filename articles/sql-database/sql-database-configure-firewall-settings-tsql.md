@@ -1,6 +1,6 @@
 ---
-title: Configurare le regole firewall a livello di server e di database per il database SQL di Azure tramite T-SQL | Documentazione Microsoft
-description: Come configurare il firewall per gli indirizzi IP che accedono a database SQL di Azure.
+title: 'T-SQL: regole del firewall per il database SQL di Azure | Documentazione Microsoft'
+description: Come configurare le regole del firewall a livello di server e di database per gli indirizzi IP che accedono a database SQL di Azure usando Transact-SQL.
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: a49bc9cd8fb50dcc753fbb04bf7f2d96cf79f3ab
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: 0f91e59a72b033c0a0dc52b4f127478b73c66ff1
 
 
 ---
@@ -94,6 +94,6 @@ Per informazioni su come passare ai database, vedere [Gestire l'accesso al datab
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

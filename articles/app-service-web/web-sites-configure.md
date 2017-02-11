@@ -1,12 +1,12 @@
 ---
 title: Configurazione delle app Web in Servizio app di Azure
-description: Come configurare un'app Web nel servizio app di Azure
+description: Come configurare un&quot;app Web nel servizio app di Azure
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8ee1f42cd54e191fa30813d972a664208124c971
+
 
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurazione delle app Web in Servizio app di Azure
@@ -50,7 +54,7 @@ Per motivi tecnici, l'abilitazione di Java per le proprie app disabilita le opzi
 
 **Versione pipeline gestita**. Consente di impostare la [modalità pipeline]IIS. Lasciare questa opzione impostata su Integrato (predefinita), tranne nel caso in cui un'app meno recente richieda una versione precedente di IIS.
 
-**Scambio automatico**. Se si abilita l'opzione Scambio automatico per uno slot di distribuzione, il servizio app immette automaticamente l'app Web in produzione quando si esegue un aggiornamento di quello slot. Per altre informazioni, vedere [Eseguire la distribuzione negli slot di memorizzazione temporanea per le app Web del servizio app di Azure](web-sites-staged-publishing.md).
+**Scambio automatico**. Se si abilita l'opzione Scambio automatico per uno slot di distribuzione, il servizio app immette automaticamente l'app Web in produzione quando si esegue un aggiornamento di quello slot. Per altre informazioni, vedere [Eseguire la distribuzione negli slot di memorizzazione temporanea per le app Web nel servizio app di Azure](web-sites-staged-publishing.md).
 
 ### <a name="debugging"></a>Debug
 **Debug remoto**. Abilita il debug remoto. Quando viene abilitato, è possibile utilizzare il debugger remoto in Visual Studio per connettersi direttamente all'app Web. Il debug remoto resterà abilitato per 48 ore. 
@@ -176,6 +180,6 @@ Per ulteriori informazioni, vedere [Procedura: monitorare lo stato degli endpoin
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

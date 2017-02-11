@@ -1,19 +1,23 @@
 ---
-title: Creare applicazioni che usano argomenti e sottoscrizioni del bus di servizio | Microsoft Docs
-description: Introduzione alle funzionalità di pubblicazione/sottoscrizione offerte dagli argomenti e dalle sottoscrizioni del bus di servizio.
-services: service-bus
+title: Creare applicazioni che usano argomenti e sottoscrizioni del bus di servizio | Documentazione Microsoft
+description: "Introduzione alle funzionalità di pubblicazione/sottoscrizione offerte dagli argomenti e dalle sottoscrizioni del bus di servizio."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: a48fc9b0-b7b0-464e-8187-a517bf8b4eb4
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 75f2cddad471c89fd826097831362d9d51a6dccf
+
 
 ---
 # <a name="create-applications-that-use-service-bus-topics-and-subscriptions"></a>Creare applicazioni che usano argomenti e sottoscrizioni del bus di servizio
@@ -139,6 +143,9 @@ Tutti i motivi per usare l'accodamento descritti in [Creare applicazioni che usa
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere [Creare applicazioni che usano le code del bus di servizio](service-bus-create-queues.md) per informazioni su come usare le code nello scenario di vendita al dettaglio POS.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

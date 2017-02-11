@@ -2,12 +2,12 @@
 title: Preparare un disco rigido virtuale (VHD) di Windows per il caricamento in Azure | Microsoft Docs
 description: Procedure consigliate per preparare un disco rigido virtuale di Windows prima del caricamento in Azure
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: genlin
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 7802489d-33ec-4302-82a4-91463d03887a
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2016
 ms.author: glimoli;genli
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 98aa7935322c873a9de6414090daab2e04ea19fe
+
 
 ---
 # <a name="prepare-a-windows-vhd-to-upload-to-azure"></a>Preparare un disco rigido virtuale (VHD) di Windows per il caricamento in Azure
@@ -265,8 +269,8 @@ Se si ha un'immagine di VM Windows in [formato di file VMDK](https://en.wikipedi
    * [KB2904100](https://support.microsoft.com/kb/2904100) Il sistema si blocca durante il processo di I/O del disco in Windows <a id="step23"></a>
 2. Se si desidera creare un'immagine da cui distribuire più macchine, è necessario generalizzare l'immagine eseguendo `sysprep` prima di caricare il disco rigido virtuale in Azure. Non è necessario eseguire `sysprep` per usare un disco rigido virtuale specifico. Per ulteriori informazioni su come creare un'immagine generalizzata, vedere gli articoli seguenti:
    
-   * [Creare un'immagine di VM da una macchina virtuale di Azure esistente tramite il modello di distribuzione di Resource Manager](virtual-machines-windows-capture-image.md)
-   * [Creare un'immagine di VM da una macchina virtuale di Azure esistente tramite il modello di distribuzione classico](virtual-machines-windows-classic-capture-image.md)
+   * [Creare un'immagine di VM da una macchina virtuale di Azure esistente tramite il modello di distribuzione di Resource Manager](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+   * [Creare un'immagine di VM da una macchina virtuale di Azure esistente tramite il modello di distribuzione classico](virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
    * [Supporto di Sysprep per i ruoli del server](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 ## <a name="suggested-extra-configurations"></a>Configurazioni aggiuntive suggerite
@@ -293,8 +297,11 @@ Le seguenti impostazioni non influenzano il caricamento del disco rigido virtual
     ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Caricare l'immagine di una VM Windows in Azure per distribuzioni di Resource Manager](virtual-machines-windows-upload-image.md)
+* [Caricare l'immagine di una VM Windows in Azure per distribuzioni di Resource Manager](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

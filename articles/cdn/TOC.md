@@ -50,6 +50,10 @@
 ## [REST](/rest/api/cdn/)
 
 # Risorse
+##  [Informazioni di riferimento sul motore regole](cdn-rules-engine-reference.md)
+### [Espressioni condizionali del motore regole](cdn-rules-engine-reference-conditional-expressions.md)
+### [Condizioni di corrispondenza del motore regole](cdn-rules-engine-reference-match-conditions.md)
+### [Funzionalità del motore regole](cdn-rules-engine-reference-features.md)
 ## [Località POP della rete CDN di Azure](cdn-pop-locations.md)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=cdn)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/cdn/)
@@ -58,6 +62,6 @@
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

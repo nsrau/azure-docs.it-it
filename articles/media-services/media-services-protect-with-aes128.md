@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 12/11/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 274537c60cef2d1f5068b8713e29fc8cf97d9cd2
+ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
+ms.openlocfilehash: fb244491ec243399393320d0dbefb078273448d9
 
 
 ---
@@ -48,17 +48,18 @@ Questo argomento potrebbe essere utile per gli sviluppatori che utilizzano appli
 > 
 
 ## <a name="aes-128-dynamic-encryption-and-key-delivery-service-workflow"></a>Flusso di lavoro della crittografia dinamica AES-128 e servizio di distribuzione delle chiavi
+
 Di seguito sono indicati i passaggi generali da eseguire quando si esegue la crittografia degli asset con AES, tramite il servizio di distribuzione delle chiavi di Servizi multimediali e tramite la crittografia dinamica.
 
 1. [Creare un asset e caricare file nell'asset](media-services-protect-with-aes128.md#create_asset).
 2. [Codificare l'asset contenente il file per il set di file MP4 con velocità in bit adattiva](media-services-protect-with-aes128.md#encode_asset).
 3. [Creare una chiave simmetrica e associarla all'asset codificato](media-services-protect-with-aes128.md#create_contentkey). In Servizi multimediali, la chiave simmetrica contiene la chiave di crittografia dell'asset.
 4. [Configurare i criteri di autorizzazione della chiave simmetrica](media-services-protect-with-aes128.md#configure_key_auth_policy). I criteri di autorizzazione della chiave simmetrica devono essere configurati dall'utente e soddisfatti dal client affinché la chiave simmetrica possa essere distribuita al client.
-5. [Configurare i criteri di distribuzione di un asset](media-services-protect-with-aes128.md#configure_asset_delivery_policy). La configurazione del criterio di distribuzione include: chiave URL di acquisizione e il vettore di inizializzazione (IV) (AES 128 richiede dello stesso vettore devono essere fornite per la crittografia e decrittografia), protocollo di recapito (ad esempio, MPEG DASH, HLS, HDS, Smooth Streaming o all), il tipo di crittografia dinamica (ad esempio, envelope o nessuna crittografia dinamica).
+5. [Configurare i criteri di distribuzione di un asset](media-services-protect-with-aes128.md#configure_asset_delivery_policy). La configurazione dei criteri di distribuzione include: l'URL di acquisizione della chiave e il vettore di inizializzazione, AES 128 richiede che venga fornito lo stesso vettore di inizializzazione per la crittografia e la decrittografia; il protocollo di recapito, ad esempio MPEG-DASH, HLS, Smooth Streaming o tutti; il tipo di crittografia dinamica, ad esempio envelope o nessuna crittografia dinamica.
 
-È possibile applicare criteri diversi per ogni protocollo allo stesso asset. Ad esempio, è possibile applicare la crittografia PlayReady a Smooth/DASH e AES Envelope ad HLS. Gli eventuali protocolli non definiti nei criteri di distribuzione (ad esempio quando si aggiunge un singolo criterio che specifica soltanto HLS come protocollo) verranno esclusi dallo streaming. Questo comportamento non si verifica quando non è presente alcun criterio di distribuzione degli asset. In tal caso, sono consentiti tutti i protocolli in chiaro.
+    È possibile applicare criteri diversi per ogni protocollo allo stesso asset. Ad esempio, è possibile applicare la crittografia PlayReady a Smooth/DASH e AES Envelope ad HLS. Gli eventuali protocolli non definiti nei criteri di distribuzione (ad esempio quando si aggiunge un singolo criterio che specifica soltanto HLS come protocollo) verranno esclusi dallo streaming. Questo comportamento non si verifica quando non è presente alcun criterio di distribuzione degli asset. In tal caso, sono consentiti tutti i protocolli in chiaro.
 
-1. [Creare un localizzatore OnDemand](media-services-protect-with-aes128.md#create_locator) per ottenere un URL di streaming.
+6. [Creare un localizzatore OnDemand](media-services-protect-with-aes128.md#create_locator) per ottenere un URL di streaming.
 
 L’argomento inoltre indica [come un'applicazione client può richiedere una chiave dal servizio di distribuzione delle chiavi](media-services-protect-with-aes128.md#client_request).
 
@@ -98,7 +99,7 @@ Configurare i criteri di distribuzione dell'asset. Alcuni aspetti inclusi nella 
 
 * URL di acquisizione della chiave. 
 * Vettore di inizializzazione (IV) da utilizzare per la crittografia envelope. AES 128 richiede che venga fornito lo stesso IV per la crittografia e la decrittografia. 
-* Il protocollo di recapito dell’asset (ad esempio, MPEG DASH, HLS, HDS, Smooth Streaming o tutti).
+* Il protocollo di recapito dell'asset (ad esempio, MPEG DASH, HLS, Smooth Streaming o tutti).
 * Il tipo di crittografia dinamica (ad esempio, envelope AES) o nessuna crittografia dinamica. 
 
 Per informazioni dettagliate, vedere [Configurare i criteri di distribuzione degli asset ](media-services-rest-configure-asset-delivery-policy.md).
@@ -630,6 +631,6 @@ Il codice seguente indica come inviare una richiesta al servizio di distribuzion
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

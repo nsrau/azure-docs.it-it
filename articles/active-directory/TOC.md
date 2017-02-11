@@ -139,12 +139,15 @@
 
 ### [Concedere l'accesso remoto alle app](active-directory-application-proxy-get-started.md)
 #### [Enable App Proxy](active-directory-application-proxy-enable.md) (Abilitare il proxy delle app)
-#### [Publish apps](active-directory-application-proxy-publish.md) (Pubblicare le app)
+#### Pubblicare le app
+##### [Portale di Azure](application-proxy-publish-azure-portal.md)
+##### [Portale classico](active-directory-application-proxy-publish.md)
 #### Pubblicare su reti distinte
 ##### [portale di Azure](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Portale classico](active-directory-application-proxy-connectors.md)
 #### [Domini personalizzati](active-directory-application-proxy-custom-domains.md)
 #### [Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
+##### [Portale di Azure](application-proxy-sso-azure-portal.md)
 #### [Claims-aware apps](active-directory-application-proxy-claims-aware-apps.md) (App in grado di riconoscere attestazioni)
 #### [Native client apps](active-directory-application-proxy-native-client.md) (App client native)
 #### [Accesso condizionale](active-directory-application-proxy-conditional-access.md)
@@ -212,7 +215,7 @@
 #### [Formato di file CSV](active-directory-b2b-references-csv-file-format.md)
 #### [User objects](active-directory-b2b-references-external-user-object-attribute-changes.md) (Oggetti utente)
 #### [User tokens](active-directory-b2b-references-external-user-token-format.md) (Token utente)
-### [Integrare le identità locali usando Azure AD Connect](active-directory-aadconnect.md?toc=%2fazure%2factive-directory%2fconnect%2ftoc.json)
+### [Integrare le identità locali usando Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 
 ## Delegare l'accesso alle risorse
@@ -237,12 +240,12 @@
 ## Proteggere le identità
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Abilitazione](active-directory-identityprotection-enable.md)
-#### [Esperienza d'accesso](active-directory-identityprotection-flows.md)
-#### [Unblock users](active-directory-identityprotection-unblock-howto.md) (Sbloccare utenti)
 #### [Rilevare le vulnerabilità](active-directory-identityprotection-vulnerabilities.md)
-#### [Tipi di eventi di rischio](active-directory-identityprotection-risk-events-types.md)
-#### [Simulare eventi di rischio](active-directory-identityprotection-playbook.md)
+#### [Eventi di rischio](active-directory-identity-protection-risk-events.md)
 #### [Notifications](active-directory-identityprotection-notifications.md)
+#### [Esperienza d'accesso](active-directory-identityprotection-flows.md)
+#### [Simulare eventi di rischio](active-directory-identityprotection-playbook.md)
+#### [Unblock users](active-directory-identityprotection-unblock-howto.md) (Sbloccare utenti)
 #### [Glossario](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
@@ -284,7 +287,8 @@
 
 # Risorse correlate
 ## [Autenticazione a più fattori](/azure/multi-factor-authentication/)
-## [Azure AD Connect](active-directory-aadconnect.md?toc=%2fazure%2factive-directory%2fconnect%2ftoc.json)
+## [Azure AD Connect](./connect/active-directory-aadconnect.md)
+## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
 ## [Azure AD for developers](./develop/active-directory-how-to-integrate.md) (Azure AD per sviluppatori)
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
@@ -297,6 +301,6 @@
 ## [Forum di commenti e suggerimenti su Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

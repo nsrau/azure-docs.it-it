@@ -5,8 +5,8 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 6e71afc6-b3ed-4b39-8cf1-c8024454d579
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,9 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7f47772a16dc38c5b9b4751b22b99938e26cc1e0
+
 
 ---
-# Contenuto dell'SDK
+# <a name="sdk-content"></a>Contenuto dell'SDK
 Questo documento elenca e illustra il contenuto dell'archivio SDK.
 
 `mobile-engagement-VERSION.jar`
@@ -25,13 +29,13 @@ Questo documento elenca e illustra il contenuto dell'archivio SDK.
 > 
 > 
 
-Cartella `res`
+`res` 
 
 > Risorse di Engagement Reach SDK (file tracciabili e di layout da includere nelle applicazioni).
 > 
 > 
 
-Cartella `src`
+`src` 
 
 > Codice sorgente di Engagement SDK.
 > 
@@ -47,4 +51,9 @@ Cartella `src`
 
 Gli altri file sono una copia delle licenze per il software.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

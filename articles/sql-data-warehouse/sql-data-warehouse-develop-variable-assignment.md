@@ -1,27 +1,31 @@
 ---
-title: Assegnazione di variabili in SQL Data Warehouse | Microsoft Docs
-description: Suggerimenti per l'assegnazione di variabili Transact-SQL in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
+title: Assegnazione di variabili in SQL Data Warehouse | Documentazione Microsoft
+description: Suggerimenti per l&quot;assegnazione di variabili Transact-SQL in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: 81ddc7cf-a6ba-4585-91a3-b6ea50f49227
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/14/2016
-ms.author: jrj;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5ec9f7ad24dad833758d3b981fd4d8735119d813
+
 
 ---
-# Assegnare variabili in SQL Data Warehouse
+# <a name="assign-variables-in-sql-data-warehouse"></a>Assegnare variabili in SQL Data Warehouse
 Le variabili in SQL Data Warehouse vengono impostate usando l'istruzione `DECLARE` o `SET`.
 
 Tutti modi seguenti sono perfettamente validi per impostare il valore di una variabile:
 
-## Impostazione delle variabili con DECLARE
+## <a name="setting-variables-with-declare"></a>Impostazione delle variabili con DECLARE
 L'inizializzazione di variabili con DECLARE è uno dei modi più flessibili per impostare un valore della variabile in SQL Data Warehouse.
 
 ```sql
@@ -45,7 +49,7 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## Impostazione di valori con SET
+## <a name="setting-values-with-set"></a>Impostazione di valori con SET
 Set è un metodo molto comune per l'impostazione di una singola variabile.
 
 Tutti gli esempi seguenti sono modi validi per impostare una variabile con SET:
@@ -59,19 +63,23 @@ SET     @v +=1;
 
 È possibile impostare una sola variabile alla volta con SET. Tuttavia, come illustrato sopra, gli operatori composti sono consentiti.
 
-## Limitazioni
+## <a name="limitations"></a>Limitazioni
 Non è possibile usare SELECT o UPDATE per l'assegnazione di variabili.
 
-## Passaggi successivi
-Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][Panoramica sullo sviluppo per SQL Data Warehouse].
+## <a name="next-steps"></a>Passaggi successivi
+Per altri suggerimenti sullo sviluppo, vedere la [panoramica sullo sviluppo][panoramica sullo sviluppo].
 
 <!--Image references-->
 
 <!--Article references-->
-[Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
+[panoramica sullo sviluppo]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

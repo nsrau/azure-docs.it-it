@@ -1,19 +1,23 @@
 ---
-title: Spostare dati da HDFS locale | Microsoft Docs
+title: Spostare dati da HDFS locale | Documentazione Microsoft
 description: Informazioni su come spostare dati da un HDFS locale con Azure Data Factory.
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 3215b82d-291a-46db-8478-eac1a3219614
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 12/07/2016
 ms.author: jingwang
+translationtype: Human Translation
+ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
+ms.openlocfilehash: 0f0eaaa927ea73cec845dbb369dc2c4a7a8466ba
+
 
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Spostare dati da HDFS locale con Azure Data Factory
@@ -22,31 +26,31 @@ Questo articolo illustra come usare l'attività di copia in una data factory di 
 Data Factory supporta attualmente solo lo spostamento di dati da un HDFS ad altri archivi dati, ma non da altri archivi dati a un HDFS locale.
 
 ## <a name="enabling-connectivity"></a>Abilitazione della connettività
-Il servizio Data Factory supporta la connessione a un HDFS locale tramite il Gateway di gestione dati. Vedere l'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) per informazioni sul Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway. Usare il gateway per connettersi a HDFS anche se è ospitato in una VM IaaS di Azure. 
+Il servizio Data Factory supporta la connessione a un HDFS locale tramite il Gateway di gestione dati. Vedere l'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) per informazioni sul Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway. Usare il gateway per connettersi a HDFS anche se è ospitato in una VM IaaS di Azure.
 
-Anche se è possibile installare il gateway nello stesso computer locale o nella stessa VM di Azure di HDFS, è consigliabile installarlo in un diverso computer o in una diversa VM IaaS di Azure. La presenza del gateway su un computer separato riduce i conflitti di risorse e consente di ottenere prestazioni migliori. Quando si installa il gateway in un computer separato, questo deve poter accedere al computer con un HDFS. 
+Anche se è possibile installare il gateway nello stesso computer locale o nella stessa VM di Azure di HDFS, è consigliabile installarlo in un diverso computer o in una diversa VM IaaS di Azure. La presenza del gateway su un computer separato riduce i conflitti di risorse e consente di ottenere prestazioni migliori. Quando si installa il gateway in un computer separato, questo deve poter accedere al computer con un HDFS.
 
 ## <a name="copy-data-wizard"></a>Copia di dati guidata
-Il modo più semplice di creare una pipeline che copia i dati da HDFS locale consiste nell'usare la procedura Copia di dati guidata. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 
+Il modo più semplice di creare una pipeline che copia i dati da HDFS locale consiste nell'usare la procedura Copia di dati guidata. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
-Gli esempi seguenti forniscono le definizioni JSON di esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustrano come copiare dati da un HDFS locale in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Azure Data Factory.
+Gli esempi seguenti forniscono le definizioni JSON di esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustrano come copiare dati da un HDFS locale in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
 
-## <a name="sample:-copy-data-from-on-premises-hdfs-to-azure-blob"></a>Esempio: Copiare i dati da HDFS locale al BLOB di Azure
-Questo esempio illustra come copiare dati da HDFS locale all'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Azure Data Factory.  
+## <a name="sample-copy-data-from-on-premises-hdfs-to-azure-blob"></a>Esempio: Copiare i dati da HDFS locale al BLOB di Azure
+Questo esempio illustra come copiare dati da HDFS locale all'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.  
 
 L'esempio include le entità di Data Factory seguenti:
 
 1. Un servizio collegato di tipo [OnPremisesHdfs](#hdfs-linked-service-properties).
-2. Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+2. Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 3. Un [set di dati](data-factory-create-datasets.md) di input di tipo [FileShare](#hdfs-dataset-type-properties).
 4. Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 5. Una [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [FileSystemSource](#hdfs-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
-L'esempio copia i dati da un HDFS locale a un BLOB di Azure ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi. 
+L'esempio copia i dati da un HDFS locale a un BLOB di Azure ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
-Come primo passaggio, impostare il gateway di gestione dati. Le istruzioni sono disponibili nell'articolo [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md) . 
+Come primo passaggio, impostare il gateway di gestione dati. Le istruzioni sono disponibili nell'articolo [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md) .
 
-**Servizio collegato HDFS** : questo esempio usa l'autenticazione di Windows. Per i diversi tipi di autenticazione disponibili, vedere la sezione [Proprietà del servizio collegato HDFS](#hdfs-linked-service-properties) . 
+**Servizio collegato HDFS** : questo esempio usa l'autenticazione di Windows. Per i diversi tipi di autenticazione disponibili, vedere la sezione [Proprietà del servizio collegato HDFS](#hdfs-linked-service-properties) .
 
     {
         "name": "HDFSLinkedService",
@@ -76,7 +80,7 @@ Come primo passaggio, impostare il gateway di gestione dati. Le istruzioni sono 
       }
     }
 
-**Set di dati di input HDFS** : questo set di dati fa riferimento alla cartella HDFS DataTransfer/UnitTest/. La pipeline copia tutti i file di questa cartella nella destinazione. 
+**Set di dati di input HDFS** : questo set di dati fa riferimento alla cartella HDFS DataTransfer/UnitTest/. La pipeline copia tutti i file di questa cartella nella destinazione.
 
 Impostando "external" su "true" si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno.
 
@@ -212,9 +216,9 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | userName |Nome utente per l'autenticazione di Windows |Sì (per l'autenticazione di Windows) |
 | password |Password per l'autenticazione di Windows |Sì (per l'autenticazione di Windows) |
 | authenticationType |Windows o anonima. |Sì |
-| gatewayName |Nome del gateway che il servizio Data Factory deve usare per connettersi a HDFS. |Sì |
+| gatewayName |Nome del gateway che il servizio Data Factory deve usare per connettersi a HDFS. |sì |
 
-Per informazioni dettagliate sull'impostazione delle credenziali per un HDFS locale, vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) .
+Per informazioni dettagliate sull'impostazione delle credenziali per un HDFS locale, vedere [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md).
 
 ### <a name="using-anonymous-authentication"></a>Uso dell'autenticazione anonima
     {
@@ -268,32 +272,32 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene
 
 > [!NOTE]
 > filename e fileFilter non possono essere usati contemporaneamente.
-> 
-> 
+>
+>
 
 ### <a name="using-partionedby-property"></a>Uso della proprietà partionedBy
-Come indicato nella sezione precedente, partitionedBy può essere usato per specificare un valore folderPath dinamico e un nome file per i dati di una serie temporale. È possibile eseguire questa operazione con le macro della data factory e le variabili di sistema SliceStart, SliceEnd, che indicano il periodo di tempo logico per una sezione di dati specificata. 
+Come indicato nella sezione precedente, partitionedBy può essere usato per specificare un valore folderPath dinamico e un nome file per i dati di una serie temporale. È possibile eseguire questa operazione con le macro della data factory e le variabili di sistema SliceStart, SliceEnd, che indicano il periodo di tempo logico per una sezione di dati specificata.
 
-Per ulteriori informazioni sui set di dati delle serie temporali, sulla pianificazione e sulle sezioni, vedere gli articoli [Creazione di set di dati](data-factory-create-datasets.md), [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) e [Creazione di pipeline](data-factory-create-pipelines.md). 
+Per ulteriori informazioni sui set di dati delle serie temporali, sulla pianificazione e sulle sezioni, vedere gli articoli [Creazione di set di dati](data-factory-create-datasets.md), [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) e [Creazione di pipeline](data-factory-create-pipelines.md).
 
-#### <a name="sample-1:"></a>Esempio 1.
+#### <a name="sample-1"></a>Esempio 1.
     "folderPath": "wikidatagateway/wikisampledataout/{Slice}",
-    "partitionedBy": 
+    "partitionedBy":
     [
         { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
     ],
 
 In questo esempio {Slice} viene sostituito con il valore della variabile di sistema SliceStart di Data Factory nel formato (AAAAMMGGHH) specificato. SliceStart fa riferimento all'ora di inizio della sezione. La proprietà folderPath è diversa per ogni sezione. Ad esempio: wikisampledataout/wikidatagateway/2014100103 o wikisampledataout/wikidatagateway/2014100104.
 
-#### <a name="sample-2:"></a>Esempio 2:
+#### <a name="sample-2"></a>Esempio 2:
     "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
     "fileName": "{Hour}.csv",
-    "partitionedBy": 
+    "partitionedBy":
      [
         { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
     ],
 
 In questo esempio l'anno, il mese, il giorno e l'ora di SliceStart vengono estratti in variabili separate che vengono usate dalle proprietà folderPath e fileName.
@@ -303,7 +307,7 @@ In questo esempio l'anno, il mese, il giorno e l'ora di SliceStart vengono estra
 [!INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
 ## <a name="hdfs-copy-activity-type-properties"></a>Proprietà del tipo di attività di copia HDFS
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo [Creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri. 
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo [Creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri.
 
 Le proprietà disponibili nella sezione typeProperties dell'attività variano invece in base al tipo di attività. Per l'attività di copia variano in base ai tipi di origine e sink.
 
@@ -322,6 +326,8 @@ Per l'attività di copia con origine di tipo **FileSystemSource** , nella sezion
 ## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

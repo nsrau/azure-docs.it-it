@@ -1,19 +1,23 @@
 ---
 title: Transazioni del bus di servizio | Microsoft Docs
 description: Panoramica delle transazioni atomiche del bus di servizio di Azure e invia tramite
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 64449247-1026-44ba-b15a-9610f9385ed8
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: clemensv;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 926eeec8186b8136f41355030e5382911bfc0322
+
 
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Panoramica dell'elaborazione delle transazioni del bus di servizio
@@ -36,7 +40,7 @@ Le operazioni di ricezione non vengono incluse perché si presuppone che l'appli
 
 La ricezione del messaggio (completamento, abbandono, non recapitabilità, rinvio) si verifica all'interno dell'ambito e dipende dal risultato complessivo della transazione.
 
-## <a name="transfers-and-"send-via""></a>Trasferimenti e "invia tramite"
+## <a name="transfers-and-send-via"></a>Trasferimenti e "invia tramite"
 Per abilitare il passaggio transazionale dei dati da una coda a un processore e successivamente a un'altra coda, il bus di servizio supporta i *trasferimenti*. In un'operazione di trasferimento, un mittente invia un messaggio a una "coda di trasferimento" e quest'ultima sposta immediatamente il messaggio alla coda di destinazione prestabilita usando la stessa implementazione di trasferimento affidabile su cui si basa la funzionalità di inoltro automatico. Non viene mai eseguito il commit del messaggio al log della coda di trasferimento in modo che diventi visibile agli utenti della coda di trasferimento.
 
 L'efficacia di questa funzionalità transazionale diventa evidente quando la coda di trasferimento stessa è l'origine dei messaggi di input del mittente. In altri termini, il bus di servizio può trasferire il messaggio alla coda di destinazione "tramite" la coda di trasferimento, durante l'esecuzione di un'operazione di completamento (o rinvio o non recapitabilità) nel messaggio di input, il tutto in una singola operazione atomica. 
@@ -76,6 +80,9 @@ Per altre informazioni sulle code del bus di servizio, vedere gli articoli segue
 * [Analogie e differenze tra le code di Azure e le code del bus di servizio](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 * [Come usare le code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

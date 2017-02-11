@@ -1,12 +1,12 @@
 ---
-title: Modalità di passaggio di un modello di Machine Learning da esperimento a servizio Web operativo | Microsoft Docs
+title: "Modalità di passaggio di un modello di Machine Learning da esperimento a servizio Web operativo | Microsoft Docs"
 description: Panoramica dei meccanismi in base a cui il modello di Azure Machine Learning passa da esperimento di sviluppo a servizio Web operativo.
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 25e0c025-f8b0-44ab-beaf-d0f2d485eb91
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 452cfc0f35810ffa6bdd8c36f8f5e0cf0814e563
+
 
 ---
 # <a name="how-a-machine-learning-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Modalità di passaggio di un modello di Machine Learning da esperimento a servizio Web operativo
@@ -40,7 +44,7 @@ Anche se Azure Machine Learning Studio è progettato principalmente per sviluppa
 ## <a name="developing-and-deploying-a-predictive-web-service"></a>Sviluppo e distribuzione di un servizio Web predittivo
 Ecco le fasi seguite da una soluzione tipica mentre viene sviluppata e distribuita con Machine Learning Studio:
 
-![Flusso di distribuzione](media\\machine-learning-model-progression-experiment-to-web-service\\model-stages-from-experiment-to-web-service.png)
+![Flusso di distribuzione](media/machine-learning-model-progression-experiment-to-web-service/model-stages-from-experiment-to-web-service.png)
 
 *Figura 1 - Fasi di un modello di analisi predittiva tipico*
 
@@ -68,7 +72,7 @@ In questo processo di conversione l'esperimento di training non viene rimosso. A
 ### <a name="the-web-service"></a>Servizio Web
 Quando l'esperimento predittivo soddisfa le esigenze, è possibile distribuire il servizio come servizio Web classico o nuovo servizio Web basato su Azure Resource Manager. Per rendere operativo il modello distribuendolo come *servizio Web classico di Machine Learning*, fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]). Per eseguire la distribuzione come *nuovo servizio Web di Machine Learning*, fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]). Gli utenti ora possono inviare i dati al modello con l'API REST del servizio Web e ricevere i risultati. Per altre informazioni, vedere [Come utilizzare un servizio Web di Azure Machine Learning pubblicato da un esperimento di Machine Learning](machine-learning-consume-web-services.md).
 
-## <a name="the-non-typical-case:-creating-a-non-predictive-web-service"></a>Caso non tipico: creazione di un servizio Web non predittivo
+## <a name="the-non-typical-case-creating-a-non-predictive-web-service"></a>Caso non tipico: creazione di un servizio Web non predittivo
 Se l'esperimento non esegue il training di un modello di analisi predittiva, non è necessario creare sia un esperimento di training che un esperimento di assegnazione dei punteggi. C'è un solo esperimento ed è possibile distribuirlo come servizio Web. Machine Learning Studio rileva se l'esperimento contiene un modello predittivo analizzando i moduli usati.
 
 Dopo avere eseguito l'iterazione dell'esperimento e averlo verificato:
@@ -115,6 +119,9 @@ Per esempi dell'intero processo, vedere:
 * [Esercitazione di Machine Learning: Creare il primo esperimento in Azure Machine Learning Studio](machine-learning-create-experiment.md)
 * [Procedura dettagliata: Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

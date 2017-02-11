@@ -1,22 +1,26 @@
 ---
-title: La soluzione Gestione avvisi in Operations Management Suite (OMS) | Microsoft Docs
-description: La soluzione Alert Management in Log Analytics consente di analizzare tutti gli avvisi nell'ambiente.  Oltre a consolidare gli avvisi generati in OMS, importa gli avvisi da gruppi di gestione di System Center Operations Manager (SCOM) collegati in Log Analytics.
+title: La soluzione Gestione avvisi in Operations Management Suite (OMS) | Documentazione Microsoft
+description: La soluzione Alert Management in Log Analytics consente di analizzare tutti gli avvisi nell&quot;ambiente.  Oltre a consolidare gli avvisi generati in OMS, importa gli avvisi da gruppi di gestione di System Center Operations Manager (SCOM) collegati in Log Analytics.
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: fe5d534e-0418-4e2f-9073-8025e13271a8
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2caa3118785fab6919dd088e440bf3483a77bd69
+
 
 ---
-# <a name="alert-management-solution-in-operations-management-suite-(oms)"></a>La soluzione Gestione avvisi in Operations Management Suite (OMS)
+# <a name="alert-management-solution-in-operations-management-suite-oms"></a>La soluzione Gestione avvisi in Operations Management Suite (OMS)
 ![Icona di Alert Management](media/log-analytics-solution-alert-management/icon.png) La soluzione Alert Management consente di analizzare tutti gli avvisi nell'ambiente.  Oltre a consolidare gli avvisi generati in OMS, importa gli avvisi da gruppi di gestione di System Center Operations Manager (SCOM) collegati in Log Analytics.  Negli ambienti con più gruppi di gestione, la soluzione Alert Management fornirà una visualizzazione consolidata degli avvisi di tutti i gruppi di gestione.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -114,6 +118,9 @@ La tabella seguente fornisce ricerche di log di esempio per i record degli avvis
 ## <a name="next-steps"></a>Passaggi successivi
 * Leggere l'articolo [Avvisi in Log Analytics](log-analytics-alerts.md) per informazioni dettagliate sulla generazione di avvisi di Log Analytics.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

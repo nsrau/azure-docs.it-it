@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 01/05/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 91aa9a15797620e985f44d2aad4ef207d3884672
-ms.openlocfilehash: f76b573737c6b38ffe61c344ac6eb70f71d6ca44
+ms.sourcegitcommit: d4eb942db51af9c8136e9e0f5f8683cc15679d08
+ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
 
 
 ---
@@ -42,11 +42,11 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-Infine prendere nota del valore presente in **Chiave primaria** e quindi fare clic su **Messaggistica**. Nel pannello **Messaggistica** prendere nota del valore presente in **Nome compatibile con l'hub eventi** e in **Endpoint compatibile con l'hub eventi**. Questi tre valori sono necessari quando si crea l'app **read-d2c-messages**.
+Prendere infine nota del valore presente in **Chiave primaria**. Fare clic su **Endpoint** e sull'endpoint predefinito **Eventi**. Nel pannello **Proprietà** prendere nota del valore presente in **Nome compatibile con l'hub eventi** e dell'indirizzo **Endpoint compatibile con l'hub eventi**. Questi tre valori sono necessari quando si crea l'app **read-d2c-messages**.
 
 ![Pannello Messaggistica dell'hub IoT nel portale di Azure][6]
 
-Si è appena creato l'hub IoT e si conoscono il nome host dell'hub IoT, la stringa di connessione dell'hub IoT, la chiave primaria dell'hub IoT, il nome e l'endpoint compatibili con Hub eventi necessari per completare l'esercitazione.
+L'hub IoT è stato creato. Si conoscono il nome host dell'hub IoT, la stringa di connessione dell'hub IoT, la chiave primaria dell'hub IoT, il nome e l'endpoint compatibili con l'hub eventi necessari per completare l'esercitazione.
 
 ## <a name="create-a-device-identity"></a>Creare un'identità del dispositivo
 In questa sezione si scriverà un'app console Java che crea un'identità del dispositivo nel registro delle identità dell'hub IoT. Un dispositivo non può connettersi all'hub IoT a meno che non abbia una voce nel registro di identità. Per altre informazioni, vedere la sezione **Registro di identità** della [Guida per gli sviluppatori dell'hub IoT][lnk-devguide-identity]. Quando si esegue questa app console vengono generati un ID dispositivo univoco e una chiave con cui il dispositivo può identificarsi quando invia messaggi da dispositivo a cloud all'hub IoT.
@@ -461,7 +461,7 @@ Per informazioni sull'estensione della soluzione IoT e l'elaborazione di messagg
 [lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md

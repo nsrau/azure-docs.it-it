@@ -6,7 +6,7 @@
 ## [Protocolli di autenticazione](../active-directory-authentication-protocols.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
 ## [Oggetti applicazione ed entità servizio](../active-directory-application-objects.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
 ## [Guida per sviluppatori](../active-directory-developers-guide.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
-## [Concessione implicita di OAuth 2](../active-directory-dev-understanding-oauth2-implicit-grant.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
+## [Concessione implicita di OAuth&2;](../active-directory-dev-understanding-oauth2-implicit-grant.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
 ## [Applicazioni in Azure AD](../active-directory-how-applications-are-added.md?toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json)
 
 # Attività iniziali

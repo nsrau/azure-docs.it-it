@@ -1,12 +1,12 @@
 ---
 title: Configurazione di protezione di dati Oracle in macchine virtuali | Microsoft Docs
-description: Esercitazione che illustra come configurare e implementare Oracle Data Guard in macchine virtuali di Azure a fini della disponibilità elevata e del ripristino di emergenza.
+description: "Esercitazione che illustra come configurare e implementare Oracle Data Guard in macchine virtuali di Azure a fini della disponibilità elevata e del ripristino di emergenza."
 services: virtual-machines-windows
 author: rickstercdn
 manager: timlt
-documentationcenter: ''
+documentationcenter: 
 tags: azure-service-management
-
+ms.assetid: 5ec5b9a1-7b09-4e01-ab0a-4897585d08d7
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/06/2016
 ms.author: rclaus
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 3aa9936e5527bfcbe8ff3be7cc750b8c7e83ad43
+
 
 ---
-# Configurazione di Oracle Data Guard per Azure
+# <a name="configuring-oracle-data-guard-for-azure"></a>Configurazione di Oracle Data Guard per Azure
 In questa esercitazione viene illustrato come configurare e implementare Oracle Data Guard in un ambiente con macchine virtuali di Azure a fini della disponibilità elevata e del ripristino di emergenza. L'esercitazione è incentrata sulla replica unidirezionale per i database Oracle non RAC.
 
 Oracle Data Guard supporta la protezione dei dati e il ripristino di emergenza per Oracle Database. Si tratta di una soluzione pronta, semplice e ad alte prestazioni per il ripristino di emergenza, la protezione dei dati e la disponibilità elevata per l'intero database Oracle.
@@ -25,11 +29,11 @@ In questa esercitazione si presuppone che si disponga già di conoscenze teorich
 
 Inoltre, nell'esercitazione si presuppone che siano già stati implementati i prerequisiti seguenti:
 
-* Lettura della sezione dedicata alle considerazioni sulla disponibilità elevata e il ripristino di emergenza nell'argomento [Immagini di macchine virtuali Oracle - considerazioni varie](virtual-machines-windows-classic-oracle-considerations.md). Azure attualmente supporta istanze autonome di Oracle Database, ma non cluster Oracle RAC (Oracle Real Application Cluster).
-* Sono state create due macchine virtuali (VM) in Azure usando la stessa piattaforma fornita dall'immagine Oracle Enterprise Edition. Verifica che le macchine virtuali si trovino nello [stesso servizio cloud](virtual-machines-windows-load-balance.md) e nella stessa rete virtuale per assicurare l'accesso reciproco attraverso l'indirizzo IP privato permanente. È inoltre consigliabile posizionare le macchine virtuali nello stesso [set di disponibilità](virtual-machines-windows-manage-availability.md) per consentire ad Azure di inserirle in domini di errore e domini di aggiornamento separati. Oracle Data Guard è disponibile solo con Oracle Database Enterprise Edition. Ogni computer deve disporre di almeno 2 GB di memoria e 5 GB di spazio su disco. Per informazioni aggiornate sulle dimensioni delle macchine virtuali fornite dalla piattaforma, vedere [Dimensioni delle macchine virtuali per Azure](virtual-machines-windows-sizes.md). Se è necessario volume su disco aggiuntivo per le macchine virtuali, è possibile collegare dischi aggiuntivi. Per informazioni, vedere [Come collegare un disco dati a una macchina virtuale](virtual-machines-windows-classic-attach-disk.md).
+* Lettura della sezione dedicata alle considerazioni sulla disponibilità elevata e il ripristino di emergenza nell'argomento [Immagini di macchine virtuali Oracle - considerazioni varie](virtual-machines-windows-classic-oracle-considerations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Azure attualmente supporta istanze autonome di Oracle Database, ma non cluster Oracle RAC (Oracle Real Application Cluster).
+* Sono state create due macchine virtuali (VM) in Azure usando la stessa piattaforma fornita dall'immagine Oracle Enterprise Edition. Verifica che le macchine virtuali si trovino nello [stesso servizio cloud](virtual-machines-windows-load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e nella stessa rete virtuale per assicurare l'accesso reciproco attraverso l'indirizzo IP privato permanente. È anche consigliabile posizionare le macchine virtuali nello stesso [set di disponibilità](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per consentire ad Azure di inserirle in domini di errore e domini di aggiornamento separati. Oracle Data Guard è disponibile solo con Oracle Database Enterprise Edition. Ogni computer deve disporre di almeno 2 GB di memoria e 5 GB di spazio su disco. Per informazioni aggiornate sulle dimensioni delle macchine virtuali fornite dalla piattaforma, vedere [Dimensioni delle macchine virtuali per Azure](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Se è necessario volume su disco aggiuntivo per le macchine virtuali, è possibile collegare dischi aggiuntivi. Per informazioni, vedere [Come collegare un disco dati a una macchina virtuale](virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Impostazione dei nomi di macchina virtuale "Machine1" per la VM primaria e "Machine2" per la VM di standby nel portale di Azure classico.
-* Impostazione della variabile di ambiente **ORACLE\_HOME** in modo che punti allo stesso percorso di installazione radice Oracle nelle macchine virtuali primaria e di standby, ad esempio `C:\OracleDatabase\product\11.2.0\dbhome_1\database`.
-* Accesso al server Windows come membro del gruppo **Administrators** o come membro del gruppo **ORA\_DBA**.
+* Impostazione della variabile di ambiente **ORACLE_HOME** in modo che punti allo stesso percorso di installazione radice Oracle nelle macchine virtuali primaria e di standby, ad esempio `C:\OracleDatabase\product\11.2.0\dbhome_1\database`.
+* Accesso al server Windows come membro del gruppo **Administrators** o come membro del gruppo **ORA_DBA**.
 
 In questa esercitazione si apprenderà come:
 
@@ -50,7 +54,7 @@ Creare un database di standby fisico
 2. Configurare il listener e tnsnames per supportare il database nelle macchine primaria e di standby
    
    1. Configurare listener.ora in entrambi i server per contenere le voci per entrambi i database
-   2. Configurare tnsnames.ora nelle macchine virtuali primaria e di standby per contenere le voci per i database primario e di standby.
+   2. Configurare tnsnames.ora nelle macchine virtuali primaria e di standby per contenere le voci per i database primario e di standby. 
    3. Avviare il listener e controllare tnsping in entrambe le macchine virtuali per entrambi i servizi.
 3. Avviare l'istanza di standby in stato nomount
 4. Usare RMAN per clonare il database e creare un database di standby
@@ -73,8 +77,8 @@ Creare un database di standby fisico
 
 Per le versioni successive di Oracle Database e Oracle Data Guard potrebbero essere presenti alcune modifiche aggiuntive da implementare. Per informazioni aggiornate specifiche della versione, vedere la documentazione relativa a [Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) e [Oracle Database](http://www.oracle.com/us/corporate/features/database-12c/index.html) nel sito Web di Oracle.
 
-## Implementare l'ambiente del database di standby fisico
-### 1\. Creare un database primario
+## <a name="implement-the-physical-standby-database-environment"></a>Implementare l'ambiente del database di standby fisico
+### <a name="1-create-a-primary-database"></a>1. Creare un database primario
 * Creare un database primario "TEST" nella macchina virtuale primaria. Per informazioni, vedere Creazione e configurazione di un Oracle Database.
 * Per visualizzare il nome del database, connettersi al database come utente SYS con ruolo SYSDBA nel prompt dei comandi di SQL*Plus ed eseguire l'istruzione seguente:
   
@@ -85,7 +89,7 @@ Per le versioni successive di Oracle Database e Oracle Data Guard potrebbero ess
         NAME
         ---------
         TEST
-* Eseguire quindi una query per recuperare i nomi dei file di database dalla vista di sistema dba\_data\_files:
+* Eseguire quindi una query per recuperare i nomi dei file di database dalla vista di sistema dba_data_files:
   
         SQL> select file_name from dba_data_files;
         FILE_NAME
@@ -93,10 +97,10 @@ Per le versioni successive di Oracle Database e Oracle Data Guard potrebbero ess
         C:\ <YourLocalFolder>\TEST\USERS01.DBF
         C:\ <YourLocalFolder>\TEST\UNDOTBS01.DBF
         C:\ <YourLocalFolder>\TEST\SYSAUX01.DBF
-        C:<YourLocalFolder>\TEST\SYSTEM01.DBF
-        C:<YourLocalFolder>\TEST\EXAMPLE01.DBF
+        C:\<YourLocalFolder>\TEST\SYSTEM01.DBF
+        C:\<YourLocalFolder>\TEST\EXAMPLE01.DBF
 
-### 2\. Preparare il database primario per la creazione del database di standby
+### <a name="2-prepare-the-primary-database-for-standby-database-creation"></a>2. Preparare il database primario per la creazione del database di standby
 Prima di creare un database di standby, è consigliabile verificare che il database primario sia configurato correttamente. Di seguito è riportato un elenco di passaggi che è necessario eseguire:
 
 1. Abilitare la registrazione forzata
@@ -105,14 +109,14 @@ Prima di creare un database di standby, è consigliabile verificare che il datab
 4. Enable Archiving
 5. Impostare i parametri di inizializzazione del database primario
 
-#### Abilitare la registrazione forzata
+#### <a name="enable-forced-logging"></a>Abilitare la registrazione forzata
 Per implementare un database di standby, è necessario abilitare 'Force Logging' nel database primario. Questa opzione assicura che anche se viene eseguita un'operazione 'nologging', la registrazione forzata abbia la precedenza e tutte le operazioni vengano registrate nei log di ripristino. Per questo motivo, è necessario assicurarsi che tutto venga registrato nel database primario e che la replica nel database di standby includa tutte le operazioni nel database primario. Per abilitare la registrazione forzata, Eseguire l'istruzione ALTER DATABASE:
 
     SQL> ALTER DATABASE FORCE LOGGING;
 
     Database altered.
 
-#### Creare un file di password
+#### <a name="create-a-password-file"></a>Creare un file di password
 Per riuscire a distribuire e applicare i log archiviati dal server primario al server di standby, la password sys deve essere identica nel server primario e in quello di standby. Questo è il motivo per cui si crea un file di password nel database primario e lo si copia nel server di standby.
 
 > [!IMPORTANT]
@@ -120,7 +124,7 @@ Per riuscire a distribuire e applicare i log archiviati dal server primario al s
 > 
 > 
 
-Assicurarsi inoltre che l'ambiente ORACLE\_HOME sia già definito in Machine1. In caso contrario, è necessario definirlo come variabile di ambiente tramite la finestra di dialogo Variabili d'ambiente. Per accedere a questa finestra di dialogo, avviare l'utilità **Sistema** facendo doppio clic sull'icona Sistema nel **Pannello di controllo**, quindi fare clic sulla scheda **Avanzate** e scegliere **Variabili d'ambiente**. Per impostare le variabili di ambiente, fare clic sul pulsante **Nuova** in **Variabili di sistema**. Dopo aver impostato le variabili di ambiente, chiudere il prompt dei comandi di Windows esistente e aprirne uno nuovo.
+Assicurarsi poi che l'ambiente ORACLE\_HOME sia già definito in Machine1. In caso contrario, è necessario definirlo come variabile di ambiente tramite la finestra di dialogo Variabili d'ambiente. Per accedere a questa finestra di dialogo, avviare l'utilità **Sistema** facendo doppio clic sull'icona Sistema nel **Pannello di controllo**, quindi fare clic sulla scheda **Avanzate** e scegliere **Variabili d'ambiente**. Per impostare le variabili di ambiente, fare clic sul pulsante **Nuova** in **Variabili di sistema**. Dopo aver impostato le variabili di ambiente, chiudere il prompt dei comandi di Windows esistente e aprirne uno nuovo.
 
 Eseguire l'istruzione seguente per passare alla directory Oracle\_Home, ad esempio C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\database.
 
@@ -132,17 +136,17 @@ Creare quindi un file di password tramite l'utilità di creazione dei file di pa
 
 Questo comando crea un file di password denominato PWDTEST.ora nella directory ORACLE\_HOME\\database. È necessario copiare questo file nella directory %ORACLE\_HOME%\\database in Machine2 manualmente.
 
-#### Configurare un log di ripristino di standby
+#### <a name="configure-a-standby-redo-log"></a>Configurare un log di ripristino di standby
 È quindi necessario configurare un log di ripristino di standby, in modo che il database primario possa ricevere correttamente il ripristino quando diventa un database di standby. La creazione preliminare di questi log in questa fase consente inoltre la creazione automatica dei log di ripristino di standby nel database di standby. È importante configurare i log di ripristino di standby con le stesse dimensioni dei log di ripristino online. Le dimensioni dei file di log di ripristino di standby correnti devono corrispondere esattamente alle dimensioni dei file di log di ripristino online del database primario corrente.
 
-Eseguire l'istruzione seguente nel prompt dei comandi di SQL*PLUS in Machine1. v$logfile è una vista di sistema che contiene informazioni sui file di log di ripristino.
+Eseguire l'istruzione seguente nel prompt dei comandi di SQL\*PLUS in Machine1. v$logfile è una vista di sistema che contiene informazioni sui file di log di ripristino.
 
     SQL> select * from v$logfile;
     GROUP# STATUS  TYPE    MEMBER                                                       IS_
     ---------- ------- ------- ------------------------------------------------------------ ---
-    3         ONLINE  C:<YourLocalFolder>\TEST\REDO03.LOG               NO
-    2         ONLINE  C:<YourLocalFolder>\TEST\REDO02.LOG               NO
-    1         ONLINE  C:<YourLocalFolder>\TEST\REDO01.LOG               NO
+    3         ONLINE  C:\<YourLocalFolder>\TEST\REDO03.LOG               NO
+    2         ONLINE  C:\<YourLocalFolder>\TEST\REDO02.LOG               NO
+    1         ONLINE  C:\<YourLocalFolder>\TEST\REDO01.LOG               NO
     Next, query the v$log system view, displays log file information from the control file.
     SQL> select bytes from v$log;
     BYTES
@@ -154,13 +158,13 @@ Eseguire l'istruzione seguente nel prompt dei comandi di SQL*PLUS in Machine1. v
 
 Si noti che 52428800 corrisponde a 50 megabyte.
 
-Nella finestra di SQL*Plus eseguire quindi le istruzioni seguenti per aggiungere un nuovo gruppo di file di log di ripristino di standby a un database in standby e specificare un numero che identifica il gruppo usando la clausola GROUP. L'uso dei numeri di gruppo consente di semplificare l'amministrzione dei gruppo di file di log di ripristino di standby:
+Nella finestra di SQL\*Plus eseguire quindi le istruzioni seguenti per aggiungere un nuovo gruppo di file di log di ripristino di standby a un database in standby e specificare un numero che identifica il gruppo usando la clausola GROUP. L'uso dei numeri di gruppo consente di semplificare l'amministrzione dei gruppo di file di log di ripristino di standby:
 
-    SQL> ALTER DATABASE ADD STANDBY LOGFILE GROUP 4 'C:<YourLocalFolder>\TEST\REDO04.LOG' SIZE 50M;
+    SQL> ALTER DATABASE ADD STANDBY LOGFILE GROUP 4 'C:\<YourLocalFolder>\TEST\REDO04.LOG' SIZE 50M;
     Database altered.
-    SQL> ALTER DATABASE ADD STANDBY LOGFILE GROUP 5 'C:<YourLocalFolder>\TEST\REDO05.LOG' SIZE 50M;
+    SQL> ALTER DATABASE ADD STANDBY LOGFILE GROUP 5 'C:\<YourLocalFolder>\TEST\REDO05.LOG' SIZE 50M;
     Database altered.
-    SQL> ALTER DATABASE ADD STANDBY LOGFILE GROUP 6 'C:<YourLocalFolder>\TEST\REDO06.LOG' SIZE 50M;
+    SQL> ALTER DATABASE ADD STANDBY LOGFILE GROUP 6 'C:\<YourLocalFolder>\TEST\REDO06.LOG' SIZE 50M;
     Database altered.
 
 Eseguire quindi la vista di sistema seguente per elencare informazioni sui file di log di ripristino. Questa operazione consente inoltre di verificare che siano stati creati i gruppi di file di log di ripristino di standby:
@@ -168,15 +172,15 @@ Eseguire quindi la vista di sistema seguente per elencare informazioni sui file 
     SQL> select * from v$logfile;
     GROUP# STATUS  TYPE MEMBER IS_
     ---------- ------- ------- --------------------------------------------- ---
-    3         ONLINE C:<YourLocalFolder>\TEST\REDO03.LOG NO
-    2         ONLINE C:<YourLocalFolder>\TEST\REDO02.LOG NO
-    1         ONLINE C:<YourLocalFolder>\TEST\REDO01.LOG NO
-    4         STANDBY C:<YourLocalFolder>\TEST\REDO04.LOG
-    5         STANDBY C:<YourLocalFolder>\TEST\REDO05.LOG NO
-    6         STANDBY C:<YourLocalFolder>\TEST\REDO06.LOG NO
+    3         ONLINE C:\<YourLocalFolder>\TEST\REDO03.LOG NO
+    2         ONLINE C:\<YourLocalFolder>\TEST\REDO02.LOG NO
+    1         ONLINE C:\<YourLocalFolder>\TEST\REDO01.LOG NO
+    4         STANDBY C:\<YourLocalFolder>\TEST\REDO04.LOG
+    5         STANDBY C:\<YourLocalFolder>\TEST\REDO05.LOG NO
+    6         STANDBY C:\<YourLocalFolder>\TEST\REDO06.LOG NO
     6 rows selected.
 
-#### Abilita l'archiviazione
+#### <a name="enable-archiving"></a>Enable Archiving
 Abilitare quindi l'archiviazione eseguendo le istruzioni seguenti per attivare la modalità ARCHIVELOG per il database primario e abilitare l'archiviazione automatica. Per abilitare la modalità ARCHIVELOG, è possibile montare il database e quindi eseguire il comando archivelog.
 
 In primo luogo, accedere come sysdba. Al prompt dei comandi di Windows eseguire:
@@ -185,7 +189,7 @@ In primo luogo, accedere come sysdba. Al prompt dei comandi di Windows eseguire:
 
     connect / as sysdba
 
-Arrestare quindi il database dal prompt dei comandi di SQL*Plus:
+Arrestare quindi il database dal prompt dei comandi di SQL\*Plus:
 
     SQL> shutdown immediate;
     Database closed.
@@ -214,7 +218,7 @@ Eseguire quindi l'istruzione alter database con la clausola open per rendere dis
 
     Database altered.
 
-#### Impostare i parametri di inizializzazione del database primario
+#### <a name="set-primary-database-initialization-parameters"></a>Impostare i parametri di inizializzazione del database primario
 Per configurare Data Guard, è prima di tutto necessario creare e configurare i parametri di standby in un normale pfile (file dei parametri di inizializzazione di testo). Quando il pfile è pronto, è necessario convertirlo in un file di parametri del server (SPFILE).
 
 È possibile controllare l'ambiente di Data Guard tramite i parametri nel file INIT.ORA. Quando si esegue questa esercitazione, è necessario aggiornare il file INIT.ORA del database primario in posso che possa ospitare entrambi i ruoli: primario o standby.
@@ -222,7 +226,7 @@ Per configurare Data Guard, è prima di tutto necessario creare e configurare i 
     SQL> create pfile from spfile;
     File created.
 
-È poi necessario modificare il pfile per aggiungere i parametri di standby. A tale scopo, aprire il file INITTEST.ORA nel percorso %ORACLE\_HOME%\\database. Aggiungere quindi le istruzioni seguenti al file INITTEST.ORA. La convenzione di denominazione per il file INITTEST.ORA è INIT<NomeDatabase>.ORA.
+È poi necessario modificare il pfile per aggiungere i parametri di standby. A tale scopo, aprire il file INITTEST.ORA nel percorso %ORACLE\_HOME%\\database. Aggiungere quindi le istruzioni seguenti al file INITTEST.ORA. La convenzione di denominazione per il file INITTEST.ORA è INIT\<NomeDatabase\>.ORA.
 
     db_name='TEST'
     db_unique_name='TEST'
@@ -245,9 +249,9 @@ Per configurare Data Guard, è prima di tutto necessario creare e configurare i 
 
 Il blocco di istruzioni precedente include tre elementi di configurazione importanti:
 
-* **LOG\_ARCHIVE\_CONFIG...:** questa istruzione viene usata per definire gli ID database univoci.
-* **LOG\_ARCHIVE\_DEST\_1...:** questa istruzione viene usata per definire il percorso della cartella dell'archivio locale. È consigliabile creare una nuova directory per le esigenze di archiviazione del database e specificare il percorso dell'archivio locale usando l'istruzione in modo esplicito anziché usare la cartella predefinita di Oracle %ORACLE\_HOME%\\database\\archive.
-* **LOG\_ARCHIVE\_DEST\_2 .... LGWR ASYNC...:** con questa istruzione si definisce un processo writer di log (LGWR) asincrono per raccogliere i dati di ripristino delle transazioni e trasmetterli alle destinazioni di standby. In questo caso, DB\_UNIQUE\_NAME specifica un nome univoco per il database nel server di standby di destinazione.
+* **LOG_ARCHIVE_CONFIG...:** questa istruzione viene usata per definire gli ID database univoci.
+* **LOG_ARCHIVE_DEST_1...:** questa istruzione viene usata per definire il percorso della cartella dell'archivio locale. È consigliabile creare una nuova directory per le esigenze di archiviazione del database e specificare il percorso dell'archivio locale usando l'istruzione in modo esplicito anziché usare la cartella predefinita di Oracle %ORACLE_HOME%\database\archive.
+* **LOG_ARCHIVE_DEST_2 .... LGWR ASYNC...:** con questa istruzione si definisce un processo writer di log (LGWR) asincrono per raccogliere i dati di ripristino delle transazioni e trasmetterli alle destinazioni di standby. In questo caso, DB_UNIQUE_NAME specifica un nome univoco per il database nel server di standby di destinazione.
 
 Quando il nuovo file dei parametri è pronto, è necessario creare il spfile da tale file.
 
@@ -295,12 +299,12 @@ Usare poi il comando startup per avviare un'istanza:
     Database mounted.
     Database opened.
 
-## Creare un database di standby fisico
+## <a name="create-a-physical-standby-database"></a>Creare un database di standby fisico
 Questa sezione è incentrata sui passaggi da eseguire in Machine2 per preparare il database di standby fisico.
 
 In primo luogo, è necessario connettersi con desktop remoto a Machine2 attraverso il portale di Azure classico.
 
-Nel server di standby (Machine2) creare quindi tutte le cartelle necessarie per il database di standby, ad esempio C:\\<CartellaLocale>\\TEST. Mentre si segue questa esercitazione, assicurarsi che la struttura di cartelle corrisponda alla struttura di cartelle in Machine1 per mantenere tutti i file necessari, ad esempio i file controlfile, datafile, redologfile, udump, bdump e cdump. Definire inoltre le variabili di ambiente ORACLE\_HOME e ORACLE\_BASE in Machine2. In caso contrario, è necessario definirle come variabile di ambiente tramite la finestra di dialogo Variabili d'ambiente. Per accedere a questa finestra di dialogo, avviare l'utilità **Sistema** facendo doppio clic sull'icona Sistema nel **Pannello di controllo**, quindi fare clic sulla scheda **Avanzate** e scegliere **Variabili d'ambiente**. Per impostare le variabili di ambiente, fare clic sul pulsante **Nuova** in **Variabili di sistema**. Dopo aver impostato le variabili di ambiente, è necessario chiudere il prompt dei comandi di Windows esistente e aprirne uno nuovo per vedere le modifiche.
+Nel server di standby (Machine2) creare quindi tutte le cartelle necessarie per il database di standby, ad esempio C:\\\<CartellaLocale\>\\TEST. Mentre si segue questa esercitazione, assicurarsi che la struttura di cartelle corrisponda alla struttura di cartelle in Machine1 per mantenere tutti i file necessari, ad esempio i file controlfile, datafile, redologfile, udump, bdump e cdump. Definire anche le variabili di ambiente ORACLE\_HOME e ORACLE\_BASE in Machine2. In caso contrario, è necessario definirle come variabile di ambiente tramite la finestra di dialogo Variabili d'ambiente. Per accedere a questa finestra di dialogo, avviare l'utilità **Sistema** facendo doppio clic sull'icona Sistema nel **Pannello di controllo**, quindi fare clic sulla scheda **Avanzate** e scegliere **Variabili d'ambiente**. Per impostare le variabili di ambiente, fare clic sul pulsante **Nuova** in **Variabili di sistema**. Dopo aver impostato le variabili di ambiente, è necessario chiudere il prompt dei comandi di Windows esistente e aprirne uno nuovo per vedere le modifiche.
 
 Attenersi quindi alla procedura seguente:
 
@@ -315,7 +319,7 @@ Attenersi quindi alla procedura seguente:
 5. Avviare il database di standby fisico in modalità di ripristino gestito
 6. Verificare il database di standby fisico
 
-### 1\. Preparare un file di parametri di inizializzazione per il database di standby
+### <a name="1-prepare-an-initialization-parameter-file-for-standby-database"></a>1. Preparare un file di parametri di inizializzazione per il database di standby
 Questa seziona illustra come preparare un file di parametri di inizializzazione per il database di standby. A tale scopo, copiare innanzitutto il file INITTEST.ORA da Machine1 a Machine2 manualmente. Il file INITTEST.ORA dovrebbe essere ora visibile nella cartella %ORACLE\_HOME%\\database in entrambe le macchine. Modificare quindi il file INITTEST.ORA in Machine2 per configurarlo per il ruolo di standby come specificato di seguito:
 
     db_name='TEST'
@@ -337,8 +341,8 @@ Questa seziona illustra come preparare un file di parametri di inizializzazione 
 
 Il blocco di istruzioni precedente include due elementi di configurazione importanti:
 
-* ***. LOG\_ARCHIVE\_DEST\_1:** è necessario creare manualmente la cartella c:\\OracleDatabase\\TEST\_STBY\\archives in Machine2.
-* ***.LOG\_ARCHIVE\_DEST\_2:** questo è un passaggio facoltativo. È possibile impostare questo elemento in base alle necessità quando la macchina primaria è in manutenzione e la macchina di standby diventa un database primario.
+* **\*.LOG_ARCHIVE_DEST_1:** è necessario creare manualmente la cartella c:\OracleDatabase\TEST_STBY\archives in Machine2.
+* **\*.LOG_ARCHIVE_DEST_2:** questo è un passaggio facoltativo. È possibile impostare questo elemento in base alle necessità quando la macchina primaria è in manutenzione e la macchina di standby diventa un database primario.
 
 È quindi necessario avviare l'istanza di standby. Nel server di database di standby, immettere il comando seguente al prompt dei comandi di Windows per creare un'istanza di Oracle creando un servizio Windows:
 
@@ -346,10 +350,10 @@ Il blocco di istruzioni precedente include due elementi di configurazione import
 
 Il comando **Oradim** crea un'istanza di Oracle, ma non l'avvia. È possibile trovarla nella directory C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\BIN.
 
-## Configurare il listener e tnsnames per supportare il database nelle macchine primaria e di standby
+## <a name="configure-the-listener-and-tnsnames-to-support-the-database-on-primary-and-standby-machines"></a>Configurare il listener e tnsnames per supportare il database nelle macchine primaria e di standby
 Prima di creare un database di standby, è necessario assicurarsi che i database primario e di standby nella configurazione possano comunicare tra loro. A tale scopo, è necessario configurare il listener e TNSNames manualmente o tramite l'utilità di configurazione di rete NETCA. Si tratta di un'attività obbligatoria quando si usa l'utilità Gestione ripristino (RMAN).
 
-### Configurare listener.ora in entrambi i server per contenere le voci per entrambi i database
+### <a name="configure-listenerora-on-both-servers-to-hold-entries-for-both-databases"></a>Configurare listener.ora in entrambi i server per contenere le voci per entrambi i database
 Connettersi con desktop remoto a Machine1 e modificare il file listener.ora come specificato di seguito. Quando si modifica il file listener.ora, assicurarsi sempre che le parentesi di apertura e chiusura siano allineate nella stessa colonna. È possibile trovare il file listener.ora nella seguente cartella: c:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\NETWORK\\ADMIN\\.
 
     # listener.ora Network Configuration File: C:\OracleDatabase\product\11.2.0\dbhome_1\network\admin\listener.ora
@@ -374,7 +378,9 @@ Connettersi con desktop remoto a Machine1 e modificare il file listener.ora come
         )
       )
 
-Connettersi quindi con desktop remoto a Machine2 e modificare il file listener.ora file come indicato di seguito: # listener.ora Network Configuration File: C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\network\\admin\\listener.ora
+Successivamente, connettersi con desktop remoto a Machine2 e modificare il file listener.ora come indicato di seguito:
+
+    # listener.ora Network Configuration File: C:\OracleDatabase\product\11.2.0\dbhome_1\network\admin\listener.ora
 
     # Generated by Oracle configuration tools.
 
@@ -397,8 +403,8 @@ Connettersi quindi con desktop remoto a Machine2 e modificare il file listener.o
       )
 
 
-### Configurare tnsnames.ora nelle macchine virtuali primaria e di standby per contenere le voci per i database primario e di standby
-Connettersi con desktop remoto a Machine1 e modificare il file tnsnames.ora come specificato di seguito. È possibile trovare il file tasnames.ora nella seguente cartella: c:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\NETWORK\\ADMIN\\.
+### <a name="configure-tnsnamesora-on-the-primary-and-standby-virtual-machines-to-hold-entries-for-both-primary-and-standby-databases"></a>Configurare tnsnames.ora nelle macchine virtuali primaria e di standby per contenere le voci per i database primario e di standby
+Connettersi con desktop remoto a Machine1 e modificare il file tnsnames.ora come specificato di seguito. È possibile trovare il file tnsnames.ora nella seguente cartella: c:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\NETWORK\\ADMIN\\.
 
     TEST =
       (DESCRIPTION =
@@ -443,7 +449,7 @@ Connettersi con desktop remoto a Machine2 e modificare il file tnsnames.ora come
       )
 
 
-### Avviare il listener e controllare tnsping in entrambe le macchine virtuali per entrambi i servizi.
+### <a name="start-the-listener-and-check-tnsping-on-both-virtual-machines-to-both-services"></a>Avviare il listener e controllare tnsping in entrambe le macchine virtuali per entrambi i servizi.
 Aprire un nuovo prompt dei comandi di Windows sia nella macchina virtuale primaria che in quella di standby ed eseguire le istruzioni seguenti:
 
     C:\Users\DBAdmin>tnsping test
@@ -470,7 +476,7 @@ Aprire un nuovo prompt dei comandi di Windows sia nella macchina virtuale primar
     OK (260 msec)
 
 
-## Avviare l'istanza di standby in stato nomount
+## <a name="start-up-the-standby-instance-in-nomount-state"></a>Avviare l'istanza di standby in stato nomount
 È necessario configurare l'ambiente per supportare il database di standby nella macchina virtuale di standby (Machine2).
 
 Copiare prima di tutto manualmente il file di password dalla macchina primaria (Machine1) alla macchina di standby (Machine2). Questa operazione è necessaria perché la password per **sys** deve essere la stessa in entrambe le macchine.
@@ -496,7 +502,7 @@ Avviare il database:
     Redo Buffers                7036928 bytes
 
 
-## Usare RMAN per clonare il database e creare un database di standby
+## <a name="use-rman-to-clone-the-database-and-to-create-a-standby-database"></a>Usare RMAN per clonare il database e creare un database di standby
 È possibile usare l'utilità Gestione ripristino (RMAN) per usare qualsiasi copia di backup del database primario per creare il database di standby fisico.
 
 Connettersi con desktop remoto alla macchina virtuale (Machine2) ed eseguire l'utilità RMAN specificando una stringa di connessione completa sia per l'istanza TARGET (database primario, Machine1) che per l'istanza AUXILLARY (database di standby, Machine2).
@@ -514,30 +520,30 @@ Connettersi con desktop remoto alla macchina virtuale (Machine2) ed eseguire l'u
       DORECOVER
         NOFILENAMECHECK;
 
-## Avviare il database di standby fisico in modalità di ripristino gestito
+## <a name="start-the-physical-standby-database-in-managed-recovery-mode"></a>Avviare il database di standby fisico in modalità di ripristino gestito
 In questa esercitazione viene illustrato come creare un database di standby fisico. Per informazioni sulla creazione di un database di standby logico, vedere la documentazione di Oracle.
 
-Aprire il prompt dei comandi di SQL*Plus e abilitare Data Guard nella macchina virtuale di standby o nel server (Machine2) come indicato di seguito:
+Aprire il prompt dei comandi di SQL\*Plus e abilitare Data Guard nella macchina virtuale di standby o nel server (Machine2) come indicato di seguito:
 
     SHUTDOWN IMMEDIATE;
     STARTUP MOUNT;
     ALTER DATABASE RECOVER MANAGED STANDBY DATABASE DISCONNECT FROM SESSION;
 
-Quando si apre il database in standby in modalità **MOUNT**, il log shipping dell'archivio continua e il processo di ripristino gestito continua con l'applicazione dei log nel database di standby. Ciò garantisce che il database di standby rimanga aggiornato e allineato al database primario. Si noti che il database di standby non può essere accessibile per attività di creazione di report durante questa fase.
+Quando si apre il database in standby in modalità **MOUNT** , il log shipping dell'archivio continua e il processo di ripristino gestito continua con l'applicazione dei log nel database di standby. Ciò garantisce che il database di standby rimanga aggiornato e allineato al database primario. Si noti che il database di standby non può essere accessibile per attività di creazione di report durante questa fase.
 
 Quando si apre il database di standby in modalità **READ ONLY**, il log shipping dell'archivio continua, ma il processo di ripristino gestito viene interrotto. Ciò causa un disallineamento progressivo del database di standby a causa del mancato aggiornamento fino alla ripresa del processo di ripristino gestito. È possibile accedere al database di standby per la creazione di report durante questo periodo, ma i dati potrebbero non rispecchiare le modifiche più recenti.
 
-In generale, è consigliabile mantenere il database di standby in modalità **MOUNT** per mantenere aggiornati i dati nel database di standby in caso di errore del database primario. È comunque possibile mantenere il database di standby in modalità **READ ONLY** per la creazione di report in base ai requisiti dell'applicazione. I passaggi seguenti illustrano come abilitare Data Guard in modalità di sola lettura tramite SQL*Plus:
+In generale, è consigliabile mantenere il database di standby in modalità **MOUNT** per mantenere aggiornati i dati nel database di standby in caso di errore del database primario. È comunque possibile mantenere il database di standby in modalità **READ ONLY** per la creazione di report in base ai requisiti dell'applicazione. I passaggi seguenti illustrano come abilitare Data Guard in modalità di sola lettura tramite SQL\*Plus:
 
     SHUTDOWN IMMEDIATE;
     STARTUP MOUNT;
     ALTER DATABASE OPEN READ ONLY;
 
 
-## Verificare il database di standby fisico
+## <a name="verify-the-physical-standby-database"></a>Verificare il database di standby fisico
 In questa sezione viene illustrato come verificare la configurazione della disponibilità elevata come amministratore.
 
-Aprire la finestra del prompt dei comandi di SQL*Plus e controllare il log di ripristino archiviato nella macchina virtuale di standby (Machine2):
+Aprire la finestra del prompt dei comandi di SQL\*Plus e controllare il log di ripristino archiviato nella macchina virtuale di standby (Machine2):
 
     SQL> show parameters db_unique_name;
 
@@ -599,7 +605,12 @@ Se non è stato abilitato il flashback nel database primario originale, è consi
 
 È consigliabile abilitare il flashback nei database primario e di standby. In caso di failover, è possibile eseguire il flashback del database primario all'ora precedente il failover e quindi convertirlo rapidamente in un database in standby.
 
-## Risorse aggiuntive
-[Immagini di macchine virtuali Oracle per Azure](virtual-machines-windows-classic-oracle-images.md)
+## <a name="additional-resources"></a>Risorse aggiuntive
+[Immagini di macchine virtuali Oracle per Azure](virtual-machines-windows-classic-oracle-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

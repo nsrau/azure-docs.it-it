@@ -30,7 +30,7 @@ Ogni app che usa Azure AD B2C deve essere registrata nella [directory B2C](activ
 * Un **URI di reindirizzamento** che può essere usato per indirizzare le risposte all'app.
 * Altri valori specifici dello scenario. Per altri dettagli, vedere [Azure Active Directory B2C: registrare l'applicazione](active-directory-b2c-app-registration.md).
 
-Dopo la registrazione, l'app comunica con Azure AD inviando richieste all'endpoint Azure AD 2.0:
+Dopo la registrazione, l'app comunica con Azure AD inviando richieste all'endpoint Azure AD&2;.0:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
@@ -39,11 +39,11 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 Ogni richiesta inviata ad Azure AD B2C specifica un **criterio**. Il comportamento di Azure AD è regolato da criteri. Gli endpoint possono anche essere usati per creare un set personalizzabile di esperienze utente. Tra i criteri comuni sono inclusi quelli per l'iscrizione, l'accesso e la modifica del profilo. Se non si ha familiarità con i criteri, prima di continuare, vedere [Azure Active Directory B2C: framework di criteri estendibile](active-directory-b2c-reference-policies.md).
 
-Ogni interazione di app con l'endpoint 2.0 segue un modello generale simile al seguente:
+Ogni interazione di app con l'endpoint&2;.0 segue un modello generale simile al seguente:
 
-1. L'app indirizza l'utente all'endpoint 2.0 per l'esecuzione dei [criteri](active-directory-b2c-reference-policies.md).
+1. L'app indirizza l'utente all'endpoint&2;.0 per l'esecuzione dei [criteri](active-directory-b2c-reference-policies.md).
 2. L'utente completa i criteri in base alla relativa definizione.
-3. L'app riceve un token di sicurezza dall'endpoint 2.0.
+3. L'app riceve un token di sicurezza dall'endpoint&2;.0.
 4. L'app usa il token di sicurezza per accedere a informazioni protette o a una risorsa protetta.
 5. Il server delle risorse convalida il token di sicurezza per verificare che sia possibile concedere l'accesso.
 6. L'app aggiorna periodicamente il token di sicurezza.

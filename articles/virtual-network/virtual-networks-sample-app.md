@@ -1,12 +1,12 @@
 ---
-title: Applicazione di esempio da usare per ambienti con limiti di sicurezza | Microsoft Docs
+title: Applicazione di esempio per l&quot;uso con gli ambienti con limiti di sicurezza | Microsoft Docs
 description: Distribuire questa semplice applicazione Web dopo aver creato una rete perimetrale per testare gli scenari di flusso del traffico
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-
+editor: 
+ms.assetid: 60340ab7-b82b-40e0-bd87-83e41fe4519c
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4d3f5e759f46bd4c4998c5d4bf70d64190ad972e
+
 
 ---
-# Applicazione di esempio da usare per ambienti con limiti di sicurezza
+# <a name="sample-application-for-use-with-security-boundary-environments"></a>Applicazione di esempio da usare per ambienti con limiti di sicurezza
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
 
 Questi script di PowerShell possono essere eseguiti localmente nei server IIS01 e AppVM01 per installare e configurare un'applicazione Web molto semplice in grado di visualizzare una pagina HTML dal server IIS01 front-end con contenuto del server AppVM01 back-end.
 
 Tale app fornirà un semplice ambiente di testing per molti degli esempi di rete perimetrale e per le modalità con cui le modifiche relative a endpoint, gruppi di sicurezza di rete, routing definito dall'utente e regole del firewall possono influire sui flussi di traffico.
 
-## Regola del firewall per consentire il traffico ICMP
+## <a name="firewall-rule-to-allow-icmp"></a>Regola del firewall per consentire il traffico ICMP
 Questa semplice istruzione PowerShell può essere eseguita su qualsiasi macchina virtuale Windows per consentire il traffico ICMP (Ping). Sarà quindi più facile eseguire il testing e la risoluzione dei problemi perché il protocollo ping potrà passare attraverso Wirewall Firewall. Per la maggior parte delle distribuzioni Linux, ICMP è attivato per impostazione predefinita.
 
     # Turn On ICMPv4
@@ -32,7 +36,7 @@ Questa semplice istruzione PowerShell può essere eseguita su qualsiasi macchina
 
 **Nota:** se si usano gli script seguenti, l'aggiunta di questa regola del firewall corrisponde alla prima istruzione.
 
-## IIS01 - Script di installazione dell'applicazione Web
+## <a name="iis01---web-application-installation-script"></a>IIS01 - Script di installazione dell'applicazione Web
 Questo script consentirà di:
 
 1. Aprire IMCPv4 (Ping) in Windows Firewall nel server locale per eseguire più facilmente il testing.
@@ -138,7 +142,7 @@ Lo script di PowerShell deve essere eseguito localmente mentre viene usata una s
         Write-Host
 
 
-## AppVM01 - Script di installazione del file server
+## <a name="appvm01---file-server-installation-script"></a>AppVM01 - Script di installazione del file server
 Imposta il back-end per questa semplice applicazione. Questo script consentirà di:
 
 1. Aprire IMCPv4 (Ping) nel firewall per eseguire più facilmente il testing.
@@ -148,7 +152,7 @@ Imposta il back-end per questa semplice applicazione. Questo script consentirà 
 5. Disattivare la sicurezza avanzata di Internet Explorer per facilitare l'esplorazione da questo server. 
 
 > [!IMPORTANT]
-> **Procedura consigliata**: non disattivare mai la sicurezza avanzata di Internet Explorer in un server di produzione. Inoltre, è generalmente preferibile non esplorare il Web da un server di questo tipo. Anche l'apertura di condivisioni file per l'accesso anonimo è un'attività da evitare, ma in questo caso viene eseguita per semplificare le operazioni.
+> **Procedure consigliate**: non disattivare mai la sicurezza avanzata di Internet Explorer in un server di produzione, inoltre in genere è opportuno evitare di esplorare il Web da un server di produzione. Anche l'apertura di condivisioni file per l'accesso anonimo è un'attività da evitare, ma in questo caso viene eseguita per semplificare le operazioni.
 > 
 > 
 
@@ -184,10 +188,14 @@ Lo script di PowerShell deve essere eseguito localmente mentre viene usata una s
         Write-Host
 
 
-## DNS01 - Script di installazione del server DNS
+## <a name="dns01---dns-server-installation-script"></a>DNS01 - Script di installazione del server DNS
 In questa applicazione di esempio non è incluso alcuno script per la configurazione del server DNS. Se il testing delle regole del firewall, del gruppo di sicurezza di rete o del routing definito dall'utente deve includere il traffico DNS, sarà perciò necessario configurare il server DNS01 manualmente. Il file XML di configurazione di rete per entrambi gli esempi include DNS01 come server DNS primario e il server DNS pubblico ospitato dal livello 3 come server DNS di backup. Il server DNS del livello 3 sarà l'effettivo server DNS usato per il traffico non locale e, se DNS01 non è configurato, non si disporrà di alcun DNS locale.
 
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 
-<!---HONumber=AcomDC_0525_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

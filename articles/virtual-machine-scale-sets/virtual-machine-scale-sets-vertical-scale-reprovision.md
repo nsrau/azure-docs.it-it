@@ -1,13 +1,13 @@
 ---
-title: Ridimensionare verticalmente set di scalabilità di macchine virtuali di Azure | Microsoft Docs
-description: Come eseguire la scalabilità verticale di una macchina virtuale in risposta agli avvisi di monitoraggio tramite Automazione di Azure
+title: "Ridimensionare verticalmente set di scalabilità di macchine virtuali di Azure | Microsoft Docs"
+description: "Come eseguire la scalabilità verticale di una macchina virtuale in risposta agli avvisi di monitoraggio tramite Automazione di Azure"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: gbowerman
 manager: madhana
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 16b17421-6b8f-483e-8a84-26327c44e9d3
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
@@ -15,12 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: guybo
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 4533b446f661568d0e70a23bb64880022038bb9a
+
 
 ---
-# Ridimensionamento automatico verticale con set di scalabilità di macchine virtuali
-Questo articolo descrive come ridimensionare verticalmente i [set di macchine virtuali ](https://azure.microsoft.com/services/virtual-machine-scale-sets/) di Azure con o senza un nuovo provisioning Per il ridimensionamento verticale delle macchine virtuali non incluse nel set di scalabilità, vedere l'articolo relativo al [ridimensionamento verticale di macchine virtuali di Azure con Automazione di Azure](../virtual-machines/virtual-machines-windows-vertical-scaling-automation.md).
+# <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Ridimensionamento automatico verticale con set di scalabilità di macchine virtuali
+In questo articolo viene descritto come ridimensionare in verticale i [set di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/) di Azure con o senza un nuovo provisioning. Per il ridimensionamento verticale delle VM non incluse nei set di scalabilità, vedere l'articolo [Ridimensionamento verticale di macchine virtuali di Azure tramite Automazione di Azure](../virtual-machines/virtual-machines-windows-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Per ridimensionamento verticale, detto anche *aumento delle prestazioni* e *riduzione delle prestazioni*, si intende l'aumento o la riduzione delle dimensioni delle macchine virtuali (VM) in risposta a un carico di lavoro. Confrontare questo concetto con il [ridimensionamento orizzontale](virtual-machine-scale-sets-autoscale-overview.md), detto anche *aumento del numero di istanze* e *riduzione del numero di istanze*, in cui il numero di VM viene modificato in base al carico di lavoro.
+Per ridimensionamento verticale, detto anche *aumento delle prestazioni* e *riduzione delle prestazioni*, si intende l'aumento o la riduzione delle dimensioni delle macchine virtuali (VM) in risposta a un carico di lavoro. Confrontare questo concetto con il [ridimensionamento orizzontale](virtual-machine-scale-sets-autoscale-overview.md), detto anche *aumento delle istanze* e *riduzione delle istanze*, in cui il numero di VM viene modificato in base al carico di lavoro.
 
 Per nuovo provisioning si intende la rimozione di una VM esistente e la relativa sostituzione con una nuova. Quando si aumentano o riducono le dimensioni delle macchine virtuali in un set di scalabilità di macchine virtuali, in alcuni casi può rendersi necessario ridimensionare le VM esistenti e mantenere i dati, mentre in altri casi è necessario distribuire nuove VM con le nuove dimensioni. Questo documento illustra entrambi i casi.
 
@@ -41,34 +45,34 @@ Il ridimensionamento verticale, ovvero l'aumento o la riduzione delle prestazion
 > 
 > | coppie di ridimensionamento di dimensioni delle macchine virtuali |  |
 > | --- | --- |
-> | Standard\_A0 |Standard\_A11 |
-> | Standard\_D1 |Standard\_D14 |
-> | Standard\_DS1 |Standard\_DS14 |
-> | Standard\_D1v2 |Standard\_D15v2 |
-> | Standard\_G1 |Standard\_G5 |
-> | Standard\_GS1 |Standard\_GS5 |
+> | Standard_A0 |Standard_A11 |
+> | Standard_D1 |Standard_D14 |
+> | Standard_DS1 |Standard_DS14 |
+> | Standard_D1v2 |Standard_D15v2 |
+> | Standard_G1 |Standard_G5 |
+> | Standard_GS1 |Standard_GS5 |
 > 
 > 
 
-## Creare un account di Automazione di Azure con funzionalità RunAs
+## <a name="create-an-azure-automation-account-with-run-as-capability"></a>Creare un account di Automazione di Azure con funzionalità RunAs
 La prima operazione da eseguire è creare l'account di Automazione di Azure che ospiterà i runbook usati per ridimensionare le istanze del set di scalabilità di macchine virtuali. [Automazione di Azure](https://azure.microsoft.com/services/automation/) ha introdotto di recente la funzionalità "Account RunAs", che semplifica molto la configurazione dell'entità servizio per l'esecuzione automatica di runbook per conto dell'utente. Altre informazioni sono disponibili nell'articolo seguente.
 
 * [Autenticare runbook con account RunAs di Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
-## Importare i runbook di ridimensionamento verticale di Automazione di Azure nella sottoscrizione
+## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importare i runbook di ridimensionamento verticale di Automazione di Azure nella sottoscrizione
 I runbook necessari per il ridimensionamento verticale del set di scalabilità di macchine virtuali sono già stati pubblicati nella raccolta dei runbook di Automazione di Azure. Per importarli nella sottoscrizione seguire la procedura descritta in questo articolo:
 
 * [Raccolte di runbook e moduli per l'automazione di Azure](../automation/automation-runbook-gallery.md)
 
 Scegliere l'opzione Esplora raccolta dal menu Runbook:
 
-![Runbook da importare][runbooks]  
+![Runbook da importare][runbooks]
 
 I runbook da importare sono visualizzati nell'immagine seguente: Selezionare il runbook in base al tipo di ridimensionamento con o senza un nuovo provisioning che si vuole usare:
 
-![Raccolta di runbook][gallery]  
+![Raccolta di runbook][gallery]
 
-## Aggiungere un webhook al runbook
+## <a name="add-a-webhook-to-your-runbook"></a>Aggiungere un webhook al runbook
 Dopo avere importato i runbook, è necessario aggiungere un webhook al runbook in modo che possa essere attivato da un set di scalabilità di macchine virtuali. Informazioni dettagliate sulla creazione di un webhook per il runbook sono disponibili in questo articolo:
 
 * [Webhook di Automazione di Azure](../automation/automation-webhooks.md)
@@ -78,8 +82,8 @@ Dopo avere importato i runbook, è necessario aggiungere un webhook al runbook i
 > 
 > 
 
-## Aggiungere un avviso al set di scalabilità di macchine virtuali
-Di seguito è riportato uno script di PowerShell che mostra come aggiungere un avviso a un set di scalabilità di macchine virtuali. Vedere l'articolo seguente per ottenere il nome della metrica in base alla quale attivare l'avviso: [Metriche comuni per la scalabilità automatica di Azure Insights](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md).
+## <a name="add-an-alert-to-your-vm-scale-set"></a>Aggiungere un avviso al set di scalabilità di macchine virtuali
+Di seguito è riportato uno script di PowerShell che mostra come aggiungere un avviso a un set di scalabilità di macchine virtuali. Vedere l'articolo seguente per ottenere il nome della metrica in base alla quale attivare l'avviso: [Azure Monitor autoscaling common metrics](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md) (Metriche comuni per il ridimensionamento automatico di Monitoraggio di Azure).
 
 ```
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail user@contoso.com
@@ -114,13 +118,17 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
 
 Per altre informazioni su come creare gli avvisi, vedere gli articoli seguenti:
 
-* [Esempi di avvio rapido di PowerShell in Azure Insights](../monitoring-and-diagnostics/insights-powershell-samples.md)
-* [Esempi di avvio rapido dell'interfaccia della riga di comando multipiattaforma di Azure Insights](../monitoring-and-diagnostics/insights-cli-samples.md)
+* [Azure Monitor PowerShell quick start samples](../monitoring-and-diagnostics/insights-powershell-samples.md) (Esempi di avvio rapido di PowerShell per Monitoraggio di Azure)
+* [Azure Monitor Cross-platform CLI quick start samples](../monitoring-and-diagnostics/insights-cli-samples.md) (Esempi di avvio rapido dell'interfaccia della riga di comando multipiattaforma per Monitoraggio di Azure)
 
-## Summary
+## <a name="summary"></a>Riepilogo
 Questo articolo ha illustrato semplici esempi di ridimensionamento verticale. Con questi blocchi predefiniti, ovvero account di automazione, runbook, webhook e avvisi, è possibile connettere una vasta gamma di eventi con un set di azioni personalizzato.
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png
 [gallery]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

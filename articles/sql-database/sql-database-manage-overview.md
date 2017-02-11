@@ -12,12 +12,12 @@ ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/24/2016
+ms.topic: get-started-article
+ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5adb83a7b8e19ca78dd4d837b497e1ceb4444f86
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 915292a191da82af9e24e89460d46dc61a062b18
 
 
 ---
@@ -37,7 +37,7 @@ SQL Server Management Studio (SSMS) e SQL Server Data Tools (SSDT) sono gli stru
 >  
 
 ## <a name="powershell"></a>PowerShell
-È possibile usare PowerShell per gestire database e pool di database elastici e automatizzare le distribuzioni di risorse Azure. Microsoft consiglia questo strumento per la gestione di un numero elevato di database e automatizzare la distribuzione delle modifiche delle risorse in un ambiente di produzione.
+È possibile usare PowerShell per gestire database e pool elastici e automatizzare le distribuzioni di risorse Azure. Microsoft consiglia questo strumento per la gestione di un numero elevato di database e automatizzare la distribuzione delle modifiche delle risorse in un ambiente di produzione.
 
 Per altre informazioni, vedere [Gestire il database SQL con PowerShell](sql-database-manage-powershell.md)
 
@@ -56,6 +56,6 @@ Usare gli strumenti di database elastico per eseguire azioni quali:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

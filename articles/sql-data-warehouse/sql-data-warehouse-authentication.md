@@ -1,13 +1,13 @@
 ---
-title: Autenticazione in Azure SQL Data Warehouse | Microsoft Docs
+title: Autenticazione in Azure SQL Data Warehouse | Documentazione Microsoft
 description: Autenticazione di Azure Active Directory (AAD) e SQL Server in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: ''
+documentationcenter: 
 author: byham
 manager: jhubbard
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: fefaaa75-2d0c-4e5d-aadb-410342d1ad73
 ms.service: sql-data-warehouse
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/24/2016
 ms.author: rickbyh;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2b08b48713e98eedfd93b290491fee59729d2dcc
+
 
 ---
 # <a name="authentication-to-azure-sql-data-warehouse"></a>Autenticazione in Azure SQL Data Warehouse
@@ -28,7 +32,7 @@ ms.author: rickbyh;barbkess
 
 Per connettersi a SQL Data Warehouse è necessario passare le credenziali di sicurezza per scopi di autenticazione. Al momento di stabilire una connessione, alcune impostazioni di connessione sono configurate come parte della creazione della sessione di query.  
 
-Per altre informazioni sulla sicurezza e sull'attivazione di connessioni al data warehouse, vedere l'articolo [Proteggere un database in SQL Data Warehouse][Proteggere un database in SQL Data Warehouse].
+Per altre informazioni sulla sicurezza e sull'attivazione di connessioni al data warehouse, vedere [Proteggere un database in SQL Data Warehouse][Proteggere un database in SQL Data Warehouse].
 
 ## <a name="sql-authentication"></a>Autenticazione in SQL
 Per connettersi a SQL Data Warehouse è necessario fornire le informazioni seguenti:
@@ -45,12 +49,12 @@ Per impostazione predefinita la connessione si collega al database *master* e no
 * Selezionare il database utente prima di creare una sessione in SSDT.
 
 > [!NOTE]
-> L'istruzione Transact-SQL **USE MyDatabase;** non è supportata per la modifica del database per una connessione. Per informazioni sulla connessione a SQL Data Warehouse con SSDT, consultare l'articolo [Eseguire query in Azure SQL Data Warehouse (Visual Studio)][] .
+> L'istruzione Transact-SQL **USE MyDatabase;** non è supportata per la modifica del database per una connessione. Per informazioni sulla connessione a SQL Data Warehouse con SSDT, fare riferimento all'articolo [Eseguire query con Visual Studio][Eseguire query con Visual Studio].
 > 
 > 
 
 ## <a name="azure-active-directory-aad-authentication"></a>Autenticazione di Azure Active Directory (AAD)
-[Azure Active Directory][L'autenticazione di Azure Active Directory] è un meccanismo di connessione a SQL Data Warehouse di Microsoft Azure tramite le identità di Azure Active Directory (Azure AD). Con l'autenticazione di Azure Active Directory è possibile gestire in una posizione centrale le identità degli utenti del database e altri servizi Microsoft. La gestione centrale degli ID consente di gestire gli utenti di SQL Data Warehouse in un'unica posizione e semplifica la gestione delle autorizzazioni. 
+[Azure Active Directory][Informazioni su Azure Active Directory] è un meccanismo di connessione a SQL Data Warehouse di Microsoft Azure tramite le identità di Azure Active Directory (Azure AD). Con l'autenticazione di Azure Active Directory è possibile gestire in una posizione centrale le identità degli utenti del database e altri servizi Microsoft. La gestione centrale degli ID consente di gestire gli utenti di SQL Data Warehouse in un'unica posizione e semplifica la gestione delle autorizzazioni. 
 
 ### <a name="benefits"></a>Vantaggi
 I vantaggi di Azure Active Directory includono i seguenti:
@@ -86,7 +90,7 @@ Gli utenti di Azure Active Directory non sono attualmente visualizzati in Esplor
 * Creare ruoli di database personalizzati e aggiungere utenti ai ruoli. Concedere quindi autorizzazioni granulari ai ruoli. Per altre informazioni, vedere [Introduzione alle autorizzazioni del motore di database](https://msdn.microsoft.com/library/mt667986.aspx).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per iniziare a eseguire query sul data warehouse con Visual Studio e altre applicazioni, vedere [Eseguire query in Azure SQL Data Warehouse (Visual Studio)][].
+Per iniziare a eseguire query sul data warehouse con Visual Studio e altre applicazioni, vedere [Eseguire query con Visual Studio][Eseguire query con Visual Studio].
 
 <!-- Article references -->
 [Proteggere un database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
@@ -96,6 +100,6 @@ Per iniziare a eseguire query sul data warehouse con Visual Studio e altre appli
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

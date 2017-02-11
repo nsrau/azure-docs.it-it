@@ -3,8 +3,8 @@ layout: LandingPage
 +toc_rel: breadcrumb.json
 description: Informazioni su come usare una rete virtuale nel cloud. I documenti mostrano come distribuire una rete virtuale, usarla per avviare le risorse e integrarla con una rete locale.
 translationtype: Human Translation
-ms.sourcegitcommit: 9a76fe5c0b518cdd95be71e0c3cf928f0ff93668
-ms.openlocfilehash: 7e2c2db7000b2ea0a4fe698e47e775cc2a7db4dd
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 2c3ce9081d456dcedd61ba85f2d023526aa5fa49
 
 ---
 # <a name="virtual-network-documentation"></a>Documentazione sulla rete virtuale
@@ -114,8 +114,8 @@ Informazioni su come usare una rete virtuale, una rappresentazione logica della 
                 <div class="card">
                     <div class="cardText">
                         <h3>Riga di comando</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell (gestione risorse)</a></p>
-                        <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">PowerShell (versione classica)</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell (Resource Manager)</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">PowerShell (Classic)</a> (PowerShell (classico))</p>
                         <p><a href="/cli/azure">Interfaccia della riga di comando di Azure</a></p>
                     </div>
                 </div>
@@ -140,8 +140,8 @@ Informazioni su come usare una rete virtuale, una rappresentazione logica della 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt163658.aspx">REST (gestione risorse)</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/jj157182.aspx">REST (versione classica)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt163658.aspx">REST (Resource Manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/jj157182.aspx">REST (classico)</a></p>
                     </div>
                 </div>
             </div>
@@ -149,13 +149,7 @@ Informazioni su come usare una rete virtuale, una rappresentazione logica della 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-network.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione sulla rete virtuale </div>
-    </a>
-</div>
+
 
 
 

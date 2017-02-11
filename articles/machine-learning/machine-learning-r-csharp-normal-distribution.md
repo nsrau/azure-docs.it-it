@@ -1,74 +1,78 @@
 ---
-title: Normal Distribution Web Service Suite | Microsoft Docs
+title: Normal Distribution Web Service Suite | Documentazione Microsoft
 description: Normal Distribution Web Service Suite
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: ireiter
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: aab7b92e-953b-43d8-b0af-031394406bfe
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2016
+ms.date: 10/04/2016
 ms.author: ireiter
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e3783df1f80fc6453d64c16f5002262fb7197309
+
 
 ---
-# Normal Distribution Suite
-Normal Distribution Suite è un set di servizi Web di esempio ([Generator](https://datamarket.azure.com/dataset/aml_labs/ndg7), [Quantile Calculator](https://datamarket.azure.com/dataset/aml_labs/ndq5), [Probability Calculator](https://datamarket.azure.com/dataset/aml_labs/ndp5)) che include in particolare tre servizi che semplificano la generazione e la gestione delle distribuzioni normali. I servizi permettono la generazione di una sequenza di distribuzioni normali di qualsiasi lunghezza, calcolando i quantili rispetto alla probabilità specificata e calcolando la probabilità in base a un quantile specificato. Ogni servizio emette output diversi, in base al servizio selezionato, come illustrato più avanti. Normal Distribution Suite è basato sulle funzioni qnorm, rnorm e pnorm del codice R, incluse nel pacchetto statistico R.
+# <a name="normal-distribution-suite"></a>Normal Distribution Suite
+Normal Distribution Suite è un set di servizi Web di esempio ([Generator](https://datamarket.azure.com/dataset/aml_labs/ndg7), [Quantile Calculator](https://datamarket.azure.com/dataset/aml_labs/ndq5), [Probability Calculator](https://datamarket.azure.com/dataset/aml_labs/ndp5)) che semplificano la generazione e la gestione delle distribuzioni normali. I servizi permettono la generazione di una sequenza di distribuzioni normali di qualsiasi lunghezza, calcolando i quantili rispetto alla probabilità specificata e calcolando la probabilità in base a un quantile specificato. Ogni servizio emette output diversi, in base al servizio selezionato, come illustrato più avanti. Normal Distribution Suite è basato sulle funzioni qnorm, rnorm e pnorm del codice R, incluse nel pacchetto statistico R.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-> Questo servizio Web può essere utilizzato dagli utenti: potenzialmente tramite un'app mobile, un sito Web o anche in un computer locale, ad esempio. Ma lo scopo del servizio Web è anche fornire un esempio di come è possibile utilizzare Azure Machine Learning per creare servizi Web in codice R. Con poche righe di codice R e la selezione di alcuni pulsanti in Azure Machine Learning Studio è possibile creare un esperimento con codice R e pubblicarlo come servizio Web. Il servizio Web può essere quindi pubblicato in Azure Marketplace e può essere usato da utenti e dispositivi in tutto il mondo, senza che l'autore del servizio Web debba configurare alcuna infrastruttura.
+> Questo servizio Web può essere utilizzato dagli utenti: potenzialmente tramite un'app mobile, un sito Web o anche in un computer locale, ad esempio. Ma lo scopo del servizio Web è anche fornire un esempio di come è possibile utilizzare Azure Machine Learning per creare servizi Web in codice R. Con poche righe di codice R e la selezione di alcuni pulsanti in Azure Machine Learning Studio è possibile creare un esperimento con codice R e pubblicarlo come servizio Web. Il servizio Web può essere quindi pubblicato in Azure Marketplace e può essere usato da utenti e dispositivi in tutto il mondo, senza che l'autore del servizio Web debba configurare alcuna infrastruttura.  
 > 
 > 
 
-## Uso del servizio Web
+## <a name="consumption-of-web-service"></a>Uso del servizio Web
 Normal Distribution Suite include i tre servizi seguenti:
 
-### Normal Distribution Quantile Calculator:
+### <a name="normal-distribution-quantile-calculator"></a>Normal Distribution Quantile Calculator:
 Questo servizio accetta quattro argomenti di una distribuzione normale e calcola il quantile associato.
 
 Gli argomenti di input sono i seguenti:
 
-* p: probabilità singola di un evento con distribuzione normale.
+* p: probabilità singola di un evento con distribuzione normale. 
 * Mean: media della distribuzione normale.
-* SD: deviazione standard della distribuzione normale.
+* SD: deviazione standard della distribuzione normale. 
 * Side: L per la parte inferiore della distribuzione, U per la parte superiore della distribuzione.
 
 L'output del servizio corrisponde al quantile calcolato associato alla probabilità specificata.
 
-### Normal Distribution Probability Calculator:
+### <a name="normal-distribution-probability-calculator"></a>Normal Distribution Probability Calculator:
 Questo servizio accetta quattro argomenti di una distribuzione normale e calcola la probabilità associata.
 
 Gli argomenti di input sono i seguenti:
 
-* q: singolo quantile di un evento con distribuzione normale.
+* q: singolo quantile di un evento con distribuzione normale. 
 * Mean: media della distribuzione normale.
-* SD: deviazione standard della distribuzione normale.
+* SD: deviazione standard della distribuzione normale. 
 * Side: L per la parte inferiore della distribuzione, U per la parte superiore della distribuzione.
 
 L'output del servizio corrisponde alla probabilità calcolata associata al quantile specificato.
 
-### Normal Distribution Generator
+### <a name="normal-distribution-generator"></a>Normal Distribution Generator
 Questo servizio accetta tre argomenti di una distribuzione normale e genera una sequenza casuale di numeri distribuiti in modo normale. È necessario fornire gli argomenti seguenti nella richiesta:
 
-* n: numero di osservazioni.
+* n: numero di osservazioni. 
 * Mean: media della distribuzione normale.
-* SD: deviazione standard della distribuzione normale.
+* SD: deviazione standard della distribuzione normale. 
 
 L'output del servizio corrisponde a una sequenza di lunghezza n con una distribuzione normale basata sugli argomenti mean e sd.
 
-> Questo servizio come ospitato in Azure Marketplace, è un servizio OData ed è possibile utilizzare i metodi POST o GET per effettuare le chiamate.
+> Questo servizio, come ospitato in Azure Marketplace, è un servizio OData ed è possibile utilizzare i metodi POST o GET per effettuare le chiamate. 
 > 
 > 
 
-Sono disponibili molte opzioni per l'uso del servizio in modalità automatica. Per app di esempio, vedere qui:[Generator](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionGenerator.aspx), [Probability Calculator](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionProbabilityCalculator.aspx), [Quantile Calculator](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionQuantileCalculator.aspx)).
+Sono disponibili molte opzioni per l'uso del servizio in modalità automatica. Per app di esempio, vedere qui: [Generator](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionGenerator.aspx), [Probability Calculator](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionProbabilityCalculator.aspx), [Quantile Calculator](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionQuantileCalculator.aspx).
 
-### Codice C# iniziale per l'uso del servizio Web:
-### Normal Distribution Quantile Calculator:
+### <a name="starting-c-code-for-web-service-consumption"></a>Codice C# iniziale per l'uso del servizio Web:
+### <a name="normal-distribution-quantile-calculator"></a>Normal Distribution Quantile Calculator:
     public class Input
     {
             public string p;
@@ -99,7 +103,7 @@ Sono disponibili molte opzioni per l'uso del servizio in modalità automatica. P
     }
 
 
-### Normal Distribution Probability Calculator:
+### <a name="normal-distribution-probability-calculator"></a>Normal Distribution Probability Calculator:
     public class Input
     {
             public string q;
@@ -129,7 +133,7 @@ Sono disponibili molte opzioni per l'uso del servizio in modalità automatica. P
             var scoreResult = result.ReadAsStringAsync().Result;
     }
 
-### Normal Distribution Generator
+### <a name="normal-distribution-generator"></a>Normal Distribution Generator
     public class Input
     {
             public string n;
@@ -159,14 +163,14 @@ Sono disponibili molte opzioni per l'uso del servizio in modalità automatica. P
     }
 
 
-## Creazione del servizio Web
-> Questo servizio Web è stato creato tramite Azure Machine Learning. Per una versione di valutazione gratuita e per video introduttivi sulla creazione di esperimenti e sulla [pubblicazione di servizi Web](machine-learning-publish-a-machine-learning-web-service.md), vedere [azure.com/ml.](http://azure.com/ml)
+## <a name="creation-of-web-service"></a>Creazione del servizio Web
+> Questo servizio Web è stato creato tramite Azure Machine Learning. Per una versione di prova gratuita e per video introduttivi sulla creazione di esperimenti e sulla [pubblicazione di servizi Web](machine-learning-publish-a-machine-learning-web-service.md), vedere [azure.com/ml](http://azure.com/ml). 
 > 
 > 
 
 La schermata seguente mostra un esperimento per la creazione del servizio Web e codice di esempio per ogni modulo incluso nell'esperimento.
 
-### Normal Distribution Quantile Calculator:
+### <a name="normal-distribution-quantile-calculator"></a>Normal Distribution Quantile Calculator:
 Flusso dell'esperimento
 
 ![Flusso dell'esperimento][2]
@@ -201,7 +205,7 @@ Flusso dell'esperimento
     # Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("output");
 
-### Normal Distribution Probability Calculator:
+### <a name="normal-distribution-probability-calculator"></a>Normal Distribution Probability Calculator:
 Flusso dell'esperimento
 
 ![Flusso dell'esperimento][3]
@@ -231,7 +235,7 @@ Flusso dell'esperimento
     # Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("output");
 
-### Normal Distribution Generator
+### <a name="normal-distribution-generator"></a>Normal Distribution Generator
 Flusso dell'esperimento
 
 ![Flusso dell'esperimento][4]
@@ -251,10 +255,10 @@ Flusso dell'esperimento
     # Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("output");
 
-## Limitazioni
+## <a name="limitations"></a>Limitazioni
 Questi sono esempi molto semplici relativi alla distribuzione normale. Come si può notare dal codice di esempio precedente, è implementata un rilevamento limitato degli errori.
 
-## Domande frequenti
+## <a name="faq"></a>Domande frequenti
 Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione in Azure Marketplace, vedere [qui](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-normal-distribution/normal-img1.png
@@ -263,4 +267,8 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 [4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png
 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

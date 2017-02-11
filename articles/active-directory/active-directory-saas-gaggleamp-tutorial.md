@@ -1,12 +1,12 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con GaggleAMP | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e GaggleAMP.
+title: 'Esercitazione: Integrazione di Azure Active Directory con GaggleAMP | Documentazione Microsoft'
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e GaggleAMP.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 9cc1a4b7-964b-406b-9e0c-05cb1a7c9856
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 50b4b23f4cbf8503fb6115f516df7ae88bf15d30
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-gaggleamp"></a>Esercitazione: Integrazione di Azure Active Directory con GaggleAMP
+# <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Esercitazione: Integrazione di Azure Active Directory con GaggleAMP
 Questa esercitazione descrive l'integrazione di GaggleAMP con Azure Active Directory (Azure AD).
 
 L'integrazione di GaggleAMP con Azure AD offre i vantaggi seguenti:
@@ -242,6 +246,6 @@ Quando si fa clic sul riquadro GaggleAMP nel pannello di accesso, si dovrebbe ac
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

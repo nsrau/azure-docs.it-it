@@ -1,12 +1,12 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Pluralsight | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Pluralsight.
+title: 'Esercitazione: Integrazione di Azure Active Directory con Pluralsight | Documentazione Microsoft'
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Pluralsight.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 4c3f07d2-4e1f-4ea3-9025-c663f1f2b7b4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e6b71ba7f928871768851357bcb4bce1fbf4fed3
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-pluralsight"></a>Esercitazione: Integrazione di Azure Active Directory con Pluralsight
+# <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Esercitazione: Integrazione di Azure Active Directory con Pluralsight
 Questa esercitazione descrive l'integrazione di Pluralsight con Azure Active Directory (Azure AD).
 
 L'integrazione di Pluralsight con Azure AD offre i vantaggi seguenti:
@@ -126,7 +130,7 @@ L'applicazione Pluralsight prevede un formato specifico per le asserzioni SAML. 
 
     c. Nell'elenco **Valore attributo** selezionare il valore dell'attributo indicato per quella riga.
 
-    d. Fare clic su **Complete**.  
+    d. Fare clic su **Complete**.    
 
 
 
@@ -274,6 +278,6 @@ Quando si fa clic sul riquadro Pluralsight nel pannello di accesso, si dovrebbe 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

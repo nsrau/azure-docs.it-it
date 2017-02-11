@@ -1,5 +1,5 @@
 ---
-title: App per le API Node.js nel Servizio app di Azure | Microsoft Docs
+title: App per le API Node.js nel Servizio app di Azure | Documentazione Microsoft
 description: Informazioni su come creare un&quot;API RESTful Node.js e distribuirla in un&quot;app per le API nel servizio app di Azure.
 services: app-service\api
 documentationcenter: node
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8a1ac3df5225fdcfe2717c2cf50bfc5b7cfda36
+ms.sourcegitcommit: c700bfbd4f50a892e182124eb596159d2eb63feb
+ms.openlocfilehash: b6f97d299b1c100e4bae111d7f95c9619c6c9399
 
 
 ---
@@ -41,7 +41,7 @@ Per quanto il servizio app consenta di distribuire il codice in un'app per le AP
    
     L'API di esempio fornisce due endpoint: una richiesta Get a `/contacts` restituisce un elenco di nomi e indirizzi di posta elettronica in formato JSON, mentre `/contacts/{id}` restituisce solo il contatto selezionato.
 
-## <a name="scaffold-autogenerate-nodejs-code-based-on-swagger-metadata"></a>Eseguire lo scaffolding (generazione automatica) del codice Node.js in base a metadati di Swagger
+## <a name="scaffold-auto-generate-nodejs-code-based-on-swagger-metadata"></a>Eseguire lo scaffolding (generazione automatica) del codice Node.js in base a metadati di Swagger
 [Swagger](http://swagger.io/) è un formato di file per i metadati che descrivono un'API RESTful. Il servizio app di Azure include il [supporto predefinito per i metadati di Swagger](app-service-api-metadata.md). In questa sezione dell'esercitazione viene modellato un flusso di lavoro di sviluppo di API che crea prima i metadati di Swagger e li usa per lo scaffolding (generazione automatica) del codice server per l'API. 
 
 > [!NOTE]
@@ -131,7 +131,7 @@ Per quanto il servizio app consenta di distribuire il codice in un'app per le AP
         app.use(bodyParser.json());
    
         app.use(swaggerize({
-            api: path.resolve('./config/api.json'), // third change
+            api: path.resolve('./config/swagger.json'), // third change
             handlers: path.resolve('./handlers'),
             docspath: '/swagger' // fourth change
         }));
@@ -275,6 +275,6 @@ A questo punto sono state completate la creazione di un'app per le API e la dist
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

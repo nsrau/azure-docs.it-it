@@ -2,19 +2,23 @@
 title: Autenticazione e autorizzazione con Power BI Embedded
 description: Autenticazione e autorizzazione con Power BI Embedded
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 1c1369ea-7dfd-4b6e-978b-8f78908fd6f6
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2b860b5815a0dd35138c685eb90490a8e2c53d5e
+
 
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-embedded"></a>Autenticazione e autorizzazione con Power BI Embedded
@@ -49,41 +53,44 @@ Il token dell'app può contenere le attestazioni seguenti:
 
 Un token dell'app di esempio avrà un aspetto analogo al seguente:
 
-![](media\\power-bi-embedded-app-token-flow\\power-bi-embedded-app-token-flow-sample-coded.png)
+![](media/power-bi-embedded-app-token-flow/power-bi-embedded-app-token-flow-sample-coded.png)
 
 Quando viene decodificato, avrà un aspetto analogo al seguente:
 
-![](media\\power-bi-embedded-app-token-flow\\power-bi-embedded-app-token-flow-sample-decoded.png)
+![](media/power-bi-embedded-app-token-flow/power-bi-embedded-app-token-flow-sample-decoded.png)
 
-## <a name="here's-how-the-flow-works"></a>Funzionamento del flusso
+## <a name="heres-how-the-flow-works"></a>Funzionamento del flusso
 1. È necessario copiare le chiavi API nell'applicazione. È possibile ottenere le chiavi nel **portale di Azure**.
    
-    ![](media\\powerbi-embedded-get-started-sample\\azure-portal.png)
+    ![](media/powerbi-embedded-get-started-sample/azure-portal.png)
 2. Il token esegue l'asserzione di un'attestazione e ha una scadenza.
    
-    ![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-token-2.png)
+    ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-2.png)
 3. Con le chiavi di accesso API si accede al token.
    
-    ![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-token-3.png)
+    ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-3.png)
 4. L'utente richiede di visualizzare un report.
    
-    ![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-token-4.png)
+    ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-4.png)
 5. Il token viene convalidato con chiavi di accesso API.
    
-   ![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-token-5.png)
+   ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-5.png)
 6. Power BI Embedded invia un report all'utente.
    
-   ![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-token-6.png)
+   ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-6.png)
 
 Dopo che **Power BI Embedded** invia un report all'utente, l'utente può visualizzare il report nella propria app. Ad esempio, se è stato importato l'esempio [Analyzing Sales Data PBIX](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), l'app Web di esempio sarà simile alla seguente:
 
-![](media\\powerbi-embedded-get-started-sample\\sample-web-app.png)
+![](media/powerbi-embedded-get-started-sample/sample-web-app.png)
 
 ## <a name="see-also"></a>Vedere anche
 * [Introduzione all'esempio di Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md)
 * [Scenari comuni di Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 * [Introduzione a Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

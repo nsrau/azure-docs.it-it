@@ -2,12 +2,12 @@
 title: Impostare PostgreSQL su una macchina virtuale Linux | Microsoft Docs
 description: Informazioni su come installare e configurare PostgreSQL in una macchina virtuale Linux in Azure.
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: SuperScottz
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: 1a747363-0cc5-4ba3-9be7-084dfeb04651
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,24 +15,28 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: mingzhan
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: fb4df7d6ba72ac1123b6a55129aa3ab92a873cfd
+
 
 ---
-# Installare e configurare PostgreSQL in Azure
+# <a name="install-and-configure-postgresql-on-azure"></a>Installare e configurare PostgreSQL in Azure
 PostgreSQL è un database open source avanzato simile a Oracle e DB2. Questo database include funzionalità aziendali quali la conformità ACID completa, l'elaborazione transazionale affidabile e il controllo della concorrenza per più versioni. Supporta anche standard come ANSI SQL e SQL/MED (compresi wrapper di dati esterni per Oracle, MySQL, MongoDB e molti altri). È inoltre altamente estendibile, supportando oltre 12 linguaggi procedurali, gli indici GIN e GIST, i dati spaziali e più funzionalità di tipo NoSQL per le applicazioni basate su chiave-valore o JSON.
 
 Questo articolo illustrerà come installare e configurare PostgreSQL in una macchina virtuale di Azure che esegue Linux.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-## Installare PostgreSQL
+## <a name="install-postgresql"></a>Installare PostgreSQL
 > [!NOTE]
-> Per poter completare questa esercitazione, è necessario disporre già di una macchina virtuale di Microsoft Azure che esegue Linux. Prima di procedere, vedere l'[esercitazione relativa alle macchine virtuali Linux di Azure](virtual-machines-linux-quick-create-cli.md) per creare e impostare una macchina virtuale Linux.
+> Per poter completare questa esercitazione, è necessario disporre già di una macchina virtuale di Microsoft Azure che esegue Linux. Prima di procedere, vedere l' [esercitazione relativa alle macchine virtuali Linux di Azure](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)per creare e impostare una macchina virtuale Linux.
 > 
 > 
 
-In questo caso, usare la porta 1999 come porta di PostgreSQL.
+In questo caso, usare la porta 1999 come porta di PostgreSQL.  
 
-Connettersi tramite PuTTY alla macchina virtuale Linux creata. Se questa è la prima volta che si sta utilizzando una macchina virtuale Linux di Azure, vedere [utilizzare SSH con Linux in Azure](virtual-machines-linux-mac-create-ssh-keys.md) per imparare a utilizzare PuTTY per connettersi a una VM Linux.
+Connettersi tramite PuTTY alla macchina virtuale Linux creata. Se questa è la prima volta che si sta usando una macchina virtuale Linux di Azure, vedere [usare SSH con Linux in Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per imparare a usare PuTTY per connettersi a una VM Linux.
 
 1. Eseguire il comando seguente per passare alla directory radice (admin):
    
@@ -68,7 +72,7 @@ Connettersi tramite PuTTY alla macchina virtuale Linux creata. Se questa è la p
    
         PostgreSQL, contrib, and documentation successfully made. Ready to install.
 
-## Configurare PostgreSQL
+## <a name="configure-postgresql"></a>Configurare PostgreSQL
 1. (Facoltativo) Creare un collegamento simbolico per abbreviare il riferimento a PostgreSQL in modo da non includere il numero di versione:
    
         # ln -s /opt/pgsql9.3.5 /opt/pgsql
@@ -87,7 +91,7 @@ Connettersi tramite PuTTY alla macchina virtuale Linux creata. Se questa è la p
    > Per motivi di sicurezza, PostgreSQL usa un utente non ROOT per inizializzare, avviare o arrestare il database.
    > 
    > 
-4. Modificare il file *bash\_profile* immettendo i comandi seguenti. Queste righe verranno aggiunte alla fine del file *bash\_profile*:
+4. Modificare il file *bash_profile* immettendo i comandi seguenti. Queste righe verranno aggiunte alla fine del file *bash_profile*:
    
         cat >> ~/.bash_profile <<EOF
         export PGPORT=1999
@@ -101,7 +105,7 @@ Connettersi tramite PuTTY alla macchina virtuale Linux creata. Se questa è la p
         alias rm='rm -i'
         alias ll='ls -lh'
         EOF
-5. Eseguire il file *bash\_profile*:
+5. Eseguire il file *bash_profile*:
    
         $ source .bash_profile
 6. Convalidare l'installazione con il comando seguente:
@@ -122,7 +126,7 @@ Connettersi tramite PuTTY alla macchina virtuale Linux creata. Se questa è la p
 
 ![immagine](./media/virtual-machines-linux-postgresql-install/no1.png)
 
-## Impostare PostgreSQL
+## <a name="set-up-postgresql"></a>Impostare PostgreSQL
 <!--    [postgres@ test ~]$ exit -->
 
 Eseguire i comandi seguenti:
@@ -131,7 +135,7 @@ Eseguire i comandi seguenti:
 
     # cp linux /etc/init.d/postgresql
 
-Modificare due variabili nel file /etc/init.d/postgresql. Il prefisso è impostato sul percorso di installazione di PostgreSQL: **/opt/pgsql**. PGDATA è impostato sul percorso di archiviazione dati di PostgreSQL: **/opt/pgsql\_data**.
+Modificare due variabili nel file /etc/init.d/postgresql. Il prefisso è impostato sul percorso di installazione di PostgreSQL: **/opt/pgsql**. PGDATA è impostato sul percorso di archiviazione dati di PostgreSQL: **/opt/pgsql_data**.
 
     # sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
 
@@ -155,7 +159,7 @@ Dovrebbe venire visualizzato l'output seguente.
 
 ![immagine](./media/virtual-machines-linux-postgresql-install/no3.png)
 
-## Connessione al database Postgres
+## <a name="connect-to-the-postgres-database"></a>Connessione al database Postgres
 Proseguire e passare di nuovo all'utente postgres:
 
     # su - postgres
@@ -168,7 +172,7 @@ Connettersi al database events appena creato:
 
     $ psql -d events
 
-## Come creare ed eliminare una tabella Postgres
+## <a name="create-and-delete-a-postgres-table"></a>Come creare ed eliminare una tabella Postgres
 Ora che ci si è connessi al database, è possibile crearvi tabelle.
 
 Ad esempio, creare una nuova tabella Postgres di esempio con il comando seguente:
@@ -190,7 +194,7 @@ Se la tabella è stata creata correttamente, dovrebbe venire visualizzato quanto
 
 ![immagine](./media/virtual-machines-linux-postgresql-install/no5.png)
 
-### Aggiungere dati a una tabella
+### <a name="add-data-to-a-table"></a>Aggiungere dati a una tabella
 Inserire innanzitutto le informazioni in una riga:
 
     INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('John', 'Casserole', 'Y', '2012-04-11');
@@ -207,7 +211,7 @@ Dovrebbe venire visualizzato questo output:
 
     INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Tina', 'Salad', 'Y', '2012-04-18');
 
-### Mostrare le tabelle
+### <a name="show-tables"></a>Mostrare le tabelle
 Per mostrare una tabella, usare il comando seguente:
 
     select * from potluck;
@@ -216,7 +220,7 @@ L'output è:
 
 ![immagine](./media/virtual-machines-linux-postgresql-install/no7.png)
 
-### Eliminare dati in una tabella
+### <a name="delete-data-in-a-table"></a>Eliminare dati in una tabella
 Per eliminare dati in una tabella, usare il comando seguente:
 
     delete from potluck where name=’John’;
@@ -225,13 +229,18 @@ Consente di eliminare tutte le informazioni nella riga "John". L'output è:
 
 ![immagine](./media/virtual-machines-linux-postgresql-install/no8.png)
 
-### Aggiornare dati in una tabella
+### <a name="update-data-in-a-table"></a>Aggiornare dati in una tabella
 Per aggiornare dati in una tabella, usare il comando seguente: In questo caso, Sandy ha confermato la sua partecipazione, pertanto lo stato di conferma verrà modificato da "N" a "Y":
 
      UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 
 
-## Per altre informazioni su PostgreSQL
+## <a name="get-more-information-about-postgresql"></a>Per altre informazioni su PostgreSQL
 Ora che è stata completata l'installazione di PostgreSQL in una macchina virtuale Linux di Azure, è possibile utilizzarlo in Azure. Per ulteriori informazioni su PostgreSQL, visitare il [sito Web PostgreSQL](http://www.postgresql.org/).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

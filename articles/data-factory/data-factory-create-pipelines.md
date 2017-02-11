@@ -1,20 +1,24 @@
 ---
-title: Creare e pianificare pipeline e concatenare attività in Azure Data Factory | Microsoft Docs
-description: Informazioni su come creare una pipeline di dati in Azure Data Factory per spostare e trasformare i dati. Creare un flusso di lavoro basato sui dati per produrre informazioni pronte per l'uso.
+title: "Creare e pianificare pipeline e concatenare attività in Data Factory | Documentazione Microsoft"
+description: Informazioni su come creare una pipeline di dati in Azure Data Factory per spostare e trasformare i dati. Creare un flusso di lavoro basato sui dati per produrre informazioni pronte per l&quot;uso.
 keywords: pipeline di dati, flusso di lavoro basato sui dati
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: sharonlo101
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 13b137c7-1033-406f-aea7-b66f25b313c0
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 01/25/2017
 ms.author: shlo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d841c57dc736f7d690a6dc97863b7568365fd01a
+
 
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipeline e attività in Azure Data Factory
@@ -25,10 +29,10 @@ Questo articolo fornisce informazioni sulle pipeline e sulle attività in Azure 
 > 
 > 
 
-## <a name="what-is-a-data-pipeline?"></a>Che cos'è una pipeline di dati?
+## <a name="what-is-a-data-pipeline"></a>Che cos'è una pipeline di dati?
 **Pipeline** è un raggruppamento di **attività** correlate secondo una logica. e consente di raggruppare le attività in un'unità che esegue un'operazione. Per comprendere meglio le pipeline, è necessario comprendere innanzitutto un'attività. 
 
-## <a name="what-is-an-activity?"></a>Che cos'è un'attività?
+## <a name="what-is-an-activity"></a>Che cos'è un'attività?
 Le attività definiscono le azioni da eseguire sui dati. Ogni attività accetta zero o più [set di dati](data-factory-create-datasets.md) come input e produce uno o più set di dati come output. 
 
 Ad esempio, è possibile usare un'attività Copia per orchestrare la copia dei dati da un archivio dati all'altro. Allo stesso modo, è possibile usare un'attività HDInsight per eseguire una query Hive su un cluster di Azure HDInsight e trasformare i dati. Azure Data Factory offre una vasta gamma di attività di [trasformazione dei dati](data-factory-data-transformation-activities.md) e [trasferimento dei dati](data-factory-data-movement-activities.md). È inoltre possibile scegliere di creare un'attività personalizzata .NET per eseguire il proprio codice. 
@@ -36,46 +40,48 @@ Ad esempio, è possibile usare un'attività Copia per orchestrare la copia dei d
 ## <a name="sample-copy-pipeline"></a>Esempio di una pipeline di copia
 In questa pipeline di esempio è presente un'attività di tipo **Copy** in the **attività** . In questo esempio, [Copia attività](data-factory-data-movement-activities.md) consente di copiare i dati da un archivio BLOB di Azure a un database SQL di Azure. 
 
-    {
-      "name": "CopyPipeline",
-      "properties": {
-        "description": "Copy data from a blob to Azure SQL table",
-        "activities": [
+```json
+{
+  "name": "CopyPipeline",
+  "properties": {
+    "description": "Copy data from a blob to Azure SQL table",
+    "activities": [
+      {
+        "name": "CopyFromBlobToSQL",
+        "type": "Copy",
+        "inputs": [
           {
-            "name": "CopyFromBlobToSQL",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": "InputDataset"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "OutputDataset"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "BlobSource"
-              },
-              "sink": {
-                "type": "SqlSink",
-                "writeBatchSize": 10000,
-                "writeBatchTimeout": "60:00:00"
-              }
-            },
-            "Policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "NewestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
-            }
+            "name": "InputDataset"
           }
         ],
-        "start": "2016-07-12T00:00:00Z",
-        "end": "2016-07-13T00:00:00Z"
+        "outputs": [
+          {
+            "name": "OutputDataset"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "BlobSource"
+          },
+          "sink": {
+            "type": "SqlSink",
+            "writeBatchSize": 10000,
+            "writeBatchTimeout": "60:00:00"
+          }
+        },
+        "Policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "NewestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
       }
-    } 
+    ],
+    "start": "2016-07-12T00:00:00Z",
+    "end": "2016-07-13T00:00:00Z"
+  }
+} 
+```
 
 Tenere presente quanto segue:
 
@@ -88,48 +94,50 @@ Per la procedura completa di creazione di questa pipeline, vedere [Esercitazione
 ## <a name="sample-transformation-pipeline"></a>Esempio di una pipeline di trasformazione
 In questa pipeline di esempio è presente un'attività di tipo **HDInsightHive** in the **attività** . In questo esempio, l' [attività Hive di HDInsight](data-factory-hive-activity.md) trasforma i dati da un archivio BLOB di Azure tramite l'esecuzione di un file di script Hive in un cluster Hadoop di HDInsight. 
 
-    {
-        "name": "TransformPipeline",
-        "properties": {
-            "description": "My first Azure Data Factory pipeline",
-            "activities": [
-                {
-                    "type": "HDInsightHive",
-                    "typeProperties": {
-                        "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-                        "scriptLinkedService": "AzureStorageLinkedService",
-                        "defines": {
-                            "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
-                            "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "AzureBlobInput"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "AzureBlobOutput"
-                        }
-                    ],
-                    "policy": {
-                        "concurrency": 1,
-                        "retry": 3
-                    },
-                    "scheduler": {
-                        "frequency": "Month",
-                        "interval": 1
-                    },
-                    "name": "RunSampleHiveActivity",
-                    "linkedServiceName": "HDInsightOnDemandLinkedService"
-                }
-            ],
-            "start": "2016-04-01T00:00:00Z",
-            "end": "2016-04-02T00:00:00Z",
-            "isPaused": false
-        }
+```json
+{
+    "name": "TransformPipeline",
+    "properties": {
+        "description": "My first Azure Data Factory pipeline",
+        "activities": [
+            {
+                "type": "HDInsightHive",
+                "typeProperties": {
+                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+                    "scriptLinkedService": "AzureStorageLinkedService",
+                    "defines": {
+                        "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+                        "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "AzureBlobInput"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobOutput"
+                    }
+                ],
+                "policy": {
+                    "concurrency": 1,
+                    "retry": 3
+                },
+                "scheduler": {
+                    "frequency": "Month",
+                    "interval": 1
+                },
+                "name": "RunSampleHiveActivity",
+                "linkedServiceName": "HDInsightOnDemandLinkedService"
+            }
+        ],
+        "start": "2016-04-01T00:00:00Z",
+        "end": "2016-04-02T00:00:00Z",
+        "isPaused": false
     }
+}
+```
 
 Tenere presente quanto segue: 
 
@@ -180,11 +188,13 @@ Data factory di Azure fornisce vari meccanismi per creare e distribuire le pipel
 ### <a name="using-azure-powershell"></a>Uso di Azure PowerShell
 È possibile utilizzare Azure PowerShell per creare pipeline nella Data factory di Azure. Ad esempio, è stata definita la pipeline di JSON in un file nella posizione c:\DPWikisample.json. È possibile caricarla nell'istanza Data factory di Azure, come illustrato nell'esempio seguente:
 
-    New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
+```PowerShell
+New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
+```
 
 Per una procedura dettagliata per la creazione di una data factory con una pipeline, vedere [Introduzione ad Azure Data Factory (Azure PowerShell)](data-factory-build-your-first-pipeline-using-powershell.md) . 
 
-### <a name="using-.net-sdk"></a>Uso di .NET SDK
+### <a name="using-net-sdk"></a>Uso di .NET SDK
 È possibile creare e distribuire la pipeline anche tramite .NET SDK. Questo meccanismo può essere usato per creare pipeline a livello di programmazione. Per maggiori informazioni, vedere [Creare, gestire e monitorare istanze di Azure Data Factory a livello di codice](data-factory-create-data-factories-programmatically.md). 
 
 ### <a name="using-azure-resource-manager-template"></a>Uso del modello di Azure Resource Manager
@@ -199,40 +209,44 @@ Dopo avere distribuito una pipeline, è possibile gestire e monitorare le pipeli
 ## <a name="pipeline-json"></a>Pipeline JSON
 Osserviamo più da vicino come viene definita una pipeline nel formato JSON. La struttura generica di una pipeline è simile a quella indicata di seguito:
 
+```json
+{
+    "name": "PipelineName",
+    "properties": 
     {
-        "name": "PipelineName",
-        "properties": 
-        {
-            "description" : "pipeline description",
-            "activities":
-            [
+        "description" : "pipeline description",
+        "activities":
+        [
 
-            ],
-            "start": "<start date-time>",
-            "end": "<end date-time>"
-        }
+        ],
+        "start": "<start date-time>",
+        "end": "<end date-time>"
     }
+}
+```
 
 Nella sezione delle **attività** possono essere definite una o più attività. Ogni attività presenta la seguente struttura di livello superiore:
 
+```json
+{
+    "name": "ActivityName",
+    "description": "description", 
+    "type": "<ActivityType>",
+    "inputs":  "[]",
+    "outputs":  "[]",
+    "linkedServiceName": "MyLinkedService",
+    "typeProperties":
     {
-        "name": "ActivityName",
-        "description": "description", 
-        "type": "<ActivityType>",
-        "inputs":  "[]",
-        "outputs":  "[]",
-        "linkedServiceName": "MyLinkedService",
-        "typeProperties":
-        {
 
-        },
-        "policy":
-        {
-        }
-        "scheduler":
-        {
-        }
+    },
+    "policy":
+    {
     }
+    "scheduler":
+    {
+    }
+}
+```
 
 Nella tabella seguente vengono descritte le proprietà all'interno delle definizioni e le definizioni JSON della pipeline:
 
@@ -261,7 +275,7 @@ I criteri influiscono sul comportamento in fase di esecuzione di un'attività, i
 | --- | --- | --- | --- |
 | Concorrenza |Integer  <br/><br/>Valore massimo: 10 |1 |Numero di esecuzioni simultanee dell'attività.<br/><br/>Determina il numero di esecuzioni di attività parallele che possono verificarsi in sezioni diverse. Ad esempio, se un'attività deve passare attraverso grandi set di dati disponibili, con un valore di concorrenza maggiore che consente di velocizzare l'elaborazione dei dati. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina l'ordine delle sezioni di dati che vengono elaborate.<br/><br/>Ad esempio nel caso in cui si abbiano 2 sezioni, una alle 16.00 e l'altra alle 17.00, ed entrambe siano in attesa di esecuzione. Se si imposta executionPriorityOrder su NewestFirst, viene elaborata per prima la sezione delle 17:00. Allo stesso modo, se si imposta executionPriorityORder su OldestFIrst, verrà elaborata per prima la sezione delle 16:00. |
-| retry |Integer <br/><br/>Valore massimo: 10 |3 |Numero di tentativi prima che l'elaborazione dei dati per la sezione sia contrassegnata come errore. L'esecuzione dell’attività per una sezione di dati viene ritentata fino al numero di tentativi specificato. Il tentativo viene eseguito appena possibile dopo l'errore. |
+| retry |Integer <br/><br/>Valore massimo: 10 |0 |Numero di tentativi prima che l'elaborazione dei dati per la sezione sia contrassegnata come errore. L'esecuzione dell’attività per una sezione di dati viene ritentata fino al numero di tentativi specificato. Il tentativo viene eseguito appena possibile dopo l'errore. |
 | timeout |TimeSpan |00:00:00 |Timeout per l'attività. Esempio: 00:10:00 (implica un timeout di 10 minuti)<br/><br/>Se un valore non è specificato o è 0, il timeout è infinito.<br/><br/>Se il tempo di elaborazione dei dati in una sezione supera il valore di timeout, viene annullato e il sistema prova a ripetere l'elaborazione. Il numero di tentativi dipende dalla proprietà retry. Quando si verifica il timeout, lo stato viene impostato su TimedOut. |
 | delay |TimeSpan |00:00:00 |Specificare il ritardo prima che abbia inizio l'elaborazione dei dati della sezione.<br/><br/>L'esecuzione dell'attività per una sezione di dati viene avviata non appena il ritardo supera il tempo di esecuzione previsto.<br/><br/>Esempio: 00:10:00 (implica un ritardo di 10 minuti) |
 | longRetry |Integer <br/><br/>Valore massimo: 10 |1 |Numero di tentativi estesi prima che l'esecuzione della sezione dia esito negativo.<br/><br/>I tentativi longRetry sono distanziati da longRetryInterval. Pertanto, se è necessario specificare un tempo tra i tentativi, utilizzare longRetry. Se si specificano sia Retry che longRetry, ogni tentativo longRetry include tentativi Retry e il numero massimo di tentativi corrisponde a Retry * longRetry.<br/><br/>Ad esempio, se si hanno le seguenti impostazioni nel criterio attività:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>si presume che la sezione da eseguire sia solo una, con stato Waiting, e che l'esecuzione dell'attività abbia ogni volta esito negativo. All’inizio vi saranno tre tentativi di esecuzione consecutivi. Dopo ogni tentativo, lo stato della sezione sarà Retry. Una volta terminati i 3 tentativi sulla sezione, lo stato sarà LongRetry.<br/><br/>Dopo un'ora (vale a dire il valore di longRetryInteval), verrà eseguita un'altra serie di 3 tentativi di esecuzione consecutivi. Al termine, lo stato della sezione sarà Failed e non verranno eseguiti altri tentativi. Quindi, sono stati eseguiti 6 tentativi.<br/><br/>Se un'esecuzione ha esito positivo, lo stato della sezione sarà Ready e non saranno ripetuti altri tentativi.<br/><br/>longRetry può essere usato nelle situazioni in cui i dati dipendenti arrivano in orari non deterministici o l'ambiente complessivo in cui si verifica l'elaborazione dei dati è debole. In tali casi, l'esecuzione di tentativi consecutivi potrebbe non essere utile, mentre l'applicazione di un intervallo consente di ottenere il risultato voluto.<br/><br/>Attenzione: non impostare valori elevati per longRetry o longRetryInterval. In genere, valori più elevati comportano altri problemi sistemici. |
@@ -273,6 +287,9 @@ I criteri influiscono sul comportamento in fase di esecuzione di un'attività, i
 * Informazioni sulla [gestione e il monitoraggio in Data factory di Azure](data-factory-monitor-manage-pipelines.md).
 * [Creare e distribuire la prima pipeline](data-factory-build-your-first-pipeline.md). 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

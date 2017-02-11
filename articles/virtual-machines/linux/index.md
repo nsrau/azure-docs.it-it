@@ -1,13 +1,25 @@
 ---
 layout: LandingPage
+description: Informazioni su come creare una macchina virtuale con la distribuzione Linux di propria scelta. I documenti mostrano modi diversi per creare modelli di macchine virtuali.
+title: 'Documentazione di Macchine virtuali di Azure per Linux: esercitazioni e riferimento per le API | Documentazione Microsoft'
+services: virtual-machines-linux
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machines-linux
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: f368f2700bd349e106169d1828af7a148daa5cc2
-ms.openlocfilehash: f87947ed5f072ba4f0927ade1b1d3ec0e1424f3c
+ms.sourcegitcommit: 9bb4fb611c4f936317460040c4fbeff1a01f2c5c
+ms.openlocfilehash: 2728b18011e712d9f23f7645f8c83b053b3cf381
 
 ---
-#<a name="linux-virtual-machine-documentation"></a>Documentazione delle macchine virtuali Linux
+# <a name="linux-virtual-machine-documentation"></a>Documentazione delle macchine virtuali Linux
 
-Usare le macchine virtuali di Azure per creare ed eseguire macchine virtuali Linux nell'infrastruttura di calcolo, rete e archiviazione di Azure.  Ridimensionare fino a ottenere migliaia di macchine virtuali per distribuzioni a livello Internet oppure eseguire una sola macchina virtuale per qualche minuto per completare calcoli complessi, in modo da ottenere velocità e coerenza.
+Informazioni su come eseguire macchine virtuali in Azure con la distribuzione Linux di propria scelta. Documenti, informazioni di riferimento sulle API e campioni mostrano i diversi modi per creare e distribuire i modelli di macchine virtuali.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -130,16 +142,10 @@ Usare le macchine virtuali di Azure per creare ed eseguire macchine virtuali Lin
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/linux.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione delle macchine virtuali Linux </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

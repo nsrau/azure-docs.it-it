@@ -1,58 +1,62 @@
 ---
-title: Procedura dettagliata sull'archivio di Hub eventi di Azure | Microsoft Docs
-description: Un esempio che usa l'SDK di Azure Python per illustrare l'uso della funzionalità di archivio dell'Hub eventi.
+title: Procedura dettagliata sull&quot;archivio di Hub eventi di Azure | Documentazione Microsoft
+description: "Un esempio che usa l&quot;SDK di Azure Python per illustrare l&quot;uso della funzionalità di archivio dell&quot;Hub eventi."
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: djrosanova
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: bdff820c-5b38-4054-a06a-d1de207f01f6
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 12/13/2016
 ms.author: darosa;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 0dc22f03c114508190a8da7ae4ca385c39690d2c
+ms.openlocfilehash: ee85bfc9cfd852306a52d21772d33accdf484fdf
+
 
 ---
-# Procedura dettagliata sull'archivio di Hub eventi: Python
-L'archivio è una nuova funzionalità di Hub eventi che consente di distribuire automaticamente i dati del flusso nell'Hub eventi a un account di archiviazione BLOB di Azure di propria scelta. Questa funzionalità rende più semplice eseguire l'elaborazione di batch su dati di streaming in tempo reale. In questo articolo viene descritto come usare l'archivio di Hub eventi con Python. Per altre informazioni sull'archivio di Hub eventi, vedere l'[articolo con la panoramica](event-hubs-archive-overview.md).
+# <a name="event-hubs-archive-walkthrough-python"></a>Procedura dettagliata sull'archivio di Hub eventi: Python
+L'archivio è una nuova funzionalità di Hub eventi che consente di distribuire automaticamente i dati di streaming dell'Hub eventi a un account di archiviazione BLOB di Azure di propria scelta. Questa funzionalità rende più semplice eseguire l'elaborazione di batch su dati di streaming in tempo reale. In questo articolo viene descritto come usare l'archivio di Hub eventi con Python. Per altre informazioni sull'archivio di Hub eventi, vedere l' [articolo con la panoramica](event-hubs-archive-overview.md).
 
-Questo esempio utilizza l'SDK di Azure Python per illustrare l'uso della funzionalità di archivio. sender.py invia una simulazione di telemetria ambientale a Hub eventi in formato JSON. L'Hub eventi è configurato per usare la funzione di archiviazione per scrivere i dati nell'archiviazione BLOB in batch. archivereader.py legge quindi questi BLOB, crea un file aggiuntivo per dispositivo e scrive i dati in file .csv.
+Questo esempio usa Azure Python SDK per illustrare la funzionalità di archivio. Il programma sender.py invia una simulazione di telemetria ambientale a Hub eventi in formato JSON. L'Hub eventi è configurato per usare la funzione di archiviazione per scrivere i dati nell'archiviazione BLOB in batch. L'app archivereader.py legge quindi questi BLOB, crea un file aggiuntivo per dispositivo, quindi scrive i dati in file con estensione csv.
 
 Contenuto dell'esercitazione
 
-1. Creazione di un account di archiviazione BLOB di Azure e di un contenitore BLOB al suo interno con il portale di Azure
-2. Creazione di uno spazio dei nomi di Hub eventi tramite il portale di Azure
-3. Creazione di un Hub eventi con la funzione di archivio abilitata tramite il portale di Azure
-4. Invio dei dati all'Hub eventi con uno script Python
-5. Lettura dei file dall'archivio ed elaborazione con un altro script Python
+1. Creazione di un account di archiviazione BLOB di Azure e di un contenitore BLOB all'interno nel portale di Azure.
+2. Creazione di uno spazio dei nomi di Hub eventi nel portale di Azure.
+3. Creazione di un Hub eventi con la funzione di archivio abilitata nel portale di Azure.
+4. Invio dei dati all'Hub eventi con uno script Python.
+5. Lettura dei file dall'archivio ed elaborazione con un altro script Python.
 
 Prerequisiti
 
-1. Python 2.7.x
-2. Una sottoscrizione di Azure.
+- Python 2.7.x
+- Una sottoscrizione di Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## Creare un account di Archiviazione di Azure
-1. Accedere al [portale di Azure][portale di Azure].
-2. Nel riquadro di spostamento sinistro del portale fare clic su Nuovo, quindi su Data + Archiviazione e su Account di archiviazione.
-3. Completare i campi nel pannello dell'account di archiviazione e fare clic su **Crea**.
+## <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure
+1. Accedere al [portale di Azure][Azure portal].
+2. Nel riquadro di spostamento sinistro del portale fare clic su **Nuovo**, quindi su **Dati e archiviazione** e quindi su **Account di archiviazione**.
+3. Completare i campi nel pannello dell'account di archiviazione e quindi fare clic su **Crea**.
    
    ![][1]
-4. Una volta visualizzato il messaggio **Distribuzioni riuscite** fare clic sul nuovo account di archiviazione e su **BLOB** nel pannello **Essentials**. Quando si apre il pannello **Servizio BLOB**, fare clic su **+ Contenitore** in alto. Assegnare al contenitore il nome **archivio**, quindi chiudere il pannello **Servizio BLOB**.
-5. Fare clic su **Tasti di scelta** nel pannello sinistro e copiare il nome dell'account di archiviazione e il valore **key1**. Salvare questi valori nel Blocco note o in un'altra posizione temporanea.
+4. Dopo aver visualizzato il messaggio **Deployments Succeeded** (Le distribuzioni sono riuscite), fare clic sul nome del nuovo account di archiviazione e nel pannello **Informazioni di base** fare clic su **BLOB**. Quando si apre il pannello **Servizio BLOB**, fare clic su **+ Contenitore** in alto. Assegnare al contenitore il nome **archivio**, quindi chiudere il pannello **Servizio BLOB**.
+5. Fare clic su **Chiavi di accesso** nel pannello sinistro e copiare il nome dell'account di archiviazione e il valore **key1**. Salvare questi valori nel Blocco note o in un'altra posizione temporanea.
 
 [!INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
-## Creazione di uno script Python per inviare gli eventi all'Hub eventi
-1. Aprire l'editor preferito di Python, ad esempio [Visual Studio Code][Visual Studio Code].
+## <a name="create-a-python-script-to-send-events-to-your-event-hub"></a>Creazione di uno script Python per inviare gli eventi all'Hub eventi
+1. Aprire l'editor preferito di Python, ad esempio[Visual Studio Code][Visual Studio Code].
 2. Creare uno script chiamato **sender.py**. Questo script invierà 200 eventi all'Hub eventi. Si tratta di semplici letture ambientali inviate in JSON.
 3. Incollare il seguente codice in sender.py:
    
-   ```
+   ```python
    import uuid
    import datetime
    import random
@@ -73,12 +77,12 @@ Prerequisiti
    ```
 4. Aggiornare il codice precedente in modo che usi il nome dello spazio dei nomi e i valori chiave ottenuti al momento della creazione dello spazio dei nomi dell'Hub eventi.
 
-## Creazione di uno script Python per leggere i file dell'archivio
+## <a name="create-a-python-script-to-read-your-archive-files"></a>Creazione di uno script Python per leggere i file dell'archivio
 1. Compilare il pannello e fare clic su **Crea**.
 2. Creare uno script chiamato **archivereader.py**. Questo script leggerà i file di archivio e creerà un file per dispositivo in modo da scrivere i dati solo per quel dispositivo.
 3. Incollare il seguente codice in archivereader.py:
    
-   ```
+   ```python
    import os
    import string
    import json
@@ -122,7 +126,7 @@ Prerequisiti
    ```
 4. Assicurarsi di incollare i valori appropriati per il nome e la chiave dell'account di archiviazione e nella chiamata a `startProcessing`.
 
-## Esecuzione degli script
+## <a name="run-the-scripts"></a>Esecuzione degli script
 1. Aprire un prompt dei comandi con un percorso contenente Python, quindi eseguire questi comandi per installare i pacchetti dei prerequisiti di Python:
    
    ```
@@ -131,7 +135,7 @@ Prerequisiti
    pip install avro
    ```
    
-   Se si dispone di una versione precedente di Azure o dell'archiviazione di Azure, potrebbe essere necessario usare l'opzione **aggiornamento**.
+   Se si dispone di una versione precedente di Azure o dell'archiviazione di Azure, potrebbe essere necessario usare l'opzione **aggiornamento** .
    
    Potrebbe inoltre essere necessario eseguire il comando seguente (non necessario nella maggior parte dei sistemi):
    
@@ -151,23 +155,27 @@ Prerequisiti
     python archivereader.py
     ```
 
-Questo processore dell'archivio usa la directory locale per scaricare tutti i BLOB dal contenitore o dall'account di archiviazione. Elaborerà quelli che non sono vuoti e scriverà i risultati come file .csv nella directory locale.
+    Questo processore dell'archivio usa la directory locale per scaricare tutti i BLOB dal contenitore o dall'account di archiviazione. Vengono elaborati i BLOB non vuoti e i risultati vengono scritti come file con estensione csv nella directory locale.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
-* [Panoramica dell'archivio di Hub eventi][Panoramica dell'archivio di Hub eventi]
-* Un'[applicazione di esempio completa che usa Hub eventi][applicazione di esempio completa che usa Hub eventi].
-* Esempio relativo alla [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi][scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi].
-* [Panoramica di Hub eventi][Panoramica di Hub eventi]
+* [Panoramica dell'archivio di Hub eventi][Overview of Event Hubs Archive]
+* Un' [applicazione di esempio completa che usa Hub eventi][sample application that uses Event Hubs].
+* Esempio relativo alla [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi][Scale out Event Processing with Event Hubs].
+* [Panoramica di Hub eventi][Event Hubs overview]
 
-[portale di Azure]: https://portal.azure.com/
-[Panoramica dell'archivio di Hub eventi]: event-hubs-archive-overview.md
+[Azure portal]: https://portal.azure.com/
+[Overview of Event Hubs Archive]: event-hubs-archive-overview.md
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
-[About Azure storage accounts]: https://azure.microsoft.com/documentation/articles/storage-create-storage-account/
+[About Azure storage accounts]: https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/
 [Visual Studio Code]: https://code.visualstudio.com/
-[Panoramica di Hub eventi]: event-hubs-overview.md
-[applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Event Hubs overview]: event-hubs-overview.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

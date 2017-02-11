@@ -1,19 +1,23 @@
 ---
-title: Esplorare i dati nelle tabelle Hive con query Hive | Microsoft Docs
+title: Esplorare i dati nelle tabelle Hive con query Hive | Documentazione Microsoft
 description: Esplorare i dati nelle tabelle Hive mediante le query Hive.
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 0d46cea5-2b4c-4384-9bfa-fa20f6f75148
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 12/09/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4035861eaf6fa826fa2889ab62557606378140d6
+
 
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Esplorare i dati nelle tabelle Hive con  query Hive.
@@ -70,6 +74,9 @@ Questo articolo presuppone che l'utente abbia:
 ## <a name="additional-query-scripts-for-taxi-trip-data-scenarios"></a>Script delle query aggiuntive per gli scenari relativi ai dati delle corse dei taxi
 Nell'[archivio GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) sono inoltre disponibili alcuni esempi di query specifiche per gli scenari relativi ai dati dei [tragitti dei taxi di NYC](http://chriswhong.com/open-data/foil_nyc_taxi/). Tali query dispongono già di un determinato schema dei dati e possono essere inviate e usate immediatamente.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

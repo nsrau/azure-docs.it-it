@@ -1,19 +1,23 @@
 ---
-title: Gestire server e insiemi di credenziali dei servizi di ripristino di Azure | Microsoft Docs
+title: Gestire server e insiemi di credenziali di Servizi di ripristino di Azure | Documentazione Microsoft
 description: Usare questa esercitazione per imparare a gestire server e insiemi di credenziali dei servizi di ripristino di Azure.
 services: backup
-documentationcenter: ''
-author: Jim-Parker
-manager: jwhit
+documentationcenter: 
+author: markgalioto
+manager: cfreeman
 editor: tysonn
-
+ms.assetid: 4eea984b-7ed6-4600-ac60-99d2e9cb6d8a
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2016
+ms.date: 10/19/2016
 ms.author: jimpark; markgal
+translationtype: Human Translation
+ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
+ms.openlocfilehash: 74697b634392f7fe6b747ac21a9b1efac5703788
+
 
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Monitorare e gestire i server e gli insiemi di credenziali dei servizi di ripristino di Azure per i computer Windows
@@ -23,11 +27,9 @@ ms.author: jimpark; markgal
 > 
 > 
 
-In questo articolo è disponibile una panoramica delle attività di gestione dei backup disponibili tramite il portale di gestione di Azure e l'agente di Backup di Microsoft Azure.
+In questo articolo è disponibile una panoramica delle attività di gestione dei backup disponibili tramite il portale di Azure e l'agente di Backup di Microsoft Azure.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
-
-Modello di distribuzione classica.
 
 ## <a name="management-portal-tasks"></a>Attività del portale di gestione
 ### <a name="access-your-recovery-services-vaults"></a>Accedere agli insiemi di credenziali dei servizi di ripristino
@@ -49,7 +51,7 @@ I processi e gli avvisi vengono monitorati dal dashboard dell'insieme di credenz
 
 ![Eseguire un backup delle attività del dashboard](./media/backup-azure-manage-windows-server/dashboard-tiles.png)
 
-Fare clic sulle informazioni in ogni riquadro per aprire il pannello associato dove si gestiscono le attività correlate.
+Fare clic sulle informazioni in ogni riquadro per aprire il pannello associato in cui si gestiscono le attività correlate.
 
 Nella parte superiore del dashboard:
 
@@ -59,7 +61,7 @@ Nella parte superiore del dashboard:
 
 ![Eseguire un backup delle attività del dashboard](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
 
-## <a name="alerts-for-backups-using-azure-backup-agent:"></a>Avvisi per i backup con l'agente di Backup di Azure:
+## <a name="alerts-for-backups-using-azure-backup-agent"></a>Avvisi per i backup con l'agente di Backup di Azure:
 | Livello avviso | Avvisi inviati |
 | --- | --- |
 | Critico |Errore di backup, errore di ripristino |
@@ -120,7 +122,7 @@ Il pannello Elementi di backup si apre con il filtro impostato su File-cartella,
 
 ![Elementi di backup](./media/backup-azure-manage-windows-server/backup-item-list.png)
 
-Se si fa clic su un elemento di backup specifico nell'elenco, vengono visualizzati i dettagli più importanti dell'elemento.
+Se si seleziona un elemento di backup specifico nell'elenco, vengono visualizzati i dettagli più importanti dell'elemento.
 
 > [!NOTE]
 > Nel pannello **Impostazioni** si gestiscono file e cartelle selezionando **Elementi protetti > Elementi di backup** e quindi scegliendo **File-Cartelle** dal menu a discesa.
@@ -222,13 +224,14 @@ L'agente Backup di Azure offre la scheda Limitazione larghezza di banda rete che
 Per abilitare la limitazione della larghezza di banda della rete:
 
 1. Nell'**agente di Backup** fare clic su **Modifica proprietà**.
-2. Selezionare la casella di controllo **Abilita la limitazione all'utilizzo della larghezza di banda Internet per le operazioni di backup** .
+2. Nella scheda **Limitazione larghezza di banda rete selezionare **Abilita la limitazione all'utilizzo della larghezza di banda Internet per le operazioni di backup**.
    
     ![Limitazione della larghezza di banda della rete](./media/backup-azure-manage-windows-server/throttling-dialog.png)
-3. Dopo aver abilitato la limitazione, specificare la larghezza di banda consentita per il trasferimento dei dati di backup durante le **Ore lavorative** e le **Ore non lavorative**.
+   
+    Dopo aver abilitato la limitazione, specificare la larghezza di banda consentita per il trasferimento dei dati di backup durante le **Ore lavorative** e le **Ore non lavorative**.
    
     I valori della larghezza di banda partono da 512 kilobyte al secondo (Kbps) e possono arrivare fino a 1023 megabyte al secondo (Mbps). È anche possibile definire l'inizio e la fine per **Ore lavorative**e i giorni della settimana da considerare come giorni lavorativi. Le ore al di fuori delle ore lavorative specificate sono considerate non lavorative.
-4. Fare clic su **OK**.
+3. Fare clic su **OK**.
 
 ## <a name="manage-exclusion-settings"></a>Gestire le impostazioni di esclusione
 1. Aprire l'**agente di Backup di Microsoft Azure**. Per trovarlo, cercare nel computer *Backup di Microsoft Azure*.
@@ -276,25 +279,33 @@ R.2 Un avviso viene generato entro 20 minuti dall'errore di backup di Azure.
 
 **D3. Esiste un caso in cui non viene inviato un messaggio di posta elettronica se le notifiche sono configurate?**
 
-R3. Di seguito sono indicati i casi in cui la notifica non verrà inviata per ridurre la frequenza degli avvisi: 
+R3. Di seguito sono indicati i casi in cui la notifica non verrà inviata per ridurre la frequenza degli avvisi:
 
 * Se le notifiche sono configurate su base oraria e un avviso viene generato e risolto entro l'ora
 * Il processo viene annullato.
-* Secondo processo di backup non riuscito perché è in corso il processo di backup originale. 
+* Secondo processo di backup non riuscito perché è in corso il processo di backup originale.
 
-## <a name="troubleshooting-monitoring-issues<br>"></a>Risoluzione dei problemi di monitoraggio<br>
-#### <a name="issue:-jobs-and-alerts-from-azure-backup-agent-does-not-appear-on-the-portal."></a>Problema: i processi e gli avvisi dell'agente di Backup di Azure non vengono visualizzati nel portale.
-##### <a name="troubleshooting-steps:"></a>Passaggi per la risoluzione dei problemi:
-"OBRecoveryServicesManagementAgent" viene usato per inviare i dati dei processi e degli avvisi al servizio Backup di Azure. Aprire Gestione attività e verificare se il processo "OBRecoveryServicesManagementAgent" è in esecuzione.
-A volte questo processo può risultare danneggiato o arrestato. Se il processo non è in esecuzione, sfogliare l'elenco di servizi dal Pannello di controllo e avviare o riavviare "Agente di gestione di Servizi di ripristino di Microsoft Azure".
-Per altre informazioni, sfogliare i log in "Cartella di installazione dell'agente di Backup di Azure"\Agente di Servizi di ripristino di Microsoft Azure\Temp\GatewayProvider*.
-<b>Esempio:</b> C:\Programmi\Agente di Servizi di ripristino di Microsoft Azure\Temp\GatewayProvider0.errlog
+## <a name="troubleshooting-monitoring-issues"></a>Risoluzione dei problemi di monitoraggio
+**Problema:** i processi e/o gli avvisi generati dall'agente di Backup di Azure non vengono visualizzati nel portale.
+
+**Procedura per la risoluzione del problema:** il processo, ```OBRecoveryServicesManagementAgent```, viene usato per inviare i dati dei processi e degli avvisi al servizio Backup di Azure. A volte questo processo può risultare danneggiato o arrestato.
+
+1. Per controllare se il processo si è arrestato, aprire **Gestione attività** e controllare se il processo ```OBRecoveryServicesManagementAgent``` è in esecuzione.
+2. Se il processo non è in esecuzione, aprire il **Pannello di controllo** e sfogliare l'elenco dei servizi. Avviare o riavviare **Agente di gestione di Servizi di ripristino di Microsoft Azure**.
+   
+    Per altre informazioni, sfogliare i log in:<br/>
+   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`
+    Ad esempio:<br/>
+   `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Ripristino di Windows Server o Windows Client da Azure](backup-azure-restore-windows-server.md)
 * Per altre informazioni sul servizio Backup di Azure, vedere [Panoramica di Backup di Azure](backup-introduction-to-azure-backup.md)
 * Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

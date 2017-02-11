@@ -1,5 +1,5 @@
 ---
-title: " Introduzione alla distribuzione di contenuto su richiesta tramite il portale di Azure | Microsoft Azure"
+title: " Introduzione alla distribuzione di contenuto su richiesta con il portale di Azure | Documentazione Microsofts"
 description: Questa esercitazione illustra il processo di implementazione di un servizio per la distribuzione di contenuto video on demand (VoD) di base con l&quot;applicazione Servizi multimediali di Azure (AMS) usando il portale di Azure.
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 70071f8d1b70d062aec1ea4fd35b8acb3512bab6
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: b433c35817a0ba36003e8d506db9d2d6d97f9ff7
 
 
 ---
@@ -33,7 +33,7 @@ Questa esercitazione illustra il processo di implementazione di un servizio per 
 Questa esercitazione include le attività seguenti:
 
 1. Creare un account di Servizi multimediali di Azure.
-2. Configurare endpoint di streaming.
+2. Avviare l'endpoint di streaming.
 3. Caricare un file video.
 4. Codificare il file di origine in un set di file MP4 a velocità in bit adattiva.
 5. Pubblicare l'asset e ottenere gli URL di streaming e di download progressivo.  
@@ -60,7 +60,7 @@ I passaggi descritti in questa sezione illustrano come creare un account Servizi
    6. Selezionare **Aggiungi al dashboard** per visualizzare lo stato della distribuzione di account.
 4. Fare clic su **Crea** nella parte inferiore del form.
    
-    Dopo aver creato l'account, lo stato diventa **In esecuzione**. 
+    Dopo che l'account è stato creato, viene caricata la pagina della panoramica. Nella tabella dell'endpoint di streaming l'account avrà un endpoint di streaming predefinito con stato **Arrestato**. L'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
    
     ![Impostazioni di Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-settings.png)
    
@@ -79,33 +79,22 @@ Per accedere a livello di codice all'account Servizi multimediali, sono necessar
    
     ![Chiavi di Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-keys.png)
 
-## <a name="configure-streaming-endpoints"></a>Configurare gli endpoint di streaming
-Uno degli scenari più frequenti dell'utilizzo di Servizi multimediali di Azure riguarda la distribuzione ai client di contenuto video in streaming a bitrate adattivo. Servizi multimediali supporta le tecnologie di streaming a bitrate adattivo seguenti: HTTP Live Streaming (HLS), Smooth Streaming e MPEG DASH.
+## <a name="start-streaming-endpoints"></a>Avviare gli endpoint di streaming 
 
-Servizi multimediali include la funzionalità per la creazione dinamica dei pacchetti, che consente di distribuire contenuto con codifica MP4 a bitrate adattivo nei formati supportati da Servizi multimediali, come MPEG DASH, HLS e Smooth Streaming in modalità JIT, senza dover archiviare le versioni predefinite di ognuno di questi formati di streaming.
+Uno degli scenari più frequenti dell'uso di Servizi multimediali di Azure riguarda la distribuzione di contenuto video in streaming a bitrate adattivo. Servizi multimediali include la funzionalità per la creazione dinamica dei pacchetti, che consente di distribuire contenuto con codifica MP4 a bitrate adattivo nei formati supportati da Servizi multimediali, come MPEG DASH, HLS e Smooth Streaming in modalità JIT, senza dover archiviare le versioni predefinite di ognuno di questi formati di streaming.
 
-Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è necessario seguire questa procedura:
+>[!NOTE]
+>Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
 
-* Codificare il file (di origine) in formato intermedio in un set di file MP4 a bitrate adattivo. La procedura per la codifica è descritti più avanti in questa esercitazione.  
-* Creare almeno un'unità di streaming per l' *endpoint di streaming* da cui si prevede di distribuire il contenuto. I passaggi seguenti illustrano come modificare il numero di unità di streaming.
+Per avviare l'endpoint di streaming, eseguire queste operazioni:
 
-Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un singolo formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
-
-Per creare e modificare il numero di unità riservate di streaming, seguire questa procedura:
-
-1. Nella finestra **Impostazioni** fare clic su **Endpoint di streaming**. 
+1. Nella finestra Impostazioni fare clic su Endpoint di streaming. 
 2. Fare clic sull'endpoint di streaming predefinito. 
-   
-    Verrà visualizzata la finestra **DETTAGLI ENDPOINT DI STREAMING PREDEFINITO** .
-3. Per specificare il numero di unità di streaming, usare il dispositivo di scorrimento di **Unità di streaming** .
-   
-    ![Unità di streaming](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
-4. Fare clic sul pulsante **Salva** per salvare le modifiche apportate.
-   
-   > [!NOTE]
-   > Il completamento dell'allocazione di nuove unità può richiedere fino a 20 minuti.
-   > 
-   > 
+
+    Verrà visualizzata la finestra DETTAGLI ENDPOINT DI STREAMING PREDEFINITO.
+
+3. Fare clic sull'icona di avvio.
+4. Fare clic sul pulsante Salva per salvare le modifiche apportate.
 
 ## <a name="upload-files"></a>Caricare file
 Per riprodurre video in streaming con Servizi multimediali di Azure, è necessario caricare i video di origine, codificarli in bitrate multipli e pubblicare il risultato. Il primo passaggio è illustrato in questa sezione. 
@@ -132,10 +121,7 @@ Quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti co
 
 Servizi multimediali include la funzionalità per la creazione dinamica dei pacchetti, che consente di distribuire file MP4 a bitrate multipli nei formati MPEG DASH, HLS e Smooth Streaming, senza dover ricreare i pacchetti con questi formati di streaming. Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un singolo formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
 
-Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è necessario seguire questa procedura:
-
-* Codificare il file di origine in un set di file MP4 a più bitrate. La procedura per la codifica è descritta più avanti in questa esercitazione.
-* Ottenere almeno un'unità di streaming per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti. Per altre informazioni, vedere la sezione [Configurare gli endpoint di streaming](media-services-portal-vod-get-started.md#configure-streaming-endpoints). 
+Per sfruttare i vantaggi della creazione dinamica dei pacchetti, è necessario codificare il file di origine in un set di file MP4 a bitrate multipli. La procedura per la codifica è descritta più avanti in questa esercitazione.
 
 ### <a name="to-use-the-portal-to-encode"></a>Per usare il portale per la codifica
 Questa sezione descrive la procedura per la codifica di contenuti con Media Encoder Standard.
@@ -221,6 +207,6 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

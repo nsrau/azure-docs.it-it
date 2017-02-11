@@ -1,9 +1,12 @@
 ---
 layout: LandingPage
 description: Documentazioni, video e modelli di esempio per Machine Learning, un servizio cloud per data scientist e sviluppatori che usano l&quot;analisi predittiva nelle applicazioni.
+author: garyericson
+ms.date: 01/18/2017
+ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 12f9d75f252d8b05fdcded9d3fb6c12e4c2a304e
-ms.openlocfilehash: d51cb36ce676ac6d2e7c7b3313db75308d4cca3b
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3247e45c44f63c529c84de5dd31eadc5a9552952
 
 ---
 #<a name="azure-machine-learning-documentation"></a>Documentazione di Azure Machine Learning
@@ -95,8 +98,8 @@ Informazioni su come data scientist e sviluppatori usano Machine Learning per in
                 <div class="card">
                     <div class="cardText">
                         <h3>Riga di comando</h3>
-                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell</a></p>
-                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">Modulo PowerShell per Machine Learning</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning">PowerShell (nuovo)</a></p>
+                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell (Classic)</a> (PowerShell (classico))</p>
                     </div>
                 </div>
             </div>
@@ -128,13 +131,7 @@ Informazioni su come data scientist e sviluppatori usano Machine Learning per in
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/machine-learning.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione di Machine Learning </div>
-    </a>
-</div>
+
 
 
 

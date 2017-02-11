@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dea9219b38f02578c86e486932699970ad9948ec
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: 445074060f1cae200405b17d04be41075f7306d7
 
 
 ---
@@ -28,7 +28,7 @@ Servizi multimediali di Microsoft Azure consente di distribuire flussi MPEG-DASH
 
 Servizi multimediali offre anche un **servizio di distribuzione di chiavi/licenze** dal quale i client possono ottenere chiavi AES o licenze PlayReady/Widevine per riprodurre contenuti crittografati.
 
-Questo argomento illustra come usare il Portale di Azure per configurare i criteri di autorizzazione della chiave simmetrica. La chiave può essere usata in un secondo momento per crittografare i contenuti dinamicamente. Si noti che attualmente è possibile crittografare i formati di streaming seguenti: HLS, MPEG DASH e Smooth Streaming. Non è possibile crittografare il formato di streaming HDS o i download progressivi.
+Questo argomento illustra come usare il Portale di Azure per configurare i criteri di autorizzazione della chiave simmetrica. La chiave può essere usata in un secondo momento per crittografare i contenuti dinamicamente. Si noti che attualmente è possibile crittografare i formati di streaming seguenti: HLS, MPEG DASH e Smooth Streaming. Non è possibile crittografare i download progressivi.
 
 Quando un lettore richiede un flusso impostato per la crittografia dinamica, Servizi multimediali usa la chiave configurata per crittografare dinamicamente i contenuti con la crittografia DRM o AES. Per decrittografare il flusso, il lettore richiederà la chiave dal servizio di distribuzione delle chiavi. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati.
 
@@ -93,6 +93,6 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

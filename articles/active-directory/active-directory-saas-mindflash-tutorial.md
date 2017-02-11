@@ -1,22 +1,27 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Mindflash | Microsoft Docs'
-description: Informazioni su come utilizzare Mindflash con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora.
+description: Informazioni su come utilizzare Mindflash con Azure Active Directory per abilitare l&quot;accesso Single Sign-On, il provisioning automatizzato e altro ancora.
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: bdf91993-aaaa-4598-89b7-77ef8ca065d5
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/08/2016
+ms.date: 09/29/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 08753aa43d192e2e948b478638fa2868978cb575
+
 
 ---
-# Esercitazione: Integrazione di Azure Active Directory con Mindflash
-In questa esercitazione viene illustrata l'integrazione di Azure e Mindflash. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+# <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>Esercitazione: Integrazione di Azure Active Directory con Mindflash
+In questa esercitazione viene illustrata l'integrazione di Azure e Mindflash.  
+Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 * Sottoscrizione di Azure valida
 * Sottoscrizione di Mindflash abilitata per l'accesso Single Sign-On
@@ -32,72 +37,73 @@ Lo scenario descritto in questa esercitazione include i blocchi predefiniti segu
 
 ![Scenario](./media/active-directory-saas-mindflash-tutorial/IC787132.png "Scenario")
 
-## Abilitazione dell'integrazione dell'applicazione per Mindflash
+## <a name="enabling-the-application-integration-for-mindflash"></a>Abilitazione dell'integrazione dell'applicazione per Mindflash
 In questa sezione viene descritto come abilitare l'integrazione dell'applicazione per Mindflash.
 
-### Per abilitare l'integrazione dell'applicazione per Mindflash, eseguire la procedura seguente:
-1. Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+### <a name="to-enable-the-application-integration-for-mindflash-perform-the-following-steps"></a>Per abilitare l'integrazione dell'applicazione per Mindflash, eseguire la procedura seguente:
+1. Nel portale di Azure classico fare clic su **Active Directory**nel riquadro di spostamento sinistro.
    
    ![Active Directory](./media/active-directory-saas-mindflash-tutorial/IC700993.png "Active Directory")
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
    
-   ![Applicazioni](./media/active-directory-saas-mindflash-tutorial/IC700994.png "Applicazioni")
+   ![Applications](./media/active-directory-saas-mindflash-tutorial/IC700994.png "Applications")
 4. Fare clic su **Add** nella parte inferiore della pagina.
    
-   ![Aggiunta di un'applicazione](./media/active-directory-saas-mindflash-tutorial/IC749321.png "Aggiunta di un'applicazione")
+   ![Aggiungi applicazione](./media/active-directory-saas-mindflash-tutorial/IC749321.png "Add application")
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
    
-   ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-mindflash-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
+   ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-mindflash-tutorial/IC749322.png "Add an application from gallerry")
 6. Nella **casella di ricerca** digitare **Mindflash**.
    
-   ![Raccolta di applicazioni](./media/active-directory-saas-mindflash-tutorial/IC787133.png "Raccolta di applicazioni")
+   ![Raccolta di applicazioni](./media/active-directory-saas-mindflash-tutorial/IC787133.png "Application Gallery")
 7. Nel riquadro dei risultati selezionare **Mindflash**, quindi fare clic su **Completa** per aggiungere l'applicazione.
    
    ![Mindflash](./media/active-directory-saas-mindflash-tutorial/IC787134.png "Mindflash")
    
-   ## Configurazione dell'accesso Single Sign-On
+   ## <a name="configuring-single-sign-on"></a>Configurazione dell'accesso Single Sign-On
 
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Mindflash tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML.
 
-### Per configurare l'accesso Single Sign-On, seguire questa procedura:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
 1. Nella pagina di integrazione dell'applicazione **Mindflash** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-mindflash-tutorial/IC787135.png "Configura accesso Single Sign-On")
+   ![Configura accesso Single Sign-On](./media/active-directory-saas-mindflash-tutorial/IC787135.png "Configure Single Sign-On")
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Mindflash** selezionare **Single Sign-On di Microsoft Azure AD**, quindi fare clic su **Avanti**.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-mindflash-tutorial/IC787136.png "Configura accesso Single Sign-On")
-3. Nella casella di testo **URL di accesso** della pagina **Configura URL app** digitare l'URL usando il modello "*http://company.mindflash.com*" e quindi fare clic su **Avanti**.
+   ![Configura accesso Single Sign-On](./media/active-directory-saas-mindflash-tutorial/IC787136.png "Configure Single Sign-On")
+3. Nella casella di testo **URL di accesso** della pagina **Configure App URL** (Configura URL app) digitare l'URL usando il modello "*http://company.mindflash.com*" e quindi fare clic su **Avanti**.
    
-   ![Configura URL app](./media/active-directory-saas-mindflash-tutorial/IC787137.png "Configura URL app")
+   ![Configura URL app](./media/active-directory-saas-mindflash-tutorial/IC787137.png "Configure App URL")
 4. Nella pagina **Configura accesso Single Sign-On in Mindflash** fare clic su **Scarica metadati**, quindi salvare il file dei metadati nel computer.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-mindflash-tutorial/IC787138.png "Configura accesso Single Sign-On")
+   ![Configura accesso Single Sign-On](./media/active-directory-saas-mindflash-tutorial/IC787138.png "Configure Single Sign-On")
 5. Inviare il file dei metadati al team di supporto di Mindflash.
    
    > [!NOTE]
    > La configurazione dell'accesso Single Sign-On deve essere eseguita dal team di supporto di Mindflash. Al termine della configurazione, viene ricevuta una notifica.
    > 
    > 
-6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Complete** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-mindflash-tutorial/IC787139.png "Configura accesso Single Sign-On")
+   ![Configura accesso Single Sign-On](./media/active-directory-saas-mindflash-tutorial/IC787139.png "Configure Single Sign-On")
    
-   ## Configurazione del provisioning utente
+   ## <a name="configuring-user-provisioning"></a>Configurazione del provisioning utente
 
-Per consentire agli utenti di Azure AD di accedere a Mindflash, è necessario eseguirne il provisioning in Mindflash. Nel caso di Mindflash, il provisioning è un’attività manuale.
+Per consentire agli utenti di Azure AD di accedere a Mindflash, è necessario eseguirne il provisioning in Mindflash.  
+Nel caso di Mindflash, il provisioning è un’attività manuale.
 
-### Per eseguire il provisioning di un account utente, eseguire la procedura seguente:
+### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Per eseguire il provisioning di un account utente, eseguire la procedura seguente:
 1. Accedere al sito aziendale di **Mindflash** come amministratore.
 2. Passare a **Gestisci utenti**.
    
-   ![Manage Users](./media/active-directory-saas-mindflash-tutorial/IC787140.png "Gestisci utenti")
+   ![Gestire gli utenti](./media/active-directory-saas-mindflash-tutorial/IC787140.png "Manage Users")
 3. Fare clic su **Aggiungi utenti**, quindi fare clic su **Nuovo**.
 4. Nella sezione **Aggiungi nuovi utenti** eseguire la procedura seguente:
    
-   ![Aggiungi nuovi utenti](./media/active-directory-saas-mindflash-tutorial/IC787141.png "Aggiungi nuovi utenti")
+   ![Aggiungi nuovi utenti](./media/active-directory-saas-mindflash-tutorial/IC787141.png "Add New Users")
    
-   1. Digitare il **nome**, il **cognome** e l’**indirizzo di posta elettronica** di un account di Azure Active Directory valido di cui si desidera eseguire il provisioning nelle relative caselle di testo.
+   1. Digitare il **nome**, il **cognome** e l'**indirizzo e-mail** di un account AAD valido di cui si desidera eseguire il provisioning nelle relative caselle di testo.
    2. Fare clic su **Aggiungi**.
 
 > [!NOTE]
@@ -105,18 +111,23 @@ Per consentire agli utenti di Azure AD di accedere a Mindflash, è necessario es
 > 
 > 
 
-## Assegnazione degli utenti
+## <a name="assigning-users"></a>Assegnazione degli utenti
 Per testare la configurazione, è necessario concedere l'accesso all’applicazione agli utenti di Azure AD a cui si desidera consentirne l’uso, assegnando tali utenti all'applicazione.
 
-### Per assegnare gli utenti a Mindflash eseguire la procedura seguente:
+### <a name="to-assign-users-to-mindflash-perform-the-following-steps"></a>Per assegnare gli utenti a Mindflash eseguire la procedura seguente:
 1. Nel portale di Azure classico creare un account di test.
 2. Nella pagina di integrazione dell'applicazione **Mindflash** fare clic su **Assegna utenti**.
    
-   ![Assegna utenti](./media/active-directory-saas-mindflash-tutorial/IC787142.png "Assegna utenti")
-3. Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
+   ![Assegna utenti](./media/active-directory-saas-mindflash-tutorial/IC787142.png "Assign users")
+3. Selezionare l'utente di test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
    
-   ![Sì](./media/active-directory-saas-mindflash-tutorial/IC767830.png "Sì")
+   ![Sì](./media/active-directory-saas-mindflash-tutorial/IC767830.png "Yes")
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

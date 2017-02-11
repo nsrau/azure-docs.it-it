@@ -5,8 +5,8 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 4c898175-2cd6-43db-b350-bb408332f24d
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-store
@@ -14,42 +14,46 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c7b3441892484cf54e2055e9153858171d738e85
+
 
 ---
-# Procedure di aggiornamento di Windows Universal Apps SDK
+# <a name="windows-universal-apps-sdk-upgrade-procedures"></a>Procedure di aggiornamento di Windows Universal Apps SDK
 Se nell'applicazione è già stata integrata una versione precedente dell'SDK, è necessario considerare i seguenti punti quando si aggiorna l'SDK.
 
 Se non sono state applicate alcune versioni dell'SDK, potrebbe essere necessario eseguire più procedure. Se ad esempio si esegue la migrazione dalla versione 0.10.1 alla 0.11.0, sarà prima di tutto necessario eseguire la procedura per la migrazione "dalla 0.9.0 alla 0.10.1" e quindi la procedura per la migrazione "dalla 0.10.1 alla 0.11.0".
 
-## Dalla versione 3.3.0 alla 3.4.0
-### Log di test
+## <a name="from-330-to-340"></a>Dalla versione 3.3.0 alla 3.4.0
+### <a name="test-logs"></a>Log di test
 I log della console generati da SDK possono essere abilitati/disattivati/filtrati. Per eseguire una personalizzazione, aggiornare la proprietà `EngagementAgent.Instance.TestLogEnabled` scegliendo uno dei valori disponibili nell'enumerazione `EngagementTestLogLevel`, ad esempio:
 
             EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
             EngagementAgent.Instance.Init();
 
-### Risorse
+### <a name="resources"></a>Risorse
 La sovrimpressione Reach è stata migliorata. Fa parte delle risorse del pacchetto NuGet di SDK.
 
 Durante l'aggiornamento alla nuova versione di SDK, è possibile scegliere se mantenere i file esistenti contenuti nella cartella della sovrimpressione delle risorse o meno:
 
-* Se la sovrimpressione precedente è in funzione o si stanno integrando manualmente gli elementi `WebView`, è possibile decidere di mantenere i file esistenti per poter proseguire.
-* Se invece si vuole passare alla sovrimpressione nuova, è sufficiente sostituire l'intera cartella `overlay` delle risorse con quella nuova disponibile nel pacchetto SDK. Dopo aver completo l'aggiornamento, nelle app UWP è possibile ottenere la cartella della nuova sovrimpressione da %USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\\3.4.0\\content\\win81\\Resources.
+* Se la sovrimpressione precedente è in funzione o si stanno integrando manualmente gli elementi `WebView`, è possibile decidere di mantenere i file esistenti per poter proseguire. 
+* Se invece si vuole passare alla sovrimpressione nuova, è sufficiente sostituire l'intera cartella `overlay` delle risorse con quella nuova disponibile nel pacchetto SDK. Dopo aver completato l'aggiornamento, nelle app UWP è possibile ottenere la cartella della nuova sovrimpressione da %USERPROFILE%\\.nuget\packages\MicrosoftAzure.MobileEngagement\3.4.0\content\win81\Resources).
 
 > [!WARNING]
 > Se si usa la sovrimpressione nuova, le personalizzazioni eseguite con la versione precedente saranno sovrascritte.
 > 
 > 
 
-## Dalla versione 3.2.0 alla 3.3.0
-### Risorse
+## <a name="from-320-to-330"></a>Dalla versione 3.2.0 alla 3.3.0
+### <a name="resources"></a>Risorse
 Questo passaggio riguarda solo le risorse personalizzate. Se sono state personalizzate le risorse fornite dall'SDK (html, immagini, sovrimpressioni) è necessario eseguirne il backup prima dell'aggiornamento e riapplicare la personalizzazione alle risorse aggiornate.
 
-## Dalla versione 3.1.0 alla 3.2.0
-### Risorse
+## <a name="from-310-to-320"></a>Dalla versione 3.1.0 alla 3.2.0
+### <a name="resources"></a>Risorse
 Questo passaggio riguarda solo le risorse personalizzate. Se sono state personalizzate le risorse fornite dall'SDK (html, immagini, sovrimpressioni) è necessario eseguirne il backup prima dell'aggiornamento e riapplicare la personalizzazione alle risorse aggiornate.
 
-### l'integrazione di visualizzazione Web
+### <a name="webview-integration"></a>l'integrazione di visualizzazione Web
 In questa versione sono stati introdotti alcuni miglioramenti per la corrispondenza dei fattori di forma del dispositivo diversi. Assicurarsi che l'integrazione delle webview corrisponda a quanto segue:
 
 Nella pagina XAML ():
@@ -164,12 +168,12 @@ E nel file con estensione cs associato:
             }
     }
 
-## Dalla versione 2.0.0 alla 3.0.0
-### Risorse
+## <a name="from-200-to-300"></a>Dalla versione 2.0.0 alla 3.0.0
+### <a name="resources"></a>Risorse
 Questo passaggio riguarda solo le risorse personalizzate. Se sono state personalizzate le risorse fornite dall'SDK (html, immagini, sovrimpressioni) è necessario eseguirne il backup prima dell'aggiornamento e riapplicare la personalizzazione alle risorse aggiornate.
 
-## Dalla versione 1.1.1 alla 2.0.0
-La sezione seguente illustra come eseguire la migrazione di un'integrazione dell'SDK dal servizio Capptain offerto da Capptain SAS a un'app basata su Azure Mobile Engagement.
+## <a name="from-111-to-200"></a>Dalla versione 1.1.1 alla 2.0.0
+La sezione seguente illustra come eseguire la migrazione di un'integrazione dell'SDK dal servizio Capptain offerto da Capptain SAS a un'app basata su Azure Mobile Engagement. 
 
 > [!IMPORTANT]
 > Capptain e Mobile Engagement sono servizi diversi e la procedura seguente illustra solo come eseguire la migrazione dell'app client. La migrazione dell'SDK nell'app NON comporta la migrazione dei dati dai server di Capptain ai server di Mobile Engagement
@@ -178,15 +182,15 @@ La sezione seguente illustra come eseguire la migrazione di un'integrazione dell
 
 Se si esegue la migrazione da una versione precedente, consultare il sito web Capptain per eseguire prima la migrazione a 1.1.1, quindi applicare la procedura seguente
 
-### Pacchetto NuGet
+### <a name="nuget-package"></a>Pacchetto NuGet
 Sostituire **Capptain.WindowsPhone** con il pacchetto NuGet **MicrosoftAzure.MobileEngagement**.
 
-### Applicazione di Mobile Engagement
+### <a name="applying-mobile-engagement"></a>Applicazione di Mobile Engagement
 L'SDK usa il termine `Engagement`. È necessario aggiornare il progetto per tenere conto di questa modifica.
 
 È necessario disinstallare il pacchetto nuget corrente di Capptain. Si consideri che verranno rimosse tutte le modifiche nella cartella Risorse di Capptain. Se si desidera mantenere tali file, eseguirne una copia.
 
-Successivamente, installare il nuovo pacchetto NuGet di Microsoft Azure Engagement nel progetto. È possibile trovarlo direttamente sul [sito Web di NuGet] o qui nell'indice. Questa operazione sostituisce tutti i file di risorse usati da Engagement e aggiunge la nuova DLL di Engagement ai riferimenti del progetto.
+Successivamente, installare il nuovo pacchetto NuGet di Microsoft Azure Engagement nel progetto. È possibile trovarlo direttamente su [sito Web di NuGet] o nell'indice qui. Questa operazione sostituisce tutti i file di risorse utilizzati da Engagement e aggiunge la nuova DLL di Engagement ai riferimenti del progetto.
 
 È necessario eliminare i riferimenti del progetto rimuovendo i riferimenti DLL di Capptain. Se non si effettua questa operazione, la versione di Capptain creerà un conflitto e si verificheranno errori.
 
@@ -266,20 +270,20 @@ Al termine di queste operazioni, è necessario sostituire i riferimenti di Cappt
         </engagement:EngagementPageOverlay>
 5. Per altre risorse come le immagini di Capptain e i file HTML, tenere presente che sono state rinominate per l'utilizzo di "Engagement".
 
-### Dichiarazione di progetto
+### <a name="project-declaration"></a>Dichiarazione di progetto
 In Package.appxmanifest `File Type Associations` è stato aggiornato da:
 
-* capptain\_reach\_content a engagement\_reach\_content
-* capptain\_log\_file a engagement\_log\_file
+* capptain\_reach\_content in engagement\_reach\_content
+* capptain\_log\_file in engagement\_log\_file
 
-### ID applicazione / chiave SDK
+### <a name="application-id--sdk-key"></a>ID applicazione / chiave SDK
 Engagement utilizza una stringa di connessione. Non è necessario specificare un ID applicazione e una chiave SDK con Mobile Engagement, è sufficiente specificare una stringa di connessione. È possibile configurarla nel file EngagementConfiguration.
 
 La configurazione di Engagement può essere impostata nel file `Resources\EngagementConfiguration.xml` del progetto.
 
 Modificare questo file per specificare:
 
-* La stringa di connessione dell'applicazione tra i tag `<connectionString>` e `<\connectionString>`.
+* La stringa di connessione dell'applicazione tra i tag `<connectionString>` and `<\connectionString>`.
 
 Se si desidera specificarla in fase di esecuzione, è possibile chiamare il metodo seguente prima dell'inizializzazione dell'agente di Engagement:
 
@@ -292,8 +296,8 @@ Se si desidera specificarla in fase di esecuzione, è possibile chiamare il meto
 
 La stringa di connessione per l'applicazione viene visualizzata nel portale di Azure classico.
 
-### Modifica del nome di elementi
-Tutti gli elementi contenenti *capptain* sono stati rinominati con *engagement*. Lo stesso vale per *Capptain*, che è stato sostituito con *Engagement*.
+### <a name="items-name-change"></a>Modifica del nome di elementi
+Tutti gli elementi denominati *capptain* sono stati rinominati in *engagement*. Lo stesso vale per *Capptain*, che è stato ridenominato in *Engagement*.
 
 Esempi di elementi di Capptain di uso comune:
 
@@ -305,4 +309,9 @@ Esempi di elementi di Capptain di uso comune:
 
 Si noti la ridenominazione influisce anche sui metodi sottoposti a override.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

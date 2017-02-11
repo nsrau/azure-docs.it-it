@@ -20,8 +20,9 @@
 ### [Monitorare con Dynatrace (DC/OS)](container-service-monitoring-dynatrace.md)
 ## Gestire con Kubernetes
 ### [Introduzione a Kubernetes](container-service-kubernetes-walkthrough.md)
+### [Configurare un'entità servizio](container-service-kubernetes-service-principal.md)
 ### [Interagire con l'interfaccia utente Web di Kubernetes](container-service-kubernetes-ui.md)
-## [Gestire con Docker Swarm](container-service-docker-swarm.md)
+## Gestire con Docker Swarm
 ### [Docker e Docker Compose](container-service-docker-swarm.md)
 ### [Integrazione continua di Docker Swarm](container-service-docker-swarm-setup-ci-cd.md)
 # Riferimenti
@@ -34,6 +35,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

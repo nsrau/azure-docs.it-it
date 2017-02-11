@@ -1,23 +1,27 @@
 ---
-title: Opzioni group by in SQL Data Warehouse | Microsoft Docs
-description: Suggerimenti per l’implementazione delle opzioni group by in SQL Data Warehouse di Azure per lo sviluppo di soluzioni.
+title: Opzioni Group by in SQL Data Warehouse | Documentazione Microsoft
+description: "Suggerimenti per l’implementazione delle opzioni group by in SQL Data Warehouse di Azure per lo sviluppo di soluzioni."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: f95a1e43-768f-4b7b-8a10-8a0509d0c871
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/14/2016
-ms.author: jrj;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e8c486ca190ae2af650a7fa17843c84538dde8d9
+
 
 ---
-# Opzioni Group by in SQL Data Warehouse
-La clausola [GROUP BY][GROUP BY] viene utilizzata per aggregare i dati a un set di righe di riepilogo. Include inoltre alcune opzioni che ne estendono la funzionalità che devono essere evitate in quanto non sono supportate direttamente SQL Data Warehouse di Azure.
+# <a name="group-by-options-in-sql-data-warehouse"></a>Opzioni Group by in SQL Data Warehouse
+La clausola [GROUP BY][GROUP BY] viene usata per aggregare i dati a un set di righe di riepilogo. Include inoltre alcune opzioni che ne estendono la funzionalità che devono essere evitate in quanto non sono supportate direttamente SQL Data Warehouse di Azure.
 
 Queste opzioni sono
 
@@ -25,10 +29,10 @@ Queste opzioni sono
 * GROUPING SETS
 * GROUP BY con CUBE
 
-## Opzioni di rollup e raggruppamento di set
+## <a name="rollup-and-grouping-sets-options"></a>Opzioni di rollup e raggruppamento di set
 L'opzione più semplice consiste nell'utilizzare `UNION ALL` invece di eseguire il rollup anziché utilizzare la sintassi esplicita. Il risultato è esattamente lo stesso
 
-Di seguito è riportato un esempio di istruzione group by utilizzando l’opzione `ROLLUP`:
+Di seguito è riportato un esempio di istruzione group by utilizzando l’opzione `ROLLUP` :
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -78,7 +82,7 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 
 Per GROUPING SETS è necessario adottare la stessa entità e creare solo sezioni UNION ALL per i livelli di aggregazione che si desidera visualizzare.
 
-## Opzioni Cube
+## <a name="cube-options"></a>Opzioni Cube
 È possibile creare un GROUP BY WITH CUBE utilizzando l'approccio UNION ALL. Il problema è che il codice può risultare complesso e difficile da gestire. Per risolvere questo problema è possibile utilizzare questo approccio avanzato.
 
 Utilizzare l'esempio precedente.
@@ -176,14 +180,14 @@ ORDER BY 1,2,3
 
 Suddividendo il codice in sezioni e generando un costrutto di ciclo il codice diventa più gestibile e gestibile e sostenibile.
 
-## Passaggi successivi
-Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][Panoramica sullo sviluppo per SQL Data Warehouse].
+## <a name="next-steps"></a>Passaggi successivi
+Per altri suggerimenti sullo sviluppo, vedere la [panoramica sullo sviluppo][panoramica sullo sviluppo].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
 
 <!--Article references-->
-[Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
+[panoramica sullo sviluppo]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [GROUP BY]: https://msdn.microsoft.com/library/ms177673.aspx
@@ -191,4 +195,8 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

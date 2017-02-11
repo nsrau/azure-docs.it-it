@@ -1,23 +1,32 @@
 ---
-title: Azure AD Connect - Accesso utente | Microsoft Docs
+title: Azure AD Connect - Accesso utente | Documentazione Microsoft
 description: Accesso utente Azure Connect AD per le impostazioni personalizzate.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
 editor: curtand
-
+ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 11/01/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9c31cd4c26a9285d9fca42d24bb87c7633df005f
+
 
 ---
 # <a name="azure-ad-connect-user-sign-on-options"></a>Opzioni di accesso utente di Azure AD Connect
-Azure AD Connect consente agli utenti di accedere alle risorse cloud e locali utilizzando le stesse password.  È possibile abilitare questa opzione in diversi modi.
+Azure AD Connect consente agli utenti di accedere alle risorse cloud e locali utilizzando le stesse password. Questo articolo descrive i concetti chiave di ciascun modello di identità per facilitare la scelta dell'identità da usare per l'accesso ad Azure AD.
+
+Se si è già acquisita familiarità con il modello di identità di Azure AD e si desiderano altre informazioni su un metodo specifico, fare clic sull'argomento appropriato.
+
+* [Sincronizzazione delle password](#password-synchronization)
+* [SSO federato (con AD FS)](#federation-using-a-new-or-existing-ad-fs-in-windows-server-2012-r2-farm)
 
 ## <a name="choosing-a-user-sign-in-method"></a>Scelta di un metodo di accesso utente
 Per la maggior parte delle organizzazioni che desiderano semplicemente abilitare l'accesso utente a Office 365, alle applicazioni SaaS e ad altre risorse basate su AD Azure, è consigliabile l'opzione di sincronizzazione password predefinita.
@@ -44,7 +53,7 @@ Grazie all’accesso federato, gli utenti possono accedere ai servizi basati su 
 
 <center>![Cloud](./media/active-directory-aadconnect-user-signin/federatedsignin.png)</center>
 
-#### <a name="to-deploy-federation-with-ad-fs-in-windows-server-2012-r2,-you-will-need-the-following"></a>Per distribuire la federazione con ADFS in Windows Server 2012 R2, è necessario quanto segue
+#### <a name="to-deploy-federation-with-ad-fs-in-windows-server-2012-r2-you-will-need-the-following"></a>Per distribuire la federazione con ADFS in Windows Server 2012 R2, è necessario quanto segue
 Se si distribuisce una nuova farm:
 
 * Un server Windows Server 2012 R2 per il server federativo.
@@ -57,10 +66,14 @@ Se si distribuisce una nuova farm o si utilizza una farm esistente:
 * Credenziali di amministratore locale in qualsiasi server di gruppi di lavoro (non inserito in un dominio) in cui si intende distribuire il ruolo Proxy applicazione Web.
 * Il computer in cui viene eseguita la procedura guidata deve essere in grado di connettersi a qualsiasi altro computer sul quale si desidera installare ADFS o il Proxy applicazione Web tramite Gestione remota Windows.
 
+[Configurazione di SSO con AD FS](connect/active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
+
 #### <a name="sign-on-using-an-earlier-version-of-ad-fs-or-a-third-party-solution"></a>Accedere utilizzando una versione precedente di ADFS o una soluzione di terze parti
 Se è stato già configurato l’accesso al cloud tramite una versione precedente di ADFS (ad esempio ADFS 2.0) o un provider di federazione di terze parti, è possibile ignorare la configurazione dell’accesso utenti tramite Azure AD Connect.  In tal modo sarà possibile ottenere la sincronizzazione più recente e altre funzionalità di Azure AD Connect continuando comunque a utilizzare la soluzione esistente per l'accesso.
 
-## <a name="user-sign-in-and-user-principal-name-(upn)"></a>Accesso utente e nome dell'entità utente (UPN)
+[Elenco di compatibilità di federazione di terze parti di Azure AD](active-directory-aadconnect-federation-compatibility.md)
+
+## <a name="user-sign-in-and-user-principal-name-upn"></a>Accesso utente e nome dell'entità utente (UPN)
 ### <a name="understanding-user-principal-name"></a>Informazioni sul nome dell'entità utente
 In Active Directory il suffisso UPN predefinito è il nome DNS del dominio in cui viene creato l'account utente. Nella maggior parte dei casi si tratta del nome di dominio registrato come dominio dell'organizzazione su Internet. Tuttavia, è possibile aggiungere altri suffissi UPN usando Domini e trust di Active Directory.
 
@@ -69,20 +82,22 @@ L'UPN dell'utente è in formato username@domai. Ad esempio, per l'utente John de
 ### <a name="user-principal-name-in-azure-ad"></a>Nome dell'entità utente in Azure AD
 La procedura guidata di Azure AD Connect usa l'attributo userPrincipalName o, nelle installazioni personalizzate, consente di specificare l'attributo da usare in locale come nome dell'entità utente in Azure AD. Questo è il valore che verrà usato per l'accesso ad Azure AD. Se il valore dell'attributo del nome dell'entità utente non corrisponde a un dominio verificato in Azure AD, Azure AD lo sostituisce con un valore .onmicrosoft.com predefinito.
 
-Ogni directory in Azure Active Directory include un nome di dominio predefinito nel formato contoso.onmicrosoft.com che consente di iniziare a usare Azure o altri servizi Microsoft. È possibile migliorare e semplificare l'esperienza di accesso usando i domini personalizzati. Per informazioni sui nomi di dominio personalizzato in Azure AD e sulla verifica dei domini, vedere [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](active-directory-add-domain.md#add-your-custom-domain-name-to-azure-active-directory)
+Ogni directory in Azure Active Directory include un nome di dominio predefinito nel formato contoso.onmicrosoft.com che consente di iniziare a usare Azure o altri servizi Microsoft. È possibile migliorare e semplificare l'esperienza di accesso usando i domini personalizzati. Per informazioni sui nomi di dominio personalizzato in Azure AD e sulla verifica dei domini, vedere [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](active-directory-add-domain.md#add-a-custom-domain-name-to-your-directory)
 
 ## <a name="azure-ad-sign-in-configuration"></a>Configurazione dell'accesso ad Azure AD
 ### <a name="azure-ad-sign-in-configuration-with-azure-ad-connect"></a>Configurazione dell'accesso ad Azure AD con Azure AD Connect
 L'esperienza di accesso ad Azure AD dipende dalla possibilità per Azure AD di associare il suffisso del nome dell'entità utente dell'utente da sincronizzare a uno dei domini personalizzati verificati nella directory di Azure AD. Azure AD Connect offre una guida alla  configurazione delle impostazioni di accesso in Azure AD, in modo che per l'utente l'esperienza di accesso nel cloud sia simile all'esperienza locale. Azure AD Connect elenca i suffissi UPN definiti per i domini, tenta di associarli a un dominio personalizzato in Azure AD e indica l'azione appropriata da eseguire.
 Nella pagina di accesso di Azure sono riportati i suffissi UPN definiti per l'istanza locale di Active Directory ed è visualizzato lo stato corrispondente per ogni suffisso. I valori dello stato possono essere i seguenti:
 
-* Verificato: Azure AD Connect ha rilevato un dominio verificato corrispondente in Azure AD e non è necessaria alcuna azione
-* Non verificato: Azure AD Connect ha rilevato un dominio corrispondente in Azure AD ma non è verificato. È necessario verificare il dominio personalizzato per garantire che il suffisso UPN degli utenti non venga sostituito dal suffisso predefinito onmicrosoft.com dopo la sincronizzazione.
-* Non aggiunto: Azure AD Connect non ha rilevato un dominio personalizzato corrispondente al suffisso UPN. È necessario aggiungere e verificare un dominio personalizzato corrispondente al suffisso UPN per garantire che il suffisso UPN degli utenti non venga sostituito dal suffisso predefinito onmicrosoft.com dopo la sincronizzazione.
+| Stato | Description | Azione necessaria |
+|:--- |:--- |:--- |
+| Verified |Azure AD Connect ha rilevato un dominio verificato in Azure AD. Tutti gli utenti di questo dominio possono accedere usando le credenziali locali |Non è richiesto alcun intervento |
+| Non verificato |Azure AD Connect ha rilevato un dominio corrispondente in Azure AD ma tale dominio non è verificato. Se il dominio non è verificato, dopo la sincronizzazione il suffisso UPN degli utenti di questo dominio verrà modificato nel prefisso predefinito .onmicrosoft.com. |Verificare il dominio personalizzato in Azure AD. [Altre informazioni](active-directory-add-domain.md#verify-the-domain-name-with-azure-ad) |
+| Non aggiunto |Azure AD Connect non ha rilevato un dominio personalizzato corrispondente al suffisso UPN. Se il dominio non è aggiunto e verificato in Azure, il suffisso UPN degli utenti da questo dominio verrà modificato nell'impostazione predefinita .onmicrosoft.com. |Aggiungere e verificare un dominio personalizzato corrispondente al suffisso UPN [Altre informazioni](active-directory-add-domain.md) |
 
 Nella pagina di accesso di Azure AD sono elencati i suffissi UPN definiti per il servizio Active Directory locale e il dominio personalizzato corrispondente in Azure AD con lo stato attuale della verifica. Nell'installazione personalizzata, è ora possibile selezionare l'attributo per il nome dell'entità utente nella pagina di **accesso ad Azure AD** .
 
-![Pagina di accesso di Azure AD](.\\media\\active-directory-aadconnect-user-signin\\custom_azure_sign_in.png)
+![Pagina di accesso di Azure AD](./media/active-directory-aadconnect-user-signin/custom_azure_sign_in.png)
 
 È possibile fare clic sul pulsante di aggiornamento per recuperare nuovamente lo stato più recente dei domini personalizzati da Azure AD.
 
@@ -99,7 +114,7 @@ UserPrincipalName: l'attributo userPrincipalName verrà usato dagli utenti per l
 
 Per le informazioni seguenti, si supponga di usare il suffisso UPN contoso.com nella directory locale come parte dell'UPN, ad esempio user@contoso.com.
 
-###### <a name="express-settings-/-password-synchronization"></a>Impostazioni rapide / Sincronizzazione delle password
+###### <a name="express-settings--password-synchronization"></a>Impostazioni rapide / Sincronizzazione delle password
 | Stato | Effetto sull'esperienza di accesso degli utenti in Azure |
 |:---:|:--- |
 | Non aggiunto |In questo caso non è stato aggiunto alcun dominio personalizzato per contoso.com nella directory di Azure AD. Gli utenti che usano UPN locali con suffisso @contoso.com, non potranno usare il proprio UPN locale per eseguire l'accesso ad Azure. Dovranno invece usare un nuovo UPN disponibile in Azure AD aggiungendo il suffisso per la directory predefinita di Azure AD. Ad esempio, se si sincronizzano gli utenti con la directory di Azure AD azurecontoso.onmicrosoft.com, all'utente locale user@contoso.com verrà assegnato l'UPN user@azurecontoso.onmicrosoft.com |
@@ -107,7 +122,7 @@ Per le informazioni seguenti, si supponga di usare il suffisso UPN contoso.com n
 | Verified |In questo caso il dominio personalizzato contoso.com è già stato aggiunto e verificato in Azure AD per il suffisso UPN. Gli utenti potranno usare i propri nomi di entità utente locali, ad esempio user@contoso.com,, per accedere ad Azure dopo la sincronizzazione con Azure AD |
 
 ###### <a name="ad-fs-federation"></a>Federazione AD FS
-Non è possibile creare una federazione con il dominio predefinito. onmicrosoft.com in Azure AD o un dominio personalizzato non verificato in Azure AD. Quando si esegue la procedura guidata di  Azure AD Connect, se si seleziona un dominio non verificato per creare una federazione con Azure AD Connect verrà richiesto di creare i record necessari dove è ospitato il servizio DNS per il dominio. Per altre informazioni, vedere [qui](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation).
+Non è possibile creare una federazione con il dominio predefinito. onmicrosoft.com in Azure AD o un dominio personalizzato non verificato in Azure AD. Quando si esegue la procedura guidata di  Azure AD Connect, se si seleziona un dominio non verificato per creare una federazione con Azure AD Connect verrà richiesto di creare i record necessari dove è ospitato il servizio DNS per il dominio. Per altre informazioni, vedere [qui](connect/active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation).
 
 Se si seleziona l'opzione di accesso utente come "Federazione con AD FS", è necessario avere un dominio personalizzato per continuare con la creazione di una federazione in Azure AD. Ai fini di questa discussione, significa che si dovrà aggiungere un dominio personalizzato contoso.com nella directory di Azure AD.
 
@@ -118,7 +133,7 @@ Se si seleziona l'opzione di accesso utente come "Federazione con AD FS", è nec
 | Verified |In questo caso è possibile procedere con la configurazione senza ulteriori azioni |
 
 ## <a name="changing-user-sign-in-method"></a>Modifica del metodo di accesso utente
-È possibile modificare il metodo di accesso utente da Federazione a Sincronizzazione password usando le attività disponibili in Azure AD Connect dopo la configurazione iniziale di Azure AD Connect con la procedura guidata. Eseguire nuovamente la procedura guidata di Azure AD Connect; verrà visualizzato un elenco di attività che è possibile eseguire. Selezionare **Cambia l'accesso utente** dall'elenco di attività. 
+È possibile modificare il metodo di accesso utente da Federazione a Sincronizzazione password usando le attività disponibili in Azure AD Connect dopo la configurazione iniziale di Azure AD Connect con la procedura guidata. Eseguire nuovamente la procedura guidata di Azure AD Connect; verrà visualizzato un elenco di attività che è possibile eseguire. Selezionare **Cambia l'accesso utente** dall'elenco di attività.
 
 ![Cambia l'accesso utente](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
@@ -140,6 +155,9 @@ Ulteriori informazioni su [Integrazione delle identità locali con Azure Active 
 
 Per altre informazioni, vedere [Azure AD Connect: Concetti relativi alla progettazione](active-directory-aadconnect-design-concepts.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

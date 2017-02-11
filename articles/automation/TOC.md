@@ -23,6 +23,7 @@
 ### [Pianificare un runbook](automation-scheduling-a-runbook.md)
 ### [Esecuzione di runbook nel data center](automation-hybrid-runbook-worker.md)
 ### [Configurare parametri di input dei runbook](automation-runbook-input-parameters.md)
+### [Gestione degli errori nei runbook grafici](automation-runbook-graphical-error-handling.md)
 ### [Tenere traccia del processo di un runbook](automation-runbook-execution.md)
 ### [Cambiare le impostazioni dei runbook](automation-runbook-settings.md)
 ### [Gestione dei dati di Automazione di Azure](automation-managing-data.md)

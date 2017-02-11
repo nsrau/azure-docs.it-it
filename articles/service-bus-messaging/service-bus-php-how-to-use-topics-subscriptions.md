@@ -1,19 +1,23 @@
 ---
-title: Come usare gli argomenti del bus di servizio con PHP | Microsoft Docs
+title: Come usare gli argomenti del bus di servizio con PHP | Documentazione Microsoft
 description: Informazioni su come usare gli argomenti del bus di servizio con PHP in Azure.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: php
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: faaa4bbd-f6ef-42ff-aca7-fc4353976449
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 05/10/2016
+ms.date: 10/14/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c1d58e912f3b08c0eeff3724658301e8c6b28be5
+
 
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio
@@ -57,7 +61,7 @@ use WindowsAzure\Common\ServicesBuilder;
 Nei seguenti esempi l'istruzione `require_once` verrà sempre visualizzata, ma si fa riferimento solo alle classi necessarie per eseguire l'esempio.
 
 ## <a name="set-up-a-service-bus-connection"></a>Configurare una stringa di connessione per il bus di servizio
-Per creare un'istanza di un client del bus di servizio di Azure, è necessario innanzitutto disporre di una stringa di connessione valida conforme a questo formato:
+Per creare un'istanza di un client del bus di servizio, è necessario innanzitutto disporre di una stringa di connessione valida nel seguente formato:
 
 ```
 Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]
@@ -99,7 +103,7 @@ use WindowsAzure\ServiceBus\Models\TopicInfo;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {       
+try    {        
     // Create topic.
     $topicInfo = new TopicInfo("mytopic");
     $serviceBusRestProxy->createTopic($topicInfo);
@@ -122,8 +126,8 @@ catch(ServiceException $e){
 ## <a name="create-a-subscription"></a>Creare una sottoscrizione
 È possibile usare il metodo **ServiceBusRestProxy->createSubscription** anche per creare sottoscrizioni di argomenti. Le sottoscrizioni sono denominate e possono includere un filtro facoltativo che limita l'insieme dei messaggi passati alla coda virtuale della sottoscrizione.
 
-### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Creare una sottoscrizione con il filtro (MatchAll) predefinito
-Il filtro predefinito **MatchAll** viene usato se non vengono specificati altri filtri durante la creazione di una nuova sottoscrizione. Quando si usa il filtro **MatchAll**, tutti i messaggi pubblicati nell'argomento vengono inseriti nella coda virtuale della sottoscrizione. Nell'esempio seguente viene creata una sottoscrizione denominata 'mysubscription' e viene usato il filtro predefinito **MatchAll**.
+### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Creare una sottoscrizione con il filtro (MatchAll) predefinito
+Il filtro **MatchAll** è il filtro predefinito e viene usato se non vengono specificati altri filtri durante la creazione di una nuova sottoscrizione. Quando si usa il filtro **MatchAll**, tutti i messaggi pubblicati nell'argomento vengono inseriti nella coda virtuale della sottoscrizione. Nell'esempio seguente viene creata una sottoscrizione denominata 'mysubscription' e viene usato il filtro predefinito **MatchAll**.
 
 ```
 require_once 'vendor/autoload.php';
@@ -135,7 +139,7 @@ use WindowsAzure\ServiceBus\Models\SubscriptionInfo;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {
+try    {
     // Create subscription.
     $subscriptionInfo = new SubscriptionInfo("mysubscription");
     $serviceBusRestProxy->createSubscription("mytopic", $subscriptionInfo);
@@ -201,7 +205,7 @@ use WindowsAzure\ServiceBus\Models\BrokeredMessage;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {
+try    {
     // Create message.
     $message = new BrokeredMessage();
     $message->setBody("my message");
@@ -256,7 +260,7 @@ use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {
+try    {
     // Set receive mode to PeekLock (default is ReceiveAndDelete)
     $options = new ReceiveMessageOptions();
     $options->setPeekLock();
@@ -285,7 +289,7 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="how-to:-handle-application-crashes-and-unreadable-messages"></a>Procedura: Gestire arresti anomali e messaggi illeggibili dell'applicazione
+## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Procedura: Gestire arresti anomali e messaggi illeggibili dell'applicazione
 Il bus di servizio fornisce funzionalità per il ripristino gestito automaticamente in caso di errori nell'applicazione o di problemi di elaborazione di un messaggio. Se un'applicazione ricevitore non è in grado di elaborare il messaggio per un qualsiasi motivo, può chiamare il metodo **unlockMessage**, anziché **deleteMessage**, per il messaggio ricevuto. In questo modo, il bus di servizio sbloccherà il messaggio nella coda rendendolo nuovamente disponibile per la ricezione da parte della stessa o da un'altra applicazione consumer.
 
 Al messaggio bloccato nella coda è inoltre associato un timeout. Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout, ad esempio a causa di un arresto anomalo, il bus di servizio sbloccherà automaticamente il messaggio rendendolo nuovamente disponibile per la ricezione.
@@ -307,7 +311,7 @@ use WindowsAzure\Common\ServiceException;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {       
+try    {        
     // Delete topic.
     $serviceBusRestProxy->deleteTopic("mytopic");
 }
@@ -328,7 +332,7 @@ $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, vedere [Code, argomenti e sottoscrizioni][] per altre informazioni.
+A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, vedere [Code, argomenti e sottoscrizioni del bus di servizio][Code, argomenti e sottoscrizioni del bus di servizio] per altre informazioni.
 
 [Code, argomenti e sottoscrizioni del bus di servizio]: service-bus-queues-topics-subscriptions.md
 [sqlfilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
@@ -337,6 +341,6 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

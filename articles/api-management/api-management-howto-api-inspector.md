@@ -2,62 +2,66 @@
 title: Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure
 description: Informazioni su come tenere traccia delle chiamate usando Controllo API in Gestione API di Azure.
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 4b222327-c8a4-4f33-9a06-adff2a9834d9
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dd806a187d1ac2c34020325753ac4f68b44064de
+
 
 ---
-# Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure
-Gestione API fornisce uno strumento per il controllo delle API per aiutare gli sviluppatori ad eseguire il debug e la risoluzione dei problemi correlati alle API. È possibile usare Controllo API sia a livello di codice sia direttamente dal portale per sviluppatori.
+# <a name="how-to-use-the-api-inspector-to-trace-calls-in-azure-api-management"></a>Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure
+Gestione API fornisce uno strumento per il controllo delle API per aiutare gli sviluppatori ad eseguire il debug e la risoluzione dei problemi correlati alle API. È possibile usare Controllo API sia a livello di codice sia direttamente dal portale per sviluppatori. 
 
-Oltre alle operazioni di analisi, Controllo API consente anche di tenere traccia delle valutazioni delle [espressioni di criteri](https://msdn.microsoft.com/library/azure/dn910913.aspx). Per una dimostrazione, vedere il video [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avanzare rapidamente al minuto 21:00.
+Oltre alle operazioni di analisi, Controllo API consente anche di tenere traccia delle valutazioni delle [espressioni di criteri](https://msdn.microsoft.com/library/azure/dn910913.aspx) . Per una dimostrazione, vedere il video [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avanzare rapidamente al minuto 21:00.
 
 Questa guida contiene una procedura dettagliata sull'uso di Controllo API.
 
 > [!NOTE]
-> Le tracce di Controllo API sono generate e rese disponibili solo per le richieste contenenti chiavi di sottoscrizione che appartengono all'account [amministratore](api-management-howto-create-groups.md).
+> Le tracce di Controllo API sono generate e rese disponibili solo per le richieste contenenti chiavi di sottoscrizione che appartengono all'account [amministratore](api-management-howto-create-groups.md) .
 > 
 > 
 
 ## <a name="trace-call"> </a> Usare Controllo API per tenere traccia di una chiamata
 Per usare Controllo API, aggiungere un'intestazione di richiesta **ocp-apim-trace: true** alla chiamata di operazioni, quindi scaricare ed esaminare la traccia usando l'URL indicato dall'intestazione di risposta **ocp-apim-trace-location**. Questa operazione può essere eseguita sia a livello di codice che direttamente dal portale per sviluppatori.
 
-Questa esercitazione illustra come usare Controllo API per tenere traccia delle operazioni tramite l'API Basic Calculator configurata nell'esercitazione introduttiva [Gestire la prima API](api-management-get-started.md). Se tale esercitazione non è stata completata, sono sufficienti pochi minuti per importare l'API Basic Calculator oppure è possibile usare un'altra API a scelta, ad esempio l'API Echo. Ogni istanza del servizio Gestione API è preconfigurata con un'API Echo utilizzabile per sperimentare e ottenere altre informazioni su Gestione API. L'API Echo restituisce qualunque input gli venga inviato. Per usarla, è possibile richiamare un qualsiasi verbo HTTP. Il valore restituito sarà semplicemente ciò che si è inviato.
+Questa esercitazione illustra come usare Controllo API per tenere traccia delle operazioni tramite l'API Basic Calculator configurata nell'esercitazione introduttiva [Gestire la prima API](api-management-get-started.md). Se tale esercitazione non è stata completata, sono sufficienti pochi minuti per importare l'API Basic Calculator oppure è possibile usare un'altra API a scelta, ad esempio l'API Echo. Ogni istanza del servizio Gestione API è preconfigurata con un'API Echo utilizzabile per sperimentare e ottenere altre informazioni su Gestione API. L'API Echo restituisce qualunque input gli venga inviato. Per usarla, è possibile richiamare un qualsiasi verbo HTTP. Il valore restituito sarà semplicemente ciò che si è inviato. 
 
-Per iniziare, fare clic sul **portale per sviluppatori** nel portale di Azure classico per il servizio Gestione API. È possibile chiamare le operazioni direttamente dal portale per sviluppatori, che consente di visualizzare e testare le operazioni di un'API in tutta comodità.
+Per iniziare, fare clic su **Portale per sviluppatori** nel portale di Azure per il servizio Gestione API. È possibile chiamare le operazioni direttamente dal portale per sviluppatori, che consente di visualizzare e testare le operazioni di un'API in tutta comodità.
 
-> Se non è stata ancora creata un'istanza del servizio Gestione API, vedere [Creare un'istanza del servizio Gestione API][Creare un'istanza del servizio Gestione API] nell'esercitazione [Introduzione a Gestione API di Azure][Introduzione a Gestione API di Azure].
+> Se non è ancora stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][Creare un'istanza di Gestione API] nell'esercitazione [Introduzione a Gestione API di Azure][Introduzione a Gestione API di Azure].
 > 
 > 
 
 ![Portale per sviluppatori di Gestione API][api-management-developer-portal-menu]
 
-Fare clic su **API** nel menu superiore e quindi su **Basic Calculator**.
+Fare clic su **API** nel menu superiore, quindi su **Basic Calculator** (Calcolatrice di base).
 
 ![API Echo][api-management-api]
 
-Fare clic su **Try it** per provare a eseguire l'operazione **Add two integers**.
+Fare clic su **Prova** per provare a eseguire l'operazione **Aggiungere due Integer**.
 
 ![Prova][api-management-open-console]
 
-Mantenere i valori predefiniti dei parametri e selezionare la chiave di sottoscrizione per il prodotto da usare nell'elenco a discesa **subscription-key**.
+Mantenere i valori predefiniti dei parametri e selezionare la chiave di sottoscrizione per il prodotto da usare nell'elenco a discesa **subscription-key** .
 
 Per impostazione predefinita, nel portale per sviluppatori l'intestazione **Ocp-Apim-Trace** è già impostata su **true**. Questa intestazione indica se viene o meno generata una traccia.
 
-![Invio][api-management-http-get]
+![Send][api-management-http-get]
 
 Fare clic su **Send** per richiamare l'operazione.
 
-![Invio][api-management-send-results]
+![Send][api-management-send-results]
 
 Le intestazioni di risposta conterranno un elemento **ocp-apim-trace-location** con un valore simile a quello dell'esempio seguente.
 
@@ -66,7 +70,7 @@ Le intestazioni di risposta conterranno un elemento **ocp-apim-trace-location** 
 È possibile scaricare la traccia dal percorso specificato e quindi analizzarla, come illustrato nel passaggio seguente.
 
 ## <a name="inspect-trace"> </a>Esaminare la traccia
-Per rivedere i valori nella traccia, scaricare il file di traccia dell'URL **ocp-apim-trace-location**. Si tratta di un file di testo in formato JSON, contenente voci simili a quelle illustrate nell'esempio seguente.
+Per rivedere i valori nella traccia, scaricare il file di traccia dell'URL **ocp-apim-trace-location** . Si tratta di un file di testo in formato JSON, contenente voci simili a quelle illustrate nell'esempio seguente.
 
     {
         "traceId": "abcd8ea63d134c1fabe6371566c7cbea",
@@ -234,17 +238,17 @@ Per rivedere i valori nella traccia, scaricare il file di traccia dell'URL **ocp
 > 
 > 
 
-[Use API Inspector to trace a call]: #trace-call
-[Inspect the trace]: #inspect-trace
-[Next steps]: #next-steps
+[Usare Controllo API per tenere traccia di una chiamata]: #trace-call
+[Esaminare la traccia]: #inspect-trace
+[Passaggi successivi]: #next-steps
 
-[Configure API settings]: api-management-howto-create-apis.md#configure-api-settings
-[Responses]: api-management-howto-add-operations.md#responses
-[How create and publish a product]: api-management-howto-add-products.md
+[Configurare le impostazioni API]: api-management-howto-create-apis.md#configure-api-settings
+[Risposte]: api-management-howto-add-operations.md#responses
+[Come creare e pubblicare un prodotto]: api-management-howto-add-products.md
 
 [Introduzione a Gestione API di Azure]: api-management-get-started.md
-[Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
-[Azure Classic Portal]: https://manage.windowsazure.com/
+[Creare un'istanza di Gestione API]: api-management-get-started.md#create-service-instance
+[Portale di Azure classico]: https://manage.windowsazure.com/
 
 
 [api-management-developer-portal-menu]: ./media/api-management-howto-api-inspector/api-management-developer-portal-menu.png
@@ -260,4 +264,7 @@ Per rivedere i valori nella traccia, scaricare il file di traccia dell'URL **ocp
 
 
 
-<!---HONumber=AcomDC_0831_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

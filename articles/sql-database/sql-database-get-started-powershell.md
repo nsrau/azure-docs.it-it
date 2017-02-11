@@ -1,6 +1,6 @@
 ---
-title: Nuova configurazione del database SQL con PowerShell | Documentazione Microsoft
-description: "Informazioni su come creare un database SQL con PowerShell. Le comuni attività di configurazione del database possono essere gestite tramite i cmdlet di PowerShell."
+title: 'PowerShell: introduzione al database SQL di Azure | Documentazione Microsoft'
+description: Come creare un server logico di database SQL, una regola del firewall a livello di server e un database usando PowerShell. Viene anche illustrato come effettuare una query dei database usando PowerShell.
 keywords: creazione di un nuovo database sql,configurazione del database
 services: sql-database
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.workload: data-management
 ms.date: 12/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: b557c6d3591b1d56144651e876fa4bb1b0646935
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: 62f29382a2b29c7e5b06126b0ab60c7136186103
 
 
 ---
 
-# <a name="get-started-with-azure-sql-database-servers-databases-and-firewall-rules-by-using-azure-powershell"></a>Introduzione ai server del database SQL di Azure, ai database e alle regole del firewall usando Azure PowerShell
+# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-powershell"></a>Esercitazione sul database SQL: Introduzione ai server di database SQL di Azure, ai database e alle regole del firewall con PowerShell
 
 In questa esercitazione introduttiva si apprenderà come usare PowerShell per:
 
@@ -31,9 +31,9 @@ In questa esercitazione introduttiva si apprenderà come usare PowerShell per:
 * Creare un server logico di Azure SQL
 * Visualizzare le proprietà del server di Azure SQL
 * Creare una regola del firewall a livello di server
-* Creare il database di esempio AdventureWorksLT come database autonomo
+* Creare il database di esempio AdventureWorksLT come database singolo
 * Visualizzare le proprietà del database di esempio Adventure Works LT
-* Creare un database autonomo vuoto
+* Creare un database singolo vuoto
 
 In questa esercitazione si apprenderà anche come:
 
@@ -115,8 +115,8 @@ $serverResourceGroupName = $resourceGroupName
 $serverAdmin = "{server-admin}"
 $serverAdminPassword = "{server-admin-password}"
 
-$securePassword = ConvertTo-SecureString –String $serverAdminPassword –AsPlainText -Force
-$serverCreds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+$securePassword = ConvertTo-SecureString -String $serverAdminPassword -AsPlainText -Force
+$serverCreds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
 $myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
 if(!$myServer)
@@ -232,7 +232,7 @@ $storageKeyType = "StorageAccessKey"
 $storageUri = "{storage-uri}" # URL of bacpac file you uploaded to your storage account
 $storageKey = "{storage-key}" # key1 in the Access keys setting of your storage account
 
-$importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $resourceGroupName –ServerName $serverName –DatabaseName $databaseName –StorageKeytype $storageKeyType –StorageKey $storageKey -StorageUri $storageUri –AdministratorLogin $serverAdmin –AdministratorLoginPassword $securePassword –Edition $databaseEdition –ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
+$importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -StorageKeytype $storageKeyType -StorageKey $storageKey -StorageUri $storageUri -AdministratorLogin $serverAdmin -AdministratorLoginPassword $securePassword -Edition $databaseEdition -ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
 
 
 Do {
@@ -385,8 +385,8 @@ $serverResourceGroupName = $myServerResourceGroupName
 $serverAdmin = $myServerAdmin
 $serverAdminPassword = $myServerAdminPassword
 
-$securePassword = ConvertTo-SecureString –String $serverAdminPassword –AsPlainText -Force
-$serverCreds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+$securePassword = ConvertTo-SecureString -String $serverAdminPassword -AsPlainText -Force
+$serverCreds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
 $myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
 if(!$myServer)
@@ -475,7 +475,7 @@ $storageKeyType = $myStorageKeyType
 $storageUri = $myStorageUri
 $storageKey = $myStorageKey
 
-$importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $resourceGroupName –ServerName $serverName –DatabaseName $databaseName –StorageKeytype $storageKeyType –StorageKey $storageKey -StorageUri $storageUri –AdministratorLogin $serverAdmin –AdministratorLoginPassword $securePassword –Edition $databaseEdition –ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
+$importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -StorageKeytype $storageKeyType -StorageKey $storageKey -StorageUri $storageUri -AdministratorLogin $serverAdmin -AdministratorLoginPassword $securePassword -Edition $databaseEdition -ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
 
 Do {
      $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
@@ -577,6 +577,6 @@ Dopo aver completato questa prima esercitazione introduttiva e aver creato un da
 [Informazioni sul database SQL](sql-database-technical-overview.md)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -44,10 +44,10 @@
 ### [Procedure consigliate per la sicurezza di rete e i servizi cloud](../best-practices-network-security.md)
 ### [Routing asimmetrico](expressroute-asymmetric-routing.md)
 
-## Risolvere problemi
+## Risoluzione dei problemi
+### [Verifica della connettività ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 ### [Recupero di tabelle ARP](expressroute-troubleshooting-arp-resource-manager.md)
 ### [Recupero di tabelle ARP (versione classica)](expressroute-troubleshooting-arp-classic.md)
-
 
 # riferimento
 ## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
@@ -80,6 +80,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=expressroute)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

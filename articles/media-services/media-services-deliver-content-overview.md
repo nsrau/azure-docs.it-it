@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/07/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0af1ca64301e2fb0a3af30e1da8b5d5277f14146
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: 42428d9456c5ea00192a981265bd50263cbf66ba
 
 
 ---
@@ -26,14 +26,14 @@ Quando si distribuiscono contenuti in streaming o video on demand ai clienti, l'
 Per raggiungere questo obiettivo è possibile:
 
 * Codificare il flusso in un flusso video a bitrate multipli (a bitrate adattivo). In questo modo la qualità e le condizioni di rete saranno gestite adeguatamente.
-* Usare la funzione di [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md) di Servizi multimediali di Microsoft Azure per riorganizzare dinamicamente il flusso in nuovi pacchetti creati con protocolli diversi. In questo modo si garantisce la trasmissione a diversi tipi di dispositivi. Servizi multimediali supporta le operazioni di trasmissione nelle seguenti tecnologie di streaming a bitrate adattivo: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di licenza Adobe PrimeTime/Access).
+* Usare la funzione di [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md) di Servizi multimediali di Microsoft Azure per riorganizzare dinamicamente il flusso in nuovi pacchetti creati con protocolli diversi. In questo modo si garantisce la trasmissione a diversi tipi di dispositivi. Servizi multimediali supporta le tecnologie di streaming a bitrate adattivo seguenti: HTTP Live Streaming (HLS), Smooth Streaming e MPEG-DASH.
 
 In questo articolo viene fornita una panoramica di importanti concetti di consegna dei contenuti.
 
 Per verificare i problemi noti, vedere [Problemi noti](media-services-deliver-content-overview.md#known-issues).
 
 ## <a name="dynamic-packaging"></a>creazione dinamica dei pacchetti
-Il servizio di creazione dinamica dei pacchetti fornito da Servizi multimediali consente di distribuire i contenuti codificati in formato MP4 o Smooth Streaming a bitrate adattivo nei formati di streaming supportati da Servizi multimediali (MPEG DASH, HLS, Smooth Streaming, HDS), senza dover ricreare i pacchetti con questi formati di streaming. Si consiglia di distribuzione il contenuto con la creazione dinamica dei pacchetti.
+La creazione dinamica dei pacchetti offerta da Servizi multimediali consente di distribuire i contenuti codificati in formato MP4 o Smooth Streaming a bitrate adattivo nei formati di streaming supportati da Servizi multimediali, ovvero MPEG-DASH, HLS, Smooth Streaming, senza dover ricreare i pacchetti in questi formati di streaming. Si consiglia di distribuzione il contenuto con la creazione dinamica dei pacchetti.
 
 Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è necessario seguire questa procedura:
 
@@ -73,7 +73,7 @@ I localizzatori non sono progettati per gestire il controllo dell'accesso per ut
 Quando si crea un localizzatore, è possibile che si verifichi un ritardo di 30 secondi a causa dei processi di archiviazione e propagazione necessari in Archiviazione di Azure.
 
 ## <a name="adaptive-streaming"></a>Streaming adattivo
-Le tecnologie a bitrate adattivo consentono al lettore video di determinare le condizioni della rete e di effettuare una selezione tra più velocità in bit. Se le prestazioni della comunicazione di rete diminuiscono, il client può selezionare una velocità in bit inferiore in modo che la riproduzione del video possa continuare con una qualità leggermente ridotta. Se invece le prestazioni migliorano, il client può passare a una velocità in bit maggiore e fornire quindi una migliore qualità video. Servizi multimediali di Azure supporta le seguenti tecnologie a bitrate adattivo: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS.
+Le tecnologie a bitrate adattivo consentono al lettore video di determinare le condizioni della rete e di effettuare una selezione tra più velocità in bit. Se le prestazioni della comunicazione di rete diminuiscono, il client può selezionare una velocità in bit inferiore in modo che la riproduzione del video possa continuare con una qualità leggermente ridotta. Se invece le prestazioni migliorano, il client può passare a una velocità in bit maggiore e fornire quindi una migliore qualità video. Servizi multimediali di Azure supporta le tecnologie a bitrate adattivo seguenti: HTTP Live Streaming (HLS), Smooth Streaming e MPEG-DASH.
 
 Per poter fornire agli utenti URL di streaming, è prima necessario creare un localizzatore OnDemandOrigin. Creando il localizzatore è possibile ottenere il valore Path di base dell'asset che include i contenuti da trasmettere in streaming. Tuttavia, per trasmettere in streaming questi contenuti, è necessario modificare ulteriormente il percorso. Per creare un URL completo per il file manifesto di streaming, si deve concatenare il valore Path del localizzatore e il nome del file manifesto (nomefile.ism). Quindi aggiungere **/Manifest** e un formato appropriato (se necessario) al percorso di origine del localizzatore.
 
@@ -120,11 +120,6 @@ Per impostazione predefinita, il manifesto Smooth Streaming contiene il tag di r
 {nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=fmp4-v20)
 
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
-
-### <a name="hds-for-adobe-primetimeaccess-licensees-only"></a>HDS (solo per licenze Adobe PrimeTime/Access)
-{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=f4m-f4f)
-
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f)
 
 ## <a name="progressive-download"></a>Download progressivo
 Con il download progressivo è possibile avviare la riproduzione di file multimediali prima che il download dell'intero file sia stato completato. Non è possibile eseguire il download progressivo di file .ism* (ismv, isma, ismt o ismc).
@@ -189,6 +184,6 @@ Nella versione del servizio di luglio 2016, il manifesto Smooth Streaming genera
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

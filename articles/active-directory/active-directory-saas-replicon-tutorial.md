@@ -1,11 +1,11 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Replicon | Microsoft Docs'
-description: Informazioni su come usare Replicon con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora.
+description: Informazioni su come usare Replicon con Azure Active Directory per abilitare l&quot;accesso Single Sign-On, il provisioning automatizzato e altro ancora.
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 02a62f15-917c-417c-8d80-fe685e3fd601
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1dfd8edcae7d54d4ba8456a424a3fbc40d45c777
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-replicon"></a>Esercitazione: Integrazione di Azure Active Directory con Replicon
+# <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Esercitazione: Integrazione di Azure Active Directory con Replicon
 In questa esercitazione viene illustrata l'integrazione di Azure e Replicon. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 * Sottoscrizione di Azure valida
@@ -35,7 +39,7 @@ Lo scenario descritto in questa esercitazione include i blocchi predefiniti segu
 ## <a name="enabling-the-application-integration-for-replicon"></a>Abilitazione dell'integrazione dell'applicazione per Replicon
 In questa sezione viene descritto come abilitare l'integrazione dell'applicazione per Replicon.
 
-### <a name="to-enable-the-application-integration-for-replicon,-perform-the-following-steps:"></a>Per abilitare l'integrazione dell'applicazione per Replicon, eseguire la procedura seguente:
+### <a name="to-enable-the-application-integration-for-replicon-perform-the-following-steps"></a>Per abilitare l'integrazione dell'applicazione per Replicon, eseguire la procedura seguente:
 1. Nel portale di Azure classico fare clic su **Active Directory**nel riquadro di spostamento sinistro.
    
    ![Active Directory](./media/active-directory-saas-replicon-tutorial/IC700993.png "Active Directory")
@@ -60,7 +64,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Replicon tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML.
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
 1. Nella pagina di integrazione dell'applicazione **Replicon** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
    ![Configura accesso Single Sign-On](./media/active-directory-saas-replicon-tutorial/IC777801.png "Configure single sign-on")
@@ -75,7 +79,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
    2. Nella casella di testo **Replicon Reply URL** (URL di risposta Replicon) digitare l'URL **AssertionConsumerService** di Replicon, ad esempio *https://global.replicon.com/!/saml2/company/sso/post*.  
       
       > [!NOTE]
-      > È possibile ottenere l'URL dai metadati Replicon in:         **https://global.replicon.com/!/saml2/\<YourCompanyKey\>**.
+      > È possibile ottenere l'URL dai metadati Replicon in: **https://global.replicon.com/!/saml2/\<YourCompanyKey\>**.
       > 
       > 
    3. Fare clic su **Avanti**
@@ -103,7 +107,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 Per consentire agli utenti di Azure AD di accedere a Replicon, è necessario eseguirne il provisioning in Replicon.  
 Nel caso di Replicon, il provisioning è un'attività manuale.
 
-### <a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>Per configurare il provisioning utente, seguire questa procedura:
+### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Per configurare il provisioning utente, seguire questa procedura:
 1. In una finestra del Web browser accedere al sito aziendale di Replicon come amministratore.
 2. Passare ad **Amministrazione \> Utenti**.
    
@@ -129,7 +133,7 @@ Nel caso di Replicon, il provisioning è un'attività manuale.
 ## <a name="assigning-users"></a>Assegnazione degli utenti
 Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
-### <a name="to-assign-users-to-replicon,-perform-the-following-steps:"></a>Per assegnare gli utenti ad Replicon, eseguire la procedura seguente:
+### <a name="to-assign-users-to-replicon-perform-the-following-steps"></a>Per assegnare gli utenti ad Replicon, eseguire la procedura seguente:
 1. Nel portale di Azure classico creare un account di test.
 2. Nella pagina di integrazione dell'applicazione **Replicon** fare clic su **Assegna utenti**.
    
@@ -140,6 +144,9 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

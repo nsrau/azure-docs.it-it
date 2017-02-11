@@ -6,8 +6,8 @@ services: documentdb
 author: h0n
 manager: jhubbard
 editor: mimig
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: cd1b7f70-ef99-40b7-ab1c-f5f3e97641f7
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2016
 ms.author: hawong
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 35c469ce0cfb99dc6a26fbcc0734938ad6b66fd7
+
 
 ---
-# <a name="power-bi-tutorial-for-documentdb:-visualize-data-using-the-power-bi-connector"></a>Esercitazione su Power BI per DocumentDB: Visualizzare dati tramite il connettore Power BI
+# <a name="power-bi-tutorial-for-documentdb-visualize-data-using-the-power-bi-connector"></a>Esercitazione su Power BI per DocumentDB: Visualizzare dati tramite il connettore Power BI
 [PowerBI.com](https://powerbi.microsoft.com/) è un servizio online dove è possibile creare e condividere dashboard e report con dati importanti per gli utenti e l'organizzazione.  Power BI Desktop è uno strumento per la creazione di report dedicato che consente di recuperare dati da diverse origini dati, unire e trasformare i dati, creare visualizzazioni e report potenti e pubblicare i report in Power BI.  Con la versione più recente di Power BI Desktop è ora possibile connettersi al proprio account DocumentDB tramite il connettore DocumentDB per Power BI.   
 
 Questa esercitazione su Power BI illustra in dettaglio i passaggi per connettersi a un account DocumentDB di Power BI Desktop, passare a una raccolta da cui estrarre i dati con lo strumento di navigazione, trasformare i dati JSON in formato tabulare tramite l'Editor di query di Power BI Desktop e creare e pubblicare un report in PowerBI.com.
@@ -42,24 +46,24 @@ Prima di seguire le istruzioni di questa esercitazione su Power BI, verificare c
 
 Per condividere i report in PowerBI.com, è necessario avere un account in PowerBI.com.  Per altre informazioni su Power BI in versione gratuita o Power BI Pro, visitare il sito [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 
-## <a name="let's-get-started"></a>Attività iniziali
+## <a name="lets-get-started"></a>Attività iniziali
 In questa esercitazione si immagini di essere un geologo che studia i vulcani di tutto il mondo.  I dati sui vulcani sono archiviati in un account DocumentDB e i documenti JSON sono simili al seguente.
 
     {
         "Volcano Name": "Rainier",
-        "Country": "United States",
-        "Region": "US-Washington",
-        "Location": {
+           "Country": "United States",
+          "Region": "US-Washington",
+          "Location": {
             "type": "Point",
             "coordinates": [
-            -121.758,
-            46.87
+              -121.758,
+              46.87
             ]
-        },
-        "Elevation": 4392,
-        "Type": "Stratovolcano",
-        "Status": "Dendrochronology",
-        "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
+          },
+          "Elevation": 4392,
+          "Type": "Stratovolcano",
+          "Status": "Dendrochronology",
+          "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
     }
 
 Si vogliono recuperare i dati sui vulcani dall'account DocumentDB e visualizzare dati in un rapporto di Power BI interattivo, come quello riportato di seguito.
@@ -171,7 +175,7 @@ Per condividere il report, è necessario avere un account in PowerBI.com.
    
     ![Pubblicazione su Power BI riuscita Aprire Esercitazione in Power BI](./media/documentdb-powerbi-visualize/power_bi_connector_open_in_powerbi.png)
 
-## <a name="create-a-dashboard-in-powerbi.com"></a>Creare un dashboard in Power BI
+## <a name="create-a-dashboard-in-powerbicom"></a>Creare un dashboard in Power BI
 Ora che si dispone di un report, è possibile condividerlo in PowerBI.com
 
 Quando si pubblica il report da Power BI Desktop a PowerBI.com, nel tenant di PowerBI.com. vengono generati un **report** e un **set di dati**. Ad esempio, dopo aver pubblicato un report denominato **PowerBITutorial** su PowerBI.com, PowerBITutorial verrà visualizzato in entrambe le sezioni **Report** e **Set di dati** in PowerBI.com.
@@ -186,7 +190,7 @@ Dopodiché, seguire le istruzioni fornite in [Aggiungere un riquadro da un repor
 
 È inoltre possibile eseguire modifiche ad hoc al report prima di creare un dashboard. Tuttavia, si consiglia l'uso di Power BI Desktop per apportare le modifiche e ripubblicare il report su PowerBI.com.
 
-## <a name="refresh-data-in-powerbi.com"></a>Aggiornare i dati in PowerBI.com
+## <a name="refresh-data-in-powerbicom"></a>Aggiornare i dati in PowerBI.com
 Esistono due modi per aggiornare i dati: procedura ad hoc e pianificata.
 
 Per un aggiornamento ad hoc, è sufficiente fare clic su (...) accanto al **set di dati**, ad esempio PowerBITutorial. A questo punto viene visualizzato un elenco di azioni, tra cui **Aggiorna adesso**. Fare clic su **Aggiorna adesso** per aggiornare i dati.
@@ -209,6 +213,9 @@ Per un aggiornamento pianificato, attenersi alla seguente procedura.
 * Per altre informazioni su Power BI, vedere [Introduzione a Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 * Per altre informazioni su DocumentDB, vedere la [pagina di destinazione relativa alla documentazione di DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

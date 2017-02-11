@@ -1,11 +1,11 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con PolicyStat | Microsoft Docs'
-description: Informazioni su come usare PolicyStat con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora.
+title: 'Esercitazione: Integrazione di Azure Active Directory con PolicyStat | Documentazione Microsoft'
+description: Informazioni su come usare PolicyStat con Azure Active Directory per abilitare l&quot;accesso Single Sign-On, il provisioning automatizzato e altro ancora.
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: af5eb0f1-1c8e-4809-b0c4-8ccfb915ca42
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 738184f4a253201a9aa7581e03d269a06d7cf48a
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-policystat"></a>Esercitazione: Integrazione di Azure Active Directory con PolicyStat
+# <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Esercitazione: Integrazione di Azure Active Directory con PolicyStat
 In questa esercitazione viene illustrata l'integrazione di Azure e PolicyStat.  
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -36,7 +40,7 @@ Lo scenario descritto in questa esercitazione include i blocchi predefiniti segu
 ## <a name="enabling-the-application-integration-for-policystat"></a>Abilitazione dell'integrazione dell'applicazione per PolicyStat
 In questa sezione viene descritto come abilitare l'integrazione dell'applicazione per PolicyStat.
 
-### <a name="to-enable-the-application-integration-for-policystat,-perform-the-following-steps:"></a>Per abilitare l'integrazione dell'applicazione per PolicyStat, eseguire la procedura seguente:
+### <a name="to-enable-the-application-integration-for-policystat-perform-the-following-steps"></a>Per abilitare l'integrazione dell'applicazione per PolicyStat, eseguire la procedura seguente:
 1. Nel portale di Azure classico fare clic su **Active Directory**nel riquadro di spostamento sinistro.
    
    ![Active Directory](./media/active-directory-saas-policystat-tutorial/IC700993.png "Active Directory")
@@ -65,7 +69,7 @@ La schermata seguente illustra un esempio relativo a questa operazione.
 
 ![Attributi](./media/active-directory-saas-policystat-tutorial/IC808628.png "Attributes")
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
 1. Nella pagina di integrazione dell'applicazione **PolicyStat** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
    ![Configura accesso Single Sign-On](./media/active-directory-saas-policystat-tutorial/IC808629.png "Configure Single Sign-On")
@@ -129,7 +133,7 @@ Gli utenti verranno vengono aggiunti automaticamente al primo accesso tramite il
 ## <a name="assigning-users"></a>Assegnazione degli utenti
 Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
-### <a name="to-assign-users-to-policystat,-perform-the-following-steps:"></a>Per assegnare gli utenti a PolicyStat eseguire la procedura seguente:
+### <a name="to-assign-users-to-policystat-perform-the-following-steps"></a>Per assegnare gli utenti a PolicyStat eseguire la procedura seguente:
 1. Nel portale di Azure classico creare un account di test.
 2. Nella pagina di integrazione dell'applicazione **PolicyStat** fare clic su **Assegna utenti**.
    
@@ -140,6 +144,9 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

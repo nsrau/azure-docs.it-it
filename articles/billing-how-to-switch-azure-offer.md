@@ -4,7 +4,7 @@ description: Informazioni su come modificare la sottoscrizione di Azure e passar
 services: 
 documentationcenter: 
 author: genlin
-manager: mbaldwin
+manager: jlian
 editor: 
 tags: billing,top-support-issue
 ms.assetid: aae227b3-6d64-4550-a5b6-d359f53f0a59
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 12/6/2016
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c7fdfb6e915269d171f1a9fa1a397faefd8b8a99
+ms.sourcegitcommit: c18614f1c096eb76c6a28a9038dab079e04cd4db
+ms.openlocfilehash: 91ad4b1a661e110f7ce8f0ca4cfc7697d86f6c58
 
 
 ---
@@ -90,9 +90,8 @@ Il giorno del passaggio viene generata una fattura per tutti gli addebiti in sos
 ## <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>È possibile eseguire la migrazione dalla sottoscrizione con pagamento in base al consumo a [Cloud Solution Provider](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) o al [Contratto Enterprise ](https://azure.microsoft.com/pricing/enterprise-agreement/)?
 Non è attualmente supportato il passaggio a un'offerta CSP o di tipo Contratto Enterprise nel Centro account. Per migrare la sottoscrizione esistente a un Contratto Enterprise, chiedere all'amministratore dell'iscrizione di aggiungere l'account al Contratto Enterprise. Si riceverà quindi un invito tramite posta elettronica. Quando si seguono le istruzioni per accettare l'invito, le sottoscrizioni vengono spostate automaticamente al Contratto Enterprise. Per eseguire la migrazione all'offerta CSP, vedere l'argomento relativo alla [migrazione della sottoscrizione di Azure all'offerta CSP](https://blogs.technet.microsoft.com/hybridcloudbp/2016/08/26/azure-subscription-migration-to-csp/).
 
-## <a name="next-steps"></a>Passaggi successivi
-* Informazioni su come [gestire i ruoli di amministratore](billing-add-change-azure-subscription-administrator.md) per la sottoscrizione
-* Tenere traccia dell'uso [scaricando i dati sull'uso e la fattura](billing-download-azure-invoice-daily-usage-date.md)
+## <a name="can-i-migrate-data-and-services-for-my-azure-subscription-to-a-new-subscription"></a>È possibile eseguire la migrazione di dati e servizi per la sottoscrizione di Azure a una nuova sottoscrizione?
+Sì. Per altre informazioni, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](./azure-resource-manager/resource-group-move-resources.md).
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
@@ -100,6 +99,6 @@ Per altre domande, è possibile [contattare il supporto tecnico](https://portal.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,19 +1,23 @@
 ---
-title: Panoramica della raccolta dei dati di Archiviazione di Azure in Log Analytics | Microsoft Docs
-description: Le risorse di Azure possono scrivere log e metriche in un account di archiviazione di Azure, in genere usando Diagnostica di Azure. Log Analytics può indicizzare tali dati e renderli disponibili per la ricerca.
+title: Panoramica della raccolta dei dati di Archiviazione di Azure in Log Analytics | Documentazione Microsoft
+description: "Le risorse di Azure possono scrivere log e metriche in un account di archiviazione di Azure, in genere usando Diagnostica di Azure. Log Analytics può indicizzare tali dati e renderli disponibili per la ricerca."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 10/31/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2a160030ab51799199fc6df08133f811d4987feb
+
 
 ---
 # <a name="collecting-azure-storage-data-in-log-analytics-overview"></a>Panoramica della raccolta dei dati di Archiviazione di Azure in Log Analytics
@@ -40,7 +44,6 @@ Log Analytics può raccogliere dati per le risorse di Azure seguenti:
 | Tipo di risorsa | Log (categorie di diagnostica) | Soluzione di Log Analytics |
 | --- | --- | --- |
 | Application Insights |Disponibilità <br> Eventi personalizzati <br> Eccezioni <br> Requests <br> |Application Insights (anteprima) |
-| Gestione API | |*nessuna* (anteprima) |
 | Automazione <br> Microsoft.Automation/AutomationAccounts |JobLogs <br> JobStreams |AzureAutomation (anteprima) |
 | Insieme di credenziali di chiave <br> Microsoft.KeyVault/Vaults |AuditEvent |KeyVault (anteprima) |
 | gateway applicazione <br> Microsoft.Network/ApplicationGateways |ApplicationGatewayAccessLog <br> ApplicationGatewayPerformanceLog |AzureNetworking (anteprima) |
@@ -67,14 +70,15 @@ Log Analytics può raccogliere dati per le risorse di Azure seguenti:
   * Ruoli di lavoro
   * Macchine virtuali
 
-Application Insights, disponibile in anteprima privata, usa l'esportazione continua in un archivio BLOB. Per partecipare all'anteprima privata, contattare il team degli account Microsoft o vedere i dettagli nel sito dei [commenti e suggerimenti](https://feedback.azure.com/forums/267889-log-analytics/suggestions/6519248-integration-with-app-insights).
-
 ## <a name="next-steps"></a>Passaggi successivi
 * [Analizzare i log di diagnostica di Azure con Log Analytics](log-analytics-azure-storage-json.md) per leggere i log dei servizi di Azure che scrivono dati di diagnostica in un archivio BLOB in formato JSON.
 * [Usare l'archiviazione BLOB per IIS e l'archiviazione tabelle per gli eventi](log-analytics-azure-storage-iis-table.md) per leggere i log dei servizi di Azure che scrivono dati di diagnostica in un archivio tabelle o i log IIS scritti in un archivio BLOB.
 * [Abilitare soluzioni](log-analytics-add-solutions.md) per fornire informazioni dettagliate sui dati.
 * [Usare query di ricerca](log-analytics-log-searches.md) per analizzare i dati.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

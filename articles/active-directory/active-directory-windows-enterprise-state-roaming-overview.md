@@ -1,13 +1,13 @@
 ---
-title: Panoramica di Enterprise State Roaming | Microsoft Docs
-description: Fornisce informazioni sulle impostazioni del servizio Enterprise State Roaming nei dispositivi Windows. Enterprise State Roaming offre agli utenti un'esperienza unificata in tutti i dispositivi Windows e riduce il tempo necessario per la configurazione di un nuovo dispositivo.
+title: Panoramica di Enterprise State Roaming | Documentazione Microsoft
+description: Fornisce informazioni sulle impostazioni del servizio Enterprise State Roaming nei dispositivi Windows. Enterprise State Roaming offre agli utenti un&quot;esperienza unificata in tutti i dispositivi Windows e riduce il tempo necessario per la configurazione di un nuovo dispositivo.
 services: active-directory
 keywords: informazioni su Enterprise State Roaming, sincronizzazione aziendale, cloud windows
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
 editor: curtand
-
+ms.assetid: 83b3b58f-94c1-4ab0-be05-20e01f5ae3f0
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7b946c4c712544ea49607cf5cdd5ebbd997ff116
+
 
 ---
 # <a name="enterprise-state-roaming-overview"></a>Panoramica di Enterprise State Roaming
@@ -33,6 +37,9 @@ Enterprise State Roaming è disponibile in più aree di Azure. L'elenco aggiorna
 | [Criteri di gruppo e impostazioni del software MDM per la sincronizzazione delle impostazioni](active-directory-windows-enterprise-state-roaming-group-policy-settings.md) |Windows 10 offre impostazioni relative a Criteri di gruppo e ai criteri di gestione di dispositivi mobili per limitare la sincronizzazione delle impostazioni. |
 | [Riferimento alle impostazioni di roaming di Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md) |Di seguito è riportato un elenco completo di tutte le impostazioni di cui verrà effettuato il roaming e/o il backup in Windows 10. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/14/2016
+ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 0d83c6e444d74ce7f95f796ec6c53abc43c37766
-ms.openlocfilehash: 7daf4bfa80fae2aee156af5cdb3588725aebd311
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 946f6e480083a0007a88c85b744ddeafa0385990
 
 
 ---
@@ -48,7 +48,7 @@ Fare clic sull'immagine per visualizzarla a schermo intero.
 
 <a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a>  
 
-È possibile visualizzare il modello completo [qui](https://media.windows.net/API/$metadata?api-version=2.14).  
+È possibile visualizzare il modello completo [qui](https://media.windows.net/API/$metadata?api-version=2.15).  
 
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
@@ -65,9 +65,8 @@ Per iniziare a utilizzare Servizi multimediali di Azure, è necessario disporre 
 2. Un account di Servizi multimediali di Azure. Usare il portale di Azure, .NET o l'API REST per creare un account di Servizi multimediali di Azure. Per altre informazioni, vedere [Creare un account](media-services-portal-create-account.md).
 3. (Facoltativo) Configurare l'ambiente di sviluppo. Scegliere .NET o API REST per l'ambiente di sviluppo. Per altre informazioni, vedere [Configurare l'ambiente](media-services-dotnet-how-to-use.md).
 
-    Sono disponibili anche informazioni su come [connettersi](media-services-dotnet-connect-programmatically.md)a livello di codice.
-
-4. (Scelta consigliata) Allocare una o più unità di scala. Si consiglia di allocare una o più unità di scala per le applicazioni nell'ambiente di produzione.   Per altre informazioni, vedere [Gestione degli endpoint di streaming](media-services-portal-manage-streaming-endpoints.md).
+    Sono disponibili anche informazioni su come [connettersi a livello di codice](media-services-dotnet-connect-programmatically.md).
+4. Un endpoint di streaming Standard o Premium con stato avviato.  Per altre informazioni, vedere [Gestione degli endpoint di streaming](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-manage-streaming-endpoints).
 
 ## <a name="concepts-and-overview"></a>Panoramica e concetti
 Per i concetti relativi ai Servizi multimediali di Azure, vedere [Concetti su Servizi multimediali di Azure](media-services-concepts.md).
@@ -79,6 +78,9 @@ Questa sezione descrive scenari comuni e offre collegamenti agli argomenti perti
 
 ![Flusso di lavoro VoD](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
+>[!NOTE]
+>Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
+    
 ### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Protezione dei contenuti nella risorsa di archiviazione e distribuzione dei flussi multimediali in chiaro (non crittografati)
 1. Caricare un file in formato intermedio di qualità elevata in un asset.
 
@@ -90,12 +92,9 @@ Questa sezione descrive scenari comuni e offre collegamenti agli argomenti perti
 
     Se l'asset è protetto con crittografia di archiviazione, è **necessario** configurare i criteri di distribuzione degli asset.
 4. Pubblicare l'asset creando un localizzatore OnDemand.
-
-    Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
 5. Trasmettere in streaming i contenuti pubblicati.
 
 ### <a name="protect-content-in-storage-deliver-dynamically-encrypted-streaming-media"></a>Proteggere i contenuti nella risorsa di archiviazione e distribuire dinamicamente i flussi multimediali crittografati
-Per poter usare la crittografia dinamica, è prima necessario ottenere almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere in streaming i contenuti crittografati.
 
 1. Caricare un file in formato intermedio di qualità elevata in un asset. Applicare all'asset l'opzione di crittografia di archiviazione.
 2. Codificare in un set di file MP4 a velocità in bit adattiva. Applicare all'asset di output l'opzione di crittografia di archiviazione.
@@ -123,9 +122,7 @@ Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e 
 2. Codificare in un singolo file MP4.
 3. Pubblicare l'asset creando un localizzatore OnDemand o SAS.
 
-    Se si usa un localizzatore OnDemand, accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si pianifica di trasmettere i contenuti in streaming.
-
-    Se si usa un localizzatore SAS, i contenuti vengono scaricati dall'archiviazione BLOB di Azure. In questo caso, non è necessario disporre di unità riservate di streaming.
+    Se si usa un localizzatore SAS, i contenuti vengono scaricati dall'archiviazione BLOB di Azure. In questo caso, non è necessario avere endpoint di streaming con stato avviato.
 4. Eseguire il download progressivo.
 
 ## <a name="a-idlivescenariosadelivering-live-streaming-events-with-azure-media-services"></a><a id="live_scenarios"></a>Distribuzione di eventi Live Streaming con Servizi multimediali di Azure
@@ -151,7 +148,7 @@ In Servizi multimediali di Azure, la gestione di tutte le funzionalità di live 
 
 Un **canale** rappresenta una pipeline per l'elaborazione di contenuto in streaming live. Un canale può ricevere i flussi di input live nei modi seguenti:
 
-* Un codificatore live locale invia un flusso **RTMP** o **Smooth Streaming** (MP4 frammentato) a bitrate multipli al canale configurato per il recapito **pass-through**. Il recapito **pass-through** avviene quando i flussi inseriti passano attraverso i **canali** senza altre elaborazioni. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a più velocità in bit: Elemental, Envivio, Cisco.  I codificatori live seguenti generano output in formato RTMP: Adobe Flash Live, Telestream Wirecast e transcodificatori Tricaster.  Un codificatore live può anche inviare un flusso a singola velocità in bit a un canale non abilitato per la codifica live, ma questa operazione non è consigliata. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
+* Un codificatore live locale invia un flusso **RTMP** o **Smooth Streaming** (MP4 frammentato) a bitrate multipli al canale configurato per il recapito **pass-through**. Il recapito **pass-through** avviene quando i flussi inseriti passano attraverso i **canali** senza altre transcodifiche o codifiche. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a bitrate multipli: MediaExcel, Imagine Communications, Ateme, Envivio, Cisco ed Elemental. I codificatori live seguenti generano output in formato RTMP: Adobe Flash Live Encoder, Haivision, Telestream Wirecast, Teradek e codificatori Tricaster.  Un codificatore live può anche inviare un flusso a singola velocità in bit a un canale non abilitato per la codifica live, ma questa operazione non è consigliata. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
 
 > [!NOTE]
 > L'uso di un metodo pass-through è il modo più economico per realizzare lo streaming live quando si eseguono più eventi per un lungo periodo di tempo e si è già investito in codificatori locali. Vedere i dettagli sui [prezzi](https://azure.microsoft.com/pricing/details/media-services/) .
@@ -183,9 +180,11 @@ Servizi multimediali di Azure fornisce gli strumenti necessari per creare applic
 Servizi multimediali supporta l'integrazione con la rete CDN di Azure. Per informazioni su come abilitare la rete CDN di Azure, vedere [Come gestire gli endpoint di streaming in un account di Servizi multimediali](media-services-portal-manage-streaming-endpoints.md).
 
 ## <a name="scaling-a-media-services-account"></a>Ridimensionamento di un account di Servizi multimediali
+
 È possibile ridimensionare **Servizi multimediali** specificando il numero di **unità riservate di streaming** e **unità riservate di codifica** di cui si vuole eseguire il provisioning nell'account in uso.
 
 È anche possibile ridimensionare l'account di Servizi multimediali aggiungendo account di archiviazione. Per ogni account di archiviazione è previsto un limite di 500 TB. Per espandere lo spazio di archiviazione oltre i limiti predefiniti, è possibile scegliere di collegare più account di archiviazione a un singolo account di Servizi Multimediali.
+I clienti di Servizi multimediali scelgono un endpoint di streaming **Standard** oppure uno o più endpoint di streaming **Premium**, in base alle esigenze. L'endpoint di streaming Standard è adatto per la maggior parte dei carichi di lavoro di streaming. Include le stesse funzionalità delle unità di streaming Premium. L'endpoint di streaming Standard è adatto per la maggior parte dei carichi di lavoro di streaming. Se il carico di lavoro è avanzato o i requisiti della capacità di streaming non rispondono alle destinazioni con la velocità effettiva degli endpoint di streaming Standard o si vuole controllare la capacità del servizio StreamingEndpoint per gestire le esigenze in crescita in termini di larghezza di banda regolando le unità di scala (note anche come unità di streaming Premium), è consigliabile allocare unità di scala.
 
 [Questo](media-services-portal-scale-streaming-endpoints.md) argomento include collegamenti agli argomenti rilevanti.
 
@@ -197,7 +196,7 @@ Servizi multimediali supporta l'integrazione con la rete CDN di Azure. Per infor
 
 ## <a name="service-level-agreement-sla"></a>Contratto di servizio (SLA)
 * Per il servizio di codifica di Servizi multimediali, è garantita una disponibilità al 99,9% delle transazioni delle API REST.
-* Con l'acquisto di almeno un'unità di trasmissione in flusso, per il servizio di streaming, è garantita una disponibilità al 99,9% per i contenuti multimediali esistenti.
+* Con l'acquisto di un endpoint di streaming Standard o Premium, per il servizio di streaming, è garantita una disponibilità al 99,9% per i contenuti multimediali esistenti.
 * Per i canali live, è garantito che i canali in esecuzione avranno connettività esterna per almeno il 99,9% del tempo.
 * Per la protezione del contenuto, è garantita l'evasione delle richieste di chiavi per almeno il 99,9% del tempo.
 * Per l'indicizzatore, è garantito che verranno soddisfatte le richieste di attività dell'indicizzatore elaborate con un'unità riservata di codifica per il 99,9% del tempo.
@@ -212,6 +211,6 @@ Per altre informazioni, vedere [Contratto di servizio di Microsoft Azure](https:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

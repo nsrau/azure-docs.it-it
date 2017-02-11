@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 01/06/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b78199a672528c475f4f299faaf6406089e95d01
+ms.sourcegitcommit: 6862723b774951fe4cca0303ee2a39a0d5f2089d
+ms.openlocfilehash: eec688e33ff55334ebe0c1bc6d08e4753aadb85c
 
 
 ---
@@ -60,7 +60,7 @@ Se si usa System Center Operations Manager, ogni gruppo di gestione di Operation
 
 #### <a name="view-workspace-information-the-azure-portal"></a>Visualizzare le informazioni sull'area di lavoro nel portale di Azure
 
-1. Se questa operazione non è già stata eseguita, accedere al [portale di Azure](https://portal.azure.com) , tramite la sottoscrizione di Azure.
+1. Se questa operazione non è già stata eseguita, accedere al [portale di Azure](https://portal.azure.com), usando la sottoscrizione di Azure.
 2. Scegliere **Altri servizi** dal menu **Hub** e digitare **Log Analytics** nell'elenco di risorse. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Fare clic su **Log Analytics**.  
     ![Hub di Azure](./media/log-analytics-manage-access/hub.png)  
 3. Nel pannello di sottoscrizioni di Log Analytics, selezionare un'area di lavoro.
@@ -242,6 +242,24 @@ Se è necessario modificare la sottoscrizione di Azure a cui è collegata l'area
 6. Quando si aggiorna la visualizzazione nel portale di Azure, **Piano tariffario** risulta aggiornato per il piano selezionato.  
     ![piano aggiornato](./media/log-analytics-manage-access/manage-access-change-plan04.png)
 
+## <a name="change-how-long-log-analytics-stores-data"></a>Modificare la durata dell'archiviazione dei dati di Log Analytics
+
+Nel piano tariffario Gratuito, Log Analytics mette a disposizione i dati degli ultimi sette giorni.
+Nel piano tariffario Standard, Log Analytics mette a disposizione i dati degli ultimi 30 giorni.
+Nel piano tariffario Premium, Log Analytics mette a disposizione i dati degli ultimi 365 giorni.
+Nei piani tariffari Autonomo e OMS, Log Analytics mette a disposizione i dati degli ultimi 31 giorni.
+
+Quando si usano i piani tariffari Autonomo e OMS, è possibile conservare fino a 2 anni di dati (730 giorni). I dati archiviati da più tempo rispetto al valore predefinito di 31 giorni sono soggetti a costi di conservazione dei dati. Per altre informazioni sui prezzi, vedere i [prezzi per eccedenze](https://azure.microsoft.com/pricing/details/log-analytics/).
+
+Per modificare la durata della conservazione dei dati:
+
+1. Accedere al [portale di Azure](http://portal.azure.com).
+2. Cercare e selezionare **Log Analytics**.
+3. Viene visualizzato un elenco delle aree di lavoro esistenti. Selezionare un'area di lavoro.  
+4. Nel pannello dell'area di lavoro in **Generale** fare clic su **Conservazione**.  
+5. Usare il dispositivo di scorrimento per aumentare o diminuire il numero di giorni di conservazione e quindi fare clic su **Salva**
+![Modificare la conservazione](./media/log-analytics-manage-access/manage-access-change-retention01.png)
+
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>Modificare un'organizzazione di Azure Active Directory in un'area di lavoro
 
 È possibile modificare un'organizzazione di Azure Active Directory in un'area di lavoro. La modifica dell'organizzazione di Azure Active Directory consente di aggiungere all'area di lavoro gli utenti e i gruppi dalla directory.
@@ -275,6 +293,6 @@ Se si è un amministratore e vi sono più utenti associati all'area di lavoro, l
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

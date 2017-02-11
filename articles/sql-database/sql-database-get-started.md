@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione sul database SQL: creare un server, una regola del firewall a livello di server, un database di esempio, una regola del firewall a livello di database ed eseguire la connessione ad SQL Server Management Studio | Documentazione Microsoft'
-description: L&quot;articolo fornisce informazioni su come configurare un server logico del database SQL, una regola firewall del server, un database SQL e dati di esempio. Fornisce anche informazioni su come connettersi con strumenti client, configurare utenti e impostare una regola firewall del database.
+title: 'Portale di Azure: introduzione al database SQL di Azure | Documentazione Microsoft'
+description: Come creare un server logico di database SQL, una regola del firewall a livello di server e un database usando il portale di Azure. Viene anche illustrato come effettuare una query dei database usando SQL Server Management Studio.
 keywords: esercitazione sul database sql, creare un database sql
 services: sql-database
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: c2252fc81f97019391ca2ba957f8402c4e97a9c2
-ms.openlocfilehash: f9b17c1cc77918fb1989b94b5bb359a697ceea7c
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: 8eb4b280104cc4f05b9ed25985d0c336f15b6d0f
 
 
 ---
-# <a name="get-started-with-azure-sql-database-servers-databases-and-firewall-rules-by-using-the-azure-portal-and-sql-server-management-studio"></a>Introduzione ai server del database SQL di Azure, ai database e alle regole del firewall usando il portale di Azure ed SQL Server Management Studio
+# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-the-azure-portal-and-sql-server-management-studio"></a>Esercitazione sul database SQL: Introduzione ai server di database SQL di Azure, ai database e alle regole del firewall con il portale di Azure e SQL Server Management Studio
 
 In questa esercitazione introduttiva si apprenderà come usare il portale di Azure per:
 
@@ -306,6 +306,6 @@ Dopo aver completato questa esercitazione, sono disponibili numerose altre eserc
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

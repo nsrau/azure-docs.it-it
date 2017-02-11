@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Informazioni su come configurare il ripristino di emergenza cloud e la continuità aziendale per server fisici e macchine virtuali tramite la distribuzione e la gestione della replica."
 translationtype: Human Translation
-ms.sourcegitcommit: 13d77644673b86be22bf7be40f77d6ebfb1f8baa
-ms.openlocfilehash: d815422edd036711525d8c2f1eea0348295416d5
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: b8fe2704e7c68c1fe815d204d424f28fcbdfe75c
 
 ---
 # <a name="site-recovery-documentation"></a>Documentazione di Site Recovery
@@ -80,13 +80,7 @@ Informazioni su come usare Site Recovery per la continuità aziendale e la strat
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/site-recovery.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione di Site Recovery </div>
-    </a>
-</div>
+
 
 
 

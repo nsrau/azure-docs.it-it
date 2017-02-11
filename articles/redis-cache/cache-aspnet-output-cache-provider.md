@@ -1,27 +1,31 @@
 ---
 title: Provider di cache di output ASP.NET della Cache
-description: Informazioni su come memorizzare nella cache l'output della pagina ASP.NET mediante Cache Redis di Azure
+description: Informazioni su come memorizzare nella cache l&quot;output della pagina ASP.NET mediante Cache Redis di Azure
 services: redis-cache
 documentationcenter: na
 author: steved0x
 manager: douge
 editor: tysonn
-
+ms.assetid: 78469a66-0829-484f-8660-b2598ec60fbf
 ms.service: cache
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 09/27/2016
+ms.date: 01/06/2017
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: bf282f9f17c7a651c9229d262db3c61fcb92c799
+
 
 ---
-# <a name="asp.net-output-cache-provider-for-azure-redis-cache"></a>Provider di cache di output ASP.NET per la Cache Redis di Azure
+# <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>Provider di cache di output ASP.NET per la Cache Redis di Azure
 Il provider di cache Redis di output è un meccanismo di memorizzazione out-of-process per i dati della cache di output. Tali dati sono specificamente utilizzati per le risposte HTTP complete (memorizzazione nella cache di output delle pagine). Il provider viene inserito nel nuovo punto di estendibilità del provider di cache di output che è stato introdotto in ASP.NET 4.
 
 Per usare il provider di cache Redis di output, configurare prima di tutto la cache, quindi configurare l'applicazione ASP.NET usando il pacchetto NuGet del provider di cache Redis di output. Questo argomento offre indicazioni sulla configurazione dell'applicazione per l'uso del provider di cache Redis di output. Per altre informazioni sulla creazione e sulla configurazione di un'istanza della Cache Redis di Azure, vedere [Creare una cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-## <a name="store-asp.net-page-output-in-the-cache"></a>Archiviare l'output della pagina ASP.NET nella cache
+## <a name="store-aspnet-page-output-in-the-cache"></a>Archiviare l'output della pagina ASP.NET nella cache
 Per configurare un'applicazione client in Visual Studio con il pacchetto NuGet del provider di cache Redis di output, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**.
 
 ![Gestione di pacchetti NuGet con la Cache Redis di Azure](./media/cache-aspnet-output-cache-provider/redis-cache-manage-nuget-menu.png)
@@ -34,25 +38,27 @@ Il pacchetto NuGet del provider di cache Redis di output ha una dipendenza dal p
 
 Il pacchetto NuGet scarica e aggiunge i riferimenti all'assembly necessari e aggiunge la sezione seguente nel file web.config che contiene la configurazione richiesta per consentire all'applicazione ASP.NET di usare il provider di cache Redis di output.
 
-    <caching>
-      <outputCachedefault Provider="MyRedisOutputCache">
-        <providers>
-          <!--
-          <add name="MyRedisOutputCache"
-            host = "127.0.0.1" [String]
-            port = "" [number]
-            accessKey = "" [String]
-            ssl = "false" [true|false]
-            databaseId = "0" [number]
-            applicationName = "" [String]
-            connectionTimeoutInMilliseconds = "5000" [number]
-            operationTimeoutInMilliseconds = "5000" [number]
-          />
-          -->
-          <add name="MyRedisOutputCache" type="Microsoft.Web.Redis.RedisOutputCacheProvider" host="127.0.0.1" accessKey="" ssl="false"/>
-        </providers>
-      </outputCache>
-    </caching>
+```xml
+<caching>
+  <outputCachedefault Provider="MyRedisOutputCache">
+    <providers>
+      <!--
+      <add name="MyRedisOutputCache"
+        host = "127.0.0.1" [String]
+        port = "" [number]
+        accessKey = "" [String]
+        ssl = "false" [true|false]
+        databaseId = "0" [number]
+        applicationName = "" [String]
+        connectionTimeoutInMilliseconds = "5000" [number]
+        operationTimeoutInMilliseconds = "5000" [number]
+      />
+      -->
+      <add name="MyRedisOutputCache" type="Microsoft.Web.Redis.RedisOutputCacheProvider" host="127.0.0.1" accessKey="" ssl="false"/>
+    </providers>
+  </outputCache>
+</caching>
+```
 
 La sezione commentata fornisce un esempio degli attributi e delle impostazioni di esempio per ogni attributo.
 
@@ -70,7 +76,9 @@ Configurare gli attributi con i valori del pannello Cache nel portale di Microso
 
 Aggiungere una direttiva OutputCache a ogni pagina per cui si desidera memorizzare l'output nella cache.
 
-    <%@ OutputCache Duration="60" VaryByParam="*" %>
+```
+<%@ OutputCache Duration="60" VaryByParam="*" %>
+```
 
 In questo esempio, i dati delle pagine rimarranno memorizzati nella cache per 60 secondi e per ogni combinazione di parametri verrà memorizzata nella cache una versione diversa della pagina. Per altre informazioni sulla direttiva OutputCache, vedere [@OutputCache](http://go.microsoft.com/fwlink/?linkid=320837).
 
@@ -79,6 +87,9 @@ Dopo l'esecuzione di questi passaggi, l'applicazione è configurata per l'uso de
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere [Provider di stato della sessione ASP.NET per Cache Redis di Azure](cache-aspnet-session-state-provider.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

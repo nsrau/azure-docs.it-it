@@ -1,5 +1,5 @@
 ---
-title: 'Prova del database SQL: usare C# per creare un database SQL | Documentazione Microsoft'
+title: 'C#: introduzione al database SQL di Azure | Documentazione Microsoft'
 description: Provare il database SQL per lo sviluppo di app SQL e C# e creare un database SQL di Azure con C# usando la libreria di database SQL per .NET.
 keywords: provare sql, sql c#
 services: sql-database
@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
-ms.openlocfilehash: 32c18821ac9cf5516fba9762ca5bb834194dcdc9
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: 7ffc593ee262f55a3fff6a2cd9cf62c691722478
 
 
 ---
@@ -287,6 +287,6 @@ Dopo aver provato il database SQL e aver impostato un database con C#, è possib
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

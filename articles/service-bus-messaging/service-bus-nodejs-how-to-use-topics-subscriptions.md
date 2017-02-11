@@ -1,19 +1,23 @@
 ---
-title: Come usare gli argomenti del bus di servizio con Node.js | Microsoft Docs
-description: Informazioni su come usare le sottoscrizioni e gli argomenti del bus di servizio in Azure da un'app Node.js.
-services: service-bus
+title: Come usare gli argomenti del bus di servizio con Node.js | Documentazione Microsoft
+description: Informazioni su come usare le sottoscrizioni e gli argomenti del bus di servizio in Azure da un&quot;app Node.js.
+services: service-bus-messaging
 documentationcenter: nodejs
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
+ms.openlocfilehash: d956c392a209522dd6535297316f9ed695207b00
+
 
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio
@@ -23,16 +27,16 @@ Questa guida descrive come usare gli argomenti e le sottoscrizioni del bus di se
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
-## <a name="create-a-node.js-application"></a>Creare un'applicazione Node.js
-Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere come [creare e distribuire un'applicazione Node.js in un sito Web Azure] o [Servizio cloud Node.js][Servizio cloud Node.js] usando Windows PowerShell o Sito Web con WebMatrix.
+## <a name="create-a-nodejs-application"></a>Creare un'applicazione Node.js
+Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web Azure], [Servizio cloud Node.js][Servizio cloud Node.js] (usando Windows PowerShell) o Sito Web con WebMatrix.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurare l'applicazione per l'uso del bus di servizio
 Per usare il bus di servizio, scaricare il pacchetto Azure Node.js, che include un set di librerie di riferimento che comunicano con i servizi REST del bus di servizio.
 
-### <a name="use-node-package-manager-(npm)-to-obtain-the-package"></a>Usare Node Package Manager (NPM) per ottenere il pacchetto
+### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Usare Node Package Manager (NPM) per ottenere il pacchetto
 1. Usare un'interfaccia della riga di comando come **PowerShell** (Windows,) **Terminal** (Mac,) o **Bash** (Unix) e spostarsi nella cartella in cui è stata creata l'applicazione di esempio.
 2. Digitare **npm install azure** nella finestra di comando, che dovrebbe restituire l'output seguente:
-   
+
    ```
        azure@0.7.5 node_modules\azure
    ├── dateformat@1.0.2-1.2.3
@@ -58,7 +62,7 @@ var azure = require('azure');
 ### <a name="set-up-a-service-bus-connection"></a>Configurare una stringa di connessione per il bus di servizio
 Il modulo di Azure legge le variabili di ambiente AZURE\_SERVICEBUS\_NAMESPACE and AZURE\_SERVICEBUS\_ACCESS\_KEY per informazioni necessarie per la connessione al bus di servizio. Se queste variabili di ambiente non sono impostate, è necessario specificare le informazioni relative all'account quando si chiama **createServiceBusService**.
 
-Per un esempio di impostazione delle variabili di ambiente in un file di configurazione per un servizio cloud di Azure, vedere il [servizio cloud Node.js con Archiviazione][servizio cloud Node.js con Archiviazione].
+Per un esempio di impostazione delle variabili di ambiente in un file di configurazione per un servizio cloud di Azure, vedere [Servizio cloud Node.js con Archiviazione][Servizio cloud Node.js con Archiviazione].
 
 Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure classico][portale di Azure classico] per un sito Web Azure, vedere [Creazione di un'applicazione Web Node.js con Archiviazione][Creazione di un'applicazione Web Node.js con Archiviazione].
 
@@ -120,10 +124,10 @@ In Azure SDK per Node.js sono inclusi due filtri che implementano la logica di r
 
 > [!NOTE]
 > Le sottoscrizioni sono persistenti e continueranno a esistere fintanto che esse, o l'argomento a cui sono associate, non vengono eliminate. Se l'applicazione contiene la logica per la creazione di una sottoscrizione, è prima necessario verificare se la sottoscrizione esiste già usando il metodo **getSubscription**.
-> 
-> 
+>
+>
 
-### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Creare una sottoscrizione con il filtro (MatchAll) predefinito
+### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Creare una sottoscrizione con il filtro (MatchAll) predefinito
 Il filtro **MatchAll** è il filtro predefinito e viene usato se non vengono specificati altri filtri durante la creazione di una nuova sottoscrizione. Quando si usa il filtro **MatchAll**, tutti i messaggi pubblicati nell'argomento vengono inseriti nella coda virtuale della sottoscrizione. Nell'esempio seguente viene creata una sottoscrizione denominata "AllMessages" e viene usato il filtro predefinito **MatchAll**.
 
 ```
@@ -143,8 +147,8 @@ Il tipo di filtro più flessibile tra quelli supportati dalle sottoscrizioni è 
 
 > [!NOTE]
 > Poiché il filtro predefinito viene applicato automaticamente a tutte le nuove sottoscrizioni, è necessario prima di tutto rimuovere il filtro predefinito, altrimenti **MatchAll** eseguirà l'override di qualsiasi altro filtro specificato. È possibile rimuovere la regola predefinita tramite il metodo **deleteRule** dell'oggetto **ServiceBusService**.
-> 
-> 
+>
+>
 
 L'esempio seguente crea una sottoscrizione denominata `HighMessages` con un filtro **SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà personalizzata **messagenumber** è maggiore di 3:
 
@@ -158,8 +162,8 @@ serviceBusService.createSubscription('MyTopic', 'HighMessages', function (error)
 var rule={
     deleteDefault: function(){
         serviceBusService.deleteRule('MyTopic',
-            'HighMessages', 
-            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME, 
+            'HighMessages',
+            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME,
             rule.handleError);
     },
     create: function(){
@@ -167,10 +171,10 @@ var rule={
             sqlExpressionFilter: 'messagenumber > 3'
         };
         rule.deleteDefault();
-        serviceBusService.createRule('MyTopic', 
-            'HighMessages', 
-            'HighMessageFilter', 
-            ruleOptions, 
+        serviceBusService.createRule('MyTopic',
+            'HighMessages',
+            'HighMessageFilter',
+            ruleOptions,
             rule.handleError);
     },
     handleError: function(error){
@@ -193,8 +197,8 @@ serviceBusService.createSubscription('MyTopic', 'LowMessages', function (error){
 var rule={
     deleteDefault: function(){
         serviceBusService.deleteRule('MyTopic',
-            'LowMessages', 
-            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME, 
+            'LowMessages',
+            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME,
             rule.handleError);
     },
     create: function(){
@@ -202,10 +206,10 @@ var rule={
             sqlExpressionFilter: 'messagenumber <= 3'
         };
         rule.deleteDefault();
-        serviceBusService.createRule('MyTopic', 
-            'LowMessages', 
-            'LowMessageFilter', 
-            ruleOptions, 
+        serviceBusService.createRule('MyTopic',
+            'LowMessages',
+            'LowMessageFilter',
+            ruleOptions,
             rule.handleError);
     },
     handleError: function(error){
@@ -305,8 +309,8 @@ Se si elimina un argomento, verranno eliminate anche tutte le sottoscrizioni reg
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di servizio, usare i seguenti collegamenti per altre informazioni.
 
-* Vedere [Code, argomenti e sottoscrizioni][].
-* Materiale di riferimento dell'API per [SqlFilter][SqlFilter].
+* Vedere [Code, argomenti e sottoscrizioni del bus di servizio][Code, argomenti e sottoscrizioni del bus di servizio].
+* Riferimento sulle API per [SqlFilter][SqlFilter].
 * Visitare il repository [Azure SDK per Node][Azure SDK per Node] su GitHub.
 
 [Azure SDK per Node]: https://github.com/Azure/azure-sdk-for-node
@@ -317,11 +321,10 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di 
 [Servizio cloud Node.js]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Creare e distribuire un'applicazione Node.js in un sito Web Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
 [Servizio cloud Node.js con Archiviazione]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Creazione di un'applicazione Web Node.js con Archiviazione]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+[Creazione di un'applicazione Web Node.js con Archiviazione]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
 
 
 
-
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

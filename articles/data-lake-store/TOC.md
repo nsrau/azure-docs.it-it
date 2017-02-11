@@ -44,8 +44,9 @@
 ## Gestire
 ### [Accedere ai log di diagnostica](data-lake-store-diagnostic-logs.md)
 ### [Pianificare la disponibilità elevata](data-lake-store-troubleshooting-guidance.md)
+### [Linee guida sull'ottimizzazione delle prestazioni](data-lake-store-performance-tuning-guidance.md)
 
-# riferimento
+# Riferimenti
 ## [PowerShell](/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datalake.store)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)

@@ -1,64 +1,89 @@
 ---
-title: Aprire porte per una VM Linux | Microsoft Docs
-description: Informazioni su come aprire una porta o creare un endpoint per la VM Linux tramite il modello di distribuzione Azure Resource Manager e l'interfaccia della riga di comando di Azure
+title: Aprire porte ed endpoint per una macchina virtuale (VM) Linux in Azure | Documentazione Microsoft
+description: Informazioni su come aprire una porta o creare un endpoint per la VM Linux tramite il modello di distribuzione Azure Resource Manager e l&quot;interfaccia della riga di comando di Azure versione 2.0 (anteprima)
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: iainfoulds
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: eef9842b-495a-46cf-99a6-74e49807e74e
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/08/2016
+ms.date: 12/8/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: e4512dd4d818b1c7bea7e858a397728ce48a5362
+ms.openlocfilehash: 40f399c339e31d9d008230449d7f559ae01afba3
+
 
 ---
-# Apertura di porte per una VM Linux in Azure
-Aprire una porta o creare un endpoint in una macchina virtuale (VM) di Azure tramite la creazione di un filtro di rete su una subnet o un'interfaccia di rete di VM. Questi filtri, che consentono di controllare il traffico in ingresso e in uscita, vengono inseriti in un gruppo di sicurezza di rete e collegati alla risorsa che riceve il traffico. Si userà un esempio comune di traffico Web sulla porta 80.
+# <a name="opening-ports-and-endpoints-to-a-linux-vm-in-azure"></a>Apertura di porte ed endpoint per una VM Linux in Azure
+Aprire una porta o creare un endpoint in una macchina virtuale (VM) di Azure tramite la creazione di un filtro di rete su una subnet o un'interfaccia di rete di VM. Questi filtri, che consentono di controllare il traffico in ingresso e in uscita, vengono inseriti in un gruppo di sicurezza di rete e collegati alla risorsa che riceve il traffico. Si userà un esempio comune di traffico Web sulla porta 80. Questo articolo illustra come aprire una porta per una VM usando l'interfaccia della riga di comando di Azure versione 2.0 (anteprima).
 
-## Comandi rapidi
-Per creare un gruppo di sicurezza di rete e le regole, è necessaria l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) in modalità Resource Manager (`azure config mode arm`).
 
-Creare il gruppo di sicurezza di rete immettendo nomi e percorso in modo appropriato:
+## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività
+È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
-```
-azure network nsg create --resource-group TestRG --name TestNSG --location westus
-```
+- [Interfaccia della riga di comando di Azure 1.0](virtual-machines-linux-nsg-quickstart-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](#quick-commands): interfaccia di prossima generazione per il modello di distribuzione di gestione delle risorse (questo articolo)
 
-Aggiungere una regola per consentire il traffico HTTP al server Web (o in base allo specifico scenario, come l'accesso SSH o la connettività al database):
 
-```
-azure network nsg rule create --protocol tcp --direction inbound --priority 1000 \
-    --destination-port-range 80 --access allow --resource-group TestRG --nsg-name TestNSG --name AllowHTTP
-```
+## <a name="quick-commands"></a>Comandi rapidi
+Per creare un gruppo di sicurezza di rete e le regole è necessario installare la versione più recente dell'[interfaccia della riga di comando di Azure versione 2.0 (anteprima)](/cli/azure/install-az-cli2) e connetterla a un account Azure utilizzando [az login](/cli/azure/#login).
 
-Associare il gruppo di sicurezza di rete con l'interfaccia di rete della VM:
+L'esempio seguente sostituisce i nomi dei parametri di esempio con i valori desiderati. Alcuni esempi di nomi dei parametri sono `myResourceGroup`, `myNetworkSecurityGroup` e `myVnet`.
 
-```
-azure network nic set --resource-group TestRG --name TestNIC --network-security-group-name TestNSG
+Creare il gruppo di sicurezza di rete con [az network nsg create](/cli/azure/network/nsg#create). L'esempio seguente crea un gruppo di sicurezza di rete denominato `myNetworkSecurityGroup` nella posizione `westus`:
+
+```azurecli
+az network nsg create --resource-group myResourceGroup --location westus \
+    --name myNetworkSecurityGroup
 ```
 
-In alternativa, è possibile associare il gruppo di sicurezza di rete a una subnet di rete virtuale invece della sola interfaccia di rete in una singola VM:
+Aggiungere una regola con [az network nsg rule create](/cli/azure/network/nsg/rule#create) per consentire il traffico HTTP al server Web (o in base allo scenario specifico, come l'accesso SSH o la connettività al database). L'esempio seguente crea una regola denominata `myNetworkSecurityGroupRule` per consentire il traffico TCP sulla porta 80:
 
-```
-azure network vnet subnet set --resource-group TestRG --name TestSubnet --network-security-group-name TestNSG
+```azurecli
+az network nsg rule create --resource-group myResourceGroup \
+    --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
+    --protocol tcp --direction inbound --priority 1000 \
+    --source-address-prefix '*' --source-port-range '*' \
+    --destination-address-prefix '*' --destination-port-range 80 --access allow
 ```
 
-## Altre informazioni sui gruppi di sicurezza di rete
+Associare il gruppo di sicurezza di rete all'interfaccia di rete della VM (NIC) utilizzando [az network nic update](/cli/azure/network/nic#update). L'esempio seguente associa una scheda di interfaccia di rete denominata `myNic` con il gruppo di sicurezza di rete denominato `myNetworkSecurityGroup`:
+
+```azurecli
+az network nic update --resource-group myResourceGroup --name myNic \
+    --network-security-group myNetworkSecurityGroup
+```
+
+In alternativa, è possibile associare il gruppo di sicurezza di rete a una subnet di rete virtuale utilizzando [az network vnet subnet update](/cli/azure/network/vnet/subnet#update) anziché solo all'interfaccia di rete di una singola VM. L'esempio seguente associa una subnet esistente denominata `mySubnet` nella rete virtuale `myVnet` con il gruppo di sicurezza di rete denominato `myNetworkSecurityGroup`:
+
+```azurecli
+az network vnet subnet update --resource-group myResourceGroup \
+    --vnet-name myVnet --name mySubnet --network-security-group myNetworkSecurityGroup
+```
+
+## <a name="more-information-on-network-security-groups"></a>Altre informazioni sui gruppi di sicurezza di rete
 I comandi rapidi seguenti consentono di rendere operativo il traffico verso la VM. I gruppi di sicurezza di rete offrono numerose funzionalità efficienti e la necessaria granularità per controllare l'accesso alle risorse. Per altre informazioni, leggere l'articolo sulla [creazione di un gruppo di sicurezza di rete e di regole dell'elenco di controllo di accesso qui](../virtual-network/virtual-networks-create-nsg-arm-cli.md).
 
 È possibile definire le regole dell'elenco di controllo di accesso e i gruppi di sicurezza di rete come parte dei modelli di Azure Resource Manager. Per altre informazioni, leggere l'articolo [Come creare NSG utilizzando un modello](../virtual-network/virtual-networks-create-nsg-arm-template.md).
 
 Se si deve usare il port forwarding per eseguire il mapping di una sola porta esterna verso una porta interna della VM, usare un servizio di bilanciamento del carico e le regole Network Address Translation (NAT). Ad esempio, si desidera esporre la porta TCP 8080 esternamente e che il traffico venga indirizzato sulla porta TCP 80 in una VM. Per altre informazioni, leggere l'articolo relativo alla [creazione di un servizio di bilanciamento del carico per Internet](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 In questo esempio viene creata una regola semplice per consentire il traffico HTTP. È possibile trovare informazioni sulla creazione di ambienti più dettagliati negli articoli seguenti:
 
-* [Panoramica di Gestione risorse di Azure](../resource-group-overview.md)
+* [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md)
 * [Panoramica di Azure Resource Manager per i servizi di bilanciamento del carico](../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

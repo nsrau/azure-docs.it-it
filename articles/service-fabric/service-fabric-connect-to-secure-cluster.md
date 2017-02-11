@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 4ba0f864dc28beebb80567d3fac7f12cc42df677
-ms.openlocfilehash: 09557bd9c83318b2bdff8ecdefedc141eb7f80db
+ms.sourcegitcommit: 65775053918e12ef8881f417dacc0a63f080d093
+ms.openlocfilehash: 6de98012e768abc7f8450e97648444a74474b5e9
 
 
 ---
 # <a name="connect-to-a-secure-cluster"></a>Connettersi a un cluster sicuro
-Quando un client si connette a un nodo di un cluster di Service Fabric, è possibile autenticare il client e proteggere la comunicazione stabilita usando la sicurezza basata su certificati o Azure Active Directory (AAD). Questa autenticazione garantisce che solo gli utenti autorizzati possano accedere al cluster e alle applicazioni distribuite ed eseguire attività di gestione.  La sicurezza basata su certificati o AAD deve essere stata abilitata in precedenza nel cluster durante la creazione del cluster stesso.  Per altre informazioni sugli scenari di sicurezza dei cluster, vedere [Sicurezza del cluster](service-fabric-cluster-security.md). Se ci si connette a un cluster protetto con certificati, [configurare il certificato client](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) nel computer che si connetterà al cluster.
+Quando un client si connette a un nodo di un cluster di Service Fabric, è possibile autenticare il client e proteggere la comunicazione stabilita usando la sicurezza basata su certificati o Azure Active Directory (AAD). Questa autenticazione garantisce che solo gli utenti autorizzati possano accedere al cluster e alle applicazioni distribuite ed eseguire attività di gestione.  La sicurezza basata su certificati o AAD deve essere stata abilitata in precedenza nel cluster durante la creazione del cluster stesso.  Per altre informazioni sugli scenari di sicurezza dei cluster, vedere [Sicurezza del cluster](service-fabric-cluster-security.md). Se ci si connette a un cluster protetto con certificati, [configurare il certificato client](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) nel computer che si connette al cluster. 
 
 <a id="connectsecureclustercli"></a> 
 
@@ -56,7 +56,7 @@ Per connettersi a un cluster protetto con un certificato autofirmato, usare il c
 azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
 ```
 
-Dopo la connessione, sarà possibile eseguire altri comandi dell'interfaccia della riga di comando per interagire con il cluster. 
+Dopo la connessione, sarà possibile [eseguire altri comandi dell'interfaccia della riga di comando](service-fabric-azure-cli.md) per interagire con il cluster. 
 
 <a id="connectsecurecluster"></a>
 
@@ -111,7 +111,7 @@ Service Fabric SDK fornisce la classe [FabricClient](https://msdn.microsoft.com/
 
 ### <a name="connect-to-an-unsecure-cluster"></a>Connettersi a un cluster non sicuro
 
-Per connettersi a un cluster remoto non protetto, creare semplicemente un'istanza di FabricClient e specificare l'indirizzo del cluster:
+Per connettersi a un cluster remoto non protetto, creare un'istanza di FabricClient e specificare l'indirizzo del cluster:
 
 ```csharp
 FabricClient fabricClient = new FabricClient("clustername.westus.cloudapp.azure.com:19000");
@@ -291,7 +291,7 @@ Per connettersi a un cluster protetto con AAD, inserire nel browser l'indirizzo 
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-Verrà automaticamente richiesto di accedere con AAD.
+Viene automaticamente richiesto di accedere con AAD.
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Connettersi a un cluster sicuro con un certificato client
 
@@ -299,7 +299,7 @@ Per connettersi a un cluster protetto con certificati, inserire nel browser l'in
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-Verrà automaticamente richiesto di selezionare un certificato del client.
+Viene automaticamente richiesto di selezionare un certificato del client.
 
 <a id="connectsecureclustersetupclientcert"></a>
 ## <a name="set-up-a-client-certificate-on-the-remote-computer"></a>Configurare un certificato client nel computer remoto
@@ -330,6 +330,6 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

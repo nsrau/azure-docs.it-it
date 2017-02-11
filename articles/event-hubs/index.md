@@ -2,8 +2,8 @@
 layout: LandingPage
 description: Informazioni su come usare l&quot;Hub eventi per inserire milioni di eventi al secondo da dispositivi e applicazioni IoT connessi su un&quot;ampia serie di piattaforme.
 translationtype: Human Translation
-ms.sourcegitcommit: bedc8c16671de6071383659697ecd932e14cf3ba
-ms.openlocfilehash: 3d404f115c9a21c7ea62fb485a2129bca9de5c6c
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 29d6165596d3e98264285b6471c8f54b66aa2c3a
 
 ---
 #<a name="event-hubs-documentation"></a>Documentazione di Hub eventi
@@ -116,13 +116,7 @@ Informazioni su come usare l'Hub eventi per raccogliere e gestire milioni di eve
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/event-hubs.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione di Hub eventi </div>
-    </a>
-</div>
+
 
 
 

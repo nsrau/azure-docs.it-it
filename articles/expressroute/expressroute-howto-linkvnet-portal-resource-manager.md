@@ -13,21 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/13/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a3604b95179d1a88f832ed45d9a6b85931187b1
+ms.sourcegitcommit: b3a8cdab9e609994b1c4c4d50e9571718e8091de
+ms.openlocfilehash: 8043f0d5a4c9fbd301e7565e7d62be09dd77abd8
 
 
 ---
-# <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>Collegare una rete virtuale a un circuito ExpressRoute
+# <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Connettere una rete virtuale a un circuito ExpressRoute
 > [!div class="op_single_selector"]
-> * [Portale di Azure - Gestione risorse](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [PowerShell - Gestione risorse](expressroute-howto-linkvnet-arm.md)
-> * [PowerShell - Classico](expressroute-howto-linkvnet-classic.md)
+> * [Resource Manager - Portale di Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Classica: PowerShell](expressroute-howto-linkvnet-classic.md)
+> * [Video - Portale di Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > 
-> 
+>  
 
 Questo articolo spiega come collegare le reti virtuali (Vnet) ai circuiti ExpressRoute di Azure usando il modello di distribuzione di Gestione risorse e il portale di Azure. Le reti virtuali possono trovarsi nella stessa sottoscrizione o appartenere a un'altra sottoscrizione.
 
@@ -77,6 +78,6 @@ Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressR
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

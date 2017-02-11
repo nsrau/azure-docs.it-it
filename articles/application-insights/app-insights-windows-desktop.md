@@ -1,11 +1,11 @@
 ---
-title: Monitoraggio dell'utilizzo e delle prestazioni per le applicazioni desktop di Windows
-description: Analizzare l'utilizzo e le prestazioni dell'applicazione desktop di Windows con HockeyApp e Application Insights.
+title: Monitoraggio dell&quot;utilizzo e delle prestazioni per le applicazioni desktop di Windows
+description: Analizzare l&quot;utilizzo e le prestazioni dell&quot;applicazione desktop di Windows con HockeyApp e Application Insights.
 services: application-insights
 documentationcenter: windows
 author: alancameronwills
 manager: douge
-
+ms.assetid: 19040746-3315-47e7-8c60-4b3000d2ddc4
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,12 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
+ms.openlocfilehash: 6f87eaf58c9c8dcd301a6ac245119621244a1c27
+
 
 ---
-# Monitoraggio dell'utilizzo e delle prestazioni nelle applicazioni desktop di Windows
-*Application Insights è disponibile in anteprima.*
+# <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Monitoraggio dell'utilizzo e delle prestazioni nelle applicazioni desktop di Windows
 
-[Visual Studio Application Insights](app-insights-overview.md) e [HockeyApp](https://hockeyapp.net) consentono di monitorare l'utilizzo e le prestazioni dell'applicazione distribuita.
+
+[Application Insights di Azure](app-insights-overview.md) e [HockeyApp](https://hockeyapp.net) consentono di monitorare l'utilizzo e le prestazioni dell'applicazione distribuita.
 
 > [!IMPORTANT]
 > È consigliabile usare [HockeyApp](https://hockeyapp.net) per distribuire e monitorare applicazioni desktop e app per dispositivi. Con HockeyApp è possibile gestire la distribuzione, i test live e i commenti degli utenti, oltre a monitorare i report di utilizzo e di arresto anomalo. È anche possibile [esportare ed eseguire una query sui dati di telemetria con Analisi](app-insights-hockeyapp-bridge-app.md).
@@ -27,23 +31,23 @@ ms.author: awills
 > 
 > 
 
-## Per inviare dati di telemetria ad Application Insights da un'applicazione Windows
+## <a name="to-send-telemetry-to-application-insights-from-a-windows-application"></a>Per inviare dati di telemetria ad Application Insights da un'applicazione Windows
 1. Nel [portale di Azure](https://portal.azure.com) [creare una risorsa di Application Insights](app-insights-create-new-resource.md). Scegliere l'app ASP.NET per il tipo di applicazione.
-2. Eseguire una copia della chiave di strumentazione. Trovare la chiave nell'elenco a discesa Informazioni di base della nuova risorsa appena creata.
+2. Eseguire una copia della chiave di strumentazione. Trovare la chiave nell'elenco a discesa Informazioni di base della nuova risorsa appena creata. 
 3. In Visual Studio, modificare i pacchetti NuGet del progetto dell'app e aggiungere Microsoft.ApplicationInsights.WindowsServer. In alternativa, se si vuole ottenere solo l'API, senza i moduli di raccolta dei dati di telemetria standard, scegliere Microsoft.ApplicationInsights.
 4. Impostare la chiave di strumentazione nel codice:
    
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *nome della chiave* `";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "` *nome della chiave* `";` 
    
     o in ApplicationInsights.config, se è installato uno dei pacchetti di telemetria standard:
    
-    `<InstrumentationKey>`*nome della chiave*`</InstrumentationKey>`
+    `<InstrumentationKey>`*chiave*`</InstrumentationKey>` 
    
     Se si utilizza Applicationinsights.config, assicurarsi che le proprietà in Esplora soluzione siano impostate su **Build Action = Content, Copy to Output Directory = Copy**.
 5. [Usare l'API](app-insights-api-custom-events-metrics.md) per inviare dati di telemetria.
 6. Eseguire l'app e visualizzare i dati di telemetria nella risorsa creata nel portale di Azure.
 
-## <a name="telemetry"></a>Codice di esempio
+## <a name="a-nametelemetryaexample-code"></a><a name="telemetry"></a>Codice di esempio
 ```C#
 
     public partial class Form1 : Form
@@ -80,10 +84,15 @@ ms.author: awills
 
 ```
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * [Creare un dashboard](app-insights-dashboards.md)
 * [Ricerca diagnostica](app-insights-diagnostic-search.md)
 * [Esplorare le metriche](app-insights-metrics-explorer.md)
 * [Scrivere query di Analisi](app-insights-analytics.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 09/26/2016
-ms.author: cenkdin;juliako
+ms.date: 12/07/2016
+ms.author: cenkd;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6b322f69a1b4dec77a1c8c8bcd0e5f231f9617ff
+ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
+ms.openlocfilehash: d0f9899d6b8cc83ea4f2836444b41a9dabe7fea7
 
 
 ---
@@ -25,11 +25,11 @@ A partire dalla versione 2.11, Servizi multimediali consente di definire filtri 
 
 Questo argomento illustra alcuni scenari comuni in cui l'uso dei filtri può essere particolarmente vantaggioso e contiene collegamenti ad altri argomenti che illustrano come creare filtri a livello di codice. È attualmente possibile creare filtri solo con le API REST.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Quando si distribuiscono contenuti ai clienti (eventi in live streaming o video on demand), l'obiettivo è riuscire a trasmettere video di alta qualità a vari tipi di dispositivi in diverse condizioni di rete. Per raggiungere questo obiettivo, eseguire queste operazioni:
 
 * Codificare il flusso video a più velocità in bit ([velocità in bit adattiva](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)), garantendo in questo modo la qualità e le condizioni di rete 
-* Usare la funzione di [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md) di Servizi multimediali per riorganizzare dinamicamente il flusso in nuovi pacchetti creati con protocolli diversi, garantendo in questo modo la trasmissione a diversi tipi di dispositivi. Servizi multimediali supporta operazioni di trasmissione nelle seguenti tecnologie di streaming a velocità in bit adattiva: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di licenza Adobe PrimeTime/Access). 
+* Usare la funzione di [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md) di Servizi multimediali per riorganizzare dinamicamente il flusso in nuovi pacchetti creati con protocolli diversi, garantendo in questo modo la trasmissione a diversi tipi di dispositivi. Servizi multimediali supporta le tecnologie di streaming a bitrate adattivo seguenti: HTTP Live Streaming (HLS), Smooth Streaming e MPEG-DASH. 
 
 ### <a name="manifest-files"></a>File manifesto
 Quando si codifica un asset per lo streaming a velocità in bit adattiva, viene creato un file (playlist) **manifesto** , ovvero un file basato su testo o XML. Il file **manifesto** include alcuni metadati di streaming, tra cui il tipo di traccia (audio, video o testo), il nome della traccia, l'ora di inizio e di fine, la velocità in bit (qualità), le lingue della traccia, la finestra di presentazione (finestra scorrevole di durata fissa) e un codec video (FourCC). Indica inoltre al lettore come recuperare il frammento successivo fornendo informazioni sui successivi frammenti video riproducibili disponibili e il relativo percorso. I frammenti (o segmenti) sono i "blocchi" effettivi di un contenuto video.
@@ -74,7 +74,7 @@ Esistono [scenari](media-services-dynamic-manifest-overview.md#scenarios) in cui
 * Tagliare l'inizio di un video ("trimming di un video").
 * Regolare la finestra di presentazione (DVR) in modo da ottenere una lunghezza limitata della finestra nel lettore ("regolazione finestra presentazione").
 
-Per ottenere questa flessibilità, Servizi multimediali offre **manifesti dinamici** basati su [filtri](media-services-dynamic-manifest-overview.md#filters)predefiniti.  Dopo aver definito i filtri, è possibile usarli per trasmettere solo un determinato rendering o specifici sottoclip di un video. I filtri desiderati dovranno essere specificati nell'URL di streaming. È possibile applicare i filtri ai protocolli di streaming a velocità in bit adattiva supportati dalla funzione di [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH, Smooth Streaming e HDS. ad esempio:
+Per ottenere questa flessibilità, Servizi multimediali offre **manifesti dinamici** basati su [filtri](media-services-dynamic-manifest-overview.md#filters)predefiniti.  Dopo aver definito i filtri, è possibile usarli per trasmettere solo un determinato rendering o specifici sottoclip di un video. I filtri desiderati dovranno essere specificati nell'URL di streaming. È possibile applicare filtri ai protocolli di streaming a bitrate adattivo supportati dalla funzione di [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH e Smooth Streaming. ad esempio:
 
 URL MPEG DASH con filtro
 
@@ -114,7 +114,7 @@ Con il manifesto dinamico, è possibile creare profili di dispositivo, ad esempi
 
 ![Esempio di filtro di rendering][renditions2]
 
-Nell'esempio seguente si usa un codificatore per codificare un asset in formato intermedio in sette rendering video ISO MP4 (da 180p a 1080p). L'asset così codificato può essere quindi riorganizzato dinamicamente in pacchetti creati con uno dei seguenti protocolli di streaming: HLS, Smooth, MPEG DASH e HDS.  Nella parte superiore del diagramma è riportato il manifesto HLS per l'asset senza filtri (contiene tutti i sette rendering),  mentre in basso a sinistra è riportato il manifesto HLS con applicato un filtro denominato "ott". Il filtro "ott" indica che devono essere rimosse tutte le velocità in bit inferiori a 1 Mbps. L'applicazione di questo filtro ha generato i due livelli di qualità inferiori rimossi nella risposta.  In basso a destra è riportato invece il manifesto HLS con applicato un filtro denominato "mobile". Il filtro "mobile" indica che devono essere rimossi tutti i rendering con risoluzione superiore a 720p. L'applicazione di questo filtro ha generato i due rendering 1080p rimossi.
+Nell'esempio seguente si usa un codificatore per codificare un asset in formato intermedio in sette rendering video ISO MP4 (da 180p a 1080p). L'asset così codificato può essere quindi riorganizzato dinamicamente in pacchetti creati con uno dei protocolli di streaming seguenti: HLS, Smooth e MPEG-DASH.  Nella parte superiore del diagramma è riportato il manifesto HLS per l'asset senza filtri (contiene tutti i sette rendering),  mentre in basso a sinistra è riportato il manifesto HLS con applicato un filtro denominato "ott". Il filtro "ott" indica che devono essere rimosse tutte le velocità in bit inferiori a 1 Mbps. L'applicazione di questo filtro ha generato i due livelli di qualità inferiori rimossi nella risposta.  In basso a destra è riportato invece il manifesto HLS con applicato un filtro denominato "mobile". Il filtro "mobile" indica che devono essere rimossi tutti i rendering con risoluzione superiore a 720p. L'applicazione di questo filtro ha generato i due rendering 1080p rimossi.
 
 ![Filtro di rendering][renditions1]
 
@@ -213,6 +213,6 @@ Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/az
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

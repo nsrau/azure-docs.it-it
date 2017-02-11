@@ -1,19 +1,23 @@
 ---
-title: Creare funzionalità per i dati in un cluster Hadoop mediante le query Hive | Microsoft Docs
-description: Esempi di query Hive che generano funzionalità nei dati archiviati in un cluster HDInsight Hadoop di Azure.
+title: "Creare funzionalità per i dati in un cluster Hadoop mediante le query Hive | Documentazione Microsoft"
+description: "Esempi di query Hive che generano funzionalità nei dati archiviati in un cluster HDInsight Hadoop di Azure."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: e8a94c71-979b-4707-b8fd-85b47d309a30
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/09/2016
 ms.author: hangzh;bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7f34a63acf5720ef880193b08f3a90d1f904774d
+
 
 ---
 # <a name="create-features-for-data-in-an-hadoop-cluster-using-hive-queries"></a>Creare funzionalità per i dati in un cluster Hadoop mediante le query Hive
@@ -35,7 +39,7 @@ Questo articolo presuppone che l'utente abbia:
 * Caricato i dati nelle tabelle Hive dei cluster Hadoop di Azure HDInsight. Se questa operazione non è stata effettuata, seguire le istruzioni riportate in [Creazione e caricamento di dati nelle tabelle Hive](machine-learning-data-science-move-hive-tables.md) per caricare innanzitutto i dati nelle tabelle Hive.
 * Abilitato l'accesso remoto al cluster. Per istruzioni, vedere [Accesso al nodo head del cluster Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
 
-## <a name="a-namehivefeatureengineeringafeature-generation"></a><a name="hive-featureengineering"></a>Creazione di funzionalità
+## <a name="a-namehive-featureengineeringafeature-generation"></a><a name="hive-featureengineering"></a>Creazione di funzionalità
 In questa sezione vengono descritti vari esempi dei modi in cui è possibile generare funzionalità mediante le query Hive. Dopo aver creato le funzionalità aggiuntive, è possibile aggiungerle come colonne alla tabella esistente oppure creare una nuova tabella con le funzionalità aggiuntive e la chiave primaria, che quindi può essere unita alla tabella originale. Di seguito ci sono gli esempi presentati:
 
 1. [Creazione di funzionalità basata sulla frequenza](#hive-frequencyfeature)
@@ -44,7 +48,7 @@ In questa sezione vengono descritti vari esempi dei modi in cui è possibile gen
 4. [Estrazione delle funzionalità dal campo Text](#hive-textfeatures)
 5. [Calcolo della distanza tra le coordinate GPS](#hive-gpsdistance)
 
-### <a name="a-namehivefrequencyfeatureafrequency-based-feature-generation"></a><a name="hive-frequencyfeature"></a>Creazione di funzionalità basata sulla frequenza
+### <a name="a-namehive-frequencyfeatureafrequency-based-feature-generation"></a><a name="hive-frequencyfeature"></a>Creazione di funzionalità basata sulla frequenza
 Spesso, può essere utile calcolare le frequenze relative ai livelli di una variabile di categoria o le frequenze di alcune combinazioni di livelli di più variabili di categoria. Per calcolare tali frequenze, gli utenti possono usare lo script seguente:
 
         select
@@ -58,7 +62,7 @@ Spesso, può essere utile calcolare le frequenze relative ai livelli di una vari
         order by frequency desc;
 
 
-### <a name="a-namehiveriskfeaturearisks-of-categorical-variables-in-binary-classification"></a><a name="hive-riskfeature"></a>Rischi di variabili di categoria nella classificazione binaria
+### <a name="a-namehive-riskfeaturearisks-of-categorical-variables-in-binary-classification"></a><a name="hive-riskfeature"></a>Rischi di variabili di categoria nella classificazione binaria
 Nella classificazione binaria, se i modelli usati accettano soltanto funzionalità numeriche, è necessario convertire le variabili di categoria non numeriche in funzionalità numeriche. È possibile eseguire questa operazione sostituendo tutti i livelli non numerici con un rischio numerico. In questa sezione, vengono descritte alcune query Hive generiche che consentono di calcolare i valori di rischio (disparità di log) di una variabile di categoria.
 
         set smooth_param1=1;
@@ -83,7 +87,7 @@ In questo esempio, le variabili `smooth_param1` e `smooth_param2` vengono impost
 
 Dopo aver calcolato la tabella dei rischi, gli utenti possono assegnare i valori di rischio a una tabella unendola a quella dei rischi. La query Hive che viene aggiunta è stata descritta nella sezione precedente.
 
-### <a name="a-namehivedatefeaturesaextract-features-from-datetime-fields"></a><a name="hive-datefeatures"></a>Estrazione delle funzionalità dal campo Datetime
+### <a name="a-namehive-datefeaturesaextract-features-from-datetime-fields"></a><a name="hive-datefeatures"></a>Estrazione delle funzionalità dal campo Datetime
 In Hive è disponibile un set di funzioni definite dall'utente per elaborare i campi Datetime. In Hive, il formato data/ora predefinito è "aaaa-MM-gg 00:00:00" (ad esempio, "1970-01-01 12:21:32"). In questa sezione, vengono riportati esempi che consentono di estrarre il giorno del mese, il mese da un campo Datetime e altri esempi che consentono di convertire una stringa data/ora in formato diverso rispetto a quello predefinito da una stringa data/ora con formato predefinito.
 
         select day(<datetime field>), month(<datetime field>)
@@ -103,13 +107,13 @@ In questa query, se *&#60;datetime field>* ha il modello *03/26/2015 12:04:39*, 
 
 In questa query, *hivesampletable* presenta tutti i cluster Hadoop di Azure HDInsight per impostazione predefinita quando viene effettuato il provisioning dei cluster.
 
-### <a name="a-namehivetextfeaturesaextract-features-from-text-fields"></a><a name="hive-textfeatures"></a>Estrazione delle funzionalità dal campo Text
+### <a name="a-namehive-textfeaturesaextract-features-from-text-fields"></a><a name="hive-textfeatures"></a>Estrazione delle funzionalità dal campo Text
 Quando la tabella Hive dispone di un campo di testo con una stringa di parole delimitate da spazi, la seguente query consente di estrarre la lunghezza della stringa e il numero di parole contenuto.
 
         select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num
         from <databasename>.<tablename>;
 
-### <a name="a-namehivegpsdistanceacalculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Calcolo della distanza tra le coordinate GPS
+### <a name="a-namehive-gpsdistanceacalculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Calcolo della distanza tra le coordinate GPS
 La query descritta in questa sezione può essere applicata direttamente ai dati relativi ai tragitti dei taxi di NYC. Lo scopo della query è quello di dimostrare come applicare una funzione matematica incorporata in Hive, al fine di creare funzionalità.
 
 I campi usati in questa query sono coordinate GPS relative ai luoghi in cui si sale e scende dal taxi, denominati *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude* e *dropoff\_latitude*. Le query che consentono di calcolare la distanza diretta tra questi due punti sono:
@@ -165,6 +169,9 @@ Le impostazioni predefinite per i parametri del cluster Hive potrebbero non esse
         set mapred.reduce.tasks=128;
         set mapred.tasktracker.reduce.tasks.maximum=128;
 
-<!---HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

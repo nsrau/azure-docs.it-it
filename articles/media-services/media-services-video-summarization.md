@@ -1,12 +1,12 @@
 ---
 title: Usare Azure Media Video Thumbnails per creare un riepilogo video | Microsoft Docs
-description: Il riepilogo video consente di creare un riepilogo per video lunghi selezionando in modo automatico frammenti interessanti del video di origine. Questa funzione risulta particolarmente utile quando si intende creare una panoramica rapida dei contenuti offerti nella versione più lunga del video.
+description: "Il riepilogo video consente di creare un riepilogo per video lunghi selezionando in modo automatico frammenti interessanti del video di origine. Questa funzione risulta particolarmente utile quando si intende creare una panoramica rapida dei contenuti offerti nella versione più lunga del video."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a245529f-3150-4afc-93ec-e40d8a6b761d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: milanga;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0c6f4a020430f464a97b0716dea2a40719c0b064
+
 
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Uso delle anteprime video multimediali di Azure per creare un riepilogo video
@@ -33,7 +37,7 @@ Di seguito sono riportati alcuni esempi delle attività che il processore multim
 ### <a name="video-thumbnail-result"></a>Risultato dell'anteprima video
 [Risultato dell'anteprima video](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
-## <a name="task-configuration-(preset)"></a>Configurazione delle attività (set di impostazioni)
+## <a name="task-configuration-preset"></a>Configurazione delle attività (set di impostazioni)
 Quando si crea un'attività di anteprima video con **anteprime video multimediali di Azure**, è necessario specificare un set di impostazioni di configurazione. L'esempio precedente dell'anteprima è stato creato con la configurazione JSON di base seguente:
 
     {"version":"1.0"}
@@ -70,7 +74,7 @@ Il programma seguente illustra come:
 1. Creare un asset e caricare un file multimediale nell'asset.
 2. Creare un processo con un'attività di anteprima video in base al file di configurazione che contiene il set di impostazioni JSON seguente. 
    
-        {               
+        {                
             "version": "1.0",
             "options": {
                 "outputAudio": "true",
@@ -80,7 +84,7 @@ Il programma seguente illustra come:
         }
 3. Scaricare i file di output. 
 
-### <a name=".net-code"></a>Codice .NET
+### <a name="net-code"></a>Codice .NET
     using System;
     using System.Configuration;
     using System.IO;
@@ -259,6 +263,9 @@ Il programma seguente illustra come:
 
 [Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

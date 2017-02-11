@@ -2,11 +2,11 @@
 title: Scaricare asset di file multimediali
 description: Informazioni su come scaricare asset nel computer. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 8908a1dd-3ffb-4f18-955d-4c8e2d82fc5d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 25b74bdcdbc5ec5a134bb2f800cd687de6ebc1e7
+
 
 ---
-# <a name="how-to:-deliver-an-asset-by-download"></a>Procedura: Distribuire un asset mediante download
+# <a name="how-to-deliver-an-asset-by-download"></a>Procedura: Distribuire un asset mediante download
 Questo argomento illustra le opzioni per la distribuzione di asset di file multimediali caricati in Servizi multimediali. È possibile distribuire contenuti di Servizi multimediali in numerosi scenari di applicazione. È possibile scaricare asset di file multimediali oppure accedervi mediante un localizzatore. I contenuti multimediali possono essere inviati a un'altra applicazione o un altro provider di contenuti. Per ottenere livelli più elevati di prestazioni e scalabilità, è anche possibile distribuire contenuti usando una rete per la distribuzione di contenuti (CDN).
 
 Questo esempio illustra come scaricare asset di file multimediali da Servizi multimediali nel computer locale. Il codice esegue query sui processi associati all'account di Servizi multimediali mediante l'ID processo e accede alla relativa raccolta **OutputMediaAssets** , ovvero il set con uno o più asset di file multimediali di output risultante dall'esecuzione di un processo. In questo esempio di codice viene illustrato come scaricare asset di file multimediali di output da un processo, ma lo stesso approccio può essere usato anche per scaricare altri asset.
@@ -81,6 +85,9 @@ Questo esempio illustra come scaricare asset di file multimediali da Servizi mul
 ## <a name="see-also"></a>Vedere anche
 [Distribuire contenuti in streaming](media-services-deliver-streaming-content.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

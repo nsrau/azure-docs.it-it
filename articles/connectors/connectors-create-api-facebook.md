@@ -1,24 +1,28 @@
 ---
-title: Aggiungere il connettore Facebook alle app per la logica | Microsoft Docs
-description: Panoramica del connettore Facebook con i parametri dell'API REST.
-services: ''
-documentationcenter: ''
+title: Aggiungere il connettore Facebook alle app per la logica | Documentazione Microsoft
+description: Panoramica del connettore Facebook con i parametri dell&quot;API REST.
+services: 
+documentationcenter: 
 author: MandiOhlinger
-manager: erikre
-editor: ''
+manager: anneta
+editor: 
 tags: connectors
-
+ms.assetid: f4d6f0ed-c09b-488c-be1c-8cf2b5b1d4b8
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2016
+ms.date: 11/07/2016
 ms.author: mandia
+translationtype: Human Translation
+ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
+ms.openlocfilehash: 7ac9d7eb9e322d8c44434add381030b51c9e9a4b
+
 
 ---
-# Introduzione al connettore Facebook
-Connettersi a Facebook e pubblicare un post in una sequenza temporale, recuperare il feed di una pagina e così via.
+# <a name="get-started-with-the-facebook-connector"></a>Introduzione al connettore Facebook
+Connettersi a Facebook e pubblicare un post in una sequenza temporale, recuperare il feed di una pagina e così via. 
 
 > [!NOTE]
 > Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
@@ -27,94 +31,49 @@ Connettersi a Facebook e pubblicare un post in una sequenza temporale, recuperar
 
 Con Facebook è possibile:
 
-* Creare il flusso aziendale in base ai dati ottenuti da Facebook.
+* Creare il flusso aziendale in base ai dati ottenuti da Facebook. 
 * Usare un trigger quando si riceve un nuovo post.
-* Usare azioni per pubblicare un post nel diario, ottenere il feed di una pagina e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, quando nel diario è presente un nuovo post, è possibile selezionare tale post ed eseguirne il push al feed di Twitter.
+* Usare azioni per pubblicare un post nella sequenza temporale, recuperare il feed di una pagina e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, quando nella sequenza temporale è presente un nuovo post, è possibile selezionare tale post ed eseguirne il push al feed di Twitter. 
 
 Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Trigger e azioni
-Il connettore Facebook include i trigger e le azioni seguenti.
+## <a name="triggers-and-actions"></a>Trigger e azioni
+Il connettore Facebook include i trigger e le azioni seguenti. 
 
 | Trigger | Azioni |
 | --- | --- |
-| <ul><li>When there is a new post on my timeline (Quando nel diario è presente un nuovo post)</li></ul> |<ul><li>Get feed from my timeline (Ottieni feed dal diario)</li><li>Post to my timeline (Pubblica nel diario)</li><li>When there is a new post on my timeline (Quando nel diario è presente un nuovo post)</li><li>Get page feed (Ottieni feed della pagina)</li><li>Ottieni cronologia utente</li><li>Post to page (Pubblica nella pagina)</li></ul> |
+| <ul><li>Quando nella sequenza temporale è presente un nuovo post</li></ul> |<ul><li>Recupera feed dalla sequenza temporale</li><li>Pubblica post nella sequenza temporale</li><li>Quando nella sequenza temporale è presente un nuovo post</li><li>Recupera feed della pagina</li><li>Recupera sequenza temporale utente</li><li>Pubblica post nella pagina</li></ul> |
 
 Tutti i connettori supportano dati nei formati JSON e XML.
 
-## Creare una connessione a Facebook
+## <a name="create-a-connection-to-facebook"></a>Creare una connessione a Facebook
 Quando si aggiunge questo connettore alle app per la logica, è necessario autorizzare le app per la logica per la connessione a Facebook.
 
 1. Accedere al proprio account Facebook
-2. Scegliere **Autorizza** e consentire alle app per la logica di connettersi e usare Facebook.
+2. Selezionare **Autorizza**e consentire alle app per la logica di connettersi e usare Facebook. 
 
-> [!INCLUDE [Passaggi per creare una connessione a Facebook](../../includes/connectors-create-api-facebook.md)]
+> [!INCLUDE [Steps to create a connection to Facebook](../../includes/connectors-create-api-facebook.md)]
 > 
 > [!TIP]
 > È possibile usare la stessa connessione di Facebook in altre app per la logica.
 > 
 > 
 
-## Riferimento all'API REST di Swagger
+## <a name="swagger-rest-api-reference"></a>Riferimento all'API REST Swagger
 Si applica alla versione 1.0.
 
-### Ottieni feed dal diario
-Ottiene i feed dal diario dell'utente connesso. ```GET: /me/feed```
-
-| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Description |
-| --- | --- | --- | --- | --- | --- |
-| fields |stringa |no |query |nessuno |Specifica i campi da restituire, ad esempio ID, nome o immagine. |
-| limit |integer |no |query |nessuno |Numero massimo di post da recuperare |
-| con |stringa |no |query |nessuno |Limita l'elenco dei post solo a quelli con percorso collegato. |
-| filter |stringa |no |query |nessuno |Recupera solo i post che corrispondono a un filtro di flusso specifico. |
-
-#### Response
-| Name | Descrizione |
-| --- | --- |
-| 200 |OK |
-| 400 |Bad Request |
-| 500 |Internal Server Error |
-| default |Operazione non riuscita. |
-
-### Pubblica post nel diario
-Pubblica un messaggio di stato nel diario dell'utente connesso. ```POST: /me/feed```
+### <a name="get-feed-from-my-timeline"></a>Recupera feed dalla sequenza temporale
+Recupera i feed dalla sequenza temporale dell'utente connesso.  
+```GET: /me/feed```
 
 | Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| post |string |sì |body |nessuno |Nuovo messaggio da pubblicare |
-
-#### Response
-| Nome | Descrizione |
-| --- | --- |
-| 200 |OK |
-| 400 |Bad Request |
-| 500 |Internal Server Error |
-| default |Operazione non riuscita. |
-
-### Quando nel diario è presente un nuovo post
-Attiva un nuovo flusso in presenza di un nuovo post nel diario dell'utente connesso ```GET: /trigger/me/feed```
-
-Non sono disponibili parametri.
-
-#### Response
-| Nome | Descrizione |
-| --- | --- |
-| 200 |OK |
-| 400 |Bad Request |
-| 500 |Internal Server Error |
-| default |Operazione non riuscita. |
-
-### Ottieni feed della pagina
-Ottiene i post dal feed di una pagina specificata. ```GET: /{pageId}/feed```
-
-| Name | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Description |
-| --- | --- | --- | --- | --- | --- |
-| pageId |string |yes |path |nessuno |ID della pagina da cui devono essere recuperati i post. |
+| fields |string |no |query |nessuno |Specifica i campi da restituire, ad esempio ID, nome o immagine. |
 | limit |integer |no |query |nessuno |Numero massimo di post da recuperare |
-| include\_hidden |boolean |no |query |nessuno |Include o esclude i post che sono stati nascosti dalla pagina |
-| fields |stringa |no |query |nessuno |Specifica i campi da restituire, ad esempio ID, nome o immagine. |
+| con |string |no |query |nessuno |Limitare l'elenco dei post solo a quelli con percorso collegato. |
+| filter |string |no |query |nessuno |Recuperare solo i post che corrispondono a un filtro di flusso specifico. |
 
-#### Response
+#### <a name="response"></a>Risposta
 | Nome | Descrizione |
 | --- | --- |
 | 200 |OK |
@@ -122,18 +81,48 @@ Ottiene i post dal feed di una pagina specificata. ```GET: /{pageId}/feed```
 | 500 |Internal Server Error |
 | default |Operazione non riuscita. |
 
-### Ottieni diario utente
-Ottiene i post dal diario di un utente. ```GET: /{userId}/feed```
+### <a name="post-to-my-timeline"></a>Pubblica post nella sequenza temporale
+Pubblica un messaggio di stato nella sequenza temporale dell'utente connesso.  
+```POST: /me/feed```
 
-| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Description |
+| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| userId |stringa |yes |path |nessuno |ID dell'utente la cui cronologia deve essere recuperata. |
+| post |string |Sì |body |nessuno |Nuovo messaggio da pubblicare |
+
+#### <a name="response"></a>Risposta
+| Nome | Descrizione |
+| --- | --- |
+| 200 |OK |
+| 400 |Bad Request |
+| 500 |Internal Server Error |
+| default |Operazione non riuscita. |
+
+### <a name="when-there-is-a-new-post-on-my-timeline"></a>Quando nella sequenza temporale è presente un nuovo post
+Quando nella sequenza temporale dell'utente connesso è presente un nuovo post, attiva un nuovo flusso.  
+```GET: /trigger/me/feed```
+
+Non sono disponibili parametri. 
+
+#### <a name="response"></a>Risposta
+| Nome | Descrizione |
+| --- | --- |
+| 200 |OK |
+| 400 |Bad Request |
+| 500 |Internal Server Error |
+| default |Operazione non riuscita. |
+
+### <a name="get-page-feed"></a>Recupera feed della pagina
+Recupera i post dal feed di una pagina specificata.  
+```GET: /{pageId}/feed```
+
+| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
+| --- | --- | --- | --- | --- | --- |
+| pageId |string |Sì |path |nessuno |ID della pagina da cui devono essere recuperati i post. |
 | limit |integer |no |query |nessuno |Numero massimo di post da recuperare |
-| con |stringa |no |query |nessuno |Limita l'elenco dei post solo a quelli con percorso collegato. |
-| filter |stringa |no |query |nessuno |Recupera solo i post che corrispondono a un filtro di flusso specifico. |
-| fields |stringa |no |query |nessuno |Specifica i campi da restituire, ad esempio ID, nome o immagine. |
+| include_hidden |boolean |no |query |nessuno |Includere o escludere i post che sono stati nascosti dalla pagina |
+| fields |string |no |query |nessuno |Specifica i campi da restituire, ad esempio ID, nome o immagine. |
 
-#### Response
+#### <a name="response"></a>Response
 | Nome | Descrizione |
 | --- | --- |
 | 200 |OK |
@@ -141,15 +130,19 @@ Ottiene i post dal diario di un utente. ```GET: /{userId}/feed```
 | 500 |Internal Server Error |
 | default |Operazione non riuscita. |
 
-### Pubblica post nella pagina
-Pubblica un messaggio in una pagina Facebook come utente connesso. ```POST: /{pageId}/feed```
+### <a name="get-user-timeline"></a>Recupera sequenza temporale utente
+Recupera i post dalla sequenza temporale di un utente.  
+```GET: /{userId}/feed```
 
-| Name | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Description |
+| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| pageId |stringa |yes |path |nessuno |ID della pagina da pubblicare. |
-| post |many |sì |body |nessuno |Nuovo messaggio da pubblicare. |
+| userId |string |Sì |path |nessuno |ID dell'utente la cui cronologia deve essere recuperata. |
+| limit |integer |no |query |nessuno |Numero massimo di post da recuperare |
+| con |string |no |query |nessuno |Limitare l'elenco dei post solo a quelli con percorso collegato. |
+| filter |string |no |query |nessuno |Recuperare solo i post che corrispondono a un filtro di flusso specifico. |
+| fields |string |no |query |nessuno |Specifica i campi da restituire, ad esempio ID, nome o immagine. |
 
-#### Response
+#### <a name="response"></a>Response
 | Nome | Descrizione |
 | --- | --- |
 | 200 |OK |
@@ -157,136 +150,153 @@ Pubblica un messaggio in una pagina Facebook come utente connesso. ```POST: /{pa
 | 500 |Internal Server Error |
 | default |Operazione non riuscita. |
 
-## Definizioni oggetti
-#### GetFeedResponse
+### <a name="post-to-page"></a>Pubblica post nella pagina
+Pubblica un messaggio in una pagina di Facebook con il nome dell'utente connesso.  
+```POST: /{pageId}/feed```
+
+| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
+| --- | --- | --- | --- | --- | --- |
+| pageId |string |Sì |path |nessuno |ID della pagina da pubblicare. |
+| post |many |Sì |body |nessuno |Nuovo messaggio da pubblicare. |
+
+#### <a name="response"></a>Risposta
+| Nome | Descrizione |
+| --- | --- |
+| 200 |OK |
+| 400 |Bad Request |
+| 500 |Internal Server Error |
+| default |Operazione non riuscita. |
+
+## <a name="object-definitions"></a>Definizioni oggetto
+#### <a name="getfeedresponse"></a>GetFeedResponse
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | data |array |no |
 
-#### TriggerFeedResponse
+#### <a name="triggerfeedresponse"></a>TriggerFeedResponse
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | data |array |no |
 
-#### PostItem: una singola voce nel feed di un profilo
+#### <a name="postitem-a-single-entry-in-a-profiles-feed"></a>PostItem: un singolo elemento nel feed di un profilo
+Il profilo può essere un utente, una pagina, un'app o un gruppo. 
+
+| Nome proprietà | Tipo di dati | Obbligatorio |
+| --- | --- | --- |
+| id |string |no |
+| admin_creator |array |no |
+| caption |string |no |
+| created_time |stringa |no |
+| Descrizione |string |no |
+| feed_targeting |non definito |no |
+| from |non definito |no |
+| icon |string |no |
+| is_hidden |boolean |no |
+| is_published |boolean |no |
+| link |string |no |
+| message |string |no |
+| Nome |string |no |
+| object_id |stringa |no |
+| picture |string |no |
+| place |non definito |no |
+| privacy |non definito |no |
+| properties |array |no |
+| source |string |no |
+| status_type |string |no |
+| story |string |no |
+| targeting |non definito |no |
+| to |array |no |
+| type |string |no |
+| updated_time |string |no |
+| with_tags |non definito |no |
+
+#### <a name="triggeritem-a-single-entry-in-a-profiles-feed"></a>TriggerItem: un singolo elemento nel feed di un profilo
 Il profilo può essere un utente, una pagina, un'app o un gruppo.
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | id |string |no |
-| admin\_creator |array |no |
-| caption |string |no |
-| created\_time |string |no |
-| description |stringa |no |
-| feed\_targeting |non definito |no |
-| from |non definito |no |
-| icon |stringa |no |
-| is\_hidden |boolean |no |
-| is\_published |boolean |no |
-| link |string |no |
-| message |stringa |no |
-| name |string |no |
-| object\_id |stringa |no |
-| picture |string |no |
-| place |non definito |no |
-| privacy |non definito |no |
-| properties |array |no |
-| source |stringa |no |
-| status\_type |string |no |
-| story |stringa |no |
-| targeting |non definito |no |
-| to |array |no |
-| type |stringa |no |
-| updated\_time |string |no |
-| with\_tags |non definito |no |
-
-#### TriggerItem: una singola voce nel feed di un profilo
-Il profilo può essere un utente, una pagina, un'app o un gruppo.
-
-| Nome proprietà | Tipo di dati | Obbligatorio |
-| --- | --- | --- |
-| id |stringa |no |
-| created\_time |stringa |no |
+| created_time |stringa |no |
 | from |non definito |no |
 | message |string |no |
-| type |stringa |no |
+| type |string |no |
 
-#### AdminItem
+#### <a name="adminitem"></a>AdminItem
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
-| id |stringa |no |
-| link |stringa |no |
+| id |string |no |
+| link |string |no |
 
-#### PropertyItem
+#### <a name="propertyitem"></a>PropertyItem
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
-| name |string |no |
+| Nome |string |no |
 | text |string |no |
-| href |stringa |no |
+| href |string |no |
 
-#### UserPostFeedRequest
+#### <a name="userpostfeedrequest"></a>UserPostFeedRequest
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | message |string |sì |
-| link |stringa |no |
-| picture |stringa |no |
-| name |string |no |
-| caption |stringa |no |
-| description |string |no |
+| link |string |no |
+| picture |string |no |
+| Nome |string |no |
+| caption |string |no |
+| Descrizione |string |no |
 | place |string |no |
-| tags |stringa |no |
+| tags |string |no |
 | privacy |non definito |no |
-| object\_attachment |stringa |no |
+| object_attachment |stringa |no |
 
-#### PagePostFeedRequest
+#### <a name="pagepostfeedrequest"></a>PagePostFeedRequest
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
-| message |stringa |sì |
-| link |stringa |no |
-| picture |stringa |no |
-| name |string |no |
-| caption |stringa |no |
-| description |stringa |no |
-| actions |array |no |
+| message |string |sì |
+| link |string |no |
+| picture |string |no |
+| Nome |string |no |
+| caption |string |no |
+| Descrizione |string |no |
+| Azioni |array |no |
 | place |string |no |
-| tags |stringa |no |
-| object\_attachment |stringa |no |
+| tags |string |no |
+| object_attachment |stringa |no |
 | targeting |non definito |no |
-| feed\_targeting |non definito |no |
+| feed_targeting |non definito |no |
 | published |boolean |no |
-| scheduled\_publish\_time |stringa |no |
-| backdated\_time |string |no |
-| backdated\_time\_granularity |string |no |
-| child\_attachments |array |no |
-| multi\_share\_end\_card |boolean |no |
+| scheduled_publish_time |stringa |no |
+| backdated_time |string |no |
+| backdated_time_granularity |string |no |
+| child_attachments |array |no |
+| multi_share_end_card |boolean |no |
 
-#### PostFeedResponse
+#### <a name="postfeedresponse"></a>PostFeedResponse
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
-| id |stringa |no |
+| id |string |no |
 
-#### ProfileCollection
+#### <a name="profilecollection"></a>ProfileCollection
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | data |array |no |
 
-#### UserItem
+#### <a name="useritem"></a>UserItem
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
-| id |stringa |no |
-| first\_name |stringa |no |
-| last\_name |stringa |no |
-| name |string |no |
-| gender |stringa |no |
-| about |stringa |no |
+| id |string |no |
+| first_name |stringa |no |
+| last_name |stringa |no |
+| Nome |string |no |
+| gender |string |no |
+| about |string |no |
 
-#### ActionItem
+#### <a name="actionitem"></a>ActionItem
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
-| name |stringa |no |
-| link |stringa |no |
+| Nome |string |no |
+| link |string |no |
 
-#### TargetItem
+#### <a name="targetitem"></a>TargetItem
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | countries |array |no |
@@ -294,7 +304,7 @@ Il profilo può essere un utente, una pagina, un'app o un gruppo.
 | regions |array |no |
 | cities |array |no |
 
-#### FeedTargetItem: oggetto che controlla i newsfeed di destinazione per questo post
+#### <a name="feedtargetitem-object-that-controls-news-feed-targeting-for-this-post"></a>FeedTargetItem: oggetto che controlla i newsfeed di destinazione per questo post
 I membri di questi gruppi hanno più probabilità di vedere questo post, gli altri utenti hanno meno probabilità. Si applica solo alle pagine.
 
 | Nome proprietà | Tipo di dati | Obbligatorio |
@@ -302,109 +312,114 @@ I membri di questi gruppi hanno più probabilità di vedere questo post, gli alt
 | countries |array |no |
 | regions |array |no |
 | cities |array |no |
-| age\_min |integer |no |
-| age\_max |integer |no |
+| age_min |integer |no |
+| age_max |integer |no |
 | genders |array |no |
-| relationship\_statuses |array |no |
-| interested\_in |array |no |
-| college\_years |array |no |
+| relationship_statuses |array |no |
+| interested_in |array |no |
+| college_years |array |no |
 | interests |array |no |
-| relevant\_until |integer |no |
-| education\_statuses |array |no |
+| relevant_until |integer |no |
+| education_statuses |array |no |
 | locales |array |no |
 
-#### PlaceItem
+#### <a name="placeitem"></a>PlaceItem
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
-| id |stringa |no |
-| name |stringa |no |
-| overall\_rating |number |no |
+| id |string |no |
+| Nome |string |no |
+| overall_rating |number |no |
 | location |non definito |no |
 
-#### LocationItem
+#### <a name="locationitem"></a>LocationItem
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
-| city |stringa |no |
+| city |string |no |
 | country |string |no |
 | latitudine |number |no |
-| located\_in |string |no |
+| located_in |string |no |
 | longitudine |number |no |
-| name |stringa |no |
-| region |stringa |no |
-| state |stringa |no |
-| street |stringa |no |
-| zip |stringa |no |
+| Nome |string |no |
+| region |string |no |
+| state |string |no |
+| street |string |no |
+| zip |string |no |
 
-#### PrivacyItem
+#### <a name="privacyitem"></a>PrivacyItem
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
-| description |stringa |no |
-| value |stringa |sì |
-| allow |stringa |no |
-| deny |stringa |no |
-| friends |stringa |no |
+| Descrizione |string |no |
+| value |string |sì |
+| allow |string |no |
+| deny |string |no |
+| friends |string |no |
 
-#### ChildAttachmentsItem
+#### <a name="childattachmentsitem"></a>ChildAttachmentsItem
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
-| link |stringa |no |
-| picture |stringa |no |
-| image\_hash |stringa |no |
-| name |stringa |no |
-| description |string |no |
+| link |string |no |
+| picture |string |no |
+| image_hash |stringa |no |
+| Nome |string |no |
+| Descrizione |string |no |
 
-#### PostPhotoRequest
+#### <a name="postphotorequest"></a>PostPhotoRequest
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
-| URL |stringa |sì |
-| caption |stringa |no |
+| URL |string |sì |
+| caption |string |no |
 
-#### PostPhotoResponse
+#### <a name="postphotoresponse"></a>PostPhotoResponse
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | id |string |sì |
-| post\_id |stringa |sì |
+| post_id |stringa |sì |
 
-#### PostVideoRequest
+#### <a name="postvideorequest"></a>PostVideoRequest
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
-| videoData |stringa |sì |
-| description |stringa |sì |
-| title |stringa |sì |
-| uploadedVideoName |stringa |no |
+| videoData |string |sì |
+| Descrizione |string |sì |
+| title |string |sì |
+| uploadedVideoName |string |no |
 
-#### GetPhotoResponse
+#### <a name="getphotoresponse"></a>GetPhotoResponse
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | data |non definito |sì |
 
-#### GetPhotoResponseItem
+#### <a name="getphotoresponseitem"></a>GetPhotoResponseItem
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | URL |string |sì |
-| is\_silhouette |boolean |sì |
+| is_silhouette |boolean |sì |
 | height |string |no |
-| width |stringa |no |
+| width |string |no |
 
-#### GetEventResponse
+#### <a name="geteventresponse"></a>GetEventResponse
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | data |array |sì |
 
-#### GetEventResponseItem
+#### <a name="geteventresponseitem"></a>GetEventResponseItem
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | id |string |sì |
-| name |string |sì |
-| start\_time |string |no |
-| end\_time |string |no |
+| Nome |string |sì |
+| start_time |string |no |
+| end_time |string |no |
 | timezone |string |no |
-| location |stringa |no |
-| description |stringa |no |
-| ticket\_uri |string |no |
-| rsvp\_status |stringa |sì |
+| location |string |no |
+| Descrizione |string |no |
+| ticket_uri |string |no |
+| rsvp_status |stringa |Sì |
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
