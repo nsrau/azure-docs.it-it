@@ -12,11 +12,15 @@
 # Procedure
 ## Configurare la disponibilità elevata
 ### [Opzioni di disponibilità elevata](virtual-machines-windows-sql-high-availability-dr.md) 
-### [Configurare automaticamente gruppi di disponibilità AlwaysOn](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-### [Configurare manualmente gruppi di disponibilità AlwaysOn](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
-### [Configurare un servizio di bilanciamento del carico interno per un gruppo di disponibilità](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-### [Configurare uno o più listener del gruppo di disponibilità AlwaysOn](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
-## Manage
+### [Configurare il gruppo di disponibilità AlwaysOn](virtual-machines-windows-portal-sql-availability-group-overview.md)
+#### [Automatico: con modello](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Manuale: prerequisiti](virtual-machines-windows-portal-sql-availability-group-prereq.md)
+#### [Manuale: esercitazione](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+#### [Bilanciamento del carico: portale](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+#### [Bilanciamento del carico: PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [Più aree geografiche](virtual-machines-windows-portal-sql-availability-group-dr.md)
+
+## Gestire
 ### [Usare l'estensione Agente IaaS di SQL Server](virtual-machines-windows-sql-server-agent-extension.md)
 ### [Applicazione automatica delle patch](virtual-machines-windows-sql-automated-patching.md)
 ### [Configurare l'integrazione dell'insieme di credenziali delle chiavi di Azure](virtual-machines-windows-ps-sql-keyvault.md)
@@ -45,6 +49,6 @@
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

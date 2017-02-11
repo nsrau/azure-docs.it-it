@@ -14,14 +14,17 @@
 ### [Abilitare l'accesso pubblico a DC/OS](container-service-enable-public-access.md)
 ### [Bilanciare il carico dei contenitori in DC/OS](container-service-load-balancing.md)
 ### [Soluzione Orchestrator specifica per app/utente in DC/OS](container-service-application-specific-marathon.md)
-### [Monitorare con OMS (DC/OS)](container-service-monitoring-oms.md)
-### [Monitor with Datadog (DC/OS)](container-service-monitoring.md)
-### [Monitorare con Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
-### [Monitorare con Dynatrace (DC/OS)](container-service-monitoring-dynatrace.md)
+### [Monitorare con OMS](container-service-monitoring-oms.md)
+### [Monitorare con Datadog](container-service-monitoring.md)
+### [Monitorare con Sysdig](container-service-monitoring-sysdig.md)
+### [Monitorare con Dynatrace](container-service-monitoring-dynatrace.md)
 ## Gestire con Kubernetes
 ### [Introduzione a Kubernetes](container-service-kubernetes-walkthrough.md)
 ### [Configurare un'entità servizio](container-service-kubernetes-service-principal.md)
 ### [Interagire con l'interfaccia utente Web di Kubernetes](container-service-kubernetes-ui.md)
+### [Monitorare con OMS](container-service-kubernetes-oms.md)
+### [Monitorare con Datadog](container-service-kubernetes-datadog.md)
+### [Monitorare con Sysdig](container-service-kubernetes-sysdig.md)
 ## Gestire con Docker Swarm
 ### [Docker e Docker Compose](container-service-docker-swarm.md)
 ### [Integrazione continua di Docker Swarm](container-service-docker-swarm-setup-ci-cd.md)
@@ -35,6 +38,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

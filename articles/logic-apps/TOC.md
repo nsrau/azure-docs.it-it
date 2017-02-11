@@ -1,86 +1,88 @@
 # Panoramica
-## [Panoramica delle app per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Elenco dei connettori](../connectors/apis-list.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Enterprise Integration Pack](../app-service-logic/app-service-logic-enterprise-integration-overview.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+## [Panoramica delle app per la logica](logic-apps-what-are-logic-apps.md)
+## [Elenco dei connettori](../connectors/apis-list.md)
+## [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
 
 # Attività iniziali
-## [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Usare le funzionalità delle app per la logica](../app-service-logic/app-service-logic-use-logic-app-features.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Panoramica sui modelli](../app-service-logic/app-service-logic-use-logic-app-templates.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Creare un'app usando un modello](../app-service-logic/app-service-logic-arm-provision.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Esempi e scenari](../app-service-logic/app-service-logic-examples-and-scenarios.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Scenario del bus di servizio](../app-service-logic/app-service-logic-scenario-function-sb-trigger.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Elaborazione B2B](../app-service-logic/app-service-logic-enterprise-integration-b2b.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Elaborazione XML](../app-service-logic/app-service-logic-enterprise-integration-xml.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+## [Creare un'app per la logica](logic-apps-create-a-logic-app.md)
+## [Usare le funzionalità delle app per la logica](logic-apps-use-logic-app-features.md)
+## [Panoramica sui modelli](logic-apps-use-logic-app-templates.md)
+## [Creare un'app usando un modello](logic-apps-arm-provision.md)
+## [Esempi e scenari](logic-apps-examples-and-scenarios.md)
+## [Scenario del bus di servizio](logic-apps-scenario-function-sb-trigger.md)
+## [Elaborazione B2B](logic-apps-enterprise-integration-b2b.md)
+## [Elaborazione XML](logic-apps-enterprise-integration-xml.md)
 
 # Procedure
 ## Compilare
-### [Creare un connettore](../app-service-logic/app-service-logic-create-api-app.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Usare il connettore del file system](../app-service-logic/app-service-logic-use-file-connector.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Strumenti di Visual Studio](../app-service-logic/app-service-logic-deploy-from-vs.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Uso delle funzioni di Azure](../app-service-logic/app-service-logic-azure-functions.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [App per la logica come endpoint che è possibile chiamare](../app-service-logic/app-service-logic-http-endpoint.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Uso dell'API personalizzata](../app-service-logic/app-service-logic-custom-hosted-api.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Gestione delle eccezioni](../app-service-logic/app-service-logic-exception-handling.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Scenario di gestione delle eccezioni](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Gestione dei tipi di contenuto](../app-service-logic/app-service-logic-content-type.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Definizione del flusso di lavoro](../app-service-logic/app-service-logic-author-definitions.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Suggerimenti per la risoluzione dei problemi](../app-service-logic/app-service-logic-diagnosing-failures.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Limiti e configurazione](../app-service-logic/app-service-logic-limits-and-config.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Creare un connettore](logic-apps-create-api-app.md)
+### [Usare il connettore del file system](logic-apps-using-file-connector.md)
+### [Usare il connettore SAP](logic-apps-using-sap-connector.md)
+### [Strumenti di Visual Studio](logic-apps-deploy-from-vs.md)
+### [Uso delle funzioni di Azure](logic-apps-azure-functions.md)
+### [App per la logica come endpoint che è possibile chiamare](logic-apps-http-endpoint.md)
+### [Cicli, ambiti e debatching](logic-apps-loops-and-scopes.md)
+### [Uso dell'API personalizzata](logic-apps-custom-hosted-api.md)
+### [Gestione delle eccezioni](logic-apps-exception-handling.md)
+### [Scenario di gestione delle eccezioni](logic-apps-scenario-error-and-exception-handling.md)
+### [Gestione dei tipi di contenuto](logic-apps-content-type.md)
+### [Definizione del flusso di lavoro](logic-apps-author-definitions.md)
+### [Suggerimenti per la risoluzione dei problemi](logic-apps-diagnosing-failures.md)
+### [Limiti e configurazione](logic-apps-limits-and-config.md)
 
 
 ## Usare Enterprise Integration Pack (EIP)
-### [Panoramica degli account di integrazione](../app-service-logic/app-service-logic-enterprise-integration-create-integration-account.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Contratti](../app-service-logic/app-service-logic-enterprise-integration-agreements.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Elaborazione B2B](../app-service-logic/app-service-logic-enterprise-integration-b2b.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Elaborazione XML](../app-service-logic/app-service-logic-enterprise-integration-xml.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Elaborazione file flat](../app-service-logic/app-service-logic-enterprise-integration-flatfile.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Aggiungere mappe XSLT](../app-service-logic/app-service-logic-enterprise-integration-maps.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Trasformare XML](../app-service-logic/app-service-logic-enterprise-integration-transform.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Convalidare XML](../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Uso dei certificati](../app-service-logic/app-service-logic-enterprise-integration-certificates.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Aggiungere i partner](../app-service-logic/app-service-logic-enterprise-integration-partners.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Aggiungere schemi](../app-service-logic/app-service-logic-enterprise-integration-schemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Integrazione AS2](../app-service-logic/app-service-logic-enterprise-integration-as2.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Codifica AS2](../app-service-logic/app-service-logic-enterprise-integration-as2-encode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Decodifica AS2](../app-service-logic/app-service-logic-enterprise-integration-as2-decode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Integrazione EDIFACT](../app-service-logic/app-service-logic-enterprise-integration-edifact.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Codifica EDIFACT](../app-service-logic/app-service-logic-enterprise-integration-edifact-encode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Decodifica EDIFACT](../app-service-logic/app-service-logic-enterprise-integration-edifact-decode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Integrazione X12](../app-service-logic/app-service-logic-enterprise-integration-x12.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Codifica X12](../app-service-logic/app-service-logic-enterprise-integration-x12-encode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Decodifica X12](../app-service-logic/app-service-logic-enterprise-integration-x12-decode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Panoramica degli account di integrazione](logic-apps-enterprise-integration-create-integration-account.md)
+### [Contratti](logic-apps-enterprise-integration-agreements.md)
+### [Elaborazione B2B](logic-apps-enterprise-integration-b2b.md)
+### [Elaborazione XML](logic-apps-enterprise-integration-xml.md)
+### [Elaborazione file flat](logic-apps-enterprise-integration-flatfile.md)
+### [Aggiungere mappe XSLT](logic-apps-enterprise-integration-maps.md)
+### [Trasformare XML](logic-apps-enterprise-integration-transform.md)
+### [Convalidare XML](logic-apps-enterprise-integration-xml-validation.md)
+### [Uso dei certificati](logic-apps-enterprise-integration-certificates.md)
+### [Aggiungere i partner](logic-apps-enterprise-integration-partners.md)
+### [Aggiungere schemi](logic-apps-enterprise-integration-schemas.md)
+### [Archiviare metadati](logic-apps-enterprise-integration-metadata.md)
+### [Integrazione AS2](logic-apps-enterprise-integration-as2.md)
+### [Codifica AS2](logic-apps-enterprise-integration-as2-encode.md)
+### [Decodifica AS2](logic-apps-enterprise-integration-as2-decode.md)
+### [Integrazione EDIFACT](logic-apps-enterprise-integration-edifact.md)
+### [Codifica EDIFACT](logic-apps-enterprise-integration-edifact-encode.md)
+### [Decodifica EDIFACT](logic-apps-enterprise-integration-edifact-decode.md)
+### [Integrazione X12](logic-apps-enterprise-integration-x12.md)
+### [Codifica X12](logic-apps-enterprise-integration-x12-encode.md)
+### [Decodifica X12](logic-apps-enterprise-integration-x12-decode.md)
 
 
 ## Usare il gateway
-### [Connettersi all'ambiente locale](../app-service-logic/app-service-logic-gateway-connection.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Installare](../app-service-logic/app-service-logic-gateway-install.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Connettersi all'ambiente locale](logic-apps-gateway-connection.md)
+### [Installare](logic-apps-gateway-install.md)
 
 ## Automatizzare
-### [Modello di Automazione](../app-service-logic/app-service-logic-create-deploy-template.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Pubblicare da Visual Studio](../app-service-logic/app-service-logic-deploy-from-vs.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Modello di Automazione](logic-apps-create-deploy-template.md)
+### [Pubblicare da Visual Studio](logic-apps-deploy-from-vs.md)
 
-## Gestire
-### [Monitorare le app per la logica](../app-service-logic/app-service-logic-monitor-your-logic-apps.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Monitorare i messaggi B2B](../app-service-logic/app-service-logic-monitor-b2b-message.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-#### [Schema di rilevamento AS2](../app-service-logic/app-service-logic-track-integration-account-as2-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-#### [Schema di rilevamento X12](../app-service-logic/app-service-logic-track-integration-account-x12-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-#### [Schema di rilevamento personalizzato](../app-service-logic/app-service-logic-track-integration-account-custom-tracking-shema.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-#### [Tracciare i messaggi B2B](../app-service-logic/app-service-logic-track-b2b-messages-omsportal.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+## Manage
+### [Usare Cloud Explorer per Visual Studio](logic-apps-manage-from-vs.md)
+### [Proteggere le app per la logica](logic-apps-securing-a-logic-app.md)
+### [Monitorare le app per la logica](logic-apps-monitor-your-logic-apps.md)
+### [Monitorare i messaggi B2B](logic-apps-monitor-b2b-message.md)
+#### [Schema di rilevamento AS2](logic-apps-track-integration-account-as2-tracking-schemas.md)
+#### [Schema di rilevamento X12](logic-apps-track-integration-account-x12-tracking-schema.md)
+#### [Schema di rilevamento personalizzato](logic-apps-track-integration-account-custom-tracking-schema.md)
+#### [Tracciare i messaggi B2B](logic-apps-track-b2b-messages-omsportal.md)
+#### [Eseguire query nel portale di OMS](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 
-### [Account di integrazione](../app-service-logic/app-service-logic-enterprise-integration-accounts.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Prezzi](../app-service-logic/app-service-logic-pricing.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Account di integrazione](logic-apps-enterprise-integration-accounts.md)
+### [Prezzi](logic-apps-pricing.md)
 
 # riferimento
 ## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
 ## Cronologia degli schemi
-### [Disponibilità generale](../app-service-logic/app-service-logic-schema-2016-04-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Anteprima](../app-service-logic/app-service-logic-schema-2015-08-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Disponibilità generale](logic-apps-schema-2016-04-01.md)
+### [Anteprima](logic-apps-schema-2015-08-01.md)
 ## [REST](/rest/api/logic/)
-
-## Schema&2014; (prima della versione di disponibilità generale)
-### [Connettore di risorse di Azure](../app-service-logic/app-service-logic-connector-azure-resource.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Connettore file](../app-service-logic/app-service-logic-connector-file.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
 # Risorse
 ## [Prezzi](https://azure.microsoft.com/pricing/details/logic-apps/)  
@@ -89,6 +91,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

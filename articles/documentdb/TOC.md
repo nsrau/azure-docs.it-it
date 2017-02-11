@@ -35,6 +35,7 @@
 ### [Modellare i dati](documentdb-modeling-data.md)
 ### [Usare i dati geospaziali](documentdb-geospatial.md)
 ### [Sviluppare per più aree](documentdb-developing-with-multiple-regions.md)
+### [Failover a livello di area](documentdb-regional-failovers.md)
 ### [Scadenza automatica dei dati](documentdb-time-to-live.md)
 ### [Personalizzare gli indici](documentdb-indexing-policies.md)
 ### [Proteggere l'accesso ai dati](documentdb-secure-access-to-data.md)
@@ -54,6 +55,9 @@
 ### [Tenere traccia delle modifiche con il feed delle modifiche](documentdb-change-feed.md)
 ### [Test delle prestazioni](documentdb-performance-testing.md)
 ### [Suggerimenti per incrementare le prestazioni](documentdb-performance-tips.md)
+### Procedure consigliate
+#### [Configurazione multi-master](documentdb-multi-region-writers.md)
+#### [DateTimes](documentdb-working-with-dates.md)
 
 ## Usare il supporto di DocumentDB per MongoDB
 ### [Supporto dei protocolli per MongoDB](documentdb-protocol-mongodb.md)
@@ -78,10 +82,10 @@
 
 ## Integrare
 ### [Distribuire un sito Web con il Servizio app di Azure](documentdb-create-documentdb-website.md)
-### [Registrazione delle applicazioni con App per la logica](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md)
+### [Registrazione delle applicazioni con App per la logica](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 ### [Eseguire associazioni a Funzioni di Azure](../azure-functions/functions-bindings-documentdb.md)
 ### [Analizzare i dati con Hadoop](documentdb-run-hadoop-with-hdinsight.md)
-### [Integrare Ricerca di Azure](documentdb-search-indexer.md)
+### [Integrare Ricerca di Azure](../search/search-howto-index-documentdb.md)
 ### [Spostare dati con Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Analizzare dati in tempo reale con Analisi di flusso di Azure](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
 ### [Ottenere notifiche con App per la logica](documentdb-change-notification.md)
@@ -119,6 +123,6 @@
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -2,8 +2,8 @@
 layout: LandingPage
 description: Informazioni su come usare l&quot;Archiviazione di Azure, gli archivi BLOB e tabella e le archiviazioni code, file e su disco macchina virtuale nel cloud. Esercitazioni, informazioni di riferimento sulle API e altri documenti.
 translationtype: Human Translation
-ms.sourcegitcommit: df6bc6a92950efeed61db2f2ef7fd5f65189e0fa
-ms.openlocfilehash: 130a9a105ac7ff50fbc3b5baefd080f272e77d0b
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 1e9cc940d681893abbc351ef440c90f579e6c40a
 
 ---
 
@@ -130,9 +130,9 @@ Informazioni su come usare l'Archiviazione di Azure, un servizio di archiviazion
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference">BLOB, code, tabelle e file</a></p>
-                        <p><a href="/rest/api/storagerp">REST: provider di risorse</a></p>
-                        <p><a href="/rest/api/storageimportexport">REST: importazione/esportazione</a></p>
+                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">BLOB, code, tabelle e file</a></p>
+                        <p><a href="/rest/api/storagerp">Provider di risorse</a></p>
+                        <p><a href="/rest/api/storageimportexport">Importazione/Esportazione</a></p>
                    </div>
                 </div>
             </div>
@@ -140,16 +140,10 @@ Informazioni su come usare l'Archiviazione di Azure, un servizio di archiviazion
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storage.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione di Archiviazione </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Jan17_HO1-->
+
+<!--HONumber=Jan17_HO3-->
 
 
