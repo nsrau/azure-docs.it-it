@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -45,10 +45,10 @@ Quando si visita un servizio con URL non specifici del tenant (ad esempio, https
 > [!NOTE]
 > * Il nome di dominio deve essere visualizzato come "Attivo" nella sezione **Domini** del portale di Azure in cui è stata configurata la personalizzazione. Per altre informazioni, vedere l'argomento relativo all' [aggiunta di nomi di dominio personalizzati](active-directory-domains-add-azure-portal.md).
 > * La personalizzazione della pagina di accesso non si applica alla pagina di accesso degli utenti di Microsoft. Se si accede con un account Microsoft, potrebbe essere visualizzato un elenco personalizzato di riquadri utente reso disponibile da Azure AD, ma le informazioni di personalizzazione dell'organizzazione non vengono applicate alla pagina di accesso degli account Microsoft.
-> 
-> 
+>
+>
 
-Nella pagina di accesso, la casella di controllo **Mantieni l'accesso** consente a un utente di rimanere connesso quando chiude e riapre il browser. 
+Nella pagina di accesso, la casella di controllo **Mantieni l'accesso** consente a un utente di rimanere connesso quando chiude e riapre il browser.
 
    ![Mantieni l'accesso](./media/active-directory-branding-custom-signon-azure-portal/01.png)
 
@@ -57,22 +57,22 @@ La visualizzazione della casella di controllo dipende dall'impostazione dell'opz
 
    ![Mantieni l'accesso](./media/active-directory-branding-custom-signon-azure-portal/02.png)
 
-Per nascondere la casella di controllo, impostare questa opzione su **Sì**. 
+Per nascondere la casella di controllo, impostare questa opzione su **Sì**.
 
 > [!NOTE]
 > Alcune funzionalità di SharePoint Online e di Office 2010 dipendono dalla possibilità per gli utenti di selezionare questa casella. Se si configura questa impostazione come nascosta, gli utenti potrebbero visualizzare prompt aggiuntivi e imprevisti con una richiesta di accesso.
-> 
-> 
+>
+>
 
 **Per aggiungere informazioni personalizzate distintive dell'azienda alla directory:**
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
 2. Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi premere **INVIO**.
-   
+
    ![Apertura di Gestione utenti](./media/active-directory-branding-custom-signon-azure-portal/user-management.png)
 3. Nel pannello **Utenti e gruppi** selezionare **Informazioni personalizzate distintive dell'azienda**.
 4. Nel pannello **Utenti e gruppi - Informazioni personalizzate distintive dell'azienda** selezionare il comando **Modifica**.
-   
+
     ![Modificare le informazioni personalizzate](./media/active-directory-branding-custom-signon-azure-portal/edit-branding.png)
 5. Modificare gli elementi da personalizzare. Tutti gli elementi sono facoltativi.
 6. Fare clic su **Save**.
@@ -81,7 +81,6 @@ Può trascorrere fino a un'ora prima che qualsiasi modifica apportata per la per
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Aggiungere informazioni personalizzate distintive dell'azienda specifiche della lingua](active-directory-branding-localize-azure-portal.md)
-
 
 
 

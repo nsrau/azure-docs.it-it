@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -27,7 +27,7 @@ ms.openlocfilehash: 33b036537211e3bdeacba7f388aca334404385cb
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
 2. Selezionare **Altri servizi**, immettere **Azure Active Directory** nella casella di testo e quindi selezionare **Invio**.
 3. Nel pannello **Azure Active Directory -** ***nomedirectory***, ovvero il pannello di Azure AD per la directory gestita, selezionare **Applicazioni aziendali**.
-   
+
     ![Apertura di app aziendali](./media/active-directory-coreapps-view-azure-portal/open-enterprise-apps.png)
 4. Nel pannello **Applicazioni aziendali** selezionare **Tutte le applicazioni**. In questo pannello è possibile selezionare le app da gestire, modificare le colonne visualizzate o filtrare l'elenco per trovare l'app desiderata, ad esempio per visualizzare solo le app disabilitate.
 
@@ -36,7 +36,6 @@ ms.openlocfilehash: 33b036537211e3bdeacba7f388aca334404385cb
 * [Rimuovere l'assegnazione di un utente o un gruppo da un'app aziendale](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Disabilitare l'accesso degli utenti per un'app aziendale](active-directory-coreapps-disable-app-azure-portal.md)
 * [Modificare il nome o il logo di un'app aziendale](active-directory-coreapps-change-app-logo-user-azure-portal.md)
-
 
 
 
