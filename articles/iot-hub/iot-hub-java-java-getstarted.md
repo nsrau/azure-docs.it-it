@@ -12,7 +12,7 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2017
+ms.date: 02/14/2017
 ms.author: dobett
 translationtype: Human Translation
 ms.sourcegitcommit: d4eb942db51af9c8136e9e0f5f8683cc15679d08
@@ -63,7 +63,7 @@ In questa sezione si scriverà un'app console Java che crea un'identità del dis
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.10</version>
+      <version>1.0.11</version>
     </dependency>
     ```
 4. Salvare e chiudere il file pom.xml.
@@ -146,7 +146,7 @@ In questa sezione si crea un'app console di Java che legge i messaggi da disposi
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.7.8</version> 
+        <version>0.10.0</version> 
     </dependency>
     ```
 4. Salvare e chiudere il file pom.xml.
@@ -283,7 +283,7 @@ In questa sezione si crea un'app console di Java che simula un dispositivo che i
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.15</version>
+      <version>1.0.16</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
