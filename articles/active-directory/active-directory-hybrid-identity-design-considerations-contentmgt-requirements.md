@@ -1,19 +1,23 @@
 ---
-title: Considerazioni di progettazione dell'identità ibrida di Azure Active Directory - Determinare i requisiti di gestione dei contenuti | Microsoft Docs
-description: Fornisce importanti informazioni su come determinare i requisiti di gestione dei contenuti dell'azienda. In genere, quando un utente usa un dispositivo personale, si avvale di più credenziali diverse, in base all'applicazione a cui deve accedere. È importante quindi distinguere i contenuti creati usando credenziali personali rispetto a quelli realizzati ricorrendo a credenziali aziendali. La soluzione di identità adottata deve essere in grado di interagire con i servizi cloud, in modo da fornire un'esperienza trasparente per l'utente finale, garantirne la privacy e migliorare la protezione contro la perdita di dati.
-documentationcenter: ''
+title: "Considerazioni di progettazione per la soluzione ibrida di gestione delle identità di Azure Active Directory: determinare i requisiti di gestione dei contenuti | Documentazione Microsoft"
+description: "Fornisce importanti informazioni su come determinare i requisiti di gestione dei contenuti dell&quot;azienda. In genere, quando un utente usa un dispositivo personale, si avvale di più credenziali diverse, in base all&quot;applicazione a cui deve accedere. È importante quindi distinguere i contenuti creati usando credenziali personali rispetto a quelli realizzati ricorrendo a credenziali aziendali. La soluzione di identità adottata deve essere in grado di interagire con i servizi cloud, in modo da fornire un&quot;esperienza trasparente per l&quot;utente finale, garantirne la privacy e migliorare la protezione contro la perdita di dati."
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: dd1ef776-db4d-4ab8-9761-2adaa5a4f004
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/08/2016
+ms.date: 02/14/2017
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cd861d2ce2c6acaec507c45032debd5146b9956a
+
 
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Determinare i requisiti di gestione dei contenuti per una soluzione di identità ibrida
@@ -63,6 +67,9 @@ Quando si pianifica una soluzione di identità ibrida, assicurarsi che venga for
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

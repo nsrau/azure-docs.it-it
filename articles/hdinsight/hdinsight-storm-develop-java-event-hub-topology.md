@@ -1,12 +1,12 @@
 ---
-title: Elaborare eventi dall'hub eventi con Storm in HDInsight utilizzando Java| Microsoft Docs
-description: Informazioni su come elaborare i dati dell'hub eventi con una topologia Storm Java creata con Maven.
+title: Elaborare eventi di Hub eventi con Storm in HDInsight usando Java| Documentazione Microsoft
+description: Informazioni su come elaborare i dati dell&quot;hub eventi con una topologia Storm Java creata con Maven.
 services: hdinsight,notification hubs
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 453fa7b0-c8a6-413e-8747-3ac3b71bed86
 ms.service: hdinsight
 ms.devlang: dotnet
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: eaa86b706a538543816b59d8cd09ee54df43b26d
+
 
 ---
-# <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-(java)"></a>Elaborare eventi dell'hub eventi di Azure con Storm in HDInsight (Java)
+# <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-java"></a>Elaborare eventi dell'hub eventi di Azure con Storm in HDInsight (Java)
 L'hub eventi di Azure consente di elaborare grandi quantità di dati da siti Web, app e dispositivi. Lo spout dell'hub eventi semplifica l'uso di Apache Storm in HDInsight per l'analisi di questi dati in tempo reale. È anche possibile scrivere dati nell'hub eventi da Storm usando il relativo bolt.
 
 In questa esercitazione si apprenderà come usare spout e bolt dell'hub eventi per leggere e scrivere dati in una topologia Storm basata su Java.
@@ -385,7 +389,7 @@ Il file JAR creato da questo progetto contiene due topologie, **com.microsoft.ex
         d7c7f96c-581a-45b1-b66c-e32de6d47fce,543829859
         9a692795-e6aa-4946-98c1-2de381b37593,1857409996
         3c8d199b-0003-4a79-8d03-24e13bde7086,-1271260574
-8. Selezionare **Dashboard di Storm** in alto nella pagina, quindi selezionare **Interfaccia utente di Storm**. In **Interfaccia utente di Storm** selezionare il collegamento per la topologia **reader__r e quindi usare il pulsante __Termina** per arrestare la topologia. Ripetere il processo per la topologia **writer** .
+8. Selezionare **Dashboard di Storm** in alto nella pagina, quindi selezionare **Interfaccia utente di Storm**. In **Interfaccia utente di Storm** selezionare il collegamento per la topologia **reader**r e quindi usare il pulsante **Termina** per arrestare la topologia. Ripetere il processo per la topologia **writer** .
 
 ### <a name="checkpointing"></a>Checkpoint
 EventHubSpout controlla periodicamente il proprio stato nel nodo Zookeeper, operazione che salva l'offset corrente per i messaggi letti dalla coda. Questo consente al componente di avviare la ricezione di messaggi in corrispondenza dell'offset salvato negli scenari seguenti:
@@ -429,6 +433,9 @@ Per altre informazioni sull'uso dell'Interfaccia utente di Storm, vedere gli arg
 ## <a name="next-steps"></a>Passaggi successivi
 * [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2016
-ms.author: mikewasson
+ms.author: mwasson
 translationtype: Human Translation
-ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
-ms.openlocfilehash: 0032c330288ea37508c919b50a41a5e58fc28e90
+ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
+ms.openlocfilehash: 788efb5d1cbbd5fd20096c54ca702b99eb2b5a18
 
 
 ---
@@ -75,6 +75,6 @@ Per una maggiore scalabilità, eseguire più istanze di VM e la scalabilità ori
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,130 +1,145 @@
 ---
-title: Creare un hub IoT mediante l'interfaccia della riga di comando | Microsoft Docs
-description: Questo articolo illustra come creare un hub ioT tramite l'interfaccia della riga di comando di Azure.
+title: Creare un hub IoT usando l&quot;interfaccia della riga di comando di Azure (az.py) | Documentazione Microsoft
+description: Come creare un hub IoT di Azure usando l&quot;interfaccia della riga di comando di Azure multipiattaforma 2.0 (anteprima) (az.py).
 services: iot-hub
 documentationcenter: .net
-author: BeatriceOltean
+author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
-ms.author: boltean
+ms.date: 12/02/2016
+ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 39c8c4944ef19379dc04e04a717ab60d305593c4
+ms.openlocfilehash: c52d9a5fadf494cc066bee773543c9d67bb8334b
+
 
 ---
-# <a name="create-an-iot-hub-using-cli"></a>Creare un hub IoT tramite l'interfaccia della riga di comando
+# <a name="create-an-iot-hub-using-the-azure-cli-20-preview"></a>Creare un hub IoT usando l'interfaccia della riga di comando di Azure 2.0 (anteprima)
+
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>Introduzione
-È possibile utilizzare l'interfaccia della riga di comando di Azure per creare e gestire hub IoT di Azure a livello di codice. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per creare un hub IoT.
+
+È possibile usare l'interfaccia della riga di comando di Azure 2.0 (anteprima) (az.py) per creare e gestire hub IoT di Azure a livello di codice. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure 2.0 (anteprima) (az.py) per creare un hub IoT.
+
+È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
+
+* [Interfaccia della riga di comando di Azure (azure.js)](iot-hub-create-using-cli-nodejs.md): l'interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse.
+* Interfaccia della riga di comando di Azure 2.0 (anteprima) (az.py): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse, come descritto in questo articolo.
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Un account Azure attivo. È possibile creare un [Account di valutazione gratuita][lnk-free-trial] in pochi minuti.
-* [Azure CLI 0.10.4][lnk-CLI-install] o versione successiva. Se si dispone già dell'interfaccia della riga di comando di Azure è possibile convalidare la versione corrente al prompt dei comandi inserendo il comando seguente:
-  ```
-    azure --version
-  ```
+* Un account Azure attivo. Se non si ha un account, è possibile crearne uno [gratuito][lnk-free-trial] in pochi minuti.
+* [Interfaccia della riga di comando di Azure 2.0 (anteprima)][lnk-CLI-install].
+
+## <a name="sign-in-and-set-your-azure-account"></a>Accedere all'account Azure e impostarlo
+
+Accedere all'account di Azure e configurare l'interfaccia della riga di comando di Azure per usare le risorse dell'hub IoT.
+
+1. Al prompt dei comandi eseguire il [comando per l'accesso][lnk-login-command]:
+    
+    ```azurecli
+    az login
+    ```
+
+    Seguire le istruzioni per l'autenticazione tramite il codice e accedere all'account Azure con un Web browser.
+
+2. Se si usano più sottoscrizioni di Azure, effettuando l'accesso ad Azure è possibile accedere a tutti gli account Azure associati alle credenziali. Usare il seguente [comando per elencare gli account Azure][lnk-az-account-command] che è possibile usare:
+    
+    ```azurecli
+    az account list 
+    ```
+
+    Usare il comando seguente per selezionare la sottoscrizione che si vuole usare per eseguire i comandi per creare l'hub IoT. È possibile usare il nome o l'ID della sottoscrizione dall'output del comando precedente:
+
+    ```azurecli
+    az account set --subscription {your subscription name or id}
+    ```
+
+3. È necessario registrare il provider IoT per poter distribuire le risorse IoT. Eseguire questo [comando per registrare il provider IoT][lnk-az-register-command]:
+    
+    ```azurecli
+    az provider register -namespace "Microsoft.Devices"
+    ```
+
+4. Potrebbe essere necessario installare il _componente iot_ dell'interfaccia della riga di comando di Azure. Eseguire questo [comando per aggiungere il componente iot][lnk-az-addcomponent-command]:
+    
+    ```azurecli
+    az component update --add iot
+    ```
+
+## <a name="create-an-iot-hub"></a>Creare un hub IoT
+
+Usare l'interfaccia della riga di comando di Azure per creare un gruppo di risorse e quindi aggiungere un hub IoT.
+
+1. Quando si crea un hub IoT, è necessario crearlo in un gruppo di risorse. Usare un gruppo di risorse esistente o eseguire questo [comando per creare un gruppo di risorse][lnk-az-resource-command]:
+    
+    ```azurecli
+     az resource group create --name {your resource group name} --location westus
+    ```
+
+    > [!TIP]
+    > L'esempio precedente crea il gruppo di risorse nella località Stati Uniti occidentali. È possibile visualizzare un elenco di località disponibili eseguendo il comando `az account list-locations -o table`.
+    >
+    >
+
+2. Eseguire questo [comando per creare un hub IoT][lnk-az-iot-command] nel gruppo di risorse:
+    
+    ```azurecli
+    az iot hub create --name {your iot hub name} --resource-group {your resource group name} --sku S1
+    ```
 
 > [!NOTE]
-> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). L'interfaccia della riga di comando di Azure deve essere impostata obbligatoriamente sulla modalità Azure Resource Manager:
-> 
-> ```
-> azure config mode arm
-> ```
-> 
-> 
+> Il nome dell'hub IoT deve essere globalmente univoco. Il comando precedente crea un hub IoT nel piano tariffario S1 che viene fatturato. Per altre informazioni, vedere [Prezzi dell'hub Iot di Azure][lnk-iot-pricing].
+>
+>
 
-## <a name="set-your-azure-account-and-subscription"></a>Impostare l'account e la sottoscrizione di Azure
-1. Accedere digitando il comando seguente al prompt dei comandi
-   
-   ```
-    azure login
-   ```
-   Per l'autenticazione, usare il browser e il codice suggeriti.
-2. Se si dispone di più sottoscrizioni Azure, effettuando l'accesso ad Azure sarà possibile accedere a tutte le sottoscrizioni associate alle credenziali. Per visualizzare le sottoscrizioni, inclusa quella predefinita, utilizzare il comando
-   
-   ```
-    azure account list 
-   ```
+## <a name="remove-an-iot-hub"></a>Rimuovere un hub IoT
 
-Per impostare il contesto della sottoscrizione in cui eseguire il resto dei comandi usare
+È possibile usare l'interfaccia della riga di comando di Azure per [eliminare una singola risorsa][lnk-az-resource-command], ad esempio un hub IoT, o eliminare un gruppo di risorse e tutte le risorse, inclusi gli hub IoT.
 
-```
-    azure account set <subscription name>
+Per eliminare un hub IoT, eseguire questo comando:
+
+```azurecli
+az resource delete --name {your iot hub name} --resource-group {your resource group name} --resource-type Microsoft.Devices/IotHubs
 ```
 
-1. Se non si dispone di un gruppo di risorse è possibile crearne uno denominato **exampleResourceGroup** 
-   ```
-    azure group create -n exampleResourceGroup -l westus
-   ```
+Per eliminare un gruppo di risorse e tutte le risorse, eseguire questo comando:
 
-> [!TIP]
-> L'articolo [Usare l'interfaccia della riga di comando di Azure per gestire risorse e gruppi di risorse][lnk-CLI-arm] offre altre informazioni su come usare l'interfaccia della riga di comando di Azure per gestire le risorse di Azure. 
-> 
-> 
-
-## <a name="create-and-iot-hub"></a>Creare un hub IoT
-Parametri obbligatori:
-
+```azurecli
+az resource group delete --name {your resource group name}
 ```
- azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u <units>  
-    - <resourceGroup> The resource group name (case insensitive alphanumeric, underscore and hyphen, 1-64 length)
-    - <name> (The name of the IoT hub to be created. The format is case insensitive alphanumeric, underscore and hyphen, 3-50 length )
-    - <location> (The location (azure region/datacenter) where the IoT hub will be provisioned.
-    - <sku-name> (The name of the sku, one of: [F1, S1, S2, S3] etc. For the latest full list refer to the pricing page for IoT Hub.
-    - <units> (The number of provisioned units. Range : F1 [1-1] : S1, S2 [1-200] : S3 [1-10]. IoT Hub units are based on your total message count and the number of devices you want to connect.)
-```
-Per visualizzare tutti i parametri disponibili per la creazione è possibile usare il comando help nel prompt dei comandi
-
-```
-    azure iothub create -h 
-```
-Esempio:
-
- Per creare un hub IoT denominato **exampleIoTHubName** nel gruppo di risorse **exampleResourceGroup** eseguire il comando seguente
-
-```
-    azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1 -u 1
-```
-
-> [!NOTE]
-> Questo comando crea un hub IoT S1 Standard che viene addebitato. Per eliminare l'hub IoT **exampleIoTHubName** eseguire il comando seguente 
-> 
-> ```
-> azure iothub delete -g exampleResourceGroup -n exampleIoTHubName
-> ```
-> 
-> 
-> 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle attività di sviluppo per l'hub IoT, vedere quanto segue:
 
-* [SDK Hub IoT][lnk-sdks]
+* [Guida per gli sviluppatori dell'hub IoT][lnk-devguide]
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-* [Gestire hub IoT tramite il portale di Azure][lnk-portal]
+* [Uso del portale di Azure per gestire l'hub IoT][lnk-portal]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-azure-portal]: https://portal.azure.com/
-[lnk-status]: https://azure.microsoft.com/status/
-[lnk-CLI-install]: ../xplat-cli-install.md
-[lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
-[lnk-azure-rm-overview]: ../resource-group-overview.md
-[lnk-CLI-arm]: ../xplat-cli-azure-resource-manager.md
-
-[lnk-sdks]: iot-hub-devguide-sdks.md
+[lnk-CLI-install]: https://docs.microsoft.com/cli/azure/install-az-cli2
+[lnk-login-command]: https://docs.microsoft.com/cli/azure/get-started-with-az-cli2
+[lnk-az-account-command]: https://docs.microsoft.com/cli/azure/account
+[lnk-az-register-command]: https://docs.microsoft.com/cli/azure/provider
+[lnk-az-addcomponent-command]: https://docs.microsoft.com/cli/azure/component
+[lnk-az-resource-command]: https://docs.microsoft.com/cli/azure/resource
+[lnk-az-iot-command]: https://docs.microsoft.com/cli/azure/iot
+[lnk-iot-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
+[lnk-devguide]: iot-hub-devguide.md
 [lnk-portal]: iot-hub-create-through-portal.md 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -3,7 +3,7 @@ title: Configurare il cluster autonomo | Documentazione Microsoft
 description: Questo articolo descrive come configurare un cluster di Service Fabric autonomo o privato.
 services: service-fabric
 documentationcenter: .net
-author: dsk-2015
+author: rwike77
 manager: timlt
 editor: 
 ms.assetid: 0c5ec720-8f70-40bd-9f86-cd07b84a219d
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2016
-ms.author: dkshir
+ms.date: 12/12/2016
+ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b19d1ed96cf8e294cb105fa62f8623b28e3cc7fc
+ms.sourcegitcommit: 4fb6ef56d694aff967840ab26b75b66a2e799cc1
+ms.openlocfilehash: 977de9160be63a91b5926daa45528e5ee205e448
 
 
 ---
@@ -36,7 +36,7 @@ Questa sezione tratta in modo ampio le configurazioni specifiche dei cluster, co
 
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
-    "apiVersion": "2015-01-01-alpha",
+    "apiVersion": "2016-09-26",
 
 È possibile attribuire qualsiasi nome descrittivo al cluster di Service Fabric assegnandolo alla variabile **name**. **clusterConfigurationVersion** rappresenta il numero di versione del cluster; è possibile aggiornarlo ogni volta che si aggiorna il cluster di Service Fabric. Tuttavia, è necessario mantenere il valore predefinito per **apiVersion**.
 
@@ -132,6 +132,7 @@ La sezione **nodeTypes** descrive il tipo dei nodi del cluster. Per ogni cluster
         "leaseDriverEndpointPort": "19002"
         "serviceConnectionEndpointPort": "19003",
         "httpGatewayEndpointPort": "19080",
+        "reverseProxyEndpointPort": "19081",
         "applicationPorts": {
             "startPort": "20575",
             "endPort": "20605"
@@ -171,11 +172,11 @@ La sezione **fabricSettings** consente di impostare le directory radice per i lo
 Si consiglia di usare un'unità non del sistema operativo come FabricDataRoot e FabricLogRoot, poiché risulta più affidabile in caso di arresto anomalo del sistema operativo. Si noti che se si personalizza solo la radice dei dati, la radice del log verrà inserita un livello sotto la radice dei dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver completato la configurazione di un file ClusterConfig.JSON in base alla configurazione del cluster autonomo, è possibile distribuire il cluster seguendo l'articolo [Creare un cluster di Azure Service Fabric locale o nel cloud](service-fabric-cluster-creation-for-windows-server.md) e quindi proseguire per [visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+Dopo aver completato la configurazione di un file ClusterConfig.JSON in base alla configurazione del cluster autonomo, è possibile distribuire il cluster seguendo l'articolo [Creare un cluster di Service Fabric autonomo](service-fabric-cluster-creation-for-windows-server.md) e quindi proseguire per la [Visualizzazione del cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -8,7 +8,7 @@ manager: drasumic
 editor: 
 ms.assetid: 76cfa06a-e758-453e-942c-9f1ed6a38c2a
 ms.service: sql-database
-ms.custom: db development
+ms.custom: development
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,8 +16,8 @@ ms.workload: sql-database
 ms.date: 10/12/2016
 ms.author: bonova
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bb68239d36203e74faa54859b20a4198ce3cba91
+ms.sourcegitcommit: 239d009a1fc7273a50d335a0d55d61f414d99b11
+ms.openlocfilehash: dac4a96f9b62f390aeb84fe237788350c70ea5cd
 
 
 ---
@@ -26,13 +26,13 @@ Le tabelle temporali possono aumentare le dimensioni del database più delle tab
 
 Il periodo di conservazione della cronologia temporale può essere configurato a livello di singola tabella, per consentire agli utenti di creare criteri di giacenza flessibili. L'applicazione della conservazione temporale è semplice: è necessario configurare un solo parametro durante la creazione della tabella o la modifica dello schema.
 
-Dopo aver definito i criteri di conservazione, il database SQL di Azure avvierà una verifica periodica per controllare se sono presenti righe di cronologia idonee alla pulizia automatica dei dati. L'identificazione delle righe corrispondenti e la loro rimozione della tabella di cronologia si verificano in modo trasparente, nell'attività in background pianificata ed eseguita dal sistema. Le condizioni di età per le righe della tabella della cronologia vengono controllate in base alla colonna che rappresenta la fine del periodo SYSTEM_TIME. Se, ad esempio, il periodo di conservazione definito è di sei mesi, le righe della tabella idonee per la pulizia soddisfano la condizione seguente:
+Dopo aver definito i criteri di conservazione, il database SQL di Azure avvia una verifica periodica per controllare se sono presenti righe di cronologia idonee alla pulizia automatica dei dati. L'identificazione delle righe corrispondenti e la loro rimozione della tabella di cronologia si verificano in modo trasparente, nell'attività in background pianificata ed eseguita dal sistema. Le condizioni di età per le righe della tabella della cronologia vengono controllate in base alla colonna che rappresenta la fine del periodo SYSTEM_TIME. Se, ad esempio, il periodo di conservazione definito è di sei mesi, le righe della tabella idonee per la pulizia soddisfano la condizione seguente:
 
 ````
 ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
 ````
 
-Nell'esempio precedente si presuppone che la colonna **ValidTo** corrisponda alla fine del periodo SYSTEM_TIME.
+L'esempio precedente presuppone che la colonna **ValidTo** corrisponda alla fine del periodo SYSTEM_TIME.
 
 ## <a name="how-to-configure-retention-policy"></a>Come si configurano i criteri di conservazione?
 Prima di configurare criteri di conservazione per una tabella temporale, innanzitutto è necessario controllare se la conservazione della cronologia temporale è abilitata *a livello di database*.
@@ -42,7 +42,7 @@ SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
 ````
 
-Il flag del database **is_temporal_history_retention_enabled** è impostato su ON per impostazione predefinita, tuttavia gli utenti possono sostituirlo con l'istruzione ALTER DATABASE. Inoltre, viene impostato automaticamente su OFF dopo l'operazione di [ripristino temporizzato](sql-database-point-in-time-restore-portal.md). Per abilitare la pulizia della conservazione della cronologia temporale per il database, eseguire l'istruzione seguente:
+Il flag del database **is_temporal_history_retention_enabled** è impostato su ON per impostazione predefinita, tuttavia gli utenti possono sostituirlo con l'istruzione ALTER DATABASE. Inoltre, viene impostato automaticamente su OFF dopo l'operazione di [ripristino temporizzato](sql-database-point-in-time-restore.md). Per abilitare la pulizia della conservazione della cronologia temporale per il database, eseguire l'istruzione seguente:
 
 ````
 ALTER DATABASE <myDB>
@@ -50,7 +50,7 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 ````
 
 > [!IMPORTANT]
-> È possibile configurare la conservazione per le tabelle temporali anche se **is_temporal_history_retention_enabled** è impostato su OFF, tuttavia in questo caso la pulizia automatica per le righe obsolete non verrà attivata.
+> È possibile configurare la conservazione per le tabelle temporali anche se **is_temporal_history_retention_enabled** è impostato su OFF. Tuttavia in questo caso la pulizia automatica delle righe obsolete non verrà attivata.
 > 
 > 
 
@@ -117,7 +117,7 @@ L'attività di pulizia per columnstore in cluster rimuove interi [gruppi di righ
 Un'ottima compressione dei dati e un'efficace pulizia per la conservazione fanno dell'indice columnstore in cluster la scelta ideale per gli scenari in cui il carico di lavoro genera rapidamente elevate quantità di dati cronologici. Tale modello è tipico per un l'[elaborazione transazionale intensiva dei carichi di lavoro che usano tabelle temporali](https://msdn.microsoft.com/library/mt631669.aspx) per il rilevamento delle modifiche e il controllo, l'analisi delle tendenze o l'inserimento dei dati IoT.
 
 ## <a name="index-considerations"></a>Considerazioni sull'indice
-L'attività di pulizia per le tabelle con indice rowstore in cluster richiede che l'indice inizi con la colonna che corrisponde alla fine del periodo SYSTEM_TIME. Se tale indice non esiste, non sarà possibile configurare un periodo di conservazione definito:
+L'attività di pulizia per le tabelle con indice rowstore in cluster richiede che l'indice inizi con la colonna che corrisponde alla fine del periodo SYSTEM_TIME. Se tale indice non esiste, non è possibile configurare un periodo di conservazione definito:
 
 *Msg 13765, Level 16, State 1 <br></br> L'impostazione del periodo di conservazione definito ha avuto esito negativo nella tabella temporale con controllo delle versioni del sistema 'temporalstagetestdb.dbo.WebsiteUserInfo' perché la tabella di cronologia 'temporalstagetestdb.dbo.WebsiteUserInfoHistory' non contiene l'indice in cluster richiesto. È consigliabile creare un columnstore cluster o indice B-tree a partire dalla colonna che corrisponde alla fine del periodo SYSTEM_TIME nella tabella di cronologia.*
 
@@ -145,7 +145,7 @@ Quando viene configurato il periodo di conservazione definito per la tabella di 
 CREATE NONCLUSTERED INDEX IX_WebHistNCI ON WebsiteUserInfoHistory ([UserName])
 ````
 
-Un tentativo di eseguire l'istruzione sopa avrà esito negativo con l'errore seguente:
+Un tentativo di eseguire l'istruzione sopra indicata avrà esito negativo con l'errore seguente:
 
 *Msg 13772, Level 16, State 1 <br></br> Impossibile creare un indice non in cluster in una tabella di cronologia temporale 'WebsiteUserInfoHistory' perché ha un periodo di conservazione definito e l'indice columnstore in cluster è definito.*
 
@@ -158,7 +158,7 @@ Nell'immagine seguente viene illustrato il piano di query per una query semplice
 SELECT * FROM dbo.WebsiteUserInfo FROM SYSTEM_TIME ALL;
 ````
 
-Il piano di query include un altro filtro applicato alla fine della colonna del periodo (ValidTo) nell'operatore "Clustered Index Scan" nella tabella di cronologia (evidenziata). In questo esempio si presuppone che il periodo di conservazione 1 MONTH sia stato impostato nella tabella WebsiteUserInfo.
+Il piano di query include un altro filtro applicato alla fine della colonna del periodo (ValidTo) nell'operatore �Clustered Index Scan� nella tabella di cronologia (evidenziata). Questo esempio presuppone che il periodo di conservazione di un MONTH sia stato impostato nella tabella WebsiteUserInfo.
 
 ![Filtro di query di conservazione](./media/sql-database-temporal-tables-retention-policy/queryexecplanwithretention.png)
 
@@ -169,7 +169,7 @@ Tuttavia, se si esegue una query direttamente in una tabella di cronologia, è p
 Non affidare la logica di business alla lettura della tabella di cronologia oltre il periodo di conservazione, perché si potrebbero ottenere risultati incoerenti o imprevisti. È consigliabile usare query temporali con la clausola FOR SYSTEM_TIME per l'analisi dei dati nelle tabelle temporali.
 
 ## <a name="point-in-time-restore-considerations"></a>Considerazioni sul ripristino temporizzato
-Quando si crea un nuovo database attraverso il [ripristino di un database esistente in un punto specifico nel tempo](sql-database-point-in-time-restore-portal.md), la conservazione temporale è disabilitata a livello di database. (Il flag **is_temporal_history_retention_enabled** è impostato su OFF). Questa funzionalità consente di esaminare tutte le righe di cronologia al momento del ripristino, senza doversi preoccupare che le righe obsolete vengano rimosse prima di procedere con l'esecuzione di query. È possibile usarla per *esaminare i dati cronologici oltre il periodo di conservazione configurato*.
+Quando si crea un nuovo database attraverso il [ripristino di un database esistente in un punto specifico nel tempo](sql-database-point-in-time-restore.md), la conservazione temporale è disabilitata a livello di database. (Il flag **is_temporal_history_retention_enabled** è impostato su OFF). Questa funzionalità consente di esaminare tutte le righe di cronologia al momento del ripristino, senza doversi preoccupare che le righe obsolete vengano rimosse prima di procedere con l'esecuzione di query. È possibile usarla per *esaminare i dati cronologici oltre il periodo di conservazione configurato*.
 
 Si supponga che per una tabella temporale sia specificato il periodo di conservazione MONTH. Se il database è stato creato al livello di servizio Premium, è possibile creare una copia del database con lo stato del database risalendo fino a 35 giorni prima. Una tale efficacia consentirebbe di analizzare le righe cronologiche risalenti anche a 65 giorni prima eseguendo una query direttamente nella tabella di cronologia.
 
@@ -190,6 +190,6 @@ Per informazioni dettagliate sulle tabelle temporali, esaminare la [documentazio
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

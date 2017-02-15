@@ -1,13 +1,13 @@
 ---
-title: Wunderlist | Microsoft Docs
-description: Creare app per la logica in Servizio app di Azure. Wunderlist fornisce un elenco di attività e uno strumento di gestione attività per aiutare le persone a portare a termine ciò che devono fare. Che si tratti di condividere una lista della spesa con un familiare, lavorare a un progetto o pianificare una vacanza, Wunderlist consente di acquisire, condividere e completare le attività da svolgere in modo semplice. Wunderlist esegue immediatamente la sincronizzazione tra il telefono, il tablet e il computer, per consentire l'accesso a tutte le attività da qualsiasi posizione.
+title: Wunderlist | Documentazione Microsoft
+description: "Creare app per la logica in Servizio app di Azure. Wunderlist fornisce un elenco di attività e uno strumento di gestione attività per aiutare le persone a portare a termine ciò che devono fare.  Che si tratti di condividere una lista della spesa con un familiare, lavorare a un progetto o pianificare una vacanza, Wunderlist consente di acquisire, condividere e completare le attività da svolgere in modo semplice. Wunderlist esegue immediatamente la sincronizzazione tra il telefono, il tablet e il computer, per consentire l&quot;accesso a tutte le attività da qualsiasi posizione."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: e4773ecf-3ad3-44b4-a1b5-ee5f58baeadd
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -15,24 +15,28 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7a528a47373d7e9ae2cdc7d62328ed8e83112863
+
 
 ---
-# Introduzione al connettore Wunderlist
-Wunderlist fornisce un elenco di attività e uno strumento di gestione attività per aiutare le persone a portare a termine ciò che devono fare. Che si tratti di condividere una lista della spesa con un familiare, lavorare a un progetto o pianificare una vacanza, Wunderlist consente di acquisire, condividere e completare le attività da svolgere in modo semplice. Wunderlist esegue immediatamente la sincronizzazione tra il telefono, il tablet e il computer, per consentire l'accesso a tutte le attività da qualsiasi posizione.
+# <a name="get-started-with-the-wunderlist-connector"></a>Introduzione al connettore Wunderlist
+Wunderlist fornisce un elenco di attività e uno strumento di gestione attività per aiutare le persone a portare a termine ciò che devono fare.  Che si tratti di condividere una lista della spesa con un familiare, lavorare a un progetto o pianificare una vacanza, Wunderlist consente di acquisire, condividere e completare le attività da svolgere in modo semplice. Wunderlist esegue immediatamente la sincronizzazione tra il telefono, il tablet e il computer, per consentire l'accesso a tutte le attività da qualsiasi posizione.
 
 > [!NOTE]
-> Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
+> Questa versione dell'articolo si applica alla versione schema 2015-08-01 di anteprima delle app per la logica.
 > 
 > 
 
-Per iniziare subito a creare un'app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per iniziare subito a creare un'app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Trigger e azioni
+## <a name="triggers-and-actions"></a>Trigger e azioni
 Il connettore Wunderlist può essere usato come azione e include trigger. Tutti i connettori supportano dati nei formati JSON e XML.
 
  Nel connettore Wunderlist sono disponibili le azioni e/o i trigger seguenti:
 
-### Azioni di Wunderlist
+### <a name="wunderlist-actions"></a>Azioni di Wunderlist
 È possibile eseguire queste azioni:
 
 | Azione | Descrizione |
@@ -66,7 +70,7 @@ Il connettore Wunderlist può essere usato come azione e include trigger. Tutti 
 | [UpdateReminder](connectors-create-api-wunderlist.md#updatereminder) |Aggiorna un promemoria specifico |
 | [DeleteReminder](connectors-create-api-wunderlist.md#deletereminder) |Elimina un promemoria specifico |
 
-### Trigger di Wunderlist
+### <a name="wunderlist-triggers"></a>Trigger di Wunderlist
 È possibile ascoltare questi eventi:
 
 | Trigger | Descrizione |
@@ -75,7 +79,7 @@ Il connettore Wunderlist può essere usato come azione e include trigger. Tutti 
 | Quando viene creata una nuova attività |Attiva un nuovo flusso quando viene creata una nuova attività nell'elenco |
 | Quando si verifica un promemoria |Attiva un nuovo flusso quando si verifica un promemoria |
 
-## Creare una connessione a Wunderlist
+## <a name="create-a-connection-to-wunderlist"></a>Creare una connessione a Wunderlist
 Per creare app per la logica con Wunderlist, è prima necessario creare una **connessione** e quindi fornire i dettagli per le proprietà seguenti:
 
 | Proprietà | Obbligatorio | Descrizione |
@@ -84,69 +88,65 @@ Per creare app per la logica con Wunderlist, è prima necessario creare una **co
 
 Dopo aver creato la connessione, è possibile usarla per eseguire le azioni e restare in ascolto dei trigger descritti in questo articolo.
 
-> [!INCLUDE [Passaggi per creare una connessione a Wunderlist](../../includes/connectors-create-api-wunderlist.md)]
+> [!INCLUDE [Steps to create a connection to Wunderlist](../../includes/connectors-create-api-wunderlist.md)]
 > 
 > [!TIP]
 > È possibile usare questa connessione in altre app per la logica.
 > 
 > 
 
-## Informazioni di riferimento per Wunderlist
+## <a name="reference-for-wunderlist"></a>Informazioni di riferimento per Wunderlist
 Si applica alla versione 1.0
 
-## TriggerTaskDue
+## <a name="triggertaskdue"></a>TriggerTaskDue
 Quando un'attività è in scadenza: attiva un nuovo flusso quando un'attività nell'elenco è in scadenza.
 
 ```GET: /trigger/tasksdue```
 
-| Name | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
+| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |sì |query |nessuno |ID elenco |
+| list_id |integer |sì |query |nessuno |ID elenco |
 
-#### Response
+#### <a name="response"></a>Response
 | Nome | Descrizione |
 | --- | --- |
 | 200 |Operazione riuscita |
 
-## TriggerTaskNew
+## <a name="triggertasknew"></a>TriggerTaskNew
 Quando viene creata una nuova attività: attiva un nuovo flusso quando viene creata una nuova attività nell'elenco.
 
 ```GET: /trigger/tasksnew```
 
-| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Description |
+| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |sì |query |nessuno |ID elenco |
+| list_id |integer |sì |query |nessuno |ID elenco |
 
-#### Response
+#### <a name="response"></a>Response
 | Nome | Descrizione |
 | --- | --- |
 | 200 |Operazione riuscita |
 
-## TriggerReminder
+## <a name="triggerreminder"></a>TriggerReminder
 Quando si verifica un promemoria: attiva un nuovo flusso quando si verifica un promemoria.
 
 ```GET: /trigger/reminders```
 
-| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Description |
+| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |sì |query |nessuno |ID elenco |
-| task\_id |integer |no |query |nessuno |ID attività |
+| list_id |integer |sì |query |nessuno |ID elenco |
+| task_id |integer |no |query |nessuno |ID attività |
 
-#### Response
+#### <a name="response"></a>Response
 | Nome | Descrizione |
 | --- | --- |
 | 200 |Operazione riuscita |
 
-## RetrieveLists
+## <a name="retrievelists"></a>RetrieveLists
 Ottenere elenchi: recupera gli elenchi associati all'account.
 
 ```GET: /lists```
 
-| Name | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Description |
-| --- | --- | --- | --- | --- | --- |
-|  | | | | | |
-
-#### Response
+#### <a name="response"></a>Response
 | Nome | Descrizione |
 | --- | --- |
 | 200 |Operazione riuscita |
@@ -154,7 +154,7 @@ Ottenere elenchi: recupera gli elenchi associati all'account.
 | 500 |Errore interno del server. Si è verificato un errore sconosciuto |
 | default |Operazione non riuscita. |
 
-## CreateList
+## <a name="createlist"></a>CreateList
 Creare un elenco: crea un elenco.
 
 ```POST: /lists```
@@ -163,23 +163,23 @@ Creare un elenco: crea un elenco.
 | --- | --- | --- | --- | --- | --- |
 | post | |sì |body |nessuno |Nuovo elenco da creare |
 
-#### Response
+#### <a name="response"></a>Response
 | Nome | Descrizione |
 | --- | --- |
 | 200 |Operazione riuscita |
 | default |Operazione non riuscita. |
 
-## ListTasks
+## <a name="listtasks"></a>ListTasks
 Ottenere attività: recupera le attività da un elenco specifico.
 
 ```GET: /tasks```
 
 | Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |sì |query |nessuno |ID elenco |
+| list_id |integer |sì |query |nessuno |ID elenco |
 | Completata |boolean |no |query |nessuno |Completed |
 
-#### Response
+#### <a name="response"></a>Response
 | Nome | Descrizione |
 | --- | --- |
 | 200 |Operazione riuscita |
@@ -187,32 +187,32 @@ Ottenere attività: recupera le attività da un elenco specifico.
 | 500 |Errore interno del server. Si è verificato un errore sconosciuto |
 | default |Operazione non riuscita. |
 
-## CreateTask
+## <a name="createtask"></a>CreateTask
 Creare un'attività: crea un'attività.
 
 ```POST: /tasks```
 
-| Name | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Description |
+| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
 | post | |sì |body |nessuno |Nuova attività da creare |
 
-#### Response
-| Nome | Description |
+#### <a name="response"></a>Response
+| Nome | Descrizione |
 | --- | --- |
 | 201 |Data di creazione |
 
-## ListSubTasks
+## <a name="listsubtasks"></a>ListSubTasks
 Ottenere le sottoattività: recupera le sottoattività da un'attività o un elenco specifico.
 
 ```GET: /subtasks```
 
-| Name | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
+| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |sì |query |nessuno |ID elenco |
-| task\_id |integer |no |query |nessuno |ID attività |
+| list_id |integer |sì |query |nessuno |ID elenco |
+| task_id |integer |no |query |nessuno |ID attività |
 | Completata |boolean |no |query |nessuno |Completed |
 
-#### Response
+#### <a name="response"></a>Response
 | Nome | Descrizione |
 | --- | --- |
 | 200 |Operazione riuscita |
@@ -220,63 +220,31 @@ Ottenere le sottoattività: recupera le sottoattività da un'attività o un elen
 | 500 |Errore interno del server. Si è verificato un errore sconosciuto |
 | default |Operazione non riuscita. |
 
-## CreateSubTask
+## <a name="createsubtask"></a>CreateSubTask
 Creare una sottoattività: crea una sottoattività all'interno di un'attività specifica.
 
 ```POST: /subtasks```
 
-| Name | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Description |
+| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
 | post | |sì |body |nessuno |Nuova sottoattività da creare |
 
-#### Response
+#### <a name="response"></a>Response
 | Nome | Descrizione |
 | --- | --- |
 | 201 |Data di creazione |
 
-## ListNotes
+## <a name="listnotes"></a>ListNotes
 Ottenere le note: recupera le note per un'attività o un elenco specifico.
 
 ```GET: /notes```
 
-| Name | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Description |
+| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |sì |query |nessuno |ID elenco |
-| task\_id |integer |no |query |nessuno |ID attività |
+| list_id |integer |sì |query |nessuno |ID elenco |
+| task_id |integer |no |query |nessuno |ID attività |
 
-#### Response
-| Name | Descrizione |
-| --- | --- |
-| 200 |Operazione riuscita |
-| 400 |Bad Request |
-| 500 |Errore interno del server. Si è verificato un errore sconosciuto |
-| default |Operazione non riuscita. |
-
-## CreateNote
-Creare una nota: aggiunge una nota a un'attività specifica.
-
-```POST: /notes```
-
-| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Description |
-| --- | --- | --- | --- | --- | --- |
-| post | |sì |body |nessuno |Nuova nota da creare |
-
-#### Response
-| Nome | Description |
-| --- | --- |
-| 201 |Data di creazione |
-
-## ListComments
-Ottenere i commenti di un'attività: recupera i commenti per un'attività o un elenco specifico.
-
-```GET: /task_comments```
-
-| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Description |
-| --- | --- | --- | --- | --- | --- |
-| list\_id |integer |sì |query |nessuno |ID elenco |
-| task\_id |integer |no |query |nessuno |ID attività |
-
-#### Response
+#### <a name="response"></a>Response
 | Nome | Descrizione |
 | --- | --- |
 | 200 |Operazione riuscita |
@@ -284,7 +252,39 @@ Ottenere i commenti di un'attività: recupera i commenti per un'attività o un e
 | 500 |Errore interno del server. Si è verificato un errore sconosciuto |
 | default |Operazione non riuscita. |
 
-## CreateComment
+## <a name="createnote"></a>CreateNote
+Creare una nota: aggiunge una nota a un'attività specifica.
+
+```POST: /notes```
+
+| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
+| --- | --- | --- | --- | --- | --- |
+| post | |sì |body |nessuno |Nuova nota da creare |
+
+#### <a name="response"></a>Response
+| Nome | Descrizione |
+| --- | --- |
+| 201 |Data di creazione |
+
+## <a name="listcomments"></a>ListComments
+Ottenere i commenti di un'attività: recupera i commenti per un'attività o un elenco specifico.
+
+```GET: /task_comments```
+
+| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
+| --- | --- | --- | --- | --- | --- |
+| list_id |integer |sì |query |nessuno |ID elenco |
+| task_id |integer |no |query |nessuno |ID attività |
+
+#### <a name="response"></a>Response
+| Nome | Descrizione |
+| --- | --- |
+| 200 |Operazione riuscita |
+| 400 |Bad Request |
+| 500 |Errore interno del server. Si è verificato un errore sconosciuto |
+| default |Operazione non riuscita. |
+
+## <a name="createcomment"></a>CreateComment
 Aggiungere un commento a un'attività: aggiunge un commento a un'attività specifica.
 
 ```POST: /task_comments```
@@ -293,22 +293,22 @@ Aggiungere un commento a un'attività: aggiunge un commento a un'attività speci
 | --- | --- | --- | --- | --- | --- |
 | post | |sì |body |nessuno |Nuovo commento dell'attività da creare |
 
-#### Response
+#### <a name="response"></a>Response
 | Nome | Descrizione |
 | --- | --- |
 | 201 |Data di creazione |
 
-## RetrieveReminders
+## <a name="retrievereminders"></a>RetrieveReminders
 Ottenere i promemoria: recupera i promemoria per un'attività o un elenco specifico.
 
 ```GET: /reminders```
 
 | Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |sì |query |nessuno |ID elenco |
-| task\_id |integer |no |query |nessuno |ID attività |
+| list_id |integer |sì |query |nessuno |ID elenco |
+| task_id |integer |no |query |nessuno |ID attività |
 
-#### Response
+#### <a name="response"></a>Response
 | Nome | Descrizione |
 | --- | --- |
 | 200 |Operazione riuscita |
@@ -316,448 +316,453 @@ Ottenere i promemoria: recupera i promemoria per un'attività o un elenco specif
 | 500 |Errore interno del server. Si è verificato un errore sconosciuto |
 | default |Operazione non riuscita. |
 
-## CreateReminder
+## <a name="createreminder"></a>CreateReminder
 Impostare un promemoria: imposta un promemoria.
 
 ```POST: /reminders```
 
-| Name | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
+| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
 | post | |sì |body |nessuno |Nuovo promemoria da creare |
 
-#### Response
+#### <a name="response"></a>Response
 | Nome | Descrizione |
 | --- | --- |
 | 200 |Operazione riuscita |
 | default |Operazione non riuscita. |
 
-## RetrieveFiles
+## <a name="retrievefiles"></a>RetrieveFiles
 Ottenere i file: recupera i file per un'attività o un elenco specifico.
 
 ```GET: /files```
 
 | Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |sì |query |nessuno |ID elenco |
-| task\_id |integer |no |query |nessuno |ID attività |
+| list_id |integer |sì |query |nessuno |ID elenco |
+| task_id |integer |no |query |nessuno |ID attività |
 
-#### Response
-| Name | Descrizione |
+#### <a name="response"></a>Response
+| Nome | Descrizione |
 | --- | --- |
 | 200 |Operazione riuscita |
 | 400 |Bad Request |
 | 500 |Errore interno del server. Si è verificato un errore sconosciuto |
 | default |Operazione non riuscita. |
 
-## GetList
+## <a name="getlist"></a>GetList
 Ottenere un elenco: recupera un elenco specifico.
 
 ```GET: /lists/{id}```
 
 | Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| id |string |yes |path |nessuno |ID elenco |
+| id |string |Sì |path |nessuno |ID elenco |
 
-#### Response
-| Name | Descrizione |
+#### <a name="response"></a>Response
+| Nome | Descrizione |
 | --- | --- |
 | 200 |OK |
 
-## DeleteList
+## <a name="deletelist"></a>DeleteList
 Eliminare un elenco: elimina un elenco.
 
 ```DELETE: /lists/{id}```
 
-| Name | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
+| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| id |integer |sì |path |nessuno |ID elenco |
+| id |integer |Sì |path |nessuno |ID elenco |
 | revision |integer |sì |query |nessuno |Revisione |
 
-#### Response
-| Nome | Description |
+#### <a name="response"></a>Response
+| Nome | Descrizione |
 | --- | --- |
 | 204 |Nessun contenuto |
 
-## UpdateList
+## <a name="updatelist"></a>UpdateList
 Aggiornare un elenco: aggiorna un elenco specifico.
 
 ```PATCH: /lists/{id}```
 
 | Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| id |integer |sì |path |nessuno |ID elenco |
+| id |integer |Sì |path |nessuno |ID elenco |
 | post | |sì |body |nessuno |Dettagli elenco |
 
-#### Response
-| Name | Descrizione |
+#### <a name="response"></a>Response
+| Nome | Descrizione |
 | --- | --- |
 | 200 |OK |
 
-## GetTask
+## <a name="gettask"></a>GetTask
 Ottenere un'attività: recupera un'attività specifica.
 
 ```GET: /tasks/{id}```
 
 | Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |sì |query |nessuno |ID elenco |
-| id |integer |sì |path |nessuno |ID attività |
+| list_id |integer |sì |query |nessuno |ID elenco |
+| id |integer |Sì |path |nessuno |ID attività |
 
-#### Response
-| Name | Descrizione |
+#### <a name="response"></a>Response
+| Nome | Descrizione |
 | --- | --- |
 | 200 |OK |
 
-## UpdateTask
+## <a name="updatetask"></a>UpdateTask
 Aggiornare un'attività: aggiorna un'attività specifica.
 
 ```PATCH: /tasks/{id}```
 
 | Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |sì |query |nessuno |ID elenco |
-| id |integer |sì |path |nessuno |ID attività |
+| list_id |integer |sì |query |nessuno |ID elenco |
+| id |integer |Sì |path |nessuno |ID attività |
 | post | |sì |body |nessuno |Dettagli dell'attività |
 
-#### Response
-| Name | Descrizione |
+#### <a name="response"></a>Response
+| Nome | Descrizione |
 | --- | --- |
 | 200 |OK |
 
-## DeleteTask
+## <a name="deletetask"></a>DeleteTask
 Eliminare un'attività: elimina un'attività specifica.
 
 ```DELETE: /tasks/{id}```
 
 | Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| list\_id |integer |sì |query |nessuno |ID elenco |
-| id |integer |sì |path |nessuno |ID attività |
+| list_id |integer |sì |query |nessuno |ID elenco |
+| id |integer |Sì |path |nessuno |ID attività |
 | revision |integer |sì |query |nessuno |Revisione |
 
-#### Response
+#### <a name="response"></a>Response
 | Nome | Descrizione |
 | --- | --- |
 | 204 |Nessun contenuto |
 
-## GetSubTask
+## <a name="getsubtask"></a>GetSubTask
 Ottenere una sottoattività: recupera una sottoattività specifica.
 
 ```GET: /subtasks/{id}```
 
-| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Description |
+| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| id |string |yes |path |nessuno |ID sottoattività |
+| id |string |Sì |path |nessuno |ID sottoattività |
 
-#### Response
-| Name | Descrizione |
-| --- | --- |
-| 200 |OK |
-
-## UpdateSubTask
-Aggiornare una sottoattività: aggiorna una sottoattività specifica.
-
-```PATCH: /subtasks/{id}```
-
-| Name | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Description |
-| --- | --- | --- | --- | --- | --- |
-| id |integer |sì |path |nessuno |ID sottoattività |
-| post | |sì |body |nessuno |Dettagli sottoattività |
-
-#### Response
-| Name | Descrizione |
-| --- | --- |
-| 200 |OK |
-
-## DeleteSubTask
-Eliminare una sottoattività: elimina una sottoattività specifica.
-
-```DELETE: /subtasks/{id}```
-
-| Name | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
-| --- | --- | --- | --- | --- | --- |
-| id |integer |sì |path |nessuno |ID sottoattività |
-| revision |integer |sì |query |nessuno |Revisione |
-
-#### Response
-| Name | Descrizione |
-| --- | --- |
-| 204 |Nessun contenuto |
-
-## GetNote
-Ottenere una nota: recupera una nota specifica.
-
-```GET: /notes/{id}```
-
-| Name | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
-| --- | --- | --- | --- | --- | --- |
-| id |string |yes |path |nessuno |ID nota |
-
-#### Response
+#### <a name="response"></a>Response
 | Nome | Descrizione |
 | --- | --- |
 | 200 |OK |
 
-## UpdateNote
+## <a name="updatesubtask"></a>UpdateSubTask
+Aggiornare una sottoattività: aggiorna una sottoattività specifica.
+
+```PATCH: /subtasks/{id}```
+
+| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
+| --- | --- | --- | --- | --- | --- |
+| id |integer |Sì |path |nessuno |ID sottoattività |
+| post | |sì |body |nessuno |Dettagli sottoattività |
+
+#### <a name="response"></a>Response
+| Nome | Descrizione |
+| --- | --- |
+| 200 |OK |
+
+## <a name="deletesubtask"></a>DeleteSubTask
+Eliminare una sottoattività: elimina una sottoattività specifica.
+
+```DELETE: /subtasks/{id}```
+
+| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
+| --- | --- | --- | --- | --- | --- |
+| id |integer |Sì |path |nessuno |ID sottoattività |
+| revision |integer |sì |query |nessuno |Revisione |
+
+#### <a name="response"></a>Response
+| Nome | Descrizione |
+| --- | --- |
+| 204 |Nessun contenuto |
+
+## <a name="getnote"></a>GetNote
+Ottenere una nota: recupera una nota specifica.
+
+```GET: /notes/{id}```
+
+| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
+| --- | --- | --- | --- | --- | --- |
+| id |string |Sì |path |nessuno |ID nota |
+
+#### <a name="response"></a>Response
+| Nome | Descrizione |
+| --- | --- |
+| 200 |OK |
+
+## <a name="updatenote"></a>UpdateNote
 Aggiornare una nota: aggiorna una nota specifica.
 
 ```PATCH: /notes/{id}```
 
 | Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| id |integer |sì |path |nessuno |ID nota |
+| id |integer |Sì |path |nessuno |ID nota |
 | post | |sì |body |nessuno |Dettagli nota |
 
-#### Response
+#### <a name="response"></a>Response
 | Nome | Descrizione |
 | --- | --- |
 | 200 |OK |
 
-## DeleteNote
+## <a name="deletenote"></a>DeleteNote
 Eliminare una nota: elimina una nota specifica.
 
 ```DELETE: /notes/{id}```
 
 | Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| id |integer |sì |path |nessuno |ID nota |
+| id |integer |Sì |path |nessuno |ID nota |
 | revision |integer |sì |query |nessuno |Revisione |
 
-#### Response
+#### <a name="response"></a>Response
 | Nome | Descrizione |
 | --- | --- |
 | 204 |Nessun contenuto |
 
-## GetComment
+## <a name="getcomment"></a>GetComment
 Ottenere un commento di un'attività: recupera un commento specifico di un'attività.
 
 ```GET: /task_comments/{id}```
 
-| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Description |
+| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| id |string |yes |path |nessuno |ID commento |
+| id |string |Sì |path |nessuno |ID commento |
 
-#### Response
+#### <a name="response"></a>Response
 | Nome | Descrizione |
 | --- | --- |
 | 200 |OK |
 
-## UpdateReminder
+## <a name="updatereminder"></a>UpdateReminder
 Aggiornare un promemoria: aggiorna un promemoria specifico.
 
 ```PATCH: /reminders/{id}```
 
-| Name | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
+| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| id |integer |sì |path |nessuno |ID promemoria |
+| id |integer |Sì |path |nessuno |ID promemoria |
 | post | |sì |body |nessuno |Dettagli promemoria |
 
-#### Response
-| Name | Descrizione |
+#### <a name="response"></a>Response
+| Nome | Descrizione |
 | --- | --- |
 | 200 |OK |
 
-## DeleteReminder
+## <a name="deletereminder"></a>DeleteReminder
 Eliminare un promemoria: elimina un promemoria specifico.
 
 ```DELETE: /reminders/{id}```
 
-| Name | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Description |
+| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| id |integer |sì |path |nessuno |ID del promemoria |
+| id |integer |Sì |path |nessuno |ID del promemoria |
 | revision |integer |sì |query |nessuno |Revisione |
 
-#### Response
+#### <a name="response"></a>Response
 | Nome | Descrizione |
 | --- | --- |
 | 204 |Nessun contenuto |
 
-## Definizioni oggetti
-### Elenco
+## <a name="object-definitions"></a>Definizioni oggetti
+### <a name="list"></a>Elenco
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | id |integer |No |
-| created\_at |stringa |No |
+| created_at |stringa |No |
 | title |string |No |
-| list\_type |string |No |
+| list_type |string |No |
 | type |stringa |No |
 | revision |integer |No |
 
-### CreatedList
+### <a name="createdlist"></a>CreatedList
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | id |integer |No |
-| created\_at |stringa |No |
+| created_at |stringa |No |
 | title |string |No |
 | revision |integer |No |
 | type |stringa |No |
 
-### Attività
+### <a name="task"></a>Attività
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | id |integer |No |
-| assignee\_id |integer |No |
-| assigner\_id |integer |No |
-| created\_at |stringa |No |
-| created\_by\_id |integer |No |
-| due\_date |string |No |
-| list\_id |integer |No |
+| assignee_id |integer |No |
+| assigner_id |integer |No |
+| created_at |stringa |No |
+| created_by_id |integer |No |
+| due_date |stringa |No |
+| list_id |integer |No |
 | revision |integer |No |
 | starred |boolean |No |
 | title |string |No |
 
-### Subtask
+### <a name="subtask"></a>Subtask
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | id |integer |No |
-| task\_id |integer |No |
-| created\_at |stringa |No |
-| created\_by\_id |integer |No |
+| task_id |integer |No |
+| created_at |stringa |No |
+| created_by_id |integer |No |
 | revision |stringa |No |
 | title |string |No |
 
-### Note
+### <a name="note"></a>Note
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | id |integer |No |
-| task\_id |integer |No |
+| task_id |integer |No |
 | content |stringa |No |
-| created\_at |stringa |No |
-| updated\_at |stringa |No |
+| created_at |stringa |No |
+| updated_at |string |No |
 | revision |integer |No |
 
-### Comment
+### <a name="comment"></a>Comment
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | id |integer |No |
-| task\_id |integer |No |
+| task_id |integer |No |
 | revision |integer |No |
 | text |stringa |No |
 | type |stringa |No |
-| created\_at |string |No |
+| created_at |stringa |No |
 
-### Reminder
-| Nome proprietà | Tipo di dati | Obbligatorio |
-| --- | --- | --- |
-| id |integer |No |
-| date |string |No |
-| task\_id |integer |No |
-| revision |integer |No |
-| type |stringa |No |
-| created\_at |stringa |No |
-| updated\_at |stringa |No |
-
-### CreatedReminder
+### <a name="reminder"></a>Reminder
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | id |integer |No |
 | date |stringa |No |
-| task\_id |integer |No |
+| task_id |integer |No |
 | revision |integer |No |
-| created\_at |stringa |No |
-| updated\_at |string |No |
+| type |stringa |No |
+| created_at |stringa |No |
+| updated_at |string |No |
 
-### File
+### <a name="createdreminder"></a>CreatedReminder
+| Nome proprietà | Tipo di dati | Obbligatorio |
+| --- | --- | --- |
+| id |integer |No |
+| date |stringa |No |
+| task_id |integer |No |
+| revision |integer |No |
+| created_at |stringa |No |
+| updated_at |string |No |
+
+### <a name="file"></a>File
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | id |integer |No |
 | URL |stringa |No |
-| task\_id |integer |No |
-| list\_id |integer |No |
-| user\_id |integer |No |
-| file\_name |string |No |
-| content\_type |stringa |No |
-| file\_size |integer |No |
-| local\_created\_at |string |No |
-| created\_at |stringa |No |
-| updated\_at |string |No |
+| task_id |integer |No |
+| list_id |integer |No |
+| user_id |integer |No |
+| file_name |string |No |
+| content_type |stringa |No |
+| file_size |integer |No |
+| local_created_at |string |No |
+| created_at |stringa |No |
+| updated_at |string |No |
 | type |stringa |No |
 | revision |integer |No |
 
-### NewTask
+### <a name="newtask"></a>NewTask
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
-| list\_id |integer |Sì |
+| list_id |integer |Sì |
 | title |stringa |Sì |
-| assignee\_id |integer |No |
+| assignee_id |integer |No |
 | Completata |boolean |No |
-| recurrence\_type |stringa |No |
-| recurrence\_count |integer |No |
-| due\_date |stringa |No |
+| recurrence_type |stringa |No |
+| recurrence_count |integer |No |
+| due_date |stringa |No |
 | starred |boolean |No |
 
-### NewList
+### <a name="newlist"></a>NewList
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | title |stringa |Sì |
 
-### NewSubtask
+### <a name="newsubtask"></a>NewSubtask
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
-| list\_id |integer |Sì |
-| task\_id |integer |Sì |
+| list_id |integer |Sì |
+| task_id |integer |Sì |
 | title |stringa |Sì |
 | Completata |boolean |No |
 
-### NewNote
+### <a name="newnote"></a>NewNote
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
-| list\_id |integer |Sì |
-| task\_id |integer |Sì |
+| list_id |integer |Sì |
+| task_id |integer |Sì |
 | content |string |Sì |
 
-### NewComment
+### <a name="newcomment"></a>NewComment
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
-| list\_id |integer |Sì |
-| task\_id |integer |Sì |
+| list_id |integer |Sì |
+| task_id |integer |Sì |
 | text |stringa |Sì |
 
-### NewReminder
+### <a name="newreminder"></a>NewReminder
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
-| list\_id |integer |Sì |
-| task\_id |integer |Sì |
+| list_id |integer |Sì |
+| task_id |integer |Sì |
 | date |stringa |Sì |
 
-### UpdateTask
+### <a name="updatetask"></a>UpdateTask
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | revision |integer |No |
-| title |stringa |No |
-| assignee\_id |integer |No |
+| title |string |No |
+| assignee_id |integer |No |
 | Completata |boolean |No |
-| recurrence\_type |stringa |No |
-| recurrence\_count |integer |No |
-| due\_date |stringa |No |
+| recurrence_type |stringa |No |
+| recurrence_count |integer |No |
+| due_date |stringa |No |
 | starred |boolean |No |
 
-### UpdateList
+### <a name="updatelist"></a>UpdateList
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | revision |integer |No |
 | title |string |No |
 
-### UpdateSubtask
+### <a name="updatesubtask"></a>UpdateSubtask
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | revision |integer |No |
-| title |stringa |No |
+| title |string |No |
 | Completata |boolean |No |
 
-### UpdateNote
+### <a name="updatenote"></a>UpdateNote
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | revision |integer |No |
 | content |stringa |No |
 
-### UpdateReminder
+### <a name="updatereminder"></a>UpdateReminder
 | Nome proprietà | Tipo di dati | Obbligatorio |
 | --- | --- | --- |
 | date |stringa |No |
 | revision |integer |No |
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

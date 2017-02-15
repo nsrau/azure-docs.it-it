@@ -2,12 +2,12 @@
 title: Gestire i nodi di calcolo del cluster HPC Pack | Microsoft Docs
 description: Informazioni sugli strumenti di script di PowerShell per aggiungere, rimuovere, avviare e arrestare i nodi di calcolo del cluster HPC Pack in Azure
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: dlepow
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,hpc-pack
-
+ms.assetid: 4193f03b-94e9-4704-a7ad-379abde063a9
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,15 +15,19 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 002fd2007758a268c205db95475ad7e691284b15
+
 
 ---
-# Gestire il numero e la disponibilità dei nodi di calcolo in un cluster HPC Pack in Azure
+# <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Gestire il numero e la disponibilità dei nodi di calcolo in un cluster HPC Pack in Azure
 Se è stato creato un cluster HPC Pack nelle macchine virtuali di Azure, potrebbe essere utile conoscere i metodi per aggiungere, rimuovere, avviare (provisioning) o arrestare (deprovisioning) facilmente un certo numero di macchine virtuali dei nodi di calcolo nel cluster. Per eseguire queste attività, eseguire gli script di Azure PowerShell installati nella VM del nodo head. Questi script consentono di controllare il numero e la disponibilità delle risorse del cluster HPC Pack in modo da poter controllare i costi.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-## Prerequisiti
-* **Cluster HPC Pack nelle VM di Azure**: creare un cluster HPC Pack nel modello di distribuzione classica usando almeno HPC Pack 2012 R2 Update 1. Ad esempio, è possibile automatizzare la distribuzione usando l'immagine corrente della VM di HPC Pack in Azure Marketplace e uno script di Azure PowerShell. Per informazioni e indicazioni sui prerequisiti, vedere [Creare un cluster HPC con lo script di distribuzione IaaS di HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
+## <a name="prerequisites"></a>Prerequisiti
+* **Cluster HPC Pack nelle VM di Azure** : creare un cluster HPC Pack nel modello di distribuzione classica usando almeno HPC Pack 2012 R2 Update 1. Ad esempio, è possibile automatizzare la distribuzione usando l'immagine corrente della VM di HPC Pack in Azure Marketplace e uno script di Azure PowerShell. Per informazioni e indicazioni sui prerequisiti, vedere [Creare un cluster HPC con lo script di distribuzione IaaS di HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
   
     Dopo la distribuzione, trovare gli script di gestione dei nodi nella cartella %CCP\_HOME%bin nel nodo head. È necessario eseguire gli script come amministratore.
 * **File delle impostazioni di pubblicazione o certificato di gestione di Azure** - È necessario eseguire una delle operazioni seguenti sul nodo head:
@@ -35,23 +39,23 @@ Se è stato creato un cluster HPC Pack nelle macchine virtuali di Azure, potrebb
     
     Import-AzurePublishSettingsFile –PublishSettingsFile <publish settings file>
     ```
-  * **Configurare il certificato di gestione di Azure nel nodo head**. Se si dispone del file con estensione cer, importarlo nell'archivio certificati CurrentUser\\My certificate e quindi eseguire il seguente cmdlet di Azure PowerShell per l'ambiente Azure (AzureCloud o AzureChinaCloud):
+  * **Configurare il certificato di gestione di Azure nel nodo head**. Se si dispone del file con estensione cer, importarlo nell'archivio certificati CurrentUser\My certificate e quindi eseguire il seguente cmdlet di Azure PowerShell per l'ambiente Azure (AzureCloud o AzureChinaCloud):
     
     ```
-    Set-AzureSubscription -SubscriptionName <Sub Name> -SubscriptionId <Sub ID> -Certificate (Get-Item Cert:\CurrentUser\My<Cert Thrumbprint>) -Environment <AzureCloud | AzureChinaCloud>
+    Set-AzureSubscription -SubscriptionName <Sub Name> -SubscriptionId <Sub ID> -Certificate (Get-Item Cert:\CurrentUser\My\<Cert Thrumbprint>) -Environment <AzureCloud | AzureChinaCloud>
     ```
 
-## Aggiungere le macchine virtuali dei nodi di calcolo
-Aggiungere nodi di calcolo con lo script **Add-HpcIaaSNode.ps1**.
+## <a name="add-compute-node-vms"></a>Aggiungere le macchine virtuali dei nodi di calcolo
+Aggiungere nodi di calcolo con lo script **Add-HpcIaaSNode.ps1** .
 
-### Sintassi
+### <a name="syntax"></a>Sintassi
 ```
 Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
  [-Quantity] <Int32> [-InstanceSize] <String> [-DomainUserName] <String> [[-DomainUserPassword] <String>]
  [[-NodeNameSeries] <String>] [<CommonParameters>]
 
 ```
-### Parametri
+### <a name="parameters"></a>Parametri
 * **ServiceName** - Nome del servizio cloud a cui verranno aggiunte le nuove macchine virtuali dei nodi di calcolo.
 * **ImageName**: nome dell'immagine della VM di Azure, che si può ottenere tramite il portale di Azure classico o il cmdlet di Azure PowerShell **Get-AzureVMImage**. L'immagine deve soddisfare i seguenti requisiti:
   
@@ -61,10 +65,10 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 * **Quantity** - Numero di macchine virtuali dei nodi di calcolo da aggiungere.
 * **InstanceSize** - Dimensioni delle macchine virtuali dei nodi di calcolo.
 * **DomainUserName** - Nome utente di dominio, che verrà usato per aggiungere le nuove macchine virtuali al dominio.
-* **DomainUserPassword**: password dell'utente di dominio.
-* **NodeNameSeries** (facoltativo): modello di denominazione per i nodi di calcolo. Il formato deve essere &lt;*Nome\_radice*&gt;&lt;*Numero\_inizio*&gt;%. Ad esempio, MyCN%10% significa una serie di nomi dei nodi di calcolo a partire da MyCN11. Se non specificato, lo script usa la serie di nomi dei nodi di calcolo configurata nel cluster HPC.
+* **DomainUserPassword** : password dell'utente di dominio.
+* **NodeNameSeries** (facoltativo): modello di denominazione per i nodi di calcolo. Il formato deve essere &lt;*Radice\_Nome*&gt;&lt;*Avvia\_Numero*&gt;%. Ad esempio, MyCN%10% significa una serie di nomi dei nodi di calcolo a partire da MyCN11. Se non specificato, lo script usa la serie di nomi dei nodi di calcolo configurata nel cluster HPC.
 
-### Esempio
+### <a name="example"></a>Esempio
 L'esempio seguente aggiunge 20 VM dei nodi di calcolo di grandi dimensioni nel servizio cloud *hpcservice1* in base all'immagine di VM *hpccnimage1*.
 
 ```
@@ -74,72 +78,77 @@ Add-HPCIaaSNode.ps1 –ServiceName hpcservice1 –ImageName hpccniamge1
 ```
 
 
-## Rimuovere le macchine virtuali dei nodi di calcolo
-Rimuovere i nodi di calcolo con lo script **Remove-HpcIaaSNode.ps1**.
+## <a name="remove-compute-node-vms"></a>Rimuovere le macchine virtuali dei nodi di calcolo
+Rimuovere i nodi di calcolo con lo script **Remove-HpcIaaSNode.ps1** .
 
-### Sintassi
+### <a name="syntax"></a>Sintassi
 ```
 Remove-HPCIaaSNode.ps1 -Name <String[]> [-DeleteVHD] [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
 
 Remove-HPCIaaSNode.ps1 -Node <Object> [-DeleteVHD] [-Force] [-Confirm] [<CommonParameters>]
 ```
 
-### Parametri
+### <a name="parameters"></a>Parametri
 * **Name** - Nomi dei nodi del cluster da rimuovere. Sono supportati caratteri jolly. Il nome del set di parametri è Name. Non è possibile specificare entrambi i parametri **Name** e **Node**.
-* **Node**: oggetto HpcNode relativo ai nodi da rimuovere, che si può ottenere tramite il cmdlet di PowerShell per HPC [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). Il nome del set di parametri è Node. Non è possibile specificare entrambi i parametri **Name** e **Node**.
+* **Node** : oggetto HpcNode relativo ai nodi da rimuovere, che si può ottenere tramite il cmdlet di PowerShell per HPC [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). Il nome del set di parametri è Node. Non è possibile specificare entrambi i parametri **Name** e **Node**.
 * **DeleteVHD** (facoltativo) - Impostazione per eliminare i dischi associati per le macchine virtuali rimosse.
 * **Force** (facoltativo) - Impostazione per impostare offline i nodi HPC prima di rimuoverli.
 * **Confirm** (facoltativo) - Richiesta di conferma prima dell'esecuzione di un comando.
 * **WhatIf** - Impostazione per descrivere le conseguenze dell'esecuzione di un comando senza eseguirlo effettivamente.
 
-### Esempio
+### <a name="example"></a>Esempio
 Nell'esempio seguente vengono portati forzatamente offline i nodi con nomi che iniziano con *HPCNode-CN-* e poi vengono rimossi i nodi e i dischi associati corrispondenti.
 
 ```
 Remove-HPCIaaSNode.ps1 –Name HPCNodeCN-* –DeleteVHD -Force
 ```
 
-## Avviare le macchine virtuali dei nodi di calcolo
-Avviare i nodi di calcolo con lo script **Start-HpcIaaSNode.ps1**.
+## <a name="start-compute-node-vms"></a>Avviare le macchine virtuali dei nodi di calcolo
+Avviare i nodi di calcolo con lo script **Start-HpcIaaSNode.ps1** .
 
-### Sintassi
+### <a name="syntax"></a>Sintassi
 ```
 Start-HPCIaaSNode.ps1 -Name <String[]> [<CommonParameters>]
 
 Start-HPCIaaSNode.ps1 -Node <Object> [<CommonParameters>]
 ```
-### Parametri
+### <a name="parameters"></a>Parametri
 * **Name** - Nomi dei nodi del cluster da avviare. Sono supportati caratteri jolly. Il nome del set di parametri è Name. Non è possibile specificare entrambi i parametri **Name** e **Node**.
-* **Node** - Oggetto HpcNode relativo ai nodi da avviare, che può essere ottenuto tramite il cmdlet di PowerShell per HPC [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). Il nome del set di parametri è Node. Non è possibile specificare entrambi i parametri **Name** e **Node**.
+* **Node**- Oggetto HpcNode relativo ai nodi da avviare, che può essere ottenuto tramite il cmdlet di PowerShell per HPC [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). Il nome del set di parametri è Node. Non è possibile specificare entrambi i parametri **Name** e **Node**.
 
-### Esempio
+### <a name="example"></a>Esempio
 L'esempio seguente avvia i nodi i cui nomi iniziano con *HPCNode-CN-*.
 
 ```
 Start-HPCIaaSNode.ps1 –Name HPCNodeCN-*
 ```
 
-## Arrestare le macchine virtuali dei nodi di calcolo
-Arrestare i nodi di calcolo con lo script **Stop-HpcIaaSNode.ps1**.
+## <a name="stop-compute-node-vms"></a>Arrestare le macchine virtuali dei nodi di calcolo
+Arrestare i nodi di calcolo con lo script **Stop-HpcIaaSNode.ps1** .
 
-### Sintassi
+### <a name="syntax"></a>Sintassi
 ```
 Stop-HPCIaaSNode.ps1 -Name <String[]> [-Force] [<CommonParameters>]
 
 Stop-HPCIaaSNode.ps1 -Node <Object> [-Force] [<CommonParameters>]
 ```
 
-### Parametri
-* **Name** - Nomi dei nodi del cluster da arrestare. Sono supportati caratteri jolly. Il nome del set di parametri è Name. Non è possibile specificare entrambi i parametri **Name** e **Node**.
-* **Node**: oggetto HpcNode relativo ai nodi da arrestare, che si può ottenere tramite il cmdlet di PowerShell per HPC [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). Il nome del set di parametri è Node. Non è possibile specificare entrambi i parametri **Name** e **Node**.
+### <a name="parameters"></a>Parametri
+* **Name**- Nomi dei nodi del cluster da arrestare. Sono supportati caratteri jolly. Il nome del set di parametri è Name. Non è possibile specificare entrambi i parametri **Name** e **Node**.
+* **Node** : oggetto HpcNode relativo ai nodi da arrestare, che si può ottenere tramite il cmdlet di PowerShell per HPC [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). Il nome del set di parametri è Node. Non è possibile specificare entrambi i parametri **Name** e **Node**.
 * **Force** (facoltativo) - Impostazione per impostare offline i nodi HPC prima di arrestarli.
 
-### Esempio
+### <a name="example"></a>Esempio
 L'esempio seguente imposta offline i nodi i cui nomi iniziano con *HPCNode-CN-* e li arresta.
 
 Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
-## Passaggi successivi
-* Per trovare un modo per aumentare o ridurre automaticamente i nodi del cluster in base al carico di lavoro corrente dei processi e delle attività del cluster, vedere l'articolo [Aumentare e ridurre automaticamente le risorse di un cluster HPC Pack in Azure in base al carico di lavoro del cluster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
+## <a name="next-steps"></a>Passaggi successivi
+* Per trovare un modo per aumentare o ridurre automaticamente i nodi del cluster in base al carico di lavoro corrente dei processi e delle attività del cluster, vedere l'articolo [Aumentare e ridurre automaticamente le risorse di un cluster HPC Pack in Azure in base al carico di lavoro del cluster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

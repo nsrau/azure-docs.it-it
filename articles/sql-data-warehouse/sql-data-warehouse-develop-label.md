@@ -1,22 +1,26 @@
 ---
 title: Usare etichette per instrumentare query in SQL Data Warehouse | Microsoft Docs
-description: Suggerimenti per l'uso di etichette per instrumentare query in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
+description: Suggerimenti per l&quot;uso di etichette per instrumentare query in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: 44988de8-04c1-4fed-92be-e1935661a4e8
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/14/2016
-ms.author: jrj;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5c72cd2c80d9fcee3d9340c23a629451c54c9156
+
 
 ---
-# Usare etichette per instrumentare query in SQL Data Warehouse
+# <a name="use-labels-to-instrument-queries-in-sql-data-warehouse"></a>Usare etichette per instrumentare query in SQL Data Warehouse
 SQL Data Warehouse supporta un concetto detto etichette di query. Prima di approfondire il concetto, eccone un esempio:
 
 ```sql
@@ -44,16 +48,20 @@ WHERE   r.[label] = 'My Query Label'
 > 
 > 
 
-## Passaggi successivi
-Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][Panoramica sullo sviluppo per SQL Data Warehouse].
+## <a name="next-steps"></a>Passaggi successivi
+Per altri suggerimenti sullo sviluppo, vedere la [panoramica sullo sviluppo][panoramica sullo sviluppo].
 
 <!--Image references-->
 
 <!--Article references-->
-[Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
+[panoramica sullo sviluppo]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

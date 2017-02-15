@@ -15,24 +15,24 @@ ms.workload: infrastructure
 ms.date: 09/26/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 2bd363e3c22f4cf4daf2e0fa352fd4a131d1675f
-ms.openlocfilehash: 89db2c9f388b8a5496a306ba0a152ab57481ea50
+ms.sourcegitcommit: 95b924257c64a115728c66956d5ea38eb8764a35
+ms.openlocfilehash: 70592ac773aced0bfcec5c7418a6dc53555fab33
 
 
 ---
 
-# <a name="create-a-linux-vm-using-the-azure-cli-20-preview"></a>Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0 (anteprima)
+# <a name="create-a-linux-vm-using-the-azure-cli-20-preview-azpy"></a>Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0 (az.py)
 Questo articolo illustra come distribuire rapidamente una macchina virtuale (VM) Linux in Azure con il comando [az vm create](/cli/azure/vm#create) usando l'interfaccia della riga di comando di Azure 2.0 (anteprima). 
 
 > [!NOTE] 
-> L'anteprima dell'interfaccia della riga di comando di Azure 2.0 è l'interfaccia della riga di comando multipiattaforma di nuova generazione. È possibile provarla e inviare commenti e suggerimenti nella [pagina del progetto in GitHub](https://github.com/Azure/azure-cli).
+> L'anteprima dell'interfaccia della riga di comando di Azure 2.0 è l'interfaccia della riga di comando multipiattaforma di nuova generazione. [Versione di valutazione.](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)
 >
-> Nel resto della documentazione viene usata l'interfaccia della riga di comando di Azure esistente. Per creare una VM usando l'interfaccia della riga di comando di Azure esistente anziché l'anteprima della versione 2.0, vedere [Creare una VM con l'interfaccia della riga di comando di Azure](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Nel resto della documentazione viene usata l'interfaccia della riga di comando di Azure esistente. Per creare una VM usando l'interfaccia della riga di comando di Azure 1.0 esistente invece dell'anteprima della versione 2.0, vedere [Creare una VM con l'interfaccia della riga di comando di Azure](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Per creare una VM, è necessario: 
 
 * Un account Azure (è possibile [ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/))
-* Aver installato la [versione 2.0 dell'interfaccia della riga di comando di Azure (anteprima)](https://github.com/Azure/azure-cli#installation)
+* Aver installato la [versione 2.0 dell'interfaccia della riga di comando di Azure (anteprima)](/cli/azure/install-az-cli2)
 * Essere connessi all'account Azure (digitare [az login](/cli/azure/#login))
 
 È anche possibile distribuire rapidamente una VM Linux usando il [portale di Azure](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -41,10 +41,10 @@ L'esempio seguente mostra come distribuire una VM Debian e collegare la chiave S
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Digitare prima di tutto [az resource group create](/cli/azure/resource/group#create) per creare un gruppo di risorse contenente tutte le risorse distribuite:
+Digitare prima di tutto [az group create](/cli/azure/group#create) per creare un gruppo di risorse contenente tutte le risorse distribuite:
 
 ```azurecli
-az resource group create -n myResourceGroup -l westus
+az group create -n myResourceGroup -l westus
 ```
 
 L'output sarà simile al seguente. Se si vuole, è possibile scegliere un'opzione `--output` diversa.
@@ -127,6 +127,6 @@ Il comando `az vm create` consente di distribuire rapidamente una macchina virtu
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

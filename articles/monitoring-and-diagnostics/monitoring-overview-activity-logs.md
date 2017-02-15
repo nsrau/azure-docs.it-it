@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 12/09/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fc01f4dd55e1f933243bc23424b54767870374d1
+ms.sourcegitcommit: 5a73ee6865a09af68a9ab55f17c85136608c4d84
+ms.openlocfilehash: cfe10bc9c86835d228b09550cc98a846ee1a78ad
 
 
 ---
@@ -39,13 +39,15 @@ Ecco alcune delle attività che è possibile eseguire con il log attività:
 * Analizzarlo in Power BI usando il [**pacchetto di contenuto di Power BI**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Trasmetterlo a un **hub eventi**](monitoring-stream-activity-logs-event-hubs.md) per l'inserimento da parte di un servizio di terze parti o di una soluzione di analisi personalizzata come Power BI.
 
+Lo spazio dei nomi dell'account di archiviazione o per l'hub eventi non deve trovarsi nella stessa sottoscrizione che emette log, purché l'utente che configura l'impostazione abbia un accesso RBAC appropriato a entrambe le sottoscrizioni.
+
 ## <a name="export-the-activity-log-with-log-profiles"></a>Esportare il log attività con i profili di log
 Un **profilo di log** controlla la modalità di esportazione del log attività. Un profilo di log permette di configurare quanto segue:
 
 * Destinazione del log attività, ad esempio un account di archiviazione o un hub eventi.
 * Categorie di eventi da inviare (scrittura, eliminazione o azione).
 * Aree o località da esportare.
-* Tempo di conservazione del log attività in un account di archiviazione. Se impostato su zero giorni, i log vengono conservati all'infinito. Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, ad esempio se sono selezionate solo le opzioni Hub eventi o OMS, i criteri di conservazione non hanno alcun effetto.
+* Tempo di conservazione del log attività in un account di archiviazione. Se impostato su zero giorni, i log vengono conservati all'infinito. Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, ad esempio se sono selezionate solo le opzioni Hub eventi o OMS, i criteri di conservazione non hanno alcun effetto. I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata, i log relativi a tale giornata non rientrano quindi più nei criteri di conservazione e verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata attuale vengono eliminati i log relativi alla giornata precedente a ieri.
 
 Queste impostazioni possono essere configurate tramite l'opzione "Esporta" nel pannello Log attività nel portale oppure a livello di codice tramite l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931927.aspx), i cmdlet di PowerShell o l'interfaccia della riga di comando. Una sottoscrizione può avere un solo profilo di log.
 
@@ -237,6 +239,6 @@ Per ogni evento nel log attività esiste un BLOB JSON simile all'esempio seguent
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,19 +1,23 @@
 ---
 title: Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning | Microsoft Docs
-description: Gestione dell'accesso alle aree di lavoro di Azure Machine Learning e distribuzione e gestione dei servizi Web API ML
+description: Gestione dell&quot;accesso alle aree di lavoro di Azure Machine Learning e distribuzione e gestione dei servizi Web API ML
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: vDonGlover
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: b62cf2ca-dd2a-4a83-bb54-469f948fb026
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/11/2017
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3b04aa7406f44130deb4f12c856b459369301449
+
 
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning
@@ -22,7 +26,7 @@ Il portale dei servizi Web di Microsoft Azure Machine Learning consente di gesti
 Nel portale dei servizi Web di Azure Machine Learning è possibile:
 
 * Monitorare la modalità d'uso del servizio Web.
-* Configurare la descrizione, aggiornare le chiavi per il servizio Web (solo servizi nuovi), aggiornare la chiave dell'account di archiviazione (solo servizi nuovi), abilitare la registrazione (solo servizi classici) e abilitare o disabilitare i dati di esempio.
+* Configurare la descrizione, aggiornare le chiavi per il servizio Web (solo servizi nuovi), aggiornare la chiave dell'account di archiviazione (solo servizi nuovi), abilitare la registrazione e abilitare o disabilitare i dati di esempio.
 * Eliminare il servizio Web.
 * Creare, eliminare o aggiornare i piani di fatturazione (solo servizi nuovi).
 * Aggiungere ed eliminare gli endpoint (solo servizi classici)
@@ -171,6 +175,9 @@ Per gestire account aggiuntivi che hanno accesso all'area di lavoro in Machine L
 > 
 > 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

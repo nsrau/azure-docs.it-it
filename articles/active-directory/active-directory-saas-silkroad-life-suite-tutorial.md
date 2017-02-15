@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/12/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 97d775186f0f43ae77e6cf4e5d0f68be91d0209c
+ms.sourcegitcommit: 451369e21e7471180b6cd8c77d62b157d0bcddff
+ms.openlocfilehash: 19707c2b8855db456c69e77603bc6742d799ed2c
 
 
 ---
@@ -60,19 +60,25 @@ Per configurare l'integrazione di SilkRoad Life Suite in Azure AD, è necessario
 1. Nel **portale di Azure classico**fare clic su **Active Directory**nel riquadro di spostamento sinistro. 
    
     ![Active Directory][1]
+
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
    
     ![Applications][2]
+
 4. Fare clic su **Add** nella parte inferiore della pagina.
    
     ![Applicazioni][3]
+
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
    
     ![Applicazioni][4]
+
 6. Nella casella di ricerca digitare **SilkRoad Life Suite**.
    
     ![Applicazioni][5]
+
 7. Nel riquadro dei risultati selezionare **SilkRoad Life Suite** e quindi fare clic su **Completa** per aggiungere l'applicazione.
    
     ![Applicazioni][50]
@@ -98,21 +104,25 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
 
 1. Accedere al sito aziendale di SilkRoad come amministratore. 
 
-    > [AZURE.NOTE] Per ottenere l'accesso all'applicazione SilkRoad Life Suite Authentication per configurare la federazione con Microsoft Azure AD, contattare il supporto SilkRoad o il rappresentante dei servizi SilkRoad.
-
+    > [!NOTE] 
+    > Per ottenere l'accesso all'applicazione SilkRoad Life Suite Authentication per configurare la federazione con Microsoft Azure AD, contattare il supporto SilkRoad o il rappresentante dei servizi SilkRoad.
 
 1. Passare a **Service Provider** (Provider di servizi) e quindi fare clic su **Federation Details** (Dettagli federazione). 
    
     ![Single Sign-On di Microsoft Azure AD][10] 
+
 2. Fare clic su **Download Federation Metadata**(Scarica metadati federazione) e quindi salvare il file di metadati nel computer.
    
     ![Single Sign-On di Microsoft Azure AD][11] 
+
 3. Nella pagina di integrazione dell'applicazione **SilkRoad Life Suite** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
     ![Configura accesso Single Sign-On][6] 
+
 4. Nella pagina **Stabilire come si desidera che gli utenti accedano a SilkRoad Life Suite** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
    
     ![Single Sign-On di Microsoft Azure AD][7] 
+
 5. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
    
     ![Accesso Single Sign-On di Azure AD][8] 
@@ -128,6 +138,7 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
     d. Incollare il valore nella casella di testo **URL di risposta** .
    
     e. Fare clic su **Avanti**.
+
 6. Nella pagina **Configura accesso Single Sign-On in SilkRoad Life Suite** seguire questa procedura:
    
     ![Accesso Single Sign-On di Azure AD][9] 
@@ -135,12 +146,15 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
     a. Fare clic su Download certificato e quindi salvare il file nel computer.
    
     b. Fare clic su **Avanti**.
+
 7. Nell'applicazione **SilkRoad**, fare clic su **Authentication Sources** (Origini autenticazione).
    
     ![Single Sign-On di Microsoft Azure AD][12] 
+
 8. Fare clic su **Add Authentication Source**(Aggiungi origine autenticazione). 
    
     ![Accesso Single Sign-On di Azure AD][13] 
+
 9. Nella sezione **Add Authentication Source** (Aggiungi origine autenticazione) seguire questa procedura: 
    
     ![Accesso Single Sign-On di Azure AD][14] 
@@ -148,9 +162,11 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
     a. In **Option 2 - Metadata File** (Opzione 2 - File di metadati) fare clic su **Browse** (Sfoglia) per caricare il file di metadati scaricato.
    
     b. Fare clic su **Create Identity Provider using File Data**.
+
 10. Nella sezione **Authentication Sources** (Origini autenticazione) fare clic su **Edit** (Modifica). 
     
      ![Single Sign-On di Microsoft Azure AD][15] 
+
 11. Nella finestra di dialogo **Edit Authentication Source** (Modifica origine autenticazione) seguire questa procedura: 
     
      ![Accesso Single Sign-On di Azure AD][16] 
@@ -162,12 +178,15 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
      c. Nella casella di testo **IdP Name** digitare un nome specifico per la configurazione, ad esempio *Azure SP*.
     
      d. Fare clic su **Save**.
+
 12. Disabilitare tutte le altre origini di autenticazione. 
     
      ![Single Sign-On di Microsoft Azure AD][17]
+
 13. Nella pagina **Conferma Single Sign-On** del portale di Azure classico fare clic su **Avanti**.  
     
      ![Single Sign-On di Microsoft Azure AD][18]
+
 14. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
     
      ![Single Sign-On di Microsoft Azure AD][19]
@@ -182,13 +201,17 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_09.png)  
+
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+
 3. Per visualizzare l'elenco di utenti, fare clic su **Utenti**nel menu in alto.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_03.png) 
+
 4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso. 
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_04.png) 
+
 5. Nella pagina **Informazioni sull'utente** seguire questa procedura: 
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_05.png)  
@@ -198,21 +221,25 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
     b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
    
     c. Fare clic su **Avanti**.
+
 6. Nella pagina **Profilo utente** seguire questa procedura: 
    
-   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_06.png) 
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_06.png) 
    
-   a. Nella casella di testo **Nome** digitare **Britta**.  
+    a. Nella casella di testo **Nome** digitare **Britta**.  
    
-   b. Nella casella di testo **Cognome** digitare **Simon**.
+    b. Nella casella di testo **Cognome** digitare **Simon**.
    
-   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+    c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
    
-   d. Nell'elenco **Ruolo** selezionare **Utente**.
-   e. Fare clic su **Avanti**.
+    d. Nell'elenco **Ruolo** selezionare **Utente**.
+
+    e. Fare clic su **Avanti**.
+
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_07.png) 
+
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_08.png) 
@@ -226,7 +253,7 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in SilkRoad 
 
 **Per creare un utente test denominato Britta Simon in SilkRoad Life Suite, seguire questa procedura:**
 
-1. Chiedere al team di supporto di SilkRoad Life Suite di creare un utente con un valore per l'attributo **SSO ID** equivalente all'**indirizzo di posta elettronica**di Britta Simon in Azure AD.
+- Chiedere al team di supporto di SilkRoad Life Suite di creare un utente con un valore per l'attributo **SSO ID** equivalente all'**indirizzo di posta elettronica**di Britta Simon in Azure AD.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 Questa sezione descrive come abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a SilkRoad Life Suite.
@@ -238,13 +265,17 @@ Questa sezione descrive come abilitare Britta Simon all'uso dell'accesso Single 
 1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
    
     ![Assegna utente][201] 
+
 2. Nell'elenco delle applicazioni selezionare **SilkRoad Life Suite**.
    
     ![Assegna utente][202] 
+
 3. Scegliere **Utenti**dal menu in alto.
    
     ![Assegna utente][203] 
+
 4. Nell'elenco di utenti selezionare **Britta Simon**.
+
 5. Fare clic su **Assegna**sulla barra degli strumenti in basso.
    
     ![Assegna utente][205]
@@ -300,6 +331,6 @@ Quando si fa clic sul riquadro SilkRoad Life Suite nel pannello di accesso, si d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

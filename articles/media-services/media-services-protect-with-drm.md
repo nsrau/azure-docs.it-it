@@ -12,15 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: 6e979399c74028a34e6879d957f5c1572e8e062e
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 3309db6a926c3c2a0ff6340f0ade3d73093f6d6b
 
 
 ---
 # <a name="using-playready-andor-widevine-dynamic-common-encryption"></a>Uso della crittografia comune dinamica PlayReady e/o Widevine
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-protect-with-drm.md)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -40,15 +41,14 @@ Per sfruttare la crittografia dinamica, è necessario disporre di un asset che c
 
 Questo argomento è utile per gli sviluppatori che creano applicazioni per la distribuzione di contenuto multimediale protetto tramite più DRM, ad esempio PlayReady e Widevine. L'argomento illustra come configurare il servizio di distribuzione della licenza PlayReady con criteri di autorizzazione, in modo che solo i client autorizzati possano ricevere licenze PlayReady o Widevine. Descrive anche come usare la crittografia dinamica con PlayReady o Widevine DRM tramite DASH.
 
-> [!NOTE]
-> Per iniziare a utilizzare la crittografia dinamica, è prima necessario ottenere almeno un'unità di scala (nota anche come unità di streaming). Per altre informazioni, vedere la sezione relativa al [ridimensionamento di un servizio multimediale](media-services-portal-manage-streaming-endpoints.md).
->
->
+>[!NOTE]
+>Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
 
 ## <a name="download-sample"></a>Scaricare un esempio
 È possibile scaricare l'esempio descritto in questo articolo [qui](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
 
 ## <a name="configuring-dynamic-common-encryption-and-drm-license-delivery-services"></a>Configurazione della crittografia comune dinamica e dei servizi di distribuzione delle licenze DRM
+
 Di seguito sono indicati i passaggi generali da eseguire quando si proteggono gli asset con PlayReady, tramite il servizio di distribuzione delle licenze di Servizi multimediali e tramite la crittografia dinamica.
 
 1. Creare un asset e caricare file al suo interno.
@@ -56,13 +56,13 @@ Di seguito sono indicati i passaggi generali da eseguire quando si proteggono gl
 3. Creare una chiave simmetrica e associarla all'asset codificato. In Servizi multimediali, la chiave simmetrica contiene la chiave di crittografia dell'asset.
 4. Configurare i criteri di autorizzazione della chiave simmetrica. I criteri di autorizzazione della chiave simmetrica devono essere configurati dall'utente e soddisfatti dal client affinché la chiave simmetrica possa essere distribuita al client.
 
-Quando si creano i criteri di autorizzazione della chiave simmetrica, è necessario specificare il metodo di distribuzione (PlayReady o Widevine), le restrizioni (Open o Token) e le informazioni specifiche del tipo di distribuzione della chiave che definisce la modalità di distribuzione della chiave al client (modello di licenza [PlayReady](media-services-playready-license-template-overview.md) o [Widevine](media-services-widevine-license-template-overview.md)).
+    Quando si creano i criteri di autorizzazione della chiave simmetrica, è necessario specificare il metodo di distribuzione (PlayReady o Widevine), le restrizioni (Open o Token) e le informazioni specifiche del tipo di distribuzione della chiave che definisce la modalità di distribuzione della chiave al client (modello di licenza [PlayReady](media-services-playready-license-template-overview.md) o [Widevine](media-services-widevine-license-template-overview.md)).
 
-1. Configurare i criteri di distribuzione di un asset. La configurazione dei criteri di distribuzione include: protocollo di recapito (ad esempio, MPEG DASH, HLS, HDS, Smooth Streaming o tutti), tipo di crittografia dinamica (ad esempio, crittografia comune), URL di acquisizione della licenza PlayReady o Widevine.
+5. Configurare i criteri di distribuzione di un asset. La configurazione dei criteri di distribuzione include: protocollo di recapito (ad esempio, MPEG DASH, HLS, Smooth Streaming o tutti), tipo di crittografia dinamica (ad esempio, crittografia comune), URL di acquisizione della licenza PlayReady o Widevine.
 
-È possibile applicare criteri diversi per ogni protocollo allo stesso asset. Ad esempio, è possibile applicare la crittografia PlayReady a Smooth/DASH e AES Envelope ad HLS. Gli eventuali protocolli non definiti nei criteri di distribuzione (ad esempio quando si aggiunge un singolo criterio che specifica soltanto HLS come protocollo) verranno esclusi dallo streaming. Questo comportamento non si verifica quando non è presente alcun criterio di distribuzione degli asset. In tal caso, sono consentiti tutti i protocolli in chiaro.
+    È possibile applicare criteri diversi per ogni protocollo allo stesso asset. Ad esempio, è possibile applicare la crittografia PlayReady a Smooth/DASH e AES Envelope ad HLS. Gli eventuali protocolli non definiti nei criteri di distribuzione (ad esempio quando si aggiunge un singolo criterio che specifica soltanto HLS come protocollo) verranno esclusi dallo streaming. Questo comportamento non si verifica quando non è presente alcun criterio di distribuzione degli asset. In tal caso, sono consentiti tutti i protocolli in chiaro.
 
-1. Creare un localizzatore OnDemand per ottenere un URL di streaming.
+6. Creare un localizzatore OnDemand per ottenere un URL di streaming.
 
 Sarà disponibile un esempio .NET completo alla fine dell'argomento.
 
@@ -101,7 +101,7 @@ Per informazioni dettagliate, vedere [Configurare i criteri di autorizzazione de
 Configurare i criteri di distribuzione dell'asset. Alcuni aspetti inclusi nella configurazione dei criteri di distribuzione dell’asset:
 
 * L'URL di acquisizione della licenza DRM.
-* Il protocollo di recapito dell’asset (ad esempio, MPEG DASH, HLS, HDS, Smooth Streaming o tutti).
+* Il protocollo di recapito dell'asset (ad esempio, MPEG DASH, HLS, Smooth Streaming o tutti).
 * Il tipo di crittografia dinamica (in questo caso, crittografia comune).
 
 Per informazioni dettagliate, vedere [Configurare i criteri di distribuzione degli asset ](media-services-rest-configure-asset-delivery-policy.md).
@@ -158,8 +158,7 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
                 <add key="Audience" value="urn:test"/>
               </appSettings>
         </configuration>
-5. Ottenere almeno un'unità di streaming per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti. Per altre informazioni, vedere [Configurare gli endpoint di streaming](media-services-dotnet-get-started.md#configure-streaming-endpoints-using-the-azure-portal).
-6. Sovrascrivere il codice nel file Program.cs con il codice riportato in questa sezione.
+7. Sovrascrivere il codice nel file Program.cs con il codice riportato in questa sezione.
 
     Assicurarsi di aggiornare le variabili in modo da puntare alle cartelle in cui si trovano i file di input.
 
@@ -621,6 +620,6 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

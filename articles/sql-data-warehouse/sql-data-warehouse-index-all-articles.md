@@ -1,19 +1,23 @@
 ---
-title: Tutti gli argomenti per il servizio SQL Data Warehouse | Microsoft Docs
+title: Tutti gli argomenti per il servizio SQL Data Warehouse | Documentazione Microsoft
 description: Tabella di tutti gli argomenti per il servizio di Azure denominato SQL Data Warehouse presente in http://azure.microsoft.com/documentation/articles/, titolo e descrizione.
 services: sql-data-warehouse
-documentationcenter: ''
+documentationcenter: 
 author: barbkess
 manager: jhubbard
-editor: MightyPen
-
+editor: 
+ms.assetid: a26a6dec-9c08-4415-8f58-4ee1dd41f718
 ms.service: sql-data-warehouse
 ms.workload: sql-data-warehouse
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 10/31/2016
 ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ab5b0c283d1bd3fd1b734082d5ccffa4125f6de4
+
 
 ---
 # <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Tutti gli argomenti per il servizio SQL Data Warehouse di Azure
@@ -22,9 +26,9 @@ Questo argomento elenca tutti gli argomenti che si applicano direttamente al ser
 ## <a name="new"></a>Nuovo
 | &nbsp; | Titolo | Descrizione |
 | ---:|:--- |:--- |
-| 1 |[Backup di SQL Data Warehouse](sql-data-warehouse-backup.md) |Informazioni sui backup dei database predefiniti di SQL Data Warehouse che consentono di ripristinare SQL Data Warehouse di Azure in un punto di ripristino o in un'area geografica diversa. |
+| 1 |[Backup di SQL Data Warehouse](sql-data-warehouse-backups.md) |Informazioni sui backup dei database predefiniti di SQL Data Warehouse che consentono di ripristinare SQL Data Warehouse di Azure in un punto di ripristino o in un'area geografica diversa. |
 
-## <a name="updated-articles,-sql-data-warehouse"></a>Articoli aggiornati, SQL Data Warehouse
+## <a name="updated-articles-sql-data-warehouse"></a>Articoli aggiornati, SQL Data Warehouse
 Questa sezione elenca gli articoli aggiornati di recente, in cui l'aggiornamento è stato importante o significativo. Per ogni articolo aggiornato, viene visualizzato un frammento di codice del testo di markdown aggiunto. Gli articoli sono stati aggiornati nell'intervallo di date dal **22-08-2016** al **05-10-2016**.
 
 | &nbsp; | Articolo | Testo aggiornato, frammento di codice | Data aggiornamento |
@@ -160,6 +164,9 @@ Questa sezione elenca gli articoli aggiornati di recente, in cui l'aggiornamento
 | 86 |[Limiti di capacità di SQL Data Warehouse](sql-data-warehouse-service-capacity-limits.md) |I valori massimi per le connessioni, i database, le tabelle e le query per SQL Data Warehouse. |
 | 87 |[Risoluzione dei problemi relativi a SQL Data Warehouse di Azure](sql-data-warehouse-troubleshoot.md) |Risoluzione dei problemi relativi a SQL Data Warehouse di Azure. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

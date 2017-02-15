@@ -253,6 +253,6 @@ Ulteriori informazioni sui [componenti hardware e sullo stato di StorSimple](sto
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

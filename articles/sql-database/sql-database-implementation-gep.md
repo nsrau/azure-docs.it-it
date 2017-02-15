@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: ae8bcb10-c251-4bac-b666-10a253918583
 ms.service: sql-database
-ms.custom: app development case study; app development
+ms.custom: app development case study
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/08/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: da2e3e4f9a33860141d94352fd2e657b14b0d03d
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 7137d38e4e9fef7dfaa309ad81cfed94d547a393
 
 
 ---
@@ -65,7 +65,7 @@ Nel cuore dell'applicazione SMART by GEP risiedono le istanze di database SQL di
 
 Con il database SQL di Azure, GEP dispone automaticamente di maggiori funzionalità di ripristino di emergenza che potrebbero essere state economicamente progettate in locale a causa delle funzionalità di tolleranza di errore integrate nel database SQL di Azure. GEP usa la funzionalità di replica geografica attiva nel database SQL di Azure, insieme a più repliche secondarie online, attive e leggibili (Gruppi di disponibilità Always On) in aree geografiche diverse, in modo da formare coppie a disponibilità elevata. La replica dei dati di SMART by GEP nelle diverse aree significa che, in caso di emergenza a livello di area, GEP è in grado di ripristinare facilmente i dati dei clienti tramite un obiettivo minimo del punto di ripristino (RPO) e un obiettivo del tempo di ripristino (RTO).
 
-Ogni cliente SMART by GEP dispone di due istanze del database SQL di Azure: uno per l'elaborazione di transazioni online (OLTP) e uno per l'analisi, ad esempio l'analisi della spesa e dei report del cliente. I pool di database elastici del database SQL di Azure consentono a GEP di gestire migliaia di database in tutto il mondo al fine di gestire richieste impreviste di risorse del database. I pool elastici forniscono a GEP un mezzo per garantire che i database dei clienti siano in grado di eseguire la scalabilità, se necessaria, senza provisioning eccessivo o insufficiente, consentendo contestualmente il controllo dei costi. In aggiunta, poiché si tratta di un servizio PaaS, GEP ottiene tutte le nuove funzionalità del database SQL di Azure tramite aggiornamenti automatici.
+Ogni cliente SMART by GEP dispone di due istanze del database SQL di Azure: uno per l'elaborazione di transazioni online (OLTP) e uno per l'analisi, ad esempio l'analisi della spesa e dei report del cliente. I pool elastici del database SQL di Azure consentono a GEP di gestire migliaia di database in tutto il mondo al fine di gestire richieste impreviste di risorse del database. I pool elastici forniscono a GEP un mezzo per garantire che i database dei clienti siano in grado di eseguire la scalabilità, se necessaria, senza provisioning eccessivo o insufficiente, consentendo contestualmente il controllo dei costi. In aggiunta, poiché si tratta di un servizio PaaS, GEP ottiene tutte le nuove funzionalità del database SQL di Azure tramite aggiornamenti automatici.
 
 ## <a name="unstructured-and-semi-structured-data"></a>Dati non strutturati e semistrutturati
 Tuttavia, alcuni dati dei clienti SMART by GEP necessitano di un'archiviazione strutturata con meno rigidità. Per questo tipo di dati, GEP usa Archiviazione BLOB di Azure, Archiviazione tabelle di Azure e Cache Redis di Azure. L'archiviazione BLOB di Azure ospita gli allegati che gli utenti SMART by GEP caricano nell'applicazione. È questa la posizione in cui SMART by GEP archivia anche i contenuti statici, ad esempio i fogli con stile a cascata (CSS) e i file JavaScript.
@@ -107,6 +107,6 @@ Dopo la migrazione dai datacenter locali ad Azure e la compilazione di SMART by 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

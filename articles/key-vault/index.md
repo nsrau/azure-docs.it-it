@@ -2,8 +2,8 @@
 layout: LandingPage
 description: Informazioni su come usare l&quot;insieme di credenziali delle chiavi per creare e gestire chiavi in grado di accedere e crittografare le risorse, le app e le soluzioni cloud. Esercitazioni, informazioni di riferimento sulle API e altro ancora.
 translationtype: Human Translation
-ms.sourcegitcommit: 017bbfb8485a7e449157e4ddb05149b5e1cc393f
-ms.openlocfilehash: ae529bdad36eeddb959ac4b0ad5c9ccffc3ac30a
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 0c53b569e45569fd7a7c56142d66fbab8d8b0a05
 
 ---
 # <a name="key-vault-documentation"></a>Documentazione sull'insieme di credenziali delle chiavi
@@ -151,13 +151,6 @@ Informazioni su come usare l'insieme di credenziali delle chiavi per proteggere 
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/key-vault.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione sull'insieme di credenziali delle chiavi </div>
-    </a>
-</div>
 
 
 

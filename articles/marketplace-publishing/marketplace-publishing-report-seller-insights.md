@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2016
+ms.date: 02/01/2017
 ms.author: v-jeana; hascipio; v-dabosl
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -29,7 +29,7 @@ Tutti gli editori di servizi per gli sviluppatori di fatturazione basata sull'ut
 
 * **Messaggio di benvenuto:** i nuovi editori ricevono un messaggio di benvenuto che comunica la cadenza mensile dei report sulle informazioni dettagliate del venditore.
 * **Report mensili sulle vendite:** se l'offerta genera utilizzo, si riceve un secondo messaggio di posta elettronica contenente i report e istruzioni su come accedere alla password:
-  
+
   * Se lo SKU di servizi per gli sviluppatori di soluzioni di fatturazione basata sull'uso o su macchina virtuale genera utilizzo, il report mensile conterrà informazioni dettagliate su ordini, utilizzo, mercati e clienti per le offerte.
   * I report sono protetti da una password nota solo all'utente e a Microsoft, per salvaguardare i dati dei clienti.
   * Se nessuna delle offerte ha generato utilizzo durante il mese, Microsoft non invia alcun report.

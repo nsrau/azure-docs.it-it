@@ -1,19 +1,23 @@
 ---
-title: Guida di riferimento alla ricerca in Log Analytics | Microsoft Docs
-description: La Guida di riferimento alla ricerca in Log Analytics descrive il linguaggio di ricerca e fornisce le opzioni della sintassi di query generale che è possibile usare quando si cercano dati e si filtrano espressioni per restringere la ricerca.
+title: Guida di riferimento alla ricerca in Log Analytics | Documentazione Microsoft
+description: "La Guida di riferimento alla ricerca in Log Analytics descrive il linguaggio di ricerca e fornisce le opzioni della sintassi di query generale che è possibile usare quando si cercano dati e si filtrano espressioni per restringere la ricerca."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
-manager: jwhit
-editor: ''
-
+manager: carmonm
+editor: 
+ms.assetid: 402615a2-bed0-4831-ba69-53be49059718
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 01/02/2017
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: b7c13d4b4e205fda1e5ba44fbf5eb50a96601d2e
+ms.openlocfilehash: 113dd20f1a5ac42eb7155d693f66053adea57078
+
 
 ---
 # <a name="log-analytics-search-reference"></a>Guida di riferimento alla ricerca in Log Analytics
@@ -41,8 +45,8 @@ Questa query restituisce risultati che contengono la parola "system" in qualsias
 
 > [!NOTE]
 > Non tutti i campi sono indicizzati in questo modo, ma in genere lo sono i campi di testuali più comuni (ad esempio nomi e descrizioni).
-> 
-> 
+>
+>
 
 ```
 system error
@@ -58,8 +62,8 @@ Questa query restituisce risultati che contengono le parole *system* ed *error*.
 
 > [!IMPORTANT]
 > Tutti i nomi dei campi e i valori dei campi di tipo stringa e testo fanno distinzione tra maiuscole e minuscole.
-> 
-> 
+>
+>
 
 ## <a name="filter-expression"></a>Espressione di filtro
 Nelle sottosezioni seguenti vengono illustrate le espressioni di filtro.
@@ -94,7 +98,7 @@ Type:Perf 0.5
 HTTP 500
 ```
 
-### <a name="date/time"></a>Data/ora
+### <a name="datetime"></a>Data/ora
 Tutti i dati nel sistema presentano una proprietà *TimeGenerated* che rappresenta la data e ora originali del record. Alcuni tipi di dati possono inoltre avere più campi di data e ora, ad esempio *LastModified*.
 
 Il selettore di grafico e ora della sequenza temporale in Log Analytics mostra una distribuzione dei risultati nel tempo (secondo la query corrente in esecuzione), in base al campo *TimeGenerated* . I campi di data e ora hanno un formato di stringa specifico che può essere usato nelle query per limitare la query a un determinato intervallo di tempo. È inoltre possibile usare la sintassi per fare riferimento a intervalli di tempo relativi (ad esempio, "tra 3 giorni fa e 2 ore fa").
@@ -140,7 +144,7 @@ Anche in questo caso, è improbabile che vengano restituiti risultati, in quanto
 
 Questi esempi sono blocchi predefiniti da usare per le date relative e assolute. Nelle tre sezioni successive verrà illustrato come usare tali blocchi in filtri più avanzati con esempi che usano intervalli di date relative.
 
-### <a name="date/time-math"></a>Operatori matematici di data/ora
+### <a name="datetime-math"></a>Operatori matematici di data/ora
 Usare gli operatori matematici di data/ora per eseguire l'offset o arrotondare il valore di data/ora usando semplici calcoli di data/ora.
 
 Sintassi:
@@ -249,6 +253,29 @@ TimeGenerated:[NOW..NOW+1DAY]
 SampleValue:[0..2]
 ```
 
+### <a name="regular-expressions"></a>Espressioni regolari
+È possibile specificare una condizione di ricerca per un campo con un'espressione regolare usando la parola chiave Regex.
+
+**Sintassi**
+
+```
+field:Regex("Regular Expression")
+```
+
+```
+field=Regex("Regular Expression")
+```
+
+**Esempio**
+
+```
+Computer=Regex("C.*")
+```
+
+```
+Computer=Regex("^C.*")
+```
+
 ### <a name="logical-operators"></a>Operatori logici
 I linguaggi di query supportano gli operatori logici (*AND*, *OR* e *NOT*) e i relativi alias di tipo C, rispettivamente (*&&*, *||* e *!*). È possibile usare le parentesi per raggruppare questi operatori.
 
@@ -283,16 +310,16 @@ Type=Event Computer=*SQL*
 
 > [!NOTE]
 > I caratteri jolly attualmente non possono essere usati tra virgolette. Il messaggio `"*This text*"` considererà (\*) come carattere letterale (\*).
-> 
+>
 > ## <a name="commands"></a>Comandi:
-> 
+>
 
 I comandi si applicano ai risultati restituiti dalla query. Usare il carattere di barra verticale (|) per applicare un comando ai risultati recuperati. Più comandi devono essere separati dal carattere di barra verticale (|).
 
 > [!NOTE]
 > I nomi dei comandi possono essere scritti in lettere maiuscole o minuscole, a differenza dei nomi dei campi e dei dati.
-> 
-> 
+>
+>
 
 ### <a name="sort"></a>Ordina
 Sintassi:
@@ -301,7 +328,7 @@ Sintassi:
 
 Ordina i risultati in base a determinati campi. I prefissi asc/desc sono facoltativi. Se vengono omessi, viene usato l'ordinamento *asc* . Se una query non usa il comando *Sort* in modo esplicito, Sort **TimeGenerated** desc è il comportamento predefinito e verranno sempre restituiti prima i risultati più recenti.
 
-### <a name="top/limit"></a>Top/Limit
+### <a name="toplimit"></a>Top/Limit
 Sintassi:
 
     top number
@@ -359,7 +386,7 @@ Aggrega i risultati per *groupField* e calcola i valori di misura aggregati tram
 | Funzione statistica di measure | Descrizione |
 | --- | --- |
 | *aggregateFunction* |Nome della funzione di aggregazione (senza distinzione tra maiuscole e minuscole). Sono supportate le funzioni di aggregazione seguenti: COUNT MAX MIN SUM AVG STDDEV COUNTDISTINCT PERCENTILE## o PCT## (## è un numero compreso tra 1 e 99). |
-| *aggregatedField* |Campo da aggregare. Questo campo è facoltativo per la funzione di aggregazione COUNT, ma deve essere un campo numerico esistente per SUM, MAX, MIN, AVG STDDEV o PERCENTILE## oppure PCT## (## è un numero compreso tra 1 e 99). |
+| *aggregatedField* |Campo da aggregare. Questo campo è facoltativo per la funzione di aggregazione COUNT, ma deve essere un campo numerico esistente per SUM, MAX, MIN, AVG STDDEV o PERCENTILE## oppure PCT## (## è un numero compreso tra 1 e 99). Anche aggregatedField può essere una delle funzioni di estensione supportate. |
 | *fieldAlias* |Alias (facoltativo) per il valore aggregato calcolato. Se non viene specificato, il nome del campo sarà AggregatedValue. |
 | *groupField* |Nome del campo in base al quale viene raggruppato il set di risultati. |
 | *Interval* |Intervallo di tempo nel formato:**nnnNAME** , dove nnn è il numero intero positivo. **NAME** è il nome dell'intervallo. I nomi di intervallo supportati includono (con distinzione tra maiuscole e minuscole): MILLISECOND[S] SECOND[S] MINUTE[S] HOUR[S] DAY[S] MONTH[S] YEAR[S] |
@@ -528,6 +555,16 @@ Type:Perf CounterName=”% Processor Time”  | measure min(CounterValue) as MIN
 
 Raggruppa la % tempo processore prima per computer e poi per il nome dell'istanza, quindi restituisce ogni ora il valore minimo, la media, il 75° percentile e il valore massimo
 
+**Esempio 20**
+
+```
+Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | measure max(product(CounterValue,60)) as MaxDWPerMin by InstanceName Interval 1HOUR
+```
+
+*Spiegazione*
+
+Calcola il numero massimo delle operazioni di scrittura sul disco al minuto per ogni disco del computer in uso
+
 ### <a name="where"></a>Where
 Sintassi:
 
@@ -573,12 +610,12 @@ Type=Event Computer IN {Type:Update Classification="Security Updates"  UpdateSta
 
 **Esempio**
 
-    Type=Event | sort TimeGenerated DESC | Dedup EventID
+    Type=Event | Dedup EventID | sort TimeGenerated DESC
 
-L'esempio precedente restituisce un evento (l'ultimo dopo avere usato DESC in TimeGenerated) per ogni EventID
+L'esempio precedente restituisce un evento (l'ultimo dopo avere usato DESC in TimeGenerated) per ogni EventID.
 
 ### <a name="extend"></a>Extend
-**Descrizione** Consente di creare campi di runtime nelle query
+**Descrizione** Consente di creare campi di runtime nelle query. È anche possibile usare il comando measure dopo Extend se si desidera eseguire l'aggregazione.
 
 **Esempio 1**
 
@@ -599,8 +636,15 @@ Ridimensiona il valore TotalBytes di WireData in modo che tutti i risultati sian
 
 ```
 Type=Perf CounterName="% Processor Time" | EXTEND if(map(CounterValue,0,50,0,1),"HIGH","LOW") as UTILIZATION
-Tag Perf Counter Values less than 50% las LOW and others as HIGH
 ```
+Contrassegna i valori del contatore prestazioni inferiori al 50% come LOW e gli altri come HIGH.
+
+**Esempio 5**
+
+```
+Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | Extend product(CounterValue,60) as DWPerMin| measure max(DWPerMin) by InstanceName Interval 1HOUR
+```
+Calcola il numero massimo delle operazioni di scrittura sul disco al minuto per ogni disco del computer in uso
 
 **Funzioni supportate**
 
@@ -767,6 +811,8 @@ Per altre informazioni sulle ricerche nei log:
 * Acquisire familiarità con le [ricerche nei log](log-analytics-log-searches.md) per visualizzare le informazioni dettagliate raccolte dalle soluzioni.
 * Usare [Campi personalizzati in Log Analytics](log-analytics-custom-fields.md) per estendere le ricerche nei log.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Dec16_HO2-->
 
 

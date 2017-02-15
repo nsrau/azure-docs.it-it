@@ -199,6 +199,6 @@ Per altre informazioni sui gruppi di risorse di Azure e su Azure Resource Manage
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

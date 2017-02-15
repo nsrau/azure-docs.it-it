@@ -1,12 +1,12 @@
 ---
-title: Visualizzare i report di accesso e utilizzo | Microsoft Docs
-description: Illustra come visualizzare i report di accesso e utilizzo per ottenere informazioni sull'integrità e sicurezza della directory dell'organizzazione.
+title: Visualizzare i report di accesso e utilizzo | Documentazione Microsoft
+description: "Illustra come visualizzare i report di accesso e utilizzo per ottenere informazioni sull&quot;integrità e sicurezza della directory dell&quot;organizzazione."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a074bc4e-cf3f-4ad1-8cc6-4199d2e09ce4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2016
 ms.author: dhanyahk
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8b3835d354512645cd47ffa4541d6155c80e77ee
+
 
 ---
-# Visualizzare i report di accesso e utilizzo
+# <a name="view-your-access-and-usage-reports"></a>Visualizzare i report di accesso e utilizzo
 *Questo documento fa parte della [guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).*
 
 È possibile usare i report di utilizzo e accesso di Azure Active Directory per ottenere informazioni sull'integrità e sicurezza della directory dell'organizzazione. Con queste informazioni un amministratore di directory può stabilire meglio dove potrebbero esserci possibili rischi per la sicurezza in modo da poterne pianificare adeguatamente la riduzione.
@@ -35,7 +39,7 @@ Nel portale di gestione di Azure i report sono suddivisi nei seguenti modi:
 > 
 > 
 
-## Report
+## <a name="reports"></a>Report
 | Report | Descrizione |
 | --- | --- |
 | **Report Anomalie dell'attività** | |
@@ -63,38 +67,38 @@ Nel portale di gestione di Azure i report sono suddivisi nei seguenti modi:
 | Utilizzo dispositivi RMS |Visualizza l'elenco dei dispositivi usati per accedere ai file protetti con RMS |
 | Utilizzo applicazioni abilitate per RMS |Fornisce l'utilizzo delle applicazioni abilitate per RMS |
 
-## Edizioni dei report
+## <a name="report-editions"></a>Edizioni dei report
 | Report | Free | Basic | Premium |
 | --- | --- | --- | --- |
 | **Report Anomalie dell'attività** | | | |
-| Accessi da origini sconosciute |✓ |✓ |✓ |
-| Accessi dopo più errori |✓ |✓ |✓ |
-| Accessi da più aree geografiche |✓ |✓ |✓ |
+| Accessi da origini sconosciute |✓ |✓  |✓ |
+| Accessi dopo più errori |✓ |✓  |✓ |
+| Accessi da più aree geografiche |✓ |✓  |✓ |
 | Accessi da indirizzi IP con attività sospetta | | |✓ |
 | Accessi da dispositivi potenzialmente infetti | | |✓ |
 | Attività di accesso irregolare | | |✓ |
 | Utenti con anomalie dell'attività di accesso | | |✓ |
 | Utenti con credenziali perse | | |✓ |
 | **Log attività** | | | |
-| Report di controllo |✓ |✓ |✓ |
+| Report di controllo |✓ |✓  |✓ |
 | Attività di reimpostazione password | | |✓ |
 | Attività di registrazione reimpostazione password | | |✓ |
 | Attività dei gruppi self-service | | |✓ |
 | **Applicazioni integrate** | | | |
 | Utilizzo applicazioni | | |✓ |
-| Attività di provisioning dell'account |✓ |✓ |✓ |
+| Attività di provisioning dell'account |✓ |✓  |✓ |
 | Stato rollover della password | | |✓ |
-| Errori di provisioning dell'account |✓ |✓ |✓ |
+| Errori di provisioning dell'account |✓ |✓  |✓ |
 | **Rights Management** | | | |
 | Utilizzo di RMS | | |Solo RMS |
 | Utenti RMS più attivi | | |Solo RMS |
 | Utilizzo dispositivi RMS | | |Solo RMS |
 | Utilizzo applicazioni abilitate per RMS | | |Solo RMS |
 
-## Report Anomalie dell'attività
+## <a name="anomalous-activity-reports"></a>Report Anomalie dell'attività
 <p>I report relativi ad attività di acceso anomale segnalano le attività di accesso sospette ad Office 365, al portale di gestione di Azure, al pannello di accesso di Azure AD, a Office 365, a SharePoint Online, a Dynamics CRM Online e ad altri servizi online Microsoft.</p>
 
-<p>Tutti questi report, ad eccezione del report "Accessi dopo errori multipli", segnalano inoltre gli accessi <i>federati</i> ai servizi menzionati in precedenza, indipendentemente dal provider di federazione. </p>
+<p>Tutti questi report, ad eccezione del report "Accessi dopo più errori", segnalano anche gli accessi <i>federati</i> sospetti ai servizi menzionati in precedenza, indipendentemente dal provider di federazione. </p>
 
 <p>Sono disponibili i seguenti report: </p><ul>
 
@@ -102,89 +106,89 @@ Nel portale di gestione di Azure i report sono suddivisi nei seguenti modi:
 
 <li>[Accessi dopo più errori](active-directory-reporting-sign-ins-after-multiple-failures.md).</li>
 
-<li>[Accessi da più aree geografiche](active-directory-reporting-sign-ins-after-multiple-failures.md).</li>
+<li>[Accessi da più aree geografiche](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li>
 
 <li>[Accessi da indirizzi IP con attività sospetta](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li>
 
 <li>[Attività di accesso irregolare](active-directory-reporting-irregular-sign-in-activity.md).</li>
 
-<li>[Accessi da dispositivi probabilmente infetti](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li>
+<li>[Accessi da dispositivi potenzialmente infetti](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li>
 
 <li>[Utenti con anomalie dell'attività di accesso](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li>
 
 <li>Utenti con credenziali perse</li></ul>
 
-## Log attività
-### Report di controllo
+## <a name="activity-logs"></a>Log attività
+### <a name="audit-report"></a>Report di controllo
 | Descrizione | Percorso report |
 |:--- |:--- |
 | Mostra un record di tutti gli eventi controllati entro le ultime 24 ore, gli ultimi 7 giorni o gli ultimi 30 giorni. <br /> Per altre informazioni, vedere [Eventi del report di controllo di Azure Active Directory](active-directory-reporting-audit-events.md) |Scheda Directory > Report |
 
 ![Report di controllo](./media/active-directory-view-access-usage-reports/auditReport.PNG)
 
-### Attività di reimpostazione password
+### <a name="password-reset-activity"></a>Attività di reimpostazione password
 | Descrizione | Percorso report |
 |:--- |:--- |
 | Vengono illustrati tutti i tentativi di reimpostazione della password che si sono verificati nell'organizzazione. |Scheda Directory > Report |
 
 ![Attività di reimpostazione password](./media/active-directory-view-access-usage-reports/passwordResetActivity.PNG)
 
-### Attività di registrazione reimpostazione password
+### <a name="password-reset-registration-activity"></a>Attività di registrazione reimpostazione password
 | Descrizione | Percorso report |
 |:--- |:--- |
 | Vengono illustrate tutte le registrazioni per la reimpostazione della password che si sono verificate nell'organizzazione |Scheda Directory > Report |
 
 ![Attività di registrazione reimpostazione password](./media/active-directory-view-access-usage-reports/passwordResetRegistrationActivity.PNG)
 
-### Attività dei gruppi self-service
+### <a name="self-service-groups-activity"></a>Attività dei gruppi self-service
 | Descrizione | Percorso report |
 |:--- |:--- |
 | Mostra tutte le attività per i gruppi gestiti in modalità self-service nella directory. |Scheda Directory > Utenti > <i>Utente</i> > Dispositivi |
 
 ![Attività dei gruppi self-service](./media/active-directory-view-access-usage-reports/selfServiceGroupsActivity.PNG)
 
-## Report Applicazioni integrate
-### Utilizzo dell'applicazione: riepilogo
+## <a name="integrated-applications-reports"></a>Report Applicazioni integrate
+### <a name="application-usage-summary"></a>Utilizzo dell'applicazione: riepilogo
 | Descrizione | Percorso report |
 |:--- |:--- |
 | Usare questo report per visualizzare l'utilizzo di tutte le applicazioni SaaS presenti nella directory. Questo report si basa sul numero di selezioni dell'applicazione eseguite nel Pannello di accesso. |Scheda Directory > Report |
 
-Questo report include gli accessi a *tutte* le applicazioni a cui ha accesso la directory, comprese le applicazioni Microsoft pre-integrate.
+Questo report include gli accessi a *tutte* le applicazioni a cui ha accesso la directory, comprese le applicazioni Microsoft preintegrate.
 
 Le applicazioni Microsoft preintegrate includono Office 365, SharePoint, il portale di gestione di Azure e altre.
 
 ![Riepilogo utilizzo applicazione](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)
 
-### Utilizzo dell'applicazione: dettagliato
+### <a name="application-usage-detailed"></a>Utilizzo dell'applicazione: dettagliato
 | Descrizione | Percorso report |
 |:--- |:--- |
 | Usare questo report per visualizzare l'uso di una specifica applicazione SaaS. Questo report si basa sul numero di selezioni dell'applicazione eseguite nel Pannello di accesso. |Scheda Directory > Report |
 
-### Dashboard dell'applicazione
+### <a name="application-dashboard"></a>Dashboard dell'applicazione
 | Descrizione | Percorso report |
 |:--- |:--- |
 | Questo report indica il numero cumulativo di accessi all'applicazione dagli utenti dell'organizzazione in un intervallo di tempo selezionato. Il grafico nella pagina del dashboard facilita l'identificazione delle tendenze di tutti gli utilizzi dell'applicazione. |Scheda Directory > Applicazione > Dashboard |
 
-## Report di errori
-### Errori di provisioning dell'account
+## <a name="error-reports"></a>Report di errori
+### <a name="account-provisioning-errors"></a>Errori di provisioning dell'account
 | Descrizione | Percorso report |
 |:--- |:--- |
 | Usare questo report per monitorare gli errori che si verificano durante la sincronizzazione degli account da applicazioni SaaS ad Azure Active Directory. |Scheda Directory > Report |
 
 ![Errori di provisioning dell'account](./media/active-directory-view-access-usage-reports/accountProvisioningErrors.PNG)
 
-## Report specifici degli utenti
-### Dispositivi
+## <a name="user-specific-reports"></a>Report specifici degli utenti
+### <a name="devices"></a>Dispositivi
 | Descrizione | Percorso report |
 |:--- |:--- |
 | Usare questo report per visualizzare l'indirizzo IP e la posizione geografica di dispositivi usato da un utente specifico per accedere ad Azure Active Directory. |Scheda Directory > Utenti > <i>Utente</i> > Dispositivi |
 
-### Attività
+### <a name="activity"></a>Attività
 | Descrizione | Percorso report |
 |:--- |:--- |
 | Mostra l'attività di accesso per un utente. Il report include diverse informazioni, tra cui l'applicazione a cui è stato effettuato l'accesso, il dispositivo usato, l'indirizzo IP e la posizione. Microsoft non raccoglie informazioni sulla cronologia degli utenti che accedono con un account Microsoft. |Scheda Directory > Utenti > <i>Utente</i> > Attività |
 
-#### Gli eventi di accesso inclusi nel report delle attività utente
+#### <a name="sign-in-events-included-in-the-user-activity-report"></a>Gli eventi di accesso inclusi nel report delle attività utente
 Solo determinati tipi di eventi di accesso verranno visualizzati nel report delle attività utente.
 
 | Tipo evento | Incluso |
@@ -199,19 +203,19 @@ Solo determinati tipi di eventi di accesso verranno visualizzati nel report dell
 | Accessi a un'app di business personalizzata che è stata aggiunta alla directory |No (disponibile a breve) |
 | Accessi a un'app del proxy dell'applicazione di Azure AD che è stata aggiunta alla directory |No (disponibile a breve) |
 
-> Nota: per ridurre la quantità di disturbo in questo report, non vengono visualizzati gli accessi all'[Assistente per l'accesso ai Microsoft Online Services](http://community.office365.com/it-IT/w/sso/534.aspx).
+> Nota: per ridurre la quantità di elementi non significativi in questo report, non vengono visualizzati gli accessi all'[Assistente per l'accesso ai Microsoft Online Services](http://community.office365.com/en-us/w/sso/534.aspx).
 > 
 > 
 
-## Aspetti da considerare quando si sospetta la violazione della sicurezza
+## <a name="things-to-consider-if-you-suspect-security-breach"></a>Aspetti da considerare quando si sospetta la violazione della sicurezza
 Se si sospetta che un account utente potrebbe essere compromesso o qualsiasi tipo di attività utente sospetta potrebbe causare una violazione della protezione dei dati della directory nel cloud, si consiglia una o più delle seguenti operazioni:
 
 * Contattare l'utente per verificare l'attività
 * Reimpostare la password dell'utente
 * [Abilitare l'autenticazione a più fattori](../multi-factor-authentication/multi-factor-authentication-get-started.md) per una maggiore sicurezza
 
-## Visualizzare o scaricare un report
-1. Nel portale di Azure classico, fare clic su **Active Directory**, poi sul nome della directory dell'organizzazione e quindi su **Report**.
+## <a name="view-or-download-a-report"></a>Visualizzare o scaricare un report
+1. Nel portale di Azure classico fare clic su **Active Directory**, sul nome della directory dell'organizzazione e quindi su **Report**.
 2. Nella pagina Report, fare clic sul report che si desidera visualizzare e/o scaricare.
    
    > [!NOTE]
@@ -229,14 +233,19 @@ Se si sospetta che un account utente potrebbe essere compromesso o qualsiasi tip
    * Fino a 75.000 eventi verranno inclusi nel file scaricato.
    * Per altri dati, vedere [Introduzione all'API di creazione report](active-directory-reporting-api-getting-started.md).
 
-## Ignorare un evento
+## <a name="ignore-an-event"></a>Ignorare un evento
 Se si stanno visualizzando tutti i report anomalie, si noterà che è possibile ignorare vari eventi che vengono visualizzati nei report correlati. Per ignorare un evento, evidenziarlo nel report e quindi fare clic su **Ignora**. Il pulsante **Ignora** rimuoverà definitivamente l'evento evidenziato dal report e può essere usato solo dagli amministratori globali autorizzati.
 
-## Notifiche automatiche tramite posta elettronica
+## <a name="automatic-email-notifications"></a>Notifiche automatiche tramite posta elettronica
 Per altre informazioni sulle notifiche della funzionalità di creazione di report di Azure AD, vedere [Notifiche relative alla funzionalità di creazione di report di Azure Active Directory](active-directory-reporting-notifications.md).
 
-## Passaggi successivi
+## <a name="whats-next"></a>Passaggi successivi
 * [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
 * [Aggiungere informazioni personalizzate distintive dell'azienda alle pagine Accedi e Pannello di accesso](active-directory-add-company-branding.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

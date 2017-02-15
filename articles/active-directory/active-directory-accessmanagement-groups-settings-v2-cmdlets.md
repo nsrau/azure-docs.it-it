@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4f12fdf6732d44903fb1e971f05d0233d7aff08e
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: aa5199af3fabd535e929161018db0fd5fe47e474
 
 
 ---
@@ -26,8 +26,8 @@ ms.openlocfilehash: 4f12fdf6732d44903fb1e971f05d0233d7aff08e
 > * [Portale di Azure](active-directory-groups-create-azure-portal.md)
 > * [Portale di Azure classico](active-directory-accessmanagement-manage-groups.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-> 
-> 
+>
+>
 
 Il seguente documento riporta esempi di come usare PowerShell per gestire i gruppi in Azure Active Directory (Azure AD).  Fornisce anche informazioni su come configurare il modulo di anteprima di Azure AD PowerShell. In primo luogo è necessario [scaricare il modulo Azure AD PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=828627).
 
@@ -232,7 +232,6 @@ Per altre informazioni su Azure Active Directory PowerShell, consultare la docum
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

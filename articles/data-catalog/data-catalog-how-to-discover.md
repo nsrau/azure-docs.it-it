@@ -1,20 +1,24 @@
 ---
 title: Come trovare le origini dati | Microsoft Docs
-description: Articolo sulle procedure di individuazione degli asset di dati registrati con il catalogo dati di Azure, che include ricerca e filtri e l’utilizzo della funzionalità di evidenziazione dei risultati del portale catalogo dati di Azure.
+description: "Articolo sulle procedure di individuazione degli asset di dati registrati con il catalogo dati di Azure, che include ricerca e filtri e l’utilizzo della funzionalità di evidenziazione dei risultati del portale catalogo dati di Azure."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: f72ae3a3-6573-4710-89a7-f13555e1968c
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0c90aff38ebe33e8c26f9e46db7e61786ea9a7dd
+
 
 ---
 # <a name="how-to-discover-data-sources"></a>Come individuare le origini dati
@@ -48,8 +52,8 @@ Quando si visualizzano i risultati della ricerca, le proprietà visualizzate che
 
 > [!NOTE]
 > Gli utenti possono disattivare l’evidenziazione dei risultati se desiderano, tramite l'opzione "Evidenziazione" nel portale del **Catalogo dati Azure** .
-> 
-> 
+>
+>
 
 Quando si visualizzano i risultati della ricerca, il motivo per cui un asset di dati è incluso potrebbe non essere sempre evidente, anche con l’evidenziazione abilitata. Poiché tutte le proprietà vengono ricercate per impostazione predefinita, un asset di dati potrebbe essere restituito a causa di una corrispondenza con una proprietà a livello di colonna. E poiché più utenti possono annotare gli asset di dati registrati con tag e descrizioni, è possibile che non tutti i metadati vengano visualizzati nell'elenco dei risultati della ricerca.
 
@@ -63,6 +67,8 @@ La registrazione di un'origine dati con il **Catalogo dati di Azure** rende più
 ## <a name="see-also"></a>Vedere anche
 * [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md) .
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

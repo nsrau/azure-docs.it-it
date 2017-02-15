@@ -2,12 +2,12 @@
 title: Collegare un disco a una macchina virtuale | Microsoft Docs
 description: Collegare un disco dati da una macchina virtuale Windows creata con il modello di distribuzione classico e inizializzarla.
 services: virtual-machines-windows, storage
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: be4e3e74-05bc-4527-969f-84f10a1d66a7
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,16 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 0e0dc3c764928aae2186aa87fcf4208f37685c8c
+
 
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Collegare un disco dati da una macchina virtuale di Windows creata con il modello di distribuzione classico.
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-Se si vuole usare il nuovo portale, vedere [Collegare un disco dati a una macchina virtuale Windows nel portale di Azure](virtual-machines-windows-attach-disk-portal.md).
+Se si vuole usare il nuovo portale, vedere [Collegare un disco dati a una macchina virtuale Windows nel portale di Azure](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Se è necessario un disco dati aggiuntivo, è possibile collegare un disco vuoto o un disco esistente con dei dati a una macchina virtuale. In entrambi i casi, i dischi sono file con estensione vhd che risiedono in un account di archiviazione di Azure. Nel caso di un nuovo disco, dopo aver collegato il disco, è anche necessario inizializzarlo in modo che sia pronto per essere usato da una macchina virtuale Windows.
 
-Per altre informazioni dettagliate sui dischi, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](virtual-machines-windows-about-disks-vhds.md).
+Per altre informazioni dettagliate sui dischi, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
@@ -41,19 +45,19 @@ Per altre informazioni dettagliate sui dischi, vedere [Informazioni sui dischi e
    ![Inizializzazione del volume completata](./media/virtual-machines-windows-classic-attach-disk/newvolumecreated.png)
 
 > [!NOTE]
-> Le dimensioni della VM determinano il numero di dischi che è possibile collegare. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](virtual-machines-linux-sizes.md).
+> Le dimensioni della VM determinano il numero di dischi che è possibile collegare. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
-[Come scollegare un disco dati da una macchina virtuale di Windows](virtual-machines-windows-classic-detach-disk.md)
+[Come scollegare un disco dati da una macchina virtuale di Windows](virtual-machines-windows-classic-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](virtual-machines-linux-about-disks-vhds.md)
+[Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [logon]: virtual-machines-windows-classic-connect-logon.md
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

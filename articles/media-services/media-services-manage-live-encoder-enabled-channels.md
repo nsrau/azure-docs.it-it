@@ -192,7 +192,7 @@ Considerazioni:
 * High 422 Profile (4:2:2 a 10 bit)
 * MPEG-2 AAC-LC Audio
 * Mono, Stereo, Surround (5.1, 7.1)
-* Frequenza di campionamento a 44.1 kHz
+* Frequenza di campionamento a&44;.1 kHz
 * Stile MPEG-2, pacchetto ADTS
 * I codec consigliati includono:
 * Telestream Wirecast

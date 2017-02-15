@@ -1,28 +1,32 @@
 ---
-title: Rientranza di Reliable Actors | Microsoft Docs
+title: Reentrancy di Reliable Actors | Documentazione Microsoft
 description: Introduzione alla rientranza per Reliable Actors di Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
 editor: amanbha
-
+ms.assetid: be23464a-0eea-4eca-ae5a-2e1b650d365e
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/06/2016
+ms.date: 10/19/2016
 ms.author: vturecek
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1d71949426637b520b8fed0b0fe64e4afcbfd077
+
 
 ---
-# Rientranza di Reliable Actors
+# <a name="reliable-actors-reentrancy"></a>Rientranza di Reliable Actors
 Per impostazione predefinita, il runtime di Reliable Actors consente la reentrancy basata sul contesto di chiamata logico. Ciò consente agli attori di essere rientranti se si trovano nella stessa catena del contesto di chiamata. Ad esempio, l'attore A invia un messaggio all'attore B che invia un messaggio all'attore C. Durante l'elaborazione del messaggio, se l'attore C chiama l'attore A, il messaggio è rientrante e sarà quindi consentito. Tutti gli altri messaggi che fanno parte di un contesto di chiamata diverso verranno bloccati sull'attore A fino al completamento dell'elaborazione.
 
-Per la reentrancy degli attori sono disponibili due opzioni, definite nell'enumerazione `ActorReentrancyMode`:
+Per la reentrancy degli attori sono disponibili due opzioni, definite nell'enumerazione `ActorReentrancyMode` :
 
 * `LogicalCallContext` (comportamento predefinito)
-* `Disallowed`: disabilita la reentrancy
+* `Disallowed` : disabilita la reentrancy
 
 ```csharp
 public enum ActorReentrancyMode
@@ -32,9 +36,9 @@ public enum ActorReentrancyMode
 }
 ```
 
-La reentrancy può essere configurata nelle impostazioni di `ActorService` durante la registrazione. L'impostazione si applica a tutte le istanze degli attori create nel servizio Actor.
+La reentrancy può essere configurata nelle impostazioni di `ActorService`durante la registrazione. L'impostazione si applica a tutte le istanze degli attori create nel servizio Actor.
 
-L'esempio seguente illustra un servizio Actor che imposta la modalità di reentrancy su `ActorReentrancyMode.Disallowed`. In questo caso, se un attore invia un messaggio rientrante a un altro attore verrà generata un'eccezione di tipo `FabricException`.
+L'esempio seguente illustra un servizio Actor che imposta la modalità di reentrancy su `ActorReentrancyMode.Disallowed`. In questo caso, se un attore invia un messaggio rientrante a un altro attore verrà generata un'eccezione di tipo `FabricException` .
 
 ```csharp
 static class Program
@@ -67,9 +71,14 @@ static class Program
 }
 ```
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * [Diagnostica e monitoraggio delle prestazioni per Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 * [Documentazione di riferimento delle API di Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Codice di esempio](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -2,11 +2,11 @@
 title: Interfaccia utente di Azure Mobile Engagement - Campagna Reach
 description: Informazioni sulla creazione e sulla gestione di campagne di notifica push usando Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 2fe124a2-a86f-4136-81ba-a9d298ec798a
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
+ms.openlocfilehash: 75c2b2a467a03b51519cad530bf3d03ed32c4300
+
 
 ---
-# Come creare e gestire le campagne di notifica push
+# <a name="how-to-create-and-manage-push-notification-campaigns"></a>Come creare e gestire le campagne di notifica push
 È possibile usare la sezione Reach dell'interfaccia utente per creare una nuova campagna di push con una formula complessa fornendo tutte le informazioni necessarie per inviare una notifica push. Le opzioni di una campagna di push variano leggermente in base ai quattro tipi di campagna: annunci, sondaggi, push di dati e riquadri (solo per Windows Phone).
 
-### L'opzione si applica a:
+### <a name="option-applies-to"></a>L'opzione si applica a:
 * Lingue: tutti (annunci, sondaggi, push di dati e riquadri)
 * Campagna: tutti (annunci, sondaggi, push di dati e riquadri)
 * Notifica: annunci e sondaggi
@@ -30,12 +34,12 @@ ms.author: piyushjo
 
 ![Reach-Campaign1][20]
 
-## Lingue
-È possibile usare il menu a discesa Lingue per inviare una versione diversa del push ai dispositivi configurati per l'uso di lingue diverse. Per impostazione predefinita, tutti i dispositivi riceveranno lo stesso push indipendentemente dalla lingua usata. Gli utenti con il dispositivo impostato su una lingua diversa riceveranno la versione del push nella lingua predefinita. Molte opzioni della campagna di push consentono di specificare contenuto alternativo per ognuna delle lingue aggiuntive selezionate.
+## <a name="languages"></a>Lingue
+È possibile usare il menu a discesa Lingue per inviare una versione diversa del push ai dispositivi configurati per l'uso di lingue diverse. Per impostazione predefinita, tutti i dispositivi riceveranno lo stesso push indipendentemente dalla lingua usata. Gli utenti con il dispositivo impostato su una lingua diversa riceveranno la versione del push nella lingua predefinita. Molte opzioni della campagna di push consentono di specificare contenuto alternativo per ognuna delle lingue aggiuntive selezionate. 
 
 ![Reach-Campaign2][21]
 
-### Le differenze di lingua si applicano a:
+### <a name="language-differences-apply-to"></a>Le differenze di lingua si applicano a:
 * Lingue: è possibile selezionare lingue univoche oltre a quella predefinita
 * Campagna: uguale per tutte le lingue
 * Notifica: univoca per ogni lingua oltre a quella predefinita
@@ -44,64 +48,63 @@ ms.author: piyushjo
 * Intervallo di tempo: uguale per tutte le lingue
 * Test: può essere inviato a tutte le lingue contemporaneamente
 
-### Lingue supportate:
-* Arabo (ar)
-* Bulgaro (bg)
-* Catalano (ca)
-* Cinese (zh)
-* Croato (h)
-* Ceco (cs)
-* Danese (da)
-* Olandese (nl)
-* Inglese (en)
-* Finlandese (fi)
-* Francese (fr)
-* Tedesco (de)
-* Greco (el)
-* Ebraico (he)
-* Hindi (hi)
-* Ungherese (hu)
-* Indonesiano (id)
-* Italiano (it)
-* Giapponese (ja)
-* Coreano (ko)
-* Lettone (lv)
-* Lituano (lt)
-* Malese (macrolanguage) (ms)
-* Norvegese Bokmål (nb)
-* Polacco (pl)
-* Portoghese (pt)
-* Romeno (ro)
-* Russo (ru)
-* Serbo (sr)
-* Slovacco (sk)
-* Sloveno (sl)
-* Spagnolo (es)
-* Svedese (sv)
-* Tagalog (tl)
-* Tailandese (th)
-* Turco (tr)
-* Ucraino (Regno Unito)
-* Vietnamita (vi)
+### <a name="supported-languages"></a>Lingue supportate:
+* Arabo (ar) 
+* Bulgaro (bg) 
+* Catalano (ca) 
+* Cinese (zh) 
+* Croato (h) 
+* Ceco (cs) 
+* Danese (da) 
+* Olandese (nl) 
+* Inglese (en) 
+* Finlandese (fi) 
+* Francese (fr) 
+* Tedesco (de) 
+* Greco (el) 
+* Ebraico (he) 
+* Hindi (hi) 
+* Ungherese (hu) 
+* Indonesiano (id) 
+* Italiano (it) 
+* Giapponese (ja) 
+* Coreano (ko) 
+* Lettone (lv) 
+* Lituano (lt) 
+* Malese (macrolanguage) (ms) 
+* Norvegese Bokmål (nb) 
+* Polacco (pl) 
+* Portoghese (pt) 
+* Romeno (ro) 
+* Russo (ru) 
+* Serbo (sr) 
+* Slovacco (sk) 
+* Sloveno (sl) 
+* Spagnolo (es) 
+* Svedese (sv) 
+* Tagalog (tl) 
+* Tailandese (th) 
+* Turco (tr) 
+* Ucraino (Regno Unito) 
+* Vietnamita (vi) 
 
-## Campagna
+## <a name="campaign"></a>Campagna
 È possibile usare la sezione Campagna per impostare il nome e la categoria della campagna nonché, se si intende ignorare la sezione dei destinatari di una campagna di push, inviare invece la campagna tramite l'API Reach (e alcuni elementi con l'API Push di basso livello). Le categorie possono essere usate con un modello di notifica personalizzato per controllare le notifiche in-app in base alle impostazioni predefinite. È possibile ottenere un elenco di "Categorie" esistenti tramite l'API Reach.
 
-> Avviso: se si usa l'opzione "Ignora i destinatari. Il push verrà inviato agli utenti tramite l'API" nella sezione "Campagna" di una campagna Reach, la campagna NON sarà inviata automaticamente, ma sarà necessario inviarla manualmente tramite l'API Reach.
-> 
-> 
+> [!WARNING]
+> Se si usa l'opzione "Ignora destinatari, il push verrà inviato agli utenti tramite l'API" nella sezione "Campagna" di una campagna di copertura, la campagna NON sarà inviata automaticamente, ma sarà necessario inviarla manualmente tramite l'API Copertura.
 
 ![Reach-Campaign3][22]
 
-### L'opzione si applica a:
+### <a name="option-applies-to"></a>L'opzione si applica a:
 * Nome: tutti
 * Categoria: annunci e sondaggi
-* Ignora destinatari. Il push verrà inviato agli utenti tramite l'API: tutti
+* Ignora i destinatari. Il push verrà inviato agli utenti tramite l'API: tutti
 
-## Notifica
+## <a name="notification"></a>Notifica
 È possibile usare la sezione Notifica per definire le impostazioni di base per il push, tra cui: il titolo del push, il messaggio, un'immagine in-app oppure se può essere ignorato. Molte impostazioni di notifica sono specifiche della piattaforma del dispositivo. È possibile scegliere se il push verrà inviato "in-app", "all'esterno dell'app" o in entrambi i modi. Tenere presente che gli utenti possono accettare o rifiutare esplicitamente i push "all'esterno dell'app" a livello di sistema operativo sui propri dispositivi e Azure Mobile Engagement non potrà eseguire l'override di questa impostazione. Tenere presente, inoltre, che l'API Reach gestisce i push "in-app" e "all'esterno dell'app". L'API Push può essere usata anche per gestire push "all'esterno dell'app". I push possono essere personalizzati con immagini o contenuto HTML, inclusi collegamenti diretti per il collegamento all'esterno dell'applicazione o a un'altra posizione nell'applicazione (è necessario l'SDK Android 2.1.0 o categorie successive). È possibile modificare l'icona o il badge iOS e inviare testo o contenuto Web (una finestra popup con contenuto HTML, un collegamento URL a un'altra posizione all'interno o all'esterno dell'applicazione). È inoltre possibile impostare lo squillo o la vibrazione dei dispositivi Android con il push. Tenere presente che perché un dispositivo squilli o vibri il file manifesto Android deve contenere le autorizzazioni dell'SDK corretto. Non esiste alcuno standard del settore per le dimensioni dell'immagine grande di Android perché le dimensioni dello schermo variano con ogni dispositivo. Tuttavia, le immagini da 400x100 sono adatte a quasi a tutte le dimensioni degli schermi.
 
-### Tipi di recapito:
+### <a name="delivery-types"></a>Tipi di recapito:
 * Solo all'esterno dell'app: la notifica sarà recapitata quando l'utente non usa l'applicazione.
 * La notifica solo all'esterno dell'app richiede un certificato di Apple o Google (certificato APNS o GCM).
 * Solo in-app: la notifica viene visualizzata solo quando l'applicazione è in esecuzione.
@@ -110,37 +113,37 @@ ms.author: piyushjo
 
 ![Reach-Campaign4][23]
 
-### L'opzione si applica a:
+### <a name="option-applies-to"></a>L'opzione si applica a:
 * Notifica: annunci e sondaggi
 
-## Content
-È possibile usare la sezione Contenuto per modificare il contenuto di annunci, sondaggi, push di dati e riquadri (solo per Windows Phone). L'impostazione del contenuto delle campagne di push è specifico per il tipo di campagna.
+## <a name="content"></a>Content
+È possibile usare la sezione Contenuto per modificare il contenuto di annunci, sondaggi, push di dati e riquadri (solo per Windows Phone). L'impostazione del contenuto delle campagne di push è specifico per il tipo di campagna. 
 
-### Vedere anche
-* [Documentazione dell'interfaccia utente - Reach - Contenuti del push][Link 29]
+### <a name="see-also"></a>Vedere anche
+* [Documentazione dell'interfaccia utente, Copertura, Contenuto dei push di dati][Collegamento 29]
 
 ![Reach-Campaign5][24]
 
-## Destinatari
+## <a name="audience"></a>Destinatari
 È possibile usare la sezione Destinatari per definire un elenco standard di elementi per limitare la campagna in base a criteri personalizzati. L'insieme standard di opzioni per limitare i destinatari consente di effettuare il push solo per utenti nuovi, esistenti o nativi. È inoltre possibile impostare una quota per limitare il numero di utenti che ricevono il push. È possibile modificare manualmente l'espressione per la modalità di filtro della campagna in modo da includere uno o più criteri per gli utenti di destinazione. È possibile digitare manualmente un'espressione di destinatari. Tale espressione deve definire in modo esplicito la relazione tra i criteri. Un criterio viene descritto da un identificatore che deve iniziare con una lettera maiuscola e non può contenere spazi. La relazione tra i criteri può essere descritta usando gli operatori 'and', 'or', 'not' e '(',')'. Esempio: "Criterion1 or (Criterion1 and not Criterion2)".
 
-> Nota: con numerosi destinatari inclusi nelle campagne, la ricerca dei destinatari sul lato server può risultare lenta, in particolare se si tenta di avviare più campagne contemporaneamente.
-> 
-> 
+> [!NOTE]
+> con numerosi destinatari inclusi nelle campagne, la ricerca dei destinatari sul lato server può risultare lenta, soprattutto se si tenta di avviare più campagne contemporaneamente.
 
 * Se possibile, iniziare una sola campagna alla volta.
 * Al massimo, avviare quattro campagne alla volta.
-* Eseguire il push solo per gli utenti attivi (casella di controllo "Effettua push solo degli utenti raggiungibili con Push nativo" e "Effettua push solo degli utenti attivi") in modo da individuare solo gli utenti che hanno l'app installata e che la usano ancora. Una volta definiti i destinatari, è possibile usare il pulsante di simulazione per scoprire quanti utenti riceveranno il push. Verrà calcolato il numero di utenti noti potenzialmente appartenenti al gruppo di destinatari (si tratta di una stima basata su un campione casuale di utenti). Tenere presente che anche gli utenti che hanno disinstallato l'applicazione fanno parte di questi destinatari, ma non possono essere raggiunti.
+* Eseguire il push solo per gli utenti attivi (casella di controllo "Effettua push solo degli utenti raggiungibili con Push nativo" e "Effettua push solo degli utenti attivi") in modo da individuare solo gli utenti che hanno l'app installata e che la usano ancora.
+  Una volta definiti i destinatari, è possibile usare il pulsante di simulazione per scoprire quanti utenti riceveranno il push. Verrà calcolato il numero di utenti noti potenzialmente appartenenti al gruppo di destinatari (si tratta di una stima basata su un campione casuale di utenti). Tenere presente che anche gli utenti che hanno disinstallato l'applicazione fanno parte di questi destinatari, ma non possono essere raggiunti.
 
-### Vedere anche
-* [Documentazione dell'interfaccia utente - Reach - Nuovi criteri di push][Link 28]
+### <a name="see-also"></a>Vedere anche
+* [Documentazione dell'interfaccia utente, Copertura, Nuovi criteri push di dati][Collegamento 28]
 
 ![Reach-Campaign6][25]
 
-### Modifica espressione
+### <a name="edit-expression"></a>Modifica espressione
 ![Reach-Campaign7][26]
 
-### L'opzione Limitare i destinatari si applica a:
+### <a name="limit-your-audience-option-applies-to"></a>L'opzione Limitare i destinatari si applica a:
 * Effettua push solo di un sottoinsieme di utenti: tutti (annunci, sondaggi, push di dati e riquadri)
 * Effettua push solo dei vecchi utenti: tutti (annunci, sondaggi, push di dati e riquadri)
 * Effettua push solo dei nuovi utenti: tutti (annunci, sondaggi, push di dati e riquadri)
@@ -148,30 +151,28 @@ ms.author: piyushjo
 * Effettua push solo degli utenti attivi: tutti (annunci, sondaggi, push di dati e riquadri)
 * Effettua push solo degli utenti raggiungibili con Push nativo: annunci e sondaggi
 
-## Intervallo di tempo
+## <a name="time-frame"></a>Intervallo di tempo
 È possibile usare la sezione Intervallo di tempo per stabilire quando verrà inviato il push oppure omettere l'intervallo di tempo per avviare immediatamente la campagna. Si tenga presente che se si utilizza il fuso orario degli utenti finali, la campagna potrebbe iniziare un giorno prima del previsto per gli utenti finali in Asia, per cui è consigliabile inviare piccoli gruppi di push alla volta finché tutti i fusi orari del mondo corrispondono all'intervallo di tempo impostato per la campagna. L'utilizzo del fuso orario degli utenti finali, inoltre, può causare ritardi nelle campagne poiché è necessario chiedere l'ora al telefono prima di iniziare il push.
 
-> Nota: quando le campagne non hanno data di fine, i push possono essere memorizzati nella cache locale ed essere ancora visualizzati dopo aver completato manualmente la campagna. Per evitare questo comportamento, specificare un'ora di fine per le campagne.
-> 
-> 
+> [!NOTE]
+> quando le campagne non hanno data di fine, i push possono essere memorizzati nella cache locale ed essere ancora visualizzati dopo aver completato manualmente la campagna. Per evitare questo comportamento, specificare un'ora di fine per le campagne.
 
-### Vedere anche
-* [Reach - Procedure – Pianificazione][Link 3]
+### <a name="see-also"></a>Vedere anche
+* [Copertura, Procedure, Pianificazione][Collegamento 3] 
 
 ![Reach-Campaign8][27]
 
-### Le impostazioni di applicano a:
+### <a name="settings-apply-to"></a>Le impostazioni di applicano a:
 * Intervallo di tempo: annunci, sondaggi e riquadri
 
-## Test
+## <a name="test"></a>Test
 È possibile usare la sezione Test per inviare il push al dispositivo di test prima di salvare la campagna. Se sono state configurate lingue personalizzate per la campagna, è possibile testare il push in ciascuna lingua. È possibile configurare un dispositivo di test da "Account personale".
 
-> Nota: non vengono registrati dati lato server quando si usa il pulsante per testare i push, vengono registrati solo i dati per le campagne di push reali.
-> 
-> 
+> [!NOTE]
+> Non vengono registrati dati sul lato server quando si usa il pulsante per "testare" i push, vengono registrati solo i dati per le campagne di push reali.
 
-### Vedere anche
-* [Documentazione dell'interfaccia utente - Account personale][Link 14]
+### <a name="see-also"></a>Vedere anche
+* [Documentazione dell'interfaccia utente, Account][Collegamento 14]
 
 ![Reach-Campaign9][28]
 
@@ -236,35 +237,39 @@ ms.author: piyushjo
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: mobile-engagement-user-interface-reach-campaign.md
-[Link 28]: mobile-engagement-user-interface-reach-criterion.md
-[Link 29]: mobile-engagement-user-interface-reach-content.md
+[Collegamento 1]: mobile-engagement-user-interface.md
+[Collegamento 2]: mobile-engagement-troubleshooting-guide.md
+[Collegamento 3]: mobile-engagement-how-tos.md
+[Collegamento 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Collegamento 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Collegamento 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Collegamento 7]: https://account.windowsazure.com/PreviewFeatures
+[Collegamento 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Collegamento 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Collegamento 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Collegamento 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Collegamento 12]: mobile-engagement-user-interface-navigation.md
+[Collegamento 13]: mobile-engagement-user-interface-home.md
+[Collegamento 14]: mobile-engagement-user-interface-my-account.md
+[Collegamento 15]: mobile-engagement-user-interface-analytics.md
+[Collegamento 16]: mobile-engagement-user-interface-monitor.md
+[Collegamento 17]: mobile-engagement-user-interface-reach.md
+[Collegamento 18]: mobile-engagement-user-interface-segments.md
+[Collegamento 19]: mobile-engagement-user-interface-dashboard.md
+[Collegamento 20]: mobile-engagement-user-interface-settings.md
+[Collegamento 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Collegamento 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Collegamento 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Collegamento 24]: mobile-engagement-troubleshooting-guide-service.md
+[Collegamento 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Collegamento 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Collegamento 27]: mobile-engagement-user-interface-reach-campaign.md
+[Collegamento 28]: mobile-engagement-user-interface-reach-criterion.md
+[Collegamento 29]: mobile-engagement-user-interface-reach-content.md
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

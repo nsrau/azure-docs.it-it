@@ -2,12 +2,12 @@
 title: Video, esempi ed esercitazioni in Ricerca di Azure | Microsoft Docs
 description: Elenco centrale di tutti i video, gli esempi, le demo e le esercitazioni create per la Ricerca di Azure, un servizio cloud ospitato in Microsoft Azure.
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-portal
-
+ms.assetid: 4ffa17a3-9e2b-4172-ad77-30c6a1354b24
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -15,9 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 09/22/2016
 ms.author: heidist
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1011a19ae7ffae0fedee1d6202d1b00d35d948f9
+
 
 ---
-# <a name="azure-search:-code-samples,-demos,-videos-and-tutorials"></a>Ricerca di Azure: esempi di codice, demo, video ed esercitazioni
+# <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Ricerca di Azure: esempi di codice, demo, video ed esercitazioni
 Velocizzare le operazioni con i video, le demo, le esercitazioni e le applicazioni di esempio indicati di seguito.
 
 ## <a name="code-samples"></a>Esempi di codice
@@ -81,6 +85,9 @@ Ecco alcuni dei video e delle esercitazioni più apprezzati relativi a Ricerca d
 | [Esercitazione sui profili di punteggio](search-get-started-scoring-profiles.md) |Provare i profili di punteggio usando un'app console. |
 | [Esercitazione dell'API REST di gestione di Ricerca di Azure](search-get-started-management-api.md) |Come utilizzare l'API REST di gestione per eseguire il provisioning del servizio e gestire chiavi API di query o di amministrazione. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -45,6 +45,6 @@ In caso di difficoltà di connessione alla VM, è possibile trovare assistenza s
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 7ab51f4834f3112d4f3379acbaa16a386276cdb8
+ms.sourcegitcommit: bbfe4dc74b9743b89ea6a7a99f5fa17672f3c706
+ms.openlocfilehash: 94db8988acacd93518e96a81e177882852379fb0
 
 
 ---
@@ -44,7 +44,9 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
 2. Fare clic con il pulsante destro del mouse sul progetto sulla sinistra dello schermo e fare clic su **Add Framework Support**(Aggiungi supporto framework). Scegliere **Maven** e fare clic su **OK**.
 3. Aprire il file **"pom.xml"** appena creato e aggiungere il frammento di testo seguente tra il tag **\</version>** e il tag **\</project>**:
 
-    NOTA: questo passaggio è temporaneo e non sarà più necessario quando l'SDK di Analisi Azure Data Lake sarà disponibile in Maven. Quando l'SDK sarà disponibile in Maven l'articolo verrà aggiornato. Tutti gli aggiornamenti futuri di questo SDK saranno disponibili tramite Maven.
+    >[!NOTE]
+    >Questo passaggio è temporaneo e non sarà più necessario quando Azure Data Lake Analytics SDK sarà disponibile in Maven. Quando l'SDK sarà disponibile in Maven l'articolo verrà aggiornato. Tutti gli aggiornamenti futuri di questo SDK saranno disponibili tramite Maven.
+    >
 
         <repositories>
             <repository>
@@ -351,6 +353,6 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

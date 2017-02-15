@@ -1,12 +1,12 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con HireVue | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e HireVue.
+title: 'Esercitazione: Integrazione di Azure Active Directory con HireVue |Documentazione Microsoft'
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e HireVue.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: aadfc342-14db-4d74-a83d-f0c76f0cf63c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9dfa1df1497d7505f283b7ed3bffa3c37ac0b351
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-hirevue"></a>Esercitazione: Integrazione di Azure Active Directory con HireVue
+# <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>Esercitazione: Integrazione di Azure Active Directory con HireVue
 Questa esercitazione descrive come integrare HireVue con Azure Active Directory (Azure AD).
 
 L'integrazione di HireVue con Azure AD offre i vantaggi seguenti:
@@ -108,19 +112,19 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
    
     a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione HireVue usando il modello seguente: 
 
-      | Environment | URL |
-      |---|---|
-      | Produzione | `https://<company name>.hirevue.com` |
-      | Staging| `https://<company name>.stghv.com` |
+    | Environment | URL |
+    |---|---|
+    | Produzione | `https://<company name>.hirevue.com` |
+    | Staging| `https://<company name>.stghv.com` |
 
 
     b. Nella casella di testo **Identificatore** digitare l'URN usando il modello seguente:
 
 
-      | Environment | URN |
-      |---|---|
-      |Produzione | `urn:federation:hirevue.com:saml:sp:prod` |
-      |Staging | `urn:federation:hirevue.com:saml:sp:staging` |
+    | Environment | URN |
+    |---|---|
+    |Produzione | `urn:federation:hirevue.com:saml:sp:prod` |
+    |Staging | `urn:federation:hirevue.com:saml:sp:staging` |
 
 
 
@@ -248,6 +252,6 @@ Quando si fa clic sul riquadro HireVue nel pannello di accesso, si dovrebbe acce
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

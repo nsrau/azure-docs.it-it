@@ -98,6 +98,6 @@ Una volta completata la pianificazione della capacità e configurato un cluster,
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

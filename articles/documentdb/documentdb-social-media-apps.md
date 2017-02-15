@@ -1,20 +1,24 @@
 ---
-title: 'Schema progettuale di DocumentDB: app di social media | Microsoft Docs'
-description: Informazioni su uno schema progettuale per social network che sfrutta la flessibilità di archiviazione di DocumentDB e altri servizi di Azure.
+title: 'Schema progettuale di DocumentDB: app di social media | Documentazione Microsoft'
+description: "Informazioni su uno schema progettuale per social network che sfrutta la flessibilità di archiviazione di DocumentDB e altri servizi di Azure."
 keywords: app di social media
 services: documentdb
 author: ealsur
 manager: jhubbard
-editor: ''
-documentationcenter: ''
-
+editor: 
+documentationcenter: 
+ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/09/2016
 ms.author: mimig
+translationtype: Human Translation
+ms.sourcegitcommit: d9f6c8c73cb7803547053ec495812f993eb44c43
+ms.openlocfilehash: b2f8683be1dea938cba84766efe32287eeebb712
+
 
 ---
 # <a name="going-social-with-documentdb"></a>Uso di DocumentDB per i social media
@@ -104,7 +108,7 @@ I flussi di feed possono essere creati usando i processi in background dei [serv
 
 Con questa stessa tecnica è possibile elaborare punteggi e Mi piace relativi ai post in modo posticipato, per creare un ambiente coerente.
 
-I follower sono più complessi. Il limite per la dimensione dei documenti in DocumentDB è di 512 Kb e ciò consente di memorizzare i follower come un documento con la struttura seguente:
+I follower sono più complessi. DocumentDB prevede un limite di dimensioni massime dei documenti e la lettura/scrittura di documenti di grandi dimensioni può influire sulla scalabilità dell'applicazione. È quindi consigliabile archiviare i follower come documento con questa struttura:
 
     {
         "id":"234d-sd23-rrf2-552d",
@@ -117,7 +121,7 @@ I follower sono più complessi. Il limite per la dimensione dei documenti in Doc
         ]
     }
 
-Questa soluzione può funzionare per un utente con alcune migliaia di follower, ma qualora si unissero alcune celebrità, il limite massimo verrebbe raggiunto rapidamente.
+Questa soluzione può funzionare per un utente con alcune migliaia di follower, ma qualora si unissero alcune celebrità, questo approccio provocherà dimensioni elevate per i documenti e il limite massimo verrebbe raggiunto rapidamente.
 
 Per risolvere il problema, è possibile adottare un approccio misto. Nel documento delle statistiche utenti è possibile archiviare il numero di follower:
 
@@ -131,7 +135,7 @@ Per risolvere il problema, è possibile adottare un approccio misto. Nel documen
 
 Il grafico effettivo dei follower può essere archiviato nelle tabelle di archiviazione di Azure tramite un' [estensione](https://github.com/richorama/AzureStorageExtensions#azuregraphstore) che consente semplicemente l'archiviazione e il recupero dello schema "A-segue-B". In questo modo è possibile delegare il processo di recupero dell'elenco di follower esatto (quando è necessario) alle tabelle di archiviazione di Azure, mentre per una rapida ricerca sui numeri è possibile continuare a usare DocumentDB.
 
-## <a name="the-“ladder”-pattern-and-data-duplication"></a>Modello "a gradini" e duplicazione dei dati
+## <a name="the-ladder-pattern-and-data-duplication"></a>Modello "a gradini" e duplicazione dei dati
 Nel documento JSON che fa riferimento a un post sono presenti più occorrenze di un utente. Ciò significa che, data la denormalizzazione, le informazioni che rappresentano un utente potrebbero essere presenti in più posizioni.
 
 Questo perché query più veloci comportano la duplicazione dei dati. Il problema legato a questo effetto collaterale è che, se i dati di un utente vengono modificati in qualche modo, è necessario trovare e aggiornare tutte le attività eseguite da tale utente. Questo è un aspetto che va risolto.
@@ -227,6 +231,9 @@ Per altre informazioni sulla modellazione di dati, vedere [Modellazione dei dati
 
 Per altre informazioni su DocumentDB, seguire il [percorso di apprendimento per DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

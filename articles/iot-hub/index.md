@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Informazioni su come usare hub IoT per connettersi a miliardi di asset IoT (Internet of Things) per monitorarli e controllarli. Esercitazioni, informazioni di riferimento sulle API, video e altri documenti.
 translationtype: Human Translation
-ms.sourcegitcommit: 62cc285a4dc0b85f364a6306e3fc4b0727c439db
-ms.openlocfilehash: 4a165d2f3e4447d2490296a76934cba98b9dcd79
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: da0387255c538afd5490f313c10509a1b40e6dd9
 
 ---
 #<a name="iot-hub-documentation"></a>Documentazione sull'hub IoT
 
-L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e un back-end della soluzione.  Offre anche il monitoraggio completo della connettività dei dispositivi e include librerie di dispositivi per le piattaforme e i linguaggi più comuni. 
+Informazioni su come usare hub IoT per connettersi a miliardi di asset IoT (Internet of Things) per monitorarli e controllarli. Esercitazioni, informazioni di riferimento sulle API, video e altri documenti in cui viene illustrato come distribuire comunicazioni affidabili e bidirezionali tra dispositivi IoT e un backend di soluzione. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -141,9 +142,10 @@ L'hub IoT di Azure è un servizio completamente gestito che consente comunicazio
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest">API REST (provider di risorse)</a></p>
-                        <p><a href="/rest/api/iothub/device-identities-rest">API REST (identità dei dispositivi)</a></p>
-                        <p><a href="/rest/api/iothub/device-messaging-rest-apis">API REST (messaggistica dei dispositivi)</a></p>
+                        <p><a href="/rest/api/iothub/iothubresource">REST (provider di risorse)</a></p>
+                        <p><a href="/rest/api/iothub/deviceapi">REST (identità dispositivi)</a></p>
+                        <p><a href="/rest/api/iothub/httpruntime">REST (messaggistica dei dispositivi)</a></p>
+                        <p><a href="/rest/api/iothub/jobapi">REST (processi)</a></p>
                     </div>
                 </div>
             </div>
@@ -151,16 +153,10 @@ L'hub IoT di Azure è un servizio completamente gestito che consente comunicazio
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-hub.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione dell'hub IoT </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

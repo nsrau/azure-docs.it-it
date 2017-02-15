@@ -56,6 +56,6 @@ Di seguito è riportata una procedura dettagliata di questa esercitazione.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

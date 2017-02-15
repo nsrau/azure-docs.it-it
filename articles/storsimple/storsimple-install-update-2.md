@@ -1,12 +1,12 @@
 ---
-title: Installare l'aggiornamento 2 nel dispositivo StorSimple | Microsoft Docs
-description: Illustra come installare l'aggiornamento 2 di StorSimple serie 8000 sul dispositivo StorSimple serie 8000.
+title: Installare l&quot;aggiornamento 2 nel dispositivo StorSimple | Microsoft Docs
+description: Illustra come installare l&quot;aggiornamento 2 di StorSimple serie 8000 sul dispositivo StorSimple serie 8000.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 8c8981df-75d9-4d19-b137-d6c6ba39dcfb
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,10 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e788439608b7122f2bca6b99b832baa5258e472d
+
 
 ---
-# Installare l'aggiornamento 2 nel dispositivo StorSimple
-## Overview
+# <a name="install-update-2-on-your-storsimple-device"></a>Installare l'aggiornamento 2 nel dispositivo StorSimple
+## <a name="overview"></a>Overview
 Questa esercitazione illustra come installare l'aggiornamento 2 in un dispositivo StorSimple dove è in esecuzione una versione precedente del software tramite il portale di Azure classico. L'esercitazione illustra anche i passaggi necessari per l'aggiornamento quando viene configurato un gateway su un'interfaccia di rete diversa da DATA 0 del dispositivo StorSimple e si sta tentando di aggiornare da una versione del software precedente all'aggiornamento 1.
 
 L'aggiornamento 2 include aggiornamenti del software del dispositivo, aggiornamenti del driver LSI e aggiornamenti del firmware del disco. Gli aggiornamenti del software del dispositivo e di LSI non sono problematici e possono essere applicati tramite il portale di Azure classico. Gli aggiornamenti del firmware del disco sono problematici e possono essere applicati solo tramite l'interfaccia di Windows PowerShell del dispositivo.
@@ -32,7 +36,7 @@ L'aggiornamento 2 include aggiornamenti del software del dispositivo, aggiorname
 
 [!INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
-## Installare l'aggiornamento 2 tramite il portale di Azure classico
+## <a name="install-update-2-via-the-azure-classic-portal"></a>Installare l'aggiornamento 2 tramite il portale di Azure classico
 Eseguire i passaggi seguenti per aggiornare il dispositivo a [Aggiornamento 2](storsimple-update2-release-notes.md).
 
 > [!NOTE]
@@ -42,13 +46,13 @@ Eseguire i passaggi seguenti per aggiornare il dispositivo a [Aggiornamento 2](s
 
 [!INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-1. Verificare che nel dispositivo sia in esecuzione l'**aggiornamento 2 della serie 8000 di StorSimple (6.3.9600.17673)**. Inoltre, è necessario modificare la **data dell'ultimo aggiornamento**. Saranno anche disponibili gli aggiornamenti in modalità manutenzione. Questo messaggio potrebbe essere visualizzato fino a 24 ore dopo l’installazione degli aggiornamenti.
+1. Verificare che nel dispositivo sia in esecuzione l'**aggiornamento 2 della serie 8000 di StorSimple (6.3.9600.17673)**. Inoltre, è necessario modificare la **data dell'ultimo aggiornamento** . Saranno anche disponibili gli aggiornamenti in modalità manutenzione. Questo messaggio potrebbe essere visualizzato fino a 24 ore dopo l’installazione degli aggiornamenti.
    
    Gli aggiornamenti in modalità manutenzione sono aggiornamenti problematici che comportano tempi di inattività del dispositivo e possono essere applicati solo tramite l'interfaccia di Windows PowerShell del dispositivo. In alcuni casi quando si esegue l'Aggiornamento 1.2, il firmware del disco potrebbe essere già aggiornato, nel qual caso non è necessario installare eventuali aggiornamenti in modalità manutenzione.
 2. Scaricare gli aggiornamenti in modalità di manutenzione utilizzando la procedura indicata in [Scaricare gli aggiornamenti rapidi](#to-download-hotfixes) per cercare e scaricare KB3121899, che installa gli aggiornamenti del firmware del disco (gli altri aggiornamenti devono essere già installati a questo punto).
 3. Seguire i passaggi elencati nella sezione [Installare e verificare gli aggiornamenti rapidi in modalità di manutenzione](#to-install-and-verify-maintenance-mode-hotfixes) per installare gli aggiornamenti in modalità manutenzione.
 
-## Installare l'aggiornamento 2 come un hotfix
+## <a name="install-update-2-as-a-hotfix"></a>Installare l'aggiornamento 2 come un hotfix
 Usare questa procedura se la verifica del gateway non riesce quando si cerca di installare gli aggiornamenti tramite il portale di Azure classico. La verifica non riesce quando un gateway è assegnato a un'interfaccia di rete non DATA 0e sul dispositivo è in esecuzione una versione del software precedente all'aggiornamento 1.
 
 Le versioni del software che possono essere aggiornate tramite hotfix sono aggiornamento 0.1, aggiornamento 0.2 e aggiornamento 0.3, aggiornamento 1, aggiornamento 1.1 e aggiornamento 1.2. Il metodo hotfix prevede i tre passaggi seguenti:
@@ -63,8 +67,8 @@ Per installare l'Aggiornamento 2 come un aggiornamento rapido, è necessario sca
 | --- | --- | --- | --- |
 | 1 |KB3121901 |Aggiornamento software |Normale |
 | 2 |KB3121900 |Driver LSI |Normale |
-| 3 |KB3080728 |Correzione Storport </br> Windows Server 2012 R2 |Normale |
-| 4 |KB3090322 |Correzione Spaceport </br> Windows Server 2012 R2 |Normale |
+| 3 |KB3080728 |Correzione Storport  </br>  Windows Server 2012 R2 |Normale |
+| 4 |KB3090322 |Correzione Spaceport  </br>  Windows Server 2012 R2 |Normale |
 | 5 |KB3121899 |Firmware del disco |Manutenzione |
 
 > [!IMPORTANT]
@@ -81,7 +85,12 @@ Eseguire i seguenti passaggi per applicare l'aggiornamento come un aggiornamento
 
 [!INCLUDE [storsimple-install-troubleshooting](../../includes/storsimple-install-troubleshooting.md)]
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni sulla [versione dell'aggiornamento 2](storsimple-update2-release-notes.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

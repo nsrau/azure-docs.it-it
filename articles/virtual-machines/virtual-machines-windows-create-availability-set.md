@@ -1,14 +1,14 @@
 ---
-title: Creare un set di disponibilità per una VM | Microsoft Docs
-description: Informazioni su come creare un set di disponibilità per le macchine virtuali tramite il portale di Azure o PowerShell e utilizzando il modello di distribuzione di Resource Manager.
-keywords: set di disponibilità
+title: "Creare un set di disponibilità per una VM | Microsoft Docs"
+description: "Informazioni su come creare un set di disponibilità per le macchine virtuali tramite il portale di Azure o PowerShell e utilizzando il modello di distribuzione di Resource Manager."
+keywords: "set di disponibilità"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: a3db8659-ace8-4e78-8b8c-1e75c04c042c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,12 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 19f22b9e38e472b56fc9abecc6c14b63b521a58b
+
 
 ---
 # <a name="create-an-availability-set"></a>Creare un set di disponibilità
 Quando si usa il portale, se si desidera includere la VM in un set di disponibilità, per prima cosa è necessario creare quest'ultimo.
 
-Per altre informazioni sulla creazione e sull'uso dei set di disponibilità, vedere l'articolo relativo alla [gestione della disponibilità delle macchine virtuali](virtual-machines-windows-manage-availability.md).
+Per altre informazioni sulla creazione e sull'uso dei set di disponibilità, vedere l'articolo relativo alla [gestione della disponibilità delle macchine virtuali](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="use-the-portal-to-create-an-availability-set-before-creating-your-vms"></a>Utilizzare il portale per creare un set di disponibilità prima di creare le VM
 1. Nel menu dell'hub, fare clic su **Sfoglia** e selezionare **Set di disponibilità**.
@@ -61,8 +65,11 @@ Per ulteriori informazioni, vedere [New AzureRmAvailabilitySet](https://msdn.mic
 * Quando si crea una VM, se il set di disponibilità desiderato non si trova nell'elenco a discesa nel portale, potrebbe essere stato creato in un altro gruppo di risorse. Se non si conosce il gruppo di risorse del set di disponibilità, accedere al menu dell'hub e fare clic su Sfoglia > Gruppi di disponibilità per visualizzare un elenco dei set di disponibilità e dei gruppi di risorse appartenenti a ciascuno.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Aumentare lo spazio di archiviazione della VM aggiungendo un ulteriore [disco dati](virtual-machines-windows-attach-disk-portal.md).
+Aumentare lo spazio di archiviazione della VM aggiungendo un ulteriore [disco dati](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Linee guida sulle convenzioni di denominazione dell'infrastruttura | Microsoft Docs
+title: Linee guida sulle convenzioni di denominazione dell&quot;infrastruttura | Microsoft Docs
 description: Informazioni sulle principali linee guida di progettazione e implementazione per la denominazione nei servizi di infrastruttura di Azure.
-documentationcenter: ''
+documentationcenter: 
 services: virtual-machines-linux
 author: iainfoulds
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 18ee4fb1-8297-49a1-8d3f-097880be67c7
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,14 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8eaca7d1f942af7b36891f7ee0d9a455283bfc36
+
 
 ---
-# Linee guida sulle convenzioni di denominazione dell'infrastruttura
+# <a name="infrastructure-naming-guidelines"></a>Linee guida sulle convenzioni di denominazione dell'infrastruttura
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Questo articolo è incentrato sulla comprensione dell'approccio alle convenzioni di denominazione delle varie risorse di Azure per la creazione di un set di risorse logico e facilmente identificabile all'interno dell'ambiente.
 
-## Linee guida di implementazione per le convenzioni di denominazione
+## <a name="implementation-guidelines-for-naming-conventions"></a>Linee guida di implementazione per le convenzioni di denominazione
 Decisioni:
 
 * Quali sono le convenzioni di denominazione per le risorse di Azure?
@@ -33,20 +37,20 @@ Attività:
 * Definire i nomi degli account di archiviazione, rispettando il requisito dell'univocità globale.
 * Documentare la convenzione di denominazione che sarà usata e distribuire il documento a tutte le parti interessate per garantire la coerenza tra le distribuzioni.
 
-## Convenzioni di denominazione
+## <a name="naming-conventions"></a>Convenzioni di denominazione
 Prima di creare qualsiasi elemento in Azure, è necessaria una buona convenzione di denominazione Una convenzione di denominazione garantisce la possibilità che tutte le risorse dispongano di un nome stimabile, in modo da ridurre il carico amministrativo associato alla gestione di tali risorse.
 
 È possibile scegliere di seguire un set specifico di convenzioni di denominazione definite per l'intera organizzazione oppure per un account o una sottoscrizione di Azure specifica. Sebbene sia facile per i singoli utenti all'interno delle organizzazioni stabilire le regole implicite quando si usano risorse di Azure, per i team che usano Azure collettivamente è necessaria una certa scalabilità.
 
 Concordare in anticipo il set di convenzioni di denominazione. Alcune considerazioni relative alle convenzioni di denominazione trascendono questi set di regole.
 
-## Affissi
+## <a name="affixes"></a>Affissi
 Quando si definisce una convenzione di denominazione, occorre stabilire la posizione dell'affisso:
 
 * Inizio del nome (prefisso)
 * Fine del nome (suffisso)
 
-Ad esempio, di seguito sono indicati due possibili nomi di un gruppo di risorse nei quali viene usato l'affisso `rg`:
+Ad esempio, di seguito sono indicati due possibili nomi di un gruppo di risorse nei quali viene usato l'affisso `rg` :
 
 * Rg-WebApp (prefisso)
 * WebApp-Rg (suffisso)
@@ -63,10 +67,10 @@ Gli affissi possono fare riferimento ai diversi aspetti che descrivono le specif
 
 Quando si stabiliscono le convenzioni di denominazione, assicurarsi che siano indicati chiaramente quali affissi usare per ogni tipo di risorsa, e in quale posizione (prefisso o suffisso).
 
-## Date
+## <a name="dates"></a>Date
 Molte volte è importante determinare la data di creazione dal nome di una risorsa. È consigliabile usare il formato di data AAAAMMGG. Tale formato garantisce non solo che venga registrata la data completa, ma anche che due risorse i cui nomi si differenziano solo per la data vengano disposte in ordine alfabetico e cronologico.
 
-## Nomi delle risorse
+## <a name="naming-resources"></a>Nomi delle risorse
 Definire ogni tipo di risorsa nella convenzione di denominazione, quindi è necessario avere regole che definiscono come assegnare nomi a ogni risorsa creata. Tali regole devono essere applicate a tutti i tipi di risorse, ad esempio:
 
 * Sottoscrizioni
@@ -83,21 +87,26 @@ Definire ogni tipo di risorsa nella convenzione di denominazione, quindi è nece
 
 Per assicurarsi che il nome fornisca informazioni sufficienti per determinare a quali risorse fa riferimento, è necessario inserire nomi descrittivi.
 
-## Nomi dei computer
+## <a name="computer-names"></a>Nomi dei computer
 Quando si crea una macchina virtuale (VM), Azure richiede un nome di VM con un massimo di 64 caratteri da usare come nome della risorsa. Azure usa lo stesso nome per il sistema operativo installato nella macchina virtuale. È possibile tuttavia che questi nomi non siano sempre gli stessi.
 
 Se si crea una VM da un file immagine con estensione .vhd che contiene già un sistema operativo, il nome della VM in Azure può essere diverso dal nome del computer del sistema operativo della VM. Questa situazione può aggiungere un livello di difficoltà alla gestione delle macchine virtuali, quindi è sconsigliata. Assicurarsi sempre che il nome della risorsa macchina virtuale di Azure sia lo stesso nome del computer assegnato al sistema operativo di tale macchina virtuale.
 
 È consigliabile che il nome della VM di Azure e del computer del sistema operativo sottostante coincidano.
 
-## Nomi account di archiviazione
-Gli account di archiviazione hanno regole speciali che ne controllano i nomi. È possibile usare solo lettere minuscole e numeri. Per altre informazioni, vedere l'articolo relativo alla [Creazione di un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account). Inoltre, il nome dell'account di archiviazione, con core.windows.net, deve essere un nome DNS a livello globale valido e univoco. Ad esempio, se il nome dell'account di archiviazione è mystorageaccount, i seguenti nomi DNS risultanti devono essere univoci:
+## <a name="storage-account-names"></a>Nomi account di archiviazione
+Gli account di archiviazione hanno regole speciali che ne controllano i nomi. È possibile usare solo lettere minuscole e numeri. Per altre informazioni, vedere l'articolo relativo alla [Creazione di un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) . Inoltre, il nome dell'account di archiviazione, con core.windows.net, deve essere un nome DNS a livello globale valido e univoco. Ad esempio, se il nome dell'account di archiviazione è mystorageaccount, i seguenti nomi DNS risultanti devono essere univoci:
 
 * mystorageaccount.blob.core.windows.net
 * mystorageaccount.table.core.windows.net
 * mystorageaccount.queue.core.windows.net
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

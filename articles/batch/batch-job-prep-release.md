@@ -3,7 +3,7 @@ title: Preparazione di processi e pulizia in Batch | Documentazione Microsoft
 description: "Usare le attività di preparazione a livello di processo per ridurre al minimo il trasferimento dei dati ai nodi di calcolo di Azure Batch e le attività di rilascio per la pulizia del nodo al completamento del processo."
 services: batch
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 09/16/2016
-ms.author: marsma
+ms.date: 01/04/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7a9d6586471e776ca5a7e70312c0ac8c97b048a7
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 9b71f09611832c2a8133cc21347d612d495b70aa
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 7a9d6586471e776ca5a7e70312c0ac8c97b048a7
 ## <a name="what-are-job-preparation-and-release-tasks"></a>Quali sono le attività di preparazione e rilascio dei processi
 Prima dell'esecuzione delle attività di un processo, viene eseguita l'attività di preparazione del processo su tutti i nodi di calcolo pianificati per l'esecuzione di almeno un'attività. Dopo aver completato il processo, viene eseguita l'attività di rilascio del processo in ogni nodo del pool che ha eseguito almeno un'attività. Come con le normali attività di Batch, è possibile specificare una riga di comando da richiamare quando viene eseguita un'attività di preparazione o rilascio del processo.
 
-Le attività di preparazione e di rilascio del processo offrono funzionalità familiari per le attività di Batch, come download di file ([file di risorse][net_job_prep_resourcefiles]), esecuzione con privilegi elevati, variabili di ambiente personalizzate, durata massima di esecuzione, numero di tentativi e periodo di conservazione dei file.
+Le attività di preparazione e rilascio del processo offrono funzionalità familiari per le attività di Batch, quali download di file ([file di risorse][net_job_prep_resourcefiles]), esecuzione con privilegi elevati, variabili di ambiente personalizzate, durata massima di esecuzione, numero di tentativi e periodo di conservazione dei file.
 
 Nelle sezioni seguenti viene descritto come usare le classi [JobPreparationTask][net_job_prep] e [JobReleaseTask][net_job_release] disponibili nella libreria [Batch .NET][api_net].
 
@@ -61,7 +61,7 @@ Prima dell'esecuzione delle attività di un processo, Batch esegue l'attività d
 L'attività di preparazione del processo viene eseguita solo su nodi pianificati per l'esecuzione di un'attività. Ciò impedisce l'esecuzione di un'attività di preparazione non necessaria nel caso in cui a un nodo non venga assegnata un'attività. Questa situazione può verificarsi quando il numero di attività per un processo è inferiore al numero di nodi in un pool o quando è abilitata l'[esecuzione di attività simultanee](batch-parallel-node-tasks.md). In quest'ultimo caso, alcuni nodi rimangono inattivi se il numero delle attività è inferiore a quello totale delle attività simultanee possibili. Se non si esegue l'attività di preparazione dei processi sui inattivi nodi, è possibile risparmiare sui costi di trasferimento dati.
 
 > [!NOTE]
-> La classe [JobPreparationTask][net_job_prep_cloudjob] differisce da [CloudPool.StartTask][pool_starttask] perché JobPreparationTask viene eseguita all'avvio di ogni processo, mentre StartTask viene eseguita solo quando un nodo di calcolo viene aggiunto per la prima volta a un pool o viene riavviato.
+> [JobPreparationTask][net_job_prep_cloudjob] differisce dalla proprietà [CloudPool.StartTask][pool_starttask] perché JobPreparationTask viene eseguita all'avvio di ogni processo, mentre StartTask viene eseguita solo quando un nodo di calcolo viene aggiunto per la prima volta a un pool o viene riavviato.
 > 
 > 
 
@@ -74,7 +74,7 @@ Dopo aver contrassegnato un processo come completato , viene eseguita l'attivit�
 > 
 
 ## <a name="job-prep-and-release-tasks-with-batch-net"></a>Attività di preparazione e di rilascio del processo con Batch .NET
-Per usare un'attività di preparazione del processo, assegnare un oggetto [JobPreparationTask][net_job_prep] alla proprietà [CloudJob.JobPreparationTask][net_job_prep_cloudjob] del processo. Analogamente, inizializzare una classe [JobReleaseTask][net_job_release] e assegnarla alla proprietà [CloudJob.JobReleaseTask][net_job_prep_cloudjob] del processo per impostare l'attività di rilascio del processo.
+Per usare un'attività di preparazione del processo, assegnare un oggetto [JobPreparationTask][net_job_prep] alla proprietà [CloudJob.JobPreparationTask][net_job_prep_cloudjob] del processo. In modo analogo, inizializzare una classe [JobReleaseTask][net_job_release] e assegnarla alla proprietà [CloudJob.JobReleaseTask][net_job_prep_cloudjob] del processo per impostare l'attività di rilascio del processo.
 
 In questo frammento di codice `myBatchClient` è un'istanza di [BatchClient][net_batch_client] e `myPool` è un pool esistente nell'account Batch.
 
@@ -113,7 +113,7 @@ await myBatchClient.JobOperations.TerminateJobAsy("JobPrepReleaseSampleJob");
 ```
 
 ## <a name="code-sample-on-github"></a>Esempio di codice in GitHub
-Per osservare il funzionamento delle attività di preparazione e rilascio di processi, vedere il progetto di esempio [JobPrepRelease][job_prep_release_sample] in GitHub. Questa applicazione console esegue le operazioni seguenti:
+Per vedere il funzionamento delle attività di preparazione e rilascio dei processi, esaminare il progetto di esempio [JobPrepRelease][job_prep_release_sample] in GitHub. Questa applicazione console esegue le operazioni seguenti:
 
 1. Crea un pool con due nodi "small".
 2. Crea un processo con attività di preparazione e rilascio di processi e attività standard.
@@ -175,7 +175,7 @@ Sample complete, hit ENTER to exit...
 > 
 
 ### <a name="inspect-job-preparation-and-release-tasks-in-the-azure-portal"></a>Controllare le attività di preparazione e rilascio del processo nel portale di Azure
-Quando si esegue l'applicazione di esempio, è possibile usare il [portale di Azure][portal] per visualizzare le proprietà del processo e le relative attività oppure per scaricare il file di testo condiviso modificato dalle attività del processo.
+Quando si esegue l'applicazione di esempio, è possibile usare il [portale di Azure][portal] per visualizzare le proprietà del processo e le rispettive attività oppure per scaricare il file di testo condiviso modificato dalle attività del processo.
 
 Lo screenshot seguente mostra il pannello **Attività di preparazione** nel portale di Azure dopo un'esecuzione dell'applicazione di esempio. Passare alle proprietà *JobPrepReleaseSampleJob* dopo il completamento delle attività, ma prima dell'eliminazione del processo e del pool, quindi fare clic su **Attività di preparazione** o **Attività di rilascio** per visualizzare le rispettive proprietà.
 
@@ -225,6 +225,6 @@ L'autore, uno dei membri del team di Azure Batch, illustra diverse tecniche che 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

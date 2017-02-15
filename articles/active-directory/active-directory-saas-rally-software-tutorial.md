@@ -1,11 +1,11 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Rally Software | Microsoft Docs'
-description: Informazioni su come usare Rally Software con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora.
+title: 'Esercitazione: Integrazione di Azure Active Directory con Rally Software | Documentazione Microsoft'
+description: Informazioni su come usare Rally Software con Azure Active Directory per abilitare l&quot;accesso Single Sign-On, il provisioning automatizzato e altro ancora.
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: ba25fade-e152-42dd-8377-a30bbc48c3ed
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c71cf608f162b0af04a436892dde9df3f80b8c02
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-rally-software"></a>Esercitazione: Integrazione di Azure Active Directory con Rally Software
+# <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Esercitazione: Integrazione di Azure Active Directory con Rally Software
 In questa esercitazione viene illustrata l'integrazione di Azure e Rally Software.  
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -34,7 +38,7 @@ Lo scenario descritto in questa esercitazione include i blocchi predefiniti segu
 ## <a name="enabling-the-application-integration-for-rally-software"></a>Abilitazione dell'integrazione dell'applicazione per Rally Software
 In questa sezione viene descritto come abilitare l'integrazione dell'applicazione per Rally Software.
 
-### <a name="to-enable-the-application-integration-for-rally-software,-perform-the-following-steps:"></a>Per abilitare l'integrazione dell'applicazione per Rally Software, eseguire la procedura seguente:
+### <a name="to-enable-the-application-integration-for-rally-software-perform-the-following-steps"></a>Per abilitare l'integrazione dell'applicazione per Rally Software, eseguire la procedura seguente:
 1. Nel portale di Azure classico fare clic su **Active Directory**nel riquadro di spostamento sinistro.
    
    ![Active Directory](./media/active-directory-saas-rally-software-tutorial/IC700993.png "Active Directory")
@@ -60,7 +64,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Rally Software tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML.  
 Per eseguire questa procedura, è necessario caricare un certificato in Rally Software.
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
 1. Nella pagina di integrazione dell'applicazione **Rally Software** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
    ![Configura accesso Single Sign-On](./media/active-directory-saas-rally-software-tutorial/IC749323.png "Configure single sign-on")
@@ -93,7 +97,7 @@ Per eseguire questa procedura, è necessario caricare un certificato in Rally So
 
 Per consentire agli utenti di Azure AD di accedere, è necessario eseguirne il privisioning nell’applicazione Rally Software utilizzando i relativi nomi utente di Azure Active Directory.
 
-### <a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>Per configurare il provisioning utente, seguire questa procedura:
+### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Per configurare il provisioning utente, seguire questa procedura:
 1. Accedere al tenant Rally Software.
 2. Passare a **Impostazione \> UTENTI** e quindi fare clic su **+ Aggiungi nuovo**.
    
@@ -115,7 +119,7 @@ Per consentire agli utenti di Azure AD di accedere, è necessario eseguirne il p
 ## <a name="assigning-users"></a>Assegnazione degli utenti
 Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
-### <a name="to-assign-users-to-rally-software,-perform-the-following-steps:"></a>Per assegnare gli utenti a Rally Software, eseguire la procedura seguente:
+### <a name="to-assign-users-to-rally-software-perform-the-following-steps"></a>Per assegnare gli utenti a Rally Software, eseguire la procedura seguente:
 1. Nel portale di Azure classico creare un account di test.
 2. Nella pagina di integrazione dell'applicazione **Rally Software** fare clic su **Assegna utenti**.
    
@@ -126,6 +130,9 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

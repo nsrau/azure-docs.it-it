@@ -12,15 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/13/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ecb08e940fca3daba2968b138417a563afccd127
+ms.sourcegitcommit: da3ef06433d2336159d0ae96f12019fd80dc5d07
+ms.openlocfilehash: 6b32e81bb6a714bd0c479c48d6982af4bcc0683d
 
 
 ---
 # <a name="azure-mobile-engagement-ios-sdk-release-notes"></a>Note sulla versione di Azure Mobile Engagement iOS SDK
+## <a name="401-12132016"></a>4.0.1 (12/13/2016)
+* Recapito del log migliorato in background.
+
 ## <a name="400-09122016"></a>4.0.0 (12/09/2016)
 * Risolto il problema delle notifiche non prese in considerazione sui dispositivi iOS 10.
 * Deprecare XCode 7.
@@ -71,6 +74,6 @@ ms.openlocfilehash: ecb08e940fca3daba2968b138417a563afccd127
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

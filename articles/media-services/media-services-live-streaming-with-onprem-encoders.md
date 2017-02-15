@@ -1,6 +1,6 @@
 ---
 title: "Streaming live con codificatori locali che creano flussi a più velocità in bit | Microsoft Docs"
-description: "Questo argomento descrive come configurare un canale che riceve un flusso live a più velocità in bit da un codificatore locale. Il flusso può essere quindi distribuito alle applicazioni di riproduzione client tramite uno o più endpoint di streaming, usando uno dei seguenti protocolli di streaming adattivi: HLS, Smooth Stream, MPEG DASH, HDS."
+description: "Questo argomento descrive come configurare un canale che riceve un flusso live a più velocità in bit da un codificatore locale. Il flusso può essere quindi distribuito alle applicazioni di riproduzione client tramite uno o più endpoint di streaming, usando uno dei protocolli di flusso adattivo seguenti: HLS, Smooth Stream o MPEG-DASH."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 10/12/2016
-ms.author: cenkdin;juliako
+ms.author: cenkd;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: e41af7a8d2c5c0a0e8813aedb7aa86b58abcf873
+ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
+ms.openlocfilehash: d3a3204ee7690d501722031dea3f35bf55bfec00
 
 
 ---
 # <a name="live-streaming-with-on-premise-encoders-that-create-multi-bitrate-streams"></a>Streaming live con codificatori locali che creano flussi a più bitrate
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 In Servizi multimediali di Azure un **canale** rappresenta una pipeline per l'elaborazione di contenuto in streaming live. Un **canale** riceve i flussi di input live in uno dei due modi seguenti:
 
 * Un codificatore live locale invia un flusso **RTMP** o **Smooth Streaming** (MP4 frammentato) a bitrate multipli a un canale non abilitato per eseguire la codifica live con AMS. I flussi inseriti passano attraverso il **canale**senza altre elaborazioni. Questo metodo viene chiamato **pass-through**. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a più velocità in bit: Elemental, Envivio, Cisco.  I codificatori live seguenti generano output in formato RTMP: Adobe Flash Live, Telestream Wirecast e transcodificatori Tricaster.  Un codificatore live può anche inviare un flusso a singola velocità in bit a un canale non abilitato per la codifica live, ma questa operazione non è consigliata. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
@@ -253,6 +253,6 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

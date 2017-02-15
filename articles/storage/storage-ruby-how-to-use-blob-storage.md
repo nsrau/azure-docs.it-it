@@ -3,8 +3,8 @@ title: Come usare l&quot;archiviazione BLOB (archiviazione di oggetti) da Ruby |
 description: Archiviare i dati non strutturati nel cloud con l&quot;archivio BLOB (archivio di oggetti) di Azure.
 services: storage
 documentationcenter: ruby
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: e2fe4c45-27b0-4d15-b3fb-e7eb574db717
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: b6eb8c68402a18a66f9d227a1a835bcee81f73cc
-ms.openlocfilehash: 78d07dbcd11692fc29518a29c64507940971bc6a
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: cc42e6629c256d1fe6e5b082c88ebb2497484318
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 78d07dbcd11692fc29518a29c64507940971bc6a
 
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 L'archiviazione BLOB di Azure è un servizio che archivia dati non strutturati nel cloud come oggetti/BLOB. Archivio BLOB può archiviare qualsiasi tipo di dati di testo o binari, ad esempio un documento, un file multimediale o un programma di installazione di un'applicazione. L'archivio BLOB è anche denominato archivio di oggetti.
 
 Questa guida illustra scenari comuni relativi all'uso dell'archiviazione BLOB. Gli esempi sono scritti utilizzando l'API Ruby. Gli scenari presentati includono **caricamento, visualizzazione in elenchi, download** ed **eliminazione** di BLOB.
@@ -51,7 +51,7 @@ Usando l'editor di testo preferito aggiungere quanto segue alla parte superiore 
 require "azure"
 ```
 
-## <a name="setup-an-azure-storage-connection"></a>Configurare una connessione di archiviazione di Azure
+## <a name="set-up-an-azure-storage-connection"></a>Configurare una connessione di Archiviazione di Azure
 Il modulo di Azure leggerà le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS_KEY** per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account prima di usare **Azure::BLOB::BlobService** con il codice seguente:
 
 ```ruby
@@ -64,15 +64,15 @@ Per ottenere questi valori da un account di archiviazione classico o di Resource
 1. Accedere al [Portale di Azure](https://portal.azure.com).
 2. Passare all'account di archiviazione che si desidera utilizzare.
 3. Nel pannello Impostazioni a destra fare clic su **Chiavi di accesso**.
-4. Nel pannello Chiavi di accesso visualizzato notare la chiave di accesso 1 e la chiave di accesso 2. È possibile usare una di queste indifferentemente. 
-5. Fare clic sull'icona Copia per copiare la chiave negli Appunti. 
+4. Nel pannello Chiavi di accesso visualizzato notare la chiave di accesso 1 e la chiave di accesso 2. È possibile usare una di queste indifferentemente.
+5. Fare clic sull'icona Copia per copiare la chiave negli Appunti.
 
 Per ottenere questi valori da un account di archiviazione classico nel portale di Azure classico:
 
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 2. Passare all'account di archiviazione che si desidera utilizzare.
 3. Fare clic su **GESTISCI CHIAVI DI ACCESSO** nella parte inferiore del riquadro di spostamento.
-4. Nella finestra di dialogo popup saranno visualizzati il nome dell'account di archiviazione, la chiave di accesso primaria e la chiave di accesso secondaria. Per la chiave di accesso è possibile usare sia la chiave primaria che secondaria. 
+4. Nella finestra di dialogo popup saranno visualizzati il nome dell'account di archiviazione, la chiave di accesso primaria e la chiave di accesso secondaria. Per la chiave di accesso è possibile usare sia la chiave primaria che secondaria.
 5. Fare clic sull'icona Copia per copiare la chiave negli Appunti.
 
 ## <a name="create-a-container"></a>Creare un contenitore
@@ -80,7 +80,7 @@ Per ottenere questi valori da un account di archiviazione classico nel portale d
 
 L'oggetto **Azure::BLOB::BlobService** consente di lavorare con contenitori e BLOB. Per creare un contenitore, usare il metodo **create\_container()**.
 
-Nell'esempio seguente viene creato un contenitore o stampato l'eventuale errore.
+L'esempio di codice seguente crea un contenitore o stampa l'eventuale errore.
 
 ```ruby
 azure_blob_service = Azure::Blob::BlobService.new
@@ -168,6 +168,6 @@ Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di ar
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

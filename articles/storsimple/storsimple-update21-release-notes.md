@@ -1,12 +1,12 @@
 ---
-title: Note sulla versione dell'aggiornamento 2.2 di StorSimple serie 8000 | Microsoft Docs
-description: Illustra le nuove funzionalità, i problemi e le soluzioni alternative per l'aggiornamento 2.2 per StorSimple serie 8000.
+title: Note sulla versione dell&quot;aggiornamento 2.2 di StorSimple serie 8000 | Documentazione Microsoft
+description: "Illustra le nuove funzionalità, i problemi e le soluzioni alternative per l&quot;aggiornamento 2.2 per StorSimple serie 8000."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 5cf03ea8-2a0f-4552-b6dc-7ea517783d7b
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,33 +14,37 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/18/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c9bdd0862397dcac0a48375476002b42e6a8e331
+
 
 ---
-# Note sulla versione dell'aggiornamento 2.2 di StorSimple serie 8000
-## Panoramica
-Le note sulla versione seguenti illustrano le nuove funzionalità e indicano i problemi critici non risolti relativi all'aggiornamento 2.2 di StorSimple serie 8000. Contengono inoltre un elenco degli aggiornamenti software di StorSimple inclusi in questa versione.
+# <a name="storsimple-8000-series-update-22-release-notes"></a>Note sulla versione dell'aggiornamento 2.2 di StorSimple serie 8000
+## <a name="overview"></a>Panoramica
+Le note sulla versione seguenti illustrano le nuove funzionalità e indicano i problemi critici non risolti relativi all'aggiornamento 2.2 di StorSimple serie 8000. Contengono inoltre un elenco degli aggiornamenti software di StorSimple inclusi in questa versione. 
 
 L'aggiornamento 2.2 può essere applicato a qualsiasi dispositivo StorSimple che esegue la versione in disponibilità generale del software o una versione di aggiornamento compresa tra 0.1 e 2.1. La versione del dispositivo associata all'aggiornamento 2.2 è 6.3.9600.17708.
 
 Esaminare le informazioni contenute nelle note sulla versione prima di distribuire l'aggiornamento della soluzione StorSimple.
 
 > [!IMPORTANT]
-> * L'aggiornamento 2.2 include aggiornamenti solo per il software. L'installazione dell'aggiornamento richiede circa 1,5-2 ore.
+> * L'aggiornamento 2.2 include aggiornamenti solo per il software. L'installazione dell'aggiornamento richiede circa 1,5-2 ore. 
 > * Se si esegue ancora l'aggiornamento 2.1, si consiglia di applicare l'aggiornamento 2.2 appena possibile.
 > * Per le nuove versioni è possibile che gli aggiornamenti non siano immediatamente visibili perché viene effettuata un'implementazione graduale degli aggiornamenti. Attendere alcuni giorni e quindi provare a cercare nuovamente gli aggiornamenti, perché verranno presto resi disponibili.
 > 
 > 
 
-## Novità dell'aggiornamento 2.2
+## <a name="whats-new-in-update-22"></a>Novità dell'aggiornamento 2.2
 L'aggiornamento 2.2 include gli importanti aggiornamenti seguenti.
 
-* **Ottimizzazione del recupero automatizzato dello spazio**: quando vengono eliminati dati in volumi con thin provisioning, i blocchi di archiviazione non usati devono essere recuperati. Questa versione ha migliorato il processo di recupero dello spazio dal cloud, in modo che lo spazio non usato risulti disponibile con maggiore rapidità rispetto alle versioni precedenti.
-* **Miglioramenti delle prestazioni dello snapshot**: l'aggiornamento 2.2 ha migliorato il tempo di elaborazione di uno snapshot cloud in determinati scenari in cui vengono usati volumi di grandi dimensioni e che includono una quantità minima di dati o nessun dato da modificare. Questo miglioramento risulta ad esempio utile per uno scenario relativo ai volumi di archiviazione.
-* **Protezione avanzata per la raccolta di pacchetti per il supporto**: sono stati apportati miglioramenti ala modalità di raccolta e caricamento di pacchetti per il supporto in questa versione.
-* **Miglioramenti per l'affidabilità degli aggiornamenti**: questa versione include correzioni di bug che consentono di ottenere un incremento dell'affidabilità degli aggiornamenti.
+* **Ottimizzazione del recupero automatizzato dello spazio** : quando vengono eliminati dati in volumi con thin provisioning, i blocchi di archiviazione non usati devono essere recuperati. Questa versione ha migliorato il processo di recupero dello spazio dal cloud, in modo che lo spazio non usato risulti disponibile con maggiore rapidità rispetto alle versioni precedenti.
+* **Miglioramenti delle prestazioni dello snapshot** : l'aggiornamento 2.2 ha migliorato il tempo di elaborazione di uno snapshot cloud in determinati scenari in cui vengono usati volumi di grandi dimensioni e che includono una quantità minima di dati o nessun dato da modificare. Questo miglioramento risulta ad esempio utile per uno scenario relativo ai volumi di archiviazione.
+* **Protezione avanzata per la raccolta di pacchetti per il supporto** : sono stati apportati miglioramenti ala modalità di raccolta e caricamento di pacchetti per il supporto in questa versione. 
+* **Miglioramenti per l'affidabilità degli aggiornamenti** : questa versione include correzioni di bug che consentono di ottenere un incremento dell'affidabilità degli aggiornamenti.
 
-## Problemi risolti nell'aggiornamento 2.2
-Le seguenti tabelle forniscono un riepilogo dei problemi risolti nell’aggiornamento 2.2 e 2.1.
+## <a name="issues-fixed-in-update-22"></a>Problemi risolti nell'aggiornamento 2.2
+Le seguenti tabelle forniscono un riepilogo dei problemi risolti nell’aggiornamento 2.2 e 2.1.    
 
 | No | Funzionalità | Problema | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
 | --- | --- | --- | --- | --- |
@@ -49,12 +53,12 @@ Le seguenti tabelle forniscono un riepilogo dei problemi risolti nell’aggiorna
 | 3 |Suddivisione in livelli |Si sono verificati alcuni arresti anomali quando i metadati per i dispositivi cloud StorSimple (8010 e 8020) sono stati suddivisi in livelli sul cloud. Tale problema è stato corretto in questa versione. |No |Sì |
 | 4 |Creazione di snapshot |Si sono verificati problemi correlati alla creazione di snapshot incrementali in scenari con volumi di grandi dimensioni e varianza dati minima o nulla. Tali problemi sono stati risolti in questa versione. |Sì |Sì |
 | 5 |Autenticazione Openstack |Quando si usa Openstack come provider di servizi cloud, l'utente rileva un bug poco frequente correlato all'autenticazione, in cui il parser JSON ha provocato un arresto anomalo. Tale bug è stato risolto in questa versione. |Sì |No |
-| 6 |Copia lato host |Nelle versioni precedenti del software è stato rilevato un bug poco frequente correlato agli intervalli ODX durante la copia di dati da un volume a un altro. A causa di questo errore, si verifica il failover del controller ed è possibile che il sistema passi alla modalità di ripristino. Tale bug è stato risolto in questa versione. |Sì |No |
-| 7 |Strumentazione gestione Windows (WMI) |Nelle versioni precedenti del software sono state rilevate alcune istanze di errori del proxy Web con l'eccezione "<ManagementException> Errore caricamento provider". Questo bug è stato attribuito a una perdita di memoria di WMI ed è stato ora risolto. |Sì |No |
+| 6 |Copia lato host |Nelle versioni precedenti del software è stato rilevato un bug poco frequente correlato agli intervalli ODX durante la copia di dati da un volume a un altro. A causa di questo errore, si verifica il failover del controller ed è possibile che il sistema passi alla modalità di ripristino. Il bug è stato risolto in questa versione. |sì |No |
+| 7 |Strumentazione gestione Windows (WMI) |Nelle versioni precedenti del software sono state rilevate alcune istanze dell'errore del proxy Web con l'eccezione "<ManagementException> Errore caricamento provider". Questo bug è stato attribuito a una perdita di memoria di WMI ed è stato ora risolto. |Sì |No |
 | 8 |Aggiornamento |In alcuni rari casi, nelle versioni precedenti del software l'utente ha ricevuto un errore "CisPowershellHcsscripterror" durante il tentativo di analisi o di installazione di aggiornamenti. Tale problema è stato corretto in questa versione. |Sì |Sì |
 | 9 |Pacchetto di supporto |In questa versione sono stati apportati miglioramenti alla modalità di raccolta e caricamento di pacchetti per il supporto. |Sì |Sì |
 
-## Problemi noti nell'aggiornamento 2.2
+## <a name="known-issues-in-update-22"></a>Problemi noti nell'aggiornamento 2.2
 Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa versione.
 
 | No. | Funzionalità | Problema | Commenti/Soluzione alternativa | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
@@ -66,8 +70,8 @@ Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa ve
 | 5 |Installare |Durante l’installazione dell'adattatore StorSimple per SharePoint è necessario fornire un IP del dispositivo affinché l'installazione possa essere completata correttamente. | |Sì |No |
 | 6 |Proxy Web |Se nella configurazione del proxy Web è specificato il protocollo HTTPS, la comunicazione tra dispositivo e servizio ne sarà interessata e il dispositivo verrà portato offline. Nel processo, inoltre, verranno generati pacchetti di supporto, consumando risorse significative sul dispositivo. |Assicurarsi che l'URL del proxy Web abbia HTTP come protocollo specificato. Per ulteriori informazioni, andare a [Configurare il proxy Web per il dispositivo](storsimple-configure-web-proxy.md). |Sì |No |
 | 7 |Proxy Web |Se si configura e si abilita il proxy Web su un dispositivo registrato, è necessario riavviare il controller attivo sul dispositivo. | |Sì |No |
-| 8 |Elevata latenza del cloud ed elevato carico di lavoro I/O |Quando il dispositivo StorSimple rileva una combinazione di latenze cloud molto elevate (nell’ordine di secondi) e carico di lavoro I/O elevato, i volumi del dispositivo entrano in uno stato con funzionalità ridotte e gli I/O potrebbero non riuscire a causa di un errore di "dispositivo non pronto". |In questo caso è necessario riavviare manualmente i controller del dispositivo o eseguire un failover del dispositivo per risolvere il problema. |Sì |No |
-| 9 |Azure PowerShell |Quando si utilizza il cmdlet di StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** per selezionare il primo oggetto in modo tale da poterne creare uno nuovo **VolumeContainer**, il cmdlet restituisce tutti gli oggetti. |Mettere il cmdlet tra parentesi nel modo seguente: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** |Sì |Sì |
+| 8 |Elevata latenza del cloud ed elevato carico di lavoro I/O |Quando il dispositivo StorSimple rileva una combinazione di latenze cloud molto elevate (nell’ordine di secondi) e carico di lavoro I/O elevato, i volumi del dispositivo entrano in uno stato con funzionalità ridotte e gli I/O potrebbero non riuscire a causa di un errore di "dispositivo non pronto". |In questo caso è necessario riavviare manualmente i controller del dispositivo o eseguire un failover del dispositivo per risolvere  il problema. |Sì |No |
+| 9 |Azure PowerShell |Quando si utilizza il cmdlet di StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** per selezionare il primo oggetto in modo tale da poter creare un oggetto **VolumeContainer** nuovo, il cmdlet restituisce tutti gli oggetti. |Racchiudere il cmdlet tra parentesi nel modo seguente: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** |Sì |Sì |
 | 10 |Migrazione |Quando, per la migrazione, vengono passati più contenitori del volume, ETA per il backup più recente è accurato solo per il primo contenitore del volume. Inoltre, la migrazione parallela verrà avviata dopo la migrazione dei primi quattro backup nel primo contenitore del volume. |Si consiglia di migrare un contenitore del volume alla volta. |Sì |No |
 | 11 |Migrazione |Dopo il ripristino, i volumi non vengono aggiunti ai criteri di backup o al gruppo di dischi virtuali. |È necessario aggiungerli a un criterio di backup per creare i backup. |Sì |Sì |
 | 12 |Migrazione |Al termine della migrazione, il dispositivo di serie 5000/7000 non deve accedere ai contenitori di dati migrati. |Dopo il completamento e l'approvazione della migrazione, è consigliabile eliminare i contenitori di dati migrati. |Sì |No |
@@ -77,19 +81,24 @@ Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa ve
 | 16 |Spazio disponibile per i volumi aggiunti in locale |Se si elimina un volume aggiunto in locale, lo spazio disponibile per i nuovi volumi potrebbe non essere immediatamente aggiornato. Il servizio StorSimple Manager aggiorna lo spazio locale disponibile circa ogni ora. |Attendere un'ora prima di creare il nuovo volume. |Sì |No |
 | 17 |Volumi aggiunti in locale |Il processo di ripristino espone il backup dell'istantanea temporaneo in Catalogo Backup, ma solo per la durata del processo di ripristino. Espone inoltre un gruppo di dischi virtuali con prefisso **tmpCollection** nella pagina **Criteri di backup**, ma solo per la durata del processo di ripristino. |Questo comportamento può verificarsi se il processo di ripristino dispone solo di volumi associati in locale o di una combinazione di volumi associati in locale e a livelli. Se il processo di ripristino include solo i volumi a livelli, questo comportamento non si verificherà. Non è necessario alcun intervento dell'utente. |Sì |No |
 | 18 |Volumi aggiunti in locale |Se si annulla un processo di ripristino e si verifica un failover del controller subito dopo, il processo di ripristino visualizzerà lo stato **Non riuscito** anziché **Annullato**. Se un processo di ripristino ha esito negativo e si verifica un failover del controller subito dopo, il processo di ripristino visualizzerà lo stato **Annullato** anziché **Non riuscito**. |Questo comportamento può verificarsi se il processo di ripristino dispone solo di volumi associati in locale o di una combinazione di volumi associati in locale e a livelli. Se il processo di ripristino include solo i volumi a livelli, questo comportamento non si verificherà. Non è necessario alcun intervento dell'utente. |Sì |No |
-| 19 |Volumi aggiunti in locale |Se si annulla un processo di ripristino o se un ripristino ha esito negativo e quindi si verifica un failover del controller, viene visualizzato un processo di ripristino aggiuntivo nella pagina **Processi**. |Questo comportamento può verificarsi se il processo di ripristino dispone solo di volumi associati in locale o di una combinazione di volumi associati in locale e a livelli. Se il processo di ripristino include solo i volumi a livelli, questo comportamento non si verificherà. Non è necessario alcun intervento dell'utente. |Sì |No |
+| 19 |Volumi aggiunti in locale |Se si annulla un processo di ripristino o se un ripristino ha esito negativo e quindi si verifica un failover del controller, viene visualizzato un processo di ripristino aggiuntivo nella pagina **Processi** . |Questo comportamento può verificarsi se il processo di ripristino dispone solo di volumi associati in locale o di una combinazione di volumi associati in locale e a livelli. Se il processo di ripristino include solo i volumi a livelli, questo comportamento non si verificherà. Non è necessario alcun intervento dell'utente. |Sì |No |
 | 20 |Volumi aggiunti in locale |Se si cerca di convertire un volume a livelli (creato e clonato con l'aggiornamento 1.2 o precedente) in un volume aggiunto in locale e il dispositivo sta esaurendo lo spazio o si verifica un'interruzione del cloud, i cloni possono risultare danneggiati. |Questo problema si verifica solo con i volumi che sono stati creati e clonati con software precedente all'aggiornamento 2.1. Si tratta di uno scenario poco frequente. | | |
 | 21 |Conversione del volume |Non aggiornare i record di controllo di accesso collegati a un volume mentre è in corso una conversione del volume (da volume a livelli a volume aggiunto in locale o viceversa). L'aggiornamento dei record di controllo di accesso potrebbe causare il danneggiamento dei dati. |Se necessario, aggiornare i record di controllo di accesso prima della conversione del volume e non eseguire altri aggiornamenti dei record di controllo di accesso mentre la conversione è in corso. | | |
 
-## Aggiornamenti firmware e controller presenti nell'aggiornamento 2.2
+## <a name="controller-and-firmware-updates-in-update-22"></a>Aggiornamenti firmware e controller presenti nell'aggiornamento 2.2
 Questa versione include aggiornamenti solo per il software. Se tuttavia si esegue l'aggiornamento da una versione precedente all'aggiornamento 2, sarà necessario installare aggiornamenti per driver, Storport, Spaceport e in alcuni casi per firmware del disco nel dispositivo.
 
 Per altre informazioni su come installare gli aggiornamenti per driver, Storport, Spaceport e firmware del disco, vedere [Installare l'aggiornamento 2.2](storsimple-install-update-21.md) nel dispositivo StorSimple.
 
-## Aggiornamenti del dispositivo virtuale nell'aggiornamento 2.2
-Impossibile applicare questo aggiornamento per il dispositivo virtuale. Sarà necessario creare nuovi dispositivi virtuali.
+## <a name="virtual-device-updates-in-update-22"></a>Aggiornamenti del dispositivo virtuale nell'aggiornamento 2.2
+Impossibile applicare questo aggiornamento per il dispositivo virtuale. Sarà necessario creare nuovi dispositivi virtuali. 
 
-## Passaggio successivo
+## <a name="next-step"></a>Passaggio successivo
 Informazioni su come [Installare l'aggiornamento 2.2](storsimple-install-update-21.md) nel dispositivo StorSimple.
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

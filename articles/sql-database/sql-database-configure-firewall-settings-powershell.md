@@ -1,6 +1,6 @@
 ---
-title: Configurare le regole del firewall a livello di server per il database SQL di Azure con PowerShell | Documentazione Microsoft
-description: Come configurare il firewall per gli indirizzi IP che accedono a database SQL di Azure.
+title: 'PowerShell: configurare le regole del firewall per il database SQL di Azure | Documentazione Microsoft'
+description: Come configurare le regole del firewall a livello di server per gli indirizzi IP che accedono a database SQL di Azure usando PowerShell.
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 1f7a1f6f4cc970cf12851e48d0f1b3c6ae46279c
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: d80bd1fbb5cdb0492e521a4d600f657fac0e3325
 
 
 ---
@@ -49,11 +49,11 @@ Per creare una nuova regola del firewall a livello di server, eseguire il cmdlet
 
 Per modificare una regola del firewall esistente a livello di server, eseguire il cmdlet [Set-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603789\(v=azure.300\).aspx). Nell'esempio seguente viene modificato l'intervallo di indirizzi IP validi per la regola denominata ContosoFirewallRule.
 
-    Set-AzureRmSqlServerFirewallRule -ResourceGroupName 'resourcegroup1' –StartIPAddress 192.168.1.4 –EndIPAddress 192.168.1.10 –FirewallRuleName 'ContosoFirewallRule' –ServerName 'Contoso'
+    Set-AzureRmSqlServerFirewallRule -ResourceGroupName 'resourcegroup1' -StartIPAddress 192.168.1.4 -EndIPAddress 192.168.1.10 -FirewallRuleName 'ContosoFirewallRule' -ServerName 'Contoso'
 
 Per eliminare una regola del firewall esistente a livello di server, eseguire il cmdlet [Remove-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603588\(v=azure.300\).aspx). Nell'esempio seguente viene eliminata la regola denominata ContosoFirewallRule.
 
-    Remove-AzureRmSqlServerFirewallRule –FirewallRuleName 'ContosoFirewallRule' –ServerName 'Contoso'
+    Remove-AzureRmSqlServerFirewallRule -FirewallRuleName 'ContosoFirewallRule' -ServerName 'Contoso'
 
 
 ## <a name="manage-firewall-rules-by-using-powershell"></a>Gestione delle regole del firewall tramite PowerShell
@@ -87,6 +87,6 @@ Per informazioni su come passare ai database, vedere [Gestire l'accesso al datab
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

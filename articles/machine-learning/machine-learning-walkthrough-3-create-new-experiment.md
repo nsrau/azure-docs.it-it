@@ -1,12 +1,12 @@
 ---
-title: 'Passaggio 3: Creare un nuovo esperimento di Machine Learning | Microsoft Docs'
+title: 'Passaggio 3: Creare un nuovo esperimento di Machine Learning | Documentazione Microsoft'
 description: 'Passaggio 3 della procedura dettagliata Sviluppare una soluzione predittiva: Creare un nuovo esperimento di formazione in Azure Machine Learning Studio.'
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ec6ca6b1f06223b1ce3d38e22117e63f438859ce
+
 
 ---
-# <a name="walkthrough-step-3:-create-a-new-azure-machine-learning-experiment"></a>Passaggio 3 della procedura dettagliata: Creare un nuovo esperimento di Machine Learning di Azure
+# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-experiment"></a>Passaggio 3 della procedura dettagliata: Creare un nuovo esperimento di Machine Learning di Azure
 Questo è il terzo passaggio della procedura dettagliata [Sviluppare una soluzione di analisi predittiva in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Creare un'area di lavoro di Machine Learning](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -69,7 +73,7 @@ Per usare [Edit Metadata][edit-metadata] (Modifica metadati), è necessario spec
 6. Fare clic sul segno di spunta **OK** .
 7. Di nuovo nel riquadro **Properties** (Proprietà) cercare il parametro **New column names** (Nuovi nomi di colonna). In questo campo immettere un elenco di nomi per le 21 colonne nel set di dati, separati da virgole e nell'ordine delle colonne. È possibile ottenere i nomi di colonna dalla documentazione relativa ai set di dati disponibile sul sito Web UCI, oppure, per praticità, è possibile copiare e incollare l'elenco seguente:  
    
-         Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
+       Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
    
    Il riquadro Proprietà avrà l'aspetto seguente:
    
@@ -104,11 +108,11 @@ Ciò è ottenibile usando il codice R:
 2. Fare doppio clic sul modulo [Execute R Script][execute-r-script] (Esegui script R) e immettere il commento "Impostare rettifica costo".
 3. Nel riquadro **Properties** (Proprietà) eliminare il testo predefinito nel parametro **R Script** (Script R) e immettere questo script:
    
-         dataset1 <- maml.mapInputPort(1)
-         data.set<-dataset1[dataset1[,21]==1,]
-         pos<-dataset1[dataset1[,21]==2,]
-         for (i in 1:5) data.set<-rbind(data.set,pos)
-         maml.mapOutputPort("data.set")
+       dataset1 <- maml.mapInputPort(1)
+       data.set<-dataset1[dataset1[,21]==1,]
+       pos<-dataset1[dataset1[,21]==2,]
+       for (i in 1:5) data.set<-rbind(data.set,pos)
+       maml.mapOutputPort("data.set")
 
 È necessario eseguire la stessa operazione di replica per ogni output del modulo [Split Data][split] (Dividi dati) in modo che i dati di training e di test abbiano la stessa rettifica dei costi.
 
@@ -143,6 +147,6 @@ Per altre informazioni sull'uso di script R negli esperimenti, vedere [Estendere
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

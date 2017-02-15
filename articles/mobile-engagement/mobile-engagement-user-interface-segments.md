@@ -209,6 +209,6 @@ In questo esempio, il 47,7% degli utenti finali totali corrispondeva al criterio
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

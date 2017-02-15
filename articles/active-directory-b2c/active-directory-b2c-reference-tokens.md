@@ -156,6 +156,6 @@ A scopo di approfondimento viene riportata di seguito la durata dei vari token. 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -73,6 +73,6 @@ Quando ci si [iscrive a Log Analytics](log-analytics-get-started.md), verrà cre
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

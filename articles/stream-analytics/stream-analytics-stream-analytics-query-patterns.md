@@ -1,13 +1,13 @@
 ---
-title: Esempi di query per modelli di uso comune in Analisi di flusso | Microsoft Docs
-description: 'Modelli di query comuni di Analisi di flusso di Azure '
+title: Esempi di query per modelli di uso comune in Analisi di flusso | Documentazione Microsoft
+description: 'Modelli di query comuni di Analisi di flusso di Azure  '
 keywords: esempi di query
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 6b9a7d00-fbcc-42f6-9cbb-8bbf0bbd3d0e
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,14 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/26/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: da6ac042a55c7c145895d15a735f77fb2e82d394
+
 
 ---
-# Esempi di query per modelli di uso comune di Analisi di flusso
-## Introduzione
-Le query in analisi di flusso di Azure vengono espresse in un linguaggio di query simile a SQL, documentato nella guida di [riferimento sul linguaggio di query con l'analisi di flusso](https://msdn.microsoft.com/library/azure/dn834998.aspx). Questo articolo illustra le soluzioni per diversi modelli di query comuni basati su scenari reali. È un lavoro in corso che continuerà a essere aggiornato con nuovi modelli su base continuativa.
+# <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Esempi di query per modelli di uso comune di Analisi di flusso
+## <a name="introduction"></a>Introduzione
+Le query in analisi di flusso di Azure vengono espresse in un linguaggio di query simile a SQL, documentato nella guida di [riferimento sul linguaggio di query con l'analisi di flusso](https://msdn.microsoft.com/library/azure/dn834998.aspx) .  Questo articolo illustra le soluzioni per diversi modelli di query comuni basati su scenari reali.  È un lavoro in corso che continuerà a essere aggiornato con nuovi modelli su base continuativa.
 
-## Esempio di query: Conversioni di tipi di dati
-**Descrizione**: definire i tipi delle proprietà nel flusso di input. Ad esempio, il peso dell'auto è immesso nel flusso di input come stringa e deve essere convertito in INT per eseguire SUM dei vari valori.
+## <a name="query-example-data-type-conversions"></a>Esempio di query: Conversioni di tipi di dati
+**Descrizione**: definire i tipi delle proprietà nel flusso di input.
+Ad esempio, il peso dell'auto è immesso nel flusso di input come stringa e deve essere convertito in INT per eseguire SUM dei vari valori.
 
 **Input**:
 
@@ -50,12 +55,12 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 **Spiegazione**: utilizzare un'istruzione CAST nel campo Peso per specificarne il tipo (vedere l'elenco dei tipi di dati supportati [qui](https://msdn.microsoft.com/library/azure/dn835065.aspx)).
 
-## Esempio di query: Uso di Like/Not like per la corrispondenza dei modelli
+## <a name="query-example-using-likenot-like-to-do-pattern-matching"></a>Esempio di query: Uso di Like/Not like per la corrispondenza dei modelli
 **Descrizione**: verificare che un valore del campo dell'evento corrisponda a un determinato modello. Ad esempio, restituire le targhe che iniziano per A e terminano con 9
 
 **Input**:
 
-| Casa automobilistica | Targa | Time |
+| Casa automobilistica | Targa | Tempo |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -63,7 +68,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 **Output**:
 
-| Casa automobilistica | Targa | Time |
+| Casa automobilistica | Targa | Tempo |
 | --- | --- | --- |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
@@ -77,14 +82,15 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
     WHERE
         LicensePlate LIKE 'A%9'
 
-**Spiegazione**: utilizzare l'istruzione LIKE per verificare che il valore del campo LicensePlate inizi con la lettera A, contenga una stringa di zeri o altri caratteri e termini con 9.
+**Spiegazione**: utilizzare l'istruzione LIKE per verificare che il valore del campo LicensePlate inizi con la lettera A, contenga una stringa di zeri o altri caratteri e termini con 9. 
 
-## Esempio di query: Specificare la logica per i diversi casi/valori (istruzioni CASE)
-**Descrizione**: fornire calcoli differenti per un campo in base ad alcuni criteri. Ad esempio, fornire una stringa descrittiva relativa al numero di automobili della stessa casa automobilistica sono passate con un caso speciale di 1.
+## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>Esempio di query: Specificare la logica per i diversi casi/valori (istruzioni CASE)
+**Descrizione**: fornire calcoli differenti per un campo in base ad alcuni criteri.
+Ad esempio, fornire una stringa descrittiva relativa al numero di automobili della stessa casa automobilistica sono passate con un caso speciale di 1.
 
 **Input**:
 
-| Casa automobilistica | Time |
+| Casa automobilistica | Tempo |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
@@ -92,7 +98,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 **Output**:
 
-| Auto passate | Time |
+| Auto passate | Tempo |
 | --- | --- | --- |
 | 1 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 Toyota |2015-01-01T00:00:10.0000000Z |
@@ -113,12 +119,13 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 **Spiegazione**: la clausola CASE consente di fornire un calcolo diverso in base ad alcuni criteri (in questo esempio, il numero di automobili nella finestra di aggregazione).
 
-## Esempio di query: Invio di dati a più output
-**Descrizione**: inviare dati a più destinazioni di output da un singolo processo. Ad esempio, analizzare i dati per un avviso basato su soglie e archiviare tutti gli eventi nell'archiviazione BLOB
+## <a name="query-example-send-data-to-multiple-outputs"></a>Esempio di query: Invio di dati a più output
+**Descrizione**: inviare dati a più destinazioni di output da un singolo processo.
+Ad esempio, analizzare i dati per un avviso basato su soglie e archiviare tutti gli eventi nell'archiviazione BLOB
 
 **Input**:
 
-| Casa automobilistica | Time |
+| Casa automobilistica | Tempo |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -128,7 +135,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 **Output1**:
 
-| Casa automobilistica | Time |
+| Casa automobilistica | Tempo |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -138,7 +145,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 **Output2**:
 
-| Casa automobilistica | Time | Conteggio |
+| Casa automobilistica | Tempo | Conteggio |
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -165,7 +172,11 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
     HAVING
         [Count] >= 3
 
-**Spiegazione**: la clausola INTO indica all’analisi di flusso in quali output scrivere i dati ottenuti con questa istruzione. La prima è una query pass-through dei dati ricevuti per un output denominato ArchiveOutput. La seconda query effettua una semplice aggregazione, filtra e invia i risultati a un sistema di avviso downstream. *Nota*: è inoltre possibile riutilizzare i risultati delle CTE (vale a dire le istruzioni WITH) in più istruzioni di output; questo ha l'ulteriore vantaggio di aprire ad esempio un numero inferiore di lettori nell'origine di input. Ad esempio,
+**Spiegazione**: la clausola INTO indica all’analisi di flusso in quali output scrivere i dati ottenuti con questa istruzione.
+La prima è una query pass-through dei dati ricevuti per un output denominato ArchiveOutput.
+La seconda query effettua una semplice aggregazione, filtra e invia i risultati a un sistema di avviso downstream.
+*Nota*: è inoltre possibile riutilizzare i risultati delle CTE (vale a dire le istruzioni WITH) in più istruzioni di output; questo ha l'ulteriore vantaggio di aprire ad esempio un numero inferiore di lettori nell'origine di input.
+Ad esempio, 
 
     WITH AllRedCars AS (
         SELECT
@@ -178,12 +189,13 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
     SELECT * INTO HondaOutput FROM AllRedCars WHERE Make = 'Honda'
     SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
 
-## Esempio di query: Conteggio di valori univoci
-**Descrizione**: contare il numero di valori di campo univoci presenti nel flusso in un intervallo di tempo. Ad esempio, quante automobili appartenenti alla stessa casa automobilistica sono passate da un casello autostradale in una finestra di due secondi?
+## <a name="query-example-counting-unique-values"></a>Esempio di query: Conteggio di valori univoci
+**Descrizione**: contare il numero di valori di campo univoci presenti nel flusso in un intervallo di tempo.
+Ad esempio, quante automobili appartenenti alla stessa casa automobilistica sono passate da un casello autostradale in una finestra di due secondi?
 
 **Input**:
 
-| Casa automobilistica | Time |
+| Casa automobilistica | Tempo |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -193,7 +205,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 **Output:**
 
-| Conteggio | Time |
+| Conteggio | Tempo |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
@@ -219,21 +231,22 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
         TumblingWindow(second, 1)
 
 
-**Spiegazione:** viene effettuata un'aggregazione iniziale per ottenere le case automobilistiche univoche con il relativo conteggio nell'arco della finestra temporale. Viene quindi effettuata un'aggregazione del numero di case automobilistiche ottenute; ammesso che tutti i valori univoci di una finestra temporale ottengano lo stesso timestamp, la seconda finestra di aggregazione deve essere minimale per non aggregare 2 finestre ottenute dal primo passaggio.
+**Spiegazione:** viene effettuata un'aggregazione iniziale per ottenere le case automobilistiche univoche con il relativo conteggio nell'arco della finestra temporale.
+Viene quindi effettuata un'aggregazione del numero di case automobilistiche ottenute; ammesso che tutti i valori univoci di una finestra temporale ottengano lo stesso timestamp, la seconda finestra di aggregazione deve essere minimale per non aggregare 2 finestre ottenute dal primo passaggio.
 
-## Esempio di query: Determinare la potenziale variazione di un valore
+## <a name="query-example-determine-if-a-value-has-changed"></a>Esempio di query: Determinare la potenziale variazione di un valore
 **Descrizione**: esaminare un valore precedente per determinarne la potenziale variazione rispetto al valore corrente. Ad esempio, l'auto passata in precedenza dal casello autostradale è della stessa casa automobilistica dell'auto corrente?
 
 **Input**:
 
-| Casa automobilistica | Time |
+| Casa automobilistica | Tempo |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
 **Output**:
 
-| Casa automobilistica | Time |
+| Casa automobilistica | Tempo |
 | --- | --- |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
@@ -249,12 +262,12 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 **Spiegazione**: usare LAG per esaminare il flusso di input di un evento precedente e ottenere il valore Casa automobilistica. Quindi confrontarlo con il valore Casa automobilistica dell'evento corrente per restituire l'evento di variazione.
 
-## Esempio di query: Individuazione del primo evento in una finestra
+## <a name="query-example-find-first-event-in-a-window"></a>Esempio di query: Individuazione del primo evento in una finestra
 **Descrizione**: trovare la prima auto in ogni intervallo di 10 minuti?
 
 **Input**:
 
-| Targa | Casa automobilistica | Time |
+| Targa | Casa automobilistica | Tempo |
 | --- | --- | --- |
 | DXE 5291 |Honda |27-07-2015T00:00:05.0000000Z |
 | YZK 5704 |Ford |27-07-2015T00:02:17.0000000Z |
@@ -266,7 +279,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 **Output**:
 
-| Targa | Casa automobilistica | Time |
+| Targa | Casa automobilistica | Tempo |
 | --- | --- | --- |
 | DXE 5291 |Honda |27-07-2015T00:00:05.0000000Z |
 | QYF 9358 |Honda |27-07-2015T00:12:02.0000000Z |
@@ -284,7 +297,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 Ridefinire il problema e trovare la prima auto di una particolare casa automobilistica a intervalli di 10 minuti.
 
-| Targa | Casa automobilistica | Time |
+| Targa | Casa automobilistica | Tempo |
 | --- | --- | --- |
 | DXE 5291 |Honda |27-07-2015T00:00:05.0000000Z |
 | YZK 5704 |Ford |27-07-2015T00:02:17.0000000Z |
@@ -303,12 +316,12 @@ Ridefinire il problema e trovare la prima auto di una particolare casa automobil
     WHERE 
         IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
 
-## Esempio di query: Individuazione dell'ultimo evento in una finestra
+## <a name="query-example-find-last-event-in-a-window"></a>Esempio di query: Individuazione dell'ultimo evento in una finestra
 **Descrizione**: trovare l'ultima auto in ogni intervallo di 10 minuti.
 
 **Input**:
 
-| Targa | Casa automobilistica | Time |
+| Targa | Casa automobilistica | Tempo |
 | --- | --- | --- |
 | DXE 5291 |Honda |27-07-2015T00:00:05.0000000Z |
 | YZK 5704 |Ford |27-07-2015T00:02:17.0000000Z |
@@ -320,7 +333,7 @@ Ridefinire il problema e trovare la prima auto di una particolare casa automobil
 
 **Output**:
 
-| Targa | Casa automobilistica | Time |
+| Targa | Casa automobilistica | Tempo |
 | --- | --- | --- |
 | VFE 1616 |Toyota |27-07-2015T00:09:31.0000000Z |
 | MDR 6128 |BMW |27-07-2015T00:13:45.0000000Z |
@@ -346,14 +359,15 @@ Ridefinire il problema e trovare la prima auto di una particolare casa automobil
         ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
         AND Input.Time = LastInWindow.LastEventTime
 
-**Spiegazione**: nella query esistono due passaggi: il primo rileva il timestamp più recente in finestre di 10 minuti. Il secondo passaggio unisce i risultati della prima query con il flusso originale per trovare gli eventi corrispondenti ai timestamp più recenti in ogni finestra.
+**Spiegazione**: nella query esistono due passaggi: il primo rileva il timestamp più recente in finestre di 10 minuti. Il secondo passaggio unisce i risultati della prima query con il flusso originale per trovare gli eventi corrispondenti ai timestamp più recenti in ogni finestra. 
 
-## Esempio di query: Rilevare l'assenza di eventi
-**Descrizione**: verificare che un flusso non abbia un valore corrispondente a determinati criteri. Ad esempio, 2 automobili consecutive della stessa casa automobilistica sono entrate in autostrada entro 90 secondi?
+## <a name="query-example-detect-the-absence-of-events"></a>Esempio di query: Rilevare l'assenza di eventi
+**Descrizione**: verificare che un flusso non abbia un valore corrispondente a determinati criteri.
+Ad esempio, 2 automobili consecutive della stessa casa automobilistica sono entrate in autostrada entro 90 secondi?
 
 **Input**:
 
-| Casa automobilistica | Targa | Time |
+| Casa automobilistica | Targa | Tempo |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -362,7 +376,7 @@ Ridefinire il problema e trovare la prima auto di una particolare casa automobil
 
 **Output**:
 
-| Casa automobilistica | Time | Targa auto corrente | Targa prima auto | Tempo prima auto |
+| Casa automobilistica | Tempo | Targa auto corrente | Targa prima auto | Tempo prima auto |
 | --- | --- | --- | --- | --- |
 | Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 
@@ -379,19 +393,19 @@ Ridefinire il problema e trovare la prima auto di una particolare casa automobil
     WHERE
         LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
 
-**Spiegazione**: utilizzare LAG per esaminare il flusso di input di un evento precedente e ottenere il valore per la casa automobilistica. Quindi confrontare tale valore con il valore Casa automobilistica dell'evento corrente e ottenere l'evento di eventuale corrispondenza, quindi usare LAG per ottenere dati sull'auto precedente.
+**Spiegazione**: usare LAG per esaminare il flusso di input di un evento precedente e ottenere il valore Casa automobilistica. Quindi confrontare tale valore con il valore Casa automobilistica dell'evento corrente e ottenere l'evento di eventuale corrispondenza, quindi usare LAG per ottenere dati sull'auto precedente.
 
-## Esempio di query: Rilevare la durata tra gli eventi
+## <a name="query-example-detect-duration-between-events"></a>Esempio di query: Rilevare la durata tra gli eventi
 **Descrizione**: trovare la durata di un determinato evento. Ad esempio, dato un clickstream Web determinare i tempi di una funzionalità.
 
-**Input**:
+**Input**:  
 
-| Utente | Funzionalità | Evento | Time |
+| Utente | Funzionalità | Evento | Tempo |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Inizia |2015-01-01T00:00:01.0000000Z |
 | user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
 
-**Output**:
+**Output**:  
 
 | Utente | Funzionalità | Durata |
 | --- | --- | --- |
@@ -407,10 +421,11 @@ Ridefinire il problema e trovare la prima auto di una particolare casa automobil
         Event = 'end'
 ````
 
-**Spiegazione**: usare la funzione LAST per recuperare l'ultimo valore di Time quando il tipo di evento presenta il valore 'Start'. Notare che la funzione LAST usa PARTITION BY [user] per indicare che il risultato deve essere calcolato per utente univoco. La query dispone di una soglia massima di 1 ora per la differenza di tempo tra gli eventi 'Start' e 'Stop', ma è configurabile in base alle esigenze: LIMIT DURATION(hour, 1).
+**Spiegazione**: usare la funzione LAST per recuperare l'ultimo valore di Time quando il tipo di evento presenta il valore 'Start'. Notare che la funzione LAST usa PARTITION BY [user] per indicare che il risultato deve essere calcolato per utente univoco.  La query dispone di una soglia massima di 1 ora per la differenza di tempo tra gli eventi 'Start' e 'Stop', ma è configurabile in base alle esigenze: LIMIT DURATION(hour, 1).
 
-## Esempio di query: Rilevare la durata di una condizione
-**Descrizione**: individuare la durata di una condizione. Ad esempio, si supponga che un bug abbia generato un peso errato per tutte le automobili (oltre 20.000 libbre) e che si desideri calcolare la durata di tale bug.
+## <a name="query-example-detect-duration-of-a-condition"></a>Esempio di query: Rilevare la durata di una condizione
+**Descrizione**: individuare la durata di una condizione.
+Ad esempio, si supponga che un bug abbia generato un peso errato per tutte le automobili (oltre 20.000 libbre) e che si desideri calcolare la durata di tale bug.
 
 **Input**:
 
@@ -452,10 +467,11 @@ Ridefinire il problema e trovare la prima auto di una particolare casa automobil
         AND previousWeight > 20000
 ````
 
-**Spiegazione**: usare LAG per visualizzare il flusso di input per 24 ore e cercare le istanze in cui StartFault e StopFault vengono intervallati per peso < 20000.
+**Spiegazione**: usare LAG per visualizzare il flusso di input per 24 ore e cercare le istanze in cui StartFault e StopFault vengono intervallati per peso < 20.000.
 
-## Esempio di query: immettere i valori mancanti
-**Descrizione**: per il flusso di eventi con i valori mancanti, generare un flusso di eventi con intervalli regolari. Ad esempio, generare un evento ogni 5 secondi che segnalerà il punto di dati più recente individuato.
+## <a name="query-example-fill-missing-values"></a>Esempio di query: immettere i valori mancanti
+**Descrizione**: per il flusso di eventi con i valori mancanti, generare un flusso di eventi con intervalli regolari.
+Ad esempio, generare un evento ogni 5 secondi che segnalerà il punto di dati più recente individuato.
 
 **Input**:
 
@@ -493,16 +509,21 @@ Ridefinire il problema e trovare la prima auto di una particolare casa automobil
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 
 
-**Spiegazione**: questa query genera eventi ogni cinque secondi e restituisce l'ultimo evento ricevuto prima. La durata della [finestra di salto](https://msdn.microsoft.com/library/dn835041.aspx "Finestra di salto - Analisi di flusso di Azure") determina fino a quando risale la query per cercare l'evento più recente. In questo esempio 300 secondi.
+**Spiegazione**: questa query genera eventi ogni cinque secondi e restituisce l'ultimo evento ricevuto prima. La durata della [finestra di salto](https://msdn.microsoft.com/library/dn835041.aspx "Hopping Window - Azure Stream Analytics") determina fino a quando risale la query per cercare l'evento più recente. In questo esempio, 300 secondi.
 
-## Ottenere aiuto
-Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
+## <a name="get-help"></a>Ottenere aiuto
+Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

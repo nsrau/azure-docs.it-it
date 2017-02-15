@@ -2,18 +2,22 @@
 title: Spostamento dei dati da e verso Archiviazione di Azure | Microsoft Docs
 description: In questo articolo sono raccolte informazioni generali sulle diverse soluzioni per spostare i dati da e verso Archiviazione di Azure.
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: micurd
 manager: jahogg
 editor: tysonn
-
+ms.assetid: 5e3947a9-d99b-4108-9d57-3eb67c03e7ba
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 11/18/2016
 ms.author: micurd
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 26dc2d2269855bcb31bc8f6faf2277ac059b81f5
+
 
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Spostamento dei dati da e verso Archiviazione di Azure
@@ -28,7 +32,7 @@ Vedere [Introduzione all'archiviazione BLOB di Azure](storage-dotnet-how-to-use-
 
 Viene anche offerta la [libreria per lo spostamento dei dati di Archiviazione di Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement) che è una libreria progettata per la copia a prestazioni elevate di dati da e verso Azure. Per altre informazioni, consultare la [documentazione](https://github.com/Azure/azure-storage-net-data-movement) sulla nostra libreria per lo spostamento dei dati. 
 
-## <a name="quickly-viewing/interacting-with-your-data"></a>Visualizzazione e interazione rapida dei dati
+## <a name="quickly-viewinginteracting-with-your-data"></a>Visualizzazione e interazione rapida dei dati
 Per visualizzare semplicemente i dati in Archiviazione di Azure e al tempo stesso poterli caricare e scaricare, è consigliabile usare un Esplora archivi Azure.
 
 Per altre informazioni, consultare l'elenco di [Esplora archivi Azure](storage-explorers.md) .
@@ -71,6 +75,9 @@ In presenza di carichi di lavoro e applicazioni locali, è consigliabile l’uso
 
 Per altre informazioni, vedere [Azure Site Recovery](../site-recovery/site-recovery-overview.md) .
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

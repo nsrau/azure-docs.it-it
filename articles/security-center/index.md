@@ -2,8 +2,8 @@
 layout: LandingPage
 description: Informazioni su come configurare monitoraggio della sicurezza e gestione dei criteri per le risorse di Azure. Esercitazioni, informazioni di riferimento sulle API REST e altri documenti.
 translationtype: Human Translation
-ms.sourcegitcommit: 4488a052681c0c146bf6efaf44f8ecebc400fecc
-ms.openlocfilehash: 92eb080a7234cb25a5560127edadfafeafc0253a
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 5600b20d3c04547e2002a779fde70769bb6a5e59
 
 ---
 # <a name="security-center-documentation"></a>Documentazione del Centro sicurezza
@@ -85,13 +85,7 @@ Informazioni su come usare il Centro sicurezza per avere visibilità e controllo
     </li>
 </ul>   
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security-center.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione del Centro sicurezza </div>
-    </a>
-</div>
+
 
 
 

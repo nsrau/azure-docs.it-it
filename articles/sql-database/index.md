@@ -2,8 +2,8 @@
 layout: LandingPage
 description: Informazioni sul database SQL, DaaS (Database-as-a-service) nel cloud. Esercitazioni, video e altri documenti in cui viene illustrato come impostare, collegare e gestire un database relazionale.
 translationtype: Human Translation
-ms.sourcegitcommit: e4df0029db106923e3d28f16b3dfe239cae5b032
-ms.openlocfilehash: 4c148d62e435f063810c096069c4020ef78568d8
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 2dfb79cc8f2aa2e2ca63b905666f519e083aa69d
 
 ---
 
@@ -153,13 +153,7 @@ Informazioni su come usare il database SQL, un database relazionale distribuito 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-database.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione relativa al database SQL </div>
-    </a>
-</div>
+
 
 
 

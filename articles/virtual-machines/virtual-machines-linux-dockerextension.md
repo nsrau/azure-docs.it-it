@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/25/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
@@ -72,7 +72,6 @@ data:    Provisioning State:  Succeeded
 data:    Tags: null
 data:
 info:    group create command OK
-
 ```
 
 L'interfaccia della riga di comando di Azure fa tornare l'utente al menu principale di prompt dopo alcuni secondi, ma l'host Docker viene comunque creato e configurato dall'estensione di VM Docker di Azure. L'operazione di distribuzione richiede alcuni minuti. È possibile visualizzare i dettagli sullo stato dell'host Docker con il comando `azure vm show`.

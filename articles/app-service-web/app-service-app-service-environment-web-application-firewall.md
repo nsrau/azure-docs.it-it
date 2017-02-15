@@ -29,7 +29,7 @@ ms.openlocfilehash: d4378398e666fe5ae2c7c55b377ae74880b857de
 ## <a name="setup"></a>Configurazione
 Per questo documento si configurerà l'ambiente del servizio app dietro più istanze con carico bilanciato di Barracuda WAF, in modo che solo il traffico proveniente dal firewall WAF possa raggiungere l'ambiente del servizio app che non sarà accessibile dalla rete perimetrale. Gestione traffico di Azure sarà invece davanti alle istanze di Barracuda WAF per bilanciare il carico tra i data center e le aree di Azure. Il diagramma generale della configurazione sarà simile al seguente.
 
-![Architettura][Architecture] 
+![Architecture][Architecture] 
 
 > Nota: con l'introduzione del [supporto del bilanciamento del carico interno per l'ambiente del servizio app](app-service-environment-with-internal-load-balancer.md), è possibile configurare l'ambiente del servizio app in modo che risulti inaccessibile dalla rete perimetrale e sia disponibile solo per la rete privata. 
 > 
@@ -100,7 +100,7 @@ Sostituire SourceAddressPrefix con l'indirizzo IP virtuale (VIP) del servizio cl
 > 
 
 <!-- IMAGES -->
-[Architettura]: ./media/app-service-app-service-environment-web-application-firewall/Architecture.png
+[Architecture]: ./media/app-service-app-service-environment-web-application-firewall/Architecture.png
 [ConfigureEndpoint]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureEndpoint.png
 [AddManagementEndpoint]: ./media/app-service-app-service-environment-web-application-firewall/AddManagementEndpoint.png
 [ManagementAddServices]: ./media/app-service-app-service-environment-web-application-firewall/ManagementAddServices.png

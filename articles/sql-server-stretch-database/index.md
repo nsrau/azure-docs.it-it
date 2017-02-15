@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: Informazioni su come usare Estensione database di SQL Server per eseguire la migrazione dei dati non attivi in modo sicuro ad Azure senza modificare le query o le applicazioni. Esercitazioni e altri documenti.
 translationtype: Human Translation
-ms.sourcegitcommit: d237f5116f81d0977a96a325ee66f2e7c3ee5c41
-ms.openlocfilehash: bf45461eafbb010d99b61f2f67a763e25f374b30
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3dad35a38c753988615a4c1f2b439de9f95baf0e
 
 ---
 #<a name="sql-server-stretch-database-documentation"></a>Documentazione di Estensione database di SQL Server
 
-Estensione database di SQL Server esegue la migrazione dei dati non attivi in modo trasparente e sicuro al cloud di Microsoft Azure. Estensione database di SQL Server offre una disponibilità economicamente conveniente per i dati non usati regolarmente, non richiede modifiche alle query o alle applicazioni e assicura la protezione dei dati anche durante la migrazione. Estensione database è destinato a database transazionali con grandi quantità di dati con utilizzo poco frequente, in genere archiviati in un numero limitato di tabelle.
+Informazioni su come usare Estensione database di SQL Server per eseguire la migrazione dei dati non attivi in modo trasparente e sicuro al cloud di Azure. Le esercitazioni e gli altri documenti consentono di configurare una disponibilità conveniente per i database con dati usati raramente senza dover modificare le query o le applicazioni esistenti.
+
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -86,16 +88,10 @@ Estensione database di SQL Server esegue la migrazione dei dati non attivi in mo
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-server-stretch-database.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione di Estensione database di SQL Server </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

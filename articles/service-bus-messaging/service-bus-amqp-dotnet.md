@@ -1,33 +1,37 @@
 ---
 title: Bus di servizio con .NET e AMQP 1.0 | Microsoft Docs
 description: Uso del bus di servizio da .NET con AMQP
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0cf8282d40c60fe9887dcbf43e2a526ffe34cc22
+
 
 ---
-# <a name="using-service-bus-from-.net-with-amqp-1.0"></a>Uso del bus di servizio da .NET con AMQP 1.0
+# <a name="using-service-bus-from-net-with-amqp-10"></a>Uso del bus di servizio da .NET con AMQP 1.0
 [!INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
 ## <a name="downloading-the-service-bus-sdk"></a>Download di Service Bus SDK
-Il supporto per AMQP 1.0 è disponibile in Service Bus SDK versione 2.1 o successiva. È possibile assicurarsi di avere la versione più recente scaricando l'ultima versione del bus di servizio da [NuGet][NuGet].
+Il supporto per AMQP 1.0 è disponibile in Service Bus SDK versione 2.1 o successiva. È possibile assicurarsi di avere la versione più recente scaricando il bus di servizio da [NuGet][NuGet].
 
-## <a name="configuring-.net-applications-to-use-amqp-1.0"></a>Configurazione delle applicazioni .NET per l'uso di AMQP 1.0
+## <a name="configuring-net-applications-to-use-amqp-10"></a>Configurazione delle applicazioni .NET per l'uso di AMQP 1.0
 Per impostazione predefinita, la libreria client .NET del bus di servizio comunica con il bus di servizio tramite un protocollo dedicato basato su SOAP. Per usare AMQP 1.0 anziché il protocollo predefinito, è necessaria una configurazione esplicita nella stringa di connessione del bus di servizio, come illustrato nella sezione successiva. A parte questa modifica, il codice dell'applicazione rimane invariato quando si usa AMQP 1.0.
 
 Nella versione corrente alcune funzionalità API non sono supportate se si usa AMQP. Queste funzionalità non supportate sono elencate più avanti nella sezione [Funzionalità non supportate, restrizioni e differenze di comportamento](#unsupported-features-restrictions-and-behavioral-differences). Anche alcune impostazioni di configurazione avanzate assumono un significato differente quando si utilizza AMQP.
 
-### <a name="configuration-using-app.config"></a>Configurazione mediante App.config
+### <a name="configuration-using-appconfig"></a>Configurazione mediante App.config
 È consigliabile usare il file di configurazione App.config per l'archiviazione delle impostazioni delle applicazioni. Per le applicazioni del bus di servizio, è possibile usare App.config per archiviare le impostazioni del valore **ConnectionString** del bus di servizio. Ecco un file App.config di esempio:
 
     <?xml version="1.0" encoding="utf-8" ?>
@@ -47,7 +51,7 @@ Dove `[namespace]` e `SharedAccessKey` vengono ottenuti dal [portale di Azure][p
 Quando si usa AMQP, aggiungere `;TransportType=Amqp` alla fine della stringa di connessione. Questa notazione segnala alla libreria client di effettuare la connessione al bus di servizio mediante AMQP 1.0.
 
 ## <a name="message-serialization"></a>Serializzazione dei messaggi
-Quando si usa il protocollo predefinito, il comportamento di serializzazione predefinito della libreria client .NET consiste nell'usare il tipo [DataContractSerializer][DataContractSerializer] per serializzare un'istanza di [BrokeredMessage][BrokeredMessage] per il trasporto tra la libreria client e il servizio del bus di servizio. Quando si usa la modalità di trasporto AMQP, la libreria client usa il sistema di tipo AMQP per la serializzazione del [messaggio negoziato] in un messaggio AMQP. Questa serializzazione consente la ricezione e l'interpretazione dei messaggi da parte di un'applicazione ricevente che è potenzialmente in esecuzione in una piattaforma diversa, ad esempio un'applicazione Java che usa l'API JMS per accedere al bus di servizio.
+Quando si usa il protocollo predefinito, il comportamento di serializzazione predefinito della libreria client .NET consiste nell'usare il tipo [DataContractSerializer][DataContractSerializer] per serializzare un'istanza di [BrokeredMessage][BrokeredMessage] per il trasporto tra la libreria client e il servizio del bus di servizio. Quando si usa la modalità di trasporto AMQP, la libreria client usa il sistema di tipo AMQP per la serializzazione del [messaggio negoziato][BrokeredMessage] in un messaggio AMQP. Questa serializzazione consente la ricezione e l'interpretazione dei messaggi da parte di un'applicazione ricevente che è potenzialmente in esecuzione in una piattaforma diversa, ad esempio un'applicazione Java che usa l'API JMS per accedere al bus di servizio.
 
 Quando si crea un'istanza di [BrokeredMessage][BrokeredMessage], è possibile specificare al costruttore un oggetto .NET come parametro da usare come corpo del messaggio. Per gli oggetti che possono essere mappati a tipi primitivi AMQP, il corpo viene serializzato in tipi di dati AMQP. Se non è possibile eseguire direttamente il mapping dell'oggetto a un tipo primitivo, ovvero un tipo personalizzato definito dall'applicazione, l'oggetto viene serializzato tramite [DataContractSerializer][DataContractSerializer] e i byte serializzati vengono inviati in un messaggio di dati AMQP.
 
@@ -87,7 +91,7 @@ Per semplificare l'interoperabilità con client non .NET, usare solo tipi .NET c
 | Datetimeoffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
 | TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
 
-## <a name="unsupported-features,-restrictions,-and-behavioral-differences"></a>Funzionalità non supportate, restrizioni e differenze di comportamento
+## <a name="unsupported-features-restrictions-and-behavioral-differences"></a>Funzionalità non supportate, restrizioni e differenze di comportamento
 Le seguenti funzionalità dell'API .NET del bus di servizio non sono al momento supportate con AMQP:
 
 * Transazioni
@@ -97,6 +101,7 @@ Esistono anche alcune piccole differenze di comportamento dell'API .NET del bus 
 
 * La proprietà [OperationTimeout][OperationTimeout] viene ignorata.
 * `MessageReceiver.Receive(TimeSpan.Zero)` viene implementato come `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
+* Il completamento di messaggi tramite token di blocco può essere eseguito solo dai destinatari che hanno ricevuto i messaggi all'inizio.
 
 ## <a name="controlling-amqp-protocol-settings"></a>Controllo delle impostazioni del protocollo AMQP
 Le API .NET espongono diverse impostazioni per controllare il comportamento del protocollo AMQP:
@@ -126,6 +131,7 @@ Per altre informazioni, vedere i collegamenti seguenti:
 [AMQP nel bus di servizio per Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

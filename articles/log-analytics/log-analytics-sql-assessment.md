@@ -1,19 +1,23 @@
 ---
-title: Ottimizzare l'ambiente con la soluzione SQL Assessment in Log Analytics | Microsoft Docs
-description: È possibile usare la soluzione SQL Assessment per valutare i rischi e l'integrità degli ambienti server a intervalli regolari.
+title: Ottimizzare l&quot;ambiente con la soluzione SQL Assessment in Log Analytics | Documentazione Microsoft
+description: "È possibile usare la soluzione SQL Assessment per valutare i rischi e l&quot;integrità degli ambienti server a intervalli regolari."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
-manager: jwhit
-editor: ''
-
+manager: carmonm
+editor: 
+ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 01/02/2017
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
+ms.openlocfilehash: 0b0c739f1d89b83c43314d8ace794d26abf10054
+
 
 ---
 # <a name="optimize-your-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Ottimizzare l'ambiente con la soluzione SQL Assessment in Log Analytics
@@ -39,17 +43,17 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
 * Nei server in cui è installato SQL Server devono essere installati gli agenti.
 * La soluzione SQL Assessment richiede l'installazione di .NET Framework 4 in ogni computer che contiene un agente OMS.
 * Quando si usa l'agente Operations Manager con SQL Assessment, è necessario usare un account RunAs di Operations Manager. Per altre informazioni, vedere di seguito [Account RunAs di Operations Manager per OMS](#operations-manager-run-as-accounts-for-oms) .
-  
+
   > [!NOTE]
   > L'agente MMA non supporta gli account RunAs di Operations Manager.
-  > 
-  > 
+  >
+  >
 * Aggiungere la soluzione SQL Assessment all'area di lavoro OMS usando la procedura descritta nell'articolo [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md). Non è richiesta alcuna ulteriore configurazione.
 
 > [!NOTE]
 > Dopo aver aggiunto la soluzione, il file AdvisorAssessment.exe viene aggiunto al server con agenti. I dati di configurazione vengono letti e quindi inviati al servizio OMS nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud.
-> 
-> 
+>
+>
 
 ## <a name="sql-assessment-data-collection-details"></a>Informazioni dettagliate sulla raccolta dei dati di SQL Assessment
 SQL Assessment raccoglie dati WMI, dati del Registro di sistema, dati sulle prestazioni e risultati delle visualizzazioni a gestione dinamica di SQL Server usando gli agenti abilitati.
@@ -71,18 +75,18 @@ Usare le informazioni seguenti per impostare l'account RunAs di Operations Manag
 #### <a name="to-configure-the-sql-run-as-account-in-the-operations-console"></a>Per configurare l'account RunAs di SQL in Operations Console
 > [!NOTE]
 > Se si usa l'agente diretto OMS, anziché l'agente SCOM, il management pack viene sempre eseguito nel contesto di sicurezza dell'account di sistema locale. Ignorare i passaggi seguenti da 1 a 5 ed eseguire l'esempio di T-SQL o PowerShell, specificando NT AUTHORITY\SYSTEM come nome utente.
-> 
-> 
+>
+>
 
 1. In Operations Manager aprire la console operatore e quindi fare clic su **Administration**.
 2. In **Esegui come configurazione**, fare clic su **Profili** e aprire **Profilo RunAs di OMS SQL Assessment**.
 3. Nella pagina **Esegui come account** fare clic su **Aggiungi**.
 4. Selezionare un account RunAs Windows che contiene le credenziali necessarie per SQL Server oppure fare clic su **New** per crearne uno.
-   
+
    > [!NOTE]
    > Il tipo dell'account RunAs deve essere Windows. L'account RunAs deve appartenere anche al gruppo Local Administrators in tutti i server Windows che ospitano istanze di SQL Server.
-   > 
-   > 
+   >
+   >
 5. Fare clic su **Save**.
 6. Modificare ed eseguire il seguente esempio T-SQL in ciascuna istanza di SQL Server per concedere le autorizzazioni minime richieste dall'account RunAs per eseguire la valutazione SQL. Tuttavia, non è necessario farlo se l'account RunAs fa già parte del ruolo server sysadmin nelle istanze di SQL Server.
 
@@ -142,7 +146,7 @@ La ponderazione per ogni raccomandazione è espressa come percentuale del punteg
 
 **Gestione modifiche e configurazione**: quest'area di interesse mostra le raccomandazioni utili per proteggere le operazioni quotidiane, assicurare che le modifiche non influiscano negativamente sull'infrastruttura, stabilire procedure di controllo delle modifiche e rilevare e monitorare le configurazioni del sistema.
 
-### <a name="should-you-aim-to-score-100%-in-every-focus-area?"></a>È consigliabile mirare a ottenere un punteggio del 100% in tutte le aree di interesse?
+### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>È consigliabile mirare a ottenere un punteggio del 100% in tutte le aree di interesse?
 Non necessariamente. Le raccomandazioni si basano sulla conoscenza e sull'esperienza acquisite dai tecnici Microsoft attraverso migliaia di visite dei clienti. Non esistono tuttavia due infrastrutture di server uguali e raccomandazioni specifiche possono essere più o meno pertinenti per l'utente. Ad esempio, alcune raccomandazioni sulla sicurezza possono risultare meno pertinenti se le macchine virtuali non sono esposte a Internet. Alcune raccomandazioni sulla disponibilità possono risultare meno pertinenti per i servizi che forniscono creazione di report e raccolta dei dati ad hoc a bassa priorità. I problemi che possono essere importanti per un'azienda collaudata possono esserlo meno per una start-up. È consigliabile identificare quali sono le proprie aree di interesse prioritarie e quindi osservare il cambiamento dei punteggi nel tempo.
 
 Ogni raccomandazione include informazioni aggiuntive sui motivi per cui potrebbe essere importante. È consigliabile usare queste informazioni aggiuntive per valutare se l'implementazione della raccomandazione è appropriata, a seconda della natura dei servizi IT e delle esigenze aziendali dell'organizzazione.
@@ -164,15 +168,15 @@ Per ignorare delle raccomandazioni è possibile creare un file di testo che OMS 
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Per identificare le raccomandazioni che verranno ignorate
 1. Accedere all'area di lavoro e aprire Ricerca log. Usare la query seguente per elencare le raccomandazioni non riuscite per i computer nell'ambiente.
-   
+
    ```
    Type=SQLAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
-   
-   Ecco lo screenshot che mostra la query di ricerca nei log: ![failed recommendations](./media/log-analytics-sql-assessment/sql-assess-failed-recommendations.png)
+
+   Ecco lo screenshot che mostra la query di ricerca nei log: ![raccomandazioni con esito negativo](./media/log-analytics-sql-assessment/sql-assess-failed-recommendations.png)
 2. Scegliere le raccomandazioni da ignorare. Nella procedura successiva verranno usati i valori per ID raccomandazione.
 
-### <a name="to-create-and-use-an-ignorerecommendations.txt-text-file"></a>Per creare e usare un file di testo IgnoreRecommendations.txt
+### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Per creare e usare un file di testo IgnoreRecommendations.txt
 1. Creare un file denominato IgnoreRecommendations.txt.
 2. Incollare o digitare ogni ID raccomandazione per ogni raccomandazione che OMS dovrà ignorare in una riga separata e quindi salvare e chiudere il file.
 3. Inserire il file nella cartella seguente in ogni computer in cui si vuole che OMS ignori le raccomandazioni.
@@ -182,7 +186,7 @@ Per ignorare delle raccomandazioni è possibile creare un file di testo che OMS 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Per verificare che le raccomandazioni vengano ignorate
 1. Dopo la successiva esecuzione della valutazione pianificata, per impostazione predefinita ogni 7 giorni, le raccomandazioni specificate sono contrassegnate come ignorate e non verranno visualizzate nel dashboard di valutazione.
 2. È possibile usare le query di Ricerca log seguenti per elencare tutte le raccomandazioni ignorate.
-   
+
    ```
    Type=SQLAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
@@ -217,7 +221,7 @@ Per ignorare delle raccomandazioni è possibile creare un file di testo che OMS 
 
 * Vengono raccolti i tipi di dati seguenti:
   * WMI
-  * Registro
+  *  Registro
   * Contatori delle prestazioni
   * DMV (Dynamic Management View) di SQL.
 
@@ -240,6 +244,8 @@ Per ignorare delle raccomandazioni è possibile creare un file di testo che OMS 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Eseguire ricerche nei log](log-analytics-log-searches.md) per visualizzare raccomandazioni e dati dettagliati di SQL Assessment.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

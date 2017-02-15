@@ -28,7 +28,7 @@ Il diagramma seguente offre una panoramica dell'architettura del [modello di sol
 
 ![Diagramma dell'architettura del modello di soluzione di Microsoft Cortana Intelligence per la previsione della domanda di energia][image]
 
-[immagine]: ./media/cortana-analytics-architecture-demand-forecasting-energy/ca-topologies-energy-forecasting.png
+[image]: ./media/cortana-analytics-architecture-demand-forecasting-energy/ca-topologies-energy-forecasting.png
 
 
 

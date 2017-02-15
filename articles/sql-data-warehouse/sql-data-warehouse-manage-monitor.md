@@ -5,8 +5,8 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 69ecd479-0941-48df-b3d0-cf54c79e6549
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6877a54f77a4c0137e4f6a8b2b2fcff41664a4b5
+
 
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitoraggio del carico di lavoro mediante DMV
@@ -67,7 +71,7 @@ WHERE   [label] = 'My Query';
 
 **Prendere nota dell'ID richiesta** della query che si desidera analizzare dai risultati della query precedente.
 
-Le query con stato **Sospeso** vengono messe in coda a causa dei limiti di concorrenza. Queste query vengono visualizzate anche nella query sys.dm_pdw_waits waits con un tipo UserConcurrencyResourceType. Per ulteriori informazioni sui limiti di concorrenza, vedere [Gestione della concorrenza e del carico di lavoro][Gestione della concorrenza e del carico di lavoro] . L'attesa delle query può dipendere anche da altre motivazioni, come i blocchi degli oggetti.  Se la query è in attesa di una risorsa, vedere [Analisi delle query in attesa di risorse][Analisi delle query in attesa di risorse] più avanti in questo articolo.
+Le query con stato **Sospeso** vengono messe in coda a causa dei limiti di concorrenza. Queste query vengono visualizzate anche nella query sys.dm_pdw_waits waits con un tipo UserConcurrencyResourceType. Per altre informazioni sui limiti di concorrenza, vedere [Gestione della concorrenza e del carico di lavoro][Gestione della concorrenza e del carico di lavoro]. L'attesa delle query può dipendere anche da altre motivazioni, come i blocchi degli oggetti.  Se la query è in attesa di una risorsa, vedere [Analisi delle query in attesa di risorse][Analisi delle query in attesa di risorse] più avanti in questo articolo.
 
 Per semplificare la ricerca di una query nella tabella sys.dm_pdw_exec_requests, usare [LABEL][LABEL] per assegnare alla query un commento che possa essere cercato nella visualizzazione sys.dm_pdw_exec_requests.
 
@@ -170,7 +174,7 @@ Se la query è attivamente in attesa di risorse da un'altra query, lo stato sar�
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle DMV, vedere [Viste di sistema][Viste di sistema].
-Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per SQL Data Warehouse][]
+Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][Procedure consigliate per Azure SQL Data Warehouse].
 
 <!--Image references-->
 
@@ -194,6 +198,6 @@ Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliat
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

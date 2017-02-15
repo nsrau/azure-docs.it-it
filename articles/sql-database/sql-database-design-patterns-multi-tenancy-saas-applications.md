@@ -4,7 +4,7 @@ description: "Questo articolo illustra i requisiti e i modelli comuni di archite
 keywords: 
 services: sql-database
 documentationcenter: 
-author: srinia
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: 1dd20c6b-ddbb-40ef-ad34-609d398d008a
@@ -14,11 +14,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-design
-ms.date: 02/01/2017
-ms.author: srinia
+ms.date: 11/08/2016
+ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7ee06d20ba56402fad86adf321c7c5a4996d7e19
-ms.openlocfilehash: 92dd94db5885bc24655cf2af3247528901f10720
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 63f94dc3b648486fe7c2e14661b5f5f02a147149
 
 
 ---
@@ -66,7 +66,7 @@ Le comuni procedure di progettazione per l'inserimento dei dati dei tenant seguo
 
 ![Modelli di dati di applicazioni multi-tenant](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-multi-tenant-data-models.png)
 
- Figura 1: Procedure di progettazione comuni per modelli di dati multi-tenant
+Figura 1: Procedure di progettazione comuni per modelli di dati multi-tenant
 
 * **Database per ogni tenant**. ogni tenant dispone del proprio database. Tutti i dati specifici di un tenant vengono limitati a quel database e isolati dagli altri tenant e dai relativi dati.
 * **Database condiviso partizionato**. più tenant condividono uno di più database. A ogni database viene assegnato un set distinto di tenant con una strategia di partizionamento come il partizionamento hash, a intervallo oppure a elenco. Questa strategia di distribuzione dei dati è spesso detta partizionamento orizzontale.
@@ -88,9 +88,9 @@ L'asse Y nella figura 2 indica il livello di isolamento dei tenant. L'asse X ind
 
 ![Modelli comuni di progettazione per le applicazioni multi-tenant](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-popular-application-patterns.png)
 
- Figura 2: modelli di dati multi-tenant comuni
+Figura 2: modelli di dati multi-tenant comuni
 
-Il quadrante in basso a destra nella figura 2 mostra un modello di applicazione che usa un approccio con database singolo condiviso potenzialmente di grandi dimensioni insieme a una tabella condivisa o schema separato. Offre vantaggi in termini di condivisione delle risorse perché tutti i tenant usano le stesse risorse di database, come CPU, memoria e input/output, in un database singolo. L'isolamento dei tenant è tuttavia limitato. Potrebbe essere necessario eseguire passaggi aggiuntivi per proteggere i tenant tra loro al livello dell'applicazione. Questi passaggi aggiuntivi possono aumentare notevolmente il costo della metodologia DevOps nello sviluppo e nella gestione dell'applicazione. Un altro limite è la scalabilità dell'hardware usato per ospitare il database.
+Il quadrante in basso a destra nella figura 2 mostra un modello di applicazione che usa un approccio con database autonomo condiviso potenzialmente di grandi dimensioni insieme a una tabella condivisa o schema separato. Offre vantaggi in termini di condivisione delle risorse perché tutti i tenant usano le stesse risorse di database, come CPU, memoria e input/output, in un database singolo. L'isolamento dei tenant è tuttavia limitato. Potrebbe essere necessario eseguire passaggi aggiuntivi per proteggere i tenant tra loro al livello dell'applicazione. Questi passaggi aggiuntivi possono aumentare notevolmente il costo della metodologia DevOps nello sviluppo e nella gestione dell'applicazione. Un altro limite è la scalabilità dell'hardware usato per ospitare il database.
 
 Il quadrante in basso a sinistra nella figura 2 illustra più tenant partizionati tra più database, in genere con unità di scala di hardware diverse. Ogni database ospita un sottoinsieme di tenant risolvendo il problema di scalabilità di altri modelli. Se è necessaria maggiore capacità per più tenant, è possibile inserire facilmente i tenant in nuovi database allocati in nuove unità di scala dell'hardware. Tuttavia, il livello di condivisione delle risorse è ridotto poiché solo i tenant inseriti nella stessa unità di scala condividono le risorse. Questo approccio non migliora di molto l'isolamento dei tenant perché molti tenant si trovano ancora senza una protezione automatica dalle azioni degli altri tenant. La complessità dell'applicazione rimane elevata.
 
@@ -109,7 +109,7 @@ Il database SQL di Azure supporta tutti i modelli di applicazione multi-tenant i
 
 ![Modelli nel database SQL di Azure](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-patterns-sqldb.png)
 
- Figura 3: Modelli di applicazione multi-tenant nel database SQL di Azure
+Figura 3: Modelli di applicazione multi-tenant nel database SQL di Azure
 
 ## <a name="database-per-tenant-model-with-elastic-pools-and-tools"></a>Modello database per tenant con strumenti e pool elastici
 I pool elastici nel database SQL combinano l'isolamento dei tenant alla condivisione delle risorse tra i database dei tenant migliorando il supporto dell'approccio con database per ogni tenant. Il database SQL è una soluzione di livello dati per consentire ai provider SaaS di compilare applicazioni multi-tenant. La condivisione delle risorse tra tenant passa dal livello dell'applicazione a livello di servizio di database. Le complessità legate alla gestione e all'esecuzione di query su larga scala tra i database vengono semplificate con transazioni, query e processi elastici, e con la libreria client dei database elastici.
@@ -124,7 +124,7 @@ I pool elastici nel database SQL combinano l'isolamento dei tenant alla condivis
 | [Libreria client dei database elastici](sql-database-elastic-database-client-library.md): le distribuzioni dei dati vengono gestite e i tenant vengono mappati ai database. | |
 
 ## <a name="shared-models"></a>Modelli condivisi
-Come descritto in precedenza, per la maggior parte dei provider SaaS l'approccio con un modello condiviso può rappresentare un problema in termini di isolamento dei tenant, ma anche di complessità nello sviluppo e nella manutenzione delle applicazioni. Tuttavia, per le applicazioni multi-tenant che forniscono un servizio direttamente ai consumer, i requisiti di isolamento dei tenant possono non essere prioritari quanto la riduzione al minimo dei costi. Potrebbe essere possibile riunire i tenant in uno o più database a densità elevata per ridurre i costi. I modelli di database condivisi che usano un database singolo o più database partizionati possono offrire una maggiore efficienza in termini di condivisione delle risorse e riduzione del costo complessivo. Il database SQL di Azure offre alcune funzionalità che consentono a tali clienti di compilare l'isolamento per una maggiore sicurezza e la gestione su larga scala nel livello dati.
+Come descritto in precedenza, per la maggior parte dei provider SaaS l'approccio con un modello condiviso può rappresentare un problema in termini di isolamento dei tenant, ma anche di complessità nello sviluppo e nella manutenzione delle applicazioni. Tuttavia, per le applicazioni multi-tenant che forniscono un servizio direttamente ai consumer, i requisiti di isolamento dei tenant possono non essere prioritari quanto la riduzione al minimo dei costi. Potrebbe essere possibile riunire i tenant in uno o più database a densità elevata per ridurre i costi. I modelli di database condivisi che usano un database autonomo o più database partizionati possono offrire una maggiore efficienza in termini di condivisione delle risorse e riduzione del costo complessivo. Il database SQL di Azure offre alcune funzionalità che consentono a tali clienti di compilare l'isolamento per una maggiore sicurezza e la gestione su larga scala nel livello dati.
 
 | Requisiti dell'applicazione | Funzionalità del database SQL |
 | --- | --- |
@@ -168,6 +168,6 @@ Per domande, è disponibile il [forum sul database SQL](http://social.msdn.micro
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

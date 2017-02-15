@@ -1,48 +1,52 @@
 ---
-title: Risolvere le vulnerabilità del sistema operativo nel Centro sicurezza di Azure | Microsoft Docs
-description: Questo documento illustra come implementare la raccomandazione **Remediate OS vulnerabilities (Risolvi vulnerabilità del sistema operativo)** del Centro sicurezza di Azure.
+title: "Correggere le vulnerabilità del sistema operativo nel Centro sicurezza di Azure | Microsoft Docs"
+description: "Questo documento illustra come implementare la raccomandazione **Remediate OS vulnerabilities (Risolvi vulnerabilità del sistema operativo)** del Centro sicurezza di Azure."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: ''
-
+editor: 
+ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/20/2016
+ms.date: 10/17/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3f38ec79596152d67e3591583d6016e8528caf4c
+
 
 ---
-# Risolvere le vulnerabilità del sistema operativo in Centro sicurezza di Azure
-Il Centro sicurezza di Azure analizza ogni giorno le configurazioni del sistema operativo delle macchine virtuali (VM) che potrebbero rendere la VM più vulnerabile agli attacchi e suggerisce le modifiche di configurazione per risolvere tali problemi. Vedere l'[elenco delle regole di configurazione raccomandate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) per ulteriori informazioni sulle configurazioni specifiche monitorate. Il Centro sicurezza consiglierà di risolvere le vulnerabilità quando la configurazione del sistema operativo della macchina virtuale non corrisponde alle regole di configurazione raccomandate.
+# <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>Risolvere le vulnerabilità del sistema operativo in Centro sicurezza di Azure
+Il Centro sicurezza di Azure analizza ogni giorno le configurazioni del sistema operativo delle macchine virtuali (VM) che potrebbero rendere la VM più vulnerabile agli attacchi e suggerisce le modifiche di configurazione per risolvere tali problemi. Per altre informazioni sulle configurazioni specifiche monitorate, vedere l'[elenco delle regole di configurazione consigliate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Il Centro sicurezza consiglia di risolvere le vulnerabilità quando la configurazione del sistema operativo della VM non corrisponde alle regole di configurazione consigliate.
 
 > [!NOTE]
-> Il documento introduce il servizio usando una distribuzione di esempio. Questa non è una guida dettagliata.
+> Il documento introduce il servizio usando una distribuzione di esempio.  Questa non è una guida dettagliata.
 > 
 > 
 
-## Implementare la raccomandazione
-1. Nel pannello **Raccomandazioni** selezionare **Remediate OS vulnerabilities** (Risolvi vulnerabilità del sistema operativo). Verrà visualizzato il pannello **Remediate OS vulnerabilities** (Risolvi vulnerabilità del sistema operativo). ![Remediate OS vulnerabilities (Risolvi vulnerabilità del sistema operativo)][1]
-2. Il pannello **Remediate OS vulnerabilities** (Risolvi vulnerabilità del sistema operativo) elenca le macchine virtuali con configurazioni del sistema operativo che non corrispondono alle regole di configurazione raccomandate. Per ogni VM, il pannello identifica:
+## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
+1. Nel pannello **Indicazioni** selezionare **Correggi le vulnerabilità del sistema operativo**.
+   ![Remediate OS vulnerabilities (Risolvi vulnerabilità del sistema operativo)][1]
    
-   * **REGOLE NON RIUSCITE**: il numero di regole non riuscite nella configurazione del sistema operativo della VM.
-   * **ORA DELL'ULTIMA ANALISI**: data e ora dell'ultima volta in cui il Centro sicurezza ha verificato la configurazione del sistema operativo della VM.
-   * **STATO**: stato corrente della vulnerabilità:
+    Viene aperto il pannello **Correggi le vulnerabilità del sistema operativo**, in cui sono elencate le VM con configurazioni del sistema operativo che non corrispondono alle regole di configurazione consigliate.  Per ogni VM, il pannello identifica:
+   
+   * **REGOLE NON RIUSCITE** : il numero di regole non riuscite nella configurazione del sistema operativo della VM.
+   * **ORA DELL'ULTIMA ANALISI** : data e ora dell'ultima volta in cui il Centro sicurezza ha verificato la configurazione del sistema operativo della VM.
+   * **STATO** : stato corrente della vulnerabilità:
      
      * Aperta: la vulnerabilità non è ancora stata applicata
      * In corso: l'applicazione della vulnerabilità in corso e non è richiesta alcuna azione da parte dell'utente
      * Risolta: la vulnerabilità è già stata risolta. Dopo che il problema è stato risolto, la voce viene visualizzata in grigio
-   * **GRAVITÀ**: tutte le vulnerabilità sono impostate su un livello di gravità bassa, vale a dire che è necessario gestire una vulnerabilità ma non è necessaria un'attenzione immediata.
-   
-   Selezionare una VM. Verrà visualizzato il pannello **Remediate OS vulnerabilities** (Risolvi vulnerabilità del sistema operativo) per questa VM e verranno visualizzate le regole non riuscite.
-   
+   * **GRAVITÀ** : tutte le vulnerabilità sono impostate su un livello di gravità bassa, vale a dire che è necessario gestire una vulnerabilità ma non è necessaria un'attenzione immediata.
+
+Selezionare una macchina virtuale. Si apre un pannello per la VM, in cui sono visualizzate le regole non riuscite.
    ![Regole di configurazione non riuscite][2]
 
 Selezionare una regola. In questo esempio selezioniamo **Le password devono essere conformi ai requisiti di complessità**. Verrà visualizzato un pannello che descrive la regola non riuscita e l'impatto. Esaminare i dettagli e valutare come verranno applicate le configurazioni del sistema operativo.
-
   ![Descrizione della regola non riuscita][3]
 
   Il Centro sicurezza usa l'enumerazione di configurazione comune (CCE) per assegnare identificatori univoci per le regole di configurazione. In questo pannello sono disponibili le informazioni seguenti:
@@ -58,22 +62,26 @@ Selezionare una regola. In questo esempio selezioniamo **Le password devono esse
 * VALORE EFFETTIVO: valore restituito dopo l'analisi della configurazione del sistema operativo della VM rispetto alla regola
 * RISULTATO DELLA VALUTAZIONE: risultati dell'analisi: riuscita, non riuscita
 
-## Vedere anche
-Questo documento illustra come implementare la raccomandazione "Remediate OS vulnerabilities" (Risolvi vulnerabilità del sistema operativo) del Centro sicurezza. È possibile esaminare il set di regole di configurazione [qui](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Il Centro sicurezza usa l'enumerazione di configurazione comune (CCE) per assegnare identificatori univoci per le regole di configurazione. Per altre informazioni, vedere la pagina relativa alla enumerazione [CCE](http://cce.mitre.org).
+## <a name="see-also"></a>Vedere anche
+Questo documento illustra come implementare la raccomandazione "Remediate OS vulnerabilities" (Risolvi vulnerabilità del sistema operativo) del Centro sicurezza. È possibile esaminare il set di regole di configurazione [qui](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Il Centro sicurezza usa l'enumerazione di configurazione comune (CCE) per assegnare identificatori univoci per le regole di configurazione. Per altre informazioni, vedere la pagina relativa alla enumerazione [CCE](http://cce.mitre.org) .
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
-* [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui le raccomandazioni semplificano la protezione delle risorse di Azure.
-* [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
-* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
-* [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare lo stato integrità delle soluzioni dei partner.
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
-* [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.
+* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+* [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md) : informazioni sul modo in cui le raccomandazioni semplificano la protezione delle risorse di Azure.
+* [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure.
+* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
+* [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md) : informazioni su come monitorare lo stato integrità delle soluzioni dei partner.
+* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
+* [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-remediate-os-vulnerabilities/recommendation.png
-[2]: ./media/security-center-remediate-os-vulnerabilities/vm-remediate-os-vulnerabilities.png
+[2]:./media/security-center-remediate-os-vulnerabilities/vm-remediate-os-vulnerabilities.png
 [3]: ./media/security-center-remediate-os-vulnerabilities/vulnerability-details.png
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

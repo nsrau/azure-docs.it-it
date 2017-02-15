@@ -1,22 +1,26 @@
 ---
 title: Uso di Hub di notifica di Azure per inviare notifiche agli utenti con back-end.NET
-description: Informazioni su come inviare notifiche push sicure in Azure. Gli esempi di codice sono scritti in C# mediante l'API .NET.
+description: Informazioni su come inviare notifiche push sicure in Azure. Gli esempi di codice sono scritti in C# mediante l&quot;API .NET.
 documentationcenter: windows
-author: wesmc7777
+author: ysxu
 manager: erikre
 services: notification-hubs
-editor: ''
-
+editor: 
+ms.assetid: 012529f2-fdbc-43c4-8634-2698164b5880
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/03/2016
-ms.author: wesmc
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c0b963ef661612b1a176dd8e5f01d56e61eb5acb
+
 
 ---
-# <a name="azure-notification-hubs-notify-users-with-.net-backend"></a>Uso di Hub di notifica di Azure per inviare notifiche agli utenti con back-end.NET
+# <a name="azure-notification-hubs-notify-users-with-net-backend"></a>Uso di Hub di notifica di Azure per inviare notifiche agli utenti con back-end.NET
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 ## <a name="overview"></a>Overview
@@ -35,9 +39,11 @@ Prima di iniziare questa esercitazione, è necessario aver già completato quest
 * [Introduzione ad Hub di notifica]<br/>Creare il proprio hub di notifica, riservare il nome dell'app e registrarsi per ricevere le notifiche in questa esercitazione. In questa esercitazione si presuppone che siano già stati completati questi passaggi. In caso contrario, attenersi alla procedura riportata in [Introduzione ad Hub di notifica (Windows Store)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), con particolare riferimento alle sezioni [Registrare l'app di Windows Store](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#register-your-app-for-the-windows-store) e [Configurare l'hub di notifica](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#configure-your-notification-hub). In particolare, assicurarsi di avere immesso i valori **SID pacchetto** e **Chiave privata client** nel portale, nella scheda **Configura** per l'hub di notifica. Questa procedura di configurazione è descritta nella sezione [Configurazione dell'hub di notifica](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#configure-your-notification-hub). Questo passaggio è importante: se le credenziali sul portale non corrispondono a quelle specificate per il nome di app scelto, la notifica push non riuscirà.
 
 > [!NOTE]
-> Se si usa App per dispositivi mobili nel servizio app, vedere la [versione per App per dispositivi mobili](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) di questa esercitazione.
+> Se si usano app per dispositivi mobili nel servizio app di Azure, vedere la [versione per App per dispositivi mobili](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) di questa esercitazione.
 > 
 > 
+
+&nbsp;
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -337,11 +343,11 @@ In questa sezione viene aggiornato il codice nel progetto completato per l’ese
 <!-- URLs. -->
 [Introduzione ad Hub di notifica]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Push sicuro]: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
-[Uso di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[Utilizzo di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

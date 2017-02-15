@@ -2,35 +2,38 @@
 title: Come configurare notifiche e modelli di posta elettronica in Gestione API di Azure
 description: Informazioni su come configurare notifiche e modelli di posta elettronica in Gestione API di Azure.
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ee25f26d-4752-433b-af9c-3817db38aed5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: d99e2d885d56e3752a3b1caf51e52c801acaab52
+ms.openlocfilehash: 8e3c98108672dcd2ae48da7b2a9eeb174cee76e1
+
 
 ---
-# Come configurare notifiche e modelli di posta elettronica in Gestione API di Azure
+# <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Come configurare notifiche e modelli di posta elettronica in Gestione API di Azure
 Gestione API consente di configurare notifiche per eventi specifici nonché di configurare modelli di posta elettronica da usare per comunicare con gli amministratori e gli sviluppatori di un'istanza di Gestione API. In questo argomento viene illustrato come configurare notifiche per gli eventi disponibili e viene offerta una panoramica sulla configurazione di modelli di posta elettronica usati per tali eventi.
 
 ## <a name="publisher-notifications"> </a>Configurare le notifiche dell'editore
-Per configurare le notifiche, fare clic su **Gestisci** nel portale di Azure classico per il servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API.
+Per configurare le notifiche, fare clic su **Portale di pubblicazione** nel portale di Azure per il servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API.
 
-![Portale di pubblicazione][api-management-management-console]  
+![Portale di pubblicazione][api-management-management-console]
 
-> Se non è stato creata un'istanza del servizio Gestione API, vedere [Creare un'istanza del servizio Gestione API][Creare un'istanza del servizio Gestione API] nell'esercitazione [Introduzione a Gestione API di Azure][Introduzione a Gestione API di Azure].
-> 
-> 
+> [!NOTE] 
+> Se non è ancora stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][Creare un'istanza di Gestione API] nell'esercitazione [Introduzione a Gestione API di Azure][Introduzione a Gestione API di Azure].
 
 Fare clic su **Notifiche** dal menu **Gestione API** a sinistra per visualizzare le notifiche disponibili.
 
-![Notifiche dell'editore][api-management-publisher-notifications]  
+![Notifiche dell'editore][api-management-publisher-notifications]
 
 L'elenco di eventi seguente può essere configurato per le notifiche.
 
@@ -46,19 +49,19 @@ Per ogni evento, è possibile specificare i destinatari di posta elettronica usa
 
 Per specificare gli indirizzi di posta elettronica a cui inviare le notifiche, immettere tali indirizzi nella casella di testo relativa all'indirizzo di posta elettronica. Se ci sono più indirizzi di posta elettronica, separarli usando delle virgole.
 
-![Destinatari delle notifiche][api-management-email-addresses]  
+![Destinatari delle notifiche][api-management-email-addresses]
 
 Per specificare gli utenti a cui inviare le notifiche, fare clic su **Aggiungi destinatario**, selezionare la casella di controllo corrispondente all'utente desiderato, quindi fare clic su **OK**.
 
-> Si noti che solo gli amministratori vengono visualizzati nell'elenco.
-> 
-> 
+> [!NOTE] 
+> Solo gli amministratori vengono visualizzati nell'elenco.
+
 
 Dopo avere configurato i destinatari delle notifiche, fare clic su **Salva** per rendere effettivi i destinatari delle notifiche aggiornati.
 
-> Se si esce dalla scheda **Notifiche dell'editore**, il portale di pubblicazione visualizza un avviso in caso di modifiche non salvate.
-> 
-> 
+> [!NOTE] 
+> Se si esce dalla scheda **Notifiche dell'editore** , il portale di pubblicazione visualizza un avviso in caso di modifiche non salvate.
+
 
 ## <a name="email-templates"> </a>Configurare modelli di posta elettronica
 Gestione API fornisce modelli di posta elettronica per i messaggi che vengono inviati durante l'amministrazione e l'uso del servizio. Sono forniti i modelli di posta elettronica indicati di seguito.
@@ -78,11 +81,11 @@ Questi modelli possono essere modificati a piacimento.
 
 Per visualizzare e configurare i modelli di posta elettronica per la propria istanza di Gestione API, fare clic su **Notifiche** dal menu **Gestione API** a sinistra, quindi selezionare la scheda **Modelli di posta elettronica**.
 
-![Modelli di posta elettronica][api-management-email-templates]  
+![Modelli di posta elettronica][api-management-email-templates]
 
-Per visualizzare o modificare un modello specifico, selezionarlo dall'elenco a discesa **Modelli**.
+Per visualizzare o modificare un modello specifico, selezionarlo dall'elenco a discesa **Modelli** .
 
-![Elenco modelli di posta elettronica][api-management-email-templates-list]  
+![Elenco modelli di posta elettronica][api-management-email-templates-list]
 
 Ogni modello di posta elettronica ha un oggetto in testo normale e una definizione di corpo in formato HTML. Ogni elemento può essere personalizzato a piacimento.
 
@@ -92,11 +95,11 @@ L'elenco **Parametri** contiene un elenco di parametri che, quando inserito nell
 
 Fare clic su **Anteprima** o **Invia test** per verificare l'aspetto del messaggio o per inviare un messaggio di prova.
 
-> Si noti che i parametri non vengono sostituiti con valori effettivi quando si visualizzano anteprime o si inviano messaggi di prova.
-> 
-> Per salvare le modifiche al modello di posta elettronica, fare clic su **Salva** oppure, per annullare le modifiche, fare clic su **Annulla**.
-> 
-> 
+> [!NOTE] 
+> I parametri non vengono sostituiti con valori effettivi quando si visualizzano anteprime o si inviano messaggi di prova.
+
+Per salvare le modifiche al modello di posta elettronica, fare clic su **Salva** oppure, per annullare le modifiche, fare clic su **Annulla**.
+ 
 
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png
 [api-management-publisher-notifications]: ./media/api-management-howto-configure-notifications/api-management-publisher-notifications.png
@@ -108,13 +111,17 @@ Fare clic su **Anteprima** o **Invia test** per verificare l'aspetto del messagg
 [api-management-email-template]: ./media/api-management-howto-configure-notifications/api-management-email-template.png
 
 
-[Configure publisher notifications]: #publisher-notifications
-[Configure email templates]: #email-templates
+[Configurare le notifiche dell'editore]: #publisher-notifications
+[Configurare modelli di posta elettronica]: #email-templates
 
-[How to create and use groups]: api-management-howto-create-groups.md
-[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
+[Come creare e usare i gruppi]: api-management-howto-create-groups.md
+[Come associare i gruppi agli sviluppatori]: api-management-howto-create-groups.md#associate-group-developer
 
 [Introduzione a Gestione API di Azure]: api-management-get-started.md
-[Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
+[Creare un'istanza di Gestione API]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

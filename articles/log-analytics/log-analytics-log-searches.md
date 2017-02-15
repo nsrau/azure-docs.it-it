@@ -1,19 +1,23 @@
 ---
 title: Ricerche nei log in Log Analytics | Microsoft Docs
-description: Le ricerche nei log permettono di combinare e correlare i dati del computer provenienti da più origini nell'ambiente corrente.
+description: "Le ricerche nei log permettono di combinare e correlare i dati del computer provenienti da più origini nell&quot;ambiente corrente."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
-manager: jwhit
-editor: ''
-
+manager: carmonm
+editor: 
+ms.assetid: 0d7b6712-1722-423b-a60f-05389cde3625
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3e1810850651cff4680ea558178ebf92aeac4faa
+
 
 ---
 # <a name="log-searches-in-log-analytics"></a>Ricerche nei log in Log Analytics
@@ -176,8 +180,8 @@ Type=Event EventLog="Operations Manager" EventID:[2100..2199]
 
 > [!NOTE]
 > La sintassi dell'intervallo da usare è il separatore di due punti (:), field:value, e *non* il segno di uguale (=). Racchiudere le estremità inferiore e superiore dell'intervallo tra parentesi quadre e separarle con due punti (..).
-> 
-> 
+>
+>
 
 ## <a name="manipulate-search-results"></a>Modificare i risultati della ricerca
 Quando si esegue una ricerca di dati, è opportuno ridefinire la query di ricerca e avere un buon livello di controllo sui risultati. Quando i risultati vengono recuperati, è possibile applicare comandi per trasformarli.
@@ -246,7 +250,7 @@ Si tratta di comando particolarmente utile quando si desidera controllare l'outp
 ## <a name="use-the-measure-command"></a>Usare il comando measure
 MEASURE è uno dei comandi più versatili nelle ricerche di Log Analytics. Consente di applicare *funzioni* statistiche ai dati e di aggregare i risultati raggruppati in base a un determinato campo. Esistono più funzioni statistiche supportate dal comando Measure.
 
-### <a name="measure-count()"></a>Measure count()
+### <a name="measure-count"></a>Measure count()
 La prima funzione statistica da usare e una delle più semplici da comprendere è la funzione *count()* .
 
 Nei risultati di una query di ricerca, ad esempio `Type=Event`, i filtri, anche denominati facet, vengono visualizzati sul lato sinistro dei risultati della ricerca. I filtri visualizzano una distribuzione di valori in base a un determinato campo, per i risultati della ricerca eseguita.
@@ -571,6 +575,8 @@ Per altre informazioni sulle ricerche nei log:
 * Usare [Campi personalizzati in Log Analytics](log-analytics-custom-fields.md) per estendere le ricerche nei log.
 * Vedere il [riferimento alla ricerca nei log di Log Analytics](log-analytics-search-reference.md) per visualizzare tutti i campi di ricerca e i facet disponibili in Log Analytics.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

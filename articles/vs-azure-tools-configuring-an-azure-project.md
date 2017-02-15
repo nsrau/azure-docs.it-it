@@ -1,22 +1,26 @@
 ---
-title: Configurare un progetto di servizio cloud di Azure con Visual Studio | Microsoft Docs
+title: Configurare un progetto servizio cloud di Azure con Visual Studio | Documentazione Microsoft
 description: Informazioni su come configurare un progetto di servizio cloud di Azure in Visuali Studio, in base ai requisiti specifici per il progetto.
 services: visual-studio-online
 documentationcenter: na
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 609d6965-05cc-47b1-82dc-c76a92d4f295
 ms.service: multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 08/15/2016
+ms.date: 11/11/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 33d6b242c5562bd0aba4786ff70782c697ca7cd7
+
 
 ---
-# Configurare un progetto di servizio cloud di Azure con Visual Studio
+# <a name="configure-an-azure-cloud-service-project-with-visual-studio"></a>Configurare un progetto di servizio cloud di Azure con Visual Studio
 È possibile configurare un progetto di servizio cloud di Azure, in base ai requisiti specifici per il progetto. È possibile impostare proprietà per il progetto per le categorie seguenti:
 
 * **Pubblicare un servizio cloud in Azure**
@@ -33,11 +37,11 @@ Nella figura seguente viene illustrato come selezionare una configurazione da us
 
 ![Configurare un progetto Microsoft Azure](./media/vs-azure-tools-configuring-an-azure-project/IC713462.png)
 
-## Per configurare un progetto di servizio cloud di Azure
-1. Per configurare un progetto di servizio cloud da **Esplora soluzioni**, aprire il menu di scelta rapida per il progetto di servizio cloud e quindi scegliere **Proprietà**.
+## <a name="to-configure-an-azure-cloud-service-project"></a>Per configurare un progetto di servizio cloud di Azure
+1. Per configurare un progetto servizio cloud da **Esplora soluzioni**, aprire il menu di scelta rapida per il progetto servizio cloud e quindi scegliere **Proprietà**.
    
    Una pagina con il nome del progetto di servizio cloud viene visualizzata nell'editor di Visual Studio.
-2. Scegliere la scheda **Sviluppo**.
+2. Scegliere la scheda **Sviluppo** .
 3. Per assicurarsi di non eliminare inavvertitamente una distribuzione esistente in Azure, nell'elenco Chiedi conferma prima di eliminare una distribuzione esistente scegliere **True**.
 4. Per selezionare la configurazione del servizio che si desidera usare durante l'esecuzione o il debug del servizio cloud in locale, nell'elenco **Configurazione servizio** scegliere la configurazione del servizio.
    
@@ -50,7 +54,12 @@ Nella figura seguente viene illustrato come selezionare una configurazione da us
 7. Per assicurarsi che il ruolo Web usi la stessa porta a ogni avvio in locale in IIS Express, in **Usa le porte del progetto Web** scegliere **True**. Per usare una porta specifica per un particolare progetto Web, aprire il menu di scelta rapida per il progetto Web, scegliere la scheda **Proprietà**, scegliere la scheda **Web** e modificare il numero di porta nell'impostazione **URL progetto** nella sezione **IIS Express**. Ad esempio, immettere `http://localhost:14020` come URL di progetto.
 8. Per salvare le modifiche apportate alle proprietà del progetto di servizio cloud, scegliere il pulsante **Salva** sulla barra degli strumenti.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su come configurare i progetti di servizio cloud in Visual Studio, vedere [Configurazione di un progetto Azure usando configurazioni del servizio multiple](vs-azure-tools-multiple-services-project-configurations.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

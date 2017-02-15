@@ -47,6 +47,6 @@ Dopo il provisioning e la configurazione, queste macchine virtuali possono esser
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

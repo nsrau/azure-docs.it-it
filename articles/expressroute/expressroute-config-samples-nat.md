@@ -1,12 +1,12 @@
 ---
-title: Esempi di configurazione di router ExpressRoute | Microsoft Docs
+title: Esempi di configurazione di router ExpressRoute | Documentazione Microsoft
 description: In questa pagina vengono forniti esempi di configurazione di router per router Cisco e Juniper.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: d6ea716f-d5ee-4a61-92b0-640d6e7d6974
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: b77a20274e22827aaa8aa4d354b62d086a19b206
+ms.openlocfilehash: 83a7da2db537a3c900e90432455d59e8ac56d917
+
 
 ---
-# <a name="router-configuration-samples-to-setup-and-manage-nat"></a>Esempi di configurazione del router per l'impostazione e la gestione NAT
+# <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Esempi di configurazione del router per l'impostazione e la gestione NAT
 Questa pagina fornisce gli esempi di configurazione NAT per i router Cisco ASA e Juniper SRX. Devono essere intesi come esempi a solo scopo informativo e non devono essere usati per altri scopi. È possibile rivolgersi al fornitore per ottenere le configurazioni appropriate per la rete in uso. 
 
 > [!IMPORTANT]
@@ -24,9 +28,10 @@ Questa pagina fornisce gli esempi di configurazione NAT per i router Cisco ASA e
 > 
 > 
 
-Gli esempi di configurazione di router riportati di seguito si applicano al peering pubblico di Azure e al peering Microsoft. Non è necessario configurare NAT per il peering privato di Azure. Per altri dettagli, vedere [Peering di ExpressRoute](expressroute-circuit-peerings.md) e [Requisiti NAT di ExpressRoute](expressroute-nat.md).
+* Gli esempi di configurazione di router riportati di seguito si applicano al peering pubblico di Azure e al peering Microsoft. Non è necessario configurare NAT per il peering privato di Azure. Per altri dettagli, vedere [Peering di ExpressRoute](expressroute-circuit-peerings.md) e [Requisiti NAT di ExpressRoute](expressroute-nat.md).
 
-**Nota:** è necessario usare pool di IP NAT separati per la connettività a Internet ed ExpressRoute. L'uso dello stesso pool di IP NAT a livello di Internet ed ExpressRoute comporterà un routing asimmetrico e la perdita di connettività.
+* È necessario usare pool di IP NAT separati per la connettività a Internet ed ExpressRoute. L'uso dello stesso pool di IP NAT a livello di Internet ed ExpressRoute comporterà un routing asimmetrico e la perdita di connettività.
+
 
 ## <a name="cisco-asa-firewalls"></a>Firewall Cisco ASA
 ### <a name="pat-configuration-for-traffic-from-customer-network-to-microsoft"></a>Configurazione PAT per il traffico dalla rete del cliente a Microsoft
@@ -50,11 +55,14 @@ Gli esempi di configurazione di router riportati di seguito si applicano al peer
     nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
 
 ### <a name="pat-configuration-for-traffic-from-microsoft-to-customer-network"></a>Configurazione PAT per il traffico da Microsoft alla rete del cliente
-#### <a name="interfaces-and-direction:"></a>Interfacce e Direzione:
+
+**Interfacce e Direzione:**
+
     Source Interface (where the traffic enters the ASA): inside
     Destination Interface (where the traffic exits the ASA): outside
 
-#### <a name="configuration:"></a>Configurazione:
+**Configurazione:**
+
 Pool NAT:
 
     object network outbound-PAT
@@ -79,7 +87,7 @@ Comandi NAT:
 
 
 ## <a name="juniper-srx-series-routers"></a>Router serie Juniper SRX
-### <a name="1.-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. Creare interfacce Ethernet ridondanti per il cluster
+### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. Creare interfacce Ethernet ridondanti per il cluster
     interfaces {
         reth0 {
             description "To Internal Network";
@@ -111,15 +119,15 @@ Comandi NAT:
     }
 
 
-### <a name="2.-create-two-security-zones"></a>2. Creare due aree di sicurezza
+### <a name="2-create-two-security-zones"></a>2. Creare due aree di sicurezza
 * Area attendibile per la rete interna e area non attendibile per la rete esterna esposta ai router perimetrali
 * Assegnare le interfacce appropriate alle aree
 * Abilitare i servizi nelle interfacce
 
-    security {      zones {          security-zone Trust {              host-inbound-traffic {                  system-services {                      ping;                  }                  protocols {                      bgp;                  }              }              interfaces {                  reth0.100;              }          }          security-zone Untrust {              host-inbound-traffic {                  system-services {                      ping;                  }                  protocols {                      bgp;                  }              }              interfaces {                  reth1.100;              }          }      }  }
+    security {       zones {           security-zone Trust {               host-inbound-traffic {                   system-services {                       ping;                   }                   protocols {                       bgp;                   }               }               interfaces {                   reth0.100;               }           }           security-zone Untrust {               host-inbound-traffic {                   system-services {                       ping;                   }                   protocols {                       bgp;                   }               }               interfaces {                   reth1.100;               }           }       }   }
 
 
-### <a name="3.-create-security-policies-between-zones"></a>3. Creare criteri di sicurezza tra aree
+### <a name="3-create-security-policies-between-zones"></a>3. Creare criteri di sicurezza tra aree
     security {
         policies {
             from-zone Trust to-zone Untrust {
@@ -150,7 +158,7 @@ Comandi NAT:
     }
 
 
-### <a name="4.-configure-nat-policies"></a>4. Configurare i criteri NAT
+### <a name="4-configure-nat-policies"></a>4. Configurare i criteri NAT
 * Creare due pool NAT. Uno verrà usato per il traffico NAT in uscita verso Microsoft e l'altro per il traffico da Microsoft al cliente.
 * Creare regole NAT il traffico corrispondente
   
@@ -209,10 +217,10 @@ Comandi NAT:
            }
        }
 
-### <a name="5.-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Configurare BGP per pubblicare prefissi selettivi in ciascuna direzione
+### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Configurare BGP per pubblicare prefissi selettivi in ciascuna direzione
 Fare riferimento agli esempi riportati nella pagina [Esempi di configurazione del routing ](expressroute-config-samples-routing.md) .
 
-### <a name="6.-create-policies"></a>6. Creare criteri
+### <a name="6-create-policies"></a>6. Creare criteri
     routing-options {
                   autonomous-system <Customer-ASN>;
     }
@@ -310,6 +318,9 @@ Fare riferimento agli esempi riportati nella pagina [Esempi di configurazione de
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md) .
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

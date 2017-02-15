@@ -154,6 +154,6 @@ Ora che si dispone di un token valido, è possibile eseguire chiamate API.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

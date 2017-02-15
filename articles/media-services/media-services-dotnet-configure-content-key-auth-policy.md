@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2016
+ms.date: 12/07/2016
 ms.author: juliako;mingfeiy
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7a90634ecc8712b7b94567c3b1cea574d544075b
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: 39f4f0b7e9bbe28a36471558c8535ee9f3cd17ff
 
 
 ---
@@ -51,7 +51,7 @@ Per altre informazioni, vedere
 * Se si prevede di avere più chiavi simmetriche che richiedono una stessa configurazione di criteri, è consigliabile creare un singolo criterio di autorizzazione e applicarlo a più chiavi simmetriche.
 * Il servizio di distribuzione delle chiavi memorizza nella cache l'oggetto ContentKeyAuthorizationPolicy e gli oggetti correlati (opzioni e restrizioni) per 15 minuti.  Se si crea un oggetto ContentKeyAuthorizationPolicy e si specifica di usare una restrizione Token, quindi si esegue il test della configurazione e si aggiornano i criteri impostando una restrizione Open, il passaggio dei criteri alla versione Open richiede circa 15 minuti.
 * Se si aggiungono o si aggiornano i criteri di distribuzione dell'asset, è necessario eliminare l'eventuale localizzatore esistente e creare un nuovo localizzatore.
-* Attualmente non è possibile crittografare il formato di streaming HDS o i download progressivi.
+* Attualmente, non è possibile crittografare i download progressivi.
 
 ## <a name="aes-128-dynamic-encryption"></a>Crittografia dinamica AES-128
 ### <a name="open-restriction"></a>Restrizione Open
@@ -424,6 +424,6 @@ Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

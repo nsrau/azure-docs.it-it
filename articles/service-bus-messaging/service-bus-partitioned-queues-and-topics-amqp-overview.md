@@ -1,22 +1,26 @@
 ---
 title: Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio | Microsoft Docs
-description: Informazioni sull'uso del protocollo AMQP (Advanced Message Queuing Protocol) 1.0 con code e argomenti partizionati del bus di servizio.
-services: service-bus
+description: Informazioni sull&quot;uso del protocollo AMQP (Advanced Message Queuing Protocol) 1.0 con code e argomenti partizionati del bus di servizio.
+services: service-bus-messaging
 documentationcenter: .net
 author: hillaryc
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: e2549ad3-41eb-47e5-b25f-20043a7ffa2a
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 07/08/2016
+ms.date: 10/14/2016
 ms.author: hillaryc;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2f343c1f087b516c35eb75fc9a1e61c5cf6d1e93
+
 
 ---
-# <a name="amqp-1.0-support-for-service-bus-partitioned-queues-and-topics"></a>Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio
+# <a name="amqp-10-support-for-service-bus-partitioned-queues-and-topics"></a>Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio
 Il bus di servizio di Azure ora supporta il protocollo **AMQP** (Advanced Message Queuing Protocol) 1.0 per **code e argomenti partizionati** del bus di servizio.
 
 **AMQP** è un protocollo di accodamento messaggi a standard aperto che consente di sviluppare applicazioni multipiattaforma usando diversi linguaggi di programmazione. Per informazioni generali sul supporto AMQP nel bus di servizio, vedere [Supporto per il protocollo AMQP 1.0 nel bus di servizio](service-bus-amqp-overview.md).
@@ -115,6 +119,6 @@ Per altre informazioni sulle entità di messaggistica partizionate e AMQP, veder
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

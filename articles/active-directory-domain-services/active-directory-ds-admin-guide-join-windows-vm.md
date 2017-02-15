@@ -90,7 +90,7 @@ Seguire questa procedura per aggiungere la macchina virtuale Windows Server al d
     ![Specificare le credenziali per l'aggiunta a un dominio](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
 6. È possibile specificare le credenziali in uno dei modi seguenti:
    
-   * Formato UPN: specificare il suffisso UPN per l'account utente, come configurato in Azure AD. In questo esempio il suffisso UPN dell'utente "bob" è 'bob@domainservicespreview.onmicrosoft.com'.
+   * Formato UPN: specificare il suffisso UPN per l'account utente, come configurato in Azure AD. In questo esempio il suffisso UPN dell'utente 'bob' è 'bob@domainservicespreview.onmicrosoft.com'.
    * Formato SAMAccountName: è possibile specificare il nome account con il formato SAMAccountName. In questo esempio l'utente 'bob' deve immettere 'CONTOSO100\bob'.
      
      > [!NOTE]

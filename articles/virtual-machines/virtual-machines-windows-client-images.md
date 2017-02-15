@@ -2,11 +2,11 @@
 title: Uso delle immagini di client Windows per scenari di sviluppo/test | Microsoft Docs
 description: Come usare i vantaggi della sottoscrizione di Visual Studio per distribuire Windows 7/8/10 in Azure per scenari di sviluppo/test
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: iainfoulds
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 91c3880a-cede-44f1-ae25-f8f9f5b6eaa4
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -14,18 +14,22 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: d95dad55ad2f9feaf1e62f671adbf3187adf8cca
+
 
 ---
-# <a name="using-windows-client-in-azure-for-dev/test-scenarios"></a>Uso di client Windows in Azure per scenari di sviluppo/test
+# <a name="using-windows-client-in-azure-for-devtest-scenarios"></a>Uso di client Windows in Azure per scenari di sviluppo/test
 A condizione di disporre di una sottoscrizione appropriata di Visual Studio (in precedenza MSDN), è possibile usare Windows 7, Windows 8 o Windows 10 in Azure per scenari di sviluppo/test. In questo articolo sono descritti i requisiti di idoneità per l'esecuzione di client Windows in Azure e l'utilizzo delle immagini della raccolta di Azure.
 
 ## <a name="subscription-eligibility"></a>Idoneità della sottoscrizione
 I sottoscrittori di Visual Studio attivi (ovvero le persone che hanno acquistato una licenza di sottoscrizione per Visual Studio) possono usare client Windows per le finalità di sviluppo e test. Il client Windows può essere usato nel proprio hardware e nelle proprie macchine virtuali di Azure in esecuzione in qualsiasi tipo di sottoscrizione di Azure. Potrebbe non essere possibile distribuire o usare il client Windows in Azure per normali finalità di produzione oppure da parte degli utenti che non possiedono una sottoscrizione a Visual Studio attiva.
 
-Per comodità, sono state rese disponibili alcune immagini di Windows 10 nella raccolta di Azure in [eligible dev/test offers](#eligible-offers). I sottoscrittori di Visual Studio per qualsiasi tipo di offerta possono anche [preparare e creare](virtual-machines-windows-prepare-for-upload-vhd-image.md) un'immagine a 64 bit di Windows 7, Windows 8 o Windows 10 e quindi [caricarla in Azure](virtual-machines-windows-upload-image.md). L'utilizzo rimane limitato alle attività di sviluppo e test da parte dei sottoscrittori di Visual Studio attivi.
+Per comodità, sono state rese disponibili alcune immagini di Windows 10 nella raccolta di Azure in [eligible dev/test offers](#eligible-offers). I sottoscrittori di Visual Studio per qualsiasi tipo di offerta possono anche [preparare e creare](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) un'immagine a 64 bit di Windows 7, Windows 8 o Windows 10 e quindi [caricarla in Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). L'utilizzo rimane limitato alle attività di sviluppo e test da parte dei sottoscrittori di Visual Studio attivi.
 
 ## <a name="eligible-offers"></a>Offerte idonee
-La tabella seguente descrive gli ID idonei per la distribuzione di Windows 10 tramite la raccolta di Azure. Le immagini di Windows 10 sono visibili solo per le offerte seguenti. I sottoscrittori di Visual Studio che intendono eseguire il client Windows in un altro tipo di offerta devono [preparare e creare](virtual-machines-windows-prepare-for-upload-vhd-image.md) un'immagine a 64 bit di Windows 7, Windows 8 o Windows 10 e quindi [caricarla in Azure](virtual-machines-windows-upload-image.md).
+La tabella seguente descrive gli ID idonei per la distribuzione di Windows 10 tramite la raccolta di Azure. Le immagini di Windows 10 sono visibili solo per le offerte seguenti. I sottoscrittori di Visual Studio che intendono eseguire il client Windows in un altro tipo di offerta devono [preparare e creare](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) un'immagine a 64 bit di Windows 7, Windows 8 o Windows 10 e quindi [caricarla in Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 | Nome offerta | Numero offerta | Immagini client disponibili |
 |:--- |:---:|:---:|
@@ -50,8 +54,11 @@ L'ID offerta relativo alla sottoscrizione è indicato nel portale di Azure nel p
 ![Dettagli dell'ID offerta sul portale degli account di Azure](./media/virtual-machines-windows-client-images/offer_id_azure_account_portal.png) 
 
 ## <a name="next-steps"></a>Passaggi successivi
-È ora possibile distribuire le VM usando [PowerShell](virtual-machines-windows-ps-create.md), i [modelli di Resource Manager](virtual-machines-windows-ps-template.md) o [Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+È ora possibile distribuire le VM usando [PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), i [modelli di Resource Manager](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

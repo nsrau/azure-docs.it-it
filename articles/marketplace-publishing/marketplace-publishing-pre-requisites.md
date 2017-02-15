@@ -1,12 +1,12 @@
 ---
-title: Prerequisiti non tecnici per la creazione di un'offerta per Azure Marketplace | Microsoft Docs
-description: Informazioni sui requisiti per la creazione e la distribuzione di un'offerta in Azure Marketplace per l'acquisto da parte di altri utenti.
+title: Prerequisiti non tecnici per la creazione di un&quot;offerta per Azure Marketplace | Documentazione Microsoft
+description: Informazioni sui requisiti per la creazione e la distribuzione di un&quot;offerta in Azure Marketplace per l&quot;acquisto da parte di altri utenti.
 services: marketplace-publishing
-documentationcenter: ''
+documentationcenter: 
 author: HannibalSII
-manager: ''
-editor: ''
-
+manager: hascipio
+editor: 
+ms.assetid: 3dae463b-8f48-4f52-8fa8-4e3975f09f43
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
@@ -14,19 +14,23 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: hascipio
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8bc9d40daf0b9bc8256e88b39039fca7e4cb8a53
+
 
 ---
-# Prerequisiti generali per la creazione di un'offerta per Azure Marketplace
+# <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Prerequisiti generali per la creazione di un'offerta per Azure Marketplace
 Informazioni sui prerequisiti generali e relativi ai processi aziendali necessari per procedere con il processo di creazione dell'offerta.
 
-## Assicurarsi di essere registrati come venditore con Microsoft
+## <a name="ensure-that-you-are-registered-as-a-seller-with-microsoft"></a>Assicurarsi di essere registrati come venditore con Microsoft
 Per istruzioni dettagliate su come registrare un account venditore con Microsoft, visitare [Creazione e registrazione dell'account](marketplace-publishing-accounts-creation-registration.md).
 
-* **Se l'azienda è già registrata come venditore in Dev Center e si desidera creare una nuova offerta**, eseguire l'accesso al portale di pubblicazione con lo stesso ID di posta elettronica con cui si è eseguita la registrazione in Dev Center. Questo passaggio è necessario affinché Dev Center e il portale di pubblicazione siano collegati tra loro.
-* **Se l'azienda è già registrata come venditore Dev Center e si desidera modificare un'offerta esistente**, effettuare l'accesso al portale di pubblicazione con l'account di amministratore o con un account che viene aggiunto come coamministratore nel portale di pubblicazione. I passaggi per aggiungere un account di coamministratore sono riportati di seguito.
+* **Se l'azienda è già registrata come venditore in Dev Center e si desidera creare una nuova offerta** , eseguire l'accesso al portale di pubblicazione con lo stesso ID di posta elettronica con cui si è eseguita la registrazione in Dev Center. Questo passaggio è necessario affinché Dev Center e il portale di pubblicazione siano collegati tra loro.
+* **Se l'azienda è già registrata come venditore Dev Center e si desidera modificare un'offerta esistente** , effettuare l'accesso al portale di pubblicazione con l'account di amministratore o con un account che viene aggiunto come coamministratore nel portale di pubblicazione. I passaggi per aggiungere un account di coamministratore sono riportati di seguito.
 
-## Passaggi per aggiungere un coamministratore nel portale di pubblicazione
-Gli amministratori del portale di pubblicazione possono aggiungere in un secondo momento altri membri dell'azienda che lavorano all'applicazione, ad esempio un coamministratore, nel portale di pubblicazione. **Come amministratore**, di seguito sono riportati i passaggi per aggiungere un coamministratore.
+## <a name="steps-to-add-a-co-admin-in-the-publishing-portal"></a>Passaggi per aggiungere un coamministratore nel portale di pubblicazione
+Gli amministratori del portale di pubblicazione possono aggiungere in un secondo momento altri membri dell'azienda che lavorano all'applicazione, ad esempio un coamministratore, nel portale di pubblicazione. **Come amministratore** , di seguito sono riportati i passaggi per aggiungere un coamministratore.
 
 > [!NOTE]
 > Per i nuovi utenti, prima di aggiungere un coamministratore nel portale di pubblicazione, assicurarsi di avere creato almeno un'applicazione nel portale di pubblicazione. Questa operazione è necessaria in quanto la scheda **AUTORI** viene visualizzata solo dopo avere creato almeno un'applicazione nel portale di pubblicazione.
@@ -42,13 +46,13 @@ Gli amministratori del portale di pubblicazione possono aggiungere in un secondo
     ![disegno](media/marketplace-publishing-pre-requisites/imgAddAdmin_05.png)
 6. Assicurarsi che gli ID di posta elettronica forniti nelle varie fasi del processo di pubblicazione (ad esempio Dev Center, portale di pubblicazione) vengano monitorati per le comunicazioni provenienti da Microsoft.
 7. Per la registrazione in Dev Center, evitare di usare un account associato a una singola persona. Si consiglia di procedere in questo modo per eliminare la dipendenza da una singola persona.
-8. In caso di problemi durante la registrazione in Dev Center, creare un ticket mediante questo [collegamento](https://developer.microsoft.com/it-IT/windows/support).
+8. In caso di problemi durante la registrazione in Dev Center, creare un ticket mediante questo [collegamento](https://developer.microsoft.com/en-us/windows/support).
 
-## Passaggi per eliminare un coamministratore nel portale di pubblicazione
-**Come amministratore**, di seguito sono riportati i passaggi per eliminare un coamministratore.
+## <a name="steps-to-delete-a-co-admin-in-the-publishing-portal"></a>Passaggi per eliminare un coamministratore nel portale di pubblicazione
+**Come amministratore** , di seguito sono riportati i passaggi per eliminare un coamministratore.
 
 1. Accedere al portale di pubblicazione con l'ID di posta elettronica di amministratore.
-2. Passare ad **Autori** -> selezionare il proprio account -> **Amministratori** -> **Coamministratori**.
+2. Passare ad **Server di pubblicazione** -> selezionare il proprio account -> **Amministratori** -> **Co-Admins** (Coamministratori).
 3. Fare sulla **X** accanto al co-amministratore da eliminare (schermata riportata di seguito).
    
     ![disegno](media/marketplace-publishing-pre-requisites/imgDeleteAdmin_03.png)
@@ -60,22 +64,27 @@ Gli amministratori del portale di pubblicazione possono aggiungere in un secondo
 > 
 > 
 
-## Acquisire una sottoscrizione di Azure con pagamento in base al consumo
-Si tratta della sottoscrizione che si userà per creare le immagini di VM e distribuire le immagini in [Azure Marketplace](https://azure.microsoft.com/marketplace/). Se non si dispone di una sottoscrizione esistente, iscriversi a https://account.windowsazure.com/signup?offer=ms-azr-0003p.
+## <a name="acquire-an-azure-pay-as-you-go-subscription"></a>Acquisire una sottoscrizione di Azure con pagamento in base al consumo
+Si tratta della sottoscrizione che si userà per creare le immagini di VM e distribuire le immagini in [Azure Marketplace](https://azure.microsoft.com/marketplace/). Se non si dispone di una sottoscrizione esistente, iscriversi su https://account.windowsazure.com/signup?offer=ms-azr-0003p.
 
-## Paesi di origine della vendita
+## <a name="sell-from-countries"></a>Paesi di origine della vendita
 > [!WARNING]
 > Per vendere i propri servizi in Microsoft Azure Marketplace, è necessario assicurarsi che l'entità registrata si trovi in uno dei paesi di origine della vendita approvati. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Questo elenco di paesi verrà ampliato nel prossimo futuro perciò non rimane che attendere. Per l'elenco completo, vedere la sezione 1b delle [politiche di partecipazione ad Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
 > 
 > 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Quando vengono rispettati i prerequisiti non tecnici, occorre passare ai prerequisiti tecnici specifici dell'offerta. Fare clic sul collegamento all'articolo per il tipo di offerta corrispondente che si desidera creare per Azure Marketplace.
 
 * [Prerequisiti tecnici per le macchine virtuali](marketplace-publishing-vm-image-creation-prerequisites.md)
 * [Prerequisiti tecnici per il modello di soluzione](marketplace-publishing-solution-template-creation-prerequisites.md)
 
-## Vedere anche
+## <a name="see-also"></a>Vedere anche
 * [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

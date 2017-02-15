@@ -1,24 +1,27 @@
-
 ---
-title: Modificare il tenant di Azure Active Directory in Azure RemoteApp | Microsoft Docs
+title: Modificare il tenant di Azure Active Directory in Azure RemoteApp | Documentazione Microsoft
 description: Informazioni su come modificare il tenant di Azure Active Directory associato a RemoteApp di Azure
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: 20faf169-6e48-428a-8bdd-f231daff19fa
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: 5326c779d766e075a54f5ec43f92b6c5c973be8b
+
 
 ---
-# Modificare il tenant di Azure Active Directory in RemoteApp di Azure
+# <a name="change-the-azure-active-directory-tenant-in-azure-remoteapp"></a>Modificare il tenant di Azure Active Directory in RemoteApp di Azure
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -35,15 +38,20 @@ Se si vuole usare un tenant differente, completare i seguenti passaggi per modif
 2. Impostare un account Microsoft (in precedenza denominato Live ID) come amministratore del servizio. (Non si sa se si è già l'amministratore del servizio? È possibile scoprirlo facendo clic su **Impostazioni -> Amministratori**.) A questo punto, ecco come lo si modifica:
    
    1. Fare clic sull'utente nell'angolo superiore destro, quindi su **Visualizza fattura**.
-   2. Fare clic sulla sottoscrizione. Nella nuova pagina scorrere verso il basso e fare clic su **Modifica i dettagli della sottoscrizione**. (Puntare sulla parte centrale inferiore destra, se è utile per trovarlo.)
+   2. Fare clic sulla sottoscrizione. Nella nuova pagina scorrere verso il basso e fare clic su **Modifica i dettagli della sottoscrizione** . (Puntare sulla parte centrale inferiore destra, se è utile per trovarlo.)
    3. Digitare l'account Microsoft per l'utente che deve essere l’amministratore del servizio.
 3. A questo punto, disconnettersi dal portale, quindi riaccedere con l'account Microsoft specificato nel passaggio precedente.
-4. Fare clic su **Nuovo > Servizi app > Active Directory > Directory > Creazione personalizzata**.
-5. In **Directory**, scegliere **Usa directory esistente**. Sarà necessario disconnettersi dal portale ora, quindi scegliere **Sono pronto per la disconnessione**.
+4. Fare clic su **Nuovo -> Servizi app -> Active Directory -> Directory -> Creazione personalizzata**.
+5. In **Directory**, scegliere **Utilizza directory esistente**. Sarà necessario disconnettersi dal portale ora, quindi scegliere **Sono pronto per la disconnessione**.
 6. Accedere di nuovo al portale come un amministratore globale della directory che si desidera aggiungere. (Se non si era già un amministratore globale, lo si sarà aver avuto accesso e poi essersi disconnessi.)
-7. Al momento dell'accesso verrà chiesto se si vuole usare il tenant di Active Directory esistente con la sottoscrizione. Fare clic su **Continua**, quindi fare clic su **Esci ora**.
+7. Al momento dell'accesso verrà chiesto se si vuole usare il tenant di Active Directory esistente con la sottoscrizione. Fare clic su **Continua**, quindi su **Esci ora**.
 8. Accedere di nuovo e passare a **Impostazioni -> Sottoscrizioni**. Selezionare la propria sottoscrizione, quindi fare clic su **Modifica directory**. Selezionare il tenant di Azure AD che si desidera usare.
 
 È ora possibile usare il nuovo tenant di Azure AD per controllare l'accesso alla sottoscrizione di Azure e configurare l'accesso utente in Azure RemoteApp.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

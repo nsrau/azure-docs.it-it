@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 10/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: 79819619ff7f25ba1097fe12f2da7453a1fcb4f1
+ms.sourcegitcommit: ee9ebc23ce805bb4665669077a4d3fddf4c43e32
+ms.openlocfilehash: a190b1990a4ae4e7ad52cc1a7e802c8002522917
 
 
 ---
@@ -39,7 +39,7 @@ Ecco un riepilogo di ciò che offrono i singoli modi:
 | Richieste ed eccezioni |Sì |Sì |
 | [Eccezioni più dettagliate](app-insights-asp-net-exceptions.md) | |Sì |
 | [Diagnostica delle dipendenze](app-insights-asp-net-dependencies.md) |In .NET 4.6 e versioni successive, ma meno dettagli |Sì, dettagli completi: codici di risultato, testo del comando SQL, verbo HTTP|
-| [Contatori delle prestazioni di sistema](app-insights-performance-counters.md) | |IIS o servizio cloud di Azure, ma non app Web di Azure |
+| [Contatori delle prestazioni di sistema](app-insights-performance-counters.md) |Sì |Sì |
 | [API per telemetria personalizzata][api] |Sì | |
 | [Integrazione log di traccia](app-insights-asp-net-trace-logs.md) |Sì | |
 | [Visualizzazione pagina e dati utente](app-insights-javascript.md) |Sì | |
@@ -55,29 +55,23 @@ Ecco un riepilogo di ciò che offrono i singoli modi:
 
 ### <a name="if-your-app-is-hosted-on-your-iis-server"></a>Se l'app è ospitata nel server IIS
 1. Nel server Web IIS accedere con le credenziali di amministratore.
-2. Scaricare e installare il [programma di installazione di Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
-3. Nell'Installazione guidata accedere a Microsoft Azure.
-
-    ![Accedere ad Azure con le credenziali dell'account Microsoft](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
-
-    *Errori di connessione Vedere [Risoluzione dei problemi](#troubleshooting).*
-4. Selezionare l'applicazione Web installata o il sito Web da monitorare, quindi configurare la risorsa in cui visualizzare i risultati nel portale Application Insights.
+2. Scaricare e installare il [programma di installazione di Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).  
+3. Selezionare l'applicazione Web installata o il sito Web da monitorare, quindi configurare la risorsa in cui visualizzare i risultati nel portale Application Insights. È necessario aver eseguito l'accesso a Microsoft Azure.
 
     ![Scegliere un'applicazione e una risorsa.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
     In genere, si sceglie di configurare una nuova risorsa e un nuovo [gruppo di risorse][roles].
 
-    In alternativa, è possibile usare una risorsa esistente se sono già stati configurati [test Web][availability] per il sito o il [monitoraggio del client Web][client].
-5. Riavviare IIS.
+    In alternativa è possibile usare una risorsa esistente se sono già stati configurati [test Web][availability] per il sito o il [monitoraggio del client Web][client].
+4. Riavviare IIS.
 
     ![Scegliere Riavvia nella parte superiore della finestra di dialogo.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-restart.png)
 
     Il servizio Web verrà interrotto per un breve periodo di tempo.
-6. Si noti che ApplicationInsights.config è stato inserito tra le app Web da monitorare.
+5. Si noti che ApplicationInsights.config è stato inserito tra le app Web da monitorare.
 
     ![Trovare il file con estensione config insieme ai file di codice dell'app Web.](./media/app-insights-monitor-performance-live-website-now/appinsights-034-aiconfig.png)
-
-   Sono inoltre state apportate alcune modifiche al file web.config.
+   
 
 #### <a name="want-to-reconfigure-later"></a>Configurare o riconfigurare in un secondo momento
 Dopo aver completato la procedura guidata, è possibile riconfigurare l'agente in qualsiasi momento. È inoltre possibile usare questa stessa procedura se l'agente è stato installato ma la configurazione iniziale presenta alcuni problemi.
@@ -105,7 +99,7 @@ Per segmentare il grafico in base alle chiamate a diverse dipendenze, modificare
 ![Dipendenza](./media/app-insights-monitor-performance-live-website-now/23-dep.png)
 
 ## <a name="performance-counters"></a>Contatori delle prestazioni
-(Non per le app web di Azure.) Fare clic su Server nel pannello della panoramica per visualizzare i grafici dei contatori delle prestazioni del server, come l'utilizzo di memoria e di occupazione della CPU.
+Fare clic su Server nel pannello della panoramica per visualizzare i grafici dei contatori delle prestazioni del server, come l'utilizzo di memoria e di occupazione della CPU.
 
 Se sono presenti diverse istanze del server, può essere opportuno modificare i grafici eseguendo il raggruppamento per Istanza del ruolo.
 
@@ -146,10 +140,11 @@ Supporto del sistema operativo per Application Insights Status Monitor sul serve
 * Windows Server 2008 R2
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
-con la Service Pack più recente e .NET Framework 4.0 e 4.5
+con SP più recente e .NET Framework 4.5
 
-Sul lato client Windows 7, 8 e 8.1, con .NET Framework 4.0 e 4.5
+Sul lato client Windows 7, 8, 8.1 e 10, con .NET Framework 4.5
 
 Il supporto IIS è: IIS 7, 7.5, 8, 8.5 (IIS è obbligatorio)
 
@@ -215,7 +210,7 @@ Individuare le applicazioni sottoposte a monitoraggio:
 
 ## <a name="a-namenextanext-steps"></a><a name="next"></a>Passaggi successivi
 * [Creare test Web][availability] per assicurarsi che il sito rimanga attivo.
-* [Cercare eventi e log][diagnostic] per facilitare la diagnosi dei problemi.
+* Per facilitare la diagnosi dei problemi, [cercare eventi e log][diagnostic].
 * [Aggiungere dati di telemetria del client Web][usage] per visualizzare le eccezioni dal codice della pagina Web e consentire di inserire le chiamate di traccia.
 * [Aggiungere Application Insights SDK al codice del servizio Web][greenbrown] per poter inserire chiamate di traccia e log nel codice del server.
 
@@ -232,6 +227,6 @@ Individuare le applicazioni sottoposte a monitoraggio:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

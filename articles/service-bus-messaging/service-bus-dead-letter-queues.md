@@ -1,19 +1,23 @@
 ---
-title: Code dei messaggi non recapitabili del bus di servizio | Microsoft Docs
+title: Code dei messaggi non recapitabili del bus di servizio | Documentazione Microsoft
 description: Panoramica delle code dei messaggi non recapitabili del bus di servizio Azure
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 68b2aa38-dba7-491a-9c26-0289bc15d397
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2016
-ms.author: clemensv;sethm
+ms.author: clemensv,sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dfab83bdd505a1a173abc1142da609d31ecbd72a
+
 
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Panoramica delle code dei messaggi non recapitabili del bus di servizio
@@ -39,7 +43,7 @@ Le applicazioni possono definire i propri codici per la proprietà `DeadLetterRe
 | EnableDeadLetteringOnMessageExpiration |TTLExpiredException |Il messaggio è scaduto ed è stato configurato come non recapitabile. |
 | SubscriptionDescription.RequiresSession |L'ID sessione ha valore null. |L'entità attivata dalla sessione non consente il recapito di un messaggio il cui identificatore di sessione è null. |
 | !dead letter queue |MaxTransferHopCountExceeded |Null |
-| Configurazione esplicita di messaggio non recapitabile da parte dell'applicazione |Specificato dall'applicazione |Specificato dall'applicazione |
+| Configurazione esplicita di messaggio non recapitabile da parte dell'applicazione  |Specificato dall'applicazione |Specificato dall'applicazione |
 
 ## <a name="exceeding-maxdeliverycount"></a>Superamento di MaxDeliveryCount
 Le code e le sottoscrizioni hanno ognuna una proprietà [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) e [SubscriptionDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount.aspx). Il valore predefinito è 10. Ogni volta che un messaggio viene recapitato in un blocco ([ReceiveMode.PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx)) ma viene abbandonato in modo esplicito oppure il blocco è scaduto, il valore [BrokeredMessage.DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) del messaggio viene incrementato. Quando il valore [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) supera [MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx), il messaggio viene spostato nella coda DLQ con il codice motivo `MaxDeliveryCountExceeded`.
@@ -83,6 +87,9 @@ Per altre informazioni sulle code del bus di servizio, vedere gli articoli segue
 * [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 * [Analogie e differenze tra le code di Azure e le code del bus di servizio](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

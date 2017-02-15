@@ -2,35 +2,39 @@
 title: Selezione dei nomi utente per Linux | Microsoft Docs
 description: Informazioni su come selezionare i nomi utente per una macchina virtuale Linux in Azure.
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: szarkos
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: 33b50c97-92f1-46c9-a623-e37f67459c5c
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2016
+ms.date: 02/02/2017
 ms.author: szark
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: eaea0ce42537789278d3a0476b261e6a750dde2b
+
 
 ---
-# Selezione dei nomi utente per Linux su Azure
+# <a name="selecting-user-names-for-linux-on-azure"></a>Selezione dei nomi utente per Linux su Azure
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Durante il provisioning di una macchina virtuale Linux in Azure è necessario specificare il nome di un utente non radice, che in un secondo momento è possibile utilizzare per accedere alla macchina virtuale. È possibile scegliere il nome del nuovo utente o se il provisioning avviene tramite il portale di Azure classico è possibile accettare il nome predefinito "azureuser".
 
 Nella maggior parte dei casi questo nuovo utente non esiste nell'immagine di base e viene creato durante il processo di provisioning. Se l'utente esiste nell'immagine della VM di base, l'agente Linux di Azure configura la password (e/o la chiave SSH) per tale utente in base alle informazioni specificate durante la creazione della VM.
 
-**Tuttavia**, Linux definisce un set di nomi utente che non devono essere usati. Se si prova a eseguire il provisioning di una macchia virtuale Linux usando un utente di sistema esistente, definito come utente con un valore UID compreso tra 0 e 99, il processo avrà **esito negativo**. Un esempio tipico è rappresentato dall'utente `root`, il cui valore UID è 0.
+**Tuttavia**, Linux definisce un set di nomi utente che non devono essere usati. Se si prova a eseguire il provisioning di una macchia virtuale Linux usando un utente di sistema esistente, definito come utente con un valore UID compreso tra 0 e 99, il processo avrà **esito negativo** . Un esempio tipico è rappresentato dall'utente `root` , il cui valore UID è 0.
 
 * Vedere anche: [Base standard di Linux - Intervalli ID utente](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
 
 L'elenco seguente include utenti di sistema predefiniti comuni per CentOS e Ubuntu che non devono essere usati quando si effettua il provisioning di una macchina virtuale Linux in Azure. Questo elenco è solo un esempio. Vedere la documentazione specifica della distribuzione per assicurarsi che il nome utente scelto non sia in conflitto con un utente di sistema esistente.
 
-## CentOS
+## <a name="centos"></a>CentOS
 * abrt
 * adm
 * audio
@@ -86,7 +90,7 @@ L'elenco seguente include utenti di sistema predefiniti comuni per CentOS e Ubun
 * video
 * wheel
 
-## Ubuntu
+## <a name="ubuntu"></a>Ubuntu
 * adm
 * admin
 * audio
@@ -141,4 +145,9 @@ L'elenco seguente include utenti di sistema predefiniti comuni per CentOS e Ubun
 * whoopsie
 * www-data
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
