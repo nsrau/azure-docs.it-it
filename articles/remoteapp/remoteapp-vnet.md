@@ -1,24 +1,27 @@
-
 ---
-title: Convalidare la rete virtuale di Azure da usare con Azure RemoteApp | Microsoft Docs
-description: Informazioni su come assicurarsi che la rete virtuale di Azure sia pronta all’utilizzo con Azure RemoteApp
+title: Convalidare la rete virtuale di Azure da usare con Azure RemoteApp | Documentazione Microsoft
+description: "Informazioni su come assicurarsi che la rete virtuale di Azure sia pronta all’utilizzo con Azure RemoteApp"
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: b573ba02-4587-4be5-9821-27bd891a73b2
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
+ms.openlocfilehash: 30d18bdbdc6293bab5a8876fb1e503e125829e2e
+
 
 ---
-# Convalidare la rete virtuale di Azure da usare con Azure RemoteApp
+# <a name="validate-the-azure-vnet-to-use-with-azure-remoteapp"></a>Convalidare la rete virtuale di Azure da usare con Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -38,4 +41,9 @@ Per ulteriori informazioni sul flusso di lavoro della raccolta ibrida end-to-end
 * [Creare una raccolta ibrida](remoteapp-create-hybrid-deployment.md)
 * [Distribuire la raccolta di Azure RemoteApp alla rete virtuale di Azure (con supporto per ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

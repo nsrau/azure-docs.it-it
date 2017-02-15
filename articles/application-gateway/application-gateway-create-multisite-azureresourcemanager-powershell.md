@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/12/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 5eb4b01718b47bf7dd2adfcb60b6ddfbe01d5ab6
+ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
+ms.openlocfilehash: d46c87480fd198bf4f09e48f4d2ea838a350190c
 
 
 ---
@@ -25,8 +25,6 @@ ms.openlocfilehash: 5eb4b01718b47bf7dd2adfcb60b6ddfbe01d5ab6
 > [!div class="op_single_selector"]
 > * [Portale di Azure](application-gateway-create-multisite-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-> 
-> 
 
 L'hosting di più siti consente di distribuire più applicazioni Web nello stesso gateway applicazione. La presenza dell'intestazione host nella richiesta HTTP in ingresso consente di determinare il listener che riceverà il traffico. Il listener indirizza quindi il traffico al pool back-end appropriato in base alla configurazione della definizione delle regole del gateway. Nelle applicazioni Web abilitate per SSL il gateway applicazione sceglie il listener corretto per il traffico Web in base all'estensione dell'indicazione nome server (SNI). L'hosting di più siti viene comunemente usato per bilanciare il carico delle richieste per diversi domini Web tra vari pool di server back-end. Analogamente, lo stesso gateway applicazione potrebbe ospitare anche più sottodomini dello stesso dominio radice.
 
@@ -84,7 +82,7 @@ Get-AzureRmSubscription
 Scegliere le sottoscrizioni ad Azure da usare.
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 ```
 
 ### <a name="step-4"></a>Passaggio 4
@@ -107,8 +105,6 @@ Nell'esempio precedente è stato creato un gruppo di risorse denominato **appgw-
 
 > [!NOTE]
 > Se è necessario configurare un probe personalizzato per il gateway applicazione, vedere [Creare un probe personalizzato per il gateway applicazione di Azure con PowerShell per Azure Resource Manager](application-gateway-create-probe-ps.md). Per altre informazioni, vedere l'articolo relativo a [probe personalizzati e monitoraggio dell'integrità](application-gateway-probe-overview.md) .
-> 
-> 
 
 ## <a name="create-a-virtual-network-and-subnets"></a>Creare una rete virtuale e le subnet
 
@@ -177,7 +173,7 @@ $pool1 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIP
 $pool2 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool02 -BackendIPAddresses 10.0.1.103, 10.0.1.104, 10.0.1.105
 ```
 
-Questo esempio mostra due pool back-end che indirizzano il traffico di rete in base al sito richiesto. Un pool riceve il traffico dal sito "contoso.com" e l'altro riceve il traffico dal sito "fabrikam.com". È necessario sostituire gli indirizzi IP precedenti e aggiungere gli endpoint di indirizzi IP dell'applicazione. Al posto di indirizzi IP interni si potrebbero usare per le istanze back-end anche indirizzi IP pubblici, FQDN o la scheda di interfaccia di rete di una VM. Per specificare FQDN invece di IP, usare il parametro "-BackendFQDNs" in PowerShell.
+Questo esempio mostra due pool back-end che indirizzano il traffico di rete in base al sito richiesto. Un pool riceve il traffico dal sito "contoso.com" e l'altro riceve il traffico dal sito "fabrikam.com". È necessario sostituire gli indirizzi IP precedenti e aggiungere gli endpoint di indirizzi IP dell'applicazione. Al posto di indirizzi IP interni si potrebbero usare per le istanze back-end anche indirizzi IP pubblici, FQDN o la scheda di interfaccia di rete di una VM. Per specificare FQDN invece di indirizzi IP in PowerShell usare il parametro "-BackendFQDNs".
 
 ### <a name="step-3"></a>Passaggio 3
 
@@ -289,6 +285,6 @@ Informazioni su come proteggere i siti Web con [Gateway applicazione: firewall a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

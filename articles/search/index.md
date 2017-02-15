@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Informazioni su come aggiungere solide funzionalità di ricerca, tra cui il monitoraggio delle attività, alle applicazioni mobili o Web. Informazioni di riferimento sulle API e altri documenti."
 translationtype: Human Translation
-ms.sourcegitcommit: 8a89b85795c0707d7fda9480c53db4a3469560d7
-ms.openlocfilehash: 324584a63e6f76b9a2aed98d11f2a66fefac69c3
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c99d4b8d8db7739f615d566afa4617221b1c34a0
 
 ---
 # <a name="azure-search-documentation"></a>Documentazione di Ricerca di Azure
@@ -132,8 +132,8 @@ Informazioni su come aggiungere funzionalità alle app per dispositivi mobili o 
                     <div class="cardText">
                         <h3>Lingue</h3>
                         <p><a href="/dotnet/api/microsoft.azure.search">.NET</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.management.search">Gestione di .NET</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.management.search">Java</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.search">.NET (gestione)</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html">Python (gestione)</a></p>
                    </div>
                 </div>
             </div>
@@ -154,13 +154,7 @@ Informazioni su come aggiungere funzionalità alle app per dispositivi mobili o 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/search.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione di Ricerca di Azure </div>
-    </a>
-</div>
+
 
 
 

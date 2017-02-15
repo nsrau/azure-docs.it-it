@@ -13,29 +13,30 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 340287e4a3331eba441bce7feb957f27aca38b2b
-
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 80a1630deb8f7e93a91118d880eb2477ace26eb6
 
 ---
+
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Caricare dati in Ricerca di Azure tramite l'API REST
 > [!div class="op_single_selector"]
+>
 > * [Panoramica](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
 > * [REST](search-import-data-rest-api.md)
-> 
-> 
+>
+>
 
-Questo articolo illustra come usare l' [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) per importare dati in un indice di Ricerca di Azure.
+Questo articolo illustra come usare l' [API REST di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/) per importare dati in un indice di Ricerca di Azure.
 
 Prima di iniziare questa procedura dettagliata, è necessario avere [creato un indice di Ricerca di Azure](search-what-is-an-index.md).
 
 Per effettuare il push dei documenti nell'indice con l'API REST, inviare una richiesta HTTP POST all'endpoint dell'URL dell'indice. Il corpo della richiesta HTTP è un oggetto JSON che contiene i documenti da aggiungere, modificare o eliminare.
 
-## <a name="i-identify-your-azure-search-services-admin-apikey"></a>I. Identificare la chiave API amministratore del servizio Ricerca di Azure
+## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identificare la chiave API amministratore del servizio Ricerca di Azure
 Quando si inviano richieste HTTP al servizio tramite l'API REST, *ogni* richiesta API deve includere la chiave API generata per il servizio di ricerca di cui è stato effettuato il provisioning. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
 1. Per trovare le chiavi API del servizio, è necessario accedere al [portale di Azure](https://portal.azure.com/)
@@ -65,9 +66,9 @@ Ogni oggetto JSON nella matrice "value" rappresenta un documento da indicizzare.
 Ora che sono stati raccolti i valori dei campi necessari per le operazioni sull'indice, si è pronti per creare la richiesta HTTP effettiva e il corpo della richiesta JSON per importare i dati.
 
 #### <a name="request-and-request-headers"></a>Richiesta e intestazioni della richiesta
-Nell'URL è necessario fornire il nome del servizio, il nome dell'indice, in questo caso "hotels", nonché la versione corretta dell'API. Al momento della pubblicazione di questo documento la versione dell'API corrente è `2015-02-28`. È necessario definire le intestazioni della richiesta `Content-Type` e `api-key`. Nel secondo caso, usare una delle chiavi amministratore del servizio.
+Nell'URL è necessario fornire il nome del servizio, il nome dell'indice, in questo caso "hotels", nonché la versione corretta dell'API. Al momento della pubblicazione di questo documento la versione dell'API corrente è `2016-09-01`. È necessario definire le intestazioni della richiesta `Content-Type` e `api-key`. Nel secondo caso, usare una delle chiavi amministratore del servizio.
 
-    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
+    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 
@@ -160,8 +161,8 @@ Quando almeno un elemento non è stato indicizzato correttamente, viene restitui
 
 > [!NOTE]
 > Spesso questo significa che il carico sul servizio di ricerca sta per raggiungere un punto in cui le richieste di indicizzazione inizieranno a restituire risposte `503`. In questo caso, è consigliabile interrompere l'invio del codice client e attendere prima di riprovare. Il sistema avrà così tempo per recuperare, aumentando le probabilità che le future richieste siano soddisfatte. La ripetizione rapida delle richieste prolungherà semplicemente il tempo necessario per risolvere la situazione.
-> 
-> 
+>
+>
 
 #### <a name="429"></a>429
 Il codice di stato `429` viene restituito quando è stata superata la quota del numero di documenti per indice.
@@ -171,17 +172,16 @@ Il codice di stato `503` viene restituito se nessuno degli elementi nella richie
 
 > [!NOTE]
 > In questo caso, è consigliabile interrompere l'invio del codice client e attendere prima di riprovare. Il sistema avrà così tempo per recuperare, aumentando le probabilità che le future richieste siano soddisfatte. La ripetizione rapida delle richieste prolungherà semplicemente il tempo necessario per risolvere la situazione.
-> 
-> 
+>
+>
 
-Per altre informazioni su azioni sui documenti e risposte di esito positivo/errore, vedere [Aggiungere, aggiornare o eliminare documenti](https://msdn.microsoft.com/library/azure/dn798930.aspx). Per altre informazioni su altri codici di stato HTTP che possono essere restituiti in caso di errore, vedere [Codici di stato HTTP (Ricerca di Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+Per altre informazioni su azioni sui documenti e risposte di esito positivo/errore, vedere [Aggiungere, aggiornare o eliminare documenti](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents). Per altre informazioni su altri codici di stato HTTP che possono essere restituiti in caso di errore, vedere [Codici di stato HTTP (Ricerca di Azure)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 ## <a name="next"></a>Avanti
 Dopo il popolamento dell'indice di Ricerca di Azure, si potrà iniziare a eseguire una query per la ricerca di documenti. Per informazioni dettagliate, vedere [Eseguire query su un indice di Ricerca di Azure](search-query-overview.md) .
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -13,16 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 12/08/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: 8c295a4207e9d12eb0cb978205a75d536d6a55e7
+ms.sourcegitcommit: 5a9b3e94faee1db7c38b9f60045637640d820208
+ms.openlocfilehash: b11d9d67234c85af8f9fcb9992864ef9e1662a79
 
 
 ---
 # <a name="import-data-to-documentdb-with-the-database-migration-tool"></a>Importare dati in DocumentDB con lo strumento di migrazione del database
 Questo articolo mostra come usare lo strumento di migrazione dati di DocumentDB open source ufficiale per importare dati in [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) da diverse origini, tra cui file JSON, file CSV, SQL, MongoDB, archiviazione tabelle di Azure e raccolte DocumentDB.
+
+Se si importano dati in un account DocumentDB con supporto per MongoDB, seguire le istruzioni disponibili in [Migrate data to DocumentDB with protocol support for MongoDB](documentdb-mongodb-migrate.md) (Eseguire la migrazione di dati in DocumentDB con supporto del protocollo per MongoDB).
 
 Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:  
 
@@ -78,6 +80,12 @@ Ecco alcuni esempi di riga di comando per importare file JSON:
     dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionThroughput:2500
 
 ## <a name="a-idmongodbaimport-from-mongodb"></a><a id="MongoDB"></a>Importare da MongoDB
+
+> [!IMPORTANT]
+> Se si importano dati in un account DocumentDB con supporto per MongoDB, seguire queste [istruzioni](documentdb-mongodb-migrate.md).
+> 
+> 
+
 L'opzione dell'utilità di importazione dell'origine MongoDB consente di importare da una singola raccolta MongoDB e, facoltativamente, di filtrare i documenti usando una query e/o di modificare la struttura di documenti usando una proiezione.  
 
 ![Schermata delle opzioni dell'origine MongoDB - Confronto tra documentdb e mongodb](./media/documentdb-import-data/mongodbsource.png)
@@ -102,6 +110,12 @@ Ecco alcuni esempi di riga di comando per importare da MongoDB:
     dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database> /s.Collection:zips /s.Query:{pop:{$gt:50000}} /s.Projection:{loc:0} /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:BulkZipsTransform /t.IdField:_id/t.CollectionThroughput:2500
 
 ## <a name="a-idmongodbexportaimport-mongodb-export-files"></a><a id="MongoDBExport"></a>Importare file di esportazione MongoDB
+
+> [!IMPORTANT]
+> Se si importano dati in un account DocumentDB con supporto per MongoDB, seguire queste [istruzioni](documentdb-mongodb-migrate.md).
+> 
+> 
+
 L'opzione dell'utilità di importazione dell'origine file JSON di esportazione MongoDB consente di importare uno o più file JSON prodotti dall'utilità mongoexport.  
 
 ![Schermata delle opzioni dell'origine di esportazione MongoDB - Confronto tra documentdb e mongodb](./media/documentdb-import-data/mongodbexportsource.png)
@@ -389,7 +403,7 @@ Per importare in un'unica raccolta, immettere il nome della raccolta in cui verr
 2. È possibile usare una sintassi abbreviata: collection[3] restituirà lo stesso set di raccolte citato nel passaggio 1.
 3. È possibile specificare più di una sostituzione. Ad esempio, collection[0-1] [0-9] genererà 20 nomi di raccolte con zeri iniziali (collection01, ..02, ..03).
 
-Dopo aver specificato il nome della raccolta, scegliere la velocità effettiva desiderata della raccolta, da 400 UR a 250.000 UR. Per ottimizzare le prestazioni di importazione, scegliere una velocità effettiva superiore. Per altre informazioni sui livelli di prestazioni, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md). Eventuali importazioni nelle raccolte con una velocità effettiva > 10.000 UR richiederanno una chiave di partizione. Se si sceglie un valore di UR superiore a 250.000, vedere [Richiedere un aumento dei limiti di account DocumentDB](documentdb-increase-limits.md).
+Dopo aver specificato il nome della raccolta, scegliere la velocità effettiva desiderata della raccolta, da 400 UR a 250.000 UR. Per ottimizzare le prestazioni di importazione, scegliere una velocità effettiva superiore. Per altre informazioni sui livelli di prestazioni, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md). Eventuali importazioni nelle raccolte con una velocità effettiva >&10;.000 UR richiederanno una chiave di partizione. Se si sceglie un valore di UR superiore a 250.000, vedere [Richiedere un aumento dei limiti di account DocumentDB](documentdb-increase-limits.md).
 
 > [!NOTE]
 > L'impostazione della velocità effettiva si applica solo alla creazione di raccolte. Se la raccolta specificata esiste già, la velocità effettiva non verrà modificata.
@@ -512,6 +526,6 @@ Quindi, scegliere se registrare tutti i messaggi di errore, quelli critici o nes
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

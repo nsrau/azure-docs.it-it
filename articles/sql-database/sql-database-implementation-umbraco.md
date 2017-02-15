@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: 5243d31e-3241-4cb0-9470-ad488ff28572
 ms.service: sql-database
-ms.custom: app development case study; app development
+ms.custom: app development case study
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/22/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0800f04034410c3734ef0a97afd9d41cf850381b
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 41334fb928b18c288f32efb0978150fa24ae14e3
 
 
 ---
@@ -54,7 +54,7 @@ Con il database SQL di Azure e altri servizi di Azure, i clienti Umbraco possono
    L'implementazione è completamente automatizzata tramite le librerie di gestione in C# e le code del bus di servizio.
 2. Uso
    
-   I clienti usano da uno a tre ambienti, per la produzione, la gestione temporanea e/o lo sviluppo, ognuno con un proprio database. I database dei clienti si trovano in pool di database elastici, che consentono a Umbraco di fornire un ridimensionamento efficace evitando il provisioning eccessivo.
+   I clienti usano da uno a tre ambienti, per la produzione, la gestione temporanea e/o lo sviluppo, ognuno con un proprio database. I database dei clienti si trovano in pool elastici, che consentono a Umbraco di fornire un ridimensionamento efficace evitando il provisioning eccessivo.
    
    ![Panoramica del progetto Umbraco](./media/sql-database-implementation-umbraco/figure2.png)
    
@@ -78,7 +78,7 @@ Con il database SQL di Azure e altri servizi di Azure, i clienti Umbraco possono
    Quando viene eliminato l'ambiente di un progetto, tutti i database associati (di sviluppo, di gestione temporanea o live) vengono rimossi durante la pulizia della coda del bus di servizio. Questo processo automatizzato ripristina i database inutilizzati nel pool di disponibilità di database elastici Umbraco, rendendoli disponibili per attività di provisioning future ottimizzando il livello di utilizzo.
 
 ## <a name="elastic-pools-allow-uaas-to-scale-with-ease"></a>I pool elastici consentono un facile ridimensionamento del servizio UaaS
-Grazie all'uso di pool di database elastici Azure, Umbraco è in grado di ottimizzare le prestazioni per i clienti senza ricorrere al provisioning eccessivo o insufficiente. Umbraco dispone attualmente di quasi 3.000 database in 19 pool di database elastici, assicurando un facile ridimensionamento in linea con le esigenze di uno qualsiasi dei 325.000 clienti esistenti o dei nuovi clienti disponibili a distribuire un sistema CMS nel cloud.
+Grazie all'uso di pool elastici di Azure, Umbraco è in grado di ottimizzare le prestazioni per i clienti senza ricorrere al provisioning eccessivo o insufficiente. Umbraco ha attualmente quasi 3.000 database in 19 pool elastici, assicurando un facile ridimensionamento in linea con le esigenze di uno qualsiasi dei 325.000 clienti esistenti o dei nuovi clienti disponibili a distribuire un sistema CMS nel cloud.
 
 Secondo Morten Christensen, responsabile tecnico Umbraco, "Ogni giorno circa 30 nuovi clienti scelgono il servizio UaaS. I clienti apprezzano in particolare la possibilità di eseguire il provisioning di nuovi progetti in pochi secondi, pubblicare immediatamente gli aggiornamenti nei propri siti live da un ambiente di sviluppo tramite le "distribuzioni con un clic" e apportare modifiche altrettanto rapidamente qualora vengano rilevati errori".
 
@@ -91,7 +91,7 @@ Figura 3. Architettura per la distribuzione di UaaS in Microsoft Azure
 ## <a name="the-path-from-datacenter-to-cloud"></a>Percorso dal data center al cloud
 Al momento di adottare inizialmente la decisione di migrare a un modello SaaS, gli sviluppatori Umbraco sono consapevoli del fatto che necessitano di un modo conveniente e scalabile per distribuire il servizio.
 
-> "I pool di database elastici sono perfetti per l'offerta SaaS perché consentono di aumentare o ridurre la capacità in base alle esigenze. Il provisioning è semplice e grazie alla configurazione è possibile ottimizzare il livello di utilizzo".
+> "I pool elastici sono perfetti per l'offerta SaaS perché consentono di aumentare o ridurre la capacità in base alle esigenze. Il provisioning è semplice e grazie alla configurazione è possibile ottimizzare il livello di utilizzo".
 > 
 > - Morten Christensen, responsabile tecnico, Umbraco
 > 
@@ -110,11 +110,11 @@ Per soddisfare tutti i criteri, Umbraco ha cercato un partner per il cloud con l
 * Presenza in tutti i mercati geografici in cui il servizio UaaS opera come competitor: le aziende hanno bisogno di garantire il rapido accesso ai dati e l'archiviazione dei dati in una posizione in linea con i requisiti normativi internazionali
 
 ## <a name="why-umbraco-chose-azure-for-uaas"></a>Perché Umbraco ha scelto Azure per UaaS
-Secondo Morten Christensen "Dopo un'attenta valutazione di tutte le opzioni, abbiamo scelto Azure perché soddisfa tutti i criteri, dalla gestibilità e scalabilità alla familiarità e al rapporto costi/benefici. Abbiamo configurato gli ambienti nelle VM Azure e ogni ambiente dispone di una propria istanza del database SQL di Azure, con tutte le istanze nei pool di database elastici. Separando i database tra gli ambienti di sviluppo, di gestione temporanea e live, siamo in grado di offrire ai clienti un livello avanzato di isolamento delle prestazioni abbinato alla scalabilità conseguendo un successo notevole".
+Secondo Morten Christensen "Dopo un'attenta valutazione di tutte le opzioni, abbiamo scelto Azure perché soddisfa tutti i criteri, dalla gestibilità e scalabilità alla familiarità e al rapporto costi/benefici. Abbiamo configurato gli ambienti nelle VM Azure e ogni ambiente ha una propria istanza del database SQL di Azure, con tutte le istanze nei pool elastici. Separando i database tra gli ambienti di sviluppo, di gestione temporanea e live, siamo in grado di offrire ai clienti un livello avanzato di isolamento delle prestazioni abbinato alla scalabilità conseguendo un successo notevole".
 
 Morten afferma anche: "Prima era necessario eseguire manualmente il provisioning di server per i database Web. Ora non teniamo più in considerazione questo aspetto. Tutte le operazioni sono automatizzate, dal provisioning alle operazioni di eliminazione".
 
-Morten è soddisfatto anche delle funzionalità di ridimensionamento disponibili in Azure. "I pool di database elastici sono perfetti per l'offerta SaaS perché consentono di aumentare o ridurre la capacità in base alle esigenze. Il provisioning è semplice e grazie alla configurazione è possibile ottimizzare il livello di utilizzo". Morten afferma "La semplicità dei pool elastici, con la garanzia di DTU basate sui livelli di servizio, offre la possibilità di eseguire il provisioning di nuovi pool di risorse su richiesta. Uno dei nostri clienti più importanti ha raggiunto recentemente il picco di 100 DTU nell'ambiente live. Usando Azure, i pool elastici hanno fornito ai database dei clienti le risorse necessarie in tempo reale senza la necessità di prevedere in anticipo i requisiti di DTU. In poche parole, i clienti ottengono il tempo di risposta che si aspettano e possiamo soddisfare i contratti di servizio a livello di prestazioni".
+Morten è soddisfatto anche delle funzionalità di ridimensionamento disponibili in Azure. "I pool elastici sono perfetti per l'offerta SaaS perché consentono di aumentare o ridurre la capacità in base alle esigenze. Il provisioning è semplice e grazie alla configurazione è possibile ottimizzare il livello di utilizzo". Morten afferma "La semplicità dei pool elastici, con la garanzia di DTU basate sui livelli di servizio, offre la possibilità di eseguire il provisioning di nuovi pool di risorse su richiesta. Uno dei nostri clienti più importanti ha raggiunto recentemente il picco di 100 DTU nell'ambiente live. Usando Azure, i pool elastici hanno fornito ai database dei clienti le risorse necessarie in tempo reale senza la necessità di prevedere in anticipo i requisiti di DTU. In poche parole, i clienti ottengono il tempo di risposta che si aspettano e possiamo soddisfare i contratti di servizio a livello di prestazioni".
 
 Mikkel Madsen ribadisce "Abbiamo adottato il potente algoritmo di Azure che connette uno scenario SaaS comune, come l'acquisizione di nuovi clienti in tempo reale su larga scala, al modello applicativo, come il provisioning preventivo di database, sia di sviluppo sia live, insieme alla tecnologia sottostante usando le code del bus di servizio Azure in combinazione con il database SQL di Azure".
 
@@ -122,17 +122,17 @@ Mikkel Madsen ribadisce "Abbiamo adottato il potente algoritmo di Azure che conn
 Da quando ha scelto Azure come partner cloud, Umbraco è stato in grado di fornire ai clienti UaaS prestazioni ottimali in termini di gestione dei contenuti, senza dover investire su risorse IT, come sarebbe stato necessario con una soluzione indipendente. Come afferma Morten, "Apprezziamo in particolare i vantaggi e la scalabilità che Azure mette a disposizione degli sviluppatori e i clienti sono particolarmente soddisfatti di funzionalità e affidabilità. Il successo è stato grande da ogni punto di vista".
 
 ## <a name="more-information"></a>Altre informazioni
-* Per altre informazioni sui pool di database elastici, vedere [Che cos'è un pool elastico di Azure?](sql-database-elastic-pool.md).
+* Per altre informazioni sui pool elastici, vedere [pool elastici](sql-database-elastic-pool.md).
 * Per altre informazioni sul bus di servizio di Azure, vedere [Bus di servizio](https://azure.microsoft.com/services/service-bus/).
 * Per altre informazioni sui ruoli Web e i ruoli di lavoro, vedere l'argomento relativo ai [ruoli di lavoro](../fundamentals-introduction-to-azure.md#compute).    
 * Per altre informazioni sulla rete virtuale, vedere [Rete virtuale](https://azure.microsoft.com/documentation/services/virtual-network/).    
 * Per altre informazioni su backup e ripristino, vedere [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).    
-* Per altre informazioni sul monitoraggio di pool, vedere [Monitorare e gestire un pool di database elastici con il portale di Azureo](sql-database-elastic-pool-manage-portal.md).    
+* Per altre informazioni sul monitoraggio di pool, vedere [Monitorare e gestire un pool di database elastici con il portale di Azure](sql-database-elastic-pool-manage-portal.md).    
 * Per altre informazioni su Umbraco-as-a-Service, vedere [Umbraco](https://umbraco.com/cloud).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

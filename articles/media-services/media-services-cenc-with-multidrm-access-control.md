@@ -12,43 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 12/11/2016
 ms.author: willzhan;kilroyh;yanmf;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: a4f363fcd05e8596f445ce7d40638c5e27c896e6
+ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
+ms.openlocfilehash: 32c792c097e44d46fef9d161ef8d361e97167224
 
 
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>CENC con DRM multiplo e controllo di accesso: progettazione di riferimento e implementazione in Azure e in Servizi multimediali di Azure
-## <a name="key-words"></a>Parole chiave
-Azure Active Directory, Servizi multimediali di Azure, Azure Media Player, crittografia dinamica, distribuzione di licenze, PlayReady, Widevine, FairPlay, Common Encryption (CENC), DRM multiplo, Axinom, DASH, EME, MSE, token Web JSON (JWT), attestazioni, browser moderni, rollover della chiave, chiave simmetrica, chiave asimmetrica, OpenID Connect, certificato X509.
-
-## <a name="in-this-article"></a>Contenuto dell'articolo
-Questo articolo tratta gli argomenti seguenti:
-
-* [Introduzione](media-services-cenc-with-multidrm-access-control.md#introduction)
-  * [Panoramica dell'articolo](media-services-cenc-with-multidrm-access-control.md#overview-of-this-article)
-* [Progettazione di riferimento](media-services-cenc-with-multidrm-access-control.md#a-reference-design)
-* [Mapping della progettazione alla tecnologia per l'implementazione](media-services-cenc-with-multidrm-access-control.md#mapping-design-to-technology-for-implementation)
-* [Implementazione](media-services-cenc-with-multidrm-access-control.md#implementation)
-  * [Procedure di implementazione](media-services-cenc-with-multidrm-access-control.md#implementation-procedures)
-  * [Problematiche di implementazione](media-services-cenc-with-multidrm-access-control.md#some-gotchas-in-implementation)
-* [Argomenti aggiuntivi per l'implementazione](media-services-cenc-with-multidrm-access-control.md#additional-topics-for-implementation)
-  * [HTTP o HTTPS](media-services-cenc-with-multidrm-access-control.md#http-or-https)
-  * [Rollover della chiave per la firma di Azure Active Directory](media-services-cenc-with-multidrm-access-control.md#azure-active-directory-signing-key-rollover)
-  * [Dov'è il token di accesso?](media-services-cenc-with-multidrm-access-control.md#where-is-the-access-token)
-  * [Come funziona lo streaming live?](media-services-cenc-with-multidrm-access-control.md#what-about-live-streaming)
-  * [Come funzionano i server licenze al di fuori di Servizi multimediali di Azure?](media-services-cenc-with-multidrm-access-control.md#what-about-license-servers-outside-of-azure-media-services)
-  * [Come procedere per usare un servizio token di sicurezza personalizzato?](media-services-cenc-with-multidrm-access-control.md#what-if-i-want-to-use-a-custom-sts)
-* [Sistema completato e test](media-services-cenc-with-multidrm-access-control.md#the-completed-system-and-test)
-  * [Accesso utente](media-services-cenc-with-multidrm-access-control.md#user-login)
-  * [Uso di Encrypted Media Extensions per PlayReady](media-services-cenc-with-multidrm-access-control.md#using-encrypted-media-extensions-for-playready)
-  * [Uso di EME per Widevine](media-services-cenc-with-multidrm-access-control.md#using-eme-for-widevine)
-  * [Utenti non idonei](media-services-cenc-with-multidrm-access-control.md#not-entitled-users)
-  * [Esecuzione del servizio token di sicurezza personalizzato](media-services-cenc-with-multidrm-access-control.md#running-custom-secure-token-service)
-* [Riepilogo](media-services-cenc-with-multidrm-access-control.md#summary)
-
+ 
 ## <a name="introduction"></a>Introduzione
 È risaputo che la progettazione e la compilazione di un sottosistema DRM per una soluzione di streaming online o OTT sono attività complesse. Gli operatori e i provider video online in genere danno queste attività in outsourcing a provider di servizi DRM specializzati. L'obiettivo di questo documento è presentare una progettazione di riferimento e l'implementazione del sottosistema DRM end-to-end nella soluzione di streaming online o OTT.
 
@@ -75,7 +48,7 @@ Nell'articolo, "DRM multiplo" fa riferimento a quanto segue:
 
 1. Microsoft PlayReady
 2. Google Widevine
-3. Apple FairPlay (non ancora supportato da Servizi multimediali di Azure)
+3. Apple FairPlay 
 
 La tabella seguente riepiloga l'app nativa/piattaforma e i browser supportati da ogni DRM.
 
@@ -85,7 +58,7 @@ La tabella seguente riepiloga l'app nativa/piattaforma e i browser supportati da
 | **Dispositivi Windows 10 (PC Windows, tablet Windows, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>UWP |DASH (per HLS, PlayReady non è supportato)<br/><br/>DASH, Smooth Streaming (per HLS, PlayReady non è supportato) |
 | **Dispositivi Android (telefoni, tablet, TV)** |Widevine |Chrome/EME |DASH |
 | **iOS (iPhone, iPad), client OS X e Apple TV** |FairPlay |Safari 8+/EME |HLS |
-| **Plug-in: Adobe Primetime** |Accesso Primetime |Plug-in del browser |HDS, HLS |
+
 
 Considerando lo stato attuale della distribuzione per ogni DRM, un servizio solitamente vuole implementare 2 o 3 DRM per assicurarsi di affrontare tutti i tipi di endpoint nel modo migliore.
 
@@ -453,7 +426,7 @@ Si noti che Widevine non impedisce di acquisire schermate da un video protetto.
 ![Uso di EME per Widevine](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-widevine2.png)
 
 ### <a name="not-entitled-users"></a>Utenti non idonei
-Se un utente non è membro del gruppo di utenti idonei, l'utente non potrà superare il controllo "entitlement check" e il servizio di licenza con DRM multiplo rifiuterà di rilasciare la licenza richiesta, come illustrato sotto. La descrizione dettagliata è "License acquire failed", come previsto dalla progettazione.
+Se un utente non è membro del gruppo di utenti idonei, l'utente non potrà superare il controllo dei diritti e il servizio di licenza con DRM multiplo rifiuterà di rilasciare la licenza richiesta, come illustrato di seguito. La descrizione dettagliata è "License acquire failed", come previsto dalla progettazione.
 
 ![Utenti non idonei](./media/media-services-cenc-with-multidrm-access-control/media-services-unentitledusers.png)
 
@@ -482,12 +455,9 @@ In questo documento è stata illustrata la crittografia CENC con DRM nativo mult
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-### <a name="acknowledgments"></a>Ringraziamenti
-William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich
+ 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

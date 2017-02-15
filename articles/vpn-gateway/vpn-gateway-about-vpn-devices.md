@@ -153,6 +153,6 @@ La tabella seguente include l'elenco delle offerte di autenticazione e crittogra
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

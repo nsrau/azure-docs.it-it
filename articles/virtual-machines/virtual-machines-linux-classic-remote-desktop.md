@@ -1,13 +1,13 @@
 ---
 title: Desktop remoto per una macchina virtuale Linux | Microsoft Docs
-description: Informazioni sull'installazione e la configurazione di Desktop remoto per collegarsi a una macchina virtuale Linux di Microsoft Azure.
+description: Informazioni sull&quot;installazione e la configurazione di Desktop remoto per collegarsi a una macchina virtuale Linux di Microsoft Azure.
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: SuperScottz
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 34348659-ddb7-41da-82d6-b5885859e7e4
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,12 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
 ms.author: mingzhan
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 98b2f3d9108c3f7a4179f5756d56fce9c5acd915
+
 
 ---
-# Uso di Desktop remoto per connettersi a una macchina virtuale Linux di Microsoft Azure.
+# <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Uso di Desktop remoto per connettersi a una macchina virtuale Linux di Microsoft Azure.
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-## Panoramica
+## <a name="overview"></a>Panoramica
 Il protocollo RDP (Remote Desktop Protocol) è un protocollo proprietario utilizzato per Windows. Come si può utilizzare RDP per connettersi a una VM (macchina virtuale) Linux in modalità remota?
 
 L'articolo seguente risponderà a questa domanda. Consentirà di installare e configurare xrdp su macchine virtuali Linux di Microsoft Azure e di connettersi con Desktop remoto da un computer Windows. Utilizzeremo una macchina virtuale Linux che esegue Ubuntu o OpenSUSE come nell'esempio riportato in questa guida.
@@ -28,18 +32,18 @@ L'articolo seguente risponderà a questa domanda. Consentirà di installare e co
 Xrdp è un server RDP open source, che consente di connettere il server Linux con Desktop remoto da un computer Windows. Funziona molto meglio di VNC (Virtual Network Computing). VNC ha fama di qualità "JPEG" e di lentezza di funzionamento, mentre RDP è veloce e nitido.
 
 > [!NOTE]
-> È necessario disporre di una macchina virtuale di Microsoft Azure che esegue Linux. Vedere l'[esercitazione relativa alle macchine virtuali Linux di Azure](virtual-machines-linux-classic-createportal.md) per creare e impostare una macchina virtuale Linux.
+> È necessario disporre di una macchina virtuale di Microsoft Azure che esegue Linux. Vedere l'[esercitazione relativa alle macchine virtuali Linux di Azure](virtual-machines-linux-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)per creare e impostare una macchina virtuale Linux.
 > 
 > 
 
-## Creare endpoint per Desktop remoto
+## <a name="create-endpoint-for-remote-desktop"></a>Creare endpoint per Desktop remoto
 In questo documento verrà usato l'endpoint predefinito 3389 per Desktop remoto. Quindi, configurare l'endpoint 3389 come Desktop remoto per la macchina virtuale Linux come segue:
 
 ![immagine](./media/virtual-machines-linux-classic-remote-desktop/no1.png)
 
-Se non si è al corrente di come configurare endpoint per la macchina virtuale, vedere [queste indicazioni](virtual-machines-linux-classic-setup-endpoints.md).
+Se non si è al corrente di come configurare endpoint per la macchina virtuale, vedere [queste indicazioni](virtual-machines-linux-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-## Installare Gnome Desktop
+## <a name="install-gnome-desktop"></a>Installare Gnome Desktop
 Connettersi alla macchina virtuale Linux tramite putty e installare `Gnome Desktop`.
 
 Per Ubuntu, utilizzare:
@@ -52,7 +56,7 @@ Per OpenSUSE, usare:
 
     #sudo zypper install gnome-session
 
-## Installare xrdp
+## <a name="install-xrdp"></a>Installare xrdp
 Per Ubuntu, utilizzare:
 
     #sudo apt-get install xrdp
@@ -68,7 +72,7 @@ Per OpenSUSE, usare:
     #sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
 
 
-## Avviare xrdp e impostare il servizio xdrp all'avvio
+## <a name="start-xrdp-and-set-xdrp-service-at-boot-up"></a>Avviare xrdp e impostare il servizio xdrp all'avvio
 Per OpenSUSE, usare:
 
     #sudo systemctl start xrdp
@@ -76,8 +80,8 @@ Per OpenSUSE, usare:
 
 Per Ubuntu, xrdp verrà avviato e abilitato automaticamente al momento dell'avvio dopo l'installazione.
 
-## Uso di xfce se si usa una versione di Ubuntu successiva a Ubuntu 12.04LTS
-Poiché attualmente xrdp non supporta Gnome Desktop dalla versione di Ubuntu successiva a Ubuntu 12.04LTS, verrà usato Desktop `xfce`.
+## <a name="using-xfce-if-you-are-using-ubuntu-version-later-than-ubuntu-1204lts"></a>Uso di xfce se si usa una versione di Ubuntu successiva a Ubuntu 12.04LTS
+Poiché attualmente xrdp non supporta Gnome Desktop dalla versione di Ubuntu successiva a Ubuntu 12.04LTS, verrà usato Desktop `xfce` .
 
 Installare `xfce`, usare:
 
@@ -98,14 +102,19 @@ Riavviare il servizio xrdp, usare:
     #sudo service xrdp restart
 
 
-## Connettersi alla macchina virtuale Linux da un computer Windows
+## <a name="connect-your-linux-vm-from-a-windows-machine"></a>Connettersi alla macchina virtuale Linux da un computer Windows
 In un computer Windows avviare il client desktop remoto, immettere il nome DNS della VM Linux oppure passare al `Dashboard` della VM nel portale di Azure classico e fare clic su `Connect` per connettere la VM Linux, verrà visualizzata la finestra di accesso seguente:
 
 ![immagine](./media/virtual-machines-linux-classic-remote-desktop/no2.png)
 
-Accedere con `user` e `password` per la macchina Linux e sarà possibile usare subito Desktop remoto dalla macchina virtuale Linux di Microsoft Azure.
+Accedere con `user` & `password` per la macchina Linux e sarà possibile usare subito Desktop remoto dalla macchina virtuale Linux di Microsoft Azure.
 
-## Avanti
+## <a name="next"></a>Avanti
 Per altre informazioni sull'uso di xrdp, vedere [questa pagina](http://www.xrdp.org/).
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

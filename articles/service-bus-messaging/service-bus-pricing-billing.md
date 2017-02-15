@@ -1,153 +1,158 @@
 ---
-title: Service Bus pricing and billing | Microsoft Docs
-description: Overview of Service Bus pricing structure.
-services: service-bus
+title: Prezzi e fatturazione del Bus di servizio | Documentazione Microsoft
+description: Panoramica della struttura dei prezzi del Bus di servizio.
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 7c45b112-e911-45ab-9203-a2e5abccd6e0
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/06/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
+ms.openlocfilehash: 58d1b84c1a9fe19937846842f30f5e7b48cda1c7
+
 
 ---
-# <a name="service-bus-pricing-and-billing"></a>Service Bus pricing and billing
-Service Bus is offered in Basic, Standard, and [Premium](service-bus-premium-messaging.md) tiers. You can choose a service tier for each Service Bus service namespace that you create, and this tier selection applies across all entities created within that namespace.
+# <a name="service-bus-pricing-and-billing"></a>Informazioni sul prezzo e la fatturazione del Bus di servizio
+Il bus di servizio è disponibile nei livelli Basic, Standard e [Premium](service-bus-premium-messaging.md). È possibile scegliere un livello di servizio per ogni spazio dei nomi del bus di servizio creato e questa selezione del livello si applica a tutte le entità create all'interno dello spazio dei nomi.
 
 > [!NOTE]
-> For detailed information about current Service Bus pricing, see the [Azure Service Bus pricing page](https://azure.microsoft.com/pricing/details/service-bus/), and the [Service Bus FAQ](service-bus-faq.md#service-bus-pricing).
-> 
-> 
+> Per informazioni dettagliate sui prezzi correnti del bus di servizio, vedere la [pagina dei prezzi del bus di servizio di Azure](https://azure.microsoft.com/pricing/details/service-bus/) e [Domande frequenti sul bus di servizio](service-bus-faq.md#service-bus-pricing).
+>
+>
 
-Service Bus uses the following two meters for queues and topics/subscriptions:
+I bus di servizio usano i due misuratori seguenti per le code e gli argomenti/sottoscrizioni:
 
-1. **Messaging Operations**: Defined as API calls against queue or topic/subscription service endpoints. This meter will replace messages sent or received as the primary unit of billable usage for queues and topics/subscriptions.
-2. **Brokered Connections**: Defined as the peak number of persistent connections open against queues, topics, or subscriptions during a given one-hour sampling period. This meter will only apply in the Standard tier, in which you can open additional connections (previously, connections were limited to 100 per queue/topic/subscription) for a nominal per-connection fee.
+1. **Operazioni di messaggistica**: definite come chiamate API sugli endpoint di servizio di code o argomenti/sottoscrizioni. Questo misuratore sostituirà i messaggi inviati o ricevuti come unità primaria dell'utilizzo fatturabile per code e argomenti/sottoscrizioni.
+2. **Connessioni negoziate**: definite come numero massimo di connessioni permanenti aperte su code, argomenti o sottoscrizioni durante un periodo di campionamento di un'ora. Questo misuratore verrà applicato solo nel livello Standard, in cui è possibile aprire connessioni aggiuntive (prima le connessioni erano limitate a 100 per ogni coda, argomento o sottoscrizione) per una tariffa nominale per ogni connessione.
 
-The **Standard** tier introduces graduated pricing for operations performed with queues and topics/subscriptions, resulting in volume-based discounts of up to 80% at the highest usage levels. There is also a Standard tier base charge of $10 per month, which enables you to perform up to 12.5 million operations per month at no additional cost.
+Il livello **Standard** introduce prezzi progressivi per le operazioni eseguite con code e argomenti/sottoscrizioni, che generano sconti basati sul volume che arrivano fino all'80% nei livelli di utilizzo più elevati. È inoltre disponibile un addebito di base al livello Standard di 10 USD al mese, che consente di eseguire operazioni fino a 12,5 milioni di dollari al mese senza alcun costo aggiuntivo.
 
-The **Premium** tier provides resource isolation at the CPU and memory layer so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, or 4 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will, although billing is in 24-hour or daily rate charges. The result is predictable and repeatable performance for your Service Bus-based solution. Not only is this performance more predictable and available, but it is also faster. Azure Service Bus Premium messaging builds on the storage engine introduced in Azure Event Hubs. With Premium messaging, peak performance is much faster than the Standard tier.
+Il livello **Premium** fornisce l'isolamento delle risorse a livello di CPU e memoria in modo che ogni carico di lavoro del cliente venga eseguito in isolamento. Questo contenitore di risorse viene chiamato *unità di messaggistica*. Ad ogni spazio dei nomi Premium viene allocata almeno un'unità di messaggistica. È possibile acquistare 1, 2 o 4 unità di messaggistica per ogni spazio dei nomi Premium del bus di servizio. Un singolo carico di lavoro o un'entità può estendersi su più unità di messaggistica e il numero di unità di messaggistica può essere modificato in base alle esigenze, anche se la fatturazione prevede un addebito a frequenza giornaliera o a 24 ore. Ne risultano prestazioni prevedibili e ripetibili per la soluzione basata sul bus di servizio. Non solo le prestazioni sono più prevedibili e disponibili, ma anche più veloci. La messaggistica Premium del bus di servizio di Azure crea il motore di archiviazione introdotto in Hub eventi di Azure. Con la messaggistica Premium, le prestazioni massime sono più rapide rispetto al livello Standard.
 
-Note that the standard base charge is charged only once per month per Azure subscription. This means that after you create a single Standard or Premium tier Service Bus namespace, you will be able to create as many additional Standard or Premium tier namespaces as you want under that same Azure subscription, without incurring additional base charges.
+Si noti che il costo di base standard viene addebitato una sola volta al mese per ogni sottoscrizione di Azure. Ciò significa che, dopo aver creato un unico spazio dei nomi del bus di servizio nei livelli Standard o Premium, sarà possibile creare tutti gli spazi dei nomi di livello Standard o Premium aggiuntivi desiderati nella stessa sottoscrizione di Azure, senza incorrere in costi aggiuntivi di base.
 
-All existing Service Bus namespaces created prior to November 1, 2014 were automatically placed into the Standard tier. This ensures that you continue to have access to all features currently available with Service Bus. Subsequently, you can use the [Azure classic portal][Azure classic portal] to downgrade to the Basic tier if desired.
+Tutti gli spazi dei nomi del Bus di servizio esistenti creati prima del 1 novembre 2014 sono stati automaticamente inseriti nel livello Standard. In questo modo ci si assicura di continuare ad avere accesso a tutte le funzionalità attualmente disponibili con il Bus di servizio. Successivamente, è possibile usare il [portale di Azure classico][portale di Azure classico] per effettuare eventualmente il downgrade al livello di base.
 
-The following table summarizes the functional differences between the Basic and Standard/Premium tiers.
+Nella tabella seguente vengono riepilogate le differenze funzionali tra i livelli di base e quelli Standard/Premium.
 
-| Capability | Basic | Standard/Premium |
+| Funzionalità | Basic | Standard/Premium |
 | --- | --- | --- |
-| Queues |Yes |Yes |
-| Scheduled messages |Yes |Yes |
-| Topics/Subscriptions |No |Yes |
-| Relays |No |Yes |
-| Transactions |No |Yes |
-| De-Duplication |No |Yes |
-| Sessions |No |Yes |
-| Large messages |No |Yes |
-| ForwardTo |No |Yes |
-| SendVia |No |Yes |
-| Brokered connections (included) |100 per Service Bus namespace |1,000 per Azure subscription |
-| Brokered connections (overage allowed) |No |Yes (billable) |
+| Code |Sì |Sì |
+| Messaggi pianificati |Sì |Sì |
+| Argomenti/Sottoscrizioni |No |Sì |
+| Inoltri |No |Sì |
+| Transazioni |No |Sì |
+| Deduplicazione |No |Sì |
+| Sessioni |No |Sì |
+| Messaggi di grandi dimensioni |No |Sì |
+| ForwardTo |No |Sì |
+| SendVia |No |Sì |
+| Connessioni negoziate (incluse) |100 per ogni spazio dei nomi del bus di servizio |1.000 per ogni sottoscrizione di Azure |
+| Connessioni negoziate (importo consentito) |No |Sì (fatturabile) |
 
-## <a name="messaging-operations"></a>Messaging operations
-As part of the new pricing model, billing for queues and topics/subscriptions is changing. These entities are transitioning from billing per message to billing per operation. An "operation" refers to any API call made against a queue or topic/subscription service endpoint. This includes management, send/receive, and session state operations.
+## <a name="messaging-operations"></a>Operazioni di messaggistica
+Nell'ambito del nuovo modello di determinazione prezzi, la fatturazione per code e argomenti/sottoscrizioni sta cambiando. Queste entità sono in transizione dalla fatturazione per ogni messaggio alla fatturazione per ogni operazione. Per "operazione" si intende qualsiasi chiamata API effettuata da un endpoint di servizio di una coda o di un argomento o sottoscrizione. Sono incluse operazioni di stato della sessione, di invio/ricezione e di gestione.
 
-| Operation Type | Description |
+| Tipo di operazione | Descrizione |
 | --- | --- |
-| Management |Create, Read, Update, Delete (CRUD) against queues or topics/subscriptions. |
-| Messaging |Sending and receiving messages with queues or topics/subscriptions. |
-| Session state |Getting or setting session state on a queue or topic/subscription. |
+| gestione |Creazione, lettura, aggiornamento, eliminazione su code o argomenti/sottoscrizioni. |
+| Messaggistica |Invio e ricezione di messaggi con code o argomenti/sottoscrizioni. |
+| Stato sessione |Acquisizione o impostazione dello stato della sessione su una coda o un argomento o sottoscrizione. |
 
-The following prices were effective starting November 1, 2014:
+I prezzi di seguito sono validi a partire dall’1 novembre 2014:
 
-| Basic | Cost |
+| Basic | Costi |
 | --- | --- |
-| Operations |$0.05 per million operations |
+| Operazioni |0,05 per milioni di operazioni |
 
-| Standard | Cost |
+| Standard | Costi |
 | --- | --- |
-| Base charge |$10/month |
-| First 12.5 million operations/month |Included |
-| 12.5-100 million operations/month |$0.80 per million operations |
-| 100 million-2,500 million operations/month |$0.50 per million operations |
-| Over 2,500 million operations/month |$0.20 per million operations |
+| Costo base |$10/mese |
+| All’inizio 12,5 milioni di operazioni/mese |Incluso |
+| 12,5-100 milioni di operazioni/mese |$0,80 per milioni di operazioni |
+| 100 milioni-2.500 milioni di operazioni/mese |$0,50 per ogni milione di operazioni |
+| Oltre 2.500 milioni di operazioni/mese |$0,20 per ogni milione di operazioni |
 
-| Premium | Cost |
+| Premium | Costi |
 | --- | --- |
-| Daily |$11.13 fixed rate per Message Unit |
+| Giornaliera |$11.13 tariffa fissa per Unità di messaggio |
 
-## <a name="brokered-connections"></a>Brokered connections
-*Brokered connections* accommodate customer usage patterns that involve a large number of "persistently connected" senders/receivers against queues, topics, or subscriptions. Persistently connected senders/receivers are those that connect using either AMQP or HTTP with a non-zero receive timeout (for example, HTTP long polling). HTTP senders and receivers with an immediate timeout do not generate brokered connections.
+## <a name="brokered-connections"></a>Connessioni negoziate
+Le *connessioni negoziate* sono ideali per i modelli d'uso dei clienti che prevedono un numero elevato di mittenti/destinatari "connessi in modo permanente" a code, argomenti o sottoscrizioni. I mittenti/destinatari costantemente connessi sono quelli che si connettono tramite AMQP o HTTP con un timeout di ricezione diverso da zero, ad esempio, HTTP (tempo di polling). Non generano connessioni negoziate HTTP mittenti e destinatari con un timeout immediato.
 
-Previously, queues and topics/subscriptions had a limit of 100 concurrent connections per URL. The current billing scheme removes the per-URL limit for queues and topics/subscriptions, and implements quotas and metering on brokered connections at the Service Bus namespace and Azure subscription levels.
+Prima le code e gli argomenti/sottoscrizioni avevano un limite previsto di 100 connessioni simultanee per ogni URL. Lo schema di fatturazione corrente rimuove il limite per ogni URL per le code e gli argomenti/sottoscrizioni e implementa quote e misurazioni nelle connessioni negoziate ai livelli di sottoscrizione di Azure e di spazio dei nomi del bus di servizio.
 
-The Basic tier includes, and is strictly limited to, 100 brokered connections per Service Bus namespace. Connections above this number will be rejected in the Basic tier. The Standard tier removes the per-namespace limit and counts aggregate brokered connection usage across the Azure subscription. In the Standard tier, 1,000 brokered connections per Azure subscription will be allowed at no extra cost (beyond the base charge). Using more than a total of 1,000 brokered connections across Standard-tier Service Bus namespaces in an Azure subscription will be billed on a graduated schedule, as shown in the following table.
+Il livello di base include ed è rigorosamente limitato a 100 connessioni negoziate per ogni spazio dei nomi del Bus di servizio. Le connessioni che superano questo numero verranno rifiutate nel livello di base. Il livello Standard rimuove il limite per ogni spazio dei nomi e calcola l'utilizzo delle connessioni negoziate aggregate nella sottoscrizione di Azure. Nel livello Standard saranno consentite 1.000 connessioni negoziate per ogni sottoscrizione di Azure senza costi (oltre ai costi di base) aggiuntivi. L'uso di più di 1.000 connessioni negoziate totali negli spazi dei nomi del bus di servizio di livello Standard in una sottoscrizione di Azure verrà fatturato in base a una pianificazione progressiva, come illustrato nella tabella seguente.
 
-| Brokered connections (Standard tier) | Cost |
+| Connessioni negoziate (livello Standard) | Costi |
 | --- | --- |
-| First 1,000/month |Included with base charge |
-| 1,000-100,000/month |$0.03 per connection/month |
-| 100,000-500,000/month |$0.025 per connection/month |
-| Over 500,000/month |$0.015 per connection/month |
+| All’inizio 1.000/mese |Incluso con costo base |
+| 1.000-100.000/mese |$0,03 per ogni connessione/mese |
+| 100.000-500.000/mese |$0,025 per ogni connessione/mese |
+| Oltre 500.000/mese |$0.015 per ogni connessione/mese |
 
 > [!NOTE]
-> 1,000 brokered connections are included with the Standard messaging tier (via the base charge) and can be shared across all queues, topics, and subscriptions within the associated Azure subscription.
-> 
-> 
+> Con il livello di messaggistica Standard (tramite l'addebito di base) sono incluse 1.000 connessioni negoziate, che possono essere condivise tra tutte le code, gli argomenti e le sottoscrizioni all'interno della sottoscrizione di Azure associata.
+>
+>
 
 <br />
 
 > [!NOTE]
-> Billing is based on the peak number of concurrent connections and is prorated hourly based on 744 hours per month.
-> 
-> 
+> La fatturazione si basa sul numero massimo di connessioni simultanee e viene ripartita per ogni ora in base a 744 ore al mese.
+>
+>
 
-| Premium Tier |
+| Livello Premium |
 | --- |
-| Brokered connections are not charged in the Premium tier. |
+| Le connessioni negoziate non vengono addebitate nel livello Premium. |
 
-For more information about brokered connections, see the [FAQ](#faq) section later in this topic.
+Per altre informazioni sulle connessioni negoziate, vedere la sezione [Domande frequenti](#faq) più avanti in questo argomento.
 
-## <a name="relay"></a>Relay
-Relays are available only in Standard tier namespaces. Otherwise, pricing and connection quotas for relays remain unchanged. This means that relays will continue to be charged on the number of messages (not operations), and relay hours.
+## <a name="wcf-relay"></a>Inoltro WCF
+Gli inoltri WFC sono disponibili solo negli spazi dei nomi di livello Standard. In caso contrario, le quote di prezzi e la connessione per gli inoltri restano invariate. Ciò significa che gli inoltri continueranno a essere addebitati sul numero di messaggi (non operazioni) e sulle ore di inoltro.
 
-| Relay pricing | Cost |
+| Prezzi degli inoltri WCF | Costi |
 | --- | --- |
-| Relay hours |$0.10 for every 100 relay hours |
-| Messages |$0.01 for every 10,000 messages |
+| Ore di inoltro WCF |$0,10 per ogni 100 ore di inoltro |
+| Messaggi |$0,01 per ogni 10.000 messaggi |
 
-## <a name="faq"></a>FAQ
-### <a name="how-is-the-relay-hours-meter-calculated?"></a>How is the Relay Hours meter calculated?
-See [this topic](service-bus-faq.md#how-is-the-relay-hours-meter-calculated).
+## <a name="faq"></a>Domande frequenti
+### <a name="how-is-the-wcf-relay-hours-meter-calculated"></a>Come vengono calcolate le unità di ore di inoltro WCF?
+Vedere [questo argomento](service-bus-faq.md).
 
-### <a name="what-are-brokered-connections-and-how-do-i-get-charged-for-them?"></a>What are brokered connections and how do I get charged for them?
-A brokered connection is defined as one of the following:
+### <a name="what-are-brokered-connections-and-how-do-i-get-charged-for-them"></a>Quali sono le connessioni negoziate e come viene effettuato l'addebito?
+Una connessione negoziata è definita in uno dei seguenti modi:
 
-1. An AMQP connection from a client to a Service Bus queue or topic/subscription.
-2. An HTTP call to receive a message from a Service Bus topic or queue that has a receive timeout value greater than zero.
+1. Connessione AMQP da un client a un argomento/sottoscrizione o una coda del bus di servizio.
+2. Una chiamata HTTP per ricevere un messaggio da una coda o un argomento del bus di servizio con un valore di timeout della ricezione maggiore di zero.
 
-Service Bus charges for the peak number of concurrent brokered connections that exceed the included quantity (1,000 in the Standard tier). Peaks are measured on an hourly basis, prorated by dividing by 744 hours in a month, and added up over the monthly billing period. The included quantity (1,000 brokered connections per month) is applied at the end of the billing period against the sum of the prorated hourly peaks.
+I costi del Bus di servizio per il numero massimo di connessioni simultanee negoziate che superano la quantità inclusa (1.000 nel livello Standard). I picchi vengono misurati su base oraria, ripartiti dividendo per 744 ore in un mese e sommati nel periodo di fatturazione mensile. La quantità inclusa (1.000 connessioni negoziate al mese) viene applicata alla fine del periodo di fatturazione con la somma dei picchi orari ripartiti.
 
-For example:
+Ad esempio:
 
-1. Each of 10,000 devices connects via a single AMQP connection, and receives commands from a Service Bus topic. The devices send telemetry events to an Event Hub. If all devices connect for 12 hours each day, the following connection charges apply (in addition to any other Service Bus topic charges): 10,000 connections * 12 hours * 31 days / 744 = 5,000 brokered connections. After the monthly allowance of 1,000 brokered connections, you would be charged for 4,000 brokered connections, at the rate of $0.03 per brokered connection, for a total of $120.
-2. 10,000 devices receive messages from a Service Bus queue via HTTP, specifying a non-zero timeout. If all devices connect for 12 hours every day, you will see the following connection charges (in addition to any other Service Bus charges): 10,000 HTTP Receive connections * 12 hours per day * 31 days / 744 hours = 5,000 brokered connections.
+1. Ognuno dei 10.000 dispositivi si connette tramite una singola connessione AMQP e riceve i comandi da un argomento del bus di servizio. I dispositivi inviano eventi di telemetria per un Hub di eventi. Se tutti i dispositivi si connettono per 12 ore al giorno, si applicano i costi di connessione seguenti (oltre a eventuali altri costi per l'argomento del bus di servizio): 10.000 connessioni * 12 ore * 31 giorni/744 = 5.000 connessioni negoziate. Dopo l’indennità mensile di 1.000 connessioni negoziate, ci sarà l'addebito per 4.000 connessioni negoziate, alla tariffa di $0,03 per ogni connessione negoziata, per un totale di $120.
+2. 10.000 dispositivi ricevono messaggi da una coda del Bus di servizio tramite HTTP, specificando un timeout diverso da zero. Se tutti i dispositivi si connettono per 12 ore al giorno, si vedranno applicati i costi di connessione seguenti (oltre a eventuali altri costi per l'argomento del bus di servizio): 10.000 connessioni di ricezione HTTP * 12 ore al giorno * 31 giorni/744 = 5.000 connessioni negoziate.
 
-### <a name="do-brokered-connection-charges-apply-to-queues-and-topics/subscriptions?"></a>Do brokered connection charges apply to queues and topics/subscriptions?
-Yes. There are no connection charges for sending events using HTTP, regardless of the number of sending systems or devices. Receiving events with HTTP using a timeout greater than zero, sometimes called "long polling," generates brokered connection charges. AMQP connections generate brokered connection charges regardless of whether the connections are being used to send or receive. Note that 100 brokered connections are allowed at no charge in a Basic namespace. This is also the maximum number of brokered connections allowed for the Azure subscription. The first 1,000 brokered connections across all Standard namespaces in an Azure subscription are included at no extra charge (beyond the base charge). Because these allowances are enough to cover many service-to-service messaging scenarios, brokered connection charges usually only become relevant if you plan to use AMQP or HTTP long-polling with a large number of clients; for example, to achieve more efficient event streaming or enable bi-directional communication with many devices or application instances.
+### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>I costi delle connessioni negoziate si applicano a code e argomenti/sottoscrizioni?
+Sì. Non sono previsti costi di connessione per l'invio di eventi tramite HTTP, indipendentemente dal numero di sistemi o dispositivi di invio. La ricezione di eventi con HTTP utilizzando un timeout maggiore di zero, talvolta denominato "polling prolungato" genera costi di connessione negoziata. Le connessioni AMQP generano costi di connessione negoziata indipendentemente dal fatto che le connessioni vengano utilizzate per inviare o ricevere. Si noti che sono consentite 100 connessioni negoziate gratuitamente in uno spazio dei nomi Basic. Questo è il numero massimo di connessioni negoziate consentite per la sottoscrizione di Azure. Le prime 1.000 connessioni negoziate tra tutti gli spazi dei nomi Standard in una sottoscrizione di Azure sono incluse senza alcun costo aggiuntivo (oltre ai costi di base). Poiché queste quote sono sufficienti per coprire molti scenari di messaggistica service to service, i costi della connessione negoziata sono in genere rilevanti solo se si prevede di utilizzare il polling prolungato di AMQP o HTTP con un numero elevato di client; ad esempio, per ottenere un flusso di eventi più efficiente o abilitare la comunicazione bidirezionale con molti dispositivi o istanze di applicazione.
 
-## <a name="next-steps"></a>Next steps
-* For more details about Service Bus pricing, see the [Azure Service Bus pricing page](https://azure.microsoft.com/pricing/details/service-bus/).
-* See the [Service Bus FAQ](service-bus-faq.md#service-bus-pricing) for some common FAQs around Service bus pricing and billing.
+## <a name="next-steps"></a>Passaggi successivi
+* Per altre informazioni sui prezzi del bus di servizio, vedere la [pagina dei prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
+* Per le risposte alle domande frequenti sui prezzi e sulla fatturazione del bus di servizio, vedere [Domande frequenti sul bus di servizio](service-bus-faq.md#service-bus-pricing).
 
-[Azure classic portal]: http://manage.windowsazure.com
+[portale di Azure classico]: http://manage.windowsazure.com
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

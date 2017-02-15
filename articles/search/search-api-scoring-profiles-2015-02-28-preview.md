@@ -307,6 +307,6 @@ Per altri esempi, vedere il sito Web relativo ai [tipi di dati dello schema XML 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

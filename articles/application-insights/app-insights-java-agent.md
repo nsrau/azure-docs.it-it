@@ -3,9 +3,9 @@ title: Monitorare dipendenze, eccezioni e tempi di esecuzione nelle app Web Java
 description: Monitoraggio esteso del sito Web Java con Application Insights
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: harelbr
 manager: douge
-
+ms.assetid: 84017a48-1cb3-40c8-aab1-ff68d65e2128
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,21 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
+ms.openlocfilehash: 16ffd2ea5be6a18f59065a20d4c801f89bf030cf
+
 
 ---
-# <a name="monitor-dependencies,-exceptions-and-execution-times-in-java-web-apps"></a>Monitorare dipendenze, eccezioni e tempi di esecuzione nelle app Web Java
-*Application Insights è disponibile in Anteprima.*
+# <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>Monitorare dipendenze, eccezioni e tempi di esecuzione nelle app Web Java
+
 
 Se l'[app Web Java è stata instrumentata con Application Insights][java], sarà possibile usare l'agente Java per ottenere informazioni più dettagliate, senza modificare il codice:
 
 * **Dipendenze:** dati sulle chiamate effettuate dall'applicazione ad altri componenti, tra cui:
   * **Chiamate REST** eseguite tramite HttpClient, OkHttp e RestTemplate (Spring).
   * **Redis** effettuate tramite il client Jedis. Se la chiamata dura più di 10s, l'agente recupera anche gli argomenti della chiamata.
-  * **[Chiamate JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**: MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB o Apache Derby DB. Sono supportate le chiamate "executeBatch". Per MySQL e PostgreSQL, se la chiamata dura più di 10s, l'agente segnala il piano di query. 
+  * **[Chiamate JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**: MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB o Apache Derby DB. Sono supportate le chiamate "executeBatch". Per MySQL e PostgreSQL, se la chiamata dura più di 10s, l'agente segnala il piano di query.
 * **Eccezioni rilevate:** dati sulle eccezioni gestite dal codice.
 * **Tempo di esecuzione dei metodi:** dati sul tempo necessario per eseguire metodi specifici.
 
-Per usare l'agente Java, installarlo nel server. Le app Web devono essere instrumentate con [Application Insights Java SDK][java].
+Per usare l'agente Java, installarlo nel server. Le app Web devono essere instrumentate con [Application Insights Java SDK][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Installare l'agente di Application Insights per Java
 1. [Scaricare l'agente](https://aka.ms/aijavasdk) sul computer che esegue il server Java.
@@ -43,7 +47,7 @@ Per usare l'agente Java, installarlo nel server. Le app Web devono essere instru
 ## <a name="configure-the-agent"></a>Configurare l'agente
 Creare un file detto `AI-Agent.xml` e inserirlo nella stessa cartella che include il file JAR dell'agente.
 
-Configurare il contenuto del file XML. Modificare l'esempio seguente in modo da includere o escludere le funzionalità desiderate. 
+Configurare il contenuto del file XML. Modificare l'esempio seguente in modo da includere o escludere le funzionalità desiderate.
 
 ```XML
 
@@ -61,11 +65,11 @@ Configurare il contenuto del file XML. Modificare l'esempio seguente in modo da 
            <MaxStatementQueryLimitInMS>1000</MaxStatementQueryLimitInMS>
         </BuiltIn>
 
-        <!-- Collect data about caught exceptions 
+        <!-- Collect data about caught exceptions
              and method execution times -->
 
         <Class name="com.myCompany.MyClass">
-           <Method name="methodOne" 
+           <Method name="methodOne"
                reportCaughtExceptions="true"
                reportExecutionTime="true"
                />
@@ -87,13 +91,13 @@ Configurare il contenuto del file XML. Modificare l'esempio seguente in modo da 
 Per impostazione predefinita, `reportExecutionTime` è true e `reportCaughtExceptions` è false.
 
 ## <a name="view-the-data"></a>Visualizzare i dati
-Nella risorsa di Application Insights vengono visualizzate le dipendenze remote aggregate e i tempi di esecuzione dei metodi nel [riquadro Prestazioni][metrics]. 
+Nella risorsa di Application Insights vengono visualizzate le dipendenze remote aggregate e i tempi di esecuzione dei metodi nel [riquadro Prestazioni][metrics].
 
-Per cercare singole istanze di dipendenze, eccezioni e report sui metodi, aprire [Ricerca][diagnostic]. 
+Per cercare singole istanze di dipendenze, eccezioni e report sui metodi, aprire [Ricerca][diagnostic].
 
-[Diagnosi dei problemi di dipendenza - ulteriori informazioni](app-insights-dependencies.md#diagnosis).
+[Diagnosi dei problemi di dipendenza - ulteriori informazioni](app-insights-asp-net-dependencies.md#diagnosis).
 
-## <a name="questions?-problems?"></a>Domande? Problemi?
+## <a name="questions-problems"></a>Domande? Problemi?
 * Dati non visualizzati [Impostare le eccezioni del firewall](app-insights-ip-addresses.md)
 * [Risoluzione dei problemi Java](app-insights-java-troubleshoot.md)
 
@@ -107,12 +111,10 @@ Per cercare singole istanze di dipendenze, eccezioni e report sui metodi, aprire
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
+[uso]: app-insights-web-track-usage.md
 
 
 
-
-
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

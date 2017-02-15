@@ -1,43 +1,52 @@
 ---
-title: Generalize a Windows VHD | Microsoft Docs
-description: Learn to use Sysprep to generalize a Windows VM to use with the Resource Manager deployment model.
+title: Generalizzare un disco rigido virtuale di Windows | Microsoft Docs
+description: Informazioni su come usare Sysprep per generalizzare una VM Windows da usare con il modello di distribuzione Resource Manager.
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: a745d400-c8be-48b4-a891-4a18495ef3fd
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 10/20/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 9e9d973ef36cde4f0a1ada2ba7bf7d01a8d8f687
+
 
 ---
-# <a name="generalize-a-windows-virtual-machine-using-sysprep"></a>Generalize a Windows virtual machine using Sysprep
-This section shows you how to generalize your Windows virtual machine for use as an image. Sysprep removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
+# <a name="generalize-a-windows-virtual-machine-using-sysprep"></a>Generalizzare una macchina virtuale Windows mediante Sysprep
+Questa sezione illustra come generalizzare la macchina virtuale di Windows da usare come immagine. Sysprep rimuove anche tutte le informazioni sull'account personale e prepara la VM da usare come immagine. Per altre informazioni su Sysprep, vedere [Come usare Sysprep: Introduzione](http://technet.microsoft.com/library/bb457073.aspx).
+
+Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da Sysprep. Per ulteriori informazioni, vedere [Supporto Sysprep per i ruoli server](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
-> If you are running Sysprep before uploading your VHD to Azure for the first time, make sure you have [prepared your VM](virtual-machines-windows-prepare-for-upload-vhd-image.md) before running Sysprep. 
+> Se si esegue Sysprep prima di caricare il disco rigido virtuale in Azure per la prima volta, verificare di aver [preparato la VM](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) prima di eseguire Sysprep. 
 > 
 > 
 
-1. Sign in to the Windows virtual machine.
-2. Open the Command Prompt window as an administrator. Change the directory to **%windir%\system32\sysprep**, and then run `sysprep.exe`.
-3. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience (OOBE)**, and make sure that the **Generalize** check box is selected.
-4. In **Shutdown Options**, select **Shutdown**.
-5. Click **OK**.
+1. Accedere alla macchina virtuale Windows.
+2. Aprire la finestra del prompt dei comandi come amministratore. Impostare la directory su **%windir%\system32\sysprep**, quindi eseguire `sysprep.exe`.
+3. Nella finestra di dialogo **Utilità preparazione sistema** selezionare **Passare alla Configurazione guidata** e verificare che la casella di controllo **Generalizza** sia selezionata.
+4. In **Opzioni di arresto del sistema** selezionare **Arresta il sistema**.
+5. Fare clic su **OK**.
    
-    ![Start Sysprep](./media/virtual-machines-windows-upload-image/sysprepgeneral.png)
-6. When Sysprep completes, it will shutdown the virtual machine. 
+    ![Avvio di Sysprep](./media/virtual-machines-windows-upload-image/sysprepgeneral.png)
+6. Al termine, Sysprep arresta la macchina virtuale. 
 
-## <a name="next-steps"></a>Next Steps
-* If the VM is on-premises, you can now [upload the VHD to Azure](virtual-machines-windows-upload-image.md).
-* If the VM is already in Azure, you can now [create a VM from the generalized VHD](virtual-machines-windows-create-vm-generalized.md).
+## <a name="next-steps"></a>Passaggi successivi
+* Se la VM è locale, è possibile [caricare il disco rigido virtuale in Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Se la VM si trova già in Azure, è possibile [creare un'immagine dalla VM generalizzata](virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

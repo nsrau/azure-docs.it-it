@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 99dfabcfcfcef69a43b45994cb4c729bd7faecff
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 1b0f5d61753df5860c4cc934ea2aad5175a41e16
 
 
 ---
@@ -54,9 +54,7 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
    
     Usare questo URL per verificare che il canale riceva correttamente il flusso live.
 5. Creare un evento o un programma, l'operazione creerà anche un asset. 
-6. Pubblicare l'evento. L'operazione creerà un localizzatore OnDemand per l'asset associato.  
-   
-    Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
+6. Pubblicare l'evento. L'operazione creerà un localizzatore OnDemand per l'asset associato.    
 7. Avviare l'evento quando si è pronti ad avviare lo streaming e l'archiviazione.
 8. Facoltativamente, il codificatore live può ricevere il segnale per l'avvio di un annuncio. L'annuncio viene inserito nel flusso di output.
 9. Arrestare l'evento ogni volta che si vuole arrestare lo streaming e l'archiviazione dell'evento.
@@ -65,13 +63,12 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 ## <a name="in-this-tutorial"></a>Contenuto dell'esercitazione:
 In questa esercitazione il portale di Azure viene usato per eseguire le attività seguenti: 
 
-1. Configurare gli endpoint di streaming
-2. Creare un canale abilitato per eseguire la codifica live.
-3. Ottenere l'URL di inserimento per fornirlo al codificatore live. Il codificatore live userà questo URL per inserire il flusso nel canale. .
-4. Creare un evento o un programma e un asset.
-5. Pubblicare l'asset e ottenere gli URL di streaming.  
-6. Riprodurre i contenuti 
-7. Cleaning up
+1. Creare un canale abilitato per eseguire la codifica live.
+2. Ottenere l'URL di inserimento per fornirlo al codificatore live. Il codificatore live userà questo URL per inserire il flusso nel canale.
+3. Creare un evento o un programma e un asset.
+4. Pubblicare l'asset e ottenere gli URL di streaming.  
+5. Riprodurre i contenuti.
+6. Pulizia.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare l'esercitazione è necessario quanto segue.
@@ -80,28 +77,6 @@ Per completare l'esercitazione è necessario quanto segue.
   Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Account di Servizi multimediali. Per creare un account di Servizi multimediali, vedere l'argomento relativo alla [creazione di un account](media-services-portal-create-account.md).
 * Una webcam e un codificatore in grado di inviare un flusso live a velocità in bit singola.
-
-## <a name="configure-streaming-endpoints"></a>Configurare gli endpoint di streaming
-Servizi multimediali include la funzionalità per la creazione dinamica dei pacchetti, che consente di distribuire file MP4 a bitrate multipli nei formati MPEG DASH, HLS e Smooth Streaming, senza dover ricreare i pacchetti con questi formati di streaming. Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un unico formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
-
-Per sfruttare i vantaggi della creazione dinamica dei pacchetti, è necessario ottenere almeno un'unità di streaming per l'endpoint di streaming da cui si prevede di distribuire il contenuto.  
-
-Per creare e modificare il numero di unità riservate di streaming, seguire questa procedura:
-
-1. Accedere al [portale di Azure](https://portal.azure.com/) e selezionare l'account AMS.
-2. Nella finestra **Impostazioni** fare clic su **Endpoint di streaming**. 
-3. Fare clic sull'endpoint di streaming predefinito. 
-   
-    Verrà visualizzata la finestra **DETTAGLI ENDPOINT DI STREAMING PREDEFINITO** .
-4. Per specificare il numero di unità di streaming, usare il dispositivo di scorrimento di **Unità di streaming** .
-   
-    ![Unità di streaming](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-streaming-units.png)
-5. Fare clic sul pulsante **Salva** per salvare le modifiche apportate.
-   
-   > [!NOTE]
-   > Il completamento dell'allocazione di nuove unità può richiedere fino a 20 minuti.
-   > 
-   > 
 
 ## <a name="create-a-channel"></a>Creare un CANALE
 1. Nel [portale di Azure](https://portal.azure.com/) selezionare Servizi multimediali e fare clic sul nome dell'account Servizi multimediali.
@@ -172,6 +147,9 @@ Se si desidera mantenere il contenuto archiviato ma non averlo disponibile per l
 ### <a name="createstartstop-events"></a>Creare, avviare o arrestare eventi
 Dopo l'avvio del flusso nel canale, è possibile iniziare l'evento di streaming creando un localizzatore di asset, programma e streaming. In questo modo il flusso viene archiviato e reso disponibile agli utenti tramite l'endpoint di streaming. 
 
+>[!NOTE]
+>Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
+
 Per avviare l'evento è possibile procedere in due modi: 
 
 1. Nella pagina **Canale** fare clic su **Evento live** per aggiungere un nuovo evento.
@@ -216,7 +194,7 @@ Per gestire gli asset, selezionare**Impostazione** e fare clic su **Asset**.
 
 ## <a name="considerations"></a>Considerazioni
 * Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived in Microsoft.com.
-* Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
+* Verificare che l'endpoint di streaming da cui si vuole trasmettere il contenuto sia nello stato **In esecuzione**.
 
 ## <a name="next-step"></a>Passaggio successivo
 Analizzare i percorsi di apprendimento di Servizi multimediali.
@@ -229,6 +207,6 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,23 +1,27 @@
 ---
-title: Uso del servizio DNS di Azure con altri servizi di Azure | Microsoft Docs
+title: Uso del servizio DNS di Azure con altri servizi di Azure | Documentazione Microsoft
 description: Informazioni su come usare il servizio DNS di Azure per risolvere la questione dei nomi degli altri servizi di Azure
 services: dns
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: ''
+author: georgewallace
+manager: timlt
+editor: 
 tags: azure dns
-
+ms.assetid: e9b5eb94-7984-4640-9930-564bb9e82b78
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/21/2016
-ms.author: sewhee
+ms.author: gwallace
+translationtype: Human Translation
+ms.sourcegitcommit: 42d47741e414b2de177f1fd75b3e1ac3fde96579
+ms.openlocfilehash: 15412e67b6785812d00438e1819f24a6cb4fd0a8
 
 ---
 # <a name="using-azure-dns-with-other-azure-services"></a>Uso del servizio DNS di Azure con altri servizi di Azure
+
 Il servizio DNS di Azure è un servizio ospitato di risoluzione nomi e di gestione DNS, che consente di creare i nomi DNS pubblici per le altre applicazioni e gli altri servizi distribuiti in Azure. Creare un nome per un servizio di Azure in un dominio personalizzato è semplice come aggiungere un record del tipo corretto per il servizio.
 
 * Per gli indirizzi IP allocati dinamicamente, è necessario creare un record DNS CNAME che viene associato al nome DNS creato da Azure per il servizio. Gli standard DNS impediscono l'uso di un record CNAME per il vertice della zona.
@@ -35,6 +39,9 @@ Nella tabella seguente vengono illustrati i tipi di record supportati che è pos
 | VM di Resource Manager |IP pubblico |Le VM di Resource Manager possono avere indirizzi IP pubblici. Una VM con un indirizzo IP pubblico può essere anche dietro a un servizio di bilanciamento del carico. È possibile creare un record DNS A o CNAME per l'indirizzo pubblico. Il nome personalizzato può essere usato per aggirare l'indirizzo VIP sul bilanciamento del carico. |
 | Macchine virtuali classiche |IP pubblico |Le VM classiche create con PowerShell o l'interfaccia della riga di comando possono essere configurate con un indirizzo virtuale (riservato) dinamico o statico. È possibile creare rispettivamente un record DNS A o CNAME. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

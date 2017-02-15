@@ -146,7 +146,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 * [Come aggiornare la password](active-directory-passwords-update-your-own-password.md)
 
-#### <a name="connect-sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Connect (motore di sincronizzazione che estende le directory locali ad Azure Active Directory)
+#### <a name="connect--sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Connect (motore di sincronizzazione che estende le directory locali ad Azure Active Directory)
 **Tipo:** funzionalità comuni
 
 **Disponibilità:**
@@ -273,7 +273,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 * [Informazioni su Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 
-#### <a name="a-namemim-cal-mim-serveramim-cal-mim-server"></a><a name="mim-cal-mim-server"></a>Licenze CAL MIM e server MIM
+#### <a name="a-namemim-cal-mim-serveramim-cal--mim-server"></a><a name="mim-cal-mim-server"></a>Licenze CAL MIM e server MIM
 I diritti software di Microsoft Identity Manager Server vengono concessi attraverso licenze di Windows Server (qualsiasi edizione). Poiché Microsoft Identity Manager viene eseguito nel sistema operativo Windows Server, purché il server esegua una copia con licenza valida di Windows Server, allora Microsoft Identity Manager può essere installato e utilizzato su tale server. Nessuna altra licenza separata è necessaria per il Server di gestione identità Microsoft.
 
 **Tipo:** funzionalità Premium
@@ -333,7 +333,7 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 |:---:|:---:|:---:|:---:|
 | &nbsp; | &nbsp; | ![Controllo][12] | &nbsp; |
 
-## <a name="azure-active-directory-join-windows-10-only-related-features"></a>Aggiunta ad Azure Active Directory: solo funzionalità correlate a Windows 10
+## <a name="azure-active-directory-join--windows-10-only--related-features"></a>Aggiunta ad Azure Active Directory: solo funzionalità correlate a Windows 10
 #### <a name="join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery"></a>Aggiunta di un dispositivo ad Azure AD, Desktop SSO, Microsoft Passport per Azure AD, con ripristino Bitlocker per amministratori
 **Tipo:** Aggiunta ad Azure Active Directory - Solo funzionalità correlate a Windows 10
 
@@ -387,6 +387,6 @@ Oltre alle funzionalità disponibili a livello generale delle edizioni Free, Bas
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

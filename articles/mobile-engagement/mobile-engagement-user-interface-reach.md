@@ -178,6 +178,6 @@ Per visualizzare i dettagli di una campagna di copertura, fare clic su **Statist
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

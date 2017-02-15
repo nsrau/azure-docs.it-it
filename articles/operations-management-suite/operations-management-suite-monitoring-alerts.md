@@ -1,19 +1,23 @@
 ---
-title: Gestione degli avvisi nei prodotti di monitoraggio Microsoft | Microsoft Docs
-description: Un avviso indica un problema che richiede attenzione da parte di un amministratore.  In questo articolo vengono descritte le differenze nella modalità di creazione e gestione degli avvisi in System Center Operations Manager (SCOM) e Log Analytics. Inoltre, vengono suggerite le procedure consigliate per usufruire al meglio dei due prodotti, per una strategia di gestione degli avvisi ibrida.
+title: Gestione degli avvisi nei prodotti di monitoraggio Microsoft | Documentazione Microsoft
+description: "Un avviso indica un problema che richiede attenzione da parte di un amministratore.  In questo articolo vengono descritte le differenze nella modalità di creazione e gestione degli avvisi in System Center Operations Manager (SCOM) e Log Analytics. Inoltre, vengono suggerite le procedure consigliate per usufruire al meglio dei due prodotti, per una strategia di gestione degli avvisi ibrida."
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 6572c3f8-78ca-4fa9-8fe1-d0b488590788
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f2b0655bdddc162c7c8ef7d478b2ce1fd1993f15
+
 
 ---
 # <a name="managing-alerts-with-microsoft-monitoring"></a>Gestione degli avvisi di monitoraggio Microsoft
@@ -70,6 +74,9 @@ Se si utilizza SCOM come un'origine dati per Log Analytics, è possibile creare 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni dettagliate sugli [avvisi in System Center Operations Manager (SCOM)](https://technet.microsoft.com/library/hh212913.aspx).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

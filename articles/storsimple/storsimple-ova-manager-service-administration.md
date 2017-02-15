@@ -1,12 +1,12 @@
 ---
-title: Amministrazione dell'array virtuale StorSimple Manager | Microsoft Docs
-description: Informazioni su come gestire l'array virtuale StorSimple locale mediante il servizio StorSimple Manager nel portale di Azure classico.
+title: Amministrazione dell&quot;array virtuale StorSimple Manager | Microsoft Docs
+description: Informazioni su come gestire l&quot;array virtuale StorSimple locale mediante il servizio StorSimple Manager nel portale di Azure classico.
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: f0ae362c-dffd-4a14-bbcf-c304bfb93268
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d90864501485344d93c1f3bd32237683c2abb4ab
+
 
 ---
 # <a name="use-the-storsimple-manager-service-to-administer-your-storsimple-virtual-array"></a>Usare il servizio StorSimple Manager per amministrare StorSimple Virtual Array
@@ -92,6 +96,9 @@ Per ulteriori informazioni su ogni flusso di lavoro, scegliere la procedura appr
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sull'interfaccia utente Web e sul suo uso, vedere [Usare l'interfaccia utente Web per amministrare l'array virtuale StorSimple (anteprima)](storsimple-ova-web-ui-admin.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

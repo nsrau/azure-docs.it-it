@@ -1,11 +1,11 @@
 ---
 title: Note sulla versione per Application Insights
-description: Gli aggiornamenti più recenti.
+description: "Gli aggiornamenti più recenti."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
 manager: douge
-
+ms.assetid: 9cd2ecdb-c2b9-4e4a-b6aa-beb0c2ca4ffc
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,9 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1add923868a3d187401d33f6d4e38cbf028f92dc
+
 
 ---
-# Note sulla versione - Application Insights SDK
+# <a name="sdk-release-notes---application-insights"></a>Note sulla versione - Application Insights SDK
 Queste sono note sulla versione dettagliate e istruzioni aggiornate relative agli SDK:
 
 * [ASP.NET Web Server SDK](https://github.com/Microsoft/ApplicationInsights-server-dotnet/releases)
@@ -33,4 +37,9 @@ Queste sono note sulla versione dettagliate e istruzioni aggiornate relative agl
 
 Leggere anche [Aggiornamenti dei servizi](https://azure.microsoft.com/updates/?service=application-insights) in cui vengono riepilogati i principali miglioramenti apportati all'intero servizio Application Insights.
 
-<!---HONumber=AcomDC_0224_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

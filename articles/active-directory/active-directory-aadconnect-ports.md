@@ -1,12 +1,12 @@
 ---
 title: 'Azure AD Connect: porte | Microsoft Docs'
-description: Questa pagina è una pagina di riferimento tecnico relativa alle porte che devono essere aperte per Azure AD Connect
+description: "Questa pagina è una pagina di riferimento tecnico relativa alle porte che devono essere aperte per Azure AD Connect"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
 editor: curtand
-
+ms.assetid: de97b225-ae06-4afc-b2ef-a72a3643255b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bc48cac1f7e361df7f80f1dbf5a438484d4137c9
+
 
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Porte e protocolli necessari per la soluzione ibrida di gestione delle identità
@@ -28,7 +32,7 @@ Questa tabella descrive le porte e i protocolli necessari per la comunicazione t
 | --- | --- | --- |
 | DNS |53 (TCP/UDP) |Ricerche DNS della foresta di destinazione. |
 | Kerberos |88 (TCP/UDP) |Autenticazione Kerberos per la foresta Active Directory. |
-| MS-RPC |135 (TCP/UDP) |Usato durante la configurazione iniziale della procedura guidata Azure AD Connect quando si esegue l'associazione alla foresta Active Directory, |
+| MS-RPC |135 (TCP/UDP) |Usato durante la configurazione iniziale della procedura guidata Azure AD Connect quando si esegue l'associazione alla foresta Active Directory,  |
 | LDAP |389 (TCP/UDP) |Usato per l'importazione di dati da Active Directory. I dati vengono crittografati con la firma e il sigillo Kerberos. |
 | LDAP/SSL |636 (TCP/UDP) |Usato per l'importazione di dati da Active Directory. Il trasferimento dati è firmato e crittografato. Usato solo se si utilizza SSL. |
 | RPC |49152- 65535 (porta RPC elevata casuale)(TCP/UDP) |Usato durante la configurazione iniziale di Azure AD Connect quando si esegue l'associazione alla foresta Active Directory. Per altre informazioni, vedere gli articoli [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) e [KB224196](https://support.microsoft.com/kb/224196). |
@@ -43,7 +47,7 @@ Questa tabella descrive le porte e i protocolli necessari per la comunicazione t
 
 Per un elenco degli URL e degli indirizzi IP da aprire nel firewall, vedere [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
-## <a name="table-3---azure-ad-connect-and-federation-servers/wap"></a>Tabella 3 - Azure AD Connect e server federativi/WAP
+## <a name="table-3---azure-ad-connect-and-federation-serverswap"></a>Tabella 3 - Azure AD Connect e server federativi/WAP
 Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra il server Azure AD Connect e i server federativi/WAP.  
 
 | Protocol | Porte | Descrizione |
@@ -67,10 +71,10 @@ Questa tabella descrive le porte e i protocolli necessari per la comunicazione t
 | HTTPS |443 (TCP/UDP) |Usato per l'autenticazione del dispositivo. |
 | TCP |49443 (TCP) |Usato per l'autenticazione del certificato. |
 
-## <a name="table-6a-&-6b---azure-ad-connect-health-agent-for-(ad-fs/sync)-and-azure-ad"></a>Tabella 6a e 6b - Agente di Azure AD Connect Health per (AD FS/sincronizzazione) e Azure AD
+## <a name="table-6a--6b---azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tabella 6a e 6b - Agente di Azure AD Connect Health per (AD FS/sincronizzazione) e Azure AD
 Le tabelle seguenti descrivono gli endpoint, le porte e i protocolli necessari per la comunicazione tra gli agenti di Azure AD Connect Health e Azure AD
 
-### <a name="table-6a---ports-and-protocols-for-azure-ad-connect-health-agent-for-(ad-fs/sync)-and-azure-ad"></a>Tabella 6a - Agente di Azure AD Connect Health per (AD FS/sincronizzazione) e Azure AD
+### <a name="table-6a---ports-and-protocols-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tabella 6a - Agente di Azure AD Connect Health per (AD FS/sincronizzazione) e Azure AD
 Questa tabella descrive le porte in uscita seguenti e i protocolli necessari per la comunicazione tra gli agenti di Azure AD Connect Health e Azure AD.  
 
 | Protocol | Porte | Descrizione |
@@ -78,9 +82,12 @@ Questa tabella descrive le porte in uscita seguenti e i protocolli necessari per
 | HTTPS |443 (TCP/UDP) |In uscita |
 | Bus di servizio di Azure |5671 (TCP/UDP) |In uscita |
 
-### <a name="6b---endpoints-for-azure-ad-connect-health-agent-for-(ad-fs/sync)-and-azure-ad"></a>6b - Endpoint per l'agente di Azure AD Connect Health per (AD FS/sincronizzazione) e Azure AD
+### <a name="6b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>6b - Endpoint per l'agente di Azure AD Connect Health per (AD FS/sincronizzazione) e Azure AD
 Per un elenco di endpoint vedere la sezione [Requisiti in Installazione dell'agente di Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md#requirements).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

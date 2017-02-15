@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2016
+ms.date: 12/09/2016
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: f6436e7682c6fd9fdfb1c787a6040f5aa67ac8fa
-ms.openlocfilehash: 1d4506b59ebf13c1bdb7cebcc035a0230d79062d
+ms.sourcegitcommit: f946ef41f0fc5ab39351d85c37ed24715b92b882
+ms.openlocfilehash: cd58f24c356e6d1ec0ebe77b1c336ee8370a4a9a
 
 
 ---
@@ -28,8 +28,8 @@ L'integrazione dei log di Azure è compatibile con HP ArcSight, Splunk, IBM QRad
 ## <a name="what-logs-can-i-integrate"></a>Quali log è possibile integrare?
 Azure produce registrazioni complete per ogni servizio. I log sono classificati nel modo seguente:
 
-* **Log di gestione/controllo** , che offrono visibilità sulle operazioni CREATE, UPDATE e DELETE di Azure Resource Manager.
-* **Log del piano dati** , che offrono visibilità sugli eventi generati durante l'uso di una risorsa di Azure. Un esempio è rappresentato dal registro eventi di Windows: log eventi dell'applicazione e di sicurezza in una macchina virtuale.
+* **Log di gestione/controllo**, che offrono visibilità sulle operazioni CREATE, UPDATE e DELETE di Azure Resource Manager.
+* **Log del piano dati**, che offrono visibilità sugli eventi generati durante l'uso di una risorsa di Azure. Un esempio è rappresentato dal registro eventi di Windows: log eventi dell'applicazione e di sicurezza in una macchina virtuale.
 
 L'integrazione dei log di Azure attualmente supporta l'integrazione di:
 
@@ -66,7 +66,7 @@ Il servizio di integrazione dei log di Azure raccoglie i dati di telemetria dal 
 3. Eseguire il comando **azlog authorize<SubscriptionID>** per assegnare l'accesso in lettura per la sottoscrizione all'entità servizio creata nel passaggio 2. Se non si specifica un **ID sottoscrizione**, all'entità servizio viene assegnato il ruolo Lettore per tutte le sottoscrizioni a cui si ha accesso.
 
    > [!NOTE]
-   > Se si esegue il comando **authorize** subito dopo il comando **createazureid**, potrebbero essere visualizzati avvisi dovuti a una certa latenza tra la creazione dell'account Azure AD e il momento in cui è disponibile per l'uso. Per non visualizzare tali avvisi, attendere circa 10 secondi tra l'esecuzione del comando **createazureid** e l'esecuzione del comando **authorize**.
+   > Se si esegue il comando **authorize** subito dopo il comando c**createazureid**, potrebbero essere visualizzati avvisi. Tra il momento in cui viene creato l'account Azure AD e quello in cui l'account è disponibile per l'uso c'è una certa latenza. Per non visualizzare tali avvisi, attendere circa 10 secondi tra l'esecuzione del comando **createazureid** e l'esecuzione del comando **authorize**.
    >
    >
 4. Verificare che nelle cartelle seguenti siano presenti i file JSON del log di controllo:
@@ -95,6 +95,6 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

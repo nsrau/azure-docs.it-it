@@ -92,7 +92,7 @@ L'uso di buoni principi di progettazione dei database semplificherà la gestione
 <!--Image references-->
 
 <!--Article references-->
-[Creare un SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Creare un Azure SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 [Creare SQL Data Warehouse con PowerShell]: sql-data-warehouse-get-started-provision-powershell.md
 [connessione]: sql-data-warehouse-develop-connections.md
 [Eseguire query su Azure SQL Data Warehouse con Visual Studio]: sql-data-warehouse-query-visual-studio.md

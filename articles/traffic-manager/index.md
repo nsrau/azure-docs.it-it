@@ -2,8 +2,8 @@
 layout: LandingPage
 description: Informazioni su come gestire il traffico in ingresso per ottenere prestazioni ottimali delle applicazioni. La documentazione illustra come distribuire il traffico verso Azure o endpoint di servizio esterni.
 translationtype: Human Translation
-ms.sourcegitcommit: 3123dc992bb821e79edceef01d2654aaff2468c1
-ms.openlocfilehash: a10c68140066de5be6690f30c89f4f6f2fad0825
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: a915eb8aca8a547036a13f3cc2128d205e83fdf2
 
 ---
 #<a name="traffic-manager-documentation"></a>Documentazione di Gestione traffico
@@ -120,13 +120,7 @@ Informazioni sull'utilizzo di Gestione Traffico per reindirizzare il traffico in
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/traffic-manager.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione di Gestione traffico </div>
-    </a>
-</div>
+
 
 
 

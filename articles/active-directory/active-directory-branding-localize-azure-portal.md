@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -35,11 +35,11 @@ Per evitare confusione, molte aziende vogliono applicare un aspetto coerente a t
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
 2. Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi premere **INVIO**.
-   
+
    ![Apertura di Gestione utenti](./media/active-directory-branding-localize-azure-portal/user-management.png)
 3. Nel pannello **Utenti e gruppi** selezionare **Informazioni personalizzate distintive dell'azienda**.
 4. Nel pannello **Utenti e gruppi - Informazioni personalizzate distintive dell'azienda** selezionare il comando **Aggiungi lingua**.
-   
+
     ![Aggiungere elementi personalizzati distintivi dell'azienda specifiche della lingua](./media/active-directory-branding-localize-azure-portal/add-language.png)
 5. Modificare gli elementi da personalizzare. Tutti gli elementi sono facoltativi.
 6. Fare clic su **Save**.
@@ -48,7 +48,6 @@ Può trascorrere fino a un'ora prima che qualsiasi modifica apportata per la per
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso](active-directory-branding-custom-signon-azure-portal.md)
-
 
 
 

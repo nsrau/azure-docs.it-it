@@ -247,6 +247,6 @@ Quando si fa clic sul riquadro Birst Agile Business Analytics nel pannello di ac
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -243,6 +243,6 @@ In alternativa, modificare la modalità di cluster usando PowerShell:
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

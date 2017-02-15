@@ -1,6 +1,6 @@
 ---
-title: Aggiungere notifiche push all&quot;app per Android con le app per dispositivi mobili di Azure
-description: Informazioni su come usare le app per dispositivi mobili di Azure per inviare notifiche push all&quot;app per Android.
+title: Aggiungere notifiche push all&quot;app Android con App per dispositivi mobili | Documentazione Microsoft
+description: Informazioni su come usare App per dispositivi mobili per inviare notifiche push all&quot;app Android.
 services: app-service\mobile
 documentationcenter: android
 manager: erikre
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ac50b4986d6abd6f3a4af660560f4252b8c99fdb
+ms.sourcegitcommit: ef43d1df2a64d85f256b28cd7db5a4f4356a7ec0
+ms.openlocfilehash: 055f55966de1e5c1bb41a6e0bf1c0da1758a3ed0
 
 
 ---
@@ -31,10 +31,10 @@ Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiun
 ## <a name="prerequisites"></a>Prerequisiti
 Sono necessari gli elementi seguenti:
 
-* Un IDE in base al back-end del progetto:
-  
+* Un IDE, in base al back-end del progetto:
+
   * [Android Studio](https://developer.android.com/sdk/index.html) se questa app ha un back-end Node.js.
-  * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) o versione successiva se questa app ha un back-end .NET.
+  * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) o versione successiva se questa app ha un back-end Microsoft .NET.
 * Android 2.3 o versione successiva, Google Repository 27 o versione successiva e Google Play Services 9.0.2 o versione successiva per Firebase Cloud Messaging.
 * Completare l'[avvio rapido di Android].
 
@@ -56,7 +56,7 @@ In questa sezione l'app del client Android viene aggiornata in modo da gestire l
 ### <a name="verify-android-sdk-version"></a>Verificare la versione di Android SDK
 [!INCLUDE [app-service-mobile-verify-android-sdk-version](../../includes/app-service-mobile-verify-android-sdk-version.md)]
 
-Il passaggio successivo comporta l'installazione di Google Play Services. Google Cloud Messaging prevede alcuni requisiti minimi a livello di API per lo sviluppo e il testing. È necessario che la proprietà **minSdkVersion** nel file manifesto sia conforme a tali requisiti.
+Il passaggio successivo comporta l'installazione di Google Play Services. Google Cloud Messaging prevede alcuni requisiti minimi a livello di API per lo sviluppo e i test. È necessario che la proprietà **minSdkVersion** nel file manifesto sia conforme a tali requisiti.
 
 Se il test viene eseguito con un dispositivo meno recente, vedere [Set Up Google Play Services SDK] (Configurare Google Play Services SDK) per determinare il livello minimo su cui è possibile impostare tale valore.
 
@@ -69,7 +69,14 @@ Se il test viene eseguito con un dispositivo meno recente, vedere [Set Up Google
 ## <a name="test-the-app-against-the-published-mobile-service"></a>Eseguire il test dell'app sul servizio mobile pubblicato
 È possibile eseguire il test dell'app collegando direttamente un telefono Android con un cavo USB oppure usando un dispositivo virtuale nell'emulatore.
 
-## <a name="more"></a>Altro
+## <a name="next-steps"></a>Passaggi successivi
+Dopo aver completato questa esercitazione, continuare con una delle esercitazioni seguenti:
+
+* [Aggiungere l'autenticazione all'app Android](app-service-mobile-android-get-started-users.md).
+  Questa esercitazione spiega come aggiungere l'autenticazione al progetto introduttivo TodoList in Android tramite un provider di identità supportato.
+* [Attivare la sincronizzazione offline per l'app Android](app-service-mobile-android-get-started-offline-data.md).
+  Informazioni su come aggiungere il supporto offline all'app usando il back-end di App per dispositivi mobili. Con la sincronizzazione offline è possibile interagire con un'app per dispositivi mobili &mdash;visualizzando, aggiungendo e modificando i dati&mdash; anche quando non è disponibile una connessione di rete.
+
 <!-- URLs -->
 [avvio rapido di Android]: app-service-mobile-android-get-started.md
 
@@ -77,6 +84,6 @@ Se il test viene eseguito con un dispositivo meno recente, vedere [Set Up Google
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

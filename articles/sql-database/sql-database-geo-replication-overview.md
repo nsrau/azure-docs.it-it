@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/26/2016
-ms.author: sashan;carlrab
+ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 521bdc1bc13451210ccc3f5eefcfa903166031bc
-ms.openlocfilehash: ad5172865becf203cc42d84805ecaf40b046bd98
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: e580886bae72aee3bb3569299a831529ef18821c
 
 
 ---
@@ -78,7 +78,7 @@ La funzionalità di Replica geografica attiva fornisce i seguenti elementi essen
 > 
 > 
 
-* **Replica geografica attiva dei database del pool elastico**: la replica geografica attiva può essere configurata per qualsiasi database in qualsiasi pool di database elastici. Il database secondario può trovarsi in un altro pool di database elastici. Per i database normali, il database secondario può essere un pool di database elastici e viceversa, purché i livelli di servizio restino invariati. 
+* **Replica geografica attiva dei database del pool elastico**: la replica geografica attiva può essere configurata per qualsiasi database in qualsiasi pool elastico. Il database secondario può trovarsi in un altro pool elastico. Per i database normali, il database secondario può essere un pool elastico e viceversa, purché i livelli di servizio restino invariati. 
 * **Livello di prestazioni configurabile del database secondario**: un database secondario può essere creato con un livello di prestazioni inferiore rispetto al database primario. I database primari e secondari devono avere lo stesso livello di servizio. Questa opzione non è consigliata per le applicazioni con attività di scrittura nel database elevate perché il maggiore intervallo di replica aumenta il rischio di perdita di dati sostanziali dopo il failover. Inoltre, dopo il failover ci saranno delle ripercussioni sulle prestazioni dell'applicazione fino a quando il nuovo database primario non verrà aggiornato a un livello di prestazioni superiore. Il grafico della percentuale IO del log nel portale di Azure fornisce un buon metodo per stimare il livello di prestazioni minimo del database secondario che deve sostenere il carico della replica. Ad esempio, se il database primario è P6 (1000 DTU) e la percentuale IO del log è del 50%, il database secondario deve essere almeno P4 (500 DTU). È anche possibile recuperare i dati di I/O del log usando la vista di database [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) o [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).  Per altre informazioni sui livelli di prestazioni del database SQL, vedere [Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL](sql-database-service-tiers.md). 
 * **Failover e failback controllati dall'utente**: un database secondario può essere impostato esplicitamente sul ruolo di database primario in qualsiasi momento dall'applicazione o dall'utente. Durante un'interruzione reale, deve essere usata l'opzione "non pianificato", che alza immediatamente il livello di un database secondario a primario. Quando il database primario viene ripristinato ed è nuovamente disponibile, il sistema lo contrassegna automaticamente come database secondario e lo aggiorna con il nuovo database primario. A causa della natura asincrona della replica, una piccola quantità di dati può andare perduta durante i failover non pianificati se il database primario si interrompe prima di replicare le modifiche più recenti al database secondario. Quando un database primario con più database secondari esegue il failover, il sistema riconfigura automaticamente le relazioni di replica e collega i database secondari rimanenti al nuovo database primario appena alzato di livello senza alcun intervento da parte dell'utente. Dopo aver risolto l'interruzione del servizio che ha causato il failover, è opportuno ripristinare l'applicazione nell'area primaria. A tale scopo, richiamare il comando di failover con l'opzione "pianificato". 
 * **Mantenere sincronizzate le credenziali e le regole del firewall**: per i database con replica geografica è consigliabile usare le [regole del firewall a livello di database](sql-database-firewall-configure.md), in modo che tali regole possano essere replicate con il database, per garantire che tutti i database secondari abbiano le stesse regole del firewall del database primario. In questo modo non è più necessario configurare e gestire le regole del firewall manualmente nei server che ospitano sia il database primario che i secondari. Analogamente, l'accesso ai dati come [utenti di database indipendente](sql-database-manage-logins.md) fa sì che i database primari e secondari abbiano sempre le stesse credenziali utente. Durante un failover, quindi, non si verificano interruzioni dovute a una mancata corrispondenza tra account di accesso e password. Con l'aggiunta di [Azure Active Directory](../active-directory/active-directory-whatis.md) i clienti possono gestire l'accesso utente ai database primari e secondari, eliminando completamente la necessità di gestire le credenziali nei database.
@@ -149,6 +149,6 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Informazioni su come distribuire un&quot;autenticazione a più fattori con una serie di metodi di verifica che fornisce una procedura di accesso semplice. Esercitazioni, un SDK e altro ancora."
 translationtype: Human Translation
-ms.sourcegitcommit: d3e822f16a48f5c144ce2634325591eb69dc0e33
-ms.openlocfilehash: 087b71266ad1f4b1be0acd1eaa465903c32c1fd2
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 6ff0e1c42ad151c56500596d99f63bae200368ed
 
 ---
 # <a name="multi-factor-authentication-documentation"></a>Documentazione di Multi-Factor Authentication
@@ -105,13 +105,7 @@ Informazioni su come distribuire e gestire Azure multi-Factor Authentication, un
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/multi-factor-authentication.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione di Multi-Factor Authentication </div>
-    </a>
-</div>
+
 
 
 

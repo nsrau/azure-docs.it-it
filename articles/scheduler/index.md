@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Informazioni su come usare Utilità di pianificazione per pianificare e richiamare i processi, ad esempio azioni ricorrenti delle applicazioni e manutenzione di routine. Esercitazioni, informazioni di riferimento sulle API e altro ancora."
 translationtype: Human Translation
-ms.sourcegitcommit: ac4d47ff2e86906252ab93407eb6a4112d102523
-ms.openlocfilehash: 0afe27b9b7ec834ab8a2b944a164d31b7708eafe
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 008c96351a252737178c9e45e92de3f0106a2a2b
 
 ---
 # <a name="scheduler-documentation"></a>Documentazione di Utilità di pianificazione
@@ -97,13 +97,7 @@ Informazioni su come usare Utilità di pianificazione per pianificare e richiama
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/scheduler.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione di Utilità di pianificazione </div>
-    </a>
-</div>
+
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: Aggiungere l&quot;autenticazione in Android con app per dispositivi mobili| Documentazione Microsoft
-description: "Informazioni su come usare app per dispositivi mobili del servizio app di Azure per autenticare gli utenti dell&quot;app Android tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft."
+title: Aggiungere l&quot;autenticazione in Android con App per dispositivi mobili| Documentazione Microsoft
+description: "Informazioni su come usare la funzione App per dispositivi mobili di Servizio app di Azure per autenticare gli utenti dell&quot;app Android tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft."
 services: app-service\mobile
 documentationcenter: android
 author: ysxu
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3caf6edb1e3a33a451ec8773b1e14fe0c95734a1
+ms.sourcegitcommit: 817626dd3fc87db61280075b80cedf8b9ed77684
+ms.openlocfilehash: e638495c10742388804e75f3277c50cf1e20c6a6
 
 
 ---
@@ -24,19 +24,19 @@ ms.openlocfilehash: 3caf6edb1e3a33a451ec8773b1e14fe0c95734a1
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 ## <a name="summary"></a>Riepilogo
-Questa esercitazione consente di aggiungere l'autenticazione al progetto introduttivo TodoList in Android tramite un provider di identità supportato. Questa esercitazione è basata sull'esercitazione relativa alla [Introduzione alle app per dispositivi mobili] , che deve essere completata per prima.
+Questa esercitazione spiega come aggiungere l'autenticazione al progetto introduttivo TodoList in Android tramite un provider di identità supportato. Questa esercitazione è basata sull'esercitazione [Introduzione ad App per dispositivi mobili], che deve essere completata per prima.
 
-## <a name="a-nameregisteraregister-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Registrare l'app per l'autenticazione e configurare il servizio app
+## <a name="a-nameregisteraregister-your-app-for-authentication-and-configure-azure-app-service"></a><a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizio app di Azure
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 ## <a name="a-namepermissionsarestrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-* In Android Studio aprire il progetto completato nell'esercitazione [Introduzione alle app per dispositivi mobili]. Scegliere **Run app** (Esegui app) dal menu **Run** (Esegui) e verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzato).
-  
-     L'eccezione non gestita viene generata perché l'app tenta di accedere al back-end come utente non autenticato, mentre la tabella *TodoItem* richiede ora l'autenticazione.
+* In Android Studio aprire il progetto completato con l'esercitazione [Introduzione ad App per dispositivi mobili]. Dal menu **Run** fare clic su **Run app** e verificare che, dopo l'avvio dell'app, venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzata).
 
-A questo punto, viene aggiornata l'app in modo che autentichi gli utenti prima di richiedere risorse al back-end dell'app per dispositivi mobili.
+     Questa eccezione viene generata perché l'app tenta di accedere al back-end come utente non autenticato, mentre la tabella *TodoItem* richiede ora l'autenticazione.
+
+A questo punto, si aggiorna l'app in modo che autentichi gli utenti prima di richiedere risorse al back-end di App per dispositivi mobili. 
 
 ## <a name="add-authentication-to-the-app"></a>Aggiungere l'autenticazione all'app
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
@@ -47,23 +47,25 @@ A questo punto, viene aggiornata l'app in modo che autentichi gli utenti prima d
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver completato questa esercitazione sull'autenticazione di base, provare a continuare fino a una delle esercitazioni seguenti:
 
-* [Aggiungere notifiche push all'app Android](app-service-mobile-android-get-started-push.md) Informazioni su come configurare il back-end dell'app per dispositivi mobili in modo che usi l'Hub di notifica di Azure per inviare notifiche push.
-* [Abilitare la sincronizzazione offline per l'app Android](app-service-mobile-android-get-started-offline-data.md) Informazioni su come aggiungere il supporto offline all'app tramite il back-end di un'app per dispositivi mobili. La sincronizzazione offline consente agli utenti finali di interagire con un'app&mdash;visualizzando, aggiungendo e modificando i dati&mdash;anche se non è disponibile una connessione di rete.
+* [Aggiungere notifiche push all'app Android](app-service-mobile-android-get-started-push.md).
+  Informazioni su come configurare App per dispositivi mobili in modo da utilizzare l'Hub di notifica di Azure per inviare notifiche push.
+* [Attivare la sincronizzazione offline per l'app Android](app-service-mobile-android-get-started-offline-data.md).
+  Informazioni su come aggiungere il supporto offline all'app usando il back-end di App per dispositivi mobili. Con la sincronizzazione offline è possibile interagire con un'app per dispositivi mobili &mdash;visualizzando, aggiungendo e modificando i dati&mdash; anche quando non è disponibile una connessione di rete.
 
 <!-- Anchors. -->
-[Registrare l'app per l'autenticazione e configurare Servizi mobili]: #register
-[Limitare le autorizzazioni per la tabella agli utenti autenticati]: #permissions
-[Aggiungere l'autenticazione all'app]: #add-authentication
-[Archiviare i token di autenticazione nel client]: #cache-tokens
-[Aggiornare i token scaduti]: #refresh-tokens
+[Register your app for authentication and configure Mobile Services]: #register
+[Restrict table permissions to authenticated users]: #permissions
+[Add authentication to the app]: #add-authentication
+[Store authentication tokens on the client]: #cache-tokens
+[Refresh expired tokens]: #refresh-tokens
 [Next Steps]:#next-steps
 
 
 <!-- URLs. -->
-[Introduzione alle app per dispositivi mobili]: app-service-mobile-android-get-started.md
+[Introduzione ad App per dispositivi mobili]: app-service-mobile-android-get-started.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

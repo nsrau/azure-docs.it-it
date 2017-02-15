@@ -1,22 +1,26 @@
 ---
-title: Integrazione con Operations Management Suite (OMS) | Microsoft Docs
-description: Oltre a usare le funzionalità standard di OMS, è possibile integrarlo con altre applicazioni e servizi di gestione per offrire un ambiente di gestione ibrida, scenari di gestione personalizzati specifici dell'ambiente o un'esperienza di gestione personalizzata ai clienti.  Questo articolo offre una panoramica delle diverse opzioni per l'integrazione con OMS e include collegamenti ad articoli contenenti informazioni tecniche dettagliate.
+title: Integrazione con Operations Management Suite (OMS) | Documentazione Microsoft
+description: "Oltre a usare le funzionalità standard di OMS, è possibile integrarlo con altre applicazioni e servizi di gestione per offrire un ambiente di gestione ibrida, scenari di gestione personalizzati specifici dell&quot;ambiente o un&quot;esperienza di gestione personalizzata ai clienti.  Questo articolo offre una panoramica delle diverse opzioni per l&quot;integrazione con OMS e include collegamenti ad articoli contenenti informazioni tecniche dettagliate."
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: fc5f3a8a-77f7-4103-bd7e-744c15ffcca7
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/23/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 31291a9b0f452adeae42f744a976c14e61a4b303
+
 
 ---
-# <a name="integrating-with-operations-management-suite-(oms)"></a>Integrazione con Operations Management Suite (OMS)
+# <a name="integrating-with-operations-management-suite-oms"></a>Integrazione con Operations Management Suite (OMS)
 Operations Management Suite è la soluzione Microsoft per la gestione IT basata sul cloud che consente di gestire e proteggere l'infrastruttura locale e cloud.  Oltre a usare le funzionalità standard di OMS, è possibile integrarlo con altre applicazioni e servizi di gestione per offrire un ambiente di gestione ibrida, scenari di gestione personalizzati specifici dell'ambiente o un'esperienza di gestione personalizzata ai clienti.  Questo articolo offre una panoramica delle diverse opzioni per l'integrazione con i servizi OMS e include collegamenti ad articoli contenenti informazioni tecniche dettagliate. 
 
 ## <a name="log-analytics"></a>Log Analytics
@@ -102,6 +106,9 @@ La soluzione potrebbe includere ad esempio un runbook di Automazione per raccogl
 ## <a name="next-steps"></a>Passaggi successivi
 * Vedere [OMS SDK](operations-management-suite-sdk.md) per informazioni tecniche su come automatizzare i servizi OMS.  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

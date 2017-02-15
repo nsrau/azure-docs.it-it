@@ -15,8 +15,8 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 72e6b97415a0edf18c2ffcc654575dbfcd916c40
+ms.sourcegitcommit: 4fde1a22ac76306e79a68a37e110828da9a2ef13
+ms.openlocfilehash: 3cf2d8b19dd5785317a382dc429feda02d8a2f20
 
 
 ---
@@ -49,9 +49,9 @@ Esistono diversi modi per attivare un'app per la logica da un'altra app. Ecco al
 * [Monitorare le app per la logica](app-service-logic-monitor-your-logic-apps.md)
 
 ## <a name="content-types-conversions-and-transformations"></a>Tipi di contenuto, conversioni e trasformazioni
-Il [linguaggio di definizione del flusso di lavoro](http://aka.ms/logicappsdocs) delle app per la logica include numerose funzioni che consentono di convertire e usare diversi tipi di contenuto.  Il motore esegue tutte le operazioni possibili per mantenere i tipi di contenuto come flussi di dati attraverso il flusso di lavoro.
+Il [linguaggio di definizione del flusso di lavoro](http://aka.ms/logicappsdocs) delle app per la logica include numerose funzioni che consentono di convertire e usare diversi tipi di contenuto. Il motore esegue tutte le operazioni possibili per mantenere i tipi di contenuto come flussi di dati attraverso il flusso di lavoro.
 
-* [Gestione dei tipi di contenuto](app-service-logic-content-type.md) , come application/json, application/xml e text/plain
+* [Gestione dei tipi di contenuto](app-service-logic-content-type.md), ad esempio application/json, application/xml e text/plain
 * [Creazione di definizioni del flusso di lavoro](app-service-logic-author-definitions.md)
 * [Riferimento al linguaggio di definizione del flusso di lavoro](http://aka.ms/logicappsdocs)
 
@@ -74,6 +74,6 @@ Verranno aggiunti altri esempi e scenari a questo documento. Usare la sezione de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con CloudPassage | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e CloudPassage.
+title: 'Esercitazione: Integrazione di Azure Active Directory con CloudPassage | Documentazione Microsoft'
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e CloudPassage.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: bfe1f14e-74e4-4680-ac9e-f7355e1c94cc
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 01676cbaf2b677b43a223cf33699710c77da41fa
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-cloudpassage"></a>Esercitazione: Integrazione di Azure Active Directory con CloudPassage
+# <a name="tutorial-azure-active-directory-integration-with-cloudpassage"></a>Esercitazione: Integrazione di Azure Active Directory con CloudPassage
 Questa esercitazione descrive l'integrazione di CloudPassage con Azure Active Directory (Azure AD).  
 L'integrazione di CloudPassage con Azure AD offre i vantaggi seguenti: 
 
@@ -52,7 +56,7 @@ Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti 
 ## <a name="adding-cloudpassage-from-the-gallery"></a>Aggiunta di CloudPassage dalla raccolta
 Per configurare l'integrazione di CloudPassage in Azure AD, è necessario aggiungere CloudPassage dalla raccolta al proprio elenco di app SaaS gestite.
 
-### <a name="to-add-cloudpassage-from-the-gallery,-perform-the-following-steps:"></a>Per aggiungere CloudPassage dalla raccolta, seguire questa procedura:
+### <a name="to-add-cloudpassage-from-the-gallery-perform-the-following-steps"></a>Per aggiungere CloudPassage dalla raccolta, seguire questa procedura:
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
    
     ![Active Directory][1]
@@ -225,7 +229,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 ### <a name="creating-a-cloudpassage-test-user"></a>Creazione di un utente test CloudPassage
 Questa sezione descrive come creare un utente chiamato Britta Simon in CloudPassage.
 
-#### <a name="to-create-a-user-called-britta-simon-in-cloudpassage,-perform-the-following-steps:"></a>Per creare un utente test denominato Britta Simon in CloudPassage, seguire questa procedura:
+#### <a name="to-create-a-user-called-britta-simon-in-cloudpassage-perform-the-following-steps"></a>Per creare un utente test denominato Britta Simon in CloudPassage, seguire questa procedura:
 1. Accedere al sito aziendale di **CloudPassage** come amministratore. 
 2. Nella barra degli strumenti in alto fare clic su **Settings** (Impostazioni) e quindi su **Site Administration** (Amministrazione sito). 
    
@@ -331,6 +335,6 @@ Quando si fa clic sul riquadro CloudPassage nel pannello di accesso, si dovrebbe
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

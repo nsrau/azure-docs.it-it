@@ -1,30 +1,34 @@
 ---
-title: Come usare le code del bus di servizio con Python | Microsoft Docs
+title: Come usare le code del bus di servizio con Python | Documentazione Microsoft
 description: Informazioni su come usare le code del bus di servizio da Python.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: python
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: b95ee5cd-3b31-459c-a7f3-cf8bcf77858b
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: sethm;lmazuel
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6a162dc04f8eb5002cae3bf708ae2fcd4c2aa694
+
 
 ---
 # <a name="how-to-use-service-bus-queues"></a>Come usare le code del bus di servizio
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Questo articolo illustra come usare le code del bus di servizio. Gli esempi sono scritti in Python e usano il [pacchetto di Azure del bus di servizio per Python][]. Gli scenari presentati includono **la creazione di code, l’invio e la ricezione di messaggi** e **l’eliminazione di code**.
+Questo articolo illustra come usare le code del bus di servizio. Gli esempi sono scritti in Python e usano il [Pacchetto del bus di servizio di Azure per Python][Pacchetto del bus di servizio di Azure per Python]. Gli scenari illustrati includono la **creazione di code, l'invio e la ricezione di messaggi** e **l'eliminazione di code**.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 > [!NOTE]
-> Per installare Python o il [pacchetto del bus di servizio di Azure per Python][pacchetto del bus di servizio di Azure per Python], vedere la [guida all'installazione di Python](../python-how-to-install.md).
+> Per installare Python o il [Pacchetto del bus di servizio di Azure per Python][Pacchetto del bus di servizio di Azure per Python], vedere la [guida all'installazione di Python](../python-how-to-install.md).
 > 
 > 
 
@@ -113,6 +117,6 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

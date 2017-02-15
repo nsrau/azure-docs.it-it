@@ -1,12 +1,12 @@
 ---
-title: Distribuire un contenitore Docker ASP.NET Core Linux in un host Docker remoto | Microsoft Docs
-description: Informazioni su come usare Visual Studio Tools per Docker per distribuire un'app Web ASP.NET Core in un contenitore Docker in esecuzione in una macchina virtuale Linux host Docker di Azure
+title: Distribuire un contenitore Docker ASP.NET Core Linux in un host Docker remoto | Documentazione Microsoft
+description: Informazioni su come usare Visual Studio Tools per Docker per distribuire un&quot;app Web ASP.NET Core in un contenitore Docker in esecuzione in una macchina virtuale Linux host Docker di Azure
 services: azure-container-service
 documentationcenter: .net
 author: mlearned
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: e5e81c5e-dd18-4d5a-a24d-a932036e78b9
 ms.service: azure-container-service
 ms.devlang: dotnet
 ms.topic: article
@@ -14,35 +14,40 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2016
 ms.author: mlearned
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: f99dcb1ce4cfe2a629c9254264a93b4d9d02ce4b
+
 
 ---
-# Distribuire un contenitore ASP.NET in un host Docker remoto
-## Overview
-Docker è un motore contenitore leggero, simile in qualche modo a una macchina virtuale, che è possibile usare per ospitare applicazioni e servizi. In questa esercitazione viene usata l'estensione [Visual Studio 2015 Tools per Docker](http://aka.ms/DockerToolsForVS) per distribuire un'app ASP.NET Core in un host Docker in Azure con PowerShell.
+# <a name="deploy-an-aspnet-container-to-a-remote-docker-host"></a>Distribuire un contenitore ASP.NET in un host Docker remoto
+## <a name="overview"></a>Overview
+Docker è un motore contenitore leggero, simile in qualche modo a una macchina virtuale, che è possibile usare per ospitare applicazioni e servizi.
+In questa esercitazione viene usata l'estensione [Visual Studio 2015 Tools per Docker](http://aka.ms/DockerToolsForVS) per distribuire un'app ASP.NET Core in un host Docker in Azure con PowerShell.
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione sarà necessario svolgere le operazioni seguenti:
 
-* Creare una VM host Docker in Azure, come descritto in [Come usare Docker Machine in Azure](virtual-machines/virtual-machines-linux-docker-machine.md).
+* Creare una VM host Docker in Azure, come descritto in [Come usare Docker Machine in Azure](virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Installare [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129)
 * [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
 * Installare [Visual Studio 2015 Tools per Docker - Preview](http://aka.ms/DockerToolsForVS)
 
-## 1\. Creare un'app Web ASP.NET Core
+## <a name="1-create-an-aspnet-core-web-app"></a>1. Creare un'app Web ASP.NET Core
 La procedura seguente illustra la creazione di un'app ASP.NET Core di base che verrà usata in questa esercitazione.
 
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## 2\. Aggiungere il supporto di Docker
+## <a name="2-add-docker-support"></a>2. Aggiungere il supporto di Docker
 [!INCLUDE [create-aspnet5-app](../includes/vs-azure-tools-docker-add-docker-support.md)]
 
-## 3\. Usare lo script di PowerShell DockerTask.ps1
-1. Aprire un prompt dei comandi di PowerShell nella directory radice del progetto.
+## <a name="3-use-the-dockertaskps1-powershell-script"></a>3. Usare lo script di PowerShell DockerTask.ps1
+1. Aprire un prompt dei comandi di PowerShell nella directory radice del progetto. 
    
    ```
    PS C:\Src\WebApplication1>
    ```
-2. La convalida dell'host remoto è in esecuzione. Dovrebbe essere visualizzato lo stato = Running
+2. La convalida dell'host remoto è in esecuzione. Dovrebbe essere visualizzato lo stato = Running 
    
    ```
    docker-machine ls
@@ -87,9 +92,13 @@ La procedura seguente illustra la creazione di un'app ASP.NET Core di base che v
    
    ![Visualizzare l'app][3]
 
-[0]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/docker-props-in-solution-explorer.png
-[1]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/change-docker-machine-name.png
-[2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
-[3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
+[0]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/docker-props-in-solution-explorer.png
+[1]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/change-docker-machine-name.png
+[2]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
+[3]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

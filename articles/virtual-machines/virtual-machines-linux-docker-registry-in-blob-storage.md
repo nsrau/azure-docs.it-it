@@ -7,7 +7,7 @@ author: ahmetalpbalkan
 editor: squillace
 manager: timlt
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: d72c9425-4a52-4f6d-935f-70f28df529d8
 ms.service: virtual-machines-linux
 ms.devlang: multiple
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/27/2016
 ms.author: ahmetb
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4dee43f5cb5ce27831e2a56c9c31784317c22559
+
 
 ---
 # <a name="deploying-your-own-private-docker-registry-on-azure"></a>Distribuzione del registro Docker privato in Azure
@@ -27,7 +31,7 @@ Questo documento presuppone che:
 1. Si sia in grado di usare Docker e si disponga di immagini Docker da archiviare. (No? [Informazioni su Docker](https://www.docker.com))
 2. Si disponga di un server con il motore Docker installato. (No? [Esegui rapidamente l'installazione in Azure.](https://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/))
 
-## <a name="what-is-a-private-docker-registry?"></a>Che cos'è un registro Docker privato?
+## <a name="what-is-a-private-docker-registry"></a>Che cos'è un registro Docker privato?
 Per poter distribuire applicazioni di contenitori nel cloud, è necessario costruire un'immagine di contenitore Docker e archiviarla da qualche parte in modo che possa essere usata anche da altri utenti. 
 
 Mentre la creazione di un'immagine di contenitore e la relativa distribuzione nel cloud sono operazioni piuttosto semplici, archiviare l'immagine generata in modo affidabile può essere più difficile. Per questo motivo, Docker offre un servizio centralizzato denominato [Docker Hub][docker-hub] per l'archiviazione di immagini contenitore nel cloud e consente di creare in qualsiasi momento contenitori con queste immagini.
@@ -35,7 +39,7 @@ Mentre la creazione di un'immagine di contenitore e la relativa distribuzione ne
 [Docker Hub][docker-hub] è un servizio a pagamento per l'archiviazione di immagini contenitore di applicazioni private. Docker va comunque incontro alle esigenze degli sviluppatori offrendo un set di strumenti open source per archiviare le immagini in un registro Docker privato protetto da firewall o in locale, senza raggiungere la rete Internet pubblica.
 È possibile quindi sfruttare la semplicità di protezione dell'archiviazione BLOB di Azure per creare e usare in Azure un registro Docker privato, da gestire in modo autonomo.
 
-## <a name="why-should-you-host-a-docker-registry-on-azure?"></a>Perché ospitare un registro Docker in Azure?
+## <a name="why-should-you-host-a-docker-registry-on-azure"></a>Perché ospitare un registro Docker in Azure?
 L'hosting dell'istanza del registro Docker in Microsoft Azure e la memorizzazione di immagini nell'archiviazione BLOB di Azure offrono alcuni vantaggi:
 
 **Sicurezza:** le immagini Docker non abbandonano mai i data center di Azure. In questo modo non devono attraversare la rete Internet pubblica, come se si usasse Docker Hub.
@@ -99,6 +103,6 @@ Dopo aver configurato il registro, è possibile iniziare a usarlo. Iniziare con 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

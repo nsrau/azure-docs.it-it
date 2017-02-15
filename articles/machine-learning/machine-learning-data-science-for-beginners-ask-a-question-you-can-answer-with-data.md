@@ -1,33 +1,37 @@
 ---
-title: Porre una domanda a cui è possibile rispondere con i dati - formulare domande| Microsoft Docs
-description: Informazioni su come formulare una domanda sull'analisi scientifica dei dati in Analisi scientifica dei dati per principianti, video 3. Include un confronto delle domande di classificazione e regressione.
-keywords: scegliere una domanda, domande di analisi scientifica dei dati, formulare una domanda, formulare domande, domande di regressione, domande di classificazione, domanda ben strutturata
+title: "Porre una domanda a cui è possibile rispondere con i dati - formulare domande| Documentazione Microsoft"
+description: Informazioni su come formulare una domanda sull&quot;analisi scientifica dei dati in Analisi scientifica dei dati per principianti, video 3. Include un confronto delle domande di classificazione e regressione.
+keywords: domande di analisi scientifica dei dati, formulare domande, domande di regressione, domande di classificazione, domanda ben strutturata
 services: machine-learning
 documentationcenter: na
-author: brohrer-ms
+author: cjgronlund
 manager: jhubbard
 editor: cjgronlund
-
+ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
 ms.service: machine-learning
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/15/2016
-ms.author: cgronlun;brohrer;garye
+ms.date: 10/20/2016
+ms.author: cgronlun;garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f6cb2a15ab8ef87672c0abbc93ee68478d0efb48
+
 
 ---
-# Porre una domanda a cui è possibile rispondere con i dati
-## Video 3: Analisi scientifica dei dati per principianti
+# <a name="ask-a-question-you-can-answer-with-data"></a>Porre una domanda a cui è possibile rispondere con i dati
+## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Analisi scientifica dei dati per principianti
 Informazioni su come formulare una domanda sull'analisi scientifica dei dati in Analisi scientifica dei dati per principianti, video 3. Questo video include un confronto di domande per gli algoritmi di classificazione e regressione.
 
-Per trarre il meglio dalla serie è consigliabile guardare i video in ordine. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
+Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
 > 
 > 
 
-## Altri video della serie
+## <a name="other-videos-in-this-series"></a>Altri video della serie
 *Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in cinque brevi video.
 
 * Video 1: [5 domande a cui può rispondere l'analisi scientifica dei dati](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 sec)*
@@ -36,15 +40,15 @@ Per trarre il meglio dalla serie è consigliabile guardare i video in ordine. [L
 * Video 4: [Prevedere una risposta con un modello semplice](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min e 42 sec)*
 * Video 5: [Copiare il lavoro di altre persone per l'analisi scientifica dei dati](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min e 18 sec)*
 
-## Trascrizione: Porre una domanda a cui è possibile rispondere con i dati
-Questo è il terzo video della serie "Analisi scientifica dei dati per principianti".
+## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>Trascrizione: Porre una domanda a cui è possibile rispondere con i dati
+Questo è il terzo video della serie "Analisi scientifica dei dati per principianti".  
 
 In questo video vengono forniti suggerimenti per formulare una domanda a cui è possibile rispondere con i dati.
 
 È possibile sfruttare al meglio questo video guardando prima i due video precedenti di questa serie: "Le 5 domande a cui l'analisi scientifica dei dati può rispondere" e "Sono pronti i dati per l'analisi scientifica?"
 
-## Porre una domanda ben strutturata
-È stato spiegato come l'analisi scientifica dei dati sia il processo d'uso di nomi, detti anche categorie o etichette, e di numeri per prevedere una risposta a una domanda. Non può però essere una domanda qualsiasi, deve essere una *domanda ben strutturata*.
+## <a name="ask-a-sharp-question"></a>Porre una domanda ben strutturata
+È stato spiegato come l'analisi scientifica dei dati sia il processo d'uso di nomi, detti anche categorie o etichette, e di numeri per prevedere una risposta a una domanda. Non può però essere una domanda qualsiasi, deve essere una *domanda ben strutturata*
 
 A una domanda vaga non è necessario rispondere con un nome o un numero, mentre lo è per una domanda ben strutturata.
 
@@ -54,10 +58,10 @@ Se si pone una domanda vaga, come "Cosa accadrà al mio titolo azionario?", il g
 
 Se però si pone una domanda ben strutturata, ad esempio "Quale sarà il prezzo di vendita del mio titolo la prossima settimana?", il genio non potrà fare a meno di fornire una risposta specifica e prevedere un prezzo di vendita.
 
-## Esempi di risposta: dati di destinazione
+## <a name="examples-of-your-answer-target-data"></a>Esempi di risposta: dati di destinazione
 Una volta formulata la domanda, verificare se sono disponibili esempi di risposta nei dati.
 
-Se la domanda è "Quale sarà il prezzo di vendita del mio titolo la prossima settimana?" è necessario assicurarsi che i dati includano la cronologia dei prezzi dei titoli azionari.
+Se la domanda è "Quale sarà il prezzo di vendita del mio titolo la prossima settimana?", è necessario assicurarsi che i dati includano la cronologia dei prezzi dei titoli azionari.
 
 Se la domanda è "Quale auto del mio parco macchine avrà per prima un guasto?", sarà necessario assicurarsi che i dati includano informazioni sui guasti precedenti.
 
@@ -67,7 +71,7 @@ Questi esempi di risposte sono detti destinazione. Una destinazione è ciò che 
 
 Se non sono disponibili dati di destinazione, è necessario ottenerne alcuni. Non sarà possibile rispondere alla domanda senza questi dati.
 
-## Riformulare la domanda
+## <a name="reformulate-your-question"></a>Riformulare la domanda
 In alcuni casi è possibile riformulare la domanda per ottenere una risposta più utile.
 
 La domanda "Il punto dati è A o B?" stima la categoria (o nome o etichetta) di un elemento. Per rispondere si userà un *algoritmo di classificazione*.
@@ -90,8 +94,13 @@ Sono stati trattati alcuni principi di base per porre una domanda a cui è possi
 
 Anche gli altri video della serie "Analisi scientifica dei dati per principianti" di Microsoft Azure Machine Learning meritano di essere visti.
 
-## Passaggi successivi
-* [È possibile effettuare il primo esperimento di analisi scientifica dei dati con Azure Machine Learning](machine-learning-create-experiment.md)
-* [È possibile ottenere un'introduzione a Machine Learning in Microsoft Azure](machine-learning-what-is-machine-learning.md)
+## <a name="next-steps"></a>Passaggi successivi
+* [Effettuare il primo esperimento di analisi scientifica dei dati con Machine Learning Studio](machine-learning-create-experiment.md)
+* [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

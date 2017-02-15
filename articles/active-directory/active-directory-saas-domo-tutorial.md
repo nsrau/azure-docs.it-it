@@ -1,12 +1,12 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Domo | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Domo.
+title: 'Esercitazione: Integrazione di Azure Active Directory con Domo | Documentazione Microsoft'
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Domo.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 058626e4-73b3-4dc2-86ca-b060d002d70a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0b3eea4df3728b54554014eed99a911ec8770161
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-domo"></a>Esercitazione: Integrazione di Azure Active Directory con Domo
+# <a name="tutorial-azure-active-directory-integration-with-domo"></a>Esercitazione: Integrazione di Azure Active Directory con Domo
 Questa esercitazione descrive l'integrazione di Domo con Azure Active Directory (Azure AD).  
 L'integrazione di Domo con Azure AD offre i vantaggi seguenti:
 
@@ -115,7 +119,7 @@ L'applicazione Domo prevede che le asserzioni SAML abbiano un formato specifico.
    
     c. Nell'elenco **Valore attributo** selezionare il valore dell'attributo indicato per quella riga.
    
-    d. Fare clic su **Completa**.  
+    d. Fare clic su **Completa**.    
 3. Nella pagina di integrazione dell'applicazione **Domo** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
     ![Configura accesso Single Sign-On][6] 
@@ -254,6 +258,6 @@ Quando si fa clic sul riquadro Domo nel pannello di accesso, si dovrebbe acceder
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

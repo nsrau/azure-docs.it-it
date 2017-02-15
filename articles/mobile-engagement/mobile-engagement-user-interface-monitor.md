@@ -1,12 +1,12 @@
 ---
 title: Interfaccia utente di Azure Mobile Engagement - Monitoraggio
-description: Informazioni su come monitorare in tempo reale i dati dell'applicazione usando Azure Mobile Engagement
+description: Informazioni su come monitorare in tempo reale i dati dell&quot;applicazione usando Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: b91ad89a-b89d-4377-abb0-cc2d16a2836d
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,47 +14,51 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 838079ed1317aca19ee8e5c5721efb0d93dd97e6
+
 
 ---
-# Come monitorare in tempo reale i dati relativi all'applicazione
-In questo articolo viene descritta la scheda **MONITORAGGIO** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement**.
+# <a name="how-to-monitor-real-time-data-about-your-application"></a>Come monitorare in tempo reale i dati relativi all'applicazione
+In questo articolo viene descritta la scheda **MONITORAGGIO** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement** . 
 
 Nella sezione Monitoraggio dell'interfaccia utente vengono fornite informazioni di analisi in tempo reale ed è possibile impostare gli avvisi quando vengono raggiunte le soglie per la maggior parte delle informazioni cronologicamente disponibili anche nella sezione [ANALISI](mobile-engagement-user-interface-analytics.md) dell'interfaccia utente. Nella sezione **Glossario** nell'argomento [Concetti](http://go.microsoft.com/fwlink/?LinkId=525555) sono riportate le definizioni dei termini e delle abbreviazioni usati in Analisi e Monitoraggio, ad esempio: utente attivo, nuovo utente, utente assorbito, sessione, grafico percorso utenti, mapping utenti, URL di rilevamento, tendenze, attività, evento, processo, errore, informazioni supplementari, arresto anomalo e informazioni sull'app.
 
 > [!NOTE]
-> Molte sezioni dell’interfaccia utente del portale **Mobile Engagement** contengono il pulsante **MOSTRA GUIDA**. Premere questo pulsante per ottenere ulteriori informazioni contestuali su una sezione.
+> Molte sezioni dell'interfaccia utente del portale **Mobile Engagement** contengono il pulsante **MOSTRA GUIDA**. Premere questo pulsante per ottenere ulteriori informazioni contestuali su una sezione.
 > 
 > 
 
-## Monitoraggio: sessioni, processi, eventi, errori e arresti anomali
-È possibile verificare quanti utenti sono attualmente in sessione e su schermi specifici o stanno eseguendo particolari azioni. È possibile visualizzare l'attività dell'utente per sessioni, processi, eventi, errori e arresti anomali. È possibile visualizzare le informazioni correnti e mostrare le informazioni dall'ora, del giorno o della settimana più recente. È possibile visualizzare tutte le informazioni in ogni categoria o ordinarle per sessione, processo, evento, errore e arresto anomalo specifico. Il monitoraggio in tempo reale è utile durante eventi quali una campagna di push per verificare se esiste un aumento nell'azione subito dopo l'invio di una notifica push.
+## <a name="monitor---sessions-jobs-events-errors-and-crashes"></a>Monitoraggio: sessioni, processi, eventi, errori e arresti anomali
+È possibile verificare quanti utenti sono attualmente in sessione e su schermi specifici o stanno eseguendo particolari azioni. È possibile visualizzare l'attività dell'utente per sessioni, processi, eventi, errori e arresti anomali. È possibile visualizzare le informazioni correnti e mostrare le informazioni dall'ora, del giorno o della settimana più recente. È possibile visualizzare tutte le informazioni in ogni categoria o ordinarle per sessione, processo, evento, errore e arresto anomalo specifico.  Il monitoraggio in tempo reale è utile durante eventi quali una campagna di push per verificare se esiste un aumento nell'azione subito dopo l'invio di una notifica push.
 
-![Monitor1][14]
+![Monitor1][14]  
 
-## Risoluzione dei problemi con Monitoraggio - Eventi - Dettagli
+## <a name="troubleshooting-with-monitor---events---details"></a>Risoluzione dei problemi con Monitoraggio - Eventi - Dettagli
 La generazione di un evento nell'applicazione dal dispositivo di test e la relativa ricerca in Monitoraggio - Eventi - Dettagli è uno dei modi più semplici per trovare l'ID del dispositivo di test e per confermare che l'integrazione Azure Mobile Engagement di Analisi, Monitoraggio e Segmenti funzioni dall'applicazione. Dopo aver ottenuto l'ID del dispositivo di test, è possibile aggiungerlo ai dispositivi di test in "Account personale – Dispositivi". Se non è possibile generare un evento, assicurarsi che Azure Mobile Engagement sia correttamente integrato nell'app Android/iOS/Web/Windows/Windows Phone con l'SDK.
 
-Per altre informazioni, vedere la [documentazione di SDK][Link 5]
+Per altre informazioni, vedere [Documentazione di SDK][Collegamento 5]
 
-![Monitor2][15]
+![Monitor2][15]  
 
-## Risoluzione dei problemi con Monitoraggio - Arresti anomali - Dettagli
+## <a name="troubleshooting-with-monitor---crashes---details"></a>Risoluzione dei problemi con Monitoraggio - Arresti anomali - Dettagli
 È possibile esaminare le informazioni sull'arresto anomalo dell'app da Monitoraggio - Arresti anomali - Dettagli per determinare il motivo per cui l'app si blocca. È consigliabile, inoltre, cercare i problemi noti di ogni versione dell'SDK nelle note di rilascio che accompagnano ogni versione dell'SDK per Android/iOS/Web/Windows/Windows Phone.
 
-Per ulteriori informazioni, vedere le [Documentazione SDK - Note di rilascio][Link 5]
+Per altre informazioni, vedere [Documentazione di SDK - Note sul rilascio][Collegamento 5]
 
 ![Monitor3][16]
 
-## Monitoraggio - Avvisi
-È inoltre possibile specificare condizioni per gli avvisi da inviare automaticamente all'utente tramite posta elettronica o messaggistica istantanea (sono supportati tutti i servizi compatibili con XMPP come GTalk di Google o iChat Apple). Gli avvisi sono basati su una soglia di rilevamento predefinita maggiore (>) o minore (<) di un numero specifico di sessioni, processi, eventi, errori o arresti anomali al secondo, minuto o ora. Tramite Avvisi è possibile monitorare tutte le attività di un determinato tipo o semplicemente l'attività di un particolare processo, evento o errore.
+## <a name="monitor---alerts"></a>Monitoraggio - Avvisi
+È inoltre possibile specificare condizioni per gli avvisi da inviare automaticamente all'utente tramite posta elettronica o messaggistica istantanea (sono supportati tutti i servizi compatibili con XMPP come GTalk di Google o iChat Apple). Gli avvisi sono basati su una soglia di rilevamento predefinita maggiore (>) o minore (<) di un numero specifico di sessioni, processi, eventi, errori o arresti anomali al secondo, minuto o ora. Tramite Avvisi è possibile monitorare tutte le attività di un determinato tipo o semplicemente l'attività di un particolare processo, evento o errore. 
 
 È inoltre possibile specificare una velocità minima di rilevamento, ossia la quantità minima di minuti che separa due notifiche per lo stesso avviso, per assicurarsi che quando viene attivato l'avviso non si riceva mai più di una notifica per ogni intervallo specificato.
 
 ![Monitor4][17]
 
-## Vedere anche
-* [Concetti][Link 6]
-* [Guida per la risoluzione dei problemi - Assistenza][Link 24]
+## <a name="see-also"></a>Vedere anche
+* [Concetti][Collegamento 6]
+* [Guida alla risoluzione dei problemi relativi al servizio][Collegamento 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -117,38 +121,42 @@ Per ulteriori informazioni, vedere le [Documentazione SDK - Note di rilascio][Li
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: ../mobile-engagement-how-tos-first-push.md
-[Link 28]: ../mobile-engagement-how-tos-test-campaign.md
-[Link 29]: ../mobile-engagement-how-tos-personalize-push.md
-[Link 30]: ../mobile-engagement-how-tos-differentiate-push.md
-[Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
-[Link 32]: ../mobile-engagement-how-tos-text-view.md
-[Link 33]: ../mobile-engagement-how-tos-web-view.md
+[Collegamento 1]: mobile-engagement-user-interface.md
+[Collegamento 2]: mobile-engagement-troubleshooting-guide.md
+[Collegamento 3]: mobile-engagement-how-tos.md
+[Collegamento 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Collegamento 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Collegamento 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Collegamento 7]: https://account.windowsazure.com/PreviewFeatures
+[Collegamento 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Collegamento 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Collegamento 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Collegamento 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Collegamento 12]: mobile-engagement-user-interface-navigation.md
+[Collegamento 13]: mobile-engagement-user-interface-home.md
+[Collegamento 14]: mobile-engagement-user-interface-my-account.md
+[Collegamento 15]: mobile-engagement-user-interface-analytics.md
+[Collegamento 16]: mobile-engagement-user-interface-monitor.md
+[Collegamento 17]: mobile-engagement-user-interface-reach.md
+[Collegamento 18]: mobile-engagement-user-interface-segments.md
+[Collegamento 19]: mobile-engagement-user-interface-dashboard.md
+[Collegamento 20]: mobile-engagement-user-interface-settings.md
+[Collegamento 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Collegamento 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Collegamento 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Collegamento 24]: mobile-engagement-troubleshooting-guide-service.md
+[Collegamento 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Collegamento 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Collegamento 27]: ../mobile-engagement-how-tos-first-push.md
+[Collegamento 28]: ../mobile-engagement-how-tos-test-campaign.md
+[Collegamento 29]: ../mobile-engagement-how-tos-personalize-push.md
+[Collegamento 30]: ../mobile-engagement-how-tos-differentiate-push.md
+[Collegamento 31]: ../mobile-engagement-how-tos-schedule-campaign.md
+[Collegamento 32]: ../mobile-engagement-how-tos-text-view.md
+[Collegamento 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

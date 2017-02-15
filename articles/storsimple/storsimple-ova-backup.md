@@ -5,8 +5,8 @@ services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: a4f55053-a664-4f7c-ba9d-0cb1fb200ff4
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,36 +14,40 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/07/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 61bc9e86cde18bf00291fa36c7ea12ca263db82f
+
 
 ---
-# Backup dell'array virtuale StorSimple
-## Panoramica
+# <a name="back-up-your-storsimple-virtual-array"></a>Backup dell'array virtuale StorSimple
+## <a name="overview"></a>Panoramica
 Questa esercitazione si applica solo a Microsoft Azure StorSimple Virtual Array (noto anche come dispositivo virtuale locale StorSimple o dispositivo virtuale StorSimple) che esegue la versione di disponibilità generale (GA) di marzo 2016 o una versione successiva.
 
 StorSimple Virtual Array è un dispositivo virtuale locale di archiviazione cloud ibrido che può essere configurato come file server o server iSCSI. Può creare backup, ripristinare da backup ed eseguire failover del dispositivo nel caso in cui sia necessario il ripristino di emergenza. Quando viene configurato come file server, consente anche il ripristino a livello di elemento. Questa esercitazione illustra come usare il portale di Azure classico o l'interfaccia utente web StorSimple per creare backup pianificati e manuali di StorSimple Virtual Array.
 
-## Eseguire il backup di condivisioni e volumi
-I backup garantiscono la protezione temporizzata, migliorano la recuperabilità e riducono al minimo i tempi di ripristino per le condivisioni e i volumi. È possibile eseguire il backup di una condivisione o di un volume sul dispositivo StorSimple in due modi: **pianificato** o **manuale**. Ognuno di questi metodi è descritto nelle sezioni seguenti.
+## <a name="back-up-shares-and-volumes"></a>Eseguire il backup di condivisioni e volumi
+I backup garantiscono la protezione temporizzata, migliorano la recuperabilità e riducono al minimo i tempi di ripristino per le condivisioni e i volumi. È possibile eseguire il backup di una condivisione o di un volume sul dispositivo StorSimple in due modi: **Pianificato** o **Manuale**. Ognuno di questi metodi è descritto nelle sezioni seguenti.
 
 > [!NOTE]
 > In questa versione, i backup pianificati vengono creati secondo un criterio predefinito che esegue il backup ogni giorno in un orario specificato di tutte le condivisioni o di tutti i volumi nel dispositivo. Al momento non è possibile creare criteri personalizzati per i backup pianificati.
 > 
 > 
 
-## Modificare la pianificazione dei backup
+## <a name="change-the-backup-schedule"></a>Modificare la pianificazione dei backup
 Il dispositivo virtuale StorSimple dispone di un criterio di backup predefinito che si avvia in un orario specifico (22.30) ed esegue il backup di tutte le condivisioni o di tutti i volumi nel dispositivo una volta al giorno. È possibile modificare l'ora di avvio del backup, ma la frequenza e il periodo di conservazione (che specificano il numero di backup da conservare) non possono essere modificati. Durante questi backup, viene eseguito il backup di tutto il dispositivo virtuale, quindi si consiglia di non pianificare backup nelle ore di punta.
 
 Eseguire i passaggi seguenti nel [portale di Azure classico](https://manage.windowsazure.com/) per modificare l'ora di inizio del backup predefinita.
 
-#### Per modificare l'ora di inizio del criterio di backup predefinito
+#### <a name="to-change-the-start-time-for-the-default-backup-policy"></a>Per modificare l'ora di inizio del criterio di backup predefinito
 1. Passare alla scheda **Configurazione** del dispositivo.
-2. Nella sezione **Backup**, specificare l'ora di inizio per il backup giornaliero.
+2. Nella sezione **Backup** , specificare l'ora di inizio per il backup giornaliero.
 3. Fare clic su **Save**.
 
-### Creazione di un backup manuale
+### <a name="take-a-manual-backup"></a>Creazione di un backup manuale
 Oltre ai backup pianificati, è possibile eseguire un backup manuale (su richiesta) in qualsiasi momento.
 
-#### Per creare un backup manuale (su richiesta)
+#### <a name="to-create-a-manual-on-demand-backup"></a>Per creare un backup manuale (su richiesta)
 1. Passare alla scheda **Condivisioni** o alla scheda **Volumi**.
 2. Nella parte inferiore della pagina, fare clic su **Esegui backup di tutto**. Si richiederà di confermare se si desidera eseguire il backup in questo momento. Fare clic sull'icona di spunta ![icona del segno di spunta](./media/storsimple-ova-backup/image3.png) per procedere con il backup.
    
@@ -57,18 +61,18 @@ Oltre ai backup pianificati, è possibile eseguire un backup manuale (su richies
    
     ![processo di backup creato](./media/storsimple-ova-backup/image7.png)
 3. Per tenere traccia dell'avanzamento del processo, fare clic su **Visualizza processo**.
-4. Una volta completato il processo di backup, andare alla scheda **Catalogo di backup**. Il backup completato deve essere visualizzato.
+4. Una volta completato il processo di backup, andare alla scheda **Catalogo di backup** . Il backup completato deve essere visualizzato.
    
     ![Backup completato](./media/storsimple-ova-backup/image8.png)
-5. Impostare le selezioni filtro per il dispositivo appropriato, il criterio di backup e l'intervallo di tempo, quindi fare clic sull'icona di spunta ![icona del segno di spunta](./media/storsimple-ova-backup/image3.png).
+5. Impostare le selezioni filtro per il dispositivo appropriato, il criterio di backup e l'intervallo di tempo, quindi fare clic sull'icona di spunta  ![icona del segno di spunta](./media/storsimple-ova-backup/image3.png).
    
     Il backup dovrebbe comparire nell'elenco dei set di backup che viene visualizzato nel catalogo.
 
-## Visualizzare i backup esistenti
+## <a name="view-existing-backups"></a>Visualizzare i backup esistenti
 Eseguire i passaggi seguenti nel portale di Azure classico per visualizzare i backup esistenti.
 
-#### Per visualizzare i backup esistenti
-1. Nella pagina del servizio StorSimple Manager, fare clic sulla scheda **Catalogo di backup**.
+#### <a name="to-view-existing-backups"></a>Per visualizzare i backup esistenti
+1. Nella pagina del servizio StorSimple Manager, fare clic sulla scheda **Catalogo di backup** .
 2. Procedura di selezione di un set di backup:
    
    1. Selezionare il dispositivo.
@@ -78,7 +82,7 @@ Eseguire i passaggi seguenti nel portale di Azure classico per visualizzare i ba
       
       I backup associati alla condivisione o al volume selezionati devono essere visualizzati nell'elenco dei set di backup.
 
-![video\_icon](./media/storsimple-ova-backup/video_icon.png) **Video disponibile**
+![video_icon](./media/storsimple-ova-backup/video_icon.png) **Video disponibile**
 
 Guardare il video per scoprire come è possibile creare condivisioni, eseguire il backup di condivisioni e il ripristino dei dati in StorSimple Virtual Array.
 
@@ -86,7 +90,12 @@ Guardare il video per scoprire come è possibile creare condivisioni, eseguire i
 > 
 > 
 
-## Passaggi successivi
-Informazioni su come [amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+## <a name="next-steps"></a>Passaggi successivi
+Scoprire di più su come [amministrazione StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -146,6 +146,6 @@ Se non è ancora possibile connettersi tramite Desktop remoto, vedere la [guida 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,19 +1,23 @@
 ---
-title: Ottimizzare l'ambiente con la soluzione Active Directory Assessment in Log Analytics | Microsoft Docs
-description: È possibile usare la soluzione Active Directory Assessment per valutare i rischi e l'integrità degli ambienti server a intervalli regolari.
+title: Ottimizzare l&quot;ambiente con la soluzione Active Directory Assessment in Log Analytics | Documentazione Microsoft
+description: "È possibile usare la soluzione Active Directory Assessment per valutare i rischi e l&quot;integrità degli ambienti server a intervalli regolari."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
-manager: jwhit
-editor: ''
-
+manager: carmonm
+editor: 
+ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 58eee787b54122380b48f1c7a96dbe2e79e4bcef
+
 
 ---
 # <a name="optimize-your-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Ottimizzare l'ambiente con la soluzione Active Directory Assessment in Log Analytics
@@ -37,11 +41,11 @@ Usare le informazioni seguenti per installare e configurare le soluzioni.
 * Gli agenti devono essere installati nei controller di dominio membri del dominio da valutare.
 * La soluzione Active Directory Assessment richiede l'installazione di .NET Framework 4 in ogni computer che contiene un agente OMS.
 * Aggiungere la soluzione Active Directory Assessment all'area di lavoro OMS usando la procedura descritta in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).  Non è richiesta alcuna ulteriore configurazione.
-  
+
   > [!NOTE]
   > Dopo aver aggiunto la soluzione, il file AdvisorAssessment.exe viene aggiunto al server con agenti. I dati di configurazione vengono letti e quindi inviati al servizio OMS nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud.
-  > 
-  > 
+  >
+  >
 
 ## <a name="active-directory-assessment-data-collection-details"></a>Informazioni dettagliate sulla raccolta dei dati per Active Directory Assessment
 Active Directory Assessment raccoglie dati WMI, dati del Registro di sistema e dati sulle prestazioni tramite gli agenti abilitati.
@@ -73,7 +77,7 @@ La ponderazione per ogni raccomandazione è espressa come percentuale del punteg
 
 **Aggiornamento, migrazione e distribuzione** : quest'area di interesse descrive raccomandazioni utili per aggiornare, eseguire la migrazione e distribuire Active Directory nell'infrastruttura esistente.
 
-### <a name="should-you-aim-to-score-100%-in-every-focus-area?"></a>È consigliabile mirare a ottenere un punteggio del 100% in tutte le aree di interesse?
+### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>È consigliabile mirare a ottenere un punteggio del 100% in tutte le aree di interesse?
 Non necessariamente. Le raccomandazioni si basano sulla conoscenza e sull'esperienza acquisite dai tecnici Microsoft attraverso migliaia di visite dei clienti. Non esistono tuttavia due infrastrutture di server uguali e raccomandazioni specifiche possono essere più o meno pertinenti per l'utente. Ad esempio, alcune raccomandazioni sulla sicurezza possono risultare meno pertinenti se le macchine virtuali non sono esposte a Internet. Alcune raccomandazioni sulla disponibilità possono risultare meno pertinenti per i servizi che forniscono creazione di report e raccolta dei dati ad hoc a bassa priorità. I problemi che possono essere importanti per un'azienda collaudata possono esserlo meno per una start-up. È consigliabile identificare quali sono le proprie aree di interesse prioritarie e quindi osservare il cambiamento dei punteggi nel tempo.
 
 Ogni raccomandazione include informazioni aggiuntive sui motivi per cui potrebbe essere importante. È consigliabile usare queste informazioni aggiuntive per valutare se l'implementazione della raccomandazione è appropriata, a seconda della natura dei servizi IT e delle esigenze aziendali dell'organizzazione.
@@ -95,15 +99,15 @@ Per ignorare delle raccomandazioni è possibile creare un file di testo che OMS 
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Per identificare le raccomandazioni che verranno ignorate
 1. Accedere all'area di lavoro e aprire Ricerca log. Usare la query seguente per elencare le raccomandazioni non riuscite per i computer nell'ambiente.
-   
+
    ```
    Type=ADAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
-   
+
    Ecco lo screenshot che mostra la query di ricerca nei log: ![raccomandazioni con esito negativo](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
 2. Scegliere le raccomandazioni da ignorare. Nella procedura successiva verranno usati i valori per ID raccomandazione.
 
-### <a name="to-create-and-use-an-ignorerecommendations.txt-text-file"></a>Per creare e usare un file di testo IgnoreRecommendations.txt
+### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Per creare e usare un file di testo IgnoreRecommendations.txt
 1. Creare un file denominato IgnoreRecommendations.txt.
 2. Incollare o digitare ciascun ID raccomandazione per ogni raccomandazione che Log Analytics dovrà ignorare in una riga separata e quindi salvare e chiudere il file.
 3. Inserire il file nella cartella seguente in ogni computer in cui si vuole che OMS ignori le raccomandazioni.
@@ -114,7 +118,7 @@ Per ignorare delle raccomandazioni è possibile creare un file di testo che OMS 
 Dopo la successiva esecuzione della valutazione pianificata, per impostazione predefinita ogni 7 giorni, le raccomandazioni specificate sono contrassegnate come *ignorate* e non verranno visualizzate nel dashboard di valutazione.
 
 1. È possibile usare le query di Ricerca log seguenti per elencare tutte le raccomandazioni ignorate.
-   
+
     ```
     Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
@@ -149,7 +153,7 @@ Dopo la successiva esecuzione della valutazione pianificata, per impostazione pr
 
 * Vengono raccolti i tipi di dati seguenti:
   * WMI
-  * Registro
+  *  Registro
   * Contatori delle prestazioni
 
 *È possibile definire l'orario per la raccolta di dati?*
@@ -167,6 +171,8 @@ Dopo la successiva esecuzione della valutazione pianificata, per impostazione pr
 ## <a name="next-steps"></a>Passaggi successivi
 * Per visualizzare dati e raccomandazioni dettagliati di AD Assessment usare [Ricerche nei log in Log Analytics](log-analytics-log-searches.md) .
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

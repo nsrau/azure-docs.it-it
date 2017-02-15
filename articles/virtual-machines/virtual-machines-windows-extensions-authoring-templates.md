@@ -2,12 +2,12 @@
 title: Creazione di modelli con le estensioni di VM Windows | Microsoft Docs
 description: Informazioni sulla creazione di modelli Azure Resource Manager con le estensioni per VM Windows
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: kundanap
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 418dd1f7-ded8-45ab-9a5a-a59d245e2555
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: cc2e3c234ef9219d1b836771dbbc456d73a13ac8
+
 
 ---
-# Creazione di modelli Azure Resource Manager con le estensioni di VM Windows
+# <a name="authoring-azure-resource-manager-templates-with-windows-vm-extensions"></a>Creazione di modelli Azure Resource Manager con le estensioni di VM Windows
 [!INCLUDE [virtual-machines-common-extensions-authoring-templates](../../includes/virtual-machines-common-extensions-authoring-templates.md)]
 
 Eseguire il cmdlet seguente di Azure PowerShell da Azure PowerShell:
@@ -38,10 +42,10 @@ Queste tre proprietà vengono mappate rispettivamente a "publisher", "type" e "t
 > 
 > 
 
-## Identificazione dello schema per i parametri di configurazione dell'estensione
+## <a name="identifying-the-schema-for-the-extension-configuration-parameters"></a>Identificazione dello schema per i parametri di configurazione dell'estensione
 Il passaggio successivo per la creazione di un modello di estensione consiste nell'identificare il formato per indicare i parametri di configurazione. Ogni estensione supporta il proprio set di parametri.
 
-Per visualizzare una configurazione di esempio per le estensioni Windows, vedere [Esempi di estensioni Windows](virtual-machines-windows-extensions-configuration-samples.md).
+Per visualizzare una configurazione di esempio per le estensioni Windows, vedere [Esempi di estensioni Windows](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Fare riferimento a quanto segue per ottenere un modello completo con estensioni di VM.
 
@@ -49,4 +53,9 @@ Fare riferimento a quanto segue per ottenere un modello completo con estensioni 
 
 Dopo aver creato il modello, è possibile distribuirlo usando Azure PowerShell.
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

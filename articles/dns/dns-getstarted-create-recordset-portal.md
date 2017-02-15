@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 42d47741e414b2de177f1fd75b3e1ac3fde96579
-ms.openlocfilehash: 194da45bade88c2866aaf6066d312d125f1ac2cb
+ms.sourcegitcommit: bfbffe7843bc178cdf289c999925c690ab82e922
+ms.openlocfilehash: b3951106fe2e8607e65bd0ae47fa2ea3346b8ca5
 
 ---
 
@@ -28,17 +28,21 @@ ms.openlocfilehash: 194da45bade88c2866aaf6066d312d125f1ac2cb
 > * [PowerShell](dns-getstarted-create-recordset.md)
 > * [Interfaccia della riga di comando di Azure](dns-getstarted-create-recordset-cli.md)
 
-Questo articolo illustra la creazione di record e set di record con il portale di Azure. Dopo aver creato la zona DNS, è necessario aggiungere i record DNS per il dominio. A tale scopo, è necessario comprendere i record e i set di record DNS.
+Questo articolo illustra la creazione di record e set di record con il portale di Azure. A tale scopo, è necessario comprendere i record e i set di record DNS.
 
 [!INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
-## <a name="create-a-record-set-and-record"></a>Creare un set di record e un record
+Gli esempi in questa pagina usano tutti il tipo di record DNS "A". Il processo per altri tipi di record è simile.
 
-L’esempio seguente fornisce indicazioni sulla procedura per creare un set di record e record con il portale di Azure. Viene usato il tipo di record DNS "A".
+Se il nuovo record ha lo stesso nome e lo stesso tipo di un record esistente, è necessario aggiungerlo al set di record esistente&mdash;vedere [Gestire record e set di record DNS con il portale di Azure](dns-operations-recordsets-portal.md). Se il nuovo record ha un nome e un tipo diversi rispetto a tutti i record esistenti, è necessario creare un nuovo set di record, come illustrato di seguito.
+
+## <a name="create-records-in-a-new-record-set"></a>Creare record in un nuovo set di record
+
+L’esempio seguente fornisce indicazioni sulla procedura per creare un set di record e record con il portale di Azure.
 
 1. Accedere al portale.
 2. Accedere al pannello **Zona DNS** in cui creare un set di record.
-3. Nella parte superiore del pannello **Zona DNS** selezionare **Set di record** per aprire il pannello **Aggiungi set di record**.
+3. Nella parte superiore del pannello **Zona DNS** selezionare **+ Record set** (Aggiungi set di record) per aprire il pannello **Aggiungi set di record**.
 
     ![Nuovo set di record](./media/dns-getstarted-create-recordset-portal/newrecordset500.png)
 
@@ -48,17 +52,34 @@ L’esempio seguente fornisce indicazioni sulla procedura per creare un set di r
 
 5. Selezionare il tipo di record da creare. Ad esempio, selezionare **A**.
 6. Impostare **TTL**. La durata predefinita per la permanenze nel portale è un'ora.
-7. Aggiungere gli indirizzi IP, un indirizzo IP per riga. Quando si utilizza il nome del set di record suggerito e il tipo di record descritto in precedenza, vengono aggiunti gli indirizzi IP IPv4 al record **A** del set di record www.
+7. Aggiungere i dettagli di ogni record nel set di record. In questo caso, poiché il tipo di record è "A", è necessario aggiungere gli indirizzi IP del record, uno per riga.
 8. Dopo aver aggiunto gli indirizzi IP, selezionare **OK** nella parte inferiore del pannello. Verrà creato il set di record DNS.
+
+### <a name="verify-name-resolution"></a>Verificare la risoluzione dei nomi
+
+È possibile verificare che i record DNS siano presenti sui server di nomi DNS di Azure usando gli strumenti DNS come nslookup, DIG o il [cmdlet di PowerShell Resolve-DnsName](https://technet.microsoft.com/library/jj590781.aspx).
+
+Se non è stato ancora delegato il dominio per usare la nuova zona in DNS di Azure, sarà necessario [indirizzare la query DNS direttamente a uno dei server dei nomi per la zona](dns-getstarted-create-dnszone.md#test-name-servers). Assicurarsi di sostituire i valori corretti per la propria zona di record nel comando seguente.
+
+    nslookup
+    > set type=A
+    > server ns1-01.azure-dns.com
+    > www.contoso.com
+
+    Server:  ns1-01.azure-dns.com
+    Address:  40.90.4.1
+
+    Name:    www.contoso.com
+    Address:  1.2.3.4
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+Informazioni su come [delegare il nome di dominio ai server dei nomi DNS di Azure](dns-domain-delegation.md)
+
 Per gestire i set di record e i record, vedere le informazioni su [come creare e gestire record e set di record DNS mediante il portale di Azure](dns-operations-recordsets-portal.md).
 
-Per altre informazioni sul servizio DNS di Azure, vedere la [panoramica del servizio DNS di Azure](dns-overview.md).
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

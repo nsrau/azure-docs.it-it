@@ -47,16 +47,16 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Answ
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
    
-   ![Applicazioni](./media/active-directory-saas-answerhub-tutorial/IC700994.png "Applicazioni")
+   ![Applications](./media/active-directory-saas-answerhub-tutorial/IC700994.png "Applications")
 4. Fare clic su **Add** nella parte inferiore della pagina.
    
-   ![Aggiungere un'applicazione](./media/active-directory-saas-answerhub-tutorial/IC749321.png "Aggiungere un'applicazione")
+   ![Aggiungi applicazione](./media/active-directory-saas-answerhub-tutorial/IC749321.png "Add application")
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
    
-   ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-answerhub-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
+   ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-answerhub-tutorial/IC749322.png "Add an application from gallerry")
 6. Nella **casella di ricerca** digitare **AnswerHub**.
    
-   ![Raccolta di applicazioni](./media/active-directory-saas-answerhub-tutorial/IC785166.png "Raccolta di applicazioni")
+   ![Raccolta di applicazioni](./media/active-directory-saas-answerhub-tutorial/IC785166.png "Application Gallery")
 7. Nel riquadro dei risultati selezionare **AnswerHub** e quindi fare clic su **Completa** per aggiungere l'applicazione.
    
    ![AnswerHub](./media/active-directory-saas-answerhub-tutorial/IC785167.png "AnswerHub")
@@ -69,16 +69,16 @@ Se non si ha familiarità con questa procedura, vedere il video che descrive [co
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
 1. Nella pagina di integrazione dell'applicazione **AnswerHub** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
-   ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-answerhub-tutorial/IC785168.png "Configurare l'accesso Single Sign-On")
+   ![Configura accesso Single Sign-On](./media/active-directory-saas-answerhub-tutorial/IC785168.png "Configure single sign-on")
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a AnswerHub** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
    
-   ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-answerhub-tutorial/IC785169.png "Configurare l'accesso Single Sign-On")
+   ![Configura accesso Single Sign-On](./media/active-directory-saas-answerhub-tutorial/IC785169.png "Configure single sign-on")
 3. Nella casella di testo **URL accesso AnswerHub** della pagina **Configura URL app** digitare l'URL usando il modello "*https://company.answerhub.com*" e fare clic su **Avanti**.
    
-   ![Configurare l'URL dell'app](./media/active-directory-saas-answerhub-tutorial/IC785170.png "Configurare l'URL dell'app")
+   ![Configura URL app](./media/active-directory-saas-answerhub-tutorial/IC785170.png "Configure App URL")
 4. Nella pagina **Configura accesso Single Sign-On in AnswerHub** fare clic su **Download certificato** e infine salvare il file del certificato localmente nel computer.
    
-   ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-answerhub-tutorial/IC785171.png "Configurare l'accesso Single Sign-On")
+   ![Configura accesso Single Sign-On](./media/active-directory-saas-answerhub-tutorial/IC785171.png "Configure single sign-on")
 5. In un'altra finestra del Web browser accedere al sito aziendale di AnswerHub come amministratore.
    
    > [!NOTE]
@@ -91,7 +91,7 @@ Se non si ha familiarità con questa procedura, vedere il video che descrive [co
 9. Fare clic sulla scheda **IDP Config** .
 10. Nella scheda **IDP Config** seguire questa procedura:
     
-    ![Configurazione SAML](./media/active-directory-saas-answerhub-tutorial/IC785172.png "Configurazione SAML")
+    ![SAML Setup](./media/active-directory-saas-answerhub-tutorial/IC785172.png "SAML Setup")
     
     1. Nella finestra di dialogo **Configura accesso Single Sign-On in AnswerHub** del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **IDP Login URL** (URL di accesso IdP).
     2. Nella finestra di dialogo **Configura accesso Single Sign-On in AnswerHub** del portale di Azure classico copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **IDP Logout URL** (URL disconnessione IdP).
@@ -99,7 +99,7 @@ Se non si ha familiarità con questa procedura, vedere il video che descrive [co
     4. Fare clic su **Keys and Certificates**.
 11. Nella scheda Keys and Certificates seguire questa procedura:
     
-    ![Chiavi e certificati](./media/active-directory-saas-answerhub-tutorial/IC785173.png "Chiavi e certificati")
+    ![Keys and Certificates](./media/active-directory-saas-answerhub-tutorial/IC785173.png "Keys and Certificates")
     
     1. Creare un file **con codifica Base 64** dal certificato scaricato.  
        
@@ -112,7 +112,7 @@ Se non si ha familiarità con questa procedura, vedere il video che descrive [co
 12. Nella scheda **IDP Config** fare clic su **Save**.
 13. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Complete** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
     
-    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-answerhub-tutorial/IC785174.png "Configurare l'accesso Single Sign-On")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-answerhub-tutorial/IC785174.png "Configure single sign-on")
 
 ## <a name="configuring-user-provisioning"></a>Configurazione del provisioning utente
 Per consentire agli utenti di Azure AD di accedere ad AnswerHub, è necessario eseguirne il provisioning in AnswerHub.  
@@ -124,7 +124,7 @@ Nel caso di AnswerHub, il provisioning è un'attività manuale.
 3. Fare clic sulla scheda **Users & Groups**.
 4. Nel riquadro di spostamento a sinistra fare clic su **Create or import users** nella sezione **Manage users**.
    
-   ![Utenti e gruppi](./media/active-directory-saas-answerhub-tutorial/IC785175.png "Utenti e gruppi")
+   ![Users & Groups](./media/active-directory-saas-answerhub-tutorial/IC785175.png "Users & Groups")
 5. Nelle caselle di testo **Email address**, **Username** e **Password** digitare l'indirizzo di posta elettronica, il nome utente e la password di un account utente Azure Active Directory valido di cui si vuole eseguire il provisioning e quindi fare clic su **Save**.
 
 > [!NOTE]
@@ -139,10 +139,10 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 1. Nel portale di Azure classico creare un account di test.
 2. Nella pagina di integrazione dell'applicazione **AnswerHub** fare clic su **Assegna utenti**.
    
-   ![Assegnare utenti](./media/active-directory-saas-answerhub-tutorial/IC785176.png "Assegnare utenti")
+   ![Assegna utenti](./media/active-directory-saas-answerhub-tutorial/IC785176.png "Assign users")
 3. Selezionare l'utente di test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
    
-   ![Sì](./media/active-directory-saas-answerhub-tutorial/IC767830.png "Sì")
+   ![Sì](./media/active-directory-saas-answerhub-tutorial/IC767830.png "Yes")
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 

@@ -5,8 +5,8 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 447fea8d-f4e3-4ad4-8ec0-8e3cf1ad3ab0
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
@@ -14,22 +14,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 67f69a5a92c922bc7357c1e4bcc88f55e16d1255
+
 
 ---
-# Integrazione di Mobile Engagement SDK per Windows Phone Silverlight
+# <a name="windows-phone-silverlight-engagement-sdk-integration"></a>Integrazione di Mobile Engagement SDK per Windows Phone Silverlight
 > [!div class="op_single_selector"]
-> * [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
-> * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
-> * [iOS](mobile-engagement-ios-integrate-engagement.md)
-> * [Android](mobile-engagement-android-integrate-engagement.md)
+> * [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
+> * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
+> * [iOS](mobile-engagement-ios-integrate-engagement.md) 
+> * [Android](mobile-engagement-android-integrate-engagement.md) 
 > 
 > 
 
 Questa procedura descrive il modo più semplice per attivare le funzioni di analisi e monitoraggio di Azure Mobile Engagement in un'applicazione per Windows Phone Silverlight.
 
-I passaggi seguenti sono sufficienti per attivare la segnalazione dei log necessari per calcolare tutte le statistiche relative a utenti, sessioni, attività, arresti anomali del sistema e dati tecnici. La segnalazione dei log necessari per calcolare altre statistiche quali eventi, errori e processi deve essere eseguita manualmente mediante l'API di Engagement (vedere [Come usare l'API di Mobile Engagement in Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md)) poiché queste statistiche dipendono dall'applicazione.
+I passaggi seguenti sono sufficienti per attivare la segnalazione dei log necessari per calcolare tutte le statistiche relative a utenti, sessioni, attività, arresti anomali del sistema e dati tecnici. La segnalazione dei log necessari per calcolare altre statistiche quali eventi, errori e processi deve essere eseguita manualmente mediante l'API di Engagement (vedere [Come usare l'API di Mobile Engagement in Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md) ) poiché queste statistiche dipendono dall'applicazione.
 
-## Versioni supportate
+## <a name="supported-versions"></a>Versioni supportate
 Mobile Engagement SDK per Windows Silverlight può essere integrato solo nelle applicazioni per:
 
 * Windows Phone 8.0
@@ -40,10 +44,10 @@ Mobile Engagement SDK per Windows Silverlight può essere integrato solo nelle a
 > 
 > 
 
-## Installare Mobile Engagement SDK per Windows Silverlight
-Mobile Engagement SDK per Windows Silverlight è disponibile come pacchetto NuGet denominato *MicrosoftAzure.MobileEngagement*. È possibile installarlo da Gestione pacchetti NuGet di Visual Studio.
+## <a name="install-the-mobile-engagement-silverlight-sdk"></a>Installare Mobile Engagement SDK per Windows Silverlight
+Mobile Engagement SDK per Windows Silverlight è disponibile come pacchetto NuGet denominato *MicrosoftAzure.MobileEngagement*. È possibile installarlo da Gestione pacchetti NuGet di Visual Studio. 
 
-## Aggiungere le funzionalità
+## <a name="add-the-capabilities"></a>Aggiungere le funzionalità
 Engagement SDK richiede alcune funzionalità di Windows SDK per funzionare correttamente. richiede alcune funzionalità di Windows Phone Silverlight SDK per funzionare correttamente.
 
 Aprire il file `WMAppManifest.xml` e assicurarsi che le funzionalità seguenti siano dichiarate nel pannello `Capabilities`:
@@ -51,13 +55,13 @@ Aprire il file `WMAppManifest.xml` e assicurarsi che le funzionalità seguenti s
 * `ID_CAP_NETWORKING`
 * `ID_CAP_IDENTITY_DEVICE`
 
-## Inizializzare Engagement SDK
-### Configurazione di Engagement
+## <a name="initialize-the-engagement-sdk"></a>Inizializzare Engagement SDK
+### <a name="engagement-configuration"></a>Configurazione di Engagement
 La configurazione di Engagement è centralizzata nel file `Resources\EngagementConfiguration.xml` del progetto.
 
 Modificare questo file per specificare:
 
-* La stringa di connessione dell'applicazione tra i tag `<connectionString>` e `<\connectionString>`.
+* La stringa di connessione dell'applicazione tra i tag `<connectionString>` and `<\connectionString>`.
 
 Se si desidera specificarla in fase di esecuzione, è possibile chiamare il metodo seguente prima dell'inizializzazione dell'agente di Engagement:
 
@@ -70,8 +74,8 @@ Se si desidera specificarla in fase di esecuzione, è possibile chiamare il meto
 
 La stringa di connessione per l'applicazione viene visualizzata nel portale di Azure classico.
 
-### Inizializzazione di Engagement
-Quando si crea un nuovo progetto, viene generato un file `App.xaml.cs`. Questa classe eredita da `Application` e contiene molti metodi importanti. Verrà inoltre usata per inizializzare Engagement SDK.
+### <a name="engagement-initialization"></a>Inizializzazione di Engagement
+Quando si crea un nuovo progetto, viene generato un file `App.xaml.cs` . Questa classe eredita da `Application` e contiene molti metodi importanti. Verrà inoltre usata per inizializzare Engagement SDK.
 
 Modificare il file `App.xaml.cs`:
 
@@ -96,13 +100,13 @@ Modificare il file `App.xaml.cs`:
 > 
 > 
 
-## Segnalazione di base
-### Metodo consigliato: eseguire l'overload delle classi `PhoneApplicationPage`
+## <a name="basic-reporting"></a>Segnalazione di base
+### <a name="recommended-method--overload-your-phoneapplicationpage-classes"></a>Metodo consigliato: eseguire l'overload delle classi `PhoneApplicationPage`
 Per attivare la segnalazione di tutti i log richiesti da Engagement per calcolare utenti, sessioni, attività, arresti anomali e statistiche tecniche, è possibile fare in modo che tutte le sottoclassi `PhoneApplicationPage` ereditino dalle classi `EngagementPage`.
 
 Di seguito è riportato un esempio di come ottenere questo risultato per una pagina dell'applicazione. È possibile procedere allo stesso modo per tutte le pagine dell'applicazione.
 
-#### File di origine C
+#### <a name="c-source-file"></a>File di origine C#
 Modificare il file `.xaml.cs` della pagina:
 
 * Aggiungere quanto segue alle istruzioni `using`:
@@ -137,7 +141,7 @@ Modificare il file `.xaml.cs` della pagina:
 > 
 > 
 
-#### File XAML
+#### <a name="xaml-file"></a>File XAML
 Modificare il file `.xaml` della pagina:
 
 * Aggiungere quanto segue alle dichiarazioni di spazi dei nomi:
@@ -159,7 +163,7 @@ Modificare il file `.xaml` della pagina:
             <!-- layout -->
         </engagement:EngagementPage >
 
-#### Sostituire il comportamento predefinito
+#### <a name="override-the-default-behavior"></a>Sostituire il comportamento predefinito
 Per impostazione predefinita, il nome della classe della pagina viene indicato come nome dell'attività, senza elementi aggiuntivi. Se la classe usa il suffisso "Page", Engagement rimuoverà anche questo elemento.
 
 Se si desidera eseguire l'override del comportamento predefinito per il nome, aggiungere quanto segue al codice:
@@ -182,7 +186,7 @@ Se si desidera segnalare alcune informazioni aggiuntive con l'attività, è poss
 
 Questi metodi vengono chiamati dall'interno del metodo `OnNavigatedTo` della pagina.
 
-### Metodo alternativo: chiamare `StartActivity()` manualmente
+### <a name="alternate-method-call-startactivity-manually"></a>Metodo alternativo: chiamare `StartActivity()` manualmente
 Se non si può o non si vuole eseguire l'overload delle classi `PhoneApplicationPage`, in alternativa è possibile avviare le attività chiamando direttamente i metodi `EngagementAgent`.
 
 È consigliabile chiamare `StartActivity` all'interno del metodo `OnNavigatedTo` di PhoneApplicationPage.
@@ -200,13 +204,13 @@ Se non si può o non si vuole eseguire l'overload delle classi `PhoneApplication
 > 
 > 
 
-## Segnalazione avanzata
+## <a name="advanced-reporting"></a>Segnalazione avanzata
 Facoltativamente, è possibile segnalare eventi specifici dell'applicazione, errori e processi. A tale scopo, usare gli altri metodi disponibili nella classe `EngagementAgent`. L'API di Engagement consente di usare tutte le funzionalità avanzate di Engagement.
 
 Per altre informazioni, vedere [Come usare l'API di Engagement in Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md).
 
-## Configurazione avanzata
-### Disabilitare la segnalazione automatica degli arresti anomali
+## <a name="advanced-configuration"></a>Configurazione avanzata
+### <a name="disable-automatic-crash-reporting"></a>Disabilitare la segnalazione automatica degli arresti anomali
 È possibile disabilitare la funzionalità di segnalazione automatica degli arresti anomali di Engagement. Quindi, quando si verifica un'eccezione non gestita, Engagement non effettuerà alcuna azione.
 
 > [!WARNING]
@@ -216,18 +220,18 @@ Per altre informazioni, vedere [Come usare l'API di Engagement in Windows Phone 
 
 Per disabilitare la segnalazione automatica degli arresti anomali, personalizzare la configurazione a seconda del modo in cui è stata dichiarata:
 
-#### Dal file `EngagementConfiguration.xml`
+#### <a name="from-engagementconfigurationxml-file"></a>Dal file `EngagementConfiguration.xml`
 Impostare la segnalazione degli arresti anomali su `false` tra i tag `<reportCrash>` e `</reportCrash>`.
 
-#### Dall'oggetto `EngagementConfiguration` in fase di esecuzione
+#### <a name="from-engagementconfiguration-object-at-run-time"></a>Dall'oggetto `EngagementConfiguration` in fase di esecuzione
 Impostare la segnalazione degli arresti anomali su false usando l'oggetto EngagementConfiguration.
 
         /* Engagement configuration. */
 
         EngagementConfiguration engagementConfiguration = new EngagementConfiguration(); engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-        /* Disable Engagement crash reporting. */ engagementConfiguration.Agent.ReportCrash = false;
+        /\* Disable Engagement crash reporting. \*/ engagementConfiguration.Agent.ReportCrash = false;
 
-### Modalità burst
+### <a name="burst-mode"></a>Modalità burst
 Per impostazione predefinita, il servizio Engagement segnala i log in tempo reale. Se l'applicazione segnala i log molto spesso, è consigliabile memorizzarli nel buffer e segnalarli tutti insieme a intervalli regolari (in "modalità burst").
 
 A tale scopo, chiamare il metodo:
@@ -243,4 +247,9 @@ La modalità burst aumenta lievemente la durata della batteria ma ha un impatto 
 > 
 > 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

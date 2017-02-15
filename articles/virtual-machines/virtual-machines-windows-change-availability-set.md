@@ -1,14 +1,14 @@
 ---
-title: Modificare un set di disponibilità per VM | Microsoft Docs
-description: Informazioni su come modificare il set di disponibilità per le macchine virtuali tramite Azure PowerShell e il modello di distribuzione Resource Manager.
-keywords: ''
+title: "Modificare un set di disponibilità per VM | Microsoft Docs"
+description: "Informazioni su come modificare il set di disponibilità per le macchine virtuali tramite Azure PowerShell e il modello di distribuzione Resource Manager."
+keywords: 
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: Drewm3
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 44c90f90-bc9a-4260-a36f-5465e2a1ef94
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,12 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: drewm
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 947369fe8d93cb5a7ecf2624a0192d8aa1ea8524
+
 
 ---
-# Modificare il set di disponibilità per una VM Windows
-I passaggi seguenti descrivono come modificare il set di disponibilità di una VM tramite Azure PowerShell. Una VM può essere aggiunta a un set di disponibilità solo in fase di creazione. Per modificare il set di disponibilità, è necessario eliminare e ricreare la macchina virtuale.
+# <a name="change-the-availability-set-for-a-windows-vm"></a>Modificare il set di disponibilità per una VM Windows
+I passaggi seguenti descrivono come modificare il set di disponibilità di una VM tramite Azure PowerShell. Una VM può essere aggiunta a un set di disponibilità solo in fase di creazione. Per modificare il set di disponibilità, è necessario eliminare e ricreare la macchina virtuale. 
 
-## Modificare il set di disponibilità tramite PowerShell
+## <a name="change-the-availability-set-using-powershell"></a>Modificare il set di disponibilità tramite PowerShell
 1. Acquisire i dettagli principali seguenti dalla VM da modificare.
    
     Nome della VM
@@ -51,14 +55,14 @@ I passaggi seguenti descrivono come modificare il set di disponibilità di una V
     $vm.StorageProfile.OsDisk.Vhd.Uri
     ```
    
-    Profilo di ogni disco dati
+    Profilo di ogni disco dati 
    
     ```powershell
     $vm.StorageProfile.DataDisks[<index>].Lun
     $vm.StorageProfile.DataDisks[<index>].Vhd.Uri
     ```
    
-    Estensioni VM installate
+    Estensioni VM installate 
    
     ```powershell
     $vm.Extensions
@@ -84,9 +88,9 @@ I passaggi seguenti descrivono come modificare il set di disponibilità di una V
    
     New-AzureRmVM -ResourceGroupName <resourceGroupName> -Location <location> -VM <vmConfig>
     ``` 
-5. Aggiungere dischi dati ed estensioni. Per altre informazioni, vedere [Collegare un disco dati a una VM](virtual-machines-windows-attach-disk-portal.md) ed [Esempi di configurazione dell'estensione](virtual-machines-windows-extensions-configuration-samples.md). È possibile aggiungere estensioni e dischi dati alla VM tramite PowerShell o l'interfaccia della riga di comando di Azure.
+5. Aggiungere dischi dati ed estensioni. Per altre informazioni, vedere [Collegare un disco dati a una VM](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ed [Esempi di configurazione dell'estensione](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). È possibile aggiungere estensioni e dischi dati alla VM tramite PowerShell o l'interfaccia della riga di comando di Azure.
 
-## Script di esempio
+## <a name="example-script"></a>Script di esempio
 Lo script seguente offre un esempio di raccolta delle informazioni necessarie ed eliminazione e ricreazione della VM originale in un nuovo set di disponibilità.
 
 ```powershell
@@ -150,7 +154,12 @@ Lo script seguente offre un esempio di raccolta delle informazioni necessarie ed
     New-AzureRmVM -ResourceGroupName $rg -Location $OriginalVM.Location -VM $NewVM -DisableBginfoExtension
 ```
 
-## Passaggi successivi
-Aumentare lo spazio di archiviazione della VM aggiungendo un ulteriore [disco dati](virtual-machines-windows-attach-disk-portal.md).
+## <a name="next-steps"></a>Passaggi successivi
+Aumentare lo spazio di archiviazione della VM aggiungendo un ulteriore [disco dati](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

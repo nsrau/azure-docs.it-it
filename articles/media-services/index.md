@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Informazioni su come riprodurre in streaming in modo sicuro video live o on demand di alta qualità con Servizi multimediali, una piattaforma cloud estendibile. Esercitazioni, informazioni di riferimento sulle API e altro ancora."
 translationtype: Human Translation
-ms.sourcegitcommit: bc22da83e1683cc8be164e9ff3ed95d2fdc95d27
-ms.openlocfilehash: 7b6ff41479fdfe332148dc2366c7e547af5e98f9
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3e029a72b1918636ede33db1445ce0550d40ede6
 
 ---
 # <a name="media-services-documentation"></a>Documentazione su Servizi multimediali
@@ -166,8 +166,8 @@ Informazioni su come riprodurre in streaming video di alta qualità con Servizi 
                 <div class="card">
                     <div class="cardText">
                         <h3>Riga di comando</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media">PowerShell (gestione risorse)</a></p>
-                        <p><a href="/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute">PowerShell (gestione servizi)</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media">PowerShell (Resource Manager)</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute">PowerShell (gestione dei servizi)</a></p>
                     </div>
                 </div>
             </div>
@@ -199,13 +199,6 @@ Informazioni su come riprodurre in streaming video di alta qualità con Servizi 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/media-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione di Servizi multimediali </div>
-    </a>
-</div>
 
 
 

@@ -1,12 +1,12 @@
 ---
-title: Disponibilità dei servizi di Service Fabric | Microsoft Docs
+title: "Disponibilità dei servizi di Service Fabric | Microsoft Docs"
 description: Descrive il rilevamento degli errori, il failover e il ripristino dei servizi
 services: service-fabric
 documentationcenter: .net
 author: appi101
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 279ba4a4-f2ef-4e4e-b164-daefd10582e4
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,19 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/10/2016
 ms.author: aprameyr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: af0880503cc720d86b81a6ec3d74197afe8de08d
+
 
 ---
-# Disponibilità dei servizi di Service Fabric
+# <a name="availability-of-service-fabric-services"></a>Disponibilità dei servizi di Service Fabric
 I servizi Service Fabric di Azure possono essere con o senza stato. Questo articolo fornisce una panoramica della gestione della disponibilità di un servizio in Service Fabric in caso di errori.
 
-## Disponibilità dei servizi di Service Fabric senza stato
+## <a name="availability-of-service-fabric-stateless-services"></a>Disponibilità dei servizi di Service Fabric senza stato
 Un servizio senza stato è un servizio dell'applicazione che non dispone di alcuno [stato persistente locale](service-fabric-concepts-state.md).
 
 La creazione di un servizio senza stato richiede la definizione di un numero di istanze del servizio senza stato che devono essere eseguite nel cluster. Queste corrispondono al numero di copie della logica dell'applicazione di cui verrà creata un'istanza nel cluster. L'aumento del numero di istanze è la soluzione consigliata per icrementare la scalabilità dei servizi senza stato.
 
 Quando viene rilevato un errore in un'istanza del servizio senza stato, viene creata una nuova istanza in un altro nodo idoneo del cluster.
 
-## Disponibilità dei servizi di Service Fabric con stato
+## <a name="availability-of-service-fabric-stateful-services"></a>Disponibilità dei servizi di Service Fabric con stato
 Un servizio con stato dispone di uno stato associato. In Service Fabric un servizio con stato è modellato come set di repliche. Ogni replica è un'istanza del codice del servizio con una copia dello stato. Le operazioni di lettura e scrittura vengono eseguite in una replica (denominata replica primaria). I cambiamenti di stato dovuti a operazioni di scrittura vengono *replicati* in altre repliche (denominate repliche secondarie attive). La combinazione di repliche primarie e secondarie attive è il set di repliche del servizio.
 
 Può essere presente solo una replica primaria per la manutenzione delle richieste di lettura e scrittura, ma possono esistere più repliche secondarie attive. Il numero di repliche secondarie attive è configurabile. Più è alto il numero di repliche, maggiore sarà il numero di errori hardware e software simultanei che sarà possibile tollerare.
@@ -35,7 +39,7 @@ In caso di errore (inattività della replica primaria), Service Fabric imposta c
 
 Il concetto di replica primaria o replica secondaria attiva è noto come ruolo di replica.
 
-### Ruoli di replica
+### <a name="replica-roles"></a>Ruoli di replica
 Il ruolo di una replica viene usato per gestire il ciclo di vita dello stato gestito da tale replica. Una replica con ruolo primario gestisce le richieste di lettura. Essa gestisce anche le richieste di scrittura aggiornando il proprio stato e replicando le modifiche nelle repliche secondarie attive del relativo set di repliche. Il ruolo di una replica secondaria attiva è quello di ricevere i cambiamenti di stato che la replica primaria ha replicato e di aggiornare la visualizzazione dello stato.
 
 > [!NOTE]
@@ -43,11 +47,16 @@ Il ruolo di una replica viene usato per gestire il ciclo di vita dello stato ges
 > 
 > 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni sui concetti relativi a Service Fabric, vedere gli articoli seguenti:
 
 * [Scalabilità dei servizi di Service Fabric](service-fabric-concepts-scalability.md)
 * [Partizionamento dei servizi di Service Fabric](service-fabric-concepts-partitioning.md)
 * [Definizione e gestione dello stato](service-fabric-concepts-state.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

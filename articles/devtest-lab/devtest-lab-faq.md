@@ -246,6 +246,6 @@ Vedere il post di blog [How to troubleshoot failing Artifacts in AzureDevTestLab
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

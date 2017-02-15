@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 12/09/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4ff5fb57cba6dea1bee9d2e2d25f6fcf8354ce79
+ms.sourcegitcommit: c9063fcc59d83cb2a6a159cf3a69234417138a5c
+ms.openlocfilehash: 5cadc3ea77ba13d40876c7bc11d2aa1d6abe6b87
 
 
 ---
@@ -54,6 +54,8 @@ CROSS APPLY GetArrayElements(e.records) AS records
 > 
 > 
 
+Lo spazio dei nomi del bus di servizio o per l'hub eventi non deve trovarsi nella stessa sottoscrizione della risorsa che emette log, purché l'utente che configura l'impostazione abbia un accesso RBAC appropriato a entrambe le sottoscrizioni.
+
 ### <a name="via-powershell-cmdlets"></a>Tramite i cmdlet di PowerShell
 Per abilitare la trasmissione tramite i [cmdlet di Azure PowerShell](insights-powershell-samples.md), è possibile usare il cmdlet `Set-AzureRmDiagnosticSetting` con i parametri seguenti:
 
@@ -77,7 +79,7 @@ Per abilitare la trasmissione tramite il portale di Azure, passare alle impostaz
 
 ![Esporta in hub eventi nel portale](./media/monitoring-stream-diagnostic-logs-to-event-hubs/portal-export.png)
 
-Per passare alla configurazione, selezionare uno spazio dei nomi del bus di servizio esistente. Se si trasmettono i log di diagnostica per la prima volta, nello spazio dei nomi selezionato viene creato l'hub eventi. Se esistono già risorse che trasmettono tale categoria di log a questo spazio dei nomi, l'hub eventi vi viene trasmesso. I criteri definiscono le autorizzazioni del meccanismo di trasmissione. Al momento, per trasmettere a un hub eventi sono necessarie autorizzazioni di gestione, lettura e invio. Per creare o modificare i criteri di accesso condiviso dello spazio dei nomi del bus di servizio nel portale classico è possibile usare la scheda "Configura" dello spazio dei nomi del bus di servizio. Per aggiornare una di queste impostazioni di diagnostica, il client deve avere l'autorizzazione ListKey per la regola di autorizzazione del bus di servizio.
+Per passare alla configurazione, selezionare uno spazio dei nomi del bus di servizio esistente. Se si trasmettono i log di diagnostica per la prima volta, nello spazio dei nomi selezionato viene creato l'hub eventi. Se esistono già risorse che trasmettono tale categoria di log a questo spazio dei nomi, l'hub eventi vi viene trasmesso. I criteri definiscono le autorizzazioni del meccanismo di trasmissione. Al momento, per trasmettere a un hub eventi sono necessarie autorizzazioni di gestione, invio e ascolto. Per creare o modificare i criteri di accesso condiviso dello spazio dei nomi del bus di servizio nel portale classico è possibile usare la scheda "Configura" dello spazio dei nomi del bus di servizio. Per aggiornare una di queste impostazioni di diagnostica, il client deve avere l'autorizzazione ListKey per la regola di autorizzazione del bus di servizio.
 
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Come utilizzare i dati di log da Hub eventi
 Di seguito è riportato un esempio di dati di output da Hub eventi:
@@ -155,6 +157,9 @@ Di seguito è riportato un esempio di dati di output da Hub eventi:
 
 Per un elenco di tutti i provider di risorse che supportano la trasmissione a Hub eventi, vedere [questo articolo](monitoring-overview-of-diagnostic-logs.md).
 
+## <a name="stream-data-from-compute-resources"></a>Eseguire lo streaming di dati dalle risorse di calcolo
+È anche possibile eseguire lo streaming di log di diagnostica dalle risorse di calcolo usando l'agente di Diagnostica di Microsoft Azure. Per informazioni sulla configurazione, [vedere questo articolo](../event-hubs/event-hubs-streaming-azure-diags-data.md).
+
 ## <a name="next-steps"></a>Passaggi successivi
 * [Altre informazioni sui log di diagnostica di Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Introduzione all'Hub eventi](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
@@ -162,6 +167,6 @@ Per un elenco di tutti i provider di risorse che supportano la trasmissione a Hu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

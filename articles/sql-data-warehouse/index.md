@@ -2,8 +2,8 @@
 layout: LandingPage
 description: Informazioni su come usare SQL Data Warehouse, l&quot;unione di SQL Server con l&quot;elaborazione parallela massiva. La documentazione illustra come caricare, analizzare, gestire ed esportare dati.
 translationtype: Human Translation
-ms.sourcegitcommit: 2570909cb1cbd88a03ffb3cee82825e9e277f634
-ms.openlocfilehash: c445bb63fec439f9330b0c74346eabcfad3971da
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 66f83d1e36ecafdfb3337ae03b22ba48d3ccb1b4
 
 ---
 
@@ -79,7 +79,7 @@ Informazioni su come usare SQL Data Warehouse, l'unione del database relazionale
                 <div class="card">
                     <div class="cardText">
                         <h3>Riga di comando</h3>
-                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets">Cmdlet PowerShell</a></p>
+                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets">Cmdlet di PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -102,13 +102,7 @@ Informazioni su come usare SQL Data Warehouse, l'unione del database relazionale
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-data-warehouse.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione di SQL Data Warehouse </div>
-    </a>
-</div>
+
 
 
 

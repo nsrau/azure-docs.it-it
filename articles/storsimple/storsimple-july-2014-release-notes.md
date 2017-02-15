@@ -1,12 +1,12 @@
 ---
 title: Note sulla versione di rilascio di StorSimple 8000 | Microsoft Docs
-description: Vengono descritte le nuove funzionalità, i problemi aperti e le soluzioni alternative disponibili per la versione di luglio 2014 di Microsoft Azure StorSimple.
+description: "Vengono descritte le nuove funzionalità, i problemi aperti e le soluzioni alternative disponibili per la versione di luglio 2014 di Microsoft Azure StorSimple."
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 12f1796e-37c3-42b4-b997-a84fc1950c20
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,21 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 387b274a993454814f7238f4cd89a52351a6fc1f
+
 
 ---
-# Note sulla versione di rilascio di StorSimple serie 8000 - Luglio 2014
-## Panoramica
-Le seguenti note sulla versione identificano i problemi critici aperti per la versione di disponibilità generale di luglio 2014 di StorSimple serie 8000 di Microsoft Azure StorSimple. Questa versione corrisponde alla versione del software 6.3.9600.17215.
+# <a name="storsimple-8000-series-release-version-release-notes---july-2014"></a>Note sulla versione di rilascio di StorSimple serie 8000 - Luglio 2014
+## <a name="overview"></a>Panoramica
+Le seguenti note sulla versione identificano i problemi critici aperti per la versione di disponibilità generale di luglio 2014 di StorSimple serie 8000 di Microsoft Azure StorSimple. Questa versione corrisponde alla versione del software 6.3.9600.17215.  
 
-A meno che non sia diversamente specificato, queste note sulla versione si applicano a tutti i modelli del dispositivo StorSimple. Le note sulla versione vengono aggiornate continuamente; i problemi critici che richiedono una soluzione alternativa vengono aggiunti man mano che vengono individuati. Prima di distribuire la soluzione Microsoft Azure StorSimple, tenere presenti le informazioni seguenti.
+A meno che non sia diversamente specificato, queste note sulla versione si applicano a tutti i modelli del dispositivo StorSimple. Le note sulla versione vengono aggiornate continuamente; i problemi critici che richiedono una soluzione alternativa vengono aggiunti man mano che vengono individuati. Prima di distribuire la soluzione Microsoft Azure StorSimple, tenere presenti le informazioni seguenti.  
 
-## Problemi noti in questa versione
-Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa versione.
+## <a name="known-issues-in-this-release"></a>Problemi noti in questa versione
+Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa versione.  
 
 | No. | Funzionalità | Problema | Commenti/Soluzione alternativa | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Ripristino delle impostazioni predefinite |In alcuni casi, quando si esegue un ripristino delle impostazioni predefinite, il dispositivo StorSimple potrebbe bloccarsi e l’utente potrebbe visualizzare il messaggio: **Ripristino delle impostazioni predefinite in corso (fase 8)**. Ciò si verifica se si preme CTRL + C mentre il cmdlet è in esecuzione. |Non premere CTRL + C dopo l'avvio di un ripristino delle impostazioni predefinite. Se si è già in questo stato, contattare il supporto tecnico Microsoft per i passaggi successivi. |Sì |No |
-| 2 |Quorum disco |In rari casi, se la maggior parte dei dischi nello chassis EBOD di un dispositivo 8600 è disconnessa generando un’assenza di quorum disco, il pool di archiviazione sarà offline e rimarrà in tale stato anche se i dischi vengono riconnessi. |Sarà necessario riavviare il dispositivo. Se il problema persiste, contattare il supporto tecnico Microsoft per i passaggi successivi. |Sì |No |
+| 2 |Quorum disco |In rari casi, se la maggior parte dei dischi nello chassis EBOD di un dispositivo 8600 è disconnessa generando un’assenza di quorum disco, il pool di archiviazione sarà offline  e rimarrà in tale stato anche se i dischi vengono riconnessi. |Sarà necessario riavviare il dispositivo. Se il problema persiste, contattare il supporto tecnico Microsoft per i passaggi successivi. |Sì |No |
 | 3 |Errori di snapshot nel cloud |In rari casi, uno snapshot cloud potrebbe non riuscire a causa dell’errore **Raggiunto il limite massimo di backup**. Ciò si verifica se si superano i 255 cloni online sullo stesso dispositivo, dallo stesso volume originale eliminato. | |Sì |Sì |
 | 4 |ID controller non corretto |Quando viene eseguita la sostituzione di un controller, il controller 0 potrebbe essere visualizzato come controller 1. Durante la sostituzione del controller, quando l'immagine viene caricata dal nodo peer, l'ID del controller può presentarsi inizialmente come ID del controller peer. In rari casi, questo comportamento può verificarsi anche dopo un riavvio del sistema. |Non è necessaria alcuna azione da parte dell’utente. Questa situazione si risolverà dopo la sostituzione del controller. |Sì |No |
 | 5 |Grafici di monitoraggio del dispositivo |Nel servizio StorSimple Manager, i grafici di monitoraggio del dispositivo non funzionano quando l’autenticazione di base o NTLM è abilitata nella configurazione del server proxy per il dispositivo. |Modificare la configurazione del proxy Web per il dispositivo registrato con il servizio StorSimple Manager in modo che l'autenticazione sia impostata su NESSUNA. A tale scopo, eseguire il cmdlet Set-HcsWebProxy di Windows PowerShell per StorSimple. |Sì |Sì |
@@ -38,4 +42,9 @@ Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa ve
 | 9 |Installazione |Durante l’installazione dell'adattatore StorSimple per SharePoint è necessario fornire un IP del dispositivo affinché l'installazione possa essere completata correttamente. | |Sì |No |
 | 10 |Interfacce di rete |Nella versione precedente, le interfacce di rete DATA 2 DATA 3 sono state scambiate nel software. |Se è necessario configurare queste interfacce, contattare il supporto tecnico Microsoft. |Sì |No |
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

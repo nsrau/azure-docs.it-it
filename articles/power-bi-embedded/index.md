@@ -2,8 +2,8 @@
 layout: LandingPage
 description: Informazioni su come incorporare visualizzazioni di dati e report interattivi di Power BI nelle app. Esercitazioni, informazioni di riferimento sulle API e altri documenti.
 translationtype: Human Translation
-ms.sourcegitcommit: 531e3606330a55563ae77d18d5fd270d799d6d30
-ms.openlocfilehash: 08270fca90bb74f166c94e0f4acc406bca936eb8
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c18bbb0b1e40d03be35c7d6375bb7520f0e0d4e4
 
 ---
 # <a name="power-bi-embedded-documentation"></a>Documentazione di Power BI Embedded
@@ -129,13 +129,6 @@ Informazioni su come aggiungere visualizzazioni di dati e report interattivi all
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/power-bi-embedded.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione di Power BI Embedded </div>
-    </a>
-</div>
 
 
 

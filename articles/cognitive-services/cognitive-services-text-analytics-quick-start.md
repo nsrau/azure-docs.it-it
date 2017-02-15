@@ -1,58 +1,63 @@
 ---
-title: 'Guida introduttiva: API Text Analytics di Machine Learning | Microsoft Docs'
+title: 'Guida introduttiva: API di analisi del testo di Machine Learning | Microsoft Docs'
 description: Text Analytics di Azure Machine Learning - Guida introduttiva
 services: cognitive-services
-documentationcenter: ''
+documentationcenter: 
 author: onewth
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: e8b9e98c-40e7-4425-ae16-d1eaa7d2f837
 ms.service: cognitive-services
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2016
+ms.date: 10/04/2016
 ms.author: onewth
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 663b99c2491bebf49f950605152604b040ade070
+
 
 ---
-# Introduzione alle API Text Analytics per rilevare sentimenti, frasi chiave, argomenti e lingua
+# <a name="getting-started-with-the-text-analytics-apis-to-detect-sentiment-key-phrases-topics-and-language"></a>Introduzione alle API Text Analytics per rilevare sentimenti, frasi chiave, argomenti e lingua
 <a name="HOLTop"></a>
 
-Questo documento illustra come configurare il servizio o l'applicazione per l'uso di [API Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711). È possibile usare queste API per rilevare sentimenti, frasi chiave, argomenti e lingua dal testo. [Fare clic qui per visualizzare una demo interattiva dell'esperienza.](//go.microsoft.com/fwlink/?LinkID=759712)
+Questo documento illustra come configurare il servizio o l'applicazione per l'uso di [API Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711).
+È possibile usare queste API per rilevare sentimenti, frasi chiave, argomenti e lingua dal testo. [Fare clic qui per visualizzare una demo interattiva dell'esperienza.](//go.microsoft.com/fwlink/?LinkID=759712)
 
-Per la documentazione tecnica delle API, vedere le [definizioni delle API](//go.microsoft.com/fwlink/?LinkID=759346).
+Per la documentazione tecnica delle API, vedere le [definizioni delle API](//go.microsoft.com/fwlink/?LinkID=759346) .
 
 Questa guida è destinata alla versione 2 delle API. Per altre informazioni sulla versione 1 delle API, [fare riferimento a questo documento](../machine-learning/machine-learning-apps-text-analytics.md).
 
 Al termine di questa esercitazione, si sarà in grado di rilevare a livello di codice:
 
-* **Sentimento**: il testo positivo o negativo?
-* **Frasi chiave**: di cosa stanno discutendo le persone in singolo articolo?
-* **Argomenti**: di cosa stanno discutendo le persone in molti articoli?
-* **Lingue**: in quale lingua è scritto il testo?
+* **Sentimento** : il testo positivo o negativo?
+* **Frasi chiave** : di cosa stanno discutendo le persone in singolo articolo?
+* **Argomenti** : di cosa stanno discutendo le persone in molti articoli?
+* **Lingue** : in quale lingua è scritto il testo?
 
 Tenere presente che con questa API viene addebitata 1 transazione per ciascun documento inviato. Quindi, ad esempio, se si richiede una valutazione per 1.000 documenti in una singola chiamata, verranno dedotte 1.000 transazioni.
 
 <a name="Overview"></a>
 
-## Panoramica generale
+## <a name="general-overview"></a>Panoramica generale
 Questo argomento costituisce una guida dettagliata. L'obiettivo è illustrare in dettaglio i passaggi necessari per eseguire il training di un modello e indicare le risorse che consentiranno di inserirlo nell'ambiente di produzione. Questo esercizio richiederà circa 30 minuti.
 
 Per eseguire queste attività, sarà necessario un editor e chiamare gli endpoint RESTful nel linguaggio preferito.
 
 Ecco come procedere.
 
-## Attività 1: iscrizione alle API Text Analytics
+## <a name="task-1---signing-up-for-the-text-analytics-apis"></a>Attività 1: iscrizione alle API Text Analytics
 In questa attività si effettuerà l'iscrizione al servizio di analisi di testo.
 
-1. Passare a **Cognitive Services** nel [portale di Azure](//go.microsoft.com/fwlink/?LinkId=761108) e assicurarsi **Text Analytics** è selezionato come "tipo di API".
-2. Selezionare un piano. È possibile selezionare il **livello gratuito per 5.000 transazioni al mese**. Essendo un piano gratuito, non verranno addebitati costi per l'uso del servizio. Sarà necessario accedere alla sottoscrizione di Azure.
+1. Passare a** Servizi cognitivi** nel [portale di Azure](//go.microsoft.com/fwlink/?LinkId=761108) e assicurarsi che come "tipo di API" sia selezionato **analisi del testo**.
+2. Selezionare un piano. È possibile selezionare il **livello gratuito per 5.000 transazioni al mese**. Essendo un piano gratuito, non verranno addebitati costi per l'uso del servizio. Sarà necessario accedere alla sottoscrizione di Azure. 
 3. Completare gli altri campi e creare l'account.
 4. Dopo l'iscrizione per Text Analytics, trovare la **Chiave API**. Copiare la chiave primaria, perché sarà necessaria quando si usano i servizi API.
 
-## Attività 2: rilevare sentimenti, frasi chiave e lingue
-È facile rilevare sentimenti, frasi chiave e lingue presenti nel testo. A livello di codice si otterranno gli stessi risultati restituiti dall'[esperienza della demo](//go.microsoft.com/fwlink/?LinkID=759712).
+## <a name="task-2---detect-sentiment-key-phrases-and-languages"></a>Attività 2: rilevare sentimenti, frasi chiave e lingue
+È facile rilevare sentimenti, frasi chiave e lingue presenti nel testo. A livello di codice si otterranno gli stessi risultati restituiti dall' [esperienza della demo](//go.microsoft.com/fwlink/?LinkID=759712) .
 
 > [!TIP]
 > Per l'analisi dei sentimenti, è consigliabile dividere il testo in frasi. In questo modo è possibile ottenere in genere una precisione superiore nelle stime dei sentimenti.
@@ -152,15 +157,15 @@ Si noti che i linguaggi supportati sono i seguenti:
             ]
         }
 
-## Attività 3: rilevare gli argomenti in un corpo di testo
+## <a name="task-3---detect-topics-in-a-corpus-of-text"></a>Attività 3: rilevare gli argomenti in un corpo di testo
 Si tratta di un'API rilasciata di recente che restituisce i primi argomenti rilevati a fronte di un elenco di record di testo inviati. Un argomento viene identificato da una frase chiave, che può essere costituita da una o più parole correlate. L'API è progettata per funzionare al meglio con testi brevi in linguaggio naturale, ad esempio recensioni e commenti degli utenti.
 
 Questa API richiede un **minimo di 100 record di testo** da inviare, ma è progettata per rilevare gli argomenti in centinaia o addirittura migliaia di record. Qualsiasi record non in lingua inglese o con meno di 3 parole sarà rimosso e quindi non verranno assegnati agli argomenti. Per il rilevamento di argomenti, le dimensioni massime di un singolo documento che è possibile inviare sono pari a 30 KB, mentre le dimensioni massime complessive dell'input inviato sono pari a 30 MB. Il limite di frequenza per il rilevamento degli argomenti è pari a 5 invii ogni 5 minuti.
 
 Sono disponibili altri due parametri di input **facoltativi** che possono contribuire a migliorare la qualità dei risultati:
 
-* **Parole non significative.** Queste parole e le relative forme chiuse, ad esempio i plurali, verranno escluse dall'intera pipeline di rilevamento degli argomenti. Usare questa opzione per le parole comuni. Ad esempio, "issue", "error" e "user" possono essere scelte appropriate per reclami relativi al software da parte dei clienti. Ogni stringa deve contenere una singola parola.
-* **Frasi non significative**: le frasi verranno escluse dall'elenco di argomenti restituiti. Usare questa opzione per escludere gli argomenti generici da non visualizzare nei risultati. Ad esempio, "Microsoft" e "Azure" sono scelte appropriate per gli argomenti da escludere. Le stringhe possono contenere più parole.
+* **Parole non significative.**  Queste parole e le relative forme chiuse, ad esempio i plurali, verranno escluse dall'intera pipeline di rilevamento degli argomenti. Usare questa opzione per le parole comuni. Ad esempio, "issue", "error" e "user" possono essere scelte appropriate per reclami relativi al software da parte dei clienti. Ogni stringa deve contenere una singola parola.
+* **Frasi non significative** : le frasi verranno escluse dall'elenco di argomenti restituiti. Usare questa opzione per escludere gli argomenti generici da non visualizzare nei risultati. Ad esempio, "Microsoft" e "Azure" sono scelte appropriate per gli argomenti da escludere. Le stringhe possono contenere più parole.
 
 Seguire questi passaggi per rilevare gli argomenti nel testo.
 
@@ -191,7 +196,7 @@ Seguire questi passaggi per rilevare gli argomenti nel testo.
 3. Verrà restituita `operation-location` come intestazione nella risposta, dove il valore è l'URL per effettuare una query degli argomenti risultanti:
    
         'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
-4. Eseguire periodicamente una query sull'intestazione `operation-location` restituita con una richiesta **GET**. È consigliabile eseguire questa operazione una volta al minuto.
+4. Eseguire periodicamente una query sull'intestazione `operation-location` restituita con una richiesta **GET** . È consigliabile eseguire questa operazione una volta al minuto.
    
         GET https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>
 5. L'endpoint restituirà una risposta che include `{"status": "notstarted"}` prima dell'elaborazione, `{"status": "running"}` durante l'elaborazione e `{"status": "succeeded"}` con l'output al termine. È quindi possibile utilizzare l'output che sarà nel formato seguente. Notare che i dettagli, come il formato dell'errore e le date, sono stati esclusi da questo esempio:
@@ -272,9 +277,14 @@ Di seguito viene spiegata ogni parte della risposta:
 | id |Identificatore univoco del documento di input cui fa riferimento l'errore. |
 | message |Messaggio di errore. |
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Congratulazioni. L'analisi di testo sui dati è stata completata. Ora è possibile imparare a usare uno strumento come [Power BI](//powerbi.microsoft.com) per visualizzare i dati e per automatizzare l'analisi al fine di ottenere una visualizzazione in tempo reale dei dati di testo.
 
-Per scoprire come utilizzare le funzionalità di Text Analytics, ad esempio una valutazione, come parte di un bot, vedere l'esempio [Bot emotivo](http://docs.botframework.com/it-IT/bot-intelligence/language/#example-emotional-bot) sul sito Bot Framework.
+Per scoprire come le funzionalità di analisi del testo, ad esempio una valutazione, possano essere usate come parte di un bot, vedere l'esempio [Emotional Bot](http://docs.botframework.com/en-us/bot-intelligence/language/#example-emotional-bot) (Bot emotivo) sul sito Bot Framework.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Deputy | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Deputy.
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Deputy.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 5665c3ac-5689-4201-80fe-fcc677d4430d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f0db022251b16c2c3fe1ca93c25d8550a2b899d8
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-deputy"></a>Esercitazione: Integrazione di Azure Active Directory con Deputy
+# <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Esercitazione: Integrazione di Azure Active Directory con Deputy
 Questa esercitazione descrive l'integrazione di Deputy con Azure Active Directory (Azure AD).
 
 L'integrazione di Deputy con Azure AD offre i vantaggi seguenti:
@@ -207,7 +211,7 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
 ### <a name="creating-a-deputy-test-user"></a>Creazione di un utente test di Deputy
 Per consentire agli utenti di Azure AD di accedere a Deputy, è necessario eseguirne il provisioning in Deputy. Nel caso di Deputy, il provisioning è un'attività manuale.
 
-#### <a name="to-provision-a-user-account,-perform-the-following-steps:"></a>Per eseguire il provisioning di un account utente, seguire questa procedura:
+#### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Per eseguire il provisioning di un account utente, seguire questa procedura:
 1. Accedere al sito aziendale di Deputy come amministratore.
 2. Nel pannello di navigazione in alto fare clic su **People**(Persone).
    
@@ -282,6 +286,6 @@ Quando si fa clic sul riquadro Deputy nel pannello di accesso, si dovrebbe acced
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

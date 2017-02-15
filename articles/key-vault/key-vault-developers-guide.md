@@ -1,12 +1,12 @@
 ---
-title: Guida per gli sviluppatori dell'insieme di credenziali delle chiavi | Microsoft Docs
-description: 'Gli sviluppatori possono utilizzare l''insieme di credenziali chiave di Azure per gestire le chiavi di crittografia all''interno dell''ambiente Microsoft Azure. '
+title: Guida per gli sviluppatori dell&quot;insieme di credenziali delle chiavi | Documentazione Microsoft
+description: 'Gli sviluppatori possono utilizzare l&quot;insieme di credenziali chiave di Azure per gestire le chiavi di crittografia all&quot;interno dell&quot;ambiente Microsoft Azure. '
 services: key-vault
-documentationcenter: ''
+documentationcenter: 
 author: BrucePerlerMS
 manager: mbaldwin
 editor: bruceper
-
+ms.assetid: b2b1bd28-e149-4d69-b08b-97f6c50ebe30
 ms.service: key-vault
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2016
 ms.author: bruceper
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3b4664cdfebad63307c0e964527fc5ecf6500348
+
 
 ---
-# <a name="azure-key-vault-developer's-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
+# <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 Con l'insieme di credenziali delle chiavi è possibile accedere in modo sicuro ai dati sensibili all'interno delle applicazioni in modo che:
 
 * Le chiavi e i segreti vengano protetti senza dover scrivere manualmente il codice e possano essere usati dalle applicazioni.
@@ -102,6 +106,9 @@ Questi articoli illustrano altri scenari e servizi che usano l'integrazione con 
 * [Blog sull'insieme di credenziali delle chiavi](http://aka.ms/kvblog)
 * [Forum sull'insieme di credenziali delle chiavi](http://aka.ms/kvforum)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

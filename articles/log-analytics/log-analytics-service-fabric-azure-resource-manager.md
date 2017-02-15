@@ -1,12 +1,12 @@
 ---
-title: Ottimizzare l'ambiente con la soluzione Service Fabric in Log Analytics | Microsoft Docs
-description: È possibile usare la soluzione Service Fabric per valutare i rischi e l'integrità delle applicazioni Service Fabric, dei servizi micro, dei nodi e dei cluster.
+title: Ottimizzare l&quot;ambiente con la soluzione Service Fabric in Log Analytics | Documentazione Microsoft
+description: "È possibile usare la soluzione Service Fabric per valutare i rischi e l&quot;integrità delle applicazioni Service Fabric, dei servizi micro, dei nodi e dei cluster."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: niniikhena
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: 9c91aacb-c48e-466c-b792-261f25940c0c
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2fe6c2b23c816a5ec5bb00199725cdf0b29b31f0
+
 
 ---
 # <a name="service-fabric-solution-in-log-analytics"></a>Soluzione Service Fabric in Log Analytics
@@ -33,7 +37,7 @@ Per iniziare a usare la soluzione, è necessario connettere il cluster di Servic
 2. Se si desidera raccogliere i dati dei contatori delle prestazioni dagli host per usare altre soluzioni OMS, come ad esempio Security nel cluster di Service Fabric, seguire i passaggi descritti nella sezione ***Distribuire un cluster di Service Fabric connesso a un'area di lavoro di OMS con installata l'estensione VM.***
 3. Se il cluster di Service Fabric è già stato distribuito e si desidera connetterlo a Log Analytics, seguire i passaggi descritti nella sezione ***Aggiunta di un account di archiviazione esistente a Log Analytics.***
 
-## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace."></a>Distribuire un cluster di Service Fabric connesso a un'area di lavoro di Log Analytics.
+## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>Distribuire un cluster di Service Fabric connesso a un'area di lavoro di Log Analytics.
 Questo modello consente di:
 
 1. Distribuire un cluster di Azure Service Fabric già connesso a un'area di lavoro di Log Analytics. È possibile scegliere tra creare una nuova area di lavoro durante la distribuzione del modello e immettere il nome di un'area di lavoro di Log Analytics esistente.
@@ -50,7 +54,7 @@ Accettare le note legali e premere "Crea" per avviare la distribuzione. Una volt
 
 ![Service Fabric](./media/log-analytics-service-fabric/4.png)
 
-## <a name="deploy-a-service-fabric-cluster-connected-to-an-oms-workspace-with-vm-extension-installed."></a>Distribuire un cluster di Service Fabric connesso a un'area di lavoro di OMS con installata l'estensione VM.
+## <a name="deploy-a-service-fabric-cluster-connected-to-an-oms-workspace-with-vm-extension-installed"></a>Distribuire un cluster di Service Fabric connesso a un'area di lavoro di OMS con installata l'estensione VM.
 Questo modello consente di:
 
 1. Distribuire un cluster di Azure Service Fabric già connesso a un'area di lavoro di Log Analytics. È possibile creare una nuova area di lavoro o usarne una esistente.
@@ -146,6 +150,9 @@ La tabella seguente illustra i metodi di raccolta dei dati e altri dettagli sull
 ## <a name="next-steps"></a>Passaggi successivi
 * Per visualizzare i dati dettagliati sugli eventi Service Fabric usare [Ricerche log in Log Analytics](log-analytics-log-searches.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 11/28/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c0b974707eadf7d2c3d624c04a4ec94e35c92cbe
+ms.sourcegitcommit: 51a7a274c0cdbec169154bd1100abb4534283cff
+ms.openlocfilehash: ac478dc5c6691ef9f6c4829bd47a81912774d032
 
 
 ---
@@ -30,7 +30,9 @@ Ecco alcuni esempi di come è possibile usare la funzionalità di trasmissione p
 * **Compilare una piattaforma di registrazione e telemetria personalizzata** : se è disponibile una piattaforma di telemetria personalizzata o si intende crearne una, le caratteristiche di pubblicazione-sottoscrizione altamente scalabili di Hub eventi offrono grande flessibilità per l'inserimento del log attività. [Vedere la guida all'uso di Hub eventi in una piattaforma di telemetria su scala globale di Dan Rosanova.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
 ## <a name="enable-streaming-of-the-activity-log"></a>Abilitare la trasmissione del log attività
-È possibile abilitare la trasmissione del log attività a livello di codice o tramite il portale. In entrambi i casi, selezionare uno spazio dei nomi del bus di servizio e un criterio di accesso condiviso per tale spazio dei nomi; quando si verifica il primo nuovo evento del log attività, viene creato un Hub eventi nello spazio dei nomi. Se non si dispone di uno spazio dei nomi del bus di servizio, è necessario crearne uno. Se in precedenza sono stati trasmessi gli eventi del log attività allo spazio dei nomi del bus di servizio, verrà usato di nuovo l'Hub eventi creato in quell'occasione. Il criterio di accesso condiviso definisce le autorizzazioni per il meccanismo di trasmissione. Al momento, per la trasmissione a un Hub eventi sono richieste autorizzazioni di **gestione**, **lettura** e **invio**. Per creare o modificare i criteri di accesso condiviso dello spazio dei nomi del bus di servizio nel portale classico è possibile usare la scheda "Configura" dello spazio dei nomi del bus di servizio. Per aggiornare il profilo di log del log attività e includere la trasmissione, l'utente che apporta la modifica deve disporre dell'autorizzazione ListKey nella regola di autorizzazione del bus di servizio.
+È possibile abilitare la trasmissione del log attività a livello di codice o tramite il portale. In entrambi i casi, selezionare uno spazio dei nomi del bus di servizio e un criterio di accesso condiviso per tale spazio dei nomi; quando si verifica il primo nuovo evento del log attività, viene creato un Hub eventi nello spazio dei nomi. Se non si dispone di uno spazio dei nomi del bus di servizio, è necessario crearne uno. Se in precedenza sono stati trasmessi gli eventi del log attività allo spazio dei nomi del bus di servizio, verrà usato di nuovo l'Hub eventi creato in quell'occasione. Il criterio di accesso condiviso definisce le autorizzazioni per il meccanismo di trasmissione. Al momento, per trasmettere a un hub eventi sono necessarie autorizzazioni di **gestione**, **invio** e **ascolto**. Per creare o modificare i criteri di accesso condiviso dello spazio dei nomi del bus di servizio nel portale classico è possibile usare la scheda "Configura" dello spazio dei nomi del bus di servizio. Per aggiornare il profilo di log del log attività e includere la trasmissione, l'utente che apporta la modifica deve disporre dell'autorizzazione ListKey nella regola di autorizzazione del bus di servizio.
+
+Lo spazio dei nomi del bus di servizio o per l'hub eventi non deve trovarsi nella stessa sottoscrizione della sottoscrizione che emette log, purché l'utente che configura l'impostazione abbia un accesso RBAC appropriato a entrambe le sottoscrizioni.
 
 ### <a name="via-azure-portal"></a>Tramite il portale di Azure
 1. Passare al pannello **Log attività** usando il menu sul lato sinistro del portale.
@@ -81,6 +83,6 @@ L'ID regola del bus di servizio è una stringa nel formato seguente: `{service b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

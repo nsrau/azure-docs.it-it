@@ -1,26 +1,30 @@
 ---
-title: Risoluzione degli errori delle estensioni della macchina virtuale Windows | Microsoft Docs
+title: Risoluzione degli errori delle estensioni di macchina virtuale Windows | Microsoft Docs
 description: Informazioni sulla risoluzione degli errori delle estensioni della macchina virtuale Windows di Azure
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: kundanap
 manager: timlt
-editor: ''
+editor: 
 tags: top-support-issue,azure-resource-manager
-
+ms.assetid: 878ab9b6-c3e6-40be-82d4-d77fecd5030f
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: support-article
+ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fd50ff64b538232a9a1945efaffacef3a06cfcdb
+
 
 ---
-# Risoluzione degli errori delle estensioni di macchina virtuale Windows di Azure
+# <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Risoluzione degli errori delle estensioni di macchina virtuale Windows di Azure
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../includes/virtual-machines-common-extensions-troubleshoot.md)]
 
-## Visualizzazione dello stato dell'estensione
+## <a name="viewing-extension-status"></a>Visualizzazione dello stato dell'estensione
 I modelli di Azure Resource Manager possono essere eseguiti da Azure PowerShell. Una volta che il modello viene eseguito, è possibile visualizzare lo stato dell'estensione da Esplora risorse di Azure o dagli strumenti da riga di comando.
 
 Di seguito è fornito un esempio:
@@ -54,13 +58,19 @@ Di seguito è riportato l'output di esempio:
     }
   ]
 
-## Risoluzione degli errori delle estensioni
-### Eseguire nuovamente l'estensione nella macchina virtuale
-Se si eseguono gli script nella macchina virtuale usando l'estensione script personalizzato, è possibile riscontrare in alcuni casi un errore in cui la creazione della macchina virtuale è riuscita, ma lo script ha avuto esito negativo. In queste condizioni, il metodo consigliato per risolvere il problema consiste nel rimuovere l'estensione e eseguire nuovamente il modello. Nota: In futuro, questa funzionalità potrebbe essere migliorata in modo da eliminare la necessità di disinstallazione dell'estensione.
+## <a name="troubleshooting-extension-failures"></a>Risoluzione degli errori delle estensioni
+### <a name="re-running-the-extension-on-the-vm"></a>Eseguire nuovamente l'estensione nella macchina virtuale
+Se si eseguono gli script nella macchina virtuale usando l'estensione script personalizzato, è possibile riscontrare in alcuni casi un errore in cui la creazione della macchina virtuale è riuscita, ma lo script ha avuto esito negativo. In queste condizioni, il metodo consigliato per risolvere il problema consiste nel rimuovere l'estensione e eseguire nuovamente il modello.
+Nota: In futuro, questa funzionalità potrebbe essere migliorata in modo da eliminare la necessità di disinstallazione dell'estensione.
 
-#### Rimuovere l'estensione da Azure PowerShell
+#### <a name="remove-the-extension-from-azure-powershell"></a>Rimuovere l'estensione da Azure PowerShell
     Remove-AzureRmVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
 Una volta rimossa l'estensione, il modello può essere eseguito nuovamente per eseguire gli script nella macchina virtuale.
 
-<!---HONumber=AcomDC_0608_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

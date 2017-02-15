@@ -134,6 +134,6 @@ Esaminare il [progetto di esempio Github](https://github.com/Azure/azure-documen
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

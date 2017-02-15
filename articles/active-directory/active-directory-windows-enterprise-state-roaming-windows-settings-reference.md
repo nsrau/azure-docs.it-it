@@ -1,13 +1,13 @@
 ---
 title: Riferimento alle impostazioni di roaming di Windows 10 | Microsoft Docs
-description: Elenco completo di tutte le impostazioni di cui verrà effettuato il roaming o il backup in Windows 10.
+description: "Elenco completo di tutte le impostazioni di cui verrà effettuato il roaming o il backup in Windows 10."
 services: active-directory
 keywords: enterprise state roaming, cloud windows
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
 editor: curtand
-
+ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e38fd24edb0cb6cee0552a3cbdb282aae870d737
+
 
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Riferimento alle impostazioni di roaming di Windows 10
@@ -30,7 +34,7 @@ La tabella seguente contiene un riepilogo dei dispositivi e dei tipi di account 
 | Account Microsoft: sincronizzazione |Sì |Sì |
 | Account Microsoft: backup e ripristino |No |Sì |
 
-## <a name="what-is-backup?"></a>Cosa si intende per backup
+## <a name="what-is-backup"></a>Cosa si intende per backup
 Le impostazioni di Windows vengono in genere sincronizzate per impostazione predefinita. Di alcune impostazioni, come ad esempio l'elenco delle applicazioni installate in un dispositivo, viene tuttavia eseguito solo il backup. Al momento il backup è disponibile solo per i dispositivi mobili e non è fruibile dagli utenti del servizio Enterprise State Roaming. Il backup usa un account Microsoft e archivia i dati delle impostazioni e delle applicazioni in OneDrive. Se un utente disabilita la sincronizzazione nel dispositivo usando l'app Impostazioni, i dati dell'applicazione che normalmente vengono sincronizzati diventano solo di backup. L'accesso ai dati di backup è possibile solo con l'operazione di ripristino durante la prima esecuzione di un nuovo dispositivo. I backup possono essere disattivati con le impostazioni del dispositivo e possono essere gestiti ed eliminati tramite l'account OneDrive dell'utente.
 
 ## <a name="windows-settings-overview"></a>Panoramica sulle impostazioni di Windows
@@ -166,6 +170,9 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 * [Domande frequenti su impostazioni e dati in roaming](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Criteri di gruppo e impostazioni del software MDM per la sincronizzazione delle impostazioni](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

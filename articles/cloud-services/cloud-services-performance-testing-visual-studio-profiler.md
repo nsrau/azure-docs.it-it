@@ -13,17 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 07/30/2016
+ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e7e92ee0331f87755846314a39a0f1ab41f85121
+ms.sourcegitcommit: 0440827a5f5f82a43a88d601a6d090436b81df8e
+ms.openlocfilehash: bb06e93608f7914b0f8c9b971cc285a849056345
 
 
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Test locale delle prestazioni di un servizio cloud nell'emulatore di calcolo di Azure mediante il profiler di Visual Studio
 È possibile usare diversi strumenti e tecniche per il test delle prestazioni di servizi cloud.
-Quando si pubblica un servizio cloud in Azure, è possibile impostare Visual Studio per la raccolta di dati di profilatura e quindi per l'analisi locale di tali dati, come illustrato nella pagina relativa alla [profilatura di un'applicazione di Azure][1].
+Quando si pubblica un servizio cloud in Azure, è possibile impostare Visual Studio per la raccolta di dati di profilatura e quindi per l'analisi locale di tali dati, come illustrato in [Profilatura di un'applicazione di Azure][1].
 È anche possibile usare gli strumenti di diagnostica per tenere traccia di diversi contatori delle prestazioni, come illustrato in [Uso dei contatori delle prestazioni in Azure][2].
 È inoltre consigliabile eseguire localmente la profilatura dell'applicazione nell'emulatore di calcolo prima di distribuirla nel cloud.
 
@@ -177,6 +177,6 @@ La strumentazione dei file binari di Azure nell'emulatore non è supportata nel 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
