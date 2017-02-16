@@ -1,5 +1,5 @@
 ---
-title: Monitorare e diagnosticare localmente servizi scritti con Azure Service Fabric | Documentazione Microsoft
+title: Eseguire il debug di microservizi di Azure in Windows | Documentazione Microsoft
 description: Informazioni su come eseguire il monitoraggio e la diagnosi dei servizi scritti usando Microsoft Azure Service Fabric in un computer di sviluppo locale.
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/06/2016
+ms.date: 01/04/2017
 ms.author: toddabel
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 57e281b5e3a86b2a7bc78d47163b0475898869f0
+ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
+ms.openlocfilehash: 5421cf66449892bb7bbc46cd8727a0642b7d66f3
 
 
 ---
@@ -27,12 +27,12 @@ ms.openlocfilehash: 57e281b5e3a86b2a7bc78d47163b0475898869f0
 > 
 > 
 
-Le operazioni di monitoraggio, rilevamento, diagnosi e risoluzione dei problemi consentono ai servizi di continuare a funzionare con un'interruzione minima dell'esperienza utente. L'efficacia delle operazioni di monitoraggio e diagnostica, essenziali in un ambiente di produzione distribuito reale, dipenderà tuttavia dall'adozione nella fase di sviluppo dei servizi di un modello analogo che ne assicuri il funzionamento anche nel mondo reale. Service Fabric consente agli sviluppatori di servizi di implementare facilmente un sistema di diagnostica in grado di operare senza problemi sia in ambienti di sviluppo costituiti da un unico computer locale sia in configurazioni con cluster di produzione veri e propri.
+Le operazioni di monitoraggio, rilevamento, diagnosi e risoluzione dei problemi consentono ai servizi di continuare a funzionare con un'interruzione minima dell'esperienza utente. L'efficienza delle operazioni di monitoraggio e diagnostica, essenziali in un ambiente di produzione distribuito reale, dipenderà tuttavia dall'adozione nella fase di sviluppo dei servizi di un modello analogo che ne assicuri il funzionamento anche nel mondo reale. Service Fabric consente agli sviluppatori di servizi di implementare facilmente un sistema di diagnostica in grado di operare senza problemi sia in ambienti di sviluppo costituiti da un unico computer locale sia in configurazioni con cluster di produzione veri e propri.
 
 ## <a name="the-benefits-of-event-tracing-for-windows"></a>Vantaggi offerti da Event Tracing for Windows
 [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) è la tecnologia consigliata per il tracciamento dei messaggi in Service Fabric. I motivi di questa scelta sono i seguenti:
 
-* **ETW è veloce.**  È stata sviluppata come tecnologia di tracciamento con un impatto minimo sui tempi di esecuzione del codice.
+* **ETW è veloce.** È stata sviluppata come tecnologia di tracciamento con un impatto minimo sui tempi di esecuzione del codice.
 * **ETW funziona perfettamente non solo in ambienti di sviluppo locali, ma anche in configurazioni cluster reali.** Questo significa che non è necessario riscrivere il codice di tracciamento quando si è pronti per distribuire il codice in un vero cluster.
 * **Anche il codice di sistema di Service Fabric usa ETW per il tracciamento interno.** In questo modo, è possibile visualizzare le tracce dell'applicazione interfoliate con le tracce di sistema di Service Fabric ed è più semplice comprendere le sequenze e le correlazioni tra il codice dell'applicazione e gli eventi nel sistema sottostante.
 * **Negli strumenti di Visual Studio per Service Fabric è incorporato il supporto per la visualizzazione degli eventi ETW.**
@@ -65,11 +65,11 @@ Dopo aver aggiunto il tracciamento ETW personalizzato al codice del servizio, sa
 Lo stesso codice di traccia aggiunto all'applicazione precedente per la diagnostica locale potrà essere usato con gli stessi strumenti di cui è possibile avvalersi per visualizzare gli eventi quando si esegue l'applicazione in un cluster di Azure. Leggere questi articoli che illustrano le diverse opzioni per gli strumenti e descrivono come configurarle.
 
 * [Come raccogliere log con Diagnostica di Azure](service-fabric-diagnostics-how-to-setup-wad.md)
-* [Uso di ElasticSearch come archivio di traccia dell'applicazione dell'infrastruttura di servizi](service-fabric-diagnostic-how-to-use-elasticsearch.md)
+* [Raccogliere log direttamente da un processo di servizio](service-fabric-diagnostic-collect-logs-without-an-agent.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

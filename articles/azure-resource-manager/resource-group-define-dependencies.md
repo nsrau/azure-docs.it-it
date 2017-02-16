@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2016
+ms.date: 11/28/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 1499ddf06dda6740ccfe1e7b6832998bb33cb1c4
+ms.sourcegitcommit: 5f810a46db4deed9c31db4f7c072c48b0817ebc4
+ms.openlocfilehash: 35ce1f12a3de0a41d400cceebe6aefbadbe51528
 
 
 ---
 # <a name="defining-dependencies-in-azure-resource-manager-templates"></a>Definizione delle dipendenze nei modelli di gestione risorse di Azure
 Perché una risorsa possa essere distribuita, potrebbe essere necessario che prima di essa esistano altre risorse specifiche. Ad esempio, un server SQL deve esistere prima che si tenti di distribuire un database SQL. Per definire questa relazione, si contrassegna una risorsa come dipendente dall'altra risorsa. In genere, una dipendenza viene definita con l'elemento **dependsOn**, ma è anche possibile definirla tramite la funzione **reference**. 
 
-Resource Manager valuta le dipendenze tra le risorse e le distribuisce in base all'ordine di dipendenza. Quando le risorse non sono interdipendenti, Resource Manager le distribuisce in parallelo.
+Resource Manager valuta le dipendenze tra le risorse e le distribuisce in base all'ordine di dipendenza. Quando le risorse non sono interdipendenti, Resource Manager le distribuisce in parallelo. La definizione delle dipendenze è necessaria solo per le risorse distribuite nello stesso modello. 
 
 ## <a name="dependson"></a>dependsOn
 All'interno del modello, l'elemento dependsOn consente di definire una risorsa come dipendente da una o più risorse. Il valore può essere un elenco delimitato da virgole di nomi di risorse. 
@@ -40,13 +40,20 @@ L'esempio seguente illustra un set di scalabilità di macchine virtuali dipenden
       },
       "dependsOn": [
         "storageLoop",
-        "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
-        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+        "[variables('loadBalancerName')]",
+        "[variables('virtualNetworkName')]"
       ],
       ...
     }
 
-Per definire una dipendenza tra una risorsa e le risorse che vengono create tramite un ciclo di copia, impostare l'elemento dependsOn sul nome del ciclo. Per avere un esempio, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
+Nell'esempio precedente è inclusa una dipendenza per le risorse create tramite il ciclo di copia denominato **storageLoop**. Per avere un esempio, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
+
+Quando si definiscono le dipendenze, per evitare ambiguità è possibile includere lo spazio dei nomi del provider di risorse e il tipo di risorsa. Ad esempio, per distinguere un bilanciamento del carico e una rete virtuale che hanno lo stesso nome di altre risorse, usare il formato seguente:
+
+    "dependsOn": [
+      "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
+      "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+    ] 
 
 Mentre si potrebbe pensare di usare dependsOn per mappare le relazioni tra le risorse, è importante comprendere il motivo per cui si esegue tale operazione perché può ridurre le prestazioni della distribuzione. Ad esempio, per documentare come le risorse sono interconnesse, dependsOn non è l'approccio giusto. Non è possibile eseguire query su quali risorse sono state definite nell'elemento dependsOn dopo la distribuzione. L'uso di dependsOn potrebbe influire sul tempo necessario per la distribuzione perché Resource Manager non esegue la distribuzione simultanea di due risorse con dipendenza. Per documentare le relazioni tra le risorse, usare il [collegamento di risorse](resource-group-link-resources.md).
 
@@ -110,6 +117,6 @@ Per altre informazioni, vedere la [funzione del riferimento](resource-group-temp
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

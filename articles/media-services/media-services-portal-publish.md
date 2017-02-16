@@ -1,5 +1,5 @@
 ---
-title: "  Pubblicare contenuti con il portale di Azure | Microsoft Docs"
+title: "  Pubblicare contenuti con il portale di Azure | Documentazione Microsoftcs"
 description: Questa esercitazione illustra i passaggi necessari per la pubblicazione di contenuti con il portale di Azure.
 services: media-services
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 96a8342dc782a9270a6de5b67387c35ea45b860e
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 72b0b7feef583799613b1cb2c18b2020c1401b36
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: 96a8342dc782a9270a6de5b67387c35ea45b860e
 > 
 > 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 > [!NOTE]
 > Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
@@ -62,7 +62,7 @@ Per altre informazioni, vedere [Panoramica della distribuzione di contenuti](med
 > 
 > 
 
-Per aggiornare la data di scadenza di un localizzatore, è possibile usare le API [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Si noti che quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.
+Per aggiornare la data di scadenza di un localizzatore, è possibile usare le API [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Si noti che quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Per usare il portale per la pubblicazione di un asset
 Per pubblicare un asset tramite il portale, seguire questa procedura:
@@ -90,7 +90,6 @@ Considerazioni applicabili:
 * Verificare che il video sia stato pubblicato.
 * **Media Player** esegue la riproduzione dall'endpoint di streaming predefinito. Se si vuole eseguire la riproduzione da un endpoint di streaming diverso, fare clic per copiare l'URL e usare un altro lettore, ad esempio [Lettore di Servizi multimediali di Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 * L'endpoint di streaming da cui si effettua lo streaming deve essere in esecuzione.  
-* Per eseguire lo streaming da un endpoint di streaming è necessario aggiungere almeno un'unità di streaming. Per altre informazioni, vedere [questo](media-services-portal-scale-streaming-endpoints.md) argomento.   
 
 ## <a name="next-steps"></a>Passaggi successivi
 Analizzare i percorsi di apprendimento di Servizi multimediali.
@@ -103,6 +102,6 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

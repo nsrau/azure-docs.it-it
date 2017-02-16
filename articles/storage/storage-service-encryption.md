@@ -4,7 +4,7 @@ description: "La funzionalità Crittografia del servizio di archiviazione di Azu
 services: storage
 documentationcenter: .net
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bdb016af2c21b06c6abf5af607e703e5f898f8f4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b582e7515ccc588b1381285bdf4bfae00554ac3f
 
 
 ---
@@ -65,7 +65,7 @@ La crittografia del servizio di archiviazione presenta le limitazioni seguenti:
 È possibile abilitare la crittografia usando il [portale di Azure](https://portal.azure.com).
 
 > [!NOTE]
-> Se si vuole abilitare o disabilitare a livello di codice la crittografia del servizio di archiviazione in un account di archiviazione, è possibile usare l'[API REST del provider di risorse di archiviazione di Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx), la [libreria client dei provider delle risorse di archiviazione per .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx), [Azure PowerShell](../powershell-install-configure.md) o l'[interfaccia della riga di comando di Azure](storage-azure-cli.md).
+> Se si vuole abilitare o disabilitare a livello di codice la crittografia del servizio di archiviazione in un account di archiviazione, è possibile usare l'[API REST del provider di risorse di archiviazione di Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx), la [libreria client dei provider delle risorse di archiviazione per .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx), [Azure PowerShell](/powershell/azureps-cmdlets-docs) o l'[interfaccia della riga di comando di Azure](storage-azure-cli.md).
 > 
 > 
 
@@ -182,6 +182,6 @@ Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

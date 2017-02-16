@@ -1,5 +1,5 @@
 ---
-title: 'Programmazione di DocumentDB: Stored procedure, trigger del database e funzioni definite dall&quot;utente | Microsoft Docs'
+title: Programmazione JavaScript lato server per Azure DocumentDB | Documentazione Microsoft
 description: Informazioni su come usare DocumentDB per scrivere stored procedure, trigger del database e funzioni definite dall&quot;utente (UDF) in JavaScript. Ottenere suggerimenti sulla programmazione di database e altro ancora.
 keywords: Trigger di database, stored procedure, programma di database, sproc, documentdb, azure, Microsoft Azure
 services: documentdb
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/11/2016
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: ebfed89674dc132bd5d93f34a8b5ed5ab12bd73e
-ms.openlocfilehash: 3671e9eec62720e34155f0c10054abe01f1e1f12
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: 94376ba0cb7e68045e5bc44e356a91ac2ca787b2
 
 
 ---
@@ -26,7 +26,7 @@ Informazioni su come l'esecuzione integrata e transazionale di JavaScript con il
 
 Si consiglia di iniziare guardando il video seguente, in cui Andrew Liu introduce brevemente il modello di programmazione lato server del database di DocumentDB. 
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Demo-A-Quick-Intro-to-Azure-DocumentDBs-Server-Side-Javascript/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Demo-A-Quick-Intro-to-Azure-DocumentDBs-Server-Side-Javascript/player]
 > 
 > 
 
@@ -63,7 +63,7 @@ Per cominciare, si analizzerà una semplice stored procedure che restituisce una
 
     var helloWorldStoredProc = {
         id: "helloWorld",
-        body: function () {
+        serverScript: function () {
             var context = getContext();
             var response = context.getResponse();
 
@@ -105,7 +105,7 @@ Il frammento successivo mostra come usare l'oggetto context per interagire con l
 
     var createDocumentStoredProc = {
         id: "createMyDocument",
-        body: function createMyDocument(documentToCreate) {
+        serverScript: function createMyDocument(documentToCreate) {
             var context = getContext();
             var collection = context.getCollection();
 
@@ -161,8 +161,8 @@ In DocumentDB, JavaScript è ospitato nello stesso spazio di memoria del databas
 
     // JavaScript source code
     var exchangeItemsSproc = {
-        name: "exchangeItems",
-        body: function (playerId1, playerId2) {
+        id: "exchangeItems",
+        serverScript: function (playerId1, playerId2) {
             var context = getContext();
             var collection = context.getCollection();
             var response = context.getResponse();
@@ -298,8 +298,8 @@ Di seguito è riportato un esempio di stored procedure scritta per importare in 
 DocumentDB fornisce trigger che vengono eseguiti o attivati da un'operazione su un documento. Ad esempio, quando si crea un documento è possibile specificare un pre-trigger, che verrà eseguito prima della creazione. Di seguito è riportato un esempio di come è possibile usare i pre-trigger per convalidare le proprietà di un documento in corso di creazione:
 
     var validateDocumentContentsTrigger = {
-        name: "validateDocumentContents",
-        body: function validate() {
+        id: "validateDocumentContents",
+        serverScript: function validate() {
             var context = getContext();
             var request = context.getRequest();
 
@@ -369,8 +369,8 @@ I post-trigger, come i pre-trigger, sono associati a un'operazione su un documen
 Nell'esempio seguente vengono illustrati i post-trigger in azione:
 
     var updateMetadataTrigger = {
-        name: "updateMetadata",
-        body: function updateMetadata() {
+        id: "updateMetadata",
+        serverScript: function updateMetadata() {
             var context = getContext();
             var collection = context.getCollection();
             var response = context.getResponse();
@@ -439,11 +439,11 @@ Un aspetto importante da tenere presente è l'esecuzione **transazionale** dei t
 ## <a name="a-idudfauser-defined-functions"></a><a id="udf"></a>Funzioni definite dall'utente
 Le funzioni definite dall'utente, o UDF, consentono di estendere la grammatica del linguaggio di query SQL di DocumentDB e implementare la logica di business personalizzata. Possono essere richiamate solo dall'interno delle query. Non hanno accesso all'oggetto contesto e vanno usate come JavaScript di solo calcolo. È quindi possibile eseguire le UDF su repliche secondarie del servizio DocumentDB.  
 
-L'esempio seguente consente di creare una funzione definita dall'utente per calcolare l'imposta sul reddito in base ai tassi relativi a varie fasce di reddito. La funzione viene quindi usata all'interno di una query per trovare tutte le persone che hanno pagato oltre 20.000 dollari di imposte.
+L'esempio seguente consente di creare una funzione definita dall'utente per calcolare l'imposta sul reddito in base ai tassi relativi a varie fasce di reddito. La funzione viene quindi usata all'interno di una query per trovare tutte le persone che hanno pagato oltre&20;.000 dollari di imposte.
 
     var taxUdf = {
-        name: "tax",
-        body: function tax(income) {
+        id: "tax",
+        serverScript: function tax(income) {
 
             if(income == undefined) 
                 throw 'no input';
@@ -814,6 +814,6 @@ Quando si dispone di uno o più stored procedure, trigger e funzioni definite da
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

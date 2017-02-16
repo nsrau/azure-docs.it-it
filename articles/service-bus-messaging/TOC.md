@@ -1,6 +1,6 @@
 # Panoramica
-## [Che cos'è la messaggistica del bus di servizio?](service-bus-queues-topics-subscriptions.md)
-## [Confronto tra code di Azure e code del bus di servizio](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+## [Che cos'è la messaggistica del bus di servizio?](service-bus-messaging-overview.md)
+## [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 ## [Domande frequenti](service-bus-faq.md)
 
 # Attività iniziali
@@ -20,61 +20,61 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [Generare firme di accesso condiviso](service-bus-sas-overview.md)
+## [Compilare un'applicazione bus di servizio multilivello](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # Procedure
 ## Pianificare e progettare
+### [Messaggistica Premium](service-bus-premium-messaging.md)
+### [Confronto tra code di Azure e code del bus di servizio](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Ottimizzare le prestazioni](service-bus-performance-improvements.md)
 ### [Messaggistica asincrona e disponibilità elevata](service-bus-async-messaging.md)
 ### [Gestione di emergenze e interruzioni](service-bus-outages-disasters.md)
+### [Concatenare entità con l'inoltro automatico](service-bus-auto-forwarding.md)
 
 ## Sviluppare
+### [Code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md)
 ### [App che usano le code](service-bus-create-queues.md)
 ### [App che usano argomenti/sottoscrizioni](service-bus-create-topics-subscriptions.md)
-### [Autenticazione e autorizzazione](service-bus-authentication-and-authorization.md)
-### [Messaggistica Premium](service-bus-premium-messaging.md)
+### [Autenticazione e autorizzazione](service-bus-sas.md)
 ### [Code e argomenti partizionati](service-bus-partitioning.md)
 ### [Code di messaggi non recapitabili](service-bus-dead-letter-queues.md)
 ### [Elaborazione di transazioni](service-bus-transactions.md)
-### [Guida per sviluppatori AMQP]
+### AMQP
 #### [.NET](service-bus-amqp-dotnet.md)
 #### [Java](service-bus-amqp-java.md)
-#### [PHP](service-bus-amqp-php.md)
-#### [Python](service-bus-amqp-python.md)
-#### [Apache](service-bus-amqp-apache.md)
-### [Usare AMQP con l'API .NET](service-bus-dotnet-advanced-message-queuing.md)
-### [Usare AMQP con code e argomenti partizionati](service-bus-partitioned-queues-and-topics-amqp-overview.md)
-### [Spazi dei nomi associati](service-bus-paired-namespaces.md)
-### [Concatenare entità con l'inoltro automatico](service-bus-auto-forwarding.md)
-## Manage
+#### [Guida al protocollo AMQP](service-bus-amqp-protocol-guide.md)
+#### [Operazioni basate su richiesta-risposta AMQP](service-bus-amqp-request-response.md)
+
+## Gestire
+### [Librerie di gestione del bus di servizio](service-bus-management-libraries.md)
 ### [Uso dei modelli di Azure Resource Manager](service-bus-resource-manager-overview.md)
 ### [Uso di PowerShell per il provisioning delle entità](service-bus-powershell-how-to-provision.md)
 
-# Riferimento
-## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
-## [.NET](/dotnet/api/microsoft.azure.management.servicebus)
-## [Java](/java/api/com.microsoft.azure.servicebus.amqp)
+# Riferimenti
+## .NET
+### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
+### [Microsoft.Azure.Management.ServiceBus](/dotnet/api/microsoft.azure.management.servicebus)
+## [PowerShell](service-bus-powershell-how-to-provision.md)
 ## [REST](/rest/api/servicebus)
-
-# Risorse
-## [Sintassi di SQLFilter](service-bus-messaging-sql-filter.md)
-## [Sintassi di SQLRuleAction](service-bus-messaging-sql-rule-action.md)
-## [Guida al protocollo AMQP1.0](service-bus-amqp-protocol-guide.md)
-### [Operazioni basate su richiesta-risposta AMQP 1.0](service-bus-amqp-request-response.md)
-## [Dettagli sui prezzi](service-bus-pricing-billing.md)
-## [Esempi](service-bus-samples.md)
 ## [Eccezioni](service-bus-messaging-exceptions.md)
 ## [Quote](service-bus-quotas.md)
+## [Sintassi di SQLFilter](service-bus-messaging-sql-filter.md)
+## [Sintassi di SQLRuleAction](service-bus-messaging-sql-rule-action.md)
+
+# Risorse
+## [Dettagli sui prezzi](service-bus-pricing-billing.md)
+## [Esempi](service-bus-samples.md)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [Forum MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/service-bus/)
-## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=service-bus)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Jan17_HO1-->
+
+
+<!--HONumber=Jan17_HO4-->
 
 

@@ -16,6 +16,7 @@
 ## [Creare un account di archiviazione](azure-stack-provision-storage-account.md)
 ## [Connettersi con l'interfaccia della riga di comando](azure-stack-connect-cli.md)
 ## [Connettersi con PowerShell](azure-stack-connect-powershell.md)
+## [Installare Visual Studio](azure-stack-install-visual-studio.md)
 ## [Domande frequenti](azure-stack-faq.md)
 
 # Offrire servizi ai tenant
@@ -28,6 +29,7 @@
 # Usare modelli
 ## [Panoramica dei modelli](azure-stack-arm-templates.md)
 ## [Sviluppare modelli](azure-stack-develop-templates.md)
+## [Controllare modelli](azure-stack-validate-templates.md)
 ## [Distribuire modelli con il portale](azure-stack-deploy-template-portal.md)
 ## [Distribuire modelli con PowerShell](azure-stack-deploy-template-powershell.md)
 ## [Distribuire modelli con Visual Studio](azure-stack-deploy-template-visual-studio.md)

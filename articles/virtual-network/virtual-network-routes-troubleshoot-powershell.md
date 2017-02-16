@@ -1,13 +1,13 @@
 ---
-title: Risoluzione dei problemi delle route - PowerShell | Microsoft Docs
+title: Risoluzione dei problemi delle route - PowerShell | Documentazione Microsoft
 description: Informazioni su come risolvere i problemi delle route nel modello di distribuzione Azure Resource Manager con Azure PowerShell.
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: bf7dc5e7-9399-460e-8e0d-8992dbed98a6
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ecdf6e68a8d2bf7c034b92b57b45ae496a063713
+
 
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Risoluzione dei problemi di route con Azure PowerShell
@@ -132,6 +136,9 @@ Alcuni aspetti da tenere presenti quando si esamina l'elenco delle route restitu
   * Attendere alcuni secondi e riprovare, se si tratta di un collegamento di peering appena stabilito. In alcuni casi è necessario più tempo per propagare le route a tutte le interfacce di rete in una subnet.
   * Le regole del gruppo di sicurezza di rete possono influire sui flussi di traffico. Per altre informazioni, vedere l'articolo [Troubleshoot Network Security Groups](virtual-network-nsg-troubleshoot-powershell.md) (Risolvere i problemi dei gruppi di sicurezza di rete).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

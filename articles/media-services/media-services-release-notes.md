@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e27741abd73025efa12e1e765fbf9c4248b6cf24
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 17973d439023a1c32ea64a05e1442618da6de511
 
 
 ---
@@ -33,9 +33,9 @@ Nelle presenti note sulla versione vengono riepilogati le modifiche rispetto all
 | Problema | Description |
 | --- | --- |
 | Nell'API REST non sono fornite alcune intestazioni HTTP comuni. |Se si sviluppano applicazioni di Servizi multimediali tramite l'API REST, alcuni campi di intestazione HTTP comuni, ad esempio CLIENT-REQUEST-ID, REQUEST-ID e RETURN-CLIENT-REQUEST-ID, non sono supportati. Le intestazioni verranno aggiunte in un futuro aggiornamento. |
-| La codifica percentuale non è consentita. |Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione di URL per i contenuti in streaming, ad esempio http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i [caratteri riservati per la codifica percentuale seguenti](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Inoltre, può essere presente un solo punto (.). L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.). |
-| Il metodo ListBlobs di Azure Storage SDK versione 3.x non riesce. |Servizi multimediali genera URL di firma di accesso condiviso basati sulla versione [2012-02-12](http://msdn.microsoft.com/library/azure/dn592123.aspx) . Se si vuol usare Azure Storage SDK per elencare oggetti BLOB in un contenitore dello stesso tipo, usare il metodo [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) disponibile in Azure Storage SDK versione 2.x. Il metodo ListBlobs disponibile in Azure Storage SDK versione 3.x non riuscirà. |
-| Il meccanismo di limitazione delle richieste di Servizi multimediali limita l'uso delle risorse per le applicazioni che inviano un numero elevato di richieste al servizio. Il servizio può restituire il codice di stato HTTP di servizio non disponibile (503). |Per altre informazioni, vedere la descrizione del codice di stato HTTP 503 nell'argomento [Codici di errore di Servizi multimediali di Azure](http://msdn.microsoft.com/library/azure/dn168949.aspx) . |
+| La codifica percentuale non è consentita. |Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione di URL per i contenuti in streaming, ad esempio http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#[]". Può essere presente solo un carattere '.' L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.). |
+| Il metodo ListBlobs di Azure Storage SDK versione 3.x non riesce. |Servizi multimediali genera URL di firma di accesso condiviso basati sulla versione [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/fileservices/Version-2012-02-12) . Se si vuol usare Azure Storage SDK per elencare oggetti BLOB in un contenitore dello stesso tipo, usare il metodo [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) disponibile in Azure Storage SDK versione 2.x. Il metodo ListBlobs disponibile in Azure Storage SDK versione 3.x non riuscirà. |
+| Il meccanismo di limitazione delle richieste di Servizi multimediali limita l'uso delle risorse per le applicazioni che inviano un numero elevato di richieste al servizio. Il servizio può restituire il codice di stato HTTP di servizio non disponibile (503). |Per altre informazioni, vedere la descrizione del codice di stato HTTP 503 nell'argomento [Codici di errore di Servizi multimediali di Azure](media-services-encoding-error-codes.md) . |
 | Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. |È necessario usare **Skip** e **Take** (.NET)/**top** (REST) come descritto in [questo esempio .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e in [questo esempio di API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Alcuni client possono riscontrare un problema di tag di ripetizione nel manifesto Smooth Streaming. |Per altre informazioni, vedere [questa](media-services-deliver-content-overview.md#known-issues) sezione. |
 | Gli oggetti nel modulo .NET SDK di Servizi multimediali di Azure non possono essere serializzati e di conseguenza non funzionano con Caching di Azure. |Se si prova a serializzare l'oggetto AssetCollection del modulo SDK per aggiungerlo a Caching di Azure, viene generata un'eccezione. |
@@ -43,6 +43,16 @@ Nelle presenti note sulla versione vengono riepilogati le modifiche rispetto all
 
 ## <a name="a-idrestversionhistoryarest-api-version-history"></a><a id="rest_version_history"></a>Cronologia delle versioni dell'API REST
 Per informazioni sulla cronologia versioni dell'API REST di Servizi multimediali, vedere [Informazioni di riferimento sull'API REST di Servizi multimediali di Azure].
+
+## <a name="january-2017-release"></a>Versione di gennaio 2017
+
+In Servizi multimediali di Microsoft Azure (AMS) un **endpoint di streaming** rappresenta un servizio di streaming in grado di distribuire contenuti direttamente a un'applicazione di lettore client o a una rete CDN (rete per la distribuzione di contenuti) per la successiva distribuzione. Servizi multimediali fornisce inoltre un'integrazione completa della rete CDN di Azure. Il flusso in uscita da un servizio StreamingEndpoint può essere costituito da un flusso live, da un "video on demand" o da un download progressivo dell'asset associato a un account di Servizi multimediali. Ogni account di Servizi multimediali di Azure include un servizio StreamingEndpoint predefinito. Nell'account è possibile creare altri servizi StreamingEndpoint. Esistono due versioni di servizi StreamingEndpoint, ovvero 1.0 e 2.0. A partire dal 10 gennaio 2017, ogni account AMS appena creato includerà il servizio StreamingEndpoint **predefinito** versione 2.0. Analogamente, anche la versione degli altri endpoint di streaming aggiunti a questo account è la versione 2.0. Questa modifica non influisce sugli account esistenti. La versione dei servizi StreamingEndpoint è la versione 1.0, che può essere aggiornata alla versione 2.0. Tale modifica comporta cambiamenti nel comportamento, nella fatturazione e nelle funzionalità (per altre informazioni, vedere [questo](media-services-streaming-endpoints-overview.md) argomento).
+
+A partire dalla versione 2.15 nei Servizi multimediali di Azure sono state aggiunte le proprietà seguenti all'entità endpoint di streaming: **CdnProvider**, **CdnProfile**, **FreeTrialEndTime** e **StreamingEndpointVersion**. Per una panoramica dettagliata di queste proprietà, vedere [questo articolo](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
+
+## <a name="december-2016-release"></a>Versione di dicembre 2016
+
+Servizi multimediali di Azure consente ora di accedere ai dati di telemetria e delle metriche relativi ai servizi. La versione corrente di AMS consente di raccogliere i dati di telemetria relativi alle entità Channel live, StreamingEndpoint e Archive live. Per altre informazioni, vedere [questo](media-services-telemetry-overview.md) argomento.
 
 ## <a name="a-idjulychanges16ajuly-2016-release"></a><a id="july_changes16"></a>Versione di luglio 2016
 ### <a name="updates-to-manifest-file-ism-generated-by-encoding-tasks"></a>Aggiornamenti del file manifesto (con estensione ism) generati da attività di codifica
@@ -105,7 +115,7 @@ Servizi multimediali di Azure offre ora il servizio di distribuzione della licen
 Si noti che i servizi di distribuzione delle licenze Widevine forniti da Servizi multimediali di Azure sono in anteprima. Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 ## <a name="a-idoctchanges15aoctober-2015-release"></a><a id="oct_changes_15"></a>Versione di ottobre 2015
-Servizi multimediali di Azure (AMS) è ora disponibile anche nei data center seguenti: Brasile meridionale, India occidentale, India meridionale e India centrale. È ora possibile usare il portale di Azure classico per [creare account di Servizi multimediali](media-services-portal-create-account.md) ed eseguire diverse attività descritte [qui](https://azure.microsoft.com/documentation/services/media-services/). In questi data center la codifica live non è tuttavia abilitata. Inoltre, non sono disponibili tutti i tipi di unità riservate di codifica.
+Servizi multimediali di Azure (AMS) è ora disponibile anche nei data center seguenti: Brasile meridionale, India occidentale, India meridionale e India centrale. È ora possibile usare il portale di Azure per [creare account di Servizi multimediali](media-services-portal-create-account.md) ed eseguire diverse attività descritte [qui](https://azure.microsoft.com/documentation/services/media-services/). In questi data center la codifica live non è tuttavia abilitata. Inoltre, non sono disponibili tutti i tipi di unità riservate di codifica.
 
 * Brasile meridionale:                                           sono disponibili solo unità riservate di codifica Standard e Basic
 * India occidentale, India meridionale e India centrale:             sono disponibili solo unità riservate di codifica Basic
@@ -189,7 +199,7 @@ Di seguito sono riportati alcuni degli aggiornamenti utilizzati dal cliente:
 
 ## <a name="a-idmarchchanges15amarch-2015-release"></a><a id="march_changes_15"></a>Versione di marzo 2015
 ### <a name="general-media-services-updates"></a>Aggiornamenti generali di Servizi multimediali
-* Servizi multimediali offre ora l'integrazione con la rete CDN di Azure. Per supportare l'integrazione, la proprietà **CdnEnabled** è stata aggiunta a **StreamingEndpoint**.  **CdnEnabled** può essere usata con le API REST a partire dalla versione 2.9 (per altre informazioni, vedere [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx)).  La proprietà **CdnEnabled** può essere inoltre usata con SDK .NET a partire dalla versione 3.1.0.2. Per altre informazioni, vedere [StreamingEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.istreamingendpoint\(v=azure.10\).aspx).
+* Servizi multimediali offre ora l'integrazione con la rete CDN di Azure. Per supportare l'integrazione, la proprietà **CdnEnabled** è stata aggiunta a **StreamingEndpoint**.  **CdnEnabled** può essere usata con le API REST a partire dalla versione 2.9 (per altre informazioni, vedere [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)).  La proprietà **CdnEnabled** può essere inoltre usata con SDK .NET a partire dalla versione 3.1.0.2. Per altre informazioni, vedere [StreamingEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.istreamingendpoint\(v=azure.10\).aspx).
 * Annuncio del **flusso di lavoro Premium del codificatore multimediale**. Per altre informazioni, vedere [Introduzione alla codifica Premium in Servizi multimediali di Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/).
 
 ## <a name="a-idfebruarychanges15afebruary-2015-release"></a><a id="february_changes_15"></a>Versione di febbraio 2015
@@ -211,23 +221,22 @@ In questa versione il costruttore Microsoft.WindowsAzure.MediaServices.Client.Co
 ## <a name="a-iddecemberchanges14adecember-2014-release"></a><a id="december_changes_14"></a>Versione di dicembre 2014
 ### <a name="general-media-services-updates"></a>Aggiornamenti generali di Servizi multimediali
 * Sono stati aggiunti alcuni aggiornamenti e nuove funzionalità al processore multimediale di indicizzazione di Azure. Per altre informazioni, vedere le [note sulla versione di Azure Media Indexer versione 1.1.6.7](https://azure.microsoft.com/blog/2014/12/03/azure-media-indexer-version-1-1-6-7-release-notes/).
-* È stata aggiunta una nuova API REST che consente di aggiornare le unità riservate di codifica: [EncodingReservedUnitType con REST](http://msdn.microsoft.com/library/azure/dn859236.aspx).
+* È stata aggiunta una nuova API REST che consente di aggiornare le unità riservate di codifica: [EncodingReservedUnitType con REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype).
 * È stato aggiunto il supporto CORS per il servizio di distribuzione delle chiavi.
 * Sono stati apportati miglioramenti alle prestazioni delle opzioni per i criteri di autorizzazioni delle query.
-* Nel data center cinese l' [URL di distribuzione delle chiavi](http://msdn.microsoft.com/library/azure/ef4dfeeb-48ae-4596-ab28-44d6b36d8769#get_delivery_service_url) viene ora fornito per ogni cliente, come in tutti gli altri data center.
+* Nel data center cinese l' [URL di distribuzione delle chiavi](https://docs.microsoft.com/rest/api/media/operations/contentkey#get_delivery_service_url) viene ora fornito per ogni cliente, come in tutti gli altri data center.
 * È stata aggiunta una durata con destinazione automatica HLS. Quando si esegue lo streaming live, la creazione di pacchetti in HLS avviene sempre in modo dinamico. Per impostazione predefinita, Servizi multimediali calcola automaticamente il rapporto per la creazione di pacchetti dei segmenti HLS (FragmentsPerSegment) in base all'intervallo tra fotogrammi chiave (KeyFrameInterval), noto anche come Group of Pictures (GOP), ricevuti dal codificatore Live. Per altre informazioni, vedere [Uso di Live Streaming di Servizi multimediali di Azure].
 
 ### <a name="media-services-net-sdk-updates"></a>Aggiornamenti dell'SDK di Servizi multimediali per .NET
 * [SDK di Servizi multimediali di Azure per .NET](http://www.nuget.org/packages/windowsazure.mediaservices/) è ora disponibile nella versione 3.1.0.0.
 * La dipendenza dell'SDK per .NET è stata aggiornata a .NET Framework 4.5.
-* È stata aggiunta una nuova API che consente di aggiornare le unità riservate di codifica. Per altre informazioni, vedere [Aggiornamento del tipo di unità riservata e aumento delle unità riservate di codifica](http://msdn.microsoft.com/library/azure/jj129582.aspx).
+* È stata aggiunta una nuova API che consente di aggiornare le unità riservate di codifica. Per altre informazioni, vedere [Aggiornamento del tipo di unità riservata e aumento delle unità riservate di codifica](media-services-dotnet-encoding-units.md).
 * È stato aggiunto il supporto JWT (JSON Web Token) per l'autenticazione dei token. Per altre informazioni, vedere l'articolo relativo all' [autenticazione di token JWT in Servizi multimediali di Azure e alla crittografia dinamica](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 * Nel modello di licenza PlayReady sono stati aggiunti offset relativi per BeginDate e ExpirationDate.
 
 ## <a name="a-idnovemberchanges14anovember-2014-release"></a><a id="november_changes_14"></a>Versione di novembre 2014
-* Servizi multimediali ora consente di inserire contenuti live di Smooth Streaming (FMP4) tramite una connessione SSL. Per l'inserimento tramite SSL, assicurarsi di aggiornare l'URL di inserimento a HTTPS.  Per altre informazioni sullo streaming live, vedere [Uso di Live Streaming di Servizi multimediali di Azure].
+* Servizi multimediali ora consente di inserire contenuti live di Smooth Streaming (FMP4) tramite una connessione SSL. Per l'inserimento tramite SSL, assicurarsi di aggiornare l'URL di inserimento a HTTPS.  Si noti che attualmente AMS non supporta SSL con domini personalizzati.  Per altre informazioni sullo streaming live, vedere [Uso di Live Streaming di Servizi multimediali di Azure].
 * Attualmente non è possibile inserire lo streaming live RTMP tramite una connessione SSL.
-* Lo streaming dei contenuti può essere eseguito anche tramite una connessione SSL. A questo scopo, verificare che gli URL di streaming inizino con HTTPS.
 * Lo streaming tramite SSL è possibile solo se l'endpoint di streaming da cui si inviano i contenuti è stato creato dopo il 10 settembre 2014. Se gli URL di streaming si basano sugli endpoint di streaming creati dopo il 10 settembre, l'URL contiene "streaming.mediaservices.windows.net" (il nuovo formato). Gli URL di streaming contenenti "origin.mediaservices.windows.net" (il vecchio formato) non supportano SSL. Se l'URL è nel vecchio formato e si vuole poter eseguire lo streaming tramite SSL, [creare un nuovo endpoint di streaming](media-services-portal-manage-streaming-endpoints.md). Usare gli URL creati con il nuovo endpoint di streaming per lo streaming dei contenuti tramite SSL.
 
 ## <a name="a-idoctoberchanges14aoctober-2014-release"></a><a id="october_changes_14"></a>Versione di ottobre 2014
@@ -257,7 +266,7 @@ Media Services SDK per .NET è ora alla versione 3.0.0.7.
 
 ### <a name="a-idsept14breakingchangesabreaking-changes"></a><a id="sept_14_breaking_changes"></a>Modifiche di rilievo
 * **Origin** è stata rinominata in [StreamingEndpoint].
-* È stato modificato il comportamento predefinito quando si usa il **portale di Azure classico** per codificare e pubblicare file MP4.
+* È stato modificato il comportamento predefinito quando si usa il **portale di Azure** per codificare e pubblicare file MP4.
 
 Mentre, in precedenza, quando si usava il portale di Azure classico per pubblicare un asset video costituito da un unico file MP4, veniva creato un URL della firma di accesso condiviso (che consentiva di scaricare il video da un'archiviazione BLOB), adesso quando si utilizza il portale di Azure classico per codificare e pubblicare un asset video costituito da un unico file MP4 viene generato un URL che punta a un endpoint di flusso di origine di Servizi multimediali di Azure.  Questa modifica, tuttavia, non riguarda i video MP4 che vengono caricati direttamente in Servizi multimediali e pubblicati senza essere codificati da Servizi multimediali di Azure.
 
@@ -335,7 +344,7 @@ Per altre informazioni su queste modifiche, vedere: [SDK di Servizi multimediali
 Nella versione 3.0.0.3 sono state introdotte le seguenti modifiche:
 
 * Dipendenze dell'archiviazione di Azure aggiornate per usare la versione 3.0.3.0. 
-* Problema relativo alla compatibilità con le versioni precedenti per le versioni 3.0.*.*  risolto. 
+* Problema relativo alla compatibilità con le versioni precedenti per le versioni 3.0.*.* risolto. 
 
 ## <a name="a-iddecemberchanges13adecember-2013-release"></a><a id="december_changes_13"></a>Versione di dicembre 2013
 ### <a name="a-namedec13donnetchangesaazure-media-services-net-sdk-3000"></a><a name="dec_13_donnet_changes"></a>SDK di Servizi multimediali di Azure per .NET versione 3.0.0.0
@@ -492,7 +501,7 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 
 <!--- URLs. --->
 [forum di MSDN sui Servizi multimediali di Azure]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
-[Informazioni di riferimento sull'API REST di Servizi multimediali di Azure]: http://msdn.microsoft.com/library/azure/hh973617.aspx 
+[Informazioni di riferimento sull'API REST di Servizi multimediali di Azure]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
 [Dettagli prezzi dei servizi multimediali]: http://azure.microsoft.com/pricing/details/media-services/
 [Metadati di input]: http://msdn.microsoft.com/library/azure/dn783120.aspx
 [Metadati di output]: http://msdn.microsoft.com/library/azure/dn783217.aspx
@@ -505,7 +514,7 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [Preview features]: http://azure.microsoft.com/services/preview/
 [Panoramica del modello di licenza PlayReady di Servizi multimediali]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [Streaming di contenuto crittografato di archiviazione]: http://msdn.microsoft.com/library/azure/dn783451.aspx
-[Azure Classic Portal]: https://manage.windowsazure.com
+[Azure portal]: https://manage.windowsazure.com
 [Dynamic Packaging]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [blog di Nick Drouin]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protezione di Smooth Streaming e MPEG DASH con PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx
@@ -526,6 +535,6 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

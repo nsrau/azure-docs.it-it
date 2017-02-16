@@ -39,6 +39,6 @@ Dopo avere creato una macchina virtuale, è consigliabile [aggiungere un disco d
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

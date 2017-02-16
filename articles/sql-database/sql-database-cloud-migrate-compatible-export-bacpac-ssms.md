@@ -1,6 +1,7 @@
 ---
-title: Esportare un database SQL Server in un file BACPAC mediante SQL Server Management Studio | Documentazione Microsoft
-description: "Database SQL di Microsoft Azure, migrazione del database, esportazione del database, esportazione del file BACPAC, procedura guidata di esportazione dell’applicazione livello dati"
+title: SSMS - Esportare un database SQL Server in un file BACPAC file (Azure) | Documentazione Microsoft
+description: Questo articolo illustra come esportare un database SQL Server in un file BACPAC usando la procedura guidata di esportazione dell&quot;applicazione livello dati in SQL Server Management Studio.
+keywords: "Database SQL di Microsoft Azure, migrazione del database, esportazione del database, esportazione del file BACPAC, procedura guidata di esportazione dell’applicazione livello dati"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: f6f64479f6ddfda4badb8e826e03369c476d6d1d
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: f0238ac34a4a047bd0286a1a87d2427caf0e06fd
 
 
 ---
@@ -67,6 +68,6 @@ In questo articolo viene illustrato come esportare un database SQL Server in un 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -16,12 +16,12 @@ ms.workload: azure-government
 ms.date: 10/31/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: 722c53f819126791073575da04eded2ec5465764
-ms.openlocfilehash: 9d4ba4eff1c9768a11c18cbf531b252d767bc9f2
+ms.sourcegitcommit: 3e460dd2aaf51ef2ba9840513d236ce313320c80
+ms.openlocfilehash: 39a87bdbef7c532f9e50f1e71e9c12797bc9a33c
 
 
 ---
-# <a name="azure-government-monitoring-management"></a>Monitoraggio e gestione di Azure per enti pubblici
+# <a name="azure-government-monitoring--management"></a>Monitoraggio e gestione di Azure per enti pubblici
 Questo articolo descrive le variazioni ai servizi di monitoraggio e gestione e presenta alcune considerazioni sull'ambiente di Azure per enti pubblici.
 
 ## <a name="automation"></a>Automazione
@@ -44,6 +44,37 @@ Le funzionalità di Backup seguenti non sono attualmente disponibili in Azure pe
 
 * Insieme di credenziali di Azure Resource Manager
 * Gestione tramite il Portale di Azure (è supportato il portale di Azure classico)
+
+Gli URL per Backup sono diversi in Azure per enti pubblici:
+
+## <a name="site-recovery"></a>Site Recovery
+Site Recovery (ASR) è disponibile a livello generale in Azure per enti pubblici.
+
+Per altre informazioni, vedere la [documentazione pubblica su Site Recovery](../site-recovery/site-recovery-overview.md).
+
+### <a name="variations"></a>Varianti
+Le funzionalità di Site Recovery seguenti non sono attualmente disponibili in Azure per enti pubblici:
+
+* Insieme di credenziali per il ripristino sito di Azure Resource Manager
+
+| Site Recovery | Classico | Gestione risorse | 
+| --- | --- | --- |
+| Server fisico/VMware  | GA | Pianificata |
+| Hyper-V | GA | Pianificata |
+| Da sito a sito | GA | Pianificata |
+
+Note: la tabella è applicabile alla Virginia e allo Iowa. 
+
+Gli URL per Azure Site Recovery sono diversi in Azure per enti pubblici:
+
+| Azure Public | Azure Government | Note |
+| --- | --- | --- |
+| *.hypervrecoverymanager.windowsazure.com | *.hypervrecoverymanager.windowsazure.us | Accesso al servizio Site Recovery |
+| *. backup.windowsazure.com  | *.backup.windowsazure.us | Accesso al servizio di protezione |
+| *.blob.core.windows.net | *.blob.core.usgovcloudapi.net | Per l'archiviazione di snapshot di VM |
+| http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | Per scaricare MySQL |
+
+
 
 ## <a name="log-analytics"></a>Log Analytics
 Log Analytics è disponibile a livello generale in Azure per enti pubblici.
@@ -111,6 +142,6 @@ Per informazioni aggiuntive e aggiornamenti, sottoscrivere il <a href="https://b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

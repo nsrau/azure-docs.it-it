@@ -1,28 +1,32 @@
 ---
-title: Linee guida per le sottoscrizioni e gli account | Microsoft Docs
+title: Linee guida per le sottoscrizioni e gli account Azure | Documentazione Microsoft
 description: Informazioni sulle principali linee guida di progettazione e implementazione per le sottoscrizioni e gli account in Azure.
-documentationcenter: ''
+documentationcenter: 
 services: virtual-machines-windows
 author: iainfoulds
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 761fa847-78b0-4078-a33a-d95d198d1029
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 310dc34634f7104ddfc7dfab13f09ab945b53cf4
+ms.openlocfilehash: bfa4f4938a52a7a1b9ebe5ee9efd37198468a0a6
+
 
 ---
-# Linee guida per le sottoscrizioni e gli account
+# <a name="azure-subscription-and-accounts-guidelines"></a>Linee guida per le sottoscrizioni e gli account Azure
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Questo articolo è incentrato sulla comprensione delle modalità di gestione delle sottoscrizioni e degli account mano a mano che si amplia l'ambiente e la base utenti.
 
-## Linee guida per l'implementazione di sottoscrizioni e account
+## <a name="implementation-guidelines-for-subscriptions-and-accounts"></a>Linee guida per l'implementazione di sottoscrizioni e account
 Decisioni:
 
 * Quali sono i set di sottoscrizioni e account necessari per l'hosting dell'infrastruttura o del carico di lavoro IT?
@@ -34,7 +38,7 @@ Attività:
 * Per soddisfare questa gerarchia logica, definire gli account necessari e le sottoscrizioni per ogni account.
 * Creare il set di sottoscrizioni e account usando la convenzione di denominazione scelta.
 
-## Sottoscrizioni e account
+## <a name="subscriptions-and-accounts"></a>Sottoscrizioni e account
 Per usare Azure sono necessarie una o più sottoscrizioni ad Azure. Nell'ambito di tali sottoscrizioni sono presenti risorse come le macchine virtuali o le reti virtuali.
 
 * I clienti aziendali dispongono in genere di una registrazione Enterprise, che è la risorsa più in alto nella gerarchia ed è associata a uno o più account.
@@ -53,13 +57,18 @@ Se in un'area si decide di associare più sottoscrizioni a un determinato gruppo
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
 
-L'organizzazione potrebbe avere un aspetto simile al seguente:
+L'organizzazione potrebbe essere simile all'esempio seguente:
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
 
 Viene fornita la fatturazione dettagliata tramite un file scaricabile, per un singolo account o per tutti gli account di un contratto Enterprise.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Dec16_HO3-->
+
+

@@ -1,5 +1,5 @@
 ---
-title: Usare Gestione dispositivi StorSimple per gestire i volumi sull&quot;array virtuale Microsoft Azure StorSimple | Documentazione Microsoft
+title: Gestire i volumi sull&quot;array virtuale StorSimple | Documentazione Microsoft
 description: Descrive Gestione dispositivi StorSimple e illustra come usare questo servizio per gestire i volumi sull&quot;array virtuale StorSimple.
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 translationtype: Human Translation
-ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
-ms.openlocfilehash: 3aca09cad7551ee89a1bf06999e33618ab8fab79
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: a507bf1866952cb79fa6334fed80c88cd207cd0a
 
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare i volumi sull'array virtuale StorSimple
@@ -142,6 +142,6 @@ Informazioni su come [clonare un volume StorSimple](storsimple-virtual-array-clo
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

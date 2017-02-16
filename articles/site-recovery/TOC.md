@@ -17,8 +17,9 @@
 ### [Mapping di rete (VMM)](site-recovery-network-mapping.md)
 ### [Mapping dell'archiviazione tra siti locali](site-recovery-storage-mapping.md)
 ## Replica
-### [Da VM e server VMWare ai server Azure](site-recovery-vmware-to-azure.md)
-### [Da VM e server VMware a un sito secondario](site-recovery-vmware-to-vmware.md)
+### [Da server fisici e VM VMware ad Azure](site-recovery-vmware-to-azure.md)
+### [Da server fisici e VM VMware al sito secondario](site-recovery-vmware-to-vmware.md)
+### [Da VM VMware con supporto multi-tenant ad Azure tramite il programma CSP](site-recovery-multi-tenant-support-vmware-using-csp.md)
 ### [Da VM Hyper-V ad Azure (con VMM)](site-recovery-vmm-to-azure.md)
 ### [Da VM Hyper-V ad Azure (senza VMM)](site-recovery-hyper-v-site-to-azure.md)
 ### [Da VM Hyper-V a un sito secondario](site-recovery-vmm-to-vmm.md)
@@ -64,6 +65,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

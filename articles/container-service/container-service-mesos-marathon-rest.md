@@ -1,5 +1,5 @@
 ---
-title: Gestione di contenitori del servizio contenitore di Azure tramite l&quot;API REST | Documentazione Microsoft
+title: Gestire un cluster DC/OS di Azure con l&quot;API REST Marathon | Documentazione Microsoft
 description: Distribuire contenitori in un cluster Mesos del servizio contenitore di Azure usando l&quot;API REST di Marathon.
 services: container-service
 documentationcenter: 
@@ -11,18 +11,18 @@ keywords: Docker, Contenitori, Micro-servizi, Mesos, Azure
 ms.assetid: c7175446-4507-4a33-a7a2-63583e5996e3
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 54832afbc9a7bf1d660de3fd898ad5c97715ca5d
-ms.openlocfilehash: a01993eb01b9e05b4848d5a81b841fe10ccae035
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: 0a5f75a085991f8e14d0949e2d13da1072ca6978
 
 
 ---
-# <a name="container-management-through-the-rest-api"></a>Gestione di contenitori tramite l'API REST
+# <a name="dcos-container-management-through-the-marathon-rest-api"></a>Gestione dei contenitori DC/OS tramite l'API REST Marathon
 DC/OS offre un ambiente di distribuzione e ridimensionamento dei carichi di lavoro cluster con l'astrazione dell'hardware sottostante. In DC/OS è disponibile anche un framework che gestisce la pianificazione e l'esecuzione dei carichi di lavoro di calcolo.
 
 Sono disponibili framework per molti dei carichi di lavoro più comuni. Questo documento illustra come creare e ridimensionare la distribuzione di contenitori con Marathon. Prima di eseguire questi esempi, è necessario avere un cluster DC/OS configurato nel servizio contenitore di Azure. È necessaria anche la connettività remota a questo cluster. Per altre informazioni su questi elementi, vedere gli articoli indicati di seguito:
@@ -174,6 +174,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 7b4988ecc1594b5c9fba8554173ccbf167260898
+ms.sourcegitcommit: 5b8b293b5b37365088a3df55581be7b7bf76691c
+ms.openlocfilehash: 7bc3421e00215ca4629ea11811c98e581377b24a
 
 
 ---
@@ -34,7 +34,7 @@ Questo articolo illustra come usare Azure PowerShell con modelli di Resource Man
 > [!TIP]
 > Per informazioni su come eseguire il debug di un errore durante la distribuzione, vedere:
 > 
-> * Leggere l'articolo [View deployment operations with Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md) (Visualizzare le operazioni di distribuzione con Azure PowerShell) per sapere come ottenere informazioni utili per risolvere l'errore
+> * [View deployment operations](resource-manager-deployment-operations.md) (Visualizzare le operazioni di distribuzione) per ottenere informazioni per la risoluzione degli errori
 > * [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md) per informazioni sulla risoluzione degli errori di distribuzione più comuni
 > 
 > 
@@ -104,7 +104,7 @@ Questi comandi permettono di creare un gruppo di risorse e distribuirvi un model
    
      I due esempi precedenti non includono i valori dei parametri. Informazioni sulle opzioni per la trasmissione dei valori dei parametri nella sezione [Parametri](#parameters). Per il momento, viene chiesto di specificare i valori dei parametri con la sintassi seguente:
 
-   ```poweshell  
+   ```powershell  
    cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
    Supply values for the following parameters:
    (Type !? for Help.)
@@ -113,7 +113,7 @@ Questi comandi permettono di creare un gruppo di risorse e distribuirvi un model
      
      Una volta distribuite le risorse, viene visualizzato un riepilogo della distribuzione. Il riepilogo include l'informazione **ProvisioningState**, che indica se la distribuzione ha avuto esito positivo.
 
-   ```poweshell   
+   ```powershell   
    DeploymentName    : ExampleDeployment
    ResourceGroupName : ExampleResourceGroup
    ProvisioningState : Succeeded
@@ -127,7 +127,7 @@ Questi comandi permettono di creare un gruppo di risorse e distribuirvi un model
    New-AzureRmResourceGroupDeployment -Name ExampleDeployment -DeploymentDebugLogLevel All -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate>
    ```
    
-     Per altre informazioni sulla risoluzione dei problemi relativi alle distribuzioni usando il contenuto di debug, vedere [Troubleshooting resource group deployments with Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md) (Risolvere i problemi di distribuzione dei gruppi di risorse con Azure PowerShell).
+     Per altre informazioni sull'uso di questo contenuto di debug per risolvere i problemi relativi alle distribuzioni, vedere [View deployment operations](resource-manager-deployment-operations.md) (Visualizzare le operazioni di distribuzione).
 
 ## <a name="deploy-private-template-with-sas-token"></a>Distribuire il modello privato con token SAS
 È possibile aggiungere i modelli a un account di archiviazione e collegarli durante la distribuzione con un token SAS.
@@ -193,7 +193,7 @@ Per specificare i valori dei parametri sono disponibili le opzioni seguenti:
    
 - Parametri inline. Includere i nomi dei singoli parametri nel cmdlet (ad esempio, **-NomeParametro**).
 
-   ```poweshell   
+   ```powershell   
    New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -myParameterName "parameterValue"
    ```
 - Oggetto parametro. Includere il parametro **-TemplateParameterObject**.
@@ -233,6 +233,6 @@ Tuttavia, quando si usa un file di parametri esterni, non è possibile trasmette
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

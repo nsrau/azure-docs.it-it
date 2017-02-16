@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 11/28/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 564bd1f3095446edf839d0353b92e0df256e1007
+ms.sourcegitcommit: 0866581d6feebc71ed82aa48f6e41a58068af900
+ms.openlocfilehash: 0b8c9f9395f034355c8f10574e750fcf40e870de
 
 
 ---
@@ -33,7 +33,7 @@ Il cluster Apache Spark in Azure HDInsight include Livy, un'interfaccia REST per
 * Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un cluster Apache Spark in HDInsight Linux. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-## <a name="submit-a-batch-job-the-cluster"></a>Inviare un processo batch al cluster
+## <a name="submit-a-batch-job"></a>Inviare un processo batch
 Prima di inviare un processo batch, è necessario caricare il file con estensione jar dell'applicazione nell'archivio del cluster associato al cluster. A tale scopo è possibile usare [**AzCopy**](../storage/storage-use-azcopy.md), un'utilità della riga di comando. Sono disponibili molti altri client da usare per caricare i dati. Altre informazioni in merito sono disponibili in [Caricare dati per processi Hadoop in HDInsight](hdinsight-upload-data.md).
 
     curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches'
@@ -154,6 +154,17 @@ Eseguire i passaggi seguenti.
    
     L'ultima riga dell'output indica che il batch è stato correttamente eliminato. Se si elimina un processo in fase di esecuzione, il processo verrà definitivamente eliminato. Se si elimina un processo completato correttamente o non correttamente, le informazioni sul processo vengono eliminate completamente.
 
+## <a name="using-livy-on-hdinsight-35-spark-clusters"></a>Uso di Livy in cluster Spark di HDInsight 3.5 Spark
+
+Un cluster HDInsight 3.5, per impostazione predefinita, disabilita l'uso di percorsi di file locali per accedere ai file di dati di esempio o a file JAR. Si consiglia di usare invece il percorso `wasb://` per accedere a file JAR o a file di dati di esempio dal cluster. Se si vuole usare un percorso locale, è necessario aggiornare di conseguenza la configurazione di Ambari. A tale scopo, procedere come segue:
+
+1. Passare al portale di Ambari per il cluster. L'interfaccia utente Web di Ambari è disponibile nel cluster HDInsight all'indirizzo https://**NOMECLUSTER**.azurehdidnsight.net, dove NOMECLUSTER è il nome del cluster.
+
+2. Nel riquadro di spostamento sinistro fare clic su **Livy** e quindi su **Configs** (Configurazioni).
+
+3. In **livy-default** aggiungere il nome della proprietà `livy.file.local-dir-whitelist` e impostarne il valore su **"/"**, per consentire l'accesso completo al file system. Se si vuole consentire l'accesso solo a una directory specifica, specificare il percorso di tale directory come valore.
+
+
 ## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Vedere anche
 * [Panoramica: Apache Spark su Azure HDInsight](hdinsight-apache-spark-overview.md)
 
@@ -182,6 +193,6 @@ Eseguire i passaggi seguenti.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

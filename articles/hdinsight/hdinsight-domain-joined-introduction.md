@@ -1,5 +1,5 @@
 ---
-title: Panoramica della sicurezza in HDInsight | Documentazione Microsoft
+title: Sicurezza Hadoop - Cluster HDInsight aggiunti al dominio - Azure | Documentazione Microsoft
 description: Informazioni su...
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,13 @@ ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ff45fa2abc0f77f133491e9ee9695c69a79eea33
+ms.sourcegitcommit: cd57f3a43142b3af3546eafd9749123fadd333c2
+ms.openlocfilehash: 27cb0cda5d836e042e9eca3c053577db0bd8c148
 
 
 ---
-# <a name="an-introduction-to-domain-joined-hdinsight-clusters-preview"></a>Introduzione ai cluster HDInsight aggiunti al dominio (anteprima)
+# <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters-preview"></a>Introduzione alla sicurezza Hadoop con i cluster HDInsight aggiunti al dominio (anteprima)
+
 Fino a questo momento, Azure HDInsight ha supportato solo un unico amministratore locale degli utenti. Questo funzionava bene per i team di applicazioni o i reparti di dimensioni ridotte. Man mano che i carichi di lavoro basati su Hadoop hanno continuato ad affermarsi nel settore aziendale, l'esigenza di funzionalità di livello aziendale come autenticazione basata su active directory, supporto multiutente e controllo degli accessi basato sui ruoli è diventata sempre più importante. Con l'uso di cluster HDInsight aggiunti al dominio, è possibile creare un cluster HDInsight aggiunto a un dominio di Active Directory e configurare un elenco di dipendenti aziendali in grado di autenticarsi tramite Azure Active Directory per accedere al cluster HDInsight. Nessun utente esterno all'azienda può accedere al cluster HDInsight. L'amministratore può configurare il controllo degli accessi basato sui ruoli per la sicurezza di Hive usando [Apache Ranger](http://hortonworks.com/apache/ranger/), limitando così l'accesso ai dati solo ai ruoli interessati. Infine, l'amministratore può controllare l'accesso ai dati da parte dei dipendenti e le eventuali modifiche apportate ai criteri di controllo degli accessi, ottenendo in questo modo un elevato livello di governance delle risorse aziendali.
 
 > [!NOTE]
@@ -57,6 +58,6 @@ La protezione dei dati è importante per soddisfare i requisiti aziendali in ter
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

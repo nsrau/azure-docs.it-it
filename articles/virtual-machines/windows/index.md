@@ -1,9 +1,21 @@
 ---
 layout: LandingPage
 description: Informazioni su come creare macchine virtuali di Windows. La documentazione consente di pianificare, distribuire e gestire un ambiente di elaborazione con macchina virtuale nel cloud.
+title: 'Documentazione di Macchine virtuali di Azure per Windows: esercitazioni e riferimento per le API | Documentazione Microsoft'
+services: virtual-machines
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machines
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 0970a23966dc099fe4d145ddc66f9a73c109e8a1
-ms.openlocfilehash: 1c56e72a39ff0ea47dcda600b61c937691c63dab
+ms.sourcegitcommit: c3b5f79fe9ee312b5f45eff460b43224b9c254fe
+ms.openlocfilehash: 927fb368a7d0e0c7c996a591dfe8536ea3509164
+
 
 ---
 # <a name="windows-virtual-machines-documentation"></a>Documentazione su Macchine virtuali Windows
@@ -141,7 +153,7 @@ Informazioni su come creare macchine virtuali di Windows. Esercitazioni, informa
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/compute">Riferimenti all'API REST di calcolo</a></p>
+                        <p><a href="/rest/api/compute">Informazioni di riferimento sulle API REST di calcolo</a></p>
                     </div>
                 </div>
             </div>
@@ -149,16 +161,10 @@ Informazioni su come creare macchine virtuali di Windows. Esercitazioni, informa
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/windows.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione delle macchine virtuali Windows </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Jan17_HO4-->
 
 

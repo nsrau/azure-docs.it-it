@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
-ms.openlocfilehash: abc2b3a55b1c28f290b1b3e3dfe8ab05ab22ec16
+ms.sourcegitcommit: c0c33506d134db9fc49bd873e9c95063dd2ab845
+ms.openlocfilehash: d5dcdc94490ff46e39ff5894f6d70d5dcb5dd527
 
 
 ---
@@ -50,11 +50,11 @@ Dopo l'installazione dei componenti necessari, viene richiesta la selezione del 
 | Opzione Single Sign-On | Descrizione |
 | --- | --- |
 | Sincronizzazione delle password |Gli utenti possono accedere ai servizi cloud Microsoft, ad esempio Office 365, usando la stessa password specificata nella rete locale. Le password degli utenti vengono sincronizzate in Azure AD come hash della password e l'autenticazione viene eseguita sul cloud. Per altre informazioni, vedere [Sincronizzazione delle password](active-directory-aadconnectsync-implement-password-synchronization.md) . |
-|Autenticazione pass-through (anteprima)|Gli utenti possono accedere ai servizi cloud Microsoft, ad esempio Office 365, usando la stessa password specificata nella rete locale.  La password degli utenti viene passata al controller di Active Directory locale per la convalida. 
+|Autenticazione pass-through (anteprima)|Gli utenti possono accedere ai servizi cloud Microsoft, ad esempio Office 365, usando la stessa password specificata nella rete locale.  La password degli utenti viene passata al controller di Active Directory locale per la convalida.
 | Federazione con ADFS |Gli utenti possono accedere ai servizi cloud Microsoft, ad esempio Office 365, usando la stessa password specificata nella rete locale.  Gli utenti vengono reindirizzati alla rispettiva istanza locale di AD FS per l'accesso e l'autenticazione viene eseguita in locale. |
 | Non configurare |Nessuna funzionalità verrà installata e configurata. Scegliere questa opzione se si dispone già di un server federativo di terze parti o di un'altra soluzione esistente installata. |
 |Abilita Single Sign-On|Questa opzione è disponibile con la sincronizzazione delle password e l'autenticazione pass-through e fornisce un'esperienza di accesso Single Sign-On per gli utenti desktop nella rete aziendale.  Per altre informazioni, vedere [Single Sign-On](active-directory-aadconnect-sso.md) (Accesso Single Sign-On). </br>Nota per i clienti AD FS: questa opzione non è disponibile perché AD FS offre già lo stesso livello di accesso Single Sign-On,</br>se PTA non viene rilasciato contemporaneamente.
-|Opzione Accesso|Questa opzione è disponibile per i clienti con la sincronizzazione delle password e fornisce un'esperienza di accesso Single Sign-On per gli utenti desktop nella rete aziendale.  </br>Per altre informazioni, vedere [Single Sign-On](active-directory-aadconnect-sso.md) (Accesso Single Sign-On). </br>Nota per i clienti AD FS: questa opzione non è disponibile perché AD FS offre già lo stesso livello di accesso Single Sign-On.
+|Opzione Accesso|Questa opzione è disponibile per i clienti con la sincronizzazione delle password e fornisce un'esperienza di accesso Single Sign-On per gli utenti desktop nella rete aziendale.  </br>Per altre informazioni, vedere [Single Sign-On](active-directory-aadconnect-sso.md) (Accesso Single Sign-On). </br>Nota per i clienti AD FS: questa opzione non è disponibile perché AD FS offre già lo stesso livello di accesso Single Sign-On,
 
 
 ### <a name="connect-to-azure-ad"></a>Connettersi ad Azure AD
@@ -95,11 +95,13 @@ Verificare ogni dominio contrassegnato come **Non aggiunto** e **Non verificato*
 
 ### <a name="domain-and-ou-filtering"></a>Filtro unità organizzativa e dominio
 Per impostazione predefinita, vengono sincronizzati tutti i domini e le unità organizzative. Per escludere alcuni domini o unità organizzative dalla sincronizzazione con Azure AD, è possibile deselezionarli.  
-![Filtro unità organizzativa e dominio](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) Questa pagina della procedura guidata configura i filtri basati sul dominio. Per altre informazioni, vedere [Filtro basato su dominio](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering).
+![Filtro unità organizzativa e dominio](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) Questa pagina della procedura guidata configura i filtri basati sul dominio e sull'unità organizzativa. Per altre informazioni, vedere [Domain-based filtering](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) (Filtro basato sul dominio) e [Organizational-unit–based filtering](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) (Filtro basato sull'unità organizzativa). Se si usa il filtro basato sull'unità organizzativa, le nuove unità organizzative aggiunte successivamente verranno sincronizzate per impostazione predefinita. Per far sì che le nuove unità organizzative non vengano sincronizzate, è possibile configurare questo comportamento al termine della procedura guidata con il [filtro basato sull'unità organizzativa](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering).
+
+Se si prevede di usare il [filtro basato sul gruppo](#sync-filtering-based-on-groups), assicurarsi che l'unità organizzativa con il gruppo venga inclusa e non filtrata con il filtro basato sull'unità organizzativa. Il filtro basato sull'unità organizzativa viene valutato prima del filtro basato sul gruppo.
 
 Alcuni domini potrebbero non essere raggiungibili a causa di restrizioni del firewall. Questi domini vengono deselezionati per impostazione predefinita e viene visualizzato un avviso.  
 ![Domini non raggiungibili](./media/active-directory-aadconnect-get-started-custom/unreachable.png)  
- Se viene visualizzato questo avviso, assicurarsi che i domini non siano effettivamente raggiungibili e che l'avviso sia previsto.
+Se viene visualizzato questo avviso, assicurarsi che i domini non siano effettivamente raggiungibili e che l'avviso sia previsto.
 
 ### <a name="uniquely-identifying-your-users"></a>Identificazione univoca degli utenti
 La corrispondenza tra la funzionalità delle foreste consente di definire la modalità di rappresentazione degli utenti delle foreste AD DS in Azure AD. Un utente può essere rappresentato solo una volta in tutte le foreste oppure disporre di una combinazione di account abilitati e disabilitati. In alcune foreste è possibile che l'utente sia rappresentato anche come un contatto.
@@ -148,39 +150,6 @@ Questa schermata consente di selezionare le funzionalità facoltative per gli sc
 | Writeback dispositivi |Consente di eseguire il writeback degli oggetti dispositivo in Azure AD in Active Directory locale per scenari di accesso condizionale. Per altre informazioni, vedere [Abilitazione del writeback dei dispositivi in Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md). |
 | Sincronizzazione attributi estensione della directory |Se si abilita questa opzione, gli attributi specificati vengono sincronizzati in Azure AD. Per altre informazioni, vedere [Estensioni della directory](active-directory-aadconnectsync-feature-directory-extensions.md). |
 
-### <a name="enabling-single-sign-on-sso"></a>Abilitazione di Single Sign-On (SSO)
-La configurazione di Single Sign-On per l'uso con la sincronizzazione delle password e l'autenticazione pass-through è un processo semplice che è necessario eseguire una sola volta per ogni foresta sincronizzata con Azure AD.  La configurazione comporta due passaggi, come indicato di seguito:
-
-1.  La creazione dell'account computer necessario in Active Directory locale.
-2.  La configurazione dell'area Intranet dei computer client per il supporto Single Sign-On.
-
-#### <a name="creating-the-computer-account-in-active-directory"></a>Creazione dell'account computer in Active Directory
-Per ogni foresta aggiunta tramite lo strumento AAD Connect è necessario fornire le credenziali di amministratore del dominio in modo che l'account computer possa essere creato in ogni foresta.  La credenziale viene usata solo per creare l'account e non viene archiviata o usata per qualsiasi altra operazione.  È sufficiente aggiungere le credenziali nella pagina Abilita Single Sign-On della procedura guidata di AAD Connect come illustrato di seguito:
-
-![Abilita Single Sign-On](./media/active-directory-aadconnect-get-started-custom/enablesso.png)
-
->[!NOTE]
->È possibile scegliere di ignorare una foresta specifica se non si vuole usare Single Sign-On con tale foresta.
-
-#### <a name="configure-the-intranet-zone-for-client-machines"></a>Configurare l'area Intranet per i computer client
-Per assicurarsi che il client acceda automaticamente all'area Intranet, è necessario assicurarsi che gli URL facciano parte dell'area Intranet.  In questo modo, il computer desktop aggiunto al dominio invierà automaticamente un ticket Kerberos quando gli URL sono connessi alla rete aziendale.
-In un computer con gli strumenti di gestione dei criteri di gruppo.
-
-1.  Aprire gli strumenti di gestione dei criteri di gruppo
-2.  Modificare i criteri di gruppo che verranno applicati a tutti gli utenti.  Ad esempio, il criterio di dominio predefinito.
-3.  Passare a Utente corrente\Modelli amministrativi\Componenti Windows\Internet Explorer\Pannello di controllo Internet\Scheda Sicurezza e selezionare Elenco di assegnazione siti ad aree, come indicato nell'immagine seguente.
-4.  Abilitare i criteri e immettere i due elementi seguenti nella finestra di dialogo.
-   
-        Value: https://autologon.microsoftazuread-sso.com
-        Data: 1
-        Value: https://aadg.windows.net.nsatc.net 
-        Data: 1
-
-5.  Verrà visualizzata una schermata simile alla seguente: ![Aree Intranet](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
-
-6.  Fare clic su OK due volte.
-
-
 ### <a name="azure-ad-app-and-attribute-filtering"></a>Filtro attributi e app di Azure AD
 Per limitare gli attributi da sincronizzare in Azure AD, selezionare prima di tutto i servizi usati. Se si modifica la configurazione in questa pagina, sarà necessario selezionare esplicitamente un nuovo servizio eseguendo di nuovo l'installazione guidata.
 
@@ -201,6 +170,39 @@ In base ai servizi selezionati nel passaggio precedente, questa pagina visualizz
 ![Estensioni della directory](./media/active-directory-aadconnect-get-started-custom/extension2.png)
 
 Per altre informazioni, vedere [Estensioni della directory](active-directory-aadconnectsync-feature-directory-extensions.md).
+
+### <a name="enabling-single-sign-on-sso"></a>Abilitazione di Single Sign-On (SSO)
+La configurazione di Single Sign-On per l'uso con la sincronizzazione delle password e l'autenticazione pass-through è un processo semplice che è necessario eseguire una sola volta per ogni foresta sincronizzata con Azure AD. La configurazione comporta due passaggi, come indicato di seguito:
+
+1.  Creare l'account computer necessario in Active Directory locale.
+2.  Configurare l'area Intranet dei computer client per il supporto Single Sign-On.
+
+#### <a name="create-the-computer-account-in-active-directory"></a>Creare l'account computer in Active Directory
+Per ogni foresta aggiunta in Azure AD Connect è necessario specificare le credenziali di amministratore del dominio in modo che l'account computer possa essere creato in ogni foresta. Le credenziali vengono usate solo per creare l'account e non vengono archiviate o usate per altre operazioni. È sufficiente aggiungere le credenziali nella pagina **Abilita Single Sign-On** della procedura guidata di Azure AD Connect come illustrato di seguito:
+
+![Abilita Single Sign-On](./media/active-directory-aadconnect-get-started-custom/enablesso.png)
+
+>[!NOTE]
+>È possibile ignorare una foresta specifica se non si vuole usare Single Sign-On con tale foresta.
+
+#### <a name="configure-the-intranet-zone-for-client-machines"></a>Configurare l'area Intranet per i computer client
+Per assicurarsi che il client acceda automaticamente all'area Intranet, è necessario verificare che due URL facciano parte dell'area Intranet. In questo modo, il computer aggiunto al dominio invierà automaticamente un ticket Kerberos ad Azure AD quando è connesso alla rete aziendale.
+In un computer con gli strumenti di gestione dei criteri di gruppo.
+
+1.  Aprire gli strumenti di gestione dei criteri di gruppo
+2.  Modificare i criteri di gruppo che verranno applicati a tutti gli utenti. Ad esempio, il criterio di dominio predefinito.
+3.  Passare a **Configurazione utente\Modelli amministrativi\Componenti Windows\Internet Explorer\Pannello di controllo Internet\Scheda Sicurezza** e selezionare **Elenco di assegnazione siti ad aree**, come indicato nell'immagine seguente.
+4.  Abilitare i criteri e immettere i due elementi seguenti nella finestra di dialogo.
+
+        Value: `https://autologon.microsoftazuread-sso.com`  
+        Data: 1  
+        Value: `https://aadg.windows.net.nsatc.net`  
+        Data: 1
+
+5.  Dovrebbe essere simile a quello riportato di seguito:  
+![Aree Intranet](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
+
+6.  Fare clic su **OK** due volte.
 
 ## <a name="configuring-federation-with-ad-fs"></a>Configurazione della federazione con ADFS
 Configurare ADFS con Azure AD Connect è semplice e richiede l'esecuzione di pochi passaggi. Prima della configurazione, sono necessari gli elementi seguenti.
@@ -310,18 +312,10 @@ Altre informazioni su queste funzionalità che sono state abilitate con l'instal
 
 Altre informazioni su questi argomenti comuni: [utilità di pianificazione e come attivare la sincronizzazione](active-directory-aadconnectsync-feature-scheduler.md).
 
-Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-
-## <a name="related-documentation"></a>documentazione correlata
-| Argomento |
-| --- | --- |
-| Panoramica di Azure AD Connect |
-| Eseguire l'installazione con le Impostazioni rapide |
-| Aggiornamento da DirSync |
-| Account usati per l'installazione |
+Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

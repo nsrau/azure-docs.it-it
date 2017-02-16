@@ -4,7 +4,7 @@ description: Informazioni su come usare il servizio di accodamento di Azure per 
 services: storage
 documentationcenter: nodejs
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: a8a92db0-4333-43dd-a116-28b3147ea401
 ms.service: storage
@@ -12,20 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fbff069ba313437d610dc441d5f85d4ca2d187ed
+ms.sourcegitcommit: 1fea38ed4caacfee0c69d024b1ea6dbdcbccaf1d
+ms.openlocfilehash: 0f558871b2dfc85d2713c3511829dcbf41aea17b
 
 
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Come usare l'archiviazione di accodamento da Node.js
 [!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
+[!INCLUDE [storage-check-out-samples-all](../../includes/storage-check-out-samples-all.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 In questa guida viene illustrato come eseguire scenari comuni del Servizio di accodamento di Microsoft Azure. Gli esempi sono scritti usando l'API Node.js. Gli scenari illustrati includono **inserimento**, **visualizzazione**, **recupero** ed **eliminazione** dei messaggi in coda, oltre alla **creazione ed eliminazione di code**.
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
@@ -333,14 +333,14 @@ queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
-* Visitare il [Blog del team di Archiviazione di Azure][Blog del team di Archiviazione di Azure].
-* Visitare il repository [Azure Storage SDK per Node][Azure Storage SDK per Node] su GitHub.
+* Vedere il [Blog del team di Archiviazione di Azure][Azure Storage Team Blog].
+* Vedere il repository [Azure Storage SDK per Node][Azure Storage SDK for Node] su GitHub.
 
-[Azure Storage SDK per Node]: https://github.com/Azure/azure-storage-node
-[Uso dell'API REST]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Portale di Azure]: https://portal.azure.com
+[Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
+[using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+[Azure Portal]: https://portal.azure.com
 [Creare un'app Web Node.js nel servizio app di Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Servizio cloud Node.js con Archiviazione]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+[Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
 [App Web Node.js con il servizio tabelle di Azure]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
 
 
@@ -349,11 +349,11 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 [quick-create-storage]: ./media/storage-nodejs-how-to-use-queues/quick-storage.png
 
 [Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/06/2016
+ms.date: 01/04/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
-ms.openlocfilehash: 51cebc84593aec8d7c12dd4061b78354f785d153
+ms.sourcegitcommit: ec13e72de7ccebefbaa88309f8248f29b569ef2f
+ms.openlocfilehash: e14b037f962afb803a2271b221e6309c7e8220cd
 
 
 ---
@@ -62,15 +62,8 @@ Ogni livello di servizio e prestazione è associato a limiti e caratteristiche d
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
-Le sezioni successive includono altre informazioni su come visualizzare l'uso correlato a questi limiti.
-
 ### <a name="maximum-in-memory-oltp-storage"></a>Archiviazione di OLTP in memoria massima
 Per monitorare l'uso dell'archiviazione in memoria di Azure è possibile usare la vista **sys.dm_db_resource_stats**. Per altre informazioni sul monitoraggio, vedere [Monitorare l'archiviazione OLTP in memoria](sql-database-in-memory-oltp-monitoring.md).
-
-> [!NOTE]
-> L'anteprima di OLTP (Online Transaction Processing) in memoria di Azure è attualmente supportata solo per i singoli database. Non può essere usata nei database in pool elastici.
-> 
-> 
 
 ### <a name="maximum-concurrent-requests"></a>Numero massimo di richieste simultanee
 Per visualizzare il numero di richieste simultanee, eseguire questa query Transact-SQL sul database SQL:
@@ -445,6 +438,6 @@ Alcune applicazioni di database contengono carichi di lavoro con intensa attivit
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -6,7 +6,6 @@ documentationcenter:
 keywords: configurare Microsoft Passport, distribuzione di Microsoft Windows Hello for Business
 author: MarkusVi
 manager: femila
-editor: 
 tags: azure-classic-portal
 ms.assetid: 7dbbe3c6-1cd7-429c-a9b2-115fcbc02416
 ms.service: active-directory
@@ -14,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 01/10/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -117,6 +116,6 @@ Nella pagina **Registrazione SCEP** del profilo certificato è necessario scegli
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

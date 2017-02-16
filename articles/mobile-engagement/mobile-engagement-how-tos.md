@@ -1,12 +1,12 @@
 ---
 title: Interfaccia utente di Azure Mobile Engagement - Procedure di Reach
-description: Panoramica dell'interfaccia utente di Azure Mobile Engagement
+description: Panoramica dell&quot;interfaccia utente di Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 30af87e6-c816-4cce-8609-6cbd3e83de14
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
+ms.openlocfilehash: ae5a946be74131d52d25e9d7d36c116e707a4be3
+
 
 ---
-# Come iniziare a usare e gestire le notifiche push per raggiungere gli utenti finali
-Dopo l'integrazione completa dell'SDK nell'app, è possibile iniziare a usare la sezione Reach dell'interfaccia utente per inviare notifiche push agli utenti dell'app.
+# <a name="how-to-get-started-using-and-managing-pushes-to-reach-out-to-your-end-users"></a>Come iniziare a usare e gestire le notifiche push per raggiungere gli utenti finali
+Dopo l'integrazione completa dell'SDK nell'app, è possibile iniziare a usare la sezione Reach dell'interfaccia utente per inviare notifiche push agli utenti dell'app.  
 
-## Creare la prima campagna di notifica push
-* Verificare che Reach sia integrato nell'app con l'SDK.
+## <a name="do-your-first-push-notification-campaign"></a>Creare la prima campagna di notifica push
+* Verificare che Reach sia integrato nell'app con l'SDK. 
 * Selezionare l'applicazione.
 
 ![First1][1]
@@ -31,7 +35,8 @@ Dopo l'integrazione completa dell'SDK nell'app, è possibile iniziare a usare la
 
 * Creare una nuova campagna e assegnarle un nome.
   
-  ![First3][3]
+![First3][3]
+
 * Selezionare la modalità di recapito della notifica, ad esempio Solo in-app.
 
 ![First4][4]
@@ -52,7 +57,7 @@ Dopo l'integrazione completa dell'SDK nell'app, è possibile iniziare a usare la
 
 ![First7][7]
 
-## Testare la campagna di notifica push
+## <a name="test-your-push-notification-campaign"></a>Testare la campagna di notifica push
 ![Test1][8]
 
 * Registrare il dispositivo.
@@ -67,22 +72,22 @@ Dopo l'integrazione completa dell'SDK nell'app, è possibile iniziare a usare la
 
 * Ora che la campagna è stata creata, è sufficiente attivarla per effettuare il push della notifica agli utenti.
 
-## Inviare push personalizzati
+## <a name="send-personalized-pushes"></a>Inviare push personalizzati
 * Questo esempio crea un push in cui viene immesso un codice di sconto personalizzato nella notifica push.
 
 ![Personalize1][11]
 
-La personalizzazione viene ottenuta sostituendo un marcatore da un tag app info, quindi sarà necessario assicurarsi che prima siano stati definiti i valori app-info appropriati per l'utente. In questo esempio, per gli utenti di destinazione verrà definito un tag app info denominato rebate\_code. Come si può vedere sopra, il contenuto della notifica push include il marker ${rebate\_code} che indicherà che deve essere sostituito dal contenuto effettivo del tag app info.
+La personalizzazione viene ottenuta sostituendo un marcatore da un tag app info, quindi sarà necessario assicurarsi che prima siano stati definiti i valori app-info appropriati per l'utente. In questo esempio, per gli utenti di destinazione verrà definito un tag app info denominato rebate_code.
+Come si può vedere sopra, il contenuto della notifica push include il marker ${rebate_code} che indicherà che deve essere sostituito dal contenuto effettivo del tag app info.
 
-> Avviso: se il tag app info non è definito per l'utente, quest'ultimo non riceverà la notifica push.
-> 
-> 
+> [!WARNING]
+> se il tag app info non è definito per l'utente, l'utente non riceverà il push.
 
 * Risultato
 
 ![Personalize2][12]
 
-### È possibile personalizzare ulteriormente il testo della notifica
+### <a name="you-can-further-personalize-the-text-your-notification"></a>È possibile personalizzare ulteriormente il testo della notifica
 ![Personalize3][13]
 
 * Includendo il titolo della notifica
@@ -91,67 +96,74 @@ La personalizzazione viene ottenuta sostituendo un marcatore da un tag app info,
 
 ![Personalize4][14]
 
-### Il corpo di un annuncio può anche essere personalizzato con:
+### <a name="the-body-of-an-announcement-may-also-be-personalized-with"></a>Il corpo di un annuncio può anche essere personalizzato con:
 * L'URL di azione, nel caso in cui si voglia personalizzare la pagina di destinazione
 * Il titolo
 * Il corpo del messaggio
 
-## Differenziare la notifica push (all'interno o all'esterno dell'app)
+## <a name="differentiate-your-push-notification-in-or-out-of-app"></a>Differenziare la notifica push (all'interno o all'esterno dell'app)
 * Scegliere il tipo di notifica di cui si effettuerà il push, selezionare l'applicazione, andare alla sezione "Reach", selezionare o creare una campagna push e andare alla sezione "Notifica".
 * Fare clic su "modalità di recapito" desiderata.
 * Fare clic sulla casella di controllo "Limita attività" per inviare la notifica solo quando vengono eseguite attività specifiche (schermate).
 
 ![Differentiate1][15]
 
-### Modalità di recapito "Solo all'esterno dell'app"
+### <a name="out-of-app-only-delivery-mode"></a>Modalità di recapito "Solo all'esterno dell'app"
 ![Differentiate2][16]
 
-La modalità di recapito "Solo all'esterno dell'app" fornisce la notifica push quando l'applicazione è chiusa. Questa è la notifica push standard. Quando si seleziona "Solo all'esterno dell'app", è necessario aver già fornito i certificati dalla piattaforma su cui si basa l'applicazione (servizio APN o GCM).
+La modalità di recapito "Solo all'esterno dell'app" fornisce la notifica push quando l'applicazione è chiusa. Questa è la notifica push standard.
+Quando si seleziona "Solo all'esterno dell'app", è necessario aver già fornito i certificati dalla piattaforma su cui si basa l'applicazione (servizio APN o GCM).
 
-### Vedere anche
-* [Apple Push Notification Service - Certificati](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging - Certificato](http://developer.android.com/google/gcm/index.html)
+### <a name="see-also"></a>Vedere anche
+* [Apple Push Notification Service – Certificates](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9) (Certificati del Servizio notifiche push Apple), Google Cloud Messaging – Certificate (http://developer.android.com/google/gcm/index.html) 
 
-### Modalità di recapito "Solo in-app"
+### <a name="in-app-only-delivery-mode"></a>Modalità di recapito "Solo in-app"
 ![Differentiate3][17]
 
-La modalità di recapito "Solo in-app" fornisce la notifica push quando l'applicazione è in esecuzione. Per questa notifica, non è necessario passare attraverso il servizio APN e il sistema GCM. È possibile usare il sistema di recapito in-app per raggiungere gli utenti finali. È possibile personalizzare completamente la notifica e decidere in quale attività (schermata) visualizzare la notifica.
+La modalità di recapito "Solo in-app" fornisce la notifica push quando l'applicazione è in esecuzione.
+Per questa notifica, non è necessario passare attraverso il servizio APN e il sistema GCM.
+È possibile usare il sistema di recapito in-app per raggiungere gli utenti finali.
+È possibile personalizzare completamente la notifica e decidere in quale attività (schermata) visualizzare la notifica.
 
-### Modalità di recapito "Sempre"
-È possibile scegliere la modalità di recapito "Sempre", che consente di raggiungere l'utente finale indipendentemente dal fatto che l'applicazione sia in esecuzione o meno. Quando si seleziona "Sempre", è necessario aver già fornito i certificati dalla piattaforma su cui si basa l'applicazione (servizio APN o GCM).
+### <a name="anytime-delivery-mode"></a>Modalità di recapito "Sempre"
+È possibile scegliere la modalità di recapito "Sempre", che consente di raggiungere l'utente finale indipendentemente dal fatto che l'applicazione sia in esecuzione o meno.
+Quando si seleziona "Sempre", è necessario aver già fornito i certificati dalla piattaforma su cui si basa l'applicazione (servizio APN o GCM). 
 
-## Pianificare una campagna push
-### Pianificare l'inizio di una campagna
+## <a name="schedule-a-push-campaign"></a>Pianificare una campagna push
+### <a name="plan-to-start-a-campaign"></a>Pianificare l'inizio di una campagna
 ![Shedule1][18]
 
 È il 21 marzo e si vuole diffondere un annuncio alla mezzanotte del 22 marzo. Non è necessario essere davanti all'interfaccia per effettuare un push. È possibile pianificare in anticipo il minuto esatto in cui le notifiche verranno inviate.
 
-* Deselezionare la casella di controllo "Nessuna" e selezionare un'ora di inizio
+* Deselezionare la casella di controllo "Nessuna" e selezionare un'ora di inizio 
 * Scegliere la data e ora in cui avviare la campagna push.
 
-### Pianificare la fine di una campagna
+### <a name="plan-to-end-a-campaign"></a>Pianificare la fine di una campagna
 ![Shedule2][19]
 
-Si vuole interrompere la campagna il 25 marzo alle 15, ma si sa che non si sarà presenti per poterlo fare. Non è necessario essere davanti all'interfaccia per effettuare un push. È possibile pianificare in anticipo il minuto esatto in cui la campagna verrà interrotta.
+Si vuole interrompere la campagna il 25 marzo alle 15, ma si sa che non si sarà presenti per poterlo fare.
+Non è necessario essere davanti all'interfaccia per effettuare un push. È possibile pianificare in anticipo il minuto esatto in cui la campagna verrà interrotta.
 
 * Fare clic sulla casella di controllo "Nessuna" e selezionare un'ora di fine
 * Scegliere la data e ora in cui terminare la campagna push.
 
-### Terminare manualmente una campagna
+### <a name="end-a-campaign-manually"></a>Terminare manualmente una campagna
 ![Shedule3][20]
 
-Per impostazione predefinita, le caselle di controllo "Nessuna" sono selezionate. La campagna inizierà al momento dell'attivazione nella sezione Reach e terminerà quando verrà interrotta in questa stessa sezione.
+Per impostazione predefinita, le caselle di controllo "Nessuna" sono selezionate.
+La campagna inizierà al momento dell'attivazione nella sezione Reach e terminerà quando verrà interrotta in questa stessa sezione.
 
-> Nota: le campagne create senza una data di fine archiviano la notifica push nel dispositivo e consentono di visualizzarla al successivo avvio dell'app, anche se la campagna è stata interrotta manualmente.
-> 
-> 
+> [!NOTE]
+> Le campagne create senza una data di fine memorizzano la notifica push nel dispositivo e consentono di visualizzare al successivo avvio dell'app, anche se la campagna è stata interrotta manualmente.
 
-## Migliorare una notifica push con una visualizzazione testo
-### Cos'è una visualizzazione testo?
+## <a name="enhance-a-push-notification-with-a-text-view"></a>Migliorare una notifica push con una visualizzazione testo
+### <a name="what-is-a-text-view"></a>Cos'è una visualizzazione testo?
 ![TextView1][21]
 
-Una visualizzazione testo è un popup con contenuto testuale. Questo popup viene visualizzato quando l'utente finale fa clic sulla notifica push. Una visualizzazione testo consente di presentare più contenuto all'utente finale. È anche un'opportunità per presentare una chiamata a un'azione, ad esempio il passaggio a una pagina dell'app, il reindirizzamento a un archivio, l'apertura di una pagina Web, l'invio di un messaggio di posta elettronica, l'avvio di una ricerca basata sulla posizione geografica e così via.
+Una visualizzazione testo è un popup con contenuto testuale. Questo popup viene visualizzato quando l'utente finale fa clic sulla notifica push.
+Una visualizzazione testo consente di presentare più contenuto all'utente finale. È anche un'opportunità per presentare una chiamata a un'azione, ad esempio il passaggio a una pagina dell'app, il reindirizzamento a un archivio, l'apertura di una pagina Web, l'invio di un messaggio di posta elettronica, l'avvio di una ricerca basata sulla posizione geografica e così via.
 
-### Esempio: visualizzazione testo
+### <a name="example-text-view"></a>Esempio: visualizzazione testo
 * Creare la campagna di notifica push nella sezione "Reach" e assegnare un nome alla campagna.
 
 ![TextView2][22]
@@ -161,9 +173,8 @@ Una visualizzazione testo è un popup con contenuto testuale. Questo popup viene
 
 ![TextView3][23]
 
-> Nota: quando si effettua il push di una visualizzazione testo, prima viene sempre visualizzata una notifica.
-> 
-> 
+> [!NOTE]
+> Quando si effettua il push di una visualizzazione testo, prima viene sempre visualizzata una notifica. 
 
 * Definire il testo. Dopo aver selezionato il contenuto dell'annuncio di testo, apparirà la sottosezione che consente di definire il testo da visualizzare.
 
@@ -188,13 +199,15 @@ Una visualizzazione testo è un popup con contenuto testuale. Questo popup viene
 * L'utente riceve la notifica e fa clic su di essa.
 * La visualizzazione testo appare come un popup con cui l'utente può interagire.
 
-## Migliorare una notifica push con una visualizzazione Web
-### Cos'è una visualizzazione Web?
+## <a name="enhance-a-push-notification-with-a-web-view"></a>Migliorare una notifica push con una visualizzazione Web
+### <a name="what-is-a-web-view"></a>Cos'è una visualizzazione Web?
 ![WebView1][28]
 
-Una visualizzazione Web è un popup con contenuto Web. Questo popup viene visualizzato quando l'utente finale fa clic sulla notifica push. Una visualizzazione Web consente una maggiore interazione con l'utente finale. È anche un'opportunità per presentare una chiamata a un'azione, ad esempio il reindirizzamento a un archivio di app, l'apertura di una pagina Web, l'invio di un messaggio di posta elettronica, l'avvio di una ricerca basata sulla posizione geografica e così via.
+Una visualizzazione Web è un popup con contenuto Web. Questo popup viene visualizzato quando l'utente finale fa clic sulla notifica push.
+Una visualizzazione Web consente una maggiore interazione con l'utente finale.
+È anche un'opportunità per presentare una chiamata a un'azione, ad esempio il reindirizzamento a un archivio di app, l'apertura di una pagina Web, l'invio di un messaggio di posta elettronica, l'avvio di una ricerca basata sulla posizione geografica e così via.
 
-### Esempio: visualizzazione Web
+### <a name="example-web-view"></a>Esempio: visualizzazione Web
 * Creare la campagna push nella sezione "Reach" e assegnare un nome alla campagna.
 
 ![WebView2][29]
@@ -204,14 +217,14 @@ Una visualizzazione Web è un popup con contenuto Web. Questo popup viene visual
 
 ![WebView3][30]
 
-### Informazioni sui tipi di annuncio:
+### <a name="about-announcement-types"></a>Informazioni sui tipi di annuncio:
 * Solo notifica: una semplice notifica standard. Vale a dire che se un utente fa clic, non apparirà alcuna ulteriore visualizzazione, ma si verificherà semplicemente l'azione associata.
 * Annuncio di testo: una notifica che invita l'utente a esaminare una visualizzazione testo.
-* Annuncio Web: una notifica che invita l'utente a esaminare una visualizzazione Web. Selezionare il contenuto "Annuncio Web".
+* Annuncio Web: una notifica che invita l'utente a esaminare una visualizzazione Web.
+  Selezionare il contenuto "Annuncio Web".
 
-> Nota: quando si effettua il push di una visualizzazione Web, prima viene sempre visualizzata una notifica.
-> 
-> 
+> [!NOTE]
+> quando si effettua il push di una visualizzazione Web, prima viene sempre visualizzata una notifica.
 
 * Definire il contenuto Web. Dopo aver selezionato il contenuto dell'annuncio Web, apparirà la sottosezione che consente di definire il contenuto della visualizzazione Web da visualizzare.
 
@@ -264,39 +277,43 @@ Una visualizzazione Web è un popup con contenuto Web. Questo popup viene visual
 [32]: ./media/mobile-engagement-how-tos/WebView5.png
 
 <!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: ../mobile-engagement-how-tos-first-push.md
-[Link 28]: ../mobile-engagement-how-tos-test-campaign.md
-[Link 29]: ../mobile-engagement-how-tos-personalize-push.md
-[Link 30]: ../mobile-engagement-how-tos-differentiate-push.md
-[Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
-[Link 32]: ../mobile-engagement-how-tos-text-view.md
-[Link 33]: ../mobile-engagement-how-tos-web-view.md
+[Collegamento 1]: mobile-engagement-user-interface.md
+[Collegamento 2]: mobile-engagement-troubleshooting-guide.md
+[Collegamento 3]: mobile-engagement-how-tos.md
+[Collegamento 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Collegamento 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Collegamento 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Collegamento 7]: https://account.windowsazure.com/PreviewFeatures
+[Collegamento 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Collegamento 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Collegamento 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Collegamento 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Collegamento 12]: mobile-engagement-user-interface-navigation.md
+[Collegamento 13]: mobile-engagement-user-interface-home.md
+[Collegamento 14]: mobile-engagement-user-interface-my-account.md
+[Collegamento 15]: mobile-engagement-user-interface-analytics.md
+[Collegamento 16]: mobile-engagement-user-interface-monitor.md
+[Collegamento 17]: mobile-engagement-user-interface-reach.md
+[Collegamento 18]: mobile-engagement-user-interface-segments.md
+[Collegamento 19]: mobile-engagement-user-interface-dashboard.md
+[Collegamento 20]: mobile-engagement-user-interface-settings.md
+[Collegamento 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Collegamento 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Collegamento 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Collegamento 24]: mobile-engagement-troubleshooting-guide-service.md
+[Collegamento 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Collegamento 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Collegamento 27]: ../mobile-engagement-how-tos-first-push.md
+[Collegamento 28]: ../mobile-engagement-how-tos-test-campaign.md
+[Collegamento 29]: ../mobile-engagement-how-tos-personalize-push.md
+[Collegamento 30]: ../mobile-engagement-how-tos-differentiate-push.md
+[Collegamento 31]: ../mobile-engagement-how-tos-schedule-campaign.md
+[Collegamento 32]: ../mobile-engagement-how-tos-text-view.md
+[Collegamento 33]: ../mobile-engagement-how-tos-web-view.md
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

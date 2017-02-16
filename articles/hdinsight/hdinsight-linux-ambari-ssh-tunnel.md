@@ -1,5 +1,5 @@
 ---
-title: Usare il tunneling SSH per accedere all&quot;interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce Web.
+title: Usare il tunneling SSH per accedere ai servizi di Azure HDInsight | Documentazione Microsoft
 description: Informazioni su come utilizzare un tunnel SSH per esplorare in modo sicuro le risorse web ospitate sui nodi HDInsight basati su Linux.
 services: hdinsight
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 10/17/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 446212192829cc55fefe4b1a1954e64e123c2c44
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: d9e6fe3bd2ddd511791b7b34ff8d7875a13417c0
 
 
 ---
@@ -145,6 +145,6 @@ Per altre informazioni sull'uso di SSH con HDInsight, vedere gli articoli seguen
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

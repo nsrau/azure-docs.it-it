@@ -1,6 +1,6 @@
 ---
-title: Guida per gli sviluppatori - Caricamento file | Documentazione Microsoft
-description: Guida per gli sviluppatori dell&quot;hub IoT di Azure - Caricamento di file da un dispositivo all&quot;hub IoT
+title: Informazioni sul caricamento di file dell&quot;hub IoT di Azure | Documentazione Microsoft
+description: "Guida per gli sviluppatori: usare la funzionalità di caricamento di file dell&quot;hub IoT per gestire il caricamento di file da un dispositivo a un contenitore BLOB di archiviazione di Azure."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 69c541a7884d84d1b72c95225e2ad53f666d73af
+ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
+ms.openlocfilehash: c56a568fa003ec45e92279e070e6309763071827
 
 
 ---
-# <a name="upload-files-from-a-device"></a>Caricare file da un dispositivo
+# <a name="file-uploads-with-iot-hub"></a>Caricamenti di file con l'hub IoT
 ## <a name="overview"></a>Panoramica
 Come descritto nell'articolo [IoT Hub endpoints][lnk-endpoints] (Endpoint dell'hub IoT), i dispositivi possono avviare caricamenti di file inviando una notifica tramite un endpoint per dispositivo (**/devices/{deviceId}/files**).  Quando un dispositivo notifica all'hub IoT il completamento di un caricamento, l'hub IoT genera notifiche di caricamento file che possono essere ricevute sotto forma di messaggi tramite un endpoint per servizio (**/messages/servicebound/filenotifications**).
 
@@ -36,7 +36,7 @@ Usare il caricamento di file per inviare file multimediali e batch di telemetria
 Vedere [Device-to-cloud communication guidance][lnk-d2c-guidance] (Indicazioni sulla comunicazione da dispositivo a cloud) in caso di dubbi tra l'uso delle proprietà indicate, dei messaggi da dispositivo a cloud o del caricamento di file.
 
 ## <a name="associate-an-azure-storage-account-with-iot-hub"></a>Associare un account di archiviazione di Azure all'hub IoT
-Per usare la funzionalità di caricamento file, è prima necessario collegare un account di archiviazione di Azure all'hub IoT. Questa operazione può essere eseguita con il [portale di Azure][lnk-management-portal] oppure a livello di codice con le [API REST del provider di risorse dell'hub IoT][lnk-resource-provider-apis]. Dopo l'associazione di un account di archiviazione di Azure all'hub IoT, quando un dispositivo avvia una richiesta di caricamento file il servizio restituisce al dispositivo un URI di firma di accesso condiviso.
+Per usare la funzionalità di caricamento file, è prima necessario collegare un account di archiviazione di Azure all'hub IoT. Questa attività può essere completata nel [portale di Azure][lnk-management-portal] oppure a livello di codice con le [API REST del provider di risorse dell'hub IoT][lnk-resource-provider-apis]. Dopo l'associazione di un account di archiviazione di Azure all'hub IoT, quando un dispositivo avvia una richiesta di caricamento file il servizio restituisce al dispositivo un URI di firma di accesso condiviso.
 
 > [!NOTE]
 > Gli [Azure IoT SDKs][lnk-sdks] (SDK di IoT di Azure) gestiscono automaticamente il recupero dell'URI di firma di accesso condiviso, il caricamento del file e la notifica all'hub IoT del completamento del caricamento.
@@ -52,7 +52,7 @@ L'hub IoT dispone di un endpoint dedicato in modo specifico ai dispositivi che c
 }
 ```
 
-L'hub IoT restituisce il risultato seguente, che il dispositivo usa per caricare il file:
+L'hub IoT restituisce i dati seguenti, usati dal dispositivo per caricare il file:
 
 ```
 {
@@ -84,7 +84,7 @@ Il dispositivo è responsabile del caricamento del file nella risorsa di archivi
 }
 ```
 
-Il valore di `isSuccess` è un valore booleano che indica se il file è stato caricato correttamente oppure no. Il codice di stato per `statusCode` è lo stato per il caricamento del file nell'archiviazione e `statusDescription` corrisponde a `statusCode`.
+Il valore di `isSuccess` è un valore booleano che indica se il file è stato caricato correttamente. Il codice di stato per `statusCode` è lo stato per il caricamento del file nell'archiviazione e `statusDescription` corrisponde a `statusCode`.
 
 ## <a name="reference-topics"></a>Argomenti di riferimento:
 Negli argomenti di riferimento seguenti vengono offerte altre informazioni sul caricamento dei file da un dispositivo.
@@ -103,7 +103,7 @@ Come illustrato nella sezione [Endpoint][lnk-endpoints], , l'hub IoT recapita le
 | LastUpdatedTime |Timestamp che indica quando è stato eseguito l'ultimo aggiornamento del file. |
 | BlobSizeInBytes |Dimensioni del file caricato. |
 
-**Esempio**. Esempio del corpo di un messaggio di notifica di caricamento file:
+**Esempio**. Questo esempio illustra il corpo di un messaggio di notifica di caricamento di un messaggio.
 
 ```
 {
@@ -127,16 +127,16 @@ Ogni hub IoT espone le opzioni di configurazione seguenti per le notifiche di ca
 | **fileNotifications.maxDeliveryCount** |Numero massimo di recapiti per la coda delle notifiche di caricamento file. |Da 1 a 100. Predefinito: 100. |
 
 ## <a name="additional-reference-material"></a>Materiale di riferimento
-Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per sviluppatori:
+Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per gli sviluppatori dell'hub IoT:
 
-* [IoT Hub endpoints][lnk-endpoints] (Endpoint dell'hub IoT) illustra i diversi endpoint esposti da ogni hub IoT per operazioni della fase di esecuzione e di gestione.
+* [Endpoint dell'hub IoT][lnk-endpoints] illustra i diversi endpoint esposti da ogni hub IoT per operazioni della fase di esecuzione e di gestione.
 * [Quote e limitazioni][lnk-quotas] descrive le quote applicabili al servizio Hub IoT e il comportamento di limitazione previsto quando si usa il servizio.
-* [Azure IoT device and service SDKs][lnk-sdks] (Azure IoT SDK per dispositivi e servizi) elenca gli SDK nei diversi linguaggi da usare quando si sviluppano applicazioni per dispositivi e servizi che interagiscono con l'hub IoT.
+* [Azure IoT SDK per dispositivi e servizi][lnk-sdks] elenca gli SDK nei diversi linguaggi che è possibile usare quando si sviluppano app per dispositivi e servizi che interagiscono con l'hub IoT.
 * [Linguaggio di query per dispositivi gemelli e processi][lnk-query] illustra il linguaggio di query dell'hub IoT che è possibile usare per recuperare informazioni dall'hub IoT sui dispositivi gemelli e sui processi.
 * [Supporto di MQTT nell'hub IoT][lnk-devguide-mqtt] offre altre informazioni sul supporto dell'hub IoT per il protocollo MQTT.
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione si è appreso come caricare i file dai dispositivi tramite l'hub IoT. Altri argomenti di interesse reperibili nella Guida per sviluppatori:
+In questa esercitazione si è appreso come caricare i file dai dispositivi con l'hub IoT. Altri argomenti di interesse reperibili nella Guida per gli sviluppatori dell'hub IoT:
 
 * [Gestire le identità dei dispositivi nell'hub IoT][lnk-devguide-identities]
 * [Controllare l'accesso all'hub IoT][lnk-devguide-security]
@@ -171,6 +171,6 @@ Per provare alcuni dei concetti descritti in questo articolo, può essere utile 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -111,6 +111,6 @@ Per informazioni su metodi di campionamento più avanzati disponibili in Hive, v
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

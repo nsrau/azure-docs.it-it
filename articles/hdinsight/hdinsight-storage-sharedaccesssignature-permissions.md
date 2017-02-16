@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7f2e5bbd2516c0f697084a802d6963c3d1023914
+ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
+ms.openlocfilehash: 6187106a9aa98107d89e65fe4c7a0e8a27befa87
 
 
 ---
@@ -32,6 +32,10 @@ Le firme di accesso condiviso sono una funzionalità degli account di archiviazi
   * Visual Studio versione 2013 o 2015.
   * Python versione 2.7 o successiva.
 * Un cluster HDInsight basato su Linux OPPURE [Azure PowerShell][powershell]. Se è disponibile un cluster basato su Linux esistente, è possibile usare Ambari per aggiungere una firma di accesso condiviso al cluster. In caso contrario, è possibile usare Azure PowerShell per creare un nuovo cluster e aggiungere una firma di accesso condiviso durante la creazione del cluster.
+
+    > [!IMPORTANT]
+    > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * I file di esempio da [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Questo repository contiene:
   
   * Un progetto di Visual Studio che può creare un contenitore di archiviazione, i criteri archiviati e la firma di accesso condiviso da usare con HDInsight.
@@ -127,8 +131,8 @@ La directory `CreateCluster` del repository include un esempio di creazione di u
     Ad esempio, sostituire `'mycluster'` con il nome del cluster che si vuole creare. I valori della firma di accesso condiviso devono corrispondere ai valori usati nei passaggi precedenti durante la creazione di un token dell'account di archiviazione e della firma di accesso condiviso.
    
     Dopo aver modificato i valori, salvare il file.
-2. Aprire un nuovo prompt dei comandi di Azure PowerShell. Se non si ha familiarità con Azure PowerShell o non è stato installato, vedere [Come installare e configurare Azure PowerShell][powershell].
-3. Dal prompt dei comandi, usare quanto riportato di seguito per eseguire l'autenticazione alla sottoscrizione di Azure:
+2. Aprire un nuovo prompt dei comandi di Azure PowerShell. Se non si ha familiarità con Azure PowerShell o non è stato installato, vedere [Install and configure Azure PowerShell][powershell] (Installare e configurare Azure PowerShell).
+3. Dal prompt dei comandi usare quanto riportato di seguito per eseguire l'autenticazione alla sottoscrizione di Azure:
    
         Login-AzureRmAccount
    
@@ -249,10 +253,10 @@ Ora che si è appreso come aggiungere risorse di archiviazione ad accesso limita
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-[powershell]: ../powershell-install-configure.md
+[powershell]: /powershell/azureps-cmdlets-docs
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Routing dipendente dei dati | Documentazione Microsoft
-description: "Come usare la classe ShardMapManager nelle app .NET per il routing basato sui dati, una funzionalità dei database elastici per il Database SQL di Azure"
+title: Routing dipendente dai dati con il database SQL di Azure | Documentazione Microsoft
+description: "Come usare la classe ShardMapManager nelle app .NET per il routing dipendente dai dati, una funzionalità dei database partizionati del database SQL di Azure"
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c77996b8dfa0c2ad9785e42758278a621a52c93c
+ms.sourcegitcommit: 5024e5edbfaaf9b070f66e6b009bc6085de3fa7e
+ms.openlocfilehash: b0f700bd742e1a69245711ff7f87d7f35535b3ab
 
 
 ---
@@ -90,7 +90,7 @@ Una procedura consigliata nello sviluppo di applicazioni di accesso ai dati nel 
 
 La gestione degli errori temporanei può coesistere naturalmente con il modello di routing dipendente dai dati. Il requisito principale consiste nel ripetere l'intera richiesta di accesso ai dati, incluso il blocco **using** che ha ottenuto la connessione di routing dipendente dai dati. L'esempio precedente potrebbe essere riscritto come riportato di seguito (notare la modifica evidenziata). 
 
-### <a name="example--data-dependent-routing-with-transient-fault-handling"></a>Esempio: routing dipendente dai dati con gestione degli errori temporanei
+### <a name="example---data-dependent-routing-with-transient-fault-handling"></a>Esempio: routing dipendente dai dati con gestione degli errori temporanei
 <pre><code>int customerId = 12345; 
 int newPersonId = 4321; 
 
@@ -130,6 +130,6 @@ Per disconnettere o riconnettere una partizione, vedere [Uso della classe Recove
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -2,8 +2,8 @@
 layout: LandingPage
 description: Informazioni su come configurare e gestire una connessione ExpressRoute privata ai servizi cloud di Microsoft dall&quot;infrastruttura locale o dall&quot;impianto di colocazione.
 translationtype: Human Translation
-ms.sourcegitcommit: e8ae00040354ca800d893bc3d73ec96fc9356b39
-ms.openlocfilehash: f27eeb74d07064c616e1a77200b56a7aee154f48
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: ecb42e7a0abc5a0438bff39bddddac25d005eb77
 
 ---
 #<a name="expressroute-documentation"></a>Documentazione di ExpressRoute
@@ -90,7 +90,7 @@ Informazioni su come usare ExpressRoute per configurare una connessione rapida e
                     <div class="cardText">
                         <h3>REST</h3>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt586720">Informazioni di riferimento sulle API REST</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn606310">Versione classica delle informazioni di riferimento sulle API REST</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn606310">Informazioni di riferimento sulle API REST (versione classica)</a></p>
                     </div>
                 </div>
             </div>
@@ -98,13 +98,7 @@ Informazioni su come usare ExpressRoute per configurare una connessione rapida e
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/expressroute.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione di ExpressRoute </div>
-    </a>
-</div>
+
 
 
 

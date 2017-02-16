@@ -1,6 +1,6 @@
 ---
-title: Architettura della sicurezza IoT | Documentazione Microsoft
-description: Considerazioni e indicazioni sull&quot;architettura di sicurezza IoT
+title: Architettura di sicurezza Azure IoT | Documentazione Microsoft
+description: Linee guida e considerazioni sull&quot;architettura di sicurezza IoT, inclusa la modellazione delle minacce.
 services: iot-hub
 documentationcenter: 
 author: YuriDio
@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 10/17/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e0f47e9badfc2b8b95a44b8baf38a0ae6574e39c
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 9327750b35476fd2a6eca379061a06842daf8d47
 
 
 ---
 [!INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]
 
 ## <a name="see-also"></a>Vedere anche
-Per altre informazioni sulla protezione della soluzione IoT, vedere [Proteggere la distribuzione IoT][lnk-security-deployment].
+Per altre informazioni sulla protezione della soluzione IoT, vedere [Proteggere la distribuzione di IoT][lnk-security-deployment]
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
@@ -35,6 +35,6 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

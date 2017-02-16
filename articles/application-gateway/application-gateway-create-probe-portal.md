@@ -1,5 +1,5 @@
 ---
-title: Creare un probe personalizzato per un gateway applicazione con il portale | Documentazione Microsoft
+title: Creare un probe personalizzato - Gateway applicazione di Azure - Portale di Azure | Documentazione Microsoft
 description: Informazioni su come creare un probe personalizzato per un gateway applicazione usando il portale
 services: application-gateway
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: aaf13418331f29287399621cb911e4b9f5b33dc0
-ms.openlocfilehash: 0fafaff220dfb5d224bc5b57b630f8b2912155f7
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 14b715013b4154a1fa079c0dc470e675d7cf4c1f
 
 
 ---
@@ -97,6 +97,6 @@ Per informazioni su come configurare l'offload SSL con un gateway applicazione d
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

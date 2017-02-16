@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4bbd6f0033fd148832e56d0e0abef50c84a8422f
+ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
+ms.openlocfilehash: 9c5f3c36cc317a4e3700610799872d35c05d386f
 
 
 ---
@@ -26,10 +26,10 @@ ms.openlocfilehash: 4bbd6f0033fd148832e56d0e0abef50c84a8422f
 
 I dump dell'heap includono uno snapshot della memoria dell'applicazione, ad esempio i valori delle variabili al momento della creazione del dump. Si rivelano quindi molto utili per diagnosticare i problemi che si verificano in fase di esecuzione.
 
-> [!NOTE]
-> Le informazioni contenute in questo articolo si applicano solo a HDInsight basato su Linux. Per informazioni su HDInsight basato su Windows, vedere [Abilitare i dump dell'heap per i servizi Hadoop in HDInsight basato su Windows](hdinsight-hadoop-collect-debug-heap-dumps.md)
-> 
-> 
+
+
+> [!IMPORTANT]
+> I passaggi descritti in questo documento funzionano solo con i cluster HDInsight che usano Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="a-namewhichservicesaservices"></a><a name="whichServices"></a>Services
 È possibile abilitare dump dell'heap per i servizi seguenti:
@@ -62,7 +62,7 @@ L'opzione seguente abilita il dump dell'heap quando si verifica un OutOfMemoryEr
 
     -XX:+HeapDumpOnOutOfMemoryError
 
- **+** indica che l'opzione è abilitata. L'impostazione predefinita è disabilitata.
+**+** indica che l'opzione è abilitata. L'impostazione predefinita è disabilitata.
 
 > [!WARNING]
 > I dump dell'heap non sono abilitati per i servizi Hadoop in HDInsight per impostazione predefinita, perché i file di dump possono essere di grandi dimensioni. Se li si abilita per la risoluzione dei problemi, ricordarsi di disabilitarli dopo aver riprodotto il problema e raccolto i file di dump.
@@ -134,6 +134,6 @@ Per modificare la configurazione di un servizio, attenersi alla procedura seguen
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

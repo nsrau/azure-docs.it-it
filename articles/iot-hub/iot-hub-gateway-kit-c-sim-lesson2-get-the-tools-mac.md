@@ -1,5 +1,5 @@
 ---
-title: Preparare il computer Mac e l&quot;hub IoT di Azure | Documentazione Microsoft
+title: 'Dispositivo simulato e gateway Azure IoT: lezione 2: Ottenere gli strumenti (macOS) | Documentazione Microsoft'
 description: Installare gli strumenti nel computer Mac, creare un hub IoT e registrare il dispositivo nell&quot;hub IoT.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: f3bed8620c13372c3af50657bb54aa8dce115529
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 8b79b166fb16d6454fde46996e715779bf19eac7
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: f3bed8620c13372c3af50657bb54aa8dce115529
 
 ## <a name="what-you-will-do"></a>Contenuto dell'esercitazione
 
-- Installare Git, Node.js, Gulp, Python.
+- Installare Git, Node.js, Gulp e Python.
 - Installare l'interfaccia della riga di comando di Azure. 
 
 In caso di problemi, cercare le soluzioni nella pagina sulla [risoluzione dei problemi](iot-hub-gateway-kit-c-sim-troubleshooting.md).
@@ -45,11 +45,11 @@ In questa lezione si apprenderà:
   - La versione minima richiesta di Node.js è 4.5 LTS.
   - NPM è uno degli strumenti di gestione pacchetti per Node.js.
 - Come installare Visual Studio Code.
-  - Visual Studio Code è un editor di codice sorgente multipiattaforma leggero e potente per Windows, Linux e macOS. Dispone di un elevato supporto per funzionalità quali debug, controllo Git incorporato, evidenziazione della sintassi, completamento di codice intelligente, frammenti di codice e refactoring del codice.
+  - Visual Studio Code è un editor di codice sorgente multipiattaforma leggero ma potente per Windows, Linux e macOS. Offre un eccellente supporto per il debug, il controllo di Git incorporato, l'evidenziazione della sintassi, il completamento intelligente del codice, i frammenti e il refactoring del codice.
 - Come installare Python.
   - Python è un linguaggio di programmazione dinamico, interpretato, generico e di alto livello molto diffuso.
 - Come installare l'interfaccia della riga di comando di Azure.
-  - L'interfaccia della riga di comando di Azure offre un'esperienza di riga di comando multipiattaforma per Azure. Si opera direttamente dalla riga di comando per il provisioning e la gestione delle risorse.
+  - L'interfaccia della riga di comando di Azure offre un'esperienza di riga di comando multipiattaforma per Azure. Il provisioning e la gestione delle risorse vengono eseguiti direttamente dalla riga di comando.
 - Come usare l'interfaccia della riga di comando di Azure per creare un hub IoT.
 
 ## <a name="what-you-need"></a>Elementi necessari
@@ -77,7 +77,7 @@ Per installare Git e Node.js, usare l'utilità di gestione pacchetti Homebrew at
 
 ## <a name="install-nodejs-development-tools"></a>Installare gli strumenti di sviluppo Node.js
 
-Usare [gulp.js](http://gulpjs.com/) per automatizzare la distribuzione e l'esecuzione degli script.
+Usare [gulp.js](http://gulpjs.com/) per automatizzare la distribuzione e l'esecuzione di script.
 
 Per installare gulp, eseguire questo comando nel terminale:
 
@@ -85,7 +85,7 @@ Per installare gulp, eseguire questo comando nel terminale:
 npm install -g gulp
 ```
 
-Se si verificano problemi con l'installazione, vedere la [Guida alla risoluzione dei problemi](iot-hub-gateway-kit-c-sim-troubleshooting.md) per soluzioni ai problemi più comuni.
+Se si verificano problemi nell'installazione, vedere la [guida alla risoluzione dei problemi](iot-hub-gateway-kit-c-sim-troubleshooting.md) per le soluzioni alle problematiche comuni.
 
 > [!Note]
 > Node, NPM e Gulp sono necessari per eseguire gli script di automazione sviluppati in Node.js.
@@ -121,7 +121,7 @@ Per installare l'interfaccia della riga di comando di Azure, seguire questi pass
 
 ## <a name="install-visual-studio-code"></a>Installare Visual Studio Code
 
-Più avanti nell'esercitazione si userà Visual Studio Code per modificare i file di configurazione.
+Visual Studio Code verrà usato più avanti nell'esercitazione per modificare i file di configurazione.
 
 [Scaricare](https://code.visualstudio.com/docs/setup/osx) e installare Visual Studio Code.
 
@@ -134,6 +134,6 @@ Più avanti nell'esercitazione si userà Visual Studio Code per modificare i fil
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

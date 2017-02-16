@@ -4,7 +4,7 @@ description: Informazioni su come creare un gateway applicazione con il firewall
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: b561a210-ed99-4ab4-be06-b49215e3255a
@@ -13,21 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 216b3890cde6f41c33aa34f23d7e103322d9b502
+ms.sourcegitcommit: 1506729fb346a8a67930a5a2cd4c15f375c52e3f
+ms.openlocfilehash: ce8143823f7a33cc9d88cdb7f6f2ce72ff5330b9
 
 
 ---
+
 # <a name="create-an-application-gateway-with-web-application-firewall-by-using-the-portal"></a>Creare un gateway applicazione con il firewall applicazione Web tramite il portale
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](application-gateway-web-application-firewall-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-web-application-firewall-powershell.md)
-> 
-> 
 
 Il firewall applicazione Web (WAF) nel gateway applicazione di Azure protegge le applicazioni Web dai comuni attacchi basati sul Web, come ad esempio gli attacchi SQL injection, gli attacchi di scripting intersito e il controllo delle sessioni. L'applicazione Web protegge da molte delle 10 vulnerabilità Web OWASP più diffuse.
 
@@ -47,8 +46,6 @@ Nel secondo scenario si apprenderà come [creare un gateway applicazione con il 
 
 > [!NOTE]
 > La configurazione aggiuntiva del gateway applicazione, che include i probe di integrità personalizzati, gli indirizzi del pool back-end e le regole aggiuntive, viene definita dopo la configurazione del gateway applicazione e non durante la distribuzione iniziale.
-> 
-> 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -79,8 +76,6 @@ Di seguito vengono elencate le impostazioni per aggiornare un gateway applicazio
 
 > [!NOTE]
 > Per visualizzare i log del firewall applicazione Web, è necessario abilitare la diagnostica e selezionare ApplicationGatewayFirewallLog. A scopo di test si può scegliere 1 come numero di istanze. È importante sapere che un numero di istanze inferiore a due non è coperto dal contratto di servizio e non è quindi consigliabile. Con il firewall applicazione Web non è possibile usare gateway di piccole dimensioni.
-> 
-> 
 
 ## <a name="create-an-application-gateway-with-web-application-firewall"></a>creare un gateway applicazione con il firewall applicazione Web
 
@@ -114,8 +109,6 @@ Per le impostazioni di base sono necessarie le informazioni seguenti.
 
 > [!NOTE]
 > A scopo di test si può scegliere 1 come numero di istanze. È importante sapere che un numero di istanze inferiore a due non è coperto dal contratto di servizio e non è quindi consigliabile. I gateway di piccole dimensioni non sono supportati negli scenari di firewall applicazione Web.
-> 
-> 
 
 ### <a name="step-3"></a>Passaggio 3
 
@@ -212,6 +205,6 @@ Per informazioni su come configurare l'offload SSL ed evitare costose attività 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

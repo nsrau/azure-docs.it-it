@@ -1,19 +1,23 @@
 ---
-title: Usare un servizio Web di Machine Learning | Microsoft Docs
-description: Dopo la pubblicazione di un servizio di Machine Learning, può essere usato il servizio Web RESTFul che viene reso disponibile come servizio di richiesta-risposta o come un servizio di esecuzione del batch.
+title: Usare un servizio Web di Machine Learning | Documentazione Microsoft
+description: "Dopo la pubblicazione di un servizio di Machine Learning, può essere usato il servizio Web RESTFul che viene reso disponibile come servizio di richiesta-risposta o come un servizio di esecuzione del batch."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
 ms.service: machine-learning
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/04/2016
+ms.date: 01/05/2017
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: ecb2ab00b56476b4373fa06cb766384cb2fcd514
+ms.openlocfilehash: fceb4254461bd91fd2da8603af4fefa47def72e8
+
 
 ---
 # <a name="how-to-consume-an-azure-machine-learning-web-service-that-has-been-deployed-from-a-machine-learning-experiment"></a>Come usare un servizio Web di Azure Machine Learning pubblicato da un esperimento di Machine Learning
@@ -24,7 +28,7 @@ Questi servizi possono essere chiamati con qualsiasi linguaggio di programmazion
 
 * Dispone di una connessione di rete
 * Dispone di funzionalità di SSL per eseguire le richieste HTTPS
-* Può analizzare JSON (dalle librerie disponibili o supporto)
+* Consente di analizzare JSON (direttamente o con librerie di supporto)
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -34,14 +38,9 @@ Un servizio Web di Azure Machine Learning può essere usato in due modi, come un
 > Per informazioni su un modo semplice per creare un'app Web per l'accesso al servizio Web predittivo, vedere l'articolo relativo all'[uso di un servizio Web di Azure Machine Learning con un modello di app Web](machine-learning-consume-web-service-with-web-app-template.md).
 > 
 > 
+> Per informazioni su come creare e distribuire un servizio Web di Azure Machine Learning, vedere [Distribuire un servizio Web di Azure Machine Learning Web][publish]. Per una procedura dettagliata di creazione e pubblicazione di un esperimento di Machine Learning, vedere [Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning][walkthrough].
 
-<!-- When this article gets published, fix the link and uncomment
-For more information on how to manage Azure Machine Learning Web service endpoints using the REST API, see **Azure machine learning Web service endpoints**.
--->
-
-Per informazioni su come creare e pubblicare un servizio Web di Azure Machine Learning, vedere [Pubblicare un servizio Web di Azure Machine Learning][pubblica]. Per una procedura dettagliata di creazione e pubblicazione di un esperimento di Machine Learning, vedere [Sviluppare una soluzione predittiva mediante Azure Machine Learning][].
-
-## <a name="requestresponse-service-rrs"></a>Servizio di richiesta-risposta (RRS)
+## <a name="request-response-service-rrs"></a>Servizio di richiesta-risposta (RRS)
 Un servizio di richiesta-risposta (RRS) è un servizio Web a bassa latenza e altamente scalabile usato per fornire un'interfaccia ai modelli senza stato,creati e pubblicati da un esperimento Azure Machine Learning Studio. In questo modo abilita scenari in cui l'applicazione del consumo attende una risposta in tempo reale.
 
 RRS accetta una singola riga o più righe di parametri di input e può generare una singola riga o più righe come output. La riga di output può contenere più colonne.
@@ -68,7 +67,7 @@ Il modo in cui si ottengono queste informazioni dipende dal tipo di servizio dis
 ### <a name="information-location-in-the-azure-machine-learning-web-services-portal"></a>Posizione delle informazioni nel portale dei servizi Web di Azure Machine Learning
 Per trovare le informazioni necessarie:
 
-1. Accedere al portale dei [servizi Web di Azure Machine Learning][webservicesportal].
+1. Accedere al [portale dei servizi Web di Azure Machine Learning][webservicesportal].
 2. Fare clic su **Servizi Web** o **Servizi Web classici**.
 3. Fare clic sul servizio Web con cui si lavora. 
 4. Se si usa un servizio Web classico, fare clic sull'endpoint in uso.
@@ -98,7 +97,7 @@ Per accedere alla pagina della guida dell'API, fare clic sul collegamento **RICH
 
 Per trovare le informazioni necessarie nel portale dei servizi Web di Azure Machine Learning:
 
-1. Accedere al portale dei [servizi Web di Azure Machine Learning][webservicesportal].
+1. Accedere al [portale dei servizi Web di Azure Machine Learning][webservicesportal].
 2. Fare clic su **Servizi Web classici**.
 3. Fare clic sul servizio Web in uso. 
 4. Fare clic sull'endpoint in uso.
@@ -244,11 +243,11 @@ Il codice di esempio seguente mostra come costruire una richiesta di API REST in
 
     /**
      * Download full code from github - [https://github.com/nk773/AzureML_RRSApp](https://github.com/nk773/AzureML_RRSApp)
-     */
+      */
         /**
-          * Call REST API for retrieving prediction from Azure ML 
-          * @return response from the REST API
-          */    
+           * Call REST API for retrieving prediction from Azure ML 
+           * @return response from the REST API
+           */    
         public static String rrsHttpPost() {
 
             HttpPost post;
@@ -415,7 +414,7 @@ Il seguente esempio di codice illustra come inviare e monitorare un processo bat
         class Program
         {
             static void Main(string[] args)
-            {               
+            {                
                 InvokeBatchExecutionService().Wait();
             }
 
@@ -530,7 +529,7 @@ Come mostrato nell'esempio di seguito, l'API REST del servizio di esecuzione bat
         "Inputs": { "input1": { "ConnectionString":     "DefaultEndpointsProtocol=https;
             AccountName=myAcctName; AccountKey=Q8kkieg==", 
             "RelativeLocation": "myContainer/sampleinput.csv" } }, 
-        "Outputs": { "output1": { "ConnectionString":   "DefaultEndpointsProtocol=https;
+        "Outputs": { "output1": { "ConnectionString":     "DefaultEndpointsProtocol=https;
             AccountName=myAcctName; AccountKey=kjC12xQ8kkieg==", 
             "RelativeLocation": "myContainer/sampleoutput.csv" } } 
     } 
@@ -541,7 +540,7 @@ Come mostrato nell'esempio di seguito, l'API REST del servizio di esecuzione bat
          * Call REST API to create a job to Azure ML 
          * for batch predictions
          * @return response from the REST API
-         */ 
+         */    
         public static String besCreateJob() {
 
             HttpPost post;
@@ -590,7 +589,7 @@ Come mostrato nell'esempio di seguito, l'API REST del servizio di esecuzione bat
          * 
          * @param job job to be started 
          * @return response from the REST API
-         */ 
+         */    
         public static String besStartJob(String job){
             HttpPost post;
             HttpClient client;
@@ -630,7 +629,7 @@ Come mostrato nell'esempio di seguito, l'API REST del servizio di esecuzione bat
          * 
          * @param job job to be started 
          * @return response from the REST API
-         */ 
+         */    
         public static String besCancelJob(String job) {
             HttpDelete post;
             HttpClient client;
@@ -725,14 +724,15 @@ A questo punto è possibile usare uno qualsiasi degli strumenti Swagger. Di segu
 
 <!-- Relative Links -->
 
-[pubblica]: machine-learning-publish-a-machine-learning-web-service.md
-[procedura dettagliata]: machine-learning-walkthrough-develop-predictive-solution.md
+[publish]: machine-learning-publish-a-machine-learning-web-service.md
+[walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
 <!-- External Links -->
 [webservicesportal]: https://services.azureml.net/
 [mlstudio]: https://studio.azureml.net
 
 
-<!---HONumber=Oct16_HO2-->
+
+<!--HONumber=Jan17_HO2-->
 
 

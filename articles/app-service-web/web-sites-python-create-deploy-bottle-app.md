@@ -360,6 +360,6 @@ Per informazioni sull'uso di Archiviazione tabelle di Azure e MongoDB:
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

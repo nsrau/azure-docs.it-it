@@ -1,10 +1,10 @@
 ---
-title: Messaggi Syslog in Log Analytics | Microsoft Docs
+title: Raccogliere e analizzare messaggi Syslog in Log Analytics di OMS | Documentazione Microsoft
 description: "Syslog è un protocollo di registrazione di eventi comunemente usato in Linux.   Questo articolo descrive come configurare una raccolta di messaggi Syslog in Log Analytics e illustra i dettagli dei record creati nel repository OMS."
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/09/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 724567b853bec19cb41ef6a78b7d25a665830897
+ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
+ms.openlocfilehash: 6e92a79c0b7ea35f110c779922255d6ddc93ed7c
 
 
 ---
@@ -77,7 +77,7 @@ Il file di configurazione per rsyslog si trova in **/etc/rsyslog.d/95-omsagent.c
 
 
 #### <a name="syslog-ng"></a>syslog-ng
-Il file di configurazione per rsyslog si trova in **/etc/syslog-ng/syslog-ng.conf**.  I contenuti predefiniti sono visualizzati di seguito.  Questo daemon raccoglie i messaggi syslog inviati dall'agente locale per tutte le funzionalità e tutti i livelli di gravità.   
+Il file di configurazione per syslog-ng si trova in **/etc/syslog-ng/syslog-ng.conf**.  I contenuti predefiniti sono visualizzati di seguito.  Questo daemon raccoglie i messaggi syslog inviati dall'agente locale per tutte le funzionalità e tutti i livelli di gravità.   
 
     #
     # Warnings (except iptables) in one file:
@@ -182,6 +182,6 @@ La tabella seguente mostra alcuni esempi di query di log che recuperano i record
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

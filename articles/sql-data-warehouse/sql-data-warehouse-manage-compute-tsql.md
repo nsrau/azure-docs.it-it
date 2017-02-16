@@ -1,5 +1,5 @@
 ---
-title: Gestire la potenza di calcolo in Azure SQL Data Warehouse (REST) | Documentazione Microsoft
+title: Sospendere, riprendere e ridimensionare con T-SQL in Azure SQL Data Warehouse | Documentazione Microsoft
 description: "Attività di Transact-SQL (T-SQL) per scalare orizzontalmente le prestazioni cambiando il numero delle DWU. Risparmiare sui costi eseguendo una scalabilità orizzontale durante le ore non di punta."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 41ab1c4b2709c2ea6890ca526db1dea177b7da1b
+ms.sourcegitcommit: f589111d3a4da061e1cc3313632dd0b5403dc278
+ms.openlocfilehash: f93e5802141b16862f5e37126196069bd32c1f19
 
 
 ---
@@ -29,17 +29,6 @@ ms.openlocfilehash: 41ab1c4b2709c2ea6890ca526db1dea177b7da1b
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 > 
 > 
-
-Ridimensionare le prestazioni tramite la scalabilità orizzontale delle risorse di calcolo e della memoria per soddisfare le diverse esigenze del carico di lavoro. Risparmiare sui costi ridimensionando le risorse durante le ore non di punta o sospendendo completamente il calcolo. 
-
-Questo gruppo di attività usa T-SQL per:
-
-* Visualizzare le impostazioni DWU correnti
-* Modificare le risorse di calcolo cambiando il numero di DWU
-
-Per sospendere o riprendere un database, scegliere una delle altre opzioni di piattaforma nella parte superiore di questo articolo.
-
-Per altre informazioni, vedere la [Panoramica sulla gestione della potenza di calcolo][Panoramica sulla gestione della potenza di calcolo].
 
 <a name="current-dwu-bk"></a>
 
@@ -69,7 +58,7 @@ FROM
 Per modificare le DWU:
 
 1. Connettersi al database master associato al server di database SQL logico.
-2. Usare l'istruzione TSQL [ALTER DATABASE][ALTER DATABASE]. L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000 per il database MySQLDW. 
+2. Usare l'istruzione T-SQL [ALTER DATABASE][ALTER DATABASE]. L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000 per il database MySQLDW. 
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -80,14 +69,14 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 <a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre attività di gestione, vedere la [Panoramica della gestione][Panoramica della gestione].
+Per altre attività di gestione, vedere [Panoramica della gestione][Management overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Limiti di capacità del servizio]: ./sql-data-warehouse-service-capacity-limits.md
-[Panoramica della gestione]: ./sql-data-warehouse-overview-manage.md
-[Panoramica sulla gestione della potenza di calcolo]: ./sql-data-warehouse-manage-compute-overview.md
+[Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
+[Management overview]: ./sql-data-warehouse-overview-manage.md
+[Manage compute power overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 
@@ -96,10 +85,10 @@ Per altre attività di gestione, vedere la [Panoramica della gestione][Panoramic
 
 <!--Other Web references-->
 
-[Portale di Azure]: http://portal.azure.com/
+[Azure portal]: http://portal.azure.com/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

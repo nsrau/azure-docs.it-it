@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9be3e2ac6f3ad8ec395c41e2c91379a5d44e29c0
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 6f51f0585dfc75d28da72d1056ef7173c06b24fd
 
 
 ---
@@ -128,7 +128,7 @@ Eseguire il mapping dei dati aggiungendo un mapping di tipo elenco per ogni tena
     -SqlDatabaseName '<shard_database_name>' 
 
 ### <a name="option-2-map-the-data-for-a-range-mapping"></a>Opzione 2: eseguire il mapping dei dati per il mapping di tipo intervallo
-Aggiungere il mapping di tipo intervallo per tutte le associazioni intervallo ID tenant – database:
+Aggiungere il mapping di tipo intervallo per tutte le associazioni intervallo ID tenant - database:
 
     # Create the mappings and associate it with the new shards 
     Add-RangeMapping 
@@ -174,6 +174,6 @@ Se ci sono domande, è possibile visitare il [forum sul database SQL](http://soc
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

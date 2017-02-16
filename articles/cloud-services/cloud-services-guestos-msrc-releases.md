@@ -4,7 +4,7 @@ description: Elenco di aggiornamenti applicati alle versioni del sistema operati
 services: cloud-services
 documentationcenter: na
 author: raiye
-manager: markkie
+manager: timlt
 editor: 
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
@@ -12,16 +12,63 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/31/2016
+ms.date: 1/10/2017
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
+ms.sourcegitcommit: e579c7fd4547a88c6356c77a220b5f9e1a07e542
+ms.openlocfilehash: deafae1c6f77a655d80ee7bafd220c5b624018bd
 
 
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
-La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamento vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## <a name="january-guest-os"></a>Sistema operativo guest di gennaio
+| ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+| MS17-004 | [3216771] |Aggiornamento della sicurezza per Local Security Authority Subsystem Service |2.59 |10 gennaio 2017 |
+
+## <a name="december-guest-os"></a>Sistema operativo guest di dicembre
+| ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+| MS16-144 |[3204059] |Aggiornamento cumulativo della sicurezza per Internet Explorer |2.58, 3.46, 4.39 |13 dicembre 2016 |
+| MS16-145 |[3204062] |Aggiornamento cumulativo della sicurezza per Microsoft Edge |5.4 |13 dicembre 2016 |
+| MS16-146 |[3204066]   |Aggiornamento della sicurezza per il componente grafico Microsoft|2.58, 3.46, 4.39, 5.4 |13 dicembre 2016 |
+| MS16-147 |[3204063]   |Aggiornamento della sicurezza per Microsoft Uniscribe|2.58, 3.46, 4.39, 5.4 |13 dicembre 2016 |
+| MS16-149 |[3205655]   |Aggiornamento della sicurezza per Microsoft Windows|2.58, 3.46, 4.39, 5.4 |13 dicembre 2016 |
+| MS16-150 |[3205642]   |Aggiornamento della sicurezza per la modalità kernel sicura |5.4 |13 dicembre 2016 |
+| MS16-151 |[3205651]   |Aggiornamento della sicurezza per i driver in modalità kernel|2.58, 3.46, 4.39, 5.4 |13 dicembre 2016 |
+| MS16-152 |[3199709]   |Aggiornamento della sicurezza per kernel Windows |5.4 |13 dicembre 2016 |
+| MS16-153 |[3207328] |Aggiornamento della sicurezza per i driver di Common Log File System|2.58, 3.46, 4.39, 5.4 |13 dicembre 2016 |
+| MS16-155 |[3205640]   |Aggiornamento della sicurezza per .NET Framework |5.4 |13 dicembre 2016 |
+| N/D |[3197868] |Rollup di qualità mensile per la sicurezza di novembre 2016 per Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.58 |13 dicembre 2016 |
+| N/D |[3197877] |Rollup di qualità mensile per la sicurezza di novembre 2016 per Windows Server 2012 |3,46 |13 dicembre 2016 |
+| N/D |[3197874] |Rollup di qualità mensile per la sicurezza di novembre 2016 mensile per Windows 8.1 e Windows Server 2012 R2 |4.39 |13 dicembre 2016 |
+
+## <a name="november-guest-os"></a>Sistema operativo guest di novembre
+| ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+| MS16-129 |[3199057] |Aggiornamento cumulativo della sicurezza per Microsoft Edge |5.3 |8 novembre 2016 |
+| MS16-130 |[3199172] |Aggiornamento della sicurezza per Microsoft Windows |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
+| MS16-131 |[3199151]   |Aggiornamento della sicurezza per il controllo video Microsoft |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
+| MS16-132 |[3199120] |Aggiornamento della sicurezza per componenti Microsoft |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
+| MS16-134 |[3193706] |Aggiornamento della sicurezza per i driver di Common Log File System |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
+| MS16-135 |[3199135] |Aggiornamento della sicurezza per i driver in modalità kernel |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
+| MS16-137 |[3199173]   |Aggiornamento della sicurezza per i metodi di autenticazione di Windows |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
+| MS16-138 |[3199647] |Aggiornamento della sicurezza per l'unità disco rigido virtuale Microsoft |5.3, 4.38, 3.45 |8 novembre 2016 |
+| MS16-139 |[3199720] |Aggiornamento della sicurezza per kernel Windows |2.57 |8 novembre 2016 |
+| MS16-140 |[3193479] |Aggiornamento della sicurezza per Boot Manager |5.3, 4.38, 3.45 |8 novembre 2016 |
+| MS16-142 |[3198467] |Aggiornamento cumulativo della sicurezza per Internet Explorer |2.57, 4.38, 5.3 |8 novembre 2016 |
+| N/D |[3192321] |La Turchia termina l'osservanza dell'ora legale |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
+| N/D |[3185330] |Rollup di qualità mensile per la sicurezza di ottobre 2016 per Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.57 |8 novembre 2016 |
+| N/D |[3192403] |Anteprima del rollup di qualità mensile di ottobre 2016 per Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.57 |8 novembre 2016 |
+| N/D |[3177467] |Aggiornamento stack di manutenzione per Windows 7 SP1 e Windows Server 2008 R2 SP1 - 20 settembre 2016 |2.57 |8 novembre 2016 |
+| N/D |[3185332] |Rollup di qualità mensile per la sicurezza di ottobre 2016 per Windows Server 2012 |3.45 |8 novembre 2016 |
+| N/D |[3192406] |Anteprima del rollup di qualità mensile di ottobre 2016 per Windows Server 2012 |3.45 |8 novembre 2016 |
+| N/D |[3185331] |Rollup di qualità mensile per la sicurezza di ottobre 2016 mensile per Windows 8.1 e Windows Server 2012 R2 |4.38 |8 novembre 2016 |
+| N/D |[3192404] |Anteprima del rollup di qualità mensile di ottobre 2016 per Windows 8.1 e Windows Server 2012 R2 |4.38 |8 novembre 2016 |
+| N/D |[3199986] |Aggiornamento stack di manutenzione per Windows 10 versione 1607 - 27 ottobre 2016 |5.3 |8 novembre 2016 |
+| N/D |[3197954] |Aggiornamento cumulativo per Windows 10 versione 1607 e Windows Server 2016 - 27 ottobre 2016 |5.3 |8 novembre 2016 |
 
 ## <a name="october-guest-os"></a>Sistema operativo guest di ottobre
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -280,7 +327,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS15-052 |[3050514] |La vulnerabilità nel kernel di Windows potrebbe consentire il bypass della funzionalità di sicurezza |4.20, 3.27, 2.39 |12 maggio 2015 |
 | MS15-053 |[3057263] |Le vulnerabilità nel motore di script JScript e VBScript potrebbero consentire il bypass della funzionalità di sicurezza |4.20, 3.27, 2.39 |12 maggio 2015 |
 | MS15-054 |[3051768] |La vulnerabilità nel formato file di Microsoft Management Console potrebbe consentire un attacco Denial of Service |4.20, 3.27, 2.39 |12 maggio 2015 |
-| MS15-055 |[3061518] |Una vulnerabilità in Schannel potrebbe consentire il bypass della funzionalità di sicurezza e situazioni di Information Discosure, ovvero la divulgazioni delle informazioni importanti |4.20, 3.27, 2.39 |12 maggio 2015 |
+| MS15-055 |[3061518] |Una vulnerabilità in Schannel potrebbe consentire il bypass della funzionalità di sicurezza e situazioni di Information Disclosure, ovvero la divulgazioni delle informazioni importanti |4.20, 3.27, 2.39 |12 maggio 2015 |
 | MS15-032 |[3038314] |Aggiornamento cumulativo della sicurezza per Internet Explorer |4.20, 3.27, 2.39 |17 aprile 2015 |
 | MS15-035 |[3046306] |La vulnerabilità nel componente grafico Microsoft potrebbe consentire l'esecuzione di codice in modalità remota |4.20, 3.27, 2.39 |17 aprile 2015 |
 | MS15-037 |[3046269] |La vulnerabilità nell’utilità di pianificazione attività di Windows potrebbe consentire l'elevazione dei privilegi |4.20, 3.27, 2.39 |17 aprile 2015 |
@@ -356,6 +403,44 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[3007054] |L'opzione di stampa protetta da PIN viene sempre visualizzata quando si stampa un documento in un'applicazione di Windows Store in Windows |4.15, 3.22, 2.34 |13 gennaio 2015 |
 | N/D |[2999802] |In Windows vengono stampate linee a tinta unita invece che linee tratteggiate |4.15, 3.22, 2.34 |13 gennaio 2015 |
 | N/D |[2896881] |È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows |4.15, 3.22, 2.34 |13 gennaio 2015 |
+
+[3216771]: https://technet.microsoft.com/library/security/MS17-004
+
+[3204059]: http://support.microsoft.com/kb/3204059 
+[3204062]: http://support.microsoft.com/kb/3204062 
+[3204066]: http://support.microsoft.com/kb/3204066 
+[3204063]: http://support.microsoft.com/kb/3204063 
+[3205655]: http://support.microsoft.com/kb/3205655 
+[3205642]: http://support.microsoft.com/kb/3205642 
+[3205651]: http://support.microsoft.com/kb/3205651 
+[3199709]: http://support.microsoft.com/kb/3199709 
+[3207328]: http://support.microsoft.com/kb/3207328 
+[3205640]: http://support.microsoft.com/kb/3205640 
+[3197868]: http://support.microsoft.com/kb/3197868 
+[3197877]: http://support.microsoft.com/kb/3197877 
+[3197874]: http://support.microsoft.com/kb/3197874 
+
+[3199057]: http://support.microsoft.com/kb/3199057 
+[3199172]: http://support.microsoft.com/kb/3199172 
+[3199151]: http://support.microsoft.com/kb/3199151 
+[3193706]: http://support.microsoft.com/kb/3193706 
+[3199120]: http://support.microsoft.com/kb/3199120 
+[3199135]: http://support.microsoft.com/kb/3199135 
+[3199173]: http://support.microsoft.com/kb/3199173 
+[3199647]: http://support.microsoft.com/kb/3199647 
+[3199720]: http://support.microsoft.com/kb/3199720 
+[3193479]: http://support.microsoft.com/kb/3193479 
+[3198467]: http://support.microsoft.com/kb/3198467 
+[3192321]: http://support.microsoft.com/kb/3192321 
+[3185330]: http://support.microsoft.com/kb/3185330 
+[3192403]: http://support.microsoft.com/kb/3192403 
+[3177467]: http://support.microsoft.com/kb/3177467 
+[3185332]: http://support.microsoft.com/kb/3185332 
+[3192406]: http://support.microsoft.com/kb/3192406 
+[3185331]: http://support.microsoft.com/kb/3185331 
+[3192404]: http://support.microsoft.com/kb/3192404 
+[3199986]: http://support.microsoft.com/kb/3199986 
+[3197954]: http://support.microsoft.com/kb/3197954  
 
 [3192887]: http://support.microsoft.com/kb/3192887
 [3192884]: http://support.microsoft.com/kb/3192884
@@ -631,11 +716,11 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 
 
 
-[archiviazione]: https://msdn.microsoft.com/library/azure/dn391773.aspx
+[archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-explanation
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

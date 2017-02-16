@@ -1,12 +1,12 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con UserEcho | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e UserEcho.
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e UserEcho.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: bedd916b-8f69-4b50-9b8d-56f4ee3bd3ed
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a59878b0cb6f33af27f5008faf828cd4eb0eb537
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-userecho"></a>Esercitazione: Integrazione di Azure Active Directory con UserEcho
+# <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Esercitazione: Integrazione di Azure Active Directory con UserEcho
 Questa esercitazione descrive l'integrazione di UserEcho con Azure Active Directory (Azure AD).  
 L'integrazione di UserEcho con Azure AD offre i vantaggi seguenti: 
 
@@ -277,6 +281,6 @@ Quando si fa clic sul riquadro UserEcho nel pannello di accesso, si dovrebbe acc
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

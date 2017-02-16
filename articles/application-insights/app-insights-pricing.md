@@ -1,5 +1,5 @@
 ---
-title: "Gestire volumi di dati e funzionalità per Application Insights | Microsoft Docs"
+title: Gestire volumi di dati e prezzi per Application Insights | Microsoft Docs
 description: Gestire volumi di dati di telemetria e monitorare i costi in Application Insights.
 services: application-insights
 documentationcenter: 
@@ -11,34 +11,83 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 01/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 3fdb050d1d6746313b2dffb089d56b71908335d2
-ms.openlocfilehash: 585e493b2642b3ba798977528f7564674a44d738
+ms.sourcegitcommit: 47c3491b067d5e112db589672b68e7cfc7cbe921
+ms.openlocfilehash: b1691d78e4914bd5cf9c75e32f36afceb997a622
 
 
 ---
-# <a name="manage-features-and-data-volume-in-application-insights"></a>Gestire volumi di dati e funzionalità in Application Insights
+# <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gestire volumi di dati e prezzi in Application Insights
 
 
-I prezzi per [Azure Application Insights][start] dipendono dal volume di dati per ogni applicazione. Un basso uso durante lo sviluppo o per un'app di piccole dimensioni è probabilmente gratis, dal momento che è previsto l'uso gratuito dei dati di telemetria per un mese.
+I prezzi per [Azure Application Insights][start] dipendono dal volume di dati per ogni applicazione. Un basso uso durante lo sviluppo o per un'app di piccole dimensioni è probabilmente gratis, dal momento che è previsto l'uso di 1 GB di dati di telemetria per un mese.
 
 Ogni risorsa di Application Insights viene addebitata come servizio separato e contribuisce alla fatturazione per la sottoscrizione di Azure.
 
 Esistono due piani tariffari. Il piano predefinito è denominato Basic. È possibile scegliere il piano Enterprise, che non prevede una tariffa giornaliera ma consente alcune funzionalità aggiuntive, ad esempio l'[esportazione continua](app-insights-export-telemetry.md).
 
-[Vedere la pagina relativa ai prezzi][pricing].
+Per domande sulla determinazione dei prezzi per Application Insights, puoi pubblicare una domanda nel nostro [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights). 
 
-## <a name="review-pricing-plan-for-your-application-insights-resource"></a>Esaminare il piano tariffario per la propria risorsa di Application Insights
+## <a name="the-pricing-plans"></a>Piani tariffari
+
+Vedere la [pagina sui prezzi di Application Insights][pricing] per i prezzi correnti nella valuta locale.
+
+### <a name="basic-plan"></a>Piano Basic
+
+Il piano Basic è la scelta predefinita quando viene creata una nuova risorsa di Application Insight ed è sufficiente per la maggior parte dei clienti.
+
+* Nel piano Basic vengono applicati addebiti in base al volume dei dati: il numero di byte dei dati di telemetria ricevuti da Application Insights. Il volume di dati viene misurato come le dimensioni del pacchetto di dati JSON non compresso inviato dall'applicazione e ricevuto da Application Insights.
+* Il primo GB per ciascuna applicazione è gratuito. Pertanto se si usa lo strumento per prova o per sviluppo, probabilmente non si incorrerà in addebiti.
+* Sempre nel piano Basic, con un addebito extra per GB è possibile usare connettori [Esportazione continua](app-insights-export-telemetry.md) e [Log Analytics](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409). Tuttavia gli stessi saranno gratuiti fino ai primi giorni di marzo 2017.
+
+### <a name="enterprise-plan"></a>Piano Enterprise
+
+* Nel piano Enterprise, l'app può usare tutte le funzionalità di Application Insights. Il piano Enterprise include connettori [Esportazione continua](app-insights-export-telemetry.md) e [Log Analytics](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) senza costi aggiuntivi.
+* Si paga per ogni nodo che invii dati di telemetria per le app nel piano Enterprise. 
+ * Un *nodo* è una macchina server fisica o virtuale oppure un'istanza del ruolo PaaS (piattaforma distribuita come servizio) che ospita l'app.
+ * Computer di sviluppo, browser client e dispositivi mobili non sono conteggiati come nodi.
+ * Se l'app dispone di diversi componenti che inviano dati di telemetria, ad esempio un servizio Web e un lavoro back-end, questi vengono conteggiati separatamente.
+* In una sottoscrizione, gli addebiti si applicano per nodo, non per app. Se si dispone di cinque nodi che inviano dati di telemetria per 12 app, l'addebito sarà per cinque nodi.
+* Sebbene gli addebiti siano fatturati mensilmente, quelli effettivi hanno luogo solo nelle ore durante le quali un nodo invia dati di telemetria da un'app. La tariffa oraria è la tariffa mensile fatturata divisa per 744 (il numero di ore in un mese di 31 giorni).
+* Viene fornita un'allocazione di volume di dati di 200 MB al giorno per ciascun nodo rilevato (con granularità oraria). L'allocazione di dati non usata non viene trasferita al giorno successivo.
+ * Scegliendo l'opzione di prezzo Enterprise, ciascuna sottoscrizione ottiene una quantità di dati giornaliera inclusa in base al numero di nodi che inviano dati di telemetria alle risorse di Application Insights in quella sottoscrizione. Se si dispone quindi di 5 nodi che inviano dati tutto il giorno, sarà applicata una quantità inclusa di 1 GB a tutte le risorse di Application Insights in quella sottoscrizione. Non è importante se determinati nodi inviano più dati di altri, perché i dati inclusi vengono condivisi tra tutti i nodi. Se un determinato giorno le risorse di Application Insights ricevono più dati di quelli inclusi nell'allocazione giornaliera per la sottoscrizione, si applicheranno gli addebiti di dati in eccedenza per GB. 
+ * La quantità di dati giornaliera viene calcolata come numero di ore del giorno (fuso orario UTC) in cui ogni nodo invia dati di telemetria, diviso per 24 e moltiplicato per 200 MB. Se si dispone di 4 nodi che inviano dati di telemetria per 15 ore su 24 durante un giorno, i dati inclusi per tale giorno saranno ((4 x 15) / 24) x 200 MB = 500 MB. Al prezzo di USD 2,30 per GB di eccedenza di dati, l'addebito sarà di 1,15 GB supponendo che i nodi quel giorno inviino 1 GB di dati.
+ * La quantità giornaliera del piano Enterprise non viene condivisa con le applicazioni per cui è stata scelta l'opzione Basic. Inoltre, eventuali quantità non usate in un determinato giorno non vengono accumulate. 
+* Di seguito sono riportati alcuni esempi di determinazione di un conteggio di nodi specifico:
+| Scenario                               | Conteggio giornaliero totale dei nodi |
+|:---------------------------------------|:----------------:|
+| 1 applicazione usa 3 istanze del Servizio app di Azure e 1 server virtuale | 4 |
+| 3 applicazioni in esecuzione su 2 macchine virtuali. Le risorse di Application Insights per queste applicazioni si trovano nella stessa sottoscrizione e nello stesso piano Enterprise | 2 | 
+| 4 applicazioni le cui risorse di Application Insights si trovano nella stessa sottoscrizione. Ogni applicazione esegue 2 istanze durante 16 ore di scarso traffico e 4 istanze durante 8 ore di traffico intenso. | 13.33 | 
+| Servizi cloud con ruolo di lavoro 1 e 1 ruolo Web, ognuno dei quali esegue 2 istanze | 4 | 
+| Cluster Service Fabric a 5 nodi che esegue 50 microservizi. Ciascun microservizio esegue 3 istanze | 5|
+
+* Il comportamento preciso del conteggio dei nodi dipende dall'SDK di ApplicationInsight usato dall'applicazione. 
+  * Nelle versioni SDK 2.2 e successive, sia [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) che [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) di Application Insights possono riportare ciascun host applicazione come nodo, ad esempio il nome del computer per gli host server fisici e le macchine virtuali o il nome dell'istanza in caso di servizi cloud.  L'unica eccezione è data dalle applicazioni che usano solo [.NET Core](https://dotnet.github.io/) e Core SDK di Application Insights. In questo caso, verrà riportato un solo nodo per tutti gli host poiché il nome host non è disponibile. 
+  * Per le versioni precedenti di SDK, [Web SDK}(https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) avrà lo stesso comportamento delle nuove versioni, tuttavia [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) riporterà solamente un nodo a prescindere dal numero effettivo degli host applicazione. 
+  * Si noti che se l'applicazione usa SDK per impostare roleInstance su un valore personalizzato, per impostazione predefinita verrà usato quello stesso valore per determinare il conteggio dei nodi. 
+  * Se si usa una nuova versione di SDK con un'app eseguita da computer client o dispositivi mobili, è possibile che il conteggio dei nodi restituisca un numero molto elevato (per via del numero elevato di computer client o dispositivi mobili). 
+
+### <a name="multi-step-web-tests"></a>Test Web in più passaggi
+
+È prevista una tariffa aggiuntiva per i [test Web in più passaggi](app-insights-monitor-web-app-availability.md#multi-step-web-tests). Quanto scritto si riferisce ai test Web che eseguono una sequenza di azioni. 
+
+Non è prevista una tariffa separata per le "verifiche ping" di una singola pagina. I dati di telemetria delle verifiche ping e delle verifiche in più fasi incorrono in costi insieme agli altri dati di telemetria provenienti dall'app.
+
+## <a name="review-pricing-plan-and-estimate-costs-for-your-application-insights-resource"></a>Esaminare il piano tariffario e i costi stimati per la propria risorsa di Application Insights
 Aprire il pannello Funzionalità e prezzi nella risorsa di Application Insights per l'applicazione.
 
 ![Scegliere Prezzi.](./media/app-insights-pricing/01-pricing.png)
 
-1. Esaminare il volume di dati per il mese. Sono inclusi tutti i dati ricevuti e conservati (dopo qualsiasi [campionamento](app-insights-sampling.md)) da server e app client e dai test di disponibilità.
-2. I costi per i [test Web in più passaggi](app-insights-monitor-web-app-availability.md#multi-step-web-tests) vengono addebitati separatamente. Non sono inclusi i test di disponibilità semplici, il cui costo viene addebitato con il volume di dati.
-3. Abilitare le funzionalità aggiuntive fornite dal piano Enterprise. Questo piano non prevede dati gratis.
-4. Fare clic sulle opzioni di gestione dei dati per impostare un limite giornaliero o il campionamento per inserimento.
+**a.** Esaminare il volume di dati per il mese. Sono inclusi tutti i dati ricevuti e conservati (dopo qualsiasi [campionamento](app-insights-sampling.md)) da server e app client e dai test di disponibilità.
+
+**b.** I costi per i [test Web in più passaggi](app-insights-monitor-web-app-availability.md#multi-step-web-tests) vengono addebitati separatamente. Non sono inclusi i test di disponibilità semplici, il cui costo viene addebitato con il volume di dati.
+
+**c.** Abilitare il piano Enterprise.
+
+**d.** Fare clic sulle opzioni di gestione dei dati per visualizzare i volumi di dati dell'ultimo mese e per impostare un limite giornaliero o il campionamento per inserimento.
 
 Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure. È possibile visualizzare i dettagli della fattura Azure nella sezione Fatturazione del portale di Azure oppure nel [portale di fatturazione di Azure](https://account.windowsazure.com/Subscriptions). 
 
@@ -47,17 +96,12 @@ Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure
 ## <a name="data-rate"></a>Velocità dati
 Esistono tre modi per limitare il volume di invio dei dati:
 
-* Impostazione di un limite giornaliero. Per impostazione predefinita è 100 GB al giorno. Quando l'app raggiunge il limite, viene inviata un'e-mail e viene impedito l'uso di dati fino alla fine della giornata. Per modificarlo, accedere al pannello Data Volume Management (Gestione volume dati).
-* [Campionamento](app-insights-sampling.md). Questo meccanismo può ridurre la quantità di dati di telemetria inviati da server e app client, con una distorsione minima delle metriche.
-* Limitazione della quantità di dati al minuto. Per il piano tariffario Basic, il limite è di 200 punti dati al secondo in base a una media calcolata su 5 minuti; per piani Enterprise è di 500 punti dati al secondo in base a una media calcolata su 1 minuto. 
+* **Limite giornaliero.** Per impostazione predefinita è 500 GB al giorno. Quando l'app raggiunge il limite, viene inviata un'e-mail e viene impedito l'uso di dati fino alla fine della giornata. È possibile modificarlo nel pannello Data Volume Management (Gestione volume dati).
+* **[Campionamento](app-insights-sampling.md).** Questo meccanismo può ridurre la quantità di dati di telemetria inviati da server e app client, con una distorsione minima delle metriche.
+* **La limitazione** limita la velocità dei dati a 16.000 eventi al secondo, calcolati con una media di 1 minuto. 
 
-Per la limitazione, esistono tre bucket che vengono conteggiati separatamente:
 
-* [Chiamate TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) e [log acquisiti](app-insights-asp-net-trace-logs.md).
-* [Eccezioni](app-insights-api-custom-events-metrics.md#track-exception), limitate a 50 punti al secondo.
-* Tutti gli altri dati di telemetria (visualizzazioni pagina, sessioni, richieste, dipendenze, metrica, eventi personalizzati, risultati dei test Web).
-
-*Cosa accade se l'app supera la velocità al secondo.*
+*Cosa accade se l'app supera la velocità di limitazione?*
 
 * Il volume dei dati inviati dall'app viene valutato ogni minuto. Se il valore supera la velocità media al secondo calcolata nel minuto, il server rifiuta alcune richieste. L'SDK esegue il buffering dei dati e quindi tenta di inviare di nuovo, distribuendo una sovratensione nell'arco di diversi minuti. Se l'app continua a inviare dati che eccedono la limitazione, alcuni di questi verranno eliminati. (Gli SDK di ASP.NET, Java e JavaScript ritentano l'invio, mentre altri SDK potrebbero semplicemente eliminare i dati sottoposti a limitazione).
 
@@ -71,7 +115,7 @@ In caso di avvenuta limitazione, verrà visualizzata una notifica che avviserà 
 ## <a name="to-reduce-your-data-rate"></a>Per ridurre la velocità dei dati
 Ecco alcune operazioni da eseguire per ridurre il volume di dati:
 
-* Ridurre il limite di volume giornaliero. Per impostazione predefinita è 100 GB al giorno.
+* Ridurre il limite di volume giornaliero. Il valore predefinito è 500 GB al giorno.
 * Utilizzare [Campionamento](app-insights-sampling.md). Questa tecnologia riduce la frequenza dei dati senza deviare le metriche e senza compromettere la possibilità di spostarsi tra elementi correlati nella Ricerca. Nelle app server funziona automaticamente.
 * [Limitare il numero di chiamate Ajax che possono essere segnalate](app-insights-javascript.md#detailed-configuration) in ogni visualizzazione pagina o disattivare la creazione di report Ajax.
 * Disattivare i moduli di raccolta non necessari [modificando il file ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Ad esempio, è possibile che i contatori delle prestazioni o dati sulle dipendenze siano non essenziali.
@@ -108,6 +152,11 @@ Per individuare la frequenza di campionamento effettiva indipendentemente dal pu
 In ogni record conservato, `itemCount` indica il numero di record originali che rappresenta, uguale a 1 + il numero di record precedenti scartati. 
 
 
+## <a name="transition-from-the-old-pricing-tiers"></a>Transizione dai piani tariffari precedenti
+
+Le applicazioni esistenti possono continuare a usare i piani tariffari precedenti fino a febbraio 2017. In tale data, la maggior parte delle applicazioni verrà spostata automaticamente al piano Basic. Le applicazioni che usano l'esportazione continua o il connettore per OMS Log Analytics verranno spostate al piano Enterprise.
+
+
 ## <a name="limits-summary"></a>Riepilogo dei limiti
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
@@ -125,6 +174,6 @@ In ogni record conservato, `itemCount` indica il numero di record originali che 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

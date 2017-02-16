@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: cbd2c3e915b93340c1a1478c09b23480c4565a98
 
 
 ---
@@ -55,7 +55,7 @@ In questa sezione viene modificato solo lo stile delle intestazioni. Fare clic s
 
 Ogni regola rappresenta una proprietà di stile dell'elemento selezionato. Ad esempio, per il testo dell'intestazione selezionata sopra, la dimensione del testo è pari a @font-size-h1, mentre il nome del tipo di carattere con le alternative si trova in @headings-font-family.
 
-> Se si ha familiarità con [bootstrap][bootstrap], queste regole sono in effetti [variabili LESS][variabili LESS] nel tema bootstrap usato dal portale per sviluppatori.
+> Se si ha familiarità con [Bootstrap][bootstrap], queste regole sono in effetti [variabili LESS][LESS variables] nel tema bootstrap usato dal portale per sviluppatori.
 > 
 > 
 
@@ -87,12 +87,12 @@ Fare clic nella pagina di **benvenuto** per modificare gli elementi visualizzati
 ## <a name="next-steps"> </a>Passaggi successivi
 * Informazioni su come personalizzare il contenuto delle pagine del portale per sviluppatori usando i [modelli del portale per sviluppatori](api-management-developer-portal-templates.md).
 
-[Modificare il testo/logo nelle intestazioni di pagina]: #change-page-headers
-[Modificare lo stile delle intestazioni]: #change-headers-styling
-[Modificare i contenuti di una pagina]: #edit-page-contents
-[Passaggi successivi]: #next-steps
+[Change the text/logo in the page headers]: #change-page-headers
+[Change the styling of the headers]: #change-headers-styling
+[Edit the contents of a page]: #edit-page-contents
+[Next steps]: #next-steps
 
-[Portale di Azure classico]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
@@ -103,10 +103,10 @@ Fare clic nella pagina di **benvenuto** per modificare gli elementi visualizzati
 
 
 [bootstrap]: http://getbootstrap.com/
-[variabili LESS]: http://getbootstrap.com/css/
+[LESS variables]: http://getbootstrap.com/css/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -2,8 +2,8 @@
 layout: LandingPage
 description: Informazioni su come impostare una messaggistica per collegare applicazioni e servici in ambienti locali e cloud.  Esercitazioni, video, informazioni di riferimento sulle API e altro ancora.
 translationtype: Human Translation
-ms.sourcegitcommit: 37d0de5343692516cc9644d817384ad31f58fb40
-ms.openlocfilehash: a0b419acc990e3973432540fb9907e31ddedf41c
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: fe4c303bb0e944e5abb26f8baa394d0df71240a5
 
 ---
 #<a name="service-bus-documentation"></a>Documentazione sul bus di servizio
@@ -226,7 +226,7 @@ Informazioni su come usare il bus di servizio per connettersi ad ambienti locali
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Altre</h3>
+                        <h3>Altri</h3>
                         <p><a href="/dotnet/api/">API di riferimento gestita</a></p>
                    </div>
                 </div>
@@ -235,13 +235,7 @@ Informazioni su come usare il bus di servizio per connettersi ad ambienti locali
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-bus.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione sul bus di servizio </div>
-    </a>
-</div>
+
 
 
 

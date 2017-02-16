@@ -1,5 +1,5 @@
 ---
-title: Controllare il routing e usare dispositivi virtuali di rete mediante l&quot;interfaccia della riga di comando di Azure nel modello di distribuzione classica | Documentazione Microsoft
+title: Controllare il routing in una rete virtuale di Azure - Interfaccia della riga di comando - Modello di distribuzione classica | Documentazione Microsoft
 description: Informazioni su come controllare il routing in reti virtuali mediante l&quot;interfaccia della riga di comando di Azure nel modello di distribuzione classica
 services: virtual-network
 documentationcenter: na
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 80b452bd96e3a328899ed455b71cf68da8bfde54
-ms.openlocfilehash: b7508d1ee01c1a5b7773360cabde075553b55ac1
+ms.sourcegitcommit: 71153e46d1695611c8286d2e57b109db9e7ad9df
+ms.openlocfilehash: 4a610a65b33f91f46d011e07c6cb11523d3dae0d
 
 
 ---
@@ -141,6 +141,6 @@ Per creare la tabella di route e la route necessarie per la subnet back-end in b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

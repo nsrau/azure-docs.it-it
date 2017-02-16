@@ -44,6 +44,6 @@ In caso di problemi di connessione alla VM, è possibile trovare assistenza spec
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Parametri di input del runbook| Microsoft Docs
-description: I parametri di input dei runbook ne aumentano la flessibilità perché consentono di passare dati a un runbook al momento dell'avvio. Questo articolo descrive vari scenari in cui i parametri di input vengono usati nei runbook.
+title: Parametri di input dei runbook| Documentazione Microsoft
+description: "I parametri di input dei runbook ne aumentano la flessibilità perché consentono di passare dati a un runbook al momento dell&quot;avvio. Questo articolo descrive vari scenari in cui i parametri di input vengono usati nei runbook."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 4d3dff2c-1f55-498d-9a0e-eee497e5bedb
 ms.service: automation
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sngun
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0f8308b73a70fc3758a53063bc69d16480df8f02
+
 
 ---
 # <a name="runbook-input-parameters"></a>Parametri di input dei runbook
@@ -264,6 +268,9 @@ Quando si esegue un runbook con un webhook, insieme ai parametri di input defini
 * Per modificare un runbook testuale, vedere [Modifica di runbook testuali in Automazione di Azure](automation-edit-textual-runbook.md).
 * Per modificare un runbook grafico, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

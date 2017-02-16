@@ -50,10 +50,10 @@ Per impostare la sottoscrizione di Azure corrente, eseguire i comandi seguenti a
     $subscr="<SubscriptionName from the display of Get-AzureRmSubscription>"
     Select-AzureRmSubscription -SubscriptionName $subscr -Current
 
-Per altre informazioni su sottoscrizioni e account di Azure, vedere [Procedura: Connettersi alla sottoscrizione](../articles/powershell-install-configure.md#step-3-connect).
+Per altre informazioni su sottoscrizioni e account di Azure, vedere [Procedura: Connettersi alla sottoscrizione](/powershell/azureps-cmdlets-docs#step-3-connect).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

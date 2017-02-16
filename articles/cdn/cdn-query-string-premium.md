@@ -1,9 +1,9 @@
 ---
-title: Controllo del comportamento di memorizzazione nella cache delle richieste con stringhe di query nella rete CDN di Azure Premium da Verizon | Microsoft Docs
+title: 'Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con stringhe di query: Premium | Documentazione Microsoft'
 description: La memorizzazione nella cache della stringa di query della rete CDN controlla in che modo i file devono essere memorizzati nella cache quando contengono stringhe di query.
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 99db4a85-4f5f-431f-ac3a-69e05518c997
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 20efef4e60da6a0ab07eab22ff18e7ae9ab12a30
+ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
+ms.openlocfilehash: 145067c2ce50b41c4783f4de4052c0e7cb529fc7
 
 
 ---
-# <a name="controlling-caching-behavior-of-cdn-requests-with-query-strings---premium"></a>Controllo del comportamento di memorizzazione nella cache delle richieste della rete CDN con le stringhe di query - Premium
+# <a name="control-azure-cdn-caching-behavior-with-query-strings---premium"></a>Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con stringhe di query: Premium
 > [!div class="op_single_selector"]
 > * [Standard](cdn-query-string.md)
 > * [Rete CDN Premium di Azure fornita da Verizon](cdn-query-string-premium.md)
@@ -62,6 +62,6 @@ Sono disponibili tre modalità:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

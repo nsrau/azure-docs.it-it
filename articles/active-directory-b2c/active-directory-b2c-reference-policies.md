@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c0a3bec8542cc5974516a8fb3deb14d23bf1fe2e
+ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
+ms.openlocfilehash: 5db03c2ba594963f6c5a2f091f83b9de240fe2ba
 
 
 ---
@@ -162,12 +162,15 @@ Per abilitare una reimpostazione dettagliata delle password nell'applicazione, √
     > 
     > 
 
+## <a name="how-to-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Come collegare un criterio di iscrizione o di accesso a un criterio di reimpostazione di una password?
+Quando si crea un criterio di iscrizione o accesso (con gli account locali), il consumer visualizzer√† un messaggio "Password dimenticata?" collegarsi alla prima pagina dell'esperienza. Facendo clic su questo collegamento non si attiva automaticamente un criterio di reimpostazione della password. Al contrario, viene restituito all'applicazione un codice di errore specifico `AADB2C90118`. L'applicazione deve gestire questa situazione e richiamare un criterio di reimpostazione della password specifico. Un esempio che illustra questo approccio di connettere tra loro i criteri si trova [qui](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
+
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Configurazione di token, sessione e accesso Single Sign-On](active-directory-b2c-token-session-sso.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

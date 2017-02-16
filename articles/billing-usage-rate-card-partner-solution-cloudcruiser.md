@@ -4,7 +4,7 @@ description: "Fornisce un punto di vista unico del partner di fatturazione di Mi
 services: 
 documentationcenter: 
 author: BryanLa
-manager: mbaldwin
+manager: ruchic
 editor: 
 tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 09/08/2016
+ms.date: 01/07/2017
 ms.author: mobandyo;sirishap;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b1783823218a883fc9fdec05e835fb7249eed97d
+ms.sourcegitcommit: f7589fa62dcfedc6f99439f453a40f999ff8d845
+ms.openlocfilehash: fc40c33c7ae28adcd2975e89c395db4cfde90a49
 
 
 ---
@@ -49,7 +49,7 @@ Cloud Cruiser può utilizzare le informazioni dell’API RateCard in modi divers
 
 Per illustrare questo caso di utilizzo, si immagini un carico di lavoro di diverse istanze in esecuzione in Microsoft Azure Pack (WAP). L'obiettivo è quello di simulare questo stesso carico di lavoro in Azure e di stimare i costi dell’esecuzione di tale migrazione. Per creare questa simulazione, è necessario eseguire due attività principali:
 
-1. **Importare ed elaborare le informazioni sul servizio raccolte dall'API RateCard.**  Questa attività viene eseguita anche sulle cartelle di lavoro, dove l'estratto dall'API RateCard viene trasformato e pubblicato in un nuovo piano tariffario. Questo nuovo piano tariffario verrà utilizzato nelle simulazioni per stimare i prezzi di Azure.
+1. **Importare ed elaborare le informazioni sul servizio raccolte dall'API RateCard.** Questa attività viene eseguita anche sulle cartelle di lavoro, dove l'estratto dall'API RateCard viene trasformato e pubblicato in un nuovo piano tariffario. Questo nuovo piano tariffario verrà utilizzato nelle simulazioni per stimare i prezzi di Azure.
 2. **Normalizzare i servizi WAP e i servizi di Azure per IaaS.** Per impostazione predefinita, i servizi WAP sono basati sulle singole risorse, come CPU, dimensioni della memoria, dimensioni del disco e così via, mentre i servizi di Azure si basano sulle dimensioni dell'istanza, come A0, A1, A2 e così via. Questa prima attività può essere eseguita dal motore ETL di Cloud Cruiser, denominato cartelle di lavoro, in cui queste risorse possono essere inserite in dimensioni di istanza, in modo analogo ai servizi di istanza di Azure.
 
 ### <a name="import-data-from-the-ratecard-api"></a>Importare dati dall’API RateCard
@@ -92,7 +92,7 @@ Per impostazione predefinita, WAP fornisce informazioni sull'utilizzo basate sul
 
 Per questo esempio, al fine di confrontare i costi tra WAP e Azure, è necessario aggregare l'utilizzo delle risorse in bundle WAP, che possono quindi essere mappati ai servizi di Azure. Questa trasformazione può essere implementata facilmente nelle cartelle di lavoro:
 
-![Figure 7 - Trasformazione dei dati WAP in servizi normalizzati][7]
+![Figura 7 - Trasformazione dei dati WAP in servizi normalizzati][7]
 
 L'ultimo passaggio nella cartella di lavoro consiste nel pubblicare i dati nel database Cloud Cruiser. Durante questo passaggio, i dati di utilizzo sono ora aggregati in servizi (che eseguono il mapping ai servizi di Azure) e associati a costi predefiniti per creare gli addebiti.
 
@@ -172,7 +172,7 @@ Le cartelle di lavoro di Cloud Cruiser consentono di raccogliere ed elaborare in
 
 Ogni cartella di lavoro può contenere una o più raccolte. In tal modo è possibile correlare le informazioni provenienti da origini diverse per integrare o estendere i dati di utilizzo. In questo esempio verrà creato un nuovo foglio nella cartella di lavoro del modello di Azure (*UsageAPI)* e verrà impostata una nuova *raccolta* per importare informazioni dall'API di utilizzo.
 
-![Figura 3 - Utilizzo dei dati API importati nel foglio UsageAPI][12]
+![Figura 3 - Uso dei dati API importati nel foglio UsageAPI][12]
 
 Si noti che questa cartella di lavoro ha già altri fogli per importare servizi da Azure (*ImportServices*) ed elabora le informazioni sul consumo dall'API di fatturazione (*PublishData*).
 
@@ -220,12 +220,12 @@ Il vantaggio è che questo processo si deve eseguire solo una volta. Quando la c
 [9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "Figura 9 - Report di esempio per lo scenario di confronto dei costi del carico di lavoro"
 [10]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/1_ReportWithTags.png "Figura 10 - Report con suddivisioni usando i tag"
 [11]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/2_ResourceGroupsWithTags.png "Figura 11 - Gruppo di risorse con tag associati nel portale di Azure"
-[12]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png "Figura 12 - Utilizzo dei dati API importati nel foglio UsageAPI"
+[12]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png "Figura 12 - Uso dei dati API importati nel foglio UsageAPI"
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Figura 13 - Creare nuovi campi per le informazioni sui tag"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Figura 14 - Popolamento della struttura dei conti con le informazioni provenienti dalle ricerche"
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

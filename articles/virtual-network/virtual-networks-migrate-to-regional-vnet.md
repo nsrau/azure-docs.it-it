@@ -1,6 +1,6 @@
 ---
-title: "Come eseguire la migrazione da gruppi di affinità a una rete virtuale (VNet) regionale"
-description: "Informazioni su come eseguire la migrazione da gruppi di affinità a reti virtuali regionali"
+title: "Eseguire la migrazione di una rete virtuale di Azure da un gruppo di affinità in un&quot;area | Classico | Documenti di Microsoft"
+description: "Informazioni su come eseguire la migrazione di una rete virtuale da un gruppo di affinità in un&quot;area."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 198a726229f4950906e79272da6913f1a1afd15d
+ms.sourcegitcommit: f74379c3e310a7bbcf659ef610727bff19639022
+ms.openlocfilehash: c495af3e818758cc5fe99af9b5f07506a16b59ef
 
 
 ---
-# <a name="how-to-migrate-from-affinity-groups-to-a-regional-virtual-network-vnet"></a>Come eseguire la migrazione da gruppi di affinità a una rete virtuale (VNet) regionale
+# <a name="how-to-migrate-a-virtual-network-from-an-affinity-group-to-a-region"></a>Come eseguire la migrazione di una rete virtuale da un gruppo di affinità in un'area
 È possibile usare un gruppo di affinità per assicurarsi che le risorse create all'interno dello stesso gruppo di affinità vengano ospitate fisicamente da server vicini l'uno all'altro, consentendo a tali risorse di comunicare più rapidamente. In passato i gruppi di affinità erano un requisito per la creazione delle reti virtuali (o VNet) In quel momento, il servizio di gestione di rete che gestiva le VNets poteva operare solo all'interno di un set di server fisici chiamato unità di scala. I miglioramenti apportati all'architettura hanno esteso l'ambito di gestione delle reti a un’area.
 
 A seguito di tali miglioramenti, i gruppi di affinità non sono più consigliati o necessari per le reti virtuali. L'uso dei gruppi di affinità per le VNet è stato sostituito dalle regioni. Le VNet associate alle regioni sono chiamate VNet regionali.
@@ -74,6 +74,6 @@ Quando si esegue la distribuzione, una macchina virtuale viene distribuita in un
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

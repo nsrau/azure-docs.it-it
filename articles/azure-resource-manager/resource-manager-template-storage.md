@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 04/05/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: a9850299610aae6b4d9fdaf5abdf81ff6b361b8b
+ms.sourcegitcommit: b089bc075ec3ec718eb21357bbbc5c4af09f4af1
+ms.openlocfilehash: b01125160875e367b9b6e1d02031c5dd80b41594
 
 
 ---
@@ -44,8 +44,8 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 | --- | --- |
 | type |Enum<br />Obbligatorio<br />**Microsoft.Storage/storageAccounts**<br /><br />Tipo di risorsa da creare. |
 | apiVersion |Enum<br />Obbligatorio<br />**2015-06-15** o **2015-05-01-preview**<br /><br />Versione dell'API da usare per creare la risorsa. |
-| Nome |string<br />Obbligatorio<br />Tra 3 e 24 caratteri, solo numeri e lettere minuscole.<br /><br />Nome dell'account di archiviazione da creare. Il nome deve essere univoco in Azure. È consigliabile utilizzare la funzione [uniqueString](resource-group-template-functions.md#uniquestring) con la convenzione di denominazione, come illustrato nell'esempio riportato di seguito. |
-| location |String<br />Obbligatorio<br />Area che supporta gli account di archiviazione. Per determinare le aree valide, vedere [Supported regions](resource-manager-supported-services.md#supported-regions) (Aree supportate).<br /><br />Area che deve ospitare l'account di archiviazione. |
+| Nome |String<br />Obbligatorio<br />Tra 3 e 24 caratteri, solo numeri e lettere minuscole.<br /><br />Nome dell'account di archiviazione da creare. Il nome deve essere univoco in Azure. È consigliabile utilizzare la funzione [uniqueString](resource-group-template-functions.md#uniquestring) con la convenzione di denominazione, come illustrato nell'esempio riportato di seguito. |
+| location |string<br />Obbligatorio<br />Area che supporta gli account di archiviazione. Per determinare le aree valide, vedere [Supported regions](resource-manager-supported-services.md#supported-regions) (Aree supportate).<br /><br />Area che deve ospitare l'account di archiviazione. |
 | properties |Oggetto<br />Obbligatorio<br />[oggetto delle proprietà](#properties)<br /><br />Oggetto che specifica il tipo dell'account di archiviazione da creare. |
 
 <a id="properties" />
@@ -81,13 +81,13 @@ L'esempio seguente consente di distribuire un account di archiviazione con ridon
 ## <a name="quickstart-templates"></a>Modelli di Guida introduttiva
 Sono disponibili numerosi modelli di Guida introduttiva che includono un account di archiviazione. I modelli seguenti illustrano alcuni scenari comuni:
 
-* [Creare un account di archiviazione standard](https://azure.microsoft.com/documentation/templates/101-storage-account-create)
-* [Distribuzione semplice di una macchina virtuale Windows](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows)
-* [Distribuzione semplice di una macchina virtuale Linux](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux)
-* [Creare un profilo di rete CDN, un endpoint di rete CDN con un account di archiviazione come origine](https://azure.microsoft.com/documentation/templates/201-cdn-with-storage-account)
-* [Creare una farm di SharePoint a disponibilità elevata con nove macchine virtuali usando l'estensione DSC PowerShell](https://azure.microsoft.com/documentation/templates/sharepoint-server-farm-ha)
-* [Distribuzione semplice di un cluster di Service Fabric sicuro a cinque nodi con WAD abilitato](https://azure.microsoft.com/documentation/templates/service-fabric-secure-cluster-5-node-1-nodetype-wad)
-* [Creare una macchina virtuale da un'immagine di Windows con quattro dischi dati vuoti](https://azure.microsoft.com/documentation/templates/101-vm-multiple-data-disk)
+* [Creare un account di archiviazione standard](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create)
+* [Distribuzione semplice di una macchina virtuale Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
+* [Distribuzione semplice di una macchina virtuale Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
+* [Create a CDN Profile, a CDN Endpoint with a Storage Account as origin](Creare un profilo di rete CDN, un endpoint di rete CDN con un account di archiviazione come origine)https://github.com/Azure/azure-quickstart-templates/tree/master/201-cdn-with-storage-account
+* [Creare una farm di SharePoint a disponibilità elevata con nove macchine virtuali usando l'estensione DSC PowerShell](https://github.com/Azure/azure-quickstart-templates/tree/master/sharepoint-server-farm-ha)
+* [Distribuzione semplice di un cluster di Service Fabric sicuro a cinque nodi con WAD abilitato](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)
+* [Creare una macchina virtuale da un'immagine di Windows con quattro dischi dati vuoti](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sull'archiviazione, vedere [Introduzione ad Archiviazione di Microsoft Azure](../storage/storage-introduction.md).
@@ -96,6 +96,6 @@ Sono disponibili numerosi modelli di Guida introduttiva che includono un account
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

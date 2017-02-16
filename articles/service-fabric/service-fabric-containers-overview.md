@@ -12,19 +12,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2016
-ms.author: mfussell
+ms.date: 1/4/2017
+ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c03033fcadf0f92b77820fba1dd588f460287b86
+ms.sourcegitcommit: 9349c6c60801c87726eb9f848706b39b08eb2b5d
+ms.openlocfilehash: 7c6d232bce7ac9d364ad9d7b26c3164e00fc18ac
 
 
 ---
 # <a name="preview-service-fabric-and-containers"></a>Anteprima: Service Fabric e contenitori
 > [!NOTE]
-> Questa funzionalità è in anteprima per Linux e non è attualmente disponibile in Windows Server 2016. Sarà disponibile in anteprima per Windows Server nella prossima versione di Azure Service Fabric dopo la disponibilità generale di Windows Server 2016 e sarà quindi supportata nella versione successiva.
-> 
-> 
+> Questa funzionalità è disponibile in anteprima per Linux e Windows Server 2016. 
+>   
 
 ## <a name="introduction"></a>Introduzione
 Azure Service Fabric è un [agente di orchestrazione](service-fabric-cluster-resource-manager-introduction.md) dei servizi in un cluster di computer. I servizi possono essere sviluppati in molti modi: dall'uso dei [modelli di programmazione di Service Fabric](service-fabric-choose-framework.md) alla distribuzione di [eseguibili guest](service-fabric-deploy-existing-app.md). Per impostazione predefinita, Service Fabric distribuisce e attiva i servizi come processi. I processi offrono la massima velocità di attivazione e l'utilizzo della massima densità delle risorse in un cluster. Service Fabric può anche distribuire servizi in immagini contenitore. Un aspetto importante è che è possibile combinare servizi in processi e servizi in contenitori nella stessa applicazione. È possibile usufruire del meglio di entrambe le tipologie in base allo scenario specifico.
@@ -93,6 +92,6 @@ In questo articolo sono stati illustrati i contenitori, la funzione di agente di
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

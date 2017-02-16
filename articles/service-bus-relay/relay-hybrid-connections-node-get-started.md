@@ -12,8 +12,8 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: node
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub,sethm
+ms.date: 02/13/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
 ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
 ms.openlocfilehash: bee101d19cb5f5fc790b53295069b4d4db247366

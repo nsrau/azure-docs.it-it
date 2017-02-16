@@ -1,65 +1,69 @@
 ---
-title: Spostare i dati da MySQL | Microsoft Docs
+title: Spostare i dati da MySQL | Documentazione Microsoft
 description: Informazioni su come spostare i dati dal database di MySQL mediante Data factory di Azure.
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 452f4fce-9eb5-40a0-92f8-1e98691bea4c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 11/01/2016
 ms.author: jingwang
+translationtype: Human Translation
+ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
+ms.openlocfilehash: 76b7469260a88d67c8a14e4286b62d0019f99f18
+
 
 ---
-# Spostare i dati da MySQL mediante Data factory di Azure
-Questo articolo illustra come usare l'attività di copia in una data factory di Azure per spostare dati da MySQL a un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
+# <a name="move-data-from-mysql-using-azure-data-factory"></a>Spostare i dati da MySQL mediante Data factory di Azure
+Questo articolo illustra come usare l'attività di copia in una data factory di Azure per spostare dati da MySQL a un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) , che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
 Data factory supporta la connessione a origini MySQL locali tramite il Gateway di gestione dati. Vedere l'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) per informazioni sul Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway.
 
 > [!NOTE]
-> Il gateway è necessario anche se il database MySQL è ospitato in una macchina virtuale IaaS di Azure. È possibile installare il gateway nella stessa VM dell'archivio dati o in una macchina virtuale diversa, purché il gateway possa connettersi al database.
-> 
-> 
+> Il gateway è necessario anche se il database MySQL è ospitato in una macchina virtuale IaaS di Azure. È possibile installare il gateway nella stessa VM dell'archivio dati o in una macchina virtuale diversa, purché il gateway possa connettersi al database.  
+>
+>
 
 Data factory supporta attualmente solo lo spostamento di dati da MySQL ad altri archivi dati, non da altri archivi dati a MySQL.
 
-## Installazione
-Perché Gateway di gestione dati si connetta al database MySQL, è necessario installare il [connettore MySQL/Net 6.6.5 per Microsoft Windows](http://go.microsoft.com/fwlink/?LinkId=278885) nello stesso sistema del Gateway di gestione dati.
+## <a name="supported-versions-and-installation"></a>Versioni supportate e installazione
+Perché Gateway di gestione dati si connetta al database MySQL, è necessario installare il [connettore MySQL/Net 6.6.5 per Microsoft Windows](http://go.microsoft.com/fwlink/?LinkId=278885), o una versione successiva, nello stesso sistema di Gateway di gestione dati. Sono supportate le versioni di MySQL a partire dalla 5.1.
 
 > [!NOTE]
-> Per suggerimenti sulla risoluzione di problemi correlati alla connessione o al gateway, vedere [Risoluzione dei problemi del gateway](data-factory-data-management-gateway.md#troubleshoot-gateway-issues).
-> 
-> 
+> Per suggerimenti sulla risoluzione di problemi correlati alla connessione o al gateway, vedere [Risoluzione dei problemi del gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) .
+>
+>
 
-## Copia di dati guidata
+## <a name="copy-data-wizard"></a>Copia di dati guidata
 Il modo più semplice per creare una pipeline che copia i dati da un database MySQL in uno degli archivi dati sink supportati consiste nell'usare la Copia dati guidata. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
-L'esempio di seguito fornisce le definizioni JSON campione da usare per creare una pipeline. Per una procedura dettagliata con istruzioni precise, vedere l'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md). I dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Azure Data Factory.
+L'esempio di seguito fornisce le definizioni JSON campione da usare per creare una pipeline. Per una procedura dettagliata con istruzioni precise, vedere l'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md) . I dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.   
 
-## Esempio: Copiare i dati da MySQL a BLOB di Azure
-Questo esempio illustra come copiare dati da un database MySQL locale a un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Azure Data Factory.
+## <a name="sample-copy-data-from-mysql-to-azure-blob"></a>Esempio: Copiare i dati da MySQL a BLOB di Azure
+Questo esempio illustra come copiare dati da un database MySQL locale a un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.  
 
 > [!IMPORTANT]
-> Questo esempio fornisce frammenti di codice JSON. Non include istruzioni dettagliate per la creazione della data factory. Le istruzioni dettagliate sono disponibili nell'articolo [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md).
-> 
-> 
+> Questo esempio fornisce frammenti di codice JSON. Non include istruzioni dettagliate per la creazione della data factory. Le istruzioni dettagliate sono disponibili nell'articolo [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md) .
+>
+>
 
 L'esempio include le entità di Data Factory seguenti:
 
 1. Un servizio collegato di tipo [OnPremisesMySql](data-factory-onprem-mysql-connector.md#mysql-linked-service-properties).
-2. Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+2. Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 3. Un [set di dati](data-factory-create-datasets.md) di input di tipo [RelationalTable](data-factory-onprem-mysql-connector.md#mysql-dataset-type-properties).
 4. Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 5. Una [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [RelationalSource](data-factory-onprem-mysql-connector.md#mysql-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 L'esempio copia i dati dai risultati della query nel database MySQL in un BLOB ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
-Come primo passaggio, impostare il Gateway di gestione dati. Le istruzioni sono disponibili nell'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md).
+Come primo passaggio, impostare il Gateway di gestione dati. Le istruzioni sono disponibili nell'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md) .
 
 **Servizio collegato MySQL**
 
@@ -231,7 +235,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 
 
 
-## Proprietà del servizio collegato MySQL
+## <a name="mysql-linked-service-properties"></a>Proprietà del servizio collegato MySQL
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato MySQL.
 
 | Proprietà | Descrizione | Obbligatorio |
@@ -245,9 +249,9 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | password |Specificare la password per l'account utente specificato per il nome utente. |No |
 | gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database MySQL locale. |Sì |
 
-Per informazioni dettagliate sull'impostazione delle credenziali per un'origine dati MySQL locale, vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
+Vedere [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md) per informazioni dettagliate sull'impostazione delle credenziali per un'origine dati MySQL locale.
 
-## Proprietà del tipo di set di dati MySQL
+## <a name="mysql-dataset-type-properties"></a>Proprietà del tipo di set di dati MySQL
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **RelationalTable** (che comprende il set di dati MySQL) presenta le proprietà seguenti.
@@ -256,8 +260,8 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database MySQL a cui fa riferimento il servizio collegato. |No (se la **query** di **RelationalSource** è specificata) |
 
-## Proprietà del tipo di attività di copia MySQL
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri.
+## <a name="mysql-copy-activity-type-properties"></a>Proprietà del tipo di attività di copia MySQL
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo [Creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri.
 
 D'altra parte, le proprietà disponibili nella sezione **typeProperties** dell'attività variano in base al tipo di attività. Per l'attività di copia variano in base ai tipi di origine e sink.
 
@@ -269,8 +273,8 @@ Se l'origine nell'attività di copia è di tipo **RelationalSource** (che compre
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-### Mapping dei tipi per MySQL
-Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipi automatiche da tipi di origine a tipi di sink con l'approccio seguente in due passaggi:
+### <a name="type-mapping-for-mysql"></a>Mapping dei tipi per MySQL
+Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) , l'attività di copia esegue conversioni di tipi automatiche da tipi di origine a tipi di sink con l'approccio seguente in due passaggi:
 
 1. Conversione dai tipi di origine nativi al tipo .NET
 2. Conversione dal tipo .NET al tipo di sink nativo
@@ -282,25 +286,25 @@ Quando si spostano i dati in MySQL vengono usati i mapping seguenti dal tipo MyS
 | bigint unsigned |Decimal |
 | bigint |Int64 |
 | Bit |Decimal |
-| BLOB |Byte |
+| BLOB |Byte[] |
 | bool |Boolean |
 | char |String |
 | date |Datetime |
-| datetime |Datetime |
-| decimal |Decimal |
+| Datetime |Datetime |
+| Decimal |Decimal |
 | double precision |Double |
-| double |Double |
+| Double |Double |
 | enum |String |
 | float |Single |
 | int unsigned |Int64 |
 | int |Int32 |
 | integer unsigned |Int64 |
 | integer |Int32 |
-| long varbinary |Byte |
+| long varbinary |Byte[] |
 | long varchar |String |
-| longblob |Byte |
+| longblob |Byte[] |
 | longtext |String |
-| mediumblob |Byte |
+| mediumblob |Byte[] |
 | mediumint unsigned |Int64 |
 | mediumint |Int32 |
 | mediumtext |String |
@@ -310,20 +314,24 @@ Quando si spostano i dati in MySQL vengono usati i mapping seguenti dal tipo MyS
 | smallint unsigned |Int32 |
 | smallint |Int16 |
 | text |String |
-| time |TimeSpan |
+| time |Intervallo di tempo |
 | timestamp |Datetime |
-| tinyblob |Byte |
+| tinyblob |Byte[] |
 | tinyint unsigned |Int16 |
 | tinyint |Int16 |
 | tinytext |String |
 | varchar |String |
-| year |Int |
+| year |int |
 
 [!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 [!INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-## Ottimizzazione delle prestazioni
+## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

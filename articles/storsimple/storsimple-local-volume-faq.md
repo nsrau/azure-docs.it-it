@@ -1,23 +1,27 @@
 ---
-title: Domande frequenti sui volumi aggiunti in locale di StorSimple| Microsoft Docs
+title: Domande frequenti sui volumi aggiunti in locale di StorSimple|Microsoft Docs
 description: Fornisce risposte alle domande frequenti sui volumi aggiunti in locale di StorSimple.
 services: storsimple
 documentationcenter: NA
 author: manuaery
 manager: syadav
-editor: ''
-
+editor: 
+ms.assetid: 7a2f4b1a-4ac9-4ce1-9359-bd40a9cbbb5d
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/16/2016
+ms.date: 12/13/2016
 ms.author: manuaery
+translationtype: Human Translation
+ms.sourcegitcommit: dbaa242b8969ad04c92e7a527f4cd585bc3763cb
+ms.openlocfilehash: bb2ae9d94a8f1e02a81ff46bdc29e6f9787ebf31
+
 
 ---
-# Volumi aggiunti in locale di StorSimple: domande frequenti
-## Overview
+# <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>Volumi aggiunti in locale di StorSimple: domande frequenti
+## <a name="overview"></a>Panoramica
 Ecco alcune domande e risposte relative alla creazione di un volume aggiunto in locale di StorSimple, alla conversione di un volume a livelli in un volume aggiunto in locale (e viceversa) o al backup e ripristino di un volume aggiunto in locale.
 
 Le domande e le risposte sono suddivise nelle categorie seguenti
@@ -28,7 +32,7 @@ Le domande e le risposte sono suddivise nelle categorie seguenti
 * Ripristino di un volume aggiunto in locale
 * Failover di un volume aggiunto in locale
 
-## Domande sulla creazione di un volume aggiunto in locale
+## <a name="questions-about-creating-a-locally-pinned-volume"></a>Domande sulla creazione di un volume aggiunto in locale
 **D.** Qual è la dimensione massima di un volume aggiunto in locale che è possibile creare nei dispositivi della serie 8000?
 
 **R** È possibile effettuare il provisioning di volumi aggiunti in locale fino a 8.5 TB OPPURE di volumi a livelli fino a 200 TB nel dispositivo 8100. Nel dispositivo 8600 più grande è possibile effettuare il provisioning di volumi aggiunti in locale fino a 22,5 TB o di volumi a livelli fino a 500 TB.
@@ -42,14 +46,14 @@ Poiché parte dello spazio locale del dispositivo viene usato per ospitare il wo
 | Capacità volumi aggiunti in locale di cui è stato effettuato il provisioning | Capacità disponibile di cui effettuare il provisioning per volumi a livelli - 8100 | Capacità disponibile di cui effettuare il provisioning per volumi a livelli - 8600 |
 | --- | --- | --- |
 | 0 |200 TB |500 TB |
-| 1 TB |176\.5 TB |477\.8 TB |
-| 4 TB |105\.9 TB |411\.1 TB |
-| 8\.5 TB |0 TB |311\.1 TB |
-| 10 TB |ND |277\.8 TB |
-| 15 TB |ND |166\.7 TB |
-| 22\.5 TB |ND |0 TB |
+| 1 TB |176.5 TB |477.8 TB |
+| 4 TB |105.9 TB |411.1 TB |
+| 8.5 TB |0 TB |311.1 TB |
+| 10 TB |ND |277.8 TB |
+| 15 TB |ND |166.7 TB |
+| 22.5 TB |ND |0 TB |
 
-**D.** Perché la creazione di un volume aggiunto in locale è un'operazione di lunga durata?
+**D.** Perché la creazione di un volume aggiunto in locale è un'operazione di lunga durata? 
 
 **R.** Viene effettuato il thick provisioning dei volumi aggiunti in locale. Per creare spazio nei livelli locali del dispositivo, è possibile che venga effettuato il push di alcuni dati dai volumi a livelli esistenti al cloud durante il processo di provisioning, e, poiché questo dipende dalla dimensione del volume di cui effettuare il provisioning, dai dati esistenti nel dispositivo e dalla larghezza di banda disponibile per il cloud, la creazione di un volume locale può richiedere diverse ore.
 
@@ -66,7 +70,7 @@ Poiché parte dello spazio locale del dispositivo viene usato per ospitare il wo
 * Il provisioning di volumi locali è un'operazione dispendiosa in termini di tempo. Il tempo effettivo richiesto dipende da più fattori: la dimensione del volume di cui effettuare il provisioning, i dati nel dispositivo e la larghezza di banda disponibile. Se non è stato eseguito il backup dei volumi esistenti nel cloud, la creazione dei volumi è più lenta. Prima del provisioning di un volume locale, è consigliabile acquisire snapshot nel cloud dei volumi esistenti.
 * È possibile convertire i volumi a livelli esistenti in volumi aggiunti in locale. Questa conversione comporta il provisioning di spazio nel dispositivo per il volume aggiunto in locale risultante (oltre a trasferire eventuali dati a livello dal cloud). Questa è poi un'operazione di lunga durata che dipende dai fattori illustrati sopra. È consigliabile eseguire il backup dei volumi esistenti prima della conversione perché il processo sarà ancora più lento senza il backup dei volumi esistenti. Il dispositivo può anche subire un calo delle prestazioni durante questo processo.
 
-Sono disponibili altre informazioni su come [creare un volume aggiunto in locale](storsimple-manage-volumes-u2.md#add-a-volume).
+Sono disponibili altre informazioni su come [creare un volume aggiunto in locale](storsimple-manage-volumes-u2.md#add-a-volume)
 
 **D.** È possibile creare più volumi aggiunti in locale contemporaneamente?
 
@@ -78,7 +82,7 @@ Allo stesso modo, se è in corso l'espansione di un volume locale esistente o la
 
 È possibile visualizzare questi processi nella pagina **Processi** del servizio Azure StorSimple Manager. Il processo di cui è in corso l'elaborazione viene continuamente aggiornato per riflettere l'avanzamento del provisioning dello spazio. I rimanenti processi dei volumi aggiunti in locale vengono contrassegnati come in esecuzione, ma l'avanzamento viene bloccato e i processi vengono prelevati in base all'ordine di accodamento.
 
-**D.** È stato eliminato un volume aggiunto in locale. Perché lo spazio recuperato non viene visualizzato nello spazio disponibile quando si cerca di creare un nuovo volume?
+**D.** È stato eliminato un volume aggiunto in locale. Perché lo spazio recuperato non viene visualizzato nello spazio disponibile quando si cerca di creare un nuovo volume? 
 
 **R.** Se si elimina un volume aggiunto in locale, lo spazio disponibile per i nuovi volumi potrebbe non essere immediatamente aggiornato. Il servizio StorSimple Manager aggiorna lo spazio locale disponibile circa ogni ora. È consigliabile attendere un'ora prima di creare il nuovo volume.
 
@@ -86,11 +90,11 @@ Allo stesso modo, se è in corso l'espansione di un volume locale esistente o la
 
 **R.** I volumi aggiunti in locale non sono supportati nell'appliance cloud (dispositivi 8010 e 8020 chiamati in precedenza dispositivi virtuali StorSimple).
 
-**D.** È possibile usare i cmdlet di Azure PowerShell per creare e gestire volumi aggiunti in locale?
+**D.** È possibile usare i cmdlet di Azure PowerShell per creare e gestire volumi aggiunti in locale? 
 
 **R.** No, non è possibile creare volumi aggiunti in locale con i cmdlet di Azure PowerShell. Eventuali volumi creati con Azure PowerShell sono a livelli. È anche consigliabile non usare i cmdlet di Azure PowerShell per modificare le proprietà di un volume aggiunto in locale, perché in questo modo il tipo di volume verrà modificato in volume a livelli.
 
-## Domande sul backup di un volume aggiunto in locale
+## <a name="questions-about-backing-up-a-locally-pinned-volume"></a>Domande sul backup di un volume aggiunto in locale
 **D.** Gli snapshot locali dei volumi aggiunti in locale sono supportati?
 
 **R.** Sì, è possibile acquisire gli snapshot locali dei volumi aggiunti in locale. È tuttavia consigliabile eseguire periodicamente il backup dei volumi aggiunti in locale con gli snapshot cloud per assicurarsi che i dati siano protetti in caso di emergenza.
@@ -107,10 +111,10 @@ L'avviso serve a notificare che tale situazione può verificarsi e ad assicurars
 
 Se gli snapshot locali vengono invalidati, si riceverà un avviso informativo che notifica che gli snapshot locali per il criterio di backup specifico sono stati invalidati insieme all'elenco di timestamp degli snapshot locali invalidati. Questi snapshot verranno automaticamente eliminati e non sarà più possibile visualizzarli nella pagina **Cataloghi di backup** nel portale di Azure classico.
 
-## Domande sulla conversione di un volume a livelli in un volume aggiunto in locale
-**D.** È stata osservata una certa lentezza sul dispositivo durante la conversione di un volume a livelli in un volume aggiunto in locale. Perché accade?
+## <a name="questions-about-converting-a-tiered-volume-to-a-locally-pinned-volume"></a>Domande sulla conversione di un volume a livelli in un volume aggiunto in locale
+**D.** È stata osservata una certa lentezza sul dispositivo durante la conversione di un volume a livelli in un volume aggiunto in locale. Perché accade? 
 
-**R.** Il processo di conversione include due passaggi:
+**R.** Il processo di conversione include due passaggi: 
 
 1. Provisioning di spazio sul dispositivo per il volume aggiunto in locale da convertire a breve.
 2. Download dei dati a livelli dal cloud per assicurare le garanzie locali.
@@ -121,7 +125,7 @@ Entrambi i passaggi sono operazioni di lunga durata che dipendono dalla dimensio
 * Sono stati applicati criteri di limitazione della larghezza di banda, che possono vincolare la larghezza di banda disponibile al cloud. È quindi consigliabile avere una connessione al cloud dedicata di almeno 40 Mbps.
 * Il processo di conversione può richiedere diverse ore a causa dei numerosi fattori illustrati sopra, quindi è consigliabile eseguire questa operazione in momenti non di picco o nel fine settimana per evitare l'impatto sugli utenti finali.
 
-Sono disponibili altre informazioni su come [convertire un volume a livelli in un volume aggiunto in locale](storsimple-manage-volumes-u2.md#change-the-volume-type).
+Sono disponibili altre informazioni su come [convertire un volume a livelli in un volume aggiunto in locale](storsimple-manage-volumes-u2.md#change-the-volume-type)
 
 **D.** È possibile annullare l'operazione di conversione del volume?
 
@@ -131,11 +135,11 @@ Sono disponibili altre informazioni su come [convertire un volume a livelli in u
 
 **R.** La conversione del volume può non riuscire a causa di problemi di connettività cloud. Il dispositivo potrebbe arrestare il processo di conversione dopo una serie di tentativi non riusciti di trasferire i dati a livelli dal cloud. In tale scenario il tipo di volume continuerà a essere il tipo di volume di origine precedente alla conversione e:
 
-* Verrà generato un avviso critico per notificare l'errore di conversione del volume. Sono disponibili altre informazioni sugli [avvisi correlati ai volumi aggiunti in locale](storsimple-manage-alerts.md#locally-pinned-volume-alerts).
+* Verrà generato un avviso critico per notificare l'errore di conversione del volume. Sono disponibili altre informazioni sugli [avvisi correlati ai volumi aggiunti in locale](storsimple-manage-alerts.md#locally-pinned-volume-alerts)
 * Se si sta convertendo un volume a livelli in uno aggiunto in locale, il volume continuerà a presentare le proprietà di un volume a livelli perché i dati potrebbero ancora trovarsi nel cloud. È consigliabile risolvere i problemi di connettività e quindi riprovare l'operazione di conversione.
 * Analogamente, quando la conversione da un volume aggiunto in locale in uno a livelli non riesce, anche se il volume verrà contrassegnato come volume aggiunto in locale, funzionerà come volume a livelli (perché è possibile che i dati siano stati distribuiti nel cloud), ma continuerà a occupare spazio nei livelli locali del dispositivo. Questo spazio non sarà disponibile per gli altri volumi aggiunti in locale. È consigliabile ritentare questa operazione per assicurarsi che la conversione del volume sia stata completata e che lo spazio locale sul dispositivo possa essere recuperato.
 
-## Domande sul ripristino di un volume aggiunto in locale
+## <a name="questions-about-restoring-a-locally-pinned-volume"></a>Domande sul ripristino di un volume aggiunto in locale
 **D.** I volumi aggiunti in locale vengono ripristinati immediatamente?
 
 **R.** Sì, i volumi aggiunti in locale vengono ripristinati immediatamente. Non appena dal cloud viene effettuato il pull delle informazioni sui metadati per il volume durante l'operazione di ripristino, il volume passa online ed è accessibile dall'host, ma le garanzie locali per i dati del volume saranno presenti solo dopo che tutti i dati saranno stati scaricati dal cloud ed è possibile che questi volumi subiscano un calo delle prestazioni durante il ripristino.
@@ -154,7 +158,7 @@ Sono disponibili altre informazioni su come [convertire un volume a livelli in u
 
 **D.** È possibile modificare il tipo di un volume durante il ripristino?
 
-**R.** No, non è possibile modificare il tipo di volume durante il ripristino.
+**R.**No, non è possibile modificare il tipo di volume durante il ripristino.
 
 * I volumi eliminati vengono ripristinati con il tipo archiviato nello snapshot.
 * I volumi esistenti vengono ripristinati in base al tipo corrente, indipendentemente dal tipo archiviato nello snapshot (vedere le due domande precedenti).
@@ -169,9 +173,9 @@ Sono disponibili altre informazioni su come [convertire un volume a livelli in u
 
 **D.** È possibile clonare un volume aggiunto in locale?
 
-**R.** Sì, ma il volume aggiunto in locale verrà duplicato come volume a livelli per impostazione predefinita. Sono disponibili altre informazioni su come [clonare un volume aggiunto in locale](storsimple-clone-volume-u2.md).
+**R.** Sì, ma il volume aggiunto in locale verrà duplicato come volume a livelli per impostazione predefinita. Sono disponibili altre informazioni su come [clonare un volume aggiunto in locale](storsimple-clone-volume-u2.md)
 
-## Domande sul failover di un volume aggiunto in locale
+## <a name="questions-about-failing-over-a-locally-pinned-volume"></a>Domande sul failover di un volume aggiunto in locale
 **D.** È necessario effettuare il failover del dispositivo in un altro dispositivo fisico. Dei volumi aggiunti in locale verrà effettuato il failover come volumi aggiunti in locale o a livelli?
 
 **R.** A seconda della versione software del dispositivo di destinazione, il failover dei volumi aggiunti in locale verrà effettuato come:
@@ -180,7 +184,7 @@ Sono disponibili altre informazioni su come [convertire un volume a livelli in u
 * A livelli se il dispositivo di destinazione esegue l'aggiornamento 1.x della serie 8000 di StorSimple.
 * A livelli se il dispositivo di destinazione è l'appliance cloud (aggiornamento 2 o aggiornamento 1.x della versione software).
 
-Sono disponibili altre informazioni su [failover e ripristino di emergenza dei volumi aggiunti in locale nelle diverse versioni](storsimple-device-failover-disaster-recovery.md#device-failover-across-software-versions).
+Sono disponibili altre informazioni sugli [failover e ripristino di emergenza dei volumi aggiunti in locale nelle diverse versioni](storsimple-device-failover-disaster-recovery.md#device-failover-across-software-versions)
 
 **D.** I volumi aggiunti in locale vengono ripristinati immediatamente durante il ripristino di emergenza?
 
@@ -196,6 +200,11 @@ Sono disponibili altre informazioni su [failover e ripristino di emergenza dei v
 
 **D.** È possibile effettuare il failover di un contenitore di volumi con volumi aggiunti in locale nell'appliance cloud?
 
-**R.** Sì, Il failover dei volumi aggiunti in locale viene effettuato come volumi a livelli. Sono disponibili altre informazioni su [failover e ripristino di emergenza dei volumi aggiunti in locale nelle diverse versioni](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover).
+**R.** Sì, Il failover dei volumi aggiunti in locale viene effettuato come volumi a livelli. Sono disponibili altre informazioni sugli [failover e ripristino di emergenza dei volumi aggiunti in locale nelle diverse versioni](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

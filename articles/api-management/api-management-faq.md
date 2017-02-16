@@ -12,19 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: mijiang
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 21c05684055a98fecd214fb8291147d3cfefe13a
-
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: f4f3ee081d7c89fb5bc01552cb2e3ce01dd5381a
 
 ---
 # <a name="azure-api-management-faqs"></a>Domande frequenti su Gestione API di Azure
 Risposte alle domande comuni, modelli e procedure consigliate per Gestione API di Azure.
 
-## <a name="frequently-asked-questions"></a>Domande frequenti
+## <a name="contact-us"></a>Contatti
 * [Come si rivolge una domanda al team di Gestione API di Microsoft Azure?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
+
+
+## <a name="frequently-asked-questions"></a>Domande frequenti
 * [Che cosa significa se una funzionalità è in anteprima?](#what-does-it-mean-when-a-feature-is-in-preview)
 * [Come si protegge la connessione tra il gateway di Gestione API e i servizi back-end?](#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
 * [Come si copia l'istanza del servizio Gestione API in una nuova istanza?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
@@ -144,11 +146,11 @@ Se si usa Git Credential Manager o se si vuole clonare un repository Git usando 
 Sì. Gestione API funziona con ExpressRoute.
 
 ### <a name="can-i-move-an-api-management-service-from-one-subscription-to-another"></a>È possibile spostare un servizio Gestione API da una sottoscrizione a un'altra?
-Sì. Per informazioni, vedere [Move resources to a new resource group or subscription](../resource-group-move-resources.md) (Spostare le risorse in un nuovo gruppo di risorse o in una nuova sottoscrizione).
+Sì. Per informazioni, vedere [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md) (Spostare le risorse in un nuovo gruppo di risorse o in una nuova sottoscrizione).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,41 +1,69 @@
 ---
-title: Soluzione di rilevamento modifiche in Log Analytics | Microsoft Docs
-description: È possibile usare la soluzione Change Tracking (Rilevamento modifiche) relativa alla configurazione in Log Analytics per identificare facilmente le modifiche apportate al software e ai servizi Windows nell'ambiente in uso. Questa funzionalità può semplificare l'individuazione dei problemi operativi.
+title: Soluzione di rilevamento delle modifiche in Log Analytics | Microsoft Docs
+description: "È possibile usare la soluzione Change Tracking (Rilevamento modifiche) relativa alla configurazione in Log Analytics per identificare facilmente le modifiche apportate al software e ai servizi Windows nell&quot;ambiente in uso. Questa funzionalità può semplificare l&quot;individuazione dei problemi operativi."
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
-manager: jwhit
-editor: ''
-
-ms.service: operations-management-suite
+manager: carmonm
+editor: 
+ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
+ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 56faeccbb25d2f0e3dbe6b104b5e9bc95a06ca36
+
 
 ---
 # <a name="change-tracking-solution-in-log-analytics"></a>Soluzione di rilevamento modifiche in Log Analytics
-È possibile usare la soluzione di rilevamento delle modifiche di configurazione in Log Analytics per identificare facilmente le modifiche apportate al software, ai servizi Windows e ai daemon Linux nell'ambiente in uso. Questa funzionalità può semplificare l'individuazione dei problemi operativi.
+Questo articolo spiega come usare la soluzione di rilevamento delle modifiche alla configurazione in Log Analytics per identificare facilmente le modifiche nell'ambiente. La soluzione rileva le modifiche apportate a software, servizi di Windows, daemon Linux e pacchetti Linux. Rilevando le modifiche alla configurazione è possibile localizzare eventuali problemi operativi. È anche possibile configurare la soluzione perché rilevi le modifiche a file di Windows specifici.
 
-La soluzione viene installata per aggiornare il tipo di agente che è stato installato. Vengono lette le modifiche al software installato e ai servizi Windows nei server monitorati e i dati vengono inviati al servizio Log Analytics nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud. I server in cui vengono rilevate le modifiche vengono visualizzati nel dashboard Change Tracking. Usando le informazioni nel dashboard Change Tracking, è possibile visualizzare facilmente le modifiche apportate all'infrastruttura del server.
+La soluzione viene installata per aggiornare il tipo di agente che è stato installato. La soluzione legge le modifiche al software installato, ai servizi Windows e ai daemon Linux nei server monitorati e invia i dati al servizio Log Analytics nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud. I server in cui vengono rilevate le modifiche vengono visualizzati nel dashboard Change Tracking. Usando le informazioni nel dashboard Change Tracking, è possibile visualizzare facilmente le modifiche apportate all'infrastruttura del server.
 
 ## <a name="installing-and-configuring-the-solution"></a>Installazione e configurazione della soluzione
 Usare le informazioni seguenti per installare e configurare la soluzione.
 
-* Per la soluzione di rilevamento modifiche è richiesto Operations Manager.
-* È necessario avere un agente di Windows o un agente Operations Manager su ciascun computer in cui si desidera monitorare le modifiche.
+* È necessario avere un agente [Windows](log-analytics-windows-agents.md), [Operations Manager](log-analytics-om-agents.md) o [Linux](log-analytics-linux-agents.md) su ogni computer in cui si vuole monitorare le modifiche.
 * Aggiungere la soluzione di rilevamento modifiche all'area di lavoro OMS usando la procedura descritta nell'articolo sull' [aggiunta di soluzioni di Log Analytics dalla raccolta soluzioni](log-analytics-add-solutions.md).  Non è richiesta alcuna ulteriore configurazione.
+
+### <a name="configure-windows-files-to-track"></a>Configurare i file di Windows da rilevare
+Seguire questa procedura per configurare i file da rilevare in computer Windows.
+
+1. Nel portale di OMS, fare clic su **Impostazioni** (simbolo dell'ingranaggio).
+2. Nella pagina **Impostazioni** fare clic su **Dati** e poi su **Rilevamento file di Windows**.
+3. In Rilevamento modifiche file di Windows digitare l'intero percorso, includendo il nome del file che si vuole rilevare, e fare clic sul simbolo **Aggiungi**. Ad esempio: C:\Programmi (x86)\Internet Explorer\iexplore.exe o C:\Windows\System32\drivers\etc\hosts.
+4. Fare clic su **Save**.  
+   ![Rilevamento modifiche file di Windows](./media/log-analytics-change-tracking/windows-file-change-tracking.png)
+
+### <a name="limitations"></a>Limitazioni
+La soluzione di rilevamento modifiche non supporta attualmente gli elementi seguenti:
+
+* cartelle (directory)
+* ricorsione
+* caratteri jolly
+* variabili di percorso
+* file system di rete
+
+Altre limitazioni:
+
+* La colonna **Dimensioni massime file** e i valori non sono usati nell'implementazione corrente.
+* Se si raccolgono oltre 2500 file in un ciclo di recupero di 30 minuti, è possibile assistere a una riduzione delle prestazioni della soluzione.
+* Quando il traffico di rete è elevato, i record di modifica possono impiegare fino a un massimo di sei ore prima di essere visualizzati.
+* Se si modifica la configurazione mentre un computer è arrestato, il computer potrebbe registrare le modifiche ai file che appartenevano alla configurazione precedente.
 
 ## <a name="change-tracking-data-collection-details"></a>Informazioni dettagliate sulla raccolta dei dati di Change Tracking
 Change Tracking consente di raccogliere l'inventario software e i metadati del servizio Windows tramite gli agenti abilitati.
 
 La tabella seguente mostra i metodi di raccolta di dati e altre informazioni dettagliate sul modo in cui vengono raccolti i dati per Change Tracking.
 
-| piattaforma | Agente diretto | Agente SCOM | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | frequenza della raccolta |
-| --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Sì](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sì](./media/log-analytics-change-tracking/oms-bullet-green.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Sì](./media/log-analytics-change-tracking/oms-bullet-green.png) |ogni ora |
+| piattaforma | Agente diretto | Agente SCOM | Agente Linux | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | Frequenza della raccolta |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Windows e Linux |![Sì](./media/log-analytics-change-tracking/oms-bullet-green.png) |![sì](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sì](./media/log-analytics-change-tracking/oms-bullet-green.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Sì](./media/log-analytics-change-tracking/oms-bullet-green.png) |ogni ora |
 
 ## <a name="use-change-tracking"></a>Uso di Change Tracking
 Dopo l'installazione della soluzione, è possibile visualizzare il riepilogo delle modifiche per i server monitorati usando il riquadro **Rilevamento modifiche** nella pagina **Panoramica** di OMS.
@@ -47,7 +75,9 @@ Dopo l'installazione della soluzione, è possibile visualizzare il riepilogo del
 * Modifiche per tipo di configurazione per i servizi software e di Windows.
 * Modifiche software ad applicazioni e aggiornamenti per singoli server.
 * Numero totale di modifiche software per ogni applicazione.
+* Pacchetti Linux
 * Modifiche dei servizi di Windows per singoli server.
+* Modifiche a daemon Linux
 
 ![image of Change Tracking dashboard](./media/log-analytics-change-tracking/oms-changetracking01.png)
 
@@ -61,6 +91,8 @@ Dopo l'installazione della soluzione, è possibile visualizzare il riepilogo del
 ## <a name="next-steps"></a>Passaggi successivi
 * Per visualizzare dati dettagliati di monitoraggio delle modifiche, usare [Ricerche nei log in Log Analytics](log-analytics-log-searches.md) .
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -2,7 +2,7 @@
 title: Configurare webhook negli avvisi relativi alle metriche di Azure | Microsoft Docs
 description: Reindirizzare gli avvisi di Azure ad altri sistemi non Azure
 author: kamathashwin
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2016
+ms.date: 01/07/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 62d6c15b9c360c74dc5d9436833bb4666048e523
+ms.sourcegitcommit: c0d101266fecf04a84b5717c1b81cefed90cab40
+ms.openlocfilehash: 440bd939f0c7d235d7be210c7fee9f2bc122718c
 
 
 ---
@@ -36,7 +36,7 @@ Gli avvisi di Azure eseguono l'azione HTTP POST per il contenuto degli avvisi in
 L'autenticazione del webhook può essere eseguita con uno di questi metodi:
 
 1. **Autorizzazione basata su token**: l'URI del webhook viene salvato con un ID token, ad esempio `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
-2. **Autorizzazione di base**: l'URI del webhook viene salvato con nome utente e password, ad esempio `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
+2. **Autorizzazione basata su password**: l'URI del webhook viene salvato con nome utente e password, ad esempio `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
 
 ## <a name="payload-schema"></a>Schema del payload
 L'operazione POST contiene il seguente payload e schema JSON per tutti gli avvisi basati su metriche.
@@ -103,8 +103,8 @@ L'operazione POST contiene il seguente payload e schema JSON per tutti gli avvis
 
 > [!NOTE]
 > Il campo properties può essere impostato solo usando l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn933805.aspx).
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sugli avvisi di Azure e sui webhook, vedere il video sull' [integrazione degli avvisi di Azure con PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080)
@@ -115,7 +115,6 @@ L'operazione POST contiene il seguente payload e schema JSON per tutti gli avvis
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 049ae836fae651edb0ce45eabd6d7eec64308b75
+ms.sourcegitcommit: c9a5091973395dd888939432292fbd06dcbf0680
+ms.openlocfilehash: 565220fa7b90ac49fd0c9ad01d36ba50fd7f6849
 
 
 ---
@@ -26,10 +26,10 @@ ms.openlocfilehash: 049ae836fae651edb0ce45eabd6d7eec64308b75
 
 In questo articolo si apprenderà come connettersi a un cluster HDInsight tramite Desktop remoto e quindi eseguire query Hive usando l'interfaccia della riga di comando di Hive.
 
-> [!NOTE]
-> Questo documento non fornisce una descrizione dettagliata delle operazioni eseguite dalle istruzioni HiveQL usate negli esempi. Per informazioni sul codice HiveQL usato in questo esempio, vedere [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md).
+> [!IMPORTANT]
+> Desktop remoto è disponibile solo nei cluster HDInsight che usano Windows come sistema operativo. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 >
->
+> Per HDInsight 3.4 o versione successiva, vedere [Usare Hive con HDInsight e Beeline](hdinsight-hadoop-use-hive-beeline.md) per informazioni sull'esecuzione di query Hive direttamente sul cluster dalla riga di comando.
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Prerequisiti
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
@@ -140,11 +140,11 @@ Se si usa Tez con Hive, vedere i documenti seguenti per le informazioni di debug
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
 
-[Powershell-install-configure]: ../powershell-install-configure.md
+[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

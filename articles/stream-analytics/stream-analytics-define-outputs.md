@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/23/2016
+ms.date: 12/05/2016
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: e5703e7aa26af81a0bf76ec393f124ddc80bf43c
-ms.openlocfilehash: 76adad7bc7f195b04601368fb715e34f5d3d7782
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3a42093a67fe1ded29e97343affa5df89ea5fd1a
 
 
 ---
@@ -212,6 +212,37 @@ Per una procedura dettagliata di configurazione di un output di Power BI e del d
 > 
 > 
 
+### <a name="schema-creation"></a>Creazione dello schema
+Analisi di flusso di Azure crea un set di dati e una tabella di Power BI per conto dell'utente, se non ne esistono già. In tutti gli altri casi la tabella viene aggiornata con nuovi valori. Attualmente non esiste alcuna limitazione che preveda l'esistenza di un'unica tabella in un set di dati.
+
+### <a name="data-type-conversion-from-asa-to-power-bi"></a>Conversione di tipi di dati da Analisi di flusso di Azure in Power BI
+Analisi di flusso di Azure consente di aggiornare il modello di dati in modo dinamico in fase di esecuzione se viene modificato lo schema di output. Vengono rilevate tutte le modifiche al nome e al tipo di colonna e l'aggiunta o la rimozione di colonne.
+
+Questa tabella contiene le conversioni dei tipi di dati dai [tipi di dati di analisi di flusso](https://msdn.microsoft.com/library/azure/dn835065.aspx) ai [tipi Entity Data Model (EDM)](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/) di Power BI se non esistono né un set di dati né una tabella di Power BI.
+
+
+Dall'analisi di flusso | A Power BI
+-----|-----|------------
+bigint | Int64
+nvarchar(max) | String
+datetime | DateTime
+float | Double
+Matrice di record | Tipo String, valore di tipo Constant "IRecord" o "IArray"
+
+### <a name="schema-update"></a>Aggiornamento dello schema
+L'analisi di flusso deduce lo schema del modello di dati in base al primo set di eventi dell'output. In un secondo momento, se necessario, lo schema del modello di dati viene aggiornato per gestire gli eventi in ingresso che potrebbero non rientrare nello schema originale.
+
+È consigliabile non usare la query `SELECT *` per evitare l'aggiornamento dello schema dinamico nelle righe. Oltre a implicazioni potenziali sulle prestazioni, potrebbe anche verificarsi un problema di indeterminazione del tempo necessario per ottenere i risultati. È necessario selezionare i campi esatti che devono essere visualizzati nel dashboard di Power BI. È anche necessario che i valori dei dati siano conformi al tipo di dati scelto.
+
+
+Precedente/Corrente | Int64 | string | DateTime | Double
+-----------------|-------|--------|----------|-------
+Int64 | Int64 | String | String | Double
+Double | Double | string | String | Double
+String | String | String | String |  | string | 
+DateTime | string | string |  DateTime | String
+
+
 ### <a name="renew-power-bi-authorization"></a>Rinnovare l'autorizzazione di Power BI
 Se la password dell'account Power BI è stata modificata dopo la creazione o l'ultima autenticazione del processo, sarà necessario autenticare nuovamente l'account. Se Multi-Factor Authentication (MFA) è configurata nel tenant Azure Active Directory (AAD), sarà necessario rinnovare anche l'autorizzazione Power BI ogni due settimane. Un sintomo di questo problema è che non ci sono output del processo e un "Errore nell’autenticazione dell’utente" nei log delle operazioni:
 
@@ -329,6 +360,6 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

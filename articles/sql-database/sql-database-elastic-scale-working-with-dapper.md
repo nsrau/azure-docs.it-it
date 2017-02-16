@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1926e18f0d0b37ed8c95fbdc18df74d573a5ac66
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 01369360fa10ae39e2f9b435d877de0171574286
 
 
 ---
@@ -170,6 +170,6 @@ Le applicazioni che usano Dapper e DapperExtensions possono trarre vantaggio fac
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,19 +1,23 @@
 ---
-title: Come gestire i certificati di federazione in Azure AD | Microsoft Docs
+title: Come gestire i certificati di federazione in Azure AD | Documentazione Microsoft
 description: Informazioni su come personalizzare la data di scadenza per i certificati di federazione e su come rinnovare i certificati con scadenza imminente.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser-msft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f516f7f0-b25a-4901-8247-f5964666ce23
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2016
-ms.author: asmalser-msft
+ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: fb33a0b01b7d9806c92dfc66303b0dd2ca1044d9
+ms.openlocfilehash: 04276fc2da32b27dc9e0a4601ab45b9f1e95959a
+
 
 ---
 # <a name="managing-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gestione di certificati per Single Sign-On federato in Azure Active Directory
@@ -54,7 +58,7 @@ I passaggi per il rinnovo illustrati di seguito non dovrebbero idealmente compor
 4. Nella pagina successiva selezionare **Genera un nuovo certificato**, quindi specificare la durata desiderata per la validità del nuovo certificato. Quindi fare clic su **Avanti**.
    
     ![Genera un nuovo certificato](./media/active-directory-sso-certs/new-app-config-cert.PNG)
-5. Fare clic su **Download certificato**. Per rinnovare correttamente il certificato, è necessario eseguire i due passaggi seguenti:
+5. Fare clic su **Download certificato**. Per rinnovare il certificato, è necessario eseguire i due passaggi seguenti:
    
    * Caricare il nuovo certificato nella schermata di configurazione dell'accesso Single Sign-On dell'app SaaS. Per informazioni su come eseguire questa operazione per l'app SaaS specifica, fare clic su **Visualizzare le istruzioni di configurazione di**.
    * In Azure AD selezionare la casella di conferma nella parte inferiore della finestra di dialogo per abilitare il nuovo certificato, quindi fare clic su **Avanti** per l'invio.
@@ -71,6 +75,9 @@ I passaggi per il rinnovo illustrati di seguito non dovrebbero idealmente compor
 * [Accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 * [Risoluzione dei problemi dell'accesso Single Sign-On basato su SAML](active-directory-saml-debugging.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO3-->
 
 

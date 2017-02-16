@@ -1,5 +1,5 @@
 ---
-title: "Perché si riceve una notifica che la sottoscrizione di Azure presenta un saldo dovuto non pagato | Documentazione Microsoft"
+title: Messaggio di posta elettronica di Azure relativo a un saldo dovuto non pagato | Documentazione Microsoft
 description: Viene descritto come effettuare il pagamento se la sottoscrizione di Azure presenta un saldo dovuto non pagato
 services: 
 documentationcenter: 
@@ -13,21 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 01/24/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7eabdc787322b64dca77022d1f36cc403e3f0a29
+ms.sourcegitcommit: c5a8d378802dfdc0e0a764399f5bb6655e174619
+ms.openlocfilehash: b9f0bdac445c37090bc82218950624b4336c88f0
 
 
 ---
 # <a name="why-have-you-received-a-notification-that-your-azure-subscription-has-a-past-due-balance"></a>Perché si riceve una notifica che la sottoscrizione di Azure presenta un saldo dovuto non pagato?
-Se l'utente è l'amministratore account per la sottoscrizione di Azure e non ha eseguito il pagamento nei tempi previsti, riceverà una notifica tramite messaggio di posta elettronica in merito alla scadenza del saldo oppure vedrà visualizzato un avviso su [https://account.windowsazure.com](https://account.windowsazure.com) o su [https://portal.azure.com](https://portal.azure.com).
-
-> [!NOTE]
-> Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
-> 
-> 
+Se l'utente è l'amministratore account per la sottoscrizione di Azure e non ha eseguito il pagamento nei tempi previsti, riceverà una notifica tramite messaggio di posta elettronica in merito alla scadenza del saldo oppure vedrà visualizzato un avviso nel [Centro account di Azure](https://account.windowsazure.com) o nel [portale di Azure](https://portal.azure.com).
 
 Se non saremo in grado elaborare il pagamento per qualsiasi motivo, ricevere un messaggio di posta elettronica con un testo simile a:
 
@@ -51,15 +46,13 @@ Per istruzioni su come modificare il metodo di pagamento in Azure, vedere [come 
 
 > [!NOTE]
 > Se la sottoscrizione di Azure viene disabilitata, seguire la procedura disponibile nell'articolo [Cosa fare in caso di annullamento della sottoscrizione di Azure](billing-subscription-become-disable.md)
-> 
-> [!NOTE]
-> Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
-> 
-> 
+>
+
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
+Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -11,17 +11,21 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/20/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8c5324742e42a1f82bb3031af4380fc5f0241d7f
-ms.openlocfilehash: 1b153af33ef2f7c112336a2de2a3710613ad3887
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: 71cf6cd6e7a33b3aeb3e0e20b9b047377412786d
 
 
 ---
 # <a name="reference-for-analytics"></a>Informazioni di riferimento sull'analisi
 L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analytics.
 
+Fonti di informazioni aggiuntive:
+
+* Diversi materiali di riferimento sono disponibili in Analytics non appena si digita il testo. Quando si inizia a digitare una query, vengono suggeriti i completamenti possibili.
+* [La pagina dell'esercitazione](app-insights-analytics-tour.md) offre un'introduzione dettagliata alle funzionalità del linguaggio.
 * Il [foglio informativo sugli utenti SQL](https://aka.ms/sql-analytics) traduce i linguaggi più comuni.
 * [Eseguire la versione di test di Analisi sui dati simulati](https://analytics.applicationinsights.io/demo) se l'app non invia ancora i dati ad Application Insights.
  
@@ -29,7 +33,7 @@ L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato inclu
 ## <a name="index"></a>Indice
 **Let** [let](#let-clause)
 
-**Query e operatori** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
+**Query e operatori** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
 
 **Aggregazioni** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -364,6 +368,70 @@ traces
     Age = now() - timestamp
 ```
 
+### <a name="find-operator"></a>Operatore find
+
+    find in (Table1, Table2, Table3) where id=='42'
+
+Trova le righe corrispondenti a un predicato in un set di tabelle.
+
+**Sintassi**
+
+    find in (Table1, ...) 
+    where Predicate 
+    [project Column1, ...]
+
+**Argomenti**
+
+* *Table1* Nome di tabella o query. Può essere una tabella definita da let, ma non una funzione. Un nome di tabella offre prestazioni migliori di una query.
+* *Predicate* Espressione booleana valutata per ogni riga nelle tabelle specificate.
+* *Column1* L'opzione `project` consente di specificare le colonne che devono essere sempre visualizzate nell'output. 
+
+**Risultato**
+
+Per impostazione predefinita, la tabella di output contiene:
+
+* `source_`: indicatore della tabella di origine per ogni riga.
+* Colonne menzionate in modo esplicito nel predicato.
+* Colonne non vuote comuni a tutte le tabelle di input.
+* `pack_`: contenitore delle proprietà che include i dati delle altre colonne.
+
+Si noti che questo formato può cambiare con le modifiche apportate ai dati di input o al predicato. Per specificare un set fisso di colonne, usare `project`.
+
+**Esempio**
+
+Ottenere tutte le richieste e le eccezioni, escluse quelle dei test di disponibilità e dei riavvii:
+
+```AIQL
+
+    find in (requests, exceptions) where isempty(operation_SyntheticSource)
+```
+
+Trovare tutte le richieste e le eccezioni dal Regno Unito, escluse quelle dei test di disponibilità e dei riavvii:
+
+```AIQL
+
+    let requk = requests
+    | where client_CountryOrRegion == "United Kingdom";
+    let exuk = exceptions
+    | where client_CountryOrRegion == "United Kingdom";
+    find in (requk, exuk) where isempty(operation_SyntheticSource)
+```
+
+Trovare i dati di telemetria più recenti in cui qualsiasi campo contiene il termine "test":
+
+```AIQL
+
+    find in (traces, requests, pageViews, dependencies, customEvents, availabilityResults, exceptions) 
+    where * has 'test' 
+    | top 100 by timestamp desc
+```
+
+**Suggerimenti per incrementare le prestazioni**
+
+* Aggiungere termini con scadenza al predicato `where`.
+* Usare clausole `let` invece di scrivere query inline.
+
+
 
 ### <a name="join-operator"></a>Operatore join
     Table1 | join (Table2) on CommonColumn
@@ -387,10 +455,10 @@ Una tabella con:
 
 * Una colonna per ogni colonna in ognuna delle due tabelle, incluse le chiavi corrispondenti. Le colonne del lato destro verranno automaticamente rinominate in caso di conflitti tra i nomi.
 * Una riga per ogni corrispondenza tra le tabelle di input. Una corrispondenza è una riga selezionata da una tabella che ha lo stesso valore per tutti i campi `on` di una riga nell'altra tabella. 
-* `Kind` non specificato
+* `Kind` non specificato o `= innerunique`
   
     Solo una riga del lato sinistro viene associata a ogni valore della chiave `on` . L'output contiene una riga per ogni corrispondenza di questa riga con le righe a destra.
-* `Kind=inner`
+* `kind=inner`
   
      Nell'output è presente una riga per ogni combinazione di righe corrispondenti a sinistra e a destra.
 * `kind=leftouter` (oppure `kind=rightouter` o `kind=fullouter`)
@@ -399,8 +467,10 @@ Una tabella con:
 * `kind=leftanti`
   
      Restituisce tutti i record del lato sinistro che non hanno corrispondenze a destra. La tabella risultante contiene solo le colonne del lato sinistro. 
+* `kind=leftsemi` (o `leftantisemi`)
 
-Se sono presenti più righe con gli stessi valori per tali campi, si otterranno righe per tutte le combinazioni.
+    Restituisce una riga della tabella a sinistra se è presente (oppure no) una corrispondenza nella tabella a destra. Il risultato non include i dati di destra.
+
 
 **Suggerimenti**
 
@@ -836,9 +906,8 @@ Le righe di input vengono disposte in gruppi con gli stessi valori delle espress
 
 Il risultato contiene una riga per ogni singola combinazione di valori `by` . Per riepilogare gli intervalli di valori numerici, usare `bin()` per ridurre gli intervalli a valori discreti.
 
-**Nota**
-
-Anche se è possibile specificare espressioni arbitrarie per le espressioni di aggregazione e raggruppamento, è preferibile usare nomi di colonna semplici o applicare `bin()` a una colonna numerica.
+> [!NOTE]
+> Anche se è possibile specificare espressioni arbitrarie per le espressioni di aggregazione e raggruppamento, è preferibile usare nomi di colonna semplici o applicare `bin()` a una colonna numerica.
 
 ### <a name="take-operator"></a>Operatore take
 Alias di [limit](#limit-operator)
@@ -937,13 +1006,13 @@ Questa versione più efficiente genera lo stesso risultato. Filtra ogni tabella 
 ```AIQL
 
     exceptions
-    | where Timestamp > ago(1d)
+    | where Timestamp > ago(12h)
     | union withsource=SourceTable kind=outer 
-       (Command | where Timestamp > ago(1d))
+       (Command | where Timestamp > ago(12h))
     | summarize dcount(UserId)
 ```
 
-### <a name="forcing-an-order-of-results"></a>Forzare l'ordine dei risultati
+#### <a name="forcing-an-order-of-results"></a>Forzare l'ordine dei risultati
 
 L'unione non garantisce un ordinamento specifico delle righe di risultati.
 Per ottenere lo stesso ordine ogni volta che si esegue la query, aggiungere una colonna di tag a ogni tabella di input:
@@ -953,6 +1022,9 @@ Per ottenere lo stesso ordine ogni volta che si esegue la query, aggiungere una 
     let r3 = (pageViews | count | extend tag = 'r3');
     r1 | union r2,r3 | sort by tag
 
+#### <a name="see-also"></a>Vedere anche
+
+Considerare l'[operatore join](#join-operator) come alternativa.
 
 ### <a name="where-operator"></a>Operatore where
      requests | where resultCode==200
@@ -964,11 +1036,13 @@ Filtra una tabella per trovare il subset di righe che soddisfano un predicato.
 **Sintassi**
 
     T | where Predicate
+    T | where * has Term
 
 **Argomenti**
 
 * *T* : input tabulare i cui record devono essere filtrati.
 * *Predicate:* `boolean` [espressione](#boolean) sulle colonne di *T*. Viene valutato per ogni riga in *T*.
+* *Term*: stringa che deve corrispondere a una parola intera in una colonna.
 
 **Restituisce**
 
@@ -1621,7 +1695,7 @@ Alias `floor`.
 
 Il multiplo più vicino di *roundTo* inferiore a *value*.  
 
-    (toint((value/roundTo)-0.5)) * roundTo
+    (toint(value/roundTo)) * roundTo
 
 **esempi**
 
@@ -1705,14 +1779,14 @@ Funzione della radice quadrata.
 
 ### <a name="toint"></a>toint
     toint(100)        // cast from long
-    toint(20.7) == 21 // nearest int from double
-    toint(20.4) == 20 // nearest int from double
+    toint(20.7) == 20 // nearest int below double
+    toint(20.4) == 20 // nearest int below double
     toint("  123  ")  // parse string
     toint(a[0])       // cast from dynamic
     toint(b.c)        // cast from dynamic
 
 ### <a name="tolong"></a>tolong
-    tolong(20.7) == 21 // conversion from double
+    tolong(20.7) == 20 // conversion from double
     tolong(20.4) == 20 // conversion from double
     tolong("  123  ")  // parse string
     tolong(a[0])       // cast from dynamic
@@ -2607,6 +2681,6 @@ Racchiudere tra virgolette un nome con [' ... '] o [" ... "] per includere altri
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

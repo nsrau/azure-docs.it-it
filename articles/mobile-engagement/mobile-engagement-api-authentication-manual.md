@@ -137,6 +137,6 @@ Ora la configurazione di AAD necessaria è terminata e tutto è pronto per le ch
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

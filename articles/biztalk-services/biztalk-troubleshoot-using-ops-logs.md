@@ -1,37 +1,42 @@
 ---
-title: Informazioni su come risolvere i problemi relativi ai Servizi BizTalk mediante i log operazioni | Microsoft Docs
+title: Risolvere i problemi relativi a Servizi BizTalk usando i log operazioni | Documentazione Microsoft
 description: Informazioni su come risolvere i problemi relativi ai Servizi BizTalk mediante i log operazioni. MABS, WABS
 services: biztalk-services
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
-manager: erikre
-editor: ''
-
+manager: anneta
+editor: 
+ms.assetid: 1081a9c6-58cc-4a76-8ac8-11e5e7a6ea27
 ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/07/2016
 ms.author: mandia
+translationtype: Human Translation
+ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
+ms.openlocfilehash: c4a8ea0612ab4792f2fccb2295bdf365b742111d
+
 
 ---
-# Servizi BizTalk: Risoluzione dei problemi mediante i log operazioni
-## Cosa sono i log operazioni
+# <a name="biztalk-services-troubleshoot-using-operation-logs"></a>Servizi BizTalk: Risoluzione dei problemi mediante i log operazioni
+## <a name="what-are-the-operation-logs"></a>Cosa sono i log operazioni
 I log operazioni costituiscono una funzionalità dei servizi di gestione disponibile sul portale di Azure classico che consente di visualizzare log cronologici delle operazioni eseguite nei servizi di Azure, inclusi i servizi BizTalk. La funzionalità consente di visualizzare i dati cronologici relativi alle operazioni di gestione nella sottoscrizione del servizio BizTalk eseguite negli ultimi 180 giorni.
 
 > [!NOTE]
-> Si tratta di una funzionalità che acquisisce i log unicamente per operazioni di gestione sui Servizi BizTalk, ad esempio quando il servizio è stato avviato, sottoposto a backup e così via. Viene tenuta traccia di queste operazioni a prescindere dal fatto che vengano eseguite dal portale di Azure classico o mediante le [API REST del servizio BizTalk](http://msdn.microsoft.com/library/azure/dn232347.aspx). Per un elenco completo delle operazioni di cui viene tenuta traccia tramite i servizi di gestione, vedere [Operazioni di cui viene tenuta traccia tramite i servizi di gestione di Azure](#bizops).<br/><br/> Non vengono acquisiti log delle attività correlate al runtime del servizio BizTalk (ad esempio un messaggio elaborato da bridge e così via). Per visualizzare tali log, è utilizzare la visualizzazione Rilevamento del portale di Servizi BizTalk. Per ulteriori informazioni, vedere [Rilevamento di messaggi](http://msdn.microsoft.com/library/azure/hh949805.aspx).
+> Si tratta di una funzionalità che acquisisce i log unicamente per operazioni di gestione sui Servizi BizTalk, ad esempio quando il servizio è stato avviato, sottoposto a backup e così via. Viene tenuta traccia di queste operazioni a prescindere dal fatto che vengano eseguite dal portale di Azure classico o mediante le [API REST del servizio BizTalk](http://msdn.microsoft.com/library/azure/dn232347.aspx). Per un elenco completo delle operazioni di cui viene tenuta traccia tramite i servizi di gestione, vedere [Operazioni di cui viene tenuta traccia tramite i servizi di gestione di Azure](#bizops).<br/><br/>
+>  Non vengono acquisiti log delle attività correlate al runtime del servizio BizTalk (ad esempio un messaggio elaborato da bridge e così via). Per visualizzare tali log, è utilizzare la visualizzazione Rilevamento del portale di Servizi BizTalk. Per ulteriori informazioni, vedere [Rilevamento di messaggi](http://msdn.microsoft.com/library/azure/hh949805.aspx).
 > 
 > 
 
-## Visualizzazione dei log operazioni di Servizi BizTalk
-1. Nel portale di Azure classico, selezionare **Servizi di gestione**, quindi selezionare la scheda **Log operazioni**.
+## <a name="view-biztalk-services-operation-logs"></a>Visualizzazione dei log operazioni di Servizi BizTalk
+1. Nel portale di Azure classico selezionare **Servizi di gestione**, quindi selezionare la scheda **Log operazioni**.
 2. È possibile filtrare i log in base a diversi parametri quali sottoscrizione, intervallo di date, tipo di servizio (ad esempio Servizi BizTalk), nome del servizio o stato dell'operazione (Completata, Non riuscita).
-3. Fare clic sul segno di spunta per visualizzare l'elenco filtrato. Nell'immagine seguente sono mostrate le attività correlate a testbiztalkservice: ![Visualizzazione dei log operazioni][ViewLogs]
+3. Fare clic sul segno di spunta per visualizzare l'elenco filtrato. L'immagine seguente illustra le attività correlate a testbiztalkservice:  ![Visualizzare i log delle operazioni][ViewLogs] 
 4. Per visualizzare informazioni più dettagliate su una specifica operazione, selezionare la riga e fare clic su **Dettagli** nella barra delle attività nella parte inferiore.
 
-## <a name="bizops"></a>Operazioni di cui viene tenuta traccia tramite i servizi di gestione di Azure
+## <a name="a-namebizopsaoperations-tracked-using-azure-management-services"></a><a name="bizops"></a>Operazioni di cui viene tenuta traccia tramite i servizi di gestione di Azure
 Nella tabella seguente sono elencate le operazioni di cui viene tenuta traccia tramite i servizi di gestione di Azure:
 
 | Nome operazione | Attività |
@@ -52,7 +57,7 @@ Nella tabella seguente sono elencate le operazioni di cui viene tenuta traccia t
 | ServiceUpdateBizTalkService |Operazione di aggiornamento o downgrade di un servizio BizTalk a una versione diversa |
 | PurgeBackupBizTalkService |Operazione di cancellazione dei backup del servizio BizTalk che non rientrano nel periodo di conservazione |
 
-## Vedere anche
+## <a name="see-also"></a>Vedere anche
 * [Backup del servizio BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584)
 * [Ripristino del servizio BizTalk da un backup](http://go.microsoft.com/fwlink/p/?LinkID=325582)
 * [Servizi BizTalk: Grafico edizioni Developer, Basic, Standard e Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)
@@ -66,4 +71,8 @@ Nella tabella seguente sono elencate le operazioni di cui viene tenuta traccia t
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
 
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,10 +1,10 @@
 ---
-title: Soluzione di monitoraggio delle prestazioni di rete in OMS | Microsoft Docs
-description: Il monitoraggio delle prestazioni di rete consente di monitorare le prestazioni delle reti quasi in tempo reale per rilevare e trovare i colli di bottiglia delle prestazioni di rete.
+title: Soluzione di monitoraggio delle prestazioni di rete in OMS | Documentazione Microsoft
+description: Il monitoraggio delle prestazioni di rete consente di monitorare le prestazioni praticamente in tempo reale per rilevare e trovare i colli di bottiglia relativi.
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 57df4ab0b2a1df6631eb6e67a90f69cebb1dfe75
-ms.openlocfilehash: 2334540ec0eeec32d0c4b3a6d9597a290bad6ec0
+ms.sourcegitcommit: 820a9463c0e58054cf70324b680c5af8fdcacade
+ms.openlocfilehash: 794d9b7d5031730f9ea0f8daae251c825f7b05b0
 
 
 ---
@@ -246,6 +246,6 @@ Ora che è stata eseguita una panoramica sul monitoraggio delle prestazioni di r
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

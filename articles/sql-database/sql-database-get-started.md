@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione sul database SQL: creare un server, una regola del firewall a livello di server, un database di esempio, una regola del firewall a livello di database ed eseguire la connessione ad SQL Server Management Studio | Documentazione Microsoft'
-description: L&quot;articolo fornisce informazioni su come configurare un server logico del database SQL, una regola firewall del server, un database SQL e dati di esempio. Fornisce anche informazioni su come connettersi con strumenti client, configurare utenti e impostare una regola firewall del database.
+title: 'Portale di Azure: introduzione al database SQL di Azure | Documentazione Microsoft'
+description: Come creare un server logico di database SQL, una regola del firewall a livello di server e un database usando il portale di Azure. Viene anche illustrato come effettuare una query dei database usando SQL Server Management Studio.
 keywords: esercitazione sul database sql, creare un database sql
 services: sql-database
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: c2252fc81f97019391ca2ba957f8402c4e97a9c2
-ms.openlocfilehash: f9b17c1cc77918fb1989b94b5bb359a697ceea7c
+ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
+ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
 
 
 ---
-# <a name="get-started-with-azure-sql-database-servers-databases-and-firewall-rules-by-using-the-azure-portal-and-sql-server-management-studio"></a>Introduzione ai server del database SQL di Azure, ai database e alle regole del firewall usando il portale di Azure ed SQL Server Management Studio
+# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-the-azure-portal-and-sql-server-management-studio"></a>Esercitazione sul database SQL: Introduzione ai server di database SQL di Azure, ai database e alle regole del firewall con il portale di Azure e SQL Server Management Studio
 
 In questa esercitazione introduttiva si apprenderà come usare il portale di Azure per:
 
@@ -44,17 +44,22 @@ Al termine di questa esercitazione, si disporrà di un database di esempio e di 
 
 **Tempo stimato**: per questa esercitazione saranno necessari circa 30 minuti (presupponendo che i prerequisiti siano già soddisfatti).
 
+> [!TIP]
+> Per eseguire queste stesse attività in un'esercitazione introduttiva, è possibile usare [C#](sql-database-get-started-csharp.md) o [PowerShell](sql-database-get-started-powershell.md).
+>
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 * È necessario un account Azure. È possibile [aprire un account Azure gratuito](/pricing/free-trial/?WT.mc_id=A261C142F) o [attivare i benefici della sottoscrizione di Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
 
 * È necessario essere in grado di connettersi al portale di Azure usando un account membro del ruolo proprietario o collaboratore della sottoscrizione. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Introduzione alla gestione degli accessi nel portale di Azure](../active-directory/role-based-access-control-what-is.md).
 
-> [!TIP]
-> Per eseguire queste stesse attività in un'esercitazione introduttiva, è possibile usare [C#](sql-database-get-started-csharp.md) o [PowerShell](sql-database-get-started-powershell.md).
->
+> [!NOTE]
+> Questa esercitazione offre informazioni sul contenuto di questi argomenti: [panoramica del server del database SQL](sql-database-server-overview.md), [panoramica del database SQL](sql-database-overview.md) e [panoramica delle regole del firewall del database SQL di Azure](sql-database-firewall-configure.md).
+>  
 
-### <a name="sign-in-by-using-your-existing-account"></a>Accedere usando un account esistente
+
+### <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Accedere al portale di Azure con il proprio account Azure
 Usando la [sottoscrizione esistente](https://account.windowsazure.com/Home/Index), seguire questa procedura per connettersi al portale di Azure.
 
 1. Aprire il browser preferito e connettersi al [portale di Azure](https://portal.azure.com/).
@@ -103,7 +108,7 @@ Usando la [sottoscrizione esistente](https://account.windowsazure.com/Home/Index
     ![località del server](./media/sql-database-get-started/server-location.png)
     
     > [!TIP]
-    > La casella di controllo **Consenti ai servizi di Azure di accedere al server** non può essere modificata in questo pannello. È possibile modificare questa impostazione nel pannello firewall del server. Per altre informazioni, vedere [Get started with security](sql-database-get-started-security.md) (Introduzione alla sicurezza).
+    > La casella di controllo **Consenti ai servizi di Azure di accedere al server** non può essere modificata in questo pannello. È possibile modificare questa impostazione nel pannello firewall del server. Per altre informazioni, vedere [Get started with security](sql-database-control-access-sql-authentication-get-started.md) (Introduzione alla sicurezza).
     >
     
 9. Fare clic su **Create**.
@@ -183,7 +188,7 @@ Usando la [sottoscrizione esistente](https://account.windowsazure.com/Home/Index
     ![eseguire query su oggetti di sistema del database master](./media/sql-database-get-started/query-master-database-system-objects.png)
 
     > [!NOTE]
-    > Per informazioni sulla sicurezza di SQL, vedere [Get Started with SQL security](sql-database-get-started-security.md) (Introduzione alla sicurezza di SQL)
+    > Per informazioni sulla sicurezza di SQL, vedere [Get Started with SQL security](sql-database-control-access-sql-authentication-get-started.md) (Introduzione alla sicurezza di SQL)
     >
 
 ## <a name="create-new-database-in-the-azure-portal-using-adventure-works-lt-sample"></a>Creare un nuovo database nel portale di Azure usando l'esempio Adventure Works LT
@@ -291,7 +296,7 @@ Usando la [sottoscrizione esistente](https://account.windowsazure.com/Home/Index
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver completato questa esercitazione, sono disponibili numerose altre esercitazioni che può essere opportuno consultare per mettere in pratica i concetti appresi in questa esercitazione. 
 
-* Per informazioni sulla sicurezza del database SQL di Azure, vedere [Getting started with security](sql-database-get-started-security.md) (Introduzione alla sicurezza).
+* Per informazioni sulla sicurezza del database SQL di Azure, vedere [Getting started with security](sql-database-control-access-sql-authentication-get-started.md) (Introduzione alla sicurezza).
 * Se si ha familiarità con Excel, vedere l'esercitazione [Connettere Excel a un database SQL di Azure e creare un report](sql-database-connect-excel.md).
 * Se si è pronti per iniziare a scrivere codice, scegliere il linguaggio di programmazione in [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md).
 * Per spostare i database SQL Server locali in Azure, vedere [Migrating a database to SQL Database](sql-database-cloud-migrate.md) (Migrazione di un database al database SQL).
@@ -306,6 +311,6 @@ Dopo aver completato questa esercitazione, sono disponibili numerose altre eserc
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

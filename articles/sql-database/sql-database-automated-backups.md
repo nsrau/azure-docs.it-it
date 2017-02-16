@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 11/02/2016
 ms.author: sashan;carlrab;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: a5b69625272b96fc9e42b9b7e57b5401351d8d6e
-ms.openlocfilehash: 9e58a144be039db609ad1400246ef2de05c1b84d
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: f6bb6e1c81cafe5f0e5c43c99ab15a0483742868
 
 
 ---
@@ -42,15 +42,15 @@ The Feature Topic is a one-pager (ok, sometimes longer) that explains a capabili
 It is a "learning" topic, not an action topic.
 
 DO explain this:
-    • Definition of the feature terminology.  i.e., What is a database backup?
-    • Characteristics and capabilities of the feature. (How the feature works)
-    • Common uses with links to overview topics that recommend when to use the feature.
-    • Reference specifications (Limitations and Restrictions, Permissions, General Remarks, etc.)
-    • Next Steps with links to related overviews, features, and tasks.
+    � Definition of the feature terminology.  i.e., What is a database backup?
+    � Characteristics and capabilities of the feature. (How the feature works)
+    � Common uses with links to overview topics that recommend when to use the feature.
+    � Reference specifications (Limitations and Restrictions, Permissions, General Remarks, etc.)
+    � Next Steps with links to related overviews, features, and tasks.
 
 DON'T explain this:
-    • How to steps for using the feature (Tasks)
-    • How to solve business problems that incorporate the feature (Overviews)
+    � How to steps for using the feature (Tasks)
+    � How to solve business problems that incorporate the feature (Overviews)
 
 GUIDELINES for the H1 
 
@@ -58,7 +58,7 @@ GUIDELINES for the H1
 
     To help people understand this is a learning topic and not an action topic, start the title with "Learn about ... "
 
-    Heading must use an industry standard term. If your feature is a proprietary name like "Elastic database pools", use a synonym. For example:    "Learn about elastic database pools for multi-tenant databases". In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
+    Heading must use an industry standard term. If your feature is a proprietary name like "elastic pools", use a synonym. For example:    "Learn about elastic pools for multi-tenant databases". In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
 
 GUIDELINES for introduction
 
@@ -118,6 +118,10 @@ Il database SQL usa la tecnologia di SQL Server per creare backup [completi](htt
 * Ripristinare un database da un backup specifico nell'insieme di credenziali di Servizi di ripristino di Azure. Ciò consente di ripristinare una versione precedente del database per soddisfare una richiesta di conformità o di eseguire una versione precedente dell'applicazione. Vedere [Conservazione a lungo termine](sql-database-long-term-retention.md).
 * Per eseguire un ripristino, vedere l'articolo su come [ripristinare un database da un backup](sql-database-recovery-using-backups.md).
 
+> [!TIP]
+> Per un'esercitazione, vedere [Introduzione al backup e ripristino per la protezione dei dati e il ripristino](sql-database-get-started-backup-recovery.md)
+>
+
 <!----------------- 
     Explains first component of the backup feature
 ------------------>
@@ -168,7 +172,11 @@ Se si elimina un database, il database SQL mantiene i backup come farebbe con un
 ## <a name="how-to-extend-the-backup-retention-period"></a>Come estendere il periodo di conservazione dei backup?
 Se l'applicazione richiede che i backup siano disponibili per un periodo di tempo più lungo, è possibile estendere il periodo di conservazione predefinito configurando il criterio di conservazione dei backup a lungo termine per singoli database (criterio LTR). Ciò consente di estendere il periodo di conservazione predefinito da 35 giorni fino a 10 anni. Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine).
 
-Dopo aver aggiunto il criterio LTR a un database tramite il portale di Azure o l'API, i backup settimanali completi del database verranno copiati automaticamente nel proprio insieme di credenziali di Servizio Backup di Azure. Se il database è crittografato con TDE, i backup vengono crittografati automaticamente quando i dati sono inattivi.  L'insieme di credenziali dei servizi eliminerà automaticamente i backup scaduti in base ai loro timestamp e al criterio LTR.  Non sarà pertanto necessario gestire la pianificazione di backup o preoccuparsi di operazioni di pulitura dei vecchi file. L'API di ripristino supporta i backup archiviati nell'insieme di credenziali, purché l'insieme di credenziali si trovi nella stessa sottoscrizione del database SQL. È possibile usare il portale o PowerShell per accedere a questi backup.
+Dopo aver aggiunto il criterio LTR a un database tramite il portale di Azure o l'API, i backup settimanali completi del database verranno copiati automaticamente nel proprio insieme di credenziali di Servizio Backup di Azure. Se il database è crittografato con TDE, i backup vengono crittografati automaticamente quando i dati sono inattivi.  L'insieme di credenziali dei servizi eliminerà automaticamente i backup scaduti in base ai loro timestamp e al criterio LTR.  Non sarà quindi necessario gestire la pianificazione di backup o preoccuparsi di operazioni di pulitura dei vecchi file. L'API di ripristino supporta i backup archiviati nell'insieme di credenziali, purché l'insieme di credenziali si trovi nella stessa sottoscrizione del database SQL. È possibile usare il portale di Azure o PowerShell per accedere a questi backup.
+
+> [!TIP]
+> Per un'esercitazione, vedere [Introduzione al backup e ripristino per la protezione dei dati e il ripristino](sql-database-get-started-backup-recovery.md)
+>
 
 <!-------------------
 OPTIONAL section
@@ -214,11 +222,14 @@ GUIDELINES for Next Steps
 --------------------->
 
 ## <a name="next-steps"></a>Passaggi successivi
-I backup dei database sono una parte essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza, perché proteggono i dati dal danneggiamento o dall'eliminazione accidentale. Per informazioni sulle altre soluzioni di continuità aziendale del database SQL Azure, vedere [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).
+
+- I backup dei database sono una parte essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza, perché proteggono i dati dal danneggiamento o dall'eliminazione accidentale. Per informazioni sulle altre soluzioni di continuità aziendale del database SQL Azure, vedere [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).
+- Per eseguire un ripristino temporizzato, vedere [Restore database to a point in time](sql-database-point-in-time-restore.md) (Eseguire il ripristino temporizzato di un database).
+- Per visualizzare il punto di ripristino meno recente dai backup di un database generati dal servizio, vedere [View oldest restore point](sql-database-view-oldest-restore-point.md) (Visualizzare il punto di ripristino meno recente)
+- Per configurare la conservazione a lungo termine dei backup automatici nell'insieme di credenziali dei Servizi di ripristino di Azure, vedere [Configure long-term backup retention](sql-database-configure-long-term-retention.md) (Configurare la conservazione a lungo termine dei backup)
 
 
 
-
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

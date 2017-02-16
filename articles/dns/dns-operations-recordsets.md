@@ -1,5 +1,5 @@
 ---
-title: Gestire record DNS con il portale di Azure | Documentazione Microsoft
+title: Gestire i record DNS in DNS di Azure tramite Azure PowerShell | Documentazione Microsoft
 description: Gestione dei set di record e dei record DNS in DNS di Azure quando si ospita il dominio in DNS di Azure. Tutti i comandi di PowerShell per le operazioni sui set di record e i record.
 services: dns
 documentationcenter: na
@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2016
+ms.date: 12/21/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 0244225f0194d35307ad039249ca6e29a860829f
-ms.openlocfilehash: 46549794394f54264c1fdcc4c8f54bec8ea080f8
+ms.sourcegitcommit: f8dcbdb573fb50d32dfdefbb52c7af71bdc1cb95
+ms.openlocfilehash: 2264acb9c78a162adb7b9937568838ab5ec2c720
 
 ---
 
-# <a name="manage-dns-records-and-record-sets-by-using-powershell"></a>Gestire record e set di record DNS con PowerShell
+# <a name="manage-dns-records-in-azure-dns-using-azure-powershell"></a>Gestire i record DNS in DNS di Azure tramite Azure PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](dns-operations-recordsets-portal.md)
 > * [Interfaccia della riga di comando di Azure](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
-Questo articolo descrive come gestire i set di record e i record per la zona DNS usando Azure PowerShell. Per gestire i record DNS è anche possibile usare l'[interfaccia della riga di comando multipiattaforma di Azure](dns-operations-recordsets-cli.md) o il [portale di Azure](dns-operations-recordsets-portal.md).
+Questo articolo descrive come gestire i record DNS per la zona DNS usando Azure PowerShell. Per gestire i record DNS è anche possibile usare l'[interfaccia della riga di comando multipiattaforma di Azure](dns-operations-recordsets-cli.md) o il [portale di Azure](dns-operations-recordsets-portal.md).
 
-Gli esempi contenuti in questo articolo presuppongono che l'utente abbia [installato Azure PowerShell, eseguito l'accesso e creato una zona DNS](dns-getstarted-create-dnszone.md).
+Gli esempi contenuti in questo articolo presuppongono che l'utente abbia [installato Azure PowerShell, eseguito l'accesso e creato una zona DNS](dns-operations-dnszones.md).
 
 ## <a name="introduction"></a>Introduzione
 
@@ -49,7 +49,7 @@ I set di record vengono creati usando il cmdlet `New-AzureRmDnsRecordSet`. Quand
 
 I parametri per l'aggiunta di record a un set di record variano a seconda del tipo del set di record. Quando ad esempio si usa un set di record di tipo A, è necessario specificare l'indirizzo IP usando il parametro `-IPv4Address`. Per altri tipi di record vengono usati altri parametri. Per altre informazioni, vedere la sezione [Altri esempi di tipi di record](#additional-record-type-examples).
 
-L'esempio seguente mostra come creare un nuovo set di record con il nome relativo "www" nella zona DNS "contoso.com". Il nome completo del set di record sarà "www.contoso.com". Il tipo di record è "A" e la durata (TTL) è 3600 secondi. Il set di record contiene un record singolo con indirizzo IP "1.2.3.4".
+L'esempio seguente illustra la creazione di un set di record con il nome relativo "www" nella zona DNS "contoso.com". Il nome completo del set di record sarà "www.contoso.com". Il tipo di record è "A" e la durata (TTL) è 3600 secondi. Il set di record contiene un record singolo con indirizzo IP "1.2.3.4".
 
 ```powershell
 New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address 1.2.3.4) 
@@ -61,7 +61,7 @@ Per creare un set di record nel dominio radice di una zona, in questo caso "cont
 New-AzureRmDnsRecordSet -Name "@" -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address 1.2.3.4) 
 ```
 
-Se è necessario creare un nuovo set di record contenente più di un record, creare prima una matrice locale e aggiungere i record, quindi passare la matrice a `New-AzureRmDnsRecordSet`, come indicato di seguito:
+Se è necessario creare un nuovo set di record contenente più record, creare prima una matrice locale e aggiungervi i record, quindi passare la matrice a `New-AzureRmDnsRecordSet`, come indicato di seguito:
 
 ```powershell
 $aRecords = @()
@@ -86,7 +86,7 @@ New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceG
 
 Dopo aver visto in dettaglio come creare record di tipo A, gli esempi seguenti illustrano come creare record di altri tipi supportati dal servizio DNS di Azure.
 
-In ogni caso viene illustrato come creare un nuovo set di record contenente un record singolo. Gli esempi precedenti relativi ai record di tipo A possono essere adattati per creare set di record di altri tipi che contengono più record, con metadati, o per creare set di record vuoti.
+Per ogni caso viene illustrato come creare un set di record contenente un record singolo. Gli esempi precedenti relativi ai record di tipo A possono essere adattati per creare set di record di altri tipi che contengono più record, con metadati, o per creare set di record vuoti.
 
 Non vengono forniti esempi per la creazione di set di record SOA, dato che vengono creati ed eliminati con ogni zona DNS e non è possibile crearli o eliminarli separatamente. Tuttavia, [è possibile modificare i record SOA, come illustrato in uno degli esempi successivi](#to-modify-an-SOA-record).
 
@@ -125,7 +125,7 @@ New-AzureRmDnsRecordSet -Name test-ns -RecordType NS -ZoneName contoso.com -Reso
 
 ### <a name="create-a-ptr-record-set-with-a-single-record"></a>Creare un set di record PTR con un singolo record
 
-In questo caso "my-arpa-zone.com" è la zona ARPA che rappresenta l'intervallo IP dell'utente. Ogni record PTR impostato in questa zona corrisponde a un indirizzo IP che rientra nell'intervallo IP.
+In questo caso "my-arpa-zone.com" è la zona ARPA che rappresenta l'intervallo IP dell'utente. Ogni record PTR impostato in questa zona corrisponde a un indirizzo IP che rientra nell'intervallo IP. Il nome del record "10" è l'ultimo ottetto dell'indirizzo IP all'interno di questo intervallo di indirizzi rappresentato dal record.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName my-arpa-zone.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ptrdname myservice.contoso.com) 
@@ -145,7 +145,7 @@ New-AzureRmDnsRecordSet -Name _sip._tls -RecordType SRV -ZoneName contoso.com -R
 L'esempio seguente mostra come creare un record TXT. Per altre informazioni sulla lunghezza massima delle stringhe supportata nei record TXT, vedere [Record TXT](dns-zones-records.md#txt-records).
 
 ```powershell
-New-AzureRmDnsRecordSet -Name test-txt -RecordType TXT -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Value "This is a TXT record" 
+New-AzureRmDnsRecordSet -Name test-txt -RecordType TXT -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Value "This is a TXT record") 
 ```
 
 
@@ -387,6 +387,6 @@ Vedere la [documentazione di riferimento di PowerShell nel servizio DNS di Azure
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

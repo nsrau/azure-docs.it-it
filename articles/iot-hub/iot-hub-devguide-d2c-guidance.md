@@ -1,6 +1,6 @@
 ---
-title: Indicazioni sulle comunicazioni da dispositivo a cloud dell&quot;Hub IoT di Azure | Documentazione Microsoft
-description: "Guida per gli sviluppatori dell&quot;Hub IoT di Azure: indicazioni su quando usare i messaggi da dispositivo a cloud, le proprietà segnalate o il caricamento di file."
+title: Opzioni da dispositivo a cloud dell&quot;hub IoT di Azure | Documentazione Microsoft
+description: "Guida per gli sviluppatori: indicazioni su quando usare i messaggi da dispositivo a cloud, le proprietà segnalate o il caricamento di file per le comunicazioni da cloud a dispositivo."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 53f14e6fe115ed5f96d25b9ec5ab04abe23712d5
-ms.openlocfilehash: 6d5608cd86e3f042a7d63bd4e43e75a06141dfab
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 8c3479e29b55eacc30842ffdfee23b4a00a13126
 
 
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Indicazioni sulle comunicazioni da dispositivo a cloud
-Durante l'invio di informazioni dall'app per dispositivo al back-end, l'hub IoT espone tre opzioni:
+Durante l'invio di informazioni dall'app per dispositivo al back-end della soluzione, l'hub IoT espone tre opzioni:
 
 * [Messaggi da dispositivo a cloud][lnk-d2c], per dati di telemetria e avvisi relativi alle serie temporali.
 * [Proprietà segnalate][lnk-twins], per segnalare informazioni sullo stato del dispositivo, ad esempio le funzionalità disponibili, le condizioni e lo stato dei flussi di lavoro a esecuzione prolungata, come aggiornamenti della configurazione e del software.
@@ -38,7 +38,7 @@ Ecco un confronto dettagliato delle diverse opzioni di comunicazione da disposit
 | Protocol | Disponibile in tutti i protocolli. | Attualmente disponibile solo quando si usa MQTT. | Disponibile quando si usa qualsiasi protocollo, ma richiede HTTP nel dispositivo. |
 
 > [!NOTE]
-> È possibile che un'applicazione richieda di inviare informazioni sotto forma di serie temporali di telemetria o avvisi e di renderle disponibili nel dispositivo gemello. In questi casi, l'app per dispositivo può inviare un messaggio da dispositivo a cloud e segnalare una modifica della proprietà oppure il back-end può archiviare le informazioni nei tag del dispositivo gemello quando riceve il messaggio. Poiché i messaggi da dispositivo a cloud consentono una velocità effettiva notevolmente superiore rispetto agli aggiornamenti del dispositivo gemello, è a volte consigliabile evitare di aggiornare il dispositivo gemello per ogni messaggio da dispositivo a cloud.
+> È possibile che un'applicazione richieda di inviare informazioni sotto forma di serie temporali di telemetria o avvisi e di renderle disponibili nel dispositivo gemello. In questi casi, l'app per dispositivo può inviare un messaggio da dispositivo a cloud e segnalare una modifica della proprietà oppure il back-end della soluzione può archiviare le informazioni nei tag del dispositivo gemello quando riceve il messaggio. Poiché i messaggi da dispositivo a cloud consentono una velocità effettiva notevolmente superiore rispetto agli aggiornamenti del dispositivo gemello, è a volte consigliabile evitare di aggiornare il dispositivo gemello per ogni messaggio da dispositivo a cloud.
 > 
 > 
 
@@ -50,6 +50,6 @@ Ecco un confronto dettagliato delle diverse opzioni di comunicazione da disposit
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

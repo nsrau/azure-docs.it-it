@@ -1,5 +1,5 @@
 ---
-title: Clonare il proprio volume StorSimple | Microsoft Docs
+title: Clonare il volume serie 8000 StorSimple | Documentazione Microsoft
 description: Vengono descritti i diversi tipi di clone e le relative situazioni di utilizzo. Viene inoltre illustrato come utilizzare un set di backup per clonare un singolo volume.
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 07/27/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 024b6bceb9eb150e60f68edf916cebacd3552af2
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: 0db0af490f03525f4c23c4e9a23e62a1ef9f1c7f
 
 
 ---
@@ -66,7 +66,7 @@ In questa esercitazione viene descritto come utilizzare un set di backup per clo
       > 
       
         ![Clonazione guidata 1](./media/storsimple-clone-volume-u2/clone1.png) 
-   3. Fare clic sull'icona freccia  ![icona a forma di freccia](./media/storsimple-clone-volume-u2/HCS_ArrowIcon.png)  per passare alla pagina successiva.
+   3. Fare clic sull'icona freccia  ![icona a forma di freccia](./media/storsimple-clone-volume-u2/HCS_ArrowIcon.png) per passare alla pagina successiva.
 5. In **Specificare gli host che possono utilizzare questo volume**:
    
    1. Specificare un record di controllo di accesso (ACR) per il clone. È possibile aggiungere un nuovo ACR o scegliere dall'elenco esistente.
@@ -115,6 +115,6 @@ Per guardare un video che illustra come è possibile utilizzare le funzionalità
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

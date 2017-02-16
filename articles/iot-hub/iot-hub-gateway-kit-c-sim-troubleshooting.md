@@ -6,7 +6,7 @@ documentationcenter:
 author: shizn
 manager: timtl
 tags: 
-keywords: problemi di IoT, Internet delle cose
+keywords: Problemi di IoT, Internet delle cose
 ms.assetid: 3ee8f4b0-5799-40a3-8cf0-8d5aa44dbc2b
 ms.service: iot-hub
 ms.devlang: c
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/21/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 44b61dbdad51e3d6b5505477c97de75c8fc5a1a4
-ms.openlocfilehash: ade52e99fd054ac79106742fc9a65769f6ff9893
+ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
+ms.openlocfilehash: 1c747085e47e997f549eff36a9f8d96cb243e228
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: ade52e99fd054ac79106742fc9a65769f6ff9893
 
 Per risolvere i problemi di connettività di SensorTag, usare l'[app SensorTag](http://processors.wiki.ti.com/index.php/SensorTag_User_Guide#SensorTag_App_user_guide).
 
-### <a name="have-an-issue-with-intel-nuc"></a>Problemi relativi a Intel NUC
+### <a name="have-an-issue-with-intel-nuc"></a>Problema relativo a Intel NUC
 
 Per risolvere i problemi di avvio, vedere l'articolo relativo alla [risoluzione dei problemi di mancato avvio su Intel NUC](http://www.intel.com/content/www/us/en/support/boards-and-kits/000005845.html).
 
@@ -136,11 +136,11 @@ Durante l'installazione di pip, viene generato un errore di autorizzazione quand
 
 ## <a name="azure-iot-hub-issues"></a>Problemi di Hub IoT di Azure
 
-Se è stato completato il provisioning dell'hub IoT di Azure con l'interfaccia della riga di comando di Azure e occorre uno strumento per gestire i dispositivi connessi all'hub IoT, provare gli strumenti seguenti.
+Se è stato completato il provisioning dell'hub IoT di Azure con l'interfaccia della riga di comando di Azure ed è necessario uno strumento per gestire i dispositivi che si connettono all'hub IoT, provare gli strumenti seguenti.
 
 ### <a name="device-explorer"></a>Esplora dispositivi
 
-[Esplora dispositivi](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) viene eseguito sul computer locale di Windows e si connette all'hub IoT in Azure. Comunica con i seguenti [endpoint dell'hub IoT](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/):
+[Esplora dispositivi](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) viene eseguito sul computer locale di Windows e si connette all'hub IoT in Azure. Comunica con i seguenti [endpoint dell'hub IoT](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/):
 
 - Gestione delle identità dei dispositivi per il provisioning e la gestione dei dispositivi registrati nell'hub IoT.
 - Ricezione da dispositivo a cloud per il monitoraggio dei messaggi inviati dal dispositivo all'hub IoT.
@@ -150,7 +150,7 @@ Configurare la stringa di connessione dell'hub IoT in questo strumento per usarn
 
 ### <a name="iothub-explorer"></a>iothub-explorer
 
-[iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) è uno strumento di esempio dell'interfaccia della riga di comando multipiattaforma che permette di gestire i dispositivi client. È possibile usare questo strumento per gestire i dispositivi nel registro di identità, monitorare i messaggi da dispositivo a cloud e inviare comandi da cloud a dispositivo.
+[iothub-explorer](https://github.com/Azure/iothub-explorer) è uno strumento di esempio dell'interfaccia della riga di comando multipiattaforma che permette di gestire i dispositivi client. È possibile usare questo strumento per gestire i dispositivi nel registro di identità, monitorare i messaggi da dispositivo a cloud e inviare comandi da cloud a dispositivo.
 
 Per installare l'ultima versione, provvisoria, dello strumento iothub-explorer, eseguire questo comando:
 
@@ -174,6 +174,6 @@ Un'interfaccia della riga di comando completa consente di creare e gestire tutte
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

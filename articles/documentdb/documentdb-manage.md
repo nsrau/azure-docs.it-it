@@ -1,30 +1,16 @@
 ---
-title: Archiviazione e prestazioni in DocumentDB | Documentazione Microsoft
-description: "Informazioni sull&quot;archiviazione dei dati e dei documenti in DocumentDB e sulla scalabilità di DocumentDB per soddisfare le esigenze di capacità dell&quot;applicazione."
-keywords: archiviazione documenti
-services: documentdb
-author: syamkmsft
-manager: jhubbard
-editor: cgronlun
-documentationcenter: 
-ms.assetid: d3c0bae3-1862-4203-9260-e36216a7823d
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/18/2016
-ms.author: syamk
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: d5af6e3d9ba35558e0d7850820f4b9a479a259be
-ms.openlocfilehash: 8a387dbb4ae5c8ce64c397441613d6d1fc3f08b1
+ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
+ms.openlocfilehash: 27880401ccfca4c2c504eecc1aeb128d40c501a3
 
 
 ---
 # <a name="storage-and-predictable-performance-provisioning-in-documentdb"></a>Archiviazione e provisioning con prestazioni stimabili in DocumentDB
 Azure DocumentDB è un servizio database NoSQL orientato ai documenti, scalabile e completamente gestito per i documenti in formato JSON. Grazie a DocumentDB, non sarà necessario affittare macchine virtuali, distribuire software o monitorare database. DocumentDB è gestito e monitorato costantemente da tecnici Microsoft, in modo da offrire disponibilità, prestazioni e protezione dei dati di elevata qualità.  
 
-È possibile iniziare a usare DocumentDB [creando un account database](documentdb-create-account.md) e un [database DocumentDB](documentdb-create-database.md) tramite il [portale di Azure](https://portal.azure.com/). I database DocumentDB sono offerti in unità di risorse di archiviazione e velocità effettiva basate su unità SSD. Il provisioning di queste unità di archiviazione viene effettuato [creando raccolte di database](documentdb-create-collection.md) nell'account database, ogni raccolta con una velocità effettiva riservata che può essere aumentata o ridotta in qualsiasi momento per soddisfare le esigenze dell'applicazione.
+È possibile iniziare a usare DocumentDB [creando un account database](documentdb-create-account.md) e quindi creando una [raccolta e un database di DocumentDB](documentdb-create-collection.md) tramite il [portale di Azure](https://portal.azure.com/). I database DocumentDB sono offerti in unità di risorse di archiviazione e velocità effettiva basate su unità SSD. Il provisioning di queste unità di archiviazione viene effettuato quando si creano raccolte di database, ogni raccolta con una velocità effettiva riservata che può essere aumentata o ridotta in qualsiasi momento per soddisfare le esigenze dell'applicazione.
 
 Se l'applicazione supera la velocità effettiva riservata per una o più raccolte, le richieste saranno limitate in base a ogni raccolta. Ciò significa che alcune richieste di applicazione possono avere esito positivo mentre altre possono essere limitate.
 
@@ -142,6 +128,6 @@ Per istruzioni su come monitorare i livelli di prestazioni nel portale di Azure,
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 12/07/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a8d681490c174d73361633a9e0e63208eea993e6
+ms.sourcegitcommit: ab97962175f4498200db428736a1cbd124fac285
+ms.openlocfilehash: 6c07bae5b0e6d16925da661e423cb6d80d4f3f15
 
 
 ---
@@ -81,7 +81,7 @@ Dal pannello visualizzato è possibile avviare una connessione Desktop remoto, r
 ![Pulsanti di istanza del servizio cloud](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
 
 ## <a name="reconfigure-your-cscfg"></a>Riconfigurare il file con estensione cscfg
-Potrebbe essere necessario riconfigurare il servizio cloud con il file di [configurazione del servizio (cscfg)](cloud-services-model-and-package.md#cscfg) . È prima necessario scaricare il file con estensione cscfg, modificarlo, quindi caricarlo.
+Potrebbe essere necessario riconfigurare il servizio cloud con il file di [configurazione del servizio (CSCFG)](cloud-services-model-and-package.md#cscfg). È prima necessario scaricare il file con estensione cscfg, modificarlo, quindi caricarlo.
 
 1. Fare clic sull'icona **Impostazioni** o sul collegamento **Tutte le impostazioni** per aprire il pannello **Impostazioni**.
    
@@ -106,6 +106,6 @@ Potrebbe essere necessario riconfigurare il servizio cloud con il file di [confi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

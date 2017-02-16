@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/13/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 274f874ba17914b4422c06f92be3d305b3d484e0
+ms.sourcegitcommit: f9d423e87938e55daeb07268b11c930fb62755b6
+ms.openlocfilehash: 8fa7ca18fd2ea3a3f672854a0b2e0397cfdbb2bc
 
 
 ---
@@ -88,6 +88,6 @@ Per permettere agli utenti di acconsentire esplicitamente all'app beta, impostar
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

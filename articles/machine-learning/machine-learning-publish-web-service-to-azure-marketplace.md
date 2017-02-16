@@ -1,6 +1,6 @@
 ---
-title: Pubblicare il servizio Web di Machine Learning in Azure Marketplace | Documentazione Microsoft
-description: Informazioni su come pubblicare il servizio Web di Azure Machine Learning in Azure Marketplace.
+title: (Deprecato) Pubblicare il servizio Web di Machine Learning in Azure Marketplace | Documentazione Microsoft
+description: (Deprecato) Informazioni su come pubblicare il servizio Web di Azure Machine Learning in Azure Marketplace
 services: machine-learning
 documentationcenter: 
 author: BharathS
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/08/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: bharaths
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 24b131d3a9a17ce9a2daf349518873871c9d1019
+ms.sourcegitcommit: 85a58e09e05fdb50984055ab25c4c2fe520dab4d
+ms.openlocfilehash: 2d62966f130f6778c9561393cc7fc338f8903f1e
 
 
 ---
-# <a name="publish-azure-machine-learning-web-service-to-the-azure-marketplace"></a>Pubblicare il servizio Web di Azure Machine Learning in Azure Marketplace
+# <a name="deprecated-publish-azure-machine-learning-web-service-to-the-azure-marketplace"></a>(Deprecato) Pubblicare il servizio Web di Azure Machine Learning in Azure Marketplace
+
+> [!NOTE]
+> DataMarket e Servizi dati verranno ritirati e le sottoscrizioni esistenti verranno ritirate e annullate a partire dal 31/3/2017. Di conseguenza, questo articolo è deprecato. 
+> 
+> In alternativa, è possibile pubblicare gli esperimenti di Machine Learning in [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) a vantaggio della community scientifica dei dati. Per altre informazioni, vedere [Condividere e scoprire risorse in Cortana Intelligence Gallery](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-gallery-how-to-use-contribute-publish).
+
 Azure Marketplace consente di pubblicare servizi Web di Azure Machine Learning sotto forma di servizi a pagamento o gratuiti utilizzabili da clienti esterni. Questo articolo offre una panoramica del processo e fornisce i collegamenti alle linee guida per iniziare. In questo modo sarà possibile rendere disponibili i servizi Web ad altri sviluppatori che potranno usarli nelle proprie applicazioni.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -80,7 +87,7 @@ distribuire il servizio in produzione.
 13. Dopo avere completato l'immissione di tutti i metadati dell'offerta, fare clic su **Publish** e quindi su **Push to Staging** (Esegui push a staging). A questo punto si verrà informati della presenza di eventuali problemi rimanenti da correggere.
 14. Dopo avere verificato il completamento di tutti i problemi in sospeso, fare clic su **Approvazione richiesta per push in produzione**. La procedura di pubblicazione può richiedere alcuni giorni lavorativi. 
 
-[Immagine1]:./media/machine-learning-publish-web-service-to-azure-marketplace/image1.png
+[image1]:./media/machine-learning-publish-web-service-to-azure-marketplace/image1.png
 [image2]:./media/machine-learning-publish-web-service-to-azure-marketplace/image2.png
 [workspace]:./media/machine-learning-publish-web-service-to-azure-marketplace/selectworkspace.png
 [apikey]:./media/machine-learning-publish-web-service-to-azure-marketplace/apikey.png
@@ -89,6 +96,6 @@ distribuire il servizio in produzione.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

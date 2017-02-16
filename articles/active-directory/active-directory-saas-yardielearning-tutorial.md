@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 31be0e05b72b8c1ba444ad69798f3675b58a6b71
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4a249f25aa9331d8f8669f553b6aae21ee5620c0
 
 
 ---
@@ -240,6 +240,6 @@ Quando si fa clic sul riquadro Yardi eLearning nel pannello di accesso, si dovre
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

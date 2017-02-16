@@ -1,6 +1,6 @@
 ---
-title: Analisi del sentiment basata sul lessico | Microsoft Docs
-description: Analisi del sentiment basata sul lessico
+title: (Deprecato) Analisi del sentiment basata sul lessico - Azure | Documentazione Microsoft
+description: (Deprecato) Analisi del sentiment basata sul lessico
 services: machine-learning
 documentationcenter: 
 author: pengxia
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/16/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: pengxia
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c702fda88e0af40084958b1ad51e7156c7f4aee3
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 02a6005c47734419903f324f6fb60440f9d62664
 
 
 ---
-# <a name="lexicon-based-sentiment-analysis"></a>Analisi del sentiment basata sul lessico
+# <a name="deprecated-lexicon-based-sentiment-analysis"></a>(Deprecato) Analisi del sentiment basata sul lessico
+
+> [!NOTE]
+> Microsoft DataMarket è in fase di ritiro e questa API è stata deprecata. 
+> 
+> Numerose API e molti esperimenti utili di esempio sono disponibili in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Per altre informazioni sulla raccolta, vedere [Condividere e scoprire risorse in Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Come si misurano le opinioni degli utenti e gli atteggiamenti verso i marchi o gli argomenti dei social network online, ad esempio post di Facebook, tweet, revisioni, ecc.? Le analisi dei sentimenti forniscono un metodo per l'analisi di queste domande.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -79,7 +86,7 @@ L'input è "Oggi è un buon giorno". L'output è "1", che indica un sentimento p
 > 
 > 
 
-In Azure Machine Learning è stato creato un nuovo esperimento vuoto. La figura seguente mostra il flusso dell'esperimento di un'analisi del sentimento basata sul lessico. Il file "sent_dict.csv" è il lessico di soggettività MPQA ed è configurato come uno degli input dello [Script Execute R][execute-r-script]. Un altro input è costituito da una revisione campionata dal set di dati di revisioni Amazon per la verifica, in cui sono state eseguite operazioni di selezione, modifica del nome di colonna e suddivisione. Un pacchetto di hash viene usato per archiviare il lessico di soggettività in memoria e accelerare il processo di calcolo del punteggio. L'intero testo verrà suddiviso in token dal pacchetto "tm" e verrà confrontato con le parole disponibili nel dizionario di sentiment. Verrà infine calcolato un punteggio tramite la somma dei pesi di ogni parola soggettiva nel testo. 
+In Azure Machine Learning è stato creato un nuovo esperimento vuoto. La figura seguente mostra il flusso dell'esperimento di un'analisi del sentimento basata sul lessico. Il file "sent_dict.csv" è il lessico di soggettività MPQA ed è configurato come uno degli input di [Execute R Script][execute-r-script] (Esegui script R). Un altro input è costituito da una revisione campionata dal set di dati di revisioni Amazon per la verifica, in cui sono state eseguite operazioni di selezione, modifica del nome di colonna e suddivisione. Un pacchetto di hash viene usato per archiviare il lessico di soggettività in memoria e accelerare il processo di calcolo del punteggio. L'intero testo verrà suddiviso in token dal pacchetto "tm" e verrà confrontato con le parole disponibili nel dizionario di sentiment. Verrà infine calcolato un punteggio tramite la somma dei pesi di ogni parola soggettiva nel testo. 
 
 ### <a name="experiment-flow"></a>Flusso dell'esperimento
 ![flusso dell'esperimento][2]
@@ -158,6 +165,6 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

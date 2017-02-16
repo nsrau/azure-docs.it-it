@@ -1,5 +1,5 @@
 ---
-title: Come ritagliare video | Microsoft Docs
+title: Questo articolo illustra come ritagliare video con Media Encoder Standard - Azure | Documentazione Microsoft
 description: Questo articolo illustra come ritagliare video con Media Encoder Standard.
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/23/2017
 ms.author: anilmur;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7b0d7469e9c3688092bf7f98962ede0e4d7ef951
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 5be8472e242db6d17306ba086e4fe06e769018d7
 
 
 ---
@@ -126,7 +126,7 @@ Nell'esempio illustrato nel diagramma:
 
 
 ## <a name="restrictions-on-cropping"></a>Restrizioni relative al ritaglio
-La funzionalità di ritaglio è concepita per essere manuale. Sarà necessario caricare il video di input in uno strumento di editing valido che consenta di selezionare i frame di interesse, posizionare il cursore per determinare gli offset del rettangolo di ritaglio, per determinare il set di impostazioni di codifica ottimale per quel particolare video e così via. Questa funzionalità non è progettata per consentire ad esempio il rilevamento e la rimozione automatici dei bordi neri formato 16:9 e formato 4:3 nel video di input.
+La funzionalità di ritaglio è concepita per essere manuale. Sarà necessario caricare il video di input in uno strumento di editing valido che consenta di selezionare i frame di interesse, posizionare il cursore per determinare gli offset del rettangolo di ritaglio, per determinare il set di impostazioni di codifica ottimale per quel particolare video e così via. Questa funzionalità non è progettata per consentire ad esempio il rilevamento e la rimozione automatici dei bordi neri formato&16;:9 e formato&4;:3 nel video di input.
 
 Alla funzionalità di ritaglio si applicano le limitazioni seguenti. Se queste limitazioni non vengono osservate, l'attività di codifica produrrà errori o un output imprevisto.
 
@@ -145,6 +145,6 @@ Vedere i percorsi di apprendimento di Servizi multimediali di Azure per informaz
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

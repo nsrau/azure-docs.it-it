@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 8f3e6b271f3ca5973a00f2a5a9e11dafeb9637aa
-ms.openlocfilehash: ed520532e7a035baa0283f829ec13540194d136e
+ms.sourcegitcommit: 8afc15321db5c6d3b7c6cae2692a9a0d61ccdf6a
+ms.openlocfilehash: d62431f3fae21388d8ccfc0d411267f69823b700
 
 
 ---
@@ -46,7 +46,7 @@ DocumentDB rappresenta la scelta ideale per le nuove applicazioni Web, per dispo
 ### <a name="how-does-documentdb-offer-predictable-performance"></a>Come fa DocumentDB a offrire prestazioni prevedibili?
 Un' [unità richiesta](documentdb-request-units.md) è l'unità di misura della velocità effettiva in DocumentDB. Un'unità richiesta corrisponde alla velocità effettiva dell'operazione GET di un documento da 1 KB. Ogni operazione in DocumentDB, tra cui letture, scritture, query SQL ed esecuzioni di stored procedure, ha un valore di unità richiesta deterministico basato sulla velocità effettiva necessaria per completare l'operazione. Invece di considerare CPU, I/O e memoria e il modo in cui ogni elemento influisce sulla velocità effettiva dell'applicazione, è possibile ragionare in termini di singola misura di unità richiesta.
 
-Ogni raccolta di DocumentDB può essere riservata con la velocità effettiva minima di provisioning in termini di unità richiesta di velocità effettiva al secondo. Per applicazioni di qualsiasi dimensione, è possibile effettuare un benchmark delle singole richieste per misurare i valori delle unità richiesta ed effettuare il provisioning delle raccolte per gestire la somma totale delle unità richiesta in tutte le richieste. È anche possibile aumentare o ridurre la velocità effettiva della raccolta con il variare delle esigenze dell'applicazione. Per altre informazioni sulle unità richiesta e su come determinare il numero di raccolte necessarie, vedere [Gestire la capacità e le prestazioni](documentdb-manage.md) e provare il [calcolatore della velocità effettiva](https://www.documentdb.com/capacityplanner).
+Ogni raccolta di DocumentDB può essere riservata con la velocità effettiva minima di provisioning in termini di unità richiesta di velocità effettiva al secondo. Per applicazioni di qualsiasi dimensione, è possibile effettuare un benchmark delle singole richieste per misurare i valori delle unità richiesta ed effettuare il provisioning delle raccolte per gestire la somma totale delle unità richiesta in tutte le richieste. È anche possibile aumentare o ridurre la velocità effettiva della raccolta con il variare delle esigenze dell'applicazione. Per altre informazioni sulle unità richiesta e su come determinare il numero di raccolte necessarie, vedere [Stima delle esigenze di velocità effettiva](documentdb-request-units.md#estimating-throughput-needs) e [Calcolatore della velocità effettiva](https://www.documentdb.com/capacityplanner).
 
 ### <a name="is-documentdb-hipaa-compliant"></a>DocumentDB dispone della conformità HIPAA?
 Sì, DocumentDB dispone della conformità HIPAA. La normativa HIPAA stabilisce i requisiti per l'uso, la divulgazione e la protezione delle informazioni sanitarie personali sensibili. Per altre informazioni, visitare il [Centro protezione Microsoft](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
@@ -66,7 +66,7 @@ I nuovi utenti possono iscriversi per ottenere un [account gratuito di Azure](ht
 È anche possibile usare l'[emulatore DocumentDB di Azure](documentdb-nosql-local-emulator.md) per sviluppare e testare gratuitamente l'applicazione in locale, senza creare una sottoscrizione di Azure. Quando si è soddisfatti del funzionamento dell'applicazione nell'emulatore DocumentDB, è possibile iniziare a usare un account DocumentDB di Azure nel cloud.
 
 ### <a name="how-can-i-get-additional-help-with-documentdb"></a>Dove è possibile reperire ulteriori informazioni e supporto su DocumentDB?
-Per ottenere informazioni o supporto, è possibile visitare[Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), i [forum per sviluppatori MSDN relativi ad Azure DocumentDB](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) o programmare una [chat diretta con il team di progettazione di DocumentDB](http://www.askdocdb.com/). Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti di DocumentDB, è possibile seguirci su [Twitter](https://twitter.com/DocumentDB).
+Per ottenere informazioni o supporto, visitare il sito [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb) oppure programmare una chat diretta con il team di progettazione di DocumentDB inviando un messaggio di posta elettronica a [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com). Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti di DocumentDB, è possibile seguirci su [Twitter](https://twitter.com/DocumentDB).
 
 ## <a name="set-up-microsoft-azure-documentdb"></a>Configurare Microsoft Azure DocumentDB
 ### <a name="how-do-i-sign-up-for-microsoft-azure-documentdb"></a>Come ci si iscrive a Microsoft Azure DocumentDB
@@ -76,7 +76,7 @@ Microsoft Azure DocumentDB è disponibile nel [portale di Azure][azure-portal]. 
 Una chiave master è un token di sicurezza per l'accesso a tutte le risorse di un account. Gli utenti con la chiave hanno l'accesso in lettura e scrittura a tutte le risorse nell'account del database. È quindi consigliabile prestare attenzione quando si distribuiscono le chiavi master. La chiave master primaria e la chiave master secondaria sono disponibili nel pannello **Chiavi** del [portale di Azure][azure-portal]. Per altre informazioni sulle chiavi, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso](documentdb-manage-account.md#keys).
 
 ### <a name="how-do-i-create-a-database"></a>Come si crea un database?
-È possibile creare i database usando il [portale di Azure]() come descritto in [Creare un database di DocumentDB](documentdb-create-database.md), uno degli [SDK di DocumentDB](documentdb-sdk-dotnet.md) o tramite le [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).  
+È possibile creare i database usando il [portale di Azure]() come descritto in [Creare una raccolta e un database di DocumentDB](documentdb-create-collection.md), uno degli [SDK di DocumentDB](documentdb-sdk-dotnet.md) o tramite le [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).  
 
 ### <a name="what-is-a-collection"></a>Che cos'è una raccolta?
 Una raccolta è un contenitore di documenti JSON e di logica dell'applicazione JavaScript associata. Una raccolta è un'entità fatturabile, in cui il [costo](documentdb-performance-levels.md) è determinato dalla velocità effettiva e dall'archiviazione usata. Le raccolte possono estendersi su più partizioni o server e possono essere ridimensionate per gestire volumi praticamente illimitati di archiviazione o di velocità effettiva.
@@ -124,6 +124,6 @@ Sì. L'[emulatore DocumentDB di Azure](documentdb-nosql-local-emulator.md) offre
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

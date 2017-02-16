@@ -1,6 +1,6 @@
 ---
-title: Soluzioni di ripristino di emergenza cloud - Replica geografica attiva del database SQL | Documentazione Microsoft
-description: "Informazioni su come progettare soluzioni di ripristino di emergenza cloud per la pianificazione della continuità aziendale usando la replica geografica per il backup di dati delle app con il database SQL di Azure."
+title: Progettazione di app per il ripristino di emergenza - Database SQL di Azure | Documentazione Microsoft
+description: Informazioni sulla progettazione di applicazioni per il ripristino di emergenza di database SQL di Azure con la replica geografica.
 keywords: "ripristino di emergenza cloud, soluzioni di ripristino di emergenza, backup dei dati delle app, replica geografica, pianificazione della continuità aziendale"
 services: sql-database
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.workload: data-management
 ms.date: 07/20/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 5afcde0df03cb953eb8387cc8beea8851f36c516
+ms.sourcegitcommit: 7e607debe47efb6a22ca6fa47a40554d13d29359
+ms.openlocfilehash: dd56a8d1ee428b1845ed80f0b899cc73c2c4b7f6
 
 
 ---
-# <a name="design-an-application-for-cloud-disaster-recovery-using-active-geo-replication-in-sql-database"></a>Progettare un'applicazione per il ripristino di emergenza cloud mediante la replica geografica attiva nel database SQL
+# <a name="application-design-for-cloud-disaster-recovery-using-active-geo-replication-in-sql-database"></a>Progettazione di applicazioni per il ripristino di emergenza cloud con la replica geografica attiva in database SQL
 > [!NOTE]
 > La [replica geografica attiva](sql-database-geo-replication-overview.md) è ora disponibile per tutti i database in tutti i livelli.
 >
@@ -187,6 +187,6 @@ La strategia di ripristino di emergenza cloud specifica può combinare o estende
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

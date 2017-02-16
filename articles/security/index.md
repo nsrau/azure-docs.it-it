@@ -2,8 +2,8 @@
 layout: LandingPage
 description: Informazioni su come personalizzare le opzioni di sicurezza nei servizi Azure per soddisfare i requisiti delle distribuzioni di servizi e dati nel cloud.
 translationtype: Human Translation
-ms.sourcegitcommit: 07febed306b53cc62c882f3f7865284e96875bf8
-ms.openlocfilehash: be29bc97d4fcf8e0c1efa655d05126a3f49d9636
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 349a83224dd154cf81f641cac33baa020adc0b77
 
 ---
 # <a name="security-documentation"></a>Documentazione di Sicurezza
@@ -105,13 +105,7 @@ Informazioni su come utilizzare la sicurezza di Azure per proteggere dati e serv
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione di Sicurezza </div>
-    </a>
-</div>
+
 
 
 

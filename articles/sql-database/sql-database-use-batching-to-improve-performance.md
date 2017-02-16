@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 07/12/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
-ms.openlocfilehash: fa364ff88d449ec8efb318d26049c2e046ee42b8
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 28c847137bda93886a2ae80151e3834f149a4858
 
 
 ---
@@ -627,6 +627,6 @@ Questo articolo descrive in che modo le tecniche di progettazione e codifica di 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

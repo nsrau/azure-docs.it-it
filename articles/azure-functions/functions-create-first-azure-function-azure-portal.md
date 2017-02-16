@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 8d7823b6ecbc1a762839fc620f76d0bf4687d8fa
-ms.openlocfilehash: 5b33a36a3415efd2bc4673999806aa797f4a1c9f
+ms.sourcegitcommit: 91e19b321026840a062078d7af2a55967fb3904b
+ms.openlocfilehash: 417c545e34f1d652594c8527a3c8b0a845a4e8fa
 
 
 ---
@@ -30,7 +30,7 @@ Questo argomento mostra come usare il portale di Azure per creare una semplice f
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni
 Un'app per le funzioni ospita l'esecuzione delle funzioni in Azure. Seguire questa procedura per creare un'app per le funzioni nel portale di Azure.
 
-Per poter creare la prima funzione, è necessario avere un account Azure attivo. Se non si ha già un account Azure, [sono disponibili account gratuiti](https://azure.microsoft.com/free/).
+Un'app per le funzioni ospita l'esecuzione delle funzioni in Azure. Se non si dispone già di un account Azure, consultare [Prova Funzioni di Azure](https://functions.azure.com/try) o [creare un account Azure gratuito](https://azure.microsoft.com/free/). 
 
 1. Passare al [portale di Azure](https://portal.azure.com) e accedere con il proprio account Azure.
 2. Fare clic su **+Nuovo** > **Calcolo** > **App per le funzioni**, selezionare la **sottoscrizione**, immettere un **nome** univoco per identificare l'app per le funzioni e quindi specificare le impostazioni seguenti:
@@ -86,6 +86,6 @@ La guida introduttiva mostra un'esecuzione semplice di una funzione di base atti
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

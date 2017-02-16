@@ -1,6 +1,6 @@
 ---
-title: Creare applicazioni Scala autonome da eseguire nei cluster HDInsight Spark | Documentazione Microsoft
-description: Informazioni su come creare un&quot;applicazione Scala autonoma da eseguire nei cluster HDInsight Spark.
+title: Creare applicazioni Scala autonome da eseguire nei cluster Azure Spark | Documentazione Microsoft
+description: Informazioni su come creare un&quot;applicazione Spark autonoma da eseguire nei cluster HDInsight Spark.
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -13,15 +13,16 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7b4348fbc77c2682001c8b18ddf7918dbb66872b
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 153b1ea4ec3d326fb533817cdb74d3489135f7d9
 
 
 ---
-# <a name="create-a-standalone-scala-application-to-run-on-apache-spark-cluster-on-hdinsight-linux"></a>Creare un’applicazione Scala autonoma da eseguire nel cluster Apache Spark in HDInsight Linux
+# <a name="create-a-standalone-scala-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>Creare un'applicazione Scala autonoma da eseguire nel cluster Apache Spark in HDInsight
+
 In questo articolo vengono fornite istruzioni dettagliate sullo sviluppo di applicazioni Spark autonome scritte in Scala usando Maven con IntelliJ IDEA. L'articolo usa Apache Maven come sistema di compilazione e inizia con un archetipo Maven esistente per Scala fornito da IntelliJ IDEA.  In generale, la creazione di un'applicazione Scala in IntelliJ IDEA comporta i passaggi seguenti:
 
 * Usare Maven come sistema di compilazione.
@@ -38,7 +39,7 @@ In questo articolo vengono fornite istruzioni dettagliate sullo sviluppo di appl
 **Prerequisiti**
 
 * Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un cluster Apache Spark in HDInsight Linux. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Oracle Java Development Kit. Per installarlo, fare clic [qui](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * Ambiente IDE Java. Questo articolo usa IntelliJ IDEA 15.0.1. Per installarlo, fare clic [qui](https://www.jetbrains.com/idea/download/).
 
@@ -74,7 +75,7 @@ Se durante l'installazione di IntelliJ IDEA non è stata richiesta l'abilitazion
     ![Configurare Maven per i download automatici](./media/hdinsight-apache-spark-create-standalone-application/configure-maven.png)
    
    1. Scegliere **Settings** (Impostazioni) dal menu **File**.
-   2. Nella finestra di dialogo **Settings** passare a **Build, Execution, Deployment** (Compilazione, esecuzione, distribuzione)  > **Build Tools** (Strumenti di compilazione)  > **Maven** > **Importing** (Importazione).
+   2. Nella finestra di dialogo **Settings** (Impostazioni) passare a **Build, Execution, Deployment** (Compilazione, esecuzione, distribuzione)  > **Build Tools** (Strumenti di compilazione)  > **Maven** > **Importing** (Importazione).
    3. Selezionare l'opzione **Import Maven projects automatically**.
    4. Fare clic su **Apply** (Applica) e quindi su **OK**.
 8. Aggiornare il file di origine Scala per includere il codice dell'applicazione. Aprire e sostituire il codice di esempio esistente con il codice seguente e salvare le modifiche. Questo codice legge i dati del file HVAC.csv, disponibile in tutti i cluster HDInsight Spark, recupera le righe che hanno solo una cifra nella sesta colonna e scrive l'output in **/HVACOut** nel contenitore di archiviazione predefinito per il cluster.
@@ -172,6 +173,6 @@ Per eseguire l'applicazione nel cluster, è necessario eseguire le operazioni se
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

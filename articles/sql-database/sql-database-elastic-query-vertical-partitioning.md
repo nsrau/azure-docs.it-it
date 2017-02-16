@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9d3c60eb630816698dc0c0bd3b4be8da5fec13eb
+ms.sourcegitcommit: 77b8b8960fb0e5e5340b65dae03f95b456832a07
+ms.openlocfilehash: cb649d3f6ead507582f587d112e43a89e659c757
 
 
 ---
@@ -30,7 +30,10 @@ I database con partizionamento verticale usano set di tabelle diversi su databas
 * Per il riferimento all'origine dati sottostante sono necessarie autorizzazioni ALTER ANY EXTERNAL DATA SOURCE.
 
 ## <a name="overview"></a>Panoramica
-**NOTA**: a differenza del partizionamento orizzontale, queste istruzioni DDL non dipendono dalla definizione di un livello dati con una mappa partizioni tramite la libreria client del database elastico.
+
+> [!NOTE]
+> A differenza del partizionamento orizzontale, queste istruzioni DDL non dipendono dalla definizione di un livello dati con una mappa partizioni tramite la libreria client del database elastico.
+>
 
 1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
 2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
@@ -45,7 +48,9 @@ Le credenziali vengono usate dalla query elastica per connettersi ai database re
     SECRET = '<password>'
     [;]
 
-**Nota** Assicurarsi che *<username>* non includa alcun suffisso *"@servername"*. 
+> [!NOTE]
+> Assicurarsi che `<username>` non includa alcun suffisso **"@servername"**. 
+>
 
 ## <a name="create-external-data-sources"></a>Creare origini dati esterne
 Sintassi:
@@ -58,7 +63,9 @@ Sintassi:
                 CREDENTIAL = <credential_name> 
                 ) [;] 
 
-**Importante** Il parametro TYPE deve essere impostato su **RDBMS**. 
+> [!IMPORTANT]
+> Il parametro TYPE deve essere impostato su **RDBMS**. 
+>
 
 ### <a name="example"></a>Esempio
 Nell'esempio seguente viene illustrato l'utilizzo dell'istruzione CREATE per origini dati esterne. 
@@ -185,6 +192,6 @@ Per eseguire query su database partizionati orizzontalmente vedere [Eseguire que
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

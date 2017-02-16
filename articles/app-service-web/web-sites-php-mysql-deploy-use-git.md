@@ -1,29 +1,32 @@
 ---
-title: Creazione di un'app Web PHP-MySQL in Servizio app di Azure e distribuzione tramite Git
-description: Un'esercitazione in cui viene illustrato come creare un'app Web PHP che archivia i dati in MySQL e come utilizzare la distribuzione Git in Azure.
-;": ''
+title: Creazione di un&quot;app Web PHP-MySQL in Servizio app di Azure e distribuzione tramite Git
+description: Un&quot;esercitazione in cui viene illustrato come creare un&quot;app Web PHP che archivia i dati in MySQL e come utilizzare la distribuzione Git in Azure.&quot;
 services: app-service\web
 documentationcenter: php
 author: rmcmurray
-manager: wpickett
-editor: ''
+manager: erikre
+editor: 
 tags: mysql
-
+ms.assetid: 7454475f-e275-4bc7-9f09-1ef07382e5da
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7cb11ffd583afa75bfd4e76c7f543a81a6ebdcde
+
 
 ---
-# Creazione di un'app Web PHP-MySQL in Servizio app di Azure e distribuzione tramite Git
-In questa esercitazione viene illustrato come creare un'app Web PHP-MySQL e come distribuirla in [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) tramite Git. Si useranno [PHP][install-php], lo strumento da riga di comando MySQL (che fa parte di [MySQL][install-mysql]), e [Git][install-git] installato nel computer. Le istruzioni di questa esercitazione possono essere eseguite in qualsiasi sistema operativo, tra cui Windows, Mac e Linux. Dopo aver completato questa guida, si disporrà dell'app Web PHP/MySQL in esecuzione in Azure.
+# <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-git"></a>Creazione di un'app Web PHP-MySQL in Servizio app di Azure e distribuzione tramite Git
+In questa esercitazione viene illustrato come creare un'app Web PHP-MySQL e come distribuirla in [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) tramite Git. Si useranno [PHP][install-php], lo strumento da riga di comando MySQL (parte di [MySQL][install-mysql]) e [Git][install-git] installato nel computer. Le istruzioni di questa esercitazione possono essere eseguite in qualsiasi sistema operativo, tra cui Windows, Mac e Linux. Dopo aver completato questa guida, si disporrà dell'app Web PHP/MySQL in esecuzione in Azure.
 
 Si acquisiranno le nozioni seguenti:
 
-* Creare un'app Web e un database MySQL mediante il [portale di Azure][management-portal]. Poiché PHP è abilitato nelle [app Web di Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) per impostazione predefinita, non è necessario effettuare operazioni particolari per eseguire il codice PHP.
+* Creare un'app Web e un database MySQL mediante il [Portale di Azure][management-portal]. Poiché PHP è abilitato nelle [app Web di Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) per impostazione predefinita, non è necessario effettuare operazioni particolari per eseguire il codice PHP.
 * Pubblicare e ripubblicare l'applicazione in Azure tramite Git.
 * Come abilitare l'estensione Compositore e automatizzarne le attività per ogni `git push`.
 
@@ -31,18 +34,18 @@ Seguendo questa esercitazione, verrà creata una semplice app Web di registrazio
 
 ![Sito Web PHP di Azure][running-app]
 
-## Configurare l'ambiente di sviluppo
-In questa esercitazione si presuppone che siano presenti [PHP][install-php], lo strumento da riga di comando MySQL (parte di [MySQL][install-mysql]), e [Git][install-git] installato nel computer.
+## <a name="set-up-the-development-environment"></a>Configurare l'ambiente di sviluppo
+In questa esercitazione si presuppone che nel computer siano installati [PHP][install-php], lo strumento da riga di comando MySQL (parte di [MySQL][install-mysql]) e [Git][install-git].
 
 <a id="create-web-site-and-set-up-git"></a>
 
-## Creare un'app Web e configurare la pubblicazione Git
+## <a name="create-a-web-app-and-set-up-git-publishing"></a>Creare un'app Web e configurare la pubblicazione Git
 Per creare un'app Web e un database MySQL, attenersi alla procedura seguente:
 
-1. Eseguire l'accesso al [portale di Azure][management-portal].
-2. Fare clic sull'icona **Nuovo**.
-3. Fare clic su **Visualizza tutto** accanto a **Marketplace**.
-4. Fare clic su **Web + Mobile**, quindi su **App Web + MySQL**. Fare quindi clic su **Crea**.
+1. Accedere al portale di [Azure][management-portal].
+2. Fare clic sull'icona **Nuovo** .
+3. Fare clic su **Visualizza tutto** accanto a **Marketplace**. 
+4. Fare clic su **Web e dispositivi mobili**, quindi su **App Web + MySQL**. Fare quindi clic su **Crea**.
 5. Immettere un nome valido per il gruppo di risorse.
    
     ![Gruppo di risorse denominato ADF.][resource-group]
@@ -53,7 +56,7 @@ Per creare un'app Web e un database MySQL, attenersi alla procedura seguente:
    
     ![Creazione di un nuovo database MySQL][new-mysql-db]
 8. Una volta creata l'app Web, verrà visualizzato il pannello del nuovo gruppo di risorse.
-9. In **Impostazioni** fare clic su **Distribuzione continua** poi fare clic su *Configura le impostazioni necessarie*.
+9. In **Impostazioni** fare clic su **Distribuzione continua**, poi fare clic su *Configura le impostazioni necessarie*.
    
     ![Configurazione della pubblicazione Git][setup-publishing]
 10. Selezionare **Repository Git locale** per l'origine.
@@ -63,7 +66,7 @@ Per creare un'app Web e un database MySQL, attenersi alla procedura seguente:
     
      ![Creazione di credenziali di pubblicazione][credentials]
 
-## Recupero di informazioni sulla connessione remota a MySQL
+## <a name="get-remote-mysql-connection-information"></a>Recupero di informazioni sulla connessione remota a MySQL
 Per connettersi al database MySQL in esecuzione in App Web, saranno necessarie le informazioni sulla connessione. Per recuperare le informazioni sulla connessione a MySQL, attenersi alla procedura seguente:
 
 1. Dal gruppo di risorse, fare clic sul database:
@@ -76,7 +79,7 @@ Per connettersi al database MySQL in esecuzione in App Web, saranno necessarie l
    
     ![Proprietà nota][note-properties]
 
-## Creare e verificare l'applicazione in locale
+## <a name="build-and-test-your-app-locally"></a>Creare e verificare l'applicazione in locale
 Una volta creata l'app Web, è possibile sviluppare localmente l'applicazione, quindi distribuirla dopo il test.
 
 L'applicazione di registrazione è una semplice applicazione PHP che consente di registrarsi per un evento specificando il proprio nome e l'indirizzo di posta elettronica. Le informazioni sui registranti precedenti vengono visualizzate in una tabella. Le informazioni sulle registrazioni vengono archiviate in un database MySQL. L'applicazione è costituita da un unico file (copiare e incollare il codice disponibile di seguito):
@@ -94,7 +97,7 @@ Per creare ed eseguire l'applicazione in locale, attenersi alla procedura seguen
 3. Incollare il comando `CREATE TABLE` seguente per creare la tabella `registration_tbl` nel database:
    
         CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
-4. Nella radice della cartella dell'applicazione locale creare il file **index.php**.
+4. Nella radice della cartella dell'applicazione locale creare il file **index.php** .
 5. Aprire il file **index.php** in un editor di testo o in un IDE e aggiungere il codice seguente, quindi completare le necessarie modifiche contrassegnate con commenti `//TODO:`.
 
         <html>
@@ -187,7 +190,7 @@ Per creare ed eseguire l'applicazione in locale, attenersi alla procedura seguen
 
 A questo punto è possibile passare a **http://localhost:8000/** per testare l'applicazione.
 
-## Pubblicare l'app
+## <a name="publish-your-app"></a>Pubblicare l'app
 Dopo aver testato l'app in locale, è possibile pubblicarla su App Web tramite Git. Inizializzare l'archivio Git locale e pubblicare l'applicazione.
 
 > [!NOTE]
@@ -195,7 +198,7 @@ Dopo aver testato l'app in locale, è possibile pubblicarla su App Web tramite G
 > 
 > 
 
-1. (Facoltativo) Se l'URL del repository remoto Git è stato dimenticato o smarrito, passare alle proprietà dell'app Web nel portale di Azure.
+1. (Facoltativo) Se l'URL del repository remoto Git è stato dimenticato o smarrito, passare alle proprietà dell'app Web nel Portale di Azure.
 2. Aprire GitBash (o un terminale, se Git si trova in `PATH`), passare alla directory radice dell'applicazione ed eseguire i comandi seguenti:
    
         git init
@@ -207,13 +210,13 @@ Dopo aver testato l'app in locale, è possibile pubblicarla su App Web tramite G
     Verrà richiesto di specificare la password creata in precedenza.
    
     ![Push iniziale in Azure tramite Git][git-initial-push]
-3. Passare a **http://[sitehttp://[nome sito].azurewebsites.net/index.php** per iniziare a utilizzare l'applicazione. Queste informazioni verranno archiviate nel dashboard dell'account:
+3. Passare a **http://[nome sito].azurewebsites.net/index.php** per iniziare a usare l'applicazione. Queste informazioni verranno archiviate nel dashboard dell'account:
    
     ![Sito Web PHP di Azure][running-app]
 
 Dopo aver pubblicato l'app, è possibile iniziare ad apportarvi modifiche e ad usare Git per pubblicarle.
 
-## Pubblicare le modifiche apportate all'app
+## <a name="publish-changes-to-your-app"></a>Pubblicare le modifiche apportate all'app
 Per pubblicare le modifiche appportate all'app, attenersi alla procedura seguente:
 
 1. Apportare le modifiche all'app localmente.
@@ -226,7 +229,7 @@ Per pubblicare le modifiche appportate all'app, attenersi alla procedura seguent
     Verrà richiesto di specificare la password creata in precedenza.
    
     ![Push delle modifiche del sito apportate in Azure tramite Git][git-change-push]
-3. Passare a **http://[sitehttp://[nome sito].azurewebsites.net/index.php** per visualizzare l'applicazione e le eventuali modifiche apportate:
+3. Passare a **http://[nome sito].azurewebsites.net/index.php** per visualizzare l'app e le eventuali modifiche apportate:
    
     ![Sito Web PHP di Azure][running-app]
 
@@ -237,7 +240,7 @@ Per pubblicare le modifiche appportate all'app, attenersi alla procedura seguent
 
 <a name="composer"></a>
 
-## Abilitare l'automazione Composer con l'estensione Composer
+## <a name="enable-composer-automation-with-the-composer-extension"></a>Abilitare l'automazione Composer con l'estensione Composer
 Per impostazione predefinita, il processo di distribuzione git nel servizio app non esegue operazioni relative a composer.json, se questo è presente nel progetto PHP. È possibile abilitare l'elaborazione di composer.json durante l'operazione di `git push` abilitando l'estensione Compositore.
 
 1. Nel pannello dell'app Web PHP nel [portale di Azure][management-portal] fare clic su **Strumenti** > **Estensioni**.
@@ -248,12 +251,13 @@ Per impostazione predefinita, il processo di distribuzione git nel servizio app 
     ![Aggiunta dell'estensione Compositore][composer-extension-add]
 3. Fare clic su **OK** per accettare le note legali. Fare di nuovo clic su **OK** per aggiungere l'estensione.
    
-    Nel pannello **Estensioni installate** è ora visualizzata l'estensione Compositore. ![Visualizzazione dell'estensione Compositore][composer-extension-view]
+    Nel pannello **Estensioni installate** è ora visualizzata l'estensione Compositore.  
+    ![Visualizzazione dell'estensione Compositore][composer-extension-view]
 4. Eseguire ora `git add`, `git commit` e `git push` come nella sezione precedente. Si noterà che ora Composer installa le dipendenze definite in composer.json.
    
     ![Estensione Compositore - Esito positivo][composer-extension-success]
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/php/).
 
 <!-- URL List -->
@@ -293,4 +297,8 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [composer-extension-view]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png
 [composer-extension-success]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-success.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

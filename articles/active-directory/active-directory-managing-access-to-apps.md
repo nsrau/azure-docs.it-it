@@ -73,6 +73,6 @@ Le funzionalità di Azure AD che consentono la condivisione di account includono
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

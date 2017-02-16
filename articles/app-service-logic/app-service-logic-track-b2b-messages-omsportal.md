@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/13/2016
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: b3f564e32105708ddbd9027240c897fdd8ae2ac6
-ms.openlocfilehash: 673b128c628a13c4af6c73c1a2d82953aadfd45a
+ms.sourcegitcommit: 7f64fe625b7c3b7e58f86154b9d601eff03e31d3
+ms.openlocfilehash: 854db453a3af459c0398c4b88a6789c87747e920
 
 
 ---
@@ -32,9 +32,10 @@ La comunicazione B2B comporta lo scambio di messaggi tra due processi o applicaz
 ## <a name="prerequisites"></a>Prerequisiti
 * Un account Azure, che è possibile [creare gratuitamente](https://azure.microsoft.com/free)
 * Un account di integrazione. È possibile creare un [account di integrazione](app-service-logic-enterprise-integration-create-integration-account.md) e abilitare la registrazione. La procedura è disponibile [qui](app-service-logic-monitor-b2b-message.md).
-* Un'app per la logica. È possibile creare un'[app per la logica](app-service-logic-create-a-logic-app.md) e abilitare la registrazione. La procedura è disponibile [qui](app-service-logic-monitor-your-logic-apps.md)
+* Un'app per la logica. È possibile creare un'[app per la logica](app-service-logic-create-a-logic-app.md) e abilitare la registrazione. La procedura è disponibile [qui](app-service-logic-monitor-your-logic-apps.md#azure-diagnostics-and-alerts)
 
 ## <a name="adding-logic-apps-b2b-solution-to-oms-portal"></a>Aggiunta di soluzioni B2B per App per la logica al portale di OMS
+
 1. Selezionare **Altri servizi** nel portale, cercare **Log Analytics** e selezionare **Log Analytics**
 ![Cercare Log Analytics](./media/app-service-logic-track-b2b-messages-omsportal/browseloganalytics.png)  
 
@@ -54,17 +55,39 @@ La comunicazione B2B comporta lo scambio di messaggi tra due processi o applicaz
 7. Esplorare la home page per visualizzare **Messaggi per le app per la logica B2B**
 ![Selezionare la home page](./media/app-service-logic-track-b2b-messages-omsportal/omshomepage4.png)
 
-8. Pubblicare l'elaborazione messaggio. La home page viene aggiornata con il conteggio dei messaggi ![Selezionare la home page](./media/app-service-logic-track-b2b-messages-omsportal/omshomepage6.png)
+## <a name="tracking-data-in-oms-portal"></a>Dati di rilevamento nel portale OMS
 
-9. Selezionando **Messaggi per le app per la logica B2B** nella home page, viene visualizzato lo stato dei messaggi AS2 e X12.  I dati sono relativi all'ultimo giorno.
+1. Pubblicare l'elaborazione messaggio. La home page viene aggiornata con il conteggio dei messaggi ![Selezionare la home page](./media/app-service-logic-track-b2b-messages-omsportal/omshomepage6.png)
+
+2. Selezionando **Messaggi per le app per la logica B2B** nella home page, viene visualizzato lo stato dei messaggi AS2 e X12.  I dati sono relativi all'ultimo giorno.
 ![Selezionare Messaggi per le app per la logica B2B](./media/app-service-logic-track-b2b-messages-omsportal/omshomepage5.png)
 
-10. Selezionando i messaggi AS2 o X12 in base allo stato, viene visualizzato l'elenco di messaggi ![Selezionare lo stato dei messaggi AS2](./media/app-service-logic-track-b2b-messages-omsportal/as2messagelist.png)
+3. Selezionando i messaggi AS2 o X12 in base allo stato, viene visualizzato l'elenco di messaggi ![Selezionare lo stato dei messaggi AS2](./media/app-service-logic-track-b2b-messages-omsportal/as2messagelist.png)
 
     ![Selezionare lo stato dei messaggi X12](./media/app-service-logic-track-b2b-messages-omsportal/x12messagelist.png)
 
-11. Selezionare una riga nell'elenco dei messaggi X12 o AS2 per accedere alla ricerca nei log.  La ricerca nei log elenca tutte le azioni con lo stesso **ID esecuzione**
+4. Selezionare una riga nell'elenco dei messaggi X12 o AS2 per accedere alla ricerca nei log.  La ricerca nei log elenca tutte le azioni con lo stesso **ID esecuzione**
 ![Selezionare lo stato dei messaggi](./media/app-service-logic-track-b2b-messages-omsportal/logsearch.png)
+
+## <a name="queries-in-oms-portal"></a>Query nel portale OMS
+
+Nella pagina di ricerca è possibile creare una query e quindi, durante la ricerca, filtrare i risultati usando controlli facet.
+
+### <a name="how-to-create-a-query"></a>Come creare una query
+
+1. Nella ricerca di log, scrivere una query e selezionare **Salva**.  [Qui](app-service-logic-track-b2b-messages-omsportal-query-filter-control-number.md) vengono descritti i passaggi per scrivere una query ![Seleziona home page](./media/app-service-logic-track-b2b-messages-omsportal/logsearchaddquery.png)
+
+2. Si apre **Salva ricerca**.  Indicare un **nome** e una **categoria**, quindi fare clic su **Salva**   
+![Seleziona home page](./media/app-service-logic-track-b2b-messages-omsportal/logsearchaddquery1.png)
+
+3. Per visualizzare la query, selezionare i **preferiti**    
+![Seleziona home page](./media/app-service-logic-track-b2b-messages-omsportal/logsearchaddquery3.png)
+
+    ![Seleziona home page](./media/app-service-logic-track-b2b-messages-omsportal/logsearchaddquery4.png)
+
+### <a name="how-to-use-a-saved-query"></a>Come usare una query salvata
+
+1. Nella ricerca dei log, selezionare i **preferiti** per visualizzare le query salvate.  Selezionando uno dei preferiti si ottengono i risultati della query ![Seleziona home page](./media/app-service-logic-track-b2b-messages-omsportal/logsearchaddquery5.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

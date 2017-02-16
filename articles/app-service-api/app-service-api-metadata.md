@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 53f5c17d51622dbc27a27c750999a925c3f80bff
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: 3b41340f30239dc0102808b5e492ee7300dcd12b
 
 
 ---
@@ -34,7 +34,7 @@ Nel [portale di Azure](https://portal.azure.com/) l'URL dell'endpoint può esser
 ![](./media/app-service-api-metadata/apidefblade.png)
 
 ### <a name="azure-resource-manager-property"></a>Proprietà Gestione risorse di Azure
-È anche possibile configurare l'URL di definizione dell'API per un'app per le API usando [Esplora risorse](https://resources.azure.com/) o i [modelli di Azure Resource Manager](../resource-group-authoring-templates.md) in strumenti da riga di comando come [Azure PowerShell](../powershell-install-configure.md) e l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md). 
+È anche possibile configurare l'URL di definizione dell'API per un'app per le API usando [Esplora risorse](https://resources.azure.com/) o i [modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) in strumenti da riga di comando come [Azure PowerShell](/powershell/azureps-cmdlets-docs) e l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md). 
 
 In **Esplora risorse** passare a **Sottoscrizioni > {sottoscrizione} > Gruppi di risorse > {gruppo di risorse} > Provider > Microsoft.Web > Siti > {sito} > config > web** per visualizzare la proprietà `apiDefinition`:
 
@@ -60,6 +60,6 @@ Se si usa Gestione API di Azure con app per le API, è possibile usare metadati 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6b65a0c306ec9316fd8a86f8ebb2808cce65200a
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: eb1f4c815618e866e683b3fe2e3adf93a151ff5a
 
 
 ---
@@ -70,7 +70,7 @@ Nella pagina delle proprietà **Caching** è possibile specificare impostazioni 
 * Nome dell'account di archiviazione per salvare lo stato della cache quando l'applicazione viene eseguita come servizio cloud o nessuno se non si vuole salvare lo stato della cache. Il nome dell'account di archiviazione non viene usato quando si esegue l'applicazione nell'emulatore di calcolo. Se si imposta il nome dell'account di archiviazione su **(auto)**, che corrisponde al valore predefinito, la configurazione della memorizzazione nella cache userà automaticamente lo stesso account di archiviazione selezionato nella finestra di dialogo **Publish to Azure** (Pubblica in Azure).
 
 > [!NOTE]
-> L'impostazione **(auto)** avrà l'effetto desiderato solo se si pubblica la distribuzione usando la procedura di pubblicazione guidata del toolkit di Eclipse. Se invece si pubblica il file con estensione cspkg manualmente con un meccanismo esterno, ad esempio il [portale di gestione di Azure][portale di gestione di Azure], la distribuzione non funzionerà correttamente.
+> L'impostazione **(auto)** avrà l'effetto desiderato solo se si pubblica la distribuzione usando la procedura di pubblicazione guidata del toolkit di Eclipse. Se invece si pubblica manualmente il file cspkg tramite un meccanismo esterno, ad esempio il [portale di gestione di Azure][Azure Management Portal], la distribuzione non funzionerà correttamente.
 > 
 > 
 
@@ -93,7 +93,7 @@ Per modificare una cache denominata, selezionarla e fare clic sul pulsante **Edi
 
 Per eliminare una cache, selezionarla e fare clic sul pulsante **Remove** (Rimuovi) nella pagina delle proprietà **Caching** (Memorizzazione nella cache) e quindi su **Yes** (Sì) per confermare l'eliminazione.
 
-Per altre informazioni sull'uso della memorizzazione nella cache, vedere [Come usare la memorizzazione nella cache con risorse condivise][Come usare la memorizzazione nella cache con risorse condivise].
+Per altre informazioni sull'uso della funzionalità di memorizzazione nella cache, vedere [Come usare la memorizzazione nella cache con risorse condivise][How to Use Co-located Caching].
 
 <a name="certificates_properties"></a> 
 
@@ -102,7 +102,7 @@ Aprire il menu di scelta rapida relativo al ruolo nel riquadro Project Explorer 
 
 ![][ic710964]
 
-In questa finestra di dialogo è possibile aggiungere o rimuovere i certificati a cui fa riferimento il progetto Eclipse. Si noti che i certificati elencati in questa finestra di dialogo non vengono archiviati automaticamente in un archivio delle chiavi Java e quindi non sono disponibili automaticamente per l'uso in un'applicazione Java. Vengono solo registrati con Azure per poter essere precaricati nell'archivio certificati di Windows delle macchine virtuali che eseguono la distribuzione e usati successivamente con altro software Windows. Attualmente, la sola funzionalità del toolkit che usa i certificati a cui viene fatto riferimento in questo modo nella finestra di dialogo **Certificates** (Certificati) è [Offload SSL][Offload SSL] (Offload SSL), a causa della dipendenza da Internet Information Services (IIS) e Application Request Routing (ARR) che richiede che il certificato appropriato venga reso disponibile in questo modo.
+In questa finestra di dialogo è possibile aggiungere o rimuovere i certificati a cui fa riferimento il progetto Eclipse. Si noti che i certificati elencati in questa finestra di dialogo non vengono archiviati automaticamente in un archivio delle chiavi Java e quindi non sono disponibili automaticamente per l'uso in un'applicazione Java. Vengono solo registrati con Azure per poter essere precaricati nell'archivio certificati di Windows delle macchine virtuali che eseguono la distribuzione e usati successivamente con altro software Windows. Attualmente, la sola funzionalità del toolkit che usa i certificati a cui viene fatto riferimento in questo modo nella finestra di dialogo **Certificates** (Certificati) è l'[offload SSL][SSL Offloading], per il fatto che dipende da Internet Information Services (IIS) e Application Request Routing (ARR), i quali richiedono che il certificato appropriato sia reso disponibile in questo modo.
 
 Quando si distribuisce il progetto in Azure tramite la pubblicazione guidata, verrà richiesto di puntare ai file PFX (Personal Information Exchange) corrispondenti a questi certificati, insieme alle relative password, per poterli caricare automaticamente nel servizio di Azure, ma solo se non sono già stati caricati in precedenza.
 
@@ -181,7 +181,7 @@ Aprire il menu di scelta rapida relativo al ruolo nel riquadro Project Explorer 
 
 ![][ic719504]
 
-Per informazioni correlate, vedere l'articolo relativo al [Debug delle applicazione Azure in Eclipse][Debug delle applicazione Azure in Eclipse].
+Per informazioni correlate, vedere [Debug delle applicazioni Azure in Eclipse][Debugging Azure Applications in Eclipse].
 
 <a name="endpoints_properties"></a> 
 
@@ -204,9 +204,9 @@ A seconda del tipo di endpoint, è possibile usare intervalli di porte come indi
 
 Se si vuole usare un singolo numero di porta anziché un intervallo, lasciare vuota la casella di testo relativa alla fine dell'intervallo.
 
-Per le porte impostate automaticamente, se è necessario determinare la porta effettivamente usata in fase di esecuzione, l'applicazione può usare l'API di runtime del servizio Azure, documentata nel [riepilogo del pacchetto com.microsoft.windowsazure.serviceruntime][riepilogo del pacchetto com.microsoft.windowsazure.serviceruntime].
+Per le porte impostate su automatico, se è necessario determinare quale porta viene effettivamente usata in fase di esecuzione, l'applicazione può usare l'API di runtime del servizio Azure, documentata nel [riepilogo del pacchetto com.microsoft.windowsazure.serviceruntime][com.microsoft.windowsazure.serviceruntime package summary].
 
-Per informazioni su come è possibile usare gli endpoint di input dell'istanza per il debug di una distribuzione con istanze multiple, vedere la sezione relativa al [Debug di un'istanza del ruolo specifica in una distribuzione con istanze multiple][Debug di un'istanza del ruolo specifica in una distribuzione con istanze multiple].
+Per informazioni su come usare gli endpoint di input dell'istanza per facilitare il debug di una distribuzione a istanze multiple, vedere [Debug di un'istanza del ruolo specifica in una distribuzione con istanze multiple][Debugging a specific role instance in a multi-instance deployment].
 
 Per modificare un endpoint, selezionarlo e fare clic sul pulsante **Edit** (Modifica) nella pagina delle proprietà **Endpoints** (Endpoint). Verrà aperta una finestra di dialogo in cui è possibile modificare il nome dell'endpoint, il tipo e le porte pubblica e privata. Fare clic su **OK** per salvare i valori dell'endpoint modificati.
 
@@ -251,12 +251,12 @@ Per configurare correttamente alcune funzionalità (ad esempio, Server Configura
 
 <a name="session_affinity_properties"></a> 
 
-### <a name="load-balancing-session-affinity-aka-sticky-sessions-properties"></a>Proprietà di bilanciamento del carico/affinità di sessione (dette anche "sessioni permanenti")
+### <a name="load-balancing--session-affinity-aka-sticky-sessions-properties"></a>Proprietà di bilanciamento del carico/affinità di sessione (dette anche "sessioni permanenti")
 Aprire il menu di scelta rapida relativo al ruolo nel riquadro Project Explorer (Esplora progetti) di Eclipse, scegliere **Azure** e quindi fare clic su **Load Balancing** (Bilanciamento del carico). In questa finestra di dialogo è possibile abilitare o disabilitare l'affinità di sessione, come illustrato nell'immagine seguente.
 
 ![][ic719492]
 
-Per informazioni correlate, vedere l'articolo relativo all'[Affinità di sessione][Affinità di sessione]. Si noti anche il comportamento di questa funzionalità nel contesto dell'offload SSL, come descritto in [Offload SSL][Offload SSL].
+Per informazioni correlate, vedere [Affinità di sessione][Session Affinity]. Si noti anche il comportamento di questa funzionalità nel contesto dell'offload SSL, come descritto in [Offload SSL][SSL Offloading].
 
 <a name="local_storage_properties"></a> 
 
@@ -267,7 +267,7 @@ Aprire il menu di scelta rapida relativo al ruolo nel riquadro Project Explorer 
 
 È anche possibile specificare facoltativamente una variabile di ambiente corrispondente all'archiviazione locale.
 
-Per impostazione predefinita, tutto ciò che si distribuisce in Azure viene decompresso e inserito nella cartella **approot** dell'istanza del ruolo. Anche se le dimensioni della cartella sono sufficienti per la maggior parte delle distribuzioni semplici anche dopo la decompressione, lo spazio allocato per la directory **approot** è limitato e non ben definito (meno di 1 GB è una regola generale ragionevole). Per assicurare quindi che in Azure venga allocato spazio su disco sufficiente per distribuzioni estese che potrebbero non rientrare nella cartella **approot**, è consigliabile configurare una risorsa di archiviazione locale usando la finestra di dialogo **Local Storage** (Archiviazione locale). Per un modo semplice per eseguire questa operazione, vedere l'articolo relativo alla [Distribuzione di distribuzioni di grandi dimensioni][Distribuzione di distribuzioni di grandi dimensioni].
+Per impostazione predefinita, tutto ciò che si distribuisce in Azure viene decompresso e inserito nella cartella **approot** dell'istanza del ruolo. Anche se le dimensioni della cartella sono sufficienti per la maggior parte delle distribuzioni semplici anche dopo la decompressione, lo spazio allocato per la directory **approot** è limitato e non ben definito (meno di 1 GB è una regola generale ragionevole). Per assicurare quindi che in Azure venga allocato spazio su disco sufficiente per distribuzioni estese che potrebbero non rientrare nella cartella **approot**, è consigliabile configurare una risorsa di archiviazione locale usando la finestra di dialogo **Local Storage** (Archiviazione locale). Per informazioni su un modo semplice per eseguire questa operazione, vedere [Distribuzione di distribuzioni di grandi dimensioni][Deploying Large Deployments].
 
 È possibile fare riferimento facilmente alla risorsa di archiviazione degli script di avvio, ad esempio **startup.cmd**, usando la variabile di ambiente associata automaticamente alla risorsa dal toolkit per Eclipse, come illustrato nella finestra di dialogo **Local Storage** (Archiviazione locale). Tale variabile di ambiente conterrà il percorso completo della risorsa locale configurata al momento dell'esecuzione dello script di avvio. 
 
@@ -398,38 +398,38 @@ Aprire il menu di scelta rapida relativo al ruolo nel riquadro Project Explorer 
 
 ![][ic719481]
 
-In questa finestra di dialogo è possibile abilitare l'offload SSL, che consente di abilitare facilmente il supporto del protocollo HTTPS ( Hypertext Transfer Protocol Secure) nella distribuzione Java in Azure, senza dover configurare SSL nel server applicazioni Java. Per altre informazioni, vedere l'articolo relativo all'[Offload SSL][Offload SSL] e l'articolo su [come usare l'offload SSL][come usare l'offload SSL].
+In questa finestra di dialogo è possibile abilitare l'offload SSL, che consente di abilitare facilmente il supporto del protocollo HTTPS ( Hypertext Transfer Protocol Secure) nella distribuzione Java in Azure, senza dover configurare SSL nel server applicazioni Java. Per altre informazioni, vedere l'articolo relativo all'[offload SSL][SSL Offloading] e l'articolo su [come usare l'offload SSL][How to Use SSL Offloading].
 
 ## <a name="see-also"></a>Vedere anche
-[Toolkit di Azure per Eclipse][Toolkit di Azure per Eclipse]
+[Azure Toolkit for Eclipse][Azure Toolkit for Eclipse]
 
-[Installare il Toolkit di Azure per Eclipse.][Installare il Toolkit di Azure per Eclipse.]
+[Installazione di Azure Toolkit for Eclipse][Installing the Azure Toolkit for Eclipse]
 
-[Creazione di un'applicazione Hello World per Azure in Eclipse][Creazione di un'applicazione Hello World per Azure in Eclipse]
+[Creare un'applicazione Hello World per Azure in Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
-[Proprietà del progetto Azure][Proprietà del progetto Azure]
+[Proprietà del progetto Azure][Azure Project Properties]
 
-[Elenco di account di archiviazione di Azure][Elenco di account di archiviazione di Azure]
+[Elenco di account di archiviazione di Azure][Azure Storage Account List]
 
-Per altre informazioni sull'uso di Azure con Java, vedere il [Centro per sviluppatori Java in Azure][Centro per sviluppatori Java in Azure] di Azure.
+Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure][Azure Java Developer Center].
 
 <!-- URL List -->
 
-[Centro per sviluppatori Java in Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[portale di gestione di Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Proprietà del progetto Azure]: http://go.microsoft.com/fwlink/?LinkID=699524
-[Elenco di account di archiviazione di Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
-[riepilogo del pacchetto com.microsoft.windowsazure.serviceruntime]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/serviceruntime/package-summary.html
-[Creazione di un'applicazione Hello World per Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Debug di un'istanza del ruolo specifica in una distribuzione con istanze multiple]: http://go.microsoft.com/fwlink/?LinkID=699535#debugging_specific_role_instance
-[Debug delle applicazione Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
-[Distribuzione di distribuzioni di grandi dimensioni]: http://go.microsoft.com/fwlink/?LinkID=699536
-[Come usare la memorizzazione nella cache con risorse condivise]: http://go.microsoft.com/fwlink/?LinkID=699542
-[come usare l'offload SSL]: http://go.microsoft.com/fwlink/?LinkID=699545
-[Installare il Toolkit di Azure per Eclipse.]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Affinità di sessione]: http://go.microsoft.com/fwlink/?LinkID=699548
-[Offload SSL]: http://go.microsoft.com/fwlink/?LinkID=699549
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Azure Project Properties]: http://go.microsoft.com/fwlink/?LinkID=699524
+[Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
+[com.microsoft.windowsazure.serviceruntime package summary]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/serviceruntime/package-summary.html
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Debugging a specific role instance in a multi-instance deployment]: http://go.microsoft.com/fwlink/?LinkID=699535#debugging_specific_role_instance
+[Debugging Azure Applications in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
+[Deploying Large Deployments]: http://go.microsoft.com/fwlink/?LinkID=699536
+[How to Use Co-located Caching]: http://go.microsoft.com/fwlink/?LinkID=699542
+[How to Use SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699545
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699548
+[SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699549
 
 <!-- IMG List -->
 
@@ -460,6 +460,6 @@ Per altre informazioni sull'uso di Azure con Java, vedere il [Centro per svilupp
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

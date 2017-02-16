@@ -1,6 +1,6 @@
 ---
-title: Abilitare l&quot;accesso pubblico a un&quot;app del servizio contenitore di Azure | Documentazione Microsoft
-description: Come abilitare l&quot;accesso pubblico a un servizio contenitore di Azure.
+title: Consentire l&quot;accesso all&quot;app contenitore DC/OS di Azure | Documentazione Microsoft
+description: Come abilitare l&quot;accesso pubblico ai contenitori DC/OS in un servizio contenitore di Azure.
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9491ffb2683063169ab25c38b3db5de06282d654
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: b432755bdae235228a9b677783a8cad94142b6ca
 
 
 ---
@@ -91,6 +91,6 @@ Sono disponibili altre informazioni sulla [gestione dei contenitori DC/OS](conta
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

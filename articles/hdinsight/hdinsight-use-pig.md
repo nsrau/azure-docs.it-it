@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/14/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7ac66acf154cde7f5241666c4c5dab0c482a0ab1
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 8b924f29594a9f0c8c161661b216a12ff65b42a9
 
 
 ---
@@ -61,7 +61,7 @@ Nell'esempio precedente, il livello log è ERROR.
 > 
 > 
 
-I dati di esempio vengono archiviati nell'archiviazione BLOB di Azure, usata da HDInsight come file system predefinito per i cluster Hadoop. HDInsight può accedere ai file archiviati nei BLOB tramite il prefisso **wasb** . Ad esempio, per accedere al file sample.log, usare la sintassi seguente:
+I dati di esempio vengono archiviati nell'archivio BLOB di Azure, usata da HDInsight come file system predefinito per i cluster Hadoop. HDInsight può accedere ai file archiviati nei BLOB tramite il prefisso **wasb** . Ad esempio, per accedere al file sample.log, usare la sintassi seguente:
 
     wasbs:///example/data/sample.log
 
@@ -98,6 +98,9 @@ HDInsight è in grado di eseguire processi Pig Latin in vari modi. Usare la tabe
 | [Windows PowerShell](hdinsight-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux o Windows |Windows |
 | [Desktop remoto](hdinsight-hadoop-use-pig-remote-desktop.md) |✔ |✔ |Windows |Windows |
 
+> [!IMPORTANT]
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 ## <a name="running-pig-jobs-on-azure-hdinsight-using-on-premises-sql-server-integration-services"></a>Esecuzione di processi Pig in Azure HDInsight tramite SQL Server Integration Services
 È inoltre possibile utilizzare SQL Server Integration Services per eseguire un processo Pig. Il Feature Pack di Azure per SSIS fornisce i seguenti componenti che funzionano con i processi Pig in HDInsight.
 
@@ -107,15 +110,13 @@ HDInsight è in grado di eseguire processi Pig Latin in vari modi. Usare la tabe
 Altre informazioni sul Feature Pack di Azure per SSIS sono disponibili [qui][ssispack].
 
 ## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Passaggi successivi
-Dopo aver appreso come usare Pig con HDInsight, vedere i collegamenti seguenti per scoprire altre modalità di utilizzo di Azure HDInsight.
+Dopo avere appreso come usare Pig con HDInsight, vedere i collegamenti seguenti per scoprire altri modi di usare Azure HDInsight.
 
 * [Caricare dati in HDInsight][hdinsight-upload-data]
 * [Usare Hive con HDInsight][hdinsight-use-hive]
 * [Usare Sqoop con Hadoop in HDInsight](hdinsight-use-sqoop.md)
 * [Usare Oozie con HDInsight](hdinsight-use-oozie.md)
 * [Usare processi MapReduce con HDInsight][hdinsight-use-mapreduce]
-
-[check]: ./media/hdinsight-use-pig/hdi.checkmark.png
 
 [apachepig-home]: http://pig.apache.org/
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
@@ -124,9 +125,9 @@ Dopo aver appreso come usare Pig con HDInsight, vedere i collegamenti seguenti p
 [connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
 [ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 
-[hdinsight-storage]: hdinsight-use-blob-storage.md
+
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
@@ -135,17 +136,16 @@ Dopo aver appreso come usare Pig con HDInsight, vedere i collegamenti seguenti p
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md#mapreduce-sdk
 
-[Powershell-install-configure]: ../powershell-install-configure.md
+[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 
-[image-hdi-log4j-sample]: ./media/hdinsight-use-pig/HDI.wholesamplefile.png
+
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
-[image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
-[image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Jan17_HO3-->
 
 

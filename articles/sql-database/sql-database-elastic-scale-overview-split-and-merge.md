@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 00497f64feea692cf0f289991d1b905f39e1c880
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: b2e45a77b900092390a2ca66a8d1286193023f29
 
 
 ---
@@ -219,6 +219,6 @@ Non è necessario eseguire il provisioning di un nuovo database dei metadati per
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Ridimensionare il cluster del servizio contenitore di Azure con l&quot;interfaccia della riga di comando di Azure | Documentazione Microsoft
-description: Come ridimensionare il cluster del servizio contenitore di Azure usando l&quot;interfaccia della riga di comando di Azure.
+title: Ridimensionare un cluster del servizio contenitore di Azure | Microsoft Docs
+description: Come ridimensionare il cluster del servizio contenitore di Azure usando l&quot;interfaccia della riga di comando di Azure o il portale di Azure.
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -14,130 +14,88 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2016
+ms.date: 01/10/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9e8df2e68b1b7018d76da89ba9ab332b6ea216fb
+ms.sourcegitcommit: cb3fd28659eb09dfb74496d2aa526736d223631a
+ms.openlocfilehash: d1571aa6191111c46c43b3a424cea415091adfc9
 
 
 ---
-# <a name="scale-an-azure-container-service"></a>Ridimensionare il servizio contenitore di Azure
-È possibile aumentare il numero di nodi desiderato del servizio contenitore di Azure usando l'interfaccia della riga di comando di Azure. Quando per la scalabilità si usa l'interfaccia della riga di comando di Azure, quest'ultima restituisce un nuovo file di configurazione che rappresenta la modifica apportata al contenitore.
+# <a name="scale-an-azure-container-service-cluster"></a>Ridimensionare un cluster del servizio contenitore di Azure
+Dopo aver [distribuito un cluster del servizio contenitore di Azure](container-service-deployment.md), potrebbe essere necessario modificare il numero di nodi agente. Ad esempio, potrebbero essere necessari più agenti in modo da eseguire più applicazioni o istanze contenitore. 
 
-## <a name="about-the-command"></a>Informazioni sul comando
-Per consentire l'interazione con i contenitori di Azure, è necessario che l'interfaccia della riga di comando di Azure si trovi in modalità Azure Resource Manager. È possibile passare alla modalità Resource Manager chiamando `azure config mode arm`. Il comando `acs` dispone di un comando figlio denominato `scale` che esegue tutte le operazioni di ridimensionamento per un servizio contenitore. È possibile ottenere informazioni sui diversi parametri usati nel comando di ridimensionamento eseguendo `azure acs scale --help`. L'output dovrebbe essere simile al seguente:
+È possibile modificare il numero di nodi agente nel cluster tramite il portale di Azure o l'interfaccia della riga di comando di Azure 2.0 (anteprima). L'interfaccia della riga di comando di Azure 2.0 (anteprima) è [l'interfaccia della riga di comando di nuova generazione](/cli/azure/old-and-new-clis) per il modello di distribuzione di Resource Manager.
+
+> [!NOTE]
+> Attualmente, non è supportata la scalabilità dei nodi di agenti in un cluster Kubernetes del servizio contenitore.
+
+
+## <a name="scale-with-the-azure-portal"></a>Ridimensionare con il portale di Azure
+
+1. Nel [portale di Azure](https://portal.azure.com), passare a **Servizi contenitore** e fare clic sul servizio contenitore da modificare.
+2. Nel pannello **Servizio contenitore** fare clic su **Agenti**.
+3. In **Conteggio macchine virtuali** immettere il numero desiderato di nodi di agenti.
+
+    ![Ridimensionare un pool nel portale](./media/container-service-scale/container-service-scale-portal.png)
+
+4. Per salvare la configurazione, fare clic su **Salva**.
+
+
+
+## <a name="scale-with-the-azure-cli-20-preview"></a>Ridimensionare con l'interfaccia della riga di comando di Azure 2.0 (anteprima)
+
+Assicurarsi di avere [installato](/cli/azure/install-az-cli2) la versione più recente dell'interfaccia della riga di comando di Azure 2.0 (anteprima) e di avere effettuato l'accesso a un account Azure (`az login`).
+
+
+### <a name="see-the-current-agent-count"></a>Visualizzare il numero di agenti corrente
+Per visualizzare il numero di agenti attualmente presenti nel cluster, eseguire il comando `az acs show`. Così facendo viene mostrata la configurazione del cluster. Ad esempio, il comando seguente mostra la configurazione del servizio contenitore denominato `containerservice-myACSName` nel gruppo di risorse `myResourceGroup`:
 
 ```azurecli
-azure acs scale --help
-
-help:    The operation to scale a container service.
-help:
-help:    Usage: acs scale [options] <resource-group> <name> <new-agent-count>
-help:
-help:    Options:
-help:      -h, --help                               output usage information
-help:      -v, --verbose                            use verbose output
-help:      -vv                                      more verbose with debug output
-help:      --json                                   use json output
-help:      -g, --resource-group <resource-group>    resource-group
-help:      -n, --name <name>                        name
-help:      -o, --new-agent-count <new-agent-count>  New agent count
-help:      -s, --subscription <subscription>        The subscription identifier
-help:
-help:    Current Mode: arm (Azure Resource Management)
+az acs show -g myResourceGroup -n containerservice-myACSName
 ```
 
-## <a name="use-the-command-to-scale"></a>Usare il comando per il ridimensionamento
-Per ridimensionare un servizio contenitore, è innanzitutto necessario conoscere il **gruppo di risorse** e il **nome del servizio contenitore di Azure**. È inoltre necessario specificare il nuovo numero di agenti. Se si specifica un numero più piccolo è possibile ridurre le prestazioni, mentre se si specifica un numero più grande è possibile aumentarle.
+Il comando restituisce il numero di agenti nel valore `Count` in `AgentPoolProfiles`.
 
-Prima di eseguire il ridimensionamento, è opportuno conoscere il numero corrente di agenti per un servizio contenitore. Usare il comando `azure acs show <resource group> <ACS name>` per restituire la configurazione del servizio contenitore di Azure. Notare il valore <mark>Count</mark> risultante.
 
-#### <a name="see-current-count"></a>Valore Count corrente
-```azurecli
-azure acs show containers-test containerservice-containers-test
+### <a name="use-the-az-acs-scale-command"></a>Usare il comando az acs scale
+Per modificare il numero di nodi dell'agente, eseguire il comando `az acs scale` e indicare il **gruppo di risorse**, il **nome del servizio contenitore** e il **numero di nuovi agenti desiderato**. Se si specifica un numero più piccolo è possibile ridurre le prestazioni, mentre se si specifica un numero più grande è possibile aumentarle.
 
-info:    Executing command acs show
-data:
-data:     Id                 : /subscriptions/<guid>/resourceGroups/containers-test/providers/Microsoft.ContainerService/containerServices/containerservice-containers-test
-data:     Name               : containerservice-containers-test
-data:     Type               : Microsoft.ContainerService/ContainerServices
-data:     Location           : westus
-data:     ProvisioningState  : Succeeded
-data:     OrchestratorProfile
-data:       OrchestratorType : DCOS
-data:     MasterProfile
-data:       Count            : 1
-data:       DnsPrefix        : myprefixmgmt
-data:       Fqdn             : myprefixmgmt.westus.cloudapp.azure.com
-data:     AgentPoolProfiles
-data:       #0
-data:         Name           : agentpools
-data:         <mark>Count          : 1</mark>
-data:         VmSize         : Standard_D2
-data:         DnsPrefix      : myprefixagents
-data:         Fqdn           : myprefixagents.westus.cloudapp.azure.com
-data:     LinuxProfile
-data:       AdminUsername    : azureuser
-data:       Ssh
-data:         PublicKeys
-data:           #0
-data:             KeyData    : ssh-rsa <ENCODED VALUE>
-data:     DiagnosticsProfile
-data:       VmDiagnostics
-data:         Enabled        : true
-data:         StorageUri     : https://<storageid>.blob.core.windows.net/
-```  
-
-#### <a name="scale-to-new-count"></a>Ridimensionare al nuovo valore Count
-Come probabilmente ovvio, è possibile ridimensionare il servizio contenitore chiamando `azure acs scale` e specificando il **gruppo di risorse**, il **nome del servizio contenitore di Azure** e il **numero di agenti**. Quando si ridimensiona un servizio contenitore, l'interfaccia della riga di comando di Azure restituisce una stringa JSON che rappresenta la nuova configurazione del servizio contenitore, incluso il nuovo numero di agenti.
+Ad esempio, per modificare il numero di agenti nel cluster precedente a 10, digitare il comando seguente:
 
 ```azurecli
-azure acs scale containers-test containerservice-containers-test 10
+azure acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
+```
 
-info:    Executing command acs scale
-data:    {
-data:        id: '/subscriptions/<guid>/resourceGroups/containers-test/providers/Microsoft.ContainerService/containerServices/containerservice-containers-test',
-data:        name: 'containerservice-containers-test',
-data:        type: 'Microsoft.ContainerService/ContainerServices',
-data:        location: 'westus',
-data:        provisioningState: 'Succeeded',
-data:        orchestratorProfile: { orchestratorType: 'DCOS' },
-data:        masterProfile: {
-data:            count: 1,
-data:            dnsPrefix: 'myprefixmgmt',
-data:            fqdn: 'myprefixmgmt.westus.cloudapp.azure.com'
-data:        },
-data:        agentPoolProfiles: [
-data:            {
-data:                name: 'agentpools',
-data:                <mark>count: 10</mark>,
-data:                vmSize: 'Standard_D2',
-data:                dnsPrefix: 'myprefixagents',
-data:                fqdn: 'myprefixagents.westus.cloudapp.azure.com'
-data:            }
-data:        ],
-data:        linuxProfile: {
-data:            adminUsername: 'azureuser',
-data:            ssh: {
-data:                publicKeys: [
-data:                    { keyData: 'ssh-rsa <ENCODED VALUE>' }
-data:                ]
-data:            }
-data:        },
-data:        diagnosticsProfile: {
-data:            vmDiagnostics: { enabled: true, storageUri: 'https://<storageid>.blob.core.windows.net/' }
-data:        }
-data:    }
-info:    acs scale command OK
-``` 
+L'interfaccia della riga di comando di Azure 2.0 (anteprima) restituisce una stringa JSON che rappresenta la nuova configurazione del servizio contenitore, incluso il nuovo numero di agenti.
+
+Per ulteriori opzioni di comandi, eseguire `az acs scale --help`.
+
+
+## <a name="scaling-considerations"></a>Considerazioni sulla scalabilità
+
+
+* Il numero di nodi agente deve essere compreso tra 1 e 100 inclusi. 
+
+* La quota di core può limitare il numero di nodi agente in un cluster.
+
+* Le operazioni di scalabilità del nodo agente vengono applicate a un set di scalabilità di macchine virtuali di Azure che contiene il pool dell'agente. In un cluster DC/OS, le operazioni illustrate in questo articolo consentono di ridimensionare solo i nodi di agenti nel pool privato.
+
+* A seconda dell'agente di orchestrazione distribuito nel cluster, è possibile ridimensionare separatamente il numero di istanze di un contenitore in esecuzione nel cluster. Ad esempio, in un cluster DC/OS, usare l'[interfaccia utente di Marathon](container-service-mesos-marathon-ui.md) per modificare il numero di istanze di un'applicazione contenitore.
+
+* Attualmente, non è supportata la scalabilità automatica dei nodi di agenti in un cluster del servizio contenitore.
+
+
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Distribuire un cluster](container-service-deployment.md)
+* Vedere [ulteriori esempi](container-service-create-acs-cluster-cli.md) dell'uso di comandi dell'interfaccia della riga di comando di Azure 2.0 (anteprima) con il servizio contenitore di Azure.
+* Ulteriori informazioni sui [pool di agenti DC/OS](container-service-dcos-agents.md) del servizio contenitore di Azure.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

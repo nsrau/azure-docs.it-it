@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/14/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: db3705c26ecb1b939c17829cc121c9ef0f3eaa31
+ms.sourcegitcommit: 0e74a1784f39fe934d36c0391de7d01bf7699868
+ms.openlocfilehash: b0c207190fcfb23cc75c4aaa661c76c561265ef8
 
 
 ---
@@ -197,7 +197,7 @@ Quando si vogliono usare le risorse cluster in Azure, usare HPC Cluster Manager 
 1. In Gestione cluster HPC fare clic su uno o entrambi i nodi in **Node Management** (Gestione nodi), denominato **Resource Management** (Gestione risorse) in versioni recenti di HPC Pack, quindi nel riquadro **Actions** (Azioni) fare clic su **Start** (Avvia).
    
    ![Avvio dei nodi][add_node4]
-2. Nella finestra di dialogo **Start Azure Nodes** (Avvia nodi di Azure) fare clic su **Start** (Avvia).
+2. Nella finestra di dialogo **Stop Windows Azure nodes** (Arresta nodi di Microsoft Azure) fare clic su **Start** (Avvia).
    
     ![Avvio dei nodi][add_node5]
    
@@ -250,7 +250,7 @@ Dopo aver provato il cluster, arrestare i nodi di Azure per evitare l'addebito d
 1. In Gestione cluster HPC selezionare entrambi i nodi di Azure in **Node Management** (Gestione Nodi), denominato **Resource Management** (Gestione risorse) in versioni recenti di HPC Pack. Nel riquadro **Actions** (Azioni) fare clic su **Stop** (Arresta).
    
     ![Interruzione dei nodi][stop_node1]
-2. Nella finestra di dialogo **Stop Azure Nodes** (Arresta nodi Azure) fare clic su **Stop** (Arresta).
+2. Nella finestra di dialogo **Stop Windows Azure nodes** (Arresta nodi di Microsoft Azure) fare clic su **Stop** (Arresta).
    
     ![Interruzione dei nodi][stop_node2]
 3. Per i nodi verrà eseguita la transizione allo stato **Stopping** . Dopo alcuni minuti i nodi risulteranno **Not-Deployed**in HPC Cluster Manager.
@@ -268,7 +268,7 @@ Dopo aver provato il cluster, arrestare i nodi di Azure per evitare l'addebito d
 * Per altri modi per creare un cluster HPC Pack in Azure, inclusi i modelli di Azure Resource Manager, vedere [Opzioni per cluster HPC con Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Vedere [Big Compute in Azure: risorse tecniche per Batch e HPC (High Performance Computing)](../batch/big-compute-resources.md) per altre informazioni sulla gamma di soluzioni cloud HPC e Big Compute in Azure.
 
-[Panoramica]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
+[Overview]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
 [install_hpc1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc1.png
 [install_hpc2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc2.png
 [install_hpc3]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc3.png
@@ -307,6 +307,6 @@ Dopo aver provato il cluster, arrestare i nodi di Azure per evitare l'addebito d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

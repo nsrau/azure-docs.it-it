@@ -1,5 +1,5 @@
 ---
-title: Gestire i record di controllo di accesso per l&quot;array virtuale Microsoft Azure StorSimple | Documentazione Microsoft
+title: Gestire i record di controllo di accesso per l&quot;array virtuale StorSimple | Documentazione Microsoft
 description: In questo articolo viene descritto come gestire i record di controllo di accesso (ACR) che consentono di specificare quali host possono connettersi a un volume nell&quot;array virtuale StorSimple.
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
-ms.openlocfilehash: a0ba81faa20587d9559bf25cdc82dd6e20f42948
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 1a93ef9c3418da64302d251203fd195708437931
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-access-control-records-for-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per gestire i record di controllo di accesso per l'array virtuale StorSimple
@@ -131,6 +131,6 @@ Attenersi alla procedura seguente per eliminare un record di controllo di access
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/13/2016
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: c73c057c97af9dccf25c724603c597b6792553fd
+ms.sourcegitcommit: 53195091ac4b93ed94f432990c84c407615fc03e
+ms.openlocfilehash: 9c3855c7fce5a9f38424f0bb6cd03f7a2c8d36be
 
 
 ---
@@ -36,37 +36,72 @@ La comunicazione B2B comporta lo scambio di messaggi tra due processi o applicaz
 
 ## <a name="adding-logic-apps-b2b-solution-to-oms-portal"></a>Aggiunta di soluzioni B2B per App per la logica al portale di OMS
 
-1. Selezionare **Altri servizi** nel portale, cercare **Log Analytics** e selezionare **Log Analytics**
-![Cercare Log Analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)  
+1. Selezionare **Altri servizi** nel portale, cercare **Log Analytics** e selezionare **Log Analytics**   
+![Ricerca in Log Analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)  
 
-2. Selezionare **Log Analytics**
+2. Selezionare **Log Analytics**  
 ![Selezionare Log Analytics](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-3. Selezionare **Portale di OMS** per aprire la home page del portale di OMS ![Esplorare il portale di OMS](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
+3. Selezionare **Portale OMS** per aprire la home page del portale OMS   
+![Esplorare il portale OMS](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
 4. Selezionare **Raccolta soluzioni**    
 ![Selezionare Raccolta soluzioni](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
 
-5. Selezionare **App per la logica B2B**
+5. Selezionare **App per la logica B2B**     
 ![Selezionare App per la logica B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage2.png)
 
-6. Fare clic su **Aggiungi** per aggiungere **Messaggi per le app per la logica B2B** alla home page ![Selezionare Aggiungi](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
+6. Fare clic su **Aggiungi** per aggiungere i **Messaggi per le app per la logica B2B** alla home page  
+![Selezionare Aggiungi](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
 
-7. Esplorare la home page per visualizzare **Messaggi per le app per la logica B2B**
-![Selezionare la home page](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
+7. Esplorare la home page per visualizzare i **Messaggi per le app per la logica B2B**   
+![Seleziona home page](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 ## <a name="tracking-data-in-oms-portal"></a>Dati di rilevamento nel portale OMS
 
-1. Pubblicare l'elaborazione messaggio. La home page viene aggiornata con il conteggio dei messaggi ![Selezionare la home page](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
+1.Post elaborazione dei messaggi; la home page viene aggiornata con il conteggio dei messaggi   
+![Seleziona home page](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
 
-2. Selezionando **Messaggi per le app per la logica B2B** nella home page, viene visualizzato lo stato dei messaggi AS2 e X12.  I dati sono relativi all'ultimo giorno.
+2.Selezionando **Messaggi per le app per la logica B2B** nella home page, viene visualizzato lo stato dei messaggi AS2 e X12.  I dati sono relativi all'ultimo giorno.
 ![Selezionare Messaggi per le app per la logica B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 
-3. Selezionando i messaggi AS2 o X12 in base allo stato, viene visualizzato l'elenco di messaggi ![Selezionare lo stato dei messaggi AS2](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
 
-    ![Selezionare lo stato dei messaggi X12](media/logic-apps-track-b2b-messages-omsportal/x12messagelist.png)
 
-4. Selezionare una riga nell'elenco dei messaggi X12 o AS2 per accedere alla ricerca nei log.  La ricerca nei log elenca tutte le azioni con lo stesso **ID esecuzione**
+3. Selezionando i messaggi AS2 o X12 in base allo stato, viene visualizzato l'elenco di messaggi   
+![Selezionare lo stato dei messaggi AS2](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
+
+| Proprietà | Descrizione |
+| --- | --- |
+| Mittente | Il partner guest configurato nelle impostazioni di ricezione o il partner host configurato nelle impostazioni di invio di un contratto AS2 |
+| Ricevitore | Il partner host configurato nelle impostazioni di ricezione o il partner guest configurato nelle impostazioni di invio di un contratto AS2 |
+| App per la logica | App per la logica in cui sono configurate le azioni AS2 |
+| Stato | Lo stato dei messaggi AS2. Operazione completata = Ricevuto o inviato un messaggio AS2 valido, nessun MDN configurato; Operazione completata = Ricevuto o inviato un messaggio AS2 valido, MDN configurato e MDN ricevuto o inviato; Operazione non riuscita = Ricevuto un messaggio AS2 non valido, nessun MDN configurato; In sospeso = Ricevuto o inviato un messaggio AS2 valido, MDN; configurato e atteso ack funzionale; |
+| Ack | Lo stato dei messaggi MDN |
+| Direzione | Direzione dei messaggi AS2 |
+| ID correlazione | ID per correlare tutti i trigger e le azioni all'interno di un'app per la logica |
+| ID del messaggio |  ID del messaggio AS2, dalle intestazioni del messaggio AS2 |
+| Timestamp | Ora in cui l'azione AS2 elabora il messaggio |
+|  |  |
+
+
+![Selezionare lo stato dei messaggi X12](media/logic-apps-track-b2b-messages-omsportal/x12messagelist.png)
+
+| Proprietà | Descrizione |
+| --- | --- |
+| Mittente | Il partner guest configurato nelle impostazioni di ricezione o il partner host configurato nelle impostazioni di invio di un contratto AS2 |
+| Ricevitore | Il partner host configurato nelle impostazioni di ricezione o il partner guest configurato nelle impostazioni di invio di un contratto AS2 |
+| App per la logica | App per la logica in cui sono configurate le azioni AS2 |
+| Stato | Lo stato dei messaggi X12. Operazione completata = Ricevuto o inviato un messaggio X12 valido, nessun ack funzionale configurato; Operazione completata = Ricevuto o inviato un messaggio X12 valido, ack funzionale configurato e ack funzionale inviato o ricevuto; Operazione non riuscita = Ricevuto o inviato un messaggio X12 non valido; In sospeso: Ricevuto o inviato un messaggio X12 valido, ack funzionale configurato e atteso ack funzionale |
+| Ack | Stato Ack funzionali (997).  Accettato = Ricevuto o inviato ack funzionale positivo; Rifiutato = Ricevuto o inviato ack funzionale negativo; In sospeso = Atteso ack funzionale ma non ricevuto; In sospeso = Generato un ack funzionale; impossibile inviarlo al partner |
+| Direzione | Direzione dei messaggi X12 |
+| ID correlazione | ID per correlare tutti i trigger e le azioni all'interno di un'app per la logica |
+| Tipo di messaggio |  Tipo di messaggio EDI&12; X |
+| ICN | Numero di controllo interscambio del messaggio X12 |
+| TSCN | Numero di controllo set transazionale del messaggio X12 |
+| Timestamp | Ora in cui l'azione X12 elabora il messaggio |
+| | |
+
+4.Selezionare una riga nell'elenco dei messaggi X12 o AS2 per accedere alla ricerca nei log.  La ricerca nei log elenca tutte le azioni con lo stesso **ID esecuzione**
 ![Selezionare lo stato dei messaggi](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
 
 ## <a name="queries-in-oms-portal"></a>Query nel portale OMS
@@ -87,7 +122,7 @@ Nella pagina di ricerca è possibile creare una query e quindi, durante la ricer
 
 ### <a name="how-to-use-a-saved-query"></a>Come usare una query salvata
 
-1. Nella ricerca dei log, selezionare i **preferiti** per visualizzare le query salvate.  Selezionando uno dei preferiti si ottengono i risultati della query ![Seleziona home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery5.png)
+* Nella ricerca dei log, selezionare i **preferiti** per visualizzare le query salvate.  Selezionando uno dei preferiti si ottengono i risultati della query ![Seleziona home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery5.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -97,6 +132,6 @@ Nella pagina di ricerca è possibile creare una query e quindi, durante la ricer
 [Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

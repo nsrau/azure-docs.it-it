@@ -3,7 +3,7 @@ title: Come reindirizzare i dispositivi USB in Azure RemoteApp | Microsoft Docs
 description: Informazioni su come usare il reindirizzamento per i dispositivi USB in Azure RemoteApp.
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 ms.assetid: 191d98af-2f5a-4307-9042-aae0e4049f9f
 ms.service: remoteapp
@@ -11,11 +11,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 62d7b8dba97aae33e077a501bb8da653bbdd127b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 937ebbbb7daf573d072697ee09ab7f6557d0184f
 
 
 ---
@@ -73,7 +73,7 @@ La parte più difficile di questo metodo è trovare l'ID istanza del dispositivo
 2. Aprire una connessione Desktop remoto e fare clic su **Mostra opzioni**.
 3. Fare clic su **Salva con nome** per salvare le impostazioni di connessione correnti in un file RDP.  
     ![Salvare le impostazioni come file con estensione RDP](./media/remoteapp-usbredir/ra-saveasrdp.png)
-4. Scegliere un nome file e un percorso, ad esempio "MyConnection.rdp" e "PC\Documenti" e salvare il file.
+4. Scegliere un nome file e un percorso, ad esempio MyConnection.rdp e PC\Documenti e salvare il file.
 5. Aprire il file MyConnection.rdp con un editor di testo e trovare l'ID istanza del dispositivo da reindirizzare.
 
 A questo punto, è possibile usare l'ID istanza nel cmdlet seguente:
@@ -88,6 +88,6 @@ Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

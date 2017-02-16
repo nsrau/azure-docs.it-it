@@ -1,15 +1,14 @@
 ---
 layout: LandingPage
-description: Informazioni su come usare il servizio contenitore per distribuire e gestire i contenitori di applicazioni usando controller di dominio/sistema operativo, Docker Swarm o Kubernetes. Esercitazioni, informazioni di riferimento sulle API e altro ancora.
 translationtype: Human Translation
-ms.sourcegitcommit: aaed834dd697bece735fa9297f0228b75346ffc7
-ms.openlocfilehash: 219dfe4950339d7a68d0a5f06135acb4b247b1fd
+ms.sourcegitcommit: 445c13f0ff0106aa1d919be81ca373377464b32a
+ms.openlocfilehash: 5e027ac1a0a9ec4d11c76bbce1e0c944742ffaf9
 
 ---
 
 # <a name="azure-container-service-documentation"></a>Documentazione del servizio contenitore di Azure
 
-Informazioni su come usare il servizio contenitore per distribuire e gestire i contenitori di applicazioni completamente portabili. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come sfruttare la scalabilità e orchestrare i contenitori tramite controller di dominio/sistema operativo, Docker Swarm o Kubernetes.
+Il servizio contenitore di Azure semplifica la creazione, la configurazione e la gestione di un cluster di macchine virtuali preconfigurate per eseguire le applicazioni nei contenitori. Il servizio contenitore usa una configurazione ottimizzata di strumenti di pianificazione e orchestrazione open source comuni. Ciò consente di usare le competenze già acquisite o di attingere da un consistente e crescente bagaglio di competenze a livello di community per distribuire e gestire applicazioni basate sul contenitore in Microsoft Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -101,7 +100,6 @@ Scaricare la documentazione del servizio contenitore di Azure </div>
 </div>
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

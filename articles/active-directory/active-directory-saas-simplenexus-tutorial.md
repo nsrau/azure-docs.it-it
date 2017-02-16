@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2016
+ms.date: 12/12/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4226d82ac8f0b5e0d8806df2c93f1a1a73162316
+ms.sourcegitcommit: 451369e21e7471180b6cd8c77d62b157d0bcddff
+ms.openlocfilehash: a4478283ef6ab949cc73322db908347a626c12d8
 
 
 ---
@@ -43,51 +43,61 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Simp
 ### <a name="to-enable-the-application-integration-for-simplenexus-perform-the-following-steps"></a>Per abilitare l'integrazione dell'applicazione per SimpleNexus, eseguire la procedura seguente:
 1. Nel portale di Azure classico fare clic su **Active Directory**nel riquadro di spostamento sinistro.
    
-   ![Active Directory](./media/active-directory-saas-simplenexus-tutorial/IC700993.png "Active Directory")
+    ![Active Directory](./media/active-directory-saas-simplenexus-tutorial/IC700993.png "Active Directory")
+
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
    
-   ![Applications](./media/active-directory-saas-simplenexus-tutorial/IC700994.png "Applications")
+    ![Applicazioni](./media/active-directory-saas-simplenexus-tutorial/IC700994.png "Applicazioni")
+
 4. Fare clic su **Add** nella parte inferiore della pagina.
    
-   ![Aggiungi applicazione](./media/active-directory-saas-simplenexus-tutorial/IC749321.png "Add application")
+    ![Aggiungere un'applicazione](./media/active-directory-saas-simplenexus-tutorial/IC749321.png "Aggiungere un'applicazione")
+
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
    
-   ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-simplenexus-tutorial/IC749322.png "Add an application from gallerry")
+    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-simplenexus-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
+
 6. Nella **casella di ricerca** digitare **simple nexus**.
    
-   ![Raccolta di applicazioni](./media/active-directory-saas-simplenexus-tutorial/IC785894.png "Application Gallery")
+    ![Raccolta di applicazioni](./media/active-directory-saas-simplenexus-tutorial/IC785894.png "Raccolta di applicazioni")
+
 7. Nel riquadro dei risultati selezionare **SimpleNexus**, quindi fare clic su **Completa** per aggiungere l'applicazione.
    
-   ![simple nexus](./media/active-directory-saas-simplenexus-tutorial/IC809578.png "Simple Nexus")
+    ![Simple Nexus](./media/active-directory-saas-simplenexus-tutorial/IC809578.png "Simple Nexus")
    
-   ## <a name="configuring-single-sign-on"></a>Configurazione dell'accesso Single Sign-On
+## <a name="configuring-single-sign-on"></a>Configurazione dell'accesso Single Sign-On
 
 Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a SimpleNexus tramite il loro account in Azure AD utilizzando la federazione basata sul protocollo SAML.
 
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
 1. Nella pagina di integrazione dell'applicazione **SimpleNexus** nel portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785896.png "Configure Single Sign-On")
+    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785896.png "Configurare l'accesso Single Sign-On")
+
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a SimpleNexus** selezionare **Single Sign-On di Microsoft Azure AD**, quindi fare clic su **Avanti**.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785897.png "Configure Single Sign-On")
+    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785897.png "Configurare l'accesso Single Sign-On")
+
 3. Nella casella di testo **URL accesso SimpleNexus** della pagina **Configura URL app** digitare l'URL nel formato "*https://simplenexus.com/CompanyName\_login*" e quindi fare clic su **Avanti**.
    
-   ![Configura URL app](./media/active-directory-saas-simplenexus-tutorial/IC786904.png "Configure App URL")
+    ![Configurare l'URL dell'app](./media/active-directory-saas-simplenexus-tutorial/IC786904.png "Configurare l'URL dell'app")
+
 4. Nella pagina **Configura accesso Single Sign-On in SimpleNexus** fare clic su **Scarica metadati** e inoltrare il file di metadati al team di supporto di SimpleNexus.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785899.png "Configure Single Sign-On")
+    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785899.png "Configurare l'accesso Single Sign-On")
    
-   > [!NOTE]
-   > L'accesso Single Sign-On deve essere abilitato dal team di supporto di SimpleNexus.
-   > 
-   > 
+    > [!NOTE]
+    > L'accesso Single Sign-On deve essere abilitato dal team di supporto di SimpleNexus.
+    > 
+    > 
+
 5. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Complete** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785900.png "Configure Single Sign-On")
+    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785900.png "Configurare l'accesso Single Sign-On")
    
-   ## <a name="configuring-user-provisioning"></a>Configurazione del provisioning utente
+## <a name="configuring-user-provisioning"></a>Configurazione del provisioning utente
 
 Per consentire agli utenti di Azure AD di accedere ad SimpleNexus, è necessario eseguirne il provisioning in SimpleNexus.  
 Nel caso di SimpleNexus, il provisioning è un'attività manuale eseguita dall'amministratore tenant.
@@ -102,18 +112,19 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 ### <a name="to-assign-users-to-simplenexus-perform-the-following-steps"></a>Per assegnare gli utenti a SimpleNexus, eseguire la procedura seguente:
 1. Nel portale di Azure classico creare un account di test.
-2. Nella pagina di integrazione dell'applicazione **SimpleNexus ** fare clic su **Assegna utenti**.
+2. Nella pagina di integrazione dell'applicazione **SimpleNexus** fare clic su **Assign users** (Assegna utenti).
    
-   ![Assegna utenti](./media/active-directory-saas-simplenexus-tutorial/IC785901.png "Assign Users")
+    ![Assegnare utenti](./media/active-directory-saas-simplenexus-tutorial/IC785901.png "Assegnare utenti")
+
 3. Selezionare l'utente di test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
    
-   ![Sì](./media/active-directory-saas-simplenexus-tutorial/IC767830.png "Yes")
+    ![Sì](./media/active-directory-saas-simplenexus-tutorial/IC767830.png "Sì")
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

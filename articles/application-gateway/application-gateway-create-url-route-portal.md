@@ -1,5 +1,5 @@
 ---
-title: Creare una regola basata sul percorso per un gateway applicazione usando il portale | Microsoft Docs
+title: Creare una regola basata sul percorso - Gateway applicazione di Azure - Portale di Azure | Documentazione Microsoft
 description: Informazioni su come creare una regola basata sul percorso per un gateway applicazione tramite il portale
 services: application-gateway
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
-ms.openlocfilehash: 2889716d6b5b6079c311d6a7f1eb97b001098b45
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: e92c33b81aa1b69da0336bec1260cbda96c7a72e
 
 
 ---
@@ -90,6 +90,6 @@ Per informazioni su come configurare l'offload SSL con un gateway applicazione d
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

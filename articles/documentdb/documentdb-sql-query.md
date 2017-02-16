@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: a28aace9269bafe9158cccf9bea2dc26f77cf937
-ms.openlocfilehash: 54a763530961073655257251f0381b0b379ae73c
+ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
+ms.openlocfilehash: f4f04a05c1d522f43668e31db15092476b4ef6df
 
 
 ---
@@ -566,7 +566,7 @@ In questo esempio restituisce tutti i documenti in cui lo stato è uno dei valor
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-### <a name="ternary-and-coalesce-operators"></a>Operatori Ternary (?) e Coalesce (??)
+### <a name="ternary--and-coalesce--operators"></a>Operatori Ternary (?) e Coalesce (??)
 Gli operatori Ternary e Coalesce possono essere usati per compilare espressioni condizionali, analogamente ai linguaggi di programmazione più diffusi come C# e JavaScript. 
 
 L'operatore Ternary (?) può essere molto comodo quando si costruiscono rapidamente nuove proprietà JSON. Ad esempio, ora è possibile scrivere query per classificare i livelli di istruzione in forma leggibile, ad esempio principiante/intermedio/avanzati, come mostrato di seguito.
@@ -882,7 +882,7 @@ La parola chiave TOP può essere usata per limitare il numero di valori restitui
 È possibile usare TOP con un valore costante (come illustrato in precedenza) o con un valore della variabile usando le query con parametri. Per altre informazioni dettagliate, vedere le query con parametri seguenti.
 
 ## <a name="order-by-clause"></a>Clausola ORDER BY
-Come in SQL ANSI, è possibile includere una clausola Order By facoltativa durante l'esecuzione di query. La clausola può includere un argomento ASC/DESC facoltativo per specificare l'ordine in cui i risultati devono essere recuperati. Per un'analisi più approfondita di Order By, fare riferimento alla [procedura dettagliata su Order By in DocumentDB](documentdb-orderby.md).
+Come in SQL ANSI, è possibile includere una clausola Order By facoltativa durante l'esecuzione di query. La clausola può includere un argomento ASC/DESC facoltativo per specificare l'ordine in cui i risultati devono essere recuperati.
 
 Ad esempio, la query seguente recupera le famiglie in ordine di nome della città di residenza.
 
@@ -1334,7 +1334,7 @@ Le funzioni matematiche eseguono un calcolo basato in genere su valori di input 
 | [FLOOR (num_expr)](#bk_floor) | Restituisce il valore integer più alto, minore di o uguale all'espressione numerica specificata. |
 | [EXP (num_expr)](#bk_exp) | Restituisce l'esponente dell'espressione numerica specificata. |
 | [LOG (num_expr [,base])](#bk_log) | Restituisce il logaritmo naturale dell'espressione numerica specificata oppure il logaritmo usando la base specificata |
-| [LOG10 (num_expr)](#bk_log10) | Restituisce il valore logaritmico in base 10 dell'espressione numerica specificata. |
+| [LOG10 (num_expr)](#bk_log10) | Restituisce il valore logaritmico in base&10; dell'espressione numerica specificata. |
 | [ROUND (num_expr)](#bk_round) | Restituisce un valore numerico, arrotondato al valore integer più vicino. |
 | [TRUNC (num_expr)](#bk_trunc) | Restituisce un valore numerico, troncato al valore integer più vicino. |
 | [SQRT (num_expr)](#bk_sqrt) | Restituisce la radica quadrata dell'espressione numerica specificata. |
@@ -2190,6 +2190,6 @@ Nel percorso di scrittura:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

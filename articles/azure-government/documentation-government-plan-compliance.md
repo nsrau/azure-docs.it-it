@@ -16,13 +16,13 @@ ms.workload: azure-government
 ms.date: 10/06/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: 601945c05affc350eba111dcec969e6504b91611
-ms.openlocfilehash: e26f1c182869dee58b0ab26da1aa65f99ba8faaa
+ms.sourcegitcommit: 5be95e2deda3bcc36494ba51eeb050d5c4e2894b
+ms.openlocfilehash: 3c1e610412ec043a62f3c389bd239a4225111e61
 
 
 ---
 # <a name="azure-government-compliance"></a>Conformità di Azure per enti pubblici
-## <a name="blueprint-customer-responsibilities-matrix-streamlining-ato-processes"></a>Modello di matrice delle responsabilità del cliente: semplificare le procedure di autorizzazione a procedere
+## <a name="blueprint-customer-responsibilities-matrix--streamlining-ato-processes"></a>Modello di matrice delle responsabilità del cliente: semplificare le procedure di autorizzazione a procedere
 Il programma modello di Azure consente ai clienti di accedere alla documentazione utile per eseguire le procedure di autorizzazione a procedere della propria agenzia o del proprio sistema. In questo articolo viene approfondito il modello di matrice delle responsabilità del cliente di Azure e viene spiegato in che modo il personale di sicurezza può usare il presente documento.
 
 Il modello di matrice delle responsabilità del cliente di Azure è pensato per la massima utilità. Si presenta in formato di foglio di calcolo e definisce SOLO i requisiti di controllo secondo cui il cliente che esegue la compilazione in Azure deve implementare il controllo di sicurezza.
@@ -48,6 +48,6 @@ I commenti e suggerimenti degli utenti della matrice delle responsabilità del c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

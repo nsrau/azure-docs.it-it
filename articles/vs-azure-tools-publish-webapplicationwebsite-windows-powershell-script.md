@@ -1,23 +1,27 @@
 ---
-title: Publish-WebApplicationWebSite (script di Windows PowerShell) | Microsoft Docs
+title: Publish-WebApplicationWebSite (script di Windows PowerShell) | Documentazione Microsoft
 description: Informazioni su come pubblicare un progetto Web in un sito Web di Azure. Se non sono presenti, lo script crea le risorse necessarie nella sottoscrizione di Azure.
 services: visual-studio-online
 documentationcenter: na
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 63cfaa2d-f04d-40dc-8677-345385c278d5
 ms.service: multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 08/15/2016
+ms.date: 11/11/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6942ea67050b86dc8f5a4c9d71ebd8ebd83ad0a2
+
 
 ---
-# Publish-WebApplicationWebSite (script di Windows PowerShell)
-## Sintassi
+# <a name="publish-webapplicationwebsite-windows-powershell-script"></a>Publish-WebApplicationWebSite (script di Windows PowerShell)
+## <a name="syntax"></a>Sintassi
 Pubblica un progetto Web in un sito Web di Azure. Se non sono presenti, lo script crea le risorse necessarie nella sottoscrizione di Azure.
 
     Publish-WebApplicationWebSite
@@ -29,7 +33,7 @@ Pubblica un progetto Web in un sito Web di Azure. Se non sono presenti, lo scrip
     -Verbose
 
 
-## Configurazione
+## <a name="configuration"></a>Configurazione
 Percorso del file di configurazione JSON che descrive i dettagli della distribuzione.
 
 | Parametro | Valore predefinito |
@@ -41,7 +45,7 @@ Percorso del file di configurazione JSON che descrive i dettagli della distribuz
 | Input pipeline accettato? |false |
 | Caratteri jolly accettati? |false |
 
-## SubscriptionName
+## <a name="subscriptionname"></a>SubscriptionName
 Nome della sottoscrizione di Azure in cui si vuole creare il sito Web.
 
 | Parametro | Valore predefinito |
@@ -53,7 +57,7 @@ Nome della sottoscrizione di Azure in cui si vuole creare il sito Web.
 | Input pipeline accettato? |false |
 | Caratteri jolly accettati? |false |
 
-## WebDeployPackage
+## <a name="webdeploypackage"></a>WebDeployPackage
 Percorso al pacchetto di distribuzione Web da pubblicare nel sito Web. È possibile creare questo pacchetto usando la pubblicazione Web guidata di Visual Studio. Per ulteriori informazioni, vedere [Introduzione a Servizi cloud di Azure e ASP.NET](http://go.microsoft.com/fwlink/p/?LinkID=623089).
 
 | Parametro | Valore predefinito |
@@ -65,7 +69,7 @@ Percorso al pacchetto di distribuzione Web da pubblicare nel sito Web. È possib
 | Input pipeline accettato? |false |
 | Caratteri jolly accettati? |false |
 
-## DatabaseServerPassword
+## <a name="databaseserverpassword"></a>DatabaseServerPassword
 Nome utente e password per il database SQL di Azure.
 
 | Parametro | Valore predefinito |
@@ -77,7 +81,7 @@ Nome utente e password per il database SQL di Azure.
 | Input pipeline accettato? |false |
 | Caratteri jolly accettati? |false |
 
-## SendHostMessagesToOutput
+## <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
 Se impostato su true, stampa i messaggi dallo script al flusso di output.
 
 | Parametro | Valore predefinito |
@@ -89,7 +93,7 @@ Se impostato su true, stampa i messaggi dallo script al flusso di output.
 | Input pipeline accettato? |false |
 | Caratteri jolly accettati? |false |
 
-## Osservazioni
+## <a name="remarks"></a>Osservazioni
 Per una spiegazione completa sull'uso dello script per creare ambienti di sviluppo e test, vedere [Uso degli script di Windows PowerShell per la pubblicazione in ambienti di sviluppo e test](vs-azure-tools-publishing-using-powershell-scripts.md).
 
 Il file di configurazione JSON specifica i dettagli degli elementi da distribuire. Include le informazioni specificate al momento della creazione del progetto, ad esempio il nome e il nome utente per il sito Web. Se esiste, include anche il database di cui eseguire il provisioning. Il codice seguente mostra un esempio di file di configurazione JSON:
@@ -118,7 +122,12 @@ Il file di configurazione JSON specifica i dettagli degli elementi da distribuir
 
 È possibile modificare il file di configurazione JSON per cambiare gli elementi da distribuire. La sezione webSite è obbligatoria, ma la sezione del database è facoltativa.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni, vedere [Publish-WebApplicationVM (script di Windows PowerShell)](vs-azure-tools-publish-webapplicationvm.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

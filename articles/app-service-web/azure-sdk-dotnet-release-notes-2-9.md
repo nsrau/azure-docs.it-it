@@ -15,8 +15,8 @@ ms.workload: integration
 ms.date: 11/16/2016
 ms.author: juliako;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 52ae631ad516767682122b0b5c05efb19e462209
-ms.openlocfilehash: a8be2c34358c817ca35ccfe46c97409a57ed539a
+ms.sourcegitcommit: b0bbde6828ed556eef8063a56a35b325fee1865c
+ms.openlocfilehash: 4ba7d6c43a5e0893366669e7511d8e1cfe149b81
 
 
 ---
@@ -83,7 +83,7 @@ Questi aggiornamenti includono quanto segue:
 **Strumenti HDInsight** per Visual Studio ora supporta HDInsight versione 3.3, che include la visualizzazione di grafici Tez e altre correzioni della lingua.
 
 ## <a name="azure-resource-manager"></a>Gestione risorse di Azure
-Questa versione aggiunge il supporto [Insieme di credenziali delle chiavi](../resource-manager-keyvault-parameter.md) per i modelli ARM.
+In questa versione è stato aggiunto il supporto di [KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) per i modelli di Resource Manager.
 
 ## <a name="see-also"></a>Vedere anche
 [Post di annuncio di Azure SDK 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
@@ -91,6 +91,6 @@ Questa versione aggiunge il supporto [Insieme di credenziali delle chiavi](../re
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/24/2016
 ms.author: ilanr9;yijichen;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4fe84f732c24efc8aa647e1f1f650960fcf6514a
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 0c07495a932c8bfdabb97e8eebe8d99de19fbd15
 
 
 ---
@@ -349,7 +349,7 @@ Formulare la previsione della domanda di energia come un problema di regressione
 L'esperienza nell'implementazione e nella distribuzione del progetto pilota di previsione della domanda di energia mostra che i modelli regressivi avanzati disponibili in Azure ML tendono a produrre i risultati migliori.
 
 ## <a name="model-evaluation"></a>Valutazione del modello.
-La valutazione ha un ruolo fondamentale nel **ciclo di sviluppo del modello**. In questa fase vengono esaminate la convalida del modello e le relative prestazioni con dati reali. Nella fase di modellazione viene usata una parte dei dati disponibili per il training del modello. Nella fase di valutazione viene usato il resto dei dati per testare il modello. In sostanza, nel modello vengono inseriti nuovi dati che sono stati ristrutturati e contengono le stesse funzionalità del set di dati di training. Tuttavia, durante il processo di convalida il modello viene usato per prevedere la variabile di destinazione anziché per fornire la variabile di destinazione disponibile. Questo processo è anche detto calcolo del punteggio del modello. Vengono quindi usati i valori di destinazione reali e messi a confronto con quelli previsti. L'obiettivo è misurare e ridurre al minimo l'errore di previsione, vale a dire la differenza tra il valore previsto e il valore reale. Quantificare la misura dell'errore è fondamentale per ottimizzare il modello e stabilire se l'errore viene effettivamente ridotto. Per ottimizzare il modello, è possibile modificarne i parametri che controllano il processo di apprendimento oppure aggiungere o rimuovere funzionalità dei dati. Questa operazione è detta [sweep dei parametri](https://channel9.msdn.com/Blogs/Windows-Azure/Data-Science-Series-Building-an-Optimal-Model-With-Parameter-Sweep). In sostanza, ciò significa che potrebbe essere necessario eseguire più volte l'iterazione tra le fasi di progettazione di funzionalità, modellazione e valutazione del modello, fino a ridurre l'errore al livello richiesto.
+La valutazione ha un ruolo fondamentale nel **ciclo di sviluppo del modello**. In questa fase vengono esaminate la convalida del modello e le relative prestazioni con dati reali. Nella fase di modellazione viene usata una parte dei dati disponibili per il training del modello. Nella fase di valutazione viene usato il resto dei dati per testare il modello. In sostanza, nel modello vengono inseriti nuovi dati che sono stati ristrutturati e contengono le stesse funzionalità del set di dati di training. Tuttavia, durante il processo di convalida il modello viene usato per prevedere la variabile di destinazione anziché per fornire la variabile di destinazione disponibile. Questo processo è anche detto calcolo del punteggio del modello. Vengono quindi usati i valori di destinazione reali e messi a confronto con quelli previsti. L'obiettivo è misurare e ridurre al minimo l'errore di previsione, vale a dire la differenza tra il valore previsto e il valore reale. Quantificare la misura dell'errore è fondamentale per ottimizzare il modello e stabilire se l'errore viene effettivamente ridotto. Per ottimizzare il modello, è possibile modificarne i parametri che controllano il processo di apprendimento oppure aggiungere o rimuovere funzionalità dei dati. Questa operazione è detta [sweep dei parametri](https://channel9.msdn.com/Blogs/Azure/Data-Science-Series-Building-an-Optimal-Model-With-Parameter-Sweep). In sostanza, ciò significa che potrebbe essere necessario eseguire più volte l'iterazione tra le fasi di progettazione di funzionalità, modellazione e valutazione del modello, fino a ridurre l'errore al livello richiesto.
 
 È importante sottolineare che l'errore di previsione non sarà mai uguale a zero perché non esiste un modello che possa prevedere esattamente qualsiasi risultato. Tuttavia, una certa misura dell'errore è accettabile per l'azienda. Durante il processo di convalida si vuole fare in modo che l'errore di previsione del modello sia pari o inferiore alla soglia di tolleranza dell'azienda. È quindi importante impostare il livello di errore tollerabile all'inizio del ciclo, durante la fase di **formulazione del problema** .
 
@@ -404,6 +404,6 @@ Per altre informazioni su ognuno dei componenti e sull'intera architettura, vede
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

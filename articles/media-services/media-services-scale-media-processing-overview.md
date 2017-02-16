@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f2904376bfe16d1aaa5d0816dd3ee64e13911465
+ms.sourcegitcommit: 852d8ee2686e5653f9fe8bb5ec41b22cb1b19048
+ms.openlocfilehash: a9cf9a7e91c21d675f7ae22072fd10794a1295e7
 
 
 ---
@@ -43,7 +43,7 @@ La tabella seguente consente di scegliere tra diverse velocità di codifica. Ind
 > 
 
 * Unità riservate di lavoro per la parallelizzazione di tutta l'elaborazione di supporti di memorizzazione, tra cui l'indicizzazione di processi tramite Azure Media Indexer.  Tuttavia, a differenza della codifica, l'indicizzazione di processi non viene elaborata più velocemente con unità riservate più veloci.
-* Se si usa il pool condiviso, vale a dire senza unità riservate, le attività di codifica hanno le stesse prestazioni di quando si usano le unità riservate S1. Non vi è tuttavia alcun limite superiore al tempo che le attività possono trascorrere nello stato in coda e in qualsiasi momento può essere eseguita una sola attività al massimo.
+* Se si usa il pool condiviso, vale a dire senza unità riservate, le attività di codifica hanno le stesse prestazioni di quando si usano le unità riservate S1. Non c'è tuttavia alcun limite superiore al tempo che le attività possono trascorrere nello stato in coda e in qualsiasi momento può essere eseguita al massimo una sola attività.
 * I data center di Brasile meridionale, India occidentale, India centrale e India meridionale non offrono il tipo di unità riservata **S2** .
 * I data center di Brasile meridionale, India occidentale e India centrale non offrono il tipo di unità riservata **S3** .
 * Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo.
@@ -72,6 +72,6 @@ Ottenere l'attività di elaborazione dei media scalabili con una di queste tecno
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

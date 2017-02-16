@@ -5,8 +5,8 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 11618586-c709-49ca-bcd8-745323ff1af6
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,21 +14,25 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 97ce7f4d682ec12470db4248d046a8367840f0bd
+
 
 ---
-# Procedure di aggiornamento
+# <a name="upgrade-procedures"></a>Procedure di aggiornamento
 Se è già stata eseguita l'integrazione di una versione precedente dell'SDK nell'applicazione, sarà necessario tenere in considerazione gli aspetti seguenti durante l'aggiornamento dell'SDK.
 
 Se non sono state applicate alcune versioni dell'SDK, potrebbe essere necessario eseguire più procedure. Se ad esempio si esegue la migrazione dalla versione 1.4.0 alla 1.6.0, sarà prima di tutto necessario eseguire la procedura per la migrazione "dalla 1.4.0 alla 1.5.0" e quindi la procedura per la migrazione "dalla 1.5.0 alla 1.6.0".
 
 Indipendentemente dalla versione di partenza dell'aggiornamento, è necessario sostituire il file `mobile-engagement-VERSION.jar` con il nuovo file.
 
-## Dalla versione 4.2.0 alla 4.2.1
+## <a name="from-420-to-421"></a>Dalla versione 4.2.0 alla 4.2.1
 Questa operazione può essere svolta su qualsiasi versione dell'SDK. Si tratta di un miglioramento della protezione per l'integrazione delle attività di copertura.
 
 È ora necessario aggiungere `exported="false"` a tutte le attività di copertura.
 
-Le attività del servizio di copertura su `AndroidManifest.xml` non devono comparire come segue:
+Le attività del servizio di copertura su `AndroidManifest.xml`non devono comparire come segue:
 
             <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
               <intent-filter>
@@ -57,12 +61,13 @@ Le attività del servizio di copertura su `AndroidManifest.xml` non devono compa
               </intent-filter>
             </activity>
 
-## Dalla versione 4.0.0 alla 4.1.0
+## <a name="from-400-to-410"></a>Dalla versione 4.0.0 alla 4.1.0
 L’SDK ora gestisce un nuovo modello di autorizzazione da Android M.
 
 Se si utilizzano le funzionalità del percorso o le notifiche del quadro generale, leggere [questa sezione](mobile-engagement-android-integrate-engagement.md#android-m-permissions).
 
-Oltre al nuovo modello di autorizzazione, ora è supportata la configurazione delle funzionalità del percorso al momento del runtime. Esiste ancora la compatibilità con i parametri del manifesto per il percorso, ma è obsoleta. Per utilizzare la configurazione del runtime, rimuovere le seguenti sezioni da ``AndroidManifest.xml``:
+Oltre al nuovo modello di autorizzazione, ora è supportata la configurazione delle funzionalità del percorso al momento del runtime.
+Esiste ancora la compatibilità con i parametri del manifesto per il percorso, ma è obsoleta. Per utilizzare la configurazione del runtime, rimuovere le seguenti sezioni da ``AndroidManifest.xml``:
 
     <meta-data
       android:name="engagement:locationReport:lazyArea"
@@ -79,13 +84,13 @@ Oltre al nuovo modello di autorizzazione, ora è supportata la configurazione de
 
 e leggere [questa procedura aggiornata](mobile-engagement-android-integrate-engagement.md#location-reporting) per utilizzare invece la configurazione del runtime.
 
-## Dalla versione 3.0.0 alla 4.0.0
-### Push nativo
+## <a name="from-300-to-400"></a>Dalla versione 3.0.0 alla 4.0.0
+### <a name="native-push"></a>Push nativo
 Il push nativo (GCM/ADM) viene ora usato anche per le notifiche in-app. È quindi necessario configurare le credenziali del push nativo per qualsiasi tipo di campagna push.
 
 Se non è già stata eseguita, completare [questa procedura](mobile-engagement-android-integrate-engagement-reach.md#native-push).
 
-### AndroidManifest.xml
+### <a name="androidmanifestxml"></a>AndroidManifest.xml
 L'integrazione con il servizio di copertura è stata modificata in ``AndroidManifest.xml``.
 
 Sostituire:
@@ -124,7 +129,8 @@ Con
       </intent-filter>
     </receiver>
 
-È ora possibile che venga visualizzata una schermata di caricamento quando si fa clic su un annuncio (con contenuto di tipo testo/Web) o un sondaggio. L'aggiunta del codice seguente consente il funzionamento delle campagne in 4.0.0:
+È ora possibile che venga visualizzata una schermata di caricamento quando si fa clic su un annuncio (con contenuto di tipo testo/Web) o un sondaggio.
+L'aggiunta del codice seguente consente il funzionamento delle campagne in 4.0.0:
 
     <activity
       android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity"
@@ -135,10 +141,10 @@ Con
       </intent-filter>
     </activity>
 
-### Risorse
+### <a name="resources"></a>Risorse
 Incorporare il nuovo file `res/layout/engagement_loading.xml` nel progetto.
 
-## Dalla versione 2.4.0 alla 3.0.0
+## <a name="from-240-to-300"></a>Dalla versione 2.4.0 alla 3.0.0
 La sezione seguente illustra come eseguire la migrazione di un'integrazione dell'SDK dal servizio Capptain offerto da Capptain SAS a un'app basata su Azure Mobile Engagement. Se si esegue la migrazione da una versione precedente, visitare il sito Web di Capptain per eseguire prima la migrazione alla versione 2.4.0 e quindi applicare la procedura seguente.
 
 > [!IMPORTANT]
@@ -146,15 +152,15 @@ La sezione seguente illustra come eseguire la migrazione di un'integrazione dell
 > 
 > 
 
-### File JAR
+### <a name="jar-file"></a>File JAR
 Sostituire `capptain.jar` con `mobile-engagement-VERSION.jar` nella cartella `libs`.
 
-### File di risorse
+### <a name="resource-files"></a>File di risorse
 Ogni file di risorse fornito (con prefisso `capptain_`) deve essere sostituito con i nuovi file (con prefisso `engagement_`).
 
-Se questi file sono stati personalizzati, è necessario applicare di nuovo la personalizzazione ai nuovi file. **Tutti gli identificatori dei file di risorse sono stati anche rinominati**.
+Se i file sono stati personalizzati, è necessario applicare di nuovo la personalizzazione ai nuovi file e **tutti gli identificatori dei file di risorse sono inoltre stati rinominati**.
 
-### ID applicazione
+### <a name="application-id"></a>ID applicazione
 Il servizio Engagement usa ora una stringa di connessione per configurare gli identificatori dell'SDK, ad esempio l'identificatore dell'applicazione.
 
 È necessario usare il metodo `EngagementAgent.init` nell'attività di avvio come indicato di seguito:
@@ -173,14 +179,14 @@ Rimuovere questa sezione da `AndroidManifest.xml`, se presente:
 
             <meta-data android:name="capptain:appId" android:value="<YOUR_APPID>"/>
 
-### API Java
+### <a name="java-api"></a>API Java
 Ogni chiamata a classi Java dell'SDK deve essere rinominata. Ad esempio, `CapptainAgent.getInstance(this)` deve essere rinominata come `EngagementAgent.getInstance(this)`, `extends CapptainActivity` come `extends EngagementActivity` e così via.
 
 Se è stata eseguita l'integrazione con i file di preferenze agente predefiniti, il nome file predefinito è ora `engagement.agent` e la chiave è `engagement:agent`.
 
 Quando si creano annunci Web, il binder JavaScript è ora `engagementReachContent`.
 
-### AndroidManifest.xml
+### <a name="androidmanifestxml"></a>AndroidManifest.xml
 Sono state apportate numerose modifiche. Il servizio non è più condiviso e molti ricevitori non sono più esportabili.
 
 La dichiarazione del servizio è ora più semplice. Rimuovere il filtro Intent e tutti i metadati contenuti, quindi aggiungere `exportable=false`.
@@ -381,7 +387,7 @@ Il ricevitore di verifica è stato rimosso. Sarà quindi necessario rimuovere qu
             </intent-filter>
           </receiver>
 
-Si noti che la dichiarazione dell'implementazione del ricevitore di trasmissioni **EngagementMessageReceiver** è stata modificata in `AndroidManifest.xml`. Ciò dipende dal fatto che l'API per l'invio e la rimozione di messaggi XMPP arbitrari da entità XMPP arbitrarie e l'API per l'invio e la ricezione di messaggi tra dispositivi sono state rimosse. È quindi necessario eliminare anche i callback seguenti dall'implementazione di **EngagementMessageReceiver**:
+Notare che la dichiarazione dell'implementazione del ricevitore di trasmissioni **EngagementMessageReceiver** è stata modificata in `AndroidManifest.xml`. Ciò dipende dal fatto che l'API per l'invio e la rimozione di messaggi XMPP arbitrari da entità XMPP arbitrarie e l'API per l'invio e la ricezione di messaggi tra dispositivi sono state rimosse. È quindi necessario eliminare anche i callback seguenti dall'implementazione di **EngagementMessageReceiver** :
 
             protected void onDeviceMessageReceived(android.content.Context context, java.lang.String deviceId, java.lang.String payload)
 
@@ -397,7 +403,7 @@ e
 
             sendXMPPMessage(android.os.Bundle msg)
 
-### Proguard
+### <a name="proguard"></a>Proguard
 La configurazione di Proguard può essere influenzata dal re-branding. Le regole hanno ora un aspetto analogo al seguente:
 
             -dontwarn android.**
@@ -409,4 +415,8 @@ La configurazione di Proguard può essere influenzata dal re-branding. Le regole
             }
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 06b33c09f5c316f974efde1116cae699d8df1065
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 04e6a43e478484d90478e4aa90d489ea4eb0cc68
 
 
 ---
@@ -27,7 +27,7 @@ Azure Toolkit per Eclipse consente di eseguire il debug delle applicazioni, indi
 
 In questa esercitazione si presuppone che sia già stata creata correttamente un'applicazione e che si abbia familiarità con l'emulatore di calcolo e con la distribuzione in Azure.
 
-Come punto di partenza per questo argomento verrà usata l'applicazione creata nell'esercitazione [uso della libreria di runtime del servizio Azure in JSP][uso della libreria di runtime del servizio Azure in JSP]. Se non è stato ancora fatto, creare l'applicazione prima di continuare.
+Come punto di partenza per questo argomento verrà usata l'applicazione creata nell'esercitazione relativa all'[uso della libreria di runtime del servizio Azure in JSP][Using the Azure Service Runtime Library in JSP]. Se non è stato ancora fatto, creare l'applicazione prima di continuare.
 
 ## <a name="to-debug-your-application-while-running-in-azure"></a>Per eseguire il debug dell'applicazione durante l'esecuzione in Azure
 > [!WARNING]
@@ -39,11 +39,11 @@ Come punto di partenza per questo argomento verrà usata l'applicazione creata n
 2. Ricompilare il progetto: scegliere **Project** (Progetto) dal menu di Eclipse, quindi fare cli su **Build All** (Compila tutto).
 3. Distribuire l'applicazione in *gestione temporanea* in Azure.
     >[AZURE.IMPORTANT] Come indicato in precedenza, è consigliabile eseguire il debug nell'emulatore di calcolo nella maggior parte dei casi, quindi eseguire il debug nell'ambiente di gestione temporanea solo se è necessario debug aggiuntivo. È consigliabile non eseguire il debug nell'ambiente di produzione.
-4. Quando la distribuzione è pronta in Azure, ottenerne il nome DNS dal [portale di gestione di Azure][portale di gestione di Azure]. Il nome DNS di una distribuzione di staging ha il formato http://*guid&lt;&gt;*.cloudapp.net, dove *&lt;guid&gt;* è un valore GUID assegnato da Azure.
+4. Quando la distribuzione è pronta in Azure, ottenerne il nome DNS dal [portale di gestione di Azure][Azure Management Portal]. Il nome DNS di una distribuzione di staging ha il formato http://*guid&lt;&gt;*.cloudapp.net, dove *&lt;guid&gt;* è un valore GUID assegnato da Azure.
 5. In Project Explorer (Esplora progetti) di Eclipse fare clic con il pulsante destro del mouse su **WorkerRole1**, scegliere **Azure** e quindi fare clic su **Debugging** (Debug).
 6. Nella finestra di dialogo **Properties for WorkerRole1 Debugging** :
    1. Selezionare **Enable remote debugging for this role**
-   2. Per **Input endpoint to use** (Endpoint di input da usare) usare **Debugging (public:8090, private:8090)** (Debug (pubblico: 8090, privato: 8090)).
+   2. Per **Input endpoint to use** (Endpoint di input da usare) usare **Debugging (public:8090, private:8090)** (Debug (pubblico:&8090;, privato:&8090;)).
    3. Assicurarsi che l'opzione **Start JVM in suspended mode, waiting for a debugger connection** sia deselezionata.
        >[AZURE.IMPORTANT] L'opzione **Start JVM in suspended mode, waiting for a debugger connection** è destinata solo a scenari di debug avanzati nell'emulatore di calcolo (non alle distribuzioni cloud). Se viene usata l'opzione **Start JVM in suspended mode, waiting for a debugger connection** , il processo di avvio del server verrà sospeso fino alla connessione del debugger Eclipse alla rispettiva JVM. Anche se è possibile usare questa opzione per una sessione di debug tramite l'emulatore di calcolo, è consigliabile non usarla per una sessione di debug in una distribuzione cloud. L'inizializzazione di un server viene eseguita in un'attività di avvio di Azure e il cloud di Azure rende disponibili gli endpoint pubblici solo dopo il completamento dell'attività di avvio. Un processo di avvio non verrà quindi completato correttamente se questa opzione viene abilitata in una distribuzione cloud, poiché non sarà in grado di ricevere una connessione da un client di Eclipse esterno.
    4. Fare clic su **Create Debug Configurations**.
@@ -90,7 +90,7 @@ Quando si conosce il numero di porta pubblica assegnato all'istanza, sarà possi
 3. In Project Explorer (Esplora progetti) di Eclipse fare clic con il pulsante destro del mouse su **WorkerRole1**, scegliere **Azure** e quindi fare clic su **Debugging** (Debug).
 4. Nella finestra di dialogo **Properties for WorkerRole1 Debugging** :
    1. Selezionare **Enable remote debugging for this role**
-   2. Per **Input endpoint to use** (Endpoint di input da usare), usare l'endpoint predefinito generato automaticamente dal toolkit, elencato come **Debugging (public:8090, private:8090)** (Debug (pubblico: 8090, privato: 8090)).
+   2. Per **Input endpoint to use** (Endpoint di input da usare), usare l'endpoint predefinito generato automaticamente dal toolkit, elencato come **Debugging (public:8090, private:8090)** (Debug (pubblico:&8090;, privato:&8090;)).
    3. Assicurarsi che l'opzione **Start JVM in suspended mode, waiting for a debugger connection** sia deselezionata.
        >[AZURE.IMPORTANT] L'opzione **Start JVM in suspended mode, waiting for a debugger connection** è destinata solo a scenari di debug avanzati nell'emulatore di calcolo (non alle distribuzioni cloud). Se viene usata l'opzione **Start JVM in suspended mode, waiting for a debugger connection** , il processo di avvio del server verrà sospeso fino alla connessione del debugger Eclipse alla rispettiva JVM. Anche se è possibile usare questa opzione per una sessione di debug tramite l'emulatore di calcolo, è consigliabile non usarla per una sessione di debug in una distribuzione cloud. L'inizializzazione di un server viene eseguita in un'attività di avvio di Azure e il cloud di Azure rende disponibili gli endpoint pubblici solo dopo il completamento dell'attività di avvio. Un processo di avvio non verrà quindi completato correttamente se questa opzione viene abilitata in una distribuzione cloud, poiché non sarà in grado di ricevere una connessione da un client di Eclipse esterno.
    4. Fare clic su **Create Debug Configurations**.
@@ -119,22 +119,22 @@ Questa sezione ha illustrato come eseguire il debug nell'emulatore di calcolo. L
 * Per abilitare il debug remoto in GlassFish, non usare la funzionalità di configurazione del debug remoto di Azure Toolkit per Eclipse, ma configurare GlassFish manualmente. A causa del modo in cui GlassFish gestisce le opzioni Java predefinite nelle variabili di ambiente, la funzionalità di configurazione del debug remoto del toolkit non funziona correttamente con GlassFish. Se la funzionalità di configurazione del debug remoto del toolkit è abilitata, potrebbe impedire l'avvio di GlassFish.
 
 ## <a name="see-also"></a>Vedere anche
-[Toolkit di Azure per Eclipse][Toolkit di Azure per Eclipse]
+[Azure Toolkit for Eclipse][Azure Toolkit for Eclipse]
 
-[Creare un'applicazione Hello World per Azure in Eclipse][Creare un'applicazione Hello World per Azure in Eclipse]
+[Creare un'applicazione Hello World per Azure in Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
-[Installare il Toolkit di Azure per Eclipse.][Installare il Toolkit di Azure per Eclipse.] 
+[Installazione di Azure Toolkit for Eclipse][Installing the Azure Toolkit for Eclipse] 
 
-Per altre informazioni sull'uso di Azure con Java, vedere il [Centro per sviluppatori Java in Azure][Centro per sviluppatori Java in Azure] di Azure.
+Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure][Azure Java Developer Center].
 
 <!-- URL List -->
 
-[Centro per sviluppatori Java in Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[portale di gestione di Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Creare un'applicazione Hello World per Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installare il Toolkit di Azure per Eclipse.]: http://go.microsoft.com/fwlink/?LinkId=699546
-[uso della libreria di runtime del servizio Azure in JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Using the Azure Service Runtime Library in JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
 
 <!-- IMG List -->
 
@@ -145,6 +145,6 @@ Per altre informazioni sull'uso di Azure con Java, vedere il [Centro per svilupp
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

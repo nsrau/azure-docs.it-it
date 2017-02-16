@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: aee1ef8c4275f64865ff830739fc818d6bf02bd2
+ms.sourcegitcommit: 09554b64f31c909e413f5a93dfd6d74186bf6e21
+ms.openlocfilehash: b9e49d3637b3e3aff1a89e57c125a59877544e01
 
 
 ---
@@ -124,7 +124,7 @@ Per configurare la connessione al dispositivo, seguire questa procedura.
 Congratulazioni. La creazione della prima applicazione di esempio per Pi è completata.
 
 ## <a name="deploy-and-run-the-sample-application"></a>Distribuire ed eseguire l'applicazione di esempio
-### <a name="install-nodejs-and--on-pi"></a>Installare Node.js e NPM in Pi
+### <a name="install-nodejs-and-npm-on-pi"></a>Installare Node.js e NPM in Pi
 Installare Node.js e NPM in Pi eseguendo questo comando:
 
 ```bash
@@ -153,6 +153,6 @@ Sono stati installati gli strumenti necessari per usare Pi ed è stata distribui
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

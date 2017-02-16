@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/22/2016
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
+ms.sourcegitcommit: b0abc4df06849ef2a887a190a8ea306849d40b3d
+ms.openlocfilehash: e7613084c6a7f20913b49b1f3c33bb681897c118
 
 
 ---
@@ -267,36 +267,37 @@ Se la libreria client di archiviazione genera un'eccezione **StorageException** 
 
 L'esempio di codice seguente illustra come impostare un valore **ClientRequestId** personalizzato allegando un oggetto **OperationContext** alla richiesta del servizio di archiviazione. Mostra inoltre come recuperare il valore **ServerRequestId** dal messaggio di risposta.
 
-    //Parse the connection string for the storage account.
-    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+```csharp
+//Parse the connection string for the storage account.
+const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
+CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    // Create an Operation Context that includes custom ClientRequestId string based on constants defined within the application along with a Guid.
-    OperationContext oc = new OperationContext();
-    oc.ClientRequestID = String.Format("{0} {1} {2} {3}", HOSTNAME, APPNAME, USERID, Guid.NewGuid().ToString());
+// Create an Operation Context that includes custom ClientRequestId string based on constants defined within the application along with a Guid.
+OperationContext oc = new OperationContext();
+oc.ClientRequestID = String.Format("{0} {1} {2} {3}", HOSTNAME, APPNAME, USERID, Guid.NewGuid().ToString());
 
-    try
+try
+{
+    CloudBlobContainer container = blobClient.GetContainerReference("democontainer");
+    ICloudBlob blob = container.GetBlobReferenceFromServer("testImage.jpg", null, null, oc);  
+    var downloadToPath = string.Format("./{0}", blob.Name);
+    using (var fs = File.OpenWrite(downloadToPath))
     {
-        CloudBlobContainer container = blobClient.GetContainerReference("democontainer");
-        ICloudBlob blob = container.GetBlobReferenceFromServer("testImage.jpg", null, null, oc);  
-        var downloadToPath = string.Format("./{0}", blob.Name);
-        using (var fs = File.OpenWrite(downloadToPath))
-        {
-            blob.DownloadToStream(fs, null, null, oc);
-            Console.WriteLine("\t Blob downloaded to file: {0}", downloadToPath);
-        }
+        blob.DownloadToStream(fs, null, null, oc);
+        Console.WriteLine("\t Blob downloaded to file: {0}", downloadToPath);
     }
-    catch (StorageException storageException)
+}
+catch (StorageException storageException)
+{
+    Console.WriteLine("Storage exception {0} occurred", storageException.Message);
+    // Multiple results may exist due to client side retry logic - each retried operation will have a unique ServiceRequestId
+    foreach (var result in oc.RequestResults)
     {
-        Console.WriteLine("Storage exception {0} occurred", storageException.Message);
-        // Multiple results may exist due to client side retry logic - each retried operation will have a unique ServiceRequestId
-        foreach (var result in oc.RequestResults)
-        {
-                Console.WriteLine("HttpStatus: {0}, ServiceRequestId {1}", result.HttpStatusCode, result.ServiceRequestID);
-        }
+            Console.WriteLine("HttpStatus: {0}, ServiceRequestId {1}", result.HttpStatusCode, result.ServiceRequestID);
     }
-
+}
+```
 
 ### <a name="a-nametimestampsatimestamps"></a><a name="timestamps"></a>Timestamp
 È possibile utilizzare i timestamp per individuare le voci di log correlate, ma è importante fare attenzione a eventuali sfasamenti di orario tra il client e il server. Eseguire la ricerca delle voci corrispondenti sul lato server con 15 minuti in più o in meno in base al timestamp sul client. Ricordare che i metadati BLOB per gli oggetti BLOB contenenti metriche indicano l'intervallo di tempo per le metriche memorizzate nell'oggetto BLOB e questo è utile se si usano molti oggetti BLOB di metriche per lo stesso minuto o la stessa ora.
@@ -364,11 +365,13 @@ I motivi possibili per cui il client risponde lentamente includono la quantità 
 
 Per i servizi di tabelle e accodamento, l'algoritmo Nagle può inoltre causare la presenza di un valore **AverageE2ELatency** elevato rispetto al valore **AverageServerLatency**: per altre informazioni, vedere il post relativo al comportamento dell'[algoritmo Nagle nei confronti delle piccole richieste](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx). È possibile disabilitare l'algoritmo Nagle nel codice tramite la classe **ServicePointManager** nello spazio dei nomi **System.Net**. Eseguire questa operazione prima di effettuare chiamate ai servizi di tabelle o accodamento nell'applicazione poiché non ha effetto sulle connessioni già aperte. L'esempio seguente proviene dal metodo **Application_Start** in un ruolo di lavoro.
 
-    var storageAccount = CloudStorageAccount.Parse(connStr);
-    ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
-    tableServicePoint.UseNagleAlgorithm = false;
-    ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
-    queueServicePoint.UseNagleAlgorithm = false;
+```csharp
+var storageAccount = CloudStorageAccount.Parse(connStr);
+ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
+tableServicePoint.UseNagleAlgorithm = false;
+ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
+queueServicePoint.UseNagleAlgorithm = false;
+```
 
 Controllare i file di log lato client per vedere quante richieste vengono inviate dall'applicazione client e verificare se sono presenti colli di bottiglia delle prestazioni generali di .NET, tra cui CPU, garbage collection, uso della rete o memoria. Come punto di partenza per la risoluzione dei problemi nelle applicazioni client .NET, vedere [Debug, traccia e profilatura](http://msdn.microsoft.com/library/7fe0dd2y).
 
@@ -563,53 +566,29 @@ Se l'applicazione client tenta di usare una chiave SAS che non include le autori
 
 La tabella che segue mostra un esempio di messaggio del log lato server generato dal file di log della registrazione dell'archiviazione:
 
-<table>
-  <tr>
-    <td>Orario di inizio richiesta</td>
-    <td>2014-05-30T06:17:48.4473697Z</td>
-  </tr>
-  <tr>
-    <td>Tipo di operazione</td>
-    <td>GetBlobProperties</td>
-  </tr>
-  <tr>
-    <td>Stato della richiesta</td>
-    <td>SASAuthorizationError</td>
-  </tr>
-  <tr>
-    <td>Stato codice HTTP</td>
-    <td>404</td>
-  </tr>
-  <tr>
-    <td>Tipo di autenticazione</td>
-    <td>Sas</td>
-  </tr>
-  <tr>
-    <td>Tipo di servizio</td>
-    <td>BLOB</td>
-  </tr>
-  <tr>
-    <td>URL richiesta</td>
-    <td>
-    https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;amp;sr=c&amp;amp;si=mypolicy&amp;amp;sig=XXXXX&amp;amp;api-version=2014-02-14&amp;amp;</td>
-  </tr>
-  <tr>
-    <td>intestazione dell'ID richiesta</td>
-    <td>a1f348d5-8032-4912-93ef-b393e5252a3b</td>
-  </tr>
-  <tr>
-    <td>ID richiesta client</td>
-    <td>2d064953-8436-4ee0-aa0c-65cb874f7929</td>
-  </tr>
-</table>
+| Nome | Valore |
+| --- | --- |
+| Orario di inizio richiesta | 2014-05-30T06:17:48.4473697Z |
+| Tipo di operazione     | GetBlobProperties            |
+| Stato della richiesta     | SASAuthorizationError        |
+| Stato codice HTTP   | 404                          |
+| Tipo di autenticazione| Sas                          |
+| Tipo di servizio       | BLOB                         |
+| URL richiesta        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| nbsp;              |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| intestazione dell'ID richiesta  | a1f348d5-8032-4912-93ef-b393e5252a3b |
+| ID richiesta client  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
+
 
 È necessario verificare perché l'applicazione client sta tentando di eseguire un'operazione per la quale non dispone di autorizzazioni.
 
 #### <a name="a-namejavascript-code-does-not-have-permissionaclient-side-javascript-code-does-not-have-permission-to-access-the-object"></a><a name="JavaScript-code-does-not-have-permission"></a>Il codice JavaScript lato client non è autorizzato ad accedere all'oggetto
 Se si usa un client JavaScript e il servizio di archiviazione restituisce messaggi HTTP 404, verificare la presenza dei seguenti errori JavaScript nel browser:
 
-    SEC7120: Origin http://localhost:56309 not found in Access-Control-Allow-Origin header.
-    SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
+```
+SEC7120: Origin http://localhost:56309 not found in Access-Control-Allow-Origin header.
+SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
+```
 
 > [!NOTE]
 > È possibile usare gli strumenti di sviluppo F-12 in Internet Explorer per tracciare i messaggi scambiati dal browser e dal servizio di archiviazione quando si individuano e risolvono i problemi di JavaScript sul lato client.
@@ -622,19 +601,21 @@ Per evitare il problema di JavaScript, è possibile configurare il servizio CORS
 
 L'esempio di codice che segue indica come configurare il servizio BLOB per consentire l'esecuzione di JavaScript nel dominio Contoso in modo da poter accedere a un BLOB nel servizio di archiviazione BLOB:
 
-    CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));
-    // Set the service properties.
-    ServiceProperties sp = client.GetServiceProperties();
-    sp.DefaultServiceVersion = "2013-08-15";
-    CorsRule cr = new CorsRule();
-    cr.AllowedHeaders.Add("*");
-    cr.AllowedMethods = CorsHttpMethods.Get | CorsHttpMethods.Put;
-    cr.AllowedOrigins.Add("http://www.contoso.com");
-    cr.ExposedHeaders.Add("x-ms-*");
-    cr.MaxAgeInSeconds = 5;
-    sp.Cors.CorsRules.Clear();
-    sp.Cors.CorsRules.Add(cr);
-    client.SetServiceProperties(sp);
+```csharp
+CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));
+// Set the service properties.
+ServiceProperties sp = client.GetServiceProperties();
+sp.DefaultServiceVersion = "2013-08-15";
+CorsRule cr = new CorsRule();
+cr.AllowedHeaders.Add("*");
+cr.AllowedMethods = CorsHttpMethods.Get | CorsHttpMethods.Put;
+cr.AllowedOrigins.Add("http://www.contoso.com");
+cr.ExposedHeaders.Add("x-ms-*");
+cr.MaxAgeInSeconds = 5;
+sp.Cors.CorsRules.Clear();
+sp.Cors.CorsRules.Add(cr);
+client.SetServiceProperties(sp);
+```
 
 #### <a name="a-namenetwork-failureanetwork-failure"></a><a name="network-failure"></a>Errore della rete
 In alcune circostanze, la perdita di pacchetti di rete può causare la restituzione da parte del servizio di archiviazione di messaggi HTTP 404 per il client. Ad esempio, quando l'applicazione client elimina un'entità dal servizio tabelle, il client genera un'eccezione di archiviazione segnalando un messaggio di stato "HTTP 404 (Non trovato)" ricevuto dal servizio tabelle. Quando si esamina la tabella nel servizio di archiviazione tabelle, si può notare che il servizio ha eliminato l'entità come richiesto.
@@ -713,10 +694,12 @@ Quando si installa l'SDK, si verifica un errore se si tenta di installare l'emul
 
 La causa è un problema nell'installazione LocalDB già esistente. Per impostazione predefinita, l'emulatore di archiviazione utilizza LocalDB per mantenere persistenti i dati quando simula i servizio di archiviazione Azure. Per reimpostare l'istanza LocalDB, eseguire i comandi indicati di seguito in una finestra del prompt dei comandi prima di provare a installare l'SDK.
 
-    sqllocaldb stop v11.0
-    sqllocaldb delete v11.0
-    delete %USERPROFILE%\WAStorageEmulatorDb3*.*
-    sqllocaldb create v11.0
+```
+sqllocaldb stop v11.0
+sqllocaldb delete v11.0
+delete %USERPROFILE%\WAStorageEmulatorDb3*.*
+sqllocaldb create v11.0
+```
 
 Il comando **delete** rimuove tutti i vecchi file di database dalle installazioni precedenti dell'emulatore di archiviazione.
 
@@ -789,7 +772,9 @@ Microsoft Message Analyzer può essere usato per l'acquisizione del traffico HTT
 #### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>Configurazione di una sessione di traccia Web tramite Microsoft Message Analyzer
 Per configurare una sessione di traccia Web per il traffico HTTP e HTTPS tramite Microsoft Message Analyzer, eseguire l'applicazione Microsoft Message Analyzer e nel menu **File** fare clic su **Capture/Trace**. Nell'elenco degli scenari di traccia disponibili, selezionare **Web Proxy**. Quindi, nel riquadro **Trace Scenario Configuration**, nella casella di testo **HostnameFilter**, aggiungere i nomi degli endpoint di archiviazione individuati nel [portale di Azure](https://portal.azure.com). Ad esempio, se il nome dell'account di archiviazione Azure è **contosodata**, aggiungere quanto segue alla casella di testo **HostnameFilter**:
 
-    contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
+```
+contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
+```
 
 > [!NOTE]
 > I nomi host sono separati da uno spazio.
@@ -908,6 +893,6 @@ Ulteriori informazioni sono disponibili in [Informazioni su Azure Application In
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -16,15 +16,14 @@ ms.topic: article
 ms.date: 07/12/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: c0ba77046a24346b7c197d0a0e0f9ff18f449c4a
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: ba920ba7ae6052174445bd2ebeee928710a89a83
 
 
 ---
 # <a name="how-to-configure-an-availability-set-for-linux-virtual-machines-in-the-classic-deployment-model"></a>Come configurare un set di disponibilità per le macchine virtuali Linux nel modello di distribuzione classica
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-È anche possibile [configurare i set di disponibilità](azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets) nelle distribuzioni Azure Resource Manager.
+> [!IMPORTANT] 
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. È anche possibile [configurare i set di disponibilità](azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets) nelle distribuzioni Azure Resource Manager.
 
 [!INCLUDE [virtual-machines-common-classic-configure-availability](../../includes/virtual-machines-common-classic-configure-availability.md)]
 
@@ -34,6 +33,6 @@ Per altri articoli sulle distribuzioni classiche, vedere [Linux ed elaborazione 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

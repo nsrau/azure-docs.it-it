@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/15/2016
+ms.date: 02/07/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 711d92d9c3d97aceaab24fa0cba0c42d2f639426
-ms.openlocfilehash: 313d4c37932c00b93841cad4616fb4deec1ba67b
+ms.sourcegitcommit: ec82fb896bc6c7212660746445af940f52546ad9
+ms.openlocfilehash: 62ded222bc72ded7c6ce51efe911dd84992c05b1
 
 
 ---
@@ -89,6 +89,8 @@ La replica di HBase usa gli indirizzi IP delle macchine virtuali ZooKeeper. È n
 
 9. Ripetere il passaggio 6 per impostare l'indirizzo IP statico per gli altri due nodi ZooKeeper.
 
+Per lo scenario tra più reti virtuali, è necessario usare lo switch **-ip** quando si esegue la chiamata all'azione di script **hdi_enable_replication.sh**.
+
 ### <a name="configure-two-virtual-networks-in-two-different-regions"></a>Configurare due reti virtuali in due aree differenti
 
 Fare clic sull'immagine seguente per creare due reti virtuali in due aree differenti. Il modello è disponibile in un contenitore BLOB di Azure pubblico.
@@ -98,6 +100,8 @@ Fare clic sull'immagine seguente per creare due reti virtuali in due aree differ
 Creare un gateway VPN tra le due reti virtuali. Per istruzioni, vedere [Creare una rete virtuale con una connessione da sito a sito](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
 La replica di HBase usa gli indirizzi IP delle macchine virtuali ZooKeeper. È necessario configurare indirizzi IP statici per i nodi ZooKeeper HBase di destinazione. Per configurare l'indirizzo IP statico, vedere la sezione "Configurare due reti virtuali nella stessa area" in questo articolo.
+
+Per lo scenario tra più reti virtuali, è necessario usare lo switch **-ip** quando si esegue la chiamata all'azione di script **hdi_enable_replication.sh**.
 
 ## <a name="load-test-data"></a>Dati del test di carico
 
@@ -122,7 +126,7 @@ La procedura seguente illustra come richiamare l'azione script dal portale di Az
   - **Intestazione**: Selezionata. Deselezionare gli altri tipi di nodo.
   - **Parametri**: i parametri di esempio seguenti abilitano la replica per tutte le tabelle esistenti e copiano tutti i dati dal cluster di origine al cluster di destinazione:
 
-            -m hn1 -s &lt;source cluster DNS name> -d &lt;destination cluster DNS name> -sp &lt;source cluster Ambari password> -dp &lt;destination cluster Ambari password> -copydata
+            -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
 
 6. Fare clic su **Crea**. Lo script può richiedere del tempo, soprattutto quando si utilizza l'argomento copydata.
 
@@ -216,11 +220,11 @@ La sezione print_usage() dello [script](https://raw.githubusercontent.com/Azure/
         -m hn1 -s <source cluster DNS name> -sp Mypassword\!789 -all
   oppure
 
-        --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=&lt;source cluster Ambari username> --src-ambari-password=&lt;source cluster Ambari password>
+        --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=<source cluster Ambari username> --src-ambari-password=<source cluster Ambari password>
 
 - **Disabilitare la replica in tabelle specifiche (table1, table2 e table3)**:
 
-        -m hn1 -s <source cluster DNS name> -sp &lt;source cluster Ambari password> -t "table1;table2;table3"
+        -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -249,6 +253,6 @@ In questa esercitazione si è appreso come configurare la replica di HBase in du
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

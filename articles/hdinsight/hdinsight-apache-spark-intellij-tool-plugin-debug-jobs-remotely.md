@@ -1,5 +1,5 @@
 ---
-title: Usare gli strumenti HDInsight nel Toolkit di Azure per IntelliJ per il debug remoto di applicazioni in esecuzione nei cluster HDInsight Spark | Documentazione Microsoft
+title: Usare Azure Toolkit for IntelliJ per eseguire il debug remoto delle applicazioni nei cluster Spark | Documentazione Microsoft
 description: Informazioni su come usare gli strumenti HDInsight nel Toolkit di Azure per IntelliJ per il debug remoto di applicazioni in esecuzione nei cluster HDInsight Spark | Microsoft Azure.
 services: hdinsight
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: faeb4568a0d9cd7b1991496ce167a481ef08e189
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 2d50c432f335d362068e55899f350cdf1c4c09ec
 
 
 ---
-# <a name="use-hdinsight-tools-in-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-on-hdinsight-spark-linux-cluster"></a>Usare gli strumenti HDInsight nel Toolkit di Azure per IntelliJ per il debug di applicazioni Spark in remoto nel cluster HDInsight Spark Linux
+# <a name="use-hdinsight-tools-in-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-on-hdinsight-spark-cluster"></a>Usare gli strumenti HDInsight in Azure Toolkit for IntelliJ per il debug remoto di applicazioni Spark nel cluster HDInsight Spark
 Questo articolo offre indicazioni dettagliate su come usare gli strumenti HDInsight nel Toolkit di Azure per IntelliJ per inviare un processo Spark nel cluster HDInsight Spark e quindi eseguirne il debug remoto dal computer desktop. A tale scopo, è necessario seguire questa procedura generale:
 
 1. Creare una rete virtuale di Azure da sito a sito o da punto a sito. Le procedure descritte in questo documento presuppongono che si usi una rete da sito a sito.
@@ -32,12 +32,12 @@ Questo articolo offre indicazioni dettagliate su come usare gli strumenti HDInsi
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un cluster Apache Spark in HDInsight Linux. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Oracle Java Development Kit. Per installarlo, fare clic [qui](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * IntelliJ IDEA. In questo articolo viene usata la versione 15.0.1. Per installarlo, fare clic [qui](https://www.jetbrains.com/idea/download/).
 * Strumenti HDInsight nel Toolkit di Azure per IntelliJ. Gli strumenti HDInsight per IntelliJ sono disponibili come parte di Azure Toolkit per IntelliJ. Per istruzioni su come installare Azure Toolkit, vedere [Installazione di Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij-installation.md).
 * Accedere alla propria sottoscrizione di Azure da IntelliJ IDEA. Seguire le istruzioni riportate [qui](hdinsight-apache-spark-intellij-tool-plugin.md#log-into-your-azure-subscription).
-* Quando si esegue l'applicazione Spark in Scala per il debug remoto in un computer Windows, potrebbe essere restituita un'eccezione, come illustrato in [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356) , causata da un file WinUtils.exe mancante in Windows. Per risolvere questo errore, è necessario [scaricare il file eseguibile da qui](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) in un percorso come **C:\WinUtils\bin**. È quindi necessario aggiungere una variabile di ambiente **HADOOP_HOME** e impostare il valore della variabile su **C\WinUtils**.
+* Quando si esegue l'applicazione Spark in Scala per il debug remoto in un computer Windows, potrebbe essere restituita un'eccezione, come illustrato in [SPARK&2356;](https://issues.apache.org/jira/browse/SPARK-2356) , causata da un file WinUtils.exe mancante in Windows. Per risolvere questo errore, è necessario [scaricare il file eseguibile da qui](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) in un percorso come **C:\WinUtils\bin**. È quindi necessario aggiungere una variabile di ambiente **HADOOP_HOME** e impostare il valore della variabile su **C\WinUtils**.
 
 ## <a name="step-1-create-an-azure-virtual-network"></a>Passaggio 1: Creare una rete virtuale di Azure
 Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete virtuale di Azure e quindi verificare la connettività tra il PC desktop e la rete virtuale di Azure.
@@ -79,24 +79,24 @@ Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete vi
 8. Ripetere questi passaggi anche per l'altro nodo head. 
 
 ## <a name="step-4-create-a-spark-scala-application-using-the-hdinsight-tools-in-azure-toolkit-for-intellij-and-configure-it-for-remote-debugging"></a>Passaggio 4: Creare un'applicazione Spark in Scala usando gli strumenti HDInsight nel Toolkit di Azure per IntelliJ e configurarla per il debug remoto
-1. Avviare IntelliJ IDEA e creare un nuovo progetto. Nella finestra di dialogo del nuovo progetto selezionare le opzioni seguenti e quindi fare clic su **Next**.
+1. Avviare IntelliJ IDEA e creare un nuovo progetto. Nella finestra di dialogo del nuovo progetto selezionare le opzioni seguenti e quindi fare clic su **Next** (Avanti).
    
     ![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
    
-   * Selezionare **HDInsight**nel riquadro sinistro.
+   * Selezionare **HDInsight** nel riquadro sinistro.
    * Selezionare **Spark on HDInsight (Scala)**(Spark in HDInsight - Scala) nel riquadro destro.
-   * Fare clic su **Avanti**.
+   * Fare clic su **Next** (Avanti).
 2. Nella finestra successiva specificare i dettagli del progetto.
    
    * Specificare un nome per il progetto e il relativo percorso.
    * In **Project SDK**(SDK progetto) assicurarsi di specificare una versione di Java superiore alla 7.
-   * In **Scala SDK** (SDK Scala) fare clic su **Create** (Crea), quindi su **Download** e infine selezionare la versione di Scala da usare. **Assicurarsi di non usare la versione 2.11.x**. In questo esempio viene usata la versione **2.10.6**.
+   * In **Scala SDK** (SDK Scala) fare clic su **Create** (Crea) e quindi su **Download** e infine selezionare la versione di Scala da usare. **Assicurarsi di non usare la versione 2.11.x**. In questo esempio viene usata la versione **2.10.6**.
      
        ![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-version.png)
    * Per **Spark SDK** (SDK Spark) scaricare e usare l'SDK da [qui](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). È anche possibile ignorare questo passaggio e usare invece il [repository Maven per Spark](http://mvnrepository.com/search?q=spark), verificando tuttavia di aver installato il repository Maven corretto per sviluppare le applicazioni Spark. Ad esempio, è necessario verificare di aver installato la parte Spark Streaming, se si usa Spark Streaming e di usare il repository contrassegnato come Scala 2.10. Non usare il repository Scala 2.11.
      
        ![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-project-details.png)
-   * Fare clic su **Finish**.
+   * Fare clic su **Finish** (Fine).
 3. Il progetto Spark creerà automaticamente un elemento. Per visualizzare l'elemento, seguire questa procedura.
    
    1. Scegliere **Project Structure** (Struttura progetto) dal menu **File**.
@@ -283,6 +283,6 @@ Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete vi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

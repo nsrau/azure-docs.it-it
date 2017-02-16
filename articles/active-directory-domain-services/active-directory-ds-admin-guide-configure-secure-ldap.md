@@ -1,6 +1,6 @@
 ---
 title: Configurare l&quot;accesso LDAP sicuro (LDAPS) in Azure Active Directory Domain Services | Documentazione Microsoft
-description: Configurare l&quot;accesso LDAP sicuro (LDAPS) per un dominio gestito Azure AD Domain Services
+description: Configurare l&quot;accesso LDAP sicuro (LDAPS) per un dominio gestito di Servizi di dominio Azure AD
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan

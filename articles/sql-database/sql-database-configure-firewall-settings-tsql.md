@@ -1,6 +1,6 @@
 ---
-title: Configurare le regole firewall a livello di server e di database per il database SQL di Azure tramite T-SQL | Documentazione Microsoft
-description: Come configurare il firewall per gli indirizzi IP che accedono a database SQL di Azure.
+title: 'T-SQL: regole del firewall per il database SQL di Azure | Documentazione Microsoft'
+description: Come configurare le regole del firewall a livello di server e di database per gli indirizzi IP che accedono a database SQL di Azure usando Transact-SQL.
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: a49bc9cd8fb50dcc753fbb04bf7f2d96cf79f3ab
+ms.sourcegitcommit: 2f24c1c43300a3c5035fbb4e90c3d13f73c1bc74
+ms.openlocfilehash: ef51f63984d342422ee5f2a93acfee6357df57ca
 
 
 ---
@@ -76,6 +76,11 @@ Solo un utente del database con l'autorizzazione **CONTROL** sul database, ad es
 
 Per altre informazioni su queste stored procedure, vedere [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) e [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx).
 
+> [!NOTE]
+> Per un'esercitazione che illustra l'uso di firewall a livello di database, vedere [SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md) (Esercitazione sul database SQL: autenticazione di SQL Server, account di accesso e utente, ruoli del database, autorizzazioni e regole del firewall a livello di server e a livello di database).
+>
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni su come creare regole firewall a livello di server con altri metodi, vedere: 
 
@@ -94,6 +99,6 @@ Per informazioni su come passare ai database, vedere [Gestire l'accesso al datab
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

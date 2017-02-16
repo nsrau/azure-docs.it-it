@@ -73,6 +73,6 @@ I valori di Windows sono stati calcolati eseguendo [SPECint 2006](https://www.sp
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

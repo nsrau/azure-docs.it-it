@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 65dea49959402b66ba7513051dfe16d91d68ef3b
+ms.sourcegitcommit: 9faf3e48983ded91016e39992bc03a0b62720c06
+ms.openlocfilehash: 4b46a46e6a9de58b9640830852ca19939b3eabdb
 
 
 ---
@@ -128,7 +128,7 @@ Se non si ha un account Azure, è possibile [richiedere una versione di valutazi
 > 
 > 
 
-Per poter usare al meglio il credito Azure gratuito pari a 200 dollari, seguire la procedura riportata nella sezione "Eseguire la pulizia dell'account Azure" alla fine di questo articolo.
+Per poter usare al meglio il credito Azure gratuito pari a&200; dollari, seguire la procedura riportata nella sezione "Eseguire la pulizia dell'account Azure" alla fine di questo articolo.
 
 ## <a name="provision-azure-resources-required-for-the-tutorial"></a>Eseguire il provisioning delle risorse di Azure necessarie per l'esercitazione
 Questa esercitazione richiede due hub eventi per ricevere i flussi di dati *in ingresso* e *in uscita*. Il database SQL di Azure restituisce i risultati dei processi di Analisi di flusso. In Archiviazione di Azure vengono memorizzati i dati di riferimento di registrazione dei veicoli.
@@ -252,7 +252,7 @@ Per informazioni dettagliate sull'implementazione, il codice sorgente dell'appli
 4. Immettere **EntryStream** come **ALIAS DI INPUT**.
 5. Il tipo di origine è **flusso di dati**
 6. L'origine è **hub eventi**.
-7. Lo **spazio dei nomi del bus di servizio** deve essere quello TollData nell'elenco a discesa.
+7. **Spazio dei nomi del bus di servizio** deve essere quello TollData nell'elenco a discesa.
 8. **Nome hub eventi** deve essere impostato su **entry**.
 9. **Nome criterio hub eventi* è **RootManageSharedAccessKey** (il valore predefinito).
 10. Selezionare **JSON** per **FORMATO DI SERIALIZZAZIONE EVENTI** e **UTF8** per **CODIFICA**.
@@ -445,6 +445,6 @@ Per altre informazioni su Analisi di flusso di Azure, vedere la [documentazione 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

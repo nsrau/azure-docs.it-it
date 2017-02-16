@@ -13,10 +13,10 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/22/2016
-ms.author: msfussell;mikhegn
+ms.author: mfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: 6f9580bd96007239eb5dc0276a87c63ec62804c5
+ms.sourcegitcommit: 72fcad2957d6fc5466719c1d275ae0f86f7fa302
+ms.openlocfilehash: bf2e34a27806ca79f88db9a9f8d052cd7bfcc94d
 
 
 ---
@@ -203,11 +203,20 @@ Dopo aver pubblicato l'applicazione nel cluster locale, è possibile accedere al
 
 In questa esercitazione si è appreso come distribuire facilmente due applicazioni esistenti come una singola applicazione di Service Fabric e come distribuirle in Service Fabric in modo da sfruttare i vantaggi di alcune delle funzionalità di Service Fabric, come la disponibilità elevata e l'integrazione con il sistema di integrità.
 
+
+## <a name="adding-more-guest-executables-to-an-existing-application-using-yeoman-on-linux"></a>Aggiunta di più eseguibili guest a un'applicazione esistente usando Yeoman in Linux
+
+Per aggiungere un altro servizio a un'applicazione già creata mediante `yo`, seguire questa procedura: 
+1. Modificare la directory impostandola sulla radice dell'applicazione esistente.  Ad esempio, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` è l'applicazione creata da Yeoman.
+2. Eseguire `yo azuresfguest:AddService` e specificare i dettagli necessari.
+
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 * Per avere informazioni sulla distribuzione di contenitori, consultare [Panoramica di Service Fabric e contenitori](service-fabric-containers-overview.md)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

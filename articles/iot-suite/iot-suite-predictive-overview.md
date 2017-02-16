@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2d44af03b8e16a2bd936fc805ed4f0c4e6c5fbfc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 32da7abc3263e1d76f3f08ccae7ce159ead58bee
 
 
 ---
 # <a name="predictive-maintenance-preconfigured-solution-overview"></a>Panoramica della soluzione preconfigurata di manutenzione predittiva
-La soluzione di *manutenzione predittiva* è una delle [soluzioni preconfigurate][lnk_preconfigured_solutions] rilasciate come parte di [Microsoft Azure IoT Suite][lnk_iot_suite]. Questa soluzione integra una raccolta di dati di telemetria in tempo reale dei dispositivi con un modello predittivo creato mediante [Azure Machine Learning][lnk_machine_learning].
+La soluzione preconfigurata di *manutenzione predittiva* è una delle [soluzioni preconfigurate][lnk_preconfigured_solutions] rilasciate come parte di [Microsoft Azure IoT Suite][lnk_iot_suite]. Questa soluzione integra una raccolta di dati di telemetria in tempo reale dei dispositivi con un modello predittivo creato utilizzando [Azure Machine Learning][lnk_machine_learning].
 
 Con Azure IoT Suite, le aziende possono connettersi agli asset e monitorarli, nonché analizzare i dati in tempo reale in modo semplice e rapido. La soluzione preconfigurata di manutenzione predittiva preleva i dati e utilizza dashboard e visualizzazioni completi per fornire alle aziende nuove informazioni con cui è possibile promuovere l'efficienza e aumentare i flussi di profitti.
 
@@ -38,17 +38,17 @@ I motori degli aeromobili Fabrikam sono instrumentati con sensori che controllan
 
 Prevedendo il momento in cui sarà necessaria la manutenzione, Fabrikam può ottimizzare le proprie operazioni per ridurre i costi. I coordinatori della manutenzione lavorano con utilità di pianificazione per pianificare la manutenzione in coincidenza con la sosta di un aereo in un determinato luogo e garantire un tempo sufficiente in cui l’aeromobile sarà fuori servizio senza causare interruzioni della programmazione. Fabrikam può pianificare i tecnici di conseguenza, garantendo che gli aeromobili siano gestiti in modo efficiente senza tempi di attesa. I responsabili del controllo di inventario ricevono i piani di manutenzione, pertanto possono ottimizzare il processo di ordinazione e l'inventario delle parti di ricambio. Tutto ciò consente a Fabrikam di ridurre al minimo i tempo di fermo a terra degli aeromobili e di ridurre i costi operativi, garantendo la sicurezza dei passeggeri e dell'equipaggio.
 
-Per comprendere in che modo [Azure IoT Suite][lnk_iot_suite] fornisce ai clienti le funzionalità necessarie per sfruttare le potenzialità della manutenzione predittiva, consultare questa [infografica][lnk_infographic].
+Per comprendere come [Azure IoT Suite][lnk_iot_suite] fornisce ai clienti le funzionalità necessarie a realizzare il potenziale della manutenzione predittiva, consultare questa [infografica][lnk_infographic].
 
 ## <a name="how-the-predictive-maintenance-solution-is-built"></a>Creazione della soluzione di manutenzione predittiva
-Per visualizzare queste funzionalità partendo dai dati di telemetria del dispositivo raccolti attraverso i servizi di IoT Suite, la soluzione usa un modello esistente di Azure Machine Learning disponibile. Microsoft ha creato un [modello di regressione][lnk_regression_model] di un motore di aereo e ha pubblicato il modello completo, i dati<sup>\[1\]</sup> e le istruzioni dettagliate su come usare tale modello.
+Per visualizzare queste funzionalità partendo dai dati di telemetria del dispositivo raccolti attraverso i servizi di IoT Suite, la soluzione usa un modello esistente di Azure Machine Learning disponibile. Microsoft ha creato un [modello di regressione][lnk_regression_model] di un motore di aereo e ha pubblicato il modello completo, i dati<sup>\[[1]\]</sup> e le istruzioni dettagliate su come usare il modello.
 
 La soluzione preconfigurata di manutenzione predittiva di Azure IoT usa il modello di regressione creato da questo modello, viene distribuita nella sottoscrizione di Azure e viene esposta tramite un'API generata automaticamente. La soluzione include un subset di dati di test che rappresenta 4 (su un totale di 100) motori e 4 (su un totale di 21) flussi di dati dei sensori che forniscono un risultato esatto dal modello addestrato.
 
 *\[1\] A. Saxena and K. Goebel (2008). "Turbofan Engine Degradation Simulation Data Set", NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sugli scenari di manutenzione predittiva basati su Azure IoT, leggere [Capture value from the Internet of Things][lnk_capture_value] (Acquisire valore dall'Internet delle cose).
+Per ulteriori informazioni su come Azure IoT consente scenari di manutenzione predittiva, leggere [Capture value from the Internet of Things][lnk_capture_value] (Acquisire valore da Internet delle cose).
 
 Esaminare una [procedura dettagliata][lnk-predictive-walkthrough] della soluzione preconfigurata di manutenzione predittiva.
 
@@ -63,13 +63,13 @@ Esaminare una [procedura dettagliata][lnk-predictive-walkthrough] della soluzion
 È anche possibile esplorare alcune altre funzionalità delle soluzioni preconfigurate di IoT Suite:
 
 * [Domande frequenti su IoT Suite][lnk-faq]
-* [Sicurezza dell'Internet of Things sin dall'inizio][lnk-security-groundup]
+* [Sicurezza IoT sin dall'inizio][lnk-security-groundup]
 
 [lnk-faq]: iot-suite-faq.md
-[file lnk-security-groundup]: securing-iot-ground-up.md
+[lnk-security-groundup]: securing-iot-ground-up.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

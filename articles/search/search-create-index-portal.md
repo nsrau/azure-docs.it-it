@@ -1,66 +1,73 @@
 ---
-title: Create an Azure Search index using the Azure Portal | Microsoft Docs
-description: Create an index using the Azure Portal.
+title: Creare un indice di Ricerca di Azure usando il Portale di Azure| Microsoft Docs
+description: Creare un indice nel portale di Azure.
 services: search
 manager: jhubbard
 author: ashmaka
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: c54d8787-6dae-4943-85ed-c8928d2a5caf
 ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 01/13/2017
 ms.author: ashmaka
+translationtype: Human Translation
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: cc439b5da8753b41f8d65781c567b4808f385078
+
 
 ---
-# <a name="create-an-azure-search-index-using-the-azure-portal"></a>Create an Azure Search index using the Azure Portal
+# <a name="create-an-azure-search-index-using-the-azure-portal"></a>Creare un indice di Ricerca di Azure nel portale di Azure
 > [!div class="op_single_selector"]
-> * [Overview](search-what-is-an-index.md)
-> * [Portal](search-create-index-portal.md)
+> * [Panoramica](search-what-is-an-index.md)
+> * [Portale](search-create-index-portal.md)
 > * [.NET](search-create-index-dotnet.md)
 > * [REST](search-create-index-rest-api.md)
 > 
 > 
 
-This article will walk you through the process of creating an Azure Search [index](search-what-is-an-index.md) using the Azure Portal.
+Questo articolo illustra il processo di creazione di un [indice](search-what-is-an-index.md) di Ricerca di Azure mediante il portale di Azure.
 
-Before following this guide and creating an index, you should have already [created an Azure Search service](search-create-service-portal.md).
+Prima di seguire le indicazioni di questa guida e creare un indice, è necessario [creare un servizio Ricerca di Azure](search-create-service-portal.md).
 
-## <a name="i.-go-to-your-azure-search-blade"></a>I. Go to your Azure Search blade
-1. Click on "All resources" in the menu on the left side of the [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
-2. Select your Azure Search service
+## <a name="go-to-your-azure-search-blade"></a>Passaggio al pannello del servizio Ricerca di Azure
+1. Fare clic su "Tutte le risorse" nel menu nel lato sinistro del [portale di Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
+2. Selezionare il servizio Ricerca di Azure
 
-## <a name="ii.-add-and-name-your-index"></a>II. Add and name your index
-1. Click on the "Add index" button
-2. Name your Azure Search index. Since we are creating an index to search for hotels in this guide, we have named our index "hotels".
-   * The index name must start with a letter and contain only lowercase letters, digits, or dashes ("-").
-   * Similar to your service name, the index name you pick will also be part of the endpoint URL where you will send your HTTP requests for the Azure Search API
-3. Click on the "Fields" entry to open a new blade
+## <a name="add-and-name-your-index"></a>Aggiungere e denominare l'indice
+1. Fare clic sul pulsante "Aggiungi indice"
+2. Assegnare un nome all'indice di Ricerca di Azure. Poiché in questa guida verrà creato un indice per cercare gli hotel, l'indice è stato chiamato "hotel".
+   * Il nome dell'indice deve iniziare con una lettera e contenere solo lettere minuscole, cifre o trattini ("-").
+   * Il nome dell'indice scelto, analogamente al nome del servizio, farà parte dell'URL dell'endpoint in cui verranno inviate le richieste HTTP per le API di ricerca di Azure
+3. Fare clic sulla voce "Campi" per aprire un nuovo pannello
 
 ![](./media/search-create-index-portal/add-index.png)
 
-## <a name="iii.-create-and-define-the-fields-of-your-index"></a>III. Create and define the fields of your index
-1. By selecting the "Fields" entry, a new blade will open with a form to enter your index definition.
-2. Add fields to your index using the form.
+## <a name="create-and-define-the-fields-of-your-index"></a>Creare e definire i campi dell'indice
+1. Selezionando la voce "Campi" verrà visualizzato un nuovo pannello con un modulo per immettere la definizione dell'indice.
+2. Aggiungere i campi all'indice tramite il modulo.
    
-   * A *key* field of type Edm.String is mandatory for every Azure Search index. This key field is created by default with the field name "id". We have changed it to "hotelId" in our index.
-   * Certain properties of your index schema can only be set once and cannot be updated in the future. Because of this, any schema updates that would require re-indexing such as changing field types are not currently possible after the initial configuration.
-   * We have carefully chosen the property values for each field based on how we think they will be used in an application. Keep your search user experience and business needs in mind when designing your index as each field must be assigned the [appropriate properties](https://msdn.microsoft.com/library/azure/dn798941.aspx). These properties control which search features (filtering, faceting, sorting, full-text search, etc.) apply to which fields. For example, it is likely that people searching for hotels will be interested in keyword matches on the "description" field, so we enable full-text search for that field by setting the "Searchable" property.
-     * You can also set the [language analyzer](https://msdn.microsoft.com/en-us/library/azure/dn879793.aspx) for each field by clicking on the "Analyzer" tab at the top of the blade. You can see below that we have selected a French analyzer for a field in our index intended for French text.
-3. Click **OK** on the "Fields" blade to confirm your field definitions
-4. Click **OK** on the "Add index" blade to save and create the index you just defined.
+   * Per ogni indice di Ricerca di Azure è obbligatorio un campo *chiave* di tipo Edm.String. Questo campo chiave viene creato per impostazione predefinita con il nome di campo "id". Nell'indice di questa guida, il nome è stato modificato in "hotelId".
+   * Alcune proprietà dello schema dell'indice possono essere impostate solo una volta e non possono essere aggiornate in futuro. Per questo motivo, per il momento dopo la configurazione iniziale non è possibile eseguire aggiornamenti dello schema che richiedono la reindicizzazione, ad esempio la modifica dei tipi di campo.
+   * I valori delle proprietà di ogni campo sono stati scelti con attenzione in base al modo in cui si pensa che verranno usati nell'applicazione. Nel progettare l'indice, tenere presenti le esigenze d'uso e di business degli utenti, assegnando a ogni campo le [proprietà appropriate](https://msdn.microsoft.com/library/azure/dn798941.aspx). Queste proprietà controllano le funzionalità di ricerca (filtro, facet, ordinamento, ricerca full-text e così via) che vengono applicate ai campi. Ad esempio, è probabile che gli utenti che cercano hotel siano interessati alle corrispondenze delle parole chiave del campo "descrizione", viene quindi abilitata la ricerca full-text per il campo impostando la proprietà "Ricercabile".
+     * È anche possibile impostare l'[analizzatore del linguaggio](https://msdn.microsoft.com/en-us/library/azure/dn879793.aspx) per ogni campo, facendo clic sulla scheda "Analizzatore" nella parte superiore del pannello. Di seguito viene mostrato un analizzatore francese selezionato per un campo nell'indice destinato al testo in francese.
+3. Fare clic su **OK** nel pannello "Campi" per confermare le definizioni del campo
+4. Fare clic su **OK** nel pannello "Aggiungi indice" per salvare e creare l'indice che è appena stato definito.
 
-In the screenshots below, you can see how we have named and defined the fields for our "hotels" index.
+Nelle schermate riportate di seguito viene mostrato come sono stati denominati e definiti i campi dell'indice "hotel".
 
 ![](./media/search-create-index-portal/field-definitions.png)
 
 ![](./media/search-create-index-portal/set-analyzer.png)
 
-## <a name="next"></a>Next
-After creating an Azure Search index, you will be ready to [upload your content into the index](search-what-is-data-import.md) so you can start searching your data.
+## <a name="next-steps"></a>Passaggi successivi
+Dopo avere creato un indice di Ricerca di Azure, sarà possibile [caricare il contenuto nell'indice](search-what-is-data-import.md) , in modo che si possa iniziare a eseguire ricerche nei dati.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO2-->
 
 

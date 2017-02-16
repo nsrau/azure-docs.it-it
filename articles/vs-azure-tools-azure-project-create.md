@@ -1,22 +1,26 @@
 ---
-title: Creazione di un progetto Azure con Visual Studio | Microsoft Docs
+title: Creazione di un progetto Azure con Visual Studio | Documentazione Microsoft
 description: Creazione di un progetto Azure con Visual Studio
 services: visual-studio-online
 documentationcenter: na
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: ec580df7-3dcc-45a9-a1d9-8c110678dfb5
 ms.service: multiple
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2016
+ms.date: 11/11/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d933117cf513436e04c79a335998f2ddba848dc4
+
 
 ---
-# Creazione di un progetto Azure con Visual Studio
+# <a name="creating-an-azure-project-with-visual-studio"></a>Creazione di un progetto Azure con Visual Studio
 Gli strumenti di Azure per Visual Studio forniscono un modello per la creazione di un servizio cloud per Azure e consentono inoltre di configurare, eseguire il debug e distribuire il servizio cloud in Azure.
 
 Una soluzione di servizio cloud di Azure contiene i tipi di progetto seguenti:
@@ -41,14 +45,19 @@ Una soluzione di servizio cloud di Azure contiene i tipi di progetto seguenti:
   
     La coda del bus di servizio fornisce la funzionalità di accodamento dei messaggi nella comunicazione con il processo di lavoro. Per altre informazioni, vedere [Come usare le code del bus di servizio](http://go.microsoft.com/fwlink/?LinkId=260560).
 
-## Per creare un progetto di servizio cloud di Azure in Visual Studio
+## <a name="to-create-an-azure-cloud-service-project-in-visual-studio"></a>Per creare un progetto di servizio cloud di Azure in Visual Studio
 1. Avviare Microsoft Visual Studio come amministratore.
 2. Nella barra dei menu scegliere **File**, **Nuovo**, **Progetto**.
 3. Nel riquadro **Tipi di progetto** scegliere **Cloud** dai nodi del modello di progetto Visual C# o Visual Basic.
 4. Nel riquadro **Modelli** scegliere **Servizio cloud di Azure**.
 5. Specificare la versione di .NET Framework che si vuole usare per sviluppare il progetto.
-6. Immettere un nome e un percorso per il progetto e un nome per la soluzione. Fare clic su **OK**.
+6. Immettere un nome e un percorso per il progetto e un nome per la soluzione. Fare clic su **OK** .
 7. Nella finestra di dialogo **Nuovo progetto Azure** scegliere i ruoli da aggiungere e fare clic sul pulsante con la freccia destra per aggiungerli alla soluzione. È possibile aggiungere tutti i ruoli necessari.
 8. Per rinominare un ruolo aggiunto al progetto, posizionarsi sul ruolo nella finestra di dialogo **Nuovo progetto Azure** e scegliere l'icona **Rinomina** a destra del ruolo. Una volta aggiunto, un ruolo può essere rinominato anche nella soluzione.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

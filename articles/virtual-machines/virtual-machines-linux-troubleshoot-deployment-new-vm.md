@@ -1,13 +1,13 @@
 ---
-title: Risolvere i problemi di distribuzione di VM Linux - Resource Manager | Microsoft Docs
+title: Risolvere i problemi di distribuzione di VM Linux - Resource Manager | Documentazione Microsoft
 description: Risolvere i problemi della distribuzione Resource Manager quando si crea una nuova macchina virtuale Linux in Azure
 services: virtual-machines-linux, azure-resource-manager
-documentationcenter: ''
+documentationcenter: 
 author: JiangChen79
 manager: felixwu
-editor: ''
+editor: 
 tags: top-support-issue, azure-resource-manager
-
+ms.assetid: 906a9c89-6866-496b-b4a4-f07fb39f990c
 ms.service: virtual-machines-linux
 ms.workload: na
 ms.tgt_pltfrm: vm-linux
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2016
 ms.author: cjiang
+translationtype: Human Translation
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 2cf2d842c2f04d56c30b3bec1b9ee8b5897f1e6b
+
 
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Risolvere i problemi della distribuzione Resource Manager con la creazione di una nuova macchina virtuale Linux in Azure
@@ -22,12 +26,12 @@ ms.author: cjiang
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="collect-audit-logs"></a>Raccogliere log di controllo
-Per avviare la risoluzione dei problemi, raccogliere i log di controllo per identificare l'errore associato al problema. I collegamenti seguenti contengono informazioni dettagliate sul processo da seguire.
+## <a name="collect-activity-logs"></a>Raccogliere i log di attività
+Per avviare la risoluzione dei problemi, raccogliere i log delle attività per identificare l'errore associato al problema. I collegamenti seguenti contengono informazioni dettagliate sul processo da seguire.
 
-[Risolvere i problemi relativi alle distribuzioni di gruppi di risorse con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md)
+[Visualizzare le operazioni di distribuzione](../azure-resource-manager/resource-manager-deployment-operations.md)
 
-[Operazioni di controllo con Gestione risorse](../resource-group-audit.md)
+[Visualizzare i log attività per gestire le risorse di Azure](../azure-resource-manager/resource-group-audit.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
@@ -37,9 +41,9 @@ Per avviare la risoluzione dei problemi, raccogliere i log di controllo per iden
 
 **Errori di caricamento:**
 
-**N<sup>1</sup>:** se il sistema operativo è Linux generalizzato e viene caricato come specializzato, si verificherà un errore di timeout del provisioning perché la VM è bloccata nella fase di provisioning.
+**N<sup>1</sup>:** se il sistema operativo è un sistema Linux generalizzato e viene caricato come specializzato, si verificherà un errore di timeout del provisioning perché la macchina virtuale risulta bloccata nella fase di provisioning.
 
-**N<sup>2</sup>:** se il sistema operativo è Linux specializzato e viene caricato come generalizzato, si verificherà un errore di provisioning perché la nuova VM viene eseguita con nome computer, nome utente e password originali.
+**N<sup>2</sup>:** se il sistema operativo è un sistema Linux specializzato e viene caricato come generalizzato, si verificherà un errore di provisioning perché la nuova macchina virtuale viene eseguita con il nome computer, il nome utente e la password originali.
 
 **Risoluzione:**
 
@@ -47,15 +51,15 @@ Per risolvere entrambi questi errori, caricare il disco rigido virtuale original
 
 **Errori di acquisizione:**
 
-**N<sup>3</sup>:** se il sistema operativo è Linux generalizzato e viene acquisito come specializzato, si verificherà un errore di timeout del provisioning perché la VM originale non può essere usata essendo contrassegnata come generalizzata.
+**N<sup>3</sup>:** se il sistema operativo è un sistema Linux generalizzato e viene acquisito come specializzato, si verificherà un errore di timeout del provisioning perché la macchina virtuale originale non può essere usata essendo contrassegnata come generalizzata.
 
-**N<sup>4</sup>:** se il sistema operativo è Linux specializzato e viene acquisito come generalizzato, si verificherà un errore di provisioning perché la nuova VM viene eseguita con nome computer, nome utente e password originali. La VM originale, inoltre, non può essere usata perché è contrassegnata come specializzata.
+**N<sup>4</sup>:** se il sistema operativo è un sistema Linux specializzato e viene acquisito come generalizzato, si verificherà un errore di provisioning perché la nuova macchina virtuale viene eseguita con il nome computer, il nome utente e la password originali. La VM originale, inoltre, non può essere usata perché è contrassegnata come specializzata.
 
 **Risoluzione:**
 
-Per risolvere entrambi questi errori, eliminare l'immagine corrente dal portale e [acquisirla di nuovo dai dischi rigidi virtuali correnti](virtual-machines-linux-capture-image.md) con la stessa impostazione usata per il sistema operativo (generalizzato/specializzato).
+Per risolvere entrambi questi errori, eliminare l'immagine corrente dal portale e [acquisirla di nuovo dai dischi rigidi virtuali correnti](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) con la stessa impostazione usata per il sistema operativo (generalizzato/specializzato).
 
-## <a name="issue:-custom/-gallery/-marketplace-image;-allocation-failure"></a>Problema: Immagine personalizzata/della raccolta/del marketplace - errore di allocazione
+## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problema: Immagine personalizzata/della raccolta/del marketplace - errore di allocazione
 Questo errore si verifica nelle situazioni in cui la nuova richiesta di VM viene aggiunta a un cluster che non può supportare le dimensioni della VM richieste oppure non ha spazio disponibile sufficiente per soddisfare la richiesta.
 
 **Causa 1:** il cluster non supporta le dimensioni della VM richieste.
@@ -79,8 +83,11 @@ Questo errore si verifica nelle situazioni in cui la nuova richiesta di VM viene
   * Aggiungere la nuova VM alla stessa rete virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se si incontrano problemi quando si avvia una VM Linux arrestata o si ridimensiona una VM Linux esistente in Azure, vedere [Risolvere i problemi della distribuzione di Resource Manager con il riavvio e il ridimensionamento di una macchina virtuale Linux esistente in Azure](virtual-machines-linux-restart-resize-error-troubleshooting.md).
+Se si incontrano problemi quando si avvia una VM Linux arrestata o si ridimensiona una VM Linux esistente in Azure, vedere [Risolvere i problemi della distribuzione di Resource Manager con il riavvio e il ridimensionamento di una macchina virtuale Linux esistente in Azure](virtual-machines-linux-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO2-->
 
 

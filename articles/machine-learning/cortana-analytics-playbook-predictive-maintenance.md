@@ -2,18 +2,22 @@
 title: Studio del modello di soluzione Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale e in altri campi | Microsoft Docs
 description: Modello di soluzione con Microsoft Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale, nei servizi pubblici e nei trasporti.
 services: cortana-analytics
-documentationcenter: ''
+documentationcenter: 
 author: fboylu
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 2e8b66db-91eb-432b-b305-6abccca25620
 ms.service: cortana-analytics
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/07/2016
 ms.author: fboylu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ce34066c808b378b7f73cb8e782db3d2da7b536b
+
 
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Studio del modello di soluzione Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale e in altri campi
@@ -79,62 +83,62 @@ Ecco una domanda comune che di solito viene posta solita in merito ai dati della
 Questa sezione è incentrata su una raccolta di casi d'uso di manutenzione predittiva per diversi settori, ad esempio aerospaziale, dei servizi pubblici e dei trasporti. Ogni sottoparagrafo analizza i casi d'uso raccolti da queste aree e descrive un problema aziendale, i dati riguardanti il problema aziendale e i vantaggi di una soluzione di manutenzione predittiva.
 
 ### <a name="aerospace"></a>Settore aerospaziale
-#### <a name="use-case-1:-flight-delay-and-cancellations"></a>Caso d'uso 1: Ritardo dei voli e cancellazioni
-##### <a name="*business-problem-and-data-sources*"></a>*Problema aziendale e origini dati*
+#### <a name="use-case-1-flight-delay-and-cancellations"></a>Caso d'uso 1: Ritardo dei voli e cancellazioni
+##### <a name="business-problem-and-data-sources"></a>*Problema aziendale e origini dati*
 Uno dei principali problemi che una compagnia aerea deve affrontare sono i costi significativi associati al ritardo dei voli a causa di problemi meccanici. Se i guasti meccanici non possono essere riparati, i voli potrebbero anche essere cancellati. Questo evento è estremamente costoso, perché i ritardi creano problemi di pianificazione e funzionamento, provocano una cattiva reputazione e l'insoddisfazione dei clienti e molti altri problemi. Le compagnie aeree sono particolarmente interessate alla stima di questi guasti meccanici, per poter ridurre i ritardi dei voli e le cancellazioni. Lo scopo della soluzione di manutenzione predittiva per questi casi consiste nello stimare la probabilità che si verifichino ritardi o cancellazioni di un volo, sulla base di origini dati rilevanti come la cronologia di manutenzione e informazioni sulle rotte dei voli. Le due origini dati principali per questo caso d'uso sono le tratte dei voli e i registri di manutenzione. I dati delle tratte dei voli includono i dettagli delle rotte, ad esempio data e ora della partenza e dell'arrivo, aeroporti di partenza e arrivo e così via. I dati dei registri includono una serie di codici di errore e manutenzione registrati dal personale addetto alla manutenzione.
 
-##### <a name="*business-value-of-the-predictive-model*"></a>*Valore del modello predittivo per l'azienda*
+##### <a name="business-value-of-the-predictive-model"></a>*Valore del modello predittivo per l'azienda*
 Usando i dati cronologici disponibili, è stato compilato un modello predittivo con un algoritmo di classificazione multipla per stimare il tipo di problema meccanico che causa un ritardo o la cancellazione di un volo nelle prossime 24 ore. Sulla base di questa stima è possibile eseguire le operazioni di manutenzione necessarie per ridurre il rischio durante la revisione di un aereo, evitando così ritardi o cancellazioni. Usando il servizio Web di Azure Machine Learning, i modelli predittivi possono essere facilmente integrati nelle piattaforme operative esistenti delle compagnie aeree. 
 
-#### <a name="use-case-2:-aircraft-component-failure"></a>Caso d'uso 2: Guasto di un componente dell'aereo
-##### <a name="*business-problem-and-data-sources*"></a>*Problema aziendale e origini dati*
+#### <a name="use-case-2-aircraft-component-failure"></a>Caso d'uso 2: Guasto di un componente dell'aereo
+##### <a name="business-problem-and-data-sources"></a>*Problema aziendale e origini dati*
 I motori degli aerei sono parti dell'equipaggiamento molto delicate e costose e le sostituzioni di parti del motore sono tra le attività di manutenzione più comuni nel settore del trasporto aereo. Le soluzioni di manutenzione per le compagnie aeree richiedono una gestione accurata della disponibilità, della consegna e della pianificazione delle scorte di componenti. La possibilità di raccogliere informazioni sull'affidabilità dei componenti consente una sostanziale riduzione dei costi di investimento. L'origine dati principale in questo caso d'uso sono i dati di telemetria raccolti da una quantità di sensori dell'aereo che forniscono informazioni sulla condizione dell'aereo stesso. Per identificare quando si sono verificati guasti dei componenti e le sostituzioni eseguite, sono stati usati anche i record di manutenzione.
 
 ##### <a name="business-value-of-the-predictive-model"></a>Valore del modello predittivo per l'azienda
 È stato compilato un modello di classificazione multiclasse che stima la probabilità di un guasto causato da un determinato componente nel prossimo mese. Usando queste soluzioni, le compagnie aeree possono ridurre i costi di riparazione dei componenti, migliorare la disponibilità delle scorte di componenti, ridurre i livelli di inventario degli asset correlati e migliorare la pianificazione della manutenzione.
 
 ### <a name="utilities"></a>Servizi pubblici
-#### <a name="use-case-1:-atm-cash-dispense-failure"></a>Caso d'uso 1: Guasto dello sportello bancomat
-##### <a name="*business-problem-and-data-sources*"></a>*Problema aziendale e origini dati*
+#### <a name="use-case-1-atm-cash-dispense-failure"></a>Caso d'uso 1: Guasto dello sportello bancomat
+##### <a name="business-problem-and-data-sources"></a>*Problema aziendale e origini dati*
 I dirigenti nei settori a elevato utilizzo di asset affermano spesso che il principale rischio operativo per le aziende sono i guasti imprevisti degli asset. Ad esempio, il guasto di un'apparecchiatura come gli sportelli bancomat nel settore bancario è un problema molto comune che si verifica di frequente. Questi tipi di problemi rendono le soluzioni di manutenzione predittiva molto ambite per gli operatori di queste apparecchiature. In questo caso d'uso il problema della stima consiste nel calcolare la probabilità che una transazione di incasso da un bancomat venga interrotta a causa di un guasto del dispositivo di erogazione del contante, come un inceppamento delle banconote o il guasto di un componente. Le origini dati principali in questo caso sono le letture del sensore che raccoglie le misurazioni mentre vengono erogate le banconote, oltre ai record di manutenzione raccolti nel tempo. I dati del sensore includono le relative letture per ogni transazione completata e per ogni banconota erogata. Le letture del sensore forniscono misurazioni come gli intervalli tra le banconote, lo spessore, la distanza massima di arrivo delle banconote e così via. I dati di manutenzione includono i codice errore e le informazioni sulle riparazioni, I dati di manutenzione includono i codice errore e le informazioni sulle riparazioni, che vengono uste per identificare i casi di errore.
 
-##### <a name="*business-value-of-the-predictive-model*"></a>*Valore del modello predittivo per l'azienda*
+##### <a name="business-value-of-the-predictive-model"></a>*Valore del modello predittivo per l'azienda*
 Per stimare gli errori nelle transazioni di prelevamento di contante e i guasti dei singoli erogatori di banconote durante una transazione, sono stati compilati due modelli predittivi. La possibilità di stimare in anticipo gli errori delle transazioni consente di intervenire proattivamente sugli sportelli bancomat per evitare che si verifichino errori. Inoltre, grazie alla stima degli errori relativi alle banconote, se è probabile che una transazione si interrompa prima del completamento a causa di un guasto dell'erogatore, potrebbe essere preferibile arrestare il processo e avvisare il cliente che la transazione è incompleta, invece di attendere l'arrivo del servizio di manutenzione dopo che l'errore si è verificato, cosa che può causare una maggiore insoddisfazione del cliente.
 
-#### <a name="use-case-2:-wind-turbine-failures"></a>Caso d'uso 2: Guasti delle turbine eoliche
-##### <a name="*business-problem-and-data-sources*"></a>*Problema aziendale e origini dati*
+#### <a name="use-case-2-wind-turbine-failures"></a>Caso d'uso 2: Guasti delle turbine eoliche
+##### <a name="business-problem-and-data-sources"></a>*Problema aziendale e origini dati*
 Con la diffusione della consapevolezza ambientale, le turbine eoliche sono diventate una delle principali fonti di produzione energetica e in genere hanno costi che ammontano a milioni di euro. Uno dei principali componenti delle turbine eoliche è il generatore, dotato di molti sensori per il monitoraggio delle condizioni e dello stato delle turbine. Le letture dei sensori contengono informazioni preziose che possono essere usate per compilare un modello predittivo per la stima degli indicatori KPI critici, come il tempo medio tra i guasti (MTBF) per i componenti della turbina eolica. I dati per questo caso d'uso provengono da più turbine eoliche in tre diverse installazioni. Le misurazioni di circa un centinaio di sensori da ogni turbina sono state registrate ogni 10 secondi per un anno. Queste letture includono misure come temperatura, velocità del generatore, potenza della turbina e avvolgimento del generatore.
 
-##### <a name="*business-value-of-the-predictive-model*"></a>*Valore del modello predittivo per l'azienda*
+##### <a name="business-value-of-the-predictive-model"></a>*Valore del modello predittivo per l'azienda*
 I modelli predittivi sono stati compilati per la stima della vita utile rimanente dei generatori e dei sensori di temperatura. Stimando la probabilità di guasto, i tecnici addetti alla manutenzione possono concentrarsi subito sulle turbine sospette con la più alta probabilità di guasto, a integrazione dei regimi di manutenzione temporizzata.
 I modelli predittivi forniscono anche informazioni dettagliate sul livello di contributo per diversi fattori alla probabilità che si verifichi un guasto, consentendo all'azienda di comprendere meglio la causa radice dei problemi.
 
-#### <a name="use-case-3:-circuit-breaker-failures"></a>Caso d'uso 3: Guasti degli interruttori automatici
-##### <a name="*business-problem-and-data-sources*"></a>*Problema aziendale e origini dati*
+#### <a name="use-case-3-circuit-breaker-failures"></a>Caso d'uso 3: Guasti degli interruttori automatici
+##### <a name="business-problem-and-data-sources"></a>*Problema aziendale e origini dati*
 Le operazioni riguardanti elettricità e gas che includono la produzione, distribuzione e vendita di energia elettrica richiedono una notevole quantità di interventi di manutenzione per assicurare che le linee elettriche siano operative ininterrottamente per garantire la distribuzione di corrente alle abitazioni. Un errore nell'esecuzione di queste operazioni è critico, perché i problemi energetici incidono su quasi ogni entità nell'area in cui si verificano. Gli interruttori automatici sono fondamentali per queste operazioni, perché fanno parte dell'apparecchiatura che interrompe la corrente elettrica in caso di problemi e cortocircuiti per evitare che si verifichino danni alle linee elettriche. Il problema aziendale per questo caso d'uso consiste nello stimare i guasti degli interruttori automatici in base ai registri di manutenzione, alla cronologia dei comandi e alle specifiche tecniche.
 
 Le tre origini dati principali per questo caso sono i registri di manutenzione che includono le azioni correttive, preventive e sistematiche, i dati operativi che includono i comandi automatici e manuali inviati agli interruttori, ad esempio per le azioni di apertura e chiusura, e i dati delle specifiche tecniche relative alle proprietà di ogni interruttore, ad esempio anno di fabbricazione, posizione, modello e così via.
 
-##### <a name="*business-value-of-the-predictive-model*"></a>*Valore del modello predittivo per l'azienda*
+##### <a name="business-value-of-the-predictive-model"></a>*Valore del modello predittivo per l'azienda*
 Le soluzioni di manutenzione predittiva contribuiscono a ridurre i costi di riparazione e prolungano il ciclo di vita delle apparecchiature come gli interruttori. Questi modelli migliorano anche la qualità della rete elettrica, perché i modelli forniscono avvisi preventivi che riducono i guasti imprevisti con la conseguente riduzione delle interruzioni del servizio.
 
-#### <a name="use-case-4:-elevator-door-failures"></a>Caso d'uso 4: Guasti delle porte degli ascensori
-##### <a name="*business-problem-and-data-sources*"></a>*Problema aziendale e origini dati*
+#### <a name="use-case-4-elevator-door-failures"></a>Caso d'uso 4: Guasti delle porte degli ascensori
+##### <a name="business-problem-and-data-sources"></a>*Problema aziendale e origini dati*
 La maggior parte delle grandi aziende produttrici di ascensori ha in genere milioni di ascensori in funzione nel mondo. Per ottenere un vantaggio competitivo, si concentrano sull'affidabilità che costituisce l'aspetto più importante per i clienti. Attingendo al potenziale di Internet delle cose, connettendo gli ascensori nel cloud e raccogliendo dati dai sistemi e dai sensori degli ascensori, possono trasformare i dati in business intelligence di grande valore che migliora ampiamente le operazioni, offrendo un servizio di manutenzione predittiva e precauzionale non ancora disponibile per i concorrenti. Il requisito aziendale per questo caso consiste nel fornire un'applicazione predittiva con una base di conoscenze che possa stimare le cause potenziali dei guasti alle porte. I dati richiesti per questa implementazione sono costituiti da tre parti, ovvero funzioni statiche dell'ascensore, ad esempio identificatori, frequenza della manutenzione contrattuale, tipo di edificio e così via, informazioni sull'utilizzo, ad esempio numero di cicli delle porte, tempi medi di chiusura delle porte, e cronologia dei guasti, ad esempio registrazioni cronologiche dei guasti e relative cause.
 
 Per risolvere il problema della stima, viene compilato un modello di regressione logistica multiclasse tramite Azure Machine Learning, con funzioni statiche integrate e dati di utilizzo come funzioni, oltre alle cause delle registrazioni cronologiche dei guasti come etichette delle classi. Questo modello predittivo viene utilizzato da un'app su un dispositivo mobile, che è usato dai tecnici sul campo per migliorare l'efficienza lavorativa. Quando un tecnico si reca sul posto per riparare un ascensore, può consultare questa app per vedere le cause suggerite e le azioni di manutenzione migliori da seguire per riparare le porte dell'ascensore nel più breve tempo possibile.
 
 ### <a name="transportation-and-logistics"></a>Trasporto e logistica
-#### <a name="use-case-1:-brake-disc-failures"></a>Caso d'uso 1: Guasti dei dischi freno
-##### <a name="*business-problem-and-data-sources*"></a>*Problema aziendale e origini dati*
+#### <a name="use-case-1-brake-disc-failures"></a>Caso d'uso 1: Guasti dei dischi freno
+##### <a name="business-problem-and-data-sources"></a>*Problema aziendale e origini dati*
 I normali criteri di manutenzione dei veicoli includono la manutenzione correttiva e preventiva. La manutenzione correttiva prevede che il veicolo venga riparato dopo che si è verificato un guasto, cosa che può causare un grave inconveniente per l'autista a seguito di un malfunzionamento imprevisto e al tempo sprecato per recarsi da un meccanico. La maggior parte dei veicoli è anche soggetta a criteri di manutenzione preventiva, che richiedono l'esecuzione di determinate ispezioni in base a una pianificazione che non considera le condizioni effettive dei sottosistemi del veicolo. Nessuno di questi approcci è sufficiente per eliminare completamente i problemi. Questo caso d'uso specifico riguarda la stima dei guasti dei dischi freno in base ai dati raccolti tramite i sensori installati nel sistema di pneumatici di un veicolo, che tiene traccia degli schemi di guida cronologici e di altre condizioni a cui è esposto il veicolo. L'origine dati più importante per questo caso è rappresentata dai dati del sensore che misura, ad esempio, le accelerazioni, gli schemi di frenata, le distanze di guida, la velocità e così via. Queste informazioni, abbinate alle altre informazioni statiche, come le caratteristiche del veicolo, consentono di compilare un set di predittori efficace che può essere usato in un modello predittivo. Un altro set di informazioni essenziali sono i dati relativi ai guasti dedotti dal database degli ordini diparti, usato per tenere traccia delle date degli ordini di parti di ricambio e delle quantità mentre i veicoli vengono revisionati presso i concessionari.
 
-##### <a name="*business-value-of-the-predictive-model*"></a>*Valore del modello predittivo per l'azienda*
+##### <a name="business-value-of-the-predictive-model"></a>*Valore del modello predittivo per l'azienda*
 In questo caso, il valore aziendale di un approccio predittivo è sostanziale. Un sistema di manutenzione predittiva può pianificare una visita al concessionario in base a un modello predittivo. Il modello può basarsi sulle informazioni dei sensori che rappresentano la condizione attuale del veicolo e la cronologia di guida. Questo approccio può ridurre il rischio di guasti imprevisti che possono verificarsi prima della manutenzione periodica successiva.
 Può anche ridurre la quantità di inutili attività di manutenzione preventiva. L'autista può essere informato proattivamente che entro qualche settimana potrebbe essere necessaria una sostituzione di parti, fornendo queste informazioni al concessionario. Il concessionario può quindi preparare anticipatamente un pacchetto di manutenzione individuale per l'autista.
 
-#### <a name="use-case-2:-subway-train-door-failures"></a>Caso d'uso 2: Guasti delle porte dei treni della metropolitana
-##### <a name="*business-problem-and-data-sources*"></a>*Problema aziendale e origini dati*
+#### <a name="use-case-2-subway-train-door-failures"></a>Caso d'uso 2: Guasti delle porte dei treni della metropolitana
+##### <a name="business-problem-and-data-sources"></a>*Problema aziendale e origini dati*
 Uno dei motivi principali dei ritardi e dei problemi delle operazioni di una metropolitana sono i guasti delle porte delle carrozze. La possibilità di stimare che le porte di una carrozza potrebbero avere un guasto oppure di prevedere tra quanti giorni si verificherà il prossimo guasto alle porte costituisce un'informazione preventiva estremamente importante. Offre la possibilità di ottimizzare gli interventi di assistenza alle porte del treno e ridurne il tempo di inattività.
 
 #### <a name="data-sources"></a>Origini dati
@@ -144,7 +148,7 @@ Le tre origini dei dati in questo caso d'uso sono
 * **Dati di manutenzione** , ad esempio tipi di manutenzione, tipi di ordini di lavoro e codici di priorità  
 * **Record dei guasti**
 
-##### <a name="*business-value-of-the-predictive-model*"></a>*Valore del modello predittivo per l'azienda*
+##### <a name="business-value-of-the-predictive-model"></a>*Valore del modello predittivo per l'azienda*
 Sono stati compilati due modelli per stimare la probabilità di guasti del giorno successivo usando la classificazione binaria e i giorni prima del prossimo guasto usando la regressione. In modo analogo ai casi precedenti, i modelli creano una straordinaria opportunità di miglioramento della qualità del servizio (QoS) e della soddisfazione dei clienti a complemento dei normali regimi di manutenzione.
 
 ## <a name="data-preparation"></a>Preparazione dei dati
@@ -195,7 +199,7 @@ Il primo passaggio della modellazione è la progettazione delle funzioni. L'idea
 #### <a name="lag-features"></a>Funzioni di ritardo
 Come già accennato, nella manutenzione preventiva i dati cronologici includono in genere timestamp che indicano l'ora della raccolta di ogni singolo dato. Esistono molti modi per creare funzioni dai dati contenenti dati con timestamp. Questa sezione descrive alcuni di questi metodi usati per la manutenzione predittiva. Non si è tuttavia limitati solo a questi metodi. Poiché la progettazione di funzioni è considerata una della aree più creative della modellazione predittiva, possono esservi molti altri modi per creare funzioni. Qui vengono fornite solo tecniche generali.
 
-##### <a name="*rolling-aggregates*"></a>*Aggregazioni in sequenza*
+##### <a name="rolling-aggregates"></a>*Aggregazioni in sequenza*
 Per ogni record di un asset viene selezionata una finestra con dimensione "W" che corrisponde al numero di unità di tempo per cui si vogliono calcolare le aggregazioni cronologiche. Vengono quindi calcolate le funzioni di aggregazione in sequenza usando i periodi W prima della data di quel record. Esempi di aggregazioni in sequenza possono essere conteggi incrementali, medie, deviazioni standard, outlier basati su deviazioni standard, misure della somma cumulativa (CUSUM), valori minimi e massimi della finestra. Un'altra tecnica interessante consiste nell'acquisire modifiche della tendenza, picchi e modifiche dei livelli usando algoritmi che rilevano le anomalie nei dati mediante algoritmi di rilevamento anomalie.
 
 Per una dimostrazione, vedere la figura 1 dove sono rappresentati i valori di un sensore registrati per un asset per ogni unità di tempo con la linea blu e dove viene contrassegnato il calcolo della funzione media mobile per W=3 per i record in t<sub>1</sub> e t<sub>2</sub>, indicati rispettivamente dai raggruppamenti arancione e verde.
@@ -210,7 +214,7 @@ Per la stima dei ritardi dei voli sono stati usati i conteggi dei codici errore 
 
 Anche scegliendo una W molto grande (ad es. anni), è possibile esaminare la cronologia intera di un asset, come il conteggio di tutti i record di manutenzione, degli errori e così via, fino all'ora del record. Questo metodo è stato usato per contare gli errori degli interruttori negli ultimi tre anni. Anche per i guasti dei treni sono stati contati tutti gli eventi di manutenzione per creare una funzione che acquisisse gli effetti della manutenzione a lungo termine.
 
-##### <a name="*tumbling-aggregates*"></a>*Aggregazioni a cascata*
+##### <a name="tumbling-aggregates"></a>*Aggregazioni a cascata*
 Per ogni record con etichetta di un asset, si seleziona una finestra per la dimensione "W-<sub>k</sub>", dove "k" è il valore o la finestra della dimensione "W" per cui si desidera creare le funzioni di ritardo. Si può selezionare "k" come numero elevato per acquisire schemi di degradazione a lungo termine o un numero ridotto per acquisire gli effetti a breve termine. Si usano quindi finestre a cascata k W-<sub>k</sub> , W-<sub>(k-1)</sub>, …, W-<sub>2</sub> , W-<sub>1</sub> per creare funzioni di aggregazione per i periodi precedenti la data e l'ora del record (vedere la figura 2). Queste sono anche finestre in sequenza a livello di record per un'unità di tempo che non viene acquisita nella figura 2, ma l'idea è la stessa illustrata nella figura 1 dove t<sub>2</sub> viene usato anche per dimostrare l'effetto della sequenza.
 
 ![Figura 2. Funzioni di aggregazione a cascata](media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png)
@@ -292,7 +296,7 @@ Il modello assegna una probabilità di guasto a causa di ogni problema P<sub>i</
 
 Per suggerire le azioni di manutenzione dopo i guasti, l'assegnazione dell'etichetta non richiede la selezione di un orizzonte temporale futuro. Questo è dovuto al fatto che il modello non stima il guasto nel futuro, ma solo la causa radice più probabile dopo che il guasto si è già verificato. I guasti delle porte degli ascensori rientrano nel terzo caso, dove lo scopo consiste nello stimare la causa del guasto considerati i dati cronologici in condizioni operative. Questo modello viene quindi usato per stimare le cause radice più probabili dopo che si è verificato un guasto. Un vantaggio chiave di questo modello è che aiuta i tecnici meno esperti a diagnosticare facilmente e risolvere problemi che diversamente richiederebbero anni di esperienza.
 
-## <a name="training,-validation-and-testing-methods-in-predictive-maintenance"></a>Metodi di training, convalida e test nella manutenzione predittiva
+## <a name="training-validation-and-testing-methods-in-predictive-maintenance"></a>Metodi di training, convalida e test nella manutenzione predittiva
 Nella manutenzione predittiva, in modo analogo a qualsiasi altra area della soluzione contenente dati con timestamp, la tipica routine di training e test deve considerare gli aspetti variabili nel tempo per una migliore generalizzazione dei dati futuri non visti.
 
 ### <a name="cross-validation"></a>Convalida incrociata
@@ -365,6 +369,9 @@ Figura 8. Architettura della soluzione di esempio per la manutenzione predittiva
 
 Per altre informazioni su ogni componente dell'architettura, vedere la documentazione di [Azure](https://azure.microsoft.com/) .
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

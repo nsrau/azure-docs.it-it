@@ -1,5 +1,5 @@
 ---
-title: Offuscamento dei volti con Analisi Servizi multimediali di Azure | Microsoft Docs
+title: Offuscare i volti con Analisi Servizi multimediali di Azure | Documentazione Microsoft
 description: Questo argomento illustra come offuscare i volti con Analisi Servizi multimediali di Azure.
 services: media-services
 documentationcenter: 
@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 11/30/2016
 ms.author: juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a272384d76baf2d8c22b612d6a736fa1fae377e5
+ms.sourcegitcommit: 3feaac838fe89e54a3b561b7572a9eb3393edc4c
+ms.openlocfilehash: 3b0f6127e2b64989d83efce8c5a930ffee481a01
 
 
 ---
-# <a name="face-redaction-with-azure-media-analytics"></a>Offuscamento dei volti con Analisi Servizi multimediali di Azure
-## <a name="overview"></a>Overview
+# <a name="redact-faces-with-azure-media-analytics"></a>Offuscare i volti con Analisi Servizi multimediali di Azure
+## <a name="overview"></a>Panoramica
 **Azure Media Redactor** è un processore di contenuti multimediali di [Analisi Servizi multimediali di Azure](media-services-analytics-overview.md) che offre funzionalità scalabili di offuscamento dei volti nel cloud. L'offuscamento dei volti consente di modificare un video per sfocare i volti di persone selezionate. Può essere opportuno usare tale servizio in scenari di pubblica sicurezza e notizie giornalistiche. Offuscare manualmente alcuni minuti di filmato contenenti più volti può richiedere ore, ma con questo servizio il processo di offuscamento dei volti richiederà pochi semplici passaggi. Per altre informazioni, vedere [questo](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
 Questo argomento contiene informazioni dettagliate su **Azure Media Redactor** e illustra come usare questa funzionalità con Media Services SDK per .NET.
 
-Il processore di contenuti multimediali **Azure Media Redactor** è attualmente in anteprima.
+Il processore di contenuti multimediali **Azure Media Redactor** è attualmente in anteprima. È disponibile in tutte le aree di Azure pubbliche, nonché nei data center cinesi e del governo degli USA. Al momento questa versione di anteprima è disponibile gratuitamente. Nella versione corrente la durata dei video elaborati è limitata a 10 minuti.
 
 ## <a name="face-redaction-modes"></a>Modalità per l'offuscamento dei volti
 La funzionalità di offuscamento dei volti rileva i volti in ogni fotogramma del video e monitora l'oggetto volto avanti e indietro nel tempo in modo da consentire la sfocatura della stessa persona anche da altre angolazioni. Il processo di offuscamento automatizzato è molto complesso e non sempre produce al 100% l'output desiderato. Per tale motivo, Analisi Servizi multimediali offre alcuni modi per modificare l'output finale.
@@ -308,6 +308,6 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

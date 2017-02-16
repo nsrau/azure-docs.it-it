@@ -1,5 +1,5 @@
 ---
-title: Distribuire il servizio Gestione dispositivi StorSimple per l&quot;array virtuale Microsoft Azure StorSimple | Documentazione Microsoft
+title: Distribuire il servizio Gestione dispositivi StorSimple | Documentazione Microsoft
 description: Descrive le procedure per creare ed eliminare il servizio Gestione dispositivi StorSimple nel portale di Azure e per gestire la chiave di registrazione del servizio.
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/29/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: b6440796fb2afc713cba40dba576f9439e5ed296
-ms.openlocfilehash: 4761d4261f64a9332830e5373a0a2ee6a63b96a1
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 1881a0625b107ae1a90e5b772f5296a4d728973d
 
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Distribuire il servizio Gestione dispositivi StorSimple per l'array virtuale StorSimple
@@ -124,6 +124,6 @@ Per rigenerare una chiave di registrazione del servizio, attenersi alla procedur
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

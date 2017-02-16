@@ -1,12 +1,12 @@
 ---
-title: Use the Azure portal to configure file upload | Microsoft Docs
-description: An overview of how to configure file upload using the Azure portal
+title: Usare il portale di Azure per configurare il caricamento dei file | Documentazione Microsoft
+description: Panoramica su come configurare il caricamento dei file tramite il portale di Azure
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
@@ -14,42 +14,46 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e3ac3e8cee2724b76f51423d1a6757382cca04f0
+
 
 ---
-# <a name="configure-file-uploads-using-the-azure-portal"></a>Configure file uploads using the Azure portal
-## <a name="file-upload"></a>File upload
-To use the [file upload functionality in IoT Hub][lnk-upload], you must first associate an Azure Storage account with your hub. Select the **File upload** settings to display a list of file upload properties for the IoT hub that is being modified.
+# <a name="configure-file-uploads-using-the-azure-portal"></a>Configurare i caricamenti dei file tramite il portale di Azure
+## <a name="file-upload"></a>Caricamento di file
+Per usare la [funzionalità di caricamento di file nell'hub IoT][lnk-upload], è prima di tutto necessario associare un account di archiviazione di Azure all'hub. Selezionare le impostazioni di **Caricamento del file** per visualizzare un elenco di proprietà di caricamento del file per l'hub IoT da modificare.
 
 ![][13]
 
-**Storage container**: Use the portal to select a blob container in a storage account in your current subscription to associate with your IoT Hub. If necessary, you can create a storage account on the **Storage accounts** blade and blob container on the **Containers** blade. IoT Hub automatically generates SAS URIs with write permissions to this blob container for devices to use when they upload files.
+**Contenitore di archiviazione**: usare il portale di Azure per selezionare il contenitore BLOB in un account di archiviazione di Azure nella sottoscrizione corrente da associare all'hub IoT. Se necessario, è possibile creare un account di archiviazione di Azure nel pannello **Account di archiviazione** e un nuovo contenitore BLOB nel pannello **Contenitori**. L'hub IoT genera automaticamente URI di firma di accesso condiviso con autorizzazioni di scrittura per questo contenitore BLOB che possono essere usati dai dispositivi durante il caricamento di file.
 
 ![][14]
 
-**Receive notifications for uploaded files**: Enable or disable file upload notifications via the toggle.
+**Receive notifications for uploaded files**(Ricezione di notifiche per i file caricati): abilitare o disabilitare le notifiche di caricamento del file mediante l'apposita opzione.
 
-**SAS TTL**: This setting is the time-to-live of the SAS URIs returned to the device by IoT Hub. Set to one hour by default but can be customized to other values using the slider.
+**SAS TTL**(TTL di firma di accesso condiviso): questa impostazione indica la durata degli URI di firma di accesso condiviso restituiti dal dispositivo tramite l’hub IoT. Per impostazione predefinita è impostato su un'ora, ma può essere personalizzato con altri valori tramite il dispositivo di scorrimento.
 
-**File notification settings default TTL**: The time-to-live of a file upload notification before it is expired. Set to one day by default but can be customized to other values using the slider.
+**File notification settings default TTL**(TTL predefinito per le impostazioni di notifica dei file): durata di una notifica di caricamento del file. Per impostazione predefinita è impostato su un giorno, ma può essere personalizzato con altri valori tramite il dispositivo di scorrimento.
 
-**File notification maximum delivery count**: The number of times the IoT Hub attempts to deliver a file upload notification. Set to 10 by default but can be customized to other values using the slider.
+**File notification maximum delivery count**(Numero massimo di recapiti per le notifiche dei file): numero di tentativi che verranno eseguiti dall'hub IoT per distribuire una notifica di caricamento del file. Per impostazione predefinita è impostato su 10, ma può essere personalizzato con altri valori tramite il dispositivo di scorrimento.
 
 ![][15]
 
-## <a name="next-steps"></a>Next steps
-For more information about the file upload capabilities of IoT Hub, see [Upload files from a device][lnk-upload] in the developer guide.
+## <a name="next-steps"></a>Passaggi successivi
+Per altre informazioni sulle funzionalità di caricamento dei file dell'hub IoT, vedere [Upload files from a device][lnk-upload] (Caricare i file da un dispositivo) nella Guida per gli sviluppatori.
 
-Follow these links to learn more about managing Azure IoT Hub:
+Per ulteriori informazioni sulla gestione dell'hub IoT di Azure, consultare questi collegamenti:
 
-* [Bulk manage IoT devices][lnk-bulk]
-* [Usage metrics][lnk-metrics]
-* [Operations monitoring][lnk-monitor]
+* [Gestire in blocco i dispositivi IoT][lnk-bulk]
+* [Metriche di uso][lnk-metrics]
+* [Monitoraggio delle operazioni][lnk-monitor]
 
-To further explore the capabilities of IoT Hub, see:
+Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-* [Developer guide][lnk-devguide]
-* [Simulating a device with the Gateway SDK][lnk-gateway]
-* [Secure your IoT solution from the ground up][lnk-securing]
+* [Guida per gli sviluppatori][lnk-devguide]
+* [Simulazione di un dispositivo con IoT Gateway SDK][lnk-gateway]
+* [Proteggere la soluzione IoT sin dall'inizio][lnk-securing]
 
 [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png
 [14]: ./media/iot-hub-configure-file-upload/file-upload-container-selection.png
@@ -66,6 +70,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-securing]: iot-hub-security-ground-up.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

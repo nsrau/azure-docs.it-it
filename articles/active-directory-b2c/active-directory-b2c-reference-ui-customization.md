@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
-ms.openlocfilehash: bcb91660500484210c342a84595386ebb5e0bbbd
+ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
+ms.openlocfilehash: 8294842893742dcbc7a987421b454ceb7691450c
 
 
 ---
@@ -43,7 +43,7 @@ Diversamente da altri servizi in cui le opzioni dell'interfaccia utente sono lim
 Ecco come funziona: Azure AD B2C esegue il codice nel browser dell'utente e usa un approccio moderno denominato [Condivisione di risorse tra le origini (CORS)](http://www.w3.org/TR/cors/) per caricare il contenuto da un URL specificato nei criteri. È possibile specificare URL diversi per pagine diverse. Il codice unisce elementi dell'interfaccia utente di Azure AD B2C e il contenuto caricato dall'URL e mostra la pagina agli utenti. Operazioni da eseguire:
 
 1. Creare contenuto HTML5 ben formato con un elemento `<div id="api"></div>`, che deve essere un elemento vuoto, inserito all'interno di `<body>`. Questo elemento corrisponde al punto in cui viene inserito il contenuto di Azure AD B2C.
-2. Ospitare il contenuto in un endpoint HTTPS in cui è consentita la condivisione CORS.
+2. Ospitare il contenuto in un endpoint HTTPS in cui è consentita la condivisione CORS. Notare che è necessario abilitare i metodi di richiesta GET e OPTIONS durante la configurazione di CORS.
 3. Applicare lo stile agli elementi dell'interfaccia utente inseriti da Azure AD B2C.
 
 ## <a name="test-out-the-ui-customization-feature"></a>Provare la funzionalità di personalizzazione dell'interfaccia utente
@@ -72,7 +72,7 @@ Di seguito è illustrato il contenuto HTML di base che è possibile usare per te
 ```
 
 ## <a name="the-core-ui-elements-in-each-type-of-page"></a>Elementi principali dell'interfaccia utente in ogni tipo di pagina
-Le sezioni seguenti includono alcuni esempi di frammenti HTML5 che Azure AD B2C unisce nell'elemento `<div id="api"></div>` che si trova nel contenuto. **Non inserire questi frammenti nel contenuto HTML5.**  Il servizio Azure AD B2C li inserisce in fase di esecuzione. Usare questi esempi per progettare i propri fogli di stile.
+Le sezioni seguenti includono alcuni esempi di frammenti HTML5 che Azure AD B2C unisce nell'elemento `<div id="api"></div>` che si trova nel contenuto. **Non inserire questi frammenti nel contenuto HTML5.** Il servizio Azure AD B2C li inserisce in fase di esecuzione. Usare questi esempi per progettare i propri fogli di stile.
 
 ### <a name="azure-ad-b2c-content-inserted-into-the-identity-provider-selection-page"></a>Contenuto di Azure AD B2C inserito nella "Pagina di selezione del provider di identità"
 Questa pagina contiene un elenco dei provider di identità che l'utente può scegliere durante la procedura di iscrizione o di accesso. Sono presenti sia i provider di identità basati su social network, ad esempio Facebook e Google+, sia gli account locali (basati su indirizzo di posta elettronica o nome utente).
@@ -342,18 +342,13 @@ Se si prevede di usare la funzionalità di personalizzazione dell'interfaccia ut
 * In tutte le pagine (tranne le pagine di errore) gestite tramite criteri di accesso, iscrizione e modifica del profilo, i fogli di stile forniti dall'utente dovranno sostituire i fogli di stile predefiniti aggiunti a queste pagine nei frammenti <head> . In tutte le pagine gestite tramite criteri di iscrizione o accesso e reimpostazione password, oltre alle pagine di errore in tutti i criteri, sarà necessario fornire tutti gli stili manualmente.
 * Per motivi di sicurezza, non è consentito includere codice JavaScript nel contenuto. La maggior parte degli elementi necessari dovrebbe già essere disponibile. In caso contrario, usare [UserVoice](http://feedback.azure.com/forums/169401-azure-active-directory) per richiedere nuove funzionalità.
 * Versioni di browser supportate:
-  * Internet Explorer 11
-  * Internet Explorer 10
-  * Internet Explorer 9 (supporto limitato)
-  * Internet Explorer 8 (supporto limitato)
-  * Google Chrome 43.0
-  * Google Chrome 42.0
-  * Mozilla Firefox 38.0
-  * Mozilla Firefox 37.0
+  * Internet Explorer 11, 10, Edge
+  * Supporto limitato per Internet Explorer 9, 8
+  * Google Chrome 42.0 e versioni successive
+  * Mozilla Firefox 38.0 e versioni successive
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

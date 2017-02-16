@@ -1,6 +1,6 @@
 ---
-title: 'Crittografia sempre attiva: proteggere i dati sensibili nel database SQL di Azure con la crittografia del database | Documentazione Microsoft'
-description: Proteggere i dati sensibili nel database SQL in pochi minuti.
+title: 'Always Encrypted: database SQL di Azure - Archivio certificati di Windows | Documentazione Microsoft'
+description: Questo articolo illustra come proteggere i dati sensibili in un database SQL con la crittografia del database usando la procedura guidata Always Encrypted di SQL Server Management Studio (SSMS). Descrive anche l&quot;archiviazione delle chiavi di crittografia nell&quot;archivio certificati di Windows.
 keywords: crittografia dati, crittografia sql, crittografia database, dati sensibili, crittografia sempre attiva
 services: sql-database
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 66044ef8353e61f0de5afb8c61d91335ecd6dcbb
+ms.sourcegitcommit: cffa8955cf044398e526b1ad6158eefebbf91b3b
+ms.openlocfilehash: 9cd3d1b2da7f941673003b566cd92b0eb9acf6f4
 
 
 ---
@@ -526,6 +526,6 @@ Dopo avere creato un database che usa la crittografia sempre attiva, è possibil
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

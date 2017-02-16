@@ -1,8 +1,8 @@
 ---
-title: "Procedure consigliate per la scalabilità automatica in Monitoraggio di Azure. | Microsoft Docs"
-description: "Principi per usare in modo efficace la scalabilità automatica in Monitoraggio di Azure."
+title: "Procedure consigliate per la scalabilità automatica | Documentazione Microsoft"
+description: "Informazioni per applicare in modo efficace la scalabilità automatica in macchine virtuali, set di scalabilità di macchine virtuali e servizi cloud."
 author: kamathashwin
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 01/23/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f49d9121f34cc58d1486220a93bcb102f8eba90b
+ms.sourcegitcommit: cc557c7139561345a201fa0cd45c803af3751acd
+ms.openlocfilehash: 25fa8749d4b23d3619829fa179a7c91da311bbd0
 
 
 ---
-# <a name="best-practices-for-azure-monitor-autoscaling"></a>Procedure consigliate per la scalabilità automatica in Monitoraggio di Azure
-Le sezioni seguenti di questo documento illustrano le procedure consigliate per la scalabilità automatica in Azure. Dopo avere letto queste informazioni, sarà possibile usare in modo più efficace la scalabilità automatica nell'infrastruttura di Azure.
+# <a name="best-practices-autoscaling-virtual"></a>Procedure consigliate per la scalabilità automatica virtuale
+Questo articolo illustra le procedure consigliate per applicare la scalabilità automatica in Azure. L'articolo si riferisce a macchine virtuali, set di scalabilità di macchine virtuali e servizi Cloud.  Altri servizi Azure usavano metodi di ridimensionamento diversi.
 
 ## <a name="autoscale-concepts"></a>Concetti di scalabilità automatica
 * Una risorsa può avere *una* sola impostazione di scalabilità automatica.
@@ -59,7 +59,7 @@ Per le metriche di diagnostica, è possibile scegliere tra *Medio*, *Minimo*, *M
 * Aumentare le istanze di 1 quando il conteggio dei thread è <= 600
 * Ridurre le istanze di 1 quando il conteggio dei thread è >= 600
 
-Verrà ora esaminato un esempio di come si può arrivare a un comportamento che può sembrare poco chiaro. Considerare la sequenza seguente.
+Verrà ora esaminato un esempio di come si può arrivare a un comportamento che può sembrare poco chiaro. Considerare la sequenza indicata di seguito.
 
 1. Si supponga di iniziare con 2 istanze e che poi il numero medio di thread per ogni istanza cresca fino a 625.
 2. Il numero di istanze viene aumentato automaticamente aggiungendo una terza istanza.
@@ -67,7 +67,7 @@ Verrà ora esaminato un esempio di come si può arrivare a un comportamento che 
 4. Prima di ridurre le prestazioni, la scalabilità automatica cerca di stimare quale sarà lo stato finale in caso di riduzione del numero di istanze. Ad esempio, 575 x 3 (conteggio corrente delle istanze) = 1.725 / 2 (numero finale di istanze dopo la riduzione delle prestazioni) = 862,5 thread. La scalabilità automatica dovrà quindi immediatamente aumentare di nuovo il numero di istanze anche dopo averlo ridotto, se il conteggio medio dei thread rimane invariato o scende anche solo di poco. Se, tuttavia, aumentasse di nuovo le prestazioni, l'intero processo si ripeterebbe, generando un loop infinito.
 5. Per evitare questa situazione (definita "instabile"), la scalabilità automatica non riduce affatto le prestazioni, ma ignora la condizione e la valuta nuovamente la volta successiva che il processo del servizio viene eseguito. Questo potrebbe generare confusione perché sembra che la scalabilità automatica non funzioni quando il conteggio medio dei thread è 575.
 
-La stima durante una riduzione del numero di istanze serve a evitare una situazione "instabile". È bene tenere presente questo comportamento quando si scelgono le stesse soglie per l'aumento e la riduzione del numero di istanze.
+La stima durante la riduzione è necessaria per evitare situazioni di instabilità, in cui vengono eseguite continuamente azioni di riduzione e aumento del numero di istanze. Tenere presente questo comportamento quando si scelgono le stesse soglie per l'aumento e la riduzione del numero di istanze.
 
 È consigliabile scegliere un margine adeguato tra le soglie di aumento e di riduzione del numero di istanze. Ad esempio, considerare la combinazione di regole seguente, che è migliore.
 
@@ -152,7 +152,6 @@ La scalabilità automatica invia una notifica tramite posta elettronica agli amm
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

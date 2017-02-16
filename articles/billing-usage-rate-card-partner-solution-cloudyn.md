@@ -4,7 +4,7 @@ description: "Fornisce un punto di vista unico del partner di fatturazione di Mi
 services: 
 documentationcenter: 
 author: BryanLa
-manager: mbaldwin
+manager: ruchic
 editor: 
 tags: billing
 ms.assetid: f1397397-7e92-4c20-9862-ab6b93afefb7
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 08/16/2016
+ms.date: 01/07/2017
 ms.author: mobandyo;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e04e9997ff04039678229732196d2be44f579eb0
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: b1ba5617296019106aa1b236483ae26b8063b1d8
 
 
 ---
@@ -67,7 +67,7 @@ I casi di utilizzo di ITFM Cloudyn comuni abilitati mediante l’integrazione de
 ## <a name="video"></a>Video
 Di seguito viene fornito un breve video in cui viene mostrato come un cliente di Azure può utilizzare Cloudyn e le API di fatturazione di Azure per ottenere approfondimenti utili sui dati consumo di Azure.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Cloudyn-Provides-Cloud-ITFM-Tools-Via-Microsoft-Azure-APIs/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Cloudyn-Provides-Cloud-ITFM-Tools-Via-Microsoft-Azure-APIs/player]
 > 
 > 
 
@@ -93,6 +93,6 @@ Di seguito viene fornito un breve video in cui viene mostrato come un cliente di
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

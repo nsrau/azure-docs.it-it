@@ -1,5 +1,5 @@
 ---
-title: Elenco delle immagini di VM Oracle | Microsoft Docs
+title: Elenco delle immagini di VM Oracle in Azure | Documentazione Microsoft
 description: "È possibile ottenere l’elenco delle immagini Oracle nella raccolta di Azure e scoprire come creare una macchina virtuale Oracle."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2016
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6c0cd2a78942e92d458eae77d343f02d374703d3
+ms.sourcegitcommit: 5b8950619da3f42bc3c92443a7b9e9f2a97067f9
+ms.openlocfilehash: 1cc7ccfe191e41913c1fbf04b92e809ce4fb5f6a
 
 
 ---
@@ -29,6 +29,6 @@ ms.openlocfilehash: 6c0cd2a78942e92d458eae77d343f02d374703d3
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

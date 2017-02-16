@@ -1,6 +1,6 @@
 ---
-title: "Informazioni generali sulla sicurezza della gestione delle identità di Azure| Documentazione Microsoft"
-description: " Le soluzioni Microsoft di gestione degli accessi e delle identità consentono all&quot;IT di proteggere l&quot;accesso ad applicazioni e risorse nel data center aziendale e nel cloud, abilitando altri livelli di convalida, ad esempio Multi-Factor Authentication e criteri di accesso condizionale. Questo articolo offre informazioni generali sulle funzionalità di sicurezza principali di Azure per la gestione delle identità. "
+title: "Funzionalità di sicurezza di Azure per la gestione delle identità | Documentazione Microsoft"
+description: " Questo articolo offre informazioni generali sulle funzionalità di sicurezza principali di Azure per la gestione delle identità. Le soluzioni Microsoft di gestione degli accessi e delle identità consentono all&quot;IT di proteggere l&quot;accesso ad applicazioni e risorse nel data center aziendale e nel cloud, abilitando livelli di convalida aggiuntivi, ad esempio l&quot;autenticazione a più fattori e i criteri di accesso condizionale. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 5778f554e83426f5fba12a25d2bbce13db4a9226
-ms.openlocfilehash: b73fb97a1f3879ae8f232d666e366b058f3253d1
+ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
+ms.openlocfilehash: 9c5af888ec0130ec8506602ab805221f0a83ea47
 
 
 ---
@@ -156,6 +156,6 @@ Altre informazioni:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

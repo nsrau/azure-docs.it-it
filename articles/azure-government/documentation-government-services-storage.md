@@ -1,23 +1,22 @@
 ---
 title: Archiviazione di Azure per enti pubblici | Microsoft Docs
 description: "Fornisce un confronto delle funzionalità e informazioni aggiuntive sullo sviluppo di applicazioni per Azure Government"
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: 
 ms.assetid: 83df022b-d791-4efb-9fdf-8afe47a885d5
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/13/2016
+ms.date: 12/22/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: e9287ab74e9bed8681b66fa9a168c8d7c403c63b
-ms.openlocfilehash: 8c9488e302540ca0c67926f6aa6fad591c6ce037
+ms.sourcegitcommit: a7e53dcdbf3cecd8a00ad3424ffa0d62cc8fde43
+ms.openlocfilehash: 73d34bc7f34b9b9730e826e17537f82d0f689c03
 
 
 ---
@@ -37,6 +36,7 @@ Per informazioni dettagliate su questo servizio e su come usarlo, vedere la [doc
 | [Crittografia servizio di archiviazione] (../storage/storage-service-encryption.md) |GA |GA |
 | [Archiviazione Premium] (../storage/storage-premium-storage.md) |GA |ND | Ciò vale anche per le macchine virtuali serie DS. |
 | [Importazione/Esportazione BLOB] (../storage/storage-import-export-service.md) |GA |GA | Al momento sono supportati solo gli account di archiviazione classici. |
+| [StorSimple] (../storsimple/storsimple-ova-overview.md) |GA |GA |
 
 ### <a name="variations"></a>Varianti
 Gli URL degli account di archiviazione in Azure per enti pubblici sono diversi:
@@ -68,6 +68,11 @@ Quando si effettua il [collegamento a un account di archiviazione esterno] (../v
 >
 >
 
+> [!NOTE]
+> Per distribuire il servizio StorSimple Manager Service, usare gli URL https://portal.azure.us/ e https://manage.windowsazure.us/ rispettivamente per il portale di Azure e il portale classico. Per istruzioni sulla distribuzione dell'array virtuale StorSimple, vedere [requisiti di sistema per l'array virtuale StorSimple] (../storsimple/storsimple-ova-system-requirements.md) e per StorSimple serie 8000, vedere [requisiti di rete, disponibilità elevata e software StorSimple] (../storsimple/storsimple-system-requirements.md) e passare alla sezione della distribuzione nel riquadro di navigazione di sinistra. Per la documentazione generale di StorSimple, vedere [Cos'è StorSimple?] (../storsimple/index.md).
+>
+>
+
 ### <a name="considerations"></a>Considerazioni
 Le informazioni seguenti identificano il limite di Azure per enti pubblici per Archiviazione di Azure:
 
@@ -80,6 +85,6 @@ Per ulteriori informazioni e aggiornamenti, iscriversi al <a href="https://blogs
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

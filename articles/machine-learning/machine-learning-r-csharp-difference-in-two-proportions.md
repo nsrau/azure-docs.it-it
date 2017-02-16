@@ -1,6 +1,6 @@
 ---
-title: Difference in Proportions Test | Documentazione Microsoft
-description: Difference in Proportions Test
+title: (Deprecato) Differenza nel test sulle proporzioni - Azure | Documentazione Microsoft
+description: (Deprecato) Differenza nel test sulle proporzioni
 services: machine-learning
 documentationcenter: 
 author: aniedea
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/12/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: aniedea
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 27e1626e72f9740e73a19e078868a7c4392baf1e
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 18023b5057d1eeca88a341d62cbeb543102b3abf
 
 
 ---
-# <a name="difference-in-proportions-test"></a>Difference in Proportions Test
+# <a name="deprecated-difference-in-proportions-test"></a>(Deprecato) Differenza nel test sulle proporzioni
+
+> [!NOTE]
+> Microsoft DataMarket è in fase di ritiro e questa API è stata deprecata. 
+> 
+> Numerose API e molti esperimenti utili di esempio sono disponibili in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Per altre informazioni sulla raccolta, vedere [Condividere e scoprire risorse in Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Due proporzioni presentano differenze a livello statistico? Si supponga che un utente voglia confrontare due film per determinare se un film ha ottenuto una proporzione significativamente superiore di "mi piace" rispetto all'altro. Con un campione di grandi dimensioni, potrebbe esservi una differenza statisticamente significativa tra le proporzioni 0,50 e 0,51. Con un campione di piccole dimensioni, potrebbero non essere disponibili dati sufficienti per determinare se queste proporzioni sono effettivamente diverse. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -85,7 +92,7 @@ Sono disponibili molte opzioni per l'uso del servizio in modalità automatica. P
 > 
 > 
 
-In Azure Machine Learning, è stato creato un nuovo esperimento vuoto con due moduli [Esegui script R][execute-r-script]. Lo schema di dati nel primo modulo è definito, mentre il secondo modulo usa il comando prop.test in R per eseguire la verifica dell'ipotesi per due proporzioni. 
+In Azure Machine Learning è stato creato un nuovo esperimento vuoto con due moduli [Execute R Script][execute-r-script] (Esegui script R). Lo schema di dati nel primo modulo è definito, mentre il secondo modulo usa il comando prop.test in R per eseguire la verifica dell'ipotesi per due proporzioni. 
 
 ### <a name="experiment-flow"></a>Flusso dell'esperimento
 ![Flusso dell'esperimento][2]
@@ -129,6 +136,6 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

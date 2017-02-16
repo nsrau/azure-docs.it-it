@@ -2,12 +2,12 @@
 title: Scollegare un disco dati da una VM di Windows | Microsoft Docs
 description: Informazioni su come scollegare un disco dati da una macchina virtuale in Azure usando il modello di distribuzione Resource Manager.
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 13180343-ac49-4a3a-85d8-0ead95e2028c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 730672a8b52ef37c759b5c92bc1e36d8477da3f3
+
 
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Come scollegare un disco dati da una macchina virtuale di Windows
@@ -45,16 +49,21 @@ Il secondo comando rimuove il disco dati denominato DataDisk3 dalla macchina vir
 
 L'ultimo comando aggiorna lo stato della macchina virtuale per completare il processo di rimozione del disco dati.
 
-    $VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" 
-    Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
-    Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
+```powershell
+$VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" 
+Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
+Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
+```
 
 
 Per altre informazioni, vedere [Remove-AzureRmVMDataDisk](https://msdn.microsoft.com/library/mt603614.aspx)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se si desidera riutilizzare il disco dati, è sufficiente [collegarlo a un'altra VM](virtual-machines-windows-attach-disk-portal.md)
+Se si desidera riutilizzare il disco dati, è sufficiente [collegarlo a un'altra VM](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

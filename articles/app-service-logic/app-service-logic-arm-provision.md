@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/25/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 61ab873e77e3f7a691c815ba48c7f29b45269db9
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: dfe1cddd8a0d2558eecff8123cc5ce6ebaad97e8
 
 
 ---
@@ -27,7 +27,7 @@ Per informazioni dettagliate sulle proprietà delle app per la logica, vedere [A
 
 Per esempi della definizione stessa, vedere [Creare definizioni dell'app per la logica](app-service-logic-author-definitions.md). 
 
-Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
+Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Per il modello completo, vedere [Modello di app per la logica](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json).
 
@@ -113,6 +113,6 @@ Questa particolare definizione viene eseguita una volta ogni ora e consente di e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

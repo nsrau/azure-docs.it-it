@@ -50,6 +50,6 @@ R: Attualmente l'accesso condizionale ai servizi di Office 365 è limitato alle 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

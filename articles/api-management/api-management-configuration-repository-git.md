@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b3cec0fd2547b68ff3795fd7a4c22fe927eb2a4f
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 96d100d69a7f4989153b293d1fa1ab249a82c1c2
 
 
 ---
@@ -109,42 +109,58 @@ Gli esempi seguenti usano lo strumento Git Bash di [Git per Windows](http://www.
 
 Aprire lo strumento Git nella cartella desiderata ed eseguire il comando seguente per clonare il repository Git nel computer locale, usando il comando fornito dal portale di pubblicazione.
 
-    git clone https://bugbashdev4.scm.azure-api.net/ 
+```
+git clone https://bugbashdev4.scm.azure-api.net/
+```
 
 Quando richiesto,specificare il nome utente e la password.
 
 Se si ricevono errori, provare a modificare il comando `git clone` includendo il nome utente e password, come illustrato nell'esempio seguente.
 
-    git clone https://username:password@bugbashdev4.scm.azure-api.net/
+```
+git clone https://username:password@bugbashdev4.scm.azure-api.net/
+```
 
 Se viene generato un errore, provare a codificare con URL la parte della password del comando. Un metodo rapido per eseguire questa operazione consiste nell'aprire Visual Studio, eseguendo il comando seguente nella **finestra di controllo immediato**. Per aprire la **finestra di controllo immediato**, aprire qualsiasi soluzione o progetto in Visual Studio oppure creare una nuova applicazione console vuota e quindi **Finestre** e quindi **Controllo immediato** dal menu **Debug**.
 
-    ?System.NetWebUtility.UrlEncode("password from publisher portal")
+```
+?System.NetWebUtility.UrlEncode("password from publisher portal")
+```
 
 Per creare il comando git, usare la password codificata con il nome utente e il percorso del repository.
 
-    git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+```
+git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+```
 
 Una volta clonato il repository, è possibile visualizzarlo e usarlo nel file system locale. Per altre informazioni, vedere [Informazioni di riferimento sulla struttura di file e cartelle del repository Git locale](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Per aggiornare il repository locale con la configurazione dell'istanza del servizio più recente
 Se si apportano modifiche all'istanza del servizio Gestione API nel portale di pubblicazione o tramite l'API REST, è necessario salvare le modifiche nel repository prima di aggiornare il repository locale con le modifiche più recenti. A tale scopo, fare clic su **Save configuration to repository** (Salva configurazione in repository) nella scheda **Configuration repository** (Repository configurazioni) del portale di pubblicazione e quindi eseguire questo comando nel repository locale.
 
-    git pull
+```
+git pull
+```
 
 Prima di eseguire `git pull` assicurarsi di trovarsi nella cartella del repository locale. Se è appena stato eseguito il comando `git clone` , è necessario modificare la directory con quella del repository tramite un comando simile al seguente.
 
-    cd bugbashdev4.scm.azure-api.net/
+```
+cd bugbashdev4.scm.azure-api.net/
+```
 
 ## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>Per eseguire il push delle modifiche dal repository locale al repository del server
 Per eseguire il push delle modifiche dal repository locale al repository del server, è prima necessario eseguire il commit delle modifiche stesse. Per eseguire il commit delle modifiche, aprire lo strumento dei comandi Git, passare alla directory del repository locale ed eseguire i comandi seguenti.
 
-    git add --all
-    git commit -m "Description of your changes"
+```
+git add --all
+git commit -m "Description of your changes"
+```
 
 Per eseguire il push di tutti i commit nel server, eseguire il comando seguente.
 
-    git push
+```
+git push
+```
 
 ## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>Per distribuire le modifiche alla configurazione del servizio all'istanza del servizio Gestione API
 Dopo il commit e il push delle modifiche locali nel repository del server, è possibile distribuire le modifiche all'istanza del servizio Gestione API.
@@ -190,19 +206,21 @@ Questi file possono essere creati, eliminati, modificati e gestiti nel file syst
 ### <a name="root-api-management-folder"></a>Cartella api-management radice
 La cartella `api-management` radice contiene un file `configuration.json` che a propria volta contiene informazioni di livello superiore relative all'istanza del servizio nel formato seguente.
 
-    {
-      "settings": {
-        "RegistrationEnabled": "True",
-        "UserRegistrationTerms": null,
-        "UserRegistrationTermsEnabled": "False",
-        "UserRegistrationTermsConsentRequired": "False",
-        "DelegationEnabled": "False",
-        "DelegationUrl": "",
-        "DelegatedSubscriptionEnabled": "False",
-        "DelegationValidationKey": ""
-      },
-      "$ref-policy": "api-management/policies/global.xml"
-    }
+```json
+{
+  "settings": {
+    "RegistrationEnabled": "True",
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsEnabled": "False",
+    "UserRegistrationTermsConsentRequired": "False",
+    "DelegationEnabled": "False",
+    "DelegationUrl": "",
+    "DelegatedSubscriptionEnabled": "False",
+    "DelegationValidationKey": ""
+  },
+  "$ref-policy": "api-management/policies/global.xml"
+}
+```
 
 Le prime quattro impostazioni (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled` e `UserRegistrationTermsConsentRequired`) sono mappate alle impostazioni seguenti della scheda **Identities** (Identità) della sezione **Security** (Sicurezza).
 
@@ -303,6 +321,6 @@ Per informazioni su altri metodi di gestione dell'istanza del servizio, vedere:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

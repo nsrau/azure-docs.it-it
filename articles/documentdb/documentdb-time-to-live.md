@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/12/2016
+ms.date: 01/13/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 9f4105d1ab366994add0f75d634917ab9a063733
-ms.openlocfilehash: 03486c23e4e939f1d84aa13af4308dc2059f9980
+ms.sourcegitcommit: 1ad5307054dbd860f9c65db4b82ea5f560a554c8
+ms.openlocfilehash: 14a06dd20547f2910b2321372b27d9f777e54cc7
 
 
 ---
@@ -26,22 +26,22 @@ Le applicazioni posso produrre e archiviare grandi quantità di dati. Alcuni di 
 
 Con l'impostazione della durata (TTL), Microsoft Azure DocumentDB offre la possibilità di eliminare automaticamente i documenti dal database dopo un periodo di tempo determinato. La durata predefinita può essere impostata a livello di raccolta ed è possibile eseguirne l'override in base ai singoli documenti. Quando il valore di TTL è impostato, come impostazione predefinita di una raccolta o a livello di documento, DocumentDB rimuove automaticamente i documenti esistenti dopo un numero di secondi dall'ultima modifica pari a tale valore.
 
-In DocumentDB la durata usa la differenza dall'ora dell'ultima modifica al documento. A tale scopo viene usato il campo _ts che esiste in ogni documento. Il campo _ts è un timestamp Epoch di tipo Unix che rappresenta la data e l'ora e viene aggiornato ogni volta che si modifica un documento. 
+In DocumentDB la durata usa la differenza dall'ora dell'ultima modifica al documento. A tale scopo usa il campo `_ts` che esiste in ogni documento. Il campo _ts è un timestamp Epoch di tipo Unix che rappresenta la data e l'ora e il campo `_ts` viene aggiornato ogni volta che si modifica un documento. 
 
 ## <a name="ttl-behavior"></a>Comportamento di TTL
-La funzionalità TTL è controllata dalle proprietà TTL a livello di raccolta e a livello di documento. I valori sono espressi in secondi e vengono trattati come differenziale dal _ts dell'ultima modifica al documento.
+La funzionalità TTL è controllata dalle proprietà TTL a livello di raccolta e a livello di documento. I valori sono espressi in secondi e vengono trattati come differenziale dal `_ts` dell'ultima modifica al documento.
 
 1. DefaultTTL per la raccolta:
    
    * Se non è presente o è impostata su Null, i documenti non vengono eliminati automaticamente.
-   * Se è presente e il valore è -1 = infinito, i documenti non scadono per impostazione predefinita.
+   * Se è presente e il valore è "-1" = infinito, i documenti non scadono per impostazione predefinita.
    * Se è presente e il valore è un numero "n", i documenti scadono "n" secondi dopo l'ultima modifica.
 2. TTL per i documenti: 
    
    * La proprietà è applicabile solo se DefaultTTL è presente per la raccolta padre.
    * Esegue l'override del valore di DefaultTTL per la raccolta padre.
 
-Non appena il documento scade, ovvero quando TTL + _ts >= ora corrente del server, il documento viene contrassegnato come scaduto. Da questo momento sui documenti scaduti non è possibile eseguire alcuna operazione e vengono esclusi dai risultati delle query. I documenti vengono eliminati fisicamente dal sistema e vengono eliminati in background in base alle esigenze in un secondo momento. L'operazione non utilizza le [unità richiesta (UR)](documentdb-request-units.md) del budget della raccolta.
+Nel momento in cui è scade (`ttl` + `_ts` >= ora corrente del server), il documento viene contrassegnato come "scaduto". Da questo momento sui documenti scaduti non è possibile eseguire alcuna operazione e vengono esclusi dai risultati delle query. I documenti vengono eliminati fisicamente dal sistema e vengono eliminati in background in base alle esigenze in un secondo momento. L'operazione non utilizza le [unità richiesta (UR)](documentdb-request-units.md) del budget della raccolta.
 
 La logica precedente può essere illustrata in questa matrice:
 
@@ -57,42 +57,98 @@ Per impostazione predefinita, la durata è disabilitata in tutte le raccolte Doc
 ## <a name="enabling-ttl"></a>Abilitazione di TTL
 Per abilitare la durata (TTL) in una raccolta o nei documenti all'interno di una raccolta, è necessario impostare la proprietà DefaultTTL della raccolta su -1 o su un numero positivo diverso da zero. Quando DefaultTTL = -1, per impostazione predefinita tutti i documenti nella raccolta hanno durata infinita. Il servizio DocumentDB deve tuttavia monitorare i documenti per cui viene eseguito l'override di questa impostazione predefinita nella raccolta.
 
+    DocumentCollection collectionDefinition = new DocumentCollection();
+    collectionDefinition.Id = "orders";
+    collectionDefinition.PartitionKey.Paths.Add("/customerId");
+    collectionDefinition.DefaultTimeToLive =-1; //never expire by default
+
+    DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionAsync(
+        UriFactory.CreateDatabaseUri(databaseName),
+        collectionDefinition,
+        new RequestOptions { OfferThroughput = 20000 });
+
 ## <a name="configuring-default-ttl-on-a-collection"></a>Configurazione del valore TTL predefinito in una raccolta
-È possibile configurare una durata predefinita a livello di raccolta. 
+È possibile configurare una durata predefinita a livello di raccolta. Per impostare la durata (TTL) in una raccolta, è necessario specificare un numero positivo diverso da zero che indica il periodo di tempo, espresso in secondi, per la scadenza di tutti i documenti nella raccolta dopo l'ultimo timestamp di modifica del documento (`_ts`). In alternativa, è possibile impostare il valore predefinito su -1, per fare in modo che tutti i documenti inseriti nella raccolta abbiano una durata illimitata per impostazione predefinita.
 
-Per impostare la durata (TTL) in una raccolta, è necessario specificare un numero positivo diverso da zero che indica il periodo di tempo, espresso in secondi, per la scadenza di tutti i documenti nella raccolta dopo l'ultimo timestamp di modifica del documento (_ts).
+    DocumentCollection collectionDefinition = new DocumentCollection();
+    collectionDefinition.Id = "orders";
+    collectionDefinition.PartitionKey.Paths.Add("/customerId");
+    collectionDefinition.DefaultTimeToLive = 90 * 60 * 24; // expire all documents after 90 days
+    
+    DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionAsync(
+        "/dbs/salesdb",
+        collectionDefinition,
+        new RequestOptions { OfferThroughput = 20000 });
 
-In alternativa, è possibile impostare il valore predefinito su -1, per fare in modo che tutti i documenti inseriti nella raccolta abbiano una durata illimitata per impostazione predefinita.
 
 ## <a name="setting-ttl-on-a-document"></a>Impostazione di TTL in un documento
 Oltre al valore TTL predefinito in una raccolta è possibile impostare una durata (TTL) specifica a livello di documento. Questa impostazione esegue l'override dell'impostazione predefinita della raccolta.
 
-Per impostare la durata (TTL) in un documento, è necessario specificare un numero positivo diverso da zero che indica il periodo di tempo, espresso in secondi, per la scadenza del documento dopo l'ultimo timestamp di modifica del documento (_ts).
+* Per impostare la durata (TTL) in un documento, è necessario specificare un numero positivo diverso da zero che indica il periodo di tempo, espresso in secondi, per la scadenza del documento dopo l'ultimo timestamp di modifica del documento (`_ts`).
+* Se il documento non ha il campo TTL, viene applicata l'impostazione predefinita della raccolta.
+* Se la funzionalità TTL è disabilitata a livello di raccolta, il campo TTL del documento viene ignorato finché non viene abilitata nuovamente la funzionalità TTL per la raccolta.
 
-Per impostare l'offset di scadenza, specificare un valore nel campo TTL del documento.
+Di seguito è riportato un frammento di codice che illustra come impostare la scadenza della durata (TTL) su un documento:
 
-Se il documento non ha il campo TTL, viene applicata l'impostazione predefinita della raccolta.
+    // Include a property that serializes to "ttl" in JSON
+    public class SalesOrder
+    {
+        [JsonProperty(PropertyName = "id")]
+        public string Id { get; set; }
+        
+        [JsonProperty(PropertyName="cid")]
+        public string CustomerId { get; set; }
+        
+        // used to set expiration policy
+        [JsonProperty(PropertyName = "ttl", NullValueHandling = NullValueHandling.Ignore)]
+        public int? TimeToLive { get; set; }
+        
+        //...
+    }
+    
+    // Set the value to the expiration in seconds
+    SalesOrder salesOrder = new SalesOrder
+    {
+        Id = "SO05",
+        CustomerId = "CO18009186470",
+        TimeToLive = 60 * 60 * 24 * 30;  // Expire sales orders in 30 days 
+    };
 
-Se la funzionalità TTL è disabilitata a livello di raccolta, il campo TTL del documento viene ignorato finché non viene abilitata nuovamente la funzionalità TTL per la raccolta.
 
 ## <a name="extending-ttl-on-an-existing-document"></a>Estensione di TTL in un documento esistente
-Per reimpostare il valore TTL in un documento è possibile eseguire una qualsiasi operazione di scrittura nel documento. L'operazione imposta il _ts sull'ora corrente e fa ripartire il conto alla rovescia per la scadenza del documento, data dal valore TTL.
+Per reimpostare il valore TTL in un documento è possibile eseguire una qualsiasi operazione di scrittura nel documento. L'operazione imposta `_ts` sull'ora corrente e fa ripartire il conto alla rovescia per la scadenza del documento, data dal valore di `ttl`. Per modificare il valore `ttl` di un documento, è possibile aggiornare il campo come si fa con qualsiasi altro campo impostabile.
 
-Per modificare il valore TTL di un documento, è possibile aggiornare il campo come si fa con qualsiasi altro campo impostabile.
+    response = await client.ReadDocumentAsync(
+        "/dbs/salesdb/colls/orders/docs/SO05"), 
+        new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
+    
+    Document readDocument = response.Resource;
+    readDocument.TimeToLive = 60 * 30 * 30; // update time to live
+    
+    response = await client.ReplaceDocumentAsync(salesOrder);
 
 ## <a name="removing-ttl-from-a-document"></a>Rimozione di TTL da un documento
-Se è stato impostato un valore TTL per un documento ma si preferisce non farlo scadere, è possibile recuperare il documento, rimuovere il campo TTL e sostituire il documento nel server.
+Se è stato impostato un valore TTL per un documento ma si preferisce non farlo scadere, è possibile recuperare il documento, rimuovere il campo TTL e sostituire il documento nel server. Quando il campo TTL viene rimosso dal documento, viene applicata l'impostazione predefinita della raccolta. Per impedire la scadenza di un documento e fare in modo che non erediti dalla raccolta, è necessario impostare il valore TTL su -1.
 
-Quando il campo TTL viene rimosso dal documento, viene applicata l'impostazione predefinita della raccolta.
-
-Per impedire la scadenza di un documento e fare in modo che non erediti dalla raccolta, è necessario impostare il valore TTL su -1.
+    response = await client.ReadDocumentAsync(
+        "/dbs/salesdb/colls/orders/docs/SO05"), 
+        new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
+    
+    Document readDocument = response.Resource;
+    readDocument.TimeToLive = null; // inherit the default TTL of the collection
+    
+    response = await client.ReplaceDocumentAsync(salesOrder);
 
 ## <a name="disabling-ttl"></a>Disabilitazione di TTL
-Per disabilitare del tutto la durata (TTL) in una raccolta e impedire al processo in background di cercare documenti scaduti, è necessario eliminare la proprietà DefaultTTL dalla raccolta.
+Per disabilitare del tutto la durata (TTL) in una raccolta e impedire al processo in background di cercare documenti scaduti, è necessario eliminare la proprietà DefaultTTL dalla raccolta. Eliminare questa proprietà non equivale a impostarla su -1. Se la proprietà è impostata su -1, i nuovi documenti aggiunti alla raccolta non hanno scadenza ma è possibile eseguire l'override dell'impostazione per documenti specifici nella raccolta. Se la proprietà viene rimossa dalla raccolta, nessuno dei documenti ha una scadenza, anche se sono presenti documenti con override esplicito di una impostazione predefinita precedente.
 
-Eliminare questa proprietà non equivale a impostarla su -1. Se la proprietà è impostata su -1, i nuovi documenti aggiunti alla raccolta non hanno scadenza ma è possibile eseguire l'override dell'impostazione per documenti specifici nella raccolta.
+    DocumentCollection collection = await client.ReadDocumentCollectionAsync("/dbs/salesdb/colls/orders");
+    
+    // Disable TTL
+    collection.DefaultTimeToLive = null;
+    
+    await client.ReplaceDocumentCollectionAsync(collection);
 
-Se la proprietà viene rimossa dalla raccolta, nessuno dei documenti ha una scadenza, anche se sono presenti documenti con override esplicito di una impostazione predefinita precedente.
 
 ## <a name="faq"></a>Domande frequenti
 **Quanto costa la durata (TTL)?**
@@ -121,6 +177,6 @@ Per altre informazioni su Azure DocumentDB, vedere la pagina della [*documentazi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/06/2016
+ms.date: 12/14/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: b5306d864593898246d0e7ba81ed3f93253fab74
-ms.openlocfilehash: 81746a6f893eab4fe2b951fb0d52bd1645d2a56c
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 4f4d5a4f3c401974157182afa9575f6f28a0673b
 
 
 ---
@@ -51,7 +51,7 @@ Per un database autonomo, i limiti di un database sono definiti dal livello del 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 ### <a name="elastic-pools"></a>Pool elastici
-[Pool elastici](sql-database-elastic-pool.md) condividono le risorse tra i database del pool. La tabella seguente descrive le caratteristiche dei pool di database elastici Basic, Standard e Premium.
+[Pool elastici](sql-database-elastic-pool.md) condividono le risorse tra i database del pool. La tabella seguente descrive le caratteristiche dei pool elastici Basic, Standard e Premium.
 
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
@@ -62,7 +62,7 @@ Per una definizione espansa di ogni risorsa elencata nelle tabelle precedenti, v
 | --- | --- | --- |
 | Database che usano l'esportazione automatizzata per ogni sottoscrizione |10 |L’esportazione automatizzata consente di creare una pianificazione personalizzata per il backup dei database SQL. L'anteprima di questa funzionalità terminerà il 1° marzo 2017.  |
 | Database per server |Fino a 5000 |Nei server V12 sono permessi fino a 5000 database per server. |
-| DTU per server |45000 |Nei server V12 sono disponibili 45000 DTU per server per il provisioning di database, pool elastici e data warehouse. |
+| DTU per server |45000 |Nei server V12 sono disponibili&45000; DTU per server per il provisioning di database, pool elastici e data warehouse. |
 
 ## <a name="resources"></a>Risorse
 [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md)
@@ -74,6 +74,6 @@ Per una definizione espansa di ogni risorsa elencata nelle tabelle precedenti, v
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

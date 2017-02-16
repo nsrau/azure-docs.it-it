@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: d532cb3774e7d98d6c52ffdc40d6ba124d8d3ea3
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 341e66158f1aeb5de02f3038a0c5d81240fad8d1
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: d532cb3774e7d98d6c52ffdc40d6ba124d8d3ea3
 > [!div class="op_single_selector"]
 > * [Portale](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [API REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+> * [API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > [!NOTE]
 > Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
@@ -46,31 +46,32 @@ I seguenti passaggi descrivono le attività relative alla creazione di applicazi
 
 1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a velocità in bit singola in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP (MPEG-TS). Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-Questa operazione può essere eseguita anche dopo la creazione del canale.
+    Questa operazione può essere eseguita anche dopo la creazione del canale.
 
-1. Creare e avviare un canale.
-2. Recuperare l'URL di inserimento del canale.
+2. Creare e avviare un canale.
+3. Recuperare l'URL di inserimento del canale.
 
-L'URL di inserimento viene usato dal codificatore live per inviare il flusso al canale.
+    L'URL di inserimento viene usato dal codificatore live per inviare il flusso al canale.
 
-1. Recuperare l'URL di anteprima del canale.
+4. Recuperare l'URL di anteprima del canale.
 
-Usare questo URL per verificare che il canale riceva correttamente il flusso live.
+    Usare questo URL per verificare che il canale riceva correttamente il flusso live.
 
-1. Creare un asset.
-2. Se si desidera che l'asset sia crittografato in modo dinamico durante la riproduzione, seguire questa procedura:
-3. Creare una chiave simmetrica.
-4. Configurare i criteri di autorizzazione della chiave simmetrica.
-5. Configurare i criteri di distribuzione degli asset (usati per la creazione dinamica dei pacchetti e la crittografia dinamica).
-6. Creare un programma e specificare di usare l'asset creato.
-7. Pubblicare l'asset associato al programma creando un localizzatore OnDemand.
+5. Creare un asset.
+6. Se si desidera che l'asset sia crittografato in modo dinamico durante la riproduzione, seguire questa procedura:
+7. Creare una chiave simmetrica.
+8. Configurare i criteri di autorizzazione della chiave simmetrica.
+9. Configurare i criteri di distribuzione degli asset (usati per la creazione dinamica dei pacchetti e la crittografia dinamica).
+10. Creare un programma e specificare di usare l'asset creato.
+11. Pubblicare l'asset associato al programma creando un localizzatore OnDemand.
 
-Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
+    >[!NOTE]
+    >Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. L'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
 
-1. Avviare il programma quando si è pronti a iniziare lo streaming e l'archiviazione.
-2. Facoltativamente, il codificatore live può ricevere il segnale per l'avvio di un annuncio. L'annuncio viene inserito nel flusso di output.
-3. Arrestare il programma ogni volta che si vuole interrompere lo streaming e l'archiviazione dell'evento.
-4. Eliminare il programma e, facoltativamente, eliminare l'asset.
+12. Avviare il programma quando si è pronti a iniziare lo streaming e l'archiviazione.
+13. Facoltativamente, il codificatore live può ricevere il segnale per l'avvio di un annuncio. L'annuncio viene inserito nel flusso di output.
+14. Arrestare il programma ogni volta che si vuole interrompere lo streaming e l'archiviazione dell'evento.
+15. Eliminare il programma e, facoltativamente, eliminare l'asset.
 
 ## <a name="what-youll-learn"></a>Contenuto dell'esercitazione
 Questo argomento illustra come eseguire diverse operazioni su canali e programmi tramite Media Services .NET SDK. Poiché molte operazioni hanno un'esecuzione prolungata, vengono usate API .NET che gestiscono questo tipo di operazioni.
@@ -100,7 +101,6 @@ Se non si dispone di un account, è possibile creare un account di valutazione g
 
 ## <a name="considerations"></a>Considerazioni
 * Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived in Microsoft.com.
-* Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
 
 ## <a name="download-sample"></a>Scaricare un esempio
 È possibile ottenere ed eseguire un esempio [qui](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
@@ -524,12 +524,10 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else"></a>Se si è alla ricerca di qualcos’altro.
-Se questo argomento non è di aiuto, non contiene ciò che si cerca o in altro modo non soddisfa le esigenze, è possibile inviare commenti e suggerimenti tramite il thread di Disqus riportato di seguito.
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

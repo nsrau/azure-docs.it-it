@@ -11,11 +11,11 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 01/12/2017
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 96e8177f57977f88c5a4a1ec0b9243b5b348f078
+ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
+ms.openlocfilehash: 449110cfda1a08b73b5e21cbf495e59f32d80339
 
 ---
 
@@ -29,26 +29,26 @@ ms.openlocfilehash: 96e8177f57977f88c5a4a1ec0b9243b5b348f078
 >
 >
 
-Questo articolo illustra come eseguire query su un indice con l' [API REST di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/).
+Questo articolo illustra come eseguire query in un indice con l'[API REST di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/).
 
 Prima di iniziare questa procedura dettagliata, è necessario avere [creato un indice di Ricerca di Azure](search-what-is-an-index.md) e [averlo popolato con dati](search-what-is-data-import.md).
 
-## <a name="i-identify-your-azure-search-services-query-api-key"></a>I. Identificare la chiave API di query del servizio Ricerca di Azure
+## <a name="identify-your-azure-search-services-query-api-key"></a>Identificare la chiave API di query del servizio Ricerca di Azure
 Un componente chiave di ogni operazione di ricerca con l'API REST di Ricerca di Azure è la *chiave API* generata per il servizio di cui è stato effettuato il provisioning. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
-1. Per trovare le chiavi API del servizio, è necessario accedere al [portale di Azure](https://portal.azure.com/)
+1. Per trovare le chiavi API del servizio, è possibile accedere al [portale di Azure](https://portal.azure.com/)
 2. Passare al pannello del servizio Ricerca di Azure.
 3. Fare clic sull'icona "Chiavi".
 
-Il servizio avrà *chiavi amministratore* e *chiavi di query*.
+Il servizio ha *chiavi amministratore* e *chiavi di query*.
 
 * Le *chiavi amministratore* primarie e secondarie concedono diritti completi a tutte le operazioni, inclusa la possibilità di gestire il servizio, creare ed eliminare indici, indicizzatori e origini dati. Sono disponibili due chiavi, quindi è possibile continuare a usare la chiave secondaria se si decide di rigenerare la chiave primaria e viceversa.
 * Le *chiavi di query* concedono l'accesso in sola lettura agli indici e ai documenti e vengono in genere distribuite alle applicazioni client che inviano richieste di ricerca.
 
 Ai fini di una query su un indice, è possibile usare una delle chiavi di query. Si possono anche usare le chiavi amministratore per le query, ma è necessario usare una chiave di query nel codice dell'applicazione, perché questo approccio è più coerente con il [principio del privilegio minimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-## <a name="ii-formulate-your-query"></a>II. Formulare la query
-Esistono due modi per [eseguire una ricerca nell'indice usando l'API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Uno consiste nell'inviare una richiesta HTTP POST in cui i parametri di query verranno definiti in un oggetto JSON nel corpo della richiesta. L'altro consiste nell'inviare una richiesta HTTP GET in cui i parametri di query verranno definiti nell'URL della richiesta. Si noti che POST ha [limiti più ridotti](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) per quanto riguarda le dimensioni dei parametri di query rispetto a GET. Per questo motivo, è consigliabile usare POST, a meno di non avere circostanze particolari in cui l'uso di GET potrebbe essere più conveniente.
+## <a name="formulate-your-query"></a>Formulare la query
+Esistono due modi per [eseguire una ricerca nell'indice usando l'API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Uno consiste nell'inviare una richiesta HTTP POST in cui i parametri di query vengono definiti in un oggetto JSON nel corpo della richiesta. L'altro consiste nell'inviare una richiesta HTTP GET in cui i parametri di query vengono definiti nell'URL della richiesta. POST ha [limiti più ridotti](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) per quanto riguarda le dimensioni dei parametri di query rispetto a GET. Per questo motivo, è consigliabile usare POST, a meno di non avere circostanze particolari in cui l'uso di GET potrebbe essere più conveniente.
 
 Sia per POST che per GET è necessario fornire il *nome del servizio*, il *nome dell'indice* e la *versione dell'API* corretta nell'URL della richiesta. Al momento della pubblicazione di questo documento la versione dell'API corrente è `2016-09-01`. Per GET i parametri di query devono essere forniti nella *stringa di query* alla fine dell'URL. Per il formato dell'URL, vedere di seguito:
 
@@ -98,17 +98,17 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-## <a name="iii-submit-your-http-request"></a>III. Inviare la richiesta HTTP
+## <a name="submit-your-http-request"></a>Inviare la richiesta HTTP
 Dopo aver formulato la query come parte dell'URL della richiesta HTTP (per GET) o del corpo (per POST), è possibile definire le intestazioni delle richieste e inviare la query.
 
 #### <a name="request-and-request-headers"></a>Richiesta e intestazioni della richiesta
 È necessario definire due intestazioni della richiesta per GET o tre per POST:
 
-1. L'intestazione `api-key` deve essere impostata sulla chiave di query trovata nel passaggio I precedente. Si noti che è anche possibile usare una chiave amministratore come intestazione `api-key` , ma è consigliabile usare una chiave di query perché concederà esclusivamente l'accesso in sola lettura a indici e documenti.
+1. L'intestazione `api-key` deve essere impostata sulla chiave di query trovata nel passaggio I precedente. È anche possibile usare una chiave amministratore come intestazione `api-key`, ma è consigliabile usare una chiave di query perché concederà esclusivamente l'accesso in sola lettura a indici e documenti.
 2. L'intestazione `Accept` deve essere impostata su `application/json`.
 3. Solo per POST l'intestazione `Content-Type` deve essere impostata anche su `application/json`.
 
-Veder di seguito per una richiesta HTTP GET per la ricerca nell'indice "hotels" con l'API REST di Ricerca di Azure, usando una query semplice che consente di cercare il termine "motel":
+Vedere di seguito per una richiesta HTTP GET per la ricerca nell'indice "hotels" con l'API REST di Ricerca di Azure, usando una query semplice che consente di cercare il termine "motel":
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2016-09-01
@@ -166,6 +166,6 @@ Per altre informazioni, vedere la sezione "Risposta" di [Eseguire ricerche nei d
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

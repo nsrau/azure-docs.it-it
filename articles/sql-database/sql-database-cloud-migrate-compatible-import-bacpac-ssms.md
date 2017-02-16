@@ -1,22 +1,28 @@
 ---
-title: Migrare un database SQL Server nel database SQL di Azure | Microsoft Docs
-description: Database SQL di Microsoft Azure, distribuzione del database, migrazione del database, importazione del database, esportazione del database, migrazione guidata
+title: SSMS - Importazione in un database SQL di Azure da un file BACPAC | Documentazione Microsoft
+description: Questo articolo illustra come eseguire l&quot;importazione da un file BACPAC in un database SQL tramite la procedura guidata di esportazione dell&quot;applicazione livello dati in SQL Server Management Studio.
+keywords: Database SQL di Microsoft Azure, distribuzione del database, migrazione del database, importazione del database, esportazione del database, migrazione guidata
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 24375fc6-c94c-43ef-97ec-fce77343b581
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
-ms.date: 08/24/2016
+ms.date: 11/08/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: b5a6d90069e87d6115a3b80711f06ccf286b3e88
+
 
 ---
-# Importare da BACPAC al database SQL tramite SSMS
+# <a name="import-from-bacpac-to-sql-database-using-ssms"></a>Importare da BACPAC al database SQL tramite SSMS
 > [!div class="op_single_selector"]
 > * [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
 > * [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
@@ -49,20 +55,25 @@ In questo articolo viene illustrato come importare da un file [BACPAC](https://m
    > Quando si importa un file BACPAC dall'archivio BLOB di Azure, usare l'archiviazione standard. L'importazione di un file BACPAC dall'archiviazione Premium non è supportata.
    > 
    > 
-4. Specificare il **Nome nuovo database** nel database SQL di Azure, impostare **Edizione del database SQL di Microsoft Azure** (livello del servizio), **Dimensioni massime database** e **Obiettivo servizio** (livello di prestazioni).
+4. Specificare il **Nome nuovo database** per il database SQL di Azure, impostare **Edizione del database SQL di Microsoft Azure** (livello del servizio), **Dimensioni massime database** e **Obiettivo servizio** (livello di prestazioni).
    
    ![Impostazioni database](./media/sql-database-cloud-migrate/MigrateUsingBACPAC05.png)
 5. Fare clic su **Avanti** e quindi su **Fine** per importare il file BACPAC in un nuovo database nel server del database SQL di Azure.
 6. Usando Esplora oggetti, connettersi al database sottoposto a migrazione nel server del database SQL di Azure.
 7. Usando il portale di Azure visualizzare il database e le relative proprietà.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * [Scaricare la versione più recente di SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx)
 * [Scaricare SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 
-## Risorse aggiuntive
-* [Novità della versione 12 del database SQL](sql-database-v12-whats-new.md)
+## <a name="additional-resources"></a>Risorse aggiuntive
+* [Funzionalità di database SQL](sql-database-features.md)
 * [Transact-SQL partially or unsupported functions (Funzionalità di Transact-SQL parzialmente supportate o non supportate)](sql-database-transact-sql-information.md)
 * [Migrate non-SQL Server databases using SQL Server Migration Assistant (Eseguire la migrazione di database non SQL Server mediante SQL Server Migration Assistant)](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Jan17_HO1-->
+
+

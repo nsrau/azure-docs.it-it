@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 10/30/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 31632f9c88810d5cd26ad314dde2c28a4012dc75
+ms.sourcegitcommit: 314170f8d1ef228817543a80b99f4c2ff282866f
+ms.openlocfilehash: 8c783fc8e789ec31f0b8f4db90b5fa67334d95ab
 
 
 ---
@@ -28,11 +28,10 @@ Questa guida descrive come eseguire scenari comuni usando il più recente [plug-
 ## <a name="supported-platforms"></a>Piattaforme supportate
 Questo SDK supporta Apache Cordova v6.0.0 e versioni successive sui dispositivi iOS, Android e Windows.  Il supporto della piattaforma è il seguente:
 
-* API Android 19-24 (KitKat tramite Nougat)
+* API Android 19-24 (KitKat tramite Nougat).
 * iOS versioni 8.0 e successive.
-* Windows Phone 8.0
 * Windows Phone 8.1
-* Piattaforma UWP (Universal Windows Platform)
+* Piattaforma UWP (Universal Windows Platform).
 
 ## <a name="a-namesetupasetup-and-prerequisites"></a><a name="Setup"></a>Installazione e prerequisiti
 In questa guida si presuppone che siano stati creati un backend e una tabella. In questa guida si presuppone che la tabella abbia lo stesso schema delle tabelle presenti in tali esercitazioni. Si presuppone anche che il plug-in Apache Cordova sia stato aggiunto al codice.  In caso contrario, è possibile aggiungere il plug-in Apache Cordova al progetto nella riga di comando:
@@ -74,12 +73,12 @@ Per aggiungere le proprie impostazioni locali alla configurazione seguire questa
 5. Espandere i nodi **config**, **authsettings** del sito nel riquadro di spostamento a sinistra.
 6. Fare clic su **Modifica**
 7. Cercare l’elemento "allowedExternalRedirectUrls".  Può essere impostato su null o su una matrice di valori.  Modificare il valore nel valore seguente:
-   
+
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
              "https://localhost:3000"
          ],
-   
+
     Sostituire gli URL con quelli del servizio.  Ad esempio includere "http://localhost:3000" (per il servizio di esempio Node.js) o "http://localhost:4400" (per il servizio Ripple).  Questi URL sono solo esempi e la situazione reale per i servizi dell'esempio potrebbe essere diversa.
 8. Fare clic sul pulsante **Lettura/scrittura** nell'angolo in alto a destra della schermata.
 9. Fare clic sul pulsante verde **PUT** .
@@ -139,11 +138,15 @@ pushHandler.on('error', function (error) {
 
 Usare Notification Hubs SDK per inviare notifiche push dal server.  Non inviare mai le notifiche push direttamente dai client. Questa operazione può essere usata per attivare un attacco denial-of-service agli Hub di notifica o al servizio PNS.  Il servizio PNS potrebbe escludere il traffico come conseguenza di questi attacchi.
 
+## <a name="more-information"></a>Altre informazioni
+
+È possibile trovare informazioni dettagliate sulle API nella [documentazione sulle API](http://azure.github.io/azure-mobile-apps-js-client/).
+
 <!-- URLs. -->
 [portale di Azure]: https://portal.azure.com
 [esercitazione introduttiva sulle app per dispositivi mobili di Azure]: app-service-mobile-cordova-get-started.md
 [Introduzione all'autenticazione]: app-service-mobile-cordova-get-started-users.md
-[Aggiungere l'autenticazione all'app]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [plug-in Apache Cordova per le app per dispositivi mobili di Azure]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [prima app Apache Cordova]: http://cordova.apache.org/#getstarted
@@ -151,10 +154,10 @@ Usare Notification Hubs SDK per inviare notifiche push dal server.  Non inviare 
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[Documentazione dell'oggetto query]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

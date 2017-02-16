@@ -2,8 +2,8 @@
 layout: LandingPage
 description: Scopri Hadoop in HDInsight. La documentazione illustra come usare Hadoop, Spark, HBase, R-Server e altri strumenti per elaborare e analizzare i Big Data e individuare nuove prospettive.
 translationtype: Human Translation
-ms.sourcegitcommit: a2902740659bb6d6246d1e44023bd27fa38aff91
-ms.openlocfilehash: 5cf7e165b9cd31fcf5bd03d03b6e1eb3d9cd46c7
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: d78d12c6844e88da8b5d8b7cd99a38d6f4d36774
 
 ---
 #<a name="azure-hdinsight-documentation"></a>Documentazione di Azure HDInsight
@@ -167,13 +167,7 @@ Informazioni su come usare Hadoop nel cloud in HDInsight per analizzare flussi o
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/hdinsight.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione di HDInsight </div>
-    </a>
-</div>
+
 
 
 

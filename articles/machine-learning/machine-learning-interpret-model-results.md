@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/09/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 79948e3ec83dc8d56f0fa38998a48ee3518f8962
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e9e8dfa79ac0b902b8ecbcf9911e38ef49f754ec
 
 
 ---
@@ -34,9 +34,9 @@ In Azure Machine Learning esistono quattro tipi principali di modelli di apprend
 
 I moduli usati per eseguire stime sulla base di questi modelli sono:
 
-* Modulo [Score Model][score-model] (Modello di punteggio) per la classificazione e la regressione
-* Modulo [Assign to Clusters][assign-to-clusters] (Assegna a cluster) per il clustering
-* Modulo [Score Matchbox Recommender][score-matchbox-recommender] (Sistema di raccomandazione Matchbox per punteggio) per i sistemi di raccomandazione
+* Modulo [Score Model][score-model] per la classificazione e la regressione
+* Modulo [Assign to Clusters][assign-to-clusters] per il clustering
+* Modulo [Score Matchbox Recommender][score-matchbox-recommender] per i sistemi di raccomandazione
 
 Questo documento illustra come interpretare i risultati di stima per ognuno di questi moduli. Per una panoramica di questi moduli, vedere [Come scegliere i parametri per ottimizzare gli algoritmi in Azure Machine Learning](machine-learning-algorithm-parameters-optimize.md).
 
@@ -61,7 +61,7 @@ Un esempio di un problema di classificazione a due classi è costituito dalla cl
 
 Figura 1. Esperimento del problema di classificazione a due classi relativo ai fiori Iris
 
-Per risolvere il problema è stato eseguito un esperimento, come illustrato nella figura 1. È stato eseguito il training e assegnato un punteggio a un modello degli alberi delle decisioni con boosting a due classi. Per visualizzare i risultati di stima tramite il modulo [Score Model][score-model], fare clic sulla porta di output del modulo [Score Model][score-model] e quindi su **Visualize** (Visualizza).
+Per risolvere il problema è stato eseguito un esperimento, come illustrato nella figura 1. È stato eseguito il training e assegnato un punteggio a un modello degli alberi delle decisioni con boosting a due classi. Per visualizzare i risultati di stima tramite il modulo [Score Model][score-model], fare clic sulla porta di output del modulo [Score Model][score-model] e quindi fare clic su **Visualize** (Visualizza).
 
 ![Modulo Score Model](./media/machine-learning-interpret-model-results/1_1.png)
 
@@ -83,7 +83,7 @@ Dopo aver compreso e approvato i risultati della stima, è possibile pubblicare 
 
 Figura 3. Esperimento di assegnazione dei punteggi per un problema di classificazione a due classi relativo ai fiori Iris
 
-A questo punto è necessario impostare l'input e l'output per il servizio Web. L'input è costituito dalla porta di input di destra del modulo [Score Model][score-model], ovvero dalle caratteristiche del fiore Iris. La scelta dell'output varia a seconda che si sia interessati alla classe stimata (etichetta con punteggio), alla probabilità con punteggio o a entrambe. In questo esempio si suppone di essere interessati a entrambe. Per selezionare le colonne di output desiderate, usare un modulo [Select Columns in Data set][select-columns] (Seleziona colonne in set di dati). Fare clic su [Select Columns in Data set][select-columns] (Seleziona colonne in set di dati) e quindi su **Launch column selector** (Avvia selettore colonne) e selezionare **Scored Labels** (Etichette con punteggio) e **Scored Probabilities** (Probabilità con punteggio). Dopo aver impostato la porta di output di [Select Columns in Data set][select-columns] e averlo eseguito di nuovo, dovrebbe essere possibile pubblicare l'esperimento di assegnazione dei punteggi come servizio Web facendo clic su **PUBLISH WEB SERVICE** (PUBBLICA SERVIZIO WEB). L'esperimento finale si presenta come nella figura 4.
+A questo punto è necessario impostare l'input e l'output per il servizio Web. L'input è costituito dalla porta di input di destra del modulo [Score Model][score-model], ovvero dalle caratteristiche del fiore Iris. La scelta dell'output varia a seconda che si sia interessati alla classe stimata (etichetta con punteggio), alla probabilità con punteggio o a entrambe. In questo esempio si suppone di essere interessati a entrambe. Per selezionare le colonne di output desiderate, usare un modulo [Select Columns in Data set][select-columns]. Fare clic su [Select Columns in Data set][select-columns], su **Launch column selector** (Avvia selettore colonne) e selezionare **Scored Labels** (Etichette con punteggio) e **Scored Probabilities** (Probabilità con punteggio). Dopo aver impostato la porta di output di [Select Columns in Data set][select-columns] e averlo eseguito di nuovo, fare clic su **PUBLISH WEB SERVICE** (PUBBLICA SERVIZIO WEB) per provare a pubblicare l'esperimento di assegnazione dei punteggi. L'esperimento finale si presenta come nella figura 4.
 
 ![Esperimento di classificazione a due classi relativo ai fiori Iris](./media/machine-learning-interpret-model-results/4.png)
 
@@ -110,7 +110,7 @@ Nei dati di training sono presenti 16 funzioni estratte da immagini di lettere s
 
 Figura 6. Esperimento per un problema di classificazione multiclasse relativo al riconoscimento delle lettere
 
-È possibile visualizzare i risultati dal modulo [Score Model][score-model] facendo clic sulla porta di output del modulo [Score Model][score-model] e quindi su **Visualize** (Visualizza). Verrà visualizzato il contenuto riportato nella figura 7.
+Per visualizzare i risultati del modulo [Score Model][score-model] come illustrato nella figura 7, fare clic sulla porta di output del modulo [Score Model][score-model] e quindi fare clic su **Visualize** (Visualizza).
 
 ![Risultati del modulo Score Model](./media/machine-learning-interpret-model-results/7.png)
 
@@ -122,7 +122,7 @@ Le 16 colonne di sinistra rappresentano i valori funzione del set di test. Le co
 
 **Pubblicazione come servizio Web**
 
-È anche possibile ottenere l'etichetta con punteggio per ogni voce e la relativa probabilità. La logica di base è trovare la probabilità più alta tra tutte le probabilità con punteggio. A questo scopo è necessario usare il modulo [Execute R Script][execute-r-script] (Esegui script R). Il codice R è illustrato nella figura 8, il risultato dell'esperimento nella figura 9.
+È anche possibile ottenere l'etichetta con punteggio per ogni voce e la relativa probabilità. La logica di base è trovare la probabilità più alta tra tutte le probabilità con punteggio. A tale scopo, usare il modulo [Execute R Script][execute-r-script]. Il codice R è illustrato nella figura 8, il risultato dell'esperimento nella figura 9.
 
 ![Esempio di codice R](./media/machine-learning-interpret-model-results/8.png)
 
@@ -151,7 +151,7 @@ Come esempio di regressione si considera la stima del prezzo di un'automobile. S
 
 Figura 11. Esperimento di un problema di regressione relativo al prezzo di un'automobile
 
-Visualizzando il modulo [Score Model][score-model] si otterrà un risultato simile a quello della figura 12.
+Se si visualizza il modulo [Score Model][score-model], si otterrà un risultato simile a quello illustrato nella figura 12.
 
 ![Risultato di assegnazione dei punteggi per un problema relativo alla stima del prezzo di un'automobile](./media/machine-learning-interpret-model-results/12.png)
 
@@ -188,7 +188,7 @@ Figura 15. Esperimento del problema relativo al clustering dei fiori Iris
 
 Il clustering differisce dalla classificazione per il fatto che il set di dati di training non dispone di etichette verificate proprie. Il clustering raggruppa le istanze di set di dati di training in cluster distinti. Durante il processo di training, il modello etichetta le voci man mano che apprende le differenze tra le relative caratteristiche. In questo modo, il modello di training potrà essere usato per classificare ulteriormente voci future. In un problema di clustering, sono due le parti del risultato di particolare interesse ai fini dell'esperimento: la prima è etichettare il set di dati di training e la seconda classificare un nuovo set di dati nel modello di training.
 
-La prima parte del risultato può essere visualizzata facendo clic sulla porta di output sinistra di [Train Clustering Model][train-clustering-model] (Modello di clustering di training) e quindi facendo clic su **Visualize** (Visualizza). La visualizzazione è illustrata nella figura 16.
+Per visualizzare la prima parte del risultato, fare clic sulla porta di output sinistra di [Train Clustering Model][train-clustering-model] e quindi su **Visualize** (Visualizza). La visualizzazione è illustrata nella figura 16.
 
 ![Risultato di clustering](./media/machine-learning-interpret-model-results/16.png)
 
@@ -229,7 +229,7 @@ Per illustrare i sistemi di raccomandazione viene usato come esempio un problema
 * Dati sulle caratteristiche dei clienti
 * Restaurant feature data
 
-Il modulo [Train Matchbox Recommender][train-matchbox-recommender] (Sistema di raccomandazione Matchbox per training) in Azure Machine Learning consente di eseguire varie operazioni:
+Il modulo [Train Matchbox Recommender][train-matchbox-recommender] di Azure Machine Learning consente di eseguire diverse operazioni:
 
 * Stimare le valutazioni per un determinato utente ed elemento
 * Raccomandare elementi a un determinato utente
@@ -240,7 +240,7 @@ Il modulo [Train Matchbox Recommender][train-matchbox-recommender] (Sistema di r
 
 ![Matchbox Recommender](./media/machine-learning-interpret-model-results/19_1.png)
 
-Un tipico esperimento di Azure Machine Learning per un sistema di raccomandazione è illustrato nella figura 20. Per informazioni su come usare i moduli relativi al sistema di raccomandazione, vedere [Train matchbox recommender][train-matchbox-recommender] e [Score matchbox recommender][score-matchbox-recommender].
+Un tipico esperimento di Azure Machine Learning per un sistema di raccomandazione è illustrato nella figura 20. Per informazioni su come usare i moduli del sistema di raccomandazione, vedere [Train matchbox recommender][train-matchbox-recommender] e [Score matchbox recommender][score-matchbox-recommender].
 
 ![Esperimento per il sistema di raccomandazione](./media/machine-learning-interpret-model-results/20.png)
 
@@ -250,7 +250,7 @@ Figura 20. Esperimento per il sistema di raccomandazione
 
 **Stimare le valutazioni per un determinato utente ed elemento**
 
-Selezionando la voce **Rating Prediction** (Stima valutazione) in **Recommender prediction kind** (Tipo di stima del sistema di raccomandazione), si chiede al sistema di raccomandazione di stimare la valutazione per un determinato utente ed elemento. Verrà visualizzato l'output del modulo [Score Matchbox Recommender][score-matchbox-recommender], simile a quello della figura 21.
+Selezionando la voce **Rating Prediction** (Stima valutazione) in **Recommender prediction kind** (Tipo di stima del sistema di raccomandazione), si chiede al sistema di raccomandazione di stimare la valutazione per un determinato utente ed elemento. Viene visualizzato l'output del modulo [Score Matchbox Recommender][score-matchbox-recommender], simile a quello della figura 21.
 
 ![Risultato di assegnazione dei punteggi del sistema di raccomandazione - Stima della valutazione](./media/machine-learning-interpret-model-results/21.png)
 
@@ -260,7 +260,7 @@ le prime due rappresentano le coppie utente-elemento ricavate dai dati di input,
 
 **Raccomandare elementi a un determinato utente**
 
-Selezionando la voce **Item Recommendation** (Raccomandazione elemento) in **Recommender prediction kind** (Tipo di stima del sistema di raccomandazione), si chiede al sistema di raccomandazione di consigliare elementi a un determinato utente. L'ultimo parametro da scegliere in questo scenario è *Recommended item selection* (Selezione elementi consigliati). Mentre l'opzione **From Rated Items (for model evaluation)** (Da elementi valutati (per valutazione modello)) viene principalmente usata per la valutazione del modello durante il processo di training, per questa fase di stima si usa l'opzione **From All Items** (Da tutti gli elementi). Verrà visualizzato l'output del modulo [Score Matchbox Recommender][score-matchbox-recommender], simile a quello della figura 22.
+Selezionando la voce **Item Recommendation** (Raccomandazione elemento) in **Recommender prediction kind** (Tipo di stima del sistema di raccomandazione), si chiede al sistema di raccomandazione di consigliare elementi a un determinato utente. L'ultimo parametro da scegliere in questo scenario è *Recommended item selection* (Selezione elementi consigliati). Mentre l'opzione **From Rated Items (for model evaluation)** (Da elementi valutati (per valutazione modello)) viene principalmente usata per la valutazione del modello durante il processo di training, per questa fase di stima si usa l'opzione **From All Items** (Da tutti gli elementi). Viene visualizzato l'output del modulo [Score Matchbox Recommender][score-matchbox-recommender], simile a quello della figura 22.
 
 ![Risultato di assegnazione dei punteggi del sistema di raccomandazione - Raccomandazione dell'elemento](./media/machine-learning-interpret-model-results/22.png)
 
@@ -270,7 +270,7 @@ La prima delle sei colonne rappresenta gli ID utente per i quali consigliare gli
 
 **Trovare gli utenti correlati a un determinato utente**
 
-Selezionando la voce **Related Users** (Utenti correlati) in **Recommender prediction kind** (Tipo di stima del sistema di raccomandazione), si chiede al sistema di raccomandazione di trovare utenti correlati a un determinato utente. Per utenti correlati si intendono tutti gli utenti con preferenze simili. L'ultimo parametro da scegliere in questo scenario è *Related user selection* (Selezione utenti correlati). Mentre l'opzione **From Users That Rated Items (for model evaluation)** (Da utenti che hanno valutato gli elementi (per valutazione modello)) viene principalmente usata per la valutazione del modello durante il processo di training, per questa fase di stima si usa l'opzione **From All Users** (Da tutti gli utenti). Verrà visualizzato l'output del modulo [Score Matchbox Recommender][score-matchbox-recommender], simile a quello della figura 23.
+Selezionando la voce **Related Users** (Utenti correlati) in **Recommender prediction kind** (Tipo di stima del sistema di raccomandazione), si chiede al sistema di raccomandazione di trovare utenti correlati a un determinato utente. Per utenti correlati si intendono tutti gli utenti con preferenze simili. L'ultimo parametro da scegliere in questo scenario è *Related user selection* (Selezione utenti correlati). Mentre l'opzione **From Users That Rated Items (for model evaluation)** (Da utenti che hanno valutato gli elementi (per valutazione modello)) viene principalmente usata per la valutazione del modello durante il processo di training, per questa fase di stima si usa l'opzione **From All Users** (Da tutti gli utenti). Viene visualizzato l'output del modulo [Score Matchbox Recommender][score-matchbox-recommender], simile a quello della figura 23.
 
 ![Risultato di assegnazione dei punteggi del sistema di raccomandazione - Utenti correlati](./media/machine-learning-interpret-model-results/23.png)
 
@@ -280,7 +280,7 @@ La prima delle sei colonne rappresenta gli ID utente necessari per trovare utent
 
 **Trovare gli elementi correlati a un determinato elemento**
 
-Selezionando la voce **Related Items** (Elementi correlati) in **Recommender prediction kind** (Tipo di stima del sistema di raccomandazione), si chiede al sistema di raccomandazione di trovare elementi correlati a un determinato elemento. Per elementi correlati si intendono tutti gli elementi che con più probabilità sono apprezzati dallo stesso utente. L'ultimo parametro da scegliere in questo scenario è *Related item selection* (Selezione elementi correlati). Mentre l'opzione **From Rated Items (for model evaluation)** (Da elementi valutati (per valutazione modello)) viene principalmente usata per la valutazione del modello durante il processo di training, per questa fase di stima si usa l'opzione **From All Items** (Da tutti gli elementi). Verrà visualizzato l'output del modulo [Score Matchbox Recommender][score-matchbox-recommender], simile a quello della figura 24.
+Selezionando la voce **Related Items** (Elementi correlati) in **Recommender prediction kind** (Tipo di stima del sistema di raccomandazione), si chiede al sistema di raccomandazione di trovare elementi correlati a un determinato elemento. Per elementi correlati si intendono tutti gli elementi che con più probabilità sono apprezzati dallo stesso utente. L'ultimo parametro da scegliere in questo scenario è *Related item selection* (Selezione elementi correlati). Mentre l'opzione **From Rated Items (for model evaluation)** (Da elementi valutati (per valutazione modello)) viene principalmente usata per la valutazione del modello durante il processo di training, per questa fase di stima si usa l'opzione **From All Items** (Da tutti gli elementi). Vine visualizzato l'output del modulo [Score Matchbox Recommender][score-matchbox-recommender], simile a quello della figura 24.
 
 ![Risultato di assegnazione dei punteggi del sistema di raccomandazione - Elementi correlati](./media/machine-learning-interpret-model-results/24.png)
 
@@ -317,6 +317,6 @@ Figura 26. Risultato del servizio Web relativo al problema di raccomandazione di
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

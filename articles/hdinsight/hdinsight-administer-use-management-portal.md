@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: b52cf6f7c472d169608bc3e40096e1891f9a687b
+ms.sourcegitcommit: 59288709e706ba7f0162f5f857019ce2972e2743
+ms.openlocfilehash: 55193e8570f480b9c6b2ef9a0785ddb538749cb5
 
 
 ---
@@ -188,10 +188,10 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
 
     Di seguito viene fornito un esempio d'uso del comando CLI per ribilanciare la topologia di Storm:
 
-    ## <a name="reconfigure-the-topology-mytopology-to-use-5-worker-processes"></a>Riconfigurare la topologia "mytopology" in modo da usare 5 processi di lavoro,
-    ## <a name="the-spout-blue-spout-to-use-3-executors-and"></a>lo spout "blu-spout" in modo da usare 3 esecutori e
-    ## <a name="the-bolt-yellow-bolt-to-use-10-executors"></a>il bolt "giallo-bolt" in modo da usare 10 esecutori
-      $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ## Reconfigure the topology "mytopology" to use 5 worker processes,
+        ## the spout "blue-spout" to use 3 executors, and
+        ## the bolt "yellow-bolt" to use 10 executors
+        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 **Per ridimensionare i cluster**
 
@@ -327,7 +327,7 @@ Le credenziali del cluster fornite durante la creazione consentono di accedere a
 3. Scegliere **Impostazioni** dal menu in alto, quindi fare clic su **Desktop remoto**.
 4. Immettere **Expires On** (Scadenza), **Nome utente Desktop remoto** e **Password Desktop remoto**, quindi fare clic su **Abilita**.
 
-    ![hdinsight attivare disattivare configurare desktop remoto](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
+    ![HDInsight - abilitazione/disabilitazione/configurazione di Desktop remoto](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
 
     La Scadenza predefinita è una settimana.
 

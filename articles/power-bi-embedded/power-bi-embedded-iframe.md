@@ -16,8 +16,8 @@ ms.workload: powerbi
 ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7aadb6ceba1a8c672ed9eeea8651c965e5b665fd
+ms.sourcegitcommit: b3037f1b96c8bfbaad5f92b726b63854469a8d06
+ms.openlocfilehash: b9a5435330e56ba8f25100437e201cccd7aeb568
 
 
 ---
@@ -91,7 +91,7 @@ RequestId: 4220d385-2fb3-406b-8901-4ebe11a5f6da
 Il **workspaceId** restituito viene usato per le chiamate API seguenti. L'applicazione deve mantenere questo valore.
 
 ## <a name="import-pbix-file-into-the-workspace"></a>Importare file con estensione pbix nell'area di lavoro
-Ogni area di lavoro può ospitare un unico file di Power BI Desktop con un set di dati \(tra cui le impostazioni dell'origine dati) e i report. È possibile importare il file con estensione pbix nell'area di lavoro come mostrato nel codice riportato di seguito. Come si può notare, è possibile caricare il binario del file con estensione pbix usando MIME multipart in http.
+Ogni report in un'area di lavoro corrisponde a un singolo file di Power BI Desktop con un set di dati \(tra cui le impostazioni dell'origine dati). È possibile importare il file con estensione pbix nell'area di lavoro come mostrato nel codice riportato di seguito. Come si può notare, è possibile caricare il binario del file con estensione pbix usando MIME multipart in http.
 
 Il frammento URI **32960a09-6366-4208-a8bb-9e0678cdbb9d** è il workspaceId e il parametro di query **datasetDisplayName** è il nome del set di dati da creare. Il set di dati creato contiene tutti gli elementi del file con estensione pbix relativi ai dati, ad esempio i dati importati, il puntatore all'origine dati e così via.
 
@@ -471,6 +471,6 @@ Al momento, Power BI Embedded mostra solo il report nell'iframe. Tuttavia, è co
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

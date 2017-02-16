@@ -16,31 +16,26 @@ ms.topic: article
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 266891083fa0d2a33ef8fd7e533b036e99b00208
+ms.sourcegitcommit: 1ddfbd3b8d9ca695b08739c7f0716a8e8de82725
+ms.openlocfilehash: 23bf15555569c2c2f5ce9db1bead5da539df571d
 
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analizzare i dati sui ritardi dei voli con Hive in HDInsight
 Informazioni su come analizzare i dati sui ritardi dei voli usando Hive in HDInsight basato su Linux, quindi su come esportare i dati al database SQL di Azure mediante Sqoop.
 
-> [!NOTE]
-> Anche se alcune parti di questo articolo possono essere usate con i cluster HDInsight basati su Windows (Python e Hive, ad esempio), molti passaggi in questo documento sono specifici dei cluster basati su Linux. Per i passaggi relativi a un cluster basato su Windows, vedere [Analizzare i dati sui ritardi dei voli con Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
-> 
-> 
+> [!IMPORTANT]
+> I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ### <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Un cluster HDInsight**. Per la procedura sulla creazione di un nuovo cluster HDInsight basato su Linux, vedere [Introduzione all'uso di Hadoop con Hive in HDInsight in Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 * Un **database SQL di Azure**. Come archivio dati di destinazione verrà usato un database SQL di Azure. Se non si ha già un database SQL, vedere l' [esercitazione sul database SQL per creare un database SQL in pochi minuti](../sql-database/sql-database-get-started.md).
 * L'**interfaccia della riga di comando di Azure**. Se l'interfaccia della riga di comando di Azure non è installata, vedere l'articolo relativo all' [installazione e configurazione dell'interfaccia della riga di comando di Azure](../xplat-cli-install.md) per altri passaggi.
-  
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ## <a name="download-the-flight-data"></a>Scaricare i dati relativi ai voli
-1. Passare alla pagina [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].
+1. Passare alla pagina [Research and Innovative Technology Administration, Bureau of Transportation Statistics (RITA)][rita-website].
 2. Selezionare i valori seguenti nella pagina:
    
    | Nome | Valore |
@@ -242,13 +237,13 @@ Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazi
 ## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Passaggi successivi
 È stato illustrato come caricare file nell'archivio BLOB di Azure, come popolare una tabella Hive con i dati disponibili nell'archivio BLOB di Azure, come eseguire query Hive e come usare Sqoop per esportare i dati da HDFS in un database SQL di Azure. Per altre informazioni, vedere gli articoli seguenti:
 
-* [Introduzione all'uso di HDInsight][hdinsight-get-started]
+* [Introduzione a HDInsight][hdinsight-get-started]
 * [Usare Hive con HDInsight][hdinsight-use-hive]
 * [Usare Oozie con HDInsight][hdinsight-use-oozie]
-* [Usare Sqoop con HDInsight][hdinsight-use-sqoop]
+* [Usare Sqoop con Hadoop in HDInsight][hdinsight-use-sqoop]
 * [Usare Pig con HDInsight][hdinsight-use-pig]
 * [Sviluppare programmi MapReduce Java per HDInsight][hdinsight-develop-mapreduce]
-* [Sviluppare programmi per la creazione di flussi Python Hadoop per HDInsight][hdinsight-develop-streaming]
+* [Sviluppare programmi di streaming Hadoop in Python per HDInsight][hdinsight-develop-streaming]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -278,6 +273,6 @@ Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

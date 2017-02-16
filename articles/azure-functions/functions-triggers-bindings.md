@@ -1,6 +1,6 @@
 ---
-title: Trigger e associazioni di Funzioni di Azure | Documentazione Microsoft
-description: Informazioni su come usare i trigger e le associazioni in Funzioni di Azure.
+title: Usare trigger e associazioni in Funzioni di Azure | Documentazione Microsoft
+description: Informazioni su come usare trigger e associazioni in Funzioni di Azure per connettere l&quot;esecuzione del codice a eventi online e servizi basati su cloud.
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -14,20 +14,26 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/08/2016
+ms.date: 01/23/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: d809636cae48dd0ccca4c99370f41996430d89e4
-ms.openlocfilehash: b5d8d38f03514d89bf6c0b5e36adf0379f1bef1a
+ms.sourcegitcommit: b7ea1e3a72a9dc6f4f9ca9d2d9d6f8c9b1564972
+ms.openlocfilehash: 947f1f5e6d9bebe6708e6d29d3b71efc09573537
 
 
 ---
-# <a name="azure-functions-triggers-and-bindings-developer-reference"></a>Guida di riferimento per gli sviluppatori di trigger e associazioni di Funzioni di Azure
-In questo argomento vengono fornite informazioni di riferimento generali per trigger e associazioni. Sono incluse alcune delle funzionalità di associazione avanzate e la sintassi supportate da tutti i tipi di associazione.  
 
-Se si è in cerca di informazioni dettagliate su configurazione e codifica di un tipo specifico di trigger o associazione, fare clic su uno dei trigger o delle associazioni riportati di seguito:
+# <a name="learn-how-to-work-with-triggers-and-bindings-in-azure-functions"></a>Informazioni su come usare trigger e associazioni in Funzioni di Azure 
+Questo argomento illustra come usare trigger e associazioni in Funzioni di Azure per connettere il codice a una vasta gamma di trigger e servizi di Azure e ad altri servizi basati su cloud. Sono descritte alcune funzionalità di associazione avanzate e la sintassi supportate da tutti i tipi di associazione.  
 
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+Per informazioni dettagliate sull'uso di un tipo specifico di trigger o di associazione, vedere uno degli argomenti di riferimento seguenti:
+
+| | | | |  
+| --- | --- | --- | --- |  
+| [HTTP/webhook](functions-bindings-http-webhook.md) | [Timer](functions-bindings-timer.md) | [App per dispositivi mobili](functions-bindings-mobile-apps.md) | [Bus di servizio](functions-bindings-service-bus.md)  |  
+| [DocumentDB](functions-bindings-documentdb.md) |  [Archiviazione BLOB](functions-bindings-storage-blob.md) | [Archiviazione - Coda](functions-bindings-storage-queue.md) |  [Archiviazione - Tabelle](functions-bindings-storage-table.md) |  
+| [Hub eventi](functions-bindings-event-hubs.md) | [Hub di notifica](functions-bindings-notification-hubs.md) | [Twilio](functions-bindings-twilio.md) |   
+| | | | |  
 
 In questi articoli si presuppone che siano stati letti la [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md) e gli articoli di riferimento per gli sviluppatori di [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) o [Node.js](functions-reference-node.md).
 
@@ -61,7 +67,7 @@ Un'associazione di trigger della coda contiene queste informazioni per una funzi
 }
 ```
 
-Il codice può inviare diversi tipi di output a seconda della modalità di elaborazione del nuovo elemento della coda. Ad esempio, si potrebbe voler scrivere un nuovo record in una tabella di Archiviazione di Azure.  A tale scopo, è possibile configurare un'associazione di output a una tabella di Archiviazione di Azure. Di seguito è riportato un esempio *function.json* che include un'associazione di output nella tabella di archiviazione che può essere usata con un trigger della coda. 
+Il codice può inviare diversi tipi di output a seconda della modalità di elaborazione del nuovo elemento della coda. Ad esempio, si potrebbe voler scrivere un nuovo record in una tabella di Archiviazione di Azure.  A tale scopo, si crea un'associazione di output a una tabella di archiviazione di Azure. Di seguito è riportato un esempio *function.json* che include un'associazione di output nella tabella di archiviazione che può essere usata con un trigger della coda. 
 
 ```json
 {
@@ -125,7 +131,7 @@ Per altri esempi di codice e informazioni più specifiche sui tipi di archiviazi
 Per usare le funzionalità di associazione più avanzate nel portale di Azure, fare clic sull'opzione **Editor avanzato** nella scheda **Integra** della funzione. L'editor avanzato consente di modificare *function.json* direttamente nel portale.
 
 ## <a name="random-guids"></a>GUID casuali
-Funzioni di Azure fornisce una sintassi per generare GUID casuali con le associazioni. La sintassi di associazione seguente scriverà l'output in un nuovo BLOB con un nome univoco in un contenitore di Archiviazione di Azure: 
+Funzioni di Azure fornisce una sintassi per generare GUID casuali con le associazioni. La sintassi di associazione seguente scrive l'output in un nuovo BLOB con un nome univoco in un contenitore di archiviazione: 
 
 ```json
 {
@@ -182,7 +188,7 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 ```
 
 
-Di seguito è illustrato lo stesso approccio con Node.js.
+Di seguito è illustrato lo stesso approccio con Node.js:
 
 ```javascript
 module.exports = function (context, input) {
@@ -192,7 +198,7 @@ module.exports = function (context, input) {
 }
 ```
 
-Di seguito è mostrato un esempio di F#.
+Di seguito è riportato un esempio di F#:
 
 ```fsharp
 let Run(input: WorkItem, log: TraceWriter) =
@@ -229,7 +235,7 @@ Invece di un'impostazione di configurazione statica per le proprietà di associa
 ```json
 {
   "name" : "Customer Name",
-  "address" : "Customer's Address".
+  "address" : "Customer's Address",
   "mobileNumber" : "Customer's mobile number in the format - +1XXXYYYZZZZ."
 }
 ```
@@ -256,7 +262,7 @@ Si potrebbe inviare al cliente un SMS tramite il proprio account Twilio come agg
 },
 ```
 
-A questo punto il codice della funzione deve solo inizializzare il parametro di output come mostrato di seguito. Durante l'esecuzione, le proprietà di output verranno associate ai dati di input desiderati.
+A questo punto il codice della funzione deve solo inizializzare il parametro di output come mostrato di seguito. Durante l'esecuzione, le proprietà di output vengono associate ai dati di input desiderati.
 
 ```cs
 #r "Newtonsoft.Json"
@@ -305,53 +311,61 @@ module.exports = function (context, myNewOrderItem) {
 Il modello standard di associazione di input e output che usa *function.json* viene chiamato associazione [*dichiarativa*](https://en.wikipedia.org/wiki/Declarative_programming), in cui l'associazione viene definita dalla dichiarazione JSON. Tuttavia, è possibile usare l'associazione [imperativa](https://en.wikipedia.org/wiki/Imperative_programming). Con questo modello è possibile associare rapidamente i dati a qualsiasi numero di associazioni di input e output supportate nel codice della funzione.
 L'associazione imperativa può essere necessaria nei casi in cui il calcolo del percorso di associazione o di altri input deve avvenire in fase di esecuzione nella funzione anziché in fase di progettazione. 
 
-Per eseguire l'associazione imperativa, procedere come segue:
+Definire un'associazione imperativa, come segue:
 
 - **Non** includere una voce in *function.json* per le associazioni imperative da eseguire.
 - Passare un parametro di input [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) o [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs). 
 - Usare il seguente modello C# per eseguire l'associazione dati.
 
-        using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
-        {
-                ...
-        }
+```cs
+using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
+{
+    ...
+}
+```
 
 dove `BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è il tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. L'associazione di output della tabella App per dispositivi mobili, ad esempio, supporta[ sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) per `T`.
     
 L'esempio di codice seguente crea un [associazione di output del BLOB di archiviazione](functions-bindings-storage-blob.md#storage-blob-output-binding) con percorso del BLOB definito in fase di esecuzione, quindi scrive una stringa per il BLOB.
 
-        using Microsoft.Azure.WebJobs;
-        using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-        
-        public static async Task Run(string input, Binder binder)
-        {
-                using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
-                {
-                        writer.Write("Hello World!!");
-                }
-        }
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
+
+public static async Task Run(string input, Binder binder)
+{
+    using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
+    {
+        writer.Write("Hello World!!");
+    }
+}
+```
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) definisce l'associazione di input o output del [BLOB di archiviazione](functions-bindings-storage-blob.md) e [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) è un tipo di associazione di output supportato.
 Ovvero, il codice ottiene l'impostazione app predefinita per la stringa di connessione dell'account di archiviazione (`AzureWebJobsStorage`). È possibile specificare un'impostazione app personalizzata da usare aggiungendo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando la matrice di attributi in `BindAsync<T>()`. Ad esempio,
 
-        using Microsoft.Azure.WebJobs;
-        using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-        
-        public static async Task Run(string input, Binder binder)
-        {
-                var attributes = new Attribute[]
-                {
-                        new BlobAttribute("samples-output/path"),
-                        new StorageAccountAttribute("MyStorageAccount")
-                };
-                using (var writer = await binder.BindAsync<TextWriter>(attributes))
-                {
-                        writer.Write("Hello World!");
-                }
-        }
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
+
+public static async Task Run(string input, Binder binder)
+{
+    var attributes = new Attribute[]
+    {    
+        new BlobAttribute("samples-output/path"),
+        new StorageAccountAttribute("MyStorageAccount")
+    };
+
+    using (var writer = await binder.BindAsync<TextWriter>(attributes))
+    {
+        writer.Write("Hello World!");
+    }
+}
+```
 
 La tabella seguente indica l'attributo .NET corrispondente da usare per ogni tipo di associazione e il pacchetto di riferimento.
 
+> [!div class="mx-codeBreakAll"]
 | Associazione | Attributo | Aggiungi riferimento |
 |------|------|------|
 | DocumentDB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.DocumentDB"` |
@@ -362,7 +376,7 @@ La tabella seguente indica l'attributo .NET corrispondente da usare per ogni tip
 | Coda di archiviazione | [`Microsoft.Azure.WebJobs.QueueAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | BLOB di archiviazione | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | Tabella di archiviazione | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions"` |
+| Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
 
 
 
@@ -375,6 +389,6 @@ Per altre informazioni, vedere le seguenti risorse:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

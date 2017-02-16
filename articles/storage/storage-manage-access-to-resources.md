@@ -3,8 +3,8 @@ title: Gestire l&quot;accesso in lettura anonimo a contenitori e BLOB | Microsof
 description: Informazioni su come rendere disponibili per l&quot;accesso anonimo contenitori e BLOB e su come accedervi a livello di programmazione.
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: a2cffee6-3224-4f2a-8183-66ca23b2d2d7
 ms.service: storage
@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c43677749a80506221a5992d215eddab48cd69c8
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: 4fe41c3aabf5e6d9ae899cea0b9f9b6c9c305cf0
 
 
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gestire l'accesso in lettura anonimo a contenitori e BLOB
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Per impostazione predefinita, solo il proprietario dell'account di archiviazione può accedere alle risorse relative all’account. Solo per l'archiviazione BLOB, è possibile impostare le autorizzazioni di un contenitore per consentire l'accesso in lettura anonimo al contenitore e ai relativi BLOB, in modo che sia possibile concedere l'accesso a tali risorse senza condividere la chiave dell'account.
 
 L'accesso anonimo è ideale per scenari in cui si desidera che alcuni BLOB siano sempre disponibili per l'accesso in lettura anonimo. Per un controllo più capillare, è possibile creare una firma di accesso condiviso, che consente l'accesso delegato limitato con autorizzazioni diverse e per un intervallo di tempo specificato. Per altre informazioni sulla creazione di firme di accesso condiviso, vedere [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
@@ -37,18 +37,18 @@ I contenitori forniscono le seguenti opzioni per la gestione dell'accesso al con
 
 È possibile impostare le autorizzazioni per il contenitore nei modi seguenti:
 
-* Dal [portale di Azure](https://portal.azure.com).
+* Nel [portale di Azure](https://portal.azure.com).
 * A livello di programmazione, tramite la libreria client di archiviazione o l'API REST.
 * Con PowerShell. Per informazioni su come impostare le autorizzazioni per il contenitore da Azure PowerShell, vedere [Uso di Azure PowerShell con Archiviazione di Azure](storage-powershell-guide-full.md#how-to-manage-azure-blobs)
 
 ### <a name="setting-container-permissions-from-the-azure-portal"></a>Impostazione delle autorizzazioni per il contenitore dal portale di Azure
-Per impostare le autorizzazioni per il contenitore dal [portale di Azure](https://portal.azure.com), eseguire le operazioni seguenti:
+Per impostare le autorizzazioni per il contenitore dal [portale di Azure](https://portal.azure.com), seguire questa procedura:
 
 1. Passare al dashboard per l'account di archiviazione.
 2. Selezionare il nome del contenitore nell'elenco. Facendo clic sul nome, i BLOB vengono esposti nel contenitore selezionato.
 3. Selezionare **Criteri di accesso** nella barra degli strumenti.
 4. Nel campo **Tipo di accesso** selezionare il livello di autorizzazioni desiderato come illustrato nello screenshot di seguito.
-   
+
     ![Finestra di dialogo Modifica metadati contenitore](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
 ### <a name="setting-container-permissions-programmatically-using-net"></a>Impostazione delle autorizzazioni per il contenitore a livello di programmazione con .NET
@@ -156,6 +156,6 @@ Nella tabella seguente sono riportate le operazioni che possono essere richiamat
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ee868c5ba1a8429a733633edbc7efaa74e512135
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3b14925f41138904aa10a172f83dffa3c6662700
 
 
 ---
-# <a name="remote-desktop-gateway-and-azure-multifactor-authentication-server-using-radius"></a>Gateway Desktop remoto e server Azure Multi-Factor Authentication utilizzando RADIUS
+# <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Gateway Desktop remoto e server Azure Multi-Factor Authentication utilizzando RADIUS
 In molti casi, il Gateway Desktop remoto utilizza i criteri di rete locale per autenticare gli utenti. In questo documento viene descritto come inoltrare richieste RADIUS dal Gateway Desktop remoto (tramite criteri di rete locale) al Server Multi-Factor Authentication.
 
 Il Server Multi-Factor Authentication deve essere installato su un server separato, che inoltrerà poi la richiesta RADIUS ai criteri di rete nel Server Gateway Desktop remoto. Dopo che i criteri di rete convalidano il nome utente e password, verrà restituita una risposta al Server Multi-Factor Authentication che eseguirà il secondo fattore di autenticazione prima di restituire un risultato al gateway.
@@ -36,7 +36,7 @@ Il Gateway Desktop remoto utilizza criteri di rete per inviare richieste RADIUS 
 3. Espandere la sezione criteri nel riquadro di navigazione sinistro e fare clic su criteri richiesta di connessione. Deve contenere un criterio di richiesta di connessione denominata TS GATEWAY AUTHORIZATION POLICY, che è stata creata durante la configurazione di Gateway Desktop remoto. Questo criterio inoltra le richieste RADIUS al Server Multi-Factor Authentication.
 4. Copiare questo criterio per crearne uno nuovo. Nel nuovo criterio, aggiungere una condizione che abbini il nome descrittivo del Client con il nome descrittivo impostato nel precedente passaggio 2 per il client RADIUS del Server Azure Multi-Factor Authentication. Modificare il Provider di autenticazione nel computer locale. In questo modo quando viene ricevuta una richiesta RADIUS dal Server Azure Multi-Factor Authentication, l'autenticazione viene eseguita localmente anziché inviare una richiesta RADIUS al Server Azure Multi-Factor Authentication con la conseguenza di una condizione di ciclo. Per evitare la condizione di ciclo, il nuovo criterio deve essere inserito SOPRA il criterio originale che inoltra al Server Multi-Factor Authentication.
 
-## <a name="configure-azure-multifactor-authentication"></a>Configurazione di Azure Multi-Factor Authentication
+## <a name="configure-azure-multi-factor-authentication"></a>Configurazione di Azure Multi-Factor Authentication
 - - -
 Il Server Azure Multi-Factor Authentication è configurato come proxy RADIUS tra Gateway Desktop remoto e criteri di rete.  È necessario installarlo in un server di dominio che è separato dal server Gateway Desktop remoto. Utilizzare la procedura seguente per configurare il Server Azure Multi-Factor Authentication.
 
@@ -50,6 +50,6 @@ Il Server Azure Multi-Factor Authentication è configurato come proxy RADIUS tra
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Introduzione a Reliable Actors di Service Fabric | Documentazione Microsoft
+title: Creare il primo microservizio di Azure basato su attori in Java | Documentazione Microsoft
 description: Questa esercitazione illustra la procedura per la creazione, il debug e la distribuzione di un semplice servizio basato su attore usando Service Fabric Reliable Actors.
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 01/04/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3e349d0c76078889b6e41340ee8bb2f599819ba3
+ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
+ms.openlocfilehash: 8ecc5208237d846d0e81914eee8874ea97744bc3
 
 
 ---
@@ -31,7 +31,7 @@ Questo articolo illustra le nozioni fondamentali di Azure Service Fabric Reliabl
 
 ## <a name="installation-and-setup"></a>Installazione e configurazione
 Prima di iniziare, assicurarsi che nel computer sia configurato l'ambiente di sviluppo di Service Fabric.
-Se è necessario configurarlo, andare all'[introduzione per Mac](service-fabric-get-started-mac.md) o all'[introduzione per Linux](service-fabric-get-started-linux.md).
+Se è necessario configurarlo, andare alla [guida introduttiva per Mac](service-fabric-get-started-mac.md) o alla [guida introduttiva per Linux](service-fabric-get-started-linux.md).
 
 ## <a name="basic-concepts"></a>Concetti di base
 Per iniziare a usare Reliable Actors, è sufficiente comprendere solo alcuni concetti di base:
@@ -47,11 +47,11 @@ Per iniziare a usare Reliable Actors, è sufficiente comprendere solo alcuni con
 È opportuno citare le regole seguenti relative alle interfacce dell'attore:
 
 * I metodi di interfaccia dell'attore non possono essere sottoposti a overload.
-*  I metodi di interfaccia dell'attore non accettano parametri facoltativi, out o ref.
+* I metodi di interfaccia dell'attore non accettano parametri facoltativi, out o ref.
 * Non sono supportate interfacce generiche.
 
 ## <a name="create-an-actor-service"></a>Creare un servizio Actor
-Per iniziare, creare una nuova applicazione di Service Fabric. Service Fabric SDK per Linux include un generatore Yeoman che rende disponibile lo scaffolding per un'applicazione di Service Fabric con un servizio senza stato. Iniziare eseguendo il comando Yeoman seguente:
+Per iniziare, creare una nuova applicazione di Service Fabric. Service Fabric SDK per Linux include un generatore Yeoman per la creazione dello scaffolding per un'applicazione di Service Fabric con un servizio senza stato. Iniziare eseguendo il comando Yeoman seguente:
 
 ```bash
 $ yo azuresfjava
@@ -191,6 +191,6 @@ $ ./install.sh
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

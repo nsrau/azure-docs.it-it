@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3ffeeb2e96510342abb0c0f8718273f41729cc2d
+ms.sourcegitcommit: 5137ccfd2c809fe17cc7fdf06941ebd797288d81
+ms.openlocfilehash: 496c3c1cc0f203a58a6f81476393b369e6a76215
 
 
 ---
 # <a name="tutorial-get-started-with-azure-data-lake-analytics-u-sql-language"></a>Esercitazione: Introduzione al linguaggio U-SQL di Analisi Data Lake di Azure
-U-SQL è un linguaggio che unisce i vantaggi di SQL con la potenza espressiva del codice personale, in modo da poter elaborare tutti i tipi di dati a qualsiasi livello. Le funzionalità di query scalabili e distribuite offerte da U-SQL consentono di analizzare con efficienza i dati presenti nell'archivio e in archivi relazionali, quali il database SQL di Azure.  Consentono inoltre di elaborare dati non strutturati applicando lo schema in fase di lettura, nonché inserire logica e funzioni UDF personalizzate e aggiungere estensibilità per permettere il controllo granulare sulle modalità di esecuzione in scala. Per altre informazioni sulla filosofia di progettazione alla base di U-SQL, fare riferimento a questo [post di blog su Visual Studio](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
+U-SQL è un linguaggio che unisce i vantaggi di SQL con la potenza espressiva del codice personale, in modo da elaborare i dati a qualsiasi livello. Le funzionalità di query scalabili e distribuite offerte da U-SQL consentono di analizzare con efficienza i dati presenti in archivi relazionali, ad esempio il database SQL di Azure.  Consente di elaborare dati non strutturati applicando lo schema in fase di lettura, nonché di inserire logica e funzioni UDF personalizzate e aggiungere estensibilità per permettere il controllo granulare sulle modalità di esecuzione in scala. Per altre informazioni sulla filosofia di progettazione alla base di U-SQL, vedere questo [post di blog su Visual Studio](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 Esistono alcune differenze tra ANSI SQL e T-SQL. Parole chiave come SELECT, ad esempio devono essere scritte in MAIUSCOLO.
 
 Si tratta di un sistema di tipi e un linguaggio di espressione all'interno di clausole SELECT, in cui i predicati sono scritti in C#.
-In questo modo, i tipi di dati sono tipi C# e usano la semantica NULL di C# e le operazioni di confronto all'interno di un predicato seguono la sintassi di C# (ad esempio, un "foo" = =).  Tutti i valori, inoltre, sono oggetti .NET completi e consentono quindi di usare facilmente qualsiasi metodo per eseguire operazioni sull'oggetto (ad esempio, "f o o o".Split(' ') ).
+In questo modo, i tipi di dati sono tipi C# e usano la semantica NULL di C# e le operazioni di confronto all'interno di un predicato seguono la sintassi di C# (ad esempio, un "foo" = =).  Tutti i valori sono anche oggetti .NET completi e consentono quindi di usare facilmente qualsiasi metodo per eseguire operazioni sull'oggetto, ad esempio "f o o o".Split(' ').
 
 Per altre informazioni, vedere la pagina di [riferimento su U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 ### <a name="prerequisites"></a>Prerequisiti
-È necessario completare l' [Esercitazione: Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+Completare l'[Esercitazione: Sviluppare script U-SQL tramite Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 
 Nell'esercitazione è stato eseguito un processo di Analisi Data Lake con lo script di U-SQL seguente:
 
@@ -151,7 +151,7 @@ Osservare come la seconda query faccia riferimento al risultato del primo set di
 ## <a name="aggregate-rowsets"></a>Aggregare set di righe
 U-SQL consente di usare le istruzioni familiari **ORDER BY** e **GROUP BY** e le aggregazioni.
 
-La query seguente trova la durata totale per ogni area e genera quindi le prime 5 durate, elencate in ordine.
+La query seguente trova la durata totale per area e genera quindi le prime cinque durate, elencate in ordine.
 
 I set di righe U-SQL non mantengono l'ordine per la query successiva. Per ordinare un output, pertanto, è necessario aggiungere ORDER BY all'istruzione OUTPUT, come illustrato di seguito:
 
@@ -221,7 +221,7 @@ La clausola U-SQL ORDER BY deve essere combinata con la clausola FETCH in un'esp
         USING Outputters.Csv();
 
 ## <a name="join-data"></a>Unire dati
-U SQL consente di usare operatori di join comuni, quali INNER JOIN, LEFT/RIGHT/FULL OUTER JOIN e SEMI JOIN, per unire tabelle e set di righe (anche quelli prodotti a partire da file).
+U-SQL consente di usare operatori di join comuni, quali INNER JOIN, LEFT/RIGHT/FULL OUTER JOIN e SEMI JOIN, per unire tabelle e set di righe (anche quelli creati a partire da file).
 
 Lo script seguente, ad esempio, unisce searchlog con un log relativo all'impressione dell'annuncio e offre gli annunci per la stringa di query entro una data specifica.
 
@@ -365,7 +365,7 @@ Lo script seguente crea un database e due tabelle:
 
 
 ### <a name="query-tables"></a>Eseguire query su tabelle
-È possibile eseguire una query su una tabella (creata nello script precedente) nello stesso modo in cui si esegue su un file di dati. Anziché creare un set di righe usando l'istruzione EXTRACT, è possibile ora semplicemente fare riferimento al nome della tabella.
+È possibile eseguire una query su una tabella (creata nello script precedente) nello stesso modo in cui si esegue su un file di dati. Anziché creare un set di righe usando l'istruzione EXTRACT, è possibile ora fare riferimento al nome della tabella.
 
 Lo script di trasformazione usato in precedenza viene modificato in modo da leggere i dati direttamente dalle tabelle:
 
@@ -414,6 +414,6 @@ Gli argomenti coperti in questa esercitazione costituiscono solo una piccola par
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

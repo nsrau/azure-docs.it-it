@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.date: 12/27/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2b29a041a005a6d6aa60c45dc39f151647e35646
+ms.sourcegitcommit: 70bc2363172199455785e90753560cc2281432b1
+ms.openlocfilehash: eeb858514af80d1e6074b7c86ead5955f0d22ad2
 
 
 ---
@@ -30,11 +30,11 @@ Per creare una soluzione di data warehouse end-to-end, è possibile scegliere tr
 | ![Inbrein][2] |**MicroERD**<br>Inbrein MicroERD offre gli strumenti necessari per creare un modello di dati preciso, ridurre la ridondanza dei dati, migliorare la produttività e rispettare gli standard. L'uso dell'interfaccia utente sviluppata in base a numerose esperienze utente permette a un modeler di lavorare in modo semplice ed efficiente con i modelli di database. I tempestivi miglioramenti funzionali e gli aggiornamenti permettono di ottenere sempre funzioni nuove e migliorate di MicroERD. |[Sito Web][inbrein_website]<br>[Foglio dati][inbrein_datasheet]<br>[Twitter][inbrein_twitter]<br>[YouTube][inbrein_youtube] |[![video di inbrein](./media/sql-data-warehouse-partner-data-management/inbrein_video.jpg)](https://www.youtube.com/watch?v=IGHSAk4bxdE) |
 | ![Infolibrarian][3] |**Infolibrarian**<br>InfoLibrarian cataloga, archivia e gestisce i metadati per semplificare la risoluzione dei problemi critici della gestione dati. Offre inoltre soluzioni software per la gestione dei metadati, la governance dei dati e la gestione degli asset, per gestire e pubblicare i metadati usando diversi strumenti e tecnologie. |[Marketplace][infolibrarian_marketplace]<br>[Sito Web][infolibrarian_website]<br>[Twitter][infolibrarian_twitter] |[![video di infolibrarian](./media/sql-data-warehouse-partner-data-management/infolibrarian_video.png)](http://www.infolibcorp.com/metadata-management-videos/vdbplayer.swf?volume=100&url=video/infolibrarian-azure-provisioning.mp4) |
 | ![Redpoint Global][4] |**RedPoint Interaction**<br>RedPoint Interaction consente di coinvolgere i clienti in un dialogo continuo in ogni canale di comunicazione e touch point. È possibile gestire il ciclo di vita del marketing omnicanale da un singolo punto di controllo operativo |[Marketplace][redpoint_it_marketplace]<br>[Sito Web][redpoint_it_website]<br>[Comunicato stampa][redpoint_press]<br>[Foglio dati][redpoint_it_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] |[![video di redpoint dm](./media/sql-data-warehouse-partner-data-management/redpoint_it_video.jpg)](https://vimeo.com/103715582) |
-| ![Redpoint Global][4] |**RedPoint Data Management**<br>RedPoint Data Management consente agli esperti di mercati di applicare tutti i dati disponibili per coinvolgere i clienti su diversi canali, eseguendo al tempo stesso la gestione strutturata e non strutturata dei dati. Grazie ad Azure SQL Data Warehouse e RedPoint è possibile massimizzare il valore di tutti i dati strutturati e non strutturati per offrire le interazioni iper-personalizzate e contestuali necessarie per coinvolgere i clienti moderni, attivi su tutti i canali di comunicazione. L'interfaccia di trascinamento semplifica la progettazione e l'esecuzione dei processi di gestione dati. |[Marketplace][redpoint_dm_marketplace]<br>[Sito Web][redpoint_dm_website]<br>[Comunicato stampa][redpoint_press]<br>[Sito Web][redpoint_dm_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] |[![video di redpoint dm](./media/sql-data-warehouse-partner-data-management/redpoint_dm_video.jpg)](https://vimeo.com/103715581) |
-| ![SQL Sentry][5] |**SQL Sentry**<br>SQL Sentry Performance Advisor offre visualizzazioni in tempo reale e cronologiche delle metriche delle prestazioni più rilevanti di Azure SQL Data Warehouse, permettendo ai clienti di visualizzare le tendenze delle prestazioni e di accedere con facilità a informazioni più dettagliate per analisi e risoluzione dei problemi approfondite. Performance Advisor permette la visualizzazione dei dati sulle prestazioni per un punto qualsiasi del tempo o per qualsiasi intervallo di date. |[Marketplace][sql_sentry_marketplace]<br>[Website][sql_sentry_website]<br>[Comunicato stampa][sql_sentry_press]<br>[Twitter][sql_sentry_twitter]<br>[YouTube][sql_sentry_youtube] | |
+| ![Redpoint Global][4] |**RedPoint Data Management**<br>RedPoint Data Management consente agli esperti di mercati di applicare tutti i dati disponibili per coinvolgere i clienti su diversi canali, eseguendo al tempo stesso la gestione strutturata e non strutturata dei dati. Grazie ad Azure SQL Data Warehouse e RedPoint è possibile massimizzare il valore di tutti i dati strutturati e non strutturati per offrire le interazioni iper-personalizzate e contestuali necessarie per coinvolgere i clienti moderni, attivi su tutti i canali di comunicazione. L'interfaccia di trascinamento semplifica la progettazione e l'esecuzione dei processi di gestione dati. |[Marketplace][redpoint_dm_marketplace]<br>[Sito Web][redpoint_dm_website]<br>[Comunicato stampa][redpoint_press]<br>[Foglio dati][redpoint_dm_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] |[![video di redpoint dm](./media/sql-data-warehouse-partner-data-management/redpoint_dm_video.jpg)](https://www.youtube.com/watch?v=o3DtXRpiEg0) |
+| ![Sentry One][5] |**DW Sentry**<br>Grazie al dashboard di spostamento dei dati intelligente e al calendario eventi, è possibile conoscere esattamente i fattori che influiscono sul carico di lavoro. Gli strumenti sono progettati per consentire all'utente di avere visibilità su query e processi in esecuzione per caricare, eseguire il backup o ripristinare i dati al fine di sfruttare al meglio le risorse di Azure. |[Marketplace][sql_sentry_marketplace]<br>[Sito Web][sql_sentry_website]<br>[Comunicato stampa][sql_sentry_press]<br>[Twitter][sql_sentry_twitter]<br>[YouTube][sql_sentry_youtube] | |
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni su altri partner, vedere [Business Intelligence partner][bi_partners] (Partner di business intelligence) e [Data Integration partners][di_partners] (Partner di integrazione dati).
+Per altre informazioni su altri partner, vedere [Partner di business intelligence][bi_partners] e [Partner di integrazione di dati][di_partners].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-partner-data-management/coffing_data_warehousing_logo.png
@@ -54,7 +54,7 @@ Per altre informazioni su altri partner, vedere [Business Intelligence partner][
 [infolibrarian_website]:http://www.infolibcorp.com/metadata-management/software-tools
 [redpoint_it_website]:http://www.redpoint.net/products/customer-interaction-management/
 [redpoint_dm_website]:http://www.redpoint.net/products/data-management-solutions/
-[sql_sentry_website]:http://www.sqlsentry.com/solutions/business-analytics/
+[sql_sentry_website]:https://sentryone.com/platform/azure-sql-dw-performance-monitoring/
 
 <!--ebook Links-->
 
@@ -79,7 +79,7 @@ Per altre informazioni su altri partner, vedere [Business Intelligence partner][
 <!--[inbrein_press]:-->
 <!--[infolibrarian_press]:-->
 [redpoint_press]:http://www.redpoint.net/press/redpoint-global-announces-support-for-microsoft-azure-sql-data-warehouse-microsoft-azure-data-lake-service/
-[sql_sentry_press]:http://blogs.sqlsentry.com/davidbenoit/sql-sentry-v9-aps-sql-dw/
+[sql_sentry_press]:https://www.sentryone.com/Company/News-Article/20160713-sql-sentry-performance-advisor-for-azure-sql-dw/
 
 
 <!--YouTube links-->
@@ -100,6 +100,6 @@ Per altre informazioni su altri partner, vedere [Business Intelligence partner][
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

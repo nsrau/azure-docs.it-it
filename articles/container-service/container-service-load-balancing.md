@@ -1,6 +1,6 @@
 ---
-title: Bilanciare il carico dei contenitori in un cluster del servizio contenitore di Azure | Documentazione Microsoft
-description: "Bilanciare il carico tra più contenitori in un cluster del servizio contenitore di Azure."
+title: Bilanciare il carico dei contenitori in un cluster DC/OS di Azure | Documentazione Microsoft
+description: "Bilanciare il carico tra più contenitori in un cluster DC/OS del servizio contenitore di Azure."
 services: container-service
 documentationcenter: 
 author: rgardler
@@ -11,18 +11,18 @@ keywords: Contenitori, Micro-Service, controller di dominio/sistema operativo, A
 ms.assetid: f0ab5645-2636-42de-b23b-4c3a7e3aa8bb
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cf255856302ad5bdb1f6022d231833610acbcac5
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: 27ad7100f6203db3ba3dcc88ffdc191b9b9d45cb
 
 
 ---
-# <a name="load-balance-containers-in-an-azure-container-service-cluster"></a>Bilanciare il carico dei contenitori in un cluster del servizio contenitore di Azure
+# <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Bilanciare il carico dei contenitori in un cluster DC/OS del servizio contenitore di Azure
 Questo articolo illustra come creare un servizio di bilanciamento del carico interno in un servizio contenitore di Azure gestito di tipo DC/OS con Marathon-LB. In questo modo sarà possibile ridimensionare le applicazioni aumentando il numero di istanze, nonché sfruttare i cluster di agenti pubblici e privati inserendo i servizi di bilanciamento del carico nel cluster pubblico e i contenitori di applicazioni nel cluster privato.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -39,14 +39,14 @@ Il servizio di bilanciamento del carico Marathon si riconfigura in base ai conte
 
 Per installare il servizio di bilanciamento del carico Marathon, è possibile usare l'interfaccia utente Web di DC/OS o la riga di comando.
 
-### <a name="install-marathonlb-using-dcos-web-ui"></a>Installare Marathon-LB usando l'interfaccia utente Web di DC/OS
+### <a name="install-marathon-lb-using-dcos-web-ui"></a>Installare Marathon-LB usando l'interfaccia utente Web di DC/OS
 1. Fare clic su 'Universe' (Universo)
 2. Cercare 'Marathon-LB'
 3. Fare clic su 'Install' (Installa)
 
 ![Installazione di marathon-lb mediante l'interfaccia Web di DC/OS](./media/dcos/marathon-lb-install.png)
 
-### <a name="install-marathonlb-using-the-dcos-cli"></a>Installare Marathon-LB usando l'interfaccia della riga di comando di DC/OS
+### <a name="install-marathon-lb-using-the-dcos-cli"></a>Installare Marathon-LB usando l'interfaccia della riga di comando di DC/OS
 Dopo l'installazione dell'interfaccia della riga di comando di DC/OS e dopo avere verificato che è possibile connettersi al cluster, eseguire il comando seguente dal computer client:
 
 ```bash
@@ -136,6 +136,6 @@ Per altre informazioni su [marathon-lb](https://dcos.io/docs/1.7/usage/service-d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

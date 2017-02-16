@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: de9b8b35e12af63ef6c29c87d28beaea81be1e69
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: c81c2f86802c1b1d672105962c196b36fbb2c081
 
 
 ---
@@ -93,7 +93,7 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
    ![Acquisizione dell'immagine eseguita correttamente](./media/virtual-machines-linux-classic-capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-L'immagine può ora essere usata per creare macchine virtuali. È possibile usare il comando `azure vm create` dell'interfaccia della riga di comando di Azure e indicare il nome dell'immagine creata. Per altre informazioni, vedere [Uso dell'interfaccia della riga di comando di Azure con il modello di distribuzione classica](../virtual-machines-command-line-tools.md). 
+L'immagine può ora essere usata per creare macchine virtuali. È possibile usare il comando `azure vm create` dell'interfaccia della riga di comando di Azure e indicare il nome dell'immagine creata. Per altre informazioni, vedere [Uso dell'interfaccia della riga di comando di Azure con il modello di distribuzione classica](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). 
 
 In alternativa, usare il [portale di Azure classico][Azure classic portal] per creare una macchina virtuale personalizzata tramite il metodo **Da raccolta** e selezionando l'immagine creata. Per altre informazioni, vedere [Come creare una macchina virtuale personalizzata][How to Create a Custom Virtual Machine].
 
@@ -107,6 +107,6 @@ In alternativa, usare il [portale di Azure classico][Azure classic portal] per c
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Driver per SQL Data Warehouse | Microsoft Docs
+title: Driver per SQL Data Warehouse | Documentazione Microsoft
 description: Stringhe di connessione e driver per SQL Data Warehouse
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 5c91f423-b550-4734-8094-c7f2c418ac8d
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,10 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 99be9d9b840e3d8cfbb24a76fc3dc8d5e041f63d
+
 
 ---
 # <a name="drivers-for-azure-sql-data-warehouse"></a>Driver per Azure SQL Data Warehouse
-È possibile connettersi a SQL Data Warehouse con diversi protocolli applicativi, ad esempio, [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] e [JDBC][JDBC]. Di seguito sono riportati esempi di stringhe di connessione per ogni protocollo.  Per impostare la stringa di connessione, è anche possibile usare il portale di Azure.  Per compilare la stringa di connessione tramite il portale di Azure, passare al pannello database e in *Informazioni di base* fare clic su *Mostra stringhe di connessione del database*.
+È possibile connettersi a SQL Data Warehouse con diversi protocolli applicativi, ad esempio [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] e [JDBC][JDBC]. Di seguito sono riportati esempi di stringhe di connessione per ogni protocollo.  Per impostare la stringa di connessione, è anche possibile usare il portale di Azure.  Per compilare la stringa di connessione tramite il portale di Azure, passare al pannello database e in *Informazioni di base* fare clic su *Mostra stringhe di connessione del database*.
 
 ## <a name="sample-adonet-connection-string"></a>Stringa di connessione ADO.NET di esempio
 ```C#
@@ -45,7 +49,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 > 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per iniziare a eseguire query sul data warehouse con Visual Studio e altre applicazioni, vedere [Eseguire query in Azure SQL Data Warehouse (Visual Studio)][].
+Per iniziare a eseguire query sul data warehouse con Visual Studio e altre applicazioni, vedere [Eseguire query con Visual Studio][Eseguire query con Visual Studio].
 
 <!--Image references-->
 
@@ -62,6 +66,6 @@ Per iniziare a eseguire query sul data warehouse con Visual Studio e altre appli
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

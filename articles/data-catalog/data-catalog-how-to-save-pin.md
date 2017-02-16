@@ -1,20 +1,24 @@
 ---
 title: Come salvare le ricerche e aggiungere risorse di dati | Microsoft Docs
-description: Articolo che include procedure che illustrano le funzionalità del Catalogo dati di Azure per il salvataggio delle origini dati e risorse dei dati per un utilizzo successivo.
+description: "Articolo che include procedure che illustrano le funzionalità del Catalogo dati di Azure per il salvataggio delle origini dati e risorse dei dati per un utilizzo successivo."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 6bd00a81-820d-4b7c-91fa-ab09e575474c
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/10/2016
+ms.date: 01/23/2017
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f017776480466979d7f2f9edec2b3ac5caca2321
+
 
 ---
 # <a name="how-to-save-searches-and-pin-data-assets"></a>Come salvare le ricerche e aggiungere risorse di dati
@@ -68,7 +72,7 @@ Anche la rimozione di una risorsa è molto semplice. È sufficiente fare di nuov
 
 ![Rimozione di una risorsa di dati](./media/data-catalog-how-to-save-pin/06-unpinning.png)
 
-## <a name="“my-assets”"></a>"Risorse personali"
+## <a name="my-assets"></a>"Risorse personali"
 La home page del portale del Catalogo dati di Azure include una sezione "Risorse personali" che visualizza le risorse di interesse dell'utente corrente. Questa sezione include sia le risorse aggiunte che le ricerche salvate.
 
 !['Risorse personali' nella home page](./media/data-catalog-how-to-save-pin/07-my-assets.png)
@@ -76,6 +80,8 @@ La home page del portale del Catalogo dati di Azure include una sezione "Risorse
 ## <a name="summary"></a>Riepilogo
 Il Catalogo dati di Azure offre funzionalità che semplificano l'individuazione delle origini dati necessarie da parte degli utenti, in modo che sia necessario dedicare meno tempo alla ricerca dei dati e concentrarsi invece sull'uso dei dati. Le ricerche salvate e le risorse di dati aggiunte si basano su queste funzionalità di base, in modo che gli utenti possano identificare con facilità le origini dati con sui lavorano ripetutamente.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

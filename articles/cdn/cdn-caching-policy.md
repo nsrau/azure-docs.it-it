@@ -1,6 +1,6 @@
 ---
-title: "Criterio di memorizzazione nella cache della rete CDN nell’estensione Servizi multimediali"
-description: Questo argomento offre una panoramica di un criterio di memorizzazione nella cache della rete CDN nell&quot;estensione Servizi multimediali.
+title: Gestire i criteri di memorizzazione nella cache della rete CDN di Azure in Servizi multimediali di Azure | Documentazione Microsoft
+description: Informazioni su come gestire i criteri di memorizzazione nella cache della rete CDN di Azure in Servizi multimediali di Azure.
 services: media-services,cdn
 documentationcenter: .NET
 author: juliako
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d8e5fa4f3de86be0a8ef65971e42c8b20f61f0b2
+ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
+ms.openlocfilehash: 4a225332995bdf7ed03817faf5da89a98eaf1967
 
 
 ---
-# <a name="cdn-caching-policy-in-media-services-extension"></a>Criterio di memorizzazione nella cache della rete CDN nell’estensione Servizi multimediali
+# <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Gestire i criteri di memorizzazione nella cache della rete CDN di Azure in Servizi multimediali di Azure
 Servizi multimediali di Azure fornisce lo streaming adattivo e il download progressivo basati su HTTP. Lo streaming basato su HTTP è altamente scalabile con i vantaggi della cache nei livelli proxy e di rete CDN, nonché della cache sul lato client. Gli endpoint di streaming forniscono funzionalità di streaming generale e configurazione per le intestazioni di cache HTTP. Gli endpoint di streaming impostano le intestazioni HTTP Cache-Control: max-age ed Expires. È possibile ottenere ulteriori informazioni per le intestazioni della cache HTTP da [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
 
 ## <a name="default-caching-headers"></a>Intestazioni di memorizzazione nella cache predefinite
@@ -49,6 +49,6 @@ Servizi multimediali di Azure fornisce [la rete CDN integrata](https://azure.mic
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 68f3736069a153e6de9a7ba5f11708a4eb648dbf
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8a3f389250920dcdb49a5f88812d2e3b88bfd6c6
 
 
 ---
-# <a name="deploy-your-onpremises-storsimple-device-update-1"></a>Distribuire un dispositivo StorSimple locale (Aggiornamento 1)
+# <a name="deploy-your-on-premises-storsimple-device-update-1"></a>Distribuire un dispositivo StorSimple locale (Aggiornamento 1)
 > [!div class="op_single_selector"]
 > * [Aggiornamento 2](storsimple-deployment-walkthrough-u2.md)
 > * [Aggiornamento 1](storsimple-deployment-walkthrough-u1.md)
@@ -131,7 +131,7 @@ Prima di iniziare, verificare che:
 
 * Per consentire il traffico iSCSI e cloud vengono aperte le porte nel firewall del data center come descritto in [Requisiti di rete per il dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
-## <a name="stepbystep-deployment"></a>DISTRIBUZIONE PASSO PER PASSO
+## <a name="step-by-step-deployment"></a>DISTRIBUZIONE PASSO PER PASSO
 Utilizzare le seguenti istruzioni dettagliate per distribuire il dispositivo StorSimple nel datacenter.
 
 ## <a name="step-1-create-a-new-service"></a>Passaggio 1: Creare un nuovo servizio
@@ -270,6 +270,6 @@ Per istruzioni sull'installazione di MPIO per un dispositivo StorSimple su un ho
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

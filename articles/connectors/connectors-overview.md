@@ -66,6 +66,6 @@ Le connessioni possono essere visualizzate e gestite in Azure facendo clic su **
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

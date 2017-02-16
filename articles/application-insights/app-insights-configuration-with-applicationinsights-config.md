@@ -1,6 +1,6 @@
 ---
-title: Configurazione di Application Insights SDK con ApplicationInsights.config o .xml | Documentazione Microsoft
-description: Abilitare o disabilitare i moduli di raccolta dati e aggiungere i contatori delle prestazioni e altri parametri
+title: 'Informazioni di riferimento su ApplicationInsights.config: Azure | Documentazione Microsoft'
+description: Abilitare o disabilitare i moduli di raccolta dati e aggiungere i contatori delle prestazioni e altri parametri.
 services: application-insights
 documentationcenter: 
 author: OlegAnaniev-MSFT
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/12/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: a7cf17e7c84ca6ec69b8a88b78bb0bbc91db0b5b
-ms.openlocfilehash: 24b8ede9268fb4d821913cfab313c3c7050d8ddb
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: 1a22ff8eff2a9b0f09b6209160ad5e44ff32358c
 
 
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurazione di Application Insights SDK con ApplicationInsights.config o .xml
 Application Insights .NET SDK è costituito da alcuni pacchetti NuGet. Il [pacchetto di base](http://www.nuget.org/packages/Microsoft.ApplicationInsights) fornisce l'API per l'invio di dati di telemetria ad Application Insights. [Altri pacchetti](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) forniscono *moduli* e *inizializzatori* di telemetria per il rilevamento automatico dei dati di telemetria dall'applicazione e dal rispettivo contesto. Modificando il file di configurazione, è possibile abilitare o disabilitare i moduli e gli inizializzatori di telemetria e impostare parametri per alcuni di essi.
 
-Il file di configurazione è denominato `ApplicationInsights.config` o `ApplicationInsights.xml`, a seconda del tipo di applicazione. Viene aggiunto automaticamente al progetto quando si [installa la maggior parte delle versioni dell'SDK][start]. Viene anche aggiunto a un'App Web da [Status Monitor in un server IIS][redfield] o quando si seleziona l'[estensione Application Insights per un sito Web o una VM di Azure](app-insights-azure-web-apps.md).
+Il file di configurazione è denominato `ApplicationInsights.config` o `ApplicationInsights.xml`, a seconda del tipo di applicazione. Viene aggiunto automaticamente al progetto quando si [installano alcune versioni dell'SDK][start]. Viene anche aggiunto a un'app Web da [Status Monitor][redfield] in un server IIS o quando si seleziona l'[estensione Application Insights per un sito Web o una macchina virtuale di Azure](app-insights-azure-web-apps.md).
 
 Non esiste un file equivalente per controllare l'[SDK in una pagina Web][client].
 
@@ -246,7 +246,7 @@ Se si vuole inviare un set specifico di eventi a una risorsa diversa, è possibi
 
 ```
 
-Per ottenere una nuova chiave, [creare una nuova risorsa nel portale di Application Insights][nuovo].
+Per ottenere una nuova chiave, [creare una nuova risorsa nel portale di Application Insights][new].
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Altre informazioni sull'API][api].
@@ -258,12 +258,12 @@ Per ottenere una nuova chiave, [creare una nuova risorsa nel portale di Applicat
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[nuovo]: app-insights-create-new-resource.md
+[new]: app-insights-create-new-resource.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

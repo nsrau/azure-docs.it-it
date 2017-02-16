@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 11/16/2016
 ms.author: denlee
 translationtype: Human Translation
-ms.sourcegitcommit: bf07b8a10dd7e5ee9259c6fab9da886578504fe7
-ms.openlocfilehash: 4852d2b59faf01961fc8e39680bb05694dcde8d6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d8abb90b19fd3b79324209a2418c414e3b6bb301
 
 
 ---
@@ -457,7 +457,7 @@ Dopo aver completato questi passaggi, è necessario creare un'interfaccia utente
             }
         }
 3. Sarà necessaria un'interfaccia utente Web per la visualizzazione dell'utente. A tale scopo, riscrivere il file index.jsp creato in precedenza:
-   
+    ```html
         <html>
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -544,6 +544,7 @@ Dopo aver completato questi passaggi, è necessario creare un'interfaccia utente
           <script src="assets/todo.js"></script>
         </body>
         </html>
+    ```
 4. Scrivere infine codice Javascript sul lato client per il collegamento dell'interfaccia utente Web e dell'oggetto servlet:
    
         var todoApp = {
@@ -763,6 +764,6 @@ Tutti gli esempi in questa esercitazione sono inclusi nel progetto [todo](https:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

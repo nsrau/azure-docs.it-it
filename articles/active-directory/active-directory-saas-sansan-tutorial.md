@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2533338698478a4d9aa07aace93c9bbecb0b3350
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a21fb8c22b5c429fc768e128162836275ff18bf1
 
 
 ---
@@ -263,6 +263,6 @@ Quando si fa clic sul riquadro SanSan nel pannello di accesso, si dovrebbe acced
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

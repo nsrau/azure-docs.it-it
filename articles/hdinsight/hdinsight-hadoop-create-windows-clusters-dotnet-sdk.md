@@ -1,6 +1,6 @@
 ---
 title: Creare cluster Hadoop basati su Windows in HDInsight usando .NET SDK | Documentazione Microsoft
-description: Informazioni su come creare cluster HDInsight per Azure HDInsight usando .NET SDK.
+description: Informazioni su come creare cluster Hadoop basati su Windows in HDInsight usando .NET SDK.
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -13,18 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 21f2a14c1514c3f70787613c5f0962dc3eabd7b1
+ms.sourcegitcommit: ede2e4ec5f3414d1c8a17f4c120011eba0d9a6ca
+ms.openlocfilehash: 4f597fad719637e66d64143c302334b1c62e226e
 
 
 ---
 # <a name="create-windows-based-hadoop-clusters-in-hdinsight-using-net-sdk"></a>Creare cluster Hadoop basati su Windows in HDInsight tramite .NET SDK
+
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Informazioni su come creare cluster HDInsight tramite .NET SDK. Per altri strumenti e funzionalità per la creazione di cluster, fare clic sulla scheda Seleziona nella parte superiore di questa pagina o vedere [Metodi di creazione di cluster](hdinsight-provision-clusters.md#cluster-creation-methods).
+Informazioni su come creare cluster Hadoop basati su Windows in HDInsight tramite .NET SDK. 
+
+Le informazioni contenute in questo articolo si applicano solo ai cluster HDInsight basati su Windows. Per informazioni sulla creazione di cluster basati su Linux, vedere [Creare cluster Hadoop in HDInsight usando .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
+
+> [!IMPORTANT]
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Prerequisiti:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -245,6 +251,6 @@ Lo script di Azure PowerShell seguente può essere usato per creare i componenti
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

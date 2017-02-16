@@ -3,7 +3,7 @@ title: "Relazioni tra attività in Azure Batch | Documentazione Microsoft"
 description: "È possibile creare attività che dipendono dal completamento corretto di altre attività per l&quot;elaborazione di carichi di lavoro di tipo MapReduce e carichi di lavoro Big Data simili in Azure Batch."
 services: batch
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 09/28/2016
-ms.author: marsma
+ms.date: 01/05/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c16850788a4c22c964037f28bf955e570551142d
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 5883417c6f7a0ce45c9c34ac2d37e5c1bea95ab1
 
 
 ---
@@ -95,7 +95,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 ```
 
 ### <a name="one-to-many"></a>Uno-a-molti
-Per creare un'attività che dipende dal corretto completamento di più attività, è necessario fornire una raccolta di ID attività al metodo statico [TaskDependencies][net_taskdependencies].[OnId][net_onids] quando si popola la proprietà [DependsOn][net_dependson] di [CloudTask][net_cloudtask].
+Per creare un'attività che dipende dal corretto completamento di più attività, è necessario fornire una raccolta di ID attività al metodo statico [TaskDependencies][net_taskdependencies].[OnIds][net_onids] quando si popola la proprietà [DependsOn][net_dependson] di [CloudTask][net_cloudtask].
 
 ```csharp
 // 'Rain' and 'Sun' don't depend on any other tasks
@@ -169,6 +169,6 @@ Per una panoramica delle diverse modalità di preparazione dei nodi per l'esecuz
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

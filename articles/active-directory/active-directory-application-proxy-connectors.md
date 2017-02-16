@@ -1,5 +1,5 @@
 ---
-title: Uso dei connettori proxy di applicazione di Azure AD | Microsoft Docs
+title: Uso dei connettori proxy di applicazione di Azure AD | Microsoft Azure
 description: Illustra come creare e gestire i gruppi di connettori nel proxy di applicazione di Azure AD.
 services: active-directory
 documentationcenter: 

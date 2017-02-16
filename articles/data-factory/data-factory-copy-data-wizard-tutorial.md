@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d47c43201b15a3452871d662038a1246ea403f02
+ms.sourcegitcommit: 3205077236dd44253b3fa36d6eace36fb307871e
+ms.openlocfilehash: 11754bbe534638d8321f509d7d82e025c667176c
 
 
 ---
@@ -60,8 +60,8 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Azu
    2. Selezionare la **sottoscrizione**di Azure.
    3. In Gruppo di risorse eseguire una di queste operazioni: 
       
-      1. Selezionare **Usa esistente** per scegliere un gruppo di risorse esistente.
-      2. Selezionare **Crea nuovo** per immettere un nome per un gruppo di risorse.
+      - Selezionare **Usa esistente** per scegliere un gruppo di risorse esistente.
+      - Selezionare **Crea nuovo** per immettere un nome per un gruppo di risorse.
          
           Alcuni dei passaggi di questa esercitazione presuppongono l'uso del nome **ADFTutorialResourceGroup** per il gruppo di risorse. Per informazioni sui gruppi di risorse, vedere l'articolo relativo all' [uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).
    4. Selezionare una **località** per la data factory.
@@ -163,6 +163,6 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Azu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

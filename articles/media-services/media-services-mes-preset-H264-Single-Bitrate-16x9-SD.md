@@ -1,6 +1,6 @@
 ---
 title: Codec video H.264 a bitrate singolo con risoluzione 16x9 SD | Documentazione Microsoft
-description: "Questo argomento offre una panoramica del set di impostazioni di attività **Codec video H.264 a bitrate singolo con risoluzione 16x9 SD**."
+description: "Questo argomento contiene una panoramica del set di impostazioni di attività **Codec video H.264 a bitrate singolo con risoluzione 16x9 SD**."
 author: Juliako
 manager: erikre
 editor: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: 30c7ab92aa21c0896c35a57e0bff3aa3e5d15261
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: d1c543c0e2ea0afa2338697b60628fa49350b1f5
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 30c7ab92aa21c0896c35a57e0bff3aa3e5d15261
   
  Il set di impostazioni genera un unico file MP4 con una velocità in bit di 2200 kbps e audio AAC stereo. Per informazioni dettagliate su profilo, velocità in bit, frequenza di campionamento e così via di questo set di impostazioni, esaminare il codice XML o JSON definito di seguito. Per informazioni sul significato di ogni elemento in questi set di impostazioni e sui valori possibili per ciascuno, vedere lo [schema di Media Encoder Standard](media-services-mes-schema.md).  
   
- XMLl  
+ XML  
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
@@ -119,6 +119,7 @@ ms.openlocfilehash: 30c7ab92aa21c0896c35a57e0bff3aa3e5d15261
 ```
 
 
-<!--HONumber=Nov16_HO5-->
+
+<!--HONumber=Jan17_HO2-->
 
 

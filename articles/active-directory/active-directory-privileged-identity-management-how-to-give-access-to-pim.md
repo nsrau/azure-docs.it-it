@@ -1,9 +1,9 @@
 ---
-title: Come concedere l&quot;accesso a PIM | Documentazione Microsoft
+title: Come concedere l&quot;accesso per la gestione di Privileged Identity Management - Azure | Documentazione Microsoft
 description: Informazioni su come aggiungere ruoli agli utenti con l&quot;estensione Azure Active Directory Privileged Identity Management per consentire la gestione di PIM.
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: d4c53b53-2b37-41e6-813c-96ec08a1c897
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/22/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 42273f2e20be65cc794d078fb4c3ba4585d2aa79
+ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
+ms.openlocfilehash: 81deb3b31a4483b8c0031cf3571e5c5752db39ac
 
 
 ---
-# <a name="how-to-give-access-to-manage-azure-ad-privileged-identity-management"></a>Come concedere l'accesso per la gestione di Azure AD Privileged Identity Management
+# <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Concedere l'accesso per la gestione di Azure AD Privileged Identity Management
 L'amministratore globale che abilita Azure AD Privileged Identity Management (PIM) per un'organizzazione ottiene automaticamente le assegnazioni di ruolo e l'accesso a PIM. Per impostazione predefinita, nessun altro utente ottiene l'accesso in scrittura, inclusi gli altri amministratori globali. Gli altri amministratori globali, amministratori della sicurezza e ruoli con autorizzazioni di lettura per la sicurezza hanno l'accesso in sola lettura ad Azure AD PIM. Per concedere l'accesso a PIM, il primo utente può assegnare ad altri il ruolo di **amministratore dei ruoli con privilegi** . Questa assegnazione deve essere eseguita dall'interno PIM e non può essere modificata tramite PowerShell o altri portali.
 
 > [!NOTE]
@@ -63,6 +63,6 @@ Prima di rimuovere un utente dal ruolo di amministratore dei ruoli con privilegi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

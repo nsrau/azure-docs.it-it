@@ -1,5 +1,5 @@
 ---
-title: Supporto multi-tenant in Azure Site Recovery per replicare le macchine virtuali VMware in Azure tramite il programma CSP | Microsoft Docs
+title: Supporto multi-tenant per la replica di macchine virtuali VMware in Azure (programma CSP) | Documentazione Microsoft
 description: Descrive come distribuire Azure Site Recovery i n un ambiente multi-tenant per orchestrare la replica, il failover e il ripristino di macchine virtuali VMware locali in Azure tramite il programma CSP con il portale di Azure
 services: site-recovery
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: manayar
 translationtype: Human Translation
-ms.sourcegitcommit: 4727eeb92a7cd06c4775d7cbf5594ab752a1e8f2
-ms.openlocfilehash: 80eb816f50d707e7605b9863c9cb99bce5c3d592
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: ed484afc59bbf48490e3ff4389e8e28c71a5e471
 
 
 ---
@@ -44,7 +44,7 @@ L'architettura ha un aspetto simile al seguente:
 
 **Figura 1: Scenario di hosting condiviso con un vCenter**
 
-Come illustrato dalla rappresentazione precedente, ogni cliente avrà un server di gestione separato. Questo ha lo scopo di limitare l'accesso ai tenant alle macchine virtuali specifiche del tenant per abilitare l'isolamento dei tenant. Lo scenario di replica delle macchine virtuali VMware usa il server di configurazione per gestire gli account in modo da individuare le macchine virtuali e installare gli agenti. Gli stessi principi valgono per gli ambienti multi-tenant, dove in aggiunta viene limitata l'individuazione delle macchine virtuali attraverso il controllo di accesso di vCenter. 
+Come illustrato dalla rappresentazione precedente, ogni cliente avrà un server di gestione separato. Questo ha lo scopo di limitare l'accesso ai tenant alle macchine virtuali specifiche del tenant per abilitare l'isolamento dei tenant. Lo scenario di replica delle macchine virtuali VMware usa il server di configurazione per gestire gli account in modo da individuare le macchine virtuali e installare gli agenti. Gli stessi principi valgono per gli ambienti multi-tenant, dove in aggiunta viene limitata l'individuazione delle macchine virtuali attraverso il controllo di accesso di vCenter.
 
 Il requisito di isolamento di dati richiede che tutte le informazioni riservate dell'infrastruttura (ad esempio le credenziali di accesso) rimangano divulgate da tenant. Per questo motivo, è consigliabile che tutti i componenti del server di gestione (Configuration Server o CS, Process Server o PS e Master Target Server o MT) rimangono sotto il controllo esclusivo del partner. È incluso l'aumento delle istanze di PS.
 
@@ -63,7 +63,7 @@ L'alternativa consiste nell'assegnare l'account utente e il ruolo dell'oggetto d
 
 La procedura di accesso all'account vCenter è la seguente:
 
-1.  Creare un nuovo ruolo clonando il ruolo predefinito "Read-only" e assegnargli un nome appropriato (ad esempio Azure_Site_Recovery usato qui). 
+1.  Creare un nuovo ruolo clonando il ruolo predefinito "Read-only" e assegnargli un nome appropriato (ad esempio Azure_Site_Recovery usato qui).
 2.  Assegnare al ruolo le autorizzazioni seguenti:
  *  Datastore (Archivio dati) -> Allocate space (Alloca spazio), Browse datastore (Sfoglia archivio dati), Low level file operations (Operazioni file di livello basso), Remove file (Rimuovi file), Update virtual machine files (Aggiorna file macchina virtuale)
  *  Network (Rete) -> Network assign (Assegnazione rete)
@@ -95,7 +95,7 @@ Per limitare le operazioni di ripristino di emergenza fino allo stato di failove
 
 ## <a name="other-multi-tenant-environments"></a>Altri ambienti multi-tenant
 
-Le indicazioni riportate sopra descrivono i dettagli per la configurazione di un ambiente multi-tenant per una soluzione di hosting condiviso. Le altre due soluzioni principali sono il servizio di hosting dedicato e il servizio gestito. La loro architettura è illustrata di seguito: 
+Le indicazioni riportate sopra descrivono i dettagli per la configurazione di un ambiente multi-tenant per una soluzione di hosting condiviso. Le altre due soluzioni principali sono il servizio di hosting dedicato e il servizio gestito. La loro architettura è illustrata di seguito:
 
 ### <a name="dedicated-hosting-solution"></a>Soluzione di hosting dedicato
 
@@ -115,7 +115,7 @@ Qui la differenza in termini di architettura è che l'infrastruttura di ogni ten
 
 
 ## <a name="csp-program-overview"></a>Panoramica del programma CPS
-Il [programma](https://partner.microsoft.com/en-US/cloud-solution-provider) Cloud Solution Provider (CPS) di Microsoft promuove racconti di collaborazione con i partner per offrire tutti i servizi cloud Microsoft, tra cui Office 365 EMS e Microsoft Azure. Consente ai partner Microsoft di essere proprietari della relazione end-to-end con i clienti e di diventare il punto di contatto primario nella relazione. Tramite CSP, un partner può distribuire le sottoscrizioni di Azure per i clienti e combinarle con le proprie offerte personalizzate a valore aggiunto. 
+Il [programma](https://partner.microsoft.com/en-US/cloud-solution-provider) Cloud Solution Provider (CPS) di Microsoft promuove racconti di collaborazione con i partner per offrire tutti i servizi cloud Microsoft, tra cui Office&365; EMS e Microsoft Azure. Consente ai partner Microsoft di essere proprietari della relazione end-to-end con i clienti e di diventare il punto di contatto primario nella relazione. Tramite CSP, un partner può distribuire le sottoscrizioni di Azure per i clienti e combinarle con le proprie offerte personalizzate a valore aggiunto.
 
 Nel caso di Azure Site Recovery, i partner possono gestire la soluzione completa di ripristino di emergenza per i clienti direttamente tramite CSP oppure usare CSP per configurare gli ambienti di Azure Site Recovery e consentire ai clienti di gestire le proprie esigenze di ripristino di emergenza in modalità self-service. In entrambi i casi, il partner è il collegamento tra Azure Site Recovery e i clienti finali e il partner provvede alla relazione con il cliente ed emette le fatture relative all'uso di Azure Site Recovery.
 
@@ -152,11 +152,11 @@ I prerequisiti per le macchine virtuali sono quelli descritti nella [documentazi
 ### <a name="step-2-access-tenant-account"></a>Passaggio 2: Accedere all'account tenant
 
 1.  È possibile accedere alla sottoscrizione del tenant dalla pagina Clienti tramite il dashboard, come descritto al passaggio 1. Accedere alla pagina e fare clic sul nome dell'account tenant appena creato.
-2.  Verrà visualizzata la sezione Sottoscrizioni dell'account del tenant; da qui è possibile monitorare le sottoscrizioni esistenti per l'account e aggiungerne altre in base alle esigenze. Per gestire le operazioni di ripristino di emergenza del tenant, selezionare l'opzione All resources (Azure portal) (Tutte le sottoscrizioni (Portale di Azure)) a destra della pagina. 
+2.  Verrà visualizzata la sezione Sottoscrizioni dell'account del tenant; da qui è possibile monitorare le sottoscrizioni esistenti per l'account e aggiungerne altre in base alle esigenze. Per gestire le operazioni di ripristino di emergenza del tenant, selezionare l'opzione All resources (Azure portal) (Tutte le sottoscrizioni (Portale di Azure)) a destra della pagina.
 
     ![all-resources](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)
 
-3.  Facendo clic sul pulsante All resources (Tutte le risorse) viene concesso l'accesso alle sottoscrizioni di Azure del tenant ed è possibile verificare lo stesso selezionando l'opzione AAD visualizzata in alto a destra nel Portale di Azure. 
+3.  Facendo clic sul pulsante All resources (Tutte le risorse) viene concesso l'accesso alle sottoscrizioni di Azure del tenant ed è possibile verificare lo stesso selezionando l'opzione AAD visualizzata in alto a destra nel Portale di Azure.
 
     ![aad-admin](./media/site-recovery-multi-tenant-support-vmware-using-csp/aad-admin-display.png)
 
@@ -183,11 +183,11 @@ Per il caso di ripristino di emergenza self-service è necessario specificare al
 Un partner può anche aggiungere un nuovo utente alla sottoscrizione tenant tramite il portale CSP come indicato di seguito:
 
 1.  Accedere alla pagina della sottoscrizione CSP specifica del tenant e selezionare l'opzione Users and licenses (Utenti e licenze).
-    
+
     ![user-licenses](./media/site-recovery-multi-tenant-support-vmware-using-csp/users-and-licences.png)
 
-    È ora possibile creare un nuovo utente immettendo i dettagli più importanti e selezionando le autorizzazioni oppure, in alternativa, caricando l'elenco di utenti tramite un file CSV. 
-2.  Dopo aver creato gli utenti, tornare al Portale di Azure e selezionare la sottoscrizione pertinente nel pannello Sottoscrizione. 
+    È ora possibile creare un nuovo utente immettendo i dettagli più importanti e selezionando le autorizzazioni oppure, in alternativa, caricando l'elenco di utenti tramite un file CSV.
+2.  Dopo aver creato gli utenti, tornare al Portale di Azure e selezionare la sottoscrizione pertinente nel pannello Sottoscrizione.
 3.  Nel nuovo pannello visualizzato selezionare Controllo di accesso (IAM) e fare clic su +Aggiungi per aggiungere un utente con il livello di accesso pertinente. Gli utenti creati tramite il portale CSP verranno automaticamente visualizzati nel pannello aperto dopo aver fatto clic su un livello di accesso.
 
     ![user-subscription](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-user-subscription.png)
@@ -196,8 +196,6 @@ Un partner può anche aggiungere un nuovo utente alla sottoscrizione tenant tram
 
 
 
-
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

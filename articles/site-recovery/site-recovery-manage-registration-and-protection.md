@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/19/2016
+ms.date: 12/28/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 3710f5966889b805b3ea8d2a3fe33fa9ab86c2ec
-ms.openlocfilehash: 5dff369ca32f9f4487684b27c57d2722ab9ad954
+ms.sourcegitcommit: f57c88cbace41af233f542880c6199b3e278700e
+ms.openlocfilehash: c8d893dbac1a4f6cb3f05f857e186bca155e5865
 
 
 ---
@@ -29,22 +29,32 @@ Questo articolo descrive come annullare la registrazione di server dall'insieme 
 
 Per inviare commenti o domande, è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="unregister-a-configuration-server"></a>Annullare la registrazione di un server di configurazione
+## <a name="unregister-a-connected-configuration-server"></a>Annullare la registrazione di un server di configurazione connesso
 
-Se si replicano VM VMware o server fisici Windows/Linux in Azure, è possibile annullare la registrazione del server di configurazione da un insieme di credenziali come indicato di seguito:
+Se si replicano macchine virtuali VMware o server fisici Windows/Linux in Azure, è possibile annullare la registrazione di un server di configurazione connesso da un insieme di credenziali come indicato di seguito:
 
 1. Disabilitare la protezione delle macchine. In **Elementi protetti** > **Elementi replicati** fare clic sulla macchina > **Elimina**.
 2. Annullare l'associazione di tutti i criteri. In **Infrastruttura di Site Recovery** > **Per VMWare e computer fisici** > **Criteri di replica** fare doppio clic sui criteri associati. Fare doppio clic su server di configurazione > **Annulla associazione**.
 3. Rimuovere qualsiasi server di destinazione master o di elaborazione locale aggiuntivo. In **Infrastruttura di Site Recovery** > **Per VMWare e computer fisici** > **Server di configurazione** fare clic con il pulsante destro del mouse sul server > **Elimina**.
 4. Eliminare il server di configurazione.
 5. Disinstallare manualmente il servizio di mobilità in esecuzione nel server di destinazione master che sarà un server separato o in esecuzione nel server di configurazione.
-6. Disinstallare il server di configurazione.
-7. Disinstallare eventuali server di elaborazione aggiuntivi.
+6. Disinstallare eventuali server di elaborazione aggiuntivi.
+7. Disinstallare il server di configurazione.
 8. Nel server di configurazione disinstallare l'istanza di MySQL installata da Site Recovery.
 9. Eliminare la chiave ``HKEY_LOCAL_MACHINE\Software\Microsoft\Azure Site Recovery`` nel Registro di sistema del server di configurazione.
 
-Le istruzioni sono identiche sia che il server di configurazione sia connesso o non connesso ad Azure.
+## <a name="unregister-a-unconnected-configuration-server"></a>Annullare la registrazione di un server di configurazione non connesso
 
+Se si replicano macchine virtuali VMware o server fisici Windows/Linux in Azure, è possibile annullare la registrazione di un server di configurazione non connesso da un insieme di credenziali come indicato di seguito:
+
+1. Disabilitare la protezione delle macchine. In **Elementi protetti** > **Elementi replicati** fare clic sulla macchina > **Elimina**. Selezionare **Interrompi gestione della macchina virtuale**.
+2. Rimuovere qualsiasi server di destinazione master o di elaborazione locale aggiuntivo. In **Infrastruttura di Site Recovery** > **Per VMWare e computer fisici** > **Server di configurazione** fare clic con il pulsante destro del mouse sul server > **Elimina**.
+3. Eliminare il server di configurazione.
+4. Disinstallare manualmente il servizio di mobilità in esecuzione nel server di destinazione master che sarà un server separato o in esecuzione nel server di configurazione.
+5. Disinstallare eventuali server di elaborazione aggiuntivi.
+6. Disinstallare il server di configurazione.
+7. Nel server di configurazione disinstallare l'istanza di MySQL installata da Site Recovery.
+8. Eliminare la chiave ``HKEY_LOCAL_MACHINE\Software\Microsoft\Azure Site Recovery`` nel Registro di sistema del server di configurazione.
 
 ## <a name="unregister-a-connected-vmm-server"></a>Annullare la registrazione di un server VMM connesso
 
@@ -229,6 +239,6 @@ Usare questa procedura se si esegue la replica di VM Hyper-V in Azure senza un s
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

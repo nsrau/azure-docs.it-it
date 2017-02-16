@@ -1,19 +1,23 @@
 ---
-title: Inoltro automatico di entità di messaggistica del bus di servizio | Microsoft Docs
-description: Come concatenare una coda o una sottoscrizione a un'altra coda o argomento.
-services: service-bus
+title: "Inoltro automatico di entità di messaggistica del bus di servizio | Documentazione Microsoft"
+description: Come concatenare una coda o una sottoscrizione a un&quot;altra coda o argomento.
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: f7060778-3421-402c-97c7-735dbf6a61e8
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2016
+ms.date: 01/10/2017
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 994a379129bffd7457912bc349f240a970aed253
+ms.openlocfilehash: cbbd416a065b3284e85957cc024955d11524d3da
+
 
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>Concatenamento di entità del bus di servizio con l'inoltro automatico
@@ -22,7 +26,7 @@ La funzionalità di *inoltro automatico* consente di concatenare una coda o una 
 ## <a name="using-auto-forwarding"></a>Utilizzo dell'inoltro automatico
 Per abilitare l'inoltro automatico, è possibile impostare la proprietà [QueueDescription.ForwardTo][QueueDescription.ForwardTo] o [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] nell'oggetto [QueueDescription][QueueDescription] o [SubscriptionDescription][SubscriptionDescription] per l'origine, come illustrato nell'esempio seguente.
 
-```
+```csharp
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
 srcSubscription.ForwardTo = destTopic;
 namespaceManager.CreateSubscription(srcSubscription));
@@ -56,17 +60,18 @@ Per informazioni dettagliate sull'inoltro automatico, vedere gli argomenti di ri
 * [QueueDescription][QueueDescription]
 * [SubscriptionDescription][SubscriptionDescription]
 
-Per altre informazioni sui miglioramenti delle prestazioni del bus di servizio, vedere [Entità di messaggistica partizionate][Entità di messaggistica partizionate].
+Per altre informazioni sui miglioramenti delle prestazioni del bus di servizio, vedere [Code e argomenti partizionati][Partitioned messaging entities].
 
-[QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
-[SubscriptionDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx
-[QueueDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx
-[SubscriptionDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.aspx
+[QueueDescription.ForwardTo]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
+[SubscriptionDescription.ForwardTo]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo
+[QueueDescription]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription
+[SubscriptionDescription]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription
 [0]: ./media/service-bus-auto-forwarding/IC628631.gif
 [1]: ./media/service-bus-auto-forwarding/IC628632.gif
-[Entità di messaggistica partizionate]: service-bus-partitioning.md
+[Partitioned messaging entities]: service-bus-partitioning.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Jan17_HO2-->
 
 

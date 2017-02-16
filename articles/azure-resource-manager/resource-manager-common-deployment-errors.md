@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2016
+ms.date: 12/12/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 3098845eb6cf39eff7cb7b0c26c9e715c1688142
-ms.openlocfilehash: fa74439938fc97a06e8a8f767f5928721dd5affe
+ms.sourcegitcommit: e2e59da29897a40f0fe538d6fe8063ae5edbaccd
+ms.openlocfilehash: 4dd4e54f3e2514570ff5cbffcb926f274491cb65
 
 
 ---
@@ -47,18 +47,22 @@ Gli errori di distribuzione restituiscono il codice **DeploymentFailed**. Tuttav
 
 In questo argomento sono descritti i codici di errore seguenti:
 
-* [InvalidTemplate](#invalidtemplate)
-* [NotFound and ResourceNotFound](#notfound-and-resourcenotfound)
-* [ParentResourceNotFound](#parentresourcenotfound)
-* [StorageAccountAlreadyExists and StorageAccountAlreadyTaken](#storageaccountalreadyexists-and-storageaccountalreadytaken)
 * [AccountNameInvalid](#accountnameinvalid)
-* [BadRequest](#badrequest)
-* [NoRegisteredProviderFound](#noregisteredproviderfound)
-* [QuotaExceeded e OperationNotAllowed](#quotaexceeded-and-operationnotallowed)
-* [InvalidContentLink](#invalidcontentlink)
-* [RequestDisallowedByPolicy](#requestdisallowedbypolicy)
 * [Authorization failed](#authorization-failed)
+* [BadRequest](#badrequest)
+* [InvalidContentLink](#invalidcontentlink)
+* [InvalidTemplate](#invalidtemplate)
+* [MissingSubscriptionRegistration](#noregisteredproviderfound)
+* [NotFound](#notfound)
+* [NoRegisteredProviderFound](#noregisteredproviderfound)
+* [OperationNotAllowed](#quotaexceeded)
+* [ParentResourceNotFound](#parentresourcenotfound)
+* [QuotaExceeded](#quotaexceeded)
+* [RequestDisallowedByPolicy](#requestdisallowedbypolicy)
+* [ResourceNotFound](#notfound)
 * [SkuNotAvailable](#skunotavailable)
+* [StorageAccountAlreadyExists](#storagenamenotunique)
+* [StorageAccountAlreadyTaken](#storagenamenotunique)
 
 ### <a name="invalidtemplate"></a>InvalidTemplate
 Questo errore può essere causato da diversi tipi di errori.
@@ -142,6 +146,7 @@ Questo errore può essere causato da diversi tipi di errori.
 
    Ricontrollare i valori consentiti nel modello e specificarne uno durante la distribuzione.
 
+<a id="notfound" />
 ### <a name="notfound-and-resourcenotfound"></a>NotFound and ResourceNotFound
 Quando il modello include il nome di una risorsa che non può essere risolta, verrà visualizzato un errore simile al seguente:
 
@@ -195,6 +200,7 @@ Tuttavia, se non si specifica una dipendenza dalla risorsa padre, la risorsa fig
         "[variables('databaseServerName')]"
     ]
 
+<a id="storagenamenotunique" />
 ### <a name="storageaccountalreadyexists-and-storageaccountalreadytaken"></a>StorageAccountAlreadyExists and StorageAccountAlreadyTaken
 Per gli account di archiviazione, il nome della risorsa specificato deve essere univoco in Azure. Se non si specifica un nome univoco, verrà visualizzato un errore come il seguente:
 
@@ -215,20 +221,38 @@ L'errore **AccountNameInvalid** viene visualizzato quando si prova ad assegnare 
 
 Quando per una proprietà si specifica un valore non valido, può comparire lo stato BadRequest. Ad esempio, se per un account di archiviazione si fornisce un valore SKU non corretto, la distribuzione ha esito negativo. 
 
-### <a name="noregisteredproviderfound"></a>NoRegisteredProviderFound
+<a id="noregisteredproviderfound" />
+### <a name="noregisteredproviderfound-and-missingsubscriptionregistration"></a>NoRegisteredProviderFound e MissingSubscriptionRegistration
 Quando si distribuisce una risorsa, è possibile che venga visualizzato il codice di errore e il messaggio seguenti:
 
     Code: NoRegisteredProviderFound
     Message: No registered resource provider found for location {ocation}
     and API version {api-version} for type {resource-type}.
 
-Questo errore viene visualizzato per uno di questi tre motivi:
+In alternativa, si potrebbe ricevere un messaggio analogo che indica:
 
-1. Il percorso non è supportato per il tipo di risorsa
+    Code: MissingSubscriptionRegistration
+    Message: The subscription is not registered to use namespace {resource-provider-namespace}
+
+Questi errori vengono visualizzati per uno di questi tre motivi:
+
+1. Il provider di risorse non è stato registrato per la sottoscrizione
 2. La versione dell'API non è supportata per il tipo di risorsa
-3. Il provider di risorse non è stato registrato per la sottoscrizione
+3. Il percorso non è supportato per il tipo di risorsa
 
 Il messaggio di errore dovrebbe fornire suggerimenti per le versioni di API e i percorsi supportati. È possibile modificare il modello impostando uno dei valori suggeriti. La maggior parte dei provider, ma non tutti, vengono registrati automaticamente dal portale di Azure o dall'interfaccia della riga di comando che si sta usando. Se non è mai stato usato un provider di risorse specifico, potrebbe essere necessario registrarlo. È possibile ottenere altre informazioni sui provider di risorse tramite PowerShell o l'interfaccia della riga di comando di Azure.
+
+**Portale**
+
+È possibile visualizzare lo stato di registrazione e registrare uno spazio dei nomi del provider di risorse tramite il portale.
+
+1. Selezionare **Provider di risorse** per la propria sottoscrizione.
+
+   ![selezionare i provider di risorse](./media/resource-manager-common-deployment-errors/select-resource-provider.png)
+
+2. Esaminare l'elenco dei provider di risorse e, se necessario, selezionare il link **Registra** per registrare il provider di risorse del tipo che si intende distribuire.
+
+   ![Elenco di provider di risorse](./media/resource-manager-common-deployment-errors/list-resource-providers.png)
 
 **PowerShell**
 
@@ -262,6 +286,7 @@ Per visualizzare le versioni di API e i percorsi supportati per un provider di r
 
     azure provider show -n Microsoft.Compute --json > compute.json
 
+<a id="quotaexceeded" />
 ### <a name="quotaexceeded-and-operationnotallowed"></a>QuotaExceeded e OperationNotAllowed
 Alcuni problemi potrebbero verificarsi quando una distribuzione supera una quota specifica per un gruppo di risorse, le sottoscrizioni, gli account o per altri ambiti. Ad esempio, la sottoscrizione potrebbe essere configurata in modo da limitare il numero di core per un'area. Se si prova a distribuire una macchina virtuale con un numero di core superiore alla quantità consentita, verrà visualizzato un messaggio di errore che informa che la quota è stata superata.
 Per informazioni complete sulle quote, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
@@ -433,6 +458,28 @@ Talvolta il modo più semplice per risolvere i problemi del modello è testarne 
 
 In alternativa, si supponga di incontrare errori di distribuzione presumibilmente correlati a dipendenze impostate in modo errato. Testare il modello suddividendolo in modelli semplificati. Creare innanzitutto un modello che distribuisce una sola risorsa (ad esempio SQL Server). Quando si è certi che la risorsa sia definita correttamente, aggiungere una risorsa che dipende da essa (ad esempio un database SQL). Una volta definite correttamente queste due risorse, aggiungere altre risorse che dipendono da esse (ad esempio criteri di controllo). Tra una distribuzione di test e l'altra, eliminare il gruppo di risorse per assicurarsi di testare le dipendenze in modo adeguato. 
 
+### <a name="check-deployment-sequence"></a>Controllare la sequenza di distribuzione
+
+Molti errori di distribuzione si verificano quando le risorse vengono distribuite secondo una sequenza imprevista. Questi errori vengono generati quando le dipendenze non sono impostate correttamente. Una risorsa tenta di usare un valore per un'altra risorsa, ma quest'ultima non esiste ancora. Per visualizzare l'ordine delle operazioni di distribuzione:
+
+1. Selezionare la cronologia delle distribuzioni per il gruppo di risorse.
+
+   ![selezionare la cronologia delle distribuzioni](./media/resource-manager-common-deployment-errors/select-deployment.png)
+
+2. Selezionare una distribuzione dalla cronologia e fare clic su **Eventi**.
+
+   ![selezionare gli eventi di distribuzione](./media/resource-manager-common-deployment-errors/select-deployment-events.png)
+
+3. Esaminare la sequenza degli eventi per ogni risorsa. Prestare attenzione allo stato di ciascuna operazione. Ad esempio, l'immagine seguente mostra tre account di archiviazione distribuiti in parallelo. Si noti che i tre account di archiviazione vengono avviati contemporaneamente.
+
+   ![distribuzione parallela](./media/resource-manager-common-deployment-errors/deployment-events-parallel.png)
+
+   L'immagine successiva mostra tre account di archiviazione che non vengono distribuiti in parallelo. Il secondo account di archiviazione è contrassegnato come dipendente dal primo account di archiviazione e il terzo account di archiviazione è dipendente dal secondo. Pertanto, il primo account di archiviazione viene avviato, accettato e completato prima che sia avviato il successivo.
+
+   ![distribuzione sequenziale](./media/resource-manager-common-deployment-errors/deployment-events-sequence.png)
+
+Esaminare gli eventi di distribuzione per verificare se una risorsa viene avviata prima del previsto. In tal caso, controllare le dipendenze per la risorsa.
+
 ## <a name="troubleshooting-other-services"></a>Risoluzione dei problemi di altri servizi
 Se i codici degli errori di distribuzione precedenti non aiutano a risolvere il problema, cercare altre indicazioni più dettagliate su come risolvere i problemi relativi allo specifico servizio di Azure che presenta l'errore.
 
@@ -455,7 +502,6 @@ La tabella seguente elenca gli argomenti sulla risoluzione dei problemi di altri
 | --- | --- |
 | Automazione |[Suggerimenti sulla risoluzione dei problemi relativi agli errori comuni in Automazione di Azure](../automation/automation-troubleshooting-automation-errors.md) |
 | Azure Stack |[Microsoft Azure Stack troubleshooting (Risoluzione dei problemi di Microsoft Azure Stack)](../azure-stack/azure-stack-troubleshooting.md) |
-| Azure Stack |[App Web e Azure Stack](../azure-stack/azure-stack-webapps-troubleshoot-known-issues.md) |
 | Data factory |[Risolvere i problemi di Data factory](../data-factory/data-factory-troubleshoot.md) |
 | Service Fabric |[Risolvere i problemi comuni quando si distribuiscono servizi in Azure Service Fabric](../service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) |
 | Site Recovery |[Monitorare e risolvere i problemi di protezione per le macchine virtuali e i server fisici](../site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
@@ -470,6 +516,6 @@ La tabella seguente elenca gli argomenti sulla risoluzione dei problemi di altri
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

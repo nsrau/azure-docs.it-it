@@ -1,6 +1,6 @@
 ---
-title: "Come valutare il livello di compatibilità | Documentazione Microsoft"
-description: "Passaggi e strumenti per determinare il livello di compatibilità ottimale per il database in Microsoft SQL Server o nel database SQL di Azure"
+title: "Livello 130 di compatibilità del database - Database SQL di Azure | Documentazione Microsoft"
+description: "In questo articolo, vengono illustrati i vantaggi dell&quot;esecuzione del database SQL di Azure al livello di compatibilità 130 e dei vantaggi delle nuove funzionalità Query Optimizer e Query Processor. Vengono discussi anche i possibili effetti collaterali sulle prestazioni delle query per le applicazioni SQL esistenti."
 services: sql-database
 documentationcenter: 
 author: alainlissoir
@@ -16,15 +16,17 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: alainl
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b778a822e49acbbae4bc9e109b673c10ccc01ae2
+ms.sourcegitcommit: 1df9f3549db8417445a5a012d31ed662977a9990
+ms.openlocfilehash: 3ad25fe844c75941303034ca1037fdb99a5c679b
 
 
 ---
 # <a name="improved-query-performance-with-compatibility-level-130-in-azure-sql-database"></a>Miglioramento delle prestazioni delle query con il livello di compatibilità 130 nel database SQL di Azure
 Il database SQL di Azure esegue in modo trasparente centinaia di migliaia di database a vari livelli di compatibilità diversi, mantenendo e garantendo la compatibilità con le versioni precedenti corrispondenti di Microsoft SQL Server per tutti i clienti.
 
-Anche i clienti che aggiornano i database esistenti al livello di compatibilità più recente possono quindi sfruttare i vantaggi delle nuove funzionalità Query Optimizer e Query Processor. Di seguito è riportato un promemoria relativo all'allineamento delle versioni di SQL ai livelli di compatibilità predefiniti.
+In questo articolo, vengono illustrati i vantaggi dell'esecuzione del database SQL di Azure al livello di compatibilità 130 e dei vantaggi delle nuove funzionalità Query Optimizer e Query Processor. Vengono discussi anche i possibili effetti collaterali sulle prestazioni delle query per le applicazioni SQL esistenti.
+
+Di seguito è riportato un promemoria relativo all'allineamento delle versioni di SQL ai livelli di compatibilità predefiniti.
 
 * 100: in SQL Server 2008 e database SQL di Azure versione 11.
 * 110: in SQL Server 2012 e database SQL di Azure versione 11.
@@ -34,11 +36,8 @@ Anche i clienti che aggiornano i database esistenti al livello di compatibilità
 > [!IMPORTANT]
 > A partire dalla **metà di giugno 2016**, nel database SQL di Azure il livello di compatibilità predefinito sarà 130 anziché 120 per i database **di nuova creazione**.
 > 
-> I database creati prima della metà di giugno 2016 *non* saranno interessati dalla modifica e manterranno il livello di compatibilità corrente (100, 110 o 120). Il livello di compatibilità non verrà modificato neanche per i database di cui viene eseguita la migrazione dalla versione 11 alla versione 12 del database SQL di Azure.
+> I database creati prima della metà di giugno 2016 *non* saranno interessati dalla modifica e manterranno il livello di compatibilità corrente (100, 110 o 120). I database di cui viene eseguita la migrazione dalla versione 11 alla versione 12 del database SQL di Azure avranno un livello di compatibilità di 100 o 110. 
 > 
-> 
-
-Questo articolo illustra i vantaggi del livello di compatibilità 130 e come sfruttarli. Vengono discussi i possibili effetti collaterali sulle prestazioni di query per le applicazioni SQL esistenti.
 
 ## <a name="about-compatibility-level-130"></a>Informazioni sul livello di compatibilità 130
 Per conoscere il livello di compatibilità corrente del database, eseguire prima di tutto l'istruzione Transact-SQL seguente.
@@ -151,7 +150,7 @@ Richiedendo il piano di query effettivo ed esaminandone la rappresentazione graf
 ![Figura 1](./media/sql-database-compatibility-level-query-performance-130/figure-1.jpg)
 
 ## <a name="serial-batch-mode"></a>Modalità batch seriale
-Analogamente, il passaggio al livello di compatibilità 130 durante l'elaborazione di righe di dati consente l'elaborazione in modalità batch. In primo luogo, le operazioni in modalità batch sono disponibili solo in presenza di un indice columnstore. In secondo luogo, un batch rappresenta in genere circa 900 righe e usa una logica del codice ottimizzata per una CPU multicore, ha una maggiore velocità effettiva della memoria e sfrutta direttamente i dati compressi dell'indice columnstore quando è possibile. In queste condizioni SQL Server 2016 può elaborare circa 900 righe contemporaneamente, anziché 1 riga alla volta. Il costo generale dell'operazione viene quindi condiviso dall'intero batch, con conseguente riduzione del costo complessivo per riga. Questa quantità condivisa di operazioni, unita alla compressione dell'indice columnstore, riduce sostanzialmente la latenza legata a un'operazione SELECT in modalità batch. Per altre informazioni sull'indice columnstore e la modalità batch, vedere la [descrizione degli indici columnstore](https://msdn.microsoft.com/library/gg492088.aspx).
+Analogamente, il passaggio al livello di compatibilità 130 durante l'elaborazione di righe di dati consente l'elaborazione in modalità batch. In primo luogo, le operazioni in modalità batch sono disponibili solo in presenza di un indice columnstore. In secondo luogo, un batch rappresenta in genere circa&900; righe e usa una logica del codice ottimizzata per una CPU multicore, ha una maggiore velocità effettiva della memoria e sfrutta direttamente i dati compressi dell'indice columnstore quando è possibile. In queste condizioni SQL Server 2016 può elaborare circa 900 righe contemporaneamente, anziché 1 riga alla volta. Il costo generale dell'operazione viene quindi condiviso dall'intero batch, con conseguente riduzione del costo complessivo per riga. Questa quantità condivisa di operazioni, unita alla compressione dell'indice columnstore, riduce sostanzialmente la latenza legata a un'operazione SELECT in modalità batch. Per altre informazioni sull'indice columnstore e la modalità batch, vedere la [descrizione degli indici columnstore](https://msdn.microsoft.com/library/gg492088.aspx).
 
 ```
 -- Serial batch mode execution
@@ -405,7 +404,7 @@ Esaminando la figura seguente, si nota che la stima delle righe è ora 202.877. 
 
 Il risultato effettivo è di 200.704 righe. Tale risultato dipende però dalla frequenza con cui sono state eseguite le query degli esempi precedenti. È importante sottolineare anche che dato l'uso dell'istruzione RAND() in TSQL, i valori effettivi restituiti possono variare da un'esecuzione all'altra. In questo particolare esempio, quindi, con una stima del numero di righe pari a 202.877, la nuova stima di cardinalità si avvicina di più al risultato effettivo di 200.704, rispetto alle 194.284 della funzionalità precedente. Infine, se si modificano i predicati della clausola WHERE in uguaglianze anziché usare, ad esempio, il simbolo ">", la differenza tra le stime della nuova funzione di cardinalità e di quella precedente può aumentare ancora di più, a seconda del numero di corrispondenze che è possibile ottenere.
 
-In questo caso, naturalmente, una differenza di circa 6000 righe rispetto al conteggio effettivo non rappresenta una grande quantità di dati, in alcune situazioni. Nella realtà si tratta spesso di milioni di righe su numerose tabelle e di query più complesse. In alcuni casi le stime possono sbagliare di milioni di righe e questo può portare a scegliere un piano di esecuzione sbagliato o a richiedere concessioni di memoria insufficienti, con conseguenti eventi di spill di TempDB e aumento delle operazioni di I/O.
+In questo caso, naturalmente, una differenza di circa&6000; righe rispetto al conteggio effettivo non rappresenta una grande quantità di dati, in alcune situazioni. Nella realtà si tratta spesso di milioni di righe su numerose tabelle e di query più complesse. In alcuni casi le stime possono sbagliare di milioni di righe e questo può portare a scegliere un piano di esecuzione sbagliato o a richiedere concessioni di memoria insufficienti, con conseguenti eventi di spill di TempDB e aumento delle operazioni di I/O.
 
 Se possibile, provare a fare questo confronto con le query e i set di dati più usati, per scoprire le differenze tra le vecchie e le nuove stime. Alcune potrebbero discostarsi ancora di più dai valori effettivi, mentre altre potrebbero avvicinarsi di più al conteggio delle righe effettivamente restituito nei set di risultati. Tutto dipende dalla forma delle query, dalle caratteristiche del database SQL di Azure, dalla natura e dalle dimensioni dei set di dati e dalle relative statistiche disponibili. Se l'istanza di database SQL di Azure è stata appena creata, Query Optimizer dovrà compilare le informazioni da zero anziché riutilizzare le statistiche relative alle esecuzioni precedenti della query. Le stime, quindi, dipendono molto dal contesto sono quasi specifiche dei singoli server e delle situazioni relative alle applicazioni. Questo è un aspetto importante da tenere presente.
 
@@ -462,6 +461,6 @@ genemi = MightyPen , 2016-05-20  Friday  17:00pm
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

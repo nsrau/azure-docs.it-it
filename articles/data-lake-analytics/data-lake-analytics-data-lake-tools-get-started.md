@@ -238,7 +238,7 @@ Esistono due modi per eseguire i file C# personalizzati:
 * Scrivere assembly nel file dietro il codice e l'assembly verrà automaticamente registrata ed eliminata al termine dello script.
 * Creare un progetto di assembly C# e registrare la dll di output per l'account locale tramite uno script come riportato di seguito. Si noti che il percorso è relativo allo script anziché alla cartella DataRoot.
 
-![ Utilizzare gli assembly in esecuzione locale U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-local-run-assembly.png)
+![Utilizzare gli assembly in esecuzione locale U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-local-run-assembly.png)
 
 ### <a name="debug-scripts-and-c-assemblies-locally"></a>Eseguire il debug degli script e delle assembly C# in locale
 È possibile eseguire il debug delle assembly C# senza inviarle e registrarle al servizio di Analisi Azure Data Lake. È possibile impostare dei punti di interruzione sia nei file dietro il codice, sia nel progetto C# a cui si fa riferimento.

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 2d8caf829d59262ab4802745e61fe6745376001a
+ms.sourcegitcommit: e64f972759173965d389b694ada23720d1182bb8
+ms.openlocfilehash: 92a6c849f5b28581fcac3713e9756dc06d7a251b
 
 
 ---
@@ -210,8 +210,37 @@ In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La
     Per informazioni sulla corretta modifica dei parametri del kernel, fare riferimento alla documentazione della distribuzione. Ad esempio, in molte distribuzioni (CentOS, Oracle Linux, SLES 11) è possibile aggiungere manualmente tali parametri al file "`/boot/grub/menu.lst`".  In Ubuntu è possibile aggiungere il parametro `GRUB_CMDLINE_LINUX_DEFAULT` alla variabile in "/etc/default/grub".
 
 
+## <a name="trimunmap-support"></a>Supporto per TRIM/UNMAP
+Alcuni kernel di Linux supportano operazioni TRIM/UNMAP allo scopo di rimuovere i blocchi inutilizzati sul disco. Nel servizio di archiviazione standard, queste operazioni sono particolarmente utili per informare Azure che le pagine eliminate non sono più valide e possono essere rimosse. L'eliminazione delle pagine consente di risparmiare sui costi quando si creano file di grandi dimensioni per poi eliminarli.
+
+> [!NOTE]
+> RAID non può inviare comandi di rimozione se le dimensioni del blocco per la matrice sono impostate su un valore inferiore a quello predefinito di 512 KB. Questo perché anche la granularità di annullamento del mapping nell'host è di 512 KB. Se le dimensioni del blocco della matrice sono state modificate tramite il parametro `--chunk=` di mdadm, il kernel può ignorare le richieste TRIM/UNMAP.
+
+Esistono due modi per abilitare la funzione TRIM in una VM Linux. Come di consueto, consultare la documentazione della distribuzione per stabilire l'approccio consigliato:
+
+- Usare l'opzione di montaggio `discard` in `/etc/fstab`, ad esempio:
+
+    ```bash
+    UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,discard  0  2
+    ```
+
+- In alcuni casi l'opzione `discard` può avere implicazioni sulle prestazioni. In alternativa, è possibile eseguire il comando `fstrim` manualmente dalla riga di comando oppure aggiungerlo a crontab per eseguirlo a intervalli regolari:
+
+    **Ubuntu**
+
+    ```bash
+    # sudo apt-get install util-linux
+    # sudo fstrim /data
+    ```
+
+    **RHEL/CentOS**
+    ```bash
+    # sudo yum install util-linux
+    # sudo fstrim /data
+    ```
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Dec16_HO1-->
 
 

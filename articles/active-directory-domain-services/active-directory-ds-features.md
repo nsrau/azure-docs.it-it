@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 01/27/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 18c3400063097cdf70398a95e9e39e9097e27992
+ms.sourcegitcommit: 76987a6e91ae688b3856567073a7d27472e5ba09
+ms.openlocfilehash: 34f84de82cbd6c15bd62abedd05e0eff6ce2dc2f
 
 
 ---
@@ -33,7 +33,7 @@ Nei domini gestiti di Servizi di dominio Azure AD sono disponibili le funzionali
 * **Usare le credenziali e/o le password aziendali:** le password degli utenti nel tenant di Azure AD sono valide per Servizi di dominio Azure AD. Gli utenti possono usare le credenziali aziendali per aggiungere computer al dominio, effettuare l'accesso in modo interattivo o tramite desktop remoto e autenticarsi nel dominio gestito.
 * **Supporto di binding LDAP e operazioni di lettura LDAP**: è possibile usare applicazioni che si basano sui binding LDAP per l'autenticazione degli utenti in domini gestiti da Servizi di dominio Azure AD. Inoltre, anche le applicazioni che usano operazioni di lettura LDAP per eseguire query sugli attributi utente/computer dalla directory possono interagire con Servizi di dominio Azure AD.
 * **LDAP sicuro (LDAPS):** è possibile abilitare l'accesso alla directory tramite LDAP sicuro (LDAPS). L'accesso LDAP sicuro è disponibile all'interno della rete virtuale per impostazione predefinita. È tuttavia possibile abilitare l'accesso LDAP sicuro tramite Internet.
-* **Criteri di gruppo:** è possibile usare un singolo oggetto Criteri di gruppo predefinito per i contenitori degli utenti e dei computer, in modo da garantire la conformità ai criteri di sicurezza richiesti per gli account utente e per i computer aggiunti al dominio.
+* **Criteri di gruppo:** è possibile usare un singolo oggetto Criteri di gruppo predefinito per i contenitori degli utenti e dei computer, in modo da garantire la conformità ai criteri di sicurezza richiesti per gli account utente e per i computer aggiunti al dominio. È inoltre possibile creare GPO personalizzati e assegnarli all'unità organizzativa personalizzato per gestire i criteri di gruppo.
 * **Gestione DNS**: i membri del gruppo "AAD DC Administrators" possono gestire il sistema DNS per il dominio gestito tramite strumenti di amministrazione DNS noti, come lo snap-in MMC per amministrazione DNS.
 * **Creare unità organizzative (OU) personalizzate**: i membri del gruppo "AAD DC Administrators" possono creare unità organizzative personalizzate nel dominio gestito. A questi utenti vengono concessi privilegi amministrativi completi sulle unità organizzative personalizzate e quindi possono aggiungere e rimuovere account di servizio, computer, gruppi e così via all'interno di queste unità organizzative personalizzate.
 * **Disponibile in più aree di Azure:** per informazioni sulle aree di Azure in cui è disponibile Servizi di dominio Azure Active Directory, vedere la pagina [Servizi in base all'area](https://azure.microsoft.com/regions/#services/) .
@@ -42,7 +42,6 @@ Nei domini gestiti di Servizi di dominio Azure AD sono disponibili le funzionali
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

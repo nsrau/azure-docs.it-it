@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/22/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 0e947e0eaa6755f499860d5ce6d8bf354bc7eca4
-ms.openlocfilehash: 35a281cf40cc5bb0a23c17990438ba696b22bc54
+ms.sourcegitcommit: 91474f61ab724d3fd7a70c51dcd097fade8953dd
+ms.openlocfilehash: 3789079412932d56be1c9697fc23c56de5afba6f
 
 
 ---
@@ -73,12 +73,12 @@ Dove i valori di questa stringa sono disponibili nel pannello Stringa di conness
 * Porta (obbligatorio)
   * 10250
 * Database (facoltativo)
-  * Database predefinito usato dalla connessione
+  * Database predefinito usato dalla connessione (se non viene specificato alcun database, il database predefinito è "test")
 * ssl=true (obbligatorio)
 
 Si consideri ad esempio l'account indicato sopra in Informazioni sulla stringa di connessione.  Una stringa di connessione valida è la seguente:
 
-    mongodb://contoso123:<password@anhohmongo.documents.azure.com:10250/mydatabase?ssl=true
+    mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@anhohmongo.documents.azure.com:10250/mydatabase?ssl=true
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [usare MongoChef](documentdb-mongodb-mongochef.md) con un account DocumentDB con supporto del protocollo per MongoDB.
@@ -86,6 +86,6 @@ Si consideri ad esempio l'account indicato sopra in Informazioni sulla stringa d
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

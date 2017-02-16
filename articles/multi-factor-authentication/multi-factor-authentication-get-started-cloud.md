@@ -12,21 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 01/04/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d7d909184eb129e46ffc350505101e68c1426c46
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
 
 
 ---
-# <a name="getting-started-with-azure-multifactor-authentication-in-the-cloud"></a>Introduzione ad Azure Multi-Factor Authentication nel cloud
+# <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>Introduzione ad Azure Multi-Factor Authentication nel cloud
 Questo articolo illustra come iniziare a usare Azure Multi-Factor Authentication nel cloud.
 
 > [!NOTE]
 > La documentazione seguente fornisce informazioni su come abilitare gli utenti tramite il **portale di Azure classico**. Per informazioni su come configurare Azure Multi-Factor Authentication per gli utenti di Office 365, vedere [Configurare Multi-Factor Authentication per Office 365.](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=en-US&rs=en-US&ad=US)
-> 
-> 
 
 ![MFA nel cloud](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
@@ -38,15 +36,13 @@ Per abilitare Azure multi-Factor Authentication per gli utenti, è necessario so
 
 > [!NOTE]
 > Le licenze sono disponibili per gli utenti che hanno Azure MFA, Azure AD Premium o Enterprise Mobility Suite (EMS).  MFA è incluso in Azure AD Premium e in EMS. Se è disponibile un numero di licenze sufficiente, non è necessario creare un provider di autenticazione.
-> 
-> 
 
-## <a name="turn-on-twostep-verification-for-users"></a>Attivare la verifica in due passaggi per gli utenti
+## <a name="turn-on-two-step-verification-for-users"></a>Attivare la verifica in due passaggi per gli utenti
 Per iniziare a richiedere la verifica in due passaggi per un utente, cambiare lo stato dell'utente da disabilitato ad abilitato.  Per altre informazioni sugli stati utente, vedere [Stati utente in Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
 
 Per abilitare MFA per gli utenti, seguire questa procedura.
 
-### <a name="to-turn-on-multifactor-authentication"></a>Per attivare la modalità Multi-Factor Authentication
+### <a name="to-turn-on-multi-factor-authentication"></a>Per attivare la modalità Multi-Factor Authentication
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com) come amministratore.
 2. A sinistra fare clic su **Active Directory**.
 3. In Directory selezionare la directory relativa all'utente da abilitare.
@@ -66,8 +62,8 @@ Per abilitare MFA per gli utenti, seguire questa procedura.
 
 È consigliabile inviare una notifica tramite posta elettronica agli utenti dopo averli abilitati. Al successivo tentativo di accesso, agli utenti verrà chiesto di registrare il proprio account per la verifica in due passaggi. Una volta che iniziano a usare la verifica in due passaggi, devono anche impostare le password delle app per evitare il blocco delle app non basate su browser.
 
-## <a name="use-powershell-to-automate-turning-on-twostep-verification"></a>Usare PowerShell per automatizzare l'attivazione della verifica in due passaggi
-Per modificare lo [stato](multi-factor-authentication-whats-next.md) usando [Azure AD PowerShell](../powershell-install-configure.md), seguire questa procedura.  È possibile modificare `$st.State` in modo che corrisponda a uno degli stati seguenti:
+## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>Usare PowerShell per automatizzare l'attivazione della verifica in due passaggi
+Per modificare lo [stato](multi-factor-authentication-whats-next.md) usando [Azure AD PowerShell](/powershell/azureps-cmdlets-docs), seguire questa procedura.  È possibile modificare `$st.State` in modo che corrisponda a uno degli stati seguenti:
 
 * Attivato
 * Enforced
@@ -75,13 +71,11 @@ Per modificare lo [stato](multi-factor-authentication-whats-next.md) usando [Azu
 
 > [!IMPORTANT]
 > Non è consigliabile spostare gli utenti direttamente dallo stato di disabilitazione a quello di applicazione. Le app non basate su browser smettono di funzionare poiché l'utente non ha effettuato la registrazione a MFA e non ha ottenuto una [password delle app](multi-factor-authentication-whats-next.md#app-passwords). Se sono presenti app non basate su browser e sono necessarie password delle app, è consigliabile passare da uno stato disabilitato a uno stato abilitato. In questo modo gli utenti possono registrarsi e ottenere le password delle app. Dopo questa operazione è possibile spostarli nello stato di applicazione.
-> 
-> 
 
 PowerShell può essere un'opzione utile per abilitare gli utenti in blocco. Attualmente non è disponibile una funzionalità di abilitazione in blocco nel portale di Azure ed è necessario selezionare ogni utente singolarmente. Questa attività può risultare piuttosto dispersiva se il numero di utenti è elevato. È possibile scorrere a ciclo continuo un elenco di utenti e abilitarli creando uno script PowerShell con il codice seguente.
 
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "\*"
+        $st.RelyingParty = "*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
@@ -92,7 +86,7 @@ Di seguito è fornito un esempio:
     foreach ($user in $users)
     {
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "\*"
+        $st.RelyingParty = "*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
@@ -107,6 +101,6 @@ Dopo avere configurato Azure Multi-Factor Authentication nel cloud, è possibile
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

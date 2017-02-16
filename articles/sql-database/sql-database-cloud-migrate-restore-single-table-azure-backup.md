@@ -8,6 +8,7 @@ manager: felixwu
 editor: 
 ms.assetid: 340b41bd-9df8-47fb-adfc-03216de38a5e
 ms.service: sql-database
+ms.custom: migrate and move
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,8 +16,8 @@ ms.topic: article
 ms.date: 08/31/2016
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f792ad3da0037c55a41e50710cedcbcdf8ef0d74
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: dbdcfc9760df41ec1f52406b91cc211fc5ad8ef7
 
 
 ---
@@ -26,27 +27,34 @@ Potrebbe verificarsi una situazione in cui alcuni dati sono stati modificati acc
 ## <a name="preparation-steps-rename-the-table-and-restore-a-copy-of-the-database"></a>Passaggi preliminari: rinominare la tabella e ripristinare una copia del database
 1. Identificare la tabella nel database SQL di Azure che si desidera sostituire con la copia ripristinata. Utilizzare Microsoft SQL Management Studio per rinominare la tabella. Ad esempio, rinominare la tabella &lt;nometabella&gt;_old.
    
-    **Nota** : per evitare il blocco, assicurarsi che non vi sia alcuna attività in esecuzione nella tabella che si sta rinominando. In caso di problemi, accertarsi di eseguire questa procedura durante una finestra di manutenzione.
+   > [!NOTE]
+   > Per evitare il blocco, assicurarsi che non vi sia alcuna attività in esecuzione nella tabella che si sta rinominando. In caso di problemi, accertarsi di eseguire questa procedura durante una finestra di manutenzione.
+   >
+
 2. Ripristinare un backup del database al momento specifico desiderato usando i passaggi di [Ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore).
    
-    **Note**:
+   > [!NOTE]
+   > Il nome del database ripristinato sarà nel formato NomeDB+Timestamp. Ad esempio, **Adventureworks2012_2016-01-01T22-12Z**. In questo passaggio non verrà sovrascritto il nome del database esistente nel server. Si tratta di una misura di sicurezza che consente all'utente di verificare il database ripristinato prima di eliminare il database corrente e rinominare il database ripristinato per l'uso in produzione.
    
-   * Il nome del database ripristinato sarà nel formato NomeDB+Timestamp. Ad esempio, **Adventureworks2012_2016-01-01T22-12Z**. In questo passaggio non verrà sovrascritto il nome del database esistente nel server. Si tratta di una misura di sicurezza che consente all'utente di verificare il database ripristinato prima di eliminare il database corrente e rinominare il database ripristinato per l'uso in produzione.
-   * Il servizio esegue il backup automatico di tutti i livelli di prestazioni, da Basic a Premium, con varie metriche di conservazione dei backup, a seconda del livello:
-
-| Ripristino DB | Livello Basic | Livelli Standard | Livelli Premium |
-|:--- |:--- |:--- |:--- |
-| Ripristino temporizzato |Qualsiasi punto di ripristino entro 7 giorni |Qualsiasi punto di ripristino entro 35 giorni |Qualsiasi punto di ripristino entro 35 giorni |
-
 ## <a name="copying-the-table-from-the-restored-database-by-using-the-sql-database-migration-tool"></a>Copia della tabella dal database ripristinato tramite lo strumento di migrazione del database SQL
+
 1. Scaricare e installare la [Migrazione guidata database SQL di Microsoft Azure](https://sqlazuremw.codeplex.com).
 2. Aprire la Migrazione guidata database SQL. Nella pagina **Seleziona processo** selezionare **Database in Analyze/Migrate** (Database in corso di analisi/migrazione) e quindi fare clic su **Avanti**.
+
    ![SQL Database Migration wizard - Select Process](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/1.png)
+
 3. Nella finestra di dialogo **Connect to Server** (Connetti al server) immettere i valori seguenti:
-   * **Server name**(Nome server): istanza di SQL Azure.
-   * **Autenticazione**: **autenticazione di SQL Server**. Immettere le credenziali di accesso.
-   * **Database**: **Master DB (List all databases)** (Database master (Elenca tutti i database)).
-   * **Nota** : per impostazione predefinita, la procedura guidata salva le informazioni di accesso. Per modificare tale impostazione, selezionare **Forget Login Information**(Ignora informazioni di accesso).
+
+   * Server name (Nome server): **server SQL**
+   * Authentication: (Autenticazione): **autenticazione di SQL Server**
+   * Login (Account di accesso): **account di accesso**
+   * Password: **password**
+   * Database: **Master DB (List all databases)** (Database master - Elenca tutti i database)
+   
+   > [!NOTE]
+   > Per impostazione predefinita, la procedura guidata salva le informazioni di accesso. Per modificare tale impostazione, selezionare **Forget Login Information**(Ignora informazioni di accesso).
+   >
+   
      ![SQL Database Migration wizard - Select Source - step 1](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/2.png)
 4. Nella finestra di dialogo **Seleziona origine** selezionare il nome del database ripristinato nella sezione **Preparation steps** (Passaggi preliminari) come origine e quindi fare clic su **Avanti**.
    
@@ -67,7 +75,8 @@ Potrebbe verificarsi una situazione in cui alcuni dati sono stati modificati acc
 9. Fare clic su **Connetti**, selezionare il database di destinazione in cui si vuole spostare la tabella e fare clic su **Avanti**. In tal modo si dovrebbe interrompere l'esecuzione dello script generato in precedenza e dovrebbe essere visualizzata la tabella appena spostata copiata nel database di destinazione.
 
 ## <a name="verification-step"></a>Passaggio di verifica
-1. Eseguire query e verificare la tabella appena copiata per assicurarsi che i dati siano inalterati. Dopo la conferma, è possibile rimuovere la tabella rinominata nella sezione **Preparation steps** (Passaggi preliminari). Ad esempio, &lt;nome tabella&gt;_old.
+
+- Eseguire query e verificare la tabella appena copiata per assicurarsi che i dati siano inalterati. Dopo la conferma, è possibile rimuovere la tabella rinominata nella sezione **Preparation steps** (Passaggi preliminari). Ad esempio, &lt;nome tabella&gt;_old.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Backup automatici del database SQL](sql-database-automated-backups.md)
@@ -75,6 +84,6 @@ Potrebbe verificarsi una situazione in cui alcuni dati sono stati modificati acc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

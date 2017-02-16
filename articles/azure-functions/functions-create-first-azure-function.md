@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: d40304cd4f7ede4e37d32f66330ac712d325f898
-ms.openlocfilehash: ea7d8acec83103c981bad279507dd7ead5f72370
+ms.sourcegitcommit: ae5837b4fce52aad4c8b39434c27c450aafc1310
+ms.openlocfilehash: 6f42f79abed80df12148463e25935893a4bbdcde
 
 
 ---
@@ -68,7 +68,7 @@ La guida introduttiva mostra un'esecuzione semplice di una funzione di base atti
 * [Test di Funzioni di Azure](functions-test-a-function.md)  
    Descrive diversi strumenti e tecniche per il test delle funzioni.
 * [Come aumentare le prestazioni di Funzioni di Azure](functions-scale.md)  
-  Presenta i piani di servizio disponibili con Funzioni di Azure, tra cui il piano di servizio dinamico, e come scegliere quello più appropriato. 
+  Presenta i piani di servizio disponibili con Funzioni di Azure, tra cui il piano di hosting A consumo, e spiega come scegliere quello più appropriato. 
 * [Che cos'è Servizio app di Azure?](../app-service/app-service-value-prop-what-is.md)  
    Funzioni di Azure sfrutta la piattaforma del servizio app di Azure per le funzionalità di base, ad esempio distribuzioni, variabili di ambiente e diagnostica. 
 
@@ -77,6 +77,6 @@ La guida introduttiva mostra un'esecuzione semplice di una funzione di base atti
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -2,8 +2,8 @@
 layout: LandingPage
 description: Informazioni su come usare i servizi di monitoraggio e diagnostica per monitorare le prestazioni, gestire la sicurezza e individuare le tendenze. Informazioni di riferimento sulle API, procedure consigliate e altro ancora.
 translationtype: Human Translation
-ms.sourcegitcommit: edf493f70b08bdf5545127a90d7a13ea49b668c1
-ms.openlocfilehash: 0ee9faf763dbedd4046547764c5ad5ad9e3d2d07
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: e59d88dbd538aad3e21a31fd721361cd9ffd4919
 
 ---
 
@@ -146,13 +146,7 @@ Informazioni su come usare i servizi di monitoraggio e diagnostica di Azure per 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/monitoring-and-diagnostics.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione di Monitoraggio e diagnostica </div>
-    </a>
-</div>
+
 
 
 

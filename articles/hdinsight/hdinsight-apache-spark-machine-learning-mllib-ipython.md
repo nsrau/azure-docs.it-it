@@ -1,6 +1,6 @@
 ---
-title: Usare Apache Spark per creare applicazioni di Machine Learning in HDInsight | Documentazione Microsoft
-description: Istruzioni dettagliate su come usare notebook con Apache Spark per compilare applicazioni di machine learning
+title: Usare la libreria MLlib in Spark per compilare applicazioni di Machine Learning in Azure HDInsight | Documentazione Microsoft
+description: Istruzioni dettagliate su come usare la libreria MLlib in Apache Spark per compilare applicazioni di Machine Learning
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -16,12 +16,13 @@ ms.topic: article
 ms.date: 10/05/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 4c07f5857a2dff149faaa0086eb8c54ee291d7bc
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 91897cb8ee5bc69bacc354a62bebafd8beb47c0c
 
 
 ---
-# <a name="machine-learning-predictive-analysis-on-food-inspection-data-using-mllib-with-apache-spark-cluster-on-hdinsight-linux"></a>Machine Learning: analisi predittiva dei dati del controllo degli alimenti tramite MLlib con cluster Apache Spark in HDInsight Linux
+# <a name="machine-learning-predictive-analysis-on-food-inspection-data-using-mllib-with-apache-spark-cluster-on-hdinsight"></a>Machine Learning: analisi predittiva dei dati del controllo degli alimenti tramite MLlib con cluster Apache Spark in HDInsight 
+
 > [!TIP]
 > Questa esercitazione è disponibile anche come notebook di Jupyter in un cluster Spark (Linux) creato in HDInsight. L'esperienza offerta dal notebook consente di eseguire i frammenti di codice Python dal notebook stesso. Per eseguire l'esercitazione da un notebook, creare un cluster Spark, avviare un notebook Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) e quindi eseguire il notebook **Spark Machine Learning - Predictive analysis on food inspection data using MLLib.ipynb** nella cartella **Python**.
 >
@@ -62,10 +63,10 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
    >
 1. Creare un nuovo notebook. Fare clic su **Nuovo** e quindi su **PySpark**.
 
-    ![Creare un nuovo notebook Jupyter](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+    ![Creare un nuovo notebook Jupyter](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.createnotebook.png "Creare un nuovo notebook Jupyter")
 1. Un nuovo notebook verrà creato e aperto con il nome Untitled.pynb. Fare clic sul nome del notebook nella parte superiore e immettere un nome descrittivo.
 
-    ![Specificare un nome per il notebook](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
+    ![Specificare un nome per il notebook](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.notebook.name.png "Specificare un nome per il notebook")
 1. Poiché il notebook è stato creato tramite il kernel PySpark, non è necessario creare contesti in modo esplicito. I contesti Spark e Hive vengono creati automaticamente quando si esegue la prima cella di codice. È possibile iniziare a compilare l'applicazione di Machine Learning  importando i tipi necessari per questo scenario. A tale scopo, posizionare il cursore nella cella e premere **MAIUSC + INVIO**.
 
         from pyspark.ml import Pipeline
@@ -178,7 +179,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 
     Verrà visualizzato un output simile al seguente:
 
-    ![Output della query SQL](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/query.output.png "SQL query output")
+    ![Output della query SQL](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/query.output.png "Output della query SQL")
 
     Per altre informazioni sul magic `%%sql` e sugli altri magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
 1. È anche possibile creare un tracciato tramite Matplotlib, una libreria che consente di creare visualizzazioni di dati. Poiché il tracciato deve essere creato dal frame di dati **countResultsdf** conservato in locale, il frammento di codice deve iniziare con `%%local`. Ciò garantisce che il codice venga eseguito localmente nel server di Jupyter.
@@ -361,6 +362,6 @@ Al termine dell'esecuzione dell'applicazione, è necessario arrestare il noteboo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

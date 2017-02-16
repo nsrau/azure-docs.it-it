@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.date: 01/30/2017
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0ff5ad648d429da433170301205eafb850be5d81
+ms.sourcegitcommit: d9436796373af55a18c0b6fbfc036bd6616bbe4f
+ms.openlocfilehash: 0c9a7792331b4662a93a78fe5dd08ab037b466db
 
 
 ---
@@ -26,12 +26,11 @@ Quando si esegue la migrazione del codice da un altro database su SQL Data Wareh
 ## <a name="common-t-sql-limitations"></a>Limitazioni comuni di T-SQL
 L'elenco seguente riepiloga le funzionalità principali che non sono supportate in Azure SQL Data Warehouse. I collegamenti consentono di realizzare soluzioni alternative per la caratteristica non supportata:
 
-* [Join ANSI sugli aggiornamenti][Join ANSI sugli aggiornamenti] (Join ANSI sugli aggiornamenti)
-* [ANSI joins on deletes][Join ANSI sulle eliminazioni] (Join ANSI sulle eliminazioni)
-* [istruzione merge][Istruzione merge]
+* [Join ANSI sugli aggiornamenti][ANSI joins on updates]
+* [Join ANSI sulle eliminazioni][ANSI joins on deletes]
+* [Istruzione merge][merge statement]
 * Join tra database
-* [cursori][Cursori]
-* [SELECT..INTO][SELECT..INTO]
+* [Cursori][cursors]
 * [INSERT..EXEC][INSERT..EXEC]
 * Clausola di output
 * Funzioni inline definite dall'utente
@@ -46,11 +45,11 @@ L'elenco seguente riepiloga le funzionalità principali che non sono supportate 
 * Commit / rollback
 * Transazione di salvataggio
 * Contesti di esecuzione (EXECUTE AS)
-* [raggruppamento per clausola con opzioni di rollup/cubo/set di raggruppamento][Raggruppamento per clausola con opzioni di rollup/cubo/set di raggruppamento]
-* [livelli di annidamento superiori a 8][Livelli di annidamento superiori a 8]
-* [aggiornamento tramite visualizzazioni][Aggiornamento tramite visualizzazioni]
-* [uso di select per l'assegnazione di variabili][Uso di select per l'assegnazione di variabili]
-* [nessun tipo di dati MAX per stringhe SQL dinamiche][Nessun tipo di dati MAX per stringhe SQL dinamiche]
+* [Raggruppamento per clausola con opzioni di rollup/cubo/set di raggruppamento][group by clause with rollup / cube / grouping sets options]
+* [Livelli di annidamento superiori a 8][nesting levels beyond 8]
+* [Aggiornamento tramite visualizzazioni][updating through views]
+* [Uso di select per l'assegnazione di variabili][use of select for variable assignment]
+* [Nessun tipo di dati MAX per stringhe SQL dinamiche][no MAX data type for dynamic SQL strings]
 
 Fortunatamente è possibile ovviare alla maggior parte di queste limitazioni. Le spiegazioni sono fornite dagli articoli pertinenti a cui viene fatto riferimento più indietro.
 
@@ -77,7 +76,7 @@ Le espressioni di tabella comune presentano alcune limitazioni in SQL Data Wareh
 * Quando vengono usate in istruzioni preparate da sp_prepare, le espressioni CTE si comporteranno esattamente come le altre istruzioni SELECT in PDW. Tuttavia, se le CTE vengono usate come parte di istruzioni CETAS preparate da sp_prepare, il comportamento può variare rispetto a SQL Server e altre istruzioni PDW per la modalità di implementazione del binding per sp_prepare. Se l'istruzione SELECT che fa riferimento alla CTE usa una colonna non corretta che non esiste nella CTE, sp_prepare passa senza rilevare l'errore, che invece viene generato durante sp_execute.
 
 ## <a name="recursive-ctes"></a>CTE ricorsive
-Le CTE ricorsive non sono supportate in SQL Data Warehouse.  È possibile completare la migrazione delle CTE ricorsive tramite una procedura suddivisa in più passaggi. In genere è possibile usare un ciclo e popolare una tabella temporanea mentre si scorrono le query provvisorie ricorsive. Una volta che viene popolata la tabella temporanea, è quindi possibile restituire i dati come un unico set di risultati. Un approccio simile è stato usato per risolvere `GROUP BY WITH CUBE` nell'articolo relativo al [raggruppamento per clausola con opzioni di rollup/cubo/set di raggruppamento][Raggruppamento per clausola con opzioni di rollup/cubo/set di raggruppamento].
+Le CTE ricorsive non sono supportate in SQL Data Warehouse.  È possibile completare la migrazione delle CTE ricorsive tramite una procedura suddivisa in più passaggi. In genere è possibile usare un ciclo e popolare una tabella temporanea mentre si scorrono le query provvisorie ricorsive. Una volta che viene popolata la tabella temporanea, è quindi possibile restituire i dati come un unico set di risultati. Un approccio simile è stato usato per risolvere `GROUP BY WITH CUBE` nell'articolo relativo al [raggruppamento per clausola con opzioni di rollup/cubo/set di raggruppamento][group by clause with rollup / cube / grouping sets options].
 
 ## <a name="unsupported-system-functions"></a>Funzioni di sistema non supportate
 Anche alcune funzioni di sistema non sono supportate. Alcune di queste funzioni principali che in genere vengono usate nel data warehousing sono:
@@ -115,24 +114,23 @@ SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per un elenco completo di tutte le istruzioni T-SQL supportate, vedere [Argomenti Transact-SQL][Argomenti Transact-SQL].
+Per un elenco completo di tutte le istruzioni T-SQL supportate, vedere [Argomenti Transact-SQL][Transact-SQL topics].
 
 <!--Image references-->
 
 <!--Article references-->
-[Join ANSI sugli aggiornamenti]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
-[Join ANSI sulle eliminazioni]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
-[Istruzione merge]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
+[ANSI joins on updates]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
+[ANSI joins on deletes]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
+[merge statement]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
 [INSERT..EXEC]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
-[Argomenti Transact-SQL]: ./sql-data-warehouse-reference-tsql-statements.md
+[Transact-SQL topics]: ./sql-data-warehouse-reference-tsql-statements.md
 
-[Cursori]: ./sql-data-warehouse-develop-loops.md
-[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md#selectinto
-[Raggruppamento per clausola con opzioni di rollup/cubo/set di raggruppamento]: ./sql-data-warehouse-develop-group-by-options.md
-[Livelli di annidamento superiori a 8]: ./sql-data-warehouse-develop-transactions.md
-[Aggiornamento tramite visualizzazioni]: ./sql-data-warehouse-develop-views.md
-[Uso di select per l'assegnazione di variabili]: ./sql-data-warehouse-develop-variable-assignment.md
-[Nessun tipo di dati MAX per stringhe SQL dinamiche]: ./sql-data-warehouse-develop-dynamic-sql.md
+[cursors]: ./sql-data-warehouse-develop-loops.md
+[group by clause with rollup / cube / grouping sets options]: ./sql-data-warehouse-develop-group-by-options.md
+[nesting levels beyond 8]: ./sql-data-warehouse-develop-transactions.md
+[updating through views]: ./sql-data-warehouse-develop-views.md
+[use of select for variable assignment]: ./sql-data-warehouse-develop-variable-assignment.md
+[no MAX data type for dynamic SQL strings]: ./sql-data-warehouse-develop-dynamic-sql.md
 
 <!--MSDN references-->
 
@@ -140,6 +138,6 @@ Per un elenco completo di tutte le istruzioni T-SQL supportate, vedere [Argoment
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

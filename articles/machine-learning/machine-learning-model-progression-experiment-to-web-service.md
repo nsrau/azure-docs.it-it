@@ -1,19 +1,23 @@
 ---
-title: Modalità di passaggio di un modello di Machine Learning da esperimento a servizio Web operativo | Microsoft Docs
+title: "Modalità di passaggio di un modello di Machine Learning da esperimento a servizio Web operativo | Microsoft Docs"
 description: Panoramica dei meccanismi in base a cui il modello di Azure Machine Learning passa da esperimento di sviluppo a servizio Web operativo.
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 25e0c025-f8b0-44ab-beaf-d0f2d485eb91
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/05/2017
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: b47aa6730aff534b796cfc5427e613defdf69926
+ms.openlocfilehash: 0f0b2a10ae0f16411d9043351064eafe3a26c5aa
+
 
 ---
 # <a name="how-a-machine-learning-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Modalità di passaggio di un modello di Machine Learning da esperimento a servizio Web operativo
@@ -31,7 +35,7 @@ Quando l'esperimento soddisfa le esigenze, è possibile distribuirlo come ***ser
 Questo articolo fornisce una panoramica dei meccanismi in base ai quali il modello di Machine Learning passa da esperimento di sviluppo a servizio Web operativo.
 
 > [!NOTE]
-> È possibile sviluppare e distribuire i modelli di Machine Learning in altri modi, ma questo articolo descrive come farlo con Machine Learning Studio. Per informazioni su come creare un servizio Web predittivo classico con R, vedere il post di blog su [compilazione e distribuzione di app Web predittive con RStudio e Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
+> È possibile sviluppare e distribuire i modelli di Machine Learning in altri modi, ma questo articolo descrive come farlo con Machine Learning Studio. Per una descrizione su come creare un servizio Web predittivo classico con R, vedere il post di blog su [compilazione e distribuzione di app Web predittive con RStudio e Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
 > 
 > 
 
@@ -40,7 +44,7 @@ Anche se Azure Machine Learning Studio è progettato principalmente per sviluppa
 ## <a name="developing-and-deploying-a-predictive-web-service"></a>Sviluppo e distribuzione di un servizio Web predittivo
 Ecco le fasi seguite da una soluzione tipica mentre viene sviluppata e distribuita con Machine Learning Studio:
 
-![Flusso di distribuzione](media\\machine-learning-model-progression-experiment-to-web-service\\model-stages-from-experiment-to-web-service.png)
+![Flusso di distribuzione](media/machine-learning-model-progression-experiment-to-web-service/model-stages-from-experiment-to-web-service.png)
 
 *Figura 1 - Fasi di un modello di analisi predittiva tipico*
 
@@ -68,7 +72,7 @@ In questo processo di conversione l'esperimento di training non viene rimosso. A
 ### <a name="the-web-service"></a>Servizio Web
 Quando l'esperimento predittivo soddisfa le esigenze, è possibile distribuire il servizio come servizio Web classico o nuovo servizio Web basato su Azure Resource Manager. Per rendere operativo il modello distribuendolo come *servizio Web classico di Machine Learning*, fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]). Per eseguire la distribuzione come *nuovo servizio Web di Machine Learning*, fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]). Gli utenti ora possono inviare i dati al modello con l'API REST del servizio Web e ricevere i risultati. Per altre informazioni, vedere [Come utilizzare un servizio Web di Azure Machine Learning pubblicato da un esperimento di Machine Learning](machine-learning-consume-web-services.md).
 
-## <a name="the-non-typical-case:-creating-a-non-predictive-web-service"></a>Caso non tipico: creazione di un servizio Web non predittivo
+## <a name="the-non-typical-case-creating-a-non-predictive-web-service"></a>Caso non tipico: creazione di un servizio Web non predittivo
 Se l'esperimento non esegue il training di un modello di analisi predittiva, non è necessario creare sia un esperimento di training che un esperimento di assegnazione dei punteggi. C'è un solo esperimento ed è possibile distribuirlo come servizio Web. Machine Learning Studio rileva se l'esperimento contiene un modello predittivo analizzando i moduli usati.
 
 Dopo avere eseguito l'iterazione dell'esperimento e averlo verificato:
@@ -115,6 +119,9 @@ Per esempi dell'intero processo, vedere:
 * [Esercitazione di Machine Learning: Creare il primo esperimento in Azure Machine Learning Studio](machine-learning-create-experiment.md)
 * [Procedura dettagliata: Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: dac614de38447bfeaf92f15f156217c9bd44b4ff
-ms.openlocfilehash: 580b4b67cf2180e32b2c7d9eb1359d0a9036e3d0
+ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
+ms.openlocfilehash: c488fcc8de41fe4d58d78517deea98c4617b5f49
 
 
 ---
@@ -93,8 +93,8 @@ Esistono diversi modi per iniziare a usare Cache Redis di Azure.
 
 Se non si dispone di un account Azure, è possibile:
 
-* [Aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=redis_cache_hero): sono inclusi crediti da usare per provare i servizi di Azure a pagamento. Una volta esauriti i crediti, è possibile mantenere l'account e usare le funzionalità e i servizi di Azure gratuiti.
-* [Attivare i vantaggi della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). con l'abbonamento MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+* [Aprire un account Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero): sono inclusi crediti da usare per provare i servizi di Azure a pagamento. Una volta esauriti i crediti, è possibile mantenere l'account e usare le funzionalità e i servizi di Azure gratuiti.
+* [Attivare i vantaggi della sottoscrizione Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). con l'abbonamento MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 
 <a name="cache-size"></a>
 
@@ -127,7 +127,7 @@ Da questa tabella è possibile trarre le seguenti conclusioni.
 * Con il clustering di Redis, la velocità effettiva aumenta in modo lineare man mano che aumenta il numero di partizioni (nodi) nel cluster. Ad esempio, se si crea un cluster P4 di 10 partizioni, la velocità effettiva disponibile sarà 250 KB * 10 = 2,5 milioni di RPS.
 * La velocità effettiva per dimensioni maggiori di chiave è superiore nel Premium rispetto al livello Standard.
 
-| Piano tariffario | Dimensione | Core CPU | Larghezza di banda disponibile | Dimensioni della chiave 1 KB |
+| Piano tariffario | Dimensione | Core CPU | Larghezza di banda disponibile | Dimensioni della chiave&1; KB |
 | --- | --- | --- | --- | --- |
 | **Dimensioni della cache livello Standard** | | |**Megabit al secondo (Mb/s) / Megabyte al secondo (MB/s)** |**Richieste al secondo (RPS)** |
 | C0 |250 MB |Condiviso |5 / 0,625 |600 |
@@ -352,11 +352,11 @@ Si noti che StackExchange.Redis può raggiungere il timeout se la crescita dei t
 
 Come configurare questa impostazione:
 
-* In ASP.NET usare l'[Impostazioni di configurazione "minIoThreads"][Impostazioni di configurazione "minIoThreads"] nell'elemento di configurazione `<processModel>` in web.config. Se l'esecuzione avviene all'interno di Siti Web di Azure, questa impostazione non viene esposta attraverso le opzioni di configurazione. Dovrebbe tuttavia essere possibile impostarla a livello di codice, come indicato di seguito, dal metodo Application_Start in global.asax.cs.
+* In ASP.NET usare l'impostazione di configurazione ["minIoThreads"]["minIoThreads" configuration setting] nell'elemento di configurazione `<processModel>` in web.config. Se l'esecuzione avviene all'interno di Siti Web di Azure, questa impostazione non viene esposta attraverso le opzioni di configurazione. Dovrebbe tuttavia essere possibile impostarla a livello di codice, come indicato di seguito, dal metodo Application_Start in global.asax.cs.
 
-> **Nota importante:** il valore specificato in questo elemento di configurazione è un'impostazione *per memoria centrale* . Ad esempio, se si dispone di un computer a 4 memorie centrali e si desidera che l'impostazione minIoThreads raggiunga 200 in fase di esecuzione, occorre usare `<processModel minIoThreads="50"/>`.
->
->
+  > [!NOTE] 
+  > Il valore specificato in questo elemento di configurazione è un'impostazione *per core*. Ad esempio, se si dispone di un computer a 4 memorie centrali e si desidera che l'impostazione minIoThreads raggiunga 200 in fase di esecuzione, occorre usare `<processModel minIoThreads="50"/>`.
+  >
 
 * Al di fuori di ASP.NET, usare l'API [ThreadPool.SetMinThreads(...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) .
 
@@ -384,7 +384,7 @@ La sezione **Supporto e risoluzione dei problemi** del pannello **Impostazioni**
 Questi strumenti permettono di monitorare l'integrità delle istanze della Cache Redis di Azure e semplificano la gestione delle applicazioni di memorizzazione nella cache. Per altre informazioni, vedere la sezione "Supporto e impostazioni di risoluzione dei problemi" in [Come configurare Cache Redis di Azure](cache-configure.md).
 
 ### <a name="my-cache-diagnostics-storage-account-settings-changed-what-happened"></a>Le impostazioni dell'account di archiviazione relativo alla diagnostica della cache sono cambiate. Come mai?
-Le cache nella stessa area e nella stessa sottoscrizione condividono le stesse impostazioni di archiviazione di diagnostica e, quando viene modificata la configurazione (abilitazione/disabilitazione della diagnostica o cambio dell'account di archiviazione), la modifica viene applicata a tutte le cache della sottoscrizione che si trovano in tale area. Se sono state modificate le impostazioni di diagnostica per la cache, verificare se sono state modificate le impostazioni di diagnostica delle altre cache nella stessa sottoscrizione e area. A tale scopo è possibile visualizzare i log di controllo per la cache per un evento `Write DiagnosticSettings` . Per altre informazioni sull'uso dei log di controllo, vedere [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) (Visualizzare eventi e log di controllo) e [Audit operations with Resource Manager](../resource-group-audit.md) (Operazioni di controllo con Resource Manager). Per altre informazioni sul monitoraggio degli eventi di Cache Redis di Azure, vedere [Operazioni e avvisi](cache-how-to-monitor.md#operations-and-alerts).
+Le cache nella stessa area e nella stessa sottoscrizione condividono le stesse impostazioni di archiviazione di diagnostica e, quando viene modificata la configurazione (abilitazione/disabilitazione della diagnostica o cambio dell'account di archiviazione), la modifica viene applicata a tutte le cache della sottoscrizione che si trovano in tale area. Se sono state modificate le impostazioni di diagnostica per la cache, verificare se sono state modificate le impostazioni di diagnostica delle altre cache nella stessa sottoscrizione e area. A tale scopo è possibile visualizzare i log di controllo per la cache per un evento `Write DiagnosticSettings` . Per altre informazioni sull'uso dei log di controllo, vedere [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) (Visualizzare eventi e log di controllo) e [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md) (Operazioni di controllo con Resource Manager). Per altre informazioni sul monitoraggio degli eventi di Cache Redis di Azure, vedere [Operazioni e avvisi](cache-how-to-monitor.md#operations-and-alerts).
 
 ### <a name="why-is-diagnostics-enabled-for-some-new-caches-but-not-others"></a>Perché la diagnostica è abilitata per alcune nuove cache ma non per altre?
 Le cache nella stessa area e sottoscrizione condividono le stesse impostazioni di archiviazione per la diagnostica. Se si crea una nuova cache nella stessa area e sottoscrizione di un'altra cache che con la diagnostica abilitata, essa viene abilitata anche nella nuova cache tramite le stesse impostazioni.
@@ -435,10 +435,10 @@ Per altre informazioni sulle operazioni preliminari con Cache Redis di Azure, ve
 ### <a name="in-role-cache"></a>In-Role Cache
 [Cache nel ruolo è destinato al ritiro il 30 novembre 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
-[Impostazioni di configurazione "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
+["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

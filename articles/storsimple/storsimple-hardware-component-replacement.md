@@ -1,12 +1,12 @@
 ---
 title: Sostituzione di componenti hardware StorSimple | Microsoft Docs
-description: Viene descritto come sostituire in modo sicuro i PCM, la batteria, i moduli controller, i controller EBOD, le unità disco e chassis di un dispositivo StorSimple.
+description: "Viene descritto come sostituire in modo sicuro i PCM, la batteria, i moduli controller, i controller EBOD, le unità disco e chassis di un dispositivo StorSimple."
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: e8087ba7-0b66-4f59-8988-e53aad52ee21
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/11/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 50df20f1f84f570cec1261e14028f3a700871dac
+
 
 ---
 # <a name="storsimple-hardware-component-replacement"></a>Sostituzione di componenti hardware di StorSimple
@@ -114,7 +118,7 @@ Sia lo chassis principale sia quello EBOD hanno moduli unità carrier. Lo chassi
 | 3 |Controller 0 EBOD |
 | 4 |Controller 1 EBOD |
 
-## <a name="field-replaceable-units"></a>Unità sostituibile sul campo
+## <a name="field-replaceable-units"></a>Unità sostituibile sul campo 
 Le seguenti unità sostituibili sul campo (FRU) sono disponibili per il dispositivo StorSimple:
 
 * Chassis (incluso il pannello operativo integrato)
@@ -131,6 +135,9 @@ Le seguenti unità sostituibili sul campo (FRU) sono disponibili per il disposit
 ## <a name="next-steps"></a>Passaggi successivi
 Rivedere tutte le [informazioni sulla sicurezza](storsimple-safety.md) prima di tentare di sostituire un componente hardware StorSimple.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

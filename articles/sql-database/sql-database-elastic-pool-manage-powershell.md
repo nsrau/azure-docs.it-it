@@ -1,6 +1,6 @@
 ---
-title: Gestire un pool di database elastici (PowerShell) | Documentazione Microsoft
-description: Informazioni su come usare PowerShell per gestire un pool di database elastici.
+title: 'PowerShell: gestire un pool elastico di database SQL di Azure | Documentazione Microsoft'
+description: Informazioni su come usare PowerShell per gestire un pool elastico.
 services: sql-database
 documentationcenter: 
 author: srinia
@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 61289770-69b9-4ae3-9252-d0e94d709331
 ms.service: sql-database
-ms.custom: sharded databases pool; how to
+ms.custom: multiple databases
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
@@ -16,12 +16,12 @@ ms.workload: data-management
 ms.date: 06/22/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2f8b2bc9ddac435582306d0105a636666aebbac7
+ms.sourcegitcommit: 9c6800c54f545d5ae70e9e8c2a3234cb3acecb83
+ms.openlocfilehash: 355baefc2ef50000ddb5a1241d9d28c201deffa1
 
 
 ---
-# <a name="monitor-and-manage-an-elastic-database-pool-with-powershell"></a>Monitorare e gestire un pool di database elastici con PowerShell
+# <a name="monitor-and-manage-an-elastic-pool-with-powershell"></a>Monitorare e gestire un pool elastico con PowerShell
 > [!div class="op_single_selector"]
 > * [Portale di Azure](sql-database-elastic-pool-manage-portal.md)
 > * [PowerShell](sql-database-elastic-pool-manage-powershell.md)
@@ -30,15 +30,14 @@ ms.openlocfilehash: 2f8b2bc9ddac435582306d0105a636666aebbac7
 >
 >
 
-Gestire un [pool di database elastici](sql-database-elastic-pool.md) tramite i cmdlet di PowerShell.
+Gestire un [pool elastico](sql-database-elastic-pool.md) con i cmdlet di PowerShell.
 
 Per i codici di errore comuni, vedere [Codici di errore SQL per le applicazioni client del database SQL: errore di connessione e altri problemi del database](sql-database-develop-error-messages.md).
 
-I valori per i pool sono disponibili in [Limiti di archiviazione e di eDTU dei pool elastici e dei database elastici](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+I valori per i pool sono disponibili in [Limiti di archiviazione e di eDTU dei pool elastici e dei database elastici](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Azure PowerShell 1.0 o versioni successive. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
-* I pool di database elastici sono disponibili unicamente nei server database SQL V12. Se si usa un server di database SQL V11, [usare PowerShell per eseguire l'aggiornamento a V12 e creare un pool](sql-database-upgrade-server-portal.md) in un unico passaggio.
 
 ## <a name="move-a-database-into-an-elastic-pool"></a>Spostare un database in un pool elastico
 È possibile spostare un database all'interno o all'esterno di un pool con [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433\(v=azure.300\).aspx).
@@ -46,15 +45,15 @@ I valori per i pool sono disponibili in [Limiti di archiviazione e di eDTU dei p
     Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 ## <a name="change-performance-settings-of-a-pool"></a>Modificare le impostazioni delle prestazioni di un pool
-Quando le prestazioni ne risentono, è possibile modificare le impostazioni del pool per supportare la crescita. Usare il cmdlet [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511\(v=azure.300\).aspx). Impostare il parametro -Dtu sul numero di eDTU per pool. Per i valori possibili, vedere [Limiti di archiviazione e di eDTU dei pool elastici e dei database elastici](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).  
+Quando le prestazioni ne risentono, è possibile modificare le impostazioni del pool per supportare la crescita. Usare il cmdlet [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511\(v=azure.300\).aspx). Impostare il parametro -Dtu sul numero di eDTU per pool. Per i valori possibili, vedere [Limiti di archiviazione e di eDTU dei pool elastici e dei database elastici](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).  
 
-    Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50
+    Set-AzureRmSqlElasticPool -ResourceGroupName “resourcegroup1” -ServerName “server1” -ElasticPoolName “elasticpool1” -Dtu 1200 -DatabaseDtuMax 100 -DatabaseDtuMin 50
 
 
 ## <a name="get-the-status-of-pool-operations"></a>Ottenere lo stato delle operazioni dei pool
 La creazione di un pool può richiedere tempo. Per tenere traccia dello stato delle operazioni dei pool, inclusi la creazione e gli aggiornamenti, usare il cmdlet [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812\(v=azure.300\).aspx).
 
-    Get-AzureRmSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1”
+    Get-AzureRmSqlElasticPoolActivity -ResourceGroupName “resourcegroup1” -ServerName “server1” -ElasticPoolName “elasticpool1”
 
 
 ## <a name="get-the-status-of-moving-an-elastic-database-into-and-out-of-a-pool"></a>Ottenere lo stato dello spostamento di un database elastico all’interno o all’esterno di un pool
@@ -92,7 +91,7 @@ Per recuperare le metriche:
 
 
 ## <a name="get-resource-usage-data-for-an-elastic-database"></a>Ottenere i dati di utilizzo delle risorse per un database elastico
-Queste API sono le stesse API (V12) correnti usate per monitorare l'utilizzo delle risorse di un database autonomo, fatta eccezione per la seguente differenza semantica.
+Queste API sono le stesse API correnti (V12) usate per monitorare l'utilizzo delle risorse di un database singolo, tranne per la differenza semantica seguente.
 
 Per questa API, le metriche recuperate vengono espresse come percentuale del numero massimo di eDTU (o limite di utilizzo equivalente per la metrica sottostante come CPU, IO e così via) impostato per tale pool. Ad esempio, l'utilizzo del 50% di una di queste metriche indica che il consumo di risorse specifico si trova al 50% del limite di utilizzo per database per quella risorsa nel pool padre.
 
@@ -252,11 +251,6 @@ Questo esempio recupera le metriche di consumo per un determinato pool elastico 
 * La modifica del numero minimo di eDTU per database o del numero massimo di eDTU per database in genere viene completata entro 5 minuti.
 * La modifica del numero di eDTU per pool dipende dallo spazio totale usato da tutti i database nel pool. Le modifiche richiedono una media di 90 minuti o meno per 100 GB. Ad esempio, se lo spazio totale utilizzato da tutti i database nel pool è pari a 200 GB, la latenza prevista per la modifica del numero di eDTU del pool per ogni pool è di 3 ore o meno.
 
-## <a name="migrate-from-v11-to-v12-servers"></a>Eseguire la migrazione dei server da V11 a V12
-I cmdlet di PowerShell consentono di avviare, arrestare o monitorare un aggiornamento alla versione 12 del database SQL di Azure dalla versione 11 o qualsiasi altra versione precedente alla 12.
-
-* [Eseguire l'aggiornamento a database SQL V12 tramite PowerShell](sql-database-upgrade-server-powershell.md)
-
 Per la documentazione di riferimento sui cmdlet di Powershell, vedere:
 
 * [Get-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603582\(v=azure.300\).aspx)
@@ -271,6 +265,6 @@ Il cmdlet Stop comporta l'annullamento non la sospensione. Non è possibile ripr
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

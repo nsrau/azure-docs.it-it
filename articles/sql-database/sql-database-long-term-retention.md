@@ -203,7 +203,7 @@ Per rimuovere manualmente i backup dall'insieme di credenziali.
 1. D: È possibile eliminare manualmente backup specifici nell'insieme di credenziali?
    R: Non in questo momento, ma l'insieme di credenziali pulisce automaticamente i backup quando il periodo di conservazione è scaduto.
 2. D: È possibile registrare un server per archiviare backup di più di un insieme di credenziali?
-   R: No, oggi è possibile archiviare solo i backup di un inseme di credenziali per volta.
+   R: No, oggi è possibile archiviare solo i backup di un insieme di credenziali per volta.
 3. D: È possibile disporre di un insieme di credenziali e un server in sottoscrizioni diverse?
    R: No, attualmente l'insieme di credenziali e il server devono trovarsi nella stessa sottoscrizione e nello stesso gruppo di risorse.
 4. D: È possibile usare un insieme di credenziali creato in un'area diversa rispetto all'area del mio server?

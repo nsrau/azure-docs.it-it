@@ -15,8 +15,8 @@ ms.workload: Supportability
 ms.date: 06/01/2016
 ms.author: BernardoAMunoz
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6de24842669e29ea7d6796f63fa2a8ae36930531
+ms.sourcegitcommit: d777bc6bd477c5b6645fc8bd7b6d57a5d2f89e22
+ms.openlocfilehash: e465e2c1503add186a4b134e85bd9aab61d5c0ad
 
 
 ---
@@ -43,7 +43,7 @@ Il pannello Integrità risorsa nel portale di Azure offre informazioni dettaglia
 Dopo aver effettuato l'accesso al portale di Azure, esistono due modi per accedere al pannello Integrità risorsa: 
 
 ### <a name="open-the-resource-blade"></a>Aprire il pannello della risorsa
-Aprire il pannello per una determinata risorsa. Nel pannello Impostazioni visualizzato accanto al pannello della risorsa, fare clic su Integrità risorsa per aprire il pannello Integrità risorsa. 
+Aprire il pannello per una determinata risorsa. Nel pannello sinistro visualizzato accanto il pannello delle risorse fare clic su Integrità risorsa in Supporto e risoluzione dei problemi per aprire il pannello Integrità risorsa. 
 
 ![Pannello Integrità risorsa](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
 
@@ -54,7 +54,7 @@ Aprire il pannello Guida e supporto facendo clic sul punto interrogativo nell'an
 
 ![Guida e supporto tecnico](./media/resource-health-overview/HelpAndSupport.png)
 
-Facendo clic sul riquadro verrà visualizzato il pannello della sottoscrizione di Integrità risorse che elenca tutte le risorse presenti nella sottoscrizione. Accanto a ogni risorsa è presente un'icona che ne indica l'integrità. Facendo clic su ogni risorsa verrà aperto il pannello Integrità risorsa.
+Nel pannello sinistro visualizzato accanto al pannello Guida e supporto tecnico fare clic su Integrità risorsa in Supporto e risoluzione dei problemi. Se si fa clic sul riquadro, viene visualizzato il pannello della sottoscrizione di Integrità risorse che elenca tutte le risorse presenti nella sottoscrizione. Accanto a ogni risorsa è presente un'icona che ne indica l'integrità. Facendo clic su ogni risorsa verrà aperto il pannello Integrità risorsa.
 
 **Riquadro Integrità risorsa**
 
@@ -110,6 +110,6 @@ Commenti e suggerimenti sono sempre graditi. È possibile inviare [suggerimenti]
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

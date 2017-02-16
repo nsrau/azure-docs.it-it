@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e250fcd488f75f88122407b0ed5ffb1e68d684d2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c36bea632f232e4026609e546a59d246df433425
 
 
 ---
@@ -234,6 +234,6 @@ Quando si fa clic sul riquadro Certify nel pannello di accesso, si dovrebbe acce
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

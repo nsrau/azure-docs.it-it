@@ -1,4 +1,4 @@
-# Overview
+# Panoramica
 ## [Che cos'è DNS di Azure?](dns-overview.md)
 ## [Zone e record DNS](dns-zones-records.md)
 
@@ -34,7 +34,10 @@
 ## [Proteggere zone e record DNS](dns-protect-zones-recordsets.md)
 ## [Automatizzare le operazioni del servizio DNS con .NET SDK](dns-sdk.md)
 
-# riferimento
+## Risolvere problemi
+### [Guida per la risoluzione dei problemi](dns-troubleshoot.md)
+
+# Riferimento
 ## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
 ## [Interfaccia della riga di comando di Azure 2.0 (anteprima)](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)

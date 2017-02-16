@@ -4,20 +4,21 @@
 ##[Creare un server](analysis-services-create-server.md)
 
 # Procedure 
-## [Distribuire](analysis-services-deploy.md)
-## Gestire
-###[Connettersi a un server](analysis-services-connect.md)
-###[Gestire un server](analysis-services-manage.md)
-## Integrare
-###[Gateway dati locale](analysis-services-gateway.md)
+##[Eseguire la distribuzione in un server](analysis-services-deploy.md)
+##[Connettersi da un client](analysis-services-connect.md)
+##[Gestire un server](analysis-services-manage.md)
+##[Gestire gli utenti](analysis-services-manage-users.md)
+##[Integrare il gateway dati locale](analysis-services-gateway.md)
 
-# Riferimento
-##[PowerShell](/powershell/resourcemanager)
-##[REST](/rest/api/analysisservices/)
+# Riferimenti
+##[PowerShell](analysis-services-powershell.md)
+##[REST](/rest/api/analysisservices)
 
-# Risorse correlate
+# Risorse
 ##[Connessioni alle origini dati](analysis-services-datasource.md)
+##[Provider di dati](analysis-services-data-providers.md) 
 
-<!--HONumber=Jan17_HO1-->
+
+<!--HONumber=Feb17_HO2-->
 
 

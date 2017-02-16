@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 80c7a8584dac9537ddaf1d97a561388c3c22ec1b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f6ef85e0c05911bb3ad13a8ffb029bf9fadd8bfd
 
 
 ---
@@ -88,7 +88,7 @@ Una volta raccolti i dati, verrà eseguita l'analisi dei dati e verrà generato 
 
 Per impostazione predefinita, i dati verranno archiviati nella cartella D:\home\data\DaaS, da cui sarà possibile scaricarli.
 
-Per altre informazioni sul portale di supporto del servizio app di Azure, vedere il post di blog relativo ai [nuovi aggiornamenti all'estensione del sito di supporto per Siti Web di Azure](/blog/new-updates-to-support-site-extension-for-azure-websites).
+Per altre informazioni sul portale di supporto del servizio app di Azure, vedere il post di blog relativo ai [nuovi aggiornamenti all'estensione del sito di supporto per Siti Web di Azure](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites).
 
 #### <a name="use-the-kudu-debug-console"></a>Usare la console di debug Kudu
 Il servizio App Web include una console di debug che è possibile usare per il debug, l'esplorazione e il caricamento di file, nonché endpoint JSON per ottenere informazioni sull'ambiente in uso. Questa console è chiamata *console Kudu* o *dashboard SCM* dell'app Web.
@@ -104,7 +104,7 @@ Elementi forniti dalla console Kudu:
 
 Inoltre, nel caso in cui l'applicazione generi eccezioni first-chance, è possibile usare Kudu e l'utilità della riga di comando Procdump dello strumento SysInternals per creare dump della memoria. I dump della memoria sono snapshot del processo e semplificano la risoluzione di problemi più complessi riscontrati nell'app Web.
 
-Per altre informazioni sulle funzionalità disponibili in Kudu, vedere il post di blog relativo agli [strumenti online di Siti Web di Azure che è opportuno conoscere](/blog/windows-azure-websites-online-tools-you-should-know-about/).
+Per altre informazioni sulle funzionalità disponibili in Kudu, vedere il post di blog relativo agli [strumenti online di Siti Web di Azure che è opportuno conoscere](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 
@@ -121,7 +121,7 @@ Per altre informazioni sul ridimensionamento, vedere [Ridimensionare un'app Web 
 #### <a name="use-autoheal"></a>Usare la funzionalità AutoHeal
 La funzionalità AutoHeal consente di riciclare il processo di lavoro per l'app in base alle impostazioni specificate, ad esempio modifiche di configurazione, richieste, limiti basati sulla memoria o il tempo necessario per l'esecuzione di una richiesta. Nella maggior parte dei casi, riciclare il processo costituisce il modo più veloce per risolvere un problema. Anche se è possibile riavviare l'app Web direttamente dall'interno del portale di Azure, la funzionalità AutoHeal eseguirà questa operazione automaticamente. È sufficiente aggiungere alcuni trigger nel file web.config radice per l'app Web. Si noti che queste impostazioni funzionano allo stesso modo anche per le applicazioni non .NET.
 
-Per altre informazioni, vedere il post di blog relativo alla [correzione automatica di Siti Web di Azure](/blog/auto-healing-windows-azure-web-sites/).
+Per altre informazioni, vedere il post di blog relativo alla [correzione automatica di Siti Web di Azure](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 
 #### <a name="restart-the-web-app"></a>Riavviare l'app Web
 Questo è spesso il modo più semplice per risolvere problemi occasionali. Nel pannello dell'app Web del [portale di Azure](https://portal.azure.com/)sono disponibili le opzioni per arrestare o riavviare l'app.
@@ -133,6 +133,6 @@ Questo è spesso il modo più semplice per risolvere problemi occasionali. Nel p
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

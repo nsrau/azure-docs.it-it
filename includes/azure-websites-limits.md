@@ -6,7 +6,7 @@
 | Tipo di istanza di calcolo |Condiviso |Condiviso |Dedicato<sup>3</sup> |Dedicato<sup>3</sup> |Dedicato<sup>3</sup></p> |
 | [Scalabilità orizzontale](../articles/app-service-web/web-sites-scale.md) (numero massimo di istanze) |1 condivisa |1 condivisa |3 dedicati<sup>3</sup> |10 dedicati<sup>3</sup> |20 dedicati (50 nell'ambiente del servizio app)<sup>3,4</sup> |
 | Archiviazione<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |500 GB<sup>4,5</sup></p> |
-| Tempo di CPU (breve)<sup>6</sup> |3 minuti |3 minuti |Senza limiti, pagamento con [tariffe](https://azure.microsoft.com/pricing/details/app-service/) standard</a> |Senza limiti, pagamento con tariffe standard |Senza limiti, pagamento con tariffe standard |
+| Tempo di CPU (5 min)<sup>6</sup> |3 minuti |3 minuti |Senza limiti, pagamento con [tariffe](https://azure.microsoft.com/pricing/details/app-service/) standard</a> |Senza limiti, pagamento con tariffe standard |Senza limiti, pagamento con tariffe standard |
 | Tempo di CPU (giorno)<sup>6</sup> |60 minuti |240 minuti |Senza limiti, pagamento con [tariffe](https://azure.microsoft.com/pricing/details/app-service/) standard</a> |Senza limiti, pagamento con tariffe standard |Senza limiti, pagamento con tariffe standard |
 | Memoria (1 ora) |1024 MB per ogni piano di servizio App |1024 MB per ogni applicazione |N/D |N/D |N/D |
 | Larghezza di banda |165 MB |Illimitato, [trasferimento dei dati tariffe](https://azure.microsoft.com/pricing/details/data-transfers/) applicate |Trasferimento dei dati applicate tariffe Unlimited |Trasferimento dei dati applicate tariffe Unlimited |Trasferimento dei dati applicate tariffe Unlimited |
@@ -23,7 +23,7 @@
 | [WebJobs](../articles/app-service-web/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
 | [Utilità di pianificazione di Azure](https://azure.microsoft.com/services/scheduler/)  | |X |X |X |X |
 | [Monitoraggio endpoint](../articles/app-service-web/web-sites-monitor.md) | | |X |X |X |
-| [Slot di gestione temporanea (anteprima)](../articles/app-service-web/web-sites-staged-publishing.md) | | | |5 |20 |
+| [Slot di staging](../articles/app-service-web/web-sites-staged-publishing.md) | | | |5 |20 |
 | Domini personalizzati per applicazione</a> | |500 |500 |500 |500 |
 | Contratto di servizio | |<p> |99,9% |99.95%<sup>10</sup> |99.95%<sup>10</sup> |
 
@@ -40,6 +40,6 @@
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dcddd23ed51c9e115b5b961547652d57513b75aa
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 0c7f570db388b0ed96479e994a4a2f79e7919b17
 
 
 ---
@@ -27,9 +27,9 @@ ms.openlocfilehash: dcddd23ed51c9e115b5b961547652d57513b75aa
 In questo articolo si apprenderà come usare Query Console per eseguire query Hive in un cluster HDInsight Hadoop dal browser.
 
 > [!IMPORTANT]
-> Query Console di HDInsight è disponibile solo nei cluster HDInsight basati su Windows. Se si utilizza un cluster HDInsight basato su Linux, vedere [Eseguire query Hive usando Query Console](hdinsight-hadoop-use-hive-ambari-view.md).
-> 
-> 
+> Query Console di HDInsight è disponibile solo nei cluster HDInsight basati su Windows. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+>
+> Per HDInsight 3.4 o versione successiva, vedere [Run Hive queries in Ambari Hive View](hdinsight-hadoop-use-hive-ambari-view.md) (Eseguire query Hive nella vista Ambari Hive) per informazioni sull'esecuzione di query Hive da un Web browser.
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Prerequisiti
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
@@ -117,7 +117,7 @@ Se si usa Tez con Hive, vedere i documenti seguenti per le informazioni di debug
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
-[Powershell-install-configure]: powershell-install-configure.md
+[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 
@@ -125,6 +125,6 @@ Se si usa Tez con Hive, vedere i documenti seguenti per le informazioni di debug
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

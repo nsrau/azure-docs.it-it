@@ -17,8 +17,8 @@ ms.workload: data-services
 ms.date: 11/22/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bf9ea4bd9fde1cc534c58e32706b659e5d89e4f7
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 4f8d038a606ce518d2c9ba232049ce5bea02dd4c
 
 
 ---
@@ -35,25 +35,25 @@ ms.openlocfilehash: bf9ea4bd9fde1cc534c58e32706b659e5d89e4f7
 * Connettere le risorse a Data factory di Azure.
 * Creare una pipeline per spostare i dati dai BLOB di archiviazione a SQL Data Warehouse.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-Azure-SQL-Data-Warehouse-with-Azure-Data-Factory/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-Azure-SQL-Data-Warehouse-with-Azure-Data-Factory/player]
 > 
 > 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-Per una panoramica di Azure Data Factory, vedere [Introduzione al servizio Azure Data Factory][Introduzione al servizio Azure Data Factory].
+Per una panoramica di Azure Data Factory, vedere [Introduzione al servizio Azure Data Factory][Introduction to Azure Data Factory].
 
 ### <a name="create-or-identify-resources"></a>Creare o identificare le risorse
 Prima di iniziare questa esercitazione, è necessario avere le risorse seguenti.
 
-* **BLOB del servizio di archiviazione di Azure**: questa esercitazione usa il BLOB del servizio di archiviazione di Azure come origine dati per la pipeline di Azure Data Factory e quindi è necessario che ne sia disponibile uno per archiviare i dati di esempio. Se non ne è già disponibile uno, vedere [Creare un account di archiviazione][Creare un account di archiviazione].
-* **SQL Data Warehouse**: questa esercitazione sposta i dati da un BLOB del servizio di archiviazione di Azure a SQL Data Warehouse ed è quindi necessario avere un data warehouse online caricato con i dati di esempio AdventureWorksDW. Se non si ha un data warehouse, vedere le informazioni su come [effettuarne il provisioning][Creare un Azure SQL Data Warehouse]. Se si ha un data warehouse ma non ne è stato effettuato il provisioning con i dati di esempio, è possibile [caricarli manualmente][Caricare i dati di esempio in SQL Data Warehouse].
-* **Azure Data Factory**: Azure Data Factory completerà il caricamento effettivo, quindi è necessario averne uno da usare per creare la pipeline per lo spostamento dei dati. Se non ne è già disponibile uno, vedere le informazioni su come crearlo nel passaggio 1 in [Introduzione ad Azure Data Factory (editor di Data Factory)][Introduzione ad Azure Data Factory (editor di Data Factory)] (Introduzione ad Azure Data Factory (editor di Data Factory)).
-* **AZCopy**: per copiare i dati di esempio dal client locale al BLOB di archiviazione di Azure, è necessario AZCopy. Per istruzioni di installazione, vedere la [documentazione di AZCopy][documentazione di AZCopy].
+* **BLOB del servizio di archiviazione di Azure**: questa esercitazione usa il BLOB del servizio di archiviazione di Azure come origine dati per la pipeline di Azure Data Factory e quindi è necessario che ne sia disponibile uno per archiviare i dati di esempio. Se non ne è già disponibile uno, vedere [Creare un account di archiviazione][Create a storage account].
+* **SQL Data Warehouse**: questa esercitazione sposta i dati da un BLOB del servizio di archiviazione di Azure a SQL Data Warehouse ed è quindi necessario avere un data warehouse online caricato con i dati di esempio AdventureWorksDW. Se non si ha già un data warehouse, vedere le informazioni su come [effettuare il provisioning][Create a SQL Data Warehouse]. Se è disponibile un data warehouse, ma non ne è stato effettuato il provisioning con i dati di esempio, è possibile [caricarli manualmente][Load sample data into SQL Data Warehouse].
+* **Azure Data Factory**: il servizio Azure Data Factory completerà il caricamento effettivo, quindi è necessario averne uno da usare per creare la pipeline per lo spostamento dei dati. Se non ne è già disponibile uno, vedere le informazioni su come crearlo nel passaggio 1 in [Introduzione ad Azure Data Factory (editor di Data Factory)][Get started with Azure Data Factory (Data Factory Editor)].
+* **AZCopy**: per copiare i dati di esempio dal client locale al BLOB di archiviazione di Azure, è necessario AZCopy. Per istruzioni di installazione, vedere la [documentazione di AZCopy][AZCopy documentation].
 
 ## <a name="step-1-copy-sample-data-to-azure-storage-blob"></a>Passaggio 1: Copiare i dati di esempio nel BLOB di archiviazione di Azure
 Una volta che tutti i componenti sono pronti, è possibile copiare i dati di esempio nel BLOB di archiviazione di Azure.
 
-1. [Scaricare i dati di esempio][Scaricare i dati di esempio]. Questi dati aggiungono altri tre anni di dati di vendita ai dati di esempio AdventureWorksDW.
+1. [Scaricare i dati di esempio][Download sample data]. Questi dati aggiungono altri tre anni di dati di vendita ai dati di esempio AdventureWorksDW.
 2. Usare questo comando di AZCopy per copiare i tre anni di dati nel BLOB di archiviazione di Azure.
 
 ````
@@ -64,7 +64,7 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 ## <a name="step-2-connect-resources-to-azure-data-factory"></a>Passaggio 2: Connettere le risorse a Azure Data Factory.
 Dopo avere inserito i dati, è possibile creare la pipeline di Azure Data Factory per spostare i dati dall'archivio BLOB di Azure in SQL Data Warehouse.
 
-Per iniziare, aprire il [portale di Azure][portale di Azure] e selezionare la data factory dal menu a sinistra.
+Per iniziare, aprire il [portale di Azure][Azure portal] e selezionare il servizio data factory dal menu a sinistra.
 
 ### <a name="step-21-create-linked-service"></a>Passaggio 2.1: Creare servizi collegati
 Collegare l'account di archiviazione di Azure e SQL Data Warehouse alla data factory.  
@@ -143,7 +143,7 @@ Dopo avere creato i servizi collegati, sarà necessario definire i set di dati, 
 ```
 
 ## <a name="step-3-create-and-run-your-pipeline"></a>Passaggio 3: Creare ed eseguire la pipeline
-È infine possibile configurare ed eseguire la pipeline in Data factory di Azure.  Questa operazione completerà lo spostamento effettivo dei dati.  Per una panoramica completa delle operazioni che è possibile completare con SQL Data Warehouse e Azure Data Factory, vedere [qui][Spostare dati da e verso Azure SQL Data Warehouse con Azure Data Factory].
+È infine possibile configurare ed eseguire la pipeline in Data factory di Azure.  Questa operazione completerà lo spostamento effettivo dei dati.  Per una visualizzazione completa delle operazioni che è possibile completare con SQL Data Warehouse e Azure Data Factory, vedere [qui][Move data to and from Azure SQL Data Warehouse using Azure Data Factory].
 
 Nella sezione 'Creare e distribuire' fare clic su 'Più comandi' e quindi 'Nuova pipeline'.  Dopo la creazione della pipeline, è possibile usare il codice seguente per trasferire i dati al data warehouse:
 
@@ -198,40 +198,40 @@ Nella sezione 'Creare e distribuire' fare clic su 'Più comandi' e quindi 'Nuova
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, vedere:
 
-* [Percorso di apprendimento per Azure Data Factory][Percorso di apprendimento per Azure Data Factory].
-* [Connettore Azure SQL Data Warehouse][Connettore Azure SQL Data Warehouse]. Questo è l'argomento di riferimento di base per l'uso di Azure Data Factory con Azure SQL Data Warehouse.
+* [Percorso di apprendimento per Azure Data Factory][Azure Data Factory learning path].
+* [Connettore Azure SQL Data Warehouse][Azure SQL Data Warehouse Connector]. Questo è l'argomento di riferimento di base per l'uso di Azure Data Factory con Azure SQL Data Warehouse.
 
 Questi argomenti forniscono informazioni dettagliate su Azure Data Factory. Illustrano il database SQL di Azure o HDinsight, ma le informazioni si applicano anche ad Azure SQL Data Warehouse.
 
-* [Esercitazione: Creare la prima data factory][Esercitazione: Creare la prima data factory]: questa è l'esercitazione di base per l'elaborazione dei dati con Azure Data Factory. In questa esercitazione si apprenderà come creare la prima pipeline che usa HDInsight per trasformare e analizzare i blog ogni mese. Si noti che questa esercitazione non prevede attività di copia.
-* [Esercitazione: Copiare i dati dal BLOB di archiviazione di Azure al database SQL di Azure][Esercitazione: Copiare i dati dal BLOB di archiviazione di Azure al database SQL di Azure]. In questa esercitazione si creerà una pipeline in Azure Data Factory per copiare i dati da un BLOB di archiviazione di Azure in un database SQL di Azure.
+* [Esercitazione: Introduzione ad Azure Data Factory][Tutorial: Get started with Azure Data Factory]. Questa è l'esercitazione di base per l'elaborazione dei dati con Azure Data Factory. In questa esercitazione si apprenderà come creare la prima pipeline che usa HDInsight per trasformare e analizzare i blog ogni mese. Si noti che questa esercitazione non prevede attività di copia.
+* [Esercitazione: Copiare i dati dal BLOB di archiviazione di Azure al database SQL di Azure][Tutorial: Copy data from Azure Storage Blob to Azure SQL Database]. In questa esercitazione si creerà una pipeline in Azure Data Factory per copiare i dati da un BLOB di archiviazione di Azure in un database SQL di Azure.
 
 <!--Image references-->
 
 <!--Article references-->
-[documentazione di AZCopy]: ../storage/storage-use-azcopy.md
-[Connettore Azure SQL Data Warehouse]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
+[AZCopy documentation]: ../storage/storage-use-azcopy.md
+[Azure SQL Data Warehouse Connector]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [BCP]: sql-data-warehouse-load-with-bcp.md
-[Creare un Azure SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Creare un account di archiviazione]: ../storage/storage-create-storage-account.md#create-a-storage-account
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Create a storage account]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [Data Factory]: sql-data-warehouse-get-started-load-with-azure-data-factory.md
-[Introduzione ad Azure Data Factory (editor di Data Factory)]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
-[Introduzione al servizio Azure Data Factory]: ../data-factory/data-factory-introduction.md
-[Caricare i dati di esempio in SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
-[Spostare dati da e verso Azure SQL Data Warehouse con Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
+[Get started with Azure Data Factory (Data Factory Editor)]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
+[Introduction to Azure Data Factory]: ../data-factory/data-factory-introduction.md
+[Load sample data into SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
+[Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
-[Esercitazione: Copiare i dati dal BLOB di archiviazione di Azure al database SQL di Azure]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
-[Esercitazione: Creare la prima data factory]: ../data-factory/data-factory-build-your-first-pipeline.md
+[Tutorial: Copy data from Azure Storage Blob to Azure SQL Database]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+[Tutorial: Get started with Azure Data Factory]: ../data-factory/data-factory-build-your-first-pipeline.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Percorso di apprendimento per Azure Data Factory]: https://azure.microsoft.com/documentation/learning-paths/data-factory
-[portale di Azure]: https://portal.azure.com
-[Scaricare i dati di esempio]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
+[Azure Data Factory learning path]: https://azure.microsoft.com/documentation/learning-paths/data-factory
+[Azure portal]: https://portal.azure.com
+[Download sample data]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

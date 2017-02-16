@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: monicar
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: bcfa97c08cb55aba1ab69e67843abb81805a8884
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: c4a58abe5018f15a1067e46e47010b963dfd530e
 
 
 ---
@@ -46,8 +46,8 @@ Uno dei due [modelli di distribuzione](resource-manager-deployment-model.md) usa
 [Interfaccia della riga di comando](xplat-cli-install.md) che può essere usata per la gestione dei servizi di Azure da PC Windows, OSX e Linux.
 
 ### <a name="a-namepowershellaazure-powershell"></a><a name="powershell"></a>Azure PowerShell
-[Interfaccia della riga di comando](powershell-install-configure.md) per la gestione dei servizi di Azure tramite la riga di comando da PC Windows. Alcuni servizi o funzionalità dei servizi possono essere gestite solo tramite PowerShell o l'interfaccia della riga di comando. Il materiale sussidiario delle singole risorse di Azure offre informazioni dettagliate sul modello o sui modelli con cui è possibile distribuire una risorsa.   
-Vedere anche [Come installare e configurare Azure PowerShell](powershell-install-configure.md)
+[Interfaccia della riga di comando](/powershell/azureps-cmdlets-docs) per la gestione dei servizi di Azure tramite la riga di comando da PC Windows. Alcuni servizi o funzionalità dei servizi possono essere gestite solo tramite PowerShell o l'interfaccia della riga di comando. Il materiale sussidiario delle singole risorse di Azure offre informazioni dettagliate sul modello o sui modelli con cui è possibile distribuire una risorsa.   
+Vedere anche [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 ### <a name="a-namearm-modelaazure-resource-manager-deployment-model"></a><a name="arm-model"></a>modello di distribuzione Azure Resource Manager
 Uno dei due [modelli di distribuzione](resource-manager-deployment-model.md) usati per la distribuzione delle risorse in Microsoft Azure. L'altro è il modello di distribuzione classica. Alcune risorse di Azure possono essere distribuite con uno dei due modelli, mentre altre possono essere distribuite con entrambi i modelli. Il materiale sussidiario delle singole risorse di Azure offre informazioni dettagliate sul modello o sui modelli con cui è possibile distribuire una risorsa.
@@ -147,6 +147,6 @@ Vedere anche [Panoramica di Rete virtuale](virtual-network/virtual-networks-over
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

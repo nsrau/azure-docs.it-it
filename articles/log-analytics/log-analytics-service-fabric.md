@@ -1,12 +1,12 @@
 ---
-title: Ottimizzare l'ambiente con la soluzione Service Fabric in Log Analytics | Microsoft Docs
-description: È possibile usare la soluzione Service Fabric per valutare i rischi e l'integrità delle applicazioni Service Fabric, dei servizi micro, dei nodi e dei cluster.
+title: Ottimizzare l&quot;ambiente con la soluzione Service Fabric in Log Analytics | Documentazione Microsoft
+description: "È possibile usare la soluzione Service Fabric per valutare i rischi e l&quot;integrità delle applicazioni Service Fabric, dei servizi micro, dei nodi e dei cluster."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: niniikhena
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: 2047b3fa-96b1-4230-af5d-a4c331d973ce
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e6697c85194e18fcaac0f6d55bf00c3b005f6f00
+
 
 ---
 # <a name="service-fabric-solution-in-log-analytics"></a>Soluzione Service Fabric in Log Analytics
@@ -633,6 +637,9 @@ foreach($storageAccount in $storageAccountsToCheck)
 ## <a name="next-steps"></a>Passaggi successivi
 * Per visualizzare i dati dettagliati sugli eventi Service Fabric usare [Ricerche log in Log Analytics](log-analytics-log-searches.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

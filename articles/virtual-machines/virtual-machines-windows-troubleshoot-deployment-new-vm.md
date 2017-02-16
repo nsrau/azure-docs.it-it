@@ -1,20 +1,24 @@
 ---
-title: Risolvere i problemi di distribuzione di VM Windows - Resource Manager | Microsoft Docs
+title: Risolvere i problemi di distribuzione di VM Windows - Resource Manager | Documentazione Microsoft
 description: Risolvere i problemi della distribuzione Resource Manager quando si crea una nuova macchina virtuale Windows in Azure
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: ''
+documentationcenter: 
 author: JiangChen79
 manager: felixwu
-editor: ''
+editor: 
 tags: top-support-issue, azure-resource-manager
-
+ms.assetid: afc6c1a4-2769-41f6-bbf9-76f9f23bcdf4
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 12/16/2016
 ms.author: cjiang
+translationtype: Human Translation
+ms.sourcegitcommit: 94c18aa0c4fe38fb74931d5ed61fece207c8b5ce
+ms.openlocfilehash: 5b876185db505ec4bdbaff1d641b85c393e82559
+
 
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-windows-virtual-machine-in-azure"></a>Risolvere i problemi della distribuzione Resource Manager con la creazione di una nuova macchina virtuale Windows in Azure
@@ -22,12 +26,12 @@ ms.author: cjiang
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="collect-audit-logs"></a>Raccogliere log di controllo
-Per avviare la risoluzione dei problemi, raccogliere i log di controllo per identificare l'errore associato al problema. I collegamenti seguenti contengono informazioni dettagliate sul processo da seguire.
+## <a name="collect-activity-logs"></a>Raccogliere i log di attività
+Per avviare la risoluzione dei problemi, raccogliere i log delle attività per identificare l'errore associato al problema. I collegamenti seguenti contengono informazioni dettagliate sul processo da seguire.
 
-[Risolvere i problemi relativi alle distribuzioni di gruppi di risorse con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md)
+[Visualizzare le operazioni di distribuzione](../azure-resource-manager/resource-manager-deployment-operations.md)
 
-[Operazioni di controllo con Gestione risorse](../resource-group-audit.md)
+[Visualizzare i log attività per gestire le risorse di Azure](../azure-resource-manager/resource-group-audit.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
@@ -53,9 +57,9 @@ Per risolvere entrambi questi errori, usare [Add-AzureRMVhd per caricare il disc
 
 **Risoluzione**
 
-Per risolvere entrambi questi errori, eliminare l'immagine corrente dal portale e [acquisirla di nuovo dai dischi rigidi virtuali correnti](virtual-machines-windows-vhd-copy.md) con la stessa impostazione usata per il sistema operativo (generalizzato/specializzato).
+Per risolvere entrambi questi errori, eliminare l'immagine corrente dal portale e [acquisirla di nuovo dai dischi rigidi virtuali correnti](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) con la stessa impostazione usata per il sistema operativo (generalizzato/specializzato).
 
-## <a name="issue:-custom/gallery/marketplace-image;-allocation-failure"></a>Problema: Immagine personalizzata/della raccolta/del marketplace; errore di allocazione
+## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>Problema: Immagine personalizzata/della raccolta/del marketplace; errore di allocazione
 Questo errore si verifica nelle situazioni in cui la nuova richiesta di VM viene aggiunta a un cluster che non può supportare le dimensioni della VM richieste oppure non ha spazio disponibile sufficiente per soddisfare la richiesta.
 
 **Causa 1:** il cluster non supporta le dimensioni della VM richieste.
@@ -79,8 +83,11 @@ Questo errore si verifica nelle situazioni in cui la nuova richiesta di VM viene
   * Aggiungere la nuova VM alla stessa rete virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se si incontrano problemi quando si avvia una VM Windows arrestata o si ridimensiona una VM Windows esistente in Azure, vedere l'articolo su come [risolvere i problemi della distribuzione di Resource Manager con il riavvio o il ridimensionamento di una macchina virtuale Windows esistente in Azure](virtual-machines-windows-restart-resize-error-troubleshooting.md).
+Se si incontrano problemi quando si avvia una VM Windows arrestata o si ridimensiona una VM Windows esistente in Azure, vedere l'articolo su come [risolvere i problemi della distribuzione di Resource Manager con il riavvio o il ridimensionamento di una macchina virtuale Windows esistente in Azure](virtual-machines-windows-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO2-->
 
 

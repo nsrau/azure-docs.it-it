@@ -24,7 +24,9 @@
 ### Connessione a livello di codice
 #### [.NET](media-services-dotnet-connect-programmatically.md)
 #### [REST](media-services-rest-connect-programmatically.md)
-### [Gestire gli endpoint di streaming nel portale](media-services-portal-manage-streaming-endpoints.md)
+### [Gestire gli endpoint di streaming](media-services-streaming-endpoints-overview.md)
+#### [Portale](media-services-portal-manage-streaming-endpoints.md)
+#### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### [Procedura: Aggiornare Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione](media-services-roll-storage-access-keys.md)
 ### [Quote e limitazioni](media-services-quotas-and-limitations.md)
 
@@ -92,6 +94,9 @@
 
 ## [Streaming live](media-services-manage-channels-overview.md)
 ### [Codificatori locali](media-services-live-streaming-with-onprem-encoders.md)
+#### [Portale](media-services-portal-live-passthrough-get-started.md)
+#### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Streaming live con il codificatore cloud](media-services-manage-live-encoder-enabled-channels.md)
 ### Esercitazioni sul codificatore cloud
 #### [Portale](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -207,6 +212,6 @@
 ## [Video](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

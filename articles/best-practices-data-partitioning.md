@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2016
+ms.date: 01/09/2017
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 738c6ecb40118491dd2e833443c91891e99941d3
+ms.sourcegitcommit: 5f62eef58c8a334013b000176f74cc8f7652f688
+ms.openlocfilehash: 312d1f417df612eee46bb078d784576a438ba0ab
 
 
 ---
@@ -178,7 +178,7 @@ Quando si progetta un schema di partizionamento dei dati, tenere presente quanto
 * **Dove possibile, mantenere i dati per le operazioni di database più comuni insieme in ogni partizione per ridurre al minimo le operazioni di accesso ai dati tra partizioni**. Le query tra partizioni possono richiedere più tempo rispetto alle query all'interno di una singola partizione, ma ottimizzare le partizioni per un set di query potrebbe avere effetti negativi su latri set di query. Quando non è possibile evitare l'esecuzione di query tra partizioni, ridurre il tempo necessario per l'esecuzione delle query eseguendo query parallele e aggregando i risultati all'interno dell'applicazione. Questo approccio potrebbe non essere possibile in alcuni casi, ad esempio quando è necessario ottenere da una query un risultato da usare nella query successiva.
 * **Se le query usano dati di riferimento relativamente statici, ad esempio tabelle di codici postali o elenchi di prodotti, considerare la possibilità di eseguire la replica dei dati in tutte le partizioni per ridurre la richiesta di operazioni di ricerca separate in altre partizioni**. Questo approccio può inoltre ridurre la probabilità che i dati di riferimento diventino un set di dati "critici" soggetti a traffico elevato nell'intero sistema. Esiste tuttavia un costo aggiuntivo relativo alla sincronizzazione di tutte le modifiche che potrebbero verificarsi per i dati di riferimento.
 * **Dove possibile, ridurre al minimo i requisiti per l'integrità referenziale tra le partizioni verticali e funzionali**. In questi schemi, l'applicazione stessa è responsabile della gestione dell'integrità referenziale tra le partizioni quando i dati vengono aggiornati e utilizzati. Le query che devono unire i dati tra più partizioni vengono eseguite più lentamente delle query che uniscono solo i dati all'interno della stessa partizione, poiché l'applicazione in genere richiede di eseguire query consecutive basate su una chiave e quindi su una chiave esterna. Si consiglia di replicare o de-normalizzare i dati rilevanti. Per ridurre al minimo il tempo di query in cui sono necessari i join tra partizioni, eseguire query parallele nelle partizioni e unire i dati all'interno dell'applicazione.
-* **È necessario considerare l'effetto che lo schema di partizionamento potrebbe avere sulla coerenza dei dati tra partizioni.**  Valutare se la coerenza assoluta è effettivamente un requisito. Al contrario, un approccio comune nel cloud consiste nell'implementare la coerenza finale. I dati in ogni partizione vengono aggiornati separatamente e la logica dell'applicazione garantisce che tutti gli aggiornamenti vengano completati correttamente. La logica gestisce inoltre le incoerenze che possono essere generate da query sui dati durante l'esecuzione di un'operazione coerente. Per altre informazioni sull'implementazione di coerenza finale, vedere le informazioni relative alla [Introduzione alla coerenza dei dati].
+* **È necessario considerare l'effetto che lo schema di partizionamento potrebbe avere sulla coerenza dei dati tra partizioni.** Valutare se la coerenza assoluta è effettivamente un requisito. Al contrario, un approccio comune nel cloud consiste nell'implementare la coerenza finale. I dati in ogni partizione vengono aggiornati separatamente e la logica dell'applicazione garantisce che tutti gli aggiornamenti vengano completati correttamente. La logica gestisce inoltre le incoerenze che possono essere generate da query sui dati durante l'esecuzione di un'operazione coerente. Per altre informazioni sull'implementazione di coerenza finale, vedere le informazioni relative alla [Introduzione alla coerenza dei dati].
 * **È necessario considerare come le query individuano la partizione corretta**. Se una query deve analizzare tutte le partizioni per individuare i dati richiesti, ci sarà un impatto significativo sulle prestazioni, anche se sono in esecuzione più query parallele. Le query usate con strategie di partizionamento verticale e funzionale possono naturalmente specificare le partizioni. Tuttavia, quando si usa il partizionamento orizzontale, l'individuazione di un elemento può essere difficile poiché ogni partizione ha lo stesso schema. Una tipica soluzione di partizionamento orizzontale consiste nel mantenere una mappa che può essere utilizzata per cercare il percorso della partizione per elementi specifici di dati. Questa mappa può essere implementata nella logica di partizionamento orizzontale dell'applicazione o gestita dall'archivio dati se supporta il partizionamento orizzontale trasparente.
 * **Quando si usa una strategia di partizionamento orizzontale, prendere in considerazione la possibilità di ribilanciare periodicamente le partizioni**. Ciò consente di distribuire uniformemente i dati secondo le dimensioni e il carico di lavoro per ridurre al minimo le aree sensibili, ottimizzare le prestazioni delle query e aggirare le limitazioni di archiviazione fisiche. Tuttavia, si tratta di un'attività complessa che spesso richiede l'utilizzo di uno strumento personalizzato o di un processo.
 * **La replica di ogni partizione offre ulteriore protezione dagli errori**. Se una singola replica ha esito negativo, le query possono essere indirizzate verso una copia di lavoro.
@@ -310,7 +310,7 @@ Questo meccanismo implementa in modo efficace una strategia di scalabilità auto
 
 Quando si progettano le entità per l'archiviazione tabelle di Azure, tenere presente quanto riportato di seguito:
 
-* La selezione dei valori della chiave di partizione e della chiave e di riga deve essere guidata dal modo in cui si accede ai dati. Scegliere una combinazione di chiave di partizionei/chiave di riga che supporti la maggior parte delle query. Le query più efficienti recuperano i dati specificando la chiave di partizione e la chiave di riga. Le query che specificano una chiave di partizione e un intervallo di chiavi di riga possono essere eseguite analizzando una singola partizione. L'operazione risulta relativamente veloce perché i dati seguono l'ordine delle chiavi di riga. Se le query non specificano la partizione da analizzare, è possibile che la chiave di partizione richieda all'archiviazione tabelle di Azure l'analisi di tutte le partizioni di dati.
+* La selezione dei valori della chiave di partizione e della chiave e di riga deve essere guidata dal modo in cui si accede ai dati. Scegliere una combinazione di chiave di partizione/chiave di riga che supporti la maggior parte delle query. Le query più efficienti recuperano i dati specificando la chiave di partizione e la chiave di riga. Le query che specificano una chiave di partizione e un intervallo di chiavi di riga possono essere eseguite analizzando una singola partizione. L'operazione risulta relativamente veloce perché i dati seguono l'ordine delle chiavi di riga. Se le query non specificano la partizione da analizzare, è possibile che la chiave di partizione richieda all'archiviazione tabelle di Azure l'analisi di tutte le partizioni di dati.
 
   > [!TIP]
   > Se un'entità dispone di una chiave naturale, è consigliabile utilizzarla come chiave di partizione e specificare una stringa vuota come chiave di riga. Se un'entità dispone di una chiave composta che comprende due proprietà, selezionare la proprietà che cambia più lentamente come chiave di partizione e l'altra proprietà come chiave di riga. Se un'entità dispone di più di due proprietà chiave, utilizzare una concatenazione delle proprietà per fornire le chiavi di partizione e di riga.
@@ -380,14 +380,7 @@ I documenti sono organizzati in raccolte. È possibile raggruppare i documenti c
 
 Le raccolte di documenti offrono un meccanismo naturale per partizionare i dati all'interno di un unico database. Internamente, un database di DocumentDB può estendersi su più server e potrebbe tentare di distribuire il carico distribuendo le raccolte tra i server. Il modo più semplice per implementare il partizionamento orizzontale consiste nel creare una raccolta per ogni partizione.
 
-> [!NOTE]
-> Ogni database DocumentDB ha un *livello di prestazioni* che determina la quantità di risorse ottenute. A ogni livello di prestazioni è associato un limite di velocità dell'*unità richiesta*. Il limite di velocità dell'unità richiesta specifica il volume di risorse riservato e disponibile a uso esclusivo della raccolta. Il costo di una raccolta dipende dal livello di prestazioni selezionato per la raccolta. Più elevato è il livello di prestazioni e il limite di velocità dell'unità richiesta, maggiore sarà il costo. Il livello di prestazioni di una raccolta può essere regolato usando il portale di Azure. Per ulteriori informazioni, vedere la pagina [Livelli di prestazioni in DocumentDB] sul sito Web Microsoft.
->
->
-
 Tutti i database vengono creati nel contesto di un account di DocumentDB. Un singolo account DocumentDB può contenere più database e specifica in quale area vengono creati i database. Ogni account DocumentDB impone inoltre il proprio controllo di accesso. È possibile usare account DocumentDB per individuare partizioni a livello geografico (raccolte all'interno del database) più prossime agli utenti che vi devono accedere e imporre restrizioni in modo che solo tali utenti possano connettersi a esse.
-
-Ogni account DocumentDB ha una quota che limita il numero di database e raccolte che può contenere e la quantità di spazio di archiviazione dei documenti disponibile. Questi limiti sono soggetti a modifiche, descritte alla pagina [DocumentDB limiti e quote] sul sito Web Microsoft. In teoria, se si implementa un sistema in cui tutte le partizioni appartengono allo stesso database, è possibile che venga raggiunto il limite di capacità di archiviazione dell'account.
 
 In questo caso, potrebbe essere necessario creare altri account e database di DocumentDB e distribuire le partizioni nei database. Tuttavia, anche se è poco probabile che si raggiunga la capacità di archiviazione di un database, è consigliabile usare più database. Di conseguenza, poiché ogni database ha un proprio set di utenti e autorizzazioni, è possibile usare questo meccanismo per isolare l'accesso alle raccolte in base al database.
 
@@ -405,12 +398,10 @@ L'applicazione client indirizza le richieste alla partizione appropriata, in gen
 
 Quando si decide come partizionare i dati con un database DocumentDB, tenere presente quanto riportato di seguito:
 
-* **Le risorse disponibili per un database di DocumentDB sono soggette alle limitazioni di quota dell'account DocumentDB**. Ogni database può contenere un numero di raccolte (anche in questo caso, esiste un limite) e ogni raccolta è associata a un livello di prestazioni che regola il limite di velocità RU (velocità effettiva riservata) per la raccolta. Per altre informazioni, visitare la pagina [DocumentDB limiti e quote] nel sito Web Microsoft.
 * **Ogni documento deve avere un attributo da usare per identificare in modo univoco tale documento all'interno della raccolta in cui è contenuto**. Questo attributo è diverso dalla chiave di partizione che definisce la raccolta contenente il documento. Una raccolta può contenere un numero elevato di documenti. In teoria, l'unico limite è la lunghezza massima dell'ID di documento. L'ID di documento può contenere fino a 255 caratteri.
 * **Tutte le operazioni eseguite su un documento vengono eseguite nel contesto di una transazione. Le transazioni nei database DocumentDB sono limitate alla raccolta in cui è contenuto il documento.** Se un'operazione ha esito negativo, viene eseguito il rollback del lavoro che è stato eseguito. Quando viene eseguita un'operazione su un documento, tutte le modifiche apportate sono soggette all'isolamento a livello di snapshot. Questo meccanismo garantisce ad esempio che nel caso in cui una richiesta di creazione di un nuovo documento ha esito negativo, un altro utente che contemporaneamente esegue una query nel database non visualizzi un documento parziale che verrà in seguito rimosso.
 * **Le query del database DocumentDB sono anche limitate al livello di raccolta**. Una singola query può recuperare dati solo da una raccolta. Se è necessario recuperare dati da più raccolte, è necessario eseguire query in ogni raccolta singolarmente e incorporare i risultati nel codice dell'applicazione.
 * **I database DocumentDB supportano elementi programmabili che possono essere archiviati in una raccolta insieme ai documenti**. Questi includono stored procedure, funzioni definite dall'utente e trigger scritti in JavaScript. Questi elementi possono accedere a qualsiasi documento all'interno della stessa raccolta. Inoltre, questi elementi vengono eseguiti nell'ambito della transazione di ambiente (nel caso di un trigger che viene generato in seguito a una creazione, eliminazione o sostituzione eseguita su un documento) o avviando una nuova transazione (nel caso di una stored procedure eseguita in seguito a una richiesta client esplicita). Se il codice in un elemento programmabile genera un'eccezione, viene eseguito il rollback della transazione. È possibile utilizzare stored procedure e trigger per mantenere l'integrità e la coerenza tra i documenti, ma  tutti questi documenti devono far parte della stessa raccolta.
-* **È improbabile che le raccolte che si prevede di mantenere nei database di un account DocumentDB superino i limiti di velocità effettiva definiti dai livelli di prestazioni delle raccolte**. Questi limiti sono descritti nella pagina [gestire le esigenze di capacità di DocumentDB] nel sito Web Microsoft. Se si prevede di raggiungere questi limiti, considerare la suddivisione di raccolte tra database in account DocumentDB diversi per ridurre il carico per ogni raccolta.
 
 ## <a name="partitioning-strategies-for-azure-search"></a>Strategie di partizionamento per Ricerca di Azure
 La possibilità di ricercare dati è spesso il metodo principale di navigazione ed esplorazione offerto da molte applicazioni Web. Consente agli utenti di trovare le risorse rapidamente, ad esempio i prodotti in un'applicazione di e-commerce, in base a combinazioni di criteri di ricerca. Il servizio di ricerca di Azure offre funzionalità di ricerca full-text nel contenuto web e include funzionalità quali il suggerimento automatico di query basate su quasi corrispondenze ed esplorazione in base a facet. Una descrizione completa di queste funzionalità è disponibile nella pagina [Che cos'è la Ricerca di Azure?] nel sito Web Microsoft.
@@ -547,7 +538,6 @@ Quando si esaminano le strategie per l'implementazione della coerenza dei dati, 
 * La pagina [Esecuzione di transazioni di gruppi di entità] nel sito Web Microsoft offre informazioni dettagliate sull'implementazione di operazioni transazionali su entità archiviate nell'archiviazione tabelle di Azure.
 * L'articolo [Guida alla progettazione della tabella di archiviazione di Azure] nel sito Web Microsoft include informazioni dettagliate sul partizionamento dei dati nell'archiviazione tabelle di Azure.
 * La pagina [Uso della rete CDN di Azure] nel sito Web Microsoft descrive come replicare i dati presenti nell'archivio BLOB di Azure usando la rete per la distribuzione di contenuti di Azure.
-* La pagina che illustra come [gestire le esigenze di capacità di DocumentDB] nel sito Web Microsoft contiene informazioni sull'allocazione di risorse da parte dei database Azure DocumentDB.
 * La pagina [Che cos'è la Ricerca di Azure?] nel sito Web Microsoft offre una descrizione completa delle funzionalità disponibili in Ricerca di Azure.
 * La pagina [Limiti dei servizi in Ricerca di Azure] nel sito Web Microsoft include informazioni sulla capacità di ogni istanza di Ricerca di Azure.
 * La pagina [Tipi di dati supportati (Ricerca di Azure)] nel sito Web Microsoft riepiloga i tipi di dati che è possibile usare nei documenti e indici in cui è possibile eseguire ricerche.
@@ -564,15 +554,13 @@ Quando si esaminano le strategie per l'implementazione della coerenza dei dati, 
 [Introduzione alla coerenza dei dati]: http://aka.ms/Data-Consistency-Primer
 [Data Partitioning Guidance]: https://msdn.microsoft.com/library/dn589795.aspx
 [Data Types]: http://redis.io/topics/data-types
-[DocumentDB limiti e quote]: documentdb/documentdb-limits.md
 [Panoramica sulle funzionalità di database elastico]: sql-database/sql-database-elastic-scale-introduction.md
 [Federations Migration Utility]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
 [Index Table Pattern]: http://aka.ms/Index-Table-Pattern
-[gestire le esigenze di capacità di DocumentDB]: documentdb/documentdb-manage.md
 [Materialized View Pattern]: http://aka.ms/Materialized-View-Pattern
 [Esecuzione di query su più partizioni]: sql-database/sql-database-elastic-scale-multishard-querying.md
 [partizionamento e alla suddivisione dei dati in più istanze di Redis]: http://redis.io/topics/partitioning
-[Livelli di prestazioni in DocumentDB]: documentdb/documentdb-performance-levels.md
+[Performance levels in DocumentDB]: documentdb/documentdb-performance-levels.md
 [Performing Entity Group Transactions]: https://msdn.microsoft.com/library/azure/dd894038.aspx
 [Esercitazione del cluster Redis]: http://redis.io/topics/cluster-tutorial
 [esecuzione di Redis in una macchina virtuale CentOS Linux in Azure]: http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx
@@ -588,6 +576,6 @@ Quando si esaminano le strategie per l'implementazione della coerenza dei dati, 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

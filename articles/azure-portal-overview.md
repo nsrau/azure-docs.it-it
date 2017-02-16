@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 31bea465db1afb5efc22b2280d83d3b50bced329
+ms.sourcegitcommit: 6ab02779d65dfc1519b457486678ace5fafc9fb5
+ms.openlocfilehash: 60733f973e7b88389816c1ea7cc15532ba967693
 
 
 ---
@@ -60,16 +60,6 @@ Questo pannello permette di connettersi alla macchina virtuale usando il desktop
 
 ![Gestione di una risorsa][ManageResource]
 
-## <a name="how-to-customize-a-resource-blade"></a>Come personalizzare un pannello di risorse
-Azure preconfigura i pannelli per le risorse, ma l'utente può personalizzare i riquadri nei pannelli.  È possibile passare con facilità alla modalità di personalizzazione per aggiungere, rimuovere, ridimensionare o ridisporre i riquadri. Per personalizzare un pannello, eseguire le operazioni seguenti:
-
-1. Passare alla risorsa.
-2. Fare clic sui puntini di sospensione '…' nella parte superiore del pannello da personalizzare.
-3. Fare clic su 'Aggiungi parti'.
-4. Iniziare a trascinare e rilasciare le parti selezionate.  
-
-![Personalizzazione dei pannelli][CustomizeBlades]
-
 ## <a name="how-to-get-help"></a>Come ottenere assistenza
 In caso di problemi, sono disponibili numerose opzioni per il supporto.  Il portale include una pagina Guida e supporto, che può fornire le indicazioni necessarie.  In base al [piano di supporto](https://azure.microsoft.com/support/plans/)attivato, è anche possibile creare ticket di supporto direttamente nel portale.  Dopo la creazione del ticket di supporto, sarà possibile gestire il ciclo di vita del ticket dal portale. Per visualizzare la pagina Guida e supporto, passare a Sfoglia -> Guida e supporto.  
 
@@ -97,6 +87,6 @@ Il portale di Microsoft Azure semplifica in modo radicale lo sviluppo e la gesti
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

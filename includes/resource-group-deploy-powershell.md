@@ -1,4 +1,4 @@
-## Come distribuire gruppi di risorse con PowerShell
+## <a name="how-to-deploy-with-powershell"></a>Come distribuire gruppi di risorse con PowerShell
 1. Accedere al proprio account Azure.
    
           Add-AzureAccount
@@ -31,7 +31,7 @@
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 5. Per creare una nuova distribuzione per il gruppo di risorse, eseguire il comando **New-AzureResourceGroupDeployment** e specificare i parametri necessari. I parametri includeranno un nome per la distribuzione, il nome del gruppo di risorse, il percorso o l'URL per il modello creato e qualsiasi altro parametro necessario per lo scenario. 
    
-   Per specificare i valori dei parametri sono disponibili le opzioni seguenti:
+   Per specificare i valori dei parametri sono disponibili le opzioni seguenti: 
    
    * Usare i parametri inline.
      
@@ -59,4 +59,8 @@
    
         Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

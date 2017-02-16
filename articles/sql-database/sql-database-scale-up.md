@@ -1,6 +1,6 @@
 ---
-title: Modificare il livello di servizio e il livello delle prestazioni di un database SQL di Azure | Microsoft Docs
-description: "La modifica del livello del servizio e del livello delle prestazioni di un database SQL di Azure mostra come scalare il database SQL verso l’alto o verso il basso. Modificare il livello di prezzo di un database SQL di Azure."
+title: 'Portale di Azure: modificare il piano tariffario di un database SQL di Azure | Documentazione Microsoft'
+description: Informazioni sull&quot;uso del portale di Azure per modificare il piano di servizio e il livello di prestazioni di un database SQL di Azure e per aumentare o ridurre le risorse e le tariffe del database SQL.
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: cbd67e88-08d5-40e2-a223-0fb0c718a782
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: NA
 ms.date: 10/12/2016
 ms.author: sstein
@@ -15,16 +16,15 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 1e297de81be07a107691c54875ca638ae73d43df
-ms.openlocfilehash: 3f283166f09437611aa04d7cadf5b161d0e52f8a
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: 88104e0684281f77da497ef4dd608c6a0c64b274
 
 
 ---
 # <a name="change-the-service-tier-and-performance-level-pricing-tier-of-a-sql-database-using-the-azure-portal"></a>Modificare il livello di servizio e il livello di prestazioni (piano tariffario) di un database SQL con il Portale di Azure
 > [!div class="op_single_selector"]
 > * [**Portale di Azure**](sql-database-scale-up.md)
-> * [PowerShell](sql-database-scale-up-powershell.md)
-> 
+> * [PowerShell](sql-database-scale-up-powershell.md)> 
 > 
 
 I livelli di servizio e di prestazioni descrivono le funzionalità e le risorse disponibili per il database SQL e possono essere aggiornati quando le esigenze dell’applicazione cambiano. Per altre informazioni, vedere [Livelli di servizio](sql-database-service-tiers.md).
@@ -88,6 +88,6 @@ Aprire il pannello del Database SQL per il database che si desidera scalare vers
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

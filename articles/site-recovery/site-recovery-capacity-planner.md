@@ -1,6 +1,6 @@
 ---
-title: "Pianificare la capacità per la protezione di macchine virtuali e server fisici in Azure Site Recovery | Documentazione Microsoft"
-description: "Pianificare la capacità di replica per Azure Site Recovery"
+title: "Calcolare la capacità di replica in Azure | Documentazione Microsoft"
+description: "Utilizzare questo articolo per calcolare la capacità durante la replica con Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/15/2016
+ms.date: 02/06/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 8fca992488746bc50a7342644de62b862a9aaea7
-ms.openlocfilehash: a427969378d2454246217d48bafe6f360e93df0f
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: 7ec48138cf18cf50dc34f28e177c8d774034090b
 
 
 ---
@@ -65,7 +65,7 @@ Usare Site Recovery Capacity Planner per analizzare l'ambiente di origine e i ca
    * **Number of blob disks required** : fornisce il numero di dischi che verranno creati nell'archiviazione di Azure.
    * **Number of premium storage accounts required** : fornisce il numero totale di account di archiviazione premium necessari per proteggere le macchine virtuali. Per una VM di origine con numero di operazioni di I/O al secondo elevato (superiore a 20000) è necessario un account di archiviazione premium. Un account di archiviazione premium può contenere fino a 80.000 IOPS.
    * **Total IOPS on premium storage** : valore calcolato in base alla dimensione unitaria di 256.000 operazioni totali di input/output sul totale degli account di archiviazione premium.  Per lo strumento di pianificazione rapida, il numero viene calcolato in base a tutti i dischi di VM di origine e alla frequenza di modifica dei dati giornaliera. Per lo strumento di pianificazione dettagliata, il numero viene calcolato in base al numero totale di VM mappate a VM premium di Azure (serie DS e GS) e alla frequenza di modifica dei dati in tali VM.
-   * **Number of configuration servers required** (Numero di server di configurazione necessari) indica il numero di server di configurazione necessari per la distribuzione. 
+   * **Number of configuration servers required** (Numero di server di configurazione necessari) indica il numero di server di configurazione necessari per la distribuzione.
    * **Number of additional process servers required** (Numero di server di elaborazione aggiuntivi necessari) indica se sono necessari server di elaborazione aggiuntivi oltre al server di elaborazione in esecuzione nel server di configurazione per impostazione predefinita.
    * **100% additional storage on the source** mostra se è necessario ulteriore spazio di archiviazione nel percorso di origine.
 
@@ -117,7 +117,7 @@ Ad esempio, per sei macchine virtuali con i valori riportati nella tabella, lo s
 
     > [!NOTE]
     > Le operazioni di I/O al secondo nell'archiviazione standard e premium vengono calcolate a livello di VM e non a livello di disco. Una macchina virtuale standard è in grado di gestire fino a 500 operazioni totali di input/output per disco. Se le operazioni di I/O al secondo per disco sono superiori a 500, è necessaria l'archiviazione premium. Se le operazioni di I/O al secondo per un disco sono superiori a 500 ma le operazioni di I/O al secondo per i dischi totali della VM rientrano nei limiti di supporto delle VM di Azure standard (dimensioni di VM, numero di dischi, numero di schede, CPU, memoria), tuttavia, lo strumento di pianificazione sceglie una VM standard e non serie DS o GS. È necessario aggiornare manualmente la cella relativa alle dimensioni di Azure per il mapping con le VM serie DS o GS appropriate.
-   
+
 
 1. Dopo aver specificato tutti i dettagli, fare clic su **Submit data to the planner tool** (Invia dati a strumento di pianificazione) per aprire **Capacity Planner**. I carichi di lavoro sono evidenziati per mostrare l'idoneità o meno alla protezione.
 
@@ -129,6 +129,6 @@ Ad esempio, per sei macchine virtuali con i valori riportati nella tabella, lo s
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 12/08/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9285673f77cc598d881712ef125040e103059f87
+ms.sourcegitcommit: 3c240e5f8eac50f4151a5a72bea690241597fc01
+ms.openlocfilehash: 0b912bc130ab5de3236a0e3f1f60087624b089a0
 
 
 ---
-# <a name="configure-a-webhook-on-an-azure-activity-log-alerts"></a>Configurare un webhook negli avvisi dei log attività di Azure
+# <a name="configure-a-webhook-on-an-azure-activity-log-alert"></a>Configurare un webhook in un avviso del registro attività di Azure
 I webhook consentono di instradare le notifiche di avviso di Azure ad altri sistemi per la post-elaborazione o le azioni personalizzate. È possibile usare un webhook in un avviso per instradarlo a servizi che inviano SMS, registrano bug, inviano notifiche a un team tramite servizi di messaggistica/chat o eseguono un numero qualsiasi di altre azioni. Questo articolo descrive come impostare un webhook in un avviso del registro attività di Azure e illustra il payload per l'esecuzione di un'azione HTTP POST in un webhook. Per informazioni sulla configurazione e lo schema di un avviso relativo alle metriche di Azure, [vedere invece questa pagina](insights-webhooks-alerts.md). È anche possibile impostare un avviso del registro attività per l'invio di un messaggio di posta all'attivazione.
 
 > [!NOTE]
-> Questa funzionalità è attualmente in anteprima, quindi la qualità e le prestazioni saranno variabili.
+> Questa funzionalità è attualmente disponibile in anteprima e verrà rimossa in futuro.
 > 
 > 
 
@@ -127,6 +127,6 @@ L'operazione POST contiene il seguente payload e schema JSON per tutti gli avvis
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

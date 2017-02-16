@@ -1,12 +1,12 @@
 ---
-title: Gestire le impostazioni per un gruppo in anteprima di Azure Active Directory | Microsoft Docs
-description: Come modificare le proprietà e altre impostazioni di configurazione per un gruppo in Azure Active Directory
+title: Gestire le impostazioni per un gruppo in anteprima di Azure Active Directory | Documentazione Microsoft
+description: "Come modificare le proprietà e altre impostazioni di configurazione per un gruppo in Azure Active Directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 2f058f9a-5a8f-4b4b-b3b7-885ff10cb1be
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 246ad13f92ea5146f28213a330a49cf2d639089a
+
 
 ---
-# Gestire le impostazioni per un gruppo in anteprima di Azure Active Directory
+# <a name="manage-the-settings-for-a-group-in-azure-active-directory-preview"></a>Gestire le impostazioni per un gruppo in anteprima di Azure Active Directory
 Questo articolo illustra come cambiare le impostazioni per un gruppo in anteprima di Azure Active Directory (Azure AD). [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md)
 
-## Come è possibile trovare e modificare le impostazioni?
+## <a name="how-do-i-find-and-change-the-settings"></a>Come è possibile trovare e modificare le impostazioni?
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
-2. Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi selezionare **Invio**.
+2. Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi premere **INVIO**.
    
    ![Apertura di Gestione utenti](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
 3. Nel pannello **Utenti e gruppi** selezionare **Tutti i gruppi**.
@@ -31,11 +35,11 @@ Questo articolo illustra come cambiare le impostazioni per un gruppo in anteprim
 5. Nel pannello **Gruppo - *nomegruppo*** selezionare **Proprietà**.
    
    ![Apertura del pannello Proprietà](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
-6. Al termine della modifica delle proprietà per il gruppo, selezionare **Salva**.
+6. Al termine della modifica delle proprietà per il gruppo, selezionare **Salva**.    
    
    ![Salvataggio delle modifiche alle proprietà](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
 
-## Informazioni aggiuntive
+## <a name="additional-information"></a>Informazioni aggiuntive
 Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 * [Vedere i gruppi esistenti](active-directory-groups-view-azure-portal.md)
@@ -44,4 +48,9 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 * [Gestire le appartenenze di un gruppo](active-directory-groups-membership-azure-portal.md)
 * [Gestire le regole dinamiche per gli utenti in un gruppo](active-directory-groups-dynamic-membership-azure-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

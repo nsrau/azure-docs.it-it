@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2016
+ms.date: 01/11/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e7eecd1387823100af2e44f918450db3301f55fd
+ms.sourcegitcommit: 201b07536bcee58e2b7102379dff1c1c93c4b675
+ms.openlocfilehash: adf31b2e309e4ec19bb19e5683bd5298d27ad3eb
 
 
 ---
@@ -41,7 +41,7 @@ Seguire questa procedura usando il servizio Web e gli esperimenti esistenti:
    6. Aggiornare il servizio Web con la nuova definizione.
 
 ## <a name="deploy-the-training-experiment"></a>Distribuire l'esperimento di training
-Per distribuire l'esperimento di training come servizio Web di ripetizione del training, è necessario aggiungere input e output del servizio Web al modello. Collegando un modulo di *output del servizio Web* al modulo *[Training modello][training-modello]* dell'esperimento, si consente all'esperimento di training di generare un nuovo modello sottoposto a training che sarà possibile usare in un esperimento predittivo. Se si dispone di un modulo di *valutazione del modello*, è possibile collegare l'output del servizio Web anche per ottenere i risultati della valutazione come output.
+Per distribuire l'esperimento di training come servizio Web di ripetizione del training, è necessario aggiungere input e output del servizio Web al modello. Se si collega un modulo di *output del servizio Web* al modulo *[Train Model][train-model]* dell'esperimento, si consente all'esperimento di training di generare un nuovo modello sottoposto a training che sarà possibile usare in un esperimento predittivo. Se si dispone di un modulo di *valutazione del modello*, è possibile collegare l'output del servizio Web anche per ottenere i risultati della valutazione come output.
 
 Per aggiornare l'esperimento di training:
 
@@ -182,17 +182,17 @@ Negli asset individuare il [modello con training] e aggiornare il valore *uri* n
 ## <a name="update-the-web-service"></a>Aggiornare il servizio Web
 Usare infine il cmdlet [Update-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) per aggiornare l'esperimento predittivo.
 
-    Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -
+    Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
 [1]: ./media/machine-learning-retrain-existing-arm-web-service/machine-learning-retrain-models-consume-page.png
 [4]: ./media/machine-learning-retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE04.png
 [6]: ./media/machine-learning-retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE06.png
 
 <!-- Module References -->
-[training-modello]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
+[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

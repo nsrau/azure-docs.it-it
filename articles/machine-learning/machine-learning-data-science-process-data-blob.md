@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/09/2016
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3a8bf79ca39effaa19518ade7ff392530ef29475
+ms.sourcegitcommit: ba61d00f277af579c87a130336ead9879b82a6de
+ms.openlocfilehash: 0678c47b28cff54986b79b901c7d2a92136610fc
 
 
 ---
@@ -158,7 +158,7 @@ Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile c
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Ora i dati possono essere letti dal BLOB usando il modulo [Import Data][import-data] di Azure Machine Learning, come illustrato nella schermata riportata di seguito:
+3. Ora è possibile leggere i dati dal BLOB usando il modulo [Import Data][import-data] di Azure Machine Learning, come illustra la schermata riportata di seguito:
 
 ![lettore BLOB][1]
 
@@ -171,6 +171,6 @@ Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Problemi noti di Apache Spark in HDInsight | Documentazione Microsoft
-description: Problemi noti di Apache Spark in Azure HDInsight.
+title: Problemi noti del cluster Apache Spark in Azure HDInsight | Documentazione Microsoft
+description: Problemi noti dei cluster Apache Spark in Azure HDInsight.
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -13,15 +13,16 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2017
+ms.date: 01/18/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f36307d77bce1f0d6805a225477a61b95865545f
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 6c81d978e470754f5c0a737aba0437e105949099
 
 
 ---
-# <a name="known-issues-for-apache-spark-cluster-on-hdinsight-linux"></a>Problemi noti del cluster Apache Spark in HDInsight Linux
+# <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemi noti del cluster Apache Spark in HDInsight
+
 Questo documento elenca tutti i problemi noti relativi all'anteprima pubblica di HDInsight Spark.  
 
 ## <a name="livy-leaks-interactive-session"></a>Livy perde la sessione interattiva
@@ -31,7 +32,7 @@ Quando Livy viene riavviato con una sessione interattiva (da Ambari oppure a cau
 
 Seguire questa procedura per risolvere il problema:
 
-1. Eseguire SSH nel nodo head. 
+1. Eseguire SSH nel nodo head. Per i client Windows, vedere l'articolo su come [usare SSH con Hadoop in HDInsight da Windows con PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md). Per Linux, Unix o OS X, vedere l'articolo su come [usare SSH con Hadoop in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md). 
 2. Eseguire il comando seguente per trovare gli ID applicazione dei processi interattivi avviati tramite Livy. 
    
         yarn application –list
@@ -71,7 +72,9 @@ Quando si caricano notebook di maggiori dimensioni, potrebbe comparire l'errore 
 
 **Soluzione:**
 
-Se viene visualizzato questo errore, non significa che i dati sono danneggiati o persi.  I notebook sono ancora disponibili su disco in `/var/lib/jupyter`ed è possibile usare SSH nel cluster per accedervi. Si possono copiare i notebook dal cluster nel computer locale (tramite SCP o WinSCP) come backup per evitare la perdita di dati importanti del notebook. È quindi possibile usare SSH per il tunneling al nodo head sulla porta 8001 e accedere a Jupyter senza passare attraverso il gateway.  Qui è possibile cancellare l'output del notebook e salvarlo di nuovo per ridurne le dimensioni.
+Se viene visualizzato questo errore, non significa che i dati sono danneggiati o persi.  I notebook sono ancora disponibili su disco in `/var/lib/jupyter`ed è possibile usare SSH nel cluster per accedervi. Per i client Windows, vedere l'articolo su come [usare SSH con Hadoop in HDInsight da Windows con PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md). Per Linux, Unix o OS X, vedere l'articolo su come [usare SSH con Hadoop in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+Dopo aver effettuato la connessione al cluster usando SSH, è possibile copiare i notebook dal cluster nel computer locale (tramite SCP o WinSCP) come backup per evitare la perdita di dati importanti del notebook. È quindi possibile usare SSH per il tunneling al nodo head sulla porta 8001 e accedere a Jupyter senza passare attraverso il gateway.  Qui è possibile cancellare l'output del notebook e salvarlo di nuovo per ridurne le dimensioni.
 
 Per evitare questo errore in futuro, è necessario seguire alcune procedure consigliate:
 
@@ -125,6 +128,6 @@ Quando il cluster Spark esaurisce le risorse, si verificherà il timeout dei ker
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

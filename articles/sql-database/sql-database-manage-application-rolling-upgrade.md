@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 07/16/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ed30706426271f63126905614a631961d6e5ddf8
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: d7f3d972755ec326c28fcdb95fd0600dd8ca1a91
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: ed30706426271f63126905614a631961d6e5ddf8
 > 
 > 
 
-Informazioni su come usare la [replica geografica](sql-database-geo-replication-overview.md) nel database SQL per abilitare gli aggiornamenti in sequenza dell'applicazione cloud. L'aggiornamento dovrebbe far parte della pianificazione e della progettazione della continuità aziendale perché è un'operazione che comporta interruzioni. In questo articolo vengono esaminati due metodi diversi per orchestrare il processo di aggiornamento e vengono discussi vantaggi e compromessi relativi a ciascuna opzione. Ai fini di questo articolo viene usata una semplice applicazione costituita da un sito Web collegato a un database singolo come livello dati. L'obiettivo consiste nell'aggiornare la versione 1 dell'applicazione alla versione 2 senza effetti significativi sull'esperienza dell'utente finale. 
+Informazioni su come usare la [replica geografica](sql-database-geo-replication-overview.md) nel database SQL per abilitare gli aggiornamenti in sequenza dell'applicazione cloud. L'aggiornamento dovrebbe far parte della pianificazione e della progettazione della continuità aziendale perché è un'operazione che comporta interruzioni. In questo articolo vengono esaminati due metodi diversi per orchestrare il processo di aggiornamento e vengono discussi vantaggi e compromessi relativi a ciascuna opzione. Ai fini di questo articolo viene usata una semplice applicazione costituita da un sito Web collegato a un database autonomo come livello dati. L'obiettivo consiste nell'aggiornare la versione 1 dell'applicazione alla versione 2 senza effetti significativi sull'esperienza dell'utente finale. 
 
 Quando si valutano le opzioni di aggiornamento è necessario considerare i fattori seguenti:
 
@@ -155,6 +155,6 @@ Le pagine seguenti forniscono informazioni sulle operazioni specifiche necessari
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
