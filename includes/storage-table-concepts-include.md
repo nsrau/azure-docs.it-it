@@ -11,7 +11,7 @@ Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quan
 ## <a name="table-service-concepts"></a>Concetti del servizio tabelle
 Il servizio tabelle contiene i componenti seguenti:
 
-![Tabella1][Table1]
+![Table1][Table1]
 
 * **Formato dell'URL**: il codice fa riferimento alle tabelle in un account usando il formato di indirizzo seguente:   
   http://`<storage account>`.table.core.windows.net/`<table>`  
@@ -24,7 +24,7 @@ Il servizio tabelle contiene i componenti seguenti:
 
 Per informazioni sulle proprietà e i tipi di tabelle, vedere [Informazioni sul modello di dati del servizio tabelle](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
-[Tabella1]: ./media/storage-table-concepts-include/table1.png
+[Table1]: ./media/storage-table-concepts-include/table1.png
 [OData.org]: http://www.odata.org/
 
 
