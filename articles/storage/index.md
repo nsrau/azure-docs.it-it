@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: Documentazione di Archiviazione di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come usare l&quot;Archiviazione di Azure, gli archivi BLOB e tabella e le archiviazioni code, file e su disco macchina virtuale nel cloud. Esercitazioni, informazioni di riferimento sulle API e altri documenti.
+services: storage
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 1e9cc940d681893abbc351ef440c90f579e6c40a
+ms.sourcegitcommit: f7bd1007aeff86faf7a1d744602e5184f0ce1d6f
+ms.openlocfilehash: cdb001f960ea5d505bc757195abf14b505f77103
 
 ---
 
@@ -133,6 +144,7 @@ Informazioni su come usare l'Archiviazione di Azure, un servizio di archiviazion
                         <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">BLOB, code, tabelle e file</a></p>
                         <p><a href="/rest/api/storagerp">Provider di risorse</a></p>
                         <p><a href="/rest/api/storageimportexport">Importazione/Esportazione</a></p>
+                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">API REST per i dati di archiviazione</a></p>
                    </div>
                 </div>
             </div>
@@ -144,6 +156,6 @@ Informazioni su come usare l'Archiviazione di Azure, un servizio di archiviazion
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

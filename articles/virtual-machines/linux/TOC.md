@@ -41,12 +41,15 @@
 #### [Interfaccia della riga di comando di Azure 1.0](../virtual-machines-linux-create-cli-complete-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Interfaccia della riga di comando di Azure 2.0 (anteprima)](../virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Creare più macchine virtuali con set di scalabilità](../virtual-machines-linux-cli-vmss-create.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Collegare un disco dati usando l'interfaccia della riga di comando](../virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Collegare un disco dati usando il portale](../virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Aprire porte ed endpoint](../virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Come ridimensionare una macchina virtuale di Linux](../virtual-machines-linux-change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### Aprire porte ed endpoint
+#### [Interfaccia della riga di comando di Azure 1.0](../virtual-machines-linux-nsg-quickstart-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Interfaccia della riga di comando di Azure 2.0 (anteprima)](../virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### Ridimensionare una VM
+#### [Interfaccia della riga di comando di Azure 1.0](../virtual-machines-linux-change-vm-size-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Interfaccia della riga di comando di Azure 2.0 (anteprima)](../virtual-machines-linux-change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### Distribuire una VM in una rete virtuale esistente
-#### [Interfaccia della riga di comando di Azure](../virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Interfaccia della riga di comando di Azure 1.0](../virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Interfaccia della riga di comando di Azure 2.0 (anteprima)](../virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Portale di Azure](../virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Trovare immagini della macchina virtuale](../virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Usare cloud-init](../virtual-machines-linux-using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -59,8 +62,14 @@
 ### [Usare Registro di sistema del contenitore di Azure](/azure/container-registry/?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Installare e configurare Desktop remoto per connettersi a una VM Linux](../virtual-machines-linux-use-remote-desktop.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## Usare le risorse di archiviazione
-### [Dischi e dischi rigidi virtuali](../virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## Archiviazione
+### [Domande frequenti per i dischi delle macchine virtuali di Azure](../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Panoramica di Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### Collegamento di un disco dati
+#### [Interfaccia della riga di comando di Azure](../virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Portale di Azure](../virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Creare uno snapshot di un disco gestito](virtual-machines-linux-snapshot-copy-managed-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Convertire una VM esistente in dischi gestiti](../virtual-machines-linux-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Espandere il disco del sistema operativo](../virtual-machines-linux-expand-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Crittografia del disco](../virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Configurare RAID software](../virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -74,7 +83,9 @@
 #### [Interfaccia della riga di comando di Azure 2.0 (anteprima)](../virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Usare il DNS interno per la risoluzione dei nomi della VM](../virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Creare un nome di dominio completo usando il portale](../virtual-machines-linux-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Creare una macchina virtuale con più NIC](../virtual-machines-linux-multiple-nics.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### Creare una macchina virtuale con più NIC
+#### [Interfaccia della riga di comando di Azure 1.0](../virtual-machines-linux-multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Interfaccia della riga di comando di Azure 2.0 (anteprima)](../virtual-machines-linux-multiple-nics.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Creare reti virtuali usando l'interfaccia della riga di comando](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Creare gruppi di sicurezza di rete usando l'interfaccia della riga di comando](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Creare un servizio di bilanciamento del carico](../../load-balancer/load-balancer-get-started-internet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -86,13 +97,19 @@
 ### [Usare Gestione traffico di Azure con le macchine virtuali](../../traffic-manager/traffic-manager-endpoint-types.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Distribuisci
-### [Copiare una macchina virtuale](../virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Acquisire una macchina virtuale](../virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### Copiare una VM
+#### [Interfaccia della riga di comando di Azure 1.0](../virtual-machines-linux-copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Interfaccia della riga di comando di Azure 2.0 (anteprima)](../virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### Acquisire una macchina virtuale
+#### [Interfaccia della riga di comando di Azure 1.0](../virtual-machines-linux-capture-image-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Interfaccia della riga di comando di Azure 2.0 (anteprima)](../virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Usare un modello per creare una macchina virtuale](../virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### Immagini
 #### [Immagini approvate per Azure](../virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Immagini personalizzate](../virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-#### [Caricare un'immagine di macchina virtuale con l'interfaccia della riga di comando](../virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### Caricare un'immagine di macchina virtuale
+##### [Interfaccia della riga di comando di Azure 1.0](../virtual-machines-linux-upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+##### [Interfaccia della riga di comando di Azure 2.0 (anteprima)](../virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Agente Linux di Azure](../virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [CentOS](../virtual-machines-linux-create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Ubuntu](../virtual-machines-linux-create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -201,6 +218,6 @@
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

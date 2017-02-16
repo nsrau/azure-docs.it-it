@@ -1,14 +1,15 @@
 # Panoramica
 ## [Che cos'è ExpressRoute?](expressroute-introduction.md)
 ## [Domande frequenti su ExpressRoute](expressroute-faqs.md)
+## [Modelli di connettività](expressroute-connectivity-models.md)
 ## [Località e partner](expressroute-locations.md)
 ### [Provider per località](expressroute-locations-providers.md)
 ### [Località per provider](expressroute-locations.md)
 
 # Attività iniziali
-## [Circuiti e domini di routing](expressroute-circuit-peerings.md)
 ## [Flussi di lavoro](expressroute-workflows.md)
 ## [Prerequisiti](expressroute-prerequisites.md)
+## [Circuiti e domini di routing](expressroute-circuit-peerings.md)
 ## [Requisiti di routing](expressroute-routing.md)
 ## [Ottimizzare il routing](expressroute-optimize-routing.md)
 ## [Requisiti NAT](expressroute-nat.md)
@@ -80,6 +81,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=expressroute)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

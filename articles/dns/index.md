@@ -1,13 +1,25 @@
 ---
+title: Documentazione di DNS Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
+description: Informazioni su come gestire i record DNS utilizzando Azure Domain Name System. Nella documentazione viene illustrato come impostare e gestire zone e record DNS per i nomi di dominio.
+services: dns
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: dns
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: e32393348fc26fa4cb0a5221695a9bf8bb4d36e1
+ms.sourcegitcommit: f415cc458e91085ce315ef7ee5755b96bbcfa170
+ms.openlocfilehash: b9608dc3bafeea5faec8e379c67810113b00ffd9
 
 ---
 # <a name="dns-documentation"></a>Documentazione di DNS
 
-DNS Azure (Domain Name System) è un servizio per i domini DNS che fornisce la risoluzione dei nomi usando l'infrastruttura di Microsoft Azure.  Ospitando i domini in Azure, è possibile gestire i record DNS usando le stesse credenziali, API, strumenti e fatturazione come per gli altri servizi Azure.
+Informazioni su come gestire i record DNS utilizzando Azure Domain Name System, un servizio di hosting. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come impostare e gestire zone e record DNS per i nomi di dominio.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -131,16 +143,10 @@ DNS Azure (Domain Name System) è un servizio per i domini DNS che fornisce la r
 </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/dns.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione di DNS </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

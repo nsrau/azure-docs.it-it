@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: Documentazione di Azure Key Vault - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come usare l&quot;insieme di credenziali delle chiavi per creare e gestire chiavi in grado di accedere e crittografare le risorse, le app e le soluzioni cloud. Esercitazioni, informazioni di riferimento sulle API e altro ancora.
+services: key-vault
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: key-vault
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 0c53b569e45569fd7a7c56142d66fbab8d8b0a05
+ms.sourcegitcommit: ea6717f8c5e04883d2feb83537c1c1f96bec2287
+ms.openlocfilehash: 70a89aad208ae71d5c0aab462b6078dafa8efcfc
 
 ---
+
 # <a name="key-vault-documentation"></a>Documentazione sull'insieme di credenziali delle chiavi
 
 Informazioni su come usare l'insieme di credenziali delle chiavi per proteggere e gestire le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come creare e gestire chiavi in grado di accedere e crittografare risorse e soluzioni.
@@ -154,6 +166,6 @@ Informazioni su come usare l'insieme di credenziali delle chiavi per proteggere 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

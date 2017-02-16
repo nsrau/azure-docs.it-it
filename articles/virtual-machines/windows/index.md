@@ -1,21 +1,20 @@
 ---
-layout: LandingPage
+title: Documentazione delle macchine virtuali Windows in Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come creare macchine virtuali di Windows. La documentazione consente di pianificare, distribuire e gestire un ambiente di elaborazione con macchina virtuale nel cloud.
-title: 'Documentazione di Macchine virtuali di Azure per Windows: esercitazioni e riferimento per le API | Documentazione Microsoft'
-services: virtual-machines
+services: virtual-machines\windows
 author: carolz
 manager: carolz
+layout: LandingPage
 ms.assetid: 
-ms.service: virtual-machines
+ms.service: virtual-machines\windows
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: c3b5f79fe9ee312b5f45eff460b43224b9c254fe
-ms.openlocfilehash: 927fb368a7d0e0c7c996a591dfe8536ea3509164
-
+ms.sourcegitcommit: 90d760207ee6b6e0d8c15ff597bf53512f071ef0
+ms.openlocfilehash: ace8475bd9a75eb92a3b5c084ee27b9813f13bfb
 
 ---
 # <a name="windows-virtual-machines-documentation"></a>Documentazione su Macchine virtuali Windows
@@ -165,6 +164,6 @@ Informazioni su come creare macchine virtuali di Windows. Esercitazioni, informa
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

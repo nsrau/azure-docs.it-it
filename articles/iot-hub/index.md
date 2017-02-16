@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: Documentazione di Hub IoT di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come usare hub IoT per connettersi a miliardi di asset IoT (Internet of Things) per monitorarli e controllarli. Esercitazioni, informazioni di riferimento sulle API, video e altri documenti.
+services: iot-hub
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: iot-hub
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: da0387255c538afd5490f313c10509a1b40e6dd9
+ms.sourcegitcommit: 7d0766cfafb471898cb1463df27075516af5e8e8
+ms.openlocfilehash: 779159765c2b8c117e7a950aef541bdfb045be26
 
 ---
+
 #<a name="iot-hub-documentation"></a>Documentazione sull'hub IoT
 
 Informazioni su come usare hub IoT per connettersi a miliardi di asset IoT (Internet of Things) per monitorarli e controllarli. Esercitazioni, informazioni di riferimento sulle API, video e altri documenti in cui viene illustrato come distribuire comunicazioni affidabili e bidirezionali tra dispositivi IoT e un backend di soluzione. 
@@ -157,6 +169,6 @@ Informazioni su come usare hub IoT per connettersi a miliardi di asset IoT (Inte
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

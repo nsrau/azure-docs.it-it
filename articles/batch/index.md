@@ -1,13 +1,25 @@
 ---
+title: Documentazione di Azure Batch - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
+description: Informazioni su come usare Azure Batch per eseguire in modo efficiente applicazioni parallele e HPC (High Performance Computing) su larga scala. Esercitazioni, informazioni di riferimento sulle API e altri documenti.
+services: batch
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: batch
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: acf8bdbd4938583f8259c30cb253ee33b4c971ad
+ms.sourcegitcommit: a180f89814c3186e98018eee4d97a6b6904742cf
+ms.openlocfilehash: 11ec370ee2736d66d19a33eab938fe9639cafed7
 
 ---
 #<a name="batch-documentation"></a>Documentazione di Batch
 
-Azure Batch consente di eseguire in modo efficiente applicazioni parallele e HPC (High Performance Computing) su larga scala nel cloud. Il servizio Batch consente di definire le risorse di calcolo di Azure per eseguire le applicazioni in parallelo e su larga scala. È possibile eseguire processi su richiesta o pianificati senza dover creare o gestire manualmente l'infrastruttura.
+Informazioni su come usare Azure Batch per eseguire in modo efficiente applicazioni parallele e HPC (High Performance Computing) su larga scala nel cloud. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come definire le risorse di calcolo di Azure per eseguire le applicazioni in parallelo o in scala, senza necessità di configurare o gestire manualmente l'infrastruttura.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -127,7 +139,7 @@ Azure Batch consente di eseguire in modo efficiente applicazioni parallele e HPC
                         <p><a href="/dotnet/api/microsoft.azure.batch">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.batch">Java</a></p>
                         <p><a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest.azure.batch">Node.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch">Python</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html">Python</a></p>
                     </div>
                 </div>
             </div>
@@ -147,16 +159,10 @@ Azure Batch consente di eseguire in modo efficiente applicazioni parallele e HPC
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/batch.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione su Azure Batch </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: Documentazione di Azure Data Lake Store - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: "Informazioni su come configurare, gestire e accedere a un repository Data Lake con iperscalabilità e compatibile con Hadoop per le analisi sui dati di qualsiasi dimensione, tipo e velocità di inserimento."
+services: data-lake-store
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: data-lake-store
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: a33b0509d1280a33a1e5134217b56071256fec24
-ms.openlocfilehash: d5ff73f8c9303bff281b2a2bbf314c76072f7569
+ms.sourcegitcommit: dcc8f86fe5871d307bf304252e80e64a0084ef49
+ms.openlocfilehash: d7f56dd2658de2cc270f569b871ebf28ad610fd7
 
 ---
 # <a name="data-lake-store-documentation"></a>Documentazione su Data Lake Store
@@ -203,15 +214,9 @@ Informazioni su come usare Data Lake Store per creare un repository con iperscal
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-lake-store.pdf">
-        <div class="img"></div>
-        <div class="text">
-Download della documentazione su Azure Data Lake Store </div>
-    </a>
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
