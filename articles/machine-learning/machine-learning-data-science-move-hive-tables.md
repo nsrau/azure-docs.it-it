@@ -1,5 +1,5 @@
 ---
-title: Creare e caricare dati nelle tabelle Hive dall&quot;archiviazione BLOB | Microsoft Docs
+title: Creare tabelle Hive e caricare i dati dall&quot;archiviazione BLOB di Azure | Documentazione Microsoft
 description: Creare tabelle Hive e caricare dati in BLOB nelle tabelle Hive
 services: machine-learning,storage
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 30820eede776ebdca36b34c6f6c595ae466d0484
-ms.openlocfilehash: 136e1571c616cb3e8f0b989b690fd8ec18c38b06
+ms.sourcegitcommit: e29c26a7fbd25d01f2d58dc29a7fd2f34c91307b
+ms.openlocfilehash: 88203f84752d464b63ef31fc77d668cb8b3497e3
 
 
 ---
-# <a name="create-and-load-data-into-hive-tables-from-azure-blob-storage"></a>Creare e caricare dati nelle tabelle Hive dall'archiviazione BLOB di Azure
+# <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Creare tabelle Hive e caricare i dati dall'archiviazione BLOB di Azure
 Questo argomento presenta le query Hive generiche che consentono di creare tabelle Hive e di caricare i dati dall'archiviazione BLOB di Azure. Vengono inoltre fornite alcune linee guida sul partizionamento delle tabelle Hive e sull'uso della formattazione ORC per migliorare le prestazioni delle query.
 
 Questo **menu** si collega ad argomenti che descrivono come inserire dati in ambienti di destinazione in cui i dati possono essere archiviati ed elaborati durante il Processo di analisi scientifica dei dati per i team (TDSP).
@@ -238,6 +238,6 @@ Al termine della procedura, si disporrà di una tabella con i dati nel formato O
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

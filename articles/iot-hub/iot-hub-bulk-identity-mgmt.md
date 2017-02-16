@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: baadc7d9adfdb110c5814e51747c64f8086234e5
+ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
+ms.openlocfilehash: 668f6ab0d5c09d53edd85b568cc8c9941b2f9135
 
 
 ---
@@ -75,7 +75,7 @@ Il metodo **ExportDevicesAsync** richiede due parametri:
    ```
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
    ```
-* Oggetto *booleano* che indica se si vogliono escludere le chiavi di autenticazione dai dati di esportazione. Se **false**, le chiavi di autenticazione sono incluse nell'output di esportazione; in caso contrario, le chiavi vengono esportate come **null**.
+* Oggetto *booleano* che indica se si vogliono escludere le chiavi di autenticazione dai dati di esportazione. Se il valore è **false**, le chiavi di autenticazione sono incluse nell'output di esportazione. In caso contrario, le chiavi vengono esportate come **null**.
 
 I frammenti di codice C# seguenti illustrano come inizializzare un processo di esportazione che include chiavi di autenticazione di dispositivi nei dati di esportazione e quindi eseguire il polling del completamento:
 
@@ -358,6 +358,6 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

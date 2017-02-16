@@ -1,5 +1,5 @@
 ---
-title: Come abilitare la pubblicazione delle app client native con le applicazioni proxy | Documentazione Microsoft
+title: 'Pubblicare app client native: Azure AD | Documentazione Microsoft'
 description: Illustra come abilitare la comunicazione tra le app client native e il connettore del proxy di applicazione di Azure AD per consentire l&quot;accesso remoto sicuro alle app locali.
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
-ms.openlocfilehash: 34cacff4e8b13fa9d91387ca8762439908ed01fd
+ms.sourcegitcommit: 164e3b0af47cd98f2d20fce7344230608e9fbe8c
+ms.openlocfilehash: 6762a5c88b7a3bbc0424729865ae312d74f9059f
 
 
 ---
@@ -86,7 +86,6 @@ Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog]
 
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

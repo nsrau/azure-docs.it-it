@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
-ms.openlocfilehash: 4a2d271be7fbd0d27163ead8f8eb2c05a43f7fbc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0a9ab0aca1a77245f360d0d8976aa9b8f59f15a0
 
 
 ---
@@ -100,6 +100,6 @@ La procedura è terminata. A questo punto, gli utenti federati di Office 365 dov
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

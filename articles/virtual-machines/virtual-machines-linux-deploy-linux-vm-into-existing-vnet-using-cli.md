@@ -1,5 +1,5 @@
 ---
-title: Distribuire una macchina virtuale Linux in una rete virtuale di Azure esistente tramite l&quot;interfaccia della riga di comando | Documentazione Microsoft
+title: Distribuire le macchine virtuali Linux nelle reti esistenti - Interfaccia della riga di comando di Azure | Documentazione Microsoft
 description: Distribuire una macchina virtuale Linux in una rete virtuale di Azure esistente tramite l&quot;interfaccia della riga di comando.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -13,86 +13,27 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 12/05/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 2fad20978f40150ef9f1cb44054da2ba66848bda
-ms.openlocfilehash: 613ce9b27bc26643b2f46c490d7f550b370df998
+ms.sourcegitcommit: e64449991bc28427d8f559ed13c3bdf9160488db
+ms.openlocfilehash: 93fa2521b81b423d663df6e04ef201839bca2814
 
 
 ---
 
-# <a name="deploy-a-linux-vm-into-an-existing-vnet--nsg-using-the-cli"></a>Distribuire una macchina virtuale Linux in una rete virtuale di Azure esistente protetta con un gruppo di sicurezza di rete tramite l'interfaccia della riga di comando
+# <a name="deploy-a-linux-vm-into-an-existing-azure-virtual-network-using-the-cli"></a>Distribuire una macchina virtuale Linux in una rete virtuale di Azure esistente tramite l'interfaccia della riga di comando
 
-Questo articolo illustra come usare i flag dell'interfaccia della riga di comando per distribuire una macchina virtuale in una rete virtuale esistente protetta con un gruppo di sicurezza di rete.  I requisiti sono:
+Questo articolo illustra come usare i flag dell'interfaccia della riga di comando per distribuire una macchina virtuale in una rete virtuale esistente.  I requisiti sono:
 
 - [Un account di Azure](https://azure.microsoft.com/pricing/free-trial/)
-
 - [File di chiavi SSH pubbliche e private](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quick-commands"></a>Comandi rapidi
 
-Sostituire gli esempi con le impostazioni desiderate.
+Se si vuole eseguire rapidamente l'attività, la sezione seguente indica in dettaglio i comandi necessari. Altre informazioni dettagliate e il contesto per ogni passaggio sono disponibili nelle sezioni successive del documento, [a partire da qui](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#detailed-walkthrough).
 
-### <a name="create-the-resource-group"></a>Creare il gruppo di risorse
-
-```azurecli
-azure group create myResourceGroup \
--l westus
-```
-
-### <a name="create-the-vnet"></a>Creare la rete virtuale
-
-```azurecli
-azure network vnet create myVNet \
--g myResourceGroup \
--a 10.10.0.0/24 \
--l westus
-```
-
-### <a name="create-the-nsg"></a>Creare il gruppo di sicurezza di rete
-
-```azurecli
-azure network nsg create myNSG \
--g myResourceGroup \
--l westus
-```
-
-### <a name="add-an-inbound-ssh-allow-rule"></a>Aggiungere una regola di assenso SSH in ingresso
-
-```azurecli
-azure network nsg rule create inboundSSH \
--g myResourceGroup \
--a myNSG \
--c Allow \
--p Tcp \
--r Inbound \
--y 100 \
--f Internet \
--o 22 \
--e 10.10.0.0/24 \
--u 22
-```
-
-### <a name="add-a-subnet-to-the-vnet"></a>Aggiungere una subnet alla rete virtuale
-
-```azurecli
-azure network vnet subnet create mySubNet \
--g myResourceGroup \
--e myVNet \
--a 10.10.0.0/26 \
--o myNSG
-```
-
-### <a name="add-a-vnic-to-the-subnet"></a>Aggiungere una scheda di interfaccia di rete virtuale alla subnet
-
-```azurecli
-azure network nic create myVNic \
--g myResourceGroup \
--l westus \
--m myVNet \
--k mySubNet
-```
+Prerequisiti: gruppo di risorse, rete virtuale, gruppo di sicurezza di rete con SSH in ingresso, subnet. Sostituire gli esempi con le impostazioni desiderate.
 
 ### <a name="deploy-the-vm-into-the-vnet-nsg-and-connect-the-vnic"></a>Distribuire la macchina virtuale nella rete virtuale, associare il gruppo di sicurezza di rete e connettere la scheda di interfaccia di rete virtuale
 
@@ -220,6 +161,6 @@ Usando i flag dell'interfaccia della riga di comando per chiamare le risorse esi
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

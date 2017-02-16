@@ -1,18 +1,18 @@
 1. Nel [portale di gestione](http://manage.windowsazure.com) di Azure fare clic su **Macchine virtuali**, quindi selezionare la macchina virtuale appena creata (**testlinuxvm**).
-2. Sulla barra dei comandi fare clic su **Attach** e quindi su **Attach Empty Disk**.
+2. Sulla barra dei comandi fare clic su **Collega** e quindi su **Collega disco vuoto**.
    
-    Verrà visualizzata la finestra di dialogo **Connetti disco vuoto**.
-3. Le impostazioni **Virtual Machine Name**, **Storage Location** e **File Name** sono definite automaticamente. È sufficiente immettere la dimensione desiderata per il disco. Digitare **5** nel campo **Size**.
+    Verrà visualizzata la finestra di dialogo **Connetti disco vuoto** .
+3. Le impostazioni **Nome macchina virtuale**, **Percorso di archiviazione** e **Nome file** sono definite automaticamente. È sufficiente immettere la dimensione desiderata per il disco. Digitare **5** nel campo **Dimensione**.
    
     ![Attach Empty Disk][Image2]
    
-    **Nota**: tutti i dischi vengono creati da un file VHD in Archiviazione di Azure. È possibile specificare un nome per il file .vhd file che viene aggiunto alla risorsa di archiviazione. Il nome del disco, tuttavia, viene generato automaticamente in Azure.
+    **Nota:** tutti i dischi vengono creati da un file VHD in Archiviazione di Azure. È possibile specificare un nome per il file .vhd file che viene aggiunto alla risorsa di archiviazione. Il nome del disco, tuttavia, viene generato automaticamente in Azure.
 4. Fare clic sul segno di spunta per collegare il disco dati alla macchina virtuale.
-5. Fare clic sul nome della macchina virtuale per visualizzare il dashboard. In questo modo è possibile verificare se il disco dati è stato collegato correttamente alla macchina virtuale. Il disco collegato verrà visualizzato nella tabella **Disks**.
+5. Fare clic sul nome della macchina virtuale per visualizzare il dashboard. In questo modo è possibile verificare se il disco dati è stato collegato correttamente alla macchina virtuale. Il disco collegato verrà visualizzato nella tabella **Dischi**.
    
     Quando si collega un disco dati, questo potrà essere usato solo dopo che è stato eseguito l'accesso per completare la configurazione.
 
-## Connettersi alla macchina virtuale tramite SSH o PuTTY e completare la configurazione
+## <a name="connect-to-the-virtual-machine-using-ssh-or-putty-and-complete-setup"></a>Connettersi alla macchina virtuale tramite SSH o PuTTY e completare la configurazione
 Accedere alla macchina virtuale per completare la configurazione del disco in modo da poter usare il disco per l'archiviazione dei dati.
 
 1. Dopo aver effettuato il provisioning della macchina virtuale, connettersi tramite SSH o PuTTY ed eseguire l'accesso come **newuser** (come descritto nei passaggi precedenti).    
@@ -20,7 +20,7 @@ Accedere alla macchina virtuale per completare la configurazione del disco in mo
    
     `$ sudo grep SCSI /var/log/messages`
    
-    L'identificatore dell'ultimo disco dati aggiunto sarà disponibile nei messaggi visualizzati (in questo esempio, **sdc**).
+    L'identificatore dell'ultimo disco dati aggiunto sarà disponibile nei messaggi visualizzati (in questo esempio,**sdc**).
    
     ![GREP][Image4]
 3. Nella finestra di SSH o PuTTY immettere il comando seguente per effettuare la partizione del disco **/dev/sdc**:
@@ -38,7 +38,7 @@ Accedere alla macchina virtuale per completare la configurazione del disco in mo
 7. Digitare **w** per scrivere le impostazioni per il disco.
    
     ![FDISK][Image8]
-8. Formattare il nuovo disco mediante il comando **mkfs**:
+8. Formattare il nuovo disco mediante il comando **mkfs** :
    
     `$ sudo mkfs -t ext4 /dev/sdc1`
 9. È quindi necessario disporre di una directory per il montaggio del nuovo file system. Digitare, ad esempio, il comando seguente per creare una nuova directory per il montaggio dell'unità, quindi immettere la password per l'account:
@@ -51,7 +51,7 @@ Accedere alla macchina virtuale per completare la configurazione del disco in mo
     Il disco dati è ora pronto per l'uso come **/datadrive**.
 11. Aggiungere la nuova unità a /etc/fstab:
     
-    Per assicurarsi che l'unità venga rimontata automaticamente dopo un riavvio, è necessario aggiungerla al file /etc/fstab. È inoltre consigliabile che l'UUID (Universally Unique IDentifier) usato in /etc/fstab faccia riferimento all'unità anziché al solo nome del dispositivo, ad esempio /dev/sdc1. Per individuare l'UUID della nuova unità, è possibile usare l'utilità **blkid**:
+    Per assicurarsi che l'unità venga rimontata automaticamente dopo un riavvio, è necessario aggiungerla al file /etc/fstab. È inoltre consigliabile che l'UUID (Universally Unique IDentifier) usato in /etc/fstab faccia riferimento all'unità anziché al solo nome del dispositivo, ad esempio /dev/sdc1. Per individuare l'UUID della nuova unità, è possibile usare l'utilità **blkid** :
     
         `sudo -i blkid`
     
@@ -66,22 +66,22 @@ Accedere alla macchina virtuale per completare la configurazione del disco in mo
     > 
     > 
     
-    **Attenzione**: se il file /etc/fstab non viene modificato in modo corretto, il sistema potrebbe diventare instabile. In caso di dubbi, fare riferimento alla documentazione della distribuzione per informazioni su come modificare correttamente questo file. È inoltre consigliabile creare una copia di backup del file /etc/fstab prima della modifica.
+    **Attenzione** : se il file /etc/fstab non viene modificato in modo corretto, il sistema potrebbe diventare instabile. In caso di dubbi, fare riferimento alla documentazione della distribuzione per informazioni su come modificare correttamente questo file. È inoltre consigliabile creare una copia di backup del file /etc/fstab prima della modifica.
     
-    Usare un editor di testo per immettere le informazioni sul nuovo file system alla fine del file /etc/fstab. In questo esempio verranno usati il valore UUID del nuovo dispositivo **/dev/sdc1** creato nella procedura precedente, nonché il punto di montaggio **/datadrive**:
+    Usare un editor di testo per immettere le informazioni sul nuovo file system alla fine del file /etc/fstab.  In questo esempio verranno usati il valore UUID del nuovo dispositivo **/dev/sdc1** creato nei passaggi precedenti, nonché il punto di montaggio **/datadrive**:
     
         `UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2`
     
     Anche le eventuali altre unità o partizioni dati create dovranno essere inserite separatamente in /etc/fstab.
     
-    Per verificare che il file system venga montato correttamente, è sufficiente smontarlo e rimontarlo, usando ad esempio il punto di montaggio `/datadrive` creato nei passaggi precedenti:
+    Per verificare che il file system venga montato correttamente, è sufficiente smontarlo e rimontarlo, ad esempio usando il punto di montaggio esemplificativo `/datadrive` creato nei passaggi precedenti: 
     
         `sudo umount /datadrive`
         `sudo mount /datadrive`
     
     Se il secondo comando restituisce un errore, verificare il file /etc/fstab per ottenere la sintassi corretta.
 
-    >[AZURE.NOTE]Se si rimuove successivamente un disco dati senza modificare fstab, è possibile che si verifichi un errore di avvio della macchina virtuale. Se si tratta di un errore ricorrente, nella maggior parte delle distribuzioni sono disponibili le opzioni `nofail` e/o `nobootwait` fstab, che consentono l'avvio di un sistema anche in caso di assenza del disco. Per altre informazioni su tali parametri, fare riferimento alla documentazione della distribuzione.
+    >[AZURE.NOTE] Se si rimuove successivamente un disco dati senza modificare fstab, è possibile che si verifichi un errore di avvio della macchina virtuale. Se si tratta di un errore ricorrente, nella maggior parte delle distribuzioni sono disponibili le opzioni `nofail` e/o `nobootwait` fstab, che consentono l'avvio di un sistema anche in caso di assenza del disco. Per altre informazioni su tali parametri, fare riferimento alla documentazione della distribuzione.
 
 
 [Image2]: ./media/attach-data-disk-centos-vm-in-portal/AttachDataDiskLinuxVM2.png
@@ -92,4 +92,8 @@ Accedere alla macchina virtuale per completare la configurazione del disco in mo
 [Image8]: ./media/attach-data-disk-centos-vm-in-portal/fdisk4.png
 [Image9]: ./media/attach-data-disk-centos-vm-in-portal/mkfs.png
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

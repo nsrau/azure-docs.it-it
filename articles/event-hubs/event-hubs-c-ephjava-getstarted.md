@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/04/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: e8e3708989f85a7a0d895140baad5d6370ba3146
+ms.sourcegitcommit: 964adaa1b4d1247cf26bd1b8a345d785a114e3ab
+ms.openlocfilehash: ec1ed9ccf9510587a76a4860f910ac2772b35f9a
 
 
 ---
@@ -26,9 +26,9 @@ ms.openlocfilehash: e8e3708989f85a7a0d895140baad5d6370ba3146
 ## <a name="introduction"></a>Introduzione
 Hub eventi è un sistema di inserimento a scalabilità elevata, in grado di accettare milioni di eventi al secondo, che permette a un'applicazione di elaborare e analizzare le elevate quantità di dati prodotti dalle applicazioni e dai dispositivi connessi. Dopo la raccolta nell'hub eventi, i dati possono essere trasformati e archiviati tramite qualsiasi provider di analisi in tempo reale o qualsiasi cluster di archiviazione.
 
-Per altre informazioni, vedere [Panoramica di Hub eventi][Panoramica di Hub eventi].
+Per altre informazioni, vedere [Panoramica di Hub eventi][Event Hubs overview].
 
-Questa esercitazione illustra come inserire messaggi in un hub eventi usando un'applicazione console in C# e come recuperarli in parallelo usando la libreria dell'[Host processore di eventi][Host processore di eventi] in C#.
+Questa esercitazione illustra come inserire messaggi in Hub eventi usando un'applicazione console in C# e come recuperarli in parallelo usando la libreria dell'[host processore di eventi][Event Processor Host] in C#.
 
 Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
@@ -55,23 +55,22 @@ A questo punto è possibile eseguire le applicazioni.
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve i dati, è possibile passare ai seguenti scenari:
 
-* [applicazione di esempio completa che usa Hub eventi][applicazione di esempio completa che usa Hub eventi]
-* [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi][scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi]
-* [Panoramica di Hub eventi][Panoramica di Hub eventi]
+* Un' [applicazione di esempio completa che usa Hub eventi][sample application that uses Event Hubs].
+* Esempio relativo alla [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi][Scale out Event Processing with Event Hubs].
+* [Panoramica di Hub eventi][Event Hubs overview]
 
 <!-- Images. -->
 [21]: ./media/event-hubs-c-ephjava-getstarted/ephjava.png
 [24]: ./media/event-hubs-c-ephjava-getstarted/receive-eph-c.png
 
 <!-- Links -->
-[portale di Azure classico]: https://manage.windowsazure.com/
-[Host processore di eventi]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Panoramica di Hub eventi]: event-hubs-overview.md
-[applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Event Hubs overview]: event-hubs-overview.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

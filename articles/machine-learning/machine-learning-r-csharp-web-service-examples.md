@@ -1,6 +1,6 @@
 ---
-title: Esempi di servizi Web di Machine Learning compilati con R | Microsoft Docs
-description: Trovare un insieme utile di esempi di servizi Web creati con codice R e Machine Learning e pubblicati in Azure Marketplace.
+title: (Deprecato) Esempi di servizi Web di Machine Learning creati con R - Azure | Documentazione Microsoft
+description: (Deprecato) Trovare un insieme utile di esempi di servizi Web creati con codice R e Machine Learning e pubblicati in Azure Marketplace.
 keywords: csharp, codice r, esempi di servizi web
 services: machine-learning
 documentationcenter: 
@@ -12,16 +12,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/21/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: jaymathe
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0c3e94cf69d55de9c31a48de35e86a1ae9149a63
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 303fb71faf73d4a1b6d17b4ca66b83b15157332b
 
 
 ---
-# <a name="web-services-examples-using-r-code-on-azure-machine-learning-and-published-to-microsoft-azure-marketplace"></a>Esempi di servizi Web che utilizzano codice R in Azure Machine Learning e pubblicati in Microsoft Azure Marketplace
+# <a name="deprecated-web-services-examples-using-r-code-on-azure-machine-learning-and-published-to-microsoft-azure-marketplace"></a>(Deprecato) Esempi di servizi Web che usano codice R in Azure Machine Learning e pubblicati in Microsoft Azure Marketplace
+
+> [!NOTE]
+> Microsoft DataMarket è in fase di ritiro e queste API sono state deprecate. 
+> 
+> Numerose API e molti esperimenti utili di esempio sono disponibili in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Per altre informazioni sulla raccolta, vedere [Condividere e scoprire risorse in Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Questo articolo contiene servizi Web di esempio che sono stati creati utilizzando Azure Machine Learning e che sono stati pubblicati in Azure Marketplace. A ogni servizio Web è associata una documentazione completa, che include set di dati di esempio per il test dei servizi e una spiegazione della modalità in cui un utente può creare un servizio analogo da solo. 
 
 Azure Machine Learning Studio permette agli utenti di scrivere codice R e, selezionando alcuni pulsanti, di pubblicare tale codice come servizio Web, affinché possa essere usato da altri utenti e dispositivi in tutto il mondo. 
@@ -47,10 +54,10 @@ Un utente usa un modello generico, applicabile a nuovi dati dell'utente, ad esem
 * [Previsioni - Modello autoregressivo integrato a media mobile (ARIMA)](machine-learning-r-csharp-arima.md)
 * [Analisi di sopravvivenza](machine-learning-r-csharp-survival-analysis.md)
 
-## <a name="scenario-2-trained-model-specific-data"></a>Scenario 2 : Modello di training - Dati specifici
+## <a name="scenario-2-trained-model--specific-data"></a>Scenario 2 : Modello di training - Dati specifici
 Un utente ha a disposizione dati che forniscono previsioni utili tramite il codice R, ad esempio un ampio campione di questionari relativi alla personalità raggruppati in cluster tramite un algoritmo k-means per prevedere il tipo di personalità dell'utente oppure i dati relativi a un sondaggio sulla salute che possono essere usati per prevedere il rischio di un individuo a livello di cancro ai polmoni tramite un pacchetto R dell'analisi di sopravvivenza. L'utente pubblica i dati tramite un servizio Web che prevede l'esito relativo a un nuovo utente.
 
-## <a name="scenario-3-trained-model-generic-data"></a>Scenario 3 Modello di ttraining - Dati generici
+## <a name="scenario-3-trained-model--generic-data"></a>Scenario 3 Modello di ttraining - Dati generici
 Un utente ha a disposizione dati generici, ad esempio un corpus di testo, che permettono la creazione di un servizio Web che è possibile creare e applicare in modo generico a diversi tipi di casi e scenari.
 
 * [Analisi dei sentimenti basata sul lessico](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
@@ -72,6 +79,6 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

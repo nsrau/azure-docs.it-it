@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/20/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 73fafeff227061feae1fbc0a1c50e5056116e3ea
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 00c4336bd5cef4ddc0b92127d0945d39291b9c7f
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 73fafeff227061feae1fbc0a1c50e5056116e3ea
 
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-Azure Marketplace rende disponibile un'ampia varietà di applicazioni Web ampiamente diffuse, sviluppate da Microsoft, da terze parti e tramite iniziative software open source. Ad esempio, WordPress, Umbraco CMS, Drupal e così via. Queste app Web sono basate su una vasta gamma di framework noti, ad esempio [PHP] in questo esempio WordPress, [.NET], [Node.js], [Java] e [Python], per citarne alcuni. Per creare un'app Web da Azure Marketplace, l'unico software necessario è il browser usato per il [portale di Azure].
+Azure Marketplace rende disponibile un'ampia varietà di applicazioni Web ampiamente diffuse, sviluppate da Microsoft, da terze parti e tramite iniziative software open source. Ad esempio, WordPress, Umbraco CMS, Drupal e così via. Queste app Web sono basate su una vasta gamma di framework noti, ad esempio [PHP] in questo esempio WordPress, [.NET], [Node.js], [Java] e [Python], per citarne alcuni. Per creare un'app Web da Azure Marketplace, l'unico software necessario è il browser usato per il [Portale di Azure].
 
 In questa esercitazione si apprenderà come:
 
@@ -40,7 +40,7 @@ Ai fini di questa esercitazione, si distribuirà un sito blog di WordPress da Az
 Il sito WordPress che verrà distribuito in questa esercitazione usa MySQL come database. Se si preferisce usare un database SQL, vedere [Project Nami], disponibile anche in Azure Marketplace.
 
 > [!NOTE]
-> Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si ha un account, è possibile [attivare i vantaggi della sottoscrizione Visual Studio][activate] oppure [iscriversi per ottenere una versione di valutazione gratuita][free trial].
+> Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione Visual Studio][activate] oppure [iscriversi per ottenere una versione di valutazione gratuita][free trial].
 > 
 > Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app]. In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
@@ -77,7 +77,7 @@ Il sito WordPress che verrà distribuito in questa esercitazione usa MySQL come 
     ![Configurare il gruppo di risorse per l'app Web][ConfigResourceGroup]
 5. Selezionare un **Piano di servizio app/Posizione** o crearne uno nuovo.
    
-    Per altre informazioni sui piani del servizio app, vedere [Panoramica approfondita dei piani del servizio app di Azure][AzureAppServicePlans].
+    Per altre informazioni sui piani di servizio app, vedere [Azure App Service plans overview][AzureAppServicePlans] (Panoramica dei piani di servizio app di Azure).
    
     ![Configurare il piano di servizio per l'app Web][ConfigServicePlan]
 6. Fare clic su **Database**, quindi nel pannello **Nuovo database MySQL** specificare i valori necessari per configurare il database MySQL.
@@ -137,12 +137,12 @@ Per altre informazioni sullo sviluppo di app Web WordPress in Azure, vedere [Svi
 [Java]: https://azure.microsoft.com/develop/java/
 [Python]: https://azure.microsoft.com/develop/python/
 [activate]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[valutazione gratuita]: https://azure.microsoft.com/pricing/free-trial/
+[free trial]: https://azure.microsoft.com/pricing/free-trial/
 [Prova il servizio app]: http://go.microsoft.com/fwlink/?LinkId=523751
 [ResourceGroups]: ../azure-resource-manager/resource-group-overview.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [ApplicationInsights]: https://azure.microsoft.com/services/application-insights/
-[portale di Azure]: https://portal.azure.com/
+[Portale di Azure]: https://portal.azure.com/
 [Project Nami]: http://projectnami.org/
 [WordPressOnAzure]: ./develop-wordpress-on-app-service-web-apps.md
 
@@ -168,6 +168,6 @@ Per altre informazioni sullo sviluppo di app Web WordPress in Azure, vedere [Svi
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

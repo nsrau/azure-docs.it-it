@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bradsev;paulsh
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: d803210e6599d9725a34cda5a3bd873cda14a490
+ms.sourcegitcommit: d0075eec26c2131f2019e7aca4c00d2d63cc976b
+ms.openlocfilehash: 80051996b0c39c53da63dc6b7bc75c869f692575
 
 
 ---
@@ -533,6 +533,6 @@ Per una descrizione di altre procedure dettagliate complete che illustrano i pas
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

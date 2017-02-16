@@ -12,15 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/10/2017
 ms.author: vturecek;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 97bfd27368c2f317e4edadb38a0685d92ad92b9a
+ms.sourcegitcommit: 7a79b19bf51c89e19ad67421978dacccddeb5119
+ms.openlocfilehash: 95cb29e3a7fe59fb29189c7e62b5c6c8e77e6a20
 
 
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Debug dell'applicazione di Service Fabric mediante Visual Studio
+> [!div class="op_single_selector"]
+> * [Visual Studio/CSharp](service-fabric-debugging-your-application.md) 
+> * [Eclipse/Java](service-fabric-debugging-your-application-java.md)
+>
+
+
 ## <a name="debug-a-local-service-fabric-application"></a>Eseguire il debug di un'applicazione di Service Fabric
 Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Service Fabric ed eseguirne il debug in un cluster di sviluppo locale. Visual Studio può distribuire l'applicazione nel cluster locale e connettere automaticamente il debugger a tutte le istanze dell'applicazione.
 
@@ -156,6 +162,6 @@ Si può anche eseguire lo streaming delle tracce direttamente da un nodo del clu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

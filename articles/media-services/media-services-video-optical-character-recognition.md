@@ -1,5 +1,5 @@
 ---
-title: Usare Analisi Servizi multimediali di Azure per convertire il contenuto di testo dei file video in testo digitale | Microsoft Docs
+title: Digitalizzare il testo con il riconoscimento ottico dei caratteri (OCR) con Analisi Servizi multimediali di Azure | Documentazione Microsoft
 description: "Il riconoscimento ottico dei caratteri (OCR) di Analisi servizi multimediali di Azure consente di convertire il contenuto di testo dei file video in testo digitale modificabile e sui cui è possibile eseguire ricerche.  Ciò consente di automatizzare l&quot;estrazione di metadati importanti dal segnale video del contenuto multimediale."
 services: media-services
 documentationcenter: 
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 39fc755a632ae8e06109a3ea996521310424ba82
+ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
+ms.openlocfilehash: c50b183582038cba90298ba391eb33825cd765bd
 
 
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Usare Analisi Servizi multimediali di Azure per convertire il contenuto di testo dei file video in testo digitale
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Se è necessario estrarre il contenuto di testo da file video e generare un testo digitale modificabile e in cui sia possibile eseguire ricerche, usare il riconoscimento ottico dei caratteri (OCR) di Analisi servizi multimediali di Azure. Questo processore di contenuti multimediali di Azure rileva il contenuto di testo nel file video e genera file di testo pronti per l'uso. OCR consente di automatizzare l'estrazione di metadati importanti dal segnale video del contenuto multimediale.
 
 Se usato in combinazione con un motore di ricerca, è possibile indicizzare facilmente i file multimediali dal testo e migliorare la scoperta dei contenuti. Questa funzione risulta molto utile per i video che contengono un porzione importante di testo, ad esempio una registrazione video o l'acquisizione dello schermo di una presentazione. Il processore di contenuti multimediali Azure OCR è ottimizzato per il testo digitale.
@@ -342,6 +342,6 @@ Il programma seguente illustra come:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

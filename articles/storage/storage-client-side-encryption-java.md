@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: dineshm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8cdd68bccf7e876ecb12ce154ed9175066839cde
+ms.sourcegitcommit: 7e182ee18e3c2c12eb29f864dd875d764ca5d534
+ms.openlocfilehash: 116693fdb8a8fa0e332b74459f7827bbf44c9ed7
 
 
 ---
-# <a name="client-side-encryption-with-java-for-microsoft-azure-storage"></a>Crittografia lato client con Java per Archiviazione di Microsoft Azure
+# <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Crittografia lato client e Insieme di credenziali chiave Azure con Java per Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../includes/storage-selector-client-side-encryption-include.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 La [libreria client di archiviazione di Azure per Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) supporta la crittografia dei dati all'interno delle applicazioni client prima del caricamento nell'Archiviazione di Azure, nonché la decrittografia dei dati durante il download al client. La libreria inoltre supporta l'integrazione con l' [insieme di credenziali chiave](https://azure.microsoft.com/services/key-vault/) di Azure per la gestione delle chiavi dell'account di archiviazione.
 
 ## <a name="encryption-and-decryption-via-the-envelope-technique"></a>Crittografia e decrittografia tramite la tecnica basata su envelope
@@ -70,7 +70,9 @@ Poiché i messaggi in coda possono essere in qualsiasi formato, la libreria clie
 
 Durante la crittografia, la libreria client genera un vettore di inizializzazione casuale di 16 byte con una CEK casuale di 32 byte ed esegue la crittografia envelope del testo del messaggio in coda utilizzando queste informazioni. Al messaggio in coda crittografato vengono quindi aggiunti la CEK con wrapping e alcuni metadati di crittografia aggiuntivi. Questo messaggio modificato (illustrato di seguito) viene archiviato nel servizio.
 
-    <MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
+```
+<MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
+```
 
 Durante la decrittografia, la chiave con wrapping viene estratta dal messaggio in coda e sottoposta a rimozione del wrapping. Anche il vettore di inizializzazione viene estratto dal messaggio in coda e utilizzato con la chiave senza wrapping per decrittografare i dati del messaggio in coda. Si noti che i metadati di crittografia sono di piccole dimensioni (inferiori a 500 byte), quindi mentre vengono tenuti in considerazione per il limite di 64 KB di un messaggio in coda, l'impatto dovrebbe essere gestibile.
 
@@ -131,7 +133,7 @@ Il supporto della crittografia è disponibile solo nella libreria client di arch
 > 
 > 
 
-## <a name="client-api-interface"></a>API client/interfaccia
+## <a name="client-api--interface"></a>API client/interfaccia
 Durante la creazione di un oggetto EncryptionPolicy, gli utenti possono specificare solo una chiave (implementazione IKey), solo un resolver (implementazione IKeyResolver) o entrambi. IKey è il tipo di chiave di base che viene identificato utilizzando un identificatore di chiave e che fornisce la logica per wrapping/rimozione del wrapping. IKeyResolver viene utilizzato per risolvere una chiave durante la procedura di decrittografia. Definisce un metodo ResolveKey che restituisce un IKey dato un identificatore di chiave. Ciò fornisce agli utenti la possibilità di scegliere tra più chiavi che vengono gestite in più posizioni.
 
 * Per la crittografia, la chiave viene sempre utilizzata e l'assenza di una chiave genera un errore.  
@@ -150,88 +152,97 @@ Ad esempio, usare **CloudBlobClient.getDefaultRequestOptions().setRequireEncrypt
 ### <a name="blob-service-encryption"></a>Crittografia del servizio BLOB
 Creare un oggetto **BlobEncryptionPolicy** e impostarlo nelle opzioni di richiesta (per API o a livello di client tramite **DefaultRequestOptions**). Tutto il resto verrà gestito dalla libreria client internamente.
 
-    // Create the IKey used for encryption.
-    RsaKey key = new RsaKey("private:key1" /* key identifier */);
+```java
+// Create the IKey used for encryption.
+RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-    // Create the encryption policy to be used for upload and download.
-    BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
+// Create the encryption policy to be used for upload and download.
+BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
 
-    // Set the encryption policy on the request options.
-    BlobRequestOptions options = new BlobRequestOptions();
-    options.setEncryptionPolicy(policy);
+// Set the encryption policy on the request options.
+BlobRequestOptions options = new BlobRequestOptions();
+options.setEncryptionPolicy(policy);
 
-    // Upload the encrypted contents to the blob.
-    blob.upload(stream, size, null, options, null);
+// Upload the encrypted contents to the blob.
+blob.upload(stream, size, null, options, null);
 
-    // Download and decrypt the encrypted contents from the blob.
-    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    blob.download(outputStream, null, options, null);
+// Download and decrypt the encrypted contents from the blob.
+ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+blob.download(outputStream, null, options, null);
+```
 
 ### <a name="queue-service-encryption"></a>Crittografia del servizio di accodamento
 Creare un oggetto **QueueEncryptionPolicy** e impostarlo nelle opzioni di richiesta (per API o a livello di client tramite **DefaultRequestOptions**). Tutto il resto verrà gestito dalla libreria client internamente.
 
-    // Create the IKey used for encryption.
-    RsaKey key = new RsaKey("private:key1" /* key identifier */);
+```java
+// Create the IKey used for encryption.
+RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-    // Create the encryption policy to be used for upload and download.
-    QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
+// Create the encryption policy to be used for upload and download.
+QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
 
-    // Add message
-    QueueRequestOptions options = new QueueRequestOptions();
-    options.setEncryptionPolicy(policy);
+// Add message
+QueueRequestOptions options = new QueueRequestOptions();
+options.setEncryptionPolicy(policy);
 
-    queue.addMessage(message, 0, 0, options, null);
+queue.addMessage(message, 0, 0, options, null);
 
-    // Retrieve message
-    CloudQueueMessage retrMessage = queue.retrieveMessage(30, options, null);
+// Retrieve message
+CloudQueueMessage retrMessage = queue.retrieveMessage(30, options, null);
+```
 
 ### <a name="table-service-encryption"></a>Crittografia del servizio tabelle
 Oltre a creare un criterio di crittografia e a impostarlo nelle opzioni di richiesta, è necessario specificare **EncryptionResolver** in **TableRequestOptions** o impostare l'attributo [Encrypt] nel getter e setter dell'entità.
 
 ### <a name="using-the-resolver"></a>Utilizzo del resolver
-    // Create the IKey used for encryption.
-    RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-    // Create the encryption policy to be used for upload and download.
-    TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
+```java
+// Create the IKey used for encryption.
+RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-    TableRequestOptions options = new TableRequestOptions()
-    options.setEncryptionPolicy(policy);
-    options.setEncryptionResolver(new EncryptionResolver() {
-        public boolean encryptionResolver(String pk, String rk, String key) {
-            if (key == "foo")
-            {
-                return true;
-            }
-            return false;
+// Create the encryption policy to be used for upload and download.
+TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
+
+TableRequestOptions options = new TableRequestOptions()
+options.setEncryptionPolicy(policy);
+options.setEncryptionResolver(new EncryptionResolver() {
+    public boolean encryptionResolver(String pk, String rk, String key) {
+        if (key == "foo")
+        {
+            return true;
         }
-    });
+        return false;
+    }
+});
 
-    // Insert Entity
-    currentTable.execute(TableOperation.insert(ent), options, null);
+// Insert Entity
+currentTable.execute(TableOperation.insert(ent), options, null);
 
-    // Retrieve Entity
-    // No need to specify an encryption resolver for retrieve
-    TableRequestOptions retrieveOptions = new TableRequestOptions()
-    retrieveOptions.setEncryptionPolicy(policy);
+// Retrieve Entity
+// No need to specify an encryption resolver for retrieve
+TableRequestOptions retrieveOptions = new TableRequestOptions()
+retrieveOptions.setEncryptionPolicy(policy);
 
-    TableOperation operation = TableOperation.retrieve(ent.PartitionKey, ent.RowKey, DynamicTableEntity.class);
-    TableResult result = currentTable.execute(operation, retrieveOptions, null);
+TableOperation operation = TableOperation.retrieve(ent.PartitionKey, ent.RowKey, DynamicTableEntity.class);
+TableResult result = currentTable.execute(operation, retrieveOptions, null);
+```
 
 ### <a name="using-attributes"></a>Utilizzo di attributi
 Come indicato in precedenza, se l'entità implementa TableEntity, il getter e il setter delle proprietà possono essere decorati con l'attributo [Encrypt] invece di specificare **EncryptionResolver**.
 
-    private string encryptedProperty1;
+```java
+private string encryptedProperty1;
 
-    @Encrypt
-    public String getEncryptedProperty1 () {
-        return this.encryptedProperty1;
-    }
+@Encrypt
+public String getEncryptedProperty1 () {
+    return this.encryptedProperty1;
+}
 
-    @Encrypt
-    public void setEncryptedProperty1(final String encryptedProperty1) {
-        this.encryptedProperty1 = encryptedProperty1;
-    }
+@Encrypt
+public void setEncryptedProperty1(final String encryptedProperty1) {
+    this.encryptedProperty1 = encryptedProperty1;
+}
+```
 
 ## <a name="encryption-and-performance"></a>Crittografia e prestazioni
 Si noti che la crittografia dei dati di archiviazione restituisce un overhead delle prestazioni aggiuntivo. La chiave simmetrica e il vettore devono essere generati, il contenuto stesso deve essere crittografato e metadati aggiuntivi devono essere formattati e caricati. Questo overhead varia a seconda della quantità di dati da crittografare. È consigliabile che i clienti testano sempre le proprie applicazioni per le prestazioni durante lo sviluppo.
@@ -242,11 +253,9 @@ Si noti che la crittografia dei dati di archiviazione restituisce un overhead de
 * Scaricare la libreria Maven dell'insieme di credenziali delle chiavi di Azure per i pacchetti Java Maven seguenti:
   * [core](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) 
   * [client](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) 
-* Vedere la [documentazione sull'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-whatis.md)  
+* Vedere la [documentazione sull'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-whatis.md)
 
 
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

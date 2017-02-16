@@ -1,5 +1,5 @@
 ---
-title: Uso dell&quot;analisi con Application Insights
+title: Analisi dell&quot;utilizzo con Azure Application Insights | Documentazione Microsoft
 description: Panoramica dell&quot;analisi dell&quot;uso con Application Insights
 services: application-insights
 documentationcenter: 
@@ -11,11 +11,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/08/2016
+ms.date: 12/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff52467bb9634de2c58a7e87323abe4014cc4a29
+ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
+ms.openlocfilehash: 94b619cfce15f93bc50f10266c6dc21da78e3481
 
 
 ---
@@ -27,7 +27,7 @@ Application Insights può offrire una visione chiara dell'uso dell'applicazione,
 Application Insights funziona per entrambe le applicazioni autonome (in iOS, Android e Windows) e per le applicazioni web (ospitate su .NET o J2EE). 
 
 ## <a name="add-application-insights-to-your-project"></a>Aggiunta di Application Insights al progetto
-Per iniziare, ottenere un account gratuito in [Microsoft Azure](https://azure.com). Dopo il periodo di valutazione, è possibile continuare con il livello gratuito del servizio.
+Per iniziare, ottenere un account in [Microsoft Azure](https://azure.com). Si paga solo per le risorse usate ed entro certi limiti non sono previsti addebiti per l'uso sperimentale.
 
 Nel [portale di Azure](https://portal.azure.com)creare una risorsa di Application Insights. che mostra i dati sulle prestazioni e l'utilizzo dell'app.
 
@@ -201,7 +201,7 @@ Usare il campo Ricerca per visualizzare le occorrenze di eventi con un valore de
 
 ![Digitare un valore nel campo Ricerca](./media/app-insights-overview-usage/12-searchEvents.png)
 
-## <a name="a-b-testing"></a>Test A | B
+## <a name="a--b-testing"></a>Test A | B
 Se non si sa quale variante di una funzionalità sarà più efficace, rilasciarle entrambe, rendendo ognuna accessibile a utenti diversi. Valutare la riuscita di ognuna e quindi passare a una versione unificata.
 
 Per questa tecnica è possibile collegare tag differenti per tutti i dati di telemetria inviati da ogni versione dell'app. A questo scopo, definire le proprietà nel TelemetryContext attivo. Queste proprietà predefinite vengono aggiunte a ogni messaggio di telemetria inviato dall'applicazione, non solo ai messaggi personalizzati, ma anche ai dati di telemetria standard.
@@ -271,6 +271,6 @@ Quando si usa l'analisi, questa diventa parte integrante del ciclo di sviluppo, 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

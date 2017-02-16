@@ -13,7 +13,7 @@ Il diagramma seguente mostra una tipica architettura di soluzione IoT. Il diagra
 ![Architettura della soluzione IoT][img-solution-architecture]
 
 > [!NOTE]
-> Per un'analisi approfondita dell'architettura IoT, vedere l'[architettura di riferimento di Microsoft Azure IoT][lnk-refarch].
+> Per un'analisi approfondita dell'architettura IoT, vedere [Microsoft Azure IoT Reference Architecture][lnk-refarch] (Architettura di riferimento di Microsoft Azure IoT).
 > 
 > 
 
@@ -30,9 +30,9 @@ Una delle maggiori difficoltà con i progetti IoT è quella di connettere in mod
 * Possono richiedere protocolli di applicazioni proprietari, personalizzati o specifici del settore.
 * Possono essere create utilizzando un'ampia gamma di piattaforme hardware e software molto comuni.
 
-Oltre ai requisiti precedenti, le soluzioni IoT devono offrire scalabilità, sicurezza e affidabilità. L’implementazione del set di requisiti di connettività con tecnologie tradizionali come i contenitori Web e i broker di messaggistica è un'attività lunga e complessa. Hub IoT di Azure e gli SDK per dispositivi IoT rendono più semplice l'implementazione di soluzioni che soddisfano tali requisiti.
+Oltre ai requisiti precedenti, le soluzioni IoT devono offrire scalabilità, sicurezza e affidabilità. L’implementazione del set di requisiti di connettività con tecnologie tradizionali come i contenitori Web e i broker di messaggistica è un'attività lunga e complessa. Hub IoT di Azure e Azure IoT SDK per dispositivi rendono più semplice l'implementazione di soluzioni che soddisfano tali requisiti.
 
-Un dispositivo può comunicare direttamente con un endpoint del gateway nel cloud oppure, se il dispositivo non può usare nessuno dei protocolli di comunicazione supportato dal gateway nel cloud, può connettersi tramite un gateway intermedio. Il [gateway del protocollo di Azure IoT][lnk-protocol-gateway] può ad esempio convertire i protocolli se i dispositivi non possono usare nessuno dei protocolli supportati dall'hub IoT.
+Un dispositivo può comunicare direttamente con un endpoint del gateway nel cloud oppure, se il dispositivo non può usare nessuno dei protocolli di comunicazione supportato dal gateway nel cloud, può connettersi tramite un gateway intermedio. Ad esempio, il [gateway del protocollo di IoT di Azure][lnk-protocol-gateway] può convertire i protocolli se i dispositivi non sono in grado di usare nessuno dei protocolli supportati dall'hub IoT.
 
 ### <a name="data-processing-and-analytics"></a>e analisi dei dati
 Nel cloud è soprattutto nel back-end della soluzione IoT che viene eseguita l'elaborazione dei dati, ad esempio il filtro e l'aggregazione dei dati di telemetria e il routing ad altri servizi. Il back-end della soluzione IoT:
@@ -60,6 +60,6 @@ Il livello di connettività aziendale e di presentazione consente agli utenti fi
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

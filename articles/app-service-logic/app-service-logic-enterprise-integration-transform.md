@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/08/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cbc7752b941945b0809016a016a851b7071a79d9
+ms.sourcegitcommit: 6de16a062a97787b37fae88a660a7ee54741910c
+ms.openlocfilehash: 3d1949ea8c842c906c6f898dbd194fccb329428b
 
 
 ---
@@ -31,38 +31,28 @@ Un'app per le API Transform, conosciuta anche come Map, consiste in uno schema X
 È possibile creare una mappa/trasformazione tramite l' [SDK di Enterprise Integration](https://aka.ms/vsmapsandschemas)di Visual Studio. Al termine della creazione e del testing della trasformazione, caricare la trasformazione nell'account di integrazione. 
 
 ## <a name="how-to-use-a-transform"></a>Procedura: Usare una trasformazione
-Dopo aver caricato il file della trasformazione nell'account di integrazione, è possibile usarlo per creare un'app per la logica. L'app per la logica eseguirà quindi le trasformazioni a ogni attivazione dell'app, con la relativa trasformazione del contenuto immesso.
+Dopo aver caricato il file della trasformazione/mappa nell'account di integrazione, è possibile usarlo per creare un'app per la logica. L'app per la logica esegue le trasformazioni a ogni attivazione dell'app, con la relativa trasformazione del contenuto immesso.
 
 **Di seguito è riportata la procedura per l'uso di una trasformazione**:
 
 ### <a name="prerequisites"></a>Prerequisiti
-Nell'anteprima è necessario:  
 
-* [Creare un contenitore di Funzioni di Azure](https://ms.portal.azure.com/#create/Microsoft.FunctionApp "Creare un contenitore di Funzioni di Azure")  
-* [Aggiungere una funzione al contenitore di Funzioni di Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-transform-function%2Fazuredeploy.json "Questo modello consente di creare una funzione webhook basata sulla funzione di Azure C# con funzionalità di trasformazione da usare negli scenari di integrazione di app per la logica")    
 * Creare un account di integrazione e aggiungervi una mappa  
-
-> [!TIP]
-> Annotare il nome del contenitore di Funzioni di Azure e della funzione di Azure, che saranno necessari nel passaggio successivo.  
-> 
-> 
 
 Una volta soddisfatti i requisiti, è ora di creare l'app per la logica:  
 
 1. Creare un'app per la logica e [collegarla all'account di integrazione](app-service-logic-enterprise-integration-accounts.md "Informazioni su come collegare un account di integrazione a un'app per la logica") che contiene la mappa.
-2. Aggiungere un trigger **Richiesta - Alla ricezione di una richiesta HTTP** all'app per la logica.  
+2. Aggiungere un trigger **Richiesta** all'app per la logica.  
    ![](./media/app-service-logic-enterprise-integration-transforms/transform-1.png)    
 3. Aggiungere l'azione **Trasforma XML** selezionando prima **Aggiungi un'azione**   
    ![](./media/app-service-logic-enterprise-integration-transforms/transform-2.png)   
-4. Immettere la parola *trasforma* nella casella di ricerca per filtrare tutte le azioni e ottenere quella che si vuole usare  
+4. Immettere la parola *trasforma* nella casella di ricerca per filtrare tutte le azioni e ottenere quella che si vuole usare.  
    ![](./media/app-service-logic-enterprise-integration-transforms/transform-3.png)  
 5. Selezionare l'azione **Trasforma XML**   
-   ![](./media/app-service-logic-enterprise-integration-transforms/transform-4.png)  
-6. Selezionare il **Contenitore funzioni** con la funzione da usare. Si tratta del nome del contenitore di Funzioni di Azure creato in precedenza.
-7. Selezionare la **FUNZIONE** che si vuole usare. Si tratta del nome della funzione di Azure creato in precedenza.
-8. Aggiungere il **CONTENUTO** XML da trasformare. Si noti che è possibile usare tutti i dati XML ricevuti nella richiesta HTTP come **CONTENUTO**. In questo esempio selezionare il corpo della richiesta HTTP che ha attivato l'app per la logica.
-9. Selezionare il nome della **MAPPA** che si vuole usare per eseguire la trasformazione. La mappa deve essere già presente nell'account di integrazione. In un passaggio precedente è stato concesso l'accesso dell'app per la logica all'account di integrazione che contiene la mappa.
-10. Salvare il lavoro   
+6. Aggiungere il **CONTENUTO** XML da trasformare. È possibile usare tutti i dati XML ricevuti nella richiesta HTTP come **CONTENUTO**. In questo esempio selezionare il corpo della richiesta HTTP che ha attivato l'app per la logica.
+7. Selezionare il nome della **MAPPA** che si vuole usare per eseguire la trasformazione. La mappa deve essere già presente nell'account di integrazione. In un passaggio precedente è stato concesso l'accesso dell'app per la logica all'account di integrazione che contiene la mappa.      
+   ![](./media/app-service-logic-enterprise-integration-transforms/transform-4.png) 
+8. Salvare il lavoro   
     ![](./media/app-service-logic-enterprise-integration-transforms/transform-5.png) 
 
 A questo punto, la configurazione della mappa è completa. In un'applicazione reale è possibile archiviare i dati trasformati in un'applicazione LOB, ad esempio SalesForce. È possibile eseguire facilmente questa azione inviando l'output della trasformazione a Salesforce. 
@@ -85,6 +75,6 @@ A questo punto, la configurazione della mappa è completa. In un'applicazione re
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c8cdb37fceb7b598c92b7b3cd41655c87c74e639
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: d4ba7c276b0ad8539cfbad9b9a6afe193af3a0b8
 
 
 ---
@@ -31,13 +31,13 @@ Questa Guida illustra come aggiungere la memorizzazione delle risposte nella cac
 > 
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di eseguire i passaggi di questa guida, è necessario avere un'istanza del servizio Gestione API con un'API e un prodotto configurati. Se non è ancora stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza del servizio Gestione API][Creare un'istanza del servizio Gestione API] nell'esercitazione [Introduzione a Gestione API di Azure][Introduzione a Gestione API di Azure].
+Prima di eseguire i passaggi di questa guida, è necessario avere un'istanza del servizio Gestione API con un'API e un prodotto configurati. Se non è stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][Create an API Management service instance] nell'esercitazione [Introduzione a Gestione API di Azure][Get started with Azure API Management].
 
 ## <a name="configure-caching"> </a>Configurare un'operazione per la memorizzazione nella cache
 In questo passaggio vengono riviste le impostazioni di caching dell'operazione **GET su risorsa (memorizzata nella cache)** dell'API Echo di esempio.
 
 > [!NOTE]
-> Ogni istanza del servizio Gestione API è preconfigurata con un'API Echo utilizzabile per sperimentare e ottenere altre informazioni su Gestione API. Per altre informazioni, vedere [Introduzione a Gestione API di Azure][Introduzione a Gestione API di Azure].
+> Ogni istanza del servizio Gestione API è preconfigurata con un'API Echo utilizzabile per sperimentare e ottenere altre informazioni su Gestione API. Per altre informazioni, vedere [Introduzione a Gestione API di Azure][Get started with Azure API Management].
 > 
 > 
 
@@ -80,20 +80,22 @@ Visualizza i criteri per l'operazione nell'editor dei criteri.
 
 La definizione dei criteri per questa operazione include i criteri che definiscono la configurazione della memorizzazione nella cache rivisti usando la scheda **Memorizzazione nella cache** nel passaggio precedente.
 
-    <policies>
-        <inbound>
-            <base />
-            <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
-                <vary-by-header>Accept</vary-by-header>
-                <vary-by-header>Accept-Charset</vary-by-header>
-            </cache-lookup>
-            <rewrite-uri template="/resource" />
-        </inbound>
-        <outbound>
-            <base />
-            <cache-store caching-mode="cache-on" duration="3600" />
-        </outbound>
-    </policies>
+```xml
+<policies>
+    <inbound>
+        <base />
+        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
+            <vary-by-header>Accept</vary-by-header>
+            <vary-by-header>Accept-Charset</vary-by-header>
+        </cache-lookup>
+        <rewrite-uri template="/resource" />
+    </inbound>
+    <outbound>
+        <base />
+        <cache-store caching-mode="cache-on" duration="3600" />
+    </outbound>
+</policies>
+```
 
 > [!NOTE]
 > Le modifiche apportate ai criteri di caching nell'editor dei criteri si rifletteranno nella scheda **Caching** di un'operazione e viceversa.
@@ -138,7 +140,7 @@ Immettere **25** nel campo **param2**, quindi fare clic su **GET HTTP**.
 Il valore di **sampleheader** nella risposta ora è **value2**. I risultati dell'operazione vengono associati a una chiave in base alla stringa di query, quindi non viene restituita la risposta memorizzata nella cache precedente.
 
 ## <a name="next-steps"> </a>Passaggi successivi
-* Per altre informazioni sui criteri di caching, vedere [Caching policies][Caching policies] (Criteri di caching) in [API Management policy reference][API Management policy reference] (Riferimento ai criteri di Gestione API).
+* Per altre informazioni sui criteri di caching, vedere [Caching policies][Caching policies] (Criteri di caching) nell'argomento [API Management policy reference][API Management policy reference] (Riferimento ai criteri di Gestione API).
 * Per informazioni sul caching degli elementi in base alla chiave usando espressioni di criteri, vedere [Caching personalizzato in Gestione API di Azure](api-management-sample-cache-by-key.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
@@ -153,25 +155,25 @@ Il valore di **sampleheader** nella risposta ora è **value2**. I risultati dell
 [api-management-console]: ./media/api-management-howto-cache/api-management-console.png
 
 
-[Come aggiungere operazioni a un'API in Gestione API di Azure]: api-management-howto-add-operations.md
-[Come aggiungere e pubblicare un prodotto]: api-management-howto-add-products.md
-[Monitoraggio e analisi]: api-management-monitoring.md
-[Aggiungere API a un prodotto]: api-management-howto-add-products.md#add-apis
-[Pubblicare un prodotto]: api-management-howto-add-products.md#publish-product
-[Introduzione a Gestione API di Azure]: api-management-get-started.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Get started with Azure API Management]: api-management-get-started.md
 
-[Informazioni di riferimento per i criteri di Gestione API di Azure]: https://msdn.microsoft.com/library/azure/dn894081.aspx
-[Criteri di memorizzazione nella cache]: https://msdn.microsoft.com/library/azure/dn894086.aspx
+[API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
+[Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
 
-[Creare un'istanza di Gestione API]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[Configurare un'operazione per la memorizzazione nella cache]: #configure-caching
-[Rivedere i criteri di memorizzazione nella cache]: #caching-policies
-[Chiamare un'operazione e testare la memorizzazione nella cache]: #test-operation
-[Passaggi successivi]: #next-steps
+[Configure an operation for caching]: #configure-caching
+[Review the caching policies]: #caching-policies
+[Call an operation and test the caching]: #test-operation
+[Next steps]: #next-steps
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

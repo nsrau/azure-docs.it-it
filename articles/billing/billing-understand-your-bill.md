@@ -13,80 +13,43 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2016
+ms.date: 12/2/2016
 ms.author: erihur;genli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8768ccd5a1d04566c5f2e1f26ab328cea570cc61
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b107405081429626bf1e758567ae5427e2dbca15
 
 
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Comprendere la fattura per Microsoft Azure
-> [!NOTE]
-> Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
-> 
-> 
+Per comprendere la fattura di Azure, esaminare la fattura con il riepilogo delle spese e il file con i dettagli di utilizzo giornaliero separato. Questo articolo descrive la maggior parte dei termini presenti sulla fattura e nel file di utilizzo giornaliero. Per ottenere questi file, vedere [Come scaricare la fattura e i dati di utilizzo giornalieri di Azure](../billing-download-azure-invoice-daily-usage-date.md). Se si usa una sottoscrizione di valutazione gratuita, è possibile ottenere le informazioni sull'utilizzo giornaliero ma la fattura non viene emessa.
 
-Gli addebiti per le sottoscrizioni di Microsoft Azure dipendono dal piano tariffario. Alcuni piani tariffari, ad esempio le sottoscrizioni di Visual Studio Enterprise (MPN), includono crediti mensili che possono essere usati in qualsiasi servizio di Azure in base alle proprie esigenze.
+Gli addebiti per le sottoscrizioni di Microsoft Azure dipendono dal piano tariffario. Alcuni piani tariffari, come quello riservato ai sottoscrittori di Visual Studio Enterprise (MPN), includono crediti mensili utilizzabili per qualsiasi servizio di Azure in base alle esigenze.
 
-Si noti che fino a 24 ore di utilizzo non attivo del periodo di fatturazione precedente possono essere inserite nel periodo di fatturazione corrente.
+Nella fattura corrente possono essere presenti fino a 24 ore di utilizzo riferite alla fine del periodo di fatturazione precedente. Inoltre gli addebiti elencati negli estratti conto per i clienti internazionali sono solo a scopo di valutazione. Le banche hanno costi diversi per i tassi di conversione.
 
-Per altre informazioni sul consumo e sui piani tariffari, vedere la [pagina relativa alle opzioni di acquisto di Microsoft Azure](https://azure.microsoft.com/pricing/purchase-options/).
+## <a name="a-namepdfa-understand-your-invoice-pdf"></a><a name="pdf"></a> Comprendere la fattura (PDF)
+La fattura riporta un riepilogo degli addebiti. È disponibile per il download in formato PDF (Portable Document Format) dal [portale di Azure](https://portal.azure.com). Per altre informazioni, vedere [Come scaricare la fattura e i dati di utilizzo giornalieri di Azure](../billing-download-azure-invoice-daily-usage-date.md). 
 
-<!-- The below links cover a complete list of all Microsoft Azure services.
+Le sezioni seguenti riportano la maggior parte dei termini che sono presenti sulle fatture e le descrizioni per ciascun termine.
 
-<!-- - [Service Details list (csv1)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
-<!-- - [Service Details list (csv2)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
-
-<!-- *NOTE: The **csv1** link refers to the column header names for csv version 1 and **csv2** link refers to the new column header names for csv version 2.  These files are updated monthly.*-->
-
-### <a name="view-or-download-a-bill-for-microsoft-azure"></a>Visualizzare o scaricare una fattura per Microsoft Azure:
-1. Accedere al [Centro account](https://account.windowsazure.com/subscriptions) usando l'account Microsoft o l'ID dell'account aziendale.
-2. Fare clic sulla sottoscrizione per cui si vogliono visualizzare i dettagli e l'utilizzo.
-3. Fare clic su **Cronologia di fatturazione**
-   
-    ![Riepilogo - cronologia fatturazione -1](./media/billing-understand-your-bill/ContentViewaBillforMA1.png)
-4. La sezione **Cronologia di fatturazione** include un elenco dei rendiconti dei periodi di fatturazione precedenti, oltre al periodo attuale non fatturato. Il rendiconto per il periodo attuale è una stima degli addebiti fino al momento in cui è stata generata la stima. Queste informazioni vengono aggiornate solo una volta al giorno e potrebbero non includere tutti gli utilizzi effettuati alla data corrente. È possibile che la fattura mensile non corrisponda a questa stima.  
-   
-    ![Riepilogo - cronologia fatturazione 2](./media/billing-understand-your-bill/ContentViewaBillforMA2.png)
-5. Fare clic su **Visualizza estratto conto corrente** per visualizzare una stima degli addebiti fino al momento in cui è stata generata la stima. Queste informazioni vengono aggiornate solo una volta al giorno e potrebbero non includere tutti gli utilizzi effettuati alla data corrente. È possibile che la fattura mensile non corrisponda a questa stima.
-   
-    ![Riepilogo - cronologia fatturazione 3](./media/billing-understand-your-bill/ContentViewaBillforMA3.png)
-   
-    ![Riepilogo - cronologia fatturazione 4](./media/billing-understand-your-bill/ContentViewaBillforMA4.png)
-6. Fare clic su **Scarica fattura** per visualizzare una copia della fattura precedente.
-   
-    ![Riepilogo - cronologia fatturazione 5](./media/billing-understand-your-bill/ContentViewaBillforMA5.png)
-
-> [!NOTE]
-> Gli addebiti elencati negli estratti conto per i clienti internazionali sono solo a scopo di valutazione, perché le banche hanno costi diversi per i tassi di conversione.
-> 
-> 
-
-Di seguito sono fornite alcune istruzioni di esempio per due offerte differenti disponibili in Microsoft Azure.
-
-| Tipo di offerta | Description | Scaricare |
-|:--- |:--- |:--- |
-| Pagamento in base al consumo |Pagamento mensile in arretrato |[File di esempio](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_ccinvoice_Sample.pdf) |
-| Offerta dell'impegno |Spesa detratta dall'impegno prepagato |[File di esempio](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_invoice_Sample.pdf) |
-
-## <a name="account-information"></a>Informazioni sull'account
-La sezione relativa alle informazioni sull'account identifica le informazioni pertinenti relative all'utilizzo e al profilo dell'utente.
+### <a name="account-information"></a>Informazioni sull'account
+La sezione delle informazioni account riporta informazioni sull'utilizzo e il profilo.
 
 ![intestazione](./media/billing-understand-your-bill/Header.png)
 
 | Termine | Descrizione |
 | --- | --- |
 | N. fattura |Identificatore univoco della fattura per scopi di registrazione. |
-| Ciclo di fatturazione |Intervallo di tempo durante il quale è avvenuto l'utilizzo. |
+| Ciclo di fatturazione |Periodo a cui la fattura si riferisce |
 | Data fattura |Data in cui è stata generata la fattura. |
-| Metodo di pagamento |Tipo di pagamento usato per l'account, ovvero addebito con fattura o carta di credito. |
-| Indirizzo di fatturazione |Indirizzo per i pagamenti per Microsoft Azure. |
-| Offerta di sottoscrizione |Tipo di offerta di sottoscrizione che è stato acquistato, ossia con pagamento in base al consumo, BizSpark Plus, Azure Pass e così via. |
-| Indirizzo di posta elettronica proprietario account |Indirizzo di posta elettronica dell'account associato all'account Microsoft Azure. |
+| Metodo di pagamento |Tipo di pagamento utilizzato per l'account, ovvero fattura o carta di credito. Se è necessario aggiornare la carta di credito, vedere l'articolo [Come modificare la carta di credito usata per pagare una sottoscrizione di Azure](../billing-how-to-change-credit-card.md). Se l'utente rappresenta un'azienda, è possibile pagare la sottoscrizione di Azure con metodi di pagamento della fattura, ad esempio assegni, assegni con pagamento in 24 ore e bonifici. Vedere [Fatturazione di Azure](https://azure.microsoft.com/pricing/invoicing/). |
+| Indirizzo di fatturazione |Indirizzo per i pagamenti per Microsoft Azure. È possibile aggiornare l'indirizzo di fatturazione associato con la carta di credito visitando la [pagina di sottoscrizione](https://account.windowsazure.com/subscriptions) nel Centro account di Azure. |
+| Offerta di sottoscrizione |Tipo di offerta di sottoscrizione che è stato acquistato, ossia con pagamento in base al consumo, BizSpark Plus, Azure Pass e così via. Per passare dal pagamento in base al consumo a un'altra formula di sottoscrizione, vedere [Trasferire la sottoscrizione di Azure a un'altra offerta](../billing-how-to-switch-azure-offer.md) . |
+| Indirizzo di posta elettronica proprietario account |Indirizzo di posta elettronica dell'account associato all'account Microsoft Azure. Per cambiare l'indirizzo e-mail, vedere [Come modificare le informazioni sul profilo dell'account Azure, ad esempio indirizzo di posta elettronica, indirizzo e numero di telefono di contatto](../billing-how-to-change-azure-account-profile.md). |
 
-## <a name="understand-the-invoice-summary"></a>Comprendere il riepilogo della fattura
-La sezione relativa al **riepilogo della fattura** riassume le transazioni avvenute dall'ultima fattura e gli addebiti per l'utilizzo attuale.
+### <a name="understand-the-invoice-summary"></a>Comprendere il riepilogo della fattura
+La sezione relativa al **Riepilogo fattura** riassume le transazioni avvenute dall'ultima fattura e gli addebiti per l'utilizzo attuale.
 
 ![riepilogo della fattura](./media/billing-understand-your-bill/InvoiceSummary.png)
 
@@ -98,140 +61,94 @@ Nella sezione della fattura relativa a saldo precedente, pagamenti e saldo in so
 | Pagamenti |Pagamenti totali applicati all'ultima fattura. |
 | Saldo in sospeso (dal ciclo di fatturazione precedente) |Eventuali rettifiche della fattura (crediti o saldi) applicate all'account dopo l'ultima fattura. |
 
-## <a name="understand-the-current-charges"></a>Comprendere gli addebiti attuali
-La sezione Costi attuali della fattura contiene informazioni dettagliate sui costi mensili. I collegamenti sono organizzati nelle sottosezioni seguenti.
+### <a name="understand-the-current-charges"></a>Comprendere gli addebiti attuali
+La sezione Costi attuali della fattura riporta informazioni dettagliate sui costi mensili. 
 
 | Termine | Description |
 | --- | --- |
-| Addebiti per utilizzo |Gli addebiti per l'utilizzo corrispondono agli addebiti mensili totali per una sottoscrizione. Questi costi vengono addebitati in modo posticipato per l'utilizzo del mese precedente. |
-| Sconti |Gli eventuali sconti applicati all'attuale fattura sono indicati in corrispondenza di questa voce. |
-| Rettifiche |Le rettifiche varie sono crediti di diverso tipo o addebiti in sospeso applicati alla fattura corrente. Ad esempio, se è stata attivata l'offerta Visual Studio Enterprise con MSDN, in questa voce verrà visualizzato un credito mensile. Se la sottoscrizione viene annullata, i costi di utilizzo mensili in eccesso rispetto al credito mensile incluso nell'offerta sono visualizzati a partire dal periodo di fatturazione corrente fino alla data di annullamento della sottoscrizione. |
+| Addebiti per utilizzo |Gli addebiti per l'utilizzo corrispondono agli addebiti mensili totali per una sottoscrizione. Questi sono costi addebitati per l'utilizzo effettuato nel mese precedente. |
+| Sconti |Sconti sui servizi che sono stati applicati alla fattura corrente. |
+| Rettifiche |Crediti vari o addebiti in sospeso applicati alla fattura corrente. Ad esempio, se è stata attivata l'offerta Visual Studio Enterprise con MSDN, sarà indicato un credito mensile. Se si annulla la sottoscrizione, vengono riportati tutti gli addebiti di utilizzo mensile che superano il credito mensile ottenuto con l'offerta di sottoscrizione. Gli addebiti sono conteggiati dall'inizio del periodo di fatturazione corrente fino alla data di annullamento della sottoscrizione. |
 
-## <a name="footer-information"></a>Informazioni del piè di pagina
-![piè di pagina](./media/billing-understand-your-bill/footerinformation.png)
 
-## <a name="understand-the-additional-information"></a>Comprendere le informazioni aggiuntive
-La pagina delle informazioni aggiuntive contiene riferimenti ad altre risorse utili per comprendere la fattura e alcuni collegamenti per visualizzare i dati sull'utilizzo e altri dati correlati alla fattura.
-
-![informazioni aggiuntive](./media/billing-understand-your-bill/AdditionalInformation.png)
-
-### <a name="detailed-usage"></a>Uso dettagliato
-Un collegamento all'interno della descrizione inclusa nella sezione dei **dati sull'utilizzo dettagliati** permette di passare al Centro account in cui è possibile visualizzare i dati sull'utilizzo dettagliati per questa sottoscrizione.  Sono ora disponibili due versioni disponibili per il download: **versione 1 CSV**, che contiene i campi di utilizzo e la convenzione di denominazione precedente e **versione 2 CSV**, che contiene i nomi descrittivi del cliente per ognuna delle categorie e altri campi che consentiranno di comprendere quali servizi di Microsoft Azure si usano. Si noti che nella versione 1 del file CSV non sono presenti dettagli di Azure Resource Manager. Le informazioni di Azure Resource Manager sono reperibili nella versione 2 del file con estensione csv.
-
-### <a name="additional-information-and-useful-resources"></a>Informazioni aggiuntive e risorse utili
-Questa sezione contiene collegamenti a semplici domande relative alle dimensioni delle istanze di calcolo e agli addebiti di SQL DB, nonché collegamenti utili per rispondere ad altre domande.
+### <a name="sold-to-and-payment-instructions"></a>Istruzioni "venduto a" e di pagamento
+La tabella seguente descrive le istruzioni "venduto a" e di pagamento riportate nella fattura.
 
 | Termine | Description |
 | --- | --- |
-| Venduto a |Prepopolato con l'indirizzo del profilo associato all'account. |
-| Istruzioni per il pagamento |Questa sezione contiene le istruzioni di pagamento relative a dove inviare assegni, assegni urgenti o bonifici se è stato scelto il metodo di pagamento con fattura. |
+| Venduto a |Prepopolato con l'indirizzo del profilo associato all'account. Se è necessario cambiarlo, vedere [Come modificare le informazioni sul profilo dell'account Azure, ad esempio indirizzo di posta elettronica, indirizzo e numero di telefono di contatto](../billing-how-to-change-azure-account-profile.md). |
+| Istruzioni per il pagamento |Se il metodo di pagamento scelto è quello con fattura, qui è indicato dove inviare assegni, assegni urgenti o bonifici. Per altre informazioni, vedere [Fatturazione di Azure](https://azure.microsoft.com/pricing/invoicing/) |
 
-## <a name="understand-detailed-usage-charges"></a>Comprendere gli addebiti basati sull'uso dettagliato
-Come parte dell'impegno volto a consentire ai clienti di gestire facilmente l'utilizzo di Azure, è stato migliorato il file di utilizzo di download che segnala l'uso e i costi dei servizi di Azure.  Il collegamento al download prevede due versioni del file dei dati di utilizzo:
+## <a name="a-namecsva-understand-detailed-usage-charges-csv"></a><a name="csv"></a> Comprendere i dettagli degli addebiti basati sull'uso (CSV)
+Il file con i dati di utilizzo mostra la quantità di ogni risorsa che è stata utilizzata nel periodo di fatturazione corrente. È disponibile in un formato di file CSV (valori separati dalla virgola) che è possibile aprire in un foglio di calcolo. Se sono disponibili due versioni, scaricare la versione 2. Questo è il formato di file più recente. Per altre informazioni, vedere [Come scaricare la fattura e i dati di utilizzo giornalieri di Azure](../billing-download-azure-invoice-daily-usage-date.md).
 
-* **versione 1** usa il formato preesistente.
-* **versione 2** include informazioni aggiuntive e nomi di colonna aggiornati nella sezione Utilizzo giornaliero.  
+I costi di utilizzo sono i costi **mensili** totali di una sottoscrizione dedotti eventuali crediti o sconti. Questi sono costi addebitati per l'utilizzo effettuato nel mese precedente.  
 
-I costi di utilizzo sono i costi **mensili** totali di una sottoscrizione dedotti di eventuali crediti o sconti. Questi costi vengono addebitati in modo posticipato per l'utilizzo del mese precedente.  Nella sezione superiore del file vengono visualizzati i dettagli sui servizi fatturati durante il ciclo di fatturazione del mese precedente.  La tabella precedente elenca i nomi delle colonne per ognuno dei file di versione CSV.
+Le sezioni seguenti descrivono la maggior parte dei termini presenti nella versione 2 del file dei dati sull'utilizzo dettagliati.
 
-| versione 1 | versione 2 | Description |
-|:--- |:--- | --- |
-| Periodo di fatturazione |Periodo di fatturazione |Indica il periodo di fatturazione in cui la risorsa è stata consumata. |
-| Nome |Categoria misuratore |Identifica il servizio di primo livello a cui si riferisce l'utilizzo. |
-| Tipo |Sottocategoria misuratore |In questa colonna un servizio di Azure può essere definito ulteriormente in base al tipo, che può influire sulla tariffa. |
-| Risorsa |Nome misuratore |Identifica l'unità di misura per la risorsa consumata. |
-| Region |Area misuratore |Identifica la posizione del datacenter per determinati servizi il cui prezzo dipende dalla posizione stessa. |
-| SKU |SKU |Indica l'identificatore di sistema univoco per ogni risorsa di Azure. |
-| Unità |Unità |Identifica l'unità in base alla quale viene addebitato il servizio. Ad esempio, GB, ore, decine di migliaia. |
-| Consumato |Quantità consumata |Indica la quantità di risorsa consumata durante il periodo di fatturazione. |
-| Incluso |Quantità inclusa |Contiene la quantità di risorsa inclusa gratuitamente nel periodo di fatturazione corrente. |
-| Fatturabile |Quantità in eccesso |Se la quantità consumata supera quella inclusa, la differenza viene visualizzata in questa colonna. Questa quantità viene fatturata. Per le offerte di pagamento in base al consumo senza alcuna quantità inclusa, questo totale corrisponde a quello della quantità consumata. |
-| Entro l'impegno |Entro l'impegno |Contiene i costi della risorsa detratti dall'importo dell'impegno associato all'offerta di 6 o 12 mesi. I costi della risorsa vengono detratti dall'importo dell'impegno in ordine cronologico. |
-| Valuta |Valuta |Identifica la valuta per il periodo di fatturazione corrente. |
-| Eccedenza |Eccedenza |Contiene i costi della risorsa che eccedono l'importo dell'impegno associato all'offerta di 6 o 12 mesi. |
-| Tariffa dell'impegno |Tariffa dell'impegno |Contiene la tariffa dell'impegno basata sull'importo totale dell'impegno associato all'offerta di 6 o 12 mesi. |
-| Tariffa |Tariffa |Indica la tariffa addebitata per ogni unità fatturabile. |
-| Valore |Valore |Indica il risultato della moltiplicazione della colonna Fatturabile per la colonna Tariffa. Se la quantità consumata non supera quella inclusa, in questa colonna non viene visualizzato alcun importo. |
+### <a name="statement"></a>Istruzione 
+La sezione superiore del file riporta i servizi che sono stati utilizzati durante il ciclo di fatturazione del mese precedente. La tabella seguente elenca i termini e le descrizioni mostrate in questa sezione.
 
-## <a name="analyze-daily-usage-data"></a>Analizzare i dati sull'uso giornaliero
-In base all'utilizzo, potrebbero essere presenti migliaia di righe relative ai dati sull'utilizzo giornaliero. Se si desidera analizzare i dati, fare clic su **Scarica utilizzo** e scegliere una versione di file variabile delimitato da virgole (CSV) per visualizzare i dati di utilizzo giornaliero per il periodo di fatturazione appropriato.  È possibile scaricare un file CSV di esempio per ciascuna versione di seguito come riferimento.
+| Termine | Descrizione |
+| --- | --- |
+|Periodo di fatturazione |Indica il periodo di fatturazione in cui la risorsa o il servizio è stata utilizzato. |
+|Categoria misuratore |Identifica il servizio di primo livello a cui si riferisce l'utilizzo. |
+|Sottocategoria misuratore |Definisce il tipo di servizio di Azure e può influire sulla tariffa. |
+|Nome misuratore |Identifica l'unità di misura per la risorsa consumata. |
+|Area misuratore |Identifica la posizione del datacenter per determinati servizi il cui prezzo dipende dalla posizione stessa. |
+|SKU |Indica l'identificatore di sistema univoco per ogni risorsa di Azure. |
+|Unità |Identifica l'unità in base alla quale viene addebitato il servizio. Ad esempio, GB, ore, decine di migliaia. |
+|Quantità consumata |La quantità di risorsa utilizzata durante il periodo di fatturazione. |
+|Quantità inclusa |Contiene la quantità di risorsa inclusa gratuitamente nel periodo di fatturazione corrente. |
+|Quantità in eccesso |Mostra la differenza tra la quantità utilizzata e la quantità inclusa. Sarà addebitato questo importo. Per le offerte di pagamento in base al consumo senza alcuna quantità inclusa, questo totale corrisponde a quello della quantità consumata. |
+|Entro l'impegno |Indica i costi della risorsa detratti dall'importo dell'impegno associato all'offerta di 6 o 12 mesi. I costi della risorsa sono detratti in ordine cronologico. |
+|Valuta |La valuta utilizzata per il periodo di fatturazione corrente. |
+|Eccedenza |Indica i costi della risorsa che eccedono l'importo dell'impegno associato all'offerta di 6 o 12 mesi. |
+|Tariffa dell'impegno |Indica la tariffa dell'impegno basata sull'importo totale dell'impegno associato all'offerta di 6 o 12 mesi. |
+|Tariffa |Indica la tariffa addebitata per ogni unità fatturabile. |
+|Valore |Indica il risultato della moltiplicazione della colonna Quantità in eccesso per la colonna Tariffa. Se la quantità consumata non supera la quantità inclusa, non è indicato alcun addebito in questa colonna. |
 
-| Nome | Scaricare |
-|:---:|:---:|
-|   Versione 1 CSV utilizzo dettagliato |[File di esempio](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx) |
-|   Versione 2 CSV utilizzo dettagliato |[File di esempio](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx) |
+### <a name="daily-usage"></a>Utilizzo giornaliero 
 
-![csv2screenshot](./media/billing-understand-your-bill/csv2screenshot.png)
+La sezione del file sull'utilizzo giornaliero indica i dettagli di utilizzo che influiscono sulle tariffe di fatturazione. La tabella seguente elenca i termini e le descrizioni mostrate in questa sezione. 
 
-Nel file CSV le voci sono suddivise per mostrare un elenco che indica la quantità consumata di ogni risorsa nel periodo di fatturazione corrente.
+| Termine| Descrizione |
+| --- | --- |
+|Data utilizzo |Data in cui la risorsa è stata utilizzata. |
+|Categoria misuratore |Identifica il servizio di primo livello a cui si riferisce l'utilizzo. |
+|ID misuratore |ID della metrica fatturata. Viene utilizzato come identificatore per la fatturazione dei costi. |
+|Sottocategoria misuratore |Definisce il servizio di Azure e può influire sulla tariffa. |
+|Nome misuratore |Identifica l'unità di misura per la risorsa consumata. |
+|Area misuratore|Identifica la posizione del datacenter per determinati servizi il cui prezzo dipende dalla posizione stessa. |
+|Unità |Identifica l'unità in base alla quale viene addebitato il servizio. Ad esempio, GB, ore, decine di migliaia. |
+|Quantità consumata |La quantità di risorsa consumata per il giorno corrente. |
+|Percorso della risorsa |Identifica il datacenter in cui la risorsa è in esecuzione. |
+|Servizio utilizzato |Il servizio della piattaforma Azure che è stato utilizzato. |
+|Gruppo di risorse |Il gruppo di risorse in cui la risorsa distribuita è in esecuzione. Per altre informazioni, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). |
+|ID istanza |Identificatore della risorsa. L'identificatore contiene il nome specificato per la risorsa al momento della creazione. È il nome della risorsa o l'ID risorsa completo. Per altre informazioni, vedere [L'API di Azure Resource Manager](/rest/api/resources/resources). |
+|Tag |Tag assegnato alla risorsa. Usare i tag per raggruppare i record di fatturazione. Ad esempio è possibile usare i tag per distribuire i costi in base al reparto che utilizza la risorsa. I servizi che supportano la creazione di tag sono macchine virtuali, archiviazione e servizi di rete di cui si esegue il provisioning mediante l'[API di Azure Resource Manager](/rest/api/resources/resources). Per altre informazioni, vedere [Organize your Azure resources with tags](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) (Organizzare le risorse di Azure con i tag). |
+|Informazioni aggiuntive |Metadati specifici del servizio. Ad esempio un tipo di immagine per una macchina virtuale. |
+|Informazioni servizio 1 |Il nome del progetto a cui il servizio appartiene nella sottoscrizione. |
+|Informazioni servizio 2 |Si tratta di un campo legacy che acquisisce i metadati specifici del servizio facoltativo. |
 
-![csv snapshot](./media/billing-understand-your-bill/csvsnapshotportal.png)
+## <a name="how-do-i-make-a-payment"></a>Come si effettua un pagamento?
+Se il metodo di pagamento è impostato su carta di credito o carta di debito, il pagamento viene eseguito automaticamente. Se è stata configurata una [modalità di pagamento con fattura](https://azure.microsoft.com/pricing/invoicing/), inviare il pagamento al destinatario indicato nella parte inferiore della fattura. Per altre informazioni, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-Le colonne seguenti indicano i dettagli che influiscono sulle tariffe all'inizio del periodo di fatturazione:
+## <a name="how-do-i-check-the-status-of-a-payment-made-by-credit-card"></a>Come si controlla lo stato di un pagamento effettuato con carta di credito?
+[Creare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per richiedere lo stato del pagamento. 
 
-| versione 1 | versione 2 | Description |
-|:--- |:--- | --- |
-| Data utilizzo |Data utilizzo |Data in cui la risorsa è stata generata. |
-| Nome |Categoria misuratore |Identifica il servizio di primo livello a cui si riferisce l'utilizzo. |
-| GUID risorsa |ID misuratore |ID della metrica fatturata.  Viene utilizzato come identificatore per la fatturazione dei costi. |
-| Tipo |Sottocategoria misuratore |In questa colonna un servizio di Azure può essere definito ulteriormente in base al tipo, che può influire sulla tariffa. |
-| Risorsa |Nome misuratore |Identifica l'unità di misura per la risorsa consumata. |
-| Region |Area misuratore |Identifica la posizione del datacenter per determinati servizi il cui prezzo dipende dalla posizione stessa. |
-| Unità |Unità |Identifica l'unità in base alla quale viene addebitato il servizio. Ad esempio, GB, ore, decine di migliaia. |
-| Consumato |Quantità consumata |Contiene la quantità di risorsa consumata per il giorno corrente. |
-| Area secondaria |Percorso della risorsa |Identifica il datacenter in cui la risorsa è in esecuzione. |
-| Service |Servizio utilizzato |Questa colonna è usata per tenere traccia del singolo servizio della piattaforma Azure che potrebbe non essere identificato in modo specifico nella colonna Nome. La colonna Servizio indica il servizio specifico a cui si riferisce l'utilizzo. |
-| N/D |Gruppo di risorse |***Aggiunta nuova colonna.***  Il gruppo di risorse in cui la risorsa distribuita è in esecuzione. Vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) |
-| Componente |ID istanza |Identificatore per la risorsa in esecuzione. L'identificatore contiene il nome specificato per la risorsa al momento della creazione. |
-| N/D |Tag |***Aggiunta nuova colonna.***  Nuovi tipi di risorse in Azure consentono di aggiungere tag alle risorse. Vedere [Organize your Azure resources with tags](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) |
-| Informazioni aggiuntive |Informazioni aggiuntive |Metadati aggiuntivi correlati al servizio. |
-| Informazioni servizio 1 |Informazioni servizio 1 |Questa colonna fornisce il nome del progetto a cui il servizio appartiene nella sottoscrizione. |
-| Informazioni servizio 2 |Informazioni servizio 2 |Si tratta di un campo legacy che acquisisce i metadati specifici del servizio facoltativo. |
+## <a name="what-about-marketplace-orders-or-external-service-charges"></a>Per quanto riguarda gli ordini Marketplace o gli addebiti per servizi esterni?
+I servizi esterni venivano definiti ordini di Marketplace. I servizi esterni vengono resi disponibili da fornitori di servizi indipendenti, ma sono integrati nell'ecosistema di Azure. Per altre informazioni, vedere [Informazioni sugli addebiti per i servizi esterni](../billing-understand-your-azure-marketplace-charges.md).
 
-Oltre ad alcuni nuovi campi e alle modifiche dei nomi nella Versione 2 csv, per i dati nei campi di seguito sarà applicata la formattazione standardizzata:
-
-* **ID istanza**: il campo ID istanza rappresenta l’ID specificato dall’utente per il servizio di provisioning. Attualmente, esistono due formati in cui è rappresentata l'ID istanza: il nome della risorsa o l'ID di risorsa completo. È in corso la transizione dei servizi Microsoft Azure alla rappresentazione dell'ID istanza in un formato di ID risorsa completo standardizzato: ***(/subscriptions/<subscription id>/resourcegroups/<resourcegroupname>/providers/<providername>/<resourcename>)***. Nel momento in cui i servizi passano al nuovo formato sarà possibile osservare il campo ID istanza che passa dal semplice nome della risorsa a ID risorsa. L'ID risorsa è il formato usato dall' [API di Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790567.aspx) per identificare le risorse in una sottoscrizione.
-
-![instanceid](./media/billing-understand-your-bill/instanceid.png)
-
-* **Informazioni aggiuntive**: la colonna Informazioni aggiuntive del file CSV dei dati di utilizzo specifica i metadati specifici del servizio. Ad esempio, un tipo di immagine per una macchina virtuale. Attualmente, un servizio genera metadati specifici del servizio in più colonne, nei campi Informazioni aggiuntive, Informazioni servizio 1 e Informazioni servizio 2. I servizi di Microsoft Azure verranno standardizzati e i metadati specifici del servizio verranno generati solo nella colonna Informazioni aggiuntive.  Vedere lo snapshot del formato standardizzato di seguito:
-
-![additionalinfo_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
-
-* **Tag**: questa colonna contiene i tag delle risorse specificati dall'utente. I tag possono essere utilizzati per raggruppare i record di fatturazione. Ad esempio, è possibile utilizzare i tag per distribuire i costi per reparto mediante il servizio. Altre informazioni sull'[uso dei tag per organizzare le risorse di Azure](../resource-group-using-tags.md). Di seguito sono indicati i servizi che supportano la creazione di tag:  
-  
-  * Macchine virtuali
-  * Archiviazione e
-  * Servizi di rete di cui viene eseguito il provisioning mediante l’ [API di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx)
-
-![Tag](./media/billing-understand-your-bill/tags.png)
-
-## <a name="next-steps"></a>Passaggi successivi
-* [Impostare avvisi di fatturazione per le sottoscrizioni Microsoft Azure](../billing-set-up-alerts.md)
-* [Gestire i metodi di pagamento](../billing-how-to-change-credit-card.md)
-* [Informazioni sugli addebiti di Azure Marketplace](../billing-understand-your-azure-marketplace-charges.md)
-* [Domande frequenti su fatturazione e sottoscrizione di Azure](../billing-subscription-faq.md)
-
-> [!NOTE]
-> Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
-> 
-> 
-
-<!--
-OLD MSDN Articles
-- [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)
-- [Edit payment information for an existing credit card](https://msdn.microsoft.com/library/azure/dn736053.aspx)
-- [Add a new credit card to use as a payment method](https://msdn.microsoft.com/library/azure/dn736057.aspx)
-- [Change the credit card on your Microsoft Azure account](https://msdn.microsoft.com/library/azure/dn736050.aspx)
-- [Manage your payment method](https://msdn.microsoft.com/library/azure/dn736054.aspx)
--->
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico. 
+Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+ 
 
 
 
-<!--Image references-->
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

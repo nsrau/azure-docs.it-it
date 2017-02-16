@@ -1,5 +1,5 @@
 ---
-title: Procedure consigliate per gli aggiornamenti software nell&quot;ambiente IaaS di Microsoft Azure | Microsoft Docs
+title: Procedure consigliate per gli aggiornamenti per IaaS di Azure | Documentazione Microsoft
 description: "L&quot;articolo fornisce una raccolta di procedure consigliate per gli aggiornamenti software in un ambiente IaaS di Microsoft Azure.  È destinato ai professionisti IT e agli analisti della sicurezza che si occupano quotidianamente di controllo modifiche, aggiornamenti software e gestione di asset, inclusi i responsabili delle attività di sicurezza e conformità dell&quot;organizzazione."
 services: security
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c52a2d6be31b1a8f581313932c0af87120ccd9fe
+ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
+ms.openlocfilehash: 43d760ffcc108a70212e47ee8eab9ec2aca02a17
 
 
 ---
@@ -27,14 +27,14 @@ Prima di addentrarsi in una qualsiasi discussione sulle procedure consigliate pe
 
 La colonna più a sinistra mostra sette responsabilità (definite nelle sezioni che seguono) che le organizzazioni devono considerare che contribuiscono alla sicurezza e alla privacy di un ambiente di elaborazione.
 
-Classificazione e responsabilità dei dati e Protezione di client ed endpoint sono responsabilità in capo esclusivamente ai clienti mentre le responsabilità Fisica, Host e Rete sono in capo ai provider di servizi cloud nei modelli PaaS e SaaS. 
+Classificazione e responsabilità dei dati e Protezione di client ed endpoint sono responsabilità in capo esclusivamente ai clienti mentre le responsabilità Fisica, Host e Rete sono in capo ai provider di servizi cloud nei modelli PaaS e SaaS.
 
 Le responsabilità rimanenti sono condivise tra clienti e i provider di servizi cloud. Alcune responsabilità richiedono che il provider di servizi cloud e il cliente gestiscano e amministrino la responsabilità insieme, tra queste compare il controllo dei loro domini. Ad esempio, si consideri la Gestione di identità e accesso quando si usano i servizi Azure Active Directory; la configurazione dei servizi, come l'autenticazione a più fattori, è responsabilità del cliente, ma garantire l'efficacia della funzionalità è responsabilità di Microsoft Azure.
 
 > [!NOTE]
-> Per altre informazioni sulle responsabilità condivise nel cloud, vedere [Shared Responsibilities for Cloud Computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf) (Responsabilità condivise per il cloud computing) 
-> 
-> 
+> Per altre informazioni sulle responsabilità condivise nel cloud, vedere [Shared Responsibilities for Cloud Computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf) (Responsabilità condivise per il cloud computing)
+>
+>
 
 Questi stessi principi si applicano a uno scenario ibrido, dove l'azienda usa macchine virtuali IaaS di Azure che comunicano con le risorse locali, come illustrato nel diagramma seguente.
 
@@ -110,7 +110,6 @@ Usare le linee guida descritte in questo articolo per determinare le opzioni mig
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

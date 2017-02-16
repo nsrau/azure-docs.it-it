@@ -1,6 +1,6 @@
 ---
-title: Normal Distribution Web Service Suite | Documentazione Microsoft
-description: Normal Distribution Web Service Suite
+title: (Deprecato) Normal Distribution Web Service Suite - Azure | Documentazione Microsoft
+description: (Deprecato) Normal Distribution Web Service Suite
 services: machine-learning
 documentationcenter: 
 author: ireiter
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/04/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: ireiter
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e3783df1f80fc6453d64c16f5002262fb7197309
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: da7b70171d13c82e9269064069e69a35b9b2daaa
 
 
 ---
-# <a name="normal-distribution-suite"></a>Normal Distribution Suite
+# <a name="deprecated-normal-distribution-suite"></a>(Deprecato) Normal Distribution Suite
+
+> [!NOTE]
+> Microsoft DataMarket è in fase di ritiro e questa API è stata deprecata. 
+> 
+> Numerose API e molti esperimenti utili di esempio sono disponibili in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Per altre informazioni sulla raccolta, vedere [Condividere e scoprire risorse in Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Normal Distribution Suite è un set di servizi Web di esempio ([Generator](https://datamarket.azure.com/dataset/aml_labs/ndg7), [Quantile Calculator](https://datamarket.azure.com/dataset/aml_labs/ndq5), [Probability Calculator](https://datamarket.azure.com/dataset/aml_labs/ndp5)) che semplificano la generazione e la gestione delle distribuzioni normali. I servizi permettono la generazione di una sequenza di distribuzioni normali di qualsiasi lunghezza, calcolando i quantili rispetto alla probabilità specificata e calcolando la probabilità in base a un quantile specificato. Ogni servizio emette output diversi, in base al servizio selezionato, come illustrato più avanti. Normal Distribution Suite è basato sulle funzioni qnorm, rnorm e pnorm del codice R, incluse nel pacchetto statistico R.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -269,6 +276,6 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

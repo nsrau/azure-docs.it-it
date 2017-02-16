@@ -13,11 +13,11 @@ ms.workload: web
 ms.tgt_pltfrm: vm-linux
 ms.devlang: ruby
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b8ab951046e031e5b1f8ae428ba7dc6ea936066e
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 7b3c6da0e158c2824a5feb084a13eafe265762ce
 
 
 ---
@@ -27,7 +27,7 @@ Questa esercitazione mostra come ospitare un sito Web Ruby on Rails usando una m
 Questa esercitazione è stata convalidata usando Ubuntu Server 14.04 LTS. Se si usa una distribuzione Linux diversa, è necessario modificare la procedura per installare Rails.
 
 > [!IMPORTANT]
-> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md).  Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
+> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../azure-resource-manager/resource-manager-deployment-model.md).  Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
 > 
 > 
 
@@ -44,7 +44,7 @@ Per creare la VM, è possibile usare il portale di Azure classico o l'interfacci
 Dopo che viene eseguito il provisioning della macchina virtuale, fare clic sul nome della macchina virtuale e quindi fare clic su **Dashboard**. Trovare l'endpoint SSH, elencato in **Dettagli su SSH**.
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-Seguire i passaggi in [Creare una macchina virtuale che esegue Linux][vm-instructions].
+Seguire i passaggi in [Creazione rapida di una macchina virtuale che esegue Linux][vm-instructions].
 
 Al termine del provisioning della macchina virtuale, è possibile ottenere l'endpoint SSH eseguendo il comando seguente:
 
@@ -90,7 +90,7 @@ L'output dovrebbe essere simile al seguente.
     [2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
 
 ## <a name="add-an-endpoint"></a>Aggiungere un endpoint
-1. Accedere al [portale di Azure classico][management-portal] e selezionare la macchina virtuale.
+1. Accedere al [portale di Azure classico][management-portal] e selezionare la VM.
    
     ![Elenco di macchine virtuali][vmlist]
 2. Selezionare **ENDPOINT** nella parte superiore della pagina, quindi fare clic su **+AGGIUNGI ENDPOINT** nella parte inferiore.
@@ -117,16 +117,16 @@ L'output dovrebbe essere simile al seguente.
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione è stata eseguita la maggior parte dei passaggi manualmente. In un ambiente di produzione, si potrebbe scrivere l'applicazione in un computer di sviluppo e distribuirla nella macchina virtuale di Azure. Inoltre, la maggior parte degli ambienti di produzione ospita l'applicazione Rails insieme a un altro processo server, ad esempio Apache o NginX, che gestisce il routing delle richieste a più istanze dell'applicazione Rails e la distribuzione di risorse statiche. Per altre informazioni, vedere http://rubyonrails.org/deploy/.
 
-Per altre informazioni su Ruby on Rails, vedere le [Guide di Ruby on Rails Guides][rails-guides].
+Per altre informazioni su Ruby on Rails, vedere le [Guide di Ruby on Rails][rails-guides].
 
 Per usare servizi di Azure dall'applicazione Ruby, vedere:
 
-* [Store unstructured data using blobs] (Archiviare dati non strutturati mediante BLOB)[blobs]
-* [Store key/value pairs using tables] (Archiviare coppie chiave-valore mediante tabelle)[tables]
-* [Serve high bandwidth content with the Content Delivery Network] (Distribuire contenuti ad ampia larghezza di banda con la rete per la distribuzione di contenuti)[cdn-howto]
+* [Archiviare dati non strutturati mediante BLOB][blobs]
+* [Archiviare coppie chiave-valore mediante tabelle][tables]
+* [Distribuire contenuti ad ampia larghezza di banda con la rete per la distribuzione di contenuti][cdn-howto]
 
 <!-- WA.com links -->
-[blob]: ../../../storage/storage-ruby-how-to-use-blob-storage.md
+[blobs]: ../../../storage/storage-ruby-how-to-use-blob-storage.md
 [cdn-howto]: https://azure.microsoft.com/develop/ruby/app-services/
 [management-portal]: https://manage.windowsazure.com/
 [tables]: ../../../storage/storage-ruby-how-to-use-table-storage.md
@@ -146,6 +146,6 @@ Per usare servizi di Azure dall'applicazione Ruby, vedere:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Monitorare e gestire le pipeline di Data factory di Azure
+title: Monitorare e gestire le pipeline usando il portale di Azure/PowerShell | Documentazione Microsoft
 description: Sono disponibili informazioni sull&quot;uso del portale di Azure e di Azure PowerShell per monitorare e gestire le data factory di Azure e le pipeline create.
 services: data-factory
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/05/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 6a816e56400abe281b0422abbcd3415f3762a96e
-ms.openlocfilehash: 43b828bad5d21fe0f452aa23bbdf6fff758525f2
+ms.sourcegitcommit: eb9126d21c5eaa605a8ca292ab1f444085dd6612
+ms.openlocfilehash: 5bc3a81d82a838f04051fa1cbd6d567532e4824a
 
 
 ---
-# <a name="monitor-and-manage-azure-data-factory-pipelines"></a>Monitorare e gestire le pipeline di Data factory di Azure
+# <a name="monitor-and-manage-azure-data-factory-pipelines-using-azure-portalpowershell"></a>Monitorare e gestire le pipeline di Azure Data Factory usando il portale di Azure/PowerShell
 > [!div class="op_single_selector"]
 > * [Con il portale di Azure/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
 > * [Con l'app di monitoraggio e gestione](data-factory-monitor-manage-app.md)
@@ -668,6 +668,6 @@ Outputs
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

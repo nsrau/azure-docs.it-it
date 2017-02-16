@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/30/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d173847a9d96e5524eae5283fb63857f02e39f10
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 98c8352152b6cd1817d32c6418597c566d94d44f
 
 
 ---
-# <a name="add-company-branding-to-your-signin-and-access-panel-pages"></a>Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso
+# <a name="add-company-branding-to-your-sign-in-and-access-panel-pages"></a>Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso
 Per evitare confusione, molte aziende vogliono applicare un aspetto coerente a tutti i siti Web e servizi che gestiscono. Azure Active Directory offre questa funzionalità permettendo di personalizzare l'aspetto delle pagine Web indicate di seguito, per poter includere il logo e le combinazioni di colori personalizzate dell'azienda:
 
 * **Pagina di accesso** : si tratta della pagina visualizzata quando si accede a Office 365 o ad altre applicazioni basate sul Web che usano Azure AD come provider di identità. Si interagisce con questa pagina durante un'individuazione dell'area di autenticazione principale o per immettere le credenziali. L'individuazione dell'area di autenticazione principale permette al sistema di reindirizzare gli utenti federati ai propri servizi token di sicurezza locali (come AD FS).
@@ -34,7 +34,7 @@ Questo argomento illustra come personalizzare la pagina di accesso e il pannello
 > 
 > 
 
-## <a name="customizing-the-signin-page"></a>Personalizzazione della pagina di accesso
+## <a name="customizing-the-sign-in-page"></a>Personalizzazione della pagina di accesso
 Di solito si usa la pagina di accesso se è necessario accedere con un browser alle app e ai servizi cloud sottoscritti dall'organizzazione.
 
 Se sono state apportate modifiche alla pagina di accesso, potrebbe trascorrere fino a un'ora prima che le modifiche vengano visualizzate.
@@ -224,6 +224,6 @@ Alcuni elementi personalizzabili in Azure AD prevedono più casi di utilizzo. I 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

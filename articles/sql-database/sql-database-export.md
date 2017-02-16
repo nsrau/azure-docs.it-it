@@ -1,6 +1,6 @@
 ---
-title: Archiviare un database SQL di Azure in un file BACPAC tramite il portale di Azure
-description: Archiviare un database SQL di Azure in un file BACPAC tramite il portale di Azure
+title: 'Portale di Azure: esportare un database SQL di Azure in un file BACPAC | Documentazione Microsoft'
+description: Esportare un database SQL di Azure in un file BACPAC usando il portale di Azure
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,12 +16,12 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: df14225e6c2a1b9bf83623df172b9be9b5777add
-ms.openlocfilehash: 33699b00d50c623661292e5a9b21a97726c47611
+ms.sourcegitcommit: c9aea5089d535b63983b93076edd74f15055fa5d
+ms.openlocfilehash: 4eb89c2e6db82ba887a094abf53da835060368b9
 
 
 ---
-# <a name="archive-an-azure-sql-database-to-a-bacpac-file-using-the-azure-portal"></a>Archiviare un database SQL di Azure in un file BACPAC tramite il portale di Azure
+# <a name="export-an-azure-sql-database-to-a-bacpac-file-using-the-azure-portal"></a>Esportare un database SQL di Azure in un file BACPAC usando il portale di Azure
 > [!div class="op_single_selector"]
 > * [Portale di Azure](sql-database-export.md)
 > * [SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
@@ -29,7 +29,7 @@ ms.openlocfilehash: 33699b00d50c623661292e5a9b21a97726c47611
 > * [PowerShell](sql-database-export-powershell.md)
 > 
 
-Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com)per archiviare un database SQL di Azure in un file BACPAC (nell'archiviazione BLOB di Azure).
+Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) per esportare un database SQL di Azure in un file BACPAC (archiviato nell'archivio BLOB di Azure).
 
 Per creare un archivio di un database SQL di Azure, è possibile esportare lo schema di database e i dati in un file BACPAC. Un file BACPAC è semplicemente un file zip con estensione bacpac. Un file BACPAC in un secondo momento può essere archiviato nell'archiviazione BLOB di Azure o in un percorso locale e successivamente reimportato nel database SQL di Azure o in un'installazione locale di SQL Server. 
 
@@ -109,6 +109,6 @@ Aprire il pannello del Database SQL per il database che si desidera esportare:
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

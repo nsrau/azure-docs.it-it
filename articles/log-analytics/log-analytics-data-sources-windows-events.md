@@ -1,10 +1,10 @@
 ---
-title: Registri eventi di Windows in Log Analytics | Documentazione Microsoft
+title: Raccogliere e analizzare registri eventi di Windows in Log Analytics di OMS | Documentazione Microsoft
 description: "I registri eventi di Windows sono una delle origini dati più comuni usate da Log Analytics.  Questo articolo descrive come configurare una raccolta di log di Eventi Windows e i dettagli dei record creati nel repository OMS."
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: ee52f564-995b-450f-a6ba-0d7b1dac3f32
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/15/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 055a60c174c280ba56ea40cb47779e233b54fe8e
-ms.openlocfilehash: 867dc9fd84793debc8c8dcd2a27dfc0b0ccf69c4
+ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
+ms.openlocfilehash: b6627ed7e3b08e0a94dec229d735114b3ed1b9df
 
 
 ---
@@ -35,7 +35,9 @@ Mentre si digita il nome di un registro eventi, Log Analytics fornisce suggerime
 ![Configurare gli eventi di Windows](media/log-analytics-data-sources-windows-events/configure.png)
 
 ## <a name="data-collection"></a>Raccolta dei dati
-Log Analytics raccoglie ogni evento corrispondente a un livello di gravità selezionato da un registro eventi monitorato quando viene creato l'evento.  L'agente registra la propria posizione in ogni registro eventi da cui esegue la raccolta.  Se l'agente risulta offline per un certo periodo di tempo, Log Analytics raccoglie gli eventi dal momento in cui è stato interrotto, anche se gli eventi sono stati creati mentre l'agente era offline.
+Log Analytics raccoglie ogni evento corrispondente a un livello di gravità selezionato da un registro eventi monitorato quando viene creato l'evento.  L'agente registra la propria posizione in ogni registro eventi da cui esegue la raccolta.  Se l'agente risulta offline per un certo periodo di tempo, Log Analytics raccoglie gli eventi dal momento in cui è stato interrotto, anche se gli eventi sono stati creati mentre l'agente era offline.  Esiste la possibilità che questi eventi non vengano raccolti se il registro eventi esegue il wrapping con eventi non raccolti che vengono sovrascritti mentre l'agente è offline.
+
+
 
 ## <a name="windows-event-records-properties"></a>Proprietà dei record eventi di Windows
 I record eventi di Windows sono di tipo **Evento** ; nella tabella seguente vengono riportate le loro proprietà:
@@ -53,7 +55,7 @@ I record eventi di Windows sono di tipo **Evento** ; nella tabella seguente veng
 | ManagementGroupName |Nome del gruppo di gestione per gli agenti di System Center Operations Manager.  Per gli altri agenti, questo valore corrisponde a AOI-<workspace ID> |
 | RenderedDescription |Descrizione dell'evento con i valori dei parametri. |
 | Source |Origine dell'evento. |
-| SourceSystem |Tipo di agente da cui è stato raccolto l'evento. <br> OpsManager: agente Windows, con connessione diretta o gestita da Operations Manager <br>  Linux – Tutti gli agenti Linux  <br>  AzureStorage: Diagnostica di Azure |
+| SourceSystem |Tipo di agente da cui è stato raccolto l'evento. <br> OpsManager: agente Windows, con connessione diretta o gestita da Operations Manager <br> Linux – Tutti gli agenti Linux  <br> AzureStorage: Diagnostica di Azure |
 | TimeGenerated |Data e ora in cui l'evento è stato creato in Windows. |
 | UserName |Nome utente dell'account che ha registrato l'evento. |
 
@@ -76,6 +78,6 @@ La tabella seguente mostra alcuni esempi di ricerche nei log che recuperano i re
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

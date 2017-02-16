@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/14/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: f57bdd0c1d8efc37b90430f829184eb3c44aede5
-ms.openlocfilehash: ea31150ef186c9bcd8c943e39a7cb51559e94bd2
+ms.sourcegitcommit: 1ce2e980dc71ede4f8cd8ec7c9166efac7b25d2e
+ms.openlocfilehash: 554ef45d7fba5f2ff314a162ae33c6cc27206933
 
 
 ---
@@ -40,11 +40,11 @@ In questo argomento viene descritto come usare il metodo di creazione rapida di 
 Per distribuire un'applicazione come servizio cloud in Azure, sono necessari tre componenti:
 
 * **Definizione del servizio**  
-   Il file di definizione del servizio cloud (con estensione csdef) definisce il modello di servizio, compreso il numero di ruoli.
+  Il file di definizione del servizio cloud (con estensione csdef) definisce il modello di servizio, compreso il numero di ruoli.
 * **Configurazione del servizio**  
-   l file di configurazione del servizio cloud (con estensione cscfg) specifica le impostazioni di configurazione per il servizio cloud e i singoli ruoli, incluso il numero di istanze del ruolo.
+  l file di configurazione del servizio cloud (con estensione cscfg) specifica le impostazioni di configurazione per il servizio cloud e i singoli ruoli, incluso il numero di istanze del ruolo.
 * **Pacchetto del servizio**  
-   Il pacchetto del servizio (con estensione cspkg) contiene il codice dell'applicazione, le configurazioni e il file di definizione del servizio.
+  Il pacchetto del servizio (con estensione cspkg) contiene il codice dell'applicazione, le configurazioni e il file di definizione del servizio.
 
 Per altre informazioni in proposito e su come creare un pacchetto, fare clic [qui](cloud-services-model-and-package.md).
 
@@ -66,7 +66,7 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 
 ## <a name="create-and-deploy"></a>Creazione e distribuzione
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
-2. Fare clic su **Nuovo > Macchine virtuali**, quindi scorrere verso il basso e fare clic su **Servizio cloud**.
+2. Fare clic su **Nuovo > Calcolo**, quindi scorrere verso il basso e fare clic su **Servizio cloud**.
 
     ![Pubblicare il servizio cloud](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 3. Nella parte inferiore della pagina delle informazioni visualizzate, fare clic su **Crea**.
@@ -76,7 +76,7 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 7. Fare clic su **Pacchetto**. Verrà visualizzato il pannello **Carica un pacchetto** . Compilare i campi obbligatori. Se sono presenti ruoli contenenti una singola istanza, assicurarsi che l'opzione **Distribuisci anche se uno o più ruoli contengono una singola istanza** sia selezionata.
 
     > [!IMPORTANT]
-    > I servizi cloud possono essere associati solo ad [account di archiviazione classici](../resource-manager-deployment-model.md). Se viene visualizzato un messaggio che informa che non sono stati trovati account di archiviazione per la sottoscrizione e la località dell'utente, assicurarsi di aver creato un account di archiviazione classico per il servizio cloud in tale località.
+    > I servizi cloud possono essere associati solo ad [account di archiviazione classici](../azure-resource-manager/resource-manager-deployment-model.md). Se viene visualizzato un messaggio che informa che non sono stati trovati account di archiviazione per la sottoscrizione e la località dell'utente, assicurarsi di aver creato un account di archiviazione classico per il servizio cloud in tale località.
 
 8. Assicurarsi che l'opzione **Avvia distribuzione** sia selezionata.
 9. Fare clic su **OK** per chiudere il pannello **Carica un pacchetto**.
@@ -111,6 +111,6 @@ Se il pacchetto di distribuzione è stato [configurato per usare i certificati](
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

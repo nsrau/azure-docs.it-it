@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4d0c334a0b1e047208f6f61e5181864b1c2e3a6a
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 81706c6c95199b25a07589780d2a27fc0f8dffa7
 
 
 ---
-# <a name="manage-azure-virtual-machines-using-azure-resource-manager-and-c"></a>Gestire le macchine virtuali di Azure con Azure Resource Manager e C
+# <a name="manage-azure-virtual-machines-using-azure-resource-manager-and-c"></a>Gestire le macchine virtuali di Azure con Azure Resource Manager e C# #
 Le attività in questo articolo spiegano come gestire le macchine virtuali, ad esempio l'avvio, l'arresto e l'aggiornamento. Per poter completare le attività in questo articolo è necessario che una macchina virtuale sia presente in un gruppo di risorse.
 
 Per completare le attività di questo articolo, sono necessari gli elementi seguenti:
 
 * [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-* [Un token di autenticazione](../resource-group-authenticate-service-principal.md)
+* [Un token di autenticazione](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="create-a-visual-studio-project-and-install-packages"></a>Creare un progetto di Visual Studio e installare i pacchetti
 I pacchetti NuGet sono il modo più semplice per installare le librerie necessarie per completare le attività in questo articolo. Le librerie che si installano per questo articolo sono la libreria di autenticazione Azure Active Directory e la libreria provider Computer Resource. Attenersi a questa procedura per ottenere queste librerie in Visual Studio:
@@ -435,11 +435,11 @@ Questo esempio illustra come aggiungere un disco dati a una macchina virtuale fu
 5. Fare clic su **Avvia** in Visual Studio e accedere ad Azure AD usando lo stesso nome utente e la password specificati per la sottoscrizione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se si sono verificati problemi con la distribuzione, è consigliabile vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md)
+Se si sono verificati problemi con una distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

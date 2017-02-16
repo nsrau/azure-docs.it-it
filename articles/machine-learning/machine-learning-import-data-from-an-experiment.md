@@ -13,18 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 12/14/2016
 ms.author: garye;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7488faa54481f0f524c2274e7e2575bf0fc02690
+ms.sourcegitcommit: 1738899a271045e37cdcedaaf862553f29ec92f1
+ms.openlocfilehash: b1c06135cf8628197fb9601affd6a7131b41d0ca
 
 
 ---
 # <a name="import-your-data-into-azure-machine-learning-studio-from-another-experiment"></a>Importare i dati in Azure Machine Learning Studio da un altro esperimento
 [!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
-Talvolta l’utente potrebbe voler ricevere un risultato intermedio di un esperimento e usarlo come parte di un altro esperimento.  A tale scopo, si salva il modulo come un set di dati:
+Talvolta si vuole ottenere un risultato intermedio da un esperimento e usare tale risultato come parte di un altro esperimento. A tale scopo, si salva il modulo come un set di dati:
 
 1. Fare clic sull'output del modulo da salvare come set di dati.
 2. Fare clic su **Salva come set di dati**.
@@ -36,6 +36,6 @@ Al termine del salvataggio, il set di dati sarà disponibile per l'uso in qualsi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

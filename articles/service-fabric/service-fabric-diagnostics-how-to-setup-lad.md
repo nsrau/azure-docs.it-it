@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/28/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 3416511777ff006d0aa933cd45e50f1d200bcad4
+ms.sourcegitcommit: c9730b553e59d12b8720bbf3a06cc956912e27de
+ms.openlocfilehash: 37063d35e76d03a84f6e4451c2f6c363704607f2
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 3416511777ff006d0aa933cd45e50f1d200bcad4
 > 
 > 
 
-Quando si esegue un cluster Azure Service Fabric, è consigliabile raccogliere i log da tutti i nodi in una posizione centrale. Il salvataggio dei log in una posizione centrale semplifica l'analisi e la risoluzione di eventuali problemi nei servizi, nelle applicazioni e nel cluster stesso. Uno dei modi per caricare e raccogliere i log consiste nell'usare l'estensione Diagnostica di Azure, che carica i log nell'archiviazione di Azure. È possibile leggere gli eventi dalla risorsa di archiviazione e inserirli in un prodotto come [ElasticSearch](service-fabric-diagnostic-how-to-use-elasticsearch.md) o un'altra soluzione di analisi di log.
+Quando si esegue un cluster Azure Service Fabric, è consigliabile raccogliere i log da tutti i nodi in una posizione centrale. Il salvataggio dei log in una posizione centrale semplifica l'analisi e la risoluzione di eventuali problemi nei servizi, nelle applicazioni e nel cluster stesso. Un modo per caricare e raccogliere i log consiste nell'usare l'estensione Diagnostica di Azure, che consente di caricare i log di archiviazione di Azure, Azure Application Insights o hub eventi di Azure. È anche possibile leggere gli eventi nell'archiviazione o nell'hub eventi e inserirli in un prodotto, ad esempio [Log Analytics](../log-analytics/log-analytics-service-fabric.md) o un'altra soluzione di analisi del log. In [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) è integrato un servizio completo di analisi e di ricerca nei log.
 
 ## <a name="log-sources-that-you-might-want-to-collect"></a>Origini di log da raccogliere
 * **Log di Service Fabric**: generati dalla piattaforma tramite [LTTng](http://lttng.org) e caricati nell'account di archiviazione. I log possono essere eventi operativi o eventi di runtime generati dalla piattaforma. Questi log vengono archiviati nel percorso specificato dal manifesto del cluster. Per ottenere i dettagli sull'account di archiviazione, cercare il tag **AzureTableWinFabETWQueryable** e quindi **StoreConnectionString**.
@@ -52,6 +52,6 @@ Per comprendere più nel dettaglio gli eventi da esaminare durante la risoluzion
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

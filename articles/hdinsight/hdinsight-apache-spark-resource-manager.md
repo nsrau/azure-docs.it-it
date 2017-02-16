@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/25/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1a14f8437ed83cb546e3b84072494ceb18cc6c38
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 626fe6fc7a7ee74e8fcfa3b6c38f0cb25dd91da6
 
 
 ---
@@ -158,7 +158,7 @@ Poiché si usa l'assegnazione dinamica di Spark, le uniche risorse utilizzate da
 * [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Gestire risorse
-* [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
+* [Tenere traccia ed eseguire il debug dei processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
 
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -173,6 +173,6 @@ Poiché si usa l'assegnazione dinamica di Spark, le uniche risorse utilizzate da
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

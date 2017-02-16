@@ -1,6 +1,6 @@
 ---
-title: Kernel disponibili con i notebook di Jupyter nei cluster HDInsight Spark in Linux | Documentazione Microsoft
-description: Informazioni sui kernel dei notebook di Jupyter aggiuntivi disponibili con cluster Spark in HDInsight Linux.
+title: Usare kernel diversi con i notebook di Jupyter nei cluster Azure Spark | Documentazione Microsoft
+description: "Informazioni sui kernel PySpark e Spark che è possibile usare con i notebook di Jupyter disponibili con cluster Spark in HDInsight Linux."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -16,12 +16,13 @@ ms.topic: article
 ms.date: 10/05/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b322e44f53567e2618df086500ca42e81e4e233e
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: bb47fa4e876322a0e3e36d4da657fba4be84d6f2
 
 
 ---
-# <a name="kernels-available-for-jupyter-notebooks-with-apache-spark-clusters-on-hdinsight-linux"></a>Kernel disponibili per i notebook di Jupyter con cluster Apache Spark in HDInsight Linux
+# <a name="kernels-available-for-jupyter-notebooks-with-apache-spark-clusters-on-hdinsight"></a>Kernel disponibili per i notebook di Jupyter con cluster Apache Spark in HDInsight
+
 Il cluster Apache Spark in HDInsight (Linux) include notebook di Jupyter che è possibile usare per testare le applicazioni. Un kernel è un programma che esegue e interpreta il codice. I cluster HDInsight Spark offrono due kernel che è possibile usare con il notebook di Jupyter. Si tratta di:
 
 1. **PySpark** (per le applicazioni scritte in Python)
@@ -34,28 +35,28 @@ Questo articolo offre informazioni su come usare questi kernel e i relativi vant
 È necessario disporre di quanto segue:
 
 * Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un cluster Apache Spark in HDInsight Linux. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## <a name="how-do-i-use-the-kernels"></a>Come si usano i kernel?
 1. Dalla Schermata iniziale del [portale di Azure](https://portal.azure.com/)fare clic sul riquadro del cluster Spark (se è stato aggiunto sulla Schermata iniziale). È anche possibile passare al cluster da **Esplora tutto** > **Cluster HDInsight**.   
 2. Nel pannello del cluster Spark fare clic su **Dashboard cluster** e quindi su **Notebook di Jupyter**. Se richiesto, immettere le credenziali per il cluster.
-   
+
    > [!NOTE]
    > È anche possibile raggiungere il notebook di Jupyter per il cluster aprendo l'URL seguente nel browser. Sostituire **CLUSTERNAME** con il nome del cluster:
-   > 
+   >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   > 
-   > 
+   >
+   >
 3. Creare un nuovo notebook con i nuovi kernel. Fare clic su **Nuovo** e quindi su **Pyspark** o **Spark**. È consigliabile usare il kernel Spark per applicazioni Scala e il kernel PySpark per applicazioni Python.
-   
-    ![Creare un nuovo notebook Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Create a new Jupyter notebook") 
+
+    ![Creare un nuovo notebook Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Creare un nuovo notebook Jupyter")
 4. Verrà aperto un nuovo notebook con il kernel selezionato.
 
 ## <a name="why-should-i-use-the-pyspark-or-spark-kernels"></a>Perché usare i kernel PySpark o Spark?
 L'uso dei nuovi kernel comporta alcuni vantaggi.
 
 1. **Contesti predefiniti**. Con i kernel **PySpark** o **Spark**, disponibili con i notebook Jupyter, non è necessario impostare i contesti Spark o Hive in modo esplicito prima di iniziare a usare l'applicazione in corso di sviluppo, perché sono disponibili per impostazione predefinita. Questi contesti sono:
-   
+
    * **sc** : per il contesto Spark
    * **sqlContext** : per il contesto Hive
 
@@ -69,9 +70,9 @@ L'uso dei nuovi kernel comporta alcuni vantaggi.
     È possibile invece usare direttamente i contesti preimpostati nell'applicazione.
 
 1. **Celle magic**. Il kernel PySpark offre alcuni "magic" predefiniti. Si tratta di comandi speciali che è possibile chiamare con `%%`, ad esempio `%%MAGIC` <args>. Il comando magic deve essere la prima parola di una cella di codice e consente di generare più righe di contenuto. La parola magic deve essere la prima della cella. L'aggiunta di qualsiasi elemento prima di magic, anche un commento, determina un errore.     Per altre informazioni sui magic, vedere [questa pagina](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
-   
+
     La tabella seguente elenca i diversi magic disponibili tramite i kernel.
-   
+
    | Magic | Esempio | Descrizione |
    | --- | --- | --- |
    | help |`%%help` |Genera una tabella di tutti i magic disponibili con esempi e descrizioni |
@@ -82,11 +83,11 @@ L'uso dei nuovi kernel comporta alcuni vantaggi.
    | logs |`%%logs` |Visualizza i log per la sessione Livy corrente. |
    | delete |`%%delete -f -s <session number>` |Elimina una sessione specifica dell'endpoint Livy corrente. Si noti che non è possibile eliminare la sessione avviata dal kernel stesso. |
    | cleanup |`%%cleanup -f` |Elimina tutte le sessioni per l'endpoint Livy corrente, inclusa quella del notebook. Il flag di forzatura -f è obbligatorio. |
-   
+
    > [!NOTE]
-   > Oltre ai magic aggiunti dal kernel PySpark, è possibile anche usare i [magic IPython incorporati](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), tra cui `%%sh`. È possibile usare il magic `%%sh` per eseguire script e il blocco del codice nel nodo head del cluster. 
-   > 
-   > 
+   > Oltre ai magic aggiunti dal kernel PySpark, è possibile anche usare i [magic IPython incorporati](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), tra cui `%%sh`. È possibile usare il magic `%%sh` per eseguire script e il blocco del codice nel nodo head del cluster.
+   >
+   >
 2. **Visualizzazione automatica**. Il kernel **Pyspark** visualizza automaticamente l'output delle query Hive e SQL. È possibile scegliere tra diversi tipi di visualizzazione, inclusi Table, Pie, Line, Area, Bar.
 
 ## <a name="parameters-supported-with-the-sql-magic"></a>Parametri supportati con il magic %%sql
@@ -102,7 +103,7 @@ Il magic %%sql supporta parametri diversi che è possibile utilizzare per contro
 
 **Esempio:**
 
-    %%sql -q -m sample -r 0.1 -n 500 -o query2 
+    %%sql -q -m sample -r 0.1 -n 500 -o query2
     SELECT * FROM hivesampletable
 
 L'istruzione precedente esegue le operazioni seguenti:
@@ -168,7 +169,6 @@ I nuovi kernel sono ancora in una fase iniziale e si evolveranno nel tempo. Ques
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

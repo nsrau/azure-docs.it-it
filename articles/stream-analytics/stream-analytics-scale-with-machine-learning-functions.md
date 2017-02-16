@@ -1,5 +1,5 @@
 ---
-title: Ridimensionare il processo di Analisi di flusso con funzioni di Azure Machine Learning | Documentazione Microsoft
+title: Ridimensionamento dei processi con Analisi di flusso di Azure e funzioni di Azure Machine Learning | Documentazione Microsoft
 description: "Informazioni su come ridimensionare correttamente i processi di Analisi di flusso, con il partizionamento, le unità di streaming e altro ancora, quando si usano funzioni di Azure Machine Learning."
 keywords: 
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ad7ac0056cead32332b63add61655dbc1d2cb37c
+ms.sourcegitcommit: b36fd0b4a52ae2e13a5b5dcde412994a0656e3d3
+ms.openlocfilehash: 27f2ac3d54226501e254d9a8fef6cc378eb9a860
 
 
 ---
@@ -36,17 +36,17 @@ Dopo aver determinato le dimensioni batch, è possibile determinare la quantità
 
 In generale, sono presenti 20 connessioni simultanee al servizio Web Machine Learning ogni 6 unità di streaming, ma anche i processi per 1 unità di streaming e per 3 unità di streaming ricevono 20 connessioni simultanee.  Ad esempio, se la velocità dei dati di input è di 200.000 eventi al secondo e le dimensioni batch hanno il valore predefinito di 1000, la latenza del servizio Web risultante con un mini-batch di 1000 eventi è di 200 ms. Ciò significa che ogni connessione può inviare 5 richieste al servizio Web Machine Learning in un secondo. Con 20 connessioni, il processo di Analisi di flusso può elaborare 20.000 eventi in 200 ms, ovvero 100.000 eventi al secondo. Quindi, per elaborare 200.000 eventi al secondo, il processo di Analisi di flusso necessita di 40 connessioni simultanee, pari a 12 unità di streaming. Il diagramma seguente illustra le richieste dal processo di Analisi di flusso all'endpoint di servizio Web Machine Learning. Ogni 6 unità di streaming sono presenti al massimo 20 connessioni simultanee al servizio Web Machine Learning.
 
-![Esempio di processo per ridimensionare Analisi di flusso con funzioni di Machine Learning 2](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Scale Stream Analytics with Machine Learning Functions 2 job example")
+![Esempio di processo per ridimensionare Analisi di flusso con funzioni di Machine Learning 2](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Esempio di processo per ridimensionare Analisi di flusso con funzioni di Machine Learning 2")
 
 In generale, posto che ***B*** sta per dimensioni batch e ***L*** sta per latenza del servizio Web per le dimensioni batch B in millisecondi, la velocità effettiva di un processo di Analisi di flusso con ***N*** unità di streaming è:
 
-![Formula per ridimensionare Analisi di flusso con funzioni di Machine Learning](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Scale Stream Analytics with Machine Learning Functions Formula")
+![Formula per ridimensionare Analisi di flusso con funzioni di Machine Learning](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Formula per ridimensionare Analisi di flusso con funzioni di Machine Learning")
 
-Prendendo in considerazione anche il numero massimo di chiamate simultanee sul lato del servizio Web Machine Learning, è consigliabile impostare il valore massimo, che attualmente è 200.
+Prendendo in considerazione anche il numero massimo di chiamate simultanee sul lato del servizio Web Machine Learning, è consigliabile impostare il valore massimo, che attualmente è&200;.
 
 Per altre informazioni su questa impostazione, vedere l'articolo relativo al [ridimensionamento di servizi Web Machine Learning](../machine-learning/machine-learning-scaling-webservice.md).
 
-## <a name="example-sentiment-analysis"></a>Esempio: Analisi di valutazione
+## <a name="example--sentiment-analysis"></a>Esempio: Analisi di valutazione
 L'esempio seguente include un processo di Analisi di flusso con la funzione di Machine Learning di analisi di valutazione, come descritto nell' [esercitazione sull'integrazione tra Analisi di flusso e Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
 
 La query è una semplice query completamente partizionata seguita dalla funzione di **valutazione** , come illustrato di seguito:
@@ -95,7 +95,7 @@ In genere, le dimensioni batch impostate per le funzioni di Machine Learning non
 ## <a name="new-function-related-monitoring-metrics"></a>Nuove metriche di monitoraggio correlate alle funzioni
 Nell'area di monitoraggio di un processo di Analisi di flusso sono state aggiunte altre tre metriche relative alle funzioni. Le metriche sono FUNCTION REQUESTS, FUNCTION EVENTS e FAILED FUNCTION REQUESTS e sono illustrate nella figura seguente.
 
-![Metriche per ridimensionare Analisi di flusso con funzioni di Machine Learning](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Scale Stream Analytics with Machine Learning Functions Metrics")
+![Metriche per ridimensionare Analisi di flusso con funzioni di Machine Learning](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Metriche per ridimensionare Analisi di flusso con funzioni di Machine Learning")
 
 Di seguito sono riportate le rispettive definizioni.
 
@@ -125,6 +125,6 @@ Per altre informazioni su Analisi di flusso, vedere:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

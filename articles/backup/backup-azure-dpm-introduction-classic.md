@@ -1,5 +1,5 @@
 ---
-title: Introduzione al backup di DPM di Azure | Documentazione Microsoft
+title: Backup di carichi di lavoro DPM nel portale di Azure classico | Documentazione Microsoft
 description: Introduzione al backup dei server DPM di Azure usando il servizio Backup di Azure
 services: backup
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/21/2016
 ms.author: trinadhk;giridham;jimpark;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f34bdb66a201c84ae340460e9e496adaa4c15eb7
+ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
+ms.openlocfilehash: f4a5412615e23cc90acc54a9c7430b01fe77dbcf
 
 
 ---
@@ -27,8 +27,8 @@ ms.openlocfilehash: f34bdb66a201c84ae340460e9e496adaa4c15eb7
 > * [SCDPM](backup-azure-dpm-introduction.md)
 > * [Server di Backup di Azure (classico)](backup-azure-microsoft-azure-backup-classic.md)
 > * [SCDPM (classico)](backup-azure-dpm-introduction-classic.md)
-> 
-> 
+>
+>
 
 Questo articolo offre un'introduzione all'uso del servizio Backup di Microsoft Azure per proteggere i server e i carichi di lavoro DPM di System Center. Le informazioni dell'articolo riguardano:
 
@@ -55,8 +55,8 @@ Dopo l'acquisizione dello snapshot, il servizio Backup di Azure trasferisce i da
 
 > [!NOTE]
 > Per quanto riguarda le macchine virtuali Linux, è possibile eseguire soltanto backup coerenti a livello di file.
-> 
-> 
+>
+>
 
 ## <a name="prerequisites"></a>Prerequisiti
 Di seguito viene descritto come preparare il servizio Backup di Azure all'esecuzione del backup dei dati DPM:
@@ -100,12 +100,11 @@ Questi tipi di file non sono supportati:
 
 > [!NOTE]
 > A partire dalla versione di System Center 2012 DPM con SP1, è possibile eseguire il backup di carichi di lavoro protetti da DPM in Azure, usando il servizio Backup di Microsoft Azure.
-> 
-> 
+>
+>
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

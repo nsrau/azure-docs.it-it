@@ -15,13 +15,19 @@ ms.topic: article
 ms.date: 06/22/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: fe96fb2159a7d0dba0ad391d25f38f79cf8aeeb3
+ms.sourcegitcommit: 3273ec453a78c74d9e492e869eea4186a764e2f2
+ms.openlocfilehash: 30a49b2a546d766a8a826a45b7bbf27059a2cc9d
 
 
 ---
 # <a name="how-to-silently-install-the-azure-ad-application-proxy-connector"></a>Come eseguire un'installazione invisibile all'utente del connettore del proxy di applicazione di Azure AD
 Può essere necessario inviare uno script di installazione a più server Windows o ai server Windows che non hanno l'interfaccia utente abilitata. In questo argomento viene illustrato come creare uno script di Windows PowerShell che consente l'installazione automatica e installa e registra il connettore del proxy di applicazione di Azure AD.
+
+Utilizzare la riga di comando per installare il connettore senza utilizzare l'interfaccia utente quando si desidera: 
+* Installare il connettore in computer senza alcun livello di interfaccia utente o quando non è possibile usare il protocollo RDP del computer. 
+* Installare e registrare più connettori in una sola volta. 
+* Integrare l'installazione e la registrazione del connettore come parte di un'altra procedura. 
+* Creare un'immagine server standard che contiene i bit del connettore, ma che non è registrata. 
 
 ## <a name="enabling-access"></a>Abilitazione dell'accesso
 Il proxy dell’applicazione funziona mediante l'installazione di un servizio di Windows Server slim chiamato connettore all'interno della rete. Per il corretto funzionamento del connettore del proxy di applicazione, è necessario registrarlo nella directory di Azure AD con un account di amministratore globale e una password. Queste informazioni vengono in genere immesse durante l'installazione del connettore in una finestra di dialogo popup. In alternativa, è possibile usare Windows PowerShell per creare un oggetto credenziale in modo da immettere le informazioni di registrazione oppure è possibile creare un token personale e usarlo per immettere le informazioni di registrazione.
@@ -127,6 +133,6 @@ Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog]
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

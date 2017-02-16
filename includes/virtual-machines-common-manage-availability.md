@@ -44,17 +44,17 @@ Per gli account di archiviazione usati dai dischi rigidi virtuali nella macchina
 
 1. **Mantenere tutti i dischi (sistema operativo e dati) associati a una macchina virtuale nello stesso account di archiviazione**
 2. **Tenere presente i [limiti](../articles/storage/storage-scalability-targets.md) degli account di archiviazione** quando si aggiungono più dischi rigidi virtuali all'account di archiviazione
-3. **Usare un account di archiviazione separato per ogni macchina virtuale di un set di disponibilità.** Più macchine virtuali di uno stesso set di disponibilità NON devono condividere lo stesso account di archiviazione. Le macchine virtuali di set di disponibilità diversi possono condividere gli account di archiviazione purché vengano seguite le procedure consigliate
+3. **Usare più account di archiviazione per ogni set di disponibilità.** Usare un account di archiviazione separato per ogni macchina virtuale di un set di disponibilità. Più macchine virtuali di uno stesso set di disponibilità NON devono condividere lo stesso account di archiviazione. Le macchine virtuali di set di disponibilità diversi possono condividere gli account di archiviazione purché vengano seguite le procedure consigliate
 
 <!-- Link references -->
 [Configurare più macchine virtuali in un set di disponibilità per la ridondanza]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
 [Configurare ogni livello dell'applicazione in set di disponibilità separati]: #configure-each-application-tier-into-separate-availability-sets
 [Combinare il bilanciamento del carico con set di disponibilità]: #combine-a-load-balancer-with-availability-sets
-[Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
+[Evitare singole istanze di macchine virtuali nei set di disponibilità]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Usare più account di archiviazione per ogni set di disponibilità]: #use-multiple-storage-accounts-for-each-availability-set
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO4-->
 
 

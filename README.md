@@ -27,7 +27,7 @@ Questo progetto ha adottato il [Microsoft Open Source Code of Conduct](https://o
 
 ## <a name="about-your-contributions-to-azure-content"></a>Informazioni sui contributi al contenuto di Azure
 ### <a name="minor-corrections"></a>Correzioni secondarie
-Le correzioni secondarie o i chiarimenti inviati per la documentazione e gli esempi di codice in questo repository sono coperti dalle [Condizioni per l'utilizzo di docs.microsoft.com](/enterprise-mobility-security/termsofuse).
+Le correzioni secondarie o i chiarimenti inviati per la documentazione e gli esempi di codice in questo repository sono coperti dalle [Condizioni per l'utilizzo di docs.microsoft.com](https://docs.microsoft.com/legal/termsofuse).
 
 ### <a name="larger-submissions"></a>Correzioni di impatto maggiore
 Se si invia una richiesta pull con modifiche nuove o significative alla documentazione e agli esempi di codice, verrà visualizzato un commento in GitHub con la richiesta di inviare un contratto di licenza online per i contributi (Contribution License Agreement, CLA) se non si è dipendenti Microsoft. Prima che la richiesta pull venga accettata, è necessario completare il modulo online.
@@ -87,6 +87,6 @@ Per un elenco di tutti gli argomenti, vedere l'[indice della Guida per i collabo
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

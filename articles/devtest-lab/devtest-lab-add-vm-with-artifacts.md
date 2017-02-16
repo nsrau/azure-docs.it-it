@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2016
+ms.date: 01/11/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: f480b8155c7bee797f1fed0f80200eec500e95a2
-ms.openlocfilehash: aa6c87ef6e1f87cb47f68f9480ea068aa6262bf9
+ms.sourcegitcommit: f7656382500682898cd3ed6372630afa3c3f6350
+ms.openlocfilehash: f1993113664c3ac108005dbf599baf7eaa7a30b3
 
 
 ---
 # <a name="add-a-vm-with-artifacts-to-a-lab-in-azure-devtest-labs"></a>Aggiungere una VM con elementi a un lab in Azure DevTest Labs
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/How-to-create-VMs-with-Artifacts-in-a-DevTest-Lab/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-create-VMs-with-Artifacts-in-a-DevTest-Lab/player]
 > 
 > 
 
@@ -112,6 +112,6 @@ Dopo il salvataggio è possibile usare il modello di Azure Resource Manager per 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

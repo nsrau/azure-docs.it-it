@@ -1,5 +1,5 @@
 
-Il codice per tutte le funzioni in una determinata app per le funzioni si trova in una cartella radice contenente un file di configurazione host e una o più sottocartelle, ciascuna delle quali contiene un codice per una funzione separata, come nell'esempio seguente
+Il codice per tutte le funzioni in una determinata app per le funzioni si trova in una cartella radice contenente un file di configurazione host e una o più sottocartelle, ognuna delle quali contiene un codice per una funzione separata, come nell'esempio seguente:
 
 ```
 wwwroot
@@ -21,6 +21,6 @@ Ogni funzione ha una cartella che contiene uno o più file di codice, la configu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

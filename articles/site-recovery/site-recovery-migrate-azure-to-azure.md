@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione di macchine virtuali IaaS di Azure da un&quot;area di Azure a un&quot;altra con Site Recovery | Documentazione Microsoft
+title: Eseguire la migrazione di macchine virtuali IaaS di Azure tra aree di Azure | Documentazione Microsoft
 description: "Utilizzare Site Recovery per la migrazione di macchine virtuali IaaS di Azure da un’area di Azure a un’altra."
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: 921da3b0fe82248ab32d0b8e23f234f942f5eb05
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: 3db1ec50b357c5bf6da51aaaf0f04ccb65d1bb05
 
 
 ---
@@ -53,6 +53,6 @@ Per altre informazioni sui vari scenari di replica, vedere [Che cos'è Site Reco
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

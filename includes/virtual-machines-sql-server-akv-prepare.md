@@ -8,7 +8,7 @@ Per usare l'integrazione dell'insieme di credenziali delle chiavi di Azure per c
 Le sezioni seguenti descrivono tali prerequisiti e le informazioni da raccogliere per eseguire i cmdlet di PowerShell in un secondo momento.
 
 ### <a name="install-azure-powershell"></a>Installare Azure PowerShell
-Assicurarsi che sia installata la versione più recente di Azure PowerShell SDK. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](../articles/powershell-install-configure.md).
+Assicurarsi che sia installata la versione più recente di Azure PowerShell SDK. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ### <a name="create-an-azure-active-directory"></a>Creare un'istanza di Azure Active Directory
 Innanzitutto, è necessario che un'istanza di [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) sia presente nella sottoscrizione. AAD offre numerosi vantaggi, ad esempio, consente di concedere l'autorizzazione all'insieme di credenziali delle chiavi per determinati utenti e applicazioni.
@@ -34,6 +34,6 @@ L'URL dell'insieme di credenziali delle chiavi viene assegnato successivamente a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

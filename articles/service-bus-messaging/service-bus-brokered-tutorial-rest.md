@@ -1,22 +1,22 @@
 ---
 title: Esercitazione REST sulla messaggistica negoziata del Bus di servizio| Microsoft Azure | Documentazione Microsoft
 description: Esercitazione di messaggistica negoziata REST.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 9b7a8147-a1b1-42fc-b30e-f52e79a902b5
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/27/2016
+ms.date: 12/12/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 45b72037e2de01b9201edf3e4ebee7e80d996383
+ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
+ms.openlocfilehash: b2cd9e5db765aa2ffbb00063ae193e39ffe9de4e
 
 
 ---
@@ -50,7 +50,7 @@ Dopo aver ottenuto lo spazio dei nomi e le credenziali nel primo passaggio, crea
 2. Creare un nuovo progetto di applicazione console. Fare clic sul menu **File**, selezionare **Nuovo** e fare clic su **Progetto**. Nella finestra di dialogo **Nuovo progetto** fare clic su **Visual C#**. Se **Visual C#** non è visibile, cercare in **Altri linguaggi**, selezionare il modello **Applicazione console** e denominarlo **Microsoft.ServiceBus.Samples**. Utilizzare il Percorso predefinito. Fare clic su **OK** per creare il progetto.
 3. In Program.cs, assicurarsi che le istruzioni `using` appaiano come quanto segue:
    
-    ```
+    ```csharp
     using System;
     using System.Globalization;
     using System.IO;
@@ -62,7 +62,7 @@ Dopo aver ottenuto lo spazio dei nomi e le credenziali nel primo passaggio, crea
 4. Se necessario, rinominare lo spazio dei nomi per il programma dal valore predefinito di Visual Studio con `Microsoft.ServiceBus.Samples`.
 5. All'interno della classe `Program` aggiungere le seguenti variabili globali:
    
-    ```
+    ```csharp
     static string serviceNamespace;
     static string baseAddress;
     static string token;
@@ -70,7 +70,7 @@ Dopo aver ottenuto lo spazio dei nomi e le credenziali nel primo passaggio, crea
     ```
 6. All'interno di `Main()`, incollare il codice seguente:
    
-    ```
+    ```csharp
     Console.Write("Enter your service namespace: ");
     serviceNamespace = Console.ReadLine();
    
@@ -146,7 +146,7 @@ Il passaggio successivo consiste nello scrivere un metodo che elabori lo spazio 
 ### <a name="create-a-getsastoken-method"></a>Creare un metodo GetSASToken()
 Incollare il codice seguente dopo il metodo `Main()`, nella classe `Program`:
 
-```
+```csharp
 private static string GetSASToken(string SASKeyName, string SASKeyValue)
 {
   TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
@@ -165,7 +165,7 @@ Il passaggio successivo consiste nello scrivere un metodo che utilizzi il comand
 
 Incollare il seguente codice subito dopo il codice `GetSASToken()` aggiunto nel passaggio precedente:
 
-```
+```csharp
 // Uses HTTP PUT to create the queue
 private static string CreateQueue(string queueName, string token)
 {
@@ -193,7 +193,7 @@ In questo passaggio si aggiunge un metodo che utilizza il comando HTTP POST di t
 
 1. Incollare il seguente codice subito dopo il codice `CreateQueue()` aggiunto nel passaggio precedente:
    
-    ```
+    ```csharp
     // Sends a message to the "queueName" queue, given the name and the value to enqueue
     // Uses an HTTP POST request.
     private static void SendMessage(string queueName, string body)
@@ -208,7 +208,7 @@ In questo passaggio si aggiunge un metodo che utilizza il comando HTTP POST di t
     ```
 2. Le proprietà dei messaggi negoziati standard vengono inserite in una  intestazione HTTP `BrokerProperties`. Le proprietà del broker devono essere serializzate in formato JSON. Per specificare un valore **TimeToLive** di 30 secondi e aggiungere un'etichetta "M1" al messaggio, aggiungere il codice seguente immediatamente prima della chiamata `webClient.UploadData()` illustrata nell'esempio precedente:
    
-    ```
+    ```csharp
     // Add brokered message properties "TimeToLive" and "Label"
     webClient.Headers.Add("BrokerProperties", "{ \"TimeToLive\":30, \"Label\":\"M1\"}");
     ```
@@ -216,7 +216,7 @@ In questo passaggio si aggiunge un metodo che utilizza il comando HTTP POST di t
     Si noti che le proprietà dei messaggi negoziati sono state e saranno aggiunte. Pertanto, la richiesta di invio deve specificare una versione API che supporti tutte le proprietà dei messaggi negoziati che fanno parte della richiesta. Se la versione API specificata non supporta una proprietà del messaggio negoziato, tale proprietà viene ignorata.
 3. Le proprietà dei messaggi personalizzate sono definite come un set di coppie chiave-valore. Ogni proprietà personalizzata viene archiviata nella relativa intestazione TPPT. Per aggiungere le proprietà personalizzate "Priority" e "Customer", aggiungere il codice seguente immediatamente prima della chiamata `webClient.UploadData()` illustrata nell'esempio precedente:
    
-    ```
+    ```csharp
     // Add custom properties "Priority" and "Customer".
     webClient.Headers.Add("Priority", "High");
     webClient.Headers.Add("Customer", "12345");
@@ -227,7 +227,7 @@ Il passaggio successivo consiste nell'aggiungere un metodo che utilizzi il coman
 
 Incollare il seguente codice subito dopo il codice `SendMessage()` aggiunto nel passaggio precedente:
 
-```
+```csharp
 // Receives and deletes the next message from the given resource (queue, topic, or subscription)
 // using the resourceName and an HTTP DELETE request
 private static string ReceiveAndDeleteMessage(string resourceName)
@@ -251,7 +251,7 @@ Il passaggio successivo consiste nello scrivere un metodo che usa il comando HTT
 ### <a name="create-a-topic"></a>Creare un argomento
 Incollare il seguente codice subito dopo il codice `ReceiveAndDeleteMessage()` aggiunto nel passaggio precedente:
 
-```
+```csharp
 // Using an HTTP PUT request.
 private static string CreateTopic(string topicName)
 {
@@ -276,7 +276,7 @@ private static string CreateTopic(string topicName)
 ### <a name="create-a-subscription"></a>Creare una sottoscrizione
 Il codice seguente crea una sottoscrizione per l'argomento creato nel passaggio precedente. Aggiungere il codice seguente subito dopo la definizione `CreateTopic()`:
 
-```
+```csharp
 private static string CreateSubscription(string topicName, string subscriptionName)
 {
     var subscriptionAddress = baseAddress + topicName + "/Subscriptions/" + subscriptionName;
@@ -303,7 +303,7 @@ In questo passaggio, aggiungere il codice che recupera le proprietà dei messagg
 ### <a name="retrieve-an-atom-feed-with-the-specified-resources"></a>Recuperare un feed Atom contenente le risorse specificate
 Incollare il seguente codice subito dopo il metodo `CreateSubscription()` aggiunto nel passaggio precedente:
 
-```
+```csharp
 private static string GetResources(string resourceAddress)
 {
     string fullAddress = baseAddress + resourceAddress;
@@ -317,7 +317,7 @@ private static string GetResources(string resourceAddress)
 ### <a name="delete-messaging-entities"></a>Eliminare entità di messaggistica
 Incollare il seguente codice subito dopo il codice aggiunto nel passaggio precedente:
 
-```
+```csharp
 private static string DeleteResource(string resourceName)
 {
     string fullAddress = baseAddress + resourceName;
@@ -333,7 +333,7 @@ private static string DeleteResource(string resourceName)
 ### <a name="format-the-atom-feed"></a>Formattare il feed Atom
 Il metodo `GetResources()` contiene una chiamata per il metodo `FormatXml()` che riformatta il feed Atom recuperato per migliorarne la leggibilità. Di seguito è possibile trovare la definizione di `FormatXml()`; aggiungere questo codice subito dopo il codice `DeleteResource()` aggiunto nella sezione precedente:
 
-```
+```csharp
 // Formats the XML string to be more human-readable; intended for display purposes
 private static string FormatXml(string inputXml)
 {
@@ -360,7 +360,7 @@ Se non sono presenti errori, premere F5 per eseguire l'applicazione. Quando rich
 ### <a name="example"></a>Esempio
 L'esempio seguente rappresenta il codice completo, come dovrebbe apparire dopo aver seguito tutti i passaggi di questa esercitazione.
 
-```
+```csharp
 using System;
 using System.Globalization;
 using System.IO;
@@ -604,6 +604,6 @@ Vedere gli articoli seguenti per ulteriori informazioni:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

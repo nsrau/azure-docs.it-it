@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
-ms.openlocfilehash: f9c02c11c6f0143f8da7a329f23033120f31ba59
+ms.sourcegitcommit: 2389f1d785abc750dd165303f737a883b3f788d0
+ms.openlocfilehash: 6232a80417cf4581f6c6cbe6c11418dc8d0c3407
 
 
 ---
@@ -167,10 +167,22 @@ Con Power BI, è possibile creare i dashboard per raggruppare i dati da un'ampia
 
 [Altre informazioni sull'esportazione in Power BI](app-insights-export-power-bi.md)
 
+## <a name="deep-link"></a>Collegamento diretto
+
+Ottenere un collegamento in **Esporta, Condividi collegamento** che è possibile inviare a un altro utente. Purché l'utente abbia [accesso al gruppo di risorse](app-insights-resources-roles-access-control.md), la query verrà aperta nell'interfaccia utente di Analytics.
+
+Nel collegamento, il testo della query appare dopo "?q=", con compressione gzip e codifica in base&64;. È possibile scrivere codice per generare collegamenti diretti da fornire agli utenti. Tuttavia il modo consigliato per eseguire Analytics dal codice è tramite l'uso dell'[API REST](https://dev.applicationinsights.io/).
+
 
 ## <a name="automation"></a>Automazione
 
-È possibile eseguire le query di Analytics attraverso l'[API REST di accesso ai dati](https://dev.applicationinsights.io/), ad esempio usando PowerShell.
+Usare l'[API  REST di accesso ai dati](https://dev.applicationinsights.io/) per eseguire le query di Analytics. [Ad esempio](https://dev.applicationinsights.io/apiexplorer/query?appId=DEMO_APP&apiKey=DEMO_KEY&query=requests%0A%7C%20where%20timestamp%20%3E%3D%20ago%2824h%29%0A%7C%20count) (con PowerShell):
+
+```PS
+curl "https://api.applicationinsights.io/beta/apps/DEMO_APP/query?query=requests%7C%20where%20timestamp%20%3E%3D%20ago(24h)%7C%20count" -H "x-api-key: DEMO_KEY"
+```
+
+A differenza dell'interfaccia utente di Analytics, l'API REST non aggiunge automaticamente limitazioni di timestamp alle query. Ricordarsi di aggiungere la propria clausola where per evitare di ricevere le risposte di grandi dimensioni.
 
 
 
@@ -217,6 +229,6 @@ Se si usa [LogStash](https://www.elastic.co/guide/en/logstash/current/getting-st
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

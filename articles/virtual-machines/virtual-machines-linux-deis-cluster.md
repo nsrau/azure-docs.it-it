@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 06/24/2015
 ms.author: hbai
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 1c45d0ad8431b5cfff7859817fe57c3168f2dc7f
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 8e69e791128710e640cba0c9edfbbadc0ea70ef5
 
 
 ---
@@ -32,7 +32,7 @@ Per eseguire i passaggi seguenti, saranno necessari:
 
 * Una sottoscrizione di Azure attiva. Se non si dispone di una sottoscrizione, è possibile ottenere una versione di valutazione gratuita su [azure.com](https://azure.microsoft.com/).
 * Un ID di lavoro o di scuola per utilizzare i gruppi di risorse di Azure. Se si dispone di un account personale e si accede con un ID di Microsoft, è necessario [creare un ID di lavoro da quello personale](virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* A seconda del sistema operativo del client, [Azure PowerShell](../powershell-install-configure.md) o l'[interfaccia della riga di comando di Azure per Mac, Linux e Windows](../xplat-cli-install.md).
+* A seconda del sistema operativo del client, [Azure PowerShell](/powershell/azureps-cmdlets-docs) o l'[interfaccia della riga di comando di Azure per Mac, Linux e Windows](../xplat-cli-install.md).
 * [OpenSSL](https://www.openssl.org/). OpenSSL viene utilizzato per generare i certificati necessari.
 * Un client Git, come [Git Bash](https://git-scm.com/).
 * Per eseguire un test sull'applicazione di esempio, sarà necessario anche un server DNS. È possibile utilizzare tutti i server o i servizi DNS che supportano i record A con carattere jolly.
@@ -57,7 +57,7 @@ In questa sezione, verrà usato un modello [Azure Resource Manager](../azure-res
    
         https://discovery.etcd.io/6a28e078895c5ec737174db2419bb2f3
    <br />
-    Ciascun cluster CoreOS deve disporre di un token univoco da questo servizio gratuito. Vedere [Documentazione CoreOS](https://coreos.com/docs/cluster-management/setup/cluster-discovery/) per ulteriori dettagli.
+   Ciascun cluster CoreOS deve disporre di un token univoco da questo servizio gratuito. Vedere [Documentazione CoreOS](https://coreos.com/docs/cluster-management/setup/cluster-discovery/) per ulteriori dettagli.
 6. Modificare il file **cloud-config.yaml** per sostituire il token **discovery** esistente con il nuovo token:
    
         #cloud-config
@@ -246,7 +246,7 @@ In questo articolo vengono illustrati tutti i passaggi per eseguire il provision
 
 [Panoramica di Azure Resource Manager][resource-group-overview]  
 [Come usare l'interfaccia della riga di comando di Azure][azure-command-line-tools]  
-[Uso di Azure PowerShell con Azure Resource Manager][powershell-azure-resource-manager]  
+[Using Azure PowerShell with Azure Resource Manager][powershell-azure-resource-manager] (Uso di Azure PowerShell con Azure Resource Manager)  
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 [resource-group-overview]: ../azure-resource-manager/resource-group-overview.md
@@ -254,6 +254,6 @@ In questo articolo vengono illustrati tutti i passaggi per eseguire il provision
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

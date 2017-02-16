@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/13/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 98333c8721274c207ed3d7f2bd05cc20bcd10562
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: be19590bca7c7fb45e32f5a5e29c88ab5dd21deb
 
 
 ---
@@ -30,6 +30,10 @@ Uno dei vantaggi dell'esecuzione del database SQL in Microsoft Azure è la possi
 
 ## <a name="when-your-app-is-an-overnight-success"></a>Quando l'app ottiene un successo immediato
 Il database SQL semplifica la scalabilità con pochissimo preavviso, quindi se l'app ottiene un successo immediato basta un clic per soddisfare le nuove esigenze in termini di prestazioni. In più, con tempi di inattività minimi, non sarà necessario preoccuparsi delle conseguenze per l'app quando giunge il momento di aumentare o ridurre la quantità di risorse.
+
+>
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
+>
 
 [Leggere la documentazione](http://go.microsoft.com/fwlink/?LinkID=787569)
 
@@ -57,6 +61,6 @@ Consultare la [panoramica tecnica sul database SQL](sql-database-technical-overv
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: b433c35817a0ba36003e8d506db9d2d6d97f9ff7
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 6b5ba034325ef1cbb7b085890c63302d06d0d927
 
 
 ---
@@ -25,59 +25,19 @@ ms.openlocfilehash: b433c35817a0ba36003e8d506db9d2d6d97f9ff7
 
 Questa esercitazione illustra il processo di implementazione di un servizio per la distribuzione di contenuto video on demand (VoD) di base con l'applicazione Servizi multimediali di Azure (AMS) usando il portale di Azure.
 
-> [!NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
-> 
-> 
+## <a name="prerequisites"></a>Prerequisiti
+Per completare l'esercitazione è necessario quanto segue:
+
+* Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
+* Account di Servizi multimediali. Per creare un account Servizi multimediali, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
 
 Questa esercitazione include le attività seguenti:
 
-1. Creare un account di Servizi multimediali di Azure.
-2. Avviare l'endpoint di streaming.
-3. Caricare un file video.
-4. Codificare il file di origine in un set di file MP4 a velocità in bit adattiva.
-5. Pubblicare l'asset e ottenere gli URL di streaming e di download progressivo.  
-6. Riprodurre i contenuti.
-
-## <a name="create-an-azure-media-services-account"></a>Creare un account di Servizi multimediali di Azure
-I passaggi descritti in questa sezione illustrano come creare un account Servizi multimediali di Azure.
-
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Fare clic su **+Nuovo** > **Web e dispositivi mobili** > **Servizi multimediali**.
-   
-    ![Creare Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-new1.png)
-3. In **CREARE UN ACCOUNT DEL SERVIZIO MULTIMEDIALE** immettere i valori richiesti.
-   
-    ![Creare Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-new3.png)
-   
-   1. In **Nome account**immettere il nome del nuovo account di AMS. Un nome di account di Servizi multimediali deve essere composto da tutte lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri.
-   2. In Sottoscrizione selezionare una delle diverse sottoscrizioni di Azure per le quali è disponibile l'accesso.
-   3. In **Gruppo di risorse**selezionare la risorsa nuova o esistente.  Un gruppo di risorse è una raccolta di risorse che condividono il ciclo di vita, le autorizzazioni e i criteri. Fare clic [qui](../azure-resource-manager/resource-group-overview.md#resource-groups) per altre informazioni.
-   4. In **Località** selezionare l'area geografica usata per archiviare i contenuti multimediali e i record di metadati per l'account Servizi multimediali. Questa area viene usata per elaborare e riprodurre in streaming il contenuto multimediale. Nella casella dell'elenco a discesa vengono visualizzate solo le aree di Servizi multimediali disponibili. 
-   5. In **Account di archiviazione**selezionare un account di archiviazione per l'archivio BLOB del contenuto multimediale dell'account Servizi multimediali. È possibile scegliere un account di archiviazione esistente nella stessa area geografica dell'account Servizi multimediali oppure è possibile crearne uno. Un nuovo account di archiviazione viene creato nella stessa area geografica. Per i nomi degli account di archiviazione vengono seguite le stesse regole dei nomi degli account di Servizi multimediali.
-      
-       Altre informazioni sull'archiviazione sono disponibili [qui](../storage/storage-introduction.md).
-   6. Selezionare **Aggiungi al dashboard** per visualizzare lo stato della distribuzione di account.
-4. Fare clic su **Crea** nella parte inferiore del form.
-   
-    Dopo che l'account è stato creato, viene caricata la pagina della panoramica. Nella tabella dell'endpoint di streaming l'account avrà un endpoint di streaming predefinito con stato **Arrestato**. L'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
-   
-    ![Impostazioni di Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-settings.png)
-   
-    Per gestire l'account AMS, ad esempio per caricare video, codificare asset, monitorare lo stato dei processi, usare la finestra **Impostazioni** .
-
-## <a name="manage-keys"></a>Gestione delle chiavi
-Per accedere a livello di codice all'account Servizi multimediali, sono necessarie le informazioni relative al nome dell'account e alla chiave primaria.
-
-1. Nel portale di Azure selezionare l'account. 
-   
-    Su lato destro verrà visualizzata la finestra **Impostazioni** . 
-2. Nella finestra **Impostazioni** selezionare **Chiavi**. 
-   
-    Nella finestra **Gestisci chiavi** sono visualizzati il nome dell'account e le chiavi primaria e secondaria. 
-3. Per copiare i valori, scegliere il pulsante Copia.
-   
-    ![Chiavi di Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-keys.png)
+1. Avviare l'endpoint di streaming.
+2. Caricare un file video.
+3. Codificare il file di origine in un set di file MP4 a velocità in bit adattiva.
+4. Pubblicare l'asset e ottenere gli URL di streaming e di download progressivo.  
+5. Riprodurre i contenuti.
 
 ## <a name="start-streaming-endpoints"></a>Avviare gli endpoint di streaming 
 
@@ -88,13 +48,14 @@ Uno degli scenari più frequenti dell'uso di Servizi multimediali di Azure rigua
 
 Per avviare l'endpoint di streaming, eseguire queste operazioni:
 
-1. Nella finestra Impostazioni fare clic su Endpoint di streaming. 
-2. Fare clic sull'endpoint di streaming predefinito. 
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+2. Nella finestra Impostazioni fare clic su Endpoint di streaming. 
+3. Fare clic sull'endpoint di streaming predefinito. 
 
     Verrà visualizzata la finestra DETTAGLI ENDPOINT DI STREAMING PREDEFINITO.
 
-3. Fare clic sull'icona di avvio.
-4. Fare clic sul pulsante Salva per salvare le modifiche apportate.
+4. Fare clic sull'icona di avvio.
+5. Fare clic sul pulsante Salva per salvare le modifiche apportate.
 
 ## <a name="upload-files"></a>Caricare file
 Per riprodurre video in streaming con Servizi multimediali di Azure, è necessario caricare i video di origine, codificarli in bitrate multipli e pubblicare il risultato. Il primo passaggio è illustrato in questa sezione. 
@@ -129,7 +90,7 @@ Questa sezione descrive la procedura per la codifica di contenuti con Media Enco
 1. Nella finestra **Impostazioni** selezionare **Asset**.  
 2. Nella finestra **Asset** selezionare la risorsa che si vuole codificare.
 3. Fare clic sul pulsante **Codifica** .
-4. Nella finestra **Codifica un asset** selezionare il processore "Media Encoder Standard" e un set di impostazioni. Ad esempio, se è noto che il video di input ha una risoluzione di 1920x1080 pixel, è possibile usare il set di impostazioni "Codec video H.264 a bitrate multiplo con risoluzione 1080p". Per altre informazioni sui set di impostazioni, vedere [questo](https://msdn.microsoft.com/library/azure/mt269960.aspx) articolo. È importante selezionare il set di impostazioni più appropriato per il video di input. Se il video disponibile è a bassa risoluzione (640x360), non usare il set di impostazioni "Codec video H.264 a bitrate multiplo con risoluzione 1080p".
+4. Nella finestra **Codifica un asset** selezionare il processore "Media Encoder Standard" e un set di impostazioni. Ad esempio, se è noto che il video di input ha una risoluzione di 1920x1080 pixel, è possibile usare il set di impostazioni "Codec video H.264 a bitrate multiplo con risoluzione 1080p". Per altre informazioni sui set di impostazioni, vedere [questo](media-services-mes-presets-overview.md) articolo. È importante selezionare il set di impostazioni più appropriato per il video di input. Se il video disponibile è a bassa risoluzione (640x360), non usare il set di impostazioni "Codec video H.264 a bitrate multiplo con risoluzione 1080p".
    
    Per una gestione più semplice, è possibile modificare il nome dell'asset di output e il nome del processo.
    
@@ -169,7 +130,7 @@ Un URL di firma di accesso condiviso ha il formato seguente.
 > 
 > 
 
-Per aggiornare la data di scadenza di un localizzatore, è possibile usare le API [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.
+Per aggiornare la data di scadenza di un localizzatore, è possibile usare le API [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Per usare il portale per la pubblicazione di un asset
 Per pubblicare un asset tramite il portale, seguire questa procedura:

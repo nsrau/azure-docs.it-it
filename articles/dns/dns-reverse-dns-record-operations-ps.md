@@ -1,6 +1,6 @@
 ---
-title: Gestire i record DNS inversi per i servizi di Azure con PowerShell | Microsoft Docs
-description: Come gestire i record DNS inversi o i record PTR per i servizi di Azure tramite PowerShell in Gestione risorse
+title: Gestire i record DNS inversi in DNS di Azure con PowerShell | Documentazione Microsoft
+description: DNS di Azure consente di gestire i record DNS inversi o i record PTR per i servizi di Azure con PowerShell in Resource Manager
 services: DNS
 documentationcenter: na
 author: s-malone
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2016
 ms.author: smalone
 translationtype: Human Translation
-ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
-ms.openlocfilehash: 6e6b3e9c727915cb52a112d38f60bf136d48be2e
+ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
+ms.openlocfilehash: 730321ccacb211ec82e69f8ebc69ee84cbf46a01
 
 
 ---
-# <a name="how-to-manage-reverse-dns-records-for-your-azure-services-using-azure-powershell"></a>Come gestire i record DNS inversi per i servizi tramite PowerShell
+# <a name="manage-reverse-dns-records-for-your-azure-services-using-powershell"></a>Gestire i record DNS inversi per i servizi di Azure con PowerShell
 
 [!INCLUDE [dns-reverse-dns-record-operations-arm-selectors-include.md](../../includes/dns-reverse-dns-record-operations-arm-selectors-include.md)]
 
@@ -81,6 +81,6 @@ Se si desidera aggiungere il DNS inverso a un indirizzo IP pubblico esistente ch
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

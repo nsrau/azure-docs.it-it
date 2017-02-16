@@ -1,22 +1,26 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Lesson.ly | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Lesson.ly.
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Lesson.ly.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 8c9dc6e6-5d85-4553-8a35-c7137064b928
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 11/21/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 33f4c13930017bdcbaf899b16d32ba84bdfbf9ee
+ms.openlocfilehash: e51deb2cb890669c4800c232e2b781c5f27117f2
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-lesson.ly"></a>Esercitazione: Integrazione di Azure Active Directory con Lesson.ly
+# <a name="tutorial-azure-active-directory-integration-with-lessonly"></a>Esercitazione: Integrazione di Azure Active Directory con Lesson.ly
 Questa esercitazione descrive l'integrazione di Lesson.ly con Azure Active Directory (Azure AD).
 
 L'integrazione di Lesson.ly con Azure AD offre i vantaggi seguenti:
@@ -51,7 +55,7 @@ Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti 
 1. Aggiunta di Lesson.ly dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
-## <a name="adding-lesson.ly-from-the-gallery"></a>Aggiunta di Lesson.ly dalla raccolta
+## <a name="adding-lessonly-from-the-gallery"></a>Aggiunta di Lesson.ly dalla raccolta
 Per configurare l'integrazione di Lesson.ly in Azure AD, è necessario aggiungere Lesson.ly dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Lesson.ly dalla raccolta, seguire questa procedura:**
@@ -127,7 +131,7 @@ La schermata seguente illustra un esempio relativo a questa operazione.
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_04.png) 
 
-    a. Nella casella di testo URL di accesso digitare l'URL usato dagli utenti per accedere all'applicazione Lesson.ly adottando il modello seguente: **"https://nomesocietà.Lesson.ly/signin"**. Quando si fa riferimento a un nome generico, **nomesocietà** deve essere sostituito da un nome effettivo.
+    a. Nella casella di testo URL di accesso digitare l'URL usato dagli utenti per accedere all'applicazione Lessonly adottando il modello seguente: **“https://nomesocietà.lesson.ly/signin”**. Quando si fa riferimento a un nome generico, **nomesocietà** deve essere sostituito da un nome effettivo.
 
 
 1. Nella pagina **Configura accesso Single Sign-On in Lesson.ly** seguire questa procedura:
@@ -137,7 +141,7 @@ La schermata seguente illustra un esempio relativo a questa operazione.
     a. Fare clic su **Scarica certificato**e quindi salvare il file nel computer.
    
     b. Fare clic su **Avanti**.
-2. Per ottenere la configurazione dell'accesso SSO per l'applicazione, contattare il team di supporto di Lesson.ly all'indirizzo dev@lesson.ly. Allegare il file del certificato scaricato al messaggio di posta elettronica e condividere gli URL dei metadati (ID entità, URL di accesso SSO e URL di disconnessione SSO) con il team Lesson.ly perché possa configurare SSO.
+2. Per ottenere la configurazione dell'accesso SSO per l'applicazione, contattare il team di supporto di Lesson.ly all'indirizzo dev@lessonly.com. Allegare il file del certificato scaricato al messaggio di posta elettronica e condividere gli URL dei metadati (ID entità, URL di accesso SSO e URL di disconnessione SSO) con il team Lesson.ly perché possa configurare SSO.
 3. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
    
    ![Single Sign-On di Microsoft Azure AD][10]
@@ -173,17 +177,18 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
     c. Fare clic su **Avanti**.
 6. Nella pagina **Profilo utente** seguire questa procedura:
    
-   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-lessonly-tutorial/create_aaduser_06.png) 
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-lessonly-tutorial/create_aaduser_06.png) 
    
-   a. Nella casella di testo **Nome** digitare **Britta**.  
+    a. Nella casella di testo **Nome** digitare **Britta**.  
    
-   b. Nella casella di testo **Cognome** digitare **Simon**.
+    b. Nella casella di testo **Cognome** digitare **Simon**.
    
-   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+    c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
    
-   d. Nell'elenco **Ruolo** selezionare **Utente**.
+    d. Nell'elenco **Ruolo** selezionare **Utente**.
    
-   e. Fare clic su **Avanti**.
+    e. Fare clic su **Avanti**.
+
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-lessonly-tutorial/create_aaduser_07.png) 
@@ -195,7 +200,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
    
     b. Fare clic su **Complete**.   
 
-### <a name="creating-a-lesson.ly-test-user"></a>Creazione di un utente test Lesson.ly
+### <a name="creating-a-lessonly-test-user"></a>Creazione di un utente test Lesson.ly
 Questa sezione descrive come creare un utente chiamato Britta Simon in Lesson.ly. Lesson.ly supporta il provisioning just-in-time, che è abilitato per impostazione predefinita.
 
 Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Lesson.ly verrà creato un nuovo utente, se questo non esiste già. [Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on).
@@ -255,6 +260,6 @@ Quando si fa clic sul riquadro Lesson.ly nel pannello di accesso, si dovrebbe ac
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

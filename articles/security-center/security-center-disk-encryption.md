@@ -15,20 +15,20 @@ ms.workload: na
 ms.date: 05/27/2016
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 65d586405bc79ccf0d5e27c09d750818e5f3dd24
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 
 
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Crittografare una macchina virtuale di Azure
 Centro sicurezza di Azure invia avvisi in caso di macchine virtuali non crittografate. Gli avvisi vengono visualizzati con un livello di gravità elevato e la raccomandazione di crittografare tali macchine virtuali.
 
-![Raccomandazione di crittografare il disco](./media/security-center-disk-encryption\\security-center-disk-encryption-fig1.png)
+![Raccomandazione di crittografare il disco](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
 > Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure.
-> 
-> 
+>
+>
 
 Per crittografare le macchine virtuali di Azure identificate da Centro sicurezza di Azure, seguire questa procedura:
 
@@ -43,11 +43,11 @@ L'installazione dei prerequisiti e la configurazione della crittografia per le m
 
 > [!NOTE]
 > Per altre informazioni sulle soluzioni alternative per la configurazione della crittografia per macchine virtuali di Azure, vedere l'articolo relativo a [Crittografia dischi di Azure per macchine virtuali di Azure che eseguono Windows o Linux](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
-> 
-> 
+>
+>
 
 ## <a name="install-and-configure-azure-powershell"></a>Installare e configurare Azure PowerShell
-È necessario che Azure PowerShell 1.2.1 o versione successiva sia installato nel computer. L'articolo [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) contiene tutti i passaggi necessari per effettuare il provisioning del computer per l'uso di Azure PowerShell. L'approccio più semplice consiste nell'eseguire l'installazione da WebPI menzionata nell'articolo. Anche se Azure PowerShell è già presente nel computer, installarlo nuovamente da WebPI per avere l'ultima versione di Azure PowerShell.
+È necessario che Azure PowerShell 1.2.1 o versione successiva sia installato nel computer. L'articolo [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) contiene tutti i passaggi necessari per effettuare il provisioning del computer per l'uso di Azure PowerShell. L'approccio più semplice consiste nell'eseguire l'installazione da WebPI menzionata nell'articolo. Anche se Azure PowerShell è già presente nel computer, installarlo nuovamente da WebPI per avere l'ultima versione di Azure PowerShell.
 
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Ottenere ed eseguire lo script di configurazione dei prerequisiti di Crittografia dischi di Azure.
 Lo script di configurazione dei prerequisiti di Crittografia dischi di Azure configura tutti i prerequisiti necessari per la crittografia delle macchine virtuali di Azure.
@@ -70,7 +70,7 @@ Ora che il contenuto dello script è stato salvato, aprire lo script in PowerShe
 
 Verrà visualizzata una schermata simile alla figura seguente.
 
-![Finestra di PowerShell ISE](./media/security-center-disk-encryption\\security-center-disk-encryption-fig2.png)
+![Finestra di PowerShell ISE](./media/security-center-disk-encryption/security-center-disk-encryption-fig2.png)
 
 Il riquadro superiore è detto "riquadro di script", mentre il riquadro inferiore è detto "console". Questi termini verranno usati più avanti nell'articolo.
 
@@ -84,8 +84,8 @@ Dopo l'avvio, lo script dei prerequisiti di Crittografia dischi di Azure richied
 
 > [!NOTE]
 > Per informazioni sulla necessità di creare un'applicazione Azure Active Directory, vedere la sezione *Registrare un'applicazione con Azure Active Directory* nell'articolo [Introduzione all'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-get-started.md).
-> 
-> 
+>
+>
 
 Per crittografare una macchina virtuale di Azure, seguire questa procedura:
 
@@ -94,12 +94,12 @@ Per crittografare una macchina virtuale di Azure, seguire questa procedura:
 3. Impostare i criteri di esecuzione del computer in modo che sia possibile eseguire lo script. Digitare **Set-ExecutionPolicy Unrestricted** nella console e quindi premere INVIO. Se viene visualizzata una finestra di dialogo che informa sugli effetti della modifica dei criteri di esecuzione, fare clic su **Sì, tutti** oppure su **Sì**. Se l'opzione **Sì, tutti** viene visualizzata, selezionarla. Se l'opzione **Sì, tutti** non viene visualizzata, fare clic su **Sì**.
 4. Accedere all'account Azure. Nella console digitare **Login-AzureRmAccount** e premere **INVIO**. Viene visualizzata una finestra di dialogo in cui inserire le credenziali. Assicurarsi di avere i diritti necessari per modificare le macchine virtuali, in caso contrario non sarà possibile crittografarle. In caso di dubbi, contattare l'amministratore o il proprietario della sottoscrizione). Verranno visualizzate le informazioni su **ambiente**, **account**, **TenantId**, **SubscriptionId** e **CurrentStorageAccount**. Copiare **SubscriptionId** nel Blocco note. Sarà necessario nel passaggio 6.
 5. Trovare la sottoscrizione a cui appartiene la macchina virtuale e il relativo percorso. Passare a [https://portal.azure.com](ttps://portal.azure.com) ed eseguire l'accesso.  Sul lato sinistro della pagina, fare clic su **Macchine virtuali**. Verrà visualizzato un elenco delle macchine virtuali e delle sottoscrizioni a cui appartengono.
-   
-   ![Macchine virtuali](./media/security-center-disk-encryption\\security-center-disk-encryption-fig3.png)
+
+   ![Macchine virtuali](./media/security-center-disk-encryption/security-center-disk-encryption-fig3.png)
 6. Tornare alla finestra di PowerShell ISE. Impostare il contesto della sottoscrizione in cui verrà eseguito lo script. Nella console digitare **Select-AzureRmSubscription –SubscriptionId <your_subscription_Id>** (sostituire **< your_subscription_Id >** con l'ID sottoscrizione effettivo) e premere **INVIO**. Verranno visualizzate le informazioni su ambiente, **account**, **TenantId**, **SubscriptionId** e **CurrentStorageAccount**.
 7. A questo punto è possibile eseguire lo script. Fare clic sul pulsante **Esegui script** o preme **F5** sulla tastiera.
-   
-   ![Esecuzione dello script di PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig4.png)
+
+   ![Esecuzione dello script di PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig4.png)
 8. Lo script richiede il valore **resourceGroupName:** immettere il nome del *gruppo di risorse* da usare e quindi premere **INVIO**. Se non è disponibile, immettere un nome da usare per un nuovo gruppo di risorse. Se è già disponibile un *gruppo di risorse* da usare, ad esempio quello in cui si trova la macchina virtuale, immetterne il nome.
 9. Lo script richiede **keyVaultName:** immettere il nome dell' *insieme di credenziali delle chiavi* da usare e quindi premere INVIO. Se non è disponibile, immettere un nome da usare per un nuovo gruppo di risorse. Se è già disponibile un *insieme di credenziali delle chiavi*da usare, immetterne il nome.
 10. Lo script richiede il valore **location:** immettere il percorso in cui si trova la VM da crittografare, quindi premere **INVIO**. Se non si ricorda il percorso, tornare al passaggio 5.
@@ -110,7 +110,7 @@ Per crittografare una macchina virtuale di Azure, seguire questa procedura:
 
 L'output dello script sarà simile alla schermata seguente:
 
-![Output di PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig5.png)
+![Output di PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig5.png)
 
 ## <a name="encrypt-the-azure-virtual-machine"></a>Crittografare la macchina virtuale di Azure
 A questo punto è possibile crittografare la macchina virtuale. Se la macchina virtuale si trova nello stesso gruppo di risorse dell'insieme di credenziali delle chiavi, è possibile passare alla sezione Passaggi di crittografia. Se la macchina virtuale non si trova nello stesso gruppo di risorse dell'insieme di credenziali delle chiavi, è necessario immettere quanto segue nella console di PowerShell ISE:
@@ -124,7 +124,7 @@ Per verificare che sia stato immesso il nome del gruppo di risorse corretto, dig
 
 Premere **INVIO**. Viene visualizzato il nome del gruppo di risorse in cui si trovano le macchine virtuali. Ad esempio:
 
-![Output di PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig6.png)
+![Output di PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig6.png)
 
 ### <a name="encryption-steps"></a>Passaggi di crittografia
 In primo luogo, è necessario specificare in PowerShell il nome della macchina virtuale da crittografare. Nella console digitare quanto segue:
@@ -139,7 +139,7 @@ Per verificare che sia stato immesso il nome della macchina virtuale corretto, d
 
 Premere **INVIO**. Viene visualizzato il nome della macchina virtuale da crittografare. Ad esempio:
 
-![Output di PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig7.png)
+![Output di PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig7.png)
 
 Il comando per la crittografia della macchina virtuale può essere eseguito in due modi. Il primo metodo consiste nel digitare il comando seguente nella console di PowerShell ISE:
 
@@ -151,25 +151,25 @@ Dopo aver digitato il comando, premere **INVIO**.
 
 Il secondo metodo consiste nel fare clic nel riquadro di script, vale a dire il riquadro superiore di PowerShell ISE, e scorrere fino alla fine dello script. Evidenziare il comando riportato sopra, fare clic su di esso con il pulsante destro del mouse e selezionare **Esegui selezione** oppure premere **F8** sulla tastiera.
 
-![PowerShell ISE](./media/security-center-disk-encryption\\security-center-disk-encryption-fig8.png)
+![PowerShell ISE](./media/security-center-disk-encryption/security-center-disk-encryption-fig8.png)
 
 Indipendentemente dal metodo usato, verrà visualizzata una finestra di dialogo che informa che il completamento dell'operazione richiede 10-15 minuti. Fare clic su **Sì**.
 
 Durante l'esecuzione del processo di crittografia, è possibile tornare al portale di Azure e visualizzare lo stato della macchina virtuale. Sul lato sinistro della pagina fare clic su **Macchine virtuali**. Nel pannello **Macchine virtuali** fare clic sul nome della macchina virtuale di cui è in corso la crittografia. Nel pannello visualizzato lo **Stato** è indicato come **Aggiornamento**. Ciò dimostra che la crittografia è in corso.
 
-![Altri dettagli sulla macchina virtuale](./media/security-center-disk-encryption\\security-center-disk-encryption-fig9.png)
+![Altri dettagli sulla macchina virtuale](./media/security-center-disk-encryption/security-center-disk-encryption-fig9.png)
 
 Tornare alla finestra di PowerShell ISE. Al termine dell'esecuzione dello script, viene visualizzato quanto riportato nella figura seguente.
 
-![Output di PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig10.png)
+![Output di PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig10.png)
 
 Per verificare che la macchina virtuale ora è crittografata, tornare al portale di Azure e fare clic su **Macchine virtuali** sul lato sinistro della pagina. Fare clic sul nome della macchina virtuale appena crittografata. Nel pannello **Impostazioni** fare clic su **Dischi**.
 
-![Opzioni delle impostazioni](./media/security-center-disk-encryption\\security-center-disk-encryption-fig11.png)
+![Opzioni delle impostazioni](./media/security-center-disk-encryption/security-center-disk-encryption-fig11.png)
 
 Nel pannello **Dischi** si noterà che la **crittografia** è **abilitata**.
 
-![Proprietà dei dischi](./media/security-center-disk-encryption\\security-center-disk-encryption-fig12.png)
+![Proprietà dei dischi](./media/security-center-disk-encryption/security-center-disk-encryption-fig12.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come crittografare una macchina virtuale di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
@@ -181,7 +181,6 @@ In questo documento si è appreso come crittografare una macchina virtuale di Az
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

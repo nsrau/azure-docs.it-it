@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 01/20/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 193c939065979dc48243d31e7f97cd87d96bf9a8
-ms.openlocfilehash: 1b439e2b48cc009e727a49c271318cfd4ead9ef2
+ms.sourcegitcommit: a287ebd634a9305229424d0efea266146f88a952
+ms.openlocfilehash: 234032630cb3911deb7c7d32cfc4963ad6aee43f
 
 
 ---
@@ -28,14 +28,19 @@ Si supponga, ad esempio, di avere un modello di dati In-memory o DirectQuery che
 
 Se invece si dispone di un modello DirectQuery che si connette a origini dati locali, se si usano provider nativi è possibile che venga visualizzato un messaggio di errore simile al seguente: **"Errore durante la creazione del set di righe OLE DB. Sintassi errata vicino a 'LIMIT'"**.
 
-## <a name="data-source-providers"></a>Provider delle origini dati
-Durante la connessione a origini dati locali o cloud, per modelli di dati In-memory o DirectQuery sono supportati i provider di origini dati seguenti:
+## <a name="data-source-providers"></a>Provider di origini dati
+I seguenti provider di origini dati sono supportati per i modelli di dati DirectQuery o in memoria nella connessione a origini dati nel cloud o in locale:
 
-|  | **Origine dati** | **In-memory** | **DirectQuery** |
-| --- | --- | --- | --- |
-| **Cloud** |Azure SQL Data Warehouse |Provider di dati .NET Framework per SQL Server |Provider di dati .NET Framework per SQL Server |
+### <a name="cloud"></a>Cloud
+| **Origine dati** | **In-memory** | **DirectQuery** |
+|  --- | --- | --- |
+| Azure SQL Data Warehouse |Provider di dati .NET Framework per SQL Server |Provider di dati .NET Framework per SQL Server |
 | Database SQL di Azure |Provider di dati .NET Framework per SQL Server |Provider di dati .NET Framework per SQL Server | |
-| **Locale** (tramite gateway) |SQL Server |SQL Server Native Client 11.0 |Provider di dati .NET Framework per SQL Server |
+
+### <a name="on-premises-via-gateway"></a>Locale (tramite gateway)
+|**Origine dati** | **In-memory** | **DirectQuery** |
+|  --- | --- | --- |
+| SQL Server |SQL Server Native Client 11.0 |Provider di dati .NET Framework per SQL Server |
 | SQL Server |Provider Microsoft OLE DB per SQL Server |Provider di dati .NET Framework per SQL Server | |
 | SQL Server |Provider di dati .NET Framework per SQL Server |Provider di dati .NET Framework per SQL Server | |
 | Oracle |Provider Microsoft OLE DB per Oracle |Provider di dati Oracle per .NET | |
@@ -75,6 +80,6 @@ Se si dispone di origini dati locali, verificare di installare il [gateway local
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

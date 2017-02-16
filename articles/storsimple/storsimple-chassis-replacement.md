@@ -1,5 +1,5 @@
 ---
-title: Sostituire lo chassis in un dispositivo StorSimple | Microsoft Docs
+title: Sostituire lo chassis in un dispositivo StorSimple serie 8000| Microsoft Docs
 description: Descrive come rimuovere e sostituire lo chassis per l&quot;alloggiamento principale o EBOD di StorSimple.
 services: storsimple
 documentationcenter: 
@@ -15,13 +15,13 @@ ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0f2568dac43a0fa870c7b3db7bde3458e7cfafd8
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: 5295c5dd039b1d4746ebaaf90372932e4c3e7c26
 
 
 ---
 # <a name="replace-the-chassis-on-your-storsimple-device"></a>Sostituire lo chassis sul dispositivo StorSimple
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Questa esercitazione illustra come rimuovere e sostituire uno chassis in un dispositivo StorSimple serie 8000. Il modello 8100 di StorSimple è un dispositivo a chassis singolo (uno chassis), mentre il modello 8600 è un dispositivo a chassis doppio (due chassis). Per un modello 8600, esistono potenzialmente due chassis che potrebbero avere esito negativo nel dispositivo: lo chassis per lo chassis principale o lo chassis per lo chassis EBOD.
 
 In entrambi i casi, lo chassis sostitutivo che viene fornito da Microsoft è vuoto. Non verranno inclusi PCM, moduli controller, unità disco a stato solido (SSD), unità disco rigido (HDD) o moduli EBOD.
@@ -63,6 +63,6 @@ Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di St
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

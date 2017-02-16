@@ -15,13 +15,13 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6337e171e29e11da14b22fdda0814ac84be7deb1
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: d0015760fe086b00a264aabd38cc2625f55f4926
 
 
 ---
 # <a name="create-a-logic-app-deployment-template"></a>Creare un modello di distribuzione di app per la logica
-Una volta creata un'app per la logica, è possibile crearla come un modello di Azure Resource Manager. Così facendo, l'app per la logica potrà essere facilmente distribuita in qualsiasi ambiente o gruppo di risorse in cui potrebbe essere necessaria. Per un'introduzione ai modelli di distribuzione Resource Manager, vedere gli articoli [Creazione di un modello di distribuzione Azure Resource Manager](../resource-group-authoring-templates.md) e [Distribuzione di risorse usando i modelli Azure Resource Manager](../resource-group-template-deploy.md).
+Una volta creata un'app per la logica, è possibile crearla come un modello di Azure Resource Manager. Così facendo, l'app per la logica potrà essere facilmente distribuita in qualsiasi ambiente o gruppo di risorse in cui potrebbe essere necessaria. Per un'introduzione ai modelli di distribuzione Resource Manager, vedere gli articoli [Creazione di un modello di distribuzione Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) e [Distribuzione di risorse usando i modelli Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="logic-app-deployment-template"></a>Modello di distribuzione di app per la logica
 Un'app per la logica dispone di tre componenti di base:
@@ -41,8 +41,8 @@ Esistono altri strumenti utili per la creazione di un modello di distribuzione d
 
 > [!NOTE]
 > Le connessioni devono essere incluse nello stesso gruppo di risorse dell'app per la logica.
-> 
-> 
+>
+>
 
 ### <a name="install-the-logic-app-template-powershell-module"></a>Installare il modulo PowerShell per il modello di app per la logica
 Il modo più semplice per installare il modulo consiste nell'usare la [PowerShell Gallery](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1) con il comando `Install-Module -Name LogicAppTemplate`.  
@@ -65,7 +65,7 @@ Dopo aver installato PowerShell, è possibile generare un modello utilizzando il
 Dopo aver creato il modello di app per la logica, è possibile continuare ad aggiungere o modificare i parametri necessari. Se, ad esempio, la definizione include un ID di risorsa in una funzione di Azure o in un flusso di lavoro annidato in cui si prevede eseguire una singola distribuzione, è possibile aggiungere altre risorse al modello e creare parametri per gli ID in base alla necessità. Lo stesso approccio è applicabile a qualsiasi riferimento ad API personalizzate o endpoint Swagger che si prevede di distribuire in ogni gruppo di risorse.
 
 ## <a name="deploy-a-logic-app-template"></a>Distribuire un modello di app per la logica
-Per distribuire il modello, è possibile utilizzare alcuni strumenti, inclusi PowerShell, API REST, Visual Studio, Release Management e la distribuzione dei modelli del portale di Azure. Vedere l'articolo sulla [distribuzione di risorse tramite i modelli di Azure Resource Manager](../resource-group-template-deploy.md) per ulteriori informazioni. È inoltre consigliabile creare anche un [file di parametri](../resource-group-template-deploy.md#parameter-file) per l'archiviazione di valori per il parametro.
+Per distribuire il modello, è possibile utilizzare alcuni strumenti, inclusi PowerShell, API REST, Visual Studio, Release Management e la distribuzione dei modelli del portale di Azure. Vedere l'articolo sulla [distribuzione di risorse tramite i modelli di Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md) per ulteriori informazioni. È inoltre consigliabile creare anche un [file di parametri](../azure-resource-manager/resource-group-template-deploy.md#parameters) per l'archiviazione di valori per il parametro.
 
 ### <a name="authorize-oauth-connections"></a>Autorizzare le connessioni OAuth
 Una volta distribuite, le app per la logica funzionano end-to-end con parametri validi. Tuttavia, sarà comunque necessario autorizzare le connessioni OAuth per la generazione di un token di accesso valido. Per farlo, aprire l'app per la logica nella finestra di progettazione e quindi autorizzare le connessioni. In alternativa, è possibile automatizzare l'operazione utilizzando uno script per consentire ogni connessione OAuth. Nel progetto [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) è presente uno script di esempio su GitHub.
@@ -74,7 +74,7 @@ Una volta distribuite, le app per la logica funzionano end-to-end con parametri 
 Uno scenario comune per la distribuzione e la gestione di ambienti consiste nell'usare uno strumento come Release Management per Visual Studio con un modello di distribuzione di app per la logica. Visual Studio Team Services include un'attività [Distribuisci gruppo di risorse di Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) , che può essere aggiunta in una build o in una pipeline di rilascio. Per l'autorizzazione alla distribuzione è necessario avere un'[entità servizio](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/). Sarà quindi possibile generare la definizione della versione.
 
 1. Per creare una nuova definizione in Release Management, selezionare **Vuoto** per iniziare da una definizione vuota.
-   
+
     ![Creare una nuova definizione vuota][1]   
 2. Scegliere le risorse necessarie per questa operazione, ad esempio il modello di app per la logica generato manualmente o come parte del processo di compilazione.
 3. Aggiungere un'attività **Distribuzione gruppo di risorse di Azure** .
@@ -86,6 +86,6 @@ Uno scenario comune per la distribuzione e la gestione di ambienti consiste nell
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

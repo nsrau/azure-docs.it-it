@@ -12,22 +12,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e63da27c70ed171251cef21a361e04c6c0641fc8
+ms.sourcegitcommit: e6c45f4be168cef1a05958624f666097779e76f6
+ms.openlocfilehash: 2486a00482ca873ccb5198b5ca13cdc104bd1505
 
 
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Importazione di dati in blocco utilizzando le tabelle di partizione SQL
-In questo documento viene descritto come creare tabelle partizionate per l'importazione parallela in blocco di dati in un database di SQL Server. Per il caricamento/trasferimento di Big Data, l'importazione di dati nel database SQL e le query successive possono essere migliorate usando *tabelle e visualizzazioni di partizione*. 
+Questo documento descrive come creare tabelle partizionate per l'importazione in blocco in parallelo di dati in un database di SQL Server. Per il caricamento/trasferimento di Big Data, l'importazione di dati nel database SQL e le query successive possono essere migliorate usando *tabelle e visualizzazioni di partizione*. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Creazione di un nuovo database e di un set di filegroup
 * [Creare un nuovo database](https://technet.microsoft.com/library/ms176061.aspx) (se non esiste)
 * Aggiungere filegroup del database al database che conterrà i file fisici partizionati
   
-  Nota: questa operazione può essere eseguita con [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) se il database è nuovo o [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) se il database esiste già.
+  Questa operazione può essere eseguita con [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) se il database è nuovo o con [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) se il database esiste già.
 * Aggiungere uno o più file (se necessario) per ogni filegroup del database
   
   > [!NOTE]
@@ -76,7 +76,7 @@ Creare tabelle partizionate in base allo schema dei dati, mappate ai filegroup d
         <filegroup_5>, <filegroup_6>, <filegroup_7>, <filegroup_8>,
         <filegroup_9>, <filegroup_10>, <filegroup_11>, <filegroup_12> )
   
-  Suggerimento: per verificare gli intervalli in vigore in ogni partizione secondo funzione/schema, eseguire la query seguente:
+  per verificare gli intervalli in vigore in ogni partizione secondo funzione/schema, eseguire la query seguente:
   
         SELECT psch.name as PartitionScheme,
             prng.value AS ParitionValue,
@@ -185,6 +185,6 @@ Per un esempio della procedura dettagliata end-to-end mediante Cortana Analytics
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 16071ba6c99e41af9fe7614fcc3254cd7e786e89
-ms.openlocfilehash: 497f54903bef564bab687103a763c7a7b58da074
+ms.sourcegitcommit: 9919cd4735f1f915ba77d41d8b9e92b3411fef3f
+ms.openlocfilehash: 38d9eca04780493d03bb5ceb79e5b59fab0a93d2
 
 
 ---
@@ -31,7 +31,7 @@ L'inoltro di Connessioni ibride connette due parti fornendo un punto di incontro
 È presente un listener che prima indica la conformità alla gestione delle connessioni in ingresso e successivamente le accetta quando arrivano. Sull'altro lato è presente un client di connessione che si connette al listener, aspettando che la connessione venga accettata per stabilire un percorso di comunicazione bidirezionale.
 "Connettersi", "essere in ascolto", "accettare" sono termini comuni usati nella maggior parte delle API socket.
 
-In un modello di comunicazione di inoltro entrambe le parti creano connessioni in uscita verso un endpoint di servizio, rendendo il "listener" anche un "client" nel linguaggio comune e causando altre sovrapposizioni terminologiche. La terminologia esatta usata per le connessioni ibride è quindi la seguente:
+In un modello di comunicazione di inoltro entrambe le parti creano connessioni in uscita verso un endpoint di servizio, rendendo il "listener" anche un "client" nell'uso comune del termine e causando altre sovrapposizioni terminologiche. La terminologia esatta usata per le connessioni ibride è quindi la seguente.
 
 I programmi su entrambi i lati di una connessione sono detti "client", perché sono i client del servizio. Il client che attende e accetta le connessioni è il "listener", che è anche nel "ruolo listener". Il client che avvia una nuova connessione verso un listener tramite il servizio è detto "mittente", che è anche nel "ruolo mittente".
 
@@ -231,7 +231,7 @@ Le opzioni dei parametri della stringa di query sono le seguenti.
 
 | Param | Obbligatorio? | Description |
 | --- | --- | --- |
-| sb-hc-action |sì |Per il ruolo listener, il parametro deve essere `action=connect`. |
+| sb-hc-action |Sì |Per il ruolo mittente, il parametro deve essere `action=connect`. |
 | {path} |sì |(vedere il paragrafo seguente) |
 | sb-hc-token |Sì\* |Il listener deve fornire un token di accesso condiviso del bus di servizio codificato con URL valido per lo spazio dei nomi o la connessione ibrida che conferisce il diritto **Send**. |
 | sb-hc-id |No |ID facoltativo che consente la traccia diagnostica end-to-end ed è disponibile per il listener durante l'handshake accept. |
@@ -271,6 +271,6 @@ Se la connessione Web Socket viene intenzionalmente arrestata dal servizio dopo 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

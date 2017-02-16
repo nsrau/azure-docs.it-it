@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bbe3370442ad4117a1a08d0b23595dd98aaba5b5
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 16e8c4ba332cbaba86a13d7b815d0561618cb28b
 
 
 ---
@@ -66,12 +66,12 @@ In questo esempio **smmUserConnectionString** contiene la stringa di connessione
 
     "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
 
-Come con le credenziali di amministratore, non usare valori nel formato "username@server".. Usare invece solo "username".  Si noti inoltre che la stringa di connessione non contiene un nome di server e un nome di database, in quando la chiamata a **OpenConnectionForKey** reindirizzerà automaticamente la connessione alla partizione corretta in base alla chiave. Di conseguenza, non vengono forniti il nome del database e il nome del server. 
+Come con le credenziali di amministratore, nessun valore sotto forma di "username@server". Usare invece solo "username".  Si noti inoltre che la stringa di connessione non contiene un nome di server e un nome di database, in quando la chiamata a **OpenConnectionForKey** reindirizzerà automaticamente la connessione alla partizione corretta in base alla chiave. Di conseguenza, non vengono forniti il nome del database e il nome del server. 
 
 ## <a name="see-also"></a>Vedere anche
 [Gestione di database e account di accesso in database SQL di Azure](sql-database-manage-logins.md)
 
-[Protezione del Database SQL](sql-database-security.md)
+[Protezione del Database SQL](sql-database-security-overview.md)
 
 [Introduzione ai processi di Database Elastici](sql-database-elastic-jobs-getting-started.md)
 
@@ -80,6 +80,6 @@ Come con le credenziali di amministratore, non usare valori nel formato "usernam
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

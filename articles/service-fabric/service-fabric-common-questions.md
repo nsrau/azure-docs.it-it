@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2016
+ms.date: 01/19/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: da356a95fc372c140e089a943e5fcb680f0c9fd7
-ms.openlocfilehash: 009fde75bff1b7746ad0ae247a3b895366f54b84
+ms.sourcegitcommit: 102be620e8812cc551aebafe7c8df4e4eac0ae90
+ms.openlocfilehash: 2ad3bd7b846693c637fd843383802651a619b128
 
 ---
 
@@ -39,15 +39,15 @@ Non ancora, ma si tratta di una richiesta comune che abbiamo intenzione di imple
 
 Il problema con gli aggiornamenti del sistema operativo è che solitamente richiedono un riavvio della macchina, causando così una perdita temporanea di disponibilità. Di per sé non sarebbe un problema, poiché Service Fabric reindirizzerà automaticamente verso altri nodi il traffico di tali servizi. Tuttavia, se gli aggiornamenti del sistema operativo non vengono coordinati all'interno del cluster, esiste il rischio di interruzione simultanea per parecchi nodi. Tali riavvii simultanei possono causare la perdita totale di disponibilità per un servizio o, perlomeno, per una partizione specifica (per un servizio con stato).
 
-In futuro continueremo a supportare un criterio di aggiornamenti del sistema operativo coordinati tra i vari domini di aggiornamento, per garantire la disponibilità nonostante i riavvii e altri guasti o errori imprevisti.
+In futuro Microsoft supporterà un criterio di aggiornamento del sistema operativo completamente automatico e coordinato tra i vari domini di aggiornamento, per garantire la disponibilità nonostante i riavvii e altri guasti o errori imprevisti.
 
-Nel frattempo, la sola opzione sicura è eseguire manualmente gli aggiornamenti del sistema operativo, un nodo alla volta.
+Nel frattempo è stato [messo a disposizione uno script](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/) che un amministratore del cluster può usare per avviare manualmente l'applicazione sicura di patch di ogni nodo.
 
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Qual è la dimensione minima di un cluster di Service Fabric? Perché non può essere di dimensioni minori?
 
 La dimensione minima supportata per un cluster di Service Fabric che esegue carichi di lavoro di produzione è di cinque nodi. Per scenari di sviluppo e test, sono supportati cluster a tre nodi.
 
-Queste dimensioni minime esistono poiché il cluster di Service Fabric esegue un set di servizi di sistema con stato, inclusi il servizio di denominazione e la gestione del failover. Questi servizi, che tengono traccia di quali sono stati distribuiti nel cluster e dove sono attualmente ospitati, dipendono da una coerenza elevata. Tale coerenza elevata, a sua volta, dipende dalla possibilità di acquisire un *quorum* per qualsiasi aggiornamento specifico per lo stato di tali servizi, dove per quorum si intende una stretta maggioranza delle repliche (N/2 + 1) per un determinato servizio.
+Queste dimensioni minime esistono poiché il cluster di Service Fabric esegue un set di servizi di sistema con stato, inclusi il servizio di denominazione e la gestione del failover. Questi servizi, che tengono traccia di quali sono stati distribuiti nel cluster e dove sono attualmente ospitati, dipendono da una coerenza elevata. Tale coerenza elevata, a sua volta, dipende dalla possibilità di acquisire un *quorum* per qualsiasi aggiornamento specifico per lo stato di tali servizi, dove per quorum si intende una stretta maggioranza delle repliche (N/2 +&1;) per un determinato servizio.
 
 Detto questo, esaminiamo alcune possibili configurazioni di cluster:
 
@@ -103,9 +103,17 @@ Si noti che questo calcolo presuppone inoltre:
 
 Come per i servizi Reliable, la quantità di dati archiviabile in un servizio attore è limitata solo dallo spazio totale su disco e della memoria disponibile tra i nodi del cluster. Tuttavia, i singoli attori sono più efficaci quando vengono usati per racchiudere una piccola quantità di logica di business di stato e associata. Come regola generale, un singolo attore dovrebbe avere uno stato misurabile in kilobyte.
 
+## <a name="other-questions"></a>Altre domande
+
 ### <a name="how-does-service-fabric-relate-to-containers"></a>In che modo Service Fabric è correlato ai contenitori?
 
 I contenitori offrono un modo semplice per racchiudere i servizi e le relative dipendenze in modo da risultare eseguibili con coerenza in tutti gli ambiente e usabili in modo isolato su una singola macchina. Service Fabric offre un modo per distribuire e gestire servizi, tra cui [quelli inclusi in un contenitore](service-fabric-containers-overview.md).
+
+### <a name="are-you-planning-to-open-source-service-fabric"></a>Si prevede di rendere disponibile Service Fabric in open source?
+
+Microsoft prevede di rendere disponibili in open source i framework di Reliable Services e Reliable Actors in GitHub e accetterà i contributi della community per questi progetti. Seguire il [blog di Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) per le informazioni più recenti.
+
+Non si prevede attualmente di rendere disponibile in open source il runtime di Service Fabric.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -113,6 +121,6 @@ I contenitori offrono un modo semplice per racchiudere i servizi e le relative d
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Creare e gestire processi di database elastici tramite PowerShell '
+title: Creare e gestire processi elastici con PowerShell | Documentazione Microsoft
 description: PowerShell viene utilizzato per gestire i pool del database SQL di Azure
 services: sql-database
 documentationcenter: 
@@ -7,6 +7,7 @@ manager: jhubbard
 author: ddove
 ms.assetid: 737d8d13-5632-4e18-9cb0-4d3b8a19e495
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 92a986e9a5ff736408d1221143d38b117eab437f
+ms.sourcegitcommit: 77b8b8960fb0e5e5340b65dae03f95b456832a07
+ms.openlocfilehash: 5dc7bd506060ec04691abae3054fa3514893e953
 
 
 ---
-# <a name="create-and-manage-a-sql-database-elastic-database-jobs-using-powershell-preview"></a>Creare e gestire processi di database elastici del database SQL tramite PowerShell (anteprima)
+# <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Creare e gestire processi elastici del database SQL con PowerShell (anteprima)
 > [!div class="op_single_selector"]
 > * [Portale di Azure](sql-database-elastic-jobs-create-and-manage.md)
 > * [PowerShell](sql-database-elastic-jobs-powershell.md)
@@ -31,7 +32,7 @@ Le API di PowerShell per i **processi di database elastici** , in anteprima, con
 ## <a name="prerequisites"></a>Prerequisiti
 * Una sottoscrizione di Azure. Per una versione di valutazione gratuita, vedere [Versione di valutazione gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
 * Un set di database creato con gli strumenti di database elastici. Vedere [Iniziare a usare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md).
-* Azure PowerShell. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+* Azure PowerShell. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * **processi di database elastici** di PowerShell, vedere [Installing processi di database elastici](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Selezionare la sottoscrizione ad Azure
@@ -357,7 +358,7 @@ Recuperare tutte le esecuzioni di processo di primo livello, incluse le esecuzio
 Recuperare tutte le esecuzioni di processo figlio di un ID di esecuzione processo fornito, incluse le esecuzioni di processo inattive:
 
     $parentJobExecutionId = "{Job Execution Id}"
-    Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId –IncludeInactive -IncludeChildren
+    Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId -IncludeInactive -IncludeChildren
 
 Recuperare tutte le esecuzioni di processo create utilizzando una pianificazione / processo di combinazione, inclusi i processi inattivi:
 
@@ -371,13 +372,13 @@ Recuperare tutti i processi destinati a una mappa di partizione specificata, inc
     $shardMapDatabaseName = "{Shard Map Database Name}"
     $shardMapName = "{Shard Map Name}"
     $target = Get-AzureSqlJobTarget -ShardMapManagerDatabaseName $shardMapDatabaseName -ShardMapManagerServerName $shardMapServerName -ShardMapName $shardMapName
-    Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
+    Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
 
 Recuperare tutti i processi destinati a una raccolta personalizzata specificata, inclusi i processi inattivi:
 
     $customCollectionName = "{Custom Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
-    Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
+    Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
 
 Recuperare l'elenco delle esecuzioni delle attività di processo in una esecuzione di processo specifica:
 
@@ -483,7 +484,7 @@ Per attivare l'eliminazione di processi, usare il [**cmdlet Remove-AzureSqlJob**
     Remove-AzureSqlJob -JobName $jobName
 
 ## <a name="to-create-a-custom-database-target"></a>Per creare una destinazione di database personalizzata
-È possibile definire destinazioni di database personalizzate per l'esecuzione diretta o per l'inclusione in un gruppo di database personalizzato. Ad esempio, poiché i **pool di database elastici** non sono ancora supportati direttamente con le API di PowerShell, è possibile creare una destinazione di database personalizzata e una destinazione della raccolta di database personalizzata che comprenda tutti i database nel pool.
+È possibile definire destinazioni di database personalizzate per l'esecuzione diretta o per l'inclusione in un gruppo di database personalizzato. Ad esempio, poiché i **pool elastici** non sono ancora supportati direttamente se si usano le API di PowerShell, è possibile creare una destinazione di database personalizzata e una destinazione della raccolta di database personalizzata che comprenda tutti i database nel pool.
 
 Impostare le seguenti variabili in modo da riflettere le informazioni desiderate sul database:
 
@@ -585,7 +586,7 @@ Usare [New-AzureSqlJobTrigger](https://msdn.microsoft.com/library/mt346069.aspx)
     $scheduleName = "{Schedule Name}"
     $jobTrigger = New-AzureSqlJobTrigger
     -ScheduleName $scheduleName
-    –JobName $jobName
+    -JobName $jobName
     Write-Output $jobTrigger
 
 ### <a name="to-remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>Per rimuovere un'associazione pianificata per arrestare l'esecuzione di un processo in base a una pianificazione
@@ -651,6 +652,6 @@ Dopo aver creato un DACPAC all'interno di processi di database elastici, è poss
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: d7e51bee4b9ec4441a080004f938cdc609fd1250
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e4e8cf878d08aab41426fcebe1c43d7a9a97b57d
 
 
 ---
@@ -99,12 +99,12 @@ HDInsight fornisce diversi script di esempio per installare componenti aggiuntiv
 
 | Nome | Script |
 | --- | --- |
-| **Installare Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Vedere [Installare e usare Spark nei cluster HDInsight][hdinsight-install-spark]. |
+| **Installare Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Vedere [Installare e usare Spark in cluster Hadoop di HDInsight][hdinsight-install-spark]. |
 | **Installare R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Vedere [Installare e usare R nei cluster HDInsight][hdinsight-r-scripts]. |
 | **Installare Solr** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Vedere [Installare e usare Solr nei cluster Hadoop di HDInsight](hdinsight-hadoop-solr-install.md). |
 | - **Installare Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Vedere [Installare Giraph nei cluster HDInsight Hadoop](hdinsight-hadoop-giraph-install.md). |
 
-È possibile distribuire l'azione script dal portale di Azure, da Azure PowerShell o tramite HDInsight .NET SDK.  Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante le azioni script][hdinsight-cluster-customize].
+È possibile distribuire l'azione script dal portale di Azure, da Azure PowerShell o tramite HDInsight .NET SDK.  Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante l'azione script][hdinsight-cluster-customize].
 
 > [!NOTE]
 > Gli script di esempio funzionano solo con il cluster HDInsight versione 3.1 o successiva. Per altre informazioni sulle versioni dei cluster HDInsight, vedere [Versioni cluster HDInsight](hdinsight-component-versioning.md).
@@ -294,7 +294,7 @@ In questo log è evidente che è stata eseguita l'azione script Spark nella VM d
 Nel caso in cui si verifichi un errore di esecuzione, anche l'output che descrive l'errore sarà contenuto in questo file di log. Le informazioni fornite in questi log saranno utili per il debug di eventuali problemi di script.
 
 ## <a name="see-also"></a>Vedere anche
-* [Personalizzare cluster HDInsight mediante le azioni script][hdinsight-cluster-customize]
+* [Personalizzare cluster HDInsight mediante l'azione script][hdinsight-cluster-customize]
 * [Installare e usare Spark nei cluster HDInsight][hdinsight-install-spark]
 * [Installare e usare R nei cluster HDInsight][hdinsight-r-scripts]
 * [Installare e usare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install.md).
@@ -311,6 +311,6 @@ Nel caso in cui si verifichi un errore di esecuzione, anche l'output che descriv
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

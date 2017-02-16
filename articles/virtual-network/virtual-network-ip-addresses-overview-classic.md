@@ -1,5 +1,5 @@
 ---
-title: Indirizzi IP (classici)| Documentazione Microsoft
+title: Tipi di indirizzi IP in Azure (modello di distribuzione classica) | Documentazione Microsoft
 description: Informazioni sugli indirizzi IP pubblici e privati (classici) in Azure.
 services: virtual-network
 documentationcenter: na
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: f4c164ac86c404f11a4bc77bc9346ad6fc45e0a7
+ms.sourcegitcommit: 54277a39601cd7f986a8ff8f517ab02eac77309b
+ms.openlocfilehash: dfc34435ad6e8982c0298301bdefe489c37db8f1
 
 
 ---
-# <a name="ip-addresses-classic-in-azure"></a>Indirizzi IP (classici) in Azure
+# <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipi di indirizzi IP e metodi di allocazione (modello di distribuzione classica) in Azure
 È possibile assegnare gli indirizzi IP alle risorse di Azure per comunicare con altre risorse di Azure, con la rete locale e con Internet. Sono disponibili due tipi di indirizzi IP che è possibile usare in Azure: pubblici e privati.
 
 Gli indirizzi IP pubblici consentono di comunicare con Internet e con i servizi pubblici di Azure.
@@ -91,7 +91,7 @@ Nella tabella seguente viene illustrato ogni tipo di risorsa con i metodi di all
 
 | Risorsa | Dinamico | statico | Più indirizzi IP |
 | --- | --- | --- | --- |
-| servizio cloud |Sì |sì |Sì |
+| servizio cloud |Sì |Sì |Sì |
 | Istanza del ruolo PaaS o della macchine virtuale IaaS |Sì |No |No |
 | gateway VPN |Sì |No |No |
 | gateway applicazione |Sì |No |No |
@@ -133,7 +133,7 @@ Quando si crea una macchina virtuale, ai server DNS gestiti da Azure viene aggiu
 
 Nel caso di un servizio cloud *autonomo* , sarà possibile risolvere i nomi host di tutte le istanze di macchine virtuali o del ruolo solo all'interno dello stesso servizio cloud. Nel caso di un servizio cloud all'interno di una rete virtuale, sarà possibile risolvere i nomi host di tutte le istanze di macchine virtuali o del ruolo all'interno della rete virtuale.
 
-### <a name="internal-load-balancers-ilb-application-gateways"></a>Servizi di bilanciamento del carico interno e gateway applicazione
+### <a name="internal-load-balancers-ilb--application-gateways"></a>Servizi di bilanciamento del carico interno e gateway applicazione
 È possibile assegnare un indirizzo IP privato alla configurazione **front-end** di un [servizio di bilanciamento del carico interno di Azure](../load-balancer/load-balancer-internal-overview.md) o di un [gateway applicazione di Azure](../application-gateway/application-gateway-introduction.md). Questo indirizzo IP privato funge da endpoint interno, accessibile solo alle risorse all'interno della rete virtuale e alle reti remote connesse alla rete virtuale. È possibile assegnare un indirizzo IP privato dinamico o statico alla configurazione front-end. È inoltre possibile assegnare più indirizzi IP privati per consentire scenari con più indirizzi VIP.
 
 ### <a name="at-a-glance"></a>Riepilogo
@@ -141,11 +141,11 @@ Nella tabella seguente viene illustrato ogni tipo di risorsa con i metodi di all
 
 | Risorsa | Dinamico | statico | Più indirizzi IP |
 | --- | --- | --- | --- |
-| Macchine virtuali (in un servizio cloud *autonomo* ) |Sì |sì |Sì |
+| Macchine virtuali (in un servizio cloud *autonomo* ) |Sì |Sì |Sì |
 | Istanza del ruolo PaaS (in un servizio cloud *autonomo* ) |Sì |No |Sì |
-| Istanza del ruolo PaaS o della macchina virtuale (in una VNet) |Sì |sì |Sì |
-| Front-end del servizio di bilanciamento del carico interno |Sì |sì |Sì |
-| Front-end del gateway applicazione |Sì |sì |Sì |
+| Istanza del ruolo PaaS o della macchina virtuale (in una VNet) |Sì |Sì |Sì |
+| Front-end del servizio di bilanciamento del carico interno |Sì |Sì |Sì |
+| Front-end del gateway applicazione |Sì |Sì |Sì |
 
 ## <a name="limits"></a>Limiti
 La tabella seguente illustra i limiti imposti sull'assegnazione degli indirizzi IP in Azure per ogni sottoscrizione. È possibile [contattare il supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per aumentare i limiti predefiniti fino ai massimi consentiti in base alle esigenze aziendali.
@@ -182,6 +182,6 @@ Di seguito è riportato un confronto tra la funzione di assegnazione degli indir
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

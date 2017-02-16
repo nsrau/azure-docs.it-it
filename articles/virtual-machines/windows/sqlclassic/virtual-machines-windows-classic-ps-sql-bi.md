@@ -8,16 +8,16 @@ manager: erikre
 editor: monicar
 tags: azure-service-management
 ms.assetid: c681e7a7-eeda-48aa-bc35-6277f4828244
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 10/04/2016
+ms.workload: iaas-sql-server
+ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 761126cb6a5e119e07d4d8fd7b04f6ea50856f6e
+ms.sourcegitcommit: 4f7527119f0e0955303858a52b638f6dbf483267
+ms.openlocfilehash: 60bd5469b4d22bac87e8794bcb6e1d3713645415
 
 
 ---
@@ -67,11 +67,12 @@ Per altre informazioni sulle edizioni e sulle funzionalità supportate da SQL Se
 ### <a name="bi-features-installed-on-the-sql-server-virtual-machine-gallery-images"></a>Funzionalità di Business Intelligence installate nelle immagini della raccolta di macchine virtuali di SQL Server
 Nella tabella seguente sono riepilogate le funzionalità di Business Intelligence installate nelle immagini comuni della raccolta di Macchine virtuali di Microsoft Azure per SQL Server
 
-* SQL Server 2016 RC3
-* SQL Server 2014 SP1 Enterprise
-* SQL Server 2014 SP1 Standard
-* SQL Server 2012 SP2 Enterprise
-* SQL Server 2012 SP2 Standard
+* SQL Server 2016 SP1 Enterprise
+* SQL Server 2016 SP1 Standard
+* SQL Server 2014 SP2 Enterprise
+* SQL Server 2014 SP2 Standard
+* SQL Server 2012 SP3 Enterprise
+* SQL Server 2012 SP3 Standard
 
 | Funzionalità SQL Server BI | Installato nell'immagine della raccolta | Note |
 | --- | --- | --- |
@@ -103,8 +104,6 @@ Nella tabella seguente sono riepilogate le funzionalità di Business Intelligenc
   
   > [!NOTE]
   > Il motore del database di SQL Server è necessario negli scenari BI supportati. Nella topologia di macchina virtuale con un solo server, il motore del database deve essere in esecuzione nella macchina virtuale stessa.
-  > 
-  > 
   
     Per altre informazioni, vedere gli argomenti seguenti: [Disinstallare Reporting Services](https://msdn.microsoft.com/library/hh479745.aspx) e [Procedura: Disinstallazione di un'istanza di Analysis Services](https://msdn.microsoft.com/library/ms143687.aspx).
 * Controllare se in **Windows Update** sono disponibili nuovi "aggiornamenti importanti". Le immagini di macchina virtuale di Microsoft Azure vengono aggiornate di frequente, tuttavia alcuni aggiornamenti importanti potrebbero diventare disponibili in **Windows Update** dopo l'ultimo aggiornamento dell'immagine di macchina virtuale.
@@ -140,8 +139,6 @@ L'immagine della raccolta di macchine virtuali per SQL Server include l’istall
 
 > [!NOTE]
 > Per contenuti simili che usano script di Windows PowerShell per configurare il server di report, vedere [Usare PowerShell per creare una macchina virtuale di Azure con un server di report in modalità nativa](virtual-machines-windows-classic-ps-sql-report.md).
-> 
-> 
 
 ### <a name="connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager"></a>Connettersi alla macchina virtuale e avviare Gestione configurazione di Reporting Services
 Esistono due flussi di lavoro comuni per la connessione a una macchina virtuale di Azure:
@@ -160,7 +157,7 @@ Esistono due flussi di lavoro comuni per la connessione a una macchina virtuale 
 
 **Avviare Gestione configurazione Reporting Services.**
 
-1. In **Windows Server 2012**:
+1. In **Windows Server 2012/2016**:
 2. Nella schermata **Start** digitare **Reporting Services** per visualizzare un elenco di app.
 3. Fare clic con il pulsante destro del mouse su **Gestione configurazione Reporting Services** e scegliere **Esegui come amministratore**.
 4. In **Windows Server 2008 R2**:
@@ -346,8 +343,6 @@ Il diagramma seguente illustra le porte da aprire nel firewall della macchina vi
 
 > [!NOTE]
 > [È possibile inviare commenti e suggerimenti e informazioni di contatto tramite Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
-> 
-> 
 
 ### <a name="community-content"></a>Contenuti della community
 * [Gestione del database SQL di Azure con PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
@@ -355,6 +350,6 @@ Il diagramma seguente illustra le porte da aprire nel firewall della macchina vi
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: SubramaR
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f52903801c53a50d149fe8732bf514194aae0478
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 175edd2c45319f197d1df65ae22853ca0dc3d310
 
 
 ---
@@ -25,7 +25,7 @@ L'anteprima di Service Fabric su Linux, consente di compilare, distribuire e ges
 
 Concettualmente, Service Fabric in Linux è equivalente a ServiceFabric in Windows (tranne per le specifiche del sistema operativo e il supporto del linguaggio di programmazione). Di conseguenza, la maggior parte della [documentazione esistente](http://aka.ms/servicefabricdocs) è valida e consente di acquisire familiarità con la tecnologia.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Service-Fabric-Linux-Preview/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Service-Fabric-Linux-Preview/player]
 > 
 > 
 
@@ -50,6 +50,6 @@ L'anteprima supporta l'interazione con il cluster tramite l'interfaccia della ri
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

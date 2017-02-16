@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 03/28/2016
 ms.author: stepsic
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7851ea4ce3278cb74095b8683141681fd604d4b0
+ms.sourcegitcommit: 015ca80c952110d3289888ed82d7a543be29950c
+ms.openlocfilehash: b2d8575d37994da6aa3a55d292d84cda12e88371
 
 
 ---
@@ -38,20 +38,20 @@ I seguenti documenti possono essere utili:
 * [Panoramica del servizio app](../app-service/app-service-value-prop-what-is.md) : fornisce informazioni sui componenti da scegliere per la creazione di una soluzione
 
 ## <a name="adding-conditional-logic"></a>Aggiunta di logica condizionale
-Benché il flusso originale funzioni, vi sono alcune aree che è possibile migliorare. 
+Benché il flusso originale funzioni, vi sono alcune aree che è possibile migliorare.
 
 ### <a name="conditional"></a>Condizionale
-Questa app per la logica può comportare la ricezione di grandi quantità di messaggi di posta elettronica. Le procedure seguenti consentono di aggiungere la logica per assicurarsi di ricevere un messaggio solo quando il tweet proviene da un utente con un determinato numero di follower. 
+Questa app per la logica può comportare la ricezione di grandi quantità di messaggi di posta elettronica. Le procedure seguenti consentono di aggiungere la logica per assicurarsi di ricevere un messaggio solo quando il tweet proviene da un utente con un determinato numero di follower.
 
 1. Fare clic sul segno più e trovare l'azione *Get User* per Twitter.
 2. Passare al campo **Tweeted by** del trigger per visualizzare le informazioni sull'utente di Twitter.
-   
+
     ![Get User](./media/app-service-logic-use-logic-app-features/getuser.png)
 3. Fare di nuovo clic sul segno più e selezionare **Aggiungi condizione**
 4. Nella prima casella fare clic su **...** sotto **Ottieni utente** per trovare il campo **Numero di follower**.
 5. Nella casella a discesa selezionare **Greater than**
 6. Nella seconda casella digitare il numero di follower per gli utenti.
-   
+
     ![Condizionale](./media/app-service-logic-use-logic-app-features/conditional.png)
 7. Infine, trascinare il messaggio di posta elettronica nella casella **If Yes** . In questo modo si riceveranno messaggi di posta elettronica solo quando viene raggiunto il numero di follower.
 
@@ -59,16 +59,16 @@ Questa app per la logica può comportare la ricezione di grandi quantità di mes
 Il ciclo forEach specifica una matrice per la ripetizione di un'azione. Se non è una matrice, il flusso ha esito negativo. Ad esempio, se action1 genera una matrice di messaggi e si vuole inviare ogni messaggio, è possibile inserire questa istruzione forEach nelle proprietà dell'azione: forEach : "@action('action1').outputs.messages"
 
 ## <a name="using-the-code-view-to-edit-a-logic-app"></a>Uso della visualizzazione codice per modificare un'app per la logica
-Oltre alla finestra di progettazione, è possibile modificare direttamente il codice che definisce un'app per la logica, come segue. 
+Oltre alla finestra di progettazione, è possibile modificare direttamente il codice che definisce un'app per la logica, come segue.
 
-1. Fare clic sul pulsante **Visualizzazione Codice** nella barra dei comandi. 
-   
+1. Fare clic sul pulsante **Visualizzazione Codice** nella barra dei comandi.
+
     Verrà aperto un editor completo che mostra la definizione appena modificata.
-   
+
     ![Visualizzazione Codice](./media/app-service-logic-use-logic-app-features/codeview.png)
-   
+
     Usando l'editor di testo, è possibile copiare e incollare un numero qualsiasi di azioni all'interno della stessa app per la logica o tra app per la logica. È anche possibile aggiungere o rimuovere facilmente intere sezioni dalla definizione, oltre a condividere definizioni con altri.
-2. Dopo aver apportato le modifiche nella visualizzazione codice, fare clic su **Salva**. 
+2. Dopo aver apportato le modifiche nella visualizzazione codice, fare clic su **Salva**.
 
 ### <a name="parameters"></a>Parametri
 Vi sono alcune funzionalità delle app per la logica che possono essere usate solo in visualizzazione codice, come ad esempio i parametri. I parametri semplificano il riutilizzo dei valori all'interno di un'app per la logica. Ad esempio, se si ha un indirizzo e-mail che si vuole usare in diverse azioni, è consigliabile definirlo come parametro.
@@ -76,13 +76,13 @@ Vi sono alcune funzionalità delle app per la logica che possono essere usate so
 Il codice seguente consente di aggiornare l'app per la logica esistente in modo da usare parametri per il termine della query.
 
 1. Nella visualizzazione codice individuare l'oggetto `parameters : {}` e inserire il seguente argomento:
-   
+
         "topic" : {
             "type" : "string",
             "defaultValue" : "MicrosoftAzure"
         }
 2. Scorrere fino all'azione `twitterconnector`, trovare il valore della query e sostituirlo con `#@{parameters('topic')}`.
-    È anche possibile usare la funzione **concat** per unire due o più stringhe, ad esempio `@concat('#',parameters('topic'))` corrisponde a quanto scritto sopra. 
+    È anche possibile usare la funzione **concat** per unire due o più stringhe, ad esempio `@concat('#',parameters('topic'))` corrisponde a quanto scritto sopra.
 
 I parametri costituiscono un buon metodo per estrarre valori che probabilmente verranno modificati molto. Sono particolarmente utili quando è necessario eseguire l'override dei parametri in diversi ambienti. Per altre informazioni su come eseguire l'override dei parametri in base all'ambiente, vedere la [documentazione sulle API REST](https://msdn.microsoft.com/library/mt643787.aspx).
 
@@ -97,13 +97,13 @@ Vi sono diverse opzioni per avviare il flusso di lavoro definito nell'app per la
 Un trigger di ricorrenza viene eseguito a un intervallo specificato dall'utente. Quando il trigger è caratterizzato dalla logica condizionale, determina se è necessario o no eseguire il flusso di lavoro. Un trigger indica che deve essere eseguito restituendo un codice di stato `200` . Quando non è necessario eseguirlo, restituisce il codice di stato `202` .
 
 ### <a name="callback-using-rest-apis"></a>Callback tramite le API REST
-I servizi possono chiamare un endpoint dell'app per la logica per avviare un flusso di lavoro. Per altre informazioni, vedere [App per la logica come endpoint che è possibile chiamare](app-service-logic-connector-http.md) . Per avviare questa tipologia di app per la logica su richiesta, fare clic sul pulsante **Esegui adesso** sulla barra dei comandi. 
+I servizi possono chiamare un endpoint dell'app per la logica per avviare un flusso di lavoro. Per altre informazioni, vedere [App per la logica come endpoint che è possibile chiamare](app-service-logic-http-endpoint.md) . Per avviare questa tipologia di app per la logica su richiesta, fare clic sul pulsante **Esegui adesso** sulla barra dei comandi. 
 
 <!-- Shared links -->
-[portale di Azure]: https://portal.azure.com 
+[portale di Azure]: https://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

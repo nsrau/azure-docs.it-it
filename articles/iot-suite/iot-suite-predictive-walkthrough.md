@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ba48381f2c16a56e2e3f187017fbdbae09544e77
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6d80f266730701dc4e678f4365a2166be72c9143
 
 
 ---
@@ -107,7 +107,7 @@ Il post del blog TechNet di [approfondimento sulla manutenzione predittiva in Io
 È anche possibile esplorare alcune altre funzionalità delle soluzioni preconfigurate di IoT Suite:
 
 * [Domande frequenti su IoT Suite][lnk-faq]
-* [Sicurezza dell'IoT sin dall'inizio][lnk-security-groundup]
+* [Sicurezza IoT sin dall'inizio][lnk-security-groundup]
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 [img-resource-group]: media/iot-suite-predictive-walkthrough/resource-group.png
@@ -127,6 +127,6 @@ Il post del blog TechNet di [approfondimento sulla manutenzione predittiva in Io
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

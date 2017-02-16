@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: luisca
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 18accd5252e0ecf19fed23f3c2e4628e60fe370f
+ms.sourcegitcommit: 9ac2a1bf5987fc6fc30e20a1b4a10340eeed3825
+ms.openlocfilehash: 15cf891b9c31e1f2e2b108e631f32883ce2f36a7
 
 
 ---
@@ -109,11 +109,11 @@ Sperimentare l'uso di Recommendations è abbastanza semplice. La versione attual
 
 Recommendations richiede la disponibilità di un log di scelte utente in relazione al catalogo. Se il log non è disponibile e si usa un sito Web pubblico, si potrà usare Recommendations per raccogliere automaticamente informazioni sulle attività degli utenti. 
 
-Recommendations richiede anche un catalogo di prodotti o servizi. Se il catalogo non è disponibile, Recommendations potrà usare i dati di utilizzo effettivi dei clienti per estrarre un catalogo. Un catalogo �implicito� non includerà elementi non �segnalati� come parte delle transazioni degli utenti.
+Recommendations richiede anche un catalogo di prodotti o servizi. Se il catalogo non è disponibile, Recommendations può usare i dati di uso effettivi dei clienti per estrarre un catalogo. Un catalogo implicito non include elementi non segnalati come parte delle transazioni degli utenti.
 
 **Come si configura Recommendations per la prima volta?**
 
-Dopo la [sottoscrizione](https://datamarket.azure.com/dataset/amla/recommendations) a Recommendations, si dovrà usare la documentazione dell'API disponibile nella [Guida introduttiva per l'API Recommendations di Azure Machine Learning](machine-learning-recommendation-api-quick-start-guide.md) per configurare il dispositivo.
+Dopo la [sottoscrizione](https://datamarket.azure.com/dataset/amla/recommendations) a Recommendations, è necessario usare la documentazione dell'API disponibile nella [Guida introduttiva per l'API Recommendations di Azure Machine Learning](machine-learning-recommendation-api-quick-start-guide.md) per configurare il dispositivo.
 
 **Dove è possibile trovare la documentazione sulle API?** 
 
@@ -140,6 +140,6 @@ Il supporto tecnico è disponibile tramite il sito del [supporto tecnico di Micr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

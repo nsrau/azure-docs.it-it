@@ -1,5 +1,5 @@
 ---
-title: "Che cosa sono i set di scalabilità delle macchine virtuali? | Microsoft Docs"
+title: "Creare set di scalabilità di macchine virtuali di Azure con l&quot;interfaccia della riga di comando di Azure | Documentazione Microsoft"
 description: "Informazioni sui set di scalabilità delle macchine virtuali."
 keywords: "macchina virtuale linux,set di scalabilità macchine virtuali"
 services: virtual-machines-linux
@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/24/2016
 ms.author: negat
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 9ee2d1d4e50a5bf4c146c48024aae5f10cea32ef
+ms.sourcegitcommit: 5b8950619da3f42bc3c92443a7b9e9f2a97067f9
+ms.openlocfilehash: 8d274127a4e1947e42b5544c3c1f62c4e48dcee9
 
 
 ---
@@ -50,6 +50,6 @@ Ad esempio, per i modelli di Resource Manager con set di scalabilità, cercare "
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

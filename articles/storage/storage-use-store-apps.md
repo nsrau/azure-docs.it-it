@@ -3,8 +3,8 @@ title: Usare Archiviazione di Azure nelle app di Windows Store | Microsoft Docs
 description: Scoprire come creare un&quot;applicazione di Windows Store che usa l&quot;archiviazione BLOB, code, tabelle o file di Azure.
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: 63c4b29d-b2f2-4d7c-b164-a0d38f4d14f6
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 678592957e5740194e9292393231be111d6067a5
+ms.sourcegitcommit: 5b86154414c7745430af11d59355a937fc525d54
+ms.openlocfilehash: 3284f94b28d814b3442d8088f69a301ef4dabc79
 
 
 ---
@@ -42,16 +42,20 @@ Quindi aggiungere un riferimento alla libreria client di archiviazione di Azure 
 ### <a name="using-the-library-with-the-blob-and-queue-services"></a>Usare la libreria con BLOB e i servizi di accodamento
 A questo punto l'app è pronta per chiamare i servizi BLOB e di accodamento di Azure. Aggiungere le seguenti istruzioni **using** in modo che sia possibile fare direttamente riferimento ai tipi di archiviazione di Azure:
 
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
+```csharp
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Auth;
+```
 
 Quindi, aggiungere un pulsante alla propria pagina. Aggiungere il codice seguente al relativo evento **Click** e modificare il metodo di gestione degli eventi utilizzando la [parola chiave async](http://msdn.microsoft.com/library/vstudio/hh156513.aspx):
 
-    var credentials = new StorageCredentials(accountName, accountKey);
-    var account = new CloudStorageAccount(credentials, true);
-    var blobClient = account.CreateCloudBlobClient();
-    var container = blobClient.GetContainerReference("container1");
-    await container.CreateIfNotExistsAsync();
+```csharp
+var credentials = new StorageCredentials(accountName, accountKey);
+var account = new CloudStorageAccount(credentials, true);
+var blobClient = account.CreateCloudBlobClient();
+var container = blobClient.GetContainerReference("container1");
+await container.CreateIfNotExistsAsync();
+```
 
 Questo codice presuppone che si abbiano due variabili di stringa, *accountName* e *accountKey*. Esse rappresentano il nome dell’account di archiviazione e la chiave dell'account associati a tale account.
 
@@ -70,11 +74,13 @@ Questo comando consente di aggiungere automaticamente tutti i riferimenti richie
 
 Dopo aver fatto riferimento al pacchetto NuGet dei Servizi dati WCF modificare il codice nell'evento **Click** del proprio pulsante:
 
-    var credentials = new StorageCredentials(accountName, accountKey);
-    var account = new CloudStorageAccount(credentials, true);
-    var tableClient = account.CreateCloudTableClient();
-    var table = tableClient.GetTableReference("table1");
-    await table.CreateIfNotExistsAsync();
+```csharp
+var credentials = new StorageCredentials(accountName, accountKey);
+var account = new CloudStorageAccount(credentials, true);
+var tableClient = account.CreateCloudTableClient();
+var table = tableClient.GetTableReference("table1");
+await table.CreateIfNotExistsAsync();
+```
 
 Questo codice verifica se esiste una tabella denominata *table1* nell'account, creandone una se non esiste.
 
@@ -86,6 +92,6 @@ Questo codice verifica se esiste una tabella denominata *table1* nell'account, c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

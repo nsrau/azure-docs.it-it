@@ -5,8 +5,10 @@
 | Numero massimo di contenitori BLOB, BLOB, condivisioni file, tabelle, code, entità o messaggi per account di archiviazione |L'unico limite è quello relativo alla capacità dell'account di archiviazione (500 TB) |
 | Dimensione massima di un singolo contenitore BLOB o di una singola tabella o coda |500 TB |
 | Numero massimo di blocchi in un BLOB in blocchi o in un BLOB in coda |50.000 |
-| Dimensione massima di un blocco in un BLOB in blocchi o in un BLOB in coda |100 MB |
-| Dimensione massima di un BLOB in blocchi o di un BLOB in coda |50.000 x 100 MB (circa 4,75 TB) |
+| Dimensione massima di un blocco di un BLOB in blocchi |100 MB |
+| Dimensione massima di un BLOB in blocchi |50.000 x 100 MB (circa 4,75 TB) |
+| Dimensione massima di un blocco in un BLOB di aggiunta |4 MB |
+| Dimensione massima di un BLOB di aggiunta |50.000 x 4 MB (circa 195 GB) |
 | Dimensione massima di un BLOB di pagine |1 TB |
 | Dimensione massima di un'entità di tabella |1 MB |
 | Numero massimo di proprietà di un'entità di tabella |252 |
@@ -41,6 +43,6 @@
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

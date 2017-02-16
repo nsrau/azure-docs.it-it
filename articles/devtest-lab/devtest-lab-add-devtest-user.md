@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 01/11/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bc804ad952e35b7441ea3699bc8e43895f146d53
+ms.sourcegitcommit: f7656382500682898cd3ed6372630afa3c3f6350
+ms.openlocfilehash: d67fa257574d6cb4ad4b18521900374fb51da290
 
 
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Aggiungere proprietari e utenti in Azure DevTest Labs
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/How-to-set-security-in-your-DevTest-Lab/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
 > 
 > 
 
@@ -43,16 +43,16 @@ La tabella seguente illustra le azioni che possono essere eseguite dagli utenti 
 | Aggiornare le impostazioni dei costi |No |Sì |Sì |
 | **Attività di base delle VM** | | | |
 | Aggiungere e rimuovere immagini personalizzate |No |Sì |Sì |
-| Aggiungere, aggiornare ed eliminare formule |Sì |sì |Sì |
+| Aggiungere, aggiornare ed eliminare formule |Sì |Sì |Sì |
 | Aggiungere all'elenco elementi consentiti le immagini di Azure Marketplace |No |Sì |Sì |
 | **Attività della macchina virtuale** | | | |
-| Creare VM |Sì |sì |Sì |
+| Creare VM |Sì |Sì |Sì |
 | Avviare, arrestare ed eliminare VM |Solo VM create dall'utente |Sì |Sì |
 | Aggiornare i criteri delle VM |No |Sì |Sì |
 | Aggiungere/Rimuovere dischi dati nelle VM |Solo VM create dall'utente |Sì |Sì |
 | **Attività degli elementi** | | | |
 | Aggiungere e rimuovere repository di elementi |No |Sì |Sì |
-| Applicare elementi |Sì |sì |Sì |
+| Applicare elementi |Sì |Sì |Sì |
 
 > [!NOTE]
 > Quando un utente crea una VM, tale utente viene automaticamente assegnato al ruolo **Proprietario** della VM creata.
@@ -138,6 +138,6 @@ Per aggiungere un proprietario a una sottoscrizione di Azure, seguire questi pas
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cc58780b3f278ef8a0ad46b507dec8f3e7bf364c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 33ca336c6ae3ffc68997d21c4d7da9275ff48a00
 
 
 ---
@@ -69,7 +69,7 @@ Prima di iniziare la configurazione, verificare che ci siano le condizioni segue
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 * Una rete virtuale configurata. 
-* La versione più recente dei cmdlets di Azure PowerShell. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) .
+* La versione più recente dei cmdlets di Azure PowerShell. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 
 ## <a name="configure-forced-tunneling"></a>È possibile configurare il tunneling forzato?
 La procedura seguente consentirà di specificare il tunneling forzato per una rete virtuale. I passaggi di configurazione corrispondono al file di configurazione della rete virtuale.
@@ -163,6 +163,6 @@ La procedura consente di impostare *DefaultSiteHQ* come connessione predefinita 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

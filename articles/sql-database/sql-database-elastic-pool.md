@@ -11,14 +11,14 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 01/04/2017
+ms.date: 01/11/2017
 ms.author: CarlRabeler
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: ce30d47075636d3b64215d50b81acc09e7ed72f1
-ms.openlocfilehash: d74be42963206c82218bc82ea1bf12e5c0cdb0f3
+ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
+ms.openlocfilehash: 412c3f9c34e399ecdffd939b5b72e687a847b8e1
 
 
 ---
@@ -33,7 +33,7 @@ I pool elastici del database SQL offrono una soluzione semplice e conveniente pe
 ## <a name="how-it-works"></a>Funzionamento
 Un modello di applicazione SaaS molto diffuso è il modello di database a singolo tenant, in cui a ogni cliente viene assegnato un proprio database. Ciascun cliente (database) ha requisiti di risorse imprevedibili per memoria, IO e CPU. Con questi picchi e stagnazioni della domanda, come fare ad allocare le risorse in modo efficiente e conveniente? In genere, è possibile procedere in due modi: (1) effettuare il provisioning eccessivo delle risorse in base all'utilizzo massimo e pagare di più oppure (2) effettuare un provisioning insufficiente per risparmiare sui costi, a scapito delle prestazioni e del livello di soddisfazione del cliente nei momenti di picco. I pool elastici risolvono il problema assicurando ai database l'ottenimento delle risorse di prestazioni necessarie, quando richieste. Forniscono un meccanismo semplice di allocazione delle risorse che rientra in un budget prevedibile. Per altre informazioni sui modelli di progettazione per applicazioni SaaS con pool elastici, vedere l'articolo relativo ai [modelli di progettazione per applicazioni SaaS multi-tenant con database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
 Nel database SQL, la misura relativa della capacità del database di gestire le richieste di risorse è espressa in unità di transazione di database (DTU) per i singoli database e in DTU elastiche (eDTU) per i database in un pool elastico. Per altre informazioni su DTU ed eDTU, vedere [Introduzione al database SQL](sql-database-technical-overview.md).
@@ -106,6 +106,6 @@ Per le applicazioni che hanno requisiti di ripristino più rigorosi rispetto all
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

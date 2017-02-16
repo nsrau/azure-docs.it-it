@@ -1,6 +1,6 @@
 ---
-title: Riferimento motore regole Motore regole della rete per la distribuzione di contenuti | Microsoft Docs
-description: "Questo argomento descrive le funzionalità e le condizioni di corrispondenza del motore regole"
+title: Riferimento del motore regole della rete CDN di Azure | Documentazione Microsoft
+description: "Documentazione di riferimento per le funzionalità e condizioni di corrispondenza del motore regole della rete CDN di Azure."
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/23/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
-ms.openlocfilehash: 61a544f177ab820f1b13ca2bcd4afe623af597af
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: c10145661a8c575381493c9aaa901c3ef92c2e81
 
 
 ---
-# <a name="azure-content-delivery-network-rules-engine"></a>Motore regole della rete di distribuzione dei contenuti di Azure
+# <a name="azure-cdn-rules-engine"></a>Motore regole della rete CDN di Azure
 In questo argomento sono riportate descrizioni dettagliate delle condizioni di corrispondenza e delle funzionalità disponibili per il [motore regole](cdn-rules-engine.md)della rete per la distribuzione di contenuti (CDN) di Azure.
 
 Il motore regole HTTP è progettato per essere l'autorità finale sul modo in cui i tipi di richieste specifici vengono elaborati dalla rete CDN.
@@ -83,6 +83,6 @@ Spazio | Un carattere di spazio in genere è considerato come un carattere lette
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

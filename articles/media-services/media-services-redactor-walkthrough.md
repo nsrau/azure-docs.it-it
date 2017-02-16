@@ -1,5 +1,5 @@
 ---
-title: Procedura dettagliata per l&quot;offuscamento dei volti | Microsoft Docs
+title: 'Procedura dettagliata: offuscare i volti con Analisi Servizi multimediali di Azure | Documentazione Microsoft'
 description: Questo argomento fornisce istruzioni dettagliate su come eseguire un flusso di lavoro di offuscamento completo usando Azure Media Services Explorer (AMSE) e Azure Media Redactor Visualizer (strumento open source).
 services: media-services
 documentationcenter: 
@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 11/30/2016
 ms.author: rli; juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: d693bc0de2f8a03d67b346f3b2d4693284ae4d71
-ms.openlocfilehash: b9bd117d2b2a4bb710c98d4a8771727d3f5d06b6
+ms.sourcegitcommit: 8d8575decb177001cefbb7f159841b64c3f84f41
+ms.openlocfilehash: d9bb513a7f5acc0ba41902795b159564b2562842
 
 
 ---
-# <a name="face-redaction-walkthrough"></a>Procedura dettagliata per l'offuscamento dei volti
+# <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Procedura dettagliata: offuscare i volti con Analisi Servizi multimediali di Azure
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 **Azure Media Redactor** è un processore di contenuti multimediali di [Analisi Servizi multimediali di Azure](media-services-analytics-overview.md) che offre funzionalità scalabili di offuscamento dei volti nel cloud. L'offuscamento dei volti consente di modificare un video per sfocare i volti di persone selezionate. Può essere opportuno usare tale servizio in scenari di pubblica sicurezza e notizie giornalistiche. Offuscare manualmente alcuni minuti di filmato contenenti più volti può richiedere ore, ma con questo servizio il processo di offuscamento dei volti richiederà pochi semplici passaggi. Per altre informazioni, vedere [questo](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
@@ -67,7 +67,7 @@ L'output includerà un file JSON di annotazioni contenente i dati relativi alla 
 
     ![Offuscamento dei volti](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
 
-2. (Facoltativo) Caricare un file "idlist.txt" che include un elenco delimitato da nuova riga degli ID che si desidera offuscare. 
+2. (Facoltativo) Caricare un file "Dance_idlist.txt" che include un elenco delimitato da nuova riga degli ID che si desidera offuscare. 
 
     ![Offuscamento dei volti](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
 
@@ -132,6 +132,6 @@ Se lo sviluppatore tenta di analizzare i dati delle annotazioni JSON, consultare
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

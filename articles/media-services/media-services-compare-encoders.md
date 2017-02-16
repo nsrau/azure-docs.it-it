@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 0124c884d3d805a407041e8ecbc5961209a9653d
-ms.openlocfilehash: c405f1bc405990ef4959e90d9e98e1629fe7f6b7
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: dca8087230b261f14e876e49b9b0fb12579b96d0
 
 
 ---
@@ -28,8 +28,8 @@ Questo argomento mette a confronto le funzionalità di codifica di **Media Encod
 ### <a name="a-idbillingabilling-meter-used-by-each-encoder"></a><a id="billing"></a>Metro di fatturazione usato da ogni codificatore
 | Nome del processore multimediale | Prezzi applicabili | Note |
 | --- | --- | --- |
-| **Codificatore multimediale standard** |CODIFICATORE |Le attività di codifica verranno addebitate in base alla dimensione dell'asset di output, in gigabyte, alla tariffa specificata [qui][1], nella colonna CODIFICATORE. |
-| **Flusso di lavoro Premium del codificatore multimediale** |CODIFICATORE PREMIUM |Le attività di codifica verranno addebitate in base alla dimensione dell'asset di output, in gigabyte, alla tariffa specificata [qui][1], nella colonna CODIFICATORE PREMIUM. |
+| **Codificatore multimediale standard** |CODIFICATORE |Le attività di codifica verranno addebitate le attività in base alla durata totale, espressa in minuti, di tutti i file multimediali generati come output, alla tariffa specificata [qui][1], nella colonna CODIFICATORE. |
+| **Flusso di lavoro Premium del codificatore multimediale** |CODIFICATORE PREMIUM |Le attività di codifica verranno addebitate le attività in base alla durata totale, espressa in minuti, di tutti i file multimediali generati come output, alla tariffa specificata [qui][1], nella colonna CODIFICATORE PREMIUM. |
 
 ### <a name="input-containerfile-formats"></a>Contenitore di input/formati di file
 | Contenitore di input/formati di file | Codificatore multimediale standard | Flusso di lavoro Premium del codificatore multimediale |
@@ -134,6 +134,6 @@ Questo argomento mette a confronto le funzionalità di codifica di **Media Encod
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

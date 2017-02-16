@@ -4,7 +4,7 @@ description: Proteggere le VM di Azure con un insieme di credenziali per il back
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 ms.assetid: 722820dc-b65f-425c-a9e5-c1946e896a87
 ms.service: backup
@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/15/2016
+ms.date: 1/10/2017
 ms.author: markgal; jimpark
 translationtype: Human Translation
-ms.sourcegitcommit: 9eddde0df61ac7dde9b24f973e7eec786cd48f24
-ms.openlocfilehash: b8f62d1fab4b9132f35e2fab632968cf001c832d
+ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
+ms.openlocfilehash: 895eeb27b6050897575c5d6f20f16ea3f99fdcf3
 
 
 ---
@@ -43,7 +43,7 @@ Ecco i cinque passaggi principali per eseguire il backup di una VM:
 ![Panoramica generale del processo di backup VM](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
 > [!NOTE]
-> Azure offre due modelli di distribuzione per creare e usare le risorse: [Resource Manager e distribuzione classica](../resource-manager-deployment-model.md). Questa esercitazione si applica alle VM che possono essere create nel portale di Azure classico. Il servizio Backup di Azure supporta le VM basate su Resource Manager. Per informazioni dettagliate sul backup di VM in un insieme di credenziali dei servizi di ripristino, vedere [Primo approccio: Proteggere le VM di Azure con un insieme di credenziali dei servizi di ripristino](backup-azure-vms-first-look-arm.md).
+> Azure offre due modelli di distribuzione per creare e usare le risorse: [Resource Manager e distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questa esercitazione si applica alle VM che possono essere create nel portale di Azure classico. Il servizio Backup di Azure supporta le VM basate su Resource Manager. Per informazioni dettagliate sul backup di VM in un insieme di credenziali dei servizi di ripristino, vedere [Primo approccio: Proteggere le VM di Azure con un insieme di credenziali dei servizi di ripristino](backup-azure-vms-first-look-arm.md).
 >
 >
 
@@ -211,6 +211,6 @@ In caso di domande o se si vuole che venga inclusa una funzionalità, è possibi
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

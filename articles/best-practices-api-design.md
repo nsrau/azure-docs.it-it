@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6e74b90e0ccd7cf43d1d98db05ca1f6a0d999751
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 285f1986b524c7696b03bc469147e0f2f2a8f8b2
 
 
 ---
@@ -37,15 +37,15 @@ Nella sua dissertazione del 2000, Roy Fielding ha proposto un approccio architet
 
 > [!NOTE]
 > REST è di fatto indipendente da qualsiasi protocollo sottostante e non è necessariamente legato a HTTP. Tuttavia, le implementazioni più comuni dei sistemi basati su REST usano HTTP come protocollo di applicazione per l'invio e la ricezione di richieste. Questo documento è incentrato sul mapping dei principi REST ai sistemi progettati per funzionare con HTTP.
-> 
-> 
+>
+>
 
 Per rappresentare gli oggetti e i servizi in una rete, denominati *risorse*, il modello REST usa uno schema di spostamento. Molti sistemi che implementano REST in genere usano il protocollo HTTP per trasmettere le richieste di accesso a queste risorse. In questi sistemi, un'applicazione client invia una richiesta sotto forma di un URI che identifica una risorsa e un metodo HTTP (i più comuni sono GET, POST, PUT o DELETE) che indica l'operazione da eseguire su tale risorsa.  Il corpo della richiesta HTTP contiene i dati necessari per eseguire l'operazione. Il punto importante da comprendere è che REST definisce un modello di richiesta senza stato. Le richieste HTTP devono essere indipendenti e possono verificarsi in qualsiasi ordine, per cui il tentativo di mantenere le informazioni di stato temporaneo tra due richieste non è realizzabile.  L'unico punto in cui sono memorizzate le informazioni sono le risorse stesse e ogni richiesta deve essere un'operazione atomica. In effetti, un modello REST implementa una macchina a stati finiti in cui una richiesta passa una risorsa da uno stato non temporaneo ben definito a un altro.
 
 > [!NOTE]
 > La natura senza stato delle singole richieste nel modello REST consente a un sistema costituito dai seguenti principi di essere altamente scalabile. Non è necessario conservare l’affinità tra un'applicazione client che effettua una serie di richieste e i server Web specifici che gestiscono queste richieste.
-> 
-> 
+>
+>
 
 Un altro punto fondamentale nell'implementazione di un modello REST efficace consiste nel comprendere le relazioni tra le varie risorse a cui il modello fornisce l'accesso. Queste risorse sono in genere organizzate in raccolte e relazioni. Ad esempio, si supponga che una rapida analisi di un sistema di e-commerce mostri che le raccolte a cui le applicazioni client possono essere interessate sono due: ordini e clienti. Ogni ordine e ogni cliente deve avere la propria chiave univoca per l'identificazione. L'URI per accedere alla raccolta di ordini può essere semplice come */orders*. Analogamente, l'URI per recuperare tutti i clienti può essere */customers*. L'invio di una richiesta HTTP GET all'URI */orders* deve restituire un elenco che rappresenta tutti gli ordini nella raccolta, codificato come risposta HTTP:
 
@@ -80,8 +80,8 @@ Content-Length: ...
 
 > [!NOTE]
 > Per semplicità, questi esempi mostrano le informazioni nelle risposte restituite come dati di testo JSON. Non esiste tuttavia alcuna ragione per cui le risorse non debbano contenere qualsiasi altro tipo di dati supportato da HTTP, ad esempio informazioni binarie o crittografate. Il tipo di contenuto nella risposta HTTP deve specificare il tipo. Un modello REST può anche essere in grado di restituire gli stessi dati in formati diversi, ad esempio XML o JSON. In questo caso, il servizio Web deve essere in grado di eseguire la negoziazione del contenuto con il client che effettua la richiesta. La richiesta può includere un'intestazione *Accept* che specifica il formato preferito che il client vorrebbe ricevere. Il servizio Web proverà a rispettare questo formato, se possibile.
-> 
-> 
+>
+>
 
 Si noti che la risposta da una richiesta REST standard utilizza i codici di stato HTTP standard. Ad esempio, una richiesta che restituisce dati validi deve includere il codice di risposta HTTP 200 (OK), mentre una richiesta che non riesce a trovare o eliminare una risorsa specificata deve restituire una risposta che include il codice di stato HTTP 404 (Non trovato).
 
@@ -93,22 +93,22 @@ Un'API Web RESTful è incentrata sull’esposizione di un set di risorse conness
 ### <a name="organizing-the-web-api-around-resources"></a>Organizzazione dell'API Web in base alle risorse
 > [!TIP]
 > Gli URI esposti da un servizio Web REST devono essere basati sui nomi (i dati a cui l'API Web fornisce l'accesso) e non sui verbi (le operazioni che un'applicazione può eseguire con i dati).
-> 
-> 
+>
+>
 
 Concentrarsi sulle entità di business esposte dall'API Web. Ad esempio, in un’API Web progettata per supportare il sistema di e-commerce descritto in precedenza, le entità primarie sono customers e orders. Processi quali l'atto di emettere un ordine possono essere eseguiti fornendo un'operazione HTTP POST che aggiunge le informazioni relative all’ordine all'elenco di ordini per il cliente. Internamente, questa operazione POST può eseguire attività quali il controllo dei livelli di scorte e la fatturazione del cliente. La risposta HTTP può indicare se l'ordine è stato inserito correttamente o meno. Si noti inoltre che non è necessario che una risorsa sia basata su un singolo elemento di dati fisici. Ad esempio, una risorsa ordine può essere implementata internamente usano le informazioni aggregate da molte righe distribuite in varie tabelle in un database relazionale, ma presentate al client come una singola entità.
 
 > [!TIP]
 > Evitare di progettare un'interfaccia REST che rispecchi o dipenda dalla struttura interna dei dati esposti. REST consiste in qualcosa di più della semplice implementazione di operazioni CRUD (Create, Retrieve, Update, Delete) in tabelle separate in un database relazionale. Lo scopo di REST è eseguire il mapping delle entità business e delle operazioni che un'applicazione può eseguire su tali entità all'implementazione fisica di queste entità, ma un client non deve essere esposto a questi dettagli fisici.
-> 
-> 
+>
+>
 
 L’esistenza di singole entità business in isolamento è rara (sebbene esistano alcuni oggetti singleton), piuttosto queste entità tendono a essere raggruppate in raccolte. Nella terminologia REST, ogni entità e ogni raccolta costituiscono una risorsa. In un’API Web RESTful, ogni raccolta ha un URI specifico all'interno del servizio Web, e l'esecuzione di una richiesta HTTP GET tramite un URI per una raccolta recupera un elenco di elementi in tale raccolta. Anche ogni singolo elemento ha un URI specifico, e un'applicazione può inviare un'altra richiesta HTTP GET con lo stesso URI per recuperare i dettagli di tale elemento. È necessario organizzare gli URI per le raccolte e gli elementi in modo gerarchico. Nel sistema di e-commerce, l'URI */customers* indica la raccolta dei clienti e */customers/5* recupera i dettagli per il singolo cliente con ID 5 da questa raccolta. Questo approccio consente di mantenere l'API Web intuitiva.
 
 > [!TIP]
 > Adottare una convenzione di denominazione coerente all’interno degli URI. In generale, per gli URI che fanno riferimento alle raccolte è utile usare nomi plurali.
-> 
-> 
+>
+>
 
 È anche necessario prendere in considerazione le relazioni tra diversi tipi di risorse e il modo in cui esporre queste associazioni. Ad esempio, i clienti possono effettuare zero o più ordini. Un modo semplice per rappresentare questa relazione è un URI come */customers/5/orders* per trovare tutti gli ordini per il cliente 5. È anche possibile prendere in considerazione l'idea di rappresentare l'associazione da un ordine a un cliente specifico tramite un URI come */orders/99/customer* per trovare il cliente dell'ordine 99. Un'estensione eccessiva di questo modello, tuttavia, può risultare complessa da implementare. Una soluzione migliore consiste nel fornire collegamenti esplorabili alle risorse associate, ad esempio il cliente, nel corpo del messaggio di risposta HTTP restituito quando viene eseguita una query sull'ordine. Questo meccanismo viene descritto in maggiore dettaglio nella sezione Uso dell’approccio HATEOAS per consentire lo spostamento a risorse correlate, più avanti in queste linee guida.
 
@@ -116,8 +116,8 @@ Nei sistemi più complessi possono essere presenti molti altri tipi di entità e
 
 > [!TIP]
 > Evitare di richiedere URI di risorse più complessi di *raccolta/elemento/raccolta*.
-> 
-> 
+>
+>
 
 Un altro punto da considerare è che tutte le richieste Web impongono un carico sul server Web e che il carico aumenta in modo proporzionale alle richieste. È necessario provare a definire le risorse in modo da evitare API Web "frammentate" che espongono un numero elevato di risorse piccole. Questo tipo di API può richiedere che un'applicazione client invii più richieste per trovare tutti i dati che richiede. Può essere utile denormalizzare i dati e combinare le informazioni correlate tra loro in risorse più grandi che possono essere recuperate tramite l'esecuzione di una singola richiesta. Tuttavia, è necessario bilanciare questo approccio rispetto al sovraccarico del recupero di dati che potrebbero non essere richiesti spesso dal client. Il recupero di oggetti di grandi dimensioni può aumentare la latenza di una richiesta e comportare costi di larghezza di banda aggiuntivi a fronte di un piccolo vantaggio se i dati aggiuntivi non vengono utilizzati spesso.
 
@@ -125,8 +125,8 @@ Evitare di introdurre dipendenze tra l'API Web e la struttura, il tipo o il perc
 
 > [!TIP]
 > Non è necessario che l'origine dei dati che supporta un'API Web sia un archivio dati. Potrebbe essere un altro servizio o un’applicazione line-of-business o persino un'applicazione legacy in esecuzione in locale all'interno di un’organizzazione.
-> 
-> 
+>
+>
 
 Infine, potrebbe non essere possibile eseguire il mapping di ogni operazione implementata da un'API Web a una risorsa specifica. È possibile gestire tali scenari *non corrispondenti a una risorsa* tramite richieste HTTP GET che richiamano una parte di funzionalità e restituiscono i risultati come messaggio di risposta HTTP. Un’API Web che implementa semplici operazioni in stile calcolatrice, ad esempio addizioni e sottrazioni, potrebbe fornire URI che espongono queste operazioni come pseudo risorse e utilizzare la stringa di query per specificare i parametri richiesti. Ad esempio, una richiesta GET all'URI */add?operand1=99&operand2=1* può restituire un messaggio di risposta con un valore 100 all'interno del corpo e una richiesta GET all'URI */subtract?operand1=50&operand2=20* può restituire un messaggio di risposta con un valore 30 all'interno del corpo. Utilizzare tuttavia questi formati di URI solo in casi limitati.
 
@@ -140,8 +140,8 @@ Il protocollo HTTP definisce una serie di metodi che assegnano un significato se
 
 > [!NOTE]
 > Il protocollo HTTP definisce anche altri metodi usati meno comunemente, ad esempio PATCH che viene usato per richiedere aggiornamenti selettivi a una risorsa, HEAD che viene utilizzato per richiedere una descrizione di una risorsa, OPTIONS che consente a un client di ottenere informazioni sulle opzioni di comunicazione supportate dal server e TRACE che consente a un client di richiedere informazioni utilizzabili a scopo di test e di diagnostica.
-> 
-> 
+>
+>
 
 L'effetto di una richiesta specifica è diverso a seconda che la risorsa a cui viene applicata sia una raccolta o un singolo elemento. La tabella seguente riepiloga le convenzioni comuni adottate dalla maggior parte delle implementazioni RESTful usando l’esempio dell’e-commerce. Si noti che potrebbe non essere possibile implementare tutte queste richieste. L’implementazione dipende dallo scenario specifico.
 
@@ -157,15 +157,15 @@ Una richiesta POST ha lo scopo di creare una nuova risorsa con dati forniti nel 
 
 > [!NOTE]
 > È anche possibile definire richieste POST che attivano alcune funzionalità e che non necessariamente restituiscono dati. Questi tipi di richieste possono essere applicati alle raccolte. È possibile, ad esempio, usare una richiesta POST per passare una scheda attività a un servizio di elaborazione delle retribuzioni e ottenere le tasse calcolate come risposta.
-> 
-> 
+>
+>
 
 Lo scopo di una richiesta PUT è modificare una risorsa esistente. Se la risorsa specificata non esiste, la richiesta PUT può restituire un errore (in alcuni casi potrebbe effettivamente creare la risorsa). Le richieste PUT vengono applicate con maggiore frequenza a risorse costituite da singoli elementi, ad esempio un cliente o un ordine specifico, ma possono essere applicate anche alle raccolte, sebbene questo scenario sia meno frequente. Si noti che le richieste PUT sono idempotenti, mentre le richieste POST non lo sono. Se un'applicazione invia la stessa richiesta PUT più volte i risultati saranno gli stessi (la stessa risorsa verrà modificata con gli stessi valori), ma se un'applicazione ripete la stessa richiesta POST il risultato sarà la creazione di più risorse.
 
 > [!NOTE]
 > In modo più specifico, una richiesta HTTP PUT sostituisce una risorsa esistente con la risorsa specificata nel corpo della richiesta. Se si intende modificare una selezione di proprietà in una risorsa, lasciando però invariate le altre proprietà, questa operazione deve essere implementata mediante una richiesta HTTP PATCH. Tuttavia, molte implementazioni RESTful non applicano questa regola in modo rigido e usano PUT per entrambi i casi.
-> 
-> 
+>
+>
 
 ### <a name="processing-http-requests"></a>Elaborazione di richieste HTTP
 I dati inclusi da un'applicazione client in molte richieste HTTP e i corrispondenti messaggi di risposta dal server Web possono essere presentati in diversi formati o tipi di supporti. I dati che specificano i dettagli per un cliente o un ordine, ad esempio, possono essere forniti come XML, JSON o un altro formato codificato e compresso. Un'API Web RESTful deve supportare tipi di supporti diversi, come richiesto dall'applicazione client che invia una richiesta.
@@ -183,8 +183,8 @@ Se il server Web supporta questo tipo di supporto, può rispondere con una rispo
 
 > [!NOTE]
 > Per garantire la massima interoperabilità, i tipi di supporti cui si fa riferimento nelle intestazioni Accept e Content-Type devono essere tipi MIME riconosciuti piuttosto che un tipo di supporto personalizzato.
-> 
-> 
+>
+>
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -243,15 +243,15 @@ Date: Fri, 22 Aug 2014 09:18:37 GMT
 
 > [!TIP]
 > Se i dati in un messaggio di richiesta HTTP PUT includono informazioni su data e ora, verificare che il servizio Web accetti la data e l’ora formattate in base allo standard ISO 8601.
-> 
-> 
+>
+>
 
 Se la risorsa da aggiornare non esiste, il server Web può rispondere con una risposta Non trovato, come descritto in precedenza. In alternativa, se il server crea effettivamente l'oggetto stesso può restituire i codici di stato HTTP 200 (OK) o HTTP 201 (Creato) e il corpo della risposta può contenere i dati per la nuova risorsa. Se nell’intestazione Content-Type della richiesta è specificato un formato di dati che il server Web non è in grado di gestire, risponderà con il codice di stato HTTP 415 (Tipo di supporto non utilizzabile).
 
 > [!TIP]
 > Prendere in considerazione l’implementazione di operazioni HTTP PUT in blocco in grado di eseguire aggiornamenti in batch di più risorse in una raccolta. La richiesta PUT deve specificare l'URI della raccolta e il corpo della richiesta deve specificare i dettagli delle risorse da modificare. Questo approccio consente di ridurre la frammentarietà e migliorare le prestazioni.
-> 
-> 
+>
+>
 
 Il formato delle richieste HTTP POST che consentono di creare nuove risorse è simile a quello delle richieste PUT. Il corpo del messaggio contiene i dettagli della nuova risorsa da aggiungere. Tuttavia, in genere l’URI specifica la raccolta a cui deve essere aggiunta la risorsa. L'esempio seguente crea un nuovo ordine che viene aggiunto alla raccolta di ordini:
 
@@ -280,8 +280,8 @@ Content-Length: ...
 
 > [!TIP]
 > Se i dati forniti da una richiesta PUT o POST non sono validi, il server Web deve rispondere con un messaggio con codice di stato HTTP 400 (Richiesta errata). Il corpo di questo messaggio può contenere informazioni aggiuntive sul problema con la richiesta e i formati attesi oppure può contenere un collegamento a un URL in cui vengono forniti altri dettagli.
-> 
-> 
+>
+>
 
 Per rimuovere una risorsa, una richiesta HTTP DELETE fornisce semplicemente l'URI della risorsa da eliminare. L'esempio seguente prova a rimuovere l’ordine 99:
 
@@ -302,8 +302,8 @@ Se la risorsa non viene trovata, il server Web deve restituire, invece, un messa
 
 > [!TIP]
 > Se tutte le risorse in una raccolta devono essere eliminate, consentire di specificare una richiesta HTTP DELETE per l'URI della raccolta piuttosto che forzare un'applicazione a rimuovere ciascuna risorsa, a turno, dalla raccolta.
-> 
-> 
+>
+>
 
 ### <a name="filtering-and-paginating-data"></a>Filtro e paginazione dei dati
 È necessario cercare di mantenere gli URI semplici e intuitivi. L’esposizione di una raccolta di risorse tramite un unico URI aiuta a questo proposito, ma può causare il recupero di grandi quantità di dati da parte delle applicazioni quando è necessario solo un sottoinsieme di informazioni. La generazione di un grande volume di traffico influisce non solo sulle prestazioni e sulla scalabilità del server Web, ma compromette anche la velocità di risposta delle applicazioni client che richiedono i dati.
@@ -322,8 +322,8 @@ Una strategia simile può essere seguita per ordinare i dati mentre vengono recu
 
 > [!TIP]
 > Assegnare valori predefiniti significativi a tutti i parametri facoltativi nelle stringhe di query. Ad esempio, impostare il parametro `limit` su 10 e il parametro `offset` su 0 se si implementa la paginazione, impostare il parametro Sort sulla chiave della risorsa se si implementa l’ordinamento e impostare il parametro `fields` su tutti i campi della risorsa se si supportano le proiezioni.
-> 
-> 
+>
+>
 
 ### <a name="handling-large-binary-resources"></a>Gestione di risorse binarie di grandi dimensioni
 Una singola risorsa può contenere campi binari di grandi dimensioni, come file o immagini. Per superare i problemi causati da connessioni non affidabili e intermittenti e per migliorare i tempi di risposta, considerare la possibilità di fornire operazioni che consentano a tali risorse di essere recuperate in blocchi dall'applicazione client. A questo scopo, l'API Web deve supportare l'intestazione Accept-Ranges per le richieste GET per le risorse di grandi dimensioni e possibilmente implementare le richieste HTTP HEAD per tali risorse. L’intestazione Accept-Ranges indica che l’operazione GET supporta risultati parziali e che un’applicazione client può inviare richieste GET che restituiscono un sottoinsieme di una risorsa specificata come intervallo di byte. Una richiesta HEAD è simile a una richiesta GET tranne per il fatto che restituisce solo un’intestazione che descrive la risorsa e un corpo del messaggio vuoto. Un'applicazione client può inviare una richiesta HEAD per determinare se recuperare una risorsa tramite richieste GET parziali. Nell'esempio seguente viene illustrata una richiesta HEAD che ottiene informazioni su un'immagine del prodotto:
@@ -390,8 +390,8 @@ Una delle principali motivazioni alla base dell’approccio REST è che dovrebbe
 
 > [!NOTE]
 > Attualmente non esistono standard o specifiche che definiscono come modellare il principio HATEOAS. Gli esempi mostrati in questa sezione illustrano una possibile soluzione.
-> 
-> 
+>
+>
 
 Ad esempio, per gestire la relazione tra clienti e ordini, i dati restituiti nella risposta per un ordine specifico devono contenere gli URI sotto forma di un collegamento ipertestuale che identifica il cliente che ha effettuato l'ordine e le operazioni che possono essere eseguite su tale cliente.
 
@@ -448,8 +448,8 @@ Content-Length: ...
 
 > [!NOTE]
 > Ai fini della semplicità e della chiarezza, le risposte di esempio illustrate in questa sezione non includono collegamenti HATEOAS.
-> 
-> 
+>
+>
 
 Se il campo `DateCreated` viene aggiunto allo schema della risorsa customer, la risposta sarà simile alla seguente:
 
@@ -487,8 +487,8 @@ Questo approccio ha il vantaggio semantico che la stessa risorsa viene sempre re
 
 > [!NOTE]
 > Alcuni Web browser e proxy Web meno recenti non memorizzano nella cache le risposte per le richieste che includono una stringa di query nell'URL. Ciò può avere un impatto negativo sulle prestazioni per le applicazioni Web che utilizzano un'API Web e che vengono eseguite dall'interno di questo tipo di Web browser.
-> 
-> 
+>
+>
 
 ### <a name="header-versioning"></a>Controllo delle versioni tramite l’intestazione
 Anziché aggiungere il numero di versione come parametro di stringa di query, è possibile implementare un'intestazione personalizzata che indica la versione della risorsa. Questo approccio richiede l’aggiunta, da parte dell'applicazione client, dell'intestazione appropriata a tutte le richieste, nonostante il codice che gestisce la richiesta del client possa usare un valore predefinito (versione 1) se l'intestazione della versione viene omessa. Nell'esempio seguente viene usata un'intestazione personalizzata denominata *Custom-Header*. Il valore di questa intestazione indica la versione dell'API Web.
@@ -558,10 +558,10 @@ Questo approccio è senza dubbio il meccanismo di controllo delle versioni più 
 
 > [!NOTE]
 > Quando si seleziona una strategia di controllo delle versioni, è consigliabile tenere in considerazione anche le implicazioni sulle prestazioni, soprattutto la memorizzazione nella cache sul server Web. Il controllo delle versioni tramite URI e gli schemi di controllo delle versioni tramite la stringa di query sono adatti alla cache perché la stessa combinazione URI/stringa di query fa riferimento ogni volta agli stessi dati.
-> 
+>
 > I meccanismi di controllo delle versioni tramite intestazione e tipo di supporto in genere richiedono logica aggiuntiva per esaminare i valori nell’intestazione personalizzata o nell'intestazione Accept. In un ambiente su larga scala, la presenza di molti client che usano versioni diverse di un'API Web può comportare una notevole quantità di dati duplicati in una cache lato server. Questo problema può diventare evidente se un'applicazione client comunica con un server Web tramite un proxy che implementa la memorizzazione nella cache e che inoltra una richiesta al server Web solo se attualmente non mantiene una copia dei dati richiesti nella propria cache.
-> 
-> 
+>
+>
 
 ## <a name="more-information"></a>Altre informazioni
 * La [guida di riferimento dettagliata relativa a RESTful](http://restcookbook.com/) contiene un’introduzione alla creazione delle API RESTful.
@@ -569,7 +569,6 @@ Questo approccio è senza dubbio il meccanismo di controllo delle versioni più 
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

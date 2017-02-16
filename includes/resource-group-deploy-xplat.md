@@ -1,4 +1,4 @@
-## Come distribuire gruppi di risorse con l'interfaccia della riga di comando di Azure
+## <a name="how-to-deploy-with-azure-cli"></a>Come distribuire gruppi di risorse con l'interfaccia della riga di comando di Azure
 1. Accedere al proprio account Azure.
    
         azure login
@@ -62,4 +62,8 @@
    
          azure group log show -l -v ExampleResourceGroup
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

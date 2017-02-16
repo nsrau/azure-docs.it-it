@@ -1,5 +1,5 @@
 ---
-title: Gestire il bus di servizio con PowerShell | Microsoft Docs
+title: Gestire il bus di servizio di Azure con PowerShell | Documentazione Microsoft
 description: Gestire il bus di servizio con gli script PowerShell
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 01/12/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
-ms.openlocfilehash: 5b6c396d89816bb2804cc63beb860f4628333cb7
+ms.sourcegitcommit: 61f31c8ad0463776937f366d145595f04cc42d2e
+ms.openlocfilehash: 24dd8757942488aa8364cc6cf968cfc17299699f
 
 
 ---
@@ -43,17 +43,17 @@ Innanzitutto, assicurarsi che lo script sia in grado di individuare l'assembly *
 
 Di seguito viene illustrato in che modo questi passaggi vengono implementati in uno script di PowerShell:
 
-```
+```powershell
 try
 {
     # WARNING: Make sure to reference the latest version of Microsoft.ServiceBus.dll
-    Write-Output "Adding the [Microsoft.ServiceBus.dll] assembly to the script..."
+    Write-Host "Adding the [Microsoft.ServiceBus.dll] assembly to the script..."
     $scriptPath = Split-Path (Get-Variable MyInvocation -Scope 0).Value.MyCommand.Path
     $packagesFolder = (Split-Path $scriptPath -Parent) + "\packages"
     $assembly = Get-ChildItem $packagesFolder -Include "Microsoft.ServiceBus.dll" -Recurse
     Add-Type -Path $assembly.FullName
 
-    Write-Output "The [Microsoft.ServiceBus.dll] assembly has been successfully added to the script."
+    Write-Host "The [Microsoft.ServiceBus.dll] assembly has been successfully added to the script."
 }
 
 catch [System.Exception]
@@ -79,7 +79,7 @@ Questa parte dello script esegue le operazioni seguenti:
 2. Se lo spazio dei nomi viene trovato, viene segnalato ciò che viene trovato.
 3. Se lo spazio dei nomi non viene trovato, viene creato lo spazio dei nomi e quindi viene recuperato lo spazio dei nomi appena creato.
    
-    ```
+    ```powershell
     $Namespace = "MyServiceBusNS"
     $Location = "West US"
    
@@ -89,12 +89,12 @@ Questa parte dello script esegue le operazioni seguenti:
     # Check if the namespace already exists or needs to be created
     if ($CurrentNamespace)
     {
-        Write-Output "The namespace [$Namespace] already exists in the [$($CurrentNamespace.Region)] region."
+        Write-Host "The namespace [$Namespace] already exists in the [$($CurrentNamespace.Region)] region."
     }
     else
     {
         Write-Host "The [$Namespace] namespace does not exist."
-        Write-Output "Creating the [$Namespace] namespace in the [$Location] region..."
+        Write-Host "Creating the [$Namespace] namespace in the [$Location] region..."
         New-AzureSBNamespace -Name $Namespace -Location $Location -CreateACSNamespace $false -NamespaceType Messaging
         $CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
         Write-Host "The [$Namespace] namespace in the [$Location] region has been successfully created."
@@ -104,16 +104,16 @@ Questa parte dello script esegue le operazioni seguenti:
 Per il provisioning di altre entità del bus di servizio, creare un'istanza della classe [NamespaceManager][NamespaceManager] dall'SDK.
 È possibile usare il cmdlet [Get-AzureSBAuthorizationRule][Get-AzureSBAuthorizationRule] per recuperare una regola di autorizzazione usata per specificare una stringa di connessione. Verrà archiviato un riferimento all'istanza di `NamespaceManager` nella variabile `$NamespaceManager`. `$NamespaceManager` verrà utilizzato in seguito nello script per il provisioning di altre entità.
 
-``` powershell
+```powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
 # Create the NamespaceManager object to create the event hub
-Write-Output "Creating a NamespaceManager object for the [$Namespace] namespace..."
+Write-Host "Creating a NamespaceManager object for the [$Namespace] namespace..."
 $NamespaceManager = [Microsoft.ServiceBus.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
-Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
+Write-Host "NamespaceManager object for the [$Namespace] namespace has been successfully created."
 ```
 
 ## <a name="provisioning-other-service-bus-entities"></a>Provisioning di altre entità del bus di servizio
-Per il provisioning di altre entità, ad esempio, code, argomenti e hub eventi, usare l'[API .NET per il bus di servizio][.NET API for Service Bus]. In questo articolo verranno illustrati unicamente gli hub eventi, anche se i passaggi per le altre entità sono simili. Inoltre, al termine di questo articolo si fa riferimento a esempi più dettagliati, incluse altre entità.
+Per effettuare il provisioning di altre entità, ad esempio code, argomenti e Hub eventi, usare l'[API .NET per il bus di servizio][API .NET per il bus di servizio]. In questo articolo verranno illustrati unicamente gli hub eventi, anche se i passaggi per le altre entità sono simili. Inoltre, al termine di questo articolo si fa riferimento a esempi più dettagliati, incluse altre entità.
 
 Questa parte dello script crea altre quattro variabili locali che vengono usate per creare istanze dell'oggetto `EventHubDescription`. Questo script esegue le operazioni seguenti:
 
@@ -121,7 +121,7 @@ Questa parte dello script crea altre quattro variabili locali che vengono usate 
 2. Se non esiste, viene creato un oggetto `EventHubDescription` che viene passato al metodo `CreateEventHubIfNotExists` della classe `NamespaceManager`.
 3. Dopo aver determinato la disponibilità dell'hub eventi, viene creato un gruppo di clienti tramite `ConsumerGroupDescription` e `NamespaceManager`.
    
-    ```
+    ```powershell
     $Path  = "MyEventHub"
     $PartitionCount = 12
     $MessageRetentionInDays = 7
@@ -131,32 +131,32 @@ Questa parte dello script crea altre quattro variabili locali che vengono usate 
     # Check to see if the Event Hub already exists
     if ($NamespaceManager.EventHubExists($Path))
     {
-        Write-Output "The [$Path] event hub already exists in the [$Namespace] namespace."  
+        Write-Host "The [$Path] event hub already exists in the [$Namespace] namespace."  
     }
     else
     {
-        Write-Output "Creating the [$Path] event hub in the [$Namespace] namespace: PartitionCount=[$PartitionCount] MessageRetentionInDays=[$MessageRetentionInDays]..."
+        Write-Host "Creating the [$Path] event hub in the [$Namespace] namespace: PartitionCount=[$PartitionCount] MessageRetentionInDays=[$MessageRetentionInDays]..."
         $EventHubDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.EventHubDescription -ArgumentList $Path
         $EventHubDescription.PartitionCount = $PartitionCount
         $EventHubDescription.MessageRetentionInDays = $MessageRetentionInDays
         $EventHubDescription.UserMetadata = $UserMetadata
         $EventHubDescription.Path = $Path
-        $NamespaceManager.CreateEventHubIfNotExists($EventHubDescription);
-        Write-Output "The [$Path] event hub in the [$Namespace] namespace has been successfully created."
+        $NamespaceManager.CreateEventHubIfNotExists($EventHubDescription)
+        Write-Host "The [$Path] event hub in the [$Namespace] namespace has been successfully created."
     }
    
     # Create the consumer group if it doesn't exist
-    Write-Output "Creating the consumer group [$ConsumerGroupName] for the [$Path] event hub..."
+    Write-Host "Creating the consumer group [$ConsumerGroupName] for the [$Path] event hub..."
     $ConsumerGroupDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.ConsumerGroupDescription -ArgumentList $Path, $ConsumerGroupName
     $ConsumerGroupDescription.UserMetadata = $ConsumerGroupUserMetadata
-    $NamespaceManager.CreateConsumerGroupIfNotExists($ConsumerGroupDescription);
-    Write-Output "The consumer group [$ConsumerGroupName] for the [$Path] event hub has been successfully created."
+    $NamespaceManager.CreateConsumerGroupIfNotExists($ConsumerGroupDescription)
+    Write-Host "The consumer group [$ConsumerGroupName] for the [$Path] event hub has been successfully created."
     ```
 
 ## <a name="migrate-a-namespace-to-another-azure-subscription"></a>Eseguire la migrazione di uno spazio dei nomi a un'altra sottoscrizione di Azure
 La sequenza di comandi seguente sposta uno spazio dei nomi da una sottoscrizione di Azure a un'altra. Per eseguire questa operazione, lo spazio dei nomi deve essere già attivo e l'utente che esegue i comandi di PowerShell deve essere un amministratore nella sottoscrizione di origine e in quella di destinazione.
 
-```
+```powershell
 # Create a new resource group in target subscription
 Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
 New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
@@ -185,14 +185,13 @@ Sono disponibili per il download anche alcuni script predefiniti:
 [Free Trial]: http://azure.microsoft.com/pricing/free-trial/
 [Install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Service Bus NuGet package]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
-[Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
-[New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
-[Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[.NET API for Service Bus]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
-[NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
+[Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/servicemanagement/azure.compute/v1.6.1/Get-AzureSBNamespace
+[New-AzureSBNamespace]: https://docs.microsoft.com/powershell/servicemanagement/azure.compute/v1.6.1/new-azuresbnamespace
+[Get-AzureSBAuthorizationRule]: https://docs.microsoft.com/powershell/servicemanagement/azure.compute/v1.6.1/get-azuresbauthorizationrule
+[NamespaceManager]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

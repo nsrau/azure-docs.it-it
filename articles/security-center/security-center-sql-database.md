@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6b1c05963afa27ff4d24270048d3071f0fb02c00
+ms.sourcegitcommit: c10a35e4828e8da427f324ef3c3892e7e24cc72d
+ms.openlocfilehash: ba8fd7ea8979c8c2afbace60a5675b411438d6b4
 
 
 ---
@@ -38,7 +38,7 @@ Oltre ad aiutare a proteggere le risorse del database SQL, il Centro sicurezza o
 ## <a name="prerequisites"></a>Prerequisiti
 Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Il livello gratuito del Centro sicurezza viene abilitato con la sottoscrizione. Per altre informazioni sui livelli gratuito e standard del Centro sicurezza, vedere [Centro sicurezza Prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 
-Il Centro sicurezza supporta l'accesso in base al ruolo. Per ulteriori informazioni sul controllo di accesso in base al ruolo (RBAC) in Azure, vedere [Controllo di accesso in base al ruolo di Azure Active Directory](../active-directory/role-based-access-control-configure.md). Le domande frequenti relative al Centro sicurezza offrono informazioni sulla [modalità di gestione delle autorizzazioni nel Centro sicurezza](security-center-faq.md#how-are-permissions-handled-in-azure-security-center).
+Il Centro sicurezza supporta l'accesso in base al ruolo. Per ulteriori informazioni sul controllo di accesso in base al ruolo (RBAC) in Azure, vedere [Controllo di accesso in base al ruolo di Azure Active Directory](../active-directory/role-based-access-control-configure.md). Le domande frequenti relative al Centro sicurezza offrono informazioni sulla [modalità di gestione delle autorizzazioni nel Centro sicurezza](security-center-faq.md#permissions).
 
 ## <a name="access-security-center"></a>Accedere al Centro sicurezza
 È possibile accedere al Centro sicurezza tramite il [portale di Azure](https://azure.microsoft.com/features/azure-portal/). [Accedere al portale](https://portal.azure.com/) e selezionare l'opzione **Centro sicurezza**.
@@ -118,6 +118,6 @@ Per altre informazioni, vedere [Gestione e risposta agli avvisi di sicurezza](se
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

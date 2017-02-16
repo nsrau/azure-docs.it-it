@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dc0e49f96bc80045eed888ff5354e5b6902a841c
+ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
+ms.openlocfilehash: ae39e06022a8bf53832283173dc97ef8c0e0b9ef
 
 
 ---
@@ -30,13 +30,12 @@ Curl viene usato per illustrare come sia possibile interagire con HDInsight usan
 
 > [!NOTE]
 > Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere [Informazioni utili su Hadoop basato su Linux in HDInsight](hdinsight-hadoop-linux-information.md).
-> 
-> 
+
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Prerequisiti
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
-* Un cluster Hadoop in HDInsight (basato su Linux o su Windows)
+* Un cluster Hadoop in HDInsight
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)
 
@@ -68,7 +67,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
    
         curl -u USERNAME:PASSWORD -d user.name=USERNAME -d jar=wasbs:///example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=wasbs:///example/data/gutenberg/davinci.txt -d arg=wasbs:///example/data/CurlOut https://CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar
    
-    La fine dell'URI (/mapreduce/jar) ndica a WebHCat che la richiesta avvierà un processo MapReduce da una classe in un file con estensione jar. I parametri usati in questo comando sono i seguenti:
+    La fine dell'URI (/mapreduce/jar) indica a WebHCat che la richiesta avvierà un processo MapReduce da una classe in un file con estensione jar. I parametri usati in questo comando sono i seguenti:
    
    * **-d**: `-G` non viene usato, quindi la richiesta userà il metodo POST per impostazione predefinita. `-d` specifica i valori di dati che vengono inviati con la richiesta.
      
@@ -123,6 +122,6 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

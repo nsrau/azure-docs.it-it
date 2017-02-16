@@ -1,5 +1,5 @@
 ---
-title: Come usare le code del bus di servizio con Ruby | Documentazione Microsoft
+title: Come usare le code del bus di servizio di Azure con Ruby | Documentazione Microsoft
 description: Informazioni su come usare le code del bus di servizio in Azure. Gli esempi di codice sono scritti in Ruby.
 services: service-bus-messaging
 documentationcenter: ruby
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bde6cfe0daa95fc64e18be308798263544119b9f
+ms.sourcegitcommit: 0f9f732d6998a6ee50b0aea4edfc615ac61025ce
+ms.openlocfilehash: 343dc0d39f284488f03e1d1ba3df21ae616e97d9
 
 
 ---
@@ -25,48 +25,12 @@ ms.openlocfilehash: bde6cfe0daa95fc64e18be308798263544119b9f
 
 Questa guida illustra come usare le code del bus di servizio. Gli esempi sono scritti in Ruby e utilizzano la gemma di Azure. Gli scenari illustrati includono la **creazione di code, l'invio e la ricezione di messaggi** e **l'eliminazione di code**. Per altre informazioni sulle code del bus di servizio, vedere la sezione [Passaggi successivi](#next-steps) .
 
-## <a name="what-are-service-bus-queues"></a>Informazioni sulle code del bus di servizio
-Le code del bus di servizio supportano un modello di comunicazione con *messaggistica negoziata*. Quando si usano le code, i componenti di un'applicazione distribuita non comunicano direttamente tra di loro, ma scambiano messaggi tramite una coda, che agisce da intermediario. Un producer di messaggi (mittente) invia un messaggio alla coda e quindi prosegue con la relativa elaborazione.
-In modo asincrono, il consumer di messaggi (ricevitore) recupera il messaggio dalla coda e lo elabora. Il producer non deve attendere la risposta del consumer per continuare a elaborare e inviare ulteriori messaggi. Le code consentono un recapito dei messaggi di tipo **FIFO (First In, First Out)** a uno o più consumer concorrenti. In base a questo metodo, in genere i messaggi vengono ricevuti ed elaborati nell'ordine temporale in cui sono stati aggiunti alla coda e ogni messaggio viene ricevuto ed elaborato da un solo consumer.
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-![Concetti relativi alle code](./media/service-bus-ruby-how-to-use-queues/sb-queues-08.png)
-
-Le code del bus di servizio sono una tecnologia di carattere generale che può essere usata in numerosi scenari:
-
-* Comunicazione tra ruoli Web e di lavoro in un'[applicazione Azure multi-livello](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md).
-* Comunicazione tra app locali e app Azure ospitate in una soluzione [ibrida](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
-* Comunicazione tra componenti di un'applicazione distribuita in esecuzione in locale in organizzazioni diverse o in reparti diversi della stessa organizzazione.
-
-L'uso delle code consente la scalabilità orizzontale delle applicazioni e garantisce maggiore resilienza all'architettura.
-
-## <a name="create-a-namespace"></a>Creare uno spazio dei nomi
-Per iniziare a usare le code del bus di servizio in Azure, è innanzitutto necessario creare uno spazio dei nomi. Uno spazio dei nomi fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione. È necessario creare lo spazio dei nomi tramite l'interfaccia della riga di comando perché il portale di Azure non crea lo spazio dei nomi con una connessione ACS.
-
-Per creare uno spazio dei nomi:
-
-1. Aprire la console di Azure PowerShell.
-2. Digitare il comando seguente per creare uno spazio dei nomi del bus di servizio. Specificare il valore dello spazio dei nomi e specificare la stessa area dell'applicazione.
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
    
-    ```
-    New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
-   
-    ![Create Namespace](./media/service-bus-ruby-how-to-use-queues/showcmdcreate.png)
-    ```
-
-## <a name="obtain-management-credentials-for-the-namespace"></a>Recuperare le credenziali di gestione per lo spazio dei nomi
-Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nuovo spazio dei nomi, è necessario ottenere le credenziali di gestione per lo spazio dei nomi.
-
-Il cmdlet PowerShell che è stato eseguito per creare lo spazio dei nomi del bus di servizio di Azure consente di visualizzare la chiave che è possibile usare per gestire lo spazio dei nomi. Copiare il valore **DefaultKey**. Questo valore verrà usato nel codice più avanti in questa esercitazione.
-
-![Copiare la chiave](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
-
-> [!NOTE]
-> È anche possibile trovare questa chiave se si accede al [portale di Azure](https://portal.azure.com/) e si visualizzano le informazioni di connessione per lo spazio dei nomi del bus di servizio.
-> 
-> 
-
 ## <a name="create-a-ruby-application"></a>Creare un'applicazione Ruby
-Creare un'applicazione Ruby. Per istruzioni, vedere [Creare un'applicazione Ruby in Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
+Creare un'applicazione Ruby. Per istruzioni, vedere [Creare un'applicazione Ruby in Azure](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurare l'applicazione per l'uso del bus di servizio
 Per usare il bus di servizio di Azure, scaricare e usare il pacchetto Ruby Azure, che comprende un set di pratiche librerie che comunicano con i servizi di archiviazione REST.
@@ -85,7 +49,7 @@ require "azure"
 ## <a name="set-up-an-azure-service-bus-connection"></a>Configurare una connessione del bus di servizio di Azure
 Il modulo di Azure legge le variabili di ambiente **AZURE\_SERVICEBUS\_NAMESPACE** e **AZURE\_SERVICEBUS\_ACCESS_KEY** per informazioni necessarie per la connessione allo spazio dei nomi del bus di servizio. Se queste variabili di ambiente non sono impostate, è necessario specificare le informazioni relative allo spazio dei nomi prima di usare **Azure::ServiceBusService** con il codice seguente:
 
-```
+```ruby
 Azure.config.sb_namespace = "<your azure service bus namespace>"
 Azure.config.sb_access_key = "<your azure service bus access key>"
 ```
@@ -95,7 +59,7 @@ Impostare il valore dello spazio dei nomi sul valore creato invece che sull'inte
 ## <a name="how-to-create-a-queue"></a>Come creare una coda
 L'oggetto **Azure::ServiceBusService** consente di usare le code. Per creare una coda, usare il metodo **create_queue()**. Nel seguente esempio viene creata una coda o stampato l'eventuale errore.
 
-```
+```ruby
 azure_service_bus_service = Azure::ServiceBusService.new
 begin
   queue = azure_service_bus_service.create_queue("test-queue")
@@ -106,7 +70,7 @@ end
 
 È anche possibile passare un oggetto **Azure::ServiceBus::Queue** con opzioni aggiuntive che consentono di sostituire le impostazioni predefinite delle code, ad esempio la durata dei messaggi o la dimensione massima della coda. Il seguente esempio illustra come impostare la dimensione massima della coda su 5 GB e una durata di 1 minuto:
 
-```
+```ruby
 queue = Azure::ServiceBus::Queue.new("test-queue")
 queue.max_size_in_megabytes = 5120
 queue.default_message_time_to_live = "PT1M"
@@ -119,7 +83,7 @@ Per inviare un messaggio a una coda del bus di servizio, l'applicazione chiama i
 
 Nell'esempio seguente viene illustrato come inviare un messaggio di prova alla coda denominata "test-queue" tramite **send\_queue\_message()**:
 
-```
+```ruby
 message = Azure::ServiceBus::BrokeredMessage.new("test queue message")
 message.correlation_id = "test-correlation-id"
 azure_service_bus_service.send_queue_message("test-queue", message)
@@ -136,7 +100,7 @@ Se il parametro **:peek\_lock** è impostato su **false**, la lettura e l'elimin
 
 Nell'esempio seguente viene illustrato come ricevere ed elaborare messaggi tramite **receive\_queue\_message()**. Nell'esempio viene prima ricevuto ed eliminato un messaggio tramite **:peek\_lock** impostato su **false** e successivamente viene ricevuto ed eliminato un altro messaggio tramite **delete\_queue\_message()**:
 
-```
+```ruby
 message = azure_service_bus_service.receive_queue_message("test-queue",
   { :peek_lock => false })
 message = azure_service_bus_service.receive_queue_message("test-queue")
@@ -161,6 +125,6 @@ Per un confronto tra le code del bus di servizio di Azure discusse in questo art
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

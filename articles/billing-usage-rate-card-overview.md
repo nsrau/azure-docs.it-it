@@ -4,7 +4,7 @@ description: "Fornisce una panoramica concettuale sull&quot;utilizzo dell’API 
 services: 
 documentationcenter: 
 author: BryanLa
-manager: mbaldwin
+manager: ruchic
 editor: 
 tags: billing
 ms.assetid: 3e817b43-0696-400c-a02e-47b7817f9b77
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 08/16/2016
+ms.date: 01/07/2017
 ms.author: mobandyo;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0503c140850cbd47cbd80fa8e56d060866846362
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 35bd24f8666d2954be37bd27abebbc6c3c8a6a54
 
 
 ---
@@ -32,7 +32,7 @@ L'API di utilizzo delle risorse di Azure e l’API RateCard vengono implementate
 ### <a name="azure-resource-usage-api-preview"></a>API di utilizzo delle risorse di Azure (anteprima)
 Clienti e partner possono utilizzare l'API di utilizzo delle risorse di Azure per ottenere una stima dei dati di consumo di Azure. Le funzionalità includono:
 
-* **Controllo degli accessi in base al ruolo di Azure**: clienti e partner possono configurare i propri criteri di accesso nel [portale di Azure](https://portal.azure.com) o tramite i [cmdlet di Azure PowerShell](powershell-install-configure.md) per specificare quali utenti o applicazioni possono avere accesso ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Il chiamante deve anche essere aggiunto al ruolo Lettore, Proprietario o Collaboratore per ottenere l'accesso ai dati di utilizzo per una determinata sottoscrizione di Azure.
+* **Controllo degli accessi in base al ruolo di Azure**: clienti e partner possono configurare i propri criteri di accesso nel [portale di Azure](https://portal.azure.com) o tramite i [cmdlet di Azure PowerShell](/powershell/azureps-cmdlets-docs) per specificare quali utenti o applicazioni possono avere accesso ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Il chiamante deve anche essere aggiunto al ruolo Lettore, Proprietario o Collaboratore per ottenere l'accesso ai dati di utilizzo per una determinata sottoscrizione di Azure.
 * **Aggregazioni orarie o giornaliere** : i chiamanti possono specificare se desiderano i dati di utilizzo di Azure in intervalli orari o giornalieri. L’impostazione predefinita è rappresentata dagli intervalli giornalieri.
 * **Metadati dell'istanza forniti (inclusi i tag delle risorse)** : nella risposta vengono forniti i dettagli a livello di istanza, ad esempio l'URI della risorsa completo (/subscriptions/{subscription-id}/..), insieme alle informazioni sul gruppo di risorse e ai tag delle risorse che verranno forniti nella risposta. In tal modo gli utenti potranno allocare l’utilizzo in modo deterministico e programmatico in base ai tag, per casi di utilizzo come l’addebito delle tariffe.
 * **Metadati delle risorse forniti** : nella risposta verranno inoltre passati i dettagli delle risorse, ad esempio il nome, la categoria e la sottocategoria del misuratore, per fornire ai chiamanti una migliore comprensione delle risorse utilizzate. Stiamo inoltre lavorando per allineare la terminologia dei metadati delle risorse nel portale di Azure, il CSV di utilizzo di Azure, il CSV di fatturazione EA e altre esperienze pubbliche, per consentire ai clienti di correlare i dati delle diverse esperienze.
@@ -41,7 +41,7 @@ Clienti e partner possono utilizzare l'API di utilizzo delle risorse di Azure pe
 ### <a name="azure-resource-ratecard-api-preview"></a>API RateCard delle risorse di Azure (anteprima)
 Clienti e partner possono utilizzare l'API RateCard delle risorse di Azure per ottenere l'elenco delle risorse di Azure disponibili, insieme a una stima delle informazioni di prezzo di ognuna di esse. Le funzionalità includono:
 
-* **Controllo degli accessi in base al ruolo di Azure**: clienti e partner possono configurare i propri criteri di accesso nel [portale di Azure](https://portal.azure.com) o tramite i [cmdlet di Azure PowerShell](powershell-install-configure.md) per specificare quali utenti o applicazioni possono avere accesso ai dati di RateCard. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Il chiamante deve anche essere aggiunto al ruolo Lettore, Proprietario o Collaboratore per ottenere l'accesso ai dati di utilizzo per una determinata sottoscrizione di Azure.
+* **Controllo degli accessi in base al ruolo di Azure**: clienti e partner possono configurare i propri criteri di accesso nel [portale di Azure](https://portal.azure.com) o tramite i [cmdlet di Azure PowerShell](/powershell/azureps-cmdlets-docs) per specificare quali utenti o applicazioni possono avere accesso ai dati di RateCard. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Il chiamante deve anche essere aggiunto al ruolo Lettore, Proprietario o Collaboratore per ottenere l'accesso ai dati di utilizzo per una determinata sottoscrizione di Azure.
 * **Supporto delle offerte con pagamento in base al consumo, MSDN, impegno monetario e credito monetario (EA non supportato)** : questa API fornisce informazioni sulle tariffe a livello di offerta di Azure e a livello di sottoscrizione.  Il chiamante di questa API deve passare le informazioni sull'offerta per dettagli e tariffe delle risorse.  Dal momento che le offerte EA hanno tariffe personalizzate in base alla registrazione, al momento non è possibile fornire le tariffe EA.
 
 ## <a name="scenarios"></a>Scenari
@@ -72,6 +72,6 @@ In [Cloud Cruiser e integrazione delle API di fatturazione di Microsoft Azure](b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

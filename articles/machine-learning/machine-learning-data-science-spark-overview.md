@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/07/2016
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: ca799d03076175d6a7193c0e58b349a6cb61693b
-ms.openlocfilehash: 35f07fba1421af1db9c8b6190737c3c220a911e1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 091a753c8a183975c7aa340fa2f089adf4fe5574
 
 
 
@@ -37,7 +37,7 @@ La procedura di installazione e il codice fornito in questa procedura dettagliat
 
 2. Per completare questa procedura dettagliata è necessario un cluster HDInsight 3.4 Spark 1.6. Per crearne uno, vedere le istruzioni fornite in [Introduzione: creare cluster Apache Spark in Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Il tipo e la versione del cluster vengono specificati tramite il menu **Selezionare il tipo di cluster** . 
 
-![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
+![Configurare il cluster](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
 <!-- -->
 
@@ -107,11 +107,11 @@ I dati relativi alle corse dei taxi della città di New York sono costituiti da 
 ## <a name="execute-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Eseguire il codice da Jupyter Notebook nel cluster Spark
 È possibile avviare il notebook di Jupyter dal portale di Azure. Trovare il cluster Spark nel dashboard e fare clic su di esso per aprire la relativa pagina di gestione. Per aprire il notebook associato al cluster Spark, fare clic su **Dashboard cluster** -> **Notebook di Jupyter**.
 
-![](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
+![Dashboard del cluster](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
 
 Per accedere ai notebook di Jupyter, è anche possibile passare a ***https://NOMECLUSTER.azurehdinsight.net/jupyter***. Sostituire NOMECLUSTER nell'URL con il nome del proprio cluster. Per accedere ai notebook, sarà necessaria la password dell'account amministratore.
 
-![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
+![Sfogliare i notebook di Jupyter](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 
 Selezionare PySpark per visualizzare una directory con alcuni esempi di notebook predefiniti che usano l'API PySpark. I notebook contenenti gli esempi di codice per questa serie di argomenti su Spark sono disponibili in [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
@@ -154,6 +154,6 @@ Dopo aver configurato un cluster HDInsight Spark e avere caricato i notebook di 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -13,29 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/11/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: f28a5016bfee6a2a9a67a3093d0f5909c50cb0ca
-ms.openlocfilehash: 1412663ab4a99ebdbe7c63497d1c3ecde6eebb43
+ms.sourcegitcommit: e9ea21be1fabb5846c4f3b7b05f3a93298830e57
+ms.openlocfilehash: 5119d1d6c02b8e080a9e0905ae21a2bddefab03a
 
 
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Informazioni sul monitoraggio dei processi di Analisi di flusso e su come monitorare le query
+
 ## <a name="introduction-the-monitor-page"></a>Introduzione: Pagina di monitoraggio
-Il portale di gestione di Azure e il portale di Azure evidenziano entrambi metriche delle prestazioni chiave che possono essere usate per monitorare e risolvere i problemi di prestazioni delle query e dei processi. 
+Il portale di Azure evidenzia le metriche delle prestazioni chiave che possono essere usate per monitorare e consente di risolvere i problemi di prestazioni delle query e dei processi. Per visualizzare queste metriche, esplorare il processo di analisi di flusso di cui si desidera vedere le metriche e visualizzare la sezione **Monitoraggio** nella pagina della panoramica.  
 
-Nel portale di gestione di Azure, Fare clic sulla scheda **Monitoraggio** di un processo di Analisi di flusso per visualizzare queste metriche. Si verifica un ritardo di al massimo 1 minuto nella visualizzazione delle metriche delle prestazioni nella pagina Monitoraggio.  
+![Collegamento al monitoraggio](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
 
-  ![Monitoraggio del dashboard dei processi](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
+Verrà visualizzata la finestra mostrata di seguito:
 
-Nel portale di Azure, esplorare il processo di analisi di flusso di cui si desidera vedere le metriche e visualizzare la sezione **Monitoraggio** .  
-
-  ![Portale di Azure, Monitoraggio del dashboard dei processi](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png)  
-
-La prima volta che viene creato un processo di analisi di flusso in un'area, è necessario configurare la diagnostica per tale area. A tale scopo, fare clic nella sezione **Monitoraggio** e verrà visualizzato il pannello **Diagnostica**. Qui è possibile abilitare la diagnostica e specificare un account di archiviazione per i dati di monitoraggio.  
-
-  ![Portale di Azure, Configurazione della diagnostica query](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)  
+![Monitoraggio del dashboard dei processi](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
 ## <a name="metrics-available-for-stream-analytics"></a>Metriche disponibili per l'analisi di flusso
 | Metrica                 | Definizione                               |
@@ -45,51 +40,19 @@ La prima volta che viene creato un processo di analisi di flusso in un'area, è 
 | Eventi di output          | Quantità di dati inviata dal processo di Analisi di flusso alla destinazione di output, in termini di numero di eventi. |
 | Eventi non ordinati    | Numero di eventi non ordinati ricevuti che sono stati eliminati o a cui è stato assegnato un timestamp modificato, in base ai Criteri di ordinamento eventi. Può essere influenzato dalla configurazione dell'impostazione della Finestra di tolleranza elementi non in ordine. |
 | Errori di conversione dati | numero di errori di conversione dei dati rilevati da un processo di Analisi di flusso. |
-| Errori di runtime         | Numero di errori che si sono verificati durante l'esecuzione di un processo di Analisi di flusso. |
+| Errori di runtime         | Numero totale di errori che si sono verificati durante l'esecuzione di un processo di Analisi di flusso. |
 | Ultimi eventi di input      | Numero di eventi che arrivano in ritardo dall'origine che sono stati eliminati oppure il cui timestamp è stato modificato, in base alla configurazione dei Criteri di ordinamento eventi dell'impostazione della Finestra di tolleranza elementi non in ordine. |
+| Richieste di funzioni      | Numero di chiamate alla funzione di Azure Machine Learning (se presente). |
+| Richieste di funzioni non riuscite | Numero di chiamate non riuscite alla funzione di Azure Machine Learning (se presente). |
+| Eventi di funzioni        | Numero di chiamate inviate alla funzione di Azure Machine Learning (se presente). |
+| Byte evento di input      | Quantità di dati ricevuta dal processo di Analisi di flusso, in termini di byte. Può essere usata per convalidare l'invio degli eventi all'origine di input. |
 
-## <a name="customizing-monitoring-in-the-azure-management-portal"></a>Personalizzazione del monitoraggio nel portale di gestione di Azure
-In un grafico è possibile visualizzare fino a 6 metriche.
-
-Per passare dalla visualizzazione di valori relativi (solo il valore finale per ogni metrica) e valori assoluti (asse Y visualizzato), selezionare Relative o Absolute nella parte superiore del grafico.
-
-  ![Monitoraggio query, relativo/assoluto ](./media/stream-analytics-monitoring/02-stream-analytics-monitoring.png)  
-
-È possibile visualizzare le metriche nel grafico Monitoraggio in aggregazioni di 1 ora, 12 ore, 24 ore o 7 giorni.
-
-Per modificare l'intervallo di tempo visualizzato sul grafico delle metriche, selezionare 1 ora, 24 ore o 7 giorni nella parte superiore del grafico.
-
-  ![Monitoraggio query, scala cronologica](./media/stream-analytics-monitoring/03-stream-analytics-monitoring.png)  
-
-È possibile impostare regole che possono inviare una notifica per posta elettronica nel caso in cui il processo supera una soglia definita. 
 
 ## <a name="customizing-monitoring-in-the-azure-portal"></a>Personalizzazione del monitoraggio nel portale di Azure
 È possibile modificare il tipo di grafico, le metriche visualizzate e l’intervallo di tempo nelle impostazioni di Modifica grafico. Per altre informazioni, vedere [How to Customize Monitoring](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) (Come personalizzare il monitoraggio).
 
   ![Monitoraggio query, grafico cronologico](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
-## <a name="job-status"></a>Stato processo
-Lo stato dei processi di Analisi di flusso può essere visualizzato nel portale di Azure classico dove appare un elenco di processi. Per visualizzare l'elenco dei processi, fare clic sull'icona Analisi di flusso nel Portale di Azure classico.
-
-| Stato   | Definizione                               |
-| -------- | ---------------------------------------- |
-| Data di creazione  | Un processo è stato creato, tuttavia non è stato avviato. |
-| Starting | Un utente ha fatto clic su Start the job e il processo viene avviato |
-| In esecuzione  | il processo è stato allocato, è in corso l'elaborazione dell'input oppure è in attesa dell'elaborazione dell'input. Se lo stato di un processo è In esecuzione ma non viene generato alcun output, è probabile che la finestra temporale di elaborazione dati sia ampia o che la logica di query sia complessa. È anche possibile che al momento non siano stati inviati dati al processo. |
-| Arresto in corso | Un utente ha fatto clic su Stop the job e il processo viene arrestato. |
-| Arrestato  | Il processo è stato arrestato.                |
-| Degraded | Questo stato indica che durante un processo di analisi di flusso si sono verificati errori temporanei (per es. errori di input/output, errori di elaborazione, errori di conversione ecc.). Il processo è ancora in esecuzione, tuttavia vengono generati molti errori. Questo processo richiede l'attenzione cliente e il cliente potrà visualizzare gli errori nei log delle operazioni. |
-| Operazione non riuscita   | Indica che il processo non è riuscito a causa di errori e che l'elaborazione è stata arrestata. Il cliente deve esaminare i log delle operazioni per eseguire il debug degli errori. |
-| Deleting | Indica che è in corso l'eliminazione del processo. |
-
-## <a name="diagnosis"></a>Diagnosi
-Nel portale di gestione di Azure, il dashboard di processo contiene informazioni su dove è necessario cercare la diagnosi, vale a dire gli input, gli output e/o il log delle operazioni. È possibile fare clic sul collegamento per passare alla posizione appropriata per esaminare la diagnosi.
-
-  ![Errore di monitoraggio query](./media/stream-analytics-monitoring/04-stream-analytics-monitoring.png)  
-
-Facendo clic sulla risorsa di input o output si ottengono informazioni di diagnostica dettagliate. Queste vengono aggiornate con le ultime informazioni di diagnostica durante l'esecuzione del processo.
-
-  ![Diagnostica query](./media/stream-analytics-monitoring/05-stream-analytics-monitoring.png)  
 
 ## <a name="get-help"></a>Ottenere aiuto
 Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
@@ -104,6 +67,6 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

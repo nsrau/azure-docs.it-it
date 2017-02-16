@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
-ms.openlocfilehash: b5b7ff810f36b14481572ec2e59f9d4999945c3f
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: 24e675ebd63554be0bbc51e1013c4ade94b56abe
 
 
 ---
@@ -35,7 +35,7 @@ Azure AD Connect esegue 3 tipi di operazioni dalle directory che mantiene sincro
 La sezione seguente descrive le differenti tipologie di errori di sincronizzazione che possono verificarsi durante l'esportazione in Azure AD usando il connettore di Azure AD, identificabile dal formato del nome: "contoso.*onmicrosoft.com*".
 Quando si verificano un errore durante l'esportazione in Azure AD significa che l'operazione di \(aggiunta, aggiornamento, eliminazione e così via\) tentata dal \(motore di sincronizzazione\) di Azure AD Connect in Azure Active Directory non è andata a buon fine.
 
-![Panoramica degli errori di esportazione](.\\media\\active-directory-aadconnect-troubleshoot-sync-errors\\Export_Errors_Overview_01.png)
+![Panoramica degli errori di esportazione](./media/active-directory-aadconnect-troubleshoot-sync-errors/Export_Errors_Overview_01.png)
 
 ## <a name="data-mismatch-errors"></a>Errori di mancata corrispondenza dei dati
 ### <a name="invalidsoftmatch"></a>InvalidSoftMatch
@@ -114,7 +114,7 @@ Quando Azure AD tenta una corrispondenza flessibile tra due oggetti, è possibil
 * In Office 365 viene creato un gruppo di protezione abilitato alla posta elettronica. L'amministratore aggiunge un nuovo utente o contatto all'Active Directory locale (che non è ancora stato sincronizzato con Azure AD) con lo stesso valore per l'attributo ProxyAddresses del gruppo di Office 365.
 
 #### <a name="example-case"></a>Caso di esempio
-1. L'amministratore crea un nuovo gruppo di protezione abilitato alla posta elettronica in Office 365 per il reparto addetto alle imposte e mette a disposizione un indirizzo di posta elettronica come tax@contoso.com.. Ciò consente di assegnare l'attributo ProxyAddresses per questo gruppo con il valore di **smtp:tax@contoso.com**
+1. L'amministratore crea un nuovo gruppo di sicurezza abilitato alla posta elettronica in Office 365 per il reparto addetto alle imposte e mette a disposizione un indirizzo di posta elettronica come tax@contoso.com. Ciò consente di assegnare l'attributo ProxyAddresses per questo gruppo con il valore di **smtp:tax@contoso.com**
 2. Un nuovo utente entra in Contoso.com, per il quale viene creato un account locale con l'attributo proxyAddress come **smtp:tax@contoso.com**
 3. Quando Azure AD Connect sincronizzerà il nuovo account utente, verrà restituito l'errore "ObjectTypeMismatch".
 
@@ -141,7 +141,7 @@ Se Azure AD Connect tenta di aggiungere un nuovo oggetto o di aggiornare un ogge
 
 #### <a name="example-case"></a>Caso di esempio:
 1. **Bob Smith** è un utente sincronizzato in Azure Active Directory da un'Active Directory locale di contoso.com
-2. Il parametro **UserPrincipalName** di Bob Smith inn locale è configurato come **bobs@contoso.com**.
+2. Il parametro **UserPrincipalName** di Bob Smith in locale è configurato come **bobs@contoso.com**.
 3. Bob dispone anche dei seguenti valori per l'attributo **proxyAddresses**:
    * smtp:bobs@contoso.com
    * smtp:bob.smith@contoso.com
@@ -195,7 +195,7 @@ Per un utente sincronizzato, il suffisso dell'attributo UserPrincipalName è sta
 #### <a name="how-to-fix"></a>Modalità di correzione
 Se il suffisso dell'attributo UserPrincipalName dell'utente è stato aggiornato da bob@**contoso.com** a bob@**fabrikam.com**, dove entrambi i domini **contoso.com** e **fabrikam.com** sono **domini federati**, seguire la procedura seguente per correggere l'errore di sincronizzazione
 
-1. Aggiornare l'attributo UserPrincipalName dell'utente in Azure AD da bob@contoso.com a bob@contoso.onmicrosoft.com.. È possibile usare il comando PowerShell seguente con il modulo di Azure AD PowerShell: `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
+1. Aggiornare l'attributo UserPrincipalName dell'utente in Azure AD da bob@contoso.com a bob@contoso.onmicrosoft.com. È possibile utilizzare il comando PowerShell seguente con il modulo di Azure AD PowerShell: `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Consentire al ciclo di sincronizzazione successivo di eseguire un nuovo tentativo di sincronizzazione. Questa volta la sincronizzazione andrà a buon fine e permetterà di aggiornare l'attributo UserPrincipalName di Bob su bob@fabrikam.com, come previsto.
 
 ## <a name="largeobject"></a>LargeObject
@@ -209,7 +209,7 @@ Quando un attributo supera il limite di dimensioni consentite, di lunghezza o di
 ### <a name="possible-scenarios"></a>Scenari possibili
 1. L'attributo userCertificate di Bob contiene troppi certificati assegnati a Bob, tra i quali possono esserci certificati scaduti o meno recenti.
 2. L'attributo thmubnailPhoto di Bob impostato in Active Directory è troppo grande per essere sincronizzato in Azure AD.
-3. Durante il popolamento automatico dell'attributo ProxyAddresses in Active Directory un oggetto è stato assegnato a più di 500 attributi ProxyAddresses.
+3. Durante il popolamento automatico dell'attributo ProxyAddresses in Active Directory un oggetto è stato assegnato a più di&500; attributi ProxyAddresses.
 
 ### <a name="how-to-fix"></a>Modalità di correzione
 1. Verificare che l'attributo che ha causato l'errore non superi il limite consentito.
@@ -221,6 +221,6 @@ Quando un attributo supera il limite di dimensioni consentite, di lunghezza o di
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

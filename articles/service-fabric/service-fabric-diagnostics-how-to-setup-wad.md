@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/28/2016
 ms.author: toddabel
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 454e1379e4ec598ffd31017b413f6b15c98039a6
+ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
+ms.openlocfilehash: bc8eaf68b89bdefe203fc7ceea7b5241ac3e9dfa
 
 
 ---
@@ -36,7 +36,7 @@ Questi strumenti verranno usati per eseguire alcune operazioni nel documento:
 
 * [Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) (correlata ai Servizi cloud di Azure, include alcune informazioni ed esempi utili)
 * [Gestione risorse di Azure](../azure-resource-manager/resource-group-overview.md)
-* [Azure PowerShell](../powershell-install-configure.md)
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Client di Azure Resource Manager](https://github.com/projectkudu/ARMClient)
 * [Modello di Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
@@ -222,6 +222,6 @@ Per informazioni più dettagliate sugli eventi da esaminare durante la risoluzio
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

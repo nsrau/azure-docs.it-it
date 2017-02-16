@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/15/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: b72443c0ca60196535ac093a6ac03df456f776ea
-ms.openlocfilehash: 068cd703d0d06206b3caa72e765dbe51b819ff17
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: ab40eb8b53e2e685be52d24ecf2c32b193b12b85
 
 
 ---
@@ -168,6 +168,9 @@ HDInsight è in grado di eseguire processi HiveQL in vari modi. Usare la tabella
 | [Windows PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md) |Inviare il processo in remoto tramite **Windows PowerShell** |Linux o Windows |Windows |
 | [Desktop remoto](hdinsight-hadoop-use-mapreduce-remote-desktop.md) |Usare il comando Hadoop tramite **Desktop remoto** |Windows |Windows |
 
+> [!IMPORTANT]
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 ## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Passaggi successivi
 
 Pur includendo potenti funzionalità diagnostiche, MapReduce può presentare difficoltà di gestione. Esistono diversi framework basati su Java che semplificano la definizione di applicazioni MapReduce, nonché tecnologie come Pig e Hive, che consentono di gestire più facilmente i dati in HDInsight. Per altre informazioni, vedere gli articoli seguenti:
@@ -177,7 +180,7 @@ Pur includendo potenti funzionalità diagnostiche, MapReduce può presentare dif
 * [Sviluppare processi MapReduce in Scalding con Apache Hadoop in HDInsight](hdinsight-hadoop-mapreduce-scalding.md)
 * [Usare Hive con HDInsight][hdinsight-use-hive]
 * [Usare Pig con HDInsight][hdinsight-use-pig]
-* [Eseguire gli esempi relativi a HDInsight][hdinsight-samples]
+* [Eseguire esempi in HDInsight][hdinsight-samples]
 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
@@ -187,12 +190,12 @@ Pur includendo potenti funzionalità diagnostiche, MapReduce può presentare dif
 [hdinsight-samples]: hdinsight-run-samples.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
-[powershell-install-configure]: ../powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

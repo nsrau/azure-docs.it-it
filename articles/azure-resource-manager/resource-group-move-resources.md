@@ -12,11 +12,11 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: a8b41b598b21ba61db9bae82d467aed5a781a8b4
-ms.openlocfilehash: fe551944f8fd13451aa2db91f4b2794b7c9f045d
+ms.sourcegitcommit: 5718ca956680ac3c92f4eb479a5948d0296b8b21
+ms.openlocfilehash: a9271062bc9de41a180c8e78fe911afed9e1fc7a
 
 
 ---
@@ -106,6 +106,10 @@ Di seguito sono elencati i servizi che attualmente abilitano lo spostamento in u
 * Macchine virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Reti virtuali
 
+> [!NOTE] 
+> Attualmente non è possibile spostare una rete virtuale che contiene un Gateway VPN fino a quando il gateway non sia stato rimosso temporaneamente. Dopo la rimozione, la rete virtuale può essere spostata e il gateway può essere creato.
+>
+ 
 ## <a name="services-that-do-not-enable-move"></a>Servizi che non abilitano lo spostamento
 I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
 
@@ -194,47 +198,62 @@ Quando si spostano risorse in una nuova sottoscrizione, sono valide le restrizio
 * La sottoscrizione di destinazione non deve contenere nessuna delle altre risorse classiche.
 * Lo spostamento può essere richiesto solo tramite un'API REST separata per gli spostamenti di risorse classiche. I comandi di spostamento standard di Resource Manager non funzionano quando si spostano risorse classiche a una nuova sottoscrizione.
 
-Per spostare le risorse classiche in una nuova sottoscrizione, è necessario usare le operazioni REST specifiche per le risorse classiche. Eseguire la procedura seguente per spostare le risorse classiche in una nuova sottoscrizione.
+Per spostare le risorse classiche a una nuova sottoscrizione, usare il portale o le operazioni REST specifiche di risorse classiche. Per informazioni sullo spostamento di risorse classiche tramite il portale, vedere [Usare il portale](#use-portal). Per usare REST, seguire questa procedura:
 
 1. Controllare se la sottoscrizione di origine può partecipare a un'operazione di spostamento tra sottoscrizioni. Usare l'operazione seguente:
-   
-         POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+
+  ```   
+  POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+  ```
    
      Nel corpo della richiesta includere:
-   
-         {
-           "role": "source"
-         }
-   
+
+  ``` 
+  {
+    "role": "source"
+  }
+  ```
+  
      La risposta per l'operazione di convalida ha il formato seguente:
-   
-         {
-           "status": "{status}",
-           "reasons": [
-             "reason1",
-             "reason2"
-           ]
-         }
+
+  ``` 
+  {
+    "status": "{status}",
+    "reasons": [
+      "reason1",
+      "reason2"
+    ]
+  }
+  ```
+
 2. Controllare se la sottoscrizione di destinazione può partecipare a un'operazione di spostamento tra sottoscrizioni. Usare l'operazione seguente:
-   
-         POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-   
+
+  ``` 
+  POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+  ```
+
      Nel corpo della richiesta includere:
-   
-         {
-           "role": "target"
-         }
+
+  ``` 
+  {
+    "role": "target"
+  }
+  ```
    
      La risposta ha lo stesso formato della convalida della sottoscrizione di origine.
 3. Se entrambe le sottoscrizioni superano la convalida, spostare tutte le risorse classiche da una sottoscrizione a un'altra usando l'operazione seguente:
-   
-         POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
-   
+
+  ``` 
+  POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
+  ```
+
     Nel corpo della richiesta includere:
-   
-         {
-           "target": "/subscriptions/{target-subscription-id}"
-         }
+
+  ``` 
+  {
+    "target": "/subscriptions/{target-subscription-id}"
+  }
+  ```
 
 Questa operazione potrebbe richiedere alcuni minuti. 
 
@@ -264,59 +283,73 @@ Per spostare le risorse esistenti in un gruppo di risorse o in una sottoscrizion
 
 Nel primo esempio viene illustrato come spostare una risorsa in un nuovo gruppo di risorse.
 
-    $resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
-    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
+```powershell
+$resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
+Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
+```
 
 Nel secondo esempio viene illustrato come spostare più risorse in un nuovo gruppo di risorse.
 
-    $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
-    $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+```powershell
+$webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
+$plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
+Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+```
 
 Per eseguire lo spostamento in una nuova sottoscrizione, includere un valore per il parametro **DestinationSubscriptionId** .
 
 Viene richiesto di confermare che si vuole spostare la risorsa specificata.
 
-    Confirm
-    Are you sure you want to move these resources to the resource group
-    '/subscriptions/{guid}/resourceGroups/newRG' the resources:
+```powershell
+Confirm
+Are you sure you want to move these resources to the resource group
+'/subscriptions/{guid}/resourceGroups/newRG' the resources:
 
-    /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/serverFarms/exampleplan
-    /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/sites/examplesite
-    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+/subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/serverFarms/exampleplan
+/subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/sites/examplesite
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+```
 
 ## <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 Per spostare le risorse esistenti in un gruppo di risorse o una sottoscrizione diversa, usare il comando **azure resource move** . Fornire gli ID risorsa delle risorse da spostare. È possibile ottenere gli ID risorsa con il comando seguente:
 
-    azure resource list -g sourceGroup --json
+```azurecli
+azure resource list -g sourceGroup --json
+```
 
 Viene restituito il formato seguente:
 
-    [
-      {
-        "id": "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo",
-        "name": "storagedemo",
-        "type": "Microsoft.Storage/storageAccounts",
-        "location": "southcentralus",
-        "tags": {},
-        "kind": "Storage",
-        "sku": {
-          "name": "Standard_RAGRS",
-          "tier": "Standard"
-        }
-      }
-    ]
+```azurecli
+[
+  {
+    "id": "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo",
+    "name": "storagedemo",
+    "type": "Microsoft.Storage/storageAccounts",
+    "location": "southcentralus",
+    "tags": {},
+    "kind": "Storage",
+    "sku": {
+      "name": "Standard_RAGRS",
+      "tier": "Standard"
+    }
+  }
+]
+```
 
 L'esempio seguente illustra come spostare un account di archiviazione in un nuovo gruppo di risorse. Nel parametro **-i** , fornire un elenco delimitato da virgole di id di risorsa da spostare.
 
-    azure resource move -i "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo" -d "destinationGroup"
+```azurecli
+azure resource move -i "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo" -d "destinationGroup"
+```
 
 Viene richiesto di confermare che si vuole spostare la risorsa specificata.
 
 ## <a name="use-rest-api"></a>Usare l'API REST
 Per spostare le risorse esistenti in un gruppo di risorse o una sottoscrizione diversi, eseguire:
 
-    POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
+```
+POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
+```
 
 Nel corpo della richiesta specificare il gruppo di risorse di destinazione e le risorse da spostare. Per altre informazioni sull'operazione REST di spostamento, vedere [Spostare le risorse](https://msdn.microsoft.com/library/azure/mt218710.aspx).
 
@@ -329,6 +362,6 @@ Nel corpo della richiesta specificare il gruppo di risorse di destinazione e le 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

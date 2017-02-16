@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2016
+ms.date: 01/12/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: f8d515c6a8b1332ccb338cb5ec2c16daa5725281
-ms.openlocfilehash: c8bdd686deff888c9029b88ceeb32c147398eca2
+ms.sourcegitcommit: 4b7912b48ef37eac3148582d1d635d8a4c4a4b44
+ms.openlocfilehash: 8ee5dfea961984bd01a24815b9d3c94f486a57d7
 
 
 ---
@@ -32,8 +32,8 @@ Grazie a tale funzionalità, è possibile designare uno o più computer del data
 Non sono previsti requisiti di firewall in ingresso per supportare Hybrid Runbook Workers. L'agente nel computer locale avvia tutte le comunicazioni con Automazione di Azure nel cloud. Quando un runbook viene avviato, Automazione di Azure crea un'istruzione che viene recuperata dall'agente, che esegue quindi il pull del runbook e di tutti i parametri prima dell'esecuzione,  oltre a recuperare da Automazione di Azure gli eventuali [asset](http://msdn.microsoft.com/library/dn939988.aspx) usati dal runbook.
 
 > [!NOTE]
-> Attualmente i ruoli di lavoro ibrido per runbook non supportano l'applicazione di [configurazioni DSC](automation-dsc-overview.md) al computer che ospita questo tipo di ruolo.
-><br><br>
+> Per gestire la configurazione dei server che supporta il ruolo di lavoro ibrido per runbook con Desired State Configuration (DSC), è necessario aggiungerli come nodi DSC.  Per informazioni sul caricamento dei server per la gestione con DSC, vedere [Caricamento di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md).           
+><br>
 >Attualmente se si abilita la [soluzione Gestione aggiornamenti](../operations-management-suite/oms-solution-update-management.md), qualsiasi computer Windows connesso all'area di lavoro OMS verrà automaticamente configurato come ruolo di lavoro ibrido per runbook per supportare i runbook che fanno parte di questa soluzione.  Tuttavia, la soluzione non è registrata con tutti i gruppi del ruolo di lavoro ibrido creati nell'account di Automazione e non è possibile aggiungerla a un gruppo di lavoro ibrido per l'esecuzione dei runbook personalizzati.  Se un computer Windows è già definito come ruolo di lavoro ibrido per runbook e connesso all'area di lavoro OMS, è necessario rimuoverlo dall'area di lavoro OMS prima di aggiungere la soluzione per evitare che i runbook non funzionino come previsto.  
 
 
@@ -136,7 +136,7 @@ Quando si aggiunge un agente a Operations Management Suite, la soluzione di auto
 Aprire una sessione di PowerShell in modalità amministratore ed eseguire i comandi seguenti per importare il modulo.
 
     cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\<version>\HybridRegistration"
-    Import-Module .\HybridRegistration.psd1
+    Import-Module HybridRegistration.psd1
 
 Eseguire quindi il cmdlet **Add-HybridRunbookWorker** con la sintassi seguente:
 
@@ -246,11 +246,11 @@ Per determinare se per le proprie esigenze sia più opportuno ricorrere ad Autom
 * Automazione di Azure offre funzionalità avanzate, tra cui runbook grafici, non disponibili in SMA.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per altre informazioni sui diversi metodi che possono essere usati per avviare un runbook, vedere [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md)
+* Per altre informazioni sui vari modi per avviare un runbook, vedere [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md).  
 * Per comprendere le diverse procedure per l'uso di PowerShell e dei runbook del flusso di lavoro di PowerShell in Automazione di Azure con l'editor di testo, vedere [Modifica di runbook testuali in Automazione di Azure](automation-edit-textual-runbook.md)
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

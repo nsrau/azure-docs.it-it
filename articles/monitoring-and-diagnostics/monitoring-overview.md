@@ -1,28 +1,31 @@
 ---
-title: Panoramica sul monitoraggio in Microsoft Azure | Microsoft Docs
-description: Panoramica generale del monitoraggio e della diagnostica in Microsoft Azure, inclusi avvisi, webhook, ridimensionamento automatico e altro.
+title: Panoramica di Monitoraggio di Azure | Documentazione Microsoft
+description: "Panoramica generale della funzionalità Monitoraggio di Azure in Microsoft Azure, inclusi avvisi, webhook, ridimensionamento automatico e altro."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
 ms.service: monitoring-and-diagnostics
-l: 
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 12/05/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4a9e92330081bcf56b7e3755597f76d3530a823d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2f8ff117966b11e7415abaa5e7a0735742d7ef99
 
 
 ---
+
 # <a name="overview-of-monitoring-in-microsoft-azure"></a>Panoramica sul monitoraggio in Microsoft Azure
 Questo articolo fornisce una panoramica concettuale del monitoraggio delle risorse di Azure con collegamenti a informazioni su tipi di risorse specifici.  Per informazioni generali sul monitoraggio dell'applicazione da un punto di vista diverso da Azure, vedere [Indicazioni di monitoraggio e diagnostica](../best-practices-monitoring.md).
+
+Una procedura dettagliata video di Monitoraggio di Azure è disponibile alla pagina  
+[Explore Microsoft Azure monitoring and diagnostics](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor) (Esplorare le funzionalità Diagnostica e Monitoraggio di Microsoft Azure). Un altro video che illustra uno scenario in cui è possibile usare Monitoraggio di Azure è disponibile alla pagina [Explore Microsoft Azure monitoring and diagnostics](https://channel9.msdn.com/events/Ignite/2016/BRK2234) (Esplorare le funzionalità Diagnostica e Monitoraggio di Microsoft Azure).  
 
 Le applicazioni cloud sono complesse e hanno molte parti mobili. Il monitoraggio offre la possibilità di garantire il funzionamento e l'integrità dell'applicazione. Consente anche di prevenire i problemi potenziali o di risolvere quelli precedenti. Inoltre, è possibile usare i dati di monitoraggio per ottenere informazioni approfondite sull'applicazione, utili per migliorarne le prestazioni o la manutenibilità oppure per automatizzare azioni che altrimenti richiederebbero un intervento manuale.
 
@@ -145,7 +148,6 @@ Altre informazioni su:
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

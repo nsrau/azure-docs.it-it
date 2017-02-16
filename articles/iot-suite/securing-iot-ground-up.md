@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 01/31/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cf081967fa7a9f37e124fdbfd9a97a71566238a0
+ms.sourcegitcommit: 2024560bed719471627503198601e057274463ff
+ms.openlocfilehash: 606cf38664e849d3ecc30ed0f3c385cc4492d0c4
 
 
 ---
@@ -26,9 +26,9 @@ ms.openlocfilehash: cf081967fa7a9f37e124fdbfd9a97a71566238a0
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla protezione della soluzione IoT, vedere:
 
-* [Procedure consigliate per la sicurezza di Internet of Things][lnk-security-best-practices]
-* [Architettura di sicurezza IoT][lnk-security-architecture]
-* [Proteggere la distribuzione IoT][lnk-security-deployment]
+* [Procedure consigliate per la sicurezza IoT][lnk-security-best-practices]
+* [Architettura della sicurezza IoT][lnk-security-architecture]
+* [Proteggere la distribuzione di IoT][lnk-security-deployment]
 
 [lnk-security-best-practices]: iot-security-best-practices.md
 [lnk-security-architecture]: iot-security-architecture.md
@@ -44,6 +44,6 @@ Per altre informazioni sulla protezione della soluzione IoT, vedere:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

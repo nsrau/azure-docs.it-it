@@ -1,6 +1,6 @@
 ---
-title: Creare l&quot;hub e registrare il dispositivo Raspberry Pi 3 | Documentazione Microsoft
-description: Creare un gruppo di risorse, creare un hub IoT di Azure e registrare il dispositivo Pi nell&quot;hub IoT tramite l&quot;interfaccia della riga di comando di Azure.
+title: Creare l&quot;hub IoT di Azure e registrare il dispositivo Raspberry Pi 3 | Documentazione Microsoft
+description: "Creare un gruppo di risorse, creare un hub IoT di Azure e registrare il dispositivo Pi nel registro delle identità dell&quot;hub IoT tramite l&quot;interfaccia della riga di comando di Azure."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: d93b7b67ee0727f45c3f4b93459b013b16805bf6
-ms.openlocfilehash: fcfb90a385a68e863b3c1d3d0fa3bb24fe778291
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 1f22ab6a97427f3be521c69e308386ad0b1b286b
 
 
 ---
@@ -65,7 +65,7 @@ L'hub IoT di Azure consente di connettersi a milioni di asset IoT, monitorarli e
 4. Creare un gruppo di risorse denominato iot-sample nell'area Stati Uniti occidentali usando il comando seguente:
 
    ```bash
-   az resource group create --name iot-sample --location westus
+   az group create --name iot-sample --location westus
    ```
 
    `westus` è la località in cui si crea il gruppo di risorse. Per usare un'altra località è possibile eseguire `az account list-locations -o table` per visualizzare tutte le località supportate da Azure.
@@ -103,6 +103,6 @@ az iot device create --device-id myraspberrypi --hub-name {my hub name} --x509 -
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

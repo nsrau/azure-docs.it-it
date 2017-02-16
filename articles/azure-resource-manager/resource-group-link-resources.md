@@ -1,5 +1,5 @@
 ---
-title: Collegamento di risorse in Azure Resource Manager | Microsoft Docs
+title: Collegare risorse correlate nelle soluzioni di Azure | Documentazione Microsoft
 description: Creare un collegamento tra risorse correlate in gruppi di risorse diversi di Azure Resource Manager.
 services: azure-resource-manager
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/01/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 87d19e4680a6da6be6da55eeab80ee7739361f8c
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 2750e971ae281e498e9c505e1cd2790cefbfbc78
 
 
 ---
-# <a name="linking-resources-in-azure-resource-manager"></a>Collegamento di risorse in Gestione risorse di Azure
+# <a name="link-related-resources-from-different-resource-groups"></a>Collegare risorse correlate di diversi gruppi di risorse
 Durante la distribuzione, è possibile contrassegnare una risorsa come dipendente da un'altra risorsa, ma tale ciclo di vita termina con la distribuzione. Dopo la distribuzione non esistono relazioni identificate tra le risorse dipendenti. Azure Resource Manager offre una funzionalità denominata collegamento delle risorse che consente di stabilire relazioni persistenti tra le risorse.
 
 Con il collegamento delle risorse è possibile documentare relazioni che interessano più gruppi di risorse. Ad esempio, è uno scenario comune che un database con un proprio ciclo di vita si trovi in un gruppo di risorse, mentre un'applicazione con un ciclo di vita diverso si trovi in un gruppo di risorse diverso. L'app si connette al database, perciò è utile definire un collegamento tra l'applicazione e il database. 
@@ -76,6 +76,6 @@ Per altri esempi, tra cui come recuperare le informazioni sui collegamenti, vede
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

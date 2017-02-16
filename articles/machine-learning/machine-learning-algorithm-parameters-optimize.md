@@ -1,5 +1,5 @@
 ---
-title: Scegliere i parametri per ottimizzare gli algoritmi in Azure Machine Learning | Microsoft Docs
+title: Ottimizzare gli algoritmi in Azure Machine Learning | Documentazione Microsoft
 description: Viene illustrato come scegliere il set di parametri ottimale per un algoritmo in Azure Machine Learning.
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e1075e73a67130453701842f3b328484a327f5ec
+ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
+ms.openlocfilehash: b3be7f31ac31c656744fb809e3972af0ac4ad4f1
 
 
 ---
@@ -48,12 +48,12 @@ Il set di parametri può essere definito nella fase di inizializzazione del mode
 ![Albero delle decisioni a due classi con innalzamento, intervallo di parametri](./media/machine-learning-algorithm-parameters-optimize/fig3.png)
 
 ## <a name="define-cross-validation-folds"></a>Definire le riduzioni di convalida incrociata
-Il modulo [Partition and Sample][partition-and-sample] (Partizione ed esempio) può essere usato per assegnare riduzioni ai dati in modo casuale. Nella configurazione di esempio seguente del modulo, vengono definite cinque riduzioni e viene assegnato in modo casuale un numero di riduzione alle istanze dell'esempio.
+Il modulo [Partition and Sample][partition-and-sample] (Partizionamento e campionamento) può essere usato per assegnare riduzioni ai dati in modo casuale. Nella configurazione di esempio seguente del modulo, vengono definite cinque riduzioni e viene assegnato in modo casuale un numero di riduzione alle istanze dell'esempio.
 
 ![Partition and sample (Partizione ed esempio)](./media/machine-learning-algorithm-parameters-optimize/fig4.png)
 
 ## <a name="define-the-metric"></a>Definire la metrica
-Il modulo [Tune Model Hyperparameters][tune-model-hyperparameters] (Ottimizza gli iperparametri del modello) offre supporto per scegliere in modo empirico il miglior set di parametri per un algoritmo e un set di dati determinati. Oltre ad altre informazioni sul training del modello, il riquadro **Properties** (Proprietà) di questo modulo include la metrica per determinare il miglior set di parametri. E ha due elenchi a discesa rispettivamente per gli algoritmi di classificazione e di regressione. Se l'algoritmo in esame è un algoritmo di classificazione, la metrica di regressione viene ignorata e viceversa. In questo esempio specifico la metrica è **Accuracy** (Accuratezza).   
+Il modulo [Tune Model Hyperparameters][tune-model-hyperparameters] fornisce supporto per scegliere in modo empirico il miglior set di parametri per un algoritmo e un set di dati specifici. Oltre ad altre informazioni sul training del modello, il riquadro **Properties** (Proprietà) di questo modulo include la metrica per determinare il miglior set di parametri. E ha due elenchi a discesa rispettivamente per gli algoritmi di classificazione e di regressione. Se l'algoritmo in esame è un algoritmo di classificazione, la metrica di regressione viene ignorata e viceversa. In questo esempio specifico la metrica è **Accuracy** (Accuratezza).   
 
 ![Organizzare i parametri](./media/machine-learning-algorithm-parameters-optimize/fig5.png)
 
@@ -79,6 +79,6 @@ Il modello viene quindi valutato sul set di dati di convalida. La porta di outpu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

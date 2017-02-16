@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 01/13/2017
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 724edc7894cabfb31f6e43a291f98ab60c0a9981
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: 3c8f30583ebcb5b4e4182bd2770079882c088c50
 
 
 ---
@@ -41,7 +41,7 @@ Per eseguire il push di documenti nell'indice usando .NET SDK, è necessario:
 2. Creare un oggetto `IndexBatch` contenente i documenti da aggiungere, modificare o eliminare.
 3. Chiamare il metodo `Documents.Index` dell'oggetto `SearchIndexClient` per inviare `IndexBatch` all'indice di ricerca.
 
-## <a name="i-create-an-instance-of-the-searchindexclient-class"></a>I. Creare un'istanza della classe SearchIndexClient
+## <a name="create-an-instance-of-the-searchindexclient-class"></a>Creare un'istanza della classe SearchIndexClient
 Per importare dati nell'indice usando Azure Search .NET SDK, è necessario creare un'istanza della classe `SearchIndexClient` . È possibile creare manualmente questa istanza, ma è più semplice se si ha già un'istanza di `SearchServiceClient` per chiamare il relativo metodo `Indexes.GetClient`. Ad esempio, ecco come ottenere un oggetto `SearchIndexClient` per l'indice denominato "hotels" da un oggetto `SearchServiceClient` denominato `serviceClient`:
 
 ```csharp
@@ -55,7 +55,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
 `SearchIndexClient` include una proprietà `Documents`. Questa proprietà fornisce tutti i metodi necessari per aggiungere, modificare, eliminare o eseguire query sui documenti nell'indice.
 
-## <a name="ii-decide-which-indexing-action-to-use"></a>II. Decidere quale azione di indicizzazione usare
+## <a name="decide-which-indexing-action-to-use"></a>Decidere quale azione di indicizzazione usare
 Per importare i dati usando .NET SDK, è necessario inserirli in un pacchetto in un oggetto `IndexBatch` . Un oggetto `IndexBatch` incapsula una raccolta di oggetti `IndexAction`, ognuno dei quali contiene un documento e una proprietà che indica a Ricerca di Azure quale azione eseguire sul documento (caricamento, unione, eliminazione e così via). A seconda delle azioni scelte tra le seguenti, per ogni documento devono essere inclusi solo campi specifici:
 
 | Azione | Description | Campi necessari per ogni documento | Note |
@@ -67,7 +67,7 @@ Per importare i dati usando .NET SDK, è necessario inserirli in un pacchetto in
 
 È possibile specificare l'azione da usare con i vari metodi statici delle classi `IndexBatch` e `IndexAction`, come mostrato nella sezione successiva.
 
-## <a name="iii-construct-your-indexbatch"></a>III. Costruire IndexBatch
+## <a name="construct-your-indexbatch"></a>Costruire IndexBatch
 Dopo aver appreso quali azioni eseguire sui documenti, è possibile costruire `IndexBatch`. L'esempio seguente illustra come creare un batch con alcune azioni. Si noti che questo esempio usa una classe personalizzata denominata `Hotel` che esegue il mapping a un documento nell'indice "hotels".
 
 ```csharp
@@ -130,7 +130,7 @@ Si noti anche che è possibile includere solo fino a 1000 documenti in una singo
 > 
 > 
 
-## <a name="iv-import-data-to-the-index"></a>IV. Importare dati nell'indice
+## <a name="import-data-to-the-index"></a>Importare dati nell'indice
 Dopo aver creato un oggetto `IndexBatch` inizializzato, è possibile inviarlo all'indice chiamando `Documents.Index` sull'oggetto `SearchIndexClient`. L'esempio seguente mostra come chiamare `Index`e illustra alcune operazioni aggiuntive che è necessario eseguire:
 
 ```csharp
@@ -215,7 +215,7 @@ La prima cosa da notare è che ogni proprietà pubblica di `Hotel` corrisponde a
 > 
 > 
 
-Il secondo aspetto importante della classe `Hotel` è costituita dai tipi di dati delle proprietà pubbliche. Viene eseguito il mapping dei tipi .NET di queste proprietà ai tipi di campi equivalenti nella definizione dell'indice. Ad esempio, viene eseguito il mapping della proprietà stringa `Category` al campo `category`, che è di tipo `DataType.String`. Esistono mapping di tipi simili tra `bool?` e `DataType.Boolean`, `DateTimeOffset?` e `DataType.DateTimeOffset` ecc. Le regole specifiche per il mapping dei tipi sono documentate con il metodo `Documents.Get` nella [documentazione di riferimento relativa a .NET SDK di Ricerca di Azure](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations#Microsoft_Azure_Search_IDocumentsOperations_GetWithHttpMessagesAsync__1_System_String_System_Collections_Generic_IEnumerable_System_String__Microsoft_Azure_Search_Models_SearchRequestOptions_System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_).
+Il secondo aspetto importante della classe `Hotel` è costituita dai tipi di dati delle proprietà pubbliche. Viene eseguito il mapping dei tipi .NET di queste proprietà ai tipi di campi equivalenti nella definizione dell'indice. Ad esempio, viene eseguito il mapping della proprietà stringa `Category` al campo `category`, che è di tipo `DataType.String`. Esistono mapping di tipi simili tra `bool?` e `DataType.Boolean`, `DateTimeOffset?` e `DataType.DateTimeOffset` e così via. Le regole specifiche per il mapping dei tipi sono documentate con il metodo `Documents.Get` nella [documentazione di riferimento relativa a .NET SDK di Ricerca di Azure](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations#Microsoft_Azure_Search_IDocumentsOperations_GetWithHttpMessagesAsync__1_System_String_System_Collections_Generic_IEnumerable_System_String__Microsoft_Azure_Search_Models_SearchRequestOptions_System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_).
 
 La possibilità di usare classi personalizzate come documenti funziona in entrambe le direzioni. È anche possibile recuperare i risultati della ricerca e fare in modo che l'SDK li deserializzi automaticamente nel tipo che si preferisce, come illustrato nell'[articolo seguente](search-query-dotnet.md).
 
@@ -234,12 +234,12 @@ Non è solo un problema ipotetico: si pensi a uno scenario in cui si aggiunge un
 
 Per questo motivo, è consigliabile usare tipi nullable nelle classi di modelli.
 
-## <a name="next"></a>Avanti
+## <a name="next-steps"></a>Passaggi successivi
 Dopo il popolamento dell'indice di Ricerca di Azure, si potrà iniziare a eseguire una query per la ricerca di documenti. Per informazioni dettagliate, vedere [Eseguire query su un indice di Ricerca di Azure](search-query-overview.md) .
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

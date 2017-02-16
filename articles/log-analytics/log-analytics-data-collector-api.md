@@ -12,19 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 01/30/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 8867cda9d4b35fa908db8749aaad74d85cec67f3
-ms.openlocfilehash: 5f82274838de2e6d2a753a685760b5f144065d94
+ms.sourcegitcommit: 2b5899ba43f651ae6f5fdf84d7aa5ee35d81b738
+ms.openlocfilehash: be27695cd1d998eedff0ca76f6ae9d4ff69bb97b
 
 
 ---
-# <a name="log-analytics-http-data-collector-api"></a>API di raccolta dati HTTP di Log Analytics
-È possibile usare l'API di raccolta dati HTTP di Azure Log Analytics per aggiungere dati POST JSON (JavaScript Object Notation) nel repository di Log Analytics da qualunque client possa chiamare l'API REST. Con questo metodo è possibile inviare dati da applicazioni di terze parti o da script, ad esempio da un runbook in Automazione di Azure.  
+# <a name="send-data-to-log-analytics-with-the-http-data-collector-api"></a>Inviare dati a Log Analytics con l'API dell'agente di raccolta dati HTTP
+Questo articolo illustra come usare l'API dell'agente di raccolta dati HTTP per inviare dati a Log Analytics da un client per le API REST.  L'articolo descrive come formattare i dati raccolti dall'applicazione o dallo script, come includerli in una richiesta e come autorizzare tale richiesta in Log Analytics.  Vengono indicati esempi per PowerShell, C# e Python.
+
+## <a name="concepts"></a>Concetti
+È possibile usare l'API dell'agente di raccolta dati HTTP per inviare dati a Log Analytics da qualsiasi client in grado di chiamare un'API REST.  Potrebbe trattarsi di un runbook in Automazione di Azure che raccoglie dati di gestione da Azure o da un altro sistema cloud o di un sistema di gestione alternativo che usa Log Analytics per consolidare e analizzare i dati.
+
+Tutti i dati nel repository di Log Analytics vengono archiviati come un record con un tipo specifico.  I dati da inviare all'API dell'agente di raccolta dati HTTP devono essere formattati come più record in JSON.  Quando si inviano i dati, nel repository viene creato un record singolo per ogni record presente nel payload della richiesta.
+
+
+![Panoramica dell'agente di raccolta dati HTTP](media/log-analytics-data-collector-api/overview.png)
+
+
 
 ## <a name="create-a-request"></a>Creare una richiesta
-Le due tabelle seguenti elencano gli attributi necessari per ogni richiesta all'API di raccolta dati HTTP di Log Analytics. Ogni attributo viene descritto con maggiori dettagli più avanti nell'articolo.
+Per usare l'API dell'agente di raccolta dati HTTP, creare una richiesta POST che include i dati da inviare in formato JSON (JavaScript Object Notation).  Le tre tabelle successive indicano gli attributi necessari per ogni richiesta. Ogni attributo viene descritto con maggiori dettagli più avanti nell'articolo.
 
 ### <a name="request-uri"></a>URI della richiesta
 | Attributo | Proprietà |
@@ -280,39 +290,43 @@ Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.E
 ```
 using System;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace OIAPIExample
 {
     class ApiExample
     {
-// An example JSON object, with key/value pairs
-        static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField1"":""DemoValue3"",""DemoField2"":""DemoValue4""}]";
+        // An example JSON object, with key/value pairs
+        static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField3"":""DemoValue3"",""DemoField4"":""DemoValue4""}]";
 
-// Update customerId to your Operations Management Suite workspace ID
+        // Update customerId to your Operations Management Suite workspace ID
         static string customerId = "xxxxxxxx-xxx-xxx-xxx-xxxxxxxxxxxx";
 
-// For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
+        // For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
         static string sharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-// LogName is name of the event type that is being submitted to Log Analytics
+        // LogName is name of the event type that is being submitted to Log Analytics
         static string LogName = "DemoExample";
 
-// You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+        // You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
         static string TimeStampField = "";
 
         static void Main()
         {
-// Create a hash for the API signature
+            // Create a hash for the API signature
             var datestring = DateTime.UtcNow.ToString("r");
             string stringToHash = "POST\n" + json.Length + "\napplication/json\n" + "x-ms-date:" + datestring + "\n/api/logs";
             string hashedString = BuildSignature(stringToHash, sharedKey);
             string signature = "SharedKey " + customerId + ":" + hashedString;
-
+    
             PostData(signature, datestring, json);
         }
 
-// Build the API signature
+        // Build the API signature
         public static string BuildSignature(string message, string secret)
         {
             var encoding = new System.Text.ASCIIEncoding();
@@ -325,22 +339,36 @@ namespace OIAPIExample
             }
         }
 
-// Send a request to the POST API endpoint
+        // Send a request to the POST API endpoint
         public static void PostData(string signature, string date, string json)
         {
-            string url = "https://"+ customerId +".ods.opinsights.azure.com/api/logs?api-version=2016-04-01";
-            using (var client = new WebClient())
+            try
+            { 
+                string url = "https://" + customerId + ".ods.opinsights.azure.com/api/logs?api-version=2016-04-01";
+    
+                System.Net.Http.HttpClient client = new System.Net.Http.HttpClient();
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+                client.DefaultRequestHeaders.Add("Log-Type", LogName);
+                client.DefaultRequestHeaders.Add("Authorization", signature);
+                client.DefaultRequestHeaders.Add("x-ms-date", date);
+                client.DefaultRequestHeaders.Add("time-generated-field", TimeStampField);
+    
+                System.Net.Http.HttpContent httpContent = new StringContent(json, Encoding.UTF8);
+                httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                Task<System.Net.Http.HttpResponseMessage> response = client.PostAsync(new Uri(url), httpContent);
+    
+                System.Net.Http.HttpContent responseContent = response.Result.Content;
+                string result = responseContent.ReadAsStringAsync().Result;
+                Console.WriteLine("Return Result: " + result);
+            }
+            catch (Exception excep)
             {
-                client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                client.Headers.Add("Log-Type", LogName);
-                client.Headers.Add("Authorization", signature);
-                client.Headers.Add("x-ms-date", date);
-                client.Headers.Add("time-generated-field", TimeStampField);
-                client.UploadString(new Uri(url), "POST", json);
+                Console.WriteLine("API Post Exception: " + excep.Message);
             }
         }
     }
 }
+
 ```
 
 ### <a name="python-sample"></a>Esempio Python
@@ -427,11 +455,10 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Usare [Progettazione viste](log-analytics-view-designer.md) per creare visualizzazioni personalizzate dei dati inviati.
+- Usare l'[API di ricerca nei log](log-analytics-log-search-api.md) per recuperare dati dal repository di Log Analytics.
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

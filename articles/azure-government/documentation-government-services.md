@@ -16,8 +16,8 @@ ms.workload: azure-government
 ms.date: 10/14/2016
 ms.author: zakramer
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 256dd290abcf0326330c9a6079437d8701d290e8
+ms.sourcegitcommit: 083ffff3a99c82a518bcc370e6d40c7500ba6907
+ms.openlocfilehash: f48fd6856346e1fd0be12fec2391d0c16287f106
 
 
 ---
@@ -39,20 +39,28 @@ Per l'elenco più aggiornato dei servizi, vedere il [Prodotti in base all'area](
 ## <a name="networkingdocumentation-government-networkingmd"></a>[Rete](documentation-government-networking.md)
 * Rete virtuale
 * Bilanciamento del carico
-* gateway applicazione
+* Gateway applicazione
 * Gateway VPN
 * Gestione traffico
 * [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity)
 
 ## <a name="storagedocumentation-government-services-storagemd"></a>[Archiviazione](documentation-government-services-storage.md)
 * [Archiviazione di Azure](documentation-government-services-storage.md#azure-storage)
+* [Archiviazione BLOB](documentation-government-services-storage.md#azure-storage)
+* [Archiviazione tabelle](documentation-government-services-storage.md#azure-storage)
+* [Archiviazione code](documentation-government-services-storage.md#azure-storage)
+* [Archiviazione file](documentation-government-services-storage.md#azure-storage)
+* [Archiviazione per accesso frequente/sporadico](documentation-government-services-storage.md#azure-storage)
+* [Crittografia del servizio di archiviazione](documentation-government-services-storage.md#azure-storage)
+* [Archiviazione Premium](documentation-government-services-storage.md#azure-storage)
+* [Importazione/Esportazione BLOB](documentation-government-services-storage.md#azure-storage)
+* [StorSimple](documentation-government-services-storage.md)
+* [Backup](documentation-government-services-backup.md)
+* [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * Importazione/Esportazione
-* StorSimple
-* Backup
-* Site Recovery
 
-## <a name="web-mobile"></a>Web e dispositivi mobili
-* App Web
+## <a name="web--mobiledocumentation-government-services-webandmobilemd"></a>[Web e dispositivi mobili](documentation-government-services-webandmobile.md)
+* [Servizi app](documentation-government-services-webandmobile.md#app-services)
 * Servizi multimediali
 
 ## <a name="databasesdocumentation-government-services-databasemd"></a>[Database](documentation-government-services-database.md)
@@ -65,20 +73,20 @@ Per l'elenco più aggiornato dei servizi, vedere il [Prodotti in base all'area](
 * Hub di notifica
 
 ## <a name="enterprise-integration"></a>Integrazione aziendale
-* BUS DI SERVIZIO
-* StorSimple
+* Bus di servizio
+* [StorSimple](documentation-government-services-storage.md)
 * Estensione database di SQL Server
 
-## <a name="security-identitydocumentation-government-services-securityandidentitymd"></a>[Sicurezza e identità](documentation-government-services-securityandidentity.md)
+## <a name="security--identitydocumentation-government-services-securityandidentitymd"></a>[Sicurezza e identità](documentation-government-services-securityandidentity.md)
 * [Insieme di credenziali di chiave](documentation-government-services-securityandidentity.md#key-vault)
 * Azure Active Directory
 * Autenticazione a più fattori
 
-## <a name="monitoring-managementdocumentation-government-services-monitoringandmanagementmd"></a>[Monitoraggio e gestione](documentation-government-services-monitoringandmanagement.md)
+## <a name="monitoring--managementdocumentation-government-services-monitoringandmanagementmd"></a>[Monitoraggio e gestione](documentation-government-services-monitoringandmanagement.md)
 * [Automazione](documentation-government-services-monitoringandmanagement.md#automation)
-* Backup
+* [Backup](documentation-government-services-backup.md) 
 * [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
-* Site Recovery
+* [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * Utilità di pianificazione
 * Gestione traffico
 * Monitoraggio e diagnostica
@@ -89,6 +97,6 @@ Per altri aggiornamenti e informazioni, iscriversi al [blog di Microsoft Azure p
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ac264d48db224fb1a14c2ea4a23ddb11f767efda
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: 66b61e4619518619aac644f6833c597cb9a7408e
 
 
 ---
@@ -38,13 +38,13 @@ Cortana Intelligence Gallery contiene un'ampia gamma di **[esperimenti](https://
  Nella pagina **[Experiments](https://gallery.cortanaintelligence.com/experiments)**
  (Esperimenti) è disponibile l'elenco degli ultimi esperimenti inseriti e quello degli esperimenti più visualizzati.
 Fare clic su **See all** (Visualizza tutto) per visualizzare tutti gli esperimenti.
-Da questa pagina è possibile accedere a tutti gli esperimenti presenti in Gallery oppure eseguire ricerche mirate selezionando i criteri di filtro a sinistra della pagina e immettendo i termini di ricerca desiderati nella parte superiore.
+In questa pagina è possibile eseguire la ricerca di tutti gli esperimenti nella raccolta. È anche possibile eseguire la ricerca selezionando i criteri di filtro a sinistra della pagina e immettendo i termini di ricerca nella parte superiore.
 
  Fare clic su un esperimento qualsiasi per aprirne la pagina dei dettagli e leggere informazioni sulle modalità di esecuzione dell'esperimento. In questa pagina è disponibile una sezione dedicata ai commenti in cui è possibile inserire un commento, inviare suggerimenti o porre una domanda. Usando le funzionalità di condivisione di LinkedIn o Twitter è anche possibile condividere la pagina con amici o colleghi. È inoltre possibile invitare altri utenti a visualizzare la pagina inviando loro un collegamento all'esperimento tramite posta elettronica.
 
-![Condividere l'elemento con amici](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![Condividere l'elemento con amici](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![Aggiungere un commento](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![Aggiungere un commento](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="download"></a>Scaricare
 È possibile scaricare nella propria area di lavoro di Studio una copia di un qualsiasi esperimento presente in Gallery e modificare la copia per creare soluzioni personalizzate.
@@ -59,7 +59,7 @@ Per scaricare una copia di un esperimento da Gallery:
 1. Aprire la pagina dei dettagli dell'esperimento in Gallery
 2. Fare clic su **Open in Studio** (Apri in Studio)
    
-    ![Aprire un esperimento da Gallery](media\\machine-learning-gallery-experiments\\open-experiment-from-gallery.png)
+    ![Aprire un esperimento da Gallery](media/machine-learning-gallery-experiments/open-experiment-from-gallery.png)
 
 Quando si fa clic su **Open in Studio** (Apri in Studio), l'esperimento viene caricato nella propria area di lavoro di Machine Learning Studio e aperto (se non è già stato eseguito l'accesso a Studio, prima che l'esperimento venga copiato nell'area di lavoro verrà richiesto di accedere con il proprio account Microsoft).
 
@@ -70,11 +70,11 @@ Quando si fa clic su **Open in Studio** (Apri in Studio), l'esperimento viene ca
 2. Selezionare **Experiment** (Esperimento): è possibile scegliere da un elenco di esperimenti pubblicati in Gallery da Microsoft oppure trovare un esperimento specifico usando la casella di ricerca
 3. Posizionare il puntatore del mouse su un esperimento e selezionare **Open in Studio** (Apri in Studio): l'esperimento viene copiato nell'area di lavoro e aperto (per visualizzare informazioni sull'esperimento selezionare l'opzione **View in Gallery** (Visualizza in Gallery) che apre la pagina dei dettagli dell'esperimento in Gallery)
    
-    ![Aprire un esperimento di Gallery da Machine Learning Studio](media\\machine-learning-gallery-experiments\\open-experiment-from-studio.png)
+    ![Aprire un esperimento di Gallery da Machine Learning Studio](media/machine-learning-gallery-experiments/open-experiment-from-studio.png)
 
 È ora possibile personalizzare, ripetere e distribuire questo esperimento come qualsiasi altro esperimento creato in Machine Learning Studio.
 
-![Esperimento aperto in Studio](media\\machine-learning-gallery-experiments\\experiment-open-in-studio.png)
+![Esperimento aperto in Studio](media/machine-learning-gallery-experiments/experiment-open-in-studio.png)
 
 ## <a name="contribute"></a>Contribuire
 Quando si esegue l'accesso a Gallery si diventa membri della community di Gallery. Questo permette di pubblicare i propri esperimenti e consentire a tutti di trarre vantaggio dalle soluzioni scoperte.
@@ -86,10 +86,10 @@ Seguire questi passaggi per pubblicare un esperimento in Cortana Intelligence Ga
 2. Creare l'esperimento ed eseguirlo.
 3. Quando l'esperimento è pronto per essere pubblicato in Gallery, fare clic su **Publish to Gallery** (Pubblica in Gallery) sotto l'area di disegno dell'esperimento.
    
-    ![Fare clic su "Publish to Gallery" (Pubblica in Gallery)](media\\machine-learning-gallery-experiments\\publish-experiment-to-gallery.png)
+    ![Fare clic su "Publish to Gallery" (Pubblica in Gallery)](media/machine-learning-gallery-experiments/publish-experiment-to-gallery.png)
 4. Compilare i campi del titolo e dei tag. I campi devono essere descrittivi ed evidenziare le tecniche usate o il problema reale da risolvere, ad esempio: "Classificazione binaria: analisi dei sentiment di Twitter".
    
-    ![Compilare i campi del titolo e dei tag durante la pubblicazione](media\\machine-learning-gallery-experiments\\experiment-description.png)
+    ![Compilare i campi del titolo e dei tag durante la pubblicazione](media/machine-learning-gallery-experiments/experiment-description.png)
 5. Scrivere un riepilogo degli argomenti contenuti. Descrivere brevemente il problema che viene risolto e com'è stato affrontato.
 6. Usare la casella Detailed description (Descrizione dettagliata) per descrivere le diverse parti dell'esperimento. Ecco alcuni elementi utili da includere:
    
@@ -103,7 +103,7 @@ Seguire questi passaggi per pubblicare un esperimento in Cortana Intelligence Ga
      </br>
      È possibile usare la sintassi markdown per formattare il contenuto. Fare clic sull'icona **Preview** (Anteprima) per controllare l'aspetto del contenuto dopo la pubblicazione.
      </br>
-     ![Fare clic su "Preview" (Anteprima) per visualizzare l'aspetto del testo](media\\machine-learning-gallery-experiments\\preview-markdown-text.png)
+     ![Fare clic su "Preview" (Anteprima) per visualizzare l'aspetto del testo](media/machine-learning-gallery-experiments/preview-markdown-text.png)
      
      <!-- -->
      > [!TIP]
@@ -112,10 +112,10 @@ Seguire questi passaggi per pubblicare un esperimento in Cortana Intelligence Ga
      > 
 7. Caricare un'immagine di anteprima per l'elemento della raccolta. L'immagine verrà visualizzata nella parte superiore della pagina dell'elemento e nel riquadro dell'elemento quando si sfoglia la raccolta. È possibile scegliere un'immagine dal computer o selezionare una delle immagini predefinite.
     </br>
-    ![Caricare o selezionare un'immagine per Gallery](media\\machine-learning-gallery-experiments\\select-gallery-image.png)
+    ![Caricare o selezionare un'immagine per Gallery](media/machine-learning-gallery-experiments/select-gallery-image.png)
 8. Scegliere se rendere il contenuto disponibile pubblicamente o accessibile solo agli utenti che hanno il collegamento.
    
-    ![Scelta tra pubblicazione pubblica o come applicazione non in elenco](media\\machine-learning-gallery-experiments\\choose-public-or-unlisted.png)
+    ![Scelta tra pubblicazione pubblica o come applicazione non in elenco](media/machine-learning-gallery-experiments/choose-public-or-unlisted.png)
    
     <!-- -->
    
@@ -125,7 +125,7 @@ Seguire questi passaggi per pubblicare un esperimento in Cortana Intelligence Ga
    > 
 9. Fare clic sul segno di spunta **OK** per pubblicare l'esperimento in Gallery.
    
-    ![Fare clic sul segno di spunta OK per pubblicare l'esperimento](media\\machine-learning-gallery-experiments\\ok-checkmark.png)
+    ![Fare clic sul segno di spunta OK per pubblicare l'esperimento](media/machine-learning-gallery-experiments/ok-checkmark.png)
 
 Per suggerimenti su come pubblicare un esperimento di alta qualità in Gallery, vedere la sezione seguente **Suggerimenti per la pubblicazione e per creare una documentazione di alta qualità**.
 
@@ -135,7 +135,7 @@ Ora è possibile visualizzare l'esperimento in Cortana Intelligence Gallery e co
 
 Per visualizzare l'elenco dei propri contributi, fare clic sull'immagine nell'angolo superiore destro di qualsiasi pagina di Gallery e quindi fare clic sul proprio nome per aprire la pagina relativa all'account personale.
 
-![Fare clic sul nome del proprio account](media\\machine-learning-gallery-experiments\\click-account-name.png)
+![Fare clic sul nome del proprio account](media/machine-learning-gallery-experiments/click-account-name.png)
 
 ### <a name="update-your-experiment"></a>Aggiornare l'esperimento
 Se è necessario apportare modifiche al flusso di lavoro (moduli, parametri e così via) di un esperimento pubblicato in Gallery, tornare all'esperimento in Machine Learning Studio, apportare le modifiche desiderate e pubblicarlo nuovamente. L'esperimento pubblicato esistente verrà aggiornato con le modifiche apportate.
@@ -154,22 +154,22 @@ Queste modifiche possono essere apportate in Gallery dalla pagina dei dettagli d
 #### <a name="from-your-experiments-details-page"></a>Dalla pagina dei dettagli dell'esperimento
 Dalla pagina dei dettagli dell'esperimento fare clic su "Edit" (Modifica) per modificare i dettagli dell'esperimento.
 
-![Fare clic su "Edit" (Modifica) per modificare l'esperimento](media\\machine-learning-gallery-experiments\\edit-button.png)
+![Fare clic su "Edit" (Modifica) per modificare l'esperimento](media/machine-learning-gallery-experiments/edit-button.png)
 
 La pagina dei dettagli entra in modalità di modifica e facendo clic su "Edit" (Modifica) accanto al nome dell'esperimento, al riepilogo, ai tag e così via è possibile apportare le necessarie modifiche. Dopo aver apportato tutte le modifiche desiderate, fare clic su "Done" (Fine).
 
-![Fare clic su "Edit" (Modifica) per modificare i dettagli, su "Done" (Chiudi) al termine dell'operazione](media\\machine-learning-gallery-experiments\\edit-details-page.png)
+![Fare clic su "Edit" (Modifica) per modificare i dettagli, su "Done" (Chiudi) al termine dell'operazione](media/machine-learning-gallery-experiments/edit-details-page.png)
 
 È possibile usare l'icona delle impostazioni anche per modificare la visibilità dell'esperimento (pubblico o non in elenco) o eliminare l'esperimento da Gallery.
 
-![Fare clic sull'icona delle impostazioni per modificare la visibilità o eliminare l'esperimento](media\\machine-learning-gallery-experiments\\settings-button.png)
+![Fare clic sull'icona delle impostazioni per modificare la visibilità o eliminare l'esperimento](media/machine-learning-gallery-experiments/settings-button.png)
 
 #### <a name="from-your-profile-page"></a>Dalla pagina del profilo personale
 Dalla pagina del profilo personale è possibile fare clic sulla freccia verso il basso in corrispondenza dell'esperimento e selezionare "Edit" (Modifica). Viene visualizzata la pagina dei dettagli dell'esperimento in modalità di modifica. Dopo aver apportato tutte le modifiche desiderate, fare clic su "Done" (Fine).
 
 È anche possibile fare clic su "Delete" (Elimina) per eliminare l'esperimento da Gallery.
 
-![Fare clic su "Edit" (Modifica) o "Delete" (Elimina)](media\\machine-learning-gallery-experiments\\edit-delete-buttons.png)
+![Fare clic su "Edit" (Modifica) o "Delete" (Elimina)](media/machine-learning-gallery-experiments/edit-delete-buttons.png)
 
 ### <a name="suggestions-for-publishing-and-for-quality-documentation"></a>Suggerimenti per la pubblicazione e per creare una documentazione di alta qualità
 * Anche se il lettore potrebbe avere esperienza di analisi scientifica dei dati, laddove possibile è comunque utile usare un linguaggio semplice e fornire spiegazioni dettagliate.
@@ -202,6 +202,6 @@ Dopo aver inserito un tag, premere il tasto TAB per inserire un altro tag.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

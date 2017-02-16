@@ -4,7 +4,7 @@ description: Questo articolo descrive come configurare SSL end-to-end con un gat
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: e6d80a33-4047-4538-8c83-e88876c8834e
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 6f061810b865e7855877bf08b02e758351f3e63c
+ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
+ms.openlocfilehash: c76dc14998ebf01a938c67d6c78384e169f83266
 
 
 ---
@@ -29,9 +29,7 @@ Il gateway applicazione supporta la crittografia end-to-end del traffico. A tale
 Un'altra funzionalità supportata dal gateway applicazione è l a disabilitazione di alcune versioni del protocollo SSL. Gateway applicazione supporta la disattivazione della versione di protocollo seguente: **TLSv1.0**, **TLSv1.1** e **TLSv1.2**.
 
 > [!NOTE]
-> SSL 2.0 e SSL 3.0 sono disabilitati per impostazione predefinita e non possono essere abilitati. Sono considerati non protetti e non possono essere usati con il gateway applicazione.
-> 
-> 
+> SSL 2.0 e SSL 3.0 sono disabilitati per impostazione predefinita e non possono essere abilitati. Sono considerati non sicuri e non possono essere usati con il gateway applicazione.
 
 ![immagine dello scenario][scenario]
 
@@ -135,8 +133,6 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 
 > [!IMPORTANT]
 > Il gateway applicazione non supporta l'uso di un indirizzo IP pubblico creato con la definizione di un'etichetta di dominio. È supportato solo un indirizzo IP pubblico con etichetta di dominio creata in modo dinamico. Se è necessario un nome DNS intuitivo per il gateway applicazione, è consigliabile usare un record cname come alias.
-> 
-> 
 
 ## <a name="create-an-application-gateway-configuration-object"></a>Creare un oggetto di configurazione gateway applicazione
 
@@ -167,9 +163,7 @@ $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendI
 ```
 
 > [!NOTE]
-> Il nome di dominio completo (FQDN) è un valore valido per sostituire un indirizzo IP per i server back-end usando l'opzione -BackendFqdns.
-> 
-> 
+> Il nome di dominio completo (FQDN) è un valore valido per sostituire un indirizzo IP per i server back-end usando l'opzione -BackendFqdns. 
 
 ### <a name="step-4"></a>Passaggio 4
 
@@ -189,8 +183,6 @@ $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFil
 
 > [!NOTE]
 > Questo esempio configura il certificato usato per la connessione SSL. Il certificato deve essere in formato PFX e la password deve essere compresa tra 4 e 12 caratteri.
-> 
-> 
 
 ### <a name="step-6"></a>Passaggio 6
 
@@ -206,8 +198,6 @@ Caricare il certificato da usare per le risorse del pool back-end SSL abilitato.
 
 > [!NOTE]
 > Il probe predefinito ottiene la chiave pubblica dall'associazione SSL **predefinita** nell'indirizzo IP del back-end e confronta il valore della chiave pubblica ricevuta con il valore della chiave pubblica specificata qui. La chiave pubblica recuperata potrebbe non corrispondere esattamente al sito previsto a cui il traffico verrà trasferito **se** si usano intestazioni host e SNI nel back-end. In caso di dubbio, visitare https://127.0.0.1/ nei back-end per verificare quale certificato viene usato per l'associazione SSL **predefinita**. In questa sezione usare la chiave pubblica ottenuta da tale richiesta. Se si usano intestazioni host e SNI nelle associazioni HTTPS e non si ricevono una risposta e un certificato da una richiesta del browser manuale a https://127.0.0.1/ nei back-end, è necessario configurare un'associazione SSL predefinita nei back-end. In caso contrario, i probe avranno esito negativo e il back-end non sarà consentito.
-> 
-> 
 
 ```powershell
 $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
@@ -215,8 +205,6 @@ $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitel
 
 > [!NOTE]
 > Il certificato fornito in questo passaggio deve essere la chiave pubblica del certificato con estensione PFX presente nel back-end. Esportare il certificato (non il certificato radice) installato nel server back-end in formato CER e usarlo in questo passaggio. Questo passaggio illustra come aggiungere il back-end all'elenco dei consentiti del gateway applicazione.
-> 
-> 
 
 ### <a name="step-8"></a>Passaggio 8
 
@@ -244,8 +232,6 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 
 > [!NOTE]
 > A scopo di test si può scegliere 1 come numero di istanze. È importante sapere che un numero di istanze inferiore a due non è coperto dal contratto di servizio e non è quindi consigliabile. È opportuno usare gateway Small a scopo di sviluppo/test e non per la produzione.
-> 
-> 
 
 ### <a name="step-11"></a>Passaggio 11
 
@@ -337,6 +323,6 @@ Per altre informazioni sul potenziamento della protezione delle applicazioni Web
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

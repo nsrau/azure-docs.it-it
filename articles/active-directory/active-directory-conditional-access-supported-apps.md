@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/26/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: fbc03ebf0c66950ae92ca75cf34da86dfb15a349
+ms.sourcegitcommit: b9605eb10f87f107dffd9f631d043bf550cf030b
+ms.openlocfilehash: 5e293d7d3fa6b0a763663a5428878944660fc03e
 
 
 ---
@@ -41,8 +41,8 @@ Le applicazioni seguenti supportano l'accesso condizionale per Office 365 e altr
 | Office 365 Exchange Online |Windows 8.1, Windows 7 |Outlook 2016, Outlook 2013 (con l'autenticazione moderna), Skype for Business (con l'autenticazione moderna) |
 | Office 365 Exchange Online |iOS, Android |App Outlook Mobile |
 | Office 365 Exchange Online |Mac OS X |Outlook 2016 solo per l'autenticazione a più fattori e la posizione; il supporto dei criteri basati su dispositivo è pianificato per il futuro, il supporto per Skype for Business è pianificato per il futuro |
-| Office 365 SharePoint Online |Windows 10 |App Office 2016, Universal Office, Office 2013 (con l'autenticazione moderna), il supporto per l'app OneDrive for Business (NNGSC (Next Generation Sync Client)) è pianificato per il futuro, il supporto dei gruppi di Office è pianificato per il futuro, il supporto dell'app SharePoint è pianificato per il futuro |
-| Office 365 SharePoint Online |Windows 8.1, Windows 7 |App Office 2016, Office 2013 (con l'autenticazione moderna), app OneDrive for Business (client di sincronizzazione Groove) |
+| Office 365 SharePoint Online |Windows 10 |app di Office 2016, app di Office universale, Office 2013 (con autenticazione moderna), client sincronizzazione OneDrive (vedere le [note](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), supporto per i gruppi di Office pianificato per il futuro, supporto per l'app SharePoint pianificato per il futuro |
+| Office 365 SharePoint Online |Windows 8.1, Windows 7 |App di Office 2016, Office 2013 (con autenticazione moderna), client sincronizzazione OneDrive (vedere le [note](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) |
 | Office 365 SharePoint Online |iOS, Android |App Office per dispositivi mobili |
 | Office 365 SharePoint Online |Mac OS X |App Office 2016 solo per l'autenticazione a più fattori e la posizione; il supporto dei criteri basati su dispositivo è pianificato per il futuro |
 | Office 365 Yammer |Windows 10, iOS e Android |App Office Yammer |
@@ -111,6 +111,6 @@ Applicando le tre regole seguenti al trust della relying party di AD FS per la p
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

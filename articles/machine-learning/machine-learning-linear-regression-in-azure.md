@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/09/2016
 ms.author: kbaroni;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: eb6fc4b1451d9c1ba17d1787bc8a77507b694258
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b519769502f9883c5be59dc453bce872660774b5
 
 
 ---
@@ -53,7 +53,7 @@ Per creare l'esperimento in Azure ML sono stati seguiti questi passaggi:
 
 1. È stato caricato il set di dati in Azure ML sotto forma di file CSV (un file di dimensioni molto ridotte)
 2. È stato creato un nuovo esperimento ed è stato usato il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) per selezionare le stesse funzionalità di dati usate in Excel   
-3. È stato usato il modulo [Split Data][split] (Dividi dati) (con la modalità *Relative Expression* (Espressione relativa)) per dividere i dati esattamente negli stessi set di training di Excel  
+3. È stato usato il modulo [Split data][split] (Divisione dati) con modalità *Relative Expression* (Espressione relativa) per dividere i dati esattamente negli stessi set di training di Excel  
 4. È stato eseguito l'esperimento con il modulo [Linear Regression][linear-regression] (Regressione lineare) (solo opzioni predefinite), quindi sono stati documentati e confrontati i risultati nel modello di regressione di Excel
 
 ### <a name="review-initial-results"></a>Rivedere i risultati iniziali
@@ -69,7 +69,7 @@ All'inizio, il modello di Excel ha superato nettamente le prestazioni del modell
 
 Dopo aver eseguito il processo e aver passato i risultati di sviluppatori ed esperti di dati al team di Azure ML, il team ha fornito subito alcuni suggerimenti utili.  
 
-* Quando si usa il modulo [Linear Regression][linear-regression] in Azure ML, vengono forniti due metodi:
+* Quando si usa il modulo [Linear Regression][linear-regression] (Regressione lineare) in Azure ML, vengono forniti due metodi:
   * Online Gradient Descent: più adatto a problemi su larga scala
   * Ordinary Least Squares: il metodo generalmente associato alla regressione lineare. Per set di dati di piccole dimensioni, il metodo Ordinary Least Squares è solitamente la scelta ottimale.
 * Provare a modificare il parametro L2 Regularization Weight per migliorare le prestazioni. Per impostazione predefinita è impostato su 0,001, mentre per i set di dati di piccole dimensioni in questo caso è stato impostato su 0,005 per migliorare le prestazioni.    
@@ -117,9 +117,9 @@ Con la cartella di lavoro aperta, copiare i parametri predefiniti nella sezione 
 ![][2]
 
 ### <a name="optimization-and-further-experiments"></a>Ottimizzazione e altri esperimenti
-Con una base disponibile con il modello di Excel, è stato possibile passare all'ottimizzazione del modello di regressione lineare di Azure ML.  È stato usato il modulo [Filter-Based Feature Selection][filter-based-feature-selection] (Selezione di funzioni basata su filtro) per ottimizzare la selezione degli elementi dei dati iniziali e raggiungere un miglioramento delle prestazioni del 4,6% dell'errore assoluto medio.   Per i progetti futuri verrà usata questa funzionalità che consente di risparmiare settimane, normalmente impiegate nell'iterazione degli attributi dei dati per individuare il set di funzionalità più adatto per la modellazione.  
+Con una base disponibile con il modello di Excel, è stato possibile passare all'ottimizzazione del modello di regressione lineare di Azure ML.  È stato usato il modulo [Filter-Based Feature Selection][filter-based-feature-selection] (Selezione di funzionalità in base al filtro) per ottimizzare la selezione degli elementi dei dati iniziali e ottenere un miglioramento delle prestazioni del 4,6% dell'errore assoluto medio.   Per i progetti futuri verrà usata questa funzionalità che consente di risparmiare settimane, normalmente impiegate nell'iterazione degli attributi dei dati per individuare il set di funzionalità più adatto per la modellazione.  
 
-Successivamente, si prevede di aggiungere altri algoritmi all'esperimento, ad esempio quelli [bayesiani][bayesian-linear-regression] o gli [alberi delle decisioni con boosting scalabili][boosted-decision-tree-regression], per confrontare le prestazioni.    
+È prevista l'aggiunta di altri algoritmi all'esperimento, ad esempio quelli [bayesiani][bayesian-linear-regression] o gli [alberi delle decisioni con boosting][boosted-decision-tree-regression], per confrontare le prestazioni.    
 
 Per eseguire un esperimento con regressione, si consiglia di provare il set di dati di esempio Energy Efficiency Regression, che contiene numerosi attributi numerici. Il set di dati viene fornito insieme ai set di dati di esempio in ML Studio.  È possibile usare diversi moduli di apprendimento per la previsione di Heating Load o Cooling Load.  Il grafico seguente è un confronto delle prestazioni di diverse soluzioni di regressione rispetto alle previsioni del set di dati Energy Efficiency per l'elemento variabile Cooling Load di destinazione: 
 
@@ -133,7 +133,7 @@ Per eseguire un esperimento con regressione, si consiglia di provare il set di d
 ## <a name="key-takeaways"></a>Risultati principali
 L'esecuzione parallela della regressione di Excel e degli esperimenti di Azure Machine Learning ha aiutato a conoscere meglio questi strumenti. La creazione del modello di base in Excel e il confronto con i modelli usando la [regressione lineare][linear-regression] di Azure ML ha consentito di vedere come funziona Azure ML e di scoprire tutte le opportunità di miglioramento della selezione dei dati e delle prestazioni del modello.         
 
-Inoltre, [Filter-Based Feature Selection][filter-based-feature-selection] si è dimostrata una funzionalità molto utile per velocizzare i progetti di previsione.  Applicando la selezione delle funzionalità ai dati, è possibile creare un modello ottimizzato in Azure ML con prestazioni complessivamente migliorate. 
+Il modulo [Filter-Based Feature Selection][filter-based-feature-selection] (Selezione di funzionalità in base al filtro) si è rivelato molto utile per velocizzare i progetti di previsione.  Applicando la selezione delle funzionalità ai dati, è possibile creare un modello ottimizzato in Azure ML con prestazioni complessivamente migliorate. 
 
 La possibilità di trasferire la previsione dell'analisi predittiva da Azure ML a Excel comporta un aumento significativo della capacità a livello di sistema di fornire risultati a un pubblico molto più ampio di utenti aziendali.     
 
@@ -159,6 +159,6 @@ Alcune risorse vengono elencate per agevolare l'uso della regressione:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

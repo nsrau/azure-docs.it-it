@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 42a2b241ed6ac2b13d1fb65f42242b194ef2858b
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 5724a9c66bef01972f41e66a84844aae9b300296
 
 
 ---
@@ -37,10 +37,10 @@ Quando si collegano più account di archiviazione a un account di Servizi multim
 
 Altre considerazioni:
 
-Servizi multimediali usa il valore della proprietà **IAssetFile.Name** durante la creazione di URL per i contenuti in streaming, ad esempio http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà Name non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#[]".. Inoltre, può essere presente un solo punto (.). L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
+Servizi multimediali usa il valore della proprietà **IAssetFile.Name** durante la creazione di URL per i contenuti in streaming, ad esempio http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà Name non può contenere i [caratteri riservati per la codifica percentuale seguenti](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Può essere presente solo un carattere '.' L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
 
 ## <a name="to-attach-a-storage-account-with-azure-service-management-rest-api"></a>Per collegare un account di archiviazione con l'API REST di gestione dei servizi di Azure
-Attualmente, l' [API REST di gestione dei servizi di Azure](http://msdn.microsoft.com/library/azure/dn167014.aspx)costituisce l'unico strumento disponibile per collegare più account di archiviazione. L'esempio di codice riportato nell'argomento [Procedura: usare l'API REST di gestione di Servizi multimediali](https://msdn.microsoft.com/library/azure/dn167656.aspx) definisce il metodo **AttachStorageAccountToMediaServiceAccount** da usare per collegare un account di archiviazione all'account di Servizi multimediali specificato. Il codice nello stesso argomento definisce il metodo **ListStorageAccountDetails** che elenca tutti gli account di archiviazione collegati all'account di Servizi multimediali specificato.
+Attualmente, l' [API REST di gestione dei servizi di Azure](https://docs.microsoft.com/rest/api/media/management/media-services-management-rest)costituisce l'unico strumento disponibile per collegare più account di archiviazione. L'esempio di codice riportato nell'argomento [Procedura: usare l'API REST di gestione di Servizi multimediali](https://msdn.microsoft.com/library/azure/dn167656.aspx) definisce il metodo **AttachStorageAccountToMediaServiceAccount** da usare per collegare un account di archiviazione all'account di Servizi multimediali specificato. Il codice nello stesso argomento definisce il metodo **ListStorageAccountDetails** che elenca tutti gli account di archiviazione collegati all'account di Servizi multimediali specificato.
 
 ## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>Per gestire asset di Servizi multimediali su più account di archiviazione
 Il codice seguente usa la versione più recente dell'SDK di Servizi multimediali per eseguire le attività seguenti: 
@@ -257,6 +257,6 @@ Il codice seguente usa la versione più recente dell'SDK di Servizi multimediali
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

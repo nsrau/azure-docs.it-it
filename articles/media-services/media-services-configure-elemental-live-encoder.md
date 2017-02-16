@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: cenkd;anilmur;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: 5aeaee615b45be3b943f4b39c8b65b2efc323aa3
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: bb4966cbd2af7a14caeac108a001b0820a67d2a1
 
 
 ---
@@ -36,7 +36,7 @@ In questa esercitazione viene illustrato come gestire Servizi multimediali di Az
 ## <a name="prerequisites"></a>Prerequisiti
 * Sono necessarie conoscenze pratiche dell'uso dell'interfaccia Web Elemental Live per la creazione di eventi live.
 * [Creare un account Servizi multimediali di Azure](media-services-portal-create-account.md)
-* Assicurarsi che sia in esecuzione un endpoint di streaming con almeno un'unità di streaming allocata. Per altre informazioni, vedere [Gestire gli endpoint di streaming in un account di Servizi multimediali](media-services-portal-manage-streaming-endpoints.md).
+* Verificare che sia presente un endpoint di streaming in esecuzione. Per altre informazioni, vedere [Gestire gli endpoint di streaming in un account di Servizi multimediali](media-services-portal-manage-streaming-endpoints.md).
 * Installare la versione più recente dello strumento [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
 * Avviare lo strumento e connettersi al proprio account AMS.
 
@@ -49,15 +49,17 @@ In questa esercitazione viene illustrato come gestire Servizi multimediali di Az
 In questa sezione viene illustrato come configurare il codificatore Elemental Live che invia un flusso live a velocità in bit singola su RTP.  Per altre informazioni, vedere [Flusso MPEG-TS su RTP](media-services-manage-live-encoder-enabled-channels.md#channel).
 
 ### <a name="create-a-channel"></a>Creare un canale
-1. Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Create channel**  dal menu.
 
-![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental1.png)
+1. Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Create channel** dal menu.
 
-1. Specificare un nome di canale. Il campo della descrizione è facoltativo. In Impostazioni del canale selezionare **Standard** per l'opzione Codifica live con il protocollo di input impostato su **RTP (MPEG-TS)**. È possibile confermare tutte le altre impostazioni predefinite.
+    ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental1.png)
 
-Assicurarsi che l'opzione **Avvia ora il nuovo canale** sia selezionata.
+2. Specificare un nome di canale. Il campo della descrizione è facoltativo. In Impostazioni del canale selezionare **Standard** per l'opzione Codifica live con il protocollo di input impostato su **RTP (MPEG-TS)**. È possibile confermare tutte le altre impostazioni predefinite.
 
-1. Fare clic su **Create Channel**.
+    Assicurarsi che l'opzione **Avvia ora il nuovo canale** sia selezionata.
+
+3. Fare clic su **Create Channel**.
+
    ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental12.png)
 
 > [!NOTE]
@@ -138,7 +140,8 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 Dopo 30 secondi di esecuzione del flusso, tornare allo strumento AMSE e testare la riproduzione.  
 
 ### <a name="test-playback"></a>Testare la riproduzione
-1. Passare allo strumento AMSE e fare clic con il pulsante destro del mouse sul canale da testare. Nel menu passare il mouse su **Playback the Preview** (Riproduci anteprima) e scegliere **with Azure Media Player** (Con Azure Media Player).  
+
+Passare allo strumento AMSE e fare clic con il pulsante destro del mouse sul canale da testare. Nel menu passare il mouse su **Playback the Preview** (Riproduci anteprima) e scegliere **with Azure Media Player** (Con Azure Media Player).  
 
     ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental8.png)
 
@@ -154,7 +157,9 @@ In caso di errore, sarà necessario reimpostare il canale e regolare le impostaz
 3. Selezionare la casella di controllo **Start the Program now** .
 4. Fare clic su **Create Program**.  
 
-    Nota: la creazione di un programma richiede meno tempo rispetto alla creazione del canale.    
+    >[!NOTE]
+    > La creazione di un programma richiede meno tempo rispetto alla creazione del canale.   
+      
 5. Quando il programma è in esecuzione, verificare il funzionamento della riproduzione. A tale scopo, fare clic con il pulsante destro del mouse sul programma e passare **Playback the program(s)** (Riproduci programma/i), quindi scegliere **with Azure Media Player** (Con Azure Media Player).  
 6. Dopo questa verifica, fare nuovamente clic con il pulsante destro del mouse sul programma e scegliere **Copy the Output URL to Clipboard** (Copia URL di output negli Appunti) oppure recuperare queste informazioni dall'opzione **Program information and settings** (Impostazioni e informazioni programma) nel menu.
 
@@ -171,6 +176,6 @@ Vedere l’argomento sulla [risoluzione dei problemi](media-services-troubleshoo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

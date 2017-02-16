@@ -1,5 +1,5 @@
 ---
-title: Distribuire un array virtuale Microsoft Azure StorSimple - Eseguire il provisioning in VMware | Documentazione Microsoft
+title: Eseguire il provisioning di un array virtuale StorSimple in VMware | Documentazione Microsoft
 description: Questa seconda esercitazione sulla serie di distribuzione di StorSimple Virtual Array implica il provisioning di un dispositivo virtuale in VMware.
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 01/12/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: 5438412356559c6b8864733be656fa013c9388d1
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 2c9411312f561d03ab6bd29e8e007db309cb5f00
 
 ---
 # <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-vmware"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning di un array virtuale in VMware
@@ -243,6 +243,6 @@ In presenza di altri errori durante la configurazione iniziale con l'interfaccia
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

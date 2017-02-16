@@ -1,5 +1,5 @@
 ---
-title: Creare un&quot;applicazione HBase tramite Maven e Java, poi distribuirla in HDInsight basato su Linux | Documentazione Microsoft
+title: Compilare un&quot;applicazione Java HBase per Azure HDInsight | Documentazione Microsoft
 description: Informazioni su come usare Apache Maven per compilare un&quot;applicazione Apache HBase basata su Java e quindi distribuirla in HDInsight basato su Linux nel cloud Azure.
 services: hdinsight
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0f321065b9c24075837bebb71251cbc5751a1854
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: d91e05e458c6689f04dedd85a3e4adc60e6de72d
 
 
 ---
@@ -25,10 +25,8 @@ In questo articolo si apprenderà come creare e compilare un'applicazione [Apach
 
 [Maven](http://maven.apache.org/) è un progetto di gestione software e uno strumento di esplorazione che consente di compilare software, documentazione e report per i progetti Java. In questo articolo si apprenderà come usarlo per creare un'applicazione Java di base che crea, interroga ed elimina una tabella HBase su un cluster HDInsight basato su Linux.
 
-> [!NOTE]
-> Le procedure in questo documento presuppongono l'uso di un cluster HDInsight basato su Linux. Per informazioni sull'uso di un cluster HDInsight basato su Windows, vedere [Usare Maven per compilare applicazioni Java che usano HBase con HDInsight basato su Windows (Hadoop)](hdinsight-hbase-build-java-maven.md)
-> 
-> 
+> [!IMPORTANT]
+> I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="requirements"></a>Requisiti
 * [Piattaforma Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 o versioni successive
@@ -391,6 +389,6 @@ Dopo aver finito con l'esempio, usare il comando seguente dalla sessione di Azur
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

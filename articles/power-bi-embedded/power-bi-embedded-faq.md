@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2204034d9a39f9773a6e12ca5ed9504939a6ebf6
+ms.sourcegitcommit: f57b400dc20dc08221c0a8a770fd78f5885f634c
+ms.openlocfilehash: 0beb98220f043dc7c66cc494c3de00e0993798a6
 
 
 ---
@@ -52,16 +52,6 @@ Power BI Embedded con Contratto di servizio di Azure Standard. Per altre informa
 ## <a name="how-is-this-service-priced"></a>In che modo vengono definiti i prezzi del servizio?
 Per informazioni sui prezzi, vedere [Prezzi di Power BI Embedded](http://go.microsoft.com/fwlink/?LinkId=760527) .
 
-## <a name="what-is-a-render-and-how-is-it-billed"></a>Che cos'è un rendering e come viene fatturato?
-> [!NOTE]
-> Durante la fase di anteprima di Power BI Embedded sono stati applicati prezzi scontati per rendering, ma in seguito ai commenti e suggerimenti degli utenti questo modello verrà sospeso a favore di un calcolo dei prezzi per sessione. La transizione dai prezzi per rendering a quelli per sessione avverrà il 1° settembre 2016.
-> 
-> 
-
-Un rendering è un elemento visivo visualizzato a un utente finale come conseguenza di una query al servizio. Se ad esempio un utente visualizza un report che contiene 4 oggetti visivi, vengono prodotti 4 rendering. Se l'utente aggiorna il report e al servizio vengono inviate più query, vengono prodotti altri 4 rendering. Il proprietario del servizio potrà determinare i limiti oltre i quali le query prodotte dagli utenti finali comportano rendering a pagamento per limitare e ridurre i costi in scenari con dati statici.
-
-L'unità di fatturazione è pari a 1.000 rendering. Per le quantità inferiori a 1.000 rendering, la fatturazione è proporzionale. Ogni cliente riceve 1.000 rendering gratuiti al mese. I clienti che acquistano il servizio tramite contratti multilicenza devono consultare il proprio partner o rivenditore Microsoft per informazioni sui prezzi.
-
 ## <a name="what-is-a-report-session-and-how-is-it-billed"></a>Che cos'è una sessione di report e come viene fatturata?
 Una sessione è un set di interazioni tra un utente finale e un report di Power BI Embedded. Ogni volta che un report di Power BI Embedded viene visualizzato da un utente, viene avviata una sessione, che viene addebitata al titolare della sottoscrizione. Le sessioni vengono fatturate a un prezzo fisso, indipendentemente dal numero di elementi visivi in un report o dalla frequenza di aggiornamento del contenuto del report. Una sessione termina quando l'utente chiude il report o quando si verifica il timeout della sessione dopo un'ora.
 
@@ -85,7 +75,7 @@ Il servizio Power BI Embedded usa token dell'app per l'autenticazione e l'autori
 e invia i token dell'app al servizio richiedendo di fatto il rendering del report. Questo modello non richiede che l'applicazione usi Azure Active Directory per l'autenticazione e l'autorizzazione dell'utente, sebbene sia possibile. Altre informazioni sui token dell'app sono disponibili [qui](power-bi-embedded-app-token-flow.md). È stata anche introdotta la funzionalità sicurezza a livello di riga in Power BI Embedded per scenari con filtri di sicurezza avanzati.
 
 ## <a name="what-data-sources-are-currently-supported-with-power-bi-embedded"></a>Quali origini dati sono supportate attualmente con Power BI Embedded?
-Verrà supportato l'accesso alle origini dati su cloud che usano credenziali di base mediante DirectQuery. Le origini dati come i database SQL di Azure e i data warehouse SQL di Azure sono quindi già supportate. Verrà aggiunto il supporto per altre origini dati e altri tipi di accesso nei prossimi mesi. Le nuove origini dati supportate verranno annunciate sul forum di Power BI dedicato agli sviluppatori all'indirizzo [https://dev.powerbi.com](https://dev.powerbi.com/).
+Verrà supportato l'accesso alle origini dati su cloud che usano credenziali di base mediante DirectQuery. Le origini dati come i database SQL di Azure e i data warehouse SQL di Azure sono quindi già supportate. Verrà aggiunto il supporto per altre origini dati e altri tipi di accesso nei prossimi mesi. Per altre informazioni, vedere [Connettersi a un'origine dati](power-bi-embedded-connect-datasource.md).
 
 ## <a name="how-does-the-tenancy-model-work-for-power-bi-embedded"></a>Come funziona il modello di tenancy per Power BI Embedded?
 Il modello Power BI Embedded non include alcun requisito specifico relativo alla necessità che i clienti si trovino nei tenant di Azure AD. È possibile scegliere di richiedere o meno Azure AD per i clienti. Di conseguenza, l'architettura dell'applicazione e l'infrastruttura sono gli elementi che determineranno il modello di tenancy richiesto per Power BI Embedded.
@@ -102,9 +92,11 @@ Ora è possibile iniziare gratuitamente! Se si dispone di una sottoscrizione di 
 * [Cos'è Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
 * [Introduzione a Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
+Altre domande? [Contattare la community di Power BI](http://community.powerbi.com/)
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Dec16_HO3-->
 
 

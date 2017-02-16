@@ -1,6 +1,6 @@
 ---
-title: Gestire set di record e record DNS con il portale di Azure | Documentazione Microsoft
-description: Gestione dei set di record e dei record DNS quando si ospita il dominio in DNS di Azure.
+title: Gestire set di record e record DNS con DNS di Azure | Documentazione Microsoft
+description: DNS di Azure consente di gestire i set di record DNS in caso di hosting del dominio.
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 42d47741e414b2de177f1fd75b3e1ac3fde96579
-ms.openlocfilehash: db14074ba4f3b5b675f608b76c496c84f7c22945
+ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
+ms.openlocfilehash: b09b66c44ba94df12934211d5d09430adb667003
 
 ---
 
@@ -105,11 +105,11 @@ I record NS e SOA creati automaticamente vengono gestiti in modo diverso rispett
 
 ### <a name="modify-soa-records"></a>Modificare i record SOA
 
-Non è possibile aggiungere o rimuovere i record dal set di record SOA creato automaticamente al vertice della zona (name = "@").), ma è possibile modificare i parametri all'interno del record SOA, ad eccezione di "Host", e la durata (TTL) del record.
+Non è possibile aggiungere o rimuovere record dal set di record SOA creato automaticamente al vertice della zona (name = "@"). È tuttavia possibile modificare i parametri all'interno del record SOA, ad eccezione di "Host", e la durata (TTL) del set di record.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modificare i record NS al vertice della zona
 
-Non è possibile aggiungere, rimuovere o modificare i record nel set di record NS creato automaticamente al vertice della zona (name = "@").). L'unica modifica consentita consiste nel modificare la durata (TTL) del set di record.
+Non è possibile aggiungere, rimuovere o modificare i record nel set di record NS creato automaticamente al vertice della zona (name = "@"). L'unica modifica consentita consiste nel modificare la durata (TTL) del set di record.
 
 ### <a name="delete-soa-or-ns-record-sets"></a>Eliminare set di record SOA o NS
 
@@ -123,6 +123,6 @@ Non è possibile eliminare i set di record SOA e NS al vertice della zona (name 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

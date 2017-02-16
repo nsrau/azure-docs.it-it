@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 10/26/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1150f7eaba41e42c94ed7297bd7603dc506a97a9
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 936e152304dc4a4a3bd95c7bfba071a02a20d0dd
 
 
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Protezione dell'accesso con privilegi in Azure AD
 La protezione dell'accesso con privilegi è il primo passaggio fondamentale per proteggere gli asset aziendali in un'organizzazione moderna. Gli account con privilegi sono quelli che amministrano e gestiscono i sistemi IT. Gli utenti malintenzionati usano questi account per ottenere l'accesso ai dati e ai sistemi di un'organizzazione. Per proteggere l'accesso con privilegi, è necessario isolare gli account e i sistemi dal rischio di esposizione a utenti malintenzionati.
 
-Il numero di utenti che ottiene l'accesso con privilegi tramite i servizi cloud è in aumento. Tra questi, sono inclusi gli amministratori globali di Office 365, gli amministratori delle sottoscrizioni di Azure e gli utenti che dispongono dell'accesso amministrativo alle macchine virtuali o alle app SaaS.
+Il numero di utenti che ottiene l'accesso con privilegi tramite i servizi cloud è in aumento. Tra questi, sono inclusi gli amministratori globali di Office&365;, gli amministratori delle sottoscrizioni di Azure e gli utenti che dispongono dell'accesso amministrativo alle macchine virtuali o alle app SaaS.
 
 Microsoft consiglia di seguire questa guida di orientamento sulla [protezione dell'accesso con privilegi](https://technet.microsoft.com/library/mt631194.aspx).
 
@@ -36,7 +36,7 @@ Azure multi-Factor Authentication contribuisce a salvaguardare l'accesso a dati 
 
 Per una panoramica del funzionamento di Azure Multi-Factor Authentication, vedere il video seguente.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Windows-Azure-Multi-Factor-Authentication/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Windows-Azure-Multi-Factor-Authentication/player]
 > 
 > 
 
@@ -75,6 +75,6 @@ Per altre informazioni su come creare una guida di orientamento alla sicurezza c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -3,20 +3,22 @@ title: Connessione di DocumentDB con Ricerca di Azure tramite indicizzatori | Mi
 description: Questo articolo illustra come usare l&quot;indicizzatore di Ricerca di Azure con DocumentDB come origine dati.
 services: documentdb
 documentationcenter: 
-author: dennyglee
+author: mimig1
 manager: jhubbard
-editor: mimig
+editor: 
 ms.assetid: fdef3d1d-b814-4161-bdb8-e47d29da596f
 ms.service: documentdb
 ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 07/08/2016
-ms.author: denlee
+ms.date: 01/10/2017
+ms.author: mimig
+redirect_url: https://docs.microsoft.com/azure/search/search-howto-index-documentdb
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 81dce18eb33dcb31808e41848e543d1488e8cfb7
+ms.sourcegitcommit: 9a5416b1c26d1e8eaecec0ada79d357f32ca5ab1
+ms.openlocfilehash: c318d7133e26ec3a39d6fc97b0693b44d742d456
 
 
 ---
@@ -75,7 +77,6 @@ Sarà anche necessario aggiungere `_ts` nella proiezione e la clausola `WHERE` p
 
     SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts >= @HighWaterMark
 
-
 ### <a name="a-iddatadeletiondetectionpolicyacapturing-deleted-documents"></a><a id="DataDeletionDetectionPolicy"></a>Acquisizione di documenti eliminati
 Quando le righe vengono eliminate dalla tabella di origine, devono essere eliminate anche dall'indice di ricerca. Scopo dei criteri di rilevamento dell'eliminazione dei dati è quello di identificare in modo efficace gli elementi di dati eliminati. Attualmente, l'unico criterio supportato è il criterio `Soft Delete` (l'eliminazione è contrassegnata da un tipo di flag), specificato come indicato sotto:
 
@@ -89,6 +90,42 @@ Quando le righe vengono eliminate dalla tabella di origine, devono essere elimin
 > Sarà necessario includere la proprietà softDeleteColumnName nella clausola SELECT se si usa una proiezione personalizzata.
 > 
 > 
+
+### <a name="a-idleveagingqueriesaleveraging-queries"></a><a id="LeveagingQueries"></a>Uso delle query
+Oltre ad acquisire i documenti modificati ed eliminati, è possibile specificare una query di DocumentDB per appiattire le proprietà annidate, rimuovere gli array, progettare le proprietà json e filtrare i dati da indicizzare. La modifica dei dati da indicizzare può migliorare le prestazioni dell'indicizzatore di Ricerca di Azure.
+
+Documento di esempio:
+
+    {
+        "userId": 10001,
+        "contact": {
+            "firstName": "andy",
+            "lastName": "hoh"
+        },
+        "company": "microsoft",
+        "tags": ["azure", "documentdb", "search"]
+    }
+
+
+Query di appiattimento:
+
+    SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark
+    
+    
+Query di proiezione:
+
+    SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark
+
+
+Query di rimozione array:
+
+    SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark
+    
+    
+Query di filtro:
+
+    SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark
+
 
 ### <a name="a-idcreatedatasourceexamplearequest-body-example"></a><a id="CreateDataSourceExample"></a>Esempio di corpo della richiesta
 L'esempio seguente crea un'origine dati con una query personalizzata e hint di criteri:
@@ -257,6 +294,6 @@ Congratulazioni. Si è appena appreso come integrare Azure DocumentDB con Ricerc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

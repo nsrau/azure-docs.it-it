@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/20/2016
 ms.author: denlee
 translationtype: Human Translation
-ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
-ms.openlocfilehash: 2409bd1bedf0da2aabbd847312322e6360aa2265
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: 35eb6b7c8a2aa3ddfb1723eebdb92dc47a49f65a
 
 
 ---
@@ -63,10 +63,10 @@ Se non si ha tempo di completare l'esercitazione e si vogliono ottenere gli scri
 Prima di seguire le istruzioni di questa esercitazione, verificare che siano disponibili gli elementi seguenti:
 
 * Un DocumentDB, un database e una raccolta di documenti all'interno. Per altre informazioni, vedere [Introduzione a DocumentDB][getting-started]. Importare dati di esempio nell'account DocumentDB con lo [strumento di importazione DocumentDB][documentdb-import-data].
-* Velocità effettiva. Le letture e le scritture da HDInsight verranno conteggiate rispetto alle unità di richiesta dell'unità di capacità. Per altre informazioni, vedere [Velocità effettiva con provisioning, unità di richiesta e operazioni di database][documentdb-manage-throughput].
-* Capacità di una stored procedure aggiuntiva all'interno di ciascun insieme di output. Le stored procedure vengono usate per trasferire i documenti risultanti. Per altre informazioni, vedere [Raccolte e velocità effettiva con provisioning][documentdb-manage-document-storage].
-* Capacità per i documenti risultanti da processi Hive, Pig o MapReduce. Per altre informazioni, vedere [Gestire la capacità e le prestazioni di DocumentDB][documentdb-manage-collections].
-* *Facoltativo*Capacità per una raccolta aggiuntiva. Per altre informazioni, vedere [Archiviazione documenti con provisioning e sovraccarico dell'indice][documentdb-manage-document-storage].
+* Velocità effettiva. Le letture e le scritture da HDInsight verranno conteggiate rispetto alle unità di richiesta dell'unità di capacità.
+* Capacità di una stored procedure aggiuntiva all'interno di ciascun insieme di output. Le stored procedure vengono usate per trasferire i documenti risultanti.
+* Capacità per i documenti risultanti da processi Hive, Pig o MapReduce.
+* *Facoltativo*Capacità per una raccolta aggiuntiva.
 
 > [!WARNING]
 > Per evitare la creazione di una nuova raccolta durante uno qualsiasi dei processi è possibile stampare i risultati in stdout, salvare l'output nel contenitore WASB oppure specificare una raccolta già esistente. Nel caso in cui venga specificata una raccolta esistente, verranno creati nuovi documenti all'interno della raccolta, mentre i documenti esistenti verranno interessati solo se si verifica un conflitto tra gli *ids*. **Il connettore sovrascriverà automaticamente i documenti esistenti con conflitti tra ID**. È possibile disattivare questa funzionalità impostando l'opzione upsert su false. Se upsert è impostato su false e si verifica un conflitto, il processo Hadoop avrà esito negativo, indicando un errore di conflitto tra ID.
@@ -416,9 +416,6 @@ Per altre informazioni, vedere gli articoli seguenti:
 [documentdb-hdinsight-samples]: http://portalcontent.blob.core.windows.net/samples/documentdb-hdinsight-samples.zip
 [documentdb-github]: https://github.com/Azure/azure-documentdb-hadoop
 [documentdb-java-application]: documentdb-java-application.md
-[documentdb-manage-collections]: documentdb-manage.md#database-collections
-[documentdb-manage-document-storage]: documentdb-manage.md#provisioned-document-storage-and-index-overhead
-[documentdb-manage-throughput]: documentdb-manage.md#request-units-and-database-operations
 [documentdb-import-data]: documentdb-import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md
@@ -439,6 +436,6 @@ Per altre informazioni, vedere gli articoli seguenti:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

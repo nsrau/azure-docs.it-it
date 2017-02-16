@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
-ms.openlocfilehash: 0f91e59a72b033c0a0dc52b4f127478b73c66ff1
+ms.sourcegitcommit: 2f24c1c43300a3c5035fbb4e90c3d13f73c1bc74
+ms.openlocfilehash: ef51f63984d342422ee5f2a93acfee6357df57ca
 
 
 ---
@@ -76,6 +76,11 @@ Solo un utente del database con l'autorizzazione **CONTROL** sul database, ad es
 
 Per altre informazioni su queste stored procedure, vedere [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) e [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx).
 
+> [!NOTE]
+> Per un'esercitazione che illustra l'uso di firewall a livello di database, vedere [SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md) (Esercitazione sul database SQL: autenticazione di SQL Server, account di accesso e utente, ruoli del database, autorizzazioni e regole del firewall a livello di server e a livello di database).
+>
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni su come creare regole firewall a livello di server con altri metodi, vedere: 
 
@@ -94,6 +99,6 @@ Per informazioni su come passare ai database, vedere [Gestire l'accesso al datab
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

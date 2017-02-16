@@ -63,6 +63,6 @@ Per usare un account Microsoft come provider di identità in Azure Active Direct
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -51,6 +51,6 @@ Per un'ampia panoramica dei problemi relativi alle licenze di Microsoft Azure e 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

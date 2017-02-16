@@ -1,5 +1,5 @@
 ---
-title: App per le API Node.js nel Servizio app di Azure | Documentazione Microsoft
+title: App per le API Node.js nel Servizio app di Azure | Microsoft Docs
 description: Informazioni su come creare un&quot;API RESTful Node.js e distribuirla in un&quot;app per le API nel servizio app di Azure.
 services: app-service\api
 documentationcenter: node
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: c700bfbd4f50a892e182124eb596159d2eb63feb
-ms.openlocfilehash: b6f97d299b1c100e4bae111d7f95c9619c6c9399
+ms.sourcegitcommit: 633caca05835aa204d4fec5fe216043a50520000
+ms.openlocfilehash: 87d2792d4f7610c62ed96cb522958844d4dc982b
 
 
 ---
@@ -230,23 +230,29 @@ In questa sezione si crea un repository Git locale contenente il codice server p
         git init
    
      ![Nuovo archivio Git locale](media/app-service-api-nodejs-api-app/new-local-git-repo.png)
-3. Eseguire il comando seguente per aggiungere un repository Git remoto per il repository dell'app per le API. 
+3. Se è stata eseguita prima parte di questa esercitazione ed è stata copiata la cartella `ContactList`, la copia include probabilmente la cartella `node_modules`. Non è consigliabile includere la cartella `node_modules` nel controllo del codice sorgente, perché viene creata automaticamente durante il processo di distribuzione tramite il file `package.json` e `npm install`. Aggiungere quindi un file `.gitignore` eseguendo questo comando nella radice della directory del progetto.
+
+         touch .gitignore
+      
+   Aprire il file con estensione gitignore e aggiungere `node_modules` alla prima riga del file. Per confermare che la cartella `node_modules` viene ignorata dal controllo del codice sorgente, è possibile eseguire `git status` e accertarsi che la directory non viene visualizzata nell'elenco. È disponibile un (progetto GitHub)[https://github.com/github/gitignore/blob/master/Node.gitignore] per i file che è consigliabile ignorare in un progetto NodeJS, se si vogliono aggiungere più regole.
+ 
+4. Eseguire il comando seguente per aggiungere un repository Git remoto per il repository dell'app per le API. 
    
         git remote add azure YOUR_GIT_CLONE_URL_HERE
    
     **Nota**: sostituire la stringa "YOUR_GIT_CLONE_URL_HERE" con il proprio URL clone Git copiato in precedenza. 
-4. Eseguire i comandi seguenti per creare un commit che contiene tutto il codice. 
+5. Eseguire i comandi seguenti per creare un commit che contiene tutto il codice. 
    
         git add .
         git commit -m "initial revision"
    
     ![Output del commit di Git](media/app-service-api-nodejs-api-app/git-commit-output.png)
-5. Eseguire il comando per effettuare il push del codice in Azure. Quando viene chiesta la password, immettere quella creata prima nel portale di Azure.
+6. Eseguire il comando per effettuare il push del codice in Azure. Quando viene chiesta la password, immettere quella creata prima nel portale di Azure.
    
         git push azure master
    
     Viene attivata una distribuzione nell'app per le API.  
-6. Nel browser tornare al pannello **Distribuzioni** dell'app per le API, in cui è possibile verificare che la distribuzione sia in corso. 
+7. Nel browser tornare al pannello **Distribuzioni** dell'app per le API, in cui è possibile verificare che la distribuzione sia in corso. 
    
     ![Distribuzione in corso](media/app-service-api-nodejs-api-app/deployment-happening.png)
    
@@ -275,6 +281,6 @@ A questo punto sono state completate la creazione di un'app per le API e la dist
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 12/09/2016
 ms.author: kipandya
 translationtype: Human Translation
-ms.sourcegitcommit: f480b8155c7bee797f1fed0f80200eec500e95a2
-ms.openlocfilehash: b188c8d8d66f0af1afa6f357f4d67db7b778ec86
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: d7ed490157eff98e31c824daf1f9af98ae1afeaa
 
 
 ---
@@ -55,6 +55,8 @@ Gli endpoint di lettura e scrittura correnti sono disponibili rispettivamente in
     // Getting endpoints from application settings or other configuration location
     Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
     string accountKey = Properties.Settings.Default.GlobalDatabaseKey;
+    
+    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
 
     //Setting read region selection preference
     connectionPolicy.PreferredLocations.Add(LocationNames.WestUS); // first preference
@@ -150,13 +152,12 @@ Per altre informazioni sulla distribuzione globale dei dati con DocumentDB, vede
 
 * [Distribuire i dati a livello globale con DocumentDB](documentdb-distribute-data-globally.md)
 * [Livelli di coerenza](documentdb-consistency-levels.md)
-* [Informazioni sull'archiviazione e sul provisioning con prestazioni stimabili in DocumentDB](documentdb-manage.md)
 * [Aggiungere aree tramite il portale di Azure](documentdb-portal-global-replication.md)
 
 [regions]: https://azure.microsoft.com/regions/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

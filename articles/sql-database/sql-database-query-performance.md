@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5031cefe906f01e14e0155a975dd7996ba70522d
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: ddb43393695ae74711bea0ff66b644ddd7787571
 
 
 ---
@@ -72,7 +72,7 @@ Eseguire le operazioni seguenti nel [portale](http://portal.azure.com) :
    
     La griglia inferiore rappresenta informazioni aggregate per le query visibili.
    
-   * ID query: identificatore univoco della query all'interno del database.
+   * ID query: identificatore univoco di query all'interno del database.
    * Utilizzo della CPU per query durante l'intervallo osservabile (dipende dalla funzione di aggregazione).
    * Durata per ogni query (dipende dalla funzione di aggregazione).
    * Numero totale di esecuzioni per una query specifica.
@@ -177,9 +177,9 @@ Esistono due tipi di criteri di conservazione:
 
 I criteri di acquisizione possono essere impostati su:
 
-* **Tutte** : acquisisce tutte le query.
-* **Automatico** : le query poco frequenti e con durata di compilazione ed esecuzione trascurabile vengono ignorate. Le soglie per il conteggio delle esecuzioni e la durata di compilazione ed esecuzione vengono stabilite internamente. Questa è l'opzione predefinita.
-* **Nessuna** : l'archivio query interrompe l'acquisizione di nuove query, ma continua a raccogliere le statistiche di runtime per le query già acquisite.
+* **Tutte**: acquisisce tutte le query.
+* **Automatico**: le query poco frequenti e con durata di compilazione ed esecuzione trascurabile vengono ignorate. Le soglie per il conteggio delle esecuzioni e la durata di compilazione ed esecuzione vengono stabilite internamente. Questa è l'opzione predefinita.
+* **Nessuna**: l'archivio query interrompe l'acquisizione di nuove query, ma continua a raccogliere le statistiche di runtime per le query già acquisite.
 
 È consigliabile impostare tutti i criteri su AUTOMATICO e i criteri di pulizia dei dati su 30 giorni:
 
@@ -229,6 +229,6 @@ Per ulteriori raccomandazioni sul miglioramento delle prestazioni del database S
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

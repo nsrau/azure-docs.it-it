@@ -8,6 +8,7 @@ author: ddove
 editor: 
 ms.assetid: cbe0aa2b-17e3-4b6f-a16f-6ebc1f5a66af
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,19 +16,19 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 56f8270666f4d132c5e07053f5a6d476878c9b5f
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 4aac611e857c0b5b985f887f8536d212c28fd6e4
 
 
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Installazione dei processi di database elastici (panoramica)
 I [**Processi di database elastici**](sql-database-elastic-jobs-overview.md) possono essere installati tramite PowerShell o tramite il portale di Azure classico. È possibile ottenere l'accesso solo per creare e gestire processi utilizzando l'API PowerShell solo se si installa il pacchetto di PowerShell. Inoltre, le API PowerShell forniscono molte più funzionalità rispetto al portale in questo momento.
 
-Se sono già stati installati i **Processi database elastici** tramite il portale da un’esistente **pool di database elastici**, l'ultima anteprima di Powershell include gli script per aggiornare l'installazione esistente. È consigliabile aggiornare l'installazione alla versione più recente dei componenti dei **Processi di database elastici** per trarre vantaggio dalle nuove funzionalità esposte tramite le API di PowerShell.
+Se sono già stati installati i **processi di database elastici** tramite il portale da un **pool elastico**, l'ultima anteprima di Powershell include gli script per aggiornare l'installazione esistente. È consigliabile aggiornare l'installazione alla versione più recente dei componenti dei **Processi di database elastici** per trarre vantaggio dalle nuove funzionalità esposte tramite le API di PowerShell.
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Una sottoscrizione di Azure. Per una versione di valutazione gratuita, vedere [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell. Installare la versione più recente tramite l’ [installazione guidata piattaforma Web](http://go.microsoft.com/fwlink/p/?linkid=320376). Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+* Azure PowerShell. Installare la versione più recente tramite l’ [installazione guidata piattaforma Web](http://go.microsoft.com/fwlink/p/?linkid=320376). Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * [Utilità della riga di comando NuGet](https://nuget.org/nuget.exe) viene utilizzata per installare il pacchetto dei processi di database elastici. Per altre informazioni, vedere http://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>Scaricare e importare il pacchetto di PowerShell dei processi di database elastici
@@ -146,11 +147,11 @@ Per aggiornare la dimensione della macchina virtuale di un'installazione, esegui
 </table>
 
 ## <a name="install-the-elastic-database-jobs-components-using-the-portal"></a>Installare i componenti dei processi di database elastici utilizzando il portale
-Dopo aver creato un [pool di database elastici](sql-database-elastic-pool-create-portal.md), è possibile installare componenti dei **processi di database elastici** per abilitare l’esecuzione di attività amministrative su ogni database nel pool di database elastici. A differenza di quando si utilizzano le API PowerShell dei **processi di database elastici** , l'interfaccia del portale è attualmente limitata solamente all’esecuzione su un pool esistente.
+Dopo aver creato un [pool elastico](sql-database-elastic-pool-create-portal.md), è possibile installare componenti dei **processi di database elastici** per abilitare l'esecuzione di attività amministrative su ogni database nel pool elastico. A differenza di quando si utilizzano le API PowerShell dei **processi di database elastici** , l'interfaccia del portale è attualmente limitata solamente all’esecuzione su un pool esistente.
 
 **Tempo previsto per il completamento:** 10 minuti
 
-1. Dalla vista dashboard del pool di database elastici, tramite il [portale di Azure](https://portal.azure.com/#) fare clic su **Crea processo**.
+1. Nella vista dashboard del pool elastico, tramite il [portale di Azure](https://portal.azure.com/#) fare clic su **Crea processo**.
 2. Se si sta creando un processo per la prima volta, è necessario installare **processi di database elastici** facendo clic su **ANTEPRIMA TERMINI**.
 3. Accettare i termini selezionando la casella di controllo.
 4. Nella vista "Installa servizi", fare clic su **CREDENZIALI PROCESSO**.
@@ -169,7 +170,7 @@ Dopo aver creato un [pool di database elastici](sql-database-elastic-pool-create
 Se è necessaria la disinstallazione, eliminare il gruppo di risorse. Vedere [Come disinstallare i componenti dei processi di database elastici](sql-database-elastic-jobs-uninstall.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Assicurarsi che una credenziale con i diritti appropriati per l'esecuzione di script venga creata in ogni database nel gruppo e vedere [Protezione del Database SQL](sql-database-security.md)per ulteriori informazioni.
+Assicurarsi che una credenziale con i diritti appropriati per l'esecuzione di script venga creata in ogni database nel gruppo e vedere [Protezione del Database SQL](sql-database-manage-logins.md)per ulteriori informazioni.
 Per un’introduzione, vedere [Creazione e gestione di processi di database elastici](sql-database-elastic-jobs-create-and-manage.md) .
 
 <!--Image references-->
@@ -180,6 +181,6 @@ Per un’introduzione, vedere [Creazione e gestione di processi di database elas
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

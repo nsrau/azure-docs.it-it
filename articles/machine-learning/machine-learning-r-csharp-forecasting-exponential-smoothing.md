@@ -1,6 +1,6 @@
 ---
-title: Forecasting-Exponential Smoothing | Documentazione Microsoft
-description: 'Servizio Web: Forecasting-Exponential Smoothing'
+title: (Deprecato) Previsione - Smorzamento esponenziale - Azure | Documentazione Microsoft
+description: (Deprecato) Servizio Web - Previsione - Smorzamento esponenziale
 services: machine-learning
 documentationcenter: 
 author: yijichen
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/13/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: yijichen
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 47ef9bce59b62bbd5b2c630ee101a655814d96d2
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: c3fc7b8d7ba9faf79d80b55514ef09570e0d1655
 
 
 ---
-# <a name="forecasting---exponential-smoothing"></a>Forecasting-Exponential Smoothing
+# <a name="deprecated-forecasting---exponential-smoothing"></a>(Deprecato) Previsione - Smorzamento esponenziale
+
+> [!NOTE]
+> Microsoft DataMarket è in fase di ritiro e questa API è stata deprecata. 
+> 
+> Numerose API e molti esperimenti utili di esempio sono disponibili in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Per altre informazioni sulla raccolta, vedere [Condividere e scoprire risorse in Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Questo [servizio Web](https://datamarket.azure.com/dataset/aml_labs/ets) implementa il modello di livellamento esponenziale (ETS, Exponential Smoothing) per produrre previsioni basate sui dati cronologici forniti dall'utente. Si verificherà un incremento nella domanda di un prodotto specifico quest'anno? È possibile prevedere le vendite dei prodotti per la stagione natalizia, per pianificare in modo efficace l'inventario? I modelli di previsione sono progettati per rispondere a queste domande. Partendo dai dati passati, questi modelli esaminano le tendenze nascoste e la stagionalità per prevedere le tendenze future.  
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -143,6 +150,6 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

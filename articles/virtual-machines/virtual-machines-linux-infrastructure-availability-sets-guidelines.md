@@ -1,5 +1,5 @@
 ---
-title: "Linee guida sui set di disponibilità | Microsoft Docs"
+title: "Linee guida per i set di disponibilità di Azure | Documentazione Microsoft"
 description: "Informazioni sulle principali linee guida di progettazione e implementazione per la distribuzione dei set di disponibilità nei servizi di infrastruttura di Azure."
 documentationcenter: 
 services: virtual-machines-linux
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: c8d4f1c83d1f719122b90a205534b5ae4c1b03bd
+ms.sourcegitcommit: a99ab839ec9ade0049e1cc59054e333048e0208c
+ms.openlocfilehash: 93d1421fb8afdc5e6e7d20de25774eb580a0e8da
 
 
 ---
-# <a name="availability-sets-guidelines"></a>Linee guida sui set di disponibilità
+# <a name="azure-availability-sets-guidelines"></a>Linee guida per i set di disponibilità di Azure
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Questo articolo è incentrato sulla comprensione dei passaggi di pianificazione necessari per i set di disponibilità per garantire che le applicazioni rimangano accessibili in caso di eventi pianificati o non pianificati.
@@ -44,9 +44,11 @@ La procedura consigliata prevede che le applicazioni non risiedano in una singol
 
 In Azure, l'infrastruttura sottostante è suddivisa in domini di errore e domini di aggiornamento. Tali domini sono definiti in base agli host che condividono un ciclo di aggiornamento comune o un'infrastruttura fisica simile, ad esempio quella di alimentazione e rete. Azure distribuirà automaticamente le macchine virtuali in un set di disponibilità nell'ambito dei domini per garantire la disponibilità e la tolleranza di errore. A seconda della dimensione dell'applicazione e del numero di macchine virtuali all'interno di un set di disponibilità, è possibile modificare il numero di domini che si desidera usare. Altre informazioni su [gestione della disponibilità e uso dei domini di aggiornamento e di errore](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Quando si progetta l'infrastruttura dell'applicazione, è necessario pianificare anche i livelli di applicazione da usare. Raggruppare nei set di disponibilità le macchine virtuali che svolgono la stessa funzione, creando ad esempio un set di disponibilità per le macchine virtuali front-end che eseguono Apache o nginx. Creare un set di disponibilità distinto per le macchine virtuali back-end che eseguono MongoDB o MySQL. L'obiettivo è garantire che ogni componente dell'applicazione sia protetto da un set di disponibilità e che almeno un'istanza rimanga sempre in esecuzione.
+Quando si progetta l'infrastruttura dell'applicazione, pianificare anche i livelli applicazione da usare. Raggruppare nei set di disponibilità le macchine virtuali che svolgono la stessa funzione, creando ad esempio un set di disponibilità per le macchine virtuali front-end che eseguono Apache o nginx. Creare un set di disponibilità distinto per le macchine virtuali back-end che eseguono MongoDB o MySQL. L'obiettivo è garantire che ogni componente dell'applicazione sia protetto da un set di disponibilità e che almeno un'istanza rimanga sempre in esecuzione.
 
 In ogni livello di applicazione è possibile usare servizi di bilanciamento del carico a supporto di un set di disponibilità, per garantire che il traffico venga sempre indirizzato a un'istanza in esecuzione. Senza bilanciamento del carico, le macchine virtuali possono restare in esecuzione durante gli eventi di manutenzione pianificata e non pianificata, ma gli utenti finali potrebbero non essere in grado di risolvere i problemi se la macchina virtuale primaria non è disponibile.
+
+Progettare l'applicazione per la disponibilità elevata a livello di archiviazione. È consigliabile usare un account di archiviazione separato per ogni VM di un set di disponibilità. Mantenere tutti i dischi (del sistema operativo e dei dati) associati a una VM nello stesso account di archiviazione. Quando si aggiungono più dischi rigidi virtuali a un account di archiviazione, tenere presenti i [limiti](../storage/storage-scalability-targets.md) degli account di archiviazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
@@ -54,6 +56,6 @@ In ogni livello di applicazione è possibile usare servizi di bilanciamento del 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

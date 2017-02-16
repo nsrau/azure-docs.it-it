@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 71bc49398c576aa55159f4f62b6b6ad541d0fe5f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a5aeb1612d670f1145ee9b176e33667f717de357
 
 
 ---
@@ -264,6 +264,6 @@ Quando si fa clic sul riquadro Front nel pannello di accesso, si accederà autom
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -13,20 +13,25 @@ ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 01/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 614adbd3536d6740e6a46895b36575f0f4c66a8c
+ms.sourcegitcommit: 9a2ab28a2dc456d5f21242ded1d348f411d3d994
+ms.openlocfilehash: c8cc44cf132bb82c217a81ab94f27ed391a4248d
 
 
 ---
 # <a name="azure-cli-commands-in-azure-service-management-asm-mode"></a>Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione servizi di Azure (asm)
-[!INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)]
 
-È anche possibile [leggere le informazioni sui comandi nel modello di Resource Manager](virtual-machines/azure-cli-arm-commands.md) e usare l'interfaccia della riga di comando per [eseguire la migrazione di risorse](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) dal modello classico al modello di Resource Manager.
 
 In questo articolo vengono fornite sintassi e opzioni per i comandi dell’interfaccia della riga di comando di Azure utilizzati comunemente per creare e gestire risorse di Azure nel modello di distribuzione classico. Accedere ai comandi eseguendo l’interfaccia della riga di comando in modalità Gestione servizi di Azure (asm). Non si tratta di un riferimento completo e la versione dell'interfaccia della riga di comando in uso potrebbe mostrare comandi o parametri leggermente diversi. 
+
+> [!IMPORTANT]
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../articles/azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. È anche possibile [leggere le informazioni sui comandi dell'interfaccia della riga di comando del modello di Resource Manager](virtual-machines/azure-cli-arm-commands.md) e usare l'interfaccia della riga di comando per [eseguire la migrazione di risorse](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) dal modello classico al modello di Resource Manager.
+>
+>Per usare il modello di Resource Manager, è inoltre possibile provare l'[interfaccia della riga di comando 2.0 di Azure (Anteprima)](/cli/azure/install-az-cli2), ovvero la nuovissima interfaccia della riga di comando multipiattaforma.
+>
+
 
 Per iniziare, [installare l'interfaccia della riga di comando di Azure](xplat-cli-install.md) e [connettersi alla propria sottoscrizione di Azure](xplat-cli-connect.md).
 
@@ -2354,6 +2359,6 @@ Questo comando rimuove una voce di server DNS dalla configurazione di rete.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

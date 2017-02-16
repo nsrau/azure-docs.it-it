@@ -16,10 +16,10 @@ Questa esercitazione illustra come:
 
 * Usare il portale di Azure per creare un hub IoT.
 * Creare un'identità del dispositivo nell'hub IoT.
-* Creare un dispositivo simulato che invia dati di telemetria al back-end cloud e riceve i comandi dal back-end cloud.
+* Creare un'app per dispositivo simulato che invia dati di telemetria al back-end del cloud e riceve i comandi dal back-end del cloud.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

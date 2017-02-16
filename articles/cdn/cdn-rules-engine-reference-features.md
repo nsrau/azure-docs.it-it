@@ -1,6 +1,6 @@
 ---
-title: "Funzionalità per il motore regole della rete per la distribuzione di contenuti di Azure | Documentazione Microsoft"
-description: "Questo argomento descrive le funzionalità e le condizioni di corrispondenza del motore regole"
+title: "Funzionalità del motore regole della rete CDN di Azure | Documentazione Microsoft"
+description: "Documentazione di riferimento per le funzionalità e condizioni di corrispondenza del motore regole della rete CDN di Azure."
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/23/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
-ms.openlocfilehash: a3d8199a9d5d067a4da1e1d40ff99bebc40a5097
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: 6703247aa8b4a6d53ff22ea2d4f22eb4a746e370
 
 
 ---
 
-# <a name="features-for-azure-content-delivery-network--cdn-rules-engine"></a>Funzionalità per il motore regole della rete per la distribuzione di contenuti di Azure
+# <a name="azure-cdn-rules-engine-features"></a>Funzionalità del motore regole della rete CDN di Azure
 Questo argomento offre descrizioni dettagliate delle funzionalità disponibili per il [motore regole](cdn-rules-engine.md) della rete per la distribuzione di contenuti (CDN, Content Delivery Network) di Azure.
 
 La terza parte di una regola è la funzionalità. Una funzionalità definisce il tipo di azione che verrà applicato al tipo di richiesta identificata da un set di condizioni di corrispondenza.
@@ -207,9 +207,11 @@ Disabled|Fa sì che i server perimetrali memorizzino gli asset nella cache in ba
 **Comportamento predefinito:**
 
 - **HTTP Large:** Disabled
+
 <!---
 - **ADN:** Enabled
 --->
+
 ###<a name="cache-control-header-treatment"></a>Cache Control Header Treatment (Gestione intestazioni Cache-Control)
 **Scopo:** controlla la generazione delle intestazioni Cache-Control da parte del server perimetrale quando è attiva la funzionalità External Max-Age (Validità massima esterna).
 
@@ -560,7 +562,7 @@ Definire un set delimitato da spazi dei codici di stato desiderati.
 
 Informazioni chiave:
 
-- Abilitare anche la funzionalità Ignore Origin No-Cache (Ignora origine No-Cache). In caso contrario, è possibile che le risposte diverse da 200 - OK non vengano memorizzate nella cache.
+- Abilitare anche la funzionalità Ignore Origin No-Cache (Ignora origine No-Cache). In caso contrario, è possibile che le risposte diverse da&200; - OK non vengano memorizzate nella cache.
 - I codici di stato validi per questa funzionalità sono: 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 e 505.
 - Questa funzionalità non può essere usata per disabilitare la memorizzazione nella cache delle risposte che generano un codice di stato 200 - OK.
 
@@ -966,7 +968,28 @@ Opzione|Descrizione
  Destination  |Definire l'URL relativo in cui verranno riscritte le richieste precedenti: <br/>    1. Selezionando un punto di accesso dei contenuti che identifichi un server di origine. <br/>    2. Definendo di un percorso tramite: <br/>        - Un modello di espressione regolare <br/>        - Variabili HTTP <br/> <br/> Sostituire nel modello di destinazione i valori acquisiti nel modello di origine usando $_n_ dove _n_ identifica un valore in base all'ordine in cui è stato acquisito. Ad esempio, $1 rappresenta il primo valore acquisito nel modello di origine e $2 rappresenta il secondo valore. 
  Questa funzionalità consente ai server periferici di riscrivere l'URL senza eseguire un reindirizzamento tradizionale. In questo modo, il richiedente riceverà lo stesso codice di risposta come se fosse stato richiesto l'URL riscritto.
 
-**Scenario di esempio**
+**Scenario di esempio 1**
+
+Questo esempio dimostra come reindirizzare un URL CNAME periferico che viene risolto in questo URL CDN di base: http://marketing.azureedge.net/brochures/
+
+Le richieste idonee verranno reindirizzate a questo URL CNAME periferico di base: http://MyOrigin.azureedge.net/resources/
+
+Questo reindirizzamento URL può essere ottenuto tramite la configurazione seguente: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+
+**Scenario di esempio 2**
+
+Questo esempio dimostra come reindirizzare un URL CNAME periferico da MAIUSCOLO a minuscolo mediante espressioni regolari.
+
+Questo reindirizzamento URL può essere ottenuto tramite la configurazione seguente: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+
+
+**Punti principali:**
+
+- La funzionalità di riscrittura URL definisce gli URL di richiesta che verranno riscritti. Non sono quindi necessarie condizioni di corrispondenza aggiuntive. Anche se la condizione di corrispondenza è stata definita come "Always" (Sempre), verranno riscritte solo le richieste che puntano alla cartella "brochures" nell'origine cliente "marketing".
+
+- I segmenti di URL acquisiti dalla richiesta vengono aggiunti al nuovo URL tramite "$1."
+
+
 
 ###<a name="compatibility"></a>Compatibilità
 
@@ -998,6 +1021,6 @@ Questa funzionalità include i criteri di corrispondenza che devono essere soddi
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

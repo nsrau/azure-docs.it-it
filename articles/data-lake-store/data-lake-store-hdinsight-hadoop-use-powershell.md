@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/18/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 3f8c9b22fb9a7aae97c43e39fe82a610f6b8b374
-ms.openlocfilehash: ff693920244316eec9ef25b00e6296e8e68f3d5e
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 0b635129a7f3b96b062a7005225a634de98e9ac9
 
 
 ---
@@ -28,9 +28,9 @@ ms.openlocfilehash: ff693920244316eec9ef25b00e6296e8e68f3d5e
 >
 >
 
-Informazioni su come usare Azure PowerShell per configurare un cluster HDInsight con accesso ad Azure Data Lake Store. Per i tipi di cluster supportati, Data Lake Store deve essere usato come risorsa di archiviazione predefinita o come account di archiviazione aggiuntivo. Quando Data Lake Store viene usato come risorsa di archiviazione aggiuntiva, l'account di archiviazione predefinito per i cluster saranno i BLOB di archiviazione di Azure (WASB) e i file correlati ai cluster (ad esempio log e così via) vengono scritti nella risorsa di archiviazione predefinita, mentre i dati da elaborare possono essere archiviati in un account di Data Lake Store. L'uso di Archivio Data Lake come account di archiviazione aggiuntivo non ha impatto sulle prestazioni o sulla possibilità di leggere/scrivere nella risorsa di archiviazione dal cluster.
+Informazioni su come usare Azure PowerShell per configurare un cluster HDInsight con accesso ad Azure Data Lake Store. Per i tipi di cluster supportati, Data Lake Store deve essere usato come risorsa di archiviazione predefinita o come account di archiviazione aggiuntivo. Quando Data Lake Store viene usato come risorsa di archiviazione aggiuntiva, l'account di archiviazione predefinito per i cluster saranno i BLOB del servizio di archiviazione di Azure (WASB) e i file correlati ai cluster (ad esempio log e così via) vengono scritti nella risorsa di archiviazione predefinita, mentre i dati da elaborare possono essere archiviati in un account di Data Lake Store. L'uso di Archivio Data Lake come account di archiviazione aggiuntivo non ha impatto sulle prestazioni o sulla possibilità di leggere/scrivere nella risorsa di archiviazione dal cluster.
 
-Alcune Considerazioni importanti:
+Alcune considerazioni importanti:
 
 * L'opzione per creare cluster HDInsight con accesso a Data Lake Store come risorsa di archiviazione predefinita è disponibile per HDInsight versione 3.5.
 
@@ -52,11 +52,11 @@ La configurazione di HDInsight perché funzioni con Archivio Data Lake tramite P
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1.0 o versioni successive**. Vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+* **Azure PowerShell 1.0 o versioni successive**. Vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * **Windows SDK**. Per installarlo, fare clic [qui](https://dev.windows.com/en-us/downloads). Usarlo per creare un certificato di sicurezza.
 * **Entità servizio di Azure Active Directory**. Questa esercitazione fornisce tutte le istruzioni utili su come creare un'entità servizio in Azure AD. Tuttavia, è necessario essere un amministratore di Azure AD per creare un'entità servizio. Se si è un amministratore di Azure AD, è possibile ignorare questo prerequisito e procedere con l'esercitazione.
 
-    **Se non si è un amministratore di Azure AD**, non sarà possibile eseguire i passaggi necessari per creare un'entità servizio. In tal caso, l'amministratore di Azure AD deve creare un'entità servizio prima di creare un cluster HDInsight con l'archivio Data Lake Store. Inoltre, l'entità servizio deve essere creata usando un certificato, come descritto in [Creare un'entità servizio con certificato](../resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+    **Se non si è un amministratore di Azure AD**, non sarà possibile eseguire i passaggi necessari per creare un'entità servizio. In tal caso, l'amministratore di Azure AD deve creare un'entità servizio prima di creare un cluster HDInsight con l'archivio Data Lake Store. Inoltre, l'entità servizio deve essere creata usando un certificato, come descritto in [Creare un'entità servizio con certificato](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
 
 ## <a name="create-an-azure-data-lake-store"></a>Creare un Archivio Azure Data Lake
 Per creare un Archivio Data Lake, seguire questa procedura.
@@ -90,7 +90,7 @@ Per creare un Archivio Data Lake, seguire questa procedura.
         $dataLakeStoreName = "<your new Data Lake Store name>"
         New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName -Location "East US 2"
 
-    ![Creare un account Azure Data Lake](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateADLAcc.png "Create an Azure Data Lake account")
+    ![Creare un account Azure Data Lake](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateADLAcc.png "Creare un account Azure Data Lake")
 4. Verificare che l'account sia stato creato correttamente.
 
         Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
@@ -113,7 +113,7 @@ Per configurare l'autenticazione di Active Directory per Azure Data Lake, è nec
 ### <a name="create-a-self-signed-certificate"></a>Creare un certificato autofirmato
 Assicurarsi di avere installato [Windows SDK](https://dev.windows.com/en-us/downloads) prima di continuare con i passaggi descritti in questa sezione. È necessario aver creato anche una directory, ad esempio **C:\mycertdir**, in cui sarà creato il certificato.
 
-1. Dalla finestra di PowerShell passare al percorso in cui è installato Windows SDK, in genere `C:\Program Files (x86)\Windows Kits\10\bin\x86` , e usare l'utilità [MakeCert][makecert] per creare un certificato autofirmato e una chiave privata. Usare il comandi seguenti:
+1. Dalla finestra di PowerShell passare al percorso in cui è installato Windows SDK, in genere `C:\Program Files (x86)\Windows Kits\10\bin\x86`, e usare l'utilità [MakeCert][makecert] per creare un certificato autofirmato e una chiave privata. Usare il comandi seguenti:
 
         $certificateFileDir = "<my certificate directory>"
         cd $certificateFileDir
@@ -310,7 +310,7 @@ Dovrebbe essere elencato anche il file precedentemente caricato in Archivio Data
 2. Fare clic su **Sfoglia**, su **Cluster HDInsight** e quindi sul cluster HDInsight creato.
 3. Nel pannello del cluster fare clic su **Desktop remoto** e quindi nel pannello **Desktop remoto** fare clic su **Connetti**.
 
-    ![Accesso remoto al cluster HDI](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png "Create an Azure Resource Group")
+    ![Accesso remoto al cluster HDI](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png "Creare un gruppo di risorse di Azure")
 
     Quando richiesto, immettere le credenziali fornite per l'utente desktop remoto.
 4. Nella sessione remota, avviare Windows PowerShell e usare i comandi del file system HDFS per elencare i file presenti in Archivio Data Lake.
@@ -333,6 +333,6 @@ Dovrebbe essere elencato anche il file precedentemente caricato in Archivio Data
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

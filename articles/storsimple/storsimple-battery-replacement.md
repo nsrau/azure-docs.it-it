@@ -1,5 +1,5 @@
 ---
-title: Sostituire la batteria in un dispositivo StorSimple | Microsoft Docs
+title: Sostituire la batteria sul dispositivo Microsoft Azure StorSimple | Documentazione Microsoft
 description: Viene descritto come rimuovere, sostituire e mantenere il modulo della batteria di backup nel dispositivo StorSimple.
 services: storsimple
 documentationcenter: 
@@ -15,13 +15,13 @@ ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 59af78e188441979d9d5a177a1f7b31b8080a0b5
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: f8b89b3f6851ec9ee0570f551b5407419fdba2d6
 
 
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Sostituzione del modulo della batteria di backup nel dispositivo StorSimple
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Il modulo di alimentazione e raffreddamento (PCM, Power and Cooling Module) dello chassis principale nel dispositivo Microsoft Azure StorSimple dispone di un pacchetto di batteria aggiuntivo. Tale pacchetto fornisce l'alimentazione in modo che il dispositivo StorSimple possa salvare i dati in caso di perdita dell'alimentazione CA allo chassis principale. Questo pacchetto di batteria viene definito come *modulo della batteria di backup*. Il modulo della batteria di backup è disponibile solo per lo chassis principale nel dispositivo StorSimple (lo chassis EBOD non contiene un modulo della batteria di backup). 
 
 In questa esercitazione viene illustrato come:
@@ -114,6 +114,6 @@ Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di St
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 74f34f72f434c201c48dfcb5fdc72766e6be481a
+ms.sourcegitcommit: 3170abb4f9bd7f7996b1c0dd2e20f648ea1b9fe5
+ms.openlocfilehash: e2125c56a958e8ed6b02ec7e92dd7cf4dcf326f3
 
 
 ---
-# <a name="high-availability-crossgeographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Distribuzione di AD FS a disponibilità elevata tra aree geografiche in Azure con Gestione traffico di Azure
+# <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Distribuzione di AD FS a disponibilità elevata tra aree geografiche in Azure con Gestione traffico di Azure
 [Distribuzione di AD FS in Azure](active-directory-aadconnect-azure-adfs.md) offre istruzioni dettagliate sulla distribuzione di una semplice infrastruttura AD FS per l'organizzazione in Azure. Questo articolo illustra i passaggi successivi per creare una distribuzione di AD FS tra aree geografiche in Azure usando [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md). Gestione traffico di Azure consente di creare per l'organizzazione un'infrastruttura AD FS geograficamente distribuita e a disponibilità e prestazioni elevate tramite una serie di metodi di routing messi a disposizione per soddisfare diverse esigenze.
 
 Un'infrastruttura AD FS tra aree geografiche a disponibilità elevata offre i vantaggi seguenti:
@@ -76,7 +76,7 @@ Seguire questa procedura per creare un profilo di Gestione traffico. Per altre i
    
    **Tipo di risorsa di destinazione:** selezionare Indirizzo IP pubblico come valore di questa proprietà. 
    
-   **Risorsa di destinazione:** è possibile scegliere tra le varie etichette DNS disponibili nella sottoscrizione. Scegliere l'etichetta DNS.
+   **Risorsa di destinazione:** è possibile scegliere tra le varie etichette DNS disponibili nella sottoscrizione. Scegliere l'etichetta DNS corrispondente all'endpoint che si sta configurando.
    
    Aggiungere l'endpoint per ogni area geografica cui Gestione traffico di Azure dovrà instradare il traffico.
    Per altre informazioni e procedure dettagliate sull'aggiunta e la configurazione di endpoint in Gestione traffico, vedere [Aggiungere, disabilitare, abilitare o eliminare gli endpoint](../traffic-manager/traffic-manager-endpoints.md)
@@ -94,13 +94,13 @@ Seguire questa procedura per creare un profilo di Gestione traffico. Per altre i
    
     <code>fs.fabidentity.com IN CNAME mysts.trafficmanager.net</code>
 
-## <a name="test-the-routing-and-ad-fs-signin"></a>Testare il routing e l'accesso ad AD FS
+## <a name="test-the-routing-and-ad-fs-sign-in"></a>Testare il routing e l'accesso ad AD FS
 ### <a name="routing-test"></a>Test di routing
 Un test molto semplice per il routing consiste nel provare a effettuare il ping del nome DNS del servizio federativo da un computer in ogni area geografica. A seconda del metodo di routing scelto, l'endpoint effettivamente raggiunto dal ping verrà indicato nella visualizzazione del ping. Se ad esempio si seleziona il routing Prestazioni, verrà raggiunto l'endpoint più vicino all'area del client. Di seguito è riportato lo snapshot di due ping da due computer client di aree diverse, uno in Asia orientale e l'altro negli Stati Uniti occidentali. 
 
 ![Test di routing](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
 
-### <a name="ad-fs-signin-test"></a>Test dell'accesso ad AD FS
+### <a name="ad-fs-sign-in-test"></a>Test dell'accesso ad AD FS
 Il modo più semplice per testare AD FS consiste nell'usare la pagina IdpInitiatedSignon.aspx. A tale scopo, è necessario abilitare IdpInitiatedSignOn nelle proprietà di AD FS. Per verificare l'installazione di AD FS, seguire questa procedura.
 
 1. Eseguire con PowerShell il cmdlet di seguito nel server AD FS per impostare l'abilitazione: 
@@ -126,6 +126,6 @@ Il modo più semplice per testare AD FS consiste nell'usare la pagina IdpInitiat
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

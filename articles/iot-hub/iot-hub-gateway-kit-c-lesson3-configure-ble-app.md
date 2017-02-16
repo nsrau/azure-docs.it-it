@@ -1,5 +1,5 @@
 ---
-title: Eseguire un&quot;app di esempio per ricevere i dati di SensorTag e inviarli a Hub IoT di Azure | Documentazione Microsoft
+title: 'Dispositivo SensorTag e gateway Azure IoT: lezione 3: Eseguire l&quot;app di esempio | Documentazione Microsoft'
 description: Eseguire un&quot;applicazione di esempio BLE per ricevere dati da SensorTag BLE e dall&quot;hub IoT.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: fab1eb0dc765ced95e3bec7c12c7dfa0ca91bb19
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: a9f689c0b231af3cdf9257e2179bf86ff7bc9a31
 
 
 ---
@@ -161,6 +161,6 @@ L'applicazione di esempio continua a raccogliere dati sulla temperatura e li inv
 [Leggere messaggi dall'hub IoT](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

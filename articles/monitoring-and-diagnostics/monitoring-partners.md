@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ebbd4166bc3f76c91823ee17b8b9c460feb9e194
+ms.sourcegitcommit: 244cc5e4f053901a8de94adb8fc983edf30ca516
+ms.openlocfilehash: 46b3ade8bb58ccd0637ce4f2cf5c484f599e6173
 
 
 ---
@@ -75,7 +75,7 @@ OpsGenie agisce come un dispatcher degli avvisi generati da Azure. OpsGenie dete
 [Vai alla documentazione.][opsgenie-doc]
 
 ## <a name="pagerduty"></a>PagerDuty
-PagerDuty, la soluzione leader per la gestione degli eventi imprevisti, ha fornito un supporto eccellente per gli avvisi relativi alle metriche di Azure. Ad oggi, PagerDuty supporta le notifiche sugli avvisi di Monitoraggio di Azure per le applicazioni Azure, le notifiche di scalabilità automatica e gli eventi del log di controllo, oltre alle notifiche sulle metriche a livello di piattaforma per i servizi di Azure. Questi miglioramenti offrono agli utenti una maggiore visibilità sulla piattaforma Azure principale e, al contempo, li mettono nelle condizioni di sfruttare pienamente le funzionalità di gestione degli eventi imprevisti di PagerDuty per una risposta in tempo reale. L'integrazione di Azure estesa è resa possibile tramite i webhook, consentendo una rapida e semplice personalizzazione e configurazione.
+PagerDuty, la soluzione leader per la gestione degli eventi imprevisti, ha fornito un supporto eccellente per gli avvisi relativi alle metriche di Azure. Attualmente PagerDuty supporta le notifiche sugli avvisi di Monitoraggio di Azure, le notifiche di scalabilità automatica e gli eventi del log di controllo, oltre alle notifiche sulle metriche a livello di piattaforma per i servizi di Azure. Questi miglioramenti offrono agli utenti una maggiore visibilità sulla piattaforma Azure principale e, al contempo, li mettono nelle condizioni di sfruttare pienamente le funzionalità di gestione degli eventi imprevisti di PagerDuty per una risposta in tempo reale. L'integrazione di Azure estesa è resa possibile tramite i webhook, consentendo una rapida e semplice personalizzazione e configurazione.
 
 [Vai alla documentazione.][pagerduty-doc]
 
@@ -90,7 +90,7 @@ Sumo Logic è un servizio protetto di analisi dei dati del computer nativo del c
 [Altre informazioni.][sumologic-doc]
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Altre informazioni sul log attività (in precedenza, log di controllo)](../resource-group-audit.md)
+* [Altre informazioni sul log attività (in precedenza, log di controllo)](../azure-resource-manager/resource-group-audit.md)
 * [Trasmettere il log attività di Azure a Hub eventi](monitoring-stream-activity-logs-event-hubs.md)
 
 <!--Connectors Documentation-->
@@ -137,6 +137,6 @@ Sumo Logic è un servizio protetto di analisi dei dati del computer nativo del c
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

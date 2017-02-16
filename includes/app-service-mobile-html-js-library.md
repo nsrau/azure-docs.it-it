@@ -1,11 +1,11 @@
-## <a name="create-client"></a>Creare una connessione client
-Creare una connessione client creando un oggetto `WindowsAzure.MobileServiceClient`. Sostituire `appUrl` con l'URL dell'app per dispositivi mobili.
+## <a name="a-namecreate-clientacreate-a-client-connection"></a><a name="create-client"></a>Creare una connessione client
+Creare una connessione client creando un oggetto `WindowsAzure.MobileServiceClient` .  Sostituire `appUrl` con l'URL dell'app per dispositivi mobili.
 
 ```
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
-## <a name="table-reference"></a>Usare le tabelle
+## <a name="a-nametable-referenceawork-with-tables"></a><a name="table-reference"></a>Usare le tabelle
 Per l'accesso o l'aggiornamento dei dati, creare un riferimento alla tabella di back-end. Sostituire `tableName` con il nome della tabella
 
 ```
@@ -22,8 +22,9 @@ Dopo aver creato un riferimento a tabella, saranno disponibili le operazioni seg
 * [Modifica dei dati](#modifying)
 * [Eliminazione dei dati](#deleting)
 
-### <a name="querying"></a>Procedura: Eseguire query su un riferimento a tabella
-Dopo aver creato un riferimento a tabella, è possibile usarlo per eseguire una query sui dati nel server. Le query vengono eseguite in un linguaggio "simile a LINQ". Per restituire tutti i dati dalla tabella, usare quanto segue:
+### <a name="a-namequeryingahow-to-query-a-table-reference"></a><a name="querying"></a>Procedura: Eseguire query su un riferimento a tabella
+Dopo aver creato un riferimento a tabella, è possibile usarlo per eseguire una query sui dati nel server.  Le query vengono eseguite in un linguaggio "simile a LINQ".
+Per restituire tutti i dati dalla tabella, usare il codice seguente:
 
 ```
 /**
@@ -51,11 +52,11 @@ table
     .then(success, failure);
 ```
 
-La funzione success viene chiamata con l'oggetto results. Non usare `for (var i in results)` nella funzione success, perché scorre le informazioni incluse nei risultati quando si usano altre funzioni di query, ad esempio `.includeTotalCount()`.
+La funzione success viene chiamata con l'oggetto results.  Non usare `for (var i in results)` nella funzione success, perché ripete le informazioni incluse nei risultati quando si usano altre funzioni di query, ad esempio `.includeTotalCount()`.
 
 Per altre informazioni sulla sintassi delle query, vedere la [documentazione relativa all'oggetto Query].
 
-#### <a name="table-filter"></a>Filtro dei dati nel server
+#### <a name="a-nametable-filterafiltering-data-on-the-server"></a><a name="table-filter"></a>Filtro dei dati nel server
 È possibile usare una clausola `where` nel riferimento a tabella:
 
 ```
@@ -65,7 +66,7 @@ table
     .then(success, failure);
 ```
 
-È anche possibile usare una funzione che filtra l'oggetto. In questo caso la variabile `this` viene assegnata all'oggetto che si sta filtrando. A livello funzionale, l'esempio seguente è equivalente al precedente:
+È anche possibile usare una funzione che filtra l'oggetto.  In questo caso la variabile `this` viene assegnata all'oggetto che si sta filtrando.  A livello funzionale, il codice seguente è equivalente al precedente:
 
 ```
 function filterByUserId(currentUserId) {
@@ -78,8 +79,8 @@ table
     .then(success, failure);
 ```
 
-#### <a name="table-paging"></a>Paging dei dati
-Usare i metodi take() e skip(). Ad esempio, se si vuole dividere la tabella in record di 100 righe:
+#### <a name="a-nametable-pagingapaging-through-data"></a><a name="table-paging"></a>Paging dei dati
+Usare i metodi `take()` e `skip()`.  Ad esempio, se si vuole dividere la tabella in record di 100 righe:
 
 ```
 var totalCount = 0, pages = 0;
@@ -102,12 +103,12 @@ function loadPage(pageNum) {
 }
 ```
 
-Il metodo `.includeTotalCount()` viene usato per aggiungere un campo totalCount all'oggetto results. Se non si usa il paging, il campo totalCount viene compilato con il numero totale di record restituiti.
+Il metodo `.includeTotalCount()` viene usato per aggiungere un campo totalCount all'oggetto results.  Se non si usa il paging, il campo totalCount viene compilato con il numero totale di record restituiti.
 
-Si potrà quindi usare la variabile pages e alcuni pulsanti dell'interfaccia utente per fornire un elenco di pagine. Usare loadPage() per caricare i nuovi record per ogni pagina. È necessario implementare una sorta di caching per velocizzare l'accesso ai record già caricati.
+Si potrà quindi usare la variabile pages e alcuni pulsanti dell'interfaccia utente per fornire un elenco di pagine. Usare `loadPage()` per caricare i nuovi record per ogni pagina.  Implementare il caching per velocizzare l'accesso ai record già caricati.
 
-#### <a name="sorting-data"></a>Procedura: Restituire dati ordinati
-Usare i metodi di query .orderBy() o .orderByDescending():
+#### <a name="a-namesorting-dataahow-to-return-data-sorted"></a><a name="sorting-data"></a>Procedura: Restituire dati ordinati
+Usare i metodi di query `.orderBy()` o `.orderByDescending()`:
 
 ```
 table
@@ -116,12 +117,12 @@ table
     .then(success, failure);
 ```
 
-Per altre informazioni sull'oggetto Query, vedere la [documentazione relativa all'oggetto Query].
+Per altre informazioni sull'oggetto delle query, vedere la [documentazione relativa all'oggetto Query].
 
-### <a name="inserting"></a>Procedura: Inserire dati
-Creare un oggetto JavaScript con la data appropriata e chiamare table.insert() in modo asincrono:
+### <a name="a-nameinsertingahow-to-insert-data"></a><a name="inserting"></a>Procedura: Inserire dati
+Creare un oggetto JavaScript con la data appropriata e chiamare `table.insert()` in modo asincrono:
 
-```
+```javascript
 var newItem = {
     name: 'My Name',
     signupDate: new Date()
@@ -134,14 +135,14 @@ table
     }, failure);
 ```
 
-Una volta completato l'inserimento, viene restituito l'elemento inserito con i campi aggiuntivi necessari per le operazioni di sincronizzazione. È necessario aggiornare la cache con queste informazioni per gli aggiornamenti successivi.
+Una volta completato l'inserimento, viene restituito l'elemento inserito con i campi aggiuntivi necessari per le operazioni di sincronizzazione.  Aggiornare la cache con queste informazioni per gli aggiornamenti successivi.
 
-Si noti che Node. js Server SDK per le app per dispositivi mobili supporta lo schema dinamico per scopi di sviluppo. Nel caso di schema dinamico, lo schema della tabella viene aggiornato in tempo reale, consentendo di aggiungere colonne alla tabella specificandole semplicemente in un'operazione di inserimento o aggiornamento. È consigliabile disattivare lo schema dinamico prima di trasferire l'applicazione in produzione.
+Node. js Server SDK per le app per dispositivi mobili supporta lo schema dinamico per scopi di sviluppo.  Lo Schema dinamico consente di aggiungere colonne alla tabella specificandole in un'operazione di inserimento o aggiornamento.  È consigliabile disattivare lo schema dinamico prima di trasferire l'applicazione in produzione.
 
-### <a name="modifying"></a>Procedura: Modificare dati
-In modo analogo al metodo .insert(), è consigliabile creare un oggetto Update e quindi chiamare .update(). L'oggetto update deve contenere l'ID del record da aggiornare, che si ottiene durante la lettura del record o quando si chiama .insert().
+### <a name="a-namemodifyingahow-to-modify-data"></a><a name="modifying"></a>Procedura: Modificare dati
+In modo analogo al metodo `.insert()`, è consigliabile creare un oggetto Update e quindi chiamare `.update()`.  L'oggetto update deve contenere l'ID del record da aggiornare, che si ottiene durante la lettura del record o quando si chiama `.insert()`.
 
-```
+```javascript
 var updateItem = {
     id: '7163bc7a-70b2-4dde-98e9-8818969611bd',
     name: 'My New Name'
@@ -154,8 +155,8 @@ table
     }, failure);
 ```
 
-### <a name="deleting"></a>Procedura: Eliminare dati
-Chiamare il metodo .del() per eliminare un record. Passare l'ID in un riferimento all'oggetto:
+### <a name="a-namedeletingahow-to-delete-data"></a><a name="deleting"></a>Procedura: Eliminare dati
+Per eliminare un record, chiamare il metodo `.del()`.  Passare l'ID in un riferimento all'oggetto:
 
 ```
 table
@@ -165,4 +166,7 @@ table
     }, failure);
 ```
 
-<!---HONumber=AcomDC_0323_2016-->
+
+<!--HONumber=Dec16_HO1-->
+
+

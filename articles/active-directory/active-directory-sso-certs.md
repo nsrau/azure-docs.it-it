@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/09/2016
 ms.author: asmalser
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 275afec9fd3d2ce6051f48b257c7e116d765186b
+ms.sourcegitcommit: fb33a0b01b7d9806c92dfc66303b0dd2ca1044d9
+ms.openlocfilehash: 04276fc2da32b27dc9e0a4601ab45b9f1e95959a
 
 
 ---
@@ -58,7 +58,7 @@ I passaggi per il rinnovo illustrati di seguito non dovrebbero idealmente compor
 4. Nella pagina successiva selezionare **Genera un nuovo certificato**, quindi specificare la durata desiderata per la validità del nuovo certificato. Quindi fare clic su **Avanti**.
    
     ![Genera un nuovo certificato](./media/active-directory-sso-certs/new-app-config-cert.PNG)
-5. Fare clic su **Download certificato**. Per rinnovare correttamente il certificato, è necessario eseguire i due passaggi seguenti:
+5. Fare clic su **Download certificato**. Per rinnovare il certificato, è necessario eseguire i due passaggi seguenti:
    
    * Caricare il nuovo certificato nella schermata di configurazione dell'accesso Single Sign-On dell'app SaaS. Per informazioni su come eseguire questa operazione per l'app SaaS specifica, fare clic su **Visualizzare le istruzioni di configurazione di**.
    * In Azure AD selezionare la casella di conferma nella parte inferiore della finestra di dialogo per abilitare il nuovo certificato, quindi fare clic su **Avanti** per l'invio.
@@ -78,6 +78,6 @@ I passaggi per il rinnovo illustrati di seguito non dovrebbero idealmente compor
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -13,10 +13,10 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 10/22/2016
-ms.author: msfussell;mikhegn
+ms.author: mfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a3766215c00da9d055a1efb4b534f7522f9ded25
+ms.sourcegitcommit: f31c8ab3d2b4fd871c92ac0e7d04bc8d5ab86830
+ms.openlocfilehash: 70d13fd05aeedc9aa6e9f87a9a0223a2e20ef88b
 
 
 ---
@@ -114,7 +114,7 @@ Il processo per la creazione manuale del pacchetto di un eseguibile guest si bas
 ### <a name="add-the-applications-code-and-configuration-files"></a>Aggiungere i file di codice e di configurazione dell'applicazione
 Dopo aver creato la struttura di directory, è possibile aggiungere i file di configurazione e di codice dell'applicazione nelle directory del codice e di configurazione. È inoltre possibile creare directory aggiuntive o sottodirectory nelle directory del codice e di configurazione.
 
-Service Fabric esegue xcopy del contenuto della directory radice dell'applicazione in modo che non esista alcuna struttura predefinita da usare oltre alla creazione delle due directory principali Codice e Impostazioni (ma se si desidera, è possibile scegliere nomi diversi, come illustrato in dettaglio nella sezione successiva).
+Service Fabric esegue un'operazione `xcopy` del contenuto della radice della directory dell'applicazione in modo che non esista alcuna struttura predefinita da usare oltre alla creazione delle due directory principali relative a codice e impostazioni. (ma se si desidera, è possibile scegliere nomi diversi, come illustrato in dettaglio nella sezione successiva).
 
 > [!NOTE]
 > Assicurarsi di includere tutti i file e le dipendenze necessari all'applicazione. Service Fabric copia il contenuto del pacchetto dell'applicazione in tutti i nodi del cluster in cui vengono distribuiti i servizi dell'applicazione. Il pacchetto deve contenere tutto il codice necessario per eseguire l'applicazione. Non presupporre che le dipendenze siano già installate.
@@ -320,6 +320,16 @@ Se si passa alla directory usando Esplora server, si possono trovare la director
 
 ![Percorso del log](./media/service-fabric-deploy-existing-app/loglocation.png)
 
+## <a name="creating-a-guest-executable-using-yeoman-for-service-fabric-on-linux"></a>Creazione di un guest eseguibile usando Yeoman per Service Fabric in Linux
+
+La procedura per la creazione e distribuzione di un eseguibile guest in Linux è analoga alla distribuzione di un'applicazione java o csharp. 
+
+1. In un terminale digitare `yo azuresfguest`.
+2. Assegnare un nome all'applicazione.
+3. Scegliere il tipo del primo servizio e assegnargli un nome. Scegliere **Guest Binary** (Guest binario) per un eseguibile guest (e **Guest Container** (Contenitore guest) per un contenitore) e specificare i dettagli, ad esempio il percorso del file eseguibile e i parametri da richiamare.
+
+In Yeoman deve essere stato creato un pacchetto dell'applicazione con i file manifesto e dell'applicazione appropriati e con gli script di installazione e di disinstallazione.
+
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo si è appreso come creare il pacchetto di un eseguibile guest e come distribuirlo in Service Fabric. Per informazioni e attività correlate, vedere gli articoli seguenti.
 
@@ -330,6 +340,6 @@ In questo articolo si è appreso come creare il pacchetto di un eseguibile guest
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

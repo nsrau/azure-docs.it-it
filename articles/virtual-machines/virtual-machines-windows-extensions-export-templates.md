@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 015b6387491e0347b3a3a0ac87bb6b91b06387f0
-ms.openlocfilehash: fb1cdfee5094198e3380e120f409175c89d23b6d
+ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
+ms.openlocfilehash: 73eec3322f8ee027c68ede89501b8b9fb00961a6
 
 ---
 
@@ -148,7 +148,7 @@ La risorsa dell'estensione finale è simile all'esempio JSON seguente:
 }
 ```
 
-Se si utilizzano parametri del modello per fornire i valori delle proprietà, questi devono essere creati. Durante la creazione di parametri del modello per i valori delle impostazioni protette, assicurarsi di utilizzare il tipo di parametro `SecureObject`, in modo che i valori sensibili siano protetti. Per altre informazioni sull'utilizzo dei parametri, vedere [Creazione di modelli di Azure Resource Manager](../resource-group-authoring-templates.md).
+Se si utilizzano parametri del modello per fornire i valori delle proprietà, questi devono essere creati. Durante la creazione di parametri del modello per i valori delle impostazioni protette, assicurarsi di utilizzare il tipo di parametro `SecureObject`, in modo che i valori sensibili siano protetti. Per altre informazioni sull'utilizzo dei parametri, vedere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Nell'esempio dell'estensione `IaasDiagnostic`, i parametri seguenti devono essere creati nella sezione dei parametri del modello di Resource Manager.
 
@@ -167,6 +167,6 @@ A questo punto, il modello può essere distribuito utilizzando qualsiasi metodo 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 91490e33ab2d524da90ae75bd71abe8005e45c54
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 9ef430dfaa43f9bc4294593c8abbdaf457ef07c8
 
 
 ---
@@ -53,9 +53,9 @@ Questa finestra di dialogo può anche essere aperta da un collegamento **Account
 Potrebbero volerci alcuni minuti per creare l'account di archiviazione. Dopo averlo creato, fare clic su **OK** per chiudere la finestra di dialogo **Aggiungi Account di archiviazione** e il nuovo account di archiviazione verrà aggiunto all'elenco di account di archiviazione disponibili.
 
 ## <a name="to-add-an-existing-storage-account-to-the-list"></a>Aggiungere un account di archiviazione esistente all’elenco
-1. Se non si dispone ancora di un account di archiviazione di Azure, crearne uno seguendo i passaggi elencati in **Creare una nuova sezione di account di archiviazione** . In alternativa è possibile creare un nuovo account di archiviazione nel [portale di gestione di Azure][portale di gestione di Azure].
+1. Se non si dispone ancora di un account di archiviazione di Azure, crearne uno seguendo i passaggi elencati in **Creare una nuova sezione di account di archiviazione** . In alternativa, è possibile creare un nuovo account di archiviazione nel [portale di gestione di Azure][Azure Management Portal].
 2. Nella finestra di dialogo **Account di archiviazione** fare clic su **Aggiungi**.
-3. Nella finestra di dialogo **Aggiungi Account di archiviazione** immettere i valori per **Nome** e **Chiave di accesso**. Ci devono essere la chiave dell'account e la chiave di accesso per un account di archiviazione di Azure esistente. Usare la sezione **Archiviazione** del [portale di gestione di Azure][portale di gestione di Azure] per visualizzare i nomi e le chiavi degli account di archiviazione. la finestra di dialogo **Aggiungi Account di archiviazione** sarà simile a quella seguente.
+3. Nella finestra di dialogo **Aggiungi Account di archiviazione** immettere i valori per **Nome** e **Chiave di accesso**. Ci devono essere la chiave dell'account e la chiave di accesso per un account di archiviazione di Azure esistente. Utilizzare la sezione **Archiviazione** del [Portale di gestione di Azure][Azure Management Portal] per visualizzare i nomi degli account di archiviazione e le chiavi. la finestra di dialogo **Aggiungi Account di archiviazione** sarà simile a quella seguente.
    
     ![][ic719497]
 4. Fare clic su **OK** per chiudere la finestra di dialogo **Aggiungi account di archiviazione**.
@@ -75,22 +75,22 @@ Potrebbero volerci alcuni minuti per creare l'account di archiviazione. Dopo ave
 > 
 
 ## <a name="see-also"></a>Vedere anche
-[Toolkit di Azure per Eclipse][Toolkit di Azure per Eclipse]
+[Azure Toolkit for Eclipse][Azure Toolkit for Eclipse]
 
-[Installare il Toolkit di Azure per Eclipse.][Installare il Toolkit di Azure per Eclipse.] 
+[Installazione di Azure Toolkit for Eclipse][Installing the Azure Toolkit for Eclipse] 
 
-[Creare un'applicazione Hello World per Azure in Eclipse][Creare un'applicazione Hello World per Azure in Eclipse]
+[Creare un'applicazione Hello World per Azure in Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
-Per altre informazioni sull'uso di Azure con Java, vedere il [Centro per sviluppatori Java in Azure][Centro per sviluppatori Java in Azure] di Azure.
+Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure][Azure Java Developer Center].
 
 <!-- URL List -->
 
-[Centro per sviluppatori Java in Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[portale di gestione di Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Creare un'applicazione Hello World per Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installare il Toolkit di Azure per Eclipse.]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Novità di Azure Toolkit per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
 
@@ -101,6 +101,6 @@ Per altre informazioni sull'uso di Azure con Java, vedere il [Centro per svilupp
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

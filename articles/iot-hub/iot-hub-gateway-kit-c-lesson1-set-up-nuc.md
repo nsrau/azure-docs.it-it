@@ -1,5 +1,5 @@
 ---
-title: Impostare Intel NUC come un gateway IoT di Azure | Documentazione Microsoft
+title: 'Dispositivo SensorTag e gateway Azure IoT: lezione 1: Configurare NUC | Documentazione Microsoft'
 description: Impostare Intel NUC come un gateway IoT di Azure tra un sensore e l&quot;hub IoT di Azure, per raccogliere informazioni sul sensore e inviarle a IoT Hub.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1c4f44787a7200a1c3634b258df32d30152daa90
-ms.openlocfilehash: ef479f503ac4e911f3a9d311d0f436d95396eedd
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 53e709c5134eec29d71be1d75353d606aa651273
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: ef479f503ac4e911f3a9d311d0f436d95396eedd
 
 ## <a name="what-you-will-do"></a>Contenuto dell'esercitazione
 
-- Impostare Intel NUC come un gateway IoT di Azure.
+- Configurare Intel NUC come gateway IoT.
 - Installare il pacchetto Azure IoT Gateway SDK in Intel NUC.
 - Eseguire un'applicazione di esempio "hello_world" in Intel NUC per verificare la funzionalità del gateway.
 In caso di problemi, cercare le soluzioni nella pagina sulla [risoluzione dei problemi](iot-hub-gateway-kit-c-troubleshooting.md).
@@ -48,7 +48,7 @@ In questa lezione si apprenderà:
 
 ![Kit gateway](media/iot-hub-gateway-kit-lessons/lesson1/kit.png)
 
-## <a name="connect-intel-nuc-with-the-peripherals"></a>Collegare Intel NUC alle periferiche
+## <a name="connect-intel-nuc-with-the-peripherals"></a>Come connettere Intel NUC con le periferiche
 
 Nell'immagine seguente è riportato un esempio di dispositivo Intel NUC collegato a diverse periferiche:
 
@@ -73,7 +73,7 @@ In questo caso sono necessari una tastiera e un monitor per ottenere l'indirizzo
 
    ![Output ifconfig che indica l'IP NUC](media/iot-hub-gateway-kit-lessons/lesson1/ifconfig.png)
 
-   In questo esempio il valore che segue `inet addr:` corrisponde all'indirizzo IP necessario per eseguire la connessione in remoto da un computer host a Intel NUC.
+   In questo esempio, il valore che segue `inet addr:` è l'indirizzo IP necessario se si prevede di connettersi in remoto da un computer host a Intel NUC.
 
 3. Per connettersi a Intel NUC, usare uno dei seguenti client SSH dal computer host.
 
@@ -85,7 +85,7 @@ In questo caso sono necessari una tastiera e un monitor per ottenere l'indirizzo
 
 ## <a name="install-the-azure-iot-gateway-sdk-package"></a>Installare il pacchetto Azure IoT Gateway SDK
 
-Il pacchetto Azure IoT Gateway SDK contiene i file binari preinstallati dell'SDK e le relative dipendenze. Tali file binari corrispondono a Azure IoT Gateway SDK, Azure IoT SDK e agli strumenti corrispondenti. Il pacchetto contiene anche un'applicazione di esempio "hello_world" che consente di convalidare la funzionalità del gateway. L'SDK è la parte principale del gateway. Per installare il pacchetto, seguire questi passaggi:
+Il pacchetto Azure IoT Gateway SDK contiene i file binari preinstallati dell'SDK e le relative dipendenze. Tali file binari corrispondono a Azure IoT Gateway SDK, Azure IoT SDK e agli strumenti corrispondenti. Il pacchetto contiene anche un'applicazione di esempio "hello_world" utilizzata per convalidare la funzionalità del gateway. L'SDK è la parte principale del gateway. Per installare il pacchetto, seguire questi passaggi:
 
 1. Aggiungere il repository cloud IoT eseguendo questi comandi nella finestra del terminale:
 
@@ -94,7 +94,7 @@ Il pacchetto Azure IoT Gateway SDK contiene i file binari preinstallati dell'SDK
    smart channel --add IoT_Cloud type=rpm-md name="IoT_Cloud" baseurl=http://iotdk.intel.com/repos/iot-cloud/wrlinux7/rcpl13/ -y
    ```
 
-   Il comando `rpm` consente di importare la chiave rpm. Il comando `smart channel` consente di aggiungere il canale rpm a Smart Package Manager. Prima di eseguire il comando `smart update`, viene visualizzato un output simile al seguente:
+   Il comando `rpm` consente di importare la chiave rpm. Il comando `smart channel` consente di aggiungere il canale rpm a Smart Package Manager. Prima dell'esecuzione del comando `smart update`, viene visualizzato un output come quello seguente.
 
    ![output dei comandi di canale rpm e smart](media/iot-hub-gateway-kit-lessons/lesson1/rpm_smart_channel.png)
 
@@ -110,13 +110,13 @@ Il pacchetto Azure IoT Gateway SDK contiene i file binari preinstallati dell'SDK
 
    `packagegroup-cloud-azure` è il nome del pacchetto. Il comando `smart install` consente di installare il pacchetto.
 
-   Al termine dell'installazione del pacchetto, Intel NUC dovrebbe svolgere la funzione di gateway.
+   Dopo l'installazione del pacchetto, Intel NUC dovrebbe funzionare come gateway.
 
 ## <a name="run-the-azure-iot-gateway-sdk-helloworld-sample-application"></a>Eseguire l'applicazione di esempio "hello_world" di Azure IoT Gateway SDK
 
 Andare a `azureiotgatewaysdk/samples` ed eseguire l'applicazione di esempio "hello_world" che crea un gateway dal file `hello_world.json` e usa i componenti principali dell'architettura di Azure IoT Gateway SDK per registrare un messaggio di hello world in un file ogni 5 secondi.
 
-È possibile eseguire l'applicazione di esempio "hello_world" eseguendo questo comando:
+È possibile eseguire l'applicazione di esempio "hello_world" con questo comando:
 
 ```bash
 cd /usr/share/azureiotgatewaysdk/samples/hello_world/
@@ -138,6 +138,6 @@ Congratulazioni. La configurazione di Intel NUC come gateway è completata. È o
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

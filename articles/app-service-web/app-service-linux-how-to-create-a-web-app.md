@@ -1,5 +1,5 @@
 ---
-title: Come creare un&quot;app Web con il servizio app in Linux | Documentazione Microsoft
+title: Creare un&quot;app Web di Azure eseguita in Linux | Documentazione Microsoft
 description: Flusso di lavoro per la creazione di un&quot;app Web per il servizio app in Linux.
 keywords: Servizio app di Azure, app Web, Linux, OSS
 services: app-service
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8d87315ec97631c7ad3f0163aeaa0abde11b7416
+ms.sourcegitcommit: e062cb169782319bda14acfa4f2b7c8198f320f6
+ms.openlocfilehash: e5c0547a4fb109560dbafbf84d17e0c3d28a7188
 
 
 ---
-# <a name="create-a-web-app-with-app-service-on-linux"></a>Creare un'app Web con il servizio app in Linux
+# <a name="create-an-azure-web-app-running-on-linux"></a>Creare un'app Web di Azure eseguita in Linux
 ## <a name="use-the-azure-portal-to-create-your-web-app"></a>Usare il portale di Azure per creare l'app Web
 È possibile avviare la creazione dell'app Web in Linux dal [portale di Azure](https://portal.azure.com), come illustrato nell'immagine seguente:
 
@@ -59,6 +59,6 @@ Scegliendo le **opzioni di distribuzione** dal portale di gestione, è possibile
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2016
+ms.date: 11/30/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: efd29518fc207eb3e554f1389a6109ae4f1f3205
-ms.openlocfilehash: 85f6cd60f3a5e62bcfcc14b80a4a59331a6ff635
+ms.sourcegitcommit: b82298390bdb89d7e7dd9b522d561e149ba36f22
+ms.openlocfilehash: 5a72e36dbbbe1d56b66c7a55808a228e7fb05eda
 
 
 ---
@@ -277,6 +277,7 @@ Per un elenco completo delle app SaaS già integrate in Azure AD, vedere il [Mar
 | ![Logo](./media/active-directory-saas-tutorial-list/SaaSApp_UserEcho.png)| [UserEcho](https://go.microsoft.com/fwLink/?LinkID=691861&clcid=0x409)|
 | ![Logo](./media/active-directory-saas-tutorial-list/SaaSApp_UserVoice.png)| [UserVoice](https://go.microsoft.com/fwLink/?LinkID=510243&clcid=0x409)|
 | ![Logo](./media/active-directory-saas-tutorial-list/SaaSApp_Veracode.png)| [Veracode](https://go.microsoft.com/fwLink/?LinkID=530231&clcid=0x409)|
+| ![Logo](./media/active-directory-saas-tutorial-list/SaaSApp_VeritasEnterprise.png)| [Veritas Enterprise Vault.cloud SSO](https://go.microsoft.com/fwLink/?LinkID=828389&clcid=0x409)|
 | ![Logo](./media/active-directory-saas-tutorial-list/SaaSApp_VXMaintain.png)| [vxMaintain](https://go.microsoft.com/fwLink/?LinkID=822852&clcid=0x409)|
 | ![Logo](./media/active-directory-saas-tutorial-list/SaaSApp_Weekdone.png)| [Weekdone](https://go.microsoft.com/fwLink/?LinkID=785281&clcid=0x409)|
 | ![Logo](./media/active-directory-saas-tutorial-list/SaaSApp_Wikispace.png)| [Wikispaces](https://go.microsoft.com/fwLink/?LinkID=403223&clcid=0x409)|
@@ -301,7 +302,6 @@ Per un elenco completo delle app SaaS già integrate in Azure AD, vedere il [Mar
 
 
 
-
 ## <a name="related-articles"></a>Articoli correlati
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 * [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](active-directory-saas-tutorial-list.md)
@@ -309,6 +309,6 @@ Per un elenco completo delle app SaaS già integrate in Azure AD, vedere il [Mar
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

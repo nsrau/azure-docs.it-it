@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/06/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 060bcf7cfac365e93b988cda0f402df6ba605dfc
-ms.openlocfilehash: 4dcc519e74cf1a5fbc7be3ddbd506fcbc25ed882
+ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
+ms.openlocfilehash: 0a70398010bb06590e981430edabffa889c213ae
 
 
 ---
@@ -198,7 +198,7 @@ Se occorre assistenza per questo script di PowerShell, vedere [Uso di Azure Powe
 7. Aprire le cartelle e controllare i file al loro interno.
 
 ## <a name="create-data-factory"></a>Creare un'istanza di Data Factory
-Con l'account di archiviazione, i dati di input e lo script HiveQL preparato, si è pronti per creare un'istanza di Azure Data Factory. Esistono diversi metodi per creare un'istanza di Data Factory. In questa esercitazione viene usato il portale di Azure per chiamare un modello di Resource Manager personalizzato. È anche possibile chiamare il modello di Resource Manager dall'[interfaccia della riga di comando di Azure](../resource-group-template-deploy-cli.md) o da [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy). Per altri metodi di creazione di un'istanza di Data Factory, vedere [l'esercitazione per creare la prima istanza di Data Factory](../data-factory/data-factory-build-your-first-pipeline.md).
+Con l'account di archiviazione, i dati di input e lo script HiveQL preparato, si è pronti per creare un'istanza di Azure Data Factory. Esistono diversi metodi per creare un'istanza di Data Factory. In questa esercitazione viene usato il portale di Azure per chiamare un modello di Resource Manager personalizzato. È anche possibile chiamare il modello di Resource Manager dall'[interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) o da [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy). Per altri metodi di creazione di un'istanza di Data Factory, vedere [l'esercitazione per creare la prima istanza di Data Factory](../data-factory/data-factory-build-your-first-pipeline.md).
 
 Il modello di Resource Manager di livello principale contiene:
 
@@ -444,6 +444,6 @@ Questo articolo ha descritto come usare Azure Data Factory per creare il cluster
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

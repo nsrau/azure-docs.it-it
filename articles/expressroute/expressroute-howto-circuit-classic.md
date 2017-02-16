@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
-ms.openlocfilehash: 5fb3200bb2a21624f8718bd50e4c7bb2fc607ba9
+ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
+ms.openlocfilehash: 5c803ff58a1f0e058c2f219320219c1cbf3ebfe7
 
 
 ---
@@ -40,7 +40,7 @@ Questo articolo illustra i passaggi per creare un circuito di Azure ExpressRoute
 Prima di procedere con la configurazione, assicurarsi di avere verificato i [prerequisiti](expressroute-prerequisites.md) e i [flussi di lavoro](expressroute-workflows.md).  
 
 ### <a name="2-install-the-latest-versions-of-the-azure-powershell-modules"></a>2. Installare la versione più recente dei moduli di Azure PowerShell
-Per istruzioni dettagliate sulla configurazione del computer per l'uso dei moduli di Azure PowerShell, seguire le istruzioni contenute in [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) .
+Per istruzioni dettagliate sulla configurazione del computer per l'uso dei moduli di Azure PowerShell, seguire le istruzioni contenute in [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 
 ### <a name="3-log-in-to-your-azure-account-and-select-a-subscription"></a>3. Accedere all'account Azure e selezionare una sottoscrizione
 1. Eseguire i cmdlet seguenti in un prompt di Windows PowerShell con privilegi elevati:
@@ -332,6 +332,6 @@ Dopo aver creato il circuito, verificare di eseguire le operazioni seguenti:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

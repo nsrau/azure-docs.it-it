@@ -4,21 +4,21 @@ Azure è una piattaforma eccellente per implementare le configurazioni di svilup
 
 Questa guida identifica molte aree per le quali la pianificazione è fondamentale per il successo di un carico di lavoro IT in Azure. La pianificazione fornisce inoltre un ordine per la creazione delle risorse necessarie. Sebbene sia possibile una certa flessibilità, è consigliabile applicare alla pianificazione e al processo decisionale l'ordine indicato in questo articolo.
 
-Questo articolo è stato adattato sulla base del contenuto del post di blog relativo alle [linee guida sull'implementazione di Azure](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx). Un ringraziamento a Santiago Cánepa (Application Development Manager per Microsoft) e Hugo Salcedo (Application Development Manager per Microsoft) per il materiale originale.
+Questo articolo è stato adattato sulla base del contenuto del post di blog relativo alle [linee guida sull'implementazione di Azure](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) . Un ringraziamento a Santiago Cánepa (Application Development Manager per Microsoft) e Hugo Salcedo (Application Development Manager per Microsoft) per il materiale originale.
 
 > [!NOTE]
 > I gruppi di affinità sono stati deprecati e il loro uso non è illustrato in questo articolo. Per altre informazioni, vedere [Informazioni sulle reti virtuali di area e sui gruppi di affinità](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 > 
 > 
 
-## 1\. Convenzioni di denominazione
+## <a name="1-naming-conventions"></a>1. Convenzioni di denominazione
 Prima di creare qualsiasi elemento in Azure, è necessaria una buona convenzione di denominazione Una convenzione di denominazione garantisce la possibilità che tutte le risorse dispongano di un nome stimabile, in modo da ridurre il carico amministrativo associato alla gestione di tali risorse.
 
 È possibile scegliere di seguire un set specifico di convenzioni di denominazione definite per l'intera organizzazione oppure per un account o una sottoscrizione di Azure specifica. Sebbene sia facile per i singoli utenti all'interno delle organizzazioni stabilire le regole implicite quando si usano risorse di Azure, quando un team deve lavorare a un progetto in Azure, la scalabilità di tale modello non è ottimale.
 
 Il set di convenzioni di denominazione deve essere concordato in anticipo. Alcune considerazioni relative alle convenzioni di denominazione trascendono i set di regole che compongono queste convenzioni.
 
-### Affissi
+### <a name="affixes"></a>Affissi
 Quando si creano determinate risorse, Azure userà alcune impostazioni predefinite per semplificare la gestione delle risorse associate a queste risorse. Ad esempio, quando si crea la prima macchina virtuale per un nuovo servizio cloud, il Portale di Azure classico tenterà di usare il nome della macchina virtuale come nome di un nuovo servizio cloud per la macchina virtuale.
 
 È quindi utile identificare i tipi di risorse che richiedono un affisso per l’identificazione del tipo. Inoltre, specificare chiaramente la posizione dell’affisso:
@@ -36,17 +36,17 @@ Gli affissi possono fare riferimento ai diversi aspetti che descrivono le specif
 | Aspetto | esempi | Note |
 | --- | --- | --- |
 | Environment |dev, stg, prod |A seconda dello scopo e del nome di ogni ambiente. |
-| Location |usw (Stati Uniti occidentali), use (Stati Uniti orientali 2) |A seconda dell'area del data center o dell’area dell'organizzazione. |
+| Percorso |usw (Stati Uniti occidentali), use (Stati Uniti orientali 2) |A seconda dell'area del data center o dell’area dell'organizzazione. |
 | Componente di Azure, servizio o prodotto |Rg per gruppo di risorse, Svc per servizio cloud, VNet per rete virtuale |A seconda del prodotto per il quale la risorsa fornisce il supporto. |
 | Ruolo |sql, ora, sp, iis |A seconda del ruolo della macchina virtuale. |
 | Istanza |01, 02 e 03 e così via. |Per le risorse con più di un'istanza. Ad esempio, i server Web con carico bilanciato in un servizio cloud. |
 
 Quando si stabiliscono le convenzioni di denominazione, assicurarsi che siano indicati chiaramente quali affissi usare per ogni tipo di risorsa, e in quale posizione (prefisso o suffisso).
 
-### Date
+### <a name="dates"></a>Date
 Molte volte è importante determinare la data di creazione dal nome di una risorsa. È consigliabile usare il formato di data AAAAMMGG. Tale formato garantisce non solo che venga registrata la data completa, ma anche che due risorse i cui nomi si differenziano solo per la data verranno ordinate alfabeticamente e allo stesso tempo in ordine cronologico.
 
-### Nomi delle risorse
+### <a name="naming-resources"></a>Nomi delle risorse
 È consigliabile definire ogni tipo di risorsa nella convenzione di denominazione, quindi è necessario avere regole che definiscono come assegnare nomi a ogni risorsa creata. Tali regole devono essere applicate a tutti i tipi di risorse, ad esempio:
 
 * Sottoscrizioni
@@ -64,26 +64,26 @@ Molte volte è importante determinare la data di creazione dal nome di una risor
 
 Per assicurarsi che il nome fornisca informazioni sufficienti per determinare a quali risorse fa riferimento, è necessario inserire nomi descrittivi.
 
-### Nomi dei computer
+### <a name="computer-names"></a>Nomi dei computer
 Quando gli amministratori creano una macchina virtuale, Microsoft Azure richiederà di specificare un nome macchina virtuale con lunghezza massima di 15 caratteri. Azure usa il nome della macchina virtuale come nome della risorsa macchina virtuale di Azure. Azure usa lo stesso nome come nome computer per il sistema operativo installato nella macchina virtuale. È possibile tuttavia che questi nomi non siano sempre gli stessi.
 
 Nei casi in cui viene creata una macchina virtuale da un file immagine con estensione vhd che già contiene un sistema operativo, il nome della macchina virtuale in Azure può essere diverso dal nome computer del sistema operativo della macchina virtuale. Questa situazione può aggiungere un livello di difficoltà alla gestione delle macchine virtuali, quindi è sconsigliata. Assicurarsi sempre che il nome della risorsa macchina virtuale di Azure sia lo stesso nome del computer assegnato al sistema operativo di tale macchina virtuale.
 
 È consigliabile che il nome della macchina virtuale di Azure sia identico al nome di computer del sistema operativo. Seguire quindi le regole di denominazione NetBIOS, come descritto in [Convenzioni di denominazione di computer NetBIOS Microsoft](https://support.microsoft.com/kb/188997/).
 
-### Nomi account di archiviazione
-Gli account di archiviazione hanno regole speciali che ne controllano i nomi. È possibile usare solo lettere minuscole e numeri. Per altre informazioni, vedere l'articolo relativo alla [Creazione di un account di archiviazione](../articles/storage/storage-create-storage-account.md#create-a-storage-account). Inoltre, il nome dell’account di archiviazione, in combinazione con core.windows.net, deve essere un nome DNS a livello globale valido e univoco. Ad esempio, se il nome dell'account di archiviazione è mystorageaccount, i seguenti nomi DNS risultanti devono essere univoci:
+### <a name="storage-account-names"></a>Nomi account di archiviazione
+Gli account di archiviazione hanno regole speciali che ne controllano i nomi. È possibile usare solo lettere minuscole e numeri. Per altre informazioni, vedere l'articolo relativo alla [Creazione di un account di archiviazione](../articles/storage/storage-create-storage-account.md#create-a-storage-account) . Inoltre, il nome dell’account di archiviazione, in combinazione con core.windows.net, deve essere un nome DNS a livello globale valido e univoco. Ad esempio, se il nome dell'account di archiviazione è mystorageaccount, i seguenti nomi DNS risultanti devono essere univoci:
 
 * mystorageaccount.blob.core.windows.net
 * mystorageaccount.table.core.windows.net
 * mystorageaccount.queue.core.windows.net
 
-### Nomi dei blocchi predefiniti di Azure
+### <a name="azure-building-block-names"></a>Nomi dei blocchi predefiniti di Azure
 I blocchi predefiniti di Azure sono servizi a livello di applicazione offerti da Azure in genere alle applicazioni che sfruttano le funzionalità PaaS, sebbene possano essere usati dalle risorse IaaS, come il database SQL di Azure, Gestione traffico e altre risorse.
 
 Questi servizi si basano su una matrice di elementi che vengono creati e registrati in Azure. Anche questi dovranno essere considerati nelle convenzioni di denominazione.
 
-### Riepilogo delle linee guida di implementazione per le convenzioni di denominazione
+### <a name="implementation-guidelines-recap-for-naming-conventions"></a>Riepilogo delle linee guida di implementazione per le convenzioni di denominazione
 Decisione:
 
 * Quali sono le convenzioni di denominazione per le risorse di Azure?
@@ -92,7 +92,7 @@ Attività:
 
 * Definire le convenzioni di denominazione in termini di affissi, gerarchia, valori di stringa e altri criteri per le risorse di Azure.
 
-## 2\. Sottoscrizioni e account
+## <a name="2-subscriptions-and-accounts"></a>2. Sottoscrizioni e account
 Per lavorare con Azure, sono necessarie una o più sottoscrizioni ad Azure. Le risorse, ad esempio i servizi cloud o le macchine virtuali, esistono nel contesto di tali sottoscrizioni.
 
 * I clienti aziendali dispongono in genere di una registrazione Enterprise, che è la risorsa più in alto nella gerarchia ed è associata a uno o più account.
@@ -117,7 +117,7 @@ L'organizzazione potrebbe avere un aspetto simile al seguente.
 
 Microsoft fornisce la fatturazione dettagliata tramite un file scaricabile, per un singolo account o per tutti gli account di un contratto Enterprise. È possibile elaborare questo file, ad esempio, tramite Microsoft Excel. Questo processo potrebbe inserire i dati, partizionare le risorse che codificano più livelli della gerarchia in colonne separate e usare una tabella pivot o PowerPivot per fornire funzionalità di creazione di report dinamici.
 
-### Riepilogo delle linee guida dell’implementazione per sottoscrizioni e account
+### <a name="implementation-guidelines-recap-for-subscriptions-and-accounts"></a>Riepilogo delle linee guida dell’implementazione per sottoscrizioni e account
 Decisione:
 
 * Quali sono i set di sottoscrizioni e account necessari per l’hosting dell’infrastruttura o del carico di lavoro IT?
@@ -126,7 +126,7 @@ Attività:
 
 * Creare il set di sottoscrizioni e account usando la convenzione di denominazione scelta.
 
-## 3\. Archiviazione
+## <a name="3-storage"></a>3. Archiviazione
 Archiviazione di Azure è parte integrante di molte soluzioni di Azure. Archiviazione di Azure fornisce servizi per l'archiviazione dei dati dei file, i dati non strutturati e i messaggi ed è anche parte dell'infrastruttura di supporto alle macchine virtuali.
 
 In Azure sono disponibili due tipi di archiviazione: Un account di archiviazione standard consente di accedere all'archiviazione BLOB (usata per archiviare dischi delle macchine virtuali di Azure), all'archiviazione tabelle, all'archiviazione coda e all'archiviazione file. L'archiviazione Premium è progettata per le applicazioni a prestazioni elevate, ad esempio SQL Server in un cluster AlwaysOn, e attualmente supporta solo i dischi di macchine virtuali di Azure.
@@ -137,10 +137,10 @@ Azure consente di creare macchine virtuali con un disco del sistema operativo, u
 
 I dischi del sistema operativo e i dischi dati hanno una dimensione massima di 1023 gigabyte (GB), poiché la dimensione massima di un BLOB è 1024 GB e deve contenere i metadati (piè di pagina) del file del disco rigido virtuale (un GB è composto da 1024<sup>3</sup> byte). Per superare questo limite, è possibile implementare lo striping del disco in Windows.
 
-### Dischi con striping
+### <a name="striped-disks"></a>Dischi con striping
 Oltre a fornire la capacità per creare dischi di dimensioni superiori a 1023 GB, in molti casi, usare lo striping per i dischi dati contribuisce a migliorare le prestazioni, consentendo a più BLOB di supportare l'archiviazione per un singolo volume. Con lo striping, le operazioni I/O necessarie per scrivere e leggere dati da un singolo disco logico procedono in parallelo.
 
-In Azure sono presenti dei limiti sulla quantità di dischi dati e di larghezza di banda disponibile, a seconda delle dimensioni della macchina virtuale. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](../articles/virtual-machines/virtual-machines-linux-sizes.md).
+In Azure sono presenti dei limiti sulla quantità di dischi dati e di larghezza di banda disponibile, a seconda delle dimensioni della macchina virtuale. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Se si usa lo striping del disco per i dischi dati di Azure, considerare le linee guida seguenti:
 
@@ -152,17 +152,17 @@ Se si usa lo striping del disco per i dischi dati di Azure, considerare le linee
 
 Per altre informazioni, vedere l’articolo sugli [spazi di archiviazione - progettazione della prestazione](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
 
-### Account di archiviazione multipli
+### <a name="multiple-storage-accounts"></a>Account di archiviazione multipli
 L'utilizzo di più account di archiviazione per supportare i dischi associati a un gran numero di macchine virtuali garantisce che l’I/O aggregato di tali dischi sia ben al di sotto degli obiettivi di scalabilità per ognuno di tali account di archiviazione.
 
 È consigliabile iniziare con la distribuzione di una sola macchina virtuale per account di archiviazione.
 
-### Progettazione del layout di archiviazione
+### <a name="storage-layout-design"></a>Progettazione del layout di archiviazione
 Per implementare queste strategie di implementazione del sottosistema del disco delle macchine virtuali con buone prestazioni, un'infrastruttura o un carico di lavoro IT in genere usufruirà di molti di account di archiviazione. Tali account ospiteranno un gran numero di BLOB VHD. In alcuni casi, a un singolo volume in una macchina virtuale sono associati più BLOB.
 
 Questa situazione può rendere più complesse le attività di gestione. La progettazione di una strategia di archiviazione affidabile, che includa la denominazione appropriata per i dischi sottostanti e i BLOB VHD associati è fondamentale.
 
-### Riepilogo delle linee guida dell’implementazione per l’archiviazione
+### <a name="implementation-guidelines-recap-for-storage"></a>Riepilogo delle linee guida dell’implementazione per l’archiviazione
 Decisioni:
 
 * È necessario lo striping del disco per creare dischi più grandi di 500 terabyte (TB)?
@@ -171,9 +171,9 @@ Decisioni:
 
 Attività:
 
-* Creare il set di account di archiviazione usando la convenzione di denominazione scelta. È possibile usare il portale di Azure, il Portale di Azure classico il cmdlet PowerShell **New-AzureStorageAccount**.
+* Creare il set di account di archiviazione usando la convenzione di denominazione scelta. È possibile usare il portale di Azure, il Portale di Azure classico il cmdlet PowerShell **New-AzureStorageAccount** .
 
-## 4\. Servizi cloud
+## <a name="4-cloud-services"></a>4. Servizi cloud
 I servizi cloud sono un blocco predefinito fondamentale in Gestione servizi di Azure, sia per i servizi PaaS sia per quelli IaaS. Per il modello PaaS, i servizi cloud rappresentano un'associazione di ruoli, le cui istanze possono comunicare tra loro. I servizi cloud sono associati a un indirizzo VIP e a un servizio di bilanciamento del carico, che accetta il traffico in ingresso da Internet e ne bilancia il carico ai ruoli configurati per la ricezione di tale traffico.
 
 Nel caso di IaaS, i servizi cloud offrono una funzionalità simile, sebbene nella maggior parte dei casi, la funzionalità di bilanciamento del carico sia usata per inoltrare il traffico a porte TCP o UDP specifiche da Internet alle numerose macchine virtuali all'interno di tale servizio cloud.
@@ -193,21 +193,21 @@ Una limitazione importante dei servizi cloud da prendere in considerazione è ch
 
 Le sottoscrizioni di Azure possono supportare un massimo di 200 servizi cloud.
 
-### Riepilogo delle linee guida dell’implementazione per i servizi cloud
+### <a name="implementation-guidelines-recap-for-cloud-services"></a>Riepilogo delle linee guida dell’implementazione per i servizi cloud
 Decisione:
 
 * Quali sono i set di servizi cloud necessari per l’hosting dell’infrastruttura o del carico di lavoro IT?
 
 Attività:
 
-* Creare il set di servizi cloud usando la convenzione di denominazione scelta. È possibile usare il Portale di Azure classico o il cmdlet di PowerShell **New-AzureService**.
+* Creare il set di servizi cloud usando la convenzione di denominazione scelta. È possibile usare il Portale di Azure classico o il cmdlet di PowerShell **New-AzureService** .
 
-## 5\. Reti virtuali
+## <a name="5-virtual-networks"></a>5. Reti virtuali
 Il passaggio logico successivo consiste nel creare le reti virtuali necessarie per supportare le comunicazioni tra le macchine virtuali nella soluzione. Sebbene sia possibile eseguire l'hosting di più macchine virtuali di un carico di lavoro IT all'interno di un solo servizio cloud, è consigliabile usare le reti virtuali.
 
 Le reti virtuali sono un contenitore per le macchine virtuali per le quali è anche possibile specificare subnet, indirizzamento personalizzato e opzioni di configurazione DNS. Le macchine virtuali all'interno della stessa rete virtuale possono comunicare direttamente con altri computer nella stessa rete virtuale, indipendentemente dal servizio cloud a cui appartengono. All'interno della rete virtuale, questa comunicazione rimane privata, senza la necessità di passare tramite endpoint pubblici. La comunicazione può avere luogo tramite indirizzo IP o mediante il nome, usando un server DNS installato nella rete virtuale o in locale, se la macchina virtuale è connessa alla rete aziendale.
 
-### Connettività del sito
+### <a name="site-connectivity"></a>Connettività del sito
 Se utenti e computer locali non richiedono connettività costante alle macchine virtuali in una rete virtuale Azure, creare una rete virtuale solo cloud.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
@@ -228,7 +228,7 @@ Per consentire ai pacchetti di spostarsi dalla rete virtuale cross-premise alla 
 
 È possibile convertire una rete virtuale solo cloud in una rete virtuale cross-premise. Tuttavia, probabilmente sarà necessario rinumerare lo spazio di indirizzi della rete virtuale, le subnet e le macchine virtuali che usano indirizzi IP statici assegnati da Azure, noti come IP dinamici (DIP). Valutare quindi attentamente il tipo di reti virtuali necessario (solo cloud o locali) prima di crearle.
 
-### Subnet
+### <a name="subnets"></a>Subnet
 Le subnet consentono di organizzare le risorse correlate, logicamente (ad esempio, una subnet per le macchine virtuali associate alla stessa applicazione) o fisicamente (ad esempio, una subnet per il servizio cloud) oppure di ricorrere a tecniche di isolamento subnet per una maggiore sicurezza.
 
 Per le reti virtuali cross-premise, è necessario progettare delle subnet con le stesse convenzioni utilizzate per le risorse locali, tenendo presente che **Azure utilizza sempre i primi tre indirizzi IP dello spazio di indirizzi per ciascuna subnet**. Per determinare il numero di indirizzi necessari per la subnet, contare il numero di macchine virtuali necessarie, fare una stima della crescita futura e quindi usare la tabella seguente per determinare le dimensioni della subnet.
@@ -248,7 +248,7 @@ Per le reti virtuali cross-premise, è necessario progettare delle subnet con le
 
 Se si sceglie una dimensione subnet troppo piccola, è necessario rinumerare e ridistribuire le macchine virtuali nella subnet.
 
-### Riepilogo delle linee guida dell’implementazione per le reti virtuali
+### <a name="implementation-guidelines-recap-for-virtual-networks"></a>Riepilogo delle linee guida dell’implementazione per le reti virtuali
 Decisioni:
 
 * Quale tipo di rete virtuale è necessaria per funzionare da host per l’infrastruttura o il carico di lavoro IT (solo cloud o cross-premise)?
@@ -261,14 +261,14 @@ Attività:
 * Per le reti virtuali cross-premise, definire il set di spazi degli indirizzi della rete locale per le sedi locali che devono essere raggiunte dalle macchine virtuali nella rete virtuale.
 * Creare la rete virtuale usando la convenzione di denominazione scelta. È possibile usare il portale di Azure o il Portale di Azure classico.
 
-## 6\. Set di disponibilità
+## <a name="6-availability-sets"></a>6. Set di disponibilità
 In Azure PaaS, i servizi cloud contengono uno o più ruoli che eseguono il codice dell'applicazione. I ruoli possono avere una o più istanze di macchine virtuali per le quali l'infrastruttura esegue automaticamente il provisioning. In qualsiasi momento, Azure può aggiornare le istanze di questi ruoli, ma poiché fanno parte dello stesso ruolo, Azure sa di non dover eseguire l'aggiornamento di tutte le istanze contemporaneamente per evitare un'interruzione del servizio per il ruolo.
 
 In Azure IaaS, il concetto di ruolo non è significativo, poiché ogni macchina virtuale IaaS rappresenta un ruolo con una sola istanza. Al fine di suggerire ad Azure di non arrestare contemporaneamente due o più computer associati (ad esempio, per gli aggiornamenti del sistema operativo del nodo in cui risiedono), è stato introdotto il concetto dei set di disponibilità. Un set di disponibilità indica ad Azure di non arrestare tutti i computer nello stesso set di disponibilità contemporaneamente, per evitare un'interruzione del servizio. I membri della macchina virtuale di un set di disponibilità hanno un contratto di servizio che garantisce un tempo di attività del 99,95%.
 
 I set di disponibilità devono essere parte della pianificazione dell’elevata disponibilità della soluzione. Un set di disponibilità è definito come set di macchine virtuali all'interno di un singolo servizio cloud con lo stesso nome del set di disponibilità. È possibile creare i set di disponibilità dopo aver creato i servizi cloud.
 
-### Riepilogo delle linee guida dell’implementazione per i set di disponibilità
+### <a name="implementation-guidelines-recap-for-availability-sets"></a>Riepilogo delle linee guida dell’implementazione per i set di disponibilità
 Decisione:
 
 * Quanti set di disponibilità sono necessari per i diversi ruoli e livelli nell’infrastruttura o nel carico di lavoro IT?
@@ -277,7 +277,7 @@ Attività:
 
 * Definire il set di set di disponibilità usando la convenzione di denominazione scelta. È possibile associare una macchina virtuale a un set di disponibilità quando si creano le macchine virtuali oppure dopo che è stata creata la macchina virtuale.
 
-## 7\. Macchine virtuali
+## <a name="7-virtual-machines"></a>7. Macchine virtuali
 In Azure PaaS, Azure consente di gestire le macchine virtuali e i relativi dischi associati. È necessario creare e denominare i servizi cloud e i ruoli e successivamente Azure creerà le istanze associate a tali ruoli. Nel caso di Azure IaaS, è responsabilità dell'utente fornire nomi per i servizi cloud, le macchine virtuali e i dischi associati.
 
 Per ridurre il carico amministrativo, il Portale di Azure classico usa il nome del computer come un suggerimento per il nome predefinito per il servizio cloud associato (nel caso in cui il cliente scelga di creare un nuovo servizio cloud come parte della creazione guidata della macchina virtuale).
@@ -286,7 +286,7 @@ Inoltre, in Azure i dischi e i relativi BLOB VHD di supporto vengono denominati 
 
 In generale, il numero di dischi è di gran lunga maggiore rispetto al numero di macchine virtuali. È necessario prestare attenzione durante la modifica delle macchine virtuali per evitare dischi orfani. Inoltre, è possibile eliminare i dischi senza eliminare il BLOB di supporto. In tal caso, il BLOB resterà nell’account di archiviazione finché non verrà eliminato manualmente.
 
-### Riepilogo delle linee guida dell’implementazione per le macchine virtuali
+### <a name="implementation-guidelines-recap-for-virtual-machines"></a>Riepilogo delle linee guida dell’implementazione per le macchine virtuali
 Decisione:
 
 * Quante macchine virtuali è necessario fornire per l’infrastruttura o il carico di lavoro IT?
@@ -294,9 +294,9 @@ Decisione:
 Attività:
 
 * Definire ciascun nome di macchina virtuale usando la convenzione di denominazione scelta.
-* Creare le macchine virtuali con il portale di Azure, il Portale di Azure classico, il cmdlet di PowerShell **New-AzureVM**, l'interfaccia della riga di comando di Azure o i modelli di Gestione risorse.
+* Creare le macchine virtuali con il portale di Azure, il Portale di Azure classico, il cmdlet di PowerShell **New-AzureVM** , l'interfaccia della riga di comando di Azure o i modelli di Gestione risorse.
 
-## Esempio di un carico di lavoro IT: il motore di analisi finanziaria di Contoso
+## <a name="example-of-an-it-workload-the-contoso-financial-analysis-engine"></a>Esempio di un carico di lavoro IT: il motore di analisi finanziaria di Contoso
 Contoso Corporation ha sviluppato un motore di analisi finanziaria di ultima generazione, con algoritmi proprietari all’avanguardia di supporto nelle intermediazioni finanziarie di mercato del futuro. L'azienda vuole rendere disponibile questo motore ai clienti come insieme di server in Azure, composto da:
 
 * Due (o più) server Web basati su IIS che eseguono servizi Web personalizzati in un livello Web
@@ -326,16 +326,16 @@ Tutti gli elementi dovranno seguire le convenzioni di denominazione di Contoso:
 * I set di disponibilità usano azfae-use-as-[role].
 * I nomi delle macchine virtuali usano azfae-use-vm-[vmname].
 
-### Sottoscrizioni e account di Azure
+### <a name="azure-subscriptions-and-accounts"></a>Sottoscrizioni e account di Azure
 Contoso usa la sottoscrizione Enterprise, denominata Contoso Enterprise Subscription, per fornire la fatturazione per questo carico di lavoro IT.
 
-### Account di archiviazione
+### <a name="storage-accounts"></a>Account di archiviazione
 Contoso ha stabilito che sono necessari due account di archiviazione:
 
-* **contosoazfaeusesawebapp**, per l’archiviazione standard di server Web, i server applicazioni, i controller di dominio e i relativi dischi dati aggiuntivi
-* **contosoazfaeusesasqlclust**, per l'archiviazione premium dei server del cluster SQL Server e dei relativi dischi di dati aggiuntivi
+* **contosoazfaeusesawebapp** , per l’archiviazione standard di server Web, i server applicazioni, i controller di dominio e i relativi dischi dati aggiuntivi
+* **contosoazfaeusesasqlclust** , per l'archiviazione premium dei server del cluster SQL Server e dei relativi dischi di dati aggiuntivi
 
-### Una rete virtuale con subnet
+### <a name="a-virtual-network-with-subnets"></a>Una rete virtuale con subnet
 Poiché la rete virtuale non necessita di connettività costante alla rete locale Contoso, l’azienda ha optato per una rete virtuale solo cloud.
 
 Contoso ha creato una rete virtuale solo cloud con le impostazioni seguenti tramite il portale di Azure:
@@ -350,28 +350,28 @@ Contoso ha creato una rete virtuale solo cloud con le impostazioni seguenti tram
   * Nome: BackEnd
   * Spazio degli indirizzi: 10.0.2.0/24
 
-### Set di disponibilità
+### <a name="availability-sets"></a>Set di disponibilità
 Per mantenere l'elevata disponibilità di tutti i quattro i livelli del loro motore di analisi finanziaria, Contoso ha optato per quattro set di disponibilità:
 
-* **azfae-use-as-dc**, per i controller di dominio
+* **azfae-use-as-dc** , per i controller di dominio
 * **azfae-use-as-web** per i server Web
-* **azfae-use-as-app**, per i server applicazioni
-* **azfae-use-as-sql**, per i server del cluster SQL Server
+* **azfae-use-as-app** , per i server applicazioni
+* **azfae-use-as-sql** , per i server del cluster SQL Server
 
 Questi set di disponibilità verranno creati insieme alle macchine virtuali.
 
-### Macchine virtuali
+### <a name="virtual-machines"></a>Macchine virtuali
 Contoso ha optato per i seguenti nomi per le macchine virtuali di Azure:
 
-* **azfae-use-vm-dc01**, per il primo controller di dominio
-* **azfae-use-vm-dc02**, per il secondo controller di dominio
-* **azfae-use-vm-web01**, per il primo server Web
-* **azfae-use-vm-web02**, per il secondo server Web
-* **azfae-use-vm-app01**, per il primo server applicazioni
-* **azfae-use-vm-app02**, per il secondo server applicazioni
-* **azfae-use-vm-sql01**, per il primo server SQL del cluster SQL Server
-* **azfae-use-vm-sql02**, per il secondo server SQL nel cluster SQL Server
-* **azfae-use-vm-sqlmn01**, per il server di controllo della maggioranza dei nodi nel cluster SQL Server
+* **azfae-use-vm-dc01** , per il primo controller di dominio
+* **azfae-use-vm-dc02** , per il secondo controller di dominio
+* **azfae-use-vm-web01** , per il primo server Web
+* **azfae-use-vm-web02** , per il secondo server Web
+* **azfae-use-vm-app01** , per il primo server applicazioni
+* **azfae-use-vm-app02** , per il secondo server applicazioni
+* **azfae-use-vm-sql01** , per il primo server SQL del cluster SQL Server
+* **azfae-use-vm-sql02** , per il secondo server SQL nel cluster SQL Server
+* **azfae-use-vm-sqlmn01** , per il server di controllo della maggioranza dei nodi nel cluster SQL Server
 
 Di seguito è riportata la configurazione risultante.
 
@@ -387,10 +387,10 @@ Questa configurazione include:
 * Un set interno con bilanciamento del carico per il traffico Web crittografato dai server Web ai server applicazioni
 * Un unico gruppo di risorse
 
-## Risorse aggiuntive
+## <a name="additional-resources"></a>Risorse aggiuntive
 [Limiti, quote e vincoli delle sottoscrizioni e dei servizi di Microsoft Azure](../articles/azure-subscription-service-limits.md#storage-limits)
 
-[Dimensioni delle macchine virtuali](../articles/virtual-machines/virtual-machines-linux-sizes.md)
+[Dimensioni delle macchine virtuali](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../articles/storage/storage-scalability-targets.md)
 
@@ -398,4 +398,8 @@ Questa configurazione include:
 
 [Provider di calcolo, rete e archiviazione in Gestione risorse di Azure](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

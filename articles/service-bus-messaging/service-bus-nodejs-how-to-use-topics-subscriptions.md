@@ -1,5 +1,5 @@
 ---
-title: Come usare gli argomenti del bus di servizio con Node.js | Documentazione Microsoft
+title: Usare argomenti e sottoscrizioni del bus di servizio di Azure con Node.js | Documentazione Microsoft
 description: Informazioni su come usare le sottoscrizioni e gli argomenti del bus di servizio in Azure da un&quot;app Node.js.
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/12/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: d956c392a209522dd6535297316f9ed695207b00
+ms.sourcegitcommit: 56094202673416320e5a8801ee2275881ccfc8fb
+ms.openlocfilehash: 4e28b47a1ce1a3bf69a57382a5ec6c2a8a161efe
 
 
 ---
@@ -28,7 +28,7 @@ Questa guida descrive come usare gli argomenti e le sottoscrizioni del bus di se
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
 ## <a name="create-a-nodejs-application"></a>Creare un'applicazione Node.js
-Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web Azure], [Servizio cloud Node.js][Servizio cloud Node.js] (usando Windows PowerShell) o Sito Web con WebMatrix.
+Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creare un'app Web Node.js nel servizio app di Azure] oppure [Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure][Node.js Cloud Service] con Windows PowerShell o Sito Web con WebMatrix.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurare l'applicazione per l'uso del bus di servizio
 Per usare il bus di servizio, scaricare il pacchetto Azure Node.js, che include un set di librerie di riferimento che comunicano con i servizi REST del bus di servizio.
@@ -55,27 +55,27 @@ Per usare il bus di servizio, scaricare il pacchetto Azure Node.js, che include 
 ### <a name="import-the-module"></a>Importare il modulo
 Usando il Blocco note o un altro editor di testo, aggiungere quanto segue alla parte superiore del file **server.js** dell'applicazione:
 
-```
+```javascript
 var azure = require('azure');
 ```
 
 ### <a name="set-up-a-service-bus-connection"></a>Configurare una stringa di connessione per il bus di servizio
 Il modulo di Azure legge le variabili di ambiente AZURE\_SERVICEBUS\_NAMESPACE and AZURE\_SERVICEBUS\_ACCESS\_KEY per informazioni necessarie per la connessione al bus di servizio. Se queste variabili di ambiente non sono impostate, è necessario specificare le informazioni relative all'account quando si chiama **createServiceBusService**.
 
-Per un esempio di impostazione delle variabili di ambiente in un file di configurazione per un servizio cloud di Azure, vedere [Servizio cloud Node.js con Archiviazione][Servizio cloud Node.js con Archiviazione].
+Per un esempio di impostazione delle variabili di ambiente in un file di configurazione per un servizio cloud di Azure, vedere [Creazione di un'applicazione Web Node.js con Archiviazione][Node.js Cloud Service with Storage].
 
-Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure classico][portale di Azure classico] per un sito Web Azure, vedere [Creazione di un'applicazione Web Node.js con Archiviazione][Creazione di un'applicazione Web Node.js con Archiviazione].
+Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure classico][Azure classic portal], vedere [Creazione di un'applicazione Web Node.js con Archiviazione][Node.js Web Application with Storage].
 
 ## <a name="create-a-topic"></a>Creare un argomento
 L'oggetto **ServiceBusService** consente di usare gli argomenti. Il codice seguente consente di creare un oggetto **ServiceBusService**. Aggiungerlo nella parte superiore del file **server.js** dopo l'istruzione per l'importazione del modulo azure:
 
-```
+```javascript
 var serviceBusService = azure.createServiceBusService();
 ```
 
 Quando si esegue la chiamata di **createTopicIfNotExists** nell'oggetto **ServiceBusService**, viene restituito l'argomento specificato, se esiste, o viene creato un nuovo argomento con il nome specificato. Il codice seguente usa **createTopicIfNotExists** per creare o connettersi all'argomento denominato 'MyTopic':
 
-```
+```javascript
 serviceBusService.createTopicIfNotExists('MyTopic',function(error){
     if(!error){
         // Topic was created or exists
@@ -86,7 +86,7 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 
 **createServiceBusService** supporta anche opzioni aggiuntive che consentono di eseguire l'override delle impostazioni degli argomenti predefinite, ad esempio la durata dei messaggi o la dimensione massima dell'argomento. L'esempio seguente illustra come impostare la dimensione massima dell'argomento su 5 GB con una durata di 1 minuto:
 
-```
+```javascript
 var topicOptions = {
         MaxSizeInMegabytes: '5120',
         DefaultMessageTimeToLive: 'PT1M'
@@ -102,13 +102,13 @@ serviceBusService.createTopicIfNotExists('MyTopic', topicOptions, function(error
 ### <a name="filters"></a>Filtri
 Le operazioni di filtro facoltative possono essere applicate alle operazioni eseguite usando **ServiceBusService**. Le operazioni di filtro possono includere la registrazione, la ripetizione automatica dei tentativi e così via. I filtri sono oggetti che implementano un metodo con la firma:
 
-```
+```javascript
 function handle (requestOptions, next)
 ```
 
 Dopo aver eseguito la pre-elaborazione sulle opzioni della richiesta, il metodo chiama `next` passando un callback con la firma seguente:
 
-```
+```javascript
 function (returnObject, finalCallback, next)
 ```
 
@@ -116,8 +116,10 @@ In questo callback, e dopo l'elaborazione di **returnObject**, ossia la risposta
 
 In Azure SDK per Node.js sono inclusi due filtri che implementano la logica di ripetizione dei tentativi. Sono **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. Il codice seguente consente di creare un oggetto **ServiceBusService** che usa **ExponentialRetryPolicyFilter**:
 
-    var retryOperations = new azure.ExponentialRetryPolicyFilter();
-    var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
+```javascript
+var retryOperations = new azure.ExponentialRetryPolicyFilter();
+var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
+```
 
 ## <a name="create-subscriptions"></a>Creare sottoscrizioni
 È possibile creare le sottoscrizioni di un argomento anche con l'oggetto **ServiceBusService**. Le sottoscrizioni sono denominate e possono includere un filtro facoltativo che limita il set di messaggi recapitati alla coda virtuale della sottoscrizione.
@@ -130,7 +132,7 @@ In Azure SDK per Node.js sono inclusi due filtri che implementano la logica di r
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Creare una sottoscrizione con il filtro (MatchAll) predefinito
 Il filtro **MatchAll** è il filtro predefinito e viene usato se non vengono specificati altri filtri durante la creazione di una nuova sottoscrizione. Quando si usa il filtro **MatchAll**, tutti i messaggi pubblicati nell'argomento vengono inseriti nella coda virtuale della sottoscrizione. Nell'esempio seguente viene creata una sottoscrizione denominata "AllMessages" e viene usato il filtro predefinito **MatchAll**.
 
-```
+```javascript
 serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
     if(!error){
         // subscription created
@@ -152,7 +154,7 @@ Il tipo di filtro più flessibile tra quelli supportati dalle sottoscrizioni è 
 
 L'esempio seguente crea una sottoscrizione denominata `HighMessages` con un filtro **SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà personalizzata **messagenumber** è maggiore di 3:
 
-```
+```javascript
 serviceBusService.createSubscription('MyTopic', 'HighMessages', function (error){
     if(!error){
         // subscription created
@@ -187,7 +189,7 @@ var rule={
 
 Analogamente, l'esempio seguente crea una sottoscrizione denominata `LowMessages` con un filtro **SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà **messagenumber** è minore o uguale a 3:
 
-```
+```javascript
 serviceBusService.createSubscription('MyTopic', 'LowMessages', function (error){
     if(!error){
         // subscription created
@@ -229,7 +231,7 @@ Gli oggetti **BrokeredMessage** includono un insieme di proprietà standard, ad 
 
 Nell'esempio seguente viene illustrato come impostare cinque messaggi di test su 'MyTopic'. Si noti come il valore della proprietà **messagenumber** di ogni messaggio varia nell'iterazione del ciclo, determinando le sottoscrizioni che lo riceveranno:
 
-```
+```javascript
 var message = {
     body: '',
     customProperties: {
@@ -260,7 +262,7 @@ Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una
 
 L'esempio seguente illustra come ricevere ed elaborare messaggi usando **receiveSubscriptionMessage**. L'esempio prima riceve ed elimina un messaggio dalla sottoscrizione "LowMessages" e poo riceve un messaggio dalla sottoscrizione "HighMessages" con **isPeekLock** impostato su true. Il messaggio viene quindi eliminato usando il metodo **deleteMessage**:
 
-```
+```javascript
 serviceBusService.receiveSubscriptionMessage('MyTopic', 'LowMessages', function(error, receivedMessage){
     if(!error){
         // Message received and deleted
@@ -289,42 +291,46 @@ Al messaggio bloccato nella sottoscrizione è anche associato un timeout. Se l'a
 In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio, ma prima della chiamata del metodo **deleteMessage**, il messaggio verrà nuovamente recapitato all'applicazione al riavvio. Questo processo di elaborazione viene spesso definito di tipo **At-Least-Once**, per indicare che ogni messaggio verrà elaborato almeno una volta ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo viene spesso usata la proprietà **MessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminare argomenti e sottoscrizioni
-Gli argomenti e le sottoscrizioni sono persistenti e devono essere eliminati in modo esplicito tramite il [portale di Azure classico][portale di Azure classico] o a livello di codice.
+Gli argomenti e le sottoscrizioni sono persistenti e devono essere eliminati in modo esplicito tramite il [portale di Azure classico][Azure classic portal] oppure a livello di codice.
 L'esempio seguente illustra come eliminare l'argomento denominato `MyTopic`:
 
-    serviceBusService.deleteTopic('MyTopic', function (error) {
-        if (error) {
-            console.log(error);
-        }
-    });
+```javascript
+serviceBusService.deleteTopic('MyTopic', function (error) {
+    if (error) {
+        console.log(error);
+    }
+});
+```
 
 Se si elimina un argomento, verranno eliminate anche tutte le sottoscrizioni registrate con l'argomento. Le sottoscrizioni possono essere eliminate anche in modo indipendente. L'esempio seguente illustra come eliminare una sottoscrizione denominata `HighMessages` dall'argomento `MyTopic`:
 
-    serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error) {
-        if(error) {
-            console.log(error);
-        }
-    });
+```javascript
+serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error) {
+    if(error) {
+        console.log(error);
+    }
+});
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di servizio, usare i seguenti collegamenti per altre informazioni.
 
-* Vedere [Code, argomenti e sottoscrizioni del bus di servizio][Code, argomenti e sottoscrizioni del bus di servizio].
-* Riferimento sulle API per [SqlFilter][SqlFilter].
-* Visitare il repository [Azure SDK per Node][Azure SDK per Node] su GitHub.
+* Vedere [Code, argomenti e sottoscrizioni del bus di servizio][Queues, topics, and subscriptions].
+* Informazioni di riferimento sulle API per [SqlFilter][SqlFilter].
+* Visitare il repository [Azure SDK per Node][Azure SDK for Node] su GitHub.
 
-[Azure SDK per Node]: https://github.com/Azure/azure-sdk-for-node
-[portale di Azure classico]: https://manage.windowsazure.com
-[SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Code, argomenti e sottoscrizioni del bus di servizio]: service-bus-queues-topics-subscriptions.md
-[SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
-[Servizio cloud Node.js]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Creare e distribuire un'applicazione Node.js in un sito Web Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Servizio cloud Node.js con Archiviazione]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Creazione di un'applicazione Web Node.js con Archiviazione]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
+[Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
+[Azure classic portal]: https://manage.windowsazure.com
+[SqlFilter.SqlExpression]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
+[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
+[SqlFilter]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter
+[Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Creare un'app Web Node.js nel servizio app di Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Node.js Web Application with Storage]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

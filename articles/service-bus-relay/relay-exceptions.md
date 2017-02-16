@@ -1,5 +1,5 @@
 ---
-title: Eccezioni di inoltro | Documentazione Microsoft
+title: Eccezioni del servizio di inoltro di Azure e relativa risoluzione | Documentazione Microsoft
 description: Elenco delle eccezioni di inoltro e relative azioni consigliate.
 services: service-bus-relay
 documentationcenter: na
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3feece5fc2497aec59bd065c345b21e800c87fd2
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: f5323820b49f2dcbf8a2d1b669e2faea91c2f724
 
 
 ---
@@ -83,6 +83,6 @@ Per questo errore, esistono due cause comuni: una configurazione errata o un err
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

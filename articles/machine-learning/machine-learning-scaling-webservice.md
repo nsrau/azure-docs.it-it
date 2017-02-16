@@ -1,6 +1,6 @@
 ---
-title: Ridimensionamento di un servizio Web | Documentazione Microsoft
-description: Informazioni su come ridimensionare un servizio Web mediante l&quot;aumento della concorrenza e l&quot;aggiunta di nuovi endpoint.
+title: Come aumentare la concorrenza di un servizio Web di Azure Machine Learning | Documentazione Microsoft
+description: Informazioni su come aumentare la concorrenza di un servizio Web di Azure Machine Learning aggiungendo altri endpoint.
 services: machine-learning
 documentationcenter: 
 author: neerajkh
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 01/23/2017
 ms.author: neerajkh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 559db01d2c9f44af17b86f99031a8827dfeb5ab3
+ms.sourcegitcommit: c54b16517b6f08ed8bfddfb6e2c793ec0f292899
+ms.openlocfilehash: 678f747fd1b2e5017d1859fd594c3b4bc465ea41
 
 
 ---
-# <a name="scaling-a-web-service"></a>Ridimensionamento di un servizio Web
+# <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>Ridimensionamento di un servizio Web di Azure Machine Learning con l'aggiunta di altri endpoint
 > [!NOTE]
 > Questo argomento descrive le tecniche applicabili a un servizio Web classico di Machine Learning. 
 > 
@@ -31,7 +31,6 @@ Per impostazione predefinita, ogni servizio Web pubblicato è configurato per su
 
 Se si prevede di chiamare l'API con un carico superiore rispetto al valore di 200 per il numero massimo di chiamate simultanee supportate, è consigliabile creare più endpoint nello stesso servizio Web. È quindi possibile distribuire casualmente il carico tra tutti gli endpoint.
 
-## <a name="add-new-endpoints-for-same-web-service"></a>Aggiungere nuovi endpoint per lo stesso servizio Web
 Il ridimensionamento di un servizio Web è un'attività comune. Alcuni motivi per il ridimensionamento consistono nella necessità di supportare più di 200 richieste simultanee, aumentare la disponibilità tramite più endpoint o fornire endpoint separati per il servizio Web. È possibile aumentare la scalabilità mediante l'aggiunta di altri endpoint per lo stesso servizio Web tramite il [portale di Azure classico](https://manage.windowsazure.com/) o il [portale dei servizi Web di Azure Machine Learning](https://services.azureml.net/).
 
 Per altre informazioni sull'aggiunta di nuovi endpoint, vedere [Creazione di endpoint](machine-learning-create-endpoint.md).
@@ -46,6 +45,6 @@ Le API sincrone in genere vengono usate nelle situazioni in cui si desidera una 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

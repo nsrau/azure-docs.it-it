@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/12/2017
 ms.author: raymondl;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 07e124f41662759cc93efa2ee0c24f6a367573ac
+ms.sourcegitcommit: 045e3a6869880be6e7b2c5abf5f0869ed157600d
+ms.openlocfilehash: 38adf31dda1c36d0573142eacda6453ccd2b4f90
 
 
 ---
 # <a name="use-azure-machine-learning-web-service-parameters"></a>Usare i parametri del servizio Web di Azure Machine Learning
 Un servizio Web di Azure Machine Learning viene creato mediante la pubblicazione di un esperimento contenente moduli con parametri configurabili. In alcuni casi può essere utile modificare il comportamento del modulo mentre è in esecuzione il servizio Web. I *parametri del servizio Web* consentono di eseguire questa operazione. 
 
-Un esempio comune è la configurazione del modulo [Import Data][reader] (Importazione dati) per consentire all'utente del servizio Web pubblicato di specificare un'origine dati diversa quando si accede al servizio Web oppure la configurazione del modulo [Export Data][writer] (Esporta dati) in modo che sia possibile specificare una destinazione differente. Altri esempi includono la modifica del numero di bit per il modulo [Feature Hashing][feature-hashing] (Hashing di funzioni) o il numero di funzionalità desiderate per il modulo [Filter-Based Feature Selection][filter-based-feature-selection] (Selezione di funzioni basata su filtro). 
+Un esempio comune è la configurazione del modulo [Import Data][reader] per consentire all’utente del servizio Web pubblicato di specificare un'origine dati diversa quando si accede al servizio Web oppure la configurazione del modulo [Export Data][writer] in modo che sia possibile specificare una destinazione differente. Altri esempi includono la modifica del numero di bit per il modulo [Feature Hashing][feature-hashing] o il numero di funzionalità desiderate per il modulo [Filter-Based Feature Selection][filter-based-feature-selection]. 
 
 È possibile impostare i parametri del servizio Web e associarli a uno o più parametri di modulo nell’esperimento, e specificare se sono obbligatori o facoltativi. L'utente del servizio web può quindi fornire valori per questi parametri quando si chiama il servizio web. 
 
@@ -75,8 +75,8 @@ Per un esempio più dettagliato, vedere la voce relativa ai [parametri del servi
 Per altre informazioni sull'accesso a un servizio Web di Machine Learning, vedere l'articolo relativo all' [utilizzo di un servizio Web pubblicato di Machine Learning](machine-learning-consume-web-services.md).
 
 <!-- Images -->
-[icona]: ./media/machine-learning-web-service-parameters/icon.png
-[parametro]: ./media/machine-learning-web-service-parameters/parameter.png
+[icon]: ./media/machine-learning-web-service-parameters/icon.png
+[parameter]: ./media/machine-learning-web-service-parameters/parameter.png
 
 
 <!-- Module References -->
@@ -88,6 +88,6 @@ Per altre informazioni sull'accesso a un servizio Web di Machine Learning, veder
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

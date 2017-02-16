@@ -1,5 +1,5 @@
 ---
-title: 'Controllo degli accessi in base al ruolo: ruoli predefiniti | Microsoft Docs'
+title: Azioni consentite e non consentite per i ruoli nel controllo degli accessi in base al ruolo di Azure | Documentazione Microsoft
 description: Questo argomento descrive i ruoli predefiniti per il controllo degli accessi in base al ruolo.
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/25/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 386e8479a64af20469e3e03180348f674b08ef8f
+ms.sourcegitcommit: d00ba4e6d1abd62e5a0d5a9d5bb229d3fa64b473
+ms.openlocfilehash: 8df9faed82a6cf11001e083b7849dd7654bf3c24
 
 
 ---
@@ -28,8 +28,8 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 
 > [!NOTE]
 > Le definizioni dei ruoli di Azure sono in continua evoluzione. Questo articolo viene aggiornato il più possibile, ma le definizioni dei ruoli più recenti sono sempre disponibili in Azure PowerShell. Usare i cmdlet `(get-azurermroledefinition "<role name>").actions` o `(get-azurermroledefinition "<role name>").notactions` applicabili.
-> 
-> 
+>
+>
 
 | Nome del ruolo | Descrizione |
 | --- | --- |
@@ -555,7 +555,6 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2016
-ms.author: mfussell
+ms.date: 1/4/2017
+ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: af9f761179896a1acdde8e8b20476b7db33ca772
-ms.openlocfilehash: 1c5f3bc66c902c3b7186cad44728fa5237dd298a
+ms.sourcegitcommit: d7aa8568dd6fdd806d8ad70e408f108c722ec1ce
+ms.openlocfilehash: c444ed85e2108a1b54d468f410c446aa6032e2a2
 
 
 ---
@@ -30,9 +30,8 @@ ms.openlocfilehash: 1c5f3bc66c902c3b7186cad44728fa5237dd298a
 Questo articolo descrive in dettaglio il processo di creazione di servizi in contenitori Windows.
 
 > [!NOTE]
-> Questa funzionalità è in anteprima per Linux e non è ancora disponibile per Windows Server 2016. La funzionalità sarà disponibile in anteprima per Windows Server 2016 nella prossima versione di Azure Service Fabric. 
-> 
-> 
+> Questa funzionalità è disponibile in anteprima per Linux e Windows Server 2016.
+>  
 
 Service Fabric offre diverse funzionalità relative ai contenitori che consentono di creare applicazioni costituite da microservizi inseriti in contenitori, 
 
@@ -48,17 +47,32 @@ Le funzionalità includono:
 Verranno ora esaminate le singole funzionalità coinvolte nella creazione del pacchetto di un servizio in contenitori da includere nell'applicazione.
 
 ## <a name="package-a-windows-container"></a>Creare il pacchetto di un contenitore Windows
-Quando si crea il pacchetto di un contenitore, si può scegliere di usare un modello di progetto di Visual Studio oppure di [creare manualmente il pacchetto dell'applicazione](#manually). Se si usa Visual Studio, la struttura del pacchetto dell'applicazione e i file manifesto vengono creati automaticamente dal modello Nuovo progetto. Il modello di Visual Studio verrà rilasciato in una versione futura.
+Quando si crea il pacchetto di un contenitore, si può scegliere di usare un modello di progetto di Visual Studio oppure di [creare manualmente il pacchetto dell'applicazione](#manually).  Se si usa Visual Studio, la struttura del pacchetto dell'applicazione e i file manifesto vengono creati automaticamente dal modello Nuovo progetto.
+
+> [!TIP]
+> Il modo più semplice per creare il pacchetto di un'immagine contenitore esistente in un servizio consiste nell'usare Visual Studio.
 
 ## <a name="use-visual-studio-to-package-an-existing-container-image"></a>Usare Visual Studio per creare il pacchetto di un'immagine contenitore esistente
-> [!NOTE]
-> In una prossima versione di Visual Studio per Service Fabric sarà possibile aggiungere un contenitore a un'applicazione con le stesse modalità attualmente valide per aggiungere un eseguibile guest. Per altre informazioni, vedere l'argomento [Distribuire un eseguibile guest in Service Fabric](service-fabric-deploy-existing-app.md). Attualmente è necessario creare manualmente il pacchetto di un contenitore, come descritto nella sezione successiva.
-> 
-> 
+Visual Studio include un modello di servizio di Service Fabric che consente di distribuire un contenitore in un cluster di Service Fabric.
+
+1. Scegliere **File** > **Nuovo progetto** e creare un'applicazione di Service Fabric.
+2. Scegliere **Guest Container (Contenitore guest)** come modello del servizio.
+3. Scegliere **Image Name (Nome immagine)** e specificare il percorso dell'immagine nel repository del contenitore, come https://hub.docker.com/. Esempio: myrepo/myimage:v1 
+4. Assegnare un nome al servizio e fare clic su **OK**.
+5. Se il servizio nel contenitore richiede un endpoint per la comunicazione, è ora possibile aggiungere il protocollo, la porta e il tipo al file ServiceManifest.xml. Ad esempio: 
+     
+    `<Endpoint Name="MyContainerServiceEndpoint" Protocol="http" Port="80" UriScheme="http" PathSuffix="myapp/" Type="Input" />`
+    
+    Se si specifica l'elemento `UriScheme`, questo registra automaticamente l'endpoint del contenitore con il servizio di denominazione (Naming) di Service Fabric per l'individuazione. La porta può essere stabilita (come illustrato nell'esempio precedente) o allocata in modo dinamico (valore lasciato vuoto per allocare una porta presente nell'intervallo di porte dell'applicazione designata) esattamente come per qualsiasi altro servizio.
+    È anche necessario configurare il mapping tra porta del contenitore e porta dell'host specificando un elemento di criteri `PortBinding` nel manifesto dell'applicazione come descritto in precedenza.
+6. Se per il contenitore è necessaria una governance delle risorse, aggiungere un elemento `ResourceGovernancePolicy`. Per un esempio, vedere di seguito.
+8. Se il contenitore deve eseguire l'autenticazione con un repository privato, aggiungere `RepositoryCredentials`. Per un esempio, vedere di seguito.
+7. È ora possibile usare il pacchetto e pubblicare l'azione nel cluster locale se quest'ultimo è Windows Server 2016 con supporto del contenitore attivato. 
+8. Quando si è pronti, pubblicare l'applicazione in un cluster remoto o archiviare la soluzione nel controllo del codice sorgente. 
 
 <a id="manually"></a>
 
-## <a name="manually-package-and-deploy-a-container"></a>Creare manualmente il pacchetto e distribuire un contenitore
+## <a name="manually-package-and-deploy-a-container-image"></a>Creare manualmente il pacchetto e distribuire un'immagine del contenitore
 Il processo per creare manualmente il pacchetto di un servizio in contenitore prevede i passaggi seguenti:
 
 1. Pubblicare i contenitori nel repository.
@@ -263,7 +277,7 @@ Di seguito è riportato un manifesto del servizio di esempio (specificato nel ma
         <DataPackage Name="FrontendService.Data" Version="1.0" />
         <Resources>
             <Endpoints>
-                <Endpoint Name="Endpoint1" Port="80"  UriScheme="http" />
+                <Endpoint Name="Endpoint1" UriScheme="http" Port="80" Protocol="http"/>
             </Endpoints>
         </Resources>
     </ServiceManifest>
@@ -275,6 +289,6 @@ Ora che è stato distribuito un servizio in contenitori, vedere [Ciclo di vita d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

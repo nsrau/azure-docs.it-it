@@ -25,34 +25,36 @@ Per poter inviare notifiche push a un'app per iOS, è necessario registrare l'ap
 
 1. Se l'app non è ancora stata registrata, accedere al <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">portale di provisioning iOS</a> su Apple Developer Center, eseguire l'accesso con il proprio ID Apple, fare clic su **Identifiers**, quindi su **App IDs** e infine fare clic sul segno **+** per registrare una nuova app.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
+      
 2. Aggiornare i tre campi seguenti per la nuova app e quindi fare clic su **Continue**:
    
    * **Name**: digitare un nome descrittivo per l'app nel campo **Name** della sezione **App ID Description**.
    * **Bundle Identifier**: nella sezione **Explicit App ID** immettere un valore in **Bundle Identifier** nel formato `<Organization Identifier>.<Product Name>`, come indicato nel documento [App Distribution Guide](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). *Organization Identifier* e *Product Name* devono corrispondere all'identificatore dell'organizzazione e al nome del prodotto che verranno usati quando si crea il progetto XCode. Nella schermata seguente *NotificationHubs* viene usato come identificatore di organizzazione e *GetStarted* viene usato come nome del prodotto. Verificare che corrispondano ai valori che si useranno nel progetto XCode, in modo da usare il profilo di pubblicazione corretto con XCode. 
    * **Notifiche Push**: selezionare l'opzione **Notifiche Push** nella sezione **Servizi app**.
      
-     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
      
       Verrà generato l'ID app e all'utente verrà chiesto di confermare le informazioni. Fare clic su **Registra** per confermare il nuovo ID app.
      
       Dopo aver fatto clic su **Register** (Registrazione) verrà visualizzata la schermata **Registrazione completa**, come illustrato di seguito. Fare clic su **Done**.
-
-    ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
+      
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
 
 1. In Developer Center, sotto App IDs trovare l'ID app appena creato e fare clic sulla relativa riga.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids2.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids2.png)
    
-       Clicking on the app ID will display the app details. Click the **Edit** button at the bottom.
+      Facendo clic sull'ID app verranno visualizzati i dettagli relativi all'app. Fare clic sul pulsante **Edit** nella parte inferiore della schermata.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-edit-appid.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-edit-appid.png)
+      
 2. Scorrere fino alla fine della schermata e fare clic su **Crea Certificato...** nella sezione **Development Push SSL Certificate**.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
    
-       This displays the "Add iOS Certificate" assistant.
+      Verrà visualizzato l'assistente "Add iOS Certificate".
    
    > [!NOTE]
    > Questa esercitazione usa un certificato di sviluppo. La stessa procedura viene usata per registrare un certificato di produzione. Per l'invio delle notifiche, assicurarsi di usare lo stesso tipo di certificato.
@@ -65,7 +67,7 @@ Per poter inviare notifiche push a un'app per iOS, è necessario registrare l'ap
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-download-cert.png)
    
-       This downloads the certificate and saves it to your computer in your Downloads folder.
+      Il certificato di firma verrà scaricato e salvato nel computer nella cartella Download.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
    
@@ -75,9 +77,9 @@ Per poter inviare notifiche push a un'app per iOS, è necessario registrare l'ap
    > 
 5. Fare doppio clic sul certificato push scaricato **aps_development.cer**.
    
-       This installs the new certificate in the Keychain, as shown below:
+      Il nuovo certificato verrà installato nel Portachiavi, come mostrato di seguito:
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
    
    > [!NOTE]
    > Il nome del certificato potrebbe essere diverso, ma verrà preceduto da **Apple Development iOS Push Services:**.
@@ -97,26 +99,25 @@ Per poter inviare notifiche push a un'app per iOS, è necessario registrare l'ap
 ## <a name="create-a-provisioning-profile-for-the-app"></a>Creare un profilo di provisioning per l'app
 1. Nel <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">portale di provisioning iOS</a> selezionare **Provisioning Profiles**, quindi **All** e infine fare clic sul pulsante **+** per creare un nuovo profilo. Verrà avviata la procedura guidata **Add iOS Provisiong Profile**
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 2. Selezionare **iOS App Development** in **Development** come tipo di profilo di provisioning e fare clic su **Continue**. 
 3. Selezionare quindi l'ID app appena creato nell'elenco a discesa **App ID**e fare clic su **Continue**.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-select-appid-for-provisioning.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-select-appid-for-provisioning.png)
 4. Nella schermata **Select certificates** selezionare il solito certificato di sviluppo usato per la firma del codice e fare clic su **Continue**. Questo non è il certificato push appena creato.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-cert.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-cert.png)
 5. In **Devices** selezionare i dispositivi da usare per il test e fare clic su **Continue**.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
 6. Scegliere infine un nome per il profilo in **Profile Name** e fare clic su **Generate**.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 7. Una volta creato il nuovo profilo di provisioning, fare clic per scaricarlo e installarlo nel computer di sviluppo Xcode. Fare quindi clic su **Done**.
    
-       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
+      ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

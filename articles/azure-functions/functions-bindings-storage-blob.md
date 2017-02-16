@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/02/2016
+ms.date: 01/11/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: 880ea646b1e976975f610ce81d0b372e81d2e34a
+ms.sourcegitcommit: 7b691e92cfcc8c6c62f854b3f1b6cf13d317df7b
+ms.openlocfilehash: 961aa46e3f3654c250aa10e61149fac2fc251935
 
 
 ---
@@ -37,7 +37,7 @@ Questo articolo illustra come configurare e scrivere il codice delle associazion
 <a name="trigger"></a>
 
 ## <a name="storage-blob-trigger"></a>Trigger del BLOB del servizio di archiviazione
-Il trigger del BLOB del servizio di archiviazione di Azure consente di verificare la presenza di BLOB nuovi o aggiornati in un contenitore di archiviazione e di agire di conseguenza. 
+Il trigger del BLOB di Archiviazione di Azure consente di monitorare i BLOB nuovi e aggiornati in un contenitore di archiviazione e di eseguire il codice funzione quando vengono rilevate delle modifiche. 
 
 Il trigger del BLOB del servizio di archiviazione in una funzione usa gli oggetti JSON seguenti nella matrice `bindings` di function.json:
 
@@ -328,9 +328,9 @@ L'output del BLOB del servizio di archiviazione per una funzione usa gli oggetti
 {
   "name": "<Name of output parameter in function signature>",
   "type": "blob",
-  "direction": "out"
+  "direction": "out",
   "path": "<Path of input blob - see below>",
-  "connection":"<Name of app setting - see below>"
+  "connection": "<Name of app setting - see below>"
 }
 ```
 
@@ -358,6 +358,8 @@ Nelle funzioni C# è anche possibile eseguire l'output in uno dei tipi seguenti:
 * `ICloudBlob`
 * `CloudBlockBlob` 
 * `CloudPageBlob` 
+* `ICollector<T>` (per restituire più BLOB)
+* `IAsyncCollector<T>` (versione asincrona di `ICollector<T>`)
 
 <a name="outputsample"></a>
 
@@ -370,6 +372,6 @@ Vedere [esempio di input](#inputsample).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

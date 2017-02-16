@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6dedf3a7a7b4092784291334b0586b8f37e86354
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 09878cccc847040c59cbf285f40ac6a1a310c993
 
 
 ---
@@ -29,7 +29,7 @@ Desktop remoto consente di accedere al desktop di un'istanza del ruolo in esecuz
 > 
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Installare e configurare [Azure PowerShell](../powershell-install-configure.md).
+* Installare e configurare [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Distribuire un’app Node.js in un servizio cloud di Azure Per altre informazioni, vedere [Creare e distribuire un'applicazione Node.js in un servizio cloud di Azure](cloud-services-nodejs-develop-deploy-app.md).
 
 ## <a name="step-1-use-azure-powershell-to-configure-the-service-for-remote-desktop-access"></a>Passaggio 1: Usare Azure PowerShell per configurare il servizio per Accesso desktop remoto
@@ -106,6 +106,6 @@ Quando le connessioni di desktop remoto alle istanze del ruolo nel cloud non son
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

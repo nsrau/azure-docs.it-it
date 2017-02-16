@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 56bee9c0a2da3e522290c2274b6d0301defe3f71
+ms.sourcegitcommit: 52153526fb5b127823316b86fa05c0528151e18f
+ms.openlocfilehash: 2dfcdf2207d1437a917c493075e3245bd58381ac
 
 
 ---
@@ -44,7 +44,7 @@ Per altre informazioni sui servizi Web di Machine Learning, vedere [Distribuire 
 ## <a name="get-an-azure-machine-learning-authorization-key"></a>Ottenere una chiave di autorizzazione Azure Machine Learning
 Quando si distribuisce l'esperimento, vengono generate le chiavi API per il servizio Web, recuperabili da diverse posizioni.
 
-## <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>Dal portale dei servizi Web di Microsoft Azure Machine Learning
+### <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>Dal portale dei servizi Web di Microsoft Azure Machine Learning
 Accedere al portale dei [servizi Web di Microsoft Azure Machine Learning](https://services.azureml.net).
 
 Per recuperare la chiave API per un nuovo servizio Web Machine Learning:
@@ -62,14 +62,14 @@ Per recuperare la chiave API per un nuovo servizio Web Machine Learning di tipo 
 4. Nel menu in alto fare clic su **Consume**(Uso).
 5. Copiare e salvare la **Chiave primaria**.
 
-## <a name="classic-web-service"></a>Servizio Web classico
- La chiave di un servizio Web di tipo classico può essere recuperata anche da Machine Learning Studio o dal Portale di Azure.
+### <a name="classic-web-service"></a>Servizio Web classico
+ La chiave di un servizio Web di tipo classico può essere recuperata anche da Machine Learning Studio o dal portale di Azure classico.
 
-### <a name="machine-learning-studio"></a>Machine Learning Studio
+#### <a name="machine-learning-studio"></a>Machine Learning Studio
 1. In Machine Learning Studio fare clic su **WEB SERVICES** (Servizi Web) a sinistra.
 2. Fare clic su un servizio Web. La **chiave API** si trova nella scheda **DASHBOARD**.
 
-### <a name="azure-portal"></a>Portale di Azure
+#### <a name="azure-classic-portal"></a>portale di Azure classico
 1. Fare clic su **MACHINE LEARNING** a sinistra.
 2. Fare clic sull'area di lavoro in cui si trova il servizio Web.
 3. Fare clic su **WEB SERVICES**.
@@ -127,6 +127,6 @@ Per connettersi a un servizio Web di Machine Learning, usare la libreria **urlli
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

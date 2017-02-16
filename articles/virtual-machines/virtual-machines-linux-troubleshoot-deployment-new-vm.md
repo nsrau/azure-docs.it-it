@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/09/2016
 ms.author: cjiang
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 3790c6108c151c30ca12feb4af19ad0fd4ae1f68
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 2cf2d842c2f04d56c30b3bec1b9ee8b5897f1e6b
 
 
 ---
@@ -26,12 +26,12 @@ ms.openlocfilehash: 3790c6108c151c30ca12feb4af19ad0fd4ae1f68
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="collect-audit-logs"></a>Raccogliere log di controllo
-Per avviare la risoluzione dei problemi, raccogliere i log di controllo per identificare l'errore associato al problema. I collegamenti seguenti contengono informazioni dettagliate sul processo da seguire.
+## <a name="collect-activity-logs"></a>Raccogliere i log di attività
+Per avviare la risoluzione dei problemi, raccogliere i log delle attività per identificare l'errore associato al problema. I collegamenti seguenti contengono informazioni dettagliate sul processo da seguire.
 
-[Risolvere i problemi relativi alle distribuzioni di gruppi di risorse con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md)
+[Visualizzare le operazioni di distribuzione](../azure-resource-manager/resource-manager-deployment-operations.md)
 
-[Operazioni di controllo con Gestione risorse](../resource-group-audit.md)
+[Visualizzare i log attività per gestire le risorse di Azure](../azure-resource-manager/resource-group-audit.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
@@ -88,6 +88,6 @@ Se si incontrano problemi quando si avvia una VM Linux arrestata o si ridimensio
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

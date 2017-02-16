@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 12/20/2016
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: e23ae2047a4d4aca6b0f9e3deb72b6f92fca54a4
-ms.openlocfilehash: 40e3e6f37a380097596dd2e5ad7fe7238f43a561
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: cca2c112924c22846d5a00e0a94181669fb4cbc0
 
 
 ---
@@ -133,7 +133,7 @@ La maggior parte delle applicazioni è costituita da un insieme di diversi tipi 
 
 *modelli di Gestione risorse di Azure* consentono di distribuire e gestire queste risorse diverse come una singola unità logica di distribuzione in modo dichiarativo. Anziché in modo imperativo indicando a Azure gli elementi da distribuire un comando dopo l'altro, è possibile descrivere l'intera distribuzione in un file JSON (tutte le risorse, la configurazione associata e i parametri di distribuzione) e indicare ad Azure di distribuire le risorse come un singolo gruppo.
 
-Per altre informazioni sui gruppi di risorse di Azure e su come usarli, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Se si è interessati alla creazione di modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
+Per altre informazioni sui gruppi di risorse di Azure e su come usarli, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Se si è interessati alla creazione di modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
 
 ## <a name="a-idadd-region-documentdb-accountatask-add-region-to-a-documentdb-account"></a><a id="add-region-documentdb-account"></a>Attività: Aggiungere un'area a un account DocumentDB
@@ -149,10 +149,11 @@ Associare i valori di priorità di failover alla configurazione esistente. Una d
 > [!TIP]
 > Se si esegue questo comando in Azure PowerShell o Windows PowerShell si riceverà un errore relativo a un token imprevisto. Eseguire invece questo comando nel prompt dei comandi di Windows.
 
-    azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l <resourcegrouplocation> -p "{\"databaseAccountOfferType\":\"Standard\",\"locations\":["{\"locationName\":\"<databaseaccountlocation>\",\"failoverPriority\":\"<failoverPriority1>\"},{\"locationName\":\"<newdatabaseaccountlocation>\",\"failoverPriority\":\"<failoverPriority2>\"}"]}"
+    azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l <resourcegrouplocation> -p "{\"databaseAccountOfferType\":\"Standard\",\"ipRangeFilter\":\"<ip-range-filter>\",\"locations\":["{\"locationName\":\"<databaseaccountlocation>\",\"failoverPriority\":\"<failoverPriority1>\"},{\"locationName\":\"<newdatabaseaccountlocation>\",\"failoverPriority\":\"<failoverPriority2>\"}"]}"
 
  - `<resourcegroupname>` può usare solo caratteri alfanumerici, punti, caratteri di sottolineatura, il carattere '-' e parentesi e non può terminare con un punto.
  - `<resourcegrouplocation>` rappresenta l'area del gruppo di risorse corrente.
+ - `<ip-range-filter>` Specifica il set di indirizzi IP e di intervalli di indirizzi IP nel formato CIDR da includere come elenco consentito di IP client per un determinato account di database. Gli intervalli di indirizzi IP o i singoli indirizzi IP devono essere delimitati da virgole e non devono contenere spazi. Per altre informazioni, vedere [Supporto del firewall di DocumentDB](documentdb-firewall-support.md).
  - `<databaseaccountname>` possono contenere solo lettere minuscole, numeri, il carattere '-' e devono essere compresi fra 3 e 50 caratteri.
  - `<databaseaccountlocation>` deve essere una delle aree in cui DocumentDB è generalmente disponibile. L'elenco corrente delle aree geografiche è disponibile nella [pagina Aree di Azure](https://azure.microsoft.com/regions/#services).
  - `<newdatabaseaccountlocation>` è la nuova area da aggiungere e deve essere una delle aree in cui DocumentDB è disponibile a livello generale. L'elenco corrente delle aree geografiche è disponibile nella [pagina Aree di Azure](https://azure.microsoft.com/regions/#services).
@@ -160,7 +161,7 @@ Associare i valori di priorità di failover alla configurazione esistente. Una d
 
 Input di esempio per aggiungere l'area "Stati Uniti orientali" come area di lettura nell'account DocumentDB: 
 
-    azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l westus -p "{\"databaseAccountOfferType\":\"Standard\",\"locations\":["{\"locationName\":\"westus\",\"failoverPriority\":\"0\"},{\"locationName\":\"eastus\",\"failoverPriority\":\"1\"}"]}"
+    azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l westus -p "{\"databaseAccountOfferType\":\"Standard\",\"ipRangeFilter\":\"\",\"locations\":["{\"locationName\":\"westus\",\"failoverPriority\":\"0\"},{\"locationName\":\"eastus\",\"failoverPriority\":\"1\"}"]}"
 
 Durante il provisioning del nuovo account, l'output ottenuto sarà il seguente:
 
@@ -216,6 +217,7 @@ Creare un file modello locale simile a quello sotto, corrispondente alla configu
                 "location": "[resourceGroup().location]",
                 "properties": {
                     "databaseAccountOfferType": "Standard",
+                    "ipRangeFilter": "",
                     "locations": [
                         {
                             "failoverPriority": 0,
@@ -332,16 +334,17 @@ Una delle aree deve avere un valore failoverPriority pari a 0, per indicare che 
 > [!TIP]
 > Se si esegue questo comando in Azure PowerShell o Windows PowerShell si riceverà un errore relativo a un token imprevisto. Eseguire invece questo comando nel prompt dei comandi di Windows.
 
-    azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l <resourcegrouplocation> -p "{\"databaseAccountOfferType\":\"Standard\",\"locations\":["{\"locationName\":\"<databaseaccountlocation>\",\"failoverPriority\":\"<failoverPriority>\"}"]}"
+    azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l <resourcegrouplocation> -p "{\"databaseAccountOfferType\":\"Standard\",\"ipRangeFilter\":\"<ip-range-filter>\",\"locations\":["{\"locationName\":\"<databaseaccountlocation>\",\"failoverPriority\":\"<failoverPriority>\"}"]}"
 
  - `<resourcegroupname>` può usare solo caratteri alfanumerici, punti, caratteri di sottolineatura, il carattere '-' e parentesi e non può terminare con un punto.
  - `<resourcegrouplocation>` rappresenta l'area del gruppo di risorse corrente.
+ - `<ip-range-filter>` Specifica il set di indirizzi IP e di intervalli di indirizzi IP nel formato CIDR da includere come elenco consentito di IP client per un determinato account di database. Gli intervalli di indirizzi IP o i singoli indirizzi IP devono essere delimitati da virgole e non devono contenere spazi. Per altre informazioni, vedere [Supporto del firewall di DocumentDB](documentdb-firewall-support.md).
  - `<databaseaccountname>` possono contenere solo lettere minuscole, numeri, il carattere '-' e devono essere compresi fra 3 e 50 caratteri.
  - `<databaseaccountlocation>` deve essere una delle aree in cui DocumentDB è generalmente disponibile. L'elenco corrente delle aree geografiche è disponibile nella [pagina Aree di Azure](https://azure.microsoft.com/regions/#services).
 
 Input di esempio: 
 
-    azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l westus -p "{\"databaseAccountOfferType\":\"Standard\",\"locations\":["{\"locationName\":\"westus\",\"failoverPriority\":\"0\"}"]}"
+    azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l westus -p "{\"databaseAccountOfferType\":\"Standard\",\"ipRangeFilter\":\"\",\"locations\":["{\"locationName\":\"westus\",\"failoverPriority\":\"0\"}"]}"
 
 Durante il provisioning del nuovo account, l'output ottenuto sarà il seguente:
 
@@ -391,6 +394,7 @@ Creare un file modello locale simile a quello sotto, corrispondente alla configu
                 "location": "[resourceGroup().location]",
                 "properties": {
                     "databaseAccountOfferType": "Standard",
+                    "ipRangeFilter": "",
                     "locations": [
                         {
                             "failoverPriority": 0,
@@ -489,11 +493,9 @@ Se vengono visualizzati errori come `Deployment provisioning state was not succe
 
         azure group log show <resourcegroupname> --last-deployment
 
-    Input di esempio:
+    Input di esempio:       azure group log show new_res_group --last-deployment
 
-        azure group log show new_res_group --last-deployment
-
-    Vedere quindi [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](../resource-manager-troubleshoot-deployments-cli.md) per altre informazioni.
+    Vedere quindi [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md) per altre informazioni.
 
 - Le informazioni sull'errore sono disponibili anche nel portale di Azure, come illustrato nella schermata seguente. Per passare alle informazioni sull'errore: fare clic su Gruppi di risorse nell'indice, selezionare il gruppo di risorse in cui si è verificato l'errore, quindi nell'area Informazioni di base del pannello del gruppo di risorse, selezionare la data dell'ultima distribuzione e, nel pannello Cronologia distribuzioni, selezionare la distribuzione non riuscita, infine nel pannello Distribuzione, fare clic su Dettagli operazione con un punto esclamativo rosso. Nel pannello Dettagli operazione, viene visualizzato il messaggio di stato per la distribuzione non riuscita. 
 
@@ -503,7 +505,7 @@ Se vengono visualizzati errori come `Deployment provisioning state was not succe
 
 Ora che avete un account di DocumentDB, il passaggio successivo consiste nel creare un database di DocumentDB. È possibile creare un database utilizzando uno dei seguenti:
 
-- Il portale di Azure, come descritto in [Come creare un database per DocumentDB usando il portale di Azure](documentdb-create-database.md).
+- Il portale di Azure come descritto in [Creare un database e una raccolta DocumentDB usando il portale di Azure](documentdb-create-collection.md).
 - Campioni di C# .NET nel progetto [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) del repository [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) su GitHub.
 - Gli [SDK di DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB dispone di .NET, Java, Python, Node. js e SDK di API JavaScript. 
 
@@ -524,6 +526,6 @@ Per altri modelli da poter usare, vedere [Modelli di avvio rapido di Azure](http
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

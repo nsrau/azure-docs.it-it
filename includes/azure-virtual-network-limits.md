@@ -39,11 +39,12 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | IP front-end pubblico per ogni di bilanciamento del carico |5 |Contattare il supporto tecnico |
 | IP front-end privato per ogni di bilanciamento del carico |30 |Contattare il supporto tecnico |
 | Peering di reti virtuali per rete virtuale |10 |50 |
+| Certificati radice Point-to-Site per ogni gateway VPN |20 |20 |
 
 Nel caso in cui sia necessario aumentare questi limiti rispetto all'impostazione predefinita, contattare il supporto tecnico.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

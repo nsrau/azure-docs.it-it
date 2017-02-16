@@ -1,9 +1,9 @@
 ---
-title: Come eseguire il mapping del contenuto di una rete CDN a un dominio personalizzato | Documentazione Microsoft
-description: Questo argomento descrive come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato.
+title: Eseguire il mapping del contenuto della rete CDN di Azure a un dominio personalizzato | Documentazione Microsoft
+description: Informazioni su come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato.
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 289f8d9e-8839-4e21-b248-bef320f9dbfc
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 567e72805c22c8100ef2d8d97c1e26a77f214ca3
+ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
+ms.openlocfilehash: 36099a7c52508cd5115a527f5ef6e40fbfd6c323
 
 
 ---
-# <a name="how-to-map-custom-domain-to-content-delivery-network-cdn-endpoint"></a>Come eseguire il mapping di un dominio personalizzato all'endpoint della rete per la distribuzione di contenuti (rete CDN)
+# <a name="map-azure-cdn-content-to-a-custom-domain"></a>Eseguire il mapping del contenuto della rete CDN a un dominio personalizzato
 È possibile eseguire il mapping di un dominio personalizzato a un endpoint della rete CDN per usare il proprio nome di dominio negli URL del contenuto memorizzato nella cache anziché un sottodominio di azureedge.net.
 
 Per eseguire il mappping del dominio personalizzato a un endpoint della rete CDN, sono disponibili due modi:
@@ -84,6 +84,6 @@ Dopo aver registrato il dominio personalizzato seguendo una delle procedure desc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

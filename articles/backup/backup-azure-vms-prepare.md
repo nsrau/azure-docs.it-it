@@ -13,17 +13,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 12/20/2016
 ms.author: trinadhk; jimpark; markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: b5b18d063a5926ad4acb7d0aa3935978d0fedb8c
-ms.openlocfilehash: dc7e2d041ee4e0aeb222578c2fec9525e24bb0d1
+ms.sourcegitcommit: cbd7e36c5ef5c78b38a2cc7791b442cac1711b95
+ms.openlocfilehash: 92e8e25abc047811fc0ff45f424bd1b97a045e1f
 
 
 ---
 # <a name="prepare-your-environment-to-back-up-azure-virtual-machines"></a>Preparare l'ambiente per il backup di macchine virtuali di Azure
 > [!div class="op_single_selector"]
-> * [Modello Resource Manager](backup-azure-arm-vms-prepare.md)
+> * [Modello di Resource Manager](backup-azure-arm-vms-prepare.md)
 > * [Modello classico](backup-azure-vms-prepare.md)
 >
 >
@@ -35,6 +35,11 @@ Prima di eseguire il backup di una macchina virtuale (VM) di Azure, devono verif
 * Installare l'agente di VM sulla VM.
 
 Se nell'ambiente esistono già queste condizioni, passare all'articolo [Eseguire il backup di macchine virtuali di Azure](backup-azure-vms.md). In caso contrario, continuare a leggere. Questo articolo illustra i passaggi per preparare l'ambiente per eseguire il backup di una VM di Azure.
+
+##<a name="supported-operating-system-for-backup"></a>Sistema operativo supportato per il backup
+ * **Linux**: Backup di Azure supporta [un elenco di distribuzioni approvate da Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , ad eccezione di CoreOS Linux. _È possibile usare altre distribuzioni Bring Your Own Linux, a condizione che l'agente di macchine virtuali sia disponibile nella macchina virtuale e sia configurato il supporto per Python. Microsoft tuttavia non consiglia queste distribuzioni per il backup._
+ * **Windows Server**: le versioni precedenti a Windows Server 2008 R2 non sono supportate.
+
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Limitazioni durante il backup e il ripristino di una VM
 > [!NOTE]
@@ -49,8 +54,6 @@ Se nell'ambiente esistono già queste condizioni, passare all'articolo [Eseguire
 * L'operazione di backup e ripristino tra aree geografiche diverse non è supportata.
 * Il backup di macchine virtuali tramite il servizio Backup di Azure è supportato in tutte le aree pubbliche di Azure (vedere l' [elenco di controllo](https://azure.microsoft.com/regions/#services) delle aree supportate). Se l'area che si sta cercando non è attualmente supportata, tale area non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
 * Il backup di macchine virtuali con il servizio Backup di Azure è supportato soltanto per versioni specifiche dei sistemi operativi:
-  * **Linux**: Backup di Azure supporta [un elenco di distribuzioni approvate da Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , ad eccezione di CoreOS Linux. È possibile usare altre distribuzioni Bring Your Own Linux, a condizione che l'agente di macchine virtuali sia disponibile nella macchina virtuale e sia configurato il supporto per Python.
-  * **Windows Server**: le versioni precedenti a Windows Server 2008 R2 non sono supportate.
 * Il ripristino di un controller di dominio di VM che fa parte di una configurazione con controller di dominio è supportato solo tramite PowerShell. Altre informazioni sul [ripristino di un controller di dominio con più controller di dominio](backup-azure-restore-vms.md#restoring-domain-controller-vms).
 * Il ripristino delle macchine virtuali che presentano le seguenti configurazioni di rete speciali è supportato solo tramite PowerShell. Le macchine virtuali create usando il flusso di lavoro di ripristino nell'interfaccia utente non potranno avere queste configurazioni di rete al termine dell'operazione di ripristino. Per altre informazioni, vedere [Ripristino delle macchine virtuali con configurazioni di rete speciali](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations).
   * Macchine virtuali con configurazione del servizio di bilanciamento del carico (interno ed esterno)
@@ -151,7 +154,7 @@ Se è stato installato un server proxy in un account utente corrente (non in un 
 ```
 
 > [!NOTE]
-> Se si nota il messaggio "(407) Autenticazione proxy obbligatoria" nel registro del server proxy, verificare che l'autenticazione sia impostata correttamente.
+> Se si nota il messaggio "(407) Autenticazione proxy obbligatoria" nel log del server proxy, verificare che l'autenticazione sia impostata correttamente.
 >
 >
 
@@ -231,6 +234,6 @@ Ora che è stato preparato l'ambiente per il backup della VM, il passaggio logic
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

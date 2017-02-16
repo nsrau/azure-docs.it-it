@@ -1,10 +1,10 @@
 ---
-title: Condividere un unico tenant di Azure AD tra l&quot;abbonamento a Office 365 e la sottoscrizione di Azure | Documentazione Microsoft
+title: Iscriversi ad Azure con un account Office 365 | Documentazione Microsoft
 description: Informazioni su come condividere il tenant di Azure AD per Office 365 e i relativi utenti con la sottoscrizione di Azure o viceversa
 services: 
 documentationcenter: 
 author: JiangChen79
-manager: mbaldwin
+manager: vikdesai
 editor: 
 tags: billing,top-support-issue
 ms.assetid: 129cdf7a-2165-483d-83e4-8f11f0fa7f8b
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cjiang
 translationtype: Human Translation
-ms.sourcegitcommit: bf9cf92a53bd2db9970c03463cb417310e78224e
-ms.openlocfilehash: edf236a3c9a28552b8c6831a8c7f57bab73c41ed
+ms.sourcegitcommit: 71240b7bb978ca0831a4e23cafa64a96d64dc3cd
+ms.openlocfilehash: 85db551a80ce6995965aec642f08b3b87248d21b
 
 
 ---
@@ -50,16 +50,13 @@ In questo scenario si presuppone che Kelley Wall sia un utente con un abbonament
 
 Per iscriversi ad Azure, seguire questa procedura:
 
-1. Iscriversi ad Azure alla pagina [Azure.com](https://azure.microsoft.com/). Fare clic su **Inizia gratuitamente**. Nella pagina successiva, fare clic su **Inizia gratuitamente**.
+1. Iscriversi ad Azure alla pagina [Azure.com](https://azure.microsoft.com/). Fare clic su **Account gratuito**. Nella pagina successiva fare clic su **Inizia gratuitamente**.
 
     ![Provare Azure gratuitamente.](./media/billing-use-existing-office-365-account-azure-subscription/2-azure-signup-try-free.png)
-2. Fare clic su **Accedere con il proprio account aziendale**.
-
-    ![Accedere ad Azure.](./media/billing-use-existing-office-365-account-azure-subscription/3-sign-in-to-azure.png)
-3. Accedere con il proprio account di Office 365. In questo caso, l'account di Office 365 di Kelley.
+2. Accedere con il proprio account di Office 365. In questo caso, l'account di Office 365 di Kelley.
 
     ![Accedere con il proprio account di Office 365.](./media/billing-use-existing-office-365-account-azure-subscription/4-sign-in-with-org-account.png)
-4. Immettere le informazioni e completare la procedura d'accesso.
+3. Immettere le informazioni e completare la procedura d'accesso.
 
     ![Immettere le informazioni e completare la sottoscrizione.](./media/billing-use-existing-office-365-account-azure-subscription/5-azure-sign-up-fill-information.png)
 
@@ -158,6 +155,6 @@ Se in precedenza la sottoscrizione di Azure e l'abbonamento a Office 365 sono st
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

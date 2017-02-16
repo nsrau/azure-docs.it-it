@@ -12,70 +12,67 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 12/12/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 1b2514e1e6f39bb3ce9d8a46f4af01835284cdcc
-ms.openlocfilehash: 3510b0446cf3c1a7ffb3ff02a4d84d24ead1cae7
+ms.sourcegitcommit: ec522d843b2827c12ff04afac15d89d525d88676
+ms.openlocfilehash: 90bd5b4b6fb58c044b5edaba2c5f3a4bf7346e7d
 
 
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Attività di stored procedure di SQL Server
+
 > [!div class="op_single_selector"]
-> [Hive](data-factory-hive-activity.md)  
-> [Pig](data-factory-pig-activity.md)  
-> [MapReduce](data-factory-map-reduce.md)  
-> [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-> [Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
-> [Stored procedure](data-factory-stored-proc-activity.md)
-> [U-SQL per Data Lake Analytics](data-factory-usql-activity.md)
-> [.NET personalizzato](data-factory-use-custom-activities.md)
+> * [Hive](data-factory-hive-activity.md) 
+> * [Pig](data-factory-pig-activity.md)
+> * [MapReduce](data-factory-map-reduce.md)
+> * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Stored procedure](data-factory-stored-proc-activity.md)
+> * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
+> * [Attività personalizzata .NET](data-factory-use-custom-activities.md)
 >
->
 
-È possibile usare l'attività di stored procedure di SQL Server in una [pipeline](data-factory-create-pipelines.md) di Data factory per richiamare una stored procedure in uno degli archivi dati seguenti.
+Le attività di trasformazione dei dati in una [pipeline](data-factory-create-pipelines.md) di Data factory trasformano ed elaborano i dati non elaborati in stime e approfondimenti. L'attività di stored procedure è una delle attività di trasformazione supportate da Data factory. Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate.
 
-* Database SQL di Azure
-* Azure SQL Data Warehouse  
-* Database SQL Server in una VM di Azure o dell'azienda. È necessario installare Gateway di gestione dati nello stesso computer che ospita il database o in un computer separato per evitare che competa per le risorse con il database. Gateway di gestione dati è un software che connette le origini dati locali o ospitate in macchine virtuali di Azure ai servizi cloud, in modo sicuro e gestito. Vedere l’articolo [Spostare dati tra cloud e locale](data-factory-move-data-between-onprem-and-cloud.md) per informazioni dettagliate sui Gateway di Gestione dati.
+È possibile usare l'attività di stored procedure per richiamare una stored procedure in uno dei seguenti archivi dati: database SQL di Azure, Azure SQL Data Warehouse, database di SQL Server in azienda o in una VM di Azure.  Se si utilizza SQL Server, è necessario installare Gateway di gestione dati nello stesso computer che ospita il database o in un computer separato per evitare che competa per le risorse con il database. Gateway di gestione dati è un software che connette le origini dati locali/in VM di Azure ai servizi cloud in modo sicuro e gestito. Per informazioni dettagliate, vedere [Data Management Gateway](data-factory-data-management-gateway.md) (Gateway di gestione dati).
 
-Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate.
+Nella procedura riportata di seguito vengono fornite istruzioni dettagliate per richiamare una stored procedure in un database SQL di Azure da una pipeline di Data factory mediante l'attività di stored procedure. 
 
 ## <a name="walkthrough"></a>Procedura dettagliata
 ### <a name="sample-table-and-stored-procedure"></a>Tabella di esempio e stored procedure
 1. Creare la seguente **tabella** nel database SQL di Azure usando SQL Server Management Studio o qualsiasi altro strumento conosciuto. La colonna datetimestamp riporta la data e l'ora in cui viene generato l'ID corrispondente.
 
-        CREATE TABLE dbo.sampletable
-        (
-            Id uniqueidentifier,
-            datetimestamp nvarchar(127)
-        )
-        GO
+    ```SQL
+    CREATE TABLE dbo.sampletable
+    (
+        Id uniqueidentifier,
+        datetimestamp nvarchar(127)
+    )
+    GO
 
-        CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
-        GO
-
+    CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
+    GO
+    ```
     La colonna ID riporta l'identificatore univoco, mentre la colonna datetimestamp riporta la data e l'ora in cui viene generato l'ID corrispondente.
+    
     ![Dati di esempio](./media/data-factory-stored-proc-activity/sample-data.png)
 
-   > [!NOTE]
-   > Questo esempio usa il database SQL di Azure, ma funziona nello stesso modo per Azure SQL Data Warehouse e il database di SQL Server.
-   >
-   >
+    Questo esempio usa il database SQL di Azure, ma funziona nello stesso modo per Azure SQL Data Warehouse e il database SQL Server. Per il database SQL Server, è necessario installare [Gateway di gestione dati](data-factory-data-management-gateway.md).
 2. Creare la seguente **stored procedure** che inserisce dati in **sampletable**.
 
-        CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
-        AS
+    ```SQL
+    CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
+    AS
 
-        BEGIN
-            INSERT INTO [sampletable]
-            VALUES (newid(), @DateTime)
-        END
+    BEGIN
+        INSERT INTO [sampletable]
+        VALUES (newid(), @DateTime)
+    END
+    ```
 
    > [!IMPORTANT]
    > Il **nome** e la **combinazione di maiuscole e minuscole** per il parametro (DateTime in questo esempio) devono corrispondere a quelli del parametro specificato nel codice JSON per la pipeline/attività. Nella definizione della stored procedure assicurarsi che **@** sia usato come prefisso per il parametro.
-   >
-   >
 
 ### <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
 1. Accedere al [portale di Azure](https://portal.azure.com/).
@@ -93,6 +90,7 @@ Questo articolo si basa sull'articolo relativo alle [attività di trasformazione
 7. Selezionare **Aggiungi al dashboard** per visualizzare la data factory nel dashboard al successivo tentativo di accesso.
 8. Fare clic su **Crea** nel pannello **Nuova data factory**.
 9. Nel **dashboard** del portale di Azure verrà visualizzata la data factory in fase di creazione. Dopo la creazione della data factory, viene visualizzata la pagina corrispondente con elencato il contenuto della data factory.
+
    ![Home page di Data factory](media/data-factory-stored-proc-activity/data-factory-home-page.png)
 
 ### <a name="create-an-azure-sql-linked-service"></a>Creare un servizio collegato SQL di Azure
@@ -120,20 +118,22 @@ Dopo aver creato la data factory, si crea un servizio collegato SQL di Azure che
     ![Visualizzazione albero con servizio collegato](media/data-factory-stored-proc-activity/new-dataset.png)
 2. Copiare e incollare il seguente script JSON nell'editor JSON.
 
-        {                
-            "name": "sprocsampleout",
-            "properties": {
-                "type": "AzureSqlTable",
-                "linkedServiceName": "AzureSqlLinkedService",
-                "typeProperties": {
-                    "tableName": "sampletable"
-                },
-                "availability": {
-                    "frequency": "Hour",
-                    "interval": 1
-                }
+    ```JSON
+    {                
+        "name": "sprocsampleout",
+        "properties": {
+            "type": "AzureSqlTable",
+            "linkedServiceName": "AzureSqlLinkedService",
+            "typeProperties": {
+                "tableName": "sampletable"
+            },
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
             }
         }
+    }
+    ```
 3. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il set di dati. Assicurarsi che il set di dati sia visibile nella visualizzazione albero.
 
     ![Visualizzazione albero con servizi collegati](media/data-factory-stored-proc-activity/tree-view-2.png)
@@ -144,35 +144,37 @@ Si crea ora una pipeline con un'attività SqlServerStoredProcedure.
 1. Fare clic su **... Altro** sulla barra dei comandi e quindi su **Nuova pipeline**.
 2. Copiare e incollare il frammento JSON seguente. Impostare **storedProcedureName** su **sp_sample**. Il nome e la combinazione di maiuscole e minuscole del parametro **DateTime** deve corrispondere al nome e alla combinazione di maiuscole e minuscole del parametro nella definizione della stored procedure.  
 
-        {
-            "name": "SprocActivitySamplePipeline",
-            "properties": {
-                "activities": [
-                    {
-                        "type": "SqlServerStoredProcedure",
-                        "typeProperties": {
-                            "storedProcedureName": "sp_sample",
-                            "storedProcedureParameters": {
-                                "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
-                            }
-                        },
-                        "outputs": [
-                            {
-                                "name": "sprocsampleout"
-                            }
-                        ],
-                        "scheduler": {
-                            "frequency": "Hour",
-                            "interval": 1
-                        },
-                        "name": "SprocActivitySample"
-                    }
-                ],
-                 "start": "2016-08-02T00:00:00Z",
-                 "end": "2016-08-02T05:00:00Z",
-                "isPaused": false
-            }
+    ```JSON
+    {
+        "name": "SprocActivitySamplePipeline",
+        "properties": {
+            "activities": [
+                {
+                    "type": "SqlServerStoredProcedure",
+                    "typeProperties": {
+                        "storedProcedureName": "sp_sample",
+                        "storedProcedureParameters": {
+                            "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "sprocsampleout"
+                        }
+                    ],
+                    "scheduler": {
+                        "frequency": "Hour",
+                        "interval": 1
+                    },
+                    "name": "SprocActivitySample"
+                }
+            ],
+             "start": "2016-08-02T00:00:00Z",
+             "end": "2016-08-02T05:00:00Z",
+            "isPaused": false
         }
+    }
+    ```
 
     Se è necessario passare null per un parametro, usare la sintassi "param1": null (tutte lettere minuscole).
 3. Fare clic su **Distribuisci** sulla barra degli strumenti per distribuire la pipeline.  
@@ -199,30 +201,34 @@ Si crea ora una pipeline con un'attività SqlServerStoredProcedure.
 >
 
 ## <a name="json-format"></a>Formato JSON
+Di seguito è riportato il formato JSON per la definizione di un'attività di Stored Procedure:
+
+```JSON
+{
+    "name": "SQLSPROCActivity",
+    "description": "description",
+    "type": "SqlServerStoredProcedure",
+    "inputs":  [ { "name": "inputtable"  } ],
+    "outputs":  [ { "name": "outputtable" } ],
+    "typeProperties":
     {
-        "name": "SQLSPROCActivity",
-        "description": "description",
-        "type": "SqlServerStoredProcedure",
-        "inputs":  [ { "name": "inputtable"  } ],
-        "outputs":  [ { "name": "outputtable" } ],
-        "typeProperties":
+        "storedProcedureName": "<name of the stored procedure>",
+        "storedProcedureParameters":  
         {
-            "storedProcedureName": "<name of the stored procedure>",
-            "storedProcedureParameters":  
-            {
-                "param1": "param1Value"
-                …
-            }
+            "param1": "param1Value"
+            …
         }
     }
+}
+```
 
 ## <a name="json-properties"></a>Proprietà JSON
 | Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
-| name |Nome dell'attività |Sì |
+| name | Nome dell'attività |Sì |
 | Descrizione |Testo descrittivo per lo scopo dell'attività |No |
-| type |SqlServerStoredProcedure |Sì |
-| inputs |Facoltativo. Se si specifica un set di dati di input, questo dovrà essere disponibile (in stato 'Ready') per l'esecuzione dell'attività della stored procedure. Il set di dati di input non può essere usato nella stored procedure come parametro. Viene usato solo per verificare la dipendenza prima di iniziare l'attività della stored procedure. |No |
+| type | Deve essere impostato su: **SqlServerStoredProcedure** | Sì |
+| inputs | Facoltativo. Se si specifica un set di dati di input, questo dovrà essere disponibile (in stato 'Ready') per l'esecuzione dell'attività della stored procedure. Il set di dati di input non può essere usato nella stored procedure come parametro. Viene usato solo per verificare la dipendenza prima di iniziare l'attività della stored procedure. |No |
 | outputs |È necessario specificare un set di dati di output per un'attività della stored procedure. Il set di dati di output specifica la **pianificazione** per le attività della stored procedure (ogni ora, ogni settimana, ogni mese e così via). <br/><br/>Il set di dati di output deve usare un **servizio collegato** che faccia riferimento a un database SQL di Azure, a un Azure SQL Data Warehouse o a un database SQL Server in cui si vuole che venga eseguita la stored procedure. <br/><br/>Il set di dati di output può essere usato per passare il risultato della stored procedure per la successiva elaborazione da parte di un'altra attività ([concatenamento di attività](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence)) nella pipeline. Data Factory non scrive tuttavia automaticamente l'output di una stored procedure in questo set di dati. È la stored procedure a scrivere dati in una tabella SQL cui punta il set di dati di output. <br/><br/>In alcuni casi, il set di dati di output può essere un **set di dati fittizio**che viene usato solo per specificare la pianificazione per l'esecuzione dell'attività della stored procedure. |Sì |
 | storedProcedureName |Specificare il nome della stored procedure nel database SQL di Azure o Azure SQL Data Warehouse rappresentato dal servizio collegato che usa la tabella di output. |Sì |
 | storedProcedureParameters |Specificare i valori dei parametri della stored procedure. Se è necessario passare null per un parametro, usare la sintassi "param1": null (tutte lettere minuscole). Vedere l'esempio seguente per informazioni sull'uso di questa proprietà. |No |
@@ -232,29 +238,102 @@ A questo punto, si consideri l'aggiunta di un'altra colonna denominata 'Scenario
 
 ![Dati di esempio 2](./media/data-factory-stored-proc-activity/sample-data-2.png)
 
-    CREATE PROCEDURE sp_sample @DateTime nvarchar(127) , @Scenario nvarchar(127)
+**Tabella:**
 
-    AS
+```SQL
+CREATE TABLE dbo.sampletable2
+(
+    Id uniqueidentifier,
+    datetimestamp nvarchar(127),
+    scenario nvarchar(127)
+)
+GO
 
-    BEGIN
-        INSERT INTO [sampletable]
-        VALUES (newid(), @DateTime, @Scenario)
-    END
+CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable2(Id);
+```
 
-Passare ora il parametro di Scenario e il valore dall'attività della stored procedure. La sezione typeProperties nell'esempio precedente è simile al frammento seguente:
+**Stored procedure:**
 
-    "typeProperties":
+```SQL
+CREATE PROCEDURE sp_sample2 @DateTime nvarchar(127) , @Scenario nvarchar(127)
+
+AS
+
+BEGIN
+    INSERT INTO [sampletable2]
+    VALUES (newid(), @DateTime, @Scenario)
+END
+```
+
+Passare ora il parametro di **Scenario** e il valore dall'attività di stored procedure. La sezione **typeProperties** nell'esempio precedente è simile al seguente frammento:
+
+```JSON
+"typeProperties":
+{
+    "storedProcedureName": "sp_sample",
+    "storedProcedureParameters":
     {
-        "storedProcedureName": "sp_sample",
-        "storedProcedureParameters":
-        {
-            "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
-            "Scenario": "Document sample"
+        "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
+        "Scenario": "Document sample"
+    }
+}
+```
+
+**Set di dati di Data factory:**
+
+```JSON
+{
+    "name": "sprocsampleout2",
+    "properties": {
+        "published": false,
+        "type": "AzureSqlTable",
+        "linkedServiceName": "AzureSqlLinkedService",
+        "typeProperties": {
+            "tableName": "sampletable2"
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
+}
+```
+
+**Pipeline di Data factory**
+
+```JSON
+{
+    "name": "SprocActivitySamplePipeline2",
+    "properties": {
+        "activities": [
+            {
+                "type": "SqlServerStoredProcedure",
+                "typeProperties": {
+                    "storedProcedureName": "sp_sample2",
+                    "storedProcedureParameters": {
+                        "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
+                        "Scenario": "Document sample"
+                    }
+                },
+                "outputs": [
+                    {
+                        "name": "sprocsampleout2"
+                    }
+                ],
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "SprocActivitySample"
+            }
+        ],
+        "start": "2016-10-02T00:00:00Z",
+        "end": "2016-10-02T05:00:00Z"
+    }
+}
+```
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

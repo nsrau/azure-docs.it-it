@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/23/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eda73900ded4c587bacfa3b4d4e8465c1de5a5ed
+ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
+ms.openlocfilehash: b38f1876b3317a44268caf80a953dee638a342d1
 
 
 ---
@@ -33,7 +33,7 @@ Di seguito sono elencate alcune delle funzionalità principali delle app per le 
 * **Uso dell'API esistente**: è possibile usare le API esistenti così come sono, senza modificarne il codice. Per sfruttare le app per le API, è sufficiente distribuire il codice in un'app per le API. L'API può usare qualsiasi linguaggio o framework supportato dal servizio app, inclusi ASP.NET, C#, Java, PHP, Node. js e Python.
 * **Facilità di utilizzo** : grazie al supporto integrato per i [metadati dell’API Swagger](http://swagger.io/) le API sono più facilmente utilizzabili da client diversi.  Viene generato automaticamente il codice client per le API in diversi linguaggi, inclusi C#, Java e Javascript. Configurare facilmente [CORS](app-service-api-cors-consume-javascript.md) senza modificare il codice. Per altre informazioni, vedere [Metadati delle app per le API del servizio app per l'individuazione di API e la generazione di codice](app-service-api-metadata.md) e [Utilizzare un'app per le API da JavaScript tramite CORS](app-service-api-cors-consume-javascript.md). 
 * **Controllo di accesso semplificato** : protegge un'app per le API da accessi non autenticati senza apportare modifiche al codice. I servizi di autenticazione integrati proteggono le API dall'accesso da altri servizi o da client che rappresentano gli utenti. I provider di identità supportati includono Azure Active Directory, Facebook, Twitter, Google e account Microsoft. I client possono usare Active Directory Authentication Library (ADAL) o Mobile Apps SDK. Per altre informazioni, vedere [Autenticazione e autorizzazione per app per le API nel servizio app di Azure](app-service-api-authentication.md).
-* **Integrazione con Visual Studio** : gli strumenti dedicati in Visual Studio semplificano il processo di creazione, distribuzione, utilizzo, debug e gestione delle app per le API. Per altre informazioni, vedere [Annuncio di Azure SDK 2.8.1 per Visual Studio](/blog/announcing-azure-sdk-2-8-1-for-net/).
+* **Integrazione con Visual Studio** : gli strumenti dedicati in Visual Studio semplificano il processo di creazione, distribuzione, utilizzo, debug e gestione delle app per le API. Per altre informazioni, vedere [Annuncio di Azure SDK 2.8.1 per Visual Studio](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-1-for-net/).
 * **Integrazione con app per la logica** : le app per le API create possono essere utilizzate dalle [app per la logica del servizio app](../app-service-logic/app-service-logic-what-are-logic-apps.md).  Per altre informazioni, vedere [Uso dell'API personalizzata ospitata nel servizio app con App per la logica](../app-service-logic/app-service-logic-custom-hosted-api.md) and [Nuova versione dello schema 2015-08-01-preview](../app-service-logic/app-service-logic-schema-2015-08-01.md).
 
 Inoltre, un'app per le API può avvalersi delle funzionalità offerte dalle [app Web](../app-service-web/app-service-web-overview.md) e dalle [app per dispositivi mobili](../app-service-mobile/app-service-mobile-value-prop.md). È anche vero il contrario: se si usa un'app Web o un’app per dispositivi mobili per ospitare un'API, questa può sfruttare i vantaggi di funzionalità delle app per le API come i metadati Swagger per la generazione di codice client e CORS per l'accesso browser tra domini. L’unica differenza fra i tre tipi di app (API, Web e mobile) è data dal nome e dall’icona con cui sono contraddistinte nel portale di Azure.
@@ -62,6 +62,6 @@ Per porre domande sulle app per le API, avviare un thread nel [forum sulle app p
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

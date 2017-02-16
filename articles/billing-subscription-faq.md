@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti su fatturazione e sottoscrizione di Azure | Microsoft Docs
+title: Domande frequenti su fatturazione e sottoscrizione di Azure | Documentazione Microsoft
 description: "Fornisce le risposte alle domande più comuni su sottoscrizione e fatturazione di Azure"
 services: 
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 12/06/2016
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: a38f4a1742748deb11967b9f06a4726e57963d92
+ms.sourcegitcommit: 7583a1c81802bdedabdb70c125aac536b879204d
+ms.openlocfilehash: 38531c1b3cb7c7de9b832b4fbedd8991f40e3424
 
 
 ---
@@ -145,7 +145,7 @@ I contratti di servizio di Azure sono indipendenti dai contratti di licenza Micr
 Le ragioni possono essere diverse:
 
 * Sono passati meno di trenta giorni dalla data della sottoscrizione di Azure.
-* Il tipo di sottoscrizione è una versione di valutazione gratuita o una delle offerte riservate ai membri (MSDN/Open/BizSpark/DreamSpark) cui non è associata una carta di credito o un altro metodo di pagamento.
+* Il tipo di sottoscrizione è una versione di valutazione gratuita oppure una delle offerte per i membri (credito mensile per un sottoscrittore di Visual Studio/Open/BizSpark/Imagine) a cui non sono associati una carta di credito né altri strumenti di pagamento.
 * La data di emissione della fattura non è ancora arrivata.
 
 ### <a name="i-am-unable-to-log-in-to-the-azure-portal"></a>Non è possibile accedere al portale di Azure
@@ -195,7 +195,7 @@ Per altre informazioni, contattare il [Supporto tecnico di Azure](https://azure.
 Il Controllo degli accessi in base al ruolo di Azure (RBAC) consente la gestione specifica degli accessi per Azure. Usando il Controllo degli accessi in base al ruolo di Azure, è possibile separare compiti all'interno del team DevOps e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro. Per altre informazioni, vedere [Controllo di accesso in base al ruolo Azure](active-directory/role-based-access-control-configure.md).
 
 ### <a name="how-do-i-transfer-ownership-of-my-subscriptions"></a>Come si trasferisce la proprietà delle sottoscrizioni?
-Ora è possibile eseguire facilmente queste operazioni nel Centro account di Microsoft Azure per le sottoscrizioni con pagamento in base al consumo, MSDN, Action Pack o BizSpark. È stata aggiunta la possibilità di trasferire la sottoscrizione a un altro utente. In altre parole, ora è possibile cambiare l'amministratore account in qualsiasi sottoscrizione con pagamento in base al consumo, MSDN, Action Pack o BizSpark di cui si è proprietari. Si noti che l'account utente del destinatario deve essere nello stesso paese e che non è possibile trasferire le sottoscrizioni associate a un acquisto sul Marketplace.
+È ora possibile eseguire facilmente questa operazione nel Centro account di Microsoft Azure per le offerte con pagamento in base al consumo o con credito mensile per i sottoscrittori di Visual Studio o per le sottoscrizioni di Microsoft Partner Network o di BizSpark. È stata aggiunta la possibilità di trasferire la sottoscrizione a un altro utente. In altre parole, è ora possibile modificare l'amministratore dell'account per qualsiasi offerta con pagamento in base al consumo o con credito mensile per i sottoscrittori di Visual Studio o per le sottoscrizioni di Microsoft Partner Network o di BizSpark. di cui si è proprietari. Si noti che l'account utente del destinatario deve essere nello stesso paese e che non è possibile trasferire le sottoscrizioni associate a un acquisto sul Marketplace.
 Per informazioni dettagliate, vedere [Trasferimento di proprietà di una sottoscrizione di Azure](billing-subscription-transfer.md).
 
 ### <a name="can-i-use-my-existing-windows-licenses-that-i-bought-outside-of-azure"></a>È possibile usare licenze di Windows esistenti acquistate all'esterno di Azure?
@@ -242,14 +242,14 @@ Per visualizzare e modificare le informazioni dell'account Azure, è necessario 
 Azure è una piattaforma destinata alle aziende, che possono usarla per creare applicazioni e servizi di livello cloud. Tuttavia, tutti gli utenti possono acquistare i servizi di Azure.
 
 ### <a name="can-i-try-azure-for-free-without-any-risk-of-being-charged"></a>Si può provare gratuitamente Azure senza il rischio di incorrere in addebiti?
-Sì. Grazie alla [funzionalità Limite di spesa](https://azure.microsoft.com/pricing/spending-limits/), i clienti che sottoscrivono versioni di valutazione gratuite e offerte MSDN, MPN o BizSpark possono usare Azure senza incorrere in altri addebiti, a condizione che mantengano attivata questa funzionalità. Tutti i nuovi clienti che effettuano l'iscrizione a queste offerte avranno attivata la funzionalità Limite di spesa con un valore pari a $ 0.
+Sì. La [funzionalità di limite di spesa](https://azure.microsoft.com/pricing/spending-limits/) consente ai clienti che si iscrivono per un'offerta per una versione di valutazione gratuita, con credito mensile per i sottoscrittori di Visual Studio, per Microsoft Partner Network o per BizSpark di usare Azure senza incorrere in addebiti fino a quando mantengono attivata la funzionalità di limite di spesa. Tutti i nuovi clienti che effettuano l'iscrizione a queste offerte avranno attivata la funzionalità Limite di spesa con un valore pari a $ 0.
 
 ### <a name="can-i-turn-the-spending-limit-back-on-if-i-turn-off-it"></a>Si può riattivare il limite di spesa dopo che è stato disattivato?
-I clienti che hanno diritto ai vantaggi riservati agli iscritti, ad esempio MSDN, possono richiedere la riabilitazione della funzionalità Limite di spesa all'inizio del successivo ciclo di fatturazione. Se il limite di spesa è stato disattivato, non può essere riabilitato per il periodo di fatturazione corrente.
+I clienti che hanno diritto alle offerte riservate ai membri, ad esempio il credito mensile per sottoscrittori di Visual Studio, possono richiedere la riabilitazione della funzionalità di limite di spesa all'inizio del successivo ciclo di fatturazione. Se il limite di spesa è stato disattivato, non può essere riabilitato per il periodo di fatturazione corrente.
 Per altre informazioni, vedere [Modificare il limite di spesa di Azure](https://msdn.microsoft.com/library/azure/dn465781.aspx).
 
 ### <a name="can-i-adjust-the-amount-of-the-spending-limit"></a>Si può modificare l'importo del limite di spesa?
-Per il rilascio iniziale di questa funzionalità, il limite di spesa è fissato a 0 USD e non può essere modificato. Il limite di spesa è progettato per consentire ai clienti che hanno sottoscritto versioni di valutazione gratuita e offerte MSDN, MPN o BizSpark di utilizzare Azure con l'assoluta certezza di non incorrere in alcun addebito.
+Per il rilascio iniziale di questa funzionalità, il limite di spesa è fissato a 0 USD e non può essere modificato. Tale limite è pensato per consentire ai clienti con versione di valutazione gratuita o con credito mensile per i sottoscrittori di Visual Studio, con offerte Microsoft Partner Network o BizSpark di usare Azure con la garanzia completa di non incorrere in addebiti.
 Per altre informazioni, vedere [Limite di spesa di Azure](https://azure.microsoft.com/pricing/spending-limits/).
 
 ### <a name="in-which-countries-and-regions-is-microsoft-azure-commercially-available-and-what-currencies-can-be-used-to-purchase-azure"></a>In quali paesi e aree geografiche Microsoft Azure è attualmente disponibile in commercio e quali valute possono essere usate per acquistare Azure?
@@ -297,6 +297,6 @@ Se è stata configurata una [modalità di pagamento con fattura](https://azure.m
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

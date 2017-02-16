@@ -15,17 +15,12 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 712c62ed3d5ff21847e2431df3530e7d39c6aae2
-ms.openlocfilehash: 53f7c17d8404bb02ab8bb2be9018ba2b179f1b08
+ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
+ms.openlocfilehash: 6ec7c5ac984476e3645b45f5e8cf98cf0aa18e5d
 
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Ruoli Web e ruoli di lavoro Python con Python Tools for Visual Studio
-
-> [!div class="op_single_selector"]
-> * [.NET](cloud-services-dotnet-get-started.md)
-> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
-> * [Python](cloud-services-python-ptvs.md)
 
 Questo articolo offre una panoramica dell'uso dei ruoli Web e di lavoro con [Python Tools for Visual Studio][Python Tools for Visual Studio]. Si apprenderà come usare Visual Studio per creare e distribuire un servizio cloud di base che usa Python.
 

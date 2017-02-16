@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2016
+ms.date: 11/18/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: b39a1959496a6705e3ca8c7a86b9ce8072eb768e
+ms.sourcegitcommit: eaacffd5c8a0364631fd49b3fed33036a493eea4
+ms.openlocfilehash: da7443f3bd38ec41ad2d6b0ce6f573525678e6bd
 
 
 ---
@@ -27,7 +27,7 @@ Analogamente a qualsiasi altro computer, le macchine virtuali in Azure utilizzan
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="operating-system-disk"></a>Disco del sistema operativo
-Tutte le macchine virtuali dispongono di un disco del sistema operativo collegato. Per impostazione predefinita, è registrato come unità SATA ed etichettato come unità C:. Questo disco ha una capacità massima di 1023 GB. 
+Tutte le macchine virtuali dispongono di un disco del sistema operativo collegato. Per impostazione predefinita, è registrato come unità SATA con etichetta /dev/sda. Questo disco ha una capacità massima di 1023 GB. 
 
 ## <a name="temporary-disk"></a>Disco temporaneo
 Il disco temporaneo viene creato automaticamente. Nelle macchine virtuali di Linux, il disco è in genere /dev/sdb e viene formattato e montato in /mnt/resource dall'agente Linux di Azure.
@@ -80,6 +80,6 @@ Prima di poter eliminare un file con estensione .vhd di origine, sarà necessari
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a5ff81a2b693c8a7b97783d6a43cab204c7ec3eb
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 01867f283678171eda8fb9798ea996cae605665a
 
 
 ---
 # <a name="nodejs-web-app-using-the-azure-table-service"></a>App Web Node.js con il servizio tabelle di Azure
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 In questa esercitazione viene illustrato come usare il servizio tabelle fornito da Gestione dati di Azure per archiviare e accedere ai dati da un'applicazione [node] ospitata nel [servizio App di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). In questa esercitazione si presuppone che l'utente abbia già utilizzato l'applicazione Node e [Git].
 
 Si acquisiranno le nozioni seguenti:
@@ -559,12 +559,12 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 <!-- URLs -->
 
 [Creazione e distribuzione di un'app Web Node.js nel Azure App Service]: web-sites-nodejs-develop-deploy-mac.md
-[Centro per sviluppatori di Azure]: /develop/nodejs/
+[Azure Developer Center]: /develop/nodejs/
 
 [node]: http://nodejs.org
 [Git]: http://git-scm.com
 [Express]: http://expressjs.com
-[gratuitamente]: http://windowsazure.com
+[for free]: http://windowsazure.com
 [GIT remoto]: http://git-scm.com/docs/git-remote
 
 [Interfaccia della riga di comando di Azure]: ../xplat-cli-install.md
@@ -574,9 +574,9 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 [nconf]: https://www.npmjs.com/package/nconf
 [async]: https://www.npmjs.com/package/async
 
-[Portale di Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 
-[Creare e distribuire un'applicazione Node.js in un sito Web Azure]: web-sites-nodejs-develop-deploy-mac.md
+[Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
 
 <!-- Image References -->
 
@@ -594,6 +594,6 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: c1c23ab46d9b4e43154a62080cb8865b246489f9
-ms.openlocfilehash: 2e11486203f04d671548b6132e61f804acb7f90a
+ms.sourcegitcommit: f9814fc0011153a25489d60d696bb567edfcebc4
+ms.openlocfilehash: a86b041424ce1757fd45c7a39350f4c4e66ee265
 
 
 ---
@@ -30,22 +30,13 @@ ms.openlocfilehash: 2e11486203f04d671548b6132e61f804acb7f90a
 >
 >
 
-Ridimensionare le prestazioni tramite la scalabilità orizzontale delle risorse di calcolo e della memoria per soddisfare le diverse esigenze del carico di lavoro. Risparmiare sui costi ridimensionando le risorse durante le ore non di punta o sospendendo completamente il calcolo.
-
-Questa raccolta di attività usa il portale di Azure per:
-
-* Ridimensionare le risorse di calcolo
-* Sospendere le risorse di calcolo
-* Riavviare le risorse di calcolo
-
-Per altre informazioni, vedere [Panoramica sulla gestione del calcolo][Panoramica sulla gestione del calcolo] (Panoramica sulla gestione del calcolo).
 
 ## <a name="scale-compute-power"></a>Ridimensionare la potenza di calcolo
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
 Per modificare le risorse di calcolo:
 
-1. Aprire il [portale di Azure][portale di Azure], aprire il database e fare clic su **Scala**.
+1. Aprire il [portale di Azure][Azure portal] e quindi il database e fare clic su **Ridimensiona**.
 
     ![Fare clici su Ridimensiona][1]
 2. Nel pannello Scala, spostare il dispositivo di scorrimento a sinistra o a destra per modificare l'impostazione delle DWU.
@@ -62,7 +53,7 @@ Per modificare le risorse di calcolo:
 
 Per sospende un database:
 
-1. Aprire il [portale di Azure][portale di Azure] e aprire il database. Osservare che lo stato è **Online**.
+1. Aprire il [portale di Azure][Azure portal] e quindi il database. Osservare che lo stato è **Online**.
 
     ![Stato online][6]
 2. Per sospendere il calcolo e le risorse di memoria, fare clic su **Sospendi**. Viene visualizzato un messaggio di conferma. Fare clic su **Sì** per confermare o su **No** per annullare.
@@ -80,7 +71,7 @@ Per sospende un database:
 
 Per riattivare un database:
 
-1. Aprire il [portale di Azure][portale di Azure] e aprire il database. Osservare che lo stato è **Sospeso**.
+1. Aprire il [portale di Azure][Azure portal] e quindi il database. Osservare che lo stato è **Sospeso**.
 
     ![Database in pausa][4]
 2. Per riattivare il database fare clic su **Avvia**. Viene visualizzato un messaggio di conferma. Fare clic su **Sì** per confermare o su **No** per annullare.
@@ -94,7 +85,7 @@ Per riattivare un database:
 <a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni, vedere [Panoramica della gestione][Panoramica della gestione].
+Per altre informazioni, vedere la [panoramica della gestione][Management overview].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-manage-compute-portal/click-scale.png
@@ -106,18 +97,18 @@ Per altre informazioni, vedere [Panoramica della gestione][Panoramica della gest
 [7]: ./media/sql-data-warehouse-manage-compute-portal/pause-confirm.png
 
 <!--Article references-->
-[Panoramica della gestione]: ./sql-data-warehouse-overview-manage.md
-[Panoramica sulla gestione del calcolo]: ./sql-data-warehouse-manage-compute-overview.md
+[Management overview]: ./sql-data-warehouse-overview-manage.md
+[Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-[portale di Azure]: http://portal.azure.com/
+[Azure portal]: http://portal.azure.com/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

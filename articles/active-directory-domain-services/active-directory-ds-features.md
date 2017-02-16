@@ -43,6 +43,6 @@ Nei domini gestiti di Servizi di dominio Azure AD sono disponibili le funzionali
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

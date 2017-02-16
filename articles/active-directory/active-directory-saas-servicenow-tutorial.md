@@ -1,96 +1,151 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con ServiceNow | Microsoft Docs'
-description: Informazioni su come usare ServiceNow con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora.
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e ServiceNow e ServiceNow Express.
 services: active-directory
+documentationcenter: 
 author: jeevansd
-documentationcenter: na
 manager: femila
-
+editor: 
+ms.assetid: 1d8eb99e-8ce5-4ba4-8b54-5c3d9ae573f6
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 09/26/2016
+ms.date: 11/23/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2e650a5f6e2e69b11d7acbc7628e6ce6f29e5e1c
+ms.openlocfilehash: 6909e6b9770761ecba2069d43df1ad8c04345d4a
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-servicenow"></a>Esercitazione: Integrazione di Azure Active Directory con ServiceNow
-Questa esercitazione descrive l'integrazione di Azure e ServiceNow.  
-Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+# <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Esercitazione: Integrazione di Azure Active Directory con ServiceNow
+Questa esercitazione descrive come integrare ServiceNow e ServiceNow Express con Azure Active Directory (Azure AD).
 
-* Sottoscrizione di Azure valida
-* Tenant in ServiceNow, versione Calgary o versione successiva
-* Il tenant di ServiceNow deve avere il [Multiple Provider Single Sign On Plugin](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) abilitato. Questa operazione può essere eseguita inviando una richiesta di servizio ad https://hi.service-now.com/ 
+L'integrazione di ServiceNow e ServiceNow Express con Azure AD offre i vantaggi seguenti:
 
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a ServiceNow potranno accedere all'applicazione tramite il sito aziendale di ServiceNow (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md)
+* È possibile controllare in Azure AD chi può accedere a ServiceNow e ServiceNow Express
+* È possibile abilitare gli utenti per l'accesso automatico a ServiceNow e ServiceNow Express (Single Sign-On) con i propri account Azure AD
+* È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
-Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-1. Abilitazione dell'integrazione dell'applicazione per ServiceNow
-2. Configurazione dell'accesso Single Sign-On
-3. Configurazione del provisioning utente
-4. Assegnazione degli utenti
+## <a name="prerequisites"></a>Prerequisiti
+Per configurare l'integrazione di Azure AD con ServiceNow e ServiceNow Express, sono necessari gli elementi seguenti:
 
-![Scenario](./media/active-directory-saas-servicenow-tutorial/IC769496.png "Scenario")
+* Sottoscrizione di Azure AD.
+* Per ServiceNow, un'istanza o un tenant di ServiceNow, versione Calgary o successiva
+* Per ServiceNow Express, un'istanza di ServiceNow Express, versione Helsinki o successiva
+* Nel tenant di ServiceNow deve essere abilitato il [plug-in Multiple Provider Single Sign On](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0). Questa operazione può essere eseguita [inviando una richiesta di servizio](https://hi.service-now.com). 
 
-## <a name="enabling-the-application-integration-for-servicenow"></a>Abilitazione dell'integrazione dell'applicazione per ServiceNow
-Questa sezione descrive come abilitare l'integrazione dell'applicazione per ServiceNow.
+> [!NOTE]
+> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
+> 
+> 
 
-### <a name="to-enable-the-application-integration-for-servicenow,-perform-the-following-steps:"></a>Per abilitare l'integrazione dell'applicazione per ServiceNow, seguire questa procedura:
-1. Nel portale di Azure classico fare clic su **Active Directory**nel riquadro di spostamento sinistro.
+A questo scopo, è consigliabile seguire le indicazioni seguenti:
+
+* Non usare l'ambiente di produzione, a meno che non sia necessario.
+* Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Descrizione dello scenario
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+
+1. Aggiunta di ServiceNow dalla raccolta
+2. Configurazione e test dell'accesso Single Sign-On di Azure AD per ServiceNow o ServiceNow Express
+
+## <a name="adding-servicenow-from-the-gallery"></a>Aggiunta di ServiceNow dalla raccolta
+Per configurare l'integrazione di ServiceNow o ServiceNow Express in Azure AD, è necessario aggiungere ServiceNow dalla raccolta al proprio elenco di app SaaS gestite. 
+
+**Per aggiungere ServiceNow dalla raccolta, seguire questa procedura:**
+
+1. Nel **portale di Azure classico**fare clic su **Active Directory**nel riquadro di spostamento sinistro. 
    
-   ![Active Directory](./media/active-directory-saas-servicenow-tutorial/IC700993.png "Active Directory")
+    ![Active Directory][1]
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
    
-   ![Applications](./media/active-directory-saas-servicenow-tutorial/IC700994.png "Applications")
+    ![Applications][2]
 4. Fare clic su **Add** nella parte inferiore della pagina.
    
-   ![Aggiungi applicazione](./media/active-directory-saas-servicenow-tutorial/IC749321.png "Add application")
+    ![Applicazioni][3]
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
    
-   ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-servicenow-tutorial/IC749322.png "Add an application from gallerry")
-6. Nella **casella di ricerca** digitare **ServiceNow**.
+    ![Applicazioni][4]
+6. Nella casella di ricerca digitare **ServiceNow**.
    
-   ![Raccolta di applicazioni](./media/active-directory-saas-servicenow-tutorial/IC701016.png "Application gallery")
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_01.png)
 7. Nel riquadro dei risultati selezionare **ServiceNow** e quindi fare clic su **Completa** per aggiungere l'applicazione.
    
-   ![ServiceNow](./media/active-directory-saas-servicenow-tutorial/IC701017.png "ServiceNow")
-   
-   ## <a name="configuring-single-sign-on"></a>Configurazione dell'accesso Single Sign-On
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_02.png)
 
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a ServiceNow tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con ServiceNow o ServiceNow Express in base a un utente test di nome "Britta Simon".
 
-Come parte di questa procedura, verrà richiesto di caricare un file di certificato con codifica Base 64 nel tenant di Dropbox for Business. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di ServiceNow e che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in ServiceNow.
+La relazione di collegamento viene stabilita assegnando al valore di **nome utente** in Azure AD lo stesso valore di **Username** (Nome utente) in ServiceNow. Per configurare e testare l'accesso Single Sign-On di Azure AD con ServiceNow, è necessario completare i blocchi predefiniti seguenti:
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
+1. **[Configurazione dell'accesso Single Sign-On per ServiceNow](#configuring-azure-ad-single-sign-on-for-servicenow)**: per abilitare gli utenti all'uso di questa funzionalità.
+2. **[Configurazione dell'accesso Single Sign-On per ServiceNow Express](#configuring-azure-ad-single-sign-on-for-servicenow-express)**: per abilitare gli utenti all'uso di questa funzionalità.
+3. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Creazione di un utente test per ServiceNow](#creating-a-servicenow-test-user)**: per avere una controparte di Britta Simon in ServiceNow collegata alla relativa rappresentazione in Azure AD.
+5. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+6. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+
+> [!NOTE]
+> Se si vuole configurare ServiceNow, ignorare il passaggio 2. Se si vuole configurare ServiceNow Express, ignorare il passaggio 1.
+> 
+> 
+
+### <a name="configuring-azure-ad-single-sign-on-for-servicenow"></a>Configurazione dell'accesso Single Sign-On per ServiceNow
 1. Nella pagina di integrazione dell'applicazione **ServiceNow** del portale di Azure AD classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC749323.png "Configure single sign-on")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC749323.png "Configure single sign-on")
+
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a ServiceNow** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC749324.png "Configure single sign-on")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC749324.png "Configure single sign-on")
+
 3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
    
-   ![Configura URL app](./media/active-directory-saas-servicenow-tutorial/IC769497.png "Configure app URL")
+    ![Configura URL app](./media/active-directory-saas-servicenow-tutorial/IC769497.png "Configure app URL")
    
-   a. nella casella di testo **URL di accesso per ServiceNow** digitare l'URL utilizzato dagli utenti per accedere all'applicazione ServiceNow, ad esempio *https://\<InstanceName\>.service-now.com*.
+    a. Nella casella di testo **URL di accesso ServiceNow** digitare l'URL usato dagli utenti per accedere all'applicazione ServiceNow, seguendo il modello `https://<instance-name>.service-now.com`.
    
-   b. Nella casella di testo **URL autorità di certificazione** digitare l'URL utilizzato dagli utenti per accedere all'applicazione ServiceNow, ad esempio *https://\<InstanceName\>.service-now.com*.
+    b. Nella casella di testo **Identificatore** digitare l'URL usato dagli utenti per accedere all'applicazione ServiceNow, seguendo il modello `https://<instance-name>.service-now.com`.
    
-   c. Fare clic su **Avanti**
+    c. Fare clic su **Avanti**
+
 4. Per fare in modo che Azure AD configuri automaticamente ServiceNow per l'autenticazione basata su SAML, immettere il nome dell'istanza ServiceNow, il nome utente amministratore e la password di amministratore nel modulo **Configura automaticamente l'accesso Single Sign-On** e fare clic su *Configura*. Affinché la procedura funzioni, il nome utente con diritti amministrativi fornito deve avere il ruolo **security_admin** assegnato in ServiceNow. In caso contrario, per configurare manualmente ServiceNow per usare Azure AD come provider di identità SAML, fare clic su **Configura manualmente questa applicazione per l'accesso Single Sign-On**, quindi fare clic su **Avanti** e completare la procedura seguente.
    
-   ![Configura URL app](./media/active-directory-saas-servicenow-tutorial/IC7694971.png "Configure app URL")
-5. Nella pagina **Configura accesso Single Sign-On in ServiceNow** fare clic su **Download certificato** per scaricare il file del certificato e salvarlo nel computer e quindi fare clic su **Avanti**.
+    ![Configura URL app](./media/active-directory-saas-servicenow-tutorial/IC7694971.png "Configure app URL")
+
+5. Nella pagina **Configura accesso Single Sign-On in ServiceNow** fare clic su **Download certificato** per scaricare il file del certificato e salvarlo nel computer.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC749325.png "Configure single sign-on")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC749325.png "Configure single sign-on")
+
 6. Accedere all'applicazione ServiceNow come amministratore.
-7. Nel riquadro di spostamento a sinistra fare clic su **Properties**.  
+
+7. Attivare il plug-in *Integration - Multiple Provider Single Sign-On Installer* seguendo questa procedura:
    
-    ![Configura URL app](./media/active-directory-saas-servicenow-tutorial/IC7694980.png "Configure app URL")
-8. Nella finestra di dialogo **Multiple Provider SSO Properties** seguire questa procedura:
+    a. Nel riquadro di spostamento a sinistra, passare alla sezione **definizione sistema** e quindi fare clic su **Plugins** (Plug-in).
+   
+    ![Configura URL app](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_03.png "Activate plugin")
+   
+    b. Cercare *Integration - Multiple Provider Single Sign-On Installer*.
+   
+    ![Configura URL app](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_04.png "Activate plugin")
+   
+    c. Selezionare il plug-in. Fare clic e selezionare **Activate/Upgrade** (Attiva/Aggiorna).
+   
+    d. Fare clic sul pulsante **Activate** (Attiva).
+
+8. Nel riquadro di spostamento a sinistra fare clic su **Properties**.  
+   
+    ![Configura URL app](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_06.png "Configure app URL")
+
+9. Nella finestra di dialogo **Multiple Provider SSO Properties** seguire questa procedura:
    
     ![Configura URL app](./media/active-directory-saas-servicenow-tutorial/IC7694981.png "Configure app URL")
    
@@ -101,13 +156,16 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
     c. Nella casella di testo **The field on the user table that...** digitare **user_name**.
    
     d. Fare clic su **Save**.
-9. Nel riquadro di spostamento a sinistra fare clic su **x509 Certificates**.
-   
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC7694973.png "Configure single sign-on")
-10. Nella finestra di dialogo **X.509 Certificates** fare clic su **New**.
+
+10. Nel riquadro di spostamento a sinistra fare clic su **x509 Certificates**.
+    
+     ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_05.png "Configure single sign-on")
+
+11. Nella finestra di dialogo **X.509 Certificates** fare clic su **New**.
     
      ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC7694974.png "Configure single sign-on")
-11. Nella finestra di dialogo **X.509 Certificates** seguire questa procedura:
+
+12. Nella finestra di dialogo **X.509 Certificates** seguire questa procedura:
     
      ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "Configure single sign-on")
     
@@ -121,26 +179,23 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
     
      e. Per **Type** selezionare **Trust Store Cert**.
     
-     f. Creare un file con codifica Base 64 dal certificato scaricato.
+     f. Aprire il certificato con codifica Base64 in Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **PEM Certificate**.
     
-    > [!NOTE]
-    > Per altre informazioni, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
-    > 
-    > 
+     g. Fare clic su **Update**.
+
+13. Nel riquadro di spostamento a sinistra fare clic su **Identity Providers**.
     
-     g. Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **PEM Certificate** .
-    
-     h. Fare clic su **Update**.
-12. Nel riquadro di spostamento a sinistra fare clic su **Identity Providers**.
-    
-     ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC7694976.png "Configure single sign-on")
-13. Nella finestra di dialogo **Identity Providers** fare clic su **New**:
+     ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_07.png "Configure single sign-on")
+
+14. Nella finestra di dialogo **Identity Providers** fare clic su **New**:
     
      ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC7694977.png "Configure single sign-on")
-14. Nella finestra di dialogo **Identity Providers** fare clic su **SAML2 Update1?**:
+
+15. Nella finestra di dialogo **Identity Providers** fare clic su **SAML2 Update1?**:
     
      ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC7694978.png "Configure single sign-on")
-15. Nella finestra di dialogo SAML2 Update1 Properties seguire questa procedura:
+
+16. Nella finestra di dialogo SAML2 Update1 Properties seguire questa procedura:
     
      ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC7694982.png "Configure single sign-on")
 
@@ -148,7 +203,8 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
 
     b. Nella casella di testo **User Field** (Campo utente) digitare **email** o **user_id**, a seconda di quale campo viene usato per identificare in modo univoco gli utenti nella distribuzione ServiceNow. 
 
-    **Nota:** è possibile configurare Azure AD per generare l'ID utente di Azure AD (nome principale utente) o l'indirizzo di posta elettronica come identificatore univoco nel token SAML andando alla sezione **ServiceNow > Attributi > Single Sign-On** del portale di Azure classico ed eseguendo il mapping del campo desiderato sull'attributo **nameidentifier**. Il valore archiviato per l'attributo selezionato in Azure AD (ad esempio nome dell'entità utente) deve corrispondere al valore archiviato in ServiceNow per il campo immesso (ad esempio user_id)
+    > [!NOTE] 
+    > Per configurare Azure AD per generare l'ID utente di Azure AD, ovvero il nome dell'entità utente, o l'indirizzo di posta elettronica come identificatore univoco nel token SAML, passare alla sezione **ServiceNow > Attributi > Single Sign-On** del portale di Azure classico ed eseguire il mapping del campo scelto all'attributo **nameidentifier**. Il valore archiviato per l'attributo selezionato in Azure AD (ad esempio nome dell'entità utente) deve corrispondere al valore archiviato in ServiceNow per il campo immesso (ad esempio user_id)
 
     c. Nel portale di Azure AD classico copiare il valore in **ID provider di identità** e incollarlo nella casella di testo **Identity Provider URL** (ID provider di identità).
 
@@ -158,8 +214,8 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
 
     f. Nella casella di testo **ServiceNow Homepage** digitare l'URL della home page dell'istanza di ServiceNow.
 
-    > [AZURE.NOTE] La home page dell'istanza di ServiceNow è una concatenazione dell'**URL tenant di ServiceNow** e **/navpage.do**, ad esempio *https://fabrikam.service-now.com/navpage.do*.
-
+    > [!NOTE] 
+    > L'URL della home page dell'istanza di ServiceNow è una concatenazione dell'**URL del tenant di ServiceNow** e **/navpage.do**, ad esempio `https://fabrikam.service-now.com/navpage.do`.
 
     g. Nella casella di testo **Entity ID / Issuer** digitare l'URL del tenant ServiceNow.
 
@@ -171,7 +227,7 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
 
     k. Fare clic su **Create an AuthnContextClass**.
 
-    l. Nel **metodo AuthnContextClassRef** digitare **http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
+    l. In **AuthnContextClassRef Method** (Metodo AuthnContextClassRef) digitare `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`. Questa operazione è necessaria soltanto per le organizzazioni basate solo su cloud. Se si usa AD FS o MFA in locale per l'autenticazione, non è necessario configurare questo valore. 
 
     m. Nella casella di testo **Clock Skew** digitare **60**.
 
@@ -181,23 +237,154 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
 
     p. Fare clic su **Submit**. 
 
-
-
 1. Nel portale di Azure AD classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. 
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "Configure single sign-on")
+
 2. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
+   
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC7694991.png "Configure single sign-on")
+
+### <a name="configuring-azure-ad-single-sign-on-for-servicenow-express"></a>Configurazione dell'accesso Single Sign-On per ServiceNow Express
+1. Nella pagina di integrazione dell'applicazione **ServiceNow** del portale di Azure AD classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+   
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC749323.png "Configure single sign-on")
+
+2. Nella pagina **Stabilire come si desidera che gli utenti accedano a ServiceNow** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
+   
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC749324.png "Configure single sign-on")
+
+3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
+   
+    ![Configura URL app](./media/active-directory-saas-servicenow-tutorial/IC769497.png "Configure app URL")
+   
+    a. Nella casella di testo **URL di accesso ServiceNow** digitare l'URL usato dagli utenti per accedere all'applicazione ServiceNow, seguendo il modello `https://<instance-name>.service-now.com`.
+   
+    b. Nella casella di testo **URL autorità di certificazione** digitare l'URL usato dagli utenti per accedere all'applicazione ServiceNow, seguendo il modello `https://<instance-name>.service-now.com`.
+   
+    c. Fare clic su **Avanti**
+
+4. Fare clic su **Configura manualmente questa applicazione per l'accesso Single Sign-On**, quindi fare clic su **Avanti** e seguire questa procedura.
+   
+    ![Configura URL app](./media/active-directory-saas-servicenow-tutorial/IC7694971.png "Configure app URL")
+
+5. Nella pagina **Configura accesso Single Sign-On in ServiceNow** fare clic su **Download certificato** per scaricare il file del certificato e salvarlo nel computer e quindi fare clic su **Avanti**.
+   
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC749325.png "Configure single sign-on")
+
+6. Accedere all'applicazione ServiceNow Express come amministratore.
+
+7. Nel riquadro di spostamento a sinistra fare clic su **Single Sign-On**.  
+   
+    ![Configura URL app](./media/active-directory-saas-servicenow-tutorial/ic7694980ex.png "Configure app URL")
+
+8. Nella finestra di dialogo **Single Sign-On** fare clic sull'icona di configurazione nell'angolo superiore destro e impostare le proprietà seguenti:
+   
+    ![Configura URL app](./media/active-directory-saas-servicenow-tutorial/ic7694981ex.png "Configure app URL")
+   
+    a. Spostare **Enable multiple provider SSO** (Abilita SSO per più provider) verso destra.
+   
+    b. Spostare **Enable debug logging for the multiple provider SSO integration** (Abilita la registrazione debug per l'integrazione SSO per più provider) verso destra.
+   
+    c. Nella casella di testo **The field on the user table that...** digitare **user_name**.
+9. Nella finestra di dialogo **Single Sign-On** fare clic su **Add New Certificate** (Aggiungi nuovo certificato).
+   
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/ic7694973ex.png "Configure single sign-on")
+10. Nella finestra di dialogo **X.509 Certificates** seguire questa procedura:
+    
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "Configure single sign-on")
+    
+    a. Nella casella di testo **Name** digitare un nome per la configurazione, ad esempio **TestSAML2.0**.
+    
+    b. Selezionare **Active**.
+    
+    c. Per **Format** selezionare **PEM**.
+    
+    d. Per **Type** selezionare **Trust Store Cert**.
+    
+    e. Creare un file con codifica Base64 dal certificato scaricato.
+    
+    > [!NOTE]
+    > Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+    > 
+    > 
+    
+    f. Aprire il certificato con codifica Base64 in Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **PEM Certificate**.
+    
+    g. Fare clic su **Update**.
+11. Nella finestra di dialogo **Single Sign-On** fare clic su **Add New IdP** (Aggiungi nuovo IdP).
+    
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/ic7694976ex.png "Configure single sign-on")
+12. Nella finestra di dialogo **Add New Identity Provider** (Aggiungi nuovo provider di identità) in **Configure Identity Provider** (Configura provider di identità) seguire questa procedura:
+    
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/ic7694982ex.png "Configure single sign-on")
+
+    a. Nella casella di testo **Name** (Nome) digitare un nome per la configurazione, ad esempio **SAML 2.0**.
+
+    b. Nel portale di Azure AD classico copiare il valore in **ID provider di identità** e incollarlo nella casella di testo **Identity Provider URL** (ID provider di identità).
+
+    c. Nel portale di Azure AD classico copiare il valore in **URL richiesta di autenticazione** e incollarlo nella casella di testo **Identity Provider's AuthnRequest** (Richiesta di autenticazione provider di identità).
+
+    d. Nel portale di Azure AD classico copiare il valore in **URL servizio Single Sign-Out** e incollarlo nella casella di testo **Identity Provider's SingleLogoutRequest** (Richiesta Single Sign-Out del provider di identità).
+
+    e. Per **Identity Provider Certificate** (Certificato del provider di identità) selezionare il certificato creato nel passaggio precedente.
+
+
+1. Fare clic su **Advanced Settings** (Impostazioni avanzate). In **Additional Identity Provider Properties** (Proprietà del provider di identità aggiuntivo) seguire questa procedura:
+   
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/ic7694983ex.png "Configure single sign-on")
+   
+    a. Nella casella di testo **Protocol Binding for the IDP's SingleLogoutRequest** digitare **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
+   
+    b. Nella casella di testo **NameID Policy** (Criteri NameID) digitare **urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified**.    
+   
+    c. Nel **metodo AuthnContextClassRef** digitare **http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
+   
+    d. Fare clic su **Create an AuthnContextClass**.
+
+2. In **Additional Service Provider Properties** (Proprietà del provider di identità aggiuntivo) seguire questa procedura:
+   
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/ic7694984ex.png "Configure single sign-on")
+   
+    a. Nella casella di testo **ServiceNow Homepage** digitare l'URL della home page dell'istanza di ServiceNow.
+   
+    > [!NOTE]
+    > L'URL della home page dell'istanza di ServiceNow è una concatenazione dell'**URL del tenant di ServiceNow** e **/navpage.do**, ad esempio `https://fabrikam.service-now.com/navpage.do`.
+    > 
+    > 
+   
+    b. Nella casella di testo **Entity ID / Issuer** digitare l'URL del tenant ServiceNow.
+   
+    c. Nella casella di testo **Audience URI** (URI destinatario) digitare l'URL del tenant ServiceNow. 
+   
+    d. Nella casella di testo **Clock Skew** digitare **60**.
+   
+    e. Nella casella di testo **User Field** (Campo utente) digitare **email** o **user_id**, a seconda di quale campo viene usato per identificare in modo univoco gli utenti nella distribuzione ServiceNow.
+   
+    > [!NOTE]
+    > Per configurare Azure AD per generare l'ID utente di Azure AD, ovvero il nome dell'entità utente, o l'indirizzo di posta elettronica come identificatore univoco nel token SAML, passare alla sezione **ServiceNow > Attributi > Single Sign-On** del portale di Azure classico ed eseguire il mapping del campo scelto all'attributo **nameidentifier**. Il valore archiviato per l'attributo selezionato in Azure AD (ad esempio nome dell'entità utente) deve corrispondere al valore archiviato in ServiceNow per il campo immesso (ad esempio user_id)
+    > 
+    > 
+   
+    f. Fare clic su **Save**. 
+
+3. Nel portale di Azure AD classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. 
+   
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "Configure single sign-on")
+
+4. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/IC7694991.png "Configure single sign-on")
 
 ## <a name="configuring-user-provisioning"></a>Configurazione del provisioning utente
 Questa sezione descrive come abilitare il provisioning degli account utente di Azure Active Directory in ServiceNow.
 
-### <a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>Per configurare il provisioning utente, eseguire la procedura seguente:
+### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Per configurare il provisioning utente, eseguire la procedura seguente:
 1. Nella pagina di integrazione dell'applicazione **ServiceNow** del portale di gestione di Azure classico fare clic su **Configura provisioning utenti**. 
    
     ![Provisioning utenti](./media/active-directory-saas-servicenow-tutorial/IC769498.png "User provisioning")
-2. Nella pagina **Immettere le credenziali ServiceNow per abilitare il provisioning utente automatico** specificare le credenziali di configurazione seguenti: Configura provisioning utenti 
+
+2. Nella pagina **Enter your ServiceNow credentials to enable automatic user provisioning** (Immettere le credenziali Jive per abilitare il provisioning utenti automatico) specificare le impostazioni di configurazione seguenti:
    
      a. Nella casella di testo **Nome istanza ServiceNow** digitare il nome dell'istanza di ServiceNow.
    
@@ -215,24 +402,123 @@ Questa sezione descrive come abilitare il provisioning degli account utente di A
    
      g. Nella pagina **Passaggi successivi** fare clic su **Completa** per salvare la configurazione.
 
-## <a name="assigning-users"></a>Assegnazione degli utenti
-Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si desidera consentirne l'uso, assegnando tali utenti all'applicazione.
+### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+In questa sezione viene creato un utente test chiamato Britta Simon nel portale classico.
 
-### <a name="to-assign-users-to-servicenow,-perform-the-following-steps:"></a>Per assegnare gli utenti a ServiceNow, seguire questa procedura:
-1. Nel portale di Azure AD classico creare un account di test.
-2. Nella pagina di integrazione dell'applicazione **ServiceNow** fare clic su **Assegna utenti**.
-   
-   ![Assegna utenti](./media/active-directory-saas-servicenow-tutorial/IC769499.png "Assign users")
-3. Selezionare l'utente di test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
-   
-   ![Sì](./media/active-directory-saas-servicenow-tutorial/IC767830.png "Yes")
+![Creare un utente di Azure AD][20]
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+   
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-servicenow-tutorial/create_aaduser_09.png) 
+
+2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti**nel menu in alto.
+   
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-servicenow-tutorial/create_aaduser_03.png) 
+
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
+   
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-servicenow-tutorial/create_aaduser_04.png) 
+
+5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
+   
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-servicenow-tutorial/create_aaduser_05.png) 
+   
+    a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
+   
+    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
+   
+    c. Fare clic su **Avanti**.
+
+6. Nella pagina **Profilo utente** seguire questa procedura:
+   
+   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-servicenow-tutorial/create_aaduser_06.png) 
+   
+   a. Nella casella di testo **Nome** digitare **Britta**.  
+   
+   b. Nella casella di testo **Cognome** digitare **Simon**.
+   
+   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+   
+   d. Nell'elenco **Ruolo** selezionare **Utente**.
+   
+   e. Fare clic su **Avanti**.
+
+7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
+   
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-servicenow-tutorial/create_aaduser_07.png) 
+
+8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
+   
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-servicenow-tutorial/create_aaduser_08.png) 
+   
+    a. Prendere nota del valore visualizzato in **Nuova password**.
+   
+    b. Fare clic su **Complete**.   
+
+### <a name="creating-a-servicenow-test-user"></a>Creazione di un utente test di ServiceNow
+In questa sezione viene creato un utente di nome Britta Simon in ServiceNow. In questa sezione viene creato un utente di nome Britta Simon in ServiceNow. Se non si sa come aggiungere un utente all'account ServiceNow o ServiceNow Express, contattare il team di supporto di ServiceNow.
+
+### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ServiceNow.
+
+![Assegna utente][200] 
+
+**Per assegnare Britta Simon a ServiceNow, seguire questa procedura:**
+
+1. Per aprire la visualizzazione delle applicazioni nel portale classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
+   
+    ![Assegna utente][201] 
+
+2. Nell'elenco di applicazioni, selezionare **ServiceNow**.
+   
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_10.png) 
+
+3. Scegliere **Utenti**dal menu in alto.
+   
+    ![Assegna utente][203] 
+
+4. Nell'elenco Tutti gli utenti selezionare **Britta Simon**.
+
+5. Fare clic su **Assegna**sulla barra degli strumenti in basso.
+   
+    ![Assegna utente][205]
+
+### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+
+Quando si fa clic sul riquadro ServiceNow nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione ServiceNow.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
-<!--HONumber=Oct16_HO2-->
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_04.png
+
+
+[5]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_05.png
+[6]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_06.png
+[7]:  ./media/active-directory-saas-servicenow-tutorial/tutorial_general_050.png
+[10]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_060.png
+[11]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_070.png
+[20]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_201.png
+[203]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_203.png
+[204]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_204.png
+[205]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_205.png
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Adattatore StorSimple per SharePoint | Microsoft Docs
+title: Installare l&quot;adattatore StorSimple per SharePoint | Documentazione Microsoft
 description: Viene descritto come installare e configurare o rimuovere l&quot;adattatore StorSimple per SharePoint in una server farm di SharePoint.
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 07/11/2016
 ms.author: v-sharos
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6ad7aa62fec678d94898b6f749d51e25e99b4d1f
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: 8c7bcc959c15399e8be96eb8f37634d2763a3115
 
 
 ---
@@ -275,6 +275,6 @@ Dopo aver spostato nuovamente i BLOB nei database del contenuto di SQL Server, u
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

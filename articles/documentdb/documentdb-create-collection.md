@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 01/13/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 8f3e6b271f3ca5973a00f2a5a9e11dafeb9637aa
-ms.openlocfilehash: 45371ca337f291f37e1ac5c388170b7079dfad52
+ms.sourcegitcommit: ab863266e1462f970b7906f68be2bcf5edb0dfc3
+ms.openlocfilehash: ac64bb0de03053702a4663c9356b3f9ce332c7de
 
 
 ---
@@ -33,18 +33,18 @@ Per informazioni sulle raccolte, vedere [Creare una raccolta DocumentDB](#what-i
 2. Nel pannello **Account DocumentDB** dell'account selezionato fare clic su **Aggiungi raccolta**.
 
     ![Schermata che evidenzia gli account di DocumentDB nell'indice, l'account nel pannello Account DocumentDB e il database nel pannello dell’account DocumentDB, nella sezione Database](./media/documentdb-create-collection/docdb-database-creation-3.png)
-3. Nel pannello **Aggiungi raccolta** immettere l'ID della nuova raccolta nella casella **ID**. I nomi delle raccolte devono avere una lunghezza compresa tra 1 e 255 caratteri e non possono contenere `/ \ # ?` o spazi finali. Quando il nome viene convalidato, appare un segno di spunta verde nella casella ID.
+3. Nel pannello **Aggiungi raccolta**, nella casella **ID raccolta**, immettere l'ID per la nuova raccolta. I nomi delle raccolte devono avere una lunghezza compresa tra 1 e 255 caratteri e non possono contenere `/ \ # ?` o spazi finali. Quando il nome viene convalidato, appare un segno di spunta verde nella casella ID.
 
     ![Cattura di schermata in cui sono evidenziati il pulsante Aggiungi raccolta nel pannello Database, le impostazioni nel pannello Aggiungi raccolta e il pulsante OK. Portale di Azure per DocumentDB. Creatore di database basati su cloud per database JSON NoSQL](./media/documentdb-create-collection/docdb-collection-creation-5-8.png)
-4. Per impostazione predefinita, l'opzione **Piano tariffario** è impostata su **Standard**, per consentire di personalizzare la velocità effettiva e l'archiviazione per la raccolta. Per altre informazioni sul piano tariffario, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md).  
-5. Selezionare una **modalità di partizionamento** per la raccolta, tra **Partizione singola** e **Partizionata**.
+4. Per impostazione predefinita, **Capacità di archiviazione** è impostata su **250 GB** per gestire le raccolte partizionate.
 
-    Una **partizione singola** ha una capacità di archiviazione riservata di 10 GB e può avere livelli di velocità effettiva tra 400 e 10.000 unità richiesta al secondo (UR/sec). Una unità richiesta corrisponde alla velocità effettiva dell'operazione di lettura di un documento da 1 KB. Per altre informazioni sulle unità richiesta, vedere l'articolo [Unità richiesta in DocumentDB](documentdb-request-units.md).
+    Impostare la capacità di archiviazione su **10 GB** se si desidera una [raccolta a partizione singola](documentdb-partition-data.md#single-partition-and-partitioned-collections) con livelli di velocità effettiva da 400-10.000 unità richiesta/secondo (UR/s). Una unità richiesta corrisponde alla velocità effettiva dell'operazione di lettura di un documento da 1 KB. Per altre informazioni sulle unità richiesta, vedere l'articolo [Unità richiesta in DocumentDB](documentdb-request-units.md).
 
-    Una **raccolta partizionata** può essere ridimensionata per gestire uno spazio di archiviazione illimitato in più partizioni e può avere livelli di velocità effettiva a partire da 10.100 UR/sec. Per altre informazioni sulle raccolte partizionate, vedere [Raccolte a partizione singola e raccolte partizionate](documentdb-partition-data.md#single-partition-and-partitioned-collections).
+    Impostare la capacità di archiviazione su **250 GB** se si desidera una [raccolta partizionata](documentdb-partition-data.md#single-partition-and-partitioned-collections) scalabile per gestire una quantità illimitata di archiviazione in più partizioni e in grado di offrire livelli di velocità effettiva da 10.100 UR/s.
 
-    Per impostazione predefinita, la velocità effettiva di una nuova raccolta partizionata singola è impostata su 1000 UR/s con una capacità di archiviazione di 10 GB. Per una raccolta partizionata, la velocità effettiva è impostata su 10100 UR/s senza limite massimo di capacità o velocità effettiva.
-6. Se si sta creando una raccolta partizionata, selezionare la **chiave di partizione** per la raccolta. Quando si crea una raccolta ad alte prestazioni è importante selezionare la chiave di partizione corretta. Per altre informazioni sulla selezione di una chiave di partizione, vedere [Progettazione per il partizionamento](documentdb-partition-data.md#designing-for-partitioning).
+    Impostare la capacità di archiviazione su **Personalizzata** se si desidera eseguire il provisioning di una quantità diversa da 10 GB o 250 GB. DocumentDB ha una scalabilità praticamente illimitata, pertanto, è consigliabile includere la dimensione e la velocità effettiva di archiviazione richieste nella richiesta di supporto.
+
+6. Nella casella **Chiave di partizione** immettere una chiave di partizione per la raccolta. Questa impostazione è obbligatoria per le raccolte partizionate e facoltativa per le raccolte a partizione singola. Quando si crea una raccolta ad alte prestazioni è importante selezionare la chiave di partizione corretta. Per altre informazioni sulla selezione di una chiave di partizione, vedere [Progettazione per il partizionamento](documentdb-partition-data.md#designing-for-partitioning).
 7. Nel pannello **Database** creare un nuovo database o usarne uno esistente. I nomi dei database devono avere una lunghezza compresa tra 1 e 255 caratteri e non possono contenere `/ \ # ?` o spazi finali. Per convalidare il nome, fare clic all'esterno della casella di testo. Quando il nome è convalidato, viene visualizzato un segno di spunta verde nella casella.
 8. Fare su **OK** nella parte inferiore della schermata per creare la nuova raccolta.
 9. La nuova raccolta ora viene visualizzata nella sezione **Raccolte** del pannello **Panoramica**.
@@ -83,6 +83,6 @@ Quando sono presenti documenti in una raccolta, è possibile usare [DocumentDB S
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

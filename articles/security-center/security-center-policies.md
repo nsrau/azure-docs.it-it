@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/12/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
-ms.openlocfilehash: d9915ecbfca1eab7515b4879ae2b947c59f3ea2b
+ms.sourcegitcommit: fc82aaf3300a8d40fe00a2ae4dc008ccee6e2a66
+ms.openlocfilehash: 66cdc1fbe5afea4790e5c8ef34b4fcf2d7e89d84
 
 
 ---
@@ -50,7 +50,7 @@ Ad esempio, le risorse usate per lo sviluppo o il test possono avere requisiti d
    > È consigliabile attivare la raccolta dati per ogni sottoscrizione per assicurare che il monitoraggio della sicurezza sia disponibile per tutte le macchine virtuali esistenti e nuove. Abilitando la raccolta dati viene installato l'agente di monitoraggio. Se non si vuole abilitare subito la raccolta dati da questo percorso, è possibile farlo successivamente nelle visualizzazioni **Integrità** e **Raccomandazioni**. È anche possibile abilitare la raccolta dati solo per la sottoscrizione o per la macchina virtuale selezionata. Consultare le [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) per maggiori informazioni sulle macchine virtuali supportate.
    > 
    > 
-5. Se l'account di archiviazione non è ancora configurato, può essere visualizzato un avviso simile a quello illustrato nello screenshot seguente quando si apre **Criteri di sicurezza**:
+5. Se l'account di archiviazione non è ancora configurato, può essere visualizzato un avviso simile a quello illustrato nello screenshot seguente quando si apre **Criteri di sicurezza**. Se non si sceglie un account di archiviazione per ogni area, verrà creato automaticamente.
    
     ![Selezione dell'archiviazione](./media/security-center-policies/security-center-policies-fig2.png)
 6. Se viene visualizzato questo avviso, fare clic su questa opzione e selezionare l'area, come illustrato nello screenshot seguente:
@@ -111,6 +111,6 @@ In questo documento è stato descritto come configurare i criteri di sicurezza n
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

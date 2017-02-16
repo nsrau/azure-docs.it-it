@@ -1,5 +1,5 @@
 ---
-title: Distribuire un&quot;app Web collegata a un repository GitHub
+title: Distribuire un&quot;app Web collegata a un repository GitHub | Documentazione Microsoft
 description: Usare un modello di Gestione risorse di Azure per distribuire un&quot;app Web che contiene un progetto da un repository GitHub.
 services: app-service
 documentationcenter: 
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 04/27/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bcd39d5c4d837815daf0789744c2845a1e2e84f8
+ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
+ms.openlocfilehash: a2f0cbd56ebb90411de882f5b80b80c21d2ce884
 
 
 ---
 # <a name="deploy-a-web-app-linked-to-a-github-repository"></a>Distribuire un'app Web collegata a un repository GitHub
 In questo argomento si apprenderà come creare un modello di gestione risorse di Azure che consente di distribuire un'app Web collegata a un progetto in un repository GitHub. Verrà illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
 
-Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
+Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Per il modello completo, vedere [App Web collegata al modello GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.json).
 
@@ -101,13 +101,21 @@ Anziché impostare come hardcoded l'URL del repository, è possibile aggiungere 
     New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json -siteName ExampleSite -hostingPlanName ExamplePlan -siteLocation "West US" -ResourceGroupName ExampleDeployGroup
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json
+
+    azure group deployment create -g {resource-group-name} --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json
+
+### <a name="azure-cli-20-preview"></a>Interfaccia della riga di comando di Azure 2.0 (anteprima)
+
+    az group deployment create -g {resource-group-name} --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json --parameters '@azuredeploy.parameters.json'
+
+> [!NOTE] 
+> Per il contenuto del file JSON dei parametri, vedere [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.parameters.json).
+>
+>
 
 
 
 
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

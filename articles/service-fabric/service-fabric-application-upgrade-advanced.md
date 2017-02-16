@@ -1,32 +1,36 @@
 ---
-title: 'Aggiornamento di un''applicazione: argomenti avanzati | Microsoft Docs'
-description: Questo articolo illustra alcuni degli argomenti avanzati relativi all'aggiornamento di un'applicazione di Service Fabric.
+title: Argomenti avanzati sull&quot;aggiornamento di un&quot;applicazione | Documentazione Microsoft
+description: Questo articolo illustra alcuni degli argomenti avanzati relativi all&quot;aggiornamento di un&quot;applicazione di Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: e29585ff-e96f-46f4-a07f-6682bbe63281
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/14/2016
+ms.date: 01/05/2017
 ms.author: subramar
+translationtype: Human Translation
+ms.sourcegitcommit: f1e035b50b415f68ce567fe1db3a3fe93c2a1394
+ms.openlocfilehash: 63d7ca0224c1989618c474181b02fa79eb69c966
+
 
 ---
-# Aggiornamento di un'applicazione di Service Fabric: argomenti avanzati
-## Aggiungere o rimuovere servizi durante l'aggiornamento di un'applicazione
-Se viene aggiunto un nuovo servizio a un'applicazione che è già distribuita e viene pubblicato come aggiornamento, il nuovo servizio viene aggiunto all'applicazione distribuita. Un aggiornamento di questo tipo non influisce su nessuno dei servizi già inclusi nell'applicazione. È tuttavia necessario che venga avviata un'istanza del servizio che è stato aggiunto, tramite il cmdlet `New-ServiceFabricService`, perché il nuovo servizio sia attivo.
+# <a name="service-fabric-application-upgrade-advanced-topics"></a>Aggiornamento di un'applicazione di Service Fabric: argomenti avanzati
+## <a name="adding-or-removing-services-during-an-application-upgrade"></a>Aggiungere o rimuovere servizi durante l'aggiornamento di un'applicazione
+Se viene aggiunto un nuovo servizio a un'applicazione che è già distribuita e viene pubblicato come aggiornamento, il nuovo servizio viene aggiunto all'applicazione distribuita.  Un aggiornamento di questo tipo non influisce su nessuno dei servizi già inclusi nell'applicazione. È tuttavia necessario che venga avviata un'istanza del servizio che è stato aggiunto, tramite il cmdlet `New-ServiceFabricService` , perché il nuovo servizio sia attivo.
 
-Un aggiornamento può anche prevedere la rimozione di determinati servizi da un'applicazione. Tuttavia è necessario arrestare tutte le istanze correnti del servizio da eliminare prima di procedere con l'aggiornamento (usando il cmdlet `Remove-ServiceFabricService`).
+Un aggiornamento può anche prevedere la rimozione di determinati servizi da un'applicazione. Tuttavia è necessario arrestare tutte le istanze correnti del servizio da eliminare prima di procedere con l'aggiornamento (usando il cmdlet `Remove-ServiceFabricService` ).
 
-## Modalità di aggiornamento manuale
+## <a name="manual-upgrade-mode"></a>Modalità di aggiornamento manuale
 > [!NOTE]
 > La modalità di aggiornamento UnmonitoredManual deve essere presa in considerazione solo per un aggiornamento non riuscito o sospeso. La modalità di aggiornamento consigliata per le applicazioni di Service Fabric è la modalità monitorata.
-> 
-> 
+>
+>
 
 Azure Service Fabric offre diverse modalità di aggiornamento per supportare i cluster di sviluppo e di produzione. Le opzioni di distribuzione scelte possono essere diverse per ambienti diversi.
 
@@ -36,10 +40,10 @@ L'aggiornamento in sequenza di applicazioni in modalità Monitored è il più co
 
 L'aggiornamento in sequenza automatizzato dell'applicazione è utile infine per ambienti di sviluppo o di test per garantire un ciclo di iterazione rapido durante lo sviluppo dei servizi.
 
-## Modificare la modalità di aggiornamento manuale
+## <a name="change-to-manual-upgrade-mode"></a>Modificare la modalità di aggiornamento manuale
 **Manual**: arresta l'aggiornamento dell'applicazione in corrispondenza dell'UD corrente e cambia la modalità di aggiornamento in UnmonitoredManual. L'amministratore deve chiamare manualmente il comando **MoveNextApplicationUpgradeDomainAsync** per procedere con l'aggiornamento o per attivare il ripristino allo stato precedente avviando un nuovo aggiornamento. Quando l'aggiornamento passa alla modalità Manual, resta in tale modalità finché non viene avviato un nuovo aggiornamento. Il comando **GetApplicationUpgradeProgressAsync** restituisce FABRIC\_APPLICATION\_UPGRADE\_STATE\_ROLLING\_FORWARD\_PENDING.
 
-## Aggiornare con un pacchetto Diff
+## <a name="upgrade-with-a-diff-package"></a>Aggiornare con un pacchetto Diff
 Un'applicazione di Service Fabric può essere aggiornata effettuando il provisioning con un pacchetto applicazione completo e autonomo. È possibile aggiornare un'applicazione anche usando un pacchetto Diff contenente solo i file dell'applicazione aggiornati, nonché i file manifesto dell'applicazione e del servizio aggiornati.
 
 Un pacchetto applicazione completo contiene tutti i file necessari per avviare ed eseguire un'applicazione di Service Fabric. Un pacchetto Diff contiene solo i file che sono cambiati tra l'ultimo provisioning e l'aggiornamento corrente, oltre ai file manifesto dell'applicazione e del servizio completi. Gli eventuali riferimenti nel manifesto dell'applicazione o del servizio che non vengono reperiti nel layout della build vengono cercati nell'archivio immagini.
@@ -85,7 +89,7 @@ app1/
     code/
 ```
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio](service-fabric-application-upgrade-tutorial.md) descrive la procedura di aggiornamento di un'applicazione con Visual Studio.
 
 [Aggiornamento di un'applicazione di Service Fabric mediante PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) descrive la procedura di aggiornamento di un'applicazione tramite PowerShell.
@@ -94,6 +98,10 @@ Controllare l’aggiornamento dell'applicazione tramite [Parametri di aggiorname
 
 Rendere compatibili gli aggiornamenti dell'applicazione imparando a usare [Serializzazione dei dati](service-fabric-application-upgrade-data-serialization.md).
 
-Per informazioni su come risolvere problemi comuni negli aggiornamenti dell'applicazione, vedere i passaggi indicati in [Risoluzione dei problemi relativi agli aggiornamenti dell'applicazione ](service-fabric-application-upgrade-troubleshooting.md).
+Per informazioni su come risolvere problemi comuni negli aggiornamenti dell'applicazione, vedere i passaggi indicati in [Risoluzione dei problemi relativi agli aggiornamenti dell'applicazione](service-fabric-application-upgrade-troubleshooting.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Jan17_HO1-->
+
+

@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2a0f4c9c5942ee75b9ca4f3924198e8a8ad8ccc7
+ms.sourcegitcommit: 702ea254c19d1f9782f83d8445b7f440f11963b9
+ms.openlocfilehash: 2d4898694c69b5eb0194747982fa8bfbfea1f6f8
 
 
 ---
@@ -77,7 +77,7 @@ In genere, un indice preliminare viene dedotto dal set di dati. È possibile agg
 4. Fare clic sulla scheda **Analizzatore** se si vuole specificare un analizzatore del linguaggio a livello di campo. Al momento è possibile specificare solo gli analizzatori del linguaggio. Per usare un analizzatore personalizzato o un analizzatore non del linguaggio come Keyword, Pattern e così via, è necessario scrivere codice.
    
    * Fare clic su **Ricercabile** per designare la ricerca full-text sul campo e abilitare l'elenco a discesa Analizzatore.
-   * Scegliere l'analizzatore da usare. Per informazioni dettagliate, vedere [Creare un indice per i documenti in più lingue](search-language-support.md) .
+   * Scegliere l'analizzatore da usare. Per informazioni dettagliate, vedere [Creare un indice per i documenti in più lingue](search-language-support.md).
 5. Fare clic su **Strumento suggerimenti** per abilitare i suggerimenti di query con completamento automatico nei campi selezionati.
 
 ## <a name="import-your-data"></a>Importare i dati
@@ -93,7 +93,13 @@ In Ricerca di Azure, gli aggiornamenti strutturali in un indice richiedono la ri
 
 Le modifiche che non richiedono la ricompilazione includono l'aggiunta di un nuovo campo, la modifica dei profili di punteggio, la modifica degli strumenti suggerimenti o la modifica degli analizzatori del linguaggio. Per altre informazioni, vedere [Aggiornare l'indice](https://msdn.microsoft.com/library/azure/dn800964.aspx) .
 
-## <a name="next-step"></a>Passaggio successivo
+## <a name="query-an-index-using-search-explorer"></a>Eseguire query in un indice usando Esplora ricerche
+
+Il portale include **Esplora ricerche**, che consente di eseguire query in un indice senza dovere scrivere codice. È possibile usare Esplora ricerche in qualsiasi indice.
+
+L'esperienza di ricerca è basata sulle impostazioni predefinite, ad esempio la [sintassi semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) e il [parametro di query searchMode(https://docs.microsoft.com/rest/api/searchservice/search-documents) predefinito. I risultati vengono restituiti in JSON, in modo che sia possibile esaminare l'intero documento.
+
+## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sugli indicizzatori, usare questi collegamenti:
 
 * [Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
@@ -107,6 +113,6 @@ Per altre informazioni sugli indicizzatori, usare questi collegamenti:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

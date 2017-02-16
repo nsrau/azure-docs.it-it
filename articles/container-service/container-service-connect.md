@@ -1,106 +1,137 @@
 ---
 title: Connettersi a un cluster del servizio contenitore di Azure | Documentazione Microsoft
-description: Connettersi a un cluster del servizio contenitore di Azure usando un tunnel SSH.
+description: Connettersi a un cluster Kubernetes, DC/OS o Docker Swarm nel servizio contenitore di Azure da un computer remoto
 services: container-service
 documentationcenter: 
-author: rgardler
+author: dlepow
 manager: timlt
 editor: 
 tags: acs, azure-container-service
-keywords: Docker, contenitori, Micro-Service, controller di dominio/sistema operativo, Azure
+keywords: Docker, contenitori, Micro-Service, Kubernetes, DC/OS, Azure
 ms.assetid: ff8d9e32-20d2-4658-829f-590dec89603d
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 01/12/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: bcc2d3468c8a560105aa2c2feb0d969ec3cccdcb
-ms.openlocfilehash: 5296586b9266f432042f847f4dff9e6ff62ebc8b
+ms.sourcegitcommit: ea59ff3f527d051e01baf12f596ff44af8a0dfc1
+ms.openlocfilehash: 7fe3bc6a5eab1d1b9a8b73ab3c88f9808817369a
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Connettersi a un cluster del servizio contenitore di Azure
-I cluster DC/OS, Kubernetes e Docker Swarm distribuiti dal servizio contenitore di Azure espongono gli endpoint REST.  Per Kubernetes, questo endpoint viene esposto in modo sicuro su internet ed è possibile accedervi direttamente da qualsiasi computer connesso a internet. Per DC/OS e Docker Swarm è necessario creare un tunnel SSH per connettersi in modo sicuro all'endpoint REST. Ogni connessione viene illustrata di seguito.
+Dopo aver creato un cluster del servizio contenitore di Azure è necessario connettersi al cluster per distribuire e gestire i carichi di lavoro. Questo articolo descrive come connettersi alla VM master del cluster da un computer remoto. I cluster Kubernetes, DC/OS e Docker Swarm espongono tutti gli endpoint REST. Per Kubernetes, questo endpoint viene esposto in modo sicuro in Internet ed è possibile accedervi eseguendo lo strumento da riga di comando `kubectl` da qualsiasi computer connesso a Internet. Per DC/OS e Docker Swarm è necessario creare un tunnel Secure Shell (SSH) per connettersi in modo sicuro all'endpoint REST. 
 
 > [!NOTE]
 > Il supporto per Kubernetes nel servizio contenitore di Azure è attualmente disponibile in anteprima.
 >
 
-## <a name="connecting-to-a-kubernetes-cluster"></a>Connessione a un cluster Kubernetes.
-Per connettersi a un cluster Kubernetes, è necessario avere lo strumento da riga di comando `kubectl` installato.  Il modo più semplice per installare questo strumento è usare lo strumento da riga di comando `az` di Azure 2.0.
+## <a name="prerequisites"></a>Prerequisiti
 
-```console
-az acs kubernetes install cli [--install-location=/some/directory]
+* Un cluster Kubernetes, DC/OS o Swarm [distribuito nel servizio contenitore di Azure](container-service-deployment.md).
+* File di chiave privata SSH, corrispondente alla chiave pubblica aggiunta al cluster durante la distribuzione. Questi comandi presuppongono che la chiave privata SSH si trovi in `$HOME/.ssh/id_rsa` nel computer. Vedere le istruzioni per [OS X e Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) o [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) per altre informazioni. Se la connessione SSH non funziona, potrebbe essere necessario [reimpostare le chiavi SSH](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
+
+## <a name="connect-to-a-kubernetes-cluster"></a>Connettersi a un cluster Kubernetes
+
+Seguire questi passaggi per installare e configurare `kubectl` nel computer.
+
+> [!NOTE] 
+> In Linux o OS X potrebbe essere necessario eseguire i comandi in questa sezione usando `sudo`.
+> 
+
+### <a name="install-kubectl"></a>Installare kubectl
+Un modo per installare questo strumento è usare il comando `az acs kubernetes install cli` dell'interfaccia della riga di comando di Azure 2.0 (anteprima). Per eseguire questo comando, assicurarsi di avere [installato](/cli/azure/install-az-cli2) la versione più recente dell'interfaccia della riga di comando di Azure 2.0 (anteprima) e di avere effettuato l'accesso a un account Azure (`az login`).
+
+```azurecli
+# Linux or OS X
+az acs kubernetes install-cli [--install-location=/some/directory/kubectl]
+
+# Windows
+az acs kubernetes install-cli [--install-location=C:\some\directory\kubectl.exe]
 ```
 
-In alternativa, è possibile scaricare il client direttamente dalla [pagina di download](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146)
+In alternativa è possibile scaricare il client direttamente dalla [pagina delle versioni](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146).
 
-Dopo aver installato `kubectl`, è necessario copiare le credenziali del cluster nel computer.  Il modo più semplice per eseguire questa operazione consiste nell'usare di nuovo lo strumento da riga di comando `az`:
+### <a name="download-cluster-credentials"></a>Scaricare le credenziali del cluster
+Dopo aver installato `kubectl`, è necessario copiare le credenziali del cluster nel computer. Un modo per ottenere le credenziali è con il comando `az acs kubernetes get-credentials`. Passare il nome del gruppo di risorse e il nome della risorsa del servizio contenitore:
 
-```console
-az acs kubernetes get-credentials --dns-prefix=<some-prefix> --location=<some-location>
+
+```azurecli
+az acs kubernetes get-credentials --resource-group=<cluster-resource-group> --name=<cluster-name>
 ```
 
-Vengono scaricate le credenziali del cluster in `$HOME/.kube/config` dove si prevede che sia disponibile `kubectl`.
+Questo comando scarica le credenziali del cluster in `$HOME/.kube/config` dove si prevede che sia disponibile `kubectl`.
 
-In alternativa, è possibile usare `scp` per copiare in modo sicuro i file da `$HOME/.kube/config` della macchina virtuale master nel computer locale.
+In alternativa è possibile usare `scp` per copiare in modo sicuro i file da `$HOME/.kube/config` nella VM master al computer locale. Ad esempio:
 
 ```console
 mkdir $HOME/.kube/config
 scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
 ```
 
-Se si esegue questa operazione in Windows è necessario usare Bash su Ubuntu in Windows o lo strumento "pscp" di PuTTY.
+Se si esegue questa operazione in Windows è necessario usare Bash su Ubuntu in Windows, il client di copia file sicura PuTTY o uno strumento simile.
 
-Dopo aver configurato `kubectl`, è possibile testarlo elencando i nodi nel cluster:
+
+
+### <a name="use-kubectl"></a>Usare kubectl
+
+Dopo aver configurato `kubectl`, è possibile testare la connessione elencando i nodi nel cluster:
 
 ```console
 kubectl get nodes
 ```
 
-Infine, è possibile visualizzare il dashboard Kubernetes. In primo luogo, eseguire:
+È possibile provare altri comandi `kubectl`. È ad esempio possibile visualizzare il dashboard Kubernetes. Eseguire prima un proxy per il server API Kubernetes:
 
 ```console
 kubectl proxy
 ```
 
-L'interfaccia utente di Kubernetes è ora disponibile all'indirizzo: http://localhost:8001/ui
+L'interfaccia utente di Kubernetes è ora disponibile all'indirizzo: `http://localhost:8001/ui`.
 
-Per altre informazioni, vedere [Kubernetes quick start](http://kubernetes.io/docs/user-guide/quick-start/) (Guida introduttiva di Kubernetes)
+Per altre informazioni, vedere la [Guida rapida di Kubernetes](http://kubernetes.io/docs/user-guide/quick-start/).
 
-## <a name="connecting-to-a-dcos-or-swarm-cluster"></a>Connessione a un cluster DC/OS o Swarm
+## <a name="connect-to-a-dcos-or-swarm-cluster"></a>Connettersi a un cluster DC/OS o Swarm
 
-I cluster DC/OS e Docker Swarm distribuiti dal servizio contenitore di Azure espongono gli endpoint REST. Questi endpoint, tuttavia, non sono aperti all'esterno. Per gestire questi endpoint, è necessario crear un tunnel Secure Shell (SSH). Dopo aver creato il tunnel SSH, è possibile eseguire comandi sugli endpoint del cluster e visualizzare l'interfaccia utente del cluster con un browser nel proprio sistema. Questo documento illustra nel dettaglio la creazione di un tunnel SSH da Linux, OS X e Windows.
+I cluster DC/OS e Docker Swarm distribuiti dal servizio contenitore di Azure espongono gli endpoint REST. Questi endpoint, tuttavia, non sono aperti all'esterno. Per gestire questi endpoint è necessario creare un tunnel Secure Shell (SSH). Dopo aver creato il tunnel SSH, è possibile eseguire comandi sugli endpoint del cluster e visualizzare l'interfaccia utente del cluster con un browser nel proprio sistema. Le sezioni seguenti consentono di creare un tunnel SSH da computer che eseguono i sistemi operativi Linux, OS X e Windows.
 
 > [!NOTE]
-> È anche possibile creare una sessione SSH con un sistema di gestione cluster, ma non è consigliabile farlo. Lavorare direttamente in un sistema di gestione espone al rischio di modifiche accidentali della configurazione.   
-> 
-> 
-
-## <a name="create-an-ssh-tunnel-on-linux-or-os-x"></a>Creare un tunnel SSH in Linux o OS X
-Quando si crea un tunnel SSH in Linux o OS X, prima di tutto è necessario individuare il nome DNS pubblico dei master con carico bilanciato. A tale scopo, espandere il gruppo di risorse in modo che vengano visualizzate tutte le risorse. Trovare e selezionare l'indirizzo IP pubblico del master. Verrà aperto un pannello contenente informazioni sull'indirizzo IP pubblico, che include il nome DNS. Salvare questo nome per usarlo in seguito. <br />
-
-![Nome DNS pubblico](media/pubdns.png)
-
-Ora aprire una shell ed eseguire il comando seguente, dove:
-
-**PORT** è la porta dell'endpoint da esporre. Per Swarm, è la porta 2375. Per DC/OS usare la porta 80.  
-**USERNAME** è il nome utente specificato al momento della distribuzione del cluster.  
-**DNSPREFIX** è il prefisso DNS specificato al momento della distribuzione del cluster.  
-**REGION** è l'area in cui si trova il gruppo di risorse.  
-**PATH_TO_PRIVATE_KEY** [FACOLTATIVO] è il percorso della chiave privata che corrisponde alla chiave pubblica specificata durante la creazione del cluster del servizio contenitore. Usare questa opzione con il flag -i.
-
-```bash
-ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
-```
-> La porta di connessione SSH è la 2200, non la porta 22 standard.
-> 
+> È anche possibile creare una sessione SSH con un sistema di gestione cluster, ma non è consigliabile farlo. Lavorare direttamente in un sistema di gestione espone al rischio di modifiche accidentali della configurazione.
 > 
 
-## <a name="dcos-tunnel"></a>Tunnel DC/OS
+### <a name="create-an-ssh-tunnel-on-linux-or-os-x"></a>Creare un tunnel SSH in Linux o OS X
+Quando si crea un tunnel SSH in Linux o OS X, prima di tutto è necessario individuare il nome DNS pubblico dei master con carico bilanciato. A tale scopo, seguire questa procedura:
+
+
+1. Nel [portale di Azure](https://portal.azure.com) passare al gruppo di risorse che contiene il cluster del servizio contenitore. Espandere il gruppo di risorse in modo che vengano visualizzate tutte le risorse. 
+
+2. Trovare e selezionare la macchina virtuale del master. In un cluster DC/OS, il nome della risorsa inizia con **dcos-master-**. 
+
+    Il pannello **Macchina virtuale** contiene informazioni sull'indirizzo IP pubblico, che include il nome DNS. Salvare questo nome per usarlo in seguito. 
+
+    ![Nome DNS pubblico](media/pubdns.png)
+
+3. Aprire ora una shell ed eseguire il comando `ssh` specificando i valori seguenti: 
+
+    **PORT** è la porta dell'endpoint da esporre. Per Swarm, usare la porta 2375. Per DC/OS usare la porta 80.  
+    **USERNAME** è il nome utente specificato al momento della distribuzione del cluster.  
+    **DNSPREFIX** è il prefisso DNS specificato al momento della distribuzione del cluster.  
+    **REGION** è l'area in cui si trova il gruppo di risorse.  
+    **PATH_TO_PRIVATE_KEY** [FACOLTATIVO] è il percorso della chiave privata che corrisponde alla chiave pubblica specificata durante la creazione del cluster. Usare questa opzione con il flag `-i`.
+
+    ```bash
+    ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
+    ```
+    > [!NOTE]
+    > La porta di connessione SSH è la 2200, non la porta 22 standard. In un cluster con più di una VM master, si tratta della porta di connessione per la prima VM master.
+    > 
+
+Vedere gli esempi per DC/OS e Swarm nelle sezioni seguenti.    
+
+### <a name="dcos-tunnel"></a>Tunnel DC/OS
 Per aprire un tunnel per gli endpoint correlati a DC/OS, eseguire un comando simile al seguente:
 
 ```bash
@@ -115,8 +146,8 @@ Ora è possibile accedere agli endpoint correlati a DC/OS da:
 
 In modo analogo, è possibile raggiungere le API REST per ogni applicazione attraverso questo tunnel.
 
-## <a name="swarm-tunnel"></a>Tunnel Swarm
-Per aprire un tunnel per l'endpoint Swarm, eseguire un comando simile al seguente:
+### <a name="swarm-tunnel"></a>Tunnel Swarm
+Per aprire un tunnel per gli endpoint Swarm, eseguire un comando simile al seguente:
 
 ```bash
 ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
@@ -128,54 +159,58 @@ ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azu
 export DOCKER_HOST=:2375
 ```
 
-## <a name="create-an-ssh-tunnel-on-windows"></a>Creare un tunnel SSH in Windows
-Esistono più opzioni per creare i tunnel SSH in Windows. Questo documento descrive come usare PuTTY a questo scopo.
+### <a name="create-an-ssh-tunnel-on-windows"></a>Creare un tunnel SSH in Windows
+Esistono più opzioni per creare i tunnel SSH in Windows. Questa sezione descrive come usare PuTTY per creare il tunnel.
 
-Scaricare PuTTY nel sistema Windows ed eseguire l'applicazione.
+1. [Scaricare PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) nel sistema Windows.
 
-Immettere un nome host che include il nome utente dell'amministratore cluster e il nome DNS pubblico del primo master nel cluster. **Host Name** (Nome host) sarà simile a: `adminuser@PublicDNS`. Immettere 2200 nel campo **Port**.
+2. Eseguire l'applicazione.
 
-![Configurazione PuTTY 1](media/putty1.png)
+3. Immettere un nome host che include il nome utente dell'amministratore cluster e il nome DNS pubblico del primo master nel cluster. Il **nome host** è simile a `adminuser@PublicDNSName`. Immettere 2200 nel campo **Port**.
 
-Selezionare **SSH** e **Authentication** (Autenticazione). Aggiungere il file di chiave privata per l'autenticazione.
+    ![Configurazione PuTTY 1](media/putty1.png)
 
-![Configurazione PuTTY 2](media/putty2.png)
+4. Selezionare **SSH > Auth**. Aggiungere un percorso al file di chiave privata (formato ppk) per l'autenticazione. È possibile usare uno strumento come [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) per generare questo file dalla chiave SSH usata per creare il cluster.
 
-Selezionare **Tunnels** (Tunnel) e configurare le porte inoltrate seguenti:
+    ![Configurazione PuTTY 2](media/putty2.png)
 
-* **Source Port:** (Porta di origine) corrisponde alla preferenza dell'utente. Usare 80 per il controller di dominio/sistema operativo o 2375 per Swarm.
-* **Destination:** usare localhost:80 per il controller di dominio/sistema operativo o localhost:2375 per Swarm.
+5. Selezionare **SSH > Tunnels** (Tunnel) e configurare le porte inoltrate seguenti:
 
-L'esempio seguente è configurato per DC/OS, ma avrà un aspetto simile anche per Docker Swarm.
+    * **Source Port** (Porta di origine): usare 80 per DC/OS o 2375 per Swarm.
+    * **Destination:** usare localhost:80 per il controller di dominio/sistema operativo o localhost:2375 per Swarm.
 
-> [!NOTE]
-> La porta 80 non deve essere usata quando si crea il tunnel.
-> 
-> 
+    L'esempio seguente è configurato per DC/OS, ma avrà un aspetto simile anche per Docker Swarm.
 
-![Configurazione PuTTY 3](media/putty3.png)
+    > [!NOTE]
+    > La porta 80 non deve essere usata quando si crea il tunnel.
+    > 
 
-Al termine, salvare la configurazione di connessione e connettere la sessione PuTTY. Dopo la connessione, è possibile visualizzare la configurazione della porta nel registro eventi di PuTTY.
+    ![Configurazione PuTTY 3](media/putty3.png)
 
-![Log eventi di PuTTY](media/putty4.png)
+6. Al termine, fare clic su **Session > Save** (Sessione > Salva) per salvare la configurazione di connessione.
 
-Dopo avere configurato il tunnel per DC/OS, è possibile accedere all'endpoint correlato da:
+7. Fare clic su **Open** (Apri) per connettersi alla sessione PuTTY. Dopo la connessione, è possibile visualizzare la configurazione della porta nel registro eventi di PuTTY.
+
+    ![Log eventi di PuTTY](media/putty4.png)
+
+Dopo aver configurato il tunnel per DC/OS, è possibile accedere all'endpoint correlato all'indirizzo:
 
 * Controller di dominio/sistema operativo: `http://localhost/`
 * Marathon: `http://localhost/marathon`
 * Mesos: `http://localhost/mesos`
 
-Dopo avere configurato il tunnel per Docker Swarm, è possibile accedere al cluster Swarm dall'interfaccia della riga di comando di Docker. È necessario prima di tutto configurare una variabile di ambiente Windows denominata `DOCKER_HOST` con un valore ` :2375`.
+Dopo aver configurato il tunnel per Docker Swarm, aprire le impostazioni di Windows per configurare una variabile di ambiente di sistema denominata `DOCKER_HOST` con un valore di `:2375`. Sarà quindi possibile accedere al cluster Swarm dall'interfaccia della riga di comando di Docker.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Distribuire e gestire contenitori con DC/OS o Swarm:
+Distribuire e gestire contenitori nel cluster:
 
+* [Uso del servizio contenitore di Azure e Kubernetes](container-service-kubernetes-ui.md)
 * [Gestione di contenitori tramite l'API REST](container-service-mesos-marathon-rest.md)
 * [Gestione dei contenitori con Docker Swarm](container-service-docker-swarm.md)
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

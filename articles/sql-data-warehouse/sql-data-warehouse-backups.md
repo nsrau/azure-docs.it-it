@@ -1,5 +1,5 @@
 ---
-title: Backup di SQL Data Warehouse | Documentazione Microsoft
+title: Backup di Azure SQL Data Warehouse - Snapshot e ridondanza geografica | Documentazione Microsoft
 description: Informazioni sui backup dei database predefiniti di SQL Data Warehouse che consentono di ripristinare SQL Data Warehouse di Azure in un punto di ripristino o in un&quot;area geografica diversa.
 services: sql-data-warehouse
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 71f2798871c946b1edce467e1f491e0d62b342c6
-ms.openlocfilehash: fb61dd8b33581740557be6e5902bbe573f11999c
+ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
+ms.openlocfilehash: 94b92f05af30734de727a12fd99271aa9769723a
 
 
 ---
@@ -116,6 +116,6 @@ Il principale utilizzo per i backup di SQL Data Warehouse è il ripristino del d
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

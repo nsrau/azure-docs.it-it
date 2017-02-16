@@ -16,13 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 51490fa46a1d9c23d73d4071fb900a97327425a8
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: a1742808be5df2a57e53bb6918f89df4953d0694
 
 
 ---
 # <a name="using-the-docker-vm-extension-with-the-azure-classic-portal"></a>Come usare l'estensione della VM Docker con il portale di Azure classico
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
 
 [Docker](https://www.docker.com/) è uno dei più popolari approcci alla virtualizzazione che usa [contenitori Linux](http://en.wikipedia.org/wiki/LXC) invece di macchine virtuali allo scopo di isolare i dati ed eseguire i calcoli su risorse condivise. È possibile usare l'estensione della VM Docker per l' [Agente Linux di Azure] per creare una macchina virtuale Docker che ospiti un numero qualsiasi di contenitori per le applicazioni in Azure.
 
@@ -136,11 +137,11 @@ Dopo avere completato i passaggi sopra elencati, si sarà ottenuto un host Docke
 È ora possibile passare alla [guida dell'utente di Docker] e usare la VM Docker. Per automatizzare la creazione di host Docker in macchine virtuali di Azure tramite l'interfaccia della riga di comando, vedere [Come usare l'estensione della VM Docker dall'interfaccia della riga di comando di Azure]
 
 <!--Anchors-->
-[Creare una nuova VM dalla Raccolta immagini]: #createvm
-[Creare i certificati Docker]: #dockercerts
-[Aggiungere l'estensione della VM Docker]: #adddockerextension
-[Testare il client Docker e l'host Docker di Azure]: #testclientandserver
-[Passaggi successivi]: #next-steps
+[Create a new VM from the Image Gallery]: #createvm
+[Create Docker Certificates]: #dockercerts
+[Add the Docker VM Extension]: #adddockerextension
+[Test Docker Client and Azure Docker Host]: #testclientandserver
+[Next steps]: #next-steps
 
 <!--Image references-->
 [StartingPoint]: ./media/StartingPoint.png
@@ -158,13 +159,13 @@ Dopo avere completato i passaggi sopra elencati, si sarà ottenuto un host Docke
 <!--Link references-->
 [Come usare l'estensione della VM Docker dall'interfaccia della riga di comando di Azure]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
 [Agente Linux di Azure]: virtual-machines-linux-agent-user-guide.md
-[Collegamento 3 a un altro argomento della documentazione di azure.microsoft.com]: ../storage-whatis-account.md
+[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
 
 [Esecuzione di Docker con https]: http://docs.docker.com/articles/https/
 [guida dell'utente di Docker]: https://docs.docker.com/userguide/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
-ms.openlocfilehash: 7ffc593ee262f55a3fff6a2cd9cf62c691722478
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: d55c08dbd1d2372e5396f40e74b4f63f3e2f0022
 
 
 ---
@@ -51,9 +51,9 @@ Per seguire la procedura descritta in questo articolo, sono necessari gli elemen
 Per creare un database SQL con C#, caricare le librerie di gestione richieste tramite la [console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console):
 
 1. Fare clic su **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**.
-2. Digitare `Install-Package Microsoft.Azure.Management.Sql –Pre` per installare la [libreria di gestione di Microsoft Azure SQL](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql) più recente.
-3. Digitare `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` per installare la [libreria di Microsoft Azure Resource Manager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
-4. Digitare `Install-Package Microsoft.Azure.Common.Authentication –Pre` per installare la [libreria di autenticazione comune di Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
+2. Digitare `Install-Package Microsoft.Azure.Management.Sql -Pre` per installare la [libreria di gestione di Microsoft Azure SQL](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql) più recente.
+3. Digitare `Install-Package Microsoft.Azure.Management.ResourceManager -Pre` per installare la [libreria di Microsoft Azure Resource Manager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
+4. Digitare `Install-Package Microsoft.Azure.Common.Authentication -Pre` per installare la [libreria di autenticazione comune di Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
 
 > [!NOTE]
 > Negli esempi inclusi in questo articolo viene utilizzata una forma asincrona di ogni richiesta di API e blocco fino al completamento della chiamata REST nel servizio sottostante. Sono disponibili metodi asincroni.
@@ -287,6 +287,6 @@ Dopo aver provato il database SQL e aver impostato un database con C#, è possib
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

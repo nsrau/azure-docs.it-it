@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/14/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: af9f761179896a1acdde8e8b20476b7db33ca772
-ms.openlocfilehash: 03f1dde722025624997adb7c1258b2f24c481209
+ms.sourcegitcommit: 72fcad2957d6fc5466719c1d275ae0f86f7fa302
+ms.openlocfilehash: 1d02402f8d3d3f501a100c1618bcba595f1fedc0
 
 
 ---
@@ -58,7 +58,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 ```
  
  
-Con questa configurazione, i log verranno raccolti a rotazione in `/tmp/servicefabric/logs/`. **%u** and **%g** consentono la creazione di più file, con i nomi file mysfapp0.log, mysfapp1.log e così via. Se non viene configurato in modo esplicito alcun gestore, per impostazione predefinita viene registrato il gestore della console. È possibile visualizzare i log in syslog, in /var/log/syslog.
+Con questa configurazione, i log verranno raccolti a rotazione in `/tmp/servicefabric/logs/`. **%u** and **%g** consentono la creazione di file, con i nomi file mysfapp0.log, mysfapp1.log e così via. Se non viene configurato in modo esplicito alcun gestore, per impostazione predefinita viene registrato il gestore della console. È possibile visualizzare i log in syslog, in /var/log/syslog.
  
 Per altre informazioni, vedere gli [GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).  
 
@@ -143,6 +143,6 @@ Lo stesso codice di traccia aggiunto all'applicazione potrà essere usato per la
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

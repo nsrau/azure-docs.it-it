@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/13/2016
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 71da2f8aaa994c8cfc48f968a5275f7f79604251
+ms.sourcegitcommit: 66128b255dac89569ff776cca9ab678c3105f171
+ms.openlocfilehash: 1fddb126c7dbedc11b04dd66d563026f0b3d4f01
 
 
 ---
@@ -75,7 +75,9 @@ Chiudere alcuni degli handle aperti simultaneamente per ridurne il numero e quin
 ## <a name="slow-performance-when-accessing-file-storage-from-windows-or-linux"></a>Rallentamento delle prestazioni quando si accede all'archiviazione file di Azure da Windows o Linux
 * In assenza di un requisito minimo specifico per la dimensione di I/O, è consigliabile usare 1 MB per assicurare prestazioni ottimali.
 * Se si conosce la dimensione finale del file che si vuole estendere con operazioni di scrittura e il software non presenta problemi di compatibilità se la parte finale del file non ancora scritta contiene zeri, impostare la dimensione del file in fase preliminare anziché lasciare che ogni operazione di scrittura venga considerata un'estensione.
-
+* Usare il metodo di copia corretto:
+      * Usare AZCopy per i trasferimenti tra due condivisioni file. Per altri dettagli, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy#file-copy).
+      * Usare Robocopy per una condivisione file in un computer locale. Per altri dettagli, vedere [Multi-threaded robocopy for faster copies](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) (Robocopy multithread per le copie più rapide).
 <a id="windowsslow"></a>
 
 ## <a name="slow-performance-when-accessing-the-file-storage-from-windows-81-or-windows-server-2012-r2"></a>Rallentamento delle prestazioni quando si accede all'archiviazione file di Azure da Windows 8.1 o Windows Server 2012 R2
@@ -242,6 +244,6 @@ Se **serverino** non è presente, smontare e montare nuovamente File di Azure co
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

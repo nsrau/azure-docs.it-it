@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: 80b391e43417ce09bd8aaaa04e48fcd85baf9323
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: b94b2f867d30fe2c121904821404b8228ee1e899
 
 
 ---
@@ -37,7 +37,7 @@ Si noti che questa esercitazione descrive l'utilizzo di AAC. Tuttavia, per impos
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [Creare un account Servizi multimediali di Azure](media-services-portal-create-account.md)
-* Assicurarsi che sia in esecuzione un endpoint di streaming con almeno un'unità di streaming allocata. Per altre informazioni, vedere [Gestire gli endpoint di streaming in un account di Servizi multimediali](media-services-portal-manage-streaming-endpoints.md)
+* Verificare che sia presente un endpoint di streaming in esecuzione. Per altre informazioni, vedere [Gestire gli endpoint di streaming in un account di Servizi multimediali](media-services-portal-manage-streaming-endpoints.md)
 * Installare la versione più recente dello strumento [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
 * Avviare lo strumento e connettersi al proprio account AMS.
 
@@ -47,15 +47,16 @@ Si noti che questa esercitazione descrive l'utilizzo di AAC. Tuttavia, per impos
 * Se si usano codificatori basati su software, chiudere tutti i programmi non necessari.
 
 ## <a name="create-a-channel"></a>Creare un canale
-1. Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Create channel**  dal menu.
+1. Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Create channel** dal menu.
 
-![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
+    ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
 
-1. Specificare un nome di canale. Il campo della descrizione è facoltativo. In Impostazioni del canale selezionare **Standard** per l'opzione di codifica live con il protocollo di input impostato su **RTMP**. È possibile confermare tutte le altre impostazioni predefinite.
+2. Specificare un nome di canale. Il campo della descrizione è facoltativo. In Impostazioni del canale selezionare **Standard** per l'opzione di codifica live con il protocollo di input impostato su **RTMP**. È possibile confermare tutte le altre impostazioni predefinite.
 
-Assicurarsi che l'opzione **Avvia ora il nuovo canale** sia selezionata.
+    Assicurarsi che l'opzione **Avvia ora il nuovo canale** sia selezionata.
 
-1. Fare clic su **Create Channel**.
+3. Fare clic su **Create Channel**.
+
    ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle2.png)
 
 > [!NOTE]
@@ -134,7 +135,8 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 >
 
 ## <a name="test-playback"></a>Testare la riproduzione
-1. Passare allo strumento AMSE e fare clic con il pulsante destro del mouse sul canale da testare. Nel menu passare il mouse su **Playback the Preview** (Riproduci anteprima) e scegliere **with Azure Media Player** (Con Azure Media Player).  
+
+Passare allo strumento AMSE e fare clic con il pulsante destro del mouse sul canale da testare. Nel menu passare il mouse su **Playback the Preview** (Riproduci anteprima) e scegliere **with Azure Media Player** (Con Azure Media Player).  
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle8.png)
 
@@ -150,7 +152,9 @@ In caso di errore, sarà necessario reimpostare il canale e regolare le impostaz
 3. Selezionare la casella di controllo **Start the Program now** .
 4. Fare clic su **Create Program**.  
 
-    Nota: la creazione di un programma richiede meno tempo rispetto alla creazione del canale.    
+    >[!NOTE]
+    >La creazione di un programma richiede meno tempo rispetto alla creazione del canale.
+        
 5. Quando il programma è in esecuzione, verificare il funzionamento della riproduzione. A tale scopo, fare clic con il pulsante destro del mouse sul programma e passare **Playback the program(s)** (Riproduci programma/i), quindi scegliere **with Azure Media Player** (Con Azure Media Player).  
 6. Dopo questa verifica, fare nuovamente clic con il pulsante destro del mouse sul programma e scegliere **Copy the Output URL to Clipboard** (Copia URL di output negli Appunti) oppure recuperare queste informazioni dall'opzione **Program information and settings** (Impostazioni e informazioni programma) nel menu.
 
@@ -167,6 +171,6 @@ Vedere l’argomento sulla [risoluzione dei problemi](media-services-troubleshoo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

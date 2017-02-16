@@ -1,6 +1,6 @@
 ---
-title: Modificare il livello di servizio e il livello delle prestazioni di un database SQL di Azure tramite PowerShell | Documentazione Microsoft
-description: "La modifica del livello del servizio e del livello delle prestazioni di un database SQL di Azure mostra come scalare il database SQL verso l’alto o verso il basso con PowerShell. Modificare il livello di prezzi di un database SQL di Azure con PowerShell."
+title: 'PowerShell: modificare il piano tariffario di un database SQL di Azure | Documentazione Microsoft'
+description: Informazioni sull&quot;uso di PowerShell per modificare il piano di servizio e il livello di prestazioni di un database SQL di Azure e per aumentare o ridurre le risorse e le tariffe del database SQL.
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -16,16 +16,15 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aea3bcbd6ac73a05b00b7b79b2dc47bf06d67f6f
+ms.sourcegitcommit: 5b1a96149924c6170ea4561b9639f6b85b15ddd3
+ms.openlocfilehash: c45d9200dd25d18d45602c377c682875d04c64cb
 
 
 ---
 # <a name="change-the-service-tier-and-performance-level-pricing-tier-of-a-sql-database-with-powershell"></a>Modificare il livello di servizio e il livello di prestazioni (livello di prezzo) di un database SQL con PowerShell
 > [!div class="op_single_selector"]
 > * [Portale di Azure](sql-database-scale-up.md)
-> * [**PowerShell**](sql-database-scale-up-powershell.md)
-> 
+> * [**PowerShell**](sql-database-scale-up-powershell.md)> 
 > 
 
 I livelli di servizio e di prestazioni descrivono le funzionalità e le risorse disponibili per il database SQL e possono essere aggiornati quando le esigenze dell’applicazione cambiano. Per altre informazioni, vedere [Livelli di servizio](sql-database-service-tiers.md).
@@ -104,6 +103,6 @@ Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -Reso
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

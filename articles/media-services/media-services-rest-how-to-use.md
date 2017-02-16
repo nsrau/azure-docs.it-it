@@ -1,5 +1,5 @@
 ---
-title: Informazioni generali sull&quot;API REST di Servizi multimediali | Microsoft Docs
+title: Informazioni generali sull&quot;API REST di Servizi multimediali | Documentazione Microsoft
 description: Informazioni generali sull&quot;API REST di Servizi multimediali
 services: media-services
 documentationcenter: 
@@ -12,20 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 11/29/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 900c8fe2710d02d117c1b8155623ed911796203b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8b6e19e3c495eec4e16187524df0b13e4ffce9de
 
 
 ---
-# <a name="media-services-rest-api-overview"></a>Informazioni generali sull'API REST di Servizi multimediali
+# <a name="media-services-operations-rest-api-overview"></a>Informazioni generali sull'API REST di Servizi multimediali
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
+
+L'**API REST di Servizi multimediali** viene usata per la creazione di processi, asset, criteri di accesso e altre operazioni sugli oggetti in un account di Servizi multimediali. Per altre informazioni, vedere le [informazioni di riferimento sull'API REST di Servizi multimediali](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 
 Servizi multimediali di Microsoft Azure è un servizio che accetta richieste HTTP basate su OData e può rispondere in formato JSON dettagliato o atom+pub. Poiché Servizi multimediali è conforme alle linee guida di progettazione di Azure, esiste un set di intestazioni HTTP obbligatorie che devono essere usate da ogni client per la connessione a Servizi multimediali, oltre a un set di intestazioni facoltative. Le seguenti sezioni descrivono le intestazioni e i verbi HTTP che è possibile usare quando si creano richieste e si ricevono risposte da Servizi multimediali.
 
+
 ## <a name="considerations"></a>Considerazioni
+
 Quando si usa REST, si applicano le considerazioni seguenti:
 
 * Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. È necessario usare **Skip** e **Take** (.NET)/**top** (REST) come descritto in [questo esempio .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e in [questo esempio di API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
@@ -72,7 +76,7 @@ Nella seguente tabella è riportato un set di intestazioni facoltative:
 | Accept-Charset |Tipo di set di caratteri, ad esempio "UTF-8" |L'impostazione predefinita è UTF-8. |
 | X-HTTP-Method |Metodo HTTP |Consente ai client o ai firewall che non supportano metodi HTTP come PUT o DELETE di usarli, con tunneling tramite una chiamata GET. |
 | Content-Type |Tipo di contenuto |Tipo di contenuto del corpo delle richieste PUT o POST. |
-| client-request-id |String |Valore definito dal chiamante che identifica la richiesta fornita. Se specificato, questo valore viene incluso nel messaggio di risposta per consentire il mapping della richiesta. <p><p>**Importante**<p> Le dimensioni di questi valori dovrebbero essere limitate a 2096 b (2 k). |
+| client-request-id |String |Valore definito dal chiamante che identifica la richiesta fornita. Se specificato, questo valore viene incluso nel messaggio di risposta per consentire il mapping della richiesta. <p><p>**Importante**<p>Le dimensioni di questi valori dovrebbero essere limitate a 2096 b (2 k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Intestazioni delle risposte HTTP standard supportate da Servizi multimediali
 Nella seguente tabella è riportato un set di intestazioni che possono essere restituite a seconda della risorsa richiesta e dell'azione che si intende eseguire.
@@ -114,6 +118,6 @@ Aggiungere "?api-version=2.x" alla fine dell'URI se si desidera visualizzare i m
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

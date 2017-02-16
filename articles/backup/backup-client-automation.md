@@ -1,5 +1,5 @@
 ---
-title: Distribuire e gestire il backup per Windows Server/Client mediante PowerShell | Microsoft Docs
+title: Usare PowerShell per eseguire il backup di Windows Server in Azure | Documentazione Microsoft
 description: Informazioni su come distribuire e gestire Backup di Azure mediante PowerShell
 services: backup
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cc5326eb314c90c906e0ef869124463a13f5e725
+ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
+ms.openlocfilehash: 87384588e9e2a77a5b545ce30db2776541223001
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: cc5326eb314c90c906e0ef869124463a13f5e725
 > [!div class="op_single_selector"]
 > * [ARM](backup-client-automation.md)
 > * [Classico](backup-client-automation-classic.md)
-> 
-> 
+>
+>
 
 Questo articolo illustra come usare PowerShell per configurare Backup di Azure in un server o un client Windows e per gestire le operazioni di backup e ripristino.
 
@@ -46,27 +46,27 @@ Se si vogliono usare script scritti per l'ambiente 0.9.8 nell'ambiente 1.0 o ver
 Nei passaggi seguenti viene descritto come creare un insieme di credenziali dei servizi di ripristino. Un insieme di credenziali dei servizi di ripristino è diverso da un insieme di credenziali di backup.
 
 1. Se si sta usando Backup di Azure per la prima volta, è necessario usare il cmdlet **Register-AzureRMResourceProvider** per registrare il provider di Servizi di ripristino di Azure con la propria sottoscrizione.
-   
+
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 2. L'insieme di credenziali dei servizi di ripristino è una risorsa ARM, pertanto è necessario inserirlo all'interno di un gruppo di risorse. È possibile usare un gruppo di risorse esistente o crearne uno nuovo. Quando si crea un nuovo gruppo di risorse, è necessario specificare il nome e percorso per il gruppo di risorse.  
-   
+
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
     ```
 3. Per creare il nuovo insieme di credenziali usare il cmdlet **New-AzureRmRecoveryServicesVault** . Assicurarsi di specificare per l'insieme di credenziali lo stesso percorso usato per il gruppo di risorse.
-   
+
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
 4. Specificare il tipo di ridondanza di archiviazione da usare, ad esempio [archiviazione con ridondanza locale (LRS)](../storage/storage-redundancy.md#locally-redundant-storage) o [archiviazione con ridondanza geografica (GRS)](../storage/storage-redundancy.md#geo-redundant-storage). Nell'esempio seguente l'opzione BackupStorageRedundancy per testVault è impostata su GeoRedundant.
-   
+
    > [!TIP]
    > Molti cmdlet di Backup di Azure richiedono l'oggetto dell'insieme di credenziali dei servizi di ripristino come input. Per questo motivo, è utile archiviare l'oggetto dell'insieme di credenziali dei servizi di ripristino di Backup in una variabile.
-   > 
-   > 
-   
+   >
+   >
+
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
     PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
@@ -149,8 +149,8 @@ Machine registration succeeded.
 
 > [!IMPORTANT]
 > Non utilizzare percorsi relativi per specificare il file dell'insieme di credenziali. È necessario fornire un percorso assoluto come input per il cmdlet.
-> 
-> 
+>
+>
 
 ## <a name="networking-settings"></a>Impostazioni di rete
 Quando il computer Windows si connette a Internet mediante un server proxy, le impostazioni del proxy possono essere fornite anche all'agente. In questo esempio non è presente alcun server proxy, pertanto sono state eliminate tutte le informazioni relative al proxy.
@@ -177,8 +177,8 @@ Server properties updated successfully
 
 > [!IMPORTANT]
 > Dopo l'impostazione, conservare le informazioni sulla passphrase al sicuro. Non sarà possibile ripristinare i dati da Azure senza la passphrase.
-> 
-> 
+>
+>
 
 ## <a name="back-up-files-and-folders"></a>Eseguire il backup di file e cartelle
 Tutti i backup dei server e dei client Windows in Backup di Azure sono regolati da un criterio, costituito da tre parti:
@@ -633,7 +633,6 @@ Per altre informazioni su Backup di Azure per Windows Server/Client, vedere
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

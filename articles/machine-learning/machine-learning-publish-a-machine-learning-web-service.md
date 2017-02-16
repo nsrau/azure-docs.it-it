@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 44afeaa05ff2a8ab5a685d9f82880b0fa50f490b
+ms.sourcegitcommit: 52153526fb5b127823316b86fa05c0528151e18f
+ms.openlocfilehash: df8aebc78969ac6ceb00ee8b20a60cb153e8891b
 
 
 ---
@@ -27,7 +27,7 @@ In generale, questo avviene in tre passaggi:
 
 * **[Creare un esperimento di training]** - Azure Machine Learning Studio è un ambiente di sviluppo visivo di collaborazione che consente di eseguire il training e il test di un modello di analisi predittiva usando i dati di training forniti.
 * **[Eseguire la conversione in un esperimento predittivo]** - Dopo avere eseguito il training del modello con i dati esistenti, preparare e ottimizzare l'esperimento per la stima quando si è pronti a usarlo per l'assegnazione dei punteggi ai nuovi dati.
-* **Distribuire come servizio Web** - È possibile distribuire l'esperimento predittivo come servizio Web di Azure [nuovo] o [classico]. Gli utenti possono inviare dati al modello e ricevere le relative stime.
+* **[Distribuire come servizio Web]** - È possibile distribuire l'esperimento predittivo come servizio Web di Azure [nuovo] o [classico]. Gli utenti possono inviare dati al modello e ricevere le relative stime.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -54,12 +54,16 @@ Per altre informazioni su come eseguire questa conversione, vedere [Convertire u
 
 Nei passaggi seguenti è descritta la distribuzione di un esperimento predittivo come nuovo servizio Web. È anche possibile distribuire l'esperimento come servizio Web classico.
 
-## <a name="deploy-the-predictive-experiment-as-a-new-web-service"></a>Distribuire l'esperimento predittivo come nuovo servizio Web
-Ora che l'esperimento predittivo è stato preparato, è possibile distribuirlo come servizio Web di Azure. Usando il servizio Web, gli utenti possono inviare dati al modello che poi restituirà le stime.
+## <a name="deploy-it-as-a-web-service"></a>Distribuire l'esperimento predittivo come servizio Web
+
+È possibile distribuire l'esperimento predittivo come un servizio Web nuovo o classico.
+
+### <a name="deploy-the-predictive-experiment-as-a-new-web-service"></a>Distribuire l'esperimento predittivo come nuovo servizio Web
+Ora che l'esperimento predittivo è stato preparato, è possibile distribuirlo come nuovo servizio Web di Azure. Usando il servizio Web, gli utenti possono inviare dati al modello che poi restituirà le stime.
 
 Per distribuire l'esperimento predittivo, fare clic su **Esegui** nella parte inferiore dell'area di disegno dell'esperimento. Al termine dell'esecuzione dell'esperimento, fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]).  Verrà aperta la pagina di distribuzione del portale dei servizi Web di Machine Learning.
 
-### <a name="machine-learning-web-service-portal-deploy-experiment-page"></a>Pagina di distribuzione dell'esperimento del portale dei servizi Web di Machine Learning
+#### <a name="machine-learning-web-service-portal-deploy-experiment-page"></a>Pagina di distribuzione dell'esperimento del portale dei servizi Web di Machine Learning
 Nella pagina Deploy Experiment (Sperimentazione distribuzione) immettere un nome per il servizio Web.
 Selezionare un piano tariffario. Se è disponibile un piano tariffario, è possibile selezionarlo; in caso contrario è necessario creare un nuovo piano tariffario per il servizio.
 
@@ -73,7 +77,7 @@ La pagina Avvio rapido del servizio Web offre indicazioni e accesso alle attivit
 
 <!-- ![Deploy the web service](./media/machine-learning-publish-a-machine-learning-web-service/figure-2.png)-->
 
-### <a name="test-your-web-service"></a>Testare il servizio Web
+#### <a name="test-your-new-web-service"></a>Testare il nuovo servizio Web
 Per testare il nuovo servizio Web, fare clic su **Test web service** (Test servizio Web) nelle attività comuni. Nella pagina di test è possibile testare il servizio Web come servizio Richiesta-risposta (RRS) o servizio Esecuzione batch (BES).
 
 La pagina di test del servizio di richiesta-risposta (RRS) visualizza gli input, gli output ed eventuali parametri globali definiti per l'esperimento. Per testare il servizio Web, è possibile immettere manualmente i valori appropriati per gli input o fornire un file formattato con valori delimitati da virgole (CSV) contenente i valori di test.
@@ -104,22 +108,25 @@ Dopo aver distribuito il servizio Web, è possibile:
 * **Gestirlo** tramite il portale dei servizi Web di Azure Machine Learning o il portale di Azure classico.
 * **Aggiornarlo** se il modello viene modificato.
 
-### <a name="access-the-web-service"></a>Accedere al servizio Web
+#### <a name="access-your-new-web-service"></a>Accedere al nuovo servizio Web
 Dopo aver distribuito il servizio Web da Machine Learning Studio, è possibile inviare dati al servizio e ricevere risposte in modo programmatico.
 
 La pagina **Consume** (Uso) offre tutte le informazioni necessarie per accedere al servizio Web. Ad esempio, viene fornita la chiave API per consentire l'accesso autorizzato al servizio.
 
 Per altre informazioni su come accedere a un servizio Web di Machine Learning, vedere [Come usare un servizio Web di Azure Machine Learning distribuito](machine-learning-consume-web-services.md).
 
-### <a name="manage-your-new-web-service"></a>Gestire il nuovo servizio Web
+#### <a name="manage-your-new-web-service"></a>Gestire il nuovo servizio Web
 È possibile gestire il portale dei servizi Web di Machine Learning per i servizi Web classici. Dalla [pagina principale del portale](https://services.azureml-test.net/) fare clic su **Web Services** (Servizi Web). Nella pagina dei servizi Web è possibile eliminare o copiare un servizio. Per monitorare un servizio specifico, fare clic sul servizio e quindi su **Dashboard**. Per monitorare i processi batch associati al servizio Web, fare clic su **Batch Request Log**(Log richieste batch).
 
-## <a name="deploy-the-predictive-experiment-as-a-classic-web-service"></a>Distribuire l'esperimento predittivo come servizio Web classico
-Ora che l'esperimento predittivo è stato sufficientemente preparato, è possibile distribuirlo come servizio Web di Azure. Usando il servizio Web, gli utenti possono inviare dati al modello che poi restituirà le stime.
+### <a name="deploy-the-predictive-experiment-as-a-classic-web-service"></a>Distribuire l'esperimento predittivo come servizio Web classico
+
+Ora che l'esperimento predittivo è stato sufficientemente preparato, è possibile distribuirlo come servizio Web di Azure classico. Usando il servizio Web, gli utenti possono inviare dati al modello che poi restituirà le stime.
 
 Per distribuire l'esperimento predittivo, fare clic su **Run** (Esegui) nella parte inferiore dell'area di disegno dell'esperimento e quindi fare clic su **Deploy Web Service** (Distribuisci servizio Web). Il servizio Web viene configurato e viene visualizzato il dashboard del servizio Web.
 
 ![Distribuire il servizio web](./media/machine-learning-publish-a-machine-learning-web-service/figure-2.png)
+
+#### <a name="test-your-classic-web-service"></a>Testare il servizio Web classico
 
 È possibile testare il servizio Web nel portale dei servizi Web di Azure Machine Learning o in Machine Learning Studio.
 
@@ -141,14 +148,14 @@ Nella pagina **CONFIGURATION** (CONFIGURAZIONE) è possibile modificare il nome 
 
 È anche possibile configurare gli endpoint per il servizio Web nel portale dei servizi Web di Azure Machine Learning, con una procedura simile a quella illustrata in precedenza nella sezione relativa al nuovo servizio Web. Le opzioni sono diverse: è possibile aggiungere o modificare la descrizione del servizio, abilitare la registrazione e abilitare i dati di esempio per il test.
 
-### <a name="access-the-web-service"></a>Accedere al servizio Web
+#### <a name="access-your-classic-web-service"></a>Accedere al servizio Web classico
 Dopo aver distribuito il servizio Web da Machine Learning Studio, è possibile inviare dati al servizio e ricevere risposte in modo programmatico.
 
 Il dashboard offre tutte le informazioni necessarie per accedere al servizio Web. Ad esempio, la chiave API viene offerta per consentire l'accesso autorizzato al servizio, mentre le pagine della guida API hanno lo scopo di aiutare nella scrittura di codice.
 
 Per altre informazioni su come accedere a un servizio Web di Machine Learning, vedere [Come usare un servizio Web di Azure Machine Learning distribuito](machine-learning-consume-web-services.md).
 
-### <a name="manage-the-web-service"></a>Gestire il servizio Web
+#### <a name="manage-your-classic-web-service"></a>Gestire il servizio Web classico
 Per monitorare un servizio Web, sono disponibili diverse operazioni. È possibile aggiornare il servizio ed eliminarlo. È anche possibile aggiungere altri endpoint a un servizio Web classico oltre all'endpoint predefinito creato al momento della distribuzione.
 
 Per altre informazioni, vedere [Gestire un'area di lavoro di Azure Machine Learning](machine-learning-manage-workspace.md) e [Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning](machine-learning-manage-new-webservice.md).
@@ -174,14 +181,15 @@ Un'opzione per l'aggiornamento del servizio Web consiste nel ripetere il trainin
 <!-- internal links -->
 [Creare un esperimento di training]: #create-a-training-experiment
 [Eseguire la conversione in un esperimento predittivo]: #convert-the-training-experiment-to-a-predictive-experiment
+[Distribuire come servizio Web]: #deploy-it-as-a-web-service
 [nuovo]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [classico]: #deploy-the-predictive-experiment-as-a-new-Web-service
-[Accedere]: #access-the-Web-service
-[Gestire]: #manage-the-Web-service-in-the-azure-management-portal
-[Aggiornare]: #update-the-Web-service
+[Access]: #access-the-Web-service
+[Manage]: #manage-the-Web-service-in-the-azure-management-portal
+[Update]: #update-the-Web-service
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

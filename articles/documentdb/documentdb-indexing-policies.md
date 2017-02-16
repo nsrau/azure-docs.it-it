@@ -16,13 +16,13 @@ ms.workload: data-services
 ms.date: 12/22/2016
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 994fb8080f053ae3eb72eb1dda92bd5aa46c6988
-ms.openlocfilehash: a48cdb58dd48cc033f69de15fc19f313bc12cdfa
+ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
+ms.openlocfilehash: 6941a0a5e108617ebb16354edc9917392b7cb786
 
 
 ---
 # <a name="documentdb-indexing-policies"></a>Criteri di indicizzazione di DocumentDB
-Anche se molti clienti sono felici del fatto che Azure DocumentDB gestisca automaticamente [tutti gli aspetti dell'indicizzazione](documentdb-indexing.md), DocumentDB supporta anche l'impostazione di **criteri d'indicizzazione** personalizzati per le raccolte durante la creazione. I criteri di indicizzazione in DocumentDB sono più flessibili e potenti rispetto agli indici secondari disponibili in altre piattaforme database, perché consentono di progettare e personalizzare la forma dell'indice senza sacrificare la flessibilità dello schema. Per apprendere come eseguire l’indicizzazione in DocumentDB, è necessario comprendere che con la gestione dei criteri di indicizzazione è  possibile rendere accurati compromessi tra archiviazione dell'indice, scrittura e velocità effettiva di query e la coerenza delle query.  
+Anche se molti clienti sono felici del fatto che Azure DocumentDB gestisca automaticamente tutti gli aspetti dell'indicizzazione, DocumentDB supporta anche l'impostazione di **criteri d'indicizzazione** personalizzati per le raccolte durante la creazione. I criteri di indicizzazione in DocumentDB sono più flessibili e potenti rispetto agli indici secondari disponibili in altre piattaforme database, perché consentono di progettare e personalizzare la forma dell'indice senza sacrificare la flessibilità dello schema. Per apprendere come eseguire l’indicizzazione in DocumentDB, è necessario comprendere che con la gestione dei criteri di indicizzazione è  possibile rendere accurati compromessi tra archiviazione dell'indice, scrittura e velocità effettiva di query e la coerenza delle query.  
 
 In questo articolo vengono presentati i criteri di indicizzazione di DocumentDB, il procedimento per personalizzare i criteri di indicizzazione e i compromessi associati. 
 
@@ -413,6 +413,6 @@ Seguire i collegamenti seguenti per esempi di gestione dei criteri di indicizzaz
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

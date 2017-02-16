@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0bcb8473b2f7fb381ba9f12fb8458e14b4d82c58
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 7418595e6f070f15c9ebeac759bffe692da5d143
 
 
 ---
@@ -53,7 +53,7 @@ I logger di Gestione API vengono configurati mediante l' [API REST Gestione API]
 
 Per creare un logger, effettuare una richiesta HTTP PUT usando il seguente modello URL.
 
-    https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview
+`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
 
 * Sostituire `{your service}` con il nome dell'istanza del servizio Gestione API.
 * Sostituire `{new logger name}` con il nome desiderato per il nuovo logger. Si farà riferimento a questo nome al momento di configurare i criteri [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) .
@@ -66,14 +66,16 @@ Aggiungere le intestazioni seguenti alla richiesta.
 
 Specificare il corpo della richiesta usando il modello seguente.
 
-    {
-      "type" : "AzureEventHub",
-      "description" : "Sample logger description",
-      "credentials" : {
-        "name" : "Name of the Event Hub from the Azure Classic Portal",
-        "connectionString" : "Endpoint=Event Hub Sender connection string"
-        }
+```json
+{
+  "type" : "AzureEventHub",
+  "description" : "Sample logger description",
+  "credentials" : {
+    "name" : "Name of the Event Hub from the Azure Classic Portal",
+    "connectionString" : "Endpoint=Event Hub Sender connection string"
     }
+}
+```
 
 * `type` deve essere impostato su `AzureEventHub`.
 * `description` fornisce una descrizione facoltativa del logger e può essere una stringa di lunghezza zero, se lo si desidera.
@@ -101,9 +103,11 @@ Posizionare il cursore nella sezione dei criteri `inbound` e fare clic sui crite
 
 ![Policy editor][event-hub-policy]
 
-    <log-to-eventhub logger-id ='logger-id'>
-      @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
-    </log-to-eventhub>
+```xml
+<log-to-eventhub logger-id ='logger-id'>
+  @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
+</log-to-eventhub>
+```
 
 Sostituire `logger-id` con il nome del logger di Gestione API configurato nel passaggio precedente.
 
@@ -143,6 +147,6 @@ Fare clic su **Salva** per salvare la configurazione aggiornata dei criteri. Il 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

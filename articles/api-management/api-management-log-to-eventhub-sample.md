@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: darrmi
+ms.date: 12/19/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0aff583146736eb90e9940ca26be24da84bc4a14
+ms.sourcegitcommit: 7fafc85fe2997841b01ded693c532fea527f90de
+ms.openlocfilehash: 678f1aa97a4cfe93f2db569d4ddf20fcaf6fa39f
 
 
 ---
@@ -48,29 +48,31 @@ Un'opzione alternativa consiste nell'usare il tipo di dati multimediali `applica
 
 Per potere creare questo messaggio, è necessario sfruttare le [espressioni di criteri](https://msdn.microsoft.com/library/azure/dn910913.aspx) basate su C# disponibili in Gestione API di Azure. Ecco il criterio che invia un messaggio di richiesta HTTP all'Hub eventi di Azure.
 
-       <log-to-eventhub logger-id="conferencelogger" partition-id="0">
-       @{
-           var requestLine = string.Format("{0} {1} HTTP/1.1\r\n",
-                                                       context.Request.Method,
-                                                       context.Request.Url.Path + context.Request.Url.QueryString);
+```xml
+<log-to-eventhub logger-id="conferencelogger" partition-id="0">
+@{
+   var requestLine = string.Format("{0} {1} HTTP/1.1\r\n",
+                                               context.Request.Method,
+                                               context.Request.Url.Path + context.Request.Url.QueryString);
 
-           var body = context.Request.Body?.As<string>(true);
-           if (body != null && body.Length > 1024)
-           {
-               body = body.Substring(0, 1024);
-           }
+   var body = context.Request.Body?.As<string>(true);
+   if (body != null && body.Length > 1024)
+   {
+       body = body.Substring(0, 1024);
+   }
 
-           var headers = context.Request.Headers
-                                  .Where(h => h.Key != "Authorization" && h.Key != "Ocp-Apim-Subscription-Key")
-                                  .Select(h => string.Format("{0}: {1}", h.Key, String.Join(", ", h.Value)))
-                                  .ToArray<string>();
+   var headers = context.Request.Headers
+                          .Where(h => h.Key != "Authorization" && h.Key != "Ocp-Apim-Subscription-Key")
+                          .Select(h => string.Format("{0}: {1}", h.Key, String.Join(", ", h.Value)))
+                          .ToArray<string>();
 
-           var headerString = (headers.Any()) ? string.Join("\r\n", headers) + "\r\n" : string.Empty;
+   var headerString = (headers.Any()) ? string.Join("\r\n", headers) + "\r\n" : string.Empty;
 
-           return "request:"   + context.Variables["message-id"] + "\n"
-                               + requestLine + headerString + "\r\n" + body;
-       }
-       </log-to-eventhub>
+   return "request:"   + context.Variables["message-id"] + "\n"
+                       + requestLine + headerString + "\r\n" + body;
+}
+</log-to-eventhub>
+```
 
 ### <a name="policy-declaration"></a>Dichiarazione di criteri
 È necessario evidenziare alcuni aspetti di questa espressione di criteri. Il criterio log-to-eventhub ha un attributo denominato logger-id che fa riferimento al nome del logger creato nel servizio Gestione API. I dettagli relativi alla configurazione di un logger dell'Hub eventi nel servizio Gestione API sono disponibili nel documento [Come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure](api-management-howto-log-event-hubs.md). Il secondo attributo è un parametro opzionale che indica all'Hub eventi la partizione in cui archiviare il messaggio. Hub eventi usa le partizioni per abilitare la scalabilità e richiede almeno due partizioni. Il recapito ordinato dei messaggi è garantito solo entro una partizione. Se non si indica all'Hub eventi la partizione in cui inserire il messaggio, verrà usato un algoritmo round-robin per distribuire il carico. È tuttavia possibile che ciò provochi l'elaborazione non ordinata di alcuni messaggi.  
@@ -87,67 +89,71 @@ Le intestazioni HTTP possono essere semplicemente trasferite nel formato del mes
 ### <a name="message-metadata"></a>Metadati del messaggio
 Durante la creazione del messaggio completo da inviare all'hub eventi, la prima riga non fa effettivamente parte del messaggio `application/http` . La prima riga include metadati aggiuntivi che indicano se il messaggio è un messaggio di richiesta o di risposta e l'ID del messaggio, che viene usato per correlare le richieste e l risposte. L'ID del messaggio viene creato mediante un altro criterio, analogo al seguente:
 
-    <set-variable name="message-id" value="@(Guid.NewGuid())" />
+```xml
+<set-variable name="message-id" value="@(Guid.NewGuid())" />
+```
 
 È anche possibile creare il messaggio di richiesta, archiviarlo in una variabile fino alla restituzione della risposta e quindi semplicemente inviare la richiesta e la risposta come singolo messaggio, ma l'invio indipendente di richiesta e risposta e l'uso di un ID del messaggio per correlarle consente di ottenere una maggiore flessibilità a livello di dimensioni del messaggio, di sfruttare i vantaggi offerti dalle partizioni multiple e di mantenere al tempo stesso l'ordine dei messaggi, oltre a visualizzare più rapidamente la richiesta nel dashboard di registrazione. In alcuni scenari è anche possibile che non venga mai inviata all'hub eventi alcuna risposta valida, probabilmente a causa di un errore della richiesta nel servizio Gestione API, ma viene comunque mantenuto un record della richiesta.
 
 Il criterio per l'invio del messaggio di risposta HTTP è molto simile alla risposta, quindi la configurazione completa del criterio sarà analoga alla seguente:
 
-      <policies>
-          <inbound>
-              <set-variable name="message-id" value="@(Guid.NewGuid())" />
-              <log-to-eventhub logger-id="conferencelogger" partition-id="0">
-              @{
-                  var requestLine = string.Format("{0} {1} HTTP/1.1\r\n",
-                                                              context.Request.Method,
-                                                              context.Request.Url.Path + context.Request.Url.QueryString);
+```xml
+<policies>
+  <inbound>
+      <set-variable name="message-id" value="@(Guid.NewGuid())" />
+      <log-to-eventhub logger-id="conferencelogger" partition-id="0">
+      @{
+          var requestLine = string.Format("{0} {1} HTTP/1.1\r\n",
+                                                      context.Request.Method,
+                                                      context.Request.Url.Path + context.Request.Url.QueryString);
 
-                  var body = context.Request.Body?.As<string>(true);
-                  if (body != null && body.Length > 1024)
-                  {
-                      body = body.Substring(0, 1024);
-                  }
+          var body = context.Request.Body?.As<string>(true);
+          if (body != null && body.Length > 1024)
+          {
+              body = body.Substring(0, 1024);
+          }
 
-                  var headers = context.Request.Headers
-                                       .Where(h => h.Key != "Authorization" && h.Key != "Ocp-Apim-Subscription-Key")
-                                       .Select(h => string.Format("{0}: {1}", h.Key, String.Join(", ", h.Value)))
-                                       .ToArray<string>();
+          var headers = context.Request.Headers
+                               .Where(h => h.Key != "Authorization" && h.Key != "Ocp-Apim-Subscription-Key")
+                               .Select(h => string.Format("{0}: {1}", h.Key, String.Join(", ", h.Value)))
+                               .ToArray<string>();
 
-                  var headerString = (headers.Any()) ? string.Join("\r\n", headers) + "\r\n" : string.Empty;
+          var headerString = (headers.Any()) ? string.Join("\r\n", headers) + "\r\n" : string.Empty;
 
-                  return "request:"   + context.Variables["message-id"] + "\n"
-                                      + requestLine + headerString + "\r\n" + body;
-              }
-          </log-to-eventhub>
-          </inbound>
-          <backend>
-              <forward-request follow-redirects="true" />
-          </backend>
-          <outbound>
-              <log-to-eventhub logger-id="conferencelogger" partition-id="1">
-              @{
-                  var statusLine = string.Format("HTTP/1.1 {0} {1}\r\n",
-                                                      context.Response.StatusCode,
-                                                      context.Response.StatusReason);
+          return "request:"   + context.Variables["message-id"] + "\n"
+                              + requestLine + headerString + "\r\n" + body;
+      }
+  </log-to-eventhub>
+  </inbound>
+  <backend>
+      <forward-request follow-redirects="true" />
+  </backend>
+  <outbound>
+      <log-to-eventhub logger-id="conferencelogger" partition-id="1">
+      @{
+          var statusLine = string.Format("HTTP/1.1 {0} {1}\r\n",
+                                              context.Response.StatusCode,
+                                              context.Response.StatusReason);
 
-                  var body = context.Response.Body?.As<string>(true);
-                  if (body != null && body.Length > 1024)
-                  {
-                      body = body.Substring(0, 1024);
-                  }
+          var body = context.Response.Body?.As<string>(true);
+          if (body != null && body.Length > 1024)
+          {
+              body = body.Substring(0, 1024);
+          }
 
-                  var headers = context.Response.Headers
-                                                  .Select(h => string.Format("{0}: {1}", h.Key, String.Join(", ", h.Value)))
-                                                  .ToArray<string>();
+          var headers = context.Response.Headers
+                                          .Select(h => string.Format("{0}: {1}", h.Key, String.Join(", ", h.Value)))
+                                          .ToArray<string>();
 
-                  var headerString = (headers.Any()) ? string.Join("\r\n", headers) + "\r\n" : string.Empty;
+          var headerString = (headers.Any()) ? string.Join("\r\n", headers) + "\r\n" : string.Empty;
 
-                  return "response:"  + context.Variables["message-id"] + "\n"
-                                      + statusLine + headerString + "\r\n" + body;
-             }
-          </log-to-eventhub>
-          </outbound>
-      </policies>
+          return "response:"  + context.Variables["message-id"] + "\n"
+                              + statusLine + headerString + "\r\n" + body;
+     }
+  </log-to-eventhub>
+  </outbound>
+</policies>
+```
 
 Il criterio `set-variable` crea un valore accessibile dal criterio `log-to-eventhub` nella sezione `<inbound>` e nella sezione `<outbound>`.  
 
@@ -160,40 +166,45 @@ Per semplificare, in questo esempio verrà usato l'approccio `EventProcessorHost
 ### <a name="ieventprocessor"></a>IEventProcessor
 Il concetto centrale dell'uso di `EventProcessorHost` consiste nel creare un'implementazione dell'interfaccia `IEventProcessor`, che include il metodo `ProcessEventAsync`. Gli elementi fondamentali del metodo sono illustrati di seguito:
 
-  async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages) {
+```c#
+async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
+{
 
-           foreach (EventData eventData in messages)
-           {
-               _Logger.LogInfo(string.Format("Event received from partition: {0} - {1}", context.Lease.PartitionId,eventData.PartitionKey));
+   foreach (EventData eventData in messages)
+   {
+       _Logger.LogInfo(string.Format("Event received from partition: {0} - {1}", context.Lease.PartitionId,eventData.PartitionKey));
 
-               try
-               {
-                   var httpMessage = HttpMessage.Parse(eventData.GetBodyStream());
-                   await _MessageContentProcessor.ProcessHttpMessage(httpMessage);
-               }
-               catch (Exception ex)
-               {
-                   _Logger.LogError(ex.Message);
-               }
-           }
-            ... checkpointing code snipped ...
-        }
+       try
+       {
+           var httpMessage = HttpMessage.Parse(eventData.GetBodyStream());
+           await _MessageContentProcessor.ProcessHttpMessage(httpMessage);
+       }
+       catch (Exception ex)
+       {
+           _Logger.LogError(ex.Message);
+       }
+   }
+    ... checkpointing code snipped ...
+}
+```
 
 Un elenco di oggetti EventData viene passato al metodo e viene eseguita l'iterazione dell'elenco. I byte di ogni metodo vengono analizzati in un oggetto HttpMessage e questo oggetto viene passato a un'istanza di IHttpMessageProcessor.
 
 ### <a name="httpmessage"></a>HttpMessage
 L'istanza `HttpMessage` contiene tre parti di dati:
 
-      public class HttpMessage
-       {
-           public Guid MessageId { get; set; }
-           public bool IsRequest { get; set; }
-           public HttpRequestMessage HttpRequestMessage { get; set; }
-           public HttpResponseMessage HttpResponseMessage { get; set; }
+```c#
+public class HttpMessage
+{
+   public Guid MessageId { get; set; }
+   public bool IsRequest { get; set; }
+   public HttpRequestMessage HttpRequestMessage { get; set; }
+   public HttpResponseMessage HttpResponseMessage { get; set; }
 
-        ... parsing code snipped ...
+... parsing code snipped ...
 
-      }
+}
+```
 
 L'istanza `HttpMessage` contiene un GUID `MessageId` che consente di connettere la richiesta HTTP alla risposta HTTP corrispondente e un valore booleano che indica se l'oggetto contiene un'istanza di HttpRequestMessage e HttpResponseMessage. Usando le classi HTTP predefinite da `System.Net.Http`, è possibile sfruttare i vantaggi del codice di analisi `application/http` incluso in `System.Net.Http.Formatting`.  
 
@@ -205,46 +216,48 @@ Per questo esempio è possibile provare a effettuare il push della richiesta HTT
 
 L'implementazione `IHttpMessageProcessor` ha un aspetto analogo al seguente,
 
-      public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
+```c#
+public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
+{
+   private HttpClient _HttpClient;
+   private ILogger _Logger;
+   private string _BucketKey;
+   public RunscopeHttpMessageProcessor(HttpClient httpClient, ILogger logger)
+   {
+       _HttpClient = httpClient;
+       var key = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-KEY", EnvironmentVariableTarget.User);
+       _HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", key);
+       _HttpClient.BaseAddress = new Uri("https://api.runscope.com");
+       _BucketKey = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-BUCKET", EnvironmentVariableTarget.User);
+       _Logger = logger;
+   }
+
+   public async Task ProcessHttpMessage(HttpMessage message)
+   {
+       var runscopeMessage = new RunscopeMessage()
        {
-           private HttpClient _HttpClient;
-           private ILogger _Logger;
-           private string _BucketKey;
-           public RunscopeHttpMessageProcessor(HttpClient httpClient, ILogger logger)
-           {
-               _HttpClient = httpClient;
-               var key = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-KEY", EnvironmentVariableTarget.User);
-               _HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", key);
-               _HttpClient.BaseAddress = new Uri("https://api.runscope.com");
-               _BucketKey = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-BUCKET", EnvironmentVariableTarget.User);
-               _Logger = logger;
-           }
+           UniqueIdentifier = message.MessageId
+       };
 
-           public async Task ProcessHttpMessage(HttpMessage message)
-           {
-               var runscopeMessage = new RunscopeMessage()
-               {
-                   UniqueIdentifier = message.MessageId
-               };
-
-               if (message.IsRequest)
-               {
-                   _Logger.LogInfo("Sending HTTP request " + message.MessageId.ToString());
-                   runscopeMessage.Request = await RunscopeRequest.CreateFromAsync(message.HttpRequestMessage);
-               }
-               else
-               {
-                   _Logger.LogInfo("Sending HTTP response " + message.MessageId.ToString());
-                   runscopeMessage.Response = await RunscopeResponse.CreateFromAsync(message.HttpResponseMessage);
-               }
-
-               var messagesLink = new MessagesLink() { Method = HttpMethod.Post };
-               messagesLink.BucketKey = _BucketKey;
-               messagesLink.RunscopeMessage = runscopeMessage;
-               var runscopeResponse = await _HttpClient.SendAsync(messagesLink.CreateRequest());
-               _Logger.LogDebug("Request sent to Runscope");
-           }
+       if (message.IsRequest)
+       {
+           _Logger.LogInfo("Sending HTTP request " + message.MessageId.ToString());
+           runscopeMessage.Request = await RunscopeRequest.CreateFromAsync(message.HttpRequestMessage);
        }
+       else
+       {
+           _Logger.LogInfo("Sending HTTP response " + message.MessageId.ToString());
+           runscopeMessage.Response = await RunscopeResponse.CreateFromAsync(message.HttpResponseMessage);
+       }
+
+       var messagesLink = new MessagesLink() { Method = HttpMethod.Post };
+       messagesLink.BucketKey = _BucketKey;
+       messagesLink.RunscopeMessage = runscopeMessage;
+       var runscopeResponse = await _HttpClient.SendAsync(messagesLink.CreateRequest());
+       _Logger.LogDebug("Request sent to Runscope");
+   }
+}
+```
 
 È stato possibile sfruttare una [libreria client esistente per Runscope](http://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha) che semplifica il push delle istanze `HttpRequestMessage` e `HttpResponseMessage` nel servizio. Per accedere all'API Runscope, saranno necessari un account e una chiave API. Le istruzioni per ottenere una chiave API sono disponibili nello screencast relativo alla [creazione di applicazioni per l'accesso all'API Runscope](http://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) .
 
@@ -273,6 +286,6 @@ Il servizio Gestione API di Azure è la posizione ideale per acquisire il traffi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

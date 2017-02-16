@@ -1,5 +1,5 @@
 ---
-title: Advisor per database SQL di Azure
+title: Raccomandazioni sulle prestazioni per database SQL di Azure | Documentazione Microsoft
 description: L&quot;advisor per database SQL di Azure offre raccomandazioni per i database SQL esistenti che consentono di migliorare le prestazioni correnti delle query.
 services: sql-database
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 09/30/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f7bffa4f13d7a4fa0ea3c120a826638ee5d6c65a
+ms.sourcegitcommit: 5df30f24a8e7370ac33c72641f05138776e24bb0
+ms.openlocfilehash: 55502f346eaf5ccf76d6f1c03487e95f0b93e3f5
 
 
 ---
@@ -79,6 +79,6 @@ Monitorare le raccomandazioni e continuare ad applicarle in modo da migliorare l
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

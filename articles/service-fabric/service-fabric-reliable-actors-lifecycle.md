@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 08/30/2016
 ms.author: amanbha
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: 0ce3808e44d715aca5f335aa93a3c9425810b03f
+ms.sourcegitcommit: e39c130b1abb0b2c31511abdd51f02446d3898f6
+ms.openlocfilehash: 681c9aa628ea9364f73e6a41f0f71139d3b983d7
 
 
 ---
@@ -83,7 +83,7 @@ public class Program
 
 Per ogni attore attivo, il runtime di Actors tiene traccia del periodo di inattività. Il runtime di Actors controlla ogni attore in base alla frequenza definita da `ScanIntervalInSeconds` per verificare se può essere sottoposto a Garbage Collection e determina se l'attore è rimasto inattivo per il numero di secondi definito da `IdleTimeoutInSeconds`.
 
-Ogni volta che un attore viene usato, il periodo di inattività viene reimpostato su 0. A questo punto, l'attore può essere sottoposto a Garbage Collection solo se rimane nuovamente inattivo per il numero di secondi definito da `IdleTimeoutInSeconds`. È importante ricordare che l'uso di un attore è determinato in base all'esecuzione di un metodo di interfaccia o di un callback di promemoria dell'attore, L'uso di un attore **non** è determinato in base all'esecuzione del callback dei timer.
+Ogni volta che un attore viene usato, il periodo di inattività viene reimpostato su 0. A questo punto, l'attore può essere sottoposto a Garbage Collection solo se rimane nuovamente inattivo per il numero di secondi definito da `IdleTimeoutInSeconds`. È importante ricordare che l'uso di un attore è determinato in base all'esecuzione di un metodo di interfaccia o di un callback di promemoria dell'attore. L'uso di un attore **non** è determinato in base all'esecuzione del callback dei timer.
 
 Il diagramma seguente mostra il ciclo di vita di un unico attore per illustrare questi concetti.
 
@@ -101,7 +101,7 @@ Nell'esempio viene illustrato l'impatto delle chiamate ai metodi degli attori, d
 Un attore non viene mai sottoposto a Garbage Collection mentre è in esecuzione uno dei relativi metodi, indipendentemente dal tempo impiegato per l'esecuzione di tale metodo. Come accennato in precedenza, l'esecuzione dei metodi dell'interfaccia dell'attore e dei callback di promemoria impedisce l'operazione di Garbage Collection, reimpostando su 0 il tempo di inattività dell'attore. L'esecuzione di callback di timer non ha invece l'effetto di reimpostare su 0 il tempo di inattività. Tuttavia, l'operazione di Garbage Collection dell'attore viene rinviata finché il callback di timer non ha completato l'esecuzione.
 
 ## <a name="deleting-actors-and-their-state"></a>Eliminazione di attori e del relativo stato
-L'operazione di Garbage Collection degli attori disattivati pulisce solo l'oggetto attore, ma non rimuove i dati archiviati nel gestore di stato dell'attore. Quando un attore viene riattivato, i suoi dati vengono nuovamente resi disponibili tramite il gestore di stato. Nei casi in cui gli attori archiviano dati nel gestore di stato e vengono disattivati ma mai riattivati, può essere necessario pulire i relativi dati.
+L'operazione di Garbage Collection degli attori disattivati pulisce solo l'oggetto attore, ma non rimuove i dati archiviati in State Manager dell'attore. Quando un attore viene riattivato, i suoi dati vengono nuovamente resi disponibili tramite il gestore di stato. Nei casi in cui gli attori archiviano dati nel gestore di stato e vengono disattivati ma mai riattivati, può essere necessario pulire i relativi dati.
 
 Il [servizio Actor](service-fabric-reliable-actors-platform.md) fornisce anche una funzione per l'eliminazione di attori da un chiamante remoto:
 
@@ -137,6 +137,6 @@ Si noti che un attore non può chiamare un'operazione di eliminazione su se stes
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

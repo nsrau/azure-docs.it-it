@@ -1,6 +1,6 @@
 ---
-title: Schema di rilevamento as2 | Documentazione Microsoft
-description: Altre informazioni sullo schema di rilevamento as2
+title: Schemi di rilevamento AS2 | Documentazione Microsoft
+description: Altre informazioni sugli schemi di rilevamento AS2
 author: padmavc
 manager: erikre
 editor: 
@@ -15,14 +15,13 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: 63ba6e8fec8df1cdbc9928b011130f47c5facf89
-ms.openlocfilehash: 1fd5bd1038be6c35cf5fc05c9cfa000d818c5e70
+ms.sourcegitcommit: e79f93c94d729a604944fc065b7016e9dbfcb9b6
+ms.openlocfilehash: 65a1da23b1fdd671035f99a2a66da7c948573eb9
 
 
 ---
-
 # <a name="as2-tracking-schemas"></a>Schemi di rilevamento AS2
-Ecco gli schemi di rilevamento AS2 supportati:
+È possibile utilizzare questi schemi di rilevamento AS2 nell'account di integrazione di Azure per monitorare le transazioni business-to-business (B2B):
 
 * Schema di rilevamento messaggi AS2
 * Schema di rilevamento MDN AS2
@@ -59,27 +58,27 @@ Ecco gli schemi di rilevamento AS2 supportati:
     }
 ````
 
-| Proprietà | Descrizione |
-| --- | --- |
-| senderPartnerName |Facoltativa, stringa.  Indica il nome del partner del mittente del messaggio AS2. |
-| receiverPartnerName |Facoltativa, stringa.  Indica il nome del partner del destinatario del messaggio AS2. |
-| as2To |Obbligatoria, stringa.  Indica il nome del destinatario del messaggio AS2 incluso nelle intestazioni del messaggio AS2. |
-| as2From |Obbligatoria, stringa. Indica il nome del mittente del messaggio AS2 incluso nelle intestazioni del messaggio AS2. |
-| agreementName |Facoltativa, stringa.  Nome del contratto AS2 in base al quale vengono risolti i messaggi. |
-| direction |Obbligatoria, stringa.  Indica la direzione del flusso di messaggi, ovvero ricezione o invio. |
-| messageId |Facoltativa, stringa.  Indica l'ID del messaggio AS2 incluso nelle intestazioni del messaggio AS2. |
-| dispositionType |Facoltativa, stringa. Indica il valore del tipo di disposizione MDN. |
-| fileName |Facoltativa, stringa.  Indica il nome file incluso nell'intestazione del messaggio AS2. |
-| isMessageFailed |Obbligatoria, valore booleano.  Indica se il messaggio AS2 ha avuto esito positivo o negativo. |
-| isMessageSigned |Obbligatoria, valore booleano.  Indica se il messaggio AS2 è firmato o no. |
-| isMessageEncrypted |Obbligatoria, valore booleano. Indica se il messaggio AS2 è crittografato o no. |
-| isMessageCompressed |Obbligatoria, valore booleano. Indica se il messaggio AS2 è compresso o no. |
-| correlationMessageId |Facoltativa, stringa. Indica il valore AS2messageid per la correlazione dei messaggi con MDN. |
-| incomingHeaders |Facoltativa, dizionario di JToken.  Indica i dettagli dell'intestazione del messaggio AS2 in arrivo. |
-| outgoingHeaders |Facoltativa, dizionario di JToken.  Indica i dettagli dell'intestazione del messaggio AS2 in uscita. |
-| isNrrEnabled |Obbligatoria, valore booleano.  Usare il valore predefinito se questo valore è sconosciuto. |
-| isMdnExpected |Obbligatoria, valore booleano. Usare il valore predefinito se questo valore è sconosciuto. |
-| mdnType |Obbligatoria, enumerazione. I valori consentiti sono NotConfigured, Sync o Async. |
+| Proprietà | Tipo | Descrizione |
+| --- | --- | --- |
+| senderPartnerName | String | Nome partner del mittente del messaggio AS2. Facoltativa |
+| receiverPartnerName | String | Nome partner del destinatario del messaggio AS2. Facoltativa |
+| as2To | String | Nome del destinatario del messaggio AS2, dalle intestazioni del messaggio AS2. Obbligatoria |
+| as2From | String | Nome del mittente del messaggio AS2, dalle intestazioni del messaggio AS2. Obbligatoria |
+| agreementName | String | Nome del contratto AS2 in base al quale vengono risolti i messaggi. Facoltativa |
+| direction | String | Direzione del flusso dei messaggi, ricezione o invio. Obbligatoria |
+| messageId | String | ID del messaggio AS2, dalle intestazioni del messaggio AS2. Facoltativa |
+| dispositionType |String | Valore del tipo di notifica sulla ricezione del messaggio (MDN). Facoltativa |
+| fileName | String | Nome di file, dall'intestazione del messaggio AS2. Facoltativa |
+| isMessageFailed |Boolean | Se il messaggio AS2 non è riuscito. Obbligatoria |
+| isMessageSigned | Boolean | Se il messaggio AS2 era firmato. Obbligatoria |
+| isMessageEncrypted | Boolean | Se il messaggio AS2 era crittografato. Obbligatoria |
+| isMessageCompressed |Boolean | Se il messaggio AS2 era compresso. Obbligatoria |
+| correlationMessageId | String | ID del messaggio AS2 per la correlazione dei messaggi con le notifiche MDN. Facoltativa |
+| incomingHeaders |Dizionario di JToken | Dettagli dell'intestazione del messaggio AS2 in arrivo. Facoltativa |
+| outgoingHeaders |Dizionario di JToken | Dettagli dell'intestazione del messaggio AS2 in uscita. Facoltativa |
+| isNrrEnabled | Boolean | Usare il valore predefinito se questo valore è sconosciuto. Obbligatoria |
+| isMdnExpected | Boolean | Usare il valore predefinito se questo valore è sconosciuto. Obbligatoria |
+| mdnType | Enum | I valori consentiti sono **NotConfigured**, **Sync** e **Async**. Obbligatoria |
 
 ## <a name="as2-mdn-tracking-schema"></a>Schema di rilevamento MDN AS2
 ````java
@@ -103,45 +102,43 @@ Ecco gli schemi di rilevamento AS2 supportati:
                 "statusCode": "",
                 "micVerificationStatus": "",
                 "correlationMessageId": "",
-                "incomingHeaders": { 
+                "incomingHeaders": {
                 },
-                "outgoingHeaders": { 
+                "outgoingHeaders": {
                 }
             }
     }
 ````
 
-| Proprietà | Descrizione |
-| --- | --- |
-| senderPartnerName |Facoltativa, stringa. Indica il nome del partner del mittente del messaggio AS2. |
-| receiverPartnerName |Facoltativa, stringa. Indica il nome del partner del destinatario del messaggio AS2. |
-| as2To |Obbligatoria, stringa. Indica il nome del partner che riceve il messaggio AS2. |
-| as2From |Obbligatoria, stringa. Indica il nome del partner che invia il messaggio AS2. |
-| agreementName |Facoltativa, stringa. Nome del contratto AS2 in base al quale vengono risolti i messaggi. |
-| direction |Obbligatoria, stringa. Indica la direzione del flusso di messaggi, ovvero ricezione o invio. |
-| messageId |Facoltativa, stringa. Indica l'ID del messaggio AS2. |
-| originalMessageId |Facoltativa, stringa. Indica l'ID del messaggio AS2 originale. |
-| dispositionType |Facoltativa, stringa. Indica il valore del tipo di disposizione MDN. |
-| isMessageFailed |Obbligatoria, valore booleano. Indica se il messaggio AS2 ha avuto esito positivo o negativo. |
-| isMessageSigned |Obbligatoria, valore booleano. Indica se il messaggio AS2 è firmato o no. |
-| isNrrEnabled |Obbligatoria, valore booleano.  Usare il valore predefinito se questo valore è sconosciuto. |
-| statusCode |Obbligatoria, enumerazione.  I valori consentiti sono Accepted, Rejected o AcceptedWithErrros. |
-| micVerificationStatus |Obbligatoria, enumerazione.  I valori consentito sono NotApplicable, Succeeded o Failed. |
-| correlationMessageId |Facoltativa, stringa.  Indica l'ID di correlazione.  L'ID di correlazione è l'ID del messaggio originale, ovvero l'ID del messaggio per cui è configurato MDN. |
-| incomingHeaders |Facoltativa, dizionario di JToken.  Indica i dettagli dell'intestazione del messaggio in arrivo. |
-| outgoingHeaders |Facoltativa, dizionario di JToken.  Indica i dettagli dell'intestazione del messaggio in uscita. |
+| Proprietà | Tipo | Descrizione |
+| --- | --- | --- |
+| senderPartnerName | String | Nome partner del mittente del messaggio AS2. Facoltativa |
+| receiverPartnerName | String | Nome partner del destinatario del messaggio AS2. Facoltativa |
+| as2To | String | Nome partner che riceve il messaggio AS2. Obbligatoria |
+| as2From | String | Nome partner che invia il messaggio AS2. Obbligatoria |
+| agreementName | String | Nome del contratto AS2 in base al quale vengono risolti i messaggi. Facoltativa |
+| direction |String | Direzione del flusso dei messaggi, ricezione o invio. Obbligatoria |
+| messageId | String | ID del messaggio AS2. Facoltativa |
+| originalMessageId |String | ID del messaggio originale AS2. Facoltativa |
+| dispositionType | String | Valore del tipo di gestione MDN. Facoltativa |
+| isMessageFailed |Boolean | Se il messaggio AS2 non è riuscito. Obbligatoria |
+| isMessageSigned |Boolean | Se il messaggio AS2 era firmato. Obbligatoria |
+| isNrrEnabled | Boolean | Usare il valore predefinito se questo valore è sconosciuto. Obbligatoria |
+| statusCode | Enum | I valori consentiti sono **Accepted**, **Rejected** e **AcceptedWithErrors**. Obbligatoria |
+| micVerificationStatus | Enum | I valori consentiti sono **NotApplicable**, **Succeeded** e **Failed**. Obbligatoria |
+| correlationMessageId | String | ID correlazione. ID del messaggio originale, ovvero ID del messaggio per cui è configurata la notifica MDN. Facoltativa |
+| incomingHeaders | Dizionario di JToken | Indica i dettagli dell'intestazione del messaggio in arrivo. Facoltativa |
+| outgoingHeaders |Dizionario di JToken | Indica i dettagli dell'intestazione del messaggio in uscita. Facoltativa |
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Altre informazioni su Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")    
-[Altre informazioni sul monitoraggio dei messaggi B2B](app-service-logic-monitor-b2b-message.md "Learn more about tracking B2B messages")   
-[Rilevamento dei messaggi B2B nel portale di OMS](app-service-logic-track-b2b-messages-omsportal.md "Tracking B2B messages")   
-[Altre informazioni sullo schema di rilevamento B2B personalizzato](app-service-logic-track-integration-account-custom-tracking-shema.md "Learn about Custom Schema")   
-[Altre informazioni sullo schema di rilevamento X12](app-service-logic-track-integration-account-x12-tracking-shemas.md "Learn about X12 Tracking Schema")   
-[Altre informazioni su Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
+* Altre informazioni su [Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md).    
+* Altre informazioni sul [monitoraggio dei messaggi B2B](app-service-logic-monitor-b2b-message.md).   
+* Altre informazioni sugli [schemi di rilevamento B2B personalizzati](app-service-logic-track-integration-account-custom-tracking-shema.md).   
+* Altre informazioni sugli [schemi di rilevamento X12](app-service-logic-track-integration-account-x12-tracking-shemas.md).   
+* Altre informazioni sul [rilevamento dei messaggi B2B nel portale di Operations Management Suite](app-service-logic-track-b2b-messages-omsportal.md).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2016
+ms.date: 12/13/2016
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2b6a932fef8c2bf2223ae525ff765fc7e01c3f0a
+ms.sourcegitcommit: 066ff1d2c8255c895fbfcb0ad8c0b1fef298f8c7
+ms.openlocfilehash: f122153a97c3bbdb4416b97146cf9611b850b51e
 
 
 ---
@@ -106,13 +106,13 @@ Per eseguire la distribuzione come servizio Web classico e creare un'applicazion
 8. Aggiornare il valore della variabile *apiKey* con la chiave API salvata in precedenza.
 9. Individuare la dichiarazione di richiesta e aggiornare i valori del servizio Web passati ai moduli *Import Data* (Importa dati) e *Export Data* (Esporta dati). In questo caso, usare la query originale, ma definire un nome per la nuova tabella.
    
-     var request = new BatchExecutionRequest()   {    
-   
-         GlobalParameters = new Dictionary<string, string>() {
-         { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-         { "Table", "dbo.ScoredTable2" },
-         }
-     };
+        var request = new BatchExecutionRequest() 
+        {           
+            GlobalParameters = new Dictionary<string, string>() {
+                { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+                { "Table", "dbo.ScoredTable2" },
+            }
+        };
 10. Eseguire l'applicazione. 
 
 Al termine dell'esecuzione verrà aggiunta una nuova tabella al database contenente i risultati di punteggio.
@@ -130,21 +130,21 @@ Per eseguire la distribuzione come servizio Web nuovo e creare un'applicazione p
 8. Aggiornare il valore della variabile *apiKey* con la **chiave primaria** presente nella sezione **Basic consumption info** (Informazioni di base sul consumo).
 9. Individuare la dichiarazione *scoreRequest* e aggiornare i valori dei parametri del servizio Web passati ai moduli *Import Data* (Importa dati) e *Export Data* (Esporta dati). In questo caso, usare la query originale, ma definire un nome per la nuova tabella.
    
-     var scoreRequest = new   {
-   
-         Inputs = new Dictionary<string, StringTable>()
-         {
-         },
-         GlobalParameters = new Dictionary<string, string>() {
-              { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-             { "Table", "dbo.ScoredTable3" },
-         }
-     };
+        var scoreRequest = new
+        {       
+            Inputs = new Dictionary<string, StringTable>()
+            {
+            },
+            GlobalParameters = new Dictionary<string, string>() {
+                { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+                { "Table", "dbo.ScoredTable3" },
+            }
+        };
 10. Eseguire l'applicazione. 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

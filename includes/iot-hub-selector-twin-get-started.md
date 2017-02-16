@@ -15,7 +15,7 @@ Usare i dispositivi gemelli per:
 * Eseguire query sui metadati, la configurazione o lo stato dei dispositivi.
 
 > [!NOTE]
-> I dispositivi gemelli sono progettati per la sincronizzazione e per l'esecuzione di query sulle configurazioni e le condizioni dei dispositivi. Usare [messaggi da dispositivo a cloud][lnk-d2c] per le sequenze di eventi con timestamp (come i flussi di telemetria dei dati dei sensori su base temporale) e [metodi diretti][lnk-methods] per il controllo interattivo dei dispositivi, ad esempio per l'attivazione di una ventola da un'app controllata dall'utente.
+> I dispositivi gemelli sono progettati per la sincronizzazione e per l'esecuzione di query sulle configurazioni e le condizioni dei dispositivi. Altre informazioni su quando usare i dispositivi gemelli sono reperibili in [Informazioni sui dispositivi gemelli][lnk-twins].
 > 
 > 
 
@@ -28,16 +28,16 @@ I dispositivi gemelli vengono archiviati in un hub IoT e contengono gli elementi
 ![][img-twin]
 
 Il back-end dell'app può anche eseguire query sui dispositivi gemelli in base a tutti i dati sopra indicati.
-Per altre informazioni sui dispositivi gemelli e sulle query, vedere rispettivamente [Informazioni sui dispositivi gemelli][lnk-twins] e le informazioni di riferimento sul [linguaggio di query dell'hub IoT][lnk-query].
+Vedere [Informazioni sui dispositivi gemelli][lnk-twins] per altre informazioni sui dispositivi gemelli e [Linguaggio di query per hub IoT][lnk-query] per informazioni sull'esecuzione di query.
 
 > [!NOTE]
-> Al momento i dispositivi gemelli sono accessibili solo dai dispositivi che si connettono all'hub IoT usando il protocollo MQTT. Per istruzioni su come convertire l'app per dispositivo esistente in modo che usi MQTT, leggere l'articolo [Supporto di MQTT][lnk-devguide-mqtt].
+> Al momento i dispositivi gemelli sono accessibili solo dai dispositivi che si connettono all'hub IoT tramite il protocollo MQTT. Per istruzioni su come convertire l'app per dispositivo esistente in modo che usi MQTT, vedere l'articolo [Supporto di MQTT][lnk-devguide-mqtt].
 > 
 > 
 
 Questa esercitazione illustra come:
 
-* Creare un'app back-end che aggiunge *tag* a un dispositivo gemello e un dispositivo simulato che segnala il proprio canale di connettività in una *proprietà segnalata* nel dispositivo gemello.
+* Creare un'app back-end che aggiunge *tag* a un dispositivo gemello e un'app per dispositivo simulato che segnala il proprio canale di connettività come *proprietà segnalata* nel dispositivo gemello.
 * Eseguire query sui dispositivi dall'app back-end con filtri sui tag e sulle proprietà creati in precedenza.
 
 <!-- images -->
@@ -50,6 +50,6 @@ Questa esercitazione illustra come:
 [lnk-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

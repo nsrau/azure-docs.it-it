@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 39ebfe20f957b6e211eb5caebe4e064432876d20
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 72f69e334172ad69bedb9c8fc4d270a607d1598f
 
 
 ---
@@ -116,7 +116,7 @@ L'oggetto EngagementReach fornisce due metodi per gestire il consenso/rifiuto, `
 
 È possibile anche decidere di disattivare MPNS tramite la configurazione di Engagement \<windows-phone-sdk-reach-configuration\>.
 
-> 2.9.1) L'applicazione deve descrivere prima le notifiche da fornire e **ottenere l'autorizzazione esplicita dell'utente (consenso)** e **deve fornire un meccanismo attraverso il quale l'utente può rifiutare esplicitamente la ricezione di notifiche push**. Tutte le notifiche fornite tramite il Servizio notifica push di Microsoft devono essere coerenti con la descrizione fornita all'utente e conformi a tutti i [criteri di applicazione][Criteri di contenuto] e [requisiti aggiuntivi per specifici tipi di applicazioni].
+> 2.9.1) L'applicazione deve descrivere prima le notifiche da fornire e **ottenere l'autorizzazione esplicita dell'utente (consenso)** e **deve fornire un meccanismo attraverso il quale l'utente può rifiutare esplicitamente la ricezione di notifiche push**. Tutte le notifiche fornite tramite il Servizio notifica push Microsoft devono essere coerenti con la descrizione fornita all'utente e conformi a tutti i [criteri applicazione][Content Policies] e a tutti i [requisiti aggiuntivi per tipi di applicazione specifici] applicabili.
 > 
 > 
 
@@ -280,12 +280,12 @@ Per implementare il callback:
 > 
 
 [criteri relativi alle applicazioni]:http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
-[Criteri di contenuto]:http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
-[requisiti aggiuntivi per specifici tipi di applicazioni]:http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
+[Content Policies]:http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
+[requisiti aggiuntivi per tipi di applicazione specifici]:http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

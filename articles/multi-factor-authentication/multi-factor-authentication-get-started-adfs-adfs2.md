@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 639f11856fcb0828db2375e428d9f7efe640b5d7
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7ad06e9086d6532b3de2ba060b37424051f022c2
 
 
 ---
-# <a name="secure-cloud-and-onpremises-resources-using-azure-multifactor-authentication-server-with-ad-fs-20"></a>Proteggere le risorse del cloud e locali mediante Server Azure multi-Factor Authentication con AD FS 2.0
+# <a name="secure-cloud-and-on-premises-resources-using-azure-multi-factor-authentication-server-with-ad-fs-20"></a>Proteggere le risorse del cloud e locali mediante Server Azure multi-Factor Authentication con AD FS 2.0
 Questo articolo è rivolto alle organizzazioni che vengono federate con Azure Active Directory e intendono proteggere le risorse che risiedono in locale o nel cloud. È possibile proteggere le risorse usando il server Azure Multi-Factor Authentication e configurandolo per il funzionamento con ADFS in modo da attivare la verifica in due passaggi per gli endpoint di alto valore.
 
 In questa documentazione viene illustrato l'utilizzo di Server Azure multi-Factor Authentication con ADFS 2.0.  Per altre informazioni, vedere [Proteggere le risorse del cloud e locali mediante server Azure Multi-Factor Authentication con AD FS Windows Server 2012 R2](multi-factor-authentication-get-started-adfs-w2k12.md).
@@ -102,6 +102,6 @@ Gli IP attendibili consentono agli utenti di ignorare Azure Multi-Factor Authent
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

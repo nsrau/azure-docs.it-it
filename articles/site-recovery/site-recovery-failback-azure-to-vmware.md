@@ -15,8 +15,8 @@ ms.workload: required
 ms.date: 10/05/2016
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: ef381ef234608e0ccbf7f3814bd1f23816100d25
-ms.openlocfilehash: 3d78ec39d75da4118cc06f49ece3aa852eefd538
+ms.sourcegitcommit: 1663126f43b8e1cd3e68b9e9b2bbbb67298bb8c1
+ms.openlocfilehash: 893e2f64377b9b00596dfdc00e6eba36c024fa66
 
 
 ---
@@ -57,7 +57,7 @@ Se è stato eseguito il failover di una macchina virtuale VMware è possibile es
 
 * Se è stato eseguito il failover di server fisici, il failback viene sempre eseguito in una nuova macchina virtuale VMware.
   * Prima di eseguire il failback di un computer fisico, ricordare che:
-    * Un computer fisico protetto viene restituito come macchina virtuale se sottoposto nuovamente a failover da Azure a VMware. Non è possibile eseguire il failback di un computer Windows Server 2008 R2 SP1 protetto e sottoposto a failover in Azure.
+    * Un computer fisico protetto viene restituito come macchina virtuale se sottoposto nuovamente a failover da Azure a VMware. Non è possibile eseguire il failback di un computer fisico Windows Server 2008 R2 SP1 protetto e sottoposto a failover in Azure. Potrà essere eseguito il failback di un computer Windows Server 2008 R2 SP1 avviato come macchina virtuale in locale.
     * È necessario individuare almeno un server di destinazione master e gli host ESX/ESXi necessari per il failback.
 * Se si esegue il failback nella macchina virtuale originaria è necessario quanto segue:
   
@@ -237,7 +237,7 @@ Al termine della riprotezione, la VM verrà replicata in Azure e sarà possibile
 4. Se si usa l'edizione gratuita di ESXi 5.5 o di vSphere 6 Hypervisor, sarà possibile effettuare il failover, ma non eseguire il failback. Sarà necessario scegliere l'aggiornamento alla licenza di valutazione per abilitare il failback.
 5. Se CS non è raggiungibile dal server di elaborazione, è possibile verificare la connettività dal proprio server di elaborazione a CS da - Telnet alla macchina CS sulla porta 443. È anche possibile provare a effettuare il ping di CS dalla macchina PS. Un server PS deve avere anche un heartbeat quando è connesso al CS.
 6. Se si sta tentando di eseguire il failback a un vCenter alternativo, assicurarsi che il nuovo vCenter venga rilevato, così come il server di destinazione master. Come sintomo tipico, gli archivi dati non sono accessibili o visibili nella finestra di dialogo Riproteggi.
-7. Non è possibile eseguire il failback da Azure a locale di un computer WS2008R2SP1 protetto come computer locale fisico o virtuale.
+7. Non è possibile eseguire il failback da Azure a locale di un computer WS2008R2SP1 protetto come computer locale fisico.
 
 ## <a name="failing-back-with-expressroute"></a>Eseguire il failback con ExpressRoute
 È possibile eseguire il failback usando una connessione VPN o Azure ExpressRoute. Per usare ExpressRoute occorre tenere presente quanto segue:
@@ -248,6 +248,6 @@ Al termine della riprotezione, la VM verrà replicata in Azure e sarà possibile
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

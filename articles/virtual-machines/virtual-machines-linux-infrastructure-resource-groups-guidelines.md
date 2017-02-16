@@ -1,5 +1,5 @@
 ---
-title: Linee guida sui gruppi di risorse | Microsoft Docs
+title: Linee guida sui gruppi di risorse di Azure | Documentazione Microsoft
 description: Informazioni sulle principali linee guida di progettazione e implementazione per la distribuzione dei gruppi di risorse nei servizi di infrastruttura di Azure.
 documentationcenter: 
 services: virtual-machines-linux
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ed79850fc238e4406e9525dfb1986a1e0e155799
+ms.sourcegitcommit: 70e52cefccee4b963e512724b96525bcbacf330c
+ms.openlocfilehash: 092c07fb22dcc09e1ff21258fde5d0149ade1ef3
 
 
 ---
@@ -57,6 +57,6 @@ Procedendo con la scalabilità orizzontale, i gruppi di risorse centralizzati co
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -12,25 +12,46 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 12/05/2016
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a3eb126aa508204becbebb3dd763bdfde5890c8a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: abc3fa751b3926dbbb9dc040abc40632e316e2a0
 
 
 ---
 # <a name="use-case---customer-profiling"></a>Caso di utilizzo - Profilo clienti
 Azure Data Factory è uno dei numerosi servizi usati per implementare i Solution Accelerator di Cortana Intelligence Suite.  Per ulteriori informazioni su Cortana Intelligence, vedere [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). In questo documento viene descritto un caso di semplice utilizzo che consente di iniziare a capire come Data Factory di Azure può risolvere problemi comuni di analisi.
 
-Per poter accedere e provare questo semplice caso d'uso è necessaria una [sottoscrizione Azure](https://azure.microsoft.com/pricing/free-trial/).  È possibile distribuire un esempio che implementi questo caso di utilizzo seguendo i passaggi descritti nell’articolo [Esempi](data-factory-samples.md) .
-
 ## <a name="scenario"></a>Scenario
 Contoso è una società di giochi online che crea giochi per più piattaforme: console di gioco, dispositivi palmari e personal computer (PC). Quando gli utenti giocano a questi giochi, vengono prodotti grandi volumi di dati di registro che tengono traccia dei modelli di uso, dello stile di gioco e delle preferenze dell'utente.  Se vengono combinati con dati demografici, regionali e del prodotto, Contoso può eseguire l'analisi per migliorare l'esperienza dei giocatori e indirizzarli ad aggiornamenti e acquisti utili al gioco. 
 
 L'obiettivo di Contoso consiste nell'identificare opportunità di up-selling o cross-selling basate sulla cronologia dei giochi degli utenti e aggiungere nuove funzionalità interessanti per promuovere la crescita del business e fornire un'esperienza migliore ai clienti. In questo caso, usiamo una società di giochi come esempio di società. La società desidera ottimizzare i giochi in base al comportamento dei giocatori. Questi principi si applicano a qualsiasi società che desideri coinvolgere i clienti nei suoi beni e servizi e migliorare la loro esperienza.
 
-## <a name="challenges"></a>Problematiche
+In questa soluzione Contoso desidera valutare l'efficacia di una campagna di marketing lanciata di recente. I registri di gioco, inizialmente non elaborati, vengono successivamente elaborati con dati di georilevazione e di riferimento pubblicitario e infine vengono copiati in un database SQL di Azure per analizzare l'impatto della campagna.
+
+## <a name="deploy-solution"></a>Distribuire la soluzione
+Per accedere a questo semplice caso d'uso e per provarlo, è sufficiente disporre di una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/), di un [account di archiviazione BLOB di Azure](https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account#create-a-storage-account) e di una [database SQL di Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started). Distribuire la pipeline di profilatura dei clienti dal riquadro **Pipeline di esempio** nella home page della data factory.
+
+1. Creare una data factory o aprire una data factory esistente. Per la procedura di creazione di una data factory, vedere [Copiare dati da un archivio BLOB al database SQL usando Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+2. Nel pannello **DATA FACTORY** per la data factory, fare clic sul riquadro **Pipeline di esempio**.
+
+    ![Riquadro Pipeline di esempio](./media/data-factory-samples/SamplePipelinesTile.png)
+3. Nel pannello **Pipeline di esempio** fare clic sulla **profilatura dei clienti** da distribuire.
+
+    ![Pannello Pipeline di esempio](./media/data-factory-samples/SampleTile.png)
+4. Specificare le impostazioni di configurazione per l'esempio, ad esempio il nome e la chiave dell'account di archiviazione di Azure, il nome del server di Azure SQL, il database, l'ID utente e la password.
+
+    ![Pannello Esempio](./media/data-factory-samples/SampleBlade.png)
+5. Dopo avere specificato le impostazioni di configurazione, fare clic su **Crea** per creare/distribuire le pipeline di esempio e i servizi collegati o le tabelle usati dalle pipeline.
+6. Lo stato della distribuzione sarà visualizzato sul riquadro dell'esempio selezionato in precedenza nel pannello **Pipeline di esempio** .
+
+    ![Deployment Status](./media/data-factory-samples/DeploymentStatus.png)
+7. Quando viene visualizzato il messaggio **Distribuzione riuscita** nel riquadro relativo all'esempio, chiudere il pannello **Pipeline di esempio**.  
+8. Nel pannello **DATA FACTORY** si potrà notare che i servizi collegati, i set di dati e le pipeline vengono aggiunti alla data factory.  
+
+    ![Pannello Data factory](./media/data-factory-samples/DataFactoryBladeAfter.png)
+
 ## <a name="solution-overview"></a>Panoramica della soluzione
 Questo semplice caso di utilizzo esemplifica la modalità di utilizzo di Azure Data Factory per inserire, preparare, trasformare, analizzare e pubblicare i dati.
 
@@ -50,6 +71,6 @@ Per ottimizzare l'analisi del profilo dell'utente e allinearla agli obiettivi az
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

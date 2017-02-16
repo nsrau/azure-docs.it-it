@@ -2,7 +2,7 @@
 title: 'Azure AD Connect: autenticazione pass-through | Documentazione Microsoft'
 description: Questo argomento riporta le informazioni necessarie sul funzionamento dell&quot;autenticazione pass-through di Azure AD con Active Directory (AD) locale per garantire l&quot;accesso ad Azure Active Directory (Azure AD) e ai servizi connessi.
 services: active-directory
-keywords: "che cos&quot;è Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD, SSO, Single Sign-On"
+keywords: "cos&quot;è Azure AD Connect, installare Active Directory, componenti necessari per Azure AD, SSO, Single Sign-On"
 documentationcenter: 
 author: billmath
 manager: femila
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/04/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 88d315c68c545b84833582ca6aeeed617bcbb75e
+ms.sourcegitcommit: c692d552a649ce194591e23b30d39f434ef853eb
+ms.openlocfilehash: f87be3753f1eb5a01945cd154b0ee9132e9bb43c
 
 
 ---
@@ -24,29 +24,32 @@ ms.openlocfilehash: 88d315c68c545b84833582ca6aeeed617bcbb75e
 # <a name="what-is-azure-ad-pass-through-authentication"></a>Che cos'è l'autenticazione pass-through di Azure AD
 L'impiego delle stesse credenziali (nome utente e password) per accedere alle risorse aziendali e ai servizi basati su cloud permette agli utenti di non dover ricordare credenziali diverse, riducendo le probabilità che dimentichino come eseguire l'accesso.  Presenta inoltre il vantaggio di limitare l'intervento dell'help desk negli eventi di reimpostazione della password.  
 
-Se da un lato molte organizzazioni optano per la sincronizzazione delle password di Azure AD allo scopo di fornire agli utenti una sola credenziale di accesso ai servizi locali e cloud, altre organizzazioni richiedono che le password, anche con hash, non vengano divulgate al di fuori dell'ambiente aziendale interno.  
+Se da un lato molte organizzazioni usano tranquillamente la [sincronizzazione hash delle password](active-directory-aadconnectsync-implement-password-synchronization.md) di Azure AD allo scopo di fornire agli utenti una sola credenziale di accesso ai servizi locali e cloud, altre organizzazioni richiedono che le password, anche con hash, non vengano divulgate al di fuori dell'ambiente aziendale interno.  
 
 L'autenticazione pass-through di Azure AD offre una soluzione semplice per questi clienti garantendo che la convalida della password per i servizi di Azure AD venga eseguita su Active Directory locale, senza la necessità di un'infrastruttura di rete complessa o dell'esistenza delle password locali in qualsiasi forma nel cloud.  
 
-Quando abbinata a Single Sign-On, permette agli utenti di non digitare la password per accedere ad Azure AD o ad altri servizi cloud, garantendo a questi clienti un'esperienza realmente integrata sui computer aziendali.
+Quando abbinata a [Single Sign-On](active-directory-aadconnect-sso.md), permette agli utenti di non digitare la password per accedere ad Azure AD o ad altri servizi cloud, garantendo a questi clienti un'esperienza realmente integrata sui computer aziendali.
 
 ![Autenticazione pass-through](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
 L'autenticazione pass-through può essere configurata tramite AAD Connect e usa un agente locale semplice che rimane in ascolto di richieste di convalida delle password.  L'agente può essere facilmente distribuito su più computer per garantire un'elevata disponibilità e bilanciamento del carico.  Dal momento che tutte le comunicazioni avvengono solo in uscita, non esiste alcun requisito per una rete perimetrale o per l'installazione del connettore in una rete perimetrale.  Di seguito sono riportati i requisiti della macchina per il connettore:
 
-
-- Windows Server 2012 o versione successiva 
+- Windows Server 2012 R2 o versione successiva
 - Aggiunta a un dominio nella foresta in cui gli utenti verranno convalidati
 
+>[!NOTE]
+>Gli ambienti a più foreste sono supportati se sono presenti relazioni di trust tra le foreste e se il routing nel suffisso del nome è configurato correttamente.
+
 ## <a name="supported-clients-in-the-preview"></a>Client supportati nell'anteprima
-L'autenticazione pass-through è supportata tramite i client basati su Web browser e i client di Office che supportano l'autenticazione moderna.  Per i client che non sono supportati come client legacy di Office, Exchange Active Sync (client di posta elettronica nativi su dispositivi mobili), si consiglia di usare l'autenticazione moderna equivalente.  Ciò non solo consente l'autenticazione pass-through, ma anche l'applicazione dell'accesso condizionale, ad esempio l'autenticazione a più fattori.
+L'autenticazione pass-through è supportata tramite i client basati su Web browser e i client di Office che supportano l'[autenticazione moderna](https://aka.ms/modernauthga).  Per i client che non sono supportati come client legacy di Office, Exchange Active Sync (client di posta elettronica nativi su dispositivi mobili), si consiglia di usare l'autenticazione moderna equivalente.  Ciò non solo consente l'autenticazione pass-through, ma anche l'applicazione dell'accesso condizionale, ad esempio l'autenticazione a più fattori.
 
 Non è attualmente supportata l'autenticazione pass-through per i clienti che usano Windows 10 aggiunti ad Azure AD.  Tuttavia, possono usare la sincronizzazione degli hash delle password come fallback automatico per Windows 10, oltre ai client legacy indicati in precedenza.
->[!NOTE] 
->Durante l'anteprima, la sincronizzazione degli hash delle password è abilitata per impostazione predefinita quando si seleziona l'autenticazione pass-through come opzione di accesso in Azure AD Connect. Tale impostazione può essere disabilitata nella schermata delle opzioni di Azure AD Connect.
+
+>[!NOTE]
+>Durante l'anteprima, la sincronizzazione degli hash delle password è abilitata per impostazione predefinita quando si seleziona l'autenticazione pass-through come opzione di accesso in Azure AD Connect. Tale impostazione può essere disabilitata nella pagina Opzioni di Azure AD Connect.
 
 ## <a name="how-azure-ad-pass-through-authentication-works"></a>Come funziona l'autenticazione pass-through di Azure AD
-Quando un utente immette nome utente e password nella pagina di accesso di Azure AD, questo servizio li inserisce nella coda connettori locali appropriata per la convalida.  Uno dei connettori locali disponibili recupera quindi queste credenziali e ne esegue la convalida in Active Directory.  La convalida viene eseguita tramite le API Windows standard in modo simile alla modalità di convalida della password di Active Directory Federation Services.
+Quando un utente immette nome utente e password nella pagina di accesso di Azure AD, questo servizio li inserisce nella coda connettori locali appropriata per la convalida.  Uno dei connettori locali disponibili recupera quindi queste credenziali e ne esegue la convalida in Active Directory.  La convalida viene eseguita tramite le API Windows standard secondo una modalità di convalida simile a quella delle password in Active Directory Federation Services.
 
 Il controller di dominio locale, quindi, valuta la richiesta e restituisce una risposta al connettore, che a sua volta la restituisce ad Azure AD. Azure AD quindi valuta la risposta e risponde all'utente come appropriato, ad esempio rilasciando un token o richiedendo l'autenticazione a più fattori.  Il diagramma seguente illustra i diversi passaggi.
 
@@ -54,37 +57,36 @@ Il controller di dominio locale, quindi, valuta la richiesta e restituisce una r
 ![Autenticazione pass-through](./media/active-directory-aadconnect-pass-through-authentication/pta2.png)
 
 ## <a name="azure-ad-pass-through-prerequisites"></a>Prerequisiti pass-through di Azure AD
-Prima di poter abilitare e usare l'autenticazione pass-through di Azure AD, è necessario disporre di: 
-
+Prima di poter abilitare e usare l'autenticazione pass-through di Azure AD, è necessario disporre di:
 
 - Software Azure AD Connect
 - Una directory di Azure AD di cui l'utente è un amministratore globale.  
 
->[!NOTE] 
+>[!NOTE]
 >È consigliabile usare un account di amministratore di tipo solo cloud in modo da gestire la configurazione del tenant in caso di errore o mancata disponibilità dei servizi locali.
 
-
 - Un server che esegue Windows Server 2012 R2 o versione successiva in cui eseguire lo strumento AAD Connect.  Questo computer deve essere un membro della stessa foresta dell'utente che verrà convalidato.
-- Si noti che se si dispone di più di una foresta contenente gli utenti da sincronizzare con Azure AD, le foreste devono avere relazioni di trust tra di esse. 
+- Si noti che se si dispone di più di una foresta contenente gli utenti da sincronizzare con Azure AD, le foreste devono avere relazioni di trust tra di esse.
+- L'elemento UserPrincipalName locale deve essere utilizzato come nome utente Azure AD.
 - Un secondo server che esegue Windows Server 2012 R2 o versione successiva in cui eseguire un altro connettore per la disponibilità elevata e il bilanciamento del carico.  Di seguito sono indicate le istruzioni sulla distribuzione del connettore.
 - Se è presente un firewall tra il connettore e Azure AD, assicurarsi che:
-    - Se il filtro degli URL è abilitato, verificare che il connettore possa comunicare con i seguenti URL: 
+    - Se il filtro degli URL è abilitato, verificare che il connettore possa comunicare con i seguenti URL:
         -  *.msappproxy.net
         -  *.servicebus.windows.net.  
-        -  Il connettore esegue inoltre la connessione sulle connessioni IP dirette agli intervalli IP del data center di Azure. 
+        -  Il connettore esegue anche la connessione tramite le connessioni IP dirette agli [intervalli IP del data center di Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
     - Assicurarsi che il firewall non esegua l'ispezione SSL poiché il connettore usa certificati client per comunicare con Azure AD.
-    - Verificare che il connettore possa inviare richieste HTTPS (TCP) ad Azure AD sulle porte seguenti. 
+    - Verificare che il connettore possa inviare richieste HTTPS (TCP) ad Azure AD sulle porte seguenti.
 
 |Numero della porta|Descrizione
 | --- | ---
-|80|Abilita il traffico HTTP in uscita per la convalida di sicurezza quale SSL.
+|80|Abilita il traffico HTTP in uscita per la convalida di sicurezza quale gli elenchi di revoche dei certificati SSL.
 |443|   Abilita l'autenticazione utente con Azure AD.
 |8080/443|  Abilita la sequenza di bootstrap del connettore e l'aggiornamento automatico del connettore.
 |9090|  Abilita la registrazione del connettore (necessaria solo per il processo di registrazione del connettore).
 |9091|  Abilita il rinnovo automatico dei certificati di attendibilità del connettore.
-|9352, 5671|    Abilita la comunicazione tra il connettore e il servizio di Azure per le richieste in ingresso.
+|9352, 5671|    Abilita la comunicazione tra il connettore e il servizio di Azure AD per le richieste in ingresso.
 |9350|  Facoltativo, consente prestazioni migliori per le richieste in ingresso.
-|10100–10120|   Abilita risposte dal connettore ad Azure AD.
+|10100–10120|   Abilita le risposte dal connettore ad Azure AD.
 
 Se il firewall impone il traffico in base agli utenti di origine, aprire queste porte per il traffico proveniente da servizi di Windows in esecuzione come servizio di rete. Assicurarsi anche di abilitare la porta 8080 per NT Authority\System.
 
@@ -110,12 +112,12 @@ Per distribuire il secondo connettore, seguire le istruzioni seguenti:
 1.  Aprire una finestra di PowerShell come amministratore
 2.  Passare a "C:\Programmi\Microsoft AAD App Proxy Connector" ed eseguire lo script.
 .\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Feature PassthroughAuthentication
-3.  Quando richiesto, immettere le credenziali del proprio account di amministrazione del tenant Azure AD.
+3.  Quando richiesto, immettere le credenziali del proprio account amministratore del tenant Azure AD.
 
 ## <a name="troubleshooting-pass-through-authentication"></a>Risoluzione dei problemi relativi all'autenticazione pass-through
 Nella risoluzione dei problemi relativi all'autenticazione pass-through sono interessate alcune categorie diverse di problemi.  A seconda del tipo di problema potrebbe essere necessario verificare in posizioni diverse.
 
-Per gli errori correlati al connettore è possibile controllare il log eventi del computer connettore in "Application and Service Logs\Windows\AadApplicationProxy\Connector\Admin".  Se necessario, sono disponibili log più dettagliati attivando i log di analisi e debug e il log della sessione del connettore.  Si sconsiglia un'esecuzione con questo log abilitato per impostazione predefinita.
+Per gli errori correlati al connettore è possibile controllare il log eventi del computer connettore in "Application and Service Logs\Windows\AadApplicationProxy\Connector\Admin".  Se necessario, è possibile ottenere log più dettagliati visualizzando i log di analisi e debug e attivando il log della sessione del connettore.  L'esecuzione con questo log attivato per impostazione predefinita non è consigliata e i contenuti sono visibili solo dopo che il log è stato disattivato.
 
 Informazioni aggiuntive sono disponibili anche nei log di traccia per il connettore in C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace. Questi log indicano anche il motivo della mancata riuscita dell'autenticazione pass-through per un singolo utente, come la voce seguente che include il codice di errore 1328:
 
@@ -146,15 +148,11 @@ Altri errori segnalati nella schermata di accesso di Azure AD sono descritti di 
 |AADSTS80001|Impossibile connettersi ad Active Directory|Verificare che il computer connettore sia aggiunto a un dominio e in grado di connettersi ad Active Directory.  
 |AADSTS8002|Si è verificato un timeout di connessione ad Active Directory|Verificare che Active Directory sia disponibile e risponda alle richieste dal connettore.
 |AADSTS80004|Il nome utente trasmesso al connettore non era valido|Assicurarsi che l'utente stia tentando di accedere con il nome utente corretto.
+|AADSTS80005|La convalida ha rilevato un errore WebException imprevedibile|Si tratta di un problema temporaneo. Si prega di ripetere la richiesta.  Se il problema persiste, contattare il supporto Microsoft.
 |AADSTS80007|Errore durante la comunicazione con Active Directory|Controllare i log del connettore per ulteriori informazioni e verificare che Active Directory funzioni come previsto.
 
 
 
-
-
-
-
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

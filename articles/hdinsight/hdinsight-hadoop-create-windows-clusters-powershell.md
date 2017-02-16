@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/10/2016
+ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 823ba08cfc805000871e0c2a6375306f435b7910
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: a71718eabc3863e4e78619a2f1ceb174c7c0f058
 
 
 ---
@@ -34,13 +34,13 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 * Sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Azure PowerShell.
 
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ### <a name="access-control-requirements"></a>Requisiti di controllo di accesso
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-clusters"></a>Creare i cluster
-Azure PowerShell è un ambiente di scripting potente che può essere usato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. Questa sezione include le istruzioni su come creare un cluster HDInsight usando Azure PowerShell. Per informazioni sulla configurazione di una workstation per l'esecuzione dei cmdlet di Windows PowerShell per HDInsight, vedere [Installare e configurare Azure PowerShell](../powershell-install-configure.md). Per altre informazioni sull'uso di Azure PowerShell con HDInsight, vedere [Amministrare HDInsight tramite PowerShell](hdinsight-administer-use-powershell.md). Per l'elenco dei cmdlet di Windows PowerShell per HDInsight, vedere la [documentazione di riferimento dei cmdlet per HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
+Azure PowerShell è un ambiente di scripting potente che può essere usato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. Questa sezione include le istruzioni su come creare un cluster HDInsight usando Azure PowerShell. Per informazioni sulla configurazione di una workstation per l'esecuzione dei cmdlet di Windows PowerShell per HDInsight, vedere [Installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs). Per altre informazioni sull'uso di Azure PowerShell con HDInsight, vedere [Amministrare HDInsight tramite PowerShell](hdinsight-administer-use-powershell.md). Per l'elenco dei cmdlet di Windows PowerShell per HDInsight, vedere la [documentazione di riferimento dei cmdlet per HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
 Le procedure seguenti sono necessarie per creare un cluster HDInsight con Azure PowerShell:
 
@@ -131,8 +131,8 @@ Le procedure seguenti sono necessarie per creare un cluster HDInsight con Azure 
     ####################################
     Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName
 
-## <a name="create-clusters-using-arm-template"></a>Creare cluster tramite un modello di Gestione risorse di Azure
-È possibile usare Azure PowerShell per distribuire un modello di Gestione risorse di Azure che crea un cluster HDInsight.  Vedere [Chiamare i modelli tramite Azure PowerShell](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-powershell).
+## <a name="create-clusters-using-resource-management-template"></a>Creare cluster usando il modello di gestione risorse
+È possibile usare Azure PowerShell per distribuire un modello di gestione risorse di Azure che crea un cluster HDInsight.  Vedere [Chiamare i modelli tramite Azure PowerShell](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-powershell).
 
 ## <a name="customize-clusters"></a>Personalizzare i cluster
 * Vedere [Personalizzare cluster HDInsight tramite Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
@@ -155,6 +155,6 @@ Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

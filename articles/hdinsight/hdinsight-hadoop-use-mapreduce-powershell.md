@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/15/2016
+ms.date: 01/19/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 3c3944118ca986009711aee032b45c302b63e63b
-ms.openlocfilehash: 9b852d1ca82c85e40c4f33da8c6380ffd48dd222
+ms.sourcegitcommit: f3be777497d842f019c1904ec1990bd1f1213ba2
+ms.openlocfilehash: c2bed4f1fddf99183faa0730f052ee79cf77f9f8
 
 
 ---
@@ -31,10 +31,12 @@ Questo documento fornisce un esempio di come usare Azure PowerShell per eseguire
 
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
-* **Un cluster Azure HDInsight (Hadoop in HDInsight) (basato su Windows o basato su Linux)**
+* **Un cluster Azure HDInsight (Hadoop in HDInsight)**
+
+  > [!IMPORTANT]
+  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * **Workstation con Azure PowerShell**.
-  
-[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ## <a name="a-idpowershellarun-a-mapreduce-job-using-azure-powershell"></a><a id="powershell"></a>Eseguire un processo MapReduce con Azure PowerShell
 
@@ -54,22 +56,21 @@ Durante l'esecuzione di processi MapReduce in un cluster HDInsight remoto, vengo
 
 La seguente procedura illustra come usare questi cmdlet per eseguire un processo nel cluster HDInsight.
 
-1. Usando un editor, salvare il seguente codice come **mapreducejob.ps1**. È necessario sostituire **CLUSTERNAME** con il nome del cluster HDInsight.
+1. Usando un editor, salvare il seguente codice come **mapreducejob.ps1**.
     
     ```powershell
-    #Specify the values
-    $clusterName = "CLUSTERNAME"
-
     # Login to your Azure subscription
     # Is there an active Azure subscription?
     $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
     if(-not($sub))
     {
-        Login-AzureRmAccount
+        Add-AzureRmAccount
     }
 
-    #Get HTTPS/Admin credentials for submitting the job later
-    $creds = Get-Credential
+    # Get cluster info
+    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+    $creds=Get-Credential -Message "Enter the login for the cluster"
+
     #Get the cluster info so we can get the resource group, storage, etc.
     $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
     $resourceGroup = $clusterInfo.ResourceGroup
@@ -90,11 +91,11 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
     # -ClassName = the class of the application
     # -Arguments = The input file, and the output directory
     $wordCountJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-        -JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
+        -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
         -ClassName "wordcount" `
         -Arguments `
-            "wasbs:///example/data/gutenberg/davinci.txt", `
-            "wasbs:///example/data/WordCountOutput"
+            "wasb:///example/data/gutenberg/davinci.txt", `
+            "wasb:///example/data/WordCountOutput"
 
     #Submit the job to the cluster
     Write-Host "Start the MapReduce job..." -ForegroundColor Green
@@ -115,13 +116,10 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
         -Container $container `
         -Destination output.txt `
         -Context $context
-    # Print the output
+    # Print the output of the job.
     Get-AzureRmHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $wordCountJob.JobId `
-        -DefaultContainer $container `
-        -DefaultStorageAccountName $storageAccountName `
-        -DefaultStorageAccountKey $storageAccountKey `
         -HttpCredential $creds
     ```
 
@@ -129,7 +127,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
    
         .\mapreducejob.ps1
    
-    Quando si esegue lo script, viene richiesta l'autenticazione alla sottoscrizione di Azure. Verrà inoltre richiesto di fornire il nome dell'account HTTPS/Admin e la password per il cluster HDInsight.
+    Quando si esegue lo script viene chiesto il nome del cluster HDInsight e il nome dell'account Admin/HTTPS e la password per il cluster. Potrebbe anche essere richiesta l'autenticazione alla sottoscrizione di Azure.
 
 3. Al termine del processo, viene visualizzato un output simile al seguente:
     
@@ -167,9 +165,6 @@ Write-Host "Display the standard output ..." -ForegroundColor Green
 Get-AzureRmHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $wordCountJob.JobId `
-        -DefaultContainer $container `
-        -DefaultStorageAccountName $storageAccountName `
-        -DefaultStorageAccountKey $storageAccountKey `
         -HttpCredential $creds `
         -DisplayOutputType StandardError
 ```
@@ -194,6 +189,6 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

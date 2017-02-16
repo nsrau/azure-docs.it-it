@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3b14e3c9513d9e5ef022e3a2db0ab9e95598c0d7
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: ebee9b7d45cae0259968313b0908be148f47d6b3
 
 
 ---
@@ -38,7 +38,7 @@ Queste risorse includono esperimenti, moduli personalizzati, API, raccolte e qua
 
  Per ogni settore è dedicata una pagina in cui è presente un elenco degli elementi di Gallery più visualizzati relativamente a quel settore.
 Fare clic su **See all** (Visualizza tutto) per visualizzare tutte le risorse specifiche del settore presenti in Gallery.
-Da questa pagina è possibile accedere a tutte le risorse presenti in Gallery oppure eseguire ricerche mirate selezionando i criteri di filtro a sinistra della pagina e immettendo i termini di ricerca desiderati nella parte superiore.
+In questa pagina è possibile eseguire la ricerca di tutte le risorse presenti nella raccolta. È anche possibile eseguire la ricerca selezionando i criteri di filtro a sinistra della pagina e immettendo i termini di ricerca nella parte superiore.
 
 ![Condividere l'elemento con amici](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
@@ -53,6 +53,6 @@ Da questa pagina è possibile accedere a tutte le risorse presenti in Gallery op
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 
