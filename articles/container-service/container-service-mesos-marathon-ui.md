@@ -1,5 +1,5 @@
 ---
-title: Gestire un cluster del servizio contenitore di Azure con l&quot;interfaccia utente di Marathon | Documentazione Microsoft
+title: Gestire un cluster DC/OS di Azure con l&quot;interfaccia utente di Marathon | Documentazione Microsoft
 description: Distribuire contenitori in un cluster del servizio contenitore di Azure usando l&quot;interfaccia utente Web di Marathon.
 services: container-service
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 12/02/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: c472963048e842e795e17df39567a8380d8543a9
-ms.openlocfilehash: b076fabd964cfb583bb4049d1373268d0d2762fb
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: de250fbc3982cdc493f74976914290d8ac89bb08
 
 
 ---
@@ -113,6 +113,6 @@ Al termine dell'operazione di ridimensionamento verranno visualizzate più istan
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

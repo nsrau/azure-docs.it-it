@@ -66,7 +66,7 @@ sql-database-service-tiers.md
 | Dimensioni pool (eDTU)  |  **2000** | **2500** | **3000** | **3500** | **4000** |
 |:---|---:|---:|---:| ---: | ---: | 
 | Spazio di archiviazione massimo per pool* | 750 GB | 750 GB | 750 GB | 750 GB | 750 GB |
-| Spazio di archiviazione massimo per pool* | 16 GB | 20 GB | 24 GB | 28 GB | 32 GB |
+| Spazio di archiviazione OLTP in memoria max per pool* | 16 GB | 20 GB | 24 GB | 28 GB | 32 GB |
 | Numero massimo di database per pool | 100 | 100 | 100 | 100 | 100 | 
 | Numero massimo di ruoli di lavoro simultanei per pool |  3200 | 4000 | 4800 | 5600 | 6400 |
 | Numero massimo di accessi simultanei per pool |  3200 | 4000 | 4800 | 5600 | 6400 |
@@ -79,6 +79,6 @@ sql-database-service-tiers.md
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 
