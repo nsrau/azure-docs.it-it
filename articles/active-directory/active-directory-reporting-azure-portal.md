@@ -199,6 +199,6 @@ Vedere [Guida alla creazione di report in Azure Active Directory](active-directo
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

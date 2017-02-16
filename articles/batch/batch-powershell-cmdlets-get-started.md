@@ -240,6 +240,6 @@ Le proprietà del pool saranno ora aggiornate nel servizio Batch. Per distribuir
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

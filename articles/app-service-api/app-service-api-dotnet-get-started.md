@@ -442,6 +442,6 @@ Scegliere il modello di progetto **App per le API di Azure** equivale a sceglier
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -159,6 +159,6 @@ Ora che è stata esaminata una panoramica generale del servizio Batch è necessa
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

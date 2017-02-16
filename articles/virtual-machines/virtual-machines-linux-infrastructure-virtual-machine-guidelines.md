@@ -59,6 +59,6 @@ Per creare le macchine virtuali, è possibile creare modelli definiti tramite fi
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -68,6 +68,6 @@ Il gateway di rete locale di Azure specifica i prefissi di indirizzo iniziali pe
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

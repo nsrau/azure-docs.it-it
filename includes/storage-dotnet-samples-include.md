@@ -15,6 +15,6 @@ Di seguito è riportato un elenco di tutti i repository di codice di esempio per
 * [MyDriving - An Azure IOT and Mobile Sample Application](https://azure.microsoft.com/resources/samples/mydriving/) (MyDriving - Applicazione di esempio di Azure IOT e per dispositivi mobili)
 * [Esempi di libreria client di archiviazione .NET](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted)
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 
