@@ -11,7 +11,8 @@
 ### [Archiviazione](cdn-create-a-storage-account-with-cdn.md)
 ### [Condivisione di risorse tra le origini](cdn-cors.md)
 
-## Gestire
+## Manage
+### [Abilitare HTTPS in un dominio personalizzato](cdn-custom-ssl.md)
 ### [Gestire con PowerShell](cdn-manage-powershell.md)
 ### Configurare la durata (TTL)
 #### [Contenuto App Web/Servizi cloud, ASP.NET o IIS](cdn-manage-expiration-of-cloud-service-content.md)
@@ -40,7 +41,7 @@
 ### [Node.js](cdn-app-dev-node.md)
 
 ## Risolvere problemi
-### [Stato 404](cdn-troubleshoot-endpoint.md)
+### [Stato&404;](cdn-troubleshoot-endpoint.md)
 ### [Compressione dei file](cdn-troubleshoot-compression.md)
 
 # Riferimento
@@ -62,6 +63,6 @@
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

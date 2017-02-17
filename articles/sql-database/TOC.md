@@ -6,12 +6,6 @@
 ### [Limiti delle risorse](sql-database-resource-limits.md)
 ### [Funzionalità](sql-database-features.md)
 ### [Domande frequenti sul database SQL](sql-database-faq.md)
-## Vantaggi
-### [È in grado di apprendere e di adattarsi](sql-database-learn-and-adapt.md)
-### [Si ridimensiona immediatamente](sql-database-scale-on-the-fly.md)
-### [Crea app multi-tenant](sql-database-build-multi-tenant-apps.md)
-### [Garantisce sicurezza e protezione](sql-database-helps-secures-and-protects.md)
-### [È compatibile con l'ambiente](sql-database-works-in-your-environment.md)
 ## Confronti
 ### [Confronto tra database SQL e SQL in una macchina virtuale](sql-database-paas-vs-sql-server-iaas.md)
 ### [Differenze con T-SQL](sql-database-transact-sql-information.md)
@@ -20,6 +14,7 @@
 ## [Esercitazioni sul database SQL](sql-database-explore-tutorials.md)
 ## [Procedure di avvio rapido per le soluzioni](sql-database-solution-quick-starts.md)
 ## Sicurezza
+### [Panoramica della sicurezza](sql-database-security-overview.md)
 ### [Centro sicurezza di Azure per il database SQL di Azure](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
 ### [Centro sicurezza SQL](https://msdn.microsoft.com/library/azure/bb510589)
 # Attività iniziali
@@ -69,12 +64,12 @@
 #### [Copiare un database SQL](sql-database-copy.md)
 ## Regole del firewall, autenticazione e autorizzazione
 ### Formazione
-#### [Panoramica](sql-database-security.md)
-#### [Linee guida sulla sicurezza](sql-database-security-guidelines.md)
+#### [Controllo di accesso](sql-database-control-access.md)
 #### [Firewall](sql-database-firewall-configure.md)
 #### [Gestire gli accessi](sql-database-manage-logins.md)
 ### Procedura consigliata
-#### [Autenticazione e autorizzazione di SQL](sql-database-get-started-security.md)
+#### [Autenticazione e autorizzazione di SQL](sql-database-control-access-sql-authentication-get-started.md)
+#### [Autenticazione e autorizzazione di Azure AD](sql-database-control-access-aad-authentication-get-started.md)
 ## Garantire sicurezza e protezione dei dati
 ### Formazione
 #### Controllo
@@ -106,7 +101,8 @@
 #### [Eseguire le esercitazioni sul ripristino di emergenza](sql-database-disaster-recovery-drills.md)
 #### [Panoramica della replica geografica attiva](sql-database-geo-replication-overview.md)
 ### Procedura consigliata
-#### [Get started with SQL Database backup and restore](sql-database-get-started-backup-recovery.md) (Introduzione a backup e ripristino del database SQL)
+#### [Portale di Azure: backup e ripristino](sql-database-get-started-backup-recovery.md)
+#### [PowerShell: backup e ripristino](sql-database-get-started-backup-recovery-powershell.md)
 ## Sviluppo di app
 ### Formazione
 #### [Panoramica dello sviluppo dell'applicazione di database](sql-database-develop-overview.md)
@@ -150,14 +146,14 @@
 #### [Database singoli](sql-database-single-database-monitor.md)
 #### [Panoramica di Advisor per database SQL](sql-database-advisor.md)
 #### [Informazioni aggiuntive sui database singoli](sql-database-performance-guidance.md)
-#### [Informazioni dettagliate sul carico di lavoro nel portale di Azure](sql-database-performance.md)
+#### [Informazioni dettagliate sulle prestazioni: portale di Azure](sql-database-performance.md)
 #### [Usare l'invio in batch](sql-database-use-batching-to-improve-performance.md)
 #### [Eventi estesi](sql-database-xevent-db-diff-from-svr.md)
 ## Database SQL V11
 ### [Ritiro dell'edizione Web e Business](sql-database-web-business-sunset-faq.md)
 ### [Service Tier Advisor](sql-database-service-tier-advisor.md)
 ### [Strumento di valutazione del pool elastico](sql-database-elastic-pool-database-assessment-powershell.md)
-### [Aggiornamento alla versione 12](sql-database-v12-plan-prepare-upgrade.md)
+### [Aggiornamento alla versione&12;](sql-database-v12-plan-prepare-upgrade.md)
 #### [Aggiornamento con il portale di Azure](sql-database-upgrade-server-portal.md)
 #### [Aggiornamento con PowerShell](sql-database-upgrade-server-powershell.md)
 # Procedure
@@ -253,15 +249,14 @@
 #### [Configure long-term backup retention](sql-database-configure-long-term-retention.md) (Configurare la conservazione del backup a lungo termine)
 #### [View backups in a Recovery Services vault](sql-database-view-backups-in-vault.md) (Visualizzare i backup in un insieme di credenziali dei Servizi di ripristino)
 #### [Restore from long-term backup retention](sql-database-restore-from-long-term-retention.md) (Ripristinare dalla conservazione del backup a lungo termine)
+#### [Eliminare la conservazione del backup a lungo termine](sql-database-long-term-retention-delete.md)
 ### Ripristinare un database eliminato
 #### [Ripristinare un database eliminato con il Portale di Azure](sql-database-restore-deleted-database-portal.md)
 #### [Ripristinare un database eliminato con PowerShell](sql-database-restore-deleted-database-powershell.md)
 ### Ripristino temporizzato
 #### [Restore to a point in time](sql-database-point-in-time-restore.md) (Ripristino temporizzato)
 #### [View oldest restore point](sql-database-view-oldest-restore-point.md) (Visualizzare il punto di ripristino meno recente)
-### Ripristino geografico
-#### [Geo-restore using the Azure portal](sql-database-geo-restore-portal.md) (Ripristino geografico con il Portale di Azure)
-#### [Geo-restore using PowerShell](sql-database-geo-restore-powershell.md) (Ripristino geografico con PowerShell)
+### [Eseguire il ripristino da un backup con ridondanza geografica](sql-database-geo-restore.md)
 ## Replica geografica attiva
 ### [Configurare con il Portale di Azure](sql-database-geo-replication-portal.md)
 ### [Configurare con PowerShell](sql-database-geo-replication-powershell.md)
@@ -309,6 +304,6 @@
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 
