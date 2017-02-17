@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
-ms.openlocfilehash: 8294842893742dcbc7a987421b454ceb7691450c
+ms.sourcegitcommit: 74b077f6f09d53c9232e5b209a5dd811364ee3f5
+ms.openlocfilehash: c995e0de46c67c5c5d243739b2d36266267bdade
 
 
 ---
@@ -340,7 +340,7 @@ Se si prevede di usare la funzionalità di personalizzazione dell'interfaccia ut
 
 * Non copiare il contenuto predefinito di Azure AD B2C né provare a modificarlo. È preferibile creare il contenuto HTML5 da zero e usare il contenuto predefinito come riferimento.
 * In tutte le pagine (tranne le pagine di errore) gestite tramite criteri di accesso, iscrizione e modifica del profilo, i fogli di stile forniti dall'utente dovranno sostituire i fogli di stile predefiniti aggiunti a queste pagine nei frammenti <head> . In tutte le pagine gestite tramite criteri di iscrizione o accesso e reimpostazione password, oltre alle pagine di errore in tutti i criteri, sarà necessario fornire tutti gli stili manualmente.
-* Per motivi di sicurezza, non è consentito includere codice JavaScript nel contenuto. La maggior parte degli elementi necessari dovrebbe già essere disponibile. In caso contrario, usare [UserVoice](http://feedback.azure.com/forums/169401-azure-active-directory) per richiedere nuove funzionalità.
+* Per motivi di sicurezza, non è consentito includere codice JavaScript nel contenuto. La maggior parte degli elementi necessari dovrebbe già essere disponibile. In caso contrario, usare [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) per richiedere nuove funzionalità.
 * Versioni di browser supportate:
   * Internet Explorer 11, 10, Edge
   * Supporto limitato per Internet Explorer 9, 8
@@ -349,6 +349,6 @@ Se si prevede di usare la funzionalità di personalizzazione dell'interfaccia ut
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

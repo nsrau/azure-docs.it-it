@@ -3,7 +3,7 @@ title: Esercitazione su Power BI per il connettore DocumentDB | Microsoft Docs
 description: Utilizzare questa esercitazione su Power BI per importare JSON, creare rapporti dettagliati e visualizzare i dati usando il connettore di DocumentDB e Power BI.
 keywords: esercitazione Power BI, visualizzare dati, connettore Power BI
 services: documentdb
-author: h0n
+author: mimig1
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
-ms.author: hawong
+ms.date: 02/14/2016
+ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 35c469ce0cfb99dc6a26fbcc0734938ad6b66fd7
+ms.sourcegitcommit: 089b250e36eb3e091ad63d716acaf6259a958898
+ms.openlocfilehash: 3f2103a1d3838b73f10d567721693a9b813d0edb
 
 
 ---
@@ -88,7 +88,7 @@ Ecco come fare una prova. Di seguito sono riportati i requisiti iniziali.
     Lasciare vuoti i campi Nome database, Nome raccolta e iItruzione SQL poiché si tratta di campi facoltativi.  Si userà invece lo strumento di navigazione per selezionare il database e la raccolta per identificare la provenienza dei dati.
    
     ![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Finestra di connessione desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
-7. Se ci si connette a questo endpoint per la prima volta, verrà richiesta la chiave dell'account.  È possibile recuperare la chiave dalla casella **Chiave primaria** nel pannello **[Chiavi di sola lettura](documentdb-manage-account.md#keys)** del portale di Azure oppure l'account demo e, in questo caso, l'URL è `RcEBrRI2xVnlWheejXncHId6QRcKdCGQSW6uSUEgroYBWVnujW3YWvgiG2ePZ0P0TppsrMgscoxsO7cf6mOpcA==`. Immettere la chiave dell'account e fare clic su **Connetti**.
+7. Se ci si connette a questo endpoint per la prima volta, verrà richiesta la chiave dell'account.  È possibile recuperare la chiave dalla casella **Chiave primaria** nel pannello **[Chiavi di sola lettura](documentdb-manage-account.md#keys)** del portale di Azure oppure l'account demo e, in questo caso, l'URL è `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Immettere la chiave dell'account e fare clic su **Connetti**.
    
     È consigliabile usare la chiave di sola lettura durante la creazione di report.  In questo modo si impedirà un'inutile esposizione della chiave master a potenziali rischi di sicurezza. La chiave di sola lettura è disponibile nel pannello [Chiavi](documentdb-manage-account.md#keys) del portale di Azure oppure si possono usare le informazioni dell'account demo fornite in precedenza.
    
@@ -216,6 +216,6 @@ Per un aggiornamento pianificato, attenersi alla seguente procedura.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

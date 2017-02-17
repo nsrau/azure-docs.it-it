@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
-ms.openlocfilehash: 0f0805c8363226b6fab6463c668d750e8e7c9265
+ms.sourcegitcommit: bfffb074a905184269992a19993aabc22bb1256f
+ms.openlocfilehash: b65c54819374e90a8318a3f3eecce5b71b01b17f
 
 
 ---
@@ -27,9 +27,6 @@ Diverse funzionalità e caratteristiche di Azure Active Directory (Azure AD) B2C
 Se si verificano problemi durante la [creazione di un tenant di Azure AD B2C](active-directory-b2c-get-started.md), per istruzioni vedere [Creazione di un tenant di Azure Active Directory o di un tenant di Azure AD B2C: problemi e soluzioni](active-directory-b2c-support-create-directory.md).
 
 Si noti che si verificano problemi noti quando si elimina un tenant B2C esistente e lo si crea nuovamente con lo stesso nome di dominio. È necessario creare un tenant B2C con un nome di dominio diverso.
-
-## <a name="note-about-b2c-tenant-quotas"></a>Nota sulle quote dei tenant B2C
-Per impostazione predefinita, in un tenant B2C il numero di utenti è limitato a 50.000. Se occorre aumentare la quota del tenant B2C, è necessario contattare il supporto tecnico.
 
 ## <a name="branding-issues-on-verification-email"></a>Problemi relativi alla personalizzazione nei messaggi di posta elettronica di verifica
 Il messaggio di posta elettronica di verifica predefinito include la personalizzazione "Microsoft", che verrà rimossa in futuro. Per il momento è possibile rimuoverla tramite la [funzionalità di personalizzazione della società](../active-directory/active-directory-add-company-branding.md).
@@ -133,6 +130,6 @@ Ciò è dovuto alle dimensioni dei codici di autorizzazione forniti da Azure AD 
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

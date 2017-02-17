@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 794b1e5deca6c3bda078e3ea9006d334bc3a8052
+ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
+ms.openlocfilehash: fee05b9cfb176714e3313ea2e969958bb4cb19f8
 
 
 ---
@@ -47,7 +47,7 @@ Usare i collegamenti seguenti per passare alla documentazione rilevante:
 * [Risoluzione dei problemi di gestione delle password in Azure AD](active-directory-passwords-troubleshoot.md)
 * [Domande frequenti sulla gestione delle password di Azure AD](active-directory-passwords-faq.md)
 
-## <a name="whats-next"></a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * [Amministrazione di Azure AD](active-directory-administer.md)
 * [Creare o modificare utenti in Azure AD](active-directory-create-users.md)
 * [Gestire gruppi in Azure AD](active-directory-manage-groups.md)

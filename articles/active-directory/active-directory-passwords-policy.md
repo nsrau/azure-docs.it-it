@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1e3ba55fd8c63f1189e06d1aa0bbf5f334e68459
+ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
+ms.openlocfilehash: 5cb86ac4694d8b763fa693954a8bb1383739497c
 
 
 ---
@@ -24,9 +24,9 @@ ms.openlocfilehash: 1e3ba55fd8c63f1189e06d1aa0bbf5f334e68459
 Questo articolo descrive i criteri password e i requisiti di complessità associati agli account utente archiviati nella directory di Azure AD.
 
 > [!IMPORTANT]
-> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,**  [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+>
+>
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Criteri UserPrincipalName che si applicano a tutti gli account utente
 Ogni account utente che deve effettuare l'accesso nel sistema di autenticazione di Azure AD deve essere associato a un valore di attributo nome dell'entità utente (UPN) univoco. La tabella seguente descrive i criteri che si applicano sia agli account utente che originano da Active Directory locale (sincronizzati con il cloud) sia agli account utente solo del cloud.
@@ -53,7 +53,7 @@ La tabella seguente descrive le impostazioni di criteri password disponibili che
 | Blocco account |Dopo 10 tentativi di accesso non riusciti (password errata), l'utente verrà bloccato per un minuto. Ulteriori tentativi di accesso non riusciti bloccheranno l'utente per periodi sempre più lunghi. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,**  [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
 * [Gestire le password da qualsiasi posizione](active-directory-passwords.md)
 * [Funzionamento di Gestione delle password](active-directory-passwords-how-it-works.md)
 * [Introduzione alla gestione delle password](active-directory-passwords-getting-started.md)
@@ -66,7 +66,6 @@ La tabella seguente descrive le impostazioni di criteri password disponibili che
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

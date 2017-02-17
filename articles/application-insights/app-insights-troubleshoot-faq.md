@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
-ms.openlocfilehash: 22d6222b8fd27eeeb562af1ba50164031c885f25
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: e066a7fc671399ba44bec35a2ea860fccddb4cc5
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 22d6222b8fd27eeeb562af1ba50164031c885f25
 *Problemi nella configurazione di:*
 
 * [App .NET](app-insights-asp-net-troubleshoot-no-data.md)
-* [Monitoraggio di un'applicazione già in esecuzione](app-insights-monitor-performance-live-website-now.md#troubleshooting)
+* [Monitoraggio di un'applicazione già in esecuzione](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
 * [Diagnostica di Azure](app-insights-azure-diagnostics.md)
 * [App Web Java](app-insights-java-troubleshoot.md)
 * [Altre piattaforme](app-insights-platforms.md)
@@ -40,7 +40,7 @@ ms.openlocfilehash: 22d6222b8fd27eeeb562af1ba50164031c885f25
 
 ## <a name="is-it-free"></a>È gratuito?
 
-Sì, per l'uso sperimentale. Nel piano tariffario predefinito l'applicazione può inviare una determinata quantità di dati gratuitamente ogni mese. La capacità massima disponibile è sufficiente per lo sviluppo e la pubblicazione di un'app per un numero ridotto di utenti. È possibile impostare un limite per evitare l'elaborazione di una quantità di dati maggiore a quella specificata.
+Sì, per l'uso sperimentale. Nel piano tariffario Basic l'applicazione può inviare una determinata quantità di dati gratuitamente ogni mese. La capacità massima disponibile è sufficiente per lo sviluppo e la pubblicazione di un'app per un numero ridotto di utenti. È possibile impostare un limite per evitare l'elaborazione di una quantità di dati maggiore a quella specificata.
 
 È necessario disporre del piano Enterprise per usare determinate funzionalità, ad esempio l'esportazione continua. In questo caso è previsto un addebito giornaliero.
 
@@ -51,20 +51,20 @@ Sì, per l'uso sperimentale. Nel piano tariffario predefinito l'applicazione pu�
 Dipende dal tipo di progetto. Per un'applicazione Web:
 
 * Aggiunge tre file al progetto:
-  
+
   * ApplicationInsights.config.
   * ai.js
 * Installa i pacchetti NuGet seguenti:
-  
+
   * *Application Insights API* , ovvero l'API principale
   * *Application Insights API for Web Applications* , che consente di inviare i dati di telemetria dal server
   * *Application Insights API for JavaScript Applications* , che consente di inviare i dati di telemetria dal client
-    
+
     I pacchetti includono gli assembly seguenti:
   * Microsoft.ApplicationInsights
   * Microsoft.ApplicationInsights.Platform
 * Inserire elementi in:
-  
+
   * Web.config
   * packages.config
 * (Solo per i muovi progetti. Se si [aggiunge Application Insights a un progetto esistente][start], l'operazione deve essere eseguita manualmente.) Inserisce frammenti nel codice client e server per inizializzarli con l'ID risorsa di Application Insights. Ad esempio, in un'app MVC il codice viene inserito nella pagina master Views/Shared/_Layout.cshtml
@@ -90,7 +90,7 @@ Vedere l'argomento relativo a [conservazione dei dati e privacy][data].
 | Elementi che dovrebbero essere visualizzati | Come ottenerli | Perché si vuole ottenerli |
 | --- | --- | --- |
 | Grafici di disponibilità |[Test Web](app-insights-monitor-web-app-availability.md) |Stabilire se l'app Web è attiva |
-| Prestazioni dell'app server: tempi di risposta, ... |[Aggiungere Application Insights al progetto](app-insights-asp-net.md) o [installare Status Monitor di Application Insights nel server](app-insights-monitor-performance-live-website-now.md) (o scrivere il codice per [tenere traccia delle dipendenze](app-insights-api-custom-events-metrics.md#track-dependency)) |Rilevare i problemi di prestazioni |
+| Prestazioni dell'app server: tempi di risposta, ... |[Aggiungere Application Insights al progetto](app-insights-asp-net.md) o [installare Status Monitor di Application Insights nel server](app-insights-monitor-performance-live-website-now.md) (o scrivere il codice per [tenere traccia delle dipendenze](app-insights-api-custom-events-metrics.md#trackdependency)) |Rilevare i problemi di prestazioni |
 | Telemetria di dipendenza |[Installare Status Monitor di Application Insights nel server](app-insights-monitor-performance-live-website-now.md) |Diagnosticare i problemi relativi a database o altri componenti esterni |
 | Ricavare analisi dello stack dalle eccezioni |[Inserire chiamate TrackException nel codice](app-insights-search-diagnostic-logs.md#exceptions) (ma alcune sono segnalate automaticamente) |Rilevare e diagnosticare le eccezioni |
 | Eseguire la ricerca di tracce dei log |[Aggiungere un adattatore di registrazione](app-insights-search-diagnostic-logs.md) |Diagnosticare le eccezioni, problemi di prestazioni |
@@ -113,6 +113,6 @@ Vedere l'argomento relativo a [conservazione dei dati e privacy][data].
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

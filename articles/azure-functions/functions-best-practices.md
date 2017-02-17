@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/09/2016
 ms.author: wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4544629c47326d448cd99b5d96d79666a56f0274
-ms.openlocfilehash: 04a5e190a69b1a1a4d0fe6c49c16ddb15593ba38
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: c638bf42b9adf906f195d77268637d056f7b00a9
 
 ---
 
@@ -68,7 +68,7 @@ Come reagisce il codice in caso di errore dopo l'inserimento di 5.000 di tali el
 
 Se un elemento della coda è già stato elaborato, consentire alla funzione di essere no-op.
 
-Sfruttare le misure difensive già messe a disposizione per i componenti usati nella piattaforma Funzioni di Azure. Ad esempio, vedere **Gestione di messaggi della coda non elaborabili** nella documentazione relativa ai [trigger della coda di Archiviazione di Azure](functions-bindings-storage.md#storagequeuetrigger).
+Sfruttare le misure difensive già messe a disposizione per i componenti usati nella piattaforma Funzioni di Azure. Ad esempio, vedere **Gestione di messaggi della coda non elaborabili** nella documentazione relativa ai [trigger della coda di Archiviazione di Azure](functions-bindings-storage-queue.md#trigger).
  
 
 
@@ -107,6 +107,6 @@ Per altre informazioni, vedere le seguenti risorse:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
