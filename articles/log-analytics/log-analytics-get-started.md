@@ -15,11 +15,13 @@ ms.topic: get-started-article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 49e624dd9bfc534fdbae25fd0c8646be36851635
-ms.openlocfilehash: 4ab71b6ee09883abd4d095f2b1788cf69d44a219
+ms.sourcegitcommit: f3be7887a33578da1b2df1f5aa02e09c50f22390
+ms.openlocfilehash: 5aa5e5006bf1d0d13f96494cc13df2c970f0d765
 
 
 ---
+Nota: se si sta usando Microsoft Azure Government Cloud, andare invece all'indirizzo https://review.docs.microsoft.com/it-it/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics.
+
 # <a name="get-started-with-log-analytics"></a>Introduzione a Log Analytics
 È possibile iniziare a usare Log Analytics in Microsoft Operations Management Suite (OMS) in pochi minuti. Sono disponibili due possibilità per creare un'area di lavoro di OMS, che è simile a un account:
 
@@ -146,6 +148,6 @@ Con Operations Management Suite è possibile eseguire ricerche rapide in log di 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

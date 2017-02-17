@@ -1,9 +1,6 @@
+Le soluzioni del cloud di Azure si basano sulle macchine virtuali (emulazione di componenti hardware del computer fisico) e consentono così la creazione agile di pacchetti di distribuzioni software e un migliore consolidamento delle risorse rispetto all'hardware fisico. I contenitori [Docker](https://www.docker.com) e l'ecosistema Docker hanno espanso significativamente le modalità a disposizione per sviluppare, fornire e gestire il software distribuito. Il codice applicativo presente in un contenitore è isolato dalla VM host e da altri contenitori nella stessa VM. Questo isolamento offre maggiore flessibilità di sviluppo e distribuzione.
 
-
-
-Azure offre soluzioni cloud eccezionali create su macchine virtuali&mdash;basate sull'emulazione di componenti hardware del computer fisico&mdash;per consentire il rapido spostamento di distribuzioni software e migliorare notevolmente il consolidamento delle risorse rispetto all'hardware fisico. Negli ultimi anni, in gran parte grazie all'approccio [Docker](https://www.docker.com) ai contenitori e all'ecosistema Docker, la tecnologia dei contenitori Linux ha notevolmente ampliato i modi in cui è possibile sviluppare e gestire il software distribuito. Il codice dell'applicazione in un contenitore è isolato dalla VM di Azure ospitata, come anche altri contenitori nella stessa VM, il che offre maggiore flessibilità di sviluppo e distribuzione al livello dell'applicazione&mdash;oltre alla flessibilità che le VM di Azure già offrono.
-
-**Ma questo è il passato.** La novità *più recente* più recentes is that Azure offers you even more Docker goodness:
+Azure offre i valori Docker seguenti:
 
 * [Molti](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) modi [diversi](../articles/virtual-machines/virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) di creare host Docker per i contenitori in base alle proprie esigenze
 * Il [servizio contenitore di Azure](https://azure.microsoft.com/documentation/services/container-service/) crea cluster di host contenitori usando agenti di orchestrazione come **marathon** e **swarm**.
@@ -15,7 +12,7 @@ E poiché è possibile creare a livello di programmazione le VM e i contenitori 
 In questo articolo non solo vengono discussi questi concetti a livello generale, ma vengono anche forniti numerosi link per accedere a maggiori informazioni, esercitazioni e prodotti correlati all’utilizzo di contenitori e cluster in Azure. Se si è già in possesso di queste informazioni, i collegamenti sono disponibili negli [strumenti per l'uso dei contenitori](#tools-for-working-with-azure-vms-and-containers).
 
 ## <a name="the-difference-between-virtual-machines-and-containers"></a>La differenza tra le macchine virtuali e i contenitori
-Le macchine virtuali vengono eseguite all'interno di un ambiente di virtualizzazione hardware isolato fornito da un [hypervisor](http://en.wikipedia.org/wiki/Hypervisor). In Azure, il servizio [Macchine virtuali](https://azure.microsoft.com/services/virtual-machines/) assume la gestione completa: l'utente deve solo creare le macchine virtuali scegliendo il sistema operativo e configurandolo secondo le proprie esigenze&mdash;oppure caricando un'immagine di VM personalizzata. Le Macchine virtuali sono una tecnologia "temprata", collaudata dal tempo, e sono disponibili molti strumenti per gestire i sistemi operativi e per configurare le applicazioni che vengono installate ed eseguite. Qualsiasi elemento in esecuzione in una macchina virtuale è nascosto dal sistema operativo host e, dal punto di vista di un'applicazione o utente in esecuzione all'interno di una macchina virtuale, la macchina virtuale sembra essere un computer fisico autonomo.
+Le macchine virtuali vengono eseguite all'interno di un ambiente di virtualizzazione hardware isolato fornito da un [hypervisor](http://en.wikipedia.org/wiki/Hypervisor). In Azure, il servizio [Macchine virtuali](https://azure.microsoft.com/services/virtual-machines/) gestisce automaticamente queste attività: per creare macchine virtuali è sufficiente scegliere il sistema operativo e configurarlo in base alle proprie esigenze oppure caricare un'immagine di VM personalizzata. Le Macchine virtuali sono una tecnologia "temprata", collaudata dal tempo, e sono disponibili molti strumenti per gestire i sistemi operativi e per configurare le applicazioni che vengono installate ed eseguite. Qualsiasi elemento in esecuzione in una macchina virtuale è nascosto dal sistema operativo host e, dal punto di vista di un'applicazione o utente in esecuzione all'interno di una macchina virtuale, la macchina virtuale sembra essere un computer fisico autonomo.
 
 I [contenitori Linux](http://en.wikipedia.org/wiki/LXC)&mdash;inclusi quelli creati e ospitati usando strumenti Docker o con altri approcci&mdash;non richiedono né usano un hypervisor per garantire l'isolamento. Al contrario, l'host del contenitore utilizza le funzionalità di isolamento del processo e del file system del kernel Linux per esporre al contenitore (e alla relativa applicazione) solo alcune funzionalità di kernel e il proprio file system isolato (almeno). Dal punto di vista di un'applicazione in esecuzione all'interno di un contenitore, il contenitore appare come un'istanza univoca del sistema operativo  Un'applicazione indipendente non può vedere processi o qualsiasi altra risorsa all'esterno del relativo contenitore.
 
@@ -197,10 +194,10 @@ Vedere [Docker](https://www.docker.com) e [Contenitori Windows](https://msdn.mic
 
 <!--Anchors-->
 [microservices]: http://martinfowler.com/articles/microservices.html
-[microservizio]: http://martinfowler.com/articles/microservices.html
+[microservice]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

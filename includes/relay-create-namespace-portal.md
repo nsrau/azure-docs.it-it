@@ -1,4 +1,4 @@
-1. Accedere al [portale di Azure][portale di Azure].
+1. Accedere al [portale di Azure][Azure portal].
 2. Nel riquadro di spostamento sinistro del portale fare clic su **Nuovo**, quindi su **Enterprise Integration** e infine su **Inoltro**.
 3. Nella finestra di dialogo **Crea spazio dei nomi** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
 4. Nel campo **Sottoscrizione** scegliere una sottoscrizione di Azure in cui creare lo spazio dei nomi.
@@ -18,6 +18,8 @@
    
     ![connection-string][connection-string]
 
+5. Ripetere il passaggio precedente e copiare e incollare il valore della **chiave primaria** in un percorso temporaneo per usarlo in seguito.  
+
 <!--Image references-->
 
 [create-namespace]: ./media/relay-create-namespace-portal/create-namespace.png
@@ -25,9 +27,9 @@
 [connection-string]: ./media/relay-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[Portale di Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

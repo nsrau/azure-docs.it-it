@@ -17,7 +17,8 @@
 | Unità di streaming per endpoint di streaming  |10 |
 | Unità riservate multimediali per account AMS |25 (S1, S2)<br/>10 (S3) <sup>1</sup> | 
 | Account di archiviazione | 1.000<sup>5</sup> (fisso) |
-| Criteri | |1,000,000<sup>6</sup> |
+| Criteri | 1,000,000<sup>6</sup> |
+| Dimensioni complete| In alcuni scenari è previsto un limite per le dimensioni massime dei file supportate per l'elaborazione in Servizi multimediali. <sup>7</sup> |
  
 <sup>1</sup> Le unità riservate S3 non sono disponibili in India occidentale.
 
@@ -34,8 +35,15 @@
 >[!NOTE]
 > Se si utilizzano sempre gli stessi giorni, autorizzazioni di accesso e così via, è necessario utilizzare lo stesso ID criterio.
 
+<sup>7</sup>Se si caricano contenuti in un asset in Servizi multimediali di Azure per elaborarli con uno dei processore di contenuti multimediali nel servizio, ad esempio codificatori come Media Encoder Standard e Media Encoder Premium Workflow oppure motori di analisi come Face Detector, è necessario essere consapevoli dei limiti seguenti. 
+
+| Unità riservata multimediale | Dimensione massima file (GB)| 
+| --- | --- | 
+|S1 | 325|
+|S2 | 640|
+|S3 | 260|
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

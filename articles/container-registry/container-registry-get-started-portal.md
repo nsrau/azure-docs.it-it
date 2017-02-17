@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
-ms.openlocfilehash: 5302121ff65eec4f15a7ce3a06a1e3ed744117e9
+ms.sourcegitcommit: d3047cd4cddb23c4daeb9265afc4d7b3fe30d46c
+ms.openlocfilehash: bec138da39696cd93bdc9bf0307108b8ca6eb149
 
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Creare un registro contenitori con il portale di Azure
@@ -52,7 +52,7 @@ Per concetti e informazioni di base, vedere [Informazioni su Registro contenitor
    > [!IMPORTANT]
    > Oltre a consentire l'accesso tramite un account utente amministratore, i registri dei contenitori supportano l'autenticazione basata sulle entità servizio di Azure Active Directory. Per altre informazioni e considerazioni, vedere [Authenticate with the container registry](container-registry-authentication.md) (Eseguire l'autenticazione al registro contenitori).
    
-    e. **Storage account** (Account di archiviazione): usare l'impostazione predefinita per creare un [account di archiviazione](../storage/storage-introduction.md) oppure selezionarne uno esistente nello stesso percorso.
+    e. **Storage account** (Account di archiviazione): usare l'impostazione predefinita per creare un [account di archiviazione](../storage/storage-introduction.md) oppure selezionarne uno esistente nello stesso percorso. Si noti che gli account di archiviazione Premium e Classic non sono supportati.
 
 ## <a name="manage-registry-settings"></a>Gestire le impostazioni del registro
 Dopo aver creato il registro, trovare le impostazioni iniziando dal pannello **Container Registries** (Registri dei contenitori) nel portale. Le impostazioni potrebbero essere ad esempio necessarie per accedere al registro o abilitare o disabilitare l'utente amministratore.
@@ -77,6 +77,6 @@ Dopo aver creato il registro, trovare le impostazioni iniziando dal pannello **C
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

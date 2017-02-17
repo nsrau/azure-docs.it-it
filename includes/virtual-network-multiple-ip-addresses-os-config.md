@@ -14,7 +14,7 @@ Connettersi e accedere alla VM creata con più indirizzi IP privati. È necessar
     * **Subnet mask**: configurare questo valore in base alla subnet. Se, ad esempio, la subnet è di tipo /24, la subnet mask è 255.255.255.0.
     * **Gateway predefinito**: primo indirizzo IP nella subnet. Se la subnet è 10.0.0.0/24, l'indirizzo IP del gateway è 10.0.0.1.
     * Fare clic su **Utilizza i seguenti indirizzi server DNS** e immettere i valori seguenti:
-        * **Server DNS preferito** : immettere 168.63.129.16 se non si usa il proprio server DNS.  Se si utilizza il proprio server DNS, immettere il relativo indirizzo IP.
+        * **Server DNS preferito**: immettere 168.63.129.16 se non si usa il proprio server DNS.  Se si usa il proprio server DNS, immettere il relativo indirizzo IP.
     * Fare clic sul pulsante **Avanzate** e aggiungere altri indirizzi IP. Aggiungere ogni indirizzo IP privato secondario elencato nel passaggio 8 all'interfaccia di rete con la stessa subnet specificata per l'indirizzo IP primario.
     * Fare clic su **OK** per chiudere le impostazioni TCP/IP e quindi di nuovo su **OK** per chiudere le impostazioni della scheda. Viene ristabilita la connessione RDP.
 6. Da un prompt dei comandi digitare *ipconfig /all*. Tutti gli indirizzi IP aggiunti vengono visualizzati e DHCP viene disattivato.
@@ -39,7 +39,11 @@ Connettersi e accedere alla VM creata con più indirizzi IP privati. È necessar
         ```
 
     Dovrebbe essere visualizzato un file con estensione cfg.
-4. Aprire il file: vi *filename*.
+4. Aprire il file:
+
+        ```bash
+        vi eth0.cfg
+        ```
 
     Dovrebbero essere visualizzate le righe seguenti alla fine del file:
 
@@ -102,32 +106,36 @@ Connettersi e accedere alla VM creata con più indirizzi IP privati. È necessar
 
     Uno dei file visualizzati dovrebbe essere *ifcfg-eth0* .
 
-5. Copiare il file *ifcfg-eth0* e denominarlo *ifcfg-eth0:0* con il comando seguente:
+5. Per aggiungere un indirizzo IP, creare un file di configurazione come illustrato di seguito. Si noti che è necessario creare un file per ogni configurazione IP.
 
     ```bash
-    cp ifcfg-eth0 ifcfg-eth0:0
+    touch ifcfg-eth0:0
     ```
 
-6. Modificare il file *ifcfg-eth0:0* con il comando seguente:
+6. Aprire il file *ifcfg-eth0:0* con il comando seguente:
 
     ```bash
     vi ifcfg-eth0:0
     ```
 
-7. Cambiare il dispositivo specificando il nome appropriato nel file, in questo caso *eth0:0* , con il comando seguente:
+7. Aggiungere contenuto al file, in questo caso *eth0:0*, con il comando seguente. Assicurarsi di aggiornare le informazioni in base all'indirizzo IP.
 
     ```bash
     DEVICE=eth0:0
+        BOOTPROTO=static
+        ONBOOT=yes
+        IPADDR=192.168.101.101
+        NETMASK=255.255.255.0
+
     ```
 
-8. Cambiare la riga *IPADDR = YourPrivateIPAddress* in modo che rispecchi l'indirizzo IP.
-9. Salvare il file usando il comando seguente:
+8. Salvare il file usando il comando seguente:
 
     ```bash
     :wq
     ```
 
-10. Riavviare i servizi di rete e assicurarsi che le modifiche siano riuscite eseguendo i comandi seguenti:
+9. Riavviare i servizi di rete e assicurarsi che le modifiche siano riuscite eseguendo i comandi seguenti:
 
     ```bash
     /etc/init.d/network restart
@@ -137,6 +145,6 @@ Connettersi e accedere alla VM creata con più indirizzi IP privati. È necessar
     L'indirizzo IP aggiunto, *eth0:0*, dovrebbe essere incluso nell'elenco restituito.
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

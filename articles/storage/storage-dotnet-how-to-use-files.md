@@ -15,8 +15,8 @@ ms.topic: hero-article
 /ms.date: 1/18/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: aba595f3eab2835cffb7b2678a72515b983f4cec
-ms.openlocfilehash: 7637a700ef718162f3042c53e469424cdcd218de
+ms.sourcegitcommit: 6402c4cf43e087c22824555277deabc01ead2a0d
+ms.openlocfilehash: 25c6b0196de7f44fc77191dfe5a4c7c47bdd60e7
 
 
 ---
@@ -38,7 +38,7 @@ Per informazioni sugli obiettivi di scalabilità e prestazioni di Archiviazione 
 ## <a name="video-using-azure-file-storage-with-windows"></a>Video: Come usare l'archiviazione file di Azure con Windows
 Ecco un video che illustra come creare e usare Condivisioni file di Azure in Windows.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Windows/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Windows/player]
 > 
 > 
 
@@ -605,7 +605,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
     La firma di accesso condiviso è supportata solo tramite l'API REST o le librerie client. Quando si monta la condivisione file tramite il protocollo SMB, non è possibile usare una firma di accesso condiviso per delegare l'accesso al contenuto.
 2. **Le condivisioni file di Azure sono visibili pubblicamente su Internet o sono raggiungibili solo tramite Azure?**
    
-    Se la porta 445 (TCP in uscita) è aperta e il client supporta il protocollo SMB 3.0,*ovvero*, Windows 8 o Windows Server 2012, la condivisione file è disponibile tramite Internet.  
+    Se la porta 445 (TCP in uscita) è aperta e il client supporta il protocollo SMB 3.0,*ovvero*, Windows 8 o Windows Server 2012, la condivisione file è disponibile tramite Internet. Contattare il provider di servizi Internet locale per sbloccare la porta. Nel frattempo è possibile visualizzare i file usando Storage Explorer o strumenti di terze parti, ad esempio Cloudberry.
 3. **Il traffico di rete tra una macchina virtuale di Azure e una condivisione file viene conteggiato come larghezza di banda esterna e addebitato alla sottoscrizione?**
    
     Se la condivisione file e la macchina virtuale si trovano in aree diverse, il traffico che viene scambiato viene addebitato come larghezza di banda esterna.
@@ -645,9 +645,12 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 15. **Risoluzione degli errori di archiviazione file di Azure**
     
     È anche possibile fare riferimento all'articolo sulla [risoluzione dei problemi di archiviazione file di Azure](storage-troubleshoot-file-connection-problems.md) per indicazioni sulla risoluzione dei problemi end-to-end.               
-16. ** È possibile usare FileSystemWatcher per essere in ascolto di eventi quali la creazione/modifica/eliminazione di file e directory nella condivisione del Servizio file di Azure?
 
-No. È possibile usare Azure Web jobs SDK. È possibile scrivere associazioni personalizzate attivate o non attivate e essere in ascolto di eventi nell'archiviazione file. Per informazioni sulle operazioni iniziali, vedere [Guideline for authoring new triggers and binders](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) (Indicazioni per la creazione di nuovi trigger e binder).
+16. **Come è possibile abilitare la crittografia lato server per File di Azure?**
+
+    La [crittografia lato server](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) è attualmente in anteprima. Durante l'anteprima, la funzionalità può essere abilitata solo per gli account di archiviazione di Azure Resource Manager appena creati.
+    Questa funzionalità può essere abilitata nell'account di archiviazione di Azure Resource Manager tramite il portale di Azure. Entro la fine di febbraio è prevista la disponibilità di [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), dell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) o dell'[API del provider di risorse di Archiviazione di Microsoft Azure](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) per l'abilitazione della crittografia per l'archiviazione file. Non sono previsti costi aggiuntivi per questa funzionalità. Quando si abilita Crittografia del servizio di archiviazione per l'archiviazione file di Azure, i dati vengono crittografati automaticamente. 
+    Vedere altre informazioni su Crittografia del servizio di archiviazione. È anche possibile contattare ssediscussions@microsoft.com per altre domande sull'anteprima.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione file di Azure.
@@ -660,8 +663,9 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 * [Uso di Azure PowerShell con Archiviazione di Azure](storage-powershell-guide-full.md)
 * [Come usare AzCopy con Archiviazione di Microsoft Azure](storage-use-azcopy.md)
 * [Utilizzo dell'interfaccia della riga di comando di Azure con archiviazione di Azure](storage-azure-cli.md#create-and-manage-file-shares)
+* [Risoluzione dei problemi di archiviazione file di Azure](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
 
-### <a name="reference"></a>Riferimenti
+### <a name="reference"></a>Riferimento
 * [Informazioni di riferimento sulla libreria client di archiviazione per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [Riferimento API REST del servizio File](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 
@@ -673,6 +677,6 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

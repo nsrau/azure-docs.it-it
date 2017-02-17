@@ -107,7 +107,7 @@ Il metodo `.includeTotalCount()` viene usato per aggiungere un campo totalCount 
 
 Si potrà quindi usare la variabile pages e alcuni pulsanti dell'interfaccia utente per fornire un elenco di pagine. Usare `loadPage()` per caricare i nuovi record per ogni pagina.  Implementare il caching per velocizzare l'accesso ai record già caricati.
 
-#### <a name="a-namesorting-dataahow-to-return-data-sorted"></a><a name="sorting-data"></a>Procedura: Restituire dati ordinati
+#### <a name="a-namesorting-dataahow-to-return-sorted-data"></a><a name="sorting-data"></a>Procedura: Restituire i dati ordinati
 Usare i metodi di query `.orderBy()` o `.orderByDescending()`:
 
 ```
@@ -167,6 +167,6 @@ table
 ```
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

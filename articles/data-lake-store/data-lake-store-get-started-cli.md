@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 01/31/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: f4b31e03f454f889b4e0be807697c06e32f484c8
+ms.sourcegitcommit: f33ccee7dd520adf074856616005c929040116dd
+ms.openlocfilehash: 89d1811f3f336f2526ccba3b6be26e90ab7120ad
 
 
 ---
@@ -32,6 +32,11 @@ ms.openlocfilehash: f4b31e03f454f889b4e0be807697c06e32f484c8
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
+
+> [!NOTE]
+> Per il caricamento e il download di quantità elevate di dati (file di grandi dimensioni, numero elevato di file o entrambi), è consigliabile usare [Python SDK](data-lake-store-get-started-python.md), [.NET SDK](data-lake-store-get-started-net-sdk.md) o [Azure PowerShell](data-lake-store-get-started-powershell.md). Queste opzioni offrono prestazioni migliori, perché usano più thread per parallelizzare lo spostamento dei dati.
+> 
+>  
 
 Informazioni su come la riga di comando di Azure per creare un account di Azure Data Lake Store ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare i file di dati, eliminare l'account e così via. Per altre informazioni su Data Lake Store, vedere [Panoramica di Data Lake Store](data-lake-store-overview.md).
 
@@ -177,6 +182,6 @@ Quando viene richiesto, immettere **Y** per eliminare l'account.
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: cbd2c3e915b93340c1a1478c09b23480c4565a98
+ms.sourcegitcommit: 13431648e87d085161ad278dc991d49f7872be34
+ms.openlocfilehash: 60213f885020a5ba36d6ada0812f755e06b3c48b
 
 
 ---
@@ -43,17 +43,17 @@ A questo punto, la nuova intestazione dovrebbe essere visualizzata in ogni pagin
 > 
 
 ## <a name="change-headers-styling"> </a>Modificare lo stile delle intestazioni
-I colori, il tipo di carattere e le dimensioni, la spaziatura e altri elementi relativi allo stile di ogni pagina del portale sono definiti da regole di stile. Per modificare gli stili, scegliere **Aspetto** dal menu **Portale per sviluppatori** nel portale di pubblicazione e quindi fare clic su **Begin customization** (Inizia personalizzazione) per abilitare l'editor dello stile.
+I colori, il tipo di carattere e le dimensioni, la spaziatura e altri elementi relativi allo stile di ogni pagina del portale sono definiti da regole di stile. Per modificare gli stili, nel **Portale per sviluppatori** aprire la barra degli strumenti di personalizzazione a sinistra spostando l'icona di personalizzazione e quindi selezionare "stili" sulla barra degli strumenti.
 
-Il browser passa a una pagina nascosta nel portale per sviluppatori contenente esempi di contenuto ed esempi per tutte le regole di stile usate in qualsiasi parte del sito. Per aprire l'editor dello stile, spostare il cursore sulla riga verticale sottile nella parte all'estrema sinistra della pagina. Verrà visualizzata la barra degli strumenti dell'editor
+![Pulsante della barra degli strumenti di personalizzazione][api-management-customization-toolbar-button]
+
+È possibile modificare le regole di stile in due modi principali: esaminare l'elenco di tutte le regole di stile ovunque venga visualizzato per impostazione predefinita e modificare uno stile in base alla necessità oppure scegliere **Select an element on the page** (Selezionare un elemento nella pagina) e quindi fare clic in un punto qualsiasi della pagina per visualizzare solo gli stili per l'elemento specifico.
+
+In questa sezione viene modificato solo lo stile delle intestazioni. Fare clic sull'opzione **Select an element on the page** (Selezionare un elemento nella pagina) sulla barra degli strumenti dell'editor dello stile. 
 
 ![Barra degli strumenti Personalizzazione][api-management-customization-toolbar]
 
-Sono disponibili due modalità principali per la modifica delle regole di stile: **Edit all rules** (Modifica tutte le regole) consente di visualizzare un elenco di tutte le regole di stile usate nel sito, mentre **Pick element** (Seleziona elemento) consente di selezionare un elemento nella pagina e visualizzare gli stili solo per quell'elemento.
-
-In questa sezione viene modificato solo lo stile delle intestazioni. Fare clic sull'opzione **Pick element** (Seleziona elemento) sulla barra degli strumenti dell'editor dello stile e quindi fare clic su **Select an element to customize** (Seleziona un elemento da personalizzare). Man mano che il puntatore del mouse passa sugli elementi, questi vengono evidenziati per indicare gli stili dell'elemento che si possono modificare facendo clic su di essi. Passare il mouse sul testo che indica il nome dell'azienda nell'intestazione ("Portale per sviluppatori Fabrikam" se si sono seguite le istruzioni fornite nella sezione precedente) e quindi fare clic su di esso. Nell'editor dello stile viene visualizzato un set di regole di stile denominate e categorizzate.
-
-Ogni regola rappresenta una proprietà di stile dell'elemento selezionato. Ad esempio, per il testo dell'intestazione selezionata sopra, la dimensione del testo è pari a @font-size-h1, mentre il nome del tipo di carattere con le alternative si trova in @headings-font-family.
+Man mano che il puntatore del mouse passa sugli elementi, questi vengono evidenziati per indicare gli stili dell'elemento che si possono modificare facendo clic su di essi. Passare il mouse sul testo che indica il nome dell'azienda nell'intestazione ("Portale per sviluppatori Fabrikam" se si sono seguite le istruzioni fornite nella sezione precedente) e quindi fare clic su di esso. Nell'editor dello stile viene visualizzato un set di regole di stile denominate e categorizzate. Ogni regola rappresenta una proprietà di stile dell'elemento selezionato. Ad esempio, per il testo dell'intestazione selezionata sopra, la dimensione del testo è pari a @font-size-h1, mentre il nome del tipo di carattere con le alternative si trova in @headings-font-family.
 
 > Se si ha familiarità con [Bootstrap][bootstrap], queste regole sono in effetti [variabili LESS][LESS variables] nel tema bootstrap usato dal portale per sviluppatori.
 > 
@@ -63,7 +63,7 @@ A questo punto, verrà modificato il colore del testo dell'intestazione. Selezio
 
 ![Selezione colori][api-management-customization-toolbar-color-picker]
 
-Dopo aver apportato le modifiche desiderate agli stili dell'elemento selezionato, fare clic su **Anteprima modifiche** per visualizzare i risultati. Al momento, le modifiche sono visibili solo agli amministratori. Per rendere queste modifiche visibili a tutti, fare clic sul pulsante **Pubblica** nell'editor dello stile e confermare le modifiche.
+L'anteprima delle modifiche viene visualizzata in tempo reale durante l'inserimento delle modifiche, che risultano tuttavia visibili solo agli amministratori. Per rendere queste modifiche visibili a tutti, fare clic sul pulsante **Pubblica** nell'editor dello stile e confermare le modifiche.
 
 ![Menu Pubblica][api-management-customization-toolbar-publish-form]
 
@@ -96,6 +96,7 @@ Fare clic nella pagina di **benvenuto** per modificare gli elementi visualizzati
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
+[api-management-customization-toolbar-button]: ./media/api-management-customize-portal/api-management-customization-toolbar-button.png
 [api-management-customization-toolbar]: ./media/api-management-customize-portal/api-management-customization-toolbar.png
 [api-management-customization-toolbar-color-picker]: ./media/api-management-customize-portal/api-management-customization-toolbar-color-picker.png
 [api-management-customization-toolbar-publish-form]: ./media/api-management-customize-portal/api-management-customization-toolbar-publish-form.png
@@ -107,6 +108,6 @@ Fare clic nella pagina di **benvenuto** per modificare gli elementi visualizzati
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
-ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
+ms.sourcegitcommit: af6728d23ba228b436546c13529189f649416dba
+ms.openlocfilehash: cbddda10fa2b91e46a9789379fde8011be0e8381
 
 
 ---
@@ -29,7 +29,7 @@ Dopo aver distribuito l'app Web o il sito Web in qualsiasi server, è possibile 
 Sono disponibili due tipi di test Web:
 
 * [Test di ping URL](#create): un semplice test che può essere creato nel portale di Azure.
-* [Test Web in più passaggi](#multi-step-web-tests): viene creato in Visual Studio Ultimate o Visual Studio Enterprise e caricato nel portale.
+* [Test Web in più passi](#multi-step-web-tests): viene creato in Visual Studio Enterprise e caricato nel portale.
 
 È possibile creare fino a 10 test Web per ogni risorsa dell'applicazione.
 
@@ -122,7 +122,7 @@ Per creare un test in più passaggi, registrare lo scenario con Visual Studio, q
 Si noti che non è possibile usare funzioni codificate nei test: i passaggi dello scenario devono essere contenuti sotto forma di script nel file con estensione webtest.
 
 #### <a name="1-record-a-scenario"></a>1. Registrare uno scenario
-Usare Visual Studio Enterprise o Ultimate per registrare una sessione Web.
+Usare Visual Studio Enterprise per registrare una sessione Web.
 
 1. Creare un progetto di test delle prestazioni Web.
 
@@ -239,7 +239,7 @@ Dal pannello Panoramica aprire **Impostazioni**, **Test delle prestazioni**. Qua
 Al termine del test verranno visualizzati i tempi di risposta e le percentuali di successo.
 
 ## <a name="automation"></a>Automazione
-* [Usare script di PowerShell per configurare automaticamente un test Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) .
+* [Usare script di PowerShell per configurare automaticamente un test Web](app-insights-powershell.md#add-an-availability-test) .
 * Configurare un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) che verrà chiamato quando viene generato un avviso.
 
 ## <a name="questions-problems"></a>Domande? Problemi?
@@ -294,6 +294,6 @@ Al termine del test verranno visualizzati i tempi di risposta e le percentuali d
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 
