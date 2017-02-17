@@ -15,13 +15,13 @@ ms.workload: TBD
 ms.date: 08/18/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7df0243622af7166a57a6ec81ed356022246a3ed
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 230a652ceca8b4643d1984d81383c6628b8e1f5f
 
 
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Risoluzione dei problemi di distribuzione del dispositivo StorSimple
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 In questo articolo viene fornita una guida alla risoluzione dei problemi riguardo la distribuzione di Microsoft Azure StorSimple. Vengono descritti problemi comuni, le possibili cause e le procedure consigliate per la risoluzione dei problemi che potrebbero verificarsi durante la configurazione di StorSimple. Queste informazioni si applicano sia al dispositivo fisico locale StorSimple che al dispositivo virtuale StorSimple.
 
 > [!NOTE]
@@ -77,8 +77,8 @@ Nella seguente tabella vengono elencati gli errori comuni che possono verificars
 | 2 |Invoke-HcsSetupWizard: dispositivo non pronto. |Sono presenti problemi con la connettività di rete su DATA 0. |Controllare la connettività di rete fisica in DATA 0. |
 | 3 |Invoke-HcsSetupWizard: è presente un conflitto di indirizzo IP con un altro sistema della rete (eccezione da HRESULT: 0x80070263). |L'IP fornito per i DATA 0 era già utilizzato da un altro sistema. |Fornire un nuovo IP non in uso. |
 | 4 |Invoke-HcsSetupWizard: errore di risorsa cluster (eccezione da HRESULT: 0x800713AE). |Duplica VIP. L'IP fornito è già in uso. |Fornire un nuovo IP non in uso. |
-| 5 |Invoke-HcsSetupWizard: indirizzo IPv4 non valido. |L'indirizzo IP è stato fornito in un formato non corretto. |Controllare il formato e fornire nuovamente l'indirizzo IP. Per altre informazioni, vedere [Indirizzamento Ipv4][1]. |
-| 6 |Invoke-HcsSetupWizard: indirizzo IPv6 non valido. |L'indirizzo IP è stato fornito in un formato non corretto. |Controllare il formato e fornire nuovamente l'indirizzo IP. Per altre informazioni, vedere [Indirizzamento Ipv6][2]. |
+| 5 |Invoke-HcsSetupWizard: indirizzo IPv4 non valido. |L'indirizzo IP è stato fornito in un formato non corretto. |Controllare il formato e fornire nuovamente l'indirizzo IP. Per altre informazioni, vedere [Ipv4 Addressing][1] (Indirizzamento Ipv4). |
+| 6 |Invoke-HcsSetupWizard: indirizzo IPv6 non valido. |L'indirizzo IP è stato fornito in un formato non corretto. |Controllare il formato e fornire nuovamente l'indirizzo IP. Per altre informazioni, vedere [Ipv6 Addressing][2] (Indirizzamento Ipv6). |
 | 7 |Richiamare HcsSetupWizard: non esistono Nessun endpoint disponibile nel mapping degli endpoint. (Eccezione da HRESULT: 0x800706D9) |La funzionalità del cluster non funziona. |[Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) per i passaggi successivi. |
 
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>Errori durante le impostazioni del proxy web facoltative
@@ -528,7 +528,7 @@ L'errore potrebbe essere causato da una delle seguenti cause:
 2. Assicurarsi che il dispositivo sia connesso correttamente: controllare i cavi di rete sul piano posteriore del dispositivo. Il cablaggio è specifico per il modello di dispositivo. Per altre informazioni, vedere [Installare il dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md) o [Installare il dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
    
    > [!NOTE]
-   > Se si utilizzano porte di rete 10 GbE, è necessario utilizzare le schede QSFP-SFP forniti e i cavi SFP. Per altre informazioni, vedere l' [elenco dei cavi, commutatori e ricetrasmettitori consigliati dal fornitore OEM per le porte Mellanox](http://www.mellanox.com/page/cables?mtag=cable_overview).
+   > Se si utilizzano porte di rete 10 GbE, è necessario utilizzare le schede QSFP-SFP forniti e i cavi SFP. Per altre informazioni, vedere l'[elenco dei cavi, commutatori e ricetrasmettitori consigliati per le porte 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
    > 
    > 
 3. Verificare l'integrità dell'interfaccia di rete:
@@ -566,6 +566,6 @@ L'errore potrebbe essere causato da una delle seguenti cause:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

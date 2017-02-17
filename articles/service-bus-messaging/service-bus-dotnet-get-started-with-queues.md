@@ -12,11 +12,11 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/23/2016
+ms.date: 11/30/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: 6f138d547a356e47e6e195c236e69ad3ffcc2cc5
+ms.sourcegitcommit: 560e73eb7129e665d254c3e93b08f29cfb6b1aa9
+ms.openlocfilehash: d80bedba1909de671ef96ac5372d9ff15a90764e
 
 
 ---
@@ -51,7 +51,8 @@ Se è già stata creata una coda del bus di servizio, passare alla sezione [Invi
 Per inviare messaggi alla coda, si scriverà un'applicazione console C# in Visual Studio.
 
 ### <a name="create-a-console-application"></a>Creare un'applicazione console
-1. Avviare Visual Studio e creare una nuova applicazione console.
+
+- Avviare Visual Studio e creare una nuova applicazione console.
 
 ### <a name="add-the-service-bus-nuget-package"></a>Aggiungere il pacchetto NuGet del bus di servizio
 1. Fare clic con il pulsante destro del mouse sul progetto appena creato e scegliere **Gestisci pacchetti NuGet**.
@@ -62,12 +63,12 @@ Per inviare messaggi alla coda, si scriverà un'applicazione console C# in Visua
 ### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Scrivere il codice per inviare un messaggio alla coda
 1. Aggiungere l'istruzione using seguente all'inizio del file Program.cs.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 2. Aggiungere il codice seguente al metodo `Main`, impostare la variabile **connectionString** sulla stessa stringa di connessione ottenuta al momento della creazione dello spazio dei nomi e impostare **queueName** sul nome della coda usato durante la creazione della coda.
    
-    ```
+    ```csharp
     var connectionString = "<Your connection string>";
     var queueName = "<Your queue name>";
    
@@ -78,7 +79,7 @@ Per inviare messaggi alla coda, si scriverà un'applicazione console C# in Visua
    
     Ecco l'aspetto che avrà il file Program.cs.
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -107,12 +108,12 @@ Per inviare messaggi alla coda, si scriverà un'applicazione console C# in Visua
 1. Creare una nuova applicazione console e aggiungere un riferimento al pacchetto NuGet del bus di servizio, come per l'applicazione di invio precedente.
 2. Aggiungere l'istruzione `using` seguente all'inizio del file Program.cs.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 3. Aggiungere il codice seguente al metodo `Main`, impostare la variabile **connectionString** sulla stessa stringa di connessione ottenuta al momento della creazione dello spazio dei nomi e impostare **queueName** sul nome della coda usato durante la creazione della coda.
    
-    ```
+    ```csharp
     var connectionString = "";
     var queueName = "samplequeue";
    
@@ -129,7 +130,7 @@ Per inviare messaggi alla coda, si scriverà un'applicazione console C# in Visua
    
     Ecco l'aspetto che avrà il file Program.cs:
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -177,6 +178,6 @@ Vedere il [repository GitHub con esempi](https://github.com/Azure-Samples/azure-
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

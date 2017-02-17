@@ -183,6 +183,6 @@ Informazioni su come usare Hadoop nel cloud in HDInsight per analizzare flussi o
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

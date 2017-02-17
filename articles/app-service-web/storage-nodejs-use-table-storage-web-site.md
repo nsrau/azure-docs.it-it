@@ -13,11 +13,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 01867f283678171eda8fb9798ea996cae605665a
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 5304ddd84bebb19f5f082acb6442faa34b8d84bb
 
 
 ---
@@ -38,7 +38,7 @@ Di seguito è riportata l'applicazione completata:
 ![Pagina Web con un elenco di attività vuoto][node-table-finished]
 
 > [!NOTE]
-> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 
@@ -462,7 +462,7 @@ In questo passaggio verrà scaricato un file contenente informazioni sulla sotto
 
 1. Immettere il comando seguente:
    
-        azure account download
+        azure login
    
     Questo comando consente di avviare un browser e di passare alla pagina per il download. Se richiesto, accedere con l'account associato alla sottoscrizione di Azure.
    
@@ -594,6 +594,6 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

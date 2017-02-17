@@ -15,15 +15,15 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f30cfab50407e31ccad61888d7de40e4f0fcba24
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 30dcbe33b359afc3f118effce07f6574bb35d5d5
 
 
 ---
 # <a name="use-azure-machine-learning-with-sql-data-warehouse"></a>Usare Azure Machine Learning con SQL Data Warehouse
-Azure Machine Learning è un servizio di analisi predittive completamente gestito, che può essere usato per creare modelli predittivi dei dati in SQL Data Warehouse e pubblicarli come servizi pronti all'uso. Per le nozioni di base sull'analisi predittiva e su Machine Learning, vedere [Introduzione a Machine Learning in Azure][Introduzione a Machine Learning in Azure].  Sarà quindi possibile imparare a creare, eseguire il training, assegnare punteggi e testare un modello di Machine Learning usando l'[esercitazione per la creazione di esperimenti][esercitazione per la creazione di esperimenti].
+Azure Machine Learning è un servizio di analisi predittive completamente gestito, che può essere usato per creare modelli predittivi dei dati in SQL Data Warehouse e pubblicarli come servizi pronti all'uso. Per le nozioni di base sull'analisi predittiva e su Machine Learning, vedere [Introduzione a Machine Learning in Azure][Introduction to Machine Learning on Azure].  Sarà quindi possibile imparare a creare, eseguire il training, assegnare punteggi e testare un modello di Machine Learning usando l'[esercitazione per la creazione di esperimenti][Create experiment tutorial].
 
-Questo articolo descrive come eseguire quanto segue usando [Azure Machine Learning Studio][Azure Machine Learning Studio]:
+Questo articolo illustra come effettuare le operazioni seguenti usando [Azure Machine Learning Studio][Azure Machine Learning Studio]:
 
 * Leggere i dati dal database da creare, eseguire il training e il punteggio di un modello di stima
 * Scrivere dati nel database
@@ -42,7 +42,7 @@ Cercare il modulo Reader nella tavolozza dei set di dati e moduli a sinistra del
 Selezionare il modulo Reader e compilare il riquadro delle proprietà.
 
 1. Selezionare il database SQL di Azure in Data Source.
-2. Database server name: digitare il nome del server. Per trovarlo, è possibile usare il [Portale di Azure][Portale di Azure].
+2. Database server name: digitare il nome del server. Per trovarlo, è possibile usare il [portale di Azure][Azure portal].
 
 ![][server_name]
 
@@ -78,7 +78,7 @@ A questo punto è possibile utilizzare questo set di dati per:
 
 ![][model]
 
-Per imparare a creare, eseguire il training, assegnare punteggi e testare un modello di Machine Learning, usare l'[esercitazione per la creazione di esperimenti][esercitazione per la creazione di esperimenti].
+Per altre informazioni su come creare, eseguire il training, assegnare punteggi e testare un modello di Machine Learning, usare l'[esercitazione per la creazione di esperimenti][Create experiment tutorial].
 
 ## <a name="write-data-to-azure-sql-data-warehouse"></a>Scrivere dati in Azure SQL Data Warehouse
 Si scriverà il set di risultati nella tabella ProductPriceForecast del database AdventureWorksDW.
@@ -92,7 +92,7 @@ Cercare il modulo Writer nella tavolozza dei set di dati e moduli a sinistra del
 Selezionare il modulo Writer e compilare il riquadro delle proprietà.
 
 1. Selezionare il database SQL di Azure in Data Destination.
-2. Database server name: digitare il nome del server. Per trovarlo, è possibile usare il [Portale di Azure][Portale di Azure].
+2. Database server name: digitare il nome del server. Per trovarlo, è possibile usare il [portale di Azure][Azure portal].
 3. Database name: digitare il nome del database nel server specificato.
 4. Server user account name: digitare il nome utente di un account con autorizzazioni di scrittura nel database.
 5. Server user account password: fornire la password per l'account utente specificato.
@@ -109,7 +109,7 @@ Selezionare il modulo Writer e compilare il riquadro delle proprietà.
 2. Al termine dell'esperimento, tutti i moduli saranno contraddistinti da un segno di spunta verde per indicarne il corretto completamento.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][Panoramica sullo sviluppo per SQL Data Warehouse].
+Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][SQL Data Warehouse development overview].
 
 <!--Image references-->
 
@@ -123,20 +123,20 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 
 <!--Article references-->
 
-[Panoramica sullo sviluppo per SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
-[esercitazione per la creazione di esperimenti]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[Create experiment tutorial]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
 [Introduction to machine learning on Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [Azure Machine Learning Studio]: https://studio.azureml.net/Home
-[Portale di Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-[Documentazione di Azure Machine Learning]: http://azure.microsoft.com/documentation/services/machine-learning/
+[Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

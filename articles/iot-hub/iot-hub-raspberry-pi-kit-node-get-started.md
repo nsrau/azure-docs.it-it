@@ -1,5 +1,5 @@
 ---
-title: Connettere un dispositivo Raspberry Pi 3 all&quot;hub IoT di Azure | Documentazione Microsoft
+title: 'Connettere Raspberry Pi (Node) ad Azure IoT: introduzione | Documentazione Microsoft'
 description: Introduzione a un dispositivo Raspberry Pi 3 e informazioni su come creare l&quot;hub IoT di Azure e connettervi il dispositivo Pi.
 services: iot-hub
 documentationcenter: 
@@ -18,8 +18,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d04f9d219451d683b572df43f73944011d686797
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 358a2a4fd448660c3a8ef0d11d7d373dd7d9a569
 
 
 ---
@@ -134,6 +134,6 @@ In caso di problemi durante le lezioni, è possibile cercare soluzioni nell'arti
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

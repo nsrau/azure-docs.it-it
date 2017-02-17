@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c6cd93277aaf5abecefa842904e14c561f659205
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a5f4a164d7d0bfd3b574e94bb3d4a46cb91548df
 
 
 ---
@@ -236,6 +236,6 @@ Quando si fa clic sul riquadro Condeco nel pannello di accesso, si dovrebbe acce
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

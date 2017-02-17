@@ -73,7 +73,7 @@ Per abilitare la durata (TTL) in una raccolta o nei documenti all'interno di una
     DocumentCollection collectionDefinition = new DocumentCollection();
     collectionDefinition.Id = "orders";
     collectionDefinition.PartitionKey.Paths.Add("/customerId");
-    collectionDefinition.DefaultTimeToLive = 90 * 60 * 24; // expire all documents after 90 days
+    collectionDefinition.DefaultTimeToLive = 90 * 60 * 60 * 24; // expire all documents after 90 days
     
     DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionAsync(
         "/dbs/salesdb",

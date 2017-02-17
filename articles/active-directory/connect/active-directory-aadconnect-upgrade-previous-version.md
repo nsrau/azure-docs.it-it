@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 11/01/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: d8818035349c8e78c1f2bb39a05e1afb2c854cc9
+ms.sourcegitcommit: 1f7ec5d53512dcfbff17269802c8889eae0ad744
+ms.openlocfilehash: 5dd69a0b9357a601070765817a814dae3e7e5c05
 
 
 ---
@@ -34,6 +34,11 @@ Esistono diverse strategie per eseguire l'aggiornamento di Azure AD Connect.
 | [Migrazione swing](#swing-migration) |Se si usano due server, è possibile preparare uno dei due con la nuova versione o configurazione e, quando si è pronti, modificare il server attivo. |
 
 Per informazioni, vedere l'articolo relativo alle [autorizzazioni necessarie per l'aggiornamento](active-directory-aadconnect-accounts-permissions.md#upgrade).
+
+> [!NOTE]
+> Dopo avere consentito al nuovo server Azure AD Connect di avviare la sincronizzazione delle modifiche ad Azure AD, non si deve più usare DirSync o Azure AD Sync. Il downgrade da Azure AD Connect ai client legacy, inclusi DirSync e Azure AD Sync, non è supportato e può causare problemi come la perdita di dati in Azure AD. 
+> 
+> 
 
 ## <a name="in-place-upgrade"></a>Aggiornamento sul posto
 Un aggiornamento sul posto è indicato per il passaggio da Azure AD Sync o Azure AD Connect. L'aggiornamento sul posto non è indicato per DirSync o per una soluzione con FIM + Azure AD Connector.
@@ -76,7 +81,7 @@ Elementi che devono essere configurati allo stesso modo in entrambi i server:
 * Stesse funzionalità facoltative, come la sincronizzazione e il writeback delle password.
 
 **Spostare le regole di sincronizzazione**  
- Per spostare una regola di sincronizzazione personalizzata, seguire questa procedura:
+Per spostare una regola di sincronizzazione personalizzata, seguire questa procedura:
 
 1. Aprire l' **editor delle regole di sincronizzazione** nel server attivo.
 2. Selezionare la regola personalizzata. Fare clic su **Esporta**. Viene visualizzata una finestra del Blocco note. Salvare il file temporaneo con estensione ps1. In questo modo diventa uno script PowerShell. Copiare il file con estensione ps1 nel server di gestione temporanea.  
@@ -91,6 +96,6 @@ Altre informazioni su [Integrazione delle identità locali con Azure Active Dire
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

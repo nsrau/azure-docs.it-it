@@ -1,5 +1,5 @@
 ---
-title: Linee guida sulle convenzioni di denominazione dell&quot;infrastruttura di Azure | Documentazione Microsoft
+title: Linee guida sulle convenzioni di denominazione dell&quot;infrastruttura di Azure - Linux | Documentazione Microsoft
 description: Informazioni sulle principali linee guida di progettazione e implementazione per la denominazione nei servizi di infrastruttura di Azure.
 documentationcenter: 
 services: virtual-machines-linux
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/24/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: a99ab839ec9ade0049e1cc59054e333048e0208c
-ms.openlocfilehash: 16447489a2923851a0f404c247d7b8132d68fe4c
+ms.sourcegitcommit: 87a3d4fc849cee5d9abed1e4c32a9da583ea9516
+ms.openlocfilehash: 1ccde46c7adafdaa4a9efca450a3dd2efde8413a
 
 
 ---
@@ -107,6 +107,6 @@ Gli account di archiviazione hanno regole speciali che ne controllano i nomi. È
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

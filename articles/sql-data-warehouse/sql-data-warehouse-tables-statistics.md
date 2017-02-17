@@ -15,20 +15,20 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fb76a6b58a88b2c80958c867f02a0f43d3b0fe25
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b2b99ec031ea26b4ab19e7327da035788661a0a8
 
 
 ---
 # <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Gestione delle statistiche nelle tabelle in SQL Data Warehouse
 > [!div class="op_single_selector"]
-> * [Panoramica][Panoramica]
-> * [Tipi di dati][Tipi di dati]
-> * [Distribuzione][Distribuzione]
-> * [Index][Index]
-> * [Partition][Partition]
-> * [Statistiche][Statistiche]
-> * [Temporanea][Temporanea]
+> * [Panoramica][Overview]
+> * [Tipi di dati][Data Types]
+> * [Distribuzione][Distribute]
+> * [Indice][Index]
+> * [Partizione][Partition]
+> * [Statistiche][Statistics]
+> * [Temporanee][Temporary]
 > 
 > 
 
@@ -95,7 +95,7 @@ WHERE
 
 Le colonne data in un data warehouse, ad esempio, necessitano solitamente di aggiornamenti frequenti delle statistiche. Ogni volta che vengono caricate nuove righe nel data warehouse, vengono aggiunte nuove date di caricamento o date di transazione. Queste righe modificano la distribuzione dei dati e rendono non aggiornate le statistiche.  Al contrario, è possibile che non sia mai necessario aggiornare le statistiche relative alla colonna del sesso in una tabella clienti. Supponendo che la distribuzione sia costante tra i clienti, l'aggiunta di nuove righe alla variazione di tabella non modificherà la distribuzione dei dati. Se tuttavia il data warehouse contiene solo un sesso e uno nuovo requisito ha come risultato più sessi, sarà decisamente necessario aggiornare le statistiche relative alla colonna del sesso.
 
-Per altre informazioni, vedere [Statistiche][Statistiche] in MSDN.
+Per altre informazioni, vedere [Statistiche][Statistics] in MSDN.
 
 ## <a name="implementing-statistics-management"></a>Implementazione della gestione delle statistiche
 È spesso consigliabile estendere il processo di caricamento dei dati per assicurare che le statistiche vengano aggiornate al termine del caricamento. Il caricamento dei dati è la fase in cui si verifica con maggiore frequenza una modifica delle dimensioni e/o della distribuzione dei valori delle tabelle. Questa è quindi una posizione logica per implementare alcuni processi di gestione.
@@ -113,7 +113,7 @@ Di seguito sono disponibili alcuni principi guida per l'aggiornamento delle stat
 > 
 > 
 
-Per altre informazioni, vedere [Stima della cardinalità][Stima della cardinalità] in MSDN.
+Per altre informazioni, vedere [Stima della cardinalità][Cardinality Estimation] in MSDN.
 
 ## <a name="examples-create-statistics"></a>Esempi: Creare le statistiche
 Questi esempi illustrano come usare diverse opzioni per la creazione delle statistiche. Le opzioni usate per ogni colonna dipendono dalle caratteristiche dei dati e dal modo in cui la colonna verrà usata nelle query.
@@ -350,9 +350,9 @@ Questa istruzione è facile da usare. Occorre ricordare che aggiorna tutte le st
 > 
 > 
 
-Per l'implementazione di una procedura `UPDATE STATISTICS` , vedere l'articolo relativo alle [tabelle temporanee][Temporanea] . Il metodo di implementazione è leggermente diverso rispetto alla procedura `CREATE STATISTICS` precedente, ma il risultato finale è uguale.
+Per l'implementazione di una procedura `UPDATE STATISTICS`, vedere l'articolo [Tabelle temporanee][Temporary]. Il metodo di implementazione è leggermente diverso rispetto alla procedura `CREATE STATISTICS` precedente, ma il risultato finale è uguale.
 
-Per la sintassi completa, vedere [Update Statistics][Update Statistics] in MSDN.
+Per la sintassi completa, vedere [UPDATE STATISTICS][Update Statistics] in MSDN.
 
 ## <a name="statistics-metadata"></a>Metadati delle statistiche
 Sono disponibili alcune visualizzazioni di sistema e funzioni che permettono di trovare informazioni sulle statistiche. Ad esempio, è possibile verificare se un oggetto statistiche non è aggiornato usando la funzione stats-date per vedere la data di creazione o dell'ultimo aggiornamento delle statistiche.
@@ -464,25 +464,25 @@ DBCC SHOW_STATISTICS() viene implementato in modo più rigoroso in SQL Data Ware
 7. L'errore personalizzato 2767 non è supportato
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altri dettagli, vedere [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] in MSDN.  Per altre informazioni, vedere gli articoli relativi a [panoramica delle tabelle][Panoramica], [tipi di dati delle tabelle][Tipi di dati], [distribuzione di una tabella][Distribuzione], [indicizzazione di una tabella][Index], [partizionamento di una tabella][Partition] e [tabelle temporanee][Temporanea].  Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per SQL Data Warehouse][Procedure consigliate per SQL Data Warehouse].  
+Per altri dettagli, vedere [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] in MSDN.  Per altre informazioni, vedere gli articoli su [panoramica delle tabelle][Overview], [tipi di dati delle tabelle][Data Types], [distribuzione di una tabella][Distribute], [indicizzazione di una tabella][Index], [partizionamento di una tabella][Partition] e [tabelle temporanee][Temporary].  Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per SQL Data Warehouse][SQL Data Warehouse Best Practices].  
 
 <!--Image references-->
 
 <!--Article references-->
-[Panoramica]: ./sql-data-warehouse-tables-overview.md
-[Tipi di dati]: ./sql-data-warehouse-tables-data-types.md
-[Distribuzione]: ./sql-data-warehouse-tables-distribute.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistiche]: ./sql-data-warehouse-tables-statistics.md
-[Temporanea]: ./sql-data-warehouse-tables-temporary.md
-[Procedure consigliate per SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->  
-[Stima della cardinalità]: https://msdn.microsoft.com/library/dn600374.aspx
+[Cardinality Estimation]: https://msdn.microsoft.com/library/dn600374.aspx
 [CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
 [DBCC SHOW_STATISTICS]:https://msdn.microsoft.com/library/ms174384.aspx
-[Statistiche]: https://msdn.microsoft.com/library/ms190397.aspx
+[Statistics]: https://msdn.microsoft.com/library/ms190397.aspx
 [STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
 [sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
 [sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
@@ -497,6 +497,6 @@ Per altri dettagli, vedere [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] in MSDN.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

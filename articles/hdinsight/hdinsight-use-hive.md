@@ -216,6 +216,6 @@ Dopo avere appreso che cos'è Hive e come si usa con Hadoop in HDInsight, vedere
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

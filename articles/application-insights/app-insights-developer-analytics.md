@@ -1,5 +1,5 @@
 ---
-title: Developer Analytics
+title: 'Analisi di utilizzo e prestazioni per gli sviluppatori Web: Azure Application Insights | Documentazione Microsoft'
 description: DevOps con Visual Studio, Application Insights e HockeyApp
 author: alancameronwills
 services: application-insights
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 05/18/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: c19e0837ccff447ebcd4319aaebfdc763b71233c
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: 06d01f6fb044c4ad3b3a4d95a11a101ef01ca121
 
 
 ---
@@ -89,6 +89,6 @@ Di seguito sono riportate le istruzioni dettagliate per i diversi tipi di app:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

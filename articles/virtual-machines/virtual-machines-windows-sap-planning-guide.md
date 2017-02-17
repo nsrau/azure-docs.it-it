@@ -1,5 +1,5 @@
 ---
-title: SAP NetWeaver in macchine virtuali di Azure - Guida alla pianificazione e all&quot;implementazione | Microsoft Docs
+title: 'SAP NetWeaver in macchine virtuali di Azure: pianificazione e implementazione | Documentazione Microsoft'
 description: SAP NetWeaver in macchine virtuali di Azure - Guida alla pianificazione e all&quot;implementazione
 services: virtual-machines-windows
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 translationtype: Human Translation
-ms.sourcegitcommit: 08f82498d46b2e67d55ad7dfb05efdb266e7fc61
-ms.openlocfilehash: 56da763a21da7c55aa0cd295a04fa22b2815d2ac
+ms.sourcegitcommit: 06b8f8cc99809338fcf512fb8e4bbf72721cb243
+ms.openlocfilehash: 433b2bc5d602c1117c2ef2e16399eb6d29b425d7
 
 
 ---
@@ -295,7 +295,7 @@ Alcuni documenti Microsoft descrivono scenari cross-premise in modo leggermente 
 Per informazioni sull'argomento relativo alle distribuzioni SAP in Azure sono disponibili le seguenti guide aggiuntive:
 
 * [SAP NetWeaver in macchine virtuali (VM) di Azure - Guida alla pianificazione e all'implementazione (questo documento)][planning-guide]
-* [SAP NetWeaver in macchine virtuali di Azure - Guida alla distribuzione (questo documento)][deployment-guide]
+* [SAP NetWeaver in macchine virtuali (VM) di Azure - Guida alla distribuzione][deployment-guide]
 * [SAP NetWeaver in macchine virtuali di Azure - Guida alla distribuzione DBMS][dbms-guide]
 * [SAP NetWeaver in macchine virtuali di Azure - Guida alla distribuzione di funzionalità di disponibilità elevata][ha-guide]
 
@@ -561,7 +561,7 @@ Nel caso dell'Archiviazione Premium i costi non sono basati sui volumi di dati e
 
 Si noti che solo alcune serie di VM possono usare l'Archiviazione Premium di Azure. Da dicembre 2015 si tratta delle serie DS e GS. La serie DS è essenzialmente uguale alla serie D, con l'eccezione che la serie DS è in grado di montare macchine virtuali basate sull'Archiviazione Premium, oltre ai dischi rigidi virtuali ospitati nell'Archiviazione Standard di Azure. Le stesse considerazioni sono applicabili alla serie G rispetto alla serie GS.
 
-Se si legge la sezione di [questo articolo][virtual-machines-sizes] relativa alle macchine virtuali di serie DS, si noterà anche che sono previste limitazioni ai volumi dei dati per i dischi rigidi virtuali dell'archiviazione Premium a livello di macchina virtuale. Diverse VM di serie DS o GS prevedono anche limitazioni diverse rispetto al numero di dischi rigidi virtuali che è possibile montare. Questi limiti sono documentati nell'articolo indicato in precedenza. Ciò significa essenzialmente che se, ad esempio, si montano 32 x P30 dischi/dischi rigidi virtuali in una singola VM DS14 NON sarà possibile ottenere 32 x la velocità massima effettiva di un disco P30. La velocità massima effettiva del livello di VM, in base a quanto documentato nell'articolo, limiterà invece la velocità effettiva dei dati.
+Se si legge la sezione di [questo articolo][virtual-machines-sizes] relativa alle VM di serie DS, si noterà anche che sono previste limitazioni ai volumi dei dati per i dischi rigidi virtuali dell'archiviazione Premium a livello di VM. Diverse VM di serie DS o GS prevedono anche limitazioni diverse rispetto al numero di dischi rigidi virtuali che è possibile montare. Questi limiti sono documentati nell'articolo indicato in precedenza. Ciò significa essenzialmente che se, ad esempio, si montano 32 x P30 dischi/dischi rigidi virtuali in una singola VM DS14 NON sarà possibile ottenere 32 x la velocità massima effettiva di un disco P30. La velocità massima effettiva del livello di VM, in base a quanto documentato nell'articolo, limiterà invece la velocità effettiva dei dati.
 
 Altre informazioni sull'archiviazione Premium sono disponibili qui: <http://azure.microsoft.com/blog/2015/04/16/azure-premium-storage-now-generally-available-2>
 
@@ -1048,7 +1048,7 @@ Get-AzureStorageBlobCopyState -Blob <target blob name> -Container <target contai
 
 * Collegare il nuovo disco rigido virtuale a una macchina virtuale come descritto in precedenza.
 
-Per trovare alcuni esempi, vedere [questo articolo][storage-powershell-guide-full-copy-vhd]
+Per alcuni esempi, vedere [questo articolo][storage-powershell-guide-full-copy-vhd]
 
 ##### <a name="cli"></a>CLI
 * Avviare la copia con
@@ -1065,7 +1065,7 @@ azure storage blob copy show --blob <target blob name> --container <target conta
 
 * Collegare il nuovo disco rigido virtuale a una macchina virtuale come descritto in precedenza.
 
-Per trovare alcuni esempi, vedere [questo articolo][storage-azure-cli-copy-blobs]
+Per alcuni esempi, vedere [questo articolo][storage-azure-cli-copy-blobs]
 
 ### <a name="disk-handling"></a>Gestione del disco
 #### <a name="a-name4efec401-91e0-40c0-8e64-f2dceadff646avmvhd-structure-for-sap-deployments"></a><a name="4efec401-91e0-40c0-8e64-f2dceadff646"></a>Struttura di VM/dischi rigidi virtuali per le distribuzioni SAP
@@ -1088,7 +1088,7 @@ In teoria la gestione della struttura di una macchina virtuale e dei dischi rigi
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Posizionare il file di scambio di Linux in /mnt /mnt/resource in Linux, come descritto in [questo articolo][virtual-machines-linux-agent-user-guide]. Il file di scambio può essere configurato nel file di configurazione di /etc/waagent.conf dell'agente Linux. Aggiungere o modificare le impostazioni seguenti:
+> Posizionare il file di scambio di Linux in /mnt/mnt/resource in Linux, come descritto in [questo articolo][virtual-machines-linux-agent-user-guide]. Il file di scambio può essere configurato nel file di configurazione di /etc/waagent.conf dell'agente Linux. Aggiungere o modificare le impostazioni seguenti:
 >
 >
 
@@ -1874,6 +1874,6 @@ I punti chiave della disponibilità elevata per i sistemi SAP in Azure sono i se
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

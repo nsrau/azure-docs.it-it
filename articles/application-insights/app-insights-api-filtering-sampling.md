@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9ade7b48b16d79c23355a8dbd46e9367abe4abd6
-ms.openlocfilehash: fc1ccf194b2733a741272678969abaa747c7a07d
+ms.sourcegitcommit: 4813610bc938c1a2fb6581bc9d8352b519a2d8ef
+ms.openlocfilehash: ea5285a7997beed926e35649362cee7de53e1efe
 
 
 ---
@@ -187,7 +187,7 @@ public void Process(ITelemetry item)
 {
     var request = item as DependencyTelemetry;
 
-    if (request != null && request.Duration.Milliseconds < 100)
+    if (request != null && request.Duration.TotalMilliseconds < 100)
     {
         return;
     }
@@ -346,7 +346,7 @@ Qual è la differenza tra processori di telemetria e inizializzatori di telemetr
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="a-namenextanext-steps"></a><a name="next"></a>Passaggi successivi
-* [Ricerca di eventi e log][diagnostic]
+* [Cercare eventi e log][diagnostic]
 * [Campionamento](app-insights-sampling.md)
 * [Risoluzione dei problemi][qna]
 
@@ -355,7 +355,7 @@ Qual è la differenza tra processori di telemetria e inizializzatori di telemetr
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
 [create]: app-insights-create-new-resource.md
-[dati]: app-insights-data-retention-privacy.md
+[data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
 [greenbrown]: app-insights-asp-net.md
@@ -367,6 +367,6 @@ Qual è la differenza tra processori di telemetria e inizializzatori di telemetr
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

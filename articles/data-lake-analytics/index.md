@@ -253,6 +253,6 @@ Informazioni su come usare Data Lake Analytics per eseguire processi di analisi 
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

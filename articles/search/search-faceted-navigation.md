@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/17/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0a044412d138478cf8ebd8ed8768fd4764b8a551
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f70240f2bebca76872194e556cf9cae9130b56db
 
 
 ---
@@ -339,15 +339,15 @@ Per altre informazioni sui principi di progettazione per l'esplorazione in base 
 È anche possibile guardare gli [approfondimenti su Ricerca di Azure](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Al minuto 45:25 è presente una dimostrazione su come implementare i facet.
 
 <!--Anchors-->
-[Come compilare la soluzione]: #howtobuildit
-[Creare il livello di presentazione]: #presentationlayer
-[Compilare l'indice]: #buildindex
-[Controllo della qualità dei dati]: #checkdata
-[Creare la query]: #buildquery
-[Suggerimenti su come controllare l'esplorazione in base a facet]: #tips
-[Esplorazione in base a facet basata sui valori di intervallo]: #rangefacets
-[Esplorazione in base a facet basata su GeoPoint]: #geofacets
-[Provare il servizio]: #tryitout
+[How to build it]: #howtobuildit
+[Build the presentation layer]: #presentationlayer
+[Build the index]: #buildindex
+[Check for data quality]: #checkdata
+[Build the query]: #buildquery
+[Tips on how to control faceted navigation]: #tips
+[Faceted navigation based on range values]: #rangefacets
+[Faceted navigation based on GeoPoints]: #geofacets
+[Try it out]: #tryitout
 
 <!--Image references-->
 [1]: ./media/search-faceted-navigation/Facet-1-slide.PNG
@@ -362,18 +362,18 @@ Per altre informazioni sui principi di progettazione per l'esplorazione in base 
 [10]: ./media/search-faceted-navigation/Facet-10-appTitle.png
 
 <!--Link references-->
-[Progettazione per la ricerca con esplorazione in base a facet]: http://www.uie.com/articles/faceted_search/
-[Modelli di progettazione: esplorazione in base a facet]: http://alistapart.com/article/design-patterns-faceted-navigation
-[Creare la prima applicazione]: search-create-first-solution.md
-[Sintassi dell'espressione di OData (Ricerca di Azure)]: http://msdn.microsoft.com/library/azure/dn798921.aspx
+[Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
+[Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
+[Create your first application]: search-create-first-solution.md
+[OData expression syntax (Azure Search)]: http://msdn.microsoft.com/library/azure/dn798921.aspx
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
 [http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/ 
-[Facet sul post di forum Azure Search]: ../faceting-on-azure-search.md?forum=azuresearch
-[Eseguire ricerche nei documenti (API di Ricerca di Azure)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
+[Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
+[Search Documents (Azure Search API)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

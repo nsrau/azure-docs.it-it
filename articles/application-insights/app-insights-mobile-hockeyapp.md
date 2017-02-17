@@ -1,6 +1,6 @@
 ---
-title: Monitoraggio delle prestazioni per app Web per dispositivi mobili con Developer Analytics | Documentazione Microsoft
-description: Monitoraggio delle prestazioni e dell&quot;utilizzo delle applicazioni per sviluppatori di app per dispositivi mobili. , desktop, servizio Web e app back-end con HockeyApp e Application Insights.
+title: 'Monitoraggio delle prestazioni per le app per dispositivi mobili: Azure Application Insights | Documentazione Microsoft'
+description: Monitoraggio delle prestazioni e dell&quot;utilizzo delle applicazioni per sviluppatori di app per dispositivi mobili. DevOps con HockeyApp e Application Insights.
 author: alancameronwills
 services: application-insights
 documentationcenter: 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: 4d394ff22e57d162c5adf39c492ca76f3d1f9d3a
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: c4077aa88a401a1c75c0d3fbcd58186f7cb137c2
 
 
 ---
@@ -64,6 +64,6 @@ Per le app desktop di Windows, è consigliabile usare HockeyApp, ma è anche pos
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

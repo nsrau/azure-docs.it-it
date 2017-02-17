@@ -1,5 +1,5 @@
 ---
-title: Monitorare un cluster DC/OS del servizio contenitore di Azure con Dynatrace | Documentazione Microsoft
+title: Monitorare cluster DC/OS di Azure - Dynatrace | Documentazione Microsoft
 description: Monitorare un cluster DC/OS del servizio contenitore di Azure con Dynatrace. Distribuire Dynatrace OneAgent tramite il dashboard di DC/OS.
 services: container-service
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 12/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 96d35fbc4a8dfb620a2cfe67df449134d2f1e542
-ms.openlocfilehash: 48bb16972f2e846997e081e702ffbce57736c484
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: 8878baa230bc8e91f814fd97fdc852c76b17e823
 
 
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-dynatrace-saasmanaged"></a>Monitorare un cluster del servizio contenitore di Azure con Dynatrace SaaS/Managed
+# <a name="monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>Monitorare un cluster DC/OS del servizio contenitore di Azure con Dynatrace SaaS/Managed
 Questo articolo mostra come distribuire [Dynatrace](https://www.dynatrace.com/) OneAgent per monitorare tutti i nodi dell'agente nel cluster del servizio contenitore di Azure. Per questa configurazione, è necessario un account con Dynatrace SaaS/Managed. 
 
 ## <a name="dynatrace-saasmanaged"></a>Dynatrace SaaS/Managed
@@ -63,6 +63,6 @@ Questi passaggi illustrano come configurare e distribuire le applicazioni Dynatr
 Dopo avere installato il pacchetto, tornare al dashboard di Dynatrace. È possibile esplorare le diverse metriche di utilizzo per i contenitori all'interno del cluster. 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

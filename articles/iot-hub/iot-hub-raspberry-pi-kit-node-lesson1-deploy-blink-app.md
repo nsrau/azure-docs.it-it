@@ -1,5 +1,7 @@
 ---
-title: Creare e distribuire l&quot;applicazione per il lampeggiamento | Documentazione Microsoft
+featureFlags:
+- usabilla
+title: 'Connettere Raspberry Pi (Node) ad Azure IoT: lezione 1: Distribuire l&quot;app | Documentazione Microsoft'
 description: Clonare l&quot;applicazione Node.js di esempio da GitHub e usare gulp per distribuire l&quot;applicazione sulla scheda di Raspberry Pi 3. Questa applicazione di esempio fa lampeggiare il LED connesso alla scheda ogni due secondi.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +18,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 09554b64f31c909e413f5a93dfd6d74186bf6e21
-ms.openlocfilehash: b9e49d3637b3e3aff1a89e57c125a59877544e01
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 90ceb432bd9506dc40e340af21a3cae4e21a20b0
 
 
 ---
@@ -153,6 +155,6 @@ Sono stati installati gli strumenti necessari per usare Pi ed è stata distribui
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

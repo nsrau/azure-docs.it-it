@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ad35f6590a39972ec9be7168059738b6daae0574
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: e30231bd576436ae69f4fa42d0e2ab312c3938d6
 
 
 ---
@@ -29,7 +29,7 @@ Il provider di connessione SendGrid consente di inviare messaggi di posta elettr
 > 
 > 
 
-Per iniziare subito a creare un'app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per iniziare subito a creare un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Trigger e azioni
 Il connettore SendGrid può essere usato come azione e include trigger. Tutti i connettori supportano dati nei formati JSON e XML. 
@@ -157,11 +157,11 @@ Aggiunta destinatario all'elenco: aggiunge un unico destinatario a un elenco di 
 | id |string |No |
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Creare cluster Hadoop, HBase, Storm o Spark in Linux in HDInsight tramite HDInsight .NET SDK | Documentazione Microsoft
+title: Creare cluster Azure HDInsight (Hadoop) usando .NET | Documentazione Microsoft
 description: "Informazioni su come creare cluster Hadoop, HBase, Storm o Spark su Linux per HDInsight tramite l’SDK HDInsight .NET."
 services: hdinsight
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 349b73e7f80c1762408ebd38d0ba27a395328ddb
-ms.openlocfilehash: 01028e0a6820ef6b78fb57ab853b78eb4ecefb7e
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: cd5ab90167501d5876381e0575042e19a23e702c
 
 
 ---
@@ -385,6 +385,6 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

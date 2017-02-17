@@ -1,5 +1,5 @@
 ---
-title: Modelli di Visual Studio per Azure Batch | Microsoft Docs
+title: 'Usare modelli di Visual Studio per avviare il progetto Batch: Azure | Documentazione Microsoft'
 description: Informazioni su come questi modelli di progetto di Visual Studio consentono di implementare ed eseguire i carichi di lavoro a elevato utilizzo di calcolo in Azure Batch.
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 84e7e6ddf03172e646c55e7e3bf45a32feb15b06
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: d56525e55816595f33b1fcd9ea96e41fe48b55a3
 
 
 ---
@@ -437,7 +437,7 @@ parameters.json e, se lo trova, lo carica come dizionario di parametri. Per pass
 Un altro strumento utile nello sviluppo di soluzioni Batch è [Azure Batch File Conventions][nuget_package]. Usare questa libreria di classi .NET (attualmente in anteprima) nelle applicazioni Batch .NET per archiviare e recuperare facilmente gli output delle attività in e da Archiviazione di Azure. [Salvare in modo permanente l'output dei processi e delle attività di Azure Batch](batch-task-output.md) contiene una descrizione completa della libreria e di come utilizzarla.
 
 ### <a name="batch-forum"></a>Forum di Batch
-Il [forum di Azure Batch][forum] su MSDN consente di seguire discussioni su Batch e di inviare domande sul servizio. Leggere i post contrassegnati e inviare domande durante le procedure di sviluppo delle soluzioni Batch.
+Il [forum di Azure Batch][forum] su MSDN consente di seguire discussioni su Batch e inviare domande sul servizio. Leggere i post contrassegnati e inviare domande durante le procedure di sviluppo delle soluzioni Batch.
 
 [forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
@@ -454,6 +454,6 @@ Il [forum di Azure Batch][forum] su MSDN consente di seguire discussioni su Batc
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

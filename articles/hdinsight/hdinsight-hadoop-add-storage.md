@@ -15,15 +15,15 @@ ms.workload: big-data
 ms.date: 11/28/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 697580da9d7c836655ec64745cfb211beabb84f2
-ms.openlocfilehash: 941d5a8dba421dd5f59bb61af35ac654e42d5910
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 18545981a21736d9673ce19ae2325ba5e4a67ff6
 
 
 ---
 
 # <a name="add-additional-azure-storage-accounts-to-hdinsight"></a>Aggiungere altri account di Archiviazione di Azure a HDInsight
 
-Informazioni su come usare le azioni script per aggiungere altri account di Archiviazione di Azure a un cluster HDInsight esistente.
+Informazioni su come usare le azioni script per aggiungere altri account di archiviazione di Azure a un cluster HDInsight esistente che usa il sistema operativo Linux.
 
 > [!IMPORTANT]
 > Le informazioni in questo documento illustrano come aggiungere altre risorse di archiviazione a un cluster dopo la creazione. Per informazioni sull'aggiunta di altri account di archiviazione durante la creazione di cluster, vedere la sezione __Usare risorse di archiviazione aggiuntive__ del documento [Creare cluster HDInsight basati su Linux](hdinsight-hadoop-provision-linux-clusters.md#use-additional-storage).
@@ -134,6 +134,6 @@ Se l'account di archiviazione si trova in un'area diversa rispetto al cluster HD
 Questo documento include informazioni su come aggiungere altri account di archiviazione a un cluster HDInsight esistente. Per altre informazioni sulle azioni script, vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md)
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

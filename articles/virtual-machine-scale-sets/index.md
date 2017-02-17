@@ -129,6 +129,6 @@ Informazioni su come usare i set di scalabilità di macchina virtuale per distri
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

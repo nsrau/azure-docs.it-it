@@ -8,7 +8,7 @@ manager: erikre
 editor: 
 tags: connectors
 ms.assetid: cb0ae033-aba7-4ac9-beaa-be561a0f0cac
-ms.service: app-service-logic
+ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,15 +16,15 @@ ms.workload: integration
 ms.date: 07/15/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0038c582d1a597dfcbb1fe8255b3a0fac1235e25
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: a8ecad3552f35c02c07fe33aa8531fb462b27002
 
 
 ---
 # <a name="get-started-with-the-dropbox-connector"></a>Introduzione al connettore Dropbox
 Connettersi a Dropbox per gestire i file. In Dropbox è possibile eseguire diverse azioni, ad esempio caricare, aggiornare, ottenere ed eliminare file.
 
-Per usare [qualsiasi connettore](apis-list.md), è necessario innanzitutto creare un'app per la logica. Come prima operazione [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per usare [qualsiasi connettore](apis-list.md), è necessario innanzitutto creare un'app per la logica. Come prima operazione [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-dropbox"></a>Connettersi a Dropbox
 Perché l'app per la logica possa accedere a qualsiasi servizio, è necessario creare una *connessione* al servizio. Una connessione fornisce la connettività tra un'app per la logica e un altro servizio. Ad esempio, per connettersi a Dropbox creare prima di tutto una *connessione* a Dropbox. Per creare una connessione, è necessario fornire le credenziali che si usano normalmente per accedere al servizio a cui si vuole connettersi. Nell'esempio relativo a Dropbox saranno quindi necessarie le credenziali dell'account di Dropbox per creare la connessione a Dropbox. [Altre informazioni sulle connessioni]()
@@ -35,7 +35,7 @@ Perché l'app per la logica possa accedere a qualsiasi servizio, è necessario c
 > 
 
 ## <a name="use-a-dropbox-trigger"></a>Usare un trigger Dropbox
-Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 In questo esempio si userà il trigger **Quando viene creato un file**. Con questo trigger viene chiamata l'azione **Ottenere contenuto di file in base al percorso** di Dropbox. 
 
@@ -45,7 +45,7 @@ In questo esempio si userà il trigger **Quando viene creato un file**. Con ques
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
 
 ## <a name="use-a-dropbox-action"></a>Usare un'azione Dropbox
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 Ora che il trigger è stato aggiunto, seguire questi passaggi per aggiungere un'azione che ottiene il contenuto del nuovo file.
 
@@ -354,11 +354,11 @@ Le azioni e i trigger riportati sopra possono restituire uno o più dei seguenti
 | default |Operazione non riuscita. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

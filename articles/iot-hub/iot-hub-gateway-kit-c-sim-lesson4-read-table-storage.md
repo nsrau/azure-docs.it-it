@@ -1,5 +1,5 @@
 ---
-title: Leggere i messaggi con salvataggio permanente nell&quot;archivio tabelle di Azure | Documentazione Microsoft
+title: 'Dispositivo simulato e gateway Azure IoT: lezione 4: Archivio tabelle | Documentazione Microsoft'
 description: Salvare i messaggi da Intel NUC all&quot;hub IoT, scriverli nell&quot;archivio tabelle di Azure e quindi leggerli dal cloud.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: e229c919db797133d3dc30fc65b482e5135f7cc5
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: b12e16a5a532448cf2e939cfcad322225b9ee811
 
 
 ---
@@ -78,7 +78,7 @@ Aggiornare il file `config-azure.json` in modo che il codice di esempio eseguito
 
 2. Sostituire `[Azure storage connection string]` con la stringa di connessione di archiviazione di Azure ottenuta.
 
-   `[IoT hub connection string]` dovrebbe già essere stata sostituita nella sezione [Leggere messaggi dall'hub IoT di Azure](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md) della lezione 3.
+   `[IoT hub connection string]` dovrebbe già essere stata sostituita nella sezione [Leggere messaggi dall'hub IoT di Azure](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md) della lezione&3;.
 
 ## <a name="read-messages-in-your-azure-table-storage"></a>Leggere i messaggi nell'archivio tabelle di Azure
 
@@ -102,6 +102,6 @@ I messaggi inviati e ricevuti vengono visualizzati tutti immediatamente nella st
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

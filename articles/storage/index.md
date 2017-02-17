@@ -156,6 +156,6 @@ Informazioni su come usare l'Archiviazione di Azure, un servizio di archiviazion
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

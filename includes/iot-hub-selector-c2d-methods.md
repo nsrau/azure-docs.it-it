@@ -5,13 +5,13 @@
 > 
 
 ## <a name="introduction"></a>Introduzione
-L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi e un back-end di applicazioni. Le esercitazioni precedenti, ad esempio [Introduzione all'hub IoT] e [Inviare messaggi da cloud a dispositivo con l'hub IoT], illustrano le funzionalità di messaggistica di base da dispositivo a cloud e da cloud a dispositivo dell'hub IoT. L'hub IoT offre inoltre la possibilità di richiamare metodi non durevoli dal cloud ai dispositivi. I metodi rappresentano un'interazione di tipo richiesta-risposta con un dispositivo simile a una chiamata HTTP, dato che dopo il timeout specificato dall'utente l'esito positivo o negativo viene comunicato immediatamente per far conoscere all'utente lo stato della chiamata. [Richiamare un metodo diretto in un dispositivo ][lnk-devguide-methods] descrive in maniera dettagliata i metodi e illustra quando usarli in alternativa ai messaggi cloud a dispositivo.
+L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi e un back-end della soluzione. Le esercitazioni precedenti, ad esempio [Introduzione all'hub IoT] e [Inviare messaggi da cloud a dispositivo con l'hub IoT], illustrano le funzionalità di messaggistica di base da dispositivo a cloud e da cloud a dispositivo dell'hub IoT. L'hub IoT offre inoltre la possibilità di richiamare metodi non durevoli dal cloud ai dispositivi. I metodi rappresentano un'interazione di tipo richiesta-risposta con un dispositivo simile a una chiamata HTTP, dato che dopo il timeout specificato dall'utente l'esito positivo o negativo viene comunicato immediatamente per far conoscere all'utente lo stato della chiamata. [Richiamare un metodo diretto in un dispositivo ][lnk-devguide-methods] descrive in maniera dettagliata i metodi e illustra quando usarli in alternativa ai messaggi cloud a dispositivo.
 
 Questa esercitazione illustra come:
 
 * Creare un hub IoT nel portale di Azure e un'identità del dispositivo nell'hub IoT.
 * Creare un'app per dispositivo simulato che ha un metodo diretto che può essere chiamato dal cloud.
-* Creare un'applicazione console che chiama un metodo diretto nell'app per dispositivo simulato tramite l'hub IoT.
+* Creare un'app console che chiama un metodo diretto nell'app per dispositivo simulato tramite l'hub IoT.
 
 > [!NOTE]
 > Al momento i metodi diretti sono accessibili solo dai dispositivi che si connettono all'hub IoT tramite il protocollo MQTT. Per istruzioni su come convertire l'app per dispositivo esistente in modo che usi MQTT, vedere l'articolo [Supporto di MQTT][lnk-devguide-mqtt].
@@ -27,6 +27,6 @@ Questa esercitazione illustra come:
 [Inviare messaggi da cloud a dispositivo con l'hub IoT]: ../articles/iot-hub/iot-hub-csharp-csharp-c2d.md
 [Introduzione all'hub IoT]: ../articles/iot-hub/iot-hub-node-node-getstarted.md
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

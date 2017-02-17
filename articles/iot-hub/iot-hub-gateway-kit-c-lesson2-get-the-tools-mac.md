@@ -1,6 +1,6 @@
 ---
-title: Preparare il computer Mac e l&quot;hub IoT di Azure | Documentazione Microsoft
-description: Installare gli strumenti nel computer Mac, creare un hub IoT e registrare il dispositivo nell&quot;hub.
+title: 'Dispositivo SensorTag e gateway Azure IoT: lezione 2: Ottenere gli strumenti (macOS) | Documentazione Microsoft'
+description: Installare gli strumenti nel computer Mac, creare un hub IoT e registrare il dispositivo nell&quot;hub IoT.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: 90b211e1d0b85e2c99ab31a633ddcee9218d4874
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 8b105cebd5b3e6c5cae726abbf5f2c48c0cd7587
 
 
 ---
@@ -47,7 +47,7 @@ In questa lezione si apprenderà:
 - Come installare Visual Studio Code.
   - Visual Studio Code è un editor di codice sorgente multipiattaforma leggero ma potente per Windows, Linux e macOS. Offre un eccellente supporto per il debug, il controllo di Git incorporato, l'evidenziazione della sintassi, il completamento intelligente del codice, i frammenti e il refactoring del codice.
 - Come installare Python.
-  - Python è un diffuso linguaggio di programmazione dinamico e interpretato di alto livello e di uso generico.
+  - Python è un linguaggio di programmazione dinamico, interpretato, generico e di alto livello molto diffuso.
 - Come installare l'interfaccia della riga di comando di Azure.
   - L'interfaccia della riga di comando di Azure offre un'esperienza di riga di comando multipiattaforma per Azure. Il provisioning e la gestione delle risorse vengono eseguiti direttamente dalla riga di comando.
 - Come usare l'interfaccia della riga di comando di Azure per creare un hub IoT.
@@ -55,13 +55,13 @@ In questa lezione si apprenderà:
 ## <a name="what-you-need"></a>Elementi necessari
 
 - Connessione Internet per scaricare gli strumenti e il software.
-- Computer Mac che esegue OS X Yosemite (10.10) o versioni successive.
+- Un computer Mac che esegue OS X Yosemite (10.10) o versione successiva.
 
 ## <a name="install-git-and-nodejs"></a>Installare Git e Node.js
 
-Per installare Git e Node.js, usare l'utilità di gestione pacchetti Homebrew seguendo questa procedura:
+Per installare Git e Node.js, usare l'utilità di gestione pacchetti Homebrew attenendosi alla procedura seguente:
 
-1. [Scaricare](http://brew.sh/) e installare Homebrew. Se è già stato installato Homebrew, andare al passaggio 2.
+1. [Scaricare](http://brew.sh/) e installare Homebrew. Se Homebrew è già installato, andare al passaggio 2.
    1. Premere `Cmd + Space` e immettere `Terminal` per aprire un terminale.
    2. Eseguire il comando seguente:
 
@@ -92,7 +92,7 @@ Se si verificano problemi nell'installazione, vedere la [guida alla risoluzione 
 
 ## <a name="install-python"></a>Installare Python
 
-Anche se Python 2.7 è incluso in Mac OS X, è consigliabile installare Python tramite Homebrew. Vedere [Installing Python on Mac OS X](http://docs.python-guide.org/en/latest/starting/install/osx/) (Installazione di Python in Mac OS X).
+Sebbene Mac OS X venga fornito con Python 2.7, si consiglia di installare Python tramite Homebrew. Vedere [Installazione di Python in Mac OS X](http://docs.python-guide.org/en/latest/starting/install/osx/).
 
 Installare Python ed eseguire i parametri di inizializzazione del programma tramite il comando seguente:
 
@@ -127,13 +127,13 @@ Visual Studio Code verrà usato più avanti nell'esercitazione per modificare i 
 
 ## <a name="summary"></a>Riepilogo
 
-Sono stati installati tutto il software e tutti gli strumenti necessari nel computer Mac. L'attività successiva consiste nell'usare l'interfaccia della riga di comando di Azure per creare un hub IoT e registrare il dispositivo nell'hub.
+È stata eseguita l'installazione di tutti gli strumenti e il software necessari sul computer Mac. L'attività successiva consiste nell'utilizzare l'interfaccia della riga di comando di Azure per creare un hub IoT e registrarvi il dispositivo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare un hub IoT e registrare il dispositivo](iot-hub-gateway-kit-c-lesson2-register-device.md)
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

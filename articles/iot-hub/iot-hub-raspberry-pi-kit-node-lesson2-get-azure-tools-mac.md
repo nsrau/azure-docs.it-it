@@ -1,5 +1,5 @@
 ---
-title: Ottenere gli strumenti di Azure (macOS 10.10) | Documentazione Microsoft
+title: 'Connettere Raspberry Pi (Node) ad Azure IoT: lezione 1: Ottenere gli strumenti (Ubuntu) | Documentazione Microsoft'
 description: Installare Python e l&quot;interfaccia della riga di comando di Azure in macOS.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 7fbf21434952ece22468df6873e10e6f3eae1724
-ms.openlocfilehash: 3bf03cbd56ac72a0be62c1adc769dcbbd9295029
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 9b680e8e7fe9d6b12f050914dffd34c87462daea
 
 
 ---
@@ -78,6 +78,6 @@ Se l'installazione ha esito positivo, verrà visualizzato l'output seguente.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

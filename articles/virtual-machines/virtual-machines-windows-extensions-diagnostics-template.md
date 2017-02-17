@@ -1,5 +1,5 @@
 ---
-title: Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante i modelli di Azure Resource Manager | Microsoft Docs
+title: Aggiungere monitoraggio e diagnostica a una macchina virtuale di Azure | Documentazione Microsoft
 description: Usare un modello di Gestione risorse di Azure per creare una nuova macchina virtuale Windows con l&quot;estensione Diagnostica di Azure.
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2015
+ms.date: 1/23/2017
 ms.author: saurabh
 translationtype: Human Translation
-ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
-ms.openlocfilehash: b84b4c0bd31d2e0bebafa2053a725e5e78bc3c9f
+ms.sourcegitcommit: e9258143cae9d9f8ba1f357617e2c45cf8487ab9
+ms.openlocfilehash: 2bd7efaaf45267ccdad390354ea98fafff1a6cb5
 
 
 ---
@@ -75,7 +75,7 @@ Il valore della proprietà *name* può essere usato per fare riferimento all'est
 
 Il valore *typeHandlerVersion* specifica la versione dell'estensione da usare. Se si imposta la versione secondaria *autoUpgradeMinorVersion* su **true** , si assicurerà di ottenere la versione secondaria più recente disponibile dell'estensione. È consigliabile impostare sempre *autoUpgradeMinorVersion* su **true** , in modo che venga usata sempre l'estensione Diagnostica più recente disponibile con tutte le nuove funzionalità e correzioni di bug. 
 
-L'elemento *settings* contiene proprietà di configurazione per l'estensione che possono essere impostate e lette dall'estensione e sono spesso definite configurazione pubblica. La proprietà *xmlcfg* contiene configurazione basata su XML per i log di diagnostica e i contatori delle prestazioni che verranno raccolti dall'agente di diagnostica. Per altre informazioni sullo schema XML stesso, vedere [Schema di configurazione di diagnostica](https://msdn.microsoft.com/library/azure/dn782207.aspx) . Una procedura comune consiste nell'archiviare la configurazione XML effettiva come variabile nel modello di Gestione risorse di Azure e quindi concatenare le variabili e codificarle in Base 64 per impostare il valore per *xmlcfg*. Per altre informazioni su come archiviare il codice XML nelle variabili, vedere la sezione relativa alle [variabili di configurazione diagnostica](#diagnostics-configuration-variables) . La proprietà *storageAccount* specifica il nome dell'account di archiviazione in cui verranno trasferiti i dati di diagnostica. 
+L'elemento *settings* contiene proprietà di configurazione per l'estensione che possono essere impostate e lette dall'estensione e sono spesso definite configurazione pubblica. La proprietà *xmlcfg* contiene configurazione basata su XML per i log di diagnostica e i contatori delle prestazioni che verranno raccolti dall'agente di diagnostica. Per altre informazioni sullo schema XML stesso, vedere [Schema di configurazione di diagnostica](https://msdn.microsoft.com/library/azure/dn782207.aspx) . Una procedura comune consiste nell'archiviare la configurazione XML effettiva come variabile nel modello di Gestione risorse di Azure e quindi concatenare le variabili e codificarle in Base&64; per impostare il valore per *xmlcfg*. Per altre informazioni su come archiviare il codice XML nelle variabili, vedere la sezione relativa alle [variabili di configurazione diagnostica](#diagnostics-configuration-variables) . La proprietà *storageAccount* specifica il nome dell'account di archiviazione in cui verranno trasferiti i dati di diagnostica. 
 
 Le proprietà in *protectedSettings* , a volte definite configurazione privata, possono essere impostate ma non possono essere lette dopo l'impostazione. La natura di sola scrittura di *protectedSettings* risulta utile per l'archiviazione di segreti quali la chiave dell'account di archiviazione in cui verranno scritti i dati di diagnostica.    
 
@@ -171,6 +171,6 @@ Ogni tabella WADMetrics includerà le colonne seguenti:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

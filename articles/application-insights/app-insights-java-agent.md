@@ -1,6 +1,6 @@
 ---
-title: Monitorare dipendenze, eccezioni e tempi di esecuzione nelle app Web Java
-description: Monitoraggio esteso del sito Web Java con Application Insights
+title: Monitoraggio delle prestazioni per le app Web Java in Azure Application Insights | Documentazione Microsoft
+description: Estendere il monitoraggio di prestazioni e utilizzo del sito Web Java con Application Insights.
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: 16ffd2ea5be6a18f59065a20d4c801f89bf030cf
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: a481c7c62383c92a5dfab0e3f2b1b4f4f0e5ddf5
 
 
 ---
@@ -91,7 +91,7 @@ Configurare il contenuto del file XML. Modificare l'esempio seguente in modo da 
 Per impostazione predefinita, `reportExecutionTime` è true e `reportCaughtExceptions` è false.
 
 ## <a name="view-the-data"></a>Visualizzare i dati
-Nella risorsa di Application Insights vengono visualizzate le dipendenze remote aggregate e i tempi di esecuzione dei metodi nel [riquadro Prestazioni][metrics].
+Nella risorsa Application Insights vengono visualizzate le dipendenze remote aggregate e i tempi di esecuzione dei metodi [nel riquadro Prestazioni][metrics].
 
 Per cercare singole istanze di dipendenze, eccezioni e report sui metodi, aprire [Ricerca][diagnostic].
 
@@ -111,10 +111,10 @@ Per cercare singole istanze di dipendenze, eccezioni e report sui metodi, aprire
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[uso]: app-insights-web-track-usage.md
+[usage]: app-insights-web-track-usage.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

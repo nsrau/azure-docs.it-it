@@ -1,5 +1,5 @@
 ---
-title: Spostare i dati da PostgreSQL | Documentazione Microsoft
+title: Spostare dati da PostgreSQL usando Azure Data Factory | Documentazione Microsoft
 description: Informazioni su come spostare i dati dal database di PostgreSQL mediante Data factory di Azure.
 services: data-factory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2016
+ms.date: 01/23/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 037f76cdd01376780dde8c435d81f8d072dca2f0
+ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
+ms.openlocfilehash: 464db2456b4bd63ee4f0aae95214f2c9fcc3ba41
 
 
 ---
@@ -331,6 +331,6 @@ Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spos
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

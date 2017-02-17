@@ -111,6 +111,6 @@ Informazioni su come usare il servizio contenitore di Azure per archiviare e ges
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

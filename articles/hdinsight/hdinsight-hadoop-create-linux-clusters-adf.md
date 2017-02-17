@@ -1,6 +1,6 @@
 ---
-title: Creare cluster Hadoop on demand basati su Linux in HDInsight con Azure Data Factory | Documentazione Microsoft
-description: Informazioni su come creare cluster HDInsight on demand con Azure Data Factory.
+title: Creare cluster Azure HDInsight (Hadoop) usando Data Factory | Documentazione Microsoft
+description: Informazioni su come creare cluster Hadoop on demand in HDInsight con Azure Data Factory.
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
-ms.openlocfilehash: 0a70398010bb06590e981430edabffa889c213ae
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: ce32b22d60f89c82f0c416e736f41e3767bd8fc5
 
 
 ---
-# <a name="create-on-demand-linux-based-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Creare cluster Hadoop on demand basati su Linux in HDInsight con Azure Data Factory
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+# <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Creare cluster Hadoop on demand in HDInsight con Azure Data Factory
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 [Azure Data Factory](../data-factory/data-factory-introduction.md) è un servizio di integrazione delle informazioni basato sul cloud che consente di automatizzare lo spostamento e la trasformazione dei dati. In questo articolo viene spiegato come usare Azure Data Factory per creare un [servizio collegato Azure HDInsight on demand](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)e usare il cluster per eseguire un processo Hive. Ecco il flusso di alto livello:
 
@@ -444,6 +444,6 @@ Questo articolo ha descritto come usare Azure Data Factory per creare il cluster
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

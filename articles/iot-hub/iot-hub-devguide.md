@@ -69,6 +69,6 @@ Questa Guida per gli sviluppatori dell'hub IoT include gli articoli seguenti:
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO3-->
 
 

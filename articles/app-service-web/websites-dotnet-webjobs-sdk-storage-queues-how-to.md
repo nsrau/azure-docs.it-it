@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/01/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: 154d2cd9b7f4ea51d3fd4c1995b67a25816b28a2
-ms.openlocfilehash: 67bb54e8a573607199143621451e598bf11947fe
+ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
+ms.openlocfilehash: 5110a86c3cc25ada27ddba9b0caef68e4509aa73
 
 
 ---
@@ -133,7 +133,7 @@ Se si dispongono di più funzioni in ascolto in code diverse, l'SDK le chiamerà
 
 Lo stesso vale quando si ricevono più messaggi per una singola coda. Per impostazione predefinita, l'SDK ottiene un batch di 16 messaggi in coda alla volta ed esegue la funzione che li elabora in parallelo. [La dimensione del batch è configurabile](#config). Quando il numero elaborato viene ridotto alla metà della dimensione del batch, l'SDK ottiene un altro batch e inizia l'elaborazione dei messaggi. Di conseguenza, il numero massimo di messaggi simultanei elaborati per ogni funzione è pari a una volta e mezza la dimensione del batch. Questo limite si applica separatamente a ogni funzione caratterizzata da un attributo `QueueTrigger` .
 
-Se non si vuole avviare l'esecuzione parallela per i messaggi ricevuti su una coda, impostare le dimensioni del batch su 1. Vedere anche **Maggiore controllo sull'elaborazione delle code** in [Azure WebJobs SDK 1.1.0 RTM](/blog/azure-webjobs-sdk-1-1-0-rtm/).
+Se non si vuole avviare l'esecuzione parallela per i messaggi ricevuti su una coda, impostare le dimensioni del batch su 1. Vedere anche **Maggiore controllo sull'elaborazione delle code** in [Azure WebJobs SDK 1.1.0 RTM](https://azure.microsoft.com/blog/azure-webjobs-sdk-1-1-0-rtm/).
 
 ### <a name="a-idqueuemetadataaget-queue-or-queue-message-metadata"></a><a id="queuemetadata"></a>Ottenere i metadati della coda o del messaggio in coda
 Con l'aggiunta di parametri alla firma del metodo, è possibile ottenere le proprietà del messaggio seguenti:
@@ -581,6 +581,6 @@ Questa guida ha fornito esempi di codice che illustrano come gestire scenari com
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

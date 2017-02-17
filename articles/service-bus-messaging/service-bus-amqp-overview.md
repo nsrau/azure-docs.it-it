@@ -1,5 +1,5 @@
 ---
-title: Panoramica di AMQP per il bus di servizio | Microsoft Docs
+title: Panoramica del protocollo AMQP 1.0 nel bus di servizio di Azure | Documentazione Microsoft
 description: Informazioni sull&quot;uso del protocollo AMQP (Advanced Message Queuing Protocol) 1.0 in Azure.
 services: service-bus-messaging
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 61f31c8ad0463776937f366d145595f04cc42d2e
-ms.openlocfilehash: 539ff0d47279b1c551c3ff0a21dff4633a3c0ac8
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 91b138ee9590a66c63e2055eaeace82b4e719ae5
 
 
 ---
@@ -104,6 +104,6 @@ Per altre informazioni, vedere i collegamenti seguenti:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

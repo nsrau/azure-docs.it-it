@@ -1,5 +1,5 @@
 ---
-title: Leggere messaggi dall&quot;hub IoT di Azure | Documentazione Microsoft
+title: 'Dispositivo simulato e gateway Azure IoT: lezione 3: Leggere i messaggi | Documentazione Microsoft'
 description: Eseguire un codice di esempio sul computer host per leggere i messaggi dall&quot;hub IoT.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: c92b9a86ceee306f713df5bcffca87071c905393
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 08ccd35c6e6a8e77f0fd4637f14a1f27730560d6
 
 
 ---
@@ -101,6 +101,6 @@ Tutti i messaggi inviati e ricevuti vengono visualizzati immediatamente nella st
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

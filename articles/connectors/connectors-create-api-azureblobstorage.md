@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9a739af2c9f6adaec58bfd7b339c370fae113641
+ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
+ms.openlocfilehash: 6b7c73576e09af3d1b3c886efa88044846e91494
 
 
 ---
@@ -36,7 +36,7 @@ Questo argomento illustra come usare il connettore di archiviazione BLOB in un'a
 > 
 > 
 
-Per altre informazioni sulle app per la logica, vedere [Cosa sono le app per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md) e [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per altre informazioni sulle app per la logica, vedere [Cosa sono le app per la logica](../logic-apps/logic-apps-what-are-logic-apps.md) e [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-azure-blob-storage"></a>Connettersi all'archivio BLOB di Azure
 Prima che l'app per la logica possa accedere a qualsiasi servizio, è necessario creare una *connessione* al servizio. Una connessione fornisce la connettività tra un'app per la logica e un altro servizio. Ad esempio, per connettersi a un account di archiviazione, si crea prima una *connessione* all'archivio BLOB. Per creare una connessione, immettere le credenziali usate normalmente per accedere al servizio a cui connettersi. Con Archiviazione di Azure immettere quindi le credenziali dell'account di archiviazione per creare la connessione. 
@@ -47,7 +47,7 @@ Prima che l'app per la logica possa accedere a qualsiasi servizio, è necessario
 > 
 
 ## <a name="use-a-trigger"></a>Usare un trigger
-Questo connettore non include trigger. Usare altri trigger per avviare l'app per la logica, come un trigger di ricorrenza, un trigger Webhook HTTP, i trigger disponibili con altri connettori e altri ancora. [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md) illustra un esempio.
+Questo connettore non include trigger. Usare altri trigger per avviare l'app per la logica, come un trigger di ricorrenza, un trigger Webhook HTTP, i trigger disponibili con altri connettori e altri ancora. [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md) illustra un esempio.
 
 ## <a name="use-an-action"></a>Usare un'azione
 Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica.
@@ -301,11 +301,11 @@ Quando si effettuano chiamate alle diverse azioni, è possibile ottenere determi
 | default |Operazione non riuscita. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).
+[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

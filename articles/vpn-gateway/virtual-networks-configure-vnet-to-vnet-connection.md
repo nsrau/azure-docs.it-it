@@ -1,10 +1,10 @@
 ---
-title: Configurare una connessione da rete virtuale a rete virtuale per il modello di distribuzione classico | Documentazione Microsoft
+title: 'Connettere una rete virtuale di Azure a un&quot;altra rete virtuale: versione classica | Documentazione Microsoft'
 description: Come connettere tra loro diverse reti virtuali di Azure tramite PowerShell e il portale di Azure classico.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 7413827f-233d-4c7c-a133-9c99cf031833
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/31/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: c1fd18ad8889033cba8a92f6ae255ba6478e6595
+ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
+ms.openlocfilehash: 863b308125a7a9ae2b9d9104d150bd2474c064b3
 
 
 ---
@@ -60,7 +60,7 @@ Le reti virtuali possono trovarsi in diverse sottoscrizioni e aree geografiche d
   * Se si dispone di più sottoscrizioni di Azure, si possono connettere tra loro i carichi di lavoro di sottoscrizioni diverse in modo sicuro tra reti virtuali.
   * Per le aziende o i provider di servizi, è ora possibile abilitare la comunicazione tra organizzazioni con tecnologia VPN sicura in Azure.
 
-### <a name="vnet-to-vnet-faq-for-classic-vnets"></a>Domande frequenti sulla connessione da rete virtuale a rete virtuale per reti classiche
+### <a name="vnet-to-vnet-considerations-for-classic-vnets"></a>Considerazioni sulle connessioni tra reti virtuali per le reti virtuali classiche
 * Le reti virtuali possono trovarsi in sottoscrizioni uguali o diverse.
 * Le reti virtuali possono essere nelle sottoscrizioni uguale o diverse.
 * Un servizio cloud o un endpoint di bilanciamento del carico non può estendersi tra reti virtuali, anche se sono connesse tra loro.
@@ -200,6 +200,6 @@ Quando tutti i passaggi precedenti sono stati completati, impostare le chiavi gi
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Modelli collegati con Resource Manager | Microsoft Docs
+title: Collegare modelli correlati per la distribuzione di Azure | Documentazione Microsoft
 description: Descrive come usare i modelli collegati in un modello di Azure Resource Manager per creare una soluzione basata su un modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico.
 services: azure-resource-manager
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 922b08ab343d6aa0fd4b67d720e2f195e9dfac0f
-ms.openlocfilehash: 8f316ef559b9d1287ece7475192ec0b7a80af4e7
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 7bc5e1102b60db0bdf7a8310d0816f65bcfec3a1
 
 
 ---
-# <a name="using-linked-templates-with-azure-resource-manager"></a>Uso di modelli collegati con Azure Resource Manager
+# <a name="using-linked-templates-when-deploying-azure-resources"></a>Uso di modelli collegati nella distribuzione di risorse di Azure
 Dall'interno di un modello di Azure Resource Manager è possibile collegarsi a un altro modello che consente di scomporre la distribuzione in un set di modelli di destinazione specifici. In modo analogo alla scomposizione di un'applicazione in diverse classi di codice, la scomposizione offre vantaggi in termini di testing, riuso e leggibilità.  
 
 È possibile passare parametri da un modello principale a un modello collegato. Tali parametri possono venire associati direttamente ai parametri e alle variabili esposti dal modello chiamante. Il modello collegato può inoltre passare una variabile di output al modello di origine, consentendo un scambio bidirezionale di dati tra modelli.
@@ -328,6 +328,6 @@ Viene richiesto di fornire il token di firma di accesso condiviso come parametro
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

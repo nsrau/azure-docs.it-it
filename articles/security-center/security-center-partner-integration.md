@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 12/01/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 0c946ce6a96f2e3644b9890dad5d60a35ad4bcb7
-ms.openlocfilehash: 10184c52d532eb56e66212fafdea3d059b0c43e3
+ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
+ms.openlocfilehash: 095b5c9d1a888a4061450234f80c52c5834fbf53
 
 
 ---
@@ -45,23 +45,19 @@ Nel corso del tempo, il Centro sicurezza estenderà il numero di partner all'int
 
 ## <a name="how-to-deploy-a-partner-solution"></a>Come distribuire soluzioni dei partner?
 
-Le soluzioni dei partner che sono state già distribuite nel Centro sicurezza sono facilmente accessibili dal riquadro delle soluzioni partner nel dashboard principale del Centro sicurezza:
+In base alla configurazione dell'ambiente Azure e ai criteri di sicurezza definiti, Centro sicurezza può consigliare che venga distribuita una soluzione partner. La raccomandazione guiderà l'utente attraverso il processo di selezione e installazione di una soluzione partner. L'esperienza di distribuzione globale a questo punto può variare a seconda del partner e del tipo di soluzione. Per altre informazioni, vedere i collegamenti seguenti:
+
+- [Aggiungere un Web Application Firewall](security-center-add-web-application-firewall.md)
+- [Aggiungi un firewall di nuova generazione](security-center-add-next-generation-firewall.md)
+- [Installa Endpoint Protection](security-center-install-endpoint-protection.md)
+- [La valutazione della vulnerabilità non è installata](security-center-vulnerability-assessment-recommendations.md)
+
+## <a name="how-to-manage-partner-solutions"></a>Come gestire le soluzioni partner?
+
+Dopo la distribuzione di una soluzione partner, è possibile visualizzare le informazioni sullo stato della soluzione ed eseguire attività di gestione di base dal riquadro Soluzione partner nel dashboard principale del Centro sicurezza. Per altre informazioni sulla gestione delle soluzioni partner nel Centro sicurezza, leggere [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) (Monitoraggio delle soluzioni partner con il Centro sicurezza di Azure).
 
 ![Integrazione dei partner](./media/security-center-partner-integration/security-center-partner-integration-fig1.png)
 
-Per distribuire una nuova soluzione partner basata sulle raccomandazioni del Centro sicurezza, eseguire i passaggi seguenti:
-
-> [!NOTE]
-> Nei passaggi dell'esempio seguente si suppone che esista un carico di lavoro che si vuole proteggere con un firewall per applicazioni web.
-
-1. Fare clic sul riquadro **Raccomandazioni** del dashboard del Centro sicurezza.
-2. Nel pannello **Raccomandazioni**, fare clic su **Aggiungi firewall per applicazioni Web**.
-3. Selezionare il nome dell'applicazione nel pannello **Aggiungi un firewall per applicazioni Web**.
-4. Nel pannello **Aggiungi un firewall per applicazioni Web** fare clic su **Crea nuovo**.
-5. Il pannello **Crea un nuovo firewall per applicazioni Web** visualizza un elenco dei partner attuali che offrono soluzioni di firewall per applicazioni Web.
-6. Selezionare la soluzione del partner appropriata e seguire le istruzioni (che possono variare a seconda del partner).
-
-L'esperienza di distribuzione globale a questo punto può variare a seconda del partner. Per altre informazioni sulla gestione delle soluzioni partner nel Centro sicurezza, leggere [Monitoraggio delle soluzioni dei partner](security-center-partner-solutions.md) con il Centro sicurezza di Azure.
 
 ## <a name="see-also"></a>Vedere anche
 In questo documento è stato illustrato come integrare soluzioni partner nel Centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
@@ -76,6 +72,6 @@ In questo documento è stato illustrato come integrare soluzioni partner nel Cen
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

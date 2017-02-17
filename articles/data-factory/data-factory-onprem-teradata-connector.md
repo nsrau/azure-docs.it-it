@@ -1,5 +1,5 @@
 ---
-title: Spostare i dati da Teradata | Documentazione Microsoft
+title: Spostare dati da Teradata usando Azure Data Factory | Documentazione Microsoft
 description: Informazioni su come il connettore Teradata per il servizio Data factory consente di spostare dati dal database Teradata
 services: data-factory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 01/23/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 6ba9579860f0117a5d15fe0ea54dec22a6d37c9b
+ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
+ms.openlocfilehash: 14e079b94b6a0ceee9070658ac355a40873ad4ca
 
 
 ---
@@ -325,6 +325,6 @@ Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spos
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

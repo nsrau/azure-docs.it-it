@@ -1,6 +1,6 @@
 ---
-title: 'Previsioni: Modello autoregressivo integrato a media mobile (ARIMA) | Documentazione Microsoft'
-description: 'Previsioni: Modello autoregressivo integrato a media mobile (ARIMA)'
+title: "Previsioni (funzionalità deprecata): media mobile integrata autoregressiva (ARIMA) - Azure| Documentazione Microsoft"
+description: "Previsioni (funzionalità deprecata): media mobile integrata autoregressiva (ARIMA)"
 services: machine-learning
 documentationcenter: 
 author: yijichen
@@ -11,16 +11,24 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/15/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: yijichen
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 22a44e1c47748a54950d9ad732a04c08bbcefd87
+ms.sourcegitcommit: b1ee1eae91185c1893b55be2046343d78dd6c48b
+ms.openlocfilehash: 169331fc08c8d378fbb0c9869e69a9eb132224ba
 
 
 ---
-# <a name="forecasting---autoregressive-integrated-moving-average-arima"></a>Previsioni: Modello autoregressivo integrato a media mobile (ARIMA)
+# <a name="deprecated-forecasting---autoregressive-integrated-moving-average-arima"></a>Previsioni (funzionalità deprecata): media mobile integrata autoregressiva (ARIMA)
+
+> [!NOTE]
+> Microsoft DataMarket è in fase di ritiro e questa API è stata deprecata. 
+> 
+> Numerose API e molti esperimenti utili di esempio sono disponibili in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Per altre informazioni sulla raccolta, vedere [Condividere e scoprire risorse in Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+
+
 Questo [servizio](https://datamarket.azure.com/dataset/aml_labs/arima) implementa il modello autoregressivo integrato a media mobile (ARIMA, Autoregressive Integrated Moving Average) per produrre previsioni basate sui dati cronologici forniti dall'utente. Si verificherà un incremento nella domanda di un prodotto specifico quest'anno? È possibile prevedere le vendite dei prodotti per la stagione natalizia, per pianificare in modo efficace l'inventario? I modelli di previsione sono progettati per rispondere a queste domande. Partendo dai dati passati, questi modelli esaminano le tendenze nascoste e la stagionalità per prevedere le tendenze future. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -88,7 +96,7 @@ Sono disponibili molte opzioni per l'uso del servizio in modalità automatica. P
 > 
 > 
 
-In Azure Machine Learning è stato creato un nuovo esperimento vuoto. Sono stati caricati dati di input di esempio con uno schema dati predefinito. Un modulo [Execute R Script][execute-r-script] è collegato allo schema dati e genera il modello di previsione ARIMA usando le funzioni 'auto.arima' e 'forecast' di R. 
+In Azure Machine Learning è stato creato un nuovo esperimento vuoto. Sono stati caricati dati di input di esempio con uno schema dati predefinito. Un modulo [Execute R Script][execute-r-script] (Esegui script R) è collegato allo schema dati e genera il modello di previsione ARIMA usando le funzioni 'auto.arima' e 'forecast' di R. 
 
 ### <a name="experiment-flow"></a>Flusso dell'esperimento
 ![Creare un'area di lavoro][2]
@@ -142,6 +150,6 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Studio del modello di soluzione Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale e in altri campi | Microsoft Docs
+title: Manutenzione predittiva nel settore aerospaziale con Azure - Modello della soluzione Cortana Intelligence | Documentazione Microsoft
 description: Modello di soluzione con Microsoft Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale, nei servizi pubblici e nei trasporti.
 services: cortana-analytics
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: fboylu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ce34066c808b378b7f73cb8e782db3d2da7b536b
+ms.sourcegitcommit: c78604783bb21f9162939637e04e60aa8131ce11
+ms.openlocfilehash: 1fc824c65e68c70ace589e788a0c470c475e66b4
 
 
 ---
@@ -372,6 +372,6 @@ Per altre informazioni su ogni componente dell'architettura, vedere la documenta
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 536cb4cd7975283dd61c8c4f2fe1a707a735504e
-ms.openlocfilehash: 7e05ab9c6ba1d23399d2ded63eb9b413c422f7bc
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 67f2f420eecc89a9ffce2fb9ba4781a8fcb0d03b
 
 
 ---
@@ -116,7 +116,7 @@ Il modello di esempio disponibile nel repository pubblico usa un file di paramet
 
 Per distribuire il modello scaricato tramite PowerShell, seguire questa procedura.
 
-1. Se non è mai stato usato Azure PowerShell, completare la procedura descritta nell'articolo [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+1. Se non è mai stato usato Azure PowerShell, completare la procedura descritta nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 2. In una console PowerShell, eseguire il cmdlet `New-AzureRmResourceGroup` per creare un nuovo gruppo di risorse, se necessario. Se è già stato creato un gruppo di risorse, andare al passaggio 3.
 
     ```powershell
@@ -207,6 +207,6 @@ Per distribuire il modello tramite l'interfaccia della riga di comando di Azure,
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

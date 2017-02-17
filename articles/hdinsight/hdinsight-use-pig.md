@@ -146,6 +146,6 @@ Dopo avere appreso come usare Pig con HDInsight, vedere i collegamenti seguenti 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

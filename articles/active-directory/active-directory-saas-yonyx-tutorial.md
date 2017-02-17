@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/26/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 417a68942535fa2808c7e47d12c7ff6c6d6af49c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 81df166cadd33677cb62823440e04402354eba43
 
 
 ---
@@ -249,6 +249,6 @@ Quando si fa clic sul riquadro Yonyx Interactive Guides nel pannello di accesso,
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

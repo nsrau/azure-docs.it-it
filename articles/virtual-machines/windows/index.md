@@ -164,6 +164,6 @@ Informazioni su come creare macchine virtuali di Windows. Esercitazioni, informa
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

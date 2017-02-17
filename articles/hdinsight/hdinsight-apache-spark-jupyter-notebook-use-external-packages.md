@@ -1,5 +1,5 @@
 ---
-title: Usare pacchetti esterni con notebook di Jupyter nei cluster Apache Spark in HDInsight | Documentazione Microsoft
+title: Usare pacchetti Maven personalizzati con notebook di Jupyter in Spark in Azure | Documentazione Microsoft
 description: Istruzioni dettagliate su come configurare notebook Jupyter disponibili con cluster HDInsight Spark per l&quot;uso di pacchetti Spark esterni.
 services: hdinsight
 documentationcenter: 
@@ -13,17 +13,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 53753790b63d783a284aa0db39841c4bd6a8a0aa
-ms.openlocfilehash: 11bcf7f4f51d105f6693545669a2f17af196bf57
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 2dd0d456d0c6b1c83a409fead63dacff26c03198
 
 
 ---
-# <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight-linux"></a>Utilizzare pacchetti esterni con notebook di Jupyter nei cluster Apache Spark in HDInsight Linux
+# <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Usare pacchetti esterni con notebook di Jupyter nei cluster Apache Spark in HDInsight
+> [!div class="op_single_selector"]
+> * [Uso di comandi Magic nelle celle](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+> * [Uso di azioni script](hdinsight-apache-spark-python-package-installation.md)
+>
+>
 
-Vengono fornite informazioni su come configurare Jupyter Notebook in un cluster Apache Spark in HDInsight (Linux) per l'uso di pacchetti **maven** esterni creati dalla community e non inclusi e subito utilizzabili nel cluster. 
+Informazioni su come configurare un notebook di Jupyter in un cluster Apache Spark in HDInsight per l'uso di pacchetti **maven** esterni creati dalla community e non inclusi per impostazione predefinita nel cluster. 
 
 Per un elenco completo dei pacchetti disponibili, è possibile eseguire ricerche nel [repository Maven](http://search.maven.org/) . È anche possibile ottenere un elenco dei pacchetti disponibili da altre origini. Ad esempio, un elenco completo dei pacchetti creati dalla community è disponibile nel sito Web [spark-packages.org](http://spark-packages.org/).
 
@@ -35,27 +40,27 @@ In questo articolo si apprenderà a usare il pacchetto [spark-csv](http://search
 È necessario disporre di quanto segue:
 
 * Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un cluster Apache Spark in HDInsight Linux. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>Usare pacchetti esterni con i notebook Jupyter
 1. Dalla Schermata iniziale del [portale di Azure](https://portal.azure.com/)fare clic sul riquadro del cluster Spark (se è stato aggiunto sulla Schermata iniziale). È anche possibile passare al cluster da **Esplora tutto** > **Cluster HDInsight**.   
 2. Dal pannello del cluster Spark fare clic su **Collegamenti rapidi** e dal pannello **Dashboard cluster** fare clic su **Notebook di Jupyter**. Se richiesto, immettere le credenziali per il cluster.
 
-   
-   > [!NOTE]
-   > È anche possibile raggiungere il notebook di Jupyter per il cluster aprendo l'URL seguente nel browser. Sostituire **CLUSTERNAME** con il nome del cluster:
-   > 
-   > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   > 
+    > [!NOTE]
+    > È anche possibile raggiungere il notebook di Jupyter per il cluster aprendo l'URL seguente nel browser. Sostituire **CLUSTERNAME** con il nome del cluster:
+    > 
+    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
+    > 
 
+   
 
 3. Creare un nuovo notebook. Fare clic su **New** (Nuovo) e quindi su **Spark**.
    
-    ![Creare un nuovo notebook Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+    ![Creare un nuovo notebook Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.createnotebook.png "Creare un nuovo notebook Jupyter")
 
 4. Un nuovo notebook verrà creato e aperto con il nome Untitled.pynb. Fare clic sul nome del notebook nella parte superiore e immettere un nome descrittivo.
    
-    ![Specificare un nome per il notebook](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
+    ![Specificare un nome per il notebook](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "Specificare un nome per il notebook")
 
 5. Si userà `%%configure` magic verrà usato per configurare il notebook per l'uso di un pacchetto esterno. Nei notebook che usano pacchetti esterni assicurarsi di richiamare `%%configure` magic nella prima cella del codice. Questo accorgimento garantisce che il kernel sia configurato per l'uso del pacchetto prima dell'avvio della sessione.
 
@@ -73,7 +78,7 @@ In questo articolo si apprenderà a usare il pacchetto [spark-csv](http://search
    
     b. Recuperare dal repository i valori per **GroupId**, **ArtifactId** e **Version**.
    
-    ![Usare pacchetti esterni con Jupyter Notebook](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Use external packages with Jupyter notebook")
+    ![Usare pacchetti esterni con notebook di Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Usare pacchetti esterni con notebook di Jupyter")
    
     c. Concatenare i tre valori, separati da due punti (**:**).
    
@@ -122,6 +127,6 @@ In questo articolo si apprenderà a usare il pacchetto [spark-csv](http://search
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 
