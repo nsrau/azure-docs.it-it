@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 388d733b52d32d77fa441c4045d4bce863c41866
-ms.openlocfilehash: 7558c41cbc9cde6748e1706a095598ea03e9ab6a
+ms.sourcegitcommit: 614038da2384b3efa48cd46ade347392ffef9d44
+ms.openlocfilehash: 2cb7b5aff47a81ae53d1ce68426b085eba4c96fc
 
 
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Come usare la libreria client iOS per le app mobili di Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-Questa guida descrive come eseguire scenari comuni usando il più recente [iOS SDK per le app per dispositivi mobili di Azure][1]. Se si ha familiarità con le App per dispositivi mobili di Azure, completare innanzitutto [Azure Mobile App Quick Start] per creare un back-end, creare una tabella e scaricare un progetto Xcode iOS preesistente. In questa Guida, l'attenzione è posta sul lato client iOS SDK. Per altre informazioni sull'SDK sul lato server per il back-end, vedere le procedure per l'SDK del server.
+Questa guida descrive come eseguire scenari comuni usando il più recente [SDK per iOS per le app per dispositivi mobili di Azure][1]. Se si ha familiarità con le App per dispositivi mobili di Azure, completare innanzitutto [Azure Mobile App Quick Start] per creare un back-end, creare una tabella e scaricare un progetto Xcode iOS preesistente. In questa Guida, l'attenzione è posta sul lato client iOS SDK. Per altre informazioni sull'SDK sul lato server per il back-end, vedere le procedure per l'SDK del server.
 
 ## <a name="reference-documentation"></a>Documentazione di riferimento
-La documentazione di riferimento per il client SDK di iOS è disponibile qui: [Riferimento al Client iOS di App per dispositivi mobili di Azure][2].
+La documentazione di riferimento per il client SDK per iOS è disponibile qui: [Riferimento al Client iOS di App per dispositivi mobili di Azure][2].
 
 ## <a name="supported-platforms"></a>Piattaforme supportate
 L'SDK di iOS supporta progetti Objective-C, Swift 2.2 e Swift 2.3 per le versioni iOS 8.0 o successive.
@@ -497,7 +497,7 @@ NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"aler
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 ```
 
-Tutti i tag vengono rimossi dalla richiesta per motivi di sicurezza.  Per aggiungere tag alle istallazioni o modelli all'interno delle istallazioni, vedere [Lavorare con l'SDK del server back-end .NET per App per dispositivi mobili di Azure][4].  Per inviare notifiche tramite questi modelli registrati, usare le [API di Hub di notifica][3].
+Tutti i tag vengono rimossi dalla richiesta per motivi di sicurezza.  Per aggiungere tag alle istallazione o ai modelli all'interno delle istallazioni, vedere [Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure][4].  Per inviare notifiche tramite questi modelli registrati, usare le [API di Hub di notifica][3].
 
 ## <a name="a-nameerrorsahow-to-handle-errors"></a><a name="errors"></a>Procedura: Gestire gli errori
 Quando viene eseguita una chiamata a un back-end per dispositivi mobili del Servizio app di Azure, il blocco di completamento contiene un parametro `NSError` . Quando si verifica un errore, il parametro sarà diverso da Nil. In questo caso, è necessario verificare il parametro nel codice e gestire l'errore nel modo appropriato, come dimostrato nei frammenti di codice precedenti.
@@ -818,53 +818,53 @@ if (error.code == MSErrorPreconditionFailed) {
 
 <!-- Anchors. -->
 
-[Informazioni su Servizi mobili]: #what-is
-[Concetti]: #concepts
-[Installazione e prerequisiti]: #Setup
-[Procedura: Creare il client di Servizi mobili]: #create-client
-[Procedura: Creare un riferimento alla tabella]: #table-reference
-[Procedura: Eseguire query sui dati da un servizio mobile]: #querying
-[Filtrare i dati restituiti]: #filtering
-[Ordinare i dati restituiti]: #sorting
-[Restituire i dati in pagine]: #paging
-[Selezionare colonne specifiche]: #selecting
-[Procedura: Associare dati all'interfaccia utente]: #binding
-[Procedura: Inserire dati in un servizio mobile]: #inserting
-[Procedura: Modificare dati in un servizio mobile]: #modifying
-[Procedura: Autenticare gli utenti]: #authentication
-[Memorizzare nella cache i token di autenticazione]: #caching-tokens
-[Procedura: caricare immagini e file di grandi dimensioni]: #blobs
-[Procedura: Gestire gli errori]: #errors
-[Procedura: Progettare unit test]: #unit-testing
-[Procedura: Personalizzare il client]: #customizing
-[Personalizzare le intestazioni di richieste]: #custom-headers
-[Personalizzare la serializzazione dei tipi di dati]: #custom-serialization
+[What is Mobile Services]: #what-is
+[Concepts]: #concepts
+[Setup and Prerequisites]: #Setup
+[How to: Create the Mobile Services client]: #create-client
+[How to: Create a table reference]: #table-reference
+[How to: Query data from a mobile service]: #querying
+[Filter returned data]: #filtering
+[Sort returned data]: #sorting
+[Return data in pages]: #paging
+[Select specific columns]: #selecting
+[How to: Bind data to the user interface]: #binding
+[How to: Insert data into a mobile service]: #inserting
+[How to: Modify data in a mobile service]: #modifying
+[How to: Authenticate users]: #authentication
+[Cache authentication tokens]: #caching-tokens
+[How to: Upload images and large files]: #blobs
+[How to: Handle errors]: #errors
+[How to: Design unit tests]: #unit-testing
+[How to: Customize the client]: #customizing
+[Customize request headers]: #custom-headers
+[Customize data type serialization]: #custom-serialization
 [Next Steps]: #next-steps
-[Procedura: Usare MSQuery]: #query-object
+[How to: Use MSQuery]: #query-object
 
 <!-- Images. -->
 
 <!-- URLs. -->
 [Azure Mobile App Quick Start]: app-service-mobile-ios-get-started.md
 
-[Aggiunta di Servizi mobili a un'app esistente]: /develop/mobile/tutorials/get-started-data
-[Introduzione a Servizi mobili]: /develop/mobile/tutorials/get-started-ios
-[Convalida e modifica dei dati in Servizi mobili mediante script del server]: /develop/mobile/tutorials/validate-modify-and-augment-data-ios
+[Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-data
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
+[Validate and modify data in Mobile Services by using server scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-ios
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[autenticazione]: /develop/mobile/tutorials/get-started-with-users-ios
-[SDK per iOS]: https://developer.apple.com/xcode
+[Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
+[iOS SDK]: https://developer.apple.com/xcode
 
-[Gestire i token scaduti]: http://go.microsoft.com/fwlink/p/?LinkId=301955
+[Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
-[Autorizzazioni]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
-[Autorizzazione sul lato servizio degli utenti in Servizi mobili]: mobile-services-javascript-backend-service-side-authorization.md
-[Usare gli script per autorizzare gli utenti]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
+[Permissions]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
+[Service-side Authorization]: mobile-services-javascript-backend-service-side-authorization.md
+[Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 [Schema dinamico]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-[Procedura: Accedere ai parametri personalizzati]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
-[Creare una tabella]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
-[Oggetto NSDictionary]: http://go.microsoft.com/fwlink/p/?LinkId=301965
-[codici di controllo ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[Comandi per la gestione delle tabelle di Servizi mobili]: ../virtual-machines-command-line-tools.md#Mobile_Tables
+[How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
+[Create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
+[NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
+[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+[CLI to manage Mobile Services tables]: /cli/azure/get-started-with-az-cli2
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
 [dashboard di Fabric]: https://www.fabric.io/home
@@ -882,6 +882,6 @@ if (error.code == MSErrorPreconditionFailed) {
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

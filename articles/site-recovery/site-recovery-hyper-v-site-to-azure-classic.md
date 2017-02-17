@@ -1,5 +1,5 @@
 ---
-title: Eseguire la replica tra macchine virtuali Hyper-V locali e Azure (senza VMM) con Site Recovery | Documentazione Microsoft
+title: Replicare le macchine virtuali Hyper-V in Azure nel portale classico | Documentazione Microsoft
 description: Questo articolo descrive come eseguire la replica di macchine virtuali Hyper-V in Azure con Azure Site Recovery quando le macchine non sono gestite in cloud VMM.
 services: site-recovery
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 11/23/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: ea89244efea6afa7d7b9d60f400117284fb5d1e1
-ms.openlocfilehash: 3c5e51c562d9251f2ad40eeb1939d1651c845391
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: b991b27304a4f65485b30431c5eb29461f60984d
 
 
 ---
@@ -44,7 +44,7 @@ Dopo la lettura di questo articolo, è possibile inserire commenti nella parte i
 
 Azure offre due [modelli di distribuzione](../resource-manager-deployment-model.md) diversi per creare e usare le risorse: Azure Resource Manager e distribuzione classica. Sono disponibili due portali: il portale di Azure classico e il portale di Azure.
 
-Questo articolo descrive come eseguire la distribuzione nel portale classico. Il portale classico può essere usato per gestire gli insiemi di credenziali esistenti. Non è possibile creare nuovi insiemi di credenziali usando il portale classico.
+Questo articolo descrive come eseguire la distribuzione nel portale classico. Il portale classico può essere usato per gestire gli insiemi di credenziali esistenti. Non è possibile creare nuovi insieme di credenziali usando il portale classico.
 
 ## <a name="site-recovery-in-your-business"></a>Site Recovery in azienda
 
@@ -223,12 +223,12 @@ Aggiungere macchine virtuali a un gruppo di protezione per abilitare la protezio
        * Se il numero di schede di rete nella macchina di origine è minore o uguale al numero di schede consentite per la macchina di destinazione, la destinazione avrà lo stesso numero di schede dell’origine.
        * Se il numero di schede per la macchina virtuale di origine supera il numero consentito per le dimensioni di destinazione, verrà utilizzata la dimensione di destinazione massima.
        * Ad esempio, se una macchina di origine dispone di due schede di rete e le dimensioni della macchina di destinazione ne supportano quattro, la macchina di destinazione avrà due schede. Se la macchina di origine dispone di due schede ma le dimensioni di destinazione supportate ne consentono solo una, la macchina di destinazione avrà una sola scheda.
-       
+
      * **Rete di Azure**: specificare la rete in cui la macchina virtuale deve eseguire il failover. Se la macchina virtuale ha più schede di rete, tutte le schede devono essere connesse alla stessa rete di Azure.
      * **Subnet** : per ogni scheda di rete nella macchina virtuale, selezionare la subnet nella rete di Azure a cui deve connettersi la macchina dopo il failover.
      * **Indirizzo IP di destinazione**: se la scheda di rete della macchina virtuale di origine è configurata per usare un indirizzo IP statico, è possibile specificare l'indirizzo IP per la macchina virtuale di destinazione per assicurarsi che la macchina abbia lo stesso indirizzo IP dopo il failover.  Se non si specifica un indirizzo IP, al momento del failover verrà assegnato un qualsiasi indirizzo disponibile. Se si specifica un indirizzo che si sta usando, il failover avrà esito negativo.
 
-     > [!NOTE] 
+     > [!NOTE]
      > La [migrazione di reti](../azure-resource-manager/resource-group-move-resources.md) all'interno dei gruppi di risorse con la stessa sottoscrizione o all'interno delle sottoscrizioni non è supportata per le reti usate per la distribuzione di Site Recovery.
      >
 
@@ -286,6 +286,6 @@ Dopo aver configurato correttamente la distribuzione, leggere [altre informazion
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

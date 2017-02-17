@@ -1,5 +1,5 @@
 ---
-title: 'Gestione dispositivi StorSimple: registrare un ticket di supporto per l&quot;array virtuale Microsoft Azure StorSimple | Documentazione Microsoft'
+title: Registrare un ticket di supporto per Gestione dispositivi StorSimple | Documentazione Microsoft
 description: "Descrive la capacità diagnostica di Gestione dispositivi StorSimple e illustra come usarla per la risoluzione dei problemi relativi all&quot;array virtuale StorSimple."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
-ms.openlocfilehash: adf6454fef9cfdea60241909453266c79416ac4e
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 658afbc178814389fefd7941e2ca030741bd08e8
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per registrare una richiesta di supporto per l'array virtuale StorSimple
@@ -70,6 +70,6 @@ Informazioni su come [diagnosticare e risolvere i problemi relativi all'array vi
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

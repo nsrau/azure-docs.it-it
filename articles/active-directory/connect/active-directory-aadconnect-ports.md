@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: porte | Microsoft Docs'
+title: "Porte e protocolli necessari per la soluzione ibrida di gestione delle identità | Documentazione Microsoft"
 description: "Questa pagina è una pagina di riferimento tecnico relativa alle porte che devono essere aperte per Azure AD Connect"
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 954c3d138b0fde54c1866135a20f0fc5ff05b85d
+ms.sourcegitcommit: 9364a1449ba17568c82832bc1e97d40febbb30ab
+ms.openlocfilehash: c727e19c1fd8decadfd27c97d25834a9c17c1f73
 
 
 ---
@@ -77,9 +77,9 @@ Questa tabella descrive le porte e i protocolli necessari per la comunicazione t
 |Protocol|Numero della porta|Descrizione
 | --- | --- | ---
 |HTTP|80|Abilitare il traffico HTTP in uscita per la convalida di sicurezza quale SSL.
-|HTTPS|443| Abilitare l'autenticazione utente con Azure AD
-|HTTPS|10100–10120| Abilitare risposte dal connettore ad Azure AD 
-|Bus di servizio di Azure|9352, 5671|  Abilitare la comunicazione tra il connettore e il servizio di Azure per le richieste in ingresso.
+|HTTPS|443|    Abilitare l'autenticazione utente con Azure AD
+|HTTPS|10100–10120|    Abilitare risposte dal connettore ad Azure AD 
+|Bus di servizio di Azure|9352, 5671|    Abilitare la comunicazione tra il connettore e il servizio di Azure per le richieste in ingresso.
 |HTTPS|9350|    Facoltativo, per consentire prestazioni migliori per le richieste in ingresso
 |HTTPS|8080/443|    Abilitare la sequenza di bootstrap del connettore e l'aggiornamento automatico del connettore
 |HTTPS|9090|    Abilitare la registrazione del connettore (necessaria solo per il processo di registrazione del connettore)
@@ -102,6 +102,6 @@ Per un elenco di endpoint vedere la sezione [Requisiti in Installazione dell'age
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

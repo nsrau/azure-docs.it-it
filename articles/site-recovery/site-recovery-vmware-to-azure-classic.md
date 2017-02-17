@@ -1,5 +1,5 @@
 ---
-title: Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery | Documentazione Microsoft
+title: Eseguire la replica di macchine virtuali VMware e server fisici in Azure nel portale classico| Documentazione Microsoft
 description: Questo articolo illustra come distribuire Azure Site Recovery per orchestrare la replica, il failover e il ripristino di macchine virtuali VMware locali e server fisici Windows/Linux in Azure.
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
-ms.openlocfilehash: 70ccb773b70f1b58f039ea5f4aca488d91fa3dad
+ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
+ms.openlocfilehash: e794f44cbf0b5e76c8a67e6e63129efb12090df8
 
 
 ---
@@ -65,12 +65,12 @@ La distribuzione avanzata è un aggiornamento importante. Di seguito è riportat
 * È possibile configurare piani di ripristino che raggruppano i carichi di lavoro delle applicazioni a più livelli su più computer. Site Recovery permette di eseguire il failover dei piani di ripristino e assicura la coerenza di più macchine virtuali, in modo che le macchine virtuali che eseguono gli stessi carichi di lavoro possano essere ripristinate insieme in un punto dati coerente.
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
-### <a name="windows64-bit-only"></a>Windows (solo versione a 64 bit)
+### <a name="windows64-bit-only"></a>Windows (solo versione a&64; bit)
 * Windows Server 2008 R2 SP1+
 * Windows Server 2012
 * Windows Server 2012 R2
 
-### <a name="linux-64-bit-only"></a>Linux (solo versione a 64 bit)
+### <a name="linux-64-bit-only"></a>Linux (solo versione a&64; bit)
 * Red Hat Enterprise Linux 6.7, 7.1, 7.2
 * CentOS 6.5, 6.6, 6.7, 7.0, 7.1, 7.2
 * Oracle Enterprise Linux 6.4 o 6.5 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3 (UEK3)
@@ -102,7 +102,7 @@ Quando si pianifica la capacità, è necessario considerare quanto segue:
 
 ### <a name="source-environment-considerations"></a>Considerazioni relative all'ambiente di origine
 * **Frequenza di modifica giornaliera massima**: un computer protetto può usare un solo server di elaborazione e un singolo server di elaborazione può gestire fino a 2 TB di modifica dei dati al giorno. La massima frequenza di modifica dei dati giornaliera supportata per una macchina protetta è quindi di 2 TB.
-* **Velocità effettiva massima**: una macchina replicata può appartenere a un account di archiviazione in Azure. Un account di archiviazione standard può gestire fino a 20.000 richieste al secondo ed è consigliabile fare in modo che il numero di IOPS in una macchina di origine rimanga 20.000. Se, ad esempio, si ha un computer di origine con 5 dischi e ogni disco genera 120 IOPS (con una dimensione pari a 8.000) nell'origine, il computer rientra nel limite di Azure pari a 500 IOPS per disco. Il numero di account di archiviazione richiesto è uguale al numero di IOPS di origine totali diviso 20.000.
+* **Velocità effettiva massima**: una macchina replicata può appartenere a un account di archiviazione in Azure. Un account di archiviazione standard può gestire fino a 20.000 richieste al secondo ed è consigliabile fare in modo che il numero di IOPS in una macchina di origine rimanga 20.000. Se, ad esempio, si ha un computer di origine con 5 dischi e ogni disco genera 120 IOPS (con una dimensione pari a 8.000) nell'origine, il computer rientra nel limite di Azure pari a 500 IOPS per disco. Il numero di account di archiviazione richiesto è uguale al numero di IOPS di origine totali diviso&20;.000.
 
 ### <a name="management-server-considerations"></a>Considerazioni relative al server di elaborazione
 Il server di gestione esegue i componenti di Site Recovery che gestiscono l'ottimizzazione, la replica e la gestione dati. Deve poter gestire la capacità della frequenza di modifica giornaliera in tutti i carichi di lavoro in esecuzione nei computer protetti e avere a disposizione una larghezza di banda sufficiente per eseguire la replica continua dei dati nell'archiviazione di Azure. In particolare:
@@ -250,7 +250,7 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 >
 
 
->[! VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Setup-Registration/player]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Setup-Registration/player]
 
 
 1. Dalla pagina **Avvio rapido** scaricare nel server il file di installazione unificata.
@@ -296,7 +296,7 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 3. In **Percorso di installazione** specificare il percorso di installazione dei file binari e di archiviazione della cache. È possibile selezionare un'unità con almeno 5 GB di spazio di archiviazione disponibile, ma è consigliabile usare un'unità cache con almeno 600 GB di spazio disponibile.
 
    ![Percorso di installazione](./media/site-recovery-vmware-to-azure-classic/combined-wiz8.png)
-4. In **Selezione rete** specificare il listener, ovvero la scheda di rete e la porta SSL, in cui il server di configurazione dovrà inviare e ricevere i dati di replica. È possibile modificare la porta predefinita (9443). Oltre a questa porta, un server web che orchestra le operazioni di replica userà la porta 443. La porta 443 non deve essere usata per ricevere il traffico di replica.
+4. In **Selezione rete** specificare il listener, ovvero la scheda di rete e la porta SSL, in cui il server di configurazione dovrà inviare e ricevere i dati di replica. È possibile modificare la porta predefinita (9443). Oltre a questa porta, un server web che orchestra le operazioni di replica userà la porta 443. La porta&443; non deve essere usata per ricevere il traffico di replica.
 
     ![Selezione rete](./media/site-recovery-vmware-to-azure-classic/combined-wiz9.png)
 
@@ -335,7 +335,7 @@ Dove:
 * /ProxySettingsFilePath. Facoltativo. Specifica le impostazioni per un proxy personalizzato, ovvero un proxy predefinito nel server che richiede l'autenticazione o un proxy personalizzato.
 
 ## <a name="step-6-set-up-credentials-for-the-vcenter-server"></a>Passaggio 6: Impostare le credenziali per il server vCenter
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Discovery/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Discovery/player]
 >
 >
 
@@ -377,7 +377,7 @@ Se si esegue la replica di macchine virtuali VMware è necessario aggiungere un 
     ![vCenter](./media/site-recovery-vmware-to-azure-classic/add-vcenter3.png)
 
 ## <a name="step-8-create-a-protection-group"></a>Passaggio 8: Creare un gruppo di protezione
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Protection/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Protection/player]
 >
 >
 
@@ -452,7 +452,7 @@ I programmi di installazione sono disponibili in C:\Programmi (x86)\Microsoft Az
 
 | Sistema operativo di origine | File di installazione del servizio Mobility |
 | --- | --- |
-| Windows Server (solo 64 bit) |Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe |
+| Windows Server (solo&64; bit) |Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe |
 | CentOS 6.4, 6.5, 6.6 (solo 64 bit) |Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz |
 | SUSE Linux Enterprise Server 11 SP3 (solo 64 bit) |Microsoft-ASR_UA_9.*.0.0_SLES11-SP3-64_*release.tar.gz |
 | Oracle Enterprise Linux 6.4, 6.5 (solo 64 bit) |Microsoft-ASR_UA_9.*.0.0_OL6-64_*release.tar.gz |
@@ -589,7 +589,7 @@ Lo stato può essere monitorato nella pagina **Processi** .
      * Se la scheda di rete del computer di origine è configurata per l'uso di un indirizzo IP statico, è possibile specificare un indirizzo IP statico per la macchina virtuale di Azure. Se non si specifica un indirizzo IP statico verrà allocato un indirizzo IP disponibile. Se viene specificato un indirizzo IP di destinazione già usato da un'altra macchina virtuale in Azure, il failover avrà esito negativo. Se la scheda di rete del computer di origine è configurata per l'uso del protocollo DHCP, l'impostazione per Azure sarà DHCP.
 
 ## <a name="step-12-create-a-recovery-plan-and-run-a-failover"></a>Passaggio 12: Creare un piano di ripristino ed eseguire un failover
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Failover/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Failover/player]
 >
 >
 
@@ -722,6 +722,6 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

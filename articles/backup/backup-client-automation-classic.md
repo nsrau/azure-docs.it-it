@@ -1,6 +1,7 @@
 ---
-title: Distribuire e gestire il backup per Windows Server/Client mediante PowerShell | Microsoft Docs
-description: Informazioni su come distribuire e gestire Backup di Azure mediante PowerShell
+
+title: Utilizzare PowerShell per gestire i backup di Windows Server in Azure | Documentazione Microsoft
+description: Distribuire e gestire backup di Windows Server mediante PowerShell.
 services: backup
 documentationcenter: 
 author: saurabhsensharma
@@ -15,8 +16,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c21c1687221a9e5c218d03ead969f7c52b7fa2ac
+ms.sourcegitcommit: d8289128414bc67a7c064c827a9bec047f6f22bc
+ms.openlocfilehash: 096c119ad116b87b3e27b71ab9a286d2961cf7df
 
 
 ---
@@ -24,8 +25,8 @@ ms.openlocfilehash: c21c1687221a9e5c218d03ead969f7c52b7fa2ac
 > [!div class="op_single_selector"]
 > * [ARM](backup-client-automation.md)
 > * [Classico](backup-client-automation-classic.md)
-> 
-> 
+>
+>
 
 Questo articolo illustra come usare PowerShell per configurare Backup di Azure in un server o un client Windows e per gestire le operazioni di backup e ripristino.
 
@@ -43,8 +44,8 @@ Se si vogliono usare script scritti per l'ambiente 0.9.8 nell'ambiente 1.0 o ver
 ## <a name="create-a-backup-vault"></a>Creare un insieme di credenziali per il backup
 > [!WARNING]
 > I clienti che usano il servizio Backup di Azure per la prima volta, dovranno registrare il provider di Backup di Azure da usare con la propria sottoscrizione. A tale scopo, eseguire il comando seguente: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
-> 
-> 
+>
+>
 
 È possibile creare un nuovo insieme di credenziali per il backup usando il cmdlet **New-AzureRmBackupVault** . L’archivio di backup è una risorsa ARM, pertanto è necessario inserirlo all'interno di un gruppo di risorse. Eseguire i comandi seguenti in una console di Azure PowerShell con privilegi elevati:
 
@@ -123,8 +124,8 @@ Machine registration succeeded.
 
 > [!IMPORTANT]
 > Non utilizzare percorsi relativi per specificare il file dell'insieme di credenziali. È necessario fornire un percorso assoluto come input per il cmdlet.
-> 
-> 
+>
+>
 
 ## <a name="networking-settings"></a>Impostazioni di rete
 Quando il computer Windows si connette a Internet mediante un server proxy, le impostazioni del proxy possono essere fornite anche all'agente. In questo esempio non è presente alcun server proxy, pertanto sono state eliminate tutte le informazioni relative al proxy.
@@ -151,8 +152,8 @@ Server properties updated successfully
 
 > [!IMPORTANT]
 > Dopo l'impostazione, conservare le informazioni sulla passphrase al sicuro. Non sarà possibile ripristinare i dati da Azure senza la passphrase.
-> 
-> 
+>
+>
 
 ## <a name="back-up-files-and-folders"></a>Eseguire il backup di file e cartelle
 Tutti i backup dei server e dei client Windows in Backup di Azure sono regolati da un criterio, costituito da tre parti:
@@ -607,7 +608,6 @@ Per altre informazioni su Backup di Azure per Windows Server/Client, vedere
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

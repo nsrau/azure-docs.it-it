@@ -1,5 +1,5 @@
 ---
-title: Distribuzione di servizi di Web Azure ML che usano i moduli Import Data ed Export Data | Documentazione Microsoft
+title: Utilizzo di Import Data ed Export Data nei servizi Web Azure Machine Learning | Documentazione Microsoft
 description: Informazioni su come usare i moduli Import Data ed Export Data per inviare e ricevere dati da un servizio Web.
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 066ff1d2c8255c895fbfcb0ad8c0b1fef298f8c7
-ms.openlocfilehash: f122153a97c3bbdb4416b97146cf9611b850b51e
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: 0dc02034ea1f3c4f8413aca1ff693838ad1e49bd
 
 
 ---
@@ -145,6 +145,6 @@ Per eseguire la distribuzione come servizio Web nuovo e creare un'applicazione p
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

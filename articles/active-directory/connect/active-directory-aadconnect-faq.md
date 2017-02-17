@@ -1,26 +1,26 @@
 ---
-title: Domande frequenti su Azure AD Connect | Documentazione Microsoft
+title: Domande frequenti su Azure Active Directory Connect | Documentazione Microsoft
 description: Questa pagina contiene le domande frequenti su Azure AD Connect.
 services: active-directory
 documentationcenter: 
 author: billmath
 manager: femila
-editor: curtand
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: a2b4c14fa7f167e9a7e0cddeedbf18579117c478
-ms.openlocfilehash: 7d8ce3c869c7e3734fa1d4bc27e52325dafc651a
+ms.sourcegitcommit: 85458f4477dadb83a6a2627ef490471ca38ac634
+ms.openlocfilehash: c2b78731feb1993e5c7123ff676f38704120ccff
 
 
 ---
-# <a name="azure-ad-connect-faq"></a>Domande frequenti su Azure AD Connect
+# <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Domande frequenti su Azure Active Directory Connect
+
 ## <a name="general-installation"></a>Installazione generale
 **D: L'installazione verrà eseguita correttamente se per l'amministratore globale di Active Directory Azure è abilitata l'autenticazione a due fattori?**  
 Questa opzione è supportata nelle build rilasciate a partire da febbraio 2016.
@@ -97,6 +97,6 @@ No. Questa opzione non recupererà tutte le impostazioni di configurazione e non
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

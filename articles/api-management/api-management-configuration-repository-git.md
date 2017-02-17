@@ -1,28 +1,25 @@
 ---
-title: Come salvare e configurare la configurazione del servizio Gestione API tramite Git
+title: Configurare il servizio Gestione API tramite Git - Azure | Documentazione Microsoft
 description: Informazioni su come salvare e configurare la configurazione del servizio Gestione API tramite Git
 services: api-management
 documentationcenter: 
 author: steved0x
 manager: erikre
-editor: 
+editor: mattfarm
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 96d100d69a7f4989153b293d1fa1ab249a82c1c2
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 801fe10ad20c48fb965d3f80956d7979c9c2314e
 
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Come salvare e configurare la configurazione del servizio Gestione API tramite Git
-> [!IMPORTANT]
-> La configurazione di Git per Gestione API è attualmente disponibile in anteprima. Completata dal punto di vista funzionale, questa funzionalità è disponibile in anteprima perché ancora in attesa di commenti e suggerimenti. Poiché è possibile che vengano apportate modifiche sostanziali basate sui suggerimenti dei clienti, si consiglia di non dipendere dall'uso di questa funzionalità negli ambienti di produzione. Per eventuali commenti o domande, scrivere all'indirizzo `apimgmt@microsoft.com`.
 > 
 > 
 
@@ -40,7 +37,7 @@ Quando si apportano modifiche al servizio tramite il portale di pubblicazione, i
 
 I passaggi seguenti offrono una panoramica della gestione dell'istanza del servizio Gestione API tramite Git.
 
-1. Abilitare l'accesso a Git nel servizio
+1. Accedere alla configurazione Git nel servizio
 2. Salvare il database di configurazione del servizio nel repository Git
 3. Clonare il repository Git nel computer locale
 4. Estrarre il repository più recente nel computer locale ed eseguire il commit e il push delle modifiche nel repository
@@ -48,20 +45,14 @@ I passaggi seguenti offrono una panoramica della gestione dell'istanza del servi
 
 Questo articolo descrive come abilitare e usare Git per gestire la configurazione del servizio e costituisce un riferimento per i file e le cartelle nel repository Git.
 
-## <a name="to-enable-git-access"></a>Per abilitare l'accesso a Git
-È possibile visualizzare rapidamente lo stato della configurazione di Git visualizzando l'icona Git nell'angolo superiore destro del portale di pubblicazione. Nell'esempio l'accesso a Git non è ancora stato abilitato.
+## <a name="access-git-configuration-in-your-service"></a>Accedere alla configurazione Git nel servizio
+È possibile visualizzare rapidamente lo stato della configurazione di Git visualizzando l'icona Git nell'angolo superiore destro del portale di pubblicazione. In questo esempio, il messaggio di stato indica che ci sono modifiche non salvate nel repository. Questo avviene perché il database di configurazione del servizio Gestione API non è ancora stato salvato nel repository.
 
 ![Stato Git][api-management-git-icon-enable]
 
 Per visualizzare e configurare le impostazioni di configurazione di Git, è possibile fare clic sull'icona Git oppure fare clic sul menu **Security** (Sicurezza) e passare alla scheda **Configuration repository** (Repository configurazioni).
 
 ![Abilitare GIT][api-management-enable-git]
-
-Per abilitare l'accesso a Git, selezionare la casella di controllo **Enable Git access** .
-
-Dopo qualche istante la modifica viene salvata e viene visualizzato un messaggio di conferma. Si noti che l'icona Git appare colorata per indicare che l'accesso Git è abilitato, mentre il messaggio di stato ora indica che sono presenti modifiche non salvate nel repository. Questo avviene perché il database di configurazione del servizio Gestione API non è ancora stato salvato nel repository.
-
-![GIT abilitato][api-management-git-enabled]
 
 > [!IMPORTANT]
 > Eventuali segreti non definiti come proprietà verranno archiviati nel repository e rimarranno nella cronologia di questo finché non si disabilita e riabilita l'accesso a Git. Le proprietà rappresentano un luogo sicuro per gestire i valori stringa costanti, segreti inclusi, attraverso tutte le configurazioni e tutti i criteri per le API. Non è quindi necessario archiviarli direttamente nelle istruzioni dei criteri. Per altre informazioni, vedere [Come usare le proprietà nei criteri di Gestione API di Azure](api-management-howto-properties.md).
@@ -321,6 +312,6 @@ Per informazioni su altri metodi di gestione dell'istanza del servizio, vedere:
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

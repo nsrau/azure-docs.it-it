@@ -1,5 +1,5 @@
 ---
-title: "Test di prestazioni e risultati di scalabilità per la replica Hyper-V da sito locale a sito locale con Site Recovery | Microsoft Docs"
+title: Risultati del test per un processo di replica tra siti usando Azure Site Recovery | Documentazione Microsoft
 description: Questo articolo fornisce informazioni sul test di prestazioni eseguito durante un processo di replica da locale a locale usando Azure Site Recovery.
 services: site-recovery
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/01/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b3c35bf129dd1566f3e2084caacc0330b5a6fc32
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: ba82512e830032172c8a0d78029605935d1417f9
 
 
 ---
-# <a name="performance-test-and-scale-results-for-on-premises-to-on-premises-hyper-v-replication-with-site-recovery"></a>Test di prestazioni e risultati di scalabilità per la replica Hyper-V da sito locale a sito locale con Site Recovery
+# <a name="test-results-for-on-premises-to-on-premises-hyper-v-replication-with-site-recovery"></a>Risultati del test per la replica Hyper-V da locale a locale con Site Recovery
 Microsoft Azure Site Recovery consente di coordinare e gestire la replica di macchine virtuali e server fisici in Azure o in un data center secondario. Questo articolo illustra i risultati del test di prestazioni eseguito durante la replica di macchine virtuali Hyper-V tra due data center locali.
 
 ## <a name="overview"></a>Panoramica
@@ -94,7 +94,7 @@ I risultati mostrano chiaramente che Azure Site Recovery, grazie a Hyper-V Repli
 * Il sito primario dispone di un cluster contenente cinque server Hyper-V con 470 macchine virtuali.
 * Le macchine virtuali eseguono diversi carichi di lavoro e per tutte la protezione di Azure Site Recovery è abilitata.
 * L’archiviazione per il nodo del cluster è fornita da una rete SAN iSCSI. Modello – Hitachi HUS130.
-* Ogni server del cluster ha quattro schede di rete (NIC) di 1 Gbps ciascuna.
+* Ogni server del cluster ha quattro schede di rete (NIC) di&1; Gbps ciascuna.
 * Due delle schede di rete sono connesse a una rete privata iSCSI e due sono connesse a una rete aziendale esterna. Una delle reti esterne è riservata alle comunicazioni del cluster.
 
 ![Requisiti hardware principali](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744922.png)
@@ -125,7 +125,7 @@ I risultati mostrano chiaramente che Azure Site Recovery, grazie a Hyper-V Repli
 | Carico di lavoro | Dimensioni I/O (KB) | % accesso | % lettura | I/O in sospeso | Modello I/O |
 | --- | --- | --- | --- | --- | --- |
 | File Server |48163264 |60%20%5%5%10% |80%80%80%80%80% |88888 |Tutti 100% casuale |
-| SQL Server (volume 1) SQL Server (volume 2) |864 |100%100% |70%0% |88 |100% casuale 100% sequenziale |
+| SQL Server (volume 1) SQL Server (volume 2) |864 |100%100% |70%0% |88 |100% casuale&100;% sequenziale |
 | Exchange |32 |100% |67% |8 |100% casuale |
 | Workstation/VDI |464 |66%34% |70%95% |11 |Entrambi 100% casuale |
 | File Server Web |4864 |33%34%33% |95%95%95% |888 |Tutti 75% casuale |
@@ -173,7 +173,6 @@ Nella tabella vengono riepilogate le metriche delle prestazioni e i contatori mi
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

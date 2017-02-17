@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: API Recommendations di Machine Learning | Documentazione Microsoft'
+title: 'Guida introduttiva: API Recommendations di Azure Machine Learning (versione 1) | Documentazione Microsoft'
 description: Recommendations di Azure Machine Learning - Guida introduttiva
 services: machine-learning
 documentationcenter: 
@@ -12,22 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 02/07/2017
 ms.author: luisca
 translationtype: Human Translation
-ms.sourcegitcommit: 099090d06163f15a08592e25f6171cfacf24b0f1
-ms.openlocfilehash: bf47dd8f88405f2bed31c621e37531e3641ddc6c
+ms.sourcegitcommit: c5d1812a3bd7e1ad3621ca691339f01729882b08
+ms.openlocfilehash: 67131bbaccff549817bfe5fdf874d609ea22c2bc
 
 
 ---
-# <a name="quick-start-guide-for-the-machine-learning-recommendations-api"></a>Guida introduttiva per l'API Recommendations di Machine Learning
+# <a name="quick-start-guide-for-the-machine-learning-recommendations-api-version-1"></a>Guida introduttiva per l'API Recommendations di Machine Learning (versione 1)
+
 > [!NOTE]
-> È consigliabile iniziare usando l'API Recommendations di Servizi cognitivi invece di questa versione. Il Servizio cognitivo di Recommendations sostituirà questo servizio e verranno sviluppate nuove funzionalità. Il servizio include nuove funzionalità come il supporto in batch, una migliore funzione di Esplora API, una superficie API più pulita, un'esperienza più coerente in termini di iscrizione e fatturazione e così via.
-> Per altre informazioni, vedere [Migrating to the new Cognitive Service](http://aka.ms/recomigrate)
+> È consigliabile iniziare usando l'[API Recommendations dei servizi cognitivi](https://www.microsoft.com/cognitive-services/recommendations-api) invece di questa versione. Il Servizio cognitivo di Recommendations sostituirà questo servizio e verranno sviluppate nuove funzionalità. Il servizio include nuove funzionalità come il supporto in batch, una migliore funzione di Esplora API, una superficie API più pulita, un'esperienza più coerente in termini di iscrizione e fatturazione e così via.
+>
+> Per altre informazioni, vedere [Migrating to the new Cognitive Service](http://aka.ms/recomigrate) (Migrazione al nuovo Servizio cognitivo).
 > 
 > 
 
-Questo documento descrive come configurare il servizio o l'applicazione per l'uso di Recommendations di Microsoft Azure Machine Learning. È possibile trovare ulteriori informazioni sull'API Recommendations nella [raccolta](http://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+Questo documento descrive come configurare il servizio o l'applicazione per l'uso di Recommendations di Microsoft Azure Machine Learning. È possibile trovare ulteriori informazioni sull'API Recommendations in [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPIs/Recommendations-2).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -148,7 +150,7 @@ Se si caricano diversi file del catalogo nello stesso modello con diverse chiama
 | Nome parametro | Valori validi |
 |:--- |:--- |
 | modelId |Identificatore univoco del modello con distinzione tra maiuscole e minuscole |
-| filename |Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (_).<br> Lunghezza massima: 50 |
+| filename |Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (_).<br>Lunghezza massima: 50 |
 | apiVersion |1.0 |
 |  | |
 | Corpo della richiesta |Dati del catalogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Mandatory</th><th>Tipo</th><th>Description</th></tr><tr><td>Item Id</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 50 caratteri</td><td>Identificatore univoco di un elemento</td></tr><tr><td>Item Name</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 255 caratteri</td><td>Nome dell'elemento</td></tr><tr><td>Item Category</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 255 caratteri</td><td>Categoria alla quale appartiene l'elemento, ad esempio libri di cucina, letteratura e così via</td></tr><tr><td>Descrizione</td><td>No</td><td>Alfanumerico, lunghezza massima: 4000 caratteri</td><td>Descrizione dell'elemento</td></tr></table><br>La dimensione massima del file è di 200 MB.<br><br>Esempio:<br><code>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</code> |
@@ -195,7 +197,7 @@ Queste sezioni mostrano come caricare i dati di utilizzo tramite un file. È pos
 | Nome parametro | Valori validi |
 |:--- |:--- |
 | modelId |Identificatore univoco del modello con distinzione tra maiuscole e minuscole |
-| filename |Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (_).<br> Lunghezza massima: 50 |
+| filename |Identificatore testuale del catalogo.<br>Sono consentiti solo lettere (A-Z, a-z), numeri (0-9), trattini (-) e caratteri di sottolineatura (_).<br>Lunghezza massima: 50 |
 | apiVersion |1.0 |
 |  | |
 | Corpo della richiesta |Dati di utilizzo. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Mandatory</th><th>Tipo</th><th>Descrizione</th></tr><tr><td>User Id</td><td>Sì</td><td>Alfanumerico</td><td>Identificatore univoco di un utente</td></tr><tr><td>Item Id</td><td>Sì</td><td>Alfanumerico, lunghezza massima: 50 caratteri</td><td>Identificatore univoco di un elemento</td></tr><tr><td>Time</td><td>No</td><td>Data in formato: AAAA/MM/GGTHH:MM:SS (ad esempio 2013/06/20T10:00:00)</td><td>Ora dei dati</td></tr><tr><td>Evento</td><td>No, se fornito deve essere inserita anche la data</td><td>Uno dei seguenti:<br>• Click<br>• RecommendationClick<br>•    AddShopCart<br>• RemoveShopCart<br>• Acquisto</td><td></td></tr></table><br>La dimensione massima del file è di 200 MB.<br><br>Esempio:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
@@ -341,7 +343,7 @@ Questa sezione illustra come inviare eventi in tempo reale a Recommendations di 
 | Nome parametro | Valori validi |
 |:--- |:--- |
 | modelId |Identificatore univoco del modello con distinzione tra maiuscole e minuscole |
-| userDescription |Identificatore testuale del catalogo. Tenere presente che, se si usano degli spazi, è necessario codificarli con il simbolo %20. Vedere l'esempio precedente.<br> Lunghezza massima: 50 |
+| userDescription |Identificatore testuale del catalogo. Tenere presente che, se si usano degli spazi, è necessario codificarli con il simbolo %20. Vedere l'esempio precedente.<br>Lunghezza massima: 50 |
 | apiVersion |1.0 |
 |  | |
 | Corpo della richiesta |Nessuno |
@@ -698,11 +700,11 @@ XML OData
     </feed>
 
 ## <a name="legal"></a>Note legali
-Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Internet, sono soggette a modifica senza preavviso. Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta.  Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft. È possibile copiare e usare il presente documento per scopi interni e di riferimento. © 2014 Microsoft. Tutti i diritti sono riservati. 
+Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Internet, sono soggette a modifica senza preavviso. Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta. Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft. È possibile copiare e usare il presente documento per scopi interni e di riferimento. © 2014 Microsoft. Tutti i diritti sono riservati. 
 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

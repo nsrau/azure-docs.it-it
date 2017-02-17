@@ -1,5 +1,5 @@
 ---
-title: Informazioni generali sulla protezione dei contenuti | Microsoft Docs
+title: Proteggere i contenuti con Servizi multimediali di Azure | Documentazione Microsoft
 description: Questi articoli forniscono informazioni generali sulla protezione dei contenuti con Servizi multimediali.
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 9d3718cf80e023f4c5b9c523375b77083a9d7be7
+ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
+ms.openlocfilehash: bf2bd9bca8817f64790ac62d2981a51aa36566a3
 
 
 ---
@@ -27,10 +27,8 @@ L'immagine seguente illustra i flussi di lavoro di protezione del contenuto supp
 
 ![Protezione con PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-multi-drm.png)
 
-> [!NOTE]
-> Per poter usare la crittografia dinamica, è prima necessario ottenere almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere in streaming i contenuti crittografati.
-> 
-> 
+>[!NOTE]
+>Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
 
 Questo argomento illustra [concetti e terminologia](media-services-content-protection-overview.md) importanti per comprendere la protezione del contenuto con AMS. Contiene anche [collegamenti](media-services-content-protection-overview.md#common-scenarios) ad argomenti che illustrano come eseguire attività di protezione del contenuto. 
 
@@ -45,10 +43,6 @@ Per consentire a Servizi multimediali di crittografare un asset, è necessario a
 
 Quando un flusso viene richiesto da un lettore, Servizi multimediali usa la chiave specificata per crittografare dinamicamente i contenuti mediante la chiave non crittografata AES o la crittografia DRM. Per decrittografare il flusso, il lettore richiederà la chiave dal servizio di distribuzione delle chiavi. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati.
 
-> [!NOTE]
-> Per avvalersi della crittografia dinamica, è necessario ottenere almeno un'unità di streaming su richiesta per l'endpoint di streaming da cui si intende distribuire i contenuti crittografati. Per altre informazioni, vedere la sezione relativa al [ridimensionamento di Servizi multimediali](media-services-portal-manage-streaming-endpoints.md).
-> 
-> 
 
 ## <a name="storage-encryption"></a>Crittografia di archiviazione
 Usare la crittografia di archiviazione per crittografare il contenuto non crittografato localmente tramite crittografia AES a 256 bit, quindi caricarlo nel servizio Archiviazione di Azure dove viene archiviato in forma crittografata. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica. Se necessario, inoltre, possono essere ricrittografati prima del successivo caricamento come nuovo asset di output. La crittografia di archiviazione viene usata principalmente per proteggere file multimediali di input di alta qualità archiviati su disco applicando una crittografia avanzata.
@@ -96,6 +90,10 @@ Gli argomenti seguenti descrivono come proteggere i contenuti nella memoria, dis
 * [How to integrate Azure PlayReady License service with your own encryptor/streaming server](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server)(Come integrare il servizio licenze Azure PlayReady con il server del componente di crittografia/streaming).
 * [Uso di castLabs per distribuire licenze DRM a Servizi multimediali di Azure](media-services-castlabs-integration.md)
 
+>[!NOTE]
+>Uno scenario in cui si usa un server DRM esterno (tecnologia) e un flusso da AMS non è attualmente supportato.
+
+
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -119,6 +117,6 @@ Gli argomenti seguenti descrivono come proteggere i contenuti nella memoria, dis
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

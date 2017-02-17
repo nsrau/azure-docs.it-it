@@ -1,5 +1,5 @@
 ---
-title: "Linee guida per i set di disponibilità di Azure | Documentazione Microsoft"
+title: "Set di disponibilità per macchine virtuali Linux in Azure | Documentazione Microsoft"
 description: "Informazioni sulle principali linee guida di progettazione e implementazione per la distribuzione dei set di disponibilità nei servizi di infrastruttura di Azure."
 documentationcenter: 
 services: virtual-machines-linux
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: a99ab839ec9ade0049e1cc59054e333048e0208c
-ms.openlocfilehash: 93d1421fb8afdc5e6e7d20de25774eb580a0e8da
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 0c31fb1d02e26491de8d1076d074a2021906999f
 
 
 ---
@@ -56,6 +56,6 @@ Progettare l'applicazione per la disponibilità elevata a livello di archiviazio
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

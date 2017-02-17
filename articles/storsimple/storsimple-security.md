@@ -1,5 +1,5 @@
 ---
-title: Sicurezza in StorSimple | Microsoft Docs
+title: Sicurezza in StorSimple serie 8000 | Documenti Microsoft
 description: "Descrive le funzionalità di sicurezza e privacy che proteggono il servizio, il dispositivo e i dati StorSimple."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 05/03/2016
 ms.author: v-sharos
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: efdb69c03845ba321d7e0b1270268c4fb92fa1ef
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 7e526816f1a564ab80113c30d5c9671cb2b7e104
 
 
 ---
@@ -261,6 +261,6 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

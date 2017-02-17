@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/11/2017
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: fc2d81ce5d1562bcc71584626d8e45a2d788b2e3
+ms.sourcegitcommit: 9c2817129162ab17faadf3c5ecf8ef7dcb370c3c
+ms.openlocfilehash: 2c9c4b59077ea7d31677a5e1c690160bf63633a6
 
 
 ---
@@ -43,7 +43,9 @@ I metodi diretti vengono implementati nel dispositivo. Per creare correttamente 
 
 I metodi diretti sono sincroni e possono solo avere esito positivo o negativo dopo il periodo di timeout. Il valore predefinito è 30 secondi, ma il valore massimo impostabile è 3600 secondi. Risultano utili negli scenari interattivi in cui si vuole che il dispositivo agisca esclusivamente se è online e riceve comandi, ad esempio nel caso dell'accensione di una luce da un telefono. In questi scenari l'esito positivo o negativo deve essere immediato, in modo che il servizio cloud possa agire in base al risultato il prima possibile. Il dispositivo può restituire un corpo del messaggio come risultato del metodo, ma non è necessario che il metodo esegua questa operazione. Nelle chiamate ai metodi non esiste alcuna garanzia di ordinamento o semantica di concorrenza.
 
-Le chiamate ai metodi dei dispositivi sono solo HTTP dal lato cloud e solo MQTT dal lato dispositivo.
+I metodi diretti supportano solo HTTP lato cloud e solo MQTT lato dispositivo.
+
+Il payload per le richieste e le risorse del metodo è un documento JSON con dimensioni fino a 8 KB.
 
 ## <a name="reference-topics"></a>Argomenti di riferimento:
 Gli argomenti di riferimento seguenti offrono altre informazioni sull'uso dei metodi diretti.
@@ -142,6 +144,6 @@ Per provare alcuni dei concetti descritti in questo articolo, può essere utile 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

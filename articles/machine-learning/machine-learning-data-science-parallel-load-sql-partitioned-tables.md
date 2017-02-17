@@ -1,5 +1,5 @@
 ---
-title: Importazione di dati in blocco utilizzando le tabelle di partizione SQL | Documentazione Microsoft
+title: Creare e ottimizzare le tabelle per l&quot;importazione parallela rapida dei dati in SQL Server in una macchina virtuale di Azure | Documentazione Microsoft
 description: Importazione di dati in blocco utilizzando le tabelle di partizione SQL
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: e6c45f4be168cef1a05958624f666097779e76f6
-ms.openlocfilehash: 2486a00482ca873ccb5198b5ca13cdc104bd1505
+ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
+ms.openlocfilehash: aae4e4f59e76bf48b00a2ee92aedd7d5643ba91a
 
 
 ---
@@ -24,11 +24,9 @@ ms.openlocfilehash: 2486a00482ca873ccb5198b5ca13cdc104bd1505
 Questo documento descrive come creare tabelle partizionate per l'importazione in blocco in parallelo di dati in un database di SQL Server. Per il caricamento/trasferimento di Big Data, l'importazione di dati nel database SQL e le query successive possono essere migliorate usando *tabelle e visualizzazioni di partizione*. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Creazione di un nuovo database e di un set di filegroup
-* [Creare un nuovo database](https://technet.microsoft.com/library/ms176061.aspx) (se non esiste)
-* Aggiungere filegroup del database al database che conterrà i file fisici partizionati
-  
-  Questa operazione può essere eseguita con [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) se il database è nuovo o con [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) se il database esiste già.
-* Aggiungere uno o più file (se necessario) per ogni filegroup del database
+* [Creare un nuovo database](https://technet.microsoft.com/library/ms176061.aspx) se non esiste già.
+* Aggiungere filegroup di database al database che conterranno i file fisici partizionati. Questa operazione può essere eseguita con [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) per un nuovo database o [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) se il database esiste già.
+* Aggiungere uno o più file (se necessario) per ogni filegroup del database.
   
   > [!NOTE]
   > Specificare il filegroup di destinazione contenente i dati della partizione e i nomi dei file del database fisico in cui verranno archiviati i dati del filegroup.
@@ -185,6 +183,6 @@ Per un esempio della procedura dettagliata end-to-end mediante Cortana Analytics
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Linee guida per i set di disponibilità di Azure | Documentazione Microsoft"
+title: "Set di disponibilità per macchine virtuali Windows in Azure | Documentazione Microsoft"
 description: "Informazioni sulle principali linee guida di progettazione e implementazione per la distribuzione dei set di disponibilità nei servizi di infrastruttura di Azure."
 documentationcenter: 
 services: virtual-machines-windows
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2e981b0bebbc88fdad23ce8279762fe717e48a4c
-ms.openlocfilehash: 59ef4be4854c4625bed5f9f1f32e7771ccb6979d
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 0d4a7f8d7f469c43c972a163651688796483f8fc
 
 
 ---
@@ -56,6 +56,6 @@ Progettare l'applicazione per la disponibilità elevata a livello di archiviazio
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

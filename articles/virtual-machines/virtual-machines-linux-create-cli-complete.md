@@ -1,5 +1,5 @@
 ---
-title: Creare un ambiente Linux completo usando l&quot;interfaccia della riga di comando di Azure 2.0 (anteprima) | Documentazione Microsoft
+title: Creare un ambiente Linux tramite l&quot;interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
 description: Usare l&quot;interfaccia della riga di comando di Azure 2.0 (anteprima) per creare da zero una risorsa di archiviazione, una VM Linux, una rete virtuale con subnet, il bilanciamento del carico, una scheda di interfaccia di rete, un IP pubblico e un gruppo di sicurezza di rete.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 12/8/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 95b924257c64a115728c66956d5ea38eb8764a35
-ms.openlocfilehash: b02be35b0a3e97dbab32467eb8f654ea9609e7aa
+ms.sourcegitcommit: e64449991bc28427d8f559ed13c3bdf9160488db
+ms.openlocfilehash: d8308ed6ec03457bd0ec30d34166631357e2b60f
 
 
 ---
@@ -1101,6 +1101,6 @@ Ora è possibile iniziare a utilizzare più componenti di rete e VM. È possibil
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

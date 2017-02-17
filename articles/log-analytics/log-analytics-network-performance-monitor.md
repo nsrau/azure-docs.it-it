@@ -1,6 +1,6 @@
 ---
-title: Soluzione di monitoraggio delle prestazioni di rete in OMS | Documentazione Microsoft
-description: Il monitoraggio delle prestazioni di rete consente di monitorare le prestazioni praticamente in tempo reale per rilevare e trovare i colli di bottiglia relativi.
+title: Soluzione di monitoraggio delle prestazioni di rete in OMS | Microsoft Docs
+description: Il monitoraggio delle prestazioni di rete consente di monitorare le prestazioni delle reti quasi in tempo reale per rilevare e trovare i colli di bottiglia delle prestazioni di rete.
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 01/31/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 820a9463c0e58054cf70324b680c5af8fdcacade
-ms.openlocfilehash: 794d9b7d5031730f9ea0f8daae251c825f7b05b0
+ms.sourcegitcommit: d1cae87bb312ef903d099b8be59ad39a5b83d468
+ms.openlocfilehash: 4b683ef50ca1046686213b55c32e07b5fb8cca68
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: 794d9b7d5031730f9ea0f8daae251c825f7b05b0
 
 In questo documento viene descritto come configurare e usare la soluzione di monitoraggio delle prestazioni di rete in OMS, che consente di monitorare le prestazioni delle reti quasi in tempo reale per rilevare e trovare i colli di bottiglia delle prestazioni di rete. Con la soluzione di monitoraggio delle prestazioni di rete, è possibile monitorare la perdita e la latenza tra due reti, subnet o server. Il monitoraggio delle prestazioni di rete rileva problemi di rete come il blackholing del traffico, gli errori di routing e i problemi che i metodi di monitoraggio della rete tradizionali non sono in grado di rilevare. Il monitoraggio delle prestazioni di rete genera avvisi e invia notifiche quando viene superata una soglia per un collegamento di rete. Queste soglie possono essere acquisite automaticamente dal sistema oppure possono essere configurate in modo che usino regole di avviso personalizzate. Il monitoraggio delle prestazioni di rete garantisce una tempestiva individuazione dei problemi legati alle prestazioni di rete e localizza l'origine del problema in un particolare segmento di rete o un dispositivo.
 
-È possibile rilevare i problemi di rete con il dashobard della soluzione, che mostra un riepilogo delle informazioni sulla rete, tra cui i recenti eventi di integrità di rete, i collegamenti di rete danneggiati e i collegamenti di subnet con problemi di grande perdita di pacchetti e di latenza elevata. È possibile eseguire il drill-down in un collegamento di rete per visualizzare lo stato di integrità corrente dei collegamenti di subnet, nonché dei collegamenti tra nodi. È anche possibile visualizzare le tendenze cronologiche di perdita e latenza a livello di rete, subnet e tra nodi. È possibile rilevare i problemi di rete temporanei visualizzando i grafici sulle tendenze cronologiche relative a perdita di pacchetti e latenza e individuare colli di bottiglia di rete su una mappa topologica. Il grafico interattivo della topologia consente di visualizzare le route di rete hop-by-hop e determinare l'origine del problema. Come in qualsiasi altra soluzione, è possibile usare la ricerca nei log per i vari requisiti di analisi al fine di creare report personalizzati in base ai dati raccolti dal monitoraggio delle prestazioni di rete.
+È possibile rilevare i problemi di rete con il dashboard della soluzione, che mostra un riepilogo delle informazioni sulla rete, tra cui i recenti eventi di integrità di rete, i collegamenti di rete danneggiati e i collegamenti di subnet con problemi di grande perdita di pacchetti e di latenza elevata. È possibile eseguire il drill-down in un collegamento di rete per visualizzare lo stato di integrità corrente dei collegamenti di subnet, nonché dei collegamenti tra nodi. È anche possibile visualizzare le tendenze cronologiche di perdita e latenza a livello di rete, subnet e tra nodi. È possibile rilevare i problemi di rete temporanei visualizzando i grafici sulle tendenze cronologiche relative a perdita di pacchetti e latenza e individuare colli di bottiglia di rete su una mappa topologica. Il grafico interattivo della topologia consente di visualizzare le route di rete hop-by-hop e determinare l'origine del problema. Come in qualsiasi altra soluzione, è possibile usare la ricerca nei log per i vari requisiti di analisi al fine di creare report personalizzati in base ai dati raccolti dal monitoraggio delle prestazioni di rete.
 
 La soluzione usa le transazioni sintetiche come meccanismo principale per rilevare gli errori di rete. Pertanto, è possibile usarla senza tener conto del particolare fornitore o modello di un dispositivo di rete. Funziona in ambienti ibridi, cloud (IaaS) e locali. La soluzione rileva automaticamente la topologia di rete e le varie route della rete.
 
@@ -149,6 +149,51 @@ La *regola predefinita* viene creata dal sistema e crea un evento di integrità 
 6. Fare clic su **Salva** per salvare la configurazione.  
    ![creazione di una regola di monitoraggio personalizzata](./media/log-analytics-network-performance-monitor/npm-monitor-rule.png)
 
+### <a name="choose-the-right-protocol-icmp-or-tcp"></a>Scegliere il protocollo ICMP o TCP corretto
+
+Monitoraggio prestazioni rete (NPM) usa le transazioni sintetiche per calcolare le metriche delle prestazioni di rete come la latenza di collegamento e la perdita di pacchetti. Per comprendere meglio questo concetto, si consideri un agente NPM connesso a un'estremità di un collegamento di rete. L'agente NPM invia pacchetti probe a un secondo agente NPM connesso a un'altra estremità della rete. Il secondo agente risponde con pacchetti di risposta. Questo processo viene ripetuto più volte. Misurando il numero di risposte e il tempo impiegato per ricevere ogni risposta, il primo agente NPM valuta la latenza del collegamento e la perdita dei pacchetti.
+
+Il formato, le dimensioni e la sequenza di questi pacchetti dipendono dal protocollo scelto durante la creazione delle regole di monitoraggio. In base al protocollo dei pacchetti, i dispositivi di rete intermedi (router, commutatori e così via) potrebbero elaborare questi pacchetti in modo diverso. Di conseguenza, la scelta del protocollo influisce sulla precisione dei risultati. Inoltre la scelta del protocollo determina anche l'eventuale necessità di eseguire alcuni passaggi manuali dopo aver distribuito la soluzione NPM.
+
+NPM offre la possibilità di scegliere tra i protocolli TCP e ICMP per l'esecuzione di transazioni sintetiche.
+Se si sceglie il protocollo ICMP quando si crea una regola di transazione sintetica, gli agenti NPM usano messaggi ICMP ECHO per calcolare la latenza di rete e la perdita di pacchetti. ICMP ECHO usa lo stesso messaggio che viene inviato dall'utilità Ping convenzionale. Quando si usa il protocollo TCP, gli agenti NPM inviano pacchetti TCP SYN sulla rete. Questa operazione è seguita dal completamento di un handshake TCP e successivamente dalla rimozione della connessione tramite pacchetti RST.
+
+#### <a name="points-to-consider-before-choosing-the-protocol"></a>Aspetti da considerare prima di scegliere il protocollo
+Prima scegliere il protocollo, tenere in considerazione le informazioni seguenti:
+
+##### <a name="discovering-multiple-network-routes"></a>Individuazione di più route di rete
+TCP offre una maggiore precisione nell'individuazione di più route e necessita di un minor numero di agenti in ogni subnet. Ad esempio, uno o due agenti con TCP possono individuare tutti i percorsi ridondanti tra subnet. Invece, per ottenere risultati simili con il protocollo ICMP, servono più agenti. Con ICMP, se si dispone di *N* numero di route tra due subnet, è necessario usare più di 5*N* agenti nella subnet di origine o destinazione.
+
+##### <a name="accuracy-of-results"></a>Precisione dei risultati
+I router e i commutatori tendono ad assegnare una priorità inferiore ai pacchetti ICMP ECHO rispetto ai pacchetti TCP. In determinati casi, quando è presente un carico eccessivo dei dispositivi di rete, i dati ottenuti dal protocollo TCP riflettono più da vicino la perdita e la latenza sperimentate dalle applicazioni. Ciò si verifica perché la maggior parte del traffico delle applicazioni fluisce attraverso TCP. In questi casi, il protocollo ICMP fornisce risultati meno precisi rispetto a TCP.
+
+##### <a name="firewall-configuration"></a>Configurazione del firewall
+Il protocollo TCP prevede che i pacchetti TCP vengano inviati a una porta di destinazione. La porta predefinita usata dagli agenti NPM è la porta 8084, tuttavia è possibile cambiarla quando si configurano gli agenti. È quindi necessario accertarsi che i firewall di rete o regole NSG (in Azure) consentano il traffico sulla porta. È necessario assicurarsi che anche il firewall locale nei computer in cui sono installati gli agenti sia configurato per consentire il traffico su questa porta.
+
+È possibile usare gli script di PowerShell per configurare le regole del firewall nei computer che eseguono Windows. Il firewall di rete deve invece essere configurato manualmente.
+
+Il protocollo ICMP invece non opera tramite porta. Nella maggior parte degli scenari aziendali, il traffico ICMP può fluire attraverso i firewall per consentire l'uso degli strumenti di diagnostica di rete come l'utilità Ping. Pertanto, se è possibile eseguire il Ping da un computer ad un altro, è possibile usare il protocollo ICMP senza dover configurare i firewall manualmente.
+
+> [!NOTE]
+> Nel caso in cui non si sia certi di quale protocollo usare, è consigliabile iniziare con il protocollo ICMP. Se non si è soddisfatti dei risultati, è sempre possibile passare a TCP in un secondo momento.
+
+
+#### <a name="how-to-switch-the-protocol"></a>Come cambiare protocollo
+
+Se si sceglie di usare ICMP durante la distribuzione, è possibile passare a TCP in qualsiasi momento modificando la regola di monitoraggio predefinita.
+
+##### <a name="to-edit-the-default-monitoring-rule"></a>Per modificare la regola di monitoraggio predefinita
+1.  Passare a **Monitoraggio prestazioni** > **rete** > **Configura** > **Monitor** e quindi fare clic su **Regola predefinita**.
+2.  Passare alla sezione **Protocollo** e selezionare il protocollo che si desidera usare.
+3.  Fare clic su **Salva** per salvare le modifiche.
+
+Anche se la regola predefinita usa un protocollo specifico, è possibile creare nuove regole con un protocollo diverso. È anche possibile creare una combinazione di regole in cui alcune usano ICMP e altre usano TCP.
+
+
+
+
+
+
 ## <a name="data-collection-details"></a>Informazioni dettagliate sulla raccolta di dati
 Il monitoraggio delle prestazioni di rete usa i pacchetti di handshake TCP SYN-SYNACK-ACK per raccogliere informazioni su perdita e latenza mentre viene usato anche il tracciamento delle route per recuperare informazioni sulla topologia.
 
@@ -246,6 +291,6 @@ Ora che è stata eseguita una panoramica sul monitoraggio delle prestazioni di r
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

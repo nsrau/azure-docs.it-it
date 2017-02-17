@@ -1,6 +1,6 @@
 ---
-title: Preparazione dell&quot;ambiente per il backup di macchine virtuali distribuite con Resource Manager | Microsoft Docs
-description: Assicurarsi che l&quot;ambiente sia pronto per il backup di macchine virtuali in Azure
+title: 'Backup di Azure: preparare il backup di macchine virtuali | Documentazione Microsoft'
+description: Assicurarsi che l&quot;ambiente sia pronto per il backup di macchine virtuali in Azure.
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/10/2017
-ms.author: trinadhk; jimpark; markgal;
+ms.date: 1/30/2017
+ms.author: trinadhk;jimpark;markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 026bfabbf53b408d0e997c0fe21845c4b53ca8b0
-ms.openlocfilehash: d8d0ade0b3088805576cfb3fdc78eb2e4fec698a
+ms.sourcegitcommit: 39147f2db1e660a21d6ed622206787ea0c569056
+ms.openlocfilehash: e2ceb33cc8027759ccb4b5183513da849a7d60c6
 
 
 ---
@@ -74,7 +74,7 @@ Per creare un insieme di credenziali dei servizi di ripristino:
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Scegliere **Sfoglia** dal menu Hub e digitare **Servizi di ripristino** nell'elenco di risorse. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Fare clic su **Insiemi di credenziali dei servizi di ripristino**.
 
-    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
+    ![Fare clic sul pulsante Sfoglia e digitare Servizi di ripristino. Quando viene visualizzata l'opzione di insieme di credenziali di Servizi di ripristino, fare clic per aprire il pannello dell'insieme di credenziali di Servizi di ripristino.](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
     Viene visualizzato l'elenco degli insiemi di credenziali dei servizi di ripristino.
 3. Scegliere **Aggiungi** dal menu **Insiemi di credenziali dei servizi di ripristino**.
@@ -307,6 +307,6 @@ Ora che è stato preparato l'ambiente per il backup della VM, il passaggio logic
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

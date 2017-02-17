@@ -1,6 +1,6 @@
 ---
-title: Guida per gli sviluppatori - Quote e limitazioni | Documentazione Microsoft
-description: Guida per gli sviluppatori dell&quot;hub IoT di Azure - Descrizione delle quote che si applicano all&quot;hub IoT e al comportamento di limitazione previsto
+title: Informazioni sulle quote e sulle limitazioni dell&quot;hub IoT di Azure | Documentazione Microsoft
+description: 'Guida per gli sviluppatori: descrizione delle quote che si applicano all&quot;hub IoT e del comportamento di limitazione previsto.'
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,15 +12,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: c0f8c779d7f9552dc05ac3791b74c3d57cb1fe64
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: ebfafd5ee9049b5049070ad111c95746b89e755f
 
 
 ---
-# <a name="reference---quotas-and-throttling"></a>Informazioni di riferimento - Quote e limitazioni
+# <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
+
 ## <a name="quotas-and-throttling"></a>Quote e limitazioni
 Ogni sottoscrizione di Azure può avere al massimo 10 hub IoT e al massimo un hub gratuito.
 
@@ -39,17 +40,17 @@ Ecco di seguito l'elenco di limitazioni applicate. I valori fanno riferimento a 
 | Connessioni del dispositivo | Al massimo 100/sec o 12/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24/sec, ma si hanno almeno 100/sec tra le unità. Con nove unità S1 si otterrà 108/sec (9\*12) tra le unità. | 120/sec/unità | 6000/sec/unità |
 | Inoltri dal dispositivo al cloud | Al massimo 100/sec o 12/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24/sec, ma si hanno almeno 100/sec tra le unità. Con nove unità S1 si otterrà 108/sec (9\*12) tra le unità. | 120/sec/unità | 6000/sec/unità |
 | Inoltri dal cloud al dispositivo | 100/min/unità | 100/min/unità | 5000/min/unità |
-| Ricezioni dal cloud al dispositivo <br/> (solo quando i dispositivi usano HTTP)| 1000/min/unità | 1000/min/unità| 50000/min/unità |
+| Ricezioni dal cloud al dispositivo <br/> (solo quando il dispositivo usa HTTP)| 1000/min/unità | 1000/min/unità| 50000/min/unità |
 | Caricamento di file | 100 notifiche di caricamento file/min/unità | 100 notifiche di caricamento file/min/unità | 5000 notifiche di caricamento file/min/unità |
 | Metodi diretti | 10/sec/unità | 30/sec/unità | 1500/sec/unità | 
-| Letture dei dispositivi gemelli | 10/sec | Al massimo 10/sec o 1/sec/unità | 50/sec/unità |
+| Letture del dispositivo gemello | 10/sec | Al massimo 10/sec o 1/sec/unità | 50/sec/unità |
 | Aggiornamenti dei dispositivi gemelli | 10/sec | Al massimo 10/sec o 1/sec/unità | 50/sec/unità |
 | Operazioni dei processi <br/> (creazione, aggiornamento, elenco, eliminazione) | 100/min/unità | 100/min/unità | 5000/min/unità |
 | Velocità effettiva delle operazioni dei processi per dispositivo | 10/sec | Al massimo 10/sec o 1/sec/unità | 50/sec/unità |
 
 È importante chiarire che la limitazione delle *connessioni del dispositivo* determina la frequenza con cui possono essere stabilite nuove connessioni del dispositivo con un hub IoT e non il numero massimo di dispositivi connessi contemporaneamente. La limitazione dipende dal numero di unità di cui viene eseguito il provisioning per l'hub IoT.
 
-Ad esempio, se si acquista una singola unità S1, si ottiene un limite di 100 connessioni al secondo. Ciò significa che per connettere 100.000 dispositivi sono necessari almeno 1000 secondi (circa 16 minuti). Tuttavia, è consentito un numero di dispositivi connessi simultaneamente pari al numero di dispositivi registrati nel registro delle identità.
+Ad esempio, se si acquista una singola unità S1, si ottiene un limite di 100 connessioni al secondo. Di conseguenza, per connettere 100.000 dispositivi sono necessari almeno 1000 secondi (circa 16 minuti). Tuttavia, è consentito un numero di dispositivi connessi simultaneamente pari al numero di dispositivi registrati nel registro delle identità.
 
 Per un'analisi approfondita del comportamento della limitazione dell'hub IoT, vedere il post del blog [IoT Hub throttling and you][lnk-throttle-blog] (Limitazione dell'hub IoT).
 
@@ -67,8 +68,10 @@ L'hub IoT applica altri limiti sulle diverse funzionalità.
 
 | Operazione | Limite |
 | --------- | ----- |
-| URI per il caricamento di file | 10000 URI di firma di accesso condiviso possono essere generati contemporaneamente per un account di archiviazione. <br/>  10 URI di firma di accesso condiviso/dispositivo possono essere generati contemporaneamente. |
+| URI per il caricamento di file | 10000 URI di firma di accesso condiviso possono essere generati contemporaneamente per un account di archiviazione. <br/> &10; URI di firma di accesso condiviso/dispositivo possono essere generati contemporaneamente. |
 | Processi | La cronologia dei processi viene mantenuta per un massimo di 30 giorni. <br/> Il numero massimo di processi simultanei è 1 (per il livello Gratuito e S1), 5 (per S2), 10 (per S3). |
+| Altri endpoint | Agli hub SKU a pagamento possono essere associati 10 endpoint aggiuntivi. Agli hub SKU gratuiti può essere associato solo un endpoint aggiuntivo. |
+| Regole di routing dei messaggi | Agli hub SKU a pagamento possono essere associate 100 regole di routing. Agli hub SKU gratuiti possono essere associate cinque regole di routing. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per gli sviluppatori dell'hub IoT:
@@ -87,6 +90,6 @@ Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida p
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO5-->
 
 

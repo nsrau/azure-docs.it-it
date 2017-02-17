@@ -1,23 +1,22 @@
 ---
 title: Servizi di Azure per enti pubblici | Microsoft Docs
 description: Presenta una panoramica dei servizi disponibili in Azure per enti pubblici
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: zakramer
 manager: liki
-editor: 
 ms.assetid: a453a23c-bc0f-4203-9075-0f579dea7e23
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/14/2016
+ms.date: 01/29/2017
 ms.author: zakramer
 translationtype: Human Translation
-ms.sourcegitcommit: 083ffff3a99c82a518bcc370e6d40c7500ba6907
-ms.openlocfilehash: f48fd6856346e1fd0be12fec2391d0c16287f106
+ms.sourcegitcommit: 157e1d2b39e3990daa8001279b0dcc5bd14f0de8
+ms.openlocfilehash: eac5f44f3e6f0953bff57e362d327b738e6b50f9
 
 
 ---
@@ -37,12 +36,13 @@ Per l'elenco più aggiornato dei servizi, vedere il [Prodotti in base all'area](
 * Servizi cloud
 
 ## <a name="networkingdocumentation-government-networkingmd"></a>[Rete](documentation-government-networking.md)
-* Rete virtuale
-* Bilanciamento del carico
-* Gateway applicazione
-* Gateway VPN
-* Gestione traffico
 * [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity)
+* [Supporto delle community BGP](documentation-government-networking.md#support-for-bgp-communities)
+* Rete virtuale
+* [Bilanciamento del carico](documentation-government-networking.md#support-for-load-balancer)
+* Gateway applicazione
+* [Gestione traffico](documentation-government-networking.md#support-for-traffic-manger)
+* [Gateway VPN](documentation-government-networking.md#support-for-vpn-gateway)
 
 ## <a name="storagedocumentation-government-services-storagemd"></a>[Archiviazione](documentation-government-services-storage.md)
 * [Archiviazione di Azure](documentation-government-services-storage.md#azure-storage)
@@ -88,7 +88,7 @@ Per l'elenco più aggiornato dei servizi, vedere il [Prodotti in base all'area](
 * [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
 * [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * Utilità di pianificazione
-* Gestione traffico
+* [Gestione traffico](documentation-government-networking.md#support-for-traffic-manger)
 * Monitoraggio e diagnostica
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -97,6 +97,6 @@ Per altri aggiornamenti e informazioni, iscriversi al [blog di Microsoft Azure p
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

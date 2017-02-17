@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 translationtype: Human Translation
-ms.sourcegitcommit: 3a5e22315e338fe089cf557688f741ee16416da2
-ms.openlocfilehash: 5214f55b8e65ec758ba93fb86d548b45a1b4f21e
+ms.sourcegitcommit: 83ab4f79031eb34e3be6bfb65c9d0ebfa00bc6db
+ms.openlocfilehash: 609e7ec6949b341c42b2e3b793a46dc1264cfd06
 
 
 ---
@@ -318,8 +318,8 @@ Durante le operazioni di configurazione, sono necessarie le risorse seguenti:
 
 L'argomento di SAP in Microsoft Azure viene trattato anche nelle guide seguenti:
 
-* [SAP NetWeaver in macchine virtuali (VM) di Azure - Guida alla pianificazione e all'implementazione][planning-guide]
-* [SAP NetWeaver in macchine virtuali (VM) di Azure - Guida alla distribuzione (questo documento)][deployment-guide]
+* [SAP NetWeaver in macchine virtuali di Azure - Guida alla pianificazione e all'implementazione][planning-guide]
+* [SAP NetWeaver in macchine virtuali di Azure - Guida alla distribuzione (questo documento)][deployment-guide]
 * [SAP NetWeaver in macchine virtuali (VM) di Azure - Guida alla distribuzione DBMS][dbms-guide]
 
 ## <a name="a-nameb3253ee3-d63b-4d74-a49b-185e76c4088eadeployment-scenarios-of-vms-for-sap-on-microsoft-azure"></a><a name="b3253ee3-d63b-4d74-a49b-185e76c4088e"></a>Scenari di distribuzione di VM per SAP in Microsoft Azure
@@ -351,7 +351,7 @@ La procedura per creare un'immagine privata presenta differenze tra Windows e Li
 > 
 
 - - -
-È possibile configurare il contenuto del database usando SAP Software Provision Manager per installare un nuovo sistema SAP, ripristinare un backup del database da un disco rigido virtuale collegato alla macchina virtuale oppure ripristinare un backup del database direttamente da Archiviazione di Azure, se l'operazione è supportata dal sistema DBMS. Vedere la [guida alla distribuzione DBMS][dbms-guide]. Se è già stato installato un sistema SAP nella VM locale (soprattutto per sistemi a 2 livelli), è possibile adattare le impostazioni del sistema SAP dopo la distribuzione della VM di Azure VM con la procedura di ridenominazione del sistema supportata da SAP Software Provisioning Manager (nota SAP [1619720]). In caso contrario, è possibile installare il software SAP in un secondo momento dopo la distribuzione della macchina virtuale di Azure.
+È possibile configurare il contenuto del database usando SAP Software Provision Manager per installare un nuovo sistema SAP, ripristinare un backup del database da un disco rigido virtuale collegato alla macchina virtuale oppure ripristinare un backup del database direttamente da Archiviazione di Azure, se l'operazione è supportata dal sistema DBMS. Vedere la [guida alla distribuzione DBMS][dbms-guide]. Se è già stato installato un sistema SAP nella macchina virtuale locale (soprattutto per sistemi a 2 livelli), è possibile adattare le impostazioni del sistema SAP dopo la distribuzione della macchina virtuale di Azure con la procedura di ridenominazione del sistema supportata da SAP Software Provisioning Manager (nota SAP [1619720]). In caso contrario, è possibile installare il software SAP in un secondo momento dopo la distribuzione della macchina virtuale di Azure.
 
 Per altri dettagli, vedere il capitolo [Scenario 2: Distribuzione di una VM con un'immagine personalizzata per SAP][deployment-guide-3.3].
 
@@ -382,7 +382,7 @@ La procedura guidata illustra in dettaglio i parametri necessari per creare la m
    1. Percorso: selezionare il percorso in cui deve essere distribuita la nuova macchina virtuale. Se si vuole connettere la macchina virtuale alla rete locale, verificare di selezionare il percorso della rete virtuale che connette Azure alla rete locale. Per altri dettagli, vedere il capitolo [Rete di Microsoft Azure][planning-guide-microsoft-azure-networking] nella [Guida alla pianificazione][planning-guide].
 1. Dimensione
 
-    Per un elenco dei tipi di VM supportati, leggere la nota SAP [1928533] . Se si vuole usare Archiviazione Premium, verificare anche di selezionare il tipo corretto. Non tutti i tipi di VM supportano Archiviazione Premium. Per altri dettagli, vedere i capitoli [Archiviazione: Archiviazione di Microsoft Azure e dischi dati][planning-guide-storage-microsoft-azure-storage-and-data-disks] e [Archiviazione Premium di Azure][planning-guide-azure-premium-storage] nella [Guida alla pianificazione][planning-guide].
+    Per un elenco dei tipi di macchine virtuali supportati, leggere la nota SAP [1928533]. Se si vuole usare Archiviazione Premium, verificare anche di selezionare il tipo corretto. Non tutti i tipi di VM supportano Archiviazione Premium. Per altri dettagli, vedere i capitoli [Archiviazione: Archiviazione di Microsoft Azure e dischi dati][planning-guide-storage-microsoft-azure-storage-and-data-disks] e [Archiviazione Premium di Azure][planning-guide-azure-premium-storage] nella [Guida alla pianificazione][planning-guide].
     
 1. Impostazioni
    1. Account di archiviazione: selezionare un account di archiviazione esistente o crearne uno nuovo. Per altri dettagli sui diversi tipi di archiviazione, leggere il capitolo [Archiviazione di Microsoft Azure][dbms-guide-2.3] della [Guida alla distribuzione DBMS][dbms-guide]. Si noti che non tutti i tipi di archiviazione sono supportati per l'esecuzione di applicazioni SAP.
@@ -414,9 +414,9 @@ Dopo l'apertura di uno dei modelli precedenti, nel portale di Azure viene visual
     * L'elenco non contiene tutti i sistemi operativi supportati, ad esempio non contiene Windows Server 2008 R2 anche se è supportato da SAP. Per un elenco dei sistemi operativi supportati, leggere la nota SAP [1928533].
   * **Sap System Size**: dimensioni del sistema SAP
     * Quantità di SAPS forniti dal nuovo sistema. Se non si è certi del numero di SAPS necessari per il sistema, chiedere all'integratore di sistemi o al partner tecnologico SAP
-  * **System Availability**: (solo per modello a 3 livelli): disponibilità del sistema
+  * **System Availability**: (solo per modello a&3; livelli): disponibilità del sistema
     * Selezionare "HA" per una configurazione adatta a un'installazione a disponibilità elevata. Verranno creati due server di database e due server per ASCS.
-  * **Storage Type**: (solo per modello a 2 livelli): tipo di archiviazione da usare
+  * **Storage Type**: (solo per modello a&2; livelli): tipo di archiviazione da usare
     * Per sistemi di maggiori dimensioni, è consigliabile usare Archiviazione Premium. Per altre informazioni sui diversi tipi di archiviazione, leggere quanto segue:
       * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194] (Uso dell'archiviazione unità SSD di Azure Premium per l'istanza DBMS di SAP)
       * [Archiviazione di Microsoft Azure] [dbms-Guida-2.3] della [Guida alla distribuzione DBMS][dbms-guide]
@@ -449,10 +449,10 @@ Controllare i prerequisiti per il monitoraggio di SAP verificando le versioni mi
 Controllare che il monitoraggio funzioni come descritto nel capitolo [Controlli e risoluzione dei problemi per la configurazione del monitoraggio end-to-end per SAP in Azure][deployment-guide-troubleshooting-chapter].
 
 #### <a name="post-deployment-steps"></a>Passaggi post-distribuzione
-Al termine della creazione, la VM viene distribuita ed è necessario installare tutti i componenti software richiesti nella VM. Per questo tipo di distribuzione di VM è quindi necessario che il software da installare sia già disponibile in Microsoft Azure in un'altra VM o sotto forma di disco collegabile. Negli scenari cross-premise, invece, la connettività agli asset locali (condivisioni di installazione) è data per scontata.
+Al termine della creazione, la macchina virtuale viene distribuita ed è necessario installare tutti i componenti software richiesti nella macchina virtuale. Per questo tipo di distribuzione di macchina virtuale è quindi necessario che il software da installare sia già disponibile in Microsoft Azure in un'altra macchina virtuale o sotto forma di disco collegabile. Negli scenari cross-premise, invece, la connettività agli asset locali (condivisioni di installazione) è data per scontata.
 
 ### <a name="a-name54a1fc6d-24fd-4feb-9c57-ac588a55dff2ascenario-2-deploying-a-vm-with-a-custom-image-for-sap"></a><a name="54a1fc6d-24fd-4feb-9c57-ac588a55dff2"></a>Scenario 2: Distribuzione di una VM con un'immagine personalizzata per SAP
-Come descritto nella [Guida alla pianificazione e all'implementazione][planning-guide], è possibile preparare e creare un'immagine personalizzata e usarla per creare più VM nuove. In un diagramma di flusso, la sequenza di passaggi si presenta come segue:
+Come descritto nella [Guida alla pianificazione e all'implementazione][planning-guide], è possibile preparare e creare un'immagine personalizzata e usarla per creare più macchine virtuali nuove. In un diagramma di flusso, la sequenza di passaggi si presenta come segue:
 
 ![Diagramma di flusso della distribuzione di VM per sistemi SAP con un'immagine di VM di marketplace privato][deployment-guide-figure-300]
 
@@ -476,9 +476,9 @@ Dopo l'apertura di uno dei modelli precedenti, nel portale di Azure viene visual
   * **Os Type**: tipo di sistema operativo da distribuire (Windows o Linux)
   * **Sap System Size**: dimensioni del sistema SAP
     * Quantità di SAPS forniti dal nuovo sistema. Se non si è certi del numero di SAPS necessari per il sistema, chiedere all'integratore di sistemi o al partner tecnologico SAP
-  * **System Availability**: (solo per modello a 3 livelli): disponibilità del sistema 
+  * **System Availability**: (solo per modello a&3; livelli): disponibilità del sistema 
     * Selezionare "HA" per una configurazione adatta a un'installazione a disponibilità elevata. Verranno creati due server di database e due server per ASCS.
-  * **Storage Type**: (solo per modello a 2 livelli): tipo di archiviazione da usare 
+  * **Storage Type**: (solo per modello a&2; livelli): tipo di archiviazione da usare 
     * Per sistemi di maggiori dimensioni, è consigliabile usare Archiviazione Premium. Per altre informazioni sui diversi tipi di archiviazione, leggere quanto segue: 
       * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194] (Uso dell'archiviazione unità SSD di Azure Premium per l'istanza DBMS di SAP)
       * [Archiviazione di Microsoft Azure] [dbms-Guida-2.3] della [Guida alla distribuzione DBMS][dbms-guide]
@@ -541,7 +541,7 @@ Supponendo che il disco sia già caricato e definito in Azure (vedere la [Guida 
 #### <a name="create-virtual-machine"></a>Creare la macchina virtuale
 Per creare una distribuzione usando un disco del sistema operativo privato tramite il portale di Azure, usare il modello SAP pubblicato nel [repository azure-quickstart-templates di GitHub][azure-quickstart-templates-github]. È anche possibile creare manualmente una macchina virtuale con [PowerShell][virtual-machines-windows-create-vm-specialized].
 
-* [Modello per configurazione a 2 livelli (una sola macchina virtuale) (sap-2-tier-user-disk)][sap-templates-2-tier-os-disk]
+* [Modello per configurazione a&2; livelli (una sola macchina virtuale) (sap-2-tier-user-disk)][sap-templates-2-tier-os-disk]
   * : usare questo modello se si vuole creare un sistema a 2 livelli con una sola macchina virtuale.
 
 Dopo l'apertura di uno dei modelli precedenti, nel portale di Azure viene visualizzata una schermata in cui è possibile immettere i parametri per il modello. Immettere le seguenti informazioni:
@@ -555,7 +555,7 @@ Dopo l'apertura di uno dei modelli precedenti, nel portale di Azure viene visual
   * **Os Type**: tipo di sistema operativo da distribuire (Windows o Linux)
   * **Sap System Size**: dimensioni del sistema SAP
     * Quantità di SAPS forniti dal nuovo sistema. Se non si è certi del numero di SAPS necessari per il sistema, chiedere all'integratore di sistemi o al partner tecnologico SAP
-  * **Storage Type**: (solo per modello a 2 livelli): tipo di archiviazione da usare 
+  * **Storage Type**: (solo per modello a&2; livelli): tipo di archiviazione da usare 
     * Per sistemi di maggiori dimensioni, è consigliabile usare Archiviazione Premium. Per altre informazioni sui diversi tipi di archiviazione, leggere quanto segue:
       * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194] (Uso dell'archiviazione unità SSD di Azure Premium per l'istanza DBMS di SAP) 
       * [Archiviazione di Microsoft Azure] [dbms-Guida-2.3] della [Guida alla distribuzione DBMS][dbms-guide]
@@ -571,7 +571,7 @@ Dopo l'apertura di uno dei modelli precedenti, nel portale di Azure viene visual
 Dopo aver immesso tutti i parametri, confermare la schermata facendo clic su Acquista.
 
 #### <a name="install-vm-agent"></a>Installare l'agente di macchine virtuali
-Per usare i modelli descritti sopra, è necessario che l'agente di macchine virtuali sia installato nel disco del sistema operativo. In caso contrario, la distribuzione avrà esito negativo. Scaricare e installare l'agente di macchine virtuali nella VM come descritto nel capitolo [Scaricare, installare e abilitare l'agente di macchine virtuali di Azure][deployment-guide-4.4] di questo documento.
+Per usare i modelli descritti sopra, è necessario che l'agente di macchine virtuali sia installato nel disco del sistema operativo. In caso contrario, la distribuzione avrà esito negativo. Scaricare e installare l'agente di macchine virtuali nella macchina virtuale come descritto nel capitolo [Scaricare, installare e abilitare l'agente di macchine virtuali di Azure][deployment-guide-4.4] di questo documento.
 
 Se non si usano i modelli descritti sopra, si può anche installare l'agente di macchine virtuali in un secondo momento.
 
@@ -594,8 +594,8 @@ Nei casi seguenti è necessario aggiornare la configurazione di monitoraggio di 
 
 * Il team congiunto MS/SAP ha esteso le funzionalità di monitoraggio e richiede più o meno contatori. 
 * Microsoft introduce una nuova versione dell'infrastruttura di Azure sottostante che fornisce i dati di monitoraggio e l'estensione di monitoraggio avanzato di Azure per SAP deve essere adattata a tali modifiche.
-* Si montano altri dischi rigidi virtuali nella VM di Azure o si rimuove un disco rigido virtuale. In questo caso, è necessario aggiornare la raccolta dei dati correlati all'archiviazione. Se si modifica la configurazione aggiungendo o eliminando endpoint o assegnando un indirizzo IP a una VM, ciò non influirà sulla configurazione di monitoraggio.
-* Si modificano le dimensioni della VM di Azure, ad esempio da A5 a qualsiasi altra dimensione di VM.
+* Si montano altri dischi rigidi virtuali nella macchina virtuale di Azure o si rimuove un disco rigido virtuale. In questo caso, è necessario aggiornare la raccolta dei dati correlati all'archiviazione. Se si modifica la configurazione aggiungendo o eliminando endpoint o assegnando un indirizzo IP a una VM, ciò non influirà sulla configurazione di monitoraggio.
+* Si modificano le dimensioni della macchina virtuale di Azure, ad esempio da A5 a qualsiasi altra dimensione di macchina virtuale.
 * Si aggiungono nuove interfacce di rete alla VM di Azure.
 
 Per aggiornare la configurazione di monitoraggio, procedere come segue:
@@ -629,7 +629,7 @@ Il risultato verrà presentato come illustrato di seguito in [questa][deployment
 ![Risultato del controllo della versione dei cmdlet di Azure PowerShell][deployment-guide-figure-600]
  <a name="figure-6"></a>
 
-Se la versione dei cmdlet di Azure installata nel PC desktop/portatile è quella corrente, la prima schermata dopo l'avvio dell'Installazione guidata piattaforma Web Microsoft ha un aspetto leggermente diverso rispetto a [questa][deployment-guide-figure-5] figura.
+Se la versione dei cmdlet di Azure installata nel PC desktop/portatile è quella corrente, la prima schermata dopo l'avvio dell'Installazione guidata piattaforma Web Microsoft avrà un aspetto leggermente diverso rispetto a [questa][deployment-guide-figure-5] figura.
 
 Si noti il riquadro rosso nella [figura][deployment-guide-figure-7] di seguito.
 
@@ -656,7 +656,7 @@ Il risultato verrà presentato come illustrato di seguito in [questa][deployment
  <a name="0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda"></a>
 
 ### <a name="a-name31d9ecd6-b136-4c73-b61e-da4a29bbc9ccajoin-vm-into-on-premises-domain-windows-only"></a><a name="31d9ecd6-b136-4c73-b61e-da4a29bbc9cc"></a>Aggiungere la VM a un dominio locale (solo per Windows)
-Se si distribuiscono VM SAP in uno scenario cross-premise in cui AD e DNS locali sono estesi in Azure, è previsto che le VM vengano aggiunte a un dominio locale. La procedura dettagliata per aggiungere una VM a un dominio locale e il software necessario per fare parte di un dominio locale dipendono dal cliente. L'aggiunta di una VM a un dominio locale comporta in genere l'installazione di software aggiuntivo come software di protezione da malware o di monitoraggio o vari agenti di backup.
+In caso di distribuzione di macchine virtuali SAP in uno scenario cross-premise in cui AD e DNS locali sono estesi in Azure, è previsto che le macchine virtuali vengano aggiunte a un dominio locale. La procedura dettagliata per aggiungere una VM a un dominio locale e il software necessario per fare parte di un dominio locale dipendono dal cliente. L'aggiunta di una VM a un dominio locale comporta in genere l'installazione di software aggiuntivo come software di protezione da malware o di monitoraggio o vari agenti di backup.
 
 Nei casi in cui con l'aggiunta a un dominio vengono forzate le impostazioni di proxy Internet, inoltre, è necessario verificare che queste impostazioni siano presenti anche nell'account di sistema locale di Windows (S-1-5-18) nella VM guest. Il modo più semplice consiste nel forzare il proxy con Criteri di gruppo di dominio che si applicano ai sistemi nel dominio.
 
@@ -671,10 +671,10 @@ Per le macchine virtuali distribuite da Azure Marketplace, questo passaggio non 
   * Archiviare il pacchetto MSI dell'agente di macchine virtuali in locale nel portatile o in un server
 * Installare l'agente di macchine virtuali di Azure:
   * Connettersi alla VM di Azure distribuita con Desktop remoto (RDP)
-  * Aprire una finestra di Esplora risorse nella VM e quindi scegliere la directory di destinazione per il file MSI dell'agente di macchine virtuali
+  * Aprire una finestra di Esplora risorse nella macchina virtuale e quindi scegliere la directory di destinazione per il file MSI dell'agente di macchine virtuali
   * Trascinare file MSI di installazione dell'agente di macchine virtuali di Azure dal server/portatile locale alla directory di destinazione dell'agente di macchine virtuali nella VM
-  * Fare doppio clic sul file MSI nella VM
-  * Per le VM aggiunte a domini locali, verificare che le eventuali impostazioni di proxy Internet si applichino anche all'account di sistema locale di Windows (S-1-5-18) nella VM, come descritto nel capitolo [Configurare il proxy][deployment-guide-configure-proxy]. L'agente di macchine virtuali verrà eseguito in questo contesto e deve potersi connettere ad Azure.
+  * Fare doppio clic sul file MSI nella macchina virtuale
+  * Per le macchine virtuali aggiunte a domini locali, verificare che le eventuali impostazioni di proxy Internet si applichino anche all'account di sistema locale di Windows (S-1-5-18) nella macchina virtuale, come descritto nel capitolo [Configurare il proxy][deployment-guide-configure-proxy]. L'agente di macchine virtuali verrà eseguito in questo contesto e deve potersi connettere ad Azure.
 
 Per l'aggiornamento dell'agente di macchine virtuali di Azure non è necessario alcun intervento dell'utente. L'agente di macchine virtuali si aggiorna automaticamente senza che sia necessario un riavvio della VM.
 
@@ -706,6 +706,8 @@ Queste impostazioni devono essere valide anche per consentire all'account LocalS
 4. Aprire la scheda Connessioni e fare clic su Impostazioni LAN
 5. Disabilitare "Rileva automaticamente impostazioni"
 6. Abilitare "Usa un server di proxy per la rete LAN" e immettere porta e indirizzo del proxy
+7. Fare clic su Avanzate
+8. Aggiungere l'indirizzo IP 168.63.129.16 all'elenco delle eccezioni
 
 #### <a name="linux"></a>Linux
 Configurare il proxy corretto nel file di configurazione dell'agente guest di Microsoft Azure, disponibile in /etc/waagent.conf. È necessario impostare i parametri seguenti:
@@ -731,7 +733,7 @@ Per altri dettagli sulle route definite dall'utente, vedere [questo articolo][vi
 ![Tunneling forzato][deployment-guide-figure-50]
 
 ### <a name="a-named98edcd3-f2a1-49f7-b26a-07448ceb60caaconfigure-azure-enhanced-monitoring-extension-for-sap"></a><a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Configurare l'estensione di monitoraggio avanzato di Azure per SAP
-Dopo che la VM è stata preparata come descritto nel capitolo [Scenari di distribuzione di VM per SAP in Microsoft Azure][deployment-guide-3], l'agente di macchine virtuali di Azure è installato nella macchina virtuale. Il passaggio importante successivo consiste nel distribuire l'estensione di monitoraggio avanzato di Azure per SAP, disponibile nel repository di estensioni di Azure nei data center globali di Microsoft Azure. Per altri dettagli, vedere la [Guida alla pianificazione e all'implementazione][planning-guide-9.1]. 
+Dopo che la macchina virtuale è stata preparata come descritto nel capitolo [Scenari di distribuzione di VM per SAP in Microsoft Azure][deployment-guide-3], l'agente di macchine virtuali di Azure è installato nella macchina virtuale. Il passaggio importante successivo consiste nel distribuire l'estensione di monitoraggio avanzato di Azure per SAP, disponibile nel repository di estensioni di Azure nei data center globali di Microsoft Azure. Per altri dettagli, vedere la [Guida alla pianificazione e all'implementazione][planning-guide-9.1]. 
 
 Per installare e configurare l'estensione di monitoraggio avanzato di Azure per SAP, è possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure. Per installare l'estensione in una VM Linux o Windows usando un computer Windows, leggere il capitolo relativo ad [Azure PowerShell][deployment-guide-4.5.1]. Per installare l'estensione in una VM Linux usando un PC desktop Linux, leggere il capitolo relativo all'[interfaccia della riga di comando di Azure][deployment-guide-4.5.2].
 
@@ -959,6 +961,6 @@ Se la risoluzione dei problemi in base alla nota SAP [1999351] non è sufficient
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

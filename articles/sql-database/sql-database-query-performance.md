@@ -1,5 +1,5 @@
 ---
-title: Query Performance Insight del database SQL di Azure
+title: Informazioni dettagliate sulle prestazioni delle query per il database SQL di Azure | Documentazione Microsoft
 description: Il monitoraggio delle prestazioni delle query identifica le query principali a livello di utilizzo di CPU per un database SQL di Azure.
 services: sql-database
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: ddb43393695ae74711bea0ff66b644ddd7787571
+ms.sourcegitcommit: ddf93a0db278fffa2aa45fdc73a1c7f57a84fb39
+ms.openlocfilehash: 14140a6aa8c8cccf658f8e98305659e8ae76dcad
 
 
 ---
@@ -32,7 +32,6 @@ La gestione e l'ottimizzazione delle prestazioni dei database relazionali è un'
 
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Query Performance Insight è disponibile solo con il database SQL di Azure V12.
 * Per Informazioni dettagliate sulle prestazioni delle query è necessario che l' [archivio query](https://msdn.microsoft.com/library/dn817826.aspx) sia attivo nel database. Se l'archivio query non è in esecuzione, il portale richiede di attivarlo.
 
 ## <a name="permissions"></a>Autorizzazioni
@@ -229,6 +228,6 @@ Per ulteriori raccomandazioni sul miglioramento delle prestazioni del database S
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -15,11 +15,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 02/01/2017
 ms.author: sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
-ms.openlocfilehash: a6b147521525fad343376db0454f786a77b55c42
+ms.sourcegitcommit: 54d3dc952e992acdd7c3edab0db736463dcc1e13
+ms.openlocfilehash: 41070533930780cd2c659b21fe03006c5d6c2c74
 
 
 ---
@@ -60,19 +60,20 @@ Questo articolo illustra come connettersi a un database SQL di Azure usando SQL 
     ![nuovi oggetti del sistema per l'esecuzione di query sul database di esempio con ssms](./media/sql-database-get-started/new-sample-db-query-objects-ssms.png)
 
 > [!Tip]
-> Per un'esercitazione, vedere [Esercitazione sul database SQL: creare un server, una regola del firewall a livello di server, un database di esempio, una regola del firewall a livello di database ed eseguire la connessione ad SQL Server](sql-database-get-started.md).    
+> Per un'esercitazione vedere[Esercitazione: Effettuare il provisioning e accedere a un database SQL di Azure usando il portale di Azure e SQL Server Management Studio](sql-database-get-started.md).    
 >
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - È possibile usare istruzioni T-SQL per creare e gestire i database in Azure in modo analogo a SQL Server. Se si ha familiarità con l'uso di T-SQL con SQL Server, vedere [Informazioni su Transact-SQL del Database SQL di Azure](sql-database-transact-sql-information.md) per un riepilogo delle differenze.
 - Se non si ha familiarità con T-SQL, vedere [Esercitazione: Scrittura di istruzioni Transact-SQL](https://msdn.microsoft.com/library/ms365303.aspx) e [Guida di riferimento a Transact-SQL (Motore di database)](https://msdn.microsoft.com/library/bb510741.aspx).
-- Per iniziare a creare gli utenti del database e gli amministratori degli utenti del database, vedere [Esercitazione sul database SQL: Creare account utente del database SQL per accedere a un database e gestirlo](sql-database-control-access-sql-authentication-get-started.md)
+- Per un'introduzione all'esercitazione sull'autenticazione di SQL Server, vedere [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md) (Autenticazione e autorizzazione di SQL)
+- Per un'introduzione all'esercitazione sull'autenticazione di Azure Active Directory, vedere [Azure AD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md) (Autenticazione e autorizzazione di Azure AD)
 - Per altre informazioni su SSMS, vedere [Usare SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

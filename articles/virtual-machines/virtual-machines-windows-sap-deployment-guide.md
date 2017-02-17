@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 translationtype: Human Translation
-ms.sourcegitcommit: 377c0d78db83a013e2063d50fcf45ba5beb2a989
-ms.openlocfilehash: 17e5621c6b7816062c2096b35a99c9e5b36b50d3
+ms.sourcegitcommit: 3b3250c17f0086ee0fd25b5c7fb8822eb52a26f8
+ms.openlocfilehash: 25865776748ae0605310eb86aefca2afebac2799
 
 
 ---
@@ -418,9 +418,9 @@ Dopo l'apertura di uno dei modelli precedenti, nel portale di Azure viene visual
     * L'elenco non contiene tutti i sistemi operativi supportati, ad esempio non contiene Windows Server 2008 R2 anche se è supportato da SAP. Per un elenco dei sistemi operativi supportati, leggere la nota SAP [1928533].
   * **Sap System Size**: dimensioni del sistema SAP
     * Quantità di SAPS forniti dal nuovo sistema. Se non si è certi del numero di SAPS necessari per il sistema, chiedere all'integratore di sistemi o al partner tecnologico SAP
-  * **System Availability**: (solo per modello a 3 livelli): disponibilità del sistema
+  * **System Availability**: (solo per modello a&3; livelli): disponibilità del sistema
     * Selezionare "HA" per una configurazione adatta a un'installazione a disponibilità elevata. Verranno creati due server di database e due server per ASCS.
-  * **Storage Type**: (solo per modello a 2 livelli): tipo di archiviazione da usare
+  * **Storage Type**: (solo per modello a&2; livelli): tipo di archiviazione da usare
     * Per sistemi di maggiori dimensioni, è consigliabile usare Archiviazione Premium. Per altre informazioni sui diversi tipi di archiviazione, leggere quanto segue:
       * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194] (Uso dell'archiviazione unità SSD di Azure Premium per l'istanza DBMS di SAP)
       * [Archiviazione di Microsoft Azure] [dbms-Guida-2.3] della [Guida alla distribuzione DBMS][dbms-guide]
@@ -480,9 +480,9 @@ Dopo l'apertura di uno dei modelli precedenti, nel portale di Azure viene visual
   * **Os Type**: tipo di sistema operativo da distribuire (Windows o Linux)
   * **Sap System Size**: dimensioni del sistema SAP
     * Quantità di SAPS forniti dal nuovo sistema. Se non si è certi del numero di SAPS necessari per il sistema, chiedere all'integratore di sistemi o al partner tecnologico SAP
-  * **System Availability**: (solo per modello a 3 livelli): disponibilità del sistema 
+  * **System Availability**: (solo per modello a&3; livelli): disponibilità del sistema 
     * Selezionare "HA" per una configurazione adatta a un'installazione a disponibilità elevata. Verranno creati due server di database e due server per ASCS.
-  * **Storage Type**: (solo per modello a 2 livelli): tipo di archiviazione da usare 
+  * **Storage Type**: (solo per modello a&2; livelli): tipo di archiviazione da usare 
     * Per sistemi di maggiori dimensioni, è consigliabile usare Archiviazione Premium. Per altre informazioni sui diversi tipi di archiviazione, leggere quanto segue: 
       * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194] (Uso dell'archiviazione unità SSD di Azure Premium per l'istanza DBMS di SAP)
       * [Archiviazione di Microsoft Azure] [dbms-Guida-2.3] della [Guida alla distribuzione DBMS][dbms-guide]
@@ -545,7 +545,7 @@ Supponendo che il disco sia già caricato e definito in Azure (vedere la [Guida 
 #### <a name="create-virtual-machine"></a>Creare la macchina virtuale
 Per creare una distribuzione usando un disco del sistema operativo privato tramite il portale di Azure, usare il modello SAP pubblicato nel [repository di GitHub azure-quickstart-templates][azure-quickstart-templates-github]. È anche possibile creare una macchina virtuale manualmente con [PowerShell][virtual-machines-windows-create-vm-specialized].
 
-* [Modello per configurazione a 2 livelli (una sola macchina virtuale) (sap-2-tier-user-disk)][sap-templates-2-tier-os-disk]
+* [Modello per configurazione a&2; livelli (una sola macchina virtuale) (sap-2-tier-user-disk)][sap-templates-2-tier-os-disk]
   * : usare questo modello se si vuole creare un sistema a 2 livelli con una sola macchina virtuale.
 
 Dopo l'apertura di uno dei modelli precedenti, nel portale di Azure viene visualizzata una schermata in cui è possibile immettere i parametri per il modello. Immettere le seguenti informazioni:
@@ -559,7 +559,7 @@ Dopo l'apertura di uno dei modelli precedenti, nel portale di Azure viene visual
   * **Os Type**: tipo di sistema operativo da distribuire (Windows o Linux)
   * **Sap System Size**: dimensioni del sistema SAP
     * Quantità di SAPS forniti dal nuovo sistema. Se non si è certi del numero di SAPS necessari per il sistema, chiedere all'integratore di sistemi o al partner tecnologico SAP
-  * **Storage Type**: (solo per modello a 2 livelli): tipo di archiviazione da usare 
+  * **Storage Type**: (solo per modello a&2; livelli): tipo di archiviazione da usare 
     * Per sistemi di maggiori dimensioni, è consigliabile usare Archiviazione Premium. Per altre informazioni sui diversi tipi di archiviazione, leggere quanto segue:
       * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194] (Uso dell'archiviazione unità SSD di Azure Premium per l'istanza DBMS di SAP) 
       * [Archiviazione di Microsoft Azure] [dbms-Guida-2.3] della [Guida alla distribuzione DBMS][dbms-guide]
@@ -710,6 +710,8 @@ Queste impostazioni devono essere valide anche per consentire all'account LocalS
 4. Aprire la scheda Connessioni e fare clic su Impostazioni LAN
 5. Disabilitare "Rileva automaticamente impostazioni"
 6. Abilitare "Usa un server di proxy per la rete LAN" e immettere porta e indirizzo del proxy
+7. Fare clic su Avanzate
+8. Aggiungere l'indirizzo IP 168.63.129.16 all'elenco delle eccezioni
 
 #### <a name="linux"></a>Linux
 Configurare il proxy corretto nel file di configurazione dell'agente guest di Microsoft Azure, disponibile in /etc/waagent.conf. È necessario impostare i parametri seguenti:
@@ -963,6 +965,6 @@ Se la risoluzione dei problemi in base alla nota SAP [1999351] non è sufficient
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 
