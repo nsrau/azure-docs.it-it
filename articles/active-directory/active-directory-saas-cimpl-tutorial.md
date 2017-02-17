@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 54033264fa515dcb61c2273fb6eff71c887bc007
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b31782934b824fa8c67dea95974a3ba07bc94367
 
 
 ---
@@ -229,6 +229,6 @@ L'obiettivo di questa sezione è testare la configurazione dell'accesso Single S
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

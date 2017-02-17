@@ -1,6 +1,6 @@
 ---
-title: Monitoraggio delle operazioni dell&quot;hub IoT
-description: Panoramica del monitoraggio delle operazioni dell&quot;hub IoT di Azure che consente di monitorare lo stato delle operazioni nel proprio hub IoT in tempo reale.
+title: Monitoraggio delle operazioni dell&quot;hub IoT di Azure | Documentazione Microsoft
+description: Come usare il monitoraggio delle operazioni dell&quot;hub IoT di Azure per monitorare lo stato delle operazioni nell&quot;hub IoT in tempo reale.
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -15,19 +15,19 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: ce514e19370d2b42fb16b4e96b66f212d5fa999c
-ms.openlocfilehash: 3c1ae13409c11ec49810209dd155e934b34c3a9b
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: f6f894157a31641b1d0294e84795563c727caaac
 
 
 ---
-# <a name="introduction-to-operations-monitoring"></a>Introduzione al monitoraggio delle operazioni
+# <a name="operations-monitoring"></a>Monitoraggio delle operazioni
 Il monitoraggio delle operazioni dell'hub IoT consente di monitorare lo stato delle operazioni nel proprio hub IoT in tempo reale. L'hub IoT tiene traccia degli eventi nelle diverse categorie di operazioni. È possibile scegliere di impostare l'invio di eventi da una o più categorie a un endpoint del proprio hub IoT per l'elaborazione. È possibile monitorare i dati per individuare gli errori o configurare un'elaborazione più complessa in base ai modelli di dati.
 
 L'hub IoT monitora cinque categorie di eventi:
 
 * Operazioni relative alle identità dei dispositivi
 * Telemetria dei dispositivi
-* Comandi da cloud a dispositivo
+* Messaggi da cloud a dispositivo
 * Connessioni
 * Caricamenti di file
 
@@ -81,7 +81,7 @@ La categoria di telemetria dei dispositivi tiene traccia degli errori che si ver
     }
 
 ### <a name="cloud-to-device-commands"></a>Comandi da cloud a dispositivo
-La categoria di comandi da cloud a dispositivo tiene traccia degli errori che si verificano nell'hub IoT e sono correlati alla pipeline di comandi dei dispositivi. Questa categoria include gli errori che si verificano durante l'invio di comandi, ad esempio un mittente non autorizzato, la ricezione di comandi, ad esempio il superamento del numero di recapiti, e la ricezione di commenti sui comandi, ad esempio commenti scaduti. Questa categoria non intercetta gli errori da un dispositivo che gestisce in modo non corretto un comando, se questo è stato recapitato correttamente.
+La categoria di comandi da cloud a dispositivo tiene traccia degli errori che si verificano nell'hub IoT e sono correlati alla pipeline di messaggi da cloud a dispositivo. Questa categoria include gli errori che si verificano durante l'invio di messaggi da cloud a dispositivo, ad esempio un mittente non autorizzato, la ricezione di messaggi da cloud a dispositivo, ad esempio il superamento del numero di recapiti, e la ricezione di commenti sui messaggi da cloud a dispositivo, ad esempio commenti scaduti. Questa categoria non intercetta gli errori da un dispositivo che gestisce in modo non corretto un messaggio da cloud a dispositivo, se questo è stato recapitato correttamente.
 
     {
          "messageSizeInBytes": 1234,
@@ -147,7 +147,7 @@ Questa categoria non può intercettare errori che si verificano direttamente men
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-* [Guida per sviluppatori][lnk-devguide]
+* [Guida per gli sviluppatori dell'hub IoT][lnk-devguide]
 * [Simulazione di un dispositivo con IoT Gateway SDK][lnk-gateway]
 
 <!-- Links and images -->
@@ -164,6 +164,6 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

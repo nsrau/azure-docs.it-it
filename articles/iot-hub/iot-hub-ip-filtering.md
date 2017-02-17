@@ -1,6 +1,6 @@
 ---
-title: Hub IoT - Filtro IP | Documentazione Microsoft
-description: Questa esercitazione mostra come bloccare o consentire specifici indirizzi IP per l&quot;hub IoT di Azure.
+title: Filtri IP dell&quot;hub IoT di Azure | Documentazione Microsoft
+description: "Come usare i filtri IP per bloccare le connessioni da indirizzi IP specifici all&quot;hub IoT di Azure. È possibile bloccare le connessioni da singoli indirizzi IP o da intervalli di indirizzi IP."
 services: iot-hub
 documentationcenter: 
 author: BeatriceOltean
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 01/05/2017
 ms.author: boltean
 translationtype: Human Translation
-ms.sourcegitcommit: 457d0d97601e18de2a19b83be100954d01f9bbf8
-ms.openlocfilehash: 86622918a136da4c478c8d47a677a67e46eb093b
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 784454c3bc0500ac0896177e843b3c194341cdd1
 
 
 ---
 
-# <a name="ip-filter"></a>Filtro IP
+# <a name="use-ip-filters"></a>Usare i filtri IP
 
 La sicurezza è un aspetto importante di qualsiasi soluzione IoT basata su un hub IoT di Azure. A volte è necessario bloccare o consentire specifici indirizzi IP nell'ambito della configurazione della sicurezza. La funzionalità _Filtro IP_ consente di configurare regole per rifiutare o accettare il traffico da specifici indirizzi IPv4.
 
@@ -34,7 +34,7 @@ Esistono due casi d'uso specifici in cui è utile bloccare gli endpoint dell'hub
 
 ## <a name="how-filter-rules-are-applied"></a>Come vengono applicate le regole di filtro
 
-Le regole del filtro IP vengono applicate a livello del servizio dell'hub IoT. Le regole del filtro IP vengono quindi applicate a tutte le connessioni provenienti dai dispositivi e dalle applicazioni back-end con qualsiasi protocollo supportato.
+Le regole del filtro IP vengono applicate a livello del servizio dell'hub IoT. Le regole del filtro IP vengono quindi applicate a tutte le connessioni provenienti dai dispositivi e dalle app back-end con qualsiasi protocollo supportato.
 
 Qualsiasi tentativo di connessione da un indirizzo IP corrispondente a una regola di rifiuto nell'hub IoT riceve un codice di stato 401 - Non autorizzato e la descrizione. Il messaggio di risposta non indica la regola IP.
 
@@ -84,7 +84,7 @@ Per salvare il nuovo ordine delle regole del filtro IP, fare clic su **Salva**.
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 * [Monitoraggio delle operazioni][lnk-monitor]
-* [Metriche dell'hub IoT][lnk-metrics]
+* [Metriche di Hub IoT][lnk-metrics]
 
 <!-- Images -->
 [img-ip-filter-default]: ./media/iot-hub-ip-filtering/ip-filter-default.png
@@ -96,13 +96,13 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 <!-- Links -->
 
-[Guida per gli sviluppatori dell'hub IoT]: iot-hub-devguide.md
+[IoT Hub developer guide]: iot-hub-devguide.md
 [Azure ExpressRoute]:  https://azure.microsoft.com/en-us/documentation/articles/expressroute-faqs/#supported-services
 
 [lnk-monitor]: iot-hub-operations-monitoring.md
 [lnk-metrics]: iot-hub-metrics.md
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

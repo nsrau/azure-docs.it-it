@@ -1,6 +1,6 @@
 ---
-title: Inviare messaggi da cloud a dispositivo con l&quot;hub IoT | Documentazione Microsoft
-description: "Seguire questa esercitazione per informazioni su come inviare messaggi da cloud a dispositivo utilizzando l’hub IoT Azure con C#."
+title: Messaggi da cloud a dispositivo con l&quot;hub IoT di Azure (.NET) | Documentazione Microsoft
+description: Come inviare messaggi da cloud a dispositivo a un dispositivo da un hub IoT di Azure usando gli SDK di Azure IoT per .NET. Modificare un&quot;app per dispositivo simulato per ricevere messaggi da cloud a dispositivo e modificare un&quot;app back-end per inviare i messaggi da cloud a dispositivo.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -15,26 +15,26 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: ce514e19370d2b42fb16b4e96b66f212d5fa999c
-ms.openlocfilehash: 873043eefc33603bd472c6d4e0e8c10d1ad400ee
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 6af64c0f4049e2597b7a101a0e0f735623fc18a0
 
 
 ---
-# <a name="tutorial-how-to-send-cloud-to-device-messages-with-iot-hub-and-net"></a>Esercitazione: Inviare messaggi da cloud a dispositivo con l'hub IoT e .NET
+# <a name="send-cloud-to-device-messages-with-iot-hub-net"></a>Inviare messaggi da cloud a dispositivo con l'hub IoT (.NET)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## <a name="introduction"></a>Introduzione
-L'hub IoT di Azure è un servizio completamente gestito che consente di abilitare comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi e un back-end applicazioni. L'esercitazione [Introduzione all'hub IoT di Azure] illustra come creare un hub IoT, effettuare il provisioning dell'identità di un dispositivo al suo interno e creare il codice di un'app per dispositivo simulato che invia messaggi da dispositivo a cloud.
+L'hub IoT di Azure è un servizio completamente gestito che consente di abilitare comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi e un back-end della soluzione. L'esercitazione [Introduzione all'hub IoT di Azure] illustra come creare un hub IoT, effettuare il provisioning dell'identità di un dispositivo al suo interno e creare il codice di un'app per dispositivo simulato che invia messaggi da dispositivo a cloud.
 
 Questa esercitazione si basa su [Introduzione all'hub IoT di Azure]. Illustra le operazioni seguenti:
 
-* Dal back-end cloud dell'applicazione, inviare messaggi da cloud a dispositivo a un singolo dispositivo tramite l'hub IoT.
+* Dal back-end della soluzione inviare messaggi da cloud a dispositivo a un singolo dispositivo tramite l'hub IoT.
 * Ricevere messaggi da cloud a dispositivo in un dispositivo.
-* Dal back-end cloud dell'applicazione, richiedere l'acknowledgement di recapito (*feedback*) per i messaggi inviati a un dispositivo dall'hub IoT.
+* Dal back-end della soluzione richiedere l'acknowledgement di recapito (*feedback*) per i messaggi inviati a un dispositivo dall'hub IoT.
 
-Per altre informazioni sui messaggi da cloud a dispositivo, vedere la[Guida per gli sviluppatori dell'hub IoT][IoT Hub Developer Guide - C2D].
+Per altre informazioni sui messaggi da cloud a dispositivo, vedere la[Guida per gli sviluppatori dell'hub IoT][IoT Hub developer guide - C2D].
 
-Al termine di questa esercitazione si eseguiranno due applicazioni console Windows:
+Al termine di questa esercitazione vengono eseguite due app console .NET:
 
 * **SimulatedDevice**, una versione modificata dell'app creata in [Introduzione all'hub IoT di Azure], che si connette all'hub IoT e riceve messaggi da cloud a dispositivo.
 * **SendCloudToDevice**, che invia un messaggio da cloud a dispositivo all'app per dispositivo simulato tramite l'hub IoT e quindi riceve l'acknowledgement di recapito.
@@ -72,10 +72,10 @@ In questa sezione si modificherà l'app per il dispositivo simulato creata in [I
    
     Il metodo `ReceiveAsync` restituisce in modo asincrono il messaggio ricevuto nel momento in cui viene ricevuto dal dispositivo. Restituisce *null* dopo un periodo di timeout specificabile (in questo caso viene usato il valore predefinito di un minuto). Quando l'app riceve un valore *Null*, deve rimanere in attesa di nuovi messaggi. Questo requisito è il motivo per la riga `if (receivedMessage == null) continue`.
    
-    La chiamata a `CompleteAsync()` notifica all'hub IoT che il messaggio è stato elaborato correttamente. Il messaggio può essere rimosso dalla coda del dispositivo in modo sicuro. Se si è verificato un evento che ha impedito all'app per dispositivo di completare l'elaborazione del messaggio, l'hub IoT lo recapita nuovamente. È quindi importante che la logica di elaborazione del messaggio nell'app per dispositivo sia *idempotente*, in modo che la ricezione dello stesso messaggio più volte produca lo stesso risultato. Un'applicazione può anche abbandonare temporaneamente un messaggio e, di conseguenza, l'hub IoT mantiene il messaggio nella coda per un uso futuro. In alternativa, l'applicazione può rifiutare un messaggio, rimuovendolo così definitivamente dalla coda. Per altre informazioni sul ciclo di vita del messaggio da cloud a dispositivo, vedere [Guida per gli sviluppatori dell'hub IoT][IoT Hub Developer Guide - C2D].
+    La chiamata a `CompleteAsync()` notifica all'hub IoT che il messaggio è stato elaborato correttamente. Il messaggio può essere rimosso dalla coda del dispositivo in modo sicuro. Se si è verificato un evento che ha impedito all'app per dispositivo di completare l'elaborazione del messaggio, l'hub IoT lo recapita nuovamente. È quindi importante che la logica di elaborazione del messaggio nell'app per dispositivo sia *idempotente*, in modo che la ricezione dello stesso messaggio più volte produca lo stesso risultato. Un'applicazione può anche abbandonare temporaneamente un messaggio e, di conseguenza, l'hub IoT mantiene il messaggio nella coda per un uso futuro. In alternativa, l'applicazione può rifiutare un messaggio, rimuovendolo così definitivamente dalla coda. Per altre informazioni sul ciclo di vita del messaggio da cloud a dispositivo, vedere [Guida per gli sviluppatori dell'hub IoT][IoT Hub developer guide - C2D].
    
    > [!NOTE]
-   > Quando si usa HTTP invece di MQTT o AMQP come trasporto, il metodo `ReceiveAsync` verrà restituito immediatamente. Il modello supportato per i messaggi da cloud a dispositivo con HTTP è dispositivi collegati occasionalmente che controllano raramente la presenza di messaggi (a intervalli inferiori 25 minuti). La generazione di altre ricezioni HTTP comporta la limitazione delle richieste da parte dell'hub IoT. Per altre informazioni sulle differenze tra il supporto di MQTT, AMQP e HTTP e sulla limitazione delle richieste dell'hub IoT, vedere [Guida per gli sviluppatori dell'hub IoT][IoT Hub Developer Guide - C2D].
+   > Quando si usa HTTP invece di MQTT o AMQP come trasporto, il metodo `ReceiveAsync` verrà restituito immediatamente. Il modello supportato per i messaggi da cloud a dispositivo con HTTP è dispositivi collegati occasionalmente che controllano raramente la presenza di messaggi (a intervalli inferiori 25 minuti). La generazione di altre ricezioni HTTP comporta la limitazione delle richieste da parte dell'hub IoT. Per altre informazioni sulle differenze tra il supporto di MQTT, AMQP e HTTP e sulla limitazione delle richieste dell'hub IoT, vedere [Guida per gli sviluppatori dell'hub IoT][IoT Hub developer guide - C2D].
    > 
    > 
 2. Aggiungere il metodo seguente al metodo **Main** immediatamente prima della riga `Console.ReadLine()`:
@@ -88,7 +88,7 @@ In questa sezione si modificherà l'app per il dispositivo simulato creata in [I
 > 
 
 ## <a name="send-a-cloud-to-device-message"></a>Inviare un messaggio da cloud a dispositivo
-In questa sezione viene scritta un'app console di Windows che invia messaggi da cloud a dispositivo all'app del dispositivo simulato.
+In questa sezione viene scritta un'app console di .NET che invia messaggi da cloud a dispositivo all'app del dispositivo simulato.
 
 1. Nella soluzione di Visual Studio corrente creare un progetto di applicazioni desktop in Visual C# usando il modello di progetto **Applicazione console**. Denominare il progetto **SendCloudToDevice**.
    
@@ -98,7 +98,8 @@ In questa sezione viene scritta un'app console di Windows che invia messaggi da 
     L'azione consente di visualizzare la finestra **Gestisci pacchetti NuGet**.
 3. Cercare `Microsoft Azure Devices`, fare clic su **Installa**e accettare le condizioni per l'uso. 
    
-    L'azione consente di scaricare, installare e aggiungere un riferimento al [pacchetto NuGet Azure IoT - Service SDK].
+    Verrà quindi scaricato e installato il [pacchetto NuGet Azure IoT Service SDK] e verrà aggiunto un riferimento a tale pacchetto.
+
 4. Aggiungere l'istruzione `using` seguente all'inizio del file **Program.cs** :
    
         using Microsoft.Azure.Devices;
@@ -130,7 +131,7 @@ In questa sezione viene scritta un'app console di Windows che invia messaggi da 
    ![Ricezione di un messaggio da parte dell'app][21]
 
 ## <a name="receive-delivery-feedback"></a>Ricevere feedback di recapito
-È possibile richiedere la conferma della ricezione (o della scadenza) dall'hub IoT per ogni messaggio da cloud a dispositivo. Questa opzione consente al back-end cloud di informare facilmente la logica di ripetizione o di compensazione. Per altre informazioni sul feedback da cloud a dispositivo, vedere [Guida per gli sviluppatori dell'hub IoT][IoT Hub Developer Guide - C2D].
+È possibile richiedere la conferma della ricezione (o della scadenza) dall'hub IoT per ogni messaggio da cloud a dispositivo. Questa opzione consente al back-end della soluzione di informare facilmente la logica di ripetizione o di compensazione. Per altre informazioni sul feedback da cloud a dispositivo, vedere [Guida per gli sviluppatori dell'hub IoT][IoT Hub developer guide - C2D].
 
 In questa sezione viene modificata l'app **SendCloudToDevice** per richiedere feedback e riceverli dall'hub IoT.
 
@@ -175,7 +176,7 @@ In questa esercitazione è stato descritto come inviare e ricevere messaggi da c
 
 Per avere degli esempi di soluzioni complete che utilizzano l'hub IoT, vedere la [Azure IoT Suite].
 
-Per ulteriori informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per gli sviluppatori dell'hub IoT].
+Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per gli sviluppatori dell'hub IoT].
 
 <!-- Images -->
 [20]: ./media/iot-hub-csharp-csharp-c2d/create-identity-csharp1.png
@@ -184,10 +185,10 @@ Per ulteriori informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere 
 
 <!-- Links -->
 
-[pacchetto NuGet Azure IoT - Service SDK]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[pacchetto NuGet Azure IoT Service SDK]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-[IoT Hub Developer Guide - C2D]: iot-hub-devguide-messaging.md
+[IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 
 [Guida per gli sviluppatori dell'hub IoT]: iot-hub-devguide.md
 [Introduzione all'hub IoT di Azure]: iot-hub-csharp-csharp-getstarted.md
@@ -197,6 +198,6 @@ Per ulteriori informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 
