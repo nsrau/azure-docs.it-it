@@ -1,5 +1,5 @@
 ---
-title: "Inviare processi Spark in modalità remota con Livy | Documentazione Microsoft"
+title: "Usare Livy per inviare processi in modalità remota a Spark in Azure HDInsight | Documentazione Microsoft"
 description: "Informazioni su come usare Livy con cluster HDInsight per inviare processi Spark in modalità remota."
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,13 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 0866581d6feebc71ed82aa48f6e41a58068af900
-ms.openlocfilehash: 0b8c9f9395f034355c8f10574e750fcf40e870de
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 3c349aecc87e28275045828a84e0ea3f89400b9e
 
 
 ---
-# <a name="submit-spark-jobs-remotely-to-an-apache-spark-cluster-on-hdinsight-linux-using-livy"></a>Inviare processi Spark in modalità remota a un cluster Apache Spark in HDInsight Linux mediante Livy
+# <a name="submit-spark-jobs-remotely-to-an-apache-spark-cluster-on-hdinsight-using-livy"></a>Inviare processi Spark in modalità remota a un cluster Apache Spark in HDInsight usando Livy
+
 Il cluster Apache Spark in Azure HDInsight include Livy, un'interfaccia REST per l'invio di processi in modalità remota a un cluster Spark. Per informazioni dettagliate, vedere [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
 
 È possibile usare Livy per l'esecuzione interattiva di shell Spark o per inviare processi batch da eseguire su Spark. Questo articolo parla dell'uso di Livy per inviare processi batch. La sintassi seguente usa Curl per eseguire chiamate REST all'endpoint Livy.
@@ -31,7 +32,7 @@ Il cluster Apache Spark in Azure HDInsight include Livy, un'interfaccia REST per
 È necessario disporre di quanto segue:
 
 * Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un cluster Apache Spark in HDInsight Linux. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## <a name="submit-a-batch-job"></a>Inviare un processo batch
 Prima di inviare un processo batch, è necessario caricare il file con estensione jar dell'applicazione nell'archivio del cluster associato al cluster. A tale scopo è possibile usare [**AzCopy**](../storage/storage-use-azcopy.md), un'utilità della riga di comando. Sono disponibili molti altri client da usare per caricare i dati. Altre informazioni in merito sono disponibili in [Caricare dati per processi Hadoop in HDInsight](hdinsight-upload-data.md).
@@ -193,6 +194,6 @@ Un cluster HDInsight 3.5, per impostazione predefinita, disabilita l'uso di perc
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

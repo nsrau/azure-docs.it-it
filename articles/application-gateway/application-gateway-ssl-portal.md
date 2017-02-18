@@ -1,5 +1,5 @@
 ---
-title: Configurare un gateway applicazione per l&quot;offload SSL con il portale | Documentazione Microsoft
+title: Configurare l&quot;offload SSL - Gateway applicazione di Azure - Portale di Azure | Documentazione Microsoft
 description: Questa pagina contiene istruzioni per creare un gateway applicazione con offload SSL usando il portale
 documentationcenter: na
 services: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1506729fb346a8a67930a5a2cd4c15f375c52e3f
-ms.openlocfilehash: d5c3d2ef6fe8fe22552fe1b23f3a4690b166be8b
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: b1852b82875c63fa0e252c14b69b281bd501095f
 
 
 ---
@@ -96,6 +96,6 @@ Per informazioni su come configurare un probe di integrità personalizzato con u
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

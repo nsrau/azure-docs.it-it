@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 11/28/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 86a0f6f2bc27f1411652b273325e73144582eee0
-ms.openlocfilehash: ec71a4674e9281927cd20897476e0180256936da
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 067725ee5f303fc21baa3204509e8facd6f216fc
 
 
 ---
@@ -34,7 +34,11 @@ In questo articolo si apprenderà come inviare query Hive a un cluster HDInsight
 
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
-* Un cluster Azure HDInsight (Hadoop in HDInsight) (basato su Linux o su Windows)
+* Un cluster Azure HDInsight (Hadoop in HDInsight)
+
+  > [!IMPORTANT]
+  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * Visual Studio (una delle versioni seguenti):
   
     Visual Studio 2013 Community/Professional/Premium/Ultimate con [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
@@ -155,6 +159,6 @@ Per altre informazioni su HDInsight Tools per Visual Studio:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

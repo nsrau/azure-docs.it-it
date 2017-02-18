@@ -1,5 +1,5 @@
 ---
-title: Spostare una VM di Windows | Microsoft Docs
+title: Spostare una risorsa di macchina virtuale Windows in Azure | Documentazione Microsoft
 description: Spostare una VM di Windows in un&quot;altra sottoscrizione o in un altro gruppo di risorse di Azure nel modello di distribuzione di Resource Manager.
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
-ms.openlocfilehash: 2464b54f70dc38b79a883b08664f4f165ec4c2d3
+ms.sourcegitcommit: 6b80fa78fea505cd22bae2925ce1affbc1e48ab9
+ms.openlocfilehash: cccbddd6993e3011e3e76bc84ffc212f3f8b1d55
 
 
 ---
@@ -66,6 +66,6 @@ Verrà richiesto di confermare che si vuole spostare le risorse specificate. Dig
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

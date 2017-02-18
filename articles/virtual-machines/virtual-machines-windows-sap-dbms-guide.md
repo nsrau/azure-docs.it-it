@@ -1,5 +1,5 @@
 ---
-title: SAP NetWeaver in macchine virtuali (VM) di Azure - Guida alla distribuzione DBMS | Microsoft Docs
+title: 'SAP NetWeaver in macchine virtuali di Azure: guida alla distribuzione DBMS | Documentazione Microsoft'
 description: SAP NetWeaver in macchine virtuali (VM) di Azure - Guida alla distribuzione DBMS
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 translationtype: Human Translation
-ms.sourcegitcommit: 7cbb85e3f6705770a3eab7cc5a0da5070f2a170e
-ms.openlocfilehash: 52506430dcaccca1a29878470abb86585593b5a7
+ms.sourcegitcommit: 73d08acd6cd57a9430826413d71a8c53b9646dd5
+ms.openlocfilehash: 61a1181ee06c989b4837442800110aee0c5f1abf
 
 
 ---
@@ -350,11 +350,11 @@ La posizione dei file di database e dei file di log e il tipo di Archiviazione d
 A seconda della serie della macchina virtuale di Azure i dischi locali nel nodo di calcolo mostrano prestazioni differenti, che possono essere classificate come segue:
 
 * A0-A7: prestazioni molto limitate. L'unico uso possibile è il file di paging di Windows.
-* A8-A11: caratteristiche di prestazioni molto valide con circa diecimila IOPS e velocità effettiva > 1 GB/sec.
-* Serie D: caratteristiche di prestazioni molto valide con circa diecimila IOPS e velocità effettiva > 1 GB/sec.
-* Serie DS: caratteristiche di prestazioni molto valide con circa diecimila IOPS e velocità effettiva > 1 GB/sec.
-* Serie G: caratteristiche di prestazioni molto valide con circa diecimila IOPS e velocità effettiva > 1 GB/sec.
-* Serie GS: caratteristiche di prestazioni molto valide con circa diecimila IOPS e velocità effettiva > 1 GB/sec.
+* A8-A11: caratteristiche di prestazioni molto valide con circa diecimila IOPS e velocità effettiva >&1; GB/sec.
+* Serie D: caratteristiche di prestazioni molto valide con circa diecimila IOPS e velocità effettiva >&1; GB/sec.
+* Serie DS: caratteristiche di prestazioni molto valide con circa diecimila IOPS e velocità effettiva >&1; GB/sec.
+* Serie G: caratteristiche di prestazioni molto valide con circa diecimila IOPS e velocità effettiva >&1; GB/sec.
+* Serie GS: caratteristiche di prestazioni molto valide con circa diecimila IOPS e velocità effettiva >&1; GB/sec.
 
 Le indicazioni precedenti sono applicabili ai tipi di macchine virtuali certificati per SAP. Le serie di VM con valori di IOPS e velocità effettiva eccellenti sono adatte all'uso da parte di alcune funzionalità DBMS, come tempdb o lo spazio di tabella temporanea.
 
@@ -408,7 +408,7 @@ Considerazioni tipiche relative all'uso di serie di macchine virtuali compatibil
 * Richiesta di una latenza di I/O molto superiore alle possibilità di Archiviazione Standard di Azure.
 * IOPS per macchina virtuale superiore al numero che è possibile raggiungere con più dischi rigidi virtuali di Archiviazione Standard rispetto a un determinato tipo di macchina virtuale.
 
-Dato che l'Archiviazione di Azure sottostante replica ogni disco rigido virtuale in almeno tre nodi di archiviazione, è possibile usare un semplice striping RAID 0. Non è necessario implementare RAID 5 o RAID 1.
+Dato che l'Archiviazione di Azure sottostante replica ogni disco rigido virtuale in almeno tre nodi di archiviazione, è possibile usare un semplice striping RAID 0. Non è necessario implementare RAID&5; o RAID&1;.
 
 ### <a name="a-name10b041ef-c177-498a-93ed-44b3441ab152amicrosoft-azure-storage"></a><a name="10b041ef-c177-498a-93ed-44b3441ab152"></a>Archiviazione di Microsoft Azure
 Archiviazione di Microsoft Azure memorizza la macchina virtuale di base, con il sistema operativo e i dischi rigidi virtuali o i BLOB in almeno tre nodi di archiviazione distinti. Quando si crea un account di archiviazione, è possibile scegliere il livello di protezione come illustrato di seguito:
@@ -603,7 +603,7 @@ Questa funzionalità consente di eseguire il backup direttamente nell'archivio B
 
 Il vantaggio in questo caso è che non è necessario consumare dischi rigidi virtuali per archiviarvi i backup di SQL Server. Il numero di dischi rigidi virtuali allocati è inferiore ed è possibile usare l'intera larghezza di banda delle operazioni di I/O al secondo dei dischi rigidi virtuali per i file di log e di dati. Notare che la dimensione massima di un backup è limitata a 1 TB, come documentato nella sezione "Limitazioni" dell'articolo <https://msdn.microsoft.com/library/dn435916.aspx#limitations>. Se, nonostante l'uso della compressione del backup di SQL Server, la dimensione del backup supera 1 TB, è necessario usare la funzionalità descritta nel capitolo [SQL Server 2012 SP1 CU3 e versioni precedenti][dbms-guide-5.5.2] di questo documento.
 
-Nella [documentazione correlata](https://msdn.microsoft.com/library/dn449492.aspx) che descrive il ripristino di database da backup sull'archiviazione BLOB di Azure si consiglia di non eseguire il ripristino direttamente dall'archiviazione se la dimensione del backup supera i 25 GB. L'indicazione riportata in questo articolo si basa semplicemente su considerazioni relative alle prestazioni e non su limitazioni funzionali. Le condizioni applicabili possono quindi variare caso per caso.
+Nella [documentazione correlata](https://msdn.microsoft.com/library/dn449492.aspx) che descrive il ripristino di database da backup sull'archiviazione BLOB di Azure si consiglia di non eseguire il ripristino direttamente dall'archiviazione se la dimensione del backup supera i&25; GB. L'indicazione riportata in questo articolo si basa semplicemente su considerazioni relative alle prestazioni e non su limitazioni funzionali. Le condizioni applicabili possono quindi variare caso per caso.
 
 La documentazione relativa alla configurazione e all'uso di questo tipo di backup è disponibile in [questa](https://msdn.microsoft.com/library/dn466438.aspx) esercitazione
 
@@ -1340,6 +1340,6 @@ Vedere anche il capitolo [Riepilogo generale su SQL Server per SAP in Azure][dbm
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

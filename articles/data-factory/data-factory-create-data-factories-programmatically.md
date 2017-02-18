@@ -1,5 +1,5 @@
 ---
-title: Creare, monitorare e gestire le istanze di Azure Data Factory mediante Data Factory SDK | Microsoft Docs
+title: Creare pipeline di dati usando Azure .NET SDK | Documentazione Microsoft
 description: Informazioni su come creare, monitorare e gestire a livello di codice le istanze di Data factory di Azure usando Data Factory SDK.
 services: data-factory
 documentationcenter: 
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
-ms.openlocfilehash: d51c900f7cf69d3852a1699284a459b930eb735e
+ms.sourcegitcommit: 7c9f14503a7cf5c0808e26884a73cd2918ff1c74
+ms.openlocfilehash: 4973a2218ec480fb239e3b32e8f34e3fb14454d0
 
 
 ---
-# <a name="create-monitor-and-manage-azure-data-factories-using-data-factory-net-sdk"></a>Creazione, monitoraggio e gestione delle istanze di Data factory di Azure mediante Data Factory .NET SDK
-## <a name="overview"></a>Overview
+# <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Creazione, monitoraggio e gestione delle istanze di Azure Data Factory mediante Azure Data Factory .NET SDK
+## <a name="overview"></a>Panoramica
 È possibile creare, monitorare e gestire le istanze di Data factory di Azure a livello di codice mediante Data Factory .NET SDK. Questo articolo contiene una procedura dettagliata per la creazione di un'applicazione console .NET di esempio che crea e monitora un'istanza di Data factory. Per informazioni dettagliate su Data Factory .NET SDK, vedere la sezione di [riferimento sulla libreria di classi di Data factory](https://msdn.microsoft.com/library/mt415893.aspx) .
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -481,6 +481,6 @@ Note down the **SubscriptionId** and **TenantId** values.
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

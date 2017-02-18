@@ -1,5 +1,5 @@
 ---
-title: Identificare database e tabelle per Estensione database eseguendo Stretch Database Advisor | Microsoft Docs
+title: Identificazione di database e tabelle per l&quot;estensione database - Azure | Documentazione Microsoft
 description: Informazioni su come identificare database e tabelle candidati per Database Estensione.
 services: sql-server-stretch-database
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: 47b666a7f2178daebc1b2b442fd1bb8cf31e40bb
-ms.openlocfilehash: 3aef66c7b80ee356faedcaaadacd15aea3438714
+ms.sourcegitcommit: bcb0a66425439522e0c9a353798ac70505b91e39
+ms.openlocfilehash: 0f1a7feea79c73d7b80343fcc9898509268d111c
 
 
 ---
@@ -36,10 +36,10 @@ Per identificare i database e le tabelle per l'estensione database, scaricare Ge
 
 ## <a name="review-the-results"></a>Esaminare i risultati
 1. Al termine dell'analisi, nel pannello **Analyzed databases** (Database analizzati) selezionare uno dei database selezionati per visualizzare il pannello **Analysis results** (Risultati analisi).
-   
+
    Il pannello **Risultati analisi** elenca le tabelle consigliate nel database selezionato che soddisfano i criteri di raccomandazione predefiniti.
 2. Nell'elenco delle tabelle presente nel pannello **Analysis results** (Risultati analisi) selezionare una delle tabelle consigliate per visualizzare il pannello **Risultati tabella**.
-   
+
    Eventuali problemi di blocco della tabella selezionata sono elencati nel pannello **Risultati tabella** . Per informazioni sui problemi di blocco rilevati dall'ottimizzazione guidata dell'estensione database, vedere [Limitazioni di Estensione database](sql-server-stretch-database-limitations.md).
 3. Nell'elenco dei problemi di blocco del pannello **Risultati tabella** selezionare uno dei problemi per visualizzare ulteriori informazioni sul problema selezionato e alcune procedure di prevenzione consigliate. Implementare i passaggi suggeriti per configurare la tabella selezionata per Database Estensione.
 
@@ -58,7 +58,6 @@ Abilitare Database Estensione.
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,9 +1,9 @@
 ---
-title: Gestire la scadenza del contenuto di BLOB del servizio di archiviazione di Azure nella rete CDN di Azure | Documentazione Microsoft
+title: Gestire la scadenza di BLOB del servizio di archiviazione di Azure nella rete CDN di Azure | Documentazione Microsoft
 description: Informazioni sulle opzioni per il controllo della durata per i BLOB nel caching della rete CDN di Azure.
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: ad4801e9-d09a-49bf-b35c-efdc4e6034e8
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/15/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
-ms.openlocfilehash: 751db56ee29ebc635d4d2a27dd18f99f7efb5a34
+ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
+ms.openlocfilehash: 26085360a1f2a2ffda3789c654bc7212f2e652f3
 
 
 ---
-# <a name="manage-expiration-of-azure-storage-blob-content-in-azure-cdn"></a>Gestire la scadenza del contenuto di BLOB del servizio di archiviazione di Azure nella rete CDN di Azure
+# <a name="manage-expiration-of-azure-storage-blobs-in-azure-cdn"></a>Gestire la scadenza di BLOB del servizio di archiviazione di Azure nella rete CDN di Azure
 > [!div class="op_single_selector"]
 > * [App Web/Servizi cloud di Azure, ASP.NET o IIS](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Servizio BLOB del servizio di archiviazione di Azure](cdn-manage-expiration-of-blob-content.md)
@@ -100,7 +100,7 @@ class Program
 ## <a name="other-methods"></a>Altri metodi
 * [Interfaccia della riga di comando di Azure](../xplat-cli-install.md)
   
-    Quando si carica il BLOB, impostare la proprietà *cacheControl* usando l'opzione `-p`.  Questo esempio imposta la durata (TTL) su un'ora, ovvero 3.600 secondi.
+    Quando si carica il BLOB, impostare la proprietà *cacheControl* usando l'opzione `-p`.  Questo esempio imposta la durata (TTL) su un'ora, ovvero&3;.600 secondi.
   
     ```text
     azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
@@ -122,6 +122,6 @@ class Program
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

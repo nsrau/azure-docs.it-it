@@ -4,7 +4,7 @@ description: Learn how to restore a single table from Azure SQL Database backup.
 services: sql-database
 documentationcenter: 
 author: dalechen
-manager: felixwu
+manager: cshepard
 editor: 
 ms.assetid: 340b41bd-9df8-47fb-adfc-03216de38a5e
 ms.service: sql-database
@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dbdcfc9760df41ec1f52406b91cc211fc5ad8ef7
+ms.sourcegitcommit: 9992b6a2bf73fd84c7c47783d1f4f13e10889a81
+ms.openlocfilehash: 8c074243db2ae729c4fd1a483e5ac40fbbebd750
 
 
 ---
@@ -34,7 +34,7 @@ Potrebbe verificarsi una situazione in cui alcuni dati sono stati modificati acc
 2. Ripristinare un backup del database al momento specifico desiderato usando i passaggi di [Ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore).
    
    > [!NOTE]
-   > Il nome del database ripristinato sarà nel formato NomeDB+Timestamp. Ad esempio, **Adventureworks2012_2016-01-01T22-12Z**. In questo passaggio non verrà sovrascritto il nome del database esistente nel server. Si tratta di una misura di sicurezza che consente all'utente di verificare il database ripristinato prima di eliminare il database corrente e rinominare il database ripristinato per l'uso in produzione.
+   > Il nome del database ripristinato sarà nel formato NomeDB+Timestamp. Ad esempio, **Adventureworks2012_2016-01-01T22-12Z**. Questo passaggio non sovrascrive il nome del database esistente nel server. Si tratta di una misura di sicurezza che consente all'utente di verificare il database ripristinato prima di eliminare il database corrente e rinominare il database ripristinato per l'uso in produzione.
    
 ## <a name="copying-the-table-from-the-restored-database-by-using-the-sql-database-migration-tool"></a>Copia della tabella dal database ripristinato tramite lo strumento di migrazione del database SQL
 
@@ -84,6 +84,6 @@ Potrebbe verificarsi una situazione in cui alcuni dati sono stati modificati acc
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

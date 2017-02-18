@@ -1,5 +1,5 @@
 ---
-title: Creare un probe personalizzato per il gateway applicazione usando PowerShell nel modello di distribuzione classica | Documentazione Microsoft
+title: Creare un probe personalizzato - Gateway applicazione di Azure - PowerShell versione classica | Documentazione Microsoft
 description: Informazioni su come creare un probe personalizzato per il gateway applicazione usando PowerShell nel modello di distribuzione classica
 services: application-gateway
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: aaf13418331f29287399621cb911e4b9f5b33dc0
-ms.openlocfilehash: a995495f003edbff6cd0a4a15d09585458664f78
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 4787a382b837b71a28c45211a26aa512e8fb177e
 
 
 ---
@@ -225,6 +225,6 @@ Per configurare un gateway applicazione da usare con un servizio di bilanciament
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -16,15 +16,15 @@ ms.workload: integration
 ms.date: 08/02/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a1ecedf9bf78e0a15908c1a03ca24d611f551875
+ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
+ms.openlocfilehash: 1e23402cbc63aeb262bfb471745589cc0bbd734f
 
 
 ---
 # <a name="get-started-with-the-azure-service-bus-connector"></a>Introduzione al connettore del bus di servizio di Azure
 Connettersi al bus di servizio di Azure per inviare e ricevere messaggi. È possibile eseguire varie azioni, ad esempio inviare alla coda, inviare all'argomento, ricevere dalla coda e ricevere dalla sottoscrizione.
 
-Per usare [qualsiasi connettore](apis-list.md), è necessario innanzitutto creare un'app per la logica. Come prima operazione [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per usare [qualsiasi connettore](apis-list.md), è necessario innanzitutto creare un'app per la logica. Come prima operazione [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-service-bus"></a>Connettersi al bus di servizio
 Perché l'app per la logica possa accedere a qualsiasi servizio, è necessario creare una connessione al servizio. Una [connessione](connectors-overview.md) fornisce la connettività tra un'app per la logica e un altro servizio.  
@@ -34,14 +34,14 @@ Perché l'app per la logica possa accedere a qualsiasi servizio, è necessario c
 > 
 
 ## <a name="use-a-service-bus-trigger"></a>Usare un trigger di bus di servizio
-Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create a Service Bus trigger](../../includes/connectors-create-api-servicebus-trigger.md)]
 > 
 > 
 
 ## <a name="use-a-service-bus-action"></a>Usare un'azione del bus di servizio
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 [!INCLUDE [Steps to create a Service Bus action](../../includes/connectors-create-api-servicebus-action.md)]
 
@@ -156,11 +156,11 @@ Le azioni e i trigger riportati sopra possono restituire uno o più dei codici d
 | default |Operazione non riuscita. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

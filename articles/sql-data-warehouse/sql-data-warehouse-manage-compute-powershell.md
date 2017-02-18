@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5749b37408be8eeab6a3fba40d6768ca1d035096
+ms.sourcegitcommit: f9814fc0011153a25489d60d696bb567edfcebc4
+ms.openlocfilehash: a4cde433850ab3627f870b51f5a897c6f846c2f0
 
 
 ---
@@ -29,16 +29,6 @@ ms.openlocfilehash: 5749b37408be8eeab6a3fba40d6768ca1d035096
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 > 
 > 
-
-Ridimensionare le prestazioni tramite la scalabilità orizzontale delle risorse di calcolo e della memoria per soddisfare le diverse esigenze del carico di lavoro. Risparmiare sui costi ridimensionando le risorse durante le ore non di punta o sospendendo completamente il calcolo.
-
-Questa raccolta di attività usa il portale di Azure per:
-
-* Ridimensionare le risorse di calcolo
-* Sospendere le risorse di calcolo
-* Riavviare le risorse di calcolo
-
-Per altre informazioni, vedere [Gestire la potenza di calcolo][Manage compute overview].
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 ### <a name="install-the-latest-version-of-azure-powershell"></a>Installare la versione più recente di Azure PowerShell.
@@ -141,6 +131,6 @@ Per altre attività di gestione, vedere [Panoramica della gestione][Management o
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

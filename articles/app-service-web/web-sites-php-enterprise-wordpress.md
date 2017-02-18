@@ -1,5 +1,5 @@
 ---
-title: WordPress di livello aziendale in Servizio app di Azure | Documentazione Microsoft
+title: WordPress di livello aziendale in Azure | Documentazione Microsoft
 description: Informazioni su come ospitare un sito WordPress aziendale nel servizio app di Azure
 services: app-service\web
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.workload: web
 ms.date: 10/24/2016
 ms.author: sumuth
 translationtype: Human Translation
-ms.sourcegitcommit: 4f37777eb42051921087c90a57138cb4085dd7cd
-ms.openlocfilehash: 032d5cbc19113d966b20cec1ef332eb6fdca5708
+ms.sourcegitcommit: 541dd7bed5a4a9e306642b2c36dd7c9d45aec690
+ms.openlocfilehash: fcaff51b2897b1b0bce8b1c503adfd9425c9fbb4
 
 
 ---
-# <a name="enterprise-class-wordpress-on-azure-app-service"></a>WordPress di livello aziendale nel servizio app di Azure
+# <a name="enterprise-class-wordpress-on-azure"></a>WordPress di livello aziendale in Azure
 Il Servizio app di Azure rende disponibile un ambiente scalabile, sicuro e facile da usare per siti [WordPress][wordpress] di importanza critica e su vasta scala. Anche Microsoft gestisce siti di livello aziendale come i blog di [Office][officeblog] e [Bing][bingblog]. Questo articolo illustra come usare la funzionalità App Web del Servizio app di Microsoft Azure per stabilire e mantenere un sito WordPress di livello aziendale, basato sul cloud, in grado di gestire un numero elevato di visitatori.
 
 ## <a name="architecture-and-planning"></a>Architettura e pianificazione
@@ -191,7 +191,7 @@ Dopo la creazione o la migrazione del sito WordPress, usare le informazioni segu
 * [Suggerimenti per WordPress in Azure](http://www.johnpapa.net/azurecleardbmysql/)
 
 > [!NOTE]
-> Per iniziare a usare il Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il Servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel Servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il Servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel Servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 >
 >
 
@@ -246,6 +246,6 @@ Per una guida relativa al passaggio da siti Web al Servizio App, vedere [Servizi
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

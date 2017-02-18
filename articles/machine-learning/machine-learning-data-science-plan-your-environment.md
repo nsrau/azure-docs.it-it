@@ -1,5 +1,5 @@
 ---
-title: Come identificare scenari e pianificare l&quot;elaborazione dei dati di analisi avanzata | Microsoft Docs
+title: Identificare gli scenari e pianificare il processo di analisi - Azure | Documentazione Microsoft
 description: Pianificare l&quot;analisi avanzata prendendo in considerazione una serie di domande chiave.
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: 600959ec221b018b92a1438df601cd789521e8f5
+ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
+ms.openlocfilehash: d11f023f263b0bb504e2ecb0ff69bb0cc726618b
 
 
 ---
@@ -28,13 +28,13 @@ Quali risorse è necessario pianificare quando si configura un ambiente per l'el
 ## <a name="logistic-questions-data-locations-and-movement"></a>Logistica: percorsi dei dati e spostamento
 Le domande di logistica riguardano la posizione dell'**origine dati**, la **destinazione** in Azure e i requisiti per lo spostamento dei dati, incluse la pianificazione, la quantità e le risorse coinvolte. Potrebbe essere necessario spostare i dati più volte durante il processo di analisi. Uno scenario frequente consiste nello spostamento di dati locali in una qualche forma di archiviazione in Azure e quindi in Machine Learning Studio.
 
-1. **Qual è l'origine dati?**  È locale o nel cloud? ad esempio:
+1. **Qual è l'origine dati?** È locale o nel cloud? ad esempio:
    
    * I dati sono disponibili a un indirizzo HTTP.
    * I dati si trovano in un percorso locale/di rete.
    * I dati si trovano in un database di SQL Server.
    * I dati sono archiviati in un contenitore di archiviazione di Azure.
-2. **Qual è la destinazione di Azure?**  Quale deve essere la destinazione per l'elaborazione o la modellazione? ad esempio:
+2. **Qual è la destinazione di Azure?** Quale deve essere la destinazione per l'elaborazione o la modellazione? ad esempio:
    
    * Archiviazione BLOB di Azure
    * Database SQL Azure
@@ -42,12 +42,12 @@ Le domande di logistica riguardano la posizione dell'**origine dati**, la **dest
    * Tabelle Hive o HDInsight (Hadoop in Azure)
    * Azure Machine Learning
    * Dischi rigidi virtuali di Azure montabili.
-3. **Come verranno spostati i dati?**  Gli argomenti seguenti illustrano le procedure e le risorse disponibili per inserire o caricare dati in vari ambienti di elaborazione e di archiviazione diversi.
+3. **Come verranno spostati i dati?** Gli argomenti seguenti illustrano le procedure e le risorse disponibili per inserire o caricare dati in vari ambienti di elaborazione e di archiviazione diversi.
    
    * [Caricare i dati in ambienti di archiviazione per l'analisi](machine-learning-data-science-ingest-data.md)
    * [Importare dati di training in Azure Machine Learning Studio da varie origini dati](machine-learning-data-science-import-data.md).
-4. **I dati devono essere spostati a intervalli regolari o modificati durante la migrazione?**  È consigliabile usare il Data factory di Azure (ADF) quando è necessario migrare continuamente i dati, soprattutto in uno scenario ibrido che accede a risorse locali e cloud o in presenza di dati transazionali, che devono essere modificati o ai quali va aggiunta una logica di business durante la migrazione. Per altre informazioni, vedere [Spostare i dati da un server SQL locale a SQL Azure con il Data factory di Azure](machine-learning-data-science-move-sql-azure-adf.md)
-5. **Quanta parte dei dati deve essere spostata in Azure?**  I set di dati molto grandi potrebbero superare la capacità di archiviazione di determinati ambienti. Per un esempio, vedere la discussione sui limiti di dimensione per Machine Learning Studio nella sezione successiva. In questi casi è possibile usare un campione dei dati durante l'analisi. Per informazioni dettagliate su come sottocampionare un set di dati in vari ambienti di Azure, vedere [Sample data in the Team Data Science Process](machine-learning-data-science-sample-data.md)(Campionare i dati nel Processo di analisi scientifica dei dati per i team).
+4. **I dati devono essere spostati a intervalli regolari o modificati durante la migrazione?** È consigliabile usare il Data factory di Azure (ADF) quando è necessario migrare continuamente i dati, soprattutto in uno scenario ibrido che accede a risorse locali e cloud o in presenza di dati transazionali, che devono essere modificati o ai quali va aggiunta una logica di business durante la migrazione. Per altre informazioni, vedere [Spostare i dati da un server SQL locale a SQL Azure con il Data factory di Azure](machine-learning-data-science-move-sql-azure-adf.md)
+5. **Quanta parte dei dati deve essere spostata in Azure?** I set di dati molto grandi potrebbero superare la capacità di archiviazione di determinati ambienti. Per un esempio, vedere la discussione sui limiti di dimensione per Machine Learning Studio nella sezione successiva. In questi casi è possibile usare un campione dei dati durante l'analisi. Per informazioni dettagliate su come sottocampionare un set di dati in vari ambienti di Azure, vedere [Sample data in the Team Data Science Process](machine-learning-data-science-sample-data.md)(Campionare i dati nel Processo di analisi scientifica dei dati per i team).
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>Domande sulle caratteristiche dei dati: tipo, formato e dimensione
 Queste domande sono fondamentali per la pianificazione degli ambienti di elaborazione e archiviazione, ognuno dei quali è più adatto a vari tipi di dati e per ognuno dei quali sono previste determinate limitazioni.
@@ -81,7 +81,7 @@ Per informazioni sulle limitazioni di altri servizi Azure usati nel processo di 
 ## <a name="data-quality-questions-exploration-and-pre-processing"></a>Domande sulla qualità dei dati: esplorazione e pre-elaborazione
 1. **Quali sono le informazioni necessarie sui dati?** Esplorare i dati per comprenderne le caratteristiche di base, i modelli o le tendenze, gli outlier o gli eventuali valori mancanti. Questo passaggio è importante per determinare la quantità di pre-elaborazione necessaria, per formulare ipotesi che potrebbero suggerire le funzionalità o il tipo di analisi più appropriato e per formulare piani per la raccolta di dati aggiuntivi. Alcune tecniche utili per l'analisi dei dati consistono nel calcolare statistiche descrittive e tracciare visualizzazioni. Per informazioni dettagliate su come esplorare un set di dati in vari ambienti di Azure, vedere [Esplorare i dati nel Processo di analisi scientifica dei dati per i team](machine-learning-data-science-explore-data.md).
 2. **I dati necessitano di pre-elaborazione o pulizia?**
-    La pre-elaborazione e la pulizia dei dati rappresentano attività importanti che in genere devono essere eseguite prima di poter usare un set di dati in modo efficace per Machine Learning. I dati non elaborati sono fastidiosi, non affidabili e potrebbero non contenere alcuni valori. Utilizzare tali dati per la modellazione può produrre risultati fuorvianti. Per una descrizione, vedere [Attività per preparare i dati per operazioni avanzate con Machine Learning](machine-learning-data-science-prepare-data.md).
+   La pre-elaborazione e la pulizia dei dati rappresentano attività importanti che in genere devono essere eseguite prima di poter usare un set di dati in modo efficace per Machine Learning. I dati non elaborati sono fastidiosi, non affidabili e potrebbero non contenere alcuni valori. Utilizzare tali dati per la modellazione può produrre risultati fuorvianti. Per una descrizione, vedere [Attività per preparare i dati per operazioni avanzate con Machine Learning](machine-learning-data-science-prepare-data.md).
 
 ## <a name="tools-and-languages-questions"></a>Domande su strumenti e linguaggi
 Sono disponibili numerose opzioni a seconda dei linguaggi e degli strumenti o ambienti di sviluppo usati.
@@ -108,6 +108,6 @@ Dopo aver risposto alle domande nella sezione precedente, si è pronti per deter
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

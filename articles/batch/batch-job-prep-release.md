@@ -1,5 +1,5 @@
 ---
-title: Preparazione di processi e pulizia in Batch | Documentazione Microsoft
+title: "Usare attività di preparazione e rilascio dei processi: Azure Batch | Documentazione Microsoft"
 description: "Usare le attività di preparazione a livello di processo per ridurre al minimo il trasferimento dei dati ai nodi di calcolo di Azure Batch e le attività di rilascio per la pulizia del nodo al completamento del processo."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/04/2017
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 9b71f09611832c2a8133cc21347d612d495b70aa
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: 3b34a9665bfab85abbd633d01139ba2da2249bbf
 
 
 ---
@@ -225,6 +225,6 @@ L'autore, uno dei membri del team di Azure Batch, illustra diverse tecniche che 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

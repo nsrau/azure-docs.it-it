@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: adae9827bbdb5f72b9e0fb4a1792fe54b9324706
-ms.openlocfilehash: 95dae0597cf9fc812bb04f070de2175a1ff4f45d
+ms.sourcegitcommit: c75d95ed554a78a02e5469915c21491e65edd8c2
+ms.openlocfilehash: 14ec59087b0aede76a18034f5aa93cb6ecd67a7e
 
 
 ---
@@ -121,7 +121,7 @@ Per soddisfare questi requisiti, Dave abilita il [Centro sicurezza di Azure](../
 I responsabili aziendali della business unit della supply chain hanno identificato diverse opportunità per aumentare il coinvolgimento dei clienti Contoso attraverso l'uso di una carta fedeltà. Il team di Alice deve creare l'applicazione e decide che Azure aumenta la capacità di soddisfare le esigenze aziendali. Alice collabora con Dave di ETS per configurare due sottoscrizioni per sviluppare e far funzionare l'applicazione.
 
 ### <a name="azure-subscriptions"></a>Sottoscrizioni Azure
-Dave accede al portale aziendale di Azure e vede che il reparto della supply chain esiste già.  Tuttavia, poiché questo progetto è il primo progetto di sviluppo per il team della supply chain in Azure, Dave riconosce la necessità di un nuovo account per il team di sviluppo di Alice.  Crea l'account "R & D" per il team e assegna l'accesso ad Alice. Alice accede tramite il portale di Account e crea due sottoscrizioni: una per i server di sviluppo e l'altra per i server di produzione.  Segue gli standard di denominazione stabiliti in precedenza durante la creazione di sottoscrizioni seguenti:
+Dave accede al portale aziendale di Azure e vede che il reparto della supply chain esiste già.  Tuttavia, poiché questo progetto è il primo progetto di sviluppo per il team della supply chain in Azure, Dave riconosce la necessità di un nuovo account per il team di sviluppo di Alice.  Crea l'account "R & D" per il team e assegna l'accesso ad Alice. Alice accede tramite il portale di Azure e crea due sottoscrizioni: una per i server di sviluppo e l'altra per i server di produzione.  Segue gli standard di denominazione stabiliti in precedenza durante la creazione di sottoscrizioni seguenti:
 
 | Uso della sottoscrizione | Nome |
 | --- | --- |
@@ -200,6 +200,6 @@ Per soddisfare questi requisiti, Dave abilita il Centro sicurezza di Azure. Veri
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

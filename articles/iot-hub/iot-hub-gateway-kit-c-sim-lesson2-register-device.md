@@ -1,5 +1,5 @@
 ---
-title: Creare un hub IoT di Azure e registrare il dispositivo | Documentazione Microsoft
+title: 'Dispositivo simulato e gateway Azure IoT: lezione 2: Registrare il dispositivo | Documentazione Microsoft'
 description: 
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 7765f122476c51011ab12613e615e5fea0bc58f4
-ms.openlocfilehash: d3726201754b90a60e9bde2651c023adf9f9033b
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 759085dcb4993d38f79cb19efe58e1a968ddb682
 
 
 ---
@@ -108,6 +108,6 @@ az iot device create --device-id mydevice --hub-name {my hub name} --resource-gr
 [Configurare ed eseguire un'applicazione di esempio per il caricamento nel cloud del dispositivo simulato](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

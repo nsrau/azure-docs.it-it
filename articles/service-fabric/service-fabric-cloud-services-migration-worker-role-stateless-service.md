@@ -1,5 +1,5 @@
 ---
-title: Guida alla conversione di ruoli di lavoro e Web in servizi senza stato di Service Fabric | Microsoft Docs
+title: Convertire app di Servizi cloud di Azure in microservizi | Documentazione Microsoft
 description: Questa guida confronta i ruoli di lavoro e Web di Servizi Cloud con i servizi senza stato di Service Fabric per facilitare la migrazione da Servizi cloud a Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/19/2016
+ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 752d0c9cb32c602dd7721773057f113e0c8f57a0
+ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
+ms.openlocfilehash: def92885587b11ce8275292680a524d0c8e31751
 
 
 ---
@@ -38,7 +38,7 @@ Concettualmente un ruolo di lavoro rappresenta un carico di lavoro senza stato, 
 ## <a name="web-role-to-stateless-service"></a>Da ruolo Web a servizio senza stato
 Analogamente a un ruolo di lavoro, anche un ruolo Web rappresenta un carico di lavoro senza stato e quindi concettualmente può essere associato anch'esso a un servizio senza stato di Service Fabric. Tuttavia, a differenza dei ruoli Web, Service Fabric non supporta IIS. Per eseguire la migrazione di un'applicazione Web da un ruolo Web a un servizio senza stato è necessario passare prima a un framework Web che possa essere self-hosted e non dipenda da IIS o System.Web, ad esempio ASP.NET Core 1.
 
-| **Applicazione ** | **Supportato** | **Percorso di migrazione** |
+| **Applicazione** | **Supportato** | **Percorso di migrazione** |
 | --- | --- | --- |
 | Web Form ASP.NET |No |Convertire in ASP.NET Core 1 MVC |
 | ASP.NET MVC |Con migrazione |Eseguire l'aggiornamento ad ASP.NET Core 1 MVC |
@@ -263,6 +263,6 @@ Altre informazioni su Reliable Services di Service Fabric e le differenze fondam
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

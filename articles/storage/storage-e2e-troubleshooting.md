@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Analizzatore messaggi | Microsoft Docs
+title: "Risoluzione dei problemi di Archiviazione di Azure con le funzionalità di diagnostica e Message Analyzer | Documentazione Microsoft"
 description: Esercitazione che illustra la risoluzione dei problemi end-to-end mediante Analisi archiviazione di Azure, AzCopy e Microsoft Message Analyzer
 services: storage
 documentationcenter: dotnet
@@ -11,15 +11,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: 2c8b4226b89c196fa69a1ab3fdeb11b110192a20
+ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
+ms.openlocfilehash: f2cd7f0882f31de5f4bb99f772c38a0fff28cd59
 
 
 ---
-# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer
+# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Risoluzione dei problemi end-to-end con le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
 ## <a name="overview"></a>Panoramica
@@ -305,7 +305,7 @@ Dopo aver applicato il filtro, si noterà che vengono escluse le righe del log d
 Le risorse di archiviazione includono filtri predefiniti che possono essere usati per limitare i dati di log per trovare gli errori o le tendenze che si stanno cercando. A questo punto verranno applicati due filtri predefiniti: uno che filtra il log del server e il log della traccia di rete per trovare gli errori 404 e uno che filtra i dati in un determinato intervallo di tempo.
 
 1. Visualizzare la finestra degli strumenti View Filter se non è visualizzata. Sulla barra multifunzione selezionare **Finestre degli strumenti** e **Filtro visualizzazione**.
-2. Nella finestra Filtro visualizzazione selezionare **Libreria** e cercare in `Azure Storage` per trovare i filtri di Archiviazione di Azure. Selezionare il filtro **Messaggi 404 (non trovato) in tutti i log**.
+2. Nella finestra Filtro visualizzazione selezionare **Libreria** e cercare in `Azure Storage` per trovare i filtri di Archiviazione di Azure. Selezionare il filtro **Messaggi&404; (non trovato) in tutti i log**.
 3. Visualizzare nuovamente il menu **Libreria** e quindi individuare e selezionare **Global Time Filter** (Filtro tempo di esecuzione globale).
 4. Modificare i timestamp presenti nel filtro impostando l'intervallo che si vuole visualizzare. In questo modo si limiterà l'intervallo di date da analizzare.
 5. Il filtro dovrebbe risultare analogo a quello riportato nell'esempio seguente. Fare clic su **Applica** per applicare il filtro alla griglia di analisi.
@@ -374,6 +374,6 @@ Per altre informazioni sugli scenari end-to-end di risoluzione dei problemi di a
 * [Guida operativa di Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Controllo degli accessi in base al ruolo | Documentazione Microsoft
+title: Gestire accessi e autorizzazioni con i ruoli - Controllo degli accessi in base al ruolo di Azure | Documentazione Microsoft
 description: Introduzione alla gestione degli accessi con il Controllo degli accessi in base al ruolo di Azure nel portale di Azure. Usare le assegnazioni di ruolo per assegnare autorizzazioni nella directory.
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/03/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0e724ac386e9b92904b6218e4fcc0ac1766378ce
+ms.sourcegitcommit: d00ba4e6d1abd62e5a0d5a9d5bb229d3fa64b473
+ms.openlocfilehash: fb12fb78d4257fc8264bd476de70671eb8264323
 
 
 ---
@@ -70,7 +70,6 @@ Il Controllo degli accessi in base al ruolo di Azure supporta solo operazioni di
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

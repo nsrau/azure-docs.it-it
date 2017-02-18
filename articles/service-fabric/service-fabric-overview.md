@@ -1,5 +1,5 @@
 ---
-title: Panoramica di Service Fabric di servizi | Microsoft Docs
+title: Panoramica di Service Fabric in Azure | Documentazione Microsoft
 description: "Panoramica di Service Fabric, in cui le applicazioni sono costituite da numerosi microservizi per assicurare scalabilità e resilienza. Service Fabric è una piattaforma di sistemi distribuiti che consente di creare applicazioni scalabili, affidabili e facilmente gestibili per il cloud."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/22/2016
+ms.date: 01/05/2017
 ms.author: mfussell
 translationtype: Human Translation
-ms.sourcegitcommit: 6b3c49f6721ffc149bbb7f0433ff67f529abf938
-ms.openlocfilehash: c61541d65fe2f84bdd629d8b8d8c7ce00a049133
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: 0e899225063e77ccef254e8aaacbf0390faa25e3
 
 
 ---
@@ -79,7 +79,7 @@ Service Fabric fornisce supporto per la gestione dell'intero ciclo di vita dell'
 
 Le funzionalità di gestione del ciclo di vita delle applicazioni di Service Fabric consentono agli amministratori delle applicazioni e agli operatori IT di usare semplici flussi di lavoro con interazione limitata per il provisioning, la distribuzione, l'applicazione di patch e il monitoraggio delle applicazioni. Questi flussi di lavoro predefiniti riducono in modo significativo il carico degli operatori IT per mantenere le applicazioni continuamente disponibili.
 
-La maggior parte delle applicazioni è costituita da una combinazione di microservizi con e senza stato e da altri runtime o file eseguibili distribuiti insieme. Grazie all'uso di tipi sicuri nelle applicazioni e di microservizi combinati in pacchetti, Service Fabric consente la distribuzione di più istanze di applicazione. Ogni istanza viene gestita e aggiornata in modo indipendente. Aspetto ancora più importante, Service Fabric può distribuire *qualsiasi* eseguibile o runtime e renderlo affidabile. Ad esempio, Service Fabric distribuisce ASP.NET Core 1, Node.js, macchine virtuali Java, script o qualsiasi elemento costitutivo dell'applicazione.
+La maggior parte delle applicazioni è costituita da una combinazione di microservizi con e senza stato e da altri runtime o file eseguibili distribuiti insieme. Grazie all'uso di tipi sicuri nelle applicazioni e di microservizi combinati in pacchetti, Service Fabric consente la distribuzione di più istanze di applicazione. Ogni istanza viene gestita e aggiornata in modo indipendente. Aspetto ancora più importante, Service Fabric può distribuire *qualsiasi* eseguibile o runtime e renderlo affidabile. Ad esempio, Service Fabric distribuisce .NET, ASP.NET Core, Node.js, macchine virtuali Java, script, Angular o qualsiasi elemento costitutivo dell'applicazione.
 
 Per altre informazioni sulla gestione del ciclo di vita delle applicazioni, vedere l'articolo [Ciclo di vita dell'applicazione](service-fabric-application-lifecycle.md). Per altre informazioni su come distribuire il codice, vedere [Distribuire un eseguibile guest](service-fabric-deploy-existing-app.md).
 
@@ -91,7 +91,7 @@ Per altre informazioni sulla gestione del ciclo di vita delle applicazioni, vede
 Usando Service Fabric è possibile:
 
 * Sviluppare applicazioni altamente scalabili, con funzionalità di riparazione automatica.
-* Sviluppare applicazioni costituite da microservizi usando il modello di programmazione di Service Fabric. Oppure è possibile semplicemente ospitare eseguibili guest e altri framework di applicazione di propria scelta, come ASP.NET Core 1 o Node. js.
+* Sviluppare applicazioni costituite da microservizi usando il modello di programmazione di Service Fabric. Oppure è possibile semplicemente ospitare eseguibili guest e altri framework di applicazione di propria scelta, come ASP.NET Core o Node.js.
 * Sviluppare microservizi con o senza stato altamente affidabili.
 * Tra i contenitori da distribuire e orchestrare figurano i contenitori di Windows e di Docker presenti in un cluster. Questi contenitori possono contenere eseguibili guest o microservizi con/senza stato affidabili. In entrambi i casi è possibile ottenere mapping tra porta del contenitore e porta dell'host, rilevamento del contenitore e failover automatico.
 * Semplificare la progettazione dell'applicazione usando microservizi con stato al posto di cache e code.
@@ -106,6 +106,7 @@ Usando Service Fabric è possibile:
 * Monitorare e diagnosticare l'integrità delle applicazioni e impostare i criteri per eseguire riparazioni automatiche.
 * Aumentare o ridurre il numero di nodi in un cluster e aumentare o ridurre le dimensioni di ogni nodo. Quando si ridimensionano i nodi, si ridimensionano automaticamente anche le applicazioni, che vengono distribuite in base alle risorse disponibili.
 * Osservare il sistema di bilanciamento delle risorse con riparazione automatica che orchestra la ridistribuzione delle applicazioni all'interno del cluster. Service Fabric esegue il ripristino dagli errori e ottimizza la distribuzione del carico in base alle risorse disponibili.
+* Usare il servizio di analisi degli errori per eseguire test CHAOS nel servizio per rilevare problemi ed errori prima dell'esecuzione in produzione.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passaggi successivi
@@ -114,11 +115,12 @@ Usando Service Fabric è possibile:
   * [Panoramica della terminologia](service-fabric-technical-overview.md)
 * Configurazione dell' [ambiente di sviluppo](service-fabric-get-started.md)  
 * [Panoramica dei modelli di programmazione di Service Fabric](service-fabric-choose-framework.md) per il servizio
+* Informazioni sulle [opzioni di supporto di Service Fabric](service-fabric-support.md)
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

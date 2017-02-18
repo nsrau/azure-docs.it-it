@@ -1,6 +1,6 @@
 ---
-title: Creare cluster Hadoop, HBase o Storm su Linux in HDInsight usando cURL e l&quot;API REST di Azure | Documentazione Microsoft
-description: "Informazioni su come creare cluster HDInsight basati su Linux tramite cURL, i modelli di gestione risorse di Azure e l&quot;API REST di Azure. È possibile specificare il tipo di cluster (Hadoop, HBase o Storm) o utilizzare gli script per installare i componenti personalizzati."
+title: Creare cluster Azure HDInsight (Hadoop) usando cURL e REST | Documentazione Microsoft
+description: "Informazioni su come creare cluster HDInsight tramite cURL, i modelli di Azure Resource Manager e l&quot;API REST di Azure. È possibile specificare il tipo di cluster (Hadoop, HBase o Storm) o utilizzare gli script per installare i componenti personalizzati."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,22 +16,19 @@ ms.workload: big-data
 ms.date: 11/28/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8056e7ece1942c9090a7c36447a96829febaf1a4
-ms.openlocfilehash: 491f8540e8e53f366327ed80caff2e1e360132fc
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: a4dc3d4599cfe2c6dd7580c423987f6173a9c5ba
 
 
 ---
-# <a name="create-linux-based-clusters-in-hdinsight-using-curl-and-the-azure-rest-api"></a>Creare cluster basati su Linux in HDInsight tramite cURL e l'API REST di Azure
+# <a name="create-hdinsight-clusters-using-curl-and-the-azure-rest-api"></a>Creare cluster HDInsight tramite cURL e l'API REST di Azure
 
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-L'API REST di Azure consente di eseguire operazioni di gestione su servizi ospitati nella piattaforma Azure, inclusa la creazione di nuove risorse, ad esempio cluster HDInsight basati su Linux. In questo documento verrà descritto come creare modelli di Gestione risorse di Azure per configurare un cluster di HDInsight e l'archiviazione associata, quindi utilizzare cURL per distribuire il modello per l'API REST di Azure per creare un nuovo cluster HDInsight.
+L'API REST di Azure consente di eseguire operazioni di gestione su servizi ospitati nella piattaforma Azure, inclusa la creazione di nuove risorse, ad esempio cluster HDInsight. In questo documento verrà descritto come creare modelli di Gestione risorse di Azure per configurare un cluster di HDInsight e l'archiviazione associata, quindi utilizzare cURL per distribuire il modello per l'API REST di Azure per creare un nuovo cluster HDInsight.
 
 > [!IMPORTANT]
-> I passaggi descritti in questo documento utilizzano il numero di nodi di lavoro predefinito (4) per un cluster HDInsight. Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
->
-> Per altre informazioni sulle dimensioni di nodo e i costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
-
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -267,6 +264,11 @@ Ad esempio, di seguito è riportata una fusione dei file di modello e di paramet
 
 Questo esempio verrà utilizzato nei passaggi di questo documento. È necessario sostituire il segnaposto *valori* nella sezione **Parametri** alla fine del documento con i valori che si desidera utilizzare per il cluster.
 
+> [!IMPORTANT]
+> Il modello usa il numero di nodi di lavoro predefinito (4) per un cluster HDInsight. Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14GB di RAM.
+>
+> Per altre informazioni sulle dimensioni di nodo e i costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+
 ## <a name="login-to-your-azure-subscription"></a>Effettuare l'accesso alla sottoscrizione di Azure
 
 Seguire i passaggi illustrati [Introduzione all'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) e connettersi alla sottoscrizione tramite il comando `az login`.
@@ -412,6 +414,6 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

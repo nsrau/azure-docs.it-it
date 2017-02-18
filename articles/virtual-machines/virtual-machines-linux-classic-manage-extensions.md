@@ -1,5 +1,5 @@
 ---
-title: Gestire le estensioni delle macchine virtuali | Microsoft Docs
+title: Gestire estensioni di macchine virtuali basate su Linux | Documentazione Microsoft
 description: Descrive come aggiungere, trovare, aggiornare e rimuovere le estensioni per le macchine virtuali di Azure nel modello di distribuzione classica.
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 4cef8ac3cf2dd7ecbb7a520daa42799bdcb9eb80
+ms.sourcegitcommit: 7ee387dde3f910fac2fe9195681c8fb8a0443d41
+ms.openlocfilehash: 9f491566fafd431e363873653240b0d5e727d91d
 
 
 ---
@@ -32,6 +32,6 @@ Illustra come trovare, aggiungere, modificare o rimuovere estensioni di VM con m
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

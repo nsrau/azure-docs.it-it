@@ -1,5 +1,5 @@
 ---
-title: Applicare criteri a macchine virtuali di Azure Resource Manager | Microsoft Docs
+title: Applicare la sicurezza con criteri a macchine virtuali Windows in Azure | Documentazione Microsoft
 description: Come applicare criteri a una macchina virtuale Windows di Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/13/2016
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5ee1e47b940516ea872daba7d1dd7b23f404f326
+ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
+ms.openlocfilehash: 83470aaf607a666a63bae5b9897d0b273e327377
 
 
 ---
-# <a name="apply-policies-to-azure-resource-manager-virtual-machines"></a>Applicare criteri a macchine virtuali di Azure Resource Manager
+# <a name="apply-security-and-policies-to-windows-vms-with-azure-resource-manager"></a>Applicare sicurezza e criteri a macchine virtuali Windows con Azure Resource Manager
 Tramite i criteri è possibile imporre diverse convenzioni e regole in tutta l'organizzazione. L'imposizione del comportamento desiderato consente di attenuare i rischi, contribuendo nello stesso tempo al successo dell'organizzazione. Questo articolo descrive come usare criteri di Azure Resource Manager per definire il comportamento desiderato per le macchine virtuali dell'organizzazione.
 
 Per eseguire questa operazione, seguire questa procedura:
@@ -105,6 +105,6 @@ Dopo aver creato i criteri è necessario applicarli a un ambito definito. L'ambi
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

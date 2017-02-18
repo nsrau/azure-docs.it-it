@@ -1,5 +1,5 @@
 ---
-title: Panoramica della terminologia di Service Fabric | Documentazione Microsoft
+title: Informazioni sulla terminologia di Azure Service Fabric | Documentazione Microsoft
 description: Panoramica della terminologia di Service Fabric. Illustra i concetti chiave relativi alla terminologia e i termini usati nel resto della documentazione.
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 12/01/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: e0efcabbb876e77e5b23537ce023c30f9fd153cd
-ms.openlocfilehash: 884e43e36517c0c894b72ab6f4e8f6aadb1d9bcf
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: 94d085ac026a309a457891944931901e9dc2564f
 
 
 ---
@@ -98,6 +98,6 @@ Per altre informazioni su Service Fabric, vedere:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 
