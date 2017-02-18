@@ -12,12 +12,12 @@ ms.custom: development
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 18dc3cce7451d90b6b65b990b80c05e7f6decb56
+ms.sourcegitcommit: cf627b92399856af2b9a58ab155fac6730128f85
+ms.openlocfilehash: 59b8e7b6b2e2442c0a961d105ccdbc9336445aa6
 
 
 ---
@@ -32,6 +32,9 @@ Questo articolo esamina le considerazioni di base di cui uno sviluppatore deve t
 Sono disponibili esempi di codice per svariati linguaggi di programmazione e piattaforme. È possibile trovare collegamenti agli esempi di codice in: 
 
 * Altre informazioni: [Librerie di connessioni per database SQL e SQL Server](sql-database-libraries.md)
+
+## <a name="tools"></a>Strumenti 
+È possibile sfruttare strumenti open source come [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) e [Visual Studio Code](https://code.visualstudio.com/). Inoltre, il database SQL di Azure interagisce con gli strumenti Microsoft come [Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) e [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  È anche possibile usare il portale di gestione di Azure, PowerShell e le API REST, che consentono di aumentare la produttività.
 
 ## <a name="resource-limitations"></a>Limiti delle risorse
 Il database SQL di Azure gestisce le risorse disponibili per un database usando due meccanismi diversi: la governance delle risorse e l'imposizione di limiti.
@@ -61,7 +64,7 @@ Quando si verifica un errore temporaneo durante la connessione al database SQL, 
 
 ## <a name="network-considerations"></a>Considerazioni sulla rete
 * Nel computer che ospita il programma client, verificare che il firewall consenta le comunicazioni TCP in uscita sulla porta 1433.  Altre informazioni: [Configurazione del firewall di un database SQL di Azure](sql-database-configure-firewall-settings.md)
-* Se il programma client si connette al database SQL versione 12 mentre il client viene eseguito in una macchina virtuale (VM) di Azure, è necessario aprire determinati intervalli di porte nella macchina virtuale. Altre informazioni: [Porte superiori a 1433 per ADO.NET 4.5 e database SQL versione 12](sql-database-develop-direct-route-ports-adonet-v12.md)
+* Se il programma client si connette al database SQL versione&12; mentre il client viene eseguito in una macchina virtuale (VM) di Azure, è necessario aprire determinati intervalli di porte nella macchina virtuale. Altre informazioni: [Porte superiori a 1433 per ADO.NET 4.5 e database SQL versione 12](sql-database-develop-direct-route-ports-adonet-v12.md)
 * Le connessioni client al database SQL V12 di Azure talvolta ignorano il proxy e interagiscono direttamente con il database. Le porte diverse da 1433 diventano importanti. Altre informazioni: [Porte superiori a 1433 per ADO.NET 4.5 e database SQL versione 12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 ## <a name="data-sharding-with-elastic-scale"></a>Condivisione dei dati con la scalabilità elastica
@@ -72,11 +75,10 @@ La scalabilità elastica semplifica il processo di ridimensionamento.
 * [Introduzione alla funzionalità di scalabilità elastica del database SQL di Azure (anteprima)](sql-database-elastic-scale-get-started.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/services/sql-database/).
+Esplorare tutte le [funzionalità del database SQL](sql-database-technical-overview.md)
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 04/15/2015
 ms.author: asabbour
 translationtype: Human Translation
-ms.sourcegitcommit: 91090ad383d6a03e6d978376d8dd45dc05eac7e8
-ms.openlocfilehash: 504e810146d6787eac9be661a93c7a0ec2ff183f
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: 72aed50d3dd86c5875d3b741a6fff16cb8f17a2d
 
 
 ---
@@ -44,7 +44,7 @@ In questo articolo viene descritto come completare i passaggi seguenti:
 ![Architettura di sistema](media/virtual-machines-linux-classic-mariadb-mysql-cluster/Setup.png)
 
 > [!NOTE]
-> In questo argomento vengono usati gli strumenti dell'[interfaccia della riga di comando di Azure](../xplat-cli-install.md); accertarsi quindi di scaricarli e connetterli alla sottoscrizione di Azure in base alle istruzioni. Per informazioni sui comandi disponibili nell’interfaccia della riga di comando di Azure, vedere il [riferimento all'interfaccia della riga di comando di Azure](../virtual-machines-command-line-tools.md). Sarà inoltre necessario [creare una chiave SSH per l'autenticazione] e prendere nota del percorso del file .pem.
+> In questo argomento vengono usati gli strumenti dell'[interfaccia della riga di comando di Azure](../xplat-cli-install.md); accertarsi quindi di scaricarli e connetterli alla sottoscrizione di Azure in base alle istruzioni. Per informazioni sui comandi disponibili nell’interfaccia della riga di comando di Azure, vedere il [riferimento all'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). Sarà inoltre necessario [creare una chiave SSH per l'autenticazione] e prendere nota del percorso del file .pem.
 >
 >
 
@@ -367,6 +367,6 @@ Può essere utile consultare gli articoli sul [metodo alternativo per creare un 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

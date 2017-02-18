@@ -15,8 +15,8 @@ ms.workload: big-compute
 ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 582339ae078b9b7fbded2913e56afc36ce2120d5
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: 984d1afe93b19ebea7add524091ed64aa276da0c
 
 
 ---
@@ -111,7 +111,7 @@ Quando si crea un pool, è possibile specificare gli attributi seguenti:
     Tutti i nodi in un pool devono hanno le stesse dimensioni. Se si prevede di eseguire applicazioni con requisiti di sistema e/o livelli di carico diversi, è consigliabile usare pool separati.
 * **Numero di nodi di destinazione**
 
-    È il numero di nodi di calcolo che si vuole distribuire nel pool. Viene detto *di destinazione* perché, in alcune situazioni, il pool potrebbe non raggiungere il numero desiderato di nodi. È possibile che un pool non raggiunga il numero desiderato di nodi se raggiunge la [quota core](batch-quota-limit.md#batch-account-quotas) per l'account Batch oppure se al pool è stata applicata una formula di scalabilità automatica che limita il numero massimo di nodi. Vedere la sezione "Criteri di ridimensionamento" seguente.
+    È il numero di nodi di calcolo che si vuole distribuire nel pool. Viene detto *di destinazione* perché, in alcune situazioni, il pool potrebbe non raggiungere il numero desiderato di nodi. È possibile che un pool non raggiunga il numero desiderato di nodi se raggiunge la [quota core](batch-quota-limit.md) per l'account Batch oppure se al pool è stata applicata una formula di scalabilità automatica che limita il numero massimo di nodi. Vedere la sezione "Criteri di ridimensionamento" seguente.
 * **Criteri di ridimensionamento**
 
     Per carichi di lavoro dinamici, è possibile scrivere e applicare una [formula di ridimensionamento automatico](#scaling-compute-resources) a un pool. Il servizio Batch valuta periodicamente la formula e rettifica il numero di nodi nel pool in base a vari parametri relativi a pool, processi e attività specificati.
@@ -489,6 +489,6 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

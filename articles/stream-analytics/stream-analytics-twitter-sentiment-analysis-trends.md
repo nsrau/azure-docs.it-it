@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2017
+ms.date: 02/03/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 3c97604b17636f011ddb2acda40fbc77afeab590
-ms.openlocfilehash: 9f7e9008f29b2b1a3a0422133e15871c4ce7cca8
-
+ms.sourcegitcommit: 110bf7df8753ec83a5a8b4219891700b462d4eb1
+ms.openlocfilehash: 339301772b1ee3bf22e543d4d4183adda5b54c2e
 
 ---
+
 # <a name="social-media-analysis-real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analisi dei social media: analisi dei sentimenti di Twitter in tempo reale in Analisi di flusso
 Informazioni su come creare una soluzione di analisi dei sentimenti per analisi dei social media portando gli eventi di Twitter in tempo reale negli hub eventi di Azure. È necessario scrivere una query di Analisi di flusso di Azure per analizzare i dati. Sarà quindi possibile archiviare i risultati per analisi successive o usare un dashboard e [Power BI](https://powerbi.com/) per visualizzare informazioni in tempo reale.
 
@@ -45,6 +45,7 @@ Per creare un nuovo hub eventi, seguire questa procedura.
 4. In **CRITERI DI ACCESSO CONDIVISI** creare un nuovo criterio con autorizzazioni di **gestione**.
 
    ![Criteri di accesso condivisi in cui è possibile creare un nuovo criterio con autorizzazioni di gestione.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-ananlytics-shared-access-policies.png)
+
 5. Fare clic su **SAVE** nella parte inferiore della pagina.
 6. Passare al **DASHBOARD**, fare clic su **INFORMAZIONI DI CONNESSIONE** nella parte inferiore della pagina e quindi copiare e salvare le informazioni di connessione. Utilizzare l'icona di copia visualizzata sotto l'icona di ricerca.
 
@@ -65,18 +66,23 @@ Attenersi alla seguente procedura per configurare l'applicazione:
    [Passaggi per generare un token di accesso OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)  
 
    Si noti che è necessario eseguire un'applicazione vuota per generare un token.  
-3. Sostituire i valori EventHubConnectionString ed EventHubName in TwitterClient.exe.config con la stringa di connessione e il nome dell'hub eventi. La stringa di connessione copiata in precedenza contiene sia la stringa di connessione che il nome dell'hub eventi, quindi assicurarsi di separarli e di inserire ogni elemento nel campo corretto. Si consideri ad esempio la stringa di connessione seguente:
 
-     Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub
-
+3. Sostituire i valori EventHubConnectionString ed EventHubName in TwitterClient.exe.config con la stringa di connessione e il nome dell'hub eventi. La stringa di connessione copiata in precedenza contiene sia la stringa di connessione che il nome dell'hub eventi, quindi assicurarsi di separarli e di inserire ogni elemento nel campo corretto. Si consideri ad esempio la stringa di connessione seguente:  
+   
+   `Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub`
+   
    Il file TwitterClient.exe.config deve contenere le impostazioni come nell'esempio seguente:
-
-     add key="EventHubConnectionString" value="Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey"   add key="EventHubName" value="yourhub"
-
+   
+   ```
+     add key="EventHubConnectionString" value="Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey"
+     add key="EventHubName" value="yourhub"
+   ```
+   
    È importante notare che il testo "EntityPath=" **non** viene visualizzato nel valore EventHubName.
+   
 4. *Facoltativo:* modificare le parole chiave da cercare.  Per impostazione predefinita, questa applicazione cerca le parole chiave "Azure, Skype, XBox, Microsoft, Seattle".  È possibile modificare i valori di **twitter_keywords** in TwitterClient.exe.config, se necessario.
 5. Eseguire TwitterClient.exe per avviare l'applicazione. Gli eventi Tweet con i valori **CreatedAt**, **Topic** e **SentimentScore** vengono inviati all'hub eventi.
-
+   
    ![Analisi dei sentimenti: valori SentimentScore inviati a un hub eventi.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
 
 ## <a name="create-a-stream-analytics-job"></a>Creare un processo di Analisi di flusso.
@@ -88,30 +94,35 @@ Ora che il flusso di eventi Tweet viene trasmesso in tempo reale da Twitter è p
 
    * **NOME PROCESSO**: immettere un nome del processo.
    * **AREA**: scegliere l'area in cui si desidera eseguire il processo. È consigliabile inserire il processo e l'hub eventi nella stessa area per garantire prestazioni migliori ed evitare addebiti connessi al trasferimento di dati tra aree diverse.
-   * **ACCOUNT DI ARCHIVIAZIONE**: scegliere l'account di archiviazione di Azure da usare per archiviare i dati di monitoraggio per tutti i processi di Analisi di flusso in esecuzione all'interno dell'area. È possibile scegliere un account di archiviazione esistente o crearne uno nuovo.
-3. Fare clic su **ANALISI DEI FLUSSI** nel riquadro sinistro per visualizzare un elenco dei processi di Analisi dei flussi.  
-   ![Icona di servizio Analisi di flusso](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
+   * **ACCOUNT DI ARCHIVIAZIONE**: scegliere l'account di archiviazione di Azure da usare per archiviare i dati di monitoraggio per tutti i processi di Analisi di flusso in esecuzione all'interno dell'area. È possibile scegliere un account di archiviazione esistente o crearne uno nuovo.   
 
+3. Fare clic su **ANALISI DEI FLUSSI** nel riquadro sinistro per visualizzare un elenco dei processi di Analisi dei flussi.  
+   
+   ![Icona di servizio di analisi dei flussi](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
+   
    Il nuovo processo verrà visualizzato nell'elenco con uno stato **CREATO**. Si noti che il pulsante **AVVIA** nella parte inferiore della pagina è disabilitato. Prima di poter avviare il processo, è necessario configurare l'input, l'output, la query per l'esecuzione.
 
+
 ### <a name="specify-job-input"></a>Specificare l'input del processo
+
 1. Nel processo di Analisi di flusso fare clic su **INPUT** nella parte superiore della pagina, quindi scegliere **AGGIUNGI INPUT**. La finestra di dialogo visualizzata presenterà una serie di passaggi per l'impostazione dell'input.
 2. Fare clic su **FLUSSO DATI** e quindi sul pulsante a destra.
 3. Fare clic su **HUB EVENTI** e quindi sul pulsante a destra.
-4. Digitare o selezionare i valori seguenti nella terza pagina:
-
+4. Digitare o selezionare i valori seguenti nella terza pagina:  
+   
    * **ALIAS DI INPUT**: immettere un nome descrittivo per il processo di input, ad esempio *TwitterStream*. Si noti che il nome verrà usato nella query in un secondo momento.
-     **HUB EVENTI**: se l'hub eventi creato si trova nella stessa sottoscrizione del processo di Analisi di flusso, selezionare lo spazio dei nomi in cui si trova l'hub eventi.
-
-     Se l'hub eventi si trova in un'altra sottoscrizione, scegliere **Usa hub eventi da un'altra sottoscrizione**, quindi immettere manualmente i valori per **SPAZIO DEI NOMI DEL BUS DI SERVIZIO**, **NOME HUB EVENTI**, **NOME CRITERIO HUB EVENTI**, **CHIAVE CRITERIO HUB EVENTI** e **CONTEGGIO PARTIZIONI HUB EVENTI**.
+   * **HUB EVENTI**: se l'hub eventi creato si trova nella stessa sottoscrizione del processo di Analisi di flusso, selezionare lo spazio dei nomi in cui si trova l'hub eventi.
+      * Se l'hub eventi si trova in un'altra sottoscrizione, scegliere **Usa hub eventi da un'altra sottoscrizione**, quindi immettere manualmente i valori per **SPAZIO DEI NOMI DEL BUS DI SERVIZIO**, **NOME HUB EVENTI**, **NOME CRITERIO HUB EVENTI**, **CHIAVE CRITERIO HUB EVENTI** e **CONTEGGIO PARTIZIONI HUB EVENTI**.
    * **NOME HUB EVENTI**: selezionare il nome dell'hub eventi.
    * **NOME CRITERIO HUB EVENTI**: selezionare il criterio dell'hub eventi creato precedentemente in questa esercitazione.
    * **GRUPPO DI CONSUMER DELL'HUB EVENTI**: digitare il nome del gruppo di consumer creato in precedenza in questa esercitazione.
+   
 5. Fare clic sul pulsante a destra.
-6. Specificare i valori seguenti:
-
+6. Specificare i valori seguenti:  
+   
    * **FORMATO SERIALIZZATORE EVENTI**: JSON
    * **CODIFICA**: UTF8
+  
 7. Fare clic sul pulsante con il **segno di spunta** per aggiungere l'origine e per verificare che Analisi dei flussi sia in grado di connettersi all'hub eventi.
 
 ### <a name="specify-job-query"></a>Specificare una query del processo
@@ -128,43 +139,63 @@ Per convalidare la query in base al tipo di dati effettivo del processo, è poss
 Per iniziare, si farà una semplice query pass-through che proietti tutti i campi in un evento.
 
 1. Fare clic su **QUERY** nella parte superiore della pagina del processo di Analisi di flusso.
-2. Nell'editor di codice sostituire il modello di query iniziale con le operazioni seguenti:
-
-     SELECT * FROM TwitterStream
-
+2. Nell'editor di codice sostituire il modello di query iniziale con le operazioni seguenti:  
+   
+   `SELECT * FROM TwitterStream`
+   
    Verificare che il nome dell'origine di input corrisponda al nome dell'input specificato in precedenza.
+   
 3. Fare clic su **Test** nell'editor di query.
 4. Passare al file JSON di esempio.
 5. Fare clic sul pulsante con il **segno di spunta** e verificare i risultati sotto la definizione della query.
-
+   
    ![Risultati visualizzati sotto la definizione della query](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sentiment-by-topic.png)
-
+   
 #### <a name="count-of-tweets-by-topic-tumbling-window-with-aggregation"></a>Numero di tweet per argomento: finestra a cascata con aggregazione
 Per confrontare il numero di riferimenti tra gli argomenti, verrà usata una [finestra a cascata](https://msdn.microsoft.com/library/azure/dn835055.aspx) per ottenere il conteggio dei riferimenti per argomento ogni cinque secondi.
 
-1. Modificare la query nell'editor di codice nel modo seguente:
-
-     SELECT System.Timestamp as Time, Topic, COUNT(*)   FROM TwitterStream TIMESTAMP BY CreatedAt   GROUP BY TUMBLINGWINDOW(s, 5), Topic
-
+1. Modificare la query nell'editor di codice nel modo seguente:  
+   
+   ```
+     SELECT System.Timestamp as Time, Topic, COUNT(*)
+     FROM TwitterStream TIMESTAMP BY CreatedAt
+     GROUP BY TUMBLINGWINDOW(s, 5), Topic
+   ```
+   
    In questa query viene usata la parola chiave **TIMESTAMP BY** per specificare un campo di timestamp nel payload da usare nel calcolo temporale. Se il campo non è stato specificato, l'operazione di windowing verrà eseguita usando l'ora in cui ogni evento è arrivato all'hub eventi.  Altre informazioni sono disponibili nella sezione relativa a tempo di arrivo e tempo di applicazione nelle [informazioni di riferimento sulle query di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn834998.aspx).
-
+   
    Questa query accede anche a un timestamp per la fine di ogni finestra usando la proprietà **System.Timestamp**.
+   
 2. Fare clic su **Riesegui** nell'editor di query per visualizzare i risultati della query.
 
 #### <a name="identify-trending-topics-sliding-window"></a>Identificare gli argomenti di tendenza: finestra scorrevole
 Per identificare gli argomenti di tendenza si cercheranno gli argomenti che superano un valore di soglia per i riferimenti entro un determinato periodo di tempo. Ai fini di questa esercitazione, verranno selezionati gli argomenti menzionati più di 20 volte negli ultimi cinque secondi usando una [finestra scorrevole](https://msdn.microsoft.com/library/azure/dn835051.aspx).
 
-1. Nell'editor del codice modificare la query come segue: SELECT System.Timestamp as Time, Topic, COUNT(*) as Mentions   FROM TwitterStream TIMESTAMP BY CreatedAt   GROUP BY SLIDINGWINDOW(s, 5), topic   HAVING COUNT(*) > 20
-2. Fare clic su **Riesegui** nell'editor di query per visualizzare i risultati della query.
-
+1. Modificare la query nell'editor di codice nel modo seguente:  
+   
+   ```
+     SELECT System.Timestamp as Time, Topic, COUNT(*) as Mentions
+     FROM TwitterStream TIMESTAMP BY CreatedAt
+     GROUP BY SLIDINGWINDOW(s, 5), topic
+     HAVING COUNT(*) > 20
+   ```
+   
+2. Fare clic su **Riesegui** nell'editor di query per visualizzare i risultati della query.  
+   
    ![Output della query della finestra scorrevole](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-query-output.png)
-
+   
 #### <a name="count-of-mentions-and-sentiment-tumbling-window-with-aggregation"></a>Conteggio dei riferimenti e sentimenti: finestra a cascata con aggregazione
 La query finale che verrà testata usa una **finestra a cascata** per ottenere il numero di riferimenti, media, minimo, massimo e deviazione standard del punteggio dei sentimenti per ogni argomento ogni cinque secondi.
 
-1. Modificare la query nell'editor di codice nel modo seguente:
+1. Modificare la query nell'editor di codice nel modo seguente:  
+   
+   ```
+     SELECT System.Timestamp as Time, Topic, COUNT(*), AVG(SentimentScore), MIN(SentimentScore),
+     Max(SentimentScore), STDEV(SentimentScore)
+     FROM TwitterStream TIMESTAMP BY CreatedAt
+     GROUP BY TUMBLINGWINDOW(s, 5), Topic
+   ```     
 
-     SELECT System.Timestamp as Time, Topic, COUNT(*), AVG(SentimentScore), MIN(SentimentScore),   Max(SentimentScore), STDEV(SentimentScore)   FROM TwitterStream TIMESTAMP BY CreatedAt   GROUP BY TUMBLINGWINDOW(s, 5), Topic
 2. Fare clic su **Riesegui** nell'editor di query per visualizzare i risultati della query.
 3. Questa è la query che verrà usata per il nostro dashboard.  Fare clic su **SAVE** nella parte inferiore della pagina.
 
@@ -180,15 +211,16 @@ Se necessario, attenersi alla procedura seguente per creare un contenitore per l
 ## <a name="specify-job-output"></a>Specificare l'output del processo
 1. Nel processo di Analisi di flusso fare clic su **OUTPUT** nella parte superiore della pagina, quindi scegliere **AGGIUNGI OUTPUT**. La finestra di dialogo visualizzata presenterà alcuni passaggi per l'impostazione dell'output.
 2. Fare clic su **ARCHIVIAZIONE BLOB**, quindi sul pulsante a destra.
-3. Digitare o selezionare i valori seguenti nella terza pagina:
-
+3. Digitare o selezionare i valori seguenti nella terza pagina:   
+   
    * **ALIAS DI OUTPUT**: immettere un nome descrittivo per l'output del processo.
    * **SOTTOSCRIZIONE**: se l'archivio BLOB creato si trova nella stessa sottoscrizione del processo di Analisi di flusso, scegliere **Usare l'account di archiviazione dalla sottoscrizione corrente**. Se il dispositivo di archiviazione è in una sottoscrizione diversa, fare clic su **Usare l'account di archiviazione dalla sottoscrizione corrente** e immettere manualmente le informazioni relative ad **ACCOUNT DI ARCHIVIAZIONE**, **CHIAVE ACCOUNT DI ARCHIVIAZIONE** e **CONTENITORE**.
    * **ACCOUNT DI ARCHIVIAZIONE**: selezionare il nome dell’account di archiviazione.
    * **CONTENITORE**: selezionare il nome del contenitore.
    * **PREFISSO NOME FILE**: digitare un prefisso di file da usare per la scrittura dell'output del BLOB.
+  
 4. Fare clic sul pulsante a destra.
-5. Specificare i valori seguenti:
+5. Specificare i valori seguenti:  
    * **FORMATO SERIALIZZATORE EVENTI**: JSON
    * **CODIFICA**: UTF8
 6. Fare clic sul pulsante con il **segno di spunta** per aggiungere l'origine e per verificare che Analisi di flusso sia in grado di connettersi all'account di archiviazione.
@@ -217,6 +249,6 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

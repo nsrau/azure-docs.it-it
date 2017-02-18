@@ -12,147 +12,62 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/28/2017
 ms.author: milanga;cenkdin;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 8321f677d344109e35da3d8ba1109d8bece70db1
+ms.sourcegitcommit: 8e0f0905748923177269b6d5df27be900770fece
+ms.openlocfilehash: a2802dbf1d8a22c33b20dd4e71fcf26d9780f86a
 
 
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Aggiornare Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione
-Quando si crea un nuovo account di Servizi multimediali di Azure, viene chiesto di selezionare anche un account di archiviazione di Azure da usare per l'archiviazione dei contenuti multimediali. È possibile [aggiungere più di un account di archiviazione](meda-services-managing-multiple-storage-accounts.md) all'account di Servizi multimediali.
+
+Quando si crea un nuovo account di Servizi multimediali di Azure (AMS), viene chiesto di selezionare anche un account di archiviazione di Azure da usare per l'archiviazione dei contenuti multimediali. È possibile aggiungere più di un account di archiviazione all'account di Servizi multimediali. In questo argomento viene illustrato come far ruotare le chiavi di archiviazione. Viene inoltre illustrato come aggiungere gli account di archiviazione a un account multimediale. 
+
+Per eseguire le operazioni descritte in questo argomento, è necessario utilizzare le [API ARM](https://docs.microsoft.com/rest/api/media/mediaservice) e [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media).  Per ulteriori informazioni, vedere [Gestire le risorse di Azure con PowerShell e Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md).
+
+## <a name="overview"></a>Panoramica
 
 Quando viene creato un nuovo account di archiviazione, Azure genera due chiavi di accesso a 512 bit alle risorse di archiviazione, che consentono di autenticare l'accesso all'account di archiviazione. Per mantenere le connessioni di archiviazione più sicure, si consiglia di rigenerare e far ruotare periodicamente la chiave di accesso alle risorse di archiviazione. Per non perdere mai la connessione all'account di archiviazione, vengono fornite due chiavi di accesso (primaria e secondaria), in modo da poter usare la prima mentre si rigenera la seconda. Questa procedura viene anche denominata "rollover delle chiavi di accesso".
 
-Servizi multimediali dipende da una chiave di archiviazione fornita. In particolare, i localizzatori che sono usati per trasmettere in streaming o scaricare gli asset dipendono dalla chiave di accesso alle risorse di archiviazione specificata. Quando viene creato un account AMS, esso assume una dipendenza dalla chiave di accesso alle risorse di archiviazione primaria per impostazione predefinita, ma l’utente può aggiornare la chiave di archiviazione di Servizi multimediali di Azure. È necessario comunicare a Servizi multimediali la chiave da usare, seguendo i passaggi descritti in questo argomento. Quando si esegue il rollover delle chiavi di accesso alle risorse di archiviazione, è anche necessario aggiornare i localizzatori, in modo da evitare qualsiasi interruzione nel servizio di streaming. Il passaggio viene descritto in questo argomento.
+Servizi multimediali dipende da una chiave di archiviazione fornita. In particolare, i localizzatori che sono usati per trasmettere in streaming o scaricare gli asset dipendono dalla chiave di accesso alle risorse di archiviazione specificata. Quando viene creato un account AMS, esso assume una dipendenza dalla chiave di accesso alle risorse di archiviazione primaria per impostazione predefinita, ma l’utente può aggiornare la chiave di archiviazione di Servizi multimediali di Azure. È necessario comunicare a Servizi multimediali la chiave da usare, seguendo i passaggi descritti in questo argomento.  
 
-> [!NOTE]
-> Se si dispone di più account di archiviazione, è necessario eseguire questa procedura per ogni account di archiviazione.
+>[!NOTE]
+> Se si dispone di più account di archiviazione, è necessario eseguire questa procedura per ogni account di archiviazione. L'ordine in cui ruotare le chiavi di archiviazione non è prefissato. È possibile ruotare prima la chiave secondaria e quindi quella principale o viceversa.
 >
 > Prima di eseguire la procedura descritta in questo argomento su un account di produzione, effettuarne il test in un account di pre-produzione.
 >
->
 
-## <a name="step-1-regenerate-secondary-storage-access-key"></a>Passaggio 1: Rigenerare la chiave di accesso alle risorse di archiviazione secondaria
-Iniziare con la rigenerazione della chiave di archiviazione secondaria. Per impostazione predefinita, infatti, la chiave secondaria non viene usata da Servizi multimediali.  Per informazioni su come ripristinare le chiavi di archiviazione, vedere [Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+## <a name="steps-to-rotate-storage-keys"></a>Passaggi per ruotare le chiavi di archiviazione 
+ 
+ 1. Modificare la chiave primaria dell'account di archiviazione tramite il cmdlet PowerShell o il portale di [Azure](https://portal.azure.com/).
+ 2. Chiamare il cmdlet Sync-AzureRmMediaServiceStorageKeys con i parametri appropriati per forzare l'account multimediale a prendere le chiavi dell'account di archiviazione
+ 
+    Nell'esempio seguente viene illustrato come sincronizzare le chiavi con gli account di archiviazione.
+  
+         Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+  
+ 3. Attendere circa un'ora. Verificare che gli scenari di streaming funzionino.
+ 4. Modificare la chiave secondaria dell'account di archiviazione tramite il cmdlet PowerShell o il portale di Azure.
+ 5. Chiamare il cmdlet PowerShell Sync-AzureRmMediaServiceStorageKeys con i parametri appropriati per forzare l'account multimediale a prendere le nuove chiavi dell'account di archiviazione. 
+ 6. Attendere circa un'ora. Verificare che gli scenari di streaming funzionino.
+ 
+### <a name="a-powershell-cmdlet-example"></a>Esempio di cmdlet PowerShell 
 
-## <a name="a-idstep2astep-2--update-media-services-to-use-the-new-secondary-storage-key"></a><a id="step2"></a>Passaggio 2: Aggiornare Servizi multimediali per l'uso della nuova chiave di archiviazione secondaria
-Aggiornare Servizi multimediali per l'uso della chiave di accesso alle risorse di archiviazione secondaria. Per sincronizzare la chiave di archiviazione rigenerata con Servizi multimediali è possibile usare uno dei due seguenti metodi.
+Nell'esempio seguente viene illustrato come ottenere l'account di archiviazione e sincronizzarlo con l'account AMS.
 
-* Usare il portale di Azure: per trovare i valori per nome e chiave, accedere al portale di Azure e selezionare l'account. Su lato destro verrà visualizzata la finestra Impostazioni. Nella finestra Impostazioni selezionare Chiavi. A seconda della chiave di archiviazione che si desidera sincronizzare con Servizi multimediali, selezionare il pulsante relativo alla sincronizzazione con la chiave primaria o secondaria. In questo caso, usare la chiave secondaria.
-* Usare l'API REST di gestione di Servizi multimediali.
+    $regionName = "West US"
+    $resourceGroupName = "SkyMedia-USWest-App"
+    $mediaAccountName = "sky"
+    $storageAccountName = "skystorage"
+    $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-L'esempio di codice seguente mostra come costruire la richiesta https://endpoint/*subscriptionId*/services/mediaservices/Accounts/*accountName*/StorageAccounts/*storageAccountName*/Key per sincronizzare la chiave di archiviazione specificata con Servizi multimediali. In questo caso, viene usato il valore relativo alla chiave di archiviazione secondaria. Per altre informazioni, vedere [Procedura: Usare l'API REST di gestione dei servizi multimediali](https://docs.microsoft.com/rest/api/media/management/how-to-use-media-services-management-rest-api).
+    Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
 
-    public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
-    {
-        var clientCert = GetCertificate(CertThumbprint);
+ 
+## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>Passaggi per aggiungere gli account di archiviazione all'account AMS
 
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format("{0}/{1}/services/mediaservices/Accounts/{2}/StorageAccounts/{3}/Key",
-        Endpoint, SubscriptionId, mediaServicesAccount, storageAccountName));
-        request.Method = "PUT";
-        request.ContentType = "application/json; charset=utf-8";
-        request.Headers.Add("x-ms-version", "2011-10-01");
-        request.Headers.Add("Accept-Encoding: gzip, deflate");
-        request.ClientCertificates.Add(clientCert);
-
-
-        using (var streamWriter = new StreamWriter(request.GetRequestStream()))
-        {
-            streamWriter.Write("\"");
-            streamWriter.Write(storageAccountKey);
-            streamWriter.Write("\"");
-            streamWriter.Flush();
-        }
-
-        using (var response = (HttpWebResponse)request.GetResponse())
-        {
-            string jsonResponse;
-            Stream receiveStream = response.GetResponseStream();
-            Encoding encode = Encoding.GetEncoding("utf-8");
-            if (receiveStream != null)
-            {
-                var readStream = new StreamReader(receiveStream, encode);
-                jsonResponse = readStream.ReadToEnd();
-            }
-        }
-    }
-
-Dopo questo passaggio, aggiornare i localizzatori esistenti (che presentano una dipendenza dalla chiave di archiviazione precedente), come illustrato nel seguente passaggio.
-
-> [!NOTE]
-> Attendere 30 minuti prima di eseguire qualsiasi operazione con Servizi multimediali (ad esempio, creare nuovi localizzatori), in modo da evitare qualsiasi interferenza con i processi in corso.
->
->
-
-## <a name="step-3-update-locators"></a>Passaggio 3: Aggiornare i localizzatori
-> [!NOTE]
-> Quando si esegue il rollover delle chiavi di accesso alle risorse di archiviazione è necessario aggiornare anche i localizzatori, in modo da evitare qualsiasi interruzione del servizio di streaming.
->
->
-
-Attendere almeno 30 minuti dopo la sincronizzazione della nuova chiave di archiviazione con AMS, poi è possibile ricreare i localizzatori OnDemand in modo che acquisiscano la dipendenza dalla nuova chiave di archiviazione specificata e mantengano l’URL esistente.
-
-Si noti che, quando si aggiorna (o si ricrea) un localizzatore SAS, l’URL cambierà sempre.
-
-> [!NOTE]
-> Per assicurarsi che si mantengano gli URL esistenti dei localizzatori su richiesta, è necessario eliminare l'indicatore di posizione esistente e crearne uno nuovo con lo stesso ID.
->
->
-
-Nell'esempio di .NET riportato di seguito viene illustrato come ricreare un localizzatore con lo stesso ID.
-
-    private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator)
-    {
-    // Save properties of existing locator.
-    var asset = locator.Asset;
-    var accessPolicy = locator.AccessPolicy;
-    var locatorId = locator.Id;
-    var startDate = locator.StartTime;
-    var locatorType = locator.Type;
-    var locatorName = locator.Name;
-
-    // Delete old locator.
-    locator.Delete();
-
-    if (locator.ExpirationDateTime <= DateTime.UtcNow)
-        {
-            throw new Exception(String.Format(
-                "Cannot recreate locator Id={0} because its locator expiration time is in the past",
-                locator.Id));
-        }
-
-        // Create new locator using saved properties.
-        var newLocator = context.Locators.CreateLocator(
-            locatorId,
-            locatorType,
-            asset,
-            accessPolicy,
-            startDate,
-            locatorName);
-
-
-
-        return newLocator;
-    }
-
-
-## <a name="step-5-regenerate--primary-storage-access-key"></a>Passaggio 5: Rigenerare la chiave di accesso alle risorse di archiviazione primaria
-Rigenerare la chiave di accesso alle risorse di archiviazione primaria. Per informazioni su come ripristinare le chiavi di archiviazione, vedere [Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
-
-## <a name="step-6-update-media-services-to-use-the-new-primary-storage-key"></a>Passaggio 6: Aggiornare Servizi multimediali per l'uso della nuova chiave di archiviazione primaria
-Usare la stessa procedura descritta nel [passaggio 2](media-services-roll-storage-access-keys.md#step2), questa volta sincronizzando con l'account di Servizi multimediali la nuova chiave di accesso alle risorse di archiviazione primaria.
-
-> [!NOTE]
-> Attendere 30 minuti prima di eseguire qualsiasi operazione con Servizi multimediali (ad esempio, creare nuovi localizzatori), in modo da evitare qualsiasi interferenza con i processi in corso.
->
->
-
-## <a name="step-7-update-locators"></a>Passaggio 7: Aggiornare i localizzatori
-Dopo 30 minuti è possibile ricreare i localizzatori su richiesta in modo che acquisiscano la dipendenza dalla nuova chiave di archiviazione primaria e mantengano l’URL esistente.
-
-Utilizzare la stessa procedura, come descritto nel [passaggio 3](media-services-roll-storage-access-keys.md#step-3-update-locators).
+L'argomento seguente illustra come aggiungere gli account di archiviazione all'account AMS: [Collegare più account di archiviazione a un account di Servizi multimediali](meda-services-managing-multiple-storage-accounts.md).
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -165,6 +80,6 @@ Siamo lieti di conferire un riconoscimento alle seguenti persone che hanno contr
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,14 +12,14 @@ ms.assetid: 0a65a93f-d5dc-424b-a774-7ed62d996f8c
 ms.service: sql-database
 ms.custom: authentication and authorization
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/23/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: f59bae58b946647fd74354dc465b399651f8ec12
-ms.openlocfilehash: 3e2874716d673af0d2627501b46d0e4a29e6ebf1
+ms.sourcegitcommit: 5eccb4705cd6c8f6170a48f3b3591518688651f1
+ms.openlocfilehash: c3a45973a04d5082bee777a98f8204ceedc888a5
 
 
 ---
@@ -29,6 +29,12 @@ Dopo aver configurato le regole del firewall, gli utenti possono connettersi a u
 
 >  [!NOTE]  
 >  Questo argomento è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse. 
+>
+
+> [!TIP]
+> Per un'esercitazione sull'uso dell'autenticazione di SQL Server, vedere [Tutorial: SQL Server authentication](sql-database-control-access-sql-authentication-get-started.md) (Esercitazione: Autenticazione di SQL Server). Per un'esercitazione sull'uso dell'autenticazione di Azure Active Directory, vedere [Tutorial: AAD authentication](sql-database-control-access-aad-authentication-get-started.md) (Esercitazione: Autenticazione di AAD).
+>
+
 
 ## <a name="unrestricted-administrative-accounts"></a>Account amministrativi senza restrizioni
 Sono disponibili due account amministrativi, **Amministratore del server** e **Amministratore di Active Directory**, che agiscono come amministratori. Per identificare questi account amministrativi per il server SQL, aprire il portale di Azure e passare alle proprietà del server SQL.
@@ -188,11 +194,11 @@ Quando si gestiscono gli accessi e gli utenti nel database SQL, prendere in cons
 - Per un'esercitazione, vedere [Introduzione alla sicurezza di SQL](sql-database-control-access-sql-authentication-get-started.md)
 - Per informazioni sulle viste e sulle stored procedure, vedere [Creazione di viste e stored procedure](https://msdn.microsoft.com/library/ms365311.aspx)
 - Per informazioni sulla concessione di accesso a un oggetto di database, vedere [Concessione dell'accesso a un oggetto di database](https://msdn.microsoft.com/library/ms365327.aspx)
-- Per un'esercitazione che illustra l'uso dell'autenticazione di SQL Server, vedere [SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md) (Esercitazione sul database SQL: autenticazione di SQL Server, account di accesso e utente, ruoli del database, autorizzazioni e regole del firewall a livello di server e a livello di database).
-- Per un'esercitazione che illustra l'uso dell'autenticazione di Azure Active Directory, vedere [Esercitazione sul database SQL: autenticazione di AAD, account di accesso e utente, ruoli del database, autorizzazioni e regole del firewall a livello di server e a livello di database](sql-database-control-access-aad-authentication-get-started.md).
+- Per un'esercitazione sull'uso dell'autenticazione di SQL Server, vedere [Tutorial: SQL Server authentication](sql-database-control-access-sql-authentication-get-started.md) (Esercitazione: Autenticazione di SQL Server).
+- Per un'esercitazione sull'uso dell'autenticazione di Azure Active Directory, vedere [Tutorial: AAD authentication](sql-database-control-access-aad-authentication-get-started.md) (Esercitazione: Autenticazione di AAD).
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 7a99b931a30c04e13d535caa2abd46980c4a3fb3
+ms.sourcegitcommit: 84d42efc54f7dcbde8330360941969a5b0884a1a
+ms.openlocfilehash: ed249f63098a82b935016ccac3e0416951cb1b0a
 
 
 ---
@@ -46,7 +46,6 @@ Per gestire eventuali guasti, è quindi possibile creare una rete CDN basata su 
 
 Si applicano le considerazioni seguenti:
 
-* La versione corrente di Media Services SDK non supporta la creazione di un localizzatore con un ID specificato. Per eseguire questa attività, è necessario usare l'API REST di Servizi multimediali.
 * La versione corrente di Media Services SDK non supporta la generazione a livello di codice delle informazioni IAssetFile per l'associazione di un asset ai file di asset. Per eseguire questa attività, è necessario usare l'API REST CreateFileInfos di Servizi multimediali. 
 * Gli asset con crittografia di archiviazione (AssetCreationOptions.StorageEncrypted) non sono supportati per la replica, in quanto la chiave di crittografia sarà diversa nei due account di Servizi multimediali. 
 * Se si vuole sfruttare i vantaggi della creazione dinamica dei pacchetti, verificare che l'endpoint di streaming da cui trasmettere i contenuti si trovi nello stato **In esecuzione**.
@@ -950,6 +949,6 @@ In questa sezione si creerà e si configurerà un progetto di applicazione conso
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

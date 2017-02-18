@@ -1,5 +1,5 @@
 ---
-title: Monitorare le API con Gestione API di Azure, Hub eventi e Runscope
+title: Monitorare le API con Gestione API di Azure, Hub eventi e Runscope | Documentazione Microsoft
 description: Applicazione di esempio che illustra il criterio log-to-eventhub con la connessione di Gestione API di Azure, Hub eventi di Azure e Runscope per operazioni di registrazione e monitoraggio HTTP
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/19/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 7fafc85fe2997841b01ded693c532fea527f90de
-ms.openlocfilehash: 678f1aa97a4cfe93f2db569d4ddf20fcaf6fa39f
-
+ms.sourcegitcommit: 30855c86780e13144dbe0e507397a719d1a1f95d
+ms.openlocfilehash: 588425fdc4a076d4d7ad65e634849f4f77bb9fdd
 
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Monitorare le API con Gestione API di Azure, Hub eventi e Runscope
@@ -275,8 +274,8 @@ Il servizio Gestione API di Azure è la posizione ideale per acquisire il traffi
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sull'Hub eventi di Azure
-  * [Introduzione all'Hub eventi](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-  * [Ricevere messaggi con EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+  * [Introduzione all'Hub eventi](../event-hubs/event-hubs-c-getstarted-send.md)
+  * [Ricevere messaggi con EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Guida alla programmazione di Hub eventi](../event-hubs/event-hubs-programming-guide.md)
 * Altre informazioni sull'integrazione di Gestione API e Hub eventi
   * [Come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure](api-management-howto-log-event-hubs.md)
@@ -285,7 +284,6 @@ Il servizio Gestione API di Azure è la posizione ideale per acquisire il traffi
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: f9969f9805e6476ef83108687a12a69ffaaed1a1
-ms.openlocfilehash: ae7ff68eb39366a5d9abe2c863c16998eb151c71
+ms.sourcegitcommit: 84d52dccef4e2d9a1ae253831b5d8f86b6fb50a6
+ms.openlocfilehash: bc90832422a8643afda292d6897a275280cfe690
 
 
 ---
@@ -198,7 +198,7 @@ Una directory fornisce una struttura gerarchica facoltativa per una condivisione
 azure storage directory create myshare myDir
 ```
 
-Si noti che tale percorso di directory può includere più livelli, *ad esempio*, **un / b**. È tuttavia necessario assicurarsi dell'esistenza di tutte le directory padre. Ad esempio, per il percorso **a/b**, è necessario creare prima la directory **a** e poi la directory **b**.
+Si noti che tale percorso di directory può includere più livelli, *ad esempio*, **un / b**. Tuttavia è necessario assicurarsi che tutte le directory padre esistano. Ad esempio, per il percorso **a/b**, è necessario creare prima la directory **a** e poi la directory **b**.
 
 ### <a name="upload-a-local-file-to-directory"></a>Caricare un file locale nella directory
 Nell'esempio seguente viene caricato un file dalla directory **~/temp/samplefile.txt** to the **myDir**. Modificare il percorso del file in modo che punti a un file valido nel computer locale:
@@ -238,7 +238,7 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 È possibile trovare riferimenti ai comandi dell'interfaccia della riga di comando 1.0 di Azure da usare con le risorse di Archiviazione qui:
 
 * [Comandi dell'interfaccia della riga di comando Azure in modalità Resource Manager](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
-* [Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione servizi di Azure](../virtual-machines-command-line-tools.md#commands-to-manage-your-storage-objects)
+* [Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione servizi di Azure](../xplat-cli-install.md)
 
 È inoltre possibile provare l'[interfaccia della riga di comando di Azure 2.0 (Anteprima)](storage-azure-cli.md), ovvero l'interfaccia della riga di comando di nuova generazione scritta in Python per il modello di distribuzione di Resource Manager.
 
@@ -246,6 +246,6 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

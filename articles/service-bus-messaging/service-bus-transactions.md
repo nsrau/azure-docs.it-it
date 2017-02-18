@@ -1,5 +1,5 @@
 ---
-title: Transazioni del bus di servizio | Microsoft Docs
+title: Panoramica dell&quot;elaborazione delle transazioni nel bus di servizio di Azure | Documentazione Microsoft
 description: Panoramica delle transazioni atomiche del bus di servizio di Azure e invia tramite
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2016
+ms.date: 02/02/2017
 ms.author: clemensv;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 926eeec8186b8136f41355030e5382911bfc0322
+ms.sourcegitcommit: c39abad6c5e2a9e2ae7add9ecda48783f61bc736
+ms.openlocfilehash: 8d0f3818831a22550fb0eea9bcbc1f62b133003a
 
 
 ---
@@ -33,10 +33,10 @@ Il bus di servizio supporta le operazioni di raggruppamento in una singola entit
 ## <a name="operations-within-a-transaction-scope"></a>Operazioni nell'ambito di una transazione
 È possibile eseguire le operazioni nell'ambito di una transazione come indicato di seguito:
 
-* **[QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx), [MessageSender](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx), [TopicClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx)**: Send, SendAsync, SendBatch, SendBatchAsync 
-* **[BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx)**: Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
+* **[QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient), [MessageSender](/dotnet/api/microsoft.servicebus.messaging.messagesender), [TopicClient](/dotnet/api/microsoft.servicebus.messaging.topicclient)**: Send, SendAsync, SendBatch, SendBatchAsync 
+* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
 
-Le operazioni di ricezione non vengono incluse perché si presuppone che l'applicazione acquisisca i messaggi usando la modalità [ReceiveMode.PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx), all'interno di alcuni cicli di ricezione o di un callback [OnMessage](https://msdn.microsoft.com/library/azure/dn369601.aspx), e solo successivamente apra un ambito di transazione per l'elaborazione del messaggio.
+Le operazioni di ricezione non vengono incluse perché si presuppone che l'applicazione acquisisca i messaggi usando la modalità [ReceiveMode.PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode), all'interno di alcuni cicli di ricezione o di un callback [OnMessage](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_), e solo successivamente apra un ambito di transazione per l'elaborazione del messaggio.
 
 La ricezione del messaggio (completamento, abbandono, non recapitabilità, rinvio) si verifica all'interno dell'ambito e dipende dal risultato complessivo della transazione.
 
@@ -48,14 +48,14 @@ L'efficacia di questa funzionalità transazionale diventa evidente quando la cod
 ### <a name="see-it-in-code"></a>Codice di esempio
 Per impostare tali trasferimenti, si crea un mittente del messaggio che fa riferimento alla coda di destinazione tramite la coda di trasferimento. Sarà inoltre disponibile un destinatario che estrae i messaggi dalla stessa coda. Ad esempio:
 
-```
+```csharp
 var sender = this.messagingFactory.CreateMessageSender(destinationQueue, myQueueName);
 var receiver = this.messagingFactory.CreateMessageReceiver(myQueueName);
 ```
 
 Una transazione semplice usa questi elementi, come nell'esempio seguente:
 
-```
+```csharp
 var msg = receiver.Receive();
 
 using (scope = new TransactionScope())
@@ -72,6 +72,7 @@ using (scope = new TransactionScope())
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per altre informazioni sulle code del bus di servizio, vedere gli articoli seguenti:
 
 * [Concatenamento del bus di servizio con l'inoltro automatico](service-bus-auto-forwarding.md)
@@ -83,6 +84,6 @@ Per altre informazioni sulle code del bus di servizio, vedere gli articoli segue
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

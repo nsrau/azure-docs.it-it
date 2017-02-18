@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
-ms.date: 09/26/2016
+ms.date: 02/06/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 38480e52de891a3432eefadff16a057a864817de
+ms.sourcegitcommit: 7d153f1f45eb5cb06d7b960e7449450b4c74747a
+ms.openlocfilehash: e6c1fcea6ba7f6865cab97be9e3431bec2184064
 
 
 ---
@@ -28,6 +28,7 @@ In questo articolo sono trattate le opzioni per l'uso di HPC Pack per l'esecuzio
 
 ## <a name="run-an-hpc-pack-cluster-in-azure-vms"></a>Eseguire un cluster HPC Pack nelle VM di Azure
 ### <a name="azure-templates"></a>Modelli di Azure
+* (GitHub) [HPC Pack 2016 cluster templates](https://github.com/MsHpcPack/HPCPack2016) (Modelli di cluster HPC Pack 2016)
 * (Marketplace) [HPC Pack cluster for Linux workloads](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/)
 * (Guida introduttiva) [Create an HPC cluster with Linux compute nodes](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-linux-cn)
 
@@ -51,6 +52,6 @@ In questo articolo sono trattate le opzioni per l'uso di HPC Pack per l'esecuzio
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

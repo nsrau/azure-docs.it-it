@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 0b87ec728891d4f64bb7b2e4b7b4f0f2276b1ffc
-ms.openlocfilehash: ca75ddf8d099f411c4ae1af00e922f26e145f939
+ms.sourcegitcommit: fd22e9596feecbc12e577a4abfb47552e1b6e520
+ms.openlocfilehash: da8f083cb7bca59501df080036e789a0fb75731e
 
 
 ---
@@ -29,10 +29,10 @@ Per compilare un'applicazione che accetta l'iscrizione e l'accesso dell'utente, 
 ## <a name="navigate-to-the-b2c-features-blade"></a>Passare al pannello delle funzionalità B2C
 Se il pannello delle funzionalità B2C è stato aggiunto a Schermata iniziale, verrà visualizzato appena si accede al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant B2C.
 
-È possibile accedere al pannello anche facendo clic su **Esplora** e quindi su **Azure AD B2C** nel riquadro di spostamento a sinistra nel [portale di Azure](https://portal.azure.com/).
+È possibile accedere al pannello anche facendo clic su **Altri servizi** e quindi cercare **Azure AD B2C** nel riquadro di spostamento a sinistra del [portale di Azure](https://portal.azure.com/).
 
 > [!IMPORTANT]
->  È necessario avere diritti di amministratore globale del tenant B2C per poter accedere al pannello delle funzionalità B2C. Un amministratore globale o un utente di qualsiasi altro tenant non può accedere.  È possibile passare al tenant B2C usando l'apposito controllo nell'angolo superiore destro del portale di Azure.
+> È necessario avere diritti di amministratore globale del tenant B2C per poter accedere al pannello delle funzionalità B2C. Un amministratore globale o un utente di qualsiasi altro tenant non può accedere.  È possibile passare al tenant B2C usando l'apposito controllo nell'angolo superiore destro del portale di Azure.
 > 
 > 
 
@@ -40,7 +40,7 @@ Se il pannello delle funzionalità B2C è stato aggiunto a Schermata iniziale, v
 1. Nel pannello delle funzionalità B2C nel portale di Azure fare clic su **Applicazioni**.
 2. Fare clic su **+Aggiungi** nella parte superiore del pannello.
 3. Immettere un **nome** per l'applicazione che descriva l'applicazione agli utenti. Ad esempio, immettere "App Contoso B2C".
-4. Se si sta scrivendo un'applicazione basata sul Web, impostare l'opzione **Includi app Web/API Web** su **Sì**. Gli **URL di risposta** sono gli endpoint a cui Azure AD B2C restituirà qualsiasi token richiesto dall'applicazione. Ad esempio, immettere `https://localhost:44321/`. Se l'applicazione Web chiamerà un'API Web protetta da Azure AD B2C, è opportuno creare anche un **segreto dell'applicazione** facendo clic sul pulsante **Genera chiave**.
+4. Se si sta scrivendo un'applicazione basata sul Web, impostare l'opzione **Includi app Web/API Web** su **Sì**. Gli **URL di risposta** sono gli endpoint a cui Azure AD B2C restituirà qualsiasi token richiesto dall'applicazione. Ad esempio, immettere `https://localhost:44316/`. Se l'applicazione Web chiamerà un'API Web protetta da Azure AD B2C, è opportuno creare anche un **segreto dell'applicazione** facendo clic sul pulsante **Genera chiave**.
    
    > [!NOTE]
    > Un **segreto dell'applicazione** è una credenziale di sicurezza importante e deve essere protetto in modo appropriato.
@@ -63,6 +63,6 @@ Dopo aver creato un'applicazione registrata con Azure AD B2C, è possibile compl
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: Elaborare messaggi da dispositivo a cloud dell&quot;hub IoT di Azure (Java) | Documentazione Microsoft
-description: Come elaborare i messaggi da dispositivo a cloud dell&quot;hub IoT tramite la lettura dell&quot;endpoint compatibile con gli hub eventi in un hub IoT. Creare un&quot;applicazione di servizio Java che usa un&quot;istanza di EventProcessorHost.
+description: Come elaborare i messaggi da dispositivo a cloud dell&quot;hub IoT usando le regole di routing e gli endpoint personalizzati per inviare i messaggi agli altri servizi di back-end.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
-ms.openlocfilehash: 5ede1fdd040b2f59383dda27d6fb26b87c2d7f02
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: 616bca96eaff12fa1929605f3480098bd8b867c2
 
 
 ---
@@ -95,7 +95,7 @@ In questa sezione viene modificata l'app per il dispositivo simulato creata nell
     }
     ```
    
-    La proprietà `"level": "critical"` verrà aggiunta in modo casuale ai messaggi inviati dal dispositivo simulato, che simula un messaggio che richiede un intervento immediato del back-end della soluzione. L'applicazione passa queste informazioni nelle proprietà del messaggio anziché nel corpo del messaggio, in modo che l'hub IoT possa indirizzare il messaggio alla destinazione messaggi appropriata.
+    Con questo metodo la proprietà `"level": "critical"` verrà aggiunta in modo casuale ai messaggi inviati dal dispositivo simulato, che simula un messaggio che richiede un intervento immediato del back-end dell'applicazione. L'applicazione passa queste informazioni nelle proprietà del messaggio anziché nel corpo del messaggio, in modo che l'hub IoT possa indirizzare il messaggio alla destinazione messaggi appropriata.
    
    > [!NOTE]
    > È possibile usare le proprietà del messaggio per indirizzare i messaggi in diversi scenari, tra cui l'elaborazione del percorso a freddo, oltre all'esempio del percorso a caldo mostrato qui.
@@ -124,15 +124,15 @@ In questa sezione, viene illustrato come creare una coda del bus di servizio, co
     
     ![Endpoint in hub IoT][30]
 
-3. Nel pannello dell'endpoint, fare clic su **Aggiungi** in alto per aggiungere la coda all'hub IoT. Denominare l'endpoint "CriticalQueue" e usare il menu a discesa per selezionare **Coda del bus di servizio**, lo spazio dei nomi del bus di servizio in cui si trova la coda e il nome della coda. Al termine, fare clic su **Salva** nella parte inferiore.
+3. Nel pannello **Endpoint** fare clic su **Aggiungi** in alto per aggiungere la coda all'hub IoT. Denominare l'endpoint **CriticalQueue** e usare il menu a discesa per selezionare **Coda del bus di servizio**, lo spazio dei nomi del bus di servizio in cui si trova la coda e il nome della coda. Al termine, fare clic su **Salva** nella parte inferiore.
     
     ![Aggiunta di un endpoint][31]
     
-4. Fare clic su **Route** nell'hub IoT. Fare clic su **Aggiungi** nella parte superiore del pannello per creare una regola che indirizzi i messaggi alla coda appena aggiunta. Selezionare **DeviceTelemetry** come origine dei dati. Immettere `level="critical"` come condizione, quindi scegliere la coda appena aggiunta come endpoint del route. Al termine, fare clic su **Salva** nella parte inferiore.
+4. Fare clic su **Route** nell'hub IoT. Fare clic su **Aggiungi** nella parte superiore del pannello per creare una regola di routing che indirizzi i messaggi alla coda appena aggiunta. Selezionare **DeviceTelemetry** come origine dei dati. Immettere `level="critical"` come condizione, quindi scegliere la coda appena aggiunta come endpoint personalizzato, come endpoint della regola di routing. Al termine, fare clic su **Salva** nella parte inferiore.
     
     ![Aggiunta di un route][32]
     
-    Assicurarsi che il route di fallback sia impostato su ON. Questa è la configurazione predefinita dell'hub IoT.
+    Assicurarsi che il route di fallback sia impostato su **ON**. Questa impostazione è la configurazione predefinita dell'hub IoT.
     
     ![Route di fallback][33]
 
@@ -177,7 +177,7 @@ Per avere esempi di soluzioni complete che usano l'hub IoT, vedere [Azure IoT Su
 
 Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per sviluppatori dell'hub IoT].
 
-Per ulteriori informazioni sul routing dei messaggi in hub IoT, vedere [Inviare e ricevere messaggi con l'hub IoT][lnk-devguide-messaging].
+Per ulteriori informazioni sul routing dei messaggi nell'hub IoT, vedere [Inviare e ricevere messaggi con l'hub IoT][lnk-devguide-messaging].
 
 <!-- Images. -->
 <!-- TODO: UPDATE PICTURES -->
@@ -230,6 +230,6 @@ Per ulteriori informazioni sul routing dei messaggi in hub IoT, vedere [Inviare 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

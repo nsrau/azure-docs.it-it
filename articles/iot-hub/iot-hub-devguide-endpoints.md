@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
-ms.openlocfilehash: 2a61421121697a63ad2d2a32b197904838564207
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: 58a5f8cfc376cd1fea6a668126683bb6d2521bab
 
 
 ---
@@ -45,7 +45,7 @@ Ecco di seguito una descrizione degli endpoint:
     Gli endpoint di dispositivi gemelli e di metodi sono disponibili solo usando [MQTT v3.1.1][lnk-mqtt].
 * **Endpoint di servizio**. Ogni hub IoT espone un set di endpoint che il back-end della soluzione può usare per comunicare con i dispositivi. Questi endpoint sono attualmente esposti solo tramite il protocollo [AMQP][lnk-amqp], tranne l'endpoint di chiamata al metodo che viene esposto tramite HTTP 1.1.
   
-  * *Ricezione di messaggi da dispositivo a cloud*. Questo endpoint è compatibile con [Hub eventi di Azure][lnk-event-hubs] e può essere usato da un servizio back-end per leggere tutti i [messaggi da dispositivo a cloud][lnk-d2c] inviati dai dispositivi. Oltre a questo endpoint, è possibile aggiungere endpoint di routing personalizzati all'hub IoT.
+  * *Ricezione di messaggi da dispositivo a cloud*. Questo endpoint è compatibile con [Hub eventi di Azure][lnk-event-hubs] e può essere usato da un servizio back-end per leggere i [messaggi da dispositivo a cloud][lnk-d2c] inviati dai dispositivi. Oltre a questo endpoint predefinito, è possibile creare endpoint personalizzati sull'hub IoT.
   * *Invio di messaggi da cloud a dispositivo e ricezione di acknowledgement di recapito*. Questi endpoint consentono al back-end della soluzione di inviare [messaggi da cloud a dispositivo][lnk-c2d] affidabili e di ricevere gli acknowledgment di recapito o di scadenza corrispondenti.
   * *Ricezione di notifiche relative ai file*. Questo endpoint di messaggistica consente di ricevere notifiche quando i dispositivi completano il caricamento di un file. 
   * *Chiamata diretta al metodo*. Questo endpoint consente a un servizio back-end di richiamare un [metodo diretto][lnk-methods] in un dispositivo.
@@ -54,8 +54,8 @@ L'articolo [Azure IoT SDKs][lnk-sdks] (SDK di IoT di Azure) descrive le varie mo
 
 È infine importante notare che tutti gli endpoint dell'hub IoT usano il protocollo [TLS][lnk-tls] e non vengono mai esposti su canali non crittografati o non protetti.
 
-## <a name="custom-routing-endpoints"></a>Endpoint di routing personalizzati
-È possibile collegare i servizi di Azure esistenti nella sottoscrizione all'hub IoT da usare come endpoint per il routing dei messaggi. Questi endpoint di servizio vengono usati come "sink" per il ruoting dei messaggi. I dispositivi non possono scrivere direttamente sugli endpoint aggiuntivi. Per ulteriori informazioni sul routing dei messaggi, vedere la voce della guida per gli sviluppatori relativa a [invio e ricezione di messaggi con hub IoT][lnk-devguide-messaging].
+## <a name="custom-endpoints"></a>Endpoint personalizzati
+È possibile collegare i servizi di Azure esistenti nella sottoscrizione all'hub IoT che agiranno come endpoint per il routing dei messaggi. Questi endpoint agiscono come endpoint di servizio e vengono usati come sink per il ruoting dei messaggi. I dispositivi non possono scrivere direttamente sugli endpoint aggiuntivi. Per ulteriori informazioni sul routing dei messaggi, vedere la voce della guida per gli sviluppatori relativa a [invio e ricezione di messaggi con hub IoT][lnk-devguide-messaging].
 
 Hub IoT supporta attualmente i servizi di Azure seguenti come endpoint aggiuntivi:
 
@@ -63,7 +63,7 @@ Hub IoT supporta attualmente i servizi di Azure seguenti come endpoint aggiuntiv
 * Code del bus di servizio
 * Argomenti del bus di servizio
 
-Hub IoT richiede l'accesso in scrittura a questi endpoint affinché il routing dei messaggi funzioni correttamente. Se si configurano gli endpoint tramite il Portale di Azure, verranno aggiunte le autorizzazioni necessarie. Accertarsi di configurare i servizi per supportare la velocità effettiva prevista. Potrebbe essere necessario monitorare gli endpoint aggiuntivi durante la prima configurazione della soluzione IoT e quindi apportare le modifiche necessarie per il carico effettivo.
+Hub IoT richiede l'accesso in scrittura a questi endpoint di servizio affinché il routing dei messaggi funzioni correttamente. Se si configurano gli endpoint tramite il Portale di Azure, verranno aggiunte le autorizzazioni necessarie. Accertarsi di configurare i servizi per supportare la velocità effettiva prevista. Potrebbe essere necessario monitorare gli endpoint aggiuntivi durante la prima configurazione della soluzione IoT e quindi apportare le modifiche necessarie per il carico effettivo.
 
 Se un messaggio corrisponde a più percorsi che puntano allo stesso endpoint, hub IoT invia il messaggio a questo endpoint una sola volta. Pertanto, non è necessario configurare la deduplicazione nella coda o nell'argomento del bus di servizio. Nelle code partizionate, l'affinità della partizione garantisce l'ordinamento dei messaggi. Le code con sessioni attivate non sono supportate come endpoint. Anche le code e gli argomenti partizionati con la deduplicazione abilitata non sono supportati.
 
@@ -112,6 +112,6 @@ Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida p
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

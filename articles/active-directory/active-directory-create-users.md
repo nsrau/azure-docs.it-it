@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/22/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f3787f72dbd8ee865899b71538816d2e8d30af32
+ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
+ms.openlocfilehash: 6c366a2b7e5017bbe67cf1dbefc0baec6cf1aed3
 
 
 ---
@@ -28,7 +28,7 @@ Aggiungere utenti per popolare la directory. Questo articolo illustra come aggiu
 2. Selezionare **Active Directory**e quindi il nome della directory dell'organizzazione.
 3. Selezionare la scheda **Utenti** e quindi **Aggiungi utente** nella barra dei comandi.
 4. Nella pagina **Informazioni sull'utente** selezionare in **Tipo di utente** una delle opzioni seguenti.
-   
+
    * **Nuovo utente nell'organizzazione** : consente di aggiungere un nuovo account utente nella directory.
    * **Utente con account Microsoft esistente** : consente di aggiungere un account utente Microsoft esistente alla directory, ad esempio un account Outlook.
 5. In base al **Tipo di utente**immettere un nome utente, per un nuovo utente, o un indirizzo di posta elettronica, per un utente con un account Microsoft.
@@ -37,11 +37,11 @@ Aggiungere utenti per popolare la directory. Questo articolo illustra come aggiu
 
 > [!IMPORTANT]
 > Se l'organizzazione usa più di un dominio, è opportuno essere a conoscenza dei problemi seguenti quando si aggiunge un account utente:
-> 
-> * Per aggiungere account utente con lo stesso nome dell'entità utente (UPN) in tutti i domini, aggiungere **prima**, ad esempio, geoffgrisso@contoso.onmicrosoft.com, **seguito da** geoffgrisso@contoso.com.
+>
+> * Per aggiungere account utente con lo stesso nome dell'entità utente (UPN) in tutti i domini, aggiungere **prima di tutto**, ad esempio, geoffgrisso@contoso.onmicrosoft.com, **seguito da** geoffgrisso@contoso.com.
 > * **Non** aggiungere geoffgrisso@contoso.com prima di aggiungere geoffgrisso@contoso.onmicrosoft.com. Quest'ordine è importante e può essere complesso da annullare.
-> 
-> 
+>
+>
 
 ## <a name="change-user-information"></a>Modificare le informazioni utente
 È possibile modificare tutti gli attributi utente tranne l'ID oggetto.
@@ -87,6 +87,6 @@ Si potranno quindi modificare le opzioni per controllare l'accesso per gli utent
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

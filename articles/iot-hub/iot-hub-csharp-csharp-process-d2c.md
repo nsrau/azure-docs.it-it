@@ -1,6 +1,6 @@
 ---
 title: Elaborare messaggi da dispositivo a cloud dell&quot;hub IoT di Azure usando i route (.NET) |Microsoft Docs
-description: Come elaborare i messaggi da dispositivo a cloud dell&quot;hub IoT usando i route per inviare i messaggi agli altri servizi di back-end.
+description: Come elaborare i messaggi da dispositivo a cloud dell&quot;hub IoT usando le regole di routing e gli endpoint personalizzati per inviare i messaggi agli altri servizi di back-end.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: d2da282a849496772fe57b9429fe2a180f37328d
-ms.openlocfilehash: 1ca480c4be2cca2c2558b13d2c3a5e5dea8b561e
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: 88b75c2b222ee153c935898dbece0c366c7f198d
 
 
 ---
@@ -27,12 +27,12 @@ ms.openlocfilehash: 1ca480c4be2cca2c2558b13d2c3a5e5dea8b561e
 ## <a name="introduction"></a>Introduzione
 L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi e un back-end della soluzione. Altre esercitazioni, ad esempio [Get started with IoT Hub] e [Inviare messaggi da cloud a dispositivo con l'hub IoT][lnk-c2d], illustrano come usare le funzionalità di messaggistica di base da dispositivo a cloud e da cloud a dispositivo dell'hub IoT.
 
-Questa esercitazione è basata sul codice mostrato nell'esercitazione [Get started with IoT Hub] (Introduzione all'hub IoT) e illustra come usare il routing dei messaggi per inviare i messaggi da dispositivo a cloud con un semplice metodo basato sulla configurazione. L'esercitazione illustra come isolare i messaggi che richiedono un intervento immediato del back-end della soluzione per essere elaborati in seguito. Ad esempio, un dispositivo potrebbe inviare un messaggio di avviso che attiva l'inserimento di un ticket in un sistema CRM. Al contrario, i messaggi di punto dati vengono semplicemente inseriti in un motore di analisi. Ad esempio, i dati di telemetria sulla temperatura di un dispositivo che devono essere archiviati per una successiva analisi costituiscono un messaggio di punti dati.
+Questa esercitazione sull'esercitazione [Get started with IoT Hub] e illustra come usare le regole di routing per inviare i messaggi da dispositivo a cloud con un semplice metodo basato sulla configurazione. L'esercitazione illustra come isolare i messaggi che richiedono un intervento immediato del back-end della soluzione per essere elaborati in seguito. Ad esempio, un dispositivo potrebbe inviare un messaggio di avviso che attiva l'inserimento di un ticket in un sistema CRM. Al contrario, i messaggi di punto dati vengono semplicemente inseriti in un motore di analisi. Ad esempio, i dati di telemetria sulla temperatura di un dispositivo che devono essere archiviati per una successiva analisi costituiscono un messaggio di punti dati.
 
 Al termine di questa esercitazione vengono eseguite tre app di console .NET:
 
 * **SimulatedDevice**, una versione modificata dell'app creata nell'esercitazione [Get started with IoT Hub] , che invia messaggi di punti dati da dispositivo a cloud ogni secondo e messaggi interattivi da dispositivo a cloud ogni 10 secondi. Questa app usa il protocollo AMQP per comunicare con l'hub IoT.
-* **ReadDeviceToCloudMessages**, che visualizza i dati di telemetria non fondamentali inviati dall'app per dispositivo simulato.
+* **ReadDeviceToCloudMessages** mostra i dati di telemetria non fondamentali inviati dall'app per dispositivo simulato.
 * **ReadCriticalQueue** rimuove dalla coda i messaggi importanti inviati dall'app per dispositivo simulato della coda del bus di servizio collegato all'hub IoT.
 
 > [!NOTE]
@@ -50,61 +50,63 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 ## <a name="send-interactive-messages-from-a-simulated-device-app"></a>Inviare messaggi interattivi da un'app per dispositivo simulato
 In questa sezione viene modificata l'app per il dispositivo simulato creata nell'esercitazione [Get started with IoT Hub] (Introduzione all'hub IoT) per inviare occasionalmente messaggi che richiedono un intervento immediato.
 
-- In Visual Studio, nel progetto **SimulatedDevice** sostituire il metodo `SendDeviceToCloudMessagesAsync` con il codice seguente.
-   
-    ```
-    private static async void SendDeviceToCloudMessagesAsync()
+In Visual Studio, nel progetto **SimulatedDevice** sostituire il metodo `SendDeviceToCloudMessagesAsync` con il codice seguente:
+
+```
+private static async void SendDeviceToCloudMessagesAsync()
+    {
+        double avgWindSpeed = 10; // m/s
+        Random rand = new Random();
+
+        while (true)
         {
-            double avgWindSpeed = 10; // m/s
-            Random rand = new Random();
+            double currentWindSpeed = avgWindSpeed + rand.NextDouble() * 4 - 2;
 
-            while (true)
+            var telemetryDataPoint = new
             {
-                double currentWindSpeed = avgWindSpeed + rand.NextDouble() * 4 - 2;
+                deviceId = "myFirstDevice",
+                windSpeed = currentWindSpeed
+            };
+            var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
+            string levelValue;
 
-                var telemetryDataPoint = new
-                {
-                    deviceId = "myFirstDevice",
-                    windSpeed = currentWindSpeed
-                };
-                var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
-                string levelValue;
-
-                if (rand.NextDouble() > 0.7)
-                {
-                    messageString = "This is a critical message";
-                    levelValue = "critical";
-                }
-                else
-                {
-                    levelValue = "normal";
-                }
-                
-                var message = new Message(Encoding.ASCII.GetBytes(messageString));
-                message.Properties.Add("level", levelValue);
-                
-                await deviceClient.SendEventAsync(message);
-                Console.WriteLine("{0} > Sent message: {1}", DateTime.Now, messageString);
-
-                await Task.Delay(1000);
+            if (rand.NextDouble() > 0.7)
+            {
+                messageString = "This is a critical message";
+                levelValue = "critical";
             }
-        }
-    ```
-   
-     La proprietà `"level": "critical"` verrà aggiunta in modo casuale ai messaggi inviati dal dispositivo, il quale simula un messaggio che richiede un intervento immediato del back-end della soluzione. L'app del dispositivo passa queste informazioni nelle proprietà del messaggio anziché nel corpo del messaggio, in modo che l'hub IoT possa indirizzare il messaggio alla destinazione messaggi appropriata.
+            else
+            {
+                levelValue = "normal";
+            }
+            
+            var message = new Message(Encoding.ASCII.GetBytes(messageString));
+            message.Properties.Add("level", levelValue);
+            
+            await deviceClient.SendEventAsync(message);
+            Console.WriteLine("{0} > Sent message: {1}", DateTime.Now, messageString);
 
-   > [!NOTE]
-   > È possibile usare le proprietà del messaggio per indirizzare i messaggi in diversi scenari, tra cui l'elaborazione del percorso a freddo, oltre all'esempio del percorso a caldo mostrato qui.
-   > 
-   > 
-   
-   > [!NOTE]
-   > Per semplicità, questa esercitazione non implementa alcun criterio di ripetizione. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN relativo alla [Transient Fault Handling](Gestione degli errori temporanei).
-   > 
-   > 
+            await Task.Delay(1000);
+        }
+    }
+```
+
+Con questo metodo La proprietà `"level": "critical"` verrà aggiunta in modo casuale ai messaggi inviati dal dispositivo, il quale simula un messaggio che richiede un intervento immediato del back-end della soluzione. L'app del dispositivo passa queste informazioni nelle proprietà del messaggio anziché nel corpo del messaggio, in modo che l'hub IoT possa indirizzare il messaggio alla destinazione messaggi appropriata.
+
+> [!NOTE]
+> È possibile usare le proprietà del messaggio per indirizzare i messaggi in diversi scenari, tra cui l'elaborazione del percorso a freddo, oltre all'esempio del percorso a caldo mostrato qui.
+
+> [!NOTE]
+> Per semplicità, questa esercitazione non implementa alcun criterio di ripetizione. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN relativo alla [Transient Fault Handling](Gestione degli errori temporanei).
 
 ## <a name="add-a-queue-to-your-iot-hub-and-route-messages-to-it"></a>Aggiungere una coda all'hub IoT e indirizzarvi i messaggi
-In questa sezione, viene illustrato come creare una coda del bus di servizio, connetterla all'hub IoT e configurare l'hub IoT per inviare messaggi alla coda in base alla presenza di una proprietà del messaggio. Per altre informazioni su come elaborare i messaggi dalle code del bus di servizio, vedere [Get started with queues][Service Bus queue] (Introduzione alle code).
+In questa sezione verrà illustrato come:
+
+* Creare una coda del bus di servizio.
+* Collegarla all'hub IoT.
+* Configurare l'hub IoT per inviare messaggi alla coda in base alla presenza di una proprietà del messaggio.
+
+Per altre informazioni su come elaborare i messaggi dalle code del bus di servizio, vedere [Get started with queues][Service Bus queue] (Introduzione alle code).
 
 1. Creare una coda del bus di servizio, come descritto in [Get started with queues][Service Bus queue] (Introduzione alle code). La coda deve trovarsi nella stessa area e nella stessa sottoscrizione dell'hub IoT. Prendere nota dello spazio dei nomi e del nome della coda.
 
@@ -112,15 +114,15 @@ In questa sezione, viene illustrato come creare una coda del bus di servizio, co
     
     ![Endpoint in hub IoT][30]
 
-3. Nel pannello dell'endpoint, fare clic su **Aggiungi** in alto per aggiungere la coda all'hub IoT. Denominare l'endpoint "CriticalQueue" e usare il menu a discesa per selezionare **Coda del bus di servizio**, lo spazio dei nomi del bus di servizio in cui si trova la coda e il nome della coda. Al termine, fare clic su **Salva** nella parte inferiore.
+3. Nel pannello **Endpoint** fare clic su **Aggiungi** in alto per aggiungere la coda all'hub IoT. Denominare l'endpoint **CriticalQueue** e usare il menu a discesa per selezionare **Coda del bus di servizio**, lo spazio dei nomi del bus di servizio in cui si trova la coda e il nome della coda. Al termine, fare clic su **Salva** nella parte inferiore.
     
     ![Aggiunta di un endpoint][31]
     
-4. Fare clic su **Route** nell'hub IoT. Fare clic su **Aggiungi** nella parte superiore del pannello per creare una regola che indirizzi i messaggi alla coda appena aggiunta. Selezionare **DeviceTelemetry** come origine dei dati. Immettere `level="critical"` come condizione, quindi scegliere la coda appena aggiunta come endpoint del route. Al termine, fare clic su **Salva** nella parte inferiore.
+4. Fare clic su **Route** nell'hub IoT. Fare clic su **Aggiungi** nella parte superiore del pannello per creare una regola di routing che indirizzi i messaggi alla coda appena aggiunta. Selezionare **DeviceTelemetry** come origine dei dati. Immettere `level="critical"` come condizione, quindi scegliere la coda appena aggiunta come endpoint personalizzato, come endpoint della regola di routing. Al termine, fare clic su **Salva** nella parte inferiore.
     
     ![Aggiunta di un route][32]
     
-    Assicurarsi che il route di fallback sia impostato su ON. Questa è la configurazione predefinita dell'hub IoT.
+    Assicurarsi che il route di fallback sia impostato su **ON**. Questo valore rappresenta la configurazione predefinita dell'hub IoT.
     
     ![Route di fallback][33]
 
@@ -226,6 +228,6 @@ Per ulteriori informazioni sul routing dei messaggi nell'hub IoT, vedere [Inviar
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

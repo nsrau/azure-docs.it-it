@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/03/2017
+ms.date: 01/31/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 87755571f560f0b41baabac0dc2c437b2738e75f
-ms.openlocfilehash: e5f0bdeaf1c29e9f8fc844d4c3d85b1f2595d03b
+ms.sourcegitcommit: 8d370f98a4ef2501afc692af8a19a0625f54b678
+ms.openlocfilehash: a087b74470a8aa0f70b56d74cd97fe0935d35bcd
 
 
 ---
@@ -115,10 +115,10 @@ Questo log contiene informazioni su ogni regola applicata alle risorse. I dati n
 
 ## <a name="view-and-analyze-logs"></a>Visualizzare e analizzare i log
 
-Leggere l'articolo [Panoramica del log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) per ulteriori informazioni su come visualizzare i dati del log attività. Leggere l'articolo [Panoramica dei log di diagnostica di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) per ulteriori informazioni su come visualizzare i dati dei log di diagnostica. Se si inviano dati di diagnostica a Log Analytics, è possibile usare la soluzione [Azure Networking Analytics](../log-analytics/log-analytics-azure-networking-analytics.md#use-azure-networking-analytics) (anteprima) per approfondimenti avanzati. 
+Leggere l'articolo [Panoramica del log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) per ulteriori informazioni su come visualizzare i dati del log attività. Leggere l'articolo [Panoramica dei log di diagnostica di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) per ulteriori informazioni su come visualizzare i dati dei log di diagnostica. Se si inviano dati di diagnostica a Log Analytics, è possibile usare la soluzione di gestione [Analisi di gruppo di sicurezza di rete di Azure](../log-analytics/log-analytics-azure-networking-analytics.md) (anteprima) per approfondimenti avanzati. 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 1e2569a6db330c908fe4087c1bc5a475d3e8a575
-ms.openlocfilehash: 0e1f7719c993dda419e3ebae7d50b91bd5effbc2
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: 9a9ae2758aba17f35b7262560f8d980404ecd394
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 0e1f7719c993dda419e3ebae7d50b91bd5effbc2
 
 L'interfaccia della riga di comando di Azure 2.0 (Anteprima), open-source e multipiattaforma, offre un insieme di comandi per usare la piattaforma Azure. Fornisce gran parte delle funzionalità disponibili nel [portale di Azure](https://portal.azure.com) incluso l'accesso ai dati complessi.
 
-Questa guida illustra come usare l'[interfaccia della riga di comando di Azure 2.0 (Anteprima)](/cli/azure/get-started-with-az-cli2) per eseguire diverse attività con le risorse nell'account di Archiviazione di Azure. Prima di usare questa guida, si consiglia di scaricare e installare oppure di aggiornare il sistema alla versione più recente dell'interfaccia della riga di comando 2.0.
+Questa guida illustra come usare l'[interfaccia della riga di comando di Azure 2.0 (Anteprima)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) per eseguire diverse attività con le risorse nell'account di Archiviazione di Azure. Prima di usare questa guida, si consiglia di scaricare e installare oppure di aggiornare il sistema alla versione più recente dell'interfaccia della riga di comando 2.0.
 
 Gli esempi di questa guida presuppongono l'uso della shell Bash in Ubuntu, ma la procedura dovrebbe funzionare in modo simile anche nelle altre piattaforme. 
 
@@ -364,12 +364,12 @@ az storage file copy start \
 ## <a name="next-steps"></a>Passaggi successivi
 Di seguito sono riportate altre risorse con altre informazioni sull'uso dell'interfaccia della riga di comando di Azure 2.0 (Anteprima).
 
-* [Introduzione all'interfaccia della riga di comando di Azure 2.0 (Anteprima)](/cli/azure/get-started-with-az-cli2)
+* [Introduzione all'interfaccia della riga di comando di Azure 2.0 (Anteprima)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 * [Riferimento ai comandi dell'interfaccia della riga di comando di Azure 2.0 (Anteprima)](/cli/azure)
 * [Interfaccia della riga di comando di Azure 2.0 (Anteprima) su GitHub](https://github.com/Azure/azure-cli)
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

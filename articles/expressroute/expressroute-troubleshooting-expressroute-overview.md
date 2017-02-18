@@ -1,6 +1,6 @@
 ---
-title: "Guida alla risoluzione dei problemi di Azure ExpressRoute - Verifica della connettività | Documentazione Microsoft"
-description: "Questa pagina fornisce istruzioni sulla risoluzione dei problemi e convalida della connettività end-to-end di un circuito ExpressRoute"
+title: "Verifica della connettività: guida alla risoluzione dei problemi di Azure ExpressRoute | Microsoft Docs"
+description: "Questa pagina fornisce istruzioni sulla risoluzione dei problemi e convalida della connettività end-to-end di un circuito ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: rambk
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 1/5/2017
 ms.author: rambala
 translationtype: Human Translation
-ms.sourcegitcommit: 3c25cd8dae3a1c830cefbced5d2cd9ec04f4dda8
-ms.openlocfilehash: 9d97dcc9b59a40a714b8f1d71137baf51136d134
+ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
+ms.openlocfilehash: 49ed6dd2184e69487cedae81a89665f5ccc3843d
 
 
 ---
-# <a name="verifying-expressroute-connectivity"></a>Verifica della connettività ExpressRoute
+# <a name="verifying-expressroute-connectivity"></a>Verifica della connettività di ExpressRoute
 ExpressRoute, che consente di estendere una rete locale nel cloud Microsoft tramite una connessione privata dedicata fornita da un provider di connettività, coinvolge le tre diverse aree di rete seguenti:
 
 -   Rete del cliente
@@ -417,6 +417,6 @@ Per maggiori informazioni o assistenza, consultare i collegamenti seguenti:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

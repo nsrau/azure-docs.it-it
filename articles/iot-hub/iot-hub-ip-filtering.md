@@ -1,5 +1,5 @@
 ---
-title: Filtri IP dell&quot;hub IoT di Azure | Documentazione Microsoft
+title: Filtri connessioni IP dell&quot;hub IoT di Azure | Documentazione Microsoft
 description: "Come usare i filtri IP per bloccare le connessioni da indirizzi IP specifici all&quot;hub IoT di Azure. È possibile bloccare le connessioni da singoli indirizzi IP o da intervalli di indirizzi IP."
 services: iot-hub
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: boltean
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 784454c3bc0500ac0896177e843b3c194341cdd1
+ms.sourcegitcommit: ddb729d29072724f691c178967b6181f6ce06df4
+ms.openlocfilehash: a9207d116e9b7360865c950ba00210ed67c3e028
 
 
 ---
@@ -61,6 +61,9 @@ L'opzione **Aggiungi** è disabilitata quando si raggiunge il numero massimo di 
 
 È possibile modificare una regola esistente facendo doppio clic sulla riga corrispondente.
 
+> [!NOTE]
+> Il rifiuto di indirizzi IP può impedire l'interazione di altri servizi di Azure (ad esempio Analisi di flusso di Azure, Macchine virtuali di Azure o Device Explorer nel portale) con l'hub IoT.
+
 ## <a name="delete-an-ip-filter-rule"></a>Eliminare una regola del filtro IP
 
 Selezionare una o più regole del filtro IP nella griglia e fare clic su **Elimina**.
@@ -71,7 +74,7 @@ Selezionare una o più regole del filtro IP nella griglia e fare clic su **Elimi
 
 Le regole del filtro IP vengono applicate in ordine e la prima regola corrispondente all'indirizzo IP determina l'azione di accettazione o rifiuto.
 
-Se ad esempio si vogliono accettare gli indirizzi nell'intervallo 192.168.100.0/22 e rifiutare tutti gli altri, la prima regola nella griglia dovrà accettare l'intervallo di indirizzi 192.168.100.0/22. La regola successiva dovrà rifiutare tutti gli indirizzi usando l'intervallo 0.0.0.0/0. Se si aggiunge un'ultima regola che rifiuta l'intervallo 0.0.0.0/0, il comportamento predefinito sarà l'accettazione degli indirizzi.
+Se ad esempio si vogliono accettare gli indirizzi nell'intervallo 192.168.100.0/22 e rifiutare tutti gli altri, la prima regola nella griglia dovrà accettare l'intervallo di indirizzi 192.168.100.0/22. La regola successiva dovrà rifiutare tutti gli indirizzi usando l'intervallo 0.0.0.0/0.
 
 È possibile modificare l'ordine delle regole del filtro IP nella griglia facendo clic sui tre punti verticali all'inizio di una riga e trascinando la selezione.
 
@@ -103,6 +106,6 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-metrics]: iot-hub-metrics.md
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

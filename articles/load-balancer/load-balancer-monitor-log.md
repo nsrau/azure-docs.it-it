@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: b7d141e8fc7f7580b5b17b2152dfe418a0ca130e
+ms.sourcegitcommit: ca52a8cfdc4262f55a1fed439f29631966211a00
+ms.openlocfilehash: c605b2f0b49fcc26955e73c931192ada5e407525
 
 ---
 
-# <a name="log-analytics-for-azure-load-balancer-preview"></a>Analisi dei log per il servizio di bilanciamento del carico di Azure (anteprima)
+# <a name="log-analytics-for-azure-load-balancer"></a>Analisi dei log per il servizio di bilanciamento del carico di Azure
 
 In Azure è possibile usare diversi tipi di log per gestire e risolvere i problemi dei bilanciamenti del carico. Alcuni di questi log sono accessibili tramite il portale e tutti i log possono essere estratti da un Archiviazione BLOB di Azure e visualizzati in diversi strumenti, ad esempio Excel e PowerBI. L'elenco seguente contiene altre informazioni sui diversi tipi di log.
 
@@ -29,7 +29,7 @@ In Azure è possibile usare diversi tipi di log per gestire e risolvere i proble
 * **Log del probe di integrità:** è possibile usare questo log per verificare lo stato del controllo integrità del probe, il numero di istanze online nel back-end del bilanciamento del carico e la percentuale di macchine virtuali che riceve il traffico di rete dal bilanciamento del carico. Questo log viene scritto se l'evento dello stato del probe cambia.
 
 > [!IMPORTANT]
->  Attualmente l'analisi di log funziona solo per i servizi di bilanciamento del carico con connessione Internet. I log sono disponibili solo per le risorse distribuite nel modello di distribuzione di Gestione risorse. Non è possibile usare i log per le risorse nel modello di distribuzione classica. Per altre informazioni su questi modelli di distribuzione, vedere l'articolo relativo alle [informazioni sulla distribuzione di Gestione risorse e sulla distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md).
+> Attualmente l'analisi di log funziona solo per i servizi di bilanciamento del carico con connessione Internet. I log sono disponibili solo per le risorse distribuite nel modello di distribuzione di Gestione risorse. Non è possibile usare i log per le risorse nel modello di distribuzione classica. Per altre informazioni su questi modelli di distribuzione, vedere l'articolo relativo alle [informazioni sulla distribuzione di Gestione risorse e sulla distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="enable-logging"></a>Abilitazione della registrazione
 
@@ -148,6 +148,6 @@ L'output JSON mostra nel campo proprietà le informazioni di base per lo stato d
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO5-->
 
 

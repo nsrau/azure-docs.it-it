@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 02/3/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1fda0b3c6c3f262c0f4b2f3ad5f37c4ce44cc0e3
+ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
+ms.openlocfilehash: be84686351255585c3484f5ab8dad37b92462e2b
 
 
 ---
@@ -41,7 +41,7 @@ Quando l'opzione **Gli utenti possono creare gruppi di sicurezza** è abilitata,
 
 È anche possibile usare la casella **Gruppi che possono usare la modalità self-service per i gruppi di sicurezza** per specificare un nome personalizzato di un gruppo i cui membri potranno usare la modalità self-service.
 
-## <a name="additional-information"></a>Informazioni aggiuntive
+## <a name="next-steps"></a>Passaggi successivi
 Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 * [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md)
@@ -52,7 +52,6 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

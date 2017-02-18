@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/05/2016
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0dafae2cf2c3972fc09ffc67f76f6757bcc641fa
+ms.sourcegitcommit: 02d810db5433370802b866424c24464d64171ef0
+ms.openlocfilehash: 6921965c3286209e024ba59637da0c485b4a0c71
 
 
 ---
@@ -162,7 +162,7 @@ Le sezioni giornaliere iniziano alle **6.00** anziché a mezzanotte, ovvero l'im
 ### <a name="how-can-i-rerun-a-slice"></a>Come si riesegue una sezione?
 È possibile rieseguire una sezione in uno dei modi seguenti:
 
-* Usare l'app di monitoraggio e gestione per eseguire di nuovo una finestra attività o una sezione. Per istruzioni, vedere la sezione [Rieseguire finestre attività selezionate](data-factory-monitor-manage-app.md#performing-batch-actions) .   
+* Usare l'app di monitoraggio e gestione per eseguire di nuovo una finestra attività o una sezione. Per istruzioni, vedere la sezione [Rieseguire finestre attività selezionate](data-factory-monitor-manage-app.md#perform-batch-actions) .   
 * Fare clic su **Esegui** sulla barra dei comandi nel pannello**SEZIONE DATI** per la sezione nel portale di Azure.
 * Eseguire il cmdlet **Set-AzureRmDataFactorySliceStatus** con lo stato impostato su **Waiting** per la sezione.   
 
@@ -203,6 +203,6 @@ L'unica soluzione per interrompere immediatamente tutte le esecuzioni consiste n
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

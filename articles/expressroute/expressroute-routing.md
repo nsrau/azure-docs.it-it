@@ -1,5 +1,5 @@
 ---
-title: Requisiti di routing per ExpressRoute | Documentazione Microsoft
+title: Requisiti di routing per Azure ExpressRoute | Documentazione Microsoft
 description: Questa pagina illustra i requisiti dettagliati per la configurazione e la gestione del routing per i circuiti ExpressRoute.
 documentationcenter: na
 services: expressroute
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/03/2017
+ms.date: 01/27/2017
 ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 4f67c67639eaf33bb1f2aa236164e98030f5b555
-ms.openlocfilehash: c76471f4c0f4e1b751d623f691578d354008d863
+ms.sourcegitcommit: 409f22dcc352aae1af9100bb7a30120ea861009b
+ms.openlocfilehash: 4acca777cb5e34719c9b8ccef09bd04b82f74ce6
 
 
 ---
@@ -84,7 +84,7 @@ Assicurarsi che l'indirizzo IP e il numero AS siano registrati all'utente in uno
 * [ALTDB](http://altdb.net/)
 
 > [!IMPORTANT]
-> Gli indirizzi IP pubblici annunciati su Microsoft tramite ExpressRoute non devono essere annunciati su Internet, altrimenti potrebbe interrompersi la connettività con altri servizi Microsoft. Tuttavia, gli indirizzi IP pubblici usati dai server nella rete che comunica con gli endpoint di Office 365 nell'ambiente Microsoft possono essere annunciati tramite ExpressRoute. 
+> Gli indirizzi IP pubblici annunciati su Microsoft tramite ExpressRoute non devono essere annunciati su Internet, altrimenti potrebbe interrompersi la connettività con altri servizi Microsoft. Tuttavia, gli indirizzi IP pubblici usati dai server nella rete che comunica con gli endpoint di Office&365; nell'ambiente Microsoft possono essere annunciati tramite ExpressRoute. 
 > 
 > 
 
@@ -189,8 +189,12 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 | **Area di Azure per cloud nazionali**| **Valore della community BGP** |
 | --- | --- |
 | **US Government** |  |
-| US Gov Iowa | 12076:51109 |
+| Governo degli Stati Uniti - Arizona | 12076:51106 |
+| Governo degli Stati Uniti - Iowa | 12076:51109 |
 | US Gov Virginia | 12076:51105 |
+| Governo degli Stati Uniti - Texas | 12076:51108 |
+| Dipartimento della difesa Stati Uniti centrali | 12076:51209 |
+| Dipartimento della difesa Stati Uniti orientali | 12076:51205 |
 
 
 | **Servizio dei cloud nazionali** | **Valore della community BGP** |
@@ -212,6 +216,6 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

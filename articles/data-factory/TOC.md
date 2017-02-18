@@ -25,7 +25,7 @@
 
 # Procedure
 ## Spostare dati
-### [Copia guidata di data factory](data-factory-copy-wizard.md)
+### [Copia guidata di data factory](data-factory-azure-copy-wizard.md)
 #### [Caricare 1 TB in 15 minuti](data-factory-load-sql-data-warehouse.md)
 ### [Attività di copia](data-factory-data-movement-activities.md)
 #### [Guida alle prestazioni e all'ottimizzazione](data-factory-copy-activity-performance.md)
@@ -84,7 +84,6 @@
 # Riferimento
 ## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
-## [Guida di riferimento per gli sviluppatori di Data factory di Azure](data-factory-sdks.md)
 ## [REST](/rest/api/datafactory/)
 
 # Risorse
