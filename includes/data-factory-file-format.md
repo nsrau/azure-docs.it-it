@@ -64,7 +64,7 @@ Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la propr
 | --- | --- | --- |
 | filePattern |Indicare il modello dei dati archiviati in ogni file JSON. I valori consentiti sono: **setOfObjects** e **arrayOfObjects**. Il valore **predefinito** è **setOfObjects**. Vedere la sezione [Modelli di file JSON](#json-file-patterns) per i dettagli su questi modelli. |No |
 | jsonNodeReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti presenti nel campo di una matrice con lo stesso modello, specificare il percorso JSON di tale matrice. Questa proprietà è supportata solo quando si copiano i dati dai file JSON. | No |
-| jsonPathDefinition | Specificare l'espressione del percorso JSON per ogni mapping colonne con un nome di colonna personalizzato. Questa proprietà è supportata solo quando si copiano i dati dai file JSON ed è possibile estrarre i dati dall'oggetto o dalla matrice. <br/><br/> Per i campi sotto l'oggetto radice, iniziare con la radice $. Per i campi nella matrice scelta dalla proprietà `jsonNodeReference`, iniziare dall'elemento matrice. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione. | No |
+| jsonPathDefinition | Specificare l'espressione del percorso JSON per ogni mapping colonne con un nome di colonna personalizzato. Iniziare con una lettera minuscola. Questa proprietà è supportata solo quando si copiano i dati dai file JSON ed è possibile estrarre i dati dall'oggetto o dalla matrice. <br/><br/> Per i campi sotto l'oggetto radice, iniziare con la radice $. Per i campi nella matrice scelta dalla proprietà `jsonNodeReference`, iniziare dall'elemento matrice. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione. | No |
 | encodingName |Specificare il nome della codifica. Per l'elenco di nomi di codifica validi, vedere: Proprietà [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) . Ad esempio: windows-1250 o shift_jis. Il valore **predefinito** è **UTF-8**. |No |
 | nestingSeparator |Carattere utilizzato per separare i livelli di nidificazione. Il valore predefinito è "." (punto). |No |
 
@@ -161,9 +161,86 @@ L'attività di copia può eseguire l'analisi al di sotto dei modelli di file JSO
 
 #### <a name="jsonformat-example"></a>Esempio JsonFormat
 
-**Esempio 1: Copia di dati dai file JSON**
+**Caso 1: Copia di dati dai file JSON**
 
-Se si dispone di un file JSON con il contenuto seguente:  
+Vedere sotto due tipi di esempi di quando si copiano dati dai file JSON e i punti generici da notare:
+
+**Esempio 1: Estrarre i dati dall'oggetto e dalla matrice**
+
+In questo esempio si prevede che un oggetto JSON radice esegua il mapping a un singolo record in un risultato tabulare. Se si dispone di un file JSON con il contenuto seguente:  
+
+```json
+{
+    "id": "ed0e4960-d9c5-11e6-85dc-d7996816aad3",
+    "context": {
+        "device": {
+            "type": "PC"
+        },
+        "custom": {
+            "dimensions": [
+                {
+                    "TargetResourceType": "Microsoft.Compute/virtualMachines"
+                },
+                {
+                    "ResourceManagmentProcessRunId": "827f8aaa-ab72-437c-ba48-d8917a7336a3"
+                },
+                {
+                    "OccurrenceTime": "1/13/2017 11:24:37 AM"
+                }
+            ]
+        }
+    }
+}
+```
+e lo si vuole copiare in una tabella SQL di Azure nel formato seguente, estraendo i dati sia dagli oggetti che dalla matrice:
+
+| id | deviceType | targetResourceType | resourceManagmentProcessRunId | occurrenceTime |
+| --- | --- | --- | --- | --- |
+| ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
+
+Il set di dati di input con il tipo **JsonFormat** è definito come segue (definizione parziale che include solo le parti pertinenti). Più in particolare:
+
+- La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Vedere la sezione [Definizione della struttura per i set di dati rettangolari](#specifying-structure-definition-for-rectangular-datasets) per altri dettagli.
+- `jsonPathDefinition` specifica il percorso JSON per ogni colonna indicante da dove estrarre i dati. Per copiare i dati dalla matrice, è possibile usare **array[x].property** per estrarre il valore della proprietà specificata dall'oggetto xth oppure è possibile usare **array[*].property** per trovare il valore in qualsiasi oggetto contenente tale proprietà.
+
+```json
+"properties": {
+    "structure": [
+        {
+            "name": "id",
+            "type": "String"
+        },
+        {
+            "name": "deviceType",
+            "type": "String"
+        },
+        {
+            "name": "targetResourceType",
+            "type": "String"
+        },
+        {
+            "name": "resourceManagmentProcessRunId",
+            "type": "String"
+        },
+        {
+            "name": "occurrenceTime",
+            "type": "DateTime"
+        }
+    ],
+    "typeProperties": {
+        "folderPath": "mycontainer/myfolder",
+        "format": {
+            "type": "JsonFormat",
+            "filePattern": "setOfObjects",
+            "jsonPathDefinition": {"id": "$.id", "deviceType": "$.context.device.type", "targetResourceType": "$.context.custom.dimensions[0].TargetResourceType", "resourceManagmentProcessRunId": "$.context.custom.dimensions[1].ResourceManagmentProcessRunId", "occurrenceTime": " $.context.custom.dimensions[2].OccurrenceTime"}      
+        }
+    }
+}
+```
+
+**Esempio 2: applicazione incrociata di più oggetti con lo stesso modello dalla matrice**
+
+In questo esempio si prevede di trasformare un oggetto JSON radice in più record in risultato tabulare. Se si dispone di un file JSON con il contenuto seguente:  
 
 ```json
 {
@@ -190,9 +267,9 @@ e lo si vuole copiare in una tabella SQL di Azure nel formato seguente, rendendo
 
 | ordernumber | orderdate | order_pd | order_price | city |
 | --- | --- | --- | --- | --- |
-| 01 | 20170122 | P1 | 23 | No 1 |
-| 01 | 20170122 | P2 | 13 | No 1 |
-| 01 | 20170122 | P3 | 231 | No 1 |
+| 01 | 20170122 | P1 | 23 | [{"sanmateo":"No 1"}] |
+| 01 | 20170122 | P2 | 13 | [{"sanmateo":"No 1"}] |
+| 01 | 20170122 | P3 | 231 | [{"sanmateo":"No 1"}] |
 
 Il set di dati di input con il tipo **JsonFormat** è definito come segue (definizione parziale che include solo le parti pertinenti). Più in particolare:
 
@@ -230,7 +307,7 @@ Il set di dati di input con il tipo **JsonFormat** è definito come segue (defin
             "type": "JsonFormat",
             "filePattern": "setOfObjects",
             "jsonNodeReference": "$.orderlines",
-            "jsonPathDefinition": {"ordernumber": "$.ordernumber", "orderdate": "$.orderdate", "order_pd": "prod", "order_price": "price", "city": " $.city[0].sanmateo"}         
+            "jsonPathDefinition": {"ordernumber": "$.ordernumber", "orderdate": "$.orderdate", "order_pd": "prod", "order_price": "price", "city": " $.city"}         
         }
     }
 }
@@ -243,7 +320,7 @@ Il set di dati di input con il tipo **JsonFormat** è definito come segue (defin
 * Se ci sono nomi duplicati allo stesso livello, l'attività di copia sceglie quello più recente.
 * I nomi delle proprietà distinguono tra maiuscole e minuscole. Due proprietà con lo stesso nome ma con una combinazione differente di maiuscole e minuscole vengono considerate come due proprietà diverse.
 
-**Esempio 2: Scrittura dei dati nel file JSON**
+**Caso 2: Scrittura dei dati nel file JSON**
 
 Se nel database SQL è presente la tabella seguente:
 
@@ -256,7 +333,7 @@ Se nel database SQL è presente la tabella seguente:
 e per ogni record di prevede di scrivere in un oggetto JSON nel formato seguente:
 ```json
 {
-    "id": 1,
+    "id": "1",
     "order": {
         "date": "20170119",
         "price": 2000,
@@ -284,7 +361,7 @@ Il set di dati di output con il tipo **JsonFormat** è definito come segue (defi
         },
         {
             "name": "order.customer",
-            "type": "Int64"
+            "type": "String"
         }
     ],
     "typeProperties": {

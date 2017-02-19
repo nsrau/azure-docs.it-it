@@ -1,5 +1,5 @@
 ---
-title: Eseguire la replica di macchine virtuali Hyper-V nei cloud VMM in Azure tramite il portale di Azure | Documentazione Microsoft
+title: Replicare le VM Hyper-V nei cloud VMM in Azure | Documentazione Microsoft
 description: Descrive come distribuire Site Recovery per orchestrare la replica, il failover e il ripristino di macchine virtuali Hyper-V nei cloud VMM in Azure.
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 278c4f1dba4f1cd6885855122ac44896ffc6f81a
-ms.openlocfilehash: 2b5f3c2cc8db362a1800f2d693416351cd092dbd
+ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
+ms.openlocfilehash: bdf9ce3d4ac359aa4150bc8912ce8b8302828343
 
 
 ---
@@ -47,7 +47,7 @@ Per una distribuzione completa, è consigliabile attenersi alla procedura descri
 | **Limitazioni locali** |Il proxy basato su HTTPS non è supportato |
 | **Provider/agente** |Le VM replicate necessitano del provider di Azure Site Recovery.<br/><br/> Gli host Hyper-V necessitano dell'agente di Servizi di ripristino.<br/><br/> Installarli durante la distribuzione. |
 |  **Requisiti di Azure** |Account Azure<br/><br/> Insieme di credenziali dei servizi di ripristino<br/><br/> Account di archiviazione con ridondanza locale o con ridondanza geografica nell'area dell'insieme di credenziali delle chiavi<br/><br/> Account di archiviazione standard<br/><br/> Rete virtuale di Azure nell'area dell'insieme di credenziali. [Dettagli completi](#azure-prerequisites). |
-|  **Limitazioni di Azure** |Se si usa l'archiviazione con ridondanza geografica, è necessario un altro account di archiviazione con ridondanza locale per la registrazione<br/><br/> Gli account di archiviazione creati nel portale di Azure non possono essere spostati tra gruppi di risorse che si trovano nelle stesse sottoscrizioni. <br/><br/> L'account di archiviazione Premium non è attualmente supportato.<br/><br/> Le reti di Azure usate per Site Recovery non possono essere spostate tra gruppi di risorse che si trovano nelle stesse sottoscrizioni. 
+|  **Limitazioni di Azure** |Se si usa l'archiviazione con ridondanza geografica, è necessario un altro account di archiviazione con ridondanza locale per la registrazione<br/><br/> Gli account di archiviazione creati nel portale di Azure non possono essere spostati tra gruppi di risorse che si trovano nelle stesse sottoscrizioni. <br/><br/> L'account di archiviazione Premium non è attualmente supportato.<br/><br/> Le reti di Azure usate per Site Recovery non possono essere spostate tra gruppi di risorse che si trovano nelle stesse sottoscrizioni.
 |  **Replica VM** |[Le macchine virtuali devono essere conformi ai prerequisiti di Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/>
 |  **Limitazioni di replica** |Non è possibile eseguire la replica di VM che eseguono Linux con un indirizzo IP statico.<br/><br/> È possibile escludere dalla replica dischi specifici, ma non il disco del sistema operativo.
 | **Passaggi di distribuzione** |1) Preparare Azure (sottoscrizione, archiviazione, rete) -> 2) Preparare le risorse locali (VMM e mapping di rete) -> 3) Creare l'insieme di credenziali di Servizi di ripristino -> 4) Configurare gli host Hyper-V e VMM -> 5) Configurare le impostazioni di replica -> 6) Abilitare la replica -> 7) Verificare la replica e il failover. |
@@ -393,16 +393,16 @@ Per abilitare la replica, procedere come descritto di seguito.
 7. In **Proprietà** > **Configura proprietà** selezionare il sistema operativo per le VM selezionate e il disco del sistema operativo. Per impostazione predefinita, tutti i dischi della VM sono selezionati per la replica. Può essere necessario escludere dischi dalla replica per ridurre il consumo di larghezza di banda per la replica di dati non necessari in Azure. Ad esempio, è possibile evitare di replicare i dischi con dati temporanei o dati che vengono aggiornati ad ogni riavvio di un computer o un'applicazione come pagefile.sys o tempdb di Microsoft SQL Server. Per escludere un disco dalla replica, è sufficiente selezionarlo. Verificare che il nome della VM di Azure (nome di destinazione) sia conforme ai [requisiti per le macchine virtuali di Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) e, se necessario, modificarlo. Fare quindi clic su **OK**. È possibile impostare proprietà aggiuntive in un secondo momento.
 
     ![Abilitare la replica](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
-    
+
     >[!NOTE]
-    > 
-    > * Solo i dischi di base possono essere esclusi dalla replica. Non è possibile escludere il disco del sistema operativo e non è consigliabile escludere i dischi dinamici. ASR non è in grado di identificare quale disco rigido virtuale è un disco di base o un disco dinamico all'interno della macchina virtuale guest.  Se non sono esclusi tutti i volumi dinamici dipendenti, in caso di failover della VM il disco dinamico protetto risulterà guasto e non sarà possibile accedere ai dati presenti su tale disco.   
+    >
+    > * Solo i dischi di base possono essere esclusi dalla replica. Non è possibile escludere il disco del sistema operativo e non è consigliabile escludere i dischi dinamici. ASR non è in grado di identificare quale disco rigido virtuale è un disco di base o un disco dinamico all'interno della macchina virtuale guest.  Se non sono esclusi tutti i volumi dinamici dipendenti, in caso di failover della VM il disco dinamico protetto risulterà guasto e non sarà possibile accedere ai dati presenti su tale disco.
     > * Dopo aver abilitato la replica, non è più possibile aggiungere o rimuovere dischi da replicare. Se si vuole aggiungere o escludere un disco, è necessario disabilitare la protezione per la macchina virtuale e quindi riabilitarla.
     > * Se si esclude un disco necessario per il funzionamento di un'applicazione, dopo il failover in Azure è necessario crearlo manualmente in Azure per consentire l'esecuzione dell'applicazione replicata. In alternativa, è possibile integrare Automazione di Azure in un piano di ripristino per creare il disco durante il failover del computer.
     > * Per i dischi creati manualmente in Azure non verrà eseguito il failback. Ad esempio, se si esegue il failover di tre dischi e se ne creano due direttamente in Azure, verrà eseguito il failback da Azure a Hyper-V soltanto di tre dischi. Non è possibile includere nel failback o nella replica inversa da Hyper-V ad Azure i dischi creati manualmente.
     >
     >
-    
+
 
 8. In **Impostazioni della replica** > **Configurare le impostazioni di replica** selezionare i criteri di replica da applicare per le VM protette. Fare quindi clic su **OK**. È possibile modificare i criteri di replica in **Impostazioni** > **Criteri di replica** > nome dei criteri > **Modifica impostazioni**. Le modifiche applicate vengono usate per i computer di cui è già in corso la replica e per i nuovi computer.
 
@@ -419,7 +419,8 @@ Per abilitare la replica, procedere come descritto di seguito.
 2. In **Proprietà** sono disponibili le informazioni su replica e failover per la VM.
 
     ![Abilitare la replica](./media/site-recovery-vmm-to-azure/test-failover2.png)
-3. In **Calcolo e rete** > **Proprietà di calcolo** è possibile specificare le dimensioni di destinazione e il nome della VM di Azure. Se necessario, modificare il nome in modo che sia conforme ai [requisiti di Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) . È anche possibile visualizzare e modificare le informazioni sulla rete di destinazione, la subnet e l'indirizzo IP assegnati alla VM di Azure. Si noti che:
+3. In **Calcolo e rete** > **Proprietà di calcolo** è possibile specificare le dimensioni di destinazione e il nome della VM di Azure. Se necessario, modificare il nome in modo che sia conforme ai [requisiti di Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) . È anche possibile visualizzare e modificare le informazioni sulla rete di destinazione, la subnet e l'indirizzo IP assegnati alla VM di Azure.
+Si noti che:
 
    * È possibile impostare l'indirizzo IP di destinazione. Se non si specifica un indirizzo, il computer di cui è stato eseguito il failover usa DHCP. Se si imposta un indirizzo che non è disponibile al momento del failover, il failover ha esito negativo. Se l'indirizzo è disponibile nella rete di failover di test, è possibile usare lo stesso indirizzo IP di destinazione per il failover di test.
    * Il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione, come illustrato di seguito:
@@ -490,6 +491,6 @@ Dopo aver configurato correttamente la distribuzione, vedere [altre informazioni
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

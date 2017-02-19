@@ -1,5 +1,5 @@
 ---
-title: Connettere un&quot;App Web nel Servizio app di Azure a Cache Redis mediante il protocollo Memcache | Microsoft Docs
+title: 'Connettere un&quot;app Web del servizio app a Redis mediante il protocollo Memcache: Azure | Documentazione Microsoft'
 description: Connettere un&quot;app Web nel servizio app di Azure a Cache Redis mediante il protocollo Memcache
 services: app-service\web
 documentationcenter: php
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 02/29/2016
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: c478b8ba6817dd110bb7bfe3a33b728e5f85cc11
+ms.sourcegitcommit: 550b4154f0fe510cb37ec4f8bdef251b06f0b495
+ms.openlocfilehash: 4d867f80cfbe5360962550fbda0091f88784b4af
 
 
 ---
@@ -204,6 +204,6 @@ Congratulazioni. L'app di WordPress dispone ora di una cache in memoria centrali
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

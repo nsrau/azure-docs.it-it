@@ -1,4 +1,4 @@
-Nel portale di Azure è possibile visualizzare lo stato della connessione di un gateway di rete virtuale classica passando alla connessione. Per eseguire questa operazione è possibile procedere diversi modi. La procedura seguente illustra uno dei modi in cui è possibile accedere alla connessione e verificarla.
+Nel portale di Azure è possibile visualizzare lo stato della connessione di un gateway VPN di rete virtuale classica passando alla connessione. La procedura seguente illustra uno dei modi in cui è possibile accedere alla connessione e verificarla.
 
 1. Nel [portale di Azure](http://portal.azure.com) fare clic su **Tutte le risorse** e passare alla rete virtuale classica.
 2. Nel pannello della rete virtuale fare clic su **Panoramica** per accedere alla sezione **Connessioni VPN** del pannello.
@@ -12,6 +12,6 @@ Nel portale di Azure è possibile visualizzare lo stato della connessione di un 
 
     ![Altre informazioni sullo stato della connessione](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "Altre informazioni sullo stato della connessione")
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

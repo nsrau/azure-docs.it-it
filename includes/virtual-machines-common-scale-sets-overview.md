@@ -16,7 +16,7 @@ Un set di modelli di esempio per i set di scalabilità di VM è disponibile nel 
 
 Nelle pagine dei dettagli per questi modelli verrà visualizzato un pulsante per il collegamento alla funzionalità di distribuzione del portale. Per distribuire il set di scalabilità di macchine virtuali, fare clic sul pulsante e quindi specificare tutti i parametri richiesti nel portale. In caso di dubbi sul fatto che una risorsa supporti le lettere maiuscole o una combinazione di maiuscole e minuscole, per sicurezza è consigliabile usare sempre valori di parametri con lettere minuscole. Per un'analisi video di un modello di set di scalabilità di macchine virtuali, vedere:
 
-[Analisi del modello di set di scalabilità di macchine virtuali](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player)
+[Analisi del modello di set di scalabilità di macchine virtuali](https://channel9.msdn.com/Blogs/Azure/VM-Scale-Set-Template-Dissection/player)
 
 ## <a name="scaling-a-vm-scale-set-out-and-in"></a>Aumento e riduzione di risorse e capacità di un set di scalabilità di macchine virtuali
 Per aumentare o ridurre il numero di macchine virtuali in un set di scalabilità di VM, è sufficiente modificare la proprietà *capacity* e ridistribuire il modello. Questa semplificazione agevola la scrittura di un livello di scalabilità personalizzato per definire eventi di scalabilità personalizzati non supportati dalla funzionalità di scalabilità automatica di Azure.
@@ -64,7 +64,7 @@ Questa sezione mostra un elenco di alcuni scenari di set di scalabilità di macc
 ## <a name="vm-scale-set-frequently-asked-questions"></a>Domande frequenti sui set di scalabilità di macchine virtuali
 **D.** Quante macchine virtuali si possono includere in un set di scalabilità?
 
-**R.** 100 se si usano immagini della piattaforma che è possibile distribuire in più account di archiviazione. Se si usano immagini personalizzate, fino a 40, perché le immagini personalizzate sono limitate a un solo account di archiviazione durante l'anteprima.
+**R.** &100; se si usano immagini della piattaforma che è possibile distribuire in più account di archiviazione. Se si usano immagini personalizzate, fino a 40, perché le immagini personalizzate sono limitate a un solo account di archiviazione durante l'anteprima.
 
 **Quali altri limiti di risorse esistono per i set di scalabilità di macchine virtuali?**
 
@@ -118,6 +118,6 @@ Questa sezione mostra un elenco di alcuni scenari di set di scalabilità di macc
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

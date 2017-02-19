@@ -1,10 +1,10 @@
 ---
-title: 'Configurare una connessione VPN di Azure da sito a sito cross-premise: PowerShell | Documentazione Microsoft'
-description: Questo articolo illustra la creazione di una rete virtuale usando il modello di distribuzione Resource Manager e la connessione alla rete locale usando una connessione del gateway VPN da sito a sito.
+title: 'Connettere la rete locale a una rete virtuale di Azure: VPN da sito a sito: PowerShell | Documentazione Microsoft'
+description: "Passaggi per creare una connessione IPsec dalla rete locale a una rete virtuale di Azure tramite Internet pubblico. Questa procedura consentirà di creare una connessione gateway VPN da sito a sito cross-premise usando PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: fcc2fda5-4493-4c15-9436-84d35adbda8e
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/14/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0258e1093926e6239650a8b1ecbb7c7a778616c6
-ms.openlocfilehash: 8d9bbad00c378480f079b028c73ae6e5181d811e
+ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
+ms.openlocfilehash: dad78df8d841dd1d5e014a902fa541044743f7e4
 
 
 ---
@@ -31,7 +31,7 @@ ms.openlocfilehash: 8d9bbad00c378480f079b028c73ae6e5181d811e
 
 Questo articolo illustra la creazione di una rete virtuale e di una connessione gateway VPN da sito a sito alla rete locale con il modello di distribuzione Azure Resource Manager. Le connessioni da sito a sito possono essere usate per le configurazioni cross-premise e ibride.
 
-![Diagramma da sito a sito](./media/vpn-gateway-create-site-to-site-rm-powershell/s2srmps.png "da sito a sito")
+![Diagramma della connessione cross-premise gateway VPN da sito a sito](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-connection-diagram.png)
 
 ### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Metodi e modelli di distribuzione per le connessioni da sito a sito
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
