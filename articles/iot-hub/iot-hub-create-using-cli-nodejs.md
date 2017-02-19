@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
+ms.date: 01/04/2017
 ms.author: boltean
 translationtype: Human Translation
-ms.sourcegitcommit: 39c8c4944ef19379dc04e04a717ab60d305593c4
-ms.openlocfilehash: 08fe56605555342ec14e1628f77d905783fda057
+ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
+ms.openlocfilehash: 44291ed86775312a894f6acf92260cde76982f27
 
 
 ---
@@ -34,7 +34,7 @@ ms.openlocfilehash: 08fe56605555342ec14e1628f77d905783fda057
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Un account Azure attivo. Se non si ha un account, è possibile crearne uno [gratuito][lnk-free-trial] in pochi minuti.
-* [Interfaccia della riga di comando di Azure 0.10.4][lnk-CLI-install] o versione successiva. Se si dispone già dell'interfaccia della riga di comando di Azure è possibile convalidare la versione corrente al prompt dei comandi inserendo il comando seguente:
+* [Interfaccia della riga di comando di Azure 0.10.4][lnk-CLI-install] o versione successiva. Se l'interfaccia della riga di comando di Azure è installata, è possibile convalidare la versione corrente al prompt dei comandi inserendo il comando seguente:
   ```
     azure --version
   ```
@@ -49,31 +49,31 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 > 
 
 ## <a name="set-your-azure-account-and-subscription"></a>Impostare l'account e la sottoscrizione di Azure
-1. Accedere digitando il comando seguente al prompt dei comandi
+1. Per accedere, digitare il comando seguente al prompt dei comandi:
    
    ```
     azure login
    ```
    Per l'autenticazione, usare il browser e il codice suggeriti.
-2. Se si dispone di più sottoscrizioni Azure, connettendosi ad Azure sarà possibile accedere a tutte le sottoscrizioni associate alle credenziali. Per visualizzare le sottoscrizioni Azure, inclusa quella predefinita, usare il comando
+2. Se si usano più sottoscrizioni Azure e si esegue l'accesso ad Azure, è possibile accedere a tutte le sottoscrizioni di Azure associate alle credenziali. Per visualizzare le sottoscrizioni di Azure e identificare quella predefinita, usare il comando:
    
    ```
     azure account list 
    ```
 
-   Per impostare il contesto della sottoscrizione in cui eseguire il resto dei comandi usare
+   Per impostare il contesto della sottoscrizione in cui eseguire il resto dei comandi usare:
 
    ```
     azure account set <subscription name>
    ```
 
-3. Se non si dispone di un gruppo di risorse è possibile crearne uno denominato **exampleResourceGroup** 
+3. Se non si dispone di un gruppo di risorse, è possibile crearne uno denominato **exampleResourceGroup**:
    ```
     azure group create -n exampleResourceGroup -l westus
    ```
 
 > [!TIP]
-> L'articolo [Usare l'interfaccia della riga di comando di Azure per gestire risorse e gruppi di risorse][lnk-CLI-arm] offre altre informazioni su come usare l'interfaccia della riga di comando di Azure per gestire le risorse di Azure. 
+> L'articolo [Usare l'interfaccia della riga di comando di Azure per gestire risorse e gruppi di risorse][lnk-CLI-arm] contiene altre informazioni su come usare l'interfaccia della riga di comando di Azure per gestire risorse di Azure. 
 > 
 > 
 
@@ -88,21 +88,21 @@ Parametri obbligatori:
     - <sku-name> (The name of the sku, one of: [F1, S1, S2, S3] etc. For the latest full list refer to the pricing page for IoT Hub.
     - <units> (The number of provisioned units. Range : F1 [1-1] : S1, S2 [1-200] : S3 [1-10]. IoT Hub units are based on your total message count and the number of devices you want to connect.)
 ```
-Per visualizzare tutti i parametri disponibili per la creazione è possibile usare il comando help nel prompt dei comandi
+Per visualizzare tutti i parametri disponibili per la creazione, è possibile usare il comando help nel prompt dei comandi:
 
 ```
     azure iothub create -h 
 ```
 Esempio:
 
- Per creare un hub IoT denominato **exampleIoTHubName** nel gruppo di risorse **exampleResourceGroup** eseguire il comando seguente
+ Per creare un hub IoT denominato **exampleIoTHubName** nel gruppo di risorse **exampleResourceGroup**, eseguire questo comando:
 
 ```
     azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1 -u 1
 ```
 
 > [!NOTE]
-> Attraverso questo comando dell'interfaccia della riga di comando di Azure viene creato un hub IoT S1 Standard che viene addebitato. Per eliminare l'hub IoT **exampleIoTHubName** eseguire il comando seguente 
+> Attraverso questo comando dell'interfaccia della riga di comando di Azure viene creato un hub IoT S1 Standard che viene addebitato. Per eliminare l'hub IoT **exampleIoTHubName** eseguire questo comando:
 > 
 > ```
 > azure iothub delete -g exampleResourceGroup -n exampleIoTHubName
@@ -133,6 +133,6 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

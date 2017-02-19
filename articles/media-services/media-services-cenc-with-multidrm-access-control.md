@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/11/2016
 ms.author: willzhan;kilroyh;yanmf;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
-ms.openlocfilehash: 32c792c097e44d46fef9d161ef8d361e97167224
+ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
+ms.openlocfilehash: 1ea286a04c84d031fcefa8dc771cbdef9d8a9b72
 
 
 ---
@@ -296,15 +296,15 @@ Che cosa accade se il rollover della chiave viene eseguito dopo che AAD ha gener
 Poiché il rollover di una chiave può essere eseguito in qualsiasi momento, nel documento di metadati federativi è sempre disponibile più di una chiave pubblica valida. La distribuzione delle licenze di Servizi multimediali di Azure può usare qualsiasi chiave specificata nel documento, perché di una chiave può essere eseguito il rollover a breve, un'altra può essere quella sostitutiva e così via.
 
 ### <a name="where-is-the-access-token"></a>Dov'è il token di accesso?
-Se si esamina come un'app Web chiama un'app per le API in [Identità applicazione con concessione delle credenziali client OAuth 2.0](../active-directory/active-directory-authentication-scenarios.md#web-application-to-web-api), il flusso di autenticazione è il seguente:
+Se si esamina come un'app Web chiama un'app per le API in [Identità applicazione con concessione delle credenziali client OAuth 2.0](../active-directory/develop/active-directory-authentication-scenarios.md#web-application-to-web-api), il flusso di autenticazione è il seguente:
 
-1. Un utente esegue l'accesso ad Azure AD nell'applicazione Web (vedere [Da Web browser ad applicazione Web](../active-directory/active-directory-authentication-scenarios.md#web-browser-to-web-application)).
+1. Un utente esegue l'accesso ad Azure AD nell'applicazione Web (vedere [Da Web browser ad applicazione Web](../active-directory/develop/active-directory-authentication-scenarios.md#web-browser-to-web-application)).
 2. L'endpoint di autorizzazione di Azure AD reindirizza di nuovo l'agente utente all'applicazione client con un codice di autorizzazione. L'agente utente restituisce il codice di autorizzazione all'URI di reindirizzamento dell'applicazione client.
 3. L'applicazione Web deve acquisire un token di accesso per l'autenticazione nell'API Web e il recupero della risorsa desiderata. Esegue una richiesta all'endpoint token di Azure AD, fornendo credenziali, ID client e URI ID applicazione dell'API Web. Presenta il codice di autorizzazione per dimostrare che l'utente ha acconsentito.
 4. Azure AD autentica l'applicazione e restituisce un token di accesso JWT usato per chiamare l'API Web.
 5. Su HTTPS l'applicazione Web usa il token di accesso JWT restituito per aggiungere la stringa JWT con una designazione "Bearer" nell'intestazione dell'autorizzazione della richiesta all'API Web. L'API Web convalida quindi il token JWT e, se la convalida riesce, restituisce la risorsa desiderata.
 
-In questo flusso di "identità dell'applicazione" l'API Web confida che l'applicazione Web abbia autenticato l'utente. Per questo motivo il modello è definito sottosistema attendibile. Il [diagramma in questa pagina](http://msdn.microsoft.com/library/azure/dn645542.aspx/) illustra come il codice di autorizzazione garantisca il funzionamento del flusso.
+In questo flusso di "identità dell'applicazione" l'API Web confida che l'applicazione Web abbia autenticato l'utente. Per questo motivo il modello è definito sottosistema attendibile. Il [diagramma in questa pagina](https://docs.microsoft.com/azure/active-directory/active-directory-protocols-oauth-code) illustra come il codice di autorizzazione garantisca il funzionamento del flusso.
 
 Nell'acquisizione della licenza con la restrizione token si sta seguendo lo stesso modello di sottosistema attendibile. E il servizio di distribuzione delle licenze in Servizi multimediali di Azure è la risorsa API Web, ovvero la "risorsa back-end" a cui un'applicazione Web deve accedere. Dov'è quindi il token di accesso?
 
@@ -458,6 +458,6 @@ In questo documento è stata illustrata la crittografia CENC con DRM nativo mult
  
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

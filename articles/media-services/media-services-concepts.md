@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: d96a1b951bafd1739dff4ac236757ab2f6ca150b
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: d94b3c59ba23220f7cb377ada8fa2231eaa9838b
 
 
 ---
@@ -25,9 +25,9 @@ Questo argomento fornisce una panoramica dei concetti più importanti su Servizi
 
 ## <a name="a-idassetsaassets-and-storage"></a><a id="assets"></a>Asset e archiviazione
 ### <a name="assets"></a>Asset
-Un'entità [Asset](https://msdn.microsoft.com/library/azure/hh974277.aspx) contiene file digitali, tra cui video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati, con i relativi metadati. Una volta caricati in un asset, i file digitali possono essere usati nei flussi di lavoro di codifica e trasmissione di Servizi multimediali.
+Un'entità [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) contiene file digitali, tra cui video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati, con i relativi metadati. Una volta caricati in un asset, i file digitali possono essere usati nei flussi di lavoro di codifica e trasmissione di Servizi multimediali.
 
-Un asset viene mappato a un contenitore BLOB nell'account di archiviazione di Azure e i file contenuti nell'asset vengono archiviati come BLOB in tale contenitore.
+Un asset viene mappato a un contenitore BLOB nell'account di archiviazione di Azure e i file contenuti nell'asset vengono archiviati come BLOB in blocchi in tale contenitore. I BLOB di pagine non sono supportati da Servizi multimediali di Azure.
 
 Per decidere quale contenuto multimediale caricare e archiviare in un asset, tenere presenti le seguenti considerazioni:
 
@@ -35,7 +35,7 @@ Per decidere quale contenuto multimediale caricare e archiviare in un asset, ten
 * Un asset non deve contenere più rendering o modifiche di un file audiovisivo. Il tentativo di archiviare più episodi televisivi, annunci pubblicitari o angolazioni di una singola produzione all'interno di un asset è un esempio di uso non corretto di un'entità Asset. L'archiviazione di più rendering o modifiche di un file audiovisivo in un asset può comportare difficoltà durante l'invio di processi di codifica, la trasmissione in flusso o la protezione della distribuzione dell'asset in una fase successiva del flusso di lavoro.  
 
 ### <a name="asset-file"></a>File di asset
-Un'entità [AssetFile](https://msdn.microsoft.com/library/azure/hh974275.aspx) rappresenta un file video o audio effettivo archiviato in un contenitore BLOB. Un file di asset è sempre associato a un asset e un asset può contenere uno o più file. Se un oggetto di file di asset non è associato a un file digitale in un contenitore BLOB, l'attività del codificatore di Servizi multimediali restituisce un errore.
+Un'entità [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) rappresenta un file video o audio effettivo archiviato in un contenitore BLOB. Un file di asset è sempre associato a un asset e un asset può contenere uno o più file. Se un oggetto di file di asset non è associato a un file digitale in un contenitore BLOB, l'attività del codificatore di Servizi multimediali restituisce un errore.
 
 L'istanza di **AssetFile** e il file multimediale effettivo sono due oggetti distinti. L'istanza di AssetFile contiene metadati relativi al file multimediale, mentre quest'ultimo contiene l'effettivo contenuto multimediale.
 
@@ -57,7 +57,7 @@ Per poter trasmettere l'asset crittografato di archiviazione, è necessario conf
 **EnvelopeEncryptionProtected** : usare questa opzione se si vuole proteggere o caricare contenuto HLS (HTTP Live Streaming) già protetto, crittografato con AES. Si noti che se si sta caricando contenuto HLS già crittografato con AES, la crittografia deve essere stata eseguita con Transform Manager.
 
 ### <a name="access-policy"></a>Criterio di accesso
-Un'entità [AccessPolicy](https://msdn.microsoft.com/library/azure/hh974297.aspx) definisce le autorizzazioni, ad esempio di lettura, scrittura ed elenco, nonché la durata dell'accesso a un asset. In genere, si passa un oggetto AccessPolicy a un localizzatore, che viene quindi usato per l'accesso ai file contenuti in un asset.
+Un'entità [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) definisce le autorizzazioni, ad esempio di lettura, scrittura ed elenco, nonché la durata dell'accesso a un asset. In genere, si passa un oggetto AccessPolicy a un localizzatore, che viene quindi usato per l'accesso ai file contenuti in un asset.
 
 ### <a name="blob-container"></a>Contenitore BLOB
 Un contenitore BLOB consente di raggruppare un insieme di BLOB. I contenitori BLOB vengono usati in Servizi multimediali come delimitazione per il controllo di accesso e per i localizzatori di firma di accesso condiviso negli asset. Un account di archiviazione di Azure può includere un numero illimitato di contenitori BLOB, In un contenitore può essere archiviato un numero illimitato di BLOB.
@@ -68,7 +68,7 @@ Un contenitore BLOB consente di raggruppare un insieme di BLOB. I contenitori BL
 > 
 
 ### <a name="a-idlocatorsalocators"></a><a id="locators"></a>Localizzatori
-I [localizzatori](https://msdn.microsoft.com/library/azure/hh974308.aspx) forniscono un punto di ingresso per accedere ai file contenuti in un asset. Per definire le autorizzazioni e il periodo di tempo durante il quale un client ha accesso a un determinato asset viene usato un criterio di accesso. I localizzatori possono disporre di una relazione uno-a-molti con un criterio di accesso. In tal modo, localizzatori diversi possono fornire date/ore di inizio e tipi di connessione diversi a client diversi usando tutti le stesse impostazioni per le autorizzazioni e la durata. Tuttavia, a causa di una restrizione sul criterio di accesso condiviso impostata dai servizi di archiviazione di Azure, a un determinato asset non possono essere associati più di cinque localizzatori univoci alla volta. 
+I [localizzatori](https://docs.microsoft.com/rest/api/media/operations/locator) forniscono un punto di ingresso per accedere ai file contenuti in un asset. Per definire le autorizzazioni e il periodo di tempo durante il quale un client ha accesso a un determinato asset viene usato un criterio di accesso. I localizzatori possono disporre di una relazione uno-a-molti con un criterio di accesso. In tal modo, localizzatori diversi possono fornire date/ore di inizio e tipi di connessione diversi a client diversi usando tutti le stesse impostazioni per le autorizzazioni e la durata. Tuttavia, a causa di una restrizione sul criterio di accesso condiviso impostata dai servizi di archiviazione di Azure, a un determinato asset non possono essere associati più di cinque localizzatori univoci alla volta. 
 
 Servizi multimediali supporta due tipi di localizzatori: localizzatori OnDemandOrigin usati per trasmettere in streaming file multimediali (ad esempio, MPEG DASH, HLS o Smooth Streaming) o scaricare progressivamente file multimediali e localizzatori URL di firma di accesso condiviso, usati per caricare o scaricare file multimediali a/da Archiviazione di Azure. 
 
@@ -78,9 +78,9 @@ Si noti che l'autorizzazione di elenco (AccessPermissions.List) non deve essere 
 l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Un account di Servizi multimediali può essere associato a uno o più account di archiviazione. Un account può contenere un numero illimitato di contenitori, purché la dimensione totale di questi sia inferiore a 500TB per ogni account di archiviazione.  In Servizi multimediali sono disponibili strumenti di SDK che consentono di gestire più account di archiviazione e di bilanciare il carico della distribuzione degli asset durante il caricamento negli account in base a metriche specifiche oppure secondo una distribuzione casuale. Per altre informazioni, vedere Uso di [Archiviazione di Azure](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
 
 ## <a name="jobs-and-tasks"></a>Processi e attività
-Un'entità [Job](https://msdn.microsoft.com/library/azure/hh974289.aspx) viene in genere usata per elaborare (ad esempio, indicizzare o codificare) una presentazione audio/video. Se si stanno elaborando più video, è necessario creare un processo per ciascun video codificato.
+Un'entità [Job](https://https://docs.microsoft.com/rest/api/media/operations/job) viene in genere usata per elaborare (ad esempio, indicizzare o codificare) una presentazione audio/video. Se si stanno elaborando più video, è necessario creare un processo per ciascun video codificato.
 
-Un processo contiene i metadati relativi all'elaborazione da eseguire. Ogni processo contiene una o più entità [task](https://msdn.microsoft.com/library/azure/hh974286.aspx)che specificano un'attività di elaborazione atomica, i relativi asset di input e output, un processore di contenuti multimediali e le impostazioni associate. Le attività contenute in un processo possono essere concatenate, in modo che l'asset di output di un'attività sia indicato come asset di input dell'attività successiva. In questo modo un processo può contenere tutte le operazioni di elaborazione necessarie per una presentazione multimediale.
+Un processo contiene i metadati relativi all'elaborazione da eseguire. Ogni processo contiene una o più entità [task](https://docs.microsoft.com/rest/api/media/operations/task)che specificano un'attività di elaborazione atomica, i relativi asset di input e output, un processore di contenuti multimediali e le impostazioni associate. Le attività contenute in un processo possono essere concatenate, in modo che l'asset di output di un'attività sia indicato come asset di input dell'attività successiva. In questo modo un processo può contenere tutte le operazioni di elaborazione necessarie per una presentazione multimediale.
 
 ## <a name="a-idencodingaencoding"></a><a id="encoding"></a>Codifica
 Servizi multimediali di Azure offre diverse opzioni per la codifica di servizi multimediali nel cloud.
@@ -90,10 +90,7 @@ I codec sono costituiti da software che implementa gli algoritmi di compressione
 
 Servizi multimediali include la funzionalità per la creazione dinamica dei pacchetti, che consente di distribuire contenuto con codifica Smooth Streaming o MP4 a bitrate adattivo nei formati supportati da Servizi multimediali, ovvero MPEG-DASH, HLS, Smooth Streaming, senza dover ricreare i pacchetti in questi formati di streaming.
 
-Per sfruttare i vantaggi del servizio di [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md), è necessario seguire questa procedura:
-
-* Codificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva (i passaggi per la codifica sono descritti più avanti in questa esercitazione).
-* Ottenere almeno un'unità di streaming on demand per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti. Per altre informazioni, vedere l'articolo sulla [procedura per scalare unità riservate di streaming on demand](media-services-portal-manage-streaming-endpoints.md).
+Per sfruttare i vantaggi della [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md), è necessario codificare il file mezzanine (di origine) in un set di file MP4 con bitrate adattivo o di file Smooth Streaming a bitrate adattivo e disporre di almeno un endpoint di streaming Standard o Premium con stato avviato.
 
 Servizi multimediali supporta i seguenti codificatori su richiesta descritti in questo articolo:
 
@@ -105,18 +102,18 @@ Per informazioni sui codificatori supportati, vedere [Codificatori](media-servic
 ## <a name="live-streaming"></a>Streaming live
 In Servizi multimediali di Azure un canale rappresenta una pipeline per l'elaborazione di contenuto in streaming live. Un canale riceve i flussi di input live in uno dei due modi seguenti:
 
-* Un codificatore live locale invia al canale un flusso RTMP o Smooth Streaming (MP4 frammentato) a più velocità in bit. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a più velocità in bit: Elemental, Envivio, Cisco. I codificatori live seguenti generano output in formato RTMP: Adobe Flash Live, Telestream Wirecast e transcodificatori Tricaster. I flussi inseriti passano attraverso il canale senza ulteriori elaborazioni. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
+* Un codificatore live locale invia al canale un flusso RTMP o Smooth Streaming (MP4 frammentato) a più velocità in bit. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a bitrate multipli: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco ed Elemental. I codificatori live seguenti generano output in formato RTMP: Adobe Flash Live Encoder, Telestream Wirecast, Teradek, Haivision e codificatori Tricaster. I flussi inseriti attraversano i canali senza ulteriori operazioni di transcodifica e codifica. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
 * Un flusso a velocità in bit singola (in uno dei formati seguenti: RTP (MPEG-TS), RTMP o Smooth Streaming (MP4 frammentato)) viene inviato al canale abilitato per l'esecuzione della codifica live con Servizi multimediali. Il canale esegue quindi la codifica live del flusso in ingresso a velocità in bit singola in un flusso video a più velocità in bit (adattivo). Quando richiesto, Servizi multimediali invia il flusso ai clienti.
 
 ### <a name="channel"></a>Canale
-In Servizi multimediali le entità [Channel](https://msdn.microsoft.com/library/azure/dn783458.aspx)sono responsabili dell'elaborazione dei contenuti in streaming live. Un'entità Channel, o canale, fornisce un endpoint di input (URL di inserimento) che può essere a sua volta fornito al transcodificatore live. Un'entità Channel riceve flussi di input live dal trascodificatore live e li rende disponibili per lo streaming mediante uno o più StreamingEndpoints. I canali forniscono anche un endpoint di anteprima(URL di anteprima) che consente di visualizzare in anteprima e convalidare il flusso prima dell'ulteriore elaborazione e del recapito.
+In Servizi multimediali le entità [Channel](https://docs.microsoft.com/rest/api/media/operations/channel)sono responsabili dell'elaborazione dei contenuti in streaming live. Un'entità Channel, o canale, fornisce un endpoint di input (URL di inserimento) che può essere a sua volta fornito al transcodificatore live. Un'entità Channel riceve flussi di input live dal trascodificatore live e li rende disponibili per lo streaming mediante uno o più StreamingEndpoints. I canali forniscono anche un endpoint di anteprima(URL di anteprima) che consente di visualizzare in anteprima e convalidare il flusso prima dell'ulteriore elaborazione e del recapito.
 
 È possibile ottenere l'URL di inserimento e l'URL di anteprima quando si crea il canale. Per ottenere questi URL, non è necessario che il canale sia nello stato avviato. Quando si è pronti per avviare l'inserimento di dati da un transcodificatore live nel canale, il canale deve essere avviato. Una volta che il transcodificatore live inizia a inserire i dati, è possibile visualizzare in anteprima il flusso.
 
 Ogni account di Servizi multimediali può contenere più entità Channel, Program e StreamingEndpoint. In base alle esigenze di sicurezza e alla larghezza di banda, i servizi di StreamingEndpoint possono essere dedicati a uno o più canali. Qualsiasi StreamingEndpoint può effettuare il pull da qualsiasi canale.
 
 ### <a name="program"></a>Programma
-Un [programma](https://msdn.microsoft.com/library/azure/dn783463.aspx) consente di controllare la pubblicazione e l'archiviazione di segmenti in un flusso live. I programmi sono gestiti dai canali. La relazione tra queste due entità è molto simile a quella che intercorre tra di essi nei media tradizionali, in cui un canale è costituito da un flusso costante di contenuti, mentre un programma ha come ambito una serie di eventi programmati sul canale.
+Un [programma](https://docs.microsoft.com/rest/api/media/operations/program) consente di controllare la pubblicazione e l'archiviazione di segmenti in un flusso live. I programmi sono gestiti dai canali. La relazione tra queste due entità è molto simile a quella che intercorre tra di essi nei media tradizionali, in cui un canale è costituito da un flusso costante di contenuti, mentre un programma ha come ambito una serie di eventi programmati sul canale.
 È possibile specificare il numero di ore per cui si vuole mantenere il contenuto registrato per il programma impostando la proprietà **ArchiveWindowLength** . Il valore impostato può essere compreso tra 5 minuti e 25 ore.
 
 La proprietà ArchiveWindowLength determina anche il limite di tempo per cui i client possono eseguire ricerche a ritroso nel tempo dalla posizione live corrente. I programmi possono essere eseguiti per la quantità di tempo specificata, ma il contenuto che va oltre la durata prevista viene scartato in modo continuo. Il valore della proprietà determina anche il tempo per cui i manifesti client possono crescere.
@@ -159,16 +156,23 @@ Per altre informazioni, vedere gli articoli seguenti:
 Quando si usa Servizi multimediali si consiglia di codificare i file in formato intermedio con un set MP4 a velocità in bit adattiva e quindi convertire il set nel formato desiderato mediante la [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>endpoint di streaming
-Un'entità StreamingEndpoint rappresenta un servizio di streaming in grado di trasmettere contenuti direttamente a un lettore client o a una rete per la distribuzione di contenuti (CDN) per una successiva ridistribuzione (Servizi multimediali di Azure ora fornisce l'integrazione della rete CDN di Azure). Il flusso in uscita da un servizio StreamingEndpoint può essere costituito da un flusso live o da un asset "video on demand" associato a un account di Servizi multimediali. È possibile inoltre controllare la capacità del servizio StreamingEndpoint in modo da poter gestire esigenze di larghezza di banda crescenti modificando le unità di scala (note anche come unità di streaming). Si consiglia di allocare una o più unità di scala per le applicazioni nell'ambiente di produzione. Le unità di scala forniscono capacità di uscita dedicata acquistabile in incrementi di 200 Mbps e una funzionalità aggiuntiva che attualmente include l'uso della creazione dinamica dei pacchetti.
+Un'entità StreamingEndpoint rappresenta un servizio di streaming in grado di trasmettere contenuti direttamente a un lettore client o a una rete per la distribuzione di contenuti (CDN) per una successiva ridistribuzione (Servizi multimediali di Azure ora fornisce l'integrazione della rete CDN di Azure). Il flusso in uscita da un servizio endpoint di streaming può essere costituito da un flusso live o da un asset video on demand associato all'account di Servizi multimediali. I clienti di Servizi multimediali scelgono un endpoint di streaming **Standard** oppure uno o più endpoint di streaming **Premium**, in base alle esigenze. L'endpoint di streaming Standard è adatto per la maggior parte dei carichi di lavoro di streaming. 
 
-Si consiglia di usare la creazione dinamica dei pacchetti e/o la crittografia dinamica. Per usare queste funzionalità, è necessario avere almeno un'unità di streaming per l'endpoint da cui si prevede di trasmettere in streaming. Per altre informazioni, vedere [Ridimensionamento delle unità di streaming](media-services-portal-manage-streaming-endpoints.md).
+L'endpoint di streaming Standard è adatto per la maggior parte dei carichi di lavoro di streaming. Gli endpoint di streaming Standard offrono la flessibilità necessaria per distribuire il contenuto praticamente a tutti i dispositivi grazie alla creazione dinamica dei pacchetti in HLS, MPEG-DASH e Smooth Streaming, nonché alla crittografia dinamica per Microsoft PlayReady, Google Widevine, Apple Fairplay e AES128.  Tali endpoint sono anche scalabili per destinatari di dimensioni diverse con migliaia di visualizzatori simultanei tramite l'integrazione della rete CDN di Azure. Se il carico di lavoro è avanzato o i requisiti della capacità di streaming non rispondono alle destinazioni con la velocità effettiva degli endpoint di streaming Standard o se si vuole controllare la capacità del servizio StreamingEndpoint per gestire esigenze di crescita in termini di larghezza di banda, è consigliabile allocare unità di scala (note anche come unità di streaming Premium).
+
+È opportuno anche usare la creazione dinamica dei pacchetti e/o la crittografia dinamica.
+
+>[!NOTE]
+>Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
+
+Per altre informazioni, vedere [questo](media-services-portal-manage-streaming-endpoints.md) argomento.
 
 Per impostazione predefinita, è possibile avere fino a due endpoint di streaming nell'account di Servizi multimediali. Per richiedere un limite più elevato, vedere [Quote e limitazioni](media-services-quotas-and-limitations.md).
 
 Il costo verrà addebitato solo quando StreamingEndpoint è in stato di esecuzione.
 
 ### <a name="asset-delivery-policy"></a>Criteri di distribuzione degli asset
-Uno dei passaggi del flusso di lavoro di distribuzione dei contenuti in Servizi multimediali consiste nella configurazione dei [criteri di distribuzione degli asset ](https://msdn.microsoft.com/library/azure/dn799055.aspx)che si desidera trasmettere in streaming. Questi criteri indicano a Servizi multimediali la modalità di distribuzione di un asset, ovvero il protocollo di streaming da usare per la creazione dinamica dei pacchetti (ad esempio, MPEG DASH, HLS, Smooth Streaming o tutti), se l'asset deve essere crittografato dinamicamente e l'eventuale modalità di crittografia (envelope o common).
+Uno dei passaggi del flusso di lavoro di distribuzione dei contenuti in Servizi multimediali consiste nella configurazione dei [criteri di distribuzione degli asset ](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)che si desidera trasmettere in streaming. Questi criteri indicano a Servizi multimediali la modalità di distribuzione di un asset, ovvero il protocollo di streaming da usare per la creazione dinamica dei pacchetti (ad esempio, MPEG DASH, HLS, Smooth Streaming o tutti), se l'asset deve essere crittografato dinamicamente e l'eventuale modalità di crittografia (envelope o common).
 
 Nel caso di un asset crittografato di archiviazione, prima di trasmettere in streaming l'asset in base ai criteri specificati, il server rimuove la crittografia di archiviazione. Ad esempio, per distribuire l'asset crittografato con una chiave di crittografia AES, impostare il tipo di criteri su DynamicEnvelopeEncryption. Per rimuovere la crittografia di archiviazione e trasmettere l'asset in chiaro, impostare il tipo di criteri su NoDynamicEncryption.
 
@@ -184,9 +188,9 @@ http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba01
 ### <a name="streaming-urls"></a>URL di streaming
 Streaming dei contenuti ai client. Per poter fornire agli utenti URL di streaming, è prima necessario creare un localizzatore OnDemandOrigin. Creando il localizzatore è possibile ottenere il valore Path di base dell'asset che include i contenuti da trasmettere in streaming. Tuttavia, per trasmettere in streaming questi contenuti, è necessario modificare ulteriormente il percorso. Per creare un URL completo per il file manifesto di streaming, si deve concatenare il valore Path del localizzatore e il nome del file manifesto (nomefile.ism), quindi aggiungere /Manifest e un formato appropriato (se necessario) al percorso di origine del localizzatore.
 
-Lo streaming dei contenuti può essere eseguito anche tramite una connessione SSL. A questo scopo, verificare che gli URL di streaming inizino con HTTPS.
+Lo streaming dei contenuti può essere eseguito anche tramite una connessione SSL. A questo scopo, verificare che gli URL di streaming inizino con HTTPS. Si noti che attualmente AMS non supporta SSL con domini personalizzati.  
 
-Lo streaming tramite SSL è possibile solo se l'endpoint di streaming da cui si inviano i contenuti è stato creato dopo il 10 settembre 2014. Se gli URL di streaming si basano sugli endpoint di streaming creati dopo il 10 settembre, l'URL contiene "streaming.mediaservices.windows.net" (il nuovo formato). Gli URL di streaming contenenti "origin.mediaservices.windows.net" (il vecchio formato) non supportano SSL. Se l'URL è nel vecchio formato e si desidera poter eseguire lo streaming tramite SSL, creare un nuovo endpoint di streaming. Usare gli URL creati con il nuovo endpoint di streaming per lo streaming dei contenuti tramite SSL.
+Lo streaming tramite SSL è possibile solo se l'endpoint di streaming da cui si inviano i contenuti è stato creato dopo il 10 settembre 2014. Se gli URL di streaming si basano sugli endpoint di streaming creati dopo il 10 settembre, l'URL contiene "streaming.mediaservices.windows.net" (nuovo formato). Gli URL di streaming contenenti "origin.mediaservices.windows.net" (vecchio formato) non supportano SSL. Se l'URL è nel vecchio formato e si desidera poter eseguire lo streaming tramite SSL, creare un nuovo endpoint di streaming. Usare gli URL creati con il nuovo endpoint di streaming per lo streaming dei contenuti tramite SSL.
 
 Il seguente elenco include la descrizione dei vari formati di streaming e alcuni esempi:
 
@@ -223,6 +227,6 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

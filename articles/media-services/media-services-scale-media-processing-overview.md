@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
+ms.date: 01/06/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 852d8ee2686e5653f9fe8bb5ec41b22cb1b19048
-ms.openlocfilehash: a9cf9a7e91c21d675f7ae22072fd10794a1295e7
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 1cde923ad0aef1ce1c91d1240f7b3e3d3c26e105
 
 
 ---
@@ -44,8 +44,8 @@ La tabella seguente consente di scegliere tra diverse velocità di codifica. Ind
 
 * Unità riservate di lavoro per la parallelizzazione di tutta l'elaborazione di supporti di memorizzazione, tra cui l'indicizzazione di processi tramite Azure Media Indexer.  Tuttavia, a differenza della codifica, l'indicizzazione di processi non viene elaborata più velocemente con unità riservate più veloci.
 * Se si usa il pool condiviso, vale a dire senza unità riservate, le attività di codifica hanno le stesse prestazioni di quando si usano le unità riservate S1. Non c'è tuttavia alcun limite superiore al tempo che le attività possono trascorrere nello stato in coda e in qualsiasi momento può essere eseguita al massimo una sola attività.
-* I data center di Brasile meridionale, India occidentale, India centrale e India meridionale non offrono il tipo di unità riservata **S2** .
-* I data center di Brasile meridionale, India occidentale e India centrale non offrono il tipo di unità riservata **S3** .
+* I data center Brasile meridionale e India occidentale non offrono il tipo di unità riservata **S2**.
+* Il data center India occidentale non offre il tipo di unità riservata **S3**.
 * Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo.
 
 ## <a name="quotas-and-limitations"></a>Quote e limitazioni
@@ -57,7 +57,7 @@ Ottenere l'attività di elaborazione dei media scalabili con una di queste tecno
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [Portale](media-services-portal-scale-media-processing.md)
-> * [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
@@ -72,6 +72,6 @@ Ottenere l'attività di elaborazione dei media scalabili con una di queste tecno
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 
