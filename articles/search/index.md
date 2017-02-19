@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: Documentazione di Ricerca di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: "Informazioni su come aggiungere solide funzionalità di ricerca, tra cui il monitoraggio delle attività, alle applicazioni mobili o Web. Informazioni di riferimento sulle API e altri documenti."
+services: search
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: search
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: c99d4b8d8db7739f615d566afa4617221b1c34a0
+ms.sourcegitcommit: d8bf549455e427549a81ff5476a00cdfb836b5ff
+ms.openlocfilehash: aa0c12a669b6b2a1602b9d2f6698f65535b4f7d4
 
 ---
 # <a name="azure-search-documentation"></a>Documentazione di Ricerca di Azure
@@ -158,6 +169,6 @@ Informazioni su come aggiungere funzionalità alle app per dispositivi mobili o 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
