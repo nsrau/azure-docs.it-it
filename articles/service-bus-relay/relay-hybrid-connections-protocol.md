@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
-ms.author: sethm
+ms.date: 02/14/2017
+ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 9919cd4735f1f915ba77d41d8b9e92b3411fef3f
-ms.openlocfilehash: 38d9eca04780493d03bb5ceb79e5b59fab0a93d2
+ms.sourcegitcommit: 579942cfe0dc7d6a5e3f205308642d36bf6be880
+ms.openlocfilehash: d3a191797e75c424af07910e4a6a87e1183f6676
 
 
 ---
@@ -31,7 +31,7 @@ L'inoltro di Connessioni ibride connette due parti fornendo un punto di incontro
 È presente un listener che prima indica la conformità alla gestione delle connessioni in ingresso e successivamente le accetta quando arrivano. Sull'altro lato è presente un client di connessione che si connette al listener, aspettando che la connessione venga accettata per stabilire un percorso di comunicazione bidirezionale.
 "Connettersi", "essere in ascolto", "accettare" sono termini comuni usati nella maggior parte delle API socket.
 
-In un modello di comunicazione di inoltro entrambe le parti creano connessioni in uscita verso un endpoint di servizio, rendendo il "listener" anche un "client" nell'uso comune del termine e causando altre sovrapposizioni terminologiche. La terminologia esatta usata per le connessioni ibride è quindi la seguente.
+In un modello di comunicazione di inoltro entrambe le parti creano connessioni in uscita verso un endpoint di servizio, rendendo il "listener" anche un "client" nel linguaggio comune e causando altre sovrapposizioni terminologiche. La terminologia esatta usata per le connessioni ibride è quindi la seguente:
 
 I programmi su entrambi i lati di una connessione sono detti "client", perché sono i client del servizio. Il client che attende e accetta le connessioni è il "listener", che è anche nel "ruolo listener". Il client che avvia una nuova connessione verso un listener tramite il servizio è detto "mittente", che è anche nel "ruolo mittente".
 
@@ -118,7 +118,7 @@ Il messaggio contiene un oggetto JSON denominato "accept", che definisce le prop
 * **connectHeaders**: tutte le intestazioni HTTP fornite all'endpoint di inoltro dal mittente, che include anche le intestazioni Sec-WebSocket-Protocol e Sec-WebSocket-Extensions.
 
 #### <a name="accept-message"></a>Messaggio accept
-``` JSON
+```json
 {                                                           
     "accept" : {
         "address" : "wss://168.61.148.205:443/$hc/{path}?..."    
@@ -201,7 +201,7 @@ Quando il token del listener sta per scadere, può essere sostituito inviando un
 * **token**: token di accesso condiviso del bus di servizio codificato con URL valido per lo spazio dei nomi o la connessione ibrida che conferisce il diritto **Listen**.
 
 #### <a name="renewtoken-message"></a>Messaggio renewToken
-``` JSON
+```json
 {                                                                                                                                                                        
     "renewToken" : {                                                                                                                                                      
         "token" : "SharedAccessSignature sr=http%3a%2f%2fcontoso.servicebus.windows.net%2fhyco%2f&amp;sig=XXXXXXXXXX%3d&amp;se=1471633754&amp;skn=SasKeyName"  
@@ -271,6 +271,6 @@ Se la connessione Web Socket viene intenzionalmente arrestata dal servizio dopo 
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

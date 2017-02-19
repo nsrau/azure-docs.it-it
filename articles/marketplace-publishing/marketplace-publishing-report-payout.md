@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2016
+ms.date: 01/11/2017
 ms.author: v-jeana; hascipio; v-dabosl
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 76aa5a1d8023b108b4d7bee1dcf1386e14809df9
+ms.sourcegitcommit: e86e4dcc39f9d34dc04afbdccb017d89969f548f
+ms.openlocfilehash: fade348a599c41a7f099e7bbd8b45a3b4ccbf910
 
 
 ---
@@ -39,23 +39,23 @@ I report sono disponibili 45 giorni dopo la chiusura del trimestre e vengono cal
 ### <a name="access-payout-reports-in-dev-center"></a>Accedere ai report sui proventi in Dev Center
 1. Accedere a Dev Center all'indirizzo https://dev.windows.com/en-us.
 2. Fare clic su **Dashboard**.
-   
+
     ![LandingPageDashboardHighlight][1]
 3. Fare clic su **Payout Summary**(Riepilogo proventi).
-   
+
     ![DashboardPayoutSummary][2]
 
 ## <a name="view-your-payout-reports-in-dev-center"></a>Visualizzare i report sui proventi in Dev Center
 Il rapporto dei proventi per ogni trimestre registra tutte le transazioni che si sono verificate in tale trimestre.
 
-* L'importo riservato indica i pagamenti che vengono accumulati al di fuori del ciclo dei prossimi pagamenti (questo importo verrà spostato al prossimo pagamento nel mese seguente).  Questo importo in genere sarà pari a $ 0 (a meno che un cliente non paghi con largo anticipo).
+* L'importo riservato indica i pagamenti che vengono accumulati al di fuori del ciclo dei prossimi pagamenti (questo importo verrà spostato al prossimo pagamento nel mese seguente).  Questo importo in genere sarà pari a $&0; (a meno che un cliente non paghi con largo anticipo).
 * Fare clic sul collegamento **View details** (Visualizza dettagli) in Upcoming payment (Prossimo pagamento) o Most recent payment (Pagamento più recente) per visualizzare una nota su questi proventi.
 * Fare clic su **Payment Statements** (Distinta di pagamento) per visualizzare i dettagli relativi ai guadagni per app/prodotto.
 * Fare clic sul collegamento **View** (Visualizza) per visualizzare le singole distinte.
-  
+
     ![PayoutSummaryUpcomingMostRecentLinksStatement][3]
 * Usare il filtro **Proceeds Breakdown** (Suddivisione guadagni) nella parte inferiore di una distinta per visualizzare più app/prodotti, se disponibili.
-  
+
     ![PayoutSummaryPaymentStatementsFilterControl][4]
 
 ## <a name="view-your-payout-reports-in-publishing-portal"></a>Visualizzare i report sui proventi nel portale di pubblicazione
@@ -64,7 +64,7 @@ Il rapporto dei proventi per ogni trimestre registra tutte le transazioni che si
 1. Passare al portale di pubblicazione, https://publish.windowsazure.com.
 2. Selezionare **Payout Reports** (Report sui proventi) nella sezione **Publishers** (Editori).
 3. Fare clic sul menu a discesa per visualizzare tutti i rapporti dei proventi trimestrali disponibili.
-   
+
     ![accessingpayoutreport][5]
 
 ### <a name="read-your-payout-reports"></a>Leggere i report sui proventi
@@ -110,6 +110,6 @@ Per altre query di supporto, registrare un problema in <https://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

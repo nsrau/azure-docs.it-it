@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/30/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fcd8fe1bd1be5ffa85aab0951a28054754ba03ff
+ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
+ms.openlocfilehash: a451ab54144222676e8063b764a6d22f44a690d7
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: fcd8fe1bd1be5ffa85aab0951a28054754ba03ff
 > [!div class="op_single_selector"]
 > * [Portale di Azure](active-directory-enterprise-apps-manage-sso.md)
 > * [portale di Azure classico](active-directory-sso-integrate-saas-apps.md)
-> 
-> 
+>
+>
 
 [!INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
@@ -50,8 +50,8 @@ L'impostazione di Single Sign-On per un'applicazione in uso nell'organizzazione 
 
 > [!NOTE]
 > Per configurare SSO per un'applicazione esistente, è necessario disporre dei diritti di amministratore globale sia per Azure AD sia per l'applicazione SaaS.
-> 
-> 
+>
+>
 
 ### <a name="mapping-user-accounts"></a>Mapping degli account utente
 Un'identità utente ha in genere un identificatore univoco che può essere un indirizzo di posta elettronica o un nome dell'entità utente (UPN). Sarà necessario collegare (mappare) ciascuna identità utente dell'applicazione alla rispettiva identità di Azure AD. Per eseguire questa operazione è possibile procedere in due modi, a seconda dei requisiti di autenticazione dell'applicazione.
@@ -72,12 +72,11 @@ Se l'app non è presente nella raccolta, è possibile [aggiungerla alla raccolta
 
 La libreria di Azure.com include molti altri dettagli su tutti questi aspetti, a partire da [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

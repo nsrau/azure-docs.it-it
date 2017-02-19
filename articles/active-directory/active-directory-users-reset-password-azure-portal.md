@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 02a5487578468062e42f25053eb161a810279a47
+ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
+ms.openlocfilehash: 7b58db43f247182553a5766e11fa263ee93beff7
 
 
 ---
@@ -24,24 +24,24 @@ ms.openlocfilehash: 02a5487578468062e42f25053eb161a810279a47
 > [!div class="op_single_selector"]
 > * [Portale di Azure](active-directory-users-reset-password-azure-portal.md)
 > * [portale di Azure classico](active-directory-create-users-reset-password.md)
-> 
-> 
+>
+>
 
 ## <a name="how-to-reset-the-password-for-a-user"></a>Come reimpostare la password per un utente
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
 2. Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi premere **INVIO**.
-   
+
    ![Apertura di Gestione utenti](./media/active-directory-users-reset-password-azure-portal/create-users-user-management.png)
 3. Nel pannello **Utenti e gruppi** selezionare **Utenti**.
-   
+
    ![Apertura del pannello Utenti](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
 4. Nel pannello **Utenti e gruppi - Utenti** selezionare un utente nell'elenco.
 5. Nel pannello per l'utente selezionato selezionare **Panoramica**, quindi nella barra dei comandi selezionare **Reimposta password**.
-   
+
     ![Selezione del comando Reimposta password](./media/active-directory-users-reset-password-azure-portal/create-users-reset-password-command.png)
 6. Nel pannello **Reimposta password** selezionare **Reimposta password**.
 
-## <a name="whats-next"></a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * [Aggiungere un utente](active-directory-users-create-azure-portal.md)
 * [Assegnare un utente a un ruolo in Azure AD](active-directory-users-assign-role-azure-portal.md)
 * [Modificare le informazioni di lavoro di un utente](active-directory-users-work-info-azure-portal.md)
@@ -50,7 +50,6 @@ ms.openlocfilehash: 02a5487578468062e42f25053eb161a810279a47
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
