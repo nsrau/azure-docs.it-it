@@ -1,8 +1,8 @@
 ---
-title: Usare il connettore SAP con il gateway dati locale in App per la logica di Azure | Documentazione Microsoft
-description: App per la logica consente di eseguire facilmente la connessione a un sistema SAP locale come parte del flusso di lavoro.
+title: Connettersi a un sistema SAP locale nelle App per la logica di Azure | Microsoft Docs
+description: Usare il gateway dati locale per connettersi a un sistema SAP locale nel flusso di lavoro delle app per la logica
 services: logic-apps
-documentationcenter: dev-center-name
+documentationcenter: 
 author: padmavc
 manager: anneta
 ms.service: logic-apps
@@ -10,70 +10,75 @@ ms.devlang: wdl
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 02/01/2017
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: 12584e9aa9c1400aba040320bd3a5f3ba3017470
-ms.openlocfilehash: a483f527d15372c94fe7fe813dc49c3d6423e1e3
+ms.sourcegitcommit: 72ac4936c656847fa07f1c1a37d6ddbf4ec1acf4
+ms.openlocfilehash: 62b30acf324a5ed6a1b817157c86575d83b4104e
 
 
 ---
-# <a name="get-started-with-the-sap-connector"></a>Introduzione al connettore SAP 
+# <a name="use-the-sap-connector-in-your-logic-app"></a>Uso del connettore SAP nell'app per la logica 
 
-La connettività di cloud ibrido è il fulcro delle app per la logica. Il gateway dati locale consente di gestire i dati e accedere in modo sicuro alle risorse presenti in locale dalle app per la logica. Questo articolo illustra come eseguire la connessione a un sistema SAP locale con uno scenario semplice di richiesta di un IDOC su HTTP e restituzione della risposta.    
+Il gateway dati locale consente di gestire i dati e accedere in modo sicuro alle risorse presenti in locale. Questo argomento illustra come eseguire la connessione a un sistema SAP locale per effettuare la richiesta di un IDOC su HTTP e restituire la risposta.    
 
  > [!NOTE]
- > Il connettore SAP supporta i sistemi SAP riportati di seguito. Attualmente esistono una limitazione di timeout delle app per la logica che blocca le richieste che superano 90 secondi e una limitazione del numero di campi visualizzabile nella selezione file (i percorsi possono essere aggiunti manualmente)
- >
- >
+> Limitazioni correnti:
+ > - Interruzione dell'app per la logica se c'è una richiesta che supera 90 secondi. In questo scenario, è possibile che le richieste vengano bloccate. 
+ > - Il selettore file non consente di visualizzare tutti i campi disponibili. In questo scenario, è possibile aggiungere manualmente i percorsi.
 
 ## <a name="prerequisites"></a>Prerequisiti
-- Installare e configurare il [gateway dati locale](https://www.microsoft.com/en-us/download/details.aspx?id=53127) più recente.  
+- Installare e configurare il [gateway dati locale](https://www.microsoft.com/download/details.aspx?id=53127) più recente, versione 1.15.6150.1 o superiore. L'articolo sulla [connessione al gateway dati locale in un'app per la logica](http://aka.ms/logicapps-gateway) elenca i passaggi da seguire. Prima di procedere, è necessario installare il gateway in un computer locale.
 
-    Installare il gateway dati locale più recente, versione 1.15.6150.1 o successiva, se non è ancora stato fatto. In questo [articolo](http://aka.ms/logicapps-gateway) vengono fornite le istruzioni. Prima di procedere con il resto della procedura, è necessario installare il gateway in un computer locale.
+- Scaricare e installare la libreria client SAP più recente nello stesso computer in cui è stato installato il gateway dati. È possibile usare una delle versioni SAP seguenti: 
+    - Server SAP
+        - SAP ECC 6.0 Unicode
+        - SAP ECC 6.0 Unicode con EHP 4.0
+        - SAP ECC 6.0 con EHP 7.0 e tutte le precedenti versioni EHP
+ 
+    - Client SAP
+        - SAP RFC SDK 7.20 UNICODE
+        - SAP Connettore .NET (NCo) 3.0
 
-- Scaricare e installare la libreria client SAP più recente nello stesso computer in cui è stato installato il gateway universale.
+## <a name="add-the-sap-connector"></a>Aggiungere il connettore SAP
 
-## <a name="use-sap-connector"></a>Usare il connettore SAP
+Il connettore SAP ha azioni, ma non include trigger. Di conseguenza, è possibile usare un altro trigger all'inizio del flusso di lavoro. 
 
-1. Si creerà un trigger di richiesta HTTP, quindi si selezionerà l'azione del connettore SAP digitando "SAP" nel campo di ricerca.    
- ![Cercare SAP](media/logic-apps-using-sap-connector/picture1.png)
+1. Aggiungere il trigger di richiesta/risposta e quindi selezionare **Nuovo passaggio**.
+2. Selezionare **Aggiungi un'azione**, quindi selezionare il connettore SAP digitando `SAP` nel campo di ricerca:    
+ ![Selezionare il server applicazioni o il server di messaggistica SAP](media/logic-apps-using-sap-connector/picture1.png)
 
-2. Scegliere "SAP" (host applicazioni o host di messaggistica a seconda della configurazione di SAP) e creare una connessione usando il gateway universale.
- - Se non è già disponibile una connessione, verrà richiesto di crearne una.
- - Selezionare l'opzione "Connetti tramite gateway dati locale". Dopo la selezione della casella di controllo verranno visualizzati altri campi.
- - Specificare la stringa del nome della connessione
- - Selezionare il gateway installato nel passaggio precedente oppure selezionare "Installa gateway" per installarne uno nuovo.   
- ![Aggiungere la stringa di connessione a SAP](media/logic-apps-using-sap-connector/picture2.png)   
+3. Selezionare il [server applicazioni](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) o il [server di messaggistica](http://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) **SAP**, in base alla configurazione SAP. Se non è disponibile una connessione, verrà richiesto di crearne una: 
+    1. Selezionare **Connect via on-premises data gateway** (Connessione tramite gateway dati locale) e immettere i dettagli del sistema SAP:   
+ ![Aggiungere la stringa di connessione a SAP](media/logic-apps-using-sap-connector/picture2.png)  
+    2. Selezionare un **Gateway** esistente, oppure, selezionare **Installa gateway** per installare un nuovo gateway:    
+ ![Installare un nuovo gateway](media/logic-apps-using-sap-connector/install-gateway.png)
   
-  > [!NOTE]
-  > Esistono due diverse connessioni SAP, una per l'[host applicazioni](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) e l'altra per l'[host di messaggistica](http://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm).
-  >
-  >
+    3. Dopo aver inserito tutti i dettagli, selezionare **Crea**. Le app per la logica configurano e testano la connessione per verificare che funzioni correttamente.
 
-3. Dopo avere fornito tutti i dettagli, fare clic su "Crea". Le app per la logica configurano e testano la connessione per verificare che funzioni correttamente. Se la verifica ha esito positivo, verranno visualizzate le opzioni per la scheda precedentemente selezionata. Usare la selezione file per trovare la categoria IDOC corretta oppure digitare manualmente il percorso e selezionare la risposta HTTP nel campo del corpo.    
+4. Inserire un nome per la connessione SAP.
+
+5. Sono ora disponibili le diverse opzioni SAP. Usare il selettore file per individuare la categoria IDOC, oppure digitare manualmente il percorso e selezionare la risposta HTTP nel campo **corpo**:     
  ![AZIONE SAP](media/logic-apps-using-sap-connector/picture3.png)
 
-4. Creare una risposta HTTP aggiungendo una nuova azione. Il messaggio di risposta dovrà provenire dall'output SAP.
+6. Creare una risposta HTTP mediante l'aggiunta di una nuova azione. Il messaggio di risposta deve derivare dall'output SAP.
 
-5. Salvare l'app per la logica e testarla inviando un IDOC tramite l'URL del trigger HTTP.
-
-6. Dopo l'invio dell'IDOC, attendere la risposta dall'app per la logica.   
+7. Salvare l'app per la logica. Testarla inviando un IDOC tramite l'URL del trigger HTTP. Dopo l'invio dell'IDOC, attendere la risposta dall'app per la logica:   
 
   > [!TIP]
   > Scoprire come [monitorare le app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md).
-  >
-  >
 
-7. Al termine, si avrà un'app per la logica funzionante che usa il connettore SAP. È possibile iniziare a conoscere le altre funzionalità che offre:
+Ora che il connettore SAP è stato aggiunto all'app per la logica, iniziare a esplorare altre funzionalità:
+
   - BAPI
   - RFC
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni su [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md). 
+- Informazioni su come convalidare, trasformare e altre funzioni simili a BizTalk di [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md). 
 - Creare una [connessione locale](../logic-apps/logic-apps-gateway-connection.md) alle app per la logica.
 
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Feb17_HO1-->
 
 

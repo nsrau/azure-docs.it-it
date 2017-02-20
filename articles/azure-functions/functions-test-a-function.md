@@ -14,103 +14,86 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/10/2016
+ms.date: 02/02/2017
 ms.author: wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 7e9534afa8ecd224b4e3c1df2f4465b70d961d2c
-ms.openlocfilehash: b3b0251436497cfdfb36369a05e01519c631e351
+ms.sourcegitcommit: 3603f58a9df1f0222a75b863ad2c1ab1b6e13fb2
+ms.openlocfilehash: c6868566e513c5cd2c76be3305ca6c9035d58acd
 
 
 ---
 # <a name="testing-azure-functions"></a>Test di Funzioni di Azure
-## <a name="overview"></a>Overview
-In questa esercitazione si apprenderanno diversi approcci ai test delle funzioni. Verrà definita una funzione trigger HTTP che accetta l'input tramite un parametro della stringa di query o il corpo della richiesta. Il codice del modello predefinito di **funzione HttpTrigger Node.js** supporta il parametro della stringa di query `name`. Verrà anche aggiunto il codice per supportare tale parametro insieme a informazioni relative al parametro `address` per l'utente nel corpo della richiesta.
+## <a name="overview"></a>Panoramica
+Questo argomento illustra i vari modi per eseguire il test delle funzioni e include gli approcci generali seguenti:
+
++ Strumenti basati su HTTP, ad esempio cURL, Postman e persino un browser Web per i trigger basati sul Web. 
++ Esplora archivi per testare i trigger basati sull'archiviazione di Azure.
++ Scheda test nel portale Funzioni.
++ Funzione attivata tramite timer.
++ Test dell'applicazione o del framework.  
+
+Tutti i metodi di test mostrati usano una funzione trigger HTTP che accetta l'input tramite un parametro della stringa di query o il corpo della richiesta. Questa funzione verrà creata nella prima sezione.
 
 ## <a name="create-a-function-for-testing"></a>Creare una funzione per i test
-Per la maggior parte di questa esercitazione si userà una versione leggermente modificata del modello di **funzione HttpTrigger Nodejs** disponibile quando si crea una nuova funzione.  Se occorrono suggerimenti per la creazione di una nuova funzione, è possibile vedere l'esercitazione [Creare la prima funzione di Azure](functions-create-first-azure-function.md) .  Scegliere semplicemente il modello di **funzione HttpTrigger Nodejs** quando si crea la funzione di test nel [portale di Azure].
+Per la maggior parte di questa esercitazione si userà una versione leggermente modificata del modello di funzione HttpTrigger JavaScript disponibile quando si crea una nuova funzione.  Se occorrono suggerimenti per la creazione di una nuova funzione, è possibile vedere l'esercitazione [Creare la prima funzione di Azure](functions-create-first-azure-function.md) .  Scegliere il modello **HttpTrigger- JavaScript** quando si crea la funzione di test nel [Portale di Azure].
 
 Il modello di funzione predefinito è fondamentalmente una funzione Hello World che restituisce il nome dal parametro della stringa query o del corpo della richiesta, `name=<your name>`.  Il codice verrà aggiornato per consentire all'utente di fornire anche il nome e un indirizzo come contenuto JSON nel corpo della richiesta. La funzione restituirà quindi queste informazioni al client, se disponibile.   
 
 Aggiornare la funzione con il codice seguente che verrà usato per il test:
 
 ```javascript
-module.exports = function(context, req) {
-    context.log("Node.js HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
-    context.log("Request Headers = " + JSON.stringify(req.headers));    
+module.exports = function (context, req) {
+    context.log("HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
+    context.log("Request Headers = " + JSON.stringify(req.headers));
+    var res;
 
     if (req.query.name || (req.body && req.body.name)) {
         if (typeof req.query.name != "undefined") {
             context.log("Name was provided as a query string param...");
-            ProcessNewUserInformation(context, req.query.name);
+            res = ProcessNewUserInformation(context, req.query.name);
         }
         else {
             context.log("Processing user info from request body...");
-            ProcessNewUserInformation(context, req.body.name, req.body.address);
+            res = ProcessNewUserInformation(context, req.body.name, req.body.address);
         }
     }
     else {
-        context.res = {
+        res = {
             status: 400,
             body: "Please pass a name on the query string or in the request body"
         };
     }
-    context.done();
+    context.done(null, res);
 };
+function ProcessNewUserInformation(context, name, address) {
+    context.log("Processing user information...");
+    context.log("name = " + name);
+    var echoString = "Hello " + name;
+    var res;
 
-function ProcessNewUserInformation(context, name, address)
-{    
-    context.log("Processing User Information...");            
-    context.log("name = " + name);            
-    echoString = "Hello " + name;
-
-    if (typeof address != "undefined")
-    {
+    if (typeof address != "undefined") {
         echoString += "\n" + "The address you provided is " + address;
-        context.log("address = " + address);            
+        context.log("address = " + address);
     }
-
-    context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: echoString
-        };
+    res = {
+        // status: 200, /* Defaults to 200 */
+        body: echoString
+    };
+    return res;
 }
 ```
 
 ## <a name="test-a-function-with-tools"></a>Eseguire il test di una funzione con gli strumenti
-### <a name="test-with-curl"></a>Eseguire il test con cURL
-Spesso, quando si eseguono test del software, non è necessario eseguire ricerche particolari al di là della riga di comando per eseguire il debug dell'applicazione. L'approccio è analogo per le funzioni.
-
-Per testare la funzione precedente, copiare l' **URL funzione** dal portale. Avrà il formato seguente:
-
-    https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
-
-Questo è l'URL per attivare la funzione. È possibile testarlo con il comando cURL dalla riga di comando per eseguire una richiesta Get (`-G` o `--get`) sulla funzione:
-
-    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
-
-L'esempio particolare precedente richiede un parametro della stringa di query che può essere passato come dati (`-d`) nel comando cURL:
-
-    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code> -d name=<Enter a name here>
-
-Premere INVIO per visualizzare l'output della funzione nella riga di comando.
-
-![](./media/functions-test-a-function/curl-test.png)
-
-Nella finestra **Log** del portale viene registrato un output simile al seguente durante l'esecuzione della funzione:
-
-    2016-04-05T21:55:09  Welcome, you are now connected to log-streaming service.
-    2016-04-05T21:55:30.738 Function started (Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
-    2016-04-05T21:55:30.738 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/HttpTriggerNodeJS1?code=XXXXXXX&name=Azure Functions
-    2016-04-05T21:55:30.738 Function completed (Success, Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
+All'esterno del portale di Azure, sono disponibili vari strumenti che è possibile usare per attivare le funzioni di test. Questi includono gli strumenti di test HTTP, entrambi basati su interfaccia utente e riga di comando, strumenti di accesso all'archiviazione di Azure e un semplice browser Web.
 
 ### <a name="test-with-a-browser"></a>Eseguire il test con un browser
-Le funzioni che non richiedono parametri o richiedono solo parametri della stringa di query possono essere testate con un browser.
+Il browser web è un modo semplice per attivare le funzioni tramite HTTP. È possibile usare un browser per le richieste GET per cui non è necessario un payload del corpo e che usi solo i parametri di stringa della query.
 
 Per testare la funzione definita sopra, copiare l' **URL funzione** dal portale. Avrà il formato seguente:
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
 
-Aggiungere il parametro della stringa di query `name` come indicato di seguito, usando un nome effettivo per il segnaposto `<Enter a name here>`.
+Aggiungere il parametro `name` alla stringa della query usando un nome effettivo per il segnaposto `<Enter a name here>`. 
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>&name=<Enter a name here>
 
@@ -118,21 +101,23 @@ Incollare l'URL nel browser. Verrà restituita una risposta simile alla seguente
 
 ![](./media/functions-test-a-function/browser-test.png)
 
+Questo esempio è relativo al browser Chrome, che ha restituito la stringa in XML. Altri browser mostrano solo il valore della stringa.
+
 Nella finestra **Log** del portale viene registrato un output simile al seguente durante l'esecuzione della funzione:
 
     2016-03-23T07:34:59  Welcome, you are now connected to log-streaming service.
     2016-03-23T07:35:09.195 Function started (Id=61a8c5a9-5e44-4da0-909d-91d293f20445)
-    2016-03-23T07:35:10.338 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==&name=Wes from a browser
+    2016-03-23T07:35:10.338 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==&name=Glenn from a browser
     2016-03-23T07:35:10.338 Request Headers = {"cache-control":"max-age=0","connection":"Keep-Alive","accept":"text/html","accept-encoding":"gzip","accept-language":"en-US"}
     2016-03-23T07:35:10.338 Name was provided as a query string param.
     2016-03-23T07:35:10.338 Processing User Information...
     2016-03-23T07:35:10.369 Function completed (Success, Id=61a8c5a9-5e44-4da0-909d-91d293f20445)
 
 ### <a name="test-with-postman"></a>Eseguire il test con Postman
-Postman è lo strumento consigliato per testare la maggior parte delle funzioni. Per installare Postman, vedere la pagina dalla quale è possibile [ottenere Postman](https://www.getpostman.com/). Postman consente di controllare molti più attributi di una richiesta HTTP.
+Postman, che si integra on il browser Chrome, è lo strumento consigliato per testare la maggior parte delle funzioni. Per installare Postman, vedere la pagina dalla quale è possibile [ottenere Postman](https://www.getpostman.com/). Postman consente di controllare molti più attributi di una richiesta HTTP.
 
 > [!TIP]
-> Usare il client REST preferito. Ecco alcune alternative a Postman:  
+> Usare lo strumento di test HTTP con cui si ha maggiore familiarità. Ecco alcune alternative a Postman:  
 >
 > * [Fiddler](http://www.telerik.com/fiddler)  
 > * [Paw](https://luckymarmot.com/paw)  
@@ -162,7 +147,7 @@ Nella finestra **Log** del portale viene registrato un output simile al seguente
 
     2016-03-23T08:04:51  Welcome, you are now connected to log-streaming service.
     2016-03-23T08:04:57.107 Function started (Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
-    2016-03-23T08:04:57.763 Node.js HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==
+    2016-03-23T08:04:57.763 HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==
     2016-03-23T08:04:57.763 Request Headers = {"cache-control":"no-cache","connection":"Keep-Alive","accept":"*/*","accept-encoding":"gzip","accept-language":"en-US"}
     2016-03-23T08:04:57.763 Processing user info from request body...
     2016-03-23T08:04:57.763 Processing User Information...
@@ -170,10 +155,36 @@ Nella finestra **Log** del portale viene registrato un output simile al seguente
     2016-03-23T08:04:57.763 address = Seattle, W.A. 98101
     2016-03-23T08:04:57.795 Function completed (Success, Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
 
+### <a name="test-with-curl-from-the-command-line"></a>Eseguire il test con cURL dalla riga di comando 
+Spesso, quando si eseguono test del software, non è necessario eseguire ricerche particolari al di là della riga di comando per eseguire il debug dell'applicazione. L'approccio è analogo per le funzioni. Si noti che cURL è disponibile per impostazione predefinita nei sistemi basati su Linux. In Windows è necessario prima scaricare e installare lo [strumento cURL](https://curl.haxx.se/). 
+
+Per testare la funzione precedente, copiare l'**URL della funzione** dal portale. Avrà il formato seguente:
+
+    https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
+
+Questo è l'URL per attivare la funzione. È possibile testarlo con il comando cURL dalla riga di comando per eseguire una richiesta GET (`-G` o `--get`) sulla funzione:
+
+    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
+
+L'esempio particolare precedente richiede un parametro della stringa di query che può essere passato come dati (`-d`) nel comando cURL:
+
+    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code> -d name=<Enter a name here>
+
+Eseguire il comando per visualizzare l'output seguente della funzione nella riga di comando:
+
+![](./media/functions-test-a-function/curl-test.png)
+
+Nella finestra **Log** del portale viene registrato un output simile al seguente durante l'esecuzione della funzione:
+
+    2016-04-05T21:55:09  Welcome, you are now connected to log-streaming service.
+    2016-04-05T21:55:30.738 Function started (Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
+    2016-04-05T21:55:30.738 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/HttpTriggerNodeJS1?code=XXXXXXX&name=Azure Functions
+    2016-04-05T21:55:30.738 Function completed (Success, Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
+
 ### <a name="test-a-blob-trigger-using-storage-explorer"></a>Eseguire il test di un trigger del BLOB con Storage Explorer
 È possibile testare una funzione trigger del BLOB con [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
-1. Nel [portale di Azure] creare una nuova funzione trigger del BLOB in C#, F# o Node per l'app Funzioni. Impostare il percorso da monitorare sul nome del contenitore BLOB. ad esempio:
+1. Nel [Portale di Azure] creare una nuova funzione trigger del BLOB in C#, F# o JavaScript per l'app Funzioni. Impostare il percorso da monitorare sul nome del contenitore BLOB. ad esempio:
 
         files
 2. Fare clic sul pulsante **+** per selezionare o creare l'account di archiviazione da usare. Fare quindi clic su **Crea**.
@@ -193,6 +204,8 @@ Nella finestra **Log** del portale viene registrato un output simile al seguente
         2016-03-24T11:30:34.472 Function completed (Success, Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
 
 ## <a name="test-a-function-within-functions"></a>Eseguire il test di una funzione all'interno di Funzioni
+Il portale Funzioni di Azure è progettato per consentire di testare l'HTTP e le funzioni attivate da timer. È inoltre possibile creare funzioni per attivare altre funzioni su cui si esegue il test.
+
 ### <a name="test-with-the-functions-portal-run-button"></a>Eseguire il test con il pulsante Esegui nel portale di Funzioni
 Il portale fornisce un pulsante **Esegui** che consente di eseguire alcuni test limitati. È possibile specificare un corpo della richiesta con il pulsante Esegui, tuttavia non si possono specificare i parametri della stringa di query o aggiornare le intestazioni della richiesta.
 
@@ -209,7 +222,7 @@ Nella finestra **Log** del portale viene registrato un output simile al seguente
 
     2016-03-23T08:03:12  Welcome, you are now connected to log-streaming service.
     2016-03-23T08:03:17.357 Function started (Id=753a01b0-45a8-4125-a030-3ad543a89409)
-    2016-03-23T08:03:18.697 Node.js HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/wesmchttptriggernodejs1
+    2016-03-23T08:03:18.697 HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/wesmchttptriggernodejs1
     2016-03-23T08:03:18.697 Request Headers = {"connection":"Keep-Alive","accept":"*/*","accept-encoding":"gzip","accept-language":"en-US"}
     2016-03-23T08:03:18.697 Processing user info from request body...
     2016-03-23T08:03:18.697 Processing User Information...
@@ -233,7 +246,7 @@ Per illustrare questo approccio, si creerà prima di tutto una funzione trigger 
 >
 >
 
-1. Nel [portale di Azure] fare clic su **Nuova funzione** > **QueueTrigger - C#** per l'app per le funzioni.
+1. Nel [Portale di Azure] fare clic su **Nuova funzione** > **QueueTrigger - C#** per l'app per le funzioni.
 2. Immettere il nome della coda da monitorare tramite la funzione queue
 
         queue-newusers
@@ -241,7 +254,7 @@ Per illustrare questo approccio, si creerà prima di tutto una funzione trigger 
 4. Lasciare aperta la finestra del browser nel portale per monitorare le voci di log per il codice del modello di funzione coda predefinito.
 
 #### <a name="create-a-timer-trigger-to-drop-a-message-in-the-queue"></a>Creare un trigger del timer per inserire un messaggio nella coda
-1. Aprire il [portale di Azure] in una nuova finestra del browser e passare all'app per le funzioni.
+1. Aprire il [Portale di Azure] in una nuova finestra del browser e passare all'app per le funzioni.
 2. Fare clic su **Nuova funzione** > **TimerTrigger - C#**. Immettere un'espressione CRON per impostare la frequenza con cui il codice del timer eseguirà il test della funzione coda. Fare quindi clic su **Crea**. Se si vuole che il test venga eseguito ogni 30 secondi, è possibile usare l' [espressione CRON](https://wikipedia.org/wiki/Cron#CRON_expression)seguente:
 
         */30 * * * * *
@@ -288,16 +301,17 @@ Nella finestra del browser per la funzione coda viene visualizzato ogni messaggi
     2016-03-24T10:27:30.607 Function completed (Success, Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
 
 ## <a name="test-a-function-with-code"></a>Eseguire il test di una funzione con il codice
-### <a name="test-a-http-trigger-function-with-code-nodejs"></a>Eseguire il test di una funzione trigger HTTP con il codice Node.js
-È possibile usare il codice Node.js per eseguire una richiesta HTTP per testare la funzione di Azure.
+In alcuni casi sarà necessario creare un'applicazione esterna o un framework per testare le funzioni.
 
+### <a name="test-a-http-trigger-function-with-code-nodejs"></a>Eseguire il test di una funzione trigger HTTP con il codice Node.js
+È possibile usare il codice Node.js per eseguire una richiesta HTTP e testare la funzione.
 Assicurarsi di impostare:
 
 * `host` nelle opzioni di richiesta per l'host dell'app per le funzioni.
 * Il nome della funzione in `path`.
 * Il codice di accesso (`<your code>`) in `path`.
 
-Esempio di codice
+Esempio di codice:
 
 ```javascript
 var http = require("http");
@@ -352,7 +366,7 @@ Nella finestra **Log** del portale viene registrato un output simile al seguente
 
     2016-03-23T08:08:55  Welcome, you are now connected to log-streaming service.
     2016-03-23T08:08:59.736 Function started (Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
-    2016-03-23T08:09:01.153 Node.js HTTP trigger function processed a request. RequestUri=http://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1/?code=XXXXXXXXXX==
+    2016-03-23T08:09:01.153 HTTP trigger function processed a request. RequestUri=http://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1/?code=XXXXXXXXXX==
     2016-03-23T08:09:01.153 Request Headers = {"connection":"Keep-Alive","host":"functionsExample.azurewebsites.net"}
     2016-03-23T08:09:01.153 Name not provided as query string param. Checking body...
     2016-03-23T08:09:01.153 Request Body Type = object
@@ -427,10 +441,10 @@ Nella finestra del browser per la funzione coda viene visualizzato ogni messaggi
 
 <!-- URLs. -->
 
-[portale di Azure]: https://portal.azure.com
+[Portale di Azure]: https://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

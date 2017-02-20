@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti sul servizio di inoltro | Microsoft Docs
+title: Domande frequenti sul servizio di inoltro di Azure | Documentazione Microsoft
 description: Risposte ad alcune domande frequenti sul servizio di inoltro di Azure.
 services: service-bus-relay
 documentationcenter: na
@@ -12,32 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub,sethm
+ms.date: 02/02/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 849d7995e9c74bc929c4f791ae9155ca18ddb77b
-ms.openlocfilehash: 12702f585605a88ed6e753a0ff301095e8629e05
+ms.sourcegitcommit: 4b54ad027a7de02cba7821f2a9b7fd06ef3a825b
+ms.openlocfilehash: ca2767340cb232722def8f06277cc84d5c76c1bf
 
 
 ---
 # <a name="relay-faq"></a>Domande frequenti sul servizio di inoltro
-Questo articolo contiene le risposte ad alcune domande frequenti sul servizio di inoltro di Microsoft Azure. Per informazioni generali sui prezzi e sul supporto di Azure, vedere [Domande frequenti sul supporto di Azure](http://go.microsoft.com/fwlink/?LinkID=185083) .
+
+Questo articolo contiene le risposte ad alcune domande frequenti sul [servizio di inoltro di Microsoft Azure](https://azure.microsoft.com/services/service-bus/). Per informazioni generali sui prezzi e sul supporto di Azure, vedere [Domande frequenti sul supporto di Azure](http://go.microsoft.com/fwlink/?LinkID=185083) .
 
 ## <a name="general-questions"></a>Domande generali
 ### <a name="what-is-azure-relay"></a>Che cos'è il servizio di inoltro di Azure?
-Il [servizio di inoltro](relay-what-is-it.md) di Azure semplifica le applicazioni ibride consentendo di esporre in modo sicuro nel cloud pubblico i servizi che risiedono in una rete aziendale, senza dover aprire una connessione firewall o richiedere modifiche di notevole impatto a un'infrastruttura di rete aziendale.
+Il [servizio di inoltro di Azure](relay-what-is-it.md) semplifica le applicazioni ibride consentendo di esporre in modo sicuro nel cloud pubblico i servizi che risiedono in una rete aziendale, senza dover aprire una connessione firewall o richiedere modifiche di notevole impatto a un'infrastruttura di rete aziendale.
 
 ### <a name="what-is-a-relay-namespace"></a>Che cos'è uno spazio dei nomi di inoltro?
 Uno [spazio dei nomi](relay-create-namespace-portal.md) fornisce un contenitore di ambito per fare riferimento alle risorse di inoltro nell'applicazione. La creazione di uno spazio dei nomi è necessaria per usare il servizio di inoltro ed è uno dei primi passaggi delle attività iniziali.
 
 ### <a name="what-happened-to-the-previously-named-relay-service"></a>Cos'è successo al servizio di inoltro disponibile in precedenza?
-Il servizio che un tempo si chiamava **Inoltro** ora si chiama *Inoltro WCF*. È possibile continuare a usarlo come un tempo. Connessioni ibride è una versione aggiornata di un servizio trasferito da BizTalk. Sia Inoltro WCF che Connessioni ibride continueranno a essere supportati.
+Il servizio che un tempo si chiamava **Inoltro** del bus di servizio ora si chiama *Inoltro WCF*. È possibile continuare a usarlo come un tempo. Connessioni ibride è una versione aggiornata di un servizio trasferito da BizTalk. Sia Inoltro WCF che Connessioni ibride continueranno a essere supportati.
 
 ## <a name="pricing"></a>Prezzi
 Questa sezione contiene le risposte ad alcune domande frequenti sulla struttura dei prezzi del servizio di inoltro. Per informazioni generali sui prezzi di Microsoft Azure, vedere le [Domande frequenti su Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=185083) . Per informazioni complete sui prezzi del servizio di inoltro, vedere la pagina contenente i [dettagli dei prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Come vengono addebitati i costi di Connessioni ibride e Inoltro WCF?
-Per informazioni complete sui prezzi del servizio di inoltro, vedere la pagina contenente i [dettagli dei prezzi del bus di servizio][Panoramica sui prezzi]. Oltre ai prezzi indicati, vengono addebitati i trasferimenti di dati associati in uscita dal data center in cui è stato effettuato il provisioning dell'applicazione.
+Per informazioni complete sui prezzi del servizio di inoltro, vedere la pagina contenente i [dettagli dei prezzi del bus di servizio][Pricing overview]. Oltre ai prezzi indicati, vengono addebitati i trasferimenti di dati associati in uscita dal data center in cui è stato effettuato il provisioning dell'applicazione.
 
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>Come viene fatturato l'uso di Connessioni ibride?
 Ecco tre scenari di esempio:
@@ -86,18 +87,21 @@ La lunghezza del nome di uno spazio dei nomi di inoltro deve essere compresa tra
 
 ## <a name="subscription-and-namespace-management"></a>Gestione di sottoscrizioni e spazi dei nomi
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Come si esegue la migrazione di uno spazio dei nomi a un'altra sottoscrizione di Azure?
-È possibile usare i comandi di PowerShell descritti in [questo articolo](../service-bus-messaging/service-bus-powershell-how-to-provision.md#migrate-a-namespace-to-another-azure-subscription) per spostare uno spazio dei nomi da una sottoscrizione di Azure a un'altra. Per eseguire l'operazione, lo spazio dei nomi deve essere già attivo. L'utente che esegue i comandi deve inoltre essere un amministratore per le sottoscrizioni di origine e di destinazione.
+È possibile usare i comandi di PowerShell descritti in [questo articolo](../service-bus-messaging/service-bus-powershell-how-to-provision.md) per spostare uno spazio dei nomi da una sottoscrizione di Azure a un'altra. Per eseguire l'operazione, lo spazio dei nomi deve essere già attivo. L'utente che esegue i comandi deve inoltre essere un amministratore per le sottoscrizioni di origine e di destinazione.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-their-suggested-actions"></a>Quali sono alcune delle eccezioni generate dalle API del servizio di inoltro Azure e le azioni consigliate?
-L'articolo [Eccezioni di inoltro][Eccezioni di inoltro] descrive alcune eccezioni con le azioni consigliate.
+L'articolo [Eccezioni di inoltro][Relay exceptions] descrive alcune eccezioni con le azioni consigliate.
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Cos'è una firma di accesso condiviso e quali linguaggi supportano la generazione di una firma?
-Le firme di accesso condiviso sono un meccanismo di autenticazione basato su hash sicuri SHA-256 o URI. Per informazioni su come generare le proprie firme in Node, PHP, Java e C\#, vedere l'articolo [Firme di accesso condiviso][Firme di accesso condiviso] (Firme di accesso condiviso).
+Le firme di accesso condiviso sono un meccanismo di autenticazione basato su hash sicuri SHA-256 o URI. Per informazioni su come generare le firme in Node, PHP, Java e C\#, vedere l'articolo relativo alle [firme di accesso condiviso][Shared Access Signatures].
 
-[Panoramica sui prezzi]: https://azure.microsoft.com/pricing/details/service-bus/
-[Eccezioni di inoltro]: relay-exceptions.md
-[Firme di accesso condiviso]: ../service-bus-messaging/service-bus-sas-overview.md
+[Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
+[Relay exceptions]: relay-exceptions.md
+[Shared Access Signatures]: ../service-bus-messaging/service-bus-sas-overview.md
+
+### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>È possibile aggiungere all'elenco elementi consentiti gli endpoint di inoltro?
+Sì. Il client di inoltro stabilisce connessioni con il servizio di inoltro usando nomi di dominio completi. I clienti possono quindi aggiungere una voce per `*.servicebus.windows.net` nei firewall che supportano l'aggiunta all'elenco elementi consentiti per DNS.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Creare uno spazio dei nomi](relay-create-namespace-portal.md)
@@ -106,6 +110,6 @@ Le firme di accesso condiviso sono un meccanismo di autenticazione basato su has
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

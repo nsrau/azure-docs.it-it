@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2a15377af6f6dee3b9d2b9043f9803923ab3f29b
+ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
+ms.openlocfilehash: 7aab37882e3f831627281bcd197fb6098dc50cc6
 
 
 ---
@@ -29,15 +29,18 @@ Questa indicazione si applica esclusivamente al servizio SQL di Azure e non incl
 
 > [!NOTE]
 > Il documento introduce il servizio usando una distribuzione di esempio.  Questa non è una guida dettagliata.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
 1. Nel pannello **Raccomandazioni** selezionare **Abilita il controllo sui server SQL**.  Verrà visualizzato il pannello **Abilita il controllo sui server SQL** .
-   ![Enable auditing on SQL servers][1]
+
+   ![Abilitare il controllo sui server SQL][1]
 2. Selezionare un server SQL su cui abilitare il controllo. Verrà visualizzato il pannello **Impostazioni del servizio di controllo** .
-   ![Auditing settings][2]
+
+   ![Impostazioni del servizio di controllo][2]
 3. Nel pannello **Impostazioni del servizio di controllo** selezionare **ON** in **Controllo**.
+
    ![Attivare le impostazioni del servizio di controllo][3]
 4. Seguire la procedura in [Introduzione al controllo del database SQL](../sql-database/sql-database-auditing-get-started.md) per configurare l'archiviazione in cui verranno archiviati i log di controllo. L'account di archiviazione della sottoscrizione per la raccolta dei dati è l'account di archiviazione predefinito.
 5. Seguire i passaggi in [Introduzione individuazione Database SQL](../sql-database/sql-database-threat-detection-get-started.md) per attivare e configurare il rilevamento di minacce e per configurare l'elenco dei messaggi di posta elettronica che riceveranno gli avvisi di sicurezza al rilevamento di anomalie dell'attività.
@@ -64,6 +67,6 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

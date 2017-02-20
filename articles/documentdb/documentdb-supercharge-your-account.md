@@ -1,22 +1,9 @@
 ---
-title: Eseguire la migrazione dell&quot;account DocumentDB S1 | Microsoft Docs
-description: "Ottenere una maggiore velocità effettiva nell&quot;account DocumentDB S1 con alcune semplici modifiche nel portale di Azure."
-services: documentdb
-author: mimig1
-manager: jhubbard
-editor: monicar
-documentationcenter: 
-ms.assetid: 6f373fb6-b0d9-4745-b17c-88e8bc5f906a
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/04/2017
-ms.author: mimig
+redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-performance-levels
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: f8190faec63c51fd3e6c69c16e2e1041ac67304e
-ms.openlocfilehash: 36c13458d17651b911ea60d6460e4342f40e87a1
+ms.sourcegitcommit: 94ae24e605f99e23766702a3954db567bb64bb51
+ms.openlocfilehash: 1c055187405b9c858676b2b80e4bc5c4157ef580
 
 
 ---
@@ -32,7 +19,7 @@ Seguire questa procedura per ottenere una maggiore velocità effettiva per l'acc
       ![Screenshot dei pannelli Impostazioni e Scegliere il piano tariffario di DocumentDB](./media/documentdb-supercharge-your-account/documentdb-change-performance.png)
 5. Eseguire le operazioni seguenti come illustrato nella schermata precedente: 
 
- - Nel nuovo pannello, usare il menu a discesa per selezionare la raccolta con il piano tariffario S1, S2 o S3. 
+ - Nel nuovo pannello usare il menu a discesa per selezionare la raccolta con il piano tariffario S1, S2 o S3. 
  - Fare clic su **Piano tariffario S1**, **S2** o **S3**.
  - Nel pannello **Scegliere il piano tariffario** fare clic su **Standard** e quindi fare clic su **Seleziona** per salvare la modifica.
    
@@ -51,6 +38,6 @@ Per altre informazioni sulle modifiche alla velocità effettiva definita dall'ut
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,190 +1,66 @@
 ---
-title: Panoramica delle API Hub eventi di Azure | Documentazione Microsoft
-description: Un riepilogo di alcuni client .NET di Hub eventi chiave API.
+title: Panoramica delle API di Hub eventi di Azure | Microsoft Docs
+description: Panoramica delle API di Hub eventi di Azure disponibili
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: jtaubensee
 manager: timlt
 editor: 
-ms.assetid: 7f3b6cc0-9600-417f-9e80-2345411bd036
+ms.assetid: 3f221a0c-182d-4e39-9f3d-3a3c16c5c6ed
 ms.service: event-hubs
-ms.devlang: dotnet
+ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
-ms.author: sethm
+ms.date: 01/31/2017
+ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: c68b5cfadc3e98e15c119b3717c8098887ca67d0
-ms.openlocfilehash: e8c97689f84d3bedb312ec4443427181a542e95b
-
+ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
+ms.openlocfilehash: 5a360462288e5df6e0ede5f11adabba158a9dd57
 
 ---
-# <a name="event-hubs-api-overview"></a>Panoramica dell'API Hub eventi
-In questo articolo vengono riepilogati alcuni dei principali API client .NET di Hub eventi. Esistono due categorie: API di runtime e gestione. Le API di runtime si compongono di tutte le operazioni necessarie per inviare e ricevere un messaggio. Operazioni di gestione consentono di gestire lo stato dell'entità di Hub eventi per la creazione, aggiornamento ed eliminazione di entità.
 
-Gli scenari di monitoraggio comprendono sia la gestione che il runtime. Per la documentazione di riferimento dettagliata sulle API .NET, vedere i riferimenti [.NET del bus di servizio](/dotnet/api) e [API EventProcessorHost](/dotnet/api).
+# <a name="available-event-hubs-apis"></a>API di Hub eventi disponibili
+
+## <a name="runtime-apis"></a>API di runtime
+
+Di seguito è riportato un elenco di tutti i client di runtime di Hub eventi attualmente disponibili. Sebbene alcune di queste librerie includano anche la funzionalità di gestione limitata, esistono [librerie specifiche](#management-apis) dedicate alle operazioni di gestione. L'obiettivo principale di queste librerie è di inviare e ricevere messaggi da un Hub eventi.
+
+Sono disponibili [altre informazioni](#additional-information) per trovare più dettagli sullo stato corrente di tutte le librerie di runtime.
+
+| Linguaggio/Piattaforma | Pacchetto client | Pacchetto EventProcessorHost | Repository |
+| --- | --- | --- | --- |
+| .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) | [GitHub](https://github.com/azure/azure-event-hubs-dotnet) |
+| .NET Framework | [NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) | N/D |
+| Java | [Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22) | [Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22) | [GitHub](https://github.com/Azure/azure-event-hubs-java) |
+| Nodo | [NPM](https://www.npmjs.com/package/azure-event-hubs) | N/D | [GitHub](https://github.com/Azure/azure-event-hubs-node) |
+| C | N/D | N/D | [GitHub](https://github.com/Azure/azure-event-hubs-c) |
+
+### <a name="additional-information"></a>Informazioni aggiuntive
+
+#### <a name="net"></a>.NET
+I runtime in un ecosistema .NET sono vari, pertanto sono presenti più librerie .NET per gli Hub eventi. La libreria .NET Standard può essere eseguita usando .NET Core o .NET Framework, mentre la libreria .NET Framework può essere eseguita solo in un ambiente .NET Framework. Per ulteriori informazioni su .NET Framework, vedere [Versioni di framework.](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions)
+
+#### <a name="node"></a>Nodo
+
+La libreria Node.js è attualmente in anteprima e viene gestita come progetto a parte da dipendenti Microsoft e collaboratori esterni. Tutti i contributi compreso il codice sorgente sono graditi e verranno presi in esame.
 
 ## <a name="management-apis"></a>API di gestione
-Per eseguire le operazioni di gestione riportate di seguito sono necessarie autorizzazioni di **gestione** per lo spazio dei nomi di Hub eventi:
 
-### <a name="create"></a>Create
-```csharp
-// Create the Event Hub
-EventHubDescription ehd = new EventHubDescription(eventHubName);
-ehd.PartitionCount = SampleManager.numPartitions;
-namespaceManager.CreateEventHubAsync(ehd).Wait();
-```
+Di seguito è riportato un elenco di tutte le librerie di gestione specifiche attualmente disponibili. Nessuna di loro include operazioni di runtime e le librerie hanno il solo scopo di gestire le entità di Hub eventi.
 
-### <a name="update"></a>Aggiornamento
-```csharp
-EventHubDescription ehd = await namespaceManager.GetEventHubAsync(eventHubName);
-
-// Create a customer SAS rule with Manage permissions
-ehd.UserMetadata = "Some updated info";
-string ruleName = "myeventhubmanagerule";
-string ruleKey = SharedAccessAuthorizationRule.GenerateRandomKey();
-ehd.Authorization.Add(new SharedAccessAuthorizationRule(ruleName, ruleKey, new AccessRights[] {AccessRights.Manage, AccessRights.Listen, AccessRights.Send} )); 
-namespaceManager.UpdateEventHubAsync(ehd).Wait();
-```
-
-### <a name="delete"></a>Elimina
-```csharp
-namespaceManager.DeleteEventHubAsync("Event Hub name").Wait();
-```
-
-## <a name="run-time-apis"></a>API di runtime
-### <a name="create-publisher"></a>Crea editore
-```csharp
-// EventHubClient model (uses implicit factory instance, so all links on same connection)
-EventHubClient eventHubClient = EventHubClient.Create("Event Hub name");
-```
-
-### <a name="publish-message"></a>Pubblica messaggio
-```csharp
-// Create the device/temperature metric
-MetricEvent info = new MetricEvent() { DeviceId = random.Next(SampleManager.NumDevices), Temperature = random.Next(100) };
-EventData data = new EventData(new byte[10]); // Byte array
-EventData data = new EventData(Stream); // Stream 
-EventData data = new EventData(info, serializer) //Object and serializer 
-    {
-       PartitionKey = info.DeviceId.ToString()
-    };
-
-// Set user properties if needed
-data.Properties.Add("Type", "Telemetry_" + DateTime.Now.ToLongTimeString());
-
-// Send single message async
-await client.SendAsync(data);
-```
-
-### <a name="create-consumer"></a>Crea consumer
-```csharp
-// Create the Event Hubs client
-EventHubClient eventHubClient = EventHubClient.Create(EventHubName);
-
-// Get the default consumer group
-EventHubConsumerGroup defaultConsumerGroup = eventHubClient.GetDefaultConsumerGroup();
-
-// All messages
-EventHubReceiver consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index);
-
-// From one day ago
-EventHubReceiver consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index, startingDateTimeUtc:DateTime.Now.AddDays(-1));
-
-// From specific offset, -1 means oldest
-EventHubReceiver consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index,startingOffset:-1); 
-```
-
-### <a name="consume-message"></a>Utilizzare messaggio
-```csharp
-var message = await consumer.ReceiveAsync();
-
-// Provide a serializer
-var info = message.GetBody<Type>(Serializer)
-
-// Get a byte[]
-var info = message.GetBytes(); 
-msg = UnicodeEncoding.UTF8.GetString(info);
-```
-
-## <a name="event-processor-host-apis"></a>API host processore di eventi
-Queste API garantiscono resilienza ai processi di lavoro che possono diventare non disponibili, distribuendo tuttavia partizioni tra thread di lavoro disponibili.
-
-```csharp
-// Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
-// Use the EventData.Offset value for checkpointing yourself, this value is unique per partition.
-
-string eventHubConnectionString = System.Configuration.ConfigurationManager.AppSettings["Microsoft.ServiceBus.ConnectionString"];
-string blobConnectionString = System.Configuration.ConfigurationManager.AppSettings["AzureStorageConnectionString"]; // Required for checkpoint/state
-
-EventHubDescription eventHubDescription = new EventHubDescription(EventHubName);
-EventProcessorHost host = new EventProcessorHost(WorkerName, EventHubName, defaultConsumerGroup.GroupName, eventHubConnectionString, blobConnectionString);
-            host.RegisterEventProcessorAsync<SimpleEventProcessor>();
-
-// To close
-host.UnregisterEventProcessorAsync().Wait();   
-```
-
-L'interfaccia [IEventProcessor](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) è definita come segue:
-
-```csharp
-public class SimpleEventProcessor : IEventProcessor
-{
-    IDictionary<string, string> map;
-    PartitionContext partitionContext;
-
-    public SimpleEventProcessor()
-    {
-        this.map = new Dictionary<string, string>();
-    }
-
-    public Task OpenAsync(PartitionContext context)
-    {
-        this.partitionContext = context;
-
-        return Task.FromResult<object>(null);
-    }
-
-    public async Task ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
-    {
-        foreach (EventData message in messages)
-        {
-            Process messages here
-        }
-
-        // Checkpoint when appropriate
-        await context.CheckpointAsync();
-
-    }
-
-
-    public async Task CloseAsync(PartitionContext context, CloseReason reason)
-    {
-        if (reason == CloseReason.Shutdown)
-        {
-            await context.CheckpointAsync();
-        }
-    }
-}
-```
+| Linguaggio/Piattaforma | Pacchetto di gestione | Repository |
+| --- | --- | --- | --- |
+| .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/ResourceManagement/EventHub) |
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sugli scenari di Hub eventi, visitare i collegamenti seguenti:
+Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
-* [Che cos'è l'hub di eventi di Azure?](event-hubs-what-is-event-hubs.md)
-* [Panoramica di Hub eventi](event-hubs-overview.md)
-* [Guida alla programmazione di Hub eventi](event-hubs-programming-guide.md)
-* [Esempi di codice di Hub eventi](http://code.msdn.microsoft.com/site/search?query=event hub&f\[0\].Value=event hubs&f\[0\].Type=SearchText&ac=5)
-
-I riferimenti API .NET sono qui:
-
-* [Riferimenti API .NET di Hub eventi e del bus di servizio](/dotnet/api)
-* [Riferimento all'API dell'host processore di eventi](/dotnet/api)
+* [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
+* [Create an Event Hub](event-hubs-create.md) (Creare un Hub eventi)
+* [Domande frequenti su Hub eventi](event-hubs-faq.md)
 
 
-
-
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

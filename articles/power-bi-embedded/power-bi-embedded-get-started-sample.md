@@ -13,29 +13,30 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 02/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2f0f36e7ffeec52bacc35ac5039cd183976dc3aa
-ms.openlocfilehash: 9c9ab36ac90c3e73a21c7e53a6715cc4503a8e99
+ms.sourcegitcommit: 11409a498c14abbc95e52ef793564c254df8ec89
+ms.openlocfilehash: 2bd7da95901e7216a84aaa8e1761b491c7217ea3
 
 
 ---
 # <a name="get-started-with-power-bi-embedded-sample"></a>Introduzione all'esempio di Power BI Embedded
+
 **Microsoft Power BI Embedded**consente di integrare i report di Power BI direttamente nelle applicazioni Web o per dispositivi mobili. In questo articolo verrà presentato l'esempio introduttivo per **Power BI Embedded** .
 
 Prima di continuare, è consigliabile salvare le risorse seguenti, che risulteranno utili durante l'integrazione dei report di Power BI nell'app di esempio e nelle app personalizzate.
 
 * [App Web dashboard di esempio](http://go.microsoft.com/fwlink/?LinkId=761493)
-* [Riferimento all'API di Power BI Embedded](https://msdn.microsoft.com/library/mt711493.aspx)
+* [Riferimento all'API di Power BI Embedded](https://msdn.microsoft.com/en-US/library/azure/mt711507.aspx)
 * [Power BI Embedded .NET SDK ](http://go.microsoft.com/fwlink/?LinkId=746472) (disponibile tramite NuGet)
+* [Esempio per incorporare il report di JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
-> [!NOTE]
+> [!NOTE] 
 > Prima di poter configurare ed eseguire l'esempio d'introduzione a Power BI Embedded, è necessario creare almeno una **raccolta di aree di lavoro** nella sottoscrizione di Azure. Per informazioni su come creare una **Raccolta di aree di lavoro** nel portale di Azure, vedere [Introduzione a Microsoft Power BI Embedded - Anteprima](power-bi-embedded-get-started.md).
->
->
 
 ## <a name="configure-the-sample-app"></a>Configurare l'app di esempio
+
 La procedura dettagliata seguente illustra la configurazione dell'ambiente di sviluppo di Visual Studio per l'accesso ai componenti necessari per eseguire l'app di esempio.
 
 1. Scaricare e decomprimere l'esempio [Power BI Embedded - Integrate a report into a web app](http://go.microsoft.com/fwlink/?LinkId=761493) su GitHub.
@@ -63,8 +64,6 @@ Checking import state... Succeeded
 
 > [!NOTE]
 > If your PBIX file contains any direct query connections, run option 7 to update the connection strings.
->
->
 
 At this point, you have a Power BI PBIX report imported into your **Workspace**. Now, let's look at how to run the **Power BI Embedded** get started sample web app.
 
@@ -93,16 +92,16 @@ After you click a report, the **EmbedSample** web application should look someth
 ![](media/powerbi-embedded-get-started-sample/sample-web-app.png)
 
 ## Explore the sample code
+
 The **Microsoft Power BI Embedded** sample is an example dashboard web app that shows you how to integrate **Power BI** reports into your app. It uses a Model-View-Controller (MVC) design pattern to demonstrate best practices. This section highlights parts of the sample code that you can explore within the **PowerBI-embedded** web app solution. The Model-View-Controller (MVC) pattern separates the modeling of the domain, the presentation, and the actions based on user input into three separate classes: Model, View, and Control. To learn more about MVC, see [Learn About ASP.NET](http://www.asp.net/mvc).
 
 The **Microsoft Power BI Embedded** sample code is separated as follows. Each section includes the file name in the PowerBI-embedded.sln solution so that you can easily find the code in the sample.
 
 > [!NOTE]
 > This section is a summary of the sample code that shows how the code was written. To view the complete sample, please load the PowerBI-embedded.sln solution in Visual Studio.
->
->
 
 ### Model
+
 The sample has a **ReportsViewModel** and **ReportViewModel**.
 
 **ReportsViewModel.cs**: Represents Power BI Reports.
@@ -122,6 +121,7 @@ The sample has a **ReportsViewModel** and **ReportViewModel**.
     }
 
 ### Connection string
+
 The connection string must be in the following format:
 
 ```
@@ -131,6 +131,7 @@ Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
 Using common server and database attributes will fail. For example: Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
 
 ### View
+
 The **View** manages the display of Power BI **Reports** and a Power BI **Report**.
 
 **Reports.cshtml**: Iterate over **Model.Reports** to create an **ActionLink**. The **ActionLink** is composed as follows:
@@ -166,6 +167,7 @@ Report.cshtml: Set the **Model.AccessToken**, and the Lambda expression for **Po
     </div>
 
 ### Controller
+
 **DashboardController.cs**: Creates a PowerBIClient passing an **app token**. A JSON Web Token (JWT) is generated from the **Signing Key** to get the **Credentials**. The **Credentials** are used to create an instance of **PowerBIClient**. Once you have an instance of **PowerBIClient**, you can call GetReports() and GetReportsAsync().
 
 CreatePowerBIClient()
@@ -220,11 +222,13 @@ Task<ActionResult> Report(string reportId)
     }
 
 ### Integrate a report into your app
+
 Once you have a **Report**, you use an **IFrame** to embed the Power BI **Report**. Here is a code snippet from  powerbi.js in the **Microsoft Power BI Embedded** sample.
 
 ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-iframe-code.png)
 
 ## Filter reports embedded in your application
+
 You can filter an embedded report using a URL syntax. To do this, you add a **$filter** query string parameter with an **eq** operator to your iFrame src url with the filter specified. Here is the filter query syntax:
 
 ```
@@ -235,15 +239,14 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 
 > [!NOTE]
 > {tableName/fieldName} cannot include spaces or special characters. The {fieldValue} accepts a single categorical value.  
->
->
 
 ## See also
 * [Common Microsoft Power BI Embedded scenarios](power-bi-embedded-scenarios.md)
 * [Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
+More questions? [Try the Power BI Community](http://community.powerbi.com/)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

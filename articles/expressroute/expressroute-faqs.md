@@ -1,10 +1,10 @@
 ---
-title: Domande frequenti su ExpressRoute
+title: Domande frequenti su Azure ExpressRoute | Microsoft Docs
 description: "In Domande frequenti su ExpressRoute sono disponibili informazioni su servizi di Azure supportati, costi, dati e connessioni, Contratto di servizio, provider e località, larghezza di banda e altri dettagli tecnici."
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
 ms.service: expressroute
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 02/01/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 9f26fd3796a45d6a4a782f80632e09a6390f1dbe
-ms.openlocfilehash: ae2dbb8524acba44f83397b7340ca98433b34de6
+ms.sourcegitcommit: 899fbfb63633286a1065546b1f262cbc1d7d39c4
+ms.openlocfilehash: d11d57a352138e43f7a7e9d2ec91663361be6f95
 
 
 ---
@@ -99,7 +99,7 @@ Sì. Ogni circuito ExpressRoute ha una coppia ridondante di connessioni incrocia
 In caso di errore di una delle connessioni incrociate, la connettività non verrà persa. È attualmente disponibile una connessione ridondante per supportare il carico della rete. Si possono creare più circuiti in sedi di peering diverse per ottenere una maggiore resilienza agli errori.
 
 ### <a name="a-nameonep2plinkaif-im-not-co-located-at-a-cloud-exchange-and-my-service-provider-offers-point-to-point-connection-do-i-need-to-order-two-physical-connections-between-my-on-premises-network-and-microsoft"></a><a name="onep2plink"></a>Se non si condivide un percorso in un'infrastruttura Cloud Exchange e il provider di servizi offre una connessione punto a punto, è necessario ordinare due connessioni fisiche tra la rete locale e Microsoft?
-No, è sufficiente una connessione fisica se il provider di servizi è in grado di stabilire due circuiti virtuali Ethernet sulla connessione fisica. La connessione fisica, ad esempio una fibra ottica, viene terminata su un dispositivo di livello 1 (L1) (vedere la figura seguente). I due circuiti virtuali Ethernet sono contrassegnati con ID VLAN diversi, uno per il circuito primario e uno per quello secondario. Gli ID VLAN sono nell'intestazione Ethernet 802.1Q esterna. L'intestazione Ethernet 802.1Q interna, non indicata nella figura, viene mappata a un [dominio di routing ExpressRoute](expressroute-circuit-peerings.md)specifico. 
+No, è sufficiente una connessione fisica se il provider di servizi è in grado di stabilire due circuiti virtuali Ethernet sulla connessione fisica. La connessione fisica, ad esempio una fibra ottica, viene terminata su un dispositivo di livello 1 (L1) (vedere l'immagine seguente). I due circuiti virtuali Ethernet sono contrassegnati con ID VLAN diversi, uno per il circuito primario e uno per quello secondario. Gli ID VLAN sono nell'intestazione Ethernet 802.1Q esterna. L'intestazione Ethernet 802.1Q interna, non indicata nella figura, viene mappata a un [dominio di routing ExpressRoute](expressroute-circuit-peerings.md)specifico. 
 
 ![](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
 
@@ -201,7 +201,7 @@ Le tabelle seguenti illustrano i limiti di ExpressRoute e il numero di reti virt
 Le funzionalità di ExpressRoute Premium possono essere abilitate quando si attiva la funzionalità e possono essere arrestate tramite l'aggiornamento dello stato del circuito. È possibile abilitare ExpressRoute Premium in fase di creazione del circuito oppure chiamare l'API dedicata per l'aggiornamento del circuito o il cmdlet di PowerShell per abilitare ExpressRoute Premium.
 
 ### <a name="how-do-i-disable-expressroute-premium"></a>Come si disabilita ExpressRoute Premium?
-È possibile disabilitare ExpressRoute Premium chiamando l'API dedicata per l'aggiornamento del circuito o il cmdlet di PowerShell. Prima di disabilitare ExpressRoute Premium, è necessario assicurarsi di avere ridotto le esigenze a livello di connettività in modo che rispettino i limiti predefiniti. La richiesta di disabilitazione di ExpressRoute Premium avrà esito negativo se l'utilizzo supera i limiti predefiniti.
+È possibile disabilitare ExpressRoute Premium chiamando l'API o il cmdlet di PowerShell dedicata per l'aggiornamento del circuito. È necessario assicurarsi di avere ridimensionato le esigenze di connettività per soddisfare i limiti predefiniti prima di disabilitare ExpressRoute Premium. La richiesta di disabilitazione di ExpressRoute Premium avrà esito negativo se l'utilizzo supera i limiti predefiniti.
 
 ### <a name="can-i-pick-and-choose-the-features-i-want-from-the-premium-feature-set"></a>È possibile scegliere solo alcune funzionalità di ExpressRoute Premium?
 No. Non sarà possibile selezionare le funzionalità necessarie. Quando si attiva ExpressRoute Premium, vengono abilitate tutte le funzionalità.
@@ -216,10 +216,10 @@ Sì. Gli addebiti per ExpressRoute Premium vengono sommati agli addebiti per Exp
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services-and-crm-online"></a>Come si crea un circuito di ExpressRoute per la connessione ai servizi di Office 365 e a CRM Online?
-1. Per assicurarsi di soddisfare i requisiti previsti, vedere la pagina [Prerequisiti di ExpressRoute](expressroute-prerequisites.md).
+1. Per assicurarsi di soddisfare i requisiti previsti, vedere la pagina sui [prerequisiti di ExpressRoute](expressroute-prerequisites.md).
 2. Per assicurarsi di soddisfare le esigenze specifiche a livello di connettività, vedere l'elenco di provider di servizi e località in [Partner e località per ExpressRoute](expressroute-locations.md) .
 3. Per pianificare i requisiti relativi alla capacità, vedere la pagina relativa alla [pianificazione e al perfezionamento delle prestazioni di rete per Office 365](http://aka.ms/tune/).
-4. Seguire la procedura indicata nei flussi di lavoro sotto per configurare la connettività dei [Flussi di lavoro ExpressRoute per provisioning di un circuito e stati di circuito](expressroute-workflows.md).
+4. Seguire la procedura indicata nei flussi di lavoro sotto per configurare la connettività dei [flussi di lavoro ExpressRoute per provisioning e stati di un circuito](expressroute-workflows.md).
 
 > [!IMPORTANT]
 > Assicurarsi che sia stato abilitato il componente aggiuntivo ExpressRoute Premium quando si configura la connettività ai servizi di Office 365 e a CRM Online.
@@ -233,7 +233,7 @@ No, è sufficiente abilitare il peering Microsoft. Il traffico di autenticazione
 Sì. È possibile configurare i circuiti ExpressRoute esistenti per supportare la connettività ai servizi di Office 365. Assicurarsi di avere una capacità sufficiente a connettersi ai servizi di Office 365 e verificare che sia stato abilitato il componente aggiuntivo Premium. [pianificazione e al perfezionamento delle prestazioni di rete per Office 365](http://aka.ms/tune/) . Vedere inoltre [Creare e modificare un circuito ExpressRoute](expressroute-howto-circuit-classic.md).
 
 ### <a name="what-office-365-services-can-be-accessed-over-an-expressroute-connection"></a>A quali servizi di Office 365 è possibile accedere tramite una connessione ExpressRoute?
-Per un elenco aggiornato dei servizi supportati con ExpressRoute, vedere la pagina [URL e intervalli di indirizzi IP per Office 365](http://aka.ms/o365endpoints) .
+Per un elenco aggiornato dei servizi supportati con ExpressRoute, vedere la pagina [URL e intervalli di indirizzi IP per Office 365](http://aka.ms/o365endpoints).
 
 ### <a name="how-much-does-expressroute-for-office-365-services-and-crm-online-cost"></a>Quanto costa ExpressRoute per i servizi di Office 365 e CRM Online?
 Per i servizi di Office 365 e CRM Online deve essere abilitato il componente aggiuntivo Premium. Per informazioni dettagliate sui costi di ExpressRoute, vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/expressroute/) .
@@ -250,6 +250,6 @@ Sì. [Dynamics 365 for Operations](https://www.microsoft.com/en-us/dynamics365/o
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 
