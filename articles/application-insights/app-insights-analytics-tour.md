@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: ab9006b915b3455b6e63857514e98ed89ad78c7c
-ms.openlocfilehash: 9914f1dc96672020a4d7e7a1976d20e5abf7028b
+ms.sourcegitcommit: 13c524cdc5ef0d9e70820cc3dac8d747e5bb5845
+ms.openlocfilehash: 12e832b8e0d0509f5b59d588b43f062fb07ddcde
 
 
 ---
@@ -114,7 +114,7 @@ Individuare le richieste non riuscite:
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode` è di tipo stringa, quindi per un confronto numerico è necessario [eseguire il cast](app-insights-analytics-reference.md#casts) .
+`resultCode` è di tipo stringa, quindi per un confronto numerico è necessario [eseguire il cast](app-insights-analytics-reference.md#casts) .
 
 ## <a name="time-range"></a>Intervallo di tempo
 
@@ -449,7 +449,7 @@ Per trovare le eccezioni correlate a una richiesta che ha restituito una rispost
 ```AIQL
 
     requests
-    | where toint(responseCode) >= 500
+    | where toint(resultCode) >= 500
     | join (exceptions) on operation_Id
     | take 30
 ```

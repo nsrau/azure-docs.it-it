@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 translationtype: Human Translation
-ms.sourcegitcommit: 9acbddcf1f15b9dcf61c3f9fe2ea3ff42bc19e7d
-ms.openlocfilehash: 75dcd784ee5cd3599f0bfc37b490c597524068f9
+ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
+ms.openlocfilehash: 587412f02c6bb6bd2c5b1896a890607fa1c058f8
 
 
 ---
@@ -29,7 +29,7 @@ L'articolo si conclude rivedendo alcuni argomenti trattati negli articoli preced
 
 Tutto ciò che viene descritto in questo articolo si basa sugli esempi dell'SDK per **serializer** . Se si vuole seguire la procedura, vedere le applicazioni **simplesample\_amqp** e **simplesample\_http** incluse in Azure IoT SDK per dispositivi per C.
 
-È possibile trovare il repository GitHub di [**Azure IoT SDK per dispositivi per C**](https://github.com/Azure/azure-iot-sdk-c) e visualizzare i dettagli dell'API nelle [informazioni di riferimento per l'API C](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+È possibile trovare il repository GitHub di [**Azure IoT SDK per dispositivi per C**](https://github.com/Azure/azure-iot-sdk-c) e visualizzare i dettagli dell'API nelle [informazioni di riferimento per l'API C](https://azure.github.io/azure-iot-sdk-c/index.html).
 
 ## <a name="the-modeling-language"></a>Linguaggio di modellazione
 L'[articolo introduttivo](iot-hub-device-sdk-c-intro.md) di questa serie ha presentato il linguaggio di modellazione di **Azure IoT SDK per dispositivi per C** tramite l'esempio fornito nell'applicazione **simplesample\_amqp**:
@@ -679,6 +679,6 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 
