@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
+ms.sourcegitcommit: 21be71a1b4c79ecec8af02d08f65c41128c5ef73
+ms.openlocfilehash: 50a465f314909c10bc3c3f95be2d9dc377d433a7
 
 
 ---
@@ -39,15 +39,15 @@ Per altre informazioni sui database SQL di Azure, vedere [Database SQL](sql-data
 
 ## <a name="what-features-are-supported"></a>Funzionalità supportate
 
-Le tabelle seguenti elencano le principali funzionalità del database SQL di Azure e di SQL Server, specificano il supporto e forniscono il collegamento a pagine informative sulla funzionalità in ciascuna piattaforma. Per le funzionalità di Transact-SQL, seguire il collegamento nella tabella relativo alla categoria della funzionalità. Per altre informazioni sui motivi del mancato supporto per determinati tipi di funzionalità, vedere anche [Differenze di Transact-SQL del Database SQL di Azure](sql-database-transact-sql-information.md).
+Le tabelle seguenti elencano le principali funzionalità del database SQL di Azure e di SQL Server, specificano il supporto e forniscono il collegamento a pagine informative sulle funzionalità in ogni piattaforma. Per le funzionalità di Transact-SQL, seguire il collegamento nella tabella relativo alla categoria della funzionalità. Per altre informazioni sui motivi del mancato supporto per determinati tipi di funzionalità, vedere anche [Differenze di Transact-SQL del Database SQL di Azure](sql-database-transact-sql-information.md).
 
-Altre funzionalità continueranno a essere aggiunte alla versione 12. È quindi consigliabile visitare la pagina Web Aggiornamenti del servizio di Azure e usare i filtri disponibili:
+Altre funzionalità continueranno a essere aggiunte alla versione&12;. È quindi consigliabile visitare la pagina Web Aggiornamenti del servizio di Azure e usare i filtri disponibili:
 
 * Filtrato per [servizio Database SQL](https://azure.microsoft.com/updates/?service=sql-database).
 * Filtrato per Disponibilità generale [annunci](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) per le funzionalità del database SQL.
 
 > [!TIP]
-> Per testare un database esistente per la compatibilità con il database SQL di Azure, vedere [Validate Azure SQL Database compatibility](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md) (Convalidare la compatibilità del database SQL di Azure).
+> Per testare la compatibilità di un database esistente con il database SQL di Azure, vedere l'articolo relativo alla [migrazione di un database SQL Server in Azure](sql-database-cloud-migrate.md).
 >
 
 | **Funzionalità** | **SQL Server** | **Database SQL di Azure** | 
@@ -161,6 +161,6 @@ Altre funzionalità continueranno a essere aggiunte alla versione 12. È quindi 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

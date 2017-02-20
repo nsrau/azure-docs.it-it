@@ -1,4 +1,3 @@
-
 ---
 title: Uso di Azure AD Connect Health per la sincronizzazione | Documentazione Microsoft
 description: "Questa è la pagina di Azure AD Connect Health in cui viene descritto come monitorare  il Servizio di sincronizzazione Azure AD Connect."
@@ -13,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
-ms.author: billmath
+ms.date: 02/10/2017
+ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 2daa6c07191da7bd732cadf62b414f8027682071
-ms.openlocfilehash: 6546725b887dd9980913a651219dd2a2c4b8a783
+ms.sourcegitcommit: 21e599fc2adf3d7dce84cc1c4130504b71928db7
+ms.openlocfilehash: 7a2f53de0067879a811c9954199026ecfe3ec906
 
 
 ---
@@ -106,7 +105,7 @@ Nella visualizzazione dettagliata relativa a ogni errore sono disponibili i dati
 ![Dettagli del report degli errori di sincronizzazione](./media/active-directory-aadconnect-health-sync/errorreport04.png)
 
 ### <a name="download-the-error-report-as-csv"></a>Download del report degli errori in formato CSV
-Questa funzionalità sarà presto disponibile. Verranno pubblicati altri aggiornamenti.
+La selezione del pulsante "Esporta" consente di scaricare un file CSV con tutti i dettagli relativi a tutti gli errori.
 
 ## <a name="related-links"></a>Collegamenti correlati
 * [Risoluzione degli errori durante la sincronizzazione](../connect/active-directory-aadconnect-troubleshoot-sync-errors.md)
@@ -120,7 +119,6 @@ Questa funzionalità sarà presto disponibile. Verranno pubblicati altri aggiorn
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 
-
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

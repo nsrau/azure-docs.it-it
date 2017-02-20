@@ -1,6 +1,6 @@
 ---
 title: Compilazione di configurazioni in Azure Automation DSC | Documentazione Microsoft
-description: 'Panoramica di due modi per compilare configurazioni dello stato desiderato (DSC, Desired State Configuration): nel portale di Azure e con Windows PowerShell. '
+description: Questo articolo descrive come compilare configurazioni Desired State Configuration (DSC) per l&quot;automazione di Azure.
 services: automation
 documentationcenter: na
 author: eslesar
@@ -11,18 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
-ms.date: 12/13/2016
-ms.author: eslesar
+ms.date: 02/07/2017
+ms.author: magoedte; eslesar
 translationtype: Human Translation
-ms.sourcegitcommit: 18c6a55f2975305203bf20a040ac29bc9527a124
-ms.openlocfilehash: 30c93d801c68e24b45f5fbc119724e0a18076a13
+ms.sourcegitcommit: 032747ffb7a603c54e8913c0d82edbc8e11b73c3
+ms.openlocfilehash: 0b808dd6bcf0a0d1f8e459927a4010dc1887ca60
 
 ---
+
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilazione di configurazioni in Azure Automation DSC
 
 È possibile compilare configurazioni dello stato desiderato (DSC, Desired State Configuration) in due modi con Automazione di Azure: nel portale di Azure e con Windows PowerShell. La tabella seguente consente di determinare quando usare ciascun metodo in base alle caratteristiche specifiche:
 
-### <a name="azure-preview-portal"></a>Portale di anteprima di Azure
+### <a name="azure-portal"></a>Portale di Azure
 
 * Metodo più semplice con interfaccia utente interattiva
 * Modulo per specificare valori di parametri semplici
@@ -43,7 +44,7 @@ Una volta scelto il metodo di compilazione, è possibile seguire le rispettive p
 
 ## <a name="compiling-a-dsc-configuration-with-the-azure-portal"></a>Compilazione di una configurazione DSC con il portale di Azure
 
-1. Nell'account di automazione fare clic su **Configurazioni**.
+1. Nell'account di Automazione fare clic su **Configurazioni**.
 2. Fare clic su una configurazione per aprirne il pannello.
 3. Fare clic su **Compila**.
 4. Se la configurazione non ha alcun parametro, verrà richiesto di confermare se compilarla. Se la configurazione contiene parametri, verrà aperto il pannello **Compila configurazione** in cui sarà possibile specificare i valori dei parametri. Per altri dettagli sui parametri, vedere la sezione [**Parametri di base**](#basic-parameters) più avanti.
@@ -204,7 +205,7 @@ L'esempio seguente mostra una configurazione DSC che usa un asset credenziali di
 ```powershell
 Configuration CredentialSample
 {
-    $Cred = Get-AzureRmAutomationCredential -Name "SomeCredentialAsset"
+    $Cred = Get-AzureRmAutomationCredential -ResourceGroupName "ResourceGroup01" -AutomationAccountName "AutomationAcct" -Name "SomeCredentialAsset"
 
     Node $AllNodes.NodeName
     {
@@ -241,6 +242,6 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

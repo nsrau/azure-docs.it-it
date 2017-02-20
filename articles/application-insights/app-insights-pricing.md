@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 47c3491b067d5e112db589672b68e7cfc7cbe921
-ms.openlocfilehash: b1691d78e4914bd5cf9c75e32f36afceb997a622
+ms.sourcegitcommit: 9b26cfed4102bc09512f5ef1270aa0275a7f8f69
+ms.openlocfilehash: 58e1f5862cd147d7664248cf393f77a5e9af10d3
 
 
 ---
@@ -40,7 +40,7 @@ Il piano Basic è la scelta predefinita quando viene creata una nuova risorsa di
 
 * Nel piano Basic vengono applicati addebiti in base al volume dei dati: il numero di byte dei dati di telemetria ricevuti da Application Insights. Il volume di dati viene misurato come le dimensioni del pacchetto di dati JSON non compresso inviato dall'applicazione e ricevuto da Application Insights.
 * Il primo GB per ciascuna applicazione è gratuito. Pertanto se si usa lo strumento per prova o per sviluppo, probabilmente non si incorrerà in addebiti.
-* Sempre nel piano Basic, con un addebito extra per GB è possibile usare connettori [Esportazione continua](app-insights-export-telemetry.md) e [Log Analytics](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409). Tuttavia gli stessi saranno gratuiti fino ai primi giorni di marzo 2017.
+* Nel piano Basic, con un addebito extra per GB è disponibile l'[Esportazione continua](app-insights-export-telemetry.md), gratuita fino ai primi giorni di marzo 2017.
 
 ### <a name="enterprise-plan"></a>Piano Enterprise
 
@@ -66,7 +66,7 @@ Il piano Basic è la scelta predefinita quando viene creata una nuova risorsa di
 
 * Il comportamento preciso del conteggio dei nodi dipende dall'SDK di ApplicationInsight usato dall'applicazione. 
   * Nelle versioni SDK 2.2 e successive, sia [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) che [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) di Application Insights possono riportare ciascun host applicazione come nodo, ad esempio il nome del computer per gli host server fisici e le macchine virtuali o il nome dell'istanza in caso di servizi cloud.  L'unica eccezione è data dalle applicazioni che usano solo [.NET Core](https://dotnet.github.io/) e Core SDK di Application Insights. In questo caso, verrà riportato un solo nodo per tutti gli host poiché il nome host non è disponibile. 
-  * Per le versioni precedenti di SDK, [Web SDK}(https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) avrà lo stesso comportamento delle nuove versioni, tuttavia [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) riporterà solamente un nodo a prescindere dal numero effettivo degli host applicazione. 
+  * Per le versioni precedenti di SDK, [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) avrà lo stesso comportamento delle nuove versioni dell'SDK, tuttavia [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) riporterà solamente un nodo a prescindere dal numero effettivo degli host applicazione. 
   * Si noti che se l'applicazione usa SDK per impostare roleInstance su un valore personalizzato, per impostazione predefinita verrà usato quello stesso valore per determinare il conteggio dei nodi. 
   * Se si usa una nuova versione di SDK con un'app eseguita da computer client o dispositivi mobili, è possibile che il conteggio dei nodi restituisca un numero molto elevato (per via del numero elevato di computer client o dispositivi mobili). 
 
@@ -174,6 +174,6 @@ Le applicazioni esistenti possono continuare a usare i piani tariffari precedent
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

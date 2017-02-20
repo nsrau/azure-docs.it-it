@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/09/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b2985119b60bf11bf1ce1b951c40f8b87351e749
+ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
+ms.openlocfilehash: 2fda7dc07d01bcd0629d1fa80ec9262e80af4c5f
 
 
 ---
@@ -25,9 +25,9 @@ Questo articolo descrive come gestire una directory creata per una sottoscrizion
 
 Dopo aver completato la sottoscrizione di Azure, è possibile accedere al portale di Azure classico e accedere ai relativi servizi. Fare clic sull'estensione Active Directory per gestire la stessa directory usata per autenticare gli utenti di Office 365.
 
-Se si ha già una sottoscrizione di Azure, il processo per gestire una directory aggiuntiva è piuttosto semplice. Ad esempio, è possibile che Michael Smith abbia una sottoscrizione di Office 365 per Contoso.com e anche una sottoscrizione di Azure che ha ottenuto usando l'account Microsoft msmith@hotmail.com.. In questo caso, gestisce due directory.
+Se si ha già una sottoscrizione di Azure, il processo per gestire una directory aggiuntiva è piuttosto semplice. Ad esempio, è possibile che Michael Smith abbia una sottoscrizione di Office 365 per Contoso.com e anche una sottoscrizione di Azure che ha ottenuto usando l'account Microsoft msmith@hotmail.com. In questo caso Michael gestisce due directory.
 
-| Sottoscrizione | Office 365 | Azure |
+| Subscription | Office 365 | Azure |
 | --- | --- | --- |
 |   Nome visualizzato |Contoso |Directory di Azure Active Directory (Azure AD) predefinita |
 |   Nome di dominio |contoso.com |msmithhotmail.onmicrosoft.com |
@@ -46,10 +46,10 @@ Per poter gestire entrambe le directory mentre è connesso ad Azure come msmith@
 >
 >
 
-1. Accedere al [Portale di Azure classico](https://manage.windowsazure.com) come msmith@hotmail.com..
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com) come msmith@hotmail.com.
 2. Fare clic su **Nuovo** > **Servizi app** > **Active Directory** > **Directory** > **Creazione personalizzata**.
 3. Fare clic su Utilizza directory esistente e selezionare la casella di controllo **È possibile uscire ora** .
-4. Accedere al Portale di Azure classico come amministratore globale di Contoso.onmicrosoft.com, ad esempio msmith@contoso.com.
+4. Accedere al portale di Azure classico come amministratore globale di Contoso.onmicrosoft.com (ad esempio, msmith@contoso.com).
 5. Quando viene visualizzata la richiesta **Usare la directory Contoso con Azure?**, fare clic su **Continua**.
 6. Fare clic su **Esci ora**.
 7. Accedere al portale di Azure classico come msmith@hotmail.com. Entrambe le directory, quella Contoso e quella predefinita, verranno visualizzate nell'estensione Active Directory.
@@ -59,7 +59,7 @@ Dopo aver completato questa procedura, msmith@hotmail.com è diventato amministr
 ## <a name="to-administer-resources-as-the-global-admin"></a>Per amministrare le risorse come amministratore globale
 Si supponga ora che Jane Doe debba amministrare le risorse di database e di siti Web associate alla sottoscrizione di Azure per msmith@hotmail.com. Prima di poterlo fare, Michael Smith deve effettuare questi passaggi aggiuntivi:
 
-1. Accedere al [Portale di Azure classico](https://manage.windowsazure.com) con l'account amministratore del servizio per la sottoscrizione di Azure, in questo esempio msmith@hotmail.com)..
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com) con l'account amministratore del servizio per la sottoscrizione di Azure, in questo esempio msmith@hotmail.com).
 2. Trasferire la sottoscrizione alla directory Contoso: fare clic su **Impostazioni** > **Sottoscrizioni** > selezionare la sottoscrizione > **Modifica directory** > selezionare **Contoso (Contoso.com)**. Durante il trasferimento, gli eventuali account aziendali o dell'istituto di istruzione di coamministratori della sottoscrizione verranno rimossi.
 3. Aggiungere Jane Doe come coamministratore della sottoscrizione: fare clic su **Impostazioni** > **Amministratori** > selezionare la sottoscrizione > **Aggiungi ** > digitare **JohnDoe@Contoso.com**.
 
@@ -68,6 +68,6 @@ Per altre informazioni sulla relazione tra sottoscrizioni e directory, vedere [A
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

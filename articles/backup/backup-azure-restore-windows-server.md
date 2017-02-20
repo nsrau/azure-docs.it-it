@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/30/2017
-ms.author: trinadhk;jimpark;markgal;
+ms.date: 2/1/2017
+ms.author: saurse;trinadhk;markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: bb07ff13e3e4023e334c706d5f9bd95196ee6051
-ms.openlocfilehash: 47c5789fc3379b702d8f6ceafd630bece669b11e
+ms.sourcegitcommit: d8a85da4c929180c7ca52a19724d2be702fe3e9c
+ms.openlocfilehash: db71f7ea9561542fe9b579bf471cf2b81f5997cd
 
 
 ---
@@ -27,16 +27,55 @@ ms.openlocfilehash: 47c5789fc3379b702d8f6ceafd630bece669b11e
 >
 >
 
-In questo articolo viene illustrata la procedura necessaria per eseguire due tipi di operazioni di ripristino:
+Questo articolo illustra come ripristinare i dati da un insieme di credenziali di backup. Per ripristinare i dati, usare la procedura di ripristino guidato dei dati nell'agente di Servizi di ripristino di Microsoft Azure (MARS). Quando si ripristinano dati, è possibile:
 
 * Ripristinare i dati nello stesso computer in cui sono stati eseguiti i backup.
-* Ripristinare i dati in un altro computer.
+* Ripristinare i dati in un'altra macchina.
 
-In entrambi i casi, i dati vengono recuperati dall'insieme di credenziali dei servizi di ripristino di Azure.
+A gennaio 2017 Microsoft ha rilasciato un aggiornamento in anteprima all'agente MARS. Insieme alle correzioni di bug, questo aggiornamento abilita la funzione di ripristino istantaneo, che consente di montare uno snapshot del punto di ripristino scrivibile come volume di ripristino. È quindi possibile esplorare il volume di ripristino e i file di copia in un computer locale, ripristinando quindi i file in modo selettivo.
+
+> [!NOTE]
+> Se si vuole usare questa funzione per ripristinare i dati, è necessario l'[aggiornamento di Backup di Azure di gennaio 2017](https://support.microsoft.com/en-us/help/3216528?preview). È necessario anche che i dati di backup siano protetti in insiemi di credenziali nelle impostazioni locali elencate nell'articolo del supporto tecnico. Consultare l'[aggiornamento di Azure Backup di gennaio 2017](https://support.microsoft.com/en-us/help/3216528?preview) per un elenco aggiornato delle impostazioni locali che supportano la funzione di ripristino istantaneo. Il ripristino istantaneo **non** è attualmente disponibile in tutte le impostazioni locali.
+>
+
+È disponibile per l'uso negli insiemi di credenziali di Servizi di ripristino nel portale di Azure e negli insiemi di credenziali di Backup nel portale classico. Se si vuole usare la funzione di ripristino istantaneo, scaricare l'aggiornamento di MARS e seguire le procedure relative al ripristino istantaneo.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="use-instant-restore-to-restore-data-to-the-same-machine"></a>Usare il ripristino immediato per ripristinare i dati nello stesso computer
+## <a name="recover-data-to-the-same-machine"></a>Recuperare i dati nello stesso computer
+Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello stesso computer in cui è stato eseguito il backup, la seguente procedura permette di recuperarlo.
+
+1. Aprire lo snap-in di **Backup di Microsoft Azure** .
+2. Fare clic su **Ripristina dati** per avviare il flusso di lavoro.
+
+    ![Ripristina dati](./media/backup-azure-restore-windows-server/recover.png)
+3. Selezionare l'opzione **Questo server (*nomecomputer*)** per ripristinare il file di backup nello stesso computer.
+
+    ![Nello stesso computer](./media/backup-azure-restore-windows-server/samemachine.png)
+4. È possibile scegliere **Sfoglia elenco file** o **Cerca file**.
+
+    Se si intende ripristinare uno o più file con un percorso noto, lasciare l'opzione predefinita. Se non si è certi della struttura di cartelle, ma si vuole cercare un file, selezionare l'opzione **Cerca file** . Ai fini di questa sezione, si procede con l'opzione predefinita.
+
+    ![Ricerca dei file](./media/backup-azure-restore-windows-server/browseandsearch.png)
+5. Nella schermata successiva selezionare il volume da cui si vuole ripristinare il file.
+
+    È possibile ripristinare da qualsiasi data. Le date visualizzate in **grassetto** nel controllo calendario indicano la disponibilità di un punto di ripristino. Dopo aver selezionato una data, in base alla pianificazione del backup (e alla riuscita di un'operazione di backup), è possibile selezionare un orario dall'elenco a discesa **Ora** .
+
+    ![Volume e dati](./media/backup-azure-restore-windows-server/volanddate.png)
+6. Selezionare gli elementi da ripristinare. È possibile selezionare più cartelle e file per il ripristino.
+
+    ![Selezione dei file](./media/backup-azure-restore-windows-server/selectfiles.png)
+7. Specificare i parametri di ripristino.
+
+    ![Opzioni di ripristino](./media/backup-azure-restore-windows-server/recoveroptions.png)
+
+   * È possibile scegliere di ripristinare i file nel percorso originale (in cui il file o la cartella verrà sovrascritta) o in un altro percorso nello stesso computer.
+   * Se il file o la cartella da ripristinare esiste nel percorso di destinazione, è possibile creare copie (due versioni dello stesso file), sovrascrivere i file nel percorso di destinazione oppure ignorare il ripristino dei file esistenti nel database di destinazione.
+   * È consigliabile lasciare l'opzione predefinita che prevede il ripristino degli elenchi di controllo di accesso sui file che vengono recuperati.
+8. Una volta forniti i dati di input, fare clic su **Avanti**. Il flusso di lavoro di ripristino, che consente di ripristinare i file in questo computer, verrà avviato.
+
+## <a name="use-instant-restore-to-recover-data-to-the-same-machine"></a>Usare la funzione di ripristino istantaneo per ripristinare i dati sullo stesso computer
+
 Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello stesso computer in cui è stato eseguito il backup, la seguente procedura permette di recuperarlo.
 
 1. Aprire lo snap-in di **Backup di Microsoft Azure** . Se non si sa dove è stato installato lo snap-in, cercare **Backup di Microsoft Azure** nel computer o nel server.
@@ -51,11 +90,7 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
 
     ![Scegliere l'opzione This server (Questo server) per ripristinare i dati nello stesso computer](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. Nel riquadro **Seleziona modalità di ripristino** selezionare se ripristinare:
-    - **Singoli file e cartelle** - Usare questa opzione se si desidera ripristinare file e cartelle specifici.
-    - **Volume** - Usare questa opzione per ripristinare tutti i file e le cartelle nel volume selezionato,
-
-    quindi fare clic su **Avanti**.
+4. Nel riquadro **Seleziona modalità di ripristino** selezionare **Singoli file e cartelle** e fare clic su **Avanti**.
 
     ![Ricerca dei file](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
 
@@ -73,9 +108,7 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
 
     ![Opzioni di ripristino](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
-   * È possibile scegliere di ripristinare i file nel percorso originale (in cui il file o la cartella verrà sovrascritta) o in un altro percorso nello stesso computer.
-   * Se il file o la cartella da ripristinare esiste nel percorso di destinazione, è possibile creare copie (due versioni dello stesso file), sovrascrivere i file nel percorso di destinazione oppure ignorare il ripristino dei file esistenti nel database di destinazione.
-   * È consigliabile lasciare l'opzione predefinita che prevede il ripristino degli elenchi di controllo di accesso sui file che vengono recuperati.
+
 8. In Esplora risorse copiare i file e/o le cartelle che si desidera ripristinare e incollarle in qualsiasi posizione locale nel server o nel computer. È possibile aprire o trasmettere i file direttamente dal volume di ripristino e verificare che vengano ripristinate le versioni corrette.
 
     ![Copiare e incollare file e cartelle dal volume montato alla posizione locale](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
@@ -88,13 +121,51 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
     > Se non si fa clic su Smonta, il volume di ripristino resterà montato per sei ore. Mentre il volume è montato, non vengono eseguite operazioni di backup. Qualsiasi operazione di backup pianificata durante il periodo in cui il volume è montato verrà eseguita dopo lo smontaggio del volume di ripristino.
     >
 
+## <a name="recover-to-an-alternate-machine"></a>Recuperare i dati in un altro computer
+
+Se l'intero server viene perso, è comunque possibile recuperare dati da Backup di Azure in un computer diverso. I passaggi seguenti illustrano il flusso di lavoro.  
+
+Include la terminologia utilizzata in questi passaggi:
+
+- *Computer di origine* : il computer di origine da cui è stato eseguito il backup e che non è attualmente disponibile.
+- *Computer di destinazione* : il computer in cui i dati vengono ripristinati.
+- *Insieme di credenziali di esempio*: insieme di credenziali di backup in cui *computer di origine* e *computer di destinazione* sono registrati. <br/>
+
+> [!NOTE]
+> I backup eseguiti da un determinato computer non possono essere ripristinati in un computer che esegue una versione precedente del sistema operativo. Ad esempio, se i backup vengono eseguiti da un computer che esegue Windows 7, è possibile ripristinare i dati in un computer con Windows 8 o versione successiva. Tuttavia non è possibile eseguire l'operazione inversa.
+>
+>
+
+1. Aprire lo snap-in di **Backup di Microsoft Azure** nel *Computer di destinazione*.
+2. Verificare che il *computer di destinazione* e il *computer di origine* siano registrati nello stesso insieme di credenziali di backup.
+3. Fare clic su **Ripristina dati** per avviare il flusso di lavoro.
+
+    ![Ripristina dati](./media/backup-azure-restore-windows-server-classic/recover.png)
+4. Selezionare **Un altro server**
+
+    ![Un altro server](./media/backup-azure-restore-windows-server-classic/anotherserver.png)
+5. Specificare il file dell'insieme di credenziali che corrisponde all' *Insieme di credenziali di esempio*. Se il file dell'insieme di credenziali non è valido (o è scaduto), scaricarne uno nuovo dall' *Insieme di credenziali di esempio* nel portale classico di Azure. Dopo aver specificato il file delle credenziali dell'insieme di credenziali, in quest'ultimo viene visualizzato l'insieme di credenziali di backup.
+6. Selezionare il *computer di origine* dall'elenco dei computer visualizzati.
+
+    ![Elenco di computer](./media/backup-azure-restore-windows-server-classic/machinelist.png)
+7. Selezionare l'opzione **Cerca file** o **Sfoglia elenco file**. Ai fini di questa sezione, si userà l'opzione **Cerca file** .
+
+    ![Search](./media/backup-azure-restore-windows-server-classic/search.png)
+8. Nella schermata successiva selezionare la data e il volume. Cercare il nome delle cartelle e dei file da ripristinare.
+
+    ![Ricerca di elementi](./media/backup-azure-restore-windows-server-classic/searchitems.png)
+9. Selezionare il percorso in cui devono essere ripristinati i file.
+
+    ![Percorso di ripristino](./media/backup-azure-restore-windows-server-classic/restorelocation.png)
+10. Specificare la passphrase di crittografia indicata durante la registrazione del *computer di origine* all'*insieme di credenziali di esempio*.
+
+    ![Crittografia](./media/backup-azure-restore-windows-server-classic/encryption.png)
+11. Dopo aver specificato i dati di input, fare clic sul pulsante **Ripristina**che attiva le operazioni di ripristino dei file di backup nella destinazione specificata.
+
 
 ## <a name="use-instant-restore-to-restore-data-to-an-alternate-machine"></a>Usare il ripristino immediato per ripristinare i dati in un altro computer
 Se l'intero server viene perso, è comunque possibile recuperare dati da Backup di Azure in un computer diverso. I passaggi seguenti illustrano il flusso di lavoro.
 
-> [!NOTE]
-> Se si desidera usare il ripristino immediato per ripristinare i dati in un altro computer, è richiesto l'[aggiornamento di Backup di Azure di gennaio 2017](https://support.microsoft.com/en-us/help/3216528?preview). È necessario anche che i dati di backup siano protetti in insiemi di credenziali nelle impostazioni locali elencate nell'articolo del supporto tecnico. Il ripristino immediato non è attualmente disponibile in tutte le impostazioni locali.
->
 
 Include la terminologia utilizzata in questi passaggi:
 
@@ -160,6 +231,6 @@ Include la terminologia utilizzata in questi passaggi:
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

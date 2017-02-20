@@ -13,6 +13,7 @@ Grazie al codice funzionale contenuto negli avvii rapidi di Funzioni di Azure, Ã
 
     ![](./media/functions-quickstart-test/function-app-browser-testing.png)
 
-<!--HONumber=Feb17_HO1-->
+
+<!--HONumber=Feb17_HO2-->
 
 

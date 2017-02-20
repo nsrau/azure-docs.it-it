@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2016
+ms.date: 02/07/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 66128b255dac89569ff776cca9ab678c3105f171
-ms.openlocfilehash: 1fddb126c7dbedc11b04dd66d563026f0b3d4f01
+ms.sourcegitcommit: 09f0aa4ea770d23d1b581c54b636c10e59ce1d3c
+ms.openlocfilehash: d5768c44022fc251aa0741d91b575ff604032e18
 
 
 ---
@@ -44,6 +44,10 @@ Questo articolo elenca i problemi comuni correlati all'archiviazione file di Mic
 * [Errore "Host is down" (Host inattivo) su condivisioni file esistenti o blocco della shell quando si eseguono comandi list sul punto di montaggio](#errorhold)
 * [Errore di montaggio 115 quando si tenta di montare File di Azure sulla macchina virtuale Linux](#error15)
 * [La macchina virtuale Linux presenta ritardi casuali nell'esecuzione di comandi come "ls"](#delayproblem)
+* [Errore 112 - Errore di timeout](#error112)
+
+**Accedere da altre applicazioni**
+* [È possibile far riferimento alla condivisione file di Azure per l'applicazione tramite un processo Web?](#webjobs)
 
 <a id="quotaerror"></a>
 
@@ -236,14 +240,32 @@ Verificare la presenza dell'opzione **serverino** nella voce "/etc/fstab":
 
 //azureuser.file.core.windows.net/wms/comer on /home/sampledir type cifs (rw,nodev,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X, file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)
 
-Se **serverino** non è presente, smontare e montare nuovamente File di Azure con l'opzione **serverino** selezionata.
+Se l'opzione **serverino** non è presente, smontare e montare nuovamente File di Azure con l'opzione **serverino** selezionata.
 
+<a id="error112"></a>
+## <a name="error-112---timeout-error"></a>Errore 112 - Errore di timeout
+
+Questo errore indica errori di comunicazione che impediscono di ristabilire una connessione TCP al server quando è usata l'opzione di montaggio "soft", ossia l'impostazione predefinita.
+
+### <a name="cause"></a>Causa
+
+Questo errore può essere causato da un problema di riconnessione di Linux o da altri problemi che impediscono la riconnessione, ad esempio errori di rete. Se si specifica un'opzione di montaggio "hard", il client viene forzato ad attendere fino a quando la connessione non è stabilita o interrotta in modo esplicito; può essere usata per evitare gli errori causati dai timeout di rete. Tuttavia, gli utenti devono essere consapevoli che ciò potrebbe provocare attese indefinite e devono pertanto poter gestire l'arresto di una connessione se necessario.
+
+### <a name="workaround"></a>Soluzione alternativa
+
+Il problema di Linux è stato risolto, ma ancora non applicato alle distribuzioni Linux. Se è causato dalla mancata riuscita della connessione in Linux, è possibile ovviare al problema evitando di entrare in uno stato inattivo. A tale scopo, nella condivisione file di Azure mantenere un file nel quale si esegue un'operazione di scrittura ogni 30 secondi. Deve trattarsi di un'operazione di scrittura, ad esempio la riscrittura della data di creazione o di modifica nel file. In caso contrario, si potrebbero ottenere risultati memorizzati nella cache e l'operazione potrebbe non attivare la connessione.
+
+<a id="webjobs"></a>
+
+## <a name="accessing-from-other-applications"></a>Accedere da altre applicazioni
+### <a name="can-i-reference-the-azure-file-share-for-my-application-through-a-webjob"></a>È possibile far riferimento alla condivisione file di Azure dell'applicazione tramite un processo Web?
+Non è possibile montare condivisioni SMB in un ambiente sandbox appservice. In alternativa, è possibile connettere la condivisione file di Azure come unità mappata e consentire all'applicazione di accedervi come lettera di unità.
 ## <a name="learn-more"></a>Altre informazioni
 * [Introduzione ad Archiviazione file di Azure in Windows](storage-dotnet-how-to-use-files.md)
 * [Introduzione all'archiviazione file di Azure in Linux](storage-how-to-use-files-linux.md)
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

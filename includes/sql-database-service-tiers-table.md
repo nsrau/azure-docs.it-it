@@ -38,8 +38,8 @@ sql-database-service-tiers.md
 | Numero massimo di sessioni simultanee | 30000| 30000| 30000| 30000| 30000| 30000 |
 |||||||
 
-\* Le dimensioni massime del database indicano le dimensioni massime dei file di dati e non include lo spazio usato dai file di log
+\* Le dimensioni massime del database indicano le dimensioni massime dei file di dati e non includono lo spazio usato dai file di log.
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

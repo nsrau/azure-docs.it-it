@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/30/2016
+ms.date: 02/08/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 9a96e297711a949ac6bc464ad9154b4ad924666d
-ms.openlocfilehash: d6f56ed485eedd1e8250448c2c0794a066b11dc4
+ms.sourcegitcommit: 6c8c04e0237e2168df60ecc597754c38af167e14
+ms.openlocfilehash: 0aed3d224199b17bac748b14416a738eac342103
 
 
 ---
@@ -51,7 +51,8 @@ Per la rete CDN di Azure sono disponibili tre prodotti: **rete CDN Standard di A
 | --- | --- | --- | --- |
 | Semplice integrazione con i servizi di Azure, ad esempio [Archiviazione](cdn-create-a-storage-account-with-cdn.md), [Servizi cloud](cdn-cloud-service-with-cdn.md), [App Web](../app-service-web/cdn-websites-with-cdn.md) e [Servizi multimediali](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Gestione tramite [API REST](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) oppure [PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Supporto di HTTPS |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Supporto per HTTPS con endpoint della rete CDN |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| HTTPS dominio personalizzato | |**&#x2713;** |**&#x2713;** |
 | Bilanciamento del carico. |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015)  |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | IPv4/IPv6 dual stack |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -91,6 +92,6 @@ Per informazioni sui prezzi, vedere [Prezzi del servizio Rete di distribuzione d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

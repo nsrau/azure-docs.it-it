@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 40d9b0ee5a24e5503de19daa030bf1e8169dec24
-ms.openlocfilehash: 58be070ea5d5f4ea9f6d9453a1adcc23c4b9b2a2
+ms.sourcegitcommit: a74872f308624028016ffb30ead3c056b1fa69ce
+ms.openlocfilehash: fbab411a22d3d1e140bc3ea8f56b113de79f204c
 
 
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (VNET) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali utilizzando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
 
-Gestione API di Azure può essere connesso a una rete virtuale (VNET) così da poter accedere a servizi di back-end all'interno della rete e affinché il portale per sviluppatori e il gateway dell'API siano accessibili all'interno della rete.
+Gestione API di Azure può essere distribuito all'interno della rete virtuale (VNET) in modo che possa accedere ai servizi di back-end all'interno della rete. Il portale per sviluppatori e il gateway dell'API possono essere configurati in modo che siano accessibili da Internet o solo all'interno della rete virtuale.
 
 > [!NOTE]
 > Gestione API di Azure supporta le reti virtuali classiche e Azure Resource Manager.
@@ -101,12 +101,14 @@ Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale, ve
 
 | Porte di origine/destinazione | Direzione | Protocollo di trasporto | Scopo | Origine/Destinazione | Tipo di accesso |
 | --- | --- | --- | --- | --- | --- |
-| 80, 443/80, 443 |In ingresso |TCP |Comunicazione tra client e Gestione API |INTERNET / VIRTUAL_NETWORK |Esterno |
+| * / 80, 443 |In ingresso |TCP |Comunicazione tra client e Gestione API |INTERNET / VIRTUAL_NETWORK |Esterno |
 | */3443 |In ingresso |TCP |Endpoint di gestione per il portale di Azure e PowerShell |INTERNET / VIRTUAL_NETWORK |Esterno e interno |
-| 80, 443/80, 443 |In uscita |TCP |Dipendenza da Archiviazione di Azure e dal bus di servizio di Azure |VIRTUAL_NETWORK / INTERNET |Esterno e interno |
-| 1433/1433 |In uscita |TCP |Dipendenza da SQL di Azure |VIRTUAL_NETWORK / INTERNET |Esterno e interno |
-| 9350 - 9354/ 9350 - 9354 |In uscita |TCP |Dipendenza dal bus di servizio |VIRTUAL_NETWORK / INTERNET |Esterno e interno |
-| 5671/5671 |In uscita |AMQP |Dipendenza per il criterio Registra a Hub eventi |VIRTUAL_NETWORK / INTERNET |Esterno e interno |
+| * / 80, 443 |In uscita |TCP |Dipendenza da Archiviazione di Azure e dal bus di servizio di Azure |VIRTUAL_NETWORK / INTERNET |Esterno e interno |
+| * / 1433 |In uscita |TCP |Dipendenza da SQL di Azure |VIRTUAL_NETWORK / INTERNET |Esterno e interno |
+| * / 11000 - 11999 |In uscita |TCP |Dipendenza da Azure SQL V12 |VIRTUAL_NETWORK / INTERNET |Esterno e interno |
+| * / 14000 - 14999 |In uscita |TCP |Dipendenza da Azure SQL V12 |VIRTUAL_NETWORK / INTERNET |Esterno e interno |
+| * / 9350 - 9354 |In uscita |TCP |Dipendenza dal bus di servizio |VIRTUAL_NETWORK / INTERNET |Esterno e interno |
+| * / 5671 |In uscita |AMQP |Dipendenza per il criterio Registra a Hub eventi |VIRTUAL_NETWORK / INTERNET |Esterno e interno |
 | 6381 - 6383/6381 - 6383 |In ingresso e in uscita |UDP |Dipendenza dalla cache Redis |VIRTUAL_NETWORK / VIRTUAL_NETWORK |Esterno e interno |-
 | * / 445 |In uscita |TCP |Dipendenza dalla condivisione file di Azure per GIT |VIRTUAL_NETWORK / INTERNET |Esterno e interno |
 | * / * | In ingresso |TCP |Bilanciamento del carico di infrastruttura di Azure | VIRTUAL_NETWORK/AZURE_LOADBALANCER |Esterno e interno |
@@ -152,6 +154,6 @@ Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale, ve
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

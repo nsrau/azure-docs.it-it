@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/4/2017
-ms.author: jimpark; trinadhk
+ms.date: 2/6/2017
+ms.author: markgal;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 0eb7b5c283c95503d076da486ba08df833f1acbd
-ms.openlocfilehash: 5235a09822dc14040ca6d4353d00e938fefd0e43
+ms.sourcegitcommit: bda71281617fa37f7f2a08e238c706dd2a4f5576
+ms.openlocfilehash: 99246e97f096b872e225e8818def059bdc2211c6
 
 
 ---
@@ -45,7 +45,7 @@ Le soluzioni di backup tradizionali si sono evolute e considerano ora il cloud c
 
 **Backup coerente con l'applicazione**. A prescindere che venga eseguito il backup di un file server, di una macchina virtuale o di un database SQL, è necessario sapere che un punto di ripristino ha tutti i dati necessari per ripristinare la copia di backup. Backup di Azure offre backup coerenti con l'applicazione, che eliminano la necessità di correzioni aggiuntive per ripristinare i dati. Il ripristino di dati coerenti con l'applicazione riduce il tempo di ripristino e consente quindi di tornare rapidamente allo stato operativo.
 
-**Conservazione a lungo termine**. È possibile eseguire il backup dei dati in Azure per 99 anni. Invece di passare le copie di backup dal disco al nastro e quindi di trasferire il nastro in una posizione esterna per l'archiviazione a lungo termine, è possibile usare Azure per la conservazione a breve e lungo termine.
+**Conservazione a lungo termine** - Invece di passare le copie di backup dal disco al nastro e quindi trasferire il nastro in una posizione esterna per l'archiviazione a lungo termine, è possibile usare Azure per la conservazione a breve e lungo termine. Azure non limita la durata della conservazione dei dati in un insieme di credenziali di Backup o di Servizi di ripristino. È possibile conservare i dati in un insieme di credenziali per il tempo desiderato. Backup di Azure ha un limite di 9999 punti di ripristino per ogni istanza protetta. Vedere la sezione [Backup e conservazione](backup-introduction-to-azure-backup.md#backup-and-retention) in questo articolo per una spiegazione sull'effetto di questo limite sulle esigenze di backup.  
 
 ## <a name="which-azure-backup-components-should-i-use"></a>Quali componenti di Backup di Azure è opportuno usare?
 Se non si è certi del componente di Backup di Azure più adatto alle proprie esigenze, vedere la tabella seguente per informazioni su ciò che è possibile proteggere con ogni componente. Il portale di Azure offre una procedura guidata per la scelta del componente da scaricare e distribuire. La procedura guidata, che fa parte della creazione dell'insieme di credenziali di Servizi di ripristino, consente di selezionare un obiettivo di backup e di scegliere i dati o l'applicazione da proteggere.
@@ -107,6 +107,15 @@ Al termine del processo di backup, il percorso di gestione temporanea viene elim
 
 ### <a name="restore-premium-storage-vms"></a>Ripristino di macchine virtuali di Archiviazione Premium
 Le VM di Archiviazione Premium possono essere ripristinate in Archiviazione Premium o in una normale risorsa di archiviazione. Il processo tipo consiste nel ripristino di un punto di ripristino della macchina virtuale di Archiviazione Premium in Archiviazione Premium. Tuttavia, può risultare più economico ripristinare un punto di ripristino della macchina virtuale di Archiviazione Premium in Archiviazione Standard. Si può usare questo tipo di ripristino se è necessario un subset di file dalla macchina virtuale.
+
+## <a name="using-managed-disk-vms-with-azure-backup"></a>Uso delle macchine virtuali con dischi gestiti con Backup di Azure
+Backup di Azure protegge le macchine virtuali con dischi gestiti. I dischi gestiti rendono superflua la gestione degli account di archiviazione delle macchine virtuali e semplificano notevolmente il provisioning delle VM.
+
+### <a name="back-up-managed-disk-vms"></a>Eseguire il backup di macchine virtuali con dischi gestiti
+Il backup delle macchine virtuali nei dischi gestiti non presenta differenze rispetto al backup delle VM di Resource Manager. È possibile eseguire il backup direttamente dalla visualizzazione della VM o dalla visualizzazione dell'insieme di credenziali dei Servizi di ripristino. Il backup delle macchine virtuali nei dischi gestiti è supportato tramite raccolte RestorePoint basate su dischi gestiti. Backup di Azure non supporta attualmente il backup delle macchine virtuali con dischi gestiti crittografate tramite Crittografia dischi di Azure.
+
+### <a name="restore-managed-disk-vms"></a>Ripristinare le macchine virtuali con dischi gestiti
+Backup di Azure consente di ripristinare una macchina virtuale completa con dischi gestiti o di ripristinare dischi gestiti in un account di archiviazione di Resource Manager. Benché i dischi creati durante il processo di ripristino vengano gestiti da Azure, l'account di archiviazione creato come parte del processo di ripristino è simile agli altri account di archiviazione di Resource Manager e deve essere gestito dal cliente.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Quali sono le funzionalità di ogni componente di Backup?
 Le sezioni seguenti indicano tabelle che riepilogano la disponibilità o il supporto di diverse funzionalità in ogni componente di Backup di Azure. Vedere le informazioni riportate dopo ogni tabella per altri dettagli.
@@ -175,7 +184,7 @@ Se si esegue il backup dei dati in System Center DPM o in un server di Backup di
 #### <a name="network-throttling"></a>Limitazione della larghezza di banda della rete
 L'agente di Backup di Azure consente di limitare la larghezza di banda per controllare la modalità d'uso della larghezza di banda della rete durante il trasferimento dei dati. La limitazione può essere utile se è necessario eseguire il backup dei dati durante l'orario di lavoro, ma senza che il processo di backup interferisca con il resto del traffico Internet. La limitazione per il trasferimento dati si applica alle attività di backup e ripristino.
 
-### <a name="backup-and-retention"></a>Backup e conservazione
+## <a name="backup-and-retention"></a>Backup e conservazione
 
 Backup di Azure ha un limite di 9999 punti di ripristino, noti anche come copie di backup o snapshot, per ogni *istanza protetta*. Un'istanza protetta è un computer, un server (fisico o virtuale) o un carico di lavoro configurato per eseguire il backup dei dati in Azure. Per altre informazioni, vedere la sezione [Che cos'è un'istanza protetta?](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Un'istanza è protetta dopo il salvataggio di una copia di backup dei dati. La protezione è data dalla copia di backup dei dati. Se i dati di origine sono andati persi o danneggiati, la copia di backup può ripristinare i dati di origine. La tabella seguente illustra la frequenza massima di backup per ogni componente. La configurazione dei criteri di backup determina la rapidità con cui si utilizzano i punti di ripristino. Ad esempio, se si crea un punto di ripristino ogni giorno, è possibile mantenere i punti di ripristino per 27 anni prima di eseguirli. Se si gestisce un punto di ripristino mensile, è possibile mantenere i punti di ripristino per 833 anni prima di eseguirli. Il servizio Backup non imposta un limite di tempo di scadenza su un punto di ripristino.
 
@@ -234,6 +243,6 @@ Per informazioni dettagliate sulla protezione di altri carichi di lavoro, vedere
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

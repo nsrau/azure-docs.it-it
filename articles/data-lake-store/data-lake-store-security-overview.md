@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a664cd0a2a10be17cd57f7ace418ea0dc92f70d0
+ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
+ms.openlocfilehash: 59bff7e1f7bdfc1786c4ee47ab2a652e2df85289
 
 
 ---
@@ -48,7 +48,7 @@ Dopo che Azure Active Directory ha autenticato un utente in modo che possa acced
 ### <a name="rbac-for-account-management"></a>Controllo degli accessi in base al ruolo per la gestione degli account
 Quattro ruoli di base vengono definiti per Data Lake Store per impostazione predefinita. I ruoli permettono di eseguire diverse operazioni su un account Data Lake Store con il portale di Azure, cmdlet di PowerShell e API REST. I ruoli Proprietario e Collaboratore possono eseguire un'ampia gamma di funzioni di amministrazione sull'account. È possibile assegnare il ruolo Lettore agli utenti limitati alla sola interazione con i dati.
 
-![Ruoli Controllo degli accessi in base al ruolo](./media/data-lake-store-security-overview/rbac-roles.png "RBAC roles")
+![Ruoli Controllo degli accessi in base al ruolo](./media/data-lake-store-security-overview/rbac-roles.png "Ruoli Controllo degli accessi in base al ruolo")
 
 Si noti che anche se per la gestione degli account vengono assegnati i ruoli, alcuni ruoli incidono sull'accesso ai dati. È necessario usare gli elenchi di controllo di accesso (ACL) alle operazioni che un utente può eseguire nel file system. La tabella seguente mostra un riepilogo dei diritti di gestione e dei diritti di accesso ai dati per questi ruoli predefiniti.
 
@@ -67,17 +67,17 @@ Data Lake Store è un file system gerarchico come HDFS (Hadoop Distributed File 
 
 È consigliabile definire gli elenchi di controllo di accesso per più utenti usando [gruppi di sicurezza](../active-directory/active-directory-accessmanagement-manage-groups.md). Aggiungere gli utenti a un gruppo di sicurezza, quindi assegnare gli elenchi di controllo di accesso per il file o una cartella a tale gruppo di sicurezza. Ciò è utile quando si vuole fornire l'accesso personalizzato, perché si è limitati all'aggiunta di un massimo di nove voci per l'accesso personalizzato. Per altre informazioni su come proteggere meglio i dati archiviati in Data Lake Store usando i gruppi di sicurezza di Azure Active Directory, vedere [Assegnare utenti o gruppi di sicurezza come elenchi di controllo di accesso al file system di Azure Data Lake Store](data-lake-store-secure-data.md#filepermissions).
 
-![Elencare profili di accesso standard e personalizzato](./media/data-lake-store-security-overview/adl.acl.2.png "List standard and custom access")
+![Elencare gli accessi standard e personalizzati](./media/data-lake-store-security-overview/adl.acl.2.png "Elencare gli accessi standard e personalizzati")
 
 ## <a name="network-isolation"></a>Isolamento rete
 Usare Data Lake Store per aiutare a controllare l'accesso all'archivio dati a livello di rete. È possibile stabilire firewall e definire un intervallo di indirizzi IP per i client attendibili. Con un intervallo di indirizzi IP, solo i client con indirizzo IP compreso nell'intervallo definito possono connettersi a Data Lake Store.
 
-![Impostazioni del firewall e accesso IP](./media/data-lake-store-security-overview/firewall-ip-access.png "Firewall settings and IP address")
+![Impostazioni del firewall e accesso IP](./media/data-lake-store-security-overview/firewall-ip-access.png "Impostazioni del firewall e indirizzo IP")
 
 ## <a name="data-protection"></a>Protezione dati
 Azure Data Lake Store protegge i dati durante tutto il loro ciclo di vita. Per i dati in transito, Data Lake Store usa il protocollo TLS (Transport Layer Security) standard per proteggere i dati trasmessi in rete.
 
-![Crittografia in Data Lake Store](./media/data-lake-store-security-overview/adls-encryption.png "Encryption in Data Lake Store")
+![Crittografia in Data Lake Store](./media/data-lake-store-security-overview/adls-encryption.png "Crittografia in Data Lake Store")
 
 Data Lake Store fornisce anche la crittografia per i dati archiviati nell'account. È possibile scegliere di crittografare i dati oppure di fare a meno della crittografia. Se si opta per la crittografia, i dati archiviati in Data Lake Store vengono crittografati prima essere archiviati in supporti persistenti. In questo caso, Data Lake Store crittografa automaticamente i dati prima di renderli persistenti e li decrittografa prima di recuperarli. L'accesso ai dati, quindi, risulta totalmente trasparente per il client. Per la crittografia/decrittografia dei dati, infatti, non è necessaria alcuna modifica di codice sul lato client.
 
@@ -94,12 +94,12 @@ Per conformità alle normative, un'organizzazione potrebbe richiedere audit trai
 
 Per gli audit trail di gestione account, visualizzare e scegliere le colonne che si vogliono registrare. È anche possibile esportare i log di controllo in Archiviazione di Azure.
 
-![Log di controllo](./media/data-lake-store-security-overview/audit-logs.png "Audit logs")
+![Log di controllo](./media/data-lake-store-security-overview/audit-logs.png "Log di controllo")
 
 ### <a name="diagnostic-logs"></a>Log di diagnostica
 È possibile impostare gli audit trail dell'accesso ai dati nel portale di Azure (in Impostazioni di diagnostica) e creare un account di archiviazione BLOB di Azure in cui archiviare i log.
 
-![Log di diagnostica](./media/data-lake-store-security-overview/diagnostic-logs.png "Diagnostic logs")
+![Log di diagnostica](./media/data-lake-store-security-overview/diagnostic-logs.png "Log di diagnostica")
 
 Dopo aver configurato le impostazioni di diagnostica, è possibile visualizzare i log nella scheda **Log di diagnostica** .
 
@@ -118,6 +118,6 @@ Se si vogliono vedere nuove funzionalità in Data Lake Store, inviare commenti e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

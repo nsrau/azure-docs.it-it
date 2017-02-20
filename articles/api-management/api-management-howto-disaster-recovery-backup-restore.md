@@ -1,5 +1,5 @@
 ---
-title: Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure | Microsoft Docs
+title: Implementare il ripristino di emergenza usando il backup e il ripristino in Gestione API di Azure | Documentazione Microsoft
 description: Informazioni su come usare il backup e il ripristino per eseguire il ripristino di emergenza in Gestione API di Azure.
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: a7ff82a47b4e972db96929acb47fcce760b244b3
-ms.openlocfilehash: 73bb12643a5c94e364ac4040f6e1678cb1495fb2
-
+ms.sourcegitcommit: 809fc7a5454c814d1d3edb8ebcdd40978952bc2c
+ms.openlocfilehash: d05404ed6893978a857a3ad66d5129998272ebbd
 
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
@@ -30,7 +29,7 @@ Questa guida descrive come autenticare le richieste di Gestione risorse di Azure
 > [!NOTE]
 > Il processo di backup e ripristino di un'istanza del servizio Gestione API per il ripristino di emergenza può essere usato anche per la replica delle istanze del servizio Gestione API per scenari quali la gestione temporanea.
 >
-> Si noti che ogni backup scade dopo 7 giorni. Se si tenta di ripristinare un backup dopo la scadenza del periodo di 7 giorni, il ripristino avrà esito negativo e verrà visualizzato il messaggio `Cannot restore: backup expired` .
+> Si noti che ogni backup scade dopo 30 giorni. Se si tenta di ripristinare un backup dopo la scadenza del periodo di 30 giorni, il ripristino avrà esito negativo e verrà visualizzato il messaggio `Cannot restore: backup expired` .
 >
 >
 
@@ -214,6 +213,6 @@ Consultare i blog Microsoft seguenti per due diverse procedure dettagliate del p
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

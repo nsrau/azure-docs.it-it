@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/20/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: 71cf6cd6e7a33b3aeb3e0e20b9b047377412786d
+ms.sourcegitcommit: f336058fd743b4dfec17eb301a3b28d035ca8d0f
+ms.openlocfilehash: ff9931fa3b549179ed612508ebb3555c21fafd30
 
 
 ---
@@ -33,7 +33,7 @@ Fonti di informazioni aggiuntive:
 ## <a name="index"></a>Indice
 **Let** [let](#let-clause)
 
-**Query e operatori** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
+**Query e operatori** [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [direttiva render](#render-directive) | [clausola restrict](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
 
 **Aggregazioni** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -94,6 +94,18 @@ Una clausola let associa un [nome](#names) a un risultato tabulare, a un valore 
     let rows = (n:long) { range steps from 1 to n step 1 };
     rows(10) | ...
 
+Convertire un risultato di tabella in un valore scalare e usarlo in una query:
+
+```
+let topCities =  toscalar ( // convert single column to value
+   requests
+   | summarize count() by client_City 
+   | top 4 by count_ 
+   | summarize makeset(client_City)) ;
+requests
+| where client_City in (topCities) 
+| summarize count() by client_City;
+```
 
 Self-join:
 
@@ -157,6 +169,63 @@ Questa funzione restituisce una tabella con un solo record e una sola colonna di
 ```AIQL
 requests | count
 ```
+
+### <a name="datatable-operator"></a>Operatore datatable
+
+Specificare una tabella inline. Lo schema e i valori sono definiti nella query stessa.
+
+Si noti che questo operatore non ha una pipeline di input.
+
+**Sintassi**
+
+    datatable ( ColumnName1 : ColumnType1 , ...) [ScalarValue1, ...]
+
+* *ColumnName* Il nome per una colonna.
+* *ColumnType* Un [tipo di dati](#scalars). 
+* *ScalarValue* Un valore del tipo appropriato. Il numero di valori deve essere un multiplo del numero di colonne. 
+
+**Restituisce**
+
+Una tabella contenente i valori specificati.
+
+**Esempio**
+
+```AIQL
+datatable (Date:datetime, Event:string)
+    [datetime(1910-06-11), "Born",
+     datetime(1930-01-01), "Enters Ecole Navale",
+     datetime(1953-01-01), "Published first book",
+     datetime(1997-06-25), "Died"]
+| where strlen(Event) > 4
+```
+
+### <a name="distinct-operator"></a>Operatore distinct
+
+Restituisce una tabella contenente il set di righe che presentano combinazioni di valori distinte. Facoltativamente esegue una proiezione su un sottoinsieme di colonne prima dell'operazione.
+
+**Sintassi**
+
+    T | distinct *              // All columns
+    T | distinct Column1, ...   // Columns to project
+
+**Esempio**
+
+```AIQL
+datatable (Supplier: string, Fruit: string, Price:int) 
+["Contoso", "Grapes", 22,
+"Fabrikam", "Apples", 14,
+"Contoso", "Apples", 15,
+"Fabrikam", "Grapes", 22]
+| distinct Fruit, Price 
+```
+
+
+|Frutta|Prezzo|
+|---|---|
+|Uva|22|
+|Mele|14|
+|Mele|15|
+
 
 ### <a name="evaluate-operator"></a>Operatore evaluate
 `evaluate` è un meccanismo di estensione che consente di aggiungere algoritmi specializzati alla fine delle query.
@@ -571,32 +640,32 @@ La colonna espansa ha sempre il tipo dinamico. Usare un cast come `todatetime()`
 Sono supportate due modalità di espansione dei contenitori delle proprietà:
 
 * `bagexpansion=bag`: i contenitori delle proprietà vengono espansi in contenitori delle proprietà a voce singola. Questa è l'espansione predefinita.
-* `bagexpansion=array`: i contenitori delle proprietà vengono espansi in strutture di matrici a due elementi `[`*key*`,`*value*`]`, che consentono l'accesso uniforme alle chiavi e ai valori oltre ad eseguire, ad esempio, un'aggregazione di conteggi di valori univoci sui nomi delle proprietà. 
+* `bagexpansion=array`: i contenitori delle proprietà vengono espansi in strutture di matrici a due elementi `[`*key*`,`*value*`]`, che consentono l'accesso uniforme alle chiavi e ai valori oltre ad eseguire, ad esempio, un'aggregazione di conteggi di valori univoci sui nomi delle proprietà.
 
 **esempi**
 
-    exceptions | take 1 
+    exceptions | take 1
     | mvexpand details[0]
 
 Divide il record di un'eccezione in righe per ogni elemento nel campo dei dettagli.
 
 ### <a name="parse-operator"></a>Operatore parse
-    T | parse "I got 2 socks for my birthday when I was 63 years old" 
+    T | parse "I got 2 socks for my birthday when I was 63 years old"
     with * "got" counter:long " " present "for" * "was" year:long *
 
 
     T | parse kind=relaxed
-          "I got no socks for my birthday when I was 63 years old" 
-    with * "got" counter:long " " present "for" * "was" year:long * 
+          "I got no socks for my birthday when I was 63 years old"
+    with * "got" counter:long " " present "for" * "was" year:long *
 
-    T |  parse kind=regex "I got socks for my 63rd birthday" 
-    with "(I|She) got " present " for .*?" year:long * 
+    T |  parse kind=regex "I got socks for my 63rd birthday"
+    with "(I|She) got " present " for .*?" year:long *
 
 Estrae i valori da una stringa. È possibile usare la corrispondenza con espressioni semplici o regolari.
 
 **Sintassi**
 
-    T | parse [kind=regex|relaxed] SourceText 
+    T | parse [kind=regex|relaxed] SourceText
         with [Match | Column [: Type [*]] ]  ...
 
 **Argomenti**
@@ -844,6 +913,50 @@ Specifica il set di nomi di tabelle disponibili per gli operatori che seguono. A
     restrict access to (e1, e2);
     union * |  take 10 
 
+### <a name="sample-operator"></a>Operatore sample
+
+Restituisce righe casuali distribuite uniformemente dalla tabella di input.
+
+
+**Sintassi**
+
+    T | sample NumerOfRows
+
+* *NumberOfRows* Il numero di righe da restituire nel campione.
+
+**Suggerimento**
+
+Usare `Take` quando non è necessario un campione distribuito in modo uniforme.
+
+
+### <a name="sample-distinct-operator"></a>Operatore sample-distinct
+
+Restituisce una singola colonna che contiene fino al numero specificato di valori distinti della colonna richiesta. Non restituisce attualmente un campione equamente distribuito.
+
+**Sintassi**
+
+    T | sample-distinct NumberOfValues of ColumnName
+
+* *NumberOfValues* La lunghezza della tabella desiderata.
+* *ColumnName* La colonna desiderata.
+
+**Suggerimenti**
+
+Può essere utile campionare una popolazione inserendo sample-distinct in un'istruzione let e filtrando in un secondo momento tramite l'operatore in (vedere l'esempio).
+ 
+Se si vuole estrarre i primi valori anziché solo un campione, è possibile usare l'operatore top-hitters.
+
+Se si vuole campionare le righe di dati (anziché i valori di una specifica colonna), vedere l'[operatore sample](#sample-operator).
+
+**Esempio**
+
+Campionare una popolazione ed eseguire ulteriori calcoli sapendo che il riepilogo non supererà i limiti della query.
+
+```AIQL
+let sampleops = toscalar(requests | sample-distinct 10 of OperationName);
+requests | where OperationName in (sampleops) | summarize total=count() by OperationName
+```
+
 ### <a name="sort-operator"></a>Operatore sort
     T | sort by country asc, price desc
 
@@ -853,7 +966,7 @@ Ordina le righe della tabella input in base a una o più colonne.
 
 **Sintassi**
 
-    T  | sort by Column [ asc | desc ] [ `,` ... ]
+    T  | sort by Column [ asc | desc ] [ , ... ]
 
 **Argomenti**
 
@@ -886,9 +999,9 @@ Tabella che indica quanti elementi presentano prezzi in ogni intervallo [0,10.0]
 **Sintassi**
 
     T | summarize
-         [  [ Column = ] Aggregation [ `,` ... ] ]
+         [  [ Column = ] Aggregation [ , ... ] ]
          [ by
-            [ Column = ] GroupExpression [ `,` ... ] ]
+            [ Column = ] GroupExpression [ , ... ] ]
 
 **Argomenti**
 
@@ -919,7 +1032,7 @@ Restituisce i primi *N* record ordinati in base alle colonne specificate.
 
 **Sintassi**
 
-    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [`nulls first`|`nulls last`] [, ... ]
+    T | top NumberOfRows by Sort_expression [ asc | desc ] [nulls first|nulls last] [, ... ]
 
 **Argomenti**
 
@@ -933,11 +1046,11 @@ Restituisce i primi *N* record ordinati in base alle colonne specificate.
 `top 5 by name` apparentemente equivale a `sort by name | take 5`, ma viene eseguito più rapidamente e restituisce sempre risultati ordinati, mentre `take` non offre questo tipo di garanzia.
 
 ### <a name="top-nested-operator"></a>Operatore top-nested
-    requests 
-    | top-nested 5 of name by count()  
-    , top-nested 3 of performanceBucket by count() 
+    requests
+    | top-nested 5 of name by count()
+    , top-nested 3 of performanceBucket by count()
     , top-nested 3 of client_CountryOrRegion by count()
-    | render barchart 
+    | render barchart
 
 Restituisce i risultati in una gerarchia in cui ogni livello è un drill-down del livello precedente. È utile per rispondere a domande come: "Quali sono le prime 5 richieste e, per ognuna di esse, quali sono i 3 bucket di prestazione principali e, per ognuno di essi, quali sono i primi 3 paesi da cui provengono le richieste?"
 
@@ -1077,17 +1190,54 @@ Si noti che il confronto tra due colonne viene inserito per ultimo, perché non 
 
 **Sintassi**
 
-    T | where col in (expr1, expr2, ...)
-    T | where col !in (expr1, expr2, ...)
+    T | where col in (listExpression)
+    T | where col !in (listExpression)
 
 **Argomenti**
 
 * `col`: una colonna della tabella.
-* `expr1`...: un elenco di espressioni scalari.
+* `listExpression`...: Un elenco di espressioni scalari o un'espressione che restituisce un elenco. 
+
+Una matrice nidificata viene appiattita in un unico elenco, ad esempio `where x in (dynamic([1,[2,3]]))` diventa `where x in (1,2,3)`.
 
 Usare `in` per includere solo le righe in cui `col` è uguale a una delle espressioni `expr1...`.
 
 Usare `!in` per includere solo le righe in cui `col` non è uguale a nessuna delle espressioni `expr1...`.  
+
+**esempi**
+
+```AIQL
+let cities = dynamic(['Dublin','Redmond','Amsterdam']);
+requests | where client_City in (cities) 
+|  summarize count() by client_City
+```
+
+Elenco calcolato:
+
+```AIQL
+let topCities =  toscalar ( // convert single column to value
+   requests
+   | summarize count() by client_City 
+   | top 4 by count_ 
+   | summarize makeset(client_City)) ;
+requests
+| where client_City in (topCities) 
+| summarize count() by client_City;
+```
+
+Uso di una chiamata di funzione come espressione dell'elenco:
+
+```AIQL
+let topCities =  (n:int) {toscalar (
+   requests
+   | summarize count() by client_City 
+   | top n by count_ 
+   | summarize makeset(client_City)) };
+requests
+| where client_City in (topCities(3)) 
+| summarize count() by client_City;
+```
+ 
 
 ## <a name="aggregations"></a>Aggregazioni
 Le aggregazioni sono funzioni usate per combinare i valori in gruppi creati nell' [operazione di riepilogo](#summarize-operator). In questa query, ad esempio, dcount() è una funzione di aggregazione:
@@ -1160,10 +1310,10 @@ Il tipo di colonna dei parametri deve essere `dynamic` : un contenitore di matri
 
 Risultato:
 
-    { "`indexer`":
+    { "indexer":
      {"id":"string",
        "parsedStack":
-       { "`indexer`": 
+       { "indexer": 
          {  "level":"int",
             "assembly":"string",
             "fileName":"string",
@@ -1195,11 +1345,11 @@ Si supponga che la colonna di input abbia tre valori dinamici:
 
 Lo schema risultante sarà:
 
-    { 
-      "x":["int", "string"], 
-      "y":["double", {"w": "string"}], 
-      "z":{"`indexer`": ["int", "string"]}, 
-      "t":{"`indexer`": "string"} 
+    {
+      "x":["int", "string"],
+      "y":["double", {"w": "string"}],
+      "z":{"indexer": ["int", "string"]},
+      "t":{"indexer": "string"}
     }
 
 Lo schema indica che:
@@ -1216,19 +1366,19 @@ Lo schema indica che:
 La sintassi dello schema restituito è:
 
     Container ::= '{' Named-type* '}';
-    Named-type ::= (name | '"`indexer`"') ':' Type;
+    Named-type ::= (name | '"indexer"') ':' Type;
     Type ::= Primitive-type | Union-type | Container;
     Union-type ::= '[' Type* ']';
     Primitive-type ::= "int" | "string" | ...;
 
 Equivalgono a un subset di annotazioni di tipo TypeScript, codificato come valore dinamico. In Typescript, lo schema di esempio sarebbe:
 
-    var someobject: 
-    { 
-      x?: (number | string), 
-      y?: (number | { w?: string}), 
+    var someobject:
+    {
+      x?: (number | string),
+      y?: (number | { w?: string}),
       z?: { [n:number] : (int | string)},
-      t?: { [n:number]: string } 
+      t?: { [n:number]: string }
     }
 
 
@@ -1634,6 +1784,12 @@ L'argomento valutato. Se l'argomento è una tabella, restituisce la prima colonn
     and 
     or 
 
+### <a name="convert-to-boolean"></a>Conversione in valore booleano
+
+Se si ha una stringa `aStringBoolean` che contiene un valore "true" o "false", è possibile convertirla in un valore booleano come indicato di seguito:
+
+    booleanResult = aStringBoolean =~ "true"
+
 
 
 ## <a name="numbers"></a>Numeri
@@ -1785,13 +1941,6 @@ Funzione della radice quadrata.
     toint(a[0])       // cast from dynamic
     toint(b.c)        // cast from dynamic
 
-### <a name="tolong"></a>tolong
-    tolong(20.7) == 20 // conversion from double
-    tolong(20.4) == 20 // conversion from double
-    tolong("  123  ")  // parse string
-    tolong(a[0])       // cast from dynamic
-    tolong(b.c)        // cast from dynamic
-
 
 ### <a name="todouble"></a>todouble
     todouble(20) == 20.0 // conversion from long or int
@@ -1799,6 +1948,13 @@ Funzione della radice quadrata.
     todouble(a[0])       // cast from dynamic
     todouble(b.c)        // cast from dynamic
 
+
+### <a name="tolong"></a>tolong
+    tolong(20.7) == 20 // conversion from double
+    tolong(20.4) == 20 // conversion from double
+    tolong("  123  ")  // parse string
+    tolong(a[0])       // cast from dynamic
+    tolong(b.c)        // cast from dynamic
 
 
 ## <a name="date-and-time"></a>Data e ora
@@ -2066,7 +2222,7 @@ h"hello"
 | --- | --- | --- | --- |
 | `==` |Uguale a |Sì |`"aBc" == "aBc"` |
 | `<>` `!=` |Non uguale a |Sì |`"abc" <> "ABC"` |
-| `=~` |Uguale a |No |`"abc" =~ "ABC"` |
+| `=~` |Uguale a |No |`"abc" =~ "ABC"` <br/>`boolAsString =~ "true"` |
 | `!~` |Non uguale a |No |`"aBc" !~ "xyz"` |
 | `has` |RHS (Right-Hand-Side) è un termine intero in LHS (Left-Hand-Side) |No |`"North America" has "america"` |
 | `!has` |RHS non è un termine completo in LHS |No |`"North America" !has "amer"` |
@@ -2375,8 +2531,8 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
     | summarize count() 
       by toint(details[0].parsedStack[0].line)
 
-    exceptions 
-    | summarize count() 
+    exceptions
+    | summarize count()
       by tostring(details[0].parsedStack[0].assembly)
 
 **Valori letterali:** per creare una matrice esplicita o un oggetto contenitore delle proprietà, scrivere l'elemento come stringa JSON ed eseguire il cast.
@@ -2386,7 +2542,7 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
 
 **mvexpand:** per suddividere le proprietà di un oggetto in righe separate, usare mvexpand.
 
-    exceptions | take 1 
+    exceptions | take 1
     | mvexpand details[0].parsedStack[0]
 
 
@@ -2394,8 +2550,8 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
 
 **treepath:** per trovare tutti i percorsi in un oggetto complesso:
 
-    exceptions | take 1 | project timestamp, details 
-    | extend path = treepath(details) 
+    exceptions | take 1 | project timestamp, details
+    | extend path = treepath(details)
     | mvexpand path
 
 
@@ -2407,10 +2563,10 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
 
 Risultato:
 
-    { "`indexer`":
+    { "indexer":
      {"id":"string",
        "parsedStack":
-       { "`indexer`": 
+       { "indexer":
          {  "level":"int",
             "assembly":"string",
             "fileName":"string",
@@ -2436,7 +2592,7 @@ Si noti che `indexer` indica il punto in cui è necessario usare un indice numer
 Per creare un valore letterale dinamico, usare `parsejson` (alias `todynamic`) con un argomento di stringa JSON:
 
 * `parsejson('[43, 21, 65]')` : una matrice di numeri
-* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')` 
+* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')`
 * `parsejson('21')` : un singolo valore di tipo dinamico che contiene un numero
 * `parsejson('"21"')` : un singolo valore di tipo dinamico che contiene una stringa
 
@@ -2681,6 +2837,6 @@ Racchiudere tra virgolette un nome con [' ... '] o [" ... "] per includere altri
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

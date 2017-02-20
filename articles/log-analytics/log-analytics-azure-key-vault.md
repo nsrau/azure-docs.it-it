@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: a631b409fed14bcfce39ca4180b00a0d23d5caf2
-ms.openlocfilehash: 52cd04e34f17884a39979279798debbe8f018aa2
+ms.sourcegitcommit: b781d7b8cbf3f6b9a0a92f4368491404ee033f91
+ms.openlocfilehash: a6612d59d9504b1befd691f3b784ac9378c2b414
 
 
 ---
@@ -130,7 +130,7 @@ La soluzione Insieme di credenziali delle chiavi di Azure analizza i record con 
 ## <a name="migrating-from-the-old-key-vault-solution"></a>Migrazione dalla soluzione Key Vault precedente
 Nel gennaio 2017, il metodo supportato per l'invio dei log da Key Vault a Log Analytics è cambiato. In questo modo si otterranno i vantaggi seguenti:
 + I log vengono scritti direttamente in Log Analytics senza la necessità di utilizzare un account di archiviazione
-+ Minore latenza dal momento in cui i log vengono generati a quando sono disponibili in Log Analytics
++ Minore latenza dal momento in cui i log vengono generati essendo immediatamente disponibili in Log Analytics
 + Meno passaggi di configurazione
 + Un formato comune per tutti i tipi di diagnostica di Azure
 
@@ -150,12 +150,15 @@ Per utilizzare la soluzione aggiornata:
 
 I dati raccolti prima della modifica non sono visibili nella nuova soluzione. È possibile continuare a eseguire query per questi dati utilizzando i nomi di campo e il tipo vecchi.
 
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+[!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
+
 ## <a name="next-steps"></a>Passaggi successivi
 * Usare le [Ricerche nei log in Log Analytics](log-analytics-log-searches.md) per visualizzare i dati dettagliati per l'Insieme di credenziali delle chiavi di Azure.
 
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

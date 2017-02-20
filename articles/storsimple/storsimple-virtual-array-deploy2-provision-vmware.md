@@ -4,7 +4,7 @@ description: Questa seconda esercitazione sulla serie di distribuzione di StorSi
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/12/2017
+ms.date: 02/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: 2c9411312f561d03ab6bd29e8e007db309cb5f00
+ms.sourcegitcommit: 37f2816cb1fa9c7db43359f16669e6521b0fe46a
+ms.openlocfilehash: 655c00e3042cca78872df052cb89bab43fbc35a4
 
 ---
 # <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-vmware"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning di un array virtuale in VMware
@@ -43,7 +43,7 @@ Prima di distribuire un dispositivo virtuale, è necessario:
 * Il sistema host è in grado di dedicare le risorse seguenti per eseguire il provisioning del dispositivo virtuale:
 
   * Un minimo di 4 memorie centrali.
-  * Almeno 8 GB di RAM.
+  * Almeno 8 GB di RAM. Se si prevede di configurare la matrice virtuale come file server, 8 GB supportano poco meno di 2 milioni di file. Sono necessari 16 GB di RAM per supportare 2-4 milioni di file.
   * Un'interfaccia di rete.
   * Un disco virtuale da 500 GB per i dati di sistema.
 
@@ -66,7 +66,7 @@ Per creare un dispositivo virtuale, è necessario:
 * Client VMware vSphere nel sistema per gestire l'host ESXi.
 
   * Un minimo di 4 memorie centrali.
-  * Almeno 8 GB di RAM.
+  * Almeno 8 GB di RAM. Se si prevede di configurare la matrice virtuale come file server, 8 GB supportano poco meno di 2 milioni di file. Sono necessari 16 GB di RAM per supportare 2-4 milioni di file.
   * Un'interfaccia di rete connessa alla rete in grado di indirizzare il traffico a Internet. La larghezza di banda minima di Internet deve essere di 5 Mbps e consentire un funzionamento ottimale del dispositivo.
   * Un disco virtuale da 500 GB per i dati.
 
@@ -77,6 +77,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 
    1. Assicurarsi che il file di immagine scaricato sia il più recente. Se l'immagine è stata scaricata prima, scaricarla di nuovo per essere certi di avere quella più recente. L'immagine più recente ha due file (invece di uno).
    2. Prendere nota della posizione in cui è stata copiata l'immagine da usare più avanti nella procedura.
+
 2. Accedere al server ESXi tramite il client di vSphere. È necessario disporre dei privilegi di amministratore per creare una macchina virtuale.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image1.png)
@@ -243,6 +244,6 @@ In presenza di altri errori durante la configurazione iniziale con l'interfaccia
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

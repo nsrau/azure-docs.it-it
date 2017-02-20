@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 84d52dccef4e2d9a1ae253831b5d8f86b6fb50a6
-ms.openlocfilehash: 489067e44525532f2913f44156a5eeb19214d250
+ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
+ms.openlocfilehash: 393b7e44b21fe510e07b4048ddd3bdbcc31d90a9
 
 
 ---
@@ -27,10 +27,8 @@ ms.openlocfilehash: 489067e44525532f2913f44156a5eeb19214d250
 
 Informazioni su come creare cluster Hadoop basati su Windows in HDInsight usando l'interfaccia della riga di comando di Azure. 
 
-Le informazioni contenute in questo articolo si applicano solo ai cluster HDInsight basati su Windows. Per informazioni sulla creazione di cluster basati su Linux, vedere [Creare cluster Hadoop in HDInsight tramite l'interfaccia della riga di comando di Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
-
 > [!IMPORTANT]
-> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Le informazioni contenute in questo articolo si applicano solo ai cluster HDInsight basati su Windows. Per informazioni sulla creazione di cluster basati su Linux, vedere [Creare cluster Hadoop in HDInsight tramite l'interfaccia della riga di comando di Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
 ## <a name="prerequisites"></a>Prerequisiti:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -134,7 +132,7 @@ Creare un cluster con un'azione script
 Per informazioni generali sull'azione di script, vedere [Personalizzare cluster HDInsight mediante l'azione script (Linux)](hdinsight-hadoop-customize-cluster.md).
 
 ## <a name="create-clusters-using-resource-manager-templates"></a>Creare cluster usando i modelli di Resource Manager
-È possibile usare l'interfaccia della riga di comando per creare cluster chiamando modelli di Gestione risorse di Azure. Vedere [Distribuire con l'interfaccia della riga di comando di Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli).
+È possibile usare l'interfaccia della riga di comando per creare cluster chiamando i modelli di Azure Resource Manager. Vedere [Distribuire con l'interfaccia della riga di comando di Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli).
 
 ## <a name="see-also"></a>Vedere anche
 * [Introduzione all'uso di Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) - Informazioni su come iniziare a usare il cluster HDInsight
@@ -145,6 +143,6 @@ Per informazioni generali sull'azione di script, vedere [Personalizzare cluster 
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

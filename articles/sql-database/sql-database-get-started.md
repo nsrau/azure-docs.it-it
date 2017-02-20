@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 02/04/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 535b16490bb601070c7d2a7135f3d69aa898be1f
-ms.openlocfilehash: 10a128ea56ea014cf72036f71ec97202691bec94
+ms.sourcegitcommit: 6453cca9f876e6c363fbed463263c0f9684a3e70
+ms.openlocfilehash: b838974de06ecbc751254064e2310df51c450086
 
 
 ---
@@ -39,9 +39,9 @@ Questa esercitazione introduttiva illustra come eseguire queste operazioni:
 * [Eliminare un database](sql-database-get-started.md#delete-a-single-database) 
 
 
-Al termine di questa esercitazione introduttiva, saranno disponibili un database di esempio e un database vuoto in esecuzione in un gruppo di risorse di Azure e collegato a un server logico. Saranno anche disponibili due regole del firewall di livello server configurate per abilitare l'entità a livello server per l'accesso al server da due indirizzi IP specificati. 
+In questa esercitazione introduttiva vengono creati un database di esempio e un database vuoto in esecuzione in un gruppo di risorse di Azure e vengono collegati a un server logico. Vengono anche create due regole firewall a livello di server configurate per abilitare l'entità di sicurezza a livello di server per l'accesso al server da due indirizzi IP specificati. Infine, l'esercitazione illustra come eseguire query in un database nel portale di Azure e come connettersi ed eseguire query tramite SQL Server Management Studio. 
 
-**Tempo stimato**: per questa esercitazione saranno necessari circa 30 minuti (presupponendo che i prerequisiti siano già soddisfatti).
+**Tempo stimato**: per questa esercitazione sono necessari circa 30 minuti, presupponendo che i prerequisiti siano già soddisfatti.
 
 > [!TIP]
 > Per eseguire le stesse attività è possibile usare [C#](sql-database-get-started-csharp.md) o [PowerShell](sql-database-get-started-powershell.md).
@@ -88,7 +88,7 @@ Seguire questa procedura per creare un nuovo server logico con il portale di Azu
     ![nuovo nome server](./media/sql-database-get-started/new-server-name.png)
 
     > [!IMPORTANT]
-    > Il nome completo per il nuovo server sarà <nome_server>.database.windows.net.
+    > Il nome completo per il nuovo server è nel formato <nome_server>.database.windows.net.
     >
     
 4. Nella casella di testo Account di accesso amministratore server specificare un nome utente per l'account di accesso con autenticazione SQL per questo server. Questo è noto come account di accesso dell'entità server. Un segno di spunta verde indica che è stato specificato un nome valido.
@@ -118,7 +118,7 @@ Seguire questa procedura per creare un nuovo server logico con il portale di Azu
 
 ## <a name="view-the-logical-server-properties"></a>Visualizzare le proprietà del server logico
 
-Seguire questa procedura per visualizzare le proprietà del server con il portale di Azure. Il nome completo del server sarà necessario per connettere il server in una procedura successiva. 
+Seguire questa procedura per visualizzare le proprietà del server con il portale di Azure. Il nome completo del server è necessario per connettere il server in una procedura successiva. 
 
 1. Nel portale di Azure fare clic su **Altri servizi**.
 
@@ -196,7 +196,7 @@ Seguire questa procedura per connettersi al server logico per SQL Server con SQL
 
 ## <a name="create-a-database-with-sample-data"></a>Creare un database con dati di esempio
 
-Seguire questa procedura per creare un database con dati di esempio con il portale di Azure. Verrà creato un database associato al server logico creato in precedenza. Se il livello di servizio Basic non è disponibile nell'area in cui è stato creato il server, eliminare il server e crearlo di nuovo in un'altra area. Per informazioni sui passaggi di eliminazione, vedere l'ultima procedura di questa esercitazione.
+Seguire questa procedura per creare un database con dati di esempio con il portale di Azure. Viene creato un database associato al server logico creato in precedenza. Se il livello di servizio Basic non è disponibile nell'area in cui è stato creato il server, eliminare il server e crearlo di nuovo in un'altra area. Per informazioni sui passaggi di eliminazione, vedere l'ultima procedura di questa esercitazione.
 
 1. Nel portale di Azure fare clic su **Database SQL** nel pannello predefinito.
 
@@ -275,7 +275,8 @@ Seguire questa procedura per eseguire query nel database con l'Editor di query n
 
    ```select * from sys.objects```
 
-    ![Query dell'Editor di query](./media/sql-database-get-started/query-editor-query.png) 10 clic **Esegui**.
+    ![Query dell'Editor di query](./media/sql-database-get-started/query-editor-query.png)
+10.  Fare clic su **Run**.
 11. Verificare i risultati della query nel riquadro **Risultati**.
 
     ![Risultati dell'Editor di query](./media/sql-database-get-started/query-editor-results.png)
@@ -348,7 +349,7 @@ Seguire questa procedura per eliminare un singolo database con il portale di Azu
     ![delete-database-yes](./media/sql-database-get-started/delete-database-yes.png)
 
 > [!TIP]
-> Durante il periodo di conservazione per il database è possibile ripristinarlo dai backup automatici avviati dal servizio. È possibile ripristinare i database dell'edizione Basic in sette giorni. Tuttavia, non eliminare un server. In tal caso, è possibile ripristinare il server o i relativi database eliminati. Per altre informazioni sui backup dei database, vedere [Informazioni sul backup del database SQL](sql-database-automated-backups.md) e per informazioni sul ripristino di un database dai backup, vedere [Ripristino del database](sql-database-recovery-using-backups.md). Per informazioni pratiche sul ripristino di un database eliminato, vedere [Ripristinare un database SQL di Azure eliminato - Portale di Azure](sql-database-restore-deleted-database-portal.md).
+> Durante il periodo di conservazione per il database è possibile ripristinarlo dai backup automatici avviati dal servizio. È possibile ripristinare i database dell'edizione Basic in sette giorni. Tuttavia, non eliminare un server. In tal caso, è possibile ripristinare il server o i relativi database eliminati. Per altre informazioni sui backup dei database, vedere [Informazioni sul backup del database SQL](sql-database-automated-backups.md) e per informazioni sul ripristino di un database dai backup, vedere [Ripristino del database](sql-database-recovery-using-backups.md). Per informazioni pratiche sul ripristino di un database eliminato, vedere [Ripristinare un database SQL di Azure con il portale di Azure](sql-database-restore-deleted-database-portal.md).
 >
 
 
@@ -372,6 +373,6 @@ Dopo aver completato questa esercitazione, sono disponibili numerose altre eserc
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

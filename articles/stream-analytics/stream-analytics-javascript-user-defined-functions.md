@@ -15,20 +15,20 @@ ms.workload: data-services
 ms.date: 02/01/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 822f0870396e1fa5fe2dfee3bae410aad3da1122
-ms.openlocfilehash: 959fd48cb7d7f21385f6eea21f79ad26e8164bc0
+ms.sourcegitcommit: 83b267a610a1d910fab09f8e42f079d269e3f0bb
+ms.openlocfilehash: e11e6070002275544fa5a82923cdcad4412e40b7
 
 ---
 
 # <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure
-L'Analisi di flusso di Azure supporta le funzioni definite dall'utente nel linguaggio JavaScript. Con la vasta gamma di metodi String, RegExp, Math, Array e Date offerti da JavaScript, risulta più facile creare trasformazioni di dati complessi con processo di Analisi di flusso.
+L'Analisi di flusso di Azure supporta le funzioni definite dall'utente nel linguaggio JavaScript. Con la vasta gamma di metodi String, RegExp, Math, Array e Date offerti da JavaScript, risulta più facile creare trasformazioni di dati complessi con processi di Analisi di flusso.
 
 ## <a name="overview"></a>Panoramica
 Le funzioni JavaScript definite dall'utente supportano funzioni senza stato e di solo calcolo che non richiedono connettività esterna. Il valore restituito di una funzione può essere solo un valore scalare singolo. Una volta aggiunta al processo, la funzione può essere usata ovunque nella query, come una funzione scalare predefinita.
 
 Ecco alcuni scenari di esempio in cui risultano utili le funzioni JavaScript definite dall'utente:
 * Analisi e manipolazione delle stringhe con funzioni di espressione regolare, ad esempio Regexp_Replace() e Regexp_Extract()
-* Decodifica di una codifica dati, ad esempio la conversione dal formato binario al formato esadecimale
+* Decodifica e codifica dati, ad esempio conversione dal formato binario al formato esadecimale
 * Calcoli matematici con funzioni matematiche di JavaScript
 * Operazioni di matrice come ordinamento, aggiunta, ricerca e riempimento
 
@@ -79,13 +79,13 @@ I passaggi seguenti illustrano come creare una semplice funzione JavaScript defi
         InputStream
     ```
 
-3.  Fare clic con il tasto destro del mouse sull'input del processo per caricare un file di dati di esempio 
+3.  Fare clic con il tasto destro del mouse sull'input del processo per caricare un file di dati di esempio.
  
 4.  Fare clic su **Test** per testare la query.
 
 
 ## <a name="supported-javascript-objects"></a>Oggetti JavaScript supportati
-La funzione JavaScript definita dall'utente in Analisi di flusso di Azure supporta gli oggetti predefiniti standard del linguaggio JavaScript. Per l'elenco di oggetti, fare riferimento al documento in [Oggetti globali](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
+La funzione UDF JavaScript definita dall'utente in Analisi di flusso di Azure supporta gli oggetti predefiniti standard del linguaggio JavaScript. Per l'elenco di oggetti, fare riferimento al documento in [Oggetti globali](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
 
 ### <a name="stream-analytics-and-javascript-type-conversion"></a>Conversione dei tipi di Analisi di flusso e JavaScript
 
@@ -156,6 +156,7 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+
 
 
 <!--HONumber=Feb17_HO1-->

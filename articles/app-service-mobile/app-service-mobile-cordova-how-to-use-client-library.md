@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 314170f8d1ef228817543a80b99f4c2ff282866f
-ms.openlocfilehash: 8c783fc8e789ec31f0b8f4db90b5fa67334d95ab
+ms.sourcegitcommit: 013956232d1fdfdc1f35741c25294a37b7e9bd92
+ms.openlocfilehash: 61aa9e5c004decff18337efe3b1baacfcf9279dc
 
 
 ---
-# <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Come usare la libreria client Apache Cordova per le app per dispositivi mobili di Azure
+# <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Come usare la libreria client Apache Cordova per App per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 Questa guida descrive come eseguire scenari comuni usando il più recente [plug-in Apache Cordova per le app per dispositivi mobili di Azure]. Se non si ha familiarità con le app per dispositivi mobili di Azure, completare prima di tutto l' [esercitazione introduttiva sulle app per dispositivi mobili di Azure] per creare un back-end e una tabella e per scaricare un progetto Apache Cordova predefinito. In questa guida si esaminerà il plug-in Apache Cordova.
@@ -41,6 +41,32 @@ cordova plugin add cordova-plugin-ms-azure-mobile-apps
 ```
 
 Per altre informazioni sulla creazione della [prima app Apache Cordova], vedere la relativa documentazione.
+
+## <a name="a-nameionicasetting-up-an-ionic-v2-app"></a><a name="ionic"></a>Configurazione di un'app Ionic v2
+
+Per configurare correttamente un progetto Ionic v2, innanzitutto creare un'applicazione di base e aggiungere il plug-in Cordova:
+
+```
+ionic start projectName --v2
+cd projectName
+ionic plugin add cordova-plugin-ms-azure-mobile-apps
+```
+
+Aggiungere le seguenti righe a `app.component.ts` per creare l'oggetto client:
+
+```
+declare var WindowsAzure: any;
+var client = new WindowsAzure.MobileServiceClient("https://yoursite.azurewebsites.net");
+```
+
+È ora possibile compilare ed eseguire il progetto nel browser:
+
+```
+ionic platform add browser
+ionic run browser
+```
+
+Il plug-in Cordova di App per dispositivi mobili di Azure supporta le app Ionic sia v1 che v2.  Solo le app Ionic v2 richiedono la dichiarazione aggiuntiva per l'oggetto `WindowsAzure`.
 
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
@@ -158,6 +184,6 @@ Usare Notification Hubs SDK per inviare notifiche push dal server.  Non inviare 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

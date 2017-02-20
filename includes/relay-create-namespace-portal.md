@@ -2,11 +2,11 @@
 2. Nel riquadro di spostamento sinistro del portale fare clic su **Nuovo**, quindi su **Enterprise Integration** e infine su **Inoltro**.
 3. Nella finestra di dialogo **Crea spazio dei nomi** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
 4. Nel campo **Sottoscrizione** scegliere una sottoscrizione di Azure in cui creare lo spazio dei nomi.
-5. Nel campo **[Gruppo di risorse](../articles/azure-portal/resource-group-portal.md)** scegliere un gruppo di risorse esistente nel quale risiederà lo spazio dei nomi oppure crearne uno nuovo.      
+5. Nel campo **[Gruppo di risorse](../articles/azure-resource-manager/resource-group-portal.md)** scegliere un gruppo di risorse esistente nel quale risiederà lo spazio dei nomi oppure crearne uno nuovo.      
 6. In **Località**scegliere il paese o l'area in cui deve essere ospitato lo spazio dei nomi.
    
     ![Crea spazio dei nomi][create-namespace]
-7. Fare clic su **Crea**. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
+7. Fare clic su **Crea**. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Dopo alcuni minuti, il sistema effettua il provisioning delle risorse per l'account.
 
 ### <a name="obtain-the-management-credentials"></a>Ottenere le credenziali di gestione
 1. Nell'elenco degli spazi dei nomi fare clic sul nome dello spazio dei nomi appena creato.
@@ -25,11 +25,9 @@
 [create-namespace]: ./media/relay-create-namespace-portal/create-namespace.png
 [connection-info]: ./media/relay-create-namespace-portal/connection-info.png
 [connection-string]: ./media/relay-create-namespace-portal/connection-string.png
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
 [Azure portal]: https://portal.azure.com
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

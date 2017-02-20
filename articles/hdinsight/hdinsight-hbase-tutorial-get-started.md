@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione di HBase: Introduzione a HBase in Hadoop | Documentazione Microsoft'
+title: 'Esercitazione su HBase: Introduzione ai cluster HBase basati su Windows in Hadoop | Documentazione Microsoft'
 description: Seguire questa esercitazione di HBase per iniziare a usare Apache HBase con Hadoop in HDInsight. Creare tabelle dalla shell HBase e sottoporle a query tramite Hive.
 keywords: Apache hbase, hbase, shell di hbase, esercitazione hbase
 services: hdinsight
@@ -13,25 +13,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 501c44ff8db2b825b58d98b9b89219ec9fff8b7c
-ms.openlocfilehash: 6384d7b0f4851ce4d1612857203e7c3c1381d6fc
+ms.sourcegitcommit: 541c06240f0c437ad92ea955caee67456851a6e1
+ms.openlocfilehash: 59aee407be91279276ec6eaafed608e354030676
 
 
 ---
 # <a name="hbase-tutorial-get-started-using-apache-hbase-with-windows-based-hadoop-in-hdinsight"></a>Esercitazione su HBase: Introduzione all'uso di Apache HBase con Hadoop basato su Windows in HDInsight
-[!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
 Informazioni su come creare cluster HBase in HDInsight, creare tabelle HBase ed eseguire query usando Apache Hive. Per informazioni generali su HBase, vedere [Panoramica di HDInsight HBase][hdinsight-hbase-overview].
 
-Le informazioni contenute in questo documento sono specifiche per i cluster HDInsight basati su Windows. Per informazioni sui cluster basati su Windows, usare il selettore di schede in alto nella pagina per passare alla scheda specifica.
-
-> [!NOTE]
-> HBase (versione 0.98.0) in HDInsight basato su Windows è disponibile solo per l'uso con cluster HDInsight 3.1 (basati su Apache Hadoop e YARN 2.4.0). Per informazioni sulla versione, vedere l'articolo relativo alle [novità delle versioni cluster di Hadoop incluse in HDInsight][hdinsight-versions].
-> 
-> 
+> [!IMPORTANT]
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Le informazioni contenute in questo documento sono specifiche per i cluster HDInsight basati su Windows. Per informazioni sui cluster basati su Linux, vedere [Esercitazione di HBase: Introduzione all'uso di Apache HBase in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -82,11 +77,11 @@ Attualmente, esistono due modi per accedere a HBase. In questa sezione viene ill
 
 Per la maggior parte delle persone, i dati vengono visualizzati in formato tabulare:
 
-![dati tabulari hbase di hdinsight][img-hbase-sample-data-tabular]
+![Tabella con dati tabulari HBase di HDInsight][img-hbase-sample-data-tabular]
 
 In HBase, che rappresenta un'implementazione di BigTable, gli stessi dati sono simili a:
 
-![dati bigtable hbase di hdinsight][img-hbase-sample-data-bigtable]
+![Tabella con dati bigtable HBase di HDInsight][img-hbase-sample-data-bigtable]
 
 Ciò può essere più utile dopo avere completato la procedura successiva.  
 
@@ -110,7 +105,7 @@ Ciò può essere più utile dopo avere completato la procedura successiva.
         put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
         scan 'Contacts'
    
-    ![shell hbase di hdinsight hadoop][img-hbase-shell]
+    ![Shell HBase Hadoop di HDInsight][img-hbase-shell]
 6. Ottenere una singola riga
    
         get 'Contacts', '1000'
@@ -329,6 +324,6 @@ Per altre informazioni, vedere:
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

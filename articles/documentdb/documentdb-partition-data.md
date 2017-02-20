@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 01/16/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1d65fbb7278adc014ba6a655385396ace87f568e
+ms.sourcegitcommit: ec72d5df2fc220638773286e76c25b4b013cce63
+ms.openlocfilehash: 4f96f7392442c31888b79d0284b6d2d58d292e86
 
 
 ---
@@ -31,6 +31,11 @@ Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 
 Per iniziare a usare il codice, scaricare il progetto dall'esempio relativo al [driver del test delle prestazioni di DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
 
+Il partizionamento e le chiavi di partizione sono illustrati anche in questo video di Azure Friday con Scott Hanselman e Shireesh Thota, responsabile principale della progettazione di DocumentDB.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-DocumentDB-Elastic-Scale-Partitioning/player]
+> 
+
 ## <a name="partitioning-in-documentdb"></a>Partizionamento in DocumentDB
 In DocumentDB è possibile archiviare ed eseguire query di documenti JSON senza schema con tempi di risposta dell'ordine di millisecondi su qualsiasi scala. DocumentDB offre contenitori per l'archiviazione di dati denominati **raccolte**. Le raccolte sono risorse logiche e possono comprendere una o più partizioni fisiche o server. Il numero di partizioni è determinato da DocumentDB in base allo spazio di archiviazione e alla velocità effettiva con provisioning della raccolta. Ogni partizione in DocumentDB dispone di una quantità fissa di archiviazione supportata da unità SSD associata a essa e viene replicata per la disponibilità elevata. Le partizioni vengono completamente gestite da Azure DocumentDB e non è necessario scrivere script di codice complessi o gestire le partizioni. Le raccolte di DocumentDB sono **praticamente illimitate** in termini di spazio di archiviazione e di velocità effettiva. 
 
@@ -40,7 +45,7 @@ Come funziona? Quando viene creata una raccolta in DocumentDB, viene visualizzat
 
 Ad esempio, si consideri un'applicazione che archivia i dati sui dipendenti e i relativi reparti in DocumentDB. Scegliere `"department"` come proprietà chiave di partizione per scalare orizzontalmente i dati in base al reparto. Ogni documento in DocumentDB deve contenere una proprietà `"id"` obbligatoria che deve essere univoca per ogni documento con lo stesso valore della chiave di partizione, ad esempio `"Marketing`". Ogni documento archiviato in una raccolta deve avere una combinazione univoca di chiave di partizione e ID, ad esempio `{ "Department": "Marketing", "id": "0001" }`, `{ "Department": "Marketing", "id": "0002" }` e `{ "Department": "Sales", "id": "0001" }`. In altre parole, la proprietà composta (chiave di partizione, id) è la chiave primaria per la raccolta.
 
-### <a name="partition-keys"></a>Chiavi di partizione
+## <a name="partition-keys"></a>Chiavi di partizione
 La scelta della chiave di partizione è una decisione importante da prendere in fase di progettazione. È necessario scegliere un nome della proprietà JSON che contiene un'ampia gamma di valori e probabilmente modelli di accesso distribuiti in modo uniforme. La chiave di partizione viene specificata come percorso JSON, ad esempio `/department` rappresenta la proprietà reparto. 
 
 La tabella seguente mostra esempi di definizioni della chiave di partizione e i valori JSON corrispondenti a ciascuna definizione.
@@ -77,7 +82,7 @@ La tabella seguente mostra esempi di definizioni della chiave di partizione e i 
 
 Di seguito viene esaminato come la scelta della chiave di partizione influisce sulle prestazioni dell'applicazione.
 
-### <a name="partitioning-and-provisioned-throughput"></a>Partizionamento e velocità effettiva con provisioning
+## <a name="partitioning-and-provisioned-throughput"></a>Partizionamento e velocità effettiva con provisioning
 DocumentDB è progettato per prestazioni prevedibili. Quando si crea una raccolta, la velocità effettiva viene riservata in termini di **[unità richiesta](documentdb-request-units.md) (UR) al secondo**. A ogni richiesta viene assegnato un addebito delle unità richiesta proporzionato alla quantità di risorse di sistema, come CPU e I/O usati dall'operazione. La lettura di un documento di 1 KB con coerenza di sessione usa 1 unità richiesta. Un'operazione di lettura corrisponde a 1 RU indipendentemente dal numero di elementi archiviati o dal numero di richieste simultanee in esecuzione contemporaneamente. Documenti di dimensioni maggiori richiedono più unità richiesta a seconda delle dimensioni. Se si conoscono le dimensioni delle entità e il numero di letture che è necessario supportare per l'applicazione, è possibile eseguire il provisioning della quantità esatta di velocità effettiva necessaria per le esigenze di lettura dell'applicazione. 
 
 Quando DocumentDB archivia i documenti, li distribuisce in modo uniforme tra le partizioni in base al valore della chiave di partizione. Anche la velocità effettiva viene distribuita in modo uniforme tra le partizioni disponibili, ad esempio la velocità effettiva per ogni partizione = (velocità effettiva totale per ogni raccolta)/(numero di partizioni). 
@@ -90,14 +95,12 @@ Quando DocumentDB archivia i documenti, li distribuisce in modo uniforme tra le 
 ## <a name="single-partition-and-partitioned-collections"></a>Raccolte a partizione singola e raccolte partizionate
 DocumentDB supporta la creazione di raccolte a partizione singola e raccolte partizionate. 
 
-* **raccolte partizionate** possono comprendere più partizioni e supportare uno spazio di archiviazione e una velocità effettiva molto elevati. È necessario specificare una chiave di partizione per la raccolta.
-* **raccolte a partizione singola** hanno opzioni di prezzo inferiori e la capacità di eseguire query e transazioni su tutti i dati della raccolta. Hanno i limiti di scalabilità e archiviazione di una partizione singola. Non è necessario specificare una chiave di partizione per queste raccolte. 
+* Le **raccolte partizionate** possono comprendere più partizioni e supportare risorse di archiviazione e velocità effettiva senza limiti. È necessario specificare una chiave di partizione per la raccolta. 
+* Le **raccolte a partizione singola** offrono opzioni a prezzo più basso, ma sono limitate a livello di risorse di archiviazione e velocità effettiva massime e minime. Non è necessario specificare una chiave di partizione per queste raccolte. È consigliabile usare le raccolte partizionate rispetto alle raccolte a partizione singola per tutti gli scenari, ad eccezione delle situazioni in cui è prevista solo una quantità ridotta di risorse di archiviazione di dati e di richieste.
 
 ![Raccolte partizionate in DocumentDB][2] 
 
-Per gli scenari che non richiedono volumi elevati di archiviazione o velocità effettiva, le raccolte a partizione singola rappresentano la soluzione ideale. Si noti che le raccolte a partizione singola hanno la scalabilità e i limiti di archiviazione di una partizione singola, ovvero fino a 10 GB di spazio di archiviazione e fino a 10.000 unità richiesta al secondo. 
-
-Le raccolte partizionate possono supportare uno spazio di archiviazione e una velocità effettiva molto elevati. Tuttavia, vengono configurate offerte predefinite per archiviare fino a 250 GB e scalare fino a 250.000 unità richiesta al secondo. Se è necessario uno spazio di archiviazione o una velocità effettiva maggiore per ogni raccolta, contattare il [supporto di Azure](documentdb-increase-limits.md) per richiedere tale ampliamento per l'account.
+Le raccolte partizionate possono supportare risorse di archiviazione e velocità effettiva senza limiti.
 
 La tabella seguente elenca le differenze nell'uso di raccolte a partizione singola e raccolte partizionate:
 
@@ -126,7 +129,7 @@ La tabella seguente elenca le differenze nell'uso di raccolte a partizione singo
         <tr>
             <td valign="top"><p>Archiviazione massima</p></td>
             <td valign="top"><p>10 GB</p></td>
-            <td valign="top"><p>Senza limiti (250 GB per impostazione predefinita)</p></td>
+            <td valign="top"><p>Senza limiti</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Velocità effettiva minima</p></td>
@@ -136,7 +139,7 @@ La tabella seguente elenca le differenze nell'uso di raccolte a partizione singo
         <tr>
             <td valign="top"><p>Velocità effettiva massima</p></td>
             <td valign="top"><p>10.000 unità richiesta al secondo</p></td>
-            <td valign="top"><p>Senza limiti (250.000 unità richiesta al secondo per impostazione predefinita)</p></td>
+            <td valign="top"><p>Senza limiti</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Versioni dell'API</p></td>
@@ -285,8 +288,8 @@ Nella sezione successiva verrà illustrato come passare alle raccolte partiziona
 
 <a name="migrating-from-single-partition"></a>
 
-### <a name="migrating-from-single-partition-to-partitioned-collections"></a>Migrazione da raccolte a partizione singola a raccolte partizionate
-Quando un'applicazione che usa una raccolta a partizione singola necessita di una velocità effettiva più alta (> 10.000 UR/secondo) o di uno spazio di archiviazione dati maggiore (> 10 GB), è possibile usare lo [strumento di migrazione dati di DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) per eseguire la migrazione dei dati dalla raccolta a partizione singola a una raccolta partizionata. 
+## <a name="migrating-from-single-partition-to-partitioned-collections"></a>Migrazione da raccolte a partizione singola a raccolte partizionate
+Quando un'applicazione che usa una raccolta a partizione singola necessita di una velocità effettiva più alta (>&10;.000 UR/secondo) o di uno spazio di archiviazione dati maggiore (>&10; GB), è possibile usare lo [strumento di migrazione dati di DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) per eseguire la migrazione dei dati dalla raccolta a partizione singola a una raccolta partizionata. 
 
 Per eseguire la migrazione da una raccolta a partizione singola a una raccolta partizionata
 
@@ -309,7 +312,7 @@ La scelta della chiave di partizione è una decisione importante da prendere in 
 La scelta della chiave di partizione deve bilanciare la necessità di consentire l'uso di transazioni rispetto al requisito di distribuire le entità tra più chiavi di partizione per garantire una soluzione scalabile. Da una parte, è possibile impostare la stessa chiave di partizione per tutti i documenti. Tuttavia, questa scelta potrebbe limitare la scalabilità della soluzione. Dall'altra parte, è possibile assegnare a ogni documento una chiave di partizione univoca. In questo modo, la soluzione risulterebbe altamente scalabile, ma impedirebbe di usare transazioni tra documenti diversi mediante stored procedure e trigger. Una chiave di partizione ideale consente di usare query efficienti e dispone di una quantità sufficiente di cardinalità per garantire la scalabilità della soluzione. 
 
 ### <a name="avoiding-storage-and-performance-bottlenecks"></a>Come evitare colli di bottiglia per l'archiviazione e le prestazioni
-Un altro elemento importante è scegliere una proprietà che consenta di distribuire le scritture su una serie di valori distinti. Le richieste per la stessa chiave di partizione non possono superare la velocità effettiva di una partizione singola e saranno limitate. È quindi importante scegliere una chiave di partizione che non generi **"aree sensibili"** all'interno dell'applicazione. Inoltre, lo spazio di archiviazione totale per i documenti con la stessa chiave di partizione non può superare 10 GB. 
+Un altro elemento importante è scegliere una proprietà che consenta di distribuire le scritture su una serie di valori distinti. Le richieste per la stessa chiave di partizione non possono superare la velocità effettiva di una partizione singola e saranno limitate. È quindi importante scegliere una chiave di partizione che non generi **"aree sensibili"** all'interno dell'applicazione. Poiché tutti i dati per una singola chiave di partizione devono essere archiviati in una partizione, è anche consigliabile evitare le chiavi di partizione con volumi elevati di dati per lo stesso valore. 
 
 ### <a name="examples-of-good-partition-keys"></a>Esempi di chiavi di partizione efficaci
 Di seguito sono riportati alcuni esempi che illustrano come scegliere la chiave di partizione per l'applicazione:
@@ -342,7 +345,6 @@ Questo articolo descrive il funzionamento del partizionamento in Azure DocumentD
 * Eseguire il test delle prestazioni e della scalabilità con DocumentDB. Per un esempio, vedere [Test delle prestazioni e della scalabilità con Azure DocumentDB](documentdb-performance-testing.md) .
 * Introduzione alla programmazione con gli [SDK](documentdb-sdk-dotnet.md) o l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx)
 * Informazioni sulla [velocità effettiva con provisioning in DocumentDB](documentdb-performance-levels.md)
-* Se si desidera personalizzare il modo in cui l'applicazione esegue il partizionamento, è possibile collegare l'implementazione del partizionamento sul lato client. Vedere il [supporto per il partizionamento lato client](documentdb-sharding.md).
 
 [1]: ./media/documentdb-partition-data/partitioning.png
 [2]: ./media/documentdb-partition-data/single-and-partitioned.png
@@ -352,6 +354,6 @@ Questo articolo descrive il funzionamento del partizionamento in Azure DocumentD
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 translationtype: Human Translation
-ms.sourcegitcommit: 5d7eed340d2021c58f68c69100be5a9e13655146
-ms.openlocfilehash: 7d4b322cd6528fa4798362d2ee620dae4291b956
+ms.sourcegitcommit: 9acbddcf1f15b9dcf61c3f9fe2ea3ff42bc19e7d
+ms.openlocfilehash: 75dcd784ee5cd3599f0bfc37b490c597524068f9
 
 
 ---
@@ -526,6 +526,13 @@ Ad esempio, per richiamare **SetAirResistance** è possibile inviare questo mess
 
 Il nome dell'azione deve corrispondere esattamente a un'azione definita nel modello. Anche i nomi dei parametri devono corrispondere. Tenere presente anche la distinzione tra maiuscole e minuscole. **Name** e **Parameters** sono sempre in maiuscolo. Assicurarsi di rispettare la corrispondenza maiuscole/minuscole per i nomi di azioni e i parametri del modello. In questo esempio, il nome dell'azione è "SetAirResistance" e non "setairresistance".
 
+Le altre due azioni **TurnFanOn** e **TurnFanOff** possono essere richiamate inviando i messaggi seguenti a un dispositivo:
+
+```
+{"Name" : "TurnFanOn", "Parameters" : {}}
+{"Name" : "TurnFanOff", "Parameters" : {}}
+```
+
 Questo descrive tutto ciò che è necessario sapere quando si inviano eventi e si ricevono messaggi con la libreria **serializer** . Prima di proseguire, si esamineranno alcuni parametri che è possibile configurare per controllare le dimensioni del modello.
 
 ## <a name="macro-configuration"></a>Configurazione delle macro
@@ -672,6 +679,6 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

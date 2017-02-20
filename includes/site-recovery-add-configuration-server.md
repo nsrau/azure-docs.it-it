@@ -11,7 +11,7 @@
 
    * Per connettersi al proxy attualmente configurato nel computer, selezionare **Connetti con le impostazioni proxy esistenti**.
    * Per fare in modo che il provider si connetta direttamente, selezionare **Connetti direttamente senza un proxy**.
-   * Se per il proxy esistente è necessaria l'autenticazione o si vuole usare un proxy personalizzato per la connessione del provider, selezionare **Connetti con le impostazioni proxy personalizzate**.
+   * Se per il proxy esistente è necessaria l'autenticazione o si vuole usare un proxy personalizzato per la connessione del provider, selezionare **Connect with custom proxy settings** (Connetti con le impostazioni proxy personalizzate).
 
      * Se si usa un proxy personalizzato è necessario specificare l'indirizzo, la porta e le credenziali.
      * Se si usa un proxy, è necessario che gli URL descritti nei [prerequisiti](#configuration-server-prerequisites) siano già consentiti.
@@ -26,18 +26,20 @@
 8. In **Dettagli ambiente** specificare se si vuole eseguire la replica di VM VMware. In caso affermativo, il programma di installazione verifica quindi se è installato PowerCLI 6.0.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz7.png)
-9. In **Percorso di installazione** specificare il percorso di installazione dei file binari e di archiviazione della cache. È possibile selezionare un'unità con almeno 5 GB di spazio su disco disponibile, ma è consigliabile usare un'unità cache con almeno 600 GB di spazio disponibile.
+
+9. In **Percorso di installazione** specificare il percorso di installazione dei file binari e di archiviazione della cache. L'unità selezionata deve avere almeno 5 GB di spazio su disco disponibile, ma è consigliabile usare un'unità cache con almeno 600 GB di spazio disponibile.
 
     ![Percorso di installazione](./media/site-recovery-add-configuration-server/combined-wiz8.png)
 10. In **Network Selection** (Selezione rete) specificare il listener, ovvero la scheda di rete e la porta SSL, in cui il server di configurazione deve inviare e ricevere i dati di replica. La porta 9443 è la porta predefinita per l'invio e la ricezione del traffico di replica, ma è possibile modificare il numero di porta in base ai requisiti dell'ambiente. Oltre alla porta 9443, viene aperta anche la porta 443, che viene usata da un server Web per orchestrare le operazioni di replica. Non usare la porta 443 per inviare o ricevere traffico di replica.
 
     ![Selezione rete](./media/site-recovery-add-configuration-server/combined-wiz9.png)
 
- 11. Esaminare le informazioni nella pagina **Riepilogo** e fare clic su **Installa**. Al termine dell'installazione verrà generata una passphrase. Sarà necessaria quando si abilita la replica, è quindi consigliabile copiarla e conservarla in un luogo sicuro.
+
+11. Esaminare le informazioni nella pagina **Riepilogo** e fare clic su **Installa**. Al termine dell'installazione verrà generata una passphrase. Sarà necessaria quando si abilita la replica, è quindi consigliabile copiarla e conservarla in un luogo sicuro.
 
     ![Riepilogo](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 
-Al termine della registrazione il server viene visualizzato nel pannello **Impostazioni** > **Server** nell'insieme di credenziali.
+Al termine della registrazione, il server viene visualizzato nel pannello **Impostazioni** > **Server** nell'insieme di credenziali.
 
 
 <!--HONumber=Feb17_HO2-->

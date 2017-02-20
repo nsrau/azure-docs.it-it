@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/01/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
-ms.openlocfilehash: c50b183582038cba90298ba391eb33825cd765bd
+ms.sourcegitcommit: 5b5095610085019ad3fee7f4394f0c87f3740bed
+ms.openlocfilehash: 8d78a0f93a1e65eda7bfefbf910b56e0218a42c5
 
 
 ---
@@ -35,6 +35,10 @@ File video. Attualmente sono supportati i formati seguenti: MP4, MOV e WMV.
 
 ## <a name="task-configuration"></a>Configurazione delle attività
 Configurazione delle attività (set di impostazioni). Quando si crea un'attività con **Azure Media OCR**, è necessario specificare un set di impostazioni di configurazione tramite JSON o XML. 
+
+>[!NOTE]
+>Il motore OCR accetta solo un'area dell'immagine con un minimo di 40 pixel e un massimo di 32.000 pixel come input valido sia in altezza che in larghezza.
+>
 
 ### <a name="attribute-descriptions"></a>Descrizioni degli attributi
 | Nome attributo | Descrizione |
@@ -342,6 +346,6 @@ Il programma seguente illustra come:
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

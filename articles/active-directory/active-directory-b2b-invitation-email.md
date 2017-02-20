@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/01/2017
+ms.date: 02/02/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 8fdd2993e6b3f0345948f35753ebb7a20ed174e3
-ms.openlocfilehash: 5a31469014b7b0c7ea8a6d6a207646694c6c0b50
+ms.sourcegitcommit: 9543ac09eacceaf1d740b2e2be25c85924d1fad4
+ms.openlocfilehash: ea2d41002cf20fd3ee93f05650cc2e47e1dfb20e
 
 
 ---
@@ -26,6 +26,8 @@ ms.openlocfilehash: 5a31469014b7b0c7ea8a6d6a207646694c6c0b50
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>Elementi del messaggio di posta elettronica di invito per la collaborazione B2B
 
 I messaggi di posta elettronica di invito sono strumenti fondamentali per entrare in contatto con i partner e introdurli alla funzionalità di collaborazione B2B di Azure AD. L'obiettivo principale è quello di aumentare il livello di fiducia nel destinatario e aggiungere elementi di legittimità e riprova sociale al messaggio di posta elettronica, per assicurarsi che il destinatario scelga di selezionare con tranquillità il pulsante **Get Started** (Inizia) per accettare l'invito. Si tratta di un elemento fondamentale per ridurre i problemi relativi alla condivisione. Ovviamente, è anche importante che il messaggio di posta elettronica abbia un aspetto straordinario!
+
+![Messaggio di posta elettronica di invito per la collaborazione B2B](media/active-directory-b2b-invitation-email/invitation-email.png)
 
 ## <a name="explaining-the-email"></a>Descrizione del messaggio di posta elettronica
 Per sfruttare al meglio le potenzialità del messaggio di posta elettronica, di seguito ne vengono descritti alcuni elementi.
@@ -40,7 +42,7 @@ Per l'indirizzo del mittente si userà un modello simile a quello LinkedIn. L'ob
 Se disponibile, viene impostato l'indirizzo di posta elettronica del mittente dell'invito. Un'eventuale risposta all'invito verrà pertanto inviata al mittente.
 
 ### <a name="branding"></a>Personalizzazione
-Nei messaggi di posta elettronica di invito vengono usate le informazioni personalizzate distintive dell'azienda eventualmente impostate per il tenant. Se si desidera sfruttare i vantaggi offerti dalla personalizzazione, qui sono disponibili i dettagli su come eseguirne la configurazione. Il logo del banner verrà visualizzato nel messaggio di posta elettronica. Per ottenere risultati ottimali, seguire le istruzioni relative a qualità e dimensioni dell'immagine, disponibili qui. Il nome dell'azienda viene anche visualizzato nella chiamata all'azione.
+Nei messaggi di posta elettronica di invito vengono usate le informazioni personalizzate distintive dell'azienda eventualmente impostate per il tenant. Se si vuole sfruttare i vantaggi offerti dalla personalizzazione, [qui](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) sono disponibili i dettagli su come eseguirne la configurazione. Il logo del banner verrà visualizzato nel messaggio di posta elettronica. Per ottenere risultati ottimali, seguire le istruzioni relative a qualità e dimensioni dell'immagine, disponibili [qui](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal). Il nome dell'azienda viene anche visualizzato nella chiamata all'azione.
 
 ### <a name="call-to-action"></a>Chiamata all'azione
 La chiamata all'azione è costituita da due parti: la spiegazione del motivo per cui il destinatario ha ricevuto il messaggio e l'indicazione delle successive azioni richieste al destinatario.
@@ -50,15 +52,15 @@ La chiamata all'azione è costituita da due parti: la spiegazione del motivo per
 
 ### <a name="inviters-information"></a>Informazioni sul mittente dell'invito
 Il nome visualizzato del mittente dell'invito verrà incluso nel messaggio di posta elettronica. Nel messaggio di invito verrà inclusa anche l'immagine del profilo per l'account di Azure AD, qualora sia stata impostata. Entrambi tali elementi consentono di rendere il messaggio di posta elettronica più attendibile per il destinatario.
+
 Se il mittente dell'invito non ha ancora impostato un'immagine del profilo, Azure AD crea un'icona con le iniziali del mittente dell'invito e la inserisce al posto dell'immagine, come illustrato:
 
   ![visualizzazione iniziali del mittente dell'invito](media/active-directory-b2b-invitation-email/inviters-initials.png)
 
 ### <a name="body"></a>Corpo
-Questa sezione contiene il messaggio digitato dal mittente dell'invito oppure passato tramite l'API di invito. Si tratta di una casella di testo semplice, che non supporta l'elaborazione dei tag HTML per motivi di sicurezza.
+Questa sezione contiene il messaggio digitato dal mittente dell'invito oppure passato tramite l'API di invito. Si tratta di una semplice casella di testo, che non supporta l'elaborazione dei tag HTML per motivi di sicurezza.
 
 ### <a name="footer-section"></a>Sezione piè di pagina
-
 Il piè di pagina contiene il marchio aziendale di Microsoft e indica al destinatario se il messaggio di posta elettronica è stato inviato da un alias non monitorato. Casi speciali:
 
 - Il mittente dell'invito non dispone di un indirizzo di posta elettronica nella tenancy di invito
@@ -76,7 +78,14 @@ Il piè di pagina contiene il marchio aziendale di Microsoft e indica al destina
 Vedere gli altri articoli su Azure AD B2B Collaboration.
 
 * [Che cos'è la collaborazione B2B di Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Licenze per la collaborazione B2B di Azure AD](active-directory-b2b-licensing.md)
+* [Procedura per aggiungere utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori](active-directory-b2b-admin-add-users.md)
+* [Procedura per aggiungere utenti di Collaborazione B2B da parte di Information Worker](active-directory-b2b-how-it-works.md)
+* [Riscatto dell'invito di Collaborazione B2B](active-directory-b2b-redemption-experience.md)
+* [Licenze per la Collaborazione B2B di Azure AD](active-directory-b2b-licensing.md)
+* [Risoluzione dei problemi di Collaborazione B2B di Azure Active Directory](active-directory-b2b-troubleshooting.md)
+* [Domande frequenti su Collaborazione B2B di Azure Active Directory](active-directory-b2b-faq.md)
+* [API e personalizzazione per Collaborazione B2B di Azure Active Directory](active-directory-b2b-api.md)
+* [Autenticazione a più fattori per utenti di Collaborazione B2B](active-directory-b2b-mfa-instructions.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
 

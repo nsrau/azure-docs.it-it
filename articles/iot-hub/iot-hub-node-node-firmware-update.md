@@ -12,22 +12,24 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 02/06/2017
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: fdc8dca46f5bd0feb8e6ce24af32327be4c8ebb6
+ms.sourcegitcommit: 4ba60cee8848079935111ed3de480081a4aa58f6
+ms.openlocfilehash: 30a707ec15d592c8a10905e13a75ea2f6e52cccc
 
 
 ---
-# <a name="use-device-management-to-initiate-a-device-firmware-update-node"></a>Usare la gestione dei dispositivi per avviare un aggiornamento del firmware del dispositivo (Node)
+# <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>Usare la gestione dei dispositivi per avviare un aggiornamento del firmware del dispositivo (Node/Node)
+[!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
+
 ## <a name="introduction"></a>Introduzione
 Nell'esercitazione [Introduzione alla gestione dei dispositivi][lnk-dm-getstarted] è stato illustrato come usare il [dispositivo gemello][lnk-devtwin] e le primitive dei [metodi diretti][lnk-c2dmethod] per riavviare un dispositivo in modalità remota. Questa esercitazione usa le stesse primitive dell'hub IoT, offre indicazioni e illustra come eseguire un aggiornamento del firmware simulato completo.  Questo schema viene usato nell'implementazione dell'aggiornamento del firmware per il dispositivo di esempio Intel Edison.
 
 Questa esercitazione illustra come:
 
 * Creare un'app console Node.js che chiama il metodo diretto firmwareUpdate nell'app per dispositivo simulato tramite l'hub IoT.
-* Creare un'app per dispositivo simulato che implementa un metodo diretto firmwareUpdate che esegue un processo in più fasi che attende di scaricare l'immagine del firmware, la scarica e infine la applica.  Durante l'esecuzione di ogni fase, il dispositivo usa le proprietà segnalate per aggiornare lo stato.
+* Creare un'app di dispositivo simulato che implementa un metodo diretto **firmwareUpdate**. Questo metodo avvia un processo in più fasi che attende di scaricare l'immagine del firmware, quindi la scarica e infine la applica. Durante l'esecuzione di ogni fase, il dispositivo usa le proprietà segnalate per aggiornare lo stato.
 
 Al termine di questa esercitazione si avranno due app console Node.js:
 
@@ -46,233 +48,20 @@ Vedere l'articolo [Introduzione alla gestione dei dispositivi](iot-hub-node-node
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="create-a-simulated-device-app"></a>Creare un'app di dispositivo simulato
-Questa sezione consente di:
-
-* Creare un'app console Node.js che risponde a un metodo diretto chiamato dal cloud
-* Attivare un aggiornamento del firmware simulato
-* Usare le proprietà segnalate per abilitare le query nei dispositivi gemelli in modo da identificare i dispositivi e l'ora dell'ultimo completamento di un aggiornamento del firmware
-
-1. Creare una nuova cartella vuota denominata **manageddevice**.  Nella cartella **manageddevice** creare un file package.json eseguendo questo comando al prompt dei comandi.  Accettare tutte le impostazioni predefinite:
-   
-    ```
-    npm init
-    ```
-2. Eseguire questo comando al prompt dei comandi nella cartella **manageddevice** per installare il pacchetto SDK per dispositivi **azure-iot-device** e il pacchetto **azure-iot-device-mqtt**:
-   
-    ```
-    npm install azure-iot-device azure-iot-device-mqtt --save
-    ```
-3. Con un editor di testo creare un nuovo file **dmpatterns_fwupdate_device.js** nella cartella **manageddevice**.
-4. Aggiungere le istruzioni "require" seguenti all'inizio del file **dmpatterns_fwupdate_device.js**:
-   
-    ```
-    'use strict';
-   
-    var Client = require('azure-iot-device').Client;
-    var Protocol = require('azure-iot-device-mqtt').Mqtt;
-    ```
-5. Aggiungere una variabile **connectionString** e usarla per creare un'istanza **Client**.  
-   
-    ```
-    var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
-    var client = Client.fromConnectionString(connectionString, Protocol);
-    ```
-6. Aggiungere la funzione seguente che viene usata per aggiornare le proprietà segnalate.
-   
-    ```
-    var reportFWUpdateThroughTwin = function(twin, firmwareUpdateValue) {
-      var patch = {
-          iothubDM : {
-            firmwareUpdate : firmwareUpdateValue
-          }
-      };
-   
-      twin.properties.reported.update(patch, function(err) {
-        if (err) throw err;
-        console.log('twin state reported')
-      });
-    };
-    ```
-7. Aggiungere le funzioni seguenti che simulano il download e l'applicazione dell'immagine del firmware.
-   
-    ```
-    var simulateDownloadImage = function(imageUrl, callback) {
-      var error = null;
-      var image = "[fake image data]";
-   
-      console.log("Downloading image from " + imageUrl);
-   
-      callback(error, image);
-    }
-   
-    var simulateApplyImage = function(imageData, callback) {
-      var error = null;
-   
-      if (!imageData) {
-        error = {message: 'Apply image failed because of missing image data.'};
-      }
-   
-      callback(error);
-    }
-    ```
-8. Aggiungere la funzione seguente che imposta lo stato di aggiornamento del firmware tramite le proprietà segnalate sull'attesa del download.  In genere i dispositivi vengono informati che è disponibile un aggiornamento e i criteri definiti dall'amministratore fanno in modo che il dispositivo avvii il download e applichi l'aggiornamento.  In questi casi verrà eseguita la logica per abilitare tali criteri.  Per semplicità, si imposterà un ritardo di 4 secondi e si procederà al download dell'immagine del firmware. 
-   
-    ```
-    var waitToDownload = function(twin, fwPackageUriVal, callback) {
-      var now = new Date();
-   
-      reportFWUpdateThroughTwin(twin, {
-        fwPackageUri: fwPackageUriVal,
-        status: 'waiting',
-        error : null,
-        startedWaitingTime : now.toISOString()
-      });
-      setTimeout(callback, 4000);
-    };
-    ```
-9. Aggiungere la funzione seguente che imposta lo stato di aggiornamento del firmware tramite le proprietà segnalate sul download dell'immagine del firmware.  Si continua simulando un download del firmware e infine viene aggiornato lo stato di aggiornamento del firmware per comunicare l'esito positivo o negativo del download.
-   
-    ```
-    var downloadImage = function(twin, fwPackageUriVal, callback) {
-      var now = new Date();   
-   
-      reportFWUpdateThroughTwin(twin, {
-        status: 'downloading',
-      });
-   
-      setTimeout(function() {
-        // Simulate download
-        simulateDownloadImage(fwPackageUriVal, function(err, image) {
-   
-          if (err)
-          {
-            reportFWUpdateThroughTwin(twin, {
-              status: 'downloadfailed',
-              error: {
-                code: error_code,
-                message: error_message,
-              }
-            });
-          }
-          else {        
-            reportFWUpdateThroughTwin(twin, {
-              status: 'downloadComplete',
-              downloadCompleteTime: now.toISOString(),
-            });
-   
-            setTimeout(function() { callback(image); }, 4000);   
-          }
-        });
-   
-      }, 4000);
-    }
-    ```
-10. Aggiungere la funzione seguente che imposta lo stato di aggiornamento del firmware tramite le proprietà segnalate sull'applicazione dell'immagine del firmware.  Si continua simulando un'applicazione dell'immagine del firmware e infine viene aggiornato lo stato di aggiornamento del firmware per comunicare l'esito positivo o negativo dell'applicazione.
-    
-    ```
-    var applyImage = function(twin, imageData, callback) {
-      var now = new Date();   
-    
-      reportFWUpdateThroughTwin(twin, {
-        status: 'applying',
-        startedApplyingImage : now.toISOString()
-      });
-    
-      setTimeout(function() {
-    
-        // Simulate apply firmware image
-        simulateApplyImage(imageData, function(err) {
-          if (err) {
-            reportFWUpdateThroughTwin(twin, {
-              status: 'applyFailed',
-              error: {
-                code: err.error_code,
-                message: err.error_message,
-              }
-            });
-          } else { 
-            reportFWUpdateThroughTwin(twin, {
-              status: 'applyComplete',
-              lastFirmwareUpdate: now.toISOString()
-            });    
-    
-          }
-        });
-    
-        setTimeout(callback, 4000);
-    
-      }, 4000);
-    }
-    ```
-11. Aggiungere la funzione seguente che gestisce il metodo firmwareUpdate e avvia il processo di aggiornamento del firmware in più fasi.
-    
-    ```
-    var onFirmwareUpdate = function(request, response) {
-    
-      // Respond the cloud app for the direct method
-      response.send(200, 'FirmwareUpdate started', function(err) {
-        if (!err) {
-          console.error('An error occured when sending a method response:\n' + err.toString());
-        } else {
-          console.log('Response to method \'' + request.methodName + '\' sent successfully.');
-        }
-      });
-    
-      // Get the parameter from the body of the method request
-      var fwPackageUri = JSON.parse(request.payload).fwPackageUri;
-    
-      // Obtain the device twin
-      client.getTwin(function(err, twin) {
-        if (err) {
-          console.error('Could not get device twin.');
-        } else {
-          console.log('Device twin acquired.');
-    
-          // Start the multi-stage firmware update
-          waitToDownload(twin, fwPackageUri, function() {
-            downloadImage(twin, fwPackageUri, function(imageData) {
-              applyImage(twin, imageData, function() {});    
-            });  
-          });
-    
-        }
-      });
-    }
-    ```
-12. Aggiungere infine il codice seguente che connette all'hub IoT come dispositivo. 
-    
-    ```
-    client.open(function(err) {
-      if (err) {
-        console.error('Could not connect to IotHub client');
-      }  else {
-        console.log('Client connected to IoT Hub.  Waiting for firmwareUpdate direct method.');
-      }
-    
-      client.onDeviceMethod('firmwareUpdate', onFirmwareUpdate(request, response));
-    });
-    ```
-
-> [!NOTE]
-> Per semplicità, in questa esercitazione non si implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione è consigliabile implementare criteri per i tentativi, ad esempio un backoff esponenziale, come illustrato nell'articolo di MSDN [Transient Fault Handling][lnk-transient-faults] (Gestione degli errori temporanei).
-> 
-> 
-
 ## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Attivare un aggiornamento del firmware remoto nel dispositivo con un metodo diretto
-In questa sezione si crea un'app console Node.js che avvia un aggiornamento del firmware remoto in un dispositivo con un metodo diretto e usa le query del dispositivo gemello per ottenere a intervalli regolari lo stato dell'aggiornamento del firmware attivo in tale dispositivo.
+In questa sezione viene creata un'app console Node.js che avvia un aggiornamento del firmware remoto in un dispositivo. L'applicazione usa un metodo diretto per avviare l'aggiornamento e usa le query di dispositivo gemello per ottenere periodicamente lo stato di aggiornamento del firmware attivo.
 
-1. Creare una nuova cartella vuota denominata **triggerfwupdateondevice**.  Nella cartella **triggerfwupdateondevice** creare un file package.json eseguendo questo comando al prompt dei comandi.  Accettare tutte le impostazioni predefinite:
+1. Creare una cartella vuota denominata **triggerfwupdateondevice**.  Nella cartella **triggerfwupdateondevice** creare un file package.json eseguendo questo comando al prompt dei comandi.  Accettare tutte le impostazioni predefinite:
    
     ```
     npm init
     ```
-2. Eseguire questo comando al prompt dei comandi nella cartella **triggerfwupdateondevice** per installare il pacchetto SDK per dispositivi **azure-iothub** e il pacchetto **azure-iot-device-mqtt**:
+2. Al prompt dei comandi nella cartella **triggerfwupdateondevice** eseguire il comando seguente per installare il pacchetto SDK per dispositivi **azure-iothub** e il pacchetto **azure-iot-device-mqtt**:
    
     ```
     npm install azure-iot-hub --save
     ```
-3. Con un editor di testo creare un nuovo file **dmpatterns_getstarted_service.js** nella cartella **triggerfwupdateondevice**.
+3. Con un editor di testo creare un file **dmpatterns_getstarted_service.js** nella cartella **triggerfwupdateondevice**.
 4. Aggiungere le istruzioni "require" seguenti all'inizio del file **dmpatterns_getstarted_service.js**:
    
     ```
@@ -334,6 +123,8 @@ In questa sezione si crea un'app console Node.js che avvia un aggiornamento del 
     ```
 9. Salvare e chiudere il file **dmpatterns_fwupdate_service.js**.
 
+[!INCLUDE [iot-hub-device-firmware-update](../../includes/iot-hub-device-firmware-update.md)]
+
 ## <a name="run-the-apps"></a>Eseguire le app
 A questo punto è possibile eseguire le app.
 
@@ -350,7 +141,7 @@ A questo punto è possibile eseguire le app.
 3. Nella console viene visualizzata la risposta del dispositivo al metodo diretto.
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione è stato usato un metodo diretto per attivare un aggiornamento del firmware remoto in un dispositivo e sono state usate a intervalli regolari le proprietà segnalate per conoscere lo stato del processo di aggiornamento del firmware.  
+In questa esercitazione è stato usato un metodo diretto per attivare un aggiornamento del firmware remoto in un dispositivo e sono state usate le proprietà segnalate per conoscere lo stato del processo di aggiornamento del firmware.
 
 Per informazioni su come estendere la soluzione IoT e pianificare le chiamate al metodo su più dispositivi, vedere l'esercitazione [Pianificare e trasmettere processi][lnk-tutorial-jobs].
 
@@ -365,6 +156,6 @@ Per informazioni su come estendere la soluzione IoT e pianificare le chiamate al
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -37,8 +37,13 @@ Consultare [qui l'elenco completo delle coppie di aree](../articles/best-practic
 Alcuni servizi o funzionalità delle VM sono disponibili solo in determinate aree geografiche, ad esempio alcuni tipi di archiviazione o dimensioni delle VM. Per alcuni servizi globali di Azure non è necessario selezionare un'area geografica specifica, come nel caso di [Azure Active Directory](../articles/active-directory/active-directory-whatis.md), [Gestione traffico](../articles/traffic-manager/traffic-manager-overview.md) o [DNS Azure](../articles/dns/dns-overview.md). Per facilitare la progettazione dell'ambiente applicativo, è possibile controllare la [disponibilità dei servizi di Azure in ogni area geografica](https://azure.microsoft.com/regions/#services). 
 
 ## <a name="storage-availability"></a>Disponibilità dell'archiviazione
-Conoscere le aree geografiche di Azure diventa importante quando si considerano le opzioni disponibili per la replica dell'archiviazione di Azure. Quando si crea un account di archiviazione, è necessario selezionare una delle opzioni di replica seguenti:
+Conoscere le aree geografiche di Azure diventa importante quando si considerano le opzioni disponibili per la replica dell'archiviazione. A seconda del tipo di archiviazione, sono disponibili opzioni di replica diverse.
 
+**Azure Managed Disks**
+* Archiviazione con ridondanza locale (LRS)
+  * I dati vengono replicati tre volte all'interno dell'area in cui è stato creato l'account di archiviazione.
+
+**Dischi basati su account di archiviazione**
 * Archiviazione con ridondanza locale (LRS)
   * I dati vengono replicati tre volte all'interno dell'area in cui è stato creato l'account di archiviazione.
 * Archiviazione con ridondanza della zona (ZRS)
@@ -56,11 +61,15 @@ La tabella seguente fornisce una rapida panoramica delle differenze tra i tipi d
 | I dati possono essere letti dalla località secondaria e da quella primaria. |No |No |No |Sì |
 | Numero di copie di dati mantenute in nodi distinti |3 |3 |6 |6 |
 
-Per ulteriori informazioni, consultare [qui le opzioni di replica di Archiviazione di Azure](../articles/storage/storage-redundancy.md).
+Per ulteriori informazioni, consultare [qui le opzioni di replica di Archiviazione di Azure](../articles/storage/storage-redundancy.md). Per altre informazioni sui dischi gestiti, vedere [Azure Managed Disks overview](../articles/storage/storage-managed-disks-overview.md) (Panoramica di Azure Managed Disks).
 
 ### <a name="storage-costs"></a>Costi di archiviazione
-I prezzi variano a seconda del tipo di archiviazione e della disponibilità selezionata. 
+I prezzi variano a seconda del tipo di archiviazione e della disponibilità selezionata.
 
+**Azure Managed Disks**
+* Managed Disks Premium si basa su unità SSD, Managed Disks Standard invece su normali dischi a rotazione. Per Managed Disks Premium e Standard l'addebito avviene in base alla capacità di cui è stato effettuato il provisioning per il disco.
+
+**Dischi non gestiti**
 * L'archiviazione Premium è supportata da unità a stato solido (SSD); il costo dipende dalla capacità del disco.
 * L'archiviazione standard è supportata dai normali dischi a rotazione e addebitata in base alla capacità in uso e alla disponibilità di archiviazione desiderata.
   * Per l'archiviazione RA-GRS, il trasferimento dati con replica geografica prevede l'ulteriore addebito del costo della larghezza di banda per la replica dei dati in un'altra area di Azure.
@@ -75,7 +84,7 @@ Quando si crea una VM da un'immagine ricavata da Azure Marketplace, di fatto si 
 È anche possibile creare immagini personalizzate e caricarle usando l'[interfaccia della riga di comando di Azure](../articles/virtual-machines/virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per creare rapidamente macchine virtuali personalizzate in base a requisiti di compilazione specifici.
 
 ## <a name="availability-sets"></a>Set di disponibilità
-Un set di disponibilità è un raggruppamento logico di macchine virtuali che permette ad Azure di comprendere come è compilata l'applicazione per garantirne la ridondanza e la disponibilità. È consigliabile creare due o più macchine virtuali in un set di disponibilità, per garantire un'elevata disponibilità dell'applicazione e raggiungere il [99,95% di disponibilità previsto dal contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Il set di disponibilità comprende due ulteriori raggruppamenti che proteggono dagli errori hardware (domini di errore) e consentono di applicare gli aggiornamenti in modo sicuro (domini di aggiornamento).
+Un set di disponibilità è un raggruppamento logico di macchine virtuali che permette ad Azure di comprendere come è compilata l'applicazione per garantirne la ridondanza e la disponibilità. È consigliabile creare due o più macchine virtuali in un set di disponibilità, per garantire un'elevata disponibilità dell'applicazione e raggiungere il [99,95% di disponibilità previsto dal contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Quando una sola VM usa [Archiviazione Premium di Azure](../articles/storage/storage-premium-storage.md), per gli eventi di manutenzione non pianificati viene applicato il Contratto di servizio di Azure. Un set di disponibilità comprende due raggruppamenti aggiuntivi che proteggono dagli errori hardware (domini di errore) e consentono di applicare gli aggiornamenti in modo sicuro (domini di aggiornamento).
 
 ![Rappresentazione concettuale della configurazione di domini di aggiornamento e di errore](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
 
@@ -83,6 +92,9 @@ Sono disponibili altre informazioni su come gestire la disponibilità delle macc
 
 ### <a name="fault-domains"></a>Domini di errore
 Un dominio di errore è un raggruppamento logico di tutto l'hardware sottostante che condivide una fonte di alimentazione e uno switch di rete comuni, come a un rack in un datacenter locale. Man mano che si creano le macchine virtuali all'interno di un set di disponibilità, la piattaforma Azure le distribuisce automaticamente in questi domini di errore. Questo approccio consente di limitare l'impatto di eventuali guasti dell'hardware fisico, interruzioni di rete o interruzioni dell'alimentazione.
+
+#### <a name="managed-disk-fault-domains-and-availability-sets"></a>Set di disponibilità e domini di errore dei dischi gestiti
+Le VM che usano [Azure Managed Disks](../articles/storage/storage-faq-for-disks.md) sono allineate con i domini di errore dei dischi gestiti quando si usa un set di disponibilità gestito. Questo allineamento garantisce che tutti i dischi gestiti collegati a una VM siano nello stesso dominio di errore dei dischi gestiti. In un set di disponibilità gestito possono essere create solo VM con dischi gestiti. Il numero di domini di errore dei dischi gestiti varia in base all'area: due o tre domini di errore di dischi gestiti per area.
 
 ### <a name="update-domains"></a>Domini di aggiornamento
 Un dominio di aggiornamento è un gruppo logico di hardware sottostante che può essere sottoposto a manutenzione oppure riavviato nello stesso momento. Man mano che si creano le macchine virtuali all'interno di un set di disponibilità, la piattaforma Azure le distribuisce automaticamente in questi domini di aggiornamento. Questo approccio garantisce che almeno un'istanza dell'applicazione rimanga in esecuzione durante gli interventi di manutenzione periodica della piattaforma Azure. I domini di aggiornamento non vengono necessariamente riavviati in ordine sequenziale durante la manutenzione pianificata, ma ne viene riavviato uno solo alla volta.
@@ -92,6 +104,6 @@ Ora è possibile iniziare a usare le funzionalità di ridondanza e disponibilit�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

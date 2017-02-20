@@ -17,9 +17,8 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: acomet
 translationtype: Human Translation
-ms.sourcegitcommit: 6fc5dfd3fbdd2e0690b60f4b232e624c34bf53b6
-ms.openlocfilehash: c1022a127266d28d3b59bfebd0543a840fe11e3a
-
+ms.sourcegitcommit: faf363eb5848752b27faacd971867391b6393337
+ms.openlocfilehash: 1a693477a51a05fb28e7c4772aeee77fd0c4e1dd
 
 ---
 
@@ -31,33 +30,27 @@ L'articolo descrive il costo di DocumentDB per semplici operazioni di lettura e 
 
 ## <a name="why-we-use-request-units-rus"></a>Perché usare le unità richiesta (UR)
 
-Le prestazioni di DocumentDB si basano sulla quantità di [unità richiesta](documentdb-programming.md) (UR) con provisioning per la partizione. Il provisioning è a una granularità in secondi e viene acquistato in UR/sec ([da non confondere con la fatturazione oraria](https://azure.microsoft.com/pricing/details/documentdb/)). Le UR devono essere considerate come una valuta che semplifica il provisioning della velocità effettiva necessaria per l'applicazione. I clienti non devono pensare a differenziare le unità di capacità tra lettura e scrittura. Il modello singolo di valuta delle UR crea efficienza per condividere la capacità di provisioning tra le letture e le scritture. Questo modello di capacità con provisioning consente al servizio fornire una velocità effettiva prevedibile e coerente, con bassa latenza e disponibilità elevata garantite. Infine, si utilizzano le UR per generare un modello di velocità effettiva, ma ogni UR con provisioning presenta inoltre una quantità di risorse definita (memoria, memoria centrale). UR/sec non si riferisce solo alle operazioni di I/O al secondo (IOPS).
+Le prestazioni di DocumentDB si basano sulla quantità di [unità richiesta](documentdb-programming.md) (UR) con provisioning per la partizione. Il provisioning è a una granularità in secondi e viene acquistato in UR/sec ([da non confondere con la fatturazione oraria](https://azure.microsoft.com/pricing/details/documentdb/)). Le UR devono essere considerate come una valuta che semplifica il provisioning della velocità effettiva necessaria per l'applicazione. I clienti non devono pensare a differenziare le unità di capacità tra lettura e scrittura. Il modello singolo di valuta delle UR crea efficienza per condividere la capacità di provisioning tra le letture e le scritture. Questo modello di capacità con provisioning consente al servizio fornire una velocità effettiva prevedibile e coerente, con bassa latenza e disponibilità elevata garantite. Infine, si usano le UR per generare un modello di velocità effettiva, ma ogni UR con provisioning presenta inoltre una quantità di risorse definita (memoria, memoria centrale). UR/sec non si riferisce solo alle operazioni di I/O al secondo (IOPS).
 
 Come un sistema di database distribuito a livello globale, DocumentDB è il solo servizio di Azure che fornisce un contratto di servizio basato su latenza, velocità effettiva e coerenza oltre che sulla disponibilità elevata. La velocità effettiva con cui viene effettuato il provisioning viene applicata a ognuna delle aree associate all'account di database DocumentDB. Per le letture, DocumentDB offre più [livelli di coerenza](documentdb-consistency-levels.md) ben definiti tra cui scegliere. 
 
-La tabella seguente mostra il numero di UR necessarie per eseguire transazioni di lettura e scrittura in base ad alcune dimensioni di documento. 
+La tabella seguente mostra il numero di UR necessarie per eseguire transazioni di lettura e scrittura con dimensioni di documento pari a 1 KB e 100 KB.
 
 |Dimensioni del documento|1 Lettura|1 Scrittura|
 |-------------|------|-------|
 |1 KB|1 UR|5 UR|
-|5 KB|5 UR|25 UR|
-|10 KB|10 UR|50 UR|
-|50 KB|50 UR|250 UR|
-|100 KB|100 UR|500 UR|
+|100 KB|10 UR|50 UR|
 
-## <a name="cost-of-running-documentdb-in-readwrite-mode-without-indexing"></a>Costo dell'esecuzione di DocumentDB in modalità lettura/scrittura senza indicizzazione
+## <a name="cost-of-reads-and-writes"></a>Costo delle letture e scritture
 
 Se si esegue il provisioning di 1.000 UR al secondo, si avrà un totale di 3,6 milioni di UR all'ora e il costo sarà di 0,08 dollari l'ora (negli Stati Uniti e in Europa). Per un documento di 1 KB, ciò significa che è possibile utilizzare 3,6 milioni di letture o 0,72 milioni di scritture (3,6 m UR/5) utilizzando la velocità effettiva con provisioning. Normalizzate in milioni di letture e scritture, il costo sarebbe di 0,022 dollari/milione di letture (0,08 dollari/3,6) e 0,111 dollari/milioni di scritture (0,08 dollari/0,72). Il costo al milione diventa minimo come illustrato nella tabella seguente.
 
 |Dimensioni del documento|1 milione di letture|1 milione di scritture|
 |-------------|-------|--------|
 |1 KB|$0.022|$0.111|
-|5 KB|$0.111|$0.556|
-|10 KB|$0.222|$1.111|
-|50 KB|$1.111|$5.556|
-|100 KB|$2.222|$11.111|
+|100 KB|$0.222|$1.111|
 
-La maggior parte degli archivi di oggetti o BLOB di base come i servizi AWS S3 o Archiviazione BLOB di Azure addebita&0;,40 dollari per milione di transazioni di lettura e&5; dollari per milione transazioni di scrittura. Se utilizzato in modo ottimale, DocumentDB è fino al 98% più conveniente di queste altre soluzioni (per le transazioni di 1KB).
+La maggior parte dei servizi di archivi di oggetti o BLOB di base addebita&0;,40 dollari per milione di transazioni di lettura e&5; dollari per milione transazioni di scrittura. Se utilizzato in modo ottimale, DocumentDB è fino al 98% più conveniente di queste altre soluzioni (per le transazioni di 1KB).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

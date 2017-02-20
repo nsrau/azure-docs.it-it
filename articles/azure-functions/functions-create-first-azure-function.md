@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/02/2016
+ms.date: 02/09/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: ab0b218a99ab3ff98edfa075eabbd3eb2c2bd1d4
-ms.openlocfilehash: eacba057de5065acc3baa610a76a9ae135d6060a
+ms.sourcegitcommit: 7743bfb98552f7fa2334d8daa6a6f6935969f393
+ms.openlocfilehash: d76630e0be4a021720d88e6d7e64cf2258f84266
 
 
 ---
@@ -57,6 +57,6 @@ Per poter creare la prima funzione, è necessario avere un account Azure attivo.
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

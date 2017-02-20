@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 45b44b7b5cb4fd299fcc9c4f704a602048dd15c5
-ms.openlocfilehash: e875aab41e09066df2facd3669eec09eea621fd2
+ms.sourcegitcommit: a4b067e732bccb01faa96f23dbfd2ed65b7711a0
+ms.openlocfilehash: 62326da2e801a7c6e01d29e2298bd3552f331647
 
 
 ---
@@ -32,10 +32,10 @@ Data Factory supporta la connessione a origini Oracle locali mediante il gateway
 ## <a name="supported-versions-and-installation"></a>Versioni supportate e installazione
 Il connettore Oracle supporta due versioni di driver:
 
-- Il **driver Microsoft per Oracle** è incluso nel gateway di gestione dati a partire dalla versione 2.7. È quindi necessario installare solo il gateway per connettersi a Oracle. È supportato Oracle Database 10g Release 2 o versioni successive. È **consigliabile** usare il driver per semplificare la configurazione dell'ambiente.
+- Il **driver Microsoft per Oracle** è incluso nel gateway di gestione dati a partire dalla versione 2.7. È **consigliabile** usare questo driver. È quindi necessario installare solo il gateway per connettersi a Oracle e con un'esperienza di copia migliore. È supportato Oracle Database 10g Release 2 o versioni successive.
 
     > [!NOTE]
-    > Il driver Microsoft per Oracle supporta attualmente solo la copia dei dati da Oracle ma non la scrittura in Oracle.
+    > Il driver Microsoft per Oracle supporta attualmente solo la copia dei dati da Oracle ma non la scrittura in Oracle. Si noti che la funzionalità di connessione di test nella scheda Diagnostica del Gateway di gestione dati supporta questo driver. In alternativa, è possibile usare la procedura guidata di copia per convalidare la connettività.
     >
 
 - **Provider di dati Oracle per .NET:** è possibile scegliere di usare il Provider di dati Oracle per copiare i dati da/in Oracle. Questo componente è incluso in [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Installare la versione appropriata (32/64 bit) nel computer in cui è installato il gateway. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) può accedere a Oracle Database 10g Release 2 o versione successiva.
@@ -569,6 +569,6 @@ Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spos
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

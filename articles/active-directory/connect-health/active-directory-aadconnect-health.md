@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
-ms.author: billmath
+ms.date: 02/10/2017
+ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: c9ebe21acbe06aa25bcadb3b500c34cf89154388
-ms.openlocfilehash: 9abdfa7349bee74b89a23663969904110c730395
+ms.sourcegitcommit: 21e599fc2adf3d7dce84cc1c4130504b71928db7
+ms.openlocfilehash: c8c5f30e4cb0467f6ccdc65d96b57b766593ba31
 
 
 ---
@@ -89,13 +89,16 @@ Le operazioni per iniziare a usare Azure AD Connect Health sono molto semplici. 
 >
 
 ## <a name="download-and-install-azure-ad-connect-health-agent"></a>Scaricare e installare l'agente di Azure AD Connect Health
-* Verificare che siano soddisfatti i requisiti per Azure AD Connect Health
-* Per una guida introduttiva all'uso di Azure AD Connect Health per AD FS, è possibile scaricare la versione più recente dell'agente qui: [Download dell'agente di Azure AD Connect Health per AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
-  [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
-* Per iniziare a usare Azure AD Connect Health per la sincronizzazione, scaricare e installare la [versione più recente di Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771).  L'agente per l'integrità verrà installato come parte dell'installazione di Azure AD Connect (versione 1.0.9125.0 o versione successiva).  Azure AD Connect supporta un aggiornamento sul posto da versioni precedenti.
-* Per una guida introduttiva all'uso di Azure AD Connect Health per Active Directory Domain Services, è possibile scaricare la versione più recente dell'agente qui: [Download dell'agente di Azure AD Connect Health per Active Directory Domain Services.](http://go.microsoft.com/fwlink/?LinkID=820540)
-  [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
-
+* Assicurarsi di [rispettare i requisiti] (active-directory-aadconnect-health-agent-install.md#requirements) per Azure AD Connect Health
+* Introduzione ad Azure AD Connect Health per AD FS
+    * [Scaricare l'agente di Azure AD Connect Health per AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Vedere le istruzioni per l'installazione](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+* Introduzione ad Azure AD Connect Health per la sincronizzazione
+    * [Scaricare e installare la versione più recente di Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771). L'agente di integrità per la sincronizzazione verrà installato come parte dell'installazione di Azure AD Connect (versione 1.0.9125.0 o versione successiva).
+* Introduzione ad Azure AD Connect Health per Active Directory Domain Services
+    * [Scaricare l'agente di Azure AD Connect Health per Active Directory Domain Services.](http://go.microsoft.com/fwlink/?LinkID=820540)
+    * [Vedere le istruzioni per l'installazione](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+    
 ## <a name="azure-ad-connect-health-portal"></a>portale di Azure AD Connect Health
 Il portale di Azure AD Connect Health consente di visualizzare gli avvisi, il monitoraggio delle prestazioni e le analisi di utilizzo. https://aka.ms/aadconnecthealth permette di raggiungere il pannello principale di Azure AD Connect Health.  Un pannello è paragonabile a una finestra. Nel pannello principale sono disponibili opzioni per l'Avvio rapido, per i servizi di Azure AD Connect Health e altre opzioni di configurazione. Sotto la schermata è disponibile una breve descrizione di ciascun elemento.  Dopo la distribuzione degli agenti, il servizio integrità identifica automaticamente gli identificatori dei servizi monitorati da Azure AD Connect Health.
 
@@ -120,7 +123,6 @@ Il portale di Azure AD Connect Health consente di visualizzare gli avvisi, il mo
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

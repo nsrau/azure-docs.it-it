@@ -13,21 +13,25 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e4e8cf878d08aab41426fcebe1c43d7a9a97b57d
+ms.sourcegitcommit: 6c468c8ed0d817a32c343d55cac780b904ee8668
+ms.openlocfilehash: 6cedd18c22bcd97f7fb2b6926bdf637fe9f04ab4
 
 
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Sviluppare script di Azione script per HDInsight nei cluster basati su Windows
 Informazioni su come scrivere script di Azione script per HDInsight Per informazioni sull'uso di script di Azione script, vedere [Personalizzare cluster HDInsight mediante Azione script](hdinsight-hadoop-customize-cluster.md). Per lo stesso articolo dedicato ai cluster HDInsight basati su Linux, vedere [Sviluppare script di Azione script per HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
-> [!NOTE]
-> Le informazioni contenute in questo documento sono specifiche per i cluster HDInsight basati su Windows. Per informazioni sull'uso di azioni script con cluster basati su Windows, vedere [Sviluppo di azioni script con HDInsight (Linux)](hdinsight-hadoop-script-actions-linux.md).
+
+
+> [!IMPORTANT]
+> I passaggi descritti in questo documento funzionano solo con i cluster HDInsight basati su Windows. HDInsight è disponibile in Windows solo per le versioni precedenti a HDInsight 3.4. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Per informazioni sull'uso di azioni script con cluster basati su Linux, vedere [Sviluppo di azioni script con HDInsight (Linux)](hdinsight-hadoop-script-actions-linux.md).
 >
 >
+
+
 
 L'azione script può essere usata per installare software aggiuntivi in esecuzione in un cluster Hadoop o per modificare la configurazione delle applicazioni installate in un cluster. Le azioni script sono script eseguiti sui nodi del cluster quando si distribuiscono cluster HDInsight. Tali script vengono eseguiti dopo che i nodi del cluster hanno completato la configurazione di HDInsight. Un'azione script viene eseguita con i privilegi dell'account amministratore di sistema e fornisce diritti di accesso completo ai nodi del cluster. È possibile fornire a ciascun cluster un elenco di azioni script da eseguire nell'ordine in cui sono state specificate.
 
@@ -311,6 +315,6 @@ Nel caso in cui si verifichi un errore di esecuzione, anche l'output che descriv
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 06/30/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
-ms.openlocfilehash: 665e0684328538b61bb3eb05180d8d7d0e65ec49
+ms.sourcegitcommit: dd020bf625510eb90af2e1ad19c155831abd7e75
+ms.openlocfilehash: 5145418159aa457be6d1fc9ed5bb1a43a955791c
 
 ---
 
@@ -83,36 +83,49 @@ DNS Azure crea automaticamente i record NS autorevoli nella zona con i server de
 
 Con Azure PowerShell i record NS autorevoli possono essere recuperati come indicato di seguito. Si noti che il nome del record "@" viene usato per fare riferimento ai record al vertice della zona.
 
-    PS> $zone = Get-AzureRmDnsZone -Name contoso.net -ResourceGroupName MyResourceGroup
-    PS> Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -Zone $zone
+```powershell
+$zone = Get-AzureRmDnsZone -Name contoso.net -ResourceGroupName MyResourceGroup
+Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -Zone $zone
+```
 
-    Name              : @
-    ZoneName          : contoso.net
-    ResourceGroupName : MyResourceGroup
-    Ttl               : 3600
-    Etag              : 5fe92e48-cc76-4912-a78c-7652d362ca18
-    RecordType        : NS
-    Records           : {ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org,
-                        ns4-01.azure-dns.info}
-    Tags              : {}
+L'esempio seguente corrisponde alla risposta.
+
+```
+Name              : @
+ZoneName          : contoso.net
+ResourceGroupName : MyResourceGroup
+Ttl               : 3600
+Etag              : 5fe92e48-cc76-4912-a78c-7652d362ca18
+RecordType        : NS
+Records           : {ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org,
+                    ns4-01.azure-dns.info}
+Tags              : {}
+```
 
 È anche possibile usare l'interfaccia della riga di comando multipiattaforma di Azure per recuperare i record NS autorevoli e quindi trovare i server dei nomi assegnati alla zona:
 
-    C:\> azure network dns record-set show MyResourceGroup contoso.net @ NS
-    info:    Executing command network dns record-set show
-        + Looking up the DNS Record Set "@" of type "NS"
-    data:    Id                              : /subscriptions/.../resourceGroups/MyResourceGroup/providers/Microsoft.Network/dnszones/contoso.net/NS/@
-    data:    Name                            : @
-    data:    Type                            : Microsoft.Network/dnszones/NS
-    data:    Location                        : global
-    data:    TTL                             : 172800
-    data:    NS records
-    data:        Name server domain name     : ns1-01.azure-dns.com.
-    data:        Name server domain name     : ns2-01.azure-dns.net.
-    data:        Name server domain name     : ns3-01.azure-dns.org.
-    data:        Name server domain name     : ns4-01.azure-dns.info.
-    data:
-    info:    network dns record-set show command OK
+```azurecli
+azure network dns record-set show MyResourceGroup contoso.net @ NS
+```
+
+L'esempio seguente corrisponde alla risposta.
+
+```
+info:    Executing command network dns record-set show
+    + Looking up the DNS Record Set "@" of type "NS"
+data:    Id                              : /subscriptions/.../resourceGroups/MyResourceGroup/providers/Microsoft.Network/dnszones/contoso.net/NS/@
+data:    Name                            : @
+data:    Type                            : Microsoft.Network/dnszones/NS
+data:    Location                        : global
+data:    TTL                             : 172800
+data:    NS records
+data:        Name server domain name     : ns1-01.azure-dns.com.
+data:        Name server domain name     : ns2-01.azure-dns.net.
+data:        Name server domain name     : ns3-01.azure-dns.org.
+data:        Name server domain name     : ns4-01.azure-dns.info.
+data:
+info:    network dns record-set show command OK
+```
 
 ### <a name="to-set-up-delegation"></a>Per configurare la delega
 
@@ -128,19 +141,21 @@ Dopo aver completato la delega, è possibile verificare il corretto funzionament
 
 Si noti che non è necessario specificare i server dei nomi DNS di Azure, perché il normale processo di risoluzione DNS troverà i server dei nomi automaticamente se la delega è stata configurata correttamente.
 
-    nslookup -type=SOA contoso.com
+```
+nslookup -type=SOA contoso.com
 
-    Server: ns1-04.azure-dns.com
-    Address: 208.76.47.4
+Server: ns1-04.azure-dns.com
+Address: 208.76.47.4
 
-    contoso.com
-    primary name server = ns1-04.azure-dns.com
-    responsible mail addr = msnhst.microsoft.com
-    serial = 1
-    refresh = 900 (15 mins)
-    retry = 300 (5 mins)
-    expire = 604800 (7 days)
-    default TTL = 300 (5 mins)
+contoso.com
+primary name server = ns1-04.azure-dns.com
+responsible mail addr = msnhst.microsoft.com
+serial = 1
+refresh = 900 (15 mins)
+retry = 300 (5 mins)
+expire = 604800 (7 days)
+default TTL = 300 (5 mins)
+```
 
 ## <a name="delegating-sub-domains-in-azure-dns"></a>Delega di sottodomini in DNS di Azure
 
@@ -186,19 +201,21 @@ Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
 
 È possibile verificare che tutto sia configurato correttamente eseguendo la ricerca del record SOA della zona figlio.
 
-    nslookup -type=SOA partners.contoso.com
+```
+nslookup -type=SOA partners.contoso.com
 
-    Server: ns1-08.azure-dns.com
-    Address: 208.76.47.8
+Server: ns1-08.azure-dns.com
+Address: 208.76.47.8
 
-    partners.contoso.com
-        primary name server = ns1-08.azure-dns.com
-        responsible mail addr = msnhst.microsoft.com
-        serial = 1
-        refresh = 900 (15 mins)
-        retry = 300 (5 mins)
-        expire = 604800 (7 days)
-        default TTL = 300 (5 mins)
+partners.contoso.com
+    primary name server = ns1-08.azure-dns.com
+    responsible mail addr = msnhst.microsoft.com
+    serial = 1
+    refresh = 900 (15 mins)
+    retry = 300 (5 mins)
+    expire = 604800 (7 days)
+    default TTL = 300 (5 mins)
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -209,6 +226,6 @@ Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

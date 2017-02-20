@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: 768e21205e341f4915f8be50129fd246285a2efc
+ms.sourcegitcommit: b6c79691c75cb01eb4eea4d0e66b01d1792cfb11
+ms.openlocfilehash: 0e3f0166517d3fd0ddd5f04a12afa393d0ac2a92
 
 
 ---
@@ -97,7 +97,7 @@ L'hub IoT consente inoltre di gestire i gruppi di consumer nell'endpoint di rice
 
 Per impostazione predefinita, tutti i messaggi che non corrispondono in modo esplicito a una regola di routing vengono scritti nell'endpoint predefinito. Se si disattiva questa route di fallback, i messaggi che non corrispondono in modo esplicito a una regola di routing verranno eliminati.
 
-È possibile modificare tutte queste proprietà a livello di codice con le [API del provider di risorse dell'hub IoT di Azure][lnk-resource-provider-apis] oppure usando il [portale di Azure][lnk-management-portal].
+È possibile modificare il tempo di conservazione a livello di codice con le [API del provider di risorse dell'hub IoT di Azure][lnk-resource-provider-apis] oppure usando il [portale di Azure][lnk-management-portal].
 
 ### <a name="anti-spoofing-properties"></a>Proprietà anti-spoofing
 Per evitare lo spoofing di dispositivi nei messaggi da dispositivo a cloud, l'hub IoT contrassegna tutti i messaggi con le proprietà seguenti:
@@ -437,6 +437,6 @@ Per provare alcuni dei concetti descritti in questo articolo, possono essere uti
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

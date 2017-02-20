@@ -1,5 +1,5 @@
 ---
-title: Proteggere le risorse cloud con Azure MFA e ADFS
+title: Proteggere le risorse cloud con Azure MFA e AD FS | Documentazione Microsoft
 description: "Questa è la pagina su Multi-Factor Authentication di Azure in cui viene descritto come iniziare a utilizzare questa tipologia di autenticazione di Azure nel cloud."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,43 +12,40 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/09/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0a9ab0aca1a77245f360d0d8976aa9b8f59f15a0
-
+ms.sourcegitcommit: 60e8bf883a09668100df8fb51572f9ce0856ccb3
+ms.openlocfilehash: 9eb32ac7936ad54d487dc15d3ef320ec279ce0bc
 
 ---
+
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protezione delle risorse cloud con Azure Multi-Factor Authentication e AD FS
-Se l'organizzazione è federata con Azure Active Directory, usare Azure Multi-Factor Authentication o Active Directory Federation Services per proteggere le risorse accessibili da Azure AD. Usare le procedure seguenti per proteggere le risorse di Azure Active Directory con Azure Multi-Factor Authentication o Active Directory Federation Services.
+Se l'organizzazione è federata con Azure Active Directory, usare Azure Multi-Factor Authentication o Active Directory Federation Services (AD FS) per proteggere le risorse accessibili da Azure AD. Usare le procedure seguenti per proteggere le risorse di Azure Active Directory con Azure Multi-Factor Authentication o Active Directory Federation Services.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Proteggere le risorse Azure AD con ADFS
-Per proteggere le risorse cloud, prima è necessario abilitare un account per gli utenti e quindi impostare una regola attestazioni. Seguire questa procedura per eseguire i passaggi:
+Per proteggere le risorse cloud, configurare una regola attestazioni in modo che Active Directory Federation Services generi l'attestazione multipleauthn quando un utente esegue correttamente la verifica in due passaggi. Questa attestazione viene passata ad Azure AD. Seguire questa procedura per eseguire i passaggi:
 
-1. Usare la procedura descritta in [Attivare l'autenticazione a più fattori per gli utenti](multi-factor-authentication-get-started-cloud.md#turn-on-two-step-verification-for-users) per abilitare un account.
-2. Avviare la console di gestione di ADFS.
-   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
-3. Passare ad **Attendibilità componente** e fare clic con il pulsante destro del mouse sull'attendibilità della relying party. Selezionare **Modifica regole attestazione...**
-4. Fare clic su **Aggiungi regola...**
-5. Nell'elenco a discesa selezionare **Inviare attestazioni mediante una regola personalizzata** e fare clic su **Avanti**.
-6. Immettere un nome per la regola attestazione.
-7. In Regola personalizzata: aggiungere quanto segue:
 
-    ```
-    => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsreferences", Value = "http://schemas.microsoft.com/claims/multipleauthn");
-    ```
+1. Aprire il componente di gestione di ADFS.
+2. A sinistra selezionare **Attendibilità componente**.
+3. Fare clic con il pulsante destro del mouse su **Piattaforma delle identità di Microsoft Office 365** e selezionare **Modifica regole attestazione...**
 
-    Attestazione corrispondente:
+   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
 
-    ```
-    <saml:Attribute AttributeName="authnmethodsreferences" AttributeNamespace="http://schemas.microsoft.com/claims">
-    <saml:AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</saml:AttributeValue>
-    </saml:Attribute>
-    ```
-8. Fare clic su **OK** e su **Fine**. Chiudere la console di gestione di ADFS.
+4. In Regole di trasformazione rilascio fare clic su **Aggiungi regola**.
 
-Gli utenti possono quindi completare l'accesso utilizzando il metodo locale (ad esempio smart card).
+   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
+
+5. Nell'Aggiunta guidata regole attestazione di trasformazione selezionare **Applicare la funzione di pass-through o di filtro a un'attestazione in ingresso** dall'elenco a discesa e fare clic su **Avanti**.
+
+   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
+
+6. Assegnare un nome alla regola. 
+7. Selezionare **Riferimenti dei metodi di autenticazione** come Tipo di attestazione in ingresso.
+8. Selezionare **Pass-through di tutti i valori attestazione**.
+    ![Aggiunta guidata regole attestazione di trasformazione](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
+9. Fare clic su **Fine**. Chiudere la console di gestione di ADFS.
 
 ## <a name="trusted-ips-for-federated-users"></a>Indirizzi IP attendibili per utenti federati
 Gli indirizzi IP attendibili consentono agli amministratori di ignorare la verifica in due passaggi per specifici indirizzi IP o utenti federati con richieste provenienti dalla propria rete Intranet. Le sezioni seguenti descrivono come configurare gli indirizzi IP attendibili di Azure Multi-Factor Authentication con utenti federati e ignorare la verifica in due passaggi quando una richiesta proviene da una Intranet di utenti federati. Questo avviene configurando ADFS in modo da applicare la funzione di pass-through o filtro a un modello di attestazione in ingresso con il tipo di attestazione All'interno della rete aziendale.
@@ -56,7 +53,7 @@ Gli indirizzi IP attendibili consentono agli amministratori di ignorare la verif
 Questo esempio usa Office 365 per l'attendibilità del componente.
 
 ### <a name="configure-the-ad-fs-claims-rules"></a>Configurare le regole attestazioni di ADFS
-Per prima cosa è necessario configurare le attestazioni ADFS. Si creeranno due regole attestazioni, una per il tipo di attestazione All'interno della rete aziendale e un'altra per mantenere gli utenti connessi.
+Per prima cosa è necessario configurare le attestazioni ADFS. Creare due regole attestazioni, una per il tipo di attestazione All'interno della rete aziendale e un'altra per mantenere gli utenti connessi.
 
 1. Aprire il componente di gestione di ADFS.
 2. A sinistra selezionare **Attendibilità componente**.
@@ -100,6 +97,6 @@ La procedura è terminata. A questo punto, gli utenti federati di Office 365 dov
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

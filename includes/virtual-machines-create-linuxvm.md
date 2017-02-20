@@ -1,5 +1,5 @@
 
-1. Accedere alla sottoscrizione di Azure seguendo i passaggi elencati in [Connettersi ad Azure dall'interfaccia della riga di comando di Azure](../articles/xplat-cli-connect.md).
+1. Accedere alla sottoscrizione di Azure seguendo i passaggi elencati in [Connettersi ad Azure dall'interfaccia della riga di comando di Azure 1.0](../articles/xplat-cli-connect.md).
 
 2. Assicurarsi che sia attiva la modalità di distribuzione classica nel modo seguente:
 
@@ -52,10 +52,10 @@
     ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni su tutti questi comandi della macchina virtuale dell'interfaccia della riga di comando di Azure, leggere [Uso dell'interfaccia della riga di comando di Azure con l'API di distribuzione classica](../articles/virtual-machines-command-line-tools.md).
+Per informazioni su tutti questi comandi della macchina virtuale dell'interfaccia della riga di comando di Azure 1.0, vedere [Uso dell'interfaccia della riga di comando di Azure 1.0 con l'API di distribuzione classica](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 11/23/2016
+ms.date: 02/09/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 2f24c1c43300a3c5035fbb4e90c3d13f73c1bc74
-ms.openlocfilehash: a0c4cfb127934f86a7ce272c1aec2fd01331e17c
+ms.sourcegitcommit: 5b94c884c585824ab580f307f3a04e27c8536947
+ms.openlocfilehash: 05c6580bd0cd7af55325361e85cce9654e0169d6
 
 
 ---
@@ -60,11 +60,12 @@ I tentativi di connessione da Internet e Azure devono prima superare il firewall
    ![Diagramma che descrive la configurazione del firewall.][1]
 
 ## <a name="connecting-from-the-internet"></a>Connessione da Internet
-Quando un computer tenta di connettersi al server di database da Internet, il firewall controlla prima di tutto l'indirizzo IP di origine della richiesta rispetto al set completo di regole del firewall:
 
-* Se l'indirizzo IP della richiesta rientra in uno degli intervalli specificati nelle regole del firewall a livello di server, è consentita la connessione al server di database SQL di Azure.
-* Se l'indirizzo IP della richiesta non rientra in uno degli intervalli specificati nelle regole del firewall a livello di server, vengono controllate le regole del firewall a livello di database. Se l'indirizzo IP della richiesta rientra in uno degli intervalli specificati nelle regole del firewall a livello di database, è consentita la connessione solo al database con una regola a livello di database corrispondente.
-* Se l'indirizzo IP della richiesta non rientra negli intervalli specificati in una delle regole del firewall a livello di server o a livello di database, la richiesta di connessione non riesce.
+Quando un computer cerca di connettersi al server di database da Internet, il firewall confronta prima l'indirizzo IP di origine della richiesta con le regole firewall a livello di database, per il database richiesto dalla connessione:
+
+* Se l'indirizzo IP della richiesta rientra in uno degli intervalli specificati nelle regole firewall a livello di database, viene consentita la connessione al database SQL che contiene le regole.
+* Se l'indirizzo IP della richiesta non rientra in uno degli intervalli specificati nelle regole firewall a livello di database, vengono controllate le regole firewall a livello di server. Se l'indirizzo IP della richiesta rientra in uno degli intervalli specificati nelle regole firewall a livello di server, viene consentita la connessione. Le regole firewall a livello di server si applicano a tutti i database SQL nel server di Azure SQL.  
+* Se l'indirizzo IP della richiesta non rientra negli intervalli specificati in una delle regole firewall a livello di database o di server, la richiesta di connessione ha esito negativo.
 
 > [!NOTE]
 > Per accedere al database SQL di Azure dal computer locale, verificare che il firewall in rete e nel computer locale consenta le comunicazioni in uscita sulla porta TCP 1433.
@@ -154,6 +155,6 @@ Per informazioni su come passare ai database, vedere [Gestire l'accesso al datab
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

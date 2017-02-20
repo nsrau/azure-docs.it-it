@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cea04afd22270c77d91148d3c4a95e87f37406db
+ms.sourcegitcommit: 3b5d9162e2d39e2b0f011383a478545644c57861
+ms.openlocfilehash: c9742c7f505417577857889ef307083afb9bab18
 
 
 ---
@@ -279,7 +279,7 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 `policyName`: criteri da usare per convalidare i token in ingresso nel server. Usare gli stessi criteri usati nell'applicazione client per l'accesso.
 
 > [!NOTE]
-> Per questa anteprima di B2C, usare gli stessi i criteri per entrambe le configurazioni client e server. Se è già stata completata una procedura dettagliata in cui sono stati creati questi criteri, non è necessario crearli di nuovo. Dal momento che la procedura dettagliata è stata completata, non è necessario impostare nuovi criteri per procedure dettagliate relative ai client nel sito.
+> Per questo esempio, usare gli stessi i criteri per entrambe le configurazioni client e server. Se è già stata completata una procedura dettagliata in cui sono stati creati questi criteri, non è necessario crearli di nuovo. Dal momento che la procedura dettagliata è stata completata, non è necessario impostare nuovi criteri per procedure dettagliate relative ai client nel sito.
 >
 >
 
@@ -763,6 +763,6 @@ Ora è possibile passare ad argomenti più avanzati, ad esempio:
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

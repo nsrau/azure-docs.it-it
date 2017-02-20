@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 2b2d71decf6027a7ffdde444c0746ad5da0080b5
+ms.sourcegitcommit: fd3a08f227ade7589bbc7a17fa600e5a283d8054
+ms.openlocfilehash: 7e1f99c6c603420386432e04d0a2f0ecda95d6b7
 
 ---
 # <a name="api-management-access-restriction-policies"></a>Criteri di limitazione dell'accesso di Gestione API
@@ -368,7 +368,8 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
     header-name="name of http header containing the token (use query-parameter-name attribute if the token is passed in the URL)"   
     failed-validation-httpcode="http status code to return on failure"   
     failed-validation-error-message="error message to return on failure"   
-    require-expiration-time="true|false"   
+    require-expiration-time="true|false"
+    require-scheme="scheme"
     require-signed-tokens="true|false"   
     clock-skew="allowed clock skew in seconds">  
   <issuer-signing-keys>  
@@ -491,7 +492,8 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |id|L'attributo `id` nell'elemento `key` consente di specificare la stringa che verrà confrontata con l'attestazione `kid` nel token (se presente) per individuare la chiave appropriata da usare per la convalida della firma.|No|N/D|  
 |match|Perché la convalida abbia esito positivo, l'attributo `match` sull'elemento `claim` specifica se il valore dell'attestazione nel criterio deve essere presente nel token. I valori possibili sono:<br /><br /> -                          `all`: ogni valore dell'attestazione nel criterio deve essere presente nel token perché la convalida abbia esito positivo.<br /><br /> -                          `any`: almeno un valore dell'attestazione deve essere presente nel token perché la convalida abbia esito positivo.|No|tutti|  
 |query-paremeter-name|Nome di parametro di query che contiene il token.|È necessario specificare `header-name` o `query-paremeter-name`, ma non entrambi.|N/D|  
-|require-expiration-time|Booleano. Specifica se è necessaria un'attestazione di scadenza nel token.|No|true|  
+|require-expiration-time|Booleano. Specifica se è necessaria un'attestazione di scadenza nel token.|No|true|
+|require-scheme|Il nome dello schema di token, ad esempio "Bearer". Quando questo attributo è impostato, il criterio assicura che lo schema specificato sia presente nel valore dell'intestazione di autorizzazione.|No|N/D|
 |require-signed-tokens|Booleano. Specifica se è necessario firmare un token.|No|true|  
 |URL|URL dell'endpoint di configurazione Open ID dal quale è possibile ottenere i metadati della configurazione Open ID. Per Azure Active Directory, usare il seguente URL: `https://login.windows.net/{tenant-name}/.well-known/openid-configuration` sostituendo il nome del tenant della directory in uso, ad esempio `contoso.onmicrosoft.com`.|Sì|N/D|  
   
@@ -506,6 +508,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 Per altre informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO1-->
 
 

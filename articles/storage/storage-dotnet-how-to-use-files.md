@@ -15,8 +15,8 @@ ms.topic: hero-article
 /ms.date: 1/18/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 6402c4cf43e087c22824555277deabc01ead2a0d
-ms.openlocfilehash: 25c6b0196de7f44fc77191dfe5a4c7c47bdd60e7
+ms.sourcegitcommit: 6c93e5363767cb6860d4a365eba178dd940bd41d
+ms.openlocfilehash: e0800b7c7aba64fa7429fc3ced8c194cd9fbf0d1
 
 
 ---
@@ -602,51 +602,57 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
    
     Al momento non è supportata l'autenticazione basata su Active Directory o sugli elenchi di controllo di accesso (ACL), ma è inclusa nell'elenco delle richieste di funzionalità. Per ora, per fornire l'autenticazione alla condivisione file vengono usate le chiavi dell'account di archiviazione di Azure. È disponibile una soluzione alternativa che prevede l'uso di firme di accesso condiviso tramite l'API REST o le librerie client. Le firme di accesso condiviso consentono di generare token con autorizzazioni specifiche che restano valide per un periodo di tempo definito. Ad esempio, è possibile generare un token con accesso di sola lettura a un determinato file. Tutti coloro che possiedono il token nel periodo in cui è valido hanno l'accesso in sola lettura a tale file.
    
-    La firma di accesso condiviso è supportata solo tramite l'API REST o le librerie client. Quando si monta la condivisione file tramite il protocollo SMB, non è possibile usare una firma di accesso condiviso per delegare l'accesso al contenuto.
-2. **Le condivisioni file di Azure sono visibili pubblicamente su Internet o sono raggiungibili solo tramite Azure?**
-   
-    Se la porta 445 (TCP in uscita) è aperta e il client supporta il protocollo SMB 3.0,*ovvero*, Windows 8 o Windows Server 2012, la condivisione file è disponibile tramite Internet. Contattare il provider di servizi Internet locale per sbloccare la porta. Nel frattempo è possibile visualizzare i file usando Storage Explorer o strumenti di terze parti, ad esempio Cloudberry.
-3. **Il traffico di rete tra una macchina virtuale di Azure e una condivisione file viene conteggiato come larghezza di banda esterna e addebitato alla sottoscrizione?**
+    La firma di accesso condiviso è supportata solo tramite l'API REST o le librerie client. Quando si monta la condivisione file tramite il protocollo SMB, non è possibile usare una firma di accesso condiviso per delegare l'accesso al contenuto. 
+
+2. **Come è possibile fornire accesso a un file specifico tramite un Web browser?**
+   Le firme di accesso condiviso consentono di generare token con autorizzazioni specifiche che restano valide per un periodo di tempo definito. Ad esempio, è possibile generare un token con accesso in lettura a un determinato file per un periodo di tempo specifico. Tutti gli utenti che hanno l'URL in corso di validità possono eseguire il download direttamente da qualsiasi Web browser. È possibile generare facilmente le chiavi di firma di accesso condiviso dall'interfaccia utente, ad esempio con Storage Explorer.
+
+3.   **Ci sono modi diversi per accedere ai file nell'archiviazione file di Azure?**
+    È possibile montare la condivisione file nel computer locale usando il protocollo SMB 3.0 o usare strumenti come [Storage Explorer](http://storageexplorer.com/) o Cloudberry per accedere ai file nella condivisione file. Dall'applicazione è possibile usare le librerie client, l'API REST o PowerShell per accedere ai file nella condivisione file di Azure.
+    
+4.   **Come è possibile montare la condivisione file di Azure nel computer locale?** Se la porta 445 (TCP in uscita) è aperta e il client supporta il protocollo SMB 3.0, *ad esempio* Windows 8 o Windows Server 2012, è possibile montare la condivisione file usando il protocollo SMB. Contattare il provider di servizi Internet locale per sbloccare la porta. Nel frattempo è possibile visualizzare i file usando Storage Explorer o strumenti di terze parti, ad esempio Cloudberry.
+
+5. **Il traffico di rete tra una macchina virtuale di Azure e una condivisione file viene conteggiato come larghezza di banda esterna e addebitato alla sottoscrizione?**
    
     Se la condivisione file e la macchina virtuale si trovano in aree diverse, il traffico che viene scambiato viene addebitato come larghezza di banda esterna.
-4. **Se il traffico di rete viene scambiato tra una macchina virtuale di Azure e una condivisione file nella stessa area è gratuito?**
+6. **Se il traffico di rete viene scambiato tra una macchina virtuale di Azure e una condivisione file nella stessa area è gratuito?**
    
     Sì. Se il traffico viene scambiato all'interno della stessa area, è gratuito.
-5. **La connessione dalle macchine virtuali locali ad Archiviazione file di Azure dipende da Azure ExpressRoute?**
+7. **La connessione dalle macchine virtuali locali ad Archiviazione file di Azure dipende da Azure ExpressRoute?**
    
     No. Se non si ha ExpressRoute è comunque possibile accedere alla condivisione file dall'ambiente locale, purché la porta 445 (TCP in uscita) sia aperta per l'accesso a Internet. È tuttavia possibile usare ExpressRoute con Archiviazione di Azure, se lo si desidera.
-6. **Il "controllo di condivisione file" per un cluster di failover è uno dei casi di utilizzo per Archiviazione file di Azure?**
+8. **Il "controllo di condivisione file" per un cluster di failover è uno dei casi di utilizzo per Archiviazione file di Azure?**
    
     Questa funzionalità non è supportata al momento.
-7. **Al momento Archiviazione file supporta solo l'archiviazione con ridondanza locale o l'archiviazione con ridondanza geografica, è corretto?**  
+9. **Al momento Archiviazione file supporta solo l'archiviazione con ridondanza locale o l'archiviazione con ridondanza geografica, è corretto?**  
    
     È previsto il supporto per l'archiviazione con ridondanza geografica e accesso in lettura, ma non sono ancora state definite le date.
-8. **Quando sarà possibile usare gli account di archiviazione esistenti per Archiviazione file di Azure?**
+10. **Quando sarà possibile usare gli account di archiviazione esistenti per Archiviazione file di Azure?**
    
     Il servizio Archiviazione file di Azure è ora abilitato per tutti gli account di archiviazione.
-9. **Verrà anche aggiunta un'operazione Rename all'API REST?**
+11. **Verrà anche aggiunta un'operazione Rename all'API REST?**
    
     L'operazione Rename non è ancora supportata nell'API REST.
-10. **È possibile usare condivisioni annidate, ovvero una condivisione all'interno di un'altra condivisione?**
+12. **È possibile usare condivisioni annidate, ovvero una condivisione all'interno di un'altra condivisione?**
     
     No. La condivisione file è il driver virtuale che è possibile montare, quindi le condivisioni annidate non sono supportate.
-11. **È possibile specificare autorizzazioni di sola lettura o di sola scrittura per le cartelle all'interno della condivisione?**
+13. **È possibile specificare autorizzazioni di sola lettura o di sola scrittura per le cartelle all'interno della condivisione?**
     
     Se la condivisione file viene montata tramite SMB, non è disponibile questo livello di controllo sulle autorizzazioni. È tuttavia possibile ottenere lo stesso risultato creando una firma di accesso condiviso tramite l'API REST o le librerie client.  
-12. **Le prestazioni sono ridotte quando si prova a decomprimere i file in Archiviazione file. Cosa devo fare?**
+14. **Le prestazioni sono ridotte quando si prova a decomprimere i file in Archiviazione file. Cosa devo fare?**
     
     Per trasferire grandi quantità di file in Archiviazione file, è consigliabile usare AzCopy, Azure PowerShell (Windows) o l'interfaccia della riga di comando di Azure (Linux/Unix), in quanto questi strumenti sono stati ottimizzati per il trasferimento in rete.
-13. **Patch rilasciata per risolvere il problema di prestazioni lente con file di Azure**
+15. **Patch rilasciata per risolvere il problema di prestazioni lente con file di Azure**
     
     Il team di Windows ha recentemente rilasciato una patch per risolvere un problema di prestazioni lente quando il cliente accede all'archivio file di Azure da Windows 8.1 o Windows Server 2012 R2. Per altre informazioni, vedere l'articolo della Knowledge Base associato, [Rallentamento delle prestazioni quando si accede all'archiviazione file di Azure da Windows 8.1 o Windows Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025).
-14. **Uso dell'archivio file di Azure con IBM MQ**
+16. **Uso dell'archivio file di Azure con IBM MQ**
     
     IBM ha rilasciato un documento per guidare i clienti di IBM MQ nella configurazione dell'archivio file di Azure con il relativo servizio. Per altre informazioni, vedere la pagina relativa alla [How to setup IBM MQ Multi instance queue manager with Microsoft Azure File Service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service)(Configurazione di IBM MQ Multi Instance Queue Manager (MIQM) con il servizio file di Microsoft Azure).
-15. **Risoluzione degli errori di archiviazione file di Azure**
+17. **Risoluzione degli errori di archiviazione file di Azure**
     
     È anche possibile fare riferimento all'articolo sulla [risoluzione dei problemi di archiviazione file di Azure](storage-troubleshoot-file-connection-problems.md) per indicazioni sulla risoluzione dei problemi end-to-end.               
 
-16. **Come è possibile abilitare la crittografia lato server per File di Azure?**
+18. **Come è possibile abilitare la crittografia lato server per File di Azure?**
 
     La [crittografia lato server](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) è attualmente in anteprima. Durante l'anteprima, la funzionalità può essere abilitata solo per gli account di archiviazione di Azure Resource Manager appena creati.
     Questa funzionalità può essere abilitata nell'account di archiviazione di Azure Resource Manager tramite il portale di Azure. Entro la fine di febbraio è prevista la disponibilità di [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), dell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) o dell'[API del provider di risorse di Archiviazione di Microsoft Azure](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) per l'abilitazione della crittografia per l'archiviazione file. Non sono previsti costi aggiuntivi per questa funzionalità. Quando si abilita Crittografia del servizio di archiviazione per l'archiviazione file di Azure, i dati vengono crittografati automaticamente. 
@@ -677,6 +683,6 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 
