@@ -17,8 +17,8 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 5c5c6aa4b6408da7b0c1511ac5fa79af5076f979
-ms.openlocfilehash: 268e5eabe88c46b2fab51debb25179a8a65be469
+ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
+ms.openlocfilehash: 4d078c3307c5f1a567f580ae5baaa21fa915e90a
 
 
 ---
@@ -163,7 +163,7 @@ Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazio
    | SQL Server | 1433 | Porta normale per le istanze predefinite di SQL Server. Se è stata usata un'immagine della raccolta, questa porta è automaticamente aperta. 
    | Probe di integrità | 59999 | Qualsiasi porta TCP aperta. In un passaggio successivo, configurare il [probe di integrità](#probe) del servizio di bilanciamento del carico e il cluster per l'uso di questa porta.  
 
-1. Aggiungere risorse di archiviazione alla macchina virtuale. Per informazioni dettagliate, vedere l'articolo relativo all'[aggiunta dell'archiviazione](../../../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+1. Aggiungere risorse di archiviazione alla macchina virtuale. Per informazioni dettagliate, vedere l'articolo relativo all'[aggiunta dell'archiviazione](../../../storage/storage-premium-storage.md).
 
    Entrambe le macchine virtuali necessitano di almeno due dischi dati.
 

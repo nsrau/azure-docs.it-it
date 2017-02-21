@@ -15,13 +15,12 @@ ms.topic: article
 ms.date: 1/30/2016
 ms.author: luywang
 translationtype: Human Translation
-ms.sourcegitcommit: ebd9a8cf3d3fd0d2eec3be0b74eb679ebcf2a8f6
-ms.openlocfilehash: 775f57ea15369228a41814a8ef62c46be911af34
+ms.sourcegitcommit: 4582049fa1d369ea63395514336d26a524dbfdbe
+ms.openlocfilehash: bd4fb88e9a0eccfb9c9e22120a7552e3fb11f725
 
 
 ---
 # <a name="migrating-to-premium-storage-using-azure-site-recovery"></a>Migrazione ad Archiviazione Premium con Azure Site Recovery
-## <a name="overview"></a>Panoramica
 
 [Archiviazione Premium di Azure](storage-premium-storage.md) offre prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali (VM) che eseguono carichi di lavoro con I/O intensivo. Questa guida consente agli utenti di eseguire la migrazione dei dischi delle VM da un account di archiviazione Standard a un account di archiviazione Premium usando [Azure Site Recovery](../site-recovery/site-recovery-overview.md).
 
@@ -185,6 +184,6 @@ Inoltre, controllare le seguenti risorse per altre informazioni su Archiviazione
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 
