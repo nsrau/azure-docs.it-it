@@ -1,5 +1,5 @@
 ---
-title: Introduzione a .NET per Azure AD | Documentazione Microsoft
+title: Introduzione alle API Web .NET per Azure AD | Documentazione Microsoft
 description: Come compilare un&quot;API Web MVC per Node.js che si integra con Azure AD per l&quot;autenticazione e l&quot;autorizzazione.
 services: active-directory
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 01/23/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: c401d473d3951ed5853170e8761a09a915329164
+ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
+ms.openlocfilehash: 9f7f7295a6a93c9e85dc3c19dfa4db2ec7c9a518
 
 
 ---
@@ -144,6 +144,6 @@ Come riferimento, viene fornito l'esempio completato (senza i valori di configur
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

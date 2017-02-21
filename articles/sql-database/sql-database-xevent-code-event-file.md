@@ -14,15 +14,16 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 02/06/2017
 ms.author: genemi
 translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: c046c6bd16d6ede165ccaeb5983393dd5e33bfae
+ms.sourcegitcommit: fdbe5ff497b7acc9d8521b8ba1a016ae11bc69d2
+ms.openlocfilehash: 3bb6cc477b413a8636433038429e4defec1d2676
 
 
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Codice di destinazione del file evento per eventi estesi nel database SQL
+
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 Si desidera un esempio di codice completo per un modo affidabile per acquisire e segnalare informazioni per un evento esteso.
@@ -38,6 +39,7 @@ Questo argomento presenta un esempio di codice in due fasi:
   * Per creare e avviare la sessione dell'evento e così via.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 * Un account e una sottoscrizione di Azure. È possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Qualsiasi database in cui è possibile creare una tabella.
   
@@ -52,6 +54,7 @@ Questo argomento presenta un esempio di codice in due fasi:
   * I moduli forniscono comandi come **New-AzureStorageAccount**.
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fase 1: Codice di PowerShell per il contenitore di archiviazione di Azure
+
 Questo PowerShell è la fase 1 dell'esempio di codice in due fasi.
 
 Lo script inizia con comandi di pulitura dopo un'eventuale esecuzione precedente ed è eseguibile di nuovo.
@@ -66,9 +69,10 @@ Lo script inizia con comandi di pulitura dopo un'eventuale esecuzione precedente
 
 ![PowerShell ISE, con il modulo Azure installato, pronto per l'esecuzione di script.][30_powershell_ise]
 
-&nbsp;
 
-```
+### <a name="powershell-code"></a>Codice PowerShell
+
+```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
 
 #--------------- 1 -----------------------
@@ -239,11 +243,10 @@ Now shift to the Transact-SQL portion of the two-part code sample!'
 ```
 
 
-&nbsp;
-
 Prendere nota dei valori nominati che lo script di PowerShell stampa alla fine. È necessario modificare tali valori nello script Transact-SQL che segue come fase 2.
 
 ## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Fase 2: Codice Transact-SQL che utilizza il contenitore di Archiviazione di Azure
+
 * Nella fase 1 di questo esempio di codice è stato eseguito uno script di PowerShell per creare un contenitore di Archiviazione di Azure.
 * Successivamente nella fase 2, lo script Transact-SQL deve utilizzare il contenitore.
 
@@ -258,16 +261,14 @@ Lo script di PowerShell stampa alcuni valori denominati quando è terminato. È 
 5. Trovare ogni **TODO** nello script e apportare le modifiche appropriate.
 6. Salvare e quindi eseguire lo script.
 
-&nbsp;
 
 > [!WARNING]
 > Il valore della chiave di firma di accesso condiviso generata dallo script di PowerShell precedente potrebbe iniziare con un "?" (punto interrogativo). Quando si usa la chiave di firma di accesso condiviso nello script T-SQL seguente, è necessario *rimuovere il prefisso "?"*. Le attività in caso contrario potrebbero essere bloccate dalla protezione.
-> 
-> 
 
-&nbsp;
 
-```
+### <a name="transact-sql-code"></a>Codice Transact-SQL
+
+```tsql
 ---- TODO: First, run the PowerShell portion of this two-part code sample.
 ---- TODO: Second, find every 'TODO' in this Transact-SQL file, and edit each.
 
@@ -461,11 +462,9 @@ GO
 ```
 
 
-&nbsp;
-
 Se la destinazione non può essere collegata durante l’esecuzione, è necessario arrestare e riavviare la sessione dell'evento:
 
-```
+```tsql
 ALTER EVENT SESSION ... STATE = STOP;
 GO
 ALTER EVENT SESSION ... STATE = START;
@@ -473,16 +472,14 @@ GO
 ```
 
 
-&nbsp;
-
 ## <a name="output"></a>Output
+
 Al termine dell'esecuzione dello script Transact-SQL, fare clic su una cella sotto l'intestazione della colonna **event_data_XML**. Viene visualizzato un elemento **<event>** che mostra un'istruzione UPDATE.
 
 Di seguito è riportato un elemento **<event>** generato durante il test:
 
-&nbsp;
 
-```
+```xml
 <event name="sql_statement_starting" package="sqlserver" timestamp="2015-09-22T19:18:45.420Z">
   <data name="state">
     <value>0</value>
@@ -521,7 +518,6 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 </event>
 ```
 
-&nbsp;
 
 Lo script Transact-SQL precedente ha usato la funzione di sistema seguente per leggere l'event_file:
 
@@ -531,9 +527,9 @@ Le opzioni avanzate per la visualizzazione di dati da eventi estesi sono illustr
 
 * [Visualizzazione avanzata dei dati di destinazione da eventi estesi](http://msdn.microsoft.com/library/mt752502.aspx)
 
-&nbsp;
 
 ## <a name="converting-the-code-sample-to-run-on-sql-server"></a>Conversione dell’esempio di codice da eseguire in SQL Server
+
 Si supponga di voler eseguire l'esempio di Transact-SQL precedente in Microsoft SQL Server.
 
 * Per semplicità, si desidera sostituire completamente l'uso del contenitore di Archiviazione di Azure con un semplice file, come **C:\myeventdata.xel**. Il file verrebbe scritto sul disco rigido locale del computer che ospita SQL Server.
@@ -543,6 +539,7 @@ Si supponga di voler eseguire l'esempio di Transact-SQL precedente in Microsoft 
   * Nessun account di Archiviazione di Azure deve essere coinvolto.
 
 ## <a name="more-information"></a>Altre informazioni
+
 Per ulteriori informazioni sugli account e i contenitori nel servizio Archiviazione di Azure, vedere:
 
 * [Come usare l'archiviazione BLOB da .NET](../storage/storage-dotnet-how-to-use-blobs.md)
@@ -560,6 +557,6 @@ Image references.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

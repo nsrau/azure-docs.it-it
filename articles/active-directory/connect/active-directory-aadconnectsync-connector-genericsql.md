@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: c4eef02a10cbb646e3d96ed444a0b3d957e0361d
-ms.openlocfilehash: 8a6c84ba559545cd1b786fc42cbbb7b190585e66
+ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
+ms.openlocfilehash: da12e642dc4d41fc74fe7b0f3722090da7818405
 
 
 ---
@@ -47,7 +47,7 @@ A livello generale, le funzionalità seguenti sono supportate dalla versione cor
 Prima di usare il connettore, verificare che nel server di sincronizzazione sia disponibile quanto segue:
 
 * Microsoft .NET 4.5.2 Framework o versione successiva
-* Driver client ODBC a 64 bit
+* Driver client ODBC a&64; bit
 
 ### <a name="permissions-in-connected-data-source"></a>Autorizzazioni nell'origine dati connessa
 Per creare o eseguire una delle operazioni supportate nel connettore Generic SQL, è necessario avere:
@@ -157,7 +157,7 @@ Il connettore Generic SQL supporta i seguenti metodi per l'importazione delta:
   * La strategia Watermark (Limite) non supporta gli oggetti eliminati.
 * **Snapshot**(funziona solo con Microsoft SQL Server) [Generating Delta Views Using Snapshots](https://technet.microsoft.com/library/cc720640.aspx)
 * **Change Tracking**(funziona solo con Microsoft SQL Server) [Informazioni sul rilevamento delle modifiche (SQL Server)](https://msdn.microsoft.com/library/bb933875.aspx)  
-   Limitazioni:
+  Limitazioni:
   * L'attributo Anchor & DN deve essere parte della chiave primaria per l'oggetto selezionato nella tabella.
   * La query SQL non è supportata durante l'importazione e l'esportazione con il rilevamento delle modifiche.
 
@@ -259,7 +259,7 @@ Il connettore Generic SQL supporta l'esportazione tramite quattro metodi support
 * Query SQL
 
 **Table/View**  
- (Tabella/Vista) Se si sceglie l'opzione Table/View (Tabella/Vista), il connettore genera le rispettive query per eseguire l'esportazione.
+(Tabella/Vista) Se si sceglie l'opzione Table/View (Tabella/Vista), il connettore genera le rispettive query per eseguire l'esportazione.
 
 **Stored procedure**  
 ![runstep8](./media/active-directory-aadconnectsync-connector-genericsql/runstep8.png)
@@ -287,7 +287,6 @@ Se si sceglie l'opzione SQL query, l'esportazione richiede tre diverse query per
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

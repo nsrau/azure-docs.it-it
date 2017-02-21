@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: e1d0d8f27e2af297750a992ccf6d54397f71616e
-ms.openlocfilehash: c737602f42e71fbb5afa9710efda1eb0e0c7aa66
-
+ms.sourcegitcommit: 8301a36327fb2605eaded8f41e27e830c85e823b
+ms.openlocfilehash: d8b73128a22c4c9efb9fcd50464ef370cd1a499c
 
 ---
+
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Servizio di sincronizzazione Azure AD Connect: Configurare il filtro
 Con i filtri è possibile controllare quali oggetti visualizzare in Azure AD dalla directory locale. La configurazione predefinita considera tutti gli oggetti in tutti i domini delle foreste configurate. In generale, questa è la configurazione consigliata. Gli utenti finali che usano i carichi di lavoro di Office 365, come Exchange Online e Skype for Business, hanno a disposizione un elenco indirizzi globale completo per poter inviare messaggi di posta elettronica e chiamare chiunque. Con la configurazione predefinita usufruiranno della stessa esperienza che otterrebbero con un'implementazione locale di Exchange o Lync.
 
@@ -34,8 +34,6 @@ Questo articolo illustra come configurare i diversi metodi di filtro.
 
 > [!IMPORTANT]
 > Microsoft non supporta la modifica o l'utilizzo del servizio di sincronizzazione Azure AD Connect per azioni diverse da quelle formalmente documentate. Una qualsiasi di queste azioni può determinare uno stato non coerente o non supportato del servizio di sincronizzazione Azure AD Connect. Microsoft pertanto non può fornire il supporto tecnico per tali distribuzioni.
->
->
 
 ## <a name="basics-and-important-notes"></a>Nozioni di base e note importanti
 Nel servizio di sincronizzazione Azure AD Connect è possibile abilitare il filtro in qualsiasi momento. Se si inizia con una configurazione predefinita del servizio di sincronizzazione della directory e successivamente si configura il filtro, gli oggetti esclusi non verranno più sincronizzati con Azure AD. Come conseguenza di questa modifica, tutti gli oggetti in Azure AD sincronizzati in precedenza, ma poi esclusi, verranno eliminati in Azure AD.
@@ -75,12 +73,12 @@ Per disabilitare l'attività pianificata che attiva un ciclo di sincronizzazione
 Dopo avere completato tutte le modifiche del filtro, non dimenticare di tornare indietro e di **abilitare** di nuovo l'attività.
 
 ## <a name="filtering-options"></a>Opzioni di filtro
-Allo Strumento di sincronizzazione della directory è possibile applicare i tipi di configurazione di filtro descritti di seguito:
+È possibile applicare al servizio di sincronizzazione Azure AD Connect i tipi di configurazione di filtro seguenti:
 
-* [**Basato su gruppo**](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups): il filtro basato su un singolo gruppo può essere configurato solo durante l'installazione iniziale usando l'installazione guidata. Non sono disponibili altri approfondimenti in questo argomento.
-* [**Basato su dominio**](#domain-based-filtering): questa opzione permette di selezionare i domini che verranno sincronizzati con Azure AD. Consente anche di aggiungere e rimuovere domini dalla configurazione del motore di sincronizzazione se si apportano modifiche all'infrastruttura locale dopo avere installato il servizio di sincronizzazione Azure AD Connect.
+* [**Basato su dominio**](#domain-based-filtering): questa opzione permette di selezionare i domini che verranno sincronizzati con Azure AD. Consente anche di aggiungere e rimuovere domini dalla configurazione del motore di sincronizzazione quando si apportano modifiche all'infrastruttura locale dopo avere installato il servizio di sincronizzazione Azure AD Connect.
 * [**Organizational-Unit–based**](#organizational-unitbased-filtering) (Basato su unità organizzativa): questa opzione di filtro permette di selezionare le unità organizzative che verranno sincronizzate con Azure AD. Questa opzione è disponibile in tutti i tipi di oggetto nelle unità organizzative selezionate.
 * [**Basato su attributo**](#attribute-based-filtering): questa opzione permette di filtrare gli oggetti in base ai valori degli attributi negli oggetti. È anche possibile avere filtri diversi a seconda del tipo di oggetto.
+* [**Basato su gruppo**](#group-based-filtering): il filtro basato su un singolo gruppo può essere configurato solo durante l'installazione iniziale usando l'installazione guidata. Viene usato per una piccola distribuzione pilota.
 
 È possibile usare più opzioni di filtro contemporaneamente. È possibile, ad esempio, usare il filtro basato sulle unità organizzative per includere solo gli oggetti in un'unità organizzativa e nello stesso tempo un filtro basato su un attributo ora per filtrare gli oggetti con maggiore precisione. Quando si usano più metodi di filtro, viene usato un operatore AND logico tra i filtri.
 
@@ -117,35 +115,27 @@ Se il filtro basato su dominio è stato aggiornato, è necessario aggiornare anc
 
 1. Nell'elenco **Connectors** verificare che sia selezionato il connettore modificato nel passaggio precedente. In **Actions** (Azioni) selezionare **Configure Run Profiles** (Configura profili di esecuzione).  
    ![Profili di esecuzione del connettore](./media/active-directory-aadconnectsync-configure-filtering/connectorrunprofiles1.png)  
-
-È necessario modificare i profili seguenti:
-
-* Importazione completa
-* sincronizzazione completa
-* Importazione differenziale
-* Sincronizzazione differenziale
-* Esporta
-
-Per ognuno dei cinque profili, eseguire questi passaggi per ogni dominio **aggiunto** :
-
-1. Selezionare il profilo di esecuzione e fare clic su **New Step**.
-2. Nell'elenco a discesa **Type** della pagina **Configure Step** selezionare il tipo di passaggio con lo stesso nome del profilo da configurare. Quindi fare clic su **Next**.  
-   ![Profili di esecuzione del connettore](./media/active-directory-aadconnectsync-configure-filtering/runprofilesnewstep1.png)  
-3. Nell'elenco a discesa **Partition** della pagina **Connector Configuration** selezionare il nome del dominio aggiunto al filtro basato su dominio.  
-   ![Profili di esecuzione del connettore](./media/active-directory-aadconnectsync-configure-filtering/runprofilesnewstep2.png)  
-4. Per chiudere la finestra di dialogo **Configure Run Profile**, fare clic su **Finish**.
-
-Per ognuno dei cinque profili, eseguire questi passaggi per ogni dominio **rimosso** :
-
-1. Selezionare il profilo di esecuzione.
-2. Se l'opzione **Value** dell'attributo **Partition** è un GUID, selezionare il passaggio di esecuzione e fare clic su **Delete Step**.  
-   ![Profili di esecuzione del connettore](./media/active-directory-aadconnectsync-configure-filtering/runprofilesdeletestep.png)  
-
-Il risultato corretto prevede che ogni dominio da sincronizzare sia elencato come passaggio in ogni profilo di esecuzione.
-
-Per chiudere la finestra di dialogo **Configure Run Profiles**, fare clic su **OK**.
-
-* Per completare la configurazione, [applicare e verificare le modifiche](#apply-and-verify-changes).
+2. Trovare e identificare i profili seguenti:
+    * Importazione completa
+    * sincronizzazione completa
+    * Importazione differenziale
+    * Sincronizzazione differenziale
+    * Esporta
+3. Per ogni profilo modificare i domini **aggiunto** e **rimosso**.
+    1. Per ognuno dei cinque profili, eseguire questi passaggi per ogni dominio **aggiunto** :
+        1. Selezionare il profilo di esecuzione e fare clic su **New Step**.
+        2. Nell'elenco a discesa **Type** della pagina **Configure Step** selezionare il tipo di passaggio con lo stesso nome del profilo da configurare. Quindi fare clic su **Next**.  
+        ![Profili di esecuzione del connettore](./media/active-directory-aadconnectsync-configure-filtering/runprofilesnewstep1.png)  
+        3. Nell'elenco a discesa **Partition** della pagina **Connector Configuration** selezionare il nome del dominio aggiunto al filtro basato su dominio.  
+        ![Profili di esecuzione del connettore](./media/active-directory-aadconnectsync-configure-filtering/runprofilesnewstep2.png)  
+        4. Per chiudere la finestra di dialogo **Configure Run Profile**, fare clic su **Finish**.
+    2. Per ognuno dei cinque profili, eseguire questi passaggi per ogni dominio **rimosso** :
+        1. Selezionare il profilo di esecuzione.
+        2. Se l'opzione **Value** dell'attributo **Partition** è un GUID, selezionare il passaggio di esecuzione e fare clic su **Delete Step**.  
+        ![Profili di esecuzione del connettore](./media/active-directory-aadconnectsync-configure-filtering/runprofilesdeletestep.png)  
+    3. Verificare la modifica. Il risultato corretto prevede che ogni dominio da sincronizzare sia elencato come passaggio in ogni profilo di esecuzione.
+4. Per chiudere la finestra di dialogo **Configure Run Profiles**, fare clic su **OK**.
+5.  Per completare la configurazione, è necessario eseguire una **Full import** (Importazione completa) e una **Delta sync** (Sincronizzazione delta). Per continuare, vedere la sezione [Applicare e verificare le modifiche](#apply-and-verify-changes).
 
 ## <a name="organizational-unitbased-filtering"></a>Filtro basato su unità organizzativa
 Il modo migliore per modificare i filtri basati su unità organizzativa consiste nell'eseguire l'installazione guidata e cambiare i [filtri basati su dominio e su unità organizzativa](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering). L'installazione guidata automatizza tutte le attività documentate in questo argomento.
@@ -165,27 +155,27 @@ Il modo migliore per modificare i filtri basati su unità organizzativa consiste
    * Per sincronizzare i computer Windows 10 con Azure AD, è necessario che il contenitore **Computers** sia selezionato. Se i computer aggiunti a un dominio si trovano in altre unità organizzative, verificare che siano selezionate.
    * Se sono presenti più foreste con trust, il contenitore **ForeignSecurityPrincipals** deve essere selezionato. Ciò consente di risolvere l'appartenenza al gruppo di sicurezza tra foreste.
    * Se è stata abilitata la funzionalità di writeback dei dispositivi, l'unità organizzativa **RegisteredDevices** deve essere selezionata. Se si usa un'altra funzionalità di writeback, ad esempio il writeback dei gruppi, verificare che queste posizioni siano selezionate.
-   * Selezionare le altre unità organizzative in cui si trovano Users, iNetOrgPersons, Groups, Contacts e Computers. Nella figura si trovano tutti nell'unità organizzativa ManagedObjects.
+   * Selezionare le altre unità organizzative in cui si trovano Users, iNetOrgPersons, Groups, Contacts e Computers. Nella figura tutte le unità organizzative si trovano nell'unità organizzativa ManagedObjects.
    * Se si usa il filtro basato sui gruppi, è necessario includere l'unità organizzativa in cui si trova il gruppo.
    * **Nota:** è possibile configurare se le nuove unità organizzative aggiunte dopo il completamento della configurazione del filtro devono essere sincronizzate o meno. Per altre informazioni in merito vedere la sezione che segue.
 7. Al termine chiudere la finestra di dialogo **Properties** facendo clic su **OK**.
-8. Per completare la configurazione, [applicare e verificare le modifiche](#apply-and-verify-changes).
+8. Per completare la configurazione, è necessario eseguire una **Full import** (Importazione completa) e una **Delta sync** (Sincronizzazione delta). Per continuare, vedere la sezione [Applicare e verificare le modifiche](#apply-and-verify-changes).
 
 ### <a name="synchronize-new-ous"></a>Sincronizzare nuove unità organizzative
-Le nuove unità organizzative create dopo aver configurato il filtro vengono sincronizzate per impostazione predefinita. Questa impostazione è indicata da un segno di spunta nella casella. È quindi possibile annullare la selezione di alcune unità organizzative secondarie deselezionando esplicitamente le caselle. A tal fine, fare clic sulla casella per farla diventare bianca con una casella di controllo blu (stato predefinito). Annullare la selezione di tutte le unità organizzative secondarie che non si desidera sincronizzare.
+Le nuove unità organizzative create dopo aver configurato il filtro vengono sincronizzate per impostazione predefinita. Questo stato è indicato da un segno di spunta nella casella. È quindi possibile annullare la selezione di alcune unità organizzative secondarie deselezionando esplicitamente le caselle. A tal fine, fare clic sulla casella per farla diventare bianca con una casella di controllo blu (stato predefinito). Annullare la selezione di tutte le unità organizzative secondarie che non si desidera sincronizzare.
 
-Se tutte le unità organizzative secondarie vengono sincronizzate, la casella sarà bianca con una casella di controllo blu.  
+Se tutte le unità organizzative secondarie vengono sincronizzate, la casella è bianca con una casella di controllo blu.  
 ![Unità organizzativa con tutte le caselle selezionate](./media/active-directory-aadconnectsync-configure-filtering/ousyncnewall.png)
 
-Se alcune unità organizzative sono state deselezionate, la casella apparirà grigia con una casella di controllo bianca.  
+Se alcune unità organizzative sono state deselezionate, la casella appare grigia con una casella di controllo bianca.  
 ![Unità organizzativa con alcune unità organizzative secondarie deselezionate](./media/active-directory-aadconnectsync-configure-filtering/ousyncnew.png)
 
 Con questa configurazione, una nuova unità organizzativa creata in ManagedObjects viene sincronizzata.
 
-L'installazione guidata di Azure AD Connect creerà sempre questa configurazione.
+L'installazione guidata di Azure AD Connect crea sempre questa configurazione.
 
 ### <a name="do-not-synchronize-new-ous"></a>Non sincronizzare le nuove unità organizzative
-È possibile configurare il motore di sincronizzazione in modo da non sincronizzare le nuove unità organizzative dopo che è stata completata la configurazione del filtro. Questa impostazione è indicata nell'interfaccia utente con la casella grigia a tinta unita senza segno di spunta. Per ottenere questo comportamento, fare clic sulla casella per farla diventare bianca senza segno di spunta. Selezionare quindi le unità organizzative secondarie che si desidera sincronizzare.
+È possibile configurare il motore di sincronizzazione in modo da non sincronizzare le nuove unità organizzative dopo che è stata completata la configurazione del filtro. Questo stato è indicato nell'interfaccia utente con la casella grigia a tinta unita senza segno di spunta. Per ottenere questo comportamento, fare clic sulla casella per farla diventare bianca senza segno di spunta. Selezionare quindi le unità organizzative secondarie che si desidera sincronizzare.
 
 ![Unità organizzativa con radice non selezionata](./media/active-directory-aadconnectsync-configure-filtering/oudonotsyncnew.png)
 
@@ -201,10 +191,11 @@ Il filtro può essere applicato sia in [ingresso](#inbound-filtering) da Active 
 ### <a name="inbound-filtering"></a>Filtri in ingresso
 I filtri in ingresso usano la configurazione predefinita degli oggetti diretti ad Azure AD secondo la quale è necessario che l'attributo metaverse cloudFiltered non sia impostato su un valore da sincronizzare. Se il valore di questo attributo è impostato su **True**, l'oggetto non viene sincronizzato. Il valore non deve essere impostato su **False** in base alla progettazione. Per verificare che altre regole possano fornire un valore, questo attributo dovrebbe avere solo i valori **True** o **NULL** (assente).
 
-Per determinare gli oggetti da sincronizzare o meno, nel filtro in ingresso viene usata la funzionalità di **ambito**, dove si apportano le modifiche necessarie per rispettare i requisiti dell'organizzazione. Il modulo di ambito include un **gruppo** e una **clausola** per determinare se una regola di sincronizzazione deve essere inclusa nell'ambito. Un **gruppo** contiene una o più **clausole**. Tra più clausole viene inserito un operare AND logico e tra più gruppi un operatore OR logico.
+Per determinare gli oggetti da sincronizzare o meno, nel filtro in ingresso viene usata la funzionalità di **ambito**, dove si apportano le modifiche necessarie per rispettare i requisiti dell'organizzazione. Il modulo di ambito include un **gruppo** e una **clausola** per determinare quando una regola di sincronizzazione deve essere inclusa nell'ambito. Un **gruppo** contiene una o più **clausole**. Tra più clausole viene inserito un operare AND logico e tra più gruppi un operatore OR logico.
 
 Ecco un esempio:   
-![Scope](./media/active-directory-aadconnectsync-configure-filtering/scope.png) Il risultato sarà **(department = IT) OR (department = Sales AND c = US)**.
+![Ambito](./media/active-directory-aadconnectsync-configure-filtering/scope.png)  
+Deve essere letto come **(department = IT) OR (department = Sales AND c = US)**.
 
 Negli esempi e nei passaggi seguenti viene usato l'oggetto utente come esempio, ma è possibile usarlo per tutti i tipi di oggetto.
 
@@ -223,7 +214,7 @@ Nell'esempio seguente vengono filtrati (non sincronizzati) tutti gli utenti per 
 6. Lasciare vuote le regole **Join** e quindi fare clic su **Next**.
 7. Fare clic su **Add Transformation** (Aggiungi trasformazione), impostare **FlowType** su **Constant**, selezionare l'attributo di destinazione **cloudFiltered** e nella casella di testo Source (Origine) digitare **True**. Fare clic su **Add** (Aggiungi) per salvare la regola.  
    ![Trasformazione in ingresso 3](./media/active-directory-aadconnectsync-configure-filtering/inbound3.png)
-8. Per completare la configurazione, [applicare e verificare le modifiche](#apply-and-verify-changes).
+8. Per completare la configurazione, è necessario eseguire una **Full sync** (Sincronizzazione completa). Per continuare, vedere la sezione [Applicare e verificare le modifiche](#apply-and-verify-changes).
 
 #### <a name="positive-filtering-only-sync-these"></a>Filtro positivo (sincronizzare solo gli elementi indicati)
 La creazione di un filtro positivo può essere più complessa perché è necessario considerare anche gli oggetti la cui sincronizzazione non è scontata, ad esempio le sale riunioni.
@@ -251,7 +242,7 @@ Nell'esempio seguente vengono sincronizzati solo gli oggetti per i quali l'attri
 10. Lasciare vuote le regole **Join** e quindi fare clic su **Next**.
 11. Fare clic su **Add Transformation** (Aggiungi trasformazione), impostare **FlowType** su **Constant**, selezionare l'attributo di destinazione **cloudFiltered** e nella casella di testo Source (Origine) digitare **True**. Fare clic su **Add** (Aggiungi) per salvare la regola.  
     ![Trasformazione in ingresso 3](./media/active-directory-aadconnectsync-configure-filtering/inbound3.png)  
-12. Per completare la configurazione, [applicare e verificare le modifiche](#apply-and-verify-changes).
+12. Per completare la configurazione, è necessario eseguire una **Full sync** (Sincronizzazione completa). Per continuare, vedere la sezione [Applicare e verificare le modifiche](#apply-and-verify-changes).
 
 Se necessario, è possibile creare altre regole del primo tipo per includere ancora più oggetti nella sincronizzazione.
 
@@ -267,8 +258,8 @@ In questo esempio il filtro viene modificato in modo che vengano sincronizzati s
 5. Nel popup selezionare **Yes** (Sì) per creare una copia della regola.
 6. Nella pagina **Description** (Descrizione) sostituire la precedenza con un valore non usato, ad esempio 50.
 7. Fare clic su **Scoping filter** (Filtro di ambito) a sinistra. Fare clic su **Add clause** (Aggiungi clausola) e in Attribute selezionare **mail**, in Operator selezionare **ENDSWITH** e in Value digitare **@contoso.com**. Fare clic su **Add clause** (Aggiungi clausola) e in Attribute selezionare **userPrincipalName**, in Operator selezionare **ENDSWITH** e in Value digitare **@contoso.com**.
-8. Fare clic su **Salva**.
-9. Per completare la configurazione, [applicare e verificare le modifiche](#apply-and-verify-changes).
+8. Fare clic su **Save**.
+9. Per completare la configurazione, è necessario eseguire una **Full sync** (Sincronizzazione completa). Per continuare, vedere la sezione [Applicare e verificare le modifiche](#apply-and-verify-changes).
 
 ## <a name="apply-and-verify-changes"></a>Applicare e verificare le modifiche
 Dopo avere apportato le modifiche alla configurazione, è necessario applicarle agli oggetti già presenti nel sistema. È possibile che gli oggetti attualmente non presenti nel motore di sincronizzazione debbano essere elaborati e che il motore di sincronizzazione debba leggere di nuovo il sistema di origine per verificarne il contenuto.
@@ -304,6 +295,9 @@ Ora è possibile abilitare di nuovo l'utilità di pianificazione.
 1. Avviare **Utilità di pianificazione** dal menu Start.
 2. In **Libreria Utilità di pianificazione** trovare l'attività denominata **Azure AD Sync Scheduler**, fare clic con il pulsante destro del mouse e scegliere **Abilita**.
 
+## <a name="group-based-filtering"></a>Filtri basati sui gruppi
+I filtri basati sui gruppi possono essere configurati alla prima installazione di Azure AD Connect usando l'[installazione personalizzata](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). Sono destinati a una distribuzione pilota, in cui è necessario sincronizzare solo un set ridotto di oggetti. Se si disabilitano i filtri basati sui gruppi, non sarà più possibile abilitarli. L'uso dei filtri basati sui gruppi **non è supportato** in una configurazione personalizzata con regole di sincronizzazione personalizzate. È supportata solo la configurazione di questa funzionalità con l'installazione guidata. Al termine della distribuzione pilota, è necessario usare una delle altre opzioni di filtro illustrate in questo argomento.
+
 ## <a name="next-steps"></a>Passaggi successivi
 Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
@@ -311,6 +305,6 @@ Ulteriori informazioni su [Integrazione delle identità locali con Azure Active 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

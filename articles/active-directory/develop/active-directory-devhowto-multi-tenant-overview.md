@@ -1,5 +1,5 @@
 ---
-title: "Come creare un&quot;applicazione che può consentire l&quot;accesso a qualsiasi utente di Azure Active Directory | Documentazione Microsoft"
+title: "Come compilare un&quot;app che può consentire l&quot;accesso a qualsiasi utente di Azure AD | Documentazione Microsoft"
 description: Istruzioni dettagliate per la creazione di un&quot;applicazione che consenta a un utente di accedere da qualsiasi tenant Azure Active Directory, nota anche come applicazione multi-tenant.
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
+ms.date: 01/23/2017
 ms.author: skwan;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 0e4eb184e353700f945f0da93aeca2187d710415
-ms.openlocfilehash: cc4893c004939f071287fea068dd754da6561224
+ms.sourcegitcommit: c0c94960cc0a6a00f1db19867e622cda7f66a07b
+ms.openlocfilehash: 80f7470bcaad07ff2e355a7b95155a329827e8e0
 
 
 ---
@@ -41,7 +41,7 @@ Esaminiamo in dettaglio ogni passaggio. È anche possibile passare direttamente 
 ## <a name="update-registration-to-be-multi-tenant"></a>Aggiornare la registrazione in modo che sia multi-tenant
 Per impostazione predefinita, le registrazioni di API o app Web in Azure AD sono single-tenant.  È possibile rendere la registrazione multi-tenant individuando l'opzione corrispondente nella pagina di configurazione della registrazione dell'applicazione nel [portale di Azure classico][AZURE-classic-portal] e impostandola su "Sì".
 
-Nota: un'applicazione può diventare multi-tenant se l'URI dell'ID App dell'applicazione è univoco a livello globale. L'URI dell'ID App è uno dei modi in cui un'applicazione viene identificata nei messaggi di protocollo.  Per un'applicazione single-tenant, è sufficiente che l'URI dell'ID App sia univoco all'interno del tenant.  Per un'applicazione multi-tenant, è necessario che sia univoco a livello globale in modo da Azure AD possa trovare l'applicazione in tutti i tenant.  L'univocità globale viene applicata richiedendo che l'URI dell'ID App abbia un nome host corrispondente a un dominio verificato del tenant di Azure AD.  Ad esempio, se il nome del tenant è contoso.onmicrosoft.com, l'URI ID app sarà `https://contoso.onmicrosoft.com/myapp`.  Se il tenant ha un dominio verificato `contoso.com`, l'URI ID app valido sarà `https://contoso.com/myapp`.  L'impostazione di un'applicazione come multi-tenant avrà esito negativo se l'URI dell'ID App non segue questo modello.
+Si noti anche che, per poter rendere un'applicazione multi-tenant in Azure AD, l'URI dell'ID app dell'applicazione deve essere univoco a livello globale. L'URI dell'ID App è uno dei modi in cui un'applicazione viene identificata nei messaggi di protocollo.  Per un'applicazione single-tenant, è sufficiente che l'URI dell'ID App sia univoco all'interno del tenant.  Per un'applicazione multi-tenant, è necessario che sia univoco a livello globale in modo da Azure AD possa trovare l'applicazione in tutti i tenant.  L'univocità globale viene applicata richiedendo che l'URI dell'ID App abbia un nome host corrispondente a un dominio verificato del tenant di Azure AD.  Ad esempio, se il nome del tenant è contoso.onmicrosoft.com, l'URI ID app sarà `https://contoso.onmicrosoft.com/myapp`.  Se il tenant ha un dominio verificato `contoso.com`, l'URI ID app valido sarà `https://contoso.com/myapp`.  L'impostazione di un'applicazione come multi-tenant avrà esito negativo se l'URI dell'ID App non segue questo modello.
 
 Per impostazione predefinita, le registrazioni client native sono multi-tenant.  Non è necessario intraprendere alcuna azione per rendere multi-tenant una registrazione nativa dell'applicazione client.
 
@@ -128,7 +128,7 @@ Se un'applicazione richiede il consenso dell'amministratore e l'amministratore a
 Un amministratore tenant può disabilitare la possibilità che gli utenti normali possano il consenso alle applicazioni.  Se questa funzionalità è disabilitata, è necessario impostare il consenso dell'amministratore come obbligatorio sempre per l'applicazione nel tenant.  Se si vuole testare l'applicazione con il consenso dell'utente normale disabilitato, è possibile trovare l'opzione di configurazione nella sezione di configurazione del tenant di Azure AD del [portale di Azure classico][AZURE-classic-portal].
 
 > [!NOTE]
-> Alcune applicazioni offrono un'esperienza in cui gli utenti normali sono inizialmente in grado di fornire il consenso e successivamente l'applicazione può coinvolgere l'amministratore e richiedere le autorizzazioni che necessitano del consenso dell'amministratore.  Non è attualmente possibile eseguire questa operazione con una singola registrazione all'applicazione in Azure AD.  L'imminente endpoint Azure AD v2 consente alle applicazioni di richiedere le autorizzazioni in fase di esecuzione, anziché al momento della registrazione abilitando questo scenario.  Per altre informazioni, vedere la [Guida per gli sviluppatori del modello di app di Azure AD versione 2][AAD-V2-Dev-Guide].
+> Alcune applicazioni offrono un'esperienza in cui gli utenti normali sono inizialmente in grado di fornire il consenso e successivamente l'applicazione può coinvolgere l'amministratore e richiedere le autorizzazioni che necessitano del consenso dell'amministratore.  Non è attualmente possibile eseguire questa operazione con una singola registrazione all'applicazione in Azure AD.  L'imminente endpoint Azure AD v2 consente alle applicazioni di richiedere le autorizzazioni in fase di esecuzione, anziché al momento della registrazione abilitando questo scenario.  Per altre informazioni, vedere la [Guida per gli sviluppatori del modello di app di Azure AD versione&2;][AAD-V2-Dev-Guide].
 > 
 > 
 
@@ -239,6 +239,6 @@ La sezione dei commenti Disqus di seguito consente di fornire commenti e suggeri
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 03c511f53704f306aa3fce2dd394188e5b3a0fa2
+ms.sourcegitcommit: 24e86b2a0c47576eba67f74c88bf9b9a42394653
+ms.openlocfilehash: 556da1513345b3cadf4fda622bb351835c114845
 
 
 ---
@@ -32,7 +32,7 @@ Ogni app che usa Azure AD B2C deve essere registrata nella directory B2C del [po
 * Un **URI di reindirizzamento** o un **identificatore di pacchetto** che possono essere usati per indirizzare le risposte all'app.
 * Altri valori specifici dello scenario Per altre informazioni, vedere [Come registrare l'applicazione](active-directory-b2c-app-registration.md).
 
-Dopo la registrazione, l'app comunica con Azure AD inviando richieste all'endpoint 2.0:
+Dopo la registrazione, l'app comunica con Azure AD inviando richieste all'endpoint&2;.0:
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
@@ -43,7 +43,7 @@ In quasi tutti i flussi di OAuth e OpenID Connect sono coinvolte nello scambio q
 
 ![Ruoli di OAuth 2.0](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
 
-* Il **server di autorizzazione** è l'endpoint di Azure AD versione 2.0. Gestisce in modo sicuro tutto ciò che ha a che fare con l'accesso e le informazioni sull'utente, nonché le relazioni di trust tra le parti in un flusso. Verifica l'identità dell'utente, concede e revoca l'accesso alle risorse e rilascia i token. È anche noto come provider di identità.
+* Il **server di autorizzazione** è l'endpoint di Azure AD versione&2;.0. Gestisce in modo sicuro tutto ciò che ha a che fare con l'accesso e le informazioni sull'utente, nonché le relazioni di trust tra le parti in un flusso. Verifica l'identità dell'utente, concede e revoca l'accesso alle risorse e rilascia i token. È anche noto come provider di identità.
 * Il **proprietario della risorsa** è in genere l'utente finale. È la parte che possiede i dati e può consentire a terze parti di accedere a tali dati o risorse.
 * Il **client OAuth** è l'app ed è identificato dal relativo ID applicazione. Si tratta in genere della parte con cui interagiscono gli utenti finali. Richiede i token dal server di autorizzazione. Il proprietario della risorsa deve concedere al client l'autorizzazione ad accedere alla risorsa.
 * Il **server delle risorse** è la posizione in cui si trova la risorsa o i dati. Considera attendibile il server di autorizzazione per autenticare e autorizzare il client OAuth in modo sicuro. Usa i token di accesso di connessione per fare in modo che sia possibile concedere l'accesso a una risorsa.
@@ -65,10 +65,11 @@ Per esaminare alcuni esempi di richieste, è possibile iniziare con una delle es
 
 * [Compilare applicazioni native e per dispositivi mobili con OAuth 2.0.](active-directory-b2c-reference-oauth-code.md)
 * [Compilare app Web con OpenID Connect.](active-directory-b2c-reference-oidc.md)
+* [Compilare app a pagina singola con il flusso implicito OAuth 2.0](active-directory-b2c-reference-spa.md)
 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

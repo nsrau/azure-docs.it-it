@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/20/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9b8c63d512f49a9b1478642f9f6733c849e3f48d
+ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
+ms.openlocfilehash: 801c0f7085034cc3a3ed74722a11204f6421c27d
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Esercitazione Integrazione di Azure Active Directory con PerformanceCentre
 Questa esercitazione descrive l'integrazione di PerformanceCentre con Azure Active Directory (Azure AD).  
+
 L'integrazione di PerformanceCentre con Azure AD offre i vantaggi seguenti: 
 
 * È possibile controllare in Azure AD chi può accedere a PerformanceCentre 
@@ -48,10 +49,11 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test.  
-Lo scenario descritto in questa esercitazione è costituito da tre blocchi principali:
 
-1. Aggiunta di PerformanceCentre dalla raccolta 
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+Lo scenario descritto in questa esercitazione prevede i blocchi predefiniti principali seguenti:
+
+*  Aggiunta di PerformanceCentre dalla raccolta 
+*  Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-performancecentre-from-the-gallery"></a>Aggiunta di PerformanceCentre dalla raccolta
 Per configurare l'integrazione di PerformanceCentre in Azure AD, è necessario aggiungere PerformanceCentre dalla raccolta al proprio elenco di app SaaS gestite.
@@ -82,9 +84,10 @@ Per configurare l'integrazione di PerformanceCentre in Azure AD, è necessario a
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con PerformanceCentre con un utente test di nome "Britta Simon".
 
 Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di PerformanceCentre che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in PerformanceCentre.  
+
 La relazione di collegamento viene stabilita assegnando al valore di **nome utente** in Azure AD lo stesso valore di **Username** in PerformanceCentre.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con PerformanceCentre, è necessario completare i blocchi predefiniti seguenti:
+**Per configurare e testare l'accesso Single Sign-On di Azure AD con PerformanceCentre, è necessario completare i blocchi predefiniti seguenti:**
 
 1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
@@ -105,16 +108,15 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
     ![Single Sign-On di Microsoft Azure AD][7] 
 3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
    
-    ![Accesso Single Sign-On di Azure AD][8] 
+    ![Single Sign-On di Microsoft Azure AD][8] 
    
-     a. Nella casella di testo **URL di accesso** digitare l'URL utilizzato dagli utenti per accedere al sito PerformanceCentre, ad esempio *http://companyname.performancecentre.com/saml/SSO*.
-   
-     b. Fare clic su **Next**.
+   1. Nella casella di testo **URL di accesso** digitare l'URL utilizzato dagli utenti per accedere al sito PerformanceCentre, ad esempio *http://companyname.performancecentre.com/saml/SSO*.
+   2. Fare clic su **Avanti**.
 4. Nella pagina **Configure single sign-on at PerformanceCentre** (Configura accesso Single Sign-On in PerformanceCentre) seguire questa procedura:
    
-    ![Accesso Single Sign-On di Azure AD][9] 
+    ![Single Sign-On di Microsoft Azure AD][9] 
    
-    a. Fare clic su **Scarica metadati**e quindi salvare il file nel computer.
+  * Fare clic su **Scarica metadati**e quindi salvare il file nel computer.
 5. Accedere al sito aziendale di **PerformanceCentre** come amministratore.
 6. Nella barra di spostamento sul lato sinistro fare clic su **Configure**(Configura).
    
@@ -159,23 +161,20 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_05.png)  
    
-    a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
+   1. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
+   2. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
+   3. Fare clic su **Avanti**.
    
-    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
-   
-    c. Fare clic su **Avanti**.
 6. Nella pagina **Profilo utente** seguire questa procedura: 
    
    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_06.png) 
    
-   a. Nella casella di testo **Nome** digitare **Britta**.  
+   1. Nella casella di testo **Nome** digitare **Britta**.  
+   2. Nella casella di testo **Cognome** digitare **Simon**.
+   3. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+   4. Nell'elenco **Ruolo** selezionare **Utente**.
+   5. Fare clic su **Avanti**.
    
-   b. Nella casella di testo **Cognome** digitare **Simon**.
-   
-   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
-   
-   d. Nell'elenco **Ruolo** selezionare **Utente**.
-   e. Fare clic su **Avanti**.
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_07.png) 
@@ -183,9 +182,8 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_08.png) 
    
-    a. Prendere nota del valore visualizzato in **Nuova password**.
-   
-    b. Fare clic su **Complete**.   
+    1. Prendere nota del valore visualizzato in **Nuova password**.
+    2. Fare clic su **Completa**.   
 
 ### <a name="creating-a-performancecentre-test-user"></a>Creazione di un utente test per PerformanceCentre
 Questa sezione descrive come creare un utente chiamato Britta Simon in PerformanceCentre.
@@ -200,16 +198,14 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Performan
    
     ![Crea utente][401]
    
-    a. Immettere gli attributi richiesti per Britta Simon nelle caselle di testo corrispondenti.
-   
+   1. Immettere gli attributi richiesti per Britta Simon nelle caselle di testo corrispondenti.
    > [!IMPORTANT]
    > L'attributo User Name di Britta in PerformanceCentre deve corrispondere al nome utente in Azure AD.
    > 
    > 
-
-    b. Selezionare **Client Administrator** in **Choose Role**. 
-
-    c. Fare clic su **Save**.   
+ 
+   2. Selezionare **Client Administrator** in **Choose Role**.
+   3. Fare clic su **Save**.   
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
@@ -235,6 +231,7 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 
 ### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.  
+
 Quando si fa clic sul riquadro PerformanceCentre nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione PerformanceCentre.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
@@ -282,6 +279,6 @@ Quando si fa clic sul riquadro PerformanceCentre nel pannello di accesso, si dov
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

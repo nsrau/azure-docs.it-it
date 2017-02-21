@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 02/02/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: e64f972759173965d389b694ada23720d1182bb8
-ms.openlocfilehash: 92a6c849f5b28581fcac3713e9756dc06d7a251b
+ms.sourcegitcommit: 6d1f26e462e011a2226ac5a14c7dc3360d0c6f36
+ms.openlocfilehash: f06703d4082e55d571367fe61221d657b3e30a58
 
 
 ---
@@ -132,7 +132,7 @@ In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La
     sudo mkfs -t ext3 /dev/md127
     ```
    
-    c. **SLES 11 & openSUSE** - abilitare boot.md e creare mdadm.conf
+    c. **SLES 11**: abilitare boot.md e creare mdadm.conf
 
     ```bash
     sudo -i chkconfig --add boot.md
@@ -167,7 +167,7 @@ In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
     ```
    
-    O su **SLES 11 & openSUSE**:
+    In alternativa, in **SLES 11**:
 
     ```bash
     /dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
@@ -214,7 +214,7 @@ In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La
 Alcuni kernel di Linux supportano operazioni TRIM/UNMAP allo scopo di rimuovere i blocchi inutilizzati sul disco. Nel servizio di archiviazione standard, queste operazioni sono particolarmente utili per informare Azure che le pagine eliminate non sono più valide e possono essere rimosse. L'eliminazione delle pagine consente di risparmiare sui costi quando si creano file di grandi dimensioni per poi eliminarli.
 
 > [!NOTE]
-> RAID non può inviare comandi di rimozione se le dimensioni del blocco per la matrice sono impostate su un valore inferiore a quello predefinito di 512 KB. Questo perché anche la granularità di annullamento del mapping nell'host è di 512 KB. Se le dimensioni del blocco della matrice sono state modificate tramite il parametro `--chunk=` di mdadm, il kernel può ignorare le richieste TRIM/UNMAP.
+> RAID non può inviare comandi di rimozione se le dimensioni del blocco per la matrice sono impostate su un valore inferiore a quello predefinito di&512; KB. Questo perché anche la granularità di annullamento del mapping nell'host è di 512 KB. Se le dimensioni del blocco della matrice sono state modificate tramite il parametro `--chunk=` di mdadm, il kernel può ignorare le richieste TRIM/UNMAP.
 
 Esistono due modi per abilitare la funzione TRIM in una VM Linux. Come di consueto, consultare la documentazione della distribuzione per stabilire l'approccio consigliato:
 
@@ -241,6 +241,6 @@ Esistono due modi per abilitare la funzione TRIM in una VM Linux. Come di consue
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

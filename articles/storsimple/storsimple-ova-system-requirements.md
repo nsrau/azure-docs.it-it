@@ -4,7 +4,7 @@ description: Scoprire il software e i requisiti di rete per StorSimple Virtual A
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 6a01ed44d08c06e35c66a842a27b46775ec97a3a
-ms.openlocfilehash: ae27c2a514bdaad731b73e6c9790b9ced2c35102
+ms.sourcegitcommit: e5f9952d136a2a7914100d8a7f5ffa5ba05a9d75
+ms.openlocfilehash: 9eb839834ed4ee2291eb311f64a8dfa7f07a1ac3
 
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisiti di sistema StorSimple Virtual Array
@@ -46,7 +46,7 @@ I requisiti software includono le informazioni su Web browser supportati, versio
 | **Componente** | **Requisito** |
 | --- | --- |
 | Numero minimo di processori virtuali (memorie centrali) |4 |
-| Memoria minima (RAM) |8 GB |
+| Memoria minima (RAM) |8 GB <br> Per un file server, 8 GB per meno di 2 milioni di file e 16 GB per 2 - 4 milioni di file|
 | Spazio su disco<sup>1</sup> |Disco sistema operativo: 80 GB  <br></br>Disco dati: da 500 GB a 8 TB |
 | Numero minimo di interfaccia o interfacce di rete |1 |
 | Larghezza di banda Internet minima<sup>2</sup> |5 Mbps |
@@ -131,6 +131,6 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 
