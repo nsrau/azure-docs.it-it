@@ -1,10 +1,10 @@
 ---
-title: Configurare il tunneling forzato per connessioni da sito a sito con il modello di distribuzione Resource Manager | Documentazione Microsoft
+title: 'Configurare il tunneling forzato per connessioni di Azure da sito a sito: Resource Manager | Documentazione Microsoft'
 description: Come reindirizzare o forzare tutto il traffico associato a Internet verso il percorso locale.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: cbe58db8-b598-4c9f-ac88-62c865eb8721
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4159001eff9010e126a1f0a0f9d9eb06b8397eb3
+ms.sourcegitcommit: 5183fc3b4e7ec3fe6060a6a9551656332300995f
+ms.openlocfilehash: 5bf02651c6a3fdd1369676e225cb859dab6fa5d8
 
 
 ---
@@ -74,7 +74,7 @@ La procedura illustrata consente di impostare *DefaultSiteHQ* come connessione p
 Prima di iniziare la configurazione, verificare di essere in possesso degli elementi seguenti.
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
-* È necessario installare la versione più recente dei cmdlet di PowerShell per Azure Resource Manager (versione 1.0 o successiva). Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) .
+* È necessario installare la versione più recente dei cmdlet di PowerShell per Azure Resource Manager (versione&1;.0 o successiva). Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 
 ## <a name="configure-forced-tunneling"></a>È possibile configurare il tunneling forzato?
 1. Nella console di PowerShell accedere all'account Azure. Il cmdlet richiederà le credenziali di accesso per l'account Azure. Dopo l'accesso, vengono scaricate le impostazioni dell'account in modo che siano disponibili per Azure PowerShell.
@@ -138,6 +138,6 @@ Prima di iniziare la configurazione, verificare di essere in possesso degli elem
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

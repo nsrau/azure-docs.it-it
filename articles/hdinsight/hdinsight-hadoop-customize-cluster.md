@@ -332,6 +332,6 @@ Vedere [Sviluppare script di Azione script per HDInsight][hdinsight-write-script
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

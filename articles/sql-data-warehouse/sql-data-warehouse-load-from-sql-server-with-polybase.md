@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 33c100dc471bf76230d068bf52f4a96b6123dab0
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 4f6feb844774fba00e3c46438f686e61b52d03d3
 
 
 ---
@@ -34,7 +34,7 @@ Questa esercitazione illustra come caricare dati in SQL Data Warehouse mediante 
 * Creare oggetti di database per definire i dati
 * Eseguire una query T-SQL per caricare i dati
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
 > 
 > 
 
@@ -43,7 +43,7 @@ Per eseguire questa esercitazione, sono necessari:
 
 * Un database di SQL Data Warehouse.
 * Un account di archiviazione di Azure di tipo Archiviazione con ridondanza locale Standard (Standard-LRS), Archiviazione con ridondanza geografica Standard (Standard-GRS) o Archiviazione con ridondanza geografica e accesso in lettura Standard (Standard-RAGRS).
-* Utilità da riga di comando di AzCopy. Scaricare e installare la [versione più recente di AzCopy][versione più recente di AzCopy], installata insieme agli Strumenti di archiviazione di Microsoft Azure.
+* Utilità da riga di comando di AzCopy. Scaricare e installare la [versione più recente di AzCopy][latest version of AzCopy], installata insieme agli Strumenti di archiviazione di Microsoft Azure.
   
     ![Strumenti di archiviazione di Azure](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
@@ -106,7 +106,7 @@ Per copiare i dati nell'archivio BLOB di Azure:
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-Vedere anche [Introduzione all'utilità della riga di comando AzCopy][versione più recente di AzCopy].
+Vedere anche [Introduzione all'utilità della riga di comando AzCopy][latest version of AzCopy].
 
 ### <a name="e-explore-your-blob-storage-container"></a>E. Esplorare il contenitore di archiviazione BLOB
 Per visualizzare il file caricato nell'archivio BLOB:
@@ -237,25 +237,25 @@ CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
-Per altre informazioni, vedere [Statistiche][Statistiche].  
+Per altre informazioni, vedere [Statistiche][Statistics].  
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni utili durante lo sviluppo di una soluzione che usa PolyBase, vedere la [guida su PolyBase][guida su PolyBase].
+Per altre informazioni utili durante lo sviluppo di una soluzione che usa PolyBase, vedere la [guida su PolyBase][PolyBase guide].
 
 <!--Image references-->
 
 
 <!--Article references-->
-[Esercitazione su PolyBase in SQL Data Warehouse]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[Caricare dati con bcp]: ./sql-data-warehouse-load-with-bcp.md
-[Statistiche]: ./sql-data-warehouse-tables-statistics.md
-[guida su PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
-[versione più recente di AzCopy]: ../storage/storage-use-azcopy.md
+[PolyBase in SQL Data Warehouse Tutorial]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[PolyBase guide]: ./sql-data-warehouse-load-polybase-guide.md
+[latest version of AzCopy]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
-[Origine e sink supportati]: https://msdn.microsoft.com/library/dn894007.aspx
-[Attività di copia]: https://msdn.microsoft.com/library/dn835035.aspx
-[Adattatore di destinazione SQL Server]: https://msdn.microsoft.com/library/ms141095.aspx
+[supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
+[copy activity]: https://msdn.microsoft.com/library/dn835035.aspx
+[SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141095.aspx
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 
@@ -276,6 +276,6 @@ Per altre informazioni utili durante lo sviluppo di una soluzione che usa PolyBa
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

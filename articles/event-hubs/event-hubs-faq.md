@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 12/07/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: a584086e459c5446a814bbca3e50ac343fa9201e
-ms.openlocfilehash: f7b3974bf789df8c87254cc4186d8c7c85282aaa
+ms.sourcegitcommit: fceb8f6c8f28e84eb8926586257cf39dc0cd14d4
+ms.openlocfilehash: 4977daeecd9e206906c2e0b3b95b63d4d55cb859
 
 
 ---
@@ -53,7 +53,7 @@ Si noti che la selezione delle unità elaborate è indipendente dal numero di pa
 Esiste una quota predefinita di 20 unità elaborate per ogni spazio dei nomi. È possibile richiedere una quota maggiore di unità elaborate creando un ticket di supporto. Oltre il limite di 20 unità elaborate, sono disponibili bundle di 20 e 100 unità elaborate. Si noti che l'utilizzo di più di 20 unità di elaborate elimina la possibilità di modificare il numero di unità elaborate senza creare ticket di supporto.
 
 ## <a name="is-there-a-charge-for-retaining-event-hubs-events-for-more-than-24-hours"></a>È previsto un addebito per conservare gli eventi di Hub eventi per più di 24 ore?
-Il livello standard di Hub eventi consente periodi di conservazione dei messaggi superiori alle 24 ore, per un massimo di 30 giorni. Se le dimensioni del numero totale di eventi archiviati supera i limiti di archiviazione per il numero di unità elaborate selezionate, ovvero 84 GB per unità elaborata, alle dimensioni che superano i limiti saranno applicate le tariffe pubblicate per l'archivio BLOB di Azure. La capacità di archiviazione consentita in ogni unità elaborata copre tutti i costi di archiviazione per periodi di conservazione di 24 ore (impostazione predefinita) anche se l'unità elaborata viene utilizzata fino alla massima capacità consentita in ingresso.
+Il livello standard di Hub eventi consente periodi di conservazione dei messaggi superiori alle 24 ore, per un massimo di 30 giorni. Se le dimensioni del numero totale di eventi archiviati supera i limiti di archiviazione per il numero di unità elaborate selezionate, ovvero&84; GB per unità elaborata, alle dimensioni che superano i limiti saranno applicate le tariffe pubblicate per l'archivio BLOB di Azure. La capacità di archiviazione consentita in ogni unità elaborata copre tutti i costi di archiviazione per periodi di conservazione di 24 ore (impostazione predefinita) anche se l'unità elaborata viene utilizzata fino alla massima capacità consentita in ingresso.
 
 ## <a name="what-is-the-maximum-retention-period"></a>Qual è il periodo di conservazione massimo?
 Il livello Standard di Hub eventi supporta attualmente un periodo di conservazione massimo di 7 giorni. Si noti che gli Hub eventi non sono intesi come archivi dati permanenti. Sono previsti periodi di conservazione maggiori di 24 ore per scenari in cui è opportuno riprodurre un flusso di eventi negli stessi sistemi, ad esempio, per la formazione o per verificare un nuovo modello di machine learning sui dati esistenti.
@@ -79,11 +79,15 @@ Il supporto tecnico per Hub eventi è disponibile tramite i [forum della communi
 
 Per altre informazioni sul Contratto di servizio, visitare la pagina [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/) .
 
-## <a name="next-steps"></a>Passaggi successivi
-Per ulteriori informazioni su Hub eventi, vedere i seguenti articoli:
+## <a name="diagnostic-logs"></a>Log di diagnostica
 
-* [Panoramica di Hub eventi][Event Hubs overview].
-* Un' [applicazione di esempio completa che usa Hub eventi][sample application that uses Event Hubs].
+Hub eventi supporta due tipi di [log di diagnostica](event-hubs-diagnostic-logs.md), i log degli errori di archiviazione e i log operativi, entrambi sono rappresentati in JSON e possono essere attivate tramite il Portale di Azure.
+
+## <a name="next-steps"></a>Passaggi successivi
+Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
+
+* [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
+* [Create an Event Hub](event-hubs-create.md) (Creare un Hub eventi)
 
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
@@ -91,6 +95,6 @@ Per ulteriori informazioni su Hub eventi, vedere i seguenti articoli:
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

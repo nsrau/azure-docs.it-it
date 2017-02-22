@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/18/2016
+ms.date: 12/06/2016
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 04eebbe19354ab1e927ee2bb41f25dc6676a7c93
-ms.openlocfilehash: c28e73f0a6833793561d8702eb6c6480b9fbc0a4
+ms.sourcegitcommit: 45ba55083ecca1995e343dc1da1497df43f70e10
+ms.openlocfilehash: 90fb374e8c1712b5fc1e94979999da6a8c400f68
 
 
 ---
 
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution-in-log-analytics"></a>Ottimizzare l'ambiente con la soluzione System Center Operations Manager Assessment (anteprima) in Log Analytics
 
-È possibile usare la soluzione System Center Operations Manager Assessment per valutare i rischi e l'integrità degli ambienti server di System Center Operations Manager a intervalli regolari. Questo articolo consente di installare, configurare e usare la soluzione in modo che si possano intraprendere azioni correttive per problemi potenziali.
+È possibile usare la soluzione System Center Operations Manager Assessment per valutare i rischi e l'integrità degli ambienti server di System Center Operations Manager a intervalli regolari. Questo articolo consente di installare, configurare e usare la soluzione in modo che si possano intraprendere azioni correttive per problemi potenziali. 
 
 La soluzione offre un elenco con priorità di raccomandazioni specifiche per l'infrastruttura distribuita dei server, classificate in quattro aree di interesse che consentono di comprendere rapidamente il rischio e agire in maniera appropriata.
 
@@ -243,6 +243,12 @@ Per ignorare delle raccomandazioni è possibile creare un file di testo che OMS 
 
 ## <a name="system-center-operations-manager-assessment-solution-faq"></a>Domande frequenti sulla soluzione System Center Operations Manager Assessment
 
+*È stata aggiunta la soluzione di valutazione all'area di lavoro di OMS. Non vengono tuttavia visualizzate le raccomandazioni. Perché?* Dopo aver aggiunto la soluzione, procedere come segue per visualizzare le raccomandazioni nel dashboard OMS.  
+
+- [Impostare l'account RunAs per System Center Operations Manager Assessment](#operations-manager-run-as-accounts-for-oms)  
+- [Configurare la regola di System Center Operations Manager Assessment](#configure-the-assessment-rule)
+
+
 *È possibile configurare la frequenza di esecuzione della valutazione?* Sì. Vedere [Configurare la frequenza di esecuzione](#configure-the-run-frequency).
 
 *Se viene rilevato un altro server dopo l'aggiunta della soluzione System Center Operations Manager Assessment, il server verrà valutato?* Sì, verrà valutato dal momento della rilevazione, per impostazione predefinita ogni sette giorni.
@@ -274,6 +280,6 @@ Per ignorare delle raccomandazioni è possibile creare un file di testo che OMS 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

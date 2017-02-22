@@ -15,14 +15,14 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 560bcd1acb0fa06d7800da9670686a43fbb7111b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 61adb7ae8fddc3cf423ee4558308eb9ded11fea3
 
 
 ---
 # <a name="data-warehouse-migration-utility-preview"></a>Utilità di migrazione per data warehouse (anteprima)
 > [!div class="op_single_selector"]
-> * [Scaricare l'utilità di migrazione][Scaricare l'utilità di migrazione]
+> * [Scaricare l'utilità di migrazione][Download Migration Utility]
 > 
 > 
 
@@ -41,7 +41,7 @@ Avviare lo strumento facendo clic sull'icona del desktop visualizzata dopo l'ins
 Dopo l'autenticazione, lo strumento visualizzerà un elenco di database presenti nel server con cui è stata stabilita la connessione. Per avviare la migrazione, selezionare il database desiderato e fare clic su "Migrate selected" (Esegui la migrazione della selezione).
 
 ## <a name="migration-report"></a>Report di migrazione
-Se si seleziona "Check Database Compatibility" (Verifica la compatibilità del database) nello strumento, verrà generato un report che riepiloga tutte le incompatibilità rilevate negli oggetti del database di cui si richiede la migrazione. Per un elenco più ampio di alcune funzionalità di SQL Server non presenti in SQL Data Warehouse, vedere la [documentazione per la migrazione][documentazione per la migrazione]. Dopo aver generato il report, sarà possibile salvarlo e aprirlo in Excel.
+Se si seleziona "Check Database Compatibility" (Verifica la compatibilità del database) nello strumento, verrà generato un report che riepiloga tutte le incompatibilità rilevate negli oggetti del database di cui si richiede la migrazione. Per un elenco più ampio di alcune funzionalità di SQL Server non presenti in SQL Data Warehouse, vedere la [documentazione per la migrazione][migration documentation]. Dopo aver generato il report, sarà possibile salvarlo e aprirlo in Excel.
 
 Si noti che durante la generazione dello schema della migrazione, la maggior parte dei problemi identificati come 'Object' verrà rettificata in modo da consentire la migrazione immediata di tali dati. Esaminare le modifiche per assicurarsi che non siano necessarie ulteriori rettifiche prima dell'applicazione dello schema.
 
@@ -56,19 +56,19 @@ Se si fa clic sull'opzione 'Migrate Data', è possibile generare script bcp che 
 Dopo aver specificato i parametri indicati sopra, è necessario fare clic su 'Run Migration'. Verrà generato un set di due pacchetti nel percorso specificato. Eseguire il file di esportazione per esportare i dati dall'origine della migrazione in file flat ed eseguire il file di importazione per importare i dati in SQL Data Warehouse.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver eseguito la migrazione di alcuni dati, vedere come eseguire attività di [sviluppo][sviluppo].
+Dopo aver eseguito la migrazione di alcuni dati, è possibile passare alle attività di [sviluppo][develop].
 
 <!--Image references-->
 
 <!--Article references-->
-[documentazione per la migrazione]: sql-data-warehouse-overview-migrate.md
-[sviluppo]: sql-data-warehouse-overview-develop.md
+[migration documentation]: sql-data-warehouse-overview-migrate.md
+[develop]: sql-data-warehouse-overview-develop.md
 
 <!--Other Web references--> 
-[Scaricare l'utilità di migrazione]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
+[Download Migration Utility]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

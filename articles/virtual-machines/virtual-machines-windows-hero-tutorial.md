@@ -99,6 +99,6 @@ Fare clic sul pulsante **Avvia** per riavviare la macchina virtuale quando si è
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

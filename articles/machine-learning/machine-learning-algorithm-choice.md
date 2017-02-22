@@ -3,7 +3,7 @@ title: Come scegliere gli algoritmi di Machine Learning | Documentazione Microso
 description: Come scegliere gli algoritmi di Azure Machine Learning per l&quot;apprendimento supervisionato e non supervisionato negli esperimenti di clustering, classificazione o regressione.
 services: machine-learning
 documentationcenter: 
-author: brohrer
+author: garyericson
 manager: jhubbard
 editor: cgronlun
 tags: 
@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/09/2016
-ms.author: brohrer;garye
+ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 216152123e4a5c17ec93775adff9fd4c1eb18654
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f2593e5ddebdc3a44559f16739dc9a13881afcb2
 
 
 ---
@@ -234,6 +234,6 @@ Avviato e condotto da John Langford di Microsoft Research, VW è un elemento da 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

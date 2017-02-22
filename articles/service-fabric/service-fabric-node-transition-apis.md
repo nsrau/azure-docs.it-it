@@ -1,6 +1,6 @@
 ---
-title: Sostituzione dell&quot;API di avvio del nodo e dell&quot;API di arresto del nodo con l&quot;API di transizione del nodo di Azure Service Fabric | Documentazione Microsoft
-description: Sostituzione dell&quot;API di avvio del nodo e dell&quot;API di arresto del nodo con l&quot;API di transizione del nodo di Azure Service Fabric
+title: Avviare e arrestare nodi di cluster per testare microservizi di Azure | Documentazione Microsoft
+description: Informazioni su come usare la tecnologia fault injection per testare un&quot;applicazione di Service Fabric avviando e arrestando nodi di cluster.
 services: service-fabric
 documentationcenter: .net
 author: LMWF
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 12/19/2016
 ms.author: lemai
 translationtype: Human Translation
-ms.sourcegitcommit: 4ca07de3604c3f543354d97db100b1f578cb0a5a
-ms.openlocfilehash: 5096ad4bdb75766850e557ed09f39b15c95126da
+ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
+ms.openlocfilehash: 5f76100007466f2baf4e067de963486f47fbf857
 
 
 ---
@@ -291,6 +291,6 @@ L'avvio di un nodo *arrestato* usando l'API di transizione del nodo ne ripristin
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

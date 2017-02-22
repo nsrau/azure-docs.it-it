@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2016
+ms.date: 01/19/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 0ecbaaf030e5c87ff05228af852477b865329596
-ms.openlocfilehash: 3b06c7c32c6ec27659365ca4da6193457fff7162
+ms.sourcegitcommit: 89d32955506afdfb9c45c5b0ce3d38d40f012e72
+ms.openlocfilehash: 570a0f0a0c0932a00bbe92b1e137951ceffcd660
 
 
 ---
@@ -159,18 +159,13 @@ Per ogni accesso, Azure Active Directory valuta tutti i criteri e verifica che t
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>L'accesso condizionale funziona con Exchange ActiveSync?
  
-È possibile usare Exchange ActiveSync in un criterio di accesso condizionale, ma il supporto per questo scenario è limitato.  
-Le limitazioni seguenti si applicano a un criterio che include Exchange ActiveSync:
+No, non è possibile usare Exchange ActiveSync in un criterio di accesso condizionale in questa fase.
 
-- Come assegnazione di **app per cloud**, è selezionato solo **Exchange Online**.
 
-- Se è necessario impostare un **controllo**, è possibile selezionare solo **Richiedi un dispositivo conforme**. 
- 
-    ![Concessione](./media/active-directory-conditional-access-azure-portal/22.png)
- 
-- Se è necessario configurare una **condizione**, è possibile configurare solo **app client**.   
+### <a name="what-happens-if-i-require-multi-factor-authentication-or-a-compliant-device"></a>Che cosa accade se si richiedi l'autenticazione a più fattori o un dispositivo conforme?
 
-    ![Condizioni](./media/active-directory-conditional-access-azure-portal/21.png)
+Attualmente, all'utente verrà chiesta l'autenticazione a più fattori indipendentemente dal dispositivo.
+
 
 
 ## <a name="common-scenarios"></a>Scenari comuni
@@ -201,6 +196,6 @@ Per informazioni su come configurare un criterio di accesso condizionale, vedere
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Monitorare e diagnosticare localmente servizi scritti con Azure Service Fabric | Documentazione Microsoft
+title: Eseguire il debug di microservizi di Azure in Linux | Documentazione Microsoft
 description: Informazioni su come eseguire il monitoraggio e la diagnosi dei servizi scritti usando Microsoft Azure Service Fabric in un computer di sviluppo locale.
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/14/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: af9f761179896a1acdde8e8b20476b7db33ca772
-ms.openlocfilehash: 03f1dde722025624997adb7c1258b2f24c481209
+ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
+ms.openlocfilehash: a8f077168dbc8660625371a2b988926c69491337
 
 
 ---
@@ -58,7 +58,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 ```
  
  
-Con questa configurazione, i log verranno raccolti a rotazione in `/tmp/servicefabric/logs/`. **%u** and **%g** consentono la creazione di più file, con i nomi file mysfapp0.log, mysfapp1.log e così via. Se non viene configurato in modo esplicito alcun gestore, per impostazione predefinita viene registrato il gestore della console. È possibile visualizzare i log in syslog, in /var/log/syslog.
+Con questa configurazione, i log verranno raccolti a rotazione in `/tmp/servicefabric/logs/`. **%u** and **%g** consentono la creazione di file, con i nomi file mysfapp0.log, mysfapp1.log e così via. Se non viene configurato in modo esplicito alcun gestore, per impostazione predefinita viene registrato il gestore della console. È possibile visualizzare i log in syslog, in /var/log/syslog.
  
 Per altre informazioni, vedere gli [GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).  
 
@@ -143,6 +143,6 @@ Lo stesso codice di traccia aggiunto all'applicazione potrà essere usato per la
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

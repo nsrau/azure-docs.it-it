@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 04/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 06d1d0e4b72a50c093aaa1337b518a9f11ffbaa0
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 21b2c50e79a8a60e7ffe94f7d41dfe3048ec5174
 
 
 ---
@@ -55,12 +55,12 @@ Una query elastica semplifica l'accesso a un'intera raccolta di database tramite
 
 **Figura 1** Query su database elastico usata su un livello di dati con scalabilità orizzontale
 
-![ Query su database elastico usata su un livello di dati con scalabilità orizzontale][1]
+![Query su database elastico usata su un livello di dati con scalabilità orizzontale][1]
 
 Gli scenari relativi ai clienti per la query elastica sono caratterizzati dalle topologie seguenti:
 
 * **Partizionamento verticale - Query tra database** (Topologia 1): i dati vengono partizionati verticalmente tra alcuni database in un livello di dati. In genere, diversi set di tabelle si trovano in diversi database. Lo schema risulta quindi diverso nei diversi database. Ad esempio, tutte le tabelle per l'inventario si trovano in un database, mentre le tabelle correlate alla contabilità si trovano in un altro database. I casi di utilizzo comuni con questa topologia richiedono l'esecuzione di query o la compilazione di report tra tabelle in diversi database.
-* **Partizionamento orizzontale - Partizionamento orizzontale** (Topologia 2): i dati vengono partizionati orizzontalmente per distribuire le righe in un livello dati con partizionamento orizzontale. Con questo approccio lo schema risulta identico in tutti i database partecipanti. Questo approccio viene definito anche "partizionamento orizzontale". Il partizionamento orizzontale può essere eseguito e gestito mediante (1) le librerie di strumenti dei database elastici o (2) il partizionamento orizzontale automatico. Una query elastica viene usata per eseguire query o compilare report in molte partizioni.
+* **Partizionamento orizzontale - Partizionamento orizzontale** (Topologia 2): i dati vengono partizionati orizzontalmente per distribuire le righe in un livello dati con scalabilità orizzontale. Con questo approccio lo schema risulta identico in tutti i database partecipanti. Questo approccio viene definito anche "partizionamento orizzontale". Il partizionamento orizzontale può essere eseguito e gestito mediante (1) le librerie di strumenti dei database elastici o (2) il partizionamento orizzontale automatico. Una query elastica viene usata per eseguire query o compilare report in molte partizioni.
 
 > [!NOTE]
 > La query di database elastico è adatta per scenari di reporting occasionali dove è possibile eseguire la maggior parte dell'elaborazione nel livello dati. Per carichi di lavoro di creazione di report elevati o per scenari di data warehousing con query più complesse è possibile usare anche [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
@@ -68,7 +68,7 @@ Gli scenari relativi ai clienti per la query elastica sono caratterizzati dalle 
 > 
 
 ## <a name="elastic-database-query-topologies"></a>Topologie di query su database elastico
-### <a name="topology-1-vertical-partitioning--cross-database-queries"></a>Topologia 1: Partizionamento verticale - Query tra database
+### <a name="topology-1-vertical-partitioning---cross-database-queries"></a>Topologia 1: Partizionamento verticale - Query tra database
 Per iniziare a scrivere codice, vedere [Introduzione alle query tra database (partizionamento verticale)](sql-database-elastic-query-getting-started-vertical.md).
 
 È possibile usare una query elastica per rendere disponibili i dati situati in un database SQL ad altri database SQL. Ciò consente alle query di un database di fare riferimento alle tabelle in qualsiasi altro database SQL remoto. Il primo passaggio consiste nel definire un'origine dati esterna per ogni database remoto. L'origine dati esterna viene definita nel database locale da cui si vuole ottenere l'accesso alle tabelle situate nel database remoto. Non è necessaria alcuna modifica al database remoto. Per scenari tipici di partizionamento verticale in cui i diversi database hanno schemi diversi, è possibile usare le query elastiche per implementare casi di utilizzo comuni, ad esempio l'accesso a dati di riferimento e l'esecuzione di query tra database.
@@ -77,23 +77,23 @@ Per iniziare a scrivere codice, vedere [Introduzione alle query tra database (pa
 
 **Figura 2** Partizionamento verticale - Uso della query elastica per eseguire query nei dati di riferimento
 
-![ Partizionamento verticale - Uso della query elastica per eseguire query nei dati di riferimento][3]
+![Partizionamento verticale - Uso della query elastica per eseguire query nei dati di riferimento][3]
 
 **Query tra database**: le query elastiche consentono casi di utilizzo che richiedono l'esecuzione di query in diversi database SQL. La Figura 3 mostra quattro database diversi, ovvero CRM, Inventario, Risorse umane e Prodotti. Le query eseguite in uno dei database devono accedere anche a uno o a tutti gli altri database. Usando una query elastica, è possibile configurare il database per questa situazione eseguendo alcune semplici istruzioni DDL in ogni database. Dopo avere eseguito una volta questa configurazione, l'accesso a una tabella remota sarà semplice quando fare riferimento a una tabella locale dalle query T-SQL o dagli strumenti di Business Intelligence. Questo approccio è consigliato se le query remote non restituiscono risultati di grandi dimensioni.
 
 **Figura 3** Partizionamento verticale - Uso delle query elastiche per eseguire query in diversi database
 
-![ Partizionamento verticale - Uso delle query elastiche per eseguire query in diversi database][4]
+![Partizionamento verticale - Uso delle query elastiche per eseguire query in diversi database][4]
 
-### <a name="topology-2-horizontal-partitioning--sharding"></a>Topologia 2: Partizionamento orizzontale - Partizionamento orizzontale
+### <a name="topology-2-horizontal-partitioning---sharding"></a>Topologia 2: Partizionamento orizzontale - Partizionamento orizzontale
 L'uso delle query elastiche per eseguire attività di reporting su un livello dati con partizionamento orizzontale richiede una [mappa partizioni dei database elastici](sql-database-elastic-scale-shard-map-management.md) per rappresentare i database del livello dati. In genere in questo scenario viene usata solo una mappa partizioni e un database dedicato con capacità di query elastiche viene usato come punto di ingresso per le query di reporting. L'accesso alla mappa partizioni è necessario solo per questo database dedicato. La Figura 4 illustra questa topologia e la relativa configurazione, con il database sottoposto a query elastiche e la mappa partizioni. I database del livello dati possono essere database SQL di Azure di qualsiasi versione o edizione. Per altre informazioni sulla libreria client dei database elastici e sulla creazione di mappe partizioni, vedere [Gestione delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md).
 
 **Figura 4** Partizionamento orizzontale - Uso delle query elastiche per la creazione di report relativi ai livelli dati con partizionamento orizzontale
 
-![ Partizionamento orizzontale - Uso delle query elastiche per la creazione di report relativi ai livelli dati con partizionamento orizzontale][5]
+![Partizionamento orizzontale - Uso delle query elastiche per la creazione di report relativi ai livelli dati con partizionamento orizzontale][5]
 
 > [!NOTE]
-> Il database elastico sottoposto a query dedicato deve essere un database SQL versione 12. Non esistono restrizioni su partizioni stesse.
+> Il database elastico sottoposto a query dedicato deve essere un database SQL versione&12;. Non esistono restrizioni su partizioni stesse.
 > 
 > 
 
@@ -174,6 +174,6 @@ Per altre informazioni sugli scenari di partizionamento orizzontale, vedere:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

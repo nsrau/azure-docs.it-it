@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: e580886bae72aee3bb3569299a831529ef18821c
+ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
+ms.openlocfilehash: 4ed2bfcad36059000b5a8e4bfa5f06bceb56843b
 
 
 ---
@@ -26,28 +26,13 @@ La replica geografica attiva consente di configurare fino a quattro database sec
 
 > [!NOTE]
 > La replica geografica attiva (database secondari accessibili in lettura) è ora disponibile per tutti i database in tutti i livelli di servizio. Nell'aprile 2017 il tipo di database secondario non leggibile verrà ritirato e i database non leggibili esistenti verranno aggiornati automaticamente a database secondari accessibili in lettura.
-> 
-> 
+>  
 
  È possibile configurare la replica geografica attiva usando il [portale di Azure](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), [Transact-SQL](sql-database-geo-replication-transact-sql.md) o [API REST - Creare o aggiornare il database](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-
-> [!div class="op_single_selector"]
-> * [Configura: Portale di Azure](sql-database-geo-replication-portal.md)
-> * [Configura: PowerShell](sql-database-geo-replication-powershell.md)
-> * [Configura: T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
 
 Se per qualsiasi motivo il database primario restituisce un errore o deve essere portato offline, è possibile *eseguire il failover* in uno dei database secondari. Una volta attivato il failover su uno dei database secondari, tutti gli altri database secondari vengono automaticamente collegati al nuovo database primario.
 
 È possibile eseguire il failover su un database secondario tramite il [portale di Azure](sql-database-geo-replication-failover-portal.md), [PowerShell](sql-database-geo-replication-failover-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), [API REST, Failover pianificato](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx) o [API REST, Failover non pianificato](https://msdn.microsoft.com/library/azure/mt582027.aspx).
-
-> [!div class="op_single_selector"]
-> * [Failover: Portale di Azure](sql-database-geo-replication-failover-portal.md)
-> * [Failover: PowerShell](sql-database-geo-replication-failover-powershell.md)
-> * [Failover: T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-> 
-> 
 
 Dopo il failover, verificare che nel nuovo database primario siano configurati i requisiti di autenticazione relativi al server e al database. Per tutti i dettagli, vedere l'articolo sulla [sicurezza del database SQL di Azure dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md).
 
@@ -149,6 +134,6 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

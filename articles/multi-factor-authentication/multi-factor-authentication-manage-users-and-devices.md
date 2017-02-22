@@ -1,22 +1,22 @@
 ---
-title: Report di Azure Multi-Factor Authentication
+title: Gestire utenti e dispositivi come amministratore - Azure MFA | Documentazione Microsoft
 description: Viene descritto come modificare le impostazioni utente (ad esempio, come imporre agli utenti di ripetere il processo di registrazione).
 documentationcenter: 
 services: multi-factor-authentication
 author: kgremban
 manager: femila
-editor: curtand
+editor: yossib
 ms.assetid: aac3b922-7cc1-428c-9044-273579aa7b5a
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 80eb9d882fa6b057623e0a5559baf111542359da
+ms.sourcegitcommit: 27ff53646992308d574dcc2e631cd63b8227f9c8
+ms.openlocfilehash: 826fc2b2eaaf180d922c7a9a4c329ec4379c2ae0
 
 
 ---
@@ -79,7 +79,6 @@ Gli amministratori hanno la possibilità di ripristinare Multi-Factor Authentica
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

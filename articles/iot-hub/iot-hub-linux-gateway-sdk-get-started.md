@@ -1,6 +1,6 @@
 ---
-title: Introduzione all&quot;hub IoT SDK per gateway | Documentazione Microsoft
-description: "In questa procedura dettagliata dell&quot;IoT SDK per gateway di Azure viene usato Linux per illustrare i concetti chiave che è necessario comprendere quando si usa IoT SDK per gateway di Azure."
+title: Introduzione all&quot;hub IoT SDK per gateway (Linux) | Microsoft Docs
+description: Come creare un gateway in un computer Linux e ottenere informazioni sui concetti chiave in Azure IoT SDK per gateway, ad esempio moduli e file di configurazione di JSON.
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -12,15 +12,15 @@ ms.devlang: cpp
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 11/23/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: fb085ca229beba1757efa100ffca1e42089aedfa
-ms.openlocfilehash: 827ecc587dabfba58e87d192001c2714a1d7ce4a
+ms.sourcegitcommit: e1cf5ed3f2434a9e98027afd0225207ad5d2f1b1
+ms.openlocfilehash: 28984e14f5afc27b608ab37daf19d454eb7c3201
 
 
 ---
-# <a name="azure-iot-gateway-sdk-beta---get-started-using-linux"></a>IoT SDK per gateway di Azure (beta): introduzione all'uso in Linux
+# <a name="get-started-with-the-azure-iot-gateway-sdk-linux"></a>IoT SDK per gateway di Azure: introduzione all'uso in Linux
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>Come compilare l'esempio
@@ -28,7 +28,7 @@ Prima di iniziare, è necessario [configurare l'ambiente di sviluppo][lnk-setupd
 
 1. Aprire una shell.
 2. Accedere alla directory principale nella copia locale del repository **azure-iot-gateway-sdk** .
-3. Eseguire lo script **tools/build.sh** . Questo script usa l'utilità **cmake** per creare una cartella denominata **build** nella directory principale della copia locale del repository **azure-iot-gateway-sdk** e generare un makefile. Lo script quindi compila la soluzione ed esegue i test.
+3. Eseguire lo script **tools/build.sh** . Questo script usa l'utilità **cmake** per creare una cartella denominata **build** nella directory principale della copia locale del repository **azure-iot-gateway-sdk** e generare un makefile. Lo script quindi compila la soluzione senza eseguire i test dell'unità e i test end-to-end. Rimuovere il parametro **--run-unittests** per compilare ed eseguire i test dell'unità. Rimuovere il parametro **--run-e2e-tests** per compilare ed eseguire i test end-to-end.
 
 > [!NOTE]
 > Ogni volta che si esegue lo script **build.sh**, la cartella **build** viene eliminata e ricreata nella directory principale della copia locale del repository **azure-iot-gateway-sdk**.
@@ -46,40 +46,43 @@ Prima di iniziare, è necessario [configurare l'ambiente di sviluppo][lnk-setupd
    
     ```
     {
-      "modules" :
-      [ 
-        {
-          "module name" : "logger",
-          "loading args": {
-            "module path" : "./build/modules/logger/liblogger.so"
-          },
-          "args" : 
-          {
-            "filename":"log.txt"
-          }
-        },
-        {
-          "module name" : "hello_world",
-          "loading args": {
-            "module path" : "./build/modules/hello_world/libhello_world.so"
-          },
-          "args" : null
-        }
-      ],
-      "links" :
-      [
-        {
-          "source": "hello_world",
-          "sink": "logger"
-        }
-      ]
+        "modules" :
+        [
+            {
+              "name" : "logger",
+              "loader": {
+                "name": "native",
+                "entrypoint": {
+                  "module.path": "./modules/logger/liblogger.so"
+                }
+              },
+              "args" : {"filename":"log.txt"}
+            },
+            {
+                "name" : "hello_world",
+              "loader": {
+                "name": "native",
+                "entrypoint": {
+                  "module.path": "./modules/hello_world/libhello_world.so"
+                }
+              },
+                "args" : null
+            }
+        ],
+        "links": 
+        [
+            {
+                "source": "hello_world",
+                "sink": "logger"
+            }
+        ]
     }
     ```
-3. Passare alla cartella **azure-iot-gateway-sdk**.
+3. Passare alla cartella **azure-iot-gateway-sdk/build**.
 4. Eseguire il comando seguente:
    
    ```
-   ./build/samples/hello_world/hello_world_sample ./samples/hello_world/src/hello_world_lin.json
+   ./samples/hello_world/hello_world_sample ./../samples/hello_world/src/hello_world_lin.json
    ``` 
 
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-code](../../includes/iot-hub-gateway-sdk-getstarted-code.md)]
@@ -89,6 +92,6 @@ Prima di iniziare, è necessario [configurare l'ambiente di sviluppo][lnk-setupd
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

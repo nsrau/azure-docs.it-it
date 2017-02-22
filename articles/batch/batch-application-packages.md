@@ -1,5 +1,5 @@
 ---
-title: Processi semplici di installazione e gestione dell&quot;applicazione in Azure Batch | Documentazione Microsoft
+title: Installare pacchetti dell&quot;applicazione nei nodi di calcolo - Azure Batch | Documentazione Microsoft
 description: "Usare la funzionalità dei pacchetti dell’applicazione di Azure Batch per gestire facilmente più applicazioni e versioni ed eseguire l&quot;installazione su nodi di calcolo in Batch."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 10/21/2016
+ms.date: 01/30/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 8bd78e80347175161053b28e4350fdeb78b3299b
+ms.sourcegitcommit: 08db84f3f3f66930a81e3627dadebbe181dd7da3
+ms.openlocfilehash: 1c89f86c382d627def6cbaf23d8a67a71cd9e890
 
 
 ---
@@ -251,7 +251,9 @@ I pacchetti specificati per un pool o un'attività vengono scaricati ed estratti
 
 `AZ_BATCH_APP_PACKAGE_BLENDER#2.7`
 
-Se si specifica una versione predefinita per un'applicazione, è possibile omettere il suffisso della versione. Se ad esempio è stata specificata la versione predefinita "2.7" per l'applicazione *blender*, le attività possono fare riferimento alla variabile di ambiente seguente per eseguire la versione 2.7:
+Quando si carica un pacchetto dell'applicazione, è possibile specificare una versione predefinita da distribuire ai nodi di calcolo. Se è stata specificata una versione predefinita per un'applicazione, è possibile omettere il suffisso della versione quando si fa riferimento l'applicazione. È possibile specificare la versione predefinita dell'applicazione nel pannello Applicazioni del portale di Azure, come illustrato in [Caricare e gestire le applicazioni](#upload-and-manage-applications).
+
+Se ad esempio è stata specificata la versione predefinita "2.7" per l'applicazione *blender*, le attività possono fare riferimento alla variabile di ambiente seguente per eseguire la versione 2.7:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 
@@ -349,6 +351,6 @@ Con i pacchetti dell'applicazione è possibile assistere i clienti nella scelta 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

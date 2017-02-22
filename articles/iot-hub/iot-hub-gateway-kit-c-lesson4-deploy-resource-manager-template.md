@@ -1,5 +1,5 @@
 ---
-title: Salvare i messaggi nel cloud di Azure e leggerli dal cloud | Documentazione Microsoft
+title: 'Dispositivo SensorTag e gateway Azure IoT: lezione 4: Creare l&quot;app per le funzioni | Documentazione Microsoft'
 description: Salvare i messaggi da Intel NUC all&quot;hub IoT, scriverli nell&quot;archivio tabelle di Azure e quindi leggerli dal cloud.
 services: iot-hub
 documentationcenter: 
@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: 73c5268ece75776a3c5007b612f84bd29cc7784d
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 3672804218dbbe3a545536b8c4baccb2b9171cdc
 
 
 ---
 # <a name="create-an-azure-function-app-and-storage-account"></a>Creare un'app per le funzioni di Azure e un account di archiviazione
 
-Funzioni di Azure è una soluzione che consente di eseguire facilmente _funzioni_, ovvero piccole parti di codice, nel cloud. Un'app per le funzioni di Azure ospita l'esecuzione delle funzioni in Azure. 
+Funzioni di Azure è una soluzione che consente di eseguire facilmente delle _funzioni_, ovvero piccole parti di codice, nel cloud. Un'app per le funzioni di Azure ospita l'esecuzione delle funzioni in Azure. 
 
 ## <a name="what-you-will-do"></a>Contenuto dell'esercitazione
 
@@ -49,7 +49,7 @@ In questa lezione si apprenderà:
 
 ## <a name="open-a-sample-app"></a>Aprire un'app di esempio
 
-Passare alla cartella del repository `iot-hub-c-intel-nuc-gateway-getting-started`, inizializzare i file di configurazione e quindi aprire il progetto di esempio in Visual Studio Code eseguendo questo comando:
+Passare alla cartella del repository `iot-hub-c-intel-nuc-gateway-getting-started`, inizializzare i file di configurazione, quindi aprire il progetto di esempio in Visual Studio Code eseguendo il comando seguente:
 
 ```bash
 cd Lesson4
@@ -85,10 +85,10 @@ Usare `iot-gateway` come valore di `{resource group name}` se nella lezione 2 no
 È stata creata l'app per le funzioni di Azure per elaborare i messaggi dell'hub IoT ed è stato configurato un account di archiviazione di Azure per archiviare tali messaggi. È ora possibile leggere i messaggi inviati dal gateway all'hub IoT.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Leggere i messaggi con salvataggio permanente in Archiviazione di Azure](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
+[Leggere i messaggi con salvataggio permanente in Archiviazione di Azure](iot-hub-gateway-kit-c-lesson4-read-table-storage.md).
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

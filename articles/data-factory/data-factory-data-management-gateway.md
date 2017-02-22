@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: abnarain
 translationtype: Human Translation
-ms.sourcegitcommit: 355de60c6a06f4694b8bce4a6ff3b6c2f65b2233
-ms.openlocfilehash: f4ec798bcd1da7f2067929382c37915022fc1eed
+ms.sourcegitcommit: 3d66640481d8e1f96d3061077f0c97da5fa6bf4e
+ms.openlocfilehash: a0ccdffa5347c4f3cda16ec75b75da3eb3199539
 
 
 ---
@@ -85,7 +85,7 @@ Il Gateway di gestione dati può essere installato nei seguenti modi:
 
 ### <a name="install-gateway-from-download-center"></a>Installare il gateway dall'area download
 1. Andare alla [pagina di download del Gateway di gestione dati di Microsoft](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Fare clic su **Scarica**, selezionare la versione appropriata (**a 32 bit** o **a 64 bit**) e fare clic su **Avanti**.
+2. Fare clic su **Scarica**, selezionare la versione appropriata (**a&32; bit** o **a&64; bit**) e fare clic su **Avanti**.
 3. Eseguire direttamente il file **MSI** oppure salvarlo sul disco rigido ed eseguirlo.
 4. Nella pagina di **benvenuto** selezionare una **lingua** e fare clic su **Avanti**.
 5. **Accettare** il contratto di licenza e fare clic su **Avanti**.
@@ -164,8 +164,8 @@ Il gateway usa il server proxy per connettersi al servizio cloud. Fare clic sul 
 Sono disponibili tre opzioni di configurazione:
 
 * **Non utilizzare proxy**: il gateway non usa in modo esplicito i proxy per connettersi ai servizi cloud.
-* **Usa il proxy di sistema**: il gateway usa l'impostazione del proxy configurata in diahost.exe.config.  Se non è stato configurato alcun proxy in diahost.exe.config, il gateway si connette al servizio cloud direttamente senza passare attraverso il proxy.
-* **Usa proxy personalizzato**: configurare le impostazioni del proxy HTTP che il gateway deve usare al posto delle configurazioni in diahost.exe.config.  L'indirizzo e la porta sono valori obbligatori.  Nome utente e password sono facoltativi a seconda dell'impostazione di autenticazione del proxy.  Tutte le impostazioni vengono crittografate con il certificato delle credenziali del gateway e archiviate localmente nel computer che ospita il gateway.
+* **Usa il proxy di sistema**: il gateway usa l'impostazione del proxy configurata in diahost.exe.config e diawp.exe.config.  Se non è stato configurato alcun proxy in diahost.exe.config e diawp.exe.config, il gateway si connette al servizio cloud direttamente senza passare attraverso il proxy.
+* **Usa proxy personalizzato**: configurare le impostazioni del proxy HTTP che il gateway deve usare al posto delle configurazioni in diahost.exe.config e diawp.exe.config.  L'indirizzo e la porta sono valori obbligatori.  Nome utente e password sono facoltativi a seconda dell'impostazione di autenticazione del proxy.  Tutte le impostazioni vengono crittografate con il certificato delle credenziali del gateway e archiviate localmente nel computer che ospita il gateway.
 
 Il servizio che ospita il gateway di gestione dati viene riavviato automaticamente dopo aver salvato le impostazioni proxy aggiornate.
 
@@ -185,8 +185,8 @@ Dopo aver registrato correttamente il gateway, se si desidera visualizzare o agg
 >
 >
 
-### <a name="configure-proxy-server-settings-in-diahostexeconfig"></a>Configurare le impostazioni del server proxy in diahost.exe.config
-Se si seleziona l'impostazione **Usa il proxy di sistema** per il proxy HTTP, il gateway usa l'impostazione proxy contenuta in diahost.exe.config.  Se non è stato specificato alcun proxy in diahost.exe.config, il gateway si connette al servizio cloud direttamente senza passare attraverso il proxy. La procedura seguente fornisce istruzioni per l'aggiornamento del file di configurazione.
+### <a name="configure-proxy-server-settings"></a>Configurare le impostazioni del server proxy 
+Se si seleziona l'impostazione **Usa il proxy di sistema** per il proxy HTTP, il gateway usa l'impostazione proxy contenuta in diahost.exe.config e diawp.exe.config.  Se non è stato specificato alcun proxy in diahost.exe.config e diawp.exe.config, il gateway si connette al servizio cloud direttamente senza passare attraverso il proxy. La procedura seguente fornisce istruzioni per l'aggiornamento del file diahost.exe.config.  
 
 1. In Esplora file creare una copia sicura di C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config per eseguire il backup del file originale.
 2. Avviare Notepad.exe come amministratore e aprire il file di testo "C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config". Il tag predefinito per system.net viene trovato come indicato nel codice seguente:
@@ -206,7 +206,11 @@ Se si seleziona l'impostazione **Usa il proxy di sistema** per il proxy HTTP, il
    È possibile aggiungere altre proprietà all'interno del tag del proxy per specificare le impostazioni obbligatorie, ad esempio scriptLocation. Per informazioni sulla sintassi, vedere [Elemento proxy (Impostazioni di rete)](https://msdn.microsoft.com/library/sa91de1e.aspx) .
 
          <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
-3. Salvare il file di configurazione nel percorso originale, quindi riavviare il servizio che ospita il gateway di gestione dati per rilevare le modifiche. Per riavviare il servizio: con l'applet dei servizi dal Pannello di controllo o da **Gestione configurazione di Gateway di gestione dati** > fare clic sul pulsante **Arresta servizio** quindi su **Avvia servizio**. Se il servizio non viene avviato, è probabile che una sintassi non corretta del tag XML sia stata aggiunta al file di configurazione dell'applicazione modificato.     
+3. Salvare il file di configurazione nel percorso originale, quindi riavviare il servizio che ospita il gateway di gestione dati per rilevare le modifiche. Per riavviare il servizio: con l'applet dei servizi dal Pannello di controllo o da **Gestione configurazione di Gateway di gestione dati** > fare clic sul pulsante **Arresta servizio** quindi su **Avvia servizio**. Se il servizio non viene avviato, è probabile che una sintassi non corretta del tag XML sia stata aggiunta al file di configurazione dell'applicazione modificato.
+
+> [!IMPORTANT]
+> Non dimenticare di aggiornare **entrambi i file**: diahost.exe.config e diawp.exe.config.  
+     
 
 Oltre ai punti precedenti, è necessario assicurarsi anche Microsoft Azure sia stato aggiunto all'elenco aziendale degli elementi consentiti. È possibile scaricare l'elenco di indirizzi IP validi per Microsoft Azure dall' [Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -447,6 +451,6 @@ Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName A
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

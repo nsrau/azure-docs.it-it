@@ -13,16 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 01/09/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 91474f61ab724d3fd7a70c51dcd097fade8953dd
-ms.openlocfilehash: 3789079412932d56be1c9697fc23c56de5afba6f
+ms.sourcegitcommit: 218d41ac352f01a7e03b5b8a1c45e1bf6d5ace28
+ms.openlocfilehash: a3b1289d52207448cebc628466492371d1bf6519
 
 
 ---
 
-# <a name="connect-a-mongodb-app-to-an-documentdb-account-using-a-mongodb-connection-string"></a>Connettere un'app MongoDB a un account DocumentDB usando una stringa di connessione MongoDB
+# <a name="connect-a-mongodb-app-to-a-documentdb-account-using-a-mongodb-connection-string"></a>Connettere un'app MongoDB a un account DocumentDB usando una stringa di connessione MongoDB
 Informazioni su come connettere l'app MongoDB a un account Azure DocumentDB usando una stringa di connessione MongoDB. Connettendo l'app MongoDB a un database Azure DocumentDB, è possibile usare un database DocumentDB come archivio dati per l'app MongoDB. 
 
 Questa esercitazione illustra due modi per recuperare le informazioni della stringa di connessione:
@@ -86,6 +86,6 @@ Si consideri ad esempio l'account indicato sopra in Informazioni sulla stringa d
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

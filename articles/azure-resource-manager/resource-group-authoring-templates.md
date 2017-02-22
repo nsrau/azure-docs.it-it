@@ -1,6 +1,6 @@
 ---
-title: Creazione di modelli di Azure Resource Manager | Microsoft Docs
-description: Creare modelli di Gestione risorse di Azure usando la sintassi dichiarativa JSON per distribuire applicazioni ad Azure.
+title: Creare modelli per le distribuzioni di Azure | Documentazione Microsoft
+description: "Descrive la struttura e le proprietà dei modelli di Azure Resource Manager con la sintassi dichiarativa JSON."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 01/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: a3a1fc856dc4fb39e3d3b765e943662799c75398
-ms.openlocfilehash: 62b51e2c6235011019d0ad837fe58388cf85e8d0
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 52fe8e3ce0c9c94c918818784fd735b5a6486ed8
 
 
 ---
@@ -55,7 +55,7 @@ La struttura più semplice di un modello è costituita dagli elementi seguenti:
 Le sezioni del modello verranno esaminate in modo dettagliato più avanti in questo argomento.
 
 ## <a name="expressions-and-functions"></a>Espressioni e funzioni
-La sintassi di base del modello è JSON. Espressioni e funzioni estendono tuttavia il codice JSON disponibile nel modello. Con le espressioni è possibile creare valori diversi da quelli strettamente letterali. Le espressioni sono racchiuse tra parentesi quadre [ e ] e vengono valutate al momento della distribuzione del modello. Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e restituiscono sempre un altro valore JSON. Se è necessario usare una stringa letterale che inizia con una parentesi quadra [, usare due parentesi quadre [[.
+La sintassi di base del modello è JSON. Espressioni e funzioni estendono tuttavia il codice JSON disponibile nel modello. Con le espressioni è possibile creare valori diversi da quelli strettamente letterali. Le espressioni sono racchiuse tra parentesi quadre, `[` e `]`, e vengono valutate al momento della distribuzione del modello. Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e restituiscono sempre un altro valore JSON. Se è necessario usare una stringa letterale che inizia con una parentesi quadra `[`, usare due parentesi quadre ovvero `[[`.
 
 Solitamente, si usano espressioni con funzioni per eseguire operazioni per la configurazione della distribuzione. Proprio come in JavaScript, le chiamate di funzione sono formattate come **functionName(arg1,arg2,arg3)**. Per i riferimenti alle proprietà si usano il punto e gli operatori [index].
 
@@ -64,7 +64,7 @@ L'esempio seguente illustra come usare diverse funzioni al momento di costruite 
 ```json
 "variables": {
    "location": "[resourceGroup().location]",
-   "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
+   "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
    "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
 }
 ```
@@ -98,7 +98,7 @@ I parametri vengono definiti con la struttura seguente:
 | Nome dell'elemento | Obbligatorio | Descrizione |
 |:--- |:--- |:--- |
 | parameterName |Sì |Nome del parametro. Deve essere un identificatore JavaScript valido. |
-| type |Sì |Tipo di valore del parametro. Vedere di seguito l'elenco dei tipi consentiti. |
+| type |Sì |Tipo di valore del parametro. Vedere l'elenco dei tipi consentiti riportato dopo questa tabella. |
 | defaultValue |No |Valore predefinito per il parametro, se non viene fornito alcun valore per il parametro. |
 | allowedValues |No |Matrice di valori consentiti per il parametro per assicurare che venga fornito il valore corretto. |
 | minValue |No |Il valore minimo per i parametri di tipo int, questo valore è inclusivo. |
@@ -119,7 +119,7 @@ I valori e i tipi consentiti sono:
 
 Per specificare un parametro come facoltativo, fornire un valore defaultValue (che può essere anche una stringa vuota). 
 
-Se si specifica un nome di parametro corrispondente a uno dei parametri nel comando per la distribuzione del modello, viene richiesto di fornire un valore per un parametro con il suffisso **FromTemplate**. Se ad esempio si include un parametro denominato **ResourceGroupName** nel modello che corrisponde al parametro **ResourceGroupName** nel cmdlet [New-AzureRmResourceGroupDeployment][deployment2cmdlet], viene richiesto di specificare un valore per **ResourceGroupNameFromTemplate**. In generale, è consigliabile evitare questa confusione non attribuendo ai parametri lo stesso nome dei parametri usati per operazioni di distribuzione.
+Se nel modello si specifica un nome di parametro che corrisponde a un parametro nel comando per distribuire il modello, si crea una potenziale ambiguità in merito ai valori forniti. Resource Manager risolve questa confusione aggiungendo il suffisso **FromTemplate** al parametro del modello. Se si include un parametro denominato **ResourceGroupName** nel modello, ad esempio, questo sarà in conflitto con il parametro **ResourceGroupName** nel cmdlet [New-AzureRmResourceGroupDeployment][deployment2cmdlet]. Durante la distribuzione verrà quindi richiesto di specificare un valore per **ResourceGroupNameFromTemplate**. In generale, è consigliabile evitare questa confusione non attribuendo ai parametri lo stesso nome dei parametri usati per operazioni di distribuzione.
 
 > [!NOTE]
 > Per tutte le password, le chiavi e altre informazioni riservate si consiglia di usare il tipo **secureString** . Se si passano dati sensibili in un oggetto JSON, usare il tipo **secureObject**. Non è possibile leggere i parametri di modello di tipo secureString o secureObject dopo la distribuzione delle risorse. 
@@ -241,7 +241,7 @@ Le risorse vengono definite con la struttura seguente:
      "copy": {
        "name": "<name-of-copy-loop>",
        "count": "<number-of-iterations>"
-     }
+     },
      "resources": [
        "<array-of-child-resources>"
      ]
@@ -257,10 +257,10 @@ Le risorse vengono definite con la struttura seguente:
 | location |Variabile |Aree geografiche supportate della risorsa specificata. È possibile selezionare qualsiasi località disponibile, ma è in genere opportuno sceglierne una vicina agli utenti. Di solito è anche opportuno inserire le risorse che interagiscono tra loro nella stessa area. La maggior parte dei tipi di risorsa richiede una posizione, ma alcuni tipi (ad esempio un'assegnazione di ruolo) non la richiedono. |
 | tags |No |Tag associati alla risorsa. |
 | commenti |No |Le note per documentare le risorse nel modello |
-| dependsOn |No |Risorse da distribuire prima della distribuzione di questa risorsa. Resource Manager valuta le dipendenze tra le risorse e le distribuisce nell'ordine corretto. Quando le risorse non sono interdipendenti, vengono distribuite in parallelo. Il valore può essere un elenco delimitato da virgole di nomi o identificatori univoci di risorse. Elencare solo le risorse distribuite in questo modello. Le risorse non definite in questo modello devono essere già esistenti. Per altre informazioni, vedere [Definizione delle dipendenze nei modelli di Gestione risorse di Azure](resource-group-define-dependencies.md). |
-| properties |No |Impostazioni di configurazione specifiche delle risorse. I valori per l'elemento properties corrispondono esattamente a quelli specificati nel corpo della richiesta per l'operazione API REST (metodo PUT) per creare la risorsa. Per collegamenti alla documentazione dello schema di risorse o all'API REST, vedere [Provider, aree, versioni API e schemi di Resource Manager](resource-manager-supported-services.md). |
+| dependsOn |No |Risorse da distribuire prima della distribuzione di questa risorsa. Resource Manager valuta le dipendenze tra le risorse e le distribuisce nell'ordine corretto. Quando le risorse non sono interdipendenti, vengono distribuite in parallelo. Il valore può essere un elenco delimitato da virgole di nomi o identificatori univoci di risorse. Elencare solo le risorse distribuite in questo modello. Le risorse non definite in questo modello devono essere già esistenti. Evitare di aggiungere dipendenze non necessarie perché possono rallentare la distribuzione e creare dipendenze circolari. Per indicazioni sull'impostazione delle dipendenze, vedere l'articolo relativo alla [definizione delle dipendenze nei modelli di Azure Resource Manager](resource-group-define-dependencies.md). |
+| properties |No |Impostazioni di configurazione specifiche delle risorse. I valori per l'elemento properties corrispondono esattamente a quelli specificati nel corpo della richiesta per l'operazione API REST (metodo PUT) per creare la risorsa. Per collegamenti alla documentazione sugli schemi delle risorse o all'API REST, vedere [Provider, aree, versioni API e schemi di Resource Manager](resource-manager-supported-services.md). |
 | copy |No |Numero di risorse da creare, se sono necessarie più istanze. Per altre informazioni, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md). |
-| resources |No |Risorse figlio che dipendono dalla risorsa in via di definizione. È possibile specificare solo i tipi di risorse consentiti dallo schema della risorsa padre. Il nome completo del tipo di risorsa figlio include il tipo di risorsa padre, ad esempio **Microsoft.Web/sites/extensions**. La dipendenza dalla risorsa padre non è implicita, è necessario definirla in modo esplicito. |
+| resources |No |Risorse figlio che dipendono dalla risorsa in via di definizione. Specificare solo tipi di risorsa consentiti dallo schema della risorsa padre. Il nome di tipo completo della risorsa figlio include il tipo della risorsa padre, ad esempio **Microsoft.Web/sites/extensions**. La dipendenza dalla risorsa padre non è implicita. È necessario definirla in modo esplicito. |
 
 Sapere quali valori specificare per **apiVersion**, **type** e **location** non è scontato. Fortunatamente possono essere determinati tramite Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
@@ -290,15 +290,21 @@ Per ottenere le località supportate per un tipo di risorsa, usare il comando se
 
 Per ottenere tutti i provider di risorse con l'**interfaccia della riga di comando di Azure**, usare il comando seguente:
 
-    azure provider list
+```azurecli
+azure provider list
+```
 
 Nell'elenco restituito trovare i provider di risorse a cui si è interessati. Per ottenere i tipi di risorsa per un provider di risorse, ad esempio Storage, usare il comando seguente:
 
-    azure provider show Microsoft.Storage
+```azurecli
+azure provider show Microsoft.Storage
+```
 
 Per ottenere le versioni dell'API e le località supportate, usare il comando seguente:
 
-    azure provider show Microsoft.Storage --details --json
+```azurecli
+azure provider show Microsoft.Storage --details --json
+```
 
 Per altre informazioni sui provider di risorse, vedere [Provider, aree, versioni API e schemi di Resource Manager](resource-manager-supported-services.md).
 
@@ -428,6 +434,6 @@ Per altre informazioni sull'utilizzo dell'output, vedere [Condivisione dello sta
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

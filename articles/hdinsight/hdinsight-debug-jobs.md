@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bc5c3eb66f1f87dec9b0236be85a4fc96c598db3
+ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
+ms.openlocfilehash: bcf2791f0e1788d7d18a4efc123066aaf633d549
 
 
 ---
@@ -36,7 +36,7 @@ Quando si crea un cluster HDInsight, vengono automaticamente create 6 tabelle pe
 * ambariserverlog
 * ambariagentlog
 
-Per i cluster basati su Windows vengono create 3 tabelle:
+Per i cluster basati su Windows vengono create&3; tabelle:
 
 * setuplog: log di eventi/eccezioni rilevati durante il provisioning o la configurazione dei cluster HDInsight.
 * hadoopinstalllog: log di eventi/eccezioni rilevati durante l'installazione di Hadoop nel cluster. Questa tabella può essere utile per i problemi di debug relativi ai cluster creati con parametri personalizzati.
@@ -116,7 +116,7 @@ Per altre informazioni sui registri applicazioni, vedere la pagina che illustra 
 
 ## <a name="view-cluster-health-and-job-logs"></a>Visualizzare i log di integrità e dei processi del cluster
 ### <a name="access-hadoop-ui"></a>Accedere all'interfaccia utente di Hadoop
-Dal portale di Azure fare clic sul nome di un cluster HDInsight per aprire il relativo pannello. Dal pannello del cluster fare clic su **Dashboard**.
+Dal Portale di Azure fare clic sul nome di un cluster HDInsight per aprire il relativo pannello. Dal pannello del cluster fare clic su **Dashboard**.
 
 ![Avviare il dashboard del cluster](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
 
@@ -125,7 +125,7 @@ Quando richiesto, immettere le credenziali per l'amministratore del cluster. Nel
 ![Avviare l'interfaccia utente di Hadoop](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
 
 ### <a name="access-the-yarn-ui"></a>Accedere all'interfaccia utente di Yarn
-Dal portale di Azure fare clic sul nome di un cluster HDInsight per aprire il relativo pannello. Dal pannello del cluster fare clic su **Dashboard**. Quando richiesto, immettere le credenziali per l'amministratore del cluster. Nella console di query visualizzata fare clic su **Interfaccia utente YARN**.
+Dal Portale di Azure fare clic sul nome di un cluster HDInsight per aprire il relativo pannello. Dal pannello del cluster fare clic su **Dashboard**. Quando richiesto, immettere le credenziali per l'amministratore del cluster. Nella console di query visualizzata fare clic su **Interfaccia utente YARN**.
 
 È possibile usare l'interfaccia utente YARN per eseguire queste operazioni:
 
@@ -136,12 +136,12 @@ Dal portale di Azure fare clic sul nome di un cluster HDInsight per aprire il re
 * **Monitorare lo stato dei processi**. Nel riquadro sinistro espandere **Cluster** e quindi fare clic su **Applicazioni** per elencare tutti i processi del cluster. Se si desidera esaminare i processi con uno stato specifico (ad esempio processi nuovi, inviati, in esecuzione e così via), fare clic sul collegamento appropriato in **Applicazioni**. È possibile fare clic sul nome del processo per ottenere altre informazioni, ad esempio l'output, i log e così via.
 
 ### <a name="access-the-hbase-ui"></a>Accedere all'interfaccia utente di HBase
-Dal portale di Azure fare clic sul nome di un cluster HDInsight HBase per aprire il relativo pannello. Dal pannello del cluster fare clic su **Dashboard**. Quando richiesto, immettere le credenziali per l'amministratore del cluster. Nella console di query visualizzata fare clic su **Interfaccia utente HBase**.
+Dal Portale di Azure fare clic sul nome di un cluster HDInsight HBase per aprire il relativo pannello. Dal pannello del cluster fare clic su **Dashboard**. Quando richiesto, immettere le credenziali per l'amministratore del cluster. Nella console di query visualizzata fare clic su **Interfaccia utente HBase**.
 
 ## <a name="hdinsight-error-codes"></a>Codici di errore di HDInsight
 I messaggi di errore indicati in questa sezione sono forniti allo scopo di aiutare gli utenti di Hadoop in Azure HDInsight a comprendere le possibili condizioni di errore che possono verificarsi quando il servizio viene amministrato mediante Azure PowerShell e di indicare le procedure di ripristino appropriate.
 
-Alcuni di questi messaggi di errore possono essere visualizzati anche nel portale di Azure quando viene usato per la gestione dei cluster HDInsight. Altri messaggi di errore, invece, sono meno granulari a causa dei vincoli relativi alle azioni di correzione possibili in questo contesto. Altri messaggi di errore vengono visualizzati in contesti in cui la soluzione correttiva è ovvia. 
+Alcuni di questi messaggi di errore possono essere visualizzati anche nel portale di Azure quando viene usato per la gestione dei cluster HDinsight. Altri messaggi di errore, invece, sono meno granulari a causa dei vincoli relativi alle azioni di correzione possibili in questo contesto. Altri messaggi di errore vengono visualizzati in contesti in cui la soluzione correttiva è ovvia. 
 
 ### <a name="a-idatleastonesqlmetastoremustbeprovidedaatleastonesqlmetastoremustbeprovided"></a><a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
 * **Descrizione**:per usare le impostazioni personalizzate per i metastore Hive e Oozie, è necessario specificare i dettagli del database SQL di Azure per almeno un componente.
@@ -331,6 +331,6 @@ Alcuni di questi messaggi di errore possono essere visualizzati anche nel portal
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

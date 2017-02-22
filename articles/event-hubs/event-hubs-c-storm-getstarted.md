@@ -1,79 +1,12 @@
 ---
-title: Introduzione agli hub di eventi con C e Apache Storm | Microsoft Docs
-description: Eseguire questa esercitazione per iniziare a usare gli hub eventi di Azure, inviare gli eventi in C e riceverli in un cluster di Apache Storm.
-services: event-hubs
-documentationcenter: 
-author: jtaubensee
-manager: timlt
-editor: 
-ms.assetid: 3b15825e-c53c-471b-870c-686bff46885a
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: c
-ms.devlang: java
-ms.topic: article
-ms.date: 11/30/2016
-ms.author: jotaub;sethm
+redirect_url: /azure/event-hubs/event-hubs-c-getstarted-send
 translationtype: Human Translation
-ms.sourcegitcommit: 33a960ae39ab8fa89126201fd67f13e5536413ef
-ms.openlocfilehash: 7bad4df26d10ba8edae311b41d0c07be2db374f4
-
+ms.sourcegitcommit: 4ba8c859940f315c347cadcc6f6cb36f61cae841
+ms.openlocfilehash: 425cdfd4347079cc26fd131c086e3ae57e08b2ec
 
 ---
-# <a name="get-started-with-event-hubs"></a>Introduzione all'Hub eventi
-[!INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
-
-## <a name="introduction"></a>Introduzione
-Hub eventi è un sistema di inserimento a scalabilità elevata, in grado di accettare milioni di eventi al secondo, che permette a un'applicazione di elaborare e analizzare le elevate quantità di dati prodotti dalle applicazioni e dai dispositivi connessi. Dopo la raccolta nell'hub eventi, i dati possono essere trasformati e archiviati tramite qualsiasi provider di analisi in tempo reale o qualsiasi cluster di archiviazione.
-
-Per ulteriori informazioni, vedere [Panoramica di Hub eventi].
-
-Questa esercitazione illustra come inserire messaggi in Hub eventi usando un'applicazione console in C e come recuperarli in parallelo usando Apache Storm.
-
-Per completare questa esercitazione, sono necessari gli elementi seguenti:
-
-* Ambiente di sviluppo in C. Per questa esercitazione si presuppone l'uso di uno stack gcc in una [macchina virtuale Linux di Azure](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) con Ubuntu 14.04. Le istruzioni per gli altri ambienti saranno fornite nei collegamenti esterni.
-* Un ambiente di sviluppo Java configurato per l'esecuzione di [Maven](http://maven.apache.org/). Per questa esercitazione si presuppone l'uso di [Eclipse](https://www.eclipse.org/).
-* Un account Azure attivo. Se non si ha un account, è possibile creare un account gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-
-[!INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
-
-[!INCLUDE [service-bus-event-hubs-get-started-send-c](../../includes/service-bus-event-hubs-get-started-send-c.md)]
-
-[!INCLUDE [service-bus-event-hubs-get-started-receive-storm](../../includes/service-bus-event-hubs-get-started-receive-storm.md)]
-
-## <a name="run-the-applications"></a>Eseguire le applicazioni
-A questo punto è possibile eseguire le applicazioni.
-
-1. Eseguire la classe **LogTopology** da Eclipse, quindi attendere l'avvio dei ricevitori per tutte le partizioni.
-2. Eseguire il programma **sender**. Gli eventi verranno visualizzati nella finestra del ricevitore.
-   
-   ![][23]
-
-> [!NOTE]
-> In questa esercitazione si usa Storm in modalità locale solo per finalità di sviluppo. Per altre informazioni sulle distribuzioni e sui modelli di Storm, vedere [HDInsight Storm overview] (Introduzione ad Apache Storm in HDInsight) e la documentazione ufficiale su [Apache Storm].
-
-## <a name="next-steps"></a>Passaggi successivi
-Per lo sviluppo di applicazioni per l'integrazione di Hub eventi e Storm sono disponibili le seguenti risorse.
-
-* [Analisi dei dati dei sensori con Storm e HDInsight][Analyzing sensor data with Storm and HDInsight] è un'esercitazione relativa a uno scenario completo che usa Hub eventi, Storm e HBase per inserire dati dei sensori in un cluster Hadoop.
-* [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm e HDInsight][Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight] è un'esercitazione relativa alla scrittura di pipeline di Storm in C#.
-
-<!-- Images. -->
-[23]: ./media/event-hubs-c-storm-getstarted/receive-storm3.png
-
-<!-- Links -->
-[Azure classic portal]: https://manage.windowsazure.com/
-[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Panoramica di Hub eventi]: event-hubs-overview.md
-
-[Apache Storm]: https://storm.incubator.apache.org
-[HDInsight Storm overview]: ../hdinsight/hdinsight-storm-overview.md (Introduzione ad Apache Storm in HDInsight)
-[Analyzing sensor data with Storm and HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
-[Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

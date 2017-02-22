@@ -316,6 +316,6 @@ Quando si fa clic sul riquadro SAP Cloud for Customer nel pannello di accesso, s
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

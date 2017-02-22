@@ -1,5 +1,5 @@
 ---
-title: Soluzioni di ripristino di emergenza cloud - Replica geografica attiva del database SQL | Documentazione Microsoft
+title: Aggiornamenti in sequenza delle applicazioni - Database SQL di Azure | Documentazione Microsoft
 description: Informazioni su come usare la replica geografica del database SQL di Azure per supportare gli aggiornamenti online dell&quot;applicazione cloud.
 services: sql-database
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 07/16/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: d7f3d972755ec326c28fcdb95fd0600dd8ca1a91
+ms.sourcegitcommit: 66c37501b053cd9a8b4487c34e8914b75f3058ee
+ms.openlocfilehash: a99d3f9b8df5cfff98e76fe3931304221b2ca6f4
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: d7f3d972755ec326c28fcdb95fd0600dd8ca1a91
 > 
 > 
 
-Informazioni su come usare la [replica geografica](sql-database-geo-replication-overview.md) nel database SQL per abilitare gli aggiornamenti in sequenza dell'applicazione cloud. L'aggiornamento dovrebbe far parte della pianificazione e della progettazione della continuità aziendale perché è un'operazione che comporta interruzioni. In questo articolo vengono esaminati due metodi diversi per orchestrare il processo di aggiornamento e vengono discussi vantaggi e compromessi relativi a ciascuna opzione. Ai fini di questo articolo viene usata una semplice applicazione costituita da un sito Web collegato a un database autonomo come livello dati. L'obiettivo consiste nell'aggiornare la versione 1 dell'applicazione alla versione 2 senza effetti significativi sull'esperienza dell'utente finale. 
+Informazioni su come usare la [replica geografica](sql-database-geo-replication-overview.md) nel database SQL per abilitare gli aggiornamenti in sequenza dell'applicazione cloud. L'aggiornamento dovrebbe far parte della pianificazione e della progettazione della continuità aziendale perché è un'operazione che comporta interruzioni. In questo articolo vengono esaminati due metodi diversi per orchestrare il processo di aggiornamento e vengono discussi vantaggi e compromessi relativi a ciascuna opzione. Ai fini di questo articolo viene usata una semplice applicazione costituita da un sito Web collegato a un database singolo come livello dati. L'obiettivo consiste nell'aggiornare la versione 1 dell'applicazione alla versione 2 senza effetti significativi sull'esperienza dell'utente finale. 
 
 Quando si valutano le opzioni di aggiornamento è necessario considerare i fattori seguenti:
 
@@ -155,6 +155,6 @@ Le pagine seguenti forniscono informazioni sulle operazioni specifiche necessari
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d408b5affc166ae4fae6b94ab3e069b51ecfdd3c
+ms.sourcegitcommit: e7f09966e2b15735081cf2ac4d244a7ae8b92df8
+ms.openlocfilehash: 397bbc7d556338ff347d59d000fe7442acda560a
 
 
 ---
@@ -260,7 +260,7 @@ public class BloggingContextConfiguration : DbConfiguration
     public class BloggingContext : DbContext
     { ...
 
-Se per determinate operazioni è necessario usare strategie di ripetizione dei tentativi diverse o si disabilita la ripetizione dei tentativi, è possibile creare una classe di configurazione che consente di sospendere o cambiare strategie impostando un flag in **CallContext**. Questo flag può essere usato dalla classe di configurazione per cambiare strategie o per disabilitare la strategia specificata e usare invece una strategia predefinita. Per altre informazioni, vedere la sezione sulla [sospensione della strategia di esecuzione](http://msdn.microsoft.com/dn307226#transactions_workarounds) nella pagina relativa alle limitazioni quando si ripetono strategie di esecuzione (Entity Framework 6 o versione successiva).
+Se per determinate operazioni è necessario usare strategie di ripetizione dei tentativi diverse o si disabilita la ripetizione dei tentativi, è possibile creare una classe di configurazione che consente di sospendere o cambiare strategie impostando un flag in **CallContext**. Questo flag può essere usato dalla classe di configurazione per cambiare strategie o per disabilitare la strategia specificata e usare invece una strategia predefinita. Per altre informazioni, vedere la sezione sulla [sospensione della strategia di esecuzione](http://msdn.microsoft.com/dn307226#transactions_workarounds) nella pagina relativa alle limitazioni quando si ripetono strategie di esecuzione (Entity Framework&6; o versione successiva).
 
 Un'altra tecnica per usare strategie di ripetizione specifiche per singole operazioni consiste nel creare un'istanza della classe di strategia necessaria, fornire le impostazioni desiderate attraverso dei parametri e quindi richiamare il metodo **ExecuteAsync**.
 
@@ -278,14 +278,14 @@ Un'altra tecnica per usare strategie di ripetizione specifiche per singole opera
 
 Il modo più semplice per usare una classe **DbConfiguration** consiste nell'individuarla nello stesso assembly della classe **DbContext**. Questo metodo, tuttavia, non è appropriato quando lo stesso contesto è richiesto in scenari diversi, ad esempio in varie strategie di ripetizione dei tentativi, interattiva o in background. Se i diversi contesti vengono eseguiti in AppDomain distinti, è possibile usare il supporto incorporato per specificare le classi di configurazione nel file di configurazione o impostarle in modo esplicito tramite codice. Se invece i diversi contesti devono essere eseguiti nello stesso AppDomain, sarà necessaria una soluzione personalizzata.
 
-Per altre informazioni, vedere l'articolo sulla [configurazione basata su codice (Entity Framework 6 o versione successiva)](http://msdn.microsoft.com/data/jj680699.aspx).
+Per altre informazioni, vedere l'articolo sulla [configurazione basata su codice (Entity Framework&6; o versione successiva)](http://msdn.microsoft.com/data/jj680699.aspx).
 
-La tabella seguente mostra le impostazioni predefinite per i criteri di ripetizione dei tentativi incorporati quando si usa Entity Framework 6.
+La tabella seguente mostra le impostazioni predefinite per i criteri di ripetizione dei tentativi incorporati quando si usa Entity Framework&6;.
 
 ![](media/best-practices-retry-service-specific/RetryServiceSpecificGuidanceTable4.png)
 
 ### <a name="retry-usage-guidance"></a>Linee guida sull'uso dei criteri di ripetizione dei tentativi
-Quando si accede al database SQL con Entity Framework 6, tenere presente le linee guida seguenti:
+Quando si accede al database SQL con Entity Framework&6;, tenere presente le linee guida seguenti:
 
 * Scegliere il tipo di servizio appropriato (condiviso o premium). Un'istanza condivisa può subire limitazioni o ritardi di connessione maggiori rispetto alla media perché può essere usata da altri tenant del server condiviso. Se sono necessarie prestazioni prevedibili o affidabili operazioni di bassa latenza, valutare la possibilità di scegliere il tipo servizio premium.
 * Per il database SQL di Azure non è consigliabile usare una strategia a intervalli fissi, bensì una strategia di backoff esponenziale, poiché il servizio può essere sovraccarico e intervalli più lunghi concedono più tempo per il ripristino del servizio.
@@ -1084,7 +1084,7 @@ Il blocco di applicazioni per la gestione degli errori temporanei presenta la se
 
 | **Strategia** | **Impostazione** | **Valore predefinito** | **Significato** |
 | --- | --- | --- | --- |
-| **Esponenziale** |retryCount<br />minBackoff<br /><br />MaxBackoff<br /><br />deltaBackoff<br /><br />fastFirstRetry |10<br />1 secondo<br /><br />30 secondi<br /><br />10 secondi<br /><br />true |Il numero di tentativi.<br />Il tempo di backoff minimo. Come intervallo tra i tentativi verrà usato il valore più elevato o il backoff calcolato.<br />Il tempo di backoff minimo. Come intervallo tra i tentativi verrà usato il valore più basso o il backoff calcolato.<br />Il valore usato per calcolare un delta casuale per l'intervallo esponenziale tra i tentativi.<br />Indica se il primo tentativo verrà eseguito immediatamente. |
+| **Esponenziale** |retryCount<br />minBackoff<br /><br />MaxBackoff<br /><br />deltaBackoff<br /><br />fastFirstRetry |10<br />1 secondo<br /><br />30 secondi<br /><br />10 secondi<br /><br />true |Il numero di tentativi.<br />Tempo di backoff massimo. Come intervallo tra i tentativi verrà usato il valore più elevato o il backoff calcolato.<br />Il tempo di backoff minimo. Come intervallo tra i tentativi verrà usato il valore più basso o il backoff calcolato.<br />Il valore usato per calcolare un delta casuale per l'intervallo esponenziale tra i tentativi.<br />Indica se il primo tentativo verrà eseguito immediatamente. |
 | **Incrementale** |retryCount<br />initialInterval<br />increment<br /><br />fastFirstRetry<br /> |10<br />1 secondo<br />1 secondo<br /><br />true |Il numero di tentativi.<br />L'intervallo iniziale che verrà applicato per il primo tentativo.<br />Il valore di tempo incrementale che verrà usato per calcolare l'intervallo progressivo tra i tentativi.<br />Indica se il primo tentativo verrà eseguito immediatamente. |
 | **Lineare (intervallo fisso)** |retryCount<br />retryInterval<br />fastFirstRetry<br /> |10<br />1 secondo<br />true |Il numero di tentativi.<br />L'intervallo tra i tentativi.<br />Indica se il primo tentativo verrà eseguito immediatamente. |
 
@@ -1101,6 +1101,6 @@ Per esempi di uso del Blocco di applicazioni per la gestione degli errori tempor
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

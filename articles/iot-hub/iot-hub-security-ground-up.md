@@ -1,6 +1,6 @@
 ---
-title: Proteggere la soluzione IoT sin dall&quot;inizio | Documentazione Microsoft
-description: "In questo articolo vengono descritte le funzionalità di protezione integrate in Azure IoT Suite di Microsoft"
+title: Proteggere la soluzione Azure IoT sin dall&quot;inizio | Documentazione Microsoft
+description: "Come usare le funzionalità di sicurezza integrate nell&quot;hub IoT di Microsoft Azure e in Microsoft Azure IoT Suite."
 services: iot-hub
 documentationcenter: 
 author: YuriDio
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2016
+ms.date: 02/16/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 896cec2befa3f8f681ecb4e14687300a90b5fc24
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: a4452dee2beec650f84dff4083e91684fe61d8b6
 
 
 ---
@@ -25,9 +25,9 @@ ms.openlocfilehash: 896cec2befa3f8f681ecb4e14687300a90b5fc24
 ## <a name="see-also"></a>Vedere anche
 Per altre informazioni sulla protezione della soluzione IoT, vedere:
 
-* [Procedure consigliate per la sicurezza di Internet of Things][lnk-security-best-practices]
-* [Architettura di sicurezza IoT][lnk-security-architecture]
-* [Proteggere la distribuzione IoT][lnk-security-deployment]
+* [Procedure consigliate per la sicurezza IoT][lnk-security-best-practices]
+* [Architettura della sicurezza IoT][lnk-security-architecture]
+* [Proteggere la distribuzione di IoT][lnk-security-deployment]
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
@@ -41,6 +41,6 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

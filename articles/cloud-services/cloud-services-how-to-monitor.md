@@ -3,7 +3,7 @@ title: Come monitorare un servizio cloud | Documentazione Microsoft
 description: Informazioni su come monitorare i servizi cloud usando il portale di Azure classico.
 services: cloud-services
 documentationcenter: 
-author: rboucher
+author: thraka
 manager: timlt
 editor: 
 ms.assetid: 5c48d2fb-b8ea-420f-80df-7aebe2b66b1b
@@ -12,12 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2015
-ms.author: robb
+ms.date: 12/07/2015
+ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a8d581d678d35045d7d27df55ee1e629f259f30c
-
+ms.sourcegitcommit: ab97962175f4498200db428736a1cbd124fac285
+ms.openlocfilehash: aab8f3233191c9b3f839e3358902f72499d93ee5
 
 ---
 # <a name="how-to-monitor-cloud-services"></a>Come monitorare i servizi cloud
@@ -34,19 +33,19 @@ Per impostazione predefinita, i dati del contatore di prestazioni dalle istanze 
 
 Dopo aver abilitato il monitoraggio dettagliato, i dati aggregati di monitoraggio sono archiviati in tabelle nell'account di archiviazione. Per abilitare il monitoraggio dettagliato per un ruolo, è necessario configurare una stringa di connessione diagnostica collegata all'account di archiviazione. È possibile usare account di archiviazione diversi per i diversi ruoli.
 
-Si noti che l'abilitazione del monitoraggio dettagliato comporta un aumento dei costi legati all'archiviazione e al trasferimento dei dati e alle transazioni di archiviazione. Il monitoraggio minimo non richiede un account di archiviazione. I dati per le metriche esposti al livello minimo di monitoraggio non sono archiviati nell'account di archiviazione, anche se si imposta il livello di monitoraggio dettagliato.
+L'abilitazione del monitoraggio dettagliato comporta un aumento dei costi legati all'archiviazione e al trasferimento dei dati e alle transazioni di archiviazione. Il monitoraggio minimo non richiede un account di archiviazione. I dati per le metriche esposti al livello minimo di monitoraggio non sono archiviati nell'account di archiviazione, anche se si imposta il livello di monitoraggio dettagliato.
 
 ## <a name="how-to-configure-monitoring-for-cloud-services"></a>Procedura: Configurare il monitoraggio per i servizi cloud
 Attenersi alle procedure seguenti per configurare il monitoraggio dettagliato o minimo nel portale di Azure classico. 
 
 ### <a name="before-you-begin"></a>Prima di iniziare
-* Creare un account di archiviazione per archiviare i dati di monitoraggio. È possibile usare account di archiviazione diversi per i diversi ruoli. Per altre informazioni, vedere gli argomenti **Account di archiviazione**o [Come creare un account di archiviazione](/manage/services/storage/how-to-create-a-storage-account/)nella Guida.
-* Abilitare Diagnostica Azure per i ruoli del servizio cloud. Vedere [Configurazione della diagnostica per i servizi cloud](https://msdn.microsoft.com/library/azure/dn186185.aspx#BK_EnableBefore).
+* Creare un account di archiviazione *classico* per archiviare i dati di monitoraggio. È possibile usare account di archiviazione diversi per i diversi ruoli. Per altre informazioni, vedere [Come creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account).
+* Abilitare Diagnostica Azure per i ruoli del servizio cloud. Vedere [Configurazione della diagnostica per i servizi cloud](cloud-services-dotnet-diagnostics.md).
 
 Assicurarsi che la stringa di connessione della diagnostica sia presente nella configurazione del ruolo. È possibile attivare il monitoraggio dettagliato fino ad abilitare la diagnostica di Azure e includere una stringa di connessione della diagnostica nella configurazione del ruolo.   
 
 > [!NOTE]
-> I progetti destinati a Azure SDK 2.5 non includono automaticamente la stringa di connessione della diagnostica nel modello di progetto. Per questi progetti è necessario aggiungere manualmente la stringa di connessione della diagnostica alla configurazione del ruolo.
+> I progetti destinati a Azure SDK 2.5 non includono automaticamente la stringa di connessione della diagnostica nel modello di progetto. Per questi progetti, è necessario aggiungere manualmente la stringa di connessione della diagnostica alla configurazione del ruolo.
 > 
 > 
 
@@ -108,7 +107,7 @@ I dati non elaborati del contatore di prestazioni e i dati aggregati di monitora
 ### <a name="to-add-custom-metrics-to-the-metrics-table"></a>Per aggiungere metriche personalizzate alla relativa tabella
 Il livello di monitoraggio **Dettagliato** fornisce un elenco delle metriche predefinite che è possibile monitorare nel portale. Oltre a queste metriche, è possibile monitorare le metriche personalizzate o i contatori delle prestazioni definiti dall'applicazione tramite il portale.
 
-Nei passaggi seguenti si presuppone che sia stato attivato il livello di monitoraggio **Dettagliato** e che si stia configurando l’applicazione per raccogliere e trasferire i contatori delle prestazioni personalizzati. 
+Nei passaggi seguenti si presuppone che sia stato attivato il livello di monitoraggio **Dettagliato** e che sia stata configurata l'applicazione per raccogliere e trasferire i contatori delle prestazioni personalizzati. 
 
 Per visualizzare i contatori delle prestazioni personalizzati nel portale è necessario aggiornare la configurazione in wad-control-container:
 
@@ -149,6 +148,7 @@ Per visualizzare i contatori delle prestazioni personalizzati nel portale è nec
    
    * Per riportare una nuova metrica, selezionare la casella di controllo corrispondente nelle intestazioni del grafico. Su uno schermo stretto fare clic sulla freccia verso il basso accanto a ***n*??metrics** per tracciare sul grafico una metrica non visualizzata nell'area delle intestazioni del grafico.
    * Per eliminare una metrica tracciata sul grafico, deselezionare la casella di controllo accanto all'intestazione.
+   
 3. Passare dalla visualizzazione **relativa** a quella **assoluta**.
 4. Scegliere se visualizzare dati relativi a 1 ora, 24 ore o 7 giorni.
 
@@ -178,6 +178,6 @@ WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role ins
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

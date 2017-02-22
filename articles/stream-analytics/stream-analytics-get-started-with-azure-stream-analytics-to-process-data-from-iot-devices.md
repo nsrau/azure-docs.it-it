@@ -122,6 +122,6 @@ Lo scopo di questa esercitazione è illustrare come scrivere diverse query nel l
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

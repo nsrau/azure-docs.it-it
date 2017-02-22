@@ -16,19 +16,12 @@ ms.workload: NA
 ms.date: 10/13/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7b9803d7d0b4982dece276d6f5a7ec8293ce4361
-ms.openlocfilehash: 37725b1abe0ad13124b9206c9aa6fcf1185b6db4
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 07593e7f1d92a9a5943714f662568fec10a8886a
 
 
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-with-transact-sql"></a>Configurare la replica geografica attiva per il database SQL di Azure con Transact-SQL
-> [!div class="op_single_selector"]
-> * [Panoramica](sql-database-geo-replication-overview.md)
-> * [Portale di Azure](sql-database-geo-replication-portal.md)
-> * [PowerShell](sql-database-geo-replication-powershell.md)
-> * [T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
 
 Questo articolo illustra come configurare la replica geografica attiva per un database SQL di Azure con Transact-SQL.
 
@@ -171,6 +164,6 @@ Nell'aprile 2017 il tipo di database secondario non leggibile verrà ritirato e 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

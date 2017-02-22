@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
+ms.date: 02/02/2017
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: b808a791abc843a93d772b1eeafc9f6280196185
+ms.sourcegitcommit: 7e77858b36d07049333422d4454c29a9e1acb748
+ms.openlocfilehash: bdec7eb0b32cd8853dc01791466abf48c61a5fe8
 
 
 ---
@@ -44,27 +44,37 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 ## <a name="manual-steps"></a>Passaggi manuali
 > [!NOTE]
-> Prima di creare un'immagine personalizzata di Ubuntu per Azure, valutare in alternativa la possibilità di usare le immagini in [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/) .
+> Prima di provare a creare un'immagine personalizzata di Ubuntu per Azure, valutare in alternativa la possibilità di usare le immagini predefinite e testate di [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/).
 > 
 > 
 
 1. Nel riquadro centrale della console di gestione di Hyper-V selezionare la macchina virtuale.
+
 2. Fare clic su **Connect** per aprire la finestra della macchina virtuale.
+
 3. Sostituire gli archivi correnti nell'immagine in modo da usare quelli Azure di Ubuntu. La procedura varia leggermente in base alla versione di Ubuntu.
    
-   Prima di modificare /etc/apt/sources.list, è consigliabile eseguire un backup.
+    Prima di modificare `/etc/apt/sources.list`, è consigliabile eseguire un backup:
    
-   # <a name="sudo-cp-etcaptsourceslist-etcaptsourceslistbak"></a>sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
-   Ubuntu 12.04:
+        # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+
+    Ubuntu 12.04:
    
-   # <a name="sudo-sed--i-sa-za-zarchiveubuntucomazurearchiveubuntucomg-etcaptsourceslist"></a>sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
-   # <a name="sudo-apt-get-update"></a>sudo apt-get update
-   Ubuntu 14.04:
+        # sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
+        # sudo apt-get update
+
+    Ubuntu 14.04:
    
-   # <a name="sudo-sed--i-sa-za-zarchiveubuntucomazurearchiveubuntucomg-etcaptsourceslist"></a>sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
-   # <a name="sudo-apt-get-update"></a>sudo apt-get update
+        # sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
+        # sudo apt-get update
+
+    Ubuntu 16.04:
+   
+        # sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
+        # sudo apt-get update
+
 4. Le immagini di Ubuntu Azure ora seguono il kernel *HWE* (Hardware Enablement). Aggiornare il sistema operativo al kernel più recente eseguendo i comandi seguenti:
-   
+
     Ubuntu 12.04:
    
         # sudo apt-get update
@@ -82,22 +92,42 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
         (recommended) sudo apt-get dist-upgrade
    
         # sudo reboot
-5. Modificare la riga di avvio del kernel per Grub in modo da includere ulteriori parametri del kernel per Azure. A questo scopo, aprire "/etc/default/grub" in un editor di testo, individuare la variabile `GRUB_CMDLINE_LINUX_DEFAULT` (o aggiungerla, se necessario) e modificarla per includere i parametri seguenti:
+
+    Ubuntu 16.04:
+   
+        # sudo apt-get update
+        # sudo apt-get install linux-generic-hwe-16.04 linux-cloud-tools-generic-hwe-16.04
+        (recommended) sudo apt-get dist-upgrade
+
+        # sudo reboot
+
+    **Vedere anche:**
+    - [https://wiki.ubuntu.com/Kernel/LTSEnablementStack](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)
+    - [https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack](https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack)
+
+
+5. Modificare la riga di avvio del kernel per Grub in modo da includere ulteriori parametri del kernel per Azure. A questo scopo, aprire `/etc/default/grub` in un editor di testo, trovare la variabile denominata `GRUB_CMDLINE_LINUX_DEFAULT` (o aggiungerla, se necessario) e modificarla in modo da includere i parametri seguenti:
    
         GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300"
-   
-    Salvare e chiudere il file e quindi eseguire '`sudo update-grub`'. In questo modo si garantisce che tutti i messaggi della console vengano inviati alla prima porta seriale, agevolando così il supporto tecnico di Azure nella risoluzione dei problemi di debug.
+
+    Salvare e chiudere il file e quindi eseguire `sudo update-grub`. In questo modo si garantisce che tutti i messaggi della console vengano inviati alla prima porta seriale, agevolando così il supporto tecnico di Azure nella risoluzione dei problemi di debug.
+
 6. Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio.  Questo è in genere il valore predefinito.
+
 7. Installare l'agente Linux di Azure:
    
-   # <a name="sudo-apt-get-update"></a>sudo apt-get update
-   # <a name="sudo-apt-get-install-walinuxagent"></a>sudo apt-get install walinuxagent
-   Si noti che installando il pacchetto `walinuxagent`, i pacchetti `NetworkManager` e `NetworkManager-gnome` eventualmente installati verranno rimossi.
+        # sudo apt-get update
+        # sudo apt-get install walinuxagent
+
+    >[!Note]
+    Il pacchetto `walinuxagent` potrebbe rimuovere i pacchetti `NetworkManager` e `NetworkManager-gnome`, se installati.
+
 8. Eseguire i comandi seguenti per effettuare il deprovisioning della macchina virtuale e prepararla per il provisioning in Azure:
    
-   # <a name="sudo-waagent--force--deprovision"></a>sudo waagent -force -deprovision
-   # <a name="export-histsize0"></a>export HISTSIZE=0
-   # <a name="logout"></a>logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
+
 9. Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -112,6 +142,6 @@ Kernel HWE di Ubuntu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

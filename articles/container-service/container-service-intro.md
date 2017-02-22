@@ -1,5 +1,5 @@
 ---
-title: Introduzione al servizio contenitore di Azure | Documentazione Microsoft
+title: Cluster per contenitori Docker nel cloud di Azure | Documentazione Microsoft
 description: Il servizio contenitore di Azure fornisce un modo per semplificare la creazione, la configurazione e la gestione di un cluster di macchine virtuali che sono preconfigurate per eseguire le applicazioni nei contenitori.
 services: container-service
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 01/21/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: f8a2b63c381ceafb23b31697916796066ea549f9
-ms.openlocfilehash: d5652134cc2c660395cfb83a1a2727acf306f5e9
+ms.sourcegitcommit: cc3cc2dce324942f184b6a520dc4db28518a3091
+ms.openlocfilehash: 0521fbd689233c0f2359a10006e24c75c8997732
 
 
 ---
@@ -39,7 +39,7 @@ Il servizio contenitore di Azure consente di sfruttare i vantaggi delle funzioni
 L'obiettivo del servizio contenitore di Azure è fornire un ambiente host contenitore tramite tecnologie e strumenti open source, che sono attualmente diffusi fra i nostri clienti. A tal fine vengono esposti gli endpoint API standard per l'agente di orchestrazione scelto: DC/OS, Docker Swarm o Kubernetes. Tramite questi endpoint è possibile usare qualsiasi software in grado di comunicare con essi. Ad esempio, nel caso dell'endpoint Docker Swarm, è possibile scegliere di usare l'interfaccia della riga di comando (CLI) Docker. Per DC/OS è possibile scegliere di usare l'interfaccia della riga di comando DCOS. Per Kubernetes, è possibile scegliere di usare kubectl.
 
 ## <a name="creating-a-docker-cluster-by-using-azure-container-service"></a>Creazione di un cluster Docker con il servizio contenitore di Azure
-Per iniziare a usare il servizio contenitore di Azure, distribuire un cluster del servizio tramite il portale (cercare "Servizio contenitore di Azure"), usando un modello di Azure Resource Manager ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm), [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) o [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)) oppure l'[interfaccia della riga di comando](/documentation/articles/xplat-cli-install/). I modelli di avvio rapido forniti possono essere modificati per includere una configurazione di Azure aggiuntiva o avanzata. Per altre informazioni sulla distribuzione di un cluster del servizio contenitore di Azure, vedere [Distribuire un cluster del servizio contenitore di Azure](container-service-deployment.md).
+Per iniziare a usare il servizio contenitore di Azure, distribuire un cluster del servizio tramite il portale (cercare "Servizio contenitore di Azure"), usando un modello di Azure Resource Manager ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm), [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) o [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)) oppure l'[interfaccia della riga di comando](/articles/xplat-cli-install.md). I modelli di avvio rapido forniti possono essere modificati per includere una configurazione di Azure aggiuntiva o avanzata. Per altre informazioni sulla distribuzione di un cluster del servizio contenitore di Azure, vedere [Distribuire un cluster del servizio contenitore di Azure](container-service-deployment.md).
 
 ## <a name="deploying-an-application"></a>Distribuzione di un'applicazione
 Il servizio contenitore di Azure consente di scegliere tra Docker Swarm, DC/OS o Kubernetes per l'orchestrazione. La modalità di distribuzione dell'applicazione dipende dall'agente di orchestrazione scelto.
@@ -92,7 +92,7 @@ Dispone di un set completo di funzionalità tra cui:
 * Bilanciamento del carico e rilevamento del servizio
 * Gestione della configurazione e segreti
 * Implementazioni e ripristini automatizzati basati sull'API
-* Riparazione automatica 
+* Riparazione automatica
 * e molto altro.
 
 
@@ -101,18 +101,17 @@ Dispone di un set completo di funzionalità tra cui:
 Introduzione al servizio contenitore di Azure (101):  
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Container-Service-101/player]
-> 
-> 
+>
+>
 
 Compilazione di applicazioni tramite il servizio contenitore di Azure (build 2016)
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2016/B822/player]
-> 
-> 
+>
+>
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

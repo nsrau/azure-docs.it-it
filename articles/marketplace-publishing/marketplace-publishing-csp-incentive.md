@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2016
+ms.date: 01/25/2017
 ms.author: DavidBosland
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 80b6c1a1b5f5ae3f66ee2f39daf5b65ebc63fbed
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 97cd45563dbd2341620658e05dbbd9ff0519b1aa
 
 
 ---
@@ -26,19 +26,19 @@ Il 15 marzo 2016 i Cloud Solution Provider (CSP) "Incentivi rivenditore" saranno
 Per visualizzare o modificare lo stato di "Incentivi rivenditore", seguire questa procedura:
 
 1. Accedere con [l'account di pubblicazione di Microsoft Azure](https://publish.windowsazure.com/workspace)
-   
+
    ![Schermata di destinazione del profilo][1]
 2. Fare clic su **Editori**
-   
+
    ![Schermata di destinazione del profilo - Collegamento Editori][2]
 3. Si notino le informazioni relative ai CSP nel profilo.  È disponibile un'**opzione per abilitare o disabilitare** "Incentivi rivenditore". Il valore predefinito è "Sì".
-   
+
    ![Profilo - Editori][3]
 4. Per modificare lo stato di "Incentivi rivenditore", accedere al profilo di pubblicazione quindi selezionare e salvare l'opzione desiderata:
-   
+
    * Selezionare **Sì** per scegliere di fornire lo sconto del 20% ai CSP rivenditori di applicazioni e servizi elencati in Azure Marketplace.  In alternativa, selezionare **No** per rifiutare esplicitamente il programma di incentivi.  In entrambi i casi, i proventi dell'editore sono identici.
    * Dopo aver effettuato una selezione fare clic su **Salva** nell'angolo in alto a destra.
-   
+
    ![Profilo - Editori - caselle di modifica][4]
 
 [1]: ./media/marketplace-publishing-csp-incentive/profile-stock.png
@@ -48,6 +48,6 @@ Per visualizzare o modificare lo stato di "Incentivi rivenditore", seguire quest
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

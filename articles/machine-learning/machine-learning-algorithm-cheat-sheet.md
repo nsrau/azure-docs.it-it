@@ -4,7 +4,7 @@ description: Un foglio informativo sugli algoritmi di Machine Learning stampabil
 keywords: foglio informativo sugli algoritmi, foglio informatico, algoritmo di machine learning
 services: machine-learning
 documentationcenter: 
-author: brohrer
+author: garyericson
 manager: jhubbard
 editor: cgronlun
 ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2016
-ms.author: brohrer;garye
+ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 412c9ceb2e063a253f3e9d03dcf2735a7f373e15
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4b7cbaec88b79cbc6f43fd32b85d104eada403da
 
 
 ---
@@ -42,8 +42,8 @@ Scaricare e stampare il foglio informativo sugli algoritmi di Machine Learning i
 
 ## <a name="more-help-with-algorithms"></a>Altre informazioni sugli algoritmi
 * Per una discussione più approfondita sui diversi tipi di algoritmi di Machine Learning, sul loro utilizzo e su come utilizzare questo foglio informativo per la scelta dell'algoritmo corretto, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
-* Per un elenco per categoria degli algoritmi di Machine Learning disponibili in Machine Learning Studio, vedere [Initialize Model][initialize-model] (Modello di inizializzazione) nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
-* Per un elenco completo degli algoritmi e dei moduli disponibili in Machine Learning Studio, vedere [A-Z list of Machine Learning Studio modules][a-z-list] (Elenco in ordine alfabetico dei moduli di Machine Learning Studio) nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
+* Per un elenco per categoria degli algoritmi di Machine Learning disponibili in Machine Learning Studio, vedere l'argomento relativo al [modello di inizializzazione][initialize-model] nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
+* Per un elenco completo degli algoritmi e dei moduli disponibili in Machine Learning Studio, vedere l'argomento relativo all'[elenco alfabetico dei moduli di Machine Learning Studio][a-z-list] nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
 * Per scaricare e stampate un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -90,6 +90,6 @@ Scaricare e stampare il foglio informativo sugli algoritmi di Machine Learning i
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

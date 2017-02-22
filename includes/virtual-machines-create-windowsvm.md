@@ -8,7 +8,7 @@
    
    * **nome della macchina virtuale** può contenere solo lettere, numeri e trattini. Deve inoltre iniziare con una lettera e terminare con una lettera o un numero.
    * **Nuovo nome utente** indica l'account amministrativo da usare per la gestione del server. La password deve avere una lunghezza compresa tra 8 e 123 caratteri e includere almeno tre degli elementi seguenti: lettere minuscole, lettere maiuscole, numeri e caratteri speciali. **Il nome utente e la password serviranno per connettersi e accedere alla macchina virtuale**.
-   * La dimensione di una macchina virtuale influisce sul costo dell'uso e sulle opzioni di configurazione come il numero di dischi dati che è possibile collegare. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](../articles/virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+   * La dimensione di una macchina virtuale influisce sul costo dell'uso e sulle opzioni di configurazione come il numero di dischi dati che è possibile collegare. Per altre informazioni, vedere [Dimensioni delle macchine virtuali in Azure](../articles/virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 6. Nella terza schermata è possibile configurare le risorse per le connessioni di rete, l'archiviazione e la disponibilità. Ecco alcuni suggerimenti:
    
    * **Nome DNS del servizio cloud** indica il nome DNS globale che sarà incluso nell'URI usato per contattare la macchina virtuale. Occorre usare il nome del proprio servizio cloud perché deve essere univoco in Azure. I servizi cloud sono importanti per gli scenari in cui si usano [più macchine virtuali](../articles/virtual-machines/virtual-machines-windows-classic-connect-vms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
@@ -27,6 +27,6 @@
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

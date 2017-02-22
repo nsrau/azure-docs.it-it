@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 11/28/2016
-ms.author: rick.byham@microsoft.com
+ms.author: rickbyh
 translationtype: Human Translation
 ms.sourcegitcommit: 3f9077733725174f1eed61d37d544e4f36822f6e
 ms.openlocfilehash: d935571ccd18bc15baa000fb8c07fed11b66ba6c

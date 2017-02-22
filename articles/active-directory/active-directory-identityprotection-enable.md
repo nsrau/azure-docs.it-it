@@ -6,18 +6,17 @@ keywords: "azure active directory identity protection, cloud app discovery, gest
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: f7a7ffaf-76bf-4cc7-96a1-86c944275c82
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/11/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7321e73bf30e8cba5a7a61a6705d285617f70122
+ms.sourcegitcommit: f231252c222c5520d0a66f9b40749bd203545f16
+ms.openlocfilehash: 44ee1e58b65b23eeb3fa3710fcb29a1646d5f3ad
 
 
 ---
@@ -32,16 +31,16 @@ Questo argomento illustra come abilitare Azure Active Directory Identity Protect
 1. [Accedere](https://ms.portal.azure.com/) al portale di Azure come amministratore globale. 
 2. Nel portale di Azure fare clic su **Marketplace**.
    
-    ![Crea](./media/active-directory-identityprotection-enable/01.png "Create")
+    ![Creare](./media/active-directory-identityprotection-enable/01.png "Creare")
 3. Nell'elenco delle applicazioni fare clic su **Sicurezza e identità**.
    
-    ![Crea](./media/active-directory-identityprotection-enable/02.png "Create")
+    ![Creare](./media/active-directory-identityprotection-enable/02.png "Creare")
 4. Fare clic su **Azure AD Identity Protection**.
    
-    ![Create](./media/active-directory-identityprotection-enable/03.png "Create")
+    ![Creare](./media/active-directory-identityprotection-enable/03.png "Creare")
 5. Nel pannello **Azure AD Identity Protection** fare clic su **Crea**.
    
-    ![Create](./media/active-directory-identityprotection-enable/04.png "Create")
+    ![Creare](./media/active-directory-identityprotection-enable/04.png "Creare")
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
@@ -49,6 +48,6 @@ Questo argomento illustra come abilitare Azure Active Directory Identity Protect
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

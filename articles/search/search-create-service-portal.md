@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.date: 11/29/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: d5800e53349c3f2f6146a7d62381a531537dba90
-ms.openlocfilehash: 990c679bc9937b3a684a7933fb7b8656eb798b69
+ms.sourcegitcommit: 702ea254c19d1f9782f83d8445b7f440f11963b9
+ms.openlocfilehash: 5046b3fc1444e37388505f2662a28486342c8822
 
 
 ---
 # <a name="create-an-azure-search-service-using-the-azure-portal"></a>Creare un servizio di Ricerca di Azure nel portale di Azure
-Questa guida illustra il processo di creazione (o provisioning) di un servizio di Ricerca di Azure mediante il [portale di Azure](https://portal.azure.com/).
+Questo articolo illustra il processo di creazione (o provisioning) di un servizio Ricerca di Azure nel [portale di Azure](https://portal.azure.com/).
 
-La guida presuppone che sia già stata eseguita la sottoscrizione di Azure e si possa accedere al portale di Azure.
+L'articolo presuppone che sia già stata eseguita la sottoscrizione di Azure e che sia possibile accedere al portale di Azure.
 
 ## <a name="find-azure-search-in-the-azure-portal"></a>Individuare la Ricerca di Azure nel portale di Azure
 1. Aprire il [portale di Azure](https://portal.azure.com/) ed eseguire l’accesso.
@@ -58,7 +58,7 @@ In questo caso per il servizio è stato scelto il piano tariffario Standard.
 ![](./media/search-create-service-portal/create-service.png)
 
 ## <a name="scale-your-service"></a>Ridimensionare il servizio
-Al termine del provisioning del servizio, è possibile ridimensionare il servizio per adattarlo alle proprie esigenze. Se è stato scelto il piano tariffario Standard per il servizio di Ricerca di Azure, è possibile ridimensionare il servizio in due dimensioni: partizioni e repliche. Se è stato scelto il piano Basic, è possibile aggiungere solo le repliche.
+Al termine del provisioning del servizio, è possibile ridimensionare il servizio per adattarlo alle proprie esigenze. Poiché è stato scelto il piano tariffario Standard per il servizio Ricerca di Azure, è possibile ridimensionare il servizio in due dimensioni, ovvero partizioni e repliche. Se fosse stato scelto il piano Basic, sarebbe stato possibile aggiungere solo le repliche. Se è stato effettuato il provisioning del servizio Gratuito, la scalabilità non è disponibile.
 
 Le ***partizioni*** consentono di archiviare e di eseguire ricerche in un numero maggiore di documenti nel servizio.
 
@@ -71,7 +71,7 @@ Le ***repliche*** consentono al servizio di gestire un carico superiore di query
 
 ![](./media/search-create-service-portal/scale-service.png)
 
-## <a name="next"></a>Avanti
+## <a name="next-steps"></a>Passaggi successivi
 Dopo il provisioning di un servizio di Ricerca di Azure, è possibile [definire un indice di Ricerca di Azure](search-what-is-an-index.md) per caricare e cercare i dati.
 
 Per una breve esercitazione, vedere [Introduzione a Ricerca di Azure nel portale](search-get-started-portal.md) .
@@ -79,6 +79,6 @@ Per una breve esercitazione, vedere [Introduzione a Ricerca di Azure nel portale
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

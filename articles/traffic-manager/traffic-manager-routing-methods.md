@@ -1,111 +1,114 @@
 ---
-title: Gestione traffico- Metodi di routing del traffico | Microsoft Docs
-description: Questo articolo aiuterà a comprendere i diversi metodi di routing del traffico usati da Gestione traffico
+title: Gestione traffico - Metodi di routing del traffico | Documentazione Microsoft
+description: "Questo articolo aiuterà a comprendere i diversi metodi di routing del traffico usati da Gestione traffico"
 services: traffic-manager
-documentationcenter: ''
-author: sdwheeler
-manager: carmonm
-editor: tysonn
-
+documentationcenter: 
+author: kumudd
+manager: timlt
+editor: 
+ms.assetid: db1efbf6-6762-4c7a-ac99-675d4eeb54d0
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/25/2016
-ms.author: sewhee
+ms.date: 10/11/2016
+ms.author: kumud
+translationtype: Human Translation
+ms.sourcegitcommit: 993408c9d008a94dfd4004ed6826a2fe6180b20c
+ms.openlocfilehash: aa3c77c0bf9db1f875dd992c4eb7a494af58c400
 
 ---
-# Metodi di routing del traffico di Gestione traffico
-Questa pagina descrive i metodi di routing del traffico supportati da Gestione traffico di Azure. Questi metodi vengono usati per indirizzare gli utenti finali all'endpoint di servizio corretto.
 
-> [!NOTE]
-> L'API di Azure Resource Manager (ARM) per Gestione traffico usa una terminologia diversa dall'API di Azure Service Management (ASM). Questa modifica è stata introdotta in base ai commenti degli utenti per migliorare la chiarezza e ridurre le incomprensioni comuni. In questa pagina si userà la terminologia ARM. Le differenze sono le seguenti:
-> 
-> * In ARM si usa il "metodo di routing del traffico" per descrivere l'uso dell'algoritmo per determinare a quale endpoint deve essere indirizzato un utente finale specifico in un determinato momento. In ASM questo metodo viene chiamato "metodo di bilanciamento del carico".
-> * In ARM si usa il termine "ponderato" per indicare il metodo di routing del traffico che distribuisce il traffico tra tutti gli endpoint disponibili, in base al peso definito per ogni endpoint. In ASM questo metodo viene chiamato "round robin".
-> * In ARM si usa il termine "priorità" per indicare il metodo di routing del traffico che indirizza tutto il traffico al primo endpoint disponibile in un elenco ordinato. In ASM questo metodo viene chiamato "failover".
-> 
-> In ogni caso le uniche differenze riguardano la denominazione. Non esistono differenze in termini di funzionalità.
-> 
-> 
+# <a name="traffic-manager-traffic-routing-methods"></a>Metodi di routing del traffico di Gestione traffico
 
-Gestione traffico di Azure supporta diversi algoritmi per determinare la modalità di indirizzamento degli utenti finali ai vari endpoint di servizio. Questi sono denominati metodi di routing del traffico. Il metodo di routing del traffico viene applicato a ogni query DNS ricevuta, per determinare l'endpoint da restituire nella risposta DNS.
+Gestione traffico di Azure supporta tre metodi di routing del traffico per determinare la modalità di indirizzamento del traffico di rete ai vari endpoint di servizio. Gestione traffico applica il metodo di routing a ogni query DNS ricevuta, per determinare l'endpoint da restituire nella risposta DNS.
+
+Il supporto di Azure Resource Manager per Gestione traffico usa una terminologia diversa rispetto al modello di distribuzione classica. La tabella seguente illustra le differenze tra i termini usati nel modello Resource Manager e quelli usati nel modello classico:
+
+| Termine di Resource Manager | Termine classico |
+| --- | --- |
+| Metodo di routing del traffico |Metodo di bilanciamento del carico |
+| Metodo Priorità |Metodo Failover |
+| Metodo Ponderato |Metodo Round robin |
+| Metodo Prestazioni |Metodo Prestazioni |
+
+Questa modifica è stata introdotta in base ai commenti degli utenti per migliorare la chiarezza e ridurre le incomprensioni comuni. Non esistono differenze in termini di funzionalità.
 
 In Gestione traffico sono disponibili tre metodi di routing del traffico:
 
-* **Priorità:** selezionare "Priorità" quando si vuole usare un endpoint di servizio primario per tutto il traffico e prevedere endpoint di backup nel caso in cui l'endpoint primario o gli endpoint di backup non siano disponibili. Per altre informazioni, vedere [Metodo di routing del traffico Priorità](#priority-traffic-routing-method).
-* **Ponderato:** selezionare "Ponderato" quando si vuole distribuire il traffico in un set di endpoint in modo uniforme o in base ai pesi definiti. Per altre informazioni, vedere [Metodo di routing del traffico Ponderato](#weighted-traffic-routing-method).
-* **Prestazioni**: selezionare "Prestazioni" quando gli endpoint si trovano in aree geografiche diverse e si vuole che gli utenti finali usino l'endpoint "più vicino" in termini di latenza di rete più bassa. Per altre informazioni, vedere [Metodo di routing del traffico Prestazioni](#performance-traffic-routing-method).
+* **Priorità**: selezionare "Priorità" quando si vuole usare un endpoint di servizio primario per tutto il traffico e prevedere endpoint di backup nel caso in cui l'endpoint primario o gli endpoint di backup non siano disponibili.
+* **Ponderato:** selezionare "Ponderato" quando si vuole distribuire il traffico in un set di endpoint in modo uniforme o in base alle ponderazioni definite.
+* **Prestazioni**: selezionare "Prestazioni" quando gli endpoint si trovano in aree geografiche diverse e si vuole che gli utenti finali usino l'endpoint "più vicino" in termini di latenza di rete più bassa.
 
-> [!NOTE]
-> Tutti i profili di Gestione traffico includono il monitoraggio continuo dell'integrità degli endpoint e il failover automatico degli endpoint. Queste funzionalità sono supportate per tutti i metodi di routing del traffico. Per altre informazioni, vedere [Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md).
-> 
-> 
+Tutti i profili di Gestione traffico includono il monitoraggio continuo dell'integrità degli endpoint e il failover automatico degli endpoint. Per altre informazioni, vedere [Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md). Un singolo profilo di Gestione traffico può usare un solo metodo di routing del traffico. È possibile selezionare in qualsiasi momento un metodo di routing del traffico diverso per il profilo. Le modifiche vengono applicate entro un minuto e non si verificano periodi di inattività. I metodi di routing del traffico possono essere combinati usando profili nidificati di Gestione traffico. I profili annidati consentono di creare configurazioni di routing del traffico sofisticate e flessibili per soddisfare le esigenze di applicazioni più grandi e più complesse. Per altre informazioni, vedere [nested Traffic Manager profiles](traffic-manager-nested-profiles.md)(Profili nidificati di Gestione traffico).
 
-Un singolo profilo di Gestione traffico può usare un solo metodo di routing del traffico. È possibile selezionare in qualsiasi momento un metodo di routing del traffico diverso per il profilo. Le modifiche vengono applicate entro 1 minuto e non si verificano periodi di inattività. I metodi di routing del traffico possono essere combinati usando profili nidificati di Gestione traffico. In questo modo, è possibile creare configurazioni di routing del traffico sofisticate e flessibili per soddisfare le esigenze di applicazioni più grandi e più complesse. Per altre informazioni, vedere [nested Traffic Manager profiles](traffic-manager-nested-profiles.md) (Profili nidificati di Gestione traffico).
+## <a name="priority-traffic-routing-method"></a>Metodo di routing del traffico Priorità
 
-## Metodo di routing del traffico Priorità
-Un'organizzazione vuole spesso offrire la massima affidabilità per i propri servizi e a tale scopo dispone di uno o più servizi di backup in caso di inattività del servizio primario. Il metodo di routing del traffico "Priorità" consente ai clienti di Azure di implementare facilmente questo modello di failover.
+Un'organizzazione vuole spesso offrire la massima affidabilità per i propri servizi dotandosi di uno o più servizi di backup in caso di inattività del servizio primario. Il metodo di routing del traffico "Priorità" consente ai clienti di Azure di implementare facilmente questo modello di failover.
 
 ![Metodo di routing del traffico "Priorità" di Gestione traffico di Azure][1]
 
-Il profilo di Gestione traffico viene configurato con un elenco con priorità di endpoint di servizio. Per impostazione predefinita, tutto il traffico dell'utente finale viene inviato all'endpoint primario (o con priorità più elevata). Se l'endpoint primario non è disponibile, in base allo stato abilitato/disabilitato dell'endpoint configurato e al monitoraggio degli endpoint in corso, gli utenti vengono indirizzati al secondo endpoint. Se l'endpoint primario e secondario non sono disponibili, il traffico viene indirizzato al terzo e così via.
+Il profilo di Gestione traffico contiene un elenco con priorità di endpoint di servizio. Per impostazione predefinita, tutto il traffico viene inviato all'endpoint primario (o con priorità più elevata). Se l'endpoint primario non è disponibile, Gestione traffico indirizza il traffico verso il secondo endpoint. Se l'endpoint primario e secondario non sono disponibili, il traffico viene indirizzato al terzo e così via. La disponibilità dell'endpoint si basa sullo stato configurato (abilitato o disabilitato) e sul monitoraggio degli endpoint in corso.
 
-La configurazione delle priorità degli endpoint viene eseguita in modo diverso nelle API di ARM (nel nuovo portale di Azure) rispetto alle API di ASM (nel portale classico):
+### <a name="configuring-endpoints"></a>Configurazione degli endpoint
 
-* Nelle API di ARM la priorità degli endpoint viene configurata in modo esplicito, mediante la proprietà "Priorità" definita per ogni endpoint. Questa proprietà accetta un valore compreso tra 1 e 1000, dove i valori più bassi rappresentano una priorità più elevata. Due endpoint non possono avere lo stesso valore di priorità. La proprietà è facoltativa e, se viene omessa, viene usata una priorità predefinita in base all'ordine degli endpoint.
-* Nelle API di ASM la priorità degli endpoint viene configurata in modo implicito, in base all'ordine in cui sono elencati gli endpoint nella definizione del profilo. È possibile configurare l'ordine di failover anche nel portale di Azure "classico", nella pagina di configurazione del profilo.
+In Azure Resource Manager la priorità degli endpoint viene configurata in modo esplicito, definendo la proprietà "priority" di ogni endpoint. Questa proprietà accetta un valore compreso tra 1 e 1000, dove i valori più bassi rappresentano una priorità più elevata. Gli endpoint non possono avere lo stesso valore di priorità. La proprietà è facoltativa e, se viene omessa, viene usata una priorità predefinita in base all'ordine degli endpoint.
 
-## Metodo di routing del traffico Ponderato
-Un approccio comune per garantire disponibilità elevata e ottimizzare l'utilizzo del servizio consiste nel fornire un set di endpoint e distribuire il traffico tra tutti gli endpoint in modo uniforme o con un peso predefinito. Questa funzionalità è supportata dal metodo di routing del traffico "Ponderato".
+Nell'interfaccia di Azure classica la priorità degli endpoint è configurata in modo implicito, in base all'ordine in cui sono elencati gli endpoint nella definizione del profilo.
+
+## <a name="weighted-traffic-routing-method"></a>Metodo di routing del traffico Ponderato
+
+Il metodo di routing del traffico "Ponderato" consente di distribuire il traffico tra tutti gli endpoint in modo uniforme o con un peso predefinito.
 
 ![Metodo di routing del traffico "Ponderato" di Gestione traffico di Azure][2]
 
-Nel metodo di routing del traffico Ponderato viene assegnato un peso a ogni endpoint come parte della configurazione del profilo di Gestione traffico. Ogni peso è un numero intero compreso tra 1 e 1000. Questo parametro è facoltativo e, se viene omesso, viene usato il valore di peso predefinito "1".
+Nel metodo di routing del traffico "Ponderato" viene assegnato un peso a ogni endpoint come parte della configurazione del profilo di Gestione traffico. Ogni peso è un numero intero compreso tra 1 e 1000. Questo parametro è facoltativo e, se omesso, viene usato il valore di peso predefinito "1".
 
-Il traffico dell'utente finale viene distribuito tra tutti gli endpoint di servizio disponibili, in base allo stato abilitato/disabilitato dell'endpoint configurato e al monitoraggio degli endpoint in corso. Per ogni query DNS ricevuta, viene scelto un endpoint disponibile in modo casuale, con una probabilità basata sul peso assegnato a tale endpoint e agli altri endpoint disponibili.
+Per ogni query DNS ricevuta, viene scelto un endpoint disponibile in modo casuale, con una probabilità di scelta basata sul peso assegnato a tutti gli endpoint disponibili. L'uso dello stesso peso in tutti gli endpoint comporta una distribuzione uniforme del traffico. Se vengono usati pesi superiori o inferiori in specifici endpoint, questi verranno restituiti più o meno frequentemente nelle risposte DNS.
 
-L'uso dello stesso peso in tutti gli endpoint comporta una distribuzione uniforme del traffico, ideale per un utilizzo coerente in un set di endpoint identici. Se vengono usati pesi superiori (o inferiori) in determinati endpoint, questi verranno restituiti più (o meno) frequentemente nelle risposte DNS, pertanto riceveranno più traffico. In questo modo, vengono abilitati diversi scenari utili:
+Il metodo "Ponderato" abilita alcuni scenari utili:
 
 * Aggiornamento graduale dell'applicazione: allocare una percentuale di traffico da indirizzare a un nuovo endpoint, quindi incrementare gradualmente il traffico nel tempo fino al 100%.
-* Migrazione dell'applicazione in Azure: creare un profilo con endpoint di Azure ed esterni, quindi specificare il peso del traffico indirizzato a ogni endpoint.
+* Migrazione dell'applicazione in Azure: creare un profilo con endpoint di Azure ed esterni. Regolare il peso degli endpoint per preferire i nuovi endpoint.
 * Espansione del cloud per capacità aggiuntiva: espandere rapidamente una distribuzione locale nel cloud posizionandola dietro a un profilo di Gestione traffico. In caso di necessità di capacità aggiuntiva nel cloud, si possono aggiungere o abilitare più endpoint e si può specificare la quantità di traffico da indirizzare a ogni endpoint.
 
-Il routing del traffico Ponderato può essere configurato tramite il nuovo portale di Azure, ma non è possibile configurare i pesi tramite il portale "classico". Può essere configurato anche tramite ARM e ASM usando Azure PowerShell, l'interfaccia della riga di comando di Azure e le API REST di Azure.
+Il routing del traffico "Ponderato" può essere configurato tramite il nuovo portale di Azure, ma non è possibile configurare i pesi tramite il portale classico. I pesi possono essere inoltre configurati usando Resource Manager e le versioni classiche di Azure PowerShell, dell'interfaccia della riga di comando e delle API REST.
 
-Nota: le risposte DNS vengono memorizzate nella cache dai client e dai server DNS ricorsivi usati da tali client per creare le query DNS. È importante comprendere il potenziale impatto della memorizzazione nella cache delle distribuzioni del traffico ponderate. Se il numero di client e di server DNS ricorsivi è elevato, come avviene per le tipiche applicazioni con connessione Internet, la distribuzione del traffico funziona come previsto. Se il numero di client o di server DNS ricorsivi è limitato, la memorizzazione nella cache può tuttavia modificare significativamente la distribuzione del traffico. I casi d'uso comuni in cui può verificarsi questa situazione includono:
+È importante comprendere che le risposte DNS vengono memorizzate nella cache dai client e dai server ricorsivi usati per risolvere i nomi DNS. Questa memorizzazione ha un impatto sulle distribuzioni del traffico ponderate. Se il numero di client e di server DNS ricorsivi è elevato, la distribuzione del traffico funziona come previsto. Se invece il numero di client o di server DNS ricorsivi è limitato, la memorizzazione nella cache può modificare significativamente la distribuzione del traffico.
+
+I casi d'uso comuni in cui può verificarsi questa situazione includono:
 
 * Ambienti di sviluppo e test
 * Comunicazioni tra applicazioni
-* Applicazioni destinate a una base utenti ristretta che condivide un'infrastruttura DNS ricorsiva comune, ad esempio i dipendenti di un'organizzazione.
+* Applicazioni destinate a una base utenti ristretta che condivide un'infrastruttura DNS ricorsiva comune, ad esempio i dipendenti di un'organizzazione che si connettono tramite proxy.
 
 Questi effetti della memorizzazione nella cache DNS non riguardano solo Gestione traffico di Azure, ma sono comuni a tutti i sistemi di routing del traffico basati su DNS. In alcuni casi, la cancellazione della cache DNS in modo esplicito può risolvere il problema. In altri casi, può essere più appropriato un metodo di routing del traffico alternativo.
 
-## Metodo di routing del traffico Prestazioni
-La velocità di risposta di molte applicazioni può essere migliorata distribuendo gli endpoint in due o più posizioni a livello globale e indirizzando gli utenti finali alla posizione a loro "più vicina". Questo è lo scopo del metodo di routing del traffico "Prestazioni".
+## <a name="performance-traffic-routing-method"></a>Metodo di routing del traffico Prestazioni
+
+La velocità di risposta di molte applicazioni può essere migliorata distribuendo gli endpoint in due o più posizioni a livello globale e indirizzando il traffico alla posizione più vicina. Questo è lo scopo del metodo di routing del traffico "Prestazioni".
 
 ![Metodo di routing del traffico "Prestazioni" di Gestione traffico di Azure][3]
 
-Per ottimizzare la velocità di risposta, l'endpoint "più vicino" non è necessariamente il più vicino in termini di distanza geografica. Il metodo di routing del traffico "Prestazioni" determina invece l'endpoint più vicino all'utente finale in termini di latenza di rete. La vicinanza viene determinata in base a una tabella della latenza di Internet in cui è indicato il tempo di round trip tra intervalli di indirizzi IP e ciascun data center di Azure.
+L'endpoint più vicino non è necessariamente il più vicino in termini di distanza geografica. Il metodo di routing del traffico "Prestazioni" determina invece l'endpoint più vicino in termini di latenza di rete. La tabella della latenza di Internet indica il tempo di round trip tra intervalli di indirizzi IP e ciascun data center di Azure.
 
-Gestione traffico esamina ogni richiesta DNS in ingresso e cerca l'indirizzo IP di origine della richiesta nella tabella della latenza di Internet. In questo modo, viene determinata la latenza dall'indirizzo IP a ciascun data center di Azure. Gestione traffico sceglie poi gli endpoint disponibili con la latenza più bassa, in base allo stato abilitato/disabilitato dell'endpoint configurato e al monitoraggio degli endpoint in corso, e restituisce l'endpoint nella risposta DNS. L'utente finale viene pertanto indirizzato all'endpoint che garantisce la latenza più bassa e quindi le prestazioni migliori.
+Gestione traffico individua nella tabella la riga relativa all'indirizzo IP di origine della richiesta DNS in ingresso e sceglie quindi nel data center di Azure l'endpoint disponibile con la latenza più bassa per l'intervallo di indirizzi IP specifico, e restituisce quindi l'endpoint nella risposta DNS.
 
-Come spiegato in [How Traffic Manager Works](traffic-manager-how-traffic-manager-works.md) (Funzionamento di Gestione traffico), Gestione traffico non riceve le query DNS direttamente dagli utenti finali, ma dal servizio DNS ricorsivo per il quale sono configurati. In questo modo l'indirizzo IP usato per determinare l'endpoint "più vicino" non è l'indirizzo IP dell'utente finale, ma l'indirizzo IP del relativo servizio DNS ricorsivo. In pratica, questo indirizzo IP è un proxy valido a questo scopo per l'utente finale.
+Come spiegato in [Modalità di funzionamento di Gestione traffico](traffic-manager-how-traffic-manager-works.md), le query DNS non vengono ricevute direttamente dai client, ma dal servizio DNS ricorsivo per il quale sono configurati. Pertanto, l'indirizzo IP usato per determinare l'endpoint più vicino non è l'indirizzo IP del client, ma l'indirizzo IP del servizio DNS ricorsivo. In pratica, questo indirizzo IP è un proxy valido a questo scopo per il client.
 
-Per adeguarsi alle modifiche nella rete Internet globale e all'aggiunta di nuove aree di Azure, Gestione traffico aggiorna regolarmente la tabella della latenza di Internet utilizzata. Non possono tuttavia essere prese in considerazione le variazioni in tempo reale delle prestazioni o del carico su Internet.
-
-Con il routing del traffico Prestazioni non viene preso in considerazione il carico su un determinato endpoint di servizio, anche se Gestione traffico esegue il monitoraggio degli endpoint e non li include nelle risposte alle query DNS se non sono disponibili.
+Per adeguarsi alle modifiche nella rete Internet globale e all'aggiunta di nuove aree di Azure, Gestione traffico aggiorna regolarmente la tabella della latenza di Internet usata. Tuttavia, le prestazioni dell'applicazione variano in base alle variazioni del carico in tempo reale registrate in Internet. Il routing del traffico "Prestazioni" non prende in considerazione il monitoraggio del carico su un determinato endpoint di servizio. Tuttavia, se un endpoint non è più disponibile, Gestione traffico non lo include nelle risposte alle query DNS.
 
 Punti da notare:
 
-* Se il profilo contiene più endpoint nella stessa area di Azure, il traffico indirizzato all'area in questione viene distribuito in modo uniforme tra gli endpoint disponibili, in base allo stato abilitato/disabilitato dell'endpoint configurato e al monitoraggio degli endpoint in corso. Se si preferisce una distribuzione del traffico diversa all'interno di un'area, usare i [profili nidificati di Gestione traffico](traffic-manager-nested-profiles.md).
-* Se tutti gli endpoint abilitati in una determinata area di Azure sono danneggiati, in base al monitoraggio degli endpoint in corso, il relativo traffico verrà distribuito tra tutti gli altri endpoint disponibili specificati nel profilo, anziché negli endpoint successivi più vicini. In questo modo è possibile evitare un errore a catena che potrebbe verificarsi in caso di overload del successivo endpoint più vicino. Se si preferisce definire la sequenza di failover degli endpoint, usare i [profili nidificati di Gestione traffico](traffic-manager-nested-profiles.md).
-* Quando si usa il metodo di routing del traffico Prestazioni con endpoint esterni o endpoint nidificati, è necessario specificare la posizione di tali endpoint. Scegliere l'area di Azure più vicina alla distribuzione. Le opzioni disponibili sono le aree di Azure, ovvero le posizioni supportate dalla tabella della latenza di Internet.
-* L'algoritmo che sceglie quale endpoint restituire a un determinato utente finale è deterministico, ovvero non implica alcun casualità. Le query DNS ripetute dallo stesso client verranno indirizzate allo stesso endpoint. È consigliabile tuttavia non fare affidamento sul fatto che il metodo di routing del traffico Prestazioni indirizzi sempre un determinato utente a una distribuzione specifica, operazione che potrebbe essere necessaria ad esempio se i dati per tale utente sono archiviati in una sola posizione. Quando viaggiano, gli utenti finali solitamente usano server DNS ricorsivi diversi, pertanto potrebbero essere indirizzati a un altro endpoint. Potrebbero inoltre risentire degli aggiornamenti della tabella della latenza di Internet.
-* Quando viene aggiornata la tabella della latenza di Internet, è possibile notare che alcuni client vengono indirizzati a un endpoint diverso. Il numero di utenti interessati dovrebbe essere minimo e riflette un routing più accurato in base ai dati di latenza correnti. Questi aggiornamenti sono essenziali per garantire la precisione del routing del traffico Prestazioni man mano che Internet si evolve.
+* Se il profilo contiene più endpoint nella stessa area di Azure, il traffico indirizzato all'area in questione viene distribuito in modo uniforme tra gli endpoint disponibili nell'area. Se si preferisce una distribuzione del traffico diversa all'interno di un'area, usare i [profili annidati di Gestione traffico](traffic-manager-nested-profiles.md).
+* Se tutti gli endpoint abilitati in una determinata area di Azure sono danneggiati, il relativo traffico verrà distribuito tra tutti gli altri endpoint disponibili, anziché negli endpoint successivi più vicini. In questo modo è possibile evitare un errore a catena che potrebbe verificarsi in caso di overload del successivo endpoint più vicino. Se si preferisce definire una sequenza di failover, usare i [profili annidati di Gestione traffico](traffic-manager-nested-profiles.md).
+* Quando si usa il metodo di routing del traffico "Prestazioni" con endpoint esterni o endpoint annidati, è necessario specificare la posizione di tali endpoint. Scegliere l'area di Azure più vicina alla distribuzione specifica. Si tratta delle posizioni supportate dalla tabella della latenza di Internet.
+* L'algoritmo che sceglie l'endpoint è deterministico. Le query DNS ripetute dallo stesso client vengono indirizzate allo stesso endpoint. Quando viaggiano, i client solitamente usano server DNS ricorsivi diversi, e possono pertanto essere indirizzati a un endpoint differente. Il routing potrebbe inoltre risentire degli aggiornamenti della tabella della latenza di Internet. Ne consegue che il metodo di routing del traffico "Prestazioni" non garantisce che un client sia sempre indirizzato allo stesso endpoint.
+* Quando viene aggiornata la tabella della latenza di Internet, è possibile notare che alcuni client vengono indirizzati a un endpoint diverso. Ciò riflette un routing più accurato in base ai dati di latenza correnti. Questi aggiornamenti sono essenziali per garantire la precisione del routing del traffico Prestazioni man mano che Internet si evolve.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
+
 Informazioni su come sviluppare applicazioni a disponibilità elevata tramite [Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md)
 
 Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-manage-profiles.md)
@@ -115,4 +118,8 @@ Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-ma
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Jan17_HO1-->
+
+

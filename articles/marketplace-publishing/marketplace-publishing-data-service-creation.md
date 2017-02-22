@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e0057a5e8ab3d2fa3c9f201ec88246db7a53cc4a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c0c9362f1c2e15c947aaaf7187f3383ad243140f
 
 
 ---
@@ -26,12 +26,12 @@ ms.openlocfilehash: e0057a5e8ab3d2fa3c9f201ec88246db7a53cc4a
 > 
 > 
 
-Dopo aver completato il passaggio 1, [Creazione e registrazione dell'account](marketplace-publishing-accounts-creation-registration.md), sono state fornite indicazioni sui [requisiti generali non tecnici](marketplace-publishing-pre-requisites.md) e [tecnici](marketplace-publishing-data-service-creation-prerequisites.md) delle offerte di servizi dati in Azure Marketplace. Verranno ora illustrati i passaggi per la creazione di un'offerta di un servizio dati sul [portale di pubblicazione][link-pubportal] relativo ad Azure Marketplace.
+Dopo aver completato il passaggio 1, [Creazione e registrazione dell'account](marketplace-publishing-accounts-creation-registration.md), sono state fornite indicazioni sui [requisiti generali non tecnici](marketplace-publishing-pre-requisites.md) e [tecnici](marketplace-publishing-data-service-creation-prerequisites.md) delle offerte di servizi dati in Azure Marketplace. Ora verranno illustrati i passaggi per la creazione di un'offerta di servizio dati nel [portale di pubblicazione][link-pubportal] per Azure Marketplace.
 
 ## <a name="1----login-to-the-publishing-portal"></a>1.    Accedere al portale di pubblicazione.
 Passare alla pagina [https://publish.windowsazure.com](https://publish.windowsazure.com.)
 
-**Per il primo accesso al portale di pubblicazione, usare lo stesso account con cui è stato registrato il profilo venditore della società nel Centro per sviluppatori.**   (Successivamente è possibile aggiungere qualsiasi dipendente della società come coamministratore nel portale di pubblicazione).
+**Per il primo accesso al portale di pubblicazione, usare lo stesso account con cui è stato registrato il profilo venditore della società nel Centro per sviluppatori.**  (Successivamente è possibile aggiungere qualsiasi dipendente della società come coamministratore nel portale di pubblicazione).
 
 Fare clic sul riquadro **Pubblica servizi dati** se si tratta del primo accesso al portale di pubblicazione.
 
@@ -162,6 +162,6 @@ Una volta creata l'offerta del servizio dati, verificare di aver completato le i
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -68,6 +68,6 @@ Per configurare un client Docker, è sufficiente aprire Windows PowerShell ed es
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

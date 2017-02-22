@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 01/04/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 48742fdbd1335ae519e4537ccd3779dc4f120a4d
+ms.sourcegitcommit: 486ab53ede1465da2cba16ff4160599b50c2b092
+ms.openlocfilehash: 7cad771f5f134a9dffe7846a2c82017e3da9d9bc
 
 
 ---
@@ -25,8 +25,8 @@ Per consentire ai clienti a impedire, rilevare e rispondere alle minacce, il Cen
 
 > [!NOTE]
 > Il documento introduce il servizio usando una distribuzione di esempio. Questa non è una guida dettagliata.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
 1. Selezionare il riquadro **Raccomandazioni** del pannello **Centro sicurezza**.  Verrà visualizzato il pannello **Raccomandazioni** .
@@ -35,7 +35,9 @@ Per consentire ai clienti a impedire, rilevare e rispondere alle minacce, il Cen
    ![Pannello Raccomandazioni][2]
 3. Nel pannello **Attiva la raccolta di dati** selezionare la sottoscrizione. Verrà visualizzato il pannello **Criteri di sicurezza** per la sottoscrizione.
 4. Nel pannello **Criteri di sicurezza** selezionare **Sì** in **Raccolta di dati** per raccogliere automaticamente i log. Attivando la raccolta dati verrà anche eseguito il provisioning dell'estensione di monitoraggio per tutte le VM correnti e nuove supportate nella sottoscrizione.
+
    ![Pannello Criteri di sicurezza][3]
+
 5. Selezionare **Salva**.
 6. Selezionare **Scegliere un account di archiviazione per area**. Per ciascuna area in cui si dispone di macchine virtuali in esecuzione, è necessario selezionare l'account di archiviazione in cui vengono archiviati i dati raccolti da tali macchine virtuali. Se non si sceglie un account di archiviazione per ogni area, verrà creato automaticamente. In questo esempio verrà creato **newstoracct**. È possibile modificare l'account di archiviazione in un secondo momento tornando ai criteri di sicurezza della sottoscrizione e scegliendo un account di archiviazione diverso.
    ![Scegliere un account di archiviazione][4]
@@ -43,19 +45,19 @@ Per consentire ai clienti a impedire, rilevare e rispondere alle minacce, il Cen
 
 > [!NOTE]
 > È consigliabile attivare la raccolta dati e scegliere prima un account di archiviazione a livello di sottoscrizione. I criteri di sicurezza possono essere impostati a livello di sottoscrizione di Azure e a livello di gruppo di risorse, ma la configurazione della raccolta dati e dell'account di archiviazione viene eseguita solo a livello di sottoscrizione.
-> 
-> 
+>
+>
 
 ## <a name="after-data-collection-is-enabled"></a>Dopo aver abilitato la raccolta dati
 La raccolta dei dati viene abilitata tramite l'agente di monitoraggio di Azure e l'estensione per il monitoraggio della sicurezza di Azure. L'estensione per il monitoraggio della sicurezza di Azure esegue l'analisi delle varie configurazioni relative alla sicurezza e le invia alle tracce di [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Il sistema operativo crea anche le voci del registro eventi. L'agente di monitoraggio di Azure legge le voci del registro eventi ed ETW le traccia e le copia nell'account di archiviazione per l'analisi. L'agente di monitoraggio copia anche i file di dump di arresto anomalo nell'account di archiviazione. Si tratta dell'account di archiviazione configurato in Criteri di sicurezza.
 
 ## <a name="disabling-data-collection"></a>Disabilitazione della raccolta dati
-È possibile disabilitare la raccolta dati in qualsiasi momento; gli agenti di monitoraggio installati dal Centro sicurezza verranno rimossi.  È necessario selezionare una sottoscrizione per disattivare la raccolta dati.
+È possibile disabilitare la raccolta dati in qualsiasi momento. In questo modo gli agenti di monitoraggio installati dal Centro sicurezza verranno rimossi automaticamente.  È necessario selezionare una sottoscrizione per disattivare la raccolta dati.
 
 > [!NOTE]
 > I criteri di sicurezza possono essere impostati a livello di sottoscrizione di Azure e a livello di gruppo di risorse, ma è necessario selezionare una sottoscrizione per disattivare la raccolta dei dati.
-> 
-> 
+>
+>
 
 1. Tornare al pannello **Centro sicurezza** e selezionare il riquadro **Criteri**. Verrà visualizzato il pannello **Criteri di sicurezza - Definire i criteri per sottoscrizione o gruppo di risorse** .
    ![Selezionare il riquadro Criteri][5]
@@ -63,7 +65,7 @@ La raccolta dei dati viene abilitata tramite l'agente di monitoraggio di Azure e
    ![Selezionare la sottoscrizione per disabilitare la raccolta dati][6]
 3. Verrà visualizzato il pannello **Criteri di sicurezza** per la sottoscrizione.  Selezionare **No** in Raccolta di dati.
 4. Fare clic su **Salva** nella barra multifunzione in alto.
-5. Selezionare l'opzione **Elimina agenti** nella barra multifunzione in alto per rimuovere gli agenti dalle macchine virtuali esistenti.
+
 
 ## <a name="see-also"></a>Vedere anche
 Questo documento illustra come implementare la raccomandazione "Abilita raccolta dati" del Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
@@ -86,6 +88,6 @@ Questo documento illustra come implementare la raccomandazione "Abilita raccolta
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

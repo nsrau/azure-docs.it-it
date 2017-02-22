@@ -16,15 +16,14 @@ ms.workload: infrastructure
 ms.date: 01/04/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 5cf20d5cccba235984b74a780ba63b0b69f7a20a
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 834bb8a60c3dcb2d0b50809ffb0e4780579b2cda
 
 
 ---
 # <a name="how-to-use-docker-with-swarm"></a>Come usare docker con swarm
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Per un modello di Resource Manager con cui distribuire un Docker Swarm, vedere [qui](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
+> [!IMPORTANT] 
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per un modello di Resource Manager con cui distribuire un Docker Swarm, vedere [qui](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
 
 Questo argomento illustra un modo molto semplice di usare [Docker](https://www.docker.com/) con [Swarm](https://github.com/docker/swarm) per creare un cluster gestito da Swarm in Azure. Vengono create quattro macchine virtuali in Azure, una da usare come gestore di swarm e tre come parte del cluster di host docker. Al termine dell'operazione, sarà possibile usare swarm per visualizzare il cluster e quindi iniziare a usare docker con swarm. Inoltre, le chiamate dell’interfaccia della riga di comando di Azure in questo argomento utilizzano la modalità di gestione servizi (asm). 
 
@@ -146,6 +145,6 @@ Iniziare a eseguire operazioni sullo swarm. Per trarre ispirazione, vedere [http
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

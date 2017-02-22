@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2016
+ms.date: 01/04/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 92a0988e32270b6d6d58841e67ff545d07fa311a
+ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
+ms.openlocfilehash: 9e62a38e71827c21883c6ac443ffb546c134c600
 
 
 ---
@@ -26,8 +26,8 @@ ms.openlocfilehash: 92a0988e32270b6d6d58841e67ff545d07fa311a
 ## <a name="see-also"></a>Vedere anche
 Per altre informazioni sulla protezione della soluzione IoT, vedere:
 
-* [Architettura di sicurezza IoT][lnk-security-architecture]
-* [Proteggere la distribuzione IoT][lnk-security-deployment]
+* [Architettura della sicurezza IoT][lnk-security-architecture]
+* [Proteggere la distribuzione di IoT][lnk-security-deployment]
 
 È anche possibile esplorare alcune altre funzionalità delle soluzioni preconfigurate di IoT Suite:
 
@@ -42,6 +42,6 @@ Per altre informazioni sulla protezione della soluzione IoT, vedere:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

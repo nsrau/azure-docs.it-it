@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: b757afc3a90f7f2280517ccb7064d79f4cdf27ee
-ms.openlocfilehash: 2fb24a0c5e6033a0ce6bbd710e7500eb4eea8b3d
+ms.sourcegitcommit: 42ee74ac250e6594616652157fe85a9088f4021a
+ms.openlocfilehash: 23862762fcf0939ce84859fdae0274421c0bb5fe
 
 
 ---
@@ -41,19 +41,21 @@ Gli esempi seguenti usano l'interfaccia della riga di comando di Azure 2.0 (ante
     ```azurecli
     az group create --name myResourceGroup --location westus
     ```
-
-  * Questo esempio usa [az vm create](/cli/azure/vm#create) per creare una VM denominata `myVM` usando l'immagine Debian più recente con una chiave pubblica denominata `id_rsa.pub`:
+    
+  * Questo esempio usa [az vm create](/cli/azure/vm#create) per creare una VM denominata `myVM` usando l'immagine Debian più recente con Azure Managed Disks e una chiave pubblica denominata `id_rsa.pub`:
 
     ```azurecli
     az vm create \
     --image credativ:Debian:8:latest \
-    --admin-username ops \
+    --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub \
     --public-ip-address-dns-name myPublicDNS \
     --resource-group myResourceGroup \
     --location westus \
     --name myVM
     ```
+
+    * Per usare dischi non gestiti, aggiungere il flag `--use-unmanaged-disks` al comando precedente. Verrà creato un account di archiviazione. Per altre informazioni, vedere [Azure Managed Disks Overview](../storage/storage-managed-disks-overview.md) (Panoramica di Azure Managed Disks).
 
 * [Creare una VM Linux protetta usando un modello di Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
@@ -71,8 +73,8 @@ Gli esempi seguenti usano l'interfaccia della riga di comando di Azure 2.0 (ante
 
 * [Aggiungere un disco a una VM Linux](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
-  * L'esempio seguente usa [az vm disk attach-new](/cli/azure/vm/disk#attach-new) per aggiungere un disco da 5 GB denominato `myDataDisk.vhd` a una VM esistente denominata `myVM`:
-    
+  * L'esempio seguente usa [az vm disk attach-new](/cli/azure/vm/disk#attach-new) per aggiungere un disco non gestito da 5 GB denominato `myDataDisk.vhd` a una VM esistente denominata `myVM`:
+  
     ```azurecli
     az vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
       --disk-size 5 --vhd https://mystorageaccount.blob.core.windows.net/vhds/myDataDisk.vhd
@@ -135,7 +137,7 @@ Per personalizzazioni specifiche è possibile usare un'immagine basata su una VM
 * [Informazioni per distribuzioni non approvate](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Come acquisire una macchina virtuale Linux come modello di Resource Manager](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
   
-  * Comandi **az vm** di avvio rapido di esempio per l'acquisizione di una VM esistente:
+  * Comandi **az vm** di avvio rapido di esempio per l'acquisizione di una VM esistente con dischi non gestiti:
     
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
@@ -150,7 +152,6 @@ Per personalizzazioni specifiche è possibile usare un'immagine basata su una VM
 
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 97b81c9b5904dea8d43042fd5b6529580eb35e74
-ms.openlocfilehash: e83518c0cd41c101170de6598c3321543b2ccf53
+ms.sourcegitcommit: 2d568a38f66605da63054d1797ce23653e6204d4
+ms.openlocfilehash: ff5d64bc00bc5fb3617160db852c7d08f8b3677b
 
 
 ---
@@ -68,7 +68,7 @@ Per creare le annotazioni sulla versione, sarà necessario installare una delle 
    
     Incollare la chiave API per la definizione della variabile della chiave API.
    
-    ![Nella finestra Servizi per i team, selezionare la scheda Configurazione e fare clic su Aggiungi variabile. Impostare il nome della chiave API e incollare la chiave appena generata nel Valore.](./media/app-insights-annotations/50.png)
+    ![Nella finestra Servizi per i team, selezionare la scheda Configurazione e fare clic su Aggiungi variabile. Impostare il nome su ApiKey, incollare in Valore la chiave appena generata e fare clic sull'icona di blocco.](./media/app-insights-annotations/50.png)
 7. Infine fare clic su **Salva** per salvare la definizione della versione.
 
 
@@ -109,6 +109,6 @@ Fare clic su un marcatore di annotazione per visualizzare i dettagli sulla versi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

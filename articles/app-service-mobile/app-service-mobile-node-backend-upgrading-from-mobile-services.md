@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e3173c64af4c2b09ee825cc4fdaaa6da448be60e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 879854c4afc6fa5ac31f8e18dad0164e77f190cd
 
 
 ---
@@ -129,7 +129,7 @@ Dopo aver reso operativo un back-end dell'app per dispositivi mobili, è possibi
 Una delle principali modifiche tra le versioni è rappresentata dai costruttori che non richiedono più una chiave applicazione. Ora è sufficiente passare l'URL dell'app per dispositivi mobili. Ad esempio, nei client .NET, il costruttore `MobileServiceClient` ora è:
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://contoso.azurewebsites.net", // URL of the Mobile App
+            "https://contoso.azurewebsites.net" // URL of the Mobile App
         );
 
 Per altre informazioni sull'installazione dei nuovi SDK e sull'uso della nuova struttura, visitare i collegamenti seguenti:
@@ -145,40 +145,40 @@ Quando la nuova versione del client è pronta, provarla con il progetto server a
 
 <!-- URLs. -->
 
-[portale di Azure]: https://portal.azure.com/
-[portale di Azure classico]: https://manage.windowsazure.com/
+[Azure portal]: https://portal.azure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Informazioni sulle app per dispositivi mobili]: app-service-mobile-value-prop.md
-[Qual è l'utilità del servizio app per chi usa già i siti Web e i Servizi mobili?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
+[I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
 [Mobile App Server SDK]: https://www.npmjs.com/package/azure-mobile-apps
-[Creare un'app per dispositivi mobili]: app-service-mobile-xamarin-ios-get-started.md
-[Aggiungere notifiche push all'app per dispositivi mobili]: app-service-mobile-xamarin-ios-get-started-push.md
-[Aggiungere l'autenticazione all'app per dispositivi mobili]: app-service-mobile-xamarin-ios-get-started-users.md
-[Utilità di pianificazione di Azure]: /en-us/documentation/services/scheduler/
-[processo Web]: ../app-service-web/websites-webjobs-resources.md
-[Come usare l'SDK del server .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Eseguire la migrazione da Servizi mobili a un'app per dispositivi mobili del servizio app]: app-service-mobile-migrating-from-mobile-services.md
-[Eseguire la migrazione del servizio mobile esistente al servizio app]: app-service-mobile-migrating-from-mobile-services.md
+[Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
+[Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
+[Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
+[Azure Scheduler]: /en-us/documentation/services/scheduler/
+[Web Job]: ../app-service-web/websites-webjobs-resources.md
+[How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [prezzi del servizio app]: https://azure.microsoft.com/en-us/pricing/details/app-service/
-[panoramica di .NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [concetti dell'autenticazione]: ../app-service/app-service-authentication-overview.md
 [guida introduttiva all'autenticazione]: app-service-mobile-auth.md
 
 [portale di Azure]: https://portal.azure.com/
 [OData]: http://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-[esempio basicapp in GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
-[esempio todo in GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
-[directory degli esempi in GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
-[esempio di schema statico su GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/static-schema
+[basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
+[todo sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
+[samples directory on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
+[static-schema sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/static-schema
 [QueryJS]: https://github.com/Azure/queryjs
-[Strumenti Node.js 1.1 per Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
-[pacchetto mssql per Node.js]: https://www.npmjs.com/package/mssql
+[Node.js Tools 1.1 for Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
+[mssql Node.js package]: https://www.npmjs.com/package/mssql
 [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Scaricare asset di file multimediali
+title: Scaricare asset di Servizi multimediali nel computer - Azure | Documentazione Microsoft
 description: Informazioni su come scaricare asset nel computer. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET.
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 25b74bdcdbc5ec5a134bb2f800cd687de6ebc1e7
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 6117b066acff91f249c4aa8afc1e139ebe6054b3
 
 
 ---
@@ -88,6 +88,6 @@ Questo esempio illustra come scaricare asset di file multimediali da Servizi mul
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

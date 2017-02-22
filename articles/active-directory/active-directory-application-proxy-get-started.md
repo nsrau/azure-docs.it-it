@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/25/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3c0f17c4ff79bab7f5b13f42cd31e170780fc0c2
+ms.sourcegitcommit: 9ee3ba5a5dee206c2358a76aaea680b998e994f8
+ms.openlocfilehash: 732f9b135732c33364cab7200d43893d4cdda5f9
 
 
 ---
@@ -33,7 +33,7 @@ C'è una soluzione migliore.
 Una forza lavoro moderna in un mondo dominato dai dispositivi mobili e basato sul cloud richiede una soluzione di accesso remoto moderna. Il proxy dell'applicazione di Azure AD è una funzionalità dell'offerta Azure Active Directory Premium che offre l'accesso remoto come servizio. Per questo è facile da distribuire, usare e gestire.
 
 ## <a name="what-is-azure-active-directory-application-proxy"></a>Informazioni sul proxy dell’applicazione di Azure Active Directory
-Il proxy dell'applicazione di Azure AD fornisce sia l'accesso Single Sign-On (SSO) sia l'accesso remoto sicuro per le applicazioni Web ospitate in locale, ad esempio siti di SharePoint, Outlook Web Access o qualsiasi altra applicazione Web line-of-business. Queste applicazioni Web locali sono integrate con Azure AD, la stessa piattaforma delle identità e di controllo usata da O365. Gli utenti finali possono quindi accedere alle applicazioni locali nello stesso modo in cui accedono a Office 365 e alle altre app SaaS integrate in Azure AD. Non è necessario modificare l'infrastruttura di rete o richiedere una VPN per fornire questa soluzione agli utenti.
+Il proxy dell'applicazione di Azure AD fornisce sia l'accesso Single Sign-On (SSO) sia l'accesso remoto sicuro per le applicazioni Web ospitate in locale, ad esempio siti di SharePoint, Outlook Web Access o qualsiasi altra applicazione Web line-of-business. Queste applicazioni Web locali sono integrate con Azure AD, la stessa piattaforma delle identità e di controllo usata da O365. Gli utenti finali possono quindi accedere alle applicazioni locali nello stesso modo in cui accedono a Office&365; e alle altre app SaaS integrate in Azure AD. Non è necessario modificare l'infrastruttura di rete o richiedere una VPN per fornire questa soluzione agli utenti.
 
 ## <a name="why-is-this-a-better-solution"></a>Perché questa è una soluzione migliore?
 Il proxy dell'applicazione di Azure AD fornisce una soluzione di accesso remoto semplice, sicura ed economicamente conveniente a tutte le applicazioni locali.
@@ -53,8 +53,10 @@ Con il proxy dell'applicazione di Azure AD è possibile accedere a tipi diversi 
 * API Web che si vuole esporre ad applicazioni avanzate in dispositivi diversi  
 * Applicazioni ospitate dietro Gateway Desktop remoto  
 
-## <a name="how-does-it-work"></a>Come funziona?
+## <a name="how-does-the-service-work-with-connectors"></a>Come funziona il servizio con i connettori?
 Il proxy dell'applicazione funziona installando nella rete un servizio slim di Windows Server chiamato connettore, con cui non è necessario aprire porte in ingresso né inserire nulla nella rete perimetrale. Se i volumi di traffico delle app sono elevati, è possibile aggiungere altri connettori e il servizio gestirà il bilanciamento del carico. I connettori sono senza stato e prelevano tutto dal cloud in base alle esigenze.
+
+Per informazioni sui connettori, vedere [Informazioni sui connettori proxy di applicazione di Azure AD](application-proxy-understand-connectors.md). 
 
 Quando gli utenti accedono alle applicazioni in remoto, si connettono all'endpoint pubblicato. Gli utenti si autenticano in Azure AD e quindi vengono instradati tramite il connettore all'applicazione locale.
 
@@ -76,13 +78,14 @@ Assicurarsi di avere una sottoscrizione di Azure AD Basic o Premium e di una dir
 
 La configurazione del proxy dell'applicazione viene eseguita in due passaggi:
 
-1. [Abilitazione del proxy dell'applicazione e configurazione del connettore](active-directory-application-proxy-enable.md)    
+1. [Abilitazione del proxy dell'applicazione e configurazione del connettore](active-directory-application-proxy-enable.md).    
 2. [Pubblicazione delle applicazioni](active-directory-application-proxy-publish.md) : usare la procedura guidata, veloce e intuitiva, per pubblicare applicazioni locali e renderle accessibili in remoto.
 
 ## <a name="whats-next"></a>Passaggi successivi
 Si può fare molto di più con il proxy dell'applicazione:
 
 * [Pubblicare applicazioni mediante il proprio nome di dominio](active-directory-application-proxy-custom-domains.md)
+* [Usare server proxy locali esistenti](application-proxy-working-with-proxy-servers.md) 
 * [Abilitare l'accesso Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
 * [Lavorare con applicazioni grado di riconoscere attestazioni](active-directory-application-proxy-claims-aware-apps.md)
 * [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md)
@@ -92,6 +95,6 @@ Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog]
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

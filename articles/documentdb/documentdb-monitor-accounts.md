@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: ea24ad915b3d6f5180182a454c03edc578f7b761
-ms.openlocfilehash: 3751d1a24684bbf9b7230eb3ab4827ee2ba52379
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: aabca8fd228b1fc7c60d295a9502dece29db1b68
 
 
 ---
@@ -122,11 +122,11 @@ Se i riquadri di monitoraggio visualizzano il messaggio **Nessun dato disponibil
    ![Schermata del riquadro Richieste totali aggiornato all'ora precedente](./media/documentdb-monitor-accounts/documentdb-no-available-data-fixed.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulla capacità di DocumentDB, vedere [Gestire la capacità di DocumentDB](documentdb-manage.md).
+Per altre informazioni sulla pianificazione della capacità di DocumentDB, vedere lo [strumento di calcolo Capacity Planner di DocumentDB](https://www.documentdb.com/capacityplanner).
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

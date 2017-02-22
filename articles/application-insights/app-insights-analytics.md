@@ -14,17 +14,18 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: f760494cbe7341391f0ce51bb1161cb1395cbe5c
-ms.openlocfilehash: b56ac6e0b75492e8d784c5fc67e555f8f450b65f
+ms.sourcegitcommit: 70f77fd155627ef1d06cf466d19768a0eaad6856
+ms.openlocfilehash: 4d3393b935d2ebd24bccd0fe040f1948402f6e5b
 
 
 ---
 # <a name="analytics-in-application-insights"></a>Analytics in Application Insights
-L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analisi. 
+L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analytics. 
 
 * **[Guardare il video introduttivo](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Eseguire la versione di test di Analisi sui dati simulati](https://analytics.applicationinsights.io/demo)** se l'app non invia ancora i dati ad Application Insights.
 * Il **[foglio informativo sugli utenti SQL](https://aka.ms/sql-analytics)** traduce i linguaggi più comuni.
+* **[Informazioni di riferimento sul linguaggio](app-insights-analytics-reference.md)** Informazioni su come usare tutte le funzionalità avanzate del linguaggio di query Analytics.
 
 ## <a name="queries-in-analytics"></a>Query in Analytics
 Una query tipica è costituita da una tabella di *origine* seguita da una serie di *operatori* separati da `|`. 
@@ -80,6 +81,6 @@ Aprire Analisi dal [pannello Panoramica](app-insights-dashboards.md) dell'app in
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Condizioni di corrispondenza per il motore regole della rete per la distribuzione di contenuti di Azure | Documentazione Microsoft
-description: "Questo argomento descrive le funzionalità e le condizioni di corrispondenza del motore regole"
+title: Condizioni di corrispondenza del motore regole della rete CDN di Azure | Documentazione Microsoft
+description: "Documentazione di riferimento per le funzionalità e condizioni di corrispondenza del motore regole della rete CDN di Azure."
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/23/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
-ms.openlocfilehash: f96e977c777e4ecd007d6cd863054addb465489d
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: f4886b1d78dfa87cf25737fb46c12b5963034f27
 
 
 ---
 
-#<a name="match-conditions-for-azure-content-delivery-network-cdn-rules-engine"></a>Condizioni di corrispondenza per il motore regole della rete per la distribuzione di contenuti (rete CDN) di Azure
+# <a name="azure-cdn-rules-engine-match-conditions"></a>Condizioni di corrispondenza del motore regole della rete CDN di Azure
 Questo argomento elenca descrizioni dettagliate delle condizioni di corrispondenza disponibili per il [motore regole](cdn-rules-engine.md)della rete per la distribuzione di contenuti (rete CDN) di Azure.
 
 La seconda parte di una regola è la condizione di corrispondenza. Una condizione di corrispondenza identifica specifici tipi di richieste per cui verrà eseguito un set di funzionalità.
@@ -123,11 +123,11 @@ Carattere jolly query URL | Confronta uno o più valori specificati con la strin
 * [Informazioni di riferimento sul motore regole](cdn-rules-engine-reference.md)
 * [Espressioni condizionali del motore regole](cdn-rules-engine-reference-conditional-expressions.md)
 * [Funzionalità del motore regole](cdn-rules-engine-reference-features.md)
-* [Override del comportamento HTTP predefinito mediante il motore di regole](cdn-rules-engine.md)
+* [Override del comportamento HTTP predefinito mediante il motore regole](cdn-rules-engine.md)
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

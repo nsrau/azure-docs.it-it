@@ -1,5 +1,5 @@
 ---
-title: Usare Hub eventi di Azure con Apache Spark in HDInsight per l&quot;elaborazione del flusso di dati | Documentazione Microsoft
+title: Eseguire lo streaming dei dati da Hub eventi con Apache Spark in Azure HDInsight | Documentazione Microsoft
 description: Istruzioni dettagliate su come inviare un flusso di dati a Hub eventi di Azure e quindi ricevere tali eventi in Spark usando un&quot;applicazione Scala
 services: hdinsight
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 264f299f5b9dc71070b0cf497f2044081456a1cc
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: ef0757914828128ed4edf569aeb3716300b17dee
 
 
 ---
-# <a name="spark-streaming-process-events-from-azure-event-hubs-with-apache-spark-cluster-on-hdinsight-linux"></a>Spark streaming: elaborare eventi da Hub eventi di Azure con cluster Apache Spark in HDInsight Linux
+# <a name="spark-streaming-process-events-from-azure-event-hubs-with-apache-spark-cluster-on-hdinsight"></a>Streaming Spark: elaborare eventi da Hub eventi di Azure con cluster Apache Spark in HDInsight
 Streaming Spark estende l'API di Spark per compilare applicazioni di elaborazione scalabili, a velocità effettiva elevata e tolleranza d'errore del flusso principale. I dati possono essere acquisiti da molte origini. In questo articolo si userà Hub eventi di Azure per l'inserimento di dati. Hub eventi è un sistema altamente scalabile dell'inserimento tale che può assumere milioni di eventi al secondo. 
 
 In questa esercitazione si apprenderà come creare un Hub eventi di Azure, come inserire messaggi in un hub eventi usando un'applicazione console in Java e recuperarli in parallelo con un'applicazione Spark scritta in Scala. L'applicazione utilizza i dati trasmessi tramite Hub eventi e li instrada a output diversi, come BLOB di archiviazione di Azure, tabelle Hive e tabelle SQL.
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come creare un Hub eventi di Azure, come 
 È necessario disporre di quanto segue:
 
 * Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un cluster Apache Spark. Per istruzioni, vedere [Creare cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Oracle Java Development Kit. Per installarlo, fare clic [qui](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * Ambiente IDE Java. Questo articolo usa IntelliJ IDEA 15.0.1. Per installarlo, fare clic [qui](https://www.jetbrains.com/idea/download/).
 * Microsoft JDBC Driver per SQL Server v4.1 o successiva. È necessario scrivere dati eventi in un database SQL Server. Per installarlo, fare clic [qui](https://msdn.microsoft.com/sqlserver/aa937724.aspx).
@@ -53,7 +53,7 @@ Ecco il flusso di questa soluzione di streaming:
 1. Nel [portale di Azure](https://manage.windowsazure.com) selezionare **NUOVO** > **Bus di servizio** > **Hub eventi** > **Creazione personalizzata**.
 2. Nella schermata **Aggiungi hub eventi** immettere un nome in **Nome hub eventi**, selezionare l'area in cui creare l'hub in **Area geografica** e creare un nuovo spazio dei nomi o selezionarne uno esistente. Fare clic sulla **freccia** per continuare.
    
-    ![procedura guidata - pagina 1](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub.png "Create an Azure Event Hub")
+    ![pagina procedura guidata 1](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub.png "Creare un Hub di eventi di Azure")
    
    > [!NOTE]
    > È necessario selezionare lo stesso **Percorso** del cluster Apache Spark in HDInsight per ridurre i costi e la latenza.
@@ -61,7 +61,7 @@ Ecco il flusso di questa soluzione di streaming:
    > 
 3. Nella schermata **Configura hub eventi** immettere i valori **Conteggio partizioni** e **Conservazione messaggi** e quindi fare clic sul segno di spunta. Per questo esempio usare un numero di partizioni pari a 10 e un valore di conservazione dei messaggi pari a 1. Prendere nota del numero di partizioni, perché questo valore sarà necessario in seguito.
    
-    ![procedura guidata - pagina 2](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub2.png "Specify partition size and retention days for Event Hub")
+    ![pagina procedura guidata 2](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub2.png "Specificare i giorni di conservazione e la dimensione di partizione per Hub di eventi")
 4. Fare clic sull'hub eventi creato, su **Configura**e quindi creare due criteri di accesso per l'hub eventi.
    
     <table>
@@ -72,13 +72,13 @@ Ecco il flusso di questa soluzione di streaming:
    
     Dopo avere creato le autorizzazioni, selezionare l'icona **Salva** nella parte inferiore della pagina. Ciò consente di creare criteri di accesso condiviso che saranno usati per l'invio (**mysendpolicy**) e l'ascolto (**myreceivepolicy**) in questo hub eventi.
    
-    ![criteri](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policies.png "Create Event Hub policies")
+    ![criteri](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policies.png "Creare criteri di Hub di eventi")
 5. Nella stessa pagina, prendere nota delle chiavi di criteri generati per i due criteri. Salvare queste informazioni perché verranno usate in seguito.
    
-    ![chiavi dei criteri](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policy.keys.png "Save policy keys")
+    ![chiavi dei criteri](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policy.keys.png "Salvare le chiavi dei criteri")
 6. Nella pagina **Dashboard** fare clic su **Informazioni di connessione** in basso per recuperare e salvare le stringhe di connessione per l'hub eventi usando i due criteri.
    
-    ![chiavi dei criteri](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policy.connection.strings.png "Save policy connection strings")
+    ![chiavi dei criteri](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policy.connection.strings.png "Salvare le stringhe di connessione criteri")
 
 ## <a name="use-a-scala-application-to-send-messages-to-event-hub"></a>Usare un'applicazione Scala per inviare messaggi all'Hub eventi
 In questa sezione si userà un'applicazione Scala locale autonoma per inviare un flusso di eventi all'Hub eventi di Azure creato nel passaggio precedente. Questa applicazione è disponibile in GitHub all'indirizzo [https://github.com/hdinsight/eventhubs-sample-event-producer](https://github.com/hdinsight/eventhubs-sample-event-producer). Questi passaggi presuppongono che sia già stato eseguito il fork di questo repository GitHub.
@@ -109,7 +109,7 @@ Un'applicazione Scala di esempio per ricevere l'evento e instradarlo a destinazi
 4. Verificare che il codice dell'applicazione venga compilato con Java8. Per esserne certi, fare clic su **File** (File), quindi su **Project Structure** (Struttura progetto) e nella scheda **Project** (Progetto) verificare che Project language level (Livello del linguaggio di progetto) sia impostato su **8 - Lambdas, type annotations, etc.** (8 - Lambda, annotazioni tipo e così via).
    
     ![Struttura progetto](./media/hdinsight-apache-spark-eventhub-streaming/java-8-compiler.png)
-5. Aprire il file **pom.xml** e verificare che la versione di Spark sia corretta. Nel nodo  <properties>  cercare il frammento seguente e verificare la versione di Spark.
+5. Aprire il file **pom.xml** e verificare che la versione di Spark sia corretta. Nel nodo  <properties> cercare il frammento seguente e verificare la versione di Spark.
    
         <scala.version>2.10.4</scala.version>
         <scala.compat.version>2.10.4</scala.compat.version>
@@ -124,12 +124,12 @@ Un'applicazione Scala di esempio per ricevere l'evento e instradarlo a destinazi
              <artifactId>spark-streaming-eventhubs_2.10</artifactId>
              <version>1.6.0</version>
            </dependency> 
-   * **File JAR del driver JDBC**. È necessario per scrivere i messaggi ricevuti dall'Hub eventi in un database SQL di Azure. È possibile scaricare la versione 4.1 o successiva di questo file JAR [qui](https://msdn.microsoft.com/sqlserver/aa937724.aspx). Aggiungere riferimenti a questo file con estensione jar nella libreria del progetto. Eseguire la procedura seguente:
+   * **File JAR del driver JDBC**. È necessario per scrivere i messaggi ricevuti dall'Hub eventi in un database SQL di Azure. È possibile scaricare la versione&4;.1 o successiva di questo file JAR [qui](https://msdn.microsoft.com/sqlserver/aa937724.aspx). Aggiungere riferimenti a questo file con estensione jar nella libreria del progetto. Eseguire la procedura seguente:
      
      1. Nella finestra di IntelliJ IDEA in cui è aperta l'applicazione fare clic su **File** (File), su **Project Structure** (Struttura progetto) e quindi su **Libraries** (Librerie). 
      2. Fare clic sull'icona di aggiunta (![icona per l'aggiunta](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png)), fare clic su **Java**e quindi passare al percorso in cui è stato scaricato il file con estensione jar del driver JDBC. Seguire le istruzioni per aggiungere il file con estensione jar alla libreria del progetto.
         
-         ![aggiungere dipendenze mancanti](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Add missing dependency jars")
+         ![aggiungere dipendenze mancanti](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Aggiungere file JAR di dipendenza mancanti")
      3. Fare clic su **Apply**.
 7. Creare il file con estensione jar di output. Eseguire i passaggi seguenti.
    
@@ -343,6 +343,6 @@ L'output dovrebbe essere simile al seguente:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

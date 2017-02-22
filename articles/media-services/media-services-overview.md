@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 946f6e480083a0007a88c85b744ddeafa0385990
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: f22b87fc5bdfe2db5de39adaafe9c71d8c32b26a
 
 
 ---
@@ -32,7 +32,7 @@ Servizi multimediali di Microsoft Azure costituisce una piattaforma estensibile 
 
 Per creare soluzioni di Servizi multimediali, è possibile usare:
 
-* [API REST di Servizi multimediali](https://msdn.microsoft.com/library/azure/hh973617.aspx)
+* [API REST di Servizi multimediali](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 * Uno dei client SDK disponibili:
     * [Azure Media Services SDK per .NET](https://github.com/Azure/azure-sdk-for-media-services)
     * [Azure SDK per Java](https://github.com/Azure/azure-sdk-for-java),
@@ -46,7 +46,7 @@ L'immagine seguente illustra alcuni degli oggetti più comuni usati durante lo s
 
 Fare clic sull'immagine per visualizzarla a schermo intero.  
 
-<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a>  
+<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
 
 È possibile visualizzare il modello completo [qui](https://media.windows.net/API/$metadata?api-version=2.15).  
 
@@ -79,8 +79,8 @@ Questa sezione descrive scenari comuni e offre collegamenti agli argomenti perti
 ![Flusso di lavoro VoD](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 >[!NOTE]
->Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
-    
+>Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**.
+
 ### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Protezione dei contenuti nella risorsa di archiviazione e distribuzione dei flussi multimediali in chiaro (non crittografati)
 1. Caricare un file in formato intermedio di qualità elevata in un asset.
 
@@ -184,7 +184,8 @@ Servizi multimediali supporta l'integrazione con la rete CDN di Azure. Per infor
 È possibile ridimensionare **Servizi multimediali** specificando il numero di **unità riservate di streaming** e **unità riservate di codifica** di cui si vuole eseguire il provisioning nell'account in uso.
 
 È anche possibile ridimensionare l'account di Servizi multimediali aggiungendo account di archiviazione. Per ogni account di archiviazione è previsto un limite di 500 TB. Per espandere lo spazio di archiviazione oltre i limiti predefiniti, è possibile scegliere di collegare più account di archiviazione a un singolo account di Servizi Multimediali.
-I clienti di Servizi multimediali scelgono un endpoint di streaming **Standard** oppure uno o più endpoint di streaming **Premium**, in base alle esigenze. L'endpoint di streaming Standard è adatto per la maggior parte dei carichi di lavoro di streaming. Include le stesse funzionalità delle unità di streaming Premium. L'endpoint di streaming Standard è adatto per la maggior parte dei carichi di lavoro di streaming. Se il carico di lavoro è avanzato o i requisiti della capacità di streaming non rispondono alle destinazioni con la velocità effettiva degli endpoint di streaming Standard o si vuole controllare la capacità del servizio StreamingEndpoint per gestire le esigenze in crescita in termini di larghezza di banda regolando le unità di scala (note anche come unità di streaming Premium), è consigliabile allocare unità di scala.
+I clienti di Servizi multimediali scelgono un endpoint di streaming **Standard** oppure uno o più endpoint di streaming **Premium**, in base alle esigenze. L'endpoint di streaming Standard è adatto per la maggior parte dei carichi di lavoro di streaming. Include le stesse funzionalità delle unità di streaming Premium.
+L'endpoint di streaming Standard è adatto per la maggior parte dei carichi di lavoro di streaming. Se il carico di lavoro è avanzato o i requisiti della capacità di streaming non rispondono alle destinazioni con la velocità effettiva degli endpoint di streaming Standard o si vuole controllare la capacità del servizio StreamingEndpoint per gestire le esigenze in crescita in termini di larghezza di banda regolando le unità di scala (note anche come unità di streaming Premium), è consigliabile allocare unità di scala.
 
 [Questo](media-services-portal-scale-streaming-endpoints.md) argomento include collegamenti agli argomenti rilevanti.
 

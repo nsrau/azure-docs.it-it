@@ -6,6 +6,6 @@ Il modo più semplice per creare il primo account di archiviazione di Azure cons
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

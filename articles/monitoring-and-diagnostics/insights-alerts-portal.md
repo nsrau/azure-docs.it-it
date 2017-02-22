@@ -1,8 +1,8 @@
 ---
-title: Usare il portale di Azure per creare avvisi per i servizi di Azure | Microsoft Docs
-description: Usare il portale di Azure per creare avvisi di Azure in grado di attivare notifiche o automazione quando vengono soddisfatte le condizioni specificate.
+title: Creare avvisi per i servizi di Azure - Portale di Azure | Documentazione Microsoft
+description: Attivare messaggi di posta elettronica o notifiche, chiamare URL di siti Web (webhook) o usare l&quot;automazione quando vengono soddisfatte le condizioni specificate.
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8c04dd76c01cc5eaa4cbbcd82a263090894aecf
+ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
+ms.openlocfilehash: 530cbb7b53316324f5bc5bcbe9b1b73b9f0b0f9b
 
 
 ---
-# <a name="use-azure-portal-to-create-alerts-for-azure-services"></a>Usare il portale di Azure per creare avvisi per i servizi di Azure
+# <a name="create-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Creare avvisi in Monitoraggio di Azure per servizi di Azure - Portale di Azure
 > [!div class="op_single_selector"]
 > * [Portale](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
 > * [CLI](insights-alerts-command-line-interface.md)
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>Overview
 Questo articolo descrive come impostare gli avvisi di Azure tramite il portale di Azure.   
@@ -53,10 +53,10 @@ Questo articolo descrive come impostare gli avvisi di Azure tramite il portale d
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Creare una regola di avviso in base a una metrica con il portale di Azure
 1. Nel [portale](https://portal.azure.com/), individuare la risorsa da monitorare e selezionarla.
 2. Selezionare **Avvisi** o **Regole di avviso** nella sezione MONITORAGGIO. Il testo e l'icona possono lievemente variare per le diverse risorse.  
-   
+
     ![Monitoraggio](./media/insights-alerts-portal/AlertRulesButton.png)
 3. Selezionare il comando **Aggiungi avviso** e compilare i campi.
-   
+
     ![Aggiungi avviso](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 4. Assegnare alla regola di avviso un **Nome** e scegliere una **Descrizione**, che viene visualizzata anche nella notifica inviata tramite posta elettronica.
 5. Selezionare la **Metrica** da monitorare e quindi scegliere una **Condizione** e un valore **Soglia**. Scegliere inoltre il **Periodo** di tempo entro il quale la metrica deve essere soddisfatta prima dell'attivazione dell'avviso. Ad esempio, se si usa il periodo "PT5M" e l'avviso deve rilevare una CPU superiore all'80%, l'avviso si attiva quando la CPU resta costantemente sopra all'80% per 5 minuti. Dopo la prima attivazione, l'avviso si attiverà di nuovo quando la CPU resta al di sotto dell'80% per 5 minuti. La CPU viene misurata ogni minuto.   
@@ -84,7 +84,6 @@ Dopo aver creato un avviso, è possibile selezionarlo e:
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

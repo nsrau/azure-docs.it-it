@@ -1,5 +1,5 @@
 ---
-title: Creare un&quot;applicazione HBase tramite Maven e distribuire in HDInsight basato su Windows | Documentazione Microsoft
+title: Compilare un&quot;applicazione Java HBase per Azure HDInsight basato su Windows | Documentazione Microsoft
 description: Informazioni su come usare Apache Maven per compilare un&quot;applicazione Apache HBase basata su Java e poi distribuirla in un cluster Azure HDInsight basato su Windows.
 services: hdinsight
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 02/05/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 24d9c1d185eef811a37924be184e4e5894dcdb01
+ms.sourcegitcommit: b829f21dbc212cd951f5e417ad56f7eb724a9d56
+ms.openlocfilehash: 51a9ebdee38c14eb3dc1148070004e6792369b39
 
 
 ---
@@ -26,17 +26,16 @@ In questo articolo si apprenderà come creare e compilare un'applicazione [Apach
 
 [Maven](http://maven.apache.org/) è un progetto di gestione software e uno strumento di esplorazione che consente di compilare software, documentazione e report per i progetti Java. In questo articolo si apprende come usarlo per creare un'applicazione Java di base che crea, interroga ed elimina una tabella HBase su un cluster HDInsight di Azure.
 
-> [!NOTE]
-> Le procedure in questo documento presuppongono l'uso di un cluster HDInsight basato su Windows. Per informazioni sull'uso di un cluster HDInsight basato su Linux, vedere [Usare Maven per compilare applicazioni Java che usano HBase con HDInsight basato su Linux (Hadoop)](hdinsight-hbase-build-java-maven-linux.md)
-> 
-> 
+> [!IMPORTANT]
+> I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Windows. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="requirements"></a>Requisiti
 * [Piattaforma Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 o versioni successive
 * [Maven](http://maven.apache.org/)
 * [Un cluster HDInsight basato su Windows con HBase](hdinsight-hbase-tutorial-get-started.md#create-hbase-cluster)
 
-    > [AZURE.NOTE] Le procedure descritte in questo documento sono state testate con le versioni del cluster HDInsight 3.2 e 3.3. I valori predefiniti specificati negli esempi sono per un cluster HDInsight 3.3.
+    > [!NOTE] 
+    > Le procedure descritte in questo documento sono state testate con le versioni del cluster HDInsight 3.2 e 3.3. I valori predefiniti specificati negli esempi sono per un cluster HDInsight 3.3.
 
 ## <a name="create-the-project"></a>Creare il progetto
 1. Dalla riga di comando nell'ambiente di sviluppo, passare alla directory in cui si vuole creare il progetto, ad esempio `cd code\hdinsight`.
@@ -181,8 +180,7 @@ In questo articolo si apprenderà come creare e compilare un'applicazione [Apach
    
    > [!NOTE]
    > Si tratta di un file hbase-site.xml con contenuto minimo e comprende solo le impostazioni essenziali per il cluster HDInsight.
-   > 
-   > 
+
 6. Salvare il file **hbase-site.xml**.
 
 ## <a name="create-the-application"></a>Creazione dell'applicazione
@@ -366,8 +364,6 @@ In questo articolo si apprenderà come creare e compilare un'applicazione [Apach
    
    > [!NOTE]
    > Il file **hbaseapp-1.0-SNAPSHOT.jar** è un file uberjar (talvolta chiamato fatjar) che contiene tutte le dipendenze richieste per eseguire l'applicazione.
-   > 
-   > 
 
 ## <a name="upload-the-jar-file-and-start-a-job"></a>Caricare il file JAR e avviare un processo
 Ci sono molti modi per caricare un file nel cluster HDInsight, come descritto nella sezione [Caricare dati per processi Hadoop in HDInsight](hdinsight-upload-data.md). La procedura seguente usa Azure PowerShell.
@@ -423,10 +419,7 @@ Ci sono molti modi per caricare un file nel cluster HDInsight, come descritto ne
         FindAzure
    
         # Get the login for the HDInsight cluster
-        $creds = Get-Credential
-   
-        # Get storage information
-        $storage = GetStorage -clusterName $clusterName
+        $creds=Get-Credential -Message "Enter the login for the cluster" -UserName "admin"
    
         # The JAR
         $jarFile = "wasbs:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
@@ -453,9 +446,6 @@ Ci sono molti modi per caricare un file nel cluster HDInsight, come descritto ne
         Get-AzureRmHDInsightJobOutput `
                     -Clustername $clusterName `
                     -JobId $job.JobId `
-                    -DefaultContainer $storage.container `
-                    -DefaultStorageAccountName $storage.storageAccount `
-                    -DefaultStorageAccountKey $storage.storageAccountKey `
                     -HttpCredential $creds `
                     -DisplayOutputType StandardError
         }
@@ -463,9 +453,6 @@ Ci sono molti modi per caricare un file nel cluster HDInsight, come descritto ne
         Get-AzureRmHDInsightJobOutput `
                     -Clustername $clusterName `
                     -JobId $job.JobId `
-                    -DefaultContainer $storage.container `
-                    -DefaultStorageAccountName $storage.storageAccount `
-                    -DefaultStorageAccountKey $storage.storageAccountKey `
                     -HttpCredential $creds
         }
    
@@ -633,6 +620,6 @@ Usare il parametro `-showErr` per visualizzare l'errore standard (STDERR) prodot
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

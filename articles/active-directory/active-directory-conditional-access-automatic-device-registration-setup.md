@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 02/04/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: da1a8c45a1753d617e0cb62f99bc47d22838a8e8
-ms.openlocfilehash: ac58f3f5498edbd6f7b19db647a9513a485d6dbf
+ms.sourcegitcommit: 617599c7df6284e6319a1b3331d1e894e5d4b2d1
+ms.openlocfilehash: 2ced7d0d4e2e653013c605932066c412c4202082
 
 
 ---
@@ -353,11 +353,15 @@ Distribuire il pacchetto usando un sistema di distribuzione software, ad esempio
 Il programma di installazione crea nel sistema un'attività pianificata che viene eseguita nel contesto dell'utente e attivata nel momento in cui l'utente accede a Windows. L'attività registra automaticamente il dispositivo con Azure AD con le credenziali dell'utente dopo l'autenticazione tramite l'Autenticazione integrata di Windows. Per visualizzare l'attività pianificata, accedere a **Microsoft** > **Workplace Join** (Aggiunta all'area di lavoro) e quindi passare alla libreria Utilità di pianificazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Accesso condizionale di Azure Active Directory](active-directory-conditional-access.md)
+
+- In caso di problemi durante la registrazione automatica dei dispositivi, vedere gli argomenti seguenti sulla risoluzione dei problemi:
+    - [Risoluzione dei problemi per Windows 10 e Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+    - [Risoluzione dei problemi per i client Windows di livello inferiore](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+- Per le risposte alle domande più comuni, vedere [Domande frequenti sulla registrazione automatica dei dispositivi](active-directory-conditional-access-automatic-device-registration-faq.md).
 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

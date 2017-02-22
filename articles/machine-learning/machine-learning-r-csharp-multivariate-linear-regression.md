@@ -1,6 +1,6 @@
 ---
-title: Multivariate Linear Regression | Documentazione Microsoft
-description: Multivariate Linear Regression
+title: "Regressione lineare multivariata (funzionalità deprecata) - Azure| Documentazione Microsoft"
+description: "Regressione lineare multivariata (funzionalità deprecata)"
 services: machine-learning
 documentationcenter: 
 author: jaymathe
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/21/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: jaymathe
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 01d90591f61920769dbdca360f69156281145517
+ms.sourcegitcommit: b1ee1eae91185c1893b55be2046343d78dd6c48b
+ms.openlocfilehash: 96780fccdf887548b0f6e525736f1d507cf30486
 
 
 ---
-# <a name="multivariate-linear-regression"></a>Multivariate Linear Regression
+# <a name="deprecated-multivariate-linear-regression"></a>Regressione lineare multivariata (funzionalità deprecata)
+
+> [!NOTE]
+> Microsoft DataMarket è in fase di ritiro e questa API è stata deprecata. 
+> 
+> Numerose API e molti esperimenti utili di esempio sono disponibili in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Per altre informazioni sulla raccolta, vedere [Condividere e scoprire risorse in Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Si supponga di disporre di un set di dati e di volere prevedere rapidamente una variabile dipendente (y) per ogni individuo (i) sulla base delle altre variabili indipendenti. La regressione lineare è una tecnica statistica popolare usata per previsioni di questo tipo. In questo caso si presuppone che la variabile dipendente y sia un valore continuo.  
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -79,7 +86,7 @@ Sono disponibili molte opzioni per l'uso del servizio in modalità automatica. P
 > 
 > 
 
-In Azure Machine Learning è stato creato un nuovo esperimento vuoto e due moduli [Execute R Script][execute-r-script] sono stati inseriti nell'area di lavoro. Questo servizio Web esegue un esperimento di Azure Machine Learning con lo script R sottostante. Esistono 2 parti di questo esperimento: la definizione dello schema e il modello di training + punteggio. Il primo modulo definisce la struttura prevista del set di dati di input in cui la prima variabile è dipendente e le variabili rimanenti sono indipendenti. Il secondo modulo è appropriato per un modello di regressione lineare generico per i dati di input.  
+In Azure Machine Learning è stato creato un nuovo esperimento vuoto e sono stati inseriti due moduli [Execute R Script][execute-r-script] (Esegui script R) nell'area di lavoro. Questo servizio Web esegue un esperimento di Azure Machine Learning con lo script R sottostante. Esistono 2 parti di questo esperimento: la definizione dello schema e il modello di training + punteggio. Il primo modulo definisce la struttura prevista del set di dati di input in cui la prima variabile è dipendente e le variabili rimanenti sono indipendenti. Il secondo modulo è appropriato per un modello di regressione lineare generico per i dati di input.  
 
 ![Flusso dell'esperimento][3]
 
@@ -121,6 +128,6 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure | Documentazione Microsoft
-description: Informazioni su come sviluppare Funzioni di Azure in NodeJS.
+title: Guida di riferimento per gli sviluppatori JavaScript di Funzioni di Azure | Microsoft Docs
+description: Informazioni su come sviluppare Funzioni di Azure con JavaScript.
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -15,22 +15,22 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/13/2016
-ms.author: chrande
+ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 4544629c47326d448cd99b5d96d79666a56f0274
-ms.openlocfilehash: 116b0fd67701e69a81b7f736bbd241427eb33e34
+ms.sourcegitcommit: e660f3313ba6805356eef30b3a17ac609fc9043e
+ms.openlocfilehash: 880fdbd6fc51f16add2f2497402d8b01047d0847
 
 
 ---
-# <a name="azure-functions-nodejs-developer-reference"></a>Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure
+# <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
 > [!div class="op_single_selector"]
 > * [Script C#](functions-reference-csharp.md)
 > * [Script F#](functions-reference-fsharp.md)
-> * [Node.JS](functions-reference-node.md)
+> * [JavaScript](functions-reference-node.md)
 > 
 > 
 
-L'esperienza Node/JavaScript per Funzioni di Azure semplifica l'esportazione di una funzione a cui viene passato un oggetto `context` per la comunicazione con il runtime e per la ricezione e l'invio di dati tramite associazioni.
+L'esperienza JavaScript per Funzioni di Azure semplifica l'esportazione di una funzione a cui viene passato un oggetto `context` per la comunicazione con il runtime e per la ricezione e l'invio di dati tramite associazioni.
 
 Questo articolo presuppone che l'utente abbia già letto [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md).
 
@@ -138,8 +138,8 @@ if(context.req.body.emoji === ':pizza:') context.log('Yay!');
 context.res = { status: 202, body: 'You successfully ordered more coffee!' };   
 ```
 
-## <a name="node-version-package-management"></a>Versione di Node e gestione dei pacchetti
-La versione di Node è attualmente bloccata alla `5.9.1`. Si sta analizzando la possibilità di aggiungere il supporto per altre versioni e renderle configurabili.
+## <a name="node-version--package-management"></a>Versione di Node e gestione dei pacchetti
+La versione di Node è attualmente bloccata alla `6.5.0`. Si sta analizzando la possibilità di aggiungere il supporto per altre versioni e renderle configurabili.
 
 È possibile includere pacchetti nella funzione caricando un file *package.json* nella cartella della funzione nel file system dell'app per le funzioni. Per istruzioni sul caricamento di file, vedere la sezione **Come aggiornare i file dell'app per le funzioni** dell'argomento [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md#fileupdate). 
 
@@ -155,7 +155,7 @@ Una volta che i pacchetti necessari sono installati è possibile importarli nell
 ```javascript
 // Import the underscore.js library
 var _ = require('underscore');
-var version = process.version; // version === 'v5.9.1'
+var version = process.version; // version === 'v6.5.0'
 
 module.exports = function(context) {
     // Using our imported underscore.js library
@@ -198,6 +198,6 @@ Per altre informazioni, vedere le seguenti risorse:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

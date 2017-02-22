@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 12/23/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 0d8c4b4af9672ca40da44b19938604f668390569
+ms.sourcegitcommit: 091fadce064086d82b833f8e44edfbba125d3e6b
+ms.openlocfilehash: cb5babdd8fea3615d8aa27f05a07c3b489f3faa4
 
 
 ---
@@ -64,7 +64,7 @@ Il codice di esempio disponibile in [GitHub](https://azure.microsoft.com/documen
           <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-data-lake-store-sdk</artifactId>
-            <version>2.1.1</version>
+            <version>2.1.4</version>
           </dependency>
           <dependency>
             <groupId>org.slf4j</groupId>
@@ -73,7 +73,7 @@ Il codice di esempio disponibile in [GitHub](https://azure.microsoft.com/documen
           </dependency>
         </dependencies>
    
-    La prima dipendenza serve a usare l'SDK di Data Lake Store (`azure-datalake-store`) dal repository di Maven. La seconda dipendenza (`slf4j-nop`) serve a specificare quali framework di registrazione usare per questa applicazione. L'SDK di Data Lake Store usa la façade di registrazione [SLF4J](http://www.slf4j.org/), che consente di scegliere tra un numero di framework di registrazione comuni, come SLF4J, registrazione Java, logback e così via, o nessuna registrazione. In questo esempio la registrazione verrà disabilitata, quindi si farà ricorso all'associazione **SLF4J-nop**. Per usare altre opzioni di registrazione nell'applicazione, vedere [qui](http://www.slf4j.org/manual.html#projectDep).
+    La prima dipendenza serve a usare l'SDK di Data Lake Store (`azure-data-lake-store-sdk`) dal repository di Maven. La seconda dipendenza (`slf4j-nop`) serve a specificare quali framework di registrazione usare per questa applicazione. L'SDK di Data Lake Store usa la façade di registrazione [SLF4J](http://www.slf4j.org/), che consente di scegliere tra un numero di framework di registrazione comuni, come SLF4J, registrazione Java, logback e così via, o nessuna registrazione. In questo esempio la registrazione verrà disabilitata, quindi si farà ricorso all'associazione **SLF4J-nop**. Per usare altre opzioni di registrazione nell'applicazione, vedere [qui](http://www.slf4j.org/manual.html#projectDep).
 
 ### <a name="add-the-application-code"></a>Aggiungere il codice dell'applicazione
 Il codice si compone di tre parti principali.
@@ -83,27 +83,39 @@ Il codice si compone di tre parti principali.
 3. Usare il client di Data Lake Store per eseguire le operazioni.
 
 #### <a name="step-1-obtain-an-azure-active-directory-token"></a>Passaggio 1: Ottenere un token di Azure Active Directory.
-L'SDK di Data Lake Store mette a disposizione metodi pratici che consentono di ottenere i token di sicurezza necessari per comunicare con l'account di Data Lake Store. Tuttavia, l'SDK non implica l'uso esclusivo di questi metodi. È possibile usare qualsiasi altro modo per ottenere i token, come l'[SDK di Azure Active Directory](https://github.com/AzureAD/azure-activedirectory-library-for-java) o il proprio codice personalizzato.
+Data Lake Store SDK mette a disposizione metodi pratici che consentono di gestire i token di sicurezza necessari per comunicare con l'account Data Lake Store. Tuttavia, l'SDK non implica l'uso esclusivo di questi metodi. È possibile usare qualsiasi altro modo per ottenere i token, come l'[SDK di Azure Active Directory](https://github.com/AzureAD/azure-activedirectory-library-for-java) o il proprio codice personalizzato.
 
-Per usre l'SDK di Data Lake Store per ottenere token per l'applicazione Web di Active Directory creato in precedenza, usare i metodi statici nella classe `AzureADAuthenticator`. Sostituire **FILL-IN-HERE** (COMPLETARE QUI) con i valori effettivi per l'applicazione Web di Azure Active Directory.
+Per usare Data Lake Store SDK per ottenere il token per l'applicazione Web Active Directory creato prima, usare una delle sottoclassi di `AccessTokenProvider`. L'esempio seguente usa `ClientCredsTokenProvider`. Il provider di token memorizza nella cache le credenziali usate per ottenere il token in memoria e rinnova automaticamente il token se sta per scadere. È possibile creare altre sottoclassi di `AccessTokenProvider` in modo che i token vengano ottenuti con il codice cliente, ma per ora verrà usata solo quella fornita nell'SDK.
+
+Sostituire **FILL-IN-HERE** (COMPLETARE QUI) con i valori effettivi per l'applicazione Web di Azure Active Directory.
 
     private static String clientId = "FILL-IN-HERE";
     private static String authTokenEndpoint = "FILL-IN-HERE";
     private static String clientKey = "FILL-IN-HERE";
 
-    AzureADToken token = AzureADAuthenticator.getTokenUsingClientCreds(authTokenEndpoint, clientId, clientKey);
+    AccessTokenProvider provider = new ClientCredsTokenProvider(authTokenEndpoint, clientId, clientKey);
 
 #### <a name="step-2-create-an-azure-data-lake-store-client-adlstoreclient-object"></a>Passaggio 2: Creare un oggetto client di Azure Data Lake Store (ADLStoreClient)
-Per la creazione di un oggetto [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) si deve specificare il nome dell'account di Data Lake Store e il token di Azure Active Directory creato nell'ultimo passaggio. Si noti che il nome dell'account di Data Lake Store deve essere un nome di dominio completo. Ad esempio, sostituire **COMPLETARE QUI** con qualcosa simile a **mydatalakestore.azuredatalakestore.net**.
+Per la creazione di un oggetto [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) si deve specificare il nome dell'account di Data Lake Store e il provider di token generato nell'ultimo passaggio. Si noti che il nome dell'account di Data Lake Store deve essere un nome di dominio completo. Ad esempio, sostituire **COMPLETARE QUI** con qualcosa simile a **mydatalakestore.azuredatalakestore.net**.
 
     private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just the account name
-    ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, token);
+    ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, provider);
 
 ### <a name="step-3-use-the-adlstoreclient-to-perform-file-and-directory-operations"></a>Passaggio 3: Usare l'oggetto ADLStoreClient per eseguire operazioni su file e directory
 Il codice riportato di seguito contiene frammenti di esempio di alcune operazioni comuni. È possibile esaminare tutta la [documentazione API relativa all'SDK Java di Data Lake Store](https://azure.github.io/azure-data-lake-store-java/javadoc/) dell'oggetto **ADLStoreClient** per vedere altre operazioni.
 
 Si noti che i file vengono letti e scritti attraverso i flussi Java standard. Ciò significa che è possibile livellare uno qualsiasi dei flussi Java al livello superiore dei flussi di Data Lake Store per sfruttare la funzionalità Java standard (ad esempio i flussi di stampa per l'output formattato o uno dei flussi di compressione o crittografia per funzionalità aggiuntive del livello superiore, e così via).
 
+     // create file and write some content
+     String filename = "/a/b/c.txt";
+     OutputStream stream = client.createFile(filename, IfExists.OVERWRITE  );
+     PrintStream out = new PrintStream(stream);
+     for (int i = 1; i <= 10; i++) {
+         out.println("This is line #" + i);
+         out.format("This is the same line (%d), but using formatted output. %n", i);
+     }
+     out.close();
+    
     // set file permission
     client.setPermission(filename, "744");
 
@@ -142,6 +154,7 @@ Si noti che i file vengono letti e scritti attraverso i flussi Java standard. Ci
 2. Per produrre un file jar autonomo eseguibile dalla riga di comando, compilare il file jar con tutte le dipendenze incluse usando il [plug-in dell'assembly Maven](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html). Il file pom.xml nell'[esempio di codice sorgente su GitHub](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) offre un esempio che descrive come eseguire questa operazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
+* [Explore JavaDoc for the Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/) (Cercare Java SDK in JavaDoc)
 * [Proteggere i dati in Data Lake Store](data-lake-store-secure-data.md)
 * [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
@@ -149,6 +162,6 @@ Si noti che i file vengono letti e scritti attraverso i flussi Java standard. Ci
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

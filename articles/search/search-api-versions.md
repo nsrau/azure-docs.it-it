@@ -12,20 +12,23 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/28/2016
+ms.date: 01/11/2017
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 070c386c2196f0c53651fc34c88673236b4ea89f
-ms.openlocfilehash: e86fe6afcb97c48ecf55b9d083a1e30c2ee2a569
+ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
+ms.openlocfilehash: a14131455ad94cbc4b729077568b12043401c08e
 
 ---
 
 # <a name="api-versions-in-azure-search"></a>Versioni API in Ricerca di Azure
-Ricerca di Azure aggiorna le funzionalità a intervalli regolari. A volte, ma non sempre, questi aggiornamenti richiedono la pubblicazione di una nuova versione dell'API per mantenere la compatibilità con le versioni precedenti. Questa pubblicazione consente di controllare come e quando integrare gli aggiornamenti del servizio di ricerca nel codice.
+Il servizio Ricerca di Azure Search distribuisce regolarmente aggiornamenti delle funzionalità. A volte, ma non sempre, questi aggiornamenti richiedono la pubblicazione di una nuova versione dell'API per mantenere la compatibilità con le versioni precedenti. Questa pubblicazione consente di controllare come e quando integrare gli aggiornamenti del servizio di ricerca nel codice.
 
 Di norma, le nuove versioni vengono pubblicate solo se necessario, perché ciò può comportare alcune operazioni di aggiornamento del codice per l'utilizzo di una nuova versione dell'API. Verrà pubblicata una nuova versione solo in caso di modifica di alcuni aspetti dell'API che interrompe la compatibilità con le versioni precedenti. Ciò può verificarsi in caso di correzioni alle funzionalità esistenti o di nuove funzionalità che modificano la superficie di attacco dell'API esistente.
 
 Si applica la stessa regola per gli aggiornamenti all'SDK. Azure Search SDK segue le regole di [versionamento semantico](http://semver.org/) , ciò significa che la versione ha tre parti: principale, secondaria e numero di build (ad esempio, 1.1.0). Una nuova versione principale dell'SDK verrà rilasciata solo in caso di modifiche che interrompono la compatibilità con le versioni precedenti. Per aggiornamenti di funzionalità senza interruzione di compatibilità verrà incrementata la versione secondaria e, in caso di correzione di bug, verrà incrementata solo la versione build.
+
+> [!NOTE]
+> L'istanza del servizio Ricerca di Azure supporta diverse versioni di API REST, inclusa quella più recente. È possibile continuare a usare una versione anche se non è la più recente, ma si consiglia di migrare il codice per usare la versione più recente. Quando si usa l'API REST, è necessario specificare la versione dell'API in tutte le richieste tramite il parametro api-version. Quando si usa .NET SDK, la versione del componente SDK in uso determina la versione corrispondente dell'API REST. Se si usa una versione del componente SDK precedente, è possibile continuare a eseguire il codice senza apportare modifiche, anche se il servizio viene aggiornato per supportare una versione API più recente.
 
 ## <a name="snapshot-of-current-versions"></a>Panoramica delle versioni correnti
 Di seguito è illustrata una panoramica delle versioni correnti di tutte le interfacce di programmazione di Ricerca di Azure.
@@ -63,6 +66,6 @@ Con disponibilità a livello generale si intende che Ricerca di Azure è ora sog
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

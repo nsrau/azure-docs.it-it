@@ -1,11 +1,10 @@
 ---
 services: virtual-machines
-title: Setting up Azure CLI for service management
+title: Configurazione dell&quot;interfaccia della riga di comando di Azure per la gestione dei servizi
 author: squillace
-solutions: ''
+solutions: 
 manager: timlt
 editor: tysonn
-
 ms.service: virtual-machine
 ms.devlang: na
 ms.topic: article
@@ -13,12 +12,16 @@ ms.tgt_pltfrm: linux
 ms.workload: infrastructure
 ms.date: 04/13/2015
 ms.author: rasquill
+translationtype: Human Translation
+ms.sourcegitcommit: e664ce9426a2852a35dfdade5d41a9ce8b37a3b7
+ms.openlocfilehash: f18a4705c9fd57790bff9cfdd23c19fd30fe0d32
+
 
 ---
-## Utilizzare l'interfaccia della riga di comando di Azure
+## <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 I passaggi seguenti consentono di utilizzare l'interfaccia della riga di comando di Azure facilmente con la versione più recente e la sottoscrizione appropriata. Se è necessario installare l'interfaccia della riga di comando di Azure e connetterla al proprio account, vedere [Interfaccia della riga di comando di Azure](../articles/xplat-cli-install.md).
 
-### Passaggio 1: aggiornare la versione dell'interfaccia della riga di comando di Azure
+### <a name="step-1-update-azure-cli-version"></a>Passaggio 1: aggiornare la versione dell'interfaccia della riga di comando di Azure
 Al fine di utilizzare l'interfaccia della riga di comando di Azure per i comandi imperativi con modalità di gestione del servizio, sarebbe opportuno disporre di una versione recente. Per verificare la versione, digitare `azure --version`. Dovrebbe essere visualizzata una schermata analoga alla seguente:
 
     $ azure --version
@@ -26,8 +29,8 @@ Al fine di utilizzare l'interfaccia della riga di comando di Azure per i comandi
 
 Se si desidera aggiornare la versione dell'interfaccia della riga di comando di Azure, vedere [Interfaccia della riga di comando di Azure](https://github.com/Azure/azure-xplat-cli).
 
-### Passaggio 2: Impostare l'account e la sottoscrizione di Azure
-Una volta connessa l'interfaccia della riga di comando di Azure all'account che si desidera utilizzare, è possibile che siano visualizzate più sottoscrizioni. In questo caso, è necessario rivedere le sottoscrizioni disponibili per l'account digitando `azure account list`, quindi selezionare la sottoscrizione che si desidera utilizzare digitando `azure account set <subscription id or name> true` dove *nome o id sottoscrizione* è l'id sottoscrizione o il nome della sottoscrizione che si desidera utilizzare nella sessione corrente. Verrà visualizzata una schermata simile alla seguente:
+### <a name="step-2-set-the-azure-account-and-subscription"></a>Passaggio 2: Impostare l'account e la sottoscrizione di Azure
+Una volta connessa l'interfaccia della riga di comando di Azure all'account che si desidera utilizzare, è possibile che siano visualizzate più sottoscrizioni. In questo caso, è consigliabile esaminare le sottoscrizioni disponibili per l'account digitando `azure account list` e quindi selezionando la sottoscrizione che si vuole usare digitando `azure account set <subscription id or name> true` dove *subscription id or name* è l'ID sottoscrizione o il nome della sottoscrizione che si vuole usare nella sessione corrente. Verrà visualizzata una schermata simile alla seguente:
 
     $ azure account set "Visual Studio Ultimate with MSDN" true
     info:    Executing command account set
@@ -40,4 +43,9 @@ Una volta connessa l'interfaccia della riga di comando di Azure all'account che 
 > 
 > 
 
-<!---HONumber=AcomDC_0128_2016-->
+
+
+
+<!--HONumber=Jan17_HO3-->
+
+

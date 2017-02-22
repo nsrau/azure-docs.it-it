@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/27/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 0124c884d3d805a407041e8ecbc5961209a9653d
-ms.openlocfilehash: c405f1bc405990ef4959e90d9e98e1629fe7f6b7
+ms.sourcegitcommit: 5cbe0b7f71f8dfd6f3a41fa6ff4b0c6ab5e6985d
+ms.openlocfilehash: dd5b1f9298bc4d864377c98114ce4a91ba8bfdae
 
 
 ---
@@ -28,8 +28,8 @@ Questo argomento mette a confronto le funzionalità di codifica di **Media Encod
 ### <a name="a-idbillingabilling-meter-used-by-each-encoder"></a><a id="billing"></a>Metro di fatturazione usato da ogni codificatore
 | Nome del processore multimediale | Prezzi applicabili | Note |
 | --- | --- | --- |
-| **Codificatore multimediale standard** |CODIFICATORE |Le attività di codifica verranno addebitate in base alla dimensione dell'asset di output, in gigabyte, alla tariffa specificata [qui][1], nella colonna CODIFICATORE. |
-| **Flusso di lavoro Premium del codificatore multimediale** |CODIFICATORE PREMIUM |Le attività di codifica verranno addebitate in base alla dimensione dell'asset di output, in gigabyte, alla tariffa specificata [qui][1], nella colonna CODIFICATORE PREMIUM. |
+| **Codificatore multimediale standard** |CODIFICATORE |Le attività di codifica verranno addebitate le attività in base alla durata totale, espressa in minuti, di tutti i file multimediali generati come output, alla tariffa specificata [qui][1], nella colonna CODIFICATORE. |
+| **Flusso di lavoro Premium del codificatore multimediale** |CODIFICATORE PREMIUM |Le attività di codifica verranno addebitate le attività in base alla durata totale, espressa in minuti, di tutti i file multimediali generati come output, alla tariffa specificata [qui][1], nella colonna CODIFICATORE PREMIUM. |
 
 ### <a name="input-containerfile-formats"></a>Contenitore di input/formati di file
 | Contenitore di input/formati di file | Codificatore multimediale standard | Flusso di lavoro Premium del codificatore multimediale |
@@ -118,6 +118,8 @@ Questo argomento mette a confronto le funzionalità di codifica di **Media Encod
 | MP3 (MPEG-1 Audio Layer 3) |No |Sì |
 | Windows Media Audio |No |Sì |
 
+>[!NOTE]
+>Se si codifica per Dolby® Digital (AC3), l'output può essere scritto solo in un file ISO MP4.
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -134,6 +136,6 @@ Questo argomento mette a confronto le funzionalità di codifica di **Media Encod
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Backup di Azure - Distribuire e gestire il backup per DPM mediante PowerShell | Microsoft Docs
+title: 'Backup di Azure: utilizzare PowerShell per eseguire il backup dei carichi di lavoro DPM | Documentazione Microsoft'
 description: Informazioni su come distribuire e gestire Backup di Azure per Data Protection Manager (DPM) usando PowerShell
 services: backup
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: jimpark; trinadhk; anuragm; markgal
+ms.date: 1/23/2017
+ms.author: nkolli;trinadhk;anuragm;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 245172873a1ae3418fd33ccf98a26054208b620a
+ms.sourcegitcommit: 127484103706be5acd0f988aee3d13217d4d87f2
+ms.openlocfilehash: f73bdcf056dc745f9f40e96d3dc51e5e4b88f77d
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: 245172873a1ae3418fd33ccf98a26054208b620a
 > [!div class="op_single_selector"]
 > * [ARM](backup-dpm-automation.md)
 > * [Classico](backup-dpm-automation-classic.md)
-> 
-> 
+>
+>
 
 Questo articolo illustra come usare PowerShell per configurare Backup di Azure in un server DPM, e per gestire le operazioni di backup e ripristino.
 
@@ -68,8 +68,8 @@ Le attività di installazione e registrazione seguenti possono essere automatizz
 ### <a name="create-a-backup-vault"></a>Creare un insieme di credenziali per il backup
 > [!WARNING]
 > I clienti che usano il servizio Backup di Azure per la prima volta, dovranno registrare il provider di Backup di Azure da usare con la propria sottoscrizione. A tale scopo, eseguire il comando seguente: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
-> 
-> 
+>
+>
 
 È possibile creare un nuovo insieme di credenziali per il backup usando il cmdlet **New-AzureRMBackupVault** . L’archivio di backup è una risorsa ARM, pertanto è necessario inserirlo all'interno di un gruppo di risorse. Eseguire i comandi seguenti in una console di Azure PowerShell con privilegi elevati:
 
@@ -143,8 +143,8 @@ In questo modo, il server DPM denominato "TestingServer" verrà registrato con l
 
 > [!IMPORTANT]
 > Non utilizzare percorsi relativi per specificare il file dell'insieme di credenziali. È necessario fornire un percorso assoluto come input per il cmdlet.
-> 
-> 
+>
+>
 
 ### <a name="initial-configuration-settings"></a>Impostazioni di configurazione iniziali
 Una volta registrato il server DPM con l'insieme di credenziali di Backup di Azure, il server verrà avviato con le impostazioni di sottoscrizione predefinite. Tali impostazioni includono rete, crittografia e area di staging. Per iniziare a modificare le impostazioni di sottoscrizione, è necessario innanzitutto ottenere un handle sulle impostazioni (predefinite) esistenti usando il cmdlet [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793) :
@@ -194,8 +194,8 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 
 > [!IMPORTANT]
 > Dopo l'impostazione, conservare le informazioni sulla passphrase al sicuro. Non sarà possibile ripristinare i dati da Azure senza la passphrase.
-> 
-> 
+>
+>
 
 A questo punto, sono state apportate tutte le modifiche necessarie all'oggetto ```$setting``` . Ricordarsi di eseguire il commit delle modifiche:
 
@@ -304,7 +304,7 @@ Quando si esegue il backup di un'origine dati per la prima volta, DPM deve crear
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
 ### <a name="changing-the-size-of-dpm-replica--recovery-point-volume"></a>Modifica delle dimensioni della replica DPM e volume del punto di ripristino
-È inoltre possibile modificare le dimensioni del volume della replica DPM e del volume copia shadow [utilizzando il cmdlet [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) come nell'esempio seguente: Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
+È inoltre possibile modificare le dimensioni del volume della replica DPM e del volume copia shadow [utilizzando il cmdlet Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) come nell'esempio seguente: Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
 
 ### <a name="committing-the-changes-to-the-protection-group"></a>Commit delle modifiche nel gruppo protezione dati
 Infine, è necessario eseguire il commit delle modifiche affinché DPM possa eseguire il backup in base alla nuova configurazione del gruppo protezione dati. A tale scopo, usare il cmdlet [Set-DPMProtectionGroup](https://technet.microsoft.com/library/hh881758) .
@@ -351,7 +351,6 @@ I comandi possono essere facilmente estesi per qualsiasi tipo di origine dati.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

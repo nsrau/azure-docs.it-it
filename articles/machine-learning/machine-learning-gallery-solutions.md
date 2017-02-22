@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d1020d153c283a7c0bcf71c479e6109f354de173
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: 0fc014ad8fe4ab0b36b0c941564c5c531079ce4d
 
 
 ---
@@ -34,7 +34,7 @@ Per usarle al meglio è possibile seguire le istruzioni fornite o rivolgersi a u
  Nella pagina **[Solutions](https://gallery.cortanaintelligence.com/solutions)**
  (Soluzioni) è disponibile l'elenco delle ultime soluzioni aggiunte.
 Fare clic su **See all** (Visualizza tutto) per visualizzare tutte le soluzioni.
-Da questa pagina è possibile accedere a tutte le soluzioni presenti in Gallery oppure eseguire ricerche mirate selezionando i criteri di filtro a sinistra della pagina e immettendo i termini di ricerca desiderati nella parte superiore.
+In questa pagina è possibile eseguire la ricerca di tutte le soluzioni presenti nella raccolta. È anche possibile eseguire la ricerca selezionando i criteri di filtro a sinistra della pagina e immettendo i termini di ricerca nella parte superiore.
 
  Fare clic su una soluzione qualsiasi per aprirne la pagina dei dettagli e leggere maggiori informazioni su di essa. In questa pagina è disponibile una sezione dedicata ai commenti in cui è possibile inserire un commento, inviare suggerimenti o porre una domanda. Usando le funzionalità di condivisione di LinkedIn o Twitter è anche possibile condividere la pagina con amici o colleghi. È inoltre possibile invitare altri utenti a visualizzare la pagina inviando loro un collegamento alla soluzione tramite posta elettronica.
 
@@ -54,6 +54,6 @@ Se si vuole usare una soluzione, fare clic su **Deploy** (Distribuisci). Seguire
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

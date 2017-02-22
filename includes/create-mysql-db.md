@@ -1,12 +1,12 @@
-Questa guida illustra come usare [ClearDB] per creare un database MySQL da [Azure Store] e come creare un database MySQL come risorsa collegata quando si crea un [sito Web di Azure][waws]. [ClearDB] è un fornitore a tolleranza di errore di database come servizio, che consente di eseguire e gestire database MySQL in data center di Azure e di connettersi a tali database da qualsiasi applicazione.
+Questa guida illustra come usare [ClearDB] per creare un database MySQL da Azure Store e come creare un database MySQL come risorsa collegata quando si crea un [sito Web di Azure][waws]. [ClearDB] è un fornitore a tolleranza di errore di database come servizio, che consente di eseguire e gestire database MySQL in data center di Azure e di connettersi a tali database da qualsiasi applicazione.  
 
 > [!NOTE]
 > Quando si crea un database MySQL come parte del processo di creazione del sito Web, è possibile creare solo un database gratuito. La creazione di un database MySQL da Azure Store consente di creare un database gratuito oppure di scegliere tra le opzioni a pagamento disponibili.
 > 
 > 
 
-## Procedura: Creare un database MySQL da Azure Store
-Per creare un database MySQL da [Azure Store], eseguire la procedura seguente:
+## <a name="how-to-create-a-mysql-database-from-the-azure-store"></a>Procedura: Creare un database MySQL da Azure Store
+Per creare un database MySQL da Azure Store, eseguire le operazioni seguenti:
 
 1. Accedere al [portale di gestione di Azure][portal].
 2. Fare clic su **+NUOVO** nella parte inferiore della pagina, quindi selezionare **MARKETPLACE**.
@@ -26,19 +26,19 @@ Per creare un database MySQL da [Azure Store], eseguire la procedura seguente:
     ![Gestione del database MySQL nel portale di Azure](./media/create-mysql-db/manage-mysql-add-on.png)
 7. Per ottenere le informazioni di connessione del database, fare clic su **CONNECTION INFO** nella parte inferiore della pagina, come illustrato sopra.
    
-    ![Informazioni di connessione per MySQL](./media/create-mysql-db/mysql-conn-info.png)
+    ![Informazioni di connessione per MySQL](./media/create-mysql-db/mysql-conn-info.png) 
 
-## Procedura: Creare un database MySQL come risorsa collegata per un sito Web di Azure
-Per creare un database MySQL come risorsa collegata durante la creazione di un [sito Web di Azure][waws], eseguire la procedura seguente:
+## <a name="how-to-create-a-mysql-database-as-a-linked-resource-for-azure-website"></a>Procedura: Creare un database MySQL come risorsa collegata per un sito Web di Azure
+Per creare un database MySQL come risorsa collegata durante la creazione di un [sito Web di Azure][waws], eseguire questa procedura:
 
 1. Accedere al [portale di gestione di Azure][portal].
-2. Fare clic su **+NUOVO** nella parte inferiore della pagina, quindi selezionare **CALCOLO**, **SITO WEB** e **CREA CON DATABASE**.
+2. Fare clic su **+NUOVO** nella parte inferiore della pagina, quindi selezionare **CALCOLO**, **SITO WEB** e **CREAZIONE PERSONALIZZATA**.
    
     ![Creazione di un sito Web con database](./media/create-mysql-db/custom_create.png)
-3. Specificare un **URL** per il sito Web, selezionare una **REGIONE** per il sito e scegliere **Crea un nuovo database MySQL** dall'elenco a discesa **DATABASE**. Facoltativamente, è possibile sostituire il nome predefinito per la stringa di connessione. Fare clic sulla freccia nella parte inferiore della pagina.
+3. Specificare un **URL** per il sito Web, selezionare un'**AREA** per il sito e scegliere **Crea un nuovo database MySQL** dall'elenco a discesa **DATABASE**. Facoltativamente, è possibile sostituire il nome predefinito per la stringa di connessione. Fare clic sulla freccia nella parte inferiore della pagina.
    
-    ![Dettagli del sito Web](./media/create-mysql-db/provide-website-details.png)
-4. Specificare un **NOME** per il database, selezionare la **REGIONE** per il database (deve corrispondere alla regione del sito Web), accettare le note legali di ClearDB e fare clic sul segno di spunta nella parte inferiore della pagina.
+    ![Dettagli del sito Web](./media/create-mysql-db/provide-website-details.png) 
+4. Specificare un **NOME** per il database, selezionare l'**AREA** per il database (deve corrispondere all'area del sito Web), accettare le note legali di ClearDB e fare clic sul segno di spunta nella parte inferiore della pagina.
    
     ![Dettagli di MySQL](./media/create-mysql-db/provide-mysql-details.png)
 5. Dopo la creazione del sito Web, fare clic sul nome del sito per passare al dashboard del sito.
@@ -47,7 +47,7 @@ Per creare un database MySQL come risorsa collegata durante la creazione di un [
 6. Fare clic su **CONFIGURE**.
    
     ![Visualizzazione della scheda di configurazione](./media/create-mysql-db/go-to-configure-tab.png)
-7. Scorrere verso il basso fino alla sezione **connection strings**, quindi fare clic su **Show Connection Strings**.
+7. Scorrere verso il basso fino alla sezione **Stringhe di connessione**, quindi fare clic su **Mostra stringhe di connessione**. 
    
     ![Visualizzazione della stringa di connessione](./media/create-mysql-db/show-conn-string.png)
 8. Copiare la stringa di connessione per l'utilizzo nell'applicazione.
@@ -55,13 +55,16 @@ Per creare un database MySQL come risorsa collegata durante la creazione di un [
     ![Stringa di connessione visualizzata](./media/create-mysql-db/shown-conn-string.png)
 
 > [!NOTE]
-> Le stringhe di connessione sono accessibili all'applicazione del sito Web tramite il nome della stringa di connessione. Nelle applicazioni .NET le stringhe di connessione sono disponibili nell'oggetto **connectionStrings**. In altri linguaggi di programmazione le stringhe di connessione sono accessibili tramite le variabili di ambiente. Per altre informazioni, vedere [Come configurare i siti Web][configure].
+> Le stringhe di connessione sono accessibili all'applicazione del sito Web tramite il nome della stringa di connessione. Nelle applicazioni .NET le stringhe di connessione sono disponibili nell'oggetto **connectionStrings** . In altri linguaggi di programmazione le stringhe di connessione sono accessibili tramite le variabili di ambiente. Per altre informazioni, vedere [Come configurare i siti Web][configure].
 > 
 > 
 
 [ClearDB]: http://www.cleardb.com/
 [waws]: /documentation/services/web-sites/
-[Azure Store]: ../articles/store.md
 [portal]: http://manage.windowsazure.com
 [configure]: ../articles/app-service-web/web-sites-configure.md
+
+
+<!--HONumber=Jan17_HO3-->
+
 

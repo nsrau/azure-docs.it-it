@@ -16,13 +16,13 @@ ms.workload: NA
 ms.date: 07/16/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cc256d2a164445a4ebbbaec9876d3fa86b56f65c
+ms.sourcegitcommit: 16f4e287a955b787a08cc6949094bd0f5224421a
+ms.openlocfilehash: 26a3e54b00b37d4488a3f1c787c44bbbb5078268
 
 
 ---
-# <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pool"></a>Strategie di ripristino di emergenza per applicazioni che usano il pool elastico del database SQL
-Nel corso degli anni si è notato che i servizi cloud non sono infallibili e incidenti catastrofici possono verificarsi e si verificheranno. Il database SQL fornisce alcune funzionalità utili per la continuità aziendale dell'applicazione in caso di eventi imprevisti. [pool elastici](sql-database-elastic-pool.md) e i database autonomi supportano lo stesso tipo di funzionalità per il ripristino di emergenza. Questo articolo illustra alcune strategie di ripristino di emergenza per i pool elastici che sfruttano i vantaggi di queste funzionalità per la continuità aziendale del database SQL.
+# <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategie di ripristino di emergenza per applicazioni che usano i pool elastici del database SQL
+Nel corso degli anni si è notato che i servizi cloud non sono infallibili e incidenti catastrofici possono verificarsi e si verificheranno. Il database SQL fornisce alcune funzionalità utili per la continuità aziendale dell'applicazione in caso di eventi imprevisti. [Pool elastici](sql-database-elastic-pool.md) e i database singoli supportano lo stesso tipo di funzionalità per il ripristino di emergenza. Questo articolo illustra alcune strategie di ripristino di emergenza per i pool elastici che sfruttano i vantaggi di queste funzionalità per la continuità aziendale del database SQL.
 
 Per le finalità di questo articolo, verrà usato il modello classico di applicazione ISV SaaS:
 
@@ -33,7 +33,7 @@ Nella parte restante di questo articolo vengono illustrate le strategie di ripri
 ## <a name="scenario-1-cost-sensitive-startup"></a>Scenario 1. Start-up attente ai costi
 <i>Una start-up estremamente attenta ai costi  vuole semplificare la distribuzione e la gestione dell'applicazione ed è favorevole all'uso di un Contratto di servizio limitato per singoli clienti. Vuole tuttavia assicurarsi che l'applicazione nel suo complesso non sia mai offline.</i>
 
-Per rispettare il requisito relativo alla semplicità, è consigliabile distribuire tutti i database tenant in un pool elastico nell'area di Azure scelta e quindi distribuire i database di gestione come database autonomi con replica geografica. Per il ripristino di emergenza dei tenant, usare il ripristino geografico, disponibile senza costi aggiuntivi. Per assicurare la disponibilità dei database di gestione, è consigliabile configurarne la replica geografica in un'altra area (Passaggio 1). I costi di esercizio della configurazione per il ripristino di emergenza in questo scenario equivalgono al costo totale dei database secondari. Questa configurazione è illustrata nel diagramma seguente.
+Per rispettare il requisito relativo alla semplicità, è consigliabile distribuire tutti i database tenant in un pool elastico nell'area di Azure scelta e quindi distribuire i database di gestione come database singoli con replica geografica. Per il ripristino di emergenza dei tenant, usare il ripristino geografico, disponibile senza costi aggiuntivi. Per assicurare la disponibilità dei database di gestione, è consigliabile configurarne la replica geografica in un'altra area (Passaggio 1). I costi di esercizio della configurazione per il ripristino di emergenza in questo scenario equivalgono al costo totale dei database secondari. Questa configurazione è illustrata nel diagramma seguente.
 
 ![Figura 1](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
 
@@ -71,7 +71,7 @@ Per supportare questo scenario, è consigliabile separare i tenant delle version
 
 ![Figura 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
-Analogamente al primo scenario, i database di gestione saranno abbastanza attivi, quindi è consigliabile usare un database autonomo con replica geografica per questo scopo (1). In questo modo si assicureranno prestazioni prevedibili per le sottoscrizioni dei nuovi clienti, per gli aggiornamenti dei profili e altre operazioni di gestione. L'area in cui si trovano gli elementi primari dei database di gestione sarà l'area primaria e l'area in cui si trovano gli elementi secondari dei database di gestione sarà l'area di ripristino di emergenza.
+Analogamente al primo scenario, i database di gestione saranno abbastanza attivi, quindi è consigliabile usare un database singolo con replica geografica per questo scopo (1). In questo modo si assicureranno prestazioni prevedibili per le sottoscrizioni dei nuovi clienti, per gli aggiornamenti dei profili e altre operazioni di gestione. L'area in cui si trovano gli elementi primari dei database di gestione sarà l'area primaria e l'area in cui si trovano gli elementi secondari dei database di gestione sarà l'area di ripristino di emergenza.
 
 I database tenant dei clienti delle versioni a pagamento avranno database attivi nel pool "a pagamento" sottoposto a provisioning nell'area primaria. È necessario effettuare il provisioning di un pool secondario con lo stesso nome nell'area di ripristino di emergenza. Per ogni tenant è prevista la replica geografica nel pool secondario (2). Ciò consentirà un ripristino rapido di tutti i database tenant mediante il failover. 
 
@@ -116,7 +116,7 @@ Per assicurare i tempi di ripristino più brevi durante le interruzioni, è nece
 
 ![Figura 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
 
-Analogamente allo scenario precedente, i database di gestione saranno abbastanza attivi, quindi è necessario configurarli come database autonomi con replica geografica (1). In questo modo si assicureranno prestazioni prevedibili per le sottoscrizioni dei nuovi clienti, per gli aggiornamenti dei profili e altre operazioni di gestione. L'area A sarà l'area primaria per i database di gestione e l'area B verrà usata per il ripristino dei database di gestione.
+Analogamente allo scenario precedente, i database di gestione saranno abbastanza attivi, quindi è necessario configurarli come database singoli con replica geografica (1). In questo modo si assicureranno prestazioni prevedibili per le sottoscrizioni dei nuovi clienti, per gli aggiornamenti dei profili e altre operazioni di gestione. L'area A sarà l'area primaria per i database di gestione e l'area B verrà usata per il ripristino dei database di gestione.
 
 I database tenant dei clienti della versione a pagamento saranno sottoposti anche a replica geografica, ma con gli elementi primari e secondari suddivisi tra area A e area B (2). In questo modo i database tenant primari interessati dall'interruzione possono eseguire il failover nell'altra area e risultare disponibili. L'altra metà dei database tenant non sarà affatto interessata. 
 
@@ -176,6 +176,6 @@ Questo articolo illustra le strategie di ripristino di emergenza per il livello 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

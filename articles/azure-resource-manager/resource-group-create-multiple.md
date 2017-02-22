@@ -1,5 +1,5 @@
 ---
-title: "Distribuire più istanze di risorse | Microsoft Docs"
+title: "Distribuire più istanze delle risorse di Azure | Documentazione Microsoft"
 description: "Usare l&quot;operazione di copia e le matrici in un modello di Gestione risorse di Azure per eseguire più iterazioni durante la distribuzione delle risorse."
 services: azure-resource-manager
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/02/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 28bda592a685de4b2b938da21c3f3aa0a60e632d
-ms.openlocfilehash: 241a22429e8e0fbd2625292890baf4b2c3d77d81
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: b3972f3d407b3ba9529b36005c0856796c272095
 
 
 ---
-# <a name="create-multiple-instances-of-resources-in-azure-resource-manager"></a>Creare più istanze di risorse in Gestione risorse di Azure
+# <a name="deploy-multiple-instances-of-resources-in-azure-resource-manager-templates"></a>Distribuire più istanze delle risorse nei modelli di Azure Resource Manager
 In questo argomento viene illustrato come eseguire un'iterazione del modello di Gestione risorse di Azure per creare più istanze di una risorsa.
 
 ## <a name="copy-copyindex-and-length"></a>copy, copyIndex e length
@@ -556,6 +556,6 @@ A questo punto, creare un modello padre che dispone di un'istanza statica del mo
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

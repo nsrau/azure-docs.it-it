@@ -1,5 +1,5 @@
 ---
-title: Come proteggere il back-end di un&quot;API Web con Azure Active Directory e Gestione API
+title: Proteggere il back-end di un&quot;API Web con Azure Active Directory e Gestione API | Documentazione Microsoft
 description: Informazioni su come proteggere il back-end di un&quot;API Web con Azure Active Directory e Gestione API.
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: a7ff82a47b4e972db96929acb47fcce760b244b3
-ms.openlocfilehash: 727fdb9a53fe1dec189018e12f42ba7515e6fb54
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: af21253dadd5cd2f64149aa2738e459da9f8325a
 
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Come proteggere il back-end di un'API Web con Azure Active Directory e Gestione API
@@ -566,6 +565,6 @@ Per un'altra dimostrazione relativa alla configurazione e all'uso di questi crit
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

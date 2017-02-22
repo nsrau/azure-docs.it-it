@@ -1,28 +1,28 @@
 ---
-title: Guida di riferimento per gli sviluppatori di Funzioni di Azure | Documentazione Microsoft
-description: Comprendere i concetti e i componenti comuni a tutti linguaggi e le associazioni di Funzioni di Azure.
+title: Linee guida per lo sviluppo di Funzioni di Azure | Documentazione Microsoft
+description: Informazioni sui concetti e sulle tecniche di Funzioni di Azure necessari per sviluppare funzioni in Azure in tutti i linguaggi e i binding di programmazione.
 services: functions
 documentationcenter: na
 author: christopheranderson
 manager: erikre
 editor: 
 tags: 
-keywords: Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server
+keywords: manuale dello sviluppatore, funzioni di azure, funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/20/2016
+ms.date: 01/23/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 0d13f6ae1b68b27f54ce9ffb10454b35cc6cdf29
-ms.openlocfilehash: a897e725855aa6651898a58ef3830c22b8ae7621
+ms.sourcegitcommit: 0d75654e00e033eab7de97779157c43ee4493a9f
+ms.openlocfilehash: 2032426e473cb859ad60b48684bcf620e314ed6c
 
 
 ---
-# <a name="azure-functions-developer-reference"></a>Guida di riferimento per gli sviluppatori di Funzioni di Azure
+# <a name="azure-functions-developers-guide"></a>Manuale dello sviluppatore di Funzioni di Azure
 In Funzioni di Azure funzioni specifiche condividono alcuni concetti tecnici e componenti di base, indipendentemente dal linguaggio o dall'associazione che vengono usati. Prima di passare all'apprendimento di dettagli specifici per un linguaggio o un'associazione, assicurarsi di leggere questa panoramica generale.
 
 Questo articolo presuppone che sia già stata letta la [Panoramica di Funzioni di Azure](functions-overview.md) e si abbia familiarità con i [concetti di WebJobs SDK, ad esempio trigger, associazione e runtime JobHost](../app-service-web/websites-dotnet-webjobs-sdk.md). Funzioni di Azure si basa su WebJobs SDK. 
@@ -138,6 +138,6 @@ Per altre informazioni, vedere le seguenti risorse:
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

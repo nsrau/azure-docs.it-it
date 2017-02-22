@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 0062dc90d8e1a823e17183e96a91a9f224e8cf48
+ms.sourcegitcommit: 559b38da4ed787f6f7a4462f6add92384bed54f7
+ms.openlocfilehash: 0acdbefcae875c206667260b6df5dfd8882dcc42
 
 
 ---
 # <a name="azure-resiliency-technical-guidance-recovery-from-a-region-wide-service-disruption"></a>Materiale sussidiario sulla resilienza di Azure: ripristino dopo un'interruzione di servizio di un'area
-Dal punto di vista fisico e logico, Azure è suddiviso in unità chiamate aree. Un'area è costituita da uno o più data center che si trovano in posizioni molto vicine. Al momento della stesura di questo articolo, Azure ha ventiquattro aree nel mondo.
+Dal punto di vista fisico e logico, Azure è suddiviso in unità chiamate aree. Un'area è costituita da uno o più data center che si trovano in posizioni molto vicine. L'elenco corrente delle aree è disponibile nella [pagina Aree di Azure](https://azure.microsoft.com/regions/).
 
 In rari casi è possibile che le strutture di un'intera area diventino inaccessibili, ad esempio a causa di errori di rete. È anche possibile che le strutture vadano completamente perse, ad esempio a causa di una calamità naturale. Questa sezione descrive le funzionalità di Azure per la creazione di applicazioni distribuite tra aree. Questa distribuzione riduce al minimo la possibilità che un errore che si verifica in un'area possa interessarne altre.
 
@@ -188,6 +188,6 @@ Questo articolo fa parte della serie [Materiale sussidiario sulla resilienza di 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

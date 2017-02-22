@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: 3a56e9de-c21a-40ba-9a35-958172cb4e5b
 ms.service: sql-database
-ms.custom: how to
+ms.custom: overview
 ms.devlang: NA
 ms.workload: data-management
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
-ms.date: 09/19/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: dde22adda13b88a6cd0f1d033c2730ddc3288050
+ms.sourcegitcommit: 420b2153f6115dd712d3033e30f11f79b18cd80f
+ms.openlocfilehash: be89a2799af3bdc2938f73e3d54f00f81d9ab9cd
 
 
 ---
@@ -30,6 +30,9 @@ ms.openlocfilehash: dde22adda13b88a6cd0f1d033c2730ddc3288050
 > 
 
 Il [portale di Azure](https://portal.azure.com/) consente di creare, monitorare e gestire server e database SQL di Azure. Questo articolo offre una descrizione rapida e collegamenti per i dettagli delle attività più comuni.
+
+> [!TIP]
+> Per un'esercitazione che illustra come creare un server, creare un firewall basato su server, visualizzare le proprietà del server, connettersi usando SQL Server Management Studio, eseguire query nel database master, creare un database di esempio e un database vuoto, eseguire query relative alle proprietà del database, connettersi usando SQL Server Management Studio ed eseguire query nel database di esempio, vedere l'[Esercitazione introduttiva](sql-database-get-started.md).
 
 ## <a name="view-your-azure-sql-databases-servers-and-pools"></a>Visualizzare database, server e pool SQL di Azure
 Per visualizzare i servizi di database SQL disponibili, fare clic su **Altri servizi** e digitare **SQL** nella casella di ricerca:
@@ -47,7 +50,7 @@ Per aprire il pannello **SQL Server**, fare clic su **SQL Server** e quindi sul 
 ![Server di SQL](./media/sql-database-manage-portal/sql-servers.png)
 
 ## <a name="how-do-i-create-or-view-sql-elastic-pools"></a>Come si creano o visualizzano i pool elastici SQL di Azure?
-Per aprire il pannello **Pool elastici SQL**, fare clic su **Pool elastici SQL** e quindi sul pool da usare oppure fare clic su **+Aggiungi** per creare un pool. Per informazioni dettagliate, vedere [Creare un nuovo pool di database elastici con il portale di Azure](sql-database-elastic-pool-create-portal.md).
+Per aprire il pannello **Pool elastici SQL**, fare clic su **Pool elastici SQL** e quindi sul pool da usare oppure fare clic su **+Aggiungi** per creare un pool. Per informazioni dettagliate, vedere [Creare un nuovo pool elastico con il portale di Azure](sql-database-elastic-pool-create-portal.md).
 
 ![Pool elastici SQL](./media/sql-database-manage-portal/elastic-pools.png)
 
@@ -103,7 +106,7 @@ Per creare un file BACPAC di un database SQL, fare clic su **Esporta** nel panne
 ![Esportazione di un database SQL](./media/sql-database-manage-portal/sql-database-export.png)
 
 ## <a name="how-do-i-restore-a-sql-database-to-a-previous-point-in-time"></a>Come si ripristina un database SQL a un momento precedente?
-Per ripristinare un database SQL, fare clic su **Ripristina** nel pannello **Database SQL**. Per informazioni dettagliate, vedere [Ripristinare un database SQL di Azure a un momento precedente con il portale di Azure](sql-database-point-in-time-restore-portal.md).
+Per ripristinare un database SQL, fare clic su **Ripristina** nel pannello **Database SQL**. Per informazioni dettagliate, vedere [Ripristinare un database SQL di Azure a un momento precedente con il portale di Azure](sql-database-point-in-time-restore.md).
 
 ![Impostazioni del database SQL](./media/sql-database-manage-portal/sql-database-restore.png)
 
@@ -122,11 +125,11 @@ Per eliminare un database SQL, fare clic su **Elimina** nel pannello **Database 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Database SQL](sql-database-technical-overview.md)
-* [Monitorare e gestire un pool di database elastici con il portale di Azure](sql-database-elastic-pool-manage-portal.md)
+* [Monitorare e gestire un pool elastico con il portale di Azure](sql-database-elastic-pool-manage-portal.md)
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

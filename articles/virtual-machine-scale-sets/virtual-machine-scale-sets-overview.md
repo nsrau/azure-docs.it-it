@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/15/2016
+ms.date: 1/25/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 078eed417b925263712d0be74b27d5802b091ca5
-ms.openlocfilehash: d8aea5b46e4ef48bf253194df603c772631a787d
+ms.sourcegitcommit: 868d65642ab9ca3e1c35d33a7cb9e9dd8c31c430
+ms.openlocfilehash: f945ac0357c11c70780dea8e62f094457a213d96
 
 
 ---
@@ -32,20 +32,20 @@ Per altre informazioni sui set di scalabilità di macchine virtuali, guardare i 
 * [Set di scalabilità di macchine virtuali con Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-vm-scale-sets"></a>Creazione e gestione dei set di scalabilità di macchine virtuali
-È possibile creare un set di scalabilità di VM nel [portale di Azure](https://portal.azure.com) selezionando *nuova* e digitando "scalabilità" nella barra di ricerca. Nei risultati verrà visualizzato "Set di scalabilità di macchine virtuali". In questa pagina è possibile compilare i campi necessari per personalizzare e distribuire il set di scalabilità. 
+È possibile creare un set di scalabilità di VM nel [portale di Azure](https://portal.azure.com) selezionando *nuova* e digitando "scalabilità" nella barra di ricerca. Nei risultati verrà visualizzato "Set di scalabilità di macchine virtuali". In questa pagina è possibile compilare i campi necessari per personalizzare e distribuire il set di scalabilità. Si noti che nel portale sono anche disponibili opzioni per impostare le regole di base di scalabilità automatica in base all'uso della CPU.
 
 I set di scalabilità di macchine virtuali possono anche essere definiti e distribuiti tramite modelli JSON e [API REST](https://msdn.microsoft.com/library/mt589023.aspx) esattamente come le singole macchine virtuali di Gestione risorse di Azure. Di conseguenza, è possibile usare qualsiasi metodo di distribuzione standard di Gestione risorse di Azure. Per altre informazioni sui modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Un set di modelli di esempio per i set di scalabilità di macchine virtuali è disponibile [qui](https://github.com/Azure/azure-quickstart-templates) (cercare i modelli contenenti *vmss* nel titolo).
 
-Nelle pagine dei dettagli per questi modelli verrà visualizzato un pulsante per il collegamento alla funzionalità di distribuzione del portale. Per distribuire il set di scalabilità di macchine virtuali, fare clic sul pulsante e quindi specificare tutti i parametri richiesti nel portale. In caso di dubbi sul fatto che una risorsa supporti le lettere maiuscole o una combinazione di maiuscole e minuscole, per sicurezza è consigliabile usare sempre valori di parametri con lettere minuscole. Per un'analisi video di un modello di set di scalabilità di macchine virtuali, vedere:
+Nelle pagine dei dettagli per questi modelli verrà visualizzato un pulsante per il collegamento alla funzionalità di distribuzione del portale. Per distribuire il set di scalabilità di macchine virtuali, fare clic sul pulsante e quindi specificare tutti i parametri richiesti nel portale. In caso di dubbi sul fatto che una risorsa supporti le lettere maiuscole o una combinazione di maiuscole e minuscole, per sicurezza è consigliabile usare sempre valori di parametri con lettere minuscole e numeri. Per un'analisi video di un modello di set di scalabilità di macchine virtuali, vedere:
 
-[Analisi del modello di set di scalabilità di macchine virtuali](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player)
+[Analisi del modello di set di scalabilità di macchine virtuali](https://channel9.msdn.com/Blogs/Azure/VM-Scale-Set-Template-Dissection/player)
 
 ## <a name="scaling-a-vm-scale-set-out-and-in"></a>Aumento e riduzione di risorse e capacità di un set di scalabilità di macchine virtuali
 Per aumentare o ridurre il numero di macchine virtuali in un set di scalabilità di VM, è sufficiente modificare la proprietà *capacity* e ridistribuire il modello. Questa semplificazione agevola la scrittura di un livello di scalabilità personalizzato per definire eventi di scalabilità personalizzati non supportati dalla funzionalità di scalabilità automatica di Azure.
 
-Se si sta ridistribuendo un modello per modificare la capacità, è possibile definire un modello molto più piccolo che include solo lo SKU e la capacità aggiornata. [qui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing)
+Se si sta ridistribuendo un modello per modificare la capacità, è possibile definire un modello molto più piccolo che include solo il pacchetto di proprietà 'SKU' con la capacità aggiornata. [qui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing)
 
 Per eseguire la procedura di creazione di un set di scalabilità che viene ridimensionato automaticamente, vedere [Ridimensionare automaticamente le macchine virtuali in un set di scalabilità di macchine virtuali](virtual-machine-scale-sets-windows-autoscale.md)
 
@@ -58,7 +58,7 @@ Il [portale di Azure](https://portal.azure.com) elenca i set di scalabilità e m
 Questa sezione mostra un elenco di alcuni scenari di set di scalabilità di macchine virtuali tipici. Anche alcuni servizi di Azure di livello più elevato (ad esempio Batch, Service Fabric, servizio contenitore di Azure) useranno questi scenari.
 
 * **Connessione RDP/SSH a istanze del set di scalabilità di macchine virtuali** : un set di scalabilità di macchine virtuali viene creato in una rete virtuale e alle singole macchine virtuali nel set di scalabilità non vengono allocati indirizzi IP pubblici. Questo è positivo perché in genere non si vogliono sostenere le spese e il sovraccarico di gestione richiesti dall'allocazione di indirizzi IP pubblici distinti a tutte le risorse senza stato della griglia di calcolo ed è possibile connettersi facilmente a queste macchine virtuali da altre risorse della rete virtuale, incluse quelle con indirizzi IP pubblici, ad esempio i servizi di bilanciamento del carico o le macchine virtuali autonome.
-* **Connettersi alle macchine virtuali usando regole NAT** : è possibile creare un indirizzo IP pubblico, assegnarlo a un servizio di bilanciamento del carico e definire le regole NAT in ingresso che eseguono il mapping di una porta nell'indirizzo IP a una porta di una macchina virtuale del set di scalabilità. ad esempio:
+* **Connettersi alle macchine virtuali usando regole NAT**: è possibile creare un indirizzo IP pubblico, assegnarlo a un servizio di bilanciamento del carico e definire un pool NAT in ingresso che eseguirà il mapping delle porte nell'indirizzo IP a una porta di una macchina virtuale del set di scalabilità. Ad esempio:
   
   | Sorgente | Porta di origine | Destination | Porta di destinazione |
   | --- | --- | --- | --- |
@@ -72,35 +72,30 @@ Questa sezione mostra un elenco di alcuni scenari di set di scalabilità di macc
 * **Connettersi alle macchine virtuali usando una macchina virtuale jumpbox** : se si crea un set di scalabilità di macchine virtuali e una macchina virtuale autonoma nella stessa rete virtuale, la macchina virtuale autonoma e le macchine virtuali del set di scalabilità possono connettersi l'una all'altra usando i rispettivi indirizzi IP interni definiti dalla rete virtuale/subnet. Se si crea un indirizzo IP pubblico e lo si assegna alla macchina virtuale autonoma, è possibile connettersi tramite RDP o SSH alla macchine virtuale autonoma e quindi connettersi da tale macchina virtuale alle istanze del set di scalabilità di macchine virtuali. Si noterà quindi che un semplice set di scalabilità di macchine virtuali è intrinsecamente più sicuro di una semplice macchina virtuale autonoma con un indirizzo IP pubblico nella configurazione predefinita.
   
    Questo modello, ad esempio, distribuisce un set di scalabilità semplice con una VM autonoma: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-jumpbox](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-jumpbox)
-* **Bilanciamento del carico round robin alle istanze del set di scalabilità di macchine virtuali** : per trasmettere dati a un cluster di elaborazione di macchine virtuali con un approccio "round robin", è possibile configurare un servizio di bilanciamento del carico di Azure con le relative regole di bilanciamento del carico. È anche possibile definire alcuni probe per verificare che l'applicazione sia in esecuzione effettuando il ping delle porte con un protocollo, un intervallo e un percorso di richiesta specificati. [Gateway applicazione](https://azure.microsoft.com/services/application-gateway/) di Azure supporta anche set di scalabilità, insieme a scenari di bilanciamento del carico più sofisticati.
+* **Bilanciamento del carico alle istanze del set di scalabilità di macchine virtuali**: per trasmettere dati a un cluster di elaborazione di macchine virtuali con un approccio "round robin", è possibile configurare un servizio di bilanciamento del carico di Azure con le regole di livello&4;. È anche possibile definire alcuni probe per verificare che l'applicazione sia in esecuzione effettuando il ping delle porte con un protocollo, un intervallo e un percorso di richiesta specificati. Il [gateway applicazione](https://azure.microsoft.com/services/application-gateway/) di Azure supporta anche set di scalabilità, insieme a scenari di bilanciamento del carico di livello&7; e più sofisticati.
   
    Ecco un esempio che crea un set di scalabilità di macchine virtuali che esegue i server Web Apache e usa un servizio di bilanciamento del carico per bilanciare il carico ricevuto da ogni VM: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-web-ssl](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-web-ssl). Esaminare il tipo di risorsa Microsoft.Network/loadBalancers e networkProfile ed extensionProfile in virtualMachineScaleSet.
-* **Distribuzione di un set di scalabilità di macchine virtuali come cluster di elaborazione in un gestore di cluster PaaS** : i set di scalabilità di macchine virtuali sono talvolta descritti come un ruolo di lavoro di prossima generazione. È una definizione valida che però rischia di confondere le funzionalità dei set di scalabilità con quelle del ruolo di lavoro PaaS v1. In un certo senso i set di scalabilità di macchine virtuali offrono un "ruolo di lavoro" o risorsa di lavoro effettiva, in quanto forniscono una risorsa di calcolo generalizzata indipendente dalla piattaforma o dal runtime, personalizzabile e integrata nel servizio IaaS di Gestione risorse di Azure.
+* **Distribuzione di un set di scalabilità di macchine virtuali come cluster di elaborazione in un gestore di cluster PaaS** : i set di scalabilità di macchine virtuali sono talvolta descritti come un ruolo di lavoro di prossima generazione. È una definizione valida che però rischia di confondere le funzionalità dei set di scalabilità con quelle del ruolo di lavoro PaaS v1. In un certo senso i set di scalabilità di macchine virtuali offrono un "ruolo di lavoro" o risorsa di lavoro effettiva, perché forniscono una risorsa di calcolo generalizzata indipendente dalla piattaforma o dal runtime, personalizzabile e integrata nel servizio IaaS di Azure Resource Manager.
   
    Un ruolo di lavoro PaaS v1, sebbene limitato in termini di supporto per la piattaforma o il runtime (solo immagini della piattaforma Windows), include anche servizi come lo scambio di indirizzi VIP, impostazioni di aggiornamento configurabili, impostazioni specifiche della distribuzione del runtime o delle app che non sono *ancora* disponibili nei set di scalabilità di VM o che verranno forniti da altri servizi PaaS di livello più elevato come Service Fabric. Tenendo presente questo fatto, è possibile considerare i set di scalabilità di macchine virtuali come un'infrastruttura che supporta la tecnologia di piattaforma distribuita come servizio e quindi le soluzioni PaaS, come Service Fabric o i gestori di cluster come Mesos, possono basarsi sui set di scalabilità di macchine virtuali come un livello di calcolo scalabile.
   
    Per un esempio di questo approccio, il servizio contenitore di Azure distribuisce un cluster basato sui set di scalabilità con un agente di orchestrazione contenitore: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos).
 
 ## <a name="vm-scale-set-performance-and-scale-guidance"></a>Indicazioni sulla scalabilità e le prestazioni dei set di scalabilità di macchine virtuali
-* Non creare più di 500 VM in più set di scalabilità di VM alla volta.
-* Prevedere non più di 20 VM per ogni account di archiviazione, a meno che non si imposti la proprietà *overprovision* su "false", nel qual caso è possibile arrivare a 40.
-* Diversificare il più possibile le prime lettere dei nomi degli account di archiviazione.  I modelli di set di scalabilità VM di esempio nei [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/) offrono esempi di come procedere.
-* Se si usano macchine virtuali personalizzate, non pianificare più di 40 macchine virtuali per set di scalabilità in un singolo account di archiviazione.  Sarà necessaria l'immagine copiata in precedenza nell'account di archiviazione prima di poter iniziare a distribuire i set di scalabilità di macchine virtuali. Per altre informazioni, vedere le domande frequenti.
+* Prevedere non più di 20 VM per ogni account di archiviazione quando si usano set di scalabilità con dischi non gestiti, a meno che non si imposti la proprietà *overprovision* su "false", nel qual caso è possibile arrivare a 40. Con i dischi gestiti, questi limiti per il singolo account di archiviazione non sono applicabili.
+* Diversificare il più possibile le prime lettere dei nomi degli account di archiviazione quando si usano set di scalabilità con dischi non gestiti. I modelli di set di scalabilità VM di esempio nei [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/) offrono esempi di come procedere.
+* Se si usano macchine virtuali personalizzate con dischi non gestiti, non pianificare più di 40 macchine virtuali per set di scalabilità in un singolo account di archiviazione. Sarà necessaria l'immagine copiata in precedenza nell'account di archiviazione prima di poter iniziare a distribuire i set di scalabilità di macchine virtuali. I set di scalabilità con dischi gestiti supportano fino a 100 macchine virtuali personalizzate. Per altre informazioni, vedere le domande frequenti.
 * Non pianificare più di 4096 VM per rete virtuale.
 * Il numero di VM che è possibile creare è limitato dalla quota di memoria centrale nell'area in cui si esegue la distribuzione. Potrebbe essere necessario contattare il supporto tecnico per richiedere l'aumento della quota di calcolo anche se l'attuale limite di core da usare con i servizi cloud o IaaS v1 è elevato. Per informazioni sulla quota, è possibile eseguire il comando dell'interfaccia della riga di comando di Azure `azure vm list-usage` e il comando di PowerShell `Get-AzureRmVMUsage`. Se si usa una versione di PowerShell precedente alla 1.0, usare `Get-AzureVMUsage`.
 
 ## <a name="vm-scale-set-frequently-asked-questions"></a>Domande frequenti sui set di scalabilità di macchine virtuali
 **D.** Quante macchine virtuali si possono includere in un set di scalabilità?
 
-**R.** &100; se si usano immagini della piattaforma che è possibile distribuire in più account di archiviazione. Se si usano immagini personalizzate, fino a 40 (se la proprietà *overprovision* è impostata su "false", 20 per impostazione predefinita), perché attualmente le immagini personalizzate sono limitate a un solo account di archiviazione.
-
-**Quali altri limiti di risorse esistono per i set di scalabilità di macchine virtuali?**
-
-**R.** Non è possibile creare più di 500 VM in più set di scalabilità per area durante un periodo di 10 minuti. Si applicano i [limiti del servizio per la sottoscrizione di Azure](../azure-subscription-service-limits.md) esistenti.
+**R.** Con i dischi gestiti, il set di scalabilità può avere tra 0 e 1.000 macchine virtuali basate su immagini della piattaforma o 0-100 macchine virtuali basate su immagini personalizzate. Per i dischi non gestiti (in cui si definiscono i propri account di archiviazione) il limite è 100 macchine virtuali per le immagini della piattaforma e 40 per le immagini personalizzate (se la proprietà *overprovision* è impostata su "false", 20 per impostazione predefinita), dal momento che le immagini personalizzate con i dischi non gestiti sono limitate a un singolo account di archiviazione.
 
 **D.** I dischi dati sono supportati nei set di scalabilità di macchine virtuali?
 
-**R.** Non nella versione iniziale, anche se i dischi dati sono attualmente disponibili nell'anteprima. Le opzioni per l'archiviazione dei dati sono:
+**R.** Sì. Un set di scalabilità con archiviazione gestita può definire una configurazione di unità di dati collegati che verrà applicata a tutte le macchine virtuali nel set. I set di scalabilità non definiti con archiviazione gestita non hanno unità di dati collegati. Le altre opzioni per l'archiviazione dei dati includono:
 
 * File di Azure (unità condivise SMB)
 * Unità del sistema operativo
@@ -114,19 +109,7 @@ Questa sezione mostra un elenco di alcuni scenari di set di scalabilità di macc
 
 **D.** Come si crea un set di scalabilità di VM con un'immagine personalizzata?
 
-**R.** Lasciare vuota la proprietà vhdContainers oppure ometterla e specificare l'URI della proprietà dell'immagine, ad esempio:
-
-    "storageProfile": {
-        "osDisk": {
-            "name": "vmssosdisk",
-            "caching": "ReadOnly",
-            "createOption": "FromImage",
-            "image": {
-                "uri": "https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd"
-            },
-            "osType": "Windows"
-        }
-    },
+**R.** Lasciare vuota la proprietà vhdContainers oppure ometterla e specificare l'URI della proprietà dell'immagine, ad esempio: [201-vmss-windows-customimage].(https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-customimage)
 
 
 **D.** Se si riduce la capacità del set di scalabilità di macchine virtuali da 20 a 15, quali macchine virtuali verranno rimosse?
@@ -143,11 +126,10 @@ Questa sezione mostra un elenco di alcuni scenari di set di scalabilità di macc
 
 **D.** I set di scalabilità di macchine virtuali si integrano con i set di disponibilità di Azure?
 
-**R.** Sì. Un set di scalabilità di VM è un set di disponibilità implicito impostato con 5 domini di errore e 5 domini di aggiornamento. Non è necessario configurare nulla in virtualMachineProfile. Nelle versioni future i set di scalabilità di macchine virtuali si estenderanno probabilmente su più tenant, ma per ora un set di scalabilità è un set di disponibilità singolo.
+**R.** Sì. Un set di scalabilità di VM è un set di disponibilità implicito impostato con 5 domini di errore e 5 domini di aggiornamento. Non è necessario configurare nulla in virtualMachineProfile. I set di scalabilità di più di 100 macchine virtuali si estendono su più 'gruppi di posizionamento' equivalenti a più set di disponibilità. Un set di disponibilità di macchine virtuali può trovarsi nella stessa rete virtuale di un set di scalabilità di macchine virtuali. Una configurazione comune consiste nell'inserire VM del nodo di controllo, che spesso richiedono una configurazione univoca, nel set di disponibilità e nodi di dati nel set di scalabilità.
 
 
 
-
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

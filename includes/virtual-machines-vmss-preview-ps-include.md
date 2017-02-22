@@ -2,4 +2,7 @@ La versione dell'API dei set di scalabilità di macchina virtuale è 15-06-2015 
 
     Register-AzureRmProviderFeature -FeatureName vmssApiPreviewV2Access -ProviderNamespace Microsoft.Compute
 
-<!---HONumber=AcomDC_0114_2016-->
+
+<!--HONumber=Jan17_HO3-->
+
+

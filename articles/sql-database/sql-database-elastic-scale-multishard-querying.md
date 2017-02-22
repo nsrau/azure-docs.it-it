@@ -1,5 +1,5 @@
 ---
-title: "Esecuzione di query su più partizioni | Documentazione Microsoft"
+title: Eseguire query su database SQL di Azure partizionati | Documentazione Microsoft
 description: Eseguire query tra partizioni utilizzando la libreria client dei database elastici.
 services: sql-database
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 04/12/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d616160e8547e256da7f445e79f0949496ca943f
+ms.sourcegitcommit: 873df52da976597ddfaa8f777b90382bfa7723fc
+ms.openlocfilehash: aa54ec3d982ea4422422bd4e520d2211aad57159
 
 
 ---
@@ -25,7 +25,6 @@ ms.openlocfilehash: d616160e8547e256da7f445e79f0949496ca943f
 ## <a name="overview"></a>Panoramica
 Con gli [strumenti dei database elastici](sql-database-elastic-scale-introduction.md) è possibile creare soluzioni di database partizionati. La funzionalità di **query su più partizioni** viene usata per attività che richiedono l'esecuzione di una query su più partizioni, ad esempio la raccolta o la creazione di report sui dati, a differenza del [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md), che consente di eseguire tutto il lavoro su una singola partizione. 
 
-## <a name="overview"></a>Overview
 1. Ottenere una mappa [**RangeShardMap**](https://msdn.microsoft.com/library/azure/dn807318.aspx) o [**ListShardMap**](https://msdn.microsoft.com/library/azure/dn807370.aspx) con il metodo [**TryGetRangeShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx), [**TryGetListShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx) o [**GetShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx). Vedere [**Creazione di un oggetto ShardMapManager**](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager) e [**Ottenere una mappa RangeShardMap o ListShardMap**](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap).
 2. Creare un oggetto **[MultiShardConnection](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection.aspx)**.
 3. Creare un **[MultiShardCommand](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.aspx)**. 
@@ -80,6 +79,6 @@ Gestire le partizioni con la [libreria client dei database elastici](sql-databas
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

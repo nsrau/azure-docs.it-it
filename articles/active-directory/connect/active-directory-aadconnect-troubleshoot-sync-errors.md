@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 1/31/2017
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
-ms.openlocfilehash: b5b7ff810f36b14481572ec2e59f9d4999945c3f
+ms.sourcegitcommit: 55ee9f685427168c02865d204fda34066c6779c5
+ms.openlocfilehash: a8533926bbb26770d8e665436e38172aeffbb035
 
 
 ---
@@ -35,7 +35,7 @@ Azure AD Connect esegue 3 tipi di operazioni dalle directory che mantiene sincro
 La sezione seguente descrive le differenti tipologie di errori di sincronizzazione che possono verificarsi durante l'esportazione in Azure AD usando il connettore di Azure AD, identificabile dal formato del nome: "contoso.*onmicrosoft.com*".
 Quando si verificano un errore durante l'esportazione in Azure AD significa che l'operazione di \(aggiunta, aggiornamento, eliminazione e così via\) tentata dal \(motore di sincronizzazione\) di Azure AD Connect in Azure Active Directory non è andata a buon fine.
 
-![Panoramica degli errori di esportazione](.\\media\\active-directory-aadconnect-troubleshoot-sync-errors\\Export_Errors_Overview_01.png)
+![Panoramica degli errori di esportazione](./media/active-directory-aadconnect-troubleshoot-sync-errors/Export_Errors_Overview_01.png)
 
 ## <a name="data-mismatch-errors"></a>Errori di mancata corrispondenza dei dati
 ### <a name="invalidsoftmatch"></a>InvalidSoftMatch
@@ -56,8 +56,8 @@ Schema di Azure Active Directory non consente a due o più oggetti di avere lo s
 > [!NOTE]
 > La funzionalità [Resilienza degli attributi duplicati di Azure Active Directory](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) viene anche implementata come comportamento predefinito di Azure Active Directory.  Ciò ridurrà il numero degli errori di sincronizzazione rilevati da Azure AD Connect (e da altri client di sincronizzazione), rendendo Azure AD più resiliente nella modalità di gestione degli attributi ProxyAddresses e UserPrincipalName duplicati che sono presenti negli ambienti AD locali. Questa funzionalità non risolve gli errori di duplicazione, pertanto c'è ancora bisogno di correggere i dati. Tuttavia, questa funzionalità consente il provisioning di nuovi oggetti per i quali, altrimenti, viene bloccato il provisioning a causa dei valori duplicati in Azure AD. Ciò riduce anche il numero di errori di sincronizzazione restituito al client di sincronizzazione.
 > Se questa funzionalità è abilitata per il tenant, non si verificheranno gli errori di sincronizzazione InvalidSoftMatch rilevati durante il provisioning di nuovi oggetti.
-> 
-> 
+>
+>
 
 #### <a name="example-scenarios-for-invalidsoftmatch"></a>Scenari di esempio per InvalidSoftMatch
 1. Nell'Active Directory locale sono presenti due o più oggetti con lo stesso valore dell'attributo ProxyAddresses, ma il provisioning viene eseguito in Azure AD soltanto per un oggetto.
@@ -86,7 +86,7 @@ Schema di Azure Active Directory non consente a due o più oggetti di avere lo s
 9. Durante la sincronizzazione, Azure AD Connect riconoscerà l'aggiunta di Bob Taylor nell'Active Directory locale e chiederà ad Azure AD di apportare la stessa modifica.
 10. Azure AD eseguirà prima una corrispondenza rigida, ossia eseguirà la ricerca per vedere se esiste un qualsiasi oggetto con l'attributo immutableId uguale a "abcdefghijkl0123456789==". La corrispondenza rigida avrà esito negativo se nessun altro oggetto in Azure AD avrà quell'attributo immutableId.
 11. Azure AD tenterà quindi di eseguire la corrispondenza flessibile con Bob Taylor, ossia, eseguirà la ricerca per vedere se esiste un qualsiasi oggetto con l'attributo proxyAddresses uguale ai tre valori, compreso smtp:bob@contoso.com
-12. Azure AD troverà l'oggetto di Bob Smith che corrisponde ai criteri della corrispondenza flessibile. Tuttavia, il valore dell'attributo immutableId per questo oggetto è "abcdefghijklmnopqrstuv==", il quale indica che l'oggetto è stato sincronizzato da un altro oggetto presente nell'Active Directory locale. Di conseguenza, Azure AD non può eseguire la corrispondenza flessibile di questi oggetti e verrà restituito l'errore di sincronizzazione **InvalidSoftMatch**.
+12. Azure AD troverà l'oggetto di Bob Smith che corrisponde ai criteri della corrispondenza flessibile. Tuttavia, il valore dell'attributo immutableId per questo oggetto è "abcdefghijklmnopqrstuv==", il quale indica che l'oggetto è stato sincronizzato da un altro oggetto presente nell'Active Directory locale. Di conseguenza, Azure AD non può eseguire la corrispondenza flessibile di questi oggetti e viene restituito l'errore di sincronizzazione **InvalidSoftMatch**.
 
 #### <a name="how-to-fix-invalidsoftmatch-error"></a>Come correggere l'errore InvalidSoftMatch
 La causa più comune dell'errore InvalidSoftMatch è che due oggetti con attributi SourceAnchor \(immutableId\) differenti hanno lo stesso valore per gli attributi ProxyAddresses e/o UserPrincipalName, i quali vengono usati durante il processo di corrispondenza flessibile in Azure AD. Per risolvere l'errore di corrispondenza flessibile
@@ -100,8 +100,8 @@ Si noti che il report sugli errori di sincronizzazione all'interno di Azure AD C
 
 > [!NOTE]
 > L'attributo immutableId, per definizione, non deve cambiare nel corso della durata dell'oggetto. Se non si è configurato Azure AD Connect tenendo in considerazione alcuni degli scenari riportati nell'elenco precedente, si potrebbe incorrere in una situazione in cui Azure AD Connect calcola un valore differente dell'attributo SourceAnchor per l'oggetto di Active Directory che rappresenta la stessa entità (stesso gruppo/utente/contatto e così via) che dispone di un oggetto di Azure AD esistente che si desidera continuare a usare.
-> 
-> 
+>
+>
 
 #### <a name="related-articles"></a>Articoli correlati
 * [Gli attributi duplicati o non validi impediscono la sincronizzazione delle directory in Office 365](https://support.microsoft.com/en-us/kb/2647098)
@@ -114,7 +114,7 @@ Quando Azure AD tenta una corrispondenza flessibile tra due oggetti, è possibil
 * In Office 365 viene creato un gruppo di protezione abilitato alla posta elettronica. L'amministratore aggiunge un nuovo utente o contatto all'Active Directory locale (che non è ancora stato sincronizzato con Azure AD) con lo stesso valore per l'attributo ProxyAddresses del gruppo di Office 365.
 
 #### <a name="example-case"></a>Caso di esempio
-1. L'amministratore crea un nuovo gruppo di protezione abilitato alla posta elettronica in Office 365 per il reparto addetto alle imposte e mette a disposizione un indirizzo di posta elettronica come tax@contoso.com.. Ciò consente di assegnare l'attributo ProxyAddresses per questo gruppo con il valore di **smtp:tax@contoso.com**
+1. L'amministratore crea un nuovo gruppo di sicurezza abilitato alla posta elettronica in Office 365 per il reparto addetto alle imposte e mette a disposizione un indirizzo di posta elettronica come tax@contoso.com. Ciò consente di assegnare l'attributo ProxyAddresses per questo gruppo con il valore di **smtp:tax@contoso.com**
 2. Un nuovo utente entra in Contoso.com, per il quale viene creato un account locale con l'attributo proxyAddress come **smtp:tax@contoso.com**
 3. Quando Azure AD Connect sincronizzerà il nuovo account utente, verrà restituito l'errore "ObjectTypeMismatch".
 
@@ -134,14 +134,14 @@ Lo schema di Azure Active Directory non consente a due o più oggetti di avere l
 * ProxyAddresses
 * UserPrincipalName
 
-Se Azure AD Connect tenta di aggiungere un nuovo oggetto o di aggiornare un oggetto esistente con un valore degli attributi indicati sopra che è già stato assegnato a un altro oggetto in Azure Active Directory, l'operazione restituirà l'errore di sincronizzazione "AttributeValueMustBeUnique".
+Se Azure AD Connect tenta di aggiungere un nuovo oggetto o di aggiornare un oggetto esistente con un valore degli attributi indicati sopra che è già stato assegnato a un altro oggetto in Azure Active Directory, l'operazione restituisce l'errore di sincronizzazione "AttributeValueMustBeUnique".
 
 #### <a name="possible-scenarios"></a>Scenari possibili:
 1. Il valore duplicato viene assegnato a un oggetto già sincronizzato, che entra in conflitto con un altro oggetto sincronizzato.
 
 #### <a name="example-case"></a>Caso di esempio:
 1. **Bob Smith** è un utente sincronizzato in Azure Active Directory da un'Active Directory locale di contoso.com
-2. Il parametro **UserPrincipalName** di Bob Smith inn locale è configurato come **bobs@contoso.com**.
+2. Il parametro **UserPrincipalName** di Bob Smith in locale è configurato come **bobs@contoso.com**.
 3. Bob dispone anche dei seguenti valori per l'attributo **proxyAddresses**:
    * smtp:bobs@contoso.com
    * smtp:bob.smith@contoso.com
@@ -180,8 +180,8 @@ a. Assicurarsi che l'attributo userPrincipalName contenga caratteri supportati e
 * [Preparazione per il provisioning degli utenti tramite la sincronizzazione delle directory a Office 365](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="datavalidationfailed"></a>DataValidationFailed
-#### <a name="description"></a>Description
-Questo è un caso molto specifico che restituisce un errore di sincronizzazione **"DataValidationFailed"** quando il suffisso dell'attributo UserPrincipalName di un utente viene modificato da un dominio federato a un altro dominio federato.
+#### <a name="description"></a>Descrizione
+Questo è un caso specifico che restituisce un errore di sincronizzazione **"DataValidationFailed"** quando il suffisso dell'attributo UserPrincipalName di un utente viene modificato da un dominio federato a un altro dominio federato.
 
 #### <a name="scenarios"></a>Scenari
 Per un utente sincronizzato, il suffisso dell'attributo UserPrincipalName è stato modificato da un dominio federato a un altro dominio federato locale. Ad esempio, *UserPrincipalName = bob@contoso.com* è stato modificato in *UserPrincipalName = bob@fabrikam.com*.
@@ -193,23 +193,26 @@ Per un utente sincronizzato, il suffisso dell'attributo UserPrincipalName è sta
 4. L'attributo UserPrincipalName di Bob non viene aggiornato e si verifica l'errore di sincronizzazione "DataValidationFailed".
 
 #### <a name="how-to-fix"></a>Modalità di correzione
-Se il suffisso dell'attributo UserPrincipalName dell'utente è stato aggiornato da bob@**contoso.com** a bob@**fabrikam.com**, dove entrambi i domini **contoso.com** e **fabrikam.com** sono **domini federati**, seguire la procedura seguente per correggere l'errore di sincronizzazione
+Se il suffisso dell'attributo UserPrincipalName dell'utente è stato aggiornato da bob@**contoso.com** a bob@**fabrikam.com**, dove entrambi i domini **contoso.com** e **fabrikam.com** sono **domini federati**, seguire questa procedura per correggere l'errore di sincronizzazione.
 
-1. Aggiornare l'attributo UserPrincipalName dell'utente in Azure AD da bob@contoso.com a bob@contoso.onmicrosoft.com.. È possibile usare il comando PowerShell seguente con il modulo di Azure AD PowerShell: `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
+1. Aggiornare l'attributo UserPrincipalName dell'utente in Azure AD da bob@contoso.com a bob@contoso.onmicrosoft.com. È possibile utilizzare il comando PowerShell seguente con il modulo di Azure AD PowerShell: `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Consentire al ciclo di sincronizzazione successivo di eseguire un nuovo tentativo di sincronizzazione. Questa volta la sincronizzazione andrà a buon fine e permetterà di aggiornare l'attributo UserPrincipalName di Bob su bob@fabrikam.com, come previsto.
 
+#### <a name="related-articles"></a>Articoli correlati
+* [Le modifiche non sono sincronizzate dallo strumento di sincronizzazione di Azure Active Directory dopo aver modificato l'UPN di un account utente per usare un dominio federato diverso](https://support.microsoft.com/en-us/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
+
 ## <a name="largeobject"></a>LargeObject
-### <a name="description"></a>Description
-Quando un attributo supera il limite di dimensioni consentite, di lunghezza o di conteggio impostati dallo schema di Azure Active Directory, la sincronizzazione restituirà come risultato un errore di sincronizzazione di tipo **LargeObject** o **ExceededAllowedLength**. In genere questo errore si verifica per gli attributi seguenti:
+### <a name="description"></a>Descrizione
+Quando un attributo supera il limite di dimensioni consentite, di lunghezza o di conteggio impostati dallo schema di Azure Active Directory, la sincronizzazione restituisce come risultato un errore di sincronizzazione di tipo **LargeObject** o **ExceededAllowedLength**. In genere questo errore si verifica per gli attributi seguenti:
 
 * userCertificate
 * thumbnailPhoto
 * proxyAddresses
 
 ### <a name="possible-scenarios"></a>Scenari possibili
-1. L'attributo userCertificate di Bob contiene troppi certificati assegnati a Bob, tra i quali possono esserci certificati scaduti o meno recenti.
-2. L'attributo thmubnailPhoto di Bob impostato in Active Directory è troppo grande per essere sincronizzato in Azure AD.
-3. Durante il popolamento automatico dell'attributo ProxyAddresses in Active Directory un oggetto è stato assegnato a più di 500 attributi ProxyAddresses.
+1. L'attributo userCertificate di Bob contiene troppi certificati assegnati a Bob, tra i quali possono esserci certificati scaduti o meno recenti. Il limite rigido consente 50 certificati, ma è consigliabile avere al massimo 25 certificati.
+2. L'attributo thumbnailPhoto di Bob impostato in Active Directory è troppo grande per essere sincronizzato in Azure AD.
+3. Durante il popolamento automatico dell'attributo ProxyAddresses in Active Directory un oggetto è stato assegnato a più di&500; attributi ProxyAddresses.
 
 ### <a name="how-to-fix"></a>Modalità di correzione
 1. Verificare che l'attributo che ha causato l'errore non superi il limite consentito.
@@ -220,7 +223,6 @@ Quando un attributo supera il limite di dimensioni consentite, di lunghezza o di
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

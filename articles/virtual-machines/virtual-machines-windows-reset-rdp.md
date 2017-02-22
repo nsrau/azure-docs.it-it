@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 6700ea97bea02d68329b923f8715d84e5df1de33
+ms.sourcegitcommit: 8062106872bd50cd265fc4e64bc6f4c0fb2dbb1d
+ms.openlocfilehash: b7458e13174dc03f2c4cab707c033d96a80628e6
 
 
 ---
@@ -44,7 +44,11 @@ VM create con il modello di distribuzione classica:
 - [Ripristinare con Azure PowerShell](#vmaccess-extension-and-powershell---classic)
 
 ## <a name="azure-portal---resource-manager"></a>Portale di Azure - Resource Manager
-Selezionare la macchina virtuale facendo clic su **Esplora** > **Macchine virtuali** > *macchina virtuale Windows* > **Tutte le impostazioni** > **Reimposta password**. Viene visualizzato il pannello per la reimpostazione della password:
+Per espandere il menu del portale, fare clic sulle tre barre nell'angolo superiore sinistro e quindi fare clic su **Macchine virtuali**:
+
+![Cercare la macchina virtuale di Azure](./media/virtual-machines-windows-reset-rdp/Portal-Select-VM.png)
+
+Selezionare la macchina virtuale Windows, quindi fare clic su **Supporto e risoluzione dei problemi** > **Reimposta password**. Viene visualizzato il pannello per la reimpostazione della password:
 
 ![Pagina di reimpostazione della password](./media/virtual-machines-windows-reset-rdp/Portal-RM-PW-Reset-Windows.png)
 
@@ -100,11 +104,15 @@ Se non è ancora possibile connettersi in remoto alla macchina virtuale, vedere 
 
 
 ## <a name="azure-portal---classic"></a>Portale di Azure - Classico
-Per le macchine virtuali create tramite il modello di distribuzione classica, è possibile reimpostare il servizio Desktop remoto mediante il [portale di Azure](https://portal.azure.com) . Fare clic su **Esplora** > **Macchine virtuali (classico)** > *macchina virtuale Windows* > **Reimposta accesso remoto**. Verrà visualizzata la pagina seguente.
+Per le macchine virtuali create tramite il modello di distribuzione classica, è possibile reimpostare il servizio Desktop remoto mediante il [portale di Azure](https://portal.azure.com) . Per espandere il menu del portale, fare clic sulle tre barre nell'angolo superiore sinistro e quindi fare clic su **Macchine virtuali (versione classica)**:
+
+![Cercare la macchina virtuale di Azure](./media/virtual-machines-windows-reset-rdp/Portal-Select-Classic-VM.png)
+
+Selezionare la macchina virtuale Windows e quindi fare clic su **Reimposta accesso remoto**. Per reimpostare la configurazione di Desktop remoto viene visualizzata la finestra di dialogo seguente:
 
 ![Ripristinare la pagina di configurazione RDP](./media/virtual-machines-windows-reset-rdp/Portal-RDP-Reset-Windows.png)
 
-È anche possibile reimpostare il nome e la password dell'account amministratore locale. Fare clic su **Esplora** > **Macchine virtuali (classico)** > *macchina virtuale Windows* > **Tutte le impostazioni** > **Reimposta password**. Verrà visualizzata la pagina seguente.
+È anche possibile reimpostare il nome utente e la password dell'account amministratore locale. Dalla macchina virtuale fare clic su **Supporto e risoluzione dei problemi** > **Reimposta password**. Viene visualizzato il pannello per la reimpostazione della password:
 
 ![Pagina di reimpostazione della password](./media/virtual-machines-windows-reset-rdp/Portal-PW-Reset-Windows.png)
 
@@ -174,6 +182,6 @@ Se l'estensione di accesso alla VM di Azure non risponde ed è impossibile reimp
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

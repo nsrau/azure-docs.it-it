@@ -16,15 +16,16 @@ ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 54db3b7cfa5197a738aacde87ee8ef4908fee880
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: e206d161665e46a7c1c4a111a3642ece844b7b64
 
 
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Aggiungere nodi "burst" su richiesta in un cluster HPC Pack in Azure
 Se si configura un cluster [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) in Azure, è possibile aumentarne o ridurne la capacità senza mantenere un set di VM preconfigurate del nodo di calcolo. In questo articolo viene illustrato come aggiungere nodi "burst" su richiesta (istanze del ruolo di lavoro in esecuzione in un servizio cloud) come risorse di calcolo in un nodo head in Azure. 
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
 
 ![Nodi burst][burst]
 
@@ -83,6 +84,6 @@ Se si verificano problemi durante la distribuzione di nodi di Azure, vedere [Ris
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

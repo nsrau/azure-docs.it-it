@@ -1,5 +1,5 @@
 ---
-title: Leggere i messaggi con salvataggio permanente in Archiviazione di Azure | Documentazione Microsoft
+title: 'Connettere Arduino (C) ad Azure IoT: lezione 3: Archivio tabelle | Documentazione Microsoft'
 description: Monitorare i messaggi da dispositivo a cloud mentre vengono scritti nell&quot;archiviazione tabelle di Azure.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/13/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 946d66cc7ed1173e7b2b92dae90a1ce69ba3c165
-ms.openlocfilehash: 66d403fd63782d1945d6786220b8f329035ee456
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 7a49a15b00bf25c9416235f41da8cc86e54d0062
 
 
 ---
@@ -86,6 +86,6 @@ Per leggere i messaggi nell'archiviazione tabelle di Azure, seguire questi passa
 [send-cloud-to-device-messages]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

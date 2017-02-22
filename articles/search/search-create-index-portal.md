@@ -11,11 +11,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 01/13/2017
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f0d468d0cb2cf76bb90e73d3fef3f6a8c14d1850
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: cc439b5da8753b41f8d65781c567b4808f385078
 
 
 ---
@@ -32,11 +32,11 @@ Questo articolo illustra il processo di creazione di un [indice](search-what-is-
 
 Prima di seguire le indicazioni di questa guida e creare un indice, è necessario [creare un servizio Ricerca di Azure](search-create-service-portal.md).
 
-## <a name="i-go-to-your-azure-search-blade"></a>I. Passaggio al pannello del servizio Ricerca di Azure
-1. Scegliere "Tutte le risorse" dal menu nel lato sinistro del [portale di Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
+## <a name="go-to-your-azure-search-blade"></a>Passaggio al pannello del servizio Ricerca di Azure
+1. Fare clic su "Tutte le risorse" nel menu nel lato sinistro del [portale di Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
 2. Selezionare il servizio Ricerca di Azure
 
-## <a name="ii-add-and-name-your-index"></a>II. Aggiungere e denominare l'indice
+## <a name="add-and-name-your-index"></a>Aggiungere e denominare l'indice
 1. Fare clic sul pulsante "Aggiungi indice"
 2. Assegnare un nome all'indice di Ricerca di Azure. Poiché in questa guida verrà creato un indice per cercare gli hotel, l'indice è stato chiamato "hotel".
    * Il nome dell'indice deve iniziare con una lettera e contenere solo lettere minuscole, cifre o trattini ("-").
@@ -45,7 +45,7 @@ Prima di seguire le indicazioni di questa guida e creare un indice, è necessari
 
 ![](./media/search-create-index-portal/add-index.png)
 
-## <a name="iii-create-and-define-the-fields-of-your-index"></a>III. Creare e definire i campi dell'indice
+## <a name="create-and-define-the-fields-of-your-index"></a>Creare e definire i campi dell'indice
 1. Selezionando la voce "Campi" verrà visualizzato un nuovo pannello con un modulo per immettere la definizione dell'indice.
 2. Aggiungere i campi all'indice tramite il modulo.
    
@@ -62,12 +62,12 @@ Nelle schermate riportate di seguito viene mostrato come sono stati denominati e
 
 ![](./media/search-create-index-portal/set-analyzer.png)
 
-## <a name="next"></a>Avanti
+## <a name="next-steps"></a>Passaggi successivi
 Dopo avere creato un indice di Ricerca di Azure, sarà possibile [caricare il contenuto nell'indice](search-what-is-data-import.md) , in modo che si possa iniziare a eseguire ricerche nei dati.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

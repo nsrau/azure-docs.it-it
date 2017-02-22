@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/13/2016
+ms.date: 12/28/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 1832e584c599384948e7174b377552703ce8bbcd
-ms.openlocfilehash: 11a03d932fc70164640c30acb9808c08e3354de8
+ms.sourcegitcommit: 4ad6d1003b3acd48a1f129eb84f9bbed53075d37
+ms.openlocfilehash: 3c2705a7608c3af9085b51fdbc7191030d3fc9fe
 
 
 ---
@@ -72,6 +72,20 @@ Per proteggere le VM VMware, è necessario un hypervisor vSphere e macchine virt
 ### <a name="can-i-manage-disaster-recovery-for-my-branch-offices-with-site-recovery"></a>È possibile gestire il ripristino di emergenza per le succursali con Site Recovery?
 Sì. Quando si usa Site Recovery per gestire la replica e il failover nelle succursali, si ottiene una gestione unificata e vengono visualizzati tutti i carichi di lavoro delle succursali in una posizione centrale. È possibile eseguire facilmente i failover e amministrare il ripristino di emergenza di tutte le succursali senza abbandonare la sede centrale.
 
+## <a name="pricing"></a>Prezzi
+
+### <a name="what-charges-do-i-incur-while-using-azure-site-recovery"></a>Quali tariffe vengono applicate quando si usa Azure Site Recovery?
+Quando si usa Azure Site Recovery, vengono applicate le tariffe per la licenza di Azure Site Recovery, Archiviazione di Azure, le transazioni di archiviazione e il trasferimento di dati in uscita. [Altre informazioni](https://azure.microsoft.com/pricing/details/site-recovery).
+
+La licenza di Site Recovery è una licenza per istanza protetta. Un'istanza è una VM o un server fisico.
+
+- In caso di replica di un disco di una VM in un account di archiviazione Standard, il costo di Archiviazione di Azure è basato sul consumo. Se le dimensioni del disco di origine sono 1 TB e vengono usati 400 GB, ad esempio, Site Recovery crea un disco rigido virtuale di 1 TB in Azure, ma per l'archiviazione vengono addebitati 400 GB (più la quantità di spazio di archiviazione usata per i log di replica).
+- In caso di replica di un disco di una VM in un account di archiviazione Premium, il costo di Archiviazione di Azure è basato sulle dimensioni della risorsa di archiviazione sottoposta a provisioning, con arrotondamento all'opzione relativa al disco di Archiviazione Premium più vicina. Se le dimensioni del disco di origine sono 50 GB, ad esempio, Site Recovery crea un disco di 50 GB in Azure e Azure lo associa al disco di Archiviazione Premium più vicino (P10).  I costi vengono calcolati su P10, non sulle dimensioni di 50 GB del disco.  [Altre informazioni](https://aka.ms/premium-storage-pricing).  Se si usa Archiviazione Premium, è necessario anche un account di archiviazione Standard per i log di replica e viene addebitata anche la quantità di spazio di archiviazione Standard usata per tali log.
+
+Vengono addebitati costi anche durante il failover di test, con applicazione dei costi per la VM, l'archiviazione, i dati in uscita e le transazioni di archiviazione.
+
+
+
 ## <a name="security"></a>Sicurezza
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>I dati di replica vengono inviati al servizio Site Recovery?
 No, Site Recovery non intercetta i dati replicati né raccoglie informazioni su ciò che è in esecuzione sulle macchine virtuali o sui server fisici.
@@ -88,10 +102,10 @@ Per la replica di macchine virtuali e server fisici tra siti locali, è supporta
 ## <a name="replication"></a>Replica
 
 ### <a name="can-i-replicate-over-a-site-to-site-vpn-to-azure"></a>È possibile replicare tramite una VPN da sito a sito in Azure?
-Azure Site Recovery replica i dati in un account di archiviazione di Azure su un endpoint pubblico. Pertanto la replica non passa attraverso una VPN da sito a sito. È possibile creare una VPN da sito a sito con una rete virtuale di Azure e che non interferisca con la replica di ASR. 
+Azure Site Recovery replica i dati in un account di archiviazione di Azure su un endpoint pubblico. Pertanto la replica non passa attraverso una VPN da sito a sito. È possibile creare una VPN da sito a sito con una rete virtuale di Azure e che non interferisca con la replica di ASR.
 
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>È possibile usare ExpressRoute per replicare macchine virtuali in Azure?
-Sì, è possibile. Azure Site Recovery replica i dati in un account di archiviazione di Azure su un endpoint pubblico. È necessario configurare il [peering pubblico](../expressroute/expressroute-circuit-peerings.md#public-peering) per usare ExpressRoute per la replica di ASR. Dopo che è stato eseguito il failover delle macchine virtuali su una rete virtuale di Azure, è possibile accedere alle macchine virtuali usando la configurazione di [peering privato](../expressroute/expressroute-circuit-peerings.md#private-peering) con la rete virtuale di Azure. 
+Sì, è possibile. Azure Site Recovery replica i dati in un account di archiviazione di Azure su un endpoint pubblico. Per usare ExpressRoute per la replica con Site Recovery, è necessario configurare il [peering pubblico](../expressroute/expressroute-circuit-peerings.md#public-peering). Dopo che è stato eseguito il failover delle macchine virtuali su una rete virtuale di Azure, è possibile accedere alle macchine virtuali usando la configurazione di [peering privato](../expressroute/expressroute-circuit-peerings.md#private-peering) con la rete virtuale di Azure.
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>È necessario disporre di prerequisiti specifici per la replica di macchine virtuali in Azure?
 Le macchine virtuali da replicare in Azure devono essere conformi ai [requisiti di Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
@@ -146,9 +160,9 @@ Sì. Ulteriori informazioni sulla limitazione della larghezza di banda sono disp
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-virtual-machines-after-failover"></a>Se si esegue il failover in Azure, come è possibile accedere alle macchine virtuali dopo il failover?
 È possibile accedere alle VM di Azure tramite una connessione Internet sicura, una connessione VPN da sito a sito o ExpressRoute di Azure. Per poter eseguire la connessione, è necessario completare una serie di operazioni. Ulteriori informazioni sono disponibili in:
 
-* [Connessione alle VM di Azure dopo il failover di VM VMware o server fisici](site-recovery-vmware-to-azure.md#step-7-test-the-deployment)
+* [Connessione alle VM di Azure dopo il failover di VM VMware o server fisici](site-recovery-vmware-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 * [Connessione alle VM di Azure dopo il failover di VM Hyper-V nei cloud VMM](site-recovery-vmm-to-azure.md#step-7-test-your-deployment)
-* [Connessione alle VM di Azure dopo il failover di VM Hyper-V senza VMM](site-recovery-hyper-v-site-to-azure.md#step-7-test-the-deployment)
+* [Connessione alle VM di Azure dopo il failover di VM Hyper-V senza VMM](site-recovery-hyper-v-site-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 ### <a name="if-i-fail-over-to-azure-how-does-azure-make-sure-my-data-is-resilient"></a>Se si esegue il failover in Azure, in che modo Azure si assicura che i dati siano resilienti?
 Azure è progettato nell'ottica della resilienza. Site Recovery è già progettato per il failover a un centro dati secondario di Azure in conformità con il contratto di servizio di Azure, se necessario. In questo caso, Microsoft si assicura che i metadati e gli insiemi di credenziali rimangano nella stessa area geografica selezionata per l'insieme di credenziali.  
@@ -198,6 +212,6 @@ Sì, è possibile eseguire la replica da macchine virtuali Hyper-V ad Azure o tr
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

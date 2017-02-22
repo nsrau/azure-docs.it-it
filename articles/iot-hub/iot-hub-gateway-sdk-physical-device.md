@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 05c82a87e839a0a95e7050092d6f6867e76fb316
+ms.sourcegitcommit: e1cf5ed3f2434a9e98027afd0225207ad5d2f1b1
+ms.openlocfilehash: 199f07ce705036c3d8f9d56115b5df9c8c52dc45
 
 
 ---
@@ -239,7 +239,7 @@ git submodule update --init --recursive
 Quando si ha una copia completa del repository di IoT Gateway SDK nel dispositivo Raspberry Pi 3, è possibile procedere alla compilazione usando il comando seguente dalla cartella contenente l'SDK:
 
 ```
-./tools/build.sh --skip-unittests
+./tools/build.sh
 ```
 
 ### <a name="configure-and-run-the-ble-sample-on-your-raspberry-pi-3"></a>Configurare ed eseguire l'esempio BLE sul dispositivo Raspberry Pi 3
@@ -429,11 +429,11 @@ Prima di eseguire l'esempio, potrebbe essere necessario premere il pulsante picc
 Durante l'esecuzione dell'esempio è possibile usare lo strumento [Esplora dispositivi o iothub-explorer][lnk-explorer-tools] per monitorare i messaggi che il gateway inoltra dal dispositivo SensorTag.
 
 ## <a name="send-cloud-to-device-messages"></a>Inviare messaggi da cloud a dispositivo
-Il modulo BLE supporta anche l'invio di istruzioni dall'hub IoT di Azure al dispositivo. È possibile usare lo strumento [Esplora dispositivi](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) o [iothub-explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) per inviare i messaggi JSON che il modulo BLE del gateway passa al dispositivo BLE.
+Il modulo BLE supporta anche l'invio di istruzioni dall'hub IoT di Azure al dispositivo. È possibile usare lo strumento [Esplora dispositivi](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) o [iothub-explorer](https://github.com/Azure/iothub-explorer) per inviare i messaggi JSON che il modulo BLE del gateway passa al dispositivo BLE.
 Se si usa il dispositivo SensorTag di Texas Instruments, è possibile attivare il LED rosso, il LED verde o il segnalatore acustico inviando comandi dall'hub IoT. A tale scopo è prima necessario inviare i due messaggi JSON seguenti nell'ordine. Sarà quindi possibile inviare i comandi per attivare i LED o il segnalatore acustico.
 
-1 Reimpostare tutti i LED e il segnalatore acustico (spegnerli)
-  
+1. Reimpostare tutti i LED e il segnalatore acustico (spegnerli):
+
     ```json
     {
       "type": "write_once",
@@ -441,7 +441,8 @@ Se si usa il dispositivo SensorTag di Texas Instruments, è possibile attivare i
       "data": "AA=="
     }
     ```
-2 Configurare l'I/O come 'remote'
+    
+2. Configurare l'I/O come "remote":
   
     ```json
     {
@@ -450,7 +451,10 @@ Se si usa il dispositivo SensorTag di Texas Instruments, è possibile attivare i
       "data": "AQ=="
     }
     ```
-* Accendere il LED rosso
+    
+Sarà quindi possibile inviare i comandi seguenti per attivare i LED o il segnalatore acustico.
+
+* Accendere il LED rosso:
   
     ```json
     {
@@ -459,7 +463,8 @@ Se si usa il dispositivo SensorTag di Texas Instruments, è possibile attivare i
       "data": "AQ=="
     }
     ```
-* Accendere il LED verde
+
+* Accendere il LED verde:
   
     ```json
     {
@@ -468,7 +473,8 @@ Se si usa il dispositivo SensorTag di Texas Instruments, è possibile attivare i
       "data": "Ag=="
     }
     ```
-* Accendere il segnalatore acustico
+
+* Accendere il segnalatore acustico:
   
     ```json
     {
@@ -501,6 +507,6 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

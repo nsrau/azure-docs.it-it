@@ -222,6 +222,6 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

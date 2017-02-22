@@ -128,6 +128,6 @@ Oltre a usare il portale di Azure, è anche possibile creare e gestire account B
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

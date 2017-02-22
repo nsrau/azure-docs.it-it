@@ -1,5 +1,5 @@
 ---
-title: "Configurazione della scalabilità automatica di un servizio cloud nel portale | Documentazione Microsoft"
+title: "Configurazione della scalabilità automatica di un servizio cloud nel portale classico | Documentazione Microsoft"
 description: "Informazioni su come usare il portale per configurare le regole di scalabilità automatica per un ruolo Web o un ruolo di lavoro del servizio cloud in Azure."
 services: cloud-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 01/04/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 087346d82c78bb315d8c35cfdcb2258e44b02205
+ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
+ms.openlocfilehash: 1f6fd5b4e10e2f94256f5a3dac7609265b1f2cc4
 
 
 ---
@@ -114,6 +114,6 @@ Dopo aver configurato il profilo e le regole, selezionare l'icona **Salva** nell
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

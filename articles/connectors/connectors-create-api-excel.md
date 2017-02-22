@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 08/23/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4fe8a9dfd00ef85382733dcb2488c62ab651bc56
+ms.sourcegitcommit: 5c585b988cc1989288e1e5953d1bdab6b5281707
+ms.openlocfilehash: aa8b95bd92d6bed60ba20ffd28e53d26930d7a31
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 4fe8a9dfd00ef85382733dcb2488c62ab651bc56
 Al momento non sono disponibili connettori Excel nelle app per la logica. 
 
 ## <a name="to-use-excel-data"></a>Per usare dati di Excel
-È possibile archiviare dati di Excel come file con valori delimitati da virgole (CSV) in una cartella di archiviazione, ad esempio [OneDrive](connectors-create-api-onedrive.md). Questo file CSV può essere usato anche con il [connettore file flat](../app-service-logic/app-service-logic-enterprise-integration-flatfile.md).
+È possibile archiviare dati di Excel come file con valori delimitati da virgole (CSV) in una cartella di archiviazione, ad esempio [OneDrive](connectors-create-api-onedrive.md). Questo file CSV può essere usato anche con il [connettore file flat](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
 
 <!---
 
@@ -212,13 +212,13 @@ Applies to version: 1.0.
 
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)  
 
 
 -->
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

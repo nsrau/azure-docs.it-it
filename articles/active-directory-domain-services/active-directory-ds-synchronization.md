@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory Domain Services: sincronizzazione nei domini gestiti | Documentazione Microsoft'
-description: Informazioni sulla sincronizzazione in un dominio gestito di Azure Active Directory Domain Services
+description: Informazioni sulla sincronizzazione in un dominio gestito di Servizi di dominio Azure Active Directory
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2016
+ms.date: 01/13/2016
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6b89917f71701cccd6e78c036b78b136c19e9c2c
+ms.sourcegitcommit: f5143bc817215d075129170adcabf3dd53b5e15a
+ms.openlocfilehash: 1f6abf9bf123534f29b7976ecadbcf8cb49ce040
 
 
 ---
@@ -32,11 +32,13 @@ Se si configura il writeback, le modifiche apportate alla directory di Azure AD 
 
 > [!NOTE]
 > Usare sempre la versione più recente di Azure AD Connect per ottenere le correzioni per tutti i bug noti.
-> 
-> 
+>
+>
 
 ## <a name="synchronization-from-your-azure-ad-tenant-to-your-managed-domain"></a>Sincronizzazione dal tenant di Azure AD al dominio gestito
-Account utente, appartenenza a gruppi e hash delle credenziali vengono sincronizzati dal tenant di Azure AD al dominio gestito di Azure Active Directory Domain Services. Questo processo di sincronizzazione è automatico, non è quindi necessario configurarlo, monitorarlo o gestirlo. Il processo di sincronizzazione è anche di natura unidirezionale. Il dominio gestito è in gran parte di sola lettura, ad eccezione delle eventuali unità organizzative personalizzate create. Non è quindi possibile apportare modifiche agli attributi utente, alle password utente o all'appartenenza a gruppi all'interno del dominio gestito. Di conseguenza, non viene eseguita alcuna sincronizzazione inversa delle modifiche dal dominio gestito al tenant di Azure AD.
+Account utente, appartenenza a gruppi e hash delle credenziali vengono sincronizzati dal tenant di Azure AD al dominio gestito di Azure Active Directory Domain Services. Questo processo di sincronizzazione è automatico, non è quindi necessario configurarlo, monitorarlo o gestirlo. Dopo che la sincronizzazione iniziale occasionale della directory è stata completata, occorrono in genere circa 20 minuti perché le modifiche apportate in Azure AD diventino visibili nel dominio gestito. Questo intervallo di sincronizzazione si applica a modifiche della password o a modifiche agli attributi apportati in Azure AD.
+
+Il processo di sincronizzazione è anche di natura unidirezionale. Il dominio gestito è in gran parte di sola lettura, ad eccezione delle eventuali unità organizzative personalizzate create. Non è quindi possibile apportare modifiche agli attributi utente, alle password utente o all'appartenenza a gruppi all'interno del dominio gestito. Di conseguenza, non viene eseguita alcuna sincronizzazione inversa delle modifiche dal dominio gestito al tenant di Azure AD.
 
 ## <a name="synchronization-from-a-multi-forest-on-premises-environment"></a>Sincronizzazione da un ambiente locale a più foreste
 Molte organizzazioni hanno un'infrastruttura di identità locale piuttosto complessa composta da più foreste account. Azure AD Connect supporta la sincronizzazione di utenti, gruppi e hash delle credenziali da ambienti a più foreste nel tenant di Azure AD.
@@ -66,8 +68,8 @@ La tabella seguente riporta alcuni attributi comuni e il modo in cui vengono sin
 
 > [!NOTE]
 > **Accedere al dominio gestito usando il formato UPN:** per alcuni account utente nel dominio gestito l'attributo SAMAccountName può essere generato automaticamente. Se più utenti hanno lo stesso attributo mailNickname o sono presenti utenti con un prefisso UPN troppo lungo, l'attributo SAMAccountName per questi utenti potrebbe essere generato automaticamente. Il formato SAMAccountName, ad esempio "CONTOSO100\joeuser", non è quindi un modo sempre affidabile per accedere al dominio. L'attributo SAMAccountName autogenerato dell'utente potrebbe infatti essere diverso dal relativo prefisso UPN. Per accedere al dominio gestito in modo affidabile, usare il formato UPN (ad esempio, 'joeuser@contoso100.com').
-> 
-> 
+>
+>
 
 ### <a name="attribute-mapping-for-user-accounts"></a>Mapping degli attributi per gli account utente
 La tabella seguente mostra come vengono sincronizzati attributi specifici per gli oggetti utente nel tenant di Azure AD con gli attributi corrispondenti nel dominio gestito.
@@ -122,7 +124,6 @@ Come descritto in una sezione precedente di questo articolo, non viene eseguita 
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -245,6 +245,6 @@ Il frammento seguente crea prima il client account Data Lake Store, poi usa l'og
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 02/10/2017
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: fbb95696d8b9267d59d04769d3d7f48c29a8e4dd
+ms.sourcegitcommit: 21e599fc2adf3d7dce84cc1c4130504b71928db7
+ms.openlocfilehash: c8c5f30e4cb0467f6ccdc65d96b57b766593ba31
 
 
 ---
@@ -63,7 +63,7 @@ Il video seguente offre una panoramica su Azure AD Connect Health per la sincron
 >
 
 ## <a name="azure-ad-connect-health-for-ad-ds-previewactive-directory-aadconnect-health-addsmd"></a>[Azure AD Connect Health per Servizi di dominio Active Directory (anteprima)](active-directory-aadconnect-health-adds.md)
-Azure AD Connect Health per Active Directory Domain Services consente il monitoraggio dei controller di dominio installati in Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2. Con un'installazione semplice e a basso costo dell'agente per l'integrità è possibile monitorare l'ambiente locale di Active Directory Domain Services direttamente dal cloud. Azure AD Connect Health per Servizi di dominio Active Directory offre il seguente insieme di funzionalità chiave:
+Azure AD Connect Health per Active Directory Domain Services consente il monitoraggio dei controller di dominio installati in Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016. Con un'installazione semplice e a basso costo dell'agente per l'integrità è possibile monitorare l'ambiente locale di Active Directory Domain Services direttamente dal cloud. Azure AD Connect Health per Servizi di dominio Active Directory offre il seguente insieme di funzionalità chiave:
 
 * Avvisi di monitoraggio per rilevare quando i controller di dominio non sono integri, insieme a notifiche di posta elettronica per avvisi critici.
 * Dashboard dei controller di dominio, che permette di visualizzare rapidamente l'integrità e lo stato operativo dei controller di dominio.
@@ -89,13 +89,16 @@ Le operazioni per iniziare a usare Azure AD Connect Health sono molto semplici. 
 >
 
 ## <a name="download-and-install-azure-ad-connect-health-agent"></a>Scaricare e installare l'agente di Azure AD Connect Health
-* Verificare che siano soddisfatti i requisiti per Azure AD Connect Health
-* Per una guida introduttiva all'uso di Azure AD Connect Health per AD FS, è possibile scaricare la versione più recente dell'agente qui: [Download dell'agente di Azure AD Connect Health per AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
-  [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
-* Per iniziare a usare Azure AD Connect Health per la sincronizzazione, scaricare e installare la [versione più recente di Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771).  L'agente per l'integrità verrà installato come parte dell'installazione di Azure AD Connect (versione 1.0.9125.0 o versione successiva).  Azure AD Connect supporta un aggiornamento sul posto da versioni precedenti.
-* Per una guida introduttiva all'uso di Azure AD Connect Health per Active Directory Domain Services, è possibile scaricare la versione più recente dell'agente qui: [Download dell'agente di Azure AD Connect Health per Active Directory Domain Services.](http://go.microsoft.com/fwlink/?LinkID=820540)
-  [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
-
+* Assicurarsi di [rispettare i requisiti] (active-directory-aadconnect-health-agent-install.md#requirements) per Azure AD Connect Health
+* Introduzione ad Azure AD Connect Health per AD FS
+    * [Scaricare l'agente di Azure AD Connect Health per AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Vedere le istruzioni per l'installazione](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+* Introduzione ad Azure AD Connect Health per la sincronizzazione
+    * [Scaricare e installare la versione più recente di Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771). L'agente di integrità per la sincronizzazione verrà installato come parte dell'installazione di Azure AD Connect (versione 1.0.9125.0 o versione successiva).
+* Introduzione ad Azure AD Connect Health per Active Directory Domain Services
+    * [Scaricare l'agente di Azure AD Connect Health per Active Directory Domain Services.](http://go.microsoft.com/fwlink/?LinkID=820540)
+    * [Vedere le istruzioni per l'installazione](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+    
 ## <a name="azure-ad-connect-health-portal"></a>portale di Azure AD Connect Health
 Il portale di Azure AD Connect Health consente di visualizzare gli avvisi, il monitoraggio delle prestazioni e le analisi di utilizzo. https://aka.ms/aadconnecthealth permette di raggiungere il pannello principale di Azure AD Connect Health.  Un pannello è paragonabile a una finestra. Nel pannello principale sono disponibili opzioni per l'Avvio rapido, per i servizi di Azure AD Connect Health e altre opzioni di configurazione. Sotto la schermata è disponibile una breve descrizione di ciascun elemento.  Dopo la distribuzione degli agenti, il servizio integrità identifica automaticamente gli identificatori dei servizi monitorati da Azure AD Connect Health.
 
@@ -120,7 +123,6 @@ Il portale di Azure AD Connect Health consente di visualizzare gli avvisi, il mo
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

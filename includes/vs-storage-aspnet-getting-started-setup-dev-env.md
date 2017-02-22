@@ -31,6 +31,6 @@ Questa sezione illustra la configurazione dell'ambiente di sviluppo, incluse la 
 1. Nella finestra di dialogo **Archiviazione di Azure** selezionare l'account di archiviazione di Azure desiderato e selezionare **Aggiungi**.
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

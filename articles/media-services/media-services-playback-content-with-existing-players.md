@@ -1,5 +1,5 @@
 ---
-title: Riproduzione di contenuti | Microsoft Docs
+title: Usare i lettori esistenti per la riproduzione dei contenuti - Azure | Documentazione Microsoft
 description: "Questo argomento elenca i lettori esistenti che è possibile usare per la riproduzione dei propri contenuti."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 0c77ee0f612c1cbef551a129a22cf3f125e6f29d
-ms.openlocfilehash: 41049570b1858010c338c149c5d3545e58a197b2
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 18e0f8c5a8dace2af0ab8f15e678fc761a7b3a91
 
 
 ---
@@ -62,7 +62,7 @@ Usare il [lettore multimediale di Azure](http://amsplayer.azurewebsites.net/azur
 Per testare gli URL HLS è inoltre possibile usare:
 
 * **Safari** in un dispositivo iOS o
-* **Lettore HLS 3ivx** in un dispositivo Windows.
+* **Lettore HLS&3;ivx** in un dispositivo Windows.
 
 ## <a name="developing-video-players"></a>Sviluppo di lettori video
 Per informazioni su come sviluppare i propri lettori, vedere [Sviluppo di lettori di contenuti video](media-services-develop-video-players.md)
@@ -77,6 +77,6 @@ Per informazioni su come sviluppare i propri lettori, vedere [Sviluppo di lettor
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -127,7 +127,7 @@ A questo punto è possibile scegliere con precisione l'immagine da usare. Per cr
 
 ## <a name="powershell"></a>PowerShell
 > [!NOTE]
-> Installare e configurare la [versione più recente di Azure PowerShell](../articles/powershell-install-configure.md). Se si usano moduli di Azure PowerShell con versione inferiore a 1.0, si continueranno a usare i comandi seguenti, ma è innanzitutto necessario `Switch-AzureMode AzureResourceManager`. 
+> Installare e configurare la [versione più recente di Azure PowerShell](/powershell/azureps-cmdlets-docs). Se si usano moduli di Azure PowerShell con versione inferiore a 1.0, si continueranno a usare i comandi seguenti, ma è innanzitutto necessario `Switch-AzureMode AzureResourceManager`. 
 > 
 > 
 
@@ -229,6 +229,6 @@ In questo elenco, copiare il nome della SKU scelta per disporre di tutte le info
 [yah]: http://search.yahoo.com/  
 [msn]: http://search.msn.com/
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/22/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 30b023429cfdc671ac68175f94ffb48379c58dda
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: 00f4ddd7173affb9e557e8c993c9f7432a3152cd
 
 
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Abilitare automaticamente le impostazioni di diagnostica durante la creazione di risorse con un modello di Resource Manager
-Questo articolo illustra come usare un [modello di Azure Resource Manager](../resource-group-authoring-templates.md) per configurare le impostazioni di diagnostica in una risorsa durante la sua creazione. Ciò consente di iniziare automaticamente a trasmettere le metriche e i log di diagnostica a Hub eventi, di memorizzarli in un account di archiviazione o di inviarli a Log Analytics quando viene creata una risorsa.
+Questo articolo illustra come usare un [modello di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) per configurare le impostazioni di diagnostica in una risorsa durante la sua creazione. Ciò consente di iniziare automaticamente a trasmettere le metriche e i log di diagnostica a Hub eventi, di memorizzarli in un account di archiviazione o di inviarli a Log Analytics quando viene creata una risorsa.
 
 Il metodo da usare per abilitare i log di diagnostica tramite un modello di Resource Manager dipende dal tipo di risorsa.
 
@@ -33,7 +33,7 @@ Questo articolo illustra come configurare la diagnostica con entrambi i metodi.
 I passaggi di base sono i seguenti:
 
 1. Creare un modello come file JSON che descrive come creare la risorsa e abilitare la diagnostica.
-2. [Distribuire il modello con un metodo di distribuzione qualsiasi](../resource-group-template-deploy.md).
+2. [Distribuire il modello con un metodo di distribuzione qualsiasi](../azure-resource-manager/resource-group-template-deploy.md).
 
 Di seguito viene fornito un esempio del file JSON modello da generare per le risorse di calcolo e non di calcolo.
 
@@ -86,13 +86,23 @@ Per le risorse non di calcolo, è necessario eseguire due operazioni:
                 "enabled": false
               }
             }
+          ],
+          "metrics": [
+            {
+              "timeGrain": "PT1M",
+              "enabled": true,
+              "retentionPolicy": {
+                "enabled": false,
+                "days": 0
+              }
+            }
           ]
         }
       }
     ]
     ```
 
-Il BLOB delle proprietà per l'impostazione di diagnostica è nel [formato descritto in questo articolo](https://msdn.microsoft.com/library/azure/dn931931.aspx).
+Il BLOB delle proprietà per l'impostazione di diagnostica è nel [formato descritto in questo articolo](https://msdn.microsoft.com/library/azure/dn931931.aspx). L'aggiunta della proprietà `metrics` consentirà anche di inviare le metriche delle risorse a questi stessi output.
 
 Di seguito è riportato un esempio completo che crea un gruppo di sicurezza di rete e abilita la trasmissione a Hub eventi e la memorizzazione in un account di archiviazione.
 
@@ -166,6 +176,16 @@ Di seguito è riportato un esempio completo che crea un gruppo di sicurezza di r
                   "enabled": false
                 }
               }
+            ],
+            "metrics": [
+              {
+                "timeGrain": "PT1M",
+                "enabled": true,
+                "retentionPolicy": {
+                  "enabled": false,
+                  "days": 0
+                }
+              }
             ]
           }
         }
@@ -198,6 +218,6 @@ L'intero processo, esempi compresi, viene descritto in [questo documento](../vir
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -13,16 +13,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 86c4f2b6ab4ff9dfba429acfcfbd0cd2bac7b42c
+ms.sourcegitcommit: 2f0f36e7ffeec52bacc35ac5039cd183976dc3aa
+ms.openlocfilehash: fd2649f9936da9f86d4fe24b4fa87ca1733d1f3c
 
 
 ---
 # <a name="whats-new-in-power-bi-embedded"></a>Novità di Power BI Embedded
 Gli aggiornamenti su **Power BI Embedded** vengono rilasciati a intervalli regolari. Non tutte le nuove versioni includono tuttavia nuove funzionalità destinate all'utente, in quanto alcune sono incentrate sulle funzionalità del servizio back-end. In questa pagina vengono evidenziate nuove funzionalità destinate all'utente. È consigliabile controllarla spesso.
+
+## <a name="december-2016"></a>Dicembre 2016
+
+* [New JavaScript embed sample](https://microsoft.github.io/PowerBI-JavaScript/demo/) (Nuovo esempio per incorporare JavaScript)
+
+## <a name="october-2016"></a>Ottobre 2016
+
+* [Advanced Analytics with Power BI Embedded and R](https://powerbi.microsoft.com/blog/r-in-pbie/) (Analisi avanzata con Power BI Embedded e R)
 
 ## <a name="august-31st-2016"></a>31 agosto 2016
 Contenuti di questa versione:
@@ -33,7 +41,7 @@ Contenuti di questa versione:
 ## <a name="july-11th-2016"></a>11 luglio 2016
 Contenuti di questa versione:
 
-* **Novità**  Il servizio Power BI Embedded non è più disponibile in anteprima: è ora disponibile a livello generale.  
+* **Novità** Il servizio Power BI Embedded non è più disponibile in anteprima: è ora disponibile a livello generale.  
 * Tutte le API REST sono state spostate da **/beta** a **/v1.0**.
 * Gli SDK per .NET e JavaScript sono stati aggiornati per la versione **v1.0**.
 * Le chiamate all'API di Power BI possono essere ora autenticate direttamente mediante le chiavi API. I token dell'app sono necessari solo per l'incorporamento. I token di provisioning e di sviluppo sono stati quindi deprecati nelle API della versione 1.0 , ma continueranno a funzionare nella versione Beta fino al 30/12/2016. Per altre informazioni, vedere [Informazioni sul flusso dei token delle app in Power BI Embedded](power-bi-embedded-app-token-flow.md).
@@ -46,6 +54,6 @@ Contenuti di questa versione:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

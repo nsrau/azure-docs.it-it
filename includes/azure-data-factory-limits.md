@@ -8,7 +8,7 @@ Data Factory è un servizio multi-tenant che presenta i seguenti limiti predefin
 | sezioni simultanee per ogni set di dati |10 |10 |
 | byte per oggetto per gli oggetti pipeline<sup>1</sup> |200 KB |200 KB |
 | byte per oggetto per oggetti set di dati e servizio collegato<sup>1</sup> |100 KB |2000 KB |
-| Memorie centrali del cluster HDInsight su richiesta con una sottoscrizione<sup>2</sup> |48 |[Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Memorie centrali del cluster HDInsight su richiesta con una sottoscrizione<sup>2</sup> |60 |[Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Unità di spostamento dati cloud <sup>3</sup> |8 |[Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Numero di tentativi delle esecuzioni di attività pipeline |1000 |MaxInt (32 bit) |
 
@@ -29,6 +29,6 @@ Azure Resource Manager presenta limiti per le chiamate API. È possibile effettu
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e38fd24edb0cb6cee0552a3cbdb282aae870d737
+ms.sourcegitcommit: 9b88b18e32e6a5ef6c0a0195e649fe2862583a0b
+ms.openlocfilehash: c2c50ff6e92cf42a7d309afafb01210c4edabbe0
 
 
 ---
@@ -67,13 +67,7 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 | **Dati app**: singole app possono sincronizzare i dati |backup sincronizzazione |backup sincronizzazione |Interne |
 | **Elenco app**: elenco delle app installate |X |backup |Altre |
 | **Bluetooth**: tutte le impostazioni Bluetooth |X |X | |
-| **Prompt dei comandi**: tutte le impostazioni del prompt dei comandi |sync |X | |
-| **Cortana**: abilitazione/disabilitazione |X |X | |
-| **Cortana**: abilitazione di Cortana nella schermata di blocco |X |X | |
-| **Cortana**: nome utente |sync |sync |Interne |
-| **Cortana**: lettura di SMS |X |sync |Interne |
-| **Cortana**: Ricerca sicura |X |sync |Interne |
-| **Cortana**: ricerca di informazioni sui voli e altro |X |sync |Interne |
+| **Prompt dei comandi**: impostazioni dei valori predefiniti del prompt dei comandi |sync |X | |
 | **Credenziali**: Casella di sicurezza delle credenziali |sync |sync |password |
 | **Data, ora e opzioni internazionali**: ora automatica (sincronizzazione con l'ora Internet) |sync |sync |Lingua |
 | **Data, ora e opzioni internazionali**: formato a 24 ore |sync |X |Lingua |
@@ -95,8 +89,8 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 | **Browser Edge**: Elenco di lettura |sync |sync |Interne |
 | **Browser Edge**: Preferiti |sync |sync |Interne |
 | **Browser Edge**: tutte le altre impostazioni di Edge |X |X | |
-| **Contrasto elevato**: abilitazione/disabilitazione |sync |sync |Accessibilità |
-| **Contrasto elevato**: impostazioni del tema |sync |X | |
+| **Contrasto elevato**: abilitazione/disabilitazione |sync |X |Accessibilità |
+| **Contrasto elevato**: impostazioni del tema |sync |X |Accessibilità |
 | **Internet Explorer**: schede aperte (URL e titolo) |sync |sync |Internet Explorer |
 | **Internet Explorer**: Elenco di lettura |sync |sync |Internet Explorer |
 | **Internet Explorer**: URL digitati |sync |sync |Internet Explorer |
@@ -113,8 +107,8 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 | **Lingua**: cinese (QWERTY), abilitazione della classificazione dinamica dei candidati |sync |X |Lingua |
 | **Lingua**: cinese (QWERTY), set di caratteri cinese semplificato |sync |X |Lingua |
 | **Lingua**: cinese (QWERTY), set di caratteri cinese tradizionale |sync |X |Lingua |
-| **Lingua**: cinese (QWERTY), Pinyin fuzzy |sync |sync |Lingua |
-| **Lingua**: cinese (QWERTY), coppie fuzzy |sync |sync |Lingua |
+| **Lingua**: cinese (QWERTY), Pinyin fuzzy |sync |backup |Lingua |
+| **Lingua**: cinese (QWERTY), coppie fuzzy |sync |backup |Lingua |
 | **Lingua**: cinese (QWERTY), Pinyin completo |sync |X |Lingua |
 | **Lingua**: cinese (QWERTY), Pinyin doppio |sync |X |Lingua |
 | **Lingua**: cinese (QWERTY), correzione automatica lettura |sync |X |Lingua |
@@ -123,7 +117,7 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 | **Lingua**: cinese (WUBI), Modalità di input a singolo carattere |sync |X |Lingua |
 | **Lingua**: cinese (WUBI), Mostra il codice rimanente dei candidati |sync |X |Lingua |
 | **Lingua**: cinese (WUBI), Emetti un segnale acustico se la codifica 4 non è valida |sync |X |Lingua |
-| **Lingua**: Bopomofo cinese, inclusione di CJK, estensione A |sync |X |Lingua |
+| **Lingua**: Bopomofo cinese tradizionale, incluso CJK estensione A |sync |X |Lingua |
 | **Lingua**: IME giapponese, digitazione predittiva e parole personalizzate |sync |sync |Lingua |
 | **Lingua**: IME coreano |X |X |Lingua |
 | **Lingua**: riconoscimento della grafia |X |X |Lingua |
@@ -147,11 +141,11 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 | **Assistente vocale**: il cursore di inserimento segue l'Assistente vocale (abilitata per impostazione predefinita) |sync |X |Accessibilità |
 | **Assistente vocale**: Abilita evidenziazione visiva del cursore dell'Assistente vocale (abilitata per impostazione predefinita) |sync |X |Accessibilità |
 | **Assistente vocale**: Riproduci segnali acustici (abilitata per impostazione predefinita) |sync |X |Accessibilità |
-| **Assistente vocale**: Attiva tasti della tastiera virtuale quando l'utente solleva il dito (disattivata per impostazione predefinita) |sync |sync |Accessibilità |
+| **Assistente vocale**: Attiva tasti della tastiera virtuale quando l'utente solleva il dito (disattivata per impostazione predefinita) |sync |X |Accessibilità |
 | **Accessibilità**: Imposta lo spessore del cursore intermittente |sync |X |Accessibilità |
 | **Accessibilità**: Rimuovi immagini di sfondo (disabilitata per impostazione predefinita) |sync |X |Accessibilità |
 | **Alimentazione e sospensione**: tutte le impostazioni |X |X | |
-| **Personalizzazione della schermata Start**: colore di sistema |sync |sync |Tema |
+| **Personalizzazione della schermata Start**: colore principale (solo telefono) |X |sync |Tema |
 | **Digitazione**: dizionario per il controllo ortografico |sync |backup |Lingua |
 | **Digitazione**: Correggi automaticamente errori di ortografia |sync |backup |Lingua |
 | **Digitazione**: Evidenzia errori di ortografia |sync |backup |Lingua |
@@ -169,10 +163,10 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 * [Abilitare Enterprise State Roaming in Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
 * [Domande frequenti su impostazioni e dati in roaming](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Criteri di gruppo e impostazioni del software MDM per la sincronizzazione delle impostazioni](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
+* [Risoluzione dei problemi](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

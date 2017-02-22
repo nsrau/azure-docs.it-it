@@ -3,7 +3,7 @@ title: Creare una VM Linux tramite il portale di Azure | Microsoft Docs
 description: Creare una macchina virtuale Linux tramite il portale di Azure.
 services: virtual-machines-linux
 documentationcenter: 
-author: vlivech
+author: iainfoulds
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/28/2016
-ms.author: v-livech
+ms.date: 1/17/2016
+ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 3ad64861bc4c3b0a938c75990fc516ef634943ef
+ms.sourcegitcommit: beff4fb41ed46b016088734054e7a7897fed1a30
+ms.openlocfilehash: 7287b87b1e50e28de06a5363a1f35bd7ac34d51c
 
 
 ---
@@ -29,53 +29,64 @@ I requisiti sono:
 * [Un account di Azure](https://azure.microsoft.com/pricing/free-trial/)
 * [File di chiavi SSH pubbliche e private](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="sign-in"></a>pagina di accesso
-Dopo avere eseguito l'accesso al portale di Azure con l'identità dell'account Azure, fare clic su **+ Nuovo** nell'angolo superiore sinistro:
+## <a name="sign-in"></a>Accedi
+Accedere al portale di Azure con l'identità dell'account Azure. Fare clic su **+ Nuovo** nell'angolo superiore sinistro:
 
-![schermata1](../media/virtual-machines-linux-quick-create-portal/screen1.png)
+![Creare una risorsa di Azure](./media/virtual-machines-linux-quick-create-portal/create_new_resource.png)
 
 ## <a name="choose-vm"></a>Scegliere una VM
-Fare clic su **Macchine virtuali** nel **Marketplace** quindi su **Ubuntu Server 14.04 LTS** dall'elenco delle immagini **App in primo piano**.  Verificare nella parte inferiore che il modello di distribuzione sia `Resource Manager` e quindi fare clic su **Crea**.
+Fare clic su **Calcolo** nel **Marketplace**, quindi selezionare **Ubuntu Server 16.04 LTS** dall'elenco di immagini **App in primo piano**.  Verificare nella parte inferiore che il modello di distribuzione sia `Resource Manager` e quindi fare clic su **Crea**.
 
-![schermata2](../media/virtual-machines-linux-quick-create-portal/screen2.png)
+![Selezionare un'immagine di macchina virtuale da Azure Marketplace](./media/virtual-machines-linux-quick-create-portal/create_new_vm.png)
 
 ## <a name="enter-vm-options"></a>Immettere le opzioni della VM
 Nella pagina **Informazioni di base** immettere:
 
 * Nome della macchina virtuale
+* Tipo di disco della macchina virtuale (unità SSD per impostazione predefinita o HDD)
 * Nome utente dell'utente amministratore
-* Tipo di autenticazione impostato su **Chiave pubblica SSH**
+* Impostare il **Tipo di autenticazione** su **Chiave pubblica SSH**
 * Chiave pubblica SSH sotto forma di stringa, dalla directory `~/.ssh/`
-* Nome del gruppo di risorse o selezionare un gruppo esistente
+* Nome del gruppo di risorse o selezionare un gruppo di risorse esistente
 
-Fare clic su **OK** per continuare e scegliere le dimensioni della VM, il cui aspetto sarà simile a quello nello screenshot seguente:
+Fare clic su **OK** per continuare. L'aspetto del pannello sarà simile allo screenshot seguente:
 
-![schermata3](../media/virtual-machines-linux-quick-create-portal/screen3.png)
+![Immettere le opzioni di base per la macchina virtuale di Azure](./media/virtual-machines-linux-quick-create-portal/enter_basic_vm_details.png)
 
 ## <a name="choose-vm-size"></a>Scegliere le dimensioni della VM
-Scegliere come dimensioni **DS1** per installare Ubuntu in un'unità SSD Premium e fare clic su **Seleziona** per configurare le impostazioni.
+Scegliere le dimensioni per la macchina virtuale. Nell'esempio seguente viene scelta l'opzione **DS1_V2 Standard**, che installa Ubuntu in un'unità SSD Premium. La lettera **S** nella dimensione della VM indica il supporto per SSD. Fare clic su **Seleziona** per configurare le impostazioni.
 
-![schermata4](../media/virtual-machines-linux-quick-create-portal/screen4.png)
+![Scegliere le dimensioni per una VM di Azure](./media/virtual-machines-linux-quick-create-portal/select_vm_size.png)
 
 ## <a name="storage-and-network"></a>Archiviazione e rete
-In **Impostazioni**lasciare le impostazioni predefinite per i valori di archiviazione e di rete e fare clic su **OK** per visualizzare il riepilogo.  Si noti che il tipo di disco è stato impostato su Premium (SSD) scegliendo DS1. La lettera **S** sta per SSD.
+Nel pannello **Impostazioni** è possibile scegliere di usare Azure Managed Disks per la VM. L'impostazione predefinita corrente prevede l'uso di dischi non gestiti. La funzionalità Azure Managed Disks viene gestita dalla piattaforma Azure e non richiede alcuna pianificazione o alcuna posizione per l'archiviazione. Per altre informazioni su Azure Managed Disks, vedere [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md) (Panoramica di Azure Managed Disks). Per i dischi non gestiti è necessario creare o selezionare un account di archiviazione per i dischi rigidi virtuali:
 
-![schermata5](../media/virtual-machines-linux-quick-create-portal/screen5.png)
+![Selezionare l'account di archiviazione per i dischi non gestiti](./media/virtual-machines-linux-quick-create-portal/configure_non_managed_disks.png)
+
+Se si sceglie di usare Azure Managed Disks, non è necessario configurare altre opzioni di archiviazione, come illustrato nell'esempio seguente:
+
+![Scegliere l'opzione Azure Managed Disks nel portale](./media/virtual-machines-linux-quick-create-portal/select_managed_disks.png)
+
+Mantenere le impostazioni predefinite per le altre opzioni di rete.
 
 ## <a name="confirm-vm-settings-and-launch"></a>Confermare le impostazioni della VM e avviare
 Confermare le impostazioni per la nuova macchina virtuale Ubuntu e fare clic su **OK**.
 
-![schermata6](../media/virtual-machines-linux-quick-create-portal/screen6.png)
+![Verificare le impostazioni della macchina virtuale di Azure e creare la VM](./media/virtual-machines-linux-quick-create-portal/review_final_vm_settings.png)
 
-## <a name="find-the-vm-nic"></a>Trovare la scheda di interfaccia di rete della VM
-Aprire il dashboard del portale e in **Interfacce di rete** scegliere la scheda di rete.
+## <a name="select-the-vm-resource"></a>Selezionare la risorsa della macchina virtuale
+Aprire la home page del portale e scegliere **Gruppi di risorse** dal menu disponibile nell'angolo superiore sinistro. Se necessario, fare clic sulle tre barre nella parte superiore del menu per espandere l'elenco, come indicato di seguito:
 
-![schermata7](../media/virtual-machines-linux-quick-create-portal/screen7.png)
+![Aprire l'elenco di gruppi di risorse](./media/virtual-machines-linux-quick-create-portal/select_resource_group.png)
+
+Selezionare il gruppo di risorse, quindi fare clic sulla nuova macchina virtuale:
+
+![Individuare le impostazioni della scheda di interfaccia di rete della VM di Azure](./media/virtual-machines-linux-quick-create-portal/select_vm_resource.png)
 
 ## <a name="find-the-public-ip"></a>Trovare l'indirizzo IP pubblico
-Aprire il menu di indirizzi IP pubblici sotto le impostazioni della scheda di rete.
+Visualizzare l'**Indirizzo IP pubblico** assegnato alla macchina virtuale:
 
-![schermata8](../media/virtual-machines-linux-quick-create-portal/screen8.png)
+![Ottenere l'indirizzo IP pubblico della macchina virtuale di Azure](./media/virtual-machines-linux-quick-create-portal/view_public_ip_address.png)
 
 ## <a name="ssh-to-the-vm"></a>Eseguire SSH sulla VM
 Eseguire SSH per accedere all'indirizzo IP pubblico con la chiave SSH pubblica.  Da una workstation Mac o Linux è possibile eseguire SSH direttamente dal Terminale. Se si usa una workstation Windows, è necessario usare PuTTY, MobaXTerm o Cygwin per eseguire SSH su Linux.  Se non è ancora disponibile, qui è fornito un documento per preparare la workstation Windows per eseguire SSH su Linux.
@@ -83,7 +94,7 @@ Eseguire SSH per accedere all'indirizzo IP pubblico con la chiave SSH pubblica. 
 [Come usare le chiavi SSH con Windows su Azure](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ```
-ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
+ssh -i ~/.ssh/azure_id_rsa ops@40.112.255.214
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -96,6 +107,6 @@ A questo punto è stata creata rapidamente una VM Linux da usare per scopi di te
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

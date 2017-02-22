@@ -1,6 +1,6 @@
 ---
-title: Supporto dei client di livello inferiore del database SQL e modifiche all&quot;endpoint IP per Controllo | Documentazione Microsoft
-description: Informazioni sul supporto dei client di livello inferiore del database SQL e modifiche all&quot;endpoint IP per Controllo
+title: Controllo, reindirizzamento TDS ed endpoint IP per il database SQL di Azure | Documentazione Microsoft
+description: Informazioni su controllo, reindirizzamento TDS e modifiche apportate all&quot;endpoint IP quando si implementa il controllo delle tabelle in una database SQL di Azure.
 services: sql-database
 documentationcenter: 
 author: ronitr
@@ -13,16 +13,16 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2016
+ms.date: 01/05/2017
 ms.author: ronitr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 06c1dfbcfa365f6c34708021f63a756e295e2ab4
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: d225a6156ea3672ed214f8308d7e944e6ff08576
 
 
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>Database SQL: supporto dei client di livello inferiore e modifiche all'endpoint IP per Controllo
-[Controllo](sql-database-auditing-get-started.md) funziona automaticamente con i client SQL che supportano il reindirizzamento TDS.
+Il [controllo delle tabelle del database SQL](sql-database-auditing-get-started.md) funziona automaticamente con i client SQL che supportano il reindirizzamento TDS. Si noti che il reindirizzamento non è applicabile quando si usa il metodo di controllo BLOB.
 
 ## <a name="a-idsubheading-1adownlevel-clients-support"></a><a id="subheading-1"></a>Supporto dei client di livello inferiore
 Qualsiasi client che implementa TDS 7.4 deve supportare anche il reindirizzamento. Rappresentano un'eccezione JDBC 4.0, in cui non è del tutto supportata la funzionalità di reindirizzamento, e Tedious per Node.JS, in cui non è implementato il reindirizzamento.
@@ -43,7 +43,7 @@ Un elenco parziale di "client di livello inferiore" include:
 **Nota:** la modifica del nome di dominio completo del server citata in precedenza può risultare utile per applicare un criterio di controllo a livello di server SQL senza la necessità di una procedura di configurazione in ogni database (attenuazione temporanea).
 
 ## <a name="a-idsubheading-2aip-endpoint-changes-when-enabling-auditing"></a><a id="subheading-2"></a>Modifiche all'endpoint IP quando si abilita il Controllo
-Si noti che quando si abilita il Controllo, l'endpoint IP del database viene modificato. Se si dispone di impostazioni del firewall restrittive, aggiornarle.
+Si noti che quando si abilita il controllo delle tabelle, l'endpoint IP del database viene modificato. Se si dispone di impostazioni del firewall restrittive, aggiornarle.
 
 Il nuovo endpoint IP del database dipenderà dall'area del database:
 
@@ -55,9 +55,11 @@ Il nuovo endpoint IP del database dipenderà dall'area del database:
 | Australia sudorientale |191.239.184.223, 40.127.85.81, 191.239.161.83, 40.127.81.130 |
 | Brasile meridionale |104.41.44.161, 104.41.62.230, 23.97.99.54, 104.41.59.191 |
 | Stati Uniti centrali |104.43.255.70, 40.83.14.7, 23.99.128.244, 40.83.15.176 |
+| Stati Uniti centrali EUAP |52.180.178.16, 52.180.176.190 |
 | Asia orientale |23.99.125.133, 13.75.40.42, 23.97.71.138, 13.94.43.245 |
 | Stati Uniti orientali 2 |104.209.141.31, 104.208.238.177, 191.237.131.51, 104.208.235.50 |
 | Stati Uniti orientali |23.96.107.223, 104.41.150.122, 23.96.38.170, 104.41.146.44 |
+| Stati Uniti orientali EUAP |52.225.190.86, 52.225.191.187 |
 | India centrale |104.211.98.219, 104.211.103.71 |
 | India meridionale |104.211.227.102, 104.211.225.157 |
 | India occidentale |104.211.161.152, 104.211.162.21 |
@@ -69,12 +71,15 @@ Il nuovo endpoint IP del database dipenderà dall'area del database:
 | Asia sudorientale |104.215.198.156, 13.76.252.200, 23.97.51.109, 13.76.252.113 |
 | Europa occidentale |104.40.230.120, 13.80.23.64, 137.117.171.161, 13.80.8.37, 104.47.167.215, 40.118.56.193, 104.40.176.73, 40.118.56.20 |
 | Stati Uniti occidentali |191.236.123.146, 138.91.163.240, 168.62.194.148, 23.99.6.91 |
-| Canada centrale |13.88.248.106 |
-| Canada orientale |40.86.227.82 |
+| Stati Uniti occidentali 2 |13.66.224.156, 13.66.227.8 |
+| Stati Uniti centro-occidentali |52.161.29.186, 52.161.27.213 |
+| Canada centrale |13.88.248.106, 13.88.248.110 |
+| Canada orientale |40.86.227.82, 40.86.225.194 |
+| Regno Unito settentrionale |13.87.101.18, 13.87.100.232 |
+| Regno Unito meridionale 2 |13.87.32.202, 13.87.32.226 |
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

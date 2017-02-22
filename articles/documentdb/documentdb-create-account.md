@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: 32211d26314f1f967433dc689586f611e3c8c319
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: b922127076a8cb29ffb89c7fd184d4b8fa2d7e13
 
 
 ---
@@ -64,9 +64,8 @@ Se non si ha familiarità con DocumentDB, è possibile guardare [questo](https:/
 
    ![Screenshot del pannello del livello di coerenza: coerenza di sessione](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-7.png)  
 
-[Come creare un account DocumentDB]: #Howto
-[Passaggi successivi]: #NextSteps
-[documentdb-manage]:../articles/documentdb/documentdb-manage.md
+[How to: Create a DocumentDB account]: #Howto
+[Next steps]: #NextSteps
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -91,6 +90,6 @@ Per altre informazioni su DocumentDB, vedere le risorse seguenti:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

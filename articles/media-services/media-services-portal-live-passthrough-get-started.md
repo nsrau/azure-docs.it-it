@@ -1,5 +1,5 @@
 ---
-title: Come eseguire lo streaming live con codificatori locali tramite il portale di Azure | Documentazione Microsoft
+title: Eseguire lo streaming live con codificatori locali usando il portale di Azure | Documentazione Microsoft
 description: Questa esercitazione illustra come creare un canale configurato per la distribuzione pass-through.
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 158a0a74c7997b28d652c3eed049daa8faf39d94
+ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
+ms.openlocfilehash: 0818c3124815b53119a5b2d43f16e3154afbc225
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 158a0a74c7997b28d652c3eed049daa8faf39d94
 > [!div class="op_single_selector"]
 > * [Portale](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-> * [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
@@ -157,6 +157,6 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

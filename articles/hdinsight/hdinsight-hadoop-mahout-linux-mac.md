@@ -1,6 +1,6 @@
 ---
-title: Generare raccomandazioni con HDInsight basato su Linux e Mahout | Documentazione Microsoft
-description: Informazioni su come usare la libreria di Machine Learning Apache Mahout per generare raccomandazioni di film con HDInsight basato su Linux (Hadoop).
+title: Generare raccomandazioni con Mahout e HDInsight (SSH) | Documentazione Microsoft
+description: Informazioni su come usare la libreria di Machine Learning Apache Mahout per generare raccomandazioni di film con HDInsight (Hadoop).
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,28 +13,28 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 3c3944118ca986009711aee032b45c302b63e63b
-ms.openlocfilehash: 2cd1c44552183b3167ea1cfec6b2c1d7c6b3fd0c
+ms.sourcegitcommit: 0d5b68d26d708a28edee13ff3d9a57588ce83e12
+ms.openlocfilehash: be8146ae3dd34f4c8d5e02b06fd1b1f8d5d63dc1
 
 
 ---
-# <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight"></a>Generare raccomandazioni di film mediante Apache Mahout con Hadoop basato su Linux in HDInsight
+# <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>Generare raccomandazioni di film tramite Apache Mahout con Hadoop basato su Linux in HDInsight (SSH)
 
 [!INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
 Informazioni su come usare la libreria di Machine Learning [Apache Mahout](http://mahout.apache.org) con Azure HDInsight per generare raccomandazioni di film.
 
-Mahout è una libreria di [Machine Learning][ml] per Apache Hadoop. Mahout contiene gli algoritmi per l'elaborazione dei dati, ad esempio applicazione di filtri, classificazione e clustering. In questo articolo si userà un motore di raccomandazione per generare consigli cinematografici in base ai film visti dai propri amici.
-
-> [!NOTE]
-> I passaggi descritti in questo documento richiedono un cluster Hadoop basato su Linux in HDInsight. Per informazioni sull'uso di Mahout con un cluster basato su Windows, vedere [Generare raccomandazioni di film mediante Apache Mahout con Hadoop basato su Windows in HDInsight](hdinsight-mahout.md)
+Mahout è una libreria di [apprendimento automatico][ml] per Apache Hadoop. Mahout contiene gli algoritmi per l'elaborazione dei dati, ad esempio applicazione di filtri, classificazione e clustering. In questo articolo si userà un motore di raccomandazione per generare consigli cinematografici in base ai film visti dai propri amici.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster Hadoop basato su Linux in HDInsight. Per informazioni su come crearne uno, vedere [Introduzione all'uso di Hadoop basato su Linux in HDInsight][getstarted].
+* Un cluster HDInsight basato su Linux. Per informazioni su come crearne uno, vedere [Introduzione all'uso di Hadoop basato su Linux in HDInsight][getstarted].
+
+> [!IMPORTANT]
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="mahout-versioning"></a>Controllo delle versioni di Mahout
 
@@ -54,7 +54,7 @@ Il flusso di lavoro seguente costituisce un esempio molto semplice di uso dei da
 
 ### <a name="understanding-the-data"></a>Informazioni sui dati
 
-[GroupLens Research][movielens]fornisce i dati di classificazione dei film in un formato compatibile con Mahout. Questi dati sono disponibili nello spazio di archiviazione predefinito del cluster in `/HdiSamples/HdiSamples/MahoutMovieData`.
+[GroupLens Research][movielens] fornisce i dati di classificazione dei film in un formato compatibile con Mahout. Questi dati sono disponibili nello spazio di archiviazione predefinito del cluster in `/HdiSamples/HdiSamples/MahoutMovieData`.
 
 Sono disponibili due file, `moviedb.txt` (informazioni sui film) e `user-ratings.txt`. Il file user-ratings.txt viene usato durante l'analisi, mentre moviedb.txt viene usato per offrire informazioni di testo descrittive quando si visualizzano i risultati dell'analisi.
 
@@ -270,6 +270,6 @@ A questo punto, dopo aver appreso come usare Mahout, trovare altri modi per usar
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

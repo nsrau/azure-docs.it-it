@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 08/15/2016
+ms.date: 11/11/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 53480aca2ebe3f9ef6221fbdcd3b9ec13c03d31a
+ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
+ms.openlocfilehash: 5d747a7c34b340c6f98dabb2c3ff4d3340e74e4a
 
 
 ---
@@ -34,11 +34,11 @@ Per pubblicare un servizio cloud in Azure, è prima di tutto necessario creare u
 
 ### <a name="to-create-a-cloud-service-by-using-visual-studio"></a>Per creare un servizio cloud usando Visual Studio
 1. Aprire il menu di scelta rapida per il progetto Azure, quindi scegliere **Pubblica**.
-   
+
     ![VST_PublishMenu](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/vst-publish-menu.png)
 2. Se non è ancora stato fatto, accedere con il nome utente e la password dell'account Microsoft o dell'account aziendale associato alla sottoscrizione di Azure.
 3. Scegliere il pulsante **Avanti** per passare alle pagina **Impostazioni**.
-   
+
     ![Impostazioni comuni della Pubblicazione guidata](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/publish-settings-page.png)
 4. Nell'elenco **Servizi cloud** scegliere **Crea nuovo**. La finestra di dialogo **Crea Servizi di Azure** .
 5. Immettere il nome del servizio cloud. Il nome fa parte dell'URL per il servizio, quindi deve essere globalmente univoco. Nel nome non viene fatta distinzione tra maiuscole e minuscole.
@@ -57,10 +57,10 @@ Un account di archiviazione fornisce l'accesso ai servizi BLOB, code e tabelle. 
 
 ### <a name="to-create-a-storage-account-by-using-visual-studio"></a>Per creare un account di archiviazione usando Visual Studio
 1. In **Esplora soluzioni** aprire il menu di scelta rapida per il nodo **Archiviazione**, quindi scegliere **Crea account di archiviazione**.
-   
+
     ![Creare un nuovo account di archiviazione di Azure](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/IC744166.png)
 2. Selezionare o immettere le informazioni seguenti per il nuovo account di archiviazione nella finestra di dialogo **Crea account di archiviazione** .
-   
+
    * Sottoscrizione di Azure a cui aggiungere l'account di archiviazione.
    * Nome da usare per il nuovo account di archiviazione.
    * Area o set di affinità (ad esempio Stati Uniti occidentali o Asia orientale).
@@ -82,8 +82,8 @@ Dopo la creazione dell'account di archiviazione, saranno visualizzati gli URL ch
 
 > [!NOTE]
 > La chiave di accesso secondaria fornisce lo stesso accesso all'account di archiviazione offerto da quella primaria e viene generata come backup nel caso in cui la chiave di accesso primaria dovesse essere compromessa. È anche consigliabile rigenerare regolarmente le chiavi di accesso. È possibile modificare l'impostazione di una stringa di connessione per usare la chiave secondaria mentre si rigenera quella primaria, quindi procedere nuovamente alla modifica per usare la chiave primaria rigenerata mentre si rigenera quella secondaria.
-> 
-> 
+>
+>
 
 ## <a name="configure-your-app-to-use-services-provided-by-the-storage-account"></a>Configurare l'app per usare servizi forniti dall'account di archiviazione
 È necessario configurare un ruolo che acceda ai servizi di archiviazione per usare i servizi di archiviazione di Azure creati. A questo scopo, è possibile usare più configurazioni del servizio per il progetto Azure. Per impostazione predefinita, nel progetto Azure vengono create due configurazioni. L'uso di più configurazioni del servizio consente di usare la stessa stringa di connessione nel codice, ma la stringa di connessione in ogni configurazione del servizio avrà un valore diverso. Ad esempio, è possibile usare una configurazione del servizio per eseguire ed effettuare il debug dell'applicazione in locale usando l'emulatore di archiviazione di Azure e una configurazione del servizio diversa per pubblicare l'applicazione in Azure. Per altre informazioni sulle configurazioni del servizio, vedere [Configurazione di un progetto Azure usando configurazioni del servizio multiple](vs-azure-tools-multiple-services-project-configurations.md).
@@ -92,33 +92,33 @@ Dopo la creazione dell'account di archiviazione, saranno visualizzati gli URL ch
 1. In Visual Studio aprire la soluzione Azure. In Esplora soluzioni aprire il menu di scelta rapida per ogni ruolo nel progetto Azure che accede ai servizi di archiviazione e scegliere **Proprietà**. Una pagina con il nome del ruolo viene visualizzata nell'editor di Visual Studio. La pagina visualizza i campi per la scheda **Configurazione** .
 2. Nelle pagine delle proprietà per il ruolo scegliere **Impostazioni**.
 3. Nell'elenco **Configurazione del servizio** scegliere il nome della configurazione del servizio da modificare. Per apportare modifiche a tutte le configurazioni del servizio per questo ruolo, è possibile scegliere **Tutte le configurazioni**.  Per altre informazioni su come aggiornare le configurazioni del servizio, vedere la sezione **Gestire le stringhe di connessione per gli account di archiviazione** nell'argomento [Configurare i ruoli per un servizio cloud di Azure con Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
-4. Per modificare un'impostazione della stringa di connessione, scegliere il pulsante **…**  accanto all'impostazione. Verrà visualizzata la finestra di dialogo **Crea stringa di connessione a risorsa di archiviazione** .
+4. Per modificare un'impostazione della stringa di connessione, scegliere il pulsante **…** accanto all'impostazione. Verrà visualizzata la finestra di dialogo **Crea stringa di connessione a risorsa di archiviazione** .
 5. In **Connetti tramite** scegliere l'opzione **Sottoscrizione**.
 6. Nell'elenco **Sottoscrizione** scegliere la sottoscrizione da usare. Se l'elenco delle sottoscrizioni non include quella desiderata, selezionare il collegamento **Download impostazioni di pubblicazione** .
 7. Scegliere il nome dell'account di archiviazione dall'elenco **Nome account** . Gli strumenti di Azure ottengono le credenziali dell'account di archiviazione automaticamente tramite il file con estensione publishsettings. Per specificare le credenziali dell'account di archiviazione manualmente, scegliere l'opzione **Credenziali immesse manualmente** e quindi continuare la procedura. È possibile ottenere la chiave primaria e il nome dell'account di archiviazione dal [portale di Azure classico](http://go.microsoft.com/fwlink/p/?LinkID=213885). Se non si vogliono specificare le impostazioni dell'account di archiviazione manualmente, fare clic sul pulsante **OK** per chiudere la finestra di dialogo.
 8. Fare clic sul collegamento **Immettere le credenziali dell'account di archiviazione** .
 9. Nella casella **Nome account** immettere il nome dell'account di archiviazione.
-   
+
    > [!NOTE]
    > Accedere al [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885)e quindi fare clic su **Archiviazione** . Il portale mostra un elenco di account di archiviazione. Se si sceglie un account, viene aperta una pagina corrispondente. È possibile copiare il nome dell'account di archiviazione da questa pagina. Se si usa una versione precedente del portale classico, il nome dell'account di archiviazione viene indicato nella visualizzazione **Account di archiviazione** . Per copiare questo nome, evidenziarlo nella finestra **Proprietà** della visualizzazione e premere CTRL+C. Per incollare il nome in Visual Studio, fare clic nella casella di testo **Nome account** e premere CTRL+V.
-   > 
-   > 
+   >
+   >
 10. Nella casella **Chiave account** immettere la chiave primaria oppure copiarla dal [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885)e incollarla.
      Per copiare la chiave:
-    
+
     1. Nella parte inferiore della pagina per l'account di archiviazione appropriato selezionare il pulsante **Gestisci chiavi** .
     2. Nella pagina **Gestisci chiavi di accesso** selezionare il testo della chiave di accesso primaria, quindi premere CTRL+C.
     3. Negli strumenti di Azure incollare la chiave nella casella **Chiave account** .
     4. È necessario selezionare una delle opzioni seguenti per determinare le modalità di accesso del servizio all'account di archiviazione:
-       
+
        * **Usa HTTP**. Si tratta dell'opzione standard. Ad esempio: `http://<account name>.blob.core.windows.net`.
        * **Usa HTTPS** per una connessione sicura. Ad esempio: `https://<accountname>.blob.core.windows.net`.
        * **Specifica endpoint personalizzati** per ciascuno dei tre servizi. È quindi possibile digitare questi endpoint nel campo per il servizio specifico.
-         
+
          > [!NOTE]
          > Se si creano endpoint personalizzati, sarà possibile creare una stringa di connessione più complessa. Quando si usa questo formato stringa, è possibile specificare endpoint del servizio di archiviazione che includono un nome di dominio personalizzato registrato per l'account di archiviazione con il servizio BLOB. È anche possibile concedere l'accesso solo alle risorse BLOB in un singolo contenitore, tramite una firma di accesso condiviso. Per altre informazioni sulla creazione di endpoint personalizzati, vedere [Configurare le stringhe di connessione di archiviazione di Azure](storage/storage-configure-connection-string.md).
-         > 
-         > 
+         >
+         >
 11. Per salvare queste modifiche della stringa di connessione, scegliere **OK**, quindi scegliere il pulsante **Salva**. Dopo avere salvato queste modifiche, è possibile ottenere il valore di questa stringa di connessione nel codice tramite [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx). Quando si pubblica l'applicazione in Azure, scegliere la configurazione del servizio che contiene l'account di archiviazione di Azure per la stringa di connessione. Dopo la pubblicazione, verificare che l'applicazione funzioni come previsto rispetto ai servizi di archiviazione Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -126,7 +126,6 @@ Per ulteriori informazioni sulla pubblicazione di app in Azure da Visual Studio,
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

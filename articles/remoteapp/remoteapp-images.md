@@ -3,7 +3,7 @@ title: "Cosa è incluso nelle immagini modello di Azure RemoteApp | Documentazio
 description: Informazioni sulle immagini modello incluse con Azure RemoteApp.
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 ms.assetid: 7f8442b2-81da-421e-a453-aa53ba2066b7
 ms.service: remoteapp
@@ -11,11 +11,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b589fb3b1cdbf1f14ece6adf43e1eb0313ff09df
+ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
+ms.openlocfilehash: 21ae6458d1d65698c0c8fc7081696cb7406a918c
 
 
 ---
@@ -40,7 +40,7 @@ La sottoscrizione di Azure RemoteApp include tre immagini modello:
 
 Di seguito sono riportati i dettagli sul contenuto di ogni immagine.
 
-## <a name="windows-server-2012-r2-the-vanilla-image"></a>Windows Server 2012 R2 (immagine "vanilla")
+## <a name="windows-server-2012-r2--the-vanilla-image"></a>Windows Server 2012 R2 (immagine "vanilla")
 Questa immagine si basa sul sistema operativo Microsoft Windows Server 2012 R2 Datacenter e ha i seguenti ruoli e funzionalità installati per soddisfare i requisiti per le immagini modello di Azure RemoteApp:
 
 * .NET Framework 4.5, 3.5.1, 3.5
@@ -115,6 +115,6 @@ Si tratta di un'estensione dell'immagine "vanilla" e presenta i seguenti compone
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

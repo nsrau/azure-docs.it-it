@@ -2,7 +2,7 @@
 ## <a name="key-features"></a>Funzionalità principali
 * **Hardware ad alte prestazioni** : queste istanze sono progettate e ottimizzate per applicazioni a elevato uso di calcolo e di rete, incluse le applicazioni HPC (High-Performance Computing) e batch, per la modellazione e per simulazioni su vasta scala. 
   
-    Per conoscere le specifiche di base, le capacità di archiviazione e i dettagli relativi ai dischi, vedere [Dimensioni delle macchine virtuali](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). I dettagli relativi ai processori Intel Xeon E5-2667 v3 (usato nella serie H) e Intel Xeon E5-2670 (usato in A8 - A11), tra cui le estensioni del set di istruzioni supportate, sono disponibili sul sito Web Intel.com. 
+    I dettagli relativi ai processori Intel Xeon E5-2667 v3 (usato nella serie H) e Intel Xeon E5-2670 (usato in A8 - A11), tra cui le estensioni del set di istruzioni supportate, sono disponibili sul sito Web Intel.com. 
 * **Progettato per i cluster HPC** : distribuire più istanze a elevato uso di calcolo in Azure per creare un cluster HPC autonomo o per aggiungere capacità a un cluster locale. Se si desidera, distribuire strumenti di gestione del cluster e pianificazione dei processi. In alternativa, usare le istanze per i processi a elevato uso di calcolo in un altro servizio di Azure come Azure Batch.
 * **Connessione alla rete RDMA per applicazioni MPI** : un subset delle istanze a elevato uso di calcolo (H16r, H16mr, A8 e A9) è dotato di una seconda interfaccia di rete per la connettività ad accesso diretto a memoria remota (RDMA). Questa interfaccia è un'aggiunta all'interfaccia di rete di Azure standard disponibile per gli altri formati di VM. 
   
@@ -24,6 +24,6 @@
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

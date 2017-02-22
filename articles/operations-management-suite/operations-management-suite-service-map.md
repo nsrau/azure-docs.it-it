@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/18/2016
+ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: cbed591d15daf8060f13d0e9b009d65c85d256aa
-ms.openlocfilehash: c5cd77dc53c36c4ad6c41eb876e24b4077d2007c
+ms.sourcegitcommit: cf3e083f17bf8b2245373bced5823afd21fe1af9
+ms.openlocfilehash: d2e55846667cccec824e31f648beac1c84fbcf50
 
 
 ---
 
 # <a name="using-service-map-solution-in-operations-management-suite-oms"></a>Usare la soluzione di elenco dei servizi in Operations Management Suite (OMS)
-![Icona di Alert Management](media/oms-service-map/icon.png) L'elenco dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici.  L'elenco dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
+L'elenco dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici.  L'elenco dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
 
 Questo articolo fornisce i dettagli su come usare l'elenco dei servizi.  Per informazioni sulla configurazione dell'elenco dei servizi e sugli agenti di caricamento, vedere [Configuring Service Map solution in Operations Management Suite (OMS)](operations-management-suite-service-map-configure.md) (Configurare la soluzione di elenco dei servizi in Operations Management Suite (OMS))
 
@@ -30,9 +30,9 @@ Questo articolo fornisce i dettagli su come usare l'elenco dei servizi.  Per inf
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casi di utilizzo: Riconoscimento delle dipendenze nei processi IT
 
 ### <a name="discovery"></a>Individuazione
-L'elenco dei servizi genera automaticamente una mappa di riferimento delle dipendenze tra server, processi e servizi di terze parti.  La soluzione rileva e mappa tutte le dipendenze TCP, identificando le connessioni impreviste, i sistemi remoti di terze parti da cui si è dipendenti e le dipendenze da aree tradizionali non note della rete, ad esempio DNS e AD.  L'elenco dei servizi rileva i tentativi di connessione di rete non riusciti effettuati dai sistemi gestiti permettendo di identificare potenziali configurazioni del server errate, interruzioni dei servizi e problemi di rete.
+L'elenco dei servizi genera automaticamente una mappa di riferimento delle dipendenze tra server, processi e servizi di terze parti.  La soluzione rileva e mappa tutte le dipendenze TCP, identificando le connessioni impreviste, i sistemi remoti di terze parti da cui si dipende e le dipendenze da aree tradizionali non note della rete, ad esempio Active Directory.  L'elenco dei servizi rileva i tentativi di connessione di rete non riusciti effettuati dai sistemi gestiti permettendo di identificare potenziali configurazioni del server errate, interruzioni dei servizi e problemi di rete.
 
-### <a name="incident-management"></a>Gestione dell'evento imprevisto
+### <a name="incident-management"></a>Gestione di eventi imprevisti
 L'elenco dei servizi consente di eliminare i tentativi di isolamento del problema visualizzando le connessioni tra i sistemi e la loro influenza reciproca.  In aggiunta alle informazioni sulle connessioni non riuscite, le informazioni sui client connessi permettono di identificare i bilanciamenti del carico errati, il carico imprevisto o eccessivo sui servizi critici e i client non autorizzati, ad esempio i computer per lo sviluppo in comunicazione con i sistemi di produzione.  I flussi di lavoro integrati in Rilevamento modifiche di OMS consentono inoltre di verificare se un evento di modifica in un computer o servizio back-end descrive la causa principale di un evento imprevisto.
 
 ### <a name="migration-assurance"></a>Garanzia di migrazione
@@ -50,11 +50,14 @@ Gli agenti dell'elenco dei servizi raccolgono informazioni su tutti i processi c
 
 ![Panoramica dell'elenco dei servizi](media/oms-service-map/service-map-overview.png)
 
-È possibile espandere i computer nella mappa per visualizzare i processi in esecuzione con connessioni di rete attive nell'intervallo di tempo selezionato.  Quando si espande un computer remoto con un agente dell'elenco dei servizi per visualizzare i dettagli dei processi, vengono visualizzati solo i processi che comunicano con il computer.  Il numero di computer front-end senza agenti che si connettono al computer è indicato a sinistra dei processi a cui si connettono.  Se il computer si connette a un computer back-end senza un agente, nella mappa il computer back-end è rappresentato da un nodo espandibile da cui è possibile visualizzare le singole porte e i servizi che comunicano con il computer.
+È possibile espandere i computer nella mappa per visualizzare i processi in esecuzione con connessioni di rete attive nell'intervallo di tempo selezionato.  Quando si espande un computer remoto con un agente dell'elenco dei servizi per visualizzare i dettagli dei processi, vengono visualizzati solo i processi che comunicano con il computer.  Il numero di computer front-end senza agenti che si connettono al computer è indicato a sinistra dei processi a cui si connettono.  Se il computer attivo è in fase di connessione a computer back-end senza un agente, il server back-end è incluso in un gruppo di porte server con altre connessioni allo stesso numero di porta.
 
 Per impostazione predefinita, le mappe dell'elenco dei servizi mostrano le informazioni sulle dipendenze degli ultimi 10 minuti.  Usando i controlli di tempo in alto a sinistra, è possibile cercare nelle mappe intervalli di tempo cronologici della durata massima di un'ora per visualizzare l'aspetto delle dipendenze nel passato, ad esempio durante un evento imprevisto o prima di una modifica.    I dati dell'elenco dei servizi vengono archiviati per 30 giorni nelle aree di lavoro a pagamento e per 7 giorni nelle aree di lavoro gratuite.
 
-![Mappa di computer con le proprietà del computer selezionato](media/oms-service-map/machine-map.png)
+## <a name="status-badges"></a>Notifiche di stato
+Nella parte inferiore di ogni server nella mappa potrebbe essere presente un elenco di notifiche di stato con informazioni relative allo stato del server.  Le notifiche indicano che sono presenti alcune informazioni rilevanti per il server da una delle integrazioni della soluzione OMS.  Facendo clic su una notifica, l’utente visualizzerà direttamente i dettagli dello stato nel pannello di destra.  Le notifiche di stato attualmente disponibili includono Avvisi, Modifiche, Sicurezza e Aggiornamenti.
+
+![Connessioni non riuscite](media/oms-service-map/status-badges.png)
 
 ## <a name="failed-connections"></a>Connessioni non riuscite
 Le connessioni a processi e computer non riuscite sono visualizzate nelle mappe dell'elenco dei servizi con una linea rossa tratteggiata, che indica se un sistema client non riesce a raggiungere un processo o una porta.  Vengono visualizzate le connessioni non riuscite di qualsiasi sistema con un agente dell'elenco dei servizi distribuito, a condizione che il sistema corrisponda a quello che esegue la connessione non riuscita.  L'elenco dei servizi esegue questo calcolo osservando i socket TCP che non riescono a stabilire una connessione.  Ciò potrebbe essere causato da un firewall, da un errore di configurazione del client o server oppure da un servizio remoto non disponibile.
@@ -62,6 +65,33 @@ Le connessioni a processi e computer non riuscite sono visualizzate nelle mappe 
 ![Connessioni non riuscite](media/oms-service-map/failed-connections.png)
 
 Le informazioni sulle connessioni non riuscite facilitano la risoluzione dei problemi, la convalida della migrazione, l'analisi di sicurezza e la comprensione dell'intera architettura.  A volte le connessioni non riuscite non offrono informazioni utili, spesso tuttavia indicano direttamente un problema, ad esempio un ambiente di failover che diventa improvvisamente non raggiungibile oppure due livelli applicazione che non comunicano dopo una migrazione cloud.
+
+## <a name="client-groups"></a>Gruppi di client
+I gruppi di client sono costituiti da caselle sulla mappa che rappresentano i computer client privi di agenti di dipendenza.  Un singolo gruppo di client rappresenta i client per un unico processo.
+
+![Gruppi di client](media/oms-service-map/client-groups.png)
+
+Per visualizzare gli indirizzi IP dei server in un gruppo di client, selezionare il gruppo.  Il contenuto del gruppo verrà elencato nel pannello delle proprietà.
+
+![Proprietà del gruppo di client](media/oms-service-map/client-group-properties.png)
+
+## <a name="server-port-groups"></a>Gruppi di porte di server
+I gruppi di porte di server sono costituiti da caselle che rappresentano le porte sui server privi di agenti di dipendenza.  Nella casella viene elencata la porta del server con il numero di server con connessioni a tale porta.  Espandere la casella per visualizzare i singoli server e le connessioni.  Se nella casella è presente un solo server, ne viene elencato il nome o l'indirizzo IP.
+
+![Gruppi di porte di server](media/oms-service-map/server-port-groups.png)
+
+## <a name="context-menu"></a>Menu di scelta rapida
+Facendo clic sui tre punti in alto a destra di un server, verrà visualizzato il menu di scelta rapida per quel server.
+
+![Connessioni non riuscite](media/oms-service-map/context-menu.png)
+
+### <a name="load-server-map"></a>Load Server Map (Carica mappa server)
+Load Server Map (Carica mappa server) consentirà di passare a una nuova mappa con il server selezionato come nuova Focus Machine (Computer attivo).
+
+### <a name="showhide-self-links"></a>Show/Hide Self Links (Mostra/Nascondi self link)
+Show Self Links (Mostra self link) consentirà di ridisegnare il nodo del server, inclusi i self link, ovvero le connessioni TCP che si avviano e terminano con i processi all’interno del server.  Se i self link sono visualizzati, il menu cambierà in Hide Self Links (Nascondi self link), consentendo agli utenti di attivare/disattivare il disegno dei self link.
+
+
 
 ## <a name="computer-and-process-properties"></a>Proprietà dei computer e dei processi
 In una mappa dell'elenco dei servizi è possibile selezionare computer e processi per visualizzare ulteriori informazioni sulle loro proprietà.  I computer visualizzano informazioni sul nome DNS, gli indirizzi IPv4, la capacità di CPU e di memoria, il tipo di macchina virtuale, la versione del sistema operativo, l'ora dell'ultimo riavvio e gli ID degli agenti OMS e dell'elenco dei servizi.
@@ -110,7 +140,7 @@ Il pannello relativo agli aggiornamenti del computer mostra i dati provenienti d
 ![Pannello di rilevamento modifiche del computer](media/oms-service-map/machine-updates.png)
 
 
-## <a name="oms-alert-integration"></a>Integrazione degli avvisi OMS
+## <a name="oms-alerts-integration"></a>Integrazione degli avvisi OMS
 Gli avvisi OMS integrati nell'elenco dei servizi consentono di visualizzare gli avvisi attivati per un determinato server nell'intervallo di tempo selezionato.  Se sono presenti avvisi correnti, sul server verrà visualizzata un'icona e nel pannello degli avvisi del computer verranno elencati gli avvisi in questione.
 
 ![Pannello degli avvisi del computer](media/oms-service-map/machine-alerts.png)
@@ -125,14 +155,15 @@ Tenere presente che, per poter visualizzare gli avvisi rilevanti nell'elenco dei
 ## <a name="log-analytics-records"></a>Record di Log Analytics
 I dati di inventario di computer e processi dell'elenco dei servizi sono disponibili per la [ricerca](../log-analytics/log-analytics-log-searches.md) in Log Analytics.  Ciò può essere applicato a scenari che includono la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione personalizzata dei problemi di prestazioni.
 
-Ogni ora viene generato un record per ogni computer e processo univoco che si aggiunge ai record generati quando il processo o il computer viene avviato o caricato nell'elenco dei servizi.  I record hanno le proprietà descritte nelle tabelle seguenti.
+Ogni ora viene generato un record per ogni computer e processo univoco che si aggiunge ai record generati quando un processo o computer viene avviato o caricato nell'elenco dei servizi.  I record hanno le proprietà descritte nelle tabelle seguenti.  I campi e i valori negli eventi ServiceMapComputer_CL eseguono il mapping ai campi della risorsa del computer nell'API ServiceMap ARM.  I campi e i valori negli eventi ServiceMapProcess_CL eseguono il mapping ai campi della risorsa del processo nell'API ServiceMap ARM.  Il campo ResourceName_s coincide con il campo del nome nella risorsa ARM corrispondente. Nota: con l’aumentare dell’elenco dei servizi, questi campi sono soggetti a modifica.
+
 
 Sono disponibili proprietà generate internamente che è possibile usare per identificare processi e computer univoci:
 
-- PersistentKey_s viene definita in modo univoco dalla configurazione del processo, ad esempio dalla riga di comando e dall'ID utente.  Si tratta di una proprietà univoca di un computer specifico ma può essere ripetuta in più computer.
-- ProcessId_s e ComputerId_s sono proprietà univoche globali nel modello dell'elenco dei servizi.
+- Computer: utilizzare ResourceId o ResourceName_s per identificare in modo univoco un computer all'interno di un'area di lavoro di OMS.
+- Processo: utilizzare ResourceId per identificare in modo univoco un computer all'interno di un'area di lavoro di OMS. ResourceName_s è univoco all'interno del contesto del computer in cui viene eseguito il processo (MachineResourceName_s) 
 
-
+Poiché possono essere presenti vari record per un determinato processo o computer in un intervallo di tempo specificato, le query possono restituire più di un record per lo stesso computer o processo. Per includere solo il record più recente, aggiungere "| dedup ResourceId" alla query.
 
 ### <a name="servicemapcomputercl-records"></a>Record ServiceMapComputer_CL
 I record che contengono il tipo **ServiceMapComputer_CL** includono dati di inventario relativi ai server con agenti del modello dei servizi.  Questi record includono le proprietà elencate nella tabella seguente:
@@ -141,22 +172,24 @@ I record che contengono il tipo **ServiceMapComputer_CL** includono dati di inve
 |:--|:--|
 | Tipo | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
-| ComputerName_s | Nome del computer Windows o Linux |
-| CPUSpeed_d | Velocità della CPU in MHz |
-| DnsNames_s | Elenco di tutti i nomi DNS per il computer |
-| IPv4s_s | Elenco di tutti gli indirizzi IPv4 usati dal computer |
-| IPv6s_s | Elenco di tutti gli indirizzi IPv6 usati dal computer.  (L'elenco dei servizi individua gli indirizzi IPv6, ma non le dipendenze.) |
-| Is64Bit_b | true o false in base al tipo di sistema operativo |
-| MachineId_s | GUID interno univoco in un'area di lavoro OMS  |
+| ResourceId | identificatore univoco per il computer nell'area di lavoro |
+| ResourceName_s | identificatore univoco per il computer nell'area di lavoro |
+| ComputerName_s | FQDN del computer |
+| Ipv4Addresses_s | un elenco degli indirizzi IPv4 del server |
+| Ipv6Addresses_s | un elenco degli indirizzi IPv6 del server |
+| DnsNames_s | matrice di nomi DNS |
 | OperatingSystemFamily_s | Windows o Linux |
-| OperatingSystemVersion_s | Stringa di versione del sistema operativo lunga |
-| TimeGenerated | Data e ora di creazione del record. |
-| TotalCPUs_d | Numero di core CPU |
-| TotalPhysicalMemory_d | Capacità di memoria in MB |
-| VirtualMachine_b | true o false se il sistema operativo è guest della macchina virtuale o meno |
-| VirtualMachineID_g | ID della macchina virtuale Hyper-V |
-| VirtualMachineName_g | Nome della macchina virtuale Hyper-V |
-| VirtualMachineType_s | Hyperv, Vmware, Xen, Kvm, Ldom, Lpar, Virtualpc |
+| OperatingSystemFullName_s | nome completo del sistema operativo  |
+| Bitness_s | numero di bit del computer (32 bit o&64; bit) |
+| PhysicalMemory_d | memoria fisica in MB |
+| Cpus_d | numero di CPU |
+| CPUSpeed_d | velocità della CPU in MHz|
+| VirtualizationState_s | "sconosciuto", "fisico", "virtuale", "hypervisor" |
+| VirtualMachineType_s | "hyperv", "vmware" e così via |
+| VirtualMachineNativeMachineId_g | ID VM assegnato dal relativo hypervisor |
+| VirtualMachineName_s | Nome della VM. |
+| BootTime_t | tempo di avvio |
+
 
 
 ### <a name="servicemapprocesscl-type-records"></a>Record con tipo ServiceMapProcess_CL
@@ -166,50 +199,56 @@ I record con tipo **ServiceMapProcess_CL** includono dati di inventario relativi
 |:--|:--|
 | Tipo | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
-| CommandLine_s | Riga di comando completa del processo |
-| CompanyName_s | Nome della società (da Windows PE o Linux RPM) |
-| Description_s | Descrizione del processo estesa (da Windows PE o Linux RPM) |
-| FileVersion_s | Versione del file eseguibile (da Windows PE, solo Windows) |
-| FirstPid_d | ID processo del sistema operativo |
-| InternalName_s | Nome interno del file eseguibile (da Windows PE, solo Windows) |
-| MachineId_s | GUID interno univoco in un'area di lavoro OMS  |
-| Name_s | Nome dell'eseguibile del processo |
-| Path_s | Percorso del file system dell'eseguibile del processo |
-| PersistentKey_s | GUID interno univoco all'interno del computer |
-| PoolId_d | ID interno per i processi di aggregazione basati su righe di comando simili. |
-| ProcessId_s | GUID interno univoco in un'area di lavoro OMS  |
-| ProductName_s | Stringa del nome del prodotto (da Windows PE o Linux RPM) |
-| ProductVersion_s | Stringa della versione del prodotto (da Windows PE o Linux RPM) |
-| StartTime_t | Ora di inizio del processo dell'orologio del computer locale |
-| TimeGenerated | Data e ora di creazione del record. |
-| UserDomain_s | Dominio del proprietario del processo (solo Windows) |
-| UserName_s | Nome del proprietario del processo (solo Windows) |
-| WorkingDirectory_s | Directory di lavoro del processo |
+| ResourceId | identificatore univoco per il processo nell'area di lavoro |
+| ResourceName_s | identificatore univoco per il processo nel computer in cui è in esecuzione|
+| MachineResourceName_s | nome della risorsa del computer |
+| ExecutableName_s | nome dell'eseguibile del processo |
+| StartTime_t | ora di inizio del pool del processo |
+| FirstPid_d | primo pid nel pool del processo |
+| Description_s | descrizione del processo |
+| CompanyName_s | nome della società |
+| InternalName_s | nome interno |
+| ProductName_s | nome del prodotto |
+| ProductVersion_s | versione del prodotto |
+| FileVersion_s | versione del file |
+| CommandLine_s | riga di comando |
+| ExecutablePath _s | percorso del file eseguibile |
+| WorkingDirectory_s | directory di lavoro |
+| UserName | account con cui è in esecuzione il processo |
+| UserDomain | dominio in cui è in esecuzione il processo |
 
 
 ## <a name="sample-log-searches"></a>Ricerche di log di esempio
 
-### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Visualizzare la capacità di memoria fisica di tutti i computer gestiti.
-Type=ServiceMapComputer_CL | select TotalPhysicalMemory_d, ComputerName_s | Dedup ComputerName_s
+### <a name="list-all-known-machines"></a>Visualizzare tutti i computer noti
+Type=ServiceMapComputer_CL | dedup ResourceId
 
-### <a name="list-computer-name-dns-ip-and-os-version"></a>Visualizzare nome del computer, DNS, IP e versione del sistema operativo.
-Type=ServiceMapComputer_CL | select ComputerName_s, OperatingSystemVersion_s, DnsNames_s, IPv4s_s  | dedup ComputerName_s
+### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Visualizzare la capacità di memoria fisica di tutti i computer gestiti.
+Type=ServiceMapComputer_CL | select PhysicalMemory_d, ComputerName_s | Dedup ResourceId
+
+### <a name="list-computer-name-dns-ip-and-os"></a>Visualizzare nome del computer, DNS, IP e sistema operativo.
+Type=ServiceMapComputer_CL | select ComputerName_s, OperatingSystemFullName_s, DnsNames_s, IPv4Addresses_s  | dedup ResourceId
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Trovare tutti i processi con "sql" nella riga di comando
-Type=ServiceMapProcess_CL CommandLine_s = \*sql\* | dedup ProcessId_s
+Type=ServiceMapProcess_CL CommandLine_s = \*sql\* | dedup ResourceId
 
-### <a name="after-viewing-event-data-for-given-process-use-its-machine-id-to-retrieve-the-computers-name"></a>Dopo aver visualizzato i dati degli eventi per un processo specifico, usare l'ID computer per recuperare il nome del computer
-Type=ServiceMapComputer_CL "m!m-9bb187fa-e522-5f73-66d2-211164dc4e2b" | Distinct ComputerName_s
+### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Trovare un computer (record più recente) in base al nome di risorsa
+Type=ServiceMapComputer_CL "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
+
+### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Trovare un computer (record più recente) in base all’indirizzo IP
+Type=ServiceMapComputer_CL "10.229.243.232" | dedup ResourceId
+
+### <a name="list-all-known-processes-on-a-given-machine"></a>Visualizzare tutti i processi noti su un computer specifico
+Type=ServiceMapProcess_CL MachineResourceName_s="m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
 
 ### <a name="list-all-computers-running-sql"></a>Visualizzare tutti i computer che eseguono SQL
-Type=ServiceMapComputer_CL MachineId_s IN {Type=ServiceMapProcess_CL \*sql\* | Distinct MachineId_s} | Distinct ComputerName_s
+Type=ServiceMapComputer_CL ResourceName_s IN {Type=ServiceMapProcess_CL \*sql\* | Distinct MachineResourceName_s} | dedup ResourceId | Distinct ComputerName_s
 
 ### <a name="list-of-all-unique-product-versions-of-curl-in-my-datacenter"></a>Visualizzare tutte le versioni di prodotto univoche di curl nel data center
-Type=ServiceMapProcess_CL Name_s=curl | Distinct ProductVersion_s
+Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Creare un gruppo di tutti i computer che eseguono CentOS
-Type=ServiceMapComputer_CL OperatingSystemVersion_s = "CentOS" | Distinct ComputerName_s
-
+Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
 
 
 ## <a name="diagnostic-and-usage-data"></a>Dati di diagnostica e di utilizzo
@@ -218,12 +257,15 @@ Microsoft raccoglie automaticamente i dati di utilizzo e prestazioni tramite l'u
 Per altre informazioni sulla raccolta dei dati e sull'utilizzo, vedere l'[Informativa sulla privacy di Microsoft Online Services](hhttps://go.microsoft.com/fwlink/?LinkId=512132).
 
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sulle [ricerche nei log](../log-analytics/log-analytics-log-searches.md) in Log Analytics per recuperare i dati raccolti dall'elenco dei servizi.
 
 
+## <a name="feedback"></a>Commenti e suggerimenti
+Per inviare commenti sull'elenco dei servizi e sulla relativa documentazione,  visitare la [pagina per i suggerimenti degli utenti](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), in cui è possibile suggerire funzionalità o votare i suggerimenti esistenti.
 
-<!--HONumber=Nov16_HO4-->
+
+
+<!--HONumber=Jan17_HO1-->
 
 

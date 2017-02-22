@@ -1,5 +1,5 @@
 ---
-title: App Web Python con Django | Microsoft Docs
+title: Compilare un&quot;app Django in una macchina virtuale di Azure | Documentazione Microsoft
 description: Questa esercitazione illustra come ospitare un sito Web basato su Django in Azure usando una macchina virtuale Windows Server 2012 R2 Datacenter utilizzando un modello di distribuzione classica.
 services: virtual-machines-windows
 documentationcenter: python
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/04/2015
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: bd3e269815628411ff51d0274eb8ba36f04e6fcb
+ms.sourcegitcommit: 52967959e60ac64f5af2ae044803aa7443c5830b
+ms.openlocfilehash: 3691a00dd9ce64b30435be98b3429627113128e3
 
 
 ---
@@ -176,6 +176,6 @@ Al termine dell'esercitazione, arrestare e/o rimuovere la macchina virtuale di A
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

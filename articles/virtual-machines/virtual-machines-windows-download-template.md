@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b6dffec166ffe8e04c5d7b701aef009bf7b72d45
+ms.sourcegitcommit: 349b8dc78ace79efca771efb78e453a47e51023e
+ms.openlocfilehash: 6e80064adadcc542523acb1d2478e6b8f0163acb
 
 
 ---
@@ -39,7 +39,7 @@ Quando si crea una macchina virtuale in Azure con il portale o con PowerShell, v
    * parameters.json
    * template.json
 
-Il file .json è il modello.
+Il file template.json è il modello.
 
 ## <a name="download-the-template-using-powershell"></a>Scaricare il modello con PowerShell
 È anche possibile scaricare il file di modello .json usando il cmdlet [Export-AzureRMResourceGroup](https://msdn.microsoft.com/library/mt715427.aspx). È possibile usare il parametro `-path` per fornire il nome file e il percorso per il file .json. In questo esempio viene illustrato come scaricare il modello per il gruppo di risorse denominato **myResourceGroup** nella cartella **C:\users\public\downloads** del computer locale.
@@ -54,6 +54,6 @@ Per altre informazioni sulla distribuzione di risorse usando i modelli, vedere [
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

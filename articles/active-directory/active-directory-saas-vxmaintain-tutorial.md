@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9937ede727d50cf4bc72ef65c513de9ba0a6a513
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e2d2f6edc8e17ee4e3eff852e6a2608dac7e16a7
 
 
 ---
@@ -229,6 +229,6 @@ Quando si fa clic sul riquadro vxMaintain nel pannello di accesso, verrà esegui
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

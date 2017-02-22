@@ -41,7 +41,7 @@ Questa panoramica illustra questi aspetti della gestione di SQL Data Warehouse.
 ### <a name="azure-portal"></a>Portale di Azure
 Il [portale di Azure][Portale di Azure] è un portale basato sul Web in cui è possibile creare, aggiornare ed eliminare i database e monitorare le risorse di database. Si tratta dello strumento ideale se si sta appena iniziando a usare Azure, se si gestisce un numero ridotto di database del data warehouse o se è necessario operare rapidamente.
 
-Per un'introduzione al portale di Azure, vedere [Creare un Azure SQL Data Warehouse][Create a SQL Data Warehouse (Azure portal)].
+Per un'introduzione al portale di Azure, vedere [Creare un Azure SQL Data Warehouse][Creare un Azure SQL Data Warehouse].
 
 ### <a name="sql-server-data-tools-in-visual-studio"></a>SQL Server Data Tools in Visual Studio
 [SQL Server Data Tools][SQL Server Data Tools] (SSDT) in Visual Studio consente di connettersi, gestire e sviluppare i database. È opportuno che gli sviluppatori di applicazioni con una certa familiarità con Visual Studio o altri ambienti di sviluppo integrato (IDE), provino a usare SSDT in Visual Studio.

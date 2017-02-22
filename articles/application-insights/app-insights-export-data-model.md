@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: e4576409641db73ad8920a1eec2eea1e3580109f
-ms.openlocfilehash: fc8a3efd079d84aea4cac63de401d46347f9e3d7
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: feaa76e81f64b224f62e583541bf2ef376793a38
 
 
 ---
@@ -155,7 +155,7 @@ Tutti i tipi di telemetria sono accompagnati da una sezione di contesto. Non tut
 | internal.data.id |string | |
 
 ## <a name="events"></a>Eventi
-Eventi personalizzati generati da [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event).
+Eventi personalizzati generati da [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent).
 
 | Path | Tipo | Note |
 | --- | --- | --- |
@@ -195,7 +195,7 @@ Segnala le [eccezioni](app-insights-asp-net-exceptions.md) nel server e nel brow
 | basicException [0] typeName |string | |
 
 ## <a name="trace-messages"></a>Messaggi di traccia
-Inviati da [TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) e dagli [adattatori di registrazione](app-insights-asp-net-trace-logs.md).
+Inviati da [TrackTrace](app-insights-api-custom-events-metrics.md#tracktrace) e dagli [adattatori di registrazione](app-insights-asp-net-trace-logs.md).
 
 | Path | Tipo | Note |
 | --- | --- | --- |
@@ -226,7 +226,7 @@ Inviata da TrackDependency. Usata per segnalare le prestazioni e l'utilizzo dell
 | remoteDependency [0] urlData.host |string |Lunghezza massima: 200 |
 
 ## <a name="requests"></a>Richieste
-Inviate da [TrackRequest](app-insights-api-custom-events-metrics.md#track-request). I moduli standard le usano per segnalare il tempo di risposta del server, calcolato nel server.
+Inviate da [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest). I moduli standard le usano per segnalare il tempo di risposta del server, calcolato nel server.
 
 | Path | Tipo | Note |
 | --- | --- | --- |
@@ -354,6 +354,6 @@ Se non indicato diversamente, le durate vengono espresse in decimi di microsecon
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

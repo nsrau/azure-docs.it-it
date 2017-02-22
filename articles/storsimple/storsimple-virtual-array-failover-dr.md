@@ -1,5 +1,5 @@
 ---
-title: Ripristino di emergenza e failover del dispositivo per l&quot;array virtuale Microsoft Azure StorSimple | Documentazione Microsoft
+title: Ripristino di emergenza per l&quot;array virtuale StorSimple e failover del dispositivo | Documentazione Microsoft
 description: "Scoprire di più su come eseguire il failover di StorSimple Virtual Array."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
-ms.openlocfilehash: 34de93b8133649aaedc3cb89a8cd478eda92c7aa
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: d31f10f660dc05290363825c089664a70ecdd037
 
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array"></a>Ripristino di emergenza e failover del dispositivo per StorSimple Virtual Array
@@ -76,7 +76,7 @@ Prima di iniziare il ripristino di emergenza, il dispositivo esegue le verifiche
   
   * dei nomi relativi a record di controllo di accesso validi
   * di IQN (lunghezza non superiore a 220 caratteri)
-  * e di password CHAP (lunghezza di 12 e 16 caratteri).
+  * e di password CHAP (lunghezza di&12; e&16; caratteri).
 
 Se una qualsiasi delle verifiche preliminari riportate sopra non va a buon fine, non è possibile procedere con il ripristino di emergenza. Risolvere questi problemi, quindi riprovare il ripristino di emergenza.
 
@@ -131,7 +131,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
     
     1. Il campo del dispositivo di origine viene popolato automaticamente. Si noti la dimensione totale dei dati per il dispositivo di origine. La dimensione dei dati deve essere inferiore alla capacità disponibile sul dispositivo di destinazione. Esaminare i dettagli associati al dispositivo di origine, ad esempio il nome del dispositivo, la capacità totale e i nomi delle condivisioni di cui è stato eseguito il failover.
 
-    2. Nell'elenco a discesa dei dispositivi disponibili scegliere un **Dispositivo di destinazione**.  Solo i dispositivi dotati di capacità sufficiente vengono visualizzati nell'elenco a discesa.
+    2. Nell'elenco a discesa dei dispositivi disponibili scegliere un **Dispositivo di destinazione**. Solo i dispositivi dotati di capacità sufficiente vengono visualizzati nell'elenco a discesa.
 
     3. Selezionare **Sono consapevole che questa operazione effettuerà il failover dei dati nel dispositivo di destinazione**. 
 
@@ -182,6 +182,6 @@ Informazioni su come [Usare l'interfaccia utente Web per amministrare StorSimple
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

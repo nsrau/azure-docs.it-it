@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 8838617f9b7281878ac3561a80bbba5e4506f410
+ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
+ms.openlocfilehash: 77b8e707b5743ce2d0b3eb52f75828c9ab0337d9
 
 
 ---
@@ -67,6 +67,14 @@ Utilizzare la procedura seguente per creare un nuovo tenant AD B2C di Azure. Att
    > 
    > 
 
+## <a name="step-4-link-your-azure-ad-b2c-tenant-to-your-azure-subscription"></a>Passaggio 4: Collegare il tenant di Azure AD B2C alla sottoscrizione di Azure
+Se si intende utilizzare tenant B2C per le applicazioni di produzione, è necessario collegare il tenant di Azure AD B2C alla sottoscrizione di Azure per pagare gli addebiti per l'utilizzo. Per ulteriori informazioni, vedere [questo articolo](active-directory-b2c-how-to-enable-billing.md).
+
+   > [!IMPORTANT]
+   > Se si non collega il tenant di Azure AD B2C alla sottoscrizione di Azure, verrà visualizzato un messaggio di avviso ("Nessuna sottoscrizione collegata a questo tenant B2C o La sottoscrizione richiede attenzione.") nel pannello delle caratteristiche B2C nel portale di Azure. È importante eseguire questo passaggio prima dell'invio delle applicazioni alla produzione.
+   > 
+   > 
+
 ## <a name="easy-access-to-the-b2c-features-blade-on-the-azure-portal"></a>Accesso semplificato al pannello delle funzionalità B2C nel portale di Azure
 Per migliorare l'individuazione, nel portale di Azure è stato aggiunto un collegamento al pannello delle funzionalità B2C.
 
@@ -82,6 +90,6 @@ Per informazioni su come registrare un'applicazione in Azure AD B2C e creare un'
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

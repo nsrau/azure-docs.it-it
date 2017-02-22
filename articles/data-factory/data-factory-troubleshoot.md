@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/06/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 6b50b65fa1ad86c8e80fff0fb92352b1be52632e
-ms.openlocfilehash: d4589b5e9ca7f08b2152605dc26a96d4b5d656c8
+ms.sourcegitcommit: f78081d173bfe255a3ed8016d10a2deec87ac758
+ms.openlocfilehash: 684515213fc2533e56600cacf3bc0a3a33f337c2
 
 
 ---
@@ -34,7 +34,7 @@ Se viene visualizzato questo errore, il provider di risorse di Azure Data Factor
     Login-AzureRmAccount
     ```
 3. Eseguire il comando seguente per registrare il provider di Azure Data Factory.
-    
+
     ```powershell        
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
@@ -109,7 +109,7 @@ Questo errore di solito indica che il percorso dell'account di archiviazione spe
 È anche disponibile una seconda proprietà JSON additionalLinkedServiceNames in cui è possibile specificare account di archiviazione aggiuntivi in HDInsight su richiesta. Gli account di archiviazione aggiuntivi collegati devono trovarsi nello stesso percorso del cluster HDInsight oppure avranno esito negativo, producendo lo stesso errore.
 
 ### <a name="problem-custom-net-activity-fails"></a>Problema: l'attività .NET personalizzata non riesce
-Per una procedura dettagliata, vedere la sezione [Eseguire il debug della pipeline](data-factory-use-custom-activities.md#debug-the-pipeline) .
+Per una procedura dettagliata, vedere la sezione [Eseguire il debug della pipeline](data-factory-use-custom-activities.md#troubleshoot-failures) .
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Usare il portale di Azure per la risoluzione dei problemi
 ### <a name="using-portal-blades"></a>Uso dei pannelli del portale
@@ -153,6 +153,6 @@ Per informazioni su come monitorare le pipeline di Data Factory con Azure PowerS
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

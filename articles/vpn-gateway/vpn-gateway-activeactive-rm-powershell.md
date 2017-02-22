@@ -382,6 +382,6 @@ Dopo aver completato la connessione, è possibile aggiungere macchine virtuali a
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

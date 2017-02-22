@@ -1,5 +1,5 @@
 ---
-title: Crittografare i dischi di una VM Linux | Microsoft Docs
+title: Crittografare i dischi di una macchina virtuale Linux | Documentazione Microsoft
 description: Come crittografare i dischi di una VM Linux tramite l&quot;interfaccia della riga di comando di Azure e il modello di distribuzione di Resource Manager
 services: virtual-machines-linux
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/11/2016
+ms.date: 02/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5dd20630580f09049c88ffd9107f7fa8e8e43816
-ms.openlocfilehash: 15b3c7c910f5f55da31a8a7113b4d66714f1c908
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 97dd91986751031daef24fc806adc7021b2f94fc
 
 
 ---
@@ -91,7 +91,7 @@ azure keyvault key show myKeyVault myKey
 Crittografare i dischi come di seguito, immettendo i propri nomi di parametro:
 
 ```azurecli
-azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id myApplicationID --aad-client-secret myApplicationPassword \
   --disk-encryption-key-vault-url myKeyVaultVaultURI \
   --disk-encryption-key-vault-id myKeyVaultID \
@@ -103,7 +103,7 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM 
 L'interfaccia della riga di comando di Azure non fornisce gli errori dettagliati durante il processo di crittografia. Per ulteriori informazioni sulla risoluzione dei problemi, vedere `/var/log/azure/Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux/0.x.x.x/extension.log`. Dal momento che il comando precedente dispone di molte variabili e potrebbero non essere fornite molte indicazioni sul perché il processo non riesce, un esempio di comando completo potrebbe essere il seguente:
 
 ```azurecli
-azure vm enable-disk-encryption -g myResourceGroup -n MyVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id 147bc426-595d-4bad-b267-58a7cbd8e0b6 \
   --aad-client-secret P@ssw0rd! \
   --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \ 
@@ -250,7 +250,7 @@ azure keyvault key show myKeyVault myKey
 Crittografare il disco virtuale usando l'output dei comandi `azure keyvault show` e `azure keyvault key show` nel modo seguente:
 
 ```azurecli
-azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id myApplicationID --aad-client-secret myApplicationPassword \
   --disk-encryption-key-vault-url myKeyVaultVaultURI \
   --disk-encryption-key-vault-id myKeyVaultID \
@@ -262,7 +262,7 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM 
 Poiché il comando precedente ha molte variabili, l'esempio seguente contiene il comando completo come riferimento:
 
 ```azurecli
-azure vm enable-disk-encryption -g myResourceGroup -n MyVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id 147bc426-595d-4bad-b267-58a7cbd8e0b6 \
   --aad-client-secret P@ssw0rd! \
   --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \ 
@@ -294,7 +294,7 @@ azure vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
 Eseguire nuovamente il comando per crittografare i dischi virtuali, questa volta aggiungendo il parametro `--sequence-version` e incrementando il valore della prima esecuzione, come di seguito:
 
 ```azurecli
-azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id myApplicationID --aad-client-secret myApplicationPassword \
   --disk-encryption-key-vault-url myKeyVaultVaultURI \
   --disk-encryption-key-vault-id myKeyVaultID \
@@ -312,6 +312,6 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

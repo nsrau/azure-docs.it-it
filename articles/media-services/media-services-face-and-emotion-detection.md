@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/09/2017
 ms.author: milanga;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 48a4cdf7d50e765ee42cb44d12d1dafd49c13795
-ms.openlocfilehash: 3147eba8bd31d3d05bd990571a986316d6f5093f
+ms.sourcegitcommit: adaf2a71e022d6d29493ab0a679bd593ea40195e
+ms.openlocfilehash: acb3b4d4a14ea546e94ccc38806251460e21a6bc
 
 
 ---
@@ -72,7 +72,7 @@ Il file JSON sul rilevamento e monitoraggio dei volti include gli attributi segu
 Il rilevatore di volti usa tecniche di frammentazione, che consentono di suddividere i metadati in blocchi basati sul tempo e di scaricare solo gli elementi necessari, e di segmentazione, che consentono di suddividere gli eventi se diventano troppo grandi. Alcuni semplici calcoli consentono di trasformare i dati. Se ad esempio un evento è iniziato in corrispondenza di 6300 (scatti), con una scala cronologica di 2997 (scatti al secondo) e una frequenza di fotogrammi di 29,97 (fotogrammi al secondo):
 
 * Inizio/Scala cronologica = 2,1 secondi
-* Secondi x (frequenza fotogrammi/scala cronologica) = 63 fotogrammi
+* Secondi x frequenza di fotogrammi = 63 fotogrammi
 
 ## <a name="face-detection-input-and-output-example"></a>Esempio di input e output di rilevamento volti
 ### <a name="input-video"></a>Video di input
@@ -81,7 +81,18 @@ Il rilevatore di volti usa tecniche di frammentazione, che consentono di suddivi
 ### <a name="task-configuration-preset"></a>Configurazione delle attività (set di impostazioni)
 Quando si crea un'attività con **Rilevamento multimediale volti di Azure**, è necessario specificare un set di impostazioni di configurazione. Il set di impostazioni di configurazione seguente serve unicamente per il rilevamento volti.
 
-    {"version":"1.0"}
+    {
+      "version":"1.0"
+      "options":{
+          "TrackingMode": "Faster"
+      }
+    }
+
+#### <a name="attribute-descriptions"></a>Descrizioni degli attributi
+| Nome attributo | Descrizione |
+| --- | --- |
+| Mode |Faster: velocità di elaborazione maggiore, ma meno accurata (impostazione predefinita). <br/>Quality: migliore accuratezza di rilevamento, ma tempi più lunghi. |
+
 
 ### <a name="json-output"></a>Output JSON
 L'esempio seguente di output JSON è stato troncato.
@@ -153,17 +164,17 @@ Quando si crea un'attività con **Rilevamento multimediale volti di Azure**, è 
 #### <a name="attribute-descriptions"></a>Descrizioni degli attributi
 | Nome attributo | Descrizione |
 | --- | --- |
-| Mode |Faces: solo rilevamento dei volti  <br/>AggregateEmotion: restituzione dei valori medi delle emozioni per tutti i volti nel fotogramma. |
+| Mode |Faces: solo rilevamento viso.<br/>PerFaceEmotion: restituisce un'emozione in modo indipendente per ogni rilevamento viso.<br/>AggregateEmotion: restituzione dei valori medi delle emozioni per tutti i volti nel fotogramma. |
 | AggregateEmotionWindowMs |Va usato se è selezionata la modalità AggregateEmotion. Specifica la lunghezza del video usato per produrre ogni risultato aggregato, in millisecondi. |
 | AggregateEmotionIntervalMs |Va usato se è selezionata la modalità AggregateEmotion. Specifica con quale frequenza produrre risultati aggregati. |
 
 #### <a name="aggregate-defaults"></a>Impostazioni predefinite degli aggregati
 Di seguito sono specificati i valori consigliati per la finestra di aggregazione e le impostazioni di intervallo. Il valore di AggregateEmotionWindowMs non deve essere maggiore del valore di AggregateEmotionIntervalMs.
 
-| Impostazioni predefinite | Max(s) | Min(s) |
-| --- | --- | --- | --- |
-| AggregateEmotionWindowMs |0,5 |2 |
-| AggregateEmotionIntervalMs |0,5 |1 |
+|| Impostazioni predefinite | Min(s) | Max(s) |
+|--- | --- | --- | --- |
+| AggregateEmotionWindowMs |0,5 |2 |0,25|
+| AggregateEmotionIntervalMs |0,5 |1 |0,25|
 
 ### <a name="json-output"></a>Output JSON
 Output JSON per l'emozione aggregata (troncato):
@@ -330,12 +341,12 @@ Output JSON per l'emozione aggregata (troncato):
 Il programma seguente illustra come:
 
 1. Creare un asset e caricare un file multimediale nell'asset.
-2. Creare un processo con un'attività di rilevamento volti in base al file di configurazione che contiene il set di impostazioni JSON seguente. 
+2. Creare un processo con un'attività di rilevamento viso in base al file di configurazione che contiene il set di impostazioni JSON seguente. 
    
         {
             "version": "1.0"
         }
-3. Scaricare i file di output JSON. 
+3. Scaricare i file JSON di output. 
    
         using System;
         using System.Configuration;
@@ -514,6 +525,6 @@ Il programma seguente illustra come:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

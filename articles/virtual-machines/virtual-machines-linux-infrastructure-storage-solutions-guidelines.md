@@ -1,5 +1,5 @@
 ---
-title: Linee guida per le soluzioni di archiviazione di Azure | Documentazione Microsoft
+title: Soluzioni di archiviazione per macchine virtuali Linux in Azure | Documentazione Microsoft
 description: Informazioni sulle principali linee guida di progettazione e implementazione per la distribuzione di soluzioni di archiviazione nei servizi di infrastruttura di Azure.
 documentationcenter: 
 services: virtual-machines-linux
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: a99ab839ec9ade0049e1cc59054e333048e0208c
-ms.openlocfilehash: 8b4ee1634981a449d9968f9156df10a9d40baae9
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 61bd36ff8b3bff0acb262f6d181ffe69e6b92d27
 
 
 ---
@@ -88,6 +88,6 @@ Per altre informazioni sulle funzionalità di I/O delle diverse opzioni di Archi
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

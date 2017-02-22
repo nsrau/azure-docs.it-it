@@ -224,6 +224,6 @@ Per visualizzare un esempio d'uso del portale di Azure per impostare il ridimens
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

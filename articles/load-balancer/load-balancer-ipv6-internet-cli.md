@@ -1,5 +1,5 @@
 ---
-title: Creare un servizio di bilanciamento del carico con connessione Internet con IPv6 in Azure Resource Manager usando l&quot;interfaccia della riga di comando di Azure | Documentazione Microsoft
+title: 'Creare un servizio di bilanciamento del carico con connessione Internet con IPv6: interfaccia della riga di comando di Azure | Documentazione Microsoft'
 description: Informazioni sulla creazione di un servizio di bilanciamento del carico con connessione Internet con IPv6 in Azure Resource Manager usando l&quot;interfaccia della riga di comando di Azure
 services: load-balancer
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 1a1c3c15c51b1e441f21158510e92cc8de057352
-ms.openlocfilehash: e516ebea287948c52afca6ab3d3e4e61b3c3c080
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 6edfe8ee8011200e208117f5e03eac8fa741a548
 
 ---
 
@@ -28,7 +28,7 @@ ms.openlocfilehash: e516ebea287948c52afca6ab3d3e4e61b3c3c080
 > * [Interfaccia della riga di comando di Azure](load-balancer-ipv6-internet-cli.md)
 > * [Modello](load-balancer-ipv6-internet-template.md)
 
-Azure Load Balancer è un servizio di bilanciamento del carico di livello 4 (TCP, UDP). Il servizio di bilanciamento del carico offre disponibilità elevata distribuendo il traffico in ingresso tra istanze del servizio integre in servizi cloud o macchine virtuali in un set di bilanciamento del carico . Azure Load Balancer può anche presentare tali servizi su più porte, più indirizzi IP o entrambi.
+Azure Load Balancer è un servizio di bilanciamento del carico di livello&4; (TCP, UDP). Il servizio di bilanciamento del carico offre disponibilità elevata distribuendo il traffico in ingresso tra istanze del servizio integre in servizi cloud o macchine virtuali in un set di bilanciamento del carico . Azure Load Balancer può anche presentare tali servizi su più porte, più indirizzi IP o entrambi.
 
 ## <a name="example-deployment-scenario"></a>Scenario di distribuzione di esempio
 
@@ -345,6 +345,6 @@ Per creare le macchine virtuali è necessario un account di archiviazione. Per i
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -261,6 +261,6 @@ Il frammento seguente illustra il metodo `DownloadFile` da usare per scaricare u
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

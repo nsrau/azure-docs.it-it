@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: Documentazione di App per la logica di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come sviluppare app per la logica in grado di automatizzare e semplificare i flussi di lavoro aziendali nel cloud e in locale. Esercitazioni, modelli e informazioni di riferimento sulle API.
+services: logic-apps
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: logic-apps
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: abebff15a5385bfc3ef046923927bb74a6ee6ace
-ms.openlocfilehash: c19b7e4ecfa67f54f34fac11dc6d23a843e27232
+ms.sourcegitcommit: 2c45896d603913d21bebb5f5a157bb60ad9e73ac
+ms.openlocfilehash: f85fbd5c9cce81c5934abce25ccd343810bcc4dd
 
 ---
+
 # <a name="logic-apps-documentation"></a>Documentazione di App per la logica
 
 Informazioni su come sviluppare app per la logica in grado di semplificare e integrare flussi di lavoro scalabili nel cloud. Esercitazioni, modelli e informazioni di riferimento sulle API in cui viene illustrato come progettare e distribuire flussi di lavoro aziendali automatizzati, nel cloud e in locale.
@@ -150,6 +162,6 @@ Informazioni su come sviluppare app per la logica in grado di semplificare e int
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

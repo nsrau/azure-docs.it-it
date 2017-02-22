@@ -1,9 +1,9 @@
 ---
-title: Strumenti client di Archiviazione di Azure | Microsoft Docs
+title: Strumenti per l&quot;uso di Archiviazione di Azure | Documentazione Microsoft
 description: Elenco di strumenti che consentono di visualizzare o interagire con i dati di Archiviazione di Azure.
 services: storage
 documentationcenter: 
-author: micurd
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: e4748642-98c4-437e-b0ed-4f9641c2e894
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
-ms.author: micurd
+ms.date: 01/30/2017
+ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6d2c365a271428a55e484939a2cce5ce5f7348d8
+ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
+ms.openlocfilehash: eb7e798120ea9075dba92da76826ff621882c32a
 
 
 ---
@@ -43,7 +43,7 @@ Si tratta unicamente di un riepilogo degli strumenti client di Archiviazione di 
     <td>Web</td>
     <td>Windows</td>
     <td>OSX</td>
-    <td> Linux</td>
+    <td>Linux</td>
   </tr>
   <tr>
     <td><a href="https://azure.microsoft.com/features/azure-portal/">Portale di Microsoft Azure</a></td>
@@ -109,7 +109,7 @@ La funzionalità o la qualità dichiarate per i seguenti strumenti di terze part
     <td>Web</td>
     <td>Windows</td>
     <td>OSX</td>
-    <td> Linux</td>
+    <td>Linux</td>
   </tr>
   <tr>
     <td><a href="http://www.cloudportam.com/">Cloud Portam</a></td>
@@ -255,6 +255,6 @@ La funzionalità o la qualità dichiarate per i seguenti strumenti di terze part
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

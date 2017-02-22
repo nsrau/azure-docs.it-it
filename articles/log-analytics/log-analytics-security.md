@@ -1,19 +1,23 @@
 ---
-title: Sicurezza dei dati di Log Analytics | Microsoft Docs
+title: Sicurezza dei dati di Log Analytics | Documentazione Microsoft
 description: Informazioni su come Log Analytics garantisce la privacy degli utenti e ne protegge i dati.
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
-manager: jwhit
-editor: ''
-
+manager: carmonm
+editor: 
+ms.assetid: a33bb05d-b310-4f2c-8f76-f627e600c8e7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2016
+ms.date: 01/02/2017
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: d0f4323c22858300d95af7407cdb14995507ee60
+ms.openlocfilehash: 952697dff7dca2779a6eb5375afa41c0b130aad4
+
 
 ---
 # <a name="log-analytics-data-security"></a>Sicurezza dei dati di Log Analytics
@@ -58,8 +62,8 @@ La tabella seguente mostra esempi di tipi di dati:
 | --- | --- |
 | Avviso |Alert Name, Alert Description, BaseManagedEntityId, Problem ID, IsMonitorAlert, RuleId, ResolutionState, Priority, Severity, Category, Owner, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
 | Configurazione |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
-| Evento |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Nota:** OMS raccoglie anche gli eventuali eventi registrati con campi personalizzati nel registro eventi di Windows. |
-| Metadata |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
+| Evento |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Nota:** OMS raccoglie gli eventi scritti con campi personalizzati nel registro eventi di Windows. |
+| Metadati |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
 | Prestazioni |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
 | Stato |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
@@ -69,9 +73,9 @@ Log Analytics nel servizio OMS è gestito da personale Microsoft e tutte le atti
 ## <a name="incident-management"></a>Gestione di eventi imprevisti
 OMS dispone di un processo di gestione degli eventi imprevisti a cui aderiscono tutti i servizi di Microsoft. Per riepilogare:
 
-* Usare un modello di responsabilità condivisa in cui la responsabilità di sicurezza viene ripartita tra Microsoft e il cliente
+* Usare un modello di responsabilità condivisa in cui la responsabilità della sicurezza viene ripartita tra Microsoft e il cliente
 * Gestire gli eventi imprevisti correlati alla sicurezza di Azure
-  * Rilevare un evento imprevisto alla prima indicazione, per avviare un'indagine
+  * Avviare un'indagine quando viene rilevato un evento imprevisto
   * Far valutare l'impatto e la gravità dell'evento imprevisto a un membro del team di risposta agli eventi imprevisti su chiamata. In base alle prove raccolte, la valutazione può o non può comportare un'ulteriore l'escalation al team di risposta di sicurezza.
   * Far eseguire la diagnosi di un evento imprevisto ad esperti di risposta di sicurezza per condurre l'indagine tecnica o forense e identificare le strategie di contenimento, attenuazione e risoluzione. Se il team di sicurezza ritiene che i dati dei clienti possano essere esposti al rischio di accesso illegale o non autorizzato di un singolo utente, viene avviata l'esecuzione in parallelo del processo di notifica di evento imprevisto al cliente.  
   * Stabilizzare e correggere l'evento imprevisto. Il team di risposta agli eventi imprevisti sviluppa un piano di recupero per porre rimedio al problema. I passaggi per il contenimento della crisi, ad esempio la messa in quarantena dei sistemi coinvolti, possono verificarsi immediatamente e in parallelo con la diagnosi. È possibile pianificare le operazioni di risoluzione dei problemi a lungo termine che vengono eseguite dopo il superamento del rischio immediato.  
@@ -80,13 +84,13 @@ OMS dispone di un processo di gestione degli eventi imprevisti a cui aderiscono 
   * Determinare l'ambito dei clienti coinvolti e inviare il prima possibile una notifica a chiunque sia stato coinvolto
   * Creare un avviso per fornire ai clienti tutte le informazioni dettagliate affinché possano svolgere le opportune indagini e rispettare gli impegni presi con gli utenti finali senza ritardare eccessivamente il processo di notifica.
   * Confermare e dichiarare l'evento imprevisto, in base alle esigenze.
-  * Informare i clienti con una notifica sull'evento imprevisto senza ritardi ingiustificati e nel rispetto dei termini legali o contrattuali. La notifica di eventi imprevisti in materia di sicurezza verrà recapitata a uno o più amministratori del cliente per mezzo di un qualsiasi canale selezionato da Microsoft, inclusa la posta elettronica.
+  * Informare i clienti con una notifica sull'evento imprevisto senza ritardi ingiustificati e nel rispetto dei termini legali o contrattuali. La notifica di eventi imprevisti di sicurezza viene recapitata a uno o più amministratori del cliente per mezzo di un qualsiasi canale scelto da Microsoft, inclusa la posta elettronica.
 * Svolgere la formazione e verificare la preparazione del team
   * Il personale di Microsoft è tenuto a completare una formazione in materia di sicurezza e consapevolezza, per poter identificare e segnalare problemi di sicurezza sospetti.  
   * Gli operatori che usano il servizio Microsoft Azure hanno l'obbligo di sostenere una formazione aggiuntiva in relazione alla loro possibilità di accedere ai sistemi riservati che ospitano i dati dei clienti.
   * Il personale di risposta di sicurezza Microsoft riceve una formazione specializzata per i ruoli ricoperti
 
-In caso di perdita dei dati di un qualsiasi cliente, è necessario inviare una notifica a tale cliente nell'arco di un giorno. Tuttavia, in OMS non si è mai verificata alcuna perdita di dati. Inoltre, vengono conservate le copie dei dati creati e distribuiti geograficamente.
+In caso di perdita di dati di un cliente, viene inviata una notifica a tale cliente nell'arco di un giorno. Tuttavia, in OMS non si è mai verificata alcuna perdita di dati. Inoltre, vengono conservate le copie dei dati creati e distribuiti geograficamente.
 
 Per altre informazioni sulle modalità di risposta agli eventi imprevisti in merito alla sicurezza di Microsoft, vedere [Risposta di Microsoft Azure Security nel cloud](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/1/Microsoft Azure Security Response in the cloud.pdf).
 
@@ -97,27 +101,34 @@ Ciascun membro del team di sviluppo di OMS riceve una formazione formale sulla s
 
 Microsoft si avvale di un team per la sicurezza e conformità che supervisiona e valuta tutti i servizi in Microsoft. Il team è composto da addetti alla sicurezza delle informazioni che non sono associati ai reparti tecnici dove si sviluppa OMS. Gli addetti alla sicurezza dispongono della propria catena di gestione ed eseguono valutazioni indipendenti di prodotti e servizi per garantirne la sicurezza e la conformità.
 
-Il consiglio di amministrazione di Microsoft viene tenuto aggiornato tramite il report annuale su tutti i programmi per la protezione delle informazioni realizzati i Microsoft.
+Il consiglio di amministrazione di Microsoft viene tenuto aggiornato tramite un report annuale su tutti i programmi per la sicurezza delle informazioni messi in atto da Microsoft.
 
-Il team dedicato allo sviluppo software e al servizio OMS è impegnato attivamente nella collaborazione con il team legale di Microsoft, nonché con altri team preposti alla gestione della conformità e con altri partner di settore, per acquisire un'ampia gamma di certificazioni.
+Il team dedicato allo sviluppo software e al servizio OMS è impegnato attivamente nella collaborazione con il team legale di Microsoft, nonché con il team dedicato alla gestione della conformità e con altri partner di settore, per acquisire varie certificazioni.
 
-## <a name="security-standards-certifications"></a>Certificazioni degli standard di sicurezza
-Log Analytics in OMS attualmente è già conforme agli standard di sicurezza seguenti:
+## <a name="certifications-and-attestations"></a>Certificazioni e attestazioni
+OMS Log Analytics soddisfa i requisiti seguenti:
 
 * Conformità con [ISO/IEC 27001](http://www.iso.org/iso/home/standards/management-standards/iso27001.htm) e [ISO/IEC 27018:2014](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498)
-* Payment Card Industry Data Security Standard (conformità al PCI DSS) da parte del PCI Security Standard Council.
+* Conformità al [Payment Card Industry Data Security Standard (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) del PCI Security Standard Council
 * [Service Organization Controls (SOC) 1 di tipo 1 e SOC 2 di tipo 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2)
+* [HIPAA e HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA) per le società che hanno un contratto di società in affari HIPAA
 * Criteri di progettazione comuni di Windows
-* Certificazione Microsoft Trustworthy Computing
+* Microsoft Trustworthy Computing
 * Come servizio di Azure, i componenti usati da OMS aderiscono ai requisiti di conformità di Azure. Altre informazioni disponibili in [Centro protezione Microsoft - Conformità](https://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx).
+
+> [!NOTE]
+> In alcune certificazioni e attestazioni Log Analytics viene indicato con il nome precedente, *Operational Insights*.
+>
+>
+
 
 ## <a name="cloud-computing-security-data-flow"></a>Flusso di dati sulla sicurezza del cloud computing
 Il diagramma seguente mostra un'architettura di sicurezza cloud come flusso di informazioni in uscita dall'azienda, il modo in cui tale flusso viene protetto durante il percorso verso il servizio Log Analytics e infine come viene visualizzato nel portale di OMS. IL diagramma riporta anche informazioni aggiuntive su ogni passaggio.
 
 ![Immagine relativa alla sicurezza e alla raccolta dati di OMS](./media/log-analytics-security/log-analytics-security-diagram.png)
 
-## <a name="1.-sign-up-for-log-analytics-and-collect-data"></a>1. Iscriversi a Log Analytics e raccogliere dati
-Per consentire all'organizzazione di inviare dati a Log Analytics, configurare gli agenti Windows, gli agenti in esecuzione in macchine virtuali di Azure o gli agenti OMS per Linux. Se si usano gli agenti Operations Manager, si userà una configurazione guidata nella console operatore per configurarli. Gli utenti (che possono essere singoli utenti o gruppi di utenti) creano uno o più account OMS (aree di lavoro di OMS) e registrano gli agenti usando uno degli account seguenti:
+## <a name="1-sign-up-for-log-analytics-and-collect-data"></a>1. Iscriversi a Log Analytics e raccogliere dati
+Per consentire all'organizzazione di inviare dati a Log Analytics, configurare gli agenti Windows, gli agenti in esecuzione in macchine virtuali di Azure o gli agenti OMS per Linux. Se si usano gli agenti di Operations Manager, si userà una configurazione guidata nella console operatore per configurarli. Gli utenti (che possono essere singoli utenti o gruppi di utenti) creano uno o più account OMS (aree di lavoro di OMS) e registrano gli agenti usando uno degli account seguenti:
 
 * [ID aziendale](../active-directory/sign-up-organization.md)
 * [Account Microsoft - Outlook, Office Live, MSN](http://www.microsoft.com/account/default.aspx)
@@ -130,28 +141,30 @@ Tutte le comunicazioni tra i sistemi connessi e il servizio di Log Analytics son
 
 Ogni tipo di agente raccoglie dati per Log Analytics. Il tipo di dati raccolti dipende dai tipi di soluzioni usati. È possibile visualizzare un riepilogo della raccolta di dati in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md). Inoltre, per la maggior parte delle soluzioni sono disponibili altre informazioni dettagliate sulla raccolta. Una soluzione è costituita da un bundle di visualizzazioni, query di ricerca, regole di raccolta dati e logica di elaborazione predefinite. Solo gli amministratori possono usare Log Analytics per importare una soluzione. Dopo l'importazione, la soluzione viene spostata nei server di gestione di Operations Manager (se usati) e quindi negli agenti scelti. Gli agenti raccoglieranno quindi i dati.
 
-## <a name="2.-send-data-from-agents"></a>2. Invio dei dati dagli agenti
+## <a name="2-send-data-from-agents"></a>2. Invio dei dati dagli agenti
 Si registrano tutti i tipi di agente con una chiave di registrazione e viene stabilita una connessione sicura tra l'agente e il servizio Log Analytics usando l'autenticazione basata su certificati e SSL con la porta 443. OMS usa un archivio segreto per generare e gestire le chiavi. Le chiavi private sono soggette a rotazione ogni 90 giorni, vengono archiviate in Azure e sono gestite dalle operazioni di Azure in ottemperanza alle procedure consigliate in materia di conformità e normative.
 
 Con Operations Manager è possibile registrare un'area di lavoro con il servizio Log Analytics e viene stabilita una connessione HTTPS sicura con il server di gestione di Operations Manager.
 
 Per gli agenti Windows in esecuzione in macchine virtuali di Azure, viene usata una chiave di archiviazione di sola lettura per leggere gli eventi di diagnostica nelle tabelle di Azure.
 
-Se un agente non è in grado di comunicare con il servizio per un qualsiasi motivo, i dati raccolti vengono memorizzati localmente in una cache temporanea e il server di gestione proverà a mandarli nuovamente ogni 8 minuti per 2 ore. I dati memorizzati nella cache dell'agente sono protetti dall'archivio credenziali del sistema operativo. Se il servizio non può elaborare i dati dopo 2 ore, i dati verranno accodati dagli agenti. Se la coda si riempie, OMS inizia l'eliminazione dei tipi di dati, a partire da dati sulle prestazioni. Il limite delle code agente è una chiave di registro modificabile quando necessario. I dati raccolti vengono compressi e inviati al servizio ignorando i database locali, che in questo modo non vengono sovraccaricati. Dopo l'invio, i dati raccolti vengono rimossi dalla cache.
+Se un agente non riesce a comunicare con il servizio per un qualsiasi motivo, i dati raccolti vengono memorizzati localmente in una cache temporanea e il server di gestione prova a inviarli nuovamente ogni otto minuti per due ore. I dati memorizzati nella cache dell'agente sono protetti dall'archivio credenziali del sistema operativo. Se il servizio non può elaborare i dati dopo due ore, i dati vengono accodati dagli agenti. Se la coda si riempie, OMS inizia l'eliminazione dei tipi di dati, a partire da dati sulle prestazioni. Il limite delle code agente è una chiave di registro modificabile quando necessario. I dati raccolti vengono compressi e inviati al servizio ignorando i database locali, che in questo modo non vengono sovraccaricati. Dopo l'invio, i dati raccolti vengono rimossi dalla cache.
 
 Come descritto sopra, i dati provenienti dagli agenti vengono inviati tramite SSL ai data center di Microsoft Azure. Facoltativamente, è possibile usare ExpressRoute per proteggere ulteriormente i dati. ExpressRoute è un modo per connettersi direttamente ad Azure da una rete WAN esistente, ad esempio una rete VPN MPLS (multi-protocol label switching), fornita da un provider di servizi di rete. Per altre informazioni, vedere [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
-## <a name="3.-the-log-analytics-service-receives-and-processes-data"></a>3. Il servizio Log Analytics riceve ed elabora i dati
-Per garantire che i dati in arrivo provengano da un'origine attendibile, il servizio Log Analytics convalida i certificati e l'integrità dei dati con l'autenticazione di Azure. I dati non elaborati vengono quindi archiviati come BLOB in [Archiviazione di Microsoft Azure](../storage/storage-introduction.md) senza essere crittografati. Tuttavia, ogni blob di archiviazione di Azure ha un insieme univoco di chiavi accessibile solo da quell'utente. Il tipo dei dati archiviati dipende dai tipi di soluzioni importati e usati per raccogliere i dati. Successivamente, il servizio di Log Analytics elabora i dati non elaborati per il blog di archiviazione di Azure.
+## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. Il servizio Log Analytics riceve ed elabora i dati
+Per garantire che i dati in arrivo provengano da un'origine attendibile, il servizio Log Analytics convalida i certificati e l'integrità dei dati con l'autenticazione di Azure. I dati non elaborati vengono quindi archiviati come BLOB in [Archiviazione di Microsoft Azure](../storage/storage-introduction.md) senza essere crittografati. Tuttavia, ogni BLOB del servizio di archiviazione di Azure ha un set univoco di chiavi accessibile solo all'utente specifico. Il tipo dei dati archiviati dipende dai tipi di soluzioni importati e usati per raccogliere i dati. Successivamente, il servizio Log Analytics elabora i dati non elaborati per il BLOB del servizio di archiviazione di Azure.
 
-## <a name="4.-use-log-analytics-to-access-the-data"></a>4. Usare Log Analytics per accedere ai dati
-È possibile accedere a Log Analytics nel portale di OMS usando l'account aziendale o l'account Microsoft configurato prima. Tutto il traffico tra il portale di OMS e Log Analytics in OMS viene inviato tramite un canale HTTPS sicuro. Quando si usa il portale di OMS, viene generato un ID di sessione nel client utente (browser Web) e i dati vengono archiviati in una cache locale fino al termine della sessione. Dopodiché, la cache viene svuotata. I cookie del lato client, che non contengono informazioni personali, non vengono rimossi automaticamente. I cookie di sessione sono protetti e contrassegnati HTTPOnly. Dopo un periodo di inattività prestabilito, la sessione del portale OMS termina.
+## <a name="4-use-log-analytics-to-access-the-data"></a>4. Usare Log Analytics per accedere ai dati
+È possibile accedere a Log Analytics nel portale di OMS usando l'account aziendale o l'account Microsoft configurato prima. Tutto il traffico tra il portale di OMS e Log Analytics in OMS viene inviato tramite un canale HTTPS sicuro. Quando si usa il portale di OMS, viene generato un ID di sessione nel client utente (browser Web) e i dati vengono archiviati in una cache locale fino al termine della sessione. Dopodiché, la cache viene svuotata. I cookie sul lato client, che non contengono informazioni personali, non vengono rimossi automaticamente. I cookie di sessione sono protetti e contrassegnati HTTPOnly. Dopo un periodo di inattività prestabilito, la sessione del portale OMS termina.
 
 Usando il portale di OMS è possibile esportare i dati in un file CSV e accedervi con le API di ricerca. L'esportazione CSV è limitata a 50.000 righe per operazione e i dati API sono limitati a 5.000 righe per ricerca.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione a Log Analytics](log-analytics-get-started.md) per altre informazioni su Log Analytics e per essere operativi in pochi minuti.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO4-->
 
 

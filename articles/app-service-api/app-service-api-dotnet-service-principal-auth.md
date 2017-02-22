@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/30/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 234ab46713657c7400148210c6029c63afd35e96
+ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
+ms.openlocfilehash: 232446806309148f7958609608d4afc28ffea98d
 
 
 ---
@@ -27,7 +27,7 @@ Questo articolo illustra come usare l'autenticazione del servizio app per l'acce
 In questo articolo si apprenderà:
 
 * Come usare Azure Active Directory (Azure AD) per proteggere un'app per le API dall'accesso non autenticato.
-* Come utilizzare un'app per le API protetta da un'app per le API, un'app Web o un'app per dispositivi mobili usando le credenziali dell'entità servizio (identità di app) di Azure AD. Per informazioni sull'utilizzo da un'app per la logica, vedere [Uso dell'API personalizzata ospitata nel servizio app con App per la logica](../app-service-logic/app-service-logic-custom-hosted-api.md).
+* Come utilizzare un'app per le API protetta da un'app per le API, un'app Web o un'app per dispositivi mobili usando le credenziali dell'entità servizio (identità di app) di Azure AD. Per informazioni sull'utilizzo da un'app per la logica, vedere [Uso dell'API personalizzata ospitata nel servizio app con App per la logica](../logic-apps/logic-apps-custom-hosted-api.md).
 * Come verificare che l'app per le API protetta non possa essere chiamata dagli utenti connessi da un browser.
 * Come verificare che l'app per le API protetta possa essere chiamata solo da un'entità servizio di Azure AD specifica.
 
@@ -352,6 +352,6 @@ Per informazioni su altre modalità di distribuzione di progetti Visual Studio i
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

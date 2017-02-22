@@ -1,10 +1,10 @@
 ---
-title: Creare un gateway applicazione con il firewall applicazione Web tramite il portale | Microsoft Docs
+title: Creare un gateway applicazione di Azure con Web application firewall | Documentazione Microsoft
 description: Informazioni su come creare un gateway applicazione con il firewall applicazione Web tramite il portale
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: b561a210-ed99-4ab4-be06-b49215e3255a
@@ -13,25 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 216b3890cde6f41c33aa34f23d7e103322d9b502
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 9ba454ad2988c1ebb6410d78f79e46ed020a4bc5
 
 
 ---
+
 # <a name="create-an-application-gateway-with-web-application-firewall-by-using-the-portal"></a>Creare un gateway applicazione con il firewall applicazione Web tramite il portale
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](application-gateway-web-application-firewall-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-web-application-firewall-powershell.md)
-> 
-> 
 
 Il firewall applicazione Web (WAF) nel gateway applicazione di Azure protegge le applicazioni Web dai comuni attacchi basati sul Web, come ad esempio gli attacchi SQL injection, gli attacchi di scripting intersito e il controllo delle sessioni. L'applicazione Web protegge da molte delle 10 vulnerabilità Web OWASP più diffuse.
 
-Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale.
+Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello&7;. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale.
 L'applicazione offre numerose funzionalità di controller per la distribuzione di applicazioni (ADC, Application Delivery Controller), tra cui bilanciamento del carico HTTP, affinità di sessione basata su cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati, supporto per più siti e molte altre.
 Per un elenco completo delle funzionalità supportate, vedere [Panoramica del gateway applicazione](application-gateway-introduction.md)
 
@@ -47,8 +46,6 @@ Nel secondo scenario si apprenderà come [creare un gateway applicazione con il 
 
 > [!NOTE]
 > La configurazione aggiuntiva del gateway applicazione, che include i probe di integrità personalizzati, gli indirizzi del pool back-end e le regole aggiuntive, viene definita dopo la configurazione del gateway applicazione e non durante la distribuzione iniziale.
-> 
-> 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -79,8 +76,6 @@ Di seguito vengono elencate le impostazioni per aggiornare un gateway applicazio
 
 > [!NOTE]
 > Per visualizzare i log del firewall applicazione Web, è necessario abilitare la diagnostica e selezionare ApplicationGatewayFirewallLog. A scopo di test si può scegliere 1 come numero di istanze. È importante sapere che un numero di istanze inferiore a due non è coperto dal contratto di servizio e non è quindi consigliabile. Con il firewall applicazione Web non è possibile usare gateway di piccole dimensioni.
-> 
-> 
 
 ## <a name="create-an-application-gateway-with-web-application-firewall"></a>creare un gateway applicazione con il firewall applicazione Web
 
@@ -114,8 +109,6 @@ Per le impostazioni di base sono necessarie le informazioni seguenti.
 
 > [!NOTE]
 > A scopo di test si può scegliere 1 come numero di istanze. È importante sapere che un numero di istanze inferiore a due non è coperto dal contratto di servizio e non è quindi consigliabile. I gateway di piccole dimensioni non sono supportati negli scenari di firewall applicazione Web.
-> 
-> 
 
 ### <a name="step-3"></a>Passaggio 3
 
@@ -212,6 +205,6 @@ Per informazioni su come configurare l'offload SSL ed evitare costose attività 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

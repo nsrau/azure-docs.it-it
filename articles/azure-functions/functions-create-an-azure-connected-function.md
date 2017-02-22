@@ -1,6 +1,6 @@
 ---
-title: Creare una funzione di Azure associata a un servizio di Azure | Documentazione Microsoft
-description: Compilare una funzione di Azure, un&quot;applicazione senza server, che interagisce con altri servizi di Azure.
+title: Creare una funzione che connette ai servizi di Azure | Documentazione Microsoft
+description: Usare Funzioni di Azure per creare un&quot;applicazione senza server che connette ad altri servizi di Azure.
 services: functions
 documentationcenter: dev-center-name
 author: yochay
@@ -14,24 +14,21 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/06/2016
+ms.date: 01/23/2017
 ms.author: rachelap@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: f46a67f2591ef98eeda03f5c3bc556d5b8bcc096
-ms.openlocfilehash: 4e0dd8b922107b232a120c25d1f656c5d667748b
+ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
+ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
 
 
 ---
-# <a name="create-an-azure-function-connected-to-an-azure-service"></a>Creare una funzione di Azure connessa a un servizio di Azure
+# <a name="use-azure-functions-to-create-a-function-that-connects-to-other-azure-services"></a>Usare Funzioni di Azure per creare una funzione che connette ad altri servizi di Azure
 
-Questo argomento illustra come creare una funzione di Azure che ascolta i messaggi in una coda di Azure e li copia nelle righe di una tabella di Archiviazione di Azure. Per caricare i messaggi nella coda viene usata una funzione attivata da un timer. Una seconda funzione legge i messaggi dalla coda e li scrive nella tabella. Sia la coda che la tabella vengono create da funzioni di Azure sulla base delle definizioni di associazione. 
+Questo argomento illustra come creare una funzione in Funzioni di Azure che ascolta i messaggi in una coda di Azure e li copia nelle righe di una tabella di Archiviazione di Azure. Per caricare i messaggi nella coda viene usata una funzione attivata da un timer. Una seconda funzione legge i messaggi dalla coda e li scrive nella tabella. Sia la coda che la tabella vengono create da funzioni di Azure sulla base delle definizioni di associazione. 
 
-Per rendere le cose più interessanti, una funzione è scritta in JavaScript e l'altra in C#. Questo dimostra che un'app per le funzioni può avere funzioni scritte in linguaggi diversi.
+Per rendere le cose più interessanti, una funzione è scritta in JavaScript e l'altra in C#. Questo dimostra che un'app per le funzioni può avere funzioni scritte in linguaggi diversi. 
 
-## <a name="watch-the-video"></a>Video
->[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
->
->
+È possibile vedere la dimostrazione di questo scenario in un [video di Channel 9](https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player).
 
 ## <a name="create-a-function-that-writes-to-the-queue"></a>Creare una funzione che scrive nella coda
 
@@ -186,9 +183,9 @@ Dopo aver aggiunto i messaggi alla coda, è possibile creare un'altra funzione c
 Vedere gli argomenti seguenti per altre informazioni su Funzioni di Azure.
 
 * [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)  
-   Informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
+  Informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
 * [Test di Funzioni di Azure](functions-test-a-function.md)  
-   Descrive diversi strumenti e tecniche per il test delle funzioni.
+  Descrive diversi strumenti e tecniche per il test delle funzioni.
 * [Come aumentare le prestazioni di Funzioni di Azure](functions-scale.md)  
   Presenta i piani di servizio disponibili con Funzioni di Azure, tra cui il piano di hosting A consumo, e spiega come scegliere quello più appropriato. 
 
@@ -197,6 +194,6 @@ Vedere gli argomenti seguenti per altre informazioni su Funzioni di Azure.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

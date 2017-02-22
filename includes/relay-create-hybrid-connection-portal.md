@@ -2,7 +2,7 @@ Verificare che sia già stato creato uno spazio dei nomi di inoltro, come illust
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nel pannello di navigazione sinistro del portale fare clic su **Inoltro**.
-3. Selezionare lo spazio dei nomi in cui si vuole creare la connessione ibrida. In questo caso è **mynewns1**.
+3. Selezionare lo spazio dei nomi in cui si vuole creare la connessione ibrida. In questo caso è **mynewns**.
    
     ![Creare una connessione ibrida](./media/relay-create-hybrid-connection-portal/create-hc-1.png)
 4. Nel pannello **Relay namespace** (Spazio dei nomi di inoltro) selezionare **Connessioni ibride**, quindi fare clic su **+ Connessione ibrida**.
@@ -15,6 +15,6 @@ Verificare che sia già stato creato uno spazio dei nomi di inoltro, come illust
 
 [namespace-how-to]: ../articles/service-bus-relay/relay-create-namespace-portal.md 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

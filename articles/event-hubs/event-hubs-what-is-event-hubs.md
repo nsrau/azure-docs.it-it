@@ -10,8 +10,8 @@ ms.topic: get-started-article
 ms.date: 11/29/2016
 ms.author: sethm; babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 2297abfac31b145b53f84bdbbe60981e4b525513
+ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
+ms.openlocfilehash: 62eefb7a4591c712c5389d3ed7e5ff9675a80042
 
 
 ---
@@ -136,7 +136,7 @@ La capacità di velocità effettiva di Hub eventi è controllata dalle *unità e
 * Ingresso: fino a 1 MB al secondo o 1000 eventi al secondo, qualunque valore venga raggiunto per primo.
 * Uscita: fino a 2 MB al secondo
 
-Oltre la capacità delle unità elaborate acquistate, i dati in ingresso vengono limitati e viene restituito un valore [ServerBusyException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.eventhubs.serverbusyexception). I dati in uscita non producono eccezioni di limitazione, ma sono ancora limitati alla capacità delle unità elaborate acquistate. Se si ricevono eccezioni di velocità di pubblicazione o sono previste uscite maggiori, controllare il numero di unità elaborate acquistate per lo spazio dei nomi. È possibile gestire le unità elaborate nel pannello **Ridimensionamento** del [portale di Azure][Azure portal]. È possibile ottenere questo risultato anche a livello di codice usando le API di Azure.
+Oltre la capacità delle unità elaborate acquistate, i dati in ingresso vengono limitati e viene restituito un valore [ServerBusyException](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.serverbusyexception). I dati in uscita non producono eccezioni di limitazione, ma sono ancora limitati alla capacità delle unità elaborate acquistate. Se si ricevono eccezioni di velocità di pubblicazione o sono previste uscite maggiori, controllare il numero di unità elaborate acquistate per lo spazio dei nomi. È possibile gestire le unità elaborate nel pannello **Ridimensionamento** del [portale di Azure][Azure portal]. È possibile ottenere questo risultato anche a livello di codice usando le API di Azure.
 
 Le unità elaborate vengo o fatturate su base oraria e sono pre-acquistate. Una volta acquistate, le unità elaborate vengono fatturate per un minimo di un'ora. È possibile acquistare fino a 20 unità elaborate per uno spazio dei nomi di Hub eventi, che vengono condivise in tutti gli Hub eventi nello spazio dei nomi.
 
@@ -151,7 +151,7 @@ Per dettagliate informazioni sui prezzi, vedere [Hub eventi Prezzi](https://azur
 * Iniziare con un'[esercitazione di Hub eventi][Event Hubs tutorial]
 * Un'[applicazione di esempio completa che usa Hub eventi]
 * [Guida alla programmazione di Hub eventi](event-hubs-programming-guide.md)
-* [Domande frequenti sulla disponibilità e il supporto di Hub eventi](event-hubs-availability-and-support-faq.md)
+* [Domande frequenti su Hub eventi](event-hubs-faq.md)
 
 [Event Hubs tutorial]: event-hubs-csharp-ephcs-getstarted.md
 [applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
@@ -159,6 +159,6 @@ Per dettagliate informazioni sui prezzi, vedere [Hub eventi Prezzi](https://azur
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Installare il dispositivo StorSimple 8600 | Microsoft Docs
+title: Installare il dispositivo Microsoft Azure StorSimple 8600 | Documentazione Microsoft
 description: Viene descritto come disimballare, montare su rack e cablare il dispositivo StorSimple 8600 prima di distribuire e configurare il software.
 services: storsimple
 documentationcenter: NA
@@ -15,13 +15,13 @@ ms.workload: TBD
 ms.date: 10/24/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5b250358c44e699082c27803027a6a861e206a7d
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: 309ceba2d65c0745ba1acac698acb62526ab8078
 
 
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8600
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Microsoft Azure StorSimple 8600 è un dispositivo enclosure con doppio alloggiamento, costituito da un'enclosure principale e un'enclosure EBOD. In questa esercitazione viene illustrato come disimballare, montare su rack e cablare l'hardware del dispositivo StorSimple 8600 prima di configurarne il software.
 
 ## <a name="unpack-your-storsimple-8600-device"></a>Disimballare il dispositivo StorSimple 8600
@@ -171,7 +171,7 @@ In questo argomento vengono illustrate le procedure per cablare il dispositivo S
 Prima di iniziare il cablaggio del dispositivo, è necessario avere a disposizione:
 
 * L'enclosure principale e l'enclosure EBOD, completamente disimballate
-* 4 cavi di alimentazione (2 per l'enclosure principale e 2 per l'enclosure EBOD) forniti con il dispositivo
+* 4 cavi di alimentazione (2 per l'enclosure principale e&2; per l'enclosure EBOD) forniti con il dispositivo
 * 2 cavi SAS forniti con il dispositivo per collegare l'enclosure EBOD all'enclosure principale
 * Accesso a 2 unità PDU (Power Distribution Unit) - consigliato
 * Cavi di rete
@@ -203,8 +203,8 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
    
    | Etichetta | Description |
    | --- | --- |
-   |   0,1,4,5 |Interfacce di rete da 1 GbE |
-   |   2,3 |Interfacce di rete da 10 GbE |
+   |   0,1,4,5 |Interfacce di rete da&1; GbE |
+   |   2,3 |Interfacce di rete da&10; GbE |
    |   6 |Porte seriali |
 2. Per il cablaggio di rete vedere la seguente figura. La configurazione minima di rete è indicata da linee blu continue. Per una disponibilità elevata e prestazioni ottimali, la configurazione aggiuntiva richiesta è indicata da linee tratteggiate.
 
@@ -271,6 +271,6 @@ A questo punto è possibile [distribuire e configurare il dispositivo StorSimple
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

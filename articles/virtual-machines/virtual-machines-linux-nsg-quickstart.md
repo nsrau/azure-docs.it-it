@@ -1,5 +1,5 @@
 ---
-title: Aprire porte ed endpoint per una macchina virtuale (VM) Linux in Azure | Documentazione Microsoft
+title: Aprire le porte per una VM Linux con l&quot;interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
 description: Informazioni su come aprire una porta o creare un endpoint per la VM Linux tramite il modello di distribuzione Azure Resource Manager e l&quot;interfaccia della riga di comando di Azure versione 2.0 (anteprima)
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/8/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: e4512dd4d818b1c7bea7e858a397728ce48a5362
-ms.openlocfilehash: 40f399c339e31d9d008230449d7f559ae01afba3
+ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
+ms.openlocfilehash: aae141307a0ea68f0d9e481cf22a9055216c98c0
 
 
 ---
-# <a name="opening-ports-and-endpoints-to-a-linux-vm-in-azure"></a>Apertura di porte ed endpoint per una VM Linux in Azure
+# <a name="opening-ports-and-endpoints-to-a-linux-vm-in-azure-using-the-azure-cli-20"></a>Apertura di porte ed endpoint per una VM Linux in Azure con l'interfaccia della riga di comando di Azure 2.0
 Aprire una porta o creare un endpoint in una macchina virtuale (VM) di Azure tramite la creazione di un filtro di rete su una subnet o un'interfaccia di rete di VM. Questi filtri, che consentono di controllare il traffico in ingresso e in uscita, vengono inseriti in un gruppo di sicurezza di rete e collegati alla risorsa che riceve il traffico. Si userà un esempio comune di traffico Web sulla porta 80. Questo articolo illustra come aprire una porta per una VM usando l'interfaccia della riga di comando di Azure versione 2.0 (anteprima).
 
 
@@ -84,6 +84,6 @@ In questo esempio viene creata una regola semplice per consentire il traffico HT
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a3d7254fded543fa12b6e82cd50ece8260858955
+ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
+ms.openlocfilehash: 2d7ab8fbed1d4edb60416c7c6b7ae08ddbdec91a
 
 
 ---
@@ -25,11 +25,12 @@ Questo documento contiene informazioni dettagliate su come monitorare lo stato d
 
 > [!NOTE]
 > Il documento introduce il servizio usando una distribuzione di esempio. Questa non è una guida dettagliata.
-> 
-> 
+>
+>
 
 ## <a name="monitoring-partner-solutions"></a>Monitoraggio delle soluzioni dei partner
 Il riquadro **Soluzioni partner** nel pannello **Centro sicurezza** permette di monitorare in modo immediato lo stato di integrità delle soluzioni dei partner integrate nella sottoscrizione di Azure.
+
 ![Riquadro Soluzioni partner][1]
 
 Il riquadro **Soluzioni partner** mostra il numero di soluzioni dei partner e un riepilogo dello stato per tali soluzioni.
@@ -43,15 +44,19 @@ La voce **STATO** di una soluzione di un partner può indicare uno degli stati s
 * Non segnalato (grigio): la soluzione non ha ancora inviato alcuna segnalazione. Lo stato di una soluzione può essere non segnalato se la soluzione è appena stata connessa ed è ancora in fase di distribuzione.
 
 Se nella sottoscrizione non è integrata alcuna soluzione, il riquadro indica che non ci sono soluzioni. Selezionando il riquadro **Soluzioni partner**, è possibile aprire il pannello **Raccomandazioni** per distribuire soluzioni di sicurezza dei partner.
+
 ![Nessuna soluzione partner][2]
 
 Per visualizzare l'integrità delle soluzioni dei partner:
 
 1. Selezionare il riquadro **Soluzioni partner** . Viene visualizzato un pannello contenente un elenco di soluzioni dei partner connesse al Centro sicurezza.
+
    ![Soluzioni partner][3]
 2. Selezionare una soluzione dei partner. In questo esempio viene selezionata la soluzione **F5-WAF2** .  Viene visualizzato un pannello che mostra che lo stato della soluzione partner e le risorse associate alla soluzione. Selezionare **Console della soluzione** per aprire l'esperienza di gestione dei partner per questa soluzione.
+
    ![Dettagli della soluzione di un partner][4]
 3. Tornare al pannello **F5-WAF2** e selezionare **Collega app**. Verrà visualizzato il pannello **Collega applicazioni** . In questo pannello è possibile connettere risorse alla soluzione del partner.
+
    ![Collegare risorse alla soluzione di un partner][5]
 
 ## <a name="see-also"></a>Vedere anche
@@ -73,6 +78,6 @@ Questo documento ha presentato il riquadro **Soluzioni partner** del Centro sicu
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

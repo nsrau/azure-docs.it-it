@@ -40,6 +40,7 @@
 ## [Configurare più indirizzi VIP per il servizio cloud](load-balancer-multivip.md)
 ## [Combinazione di servizi di bilanciamento del carico](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 ## [Uso di più configurazioni IP](load-balancer-multiple-ip.md)
+### [Uso di più configurazioni IP (interfaccia della riga di comando)](load-balancer-multiple-ip-cli.md)
 ## [Analisi dei log per Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Configurazione di DHCPv6 per VM Linux](load-balancer-ipv6-for-linux.md)
 

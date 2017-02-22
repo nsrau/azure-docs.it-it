@@ -26,6 +26,7 @@
 ### [Tenere traccia del processo di un runbook](automation-runbook-execution.md)
 ### [Cambiare le impostazioni dei runbook](automation-runbook-settings.md)
 ### [Gestione dei dati di Automazione di Azure](automation-managing-data.md)
+### [Chiamare un runbook di Automazione di Azure da un avviso di Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ## Distribuire la gestione della configurazione (DSC)
 ### [Configurazione dello stato desiderato](automation-dsc-overview.md)
 ### [Introduzione](automation-dsc-getting-started.md)
@@ -43,6 +44,7 @@
 ### [Moduli di integrazione](automation-integration-modules.md)
 ### [Pianificazioni](automation-schedules.md)
 ### [Variabili](automation-variables.md)
+### [Aggiornare i moduli di Azure PowerShell](automation-update-azure-modules.md)
 ## Scenari di automatizzazione
 ### [Raccolta di runbook](automation-runbook-gallery.md)
 ### [Avviare/Arrestare macchine virtuali](automation-solution-startstopvm-graphical.md)
@@ -53,7 +55,9 @@
 ### [Rimuovere i gruppi di risorse](automation-scenario-remove-resourcegroup.md)
 ### [Avviare/arrestare le VM durante gli orari di minore attività](automation-solution-vm-management.md)
 ### [Integrazione del controllo del codice sorgente con GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
-## [Monitorare](automation-manage-send-joblogs-log-analytics.md)
+## Monitorare
+### [Inoltrare dati dei processi di Automazione di Azure a Log Analytics](automation-manage-send-joblogs-log-analytics.md)
+### [Scollegare l'account di automazione di Azure dal Log Analytics](automation-unlink-from-log-analytics.md)
 ## Migrazione
 ### [Eseguire la migrazione dall'agente di orchestrazione](automation-orchestrator-migration.md)
 ### [Spostare l'account di Automazione](automation-migrate-account-subscription.md)
@@ -78,6 +82,6 @@
 ## [Video introduttivo su Automazione](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/26/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0063c689d4259d15c6aa2c8ca037a512644419fd
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: fd1b0c7cc8210d27fdc500bf4e5641bedfe93cff
 
 
 ---
@@ -125,6 +125,11 @@ Per ottenere che un singolo indice si comporti in modo diverso per endpoint del 
 
 Questo metodo può essere usato per ottenere funzionalità di account utente diversi, livelli di autorizzazione diversi e persino applicazioni completamente diverse.
 
+> [!NOTE]
+> L'uso dell'approccio descritto sopra per configurare un singolo indice per più tenant influisce sulla pertinenza dei risultati della ricerca. I punteggi di pertinenza della ricerca vengono calcolati a livello di indice, non a livello di tenant, quindi tutti i dati dei tenant vengono incorporati nelle statistiche dei punteggi di pertinenza, ad esempio la frequenza del termine.
+> 
+> 
+
 ## <a name="next-steps"></a>Passaggi successivi
 Ricerca di Azure è una scelta interessante per molte applicazioni: [altre informazioni sulle affidabili funzionalità del servizio sono disponibili qui](http://aka.ms/whatisazsearch). Quando si valutano i vari modelli di progettazione per le applicazioni multi-tenant, è opportuno considerare i [vari piani tariffari](https://azure.microsoft.com/pricing/details/search/) e i rispettivi [limiti del servizio](search-limits-quotas-capacity.md) per adattare al meglio Ricerca di Azure ad architettura o carichi di lavoro applicativi di tutte le dimensioni.
 
@@ -133,6 +138,6 @@ Le domande su Ricerca di Azure e sugli scenari multi-tenant possono essere indir
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

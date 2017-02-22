@@ -1,5 +1,5 @@
 ---
-title: Controllare il routing e usare dispositivi virtuali mediante PowerShell | Documentazione Microsoft
+title: Controllare il routing in una rete virtuale di Azure - PowerShell - Modello di distribuzione classica | Documentazione Microsoft
 description: Informazioni su come controllare il routing in reti virtuali usando PowerShell | Classico
 services: virtual-network
 documentationcenter: na
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
-ms.openlocfilehash: 0bf0f3b64319a42a3b693f64ae705756b10be64e
+ms.sourcegitcommit: 39dafb04f2b155790d58db524a3ff52960891e16
+ms.openlocfilehash: fdce1c32d7c538a29328f0e1f0c847af2e731e17
 
 
 ---
@@ -134,6 +134,6 @@ Per abilitare l'inoltro dell'indirizzo IP nella macchina virtuale FW1, seguire q
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

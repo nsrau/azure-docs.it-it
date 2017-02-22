@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 11/21/2016
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: ba109fdc2a97e99f6216aa038261e6ccc5e356d9
-ms.openlocfilehash: 68a1b8515bbcebbe7ce4d4224a4015f18af5040b
+ms.sourcegitcommit: e5d567800d00b41ec0782216b442f437a2500928
+ms.openlocfilehash: 41edd713d85790793341e100f77300f999ac8c73
 
 
 ---
-# <a name="azure-logic-apps-integration-account-metadata"></a>Metadati dell'account di integrazione delle app per la logica di Azure 
+# <a name="azure-logic-apps-integration-account-metadata"></a>Metadati dell'account di integrazione delle app per la logica di Azure
 
 ## <a name="overview"></a>Panoramica
 
 Partner, contratti, schemi e mappe aggiunti a un account di integrazione, metadati archiviati con coppie chiave-valore. È possibile definire i metadati personalizzati, che possono essere recuperati durante il runtime.  Al momento gli elementi non dispongono di funzionalità per creare metadati nell'interfaccia utente, ma è possibile usare le API REST a tal proposito.  Partner, contratti e schema necessario **MODIFICA come JSON** e consentono di digitare le informazioni sui metadati.  In un'app per la logica, **Integration Account Artifact LookUp** (Ricerca elemento account di integrazione) consente di recuperare le informazioni relative ai metadati.
 
-## <a name="how-to-store-metadata"></a>Come archiviare i metadati 
+## <a name="how-to-store-metadata"></a>Come archiviare i metadati
 
 1. Creare un [account di integrazione](logic-apps-enterprise-integration-create-integration-account.md)   
 
@@ -39,17 +39,17 @@ Partner, contratti, schemi e mappe aggiunti a un account di integrazione, metada
 
 1. Creare un'[app per la logica](logic-apps-create-a-logic-app.md)
 
-2. [Collegare](logic-apps-enterprise-integration-create-integration-account.md#how-to-link-an-integration-account-to-a-logic-app) l'app per la logica a un account di integrazione    
+2. [Collegare](logic-apps-enterprise-integration-create-integration-account.md#link-an-integration-account-to-a-logic-app) l'app per la logica a un account di integrazione    
 
-3. Creare un trigger, ad esempio usando *Richiesta* o *HTTP* prima di cercare **Integration Account Artifact LookUp** (Ricerca elemento account di integrazione).  Cercare il termine **integrazione** per eseguire la ricerca di **Integration Account Artifact LookUp** (Ricerca elemento account di integrazione) 
-![Ricerca](media/logic-apps-enterprise-integration-metadata/image2.png) 
+3. Creare un trigger, ad esempio usando *Richiesta* o *HTTP* prima di cercare **Integration Account Artifact LookUp** (Ricerca elemento account di integrazione).  Cercare il termine **integrazione** per eseguire la ricerca di **Integration Account Artifact LookUp** (Ricerca elemento account di integrazione)  
+![Ricerca](media/logic-apps-enterprise-integration-metadata/image2.png)
 
 3. Selezione **Integration Account Artifact LookUp** (Ricerca elemento account di integrazione)  
 
 4. Selezionare **Tipo elemento** e specificare un **Nome elemento**  
 ![Ricerca](media/logic-apps-enterprise-integration-metadata/image3.png)
 
-## <a name="an-example-to-retrieve-partner-metadata"></a>Un esempio per recuperare i metadati del partner 
+## <a name="an-example-to-retrieve-partner-metadata"></a>Un esempio per recuperare i metadati del partner
 
 1. I metadati del partner dispongono di dettagli URL di routing    
 ![Ricerca](media/logic-apps-enterprise-integration-metadata/image6.png)
@@ -65,6 +65,7 @@ Partner, contratti, schemi e mappe aggiunti a un account di integrazione, metada
 * [Altre informazioni sui contratti](logic-apps-enterprise-integration-agreements.md "Informazioni sui contratti di Enterprise Integration")  
 
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Feb17_HO1-->
 
 

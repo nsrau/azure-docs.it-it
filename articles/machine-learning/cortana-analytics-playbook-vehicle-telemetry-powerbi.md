@@ -1,5 +1,5 @@
 ---
-title: Istruzioni di configurazione del dashboard di Power BI per il modello di soluzione per l&quot;analisi dei dati di telemetria del veicolo | Documentazione Microsoft
+title: "Dashboard di Power BI sull&quot;integrità dei veicoli e sulle abitudini di guida - Azure | Documentazione Microsoft"
 description: "Usare le funzionalità di Cortana Intelligence per ottenere informazioni dettagliate predittive e in tempo reale sullo stato di integrità del veicolo e sulle abitudini di guida."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 66a2375d7560b41f0fddef3c8c32e41917eb1649
-ms.openlocfilehash: 925222e5e11c96b1b8f851dbc3679d0f6b25b99c
+ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
+ms.openlocfilehash: 24d440049b5e889c6d4417cc16787edd42bc5848
 
 
 ---
@@ -257,7 +257,7 @@ Modificare il campo **Titolo** del grafico in **"Modelli di veicolo che richiedo
 
 Fare clic sull'area vuota per aggiungere una nuova visualizzazione.
 
-Nella visualizzazione selezionare **Grafico a barre in pila 100%**, trascinare il campo **città** nell'area **Asse** e i campi **MaintenanceProbability** e **RecallProbability** nell'area **Valore**.
+Nella visualizzazione selezionare **Grafico a barre in pila&100;%**, trascinare il campo **città** nell'area **Asse** e i campi **MaintenanceProbability** e **RecallProbability** nell'area **Valore**.
 
 ![Automobili connesse: aggiungi nuova visualizzazione](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4dd.png)
 
@@ -423,6 +423,6 @@ Congratulazioni. Sono stati creati il report e il dashboard per ottenere in temp
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

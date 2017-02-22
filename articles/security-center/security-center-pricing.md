@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a39a8aaeb2bc3603e5fd2404f061697c98c0ff2f
+ms.sourcegitcommit: fd4603d7bcbd1d243c6dd37d810040ff0ee1b3ae
+ms.openlocfilehash: e61a9fad0c241da30a615e03aa18c6fbb03baf35
 
 
 ---
@@ -27,14 +27,14 @@ Il Centro sicurezza PC di Azure impedisce, rileva e risponde alle minacce median
 Il Centro sicurezza è disponibile in due livelli:
 
 * Il **livello gratuito** è attivato automaticamente per tutte le sottoscrizioni di Azure. Il livello gratuito permette di conoscere lo stato di protezione delle risorse di Azure, i criteri di sicurezza di base, i consigli sulla sicurezza e l'aspetto di integrazione con i prodotti e i servizi dei partner.
-* Il **livello standard** aggiunge funzionalità avanzate per il rilevamento delle minacce, tra cui business intelligence, analisi del comportamento, rilevamento delle anomalie, eventi imprevisti per la sicurezza e report di valutazione delle minacce. Per il livello standard è disponibile una **versione di valutazione gratuita di 90 giorni**.
+* Il **livello standard** aggiunge funzionalità avanzate per il rilevamento delle minacce, tra cui business intelligence, analisi del comportamento, rilevamento delle anomalie, eventi imprevisti per la sicurezza e report di valutazione delle minacce. Per il livello standard è disponibile una **versione di valutazione gratuita di&90; giorni**.
 
 Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/) del Centro sicurezza.
 
 > [!NOTE]
 > Il Centro sicurezza usa Archiviazione di Azure per salvare i dati sulla sicurezza generati dai nodi protetti. I costi associati a questa risorsa di archiviazione non sono incluse nel prezzo del servizio e vengono addebitati separatamente secondo le normali [tariffe di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). I costi di archiviazione si applicano anche alla versione di valutazione.
-> 
-> 
+>
+>
 
 ## <a name="try-standard-free-for-90-days"></a>Prova gratuita del livello standard per 90 giorni
 Per il livello standard è disponibile una versione di valutazione gratuita valida 90 giorni. Per avere la versione di valutazione gratuita del livello standard, selezionare il riquadro **Policy** (Criteri) del pannello **Centro sicurezza**. Selezionare la sottoscrizione che si desidera aggiornare al livello Standard. Nel pannello **Security policy** (Criteri di sicurezza) selezionare **Pricing tier** (Piano tariffario). Nel pannello **Scegliere un piano tariffario** selezionare **Standard - Versione di valutazione gratuita**.
@@ -86,6 +86,6 @@ Per controllare che sia abilitata la raccolta dei dati, selezionare il riquadro 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

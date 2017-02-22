@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dettagliata dei problemi di Desktop remoto in Azure | Documentazione Microsoft
+title: Risoluzione dettagliata del Desktop remoto | Microsoft Docs
 description: "Rivedere i passaggi dettagliati della procedura di risoluzione dei problemi riguardo all&quot;impossibilità di Desktop remoto di connettersi a una macchina virtuale di Windows in Azure."
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 12/20/2016
+ms.date: 09/27/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 8835427415e8e01e851796eaf323bce7d1918c8c
-ms.openlocfilehash: 5c9d51d633b07497c230be9da2646bf49b6e8c0e
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 1f42e8f320e061fed8428b7ef88f3cb5247b81a2
 
 
 ---
@@ -28,6 +28,8 @@ Questo articolo contiene una procedura dettagliata sulla risoluzione dei problem
 
 > [!IMPORTANT]
 > Per eliminare gli errori più comuni di Desktop remoto, verificare di aver letto l'articolo relativo alla [risoluzione dei problemi di base di Desktop remoto](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) prima di procedere.
+> 
+> 
 
 È possibile che vanga visualizzato un messaggio di errore di Desktop remoto che non corrisponde a uno dei messaggi di errore specifici descritti nella [guida alla risoluzione dei problemi di base di Desktop remoto](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Seguire questa procedura per capire il motivo per cui il client Desktop remoto (o RDP) non riesce a connettersi al servizio RDP nella VM di Azure.
 
@@ -139,7 +141,7 @@ Provare nuovamente la connessione dal computer. Se non si è ancora in grado di 
 
 Per le VM create usando il modello di distribuzione classico, usare una sessione remota di Azure PowerShell per connettersi alla macchina virtuale di Azure. In primo luogo, è necessario installare un certificato per il servizio cloud di hosting della macchina virtuale. Passare alla pagina dello script per [Configure Secure Remote PowerShell Access to Azure Virtual Machines](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) (Configurare l'accesso remoto PowerShell sicuro alle macchine virtuali di Azure) e scaricare il file di script **InstallWinRMCertAzureVM.ps1** nel computer locale.
 
-Successivamente, installare Azure PowerShell, se non è stato già installato. Vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Successivamente, installare Azure PowerShell, se non è stato già installato. Vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 Successivamente, aprire un prompt dei comandi di Azure PowerShell e modificare la cartella corrente nel percorso del file di script **InstallWinRMCertAzureVM.ps1** . Per eseguire uno script di Azure PowerShell, è necessario impostare i criteri di esecuzione corretti. Eseguire il comando **Get-ExecutionPolicy** per determinare il livello di criterio corrente. Per informazioni sull'impostazione del livello appropriato, vedere [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
 
@@ -190,7 +192,7 @@ Verificare che anche l'endpoint Desktop remoto per la VM di Azure usi la porta T
 
 [Come reimpostare una password o il servizio Desktop remoto per le macchine virtuali di Windows](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs)
+[Come installare e configurare Azure PowerShell](../powershell-install-configure.md)
 
 [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -199,6 +201,6 @@ Verificare che anche l'endpoint Desktop remoto per la VM di Azure usi la porta T
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Nov16_HO3-->
 
 

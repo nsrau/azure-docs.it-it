@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/08/2016
+ms.date: 02/14/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1df15de1c24e80b0692149dfc7cb660f74941886
+ms.sourcegitcommit: facdbff229eaf5ee20d98214c62c8b2b46acc0fd
+ms.openlocfilehash: 80617b203bf5efa4cd6bed590ea937b2e68db9e1
 
 
 ---
@@ -38,7 +38,7 @@ Usare la seguente chiave per ognuna delle tabelle.
 VF = Versione futura  
 AP = Anteprima pubblica  
 
-## <a name="onpremises-to-cloud-synchronization"></a>Sincronizzazione da locale a cloud
+## <a name="on-premises-to-cloud-synchronization"></a>Sincronizzazione da locale a cloud
 | Funzionalità | Azure Active Directory Connect | Servizi di sincronizzazione di Azure Active Directory (AAD Sync) | Strumento di sincronizzazione di Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Connessione a singola foresta AD locale |● |● |● |● |● |
@@ -52,12 +52,12 @@ AP = Anteprima pubblica
 | Connessione alle risorse umane locali (ad esempio, SAP, Oracle eBusiness, PeopleSoft) |VF | | |● |● |
 | Supporto delle regole di sincronizzazione FIM e dei connettori per il provisioning ai sistemi locali. | | | |● |● |
 
-## <a name="cloud-to-onpremises-synchronization"></a>Sincronizzazione da cloud a locale
+## <a name="cloud-to-on-premises-synchronization"></a>Sincronizzazione da cloud a locale
 | Funzionalità | Azure Active Directory Connect | Servizi di sincronizzazione di Azure Active Directory | Strumento di sincronizzazione di Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Writeback di dispositivi |● | |● | | |
 | Writeback degli attributi (per una distribuzione ibrida di Exchange) |● |● |● |● |● |
-| Writeback di oggetti utente e gruppo |● | | | | |
+| Writeback di oggetti gruppo |● | | | | |
 | Writeback delle password (da password reimpostate autonomamente e modificate) |● |● | | | |
 
 ## <a name="authentication-feature-support"></a>Supporto delle funzionalità di autenticazione
@@ -68,7 +68,7 @@ AP = Anteprima pubblica
 | Single Sign-On con federazione |● |● |● |● |● |
 | Writeback delle password (da password reimpostate autonomamente e modificate) |● |● | | | |
 
-## <a name="setup-and-installation"></a>Configurazione e installazione
+## <a name="set-up-and-installation"></a>Configurazione e installazione
 | Funzionalità | Azure Active Directory Connect | Servizi di sincronizzazione di Azure Active Directory | Strumento di sincronizzazione di Azure Active Directory (DirSync) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|
 | Supporta l'installazione in un controller di dominio |● |● |● | |
@@ -95,6 +95,6 @@ Altre informazioni su [Integrazione delle identità locali con Azure Active Dire
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

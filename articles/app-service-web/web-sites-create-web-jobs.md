@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2016
+ms.date: 11/27/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9dd4539122de38221e229ad5799961b62a4f648a
+ms.sourcegitcommit: 10320f338d902ffefd8a98fd59f3e8fb22682b00
+ms.openlocfilehash: 578575877fc706076ac2fdf034cb1ac0e92b16ef
 
 
 ---
 # <a name="run-background-tasks-with-webjobs"></a>Eseguire attività in background con processi Web
 ## <a name="overview"></a>Panoramica
-È possibile eseguire programmi o script in Processi Web nell'app Web del [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) in tre modi: su richiesta, sempre, in base a una pianificazione. Non sono previsti costi aggiuntivi per l'uso di Processi Web.
+È possibile eseguire programmi o script in Processi Web nell'app Web del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) in tre modi: su richiesta, sempre, in base a una pianificazione. Non sono previsti costi aggiuntivi per l'uso di Processi Web.
 
 Nell'articolo viene descritto come distribuire Processi Web utilizzando il [Portale di Azure](https://portal.azure.com). Per informazioni sulla distribuzione mediante Visual Studio o un processo di distribuzione continua, vedere [Come distribuire Processi Web di Azure nelle App Web](websites-dotnet-deploy-webjobs.md).
 
 Azure WebJobs SDK semplifica molte attività di programmazione dei processi Web. Per ulteriori informazioni, vedere [Definizione dell'SDK di Processi Web](websites-dotnet-webjobs-sdk.md).
 
- Funzioni di Azure (attualmente in anteprima) rappresenta un altro modo per eseguire script e programmi in Servizio app di Azure. Per altre informazioni, vedere [Panoramica di Funzioni di Azure](../azure-functions/functions-overview.md).
+ Funzioni di Azure offre un altro modo per eseguire programmi e script da un ambiente senza server o da un'app Servizio app. Per altre informazioni, vedere [Panoramica di Funzioni di Azure](../azure-functions/functions-overview.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -207,6 +207,6 @@ Per altre informazioni, vedere [Risorse consigliate per i processi Web di Azure]
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

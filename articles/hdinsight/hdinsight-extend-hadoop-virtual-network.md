@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2016
+ms.date: 02/01/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: 7038c19a4419aa3569a931e393f3d94896740209
+ms.sourcegitcommit: 714c71e42593a6a038e77bfaaf2f6d7380c4f3ab
+ms.openlocfilehash: 52b75df326c1756f7bbacfc5453515c848a23870
 
 
 ---
@@ -93,6 +93,36 @@ Il servizio HDInsight è un servizio gestito che richiede accesso Internet duran
 
 Se HDInsight deve essere installato in una rete virtuale protetta, è necessario consentire l'accesso in ingresso sulla porta 443 agli indirizzi IP seguenti, che consentono ad Azure di gestire il cluster HDInsight.
 
+> [!IMPORTANT]
+> Gli indirizzi IP che dovrebbero essere concessi sono specifici all'area in cui risiedono il cluster HDInsight e la rete virtuale. Usare i dati indicati di seguito per trovare gli indirizzi IP per l'area in uso.
+
+__Brasile meridionale__:
+
+* 191.235.84.104
+* 191.235.87.113
+
+__Canada orientale__:
+
+* 52.229.127.96
+* 52.229.123.172
+
+__Canada centrale__:
+
+* 52.228.37.66
+* 52.228.45.222
+
+__Stati Uniti centro-occidentali__:
+
+* 52.161.23.15
+* 52.161.10.167
+
+__Stati Uniti occidentali 2__:
+
+* 52.175.211.210
+* 52.175.222.222
+
+__Tutte le altre aree__:
+
 * 168.61.49.99
 * 23.99.5.239
 * 168.61.48.131
@@ -103,7 +133,9 @@ Consentendo a questi indirizzi l'accesso in ingresso dalla porta 443, sarà poss
 > [!IMPORTANT]
 > HDInsight non supporta la limitazione del traffico in uscita, solo del traffico in ingresso. Quando si definiscono regole del gruppo di sicurezza di rete per la subnet che contiene HDInsight, usare solo regole in ingresso.
 
-Gli esempi seguenti spiegano come creare un nuovo gruppo di sicurezza di rete che ammette gli indirizzi specificati e applica il gruppo di sicurezza a una subnet all'interno della rete virtuale. Questa procedura presuppone la creazione di una rete virtuale e della subnet in cui si desidera installare HDInsight.
+Gli esempi seguenti spiegano come creare un nuovo gruppo di sicurezza di rete che ammette gli indirizzi specificati e applica il gruppo di sicurezza a una subnet all'interno della rete virtuale. Gli indirizzi usati in questo esempio sono tratti dall'elenco __Tutte le altre aree__. Se ci si trova in una delle aree elencate, quale ad esempio __Stati Uniti centro-occidentali__, modificare lo script in modo da usare gli indirizzi IP di questa area.
+
+Questa procedura presuppone la creazione di una rete virtuale e della subnet in cui si desidera installare HDInsight.
 
 > [!IMPORTANT]
 > Si noti il valore `priority` usato in questi esempi. Le regole vengono verificate sul traffico di rete in ordine di priorità. Quando una regola corrisponde ai criteri di verifica e viene applicata, non vengono verificate altre regole.
@@ -111,7 +143,6 @@ Gli esempi seguenti spiegano come creare un nuovo gruppo di sicurezza di rete ch
 > Se sono presenti regole personalizzate che determinano un blocco esteso del traffico in ingresso (ad esempio una regola di tipo **nega tutto**), può essere necessario modificare i valori di priorità negli esempi o nelle regole personalizzate in modo che le regole degli esempi precedano quelle che bloccano l'accesso. In caso contrario, verrà verificata prima la regola di tipo **nega tutto** e quelle dell'esempio non verranno mai applicate. È necessario anche assicurarsi di non bloccare le regole predefinite per una rete virtuale di Azure. È ad esempio consigliabile non creare una regola di tipo **nega tutto** che venga applicata prima della regola predefinita **ALLOW VNET INBOUND** (con priorità 65000).
 > 
 > Per altre informazioni sulle modalità di applicazione delle regole e sulle regole in ingresso e in uscita predefinite, vedere [Gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).
-
 
 **Uso di Azure PowerShell**
 
@@ -334,6 +365,6 @@ Per altre informazioni sulle reti virtuali di Azure, vedere [Panoramica di Rete 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

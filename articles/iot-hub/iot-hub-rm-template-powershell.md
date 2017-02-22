@@ -1,6 +1,6 @@
 ---
-title: Creare un hub IoT usando un modello di Azure Resource Manager e PowerShell | Documentazione Microsoft
-description: Seguire questa esercitazione per iniziare a usare modelli di Azure Resource Manager per creare un hub IoT con PowerShell.
+title: Creare un hub IoT di Azure con un modello (PowerShell) | Documentazione Microsoft
+description: Come usare un modello di Azure Resource Manager per creare un hub IoT con PowerShell.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2016
+ms.date: 12/06/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: cbd9c2a5d3e3f03fd9136feb35a82be0cd1ee420
+ms.sourcegitcommit: 2abfeebeac222f4371b0945e1aeb6fcf8e51595d
+ms.openlocfilehash: b884fe128b8414ae1692df92e89a41f7ba1c0447
 
 
 ---
-# <a name="create-an-iot-hub-using-powershell"></a>Creare un hub IoT tramite PowerShell
+# <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Creare un hub IoT usando un modello di Azure Resource Manager (PowerShell)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>Introduzione
@@ -34,7 +34,7 @@ ms.openlocfilehash: cbd9c2a5d3e3f03fd9136feb35a82be0cd1ee420
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Un account Azure attivo. <br/>Se non si ha un account, è possibile crearne uno [gratuito][lnk-free-trial] in pochi minuti.
-* [Microsoft Azure PowerShell 1.0][lnk-powershell-install] o versione successiva.
+* [Azure PowerShell 1.0][lnk-powershell-install] o versione successiva.
 
 > [!TIP]
 > Per altre informazioni su come usare gli script di PowerShell e i modelli di Azure Resource Manager per creare risorse di Azure, vedere [Using Azure PowerShell with Azure Resource Manager][lnk-powershell-arm] (Uso di Azure PowerShell con Azure Resource Manager). 
@@ -148,7 +148,7 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: ../powershell-install-configure.md
+[lnk-powershell-install]: /powershell/azureps-cmdlets-docs
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-powershell-arm]: ../azure-resource-manager/powershell-azure-resource-manager.md
@@ -160,6 +160,6 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

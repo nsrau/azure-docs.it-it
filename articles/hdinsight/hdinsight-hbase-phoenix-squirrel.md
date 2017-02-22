@@ -1,5 +1,5 @@
 ---
-title: Usare Apache Phoenix e SQuirrel in HDInsight | Documentazione Microsoft
+title: Usare Apache Phoenix e SQuirreL con Azure HDInsight basato su Windows | Documentazione Microsoft
 description: Informazioni su come usare Apache Phoenix in HDInsight e su come installare e configurare SQuirreL sulla workstation per la connessione a un cluster HBase in HDInsight.
 services: hdinsight
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 58212ae80ef2b930661e739aeb4779c6f9bd1bec
-ms.openlocfilehash: c1faf24f1f11eba9bfa3042f5d1cd279363e4eca
+ms.sourcegitcommit: e2d78b7e71cd17c88ce4e283cc0b0ddc9bf7b479
+ms.openlocfilehash: bcefe7e0b0f1836dc77709329a07dd8d009abbb2
 
 
 ---
@@ -26,9 +26,12 @@ Informazioni su come usare [Apache Phoenix](http://phoenix.apache.org/) in HDIns
 > [!NOTE]
 > Per informazioni sulla versione di Phoenix in HDInsight, vedere l'articolo relativo alle [novità delle versioni cluster di Hadoop incluse in HDInsight](hdinsight-component-versioning.md).
 >
-> Le informazioni contenute in questo documento sono specifiche per i cluster HDInsight basati su Windows. Per informazioni sull'uso di Phoenix su HDInsight basato su Linux, vedere [Usare Apache Phoenix con cluster HBase basati su Linux in HDinsight](hdinsight-hbase-phoenix-squirrel-linux.md).
+
+> [!IMPORTANT]
+> I passaggi descritti in questo documento funzionano solo con i cluster HDInsight basati su Windows. HDInsight è disponibile in Windows solo per le versioni precedenti a HDInsight 3.4. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Per informazioni sull'uso di Phoenix su HDInsight basato su Linux, vedere [Usare Apache Phoenix con cluster HBase basati su Linux in HDinsight](hdinsight-hbase-phoenix-squirrel-linux.md).
 >
->
+
+
 
 ## <a name="use-sqlline"></a>Usare SQLLine
 [SQLLine](http://sqlline.sourceforge.net/) è un'utilità della riga di comando per eseguire SQL.
@@ -56,7 +59,7 @@ Per usare SQLLine sono necessari:
         cd %phoenix_home%\bin
         sqlline.py [The FQDN of one of the Zookeepers]
 
-    ![hdinsight hbase phoenix sqlline][hdinsight-hbase-phoenix-sqlline]
+    ![HDInsight HBase phoenix sqlline][hdinsight-hbase-phoenix-sqlline]
 
     I comandi usati nell'esempio:
 
@@ -203,7 +206,7 @@ Un modo per creare un certificato X.509 consiste nell'usare lo strumento di crea
   > [!NOTE]
   > La cartella di installazione predefinita è nella cartella c:\Programmi\Microsoft Files\squirrel-sql-3.6.  Per scrivere in questo percorso, al programma di installazione devono essere concessi i privilegi di amministratore. È possibile aprire un prompt dei comandi come amministratore, passare alla cartella bin di Java e quindi eseguire:
   >
-  >     java.exe -jar [the path of the SQuirreL jar file]
+  >     java.exe -jar [percorso del file JAR SQuirreL]
 5. Fare clic su **OK** per confermare la creazione della directory di destinazione.
 6. L'impostazione predefinita consiste nell'installare i pacchetti Base e Standard.  Fare clic su **Next**.
 7. Fare clic su **Next** (Avanti) due volte e quindi su **Done** (Fine).
@@ -292,6 +295,6 @@ In questo articolo si è appreso come usare Apache Phoenix in HDInsight.  Per al
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

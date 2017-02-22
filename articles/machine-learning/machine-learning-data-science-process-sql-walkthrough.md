@@ -1,5 +1,5 @@
 ---
-title: 'Processo di analisi scientifica dei dati per i team in azione: uso di SQL Server | Documentazione Microsoft'
+title: Compilare e distribuire un modello di Machine Learning utilizzando SQL Server in una macchina virtuale di Azure | Documentazione Microsoft
 description: Advanced Analytics Process and Technology in azione
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 01/29/2017
 ms.author: fashah;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
-ms.openlocfilehash: 76fe2f70ca297be153d1223a219c9a2b18203a96
+ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
+ms.openlocfilehash: a5e0a76a29a82d5364ee1adb5c912e76064dd1f9
 
 
 ---
@@ -48,7 +48,7 @@ La chiave univoca che consente di unire trip\_data e trip\_fare è composta dai 
 ## <a name="a-namemltasksaexamples-of-prediction-tasks"></a><a name="mltasks"></a>Esempi di attività di stima
 Verranno formulati tre problemi di stima, basati su *tip\_amount*, vale a dire:
 
-1. Classificazione binaria: consente di prevedere se sia stata lasciata una mancia per la corsa oppure no, vale a dire se un *tip\_amount* superiore a $ 0 rappresenta un esempio positivo, mentre un *tip\_amount* pari a $ 0 rappresenta un esempio negativo.
+1. Classificazione binaria: consente di prevedere se sia stata lasciata una mancia per la corsa oppure no, vale a dire se un *tip\_amount* superiore a $&0; rappresenta un esempio positivo, mentre un *tip\_amount* pari a $&0; rappresenta un esempio negativo.
 2. Classificazione multiclasse: consente di prevedere l'intervallo di mance lasciato per la corsa. Il valore *tip\_amount* viene suddiviso in cinque bin o classi:
    
         Class 0 : tip_amount = $0
@@ -70,7 +70,7 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure:
 
 1. [Creare un account di archiviazione](../storage/storage-create-storage-account.md)
 2. [Creare un'area di lavoro di Machine Learning di Azure](machine-learning-create-workspace.md)
-3. [Eseguire il provisioning di una macchina virtuale Data Science](machine-learning-data-science-setup-sql-server-virtual-machine.md), che servirà come SQL Server e server IPython Notebook.
+3. [Eseguire il provisioning di una macchina virtuale Data Science](machine-learning-data-science-setup-sql-server-virtual-machine.md), che fornirà SQL Server e un server IPython Notebook.
    
    > [!NOTE]
    > Gli script e i blocchi di appunti IPython di esempio verranno scaricati nella macchina virtuale Data Science durante il processo di configurazione. Una volta completato lo script di post installazione della VM, gli esempi saranno disponibili nella libreria dei documenti della VM:  
@@ -656,6 +656,6 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

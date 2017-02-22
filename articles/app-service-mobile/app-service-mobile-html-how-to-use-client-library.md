@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 10/30/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7705670592c353032740bd80d03bc8f174028e39
+ms.sourcegitcommit: 013956232d1fdfdc1f35741c25294a37b7e9bd92
+ms.openlocfilehash: 3914d5bdc8feff7d7de5c6f7255396acade341b9
 
 
 ---
-# <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Come usare la libreria client JavaScript per le app per dispositivi mobili di Azure
+# <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Come usare la libreria client JavaScript per App per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 Questa guida descrive come eseguire scenari comuni usando il più recente [JavaScript SDK per le app per dispositivi mobili di Azure]. Se si ha familiarità con le app per dispositivi mobili di Azure, prima è necessario completare l' [Avvio rapido alle app per dispositivi mobili di Azure] per creare un back-end e una tabella. In questa Guida, l'attenzione è posta sull'uso di un back-end mobile nelle applicazioni Web HTML/JavaScript.
@@ -39,19 +39,19 @@ L'installazione di JavaScript SDK per le app per dispositivi mobili di Azure pu�
 npm install azure-mobile-apps-client --save
 ```
 
-Dopo l'installazione, la libreria sarà disponibile in `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.min.js`.  Copiare questo file nella propria area Web.
-
-```
-<script src="path/to/MobileServices.Web.min.js"></script>
-```
-
-La libreria può anche essere utilizzata come modulo ES2015, all'interno di ambienti CommonJS come ad esempio Browserify e Webpack, e come libreria AMD.  ad esempio:
+La libreria può anche essere utilizzata come modulo ES2015, all'interno di ambienti CommonJS come ad esempio Browserify e Webpack, e come libreria AMD.  Ad esempio:
 
 ```
 # For ECMAScript 5.1 CommonJS
 var WindowsAzure = require('azure-mobile-apps-client');
 # For ES2015 modules
 import * as WindowsAzure from 'azure-mobile-apps-client';
+```
+
+È anche possibile usare una versione predefinita dell'SDK scaricandolo direttamente dalla rete CDN:
+
+```html
+<script src="https://zumo.blob.core.windows.net/sdk/azure-mobile-apps-client.min.js"></script>
 ```
 
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
@@ -68,7 +68,7 @@ Molti tipi di applicazioni JavaScript usano una funzionalità di loopback per ge
 
 * Esecuzione del servizio in locale
 * Uso di Live Reload con Ionic Framework
-* Reindirizzamento al servizio app per l'autenticazione. 
+* Reindirizzamento al servizio app per l'autenticazione.
 
 L'esecuzione in locale può causare problemi perché, per impostazione predefinita, l'autenticazione del servizio app viene configurata solo per consentire l'accesso dal back-end dell'app per dispositivi mobili. Usare i passaggi seguenti per modificare le impostazioni del servizio app per abilitare l'autenticazione quando si esegue il server in locale:
 
@@ -79,12 +79,12 @@ L'esecuzione in locale può causare problemi perché, per impostazione predefini
 5. Espandere il nodo **config** > **authsettings** per l'app.
 6. Fare clic sul pulsante **Modifica** per abilitare la modifica della risorsa.
 7. Cercare l'elemento **allowedExternalRedirectUrls** che deve essere null. Aggiungere gli URL in una matrice:
-   
+
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
              "https://localhost:3000"
          ],
-   
+
     Sostituire gli URL nella matrice con gli URL del servizio, che in questo esempio è `http://localhost:3000` per il servizio di esempio Node.js locale. È anche possibile usare `http://localhost:4400` per il servizio Ripple o un altro URL, a seconda della configurazione dell'app.
 8. Nella parte superiore della pagina fare clic su **Lettura/Scrittura**, quindi su **PUT** per salvare gli aggiornamenti.
 
@@ -101,15 +101,15 @@ Dopo l'aggiornamento del backend, sarà possibile usare i nuovi URL di loopback 
 <!-- URLs. -->
 [Avvio rapido alle app per dispositivi mobili di Azure]: app-service-mobile-cordova-get-started.md
 [Introduzione all'autenticazione]: app-service-mobile-cordova-get-started-users.md
-[Aggiungere l'autenticazione all'app]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [portale di Azure]: https://portal.azure.com/
 [JavaScript SDK per le app per dispositivi mobili di Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
-[Documentazione dell'oggetto query]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

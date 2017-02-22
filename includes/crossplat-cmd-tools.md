@@ -41,7 +41,7 @@ Per verificare l'installazione, digitare `azure` al prompt dei comandi. Se l'ins
 
 Per usare gli strumenti da riga di comando di Azure per Mac e Linux, è necessario un account Azure.
 
-Aprire un Web browser e passare a [http://www.windowsazure.com][windowsazuredotcom], quindi fare clic su **Account gratuito** in alto a destra.
+Aprire un Web browser e passare a [http://www.windowsazure.com][windowsazuredotcom], quindi fare clic su **account gratuito** in alto a destra.
 
 ![Sito Web di Azure][Azure Web Site]
 
@@ -214,6 +214,6 @@ Per un elenco completo dei comandi per creare e gestire macchine virtuali, usare
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

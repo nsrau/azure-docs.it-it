@@ -1,5 +1,5 @@
 ---
-title: Come usare le code del bus di servizio con Python | Documentazione Microsoft
+title: Come usare le code del bus di servizio di Azure con Python | Documentazione Microsoft
 description: Informazioni su come usare le code del bus di servizio da Python.
 services: service-bus-messaging
 documentationcenter: python
@@ -12,51 +12,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 01/11/2017
 ms.author: sethm;lmazuel
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a162dc04f8eb5002cae3bf708ae2fcd4c2aa694
+ms.sourcegitcommit: 0f9f732d6998a6ee50b0aea4edfc615ac61025ce
+ms.openlocfilehash: 775959d93105ca9fb28ce72e4ee4adf6b956e815
 
 
 ---
 # <a name="how-to-use-service-bus-queues"></a>Come usare le code del bus di servizio
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Questo articolo illustra come usare le code del bus di servizio. Gli esempi sono scritti in Python e usano il [Pacchetto del bus di servizio di Azure per Python][Pacchetto del bus di servizio di Azure per Python]. Gli scenari illustrati includono la **creazione di code, l'invio e la ricezione di messaggi** e **l'eliminazione di code**.
+Questo articolo illustra come usare le code del bus di servizio. Gli esempi sono scritti in Python e usano il [pacchetto del bus di servizio di Azure per Python][Python Azure Service Bus package]. Gli scenari illustrati includono la **creazione di code, l'invio e la ricezione di messaggi** e **l'eliminazione di code**.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
 > [!NOTE]
-> Per installare Python o il [Pacchetto del bus di servizio di Azure per Python][Pacchetto del bus di servizio di Azure per Python], vedere la [guida all'installazione di Python](../python-how-to-install.md).
+> Per installare Python oppure il [pacchetto del bus di servizio di Azure per Python][Python Azure Service Bus package], vedere la [guida all'installazione di Python](../python-how-to-install.md).
 > 
 > 
 
 ## <a name="create-a-queue"></a>Creare una coda
 L'oggetto **ServiceBusService** consente di usare le code. Aggiungere il seguente codice all'inizio di ogni file Python da cui si desidera accedere al bus di servizio a livello di codice:
 
-```
+```python
 from azure.servicebus import ServiceBusService, Message, Queue
 ```
 
 Il codice seguente consente di creare un oggetto **ServiceBusService**. Sostituire, `mynamespace`, `sharedaccesskeyname` e `sharedaccesskey` con lo spazio dei nomi e il nome e il valore della chiave di firma di accesso condiviso.
 
-```
+```python
 bus_service = ServiceBusService(
     service_namespace='mynamespace',
     shared_access_key_name='sharedaccesskeyname',
     shared_access_key_value='sharedaccesskey')
 ```
 
-Il valore e il nome della chiave di firma di accesso condiviso sono disponibili nelle informazioni di connessione del [portale di Azure classico][portale di Azure classico] o nel pannello **Proprietà** di Visual Studio quando si seleziona lo spazio dei nomi del bus di servizio in Esplora server, come illustrato nella sezione precedente.
+I valori relativi al nome e al valore della chiave di firma di accesso condiviso sono disponibili nelle informazioni di connessione del [portale di Azure classico][Azure classic portal] o nel pannello **Proprietà** di Visual Studio quando si seleziona lo spazio dei nomi del bus di servizio in Esplora server, come illustrato nella sezione precedente.
 
-```
+```python
 bus_service.create_queue('taskqueue')
 ```
 
 **create_queue** supporta anche opzioni aggiuntive che consentono di eseguire l’override delle impostazioni predefinite delle code, come ad esempio la durata (TTL) dei messaggi o la dimensione massima della coda. Il seguente esempio illustra come impostare la dimensione massima della coda su 5 GB e la durata a 1 minuto:
 
-```
+```python
 queue_options = Queue()
 queue_options.max_size_in_megabytes = '5120'
 queue_options.default_message_time_to_live = 'PT1M'
@@ -69,17 +71,17 @@ Per inviare un messaggio a una coda del bus di servizio, l'applicazione chiama i
 
 Nell'esempio seguente viene illustrato come inviare un messaggio di prova alla coda denominata *taskqueue* usando **send\_queue\_message**:
 
-```
+```python
 msg = Message(b'Test Message')
 bus_service.send_queue_message('taskqueue', msg)
 ```
 
-Le code del bus di servizio supportano messaggi di dimensioni massime pari a 256 KB nel [livello Standard](service-bus-premium-messaging.md) e pari a 1 MB nel [livello Premium](service-bus-premium-messaging.md). Le dimensioni massime dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non possono superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in una coda, mentre è prevista una limitazione alla dimensione totale dei messaggi di una coda. Questa dimensione della coda viene definita al momento della creazione, con un limite massimo di 5 GB. Per altre informazioni sulle quote, vedere [Quote del bus di servizio][Quote del bus di servizio].
+Le code del bus di servizio supportano messaggi di dimensioni massime pari a 256 KB nel [livello Standard](service-bus-premium-messaging.md) e pari a 1 MB nel [livello Premium](service-bus-premium-messaging.md). Le dimensioni massime dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non possono superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in una coda, mentre è prevista una limitazione alla dimensione totale dei messaggi di una coda. Questa dimensione della coda viene definita al momento della creazione, con un limite massimo di 5 GB. Per altre informazioni sulle quote, vedere [Quote del bus di servizio][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-queue"></a>Ricevere messaggi da una coda
 I messaggi vengono ricevuti da una coda tramite il metodo **receive\_queue\_message** per l'oggetto **ServiceBusService**:
 
-```
+```python
 msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
 print(msg.body)
 ```
@@ -90,7 +92,7 @@ Il comportamento di lettura ed eliminazione del messaggio nell'ambito dell'opera
 
 Se il parametro **peek\_lock** è impostato su **True**, l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, l’applicazione esegue la seconda fase del processo di ricezione chiamando il metodo **delete** per l'oggetto **Message**. Il metodo **delete** contrassegna il messaggio come usato e lo rimuove dalla coda.
 
-```
+```python
 msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)
 print(msg.body)
 
@@ -105,18 +107,18 @@ Al messaggio bloccato nella coda è inoltre associato un timeout. Se l'applicazi
 In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima della chiamata del metodo **delete**, il messaggio verrà nuovamente recapitato all'applicazione al riavvio. Questo processo di elaborazione viene spesso definito di tipo **At-Least-Once**, per indicare che ogni messaggio verrà elaborato almeno una volta ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo viene spesso usata la proprietà **MessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
 
 ## <a name="next-steps"></a>Passaggi successivi
-A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, utilizzare i collegamenti seguenti per ulteriori informazioni.
+Dopo aver appreso le nozioni di base sulle code del bus di servizio, vedere gli articoli seguenti per altre informazioni.
 
-* Vedere [Code, argomenti e sottoscrizioni del bus di servizio][Code, argomenti e sottoscrizioni del bus di servizio].
+* [Code, argomenti e sottoscrizioni del bus di servizio][Queues, topics, and subscriptions]
 
-[portale di Azure classico]: https://manage.windowsazure.com
-[Pacchetto del bus di servizio di Azure per Python]: https://pypi.python.org/pypi/azure-servicebus  
-[Code, argomenti e sottoscrizioni del bus di servizio]: service-bus-queues-topics-subscriptions.md
-[Quote del bus di servizio]: service-bus-quotas.md
-
-
+[Azure classic portal]: https://manage.windowsazure.com
+[Python Azure Service Bus package]: https://pypi.python.org/pypi/azure-servicebus  
+[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
+[Service Bus quotas]: service-bus-quotas.md
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+<!--HONumber=Jan17_HO2-->
 
 

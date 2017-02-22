@@ -1,5 +1,5 @@
 ---
-title: Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning | Microsoft Docs
+title: Utilizzare il portale dei servizi Web di Azure Machine Learning | Documentazione Microsoft
 description: Gestione dell&quot;accesso alle aree di lavoro di Azure Machine Learning e distribuzione e gestione dei servizi Web API ML
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3b04aa7406f44130deb4f12c856b459369301449
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: ef24162006c508134db3f385e791306495ac4614
 
 
 ---
@@ -178,6 +178,6 @@ Per gestire account aggiuntivi che hanno accesso all'area di lavoro in Machine L
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

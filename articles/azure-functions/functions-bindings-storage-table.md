@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: 768de7b221474f9143ba8e960581893229dca051
+ms.sourcegitcommit: 0d37eb09a6c8a0bb39a331e51a8993c114202b91
+ms.openlocfilehash: 88858cffa5ddc6ba83152d3430f5400a1c66a26a
 
 
 ---
@@ -47,7 +47,7 @@ L'input della tabella di archiviazione in una funzione usa gli oggetti JSON segu
 {
     "name": "<Name of input parameter in function signature>",
     "type": "table",
-    "direction": "in"
+    "direction": "in",
     "tableName": "<Name of Storage table>",
     "partitionKey": "<PartitionKey of table entity to read - see below>",
     "rowKey": "<RowKey of table entity to read - see below>",
@@ -59,8 +59,8 @@ L'input della tabella di archiviazione in una funzione usa gli oggetti JSON segu
 
 Tenere presente quanto segue: 
 
-* Usare `partitionKey` e `rowKey` insieme per leggere una singola entità. Queste proprietà sono facoltative.
-* `connection` deve contenere il nome di un'impostazione app che contiene una stringa di connessione di archiviazione. Nel portale di Azure l'editor standard disponibile nella scheda **Integra** configura automaticamente questa impostazione app quando si crea un account di archiviazione o si seleziona un account già esistente. Per creare manualmente questa impostazione app, vedere la sezione relativa alla [configurazione manuale dell'impostazione app](). 
+* Usare `partitionKey` e `rowKey` insieme per leggere una singola entità. Queste proprietà sono facoltative. 
+* `connection` deve contenere il nome di un'impostazione app che contiene una stringa di connessione di archiviazione. Nel portale di Azure l'editor standard disponibile nella scheda **Integra** configura automaticamente questa impostazione app quando si crea un account di archiviazione o si seleziona un account già esistente. È anche possibile [configurare questa impostazione dell'app manualmente](functions-how-to-use-azure-function-app-settings.md#application-settings).  
 
 <a name="inputusage"></a>
 
@@ -167,7 +167,7 @@ L'output della tabella di archiviazione per una funzione usa gli oggetti JSON se
 {
     "name": "<Name of input parameter in function signature>",
     "type": "table",
-    "direction": "out"
+    "direction": "out",
     "tableName": "<Name of Storage table>",
     "partitionKey": "<PartitionKey of table entity to write - see below>",
     "rowKey": "<RowKey of table entity to write - see below>",
@@ -178,7 +178,7 @@ L'output della tabella di archiviazione per una funzione usa gli oggetti JSON se
 Tenere presente quanto segue: 
 
 * Usare `partitionKey` e `rowKey` insieme per scrivere una singola entità. Queste proprietà sono facoltative. È possibile specificare `PartitionKey` e `RowKey` anche quando si creano gli oggetti entità nel codice della funzione.
-* `connection` deve contenere il nome di un'impostazione app che contiene una stringa di connessione di archiviazione. Nel portale di Azure l'editor standard disponibile nella scheda **Integra** configura automaticamente questa impostazione app quando si crea un account di archiviazione o si seleziona un account già esistente. Per creare manualmente questa impostazione app, vedere la sezione relativa alla [configurazione manuale dell'impostazione app](). 
+* `connection` deve contenere il nome di un'impostazione app che contiene una stringa di connessione di archiviazione. Nel portale di Azure l'editor standard disponibile nella scheda **Integra** configura automaticamente questa impostazione app quando si crea un account di archiviazione o si seleziona un account già esistente. È anche possibile [configurare questa impostazione dell'app manualmente](functions-how-to-use-azure-function-app-settings.md#application-settings). 
 
 <a name="outputusage"></a>
 
@@ -190,6 +190,7 @@ Nelle funzioni C# è possibile eseguire l'associazione all'output della tabella 
 * Qualsiasi tipo che implementa `ITableEntity`
 * `ICollector<T>` (per restituire più entità, vedere l'[esempio](#outcsharp)).
 * `IAsyncCollector<T>` (versione asincrona di `ICollector<T>`)
+* `CloudTable` (uso di Azure Storage SDK. vedere l'[esempio](#readmulti)).
 
 <a name="outputsample"></a>
 
@@ -342,6 +343,6 @@ public class Person : TableEntity
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

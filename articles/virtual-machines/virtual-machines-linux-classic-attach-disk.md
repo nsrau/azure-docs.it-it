@@ -1,5 +1,5 @@
 ---
-title: Collegare un disco a una macchina virtuale Linux | Microsoft Docs
+title: Collegare un disco a una macchina virtuale Linux in Azure| Documentazione Microsoft
 description: "Informazioni su come collegare un disco dati a una VM Linux usando il modello di distribuzione classica e inizializzare il disco affinché sia pronto per l&quot;uso"
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,24 +13,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 99c36b40b16689e76a9b9af661cf1c5dd41d8321
-ms.openlocfilehash: bbf6f7ad4b7ee444787c464dae0f0fdc5db033be
+ms.sourcegitcommit: 84d52dccef4e2d9a1ae253831b5d8f86b6fb50a6
+ms.openlocfilehash: b78deeeb7fd8d337b83c8e831f51f8e57014cf43
 
 
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>Come collegare un disco dati a una macchina virtuale Linux
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Vedere come [collegare un disco dati tramite il modello di distribuzione di Resource Manager](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!IMPORTANT] 
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Vedere come [collegare un disco dati tramite il modello di distribuzione di Resource Manager](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 È possibile collegare sia dischi vuoti sia dischi contenenti dati alle VM di Azure. In entrambi i casi i dischi sono file con estensione vhd che risiedono in un account di archiviazione di Azure. Come con l'aggiunta di un disco a un computer Linux, dopo aver collegato il disco, è necessario inizializzarlo e formattarlo affinché sia pronto per l'uso. Questo articolo illustra in dettaglio come collegare sia i dischi vuoti sia i dischi contenenti dati alle VM e come inizializzare e formattare successivamente un nuovo disco.
 
 > [!NOTE]
-> È consigliabile usare uno o più dischi separati per archiviare i dati di una macchina virtuale. Al momento della creazione, una macchina virtuale di Azure dispone di un disco del sistema operativo e di un disco temporaneo. **Non usare il disco temporaneo per archiviare i dati persistenti.**  Come si può dedurre dal nome, fornisce solo archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure.
-> Il disco temporaneo è in genere gestito dall'agente Linux di Azure e viene montato automaticamente in **/mnt/resource** oppure in **/mnt** nelle immagini Ubuntu. D'altra parte, il kernel potrebbe assegnare a un disco dati il nome `/dev/sdc`; in tal caso è necessario suddividere in partizioni, formattare e montare tale risorsa. Per informazioni dettagliate, vedere [Guida dell'utente dell'agente Linux di Azure][Agent].
+> È consigliabile usare uno o più dischi separati per archiviare i dati di una macchina virtuale. Al momento della creazione, una macchina virtuale di Azure dispone di un disco del sistema operativo e di un disco temporaneo. **Non usare il disco temporaneo per archiviare i dati persistenti.** Come si può dedurre dal nome, fornisce solo archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure.
+> Il disco temporaneo è in genere gestito dall'agente Linux di Azure e viene montato automaticamente in **/mnt/resource** oppure in **/mnt** nelle immagini Ubuntu. D'altra parte, il kernel potrebbe assegnare a un disco dati il nome `/dev/sdc`; in tal caso è necessario suddividere in partizioni, formattare e montare tale risorsa. Per dettagli, vedere [Guida dell'utente dell'agente Linux di Azure][Agent].
 > 
 > 
 
@@ -204,7 +203,7 @@ Esistono due modi per abilitare la funzione TRIM in una VM Linux. Come di consue
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
 
-* In alternativa, è possibile eseguire il comando `fstrim` manualmente dalla riga di comando oppure aggiungerlo a crontab per eseguirlo a intervalli regolari:
+* In alcuni casi l'opzione `discard` può avere implicazioni sulle prestazioni. In alternativa, è possibile eseguire il comando `fstrim` manualmente dalla riga di comando oppure aggiungerlo a crontab per eseguirlo a intervalli regolari:
   
     **Ubuntu**
   
@@ -228,7 +227,9 @@ Per altre informazioni sull'uso delle VM Linux, vedere gli articoli seguenti:
 
 * [Come accedere a una macchina virtuale che esegue Linux][Logon]
 * [Informazioni su come scollegare un disco da una macchina virtuale Linux](virtual-machines-linux-classic-detach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione servizi di Azure (asm)](../virtual-machines-command-line-tools.md)
+* [Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione servizi di Azure (asm)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+* [Configurare RAID in una macchina virtuale Linux in Azure](virtual-machines-linux-configure-raid.md)
+* [Configurare LVM in una macchina virtuale Linux in Azure](virtual-machines-linux-configure-lvm.md)
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
@@ -236,6 +237,6 @@ Per altre informazioni sull'uso delle VM Linux, vedere gli articoli seguenti:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

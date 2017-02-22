@@ -1,5 +1,5 @@
 ---
-title: Distribuire una soluzione di bilanciamento del carico con connessione Internet con IPv6 usando un modello | Documentazione Microsoft
+title: 'Distribuire un servizio di bilanciamento del carico con connessione Internet con IPv6: modello di Azure | Documentazione Microsoft'
 description: Come distribuire il supporto IPv6 per Azure Load Balancer e le macchine virtuali con bilanciamento del carico.
 services: load-balancer
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 01/23/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: bec4f89556a2daa41e19b0ecb2ab9bbbed849107
-ms.openlocfilehash: f031fb76e225248a6d0535106b846dc3bef10e76
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 752793ed481b0b69203fa13b214add32e9129dfd
 
 ---
 
@@ -29,7 +29,7 @@ ms.openlocfilehash: f031fb76e225248a6d0535106b846dc3bef10e76
 > * [Interfaccia della riga di comando di Azure](load-balancer-ipv6-internet-cli.md)
 > * [Modello](load-balancer-ipv6-internet-template.md)
 
-Azure Load Balancer è un servizio di bilanciamento del carico di livello 4 (TCP, UDP). Il servizio di bilanciamento del carico offre disponibilità elevata distribuendo il traffico in ingresso tra istanze del servizio integre in servizi cloud o macchine virtuali in un set di bilanciamento del carico . Azure Load Balancer può anche presentare tali servizi su più porte, più indirizzi IP o entrambi.
+Azure Load Balancer è un servizio di bilanciamento del carico di livello&4; (TCP, UDP). Il servizio di bilanciamento del carico offre disponibilità elevata distribuendo il traffico in ingresso tra istanze del servizio integre in servizi cloud o macchine virtuali in un set di bilanciamento del carico . Azure Load Balancer può anche presentare tali servizi su più porte, più indirizzi IP o entrambi.
 
 ## <a name="example-deployment-scenario"></a>Scenario di distribuzione di esempio
 
@@ -135,6 +135,6 @@ Le altre variabili nel modello contengono valori derivati assegnati quando Azure
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

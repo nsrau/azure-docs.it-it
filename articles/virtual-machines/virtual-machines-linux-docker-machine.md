@@ -1,5 +1,5 @@
 ---
-title: Creare host Docker in Azure con Docker Machine | Microsoft Docs
+title: Usare Docker Machine per creare host Linux in Azure | Documentazione Microsoft
 description: Descrive l&quot;uso di Docker Machine per creare host Docker in Azure.
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 8fe34e543d8860d80016d35d27159298c17e486e
+ms.sourcegitcommit: 1a1d5a3e7f39477e06540a980ccbbdc789cefaf1
+ms.openlocfilehash: dd66b244b3fcb7fe22937dbbc6e284bdd93625f2
 
 
 ---
@@ -132,6 +132,6 @@ Per altri esempi di uso di Docker, vedere [Working with Docker](https://github.c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

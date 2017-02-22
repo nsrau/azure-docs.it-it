@@ -1,10 +1,10 @@
 ---
-title: Interfacce di rete | Documentazione Microsoft
-description: Informazioni sulle interfacce di rete di Azure in Azure Resource Manager.
+title: Interfacce di rete in Azure | Documentazione Microsoft
+description: Informazioni sulle interfacce di rete nel modello di distribuzione Azure Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: f58b503f-18bf-4377-aa63-22fc8a96e4be
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 6e96471c4f61e1ebe15c23f87ac646001d8e30ee
-ms.openlocfilehash: 586877781f4b74c49936a8129db49a67018bab65
+ms.sourcegitcommit: 3244d5b52785d820698bf26f9bf189de93ef64e4
+ms.openlocfilehash: 691b79d7739246dad7191195fa049fd58340c8ff
 
 
 ---
-# <a name="network-interfaces"></a>Interfacce di rete
+# <a name="network-interfaces-in-azure"></a>Interfacce di rete in Azure
 Un'interfaccia di rete è l'interconnessione tra una macchina virtuale (VM) e la rete software sottostante. Questo articolo spiega cos'è un'interfaccia di rete e come viene usata nel modello di distribuzione Azure Resource Manager.
 
 Microsoft consiglia di distribuire nuove risorse usando il modello di distribuzione di Resource Manager, ma è possibile anche distribuire VM con connettività di rete nel modello di distribuzione [classica](virtual-network-ip-addresses-overview-classic.md) . Se si ha familiarità con il modello classico, esistono importanti differenze nella rete di VM nel modello di distribuzione Resource Manager. Per ulteriori informazioni sulle differenze, leggere l'articolo [Virtual machine networking - Classic](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments) (Rete di macchine virtuali - Classico).
@@ -56,6 +56,6 @@ Si possono collegare a una VM più schede di interfaccia di rete, ma in questo c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

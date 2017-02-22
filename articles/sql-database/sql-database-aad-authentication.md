@@ -9,6 +9,7 @@ editor:
 tags: 
 ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
+ms.custom: authentication and authorization
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.date: 11/22/2016
 ms.author: rick.byham@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: 5fc68a32ab11e80b547fd517524a7f87a31ebfba
-ms.openlocfilehash: 911cf0c3204545091829adcb7dcbf6cbddc5ee9e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: cf8cc9443d078168826b93eda6f0620681d9f47f
 
 
 ---
@@ -164,7 +165,7 @@ Quando si usa Azure Active Directory con la replica geografica, l'amministratore
 Per rimuovere un amministratore in un secondo momento, nella parte superiore del pannello **Amministratore di Active Directory** fare clic su **Rimuovi amministratore**, quindi su **Salva**.
 
 ### <a name="provision-an-azure-ad-administrator-for-azure-sql-server-by-using-powershell"></a>Effettuare il provisioning di un amministratore di Azure AD per Azure SQL Server tramite PowerShell
-Per eseguire i cmdlet di PowerShell, è necessario che Azure PowerShell sia installato e in esecuzione. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+Per eseguire i cmdlet di PowerShell, è necessario che Azure PowerShell sia installato e in esecuzione. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Per eseguire il provisioning di un amministratore di Azure AD, eseguire i comandi di Azure PowerShell seguenti:
 
@@ -394,6 +395,6 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

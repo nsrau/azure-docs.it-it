@@ -1,5 +1,5 @@
 ---
-title: "Unità richiesta in DocumentDB | Documentazione Microsoft"
+title: "Unità richiesta e stima della velocità effettiva - Azure DocumentDB | Documentazione Microsoft"
 description: "Informazioni su come comprendere, specificare e stimare i requisiti relativi alle unità richiesta in DocumentDB."
 services: documentdb
 author: syamkmsft
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: 8b2d13dd16f629fbb2108856cd1e1b2954ece8bf
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: bf58d333e81fb76ffc3cca8a8e1ccb3f71ac72c9
 
 
 ---
@@ -205,7 +205,7 @@ Con queste informazioni è possibile stimare i requisiti relativi alle unità ri
 | Leggere un documento |100 |100 |
 | Selezionare alimenti in base al produttore |25 |175 |
 | Selezionare per gruppo di alimenti |10 |700 |
-| Selezionare i primi 10 |15 |Totale 150 |
+| Selezionare i primi 10 |15 |Totale&150; |
 
 In questo caso, è previsto un requisito di velocità effettiva medio di 1.275 unità richiesta/secondo.  Arrotondando alle 100 più vicine, si dovrà effettuare il provisioning di 1.300 unità richiesta/secondo per la raccolta dell'applicazione.
 
@@ -239,6 +239,6 @@ Per informazioni sulle attività iniziali relative al test delle prestazioni e d
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

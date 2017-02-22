@@ -1,5 +1,5 @@
 ---
-title: Profili annidati di Gestione Traffico | Documentazione Microsoft
+title: Profili annidati di Gestione traffico | Documentazione Microsoft
 description: "Questo articolo descrive la funzionalità &quot;Profili nidificati&quot; di Gestione traffico di Azure"
 services: traffic-manager
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: b5c49b585be10a02e959a70385d31e474e21ce01
+ms.sourcegitcommit: 3e48a28aa1ecda6792e79646a33875c8f01a878f
+ms.openlocfilehash: fdf22a3f8d0ba6f1838af4f5e6924c8c0a18ef64
 
 ---
 
@@ -54,14 +54,14 @@ Tornando all'esempio precedente, si supponga che la distribuzione di produzione 
 
 ![Failover dei profili nidificati (comportamento predefinito)][3]
 
-È possibile che questa soluzione risulti soddisfacente, o che si tema che tutto il traffico dell'Europa occidentale venga indirizzato alla distribuzione di prova invece che a un sottoinsieme limitato. Indipendentemente dall'integrità della distribuzione di prova, si preferisce eseguire il failover ad altre aree se la distribuzione di produzione in Europa occidentale ha esito negativo. Per abilitare questo failover, durante la configurazione del profilo figlio come endpoint nel profilo padre è possibile specificare il parametro 'MinChildEndpoints', che determina il numero minimo di endpoint che devono essere disponibili nel profilo figlio, il cui valore predefinito è 1. In questo scenario, impostare il valore MinChildEndpoints su 2. Al di sotto di questa soglia, il profilo padre considererà l'intero profilo figlio non disponibile e indirizzerà il traffico agli altri endpoint.
+È possibile che questa soluzione risulti soddisfacente, o che si tema che tutto il traffico dell'Europa occidentale venga indirizzato alla distribuzione di prova invece che a un sottoinsieme limitato. Indipendentemente dall'integrità della distribuzione di prova, si preferisce eseguire il failover ad altre aree se la distribuzione di produzione in Europa occidentale ha esito negativo. Per abilitare questo failover, durante la configurazione del profilo figlio come endpoint nel profilo padre è possibile specificare il parametro 'MinChildEndpoints', che determina il numero minimo di endpoint che devono essere disponibili nel profilo figlio, il cui valore predefinito è&1;. In questo scenario, impostare il valore MinChildEndpoints su 2. Al di sotto di questa soglia, il profilo padre considererà l'intero profilo figlio non disponibile e indirizzerà il traffico agli altri endpoint.
 
 L'immagine seguente illustra questa configurazione:
 
 ![Failover dei profili annidati con 'MinChildEndpoints' = 2][4]
 
 > [!NOTE]
-> Il metodo di routing del traffico "Priorità" distribuisce tutto il traffico a un unico endpoint. In questo caso è quindi inutile impostare MinChildEndpoints su un valore diverso da 1 per il profilo figlio.
+> Il metodo di routing del traffico "Priorità" distribuisce tutto il traffico a un unico endpoint. In questo caso è quindi inutile impostare MinChildEndpoints su un valore diverso da&1; per il profilo figlio.
 
 ## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>Esempio 3: Aree di failover con priorità con metodo di routing del traffico "Prestazioni"
 
@@ -162,6 +162,6 @@ Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-ma
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

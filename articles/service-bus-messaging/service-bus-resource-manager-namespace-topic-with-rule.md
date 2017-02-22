@@ -1,5 +1,5 @@
 ---
-title: Creare uno spazio dei nomi del bus di servizio con argomento, sottoscrizione e regola usando un modello di Azure Resource Manager | Microsoft Docs
+title: Creare una sottoscrizione, un argomento e una regola del bus di servizio di Azure tramite un modello | Documentazione Microsoft
 description: Creare uno spazio dei nomi del bus di servizio con argomento, sottoscrizione e regola usando un modello di Azure Resource Manager
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,22 +12,22 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 01/18/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a1a5d9d6fa62bee7b2b463ddc89fe6c99740e03d
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 16da81e14b7c4059de61b2dfebe081a9e4f08d5e
 
 
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Creare uno spazio dei nomi del bus di servizio con argomento, sottoscrizione e regola usando un modello di Azure Resource Manager
 Questo articolo illustra come usare un modello di Azure Resource Manager per creare uno spazio dei nomi del bus di servizio con un argomento, una sottoscrizione e una regola (filtro). Illustra inoltre le modalità di definizione delle risorse da distribuire e dei parametri specificati durante l'esecuzione della distribuzione. È possibile usare questo modello per la distribuzione o personalizzarlo in base alle esigenze.
 
-Per altre informazioni sulla creazione di modelli, vedere [Creazione di modelli di Azure Resource Manager][Creazione di modelli di Azure Resource Manager] (Creazione di modelli di Azure Resource Manager).
+Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Per altre informazioni su procedure e modelli relativi alle convenzioni di denominazione delle risorse di Azure, vedere [Convenzioni di denominazione delle risorse Azure][Convenzioni di denominazione delle risorse Azure] (Convenzioni di denominazione delle risorse di Azure).
+Per altre informazioni su procedure e modelli relativi alle convenzioni di denominazione delle risorse di Azure, vedere [Recommended naming conventions for Azure resources][Recommended naming conventions for Azure resources] (Convenzioni di denominazione consigliate per le risorse di Azure).
 
-Per il modello completo, vedere il [modello dello spazio dei nomi del bus di servizio con argomento, sottoscrizione e regola][modello dello spazio dei nomi del bus di servizio con argomento, sottoscrizione e regola].
+Per il modello completo, vedere il [modello dello spazio dei nomi del bus di servizio con argomento, sottoscrizione e regola][Service Bus namespace with topic, subscription, and rule] su GitHub.
 
 > [!NOTE]
 > Questi modelli di Azure Resource Manager sono disponibili per il download e la distribuzione.
@@ -37,7 +37,7 @@ Per il modello completo, vedere il [modello dello spazio dei nomi del bus di ser
 > * [Creare uno spazio dei nomi del bus di servizio](service-bus-resource-manager-namespace.md)
 > * [Creare uno spazio dei nomi del bus di servizio con argomento e sottoscrizione](service-bus-resource-manager-namespace-topic.md)
 > 
-> Per cercare i modelli più recenti, visitare la raccolta [Modelli di avvio rapido di Azure][Modelli di avvio rapido di Azure] e cercare un bus di servizio.
+> Per verificare la disponibilità di nuovi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][Azure Quickstart Templates] e cercare "service bus".
 > 
 > 
 
@@ -47,7 +47,7 @@ Questo modello consente di distribuire uno spazio dei nomi del bus di servizio c
 Gli [argomenti e le sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) offrono una forma di comunicazione uno-a-molti, in un schema di *pubblicazione/sottoscrizione*. Quando si usano gli argomenti e le sottoscrizioni, i componenti di un'applicazione distribuita non comunicano direttamente tra loro, ma scambiano messaggi tramite un argomento, che agisce da intermediario. La sottoscrizione a un argomento è simile a una coda virtuale che riceve copie dei messaggi che sono stati inviati all'argomento. L'applicazione di un filtro a una sottoscrizione consente di specificare quali messaggi inviati a un argomento devono essere presenti in una specifica sottoscrizione dell'argomento.
 
 ## <a name="what-are-rules-filters"></a>Che cosa sono le regole (filtri)?
-In molti scenari, i messaggi con caratteristiche specifiche devono essere elaborati in modi specifici. A questo scopo, è possibile configurare le sottoscrizioni in modo che trovino i messaggi che presentano le proprietà desiderate e apportare quindi alcune modifiche a tali proprietà. Mentre nelle sottoscrizioni del bus di servizio tutti i messaggi vengono inviati all'argomento, l'utente può copiare solo un subset di tali messaggi nella coda virtuale delle sottoscrizioni. Questa operazione viene eseguita usando i filtri della sottoscrizione. Per altre informazioni sulle regole (filtri), vedere [Code, argomenti e sottoscrizioni del bus di servizio][Code, argomenti e sottoscrizioni del bus di servizio].
+In molti scenari, i messaggi con caratteristiche specifiche devono essere elaborati in modi specifici. A questo scopo, è possibile configurare le sottoscrizioni in modo che trovino i messaggi che presentano le proprietà desiderate e apportare quindi alcune modifiche a tali proprietà. Mentre nelle sottoscrizioni del bus di servizio tutti i messaggi vengono inviati all'argomento, l'utente può copiare solo un subset di tali messaggi nella coda virtuale delle sottoscrizioni. Questa operazione viene eseguita usando i filtri della sottoscrizione. Per altre informazioni sulle regole (filtri), vedere [Code, argomenti e sottoscrizioni del bus di servizio][Service Bus queues, topics, and subscriptions].
 
 Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
@@ -61,7 +61,7 @@ Il modello definisce i parametri seguenti:
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 Nome dello spazio dei nomi del bus di servizio da creare.
 
-```
+```json
 "serviceBusNamespaceName": {
 "type": "string"
 }
@@ -70,7 +70,7 @@ Nome dello spazio dei nomi del bus di servizio da creare.
 ### <a name="servicebustopicname"></a>serviceBusTopicName
 Nome dell'argomento creato nello spazio dei nomi del bus di servizio.
 
-```
+```json
 "serviceBusTopicName": {
 "type": "string"
 }
@@ -79,7 +79,7 @@ Nome dell'argomento creato nello spazio dei nomi del bus di servizio.
 ### <a name="servicebussubscriptionname"></a>serviceBusSubscriptionName
 Nome della sottoscrizione creata nello spazio dei nomi del bus di servizio.
 
-```
+```json
 "serviceBusSubscriptionName": {
 "type": "string"
 }
@@ -87,7 +87,7 @@ Nome della sottoscrizione creata nello spazio dei nomi del bus di servizio.
 ### <a name="servicebusrulename"></a>serviceBusRuleName
 Nome della regola (filtro) creata nello spazio dei nomi del bus di servizio.
 
-```
+```json
    "serviceBusRuleName": {
    "type": "string",
   }
@@ -95,7 +95,7 @@ Nome della regola (filtro) creata nello spazio dei nomi del bus di servizio.
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
 Versione API del bus di servizio del modello.
 
-```
+```json
 "serviceBusApiVersion": {
 "type": "string"
 }
@@ -103,7 +103,7 @@ Versione API del bus di servizio del modello.
 ## <a name="resources-to-deploy"></a>Risorse da distribuire
 Crea uno spazio dei nomi del bus di servizio standard di tipo **Messaggistica** con argomento, sottoscrizione e regole.
 
-```
+```json
  "resources": [{
         "apiVersion": "[variables('sbVersion')]",
         "name": "[parameters('serviceBusNamespaceName')]",
@@ -156,12 +156,12 @@ Crea uno spazio dei nomi del bus di servizio standard di tipo **Messaggistica** 
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
-```
+```powershell
 New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<resource-group-name\> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-subscription-rule/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-```
+```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-subscription-rule/azuredeploy.json>
@@ -172,20 +172,20 @@ Dopo aver creato e distribuito le risorse con Azure Resource Manager, è possibi
 
 * [Gestire il bus di servizio di Azure mediante Automazione di Azure](service-bus-automation-manage.md)
 * [Gestire Bus di servizio con PowerShell](service-bus-powershell-how-to-provision.md)
-* [Gestire le risorse del bus di servizio con Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+* [Gestire le risorse del bus di servizio con Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Creazione di modelli di Azure Resource Manager]: ../resource-group-authoring-templates.md
-[Modelli di avvio rapido di Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Informazioni su argomenti e sottoscrizioni del bus di servizio]: service-bus-queues-topics-subscriptions.md
-[Uso di Azure PowerShell con Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager]: ../xplat-cli-azure-resource-manager.md
-[Convenzioni di denominazione delle risorse Azure]: https://azure.microsoft.com/en-us/documentation/articles/guidance-naming-conventions/
-[modello dello spazio dei nomi del bus di servizio con argomento, sottoscrizione e regola]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-subscription-rule/
-[Code, argomenti e sottoscrizioni del bus di servizio]:service-bus-queues-topics-subscriptions.md
-
-
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+[Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
+[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+[Recommended naming conventions for Azure resources]: ../guidance/guidance-naming-conventions.md
+[Service Bus namespace with topic, subscription, and rule]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-subscription-rule/
+[Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+<!--HONumber=Jan17_HO4-->
 
 

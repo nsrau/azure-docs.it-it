@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/07/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 90e7998a7ab427b7b429a6330792c27ee851608e
+ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
+ms.openlocfilehash: 0842cbcceb7ac96d4283efdd6c178b08dd728254
 
 
 ---
@@ -30,13 +30,12 @@ Curl viene usato per illustrare come sia possibile interagire con HDInsight tram
 
 > [!NOTE]
 > Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere [Informazioni utili su Hadoop in HDInsight basato su Linux](hdinsight-hadoop-linux-information.md).
-> 
-> 
+
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Prerequisiti
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
-* Un cluster Hadoop in HDInsight (basato su Linux o su Windows)
+* Un cluster Hadoop in HDInsight
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)
 
@@ -103,7 +102,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
    * **INPUT__FILE__NAME LIKE '%25.log'**: limita la ricerca solo ai file che terminano con .log. Se non è presente, Hive tenterà di cercare tutti i file in questa directory e nelle relative sottodirectory, inclusi i file che non corrispondono allo schema di colonna definito per questa tabella.
      
      > [!NOTE]
-     > Si noti che 25% è l'URL con codifica %, pertanto la condizione effettiva è `like '%.log'`. % deve essere l'URL codificato, poiché viene considerato come un carattere speciale negli URL.
+     > Si noti che&25;% è l'URL con codifica %, pertanto la condizione effettiva è `like '%.log'`. % deve essere l'URL codificato, poiché viene considerato come un carattere speciale negli URL.
      > 
      > 
      
@@ -149,14 +148,17 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
    * **STORED AS ORC** : archivia i dati nel formato ORC (Optimized Row Columnar). Questo è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
    * **INSERT OVERWRITE ... SELECT**: seleziona dalla tabella **log4jLogs** le righe contenenti **[ERROR]**, poi inserisce i dati nella tabella **errorLogs**.
    * **SELECT**: seleziona tutte le righe della nuova tabella **errorLogs**.
-6. Usare l'ID processo restituito per verificare lo stato del processo. Se il processo è stato completato correttamente, usare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows come spiegato in precedenza per scaricare e visualizzare i risultati. L'output dovrebbe contenere tre righe, tutte contenenti **ERROR**.
+
+6. Usare l'ID processo restituito per verificare lo stato del processo. Se il processo è stato completato correttamente, usare l'interfaccia della riga di comando di Azure come spiegato in precedenza per scaricare e visualizzare i risultati. L'output dovrebbe contenere tre righe, tutte contenenti **ERROR**.
 
 ## <a name="a-idsummaryasummary"></a><a id="summary"></a>Riepilogo
+
 Come illustrato in questo documento, è possibile usare una richiesta HTTP non elaborata per eseguire, monitorare e visualizzare i risultati dei processi Hive nel cluster HDInsight.
 
 Per altre informazioni sull'interfaccia REST usata in questo articolo, vedere le <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference" target="_blank">informazioni di riferimento su WebHCat</a>.
 
 ## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Passaggi successivi
+
 Per informazioni generali su Hive con HDInsight:
 
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
@@ -168,7 +170,6 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 Se si usa Tez con Hive, vedere i documenti seguenti per le informazioni di debug:
 
-* [Usare l'interfaccia utente di Tez in HDInsight basato su Windows](hdinsight-debug-tez-ui.md)
 * [Usare la vista Ambari Tez in HDInsight basato su Linux](hdinsight-debug-ambari-tez-view.md)
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
@@ -200,6 +201,6 @@ Se si usa Tez con Hive, vedere i documenti seguenti per le informazioni di debug
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/24/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: caf6dd414bd8f8180c90835dd9744dcd98f7709c
+ms.sourcegitcommit: 615e7ea84aae45f384edb671a28e4ff98b4ade3a
+ms.openlocfilehash: d61b7a9c8199b15c8bb24e7146ea93a2f67fb0a7
 
 
 ---
@@ -98,16 +98,16 @@ Se il certificato ha autorità di certificazione (CA), è necessario aggiungere 
 ```
 Se sono presenti più CA, usare una virgola come delimitatore.
 
-Se il nome comune nel certificato non corrisponde all'endpoint di connessione, è possibile usare il parametro `--strict-ssl` per ignorare la verifica, come illustrato nel comando seguente: 
+Se il nome comune nel certificato non corrisponde all'endpoint di connessione, è possibile usare il parametro `--strict-ssl-false` per ignorare la verifica, come illustrato nel comando seguente: 
 
 ```
-azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl false 
+azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false 
 ```
 
 Per ignorare la verifica della CA, è possibile aggiungere il parametro --reject-unauthorized, come illustrato nel comando seguente: 
 
 ```
-azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized false 
+azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
 ```
 
 Dopo la connessione, sarà possibile eseguire altri comandi dell'interfaccia della riga di comando per interagire con il cluster. 
@@ -168,6 +168,7 @@ openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 
 Per informazioni dettagliate, vedere la [documentazione di OpenSSL](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html).
 
+<a id="troubleshooting"></a>
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 ### <a name="copying-of-the-application-package-does-not-succeed"></a>Non è possibile copiare il pacchetto dell'applicazione
 Controllare se `openssh` è installato. Per impostazione predefinita, in Ubuntu Desktop non è installato. Installarlo usando il comando seguente:
@@ -203,6 +204,6 @@ Configurare l'ambiente di sviluppo e distribuire un'applicazione di Service Fabr
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

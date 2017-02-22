@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: 6cc30ace0b57555ea2b5815906d3e6a4f79d8fce
-ms.openlocfilehash: 94bf7729ceb55eaed5efc0290c1a34227888211f
+ms.sourcegitcommit: 496e00c2b9a0b374450f9a6f9dff5d41c805261c
+ms.openlocfilehash: 591f3440977b1c952b1b360f6d3f221cdbc5a7a7
 
 
 ---
@@ -75,7 +75,7 @@ Il management pack è denominato Microsoft.IntelligencePacks.ApplicationDependen
 
 
 ## <a name="configuration"></a>Configurazione
-Oltre al fatto che i computer Windows e Linux devono avere un agente installato e connesso a OMS, il programma di installazione di Dependency Agent deve essere scaricato dalla soluzione di elenco dei servizi e quindi installato dall'utente ROOT o da un amministratore in ogni server gestito.  Dopo aver installato l'agente dell'elenco dei servizi in un server che invia dati a OMS, le mappe di dipendenza dell'elenco dei servizi compariranno entro 10 minuti.  In caso di problemi, inviare un messaggio e-mail a [oms-adm-support@microsoft.com](mailto:oms-adm-support@microsoft.com).
+Oltre al fatto che i computer Windows e Linux devono avere un agente installato e connesso a OMS, il programma di installazione di Dependency Agent deve essere scaricato dalla soluzione di elenco dei servizi e quindi installato dall'utente ROOT o da un amministratore in ogni server gestito.  Dopo aver installato l'agente dell'elenco dei servizi in un server che invia dati a OMS, le mappe di dipendenza dell'elenco dei servizi compariranno entro 10 minuti.
 
 
 ### <a name="migrating-from-bluestripe-factfinder"></a>Migrazione da BlueStripe FactFinder
@@ -117,7 +117,7 @@ Per installare Dependency Agent in ogni computer Linux, seguire questa procedura
 3.  Se l'agente di dipendenza non si avvia, controllare i registri per vedere le informazioni dettagliate sull'errore. Per gli agenti Linux la directory di log è */var/opt/microsoft/dependency-agent/log*.
 
 ### <a name="uninstalling-the-dependency-agent-on-linux"></a>Disinstallazione dell'agente di dipendenza in Linux
-Per disinstallare completamente Dependency Agent da Linux, è necessario rimuovere l'agente stesso e il proxy che viene installato automaticamente con l'agente.  È possibile disinstallare entrambi con il seguente comando singolo:
+Per disinstallare completamente Dependency Agent da Linux, è necessario rimuovere l'agente stesso e il connettore che viene installato automaticamente con l'agente.  È possibile disinstallare entrambi con il seguente comando singolo:
 
     rpm -e dependency-agent dependency-agent-connector
 
@@ -227,7 +227,7 @@ Dependency Agent usa in genere lo 0,1% della memoria di sistema e lo 0,1% della 
 
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
-Le sezioni seguenti elencano i sistemi operativi supportati per l'agente di dipendenza.   Le architetture a 32 bit non sono supportate per nessun sistema operativo.
+Le sezioni seguenti elencano i sistemi operativi supportati per l'agente di dipendenza.   Le architetture a&32; bit non sono supportate per nessun sistema operativo.
 
 ### <a name="windows-server"></a>Windows Server
 - Windows Server 2016
@@ -325,6 +325,6 @@ Per altre informazioni sulla raccolta dei dati e sull'utilizzo, vedere l'[Inform
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

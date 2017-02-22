@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 37c9d6808b3282d86583f6305672405775a7f306
+ms.sourcegitcommit: f37fa3a212a0dca46c76b3928cf78756722f0340
+ms.openlocfilehash: 2c6765e28f40210730823a9af0b6fb80a5ddc4d1
 
 
 ---
@@ -54,6 +54,7 @@ Informazioni su come usare funzionalità specifiche di Azure Active Directory B2
 I collegamenti seguenti sono utili per un'esplorazione più approfondita del servizio:
 
 * Vedere [Prezzi di Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+* Vedere i [codici di esempio](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c) per Azure Active Directory B2C. 
 * Ottenere supporto in Stack Overflow usando i tag [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) o [adal](http://stackoverflow.com/questions/tagged/adal).
 * Inviare commenti e suggerimenti usando il [forum dedicato](https://feedback.azure.com/forums/169401-azure-active-directory/). Specificare "AzureADB2C:" nel titolo del post per permetterci di individuarlo.
 * Vedere le [informazioni di riferimento sui protocolli di Azure AD B2C](active-directory-b2c-reference-protocols.md).
@@ -67,6 +68,6 @@ I collegamenti seguenti sono utili per un'esplorazione più approfondita del ser
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

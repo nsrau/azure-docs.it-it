@@ -1,5 +1,5 @@
 ---
-title: 'Distribuire StorSimple Virtual Array 3: configurare il dispositivo virtuale come file server'
+title: Configurare l&quot;array virtuale StorSimple come file server | Documentazione Microsoft
 description: Questa terza esercitazione sulla distribuzione di StorSimple Virtual Array illustra come configurare un dispositivo virtuale come file server.
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 05/26/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8f99e3dc59c0637053cad6c2b3b6baedac803f42
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: e1863b43706ffc200bb94c4a26ae75080a6dd857
 
 
 ---
@@ -85,7 +85,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
    
    Nella pagina **Proxy Web** :
    
-   1. Fornire l'**URL proxy Web** in questo formato: *http://indirizzo IP-host&lt; o &gt;FDQN:Numero della porta*. Notare che gli URL HTTPS non sono supportati.
+   1. Fornire l'**URL proxy Web** in questo formato: *http://&lt;indirizzo IP-host o FDQN&gt;:Numero della porta*. Notare che gli URL HTTPS non sono supportati.
    2. Specificare **Autenticazione** come **Basic** o **Nessuna**.
    3. Se si usa l'autenticazione, è necessario anche fornire **Nome utente** e **Password**.
    4. Fare clic su **Apply**. Le impostazioni proxy Web configurate vengono così convalidate e applicate.
@@ -177,7 +177,7 @@ A questo punto, è necessario connettersi alla condivisione o alle condivisioni 
 
 Guardare il video per scoprire in che modo configurare e registrare StorSimple Virtual Array come file server.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Configure-a-StorSimple-Virtual-Array/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Configure-a-StorSimple-Virtual-Array/player]
 > 
 > 
 
@@ -187,6 +187,6 @@ Informazioni su come usare l'interfaccia utente Web locale per [amministrare l'a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

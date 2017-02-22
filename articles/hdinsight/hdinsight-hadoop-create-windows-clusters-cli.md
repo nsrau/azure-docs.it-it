@@ -1,6 +1,6 @@
 ---
 title: Creare cluster Hadoop basati su Windows in HDInsight tramite l&quot;interfaccia della riga di comando di Azure
-description: Informazioni su come creare cluster per Azure HDInsight usando l&quot;interfaccia della riga di comando di Azure.
+description: Informazioni su come creare cluster Hadoop basati su Windows per Azure HDInsight usando l&quot;interfaccia della riga di comando di Azure.
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -13,18 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 984ebf0e93b8c36d1f09876d59feb7f74053622e
+ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
+ms.openlocfilehash: 393b7e44b21fe510e07b4048ddd3bdbcc31d90a9
 
 
 ---
 # <a name="create-windows-based-hadoop-clusters-in-hdinsight-using-azure-cli"></a>Creare cluster Hadoop basati su Windows in HDInsight tramite l'interfaccia della riga di comando di Azure
+
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Informazioni su come creare cluster HDInsight tramite l'interfaccia della riga di comando di Azure. Per altri strumenti e funzionalità per la creazione di cluster, fare clic sulla scheda Seleziona nella parte superiore di questa pagina o vedere [Metodi di creazione di cluster](hdinsight-provision-clusters.md#cluster-creation-methods).
+Informazioni su come creare cluster Hadoop basati su Windows in HDInsight usando l'interfaccia della riga di comando di Azure. 
+
+> [!IMPORTANT]
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Le informazioni contenute in questo articolo si applicano solo ai cluster HDInsight basati su Windows. Per informazioni sulla creazione di cluster basati su Linux, vedere [Creare cluster Hadoop in HDInsight tramite l'interfaccia della riga di comando di Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
 ## <a name="prerequisites"></a>Prerequisiti:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -34,7 +38,7 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 * **Sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Interfaccia della riga di comando di Azure**.
   
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
 ### <a name="access-control-requirements"></a>Requisiti di controllo di accesso
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
@@ -46,7 +50,7 @@ Usare il comando seguente per collegarsi ad Azure:
 
 Per altre informazioni sull'autenticazione con un account aziendale o dell'istituto di istruzione, vedere [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
 
-Usare il comando seguente per passare alla modalità di Gestione risorse di Azure:
+Usare questo comando per passare alla modalità Azure Resource Manager:
 
     azure config mode arm
 
@@ -55,7 +59,7 @@ Per ottenere assistenza, utilizzare l’opzione **-h** .  Ad esempio:
     azure hdinsight cluster create -h
 
 ## <a name="create-clusters"></a>Creare i cluster
-È necessario disporre di Gestione risorse di Azure e di un account di archiviazione BLOB di Azure prima di poter creare un cluster HDInsight. Per creare un cluster HDInsight, è necessario specificare quanto segue:
+Sono necessari un gruppo di Resource Manager e un account di Archiviazione BLOB di Azure prima di poter creare un cluster HDInsight. Per creare un cluster HDInsight, è necessario specificare quanto segue:
 
 * **Gruppo di risorse di Azure**: è necessario creare un account di Data Lake Analytics all'interno di un gruppo di risorse di Azure. Gestione risorse di Azure consente di lavorare con le risorse dell'applicazione come gruppo. È quindi possibile distribuire, aggiornare o eliminare tutte le risorse per l'applicazione mediante un'unica operazione coordinata.
   
@@ -127,18 +131,18 @@ Creare un cluster con un'azione script
 
 Per informazioni generali sull'azione di script, vedere [Personalizzare cluster HDInsight mediante l'azione script (Linux)](hdinsight-hadoop-customize-cluster.md).
 
-## <a name="create-clusters-using-arm-templates"></a>Creare cluster tramite modelli di Gestione risorse di Azure
-È possibile usare l'interfaccia della riga di comando per creare cluster chiamando modelli di Gestione risorse di Azure. Vedere [Distribuire con l'interfaccia della riga di comando di Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli).
+## <a name="create-clusters-using-resource-manager-templates"></a>Creare cluster usando i modelli di Resource Manager
+È possibile usare l'interfaccia della riga di comando per creare cluster chiamando i modelli di Azure Resource Manager. Vedere [Distribuire con l'interfaccia della riga di comando di Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli).
 
 ## <a name="see-also"></a>Vedere anche
 * [Introduzione all'uso di Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) - Informazioni su come iniziare a usare il cluster HDInsight
 * [Inviare processi Hadoop a livello di codice](hdinsight-submit-hadoop-jobs-programmatically.md) - Informazioni su come inviare processi a HDInsight a livello di codice
 * [Gestire cluster Hadoop in HDInsight tramite la CLI di Azure](hdinsight-administer-use-command-line.md)
-* [Uso dell’interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione servizi di Azure](../virtual-machines-command-line-tools.md)
+* [Uso dell’interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione servizi di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

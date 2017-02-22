@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1a6dd35278f0a4a4f972642c40a0976986dd79ae
-ms.openlocfilehash: 000bc72e5c880abdd455d50cd7ac0bb57a51391d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c67cfcc8b01786dcd39fa683898ba076059be0b4
 
 
 ---
@@ -29,7 +29,7 @@ Questa esercitazione usa un semplice dispositivo simulato Node.js facilmente mod
 
 Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
-* Una sottoscrizione di Azure attiva. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [Versione di valutazione gratuita di Azure][lnk_free_trial].
+* Una sottoscrizione di Azure attiva. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][lnk_free_trial].
 * [Node.js][lnk-node] 0.12.x o versione successiva.
 
 È possibile completare questa esercitazione su qualsiasi sistema operativo, ad esempio Windows o Linux, in cui si può installare Node.js.
@@ -39,8 +39,8 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 ## <a name="configure-the-nodejs-simulated-device"></a>Configurare il dispositivo simulato Node.js
 1. Nel dashboard di monitoraggio remoto fare clic su **+ Add a device** (+ Aggiungi un dispositivo) e quindi aggiungere un dispositivo personalizzato. Prendere nota del nome host dell'hub IoT, dell'ID dispositivo e della chiave del dispositivo. Queste informazioni saranno necessarie più avanti nell'esercitazione quando si preparerà l'applicazione client per dispositivi remote_monitoring.js.
 2. Verificare che Node.js 0.12.x o una versione successiva sia installata sul computer di sviluppo. Per verificare la versione, eseguire `node --version` al prompt dei comandi o in una shell. Per informazioni sull'uso di Gestione pacchetti per installare Node.js su Linux, vedere [Installing Node.js via package manager][node-linux] (Installazione di Node.js tramite Gestione pacchetti).
-3. Dopo aver installato Node.js, clonare l'ultima versione del repository [azure-iot-sdks][lnk-github-repo] nel computer di sviluppo. Usare sempre il ramo **master** per la versione più recente delle librerie e degli esempi.
-4. Da una copia locale del repository [azure-iot-sdks][lnk-github-repo] copiare i seguenti due file dalla cartella node/device/samples in una cartella vuota sul computer di sviluppo:
+3. Dopo aver installato Node.js, clonare la versione più recente del repository [azure-iot-sdks][lnk-github-repo] nel computer di sviluppo. Usare sempre il ramo **master** per la versione più recente delle librerie e degli esempi.
+4. Da una copia locale del repository [azure-iot-sdks][lnk-github-repo], copiare i due file seguenti dalla cartella node/device/samples a una cartella vuota nel computer di sviluppo:
    
    * packages.json
    * remote_monitoring.js
@@ -232,15 +232,15 @@ Questa modifica interessa solo la visualizzazione del grafico. Tuttavia, i valor
 Per visualizzare un flusso di dati sul grafico, il relativo attributo **Type** nei metadati **Device-Info** deve corrispondere al tipo di dati dei valori di telemetria. Se ad esempio i metadati specificano che l'attributo **Type** dei dati sull'umidità è **int** ma nel flusso di dati di telemetria è indicato **double**, i dati di telemetria sull'umidità non saranno visualizzati nel grafico. Tuttavia, i valori **Humidity** vengono comunque memorizzati e resi disponibili per qualsiasi elaborazione back-end.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ora che si è appreso come usare la telemetria dinamica, è possibile ottenere altre informazioni su come le soluzioni preconfigurate possono usare le informazioni sul dispositivo in [Metadati di informazioni sul dispositivo nella soluzione preconfigurata per il monitoraggio remoto][lnk-devinfo].
+Ora che si è appreso come usare la telemetria dinamica, è possibile consultare altre informazioni su come le soluzioni preconfigurate possono usare le informazioni sul dispositivo in [Metadati di informazioni sul dispositivo nella soluzione preconfigurata per il monitoraggio remoto][lnk-devinfo].
 
 [lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
-[Immagine1]: media/iot-suite-dynamic-telemetry/image1.png
+[image1]: media/iot-suite-dynamic-telemetry/image1.png
 [image2]: media/iot-suite-dynamic-telemetry/image2.png
 [image3]: media/iot-suite-dynamic-telemetry/image3.png
-[Image4]: media/iot-suite-dynamic-telemetry/image4.png
-[Image5]: media/iot-suite-dynamic-telemetry/image5.png
+[image4]: media/iot-suite-dynamic-telemetry/image4.png
+[image5]: media/iot-suite-dynamic-telemetry/image5.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-node]: http://nodejs.org
@@ -249,6 +249,6 @@ Ora che si è appreso come usare la telemetria dinamica, è possibile ottenere a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

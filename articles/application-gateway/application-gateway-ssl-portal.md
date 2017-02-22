@@ -1,10 +1,10 @@
 ---
-title: Configurare un gateway applicazione per l&quot;offload SSL con il portale | Documentazione Microsoft
+title: Configurare l&quot;offload SSL - Gateway applicazione di Azure - Portale di Azure | Documentazione Microsoft
 description: Questa pagina contiene istruzioni per creare un gateway applicazione con offload SSL usando il portale
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 8373379a-a26a-45d2-aa62-dd282298eff3
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 0105c00b40143981c4f5dba621f91425b80f31cf
-ms.openlocfilehash: 2463136502ae37347e0d621902f2b7f93e239af5
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: b1852b82875c63fa0e252c14b69b281bd501095f
 
 
 ---
@@ -26,8 +26,6 @@ ms.openlocfilehash: 2463136502ae37347e0d621902f2b7f93e239af5
 > * [Portale di Azure](application-gateway-ssl-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-ssl-arm.md)
 > * [PowerShell per Azure classico](application-gateway-ssl.md)
-> 
-> 
 
 Il gateway applicazione di Azure può essere configurato per terminare la sessione Secure Sockets Layer (SSL) nel gateway ed evitare costose attività di decrittografia SSL nella Web farm. L'offload SSL semplifica anche la configurazione e la gestione del server front-end dell'applicazione Web.
 
@@ -98,6 +96,6 @@ Per informazioni su come configurare un probe di integrità personalizzato con u
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Creare un hub IoT di Azure e registrare il dispositivo | Documentazione Microsoft
+title: 'Dispositivo SensorTag e gateway Azure IoT: lezione 2: Registrare il dispositivo | Documentazione Microsoft'
 description: 
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: hub IoT di azure, cloud Internet delle cose, creare dispositivo di hub IoT di azure, ti sensortag, ti ble
+keywords: hub iot di azure, cloud internet delle cose, hub iot di azure creare dispositivo, sensortag ti, ble ti
 ms.assetid: 2c18f5ae-e39a-48ae-a9fe-04bb595740a0
 ms.service: iot-hub
 ms.devlang: c
@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 7765f122476c51011ab12613e615e5fea0bc58f4
-ms.openlocfilehash: 4b878ebe3222c4ab1c41051c659ba8333bf94c32
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: a895f18b4cefc01f12613e701c71bd471bb369c3
 
 
 ---
 
-# <a name="create-your-azure-iot-hub-and-register-your-device"></a>Creare l'hub IoT di Azure e registrare il dispositivo
+# <a name="create-your-azure-iot-hub-and-register-your-device"></a>Creare un hub IoT di Azure e registrare il dispositivo
 
 ## <a name="what-you-will-do"></a>Contenuto dell'esercitazione
 
@@ -89,12 +89,12 @@ Per creare un hub IoT, seguire questa procedura:
 Per impostazione predefinita, lo strumento crea un hub IoT nel piano tariffario gratuito. Per altre informazioni, vedere [Prezzi dell'hub Iot di Azure](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 > [!NOTE]
-> Il nome dell'hub IoT deve essere globalmente univoco. È possibile creare una sola edizione F1 dell'hub IoT di Azure nella sottoscrizione di Azure.
+> Il nome dell'hub IoT deve essere globalmente univoco. È possibile creare una sola edizione F1 dell'hub IoT di Azure nell'ambito della propria sottoscrizione di Azure.
 
 ## <a name="register-your-device-in-your-iot-hub"></a>Registrare il dispositivo nell'hub IoT
 
 Ogni dispositivo che invia o riceve messaggi da e verso l'hub IoT deve essere registrato con un ID univoco.
-Registrare il dispositivo nell'hub IoT usando il comando seguente:
+Registrare il dispositivo nell'hub IoT eseguendo questo comando:
 
 ```bash
 az iot device create --device-id mydevice --hub-name {my hub name} --resource-group iot-gateway
@@ -102,12 +102,12 @@ az iot device create --device-id mydevice --hub-name {my hub name} --resource-gr
 
 ## <a name="summary"></a>Riepilogo
 
-È stato creato un hub IoT e il dispositivo logico è stato registrato con un'identità del dispositivo nell'hub IoT. Si è già appreso come configurare ed eseguire un'applicazione gateway di esempio per inviare dati dal dispositivo fisico all'hub IoT sul cloud.
+È stato creato un hub IoT e il dispositivo logico è stato registrato con un'identità del dispositivo nell'hub IoT. Si è già appreso come configurare ed eseguire un'applicazione gateway di esempio per inviare dati dal dispositivo fisico all'hub IoT nel cloud.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Configurare ed eseguire un'app di esempio BLE](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

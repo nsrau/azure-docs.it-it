@@ -1,5 +1,5 @@
 ---
-title: Riferimento al token di Azure AD | Microsoft Docs
+title: Informazioni sui diversi tipi di token e di attestazione supportati da Azure AD | Documentazione Microsoft
 description: Una guida alla comprensione e alla valutazione delle attestazioni nei token SAML 2.0 e JSON Web Tokens (JWT) emessi da Azure Active Directory (AAD)
 documentationcenter: na
 author: bryanla
@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 01/07/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 796b892d555ea114af330117365e3d0a0f622f3f
+ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
+ms.openlocfilehash: 4612c1f516dca51aea925343f79649761448c05d
 
 
 ---
@@ -304,6 +304,6 @@ Oltre alle attestazioni, il token include un numero di versione **ver** e **appi
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

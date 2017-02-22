@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 12/02/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 41239b5164de0d51848431f45f45958af29a9706
-ms.openlocfilehash: 09e078c8f806b91f8a4de55bc3abbb271823c203
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: e9b9febe0c7533e0d2de24b97c98707d08f5e461
 
 
 ---
@@ -46,12 +46,12 @@ Di seguito è disponibile un primo elenco. L'elenco verrà modificato e accresci
 ## <a name="azure-database-security"></a>Sicurezza del database di Azure
 * [Firewall SQL di Azure](../sql-database/sql-database-firewall-configure.md)
 * [Crittografia a livello di cella di SQL di Azure](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)
-* [Crittografia della connessione SQL di Azure](../sql-database/sql-database-security-guidelines.md)
-* [Autenticazione SQL di Azure](../sql-database/sql-database-security-guidelines.md)
+* [Crittografia della connessione SQL di Azure](../sql-database/sql-database-control-access.md)
+* [Autenticazione SQL di Azure](../sql-database/sql-database-control-access.md)
 * [Crittografia sempre attiva SQL di Azure](https://msdn.microsoft.com/library/mt163865.aspx)
 * [Crittografia a livello di colonna SQL di Azure](https://msdn.microsoft.com/library/ms179331.aspx)
 * [Transparent Data Encryption con SQL di Azure](https://msdn.microsoft.com/library/dn948096.aspx)
-* [Controllo del database SQL di Azure](../sql-database/sql-database-auditing-get-started.md)
+* [Controllo del database SQL di Azure](../sql-database/sql-database-auditing.md)
 
 ## <a name="azure-identity-and-access-management"></a>Gestione delle identità e degli accessi di Azure
 * [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md)
@@ -75,6 +75,6 @@ Di seguito è disponibile un primo elenco. L'elenco verrà modificato e accresci
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,4 +1,4 @@
-# Overview
+# Panoramica
 ## [Informazioni sui set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md)
 
 # Attività iniziali
@@ -16,16 +16,21 @@
 ### [Set di scalabilità Linux con scalabilità automatica](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Set di scalabilità Windows con scalabilità automatica](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Applicazioni nei set di scalabilità](virtual-machine-scale-sets-deploy-app.md)
+### [Usare dischi di dati con set di scalabilità](virtual-machine-scale-sets-attached-disks.md)
+### [Usare set di scalabilità di grandi dimensioni](virtual-machine-scale-sets-placement-groups.md)
+### [Convertire un modello di set di scalabilità per l'uso di dischi gestiti](virtual-machine-scale-sets-convert-template-to-md.md)
 
-## Gestire
+
+## Gestisci
 ### [Set di scalabilità Windows con PowerShell](virtual-machine-scale-sets-windows-manage.md)
 ### [Scalabilità automatica e set di scalabilità](virtual-machine-scale-sets-autoscale-overview.md)
 ### [Ridimensionamento verticale in un set di scalabilità](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Aggiornamenti per i set di scalabilità](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Scalabilità automatica avanzata](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Uso di DSC e di set di scalabilità](virtual-machine-scale-sets-dsc.md)
+### [Convertire un modello in dischi gestiti](virtual-machine-scale-sets-convert-template-to-md.md)
 
-## Risolvere problemi
+## Risoluzione dei problemi
 ### [Autoscale](virtual-machine-scale-sets-troubleshoot.md)
 
 # Riferimento
@@ -40,6 +45,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Creare un ambiente Linux completo usando l&quot;interfaccia della riga di comando di Azure 2.0 (anteprima) | Documentazione Microsoft
+title: Creare un ambiente Linux tramite l&quot;interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
 description: Usare l&quot;interfaccia della riga di comando di Azure 2.0 (anteprima) per creare da zero una risorsa di archiviazione, una VM Linux, una rete virtuale con subnet, il bilanciamento del carico, una scheda di interfaccia di rete, un IP pubblico e un gruppo di sicurezza di rete.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 12/8/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 6e12a41a9e08fe132526fb3ba517c4c6aa13ffff
-ms.openlocfilehash: b4afa8c4a86b9a8ab0df6918443e18f2a758c928
+ms.sourcegitcommit: e64449991bc28427d8f559ed13c3bdf9160488db
+ms.openlocfilehash: d8308ed6ec03457bd0ec30d34166631357e2b60f
 
 
 ---
@@ -210,10 +210,10 @@ az vm show --resource-group myResourceGroup --name myVM1
 az vm show --resource-group myResourceGroup --name myVM2
 ```
 
-Esportare il nuovo ambiente in un modello con [az resource group export](/cli/azure/resource/group#export) per ricreare rapidamente nuove istanze:
+Esportare il nuovo ambiente in un modello con [az group export](/cli/azure/group#export) per ricreare rapidamente nuove istanze:
 
 ```azurecli
-az resource group export --name myResourceGroup > myResourceGroup.json
+az group export --name myResourceGroup > myResourceGroup.json
 ```
 
 ## <a name="detailed-walkthrough"></a>Procedura dettagliata
@@ -230,7 +230,7 @@ I gruppi di risorse di Azure sono entità di distribuzione logiche che contengon
 az group create --name myResourceGroup --location westeurope
 ```
 
-Per impostazione predefinita, l'output è in formato JSON (JavaScript Object Notation). Per creare l'output come elenco o tabella, ad esempio, usare [az configure --output](/cli/azure/#configure). È possibile anche aggiungere `--output` a qualsiasi comando per apportare una modifica una sola volta nel formato di output. L'esempio seguente illustra l'output JSON ottenuto dal comando **az resource group create**:
+Per impostazione predefinita, l'output è in formato JSON (JavaScript Object Notation). Per creare l'output come elenco o tabella, ad esempio, usare [az configure --output](/cli/azure/#configure). È possibile anche aggiungere `--output` a qualsiasi comando per apportare una modifica una sola volta nel formato di output. L'esempio seguente illustra l'output JSON ottenuto dal comando **az group create**:
 
 ```json                       
 {
@@ -374,7 +374,7 @@ L'output mostra la subnet creata in modo logico all'interno della rete virtuale:
 
 
 ## <a name="create-a-public-ip-address"></a>Creare un indirizzo IP pubblico
-A questo punto, creare l'indirizzo IP pubblico (PIP) che viene assegnato al bilanciamento del carico. Consente di connettersi alle VM da Internet usando il comando [az network public-ip create](/cli/azure/network/public-ip#create). Dato che l'indirizzo predefinito è dinamico, si crea una voce DNS nel dominio **cloudapp.azure.com** usando l'opzione `--domain-name-label`. Nell'esempio seguente viene aggiunto un indirizzo IP pubblico chiamato `myPublicIP` con il nome DNS `mypublicdns`. Il nome DNS deve essere univoco; specificare quindi il proprio nome DNS univoco:
+A questo punto, creare l'indirizzo IP pubblico (PIP) che viene assegnato al bilanciamento del carico. Consente di connettersi alle VM da Internet usando il comando [az network public-ip create](/cli/azure/network/public-ip#create). Dato che l'indirizzo predefinito è dinamico, si crea una voce DNS nel dominio **cloudapp.azure.com** usando l'opzione `--domain-name-label`. Nell'esempio seguente viene aggiunto un indirizzo IP pubblico chiamato `myPublicIP` con il nome DNS `mypublicdns`. Il nome DNS deve essere univoco, quindi specificare il proprio nome DNS.
 
 ```azurecli
 az network public-ip create --resource-group myResourceGroup --location westeurope \
@@ -601,9 +601,9 @@ Output:
 La configurazione del bilanciamento del carico è completa. Ecco i passaggi effettuati:
 
 1. È stato creato un bilanciamento del carico.
-2. È stato creato un pool IP front-end a cui è stato assegnato un indirizzo IP pubblico.
+2. È stato creato un pool di indirizzi IP front-end a cui è stato assegnato un indirizzo IP pubblico.
 3. È stato creato un pool IP back-end a cui possono connettersi le VM.
-4. Sono state create le regole NAT che consentono alle VM di usare SSH per la gestione, oltre a una regola che consente all'app Web di usare la porta TCP 80.
+4. Sono state create le regole NAT che consentono alle macchine virtuali di usare il protocollo SSH per la gestione, oltre a una regola che consente all'app Web di usare la porta TCP 80.
 5. È stato aggiunto un probe di integrità per verificare periodicamente lo stato delle VM. Questo probe di integrità garantisce agli utenti di accedere solo alle VM non più funzionanti o con contenuti non più disponibili.
 
 Ecco il bilanciamento del carico risultante con [az network lb show](/cli/azure/network/lb#show):
@@ -1079,28 +1079,28 @@ A questo punto le VM Ubuntu sono in esecuzione dietro al bilanciamento del caric
 
 
 ## <a name="export-the-environment-as-a-template"></a>Esportare l'ambiente come modello
-Dopo aver creato questo ambiente, è possibile creare un ambiente di sviluppo aggiuntivo utilizzando gli stessi parametri oppure creare un ambiente di produzione compatibile? Azure Resource Manager utilizza i modelli JSON che definiscono tutti i parametri per l'ambiente. È possibile creare interi ambienti facendo riferimento a questo modello JSON. È possibile [creare modelli JSON manualmente](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o esportare un ambiente esistente per creare il modello JSON desiderato. Usare [az resource group export](/cli/azure/resource/group#export) per esportare il gruppo di risorse come segue:
+Dopo aver creato questo ambiente, è possibile creare un ambiente di sviluppo aggiuntivo utilizzando gli stessi parametri oppure creare un ambiente di produzione compatibile? Azure Resource Manager utilizza i modelli JSON che definiscono tutti i parametri per l'ambiente. È possibile creare interi ambienti facendo riferimento a questo modello JSON. È possibile [creare modelli JSON manualmente](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o esportare un ambiente esistente per creare il modello JSON desiderato. Usare [az group export](/cli/azure/group#export) per esportare il gruppo di risorse come segue:
 
 ```azurecli
-az resource group export --name myResourceGroup > myResourceGroup.json
+az group export --name myResourceGroup > myResourceGroup.json
 ```
 
-Questo comando crea il file `myResourceGroup.json` nella directory di lavoro corrente. Quando si crea un ambiente da questo modello, vengono richiesti i nomi di tutte le risorse, tra cui quelli del servizio di bilanciamento del carico, delle interfacce di rete o delle VM. È possibile popolare questi nomi nel file del modello aggiungendo i parametri `--include-parameter-default-value` al comando **az resource group export** descritto in precedenza. Modificare il modello JSON per specificare i nomi delle risorse, o [creare un file parameters.json](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) nel quale vengono specificati i nomi delle risorse.
+Questo comando crea il file `myResourceGroup.json` nella directory di lavoro corrente. Quando si crea un ambiente da questo modello, vengono richiesti i nomi di tutte le risorse, tra cui quelli del servizio di bilanciamento del carico, delle interfacce di rete o delle VM. È possibile popolare questi nomi nel file del modello aggiungendo il parametro `--include-parameter-default-value` al comando **az group export** descritto in precedenza. Modificare il modello JSON per specificare i nomi delle risorse, o [creare un file parameters.json](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) nel quale vengono specificati i nomi delle risorse.
 
-Per creare un ambiente in base al modello, usare [az resource group deployment create](/cli/azure/resource/group/deployment#create) come indicato di seguito:
+Per creare un ambiente in base al modello, usare [az group deployment create](/cli/azure/group/deployment#create) come indicato di seguito:
 
 ```azurecli
-az resource group deployment create --resource-group myNewResourceGroup \
+az group deployment create --resource-group myNewResourceGroup \
   --template-file myResourceGroup.json
 ```
 
-Se lo si desidera, è possibile consultare [ulteriori informazioni su come eseguire la distribuzione partendo dai modelli](../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Ulteriori informazioni su come aggiornare gli ambienti in modo incrementale, utilizzare il file di parametri e accedere ai modelli da un unico percorso di archiviazione.
+Se lo si desidera, è possibile consultare [ulteriori informazioni su come eseguire la distribuzione partendo dai modelli](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Ulteriori informazioni su come aggiornare gli ambienti in modo incrementale, utilizzare il file di parametri e accedere ai modelli da un unico percorso di archiviazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ora è possibile iniziare a utilizzare più componenti di rete e VM. È possibile utilizzare questo ambiente di esempio per compilare l'applicazione utilizzando i componenti principali presentati qui.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

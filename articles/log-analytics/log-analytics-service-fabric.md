@@ -1,5 +1,5 @@
 ---
-title: Ottimizzare l&quot;ambiente con la soluzione Service Fabric in Log Analytics | Documentazione Microsoft
+title: Valutare le applicazioni e i micro-servizi di Azure Service Fabric | Documentazione Microsoft
 description: "È possibile usare la soluzione Service Fabric per valutare i rischi e l&quot;integrità delle applicazioni Service Fabric, dei servizi micro, dei nodi e dei cluster."
 services: log-analytics
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e6697c85194e18fcaac0f6d55bf00c3b005f6f00
+ms.sourcegitcommit: 7695debd9f8152efbbc04b6d63a0b44e70646f16
+ms.openlocfilehash: 7cf1174791187cd7d751c4e2d2646282f4a0a5ce
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: e6697c85194e18fcaac0f6d55bf00c3b005f6f00
 > [!div class="op_single_selector"]
 > * [Gestione risorse](log-analytics-service-fabric-azure-resource-manager.md)
 > * [PowerShell](log-analytics-service-fabric.md)
-> 
-> 
+>
+>
 
 In questo articolo viene descritto come usare la soluzione Service Fabric in Log Analytics per identificare e risolvere i problemi nel cluster di Service Fabric, monitorando le prestazioni dei nodi di Service Fabric e l'effettiva esecuzione delle applicazioni e dei servizi micro.
 
@@ -43,8 +43,8 @@ In questa sezione viene illustrato come configurare OMS per recuperare i log di 
 
 > [!NOTE]
 > L'estensione della diagnostica di Azure deve essere configurata per caricare i log nelle tabelle di archiviazione corrispondenti ai valori cercati da OMS. Vedere [Come raccogliere log con Diagnostica di Azure](../service-fabric/service-fabric-diagnostics-how-to-setup-wad.md) per altre informazioni su come raccogliere i log. Gli esempi di impostazioni di configurazione disponibili in questo articolo indicano i nomi ottimali per le tabelle di archiviazione. Dopo aver configurato la Diagnostica nel cluster e una volta che ha iniziato a caricare i log in un account di archiviazione, il passaggio successivo consiste nel configurare OMS per raccogliere questi log.
-> 
-> 
+>
+>
 
 Assicurarsi di aggiornare la sezione**EtwEventSourceProviderConfiguration** nel file **template.json** per aggiungere le voci relative al nuovo canale EventSources prima di applicare l'aggiornamento della configurazione eseguendo **deploy.ps1**. La tabella per il caricamento è identica a (ETWEventTable). Al momento, OMS può soltanto leggere gli eventi ETW per l'applicazione da quella tabella. Tuttavia, il supporto per le tabelle ETW personalizzate è in via di sviluppo.
 
@@ -369,8 +369,8 @@ La tabella seguente illustra i metodi di raccolta dei dati e altri dettagli sull
 
 > [!NOTE]
 > È possibile modificare l'ambito di questi eventi nella soluzione Service Fabric facendo clic su **Dati basati sugli ultimi 7 giorni** nella parte superiore del dashboard. È anche possibile mostrare gli avvisi generati negli ultimi 7 giorni, nell'ultimo giorno o nelle ultime 6 ore. In alternativa, è possibile selezionare **Personalizzato** e specificare un intervallo di date personalizzato.
-> 
-> 
+>
+>
 
 ## <a name="troubleshoot-your-service-fabric-and-oms-configuration"></a>Risolvere i problemi di configurazione Service Fabric e OMS
 Se è necessario verificare la configurazione OMS poiché non è possibile visualizzare i dati degli eventi in OMS, usare lo script seguente. Legge la configurazione della diagnostica Service Fabric, controlla i dati scritti nelle tabelle e verifica che OMS sia configurato per la lettura delle tabelle.
@@ -542,7 +542,7 @@ function Check-ServiceFabricScaleSetDiagnostics {
         Write-Debug ("Found WADcfg")
         Write-Debug $scaleSetDiagnostics.WadCfg
         $serviceFabricProviderList = $scaleSetDiagnostics.WadCfg.DiagnosticMonitorConfiguration.EtwProviders.EtwEventSourceProviderConfiguration
-        $etwManifestProviderList = $scaleSetDiagnostics.WadCfg.DiagnosticMonitorConfiguration.EtwProviders.EtwManifestProviderConfiguration 
+        $etwManifestProviderList = $scaleSetDiagnostics.WadCfg.DiagnosticMonitorConfiguration.EtwProviders.EtwManifestProviderConfiguration
     } else
     {
         Write-Error "Unable to parse Azure Diagnostics setting for $id"
@@ -639,7 +639,6 @@ foreach($storageAccount in $storageAccountsToCheck)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

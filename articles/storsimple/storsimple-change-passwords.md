@@ -1,5 +1,5 @@
 ---
-title: Modificare le password di StorSimple | Microsoft Docs
+title: Modificare le password tramite Gestione dispositivi StorSimple | Documentazione Microsoft
 description: Descrive come utilizzare il servizio StorSimple Manager per modificare le password di StorSimple Snapshot Manager e di amministratore del dispositivo.
 services: storsimple
 documentationcenter: NA
@@ -15,13 +15,13 @@ ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 43df835da672a7d6584cb91f0837b4e11671c27a
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: d890b59595628ca3eeff1df258847c2bb54d29ff
 
 
 ---
 # <a name="use-the-storsimple-manager-service-to-change-your-storsimple-passwords"></a>Utilizzare il servizio StorSimple Manager per modificare la password di StorSimple
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 La pagina **Configura** del portale di Azure classico contiene tutti i parametri del dispositivo che è possibile riconfigurare in un dispositivo StorSimple gestito da un servizio StorSimple Manager. In questa esercitazione viene illustrato come utilizzare la pagina **Configura** per modificare la password dell’amministratore del dispositivo o la password di StorSimple Snapshot Manager.
 
 ## <a name="change-the-device-administrator-password"></a>Configurare la password dell’amministratore del dispositivo
@@ -60,6 +60,6 @@ La password di StorSimple Snapshot Manager ora deve essere aggiornata.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

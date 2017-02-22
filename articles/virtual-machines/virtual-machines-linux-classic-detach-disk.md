@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/14/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 127df4a8f4c4031d40b8136b35237f48bfb527d3
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: f3b622ae6fd5f29ba92686ffeb3a3806b67b7e3a
 
 
 ---
@@ -31,11 +31,11 @@ ms.openlocfilehash: 127df4a8f4c4031d40b8136b35237f48bfb527d3
 Per altre informazioni sull'uso delle VM Linux, vedere gli articoli seguenti:
 
 * [Come collegare un disco dati a una macchina virtuale Linux](virtual-machines-linux-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione servizi di Azure (asm)](../virtual-machines-command-line-tools.md)
+* [Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione servizi di Azure (asm)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

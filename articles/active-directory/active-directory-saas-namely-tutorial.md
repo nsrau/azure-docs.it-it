@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3c2f2665b217b2de1656e77dae0d9b6c2b439ff5
+ms.sourcegitcommit: 66b1c7769f1141aa2853f77fdb82ad16f5b4e6d3
+ms.openlocfilehash: ec2f9618c4cd4a2944eec8efec83d325da058bb1
 
 
 ---
@@ -276,6 +276,6 @@ Quando si fa clic sul riquadro Namely nel pannello di accesso, si dovrebbe acced
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

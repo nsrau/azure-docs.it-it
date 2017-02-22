@@ -3,7 +3,7 @@ title: Introduzione alle tabelle temporali nel database SQL di Azure | Microsoft
 description: Informazioni introduttive sull&quot;uso delle tabelle temporali nel database SQL di Azure.
 services: sql-database
 documentationcenter: 
-author: CarlRabeler
+author: bonova
 manager: jhubbard
 editor: 
 ms.assetid: c8c0f232-0751-4a7f-a36e-67a0b29fa1b8
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sql-database
-ms.date: 08/29/2016
-ms.author: carlrab
+ms.date: 01/10/2017
+ms.author: bonova
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2b83d2561d37cb2dcb799d14774b6350e0681c42
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: e00345ddd9e52e2613789ba78c48e8f993d2415c
 
 
 ---
@@ -69,7 +69,9 @@ Quando si crea una tabella temporale con controllo delle versioni di sistema, vi
 
 In questo caso specifico, l'obiettivo è eseguire l'analisi delle tendenze basata sul tempo su una cronologia di dati più estesa e set di dati più grandi. Per l'archiviazione della tabella della cronologia occorre quindi scegliere un indice columnstore cluster. Un columnstore cluster offre ottimi livelli di compressione e prestazioni per le query analitiche. La flessibilità delle tabelle temporali permette di configurare gli indici nelle tabelle temporali e correnti in modo completamente indipendente. 
 
-**Nota**: gli indici columnstore sono disponibili solo per il livello di servizio Premium.
+> [!NOTE]
+> Gli indici columnstore sono disponibili solo per il livello di servizio Premium.
+>
 
 Lo script seguente mostra come modificare l'indice predefinito nella tabella della cronologia nel columnstore cluster:
 
@@ -199,6 +201,6 @@ Visitare Channel 9 per ascoltare un [vero caso di successo di implementazione te
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

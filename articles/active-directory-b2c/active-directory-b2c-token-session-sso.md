@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 9cc0081588f54f77a69ded336d063651b12c8dd8
-ms.openlocfilehash: a185e802a2713c6b6d4101477f0fc61bca0bf29c
+ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
+ms.openlocfilehash: 766ba894ba2643dec06757a133f8e716aa856161
 
 
 ---
@@ -60,6 +60,11 @@ Ecco un paio di casi di utilizzo in cui è possibile abilitare l'uso di queste p
 * Consentire a un utente di mantenere la connessione a un dispositivo mobile per un periodo illimitato, purché l'utente sia continuamente attivo sull'applicazione. È possibile ottenere questo risultato impostando l'opzione **Refresh token sliding window lifetime (days)** (Durata della finestra temporale scorrevole del token di aggiornamento (giorni)) su **Unbounded** (Non vincolato) nei criteri di accesso.
 * Soddisfare i requisiti di sicurezza e conformità del settore, impostando durate appropriate per i token di accesso.
 
+    > [!NOTE]
+    > Queste impostazioni non sono disponibili per i criteri di reimpostazione della password.
+    > 
+    > 
+
 ## <a name="token-compatibility-settings"></a>Impostazioni di compatibilità dei token
 Sono state apportate modifiche alla formattazione di attestazioni importanti nei token di sicurezza emessi da Azure AD B2C, allo scopo di migliorare il supporto del protocollo Standard e l'interoperabilità con librerie di identità di terze parti. Tuttavia, per evitare di interferire con le app esistenti, sono state create le proprietà seguenti per consentire ai clienti di dare il consenso esplicito in base alle esigenze:
 
@@ -87,6 +92,11 @@ Ecco un paio di casi di utilizzo in cui è possibile abilitare l'uso di queste p
 * Soddisfare i requisiti di sicurezza e conformità del settore, impostando durate appropriate per la sessione dell'applicazione Web.
 * Imporre la ripetizione dell'autenticazione dopo un periodo di tempo specifico durante l'interazione di un utente con una parte a sicurezza elevata dell'applicazione Web. 
 
+    > [!NOTE]
+    > Queste impostazioni non sono disponibili per i criteri di reimpostazione della password.
+    > 
+    > 
+
 ## <a name="single-sign-on-sso-configuration"></a>Configurazione dell'accesso Single Sign-On
 Se il tenant di B2C include più applicazioni e criteri, è possibile gestire le interazioni degli utenti tra di essi usando la proprietà **Configurazione Single Sign-on** . È possibile impostare la proprietà su uno dei valori seguenti:
 
@@ -95,9 +105,14 @@ Se il tenant di B2C include più applicazioni e criteri, è possibile gestire le
 * **Criterio**: consente di mantenere una sessione utente esclusivamente per un criterio, indipendentemente dalle applicazioni che lo usano. Ad esempio, se un utente ha già effettuato l'accesso e completato un passaggio di Multi Factor Authentication, otterrà l'accesso a parti a sicurezza più elevata di più applicazioni, purché la sessione associata al criterio non scada.
 * **Disabilitato**: impone all'utente di eseguire il percorso utente completo a ogni esecuzione del criterio. Ad esempio, ciò consente a più utenti di accedere all'applicazione, in uno scenario di desktop condiviso, anche se un singolo utente rimane connesso per l'intero periodo di tempo.
 
+    > [!NOTE]
+    > Queste impostazioni non sono disponibili per i criteri di reimpostazione della password.
+    > 
+    > 
 
 
 
-<!--HONumber=Dec16_HO4-->
+
+<!--HONumber=Jan17_HO4-->
 
 

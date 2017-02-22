@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti sui servizi cloud | Documentazione Microsoft
-description: Domande frequenti sui servizi cloud.
+title: Domande frequenti sui ruoli di Servizi cloud Azure | Documentazione Microsoft
+description: Domande frequenti su Servizi cloud di Azure. L&quot;articolo contiene risposte ad alcune domande comuni su certificati, ruoli Web e ruoli di lavoro.
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2501b6480e81b236995c37db7171a4ed1429dcbf
-ms.openlocfilehash: f7bad9a46132dec43f73e561362c9e6441a5c1c0
+ms.sourcegitcommit: 8dc7ea843ea316fa4659a8e6575adbfd045f7a70
+ms.openlocfilehash: c169f9ab2eead732ad0fe5579caaa1b4b015732b
 
 
 ---
@@ -28,9 +28,9 @@ Questo articolo risponde ad alcune domande frequenti sui servizi cloud di Micros
 * **My**  
   Certificato dell'applicazione con chiave privata (con estensione \*pfx, \*p12).
 * **CA**  
-   Tutti i certificati intermedi, come CA secondari e criteri, vanno in questo archivio.
+  Tutti i certificati intermedi, come CA secondari e criteri, vanno in questo archivio.
 * **ROOT**  
-   Archivio CA radice in cui inserire il certificato CA radice principale.
+  Archivio CA radice in cui inserire il certificato CA radice principale.
 
 ### <a name="i-cant-remove-expired-certificate"></a>Non è possibile rimuovere un certificato scaduto
 Azure impedisce la rimozione di un certificato mentre viene usato. È necessario eliminare la distribuzione che fa uso del certificato o aggiornarla con un certificato diverso o rinnovato.
@@ -71,6 +71,6 @@ Assicurarsi prima di tutto che l'istanza di macchina virtuale per cui si sta pro
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

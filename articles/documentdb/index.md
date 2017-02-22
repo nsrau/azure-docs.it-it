@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: Documentazione di Azure DocumentDB - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come usare DocumentDB, un database di documenti NoSQL senza schemi. Le esercitazioni illustrano come integrare con le app e usare query SQL in documenti JSON.
+services: documentdb
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: documentdb
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 14e5e2f2bdf3708ab339eff7eb58bbf87cb1a10c
-ms.openlocfilehash: 261d2d5410603fe3352c0bcfabcc15058f3f7c94
+ms.sourcegitcommit: be32b9d24db59618b42d0923b0ff4248f3329904
+ms.openlocfilehash: 347b2933a33d7a11505842ea437790d5fabf5b58
 
 ---
+
 #<a name="documentdb-documentation"></a>Documentazione di DocumentDB
 
 Informazioni su come usare DocumentDB in applicazioni a prestazioni elevate per il Web, l'ambito mobile, il gioco e l'IoT. Esercitazioni e altri documenti in cui viene illustrato come archiviare dati JSON ed eseguire query SQL in uno schema flessibile in questo servizio di database NoSQL.
@@ -210,18 +222,10 @@ Informazioni su come usare DocumentDB in applicazioni a prestazioni elevate per 
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/documentdb.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione di DocumentDB </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

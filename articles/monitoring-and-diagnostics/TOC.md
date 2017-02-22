@@ -23,7 +23,7 @@
 ### [Procedure consigliate per la scalabilità automatica](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ### [Metriche comuni per la scalabilità automatica](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ### [Ridimensionare automaticamente i set di scalabilità di macchine virtuali usando i modelli di Resource Manager](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
-### [Ridimensionare automaticamente le macchine virtuali in un set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)
+### [Ridimensionare automaticamente le macchine virtuali in un set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Configurare webhook e notifiche di posta elettronica per la scalabilità automatica](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
 ## Usare il log attività
 ### [Visualizzare eventi nel log attività](../monitoring-and-diagnostics/insights-debugging-with-events.md)
@@ -38,17 +38,22 @@
 ## Usare l'API REST
 ### [Procedura dettagliata sull'uso dell'API REST](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
 
-
 # riferimento
 ## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
+## [Schema di Diagnostica di Azure](../monitoring-and-diagnostics/azure-diagnostics-schema.md)
+### [Schema di Diagnostica 1.0](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md)
+### [Schema di Diagnostica 1.2](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md)
+### [Schema di Diagnostica da 1.3 a 1.5](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-to-1dot5.md)
+
 
 # Risorse
 ## [Esempi di PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
-## [Esempi dell'interfaccia della riga di comando di Azure 2.0 (anteprima)](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [Esempi dell'interfaccia della riga di comando di Azure 1.0](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Elenco delle metriche supportate](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Feb17_HO3-->
 
 

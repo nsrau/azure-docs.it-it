@@ -1,5 +1,5 @@
 ---
-title: Gestione delle mappe partizioni | Documentazione Microsoft
+title: Aumentare il numero di istanze di un database SQL di Azure | Documentazione Microsoft
 description: Come utilizzare ShardMapManager, libreria client dei database elastici
 services: sql-database
 documentationcenter: 
@@ -8,6 +8,7 @@ author: ddove
 editor: 
 ms.assetid: 0e9d647a-9ba9-4875-aa22-662d01283439
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,8 +16,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 82f3d43eb116262c74b6c192fa71139d018e9132
+ms.sourcegitcommit: eb5483e497ef1c1a239f207a034eb8c67f485a39
+ms.openlocfilehash: c7a46ebf0df6db92d2e66c7523e00c0a574ebf56
 
 
 ---
@@ -79,10 +80,10 @@ Ad esempio, **[0, 100)** include tutti i numeri interi superiori o uguali a 0 e 
 
 | Chiave | Percorso della partizione |
 | --- | --- |
-| [1, 50) |Database_A |
-| [50, 100) |Database_B |
-| [100, 200) |Database_C |
-| [400, 600) |Database_C |
+| [1,&50;) |Database_A |
+| [50,&100;) |Database_B |
+| [100,&200;) |Database_C |
+| [400,&600;) |Database_C |
 | ... |... |
 
 Ognuna delle tabelle precedenti è un esempio concettuale di un oggetto **ShardMap** . Ogni riga costituisce un esempio semplificato di un singolo oggetto **PointMapping** (per la mappa partizioni di tipo elenco) o **RangeMapping** (per la mappa partizioni di tipo intervallo).
@@ -293,7 +294,7 @@ Questi metodi interagiscono tra loro come i blocchi predefiniti disponibili per 
     Per permettere l'esecuzione di queste operazioni, è necessario che il server e il database che rappresentano la partizione di destinazione esistano già. Questi metodi non hanno alcun impatto sui database stessi. Influiscono solo sui metadati nella mappa partizioni.
 * Per creare o rimuovere punti o intervalli mappati alle partizioni, usare **[CreateRangeMapping](https://msdn.microsoft.com/library/azure/dn841993.aspx)** e **[DeleteMapping](https://msdn.microsoft.com/library/azure/dn824200.aspx)** della [classe RangeShardMapping](https://msdn.microsoft.com/library/azure/dn807318.aspx) e **[CreatePointMapping](https://msdn.microsoft.com/library/azure/dn807218.aspx)** di [ListShardMap](https://msdn.microsoft.com/library/azure/dn842123.aspx).
   
-    È possibile mappare molti punti o intervalli diversi alla stessa partizione. Questi metodi influiscono solo sui metadati, non su eventuali dati già presenti nelle partizioni. Se è necessario rimuovere dati dal database per assicurare la coerenza con le operazioni di tipo **DeleteMapping** , occorrerà eseguire queste operazioni separatamente, ma insieme all'uso di questi metodi.  
+    È possibile mappare molti punti o intervalli diversi alla stessa partizione. Questi metodi influiscono solo sui metadati, non sui dati eventualmente già presenti nelle partizioni. Se è necessario rimuovere dati dal database per assicurare la coerenza con le operazioni di tipo **DeleteMapping** , occorrerà eseguire queste operazioni separatamente, ma insieme all'uso di questi metodi.  
 * Per dividere in due gli intervalli esistenti o unire intervalli adiacenti in un unico intervallo, usare **[SplitMapping](https://msdn.microsoft.com/library/azure/dn824205.aspx)** e **[MergeMappings](https://msdn.microsoft.com/library/azure/dn824201.aspx)**.  
   
     Si noti che le operazioni di suddivisione e unione **non modificano la partizione a cui sono mappati i valori di chiave**. Una suddivisione divide un intervallo esistente in due parti, ma ne mantiene il mapping alla stessa partizione. Un'unione viene applicata a due intervalli adiacenti già mappati alla stessa partizione e li unisce in un singolo intervallo.  Lo spostamento di punti o degli stessi intervalli tra le partizioni deve essere coordinato tramite l'uso di **UpdateMapping** insieme allo spostamento effettivo dei dati.  È possibile usare il servizio di **suddivisione/unione** , incluso nello strumento dei database elastici, per coordinare le modifiche della mappa partizioni con lo spostamento dei dati, nei casi in cui lo spostamento è necessario. 
@@ -324,6 +325,6 @@ Per gli scenari che richiedono lo spostamento di dati, tuttavia, il servizio di 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

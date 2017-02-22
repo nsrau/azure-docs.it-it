@@ -3,7 +3,7 @@ title: Come usare File di Azure con Linux | Microsoft Docs
 description: Creare una condivisione di file di Azure nel cloud con questa esercitazione passo dopo passo. Gestire il contenuto della condivisione file e montare una condivisione di file da una macchina virtuale Azure (VM) con Linux o da un&quot;applicazione locale che supporta SMB 3.0.
 services: storage
 documentationcenter: na
-author: mine-msft
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 ms.assetid: 6edc37ce-698f-4d50-8fc1-591ad456175d
@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: minet
+ms.date: 1/18/2017
+ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 26e74cada6186239c58011de155662c3e2a24978
+ms.sourcegitcommit: e296e468309b53338231e283ac62e4d917e0834b
+ms.openlocfilehash: 8cb98eb721d5769125926a6c75f776a9d510376e
 
 
 ---
 # <a name="how-to-use-azure-file-storage-with-linux"></a>Come usare l'archiviazione file di Azure con Linux
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 L'archiviazione file di Azure offre condivisioni file nel cloud usando il protocollo SMB standard. Con l’archiviazione file di Azure è possibile migrare le applicazioni aziendali basate su server di file in Azure. Le applicazioni in esecuzione in Azure possono montare condivisioni file dalle macchine virtuali di Azure con Linux. Con la versione più recente dell’archiviazione di file, è inoltre possibile montare una condivisione di file da un'applicazione locale che supporta SMB 3.0.
 
 È possibile creare condivisioni file di Azure tramite il [portale di Azure](https://portal.azure.com), con i cmdlet di PowerShell per Archiviazione di Azure, le librerie client di Archiviazione di Azure o l'API REST di Archiviazione di Azure. E poiché le condivisioni file sono condivisioni SMB, è possibile accedervi tramite le API del file system standard.
@@ -38,7 +38,7 @@ Il servizio di archiviazione file è ora disponibile a livello generale e suppor
 ## <a name="video-using-azure-file-storage-with-linux"></a>Video: Come usare l'archiviazione file di Azure con Linux
 Ecco un video che illustra come creare e usare Condivisioni file di Azure in Linux.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Linux/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Linux/player]
 > 
 > 
 
@@ -108,6 +108,17 @@ Filesystem  Size  Used Avail Use% Mounted on
 //myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
 ```
 
+Se si utilizza RHEL 7.3, è possibile montare il file come indicato di seguito:
+
+```
+azureuser@AzureconRedhat:~> sudo yum install cifs-utils
+azureuser@AzureconRedhat:~> sudo mkdir /mnt/mountpoint
+azureuser@AzureconRedhat:~> sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+azureuser@AzureconRedhat:~> df -h /mnt/mountpoint
+Filesystem  Size  Used Avail Use% Mounted on
+//myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
+```
+
 ## <a name="manage-the-file-share"></a>Gestire la condivisione file
 Il [portale di Azure](https://portal.azure.com) offre ora un'interfaccia utente per la gestione dell'archiviazione file di Azure. Dal Web browser è possibile eseguire le azioni seguenti:
 
@@ -150,6 +161,7 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 * [Mantenimento delle connessioni ai file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Jan17_HO3-->
 
 

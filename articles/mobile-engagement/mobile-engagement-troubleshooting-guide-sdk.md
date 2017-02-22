@@ -138,6 +138,6 @@ Di seguito sono indicati possibili problemi relativi al modo in cui Azure Mobile
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

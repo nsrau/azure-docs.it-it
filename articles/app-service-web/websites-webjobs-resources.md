@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 64e2ed7a625aec59f68411d93a5942a546919abb
+ms.sourcegitcommit: 80627139ee253bb6a01241e460781519dac69e71
+ms.openlocfilehash: a8541d5bd5e5becb25e8460b6ca774ec6637563a
 
 
 ---
@@ -32,7 +32,7 @@ Il dashboard Processi Web nel portale di Azure include efficaci funzionalità di
 
 ## <a name="a-namegetstartedagetting-started-with-webjobs-and-the-webjobs-sdk"></a><a name="getstarted"></a>Introduzione a Processi Web e WebJobs SDK
 * [Introduzione a Processi Web di Azure](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
-* [Post di blog sui vantaggi offerti da Processi Web di Azure](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html)  (di Troy Hunt)
+* [Post di blog sui vantaggi offerti da Processi Web di Azure](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (di Troy Hunt)
 * [Funzionalità di Processi Web di Azure](https://azure.microsoft.com/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [Informazioni su WebJobs SDK](websites-dotnet-webjobs-sdk.md)
 * [Indicazioni di processi di background Microsoft Patterns and Practices](/documentation/articles/best-practices-background-jobs/)
@@ -42,7 +42,6 @@ Il dashboard Processi Web nel portale di Azure include efficaci funzionalità di
 * [Come usare il servizio di archiviazione BLOB di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 * [Come usare il servizio di archiviazione tabelle di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [Come usare il bus di servizio di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-service-bus.md)
-* [Come usare WebHooks con WebJobs SDK, con esempi per GitHub, IFTTT e HTTP](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/WebHooks-Walkthrough)
 * [Riferimento rapido per Azure WebJobs SDK (download PDF)](http://go.microsoft.com/fwlink/?LinkID=524028&clcid=0x409)
 * [Documentazione sulle impostazioni di WebJobs in GitHub](https://github.com/projectkudu/kudu/wiki/Web-jobs).
 * Video
@@ -137,6 +136,6 @@ Vedere anche le sezioni seguenti su [Distribuzione di Processi Web](#deploy) e d
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

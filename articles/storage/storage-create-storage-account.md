@@ -162,6 +162,6 @@ Per altre informazioni, vedere [Macchine virtuali - Documentazione](http://azure
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

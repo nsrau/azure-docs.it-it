@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: af83b55210d1e31c548b9b178272f7e75be7b98e
+ms.sourcegitcommit: ba7a47bf66c106c75565682a71f870aa561cd827
+ms.openlocfilehash: 61373e3cf9c1630747fc70ab289e125217f4af82
 
 
 ---
@@ -38,7 +38,7 @@ Creare un progetto iniziale in Visual Studio 2015 e aggiungere i pacchetti NuGet
    * Microsoft.Azure.IoTHub.Serializer
    * Microsoft.Azure.IoTHub.IoTHubClient
    * Microsoft.Azure.IoTHub.HttpTransport
-6. In **Esplora soluzioni** fare clic sul progetto **RMDevice** e quindi scegliere **Proprietà** per aprire la finestra di dialogo **Pagine** delle proprietà del progetto. Per informazioni dettagliate, vedere [Utilizzo di proprietà di progetto][lnk-c-project-properties]. 
+6. In **Esplora soluzioni** fare clic sul progetto **RMDevice** e quindi scegliere **Proprietà** per aprire la finestra di dialogo **Pagine** delle proprietà del progetto. Per informazioni dettagliate, vedere [Setting Visual C++ Project Properties][lnk-c-project-properties] (Impostazione delle proprietà dei progetti Visual C++). 
 7. Fare clic sulla cartella **Linker**, quindi fare clic sulla pagina delle proprietà **Input**.
 8. Aggiungere **crypt32.lib** alla proprietà **Dipendenze aggiuntive**. Fare clic su **OK** e quindi scegliere nuovamente **OK** per salvare i valori delle proprietà del progetto.
 
@@ -257,7 +257,7 @@ Aggiungere il codice che implementa il comportamento definito nel modello.
                   thermostat->Commands = (char*)STRING_c_str(commandsMetadata);
    
                   /* Here is the actual send of the Device Info */
-                  if (SERIALIZE(&buffer, &bufferSize, thermostat->ObjectType, thermostat->Version, thermostat->IsSimulatedDevice, thermostat->DeviceProperties, thermostat->Commands) != IOT_AGENT_OK)
+                  if (SERIALIZE(&buffer, &bufferSize, thermostat->ObjectType, thermostat->Version, thermostat->IsSimulatedDevice, thermostat->DeviceProperties, thermostat->Commands) != CODEFIRST_OK)
                   {
                     (void)printf("Failed serializing\r\n");
                   }
@@ -283,7 +283,7 @@ Aggiungere il codice che implementa il comportamento definito nel modello.
    
                 (void)printf("Sending sensor value Temperature = %d, Humidity = %d\r\n", thermostat->Temperature, thermostat->Humidity);
    
-                if (SERIALIZE(&buffer, &bufferSize, thermostat->DeviceId, thermostat->Temperature, thermostat->Humidity, thermostat->ExternalTemperature) != IOT_AGENT_OK)
+                if (SERIALIZE(&buffer, &bufferSize, thermostat->DeviceId, thermostat->Temperature, thermostat->Humidity, thermostat->ExternalTemperature) != CODEFIRST_OK)
                 {
                   (void)printf("Failed sending sensor value\r\n");
                 }
@@ -358,6 +358,6 @@ Aggiungere il codice che implementa il comportamento definito nel modello.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

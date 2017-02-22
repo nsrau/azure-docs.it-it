@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/05/2016
+ms.date: 01/09/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 9f27890e52cb7a9a0d46f2bb84bfe92f7c6fff37
-ms.openlocfilehash: 9864314956d79317785c1c2a4bc87621bc6a3e2d
+ms.sourcegitcommit: 251d7b973426afb50206c428873021144b8bffdf
+ms.openlocfilehash: 2d7592680289d9f222f5e0aa36aa66d12f4fa517
 
 
 ---
@@ -26,10 +26,6 @@ ms.openlocfilehash: 9864314956d79317785c1c2a4bc87621bc6a3e2d
 ## <a name="overview"></a>Panoramica
 
 In Operations Management Suite (OMS) sono disponibili funzionalità di monitoraggio, avviso e correzione tramite avvisi in risorse cloud e locali. L'estensione macchina virtuale Agente OMS per Linux è pubblicata e supportata da Microsoft. L'estensione installa l'agente OMS in macchine virtuali di Azure e registra le macchine virtuali in un'area di lavoro OMS esistente. Questo documento descrive in dettaglio le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione macchina virtuale OMS per Linux.
-
-Per informazioni generali sulle estensioni macchina virtuale di Azure, vedere la [panoramica sulle estensioni macchina virtuale](./virtual-machines-linux-extensions-features.md).
-
-Per altre informazioni su Operations Management Suite, vedere la [panoramica su Operations Management Suite](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -46,49 +42,13 @@ L'estensione agente OMS può essere eseguita in queste distribuzioni di Linux.
 | Ubuntu | 12.04 LTS, 14.04 LTS, 15.04 |
 | SUSE Linux Enterprise Server | 11 e 12 |
 
-### <a name="connectivity"></a>Connettività
+### <a name="internet-connectivity"></a>Connettività Internet
 
 Per distribuire l'estensione agente OMS per Linux, è necessario che la macchina virtuale di destinazione sia connessa a Internet. 
 
-## <a name="extension-configuration"></a>Configurazione dell'estensione
+## <a name="extension-schema"></a>Schema dell'estensione
 
-Per l'estensione macchina virtuale Agente OMS per Linux sono necessari un ID e una chiave dell'area di lavoro OMS di destinazione. Poiché la chiave dell'area di lavoro deve essere considerata in modo analogo ai dati sensibili, viene archiviata in una configurazione protetta. I dati della configurazione protetta dell'estensione macchina virtuale di Azure vengono crittografati e decrittografati solo nella macchina virtuale di destinazione. Le configurazioni pubbliche e private vengono specificate in fase di distribuzione, operazione descritta in dettaglio nelle sezioni successive di questo documento.
-
-### <a name="public-configuration"></a>Configurazione pubblica
-
-Schema per la configurazione pubblica:
-
-- workspaceId: (necessario, stringa) ID dell'area di lavoro OMS in cui caricare la macchina virtuale.
-
-```json
-{
-  "workspaceId": "myWorkspaceId"
-}
-```
-
-### <a name="private-configuration"></a>Configurazione privata
-
-Schema per la configurazione pubblica:
-
-- workspaceKey: (necessario, stringa) chiave condivisa primaria/secondaria dell'area di lavoro.
-
-```json
-{
-  "workspaceKey": "myWorkSpaceKey"
-}
-```
-
-## <a name="template-deployment"></a>Distribuzione del modello
-
-Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. I modelli rappresentano la scelta migliore quando si distribuiscono una o più macchine virtuali per cui è necessaria una configurazione post-distribuzione, ad esempio il caricamento in OMS. Un esempio di modello di Resource Manager che include l'estensione macchina virtuale Agente OMS è disponibile nella [raccolta di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
-
-Questo esempio può essere distribuito dal presente documento usando il pulsante:
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-oms-extension-ubuntu-vm%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
-</a>
-
-Il codice JSON usato per distribuire l'estensione macchina virtuale Agente OMS è analogo al seguente esempio JSON:
+Il codice JSON riportato di seguito mostra lo schema dell'estensione OMS Agent. L'estensione richiede che siano indicati l'ID e la chiave dell'area di lavoro presenti nell'area di lavoro OMS di destinazione. Questi valori sono disponibili nel portale OMS. Poiché la chiave dell'area di lavoro deve essere tratta come i dati sensibili, deve essere memorizzata in una configurazione protetta. I dati della configurazione protetta dell'estensione macchina virtuale di Azure sono crittografati e vengono decrittografati solo nella macchina virtuale di destinazione.
 
 ```json
 {
@@ -113,12 +73,28 @@ Il codice JSON usato per distribuire l'estensione macchina virtuale Agente OMS �
 }
 ```
 
+### <a name="property-values"></a>Valori delle proprietà
+
+| Nome | Valore/Esempio |
+| ---- | ---- |
+| apiVersion | 2015-06-15 |
+| publisher | Microsoft.EnterpriseCloud.Monitoring |
+| type | OmsAgentForLinux |
+| typeHandlerVersion | 1.0 |
+| workspaceId (esempio) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceKey (esempio) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+
+
+## <a name="template-deployment"></a>Distribuzione del modello
+
+Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. I modelli rappresentano la scelta migliore quando si distribuiscono una o più macchine virtuali per cui è necessaria una configurazione post-distribuzione, ad esempio il caricamento in OMS. Un esempio di modello di Resource Manager che include l'estensione macchina virtuale Agente OMS è disponibile nella [raccolta di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+
 ## <a name="azure-cli-deployment"></a>Distribuzione dell'interfaccia della riga di comando di Azure
 
 L'interfaccia della riga di comando di Azure può essere usata per distribuire l'estensione macchina virtuale Agente OMS in una macchina virtuale esistente. Prima di distribuire l'estensione Agente OMS, creare un file public.json e protected.json. Lo schema per questi file è illustrato nei dettagli in precedenza in questo documento.
 
 ```azurecli
-azure vm extension set <resource-group> <vm-name> \
+azure vm extension set myResourceGroup myVM \
   OmsAgentForLinux Microsoft.EnterpriseCloud.Monitoring 1.0 \
   --public-config-path public.json  \
   --private-config-path protected.json
@@ -146,6 +122,6 @@ Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, conta
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: 'Configurare una connessione VPN di Azure da sito a sito cross-premise: portale classico | Documentazione Microsoft'
-description: Creare una rete virtuale con una connessione di gateway VPN da sito a sito per configurazioni cross-premise e ibride usando il modello di distribuzione classico.
+title: 'Connettere la rete locale a una rete virtuale di Azure: VPN da sito a sito: portale classico | Documentazione Microsoft'
+description: "Passaggi per creare una connessione IPsec dalla rete locale a una rete virtuale di Azure tramite Internet pubblico. Questa procedura consentirà di creare una connessione gateway VPN da sito a sito cross-premise usando il portale classico e il modello di distribuzione classica."
 services: vpn-gateway
 documentationcenter: 
 author: cherylmc
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0258e1093926e6239650a8b1ecbb7c7a778616c6
-ms.openlocfilehash: 9c92ab15d3fd320bdac69444d40f72d56482103e
+ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
+ms.openlocfilehash: 835968ec5b540890dbe8644038ab7f63b0721847
 
 
 ---
@@ -31,7 +31,7 @@ ms.openlocfilehash: 9c92ab15d3fd320bdac69444d40f72d56482103e
 
 Questo articolo illustra la creazione di una rete virtuale e una connessione gateway VPN da sito a sito alla rete locale con il modello di distribuzione classica e il portale classico. Le connessioni da sito a sito possono essere usate per le configurazioni cross-premise e ibride.
 
-![Diagramma da sito a sito](./media/vpn-gateway-site-to-site-create/site2site.png "da sito a sito")
+![Diagramma della connessione cross-premise gateway VPN da sito a sito](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
 
 ### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Metodi e modelli di distribuzione per le connessioni da sito a sito
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]

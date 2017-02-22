@@ -15,20 +15,21 @@ ms.workload: NA
 ms.date: 01/04/2017
 ms.author: toddabel
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e3c63c8f92c860ed28bfc4dac395c1d5abf131ae
+ms.sourcegitcommit: bb93d4dac1853a317bbd6ac70946753f35be264e
+ms.openlocfilehash: bc1dd1d2c378e628094fe717d9c89298aca1f7b4
 
 
 ---
 # <a name="report-and-check-service-health"></a>Creare report e verificare l'integrità dei servizi
 Quando si verificano problemi nei servizi, la possibilità di rispondere e correggere interruzioni ed eventi imprevisti dipende dalla capacità di rilevare i problemi in tempi rapidi. Se si segnalano problemi ed errori allo strumento di gestione dell'integrità di Azure Service Fabric dal codice del servizio, è possibile usare gli strumenti standard di monitoraggio dell'integrità forniti da Service Fabric per verificare lo stato di integrità.
 
-È possibile segnalare lo stato di integrità dal servizio in due modi:
+È possibile segnalare lo stato di integrità dal servizio in tre modi:
 
 * Usare gli oggetti [Partition](https://msdn.microsoft.com/library/system.fabric.istatefulservicepartition.aspx) o [CodePackageActivationContext](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.aspx).  
   È possibile usare gli oggetti `Partition` e `CodePackageActivationContext` per segnalare lo stato di integrità degli elementi appartenenti al contesto corrente. Il codice in esecuzione come parte di una replica può ad esempio segnalare lo stato di integrità solo sulla replica, sulla partizione a cui appartiene e sull'applicazione di cui fa parte.
 * Usare `FabricClient`.   
   È possibile usare `FabricClient` per segnalare lo stato di integrità dal codice del servizio se il cluster non è [sicuro](service-fabric-cluster-security.md) o se il servizio è in esecuzione con privilegi di amministratore. Queste condizioni non si verificano nella maggior parte degli scenari concreti. Con `FabricClient`è possibile segnalare lo stato di integrità per qualsiasi entità appartenente al cluster. Idealmente il codice del servizio dovrebbe tuttavia inviare solo report correlati alla propria integrità.
+* Usare le API REST ai livelli cluster, applicazione, applicazione distribuita, servizio, pacchetto di servizio, replica o nodo. In questo modo è possibile segnalare l'integrità direttamente da un contenitore.
 
 Questo articolo illustra un esempio in cui viene segnalato lo stato di integrità dal codice del servizio. L'esempio illustra anche come usare gli strumenti forniti da Service Fabric per verificare lo stato di integrità. Questo articolo può essere usato come breve introduzione alle funzionalità di monitoraggio dell'integrità di Service Fabric. Per informazioni più dettagliate, è possibile leggere la serie di articoli di approfondimento sull'integrità accessibili dal collegamento presente alla fine di questo documento.
 
@@ -106,8 +107,8 @@ I modelli di progetto di Service Fabric in Visual Studio contengono codice di es
     if (!result.HasValue)
     {
        var replicaHealthReport = new StatefulServiceReplicaHealthReport(
-            this.ServiceInitializationParameters.PartitionId,
-            this.ServiceInitializationParameters.ReplicaId,
+            this.Context.PartitionId,
+            this.Context.ReplicaId,
             new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error));
         fabricClient.HealthManager.ReportHealth(replicaHealthReport);
     }
@@ -147,11 +148,13 @@ activationContext.ReportApplicationHealth(healthInformation);
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Introduzione al monitoraggio dell'integrità di Service Fabric](service-fabric-health-introduction.md)
+* [Introduzione al monitoraggio dell'integrità di Service Fabric](service-fabric-health-introduction.md)
+* [REST API for reporting service health](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service) (API REST per segnalare l'integrità del servizio)
+* [REST API for reporting application health](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-an-application) (API REST per segnalare l'integrità dell'applicazione)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

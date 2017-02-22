@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/09/2017
+ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: b162ad1b776223cdf848ed8d04b1b44f9437f86d
-ms.openlocfilehash: 431e4283efa6ca985d832ead05e455d49ffdac74
+ms.sourcegitcommit: c0c33506d134db9fc49bd873e9c95063dd2ab845
+ms.openlocfilehash: d5dcdc94490ff46e39ff5894f6d70d5dcb5dd527
 
 
 ---
@@ -54,7 +54,7 @@ Dopo l'installazione dei componenti necessari, viene richiesta la selezione del 
 | Federazione con ADFS |Gli utenti possono accedere ai servizi cloud Microsoft, ad esempio Office 365, usando la stessa password specificata nella rete locale.  Gli utenti vengono reindirizzati alla rispettiva istanza locale di AD FS per l'accesso e l'autenticazione viene eseguita in locale. |
 | Non configurare |Nessuna funzionalità verrà installata e configurata. Scegliere questa opzione se si dispone già di un server federativo di terze parti o di un'altra soluzione esistente installata. |
 |Abilita Single Sign-On|Questa opzione è disponibile con la sincronizzazione delle password e l'autenticazione pass-through e fornisce un'esperienza di accesso Single Sign-On per gli utenti desktop nella rete aziendale.  Per altre informazioni, vedere [Single Sign-On](active-directory-aadconnect-sso.md) (Accesso Single Sign-On). </br>Nota per i clienti AD FS: questa opzione non è disponibile perché AD FS offre già lo stesso livello di accesso Single Sign-On,</br>se PTA non viene rilasciato contemporaneamente.
-|Opzione Accesso|Questa opzione è disponibile per i clienti con la sincronizzazione delle password e fornisce un'esperienza di accesso Single Sign-On per gli utenti desktop nella rete aziendale.  </br>Per altre informazioni, vedere [Single Sign-On](active-directory-aadconnect-sso.md) (Accesso Single Sign-On). </br>Nota per i clienti AD FS: questa opzione non è disponibile perché AD FS offre già lo stesso livello di accesso Single Sign-On.
+|Opzione Accesso|Questa opzione è disponibile per i clienti con la sincronizzazione delle password e fornisce un'esperienza di accesso Single Sign-On per gli utenti desktop nella rete aziendale.  </br>Per altre informazioni, vedere [Single Sign-On](active-directory-aadconnect-sso.md) (Accesso Single Sign-On). </br>Nota per i clienti AD FS: questa opzione non è disponibile perché AD FS offre già lo stesso livello di accesso Single Sign-On,
 
 
 ### <a name="connect-to-azure-ad"></a>Connettersi ad Azure AD

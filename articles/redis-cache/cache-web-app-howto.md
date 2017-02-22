@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/19/2016
+ms.date: 01/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 5385e8a33466020dd89eaa843ece0ca8d1f31936
-ms.openlocfilehash: c6166484fb132395e7c06d695a6a03a7a628b56a
+ms.sourcegitcommit: 8d1b9293a0b3958d0f478b6a0b6816b8d534883d
+ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
 
 
 ---
@@ -65,7 +65,7 @@ Se è disponibile Visual Studio 2013, è possibile [scaricare la versione più r
 
 ## <a name="create-the-visual-studio-project"></a>Creare il progetto di Visual Studio
 1. Aprire Visual Studio e fare clic su **File**, **Nuovo**, **Progetto**.
-2. Espandere il nodo **Visual C#** nell'elenco **Modelli**, selezionare **Cloud** e fare clic su **Applicazione Web ASP.NET**. Assicurarsi che sia selezionata l'opzione **.NET Framework 4.5.2** .  Immettere **ContosoTeamStats** nella casella di testo **Nome** e fare clic su **OK**.
+2. Espandere il nodo **Visual C#** nell'elenco **Modelli**, selezionare **Cloud** e fare clic su **Applicazione Web ASP.NET**. Assicurarsi che sia selezionata l'opzione **.NET Framework 4.5.2** o versione successiva.  Immettere **ContosoTeamStats** nella casella di testo **Nome** e fare clic su **OK**.
    
     ![Crea progetto][cache-create-project]
 3. Selezionare **MVC** come tipo di progetto. Deselezionare la casella di controllo **Ospita nel cloud** . Nei passaggi successivi dell'esercitazione si [effettuerà il provisioning delle risorse di Azure](#provision-the-azure-resources) e si [pubblicherà l'applicazione in Azure](#publish-the-application-to-azure). Per un esempio di provisioning di un'app Web del servizio app da Visual Studio con l'opzione **Ospita nel cloud** selezionata, vedere [Introduzione alle app Web nel servizio app di Azure con ASP.NET e Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
@@ -852,6 +852,6 @@ Dopo la selezione o la creazione della cache da usare, passare alla cache nel po
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

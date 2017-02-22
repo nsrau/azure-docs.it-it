@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 7137d38e4e9fef7dfaa309ad81cfed94d547a393
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 5730556f4d5af04481c771c8a70f003d6cd2917c
 
 
 ---
@@ -37,7 +37,7 @@ GEP necessitava anche di un modo per superare le barriere normative che impediva
 Nagalkar sapeva che una soluzione cloud poteva essere la risposta a questo dilemma. Se GEP avesse potuto trasferire i servizi su un provider di cloud con presenza globale, avrebbe potuto soddisfare meglio le esigenze di conformità normativa e di prestazioni dei clienti, archiviando i dati nei percorsi fisici dei clienti.
 
 ## <a name="finding-smooth-skies-in-the-cloud"></a>Alla ricerca di cieli limpidi nel cloud
-Nagalkar e il suo team hanno esaminato diverse opzioni di cloud, ma la maggior parte è costituita da soluzioni basate su Infrastruttura come servizio (IaaS), che avrebbero comportato per GEP un notevole investimento di risorse IT per la configurazione e la gestione del servizio. La soluzione Piattaforma come servizio (PaaS) di Azure si è rivelata molto più adatta.
+Nagalkar e il suo team hanno esaminato diverse opzioni di cloud, ma la maggior parte è costituita da soluzioni basate su Infrastruttura come servizio (IaaS) che avrebbero comportato per GEP un notevole investimento di risorse IT per la configurazione e la gestione del servizio. La soluzione Piattaforma come servizio (PaaS) di Azure si è rivelata molto più adatta.
 
 "Con Azure, GEP non deve occuparsi della gestione dei database, della configurazione delle macchine virtuali, dell'applicazione di patch o di altre attività di gestione dell'infrastruttura", ha dichiarato Nagalkar. "Possiamo invece concentrare le risorse su ciò che ci riesce meglio: sfruttare le nostre competenze nell'approvvigionamento per compilare software che offrano ai nostri clienti vantaggi reali". 
 
@@ -107,6 +107,6 @@ Dopo la migrazione dai datacenter locali ad Azure e la compilazione di SMART by 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

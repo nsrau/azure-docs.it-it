@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: Documentazione di Azure Load Balancer - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni sull&quot;utilizzo del servizio di bilanciamento del carico per le prestazioni di rete delle app. Gestione del traffico per macchine virtuali e risorse cloud, anche in reti virtuali cross-premise.
+services: load-balancer
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: load-balancer
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 53a3e534f9c93c73ef6d28696c5a9d6430a7a258
+ms.sourcegitcommit: 7064f4749f4be100b6155ea219284c1ed8fe7eee
+ms.openlocfilehash: 8a225858cc738a8bc04404b0cbf788e77975aa51
 
 ---
+
 #<a name="load-balancer-documentation"></a>Documentazione sul servizio di bilanciamento del carico
 
 Informazioni su come configurare il servizio di bilanciamento del carico per offrire elevati livelli di disponibilità e prestazioni di rete per le applicazioni. La documentazione illustra come bilanciare il carico del traffico da e verso le macchine virtuali e le risorse cloud, anche in reti virtuali cross-premise.
@@ -136,6 +148,6 @@ Informazioni su come configurare il servizio di bilanciamento del carico per off
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: Contatori delle prestazioni di Windows e Linux in Log Analytics | Documentazione Microsoft
+title: Raccogliere e analizzare contatori delle prestazioni in Log Analytics | Documentazione Microsoft
 description: I contatori delle prestazioni vengono raccolti da Log Analytics per analizzare le prestazioni degli agenti Windows e Linux.  Questo articolo descrive come configurare la raccolta di contatori delle prestazioni per gli agenti Windows e Linux, i cui dettagli vengono archiviati nel repository OMS, e come analizzarli nel portale di OMS.
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 20e145e4-2ace-4cd9-b252-71fb4f94099e
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b4d326064059b42cf2bf059184066c9acb4dcfd0
+ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
+ms.openlocfilehash: 1e4b5dac9333a9bd38f6ef89ddce22c74fed06ba
 
 
 ---
@@ -63,7 +63,7 @@ Il tipo dei record delle prestazioni è **Perf** e le proprietà sono elencate n
 | CounterValue |Valore numerico del contatore. |
 | InstanceName |Nome dell'istanza dell'evento.  Vuoto se l'istanza non è presente. |
 | ObjectName |Nome dell'oggetto prestazioni |
-| SourceSystem |Tipo di agente da cui sono stati raccolti i dati. <br> OpsManager: agente Windows, con connessione diretta o SCOM <br>  Linux – Tutti gli agenti Linux  <br>  AzureStorage: Diagnostica di Azure |
+| SourceSystem |Tipo di agente da cui sono stati raccolti i dati. <br> OpsManager: agente Windows, con connessione diretta o SCOM <br> Linux – Tutti gli agenti Linux  <br> AzureStorage: Diagnostica di Azure |
 | TimeGenerated |Data e ora di campionamento dei dati. |
 
 ## <a name="sizing-estimates"></a>Stime di dimensionamento
@@ -105,6 +105,6 @@ Per aggregare i dati sulle prestazioni in una ricerca log, vedere [On-demand met
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

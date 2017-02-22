@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
+ms.date: 01/20/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 8e089fd94966e4504af115fff796f306adf825bd
+ms.sourcegitcommit: 232e1d1640352be38720e19f713959e84243af72
+ms.openlocfilehash: 1cd2b9d819acd7d422698d3c14a9009a846973f7
 
 
 ---
@@ -42,6 +42,6 @@ Poiché questa esercitazione consente di creare rapidamente una macchina virtual
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

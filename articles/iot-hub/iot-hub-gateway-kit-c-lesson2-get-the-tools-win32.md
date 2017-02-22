@@ -1,5 +1,5 @@
 ---
-title: Preparare il computer host e l&quot;hub IoT di Azure | Documentazione Microsoft
+title: 'Dispositivo SensorTag e gateway Azure IoT: lezione 2: Ottenere gli strumenti (Windows) | Documentazione Microsoft'
 description: Installare gli strumenti e il software nel computer host che esegue Windows, creare un hub IoT e registrare il dispositivo nell&quot;hub IoT.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1c4f44787a7200a1c3634b258df32d30152daa90
-ms.openlocfilehash: c2e24522d1485cb8418b5f66ba16ce8c0b9bbca0
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 4a854222be9aaf6733f1c256dd75195927299099
 
 
 ---
@@ -45,9 +45,9 @@ In questa lezione si apprenderà:
   - La versione minima richiesta di Node.js è 4.5 LTS.
   - NPM è uno degli strumenti di gestione pacchetti per Node.js.
 - Come installare Visual Studio Code.
-  - Visual Studio Code è un editor di codice sorgente multipiattaforma leggero ma potente per Windows, Linux e macOS. Offre un eccellente supporto per il debug, il controllo incorporato di Git, l'evidenziazione della sintassi, il completamento intelligente del codice, i frammenti e il refactoring del codice.
+  - Visual Studio Code è un editor di codice sorgente multipiattaforma leggero ma potente per Windows, Linux e macOS. Offre un eccellente supporto per il debug, il controllo di Git incorporato, l'evidenziazione della sintassi, il completamento intelligente del codice, i frammenti e il refactoring del codice.
 - Come installare Python.
-  - Python è un diffuso linguaggio di programmazione dinamico e interpretato di alto livello e di uso generico.
+  - Python è un linguaggio di programmazione dinamico, interpretato, generico e di alto livello molto diffuso.
 - Come installare l'interfaccia della riga di comando di Azure.
   - L'interfaccia della riga di comando di Azure offre un'esperienza di riga di comando multipiattaforma per Azure. Il provisioning e la gestione delle risorse vengono eseguiti direttamente dalla riga di comando.
 - Come usare l'interfaccia della riga di comando di Azure per creare un hub IoT.
@@ -120,13 +120,13 @@ Visual Studio Code verrà usato più avanti nell'esercitazione per modificare i 
 
 ## <a name="summary"></a>Riepilogo
 
-Sono stati installati tutti gli strumenti e il software necessari nel computer host. L'attività successiva consiste nell'usare l'interfaccia della riga di comando di Azure per creare un hub IoT e registrare il dispositivo nell'hub IoT.
+Sono stati installati tutto il software e tutti gli strumenti necessari nel computer host. L'attività successiva consiste nell'usare l'interfaccia della riga di comando di Azure per creare un hub IoT e registrare il dispositivo nell'hub.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare un hub IoT e registrare il dispositivo](iot-hub-gateway-kit-c-lesson2-register-device.md)
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

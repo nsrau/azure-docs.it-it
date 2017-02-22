@@ -1,10 +1,9 @@
-È possibile visualizzare i percorsi di apprendimento AMS qui:
+I percorsi di apprendimento di Servizi multimediali di Azure sono disponibili qui:
 
-* [Flusso di lavoro AMS Live Streaming](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-* [Flusso di lavoro AMS Streaming su richiesta](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+* [Flusso di lavoro di streaming live di Servizi multimediali](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+* [Flusso di lavoro di streaming su richiesta di Servizi multimediali](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Cicli e ambiti delle app per la logica | Microsoft Docs
-description: Panoramica dei modi differenti di gestire i cicli e gli ambiti in un&quot;app per la logica
+title: Creare cicli e ambiti o suddividere i dati nei flussi di lavoro - App per la logica di Azure | Documenti di Microsoft
+description: "Creare cicli per eseguire iterazioni sui dati, raggruppare le azioni in ambiti o suddividere i dati per avviare più flussi di lavoro logica nelle app per la logica di Azure."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/29/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 2556e43bba8f2080e292be4c5a7f2145f5718e57
+ms.sourcegitcommit: d090ce5a912a2079d2e47d13caf60ca701f0e548
+ms.openlocfilehash: 63ac171494e13f4451d585c3b704727eeed94fab
 
 
 ---
@@ -159,6 +159,6 @@ SplitOn può essere specificato nella visualizzazione del codice, come nell'esem
 ```
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

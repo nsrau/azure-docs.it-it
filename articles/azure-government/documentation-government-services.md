@@ -1,23 +1,22 @@
 ---
 title: Servizi di Azure per enti pubblici | Microsoft Docs
 description: Presenta una panoramica dei servizi disponibili in Azure per enti pubblici
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: zakramer
 manager: liki
-editor: 
 ms.assetid: a453a23c-bc0f-4203-9075-0f579dea7e23
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/14/2016
+ms.date: 01/29/2017
 ms.author: zakramer
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 256dd290abcf0326330c9a6079437d8701d290e8
+ms.sourcegitcommit: 157e1d2b39e3990daa8001279b0dcc5bd14f0de8
+ms.openlocfilehash: eac5f44f3e6f0953bff57e362d327b738e6b50f9
 
 
 ---
@@ -37,22 +36,31 @@ Per l'elenco più aggiornato dei servizi, vedere il [Prodotti in base all'area](
 * Servizi cloud
 
 ## <a name="networkingdocumentation-government-networkingmd"></a>[Rete](documentation-government-networking.md)
-* Rete virtuale
-* Bilanciamento del carico
-* gateway applicazione
-* Gateway VPN
-* Gestione traffico
 * [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity)
+* [Supporto delle community BGP](documentation-government-networking.md#support-for-bgp-communities)
+* Rete virtuale
+* [Bilanciamento del carico](documentation-government-networking.md#support-for-load-balancer)
+* Gateway applicazione
+* [Gestione traffico](documentation-government-networking.md#support-for-traffic-manger)
+* [Gateway VPN](documentation-government-networking.md#support-for-vpn-gateway)
 
 ## <a name="storagedocumentation-government-services-storagemd"></a>[Archiviazione](documentation-government-services-storage.md)
 * [Archiviazione di Azure](documentation-government-services-storage.md#azure-storage)
+* [Archiviazione BLOB](documentation-government-services-storage.md#azure-storage)
+* [Archiviazione tabelle](documentation-government-services-storage.md#azure-storage)
+* [Archiviazione code](documentation-government-services-storage.md#azure-storage)
+* [Archiviazione file](documentation-government-services-storage.md#azure-storage)
+* [Archiviazione per accesso frequente/sporadico](documentation-government-services-storage.md#azure-storage)
+* [Crittografia del servizio di archiviazione](documentation-government-services-storage.md#azure-storage)
+* [Archiviazione Premium](documentation-government-services-storage.md#azure-storage)
+* [Importazione/Esportazione BLOB](documentation-government-services-storage.md#azure-storage)
+* [StorSimple](documentation-government-services-storage.md)
+* [Backup](documentation-government-services-backup.md)
+* [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * Importazione/Esportazione
-* StorSimple
-* Backup
-* Site Recovery
 
-## <a name="web-mobile"></a>Web e dispositivi mobili
-* App Web
+## <a name="web--mobiledocumentation-government-services-webandmobilemd"></a>[Web e dispositivi mobili](documentation-government-services-webandmobile.md)
+* [Servizi app](documentation-government-services-webandmobile.md#app-services)
 * Servizi multimediali
 
 ## <a name="databasesdocumentation-government-services-databasemd"></a>[Database](documentation-government-services-database.md)
@@ -65,22 +73,22 @@ Per l'elenco più aggiornato dei servizi, vedere il [Prodotti in base all'area](
 * Hub di notifica
 
 ## <a name="enterprise-integration"></a>Integrazione aziendale
-* BUS DI SERVIZIO
-* StorSimple
+* Bus di servizio
+* [StorSimple](documentation-government-services-storage.md)
 * Estensione database di SQL Server
 
-## <a name="security-identitydocumentation-government-services-securityandidentitymd"></a>[Sicurezza e identità](documentation-government-services-securityandidentity.md)
+## <a name="security--identitydocumentation-government-services-securityandidentitymd"></a>[Sicurezza e identità](documentation-government-services-securityandidentity.md)
 * [Insieme di credenziali di chiave](documentation-government-services-securityandidentity.md#key-vault)
 * Azure Active Directory
 * Autenticazione a più fattori
 
-## <a name="monitoring-managementdocumentation-government-services-monitoringandmanagementmd"></a>[Monitoraggio e gestione](documentation-government-services-monitoringandmanagement.md)
+## <a name="monitoring--managementdocumentation-government-services-monitoringandmanagementmd"></a>[Monitoraggio e gestione](documentation-government-services-monitoringandmanagement.md)
 * [Automazione](documentation-government-services-monitoringandmanagement.md#automation)
-* Backup
+* [Backup](documentation-government-services-backup.md) 
 * [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
-* Site Recovery
+* [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * Utilità di pianificazione
-* Gestione traffico
+* [Gestione traffico](documentation-government-networking.md#support-for-traffic-manger)
 * Monitoraggio e diagnostica
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -89,6 +97,6 @@ Per altri aggiornamenti e informazioni, iscriversi al [blog di Microsoft Azure p
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

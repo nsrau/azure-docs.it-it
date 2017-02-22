@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/09/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 4cc2906d19562fc420d92ea0f3097a972acc45b9
-ms.openlocfilehash: dfacb95f816c45413b292c93c13d0e37b7ce517e
+ms.sourcegitcommit: c3d96d11894f0009db004b1089c05559cafd2d43
+ms.openlocfilehash: ee79612cc30f1dfefcf7dcd8af7aed7836dd528c
 
 
 ---
@@ -156,12 +156,13 @@ Per impostazione predefinita, Data Factory usa una singola unità di spostamento
 I **valori consentiti** per la proprietà **cloudDataMovementUnits** sono: 1 (valore predefinito), 2, 4 e 8. Il **numero effettivo di unità di spostamento dati cloud** usate dall'operazione di copia in fase di esecuzione è minore o uguale al valore configurato, a seconda del modello di dati.
 
 > [!NOTE]
-> Se sono necessarie più unità di spostamento dati cloud per aumentare la velocità effettiva, contattare il [supporto di Azure](https://azure.microsoft.com/support/). Attualmente è possibile impostare la proprietà su valori maggiori o uguali a 8 soltanto per la **copia di più file da un'archiviazione BLOB/Data Lake Store/Amazon S3 a un'altra archiviazione BLOB/Data Lake Store/database SQL di Azure** con dimensioni dei singoli file maggiori e o uguali a 16 MB.
+> Se sono necessarie più unità di spostamento dati cloud per aumentare la velocità effettiva, contattare il [supporto di Azure](https://azure.microsoft.com/support/). Attualmente è possibile impostare la proprietà su valori maggiori o uguali a 8 soltanto per la **copia di più file da un'archiviazione BLOB/Data Lake Store/Amazon S3/FTP cloud a un'archiviazione BLOB/Data Lake Store/database SQL di Azure** con dimensioni dei singoli file maggiori e o uguali a 16 MB.
 >
 >
 
 Per usare al meglio queste due proprietà e per migliorare la velocità effettiva dello spostamento dati, vedere i [casi d'uso di esempio](#case-study-use-parallel-copy). Per usare il comportamento predefinito non è necessario configurare **parallelCopies** . Se si esegue la configurazione e il valore di **parallelCopies** è troppo basso, è possibile che più unità di spostamento dati cloud non vengano utilizzate appieno.  
 
+### <a name="billing-impact"></a>Impatto della fatturazione
 È **importante** ricordare che l'addebito è basato sul tempo totale impiegato per l'operazione di copia. Se un processo di copia impiegava un'ora con una unità cloud e ora richiede 15 minuti con quattro unità cloud, la fattura complessiva rimane pressoché identica. Si prenda ad esempio un utilizzo di quattro unità cloud. La prima unità cloud impiega 10 minuti, la seconda 10 minuti, la terza 5 minuti e la quarta 5 minuti, tutto in un'unica esecuzione dell'attività di copia. Verrà addebitato il tempo totale dell'operazione di copia, ovvero di spostamento dei dati, che è pari a 10 + 10 + 5 + 5 = 30 minuti. L'uso di **parallelCopies** non influisce sulla fatturazione.
 
 ## <a name="staged-copy"></a>copia di staging
@@ -410,6 +411,6 @@ Di seguito sono riportati alcuni riferimenti sul monitoraggio e l'ottimizzazione
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

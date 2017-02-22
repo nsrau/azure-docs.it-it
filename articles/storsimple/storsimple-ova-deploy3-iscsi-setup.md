@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 07/18/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a5d3d1c9afd8023b201ff37318a3905b5fe791a2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 715720d22b58ddd3d0e5042de151219e49549c5e
 
 
 ---
@@ -52,7 +52,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
     Usare l'URL di connessione indicata nel passaggio precedente. Viene visualizzato un errore in cui si notifica che si è verificato un problema con il certificato di sicurezza del sito Web. Fare clic su **Passa a questa pagina Web**.
    
     ![errore di certificato di sicurezza](./media/storsimple-ova-deploy3-iscsi-setup/image3.png)
-2. Accedere all'interfaccia utente Web del dispositivo virtuale come **StorSimpleAdmin**. Immettere la password amministratore del dispositivo modificata nel Passaggio 3: Avviare il dispositivo virtuale dell'articolo [Distribuire StorSimple Virtual Array: eseguire il provisioning di un array virtuale in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o [Distribuire StorSimple Virtual Array: eseguire il provisioning di un array virtuale in VMware](storsimple-ova-deploy2-provision-vmware.md).
+2. Accedere all'interfaccia utente Web del dispositivo virtuale come **StorSimpleAdmin**. Immettere la password amministratore del dispositivo modificata nel Passaggio 3: Avviare il dispositivo virtuale dell'articolo [Distribuire un array virtuale StorSimple: eseguire il provisioning di un dispositivo virtuale in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o [Distribuire un array virtuale StorSimple: eseguire il provisioning di un dispositivo virtuale in VMware](storsimple-ova-deploy2-provision-vmware.md).
    
     ![Pagina di accesso](./media/storsimple-ova-deploy3-iscsi-setup/image4.png)
 3. Si passa così alla pagina **Home** . Questa pagina illustra le varie impostazioni necessarie per configurare e registrare il dispositivo virtuale con il servizio StorSimple Manager. Notare che le **Impostazioni di rete**, le **Impostazioni proxy Web** e le **Impostazioni ora** sono facoltative. Le uniche impostazioni obbligatorie sono le **Impostazioni del dispositivo** e le **Impostazioni cloud**.
@@ -72,7 +72,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 6. Nella pagina **Impostazioni del dispositivo** :
    
    1. Assegnare un **Nome** univoco al dispositivo. Questo nome può avere da 1 a 15 caratteri e contenere lettere, numeri e trattini.
-   2. Fare clic sull'icona **Server iSCSI** per il ![Tipo](./media/storsimple-ova-deploy3-iscsi-setup/image7.png) di **dispositivo** che si sta creando. Un server iSCSI consente di eseguire il provisioning dell'archiviazione a blocchi.
+   2. Fare clic sull'icona **Server iSCSI** ![icona server iSCSI](./media/storsimple-ova-deploy3-iscsi-setup/image7.png) per il **Tipo** di dispositivo che si sta creando. Un server iSCSI consente di eseguire il provisioning dell'archiviazione a blocchi.
    3. Specificare se si desidera che il dispositivo sia aggiunto al dominio. Se il dispositivo è un server iSCSI, l'aggiunta del dominio è facoltativa. Se si decide di non aggiungere il server iSCSI a un dominio, fare clic su **Applica**, attendere l'applicazione delle impostazioni, quindi andare al passaggio successivo.
       
        Se si desidera aggiungere il dispositivo a un dominio. Immettere un **nome di dominio**, quindi fare clic su **Applica**.
@@ -163,7 +163,7 @@ Eseguire i passaggi seguenti nel portale di Azure classico per creare un volume.
    4. Specificare la capacità sottoposta a provisioning per il volume. Notare che la capacità specificata deve essere inferiore rispetto alla capacità disponibile. Se si sta creando un volume a livelli, la dimensione deve essere compresa tra 500 GB e 5 TB. Per un volume aggiunto in locale, specificare una dimensione di volume tra 50 GB e 500 GB. Usare la capacità disponibile come guida per il provisioning di un volume. Se la capacità locale disponibile è di 0 GB, non è consentito eseguire il provisioning di un volume aggiunto in locale o a livelli.
       
        ![Impostazioni di base](./media/storsimple-ova-deploy3-iscsi-setup/image17.png)
-   5. Fare clic sull'icona freccia  ![Icona freccia](./media/storsimple-ova-deploy3-iscsi-setup/image18.png)  per passare alla pagina successiva.
+   5. Fare clic sull'icona freccia  ![Icona freccia](./media/storsimple-ova-deploy3-iscsi-setup/image18.png) per passare alla pagina successiva.
 3. Nella pagina **Impostazioni aggiuntive** , aggiungere un nuovo record di controllo di accesso (ACR):
    
    1. Fornire un **Nome** per l'ACR.
@@ -214,7 +214,7 @@ Eseguire i passaggi seguenti per montare, inizializzare e formattare i volumi St
 12. Assegnare una lettera di unità al volume e quindi fare clic su **Avanti**.
     
     ![procedura guidata nuovo volume 2](./media/storsimple-ova-deploy3-iscsi-setup/image30.png)
-13. Immettere i parametri per formattare il volume. **In Windows Server, è supportato solo NTFS.**  Impostare le unità di allocazione su 64K. Specificare un'etichetta per il volume. È una procedura consigliata che questo nome sia identico al nome del volume specificato nel dispositivo virtuale StorSimple. Fare clic su **Avanti**.
+13. Immettere i parametri per formattare il volume. **In Windows Server, è supportato solo NTFS.** Impostare le unità di allocazione su 64K. Specificare un'etichetta per il volume. È una procedura consigliata che questo nome sia identico al nome del volume specificato nel dispositivo virtuale StorSimple. Fare clic su **Avanti**.
     
     ![procedura guidata nuovo volume 3](./media/storsimple-ova-deploy3-iscsi-setup/image31.png)
 14. Controllare i valori del volume e quindi fare clic su **Fine**.
@@ -246,6 +246,6 @@ Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI (IQN) di un 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

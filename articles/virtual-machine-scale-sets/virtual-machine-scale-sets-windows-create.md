@@ -3,7 +3,7 @@ title: "Creare un set di scalabilità di macchine virtuali tramite PowerShell | 
 description: "Creare un set di scalabilità di macchine virtuali tramite PowerShell"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: davidmu1
+author: Thraka
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/18/2016
-ms.author: davidmu
+ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 6fa8b353c47091c9b71173e98021117245cc6694
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 5abaa31828e624f77b6a9efb4496327977b483e4
 
 
 ---
@@ -27,7 +27,7 @@ Questa procedura per la creazione di un set di scalabilità di macchine virtuali
 L'esecuzione della procedura illustrata in questo articolo richiede circa 30 minuti.
 
 ## <a name="step-1-install-azure-powershell"></a>Passaggio 1: installare Azure PowerShell
-Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione e accedere all'account, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione e accedere all'account, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="step-2-create-resources"></a>Passaggio 2: Creare le risorse
 Creare le risorse necessarie per il nuovo set di scalabilità.
@@ -225,6 +225,6 @@ Per esplorare il set di scalabilità di macchine virtuali appena creato, usare q
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

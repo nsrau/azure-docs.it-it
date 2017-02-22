@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/21/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0e211d13e41526157f6ade960b86f31dfdfd54e1
+ms.sourcegitcommit: 7d141adf04cfb99e57c63ba62de4a7dad9ab8326
+ms.openlocfilehash: 290645b920bc4a83c610e80266854450b6e1509a
 
 
 ---
@@ -54,85 +54,8 @@ Per abilitare l'accesso condizionale, è possibile creare impostazioni di Criter
 * System Center Configuration Manager versione 1509 per la Technical Preview relativa agli scenari di Passport.
 
 ## <a name="deployment-instructions"></a>Istruzioni per la distribuzione
-### <a name="step-1-deploy-azure-active-directory-connect"></a>Passaggio 1: Distribuzione di Azure Active Directory Connect
-Azure AD Connect consente di effettuare il provisioning dei computer locali come oggetti dispositivo nel cloud. Per distribuire Azure AD Connect, vedere la sezione "Installare Azure AD Connect" nell'articolo [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md#install-azure-ad-connect).
 
-* Se è stata eseguita un'[installazione personalizzata di Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md), anziché l'installazione rapida, seguire la procedura **Creare un punto di connessione del servizio nell'istanza di Active Directory locale**, descritta di seguito.
-* Se è presente una configurazione federata con Azure AD prima dell'installazione di Azure AD Connect, ad esempio se in precedenza è stato distribuito Active Directory Federation Services (AD FS), seguire la procedura **Configurare regole attestazioni per AD FS** descritta di seguito.
-
-#### <a name="create-a-service-connection-point-in-on-premises-active-directory"></a>Creare un punto di connessione del servizio nell'istanza di Active Directory locale
-I dispositivi aggiunti a un dominio usano il punto di connessione del servizio per trovare informazioni sul tenant di Azure AD al momento della registrazione automatica con il servizio Registrazione dispositivo Azure.
-
-Nel server Azure AD Connect, eseguire questi comandi di PowerShell:
-
-    Import-Module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1";
-
-    $aadAdminCred = Get-Credential;
-
-    Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
-
-
-Quando si esegue il cmdlet $aadAdminCred = Get-Credential, usare il formato *user@example.com* per il nome utente delle credenziali immesse quando viene visualizzato il popup Get-Credential.
-
-Quando si esegue il cmdlet Initialize-ADSyncDomainJoinedComputerSync..., sostituire [*connector account name*] con l'account di dominio usato come account connettore di Active Directory.
-
-#### <a name="configure-ad-fs-claim-rules"></a>Configurare regole attestazioni per AD FS
-La configurazione delle regole attestazioni per AD FS permette la registrazione immediata di un computer con il servizio Registrazione dispositivo Azure consentendo l'autenticazione dei computer con Kerberos/NTLM tramite AD FS. Senza questo passaggio, i computer accedono ad Azure AD con un certo ritardo, a seconda dei tempi richiesti dal Servizio di sincronizzazione Azure AD Connect.
-
-> [!NOTE]
-> Se AD FS non è disponibile come server federativo locale, creare le regole attestazioni seguendo le istruzioni del fornitore.
-> 
-> 
-
-Nel server AD FS o in una sessione connessa al server AD FS eseguire questi comandi di PowerShell:
-
-      <#----------------------------------------------------------------------
-     |   Modify the Azure AD Relying Party to include the claims needed
-     |   for DomainJoin++. The rules include:
-     |   -ObjectGuid
-     |   -AccountType
-     |   -ObjectSid
-     +---------------------------------------------------------------------#>
-
-    $existingRules = (Get-ADFSRelyingPartyTrust -Identifier urn:federation:MicrosoftOnline).IssuanceTransformRules
-
-    $rule1 = '@RuleName = "Issue object GUID"
-          c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] &&
-          c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"]
-          => issue(store = "Active Directory", types = ("http://schemas.microsoft.com/identity/claims/onpremobjectguid"), query = ";objectguid;{0}", param = c2.Value);'
-
-    $rule2 = '@RuleName = "Issue account type for domain joined computers"
-          c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"]
-          => issue(Type = "http://schemas.microsoft.com/ws/2012/01/accounttype", Value = "DJ");'
-
-    $rule3 = '@RuleName = "Pass through primary SID"
-          c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] &&
-          c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"]
-          => issue(claim = c2);'
-
-    $updatedRules = $existingRules + $rule1 + $rule2 + $rule3
-
-    $crSet = New-ADFSClaimRuleSet -ClaimRule $updatedRules
-
-    Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString
-
-> [!NOTE]
-> I computer Windows 10 usano l'autenticazione integrata di Windows per eseguire l'autenticazione a un endpoint WS-Trust attivo ospitato da AD FS. Assicurarsi che l'endpoint sia abilitato. Se si sta usando il proxy per l'autenticazione Web, assicurarsi anche che l'endpoint venga pubblicato tramite il proxy. A tale scopo, verificare adfs/services/trust/13/windowstransport. A questo punto dovrebbe risultare abilitato nella console di gestione di AD FS in **Servizio** > **Endpoint**.
-> 
-> 
-
-### <a name="step-2-configure-automatic-device-registration-via-group-policy-in-active-directory"></a>Passaggio 2: Configurare la registrazione automatica dei dispositivi tramite Criteri di gruppo in Active Directory
-È possibile usare Criteri di gruppo di Active Directory per configurare i dispositivi Windows 10 aggiunti a un dominio per la registrazione automatica in Azure AD.
-
-> [!NOTE]
-> Per le istruzioni più recenti su come configurare la registrazione automatica dei dispositivi, vedere [Come configurare la registrazione automatica dei dispositivi Windows con Azure Active Directory aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-setup.md).
-> 
-> In Windows 10 questo modello di Criteri di gruppo è stato rinominato. Se si esegue lo strumento Criteri di gruppo da un computer Windows 10, i criteri verranno visualizzati come:  <br>
-> **Registrare i computer appartenenti a un dominio come dispositivi**<br>
-> I criteri si trovano nel percorso seguente:<br>
-> ***Configurazione computer/Criteri/Modelli amministrativi/Componenti di Windows/Registrazione del dispositivo***
-> 
-> 
+Per eseguire la distribuzione, seguire la procedura indicata in [Come configurare la registrazione automatica dei dispositivi di dominio Windows con Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 * [Windows 10 per le aziende: modalità d'uso dei dispositivi di lavoro](active-directory-azureadjoin-windows10-devices-overview.md)
@@ -144,6 +67,6 @@ Nel server AD FS o in una sessione connessa al server AD FS eseguire questi coma
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

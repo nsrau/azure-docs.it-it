@@ -1,6 +1,6 @@
 ---
-title: Tenere traccia dei messaggi B2B nel portale Operations Management Suite utilizzando una query | Documentazione Microsoft
-description: Informazioni su come tenere traccia dei messaggi B2B nel portale di Operations Management Suite tramite una query.
+title: Tenere traccia dei messaggi AS2, X12 e EDIFACT mediante una query - App per la logica di Azure | Documenti di Microsoft
+description: Utilizzare le query per tenere traccia dei messaggi aziendali nel portale di Operations Management Suite
 author: padmavc
 manager: anneta
 editor: 
@@ -12,22 +12,22 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2016
+ms.date: 01/27/2017
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: df6beaaa5de45acfa850049721797fc43f4c9ed7
+ms.sourcegitcommit: 67313e4ff780e6c64dfc3d767ea49167c2a390f4
+ms.openlocfilehash: 701a3bbadb340c9390b486a5295eced056db70a0
 
 
 ---
 # <a name="track-b2b-messages-in-the-operations-management-suite-portal-by-using-a-query"></a>Tenere traccia dei messaggi B2B nel portale di Operations Management Suite utilizzando una query
 Per tenere traccia dei messaggi di business-to-business (B2B) nel portale di Operations Management Suite, è possibile creare una query che filtra i dati per uno specifico numero di controllo interscambio.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prereqs"></a>Prerequisiti
 
 Per eseguire il debug e per ottenere informazioni di diagnostica più dettagliate, attivare la diagnostica nell'[account di integrazione](logic-apps-monitor-b2b-message.md) per le [app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts) che dispongono di connettori X12. Eseguire quindi i passaggi per [pubblicare dati di diagnostica](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) nel portale di Operations Management Suite.
 
-## <a name="to-create-a-query-to-search-for-a-specific-interchange-control-number"></a>Creare una query per cercare uno specifico numero di controllo interscambio
+## <a name="search-for-an-interchange-control-number"></a>Ricercare un numero di controllo di interscambio
 
 1. Nella pagina iniziale selezionare **Ricerca log**.  
 ![Selezionare Ricerca log](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
@@ -62,6 +62,6 @@ Per eseguire il debug e per ottenere informazioni di diagnostica più dettagliat
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

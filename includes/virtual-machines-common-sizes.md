@@ -35,20 +35,20 @@ Le considerazioni seguenti potrebbero essere utili all’utente per scegliere un
 
 | Famiglia SKU | ACU/Core |
 | --- | --- |
-| [Standard_A0](#a-series) |50 |
-| [Standard_A1-4](#a-series) |100 |
-| [Standard_A5-7](#a-series) |100 |
-| [Standard_A1-8v2](#av2-series) |100 |
-| [Standard_A2m-8mv2](#av2-series) |100 |
+| [A0](#a-series) |50 |
+| [A1-A4](#a-series) |100 |
+| [A5-A7](#a-series) |100 |
+| [A1_v2-A8_v2](#av2-series) |100 |
+| [A2m_v2-A8m_v2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
-| [D1-14](#d-series) |160 |
-| [D1-15v2](#dv2-series) |210 - 250* |
-| [DS1-14](#ds-series) |160 |
-| [DS1-15v2](#dsv2-series) |210-250* |
+| [D1-D14](#d-series) |160 |
+| [D1_v2-D15_v2](#dv2-series) |210 - 250* |
+| [DS1-DS14](#ds-series) |160 |
+| [DS1_v2-DS15_v2](#dsv2-series) |210-250* |
 | [F1-F16](#f-series) |210-250* |
 | [F1s-F16s](#fs-series) |210-250* |
-| [G1-5](#g-series) |180 - 240* |
-| [GS1-5](#gs-series) |180 - 240* |
+| [G1-G5](#g-series) |180 - 240* |
+| [GS1-GS5](#gs-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
 Le unità ACU contrassegnate con * usano la tecnologia Intel® Turbo per aumentare la frequenza della CPU e offrire un miglioramento delle prestazioni.  L'entità dell'aumento di prestazioni può variare in base alle dimensioni della macchina virtuale, al carico di lavoro e agli altri carichi di lavoro in esecuzione sullo stesso host.
@@ -132,7 +132,8 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 
 * In alcune aree, per le dimensioni Standard_D15_v2 è disponibile la rete accelerata. Per altre informazioni sull'uso e la disponibilità, vedere [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (Rete accelerata disponibile in anteprima) e [Rete accelerata per macchine virtuali](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
 
-**L'istanza è isolata e prevede hardware dedicato per un singolo cliente. **L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
+**L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
+
 <br>
 
 ## <a name="ds-series"></a>Serie DS*
@@ -305,6 +306,6 @@ Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggerm
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

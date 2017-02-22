@@ -1,5 +1,5 @@
 ---
-title: Database SQL di Azure e prestazioni per i singoli database | Documentazione Microsoft
+title: Prestazioni del database SQL di Azure per i singoli database | Documentazione Microsoft
 description: "Questo articolo può essere utile per determinare il livello di servizio da scegliere per l&quot;applicazione. Illustra anche come ottimizzare l&quot;applicazione per ottenere il massimo dal database SQL di Azure."
 services: sql-database
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/06/2016
+ms.date: 01/04/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
-ms.openlocfilehash: 51cebc84593aec8d7c12dd4061b78354f785d153
+ms.sourcegitcommit: ddf93a0db278fffa2aa45fdc73a1c7f57a84fb39
+ms.openlocfilehash: 2e930dbb8dd2c15162d2ec81a123f57209134554
 
 
 ---
@@ -62,15 +62,8 @@ Ogni livello di servizio e prestazione è associato a limiti e caratteristiche d
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
-Le sezioni successive includono altre informazioni su come visualizzare l'uso correlato a questi limiti.
-
 ### <a name="maximum-in-memory-oltp-storage"></a>Archiviazione di OLTP in memoria massima
 Per monitorare l'uso dell'archiviazione in memoria di Azure è possibile usare la vista **sys.dm_db_resource_stats**. Per altre informazioni sul monitoraggio, vedere [Monitorare l'archiviazione OLTP in memoria](sql-database-in-memory-oltp-monitoring.md).
-
-> [!NOTE]
-> L'anteprima di OLTP (Online Transaction Processing) in memoria di Azure è attualmente supportata solo per i singoli database. Non può essere usata nei database in pool elastici.
-> 
-> 
 
 ### <a name="maximum-concurrent-requests"></a>Numero massimo di richieste simultanee
 Per visualizzare il numero di richieste simultanee, eseguire questa query Transact-SQL sul database SQL:
@@ -116,7 +109,10 @@ Queste query restituiscono un conteggio temporizzato. Se si raccolgono più camp
 Per l'analisi del database SQL è possibile ottenere statistiche cronologiche sulle sessioni. Eseguire una query in **sys.resource_stats** e usare la colonna **active_session_count**. Per altre informazioni sull'uso di questa visualizzazione, vedere la sezione successiva.
 
 ## <a name="monitor-resource-use"></a>Monitorare l'uso delle risorse
-Due visualizzazioni possono semplificare il monitoraggio dell'uso delle risorse per un database SQL rispetto al relativo livello di servizio:
+
+È possibile monitorare l'utilizzo di risorse usando [Informazioni dettagliate prestazioni query del Database SQL](sql-database-query-performance.md) e [Archivio query](https://msdn.microsoft.com/library/dn817826.aspx).
+
+È inoltre possibile monitorare l'utilizzo tramite queste due viste:
 
 * [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 * [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
@@ -445,6 +441,6 @@ Alcune applicazioni di database contengono carichi di lavoro con intensa attivit
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

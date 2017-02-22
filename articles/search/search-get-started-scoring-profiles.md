@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/17/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a7a0c49b6fcac84a61005f330b07f5ea47ce1961
+ms.sourcegitcommit: 7a633460f249f7c7b6675a5ab23b1724549cccba
+ms.openlocfilehash: ca07067b73b72b5ff8b93a72fa7eef55e9d47cc2
 
 
 ---
@@ -34,7 +34,7 @@ L'applicazione di esempio è scritto in c# utilizzando Visual Studio 2013. Prova
 
 Per completare l'esercitazione è necessario avere una sottoscrizione di Azure e un servizio di ricerca di Azure. Vedere [creare un servizio di ricerca nel portale di](search-create-service-portal.md) per informazioni sulla configurazione del servizio.
 
- [Per completare l'esercitazione, è necessario un account Azure:](../../includes/free-trial-note.md)]
+[!INCLUDE [You need an Azure account to complete this tutorial](../../includes/free-trial-note.md)]
 
 <a id="sub-2"></a>
 
@@ -125,6 +125,6 @@ Per altre informazioni sulla creazione degli indici, [Guardare questo video](htt
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

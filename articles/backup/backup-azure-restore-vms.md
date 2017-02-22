@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: trinadhk; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
-ms.openlocfilehash: 9c8410a847d943c5baee3e08397ebf24072b3f78
+ms.sourcegitcommit: 5e22f3b395a2c8d62caa6ae0abf5f81833b00780
+ms.openlocfilehash: 2018f37b3b3426ba6a066310ddfd65fc31b7eb25
 
 
 ---
@@ -60,7 +60,7 @@ Ripristinare una macchina virtuale in una nuova dai backup archiviati in un insi
    * Specificare il nome della macchina virtuale: in un determinato servizio cloud il nome della macchina virtuale deve essere univoco. Non è supportata la sovrascrittura di macchine virtuali esistenti. 
    * Selezionare un servizio cloud per la macchina virtuale: questa operazione è necessaria per la creazione di una macchina virtuale. È possibile scegliere di usare un servizio cloud esistente o di crearne uno nuovo.
      
-        Qualunque sia il nome del servizio cloud scelto, deve essere universalmente univoco. Il nome del servizio cloud è in genere associato a un URL pubblico nella forma di: [serviziocloud].cloudapp.net. Azure non consente di creare un nuovo servizio cloud se il nome è già in uso. Se si seleziona Crea un nuovo servizio cloud, gli verrà assegnato lo stesso nome della macchina virtuale, nel qual caso il nome della macchina virtuale selezionato deve essere sufficientemente univoco per essere applicato al servizio cloud associato.
+        Qualunque sia il nome del servizio cloud scelto, deve essere universalmente univoco. Il nome del servizio cloud è in genere associato a un URL pubblico nella forma di: [serviziocloud].cloudapp.net. Azure non consente di creare un nuovo servizio cloud se il nome è già in uso. Se si sceglie di creare un nuovo servizio cloud, a tale servizio viene assegnato lo stesso nome della macchina virtuale. Il nome della macchina virtuale scelto deve quindi essere sufficientemente univoco per essere applicato al servizio cloud associato.
      
         Vengono visualizzati soltanto i servizi cloud e le reti virtuali che non sono associati a gruppi di affinità nei dettagli dell'istanza di ripristino. [Altre informazioni](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 2. Selezionare un account di archiviazione per la macchina virtuale: questa operazione è necessaria per la creazione di una macchina virtuale. È possibile selezionare uno degli account di archiviazione esistenti nella stessa area geografica dell'insieme di credenziali di Backup di Azure. Gli account di archiviazione con ridondanza della zona o con archiviazione di tipo Premium non sono supportati.
@@ -157,6 +157,6 @@ Per poter ricreare completamente i dischi della macchina virtuale dopo il ripris
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

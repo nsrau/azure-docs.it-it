@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 392f15955362607187abf402dee076e328c11bd3
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5a5ad526513c7adf9b8274acec7d89fe375f43fc
 
 
 ---
@@ -48,7 +48,7 @@ Due opzioni di reindirizzamento sono disabilitate per impostazione predefinita:
 * Reindirizzamento USB: è possibile usare i dispositivi USB collegati al computer locale all'interno della sessione remota.
 
 ## <a name="change-your-redirection-settings-in-remoteapp"></a>Modificare le impostazioni di reindirizzamento in RemoteApp
-È possibile modificare le impostazioni di reindirizzamento del dispositivo per una raccolta usando Microsoft Azure PowerShell con SDK. Dopo aver installato il nuovo PowerShell e l'SDK, configurarlo per gestire la sottoscrizione, come descritto in [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+È possibile modificare le impostazioni di reindirizzamento del dispositivo per una raccolta usando Microsoft Azure PowerShell con SDK. Dopo aver installato il nuovo PowerShell e l'SDK, configurarlo per gestire la sottoscrizione, come descritto in [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Usare quindi un comando simile al seguente per impostare le proprietà RDP personalizzate:
 
@@ -119,6 +119,6 @@ Per configurare le impostazioni di reindirizzamento USB sul computer:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

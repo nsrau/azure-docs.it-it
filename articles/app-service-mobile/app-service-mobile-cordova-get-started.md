@@ -14,11 +14,11 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
-ms.date: 10/01/2016
+ms.date: 10/30/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8a51979c5444d1e1b454d8f434b421f9cc17c24
+ms.sourcegitcommit: bf5691dbf4aaae585373de454ad7a0672dd17b84
+ms.openlocfilehash: aab35cdbbc6dc73551ca436985b51e5fe7a50fb6
 
 
 ---
@@ -26,20 +26,20 @@ ms.openlocfilehash: e8a51979c5444d1e1b454d8f434b421f9cc17c24
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Overview
-Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per dispositivi mobili Apache Cordova mediante un back-end per app per dispositivi mobili di Azure.  Verranno creati un nuovo back-end di app per dispositivi mobili e una semplice app Apache Cordova di tipo *Todo list* che archivia dati delle app in Azure.
+Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per dispositivi mobili Apache Cordova mediante un back-end per app per dispositivi mobili di Azure.  Verranno creati un nuovo back-end di app per dispositivi mobili e una semplice app Apache Cordova di tipo *Todo list* che archivia i dati delle app in Azure.
 
 Il completamento di questa esercitazione è un prerequisito per tutte le altre esercitazioni Apache Cordova relative all'uso della funzionalità delle app per dispositivi mobili nel Servizio app di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per completare l'esercitazione, sono necessari gli elementi seguenti:
+Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
 * Un PC con installato [Visual Studio Community 2015] o versione successiva.
 * [Visual Studio Tools per Apache Cordova].
 * Un [account Azure attivo](https://azure.microsoft.com/pricing/free-trial/).
 
-È anche possibile ignorare Visual Studio e usare direttamente la riga di comando di Apache Cordova.  Questo è utile quando viene completata l'esercitazione in un computer Mac.  La compilazione di applicazioni client di Apache Cordova dalla riga di comando non è trattata in questa esercitazione.
+È anche possibile ignorare Visual Studio e usare direttamente la riga di comando di Apache Cordova.  L'uso della riga di comando è utile quando l'esercitazione viene completata in un computer Mac.  La compilazione di applicazioni client di Apache Cordova dalla riga di comando non è trattata in questa esercitazione.
 
-## <a name="create-a-new-azure-mobile-app-backend"></a>Creare un nuovo back-end dell'app per dispositivi mobili di Azure
+## <a name="create-an-azure-mobile-app-backend"></a>Creare un back-end dell'app per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 [Guardare un video che illustra una procedura simile](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
@@ -53,12 +53,14 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che l'esercitazione introduttiva è stata completata, passare a una delle esercitazioni seguenti:
 
-* [Aggiungere l'autenticazione all'app Apache Cordova] .
-* [Aggiungere notifiche push all'app Apache Cordova] .
+* [Aggiungere dati offline](app-service-mobile-cordova-get-started-offline-data.md) all'app Apache Cordova.
+* [Aggiungere l'autenticazione all'app Apache Cordova](app-service-mobile-cordova-get-started-users.md) .
+* [Aggiungere notifiche push all'app Apache Cordova](app-service-mobile-cordova-get-started-push.md) .
 
 Altre informazioni sui concetti chiave del servizio app di Azure.
 
-* [Autenticazione]
+* [Dati offline]
+* [autenticazione]
 * [Notifiche push]
 
 Informazioni su come usare gli SDK.
@@ -70,12 +72,11 @@ Informazioni su come usare gli SDK.
 <!-- Images. -->
 
 <!-- URLs -->
-[Portale di Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools per Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
-[Aggiungere l'autenticazione all'app Apache Cordova]: app-service-mobile-cordova-get-started-users.md
-[Aggiungere notifiche push all'app Apache Cordova]: app-service-mobile-cordova-get-started-push.md
-[Autenticazione]: app-service-mobile-auth.md
+[Dati offline]: app-service-mobile-offline-data-sync.md
+[autenticazione]: app-service-mobile-auth.md
 [Notifiche push]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
@@ -83,6 +84,6 @@ Informazioni su come usare gli SDK.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

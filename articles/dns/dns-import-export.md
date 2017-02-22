@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 95ae4f86cb95382eae103c454d209eba4d601adc
-ms.openlocfilehash: cdea2d2ea07c744535bb169e6fd8326a592d5856
+ms.sourcegitcommit: f06bf515accd8507189ecd5f1759f14f4f06fd33
+ms.openlocfilehash: faac9909993895b3e8a27b2cbaa7b62b3e508933
 
 ---
 
@@ -27,7 +27,10 @@ Questo articolo illustrerà come importare ed esportare file di zona DNS per il 
 
 Un file di zona DNS è un file di testo che contiene i dettagli di tutti i record DNS (Domain Name System) nella zona. Segue un formato standard, ideale per il trasferimento dei record DNS tra sistemi DNS. L'uso di un file di zona è un modo rapido, affidabile e pratico per trasferire una zona DNS all'interno o all'esterno di DNS di Azure.
 
-DNS di Azure supporta l'importazione e l'esportazione di file di zona tramite l'interfaccia della riga di comando di Azure. L'interfaccia della riga di comando di Azure è uno strumento da riga di comando multipiattaforma usato per la gestione dei servizi di Azure. È disponibile per le piattaforme Windows, Mac e Linux nella [pagina di download di Azure](https://azure.microsoft.com/downloads/). Il supporto multipiattaforma è particolarmente importante per l'importazione e l'esportazione di file di zona, perché il software Domain Name Server più comune, [BIND](https://www.isc.org/downloads/bind/), viene eseguito in genere in Linux.
+DNS di Azure supporta l'importazione e l'esportazione di file di zona tramite l'interfaccia della riga di comando di Azure. L'importazione di file di zona **non** è attualmente supportata tramite Azure PowerShell o il portale di Azure.
+
+L'interfaccia della riga di comando di Azure è uno strumento da riga di comando multipiattaforma usato per la gestione dei servizi di Azure. È disponibile per le piattaforme Windows, Mac e Linux nella [pagina di download di Azure](https://azure.microsoft.com/downloads/). Il supporto multipiattaforma è particolarmente importante per l'importazione e l'esportazione di file di zona, perché il software Domain Name Server più comune, [BIND](https://www.isc.org/downloads/bind/), viene eseguito in genere in Linux.
+
 
 ## <a name="obtain-your-existing-dns-zone-file"></a>Recupero del file di zona DNS esistente
 
@@ -210,6 +213,6 @@ Come per l'importazione di una zona, è necessario prima di tutto accedere, sceg
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

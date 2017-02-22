@@ -1,5 +1,5 @@
 ---
-title: Tomcat in una macchina virtuale | Microsoft Docs
+title: Eseguire server applicazioni Java in una macchina virtuale di Azure classica | Documentazione Microsoft
 description: Questa esercitazione usa le risorse create con il modello di distribuzione classica e illustra come creare una macchina virtuale di Windows e configurarla per eseguire il server dell&quot;applicazione Apache Tomcat.
 services: virtual-machines-windows
 documentationcenter: java
@@ -13,18 +13,17 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 01/23/2017
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e6fd09bb3a750d8d537abb12a386f46be0c60794
+ms.sourcegitcommit: 7b621733e09a1ba4e21152d7670a8936e3944521
+ms.openlocfilehash: 4503610eb8ef2e690e028667ebbf64e865af7134
 
 
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Come eseguire un server di applicazione di Java in una macchina virtuale creata con il modello di distribuzione classica.
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Per un modello di Resource Manager con cui distribuire un'app Web con Java 8 e Tomcat, vedere [qui](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/).
+> [!IMPORTANT] 
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per un modello di Resource Manager con cui distribuire un'app Web con Java 8 e Tomcat, vedere [qui](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/).
 
 Con Azure è possibile utilizzare una macchina virtuale per fornire funzionalità di server. Si può ad esempio configurare una macchina virtuale in esecuzione in Azure per ospitare un server applicazioni Java, come Apache Tomcat. Dopo aver completato la lettura di questa guida, si disporrà di tutte le informazioni necessarie per creare una macchina virtuale in esecuzione su Azure e configurarla per eseguire un server applicazioni Java.
 
@@ -60,7 +59,7 @@ Ai fini di questa esercitazione, verrà installato un server applicazioni Apache
    3. Specificare un'area, un gruppo di affinità o una rete virtuale. Ai fini di questa esercitazione, specificare un’area come **Stati Uniti Occidentali**.
    4. Nella casella **Account di archiviazione** selezionare **Usa un account di archiviazione generato automaticamente **.
    5. Nella casella **Set di disponibilità** selezionare **(Nessuno)**.
-   6. Fare clic su **Next**.
+   6. Fare clic su **Avanti**.
 7. Nella finestra di dialogo **Configurazione macchina virtuale** finale:
    1. Accettare le voci di endpoint predefinite.
    2. Fare clic su **Complete**.
@@ -156,6 +155,6 @@ Scoprire di più su altri servizi, come Archiviazione, Bus di servizio e Databas
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

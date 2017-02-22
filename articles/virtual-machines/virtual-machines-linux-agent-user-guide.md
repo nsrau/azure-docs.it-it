@@ -1,5 +1,5 @@
 ---
-title: Manuale dell&quot;utente dell&quot;agente Linux | Microsoft Docs
+title: Panoramica dell&quot;agente di VM Linux di Azure | Documentazione Microsoft
 description: Informazioni su come installare e configurare l&quot;agente Linux (waagent) per gestire l&quot;interazione della macchina virtuale con il controller di infrastruttura di Azure.
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 43d3ad9e2b50a84cb9fd70582eb03b9d7d45d788
+ms.sourcegitcommit: 02579f138f957e5d245290e2cb8fc448120a4701
+ms.openlocfilehash: e77fee96710e99dab664f61d4c64aea0b12944ad
 
 
 ---
@@ -210,7 +210,7 @@ Se impostato, waagent eseguirà CustomData dopo il provisioning.
 
 **Provisioning.PasswordCryptId**  
 Tipo: stringa  
-Predefinito: 6
+Predefinito:&6;
 
 Algoritmo usato dalla crittografia durante la generazione di hash della password.  
  1 - MD5  
@@ -220,7 +220,7 @@ Algoritmo usato dalla crittografia durante la generazione di hash della password
 
 **Provisioning.PasswordCryptSaltLength**  
 Tipo: stringa  
-Predefinito: 10
+Predefinito:&10;
 
 Lunghezza di salt casuale usata durante la generazione di hash della password.
 
@@ -309,6 +309,6 @@ Si noti che le immagini di Ubuntu Cloud utilizzano [cloud-init](https://launchpa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

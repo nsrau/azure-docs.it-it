@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/19/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c12201094bfdc648f1e5c32575d0d506cc92aedc
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 18131c083a0dc24eaa6f58445aa61d5872210417
 
 
 ---
@@ -52,7 +52,7 @@ Vi sono alcune informazioni che è necessario conoscere sulle tabelle Hive inter
 * Il comando **CREATE EXTERNAL TABLE** non sposta il file di dati.
 * Il comando **CREATE EXTERNAL TABLE** non consente la creazione di cartelle in LOCATION. È per questo motivo che nell'esercitazione si esegue una copia del file sample.log.
 
-Per altre informazioni, vedere l'[articolo introduttivo alle tabelle Hive interne ed esterne di HDInsight][cindygross-hive-tables].
+Per altre informazioni, vedere [HDInsight: Hive Internal and External Tables Intro][cindygross-hive-tables] (HDInsight: introduzione alle tabelle Hive interne ed esterne).
 
 ## <a name="a-iddataaabout-the-sample-data-an-apache-log4j-file"></a><a id="data"></a>Informazioni sui dati di esempio: file log4j di Apache
 Questo esempio usa un file di esempio *log4j*, che viene archiviato in **/example/data/sample.log** nel contenitore dell'archivio BLOB. Ogni log all'interno del file è costituito da una riga di campi che contiene un campo `[LOG LEVEL]` per visualizzare il tipo e la gravità. Ad esempio:
@@ -89,10 +89,10 @@ Le istruzioni HiveQL seguenti consentono di proiettare colonne in dati delimitat
 
 Nell'esempio precedente, le istruzioni HiveQL eseguono le azioni seguenti:
 
-* **set hive.execution.engine=tez;**: imposta il motore di esecuzione per l'uso di Tez. L'uso di Tez invece di MapReduce offre un aumento delle prestazioni delle query. Per altre informazioni su Tez, vedere la sezione [Usare Apache Tez per ottenere prestazioni migliorate](#usetez) .
+* **set hive.execution.engine=tez;**: imposta il motore di esecuzione per l'uso di Tez. L'uso di Tez invece di MapReduce offre un aumento delle prestazioni delle query. For more information on Tez, see the [Use Apache Tez for improved performance](#usetez) section.
   
   > [!NOTE]
-  > Questa istruzione è obbligatorio solo quando si usa un cluster HDInsight basato su Windows. Tez è il motore di esecuzione predefinito per HDInsight basato su Linux.
+  > Questa istruzione è obbligatoria solo quando si usa un cluster HDInsight basato su Windows. Tez è il motore di esecuzione predefinito per HDInsight basato su Linux.
   > 
   > 
 * **DROP TABLE**: elimina la tabella e il file di dati, se la tabella esiste già.
@@ -161,6 +161,9 @@ HDInsight è in grado di eseguire processi HiveQL in vari modi. Usare la tabella
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux o Windows |Windows |
 | [Desktop remoto](hdinsight-hadoop-use-hive-remote-desktop.md) |✔ |✔ |Windows |Windows |
 
+> [!IMPORTANT]
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 ## <a name="running-hive-jobs-on-azure-hdinsight-using-on-premises-sql-server-integration-services"></a>Esecuzione di processi Hive in Azure HDInsight tramite SQL Server Integration Services locali
 È inoltre possibile utilizzare SQL Server Integration Services (SSIS) per eseguire un processo Hive. Il Feature Pack di Azure per SSIS fornisce i seguenti componenti che funzionano con i processi Hive in HDInsight.
 
@@ -170,15 +173,13 @@ HDInsight è in grado di eseguire processi HiveQL in vari modi. Usare la tabella
 Altre informazioni sul Feature Pack di Azure per SSIS sono disponibili [qui][ssispack].
 
 ## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Passaggi successivi
-Dopo aver appreso cos'è Hive e come si usa con Hadoop in HDInsight, vedere i collegamenti seguenti per scoprire altre modalità di utilizzo di Azure HDInsight.
+Dopo avere appreso che cos'è Hive e come si usa con Hadoop in HDInsight, vedere i collegamenti seguenti per scoprire altri modi di usare Azure HDInsight.
 
 * [Caricare dati in HDInsight][hdinsight-upload-data]
 * [Usare Pig con HDInsight][hdinsight-use-pig]
 * [Usare Sqoop con Hadoop in HDInsight](hdinsight-use-sqoop.md)
 * [Usare Oozie con HDInsight](hdinsight-use-oozie.md)
 * [Usare processi MapReduce con HDInsight][hdinsight-use-mapreduce]
-
-[check]: ./media/hdinsight-use-hive/hdi.checkmark.png
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
@@ -206,20 +207,15 @@ Dopo aver appreso cos'è Hive e come si usa con Hadoop in HDInsight, vedere i co
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../powershell-install-configure.md
+[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
-
-[image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
-[img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
-[image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

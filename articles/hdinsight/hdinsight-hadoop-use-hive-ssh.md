@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/04/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 366642a753223aec116ebd87751dfce0c393f7a7
+ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
+ms.openlocfilehash: 6971e3d36629640d3a550539b29ba7cc4c0da6b7
 
 
 ---
@@ -27,14 +27,17 @@ ms.openlocfilehash: 366642a753223aec116ebd87751dfce0c393f7a7
 In questo articolo si apprenderà come usare SSH (Secure Shell) per connettersi a un cluster Hadoop in Azure HDInsight e quindi inviare in modo interattivo query Hive mediante l'interfaccia della riga di comando di Hive.
 
 > [!IMPORTANT]
-> Anche se il comando Hive è disponibile nei cluster HDInsight basati su Linux, è consigliabile utilizzare Beeline. Beeline è un client più recente per l'utilizzo di Hive ed è incluso con il cluster HDInsight. Per ulteriori informazioni sull'utilizzo di questo, vedere [Utilizzo di Hive con Hadoop in HDInsight con Beeline](hdinsight-hadoop-use-hive-beeline.md).
-> 
-> 
+> Sebbene il comando Hive sia disponibile nei cluster HDInsight, è consigliabile usare Beeline. Beeline è un client più recente per l'utilizzo di Hive ed è incluso con il cluster HDInsight. Per ulteriori informazioni sull'utilizzo di questo, vedere [Utilizzo di Hive con Hadoop in HDInsight con Beeline](hdinsight-hadoop-use-hive-beeline.md).
+
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Prerequisiti
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
 * Un cluster Hadoop basato su Linux in HDInsight.
+
+  > [!IMPORTANT]
+  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * Un client SSH. Linux, Unix e Mac OS dovrebbero essere dotati di un client SSH. Per gli utenti di Windows è necessario scaricare un client, ad esempio [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>Connettersi con SSH
@@ -154,6 +157,6 @@ Se si usa Tez con Hive, vedere i documenti seguenti per le informazioni di debug
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

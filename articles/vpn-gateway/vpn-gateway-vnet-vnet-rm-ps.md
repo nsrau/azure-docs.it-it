@@ -434,6 +434,6 @@ In questo esempio, dato che i gateway si trovano in sottoscrizioni diverse, il p
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

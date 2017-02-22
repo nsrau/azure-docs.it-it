@@ -1,6 +1,6 @@
 ---
-title: Eseguire l&quot;autenticazione con Data Lake Store usando Active Directory | Documentazione Microsoft
-description: Informazioni su come eseguire l&quot;autenticazione con Data Lake Store usando Active Directory
+title: 'Autenticazione dell&quot;utente finale: Data Lake Store con Azure Active Directory | Documentazione Microsoft'
+description: Informazioni su come ottenere l&quot;autenticazione dell&quot;utente finale con Data Lake Store tramite Azure Active Directory
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/17/2016
+ms.date: 01/10/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7e7c9fd2fe7e6327cd39c4c26583c8fd556c9044
+ms.sourcegitcommit: 9019a4115e81a7d8f1960098b1138cd437a0460b
+ms.openlocfilehash: a50fc687a1738a55c3d22eb3e12060397c162e06
 
 
 ---
@@ -29,8 +29,8 @@ ms.openlocfilehash: 7e7c9fd2fe7e6327cd39c4c26583c8fd556c9044
 
 Azure Data Lake Store usa Azure Active Directory per l'autenticazione. Prima di creare un'applicazione che funziona con Azure Data Lake Store o Azure Data Lake Analytics, per prima cosa è necessario stabilire come si desidera eseguire l'autenticazione dell'applicazione con Azure Active Directory (Azure AD). Le opzioni disponibili sono due:
 
-* Autenticazione dell'utente finale 
-* Autenticazione da servizio a servizio 
+* Autenticazione dell'utente finale (questo articolo)
+* Autenticazione da servizio a servizio
 
 Entrambe queste opzioni comportano che l'applicazione venga fornita con un token OAuth 2.0, che viene associato a ogni richiesta effettuata ad Azure Data Lake Store o Azure Data Lake Analytics.
 
@@ -59,7 +59,7 @@ L'applicazione può attivare una finestra popup di autorizzazione OAuth 2.0, in 
 > 
 
 ### <a name="directly-passing-in-user-credentials"></a>Accesso diretto tramite le credenziali dell'utente
-L'applicazione può fornire direttamente le credenziali utente ad Azure AD. Questo metodo funziona solo con gli account utente con ID organizzazione; non è compatibile con gli account utente personali / con "ID dinamico", inclusi quelli che terminano con @outlook.com o @live.com.. Inoltre, questo metodo non è compatibile con gli account utente che richiedono l'autenticazione a due fattori (2FA) di Azure AD.
+L'applicazione può fornire direttamente le credenziali utente ad Azure AD. Questo metodo funziona solo con gli account utente con ID organizzazione. Non è compatibile con gli account utente personali/con "ID dinamico", inclusi quelli che terminano con @outlook.com o @live.com. Inoltre, questo metodo non è compatibile con gli account utente che richiedono l'autenticazione a due fattori (2FA) di Azure AD.
 
 ### <a name="what-do-i-need-to-use-this-approach"></a>Di cosa ho bisogno per usare questo approccio?
 * Il nome di dominio di Azure AD. È già elencato nei prerequisiti riportati in questo articolo.
@@ -75,7 +75,7 @@ Questa sezione contiene informazioni su come creare e configurare un'applicazion
 
 ### <a name="step-1-create-an-azure-active-directory-application"></a>Passaggio 1: Creare un'applicazione di Azure Active Directory
 > [!NOTE]
-> Nella procedura seguente viene usato il portale di Azure. È possibile anche creare un'applicazione Azure AD tramite [Azure PowerShell](../resource-group-authenticate-service-principal.md) o l'[interfaccia della riga di comando di Azure](../resource-group-authenticate-service-principal-cli.md).
+> Nella procedura seguente viene usato il portale di Azure. È possibile anche creare un'applicazione Azure AD tramite [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md) o l'[interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md).
 > 
 > 
 
@@ -134,6 +134,6 @@ In questo articolo è stata creata un'applicazione Web di Azure AD e sono state 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

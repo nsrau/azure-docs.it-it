@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
+ms.date: 12/21/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: c9b16bd5cd3dc2429a30fd30f9ec942c568abe42
-ms.openlocfilehash: 802249883c6adf3fedc9873e35fb64a9085d905b
+ms.sourcegitcommit: 5840ec74f6af2e373d9ebb34b0f6e13094c33f19
+ms.openlocfilehash: 003ca36c80274c4cad430ac67cf8cf3551d4137a
 
 
 ---
@@ -54,7 +54,7 @@ Questa esercitazione illustra come scrivere codice ASP.NET per alcuni scenari co
 
     ![Assegnare un nome al controller MVC](./media/vs-storage-aspnet-getting-started-blobs/add-controller-name.png)
 
-1. Aggiungere le direttive *using* seguenti al file `BlobsController.cs`.
+1. Aggiungere le direttive *using* seguenti al file `BlobsController.cs`:
 
     ```csharp
     using Microsoft.Azure;
@@ -65,7 +65,11 @@ Questa esercitazione illustra come scrivere codice ASP.NET per alcuni scenari co
 
 ## <a name="create-a-blob-container"></a>Creare un contenitore BLOB
 
-Un contenitore BLOB è una gerarchia nidificata di BLOB e cartelle. I passaggi seguenti illustrano come creare un contenitore BLOB.
+Un contenitore BLOB è una gerarchia nidificata di BLOB e cartelle. I passaggi seguenti illustrano come creare un contenitore BLOB:
+
+> [!NOTE]
+> 
+> Il codice in questa sezione presuppone che siano stati completati i passaggi descritti nella sezione [Configurare l'ambiente di sviluppo](#set-up-the-development-environment). 
 
 1. Aprire il file `BlobsController.cs` .
 
@@ -99,7 +103,7 @@ Un contenitore BLOB è una gerarchia nidificata di BLOB e cartelle. I passaggi s
     CloudBlobContainer container = blobClient.GetContainerReference("test-blob-container");
     ```
 
-1. Chiamare il metodo **CloudBlobContainer.CreateIfNotExists** per creare il contenitore, se non esiste già. Il metodo **CloudBlobContainer.CreateIfNotExists** restituisce **true** se il contenitore non esiste e il contenitore viene creato; in caso contrario, restituisce **false**.    
+1. Chiamare il metodo **CloudBlobContainer.CreateIfNotExists** per creare il contenitore, se non esiste già. Il metodo **CloudBlobContainer.CreateIfNotExists** restituisce **true** se il contenitore non esiste e il contenitore viene creato. In caso contrario, viene restituito **false**.    
 
     ```csharp
     ViewBag.Success = container.CreateIfNotExists();
@@ -115,35 +119,39 @@ Un contenitore BLOB è una gerarchia nidificata di BLOB e cartelle. I passaggi s
 
 1. Nella finestra di dialogo **Aggiungi visualizzazione** immettere **CreateBlobContainer** per il nome della visualizzazione e selezionare **Aggiungi**.
 
-1. Aprire `CreateBlobContainer.cshtml` e modificarlo in modo che l'aspetto sia simile al seguente.
+1. Aprire `CreateBlobContainer.cshtml` e modificarlo in modo che l'aspetto sia simile al frammento di codice seguente:
 
     ```csharp
     @{
-        ViewBag.Title = "Create blob container";
+        ViewBag.Title = "Create Blob Container";
     }
     
-    <h2>Create blob container results</h2>
+    <h2>Create Blob Container results</h2>
 
     Creation of @ViewBag.BlobContainerName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
 
 1. In **Esplora soluzioni** espandere la cartella **Views->Shared** e aprire `_Layout.cshtml`.
 
-1. Dopo l'ultimo **Html.ActionLink**, aggiungere il seguente **Html.ActionLink**.
+1. Dopo l'ultimo **Html.ActionLink**, aggiungere il seguente **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Create blob container", "CreateBlobContainer", "Blobs")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare **Crea contenitore BLOB**. Verranno visualizzati risultati simili allo screenshot seguente. 
+1. Eseguire l'applicazione e selezionare **Crea contenitore BLOB** per visualizzare risultati simili allo screenshot seguente:
   
-    ![Creare un contenitore BLOB](./media/vs-storage-aspnet-getting-started-blobs/results.png)
+    ![Creare un contenitore BLOB](./media/vs-storage-aspnet-getting-started-blobs/create-blob-container-results.png)
 
     Come accennato in precedenza, il metodo **CloudBlobContainer.CreateIfNotExists** restituisce **true** solo quando il contenitore non esiste e viene creato. Se quindi si esegue l'app quando il contenitore esiste, il metodo restituisce **false**. Per eseguire l'app più volte, è necessario eliminare il contenitore prima di eseguire di nuovo l'app. È possibile eliminare il contenitore usando il metodo **CloudBlobContainer.Delete**. È possibile anche eliminare il contenitore usando il [portale Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) o [Esplora archivi di Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## <a name="upload-a-blob-into-a-blob-container"></a>Caricare un BLOB in un contenitore BLOB
 
-Dopo avere [creato un contenitore BLOB](#create-a-blob-container), è possibile caricare file in questo contenitore. Questa sezione illustra come caricare un file locale in un contenitore BLOB. Nei passaggi si presuppone che sia stato creato un contenitore BLOB denominato *test-blob-container*. È necessario modificare questo nome nel nome del contenitore BLOB. 
+Dopo avere [creato un contenitore BLOB](#create-a-blob-container), è possibile caricare file in questo contenitore. Questa sezione illustra come caricare un file locale in un contenitore BLOB. Nei passaggi si presuppone che sia stato creato un contenitore BLOB denominato *test-blob-container*. 
+
+> [!NOTE]
+> 
+> Il codice in questa sezione presuppone che siano stati completati i passaggi descritti nella sezione [Configurare l'ambiente di sviluppo](#set-up-the-development-environment). 
 
 1. Aprire il file `BlobsController.cs` .
 
@@ -158,7 +166,7 @@ Dopo avere [creato un contenitore BLOB](#create-a-blob-container), è possibile 
     }
     ```
  
-1. Nel metodo **UploadBlob** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Utilizzare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure. Cambiare *&lt;storage-account-name>* con il nome dell'account di archiviazione di Azure a cui si sta eseguendo l'accesso.
+1. Nel metodo **UploadBlob** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: sostituire *&lt;storage-account-name>* con il nome dell'account di archiviazione Azure a cui si sta accedendo.
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -177,7 +185,7 @@ Dopo avere [creato un contenitore BLOB](#create-a-blob-container), è possibile 
     CloudBlobContainer container = blobClient.GetContainerReference("test-blob-container");
     ```
 
-1. Come illustrato in precedenza, l'Archiviazione di Azure supporta tipi di BLOB diversi. Per recuperare un riferimento a un BLOB di pagine, chiamare il metodo **CloudBlobContainer.GetPageBlobReference**. Per recuperare un riferimento a un BLOB in blocchi, chiamare il metodo **CloudBlobContainer.GetBlockBlobReference**. Nella maggior parte dei casi è consigliabile usare il tipo di BLOB in blocchi. Cambiare *<blob-name>* nel nome da assegnare al BLOB una volta caricato
+1. Come illustrato in precedenza, l'Archiviazione di Azure supporta tipi di BLOB diversi. Per recuperare un riferimento a un BLOB di pagine, chiamare il metodo **CloudBlobContainer.GetPageBlobReference**. Per recuperare un riferimento a un BLOB in blocchi, chiamare il metodo **CloudBlobContainer.GetBlockBlobReference**. Nella maggior parte dei casi è consigliabile usare il tipo di BLOB in blocchi. Cambiare <blob-name>* nel nome da assegnare al BLOB una volta caricato.
 
     ```csharp
     CloudBlockBlob blob = container.GetBlockBlobReference(<blob-name>);
@@ -196,7 +204,7 @@ Dopo avere [creato un contenitore BLOB](#create-a-blob-container), è possibile 
 
 1. In **Esplora soluzioni** espandere la cartella **Views->Shared** e aprire `_Layout.cshtml`.
 
-1. Dopo l'ultimo **Html.ActionLink**, aggiungere il seguente **Html.ActionLink**.
+1. Dopo l'ultimo **Html.ActionLink**, aggiungere il seguente **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Upload blob", "UploadBlob", "Blobs")</li>
@@ -204,11 +212,15 @@ Dopo avere [creato un contenitore BLOB](#create-a-blob-container), è possibile 
 
 1. Eseguire l'applicazione e selezionare **Carica BLOB**.  
   
-Nella sezione successiva verrà illustrato come elencare i BLOB in un contenitore BLOB.     
+La sezione [Elencare i BLOB in un contenitore BLOB](#list-the-blobs-in-a-blob-container) illustra come elencare i BLOB in un contenitore BLOB.    
 
 ## <a name="list-the-blobs-in-a-blob-container"></a>Elencare i BLOB in un contenitore BLOB
 
 Questa sezione illustra come elencare i BLOB in un contenitore BLOB. Il codice di esempio fa riferimento al *test-blob-container* creato nella sezione [Creare un contenitore BLOB](#create-a-blob-container).
+
+> [!NOTE]
+> 
+> Il codice in questa sezione presuppone che siano stati completati i passaggi descritti nella sezione [Configurare l'ambiente di sviluppo](#set-up-the-development-environment). 
 
 1. Aprire il file `BlobsController.cs` .
 
@@ -223,7 +235,7 @@ Questa sezione illustra come elencare i BLOB in un contenitore BLOB. Il codice d
     }
     ```
  
-1. Nel metodo **ListBlobs** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Utilizzare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure. Cambiare *&lt;storage-account-name>* con il nome dell'account di archiviazione di Azure a cui si sta eseguendo l'accesso.
+1. Nel metodo **ListBlobs** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: sostituire *&lt;storage-account-name>* con il nome dell'account di archiviazione Azure a cui si sta accedendo.
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -242,7 +254,7 @@ Questa sezione illustra come elencare i BLOB in un contenitore BLOB. Il codice d
     CloudBlobContainer container = blobClient.GetContainerReference("test-blob-container");
     ```
 
-1. Per elencare i BLOB in un contenitore BLOB, usare il metodo **CloudBlobContainer.ListBlobs**. Il metodo **CloudBlobContainer.ListBlobs** restituisce un oggetto **IListBlobItem** che viene trasmesso a un oggetto **CloudBlockBlob**, **CloudPageBlob** o **CloudBlobDirectory**. Il frammento di codice seguente enumera tutti i BLOB in un contenitore BLOB, trasmettendo l'oggetto restituito all'oggetto appropriato in base al tipo e aggiunge il nome (o l'URI nel caso di **CloudBlobDirectory**) a un elenco che può essere visualizzato.
+1. Per elencare i BLOB in un contenitore BLOB, usare il metodo **CloudBlobContainer.ListBlobs**. Il metodo **CloudBlobContainer.ListBlobs** restituisce un oggetto **IListBlobItem** che viene trasmesso a un oggetto **CloudBlockBlob**, **CloudPageBlob** o **CloudBlobDirectory**. Il seguente frammento di codice enumera tutti i BLOB in un contenitore BLOB. Ogni BLOB trasmesso all'oggetto appropriato in base al tipo e il suo nome (o URI nel caso di una **CloudBlobDirectory**) viene aggiunto a un elenco.
 
     ```csharp
     List<string> blobs = new List<string>();
@@ -299,7 +311,7 @@ Questa sezione illustra come elencare i BLOB in un contenitore BLOB. Il codice d
 
 1. Nella finestra di dialogo **Aggiungi visualizzazione** immettere **ListBlobs** per il nome della visualizzazione e selezionare **Aggiungi**.
 
-1. Aprire `ListBlobs.cshtml` e modificarlo in modo che l'aspetto sia simile al seguente.
+1. Aprire `ListBlobs.cshtml` e modificarlo in modo che l'aspetto sia simile al frammento di codice seguente:
 
     ```html
     @model List<string>
@@ -319,19 +331,19 @@ Questa sezione illustra come elencare i BLOB in un contenitore BLOB. Il codice d
 
 1. In **Esplora soluzioni** espandere la cartella **Views->Shared** e aprire `_Layout.cshtml`.
 
-1. Dopo l'ultimo **Html.ActionLink**, aggiungere il seguente **Html.ActionLink**.
+1. Dopo l'ultimo **Html.ActionLink**, aggiungere il seguente **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("List blobs", "ListBlobs", "Blobs")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare **List blobs**. Verranno visualizzati risultati simili allo screenshot seguente. 
+1. Eseguire l'applicazione e selezionare **List blobs** (Elenca BLOB) per visualizzare risultati simili allo screenshot seguente:
   
     ![Elenco di BLOB](./media/vs-storage-aspnet-getting-started-blobs/listblobs.png)
 
 ## <a name="download-blobs"></a>Scaricare BLOB
 
-La procedura seguente illustra come scaricare un BLOB e salvarlo in modo permanente nell'archiviazione locale o leggere il contenuto in una stringa. Il codice di esempio fa riferimento al *test-blob-container* creato nella sezione [Creare un contenitore BLOB](#create-a-blob-container).
+Questa sezione illustra come scaricare un BLOB e salvarlo in modo permanente nell'archiviazione locale o leggere il contenuto in una stringa. Il codice di esempio fa riferimento al *test-blob-container* creato nella sezione [Creare un contenitore BLOB](#create-a-blob-container).
 
 1. Aprire il file `BlobsController.cs` .
 
@@ -346,7 +358,7 @@ La procedura seguente illustra come scaricare un BLOB e salvarlo in modo permane
     }
     ```
  
-1. Nel metodo **DownloadBlob** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Utilizzare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure. Cambiare *&lt;storage-account-name>* con il nome dell'account di archiviazione di Azure a cui si sta eseguendo l'accesso.
+1. Nel metodo **DownloadBlob** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: sostituire *&lt;storage-account-name>* con il nome dell'account di archiviazione Azure a cui si sta accedendo.
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -371,7 +383,7 @@ La procedura seguente illustra come scaricare un BLOB e salvarlo in modo permane
     CloudBlockBlob blob = container.GetBlockBlobReference(<blob-name>);
     ```
 
-1. Per scaricare un BLOB, usare il metodo **CloudBlockBlob.DownloadToStream** o **CloudPageBlob.DownloadToStream**, a seconda del tipo di BLOB. Il frammento di codice seguente usa il metodo **CloudBlockBlob.DownloadToStream** per trasferire il contenuto di un BLOB a un oggetto flusso che viene salvato in modo permanente in un file locale. Cambiare *&lt;local-file-name>* nel nome file completo che rappresenta la posizione in cui scaricare il BLOB. 
+1. Per scaricare un BLOB, usare il metodo **CloudBlockBlob.DownloadToStream** o **CloudPageBlob.DownloadToStream**, a seconda del tipo di BLOB. Il frammento di codice seguente usa il metodo **CloudBlockBlob.DownloadToStream** per trasferire il contenuto di un BLOB a un oggetto flusso che viene salvato in modo permanente in un file locale: modificare *&lt;local-file-name>* nel nome del file completo che rappresenta il percorso in cui scaricare il BLOB. 
 
     ```csharp
     using (var fileStream = System.IO.File.OpenWrite(<local-file-name>))
@@ -382,7 +394,7 @@ La procedura seguente illustra come scaricare un BLOB e salvarlo in modo permane
 
 1. In **Esplora soluzioni** espandere la cartella **Views->Shared** e aprire `_Layout.cshtml`.
 
-1. Dopo l'ultimo **Html.ActionLink**, aggiungere il seguente **Html.ActionLink**.
+1. Dopo l'ultimo **Html.ActionLink**, aggiungere il seguente **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Download blob", "DownloadBlob", "Blobs")</li>
@@ -392,7 +404,11 @@ La procedura seguente illustra come scaricare un BLOB e salvarlo in modo permane
 
 ## <a name="delete-blobs"></a>Eliminare BLOB
 
-I passaggi seguenti illustrano come eliminare un BLOB. 
+I passaggi seguenti illustrano come eliminare un BLOB:
+
+> [!NOTE]
+> 
+> Il codice in questa sezione presuppone che siano stati completati i passaggi descritti nella sezione [Configurare l'ambiente di sviluppo](#set-up-the-development-environment). 
 
 1. Aprire il file `BlobsController.cs` .
 
@@ -407,7 +423,7 @@ I passaggi seguenti illustrano come eliminare un BLOB.
     }
     ```
 
-1. Ottenere un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Utilizzare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure. Cambiare *&lt;storage-account-name>* con il nome dell'account di archiviazione di Azure a cui si sta eseguendo l'accesso.
+1. Ottenere un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: sostituire *&lt;storage-account-name>* con il nome dell'account di archiviazione Azure a cui si sta accedendo.
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -440,7 +456,7 @@ I passaggi seguenti illustrano come eliminare un BLOB.
 
 1. In **Esplora soluzioni** espandere la cartella **Views->Shared** e aprire `_Layout.cshtml`.
 
-1. Dopo l'ultimo **Html.ActionLink**, aggiungere il seguente **Html.ActionLink**.
+1. Dopo l'ultimo **Html.ActionLink**, aggiungere il seguente **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Delete blob", "DeleteBlob", "Blobs")</li>
@@ -455,6 +471,6 @@ Per ulteriori opzioni di archiviazione dei dati in Azure, consultare altre guide
   * [Introduzione all'archiviazione code di Azure e ai Servizi connessi di Visual Studio (ASP.NET)](./vs-storage-aspnet-getting-started-queues.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

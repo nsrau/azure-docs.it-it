@@ -1,28 +1,28 @@
 ---
-title: Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Analizzatore messaggi | Microsoft Docs
+title: "Risoluzione dei problemi di Archiviazione di Azure con le funzionalità di diagnostica e Message Analyzer | Documentazione Microsoft"
 description: Esercitazione che illustra la risoluzione dei problemi end-to-end mediante Analisi archiviazione di Azure, AzCopy e Microsoft Message Analyzer
 services: storage
 documentationcenter: dotnet
 author: robinsh
-manager: carmonm
+manager: timlt
 ms.assetid: 643372a3-1c07-4e88-b4ef-042512a43086
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 01/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: f2032f3a4fa559b9772ee63d39d66408b3f92175
-ms.openlocfilehash: 12cacb0abebf69a644aa34d78c047e99b23d4aaf
+ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
+ms.openlocfilehash: f2cd7f0882f31de5f4bb99f772c38a0fff28cd59
 
 
 ---
-# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer
+# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Risoluzione dei problemi end-to-end con le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Diagnostica e risoluzione dei problemi sono competenze fondamentali per la creazione e il supporto di applicazioni client con Archiviazione di Microsoft Azure. Data la natura distribuita di un'applicazione Azure, la diagnostica e la risoluzione dei problemi di prestazioni possono risultare più complesse che in ambienti tradizionali.
 
 In questa esercitazione viene illustrato come identificare alcuni errori che potrebbero influire sulle prestazioni e come risolverli in modo end-to-end usando gli strumenti forniti da Microsoft e Archiviazione di Azure, per ottimizzare l'applicazione client.
@@ -103,7 +103,7 @@ Per configurare registrazione e metrica per l'account di archiviazione tramite i
 
 **Tramite PowerShell**
 
-Per informazioni introduttive su PowerShell per Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+Per informazioni introduttive su PowerShell per Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 1. Usare il cmdlet [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) per aggiungere l'account utente di Azure alla finestra di PowerShell:
    
@@ -305,7 +305,7 @@ Dopo aver applicato il filtro, si noterà che vengono escluse le righe del log d
 Le risorse di archiviazione includono filtri predefiniti che possono essere usati per limitare i dati di log per trovare gli errori o le tendenze che si stanno cercando. A questo punto verranno applicati due filtri predefiniti: uno che filtra il log del server e il log della traccia di rete per trovare gli errori 404 e uno che filtra i dati in un determinato intervallo di tempo.
 
 1. Visualizzare la finestra degli strumenti View Filter se non è visualizzata. Sulla barra multifunzione selezionare **Finestre degli strumenti** e **Filtro visualizzazione**.
-2. Nella finestra Filtro visualizzazione selezionare **Libreria** e cercare in `Azure Storage` per trovare i filtri di Archiviazione di Azure. Selezionare il filtro **Messaggi 404 (non trovato) in tutti i log**.
+2. Nella finestra Filtro visualizzazione selezionare **Libreria** e cercare in `Azure Storage` per trovare i filtri di Archiviazione di Azure. Selezionare il filtro **Messaggi&404; (non trovato) in tutti i log**.
 3. Visualizzare nuovamente il menu **Libreria** e quindi individuare e selezionare **Global Time Filter** (Filtro tempo di esecuzione globale).
 4. Modificare i timestamp presenti nel filtro impostando l'intervallo che si vuole visualizzare. In questo modo si limiterà l'intervallo di date da analizzare.
 5. Il filtro dovrebbe risultare analogo a quello riportato nell'esempio seguente. Fare clic su **Applica** per applicare il filtro alla griglia di analisi.
@@ -374,6 +374,6 @@ Per altre informazioni sugli scenari end-to-end di risoluzione dei problemi di a
 * [Guida operativa di Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

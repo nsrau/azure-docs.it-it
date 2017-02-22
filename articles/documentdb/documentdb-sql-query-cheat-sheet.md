@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2016
+ms.date: 02/03/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bf63bc0fed285feef8fa0af5796d2b70d86ed098
+ms.sourcegitcommit: 82ac3feb64c688a372d2b6d41a259d7126df44c1
+ms.openlocfilehash: 68968f3300ff783a526469274d07ba524b7d3569
 
 
 ---
@@ -46,6 +46,6 @@ Aggiornata il 29/7/2016 per includere TOP.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

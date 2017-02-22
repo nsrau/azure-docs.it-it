@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/19/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
-ms.openlocfilehash: 78fa8bc1394f98c6aa90a75ba17ec36106f09290
+ms.sourcegitcommit: 2f5c5e9af193c843765f63640d46c25f3a6d10c3
+ms.openlocfilehash: 3641f9309cc38f6575ce36d3450448cdae1601a9
 
 
 ---
@@ -26,23 +26,24 @@ Le estensioni della directory consentono di estendere lo schema in Azure AD con 
 Attualmente nessun carico di lavoro di Office 365 utilizza questi attributi.
 
 È possibile configurare gli attributi aggiuntivi da sincronizzare nel percorso delle impostazioni personalizzate nell'installazione guidata.
-![Procedura guidata per l'estensione dello schema](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png) L'installazione mostra gli attributi seguenti, che sono candidati validi:
+![Procedura guidata per l'estensione dello schema](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png)  
+L'installazione mostra gli attributi seguenti, che sono candidati validi:
 
 * Tipi di oggetto utente e gruppo
 * Attributi a valore singolo: String, Boolean, Integer, Binary
 * Attributi multivalore: String, Binary
 
-L'elenco di attributi viene letto dalla cache creata durante l'installazione di Azure AD Connect. Se è stato esteso lo schema di Active Directory con altri attributi, prima che questi nuovi attributi siano visibili è necessario [aggiornare lo schema della directory](active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema) .
+L'elenco di attributi viene letto dalla cache dello schema creata durante l'installazione di Azure AD Connect. Se è stato esteso lo schema di Active Directory con altri attributi, prima che questi nuovi attributi siano visibili è quindi necessario [aggiornare lo schema della directory](active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema) .
 
-Un oggetto può avere al massimo 100 attributi delle estensioni della directory. La lunghezza massima consentita è di 250 caratteri. Se il valore di un attributo è più lungo, viene troncato dal motore di sincronizzazione.
+Un oggetto in Azure AD può avere al massimo 100 attributi delle estensioni della directory. La lunghezza massima consentita è di 250 caratteri. Se il valore di un attributo è più lungo, viene quindi troncato dal motore di sincronizzazione.
 
 Durante l'installazione di Azure AD Connect viene registrata un'applicazione in cui sono disponibili questi attributi. È possibile visualizzare questa applicazione nel portale di Azure.  
-![App estensione dello schema](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3.png)
+![App estensione dello schema](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3new.png)
 
 Questi attributi ora sono disponibili tramite Graph:   
 ![Grafico](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
 
-Gli attributi sono preceduti da extension\_{AppClientId}\_. AppClientId ha lo stesso valore per tutti gli attributi nella directory di Azure AD.
+Gli attributi sono preceduti da extension\_{AppClientId}\_. AppClientId ha lo stesso valore per tutti gli attributi nel tenant di Azure AD.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
@@ -51,7 +52,6 @@ Ulteriori informazioni su [Integrazione delle identità locali con Azure Active 
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

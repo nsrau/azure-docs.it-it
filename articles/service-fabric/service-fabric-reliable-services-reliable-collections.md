@@ -1,5 +1,5 @@
 ---
-title: Reliable Collections | Documentazione Microsoft
+title: Salvare lo stato dell&quot;applicazione nei microservizi di Azure | Documentazione Microsoft
 description: "I servizi con stato di Service Fabric forniscono raccolte Reliable Collections che consentono di sviluppare applicazioni cloud a disponibilità elevata, scalabili e a bassa latenza."
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: required
 ms.date: 10/18/2016
 ms.author: mcoskun
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9d8be5bed137ae00dec4f66fc821a6415f269ea1
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: 287707d528d2327637ad3d17633ef830657c04f8
 
 
 ---
@@ -171,6 +171,6 @@ Occorre tenere presente i concetti seguenti:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

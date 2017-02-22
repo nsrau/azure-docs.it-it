@@ -1,5 +1,5 @@
 ---
-title: Introduzione allo starter kit del gateway IoT di Azure | Microsoft Docs
+title: 'Dispositivo SensorTag e gateway Azure IoT: introduzione | Documentazione Microsoft'
 description: Informazioni introduttive sullo starter kit del gateway IoT, su come creare l&quot;hub IoT di Azure e connettere il dispositivo SensorTag e il gateway all&quot;hub IoT
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/21/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: bda9854b5ed05eaaf71f4cbd98b51e3634c66450
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: dd14d137c23fbccb3616b60db8a63e668ae7ea80
 
 
 ---
@@ -35,7 +35,7 @@ Questa esercitazione illustra le nozioni di base sull'uso dello [starter kit del
 ***
 
 ## <a name="lesson-1-configure-your-nuc"></a>Lezione 1. Configurare il dispositivo NUC
-![Diagramma di flusso della lezione 1](media/iot-hub-gateway-kit-lessons/e2e-lesson1.png)
+![Diagramma di flusso della lezione&1;](media/iot-hub-gateway-kit-lessons/e2e-lesson1.png)
 
 Questa lezione illustra come configurare il dispositivo Intel NUC (Next Unit of Computing) nel kit come un gateway IoT di Azure, installare il pacchetto SDK del gateway IoT di Azure sul dispositivo NUC ed eseguire un'app di esempio per verificare la funzionalità del gateway.
 
@@ -44,7 +44,7 @@ Questa lezione illustra come configurare il dispositivo Intel NUC (Next Unit of 
 Passare a [Configurare il dispositivo Intel NUC come un gateway IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 
 ## <a name="lesson-2-create-your-iot-hub"></a>Lezione 2. Creare l'hub IoT
-![Diagramma di flusso della lezione 2](media/iot-hub-gateway-kit-lessons/e2e-lesson2.png)
+![Diagramma di flusso della lezione&2;](media/iot-hub-gateway-kit-lessons/e2e-lesson2.png)
 
 Questa lezione illustra come installare gli strumenti e il software nel computer host. Verrà quindi indicato come creare l'account Azure gratuito, effettuare il provisioning dell'hub IoT di Azure e creare il primo dispositivo nell'hub IoT.
 
@@ -106,9 +106,9 @@ Passare a [Leggere i messaggi persistenti nell'archiviazione tabelle di Azure](i
 In caso di problemi durante le lezioni, è possibile cercare soluzioni nell'articolo [Risoluzione dei problemi](iot-hub-gateway-kit-c-troubleshooting.md).
 
 ## <a name="explore-more"></a>Scopri di più
-Per ulteriori informazioni, visitare la pagina relativa a [Intel IoT Gateway Kit in Developer Zone](https://software.intel.com/en-us/iot/hardware/gateways/dev-kit).
+Per ulteriori informazioni, visitare la pagina relativa a [Intel IoT Gateway Kit in Developer Zone](http://software.intel.com/iot/microsoft-azure).
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,29 +12,32 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/27/2016
+ms.date: 12/15/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 9fd40ebce2f249d0ac7d42b3dc068083d90afc95
-ms.openlocfilehash: 3f224cb1a7e2d9d3527a79a2d1fe255354ae6783
+ms.sourcegitcommit: 2c37d5186e169789881a4b29597cb37cd6f7ede9
+ms.openlocfilehash: dc5c575873ceb2acc8321b949031276d9a8f8cc8
 
 
 ---
 # <a name="create-a-linux-vm-using-the-azure-cli"></a>Creare una VM Linux usando l'interfaccia della riga di comando di Azure
-Questo articolo illustra come distribuire rapidamente una macchina virtuale (VM) Linux in Azure usando il comando `azure vm quick-create` nell'interfaccia della riga di comando di Azure. Il comando `quick-create` distribuisce una VM all'interno di un'infrastruttura di base protetta, che può essere usata per creare un prototipo o testare un concetto rapidamente. 
 
-> [!NOTE] 
+Questo articolo illustra come distribuire rapidamente una macchina virtuale (VM) Linux in Azure usando il comando `azure vm quick-create` nell'interfaccia della riga di comando di Azure. Il comando `quick-create` distribuisce una VM all'interno di un'infrastruttura di base protetta, che può essere usata per creare un prototipo o testare un concetto rapidamente.
+
+> [!NOTE]
 Per creare una VM usando l'interfaccia della riga di comando di Azure 2.0 (anteprima), vedere [Create a VM with the Azure CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Creare una VM con l'interfaccia della riga di comando di Azure).
 
 L'articolo richiede:
 
-* Un account Azure. È possibile [ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Accesso tramite `azure login` per l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* L'interfaccia della riga di comando di Azure *deve essere impostata obbligatoriamente* sulla modalità Azure Resource Manager `azure config mode arm`.
+- [Un account di Azure](https://azure.microsoft.com/pricing/free-trial/)
+
+- [File di chiavi SSH pubbliche e private](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
 
 È anche possibile distribuire rapidamente una VM Linux usando il [portale di Azure](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="quick-commands"></a>Comandi rapidi
+
 L'esempio seguente mostra come distribuire una VM CoreOS e collegare la chiave SSH (Secure Shell). Gli argomenti possono variare:
 
 ```azurecli
@@ -42,9 +45,11 @@ azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 ```
 
 ## <a name="detailed-walkthrough"></a>Procedura dettagliata
+
 La seguente procedura riguarda la distribuzione di una VM UbuntuLTS, passo passo, con spiegazioni su ogni passaggio.
 
 ## <a name="vm-quick-create-aliases"></a>Alias del comando VM quick-create
+
 Per scegliere rapidamente una distribuzione è possibile usare gli alias dell'interfaccia della riga di comando di Azure con mapping alle distribuzioni di sistemi operativi più diffuse. La tabella seguente elenca gli alias, a partire dall'interfaccia della riga di comando di Azure versione 0.10. Per impostazione predefinita, tutte le distribuzioni che usano `quick-create` fanno uso di macchine virtuali con risorse di archiviazione basate su unità SSD, che garantiscono un provisioning più veloce e accesso al disco a prestazioni elevate. Questi alias rappresentano una minima parte delle distribuzioni disponibili in Azure. Per trovare altre immagini in Azure Marketplace, è possibile [cercare un'immagine in PowerShell](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [sul Web](https://azure.microsoft.com/marketplace/virtual-machines/) o [caricare un'immagine personalizzata](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
 
 | Alias | Autore | Offerta | SKU | Versione |
@@ -75,7 +80,7 @@ azure vm quick-create \
   --location westus \
   --os-type Linux \
   --admin-username myAdminUser \
-  --ssh-public-file ~/.ssh/id_rsa.pub \
+  --ssh-publickey-file ~/.ssh/id_rsa.pub \
   --image-urn UbuntuLTS
 ```
 
@@ -209,7 +214,6 @@ Il comando `azure vm quick-create` consente di distribuire rapidamente una macch
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

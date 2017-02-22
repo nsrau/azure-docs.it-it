@@ -1,5 +1,5 @@
 ---
-title: Ottenere gli strumenti (macOS 10.10) | Documentazione Microsoft
+title: 'Connettere Raspberry Pi (C) ad Azure IoT: lezione 1: Ottenere gli strumenti (macOS) | Documentazione Microsoft'
 description: Scaricare e installare il software e gli strumenti necessari per la prima applicazione di esempio per Pi in macOS.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: bcb0b09468364cf13aff3987aeb7dd74e551cf9d
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 20cf1fd57f37c84342ba08954a913c0eceba415f
 
 
 ---
@@ -89,6 +89,6 @@ Sono stati installati gli strumenti di sviluppo e il software necessari per la p
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

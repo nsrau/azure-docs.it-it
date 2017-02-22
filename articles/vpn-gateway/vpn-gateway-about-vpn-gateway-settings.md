@@ -1,10 +1,10 @@
 ---
-title: Informazioni sulle impostazioni del gateway VPN per i gateway di reti virtuali | Microsoft Docs
-description: Informazioni sulle impostazioni del gateway VPN per la rete virtuale di Azure.
+title: Impostazioni del gateway VPN per connessioni di Azure cross-premise | Documentazione Microsoft
+description: Informazioni sulle impostazioni del gateway VPN per i gateway di rete virtuale di Azure.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fc3c8469657b50e4e09a1849d9c63f4ef1e0c414
+ms.sourcegitcommit: bf262073b46daa8b7dcf50fabf5f455d7d5850e7
+ms.openlocfilehash: 7a4efebcfc1ed38e9efdac293845f4be632e5b08
 
 
 ---
 # <a name="about-vpn-gateway-settings"></a>Informazioni sulle impostazioni del gateway VPN
-Una soluzione per la connessione di gateway VPN si basa sulla configurazione di più risorse per l'invio di traffico di rete tra le reti virtuali e i percorsi locali. Ogni risorsa contiene impostazioni configurabili. La combinazione di impostazioni e risorse determina il risultato della connessione.
+Un gateway VPN è un tipo di gateway di rete virtuale che invia traffico crittografato tra la rete virtuale e la posizione locale tramite una connessione pubblica. È possibile usare il gateway VPN anche per inviare il traffico tra reti virtuali.
 
-Le sezioni di questo articolo descrivono le risorse e le impostazioni correlate a un gateway VPN nel modello di distribuzione **Resource Manager** . L'articolo è utile per visualizzare le configurazioni disponibili tramite i diagrammi di topologia della connessione. Le descrizioni e i diagrammi della topologia per ogni soluzione di connessione sono disponibili nell'articolo [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md) . 
+Una connessione di gateway VPN si basa sulla configurazione di più risorse, ognuna delle quali contiene impostazioni configurabili. Le sezioni di questo articolo descrivono le risorse e le impostazioni correlate a un gateway VPN per una rete virtuale creata nel modello di distribuzione **Resource Manager**. Le descrizioni e i diagrammi della topologia per ogni soluzione di connessione sono disponibili nell'articolo [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md).  
 
 ## <a name="a-namegwtypeagateway-types"></a><a name="gwtype"></a>Tipi di gateway
 Ogni rete virtuale può avere un solo gateway di rete virtuale per tipo. Quando si crea un gateway di rete virtuale, è necessario assicurarsi che il tipo di gateway sia corretto per la configurazione in uso.
@@ -109,7 +109,7 @@ Nel seguente esempio di PowerShell `-VpnType` viene specificato come *RouteBased
 ## <a name="a-namegwsubagateway-subnet"></a><a name="gwsub"></a>Subnet del gateway
 Per configurare un gateway di rete virtuale, è necessario prima creare una subnet del gateway per la rete virtuale. Per poter funzionare correttamente, la subnet del gateway deve essere denominata *GatewaySubnet* . Questo nome indica ad Azure che questa subnet deve essere usata per il gateway.
 
-Le dimensioni minime della subnet del gateway dipendono interamente dalla configurazione che si vuole creare. Anche se è possibile creare una subnet del gateway pari a/29, è consigliabile crearne una di /28 o superiore (/ 28, /27, /26 e così via.). 
+Le dimensioni minime della subnet del gateway dipendono interamente dalla configurazione che si vuole creare. Anche se è possibile creare una subnet del gateway pari a/29, è consigliabile crearne una di /28 o superiore (/&28;, /27, /26 e così via.). 
 
 Creando un gateway più grande si evita di imbattersi in limitazioni delle dimensioni del gateway. Un gateway di rete virtuale, ad esempio, potrebbe essere stato creato con una dimensione della subnet del gateway pari a /29 per una connessione S2S. Ora si desidera configurare una connessione con coesistenza S2S/ExpressRoute. La configurazione richiede una subnet del gateway di dimensioni minime pari a /28. Per creare la configurazione, è necessario modificare la subnet del gateway in modo da soddisfare il requisito minimo per la connessione, ovvero /28.
 
@@ -145,6 +145,6 @@ Per altre informazioni sulle configurazioni delle connessioni disponibili, veder
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

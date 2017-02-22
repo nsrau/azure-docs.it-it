@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e39f2bb273bee9719f8f87cd27a1e1c92b6c4b53
+ms.sourcegitcommit: bee6dbf8910534b07a77e7fd7dd84edf07cf3dd5
+ms.openlocfilehash: bc475cd1abfa4d9ff6c8afe9647b353054dc201b
 
 
 ---
@@ -51,7 +51,9 @@ Di seguito si creerà un gestore mappe partizione con diverse partizioni, seguit
 
     ![Portale di Azure e il livello di prezzo][3]
 
-    Nota: è possibile usare un database esistente. Se è possibile farlo, non deve essere una delle partizioni su cui si desidera eseguire la query. Questo database verrà utilizzato per la creazione di oggetti di metadati per una query di database elastico.
+    > [!NOTE]
+    > È possibile usare un database esistente. Se è possibile farlo, non deve essere una delle partizioni su cui si desidera eseguire la query. Questo database verrà utilizzato per la creazione di oggetti di metadati per una query di database elastico.
+    >
 
 ## <a name="create-database-objects"></a>Creare oggetti di database
 ### <a name="database-scoped-master-key-and-credentials"></a>Chiave master con ambito database e credenziali
@@ -139,6 +141,6 @@ Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](https://a
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -8,6 +8,7 @@ author: ddove
 editor: CarlRabeler
 ms.assetid: b6911f8d-2bae-4d04-9fa8-f79a3db7129d
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,8 +16,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a42f6ed3bce42cbd5841f241c2f735b87252cb3f
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 86391212e70a0f0a8ec0e53dce26b11218a5780c
 
 
 ---
@@ -88,10 +89,10 @@ Per ulteriori informazioni sugli strumenti di database elastici, vedere:
 * Per misurare le prestazioni: [Contatori delle prestazioni per Gestore mappe partizioni](sql-database-elastic-database-client-library.md)
 
 <!--Anchors-->
-[Applicazione di esempio della scalabilità elastica]: #The-Elastic-Scale-Sample-Application
+[The Elastic Scale Sample Application]: #The-Elastic-Scale-Sample-Application
 [Download and Run the Sample App]: #Download-and-Run-the-Sample-App
-[Costii]: #Cost
-[Passaggi successivi]: #next-steps
+[Cost]: #Cost
+[Next steps]: #next-steps
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-get-started/newProject.png
@@ -102,6 +103,6 @@ Per ulteriori informazioni sugli strumenti di database elastici, vedere:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

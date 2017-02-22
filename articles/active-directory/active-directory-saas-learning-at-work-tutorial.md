@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/29/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 13678d93daced2d1759ac95cc8801312b47a3f5b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6c5f6c015ecec503a3e462edaf421852968907c1
 
 
 ---
@@ -237,6 +237,6 @@ Quando si fa clic sul riquadro Learning at Work nel pannello di accesso, si dovr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

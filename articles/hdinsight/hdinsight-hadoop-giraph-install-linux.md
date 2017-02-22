@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fe8d1658d2c3de2505f14255f2e30f1ddc537680
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: bd7cc835b251395c71fae4130b5b7057eb80b9e0
 
 
 ---
@@ -26,10 +26,8 @@ ms.openlocfilehash: fe8d1658d2c3de2505f14255f2e30f1ddc537680
 
 In questo argomento si apprenderà come installare Giraph usando le azioni script. Dopo l'installazione di Giraph, verranno fornite anche informazioni su come usare Giraph per la maggior parte delle applicazioni tipiche, ovvero per l'elaborazione di grafici di grandi dimensioni.
 
-> [!NOTE]
-> Le informazioni contenute in questo articolo sono specifiche per i cluster HDInsight basati su Linux. Per informazioni sull'utilizzo di cluster basati su Windows, vedere [Installare Giraph nei cluster Hadoop HDInsight (Windows)](hdinsight-hadoop-giraph-install.md)
-> 
-> 
+> [!IMPORTANT]
+> I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="a-namewhatisawhat-is-giraph"></a><a name="whatis"></a>Che cos'è Giraph?
 [Apache Giraph](http://giraph.apache.org/) consente di elaborare grafici con Hadoop e può essere usato con Azure HDInsight. È possibile usare i grafici per modellare le relazioni tra gli oggetti, ad esempio le connessioni tra router in una rete di grandi dimensioni, come Internet, oppure le relazioni tra persone iscritte a social network, come nel cosiddetto grafico dei social network. Grazie all'elaborazione del grafico è possibile ottenere informazioni dettagliate sulle relazioni tra gli oggetti in un grafico e in particolare di:
@@ -152,6 +150,6 @@ Una volta completata la creazione di un cluster, usare la procedura seguente per
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 
