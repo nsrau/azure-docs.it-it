@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/20/2017
+ms.date: 02/14/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: d634db213f73341ed09be58c720d4e058986a38e
-ms.openlocfilehash: ef5f574712cf6fc6f10261d14e280a697163ec4c
+ms.sourcegitcommit: 09577d3160137b7879a5c128552d8dcbef89bb0d
+ms.openlocfilehash: c025629c7700c0ee7b6495a922b9bf6823769cfa
 
 
 ---
@@ -39,8 +39,8 @@ Nel bus di servizio, l'autenticazione della firma di accesso condiviso implica l
 
 L'autenticazione della firma di accesso condiviso usa gli elementi seguenti:
 
-* [Regola di autorizzazione per l'accesso condiviso](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule): una chiave di crittografia primaria a 256 bit in formato Base 64, una chiave secondaria facoltativa e un nome di chiave e i diritti associati (una raccolta di diritti di tipo *Listen*, *Send* o *Manage*).
-* [firma di accesso condiviso](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) : generato usando l'algoritmo HMAC-SHA256 di una stringa di risorsa, costituito dall'URI della risorsa a cui si accede e da una scadenza, con la chiave di crittografia. La firma e gli altri elementi descritti nelle sezioni seguenti vengono formattati in una stringa per formare un token di firma di accesso condiviso.
+* [Regola di autorizzazione per l'accesso condiviso](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule): una chiave di crittografia primaria a 256 bit in formato Base 64, una chiave secondaria facoltativa e un nome di chiave e i diritti associati (una raccolta di diritti di tipo *Listen*, *Send* o *Manage*).
+* [firma di accesso condiviso](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) : generato usando l'algoritmo HMAC-SHA256 di una stringa di risorsa, costituito dall'URI della risorsa a cui si accede e da una scadenza, con la chiave di crittografia. La firma e gli altri elementi descritti nelle sezioni seguenti vengono formattati in una stringa per formare un token di firma di accesso condiviso.
 
 ## <a name="shared-access-policy"></a>Criteri di accesso condiviso
 
@@ -55,6 +55,26 @@ Le autorizzazioni disponibili per un criterio sono in gran parte autoesplicative
 Dopo aver creato il criterio, gli vengono assegnate una *chiave primaria* e una *chiave secondaria*. Si tratta di chiavi di crittografia complesse. Queste chiavi non possono essere perse perché sono sempre disponibili nel [portale di Azure][Azure portal]. È possibile utilizzare una delle chiavi generate ed è possibile rigenerarle in qualsiasi momento. Tuttavia, se si rigenera o si modifica la chiave primaria nel criterio, le firme di accesso condiviso create da tale chiave verranno invalidate.
 
 Quando si crea uno spazio dei nomi del bus di servizio, per l'intero spazio dei nomi viene creato automaticamente un criterio con tutte le autorizzazioni denominato **RootManageSharedAccessKey**. Non accedere come **radice** e non usare questo criterio a meno che non esista un motivo molto valido. È possibile creare criteri aggiuntivi nella scheda **Configura** per lo spazio dei nomi nel portale. È importante notare che a un singolo livello della struttura ad albero nel bus di servizio (spazio dei nomi, coda e così via) può essere associato un massimo di 12 criteri.
+
+## <a name="configuration-for-shared-access-signature-authentication"></a>Configurazione dell'autenticazione della firma di accesso condiviso
+È possibile configurare la regola [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in spazi dei nomi, code, argomenti del bus di servizio. La configurazione di una regola [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in una sottoscrizione del bus di servizio non è attualmente supportata, ma è possibile usare le regole configurate in uno spazio dei nomi o in un argomento per proteggere l'accesso alle sottoscrizioni. Per un esempio pratico di questa procedura, vedere l'articolo relativo all' [uso dell'autenticazione della firma di accesso condiviso con le sottoscrizioni del bus di servizio](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) .
+
+In uno spazio dei nomi, una coda o un argomento del bus di servizio è possibile configurare fino 12 regole di questo tipo. Le regole configurate in uno spazio dei nomi del bus di servizio si applicano a tutte le entità incluse nello spazio dei nomi.
+
+![SAS](./media/service-bus-sas/service-bus-namespace.png)
+
+In questa figura le regole di autorizzazione *manageRuleNS*, *sendRuleNS* e *listenRuleNS* si applicano sia alla coda Q1 che all'argomento T1, mentre *listenRuleQ* e *sendRuleQ* si applicano solo alla coda Q1 e *sendRuleT* si applica solo all'argomento T1.
+
+I parametri principali di [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) sono i seguenti:
+
+| Parametro | Descrizione |
+| --- | --- |
+| *KeyName* |Stringa che descrive la regola di autorizzazione. |
+| *PrimaryKey* |Chiave primaria a 256 bit con codifica Base 64 per la firma e la convalida del token di firma di accesso condiviso. |
+| *SecondaryKey* |Chiave secondaria a 256 bit con codifica Base 64 per la firma e la convalida del token di firma di accesso condiviso. |
+| *AccessRights* |Elenco di diritti di accesso concessi dalla regola di autorizzazione. Questi diritti possono essere qualsiasi raccolta di diritti di ascolto, invio e gestione. |
+
+Quando viene eseguito il provisioning di uno spazio dei nomi del bus di servizio, per impostazione predefinita viene creata una regola [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), con [KeyName](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_KeyName) impostato su **RootManageSharedAccessKey**.
 
 ## <a name="generate-a-shared-access-signature-token"></a>Generare una firma di accesso condiviso (token)
 
@@ -85,13 +105,13 @@ La regola di autorizzazione di accesso condiviso usata per la firma deve essere 
 
 Un token di firma di accesso condiviso è valido per tutte le risorse nell'elemento `<resourceURI>` usato in `signature-string`.
 
-L'oggetto [KeyName](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_KeyName) nel token di firma di accesso condiviso fa riferimento all'oggetto **keyName** della regola di autorizzazione di accesso condiviso usata per generare il token.
+L'oggetto [KeyName](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_KeyName) nel token di firma di accesso condiviso fa riferimento all'oggetto **keyName** della regola di autorizzazione di accesso condiviso usata per generare il token.
 
 L'elemento *URL-encoded-resourceURI* deve corrispondere all'URI usato nella stringa da firmare durante il calcolo della firma. Il valore deve essere [codificato in percentuale](https://msdn.microsoft.com/library/4fkewx0t.aspx).
 
-È consigliabile rigenerare periodicamente le chiavi usate nella regola [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) . In genere le applicazioni usano il parametro [PrimaryKey](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) per generare un token di firma di accesso condiviso. Quando si rigenerano le chiavi, sostituire [SecondaryKey](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) con la chiave primaria precedente e generare una nuova chiave come nuova chiave primaria. In questo modo, è possibile continuare a usare i token per l'autorizzazione rilasciati con la chiave primaria precedente e non ancora scaduti.
+È consigliabile rigenerare periodicamente le chiavi usate nella regola [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) . In genere le applicazioni usano il parametro [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) per generare un token di firma di accesso condiviso. Quando si rigenerano le chiavi, sostituire [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) con la chiave primaria precedente e generare una nuova chiave come nuova chiave primaria. In questo modo, è possibile continuare a usare i token per l'autorizzazione rilasciati con la chiave primaria precedente e non ancora scaduti.
 
-Se una chiave viene compromessa ed è necessario revocare le chiavi, è possibile rigenerare entrambi gli oggetti [PrimaryKey](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) e [SecondaryKey](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) per una regola [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), sostituendo le chiavi precedenti con quelle nuove. Se viene eseguita questa procedura, tutti i token firmati con le chiavi precedenti non sono più validi.
+Se una chiave viene compromessa ed è necessario revocare le chiavi, è possibile rigenerare entrambi gli oggetti [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) e [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) per una regola [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), sostituendo le chiavi precedenti con quelle nuove. Se viene eseguita questa procedura, tutti i token firmati con le chiavi precedenti non sono più validi.
 
 ## <a name="how-to-use-shared-access-signature-authentication-with-service-bus"></a>Come usare l'autenticazione della firma di accesso condiviso con il bus di servizio
 
@@ -109,7 +129,7 @@ L'endpoint per l'accesso alle regole di autorizzazione per l'accesso condiviso i
 https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/
 ```
 
-Per creare un oggetto [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in uno spazio dei nomi del bus di servizio, eseguire un'operazione POST in questo endpoint con le informazioni sulle regole serializzate come JSON o XML. Ad esempio:
+Per creare un oggetto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in uno spazio dei nomi del bus di servizio, eseguire un'operazione POST in questo endpoint con le informazioni sulle regole serializzate come JSON o XML. Ad esempio:
 
 ```csharp
 // Base address for accessing authorization rules on a namespace
@@ -144,13 +164,13 @@ In modo analogo, usare un'operazione GET sull'endpoint per leggere le regole di 
 
 Per aggiornare o eliminare una regola di autorizzazione specifica, usare l'endpoint seguente:
 
-```
+```http
 https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/{KeyName}
 ```
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Accedere alle regole di autorizzazione per l'accesso condiviso in un'entità
 
-È possibile accedere a un oggetto [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) configurato in una coda o in un argomento del bus di servizio tramite la raccolta [AuthorizationRules](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.authorizationrules) negli oggetti [QueueDescription](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription) o [TopicDescription](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicdescription) corrispondenti.
+È possibile accedere a un oggetto [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) configurato in una coda o in un argomento del bus di servizio tramite la raccolta [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) negli oggetti [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) o [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription) corrispondenti.
 
 Il codice seguente illustra come aggiungere regole di autorizzazione per una coda.
 
@@ -185,7 +205,7 @@ nsm.CreateQueue(qd);
 
 ## <a name="use-shared-access-signature-authorization"></a>Usare l'autorizzazione con firma di accesso condiviso
 
-Le applicazioni che usano Azure .NET SDK con le librerie .NET del bus di servizio possono usare l'autorizzazione con firma di accesso condiviso nella classe [SharedAccessSignatureTokenProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) . Il codice seguente illustra l'uso del provider di token per inviare messaggi a una coda del bus di servizio.
+Le applicazioni che usano Azure .NET SDK con le librerie .NET del bus di servizio possono usare l'autorizzazione con firma di accesso condiviso nella classe [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) . Il codice seguente illustra l'uso del provider di token per inviare messaggi a una coda del bus di servizio.
 
 ```csharp
 Uri runtimeUri = ServiceBusEnvironment.CreateServiceUri("sb",
@@ -202,7 +222,7 @@ sendClient.Send(helloMessage);
 
 Le applicazioni possono anche usare la firma di accesso condiviso per l'autenticazione usando una stringa di connessione della firma di accesso condiviso nei metodi che accettano stringhe di connessione.
 
-Si noti che per usare l'autorizzazione con firma di accesso condiviso con gli inoltri del bus di servizio è possibile usare le chiavi della firma di accesso condiviso configurate nello spazio dei nomi del bus di servizio. Se si crea in modo esplicito un inoltro per lo spazio dei nomi ([NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager) con un oggetto [RelayDescription](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.relaydescription)), è possibile impostare le regole della firma di accesso condiviso solo per tale inoltro. Per usare l'autorizzazione con firma di accesso condiviso con le sottoscrizioni del bus di servizio è possibile usare le chiavi della firma di accesso condiviso configurate in uno spazio dei nomi o in un argomento del bus di servizio.
+Si noti che per usare l'autorizzazione con firma di accesso condiviso con gli inoltri del bus di servizio è possibile usare le chiavi della firma di accesso condiviso configurate nello spazio dei nomi del bus di servizio. Se si crea in modo esplicito un inoltro per lo spazio dei nomi ([NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) con un oggetto [RelayDescription](/dotnet/api/microsoft.servicebus.messaging.relaydescription)), è possibile impostare le regole della firma di accesso condiviso solo per tale inoltro. Per usare l'autorizzazione con firma di accesso condiviso con le sottoscrizioni del bus di servizio è possibile usare le chiavi della firma di accesso condiviso configurate in uno spazio dei nomi o in un argomento del bus di servizio.
 
 ## <a name="use-the-shared-access-signature-at-http-level"></a>Usare la firma di accesso condiviso (a livello HTTP)
 
@@ -350,6 +370,6 @@ Per altre informazioni sulla messaggistica del bus di servizio, vedere gli argom
 [Azure portal]: https://portal.azure.com
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

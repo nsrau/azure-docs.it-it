@@ -16,8 +16,8 @@ ms.tgt_pltfrm: NA
 ms.date: 02/06/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 325ef2cd13a090ad0ee0c09cc16c81d80672a70b
-ms.openlocfilehash: a170cca6b92e8278afe41f8876b9954df1e314e4
+ms.sourcegitcommit: 144774c9106bf5a0e389c99075c822d1c5282692
+ms.openlocfilehash: 74f94ad347b31e8c7848e1fd72692732431338b2
 
 
 ---
@@ -53,7 +53,7 @@ ms.openlocfilehash: a170cca6b92e8278afe41f8876b9954df1e314e4
 > Per un'esercitazione introduttiva che crea un server usando il portale di Azure, vedere [Creare un database - Portale di Azure](sql-database-get-started.md).
 >
 
-## <a name="additional-resources"></a>Risorse aggiuntive
+## <a name="next-steps"></a>Passaggi successivi
 * Per una panoramica degli strumenti di gestione, vedere [Panoramica degli strumenti di gestione](sql-database-manage-overview.md).
 * Per informazioni su come eseguire le attività di gestione usando il portale di Azure, vedere [Gestire un database SQL di Azure tramite il portale di Azure](sql-database-manage-portal.md).
 * Per informazioni su come eseguire le attività di gestione usando PowerShell, vedere [Gestire il database SQL di Azure con PowerShell](sql-database-manage-powershell.md).
@@ -63,6 +63,6 @@ ms.openlocfilehash: a170cca6b92e8278afe41f8876b9954df1e314e4
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

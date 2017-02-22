@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 4f7a99e82c73d446c928a821f80fc640a1994d67
-ms.openlocfilehash: cfcb97cbf5b1d2beff5c868ce8371918dbba4e3e
+ms.sourcegitcommit: a14be44b66c5e61350785ddfaf5b96125a196103
+ms.openlocfilehash: 94fdae2992e69f4330d325968a9e66b3f6f38ce0
 
 
 ---
@@ -284,6 +284,6 @@ Quando si fa clic sul riquadro Image Relay nel riquadro di accesso, si dovrebbe 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -12,23 +12,16 @@ ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 11/28/2016
-ms.author: rickbyh;carlrab
+ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 70fdb8e0dceb75bcbfca05d89bc3e093952d6a05
-ms.openlocfilehash: 31f40c802c7330984365645e2960c7ec32da7a59
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 1939b69ee806d9091a21f3b21a276175d5a19a62
 
 
 ---
 # <a name="create-and-manage-azure-sql-database-server-level-firewall-rules-using-the-azure-portal"></a>Creare e gestire regole firewall a livello di server per il database SQL di Azure tramite il portale di Azure
-> [!div class="op_single_selector"]
-> * [Panoramica](sql-database-firewall-configure.md)
-> * [Portale di Azure](sql-database-configure-firewall-settings.md)
-> * [TSQL](sql-database-configure-firewall-settings-tsql.md)
-> * [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-> * [API REST](sql-database-configure-firewall-settings-rest.md)
-> 
 
 Le regole del firewall a livello di server consentono agli amministratori di accedere a un server di database SQL da un indirizzo IP o da un intervallo di indirizzi IP specificati. È anche possibile usare le regole del firewall a livello di server per gli utenti e quando sono disponibili molti database che presentano gli stessi requisiti di accesso e non si vuole dedicare tempo alla configurazione di ogni singolo database. È consigliabile usare le regole del firewall a livello di database quando è possibile, allo scopo di migliorare la sicurezza e la portabilità del database. Per una panoramica dei firewall per i database SQL, vedere [Panoramica: Regole del firewall per il database SQL](sql-database-firewall-configure.md).
 
@@ -50,8 +43,8 @@ Ripetere i passaggi per gestire le regole del firewall a livello di server.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per un'esercitazione introduttiva, vedere [Esercitazione sul database SQL: creare un server, una regola del firewall a livello di server, un database di esempio, una regola del firewall a livello di database ed eseguire la connessione ad SQL Server](sql-database-get-started.md).
-- Per un'esercitazione introduttiva sulla sicurezza, vedere [Get started with security](sql-database-control-access-sql-authentication-get-started.md) (Introduzione alla sicurezza)
+- Per un'esercitazione sul provisioning e sulla connessione a un server con firewall a livello di server, vedere [Esercitazione: Effettuare il provisioning e accedere a un database SQL di Azure usando il portale di Azure e SQL Server Management Studio](sql-database-get-started.md).
+- Per un'esercitazione con l'autenticazione di SQL Server e i firewall a livello di database, vedere [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md) (Autenticazione e autorizzazione di SQL).
 - Per informazioni sulla connessione a un database SQL di Azure da applicazioni open source o di terze parti, vedere [Esempi di codice di avvio rapido del client per il database SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - Per informazioni su come creare utenti aggiuntivi che possano connettersi ai database, vedere [Autenticazione e autorizzazione per database SQL: concessione dell'accesso](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
@@ -64,6 +57,6 @@ Ripetere i passaggi per gestire le regole del firewall a livello di server.
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

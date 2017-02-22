@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: e82d677c9d53ec5d28a40a7def4b911081765ca5
-ms.openlocfilehash: 0a249d63df35f9c3334a658672777e9b1359265e
+ms.sourcegitcommit: 3dbf57923e104715d34d1131d16acb6bc6c51637
+ms.openlocfilehash: ee1668dce71a1f5d7b91e839670b69c9527c4892
 
 
 ---
@@ -101,8 +101,6 @@ Per rimuovere un account DocumentDB non più usato dal portale di Azure, fare cl
 ## <a name="a-idnextanext-steps"></a><a id="next"></a>Passaggi successivi
 Informazioni su come [iniziare a usare l'account DocumentDB](http://go.microsoft.com/fwlink/p/?LinkId=402364).
 
-Per altre informazioni su DocumentDB, vedere la documentazione relativa ad Azure DocumentDB in [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
-
 <!--Image references-->
 [1]: ./media/documentdb-manage-account/documentdb_add_region-1.png
 [2]: ./media/documentdb-manage-account/documentdb_add_region-2.png
@@ -119,6 +117,6 @@ Per altre informazioni su DocumentDB, vedere la documentazione relativa ad Azure
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

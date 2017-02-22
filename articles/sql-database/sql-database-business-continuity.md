@@ -11,14 +11,14 @@ ms.assetid: 18e5d3f1-bfe5-4089-b6fd-76988ab29822
 ms.service: sql-database
 ms.custom: business continuity
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
-ms.openlocfilehash: d04eb659bcf4df53c5f44c1a4b01763844476267
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 8fefa688ee52395d7dee2f53da12ebc50e84fb8e
 
 
 ---
@@ -38,7 +38,7 @@ La tabella seguente mette a confronto i valori ERT e RPO per i tre scenari più 
 | Replica geografica attiva |ERT < 30 sec, RPO < 5 sec |ERT < 30 sec, RPO < 5 sec |ERT < 30 sec, RPO < 5 sec |
 
 ### <a name="use-database-backups-to-recover-a-database"></a>Usare backup del database per il ripristinare
-Il database SQL esegue automaticamente una combinazione di backup completi su base settimanale, backup differenziali del database di backup ogni ora e backup dei log delle transazioni ogni 5 minuti per proteggere l'azienda dalla perdita di dati. Questi backup vengono archiviati nel servizio di archiviazione con ridondanza geografica per 35 giorni per i database dei livelli di servizio Standard e Premium e per sette giorni per il database del livello Basic. Per altre informazioni sui livelli del servizio, vedere [Livelli di servizio](sql-database-service-tiers.md). Se il periodo di memorizzazione per il livello di servizio non soddisfa i requisiti aziendali, è possibile aumentare il periodo di memorizzazione [modificando il livello di servizio](sql-database-scale-up.md). I backup completi e differenziali del database vengono replicati anche su un [data center abbinato](../best-practices-availability-paired-regions.md) per la protezione da un'interruzione del data center. Per altri dettagli, vedere [Backup automatici del database SQL](sql-database-automated-backups.md).
+Il database SQL esegue automaticamente una combinazione di backup completi su base settimanale, backup differenziali del database di backup ogni ora e backup dei log delle transazioni ogni&5; minuti per proteggere l'azienda dalla perdita di dati. Questi backup vengono archiviati nel servizio di archiviazione con ridondanza geografica per 35 giorni per i database dei livelli di servizio Standard e Premium e per sette giorni per il database del livello Basic. Per altre informazioni sui livelli del servizio, vedere [Livelli di servizio](sql-database-service-tiers.md). Se il periodo di memorizzazione per il livello di servizio non soddisfa i requisiti aziendali, è possibile aumentare il periodo di memorizzazione [modificando il livello di servizio](sql-database-service-tiers.md). I backup completi e differenziali del database vengono replicati anche su un [data center abbinato](../best-practices-availability-paired-regions.md) per la protezione da un'interruzione del data center. Per altri dettagli, vedere [Backup automatici del database SQL](sql-database-automated-backups.md).
 
 Se il periodo di memorizzazione predefinito non è sufficiente per l'applicazione, è possibile estenderlo configurando i criteri di conservazione a lungo termine per il database. Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine). 
 
@@ -59,7 +59,7 @@ Usare i backup automatici come meccanismo di continuità e ripristino aziendale,
 Se è necessario un ripristino più veloce, usare la [Replica geografica attiva](sql-database-geo-replication-overview.md) (più avanti). Se è necessario ripristinare i dati da un periodo antecedente a 35 giorni, è consigliabile archiviare il database a intervalli regolari in un file BACPAC (un file compresso contenente lo schema del database e i dati associati) archiviato nell'archiviazione BLOB di Azure o in un'altra posizione di propria scelta. Per altre informazioni su come creare un archivio di database coerenti da un punto di vista transazionale, vedere gli articoli che spiegano come [creare una copia del database](sql-database-copy.md) ed [esportare la copia del database](sql-database-export.md). 
 
 ### <a name="use-active-geo-replication-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Usare la replica geografica attiva per ridurre il tempo di recupero e limitare la perdita di dati associata a un ripristino
-Oltre a usare i backup del database per il ripristino del database in caso di un'interruzione aziendale, è possibile usare la [replica geografica attiva](sql-database-geo-replication-overview.md) per configurare un database in modo da avere fino a 4 database secondari leggibili nelle aree scelte. Questi database secondari vengono mantenuti sincronizzati con il database primario tramite un meccanismo di replica asincrona. Questa funzionalità viene usata per la protezione da interruzioni delle attività aziendali in caso di un'interruzione del data center o durante un aggiornamento dell'applicazione. La replica geografica attiva può anche essere usata per offrire agli utenti situati in aree geografiche diverse prestazioni delle query migliori per le query di sola lettura.
+Oltre a usare i backup del database per il ripristino del database in caso di un'interruzione aziendale, è possibile usare la [replica geografica attiva](sql-database-geo-replication-overview.md) per configurare un database in modo da avere fino a&4; database secondari leggibili nelle aree scelte. Questi database secondari vengono mantenuti sincronizzati con il database primario tramite un meccanismo di replica asincrona. Questa funzionalità viene usata per la protezione da interruzioni delle attività aziendali in caso di un'interruzione del data center o durante un aggiornamento dell'applicazione. La replica geografica attiva può anche essere usata per offrire agli utenti situati in aree geografiche diverse prestazioni delle query migliori per le query di sola lettura.
 
 Se il database primario viene portato offline in modo imprevisto o è necessario portarlo online per attività di manutenzione, è possibile convertire rapidamente un database secondario perché diventi il database primario (detto anche failover) e configurare le applicazioni per la connessione al database primario appena promosso. Con un failover pianificato, non si verificano perdite di dati. Con un failover non pianificato, potrebbero verificarsi piccole perdite di dati per le transazioni molto recenti a causa della natura di replica asincrona. Dopo un failover, è possibile eseguire un failback sulla base di un piano o del momento in cui il data center ritorna online. In tutti i casi, gli utenti riscontrano un breve tempo di inattività e devono eseguire nuovamente la connessione. 
 
@@ -158,6 +158,6 @@ Per una descrizione delle considerazioni sulla progettazione di applicazioni per
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

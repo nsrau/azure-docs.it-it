@@ -11,19 +11,19 @@ ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
 ms.custom: overview
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/09/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 8ed4b3b30df6756c4e99e77476bc4c3a21bba90e
-ms.openlocfilehash: e93d54910d8ed64879e66542c4c795101bc19a41
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 920143756a0e0b369cf839681f9c4308f77a4af0
 
 
 ---
 # <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL
-Il [database SQL di Azure](sql-database-technical-overview.md) offre tre livelli di servizio, **Basic**, **Standard** e **Premium**, con diversi livelli di prestazioni per la gestione di carichi di lavoro differenti. Livelli di prestazioni più elevati offrono sempre più risorse progettate per garantire un aumento della velocità effettiva. È possibile modificare i [livelli di servizio e di prestazioni in modo dinamico](sql-database-scale-up.md) senza tempi di inattività. I livelli di servizio Basic, Standard e Premium garantiscono un tempo di attività previsto dal contratto di servizio del 99,99% e opzioni di continuità aziendale flessibili, funzionalità di sicurezza e fatturazione su base oraria. 
+Il [database SQL di Azure](sql-database-technical-overview.md) offre tre livelli di servizio, **Basic**, **Standard** e **Premium**, con diversi livelli di prestazioni per la gestione di carichi di lavoro differenti. Livelli di prestazioni più elevati offrono sempre più risorse progettate per garantire un aumento della velocità effettiva. È possibile modificare i [livelli di servizio e di prestazioni in modo dinamico](sql-database-service-tiers.md) senza tempi di inattività. I livelli di servizio Basic, Standard e Premium garantiscono un tempo di attività previsto dal contratto di servizio del 99,99% e opzioni di continuità aziendale flessibili, funzionalità di sicurezza e fatturazione su base oraria. 
 
 È possibile creare database singoli con risorse dedicate per il [livello di prestazioni](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) selezionato. È inoltre possibile gestire più database in un [pool elastico](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) in cui le risorse sono condivise tra i database. Le risorse disponibili per i database singoli sono espresse in unità di transazione di database (DTU) e per i pool elastici in unità di transazione di database elastico (eDTU). Per altre informazioni sulle DTU e le eDTU, vedere [Informazioni sulle DTU](sql-database-what-is-a-dtu.md). 
 
@@ -48,7 +48,7 @@ Innanzitutto, decidere se si vuole eseguire un database singolo o se si vuole ra
 Dopo aver determinato il livello di servizio minimo, è possibile determinare il livello di prestazioni del database, ovvero il numero di DTU. I livelli di prestazioni Standard S2 e S3 sono in molti casi un valido punto di inizio. Per i database con requisiti elevati di CPU o I/O, i livelli di prestazioni Premium sono il punto di partenza ottimale. Premium offre più CPU e inizia a 10 volte più I/O rispetto al livello di prestazioni Standard massimo.
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>Livelli di servizio e di prestazioni per database singoli
-Per i database singoli sono disponibili più livelli di prestazioni all'interno di ogni livello di servizio. È possibile scegliere il livello che meglio soddisfa le esigenze del carico di lavoro. Se è necessario aumentare o ridurre le prestazioni, è possibile modificare facilmente i livelli del database. Per informazioni dettagliate, vedere [Modifica dei livelli di servizio e dei livelli di prestazioni di un database](sql-database-scale-up.md) .
+Per i database singoli sono disponibili più livelli di prestazioni all'interno di ogni livello di servizio. È possibile scegliere il livello che meglio soddisfa le esigenze del carico di lavoro. Se è necessario aumentare o ridurre le prestazioni, è possibile modificare facilmente i livelli del database. Per informazioni dettagliate, vedere [Modifica dei livelli di servizio e dei livelli di prestazioni di un database](sql-database-service-tiers.md) .
 
 Indipendentemente dal numero di database ospitati, il database in uso ottiene un set garantito di risorse e le caratteristiche delle prestazioni previste per il database non saranno interessate.
 
@@ -110,6 +110,6 @@ Dopo aver selezionato inizialmente un livello di servizio e di prestazioni, è p
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

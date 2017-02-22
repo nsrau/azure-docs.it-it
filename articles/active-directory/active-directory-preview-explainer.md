@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 664abe5887b3d96eb48e3b47df9a32648ee623dd
+ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
+ms.openlocfilehash: 8f7a679dc5b5726107503a9f7363ab162b1770d0
 
 
 ---
@@ -30,16 +30,15 @@ La versione di anteprima permette di gestire molte risorse della directory, come
 La versione di anteprima consente di leggere e scrivere nello stesso tenant di Azure Active Directory del portale classico e dell'interfaccia di amministrazione di Office 365. Le modifiche apportate in uno di questi portali vengono applicate in tutti gli altri.
 
 ## <a name="use-the-same-authorization-logic"></a>Utilizzare la stessa logica di autorizzazione
-L'esperienza di anteprima consente di utilizzare la stessa logica di autorizzazione come i client esistenti di Active Directory. Gli utenti sono autorizzati ad apportare modifiche alle risorse della directory in base al proprio ruolo nella directory, che può essere di amministratore globale, amministratore utenti e amministratore password. Avere un ruolo per le risorse di Azure o una sottoscrizione di Azure non autorizza l'utente a gestire le risorse della directory. Per altre informazioni sui ruoli di gestione di Azure AD, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles.md). 
+L'esperienza di anteprima consente di utilizzare la stessa logica di autorizzazione come i client esistenti di Active Directory. Gli utenti sono autorizzati ad apportare modifiche alle risorse della directory in base al proprio ruolo nella directory, che può essere di amministratore globale, amministratore utenti e amministratore password. Avere un ruolo per le risorse di Azure o una sottoscrizione di Azure non autorizza l'utente a gestire le risorse della directory. Per altre informazioni sui ruoli di gestione di Azure AD, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles.md).
 
 L'esperienza di anteprima è ottimizzata per gli amministratori globali. Se si usa la versione di anteprima dopo aver eseguito l'accesso come utente senza il ruolo di amministratore globale, la versione potrebbe avere una funzionalità ridotta. Ad esempio, potrebbe essere possibile selezionare un pulsante che consente di iniziare un'operazione che non può essere completata nella directory. La versione verrà presto migliorata.
 
-## <a name="tell-us-what-you-think"></a>Lasciare un feedback
+## <a name="next-steps"></a>Passaggi successivi
 È possibile lasciare un feedback sull'esperienza di anteprima nella sezione del portale di amministrazione del [forum dei commenti di Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD&filter=alltypes&sort=lastpostdesc).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

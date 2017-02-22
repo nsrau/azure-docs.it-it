@@ -15,8 +15,8 @@ ms.workload: backup-recovery
 ms.date: 02/06/2017
 ms.author: bsiva
 translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: ec08ab30003994f3e60c3f37d39bb5b4ef498173
+ms.sourcegitcommit: a084cecddc2af36ee087b2e0e63a2b18b20f07f0
+ms.openlocfilehash: 3df4aaa018d31e9ee9526679ac1febbe5b75bb7e
 
 
 ---
@@ -62,7 +62,7 @@ Questo articolo descrive come usare Azure Powershell con Azure Resource Manager 
 
 * Host Hyper-V che esegue Windows Server 2012 R2 o Microsoft Hyper-V Server 2012 R2 contenente una o più macchine virtuali.
 * Server Hyper-V connessi a Internet, in modo diretto o tramite proxy.
-* Le macchine virtuali da proteggere devono essere conformi ai [prerequisiti per le macchine virtuali](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+* Le macchine virtuali da proteggere devono essere conformi ai [prerequisiti per le macchine virtuali](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Passaggio 1: Accedere al proprio account Azure
 1. Aprire una console di PowerShell ed eseguire questo comando per accedere all'account di Azure. Il cmdlet visualizza una pagina Web che richiederà le credenziali dell'account.
@@ -247,6 +247,6 @@ Questo articolo descrive come usare Azure Powershell con Azure Resource Manager 
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO4-->
 
 

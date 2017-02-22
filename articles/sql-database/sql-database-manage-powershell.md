@@ -12,22 +12,16 @@ ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 11/15/2016
+ms.topic: article
+ms.date: 02/09/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: adad6b8e27e0996559d5e6dacb8dd60fbf52a631
-ms.openlocfilehash: 0c1ce1c29e447d9db4ef0df7873ef89cb835abee
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 32d8c5f13d95c3de8b06782f4f6541866389be5b
 
 
 ---
 # <a name="managing-azure-sql-database-using-powershell"></a>Gestire il database SQL di Azure con PowerShell
-> [!div class="op_single_selector"]
-> * [Portale di Azure](sql-database-manage-portal.md)
-> * [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
-> * [PowerShell](sql-database-manage-powershell.md)
-> 
-> 
 
 Questo argomento illustra i cmdlet PowerShell che consentono di eseguire molte attività del database SQL di Azure. Per un elenco più completo, vedere [Cmdlet del database SQL di Azure](https://msdn.microsoft.com/library/mt574084\(v=azure.300\).aspx).
 
@@ -48,7 +42,7 @@ Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di 
 Per un'esercitazione completa, vedere [Introduzione ai server, ai database e alle regole del firewall del database SQL di Azure con Azure PowerShell](sql-database-get-started-powershell.md).
 
 ## <a name="how-do-i-create-a-sql-database-server"></a>Come si crea un server di database SQL?
-Per creare un server di database SQL, usare il cmdlet [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715\(v=azure.300\).aspx). Sostituire *server1* con il nome del server. I nomi dei server devono essere univoci nell'ambito di tutti i server di database SQL di Azure. Se il nome del server è già in uso, viene visualizzato un errore. Il completamento di questo comando può richiedere alcuni minuti. Il gruppo di risorse deve già esistere nella sottoscrizione.
+Per creare un server di database SQL, usare il cmdlet [New-AzureRmSqlServer](/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver). Sostituire *server1* con il nome del server. I nomi dei server devono essere univoci nell'ambito di tutti i server di database SQL di Azure. Se il nome del server è già in uso, viene visualizzato un errore. Il completamento di questo comando può richiedere alcuni minuti. Il gruppo di risorse deve già esistere nella sottoscrizione.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -123,7 +117,7 @@ Set-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName `
  -Edition $databaseEdition -RequestedServiceObjectiveName $databaseServiceLevel
 ```
 
-Per altre informazioni, vedere [Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL](sql-database-service-tiers.md). Per uno script di esempio, vedere [Script di esempio di PowerShell per modificare il livello di servizio e il livello delle prestazioni del database SQL](sql-database-scale-up-powershell.md#sample-powershell-script-to-change-the-service-tier-and-performance-level-of-your-sql-database).
+Per altre informazioni, vedere [Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL](sql-database-service-tiers.md). Per uno script di esempio, vedere [Script di esempio di PowerShell per modificare il livello di servizio e il livello delle prestazioni del database SQL](sql-database-manage-single-databases-powershell.md#change-the-service-tier-and-performance-level-of-a-single-database).
 
 ## <a name="how-do-i-copy-a-sql-database-to-the-same-server"></a>Come si copia un database SQL nello stesso server?
 Per copiare un database SQL nello stesso server, usare il cmdlet [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/azure/mt603644\(v=azure.300\).aspx). Impostare `-CopyServerName` e `-CopyResourceGroupName` sugli stessi valori del server di database e del gruppo di risorse di origine.
@@ -168,7 +162,7 @@ Remove-AzureRmSqlServer -ServerName $sqlServerName -ResourceGroupName $resourceG
 ```
 
 ## <a name="how-do-i-create-and-manage-elastic-pools-using-powershell"></a>Come si creano e si gestiscono i pool elastici tramite PowerShell?
-Per informazioni sulla creazione dei pool elastici mediante PowerShell, vedere [Creare un nuovo pool elastico con PowerShell](sql-database-elastic-pool-create-powershell.md).
+Per informazioni sulla creazione dei pool elastici mediante PowerShell, vedere [Creare un nuovo pool elastico con PowerShell](sql-database-elastic-pool-manage-powershell.md).
 
 Per informazioni dettagliate sulla gestione dei pool elastici con PowerShell, vedere [Monitorare e gestire un pool elastico con PowerShell](sql-database-elastic-pool-manage-powershell.md).
 
@@ -179,6 +173,6 @@ Per informazioni dettagliate sulla gestione dei pool elastici con PowerShell, ve
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

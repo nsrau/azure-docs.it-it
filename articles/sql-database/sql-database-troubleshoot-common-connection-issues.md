@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: c033c1b32ad7b69565f870636110d317d01266df
-ms.openlocfilehash: 28489985797a638c04e1fabba30f42dac56d4d9c
+ms.sourcegitcommit: 676cecdd886cfb557e7859e1e9583f0a0f9f749c
+ms.openlocfilehash: 222b9fe98592e0c78ec3d7c5ae4804bf75dd0d1e
 
 
 ---
@@ -82,7 +82,6 @@ La tabella seguente elenca tutti gli argomenti relativi ai problemi di connessio
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Risoluzione dei problemi di prestazioni del database SQL di Azure](sql-database-troubleshoot-performance.md)
-* [Risoluzione dei problemi di autorizzazioni del database SQL di Azure](sql-database-troubleshoot-permissions.md)
 * [Ricerca della documentazione su Microsoft Azure](http://azure.microsoft.com/search/documentation/)
 * [Informazioni sugli aggiornamenti più recenti al servizio database SQL di Azure](http://azure.microsoft.com/updates/?service=sql-database)
 
@@ -90,12 +89,10 @@ La tabella seguente elenca tutti gli argomenti relativi ai problemi di connessio
 * [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md)
 * [Linee guida generali per la gestione degli errori temporanei](../best-practices-retry-general.md)
 * [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md)
-* [Il percorso di apprendimento per l'uso del database SQL di Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
-* [Il percorso di apprendimento per l'uso delle funzionalità e degli strumenti dei database elastici](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
 
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -12,22 +12,16 @@ ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 09/29/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: d9ff74a49742fa77f5989b8b05e0567e3ca81dc5
-ms.openlocfilehash: 89cb8827745b31b3a77b64d5cafd586957d60d30
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: c5f1ab504bcb639260b2500d462a56ea30cab9aa
 
 
 ---
 # <a name="managing-azure-sql-database-using-sql-server-management-studio"></a>Gestione di database SQL di Azure tramite SQL Server Management Studio
-> [!div class="op_single_selector"]
-> * [Portale di Azure](sql-database-manage-portal.md)
-> * [SSMS](sql-database-manage-azure-ssms.md)
-> * [PowerShell](sql-database-manage-powershell.md)
-> 
-> 
 
 È possibile usare SQL Server Management Studio (SSMS) per amministrare i server e i database del database SQL di Azure. In questo argomento vengono illustrate le attività comuni con SSMS. Prima di iniziare, è necessario disporre già di un server e di un database creati nel database SQL di Azure. Per altre informazioni, vedere [Create your first Azure SQL Database](sql-database-get-started.md) (Creare il primo database SQL di Azure) e [Connect and Query using SSMS](sql-database-connect-query-ssms.md) (Connettersi ed eseguire query tramite SSMS).
 
@@ -146,6 +140,6 @@ Il database SQL supporta diverse viste a gestione dinamica che possono essere us
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

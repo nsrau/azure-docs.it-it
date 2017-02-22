@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/6/2017
+ms.date: 2/17/2017
 ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: 93e0493e6a62a70a10b8315142765a3c3892acd1
-ms.openlocfilehash: a29dd68c5daeaa290b351e6e04417f604bc30ddb
+ms.sourcegitcommit: 47b3fffb2d5c24b7473884e490be19ff17b61b61
+ms.openlocfilehash: 97b0cb7a5f04f2c5c547cb4b70d87273aa8f2383
 
 
 ---
@@ -301,10 +301,10 @@ Di seguito è riportato un manifesto del servizio di esempio (specificato nel ma
 Ora che è stato distribuito un servizio in contenitori, vedere [Ciclo di vita dell'applicazione Service Fabric](service-fabric-application-lifecycle.md) per informazioni su come gestire il ciclo di vita del servizio.
 
 * [Panoramica di Service Fabric e contenitori](service-fabric-containers-overview.md)
+* Per un'applicazione di esempio [vedere gli esempi di codice di contenitore Service Fabric su GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 
 
-
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

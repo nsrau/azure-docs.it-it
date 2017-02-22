@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 4f7a99e82c73d446c928a821f80fc640a1994d67
-ms.openlocfilehash: 837e96e69e4855daf36e0c85e48cf68daaee8925
+ms.sourcegitcommit: a14be44b66c5e61350785ddfaf5b96125a196103
+ms.openlocfilehash: 6baceea55e9085556c5b1386de842b3e4393c721
 
 
 ---
@@ -114,7 +114,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel Porta
    
     b. Nella casella di testo **URL di risposta** digitare l'URL usando i modelli seguenti: 
    
-    - `https://<company name>.fgvms.com/<company name>`
+       - `https://<company name>.fgvms.com/<company name>`
     - `https://www.fieldglass.net/<company name>`
      
     c. Fare clic su **Avanti**
@@ -249,6 +249,6 @@ Quando si fa clic sul riquadro FieldGlass nel pannello di accesso, si dovrebbe a
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 
