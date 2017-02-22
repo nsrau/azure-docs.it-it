@@ -1,7 +1,11 @@
 > [!div class="op_single_selector"]
-> * [Update 2](../articles/storsimple/storsimple-manage-jobs-u2.md)
-> * [Update 1 & earlier](../articles/storsimple/storsimple-manage-jobs.md)
+> * [Aggiornamento 2](../articles/storsimple/storsimple-manage-jobs-u2.md)
+> * [Aggiornamento 1 e versione precedente](../articles/storsimple/storsimple-manage-jobs.md)
 > 
 > 
 
-<!---HONumber=AcomDC_1217_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,5 +1,5 @@
-## Bilanciamento del carico
-Un bilanciamento del carico viene usato per ridimensionare le applicazioni. Gli scenari di distribuzione più comuni riguardano applicazioni in esecuzione in più istanze della macchina virtuale. Le istanze della macchina virtuale sono gestite dal bilanciamento del carico che consente di distribuire il traffico di rete alle varie istanze.
+## <a name="load-balancer"></a>Bilanciamento del carico
+Un bilanciamento del carico viene usato per ridimensionare le applicazioni. Gli scenari di distribuzione più comuni riguardano applicazioni in esecuzione in più istanze della macchina virtuale. Le istanze della macchina virtuale sono gestite dal bilanciamento del carico che consente di distribuire il traffico di rete alle varie istanze. 
 
 ![Scheda di interfaccia di rete in una macchina virtuale singola](./media/resource-groups-networking/figure8.png)
 
@@ -186,7 +186,11 @@ Esempio di modello di bilanciamento del carico in formato Json:
       ]
     }
 
-### Risorse aggiuntive
+### <a name="additional-resources"></a>Risorse aggiuntive
 Leggere [API REST di bilanciamento del carico](https://msdn.microsoft.com/library/azure/mt163651.aspx) per altre informazioni.
 
-<!---HONumber=AcomDC_1223_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

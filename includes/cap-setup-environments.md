@@ -1,10 +1,13 @@
 > [!div class="op_single_selector"]
-> * [Set up environment](../articles/machine-learning/machine-learning-data-science-environment-setup.md)
-> * [Azure storage-account](../articles/storage/storage-create-storage-account.md)
-> * [Data science VM on Azure](../articles/machine-learning/machine-learning-data-science-virtual-machines.md)
-> * [HDInsight (Hadoop) cluster](../articles/machine-learning/machine-learning-data-science-customize-hadoop-cluster.md)
-> * [Azure Machine Learning workspace](../articles/machine-learning/machine-learning-create-workspace.md)
+> * [Set up environment](../articles/machine-learning/machine-learning-data-science-environment-setup.md) (Configurare l'ambiente)
+> * [Azure storage-account](../articles/storage/storage-create-storage-account.md) (Account di archiviazione di Azure)
+> * [HDInsight (Hadoop) cluster](../articles/machine-learning/machine-learning-data-science-customize-hadoop-cluster.md) (Cluster HDInsight (Hadoop))
+> * [Azure Machine Learning workspace](../articles/machine-learning/machine-learning-create-workspace.md) (Area di lavoro di Azure Machine Learning)
 > 
 > 
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

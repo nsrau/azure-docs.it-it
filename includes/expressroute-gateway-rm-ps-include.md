@@ -44,7 +44,7 @@ Elenco di riferimento per la configurazione:
         $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 7. Richiedere un indirizzo IP pubblico. L'indirizzo IP viene richiesto prima della creazione del gateway. Non è possibile specificare l'indirizzo IP che si desidera utilizzare. Viene allocato in modo dinamico. Questo indirizzo IP sarà utilizzato nella prossima sezione di configurazione. AllocationMethod deve essere Dynamic.
    
-        $pip = New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
+        $pip = New-AzureRmPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 8. Creare la configurazione per il gateway. La configurazione del gateway definisce la subnet e l'indirizzo IP pubblico da utilizzare. In questo passaggio si specifica la configurazione che si userà per creare il gateway. Questo passaggio non crea effettivamente l'oggetto gateway. Per creare la configurazione del gateway, usare l'esempio seguente. 
    
         $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
@@ -74,6 +74,6 @@ Usare il comando seguente per rimuovere un gateway
     Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG  
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

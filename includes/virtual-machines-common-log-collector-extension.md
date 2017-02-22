@@ -24,12 +24,12 @@ In entrambe le modalità di raccolta, è possibile specificare cartelle di racco
 * **Modello di ricerca**: modello dei nomi di file da raccogliere. Il valore predefinito è "*".
 * **Ricorsiva**: se i file verranno raccolti in modo ricorsivo nella cartella.
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Per poter salvare i file ZIP generati dall'estensione è necessario disporre di un account di archiviazione.
 * È necessario assicurarsi che siano in uso i cmdlet di Azure PowerShell v0.8.0 o versioni successive. Per altre informazioni, vedere la pagina relativa ai [Download di Azure](https://azure.microsoft.com/downloads/).
 
-## Aggiungere l'estensione
-Per aggiungere l'estensione AzureLogCollector è possibile usare i cmdlet di [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) o le [API REST di gestione dei servizi](https://msdn.microsoft.com/library/ee460799.aspx).
+## <a name="add-the-extension"></a>Aggiungere l'estensione
+Per aggiungere l'estensione AzureLogCollector, è possibile usare i cmdlet di [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) o le [API REST di gestione dei servizi](https://msdn.microsoft.com/library/ee460799.aspx).
 
 Per i servizi cloud è possibile usare il cmdlet di Azure Powershell esistente, **Set-AzureServiceExtension**, per abilitare l'estensione per le istanze del ruolo servizio cloud. Ogni volta che questa estensione viene abilitata tramite questo cmdlet, viene attivata la raccolta di log nelle istanze del ruolo selezionate dei ruoli specificati.
 
@@ -37,7 +37,7 @@ Per le macchine virtuali è possibile usare il cmdlet di Azure Powershell esiste
 
 Internamente, questa estensione usa le configurazioni PublicConfiguration e PrivateConfiguration basate su JSON. Di seguito è riportato il layout del codice JSON di esempio per la configurazione pubblica e privata.
 
-### PublicConfiguration
+### <a name="publicconfiguration"></a>PublicConfiguration
     {
         "Instances":  "*",
         "Mode":  "Full",
@@ -59,19 +59,19 @@ Internamente, questa estensione usa le configurazioni PublicConfiguration e Priv
         ]
     }
 
-### PrivateConfiguration
+### <a name="privateconfiguration"></a>PrivateConfiguration
     {
 
     }
 
 > [!NOTE]
-> Per questa estensione non richiede l'uso della configurazione **privateConfiguration**. È semplicemente possibile specificare una struttura vuota per l'argomento **– PrivateConfiguration**.
+> Per questa estensione non richiede l'uso della configurazione **privateConfiguration**. È semplicemente possibile specificare una struttura vuota per l'argomento **– PrivateConfiguration** .
 > 
 > 
 
 È possibile seguire uno dei due passaggi seguenti per aggiungere AzureLogCollector a uno o più istanze di un servizio Cloud o di una macchina virtuale dei ruoli selezionati, che attiva le raccolte in ogni macchina virtuale per eseguire e inviare i file raccolti all'account Azure specificato.
 
-## Aggiunta come estensione del servizio
+## <a name="adding-as-a-service-extension"></a>Aggiunta come estensione del servizio
 1. Seguire le istruzioni per la connessione di Azure PowerShell alla sottoscrizione.
 2. Specificare il nome del servizio, lo slot, i ruoli e le istanze del ruolo per cui si vuole aggiungere e abilitare l'estensione AzureLogCollector.
    
@@ -153,9 +153,14 @@ Di seguito è riportata la definizione dei parametri passati allo script. (Copia
 * *StorageAccountKey*: nome della chiave dell'account di archiviazione di Azure.
 * *AdditionalDataLocationList*: elenco con la struttura seguente:
   
-      { String Name, String Location, String SearchPattern, Bool Recursive }
+      {
+      String Name,
+      String Location,
+      String SearchPattern,
+      Bool   Recursive
+      }
 
-## Aggiunta come estensione VM
+## <a name="adding-as-a-vm-extension"></a>Aggiunta come estensione VM
 Seguire le istruzioni per la connessione di Azure PowerShell alla sottoscrizione.
 
 1. Specificare il nome del servizio, la macchina virtuale e la modalità di raccolta.
@@ -185,7 +190,7 @@ Seguire le istruzioni per la connessione di Azure PowerShell alla sottoscrizione
    
         $StorageAccountName = 'YourStorageAccountName'
         $StorageAccountKey  = ‘YouStorageAccountKey'
-3. Chiamare il cmdlet SetAzureVMLogCollector.ps1 (incluso alla fine dell'articolo) come indicato di seguito per abilitare l'estensione AzureLogCollector per un servizio cloud. Al termine dell'esecuzione, il file caricato sarà disponibile in https://YouareStorageAccountName.blob.core.windows.net/vmlogs
+3. Chiamare il cmdlet SetAzureVMLogCollector.ps1 (incluso alla fine dell'articolo) come indicato di seguito per abilitare l'estensione AzureLogCollector per un servizio cloud. Al termine dell'esecuzione, è possibile trovare il file caricato in https://NomeAccountArchiviazione.blob.core.windows.net/vmlogs
 
 Di seguito è riportata la definizione dei parametri passati allo script. (Copiati anche sotto.)
 
@@ -227,7 +232,7 @@ Di seguito è riportata la definizione dei parametri passati allo script. (Copia
       }
 ```
 
-## File script di PowerShell per l'estensione
+## <a name="extention-powershell-script-files"></a>File script di PowerShell per l'estensione
 SetAzureServiceLogCollector.ps1
 
     [CmdletBinding(SupportsShouldProcess = $true)]
@@ -475,7 +480,11 @@ SetAzureVMLogCollector.ps1
       Write-Output "VM name is not specified, the extension cannot be enabled"
     }
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 È ora possibile esaminare o copiare i log da una posizione semplificata.
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,6 +1,6 @@
 ---
 title: Introduzione ad Azure Data Lake Analytics con l&quot;interfaccia della riga di comando di Azure | Documentazione Microsoft
-description: "Informazioni su come usare l’interfaccia della riga di comando di Azure per creare un account di Archivio Data Lake, creare un processo di Data Lake Analytics mediante U-SQL e inviare il processo. "
+description: 'Informazioni su come usare l&quot;interfaccia della riga di comando di Azure per creare un account di Data Lake Analytics, definire un processo di Data Lake Analytics con U-SQL e inviare il processo. '
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8b38c62ae1a60728d08643990238e2cc69cb6447
+ms.sourcegitcommit: c9440e26a563ed9315225b34709b009d01e065d7
+ms.openlocfilehash: ff9b0d9e098fd8c6cde7c63c005c8f1906c6e0f2
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-commandline-interface-cli"></a>Esercitazione: Introduzione ad Azure Data Lake Analytics con l’interfaccia della riga di comandi (CLI) di Azure
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Esercitazione: Introduzione ad Azure Data Lake Analytics con l’interfaccia della riga di comandi (CLI) di Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Informazioni su come usare l’interfaccia della riga di comando di Azure per creare account di Azure Data Lake Analytics, definire processi di Data Lake Analytics in [U-SQL](data-lake-analytics-u-sql-get-started.md)e inviare processi ad account di Data Lake Analytics. Per altre informazioni su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
@@ -165,6 +165,6 @@ Dopo il completamento del processo, è possibile usare i cmdlet seguenti per vis
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
