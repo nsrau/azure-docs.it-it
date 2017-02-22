@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 12/19/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1ad39ddd622573b4842e1e231b0b00685cff83e4
+ms.sourcegitcommit: 0a711ee4118973b21d47f1c3e63301f0dfac879d
+ms.openlocfilehash: b746462e382cb5c065417940a80b00c31f440e9b
 
 
 ---
 # <a name="get-help-from-machine-learning-live-chat-support"></a>Ricevere assistenza tramite live chat in Machine Learning
-[Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md) offre un'interfaccia intuitiva per la creazione di modelli di Machine Learning. Per il supporto, sono disponibili una [raccolta](machine-learning-gallery-how-to-use-contribute-publish.md) e vari [forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning). 
+[Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md) offre un'interfaccia intuitiva per la creazione di modelli di Machine Learning. Per iniziare, è disponibile una [raccolta](machine-learning-gallery-how-to-use-contribute-publish.md) di esempi forniti dalla community. È anche possibile porre domande utili per il proprio lavoro in un [forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning). 
 
-A volte può essere necessario formulare una domanda. A questo scopo, individuare in [Studio](machine-learning-what-is-ml-studio.md) l'icona della chat nel pannello di navigazione superiore.  Se l'icona è visibile, vuol dire che un membro del team del prodotto è disponibile online per assistenza in tempo reale.
+A volte può essere necessario formulare una domanda. A questo scopo, in [Machine Learning Studio](http://studio.azureml.net/Home) individuare l'icona della chat nella barra di spostamento in alto.  Se l'icona è visibile, vuol dire che un membro del team del prodotto è disponibile online per assistenza in tempo reale.
 
 ![Chat di Azure Machine Learning](./media/machine-learning-live-chat/AzureMLChatNavBar.png)
 
@@ -32,13 +32,13 @@ Digitare la domanda e attendere la risposta.
 ![Finestra di dialogo della chat di Azure Machine Learning](./media/machine-learning-live-chat/AzureMLChat.png)
 
 ## <a name="dont-see-the-live-chat-icon"></a>L'icona della live chat non è visualizzata?
-I membri del team stanno rispondendo alla domanda. L'icona della live chat non viene visualizzata perché non è visibile nelle ore non lavorative. 
+La live chat è gestita da membri del team di Machine Learning. Se la relativa icona non viene visualizzata, significa che il team non è al momento disponibile. Ciò avviene, ad esempio, al di fuori delle normali ore lavorative. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

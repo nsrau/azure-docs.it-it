@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti sulla pubblicazione e sull&quot;uso delle app di Machine Learning in Azure Marketplace | Documentazione Microsoft
-description: Domande frequenti
+title: (deprecato) Domande frequenti sulla pubblicazione e sull&quot;uso di app di Machine Learning in Azure Marketplace | Documentazione Microsoft
+description: (deprecato) Domande frequenti sulla pubblicazione di app di Machine Learning in Azure Marketplace
 services: machine-learning
 documentationcenter: 
 author: bharaths
@@ -11,16 +11,24 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/11/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: bharaths
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f8ae758a406dfed48968531ae20a9bbd2383db92
+ms.sourcegitcommit: 85a58e09e05fdb50984055ab25c4c2fe520dab4d
+ms.openlocfilehash: 9e2d4a2d46bd461a71217cd2b2d75f5a50e8b617
 
 
 ---
-# <a name="publishing-and-using-machine-learning-apps-in-the-azure-marketplace-faq"></a>Domande frequenti sulla pubblicazione e sull'uso delle app di Machine Learning in Azure Marketplace
+# <a name="deprecated-publishing-and-using-machine-learning-apps-in-the-azure-marketplace-faq"></a>(deprecato) Domande frequenti sulla pubblicazione e sull'uso di app di Machine Learning in Azure Marketplace
+
+> [!NOTE]
+> DataMarket e Servizi dati verranno ritirati e le sottoscrizioni esistenti verranno ritirate e annullate a partire dal 31/3/2017. Di conseguenza, questo articolo è deprecato. 
+> 
+> In alternativa, è possibile pubblicare gli esperimenti di Machine Learning in [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) a vantaggio della community scientifica dei dati. Per altre informazioni, vedere [Condividere e scoprire risorse in Cortana Intelligence Gallery](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-gallery-how-to-use-contribute-publish).
+
+
 ## <a name="questions-about-consuming-from-marketplace"></a>Domande sull'utilizzo da Marketplace
 **1. Perché viene generato il messaggio di errore seguente dopo l'immissione di dati di input per il servizio Web?**
 
@@ -72,6 +80,6 @@ Per altre informazioni, contattare il team di Azure Marketplace in <mailto:datam
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

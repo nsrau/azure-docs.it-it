@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: ba4c04880913996b9744cdf2a3d19e9bedf36c16
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 331d82a987aebe422ca2f560d856dad9f1b733f3
 
 
 ---
@@ -43,7 +43,7 @@ Eseguire la procedura seguente per creare un nuovo progetto di servizio cloud de
         PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 Node 0.10.21
    
     > [!NOTE]
-    > Per impostazione predefinita, in **Add-AzureNodeWebRole** viene usata una versione precedente di Node.js. La precedente istruzione **Set-AzureServiceProjectRole** indica ad Azure di usare la versione 0.10.21 di Node.  Si noti che i parametri fanno distinzione tra maiuscole e minuscole.  È possibile verificare di aver selezionato la versione corretta di Node.js controllando la proprietà **engines** in **WebRole1\package.json**.
+    > Per impostazione predefinita, in **Add-AzureNodeWebRole** viene usata una versione precedente di Node.js. La precedente istruzione **Set-AzureServiceProjectRole** indica ad Azure di usare la versione&0;.10.21 di Node.  Si noti che i parametri fanno distinzione tra maiuscole e minuscole.  È possibile verificare di aver selezionato la versione corretta di Node.js controllando la proprietà **engines** in **WebRole1\package.json**.
     > 
     > 
 
@@ -119,7 +119,7 @@ Al termine dell'operazione di distribuzione, verrà aperto il browser e verrà v
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/develop/nodejs/).
 
-[Creazione e distribuzione di un'applicazione Node.js a un Servizio cloud di Azure]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
+[Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: http://expressjs.com/
 [http://jade-lang.com]: http://jade-lang.com
 
@@ -127,6 +127,6 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/deve
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

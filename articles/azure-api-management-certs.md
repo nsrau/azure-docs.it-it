@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 04/18/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: f7b0c3acea5bef6017230df82c57ab7a6ebccd80
-ms.openlocfilehash: 19e5ef3d18deb4bf49699df6449d1cafab92ff53
+ms.sourcegitcommit: 783390791f27a9bf8ea400403a8b0f866f8c5cee
+ms.openlocfilehash: 0f1ae486340270cac5cfdb5d44485d05cb996388
 
 
 ---
@@ -53,10 +53,10 @@ Dopo aver creato un certificato di gestione (file con estensione cer solo con la
     ![Settings](./media/azure-api-management-certs/upload-dialog.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ora che si dispone di un certificato di gestione associato a una sottoscrizione, è possibile (dopo aver installato il certificato corrispondente in locale) connettersi a livello di codice alla [API REST di Gestione dei servizi](https://msdn.microsoft.com/library/azure/mt420159.aspx) e automatizzare le varie risorse di Azure che possono essere associate a tale sottoscrizione.
+Ora che è disponibile un certificato di gestione associato a una sottoscrizione, è possibile (dopo avere installato il certificato corrispondente in locale) connettersi a livello di codice all'[API REST di gestione dei servizi](https://msdn.microsoft.com/library/azure/mt420159.aspx) e automatizzare le varie risorse di Azure che possono essere associate a tale sottoscrizione.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

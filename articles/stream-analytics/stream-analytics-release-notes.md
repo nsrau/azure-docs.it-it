@@ -12,15 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 02/01/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: f06747c35f12802f54b44774dff7f92280ba0dc9
-ms.openlocfilehash: fb6dbb6da0ad2cfdfee519c8ce254d983d34fe5e
+ms.sourcegitcommit: 2fe28e7b52af579038ec145c028a6d2796d6cc6e
+ms.openlocfilehash: f47b719f7b1a78264e054ee15edacc32ca35aaf7
 
 
 ---
 # <a name="stream-analytics-release-notes"></a>Note sulla versione di analisi di flusso
+## <a name="notes-for-02012017-release-of-stream-analytics"></a>Note per la versione 01/02/2017 di Analisi di flusso
+Questa versione contiene l'aggiornamento seguente.
+
+| Titolo | Descrizione |
+| --- | --- |
+| Introduzione alle funzioni JavaScript definite dall'utente (UDF) |Le [funzioni Java definite dall'utente](stream-analytics-javascript-user-defined-functions.md) sono ora disponibili per una maggiore flessibilità nella creazione di query. |
+| Introduzione agli strumenti per Visual Studio e analisi di flusso |Gli [strumenti per Visual Studio](stream-analytics-tools-for-visual-studio.md) sono ora disponibili per il debug e per le utility. |
+| Abilitare la registrazione diagnostica |La [registrazione diagnostica](stream-analytics-job-diagnostic-logs.md) è ora disponibile per altre opzioni di risoluzione dei problemi. |
+| Introduzione alle funzioni geospaziali |Le [funzioni geospaziali](http://msdn.microsoft.com/library/mt778980(Azure.100).aspx) sono ora disponibili a livello generale. |
+
 ## <a name="notes-for-04152016-release-of-stream-analytics"></a>Note per la versione 15/04/2016 di Analisi di flusso
 Questa versione contiene l'aggiornamento seguente.
 
@@ -136,6 +146,6 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

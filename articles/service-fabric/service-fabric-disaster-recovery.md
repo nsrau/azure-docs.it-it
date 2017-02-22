@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/29/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff3e8fe622bdd6ecba01bc08b26a243c592c3c8b
+ms.sourcegitcommit: 6dc2a6dbf4b26363f1ad714baec8d48045aa97b6
+ms.openlocfilehash: 81d818afb1a15db646a20b4001493d9df7e24d27
 
 
 ---
@@ -41,7 +41,7 @@ Per impostazione predefinita, le VM nel cluster vengono distribuite uniformement
 > 
 
 ### <a name="geographic-distribution"></a>Distribuzione geografica
-Esistono attualmente [26 aree di Azure in tutto il mondo][azure-regions], più diverse altre già annunciate. Una singola area può contenere uno o più data center fisici a seconda della richiesta e della disponibilità delle posizioni adatte, tra gli altri fattori. Anche nelle aree contenenti diversi data center fisici, tuttavia, non esiste alcuna garanzia che le VM del cluster vengano distribuite uniformemente tra le posizioni fisiche. Per ora infatti il provisioning di tutte le VM in un determinato cluster viene eseguito in un unico luogo fisico.
+Esistono attualmente [30 aree di Azure in tutto il mondo][azure-regions], più diverse altre già annunciate. Una singola area può contenere uno o più data center fisici a seconda della richiesta e della disponibilità delle posizioni adatte, tra gli altri fattori. Anche nelle aree contenenti diversi data center fisici, tuttavia, non esiste alcuna garanzia che le VM del cluster vengano distribuite uniformemente tra le posizioni fisiche. Per ora infatti il provisioning di tutte le VM in un determinato cluster viene eseguito in un unico luogo fisico.
 
 ## <a name="dealing-with-failures"></a>Gestione degli errori
 Esistono diversi tipi di errori che possono avere ripercussioni sul cluster, ciascuno con una propria soluzione. Questi errori verranno analizzati nell'ordine di probabilità che si verifichino.
@@ -109,6 +109,6 @@ Tra le cause di perdita dei dati, gli errori di codice nei servizi, gli errori u
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

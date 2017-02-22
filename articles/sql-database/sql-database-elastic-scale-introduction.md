@@ -8,7 +8,7 @@ author: ddove
 editor: 
 ms.assetid: d15a2e3f-5adf-41f0-95fa-4b945448e184
 ms.service: sql-database
-ms.custom: sharded databases
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: aa234364a8277154e486b8eca79ec30ccaa9fb0d
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 83eb96e8e9d1d5ff31d87141fe7270c0db8867bd
 
 
 ---
@@ -36,7 +36,7 @@ In questo grafico, i colori del database rappresentano gli schemi. I database co
 
 1. Un set di **database SQL di Azure** è ospitato in Azure tramite l'architettura di partizionamento orizzontale.
 2. La **libreria client di database elastici** viene utilizzata per gestire un set di partizioni.
-3. Un subset dei database viene inserito in un **pool di database elastici**. Vedere l'articolo su [che cos'è un pool](sql-database-elastic-pool.md).
+3. Un subset dei database viene inserito in un **pool elastico**. Vedere l'articolo su [che cos'è un pool](sql-database-elastic-pool.md).
 4. Un **Processo di database elastico** esegue gli script T-SQL pianificati o ad-hoc in tutti i database.
 5. Lo **strumento di suddivisione-unione** viene utilizzato per spostare i dati da una partizione a un’altra.
 6. La **query di database elastico** consente di scrivere una query che si estende a tutti i database nel set di partizioni.
@@ -48,7 +48,7 @@ In questo grafico, i colori del database rappresentano gli schemi. I database co
 Il raggiungimento dell’elasticità e della scalabilità delle applicazioni cloud è stato semplice per le VM e l'archiviazione BLOB in quanto è bastato aggiungere o sottrarre le unità nonché aumentare la potenza. Tuttavia, resta una sfida per l’elaborazione dei dati con stato in database relazionali. Sfide emerse in questi scenari:
 
 * Aumento e riduzione della capacità per la parte del carico di lavoro relativa al database relazionale.
-* Gestione degli hotspot che potrebbero verificarsi interessando un subset specifico di dati, ad esempio clienti finali (tenant) particolarmente impegnati.
+* Gestione degli hotspot che potrebbero verificarsi interessando un subset specifico di dati, quali ad esempio clienti finali (tenant) particolarmente impegnati.
 
 In genere, questi scenari sono stati affrontati effettuando investimenti in server di database di scala maggiore per supportare l'applicazione. Questa opzione offre però possibilità limitate negli ambienti cloud, in cui l'intera elaborazione viene eseguita su appositi componenti hardware predefiniti. Invece, la distribuzione dei dati e l’elaborazione in molti database strutturati in modo identico (un modello di scalabilità orizzontale noto come "partizionamento orizzontale") fornisce un'alternativa agli approcci tradizionali di scalabilità verticale sia in termini di costi che di elasticità.
 
@@ -93,7 +93,7 @@ Per un'app di esempio che illustra la libreria client, vedere [Iniziare a usare 
 
 Per convertire i database esistenti e usare gli strumenti, vedere l'articolo sulla [migrazione dei database esistenti per aumentare il numero di istanze](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-Per visualizzare le specifiche del pool dei database elastici, vedere [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md) (Considerazioni su prezzi e prestazioni per un pool di database elastici) oppure creare un nuovo pool con questa [esercitazione](sql-database-elastic-pool-create-portal.md).  
+Per visualizzare le specifiche del pool elastico, vedere [Considerazioni di prezzo e prestazioni per un pool elastico](sql-database-elastic-pool-guidance.md) oppure creare un nuovo pool con questa [esercitazione](sql-database-elastic-pool-create-portal.md).  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -107,6 +107,6 @@ Per visualizzare le specifiche del pool dei database elastici, vedere [Price and
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Gestione delle risorse degli account con la gestione .NET per Batch | Documentazione Microsoft
+title: 'Gestire risorse di account Batch con la libreria client per .NET: Azure | Documentazione Microsoft'
 description: Creare, eliminare e modificare le risorse dell&quot;account Batch tramite la libreria Batch Management .NET.
 services: batch
 documentationcenter: .net
@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 10/19/2016
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 0eff62c62bb256fead360423c20b98fd7f720a51
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: 94d2de0d18863872510ed03a5701f4fc6d133659
 
 
 ---
@@ -158,7 +158,7 @@ Quando si usa la libreria Batch Management .NET per creare gli account Batch, gl
 ## <a name="sample-project-on-github"></a>Progetto di esempio su GitHub
 Il progetto di esempio [AccountManagment][acct_mgmt_sample] su GitHub permette di vedere Batch Management .NET in azione. Questa applicazione console illustra la creazione e l'uso di [BatchManagementClient][net_mgmt_client] e [ResourceManagementClient][resman_client]. Illustra anche l'uso di Azure [Active Directory Authentication Library][aad_adal] (ADAL), necessaria per entrambi i client.
 
-Per eseguire correttamente l'applicazione di esempio, è necessario prima registrarla con Azure AD tramite il portale di Azure. Seguire la procedura descritta nella sezione [Aggiunta di un'applicazione](../active-directory/active-directory-integrating-applications.md#adding-an-application) nella pagina [Integrazione di applicazioni con Azure Active Directory][aad_integrate] per registrare l'applicazione di esempio all'interno della directory predefinita dell'account. Assicurarsi di selezionare **Applicazione client nativa** come tipo di applicazione. È anche possibile specificare un URI valido, ad esempio `http://myaccountmanagementsample`, come **URI di reindirizzamento** che non deve necessariamente essere un endpoint effettivo.
+Per eseguire correttamente l'applicazione di esempio, è necessario prima registrarla con Azure AD tramite il portale di Azure. Seguire la procedura descritta nella sezione [Aggiunta di un'applicazione](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) nella pagina [Integrazione di applicazioni con Azure Active Directory][aad_integrate] per registrare l'applicazione di esempio all'interno della directory predefinita dell'account. Assicurarsi di selezionare **Applicazione client nativa** come tipo di applicazione. È anche possibile specificare un URI valido, ad esempio `http://myaccountmanagementsample`, come **URI di reindirizzamento** che non deve necessariamente essere un endpoint effettivo.
 
 Dopo avere aggiunto l'applicazione, delegare l'autorizzazione ad **accedere alla gestione del servizio Azure come organizzazione** all'applicazione *API di gestione del servizio Windows Azure* nelle impostazioni dell'applicazione nel portale:
 
@@ -228,6 +228,6 @@ Prima di eliminare l'account Batch e il gruppo di risorse appena creati, è poss
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

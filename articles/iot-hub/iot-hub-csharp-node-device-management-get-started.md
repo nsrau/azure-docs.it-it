@@ -1,6 +1,6 @@
 ---
-title: Introduzione a Gestione dei dispositivi dell&quot;hub IoT di Azure | Documentazione Microsoft
-description: Questa esercitazione illustra come iniziare a usare Gestione dei dispositivi nell&quot;hub IoT di Azure
+title: Introduzione alla gestione dei dispositivi dell&quot;hub IoT di Azure (.NET/Node) | Documentazione Microsoft
+description: Come usare la gestione dei dispositivi dell&quot;hub IoT di Azure per riavviare un dispositivo remoto. Usare Azure IoT SDK per dispositivi per Node.js per implementare un&quot;app per dispositivo simulato che include un metodo diretto e Azure IoT SDK per servizi per .NET per implementare un&quot;app di servizio che richiama il metodo diretto.
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 11/17/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: cf9741e7bc30ccb5e6b8f79dad7c8ef725cd683a
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: e4072903a0040d34ad4d41e6c28793d3594fa2f2
 
 
 ---
-# <a name="tutorial-get-started-with-device-management"></a>Esercitazione: Introduzione alla gestione dei dispositivi
+# <a name="get-started-with-device-management-netnode"></a>Introduzione alla gestione dei dispositivi (.NET/Node)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 ## <a name="introduction"></a>Introduzione
-Le app back-end IoT possono usare primitive nell'hub IoT di Azure, ovvero i metodi diretti e il dispositivo gemello, per avviare e monitorare le operazioni di gestione del dispositivo in modalità remota.  Questo articolo fornisce indicazioni e codice che illustrano il modo in cui le app back-end IoT e un dispositivo interagiscono per avviare e monitorare un riavvio remoto del dispositivo usando l'hub IoT.
+Le app back-end possono usare primitive nell'hub IoT di Azure, ovvero i metodi diretti e il dispositivo gemello, per avviare e monitorare le operazioni di gestione del dispositivo in modalità remota.  Questo articolo contiene indicazioni e codice che illustrano il modo in cui le app back-end IoT e i dispositivi interagiscono per avviare e monitorare un riavvio remoto del dispositivo usando l'hub IoT.
 
 Per avviare e monitorare le operazioni di gestione dei dispositivi da un'applicazione back-end basata su cloud in modalità remota, usare le primitive dell'hub IoT, ad esempio [dispositivo gemello][lnk-devtwin] e [metodi diretti][lnk-c2dmethod]. Questa esercitazione illustra come un'applicazione back-end e un dispositivo collaborano per avviare e monitorare il riavvio di un dispositivo in modalità remota dall'hub IoT.
 
@@ -40,7 +40,7 @@ Questa esercitazione illustra come:
 
 * Creare un hub IoT nel portale di Azure e un'identità del dispositivo nell'hub IoT.
 * Creare un'app per dispositivo simulato con un metodo diretto che abilita il riavvio e può essere chiamato dal cloud.
-* Creare un'applicazione console che chiama il metodo diretto di riavvio nell'app per dispositivo simulato tramite l'hub IoT.
+* Creare un'app console .NET che chiama il metodo diretto di riavvio nell'app per dispositivo simulato tramite l'hub IoT.
 
 Al termine dell'esercitazione saranno disponibili un'app per il dispositivo console Node.js e un'app back-end console .NET (C#):
 
@@ -65,8 +65,8 @@ In questa sezione si crea un'app console .NET (usando C#) che avvia un riavvio r
 
     ![Nuovo progetto desktop di Windows classico in Visual C#][img-createapp]
 
-2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **TriggerReboot** e quindi scegliere **Gestisci pacchetti NuGet**.
-3. Nella finestra **Gestione pacchetti NuGet** selezionare **Esplora**, cercare **microsoft.azure.devices**, selezionare **Installa** per installare il pacchetto **Microsoft.Azure.Devices** e accettare le condizioni per l'uso. Questa procedura scarica, installa e aggiunge un riferimento al pacchetto NuGet [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] e alle relative dipendenze.
+2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **TriggerReboot** e quindi fare clic su **Gestisci pacchetti NuGet**.
+3. Nella finestra **Gestione pacchetti NuGet** selezionare **Esplora**, cercare **microsoft.azure.devices**, selezionare **Installa** per installare il pacchetto **Microsoft.Azure.Devices** e accettare le condizioni per l'uso. Questa procedura scarica, installa e aggiunge un riferimento al [pacchetto NuGet Azure IoT - SDK per dispositivi][lnk-nuget-service-sdk] e alle relative dipendenze.
 
     ![Finestra Gestione pacchetti NuGet][img-servicenuget]
 4. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs** :
@@ -138,7 +138,7 @@ Questa sezione consente di:
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Aggiungere una variabile **connectionString** e usarla per creare un client dispositivo.  Sostituire la stringa di connessione con la stringa di connessione del dispositivo.  
+5. Aggiungere una variabile **connectionString** e usarla per creare un'istanza **Client**.  Sostituire la stringa di connessione con la stringa di connessione del dispositivo.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
@@ -237,7 +237,7 @@ Per altre informazioni sulle attività iniziali con l'hub IoT, vedere [Getting s
 [img-servicenuget]: media/iot-hub-csharp-node-device-management-get-started/servicesdknuget.png
 [img-createapp]: media/iot-hub-csharp-node-device-management-get-started/createnetapp.png
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-fwupdate]: iot-hub-node-node-firmware-update.md
@@ -253,6 +253,6 @@ Per altre informazioni sulle attività iniziali con l'hub IoT, vedere [Getting s
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

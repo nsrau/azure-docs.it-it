@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: b3d88826050bcdf272e732cb0b51ee2e2618e586
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: afa6625e4c3ebe2a408b4bd956c8d2eb9ac6a34b
 
 
 ---
@@ -25,16 +25,16 @@ La possibilità di definire i destinatari tramite criteri specifici con il pulsa
 
 **Vedere anche:**
 
-* [Documentazione dell'interfaccia utente - Reach - Nuova campagna di push][Collegamento 27]
+* [Documentazione dell'interfaccia utente - Reach - Nuova campagna di push][Link 27]
 
 ## <a name="audience-criteria-can-include"></a>I criteri dei destinatari possono includere:
-* **Informazioni tecniche: ** è possibile stabilire i destinatari in base alle informazioni tecniche visualizzate nelle sezioni di analisi e monitoraggio. **Vedere anche:** [Documentazione dell'interfaccia utente - Analytics][Collegamento 15], [Documentazione dell'interfaccia utente - Monitor][Collegamento 16]
-* **Posizione:** le applicazioni che usano la segnalazione della posizione in tempo reale con geofencing possono usare la posizione geografica per definire i destinatari in base alla posizione del GPS. È inoltre possibile usare la chiamata di segnalazione della posizione della Lazy Area per definire i destinatari in base alla posizione dei telefoni cellulari (queste due funzioni di segnalazione della posizione devono essere attivate dall'SDK). **Vedere anche:** [Documentazione dell'SDK - iOS - Integrazione][Collegamento 5], [Documentazione dell'SDK - Android - Integrazione][Collegamento 5]
-* **Feedback di copertura:** è possibile definire i destinatari sulla base del loro feedback sulle precedenti notifiche di copertura usando il feedback di copertura derivante da annunci, sondaggi e push di dati. In questo modo, dopo due o tre campagne di copertura è possibile definire meglio i destinatari rispetto alla prima campagna. Il feedback può inoltre essere usato per filtrare gli utenti che hanno già ricevuto una notifica con contenuto simile, impostando una campagna che NON deve essere inviata agli utenti che hanno già ricevuto una specifica campagna precedente. È anche possibile escludere gli utenti inclusi in una campagna specifica ancora attiva in modo che non ricevano nuove notifiche push. **Vedere anche:** [Documentazione dell'interfaccia utente - Reach - Contenuti del push][Collegamento 29]
-* **Rilevamento installazione:** è possibile rilevare le informazioni in base alla posizione in cui gli utenti hanno installato l'app. **Vedere anche:** [Documentazione dell'interfaccia utente - Impostazioni][Collegamento 20]
+* **Informazioni tecniche: ** è possibile stabilire i destinatari in base alle informazioni tecniche visualizzate nelle sezioni di analisi e monitoraggio. **Vedere anche:** [Documentazione dell'interfaccia utente - Analytics][Link 15], [Documentazione dell'interfaccia utente - Monitor][Link 16]
+* **Posizione:** le applicazioni che usano la segnalazione della posizione in tempo reale con geofencing possono usare la posizione geografica per definire i destinatari in base alla posizione del GPS. È inoltre possibile usare la chiamata di segnalazione della posizione della Lazy Area per definire i destinatari in base alla posizione dei telefoni cellulari (queste due funzioni di segnalazione della posizione devono essere attivate dall'SDK). **Vedere anche:** [Documentazione SDK - iOS - Integrazione][Link 5], [Documentazione SDK - Android - Integrazione][Link 5]
+* **Feedback di copertura:** è possibile definire i destinatari sulla base del loro feedback sulle precedenti notifiche di copertura usando il feedback di copertura derivante da annunci, sondaggi e push di dati. In questo modo, dopo due o tre campagne di copertura è possibile definire meglio i destinatari rispetto alla prima campagna. Il feedback può inoltre essere usato per filtrare gli utenti che hanno già ricevuto una notifica con contenuto simile, impostando una campagna che NON deve essere inviata agli utenti che hanno già ricevuto una specifica campagna precedente. È anche possibile escludere gli utenti inclusi in una campagna specifica ancora attiva in modo che non ricevano nuove notifiche push. **Vedere anche:** [Documentazione dell'interfaccia utente - Reach - Push del contenuto][Link 29]
+* **Rilevamento installazione:** è possibile rilevare le informazioni in base alla posizione in cui gli utenti hanno installato l'app. **Vedere anche:** [Documentazione dell'interfaccia utente - Impostazioni][Link 20]
 * **Profilo utente:** è possibile definire i destinatari in base alle informazioni standard sugli utenti e a informazioni sulle app create personalmente. Per la definizione del profilo utente, anziché prendere in considerazione solo la risposta alle campagne precedenti, vengono inclusi gli utenti attualmente connessi e quelli che hanno risposto a domande specifiche direttamente nell'app. Tutte le informazioni sull'app definite per l'app stessa vengono visualizzate nell'elenco.
-* Segmenti: è possibile definire i destinatari sulla base dei segmenti creati a seconda del comportamento utente definito da più criteri. Tutti i segmenti definiti per l'app vengono visualizzati nell'elenco. **Vedere anche:** [Documentazione dell'interfaccia utente - Segmenti][Collegamento 18]
-* **Informazioni sulle app:** in "Impostazioni" è possibile creare tag personalizzati relativi alle informazioni sulle app per tenere traccia del comportamento degli utenti. **Vedere anche:** [Documentazione dell'interfaccia utente - Impostazioni][Collegamento 20]
+* Segmenti: è possibile definire i destinatari sulla base dei segmenti creati a seconda del comportamento utente definito da più criteri. Tutti i segmenti definiti per l'app vengono visualizzati nell'elenco. **Vedere anche:** [Documentazione dell'interfaccia utente - Segmenti][Link 18]
+* **Informazioni sulle app:** in "Impostazioni" è possibile creare tag personalizzati relativi alle informazioni sulle app per tenere traccia del comportamento degli utenti. **Vedere anche:** [Documentazione dell'interfaccia utente - Impostazioni][Link 20]
 
 ## <a name="example"></a>Esempio:
 Se si vuole eseguire il push di un annuncio solo per un sottoinsieme di utenti che hanno eseguito un'azione di acquisto in-app.
@@ -146,39 +146,39 @@ Se si vuole eseguire il push di un annuncio solo per un sottoinsieme di utenti c
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Collegamento 1]: mobile-engagement-user-interface.md
-[Collegamento 2]: mobile-engagement-troubleshooting-guide.md
-[Collegamento 3]: mobile-engagement-how-tos.md
-[Collegamento 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Collegamento 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Collegamento 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Collegamento 7]: https://account.windowsazure.com/PreviewFeatures
-[Collegamento 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Collegamento 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Collegamento 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Collegamento 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Collegamento 12]: mobile-engagement-user-interface-navigation.md
-[Collegamento 13]: mobile-engagement-user-interface-home.md
-[Collegamento 14]: mobile-engagement-user-interface-my-account.md
-[Collegamento 15]: mobile-engagement-user-interface-analytics.md
-[Collegamento 16]: mobile-engagement-user-interface-monitor.md
-[Collegamento 17]: mobile-engagement-user-interface-reach.md
-[Collegamento 18]: mobile-engagement-user-interface-segments.md
-[Collegamento 19]: mobile-engagement-user-interface-dashboard.md
-[Collegamento 20]: mobile-engagement-user-interface-settings.md
-[Collegamento 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Collegamento 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Collegamento 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Collegamento 24]: mobile-engagement-troubleshooting-guide-service.md
-[Collegamento 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Collegamento 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Collegamento 27]: mobile-engagement-user-interface-reach-campaign.md
-[Collegamento 28]: mobile-engagement-user-interface-reach-criterion.md
-[Collegamento 29]: mobile-engagement-user-interface-reach-content.md
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
+[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: mobile-engagement-user-interface-reach-campaign.md
+[Link 28]: mobile-engagement-user-interface-reach-criterion.md
+[Link 29]: mobile-engagement-user-interface-reach-content.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

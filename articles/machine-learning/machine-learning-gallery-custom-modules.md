@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 889f68c774bc9da8465e597afe0508d69b060574
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: 6e0efe18c1170ef3b5a9b894888e926b31432e07
 
 
 ---
@@ -34,7 +34,7 @@ Per cercare i moduli personalizzati disponibili in Gallery, aprire [Gallery](htt
  Nella pagina **[Custom Modules](https://gallery.cortanaintelligence.com/customModules)**
  (Moduli personalizzati) è disponibile l'elenco dei moduli più visualizzati.
 Fare clic su **See all** (Visualizza tutto) per visualizzare tutti i moduli personalizzati.
-Da questa pagina è possibile accedere a tutti i moduli personalizzati presenti in Gallery oppure eseguire ricerche mirate selezionando i criteri di filtro a sinistra della pagina e immettendo i termini di ricerca desiderati nella parte superiore.
+In questa pagina è possibile eseguire la ricerca di tutti i moduli personalizzati presenti nella raccolta. È anche possibile eseguire la ricerca selezionando i criteri di filtro a sinistra della pagina e immettendo i termini di ricerca nella parte superiore.
 
 ### <a name="comment-and-share"></a>Commentare e condividere
  Fare clic su un modulo personalizzato qualsiasi per aprirne la pagina dei dettagli e leggere informazioni sulle finalità e le modalità d'uso del modulo. In questa pagina è disponibile una sezione dedicata ai commenti in cui è possibile inserire un commento, inviare suggerimenti o porre una domanda. Usando le funzionalità di condivisione di LinkedIn o Twitter è anche possibile condividere la pagina con amici o colleghi. È inoltre possibile invitare altri utenti a visualizzare la pagina inviando loro un collegamento al modulo personalizzato tramite posta elettronica.
@@ -88,6 +88,6 @@ Il modulo personalizzato viene copiato nell'area di lavoro e inserito nella tavo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

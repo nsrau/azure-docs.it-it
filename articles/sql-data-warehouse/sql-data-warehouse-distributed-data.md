@@ -1,5 +1,5 @@
 ---
-title: Dati distribuiti e opzioni delle tabelle distribuite per i sistemi di elaborazione parallela elevata (Massively Parallel Processing, MPP) di SQL Data Warehouse e Parallel Data Warehouse | Microsoft Docs
+title: Funzionamento dei dati distribuiti in Azure SQL Data Warehouse | Documentazione Microsoft
 description: Informazioni sulla distribuzione dei dati per l&quot;elaborazione parallela elevata (Massively Parallel Processing, MPP) e sulle opzioni di distribuzione delle tabelle in Azure SQL Data Warehouse e Parallel Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1090c2156df11adc6f18dffe00a9d37921c0a3a3
+ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
+ms.openlocfilehash: 195b78a7f634d01f228c90efb34763e4175708ac
 
 
 ---
@@ -38,7 +38,7 @@ La figura seguente illustra come una tabella completa non distribuita viene arch
 
 Ai fini delle prestazioni, per la selezione di una colonna di distribuzione è necessario considerare alcuni aspetti, ad esempio la specificità, la differenza dei dati e i tipi di query eseguite nel sistema.
 
-![Tabella distribuita](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Distributed table")  
+![Tabella distribuita](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Tabella distribuita")  
 
 * Ogni riga appartiene a una sola distribuzione.  
 * Un algoritmo hash deterministico assegna ogni riga a una sola distribuzione.  
@@ -69,7 +69,7 @@ Oltre all'utilizzo di tabelle distribuite, Parallel Data Warehouse offre la poss
 
 La figura seguente illustra una tabella replicata archiviata in ogni nodo di calcolo. La tabella replicata è archiviata in tutti i dischi assegnati al nodo di calcolo. Questa strategia di archiviazione su disco viene implementata usando i filegroup di SQL Server.  
 
-![Tabella replicata](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
+![Tabella replicata](media/sql-data-warehouse-distributed-data/replicated-table.png "Tabella replicata") 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un uso efficace delle tabelle distribuite, vedere [Distributing tables in SQL Data Warehouse](sql-data-warehouse-tables-distribute.md) (Distribuzione di tabelle in SQL Data Warehouse)  
@@ -77,6 +77,6 @@ Per un uso efficace delle tabelle distribuite, vedere [Distributing tables in SQ
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

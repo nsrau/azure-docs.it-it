@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 01/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: d36d806d14fbaa813ea9e8e6ec132fda998bb22c
+ms.sourcegitcommit: f0b0c3bc9daf1e44dfebecedf628b09c97394f94
+ms.openlocfilehash: d993ba4bdff690ee6f0867cdbf0a8059fb5847ee
 
 
 ---
@@ -27,8 +27,10 @@ Questo articolo illustra come usare le code del bus di servizio in Node.js. Gli 
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
 ## <a name="create-a-nodejs-application"></a>Creare un'applicazione Node.js
-Creare un'applicazione Node.js vuota. Per istruzioni su come creare un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web Azure][Creare e distribuire un'applicazione Node.js in un sito Web Azure] oppure [Servizio cloud Node.js][Servizio cloud Node.js] usando Windows PowerShell.
+Creare un'applicazione Node.js vuota. Per istruzioni su come creare un'applicazione Node.js, vedere [Creare un'app Web Node.js nel servizio app di Azure][Create and deploy a Node.js application to an Azure Website] oppure [Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure][Node.js Cloud Service] con Windows PowerShell.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurare l'applicazione per l'uso del bus di servizio
 Per usare il bus di servizio di Azure, scaricare e usare il pacchetto Azure Node.js che include un set di librerie di riferimento che comunicano con i servizi REST del bus di servizio.
@@ -55,27 +57,27 @@ Per usare il bus di servizio di Azure, scaricare e usare il pacchetto Azure Node
 ### <a name="import-the-module"></a>Importare il modulo
 Usando il Blocco note o un altro editor di testo, aggiungere quanto segue alla parte superiore del file **server.js** dell'applicazione:
 
-```
+```javascript
 var azure = require('azure');
 ```
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>Configurare una connessione del bus di servizio di Azure
 Il modulo di Azure legge le variabili di ambiente AZURE\_SERVICEBUS\_NAMESPACE and AZURE\_SERVICEBUS\_ACCESS\_KEY per ottenere le informazioni necessarie per la connessione al bus di servizio. Se queste variabili di ambiente non sono impostate, è necessario specificare le informazioni relative all'account quando si chiama **createServiceBusService**.
 
-Per un esempio di impostazione delle variabili di ambiente in un file di configurazione per un servizio cloud di Azure, vedere [Servizio cloud Node.js con Archiviazione][Servizio cloud Node.js con Archiviazione].
+Per un esempio di impostazione delle variabili di ambiente in un file di configurazione per un servizio cloud di Azure, vedere [Creazione di un'applicazione Web Node.js con Archiviazione][Node.js Cloud Service with Storage].
 
-Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure classico][portale di Azure classico] per un sito Web di Azure, vedere [Creazione di un'applicazione Web Node.js con Archiviazione][Creazione di un'applicazione Web Node.js con Archiviazione].
+Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure classico][Azure classic portal], vedere [Creazione di un'applicazione Web Node.js con Archiviazione][Node.js Web Application with Storage].
 
 ## <a name="create-a-queue"></a>Creare una coda
 L'oggetto **ServiceBusService** consente di usare le code del bus di servizio. Il codice seguente consente di creare un oggetto **ServiceBusService**. Aggiungerlo nella parte superiore del file **server.js** dopo l'istruzione per importare il modulo Azure:
 
-```
+```javascript
 var serviceBusService = azure.createServiceBusService();
 ```
 
 Quando si chiama **createQueueIfNotExists** sull'oggetto **ServiceBusService**, viene restituita la coda specificato, se esiste, oppure viene creata una nuova coda con il nome specificato. Nel codice seguente viene usato **createQueueIfNotExists** per creare o connettersi alla coda denominata `myqueue`:
 
-```
+```javascript
 serviceBusService.createQueueIfNotExists('myqueue', function(error){
     if(!error){
         // Queue exists
@@ -85,7 +87,7 @@ serviceBusService.createQueueIfNotExists('myqueue', function(error){
 
 **createServiceBusService** supporta anche opzioni aggiuntive che consentono di sostituire le impostazioni predefinite delle code, come ad esempio la durata dei messaggi o la dimensione massima della coda. Il seguente esempio illustra come impostare la dimensione massima della coda su 5 GB e una durata (TTL) di 1 minuto:
 
-```
+```javascript
 var queueOptions = {
       MaxSizeInMegabytes: '5120',
       DefaultMessageTimeToLive: 'PT1M'
@@ -101,13 +103,13 @@ serviceBusService.createQueueIfNotExists('myqueue', queueOptions, function(error
 ### <a name="filters"></a>Filtri
 Le operazioni di filtro facoltative possono essere applicate alle operazioni eseguite usando **ServiceBusService**. Le operazioni di filtro possono includere la registrazione, la ripetizione automatica dei tentativi e così via. I filtri sono oggetti che implementano un metodo con la firma:
 
-```
+```javascript
 function handle (requestOptions, next)
 ```
 
 Dopo avere eseguito la pre-elaborazione sulle opzioni della richiesta, il metodo deve chiamare `next` passando un callback con la seguente firma:
 
-```
+```javascript
 function (returnObject, finalCallback, next)
 ```
 
@@ -115,7 +117,7 @@ In questo callback, e dopo l'elaborazione di **returnObject**, vale a dire la ri
 
 In Azure SDK per Node.js sono inclusi due filtri che implementano la logica di ripetizione dei tentativi. Sono **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. Il codice seguente consente di creare un oggetto **ServiceBusService** che usa **ExponentialRetryPolicyFilter**:
 
-```
+```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
 ```
@@ -125,7 +127,7 @@ Per inviare un messaggio a una coda del bus di servizio, l'applicazione chiama i
 
 L'esempio seguente illustra come inviare un messaggio di prova alla coda denominata `myqueue` usando **sendQueueMessage**:
 
-```
+```javascript
 var message = {
     body: 'Test message',
     customProperties: {
@@ -138,7 +140,7 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-Le code del bus di servizio supportano messaggi di dimensioni fino a 256 KB nel [livello Standard](service-bus-premium-messaging.md) e fino a 1 MB nel [livello Premium](service-bus-premium-messaging.md). Le dimensioni massime dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non possono superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in una coda, mentre è prevista una limitazione alla dimensione totale dei messaggi di una coda. Questa dimensione della coda viene definita al momento della creazione, con un limite massimo di 5 GB. Per altre informazioni sulle quote, vedere [Quote del bus di servizio][Quote del bus di servizio].
+Le code del bus di servizio supportano messaggi di dimensioni fino a 256 KB nel [livello Standard](service-bus-premium-messaging.md) e fino a 1 MB nel [livello Premium](service-bus-premium-messaging.md). Le dimensioni massime dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non possono superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in una coda, mentre è prevista una limitazione alla dimensione totale dei messaggi di una coda. Questa dimensione della coda viene definita al momento della creazione, con un limite massimo di 5 GB. Per altre informazioni sulle quote, vedere [Quote del bus di servizio][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-queue"></a>Ricevere messaggi da una coda
 I messaggi vengono ricevuti da una coda tramite il metodo **receiveQueueMessage** per l'oggetto **ServiceBusService**. Per impostazione predefinita, i messaggi vengono eliminati dalla coda non appena vengono letti. È tuttavia possibile leggere (visualizzare in anteprima) e bloccare il messaggio senza eliminarlo dalla coda, impostando il parametro **isPeekLock** facoltativo su **true**.
@@ -149,7 +151,7 @@ Se il parametro **isPeekLock** è impostato su **true**, l'operazione di ricezio
 
 Nell'esempio seguente viene illustrato come ricevere ed elaborare i messaggi tramite **receiveQueueMessage**. Nell'esempio viene prima ricevuto ed eliminato un messaggio, poi viene ricevuto un messaggio con **isPeekLock** impostato su **true** e infine il messaggio viene eliminato tramite **deleteMessage**:
 
-```
+```javascript
 serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
     if(!error){
         // Message received and deleted
@@ -177,22 +179,22 @@ In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio, 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle code, vedere le risorse seguenti.
 
-* [Code, argomenti e sottoscrizioni del bus di servizio][Code, argomenti e sottoscrizioni del bus di servizio]
-* Repository [Azure SDK per Node][Azure SDK per Node] su GitHub
-* [Centro per sviluppatori di Node.js](/develop/nodejs/)
+* [Code, argomenti e sottoscrizioni del bus di servizio][Queues, topics, and subscriptions]
+* Repository [Azure SDK per Node][Azure SDK for Node] su GitHub
+* [Centro per sviluppatori di Node.js](https://azure.microsoft.com/develop/nodejs/)
 
-[Azure SDK per Node]: https://github.com/Azure/azure-sdk-for-node
-[portale di Azure classico]: http://manage.windowsazure.com
+[Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
+[Azure classic portal]: http://manage.windowsazure.com
 
-[Servizio cloud Node.js]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Code, argomenti e sottoscrizioni del bus di servizio]: service-bus-queues-topics-subscriptions.md
-[Creare e distribuire un'applicazione Node.js in un sito Web Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Servizio cloud Node.js con Archiviazione]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
-[Creazione di un'applicazione Web Node.js con Archiviazione]: ../storage/storage-nodejs-how-to-use-table-storage.md
-[Quote del bus di servizio]: service-bus-quotas.md
+[Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
+[Create and deploy a Node.js application to an Azure Website]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[Node.js Cloud Service with Storage]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
+[Node.js Web Application with Storage]: ../storage/storage-nodejs-how-to-use-table-storage.md
+[Service Bus quotas]: service-bus-quotas.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

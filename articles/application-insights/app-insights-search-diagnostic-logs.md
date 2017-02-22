@@ -1,5 +1,5 @@
 ---
-title: Log, eccezioni e diagnostica personalizzata per ASP.NET in Application Insights
+title: Log e diagnostica per ASP.NET in Azure Application Insights | Documentazione Microsoft
 description: Diagnosticare i problemi nelle app Web ASP.NET eseguendo ricerche in richieste, eccezioni e log generati con Trace, NLog or Log4Net.
 services: application-insights
 documentationcenter: 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 04/08/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 68d4b62b4915950dd18b6aa69b43043b4a90d9ff
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: 874e9abb7ae7e06808645ae2ab7cd5b3c0d36e04
 
 
 ---
@@ -41,7 +41,7 @@ I dettagli variano da un tipo di applicazione all'altro. È possibile fare clic 
 Se l'applicazione invia una grande quantità di dati ed è in uso Application Insights SDK per ASP.NET 2.0.0 Beta3 o versioni successive, la funzionalità del campionamento adattivo può operare e inviare solo una percentuale dei dati di telemetria. [Altre informazioni sul campionamento.](app-insights-sampling.md)
 
 ## <a name="a-nameeventsacustom-events"></a><a name="events"></a>Eventi personalizzati
-Gli eventi personalizzati vengono visualizzati sia in [Diagnostic Search][diagnostic] (Ricerca diagnostica) che in [Esplora metriche][metrics]. È possibile inviarli da dispositivi, pagine web e applicazioni server. Possono essere usati per scopi diagnostici e per [comprendere i criteri di utilizzo][rilevamento].
+Gli eventi personalizzati vengono visualizzati in [Diagnostic Search][diagnostic] (Ricerca diagnostica) e in [Esplora metriche][metrics]. È possibile inviarli da dispositivi, pagine web e applicazioni server. Possono essere usati per scopi diagnostici e per [comprendere i criteri di utilizzo][track].
 
 Un evento personalizzato è contraddistinto da un nome e può contenere anche proprietà che è possibile filtrare, insieme alle misurazioni numeriche.
 
@@ -96,7 +96,7 @@ Analizzare un singolo evento per visualizzarne le proprietà dettagliate.
 ![](./media/app-insights-search-diagnostic-logs/appinsights-23-customevents-4.png)
 
 ## <a name="a-namepagesa-page-views"></a><a name="pages"></a> Visualizzazioni pagina
-La telemetria delle visualizzazioni pagina viene inviata dalla chiamata a trackPageView() nel [frammento di codice JavaScript inserito nelle pagine web][usage]. Lo scopo principale è quello di contribuire al conteggio delle visualizzazioni pagina che si verificano nella pagina di panoramica.
+La telemetria delle visualizzazioni pagina viene inviata dalla chiamata a trackPageView() nel [frammento di codice JavaScript inserito nelle pagine Web][usage]. Lo scopo principale è quello di contribuire al conteggio delle visualizzazioni pagina che si verificano nella pagina di panoramica.
 
 In genere viene eseguita una sola chiamata in ogni pagina HTML, ma è possibile inserire ulteriori chiamate, ad esempio se si ha un'app di una sola pagina e si vuole registrare una nuova pagina ogni volta che l'utente ottiene altri dati.
 
@@ -217,9 +217,9 @@ Fare clic su qualsiasi tipo di eccezione per visualizzare occorrenze specifiche:
 È anche possibile aprire direttamente Ricerca diagnostica, filtrare le eccezioni e scegliere il tipo di eccezione che si vuole visualizzare.
 
 ### <a name="reporting-unhandled-exceptions"></a>Segnalazione di eccezioni non gestite
-Quando possibile, Application Insights segnala le eccezioni non gestite restituite da dispositivi, [Web browser][usage] o server Web, indipendentemente se instrumentati da [Status Monitor][redfield] o [Application Insights SDK][greenbrown]. 
+Quando possibile, Application Insights segnala le eccezioni non gestite restituite da dispositivi, [Web browser][usage] o server Web, indipendentemente dal fatto che siano instrumentati da [Status Monitor][redfield] o [Application Insights SDK][greenbrown]. 
 
-Tuttavia, in alcuni casi non è sempre possibile eseguire questa operazione perché .NET Framework rileva le eccezioni.  Per fare in modo che vengano visualizzate tutte le eccezioni, è pertanto necessario scrivere un semplice gestore di eccezioni. La procedura migliore dipende dalla tecnologia. Per altre informazioni, vedere [Telemetria delle eccezioni per ASP.NET][exceptions] . 
+Tuttavia, in alcuni casi non è sempre possibile eseguire questa operazione perché .NET Framework rileva le eccezioni.  Per fare in modo che vengano visualizzate tutte le eccezioni, è pertanto necessario scrivere un semplice gestore di eccezioni. La procedura migliore dipende dalla tecnologia. Per altre informazioni, vedere [Telemetria delle eccezioni per ASP.NET][exceptions]. 
 
 ### <a name="correlating-with-a-build"></a>Correlazione con una compilazione
 Quando si leggono i log di diagnostica, è probabile che il codice sorgente sia stato modificato rispetto a quando è stato distribuito il codice attivo.
@@ -277,13 +277,13 @@ Se l'applicazione invia una grande quantità di dati ed è in uso Application In
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
-[rilevamento]: app-insights-api-custom-events-metrics.md
+[track]: app-insights-api-custom-events-metrics.md
 [usage]: app-insights-web-track-usage.md
 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

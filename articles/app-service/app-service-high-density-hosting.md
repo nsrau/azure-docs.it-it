@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 01/11/2017
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7a4105feb1621891e1777078c67e080c44e7be51
+ms.sourcegitcommit: 0c2677b388f7a88ff88715a05212633565393cc2
+ms.openlocfilehash: 2d5d1d5123ca718b2e7dcdf426b77f91969dc9dc
 
 
 ---
@@ -37,10 +37,65 @@ Se più app condividono un piano di servizio app, tuttavia, un'istanza dell'app 
 
 La scalabilità per app consente di ridimensionare un'app indipendentemente dal piano di servizio app in cui è ospitata. È così possibile configurare un piano di servizio app per offrire 10 istanze impostando però un'app in modo che venga ridimensionata a solo 5 di tali istanze.
 
-Il modello di Azure Resource Manager seguente crea un piano di servizio app con aumento del numero di istanze a 10 e un'app configurata per usare la scalabilità per app con ridimensionamento a 5 istanze soltanto.
+   >[!NOTE]
+   >La scalabilità per app è disponibile solo per i piani di servizio app con SKU **Premium**
+   >
 
-Il piano di servizio app imposta la proprietà di **scalabilità per ogni sito** su true ( `"perSiteScaling": true`). L'app imposta il **numero di ruoli di lavoro** da usare su 5 (`"properties": { "numberOfWorkers": "5" }`).
+### <a name="per-app-scaling-using-powershell"></a>Scalabilità per app tramite PowerShell
 
+Si può configurare un nuovo piano come piano di *scalabilità per app* passando l'attributo ```-perSiteScaling $true``` al cmdlet ```New-AzureRmAppServicePlan```
+
+```
+New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
+                            -Location $Location `
+                            -Tier Premium -WorkerSize Small `
+                            -NumberofWorkers 5 -PerSiteScaling $true
+```
+
+Se si desidera aggiornare un piano di servizio app esistente per usare questa funzionalità: 
+
+- ottenere il piano di destinazione ```Get-AzureRmAppServicePlan```
+- modificare la proprietà localmente ```$newASP.PerSiteScaling = $true```
+- pubblicare le modifiche su Azure ```Set-AzureRmAppServicePlan``` 
+
+```
+    # Get the new App Service Plan and modify the "PerSiteScaling" property.
+    $newASP = Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan
+    $newASP
+
+    #Modify the local copy to use "PerSiteScaling" property.
+    $newASP.PerSiteScaling = $true
+    $newASP
+    
+    #Post updated app service plan back to azure
+    Set-AzureRmAppServicePlan $newASP
+```
+
+Dopo aver configurato il piano, è possibile impostare il numero massimo di istanze per ognuna delle app.
+
+Nell'esempio seguente l'app è limitata a due sole istanze indipendentemente dal numero di istanze a cui viene scalato orizzontalmente il piano di servizio app sottostante.
+
+```
+    # Get the app we want to configure to use "PerSiteScaling"
+    $newapp = Get-AzureRmWebApp -ResourceGroupName $ResourceGroup -Name $webapp
+    
+    # Modify the NumberOfWorkers setting to the desired value.
+    $newapp.SiteConfig.NumberOfWorkers = 2
+    
+    # Post updated app back to azure
+    Set-AzureRmWebApp $newapp
+```
+
+### <a name="per-app-scaling-using-azure-resource-manager"></a>Scalabilità per app tramite Azure Resource Manager
+
+Il seguente *modello di Azure Resource Manager* crea:
+
+- un piano di servizio app che viene scalato orizzontalmente a 10 istanze
+- un'app che è configurata per la scalabilità orizzontale fino a un massimo di cinque istanze.
+
+Il piano di servizio app imposta la proprietà **PerSiteScaling** su true ```"perSiteScaling": true```. L'app imposta il **numero di ruoli di lavoro** da usare su 5 ```"properties": { "numberOfWorkers": "5" }```.
+
+```
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
@@ -53,10 +108,10 @@ Il piano di servizio app imposta la proprietà di **scalabilità per ogni sito**
             "comments": "App Service Plan with per site perSiteScaling = true",
             "type": "Microsoft.Web/serverFarms",
             "sku": {
-                "name": "S1",
-                "tier": "Standard",
-                "size": "S1",
-                "family": "S",
+                "name": "P1",
+                "tier": "Premium",
+                "size": "P1",
+                "family": "P",
                 "capacity": 10
                 },
             "name": "[parameters('appServicePlanName')]",
@@ -85,7 +140,7 @@ Il piano di servizio app imposta la proprietà di **scalabilità per ogni sito**
              } ]
          }]
     }
-
+```
 
 ## <a name="recommended-configuration-for-high-density-hosting"></a>Configurazione consigliata per l'hosting ad alta densità
 La funzionalità di scalabilità per app è abilitata sia nelle aree di Azure pubbliche che negli ambienti del servizio app. È tuttavia consigliabile usare gli ambienti del servizio app per sfruttarne le funzionalità avanzate e i pool di capacità di maggiori dimensioni.  
@@ -94,13 +149,13 @@ Per configurare l'hosting ad alta densità per le app, seguire questa procedura:
 
 1. Configurare l'ambiente del servizio app e scegliere un pool di lavoro da dedicare allo scenario di hosting ad alta densità.
 2. Creare un singolo piano di servizio app e ridimensionarlo in modo da usare tutta la capacità disponibile del pool di lavoro.
-3. Impostare il flag della scalabilità per sito su true nel piano di servizio app.
-4. Vengono creati nuovi siti, che vengono assegnati al piano di servizio app con la proprietà **numberOfWorkers** impostata su **1**. L'uso di questa configurazione consente di ottenere la massima densità possibile nel pool di lavoro.
-5. Il numero di ruoli di lavoro può essere configurato in modo indipendente per ogni sito, per concedere risorse aggiuntive in base alle esigenze. Ad esempio, per un sito a uso elevato è possibile impostare **numberOfWorkers** su **3** per avere maggiore capacità di elaborazione per l'app corrispondente, mentre per siti di uso inferiore è possibile impostare **numberOfWorkers** su **1**.
+3. Impostare il flag PerSiteScaling su true nel piano di servizio app.
+4. Vengono create nuove app e assegnate al piano di servizio app con la proprietà **numberOfWorkers** impostata su **1**. L'uso di questa configurazione consente di ottenere la massima densità possibile nel pool di lavoro.
+5. Il numero di ruoli di lavoro può essere configurato in modo indipendente per ogni app, per concedere risorse aggiuntive in base alle esigenze. Ad esempio, per un'app a uso elevato è possibile impostare **numberOfWorkers** su **3** per avere maggiore capacità di elaborazione per l'app, mentre per le app a uso ridotto è possibile impostare **numberOfWorkers** su **1**.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c9f062f1cc855a47bb75668e99330e98bb2395b2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b7a74df9bfcf75b00af5aaf21e9f74610712ab47
 
 
 ---
@@ -32,7 +32,7 @@ L'applicazione sarà simile alla seguente:
 * IDE Eclipse per sviluppatori Java EE, Indigo o versione successiva. È possibile scaricare il pacchetto all'indirizzo <http://www.eclipse.org/downloads/>.
 * Distribuzione di un server applicazioni o un server Web basato su Java, ad esempio Apache Tomcat, GlassFish, JBoss Application Server, Jetty, or IBM® WebSphere® Application Server Liberty Core.
 * Una sottoscrizione di Azure, che può essere ottenuta all'indirizzo <http://azure.microsoft.com/pricing/purchase-options/>.
-* Azure Toolkit per Eclipse. Per altre informazioni, vedere [Installazione di Azure Toolkit per Eclipse][Installazione di Azure Toolkit per Eclipse].
+* Azure Toolkit per Eclipse. Per altre informazioni, vedere [Installazione di Azure Toolkit for Eclipse][Installing the Azure Toolkit for Eclipse].
 
 ## <a name="to-create-a-hello-world-application"></a>Creare un'applicazione Hello World JSP
 Creare innanzitutto un progetto Java.
@@ -74,13 +74,13 @@ Quando un'applicazione Web Java è pronta per il test, è possibile usare la sco
    5. Per **Target OS**selezionare la versione del sistema operativo che si desidera usare per la distribuzione.
    6. Per **Target environment** (Ambiente di destinazione) selezionare, ai fini di questa esercitazione **Staging**. Quando si è pronti a eseguire la distribuzione nel sito di produzione, sarà necessario impostare questa opzione su **Production**.
    7. Facoltativo: assicurarsi che l'opzione **Overwrite previous deployment** sia selezionata se si desidera che la nuova distribuzione sovrascriva automaticamente la distribuzione precedente. Se si abilita questa opzione, non si verificheranno problemi di "conflitto 409" durante la pubblicazione nello stesso percorso.
-       Si noti che la finestra di dialogo **Publish to Azure** (Pubblica in Azure) contiene una sezione denominata **Remote Access** (Accesso remoto). Per impostazione predefinita, l'accesso remoto non è abilitato e non verrà abilitato per questo esempio. Per abilitare l'accesso remoto, immettere un nome utente e una password da usare quando si accede in remoto. Per altre informazioni sull'accesso remoto, vedere [Abilitazione dell'accesso remoto per distribuzioni di Azure in Eclipse][Abilitazione dell'accesso remoto per distribuzioni di Azure in Eclipse].
+       Si noti che la finestra di dialogo **Publish to Azure** (Pubblica in Azure) contiene una sezione denominata **Remote Access** (Accesso remoto). Per impostazione predefinita, l'accesso remoto non è abilitato e non verrà abilitato per questo esempio. Per abilitare l'accesso remoto, immettere un nome utente e una password da usare quando si accede in remoto. Per altre informazioni sull'accesso remoto, vedere [Abilitazione dell'accesso remoto per distribuzioni di Azure in Eclipse][Enabling Remote Access for Azure Deployments in Eclipse].
        Verrà visualizzata una finestra di dialogo **Publish to Azure** (Pubblica in Azure) simile alla seguente:  ![][ic719488]
 5. Fare clic su **Publish** per eseguire la pubblicazione nell'ambiente di gestione temporanea.
     Se viene richiesto di eseguire una build completa, fare clic su **Yes**. Questa operazione può richiedere alcuni minuti nel caso della prima build.
     Nella scheda **Azure Activity Log** della sezione a schede relativa alle visualizzazioni di Eclipse verrà visualizzato un log.
     ![][ic719489]
-    È possibile usare questo log e la visualizzazione **Console** per vedere lo stato di avanzamento della distribuzione. In alternativa, è possibile accedere al [portale di gestione di Azure][portale di gestione di Azure] e monitorare lo stato mediante la sezione **Servizi cloud**.
+    È possibile usare questo log e la visualizzazione **Console** per vedere lo stato di avanzamento della distribuzione. In alternativa, è possibile accedere al [portale di gestione di Azure][Azure Management Portal] e monitorare lo stato usando la sezione **Servizi cloud**.
 6. Dopo aver eseguito la distribuzione, in **Log attività di Azure** verrà visualizzato lo stato **Pubblicato**. Fare clic su **Published**, come illustrato nell'immagine seguente, e nel browser verrà aperta un'istanza della distribuzione.
     ![][ic719490]
 
@@ -115,7 +115,7 @@ Per modificare il pacchetto JDK, il server applicazioni o l'elenco di applicazio
 3. Espandere il sottomenu **Azure** nel menu di scelta rapida.
 4. Fare clic su **Server Configuration**
 
-Indipendentemente dal fatto che la procedura di configurazione server sia stata avviata con la modifica di un progetto di distribuzione di Azure esistente, come illustrato sopra, o con la creazione di un nuovo progetto da zero, verrà visualizzato lo stesso tipo di finestre di dialogo che consentono di configurare il pacchetto JDK, i componenti server e delle applicazioni. Per altre informazioni su come modificare le impostazioni nelle finestre di dialogo, ad esempio per modificare il pacchetto JDK, il server applicazioni e aggiungere o rimuovere applicazioni in una distribuzione, vedere l'articolo [proprietà di configurazione server][proprietà di configurazione server] (Proprietà del server di configurazione).
+Indipendentemente dal fatto che la procedura di configurazione server sia stata avviata con la modifica di un progetto di distribuzione di Azure esistente, come illustrato sopra, o con la creazione di un nuovo progetto da zero, verrà visualizzato lo stesso tipo di finestre di dialogo che consentono di configurare il pacchetto JDK, i componenti server e delle applicazioni. Per altre informazioni su come modificare le impostazioni nelle finestre di dialogo, ad esempio per modificare il pacchetto JDK, il server applicazioni e aggiungere o rimuovere applicazioni in una distribuzione, vedere l'articolo [Proprietà di configurazione del server][Server configuration properties].
 
 ## <a name="windows-only-to-deploy-your-application-to-the-compute-emulator"></a>Solo Windows: per distribuire l'applicazione nell'emulatore di calcolo
 > [!NOTE]
@@ -155,24 +155,24 @@ Selezionare la sottoscrizione, il servizio cloud contenente la distribuzione e l
 In alternativa all'uso del toolkit per eliminare la distribuzione, è possibile usare la sezione **Servizi cloud** del portale di gestione di Azure: passare alla distribuzione specifica, selezionarla e fare clic sul pulsante **Elimina**. In questo modo la distribuzione viene arrestata e quindi eliminata. Se si vuole semplicemente arrestare la distribuzione e non eliminarla, fare clic sul pulsante **Arresta** invece che sul pulsante **Elimina**. In questo caso però, come già indicato, se non si elimina la distribuzione si accumuleranno le spese fatturabili anche se la distribuzione viene arrestata.
 
 ## <a name="see-also"></a>Vedere anche
-[Toolkit di Azure per Eclipse][Toolkit di Azure per Eclipse]
+[Azure Toolkit for Eclipse][Azure Toolkit for Eclipse]
 
-[Installazione di Azure Toolkit per Eclipse][Installazione di Azure Toolkit per Eclipse] 
+[Installazione di Azure Toolkit for Eclipse][Installing the Azure Toolkit for Eclipse] 
 
-[Novità di Azure Toolkit per Eclipse][Novità di Azure Toolkit per Eclipse]
+[Novità di Azure Toolkit for Eclipse][What's New in the Azure Toolkit for Eclipse]
 
-Per altre informazioni sull'uso di Azure con Java, vedere il [Centro per sviluppatori Java in Azure][Centro per sviluppatori Java in Azure] di Azure.
+Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure][Azure Java Developer Center].
 
 <!-- URL List -->
 
-[Centro per sviluppatori Java in Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[portale di gestione di Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Proprietà del ruolo di Azure]: http://go.microsoft.com/fwlink/?LinkID=699525
-[Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Abilitazione dell'accesso remoto per distribuzioni di Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699538
-[Installazione di Azure Toolkit per Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[proprietà di configurazione server]: http://go.microsoft.com/fwlink/?LinkID=699525#server_configuration_properties
-[Novità di Azure Toolkit per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Azure Role Properties]: http://go.microsoft.com/fwlink/?LinkID=699525
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Enabling Remote Access for Azure Deployments in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699538
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Server configuration properties]: http://go.microsoft.com/fwlink/?LinkID=699525#server_configuration_properties
+[What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
 
@@ -197,6 +197,6 @@ Per altre informazioni sull'uso di Azure con Java, vedere il [Centro per svilupp
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

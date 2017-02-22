@@ -7,7 +7,8 @@ Per autenticare l'applicazione per accedere ai servizi di archiviazione, è poss
 ### <a name="shared-key"></a>Chiave condivisa
 L'autenticazione con la chiave condivisa implica che l'applicazione userà il nome account e la chiave dell'account per accedere ai servizi di archiviazione. Per mostrare rapidamente come usare questa libreria, in questa guida introduttiva verrà usata l'autenticazione con la chiave condivisa.
 
-> [AZURE.WARNING (Usare l'autenticazione con chiave condivisa solo a scopo di test) ] Il nome account e la chiave dell'account, che concedono l'accesso completo in lettura/scrittura all'account di archiviazione associato, verranno distribuiti a ogni persona che scarica l'app. Questa procedura **non** è consigliabile perché si rischia che la chiave venga compromessa da client non attendibili.
+> [!WARNING] 
+> **Per scopi di test, usare solo l'autenticazione con chiave condivisa.** Il nome account e la chiave dell'account, che concedono l'accesso completo in lettura/scrittura all'account di archiviazione associato, verranno distribuiti a ogni persona che scarica l'app. Questa procedura **non** è consigliabile perché si rischia che la chiave venga compromessa da client non attendibili.
 > 
 > 
 
@@ -39,6 +40,6 @@ Come si può osservare, quando si usa una firma di accesso condiviso, non si esp
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

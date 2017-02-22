@@ -12,26 +12,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/19/2016
+ms.date: 01/05/2017
 ms.author: masnider
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ef1b4c5ab23365b62c3c1061061aec5a9155c3f4
+ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
+ms.openlocfilehash: 16863217eddf0a4bbd85c52f8481c03e50dd9108
 
 
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configurazione e utilizzo dell'affinità del servizio in Service Fabric
-Il controllo di affinità è disponibile principalmente per facilitare la transizione di grandi applicazioni monolitiche verso ambienti cloud e di microservizi. Ciò premesso, può anche essere usato in alcuni casi come ottimizzazione legittima per migliorare le prestazioni dei servizi, sebbene possa avere effetti collaterali.
+Il controllo di affinità è disponibile principalmente per facilitare la transizione di grandi applicazioni monolitiche verso ambienti cloud e di microservizi. Ciò premesso, può anche essere usato in alcuni casi come ottimizzazione legittima per migliorare le prestazioni dei servizi, sebbene questa operazione possa avere effetti collaterali.
 
-Si supponga di voler importare in Service Fabric un'applicazione di grandi dimensioni o che non era stata progettata nell'ottica dei microservizi. Questa transizione è comune e ci è stata manifestata da molti clienti interni ed esterni. Per iniziare, si solleva l'intera applicazione nell'ambiente, la si impacchetta e rende attiva. Quindi, la si suddivide in vari servizi più piccoli che comunicano tra loro.
+Si supponga di voler importare in Service Fabric un'applicazione di grandi dimensioni o che non era stata progettata nell'ottica dei microservizi. Questo tipo di transizione è comune. È necessario innanzitutto sollevare l'intera applicazione nell'ambiente, creare il pacchetto e accertarsi che venga eseguita senza problemi. Quindi, la si suddivide in vari servizi più piccoli che comunicano tra loro.
 
 Poi si verifica un inconveniente. L'inconveniente rientra, in genere, in una di queste categorie:
 
 1. Una parte del componente X dell'app monolitica aveva una dipendenza non documentata dal componente Y che abbiamo appena convertito in servizi separati. Poiché questi servizi sono in esecuzione su nodi diversi del cluster, vengono interrotti.
-2. Questi elementi comunicano tramite (named pipe locali| memoria condivisa | file su disco), ma è necessario poterli aggiornare in modo indipendente per velocizzarli. La dipendenza rigida verrà rimossa in un secondo momento.
-3. Tutto va bene, ma si scopre che questi due componenti comunicano molto tra loro o sono sensibili alle prestazioni. Quando sono stati spostati in servizi separati, le prestazioni globali hanno subito dell'applicazione ne hanno risentito pesantemente o hanno aumentato la latenza. Di conseguenza, l'applicazione globale non soddisfa le aspettative.
+2. Questi comunicano tramite (named pipe locali | memoria condivisa | file su disco), ma devono essere subito in grado di scrivere su una risorsa condivisa per motivi di prestazioni. Tale dipendenza rigida viene rimossa in un secondo momento.
+3. La procedura è corretta, ma si scopre che questi due componenti comunicano tra loro o sono sensibili alle prestazioni. Quando sono stati spostati in servizi separati, le prestazioni globali hanno subito dell'applicazione ne hanno risentito pesantemente o hanno aumentato la latenza. Di conseguenza, l'applicazione globale non soddisfa le aspettative.
 
-In questi casi si non vogliamo perdere il lavoro di ricostruzione e non vogliamo tornare all'app monolitica, ma è necessario un certo senso di posizionamento. Questo verrà mantenuto fino a quando non sarà possibile riprogettare i componenti perché funzionino in modo naturale come servizi o fino a quando non si sarà in grado di risolvere le aspettative delle prestazioni in un altro modo, se possibile.
+In questi casi si non vogliamo perdere il lavoro di ricostruzione e non vogliamo tornare all'app monolitica. Tuttavia fino a quando non sarà possibile riprogettare i componenti perché funzionino in modo naturale come servizi (o fino a quando non si sarà in grado di risolvere le aspettative delle prestazioni in un altro modo), è necessario un senso di località.
 
 Cosa fare? Si può provare ad attivare il servizio di affinità.
 
@@ -49,30 +49,34 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ## <a name="different-affinity-options"></a>Diverse opzioni di affinità
 L'affinità è rappresentata tramite vari possibili schemi di correlazione e ha due modalità diverse. La modalità di affinità più comune è la cosiddetta NonAlignedAffinity. Nella modalità NonAlignedAffinity le repliche o le istanze dei diversi servizi vengono inserite negli stessi nodi. L'altra modalità è AlignedAffinity. La modalità AlignedAffinity viene usata solo con i servizi con stato. La configurazione di due servizi con stati per l'allineamento dell'affinità garantisce che i primari di tali servizi vengano inseriti negli stessi nodi. La configurazione consente anche di inserire ogni coppia di secondari dei servizi negli stessi nodi. È possibile anche configurare una relazione NonAlignedAffinity per i servizi con stato, sebbene questa pratica sia meno comune. Per la relazione NonAlignedAffinity, le diverse repliche dei due servizi con stato saranno collocate sugli stessi nodi, ma non verrà eseguito alcun tentativo di allineamento di primarie o secondarie.
 
+<center>
 ![Modalità di affinità e loro effetti][Image1]
+</center>
 
 ### <a name="best-effort-desired-state"></a>Stato desiderato del massimo sforzo
-Esistono alcune differenze tra il servizio di affinità e le architetture monolitiche. Molte di queste dipendono dal fatto che una relazione di affinità è migliore. I servizi in una relazione di affinità sono entità profondamente diverse che possono avere esito negativo ed essere spostate in modo indipendente. Sono disponibili anche le cause per cui una relazione di affinità potrebbe interrompersi. Ad esempio, i limiti di capacità per cui solo alcuni degli oggetti del servizio nella relazione di affinità possono contenere un determinato nodo. In questi casi, anche se è disponibile una relazione di affinità, non verrà applicata a causa di altri vincoli. Se è possibile applicare tutti gli altri vincoli e l'affinità in un secondo momento, la violazione del vincolo di affinità verrà corretta in automatico.  
+Esistono alcune differenze tra il servizio di affinità e le architetture monolitiche. Molte di queste dipendono dal fatto che una relazione di affinità è migliore. I servizi in una relazione di affinità sono entità profondamente diverse che possono avere esito negativo ed essere spostate in modo indipendente. Sono disponibili anche le cause per cui una relazione di affinità potrebbe interrompersi. Ad esempio, i limiti di capacità per cui solo alcuni degli oggetti del servizio nella relazione di affinità possono contenere un determinato nodo. In questi casi, anche se è disponibile una relazione di affinità, non verrà applicata a causa di altri vincoli. Se è possibile effettuare questa operazione, la violazione viene corretta automaticamente in un secondo momento.
 
 ### <a name="chains-vs-stars"></a>Modelli a catena o a stella
-Ad oggi non siamo in grado di modellare catene di relazioni di affinità. Ciò significa che un servizio che è un elemento figlio in una relazione di affinità non potrà essere un elemento padre in un'altra relazione di affinità. Se si desidera modellare questo tipo di relazione, è necessario modellarla in modo efficace a forma di stella, invece di una catena. A questo scopo, l'elemento figlio più basso sarebbe imparentato con il padre dell'elemento figlio "medio". A seconda della disposizione dei servizi può essere necessario creare un servizio "segnaposto" come padre per più elementi figlio.
+Oggi Cluster Resource Manager non è in grado modellare le catene di relazioni di affinità di. Ciò significa che un servizio che è un elemento figlio in una relazione di affinità non potrà essere un elemento padre in un'altra relazione di affinità. Se si desidera modellare questo tipo di relazione, è necessario modellarla in modo efficace a forma di stella, invece di una catena. Per spostarsi da un modello a catena a uno a stella, l'elemento figlio più basso verrebbe imparentato con il padre del primo elemento figlio. A seconda della disposizione dei servizi, è possibile eseguire l'operazione più volte. Se non esiste alcun servizio padre naturale, è necessario crearne uno che funga da segnaposto. A seconda dei requisiti, è inoltre consigliabile esaminare i [gruppi di applicazioni](service-fabric-cluster-resource-manager-application-groups.md).
 
+<center>
 ![Modelli a catena o a stella nel contesto delle relazioni di affinità][Image2]
+</center>
 
-Un altro aspetto da notare circa le relazioni di affinità attuali è che sono direzionali. Ciò significa che la regola "affinità" impone solo che l'elemento figlio si trovi nella stessa posizione dell'elemento padre. Se ad esempio l'elemento padre improvvisamente esegue il failover a un altro nodo, Cluster Resource Manager non ritiene che sia presente un problema effettivo fino a quando non nota che l'elemento figlio non si trova insieme a un elemento padre; la relazione non viene applicata immediatamente.
+Un altro aspetto da notare circa le relazioni di affinità attuali è che sono direzionali. Ciò significa che la regola "affinità" impone solo che l'elemento figlio si trovi nella stessa posizione dell'elemento padre, non che l'elemento padre si trovi con l'elemento figlio. Supponiamo, ad esempio, che per l'elemento padre improvvisamente si verifichi un errore su un altro nodo. In questo caso per Cluster Resource Manager l'operazione si svolge in modo corretto fino a quando non rileva che l'elemento figlio non si trova con l'elemento padre. La relazione di affinità non può essere perfetta o imposta subito poiché si tratta di servizi diversi con diversi cicli di vita.
 
 ### <a name="partitioning-support"></a>Supporto del partizionamento
 L'ultimo aspetto da notare è che le relazioni di affinità non sono supportate nelle situazioni in cui l'elemento padre è partizionato. È possibile che in futuro venga attivato il supporto per questo aspetto, ma attualmente non è previsto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per maggiori informazioni sulle altre opzioni disponibili per la configurazione dei servizi, consultare l'articolo relativo alle altre configurazioni disponibili per Cluster Resource Manager [Informazioni sulla configurazione dei servizi](service-fabric-cluster-resource-manager-configure-services.md)
-* Numerosi casi in cui gli utenti usano l'affinità, ad esempio per limitare un piccolo set di computer e provare ad aggregare il carico di una raccolta di servizi, sono supportati meglio dai gruppi di applicazioni. Vedere [Gruppi di applicazioni](service-fabric-cluster-resource-manager-application-groups.md)
+* Per i casi in cui gli utenti usano l'affinità per limitare un piccolo set di computer e provare ad aggregare il carico di una raccolta di servizi, usare i [gruppi di applicazioni](service-fabric-cluster-resource-manager-application-groups.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
 [Image2]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

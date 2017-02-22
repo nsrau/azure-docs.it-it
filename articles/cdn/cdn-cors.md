@@ -3,7 +3,7 @@ title: Uso della rete CDN di Azure con CORS | Documentazione Microsoft
 description: Informazioni su come usare la rete per la distribuzione di contenuti (rete CDN) di Azure con CORS (Cross-Origin Resource Sharing).
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 86740a96-4269-4060-aba3-a69f00e6f14e
@@ -12,33 +12,47 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e4f7e947ab3e9ee67224edc9cad07d82524af2b7
+ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
+ms.openlocfilehash: 7070397f6e69b21add75bad8220f0b8ebe36d266
 
 
 ---
 # <a name="using-azure-cdn-with-cors"></a>Uso della rete CDN di Azure con CORS
 ## <a name="what-is-cors"></a>Informazioni su CORS
-CORS (Cross Origin Resource Sharing) è una funzionalità HTTP che consente a un'applicazione Web in esecuzione in un dominio di accedere alle risorse in un altro dominio. Per ridurre il rischio di attacchi tramite script da altri siti, tutti i Web browser moderni implementano una restrizione di sicurezza nota come [regola della stessa origine](http://www.w3.org/Security/wiki/Same_Origin_Policy).  Questo impedisce a una pagina Web di chiamare le API in un dominio diverso.  CORS offre una modalità sicura per consentire a un dominio (quello di origine) di chiamare le API in un altro dominio.
+CORS (Cross Origin Resource Sharing) è una funzionalità HTTP che consente a un'applicazione Web in esecuzione in un dominio di accedere alle risorse in un altro dominio. Per ridurre il rischio di attacchi tramite script da altri siti, tutti i Web browser moderni implementano una restrizione di sicurezza nota come [regola della stessa origine](http://www.w3.org/Security/wiki/Same_Origin_Policy).  Questo impedisce a una pagina Web di chiamare le API in un dominio diverso.  CORS offre un modo sicuro per consentire a una origine, ovvero il dominio di origine, di chiamare le API in un'altra origine.
 
 ## <a name="how-it-works"></a>Funzionamento
-1. Il browser invia la richiesta OPTIONS con un'intestazione HTTP **Origin** . Il valore di questa intestazione è il dominio che ha gestito la pagina padre. Quando una pagina prova ad accedere da https://www.contoso.com ai dati di un utente nel dominio fabrikam.com, verrà inviata a tale sito l'intestazione di richiesta seguente: 
-   
+Esistono due tipi di richieste CORS, le *richieste semplici* e le *richieste complesse*.
+
+### <a name="for-simple-requests"></a>Per le richieste semplici:
+
+1. Il browser invia la richiesta CORS con un'ulteriore intestazione della richiesta HTTP **Origin**. Il valore di questa intestazione è l'origine che ha gestito la pagina padre, definita come la combinazione di *protocollo*, *dominio* e *porta*.  Quando una pagina prova ad accedere da https://www.contoso.com ai dati di un utente nell'origine fabrikam.com, a tale sito viene inviata l'intestazione di richiesta seguente:
+
    `Origin: https://www.contoso.com`
-2. Il server può rispondere con gli elementi seguenti:
-   
-   * Un'intestazione **Access-Control-Allow-Origin** presente nella risposta, per indicare i siti di origine consentiti. ad esempio:
-     
+
+2. Il server può rispondere con uno degli elementi seguenti:
+
+   * Un'intestazione **Access-Control-Allow-Origin** presente nella risposta, per indicare il sito di origine consentito. ad esempio:
+
      `Access-Control-Allow-Origin: https://www.contoso.com`
-   * Una pagina di errore se il server non consente la richiesta multiorigine
-   * Un'intestazione **Access-Control-Allow-Origin** con un carattere jolly che consente tutti i domini:
-     
+
+   * Un codice di errore HTTP, ad esempio 403, se il server non consente la richiesta multiorigine dopo il controllo dell'intestazione Origin.
+
+   * Un'intestazione **Access-Control-Allow-Origin** con un carattere jolly che consente tutte le origini:
+
      `Access-Control-Allow-Origin: *`
 
-Per quanto riguarda le richieste HTTP complesse, esiste una richiesta "preliminare" da eseguire in precedenza per verificare la disponibilità dell'autorizzazione necessaria prima dell'invio dell'intera richiesta.
+### <a name="for-complex-requests"></a>Per le richieste complesse:
+
+Una richiesta complessa è una richiesta CORS in cui il browser deve inviare una *richiesta preliminare*, ovvero un probe preliminare, prima di inviare la richiesta CORS effettiva. La richiesta preliminare chiede l'autorizzazione del server perché la richiesta CORS originale possa procedere e si tratta di una richiesta `OPTIONS` allo stesso URL.
+
+> [!TIP]
+> Per altre informazioni sui flussi CORS e i problemi comuni, vedere [Guide to CORS for REST APIs](https://www.moesif.com/blog/technical/cors/Authoritative-Guide-to-CORS-Cross-Origin-Resource-Sharing-for-REST-APIs/) (Guida di CORS per le API REST).
+>
+>
 
 ## <a name="wildcard-or-single-origin-scenarios"></a>Scenari con caratteri jolly o singola origine
 La condivisione CORS sulla rete CDN di Azure funzionerà automaticamente senza operazioni di configurazione aggiuntive quando l'intestazione **Access-Control-Allow-Origin** è impostata sul carattere jolly asterisco (*) o su una singola origine.  La rete CDN memorizzerà nella cache la prima risposta e le richieste successive useranno la stessa intestazione.
@@ -46,7 +60,7 @@ La condivisione CORS sulla rete CDN di Azure funzionerà automaticamente senza o
 Se sono state inviate richieste alla rete CDN prima che la condivisione CORS venisse impostata nell'origine, sarà necessario eliminare il contenuto sull'endpoint e ricaricarlo con l'intestazione **Access-Control-Allow-Origin** .
 
 ## <a name="multiple-origin-scenarios"></a>Scenari con più origini
-Se si desidera autorizzare per CORS uno specifico elenco di origini, le operazioni da eseguire sono più complesse. Il problema si verifica quando la rete CDN memorizza nella cache l'intestazione **Access-Control-Allow-Origin** per la prima origine CORS.  Quando un'origine CORS differente effettua una richiesta successiva, la rete CDN gestisce l'intestazione **Access-Control-Allow-Origin** , che però non corrisponde.  Esistono diversi modi per risolvere il problema.
+Se si desidera autorizzare per CORS uno specifico elenco di origini, le operazioni da eseguire sono più complesse. Il problema si verifica quando la rete CDN memorizza nella cache l'intestazione **Access-Control-Allow-Origin** per la prima origine CORS.  Quando un'origine CORS differente effettua una richiesta successiva, la rete CDN gestisce l'intestazione **Access-Control-Allow-Origin** memorizzata nella cache, che però non corrisponde.  Esistono diversi modi per risolvere il problema.
 
 ### <a name="azure-cdn-premium-from-verizon"></a>Rete CDN Premium di Azure fornita da Verizon
 Il modo migliore per abilitare questa rete consiste nell'usare la **rete CDN Premium di Azure fornita da Verizon**, in cui sono disponibili alcune funzionalità avanzate. 
@@ -85,6 +99,6 @@ Nei profili della rete CDN Standard di Azure, l'unico meccanismo per consentire 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

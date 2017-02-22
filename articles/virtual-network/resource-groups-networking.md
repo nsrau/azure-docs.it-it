@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 18234ad720d4e85b50d1871dacf243c65f45be33
+ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
+ms.openlocfilehash: 2428c707ddeed281fddd1e57bc5574603f0b9b1c
 
 
 ---
 # <a name="network-resource-provider"></a>Provider di risorse di rete
-Un fattore essenziale per il successo di un'azienda è la possibilità di creare e gestire applicazioni presenti in rete su larga scala in modo agile, flessibile, sicuro e ripetibile. Gestione risorse di Azure (ARM) consente di creare tali applicazioni sotto forma di un'unica raccolta di risorse nei gruppi di risorse. Queste risorse vengono gestite tramite diversi provider di risorse in ARM.
+Un fattore essenziale per il successo di un'azienda è la possibilità di creare e gestire applicazioni presenti in rete su larga scala in modo agile, flessibile, sicuro e ripetibile. Azure Resource Manager consente di creare tali applicazioni come unica raccolta di risorse nei gruppi di risorse. Tali risorse vengono gestite tramite diversi provider in Resource Manager.
 
 Gestione risorse di Azure si basa su diversi provider di risorse per fornire l'accesso alle risorse. Sono disponibili tre provider di risorse principali: Rete, Archiviazione e Calcolo. In questo documento vengono illustrate le caratteristiche e i vantaggi del Provider di risorse di rete, tra cui:
 
@@ -40,7 +40,7 @@ Gestione risorse di Azure si basa su diversi provider di risorse per fornire l'a
   * SDK per Java
   * Interfaccia della riga di comando di Azure
   * Portale di anteprima
-  * Linguaggio del modello ARM
+  * Linguaggio del modello di Resource Manager
 
 ## <a name="network-resources"></a>Risorse di rete
 Ora è possibile gestire le risorse di rete in modo indipendente, anziché tutte insieme mediante un'unica risorsa di calcolo (una macchina virtuale). Ciò garantisce una maggiore flessibilità durante la creazione di un'infrastruttura complessa e su larga scala in un gruppo di risorse.
@@ -103,8 +103,8 @@ Quando si effettuano chiamate all'API REST sono supportati i seguenti metodi HTT
 
 Richiesta e risposta sono conformi a un formato di payload JSON. Per altre informazioni, vedere [API di gestione delle risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx).
 
-### <a name="arm-template-language"></a>Linguaggio del modello ARM
-Oltre a gestire le risorse in modo imperativo (tramite API o SDK), è anche possibile usare uno stile di programmazione dichiarativo per compilare e gestire le risorse di rete usando il linguaggio del modello ARM.
+### <a name="resource-manager-template-language"></a>Linguaggio del modello di Resource Manager
+Oltre a gestire le risorse in modo imperativo (tramite API o SDK), è anche possibile usare uno stile di programmazione dichiarativo per compilare e gestire le risorse di rete tramite il linguaggio del modello di Resource Manager.
 
 Di seguito viene fornita una rappresentazione di un modello:
 
@@ -234,13 +234,13 @@ Quando si usa un modello è possibile specificare manualmente i valori dei param
 
 I principali vantaggi associati all'uso dei modelli sono:
 
-* È possibile compilare un'infrastruttura complessa in un gruppo di risorse con uno stile dichiarativo. L'orchestrazione per la creazione delle risorse, inclusa la gestione delle dipendenze, viene gestita da ARM.
+* È possibile compilare un'infrastruttura complessa in un gruppo di risorse con uno stile dichiarativo. L'orchestrazione per la creazione delle risorse, inclusa la gestione delle dipendenze, viene gestita da Resource Manager.
 * È possibile creare l'infrastruttura in modo ripetibile in diverse aree e all'interno di una sola area modificando semplicemente i parametri.
 * Lo stile dichiarativo consente tempi più brevi per la compilazione dei modelli e la distribuzione dell'infrastruttura.
 
 Per i modelli di esempio, vedere i [modelli della guida introduttiva di Azure](https://github.com/Azure/azure-quickstart-templates).
 
-Per altre informazioni sul linguaggio del modello ARM, vedere [Linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md).
+Per altre informazioni sul linguaggio del modello di Resource Manager, vedere [Azure Resource Manager Template Language](../azure-resource-manager/resource-group-authoring-templates.md) (Linguaggio del modello di Azure Resource Manager).
 
 Il modello di esempio precedente usa la rete virtuale e le risorse della subnet. È possibile usare altre risorse di rete, come indicato di seguito:
 
@@ -258,17 +258,17 @@ Il modello di esempio precedente usa la rete virtuale e le risorse della subnet.
 ![Distribuzione del modello di esempio](./media/resource-groups-networking/Figure6.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md)
+[Linguaggio del modello di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 
 [Rete di Azure: modelli di uso comune](https://github.com/Azure/azure-quickstart-templates)
 
-[Distribuzione Azure Resource Manager o classica](../resource-manager-deployment-model.md)
+[Distribuzione Azure Resource Manager o classica](../azure-resource-manager/resource-manager-deployment-model.md)
 
 [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

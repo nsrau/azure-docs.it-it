@@ -1,6 +1,6 @@
 ---
-title: Modello di cluster | Documentazione Microsoft
-description: Modello di cluster
+title: (Deprecato) Modello di cluster - Azure | Documentazione Microsoft
+description: (Deprecato) Modello di cluster
 services: machine-learning
 documentationcenter: 
 author: FrancescaLazzeri
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/21/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: lazzeri
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8206107550173959021ea69ac533aa046f7e12e3
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 84c94b83878f851c2ac281fe33afe53e02f8456c
 
 
 ---
-# <a name="cluster-model"></a>Modello di cluster
+# <a name="deprecated-cluster-model"></a>(Deprecato) Modello di cluster
+
+> [!NOTE]
+> Microsoft DataMarket è in fase di ritiro e questa API è stata deprecata. 
+> 
+> Numerose API e molti esperimenti utili di esempio sono disponibili in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Per altre informazioni sulla raccolta, vedere [Condividere e scoprire risorse in Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 In che modo si può prevedere il comportamento di gruppi di titolari di carte di credito, per ridurre gli addebiti relativi ai rischi per le autorità emittenti di carte di credito? In che modo è possibile definire gruppi di aspetti della personalità dei dipendenti per migliorarne le prestazioni lavorative? In che modo i medici possono classificare i pazienti, suddividendoli in gruppi in base alle caratteristiche delle patologie? Teoricamente, è possibile rispondere a tutte queste domande tramite l'analisi dei cluster.   
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -80,7 +87,7 @@ Sono disponibili molte opzioni per l'uso del servizio in modalità automatica. P
 > 
 > 
 
-In Azure Machine Learning è stato creato un nuovo esperimento vuoto e due moduli [Execute R Script][execute-r-script] sono stati inseriti nell'area di lavoro. Lo schema di dati è stato creato con un semplice modello [Execute R Script][execute-r-script]. Quindi è stato collegato alla sezione del modello di cluster, creato a sua volta con un modulo [Execute R Script][execute-r-script]. Nel modulo [Execute R Script][execute-r-script] usato per il modello di cluster, il servizio Web usa quindi la funzione "k-means", incorporata in [Execute R Script][execute-r-script] di Azure Machine Learning.    
+In Azure Machine Learning è stato creato un nuovo esperimento vuoto e due moduli [Execute R Script][execute-r-script] sono stati inseriti nell'area di lavoro. Lo schema di dati è stato creato con un semplice modello [Execute R Script][execute-r-script]. In seguito, è stato collegato alla sezione del modello di cluster, creato a sua volta con un modulo [Execute R Script][execute-r-script]. Nel modulo [Execute R Script][execute-r-script] usato per il modello di cluster, il servizio Web usa quindi la funzione "k-means", incorporata in [Execute R Script][execute-r-script] di Azure Machine Learning.    
 
 ![Flusso dell'esperimento][3]
 
@@ -134,6 +141,6 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

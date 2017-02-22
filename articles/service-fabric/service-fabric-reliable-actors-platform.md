@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/19/2016
+ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 12565a57415642d68397982decb834a0c573ccbe
+ms.sourcegitcommit: c2e8f2d2f26bb93af5c2858242392b3dc207beb4
+ms.openlocfilehash: 2a3a5647f506d61e853f465f241d66fbe8c4ced0
 
 
 ---
@@ -30,7 +30,7 @@ Questo articolo descrive il funzionamento di Reliable Actors sulla piattaforma S
 Questi componenti insieme costituiscono il framework Reliable Actors. 
 
 ## <a name="service-layering"></a>Livelli del servizio
-Dato che il servizio Actor stesso è un servizio Reliable Services, tutti i concetti di [modello applicativo](service-fabric-application-model.md), ciclo di vita, [creazione pacchetti](service-fabric-application-model.md#package-an-application), [distribuzione](service-fabric-deploy-remove-applications.md#deploy-an-application), aggiornamento e ridimensionamento validi per Reliable Services si applicano anche ai servizi Actor. 
+Dato che il servizio Actor stesso è un servizio Reliable Services, tutti i concetti di [modello applicativo](service-fabric-application-model.md), ciclo di vita, [creazione pacchetti](service-fabric-application-model.md#package-an-application), [distribuzione](service-fabric-deploy-remove-applications.md), aggiornamento e ridimensionamento validi per Reliable Services si applicano anche ai servizi Actor. 
 
 ![Livelli del servizio Actor][1]
 
@@ -251,6 +251,6 @@ Quando si usano GUID e stringhe, viene eseguito l'hashing dei valori in un Int64
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

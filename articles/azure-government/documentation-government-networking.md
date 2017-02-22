@@ -1,23 +1,22 @@
 ---
 title: Rete di Azure per enti pubblici | Documentazione Microsoft
 description: "Fornisce un confronto di funzionalità e informazioni aggiuntive per la connettività privata all&quot;eGovernment"
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
-author: ryansoc
+author: jawalte
 manager: zakramer
-editor: 
 ms.assetid: 3da70579-ecda-421a-8ebf-d52906334e9b
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 09/28/2016
-ms.author: ryansoc
+ms.date: 01/24/2017
+ms.author: jawalte
 translationtype: Human Translation
-ms.sourcegitcommit: 14aa9126d3426c560c1f9497ed0d7a92448137b4
-ms.openlocfilehash: 39e67d449c0fa37b76354dc522216f9473df7b97
+ms.sourcegitcommit: 8288ca2e85ec0cd1a1b53862b2d60fcb88e7be4b
+ms.openlocfilehash: c6b8c27299c1bfceb045ee7d82981654f3a446d8
 
 
 ---
@@ -54,12 +53,59 @@ Perché i servizi di rete possano supportare le applicazioni e le soluzioni dei 
 
 Tutti i clienti che utilizzano un'architettura di connettività privata devono accertarsi che venga stabilita e mantenuta un'implementazione appropriata per la connessione dei clienti al punto di demarcazione del router perimetrale gateway di rete/Internet per Azure per enti pubblici. In modo analogo, l'organizzazione deve stabilire la connettività di rete tra l'ambiente locale e il punto di demarcazione del router perimetrale gateway di rete/Internet per Azure per enti pubblici.
 
+## <a name="support-for-bgp-communities"></a>Supporto per le community BGP
+Questa sezione fornisce una panoramica che illustra come vengono usate le community BGP con ExpressRoute in Azure per enti pubblici. Microsoft annuncerà le route nei percorsi per il peering pubblico e il peering Microsoft con route contrassegnate con i valori della community appropriati. I motivi per questa operazione e i dettagli sui valori della community sono descritti di seguito. Microsoft, tuttavia, non rispetterà eventuali valori della community contrassegnati in base a route annunciate a Microsoft.
+
+Se si effettua la connessione a Microsoft tramite ExpressRoute presso una qualsiasi località di peering all'interno di un'area di Azure per enti pubblici, sarà possibile accedere a tutti i servizi cloud Microsoft in tutte le aree all'interno dell'area specifica. 
+
+Se ad esempio ci si connette a Microsoft in Washington D.C. tramite ExpressRoute, sarà possibile accedere a tutti i servizi cloud Microsoft ospitati in Azure per enti pubblici.
+
+Fare riferimento alla scheda "Panoramica" nella [documentazione pubblica di ExpressRoute](../expressroute/index.md) per avere informazioni dettagliate sulle posizioni e i partner e un elenco dettagliato di ExpressRoute per la località di peering di AzureGov.
+
+È possibile acquistare più di un circuito ExpressRoute. Un maggior numero di connessioni offre vantaggi significativi in termini di disponibilità elevata, grazie alla ridondanza geografica. Se si hanno più circuiti ExpressRoute, si riceverà lo stesso set di prefissi annunciati da Microsoft nei percorsi per il peering pubblico e per il peering Microsoft. Questo significa che saranno disponibili più percorsi dalla propria rete a Microsoft. In questo caso, all'interno della rete potrebbero essere prese decisioni di routing non ottimali, che possono, a loro volta, determinare esperienze di connettività non ottimali a vari servizi. 
+
+Microsoft contrassegnerà i prefissi annunciati tramite il peering pubblico e il peering Microsoft con i valori della community BGP appropriati indicanti l'area in cui sono ospitati i prefissi. Per prendere le decisioni di routing appropriate e offrire un servizio di routing ottimale ai client, fare riferimento ai valori della community.  Per ulteriori informazioni, fare riferimento alla scheda "Attività iniziali" nella [documentazione pubblica di ExpressRoute](../expressroute/index.md) e fare clic su "Ottimizzare il routing".
+
+| **Area di Azure per cloud nazionali**| **Valore della community BGP** |
+| --- | --- |
+| **US Government** |  |
+| US Gov Iowa | 12076:51109 |
+| US Gov Virginia | 12076:51105 |
+
+Tutte le route annunciate da Microsoft verranno contrassegnate con il valore della community appropriato. 
+
+Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. Questo si applica solo al peering Microsoft. La tabella seguente fornisce il mapping del servizio al valore della community BGP.
+
+| **Servizio dei cloud nazionali** | **Valore della community BGP** |
+| --- | --- |
+| **US Government** |  |
+| Exchange Online |12076:5110 |
+| SharePoint Online |12076:5120 |
+| Skype for Business Online |12076:5130 |
+| CRM Online |12076:5140 |
+| Altri servizi online di Office 365 |12076:5200 |
+
+> [!NOTE]
+> Microsoft non riconosce eventuali valori di BGP Community impostati sulle route pubblicate su Microsoft.
+
+## <a name="support-for-load-balancer"></a>Supporto per il servizio di bilanciamento del carico
+Il servizio di bilanciamento del carico è disponibile a livello generale in Azure per enti pubblici. Per altre informazioni, vedere la [documentazione pubblica sul servizio di bilanciamento del carico](../load-balancer/load-balancer-overview.md). 
+
+## <a name="support-for-traffic-manger"></a>Supporto per Gestione traffico
+Il servizio di Gestione traffico è disponibile a livello generale in Azure per enti pubblici. Per altre informazioni, vedere la [documentazione pubblica sul servizio di Gestione traffico](../traffic-manager/traffic-manager-overview.md). 
+
+## <a name="support-for-vnet-peering"></a>Supporto per il peering reti virtuali 
+Il peering reti virtuali è disponibile a livello generale in Azure per enti pubblici. Per altre informazioni, vedere la [documentazione pubblica sul peering reti virtuali](../virtual-network/virtual-network-peering-overview.md). 
+
+## <a name="support-for-vpn-gateway"></a>Supporto per il Gateway VPN 
+Il Gateway VPN è disponibile a livello generale in Azure per enti pubblici. Per altre informazioni, vedere la [documentazione pubblica sul Gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). 
+
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni aggiuntive e aggiornamenti, sottoscrivere il <a href="https://blogs.msdn.microsoft.com/azuregov/">blog di Microsoft Azure per enti pubblici. </a>
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

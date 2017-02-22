@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: faa41c24c08a1e4f47b448210d882269c4c5a742
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7208f872e28ce53f82cf495030fabb50557bc563
 
 
 ---
@@ -282,6 +282,6 @@ Quando si fa clic sul riquadro Lifesize Cloud nel pannello di accesso, si dovreb
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

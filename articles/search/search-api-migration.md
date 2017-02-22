@@ -15,14 +15,17 @@ ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 165ab7363efaf90eaab41098f71e2f1b846c346e
-ms.openlocfilehash: 5ac292729d236bd539e71ba431283ca417ea3980
+ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
+ms.openlocfilehash: f6a189c2e314b91c490583a86d8bacca8ec78a0f
 
 ---
 # <a name="upgrading-to-the-azure-search-service-rest-api-version-2016-09-01"></a>Aggiornamento all'API REST di Ricerca di Azure versione 2016-09-01
 Se si usa la versione 2015-02-28 o 2015-02-28-Preview dell'[API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx), questo articolo consente di aggiornare l'applicazione alla prima versione disponibile a livello generale dell'API, la versione 2016-09-01.
 
 La versione 2016-09-01 dell'API REST include alcune modifiche rispetto alle versioni precedenti. Le versioni sono abbastanza compatibili tra loro, pertanto la modifica del codice richiede un impegno minimo, a seconda della versione in uso prima. Per istruzioni su come modificare il codice per usare la nuova versione dell'API, vedere [Steps to upgrade](#UpgradeSteps) (Passaggi per eseguire l'aggiornamento).
+
+> [!NOTE]
+> L'istanza del servizio Ricerca di Azure supporta diverse versioni di API REST, inclusa quella più recente. È possibile continuare a usare una versione anche se non è la più recente, ma si consiglia di migrare il codice per usare la versione più recente.
 
 <a name="WhatsNew"></a>
 
@@ -67,6 +70,6 @@ Grazie per avere usato Ricerca di Azure.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

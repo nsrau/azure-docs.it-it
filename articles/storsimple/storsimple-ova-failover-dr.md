@@ -1,5 +1,5 @@
 ---
-title: Ripristino di emergenza e failover del dispositivo per StorSimple Virtual Array
+title: Ripristino di emergenza e failover del dispositivo per l&quot;array virtuale StorSimple | Documentazione Microsoft
 description: "Scoprire di più su come eseguire il failover di StorSimple Virtual Array."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 06/07/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 67cdf4e3d8e81d2ea419603918a3204dc6860ae7
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: 2017fcdc7a5c36c7c00d8bcef5be973ed60e3f82
 
 
 ---
@@ -97,7 +97,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
 6. Selezionare il dispositivo disattivato e, nella parte inferiore della pagina, fare clic su **Failover**.
 7. Nella procedura guidata di conferma failover che viene visualizzata, procedere nel modo seguente:
    
-   1. Nell'elenco a discesa dei dispositivi disponibili, scegliere un **Dispositivo di destinazione.**  Solo i dispositivi dotati di capacità sufficiente vengono visualizzati nell'elenco a discesa.
+   1. Nell'elenco a discesa dei dispositivi disponibili, scegliere un **Dispositivo di destinazione.** Solo i dispositivi dotati di capacità sufficiente vengono visualizzati nell'elenco a discesa.
    2. Esaminare i dettagli associati al dispositivo di origine, ad esempio il nome del dispositivo, la capacità totale e i nomi delle condivisioni da sottoporre a failover.
       
        ![](./media/storsimple-ova-failover-dr/image21.png)
@@ -125,7 +125,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
 
 Questo video mostra come è possibile eseguire il failover di un dispositivo virtuale locale StorSimple su un altro dispositivo virtuale.
 
-> [! VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/StorSimple-Virtual-Array-Disaster-Recovery/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/StorSimple-Virtual-Array-Disaster-Recovery/player]
 > 
 > 
 
@@ -137,7 +137,7 @@ Se sono presenti dispositivi StorSimple registrati prima del verificarsi di un'e
 ## <a name="errors-during-dr"></a>Errori durante il ripristino di emergenza
 **Interruzione della connettività cloud durante il ripristino di emergenza**
 
-Se la connettività cloud viene interrotta dopo l'avvio del ripristino di emergenza e prima del completamento del ripristino del dispositivo, il ripristino di emergenza non va a buon fine e se ne riceve notifica. Il dispositivo di destinazione usato per il ripristino di emergenza viene quindi contrassegnato come *Inutilizzabile.*  Lo stesso dispositivo di destinazione non può essere quindi usato per ripristini di emergenza futuri.
+Se la connettività cloud viene interrotta dopo l'avvio del ripristino di emergenza e prima del completamento del ripristino del dispositivo, il ripristino di emergenza non va a buon fine e se ne riceve notifica. Il dispositivo di destinazione usato per il ripristino di emergenza viene quindi contrassegnato come *Inutilizzabile.* Lo stesso dispositivo di destinazione non può essere quindi usato per ripristini di emergenza futuri.
 
 **Nessun dispositivo di destinazione compatibile**
 
@@ -153,6 +153,6 @@ Informazioni su come [Usare l'interfaccia utente Web per amministrare StorSimple
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

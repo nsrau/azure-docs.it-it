@@ -3,7 +3,7 @@ title: Creare un&quot;immagine di Azure RemoteApp basata su una macchina virtual
 description: Informazioni su come creare un&quot;immagine per Azure RemoteApp iniziando con una macchina virtuale di Azure.
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 ms.assetid: d41583ef-6cd8-4115-8dcb-b2cd5b3d301a
 ms.service: remoteapp
@@ -11,11 +11,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 8b02336b05b78d7787caabd59347814af4337ec3
+ms.sourcegitcommit: 310cb63756806c8fab208c47bce6c7292ea5e5d7
+ms.openlocfilehash: 61e8a49475129486505111bd595f98af955ed809
 
 
 ---
@@ -32,7 +32,7 @@ Sono necessari due passaggi per creare la propria immagine in base a una VM di A
 ## <a name="create-a-custom-image-based-on-an-azure-vm"></a>Creare un'immagine personalizzata basata su una macchina virtuale di Azure
 Usare questi passaggi per creare un'immagine basata su una macchina virtuale di Azure.
 
-1. Creare una macchina virtuale di Azure. È possibile utilizzare l’immagine "Windows Server Host sessione Desktop remoto" o "Windows Server Host sessione Desktop remoto con Microsoft Office 365 ProPlus" dalla raccolta immagini della macchina virtuale di Azure. Questa immagine soddisfa tutti i requisiti dell'immagine modello di Azure RemoteApp.
+1. Creare una macchina virtuale di Azure. È possibile usare l'immagine "Windows Server Remote Desktop Session Host" o "Windows Server Remote Desktop Session Host with Microsoft Office 365 ProPlus" dalla raccolta immagini per le macchine virtuali di Azure. Questa immagine soddisfa tutti i requisiti dell'immagine modello di Azure RemoteApp.
    
     Per i dettagli, vedere [Creare una macchina virtuale che esegue Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 2. Connettersi alla macchina virtuale e installare e configurare le app da condividere mediante RemoteApp. Assicurarsi di eseguire tutte le configurazioni aggiuntive di Windows richieste dalle app.
@@ -62,6 +62,6 @@ Ora è possibile creare la nuova raccolta, [cloud](remoteapp-create-cloud-deploy
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

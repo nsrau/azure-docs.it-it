@@ -1,6 +1,6 @@
 ---
-title: Salvare i messaggi nel cloud di Azure e leggerli dal cloud | Documentazione Microsoft
-description: Salvare i messaggi da Intel NUC all&quot;hub IoT, scriverli nell&quot;archiviazione tabelle di Azure e leggerli dal cloud.
+title: 'Dispositivo simulato e gateway Azure IoT: lezione 4: Salvare i messaggi | Documentazione Microsoft'
+description: Salvare i messaggi da Intel NUC all&quot;hub IoT, scriverli nell&quot;archivio tabelle di Azure e quindi leggerli dal cloud.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: ac4204d6d253e59a367f110aaa3bd28fd94792ea
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 2116e2c2ef5808145b56e63c1e2b91f20e639a3d
 
 
 ---
@@ -37,7 +37,7 @@ In caso di problemi, cercare le soluzioni nella pagina sulla [risoluzione dei pr
 In questa lezione si apprenderà:
 
 - Come usare Azure Resource Manager per distribuire le risorse di Azure.
-- Come usare un'app per le funzioni di Azure per elaborare i messaggi dell'hub IoT e scriverli in una tabella nell'archiviazione tabelle di Azure.
+- Come usare un'app per le funzioni di Azure per elaborare i messaggi dell'hub IoT e scriverli in una tabella nell'archivio tabelle di Azure.
 
 ## <a name="what-you-need"></a>Elementi necessari
 
@@ -89,6 +89,6 @@ Usare `iot-gateway` come valore di `{resource group name}` se nella lezione 2 no
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

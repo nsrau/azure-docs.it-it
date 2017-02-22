@@ -252,6 +252,6 @@ Per altri esempi di uso dei progetti di gruppo di risorse di Azure, vedere [Depl
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

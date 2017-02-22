@@ -1,5 +1,5 @@
 ---
-title: Carico di lavoro del data warehouse
+title: Informazioni sulle operazioni di Azure SQL Data Warehouse | Documentazione Microsoft
 description: 'SQL Data Warehouse''s elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This article explains the data warehouse metrics and how they relate to DWUs. '
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess;mausher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 43ee395fab826549ddd9ede3c3aa45aa8e97c7dd
+ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
+ms.openlocfilehash: 79fedaabc438bc4cd884af6b494e43d32361950a
 
 
 ---
@@ -65,13 +65,13 @@ Un modo per rendere disponibili i dati per i report e l'analisi consiste nell'in
 * Per l'analisi, è possibile creare un apposito cubo nel data warehouse ed eseguire l'analisi su quest'ultimo oppure pre-elaborare i dati ed esportarli nel server di analisi in modo che possano essere analizzati ulteriormente.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver appreso alcune informazioni su SQL Data Warehouse, vedere come [creare un Azure SQL Data Warehouse][creare un Azure SQL Data Warehouse] rapidamente e [caricare dati di esempio][caricare dati di esempio].
+Dopo aver appreso alcune informazioni su SQL Data Warehouse, vedere come [creare un SQL Data Warehouse][create a SQL Data Warehouse] rapidamente e [caricare i dati di esempio][load sample data].
 
 <!--Image references-->
 
 <!--Article references-->
-[caricare dati di esempio]: ./sql-data-warehouse-load-sample-databases.md
-[creare un Azure SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[load sample data]: ./sql-data-warehouse-load-sample-databases.md
+[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
@@ -79,6 +79,6 @@ Dopo aver appreso alcune informazioni su SQL Data Warehouse, vedere come [creare
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -54,6 +54,6 @@ Scaricare il diagramma **Panoramica sulla funzionalità di Microsoft Azure Machi
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

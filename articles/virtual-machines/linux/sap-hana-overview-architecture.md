@@ -14,8 +14,8 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 731f546243239f796e7c11918a99f3361913bcd6
-ms.openlocfilehash: e62efa3c76e25058b6ff7fd4563bbe75713fb3c8
+ms.sourcegitcommit: 42a2f5488bac192311cd0652286e45a2280032f2
+ms.openlocfilehash: 8bb2c8138d5f5ef76490e5439ba2427cbaf9b33d
 
 
 ---
@@ -97,7 +97,7 @@ L'architettura illustrata sopra è suddivisa in tre sezioni:
 
 Il modulo per istanze di grandi dimensioni di Azure include i componenti seguenti:
 
-- **Elaborazione:** server montati su rack basati su processori Intel Xeon E7-8890v3 che forniscono la capacità di elaborazione necessaria e sono certificati per SAP HANA.
+- **Elaborazione:** server basati su processori Intel Xeon E7-8890v3 che forniscono la capacità di elaborazione necessaria e sono certificati per SAP HANA.
 - **Rete:** un'infrastruttura di rete unificata ad alta velocità che collega l'elaborazione, l'archiviazione e i componenti della rete LAN.
 - **Archiviazione:** un'infrastruttura di archiviazione a cui si accede tramite un'infrastruttura di rete unificata. Viene fornita una capacità di archiviazione specifica a seconda della configurazione di SAP HANA in Azure (istanze di grandi dimensioni) distribuita. È inoltre disponibile ulteriore capacità di archiviazione a un costo mensile aggiuntivo.
 
@@ -107,14 +107,16 @@ Analogamente alle VM di Azure, SAP HANA in Azure (istanze di grandi dimensioni) 
 
 Così come è possibile scegliere tra diversi tipi di VM con Macchine virtuali di Azure, è possibile scegliere tra diverse SKU delle istanze HANA di grandi dimensioni personalizzate per tipi diversi di carichi di lavoro di SAP HANA. SAP applica la memoria ai rapporti socket del processore per diversi carichi di lavoro in base alle generazioni del processore Intel. Sono disponibili quattro diversi tipi di SKU:
 
-Alla data di ottobre 2016, SAP HANA in Azure (istanze di grandi dimensioni) è disponibile in quattro configurazioni:
+A partire da dicembre 2016, SAP HANA in Azure (istanze di grandi dimensioni) è disponibile in sei configurazioni per le aree di Azure degli Stati Uniti occidentali e orientali:
 
 | Soluzione SAP | CPU | RAM | Archiviazione |
 | --- | --- | --- | --- |
 | Ottimizzata per OLAP: SAP BW, BW/4HANA<br /> o SAP HANA per carico di lavoro OLAP generico | SAP HANA in Azure S72<br /> – 2 x processore Intel® Xeon® E7-8890 v3 |  768 GB |  3 TB |
 | --- | SAP HANA in Azure S144<br /> – 4 x processore Intel® Xeon® E7-8890 v3 |  1,5 TB |  6 TB |
+| --- | SAP HANA in Azure S192<br /> – 4 x processore Intel® Xeon® E7-8890 v4 |  2 TB |  8 TB |
 | Ottimizzata per OLTP: SAP Business Suite<br /> in SAP HANA o S/4HANA (OLTP),<br /> OLTP generico | SAP HANA in Azure S72m<br /> – 2 x processore Intel® Xeon® E7-8890 v3 |  1,5 TB |  6 TB |
-|---| SAP HANA in Azure S144m<br /> – 4 x processore Intel Xeon® E7-8890 v3 |  3 TB |  12 TB |
+|---| SAP HANA in Azure S144m<br /> – 4 x processore Intel® Xeon® E7-8890 v3 |  3 TB |  12 TB |
+|---| SAP HANA in Azure S192m<br /> – 4 x processore Intel® Xeon® E7-8890 v4 |  4 TB |  16 TB |
 
 Le diverse configurazioni precedenti vengono descritte in [ SAP Support Note #2316233 - SAP HANA on Microsoft Azure (Large Instances)](https://launchpad.support.sap.com/#/notes/2316233/E) (Nota di supporto SAP 2316233 - SAP HANA in Microsoft Azure (istanze di grandi dimensioni).
 
@@ -150,7 +152,7 @@ L'elenco seguente fornisce informazioni dettagliate su ogni livello e indica le 
 
 **SDDC:** software di gestione usato per gestire i data center come entità definite da software. Consente a Microsoft di eseguire il pool delle risorse a scopo di prestazioni, disponibilità e ridimensionamento.
 
-**Sistema operativo:** sistema operativo scelto (SUSE Linux o Red Hat Linux) in esecuzione sui server. Le immagini del sistema operativo fornite saranno ottimizzate per HANA e richiederanno una sottoscrizione con il fornitore del sistema operativo per l'immagine specifica ottimizzata per HANA. Il cliente dovrà eseguire la registrazione delle immagini con il fornitore del sistema operativo, nonché gestire il monitoraggio e la pianificazione della capacità:
+**Sistema operativo:** sistema operativo scelto (SUSE Linux o Red Hat Linux) in esecuzione sui server. Le immagini del sistema operativo che vengono visualizzate sono offerte dal singolo fornitore di Linux a Microsoft allo scopo di eseguire SAP HANA. È necessario disporre di una sottoscrizione con il fornitore di Linux per l'immagine ottimizzate specificamente per SAP HANA. Il cliente dovrà eseguire la registrazione delle immagini con il fornitore del sistema operativo. Dal momento del trasferimento da Microsoft, l'utente è inoltre responsabile per qualsiasi altra applicazione di patch del sistema operativo Linux. Questo è correlato ai pacchetti aggiuntivi che potrebbero essere necessari per una corretta installazione di SAP HANA (fare riferimento alla documentazione di installazione di SAP HANA e alle note SAP) e che non sono stati inseriti dal fornitore specifico di Linux nelle immagini del sistema operativo ottimizzate di SAP HANA. La responsabilità del cliente include anche l'applicazione di patch del sistema operativo correlata al malfunzionamento/ottimizzazione del sistema operativo e ai driver correlati all'hardware del server specifico. O qualsiasi applicazione di patch funzionale e di sicurezza del sistema operativo. La responsabilità del cliente ricade inoltre nel monitoraggio e nella pianificazione della capacità di:
 
 - Utilizzo delle risorse della CPU
 - Utilizzo della memoria
@@ -204,11 +206,16 @@ Di seguito sono descritti i requisiti per l'esecuzione di SAP HANA in Azure (ist
 - Licenze per SUSE Linux Enterprise Server 12 per applicazioni SAP.
 
 > [!NOTE] 
-> Il Service Pack più recente viene sempre installato da Microsoft prima del trasferimento iniziale.
+> Il sistema operativo di Microsoft non è registrato con SUSE, né è connesso a un'istanza SMT.
 
-- SUSE Linux Subscription Management Tool (SMT) distribuito in una VM di Azure. In questo modo, la soluzione SAP HANA in Azure (istanze di grandi dimensioni) può essere registrata e rispettivamente aggiornata da SUSE, poiché non è disponibile l'accesso a Internet all'interno del data center delle istanze HANA di grandi dimensioni.
+- SUSE Linux Subscription Management Tool (SMT) distribuito in una VM di Azure. In questo modo, la soluzione SAP HANA in Azure (istanze di grandi dimensioni) può essere registrata e rispettivamente aggiornata da SUSE, poiché non è disponibile l'accesso a Internet all'interno del data center delle istanze HANA di grandi dimensioni. 
 - Licenze per Red Hat Enterprise Linux 6.7 o 7.2 per SAP HANA.
+
+> [!NOTE]
+> Il sistema operativo di Microsoft non è registrato con Red Hat, né è connesso a un'istanza di gestione delle sottoscrizioni di Red Hat.
+
 - Red Hat Subscription Manager distribuito in una VM di Azure. In questo modo, la soluzione SAP HANA in Azure (istanze di grandi dimensioni) può essere registrata e rispettivamente aggiornata da Red Hat, poiché non è disponibile l'accesso diretto a Internet all'interno del tenant distribuito nel modulo per istanze di grandi dimensioni di Azure.
+- Il contratto di servizio e supporto con il provider di Linux implicitamente incluso nella sottoscrizione della versione specifica di Linux oppure un altro contratto di servizio e supporto che copre la versione specifica di Linux usata e soddisfa i criteri di SAP.
 
 **Database:**
 
@@ -244,7 +251,7 @@ Le reti Azure nel contesto dei sistemi SAP distribuiti in Azure non sono complic
 - Tutti i sistemi SAP in Azure devono essere configurati in reti virtuali di Azure per comunicare tra loro.
 - Active Directory e DNS ospitati in locale sono estesi in Azure tramite ExpressRoute.
 
-**Raccomandazione:** distribuire l'intero panorama applicativo di Azure in una singola sottoscrizione di Azure. Molte procedure all'interno di un panorama applicativo SAP richiedono connettività di rete trasparente e possibilmente minore tra le istanze di sviluppo, test e produzione di SAP, inoltre l'architettura SAP NetWeaver ha molti automatismi che si basano su questa connettività di rete trasparente tra le diverse istanze. Pertanto, mantenere l'intero panorama applicativo SAP in una sottoscrizione di Azure, anche quando il panorama viene distribuito in più aree di Azure, è altamente consigliabile.
+**Raccomandazione:** distribuire l'intero panorama SAP in Azure in una singola sottoscrizione di Azure. Molte procedure all'interno di un panorama applicativo SAP richiedono connettività di rete trasparente e possibilmente minore tra le istanze di sviluppo, test e produzione di SAP, inoltre l'architettura SAP NetWeaver ha molti automatismi che si basano su questa connettività di rete trasparente tra le diverse istanze. Pertanto, mantenere l'intero panorama applicativo SAP in una sottoscrizione di Azure, anche quando il panorama viene distribuito in più aree di Azure, è altamente consigliabile.
 
 L'architettura e i processi relativi a SAP HANA in Azure (istanze di grandi dimensioni) si basano sulla raccomandazione di cui sopra.
 
@@ -298,8 +305,7 @@ Per un'architettura di rete più scalabile:
 
 ![Distribuzione del livello applicazione SAP su più reti virtuali di Azure](./media/sap-hana-overview-architecture/image4-networking-architecture.png)
 
-La distribuzione del livello applicazione SAP o dei componenti su più reti virtuali di Azure, come illustrato sopra, può comportare un inevitabile sovraccarico di latenza che si verifica durante la comunicazione tra le applicazioni ospitate nelle VM di Azure. Il traffico di rete tra VM di Azure presenti in diverse reti virtuali viene eseguito tramite i router MSEE.
-
+La distribuzione del livello applicazione SAP o dei componenti su più reti virtuali di Azure, come illustrato sopra, comporta un inevitabile sovraccarico di latenza che si verifica durante la comunicazione tra le applicazioni ospitate nelle reti virtuali di Azure. Per impostazione predefinita, il traffico di rete tra le VM di Azure presenti in diverse reti virtuali viene eseguito tramite i router MSEE in questa configurazione. Tuttavia a partire da settembre 2016 questo si può evitare e ottimizzare. Per ottimizzare e ridurre la latenza di comunicazione tra due reti virtuali è necessario eseguire il peering delle reti virtuali di Azure nella stessa area. Anche se si trovano in sottoscrizioni diverse. Con il peering delle rete virtuali di Azure, la comunicazione tra macchine virtuali in due diverse reti virtuali di Azure può avvenire tramite la parte principale della rete di Azure, dimostrando così una latenza simile a quella che si creerebbe se le macchine virtuali fossero nella stessa rete virtuale. Mentre il traffico indirizzato agli intervalli di indirizzi IP collegati tramite il gateway della rete virtuale di Azure viene instradato attraverso l'unico gateway della rete virtuale. È possibile trovare informazioni dettagliate sul peering della rete virtuale di Azure nell'articolo [Peering reti virtuali](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview).
 ### <a name="minimal-deployment"></a>Distribuzione minima
 
 Per un sistema SAP di piccole dimensioni (distribuzione minima), le VM di Azure ospitano il livello applicazione SAP in Azure nativo (all'interno di una singola rete virtuale) e si connettono al modulo per istanze di grandi dimensioni tramite ExpressRoute. Per usare SAP HANA in Azure (istanze di grandi dimensioni), seguire questi passaggi:
@@ -356,6 +362,6 @@ La figura precedente illustra come le diverse reti virtuali di Azure in entrambe
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

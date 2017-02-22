@@ -1,15 +1,11 @@
-## <a name="peering-virtual-networks-from-rm-to-classic"></a>Peering di reti virtuali da RM alla distribuzione classica
-In questo scenario si creerà un peering tra due reti virtuali, denominate **VNET1** e **VNET2**, appartenenti rispettivamente al modello di distribuzione Azure Resource Manager e al modello di distribuzione classica.
+## <a name="a-namex-modelapeering-virtual-networks-created-through-different-deployment-models"></a><a name="x-model"></a>Peering di reti virtuali create con modelli di distribuzione diversi
+In questo scenario si creerà un peering tra due reti virtuali denominate **VNET1** e **VNET2**. La rete VNET1 viene creata con il modello di distribuzione Resource Manager, mentre la rete VNET2 viene creata con il modello di distribuzione classica.
 
-> [!NOTE]
-> Le reti virtuali devono trovarsi nella stessa sottoscrizione.
 > 
-> 
-
 ![Scenario di distribuzione da Azure Service Management ad Azure Resource Manager](./media/virtual-networks-create-vnetpeering-scenario-asmtoarm-include/figure01.PNG)
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

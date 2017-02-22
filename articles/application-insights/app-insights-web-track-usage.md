@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 06/12/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: 1480c67792dc0ef6d2742b5b7f1c13e81cefbc1c
+ms.sourcegitcommit: f86986fea6fc48a4a6ed09022e8026e0645dfc56
+ms.openlocfilehash: 971558d287191c6b7b5ea9d135e6fe37c904aa76
 
 
 ---
@@ -25,7 +25,7 @@ Sapere in che modo viene usata l'applicazione consente di incentrare il lavoro d
 Application Insights di Azure offre due livelli di monitoraggio dell’utilizzo:
 
 * **Dati relativi a utenti, sessioni e visualizzazioni di pagina** : predefiniti.  
-* **Telemetria personalizzata**: è possibile [scrivere codice][api] consente di monitorare gli utenti attraverso l'esperienza utente dell'app. 
+* **Telemetria personalizzata**: è possibile [scrivere codice][api] che consente di monitorare gli utenti attraverso l'esperienza utente dell'app. 
 
 ## <a name="setting-up"></a>Configurazione
 Aprire una risorsa Application Insights nel [portale di Azure](https://portal.azure.com), fare clic sul grafico dei caricamenti di pagina del Browser vuoto e seguire le istruzioni di installazione.
@@ -33,7 +33,7 @@ Aprire una risorsa Application Insights nel [portale di Azure](https://portal.az
 [Altre informazioni](app-insights-javascript.md) 
 
 ## <a name="how-popular-is-my-web-application"></a>Verifica della popolarità dell'applicazione
-Accedere al [portale di Azure][portal], passare alla risorsa dell'applicazione e fare clic su Uso:
+Accedere al [portale di Azure][portal], passare alla risorsa dell'applicazione e fare clic su Utilizzo:
 
 ![](./media/app-insights-web-track-usage/14-usage.png)
 
@@ -75,11 +75,12 @@ Una sessione rappresenta un singolo contatto tra l'utente e l'applicazione. Nell
             sessionRenewalMs: 3600000,
             sessionExpirationMs: 172800000
         });
+    </script>
 
 * `sessionRenewalMs` : tempo, in millisecondi, per la scadenza della sessione a causa di inattività dell'utente. Impostazione predefinita: 30 minuti.
 * `sessionExpirationMs` : lunghezza massima della sessione, in millisecondi. Se l'utente resta attivo dopo questo periodo di tempo, viene conteggiata un'altra sessione. Valore predefinito: 24 ore.
 
-**Durata della sessione** è una [metrica][metrics] che registra l'intervallo di tempo tra il primo e l’ultimo elemento di telemetria della sessione. Non include il periodo di timeout.
+**Durata della sessione** è una [metrica][metrics] che registra l'intervallo di tempo tra il primo e l'ultimo elemento di telemetria della sessione. Non include il periodo di timeout.
 
 **Conteggio delle sessioni** in un determinato intervallo viene definito come il numero di sessioni univoche che presentano alcune attività durante questo intervallo. Quando si esamina un lungo intervallo di tempo, ad esempio il conteggio di sessioni giornaliere della settimana precedente, in genere questo valore è equivalente al numero totale di sessioni. 
 
@@ -241,7 +242,7 @@ Usare il campo Ricerca per visualizzare le occorrenze di eventi con un valore de
 
 ![Digitare un valore nel campo Ricerca](./media/app-insights-web-track-usage/12-searchEvents.png)
 
-## <a name="a-b-testing"></a>Test A | B
+## <a name="a--b-testing"></a>Test A | B
 Se non si sa quale variante di una funzionalità sarà più efficace, rilasciarle entrambe, rendendo ognuna accessibile a utenti diversi. Valutare la riuscita di ognuna e quindi passare a una versione unificata.
 
 Per questa tecnica è possibile collegare tag differenti per tutti i dati di telemetria inviati da ogni versione dell'app. A questo scopo, definire le proprietà nel TelemetryContext attivo. Queste proprietà predefinite vengono aggiunte a ogni messaggio di telemetria inviato dall'applicazione, non solo ai messaggi personalizzati, ma anche ai dati di telemetria standard. 
@@ -313,7 +314,7 @@ Quando si usa l'analisi, questa diventa parte integrante del ciclo di sviluppo, 
 * È essenziale comunicare con gli utenti. L'analisi non è sufficiente da sola, ma è complementare a una buona relazione con i clienti.
 
 ## <a name="references"></a>Riferimenti
-* [Uso dell'API - panoramica][api]
+* [Uso dell'API - Panoramica][api]
 * [Informazioni di riferimento sull'API JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## <a name="video"></a>Video
@@ -337,6 +338,6 @@ Quando si usa l'analisi, questa diventa parte integrante del ciclo di sviluppo, 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

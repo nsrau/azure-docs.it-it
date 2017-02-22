@@ -77,6 +77,6 @@ In questo caso Data Factory eseguirà automaticamente la conversione del tipo in
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

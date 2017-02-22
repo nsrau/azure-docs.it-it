@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/20/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 60458091f8c60eb1d726508724fc96eb0145e3bc
+ms.sourcegitcommit: d1d05b46591fe4b72c92c59d357681c8e1cdb336
+ms.openlocfilehash: c208660fc1439ca831ada6c9bb348dbc3eadc18c
 
 
 ---
@@ -38,10 +38,10 @@ Nella tabella seguente sono riportati il nome e la descrizione di tutti i proces
 | Flusso di lavoro Premium del codificatore multimediale |Consente di eseguire attività di codifica usando il flusso di lavoro Premium del codificatore multimediale. |[Panoramica e confronto dei codificatori multimediali su richiesta di Azure](media-services-encode-asset.md) |
 | Azure Media Indexer |Consente di rendere disponibili per la ricerca file e contenuti multimediali, oltre a generare tracce e parole chiave per i sottotitoli codificati. |[Azure Media Indexer](media-services-index-content.md) |
 | Azure Media Hyperlapse (anteprima) |Consente di ridurre le imperfezioni del video con la stabilizzazione video. Consente inoltre di velocizzare il contenuto in una clip utilizzabile. |[Azure Media Hyperlapse](media-services-hyperlapse-content.md) |
-| Azure Media Encoder |Ammortizzato | |
-| Storage Decryption |Ammortizzato | |
-| Azure Media Packager |Ammortizzato | |
-| Azure Media Encryptor |Ammortizzato | |
+| Azure Media Encoder |Funzionalità deprecate | |
+| Storage Decryption |Funzionalità deprecate | |
+| Azure Media Packager |Funzionalità deprecate | |
+| Azure Media Encryptor |Funzionalità deprecate | |
 
 ## <a name="get-mediaprocessor"></a>Ottenere un'istanza di MediaProcessor
 > [!NOTE]
@@ -98,6 +98,6 @@ Dopo avere ottenuto un'istanza del processore di contenuti multimediali, passare
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

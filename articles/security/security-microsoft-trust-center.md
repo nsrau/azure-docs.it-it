@@ -1,5 +1,5 @@
 ---
-title: Microsoft Trust Center | Documentazione Microsoft
+title: Informazioni sulla sicurezza di Azure e sul Centro protezione di Microsoft | Documentazione Microsoft
 description: Il Centro protezione di Microsoft contiene le informazioni necessarie a garantire la sicurezza della piattaforma Azure su cui vengono eseguiti i servizi.
 services: security
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8da0e117c206bfcec2f343c6d250de74fd886b02
+ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
+ms.openlocfilehash: a8835da0947ce2a365b57356960541cb997e73b3
 
 
 ---
@@ -42,6 +42,6 @@ Il [Centro protezione di Microsoft](https://www.microsoft.com/trustcenter) conti
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

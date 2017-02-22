@@ -1,23 +1,22 @@
 ---
 title: Sottoscrizioni di Azure per enti pubblici | Documentazione Microsoft
 description: Informazioni sulla gestione della sottoscrizione in Azure per enti pubblici
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: zakramer
 manager: liki
-editor: 
 ms.assetid: d3375e84-a37d-4e44-9040-70dbe08eabfc
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/21/2016
+ms.date: 01/12/2017
 ms.author: zakramer
 translationtype: Human Translation
-ms.sourcegitcommit: 40432290f50ce08320fef1604e764b5a93a9eb0b
-ms.openlocfilehash: a49552a68a0f1f077d4416cb2ba70fe2f7a632ff
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 398abc29328adc179b860ab2cde5e6122f81779d
 
 
 ---
@@ -36,7 +35,7 @@ Se si usa Azure PowerShell per gestire una sottoscrizione di grandi dimensioni t
 * Nomi delle aree
 
 > [!NOTE]
-> Se non è stato ancora usato PowerShell, vedere l'[introduzione ad Azure PowerShell](../powershell-install-configure.md).
+> Se non è stato ancora usato PowerShell, vedere l'[introduzione ad Azure PowerShell](/powershell/azureps-cmdlets-docs).
 > 
 > 
 
@@ -138,6 +137,6 @@ Per maggiori informazioni e aggiornamenti, sottoscrivere il [blog di Microsoft A
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

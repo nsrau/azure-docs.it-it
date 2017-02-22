@@ -1,5 +1,5 @@
 ---
-title: SDK e API di DocumentDB Node.js | Documentazione Microsoft
+title: API Node.js e risorse SDK - Azure DocumentDB | Documentazione Microsoft
 description: Tutte le informazioni sull&quot;SDK e sull&quot;API di Node.js, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni di DocumentDB Node.js SDK.
 services: documentdb
 documentationcenter: nodejs
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 12/22/2016
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: 5e182811adc29ae00d40355bb4813c30eb0b904c
-ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: 43d658a67eb55a2d2e35f79080d63c3effb6387e
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
-> * [Node.JS](documentdb-sdk-node.md)
+> * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
 > * [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
@@ -54,6 +54,11 @@ ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
 </table></br>
 
 ## <a name="release-notes"></a>Note sulla versione
+
+### <a name="a-name11011101a"></a><a name="1.10.1"/>1.10.1</a>
+* Disabilitazione della verifica SSL durante l'uso dell'SDK per l'emulatore(nomehost=host).
+* Aggiunta del supporto per l'abilitazione della registrazione degli script durante l'esecuzione di stored procedure.
+
 ### <a name="a-name11001100a"></a><a name="1.10.0"/>1.10.0</a>
 * Aggiunta del supporto per le query in parallelo nelle raccolte partizionate.
 * Aggiunta del supporto per le query TOP/ORDER BY nelle raccolte partizionate.
@@ -79,16 +84,16 @@ ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
 * Corretto hashParitionResolver resolveForRead(): quando la mancata indicazione di una chiave di partizione generava un'eccezione, invece di restituire un elenco di tutti i collegamenti registrati.
 
 ### <a name="a-name154154a"></a><a name="1.5.4"/>1.5.4</a>
-* Correzione del problema [n. 100](https://github.com/Azure/azure-documentdb-node/issues/100) relativo all'agente HTTPS dedicato: evitare di modificare l'agente globale per gli scopi di DocumentDB. Usare un agente dedicato per tutte le richieste della libreria.
+* Correzione del problema [n.&100;](https://github.com/Azure/azure-documentdb-node/issues/100) relativo all'agente HTTPS dedicato: evitare di modificare l'agente globale per gli scopi di DocumentDB. Usare un agente dedicato per tutte le richieste della libreria.
 
 ### <a name="a-name153153a"></a><a name="1.5.3"/>1.5.3</a>
-* Correzione del problema [n. 81](https://github.com/Azure/azure-documentdb-node/issues/81) : gestione corretta dei trattini negli ID dei file multimediali.
+* Correzione del problema [n.&81;](https://github.com/Azure/azure-documentdb-node/issues/81) : gestione corretta dei trattini negli ID dei file multimediali.
 
 ### <a name="a-name152152a"></a><a name="1.5.2"/>1.5.2</a>
-* Correzione del problema [n. 95](https://github.com/Azure/azure-documentdb-node/issues/95) : avviso di perdita del listener EventEmitter.
+* Correzione del problema [n.&95;](https://github.com/Azure/azure-documentdb-node/issues/95) : avviso di perdita del listener EventEmitter.
 
 ### <a name="a-name151151a"></a><a name="1.5.1"/>1.5.1</a>
-* Correzione del problema [n. 92](https://github.com/Azure/azure-documentdb-node/issues/90) : ridenominazione della cartella Hash in hash per i sistemi con distinzione tra maiuscole e minuscole.
+* Correzione del problema [n.&92;](https://github.com/Azure/azure-documentdb-node/issues/90) : ridenominazione della cartella Hash in hash per i sistemi con distinzione tra maiuscole e minuscole.
 
 ### <a name="a-name150150a"></a><a name="1.5.0"/>1.5.0</a>
 * Implementazione del supporto per il partizionamento orizzontale mediante l'aggiunta di resolver della partizione a intervalli e hash.
@@ -105,7 +110,7 @@ ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
 
 ### <a name="a-name121121a"></a><a name="1.2.1"/>1.2.1</a>
 * Implementazione del routing basato su ID
-* Correzione del problema [n. 49](https://github.com/Azure/azure-documentdb-node/issues/49) : conflitto tra la proprietà current e il metodo current().
+* Correzione del problema [n.&49;](https://github.com/Azure/azure-documentdb-node/issues/49) : conflitto tra la proprietà current e il metodo current().
 
 ### <a name="a-name120120a"></a><a name="1.2.0"/>1.2.0</a>
 * Aggiunta del supporto per l'indice GeoSpatial
@@ -116,7 +121,7 @@ ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
 * Implementazione del criterio di indicizzazione V2.
 
 ### <a name="a-name103103a"></a><a name="1.0.3"/>1.0.3</a>
-* Problema [n. 40](https://github.com/Azure/azure-documentdb-node/issues/40) : implementazione delle configurazioni eslint e grunt nell'SDK core e promise.
+* Problema [n.&40;](https://github.com/Azure/azure-documentdb-node/issues/40) : implementazione delle configurazioni eslint e grunt nell'SDK core e promise.
 
 ### <a name="a-name102102a"></a><a name="1.0.2"/>1.0.2</a>
 * Problema [#45](https://github.com/Azure/azure-documentdb-node/issues/45) : il wrapper promise non include l'intestazione con errore
@@ -124,27 +129,23 @@ ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
 ### <a name="a-name101101a"></a><a name="1.0.1"/>1.0.1</a>
 * Implementazione della possibilità di eseguire query per i conflitti aggiungendo readConflicts, readConflictAsync e queryConflicts
 * Aggiornamento della documentazione relativa alle API
-* Problema [n. 41](https://github.com/Azure/azure-documentdb-node/issues/41) : errore client.createDocumentAsync.
+* Problema [n.&41;](https://github.com/Azure/azure-documentdb-node/issues/41) : errore client.createDocumentAsync.
 
 ### <a name="a-name100100a"></a><a name="1.0.0"/>1.0.0</a>
 * SDK con disponibilità generale.
 
-## <a name="release-retirement-dates"></a>Date di rilascio e di ritiro
+## <a name="release--retirement-dates"></a>Date di rilascio e di ritiro
 Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata.
 
 Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente, è quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima.
 
 Qualsiasi richiesta inviata a DocumentDB con un SDK ritirato verrà rifiutata dal servizio.
 
-> [!WARNING]
-> Tutte le versioni dell'SDK per Node.js di Azure DocumentDB precedenti alla versione **1.0.0** verranno ritirate il **29 febbraio 2016**.
-> 
-> 
-
 <br/>
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.10.1](#1.10.1) |22 dicembre 2016 |--- |
 | [1.10.0](#1.10.0) |03 ottobre 2016 |--- |
 | [1.9.0](#1.9.0) |07 luglio 2016 |--- |
 | [1.8.0](#1.8.0) |14 giugno 2016 |--- |
@@ -167,13 +168,8 @@ Qualsiasi richiesta inviata a DocumentDB con un SDK ritirato verrà rifiutata da
 | [1.0.2](#1.0.2) |23 maggio 2015 |--- |
 | [1.0.1](#1.0.1) |15 maggio 2015 |--- |
 | [1.0.0](#1.0.0) |08 aprile 2015 |--- |
-| 0.9.4-versione preliminare |06 aprile 2015 |29 febbraio 2016 |
-| 0.9.3-versione preliminare |14 gennaio 2015 |29 febbraio 2016 |
-| 0.9.2-versione preliminare |18 dicembre 2014 |29 febbraio 2016 |
-| 0.9.1-versione preliminare |22 agosto 2014 |29 febbraio 2016 |
-| 0.9.0-versione preliminare |21 agosto 2014 |29 febbraio 2016 |
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>domande frequenti
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
 ## <a name="see-also"></a>Vedere anche
@@ -182,6 +178,6 @@ Per altre informazioni su DocumentDB, vedere la pagina del servizio [Microsoft A
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

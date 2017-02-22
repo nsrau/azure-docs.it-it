@@ -122,6 +122,6 @@ Provare ora a usare la piattaforma e [creare un'app per la logica](../logic-apps
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

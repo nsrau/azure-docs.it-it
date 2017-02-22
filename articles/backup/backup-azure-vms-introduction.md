@@ -4,7 +4,7 @@ description: Considerazioni importanti sulla pianificazione del backup di macchi
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 keywords: backup di vm, backup di macchine virtuali
 ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: trinadhk; jimpark; markgal;
+ms.author: markgal;trinadhk
 translationtype: Human Translation
 ms.sourcegitcommit: a4045fc0fc6e2c263da06ed31a590714e80fb4d4
 ms.openlocfilehash: ac13b82c885720fa6d3d127b8e8dbbace5b09ef5
@@ -95,7 +95,7 @@ Nonostante la maggior parte del tempo venga impiegata per la lettura e la copia 
 ## <a name="total-restore-time"></a>Tempo totale di ripristino
 Un'operazione di ripristino è costituita da due sottoattività principali: la copia dei dati dall'insieme di credenziali all'account di archiviazione scelto del cliente e la creazione della macchina virtuale. La copia dei dati dall'insieme di credenziali dipende dalla posizione in cui vengono archiviati i backup internamente in Azure e dalla posizione in cui è memorizzato l'account di archiviazione del cliente. Il tempo necessario alla copia dipende dalle seguenti attività:
 * Tempo di attesa in coda: dal momento che il servizio esegue ripristini da più utenti contemporaneamente, le richieste di ripristino vengono messe in coda.
-* Tempo di copia dei dati: i dati vengono copiati con un processo simile a quello di un primo backup dall'insieme di credenziali all'account di archiviazione del cliente. Se l'account di archiviazione del cliente in cui devono essere scritti i dati dall'insieme di credenziali viene caricato, il tempo di copia può aumentare. Pertanto per ottimizzare il tempo di copia, è necessario assicurarsi di selezionare un account di archiviazione che non venga caricato con altre letture e scritture di applicazione durante il ripristino. 
+* Tempo di copia dei dati: i dati vengono copiati con un processo simile a quello di un primo backup dall'insieme di credenziali all'account di archiviazione del cliente. Se l'account di archiviazione del cliente in cui devono essere scritti i dati dall'insieme di credenziali viene caricato, il tempo di copia può aumentare. Pertanto per ottimizzare il tempo di copia, è necessario assicurarsi di selezionare un account di archiviazione che non venga caricato con altre letture e scritture di applicazione durante il ripristino.
 
 ## <a name="best-practices"></a>Procedure consigliate
 È consigliabile seguire queste procedure durante la configurazione del backup per le macchine virtuali:

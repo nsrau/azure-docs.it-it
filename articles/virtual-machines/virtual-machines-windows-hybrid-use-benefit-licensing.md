@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: georgem
 translationtype: Human Translation
-ms.sourcegitcommit: 314399bb2d2502eb237e894ce6f21ffd134b4bf5
-ms.openlocfilehash: 96db8c18714655e923714a0f8dbf553e8ae03e2c
+ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
+ms.openlocfilehash: df86e73814ceb0c5137c654bce84c8d42ae41820
 
 
 ---
@@ -64,7 +64,7 @@ Altre informazioni sul [caricamento del disco rigido virtuale in Azure](virtual-
 
 
 ## <a name="deploy-an-uploaded-vm-via-resource-manager"></a>Distribuire una VM caricata tramite Resource Manager
-Nei modelli di Resource Manager è possibile specificare un parametro aggiuntivo per `licenseType`. Altre informazioni sulla [creazione di modelli di Azure Resource Manager](../resource-group-authoring-templates.md). Dopo aver caricato il disco rigido virtuale in Azure, modificare il modello di Resource Manager per includere il tipo di licenza come parte del provider di calcolo e distribuire il modello come di consueto:
+Nei modelli di Resource Manager è possibile specificare un parametro aggiuntivo per `licenseType`. Altre informazioni sulla [creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Dopo aver caricato il disco rigido virtuale in Azure, modificare il modello di Resource Manager per includere il tipo di licenza come parte del provider di calcolo e distribuire il modello come di consueto:
 
 ```json
 "properties": {  
@@ -190,6 +190,6 @@ Altre informazioni sull' [uso dei modelli di Resource Manager](../azure-resource
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,9 +1,9 @@
 ---
-title: Come gestire la protezione dopo il ripristino di un database in un nuovo server o il failover di un database in una copia del database secondario | Microsoft Docs
-description: In questo argomento viene trattato l&quot;aspetto di gestione della sicurezza dopo il ripristino o il failover di un database.
+title: Configurare la sicurezza del database SQL di Azure per il ripristino di emergenza | Documentazione Microsoft
+description: Questo argomento illustra considerazioni sulla configurazione e la gestione della sicurezza dopo il ripristino di un database o il failover in un server secondario dovuto a un&quot;interruzione del data center o ad altre situazioni di emergenza
 services: sql-database
 documentationcenter: na
-author: CarlRabeler
+author: anosov1960
 manager: jhubbard
 editor: monicar
 ms.assetid: c7c898c9-69d4-4e16-8b7e-720bbb3353dd
@@ -14,18 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/13/2016
-ms.author: carlrab
+ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3c8a05cb86522253bbbf85da2d29ba38f114120b
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: ae06e6855a11f91ce18e3b12698b3d01e23a6a2c
 
 
 ---
-# <a name="how-to-manage-azure-sql-database-security-after-disaster-recovery"></a>Come gestire la sicurezza del database SQL di Azure dopo il ripristino di emergenza
+# <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurare e gestire la sicurezza dei database SQL di Azure per il ripristino geografico o il failover 
 > [!NOTE]
 > [La replica geografica attiva](sql-database-geo-replication-overview.md) è ora disponibile per tutti i database in tutti i livelli di servizio.
-> 
-> 
+>  
 
 ## <a name="overview-of-authentication-requirements-for-disaster-recovery"></a>Panoramica dei requisiti di autenticazione per il ripristino di emergenza
 Questo argomento illustra i requisiti di autenticazione per configurare e controllare la [replica geografica attiva](sql-database-geo-replication-overview.md) e i passaggi necessari per configurare l'accesso utente al database secondario. Descrive anche come abilitare l'accesso al database ripristinato dopo il [ripristino geografico](sql-database-recovery-using-backups.md#geo-restore). Per altre informazioni sulle opzioni di ripristino, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).
@@ -103,10 +102,9 @@ L'ultimo passaggio consiste nel generare gli account di accesso con i SID approp
 * Per informazioni sull'uso e la configurazione della replica geografica attiva, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)
 * Per informazioni sull'uso del ripristino geografico, vedere l'argomento sul [ripristino geografico](sql-database-recovery-using-backups.md#geo-restore)
 
-## <a name="additional-resources"></a>Risorse aggiuntive
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

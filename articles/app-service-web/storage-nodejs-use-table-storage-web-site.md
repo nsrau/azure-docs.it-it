@@ -13,16 +13,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a5ff81a2b693c8a7b97783d6a43cab204c7ec3eb
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 5304ddd84bebb19f5f082acb6442faa34b8d84bb
 
 
 ---
 # <a name="nodejs-web-app-using-the-azure-table-service"></a>App Web Node.js con il servizio tabelle di Azure
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 In questa esercitazione viene illustrato come usare il servizio tabelle fornito da Gestione dati di Azure per archiviare e accedere ai dati da un'applicazione [node] ospitata nel [servizio App di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). In questa esercitazione si presuppone che l'utente abbia già utilizzato l'applicazione Node e [Git].
 
 Si acquisiranno le nozioni seguenti:
@@ -38,7 +38,7 @@ Di seguito è riportata l'applicazione completata:
 ![Pagina Web con un elenco di attività vuoto][node-table-finished]
 
 > [!NOTE]
-> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 
@@ -462,7 +462,7 @@ In questo passaggio verrà scaricato un file contenente informazioni sulla sotto
 
 1. Immettere il comando seguente:
    
-        azure account download
+        azure login
    
     Questo comando consente di avviare un browser e di passare alla pagina per il download. Se richiesto, accedere con l'account associato alla sottoscrizione di Azure.
    
@@ -559,12 +559,12 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 <!-- URLs -->
 
 [Creazione e distribuzione di un'app Web Node.js nel Azure App Service]: web-sites-nodejs-develop-deploy-mac.md
-[Centro per sviluppatori di Azure]: /develop/nodejs/
+[Azure Developer Center]: /develop/nodejs/
 
 [node]: http://nodejs.org
 [Git]: http://git-scm.com
 [Express]: http://expressjs.com
-[gratuitamente]: http://windowsazure.com
+[for free]: http://windowsazure.com
 [GIT remoto]: http://git-scm.com/docs/git-remote
 
 [Interfaccia della riga di comando di Azure]: ../xplat-cli-install.md
@@ -574,9 +574,9 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 [nconf]: https://www.npmjs.com/package/nconf
 [async]: https://www.npmjs.com/package/async
 
-[Portale di Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 
-[Creare e distribuire un'applicazione Node.js in un sito Web Azure]: web-sites-nodejs-develop-deploy-mac.md
+[Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
 
 <!-- Image References -->
 
@@ -594,6 +594,6 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

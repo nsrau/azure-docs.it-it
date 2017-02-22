@@ -1,5 +1,5 @@
 ---
-title: Ottenere gli strumenti di Azure (Ubuntu 16.04) | Documentazione Microsoft
+title: 'Connettere Raspberry Pi (Node) ad Azure IoT: lezione 1: Ottenere gli strumenti (Ubuntu) | Documentazione Microsoft'
 description: Installare Python e l&quot;interfaccia della riga di comando di Azure in Ubuntu.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 7fbf21434952ece22468df6873e10e6f3eae1724
-ms.openlocfilehash: cf1abb14f5a9e5658fdfb348c867b5c4097b68eb
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 9cdf4331b136abc7804460fd99a4defcbbc94e7b
 
 
 ---
@@ -74,6 +74,6 @@ Se l'installazione ha esito positivo, verrà visualizzato l'output seguente.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

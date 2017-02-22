@@ -45,7 +45,7 @@ La sezione seguente illustra la definizione di UDR front-end nel file **azuredep
     "name": "[parameters('frontEndRouteTableName')]",
     "location": "[resourceGroup().location]",
     "tags": {
-      "displayName": "UDR - FrontEnd"   
+      "displayName": "UDR - FrontEnd"    
     },
     "properties": {
       "routes": [
@@ -409,6 +409,6 @@ Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Az
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

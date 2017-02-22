@@ -1,25 +1,29 @@
-1. Per aggiungere tag a risorse e gruppi di risorse esistenti, fare clic sull'icona del tag. 
+1. Per visualizzare i tag per una risorsa o un gruppo di risorse, selezionare l'icona **Tag**. 
    
-     ![Parte relativa ai tag nella risorsa e nei pannelli relativi ai gruppi di risorse](./media/resource-manager-tag-resources/select-tag-icon.png)
-2. Viene visualizzato un elenco di tag che l'organizzazione ha già applicato alle risorse. Se in precedenza non sono stati applicati tag, l'elenco è vuoto. Per aggiungere un tag, specificare un nome e un valore, quindi premere INVIO. Dopo aver aggiunto alcuni tag, verranno visualizzate alcune opzioni di completamento automatico in base ai nomi e valori dei tag già esistenti. Queste opzioni di completamento automatico garantiscono una tassonomia coerente tra le risorse e permettono di evitare errori comuni, ad esempio di ortografia.
-   
-     ![Assegnare tag a risorse con coppie nome-valore](./media/resource-manager-tag-resources/tag-resources.png)
-3. Per visualizzare la tassonomia dei tag nel portale, selezionare **Altri servizi** e **Tag**.
+     ![Selezionare i tag nei pannelli della risorsa e del gruppo di risorse](./media/resource-manager-tag-resources/select-tag-icon.png)
+2. Vengono visualizzati i tag esistenti per la risorsa. Se in precedenza non sono stati applicati tag, l'elenco è vuoto. 
+
+     ![Visualizzare i tag esistenti nei pannelli della risorsa e del gruppo di risorse](./media/resource-manager-tag-resources/existing-tags.png)
+3. Per aggiungere un tag, digitare una chiave e un valore o selezionarne uno esistente dal menu a discesa. Selezionare **Salva**.
+
+     ![Aggiungere un nuovo tag](./media/resource-manager-tag-resources/tag-resources.png)
+3. Per visualizzare tutte le risorse con un valore di tag, selezionare **>** (Altri servizi) e filtrare per **Tag**. Selezionare **Tag** tra le opzioni disponibili.
    
      ![Trovare tag tramite l'hub di esplorazione](./media/resource-manager-tag-resources/browse-tags.png)
-4. Nella sottoscrizione viene visualizzato un riepilogo dei tag.
+4. Nelle sottoscrizioni viene visualizzato un riepilogo dei tag.
    
      ![Visualizzare tutti i tag](./media/resource-manager-tag-resources/tag-taxonomy.png)
 5. Selezionare un tag per visualizzare le risorse e i gruppi di risorse che lo contengono.
    
      ![Visualizzare le risorse con tag](./media/resource-manager-tag-resources/show-tagged-resources.png)
-6. Aggiungere i tag più importanti al proprio dashboard per accedervi velocemente.
+6. Selezionare **Aggiungi pannello al dashboard** per l'accesso rapido.
    
-     ![Aggiungere tag alla Schermata iniziale
-](./media/resource-manager-tag-resources/show-pinned-tag.png)
+     ![Aggiungere i tag al dashboard](./media/resource-manager-tag-resources/pin-tag.png)
+7. È possibile selezionare i tag aggiunti dal dashboard per visualizzare le risorse con tale tag.
+
+     ![Aggiungere i tag al dashboard](./media/resource-manager-tag-resources/show-pinned-tag.png)
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

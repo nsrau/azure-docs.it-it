@@ -70,10 +70,10 @@ sql-database-service-tiers.md
 | Numero massimo di eDTU per database | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750,4000} | 
 ||||||||
 
-\* Poiché i database elastici condividono lo spazio di archiviazione del pool, lo spazio di archiviazione del database è limitato allo spazio di archiviazione del pool rimanente o allo spazio di archiviazione massimo per database
+\* Poiché i database in pool condividono lo spazio di archiviazione del pool, lo spazio di archiviazione del database è limitato allo spazio di archiviazione del pool rimanente o allo spazio di archiviazione massimo per database. Lo spazio di archiviazione massimo per pool fa riferimento allo spazio di archiviazione massimo per i file di dati nel pool e non include lo spazio usato dai file di log.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

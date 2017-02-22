@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9713d8b952f79f3ea4010a2d504b5174e70ce9ca
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: 35e3f4ee07414927cd93e3fbe54d7c96f4681ba4
 
 
 ---
@@ -53,7 +53,7 @@ Contenuto del video:
 * Informazioni su Data Protection API, sulle chiavi master e sui certificati
 * Uso dei comandi SQL per creare la chiave master e i certificati e per crittografare il database
 
-[Come impostare la protezione in DevTest Labs](https://channel9.msdn.com/Blogs/Windows-Azure/How-to-set-security-in-your-DevTest-Lab)
+[Come impostare la protezione in DevTest Labs](https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab)
 
 Come proprietario del lab, è possibile proteggere l'accesso lab tramite due ruoli lab: proprietario e utente di DevTest Labs. Il ruolo di proprietario garantisce l'accesso completo al lab, mentre il ruolo utente di DevTest Labs consente un accesso limitato. In questo video viene illustrato come aggiungere un utente in uno di questi ruoli a un lab.
 
@@ -81,6 +81,6 @@ In questo video Amit Bapat presenta a Scott l'insieme di credenziali delle chiav
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

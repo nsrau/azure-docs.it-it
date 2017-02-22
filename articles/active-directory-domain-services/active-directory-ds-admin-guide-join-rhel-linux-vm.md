@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2016
+ms.date: 01/11/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: e345d39259f44fdd78a0f041ce823051da80b27f
+ms.sourcegitcommit: d36b4c1391dad88603ad823055e11c0a4a329c3c
+ms.openlocfilehash: 89e97cb903e04efa77cfc6b02484d28a9ccfe6fb
 
 
 ---
@@ -27,37 +27,35 @@ Questo articolo illustra come aggiungere una macchina virtuale di Red Hat Enterp
 Eseguire questa procedura per effettuare il provisioning di una macchina virtuale RHEL 7 con il portale di Azure.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-   
+
     ![Dashboard del portale di Azure](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-dashboard.png)
 2. Fare clic su **Nuovo** nel riquadro a sinistra e digitare **Red Hat** nella barra di ricerca, come illustrato nello screenshot seguente. Nei risultati della ricerca vengono visualizzate le voci per Red Hat Enterprise Linux. Fare clic su **Red Hat Enterprise Linux 7.2**.
-   
+
     ![Selezionare RHEL nei risultati](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-find-rhel-image.png)
 3. I risultati della ricerca nel riquadro **Tutto** dovrebbero elencare l'immagine di Red Hat Enterprise Linux 7.2. Fare clic su **Red Hat Enterprise Linux 7.2** per visualizzare altre informazioni sull'immagine della macchina virtuale.
-   
+
     ![Selezionare RHEL nei risultati](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-select-rhel-image.png)
 4. Nel riquadro **Red Hat Enterprise Linux 7.2** dovrebbero essere visualizzate altre informazioni sull'immagine della macchina virtuale. Nell'elenco a discesa **Selezionare un modello di distribuzione** selezionare **Classica**. Quindi, fare clic sul pulsante **Crea** .
-   
+
     ![Visualizzare i dettagli dell'immagine](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-clicked.png)
-5. Nel riquadro **Crea macchina virtuale** immettere il **Nome host** per la nuova macchina virtuale. Specificare anche il nome utente di un amministratore locale nel campo **Nome utente** e la relativa **Password**. Si può anche scegliere di usare una chiave SSH per l'autenticazione dell'utente amministratore locale. Selezionare anche un **Piano tariffario** per la macchina virtuale.
-   
+5. Nella pagina **di base** della procedura guidata **Crea macchina virtuale** immettere il **Nome host** per la nuova macchina virtuale. Specificare anche il nome utente di un amministratore locale nel campo **Nome utente** e la relativa **Password**. Si può anche scegliere di usare una chiave SSH per l'autenticazione dell'utente amministratore locale. Selezionare anche un **Piano tariffario** per la macchina virtuale.
+
     ![Creare una macchina virtuale: dettagli di base](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-basic-details.png)
-6. Fare clic su **Configurazione facoltativa**. Nel riquadro **Configurazione facoltativa** fare clic su **Rete**.
-   
-    ![Creare una macchina virtuale: configurare una rete virtuale](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-configure-vnet.png)
-7. Verrà visualizzato un riquadro denominato **Rete**. Nel riquadro **Rete** fare clic su **Rete virtuale** per selezionare la rete virtuale in cui deve essere distribuita la macchina virtuale Linux. Verrà visualizzato il riquadro **Rete virtuale** . Nel riquadro **Rete virtuale** scegliere l'opzione **Usa una rete virtuale esistente**. Quindi selezionare la rete virtuale in cui è disponibile Servizi di dominio Azure AD. In questo esempio viene selezionata la rete virtuale 'MyPreviewVNet'.
-   
+6. Nella pagina delle **dimensioni** della procedura guidata **Crea macchina virtuale** selezionare la dimensione della macchina virtuale.
+
+    ![Creare una macchina virtuale: selezionare la dimensione](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-select-vm-size.png)
+
+7. Nella pagina delle **impostazioni** della procedura guidata **Crea macchina virtuale** selezionare l'account di archiviazione della macchina virtuale. Fare clic su **Rete virtuale** per selezionare la rete virtuale in cui deve essere distribuita la VM Linux. Nel pannello **Rete virtuale** selezionare la rete virtuale in cui è disponibile Servizi di dominio Azure AD. In questo esempio viene selezionata la rete virtuale 'MyPreviewVNet'.
+
     ![Creare una macchina virtuale: selezionare una rete virtuale](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-select-vnet.png)
-8. Nel riquadro **Configurazione facoltativa** fare clic sul pulsante **OK**.
-   
+8. Nella pagina di **riepilogo** della procedura guidata **Crea macchina virtuale**, rivedere le impostazioni e fare clic su **OK**.
+
     ![Creare una macchina virtuale: rete virtuale selezionata](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-vnet-selected.png)
-9. A questo punto è possibile creare la macchina virtuale. Nel riquadro **Crea macchina virtuale** fare clic sul pulsante **Crea**.
-   
-    ![Creare una macchina virtuale: sistema pronto](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm.png)
-10. Dovrebbe iniziare la distribuzione della nuova macchina virtuale basata sull'immagine di RHEL 7.2.
-    
+9. Dovrebbe iniziare la distribuzione della nuova macchina virtuale basata sull'immagine di RHEL 7.2.
+
     ![Creare una macchina virtuale: distribuzione avviata](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-deployment-started.png)
-11. Dopo alcuni minuti, la macchina virtuale dovrebbe essere distribuita correttamente e pronta per l'uso.
-    
+10. Dopo alcuni minuti, la macchina virtuale dovrebbe essere distribuita correttamente e pronta per l'uso.
+
     ![Creare una macchina virtuale: distribuzione completata](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-deployed.png)
 
 ## <a name="connect-remotely-to-the-newly-provisioned-linux-virtual-machine"></a>Connettersi in remoto alla macchina virtuale Linux di cui è stato appena effettuato il provisioning
@@ -69,64 +67,64 @@ I passaggi rimanenti presuppongono l'uso di PuTTY come client SSH per connetters
 
 1. Aprire il programma PuTTY.
 2. Immettere il **Nome host** per la macchina virtuale RHEL appena creata. In questo esempio il nome della macchina virtuale è 'contoso-rhel.cloudapp.net'. Se non si è certi del nome host della macchina virtuale, vedere il dashboard della macchina virtuale nel portale di Azure.
-   
+
     ![Connessione PuTTY](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-connect.png)
 3. Accedere alla macchina virtuale usando le credenziali di amministratore locale specificate durante la creazione della macchina virtuale. In questo esempio viene usato l'account di amministratore locale "mahesh".
-   
+
     ![Accesso PuTTY](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-login.png)
 
 ## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Installare i pacchetti necessari nella macchina virtuale Linux
 Dopo la connessione alla macchina virtuale, l'attività successiva consiste nell'installare nella macchina virtuale i pacchetti necessari per l'aggiunta a un dominio. Eseguire la procedura seguente:
 
 1. **Installare realmd:** il pacchetto realmd viene usato per l'aggiunta a un dominio. Nel terminale PuTTY digitare il comando seguente:
-   
+
     sudo yum install realmd
-   
+
     ![Installare realmd](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-install-realmd.png)
-   
+
     Dopo alcuni minuti, il pacchetto realmd dovrebbe essere installato nella macchina virtuale.
-   
+
     ![realmd installato](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-realmd-installed.png)
 2. **Installare sssd:** il pacchetto realmd dipende da sssd per l'esecuzione di operazioni di aggiunta a un dominio. Nel terminale PuTTY digitare il comando seguente:
-   
+
     sudo yum install sssd
-   
+
     ![Installare sssd](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-install-sssd.png)
-   
+
     Dopo alcuni minuti, il pacchetto sssd dovrebbe essere installato nella macchina virtuale.
-   
+
     ![realmd installato](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-sssd-installed.png)
 3. **Installare kerberos**. A tale scopo, nel terminale PuTTY digitare il comando seguente:
-   
+
     sudo yum install krb5-workstation krb5-libs
-   
+
     ![Installare kerberos](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-install-kerberos.png)
-   
+
     Dopo alcuni minuti, il pacchetto realmd dovrebbe essere installato nella macchina virtuale.
-   
+
     ![Kerberos installato](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-kerberos-installed.png)
 
 ## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>Aggiungere la macchina virtuale Linux al dominio gestito
 Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività successiva consiste nell'aggiungere la macchina virtuale al dominio gestito.
 
 1. Individuare il dominio gestito di Servizi di dominio AAD. Nel terminale PuTTY digitare il comando seguente:
-   
+
     sudo realm discover CONTOSO100.COM
-   
+
     ![realm discover](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-realmd-discover.png)
-   
+
     Se **realm discover** non riesce a trovare il dominio gestito, verificare che il dominio sia raggiungibile dalla macchina virtuale (provare a eseguire il ping). Verificare anche che la macchina virtuale sia stata effettivamente distribuita nella stessa rete virtuale in cui è disponibile il dominio gestito.
 2. Inizializzare kerberos. Nel terminale PuTTY digitare il comando seguente. Verificare che l'utente specificato appartenga al gruppo AAD DC Administrators. Solo questi utenti possono aggiungere computer al dominio gestito.
-   
+
     kinit bob@CONTOSO100.COM
-   
+
     ![kinit ](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-kinit.png)
-   
+
     Verificare che il nome di dominio sia scritto in lettere maiuscole; in caso contrario kinit avrà esito negativo.
 3. Aggiungere il computer al dominio. Nel terminale PuTTY digitare il comando seguente. Specificare lo stesso utente "kinit" specificato nel passaggio precedente.
-   
+
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
-   
+
     ![Aggiunta dell'area di autenticazione](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-realmd-join.png)
 
 Quando il computer viene aggiunto correttamente al dominio gestito, dovrebbe essere visualizzato un messaggio che indica che il computer è stato registrato correttamente nell'area di autenticazione.
@@ -135,13 +133,13 @@ Quando il computer viene aggiunto correttamente al dominio gestito, dovrebbe ess
 È possibile verificare rapidamente se il computer è stato aggiunto correttamente al dominio gestito. Connettersi alla macchina virtuale RHEL appena aggiunta a un dominio usando SSH e un account utente di dominio e quindi verificando se l'account utente viene risolto correttamente.
 
 1. Nel terminale PuTTY digitare il comando seguente per connettere la macchina virtuale RHEL appena aggiunta a un dominio con SSH. Usare un account di dominio appartenente al dominio gestito, in questo caso 'bob@CONTOSO100.COM'.
-   
+
     ssh -l bob@CONTOSO100.COM contoso-rhel.cloudapp.net
 2. Nel terminale PuTTY digitare il comando seguente per vedere se la home directory dell'utente è stata inizializzata correttamente.
-   
+
     pwd
 3. Nel terminale PuTTY digitare il comando seguente per vedere se i membri del gruppo sono stati risolti correttamente.
-   
+
     id
 
 Di seguito è riportato un esempio dell'output di questi comandi:
@@ -160,7 +158,6 @@ Vedere l'articolo [Risoluzione dei problemi dell'aggiunta a un dominio](active-d
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

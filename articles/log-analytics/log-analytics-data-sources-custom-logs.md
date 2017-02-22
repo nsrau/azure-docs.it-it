@@ -1,5 +1,5 @@
 ---
-title: Log personalizzati in Log Analytics | Documentazione Microsoft
+title: Raccogliere log personalizzati in Log Analytics di OMS | Documentazione Microsoft
 description: "Log Analytics può raccogliere gli eventi dai file di testo nei computer Windows e Linux.  Questo articolo descrive come definire un nuovo log personalizzato e i dettagli dei record creati nel repository OMS."
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 25c63021160e5259bc72a4f7bbfc248b7ac717aa
+ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
+ms.openlocfilehash: a9c70810c4f731b2d8b395873fa6b94db78306aa
 
 
 ---
@@ -122,7 +122,7 @@ Il tipo dei record del log personalizzato corrisponde al nome del log specificat
 | Proprietà | Descrizione |
 |:--- |:--- |
 | TimeGenerated |Data e ora di raccolta del record con Log Analytics.  Se il log usa un delimitatore basato sul tempo, questa proprietà indica la data/ora raccolta dalla voce. |
-| SourceSystem |Tipo di agente da cui è stato raccolto il record. <br> OpsManager: agente Windows, con connessione diretta o SCOM <br>  Linux – Tutti gli agenti Linux |
+| SourceSystem |Tipo di agente da cui è stato raccolto il record. <br> OpsManager: agente Windows, con connessione diretta o SCOM <br> Linux – Tutti gli agenti Linux |
 | RawData |Testo completo della voce raccolta. |
 | ManagementGroupName |Nome del gruppo di gestione per gli agenti SCOM.  Per gli altri agenti, corrisponde ad AOI-\<ID area di lavoro\> |
 
@@ -177,6 +177,6 @@ Viene usato Campi personalizzati per definire i campi *EventTime*, *Code*, *Stat
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

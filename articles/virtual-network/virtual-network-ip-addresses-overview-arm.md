@@ -1,5 +1,5 @@
 ---
-title: Indirizzi IP | Documentazione Microsoft
+title: Tipi di indirizzo IP in Azure | Documentazione Microsoft
 description: Informazioni sugli indirizzi IP pubblici e privati in Azure.
 services: virtual-network
 documentationcenter: na
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 6e96471c4f61e1ebe15c23f87ac646001d8e30ee
-ms.openlocfilehash: 38dc72d7248584006a478413b5da9a6b230e6b89
+ms.sourcegitcommit: 3de0b167d0ad32de17093caf7e66a6d08f5c1c61
+ms.openlocfilehash: 762b048056752abd24328433ceb57de492dbf884
 
 
 ---
-# <a name="ip-addresses-in-azure"></a>Indirizzi IP in Azure
-È possibile assegnare indirizzi IP alle risorse di Azure per comunicare con altre risorse di Azure, con la rete locale e Internet. In Azure è possibile usare due tipi di indirizzi IP:
+# <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipi di indirizzi IP e metodi di allocazione in Azure
+È possibile assegnare gli indirizzi IP alle risorse di Azure per comunicare con altre risorse di Azure, con la rete locale e con Internet. In Azure è possibile usare due tipi di indirizzi IP:
 
 * **Indirizzi IP pubblici**: usati per la comunicazione con Internet, compresi i servizi pubblici di Azure.
 * **Indirizzi IP privati**: usati per la comunicazione all'interno di una rete virtuale Azure e della rete locale quando si usa un gateway VPN o un circuito ExpressRoute per estendere la rete ad Azure.
@@ -124,7 +124,7 @@ Quando si crea una macchina virtuale, ai server DNS gestiti da Azure viene aggiu
 
 Le macchine virtuali configurate con server DNS gestiti di Azure potranno risolvere i nomi host di tutte le VM all'interno la rete virtuale nei relativi indirizzi IP privati.
 
-### <a name="internal-load-balancers-ilb-application-gateways"></a>Servizi di bilanciamento del carico interno e gateway applicazione
+### <a name="internal-load-balancers-ilb--application-gateways"></a>Servizi di bilanciamento del carico interno e gateway applicazione
 È possibile assegnare un indirizzo IP privato alla configurazione **front-end** di un [servizio di bilanciamento del carico interno di Azure](../load-balancer/load-balancer-internal-overview.md) o di un [gateway applicazione di Azure](../application-gateway/application-gateway-introduction.md). Questo indirizzo IP privato funge da endpoint interno, accessibile solo alle risorse all'interno della rete virtuale e alle reti remote connesse alla rete virtuale. È possibile assegnare un indirizzo IP privato dinamico o statico alla configurazione front-end.
 
 ### <a name="at-a-glance"></a>Riepilogo
@@ -149,6 +149,6 @@ Per gli indirizzi IP pubblici può essere previsto un addebito nominale. Per alt
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

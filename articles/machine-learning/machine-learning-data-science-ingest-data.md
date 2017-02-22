@@ -1,5 +1,5 @@
 ---
-title: Caricare i dati in ambienti di archiviazione per l&quot;analisi | Documentazione Microsoft
+title: Caricare i dati in ambienti di archiviazione di Azure per l&quot;analisi | Documentazione Microsoft
 description: Spostamento dei dati da e verso l&quot;archiviazione BLOB di Azure
 services: machine-learning,storage
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e132bf59575928dfab34905730b5acc29d6754d5
+ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
+ms.openlocfilehash: 7fbf3bfedca8fa57a5e9428c9399558992b4acbd
 
 
 ---
@@ -32,6 +32,6 @@ Le esigenze aziendali e tecniche specifiche, nonché la posizione iniziale, il f
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -394,6 +394,6 @@ Si noti che il cmdlet usato per l'autenticazione nel runbook (**Add-AzureRmAccou
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

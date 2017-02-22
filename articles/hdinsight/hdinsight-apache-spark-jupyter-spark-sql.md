@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/18/2017
+ms.date: 02/01/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: ebd6edc0e3ef58fac8a0f32373736a9470a7ecce
+ms.sourcegitcommit: a3bdeb6fea306babc9358134c37044843b9bdd1c
+ms.openlocfilehash: d8d9c5111a19bb165c25d2796d6b6e933d75042a
 
 
 ---
@@ -70,10 +70,10 @@ In questa sezione è possibile usare un notebook Jupyter per eseguire query SQL 
 * **PySpark** (per le applicazioni scritte in Python)
 * **Spark** (per le applicazioni scritte in Scala)
 
-In questo articolo si userà il kernel PySpark. Nell'articolo [Kernel disponibili per i notebook Jupyter con cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels) sono descritti in dettaglio i vantaggi dell'uso del kernel PySpark. Ecco, tuttavia, i principali vantaggi dell'uso del kernel PySpark:
+In questo articolo si usa il kernel PySpark. Per altre informazioni sui due kernel, vedere [Usare i kernel per Jupyter Notebook con cluster Apache Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md). Ecco alcuni principali vantaggi dell'uso del kernel PySpark:
 
-* Non è necessario impostare i contesti per Spark e Hive. Questi vengono impostati automaticamente.
-* È possibile usare comandi speciali nelle celle, ad esempio `%%sql`per eseguire direttamente query SQL o Hive senza anteporre frammenti di codice.
+* I contesti per Spark e Hive vengono impostati automaticamente.
+* Usare comandi speciali nelle celle, ad esempio `%%sql` per eseguire direttamente query SQL o Hive senza anteporre frammenti di codice.
 * L'output delle query SQL o Hive viene visualizzato automaticamente.
 
 ### <a name="create-jupyter-notebook-with-pyspark-kernel"></a>Creare un notebook di Jupyter con il kernel PySpark
@@ -82,7 +82,7 @@ In questo articolo si userà il kernel PySpark. Nell'articolo [Kernel disponibil
 2. Scegliere **Gruppi di risorse** dal menu a sinistra.
 3. Fare clic sul gruppo di risorse creato nella sezione precedente. È possibile usare la funzione di ricerca se è presente un numero eccessivo di gruppi di risorse. Nel gruppo è possibile visualizzare due risorse: il cluster HDInsight e l'account di archiviazione predefinito.
 4. Fare clic sul cluster per aprirlo.
- 
+
 2. In **Collegamenti rapidi** fare clic su **Dashboard cluster** e quindi su **Notebook di Jupyter**. Se richiesto, immettere le credenziali per il cluster.
 
    ![Dashboard cluster HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-azure-portal-cluster-dashboards.png "Dashboard cluster HDInsight")
@@ -97,7 +97,7 @@ In questo articolo si userà il kernel PySpark. Nell'articolo [Kernel disponibil
 
    ![Creare un nuovo notebook Jupyter](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Creare un nuovo notebook Jupyter")
 
-   Un nuovo notebook verrà creato e aperto con il nome Untitled (Untitled.pynb). 
+   Un nuovo notebook verrà creato e aperto con il nome Untitled (Untitled.pynb).
 
 4. Fare clic sul nome del notebook nella parte superiore e, se si vuole, immettere un nome descrittivo.
 
@@ -130,13 +130,13 @@ In questo articolo si userà il kernel PySpark. Nell'articolo [Kernel disponibil
         hvacdf.registerTempTable("hvac")
 
     I cluster Spark in HDInsight includono un file di dati di esempio, **hvac.csv**, in **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
-    
+
 7. Eseguire il codice seguente per effettuare una query dei dati:
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 
-   Dato che si usa un kernel PySpark, è ora possibile eseguire direttamente una query SQL sulla tabella temporanea **hvac** appena creata usando il comando Magic `%%sql`. Per altre informazioni sul magic `%%sql` e sugli altri magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
+   Dato che si usa un kernel PySpark, è ora possibile eseguire direttamente una query SQL sulla tabella temporanea **hvac** appena creata usando il comando Magic `%%sql`. Per altre informazioni sul magic `%%sql` e sugli altri magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 
    L'output tabulare seguente viene visualizzato per impostazione predefinita.
 
@@ -167,7 +167,7 @@ In questo articolo si userà il kernel PySpark. Nell'articolo [Kernel disponibil
 * [Eseguire processi in modalità remota in un cluster Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Strumenti ed estensioni
-* [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark in Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Spark in remoto)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Usare i notebook di Zeppelin con un cluster Spark in HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 * [Kernel disponibili per notebook di Jupyter nel cluster Spark per HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
@@ -190,6 +190,6 @@ In questo articolo si userà il kernel PySpark. Nell'articolo [Kernel disponibil
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

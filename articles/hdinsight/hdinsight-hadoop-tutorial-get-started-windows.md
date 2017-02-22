@@ -17,24 +17,25 @@ ms.workload: big-data
 ms.date: 03/07/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: 176c06bd1d8117fda70001762f86f1a98829f78b
+ms.sourcegitcommit: e2d78b7e71cd17c88ce4e283cc0b0ddc9bf7b479
+ms.openlocfilehash: 0b12dcfbf69c0f66df7587f6a755f74089090960
 
 
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight-on-windows"></a>Esercitazione di Hadoop: Introduzione all'uso di Hadoop in HDInsight in Windows
+
 > [!div class="op_single_selector"]
 > * [Basato su Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 > * [Basato su Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 > 
 > 
 
+
+
 Per informazioni su Hadoop in Windows e per iniziare a usare HDInsight, questa esercitazione illustra come eseguire una query Hive su dati non strutturati in un cluster Hadoop e quindi analizzare i risultati in Microsoft Excel.
 
-> [!NOTE]
-> Le informazioni contenute in questo documento sono specifiche per i cluster HDInsight basati su Windows. Per informazioni sui cluster basati su Linux, vedere [Esercitazione di Hadoop: Introduzione all'uso di Hadoop basato su Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
-> 
-> 
+> [!IMPORTANT]
+> I passaggi descritti in questo documento funzionano solo con i cluster HDInsight basati su Windows. HDInsight è disponibile in Windows solo per le versioni precedenti a HDInsight 3.4. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Per informazioni sulla creazione di cluster basati su Linux, vedere [Esercitazione di Hadoop: Introduzione all'uso di Hadoop basato su Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 Si supponga di avere un set di dati non strutturati di grandi dimensioni e di volere eseguire una query Hive sul set di dati per estrarre informazioni significative. Questo è l'obiettivo dell'esercitazione. Ecco come effettuare questa operazione:
 
@@ -82,7 +83,7 @@ Quando si crea un cluster, si creano risorse di calcolo di Azure che includono H
    | Gruppo di risorse |Selezionare un gruppo di risorse di Azure esistente o crearne uno nuovo. Un cluster HDInsight di base contiene un cluster e il relativo account di archiviazione predefinito.  È possibile raggruppare i due oggetti in un gruppo di risorse per una gestione ottimale. |
    | Credenziali |Immettere il nome utente e la password dell'account di accesso del cluster. Un cluster basato su Windows può disporre di 2 account utente.  L'utente del cluster (o l'utente HTTP) viene usato per gestire il cluster e inviare i processi.  Facoltativamente è possibile creare un account utente desktop remoto (RDP) per connettersi in remoto al cluster. Se si sceglie di abilitare desktop remoto, si creerà l'account utente RDP. |
    | Origine dati |Fare clic su Crea nuovo per creare un nuovo account di archiviazione di Azure predefinito. Usare il nome del cluster come nome del contenitore predefinito. Ogni cluster HDInsight include un contenitore BLOB predefinito in un account di archiviazione di Azure.  Il percorso dell'account di archiviazione di Azure predefinito determina la posizione del cluster HDInsight. |
-   | Piani tariffari per il nodo |Usare 1 o 2 nodi di lavoro con il piano tariffario predefinito per il nodo di lavoro e il nodo head per questa esercitazione. |
+   | Piani tariffari per il nodo |Per questa esercitazione usare 1 o 2 nodi del ruolo di lavoro con il piano tariffario predefinito per il nodo del ruolo di lavoro e il nodo head. |
    | Configurazione facoltativa |Ignorare questa parte. |
 4. Nel pannello **Nuovo cluster HDInsight** assicurarsi che l'opzione **Aggiungi alla Schermata iniziale** sia selezionata, quindi fare clic su **Crea**. Questo creerà il cluster e aggiungerà una sezione apposita nella schermata iniziale del portale di Azure. L'icona indica che il cluster è in fase di creazione e verrà visualizzata l'icona di HDInsight al termine dell'operazione.
    
@@ -165,11 +166,11 @@ Per completare questa parte dell'esercitazione, è necessario disporre di Excel 
 7. Fare clic su **Carica e chiudi** nell'angolo superiore sinistro per importare l'output del processo Hive in Excel.
 
 ## <a name="run-samples"></a>Eseguire gli esempi
-Un cluster HDInsight fornisce una console di query che include una raccolta introduttiva per l'esecuzione di esempi direttamente dal portale. Gli esempi possono essere usati per apprendere come lavorare con HDInsight seguendo le procedure dettagliare di alcuni scenari di base. Gli esempi forniscono tutti i componenti necessari, come i dati per l'analisi e le query da eseguire sui dati. Per altre informazioni sugli esempi della raccolta introduttiva, vedere [Informazioni su Hadoop in HDInsight tramite la raccolta di introduzione HDInsight](hdinsight-learn-hadoop-use-sample-gallery.md).
+Un cluster HDInsight fornisce una console di query che include una raccolta introduttiva per l'esecuzione di esempi direttamente dal portale. Gli esempi possono essere usati per apprendere come lavorare con HDInsight seguendo le procedure dettagliare di alcuni scenari di base. Gli esempi forniscono tutti i componenti necessari, come i dati per l'analisi e le query da eseguire sui dati.
 
 **Per eseguire l'esempio**
 
-1. Dalla schermata iniziale del portale di Azure fare clic sul riquadro per il cluster che si è appena creato.
+1. Dalla schermata iniziale del portale di Azure fare clic sul riquadro del cluster che si è appena creato.
 2. Nel pannello del nuovo cluster fare clic su **Dashboard**. Quando richiesto, immettere il nome utente e la password dell'amministratore per il cluster.
    
     ![Avviare il dashboard del cluster](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.Cluster.Dashboard.png "Avviare il dashboard del cluster")
@@ -255,6 +256,6 @@ In questa esercitazione di Hadoop si è appreso come creare un cluster Hadoop in
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

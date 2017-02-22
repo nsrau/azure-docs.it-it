@@ -1,5 +1,5 @@
 ---
-title: App Web .NET v2.0 di Azure AD| Documentazione Microsoft
+title: Introduzione alla chiamata di API da un&quot;App Web Azure AD v2.0 .NET| Documentazione Microsoft
 description: Come creare un&quot;app Web .NET MVC che chiama servizi Web usando account Microsoft personali, aziendali e dell&quot;istituto di istruzione per l&quot;accesso.
 services: active-directory
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 01/23/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: 587a5136004525f5badc5e72d006fc6dd07d42d8
+ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
+ms.openlocfilehash: c6cca8fda4ba6a26d5ee74b43e0bae37639865c5
 
 
 ---
@@ -26,7 +26,7 @@ Con l'endpoint v2.0 è possibile aggiungere rapidamente l'autenticazione alle ap
 Questa esercitazione è incentrata principalmente sull'uso di MSAL per l'acquisizione e l'uso di token di accesso in un'app Web, la cui descrizione dettagliata è disponibile [qui](active-directory-v2-flows.md#web-apps).  Come prerequisiti, è consigliabile apprendere come [aggiungere l'accesso base a un'app Web](active-directory-v2-devquickstarts-dotnet-web.md) o come [proteggere correttamente un'API Web](active-directory-v2-devquickstarts-dotnet-api.md).
 
 > [!NOTE]
-> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint&2;.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 > 
 > 
 
@@ -202,6 +202,6 @@ Per altre risorse, vedere:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

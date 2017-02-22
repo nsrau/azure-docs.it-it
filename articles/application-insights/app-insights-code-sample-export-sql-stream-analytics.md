@@ -1,5 +1,5 @@
 ---
-title: 'Procedura dettagliata: esportare i dati di telemetria nel database SQL da Application Insights'
+title: Esportare in SQL da Azure Application Insights | Documentazione Microsoft
 description: Eseguire l&quot;esportazione continua dei dati Application Insights in SQL tramite l&quot;analisi di flusso.
 services: application-insights
 documentationcenter: 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 03/06/2015
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: abaeb614e304c4ae78e6a1d43d19c99698e50494
+ms.sourcegitcommit: 96614dd3c0bf9c55ffd81d0912ecb62b71c32b22
+ms.openlocfilehash: fa9b09833f61e372738ff74022ac9fd6a288847f
 
 
 ---
@@ -278,6 +278,6 @@ Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controlla
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

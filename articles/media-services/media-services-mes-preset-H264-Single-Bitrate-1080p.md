@@ -1,5 +1,5 @@
 ---
-title: Codec video H.264 a bitrate singolo con risoluzione 1080p | Documentazione Microsoft
+title: Media Encoder Standard a bitrate singolo H.264 con risoluzione 1080p preimpostato - Azure | Documentazione Microsoft
 description: "Questo argomento offre una panoramica del set di impostazioni di attività **Codec video H.264 a bitrate singolo con risoluzione 1080p**."
 author: Juliako
 manager: erikre
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: 119122adbdda2ae59cf7e4b4cfe3520d52e91954
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 0ed50475d2ba34643f9e6d62491a8ec7ac40769b
 
 
 ---
@@ -118,6 +118,6 @@ ms.openlocfilehash: 119122adbdda2ae59cf7e4b4cfe3520d52e91954
 ```
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

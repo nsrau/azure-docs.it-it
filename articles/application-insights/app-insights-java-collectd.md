@@ -1,5 +1,5 @@
 ---
-title: 'collectd: statistiche sulle prestazioni per Java su Linux in Azure Application Insights | Microsoft Docs'
+title: 'Monitorare le prestazioni delle app Web in Linux: Azure | Documentazione Microsoft'
 description: Monitoraggio esteso delle prestazioni delle applicazioni del sito Web Java con il plug-in CollectD per Application Insights.
 services: application-insights
 documentationcenter: java
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 193c1836fc8076c2486684a7ec4a92ece948050c
-ms.openlocfilehash: 2419f7bd69b9d7fab1a37330b68283012e43f5fd
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: e085f90d3f34d32d2e065ede6674842000e29fb8
 
 
 ---
@@ -140,6 +140,6 @@ Separare le direttive con un valore NewLine.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

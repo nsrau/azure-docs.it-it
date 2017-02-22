@@ -15,12 +15,12 @@ ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: wesmc;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7be266a6f8b3e18f2f6a27908ad75b5c19d3d862
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0cb54f6c4b84597fbc21fa691f88f6f7a37beedd
 
 
 ---
-# <a name="azure-mobile-engagement-getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - Guida introduttiva con procedure consigliate
+# <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - Guida introduttiva con procedure consigliate
 ## <a name="overview"></a>Panoramica
 **Lo schermo del dispositivo mobile è uno spazio molto affollato:** Uno studio del 2013 ha evidenziato che in un dispositivo mobile sono installate in media 27 applicazioni. Gli utenti in genere hanno dedicato alle app 30 ore al mese, la maggior parte delle quali al social networking e ai giochi (circa 20 ore). Alla fine del 2014, gli utenti del mercato Android potevano scegliere tra circa 1,5 milioni di applicazioni. L'Apple Store conteneva circa 1,2 milioni di app. L'uso di app per dispositivi mobili continua ad aumentare grazie alla competizione tra gli sviluppatori in questo mercato in crescita. 
 
@@ -105,7 +105,7 @@ Compilare un dashboard KPI contenente le informazioni seguenti
 3. Dove si trovano questi dati per l'applicazione (ad esempio, schermo, impostazioni, sistema)?
 4. È possibile riprodurre una sequenza di interesse per questo KPI?
 
-Per esempi e indicazioni, è possibile usare il foglio di lavoro **KPI Builder** nel modello [Media Playbook Template][collegamento Media Playbook].
+Per esempi e informazioni aggiuntive, è possibile usare il foglio di lavoro **KPI Builder** nel modello [Media Playbook Template][Media Playbook link].
 
 ## <a name="step-2-your-engagement-program"></a>Passaggio 2: Programma di interesse
 Un buon programma di engagement mobile dovrebbe essere considerato un componente chiave dell'app e dovrebbe assolutamente includere un valido programma di benvenuto da eseguire automaticamente durante i primi giorni di utilizzo dell'app. In questo modo si ottiene di solito un effetto molto positivo sull'interesse e sulla fidelizzazione all'app. Alcuni studi hanno evidenziato che la maggior parte degli utenti smette di usare un'app pochi giorni dopo l'installazione. Se l'obiettivo è soddisfare o superare le aspettative dei clienti suscitando interesse fin dall'inizio, mentre l'utente è ancora coinvolto dall'app, assicurarsi di presentare il valore chiave e i vantaggi dell'app ai clienti. 
@@ -209,13 +209,13 @@ Azure Mobile Engagement offre due modi per evitare che le comunicazioni vengano 
 #### <a name="playbook-exercise-2-create-your-engagement-program"></a>Esercizio di strategia 2: Creare il programma di interesse
 Dedicare tempo sufficiente al riepilogo degli obiettivi e alla definizione delle campagne che si prevede di condurre con sequenze specifiche. Assicurarsi di applicare l'approccio 3W alle notifiche delle campagne. 
 
-Per esempi e indicazioni, usare il foglio di lavoro **Engagement Program** nel modello [Media Playbook Template][collegamento Media Playbook].
+Per esempi e informazioni aggiuntive, usare il foglio di lavoro **Engagement Program** nel modello [Media Playbook Template][Media Playbook link].
 
 ## <a name="step-3-app-integration"></a>Passaggio 3: Integrazione con l'app
 #### <a name="create-a-tag-plan"></a>Creare un piano di tag
 Per integrare Azure Mobile Engagement nell'app, sarà necessario creare un piano di tag. Il piano di tag è il fondamento del progetto. Definisce la relazione tra le specifiche di marketing, il flusso di lavoro dell'applicazione e i dati dei tag reali raccolti nell'app per misurare gli indicatori KPI. Indica quale analisi sarà possibile visualizzare nel portale. Consente anche di definire i segmenti di utenti e di inviare notifiche push mirate per coinvolgere gli utenti finali. Una volta definito il piano di tag, aggiungere il codice per integrarlo nell'app è semplice con Azure Mobile Engagement SDK.
 
-Un piano di tag non dovrebbe contrassegnare qualsiasi elemento in un'applicazione, ma solo includere i dati dei tag che fanno parte della strategia di engagement mobile, che sarà probabilmente diversa a seconda dell'applicazione. Il modello [Media Playbook Template][collegamento Media Playbook] fornito da Azure Mobile Engagement consente di compilare un piano di tag con un determinato metodo. Usare il foglio di lavoro del **piano di tag** come guida alla compilazione del piano di tag.
+Un piano di tag non dovrebbe contrassegnare qualsiasi elemento in un'applicazione, ma solo includere i dati dei tag che fanno parte della strategia di engagement mobile, che sarà probabilmente diversa a seconda dell'applicazione. Il modello [Media Playbook Template][Media Playbook link] fornito da Azure Mobile Engagement consente di compilare un piano di tag con un determinato metodo. Usare il foglio di lavoro del **piano di tag** come guida alla compilazione del piano di tag.
 
 Quando si definisce una sezione di tag nel foglio di lavoro, è necessario essere molto specifici. È molto importante per evitare confusione. Descrivere in dettaglio ogni scenario previsto in cui verrà inviato ogni tag. Includere il nome dell'attività in cui viene incorporato ogni tag. Tutto questo deve essere incluso nella parte **Informative** del foglio di lavoro. Il foglio di lavoro del piano di tag dovrebbe essere il riferimento principale per la verifica tramite test. 
 
@@ -322,10 +322,10 @@ Dopo avere accumulato un po' di esperienza, è possibile considerare l'aggiunta 
 
 
 <!--Link references-->
-[Collegamento Playbook Media]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
+[Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

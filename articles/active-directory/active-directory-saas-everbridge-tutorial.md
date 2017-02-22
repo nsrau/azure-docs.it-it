@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 5608f38de6ae78772499a40c4e2d449cd5efc79c
-ms.openlocfilehash: 511a3883cadd9bf2fe1cc39a8626c49fa19a7d8e
+ms.sourcegitcommit: a14be44b66c5e61350785ddfaf5b96125a196103
+ms.openlocfilehash: d31201fa2ad57006d5181ee808020cea80446557
 
 
 ---
@@ -253,6 +253,6 @@ Quando si fa clic sul riquadro Everbridge nel pannello di accesso, si dovrebbe a
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f498f4546e8c23f2141d8d30160a360fa0fc2514
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 8790bacecac0fa824189b5c212c2d803092ff4ed
 
 
 ---
@@ -32,19 +32,19 @@ ms.openlocfilehash: f498f4546e8c23f2141d8d30160a360fa0fc2514
 
 Questa esercitazione illustra come usare Power BI per connettersi a SQL Data Warehouse e creare alcune visualizzazioni di base.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Data-Warehouse-Sample-Data-and-PowerBI/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Data-Warehouse-Sample-Data-and-PowerBI/player]
 > 
 > 
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per eseguire questa esercitazione, è necessario:
 
-* Un'istanza di SQL Data Warehouse in cui sia precaricato il database AdventureWorksDW. Per effettuarne il provisioning, vedere [Creare un Azure SQL Data Warehouse][Creare un Azure SQL Data Warehouse] e scegliere di caricare i dati di esempio. Se si ha già un data warehouse ma non i dati di esempio, è possibile [caricare manualmente i dati di esempio][caricare manualmente i dati di esempio].
+* Un'istanza di SQL Data Warehouse in cui sia precaricato il database AdventureWorksDW. Per effettuarne il provisioning, vedere [Creare un Azure SQL Data Warehouse][Create a SQL Data Warehouse] e scegliere di caricare i dati di esempio. Se si ha già un data warehouse, ma non i dati di esempio, è possibile [caricare manualmente i dati di esempio][load sample data manually].
 
 ## <a name="1-connect-to-your-database"></a>1. Connettersi al database
 Per aprire Power BI e connettersi al database AdventureWorksDW:
 
-1. Accedere al [Portale di Azure][Portale di Azure].
+1. Accedere al [portale di Azure][Azure portal].
 2. Fare clic su **Database SQL** e scegliere il database SQL Data Warehouse AdventureWorks.
    
     ![Trovare il database][1]
@@ -89,7 +89,7 @@ Per aprire Power BI e connettersi al database AdventureWorksDW:
 Per salvare lo stato in qualsiasi momento, fare clic su **File** e selezionare **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo essersi esercitati con i dati di esempio, si passerà ora alle operazioni di [sviluppo][sviluppo], [caricamento][caricamento] o [migrazione][migrazione]. In alternativa, vedere il [sito Web di Power BI][sito Web di Power BI ].
+Dopo essersi esercitati con i dati di esempio, si passerà ora alle operazioni di [sviluppo][develop], [caricamento][load] o [migrazione][migrate]. In alternativa, vedere il [sito Web di Power BI][Power BI website].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
@@ -106,19 +106,19 @@ Dopo essersi esercitati con i dati di esempio, si passerà ora alle operazioni d
 [12]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
 
 <!--Article references-->
-[migrazione]: sql-data-warehouse-overview-migrate.md
-[sviluppo]: sql-data-warehouse-overview-develop.md
-[caricamento]: sql-data-warehouse-overview-load.md
-[caricare manualmente i dati di esempio]: sql-data-warehouse-load-sample-databases.md
-[eseguire la connessione a SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
-[Creare un Azure SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[migrate]: sql-data-warehouse-overview-migrate.md
+[develop]: sql-data-warehouse-overview-develop.md
+[load]: sql-data-warehouse-overview-load.md
+[load sample data manually]: sql-data-warehouse-load-sample-databases.md
+[connecting to SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
 <!--Other-->
-[portale di Azure]: https://portal.azure.com/
-[sito Web di Power BI]: http://www.powerbi.com/
+[Azure portal]: https://portal.azure.com/
+[Power BI website]: http://www.powerbi.com/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Macchine virtuali di Azure - Esercitazione 1 DotNet Core | Microsoft Docs
+title: 'Macchine virtuali Windows di Azure: esercitazione DotNet Core 1 | Documentazione Microsoft'
 description: Macchine virtuali di Azure - Esercitazione DotNet Core
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: cc534bbf4eb282fe3b675f1783e05e2d3357405e
+ms.sourcegitcommit: 64ad540536dcf3f4d4a73f49d99fb6142b33ea9c
+ms.openlocfilehash: 31fd217e46bbc79bac9e09045677edbc12bcf6c2
 
 
 ---
@@ -72,6 +72,6 @@ Al termine della distribuzione del modello, passare all'indirizzo IP pubblico us
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

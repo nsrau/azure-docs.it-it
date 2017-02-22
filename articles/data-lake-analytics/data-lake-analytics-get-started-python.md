@@ -14,8 +14,8 @@ ms.workload: big-data
 ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: e94b11ab62afbea9381772a2bdb668fdc514d609
-ms.openlocfilehash: 2da23d881a23cc0fc23b63a7b9e06d9af9a755eb
+ms.sourcegitcommit: 5618650671badfc54860c3ad8af5d1e727d3d8c9
+ms.openlocfilehash: 40ccfc59cccd86a7634ec89656571b3cd23566b4
 
 
 ---
@@ -41,11 +41,12 @@ Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
 
 Per gestire Data Lake Store usando Python, è necessario installare tre moduli.
 
-Il modulo azure include le operazioni di gestione degli account di Azure Data Lake Store in aggiunta ad altri moduli di Azure per Active Directory e così via. Il modulo azure-datalake-store include le operazioni di file system di Azure Data Lake Store. Il modulo azure-datalake-analytics include le operazioni di Azure Data Lake Analytics. Per installare i moduli, usare i comandi seguenti.
+Il modulo azure-mgmt-datalake-store include le operazioni di gestione account di Azure Data Lake Store. Il modulo azure-mgmt-resource include altri moduli Azure per Active Directory e così via. Il modulo azure-datalake-store include le operazioni di file system di Azure Data Lake Store. Il modulo azure-datalake-analytics include le operazioni di Azure Data Lake Analytics. Per installare i moduli, usare i comandi seguenti.
 
-    pip install azure
+    pip install azure-mgmt-resource
+    pip install azure-mgmt-datalake-store
+    pip install azure-mgmt-datalake-analytics
     pip install azure-datalake-store
-    pip install azure-datalake-analytics
 
 ## <a name="create-a-python-application"></a>Creare un'applicazione Python
 
@@ -91,7 +92,7 @@ Per eseguire l'autenticazione, usare uno dei metodi seguenti:
 
 ### <a name="end-user-authentication-for-account-management"></a>Autenticazione dell'utente finale per la gestione degli account
 
-Usare questo metodo per eseguire l'autenticazione con Azure AD per le operazioni di gestione degli account, ad esempio creare o eliminare account di Data Lake Store e così via. È necessario specificare il nome utente e la password per un utente di Azure AD. L'account utente non può essere configurato per l'autenticazione a più fattori e non può essere un Live ID o un account Microsoft, ad esempio @outlook.com, e @live.com.
+Usare questo metodo per eseguire l'autenticazione con Azure AD per le operazioni di gestione degli account, ad esempio creare o eliminare account di Data Lake Store e così via. È necessario specificare il nome utente e la password per un utente di Azure AD. L'account utente non può essere configurato per l'autenticazione a più fattori e non può essere un account Microsoft o Live ID, ad esempio @outlook.com, e @live.com.
 
     user = input('Enter the user to authenticate with that has permission to subscription: ')
     password = getpass.getpass()
@@ -208,6 +209,6 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/15/2016
 ms.author: juliako;johndeu;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: caf697786ce2a95dd0d4168d6ffa26bf4bee525a
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: bf208f65ef5509e56373a84bb096da39d6bafc1f
 
 
 ---
@@ -35,7 +35,7 @@ Di seguito sono riportati alcuni flussi di lavoro di esempio che è possibile cr
 È possibile usare questo strumento anche per modificare qualsiasi [flusso di lavoro pubblicato](media-services-workflow-designer.md#existing_workflows). 
 
 > [!NOTE]
-> Per ottenere una copia dello strumento Progettazione flussi di lavoro, contattare mepd@microsoft.com.
+> Per ottenere una copia dello strumento per la progettazione di flussi di lavoro, contattare mepd@microsoft.com.
 > 
 > 
 
@@ -53,7 +53,7 @@ Il video del giorno 1 riguarda:
 * Flussi di lavoro di base - "Hello World"
 * Creazione di più file di output MP4 da usare lo streaming di Servizi multimediali di Azure
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-1/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-1/player]
 > 
 > 
 
@@ -64,7 +64,7 @@ Il video del giorno 2 riguarda:
 * Flussi di lavoro con logica avanzata
 * Fasi del grafico
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-2/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-2/player]
 > 
 > 
 
@@ -75,7 +75,7 @@ Il video del giorno 3 riguarda:
 * Restrizioni del codificatore corrente
 * Domande e risposte
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-3/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-3/player]
 > 
 > 
 
@@ -87,7 +87,7 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-Per ottenere assistenza o ricevere informazioni sulla creazione di flussi di lavoro personalizzati nello strumento per la progettazione di flussi di lavoro, inviare un'e-mail a mepd@microsoft.com.
+Per ottenere assistenza o ricevere informazioni per la creazione di flussi di lavoro personalizzati nello strumento per la progettazione di flussi di lavoro, inviare un messaggio di posta elettronica a mepd@microsoft.com.
 
 ## <a name="see-also"></a>Vedere anche
 [Video di formazione sulla finestra di progettazione del flusso di lavoro del codificatore Premium di Azure](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
@@ -95,6 +95,6 @@ Per ottenere assistenza o ricevere informazioni sulla creazione di flussi di lav
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

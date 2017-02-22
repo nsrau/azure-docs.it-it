@@ -1,5 +1,5 @@
 ---
-title: Query Performance Insight del database SQL di Azure
+title: Informazioni dettagliate sulle prestazioni delle query per il database SQL di Azure | Documentazione Microsoft
 description: Il monitoraggio delle prestazioni delle query identifica le query principali a livello di utilizzo di CPU per un database SQL di Azure.
 services: sql-database
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5031cefe906f01e14e0155a975dd7996ba70522d
+ms.sourcegitcommit: ddf93a0db278fffa2aa45fdc73a1c7f57a84fb39
+ms.openlocfilehash: 14140a6aa8c8cccf658f8e98305659e8ae76dcad
 
 
 ---
@@ -32,7 +32,6 @@ La gestione e l'ottimizzazione delle prestazioni dei database relazionali è un'
 
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Query Performance Insight è disponibile solo con il database SQL di Azure V12.
 * Per Informazioni dettagliate sulle prestazioni delle query è necessario che l' [archivio query](https://msdn.microsoft.com/library/dn817826.aspx) sia attivo nel database. Se l'archivio query non è in esecuzione, il portale richiede di attivarlo.
 
 ## <a name="permissions"></a>Autorizzazioni
@@ -72,7 +71,7 @@ Eseguire le operazioni seguenti nel [portale](http://portal.azure.com) :
    
     La griglia inferiore rappresenta informazioni aggregate per le query visibili.
    
-   * ID query: identificatore univoco della query all'interno del database.
+   * ID query: identificatore univoco di query all'interno del database.
    * Utilizzo della CPU per query durante l'intervallo osservabile (dipende dalla funzione di aggregazione).
    * Durata per ogni query (dipende dalla funzione di aggregazione).
    * Numero totale di esecuzioni per una query specifica.
@@ -177,9 +176,9 @@ Esistono due tipi di criteri di conservazione:
 
 I criteri di acquisizione possono essere impostati su:
 
-* **Tutte** : acquisisce tutte le query.
-* **Automatico** : le query poco frequenti e con durata di compilazione ed esecuzione trascurabile vengono ignorate. Le soglie per il conteggio delle esecuzioni e la durata di compilazione ed esecuzione vengono stabilite internamente. Questa è l'opzione predefinita.
-* **Nessuna** : l'archivio query interrompe l'acquisizione di nuove query, ma continua a raccogliere le statistiche di runtime per le query già acquisite.
+* **Tutte**: acquisisce tutte le query.
+* **Automatico**: le query poco frequenti e con durata di compilazione ed esecuzione trascurabile vengono ignorate. Le soglie per il conteggio delle esecuzioni e la durata di compilazione ed esecuzione vengono stabilite internamente. Questa è l'opzione predefinita.
+* **Nessuna**: l'archivio query interrompe l'acquisizione di nuove query, ma continua a raccogliere le statistiche di runtime per le query già acquisite.
 
 È consigliabile impostare tutti i criteri su AUTOMATICO e i criteri di pulizia dei dati su 30 giorni:
 
@@ -229,6 +228,6 @@ Per ulteriori raccomandazioni sul miglioramento delle prestazioni del database S
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

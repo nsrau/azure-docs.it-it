@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/19/2016
-ms.author: yuridio
+ms.date: 01/09/2017
+ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 2337c80ff0128c7ca4bf287ceb460dfc11404668
+ms.sourcegitcommit: a31a1b7909ea7440780c9a7af4cb908c9aa6a449
+ms.openlocfilehash: 3ad511b55e33653ea0cf7df2c885d27c1c07441d
 
 
 ---
@@ -84,7 +84,7 @@ Azure usa un firewall hypervisor (filtro di pacchetti), implementato nell'hyperv
 In questo caso sono previste due categorie di regole:
 
 * **Regole di configurazione macchina virtuale o di infrastruttura**: per impostazione predefinita, vengono bloccate tutte le comunicazioni. Alcune eccezioni consentono a una macchina virtuale di inviare e ricevere il traffico DHCP e DNS. Le macchine virtuali possono anche inviare il traffico a Internet "pubblico" e inviare il traffico ad altre macchine virtuali nel cluster e nel server di attivazione del sistema operativo. L'elenco di destinazioni in uscita consentite delle macchine virtuali non include subnet di router di Azure, back-end di gestione di Azure e altre proprietà Microsoft.
-* **File di configurazione dei ruoli**: definisce gli elenchi di controllo di accesso (ACL) in ingresso in base al modello di servizio del tenant. Se ad esempio un tenant ha un front-end Web sulla porta 80 in una macchina virtuale, Azure apre la porta TCP 80 a tutti gli indirizzi IP se si sta configurando un endpoint nel [modello di distribuzione classica di Azure](../resource-manager-deployment-model.md). Se la macchina virtuale ha un ruolo di lavoro o back-end in esecuzione, apre il ruolo di lavoro solo per la macchina virtuale nello stesso tenant.
+* **File di configurazione dei ruoli**: definisce gli elenchi di controllo di accesso (ACL) in ingresso in base al modello di servizio del tenant. Se ad esempio un tenant ha un front-end Web sulla porta 80 in una macchina virtuale, Azure apre la porta TCP 80 a tutti gli indirizzi IP se si sta configurando un endpoint nel [modello di distribuzione classica di Azure](../azure-resource-manager/resource-manager-deployment-model.md). Se la macchina virtuale ha un ruolo di lavoro o back-end in esecuzione, apre il ruolo di lavoro solo per la macchina virtuale nello stesso tenant.
 
 ## <a name="isolation"></a>Isolamento
 Un altro importante requisito di sicurezza del cloud è garantire la separazione per impedire il trasferimento non autorizzato e non intenzionale di informazioni tra le distribuzioni in un'architettura multi-tenant condivisa.
@@ -197,7 +197,6 @@ Azure usa controlli di sicurezza per implementare la prevenzione delle minacce e
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

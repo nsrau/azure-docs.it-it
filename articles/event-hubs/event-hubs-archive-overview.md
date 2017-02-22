@@ -1,5 +1,5 @@
 ---
-title: Archivio di Hub eventi di Azure | Documentazione Microsoft
+title: Panoramica dell&quot;archiviazione dei dati di telemetria con l&quot;archivio di Hub eventi di Azure | Documentazione Microsoft
 description: "Panoramica della funzionalità di archivio di Hub eventi di Azure."
 services: event-hubs
 documentationcenter: 
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: darosa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 539c04ef95804cc0af9924db8b1d2d1f2ea6eef3
-ms.openlocfilehash: 37d8ff4c2e95fddc1daefa650f2407236bc9cda5
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 7f5652aa39d6681b4a96cac00daac904dce2e537
 
 
 ---
 # <a name="azure-event-hubs-archive"></a>Archivio di Hub eventi di Azure
-L'archivio di Hub eventi di Azure consente di distribuire automaticamente i dati in streaming di Hub eventi in un account di archiviazione BLOB di Azure scelto con l'aggiunta della flessibilità necessaria per specificare l'intervallo di tempo o di dimensioni preferito. La configurazione dell'archivio è rapida, non sono previsti costi amministrativi per l'esecuzione e viene eseguito il ridimensionamento automatico con le [unità elaborate](event-hubs-overview.md#capacity-and-security)in Hub eventi. L'archivio di Hub eventi è il modo più semplice per caricare i dati in streaming in Azure e consente di concentrarsi sull'elaborazione dei dati anziché sull'acquisizione.
+L'archivio di Hub eventi di Azure consente di distribuire automaticamente i dati in streaming di Hub eventi in un account di archiviazione BLOB di Azure scelto con l'aggiunta della flessibilità necessaria per specificare l'intervallo di tempo o di dimensioni preferito. La configurazione dell'archivio è rapida, non sono previsti costi amministrativi per l'esecuzione e viene eseguito il ridimensionamento automatico con le [unità elaborate](event-hubs-what-is-event-hubs.md#capacity)in Hub eventi. L'archivio di Hub eventi è il modo più semplice per caricare i dati in streaming in Azure e consente di concentrarsi sull'elaborazione dei dati anziché sull'acquisizione.
 
 L'archivio di Hub eventi di Azure consente di elaborare pipeline in tempo reale e basate su batch nello stesso flusso. In questo modo è possibile compilare soluzioni che si adattano alle esigenze nel corso del tempo. Sia che si debbano compilare oggi sistemi basati su batch con lo sguardo rivolto alla futura elaborazione in tempo reale o che si voglia aggiungere un percorso a freddo efficiente a una soluzione in tempo reale esistente, l'archivio di Hub eventi semplifica l'uso dei dati in streaming.
 
 ## <a name="how-event-hubs-archive-works"></a>Come funziona l'archivio di Hub eventi
-Hub eventi è un buffer permanente di conservazione nel tempo per l'ingresso della telemetria, simile a un log distribuito. La chiave per ridurre il numero di istanze di Hub eventi è il [modello di consumer partizionato](event-hubs-overview.md#partition-key). Ogni partizione è un segmento di dati indipendente e viene utilizzata in modo indipendente. Nel corso del tempo questi dati diventano obsoleti, a seconda del periodo di conservazione configurabile. Un determinato hub eventi quindi non sarà mai "troppo pieno".
+Hub eventi è un buffer permanente di conservazione nel tempo per l'ingresso della telemetria, simile a un log distribuito. La chiave per ridurre il numero di istanze di Hub eventi è il [modello di consumer partizionato](event-hubs-what-is-event-hubs.md#partitions). Ogni partizione è un segmento di dati indipendente e viene utilizzata in modo indipendente. Nel corso del tempo questi dati diventano obsoleti, a seconda del periodo di conservazione configurabile. Un determinato hub eventi quindi non sarà mai "troppo pieno".
 
 L'archivio di Hub eventi consente di specificare l'account di archiviazione BLOB di Azure e il contenitore che verranno usati per salvare i dati archiviati. Questo account può trovarsi nella stessa area dell'hub eventi o in un'altra area, aumentando così la flessibilità della funzionalità dell'archivio di Hub eventi.
 
@@ -40,7 +40,7 @@ L'archivio di Hub eventi consente di configurare una finestra per controllare l'
 ```
 
 ### <a name="scaling-to-throughput-units"></a>Ridimensionamento alle unità elaborate
-Il traffico di Hub eventi è controllato dalle [unità elaborate](event-hubs-overview.md#capacity-and-security). Una singola unità elaborata consente 1 MB al secondo o 1000 eventi al secondo in ingresso e il doppio in uscita. Hub eventi Standard può essere configurato con 1-20 unità elaborate e altre possono essere acquistate tramite una [richiesta di supporto][support request] per l'aumento della quota. L'uso superiore rispetto alle unità elaborate acquistate è limitato. L'archivio di Hub eventi copia i dati direttamente dalla memoria di Hub eventi interna, ignorando le quote in uscita di unità elaborate e salvando l'uscita per altri lettori di elaborazione, ad esempio l'analisi di flusso o Spark.
+Il traffico di Hub eventi è controllato dalle [unità elaborate](event-hubs-what-is-event-hubs.md#capacity). Una singola unità elaborata consente 1 MB al secondo o 1000 eventi al secondo in ingresso e il doppio in uscita. Hub eventi Standard può essere configurato con 1-20 unità elaborate e altre possono essere acquistate tramite una [richiesta di supporto][support request] per l'aumento della quota. L'uso superiore rispetto alle unità elaborate acquistate è limitato. L'archivio di Hub eventi copia i dati direttamente dalla memoria di Hub eventi interna, ignorando le quote in uscita di unità elaborate e salvando l'uscita per altri lettori di elaborazione, ad esempio l'analisi di flusso o Spark.
 
 Dopo la configurazione, l'archivio di Hub eventi viene eseguito automaticamente non appena si invia il primo evento. L'esecuzione continua senza interruzioni. Per comunicare facilmente all'elaborazione downstream che il processo è funzionante, Hub eventi scrive file vuoti quando non sono presenti dati. Si ottengono così una cadenza prevedibile e un marcatore che possono alimentare i processori batch.
 
@@ -117,12 +117,12 @@ Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 [Avro Tools]: http://www-us.apache.org/dist/avro/avro-1.8.1/java/avro-tools-1.8.1.jar
 [Java]: http://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: http://avro.apache.org/docs/current/gettingstartedpython.html
-[Event Hubs overview]: event-hubs-overview.md
+[Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

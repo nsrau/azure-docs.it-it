@@ -6,4 +6,7 @@
 [0]: ./media/create-azure-account/freetrialonwindowsazurehomepage.png
 
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Jan17_HO3-->
+
+

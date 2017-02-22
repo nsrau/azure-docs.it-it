@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2016
+ms.date: 1/11/2017
 ms.author: manuaery
 translationtype: Human Translation
-ms.sourcegitcommit: dbaa242b8969ad04c92e7a527f4cd585bc3763cb
-ms.openlocfilehash: bb2ae9d94a8f1e02a81ff46bdc29e6f9787ebf31
+ms.sourcegitcommit: a437ef2ba20970e2dd9a06fbc9e39fff2bb82da7
+ms.openlocfilehash: 22eb95bf0e3a20893acbb860ad10cfe6a3bcf088
 
 
 ---
@@ -35,14 +35,16 @@ Le domande e le risposte sono suddivise nelle categorie seguenti
 ## <a name="questions-about-creating-a-locally-pinned-volume"></a>Domande sulla creazione di un volume aggiunto in locale
 **D.** Qual è la dimensione massima di un volume aggiunto in locale che è possibile creare nei dispositivi della serie 8000?
 
-**R** È possibile effettuare il provisioning di volumi aggiunti in locale fino a 8.5 TB OPPURE di volumi a livelli fino a 200 TB nel dispositivo 8100. Nel dispositivo 8600 più grande è possibile effettuare il provisioning di volumi aggiunti in locale fino a 22,5 TB o di volumi a livelli fino a 500 TB.
+**R** Nei dispositivi che eseguono l'aggiornamento 3.0 di StorSimple serie 8000 è possibile effettuare il provisioning di volumi aggiunti in locale fino a 8,5 TB o di volumi a livelli fino a 200 TB nel dispositivo 8100. Nel dispositivo 8600 più grande è possibile effettuare il provisioning di volumi aggiunti in locale fino a 22,5 TB o di volumi a livelli fino a 500 TB.    
+Nei dispositivi che eseguono l'aggiornamento 2.x di StorSimple serie 8000 è possibile effettuare il provisioning di volumi aggiunti in locale fino a 8 TB o di volumi a livelli fino a 200 TB nel dispositivo 8100. Nel dispositivo 8600 più grande è possibile effettuare il provisioning di volumi aggiunti in locale fino a 20 TB o di volumi a livelli fino a 500 TB.   
 
-**D.** Di recente si è aggiornato il dispositivo 8100 all'aggiornamento 2 e, quando si cerca di creare un volume aggiunto in locale, la massima dimensione disponibile è solo di 6 TB e non di 8.5 TB. Perché non è possibile creare un volume di 8.5 TB?
+**D.** Quando si cerca di creare un volume aggiunto in locale in un dispositivo 8100 recentemente sottoposto all'aggiornamento 2.0, la massima dimensione disponibile è solo di 6 TB e non di 8 TB. Perché non è possibile creare un volume di 8 TB?
 
-**R** È possibile effettuare il provisioning di volumi aggiunti in locale fino a 8.5 TB OPPURE di volumi a livelli fino a 200 TB nel dispositivo 8100. Se il dispositivo include già volumi a livello, lo spazio disponibile per la creazione di un volume aggiunto in locale sarà proporzionalmente più bassa di questo limite massimo. Se, ad esempio, è già stato effettuato il provisioning di 100 TB di volumi a livelli nel dispositivo 8100 (pari a metà della capacità a livelli), la dimensione massima di un volume locale che è possibile creare nel dispositivo 8100 sarà di conseguenza ridotta a 4 TB (circa metà della capacità massima del volume aggiunto in locale).
+**R** Nei dispositivi che eseguono l'aggiornamento 2.0 è possibile effettuare il provisioning di volumi aggiunti in locale fino a 8 TB O di volumi a livelli fino a 200 TB nel dispositivo 8100. Se il dispositivo include già volumi a livello, lo spazio disponibile per la creazione di un volume aggiunto in locale sarà proporzionalmente più bassa di questo limite massimo. Se, ad esempio, è già stato effettuato il provisioning di 100 TB di volumi a livelli nel dispositivo 8100 (pari a metà della capacità a livelli), la dimensione massima di un volume locale che è possibile creare nel dispositivo 8100 sarà di conseguenza ridotta a 4 TB (circa metà della capacità massima del volume aggiunto in locale).
 
 Poiché parte dello spazio locale del dispositivo viene usato per ospitare il working set di volumi a livelli, lo spazio disponibile per la creazione di un volume aggiunto in locale è ridotta se il dispositivo include volumi a livelli. Al contrario, la creazione di un volume aggiunto in locale riduce in proporzione lo spazio disponibile per i volumi a livelli. La tabella seguente riepiloga la capacità a livelli disponibile nei dispositivi 8100 e 8600 quando vengono creati volumi aggiunti in locale.
 
+####<a name="update-30"></a>Aggiornamento 3.0 
 | Capacità volumi aggiunti in locale di cui è stato effettuato il provisioning | Capacità disponibile di cui effettuare il provisioning per volumi a livelli - 8100 | Capacità disponibile di cui effettuare il provisioning per volumi a livelli - 8600 |
 | --- | --- | --- |
 | 0 |200 TB |500 TB |
@@ -52,6 +54,17 @@ Poiché parte dello spazio locale del dispositivo viene usato per ospitare il wo
 | 10 TB |ND |277.8 TB |
 | 15 TB |ND |166.7 TB |
 | 22.5 TB |ND |0 TB |
+
+####<a name="update-2x"></a>Aggiornamento 2.x  
+ | Capacità volumi aggiunti in locale di cui è stato effettuato il provisioning | Capacità disponibile di cui effettuare il provisioning per volumi a livelli - 8100 | Capacità disponibile di cui effettuare il provisioning per volumi a livelli - 8600 |  
+ | --- | --- | --- |  
+ | 0 |200 TB |500 TB |  
+ | 1 TB |25 TB |475 TB |  
+ | 4 TB |100 TB |400 TB |  
+ | 8 TB |0 TB |300 TB |  
+ | 10 TB |ND |250 TB |  
+ | 15 TB |ND |125 TB |  
+ | 20 TB |ND |0 TB |   
 
 **D.** Perché la creazione di un volume aggiunto in locale è un'operazione di lunga durata? 
 
@@ -205,6 +218,6 @@ Sono disponibili altre informazioni sugli [failover e ripristino di emergenza de
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

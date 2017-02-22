@@ -121,6 +121,6 @@ Se è possibile accedere all'applicazione, verificare che il dispositivo perifer
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

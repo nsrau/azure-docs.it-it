@@ -1,5 +1,5 @@
 ---
-title: Advisor per database SQL di Azure
+title: Raccomandazioni sull&quot;ottimizzazione delle prestazioni delle query - Database SQL di Azure | Documentazione Microsoft
 description: L&quot;advisor per database SQL di Azure offre raccomandazioni per i database SQL esistenti che consentono di migliorare le prestazioni correnti delle query.
 services: sql-database
 documentationcenter: 
@@ -16,21 +16,16 @@ ms.workload: data-management
 ms.date: 09/30/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f7bffa4f13d7a4fa0ea3c120a826638ee5d6c65a
+ms.sourcegitcommit: cf627b92399856af2b9a58ab155fac6730128f85
+ms.openlocfilehash: a8d0b08abc7e3c688f9ab79499b3459b33f06848
 
 
 ---
 # <a name="sql-database-advisor"></a>Advisor per database SQL
-> [!div class="op_single_selector"]
-> * [Panoramica di Advisor per database SQL](sql-database-advisor.md)
-> * [Portale](sql-database-advisor-portal.md)
-> 
-> 
 
 Il database SQL di Azure apprende e si adatta all'applicazione e offre raccomandazioni personalizzate che consentono di ottimizzare le prestazioni dei database SQL. SQL Database Advisor offre raccomandazioni per la creazione e la rimozione di indici, la parametrizzazione di query e la risoluzione dei problemi di schema. L'advisor consente di valutare le prestazioni analizzando la cronologia relativa all'utilizzo del database SQL. È consigliabile usare le raccomandazioni più adatte per l'esecuzione del carico di lavoro tipico del database. 
 
-Sono disponibili le raccomandazioni seguenti per i server V12 (non sono disponibili raccomandazioni per i server V11). Attualmente è possibile impostare l'applicazione automatica delle raccomandazioni per la creazione e l'eliminazione di indici. Per informazioni dettagliate, vedere [Abilitare la gestione automatica degli indici](sql-database-advisor-portal.md#enable-automatic-index-management).
+Le seguenti raccomandazioni sono disponibili per i server del database SQL di Azure. Attualmente è possibile impostare l'applicazione automatica delle raccomandazioni per la creazione e l'eliminazione di indici. Per informazioni dettagliate, vedere [Abilitare la gestione automatica degli indici](sql-database-advisor-portal.md#enable-automatic-index-management).
 
 ## <a name="create-index-recommendations"></a>Raccomandazioni relative alla creazione di indici
 **creazione di indici** vengono visualizzate quando il servizio del database SQL rileva un indice mancante che, se creato, potrebbe risultare vantaggioso per il carico di lavoro dei database (solo indici non cluster).
@@ -79,6 +74,6 @@ Monitorare le raccomandazioni e continuare ad applicarle in modo da migliorare l
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Creare una nuova risorsa di Application Insights | Microsoft Docs
-description: Impostare il monitoraggio di Application Insights per una nuova applicazione live. Approccio basato sul Web.
+title: Creare una nuova risorsa di Azure Application Insights | Documentazione Microsoft
+description: Impostare manualmente il monitoraggio di Application Insights per una nuova applicazione live.
 services: application-insights
 documentationcenter: 
 author: alancameronwills
@@ -11,25 +11,23 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 12/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 63c901529b81c75f46f1b21219054817c148063a
-ms.openlocfilehash: 0157b796a09b5685386cd96d6969da04179279dc
+ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
+ms.openlocfilehash: 60a94a333ffb4bf674e370972abd6fa0caf37d91
 
 
 ---
-# <a name="create-an-application-insights-resource"></a>Creare una risorsa Application Insights
-Application Insights di Azure visualizza dati relativi all'applicazione in una *risorsa* di Microsoft Azure. La creazione di una nuova risorsa fa dunque parte della [configurazione di Application Insights per monitorare una nuova applicazione][start]. In molti casi questa operazione può essere eseguita automaticamente dall'IDE, ovvero la modalità consigliata in cui è disponibile. In alcuni casi è tuttavia necessario creare una risorsa manualmente.
+# <a name="create-an-application-insights-resource"></a>Creare una risorsa di Application Insights
+Application Insights di Azure visualizza dati relativi all'applicazione in una *risorsa* di Microsoft Azure. La creazione di una nuova risorsa fa dunque parte della [configurazione di Application Insights per monitorare una nuova applicazione][start]. In molti casi questa operazione può essere eseguita automaticamente dall'IDE, ovvero la modalità consigliata in cui è disponibile. In alcuni casi si crea tuttavia una risorsa manualmente, ad esempio per disporre di risorse separate per le compilazioni di sviluppo e produzione dell'applicazione.
 
 Dopo aver creato la risorsa, si ottiene la relativa chiave di strumentazione, che consente di configurare l'SDK nell'applicazione. In tal modo, i dati di telemetria verranno inviati alla risorsa.
 
 ## <a name="sign-up-to-microsoft-azure"></a>Iscriversi a Microsoft Azure
 Se non si ha ancora un [account Microsoft, è possibile ottenerne uno ora](http://live.com). (se si usano servizi come Outlook.com, OneDrive, Windows Phone o XBox Live, si ha già un account Microsoft).
 
-È necessaria anche una sottoscrizione di [Microsoft Azure](http://azure.com). Se il team o l'organizzazione ha una sottoscrizione di Azure, il proprietario potrà aggiungere l'utente alla sottoscrizione usando Windows Live ID.
-
-In alternativa è possibile creare una nuova sottoscrizione. L'account gratuito consente di provare tutte le funzionalità in Azure. Alla scadenza del periodo di valutazione, l'utente potrebbe trovare appropriata la sottoscrizione con pagamento in base al consumo, perché non si incorre in alcun addebito per i servizi gratuiti. 
+È necessaria anche una sottoscrizione di [Microsoft Azure](http://azure.com). Se il team o l'organizzazione ha una sottoscrizione di Azure, il proprietario potrà aggiungere l'utente alla sottoscrizione usando Windows Live ID. Si paga solo l'uso effettivo e il piano Basic predefinito consente di accedere a un certo uso sperimentale gratuito.
 
 Dopo aver ottenuto una sottoscrizione, accedere ad Application Insights all'indirizzo [http://portal.azure.com](https://portal.azure.com)usando il proprio Live ID.
 
@@ -63,7 +61,7 @@ L'SDK include i moduli standard che inviano dati di telemetria senza che occorra
 ## <a name="a-namemonitorasee-telemetry-data"></a><a name="monitor"></a>Visualizzare i dati di telemetria
 Chiudere il pannello di avvio rapido per tornare al pannello dell'applicazione nel portale di Azure.
 
-Fare clic sul riquadro Cerca per vedere [Ricerca diagnostica][diagnostic], ovvero la finestra in cui verranno visualizzati i primi eventi. 
+Fare clic sul riquadro Cerca per vedere [Diagnostic Search][diagnostic] (Ricerca diagnostica), ovvero la finestra in cui verranno visualizzati i primi eventi. 
 
 Se si prevedono più dati, fare clic su Aggiorna dopo pochi secondi.
 
@@ -86,6 +84,6 @@ Se si prevedono più dati, fare clic su Aggiorna dopo pochi secondi.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

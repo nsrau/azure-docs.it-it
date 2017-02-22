@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 09640b2e259e7d7ccab938df649085a0903b9384
+ms.sourcegitcommit: 627930ca68a94ecc56e7ef9ac9435f4b5f3f41c7
+ms.openlocfilehash: 61466be17a52f1f230207b71bb94e10f88ee075c
 
 
 ---
 # <a name="add-a-java-application-to-azure-app-service-web-apps"></a>Distribuire l'applicazione di esempio nelle app Web di Servizio app di Azure
-Una volta inizializzata l'app Web Java in [servizio app di Azure][servizio app di Azure] come descritto in [Crea un'app Web Java in Servizio app di Azure](web-sites-java-get-started.md), è possibile caricare l'applicazione inserendo il file WAR nella cartella **webapps**.
+Dopo aver inizializzato l'app Web Java nel [servizio app di Azure][Azure App Service] come indicato in [Creazione di un'app Web Java nel servizio app di Azure](web-sites-java-get-started.md), è possibile caricare l'applicazione inserendo il file WAR nella cartella **webapps**.
 
 Il percorso della cartella **webapps** varia a seconda della configurazione del sito Web.
 
@@ -37,6 +37,8 @@ Dopo avere caricato il file WAR nella cartella **webapps** , il server applicazi
 ## <a name="see-also"></a>Vedere anche
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
 
+[!INCLUDE [application-insights-app-insights-java-get-started](../application-insights/app-insights-java-get-started.md)]
+
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 [!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
@@ -44,11 +46,11 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 <!-- URL List -->
 
 [Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
-[servizio app di Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
+[Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Distribuire l'app nel Servizio app di Azure]: ./web-sites-deploy.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

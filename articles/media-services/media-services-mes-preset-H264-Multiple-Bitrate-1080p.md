@@ -1,5 +1,5 @@
 ---
-title: Codec video H.264 a bitrate multipli con risoluzione 1080p | Documentazione Microsoft
+title: Media Encoder Standard a bitrate multipli H.264 con risoluzione 1080p preimpostato - Azure | Documentazione Microsoft
 description: "Questo argomento offre una panoramica del set di impostazioni di attività **Codec video H.264 a bitrate multipli con risoluzione 1080p**."
 author: Juliako
 manager: erikre
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: b47374df9ac84620b932d18046106b7512ad40a2
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: e9c2eb792332a41fd415d065ab96123dd424416f
 
 
 ---
@@ -322,6 +322,6 @@ ms.openlocfilehash: b47374df9ac84620b932d18046106b7512ad40a2
 ```
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

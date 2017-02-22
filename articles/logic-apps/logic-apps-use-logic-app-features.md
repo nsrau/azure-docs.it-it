@@ -1,6 +1,6 @@
 ---
-title: "Usare le funzionalità delle app per la logica | Documentazione Microsoft"
-description: "Informazioni su come usare le funzionalità avanzate delle app per la logica."
+title: Aggiungere le condizioni e i trigger per l&quot;esecuzione di flussi di lavoro - App per la logica di Azure | Documentazione Microsoft
+description: Controllare l&quot;esecuzione dei flussi di lavoro nelle app per la logica di Azure mediante l&quot;aggiunta di logica condizionale, trigger, azioni e parametri.
 author: stepsic-microsoft-com
 manager: anneta
 editor: 
@@ -12,11 +12,11 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2016
+ms.date: 01/28/2017
 ms.author: stepsic
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 557602297022b07a05f7ac202473b67332bec5d7
+ms.sourcegitcommit: d090ce5a912a2079d2e47d13caf60ca701f0e548
+ms.openlocfilehash: 330359583346f7e1944b53ec3fd34104f10e1261
 
 
 ---
@@ -104,6 +104,6 @@ I servizi possono chiamare un endpoint dell'app per la logica per avviare un flu
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

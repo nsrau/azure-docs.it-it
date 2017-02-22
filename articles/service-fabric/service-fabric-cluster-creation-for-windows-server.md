@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2016
+ms.date: 12/06/2016
 ms.author: dkshir;chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 913726bb57f727bd62cdee0aee16bc886b38884f
+ms.sourcegitcommit: 6db229794c90e985de834bd3bfb6e0b030de2df5
+ms.openlocfilehash: 0cb59a2e94a9c985cb56d9dd20c05e2e22a45151
 
 
 ---
@@ -26,7 +26,7 @@ Azure Service Fabric consente di creare cluster Service Fabric su qualsiasi macc
 Questo articolo illustra la procedura per creare un cluster con il pacchetto autonomo per Service Fabric in locale, anche se può essere facilmente adattato a qualsiasi altro ambiente, ad esempio altri provider di cloud.
 
 > [!NOTE]
-> Il pacchetto autonomo per Windows Server può contenere funzionalità che al momento sono disponibili solo in anteprima e non sono supportate per l'uso commerciale. Per visualizzare l'elenco delle funzionalità che sono in anteprima, vedere "Funzionalità di anteprima incluse in questo pacchetto". È anche possibile [scaricare una copia del contratto di licenza](http://go.microsoft.com/fwlink/?LinkID=733084) ora.
+> Questo pacchetto autonomo di Windows Server è disponibile in commercio e può essere usato per distribuzioni di produzione. Il pacchetto può contenere nuove funzionalità di Service Fabric in "Anteprima". Scorrere verso il basso fino alla sezione "Funzionalità di anteprima incluse in questo pacchetto" per visualizzare l'elenco delle funzionalità in anteprima. È possibile [scaricare una copia del contratto di licenza](http://go.microsoft.com/fwlink/?LinkID=733084) ora.
 > 
 > 
 
@@ -35,6 +35,7 @@ Questo articolo illustra la procedura per creare un cluster con il pacchetto aut
 ## <a name="get-support-for-the-service-fabric-standalone-package"></a>Ottenere supporto per il pacchetto autonomo Service Fabric
 * Porre domande alla community sul pacchetto autonomo Service Fabric per Windows Server nel [forum di Azure Service Fabric](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
 * Aprire un ticket per ottenere il [supporto professionale per Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Altre informazioni sul [supporto professionale Microsoft](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
+* È possibile ottenere supporto anche per questo pacchetto come parte del [Supporto tecnico Microsoft Premier](https://support.microsoft.com/en-us/premier). 
 
 <a id="downloadpackage"></a>
 
@@ -127,7 +128,7 @@ Aprire uno dei file ClusterConfig.json del pacchetto scaricato e modificare le i
 | **Impostazioni di configurazione** | **Descrizione** |
 | --- | --- |
 | **NodeTypes** |I tipi di nodo permettono di separare i nodi del cluster in diversi gruppi. Un cluster deve avere almeno un NodeType. Tutti i nodi in un gruppo possiedono le seguenti caratteristiche comuni:  <br> **Nome** : il nome del tipo di nodo. <br>**Porte di endpoint** : endpoint con nomi diversi (porte) associati a questo tipo di nodo. È possibile usare qualsiasi numero di porta desiderato, purché non entri in conflitto con qualsiasi altro nel manifesto e non sia già utilizzato da un'altra applicazione eseguita nel computer/VM. <br> **Proprietà di posizionamento**: descrivono proprietà per questo tipo di nodo usate come vincoli di posizionamento per i servizi di sistema o i servizi dell'utente. Queste proprietà sono coppie chiave-valore definite dall'utente che forniscono metadati aggiuntivi per un determinato nodo. Le proprietà del nodo possono includere ad esempio la presenza di un disco rigido o di una scheda grafica, il numero di spindle nel disco rigido, le memorie centrali e altre proprietà fisiche. <br> **Capacità** : le capacità del nodo definiscono il nome e la quantità di una particolare risorsa utilizzabile da parte di un determinato nodo. Ad esempio, un nodo può definire la propria capacità per una metrica denominata "MemoryInMb" con un valore predefinito di 2048 MB di memoria disponibile. Queste capacità vengono usate in fase di esecuzione per garantire che i servizi che richiedono una determinata quantità di risorse vengano inseriti nei nodi in cui tali risorse sono disponibili nelle quantità richieste.<br>**IsPrimary** : se sono definiti più NodeType, verificare che solo uno sia impostato come primario, con il valore *true*, ovvero quello in cui vengono eseguiti i servizi di sistema. Tutti gli altri tipi di nodo devono essere impostati sul valore *false* |
-| **Nodi** |Questi sono i dettagli per ciascun nodo che farà parte del cluster (tipo di nodo, nome del nodo, indirizzo IP, dominio di errore e dominio di aggiornamento del nodo). I computer in cui si vuole creare il cluster devono essere elencati in questa sezione con il relativo indirizzo IP. <br>  Se si usa lo stesso indirizzo IP per tutti i nodi, viene creato un cluster di una casella che può essere usato per scopi di test. Non usare cluster di una casella per la distribuzione dei carichi di lavoro di produzione. |
+| **Nodi** |Questi sono i dettagli per ciascun nodo che farà parte del cluster (tipo di nodo, nome del nodo, indirizzo IP, dominio di errore e dominio di aggiornamento del nodo). I computer in cui si vuole creare il cluster devono essere elencati in questa sezione con il relativo indirizzo IP. <br> Se si usa lo stesso indirizzo IP per tutti i nodi, viene creato un cluster di una casella che può essere usato per scopi di test. Non usare cluster di una casella per la distribuzione dei carichi di lavoro di produzione. |
 
 ### <a name="step-2-run-the-testconfiguration-script"></a>Passaggio 2: Eseguire lo script TestConfiguration
 Lo script TestConfiguration esegue un test dell'infrastruttura definita in cluster.json per verificare che le autorizzazioni necessarie siano assegnate, che le macchine siano connesse tra loro e che siano definiti altri attributi, in modo che la distribuzione venga eseguita correttamente. Si tratta fondamentalmente di una versione minima di Best Practices Analyzer. In futuro verranno aggiunte periodicamente a questo strumento altre convalide per renderlo più solido.
@@ -241,23 +242,25 @@ Per disabilitare la telemetria, aggiungere quanto segue all'elemento *properties
 ## <a name="preview-features-included-in-this-package"></a>Funzionalità di anteprima incluse in questo pacchetto
 Nessuna.
 
+
 > [!NOTE]
-> Con la nuova [versione GA del cluster autonomo per Windows Server (versione 5.3.204.x)](https://azure.microsoft.com/blog/azure-service-fabric-for-windows-server-now-ga/) è possibile aggiornare il cluster per le versioni future, manualmente o automaticamente. Poiché questa funzionalità non è disponibile nelle versioni di anteprima, è necessario creare un cluster usando la versione GA e migrare i dati e le applicazioni dal cluster di anteprima. Saranno presto disponibili altri dettagli su questa funzionalità.
+> A partire dalla nuova [versione GA del cluster autonomo per Windows Server (versione 5.3.204.x)](https://azure.microsoft.com/blog/azure-service-fabric-for-windows-server-now-ga/) è possibile aggiornare il cluster per le versioni future, manualmente o automaticamente. Per informazioni dettagliate, vedere [Aggiornare il cluster autonomo di Service Fabric in Windows Server](service-fabric-cluster-upgrade-windows-server.md).
 > 
 > 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Impostazioni di configurazione per un cluster autonomo in Windows](service-fabric-cluster-manifest.md)
 * [Aggiungere o rimuovere nodi in un cluster di Service Fabric autonomo](service-fabric-cluster-windows-server-add-remove-nodes.md)
+* [Aggiornare il cluster autonomo di Service Fabric in Windows Server](service-fabric-cluster-upgrade-windows-server.md)
 * [Creare un cluster di Service Fabric autonomo con VM di Azure che eseguono Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
 * [Proteggere un cluster autonomo in Windows tramite la funzionalità di sicurezza di Windows](service-fabric-windows-cluster-windows-security.md)
 * [Proteggere un cluster autonomo in Windows con certificati X.509](service-fabric-windows-cluster-x509-security.md)
 
 <!--Image references-->
-[Area attendibile]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
+[Trusted Zone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

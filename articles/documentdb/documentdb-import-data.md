@@ -1,7 +1,7 @@
 ---
 title: Strumento di migrazione del database per DocumentDB | Documentazione Microsoft
 description: Informazioni sull&quot;uso degli strumenti open source di migrazione dati di DocumentDB per importare dati in DocumentDB da varie origini, tra cui file JSON, CSV, MongoDB, SQL Server, Archivio tabelle e Amazon DynamoDB. Conversione da CSV a JSON.
-keywords: da csv a json, strumenti di migrazione del database, convertire csv in json
+keywords: da csv a json, strumenti di migrazione dei database, convertire un csv in jso
 services: documentdb
 author: andrewhoh
 manager: jhubbard
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 5a9b3e94faee1db7c38b9f60045637640d820208
-ms.openlocfilehash: b11d9d67234c85af8f9fcb9992864ef9e1662a79
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: fd3ebcaa82952815ad31decd1b44cf6d41365d2f
 
 
 ---
@@ -403,7 +403,7 @@ Per importare in un'unica raccolta, immettere il nome della raccolta in cui verr
 2. È possibile usare una sintassi abbreviata: collection[3] restituirà lo stesso set di raccolte citato nel passaggio 1.
 3. È possibile specificare più di una sostituzione. Ad esempio, collection[0-1] [0-9] genererà 20 nomi di raccolte con zeri iniziali (collection01, ..02, ..03).
 
-Dopo aver specificato il nome della raccolta, scegliere la velocità effettiva desiderata della raccolta, da 400 UR a 250.000 UR. Per ottimizzare le prestazioni di importazione, scegliere una velocità effettiva superiore. Per altre informazioni sui livelli di prestazioni, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md). Eventuali importazioni nelle raccolte con una velocità effettiva >&10;.000 UR richiederanno una chiave di partizione. Se si sceglie un valore di UR superiore a 250.000, vedere [Richiedere un aumento dei limiti di account DocumentDB](documentdb-increase-limits.md).
+Dopo aver specificato il nome della raccolta, scegliere la velocità effettiva desiderata della raccolta, da 400 UR a 250.000 UR. Per ottimizzare le prestazioni di importazione, scegliere una velocità effettiva superiore. Per altre informazioni sui livelli di prestazioni, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md). Eventuali importazioni nelle raccolte con una velocità effettiva >&10;.000 UR richiederanno una chiave di partizione. Se si sceglie di avere più di 250.000 UR, sarà necessario inviare una richiesta di nel portale per incrementare l'account.
 
 > [!NOTE]
 > L'impostazione della velocità effettiva si applica solo alla creazione di raccolte. Se la raccolta specificata esiste già, la velocità effettiva non verrà modificata.
@@ -526,6 +526,6 @@ Quindi, scegliere se registrare tutti i messaggi di errore, quelli critici o nes
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

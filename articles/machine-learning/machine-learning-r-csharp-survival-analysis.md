@@ -1,6 +1,6 @@
 ---
-title: Analisi di sopravvivenza con Azure Machine Learning | Documentazione Microsoft
-description: "Informazioni sulla probabilità che si verifichino eventi di Analisi di sopravvivenza."
+title: (Deprecato) Analisi di sopravvivenza con Azure Machine Learning | Documentazione Microsoft
+description: "(Deprecato) Probabilità che si verifichino eventi di analisi di sopravvivenza"
 services: machine-learning
 documentationcenter: 
 author: zhangya
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/21/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: zhangya
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8a9ec607cf4e8ae6ee5c69f4ed4db5f1a0854400
+ms.sourcegitcommit: 2d9feed054fb4641e660c685d396260246ed1d54
+ms.openlocfilehash: 32ae345bb1d4bc364440543ea5c273e9b358ae40
 
 
 ---
-# <a name="survival-analysis"></a>Analisi di sopravvivenza
+# <a name="deprecated-survival-analysis"></a>(Deprecato) Analisi di sopravvivenza
+
+> [!NOTE]
+> Microsoft DataMarket è in fase di ritiro e questa API è stata deprecata. 
+> 
+> Numerose API e molti esperimenti utili di esempio sono disponibili in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Per altre informazioni sulla raccolta, vedere [Condividere e scoprire risorse in Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 In molti scenari l'esito principale valutato riguarda il tempo mancante per un evento rilevante. In altri termini, "quando si verificherà questo evento?" è la domanda che viene posta. Si prendano, ad esempio, in considerazione situazioni in cui i dati illustrano il tempo trascorso (giorni, anni, chilometraggio e così via) prima del verificarsi dell'evento di interesse (ricaduta di una malattia, conseguimento di un titolo di studio, guasto ai freni). Ogni istanza dei dati rappresenta un oggetto specifico (un paziente, una persona, un'automobile e così via).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -91,7 +98,7 @@ L'interpretazione di questo test è la seguente. Si presupponga che l'obiettivo 
 > 
 > 
 
-In Azure Machine Learning è stato creato un nuovo esperimento vuoto e due moduli [Execute R Script][execute-r-script] (Esegui script R) sono stati inseriti nell'area di lavoro. Lo schema di dati è stato creato con un semplice modulo [Execute R Script][execute-r-script], che definisce lo schema di dati di input per il servizio Web. Questo modulo viene quindi collegato al secondo modulo [Execute R Script][execute-r-script], che esegue la maggior parte delle operazioni, ovvero la pre-elaborazione dei dati, la compilazione dei modelli e le previsioni. Nel passaggio di pre-elaborazione dei dati, i dati di input rappresentati da una stringa lunga vengono trasformati e convertiti in un intervallo di dati. Nel passaggio di compilazione del modello, viene prima di tutto installato un pacchetto R esterno denominato "survival_2.37-7.zip" per l'esecuzione dell'analisi di sopravvivenza. La funzione "coxph" viene eseguita dopo una serie di attività di elaborazione dei dati. Informazioni dettagliate sulla funzione "coxph" per l'analisi di sopravvivenza sono disponibili nella documentazione su R. Nel passaggio relativo alla previsione, un'istanza di test viene fornita al modello sottoposto a training con la funzione "surfit" e la curva di sopravvivenza per questa istanza di test viene prodotta come variabile "curve". Viene quindi ricavata la probabilità del tempo di interesse. 
+In Azure Machine Learning è stato creato un nuovo esperimento vuoto e sono stati inseriti due moduli [Execute R Script][execute-r-script] (Esegui script R) nell'area di lavoro. Lo schema di dati è stato creato con un semplice modulo [Execute R Script][execute-r-script] (Esegui script R) che definisce lo schema di dati di input per il servizio Web. Questo modulo viene quindi collegato al secondo modulo [Execute R Script][execute-r-script] (Esegui script R) che esegue la maggior parte delle operazioni, ovvero la pre-elaborazione dei dati, la compilazione dei modelli e le previsioni. Nel passaggio di pre-elaborazione dei dati, i dati di input rappresentati da una stringa lunga vengono trasformati e convertiti in un intervallo di dati. Nel passaggio di compilazione del modello, viene prima di tutto installato un pacchetto R esterno denominato "survival_2.37-7.zip" per l'esecuzione dell'analisi di sopravvivenza. La funzione "coxph" viene eseguita dopo una serie di attività di elaborazione dei dati. Informazioni dettagliate sulla funzione "coxph" per l'analisi di sopravvivenza sono disponibili nella documentazione su R. Nel passaggio relativo alla previsione, un'istanza di test viene fornita al modello sottoposto a training con la funzione "surfit" e la curva di sopravvivenza per questa istanza di test viene prodotta come variabile "curve". Viene quindi ricavata la probabilità del tempo di interesse. 
 
 ### <a name="experiment-flow"></a>Flusso dell'esperimento
 ![flusso dell'esperimento][1]
@@ -209,6 +216,6 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

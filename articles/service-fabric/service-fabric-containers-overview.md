@@ -12,22 +12,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2016
-ms.author: mfussell
+ms.date: 2/6/2017
+ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c03033fcadf0f92b77820fba1dd588f460287b86
+ms.sourcegitcommit: 93e0493e6a62a70a10b8315142765a3c3892acd1
+ms.openlocfilehash: abf5e4bc69aa32ca9af8998ef81de20baae24560
 
 
 ---
 # <a name="preview-service-fabric-and-containers"></a>Anteprima: Service Fabric e contenitori
 > [!NOTE]
-> Questa funzionalità è in anteprima per Linux e non è attualmente disponibile in Windows Server 2016. Sarà disponibile in anteprima per Windows Server nella prossima versione di Azure Service Fabric dopo la disponibilità generale di Windows Server 2016 e sarà quindi supportata nella versione successiva.
-> 
-> 
+> Questa funzionalità è disponibile in anteprima per Linux e Windows Server 2016. 
+>   
 
 ## <a name="introduction"></a>Introduzione
-Azure Service Fabric è un [agente di orchestrazione](service-fabric-cluster-resource-manager-introduction.md) dei servizi in un cluster di computer. I servizi possono essere sviluppati in molti modi: dall'uso dei [modelli di programmazione di Service Fabric](service-fabric-choose-framework.md) alla distribuzione di [eseguibili guest](service-fabric-deploy-existing-app.md). Per impostazione predefinita, Service Fabric distribuisce e attiva i servizi come processi. I processi offrono la massima velocità di attivazione e l'utilizzo della massima densità delle risorse in un cluster. Service Fabric può anche distribuire servizi in immagini contenitore. Un aspetto importante è che è possibile combinare servizi in processi e servizi in contenitori nella stessa applicazione. È possibile usufruire del meglio di entrambe le tipologie in base allo scenario specifico.
+Azure Service Fabric è un [agente di orchestrazione](service-fabric-cluster-resource-manager-introduction.md) dei servizi in un cluster di computer, con anni di uso e ottimizzazione alle spalle nei servizi Microsoft con scalabilità estremamente elevata. I servizi possono essere sviluppati in molti modi: dall'uso dei [modelli di programmazione di Service Fabric](service-fabric-choose-framework.md) alla distribuzione di [eseguibili guest](service-fabric-deploy-existing-app.md). Per impostazione predefinita, Service Fabric distribuisce e attiva i servizi come processi. I processi offrono la massima velocità di attivazione e l'utilizzo della massima densità delle risorse in un cluster. Service Fabric può anche distribuire servizi in immagini contenitore. Un aspetto importante è che è possibile combinare servizi in processi e servizi in contenitori nella stessa applicazione. 
+
+## <a name="containers-and-service-fabric-roadmap"></a>Guida di orientamento per contenitori e Service Fabric
+Nelle prossime versioni, Service Fabric continuerà ad aggiungere un supporto esteso ai contenitori sia su Windows che su Linux. Ci saranno miglioramenti a rete, vincoli di risorse, sicurezza, diagnostica, driver di volumi e strumenti, in particolar modo a Visual Studio. Così, si avrà un'esperienza di prima classe per l'uso delle immagini di contenitore per distribuire i servizi. Ciò garantisce la scelta di usare i contenitori per assemblare il codice esistente, ad esempio applicazioni MVC IIS, o i modelli di programmazione di Service Fabric. Inoltre, poiché Service Fabric considera contenitori e modelli allo stesso modo, è possibile usarli entrambi nelle applicazioni, offrendo così la massima flessibilità per la distribuzione del codice. È possibile usufruire del meglio di entrambe le tipologie in base allo scenario specifico.
 
 ## <a name="what-are-containers"></a>Informazioni sui contenitori
 I contenitori sono componenti incapsulati distribuibili singolarmente che vengono eseguiti come istanze isolate sullo stesso kernel per sfruttare i meccanismi di virtualizzazione offerti da un sistema operativo. In questo modo, ogni applicazione, il relativo runtime e le relative dipendenze e librerie di sistema vengono eseguiti all'interno di un contenitore con accesso privato completo alla vista isolata specifica del contenitore dei costrutti del sistema operativo. Insieme alla portabilità, questo grado di sicurezza e isolamento delle risorse è il principale vantaggio associato all'uso di contenitori con Service Fabric, che in alternativa esegue i servizi in processi.
@@ -50,7 +52,7 @@ Per informazioni sulla procedura dettagliata, leggere [Distribuire un contenitor
 ### <a name="windows-server-containers"></a>Contenitori Windows Server
 Windows Server 2016 fornisce due diversi tipi di contenitori che si differenziano per il livello di isolamento offerto. I contenitori Windows Server e i contenitori Docker sono simili perché entrambi usufruiscono dell'isolamento dello spazio dei nomi e del file system, ma condividono il kernel con l'host in cui vengono eseguiti. In Linux, questo isolamento viene tradizionalmente fornito con cgroup e spazi dei nomi e i contenitori Windows Server presentano un comportamento simile.
 
-I contenitori Windows Hyper-V offrono un grado superiore di isolamento e sicurezza perché i singoli contenitori non condividono il kernel del sistema operativo con altri contenitori o con l'host. Con questo livello superiore di isolamento di sicurezza, i contenitori Hyper-V sono destinati soprattutto a scenari multi-tenant ostili.
+I contenitori Windows Hyper-V offrono un grado superiore di isolamento e sicurezza perché i singoli contenitori non condividono il kernel del sistema operativo con altri contenitori o con l'host. Con questo livello superiore di isolamento di sicurezza, i contenitori Hyper-V sono destinati a scenari multi-tenant ostili.
 
 Per informazioni sulla procedura dettagliata, leggere [Distribuire un contenitore Windows in Service Fabric](service-fabric-deploy-container.md).
 
@@ -61,7 +63,7 @@ La figura seguente illustra i diversi tipi di livelli di virtualizzazione e isol
 Ecco alcuni esempi tipici dei casi in cui un contenitore rappresenta una buona scelta:
 
 * **Trasferimento da IIS**: se sono disponibili app [ASP.NET MVC](https://www.asp.net/mvc) che si vuole continuare a usare, anziché eseguirne la migrazione ad ASP.NET Core è possibile inserirle in un contenitore. Queste app ASP.NET MVC dipendono da IIS (Internet Information Services). È possibile creare pacchetti delle app in immagini contenitore dall'immagine IIS creata in precedenza e distribuirle con Service Fabric. Per informazioni sulla creazione delle immagini IIS, vedere [Immagini contenitore in Windows Server](https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/quick_start_images) .
-* **Combinazione di contenitori e microservizi di Service Fabric**: usare un'immagine contenitore esistente per parte dell'applicazione. È ad esempio possibile usare il [contenitore NGINX](https://hub.docker.com/_/nginx/) per il front-end Web dell'applicazione e i servizi con stato creati con Reliable Services per le operazioni di calcolo back-end più intensive. Le applicazioni di gioco sono un esempio di questo scenario.
+* **Combinazione di contenitori e microservizi di Service Fabric**: usare un'immagine contenitore esistente per parte dell'applicazione. È ad esempio possibile usare il [contenitore NGINX](https://hub.docker.com/_/nginx/) per il front-end Web dell'applicazione e i servizi con stato per le operazioni di calcolo back-end più intensive.
 * **Riduzione dell'impatto dei servizi che influiscono negativamente**: è possibile usare la funzionalità di governance delle risorse dei contenitori per limitare le risorse usate da un servizio in un host. Se sono presenti servizi che potrebbero usare un elevato numero di risorse e quindi influire sulle prestazioni degli altri (ad esempio, un'operazione come una query a esecuzione prolungata), può essere opportuno inserire tali servizi in contenitori con governance delle risorse.
 
 ## <a name="service-fabric-support-for-containers"></a>Supporto di Service Fabric per i contenitori
@@ -93,6 +95,6 @@ In questo articolo sono stati illustrati i contenitori, la funzione di agente di
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 276033907d454a54b2d9d5354f8e1dc48a7b01d4
+ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
+ms.openlocfilehash: f139674f96793b8486c541c9e3f1ead751b97232
 
 
 ---
@@ -31,17 +31,26 @@ Le organizzazioni possono abilitare la registrazione diagnostica per il loro acc
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Abilitare la registrazione diagnostica per l'account di Archivio Data Lake
 1. Accedere al nuovo [portale di Azure](https://portal.azure.com).
-2. Aprire l'account di Data Lake Store e nel pannello corrispondente fare clic su **Impostazioni** e quindi su **Impostazioni di diagnostica**.
+2. Aprire l'account di Data Lake Store e nel pannello corrispondente fare clic su **Impostazioni** e quindi su **Log di diagnostica**.
+3. Nel pannello **Log di diagnostica**, fare clic su **Attivare la diagnostica**.
+
+    ![Abilitare la funzionalità di registrazione diagnostica](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "Abilitare i log di diagnostica")
+
 3. Nel pannello **Diagnostica** , apportare le modifiche seguenti per configurare la registrazione diagnostica.
    
-    ![Abilitare la registrazione diagnostica](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
+    ![Abilitare la funzionalità di registrazione diagnostica](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Abilitare i log di diagnostica")
    
    * Impostare lo **Stato** su **Attivo** per abilitare la registrazione diagnostica.
-   * È possibile scegliere di archiviare/elaborare i dati in due modi diversi.
-     * Selezionare l'opzione **Esportare in Hub eventi** per trasmettere i dati di log a un Hub eventi di Azure. Molto probabilmente questa opzione viene utilizzata se si dispone di una pipeline di elaborazione a valle per analizzare in tempo reale i log in ingresso. Se si seleziona questa opzione, è necessario fornire i dettagli dell'Hub eventi di Azure che si desidera utilizzare.
-     * Selezionare l'opzione **Esportare all'account di archiviazione** per archiviare i log in un account di archiviazione di Azure. Utilizzare questa opzione se si desidera archiviare i dati che saranno elaborati in batch in un secondo momento. Se si seleziona questa opzione è necessario fornire un account di archiviazione di Azure in cui salvare i log.
+   * È possibile scegliere di archiviare/elaborare i dati in modi diversi.
+     
+        * Selezionare l'opzione per **archiviare in un account di archiviazione** per archiviare i log in un account di archiviazione di Azure. Utilizzare questa opzione se si desidera archiviare i dati che saranno elaborati in batch in un secondo momento. Se si seleziona questa opzione è necessario fornire un account di archiviazione di Azure in cui salvare i log.
+        
+        * Selezionare l'opzione per eseguire lo **streaming in Hub eventi** per trasmettere i dati di log a un Hub eventi di Azure. Molto probabilmente questa opzione viene utilizzata se si dispone di una pipeline di elaborazione a valle per analizzare in tempo reale i log in ingresso. Se si seleziona questa opzione, è necessario fornire i dettagli dell'Hub eventi di Azure che si desidera utilizzare.
+
+        * Selezionare l'opzione per **inviare a Log Analytics** per usare il servizio Log Analytics di Azure per analizzare i dati di log generati. Se si seleziona questa opzione, è necessario fornire i dettagli per l'area di lavoro di Operations Management Suite che si vuole usare per eseguire l'analisi dei log.
+     
    * Specificare se si desidera ottenere i log di controllo, i log delle richieste o entrambi.
-   * Specificare il numero di giorni per cui devono essere conservati i dati.
+   * Specificare il numero di giorni per cui devono essere conservati i dati. La conservazione dei dati è disponibile solo se si usano account di archiviazione di Azure per archiviare i dati del log.
    * Fare clic su **Save**.
 
 Dopo aver attivato le impostazioni di diagnostica, è possibile controllare i log nella scheda **Log di diagnostica** .
@@ -55,7 +64,7 @@ Esistono due modi per visualizzare i dati di log dell'account Data Lake Store.
 ### <a name="using-the-data-lake-store-settings-view"></a>Usando la visualizzazione Impostazioni dell'account Data Lake Store
 1. Nel pannello **Impostazioni** dell'account Data Lake Store fare clic su **Log di diagnostica**.
    
-    ![Visualizzare la registrazione diagnostica](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs") 
+    ![Visualizzare la registrazione diagnostica](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "Visualizzare i log di diagnostica") 
 2. Nel pannello **Log di diagnostica** vengono visualizzati i log classificati come **log di controllo** e **log delle richieste**.
    
    * I log delle richieste acquisiscono tutte le richieste API fatte nell’account di Archivio Data Lake.
@@ -65,13 +74,13 @@ Esistono due modi per visualizzare i dati di log dell'account Data Lake Store.
 ### <a name="from-the-azure-storage-account-that-contains-log-data"></a>Dall'account di Archiviazione di Azure che contiene i dati di log
 1. Aprire il pannello Account di Archiviazione di Azure associato a Data Lake Store per la registrazione e quindi fare clic su BLOB. Il pannello **Servizio BLOB** elenca due contenitori.
    
-    ![Visualizzare la registrazione diagnostica](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
+    ![Visualizzare la registrazione diagnostica](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Visualizzare i log di diagnostica")
    
    * Il contenitore **insights-logs-audit** contiene i log di controllo.
    * Il contenitore **insights-logs-requests** contiene i log delle richieste.
 2. All'interno di questi contenitori i log vengono archiviati con la struttura seguente.
    
-    ![Visualizzare la registrazione diagnostica](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "View diagnostic logs")
+    ![Visualizzare la registrazione diagnostica](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "Visualizzare i log di diagnostica")
    
     Ad esempio, il percorso completo a un log di controllo potrebbe essere `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
    
@@ -177,6 +186,6 @@ Azure Data Lake Store fornisce un esempio su come elaborare e analizzare i dati 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

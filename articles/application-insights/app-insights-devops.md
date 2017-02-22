@@ -1,5 +1,5 @@
 ---
-title: Diagnostica completa per servizi e app Web con Application Insights | Microsoft Docs
+title: 'Monitoraggio delle prestazioni delle applicazioni Web: Azure Application Insights | Documentazione Microsoft'
 description: Funzione di Application Insights nel ciclo devOps
 services: application-insights
 documentationcenter: 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: 9599f0088647c6f017736f5cab36a04ad6024c1d
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: e5652353d658a5de197d71231f649c75fe3b245b
 
 
 ---
@@ -174,6 +174,6 @@ Iniziare a usare Application Insights è semplice. Le opzioni principali sono le
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

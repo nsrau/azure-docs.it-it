@@ -1,5 +1,5 @@
 ---
-title: Linee guida per le sottoscrizioni e gli account | Microsoft Docs
+title: Sottoscrizione e account per le macchine virtuali Windows in Azure | Documentazione Microsoft
 description: Informazioni sulle principali linee guida di progettazione e implementazione per le sottoscrizioni e gli account in Azure.
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b410436de11550aab2160421abfb27107f7874b0
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 09c87e78aaccae4f70b2ff61cfc2a0a174dbdfaf
 
 
 ---
-# <a name="subscription-and-accounts-guidelines"></a>Linee guida per le sottoscrizioni e gli account
+# <a name="azure-subscription-and-accounts-guidelines"></a>Linee guida per le sottoscrizioni e gli account Azure
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Questo articolo è incentrato sulla comprensione delle modalità di gestione delle sottoscrizioni e degli account mano a mano che si amplia l'ambiente e la base utenti.
@@ -57,7 +57,7 @@ Se in un'area si decide di associare più sottoscrizioni a un determinato gruppo
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
 
-L'organizzazione potrebbe avere un aspetto simile al seguente:
+L'organizzazione potrebbe essere simile all'esempio seguente:
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
 
@@ -69,6 +69,6 @@ Viene fornita la fatturazione dettagliata tramite un file scaricabile, per un si
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

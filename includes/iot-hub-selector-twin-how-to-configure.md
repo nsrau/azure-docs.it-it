@@ -18,7 +18,7 @@ In genere, l'uso di dispositivi gemelli abilita il back-end della soluzione per 
 
 In questa esercitazione, il back-end della soluzione modifica la configurazione della telemetria di un dispositivo di destinazione e di conseguenza l'app per dispositivi segue un processo in più passaggi per applicare un aggiornamento della configurazione (che richiede ad esempio un riavvio del modulo software che nell'esercitazione viene simulato con un semplice ritardo).
 
-Il back-end archivia la configurazione nelle proprietà desiderate del dispositivo gemello nel modo seguente:
+Il back-end della soluzione archivia la configurazione nelle proprietà desiderate del dispositivo gemello nel modo seguente:
 
         {
             ...
@@ -94,6 +94,6 @@ Questa esercitazione illustra come:
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -15,13 +15,13 @@ ms.workload: tbd
 ms.date: 11/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1022f5a2bbb9b61ce7d941de9e2a5582db22b91b
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 925411deed422af00b10ff6787606f5039a5fb23
 
 
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights per Servizi cloud di Azure
-Le [app del servizio cloud di Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) possono essere monitorate da [Application Insights][start] in termini di disponibilità, prestazioni, errori e utilizzo. Con il feedback ottenuto sulle prestazioni e sull'efficacia dell'app in circostanze normali, è possibile prendere decisioni informate sulla direzione della progettazione in ogni ciclo di vita di sviluppo.
+Le [app del servizio cloud di Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) possono essere monitorate da [Application Insights][start] in termini di disponibilità, prestazioni, errori e uso. Con il feedback ottenuto sulle prestazioni e sull'efficacia dell'app in circostanze normali, è possibile prendere decisioni informate sulla direzione della progettazione in ogni ciclo di vita di sviluppo.
 
 ![Esempio](./media/app-insights-cloudservices/sample.png)
 
@@ -56,7 +56,7 @@ Di seguito viene illustrato come adattare nello stesso modo il proprio progetto 
 ## <a name="plan-resources-and-resource-groups"></a>Pianificare le risorse e i gruppi di risorse
 I dati di telemetria provenienti dall'app verranno archiviati, analizzati e visualizzati in una risorsa di Azure di tipo Application Insights. 
 
-Ogni risorsa appartiene a un gruppo di risorse. I gruppi di risorse vengono usati per gestire i costi, concedere l'accesso ai membri di un team e distribuire gli aggiornamenti in una singola transazione coordinata. Ad esempio, è possibile [creare uno script per distribuire](../resource-group-template-deploy.md) un servizio cloud di Azure e le risorse per il monitoraggio con Application Insights in un'unica operazione.
+Ogni risorsa appartiene a un gruppo di risorse. I gruppi di risorse vengono usati per gestire i costi, concedere l'accesso ai membri di un team e distribuire gli aggiornamenti in una singola transazione coordinata. Ad esempio, è possibile [creare uno script per distribuire](../azure-resource-manager/resource-group-template-deploy.md) un servizio cloud di Azure e le risorse per il monitoraggio con Application Insights in un'unica operazione.
 
 ### <a name="resources-for-components"></a>Risorse per i componenti
 Lo schema consigliato prevede la creazione di una risorsa separata per ogni componente dell'applicazione, ovvero per ogni ruolo Web e ruolo di lavoro. È possibile analizzare ogni componente separatamente, ma anche creare un [dashboard](app-insights-dashboards.md) che riunisca i grafici chiave per tutti i componenti, per poterli confrontare e monitorare tutti insieme. 
@@ -135,7 +135,7 @@ Eseguire l'app e accedere ad Azure. Aprire le risorse di Application Insights cr
 Aggiungere altri dati di telemetria (vedere le sezioni seguenti) e quindi pubblicare l'app per ottenere commenti e suggerimenti in diretta sull'utilizzo e la diagnostica. 
 
 #### <a name="no-data"></a>Dati non visualizzati
-* Aprire il riquadro [Cerca][diagnostic] per visualizzare i singoli eventi.
+* Aprire il riquadro [Ricerca][diagnostic] per visualizzare i singoli eventi.
 * Usare l'applicazione, aprendo pagine diverse in modo da generare alcuni dati di telemetria.
 * Attendere alcuni secondi e fare clic su Aggiorna.
 * Vedere [Risoluzione dei problemi][qna].
@@ -212,7 +212,7 @@ L'operazione è terminata. Le funzionalità del portale sono già collegate per 
 ![Dati di telemetria correlati](./media/app-insights-cloudservices/bHxuUhd.png)
 
 ## <a name="client-telemetry"></a>Telemetria client
-[Aggiungere l'SDK per JavaScript alle pagine Web][client] per ottenere dati di telemetria basati su browser quali i conteggi delle visualizzazioni delle pagine, i tempi di caricamento delle pagina e le eccezioni di script e per consentire la scrittura dei dati di telemetria negli script delle pagine.
+[Aggiungere l'SDK per JavaScript alle pagine Web][client] per ottenere dati di telemetria basati su browser quali i conteggi delle visualizzazioni delle pagine, i tempi di caricamento delle pagine e le eccezioni di script e per consentire la scrittura dei dati di telemetria negli script delle pagine.
 
 ## <a name="availability-tests"></a>Test della disponibilità
 [Configurare i test Web][availability] in modo da assicurarsi che l'applicazione sia disponibile e reattiva.
@@ -228,7 +228,7 @@ Se si ha un'app per dispositivi mobili client, inserire un codice per inviare ev
 [L'esempio](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitora un servizio che ha un ruolo Web e due ruoli di lavoro.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Eccezione "metodo non trovato" durante l'esecuzione dei servizi cloud di Azure
-È stata eseguita la compilazione per .NET 4.6? La versione 4.6 non è supportata automaticamente nei ruoli dei servizi cloud di Azure. [Installare la versione 4.6 in ogni ruolo](../cloud-services/cloud-services-dotnet-install-dotnet.md) prima di eseguire l'app.
+È stata eseguita la compilazione per .NET 4.6? La versione&4;.6 non è supportata automaticamente nei ruoli dei servizi cloud di Azure. [Installare la versione 4.6 in ogni ruolo](../cloud-services/cloud-services-dotnet-install-dotnet.md) prima di eseguire l'app.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Configurare l'invio di dati di Diagnostica di Azure ad Application Insights](app-insights-azure-diagnostics.md)
@@ -248,6 +248,6 @@ Se si ha un'app per dispositivi mobili client, inserire un codice per inviare ev
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

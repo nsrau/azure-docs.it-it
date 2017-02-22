@@ -14,8 +14,8 @@ ms.workload: big-data
 ms.date: 11/15/2016
 ms.author: mrys
 translationtype: Human Translation
-ms.sourcegitcommit: 8da474fbc9eae750bbd2e1f6908046d2e7e7be55
-ms.openlocfilehash: 42e1d0cdde66f4bf4a6f3b23421e137716d05beb
+ms.sourcegitcommit: 847081123123c849033c9de2b3c4359042d41359
+ms.openlocfilehash: da29f6015502e4ce5a63ca1c47106dc346026803
 
 
 ---
@@ -65,7 +65,7 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ```
 
-Nell'esempio qui sopra, è presente un **file di input** (input_file.tsv) definito dalla **variabile locale** @input_file.
+Nell'esempio precedente è presente un **file di ingresso** (input_file.tsv), definito dalla **variabile locale** @input_file.
 
 L'esecuzione dello script U-SQL qui sopra ha come risultato le seguenti azioni:
 
@@ -289,7 +289,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ### <a name="using-code-behind"></a>Uso di code-behind
 Per usare la stessa funzionalità nella sezione code-behind del programma U-SQL, viene definita la funzione C# ToDateTime.
 
-Di seguito è illustrata la sezione del precedente script U-SQL di base da modificare:
+Di seguito è riportata la sezione dello script U-SQL di base, in cui sono state apportate le modifiche necessarie:
 
 ```sql
      @rs1 =
@@ -392,6 +392,7 @@ Il vantaggio di code-behind è che gli strumenti gestiscono automaticamente i pa
 Il prologo e l'epilogo generati sono visibili quando si apre lo script:
 
 ![generated-prologue](./media/data-lake-analytics-u-sql-programmability-guide/generated-prologue.png)
+
 **Figura 2**: prologo ed epilogo generati automaticamente per il code-behind
 <br />
 
@@ -422,7 +423,7 @@ Nella finestra di dialogo relativa alla registrazione (vedere il Passaggio 2 nel
 
 Negli esempi seguenti vengono usate entrambe le opzioni. Il [recente post di blog sull'elaborazione delle immagini](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/18/introducing-image-processing-in-u-sql/) è un altro esempio che illustra l'uso di un assembly predefinito che può usare queste opzioni per la registrazione.
 
-A questo punto è possibile fare riferimento agli assembly registrati da qualunque script U-SQL che dispone delle autorizzazioni per il database degli assembly registrati (vedere il codice nello script U-SQL nella Figura 4). È necessario aggiungere un riferimento per ogni assembly registrato separatamente. I file di risorse aggiuntivi verranno distribuiti automaticamente. Lo script non deve più disporre di un file code-behind per il codice negli assembly di riferimento, ma può comunque fornire altro codice.
+A questo punto è possibile fare riferimento agli assembly registrati da qualunque script U-SQL che dispone delle autorizzazioni per il database degli assembly registrati (vedere il codice nello script U-SQL nella Figura 4). È necessario aggiungere un riferimento per ogni assembly registrato separatamente. I file di risorse aggiuntivi verranno distribuiti automaticamente. Lo script non deve più disporre di un file code-behind per il codice negli assembly di riferimento, ma il file code-behind può comunque fornire altro codice.
 
 ### <a name="registering-assemblies-via-adl-tools-in-visual-studio-and-in-u-sql-scripts"></a>Registrazione di assembly tramite ADL Tools in Visual Studio e negli script U-SQL
 Registrare un assembly con ADL Tools in Visual Studio è facile, ma è possibile farlo anche con uno script (in alternativa alla procedura automatica), ad esempio se si sviluppa su una piattaforma diversa e sono già stati compilati assembly da caricare e registrare. Per effettuare questa operazione, eseguire i passaggi seguenti:
@@ -439,6 +440,7 @@ Sul [sito Github U-SQL](https://github.com/Azure/usql/) è disponibile un set di
 Innanzitutto si scarica il [progetto di Visual Studio](https://github.com/Azure/usql/tree/master/Examples/DataFormats) nell'ambiente di sviluppo locale (ad esempio, realizzando una copia locale con lo strumento GitHub per Windows). Dopodiché, si apre la soluzione in Visual Studio e si fa clic sul progetto con il pulsante destro del mouse, come descritto in precedenza, per registrare l'assembly. Anche se questo assembly presenta due dipendenze, è necessario includere solo la dipendenza Newtonsoft, poiché System.Xml è già disponibile nella finestra di Azure Data Lake (anche se occorre farvi riferimento in modo esplicito). Nella Figura 6 viene denominato l'assembly (è anche possibile scegliere altro un nome senza punti) e viene aggiunta anche la DLL Newtonsoft. Ognuno dei due assembly verrà ora registrato singolarmente nel database specificato (ad esempio, JSONBlog).
 
 ![register-assembly](./media/data-lake-analytics-u-sql-programmability-guide/register-assembly.png)
+
 **Figura 6**: come registrare l'assembly Microsoft.Analytics.Samples.Formats da Visual Studio
 <br />
 
@@ -449,7 +451,7 @@ REFERENCE ASSEMBLY JSONBlog.[NewtonSoft.Json];
 REFERENCE ASSEMBLY JSONBlog.[Microsoft.Analytics.Samples.Formats];
 ```
 
-Se in più si desidera usare la funzionalità XML, all'assembly registrato si aggiungono un assembly e un riferimento all'assembly di sistema:
+Se si intende usare la funzionalità XML, si aggiungono anche un riferimento all'assembly di sistema e un riferimento all'assembly registrato:
 
 ```
 REFERENCE SYSTEM ASSEMBLY [System.Xml];
@@ -932,9 +934,9 @@ Istanza `MyType`: istanza del tipo
 Writer `IColumnWriter`/Reader `IColumnReader`: il flusso di colonna sottostante.  
 Contesto `ISerializationContext`: enumerazione che definisce un set di contrassegni che specifica il contesto di origine o di destinazione relativo al flusso in fase di serializzazione. 
  
-    * *Intermediate*: specifica che il contesto di origine o di destinazione non è un archivio permanente
+   * *Intermediate*: specifica che il contesto di origine o di destinazione non è un archivio permanente
 
-    * *Persistence*: specifica che il contesto di origine o di destinazione è un archivio permanente
+   * *Persistence*: specifica che il contesto di origine o di destinazione è un archivio permanente
 
 Come un normale tipo C#, la definizione UDT di U-SQL può includere gli override di operatori come +/==/!= e così via. Può includere metodi statici e via dicendo. Ad esempio, se si intende usare questo UDT come parametro nella funzione di aggregazione MIN U-SQL, è necessario definire l'override dell'operatore <.
 
@@ -2374,7 +2376,7 @@ Quello che segue è un esempio di combinatore
     }
 ```
 
-In questo scenario d'uso, viene creato il report di analisi per il rivenditore. L'obiettivo è trovare tutti i prodotti che costano più di $ 20.000 e che, in un dato intervallo di tempo, vendono più velocemente tramite il sito Web che non tramite il rivenditore.
+In questo scenario d'uso, viene creato il report di analisi per il rivenditore. L'obiettivo è trovare tutti i prodotti che costano più di $&20;.000 e che, in un dato intervallo di tempo, vendono più velocemente tramite il sito Web che non tramite il rivenditore.
 
 Di seguito è riportato lo script U-SQL di base, in cui è possibile confrontare la logica JOIN con quella di un combinatore:
 
@@ -2608,6 +2610,6 @@ OUTPUT @rs2 TO @output_file USING Outputters.Text();
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

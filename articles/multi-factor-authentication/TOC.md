@@ -6,7 +6,7 @@
 ## [Scegliere dove eseguire la distribuzione](multi-factor-authentication-get-started.md)
 ## [MFA nel cloud](multi-factor-authentication-get-started-cloud.md)
 ## [MFA locale](multi-factor-authentication-get-started-server.md)
-## [MFA per utenti di Office 365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
+## [MFA per utenti di Office&365;](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
 ## [Procedure di sicurezza consigliate](multi-factor-authentication-security-best-practices.md)
 
 # Procedure
@@ -14,6 +14,7 @@
 ### [Creare un provider di autenticazione](multi-factor-authentication-get-started-auth-provider.md)
 ### [Configurare le impostazioni](multi-factor-authentication-whats-next.md)
 ### [Report in MFA](multi-factor-authentication-manage-reports.md)
+### [Usare server di criteri di rete esistenti](multi-factor-authentication-nps-extension.md)
 ### Azure MFA in locale
 #### [Installare il portale per gli utenti](multi-factor-authentication-get-started-portal.md)
 #### [Configurazioni VPN avanzate](multi-factor-authentication-advanced-vpn-configurations.md)
@@ -38,7 +39,7 @@
 ### [App Web IIS](multi-factor-authentication-get-started-server-iis.md)
 ### [Gateway Desktop remoto](multi-factor-authentication-get-started-server-rdg.md)
 
-## Sviluppare 
+## Sviluppare
 ### [Integrazione in app personalizzate (SDK)](multi-factor-authentication-sdk.md)
 
 ## Risolvere i problemi
@@ -46,6 +47,6 @@
 ### [Porre una domanda](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

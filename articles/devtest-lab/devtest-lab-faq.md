@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
-ms.openlocfilehash: 2d1ff28d5c7d989d4c81758bd191e8d1e8100b2e
+ms.sourcegitcommit: f772060243ce6d741d26113710be32cb76135479
+ms.openlocfilehash: 41a28f43942d4e6bf395b7fd024bd22b96420d55
 
 
 ---
@@ -28,7 +28,7 @@ Questo articolo risponde ad alcune delle domande più frequenti relative ad Azur
 ## <a name="general"></a>Generale
 * [Cosa fare se non è disponibile una risposta alla domanda?](#what-if-my-question-isnt-answered-here)
 * [Perché usare Azure DevTest Labs?](#why-should-i-use-azure-devtest-labs) 
-* [Cosa significa "self-service senza preoccupazioni"?](#what-does-quotworry-free-self-servicequot-mean)
+* [Cosa significa "self-service senza preoccupazioni"?](#what-does-worry-free-self-service-mean)
 * [Come si usa Azure DevTest Labs?](#how-can-i-use-azure-devtest-labs) 
 * [Come avviene la fatturazione di Azure DevTest Labs?](#how-am-i-billed-for-azure-devtest-labs) 
 
@@ -246,6 +246,6 @@ Vedere il post di blog [How to troubleshoot failing Artifacts in AzureDevTestLab
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

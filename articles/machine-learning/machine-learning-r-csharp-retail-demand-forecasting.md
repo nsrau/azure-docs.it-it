@@ -1,6 +1,6 @@
 ---
-title: Previsione - ETS + STL | Documentazione Microsoft
-description: Previsioni - ETS + STL
+title: (Deprecato) Previsione - ETS + STL - Azure  | Documentazione Microsoft
+description: (Deprecato) Previsione - ETS + STL
 services: machine-learning
 documentationcenter: 
 author: xueshanz
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/31/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: yijichen
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5f9f7366b6e957215bed717e94c8138add6506d6
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: cdf6661a36e38bf7a6fca241682be796712bd5d9
 
 
 ---
-# <a name="forecasting---ets--stl"></a>Previsioni - ETS + STL
+# <a name="deprecated-forecasting---ets--stl"></a>(Deprecato) Previsione - ETS + STL
+
+> [!NOTE]
+> Microsoft DataMarket è in fase di ritiro e questa API è stata deprecata. 
+> 
+> Numerose API e molti esperimenti utili di esempio sono disponibili in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Per altre informazioni sulla raccolta, vedere [Condividere e scoprire risorse in Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Questo [servizio Web](https://datamarket.azure.com/dataset/aml_labs/demand_forecast) implementa il modello STL (Seasonal Trend Decomposition) e il modello ETS (Exponential Smoothing) per produrre previsioni basate sui dati cronologici forniti dall'utente. Si verificherà un incremento nella domanda di un prodotto specifico quest'anno? È possibile prevedere le vendite dei prodotti per la stagione natalizia, per pianificare in modo efficace l'inventario? I modelli di previsione sono progettati per rispondere a queste domande. Partendo dai dati passati, questi modelli esaminano le tendenze nascoste e la stagionalità per prevedere le tendenze future. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -88,7 +95,7 @@ Sono disponibili molte opzioni per l'uso del servizio in modalità automatica. P
 > 
 > 
 
-In Azure Machine Learning è stato creato un nuovo esperimento vuoto. Sono stati caricati dati di input di esempio con uno schema dati predefinito. Un modulo [Execute R Script][execute-r-script] è collegato allo schema dati e genera il modello di previsione ARIMA usando le funzioni 'ets' e 'forecast' di R. 
+In Azure Machine Learning è stato creato un nuovo esperimento vuoto. Sono stati caricati dati di input di esempio con uno schema dati predefinito. Un modulo [Execute R Script][execute-r-script] (Esegui script R) è collegato allo schema dati e genera i modelli di previsione STL ed ETS usando le funzioni 'stl', 'ets' e 'forecast' di R. 
 
 ### <a name="experiment-flow"></a>Flusso dell'esperimento
 ![Flusso dell'esperimento][2]
@@ -141,6 +148,6 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

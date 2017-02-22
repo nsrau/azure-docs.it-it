@@ -1,5 +1,5 @@
 ---
-title: Migrazione di macchine virtuali da Amazon Web Services ad Azure con Site Recovery | Microsoft Docs
+title: Eseguire la migrazione di macchine virtuali da AWS in Azure | Documentazione Microsoft
 description: Questo articolo descrive come eseguire la migrazione di macchine virtuali in esecuzione in Amazon Web Services (AWS) ad Azure usando Azure Site Recovery.
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 11/01/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: c7238d677b315390bc5f53e54ab7dbded2871c5a
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: 5cf068dd64084d39e353dab6629e832112e15843
 
 
 ---
@@ -34,12 +34,12 @@ Per inviare commenti o domande è possibile usare la parte inferiore di questo a
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 Site Recovery può essere usato per eseguire la migrazione delle istanze di EC2 in esecuzione in uno dei sistemi operativi seguenti
 
-### <a name="windows64-bit-only"></a>Windows (solo versione a 64 bit)
+### <a name="windows64-bit-only"></a>Windows (solo versione a&64; bit)
 * Windows Server 2008 R2 SP1 + (solo driver PV Citrix o PV AWS; **non sono supportate istanze che eseguono driver PV RedHat**)
 * Windows Server 2012
 * Windows Server 2012 R2
 
-### <a name="linux-64-bit-only"></a>Linux (solo versione a 64 bit)
+### <a name="linux-64-bit-only"></a>Linux (solo versione a&64; bit)
 * Red Hat Enterprise Linux 6.7 (solo per istanze HVM virtualizzate)
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -66,6 +66,6 @@ Per altre informazioni sui vari scenari di replica, vedere [Che cos'è Site Reco
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

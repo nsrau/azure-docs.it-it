@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/26/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 611099e8c28584e091f9dc6c07eebf7e397092ea
+ms.sourcegitcommit: da5ad10e01d83d714b47f8d478dc73a824797dea
+ms.openlocfilehash: 714e0dd907b1efe8d2c4d6e062a6cedd08f44c4c
 
 
 ---
@@ -51,13 +51,11 @@ Packer e Terraform supportano inoltre Azure Resource Manager; pertanto, è anche
 Le VM dei set di scalabilità diventano una base stabile per i contenitori e richiedono solo protezione occasionale e aggiornamenti correlati al sistema operativo. Come accennato, il servizio contenitore di Azure è un buon esempio di questo approccio e della creazione di un servizio associato.
 
 ## <a name="how-do-you-roll-out-an-os-update-across-update-domains"></a>Come distribuire un aggiornamento del sistema operativo nei domini di aggiornamento
-Si supponga di che voler aggiornare un'immagine del sistema operativo mantenendo in esecuzione il set di scalabilità di VM. Un possibile approccio prevede di aggiornare le immagini una VM alla volta. A tale scopo è possibile usare PowerShell o l'interfaccia della riga di comando di Azure. Sono disponibili comandi separati per aggiornare il modello del set di scalabilità di VM (la modalità di definizione della sua configurazione) e per eseguire chiamate di "aggiornamento manuale" su singole VM.
-
-[Qui](https://github.com/gbowerman/vmsstools) è riportato un esempio di script Python che automatizza il processo di aggiornamento di un set di scalabilità di VM un dominio di aggiornamento alla volta. Avvertenza: si tratta più di un modello di prova che di una soluzione avanzata pronta per l'ambiente di produzione e, pertanto, si potrebbe voler aggiungere qualche controllo degli errori e così via.
+Si supponga di che voler aggiornare un'immagine del sistema operativo mantenendo in esecuzione il set di scalabilità di VM. Un possibile approccio prevede di aggiornare le immagini una VM alla volta. A tale scopo è possibile usare PowerShell o l'interfaccia della riga di comando di Azure. Sono disponibili comandi separati per aggiornare il modello del set di scalabilità di VM (la modalità di definizione della sua configurazione) e per eseguire chiamate di "aggiornamento manuale" su singole VM. Nel documento di Azure [Aggiornare un set di scalabilità di macchine virtuali](./virtual-machine-scale-sets-upgrade-scale-set.md) sono disponibili altre informazioni sulle opzioni disponibili per eseguire aggiornamenti del sistema operativo in un set di scalabilità di macchine virtuali.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

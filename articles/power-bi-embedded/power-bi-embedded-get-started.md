@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 02/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 49ca55f435239611350045cca31b6c2a9ca140e1
-ms.openlocfilehash: 602509d5dc977e8d559bc7f504bfab3d077829fa
+ms.sourcegitcommit: fd0ddf8275ab58eb3c411123b776654fb46cae5d
+ms.openlocfilehash: 5770bbfcf700b1cefea6d22e0d5f025c1660e744
 
 
 ---
@@ -69,6 +69,10 @@ Anche se sono disponibili due chiavi, è necessaria una sola chiave alla volta. 
 
 Dopo aver creato un'istanza di Power BI per l'applicazione e le **chiavi di accesso**, è possibile importare un report nell'app in uso. Prima di apprendere come importare un report, la sezione successiva descrive come creare set di dati e report di Power BI da incorporare in un'app.
 
+## <a name="working-with-workspaces"></a>Utilizzo di aree di lavoro
+
+Dopo aver creato la raccolta di aree di lavoro, è necessario creare un'area di lavoro che dovrà contenere i report e i set di dati. Per creare un'area di lavoro, usare l'[API REST di pubblicazione area di lavoro](https://msdn.microsoft.com/library/azure/mt711503.aspx).
+
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Creare set di dati e report di Power BI da incorporare in un'app
 Dopo avere creato un'istanza di Power BI per l'applicazione e le **chiavi di accesso**, è necessario creare i set di dati e i report di Power BI da incorporare. I set di dati e i report possono essere creati con **Power BI Desktop**. È possibile scaricare [Power BI Desktop gratuitamente](https://go.microsoft.com/fwlink/?LinkId=521662). In alternativa, per iniziare rapidamente, è possibile scaricare l' [esempio Retail Analysis PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
 
@@ -109,6 +113,6 @@ Altre domande? [Contattare la community di Power BI](http://community.powerbi.co
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

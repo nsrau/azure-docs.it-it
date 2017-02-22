@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: Documentazione di Servizi cognitivi di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: "Informazioni su come aggiungere funzionalità intelligenti alle applicazioni, tra cui vision, sintesi vocale e analisi del linguaggio. Guide introduttive e informazioni di riferimento sulle API."
+services: cognitive-services
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: cognitive-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: d08cbd179ffb64630a37dd04e33ae50dfda3c615
-ms.openlocfilehash: 9e31044fb3be93befb18939210e0bc703462fbd6
+ms.sourcegitcommit: 0c5f1ba593952cb6dc6a8200a5666ecb7a32fce7
+ms.openlocfilehash: 3895b02f25b0e27b46a5e5493fe2b7f8f83201c1
 
 ---
 #<a name="cognitive-services-documentation"></a>Documentazione dei servizi cognitivi
@@ -97,16 +108,10 @@ Informazioni su come abilitare interazioni naturali e contestuali nelle applicaz
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cognitive-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione dei servizi cognitivi </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

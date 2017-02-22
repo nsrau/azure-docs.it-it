@@ -256,6 +256,6 @@ Nel corpo della richiesta inviare un oggetto JSON che contiene il nuovo URL di f
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

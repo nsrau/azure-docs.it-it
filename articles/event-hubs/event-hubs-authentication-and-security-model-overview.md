@@ -1,5 +1,5 @@
 ---
-title: Panoramica del modello di sicurezza e autenticazione degli hub eventi | Microsoft Docs
+title: Panoramica del modello di sicurezza e autenticazione di Hub eventi di Azure | Documentazione Microsoft
 description: Panoramica sul modello di autenticazione e sicurezza di Hub eventi.
 services: event-hubs
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/30/2016
 ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9447b863b62fc71d2619591f78be0494711dc6a3
+ms.sourcegitcommit: 05ca343cfdfc602759eb3ea30a7186a0bb47bd74
+ms.openlocfilehash: 3f20a19c212c082aa766cc2bd67e938aaabf715e
 
 
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>Panoramica sull’autenticazione di Hub eventi e sul modello di protezione
-Il modello di protezione di Hub eventi soddisfa i requisiti seguenti:
+Il modello di sicurezza di Hub eventi di Azure soddisfa i requisiti seguenti:
 
 * Solo i dispositivi che presentano le credenziali valide possono inviare dati a un Hub eventi.
 * Un dispositivo non può rappresentare un altro dispositivo.
@@ -39,7 +39,7 @@ Sebbene non sia consigliato, è possibile dotare i dispositivi di token che conc
 Tutti i token sono firmati con una chiave SAS. In genere, tutti i token sono firmati con la stessa chiave. I dispositivi non conoscono la chiave, per cui non possono produrre token.
 
 ### <a name="create-the-sas-key"></a>Creare la chiave SAS
-Quando si crea uno spazio dei nomi di Hub eventi, Hub eventi di Azure genera una chiave di firma di accesso condiviso a 256 bit denominata **RootManageSharedAccessKey**. Tale chiave concede diritti di invio, attesa e gestione allo spazio dei nomi. È possibile creare ulteriori chiavi. Si consiglia di produrre una chiave che concede le autorizzazioni di invio allo  specifico Hub eventi. Nella parte restante di questo argomento, si presuppone che questa chiave sia denominata `EventHubSendKey`.
+Quando si crea uno spazio dei nomi di Hub eventi di Azure, il servizio genera una chiave di firma di accesso condiviso a 256 bit denominata **RootManageSharedAccessKey**. Tale chiave concede diritti di invio, attesa e gestione allo spazio dei nomi. È possibile creare ulteriori chiavi. Si consiglia di produrre una chiave che concede le autorizzazioni di invio allo  specifico Hub eventi. Nella parte restante di questo argomento si presuppone che questa chiave sia denominata **EventHubSendKey**.
 
 Nell'esempio seguente viene creata una chiave di solo invio durante la creazione dell'Hub eventi:
 
@@ -103,16 +103,16 @@ In assenza di autenticazione SAS per gruppi di consumer singoli, è possibile ut
 Per altre informazioni su Hub eventi, vedere gli argomenti seguenti:
 
 * [Panoramica di Hub eventi]
-* Una [soluzione di messaggistica accodata] che usa le code di Bus di servizio.
-* Un' [applicazione di esempio completa che usa Hub eventi].
+* [SAS overview] (Panoramica della firma di accesso condiviso)
+* Un'[applicazione di esempio completa che usa Hub eventi]
 
 [Panoramica di Hub eventi]: event-hubs-overview.md
 [applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[soluzione di messaggistica accodata]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[SAS overview]: ../service-bus-messaging/service-bus-sas-overview.md (Panoramica della firma di accesso condiviso)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

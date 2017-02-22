@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/04/2016
+ms.date: 01/05/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 369b7c8775388f641727cb889b406ac60be13d16
+ms.sourcegitcommit: ecb2ab00b56476b4373fa06cb766384cb2fcd514
+ms.openlocfilehash: fceb4254461bd91fd2da8603af4fefa47def72e8
 
 
 ---
@@ -28,7 +28,7 @@ Questi servizi possono essere chiamati con qualsiasi linguaggio di programmazion
 
 * Dispone di una connessione di rete
 * Dispone di funzionalità di SSL per eseguire le richieste HTTPS
-* Può analizzare JSON (dalle librerie disponibili o supporto)
+* Consente di analizzare JSON (direttamente o con librerie di supporto)
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -38,12 +38,7 @@ Un servizio Web di Azure Machine Learning può essere usato in due modi, come un
 > Per informazioni su un modo semplice per creare un'app Web per l'accesso al servizio Web predittivo, vedere l'articolo relativo all'[uso di un servizio Web di Azure Machine Learning con un modello di app Web](machine-learning-consume-web-service-with-web-app-template.md).
 > 
 > 
-
-<!-- When this article gets published, fix the link and uncomment
-For more information on how to manage Azure Machine Learning Web service endpoints using the REST API, see **Azure machine learning Web service endpoints**.
--->
-
-Per informazioni su come creare e pubblicare un servizio Web di Azure Machine Learning, vedere [Pubblicare un servizio Web di Azure Machine Learning][pubblica]. Per una procedura dettagliata di creazione e pubblicazione di un esperimento di Machine Learning, vedere [Sviluppare una soluzione predittiva mediante Azure Machine Learning][].
+> Per informazioni su come creare e distribuire un servizio Web di Azure Machine Learning, vedere [Distribuire un servizio Web di Azure Machine Learning Web][publish]. Per una procedura dettagliata di creazione e pubblicazione di un esperimento di Machine Learning, vedere [Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning][walkthrough].
 
 ## <a name="request-response-service-rrs"></a>Servizio di richiesta-risposta (RRS)
 Un servizio di richiesta-risposta (RRS) è un servizio Web a bassa latenza e altamente scalabile usato per fornire un'interfaccia ai modelli senza stato,creati e pubblicati da un esperimento Azure Machine Learning Studio. In questo modo abilita scenari in cui l'applicazione del consumo attende una risposta in tempo reale.
@@ -72,7 +67,7 @@ Il modo in cui si ottengono queste informazioni dipende dal tipo di servizio dis
 ### <a name="information-location-in-the-azure-machine-learning-web-services-portal"></a>Posizione delle informazioni nel portale dei servizi Web di Azure Machine Learning
 Per trovare le informazioni necessarie:
 
-1. Accedere al portale dei [servizi Web di Azure Machine Learning][webservicesportal].
+1. Accedere al [portale dei servizi Web di Azure Machine Learning][webservicesportal].
 2. Fare clic su **Servizi Web** o **Servizi Web classici**.
 3. Fare clic sul servizio Web con cui si lavora. 
 4. Se si usa un servizio Web classico, fare clic sull'endpoint in uso.
@@ -102,7 +97,7 @@ Per accedere alla pagina della guida dell'API, fare clic sul collegamento **RICH
 
 Per trovare le informazioni necessarie nel portale dei servizi Web di Azure Machine Learning:
 
-1. Accedere al portale dei [servizi Web di Azure Machine Learning][webservicesportal].
+1. Accedere al [portale dei servizi Web di Azure Machine Learning][webservicesportal].
 2. Fare clic su **Servizi Web classici**.
 3. Fare clic sul servizio Web in uso. 
 4. Fare clic sull'endpoint in uso.
@@ -729,8 +724,8 @@ A questo punto è possibile usare uno qualsiasi degli strumenti Swagger. Di segu
 
 <!-- Relative Links -->
 
-[pubblica]: machine-learning-publish-a-machine-learning-web-service.md
-[procedura dettagliata]: machine-learning-walkthrough-develop-predictive-solution.md
+[publish]: machine-learning-publish-a-machine-learning-web-service.md
+[walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
 <!-- External Links -->
 [webservicesportal]: https://services.azureml.net/
@@ -738,6 +733,6 @@ A questo punto è possibile usare uno qualsiasi degli strumenti Swagger. Di segu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

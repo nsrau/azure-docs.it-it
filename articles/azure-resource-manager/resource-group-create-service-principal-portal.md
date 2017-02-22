@@ -1,5 +1,5 @@
 ---
-title: "Creare un&quot;entità servizio nel portale | Microsoft Docs"
+title: "Creare un&quot;identità per un&quot;app Azure nel portale | Documentazione Microsoft"
 description: "Descrive come creare una nuova applicazione ed entità servizio di Active Directory da usare con il controllo degli accessi in base al ruolo in Gestione risorse di Azure per gestire l&quot;accesso alle risorse."
 services: azure-resource-manager
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2016
+ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 1a0889e16d0b0e4d361f573ac34ad868936ed20c
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 3b132bbc89f64928f971f92365691d40c1aab420
 
 
 ---
@@ -28,150 +28,155 @@ ms.openlocfilehash: 1a0889e16d0b0e4d361f573ac34ad868936ed20c
 >
 >
 
-Quando un'applicazione deve accedere alle risorse o modificarle, è necessario configurare un'applicazione Active Directory (AD) a cui assegnare le autorizzazioni richieste. Questo argomento illustra come eseguire questa procedura tramite il portale. Attualmente, è necessario usare il portale classico per creare una nuova applicazione di Active Directory e quindi passare al portale di Azure per assegnare un ruolo all'applicazione.
+Quando un'applicazione deve accedere alle risorse o modificarle, è necessario configurare un'applicazione Active Directory (AD) a cui assegnare le autorizzazioni richieste. Questo approccio è preferibile all'esecuzione dell'app con le credenziali dell'utente per i motivi seguenti:
 
-> [!NOTE]
-> I passaggi descritti in questo argomento si applicano solo quando si usa il **portale classico** per creare l'applicazione Active Directory. **Se si usa il portale di Azure per creare l'applicazione Active Directory, questa procedura non riuscirà.**
->
-> Può risultare più semplice configurare l'applicazione AD e l'entità servizio tramite [PowerShell](resource-group-authenticate-service-principal.md) o l'[interfaccia della riga di comando di Azure](resource-group-authenticate-service-principal-cli.md), soprattutto se si vuole usare un certificato per l'autenticazione. Questo argomento non illustra come usare un certificato.
->
->
+* È possibile assegnare all'identità dell'app autorizzazioni diverse rispetto a quelle dell'utente. Tali autorizzazioni sono in genere limitate alle specifiche operazioni che devono essere eseguite dall'app.
+* Non è necessario modificare le credenziali dell'app in caso di cambiamento delle responsabilità dell'utente. 
+* È possibile usare un certificato per automatizzare l'autenticazione in caso di esecuzione di uno script automatico.
 
-Per una spiegazione dei concetti relativi ad Active Directory, vedere [Oggetti applicazione e oggetti entità servizio](../active-directory/active-directory-application-objects.md).
-Per altre informazioni sull'autenticazione in Active Directory, vedere [Scenari di autenticazione per Azure AD](../active-directory/active-directory-authentication-scenarios.md).
+Questo argomento illustra come eseguire questa procedura tramite il portale. È incentrato su un'applicazione con un tenant singolo dove si prevede che l'applicazione venga eseguita all'interno di una sola organizzazione. Le applicazioni con un tenant singolo si usano in genere per applicazioni line-of-business eseguite all'interno dell'organizzazione.
+ 
+## <a name="required-permissions"></a>Autorizzazioni necessarie
+Per completare questo argomento è necessario disporre di autorizzazioni sufficienti per registrare un'applicazione con Active Directory e assegnare l'applicazione a un ruolo nella sottoscrizione di Azure. Assicurarsi di avere le autorizzazioni appropriate per eseguire questi passaggi.
 
-Per informazioni dettagliate sull'integrazione di un'applicazione in Azure per la gestione delle risorse, vedere [Guida per gli sviluppatori all'autorizzazione con l'API di Azure Resource Manager](resource-manager-api-authentication.md).
+### <a name="check-active-directory-permissions"></a>Controllare le autorizzazioni di Active Directory
+1. Accedere all'account di Azure tramite il [portale di Azure](https://portal.azure.com).
+2. Selezionare **Azure Active Directory**.
+
+     ![Selezionare Azure Active Directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
+3. In Active Directory selezionare **Impostazioni utente**.
+
+     ![Selezionare Impostazioni utente](./media/resource-group-create-service-principal-portal/select-user-settings.png)
+4. Controllare l'impostazione **Registrazioni per l'app**. Se il valore è **Sì**, gli utenti non amministratori possono registrare app di Active Directory. Questa impostazione indica che qualsiasi utente in Active Directory può registrare un'app. È possibile passare a [Controllare le autorizzazioni di sottoscrizione di Azure](#check-azure-subscription-permissions).
+
+     ![Visualizzare le registrazioni dell'app](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
+5. Se Registrazioni per l'app è impostata su **No**, solo gli utenti amministratori possono registrare app. È necessario controllare se l'account è un amministratore per Active Directory. Selezionare **Panoramica** e **Trova un utente** da Attività rapide.
+
+     ![Trova un utente](./media/resource-group-create-service-principal-portal/find-user.png)
+6. Cercare il proprio account e selezionarlo.
+
+     ![Cercare un utente](./media/resource-group-create-service-principal-portal/show-user.png)
+7. Per il proprio account selezionare **Ruolo della directory**. 
+
+     ![Ruolo della directory](./media/resource-group-create-service-principal-portal/select-directory-role.png)
+8. Visualizzare il ruolo assegnato per Active Directory. Se l'account è assegnato al ruolo Utente, ma l'impostazione Registrazioni per l'app (dei passaggi precedenti) è limitata agli utenti amministratori, chiedere all'amministratore di essere assegnati a un ruolo amministrativo o di consentire agli utenti di registrare le app.
+
+     ![Visualizzare il ruolo](./media/resource-group-create-service-principal-portal/view-role.png)
+
+### <a name="check-azure-subscription-permissions"></a>Controllare le autorizzazioni di sottoscrizione di Azure
+Nella sottoscrizione di Azure è necessario che l'account disponga dell'accesso `Microsoft.Authorization/*/Write` per assegnare un'app di Active Directory a un ruolo. Questa azione è concessa tramite il ruolo [Proprietario](../active-directory/role-based-access-built-in-roles.md#owner) o [Amministratore accessi utente](../active-directory/role-based-access-built-in-roles.md#user-access-administrator). Se il proprio account è assegnato al ruolo **Collaboratore**, non si dispone dell'autorizzazione appropriata. Se si tenterà di assegnare l'entità servizio a un ruolo si riceverà un errore. 
+
+Per controllare le proprie autorizzazioni di sottoscrizione:
+
+1. Se non è già visualizzato il proprio account Active Directory in seguito ai passaggi precedenti, selezionare **Azure Active Directory** nel pannello a sinistra.
+
+2. Individuare il proprio account Active Directory. Selezionare **Panoramica** e **Trova un utente** da Attività rapide.
+
+     ![Trova un utente](./media/resource-group-create-service-principal-portal/find-user.png)
+2. Cercare il proprio account e selezionarlo.
+
+     ![Cercare un utente](./media/resource-group-create-service-principal-portal/show-user.png) 
+     
+3. Selezionare **Risorse di Azure**.
+
+     ![Selezionare le risorse](./media/resource-group-create-service-principal-portal/select-azure-resources.png) 
+3. Visualizzare i propri ruoli assegnati e determinare se si dispone delle autorizzazioni adeguate per assegnare un'app di Active Directory a un ruolo. In caso contrario chiedere all'amministratore della sottoscrizione di essere aggiunti al ruolo Amministratore accessi utente. Nella figura seguente l'utente è assegnato al ruolo Proprietario per due sottoscrizioni, perciò dispone delle autorizzazioni adeguate. 
+
+     ![Visualizzare le autorizzazioni](./media/resource-group-create-service-principal-portal/view-assigned-roles.png)
 
 ## <a name="create-an-active-directory-application"></a>Creare un'applicazione di Active Directory
-1. Accedere all'account di Azure tramite il [portale classico](https://manage.windowsazure.com/).
-2. Verificare di conoscere la directory Active Directory predefinita per la sottoscrizione. È possibile concedere l'accesso solo per le applicazioni presenti nella stessa directory della sottoscrizione. Selezionare **Impostazioni** e cercare il nome della directory associato alla sottoscrizione.  Per altre informazioni, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+1. Accedere all'account di Azure tramite il [portale di Azure](https://portal.azure.com).
+2. Selezionare **Azure Active Directory**.
 
-     ![Trovare la directory predefinita](./media/resource-group-create-service-principal-portal/show-default-directory.png)
-3. Selezionare **Active Directory** dal riquadro di sinistra.
+     ![Selezionare Azure Active Directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
-     ![selezionare Active Directory](./media/resource-group-create-service-principal-portal/active-directory.png)
-4. Selezionare il tipo di Active Directory che si vuole usare per creare l'applicazione. Se è disponibile più di un tipo di Active Directory, creare l'applicazione nella directory predefinita della sottoscrizione.   
+4. Selezionare **Registrazioni per l'app**.   
 
-     ![scegliere la directory](./media/resource-group-create-service-principal-portal/active-directory-details.png)
-5. Per visualizzare le applicazioni nella directory, selezionare **Applicazioni**.
+     ![Selezionare Registrazioni per l'app](./media/resource-group-create-service-principal-portal/select-app-registrations.png)
+5. Selezionare **Aggiungi**.
 
-     ![visualizzare le applicazioni](./media/resource-group-create-service-principal-portal/view-applications.png)
-6. Se non è stata creata un'applicazione in questa directory, dovrebbe essere visualizzata un'immagine simile a questa riportata di seguito. Selezionare **AGGIUNGI UN'APPLICAZIONE**
+     ![Aggiungere l'app](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-     ![Aggiungi applicazione](./media/resource-group-create-service-principal-portal/create-application.png)
+6. Specificare un nome e un URL per l'applicazione. Selezionare **App Web/API** o **Nativa** come tipo di applicazione da creare. Dopo aver impostato i valori selezionare **Crea**.
 
-     In alternativa, fare clic su **Aggiungi** nel riquadro inferiore.
-
-     ![Aggiungi](./media/resource-group-create-service-principal-portal/add-icon.png)
-7. Selezionare il tipo di applicazione da creare. Per questa esercitazione selezionare **Aggiungi un'applicazione che l'organizzazione sta sviluppando**.
-
-     ![nuova applicazione](./media/resource-group-create-service-principal-portal/what-do-you-want-to-do.png)
-8. Specificare un nome per l'applicazione e selezionare il tipo di applicazione che si vuole creare. Per questa esercitazione creare un' **APPLICAZIONE WEB E/O API WEB** e fare clic sul pulsante Avanti. Se si seleziona **APPLICAZIONE CLIENT NATIVA**, i rimanenti passaggi di questo articolo non corrisponderanno all'esperienza utente.
-
-     ![assegnare un nome all'applicazione](./media/resource-group-create-service-principal-portal/tell-us-about-your-application.png)
-9. Compilare le proprietà per l'app. Per **URL ACCESSO**specificare l'URI di un sito Web che descrive l'applicazione. L'esistenza del sito Web non viene convalidata.
-   Per **URI ID APP**specificare l'URI che identifica l'applicazione.
-
-     ![proprietà dell'applicazione](./media/resource-group-create-service-principal-portal/app-properties.png)
+     ![assegnare un nome all'applicazione](./media/resource-group-create-service-principal-portal/create-app.png)
 
 L'applicazione è stata creata.
 
-## <a name="get-client-id-and-authentication-key"></a>Ottenere l'ID client e la chiave di autenticazione
-Quando si esegue l'accesso a livello di codice, è necessario l'ID dell'applicazione. Se l'applicazione viene eseguita con le proprie credenziali, è necessaria anche una chiave di autenticazione.
+## <a name="get-application-id-and-authentication-key"></a>Ottenere l'ID applicazione e la chiave di autenticazione
+Quando si esegue l'accesso a livello di codice sono necessari l'ID dell'applicazione e una chiave di autenticazione. Per ottenere questi valori eseguire la procedura seguente:
 
-1. Selezionare la scheda **Configura** per configurare la password dell'applicazione.
+1. Da **Registrazioni dell'app** in Active Directory selezionare l'applicazione.
 
-     ![configura applicazione](./media/resource-group-create-service-principal-portal/application-configure.png)
-2. Copiare l' **ID CLIENT**.
+     ![Selezionare l'applicazione](./media/resource-group-create-service-principal-portal/select-app.png)
+2. Copiare l'**ID applicazione** e archiviarlo nel codice dell'applicazione. Le applicazioni nella sezione delle [applicazioni di esempio](#sample-applications) indicano questo valore come ID client.
 
-     ![ID CLIENT](./media/resource-group-create-service-principal-portal/client-id.png)
-3. Se l'applicazione viene eseguita con credenziali proprie, scorrere fino alla sezione **Chiavi** e selezionare la durata della validità della password.
+     ![ID CLIENT](./media/resource-group-create-service-principal-portal/copy-app-id.png)
+3. Per generare una chiave di autenticazione selezionare **Chiavi**.
 
-     ![Chiavi](./media/resource-group-create-service-principal-portal/create-key.png)
-4. Selezionare **Salva** per creare la chiave.
+     ![Selezionare Chiavi](./media/resource-group-create-service-principal-portal/select-keys.png)
+4. Specificare una descrizione e una durata per la chiave. Al termine scegliere **Salva**.
 
-     ![Salva](./media/resource-group-create-service-principal-portal/save-icon.png)
+     ![Salvare la chiave](./media/resource-group-create-service-principal-portal/save-key.png)
 
-     Viene visualizzata la chiave salvata, che è possibile copiare. Dato che non sarà possibile recuperare la chiave in seguito, copiarla ora.
+     Dopo aver salvato la chiave viene visualizzato il valore della chiave. Copiare il valore in quanto non sarà possibile recuperare la chiave in seguito. Il valore della chiave sarà fornito insieme all'ID applicazione per eseguire l'accesso come applicazione. Salvare il valore della chiave in una posizione in cui l'applicazione possa recuperarlo.
 
-     ![chiave salvata](./media/resource-group-create-service-principal-portal/save-key.png)
+     ![chiave salvata](./media/resource-group-create-service-principal-portal/copy-key.png)
 
 ## <a name="get-tenant-id"></a>Ottenere l'ID tenant
-Quando si esegue l'accesso a livello di codice, è necessario specificare l'ID tenant con la richiesta di autenticazione. Per le app Web e le app per le API Web è possibile recuperare l'ID tenant selezionando **Visualizza endpoint** nella parte inferiore della schermata e recuperare l'ID come illustrato nell'immagine seguente.  
+Quando si esegue l'accesso a livello di codice è necessario specificare l'ID tenant con la richiesta di autenticazione. 
 
-   ![tenant id](./media/resource-group-create-service-principal-portal/save-tenant.png)
+1. Per ottenere l'ID tenant selezionare **Proprietà** per Active Directory. 
 
-È anche possibile recuperare l'ID tenant usando PowerShell:
+     ![Selezionare Poprietà di Active Directory](./media/resource-group-create-service-principal-portal/select-ad-properties.png)
 
-    Get-AzureRmSubscription
+2. Copiare l'**ID directory**. Questo valore è l'ID tenant.
 
-Oppure l'interfaccia della riga di comando di Azure:
-
-    azure account show --json
-
-## <a name="set-delegated-permissions"></a>Impostare autorizzazioni delegate
-Se l'applicazione accede alle risorse per conto dell'utente connesso, è necessario concedere all'applicazione l'autorizzazione delegata per accedere alle altre applicazioni. Concedere questo accesso nella sezione sulle **autorizzazioni per altre applicazioni** della scheda **Configura**. Per impostazione predefinita, un'autorizzazione delegata è già abilitata per Azure Active Directory. Lasciare questa autorizzazione delegata invariata.
-
-1. Selezionare **Aggiungi applicazione**.
-2. Nell'elenco selezionare **API Gestione dei servizi di Microsoft Azure**. Quindi, fare clic sull'icona di completamento.
-
-      ![seleziona app](./media/resource-group-create-service-principal-portal/select-app.png)
-3. Nell'elenco a discesa relativo alle autorizzazioni delegate selezionare **Access Azure Service Management as organization**(Accedi alla gestione dei servizi Azure come organizzazione).
-
-      ![seleziona autorizzazione](./media/resource-group-create-service-principal-portal/select-permissions.png)
-4. Salvare la modifica.
+     ![tenant id](./media/resource-group-create-service-principal-portal/copy-directory-id.png)
 
 ## <a name="assign-application-to-role"></a>Assegnare l'applicazione al ruolo
-Se l'applicazione viene eseguita con le proprie credenziali, è necessario assegnare l'applicazione a un ruolo. Decidere quale ruolo rappresenti le autorizzazioni appropriate per l'applicazione. Per informazioni sui ruoli disponibili, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md).
-
-Per assegnare un ruolo a un'applicazione, è necessario avere le autorizzazioni corrette. In particolare, è necessario avere l'accesso `Microsoft.Authorization/*/Write`, che viene concesso tramite il ruolo [Proprietario](../active-directory/role-based-access-built-in-roles.md#owner) o [Amministratore Accesso utenti](../active-directory/role-based-access-built-in-roles.md#user-access-administrator). Il ruolo Collaboratore non ha l'accesso corretto.
+Per accedere alle risorse della propria sottoscrizione è necessario assegnare l'applicazione a un ruolo. Decidere quale ruolo rappresenti le autorizzazioni appropriate per l'applicazione. Per informazioni sui ruoli disponibili, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md).
 
 È possibile impostare l'ambito al livello della sottoscrizione, del gruppo di risorse o della risorsa. Le autorizzazioni vengono ereditate a livelli inferiori dell'ambito. Se ad esempio si aggiunge un'applicazione al ruolo Lettore per un gruppo di risorse, l'applicazione può leggere il gruppo di risorse e le risorse in esso contenute.
 
-1. Per assegnare l'applicazione a un ruolo, passare dal portale classico al [portale di Azure](https://portal.azure.com).
-2. Controllare le autorizzazioni per verificare che sia possibile assegnare l'entità servizio a un ruolo. Selezionare **Autorizzazioni personali** per l'account.
-
-    ![Selezionare Autorizzazioni personali](./media/resource-group-create-service-principal-portal/my-permissions.png)
-3. Visualizzare le autorizzazioni assegnate per l'account. Come già osservato, è necessario appartenere ai ruoli Proprietario o Amministratore Accesso utenti oppure avere un ruolo personalizzato che concede l'accesso in scrittura per Microsoft.Authorization. L'immagine seguente illustra un account assegnato al ruolo Collaboratore per la sottoscrizione, che non ha le autorizzazioni adeguate per assegnare un'applicazione a un ruolo.
-
-    ![Visualizzare le autorizzazioni personali](./media/resource-group-create-service-principal-portal/show-permissions.png)
-
-     Se non si hanno le autorizzazioni corrette per concedere l'accesso a un'applicazione, è necessario richiedere all'amministratore della sottoscrizione di essere aggiunti al ruolo Amministratore Accesso utenti o richiedere che un amministratore conceda l'accesso all'applicazione.
-4. Passare al livello dell'ambito al quale si vuole assegnare l'applicazione. Per assegnare un ruolo a un ambito della sottoscrizione, selezionare **Sottoscrizioni**.
+1. Passare al livello dell'ambito al quale si vuole assegnare l'applicazione. Ad esempio, per assegnare un ruolo a un ambito della sottoscrizione, selezionare **Sottoscrizioni**. In alternativa è possibile selezionare una risorsa o un gruppo di risorse.
 
      ![selezionare la sottoscrizione](./media/resource-group-create-service-principal-portal/select-subscription.png)
 
-     Selezionare la sottoscrizione specifica a cui assegnare l'applicazione.
+2. Selezionare la sottoscrizione specifica (risorsa o un gruppo di risorse) a cui assegnare l'applicazione.
 
      ![selezionare la sottoscrizione per l'assegnazione](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
 
-     Selezionare l'icona di **accesso** nell'angolo in alto a destra.
+3. Selezionare **Controllo di accesso (IAM)**.
 
-     ![selezionare accesso](./media/resource-group-create-service-principal-portal/select-access.png)
+     ![selezionare accesso](./media/resource-group-create-service-principal-portal/select-access-control.png)
 
-     In alternativa, per assegnare un ruolo all'ambito del gruppo di risorse, passare a un gruppo di risorse. Nel pannello del gruppo di risorse selezionare **Controllo di accesso**.
-
-     ![selezionare gli utenti](./media/resource-group-create-service-principal-portal/select-users.png)
-
-     I passaggi seguenti sono uguali per tutti gli ambiti.
-5. Selezionare **Aggiungi**.
+4. Selezionare **Aggiungi**.
 
      ![selezionare aggiungi](./media/resource-group-create-service-principal-portal/select-add.png)
-6. Selezionare il ruolo **Lettore** o il ruolo al quale si vuole assegnare l'applicazione.
+6. Selezionare il ruolo che si desidera assegnare all'applicazione. L'immagine seguente mostra il ruolo **Lettore**.
 
      ![selezionare il ruolo](./media/resource-group-create-service-principal-portal/select-role.png)
-7. Quando viene visualizzato per la prima volta l'elenco degli utenti che è possibile aggiungere al ruolo, le applicazioni non verranno visualizzate. Verranno visualizzati solo il gruppo e gli utenti.
 
-     ![mostrare gli utenti](./media/resource-group-create-service-principal-portal/show-users.png)
-8. Per individuare l'applicazione, è necessario cercarla. Digitando il nome dell'applicazione, l'elenco delle opzioni disponibili cambierà. Quando l'applicazione viene visualizzata nell'elenco, selezionarla.
+8. Cercare l'applicazione e selezionarla.
 
-     ![assegnare al ruolo](./media/resource-group-create-service-principal-portal/assign-to-role.png)
-9. Selezionare **OK** per completare l'assegnazione al ruolo. L'applicazione dovrebbe essere ora visualizzata nell'elenco degli utenti assegnati a un ruolo per il gruppo di risorse.
+     ![Cercare l'app](./media/resource-group-create-service-principal-portal/search-app.png)
+9. Selezionare **OK** per completare l'assegnazione del ruolo. L'applicazione ora compare nell'elenco degli utenti assegnati a un ruolo per quell'ambito.
 
-Per altre informazioni sull'assegnazione di utenti e applicazioni a ruoli tramite il portale, vedere [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../active-directory/role-based-access-control-configure.md#add-access).
+## <a name="log-in-as-the-application"></a>Eseguire l'accesso come applicazione
 
-## <a name="sample-applications"></a>Applicazioni di esempio
-Le applicazioni di esempio seguenti illustrano come effettuare l'accesso come entità servizio.
+L'applicazione è ora configurata in Active Directory. Si dispone di un ID e una chiave da usare per eseguire l'accesso come applicazione. L'applicazione viene assegnata a un ruolo che le consente di eseguire alcune azioni. 
+
+Per eseguire l'accesso con PowerShell, vedere [Fornire le credenziali tramite PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell).
+
+Per eseguire l'accesso con l'interfaccia della riga di comando di Azure, vedere [Fornire le credenziali tramite l'interfaccia della riga di comando di Azure](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli).
+
+Per ottenere il token di accesso per operazioni REST, vedere [Create the request](/rest/api/#create-the-request) (Creare la richiesta).
+
+Per informazioni su come eseguire l'accesso tramite il codice dell'applicazione, vedere le applicazioni di esempio riportate di seguito.
+
+### <a name="sample-applications"></a>Applicazioni di esempio
+Le seguenti applicazioni di esempio illustrano come eseguire l'accesso come applicazione AD.
 
 **.NET**
 
@@ -199,11 +204,12 @@ Le applicazioni di esempio seguenti illustrano come effettuare l'accesso come en
 * [Managing Azure Resource and Resource Groups with Ruby (Gestione di risorse e gruppi di risorse di Azure con Ruby)](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 ## <a name="next-steps"></a>Passaggi successivi
+* Per configurare un'applicazione multi-tenant, vedere [Guida per gli sviluppatori all'autorizzazione con l'API di Azure Resource Manager](resource-manager-api-authentication.md).
 * Per informazioni su come specificare i criteri di sicurezza, vedere [Controllo degli accessi in base al ruolo nel portale di Azure](../active-directory/role-based-access-control-configure.md).  
-* Per una dimostrazione video di questi passaggi, vedere l'articolo relativo all' [abilitazione della gestione a livello di codice di una risorsa di Azure con Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Jan17_HO4-->
 
 

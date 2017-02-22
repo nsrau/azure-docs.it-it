@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a3e09e63f3952ad8b7229397f22c8d2f86ce6614
+ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
+ms.openlocfilehash: 298679883416a871016563aa789522413ff4c019
 
 
 ---
@@ -152,7 +152,7 @@ L'archiviazione BLOB è usata da molte altre funzionalità di Azure (tra cui le 
 
 Un'applicazione per l'archiviazione di video, file di grandi dimensioni o altre informazioni binarie può usare i BLOB come soluzione di archiviazione semplice e a un costo contenuto. I BLOB sono anche comunemente usati insieme ad altri servizi come la rete per la distribuzione di contenuti, che verrà descritta in seguito.  
 
-### <a name="import-export"></a>Importazione/esportazione
+### <a name="import--export"></a>Importazione/esportazione
 ![Azure Import Export Service](./media/fundamentals-introduction-to-azure/ImportExportIntroNew.png)  
 
 *Figura: la funzionalità di importazione/esportazione di Azure consente di inviare un disco rigido fisico verso o da Azure per eseguire un'importazione o un'esportazione di dati in blocco in modo più rapido e conveniente.*  
@@ -251,7 +251,7 @@ Tuttavia, le organizzazioni che hanno già un sistema locale possono testare nuo
 
 Dopo aver pubblicato l'app, indipendentemente dal fatto che venga eseguita su dispositivi mobili, desktop o browser Web, Application Insights ne indica le prestazioni e le operazioni eseguite dagli utenti. Tiene il conto del numero di arresti anomali e dei tempi di risposta rallentati, invia avvisi se le cifre raggiungono valori di soglia inaccettabili e consente di diagnosticare eventuali problemi.
 
-Quando si sviluppa una nuova funzionalità, è opportuno pianificare la valutazione del relativo successo con gli utenti. Analizzando i modelli di utilizzo, è possibile ottenere informazioni sulle soluzioni migliori per i clienti e migliorare l'app in ogni ciclo di sviluppo.
+Quando si sviluppa una nuova funzionalità, è opportuno pianificare la valutazione del relativo successo con gli utenti. Analizzando i modelli di utilizzo, è possibile ottenere informazioni sulle soluzioni ottimali per i clienti e migliorare l'app in ogni ciclo di sviluppo.
 
 Anche se è ospitato in Azure, Application Insights funziona per una gamma sempre più vasta di app, sia in Azure che in altri ambienti. Sono supportate le app Web J2EE e ASP.NET, nonché le applicazioni per iOS, Android, OSX e Windows. I dati di telemetria vengono inviati da un SDK compilato con l'app per essere analizzati e visualizzati nel servizio Application Insights in Azure.
 
@@ -519,7 +519,7 @@ Per distribuire ciò che produce, un'applicazione può utilizzare la rete CDN di
 
 **Riferimenti**
 
-Per una panoramica visiva del funzionamento di Servizi multimediali, scaricare il [poster di Servizi multimediali di Azure][poster di Servizi multimediali di Azure].
+Per una panoramica visiva del funzionamento di Servizi multimediali, scaricare il [poster di Servizi multimediali di Azure][Azure Media Services Poster].
 
 ## <a name="commerce"></a>E-commerce
 La diffusione della tecnologia SaaS (Software as a Service) sta trasformando il modo in cui si creano le applicazioni e anche il modo in cui queste vengono vendute. Poiché un'applicazione SaaS vive nel cloud, è normale che i potenziali clienti cerchino soluzioni online. Questo cambiamento si applica ai dati come alle applicazioni. Non è quindi strano che gli utenti si rivolgano al cloud per cercare set di dati disponibili per l'acquisto. Entrambi gli aspetti vengono gestiti con [Azure Marketplace](https://azure.microsoft.com/marketplace/).
@@ -536,10 +536,10 @@ SendGrid è un'applicazione di Azure Store che consente di inviare e-mail. Offre
 ## <a name="getting-started"></a>Introduzione
 Dopo avere acquisito una panoramica generale, sarà possibile iniziare a scrivere la prima applicazione Azure. Scegliere la lingua, [scaricare l'SDK appropriato](/downloads/) e installarlo. Il cloud computing è la nuova piattaforma predefinita. Ora è possibile iniziare.
 
-[poster di Servizi multimediali di Azure]: http://azure.microsoft.com/documentation/infographics/media-services/
+[Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

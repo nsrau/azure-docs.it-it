@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8cb91a8cdc6d16070034c79515731be7b820d389
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e3d6caee50a57648f4f775029a2e381cee0f1e72
 
 
 ---
@@ -49,7 +49,7 @@ Una volta definiti i casi di utilizzo, vengono fornite delle linee guida per def
 
 In base al livello di integrazione, una volta pubblicate le applicazioni, come addetti al marketing si sarà in grado di visualizzare dati analitici in tempo reale, segmentare i gruppi di destinatari e iniziare a inviare notifiche push intelligenti per coinvolgere gli utenti finali all'interno o all'esterno dell'app.
 
-### <a name="usecases-to-get-started"></a>Casi di utilizzo per iniziare
+### <a name="use-cases-to-get-started"></a>Casi di utilizzo per iniziare
 1. Strategia di benvenuto: creare varie campagne di notifica push in base al comportamento degli utenti finali durante il lancio dell'applicazione, in modo da riprendere contatto con loro dopo 2, 5, 10 o 15 giorni dalla prima sessione e aumentare la fidelizzazione dopo il primo utilizzo.
 2. Promuovere un nuovo contenuto (funzionalità, articolo/video o prodotto) in base al comportamento dell'utente finale, in modo da inviare le informazioni solo agli utenti finali che con ogni probabilità saranno più interessati.
 3. Valutare l'applicazione: rivolgersi a meno dell'1% della propria base utenti che con maggiore probabilità valuterà l'app con cinque stelle nello store.
@@ -66,13 +66,13 @@ Come si sarà già intuito, la semplice trasmissione di una notifica push non è
 > 
 > 
 
-### <a name="usecases-and-best-practices"></a>Casi di utilizzo e procedure consigliate
+### <a name="use-cases-and-best-practices"></a>Casi di utilizzo e procedure consigliate
 Nelle sezioni seguenti sono illustrati in breve alcuni casi di utilizzo principali rilevati tra i clienti Microsoft.
 
 #### <a name="media"></a>Contenuti multimediali
 Raccogliere dati sui tipi di contenuti che vengono utilizzati dagli utenti finali e quindi segmentare i destinatari in base a tale comportamento per indirizzare un tipo di contenuto specifico solo a quei destinatari che presentano maggiori probabilità di farne uso. Questo consente di evitare lo spamming nell'intera base utenti e garantisce un migliore assorbimento dell'utenza.
 
-#### <a name="mcommerce"></a>M-commerce
+#### <a name="m-commerce"></a>M-commerce
 Raccogliere le categorie di prodotto più visitate all'interno dell'applicazione e selezionare i destinatari tra cui promuovere sconti o nuovi prodotti nelle categorie in cui è più probabile che l'utente finale completi un acquisto. Puntare all'aumento dei ricavi. Anche qui, l'obiettivo è evitare lo spamming.
 
 #### <a name="gaming"></a>Giochi
@@ -134,6 +134,6 @@ Tutti questi tipi di dati possono essere estesi con parametri (*informazioni agg
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

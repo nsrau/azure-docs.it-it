@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a0d44e625d3898f014a9723ff005c00b3aaedcf1
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: 1573ae126f8b76983abe98b37b9ac4072e70d9d0
 
 
 ---
@@ -34,7 +34,7 @@ I notebook in Cortana Intelligence Gallery offrono esercitazioni e spiegazioni d
  Nella pagina **[Jupyter Notebooks](https://gallery.cortanaintelligence.com/notebooks)**
  (Notebook di Jupiter) è disponibile l'elenco dei notebook più visualizzati.
 Fare clic su **See all** (Visualizza tutto) per visualizzare tutti i notebook.
-Da questa pagina è possibile accedere a tutti i notebook presenti in Gallery oppure eseguire ricerche mirate selezionando i criteri di filtro a sinistra della pagina e immettendo i termini di ricerca desiderati nella parte superiore.
+In questa pagina è possibile eseguire la ricerca di tutti i notebook della raccolta. È anche possibile eseguire la ricerca selezionando i criteri di filtro a sinistra della pagina e immettendo i termini di ricerca nella parte superiore.
 
  Fare clic su un notebook qualsiasi per aprirne la pagina dei dettagli e leggere maggiori informazioni su di esso. In questa pagina è disponibile una sezione dedicata ai commenti in cui è possibile inserire un commento, inviare suggerimenti o porre una domanda. Usando le funzionalità di condivisione di LinkedIn o Twitter è anche possibile condividere la pagina con amici o colleghi. È inoltre possibile invitare altri utenti a visualizzare la pagina inviando loro un collegamento al notebook tramite posta elettronica.
 
@@ -75,6 +75,6 @@ Il notebook verrà elencato insieme agli altri notebook di cui già si dispone n
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

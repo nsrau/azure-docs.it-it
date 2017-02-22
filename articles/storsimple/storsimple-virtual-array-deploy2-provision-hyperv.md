@@ -1,10 +1,10 @@
 ---
-title: Distribuire un array virtuale Microsoft Azure StorSimple - Eseguire il provisioning in Hyper-V | Documentazione Microsoft
+title: Eseguire il provisioning di un array virtuale StorSimple in Hyper-V | Documentazione Microsoft
 description: Questa seconda esercitazione sulla distribuzione di array virtuali StorSimple implica il provisioning di un array virtuale in Hyper-V.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 4354963c-e09d-41ac-9c8b-f21abeae9913
 ms.service: storsimple
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/12/2017
+ms.date: 02/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
-ms.openlocfilehash: 9f70fbaeef95edd6740d54be7650f39a17090bc5
+ms.sourcegitcommit: 37f2816cb1fa9c7db43359f16669e6521b0fe46a
+ms.openlocfilehash: d623c4172a654b90d68c6e6e488a2c791abe8647
 
 ---
 # <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-hyper-v"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning di un array virtuale in Hyper-V
@@ -48,7 +48,7 @@ Prima di distribuire un array virtuale, è necessario:
 * Il sistema host è in grado di dedicare le risorse seguenti per eseguire il provisioning dell'array virtuale:
 
   * Un minimo di 4 memorie centrali.
-  * Almeno 8 GB di RAM.
+  * Almeno 8 GB di RAM. Se si prevede di configurare la matrice virtuale come file server, 8 GB supportano poco meno di 2 milioni di file. Sono necessari 16 GB di RAM per supportare 2-4 milioni di file.
   * Un'interfaccia di rete.
   * Un disco virtuale da 500 GB per i dati.
 
@@ -73,7 +73,7 @@ Per creare un array virtuale, è necessario:
 Verificare che l'hardware sottostante (sistema host) in cui si sta creando l'array virtuale sia in grado di dedicare le risorse seguenti all'array virtuale:
 
 * Un minimo di 4 memorie centrali.
-* Almeno 8 GB di RAM.
+* Almeno 8 GB di RAM. Se si prevede di configurare la matrice virtuale come file server, 8 GB supportano poco meno di 2 milioni di file. Sono necessari 16 GB di RAM per supportare 2-4 milioni di file.
 * Un'interfaccia di rete.
 * Un disco virtuale da 500 GB per i dati di sistema.
 
@@ -217,6 +217,6 @@ In presenza di altri errori durante la configurazione iniziale con l'interfaccia
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

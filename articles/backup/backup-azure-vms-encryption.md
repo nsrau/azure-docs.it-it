@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/25/2016
+ms.date: 01/18/2017
 ms.author: markgal; jimpark; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fd65e7acc10b3e750025279820bddbdef5de5498
+ms.sourcegitcommit: 152285bee4631acca7610eb5bd9167ec37296a26
+ms.openlocfilehash: d1ec8112b9fc347d9de5901c4b39a3291701da45
 
 
 ---
@@ -26,7 +26,8 @@ Questo articolo illustra la procedura per eseguire il backup e ripristino di mac
 ## <a name="supported-scenarios"></a>Scenari Supportati
 > [!NOTE]
 > 1. L'operazione di backup e ripristino di macchine virtuali crittografate è supportata solo per le macchine virtuali distribuite da Resource Manager. Non è supportata per le macchine virtuali classiche. <br>
-> 2. Questa operazione è supportata solo per le macchine virtuali crittografate usando entrambe le chiavi di crittografia BitLocker e Key. Non è supportata per le macchine virtuali crittografate usando solo la chiave di crittografia BitLocker. <br>
+> 2. È supportata per le macchine virtuali Windows e Linux che usano Crittografia dischi di Azure, che si basa sulla funzionalità BitLocker di Windows e sulla funzionalità DM-Crypt di Linux standard di settore per offrire la crittografia dei dischi. <br>
+> 3. Questa operazione è supportata solo per le macchine virtuali crittografate usando entrambe le chiavi di crittografia BitLocker e Key. Non è supportata per le macchine virtuali crittografate usando solo la chiave di crittografia BitLocker. <br>
 > 
 > 
 
@@ -80,7 +81,7 @@ Per impostare l'obiettivo del backup, definire i criteri, configurare gli elemen
 Per attivare il processo di backup, usare la procedura illustrata nell'articolo [Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino](backup-azure-arm-vms.md).
 
 ## <a name="restore-encrypted-vm"></a>Ripristinare una macchina virtuale crittografata
-L'esperienza di ripristino è uguale per macchine virtuali crittografate e non crittografate. Per ripristinare una macchina virtuale crittografata, usare la procedura illustrata in [Usare il portale di Azure per ripristinare macchine virtuali](backup-azure-arm-restore-vms.md). In caso ci sia bisogno di ripristinare chiavi e segreti, è necessario assicurarsi che l'insieme di credenziali delle chiavi per il ripristino sia già esistente.
+Per ripristinare la macchina virtuale crittografata, ripristinare prima di tutto i dischi seguendo la procedura illustrata nella sezione **Ripristino dei dischi sottoposti a backup** in [Scelta di una configurazione di ripristino per la macchina virtuale](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration). Seguire quindi la procedura di PowerShell illustrata in [Creare una macchina virtuale da dischi ripristinati](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) per creare una macchina virtuale completa dai dischi ripristinati.
 
 ## <a name="troubleshooting-errors"></a>Risoluzione dei problemi
 | Operazione | Dettagli errore | Risoluzione |
@@ -88,10 +89,11 @@ L'esperienza di ripristino è uguale per macchine virtuali crittografate e non c
 | Backup |Convalida non riuscita perché la macchina virtuale è crittografata con il solo BEK. I backup possono essere abilitati solo per le macchine virtuali crittografate con BEK e KEK. |Le macchine virtuali devono essere crittografate usando BEK e KEK. In seguito, il backup deve essere abilitato. |
 | Ripristino |Non è possibile ripristinare una macchina virtuale crittografata se l'insieme di credenziali delle chiavi associato alla macchina in questione non esiste. |Creare l'insieme di credenziali delle chiavi usando [Introduzione all'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-get-started.md). Se non sono presenti, per ripristinare chiavi e segreti consultare l'articolo [Restore key vault key and secret using Azure Backup](backup-azure-restore-key-secret.md) (Ripristinare chiavi e segreti dell'insieme di credenziali delle chiavi tramite Backup di Azure). |
 | Ripristino |Non è possibile ripristinare una macchina virtuale crittografata se chiavi e segreti associati con la macchina virtuale in questione non esistono. |Se non sono presenti, per ripristinare chiavi e segreti consultare l'articolo [Restore key vault key and secret using Azure Backup](backup-azure-restore-key-secret.md) (Ripristinare chiavi e segreti dell'insieme di credenziali delle chiavi tramite Backup di Azure). |
+| Ripristino |Il servizio Backup non ha l'autorizzazione per accedere alle risorse nella sottoscrizione. |Come indicato in precedenza, ripristinare prima di tutto i dischi seguendo la procedura illustrata nella sezione **Ripristino dei dischi sottoposti a backup** in [Scelta di una configurazione di ripristino per la macchina virtuale](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration). Successivamente usare PowerShell per [creare una macchina virtuale dai dischi ripristinati](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

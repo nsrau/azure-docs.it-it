@@ -13,17 +13,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 1f40d6119d5fefc48c1e12d510423f996239fe14
+ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
+ms.openlocfilehash: dd28e295df7acead773f9076d790e0e96b66adb9
 
 
 ---
 # <a name="availability-and-reliability-of-windows-based-hadoop-clusters-in-hdinsight"></a>Disponibilità e affidabilità di cluster Hadoop basati su Windows in HDInsight
-> [!NOTE]
-> I passaggi descritti in questo documento sono specifici per cluster HDInsight basati su Windows. Se si usa un cluster basato su Linux, vedere [Disponibilità e affidabilità dei cluster Hadoop in HDInsight](hdinsight-high-availability-linux.md) per informazioni specifiche su Linux.
+> [!IMPORTANT]
+> I passaggi descritti in questo documento sono specifici per cluster HDInsight basati su Windows. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Se si usa un cluster basato su Linux, vedere [Disponibilità e affidabilità dei cluster Hadoop in HDInsight](hdinsight-high-availability-linux.md) per informazioni specifiche su Linux.
 >
 >
 
@@ -58,7 +58,7 @@ Per determinare quale nodo head è attivo e verificare lo stato dei servizi in e
 Nella schermata, il nodo head attivo è *headnode0*.
 
 ## <a name="access-log-files-on-the-secondary-head-node"></a>Accedere ai file di log sul nodo head secondario
-Per accedere ai log dei processi sul nodo head secondario nel caso in cui sia diventato il nodo head attivo, è possibile usare l'interfaccia utente di JobTracker esattamente come per il nodo attivo primario. Per accedere a JobTracker è necessario connettersi al cluster Hadoop usando il protocollo RDP, come descritto nella sezione precedente. Dopo aver eseguito l'accesso remoto al cluster, fare doppio clic sull'icona **Hadoop Name Node Status** (Stato Hadoop Name Node) sul desktop e quindi su **NameNode logs** (Log NameNode) per ottenere la directory dei log sul nodo head secondario.
+Per accedere ai log dei processi sul nodo head secondario nel caso in cui sia diventato il nodo head attivo, è possibile usare l'interfaccia utente di JobTracker esattamente come per il nodo attivo primario. Per accedere a JobTracker è necessario connettersi al cluster Hadoop usando il protocollo RDP, come descritto nella sezione precedente. Dopo aver eseguito la connessione al cluster con il protocollo RDP, fare doppio clic sull'icona **Stato Hadoop Name Node** sul desktop e quindi su **Log NameNode** per ottenere la directory dei log sul nodo head secondario.
 
 ![](./media/hdinsight-high-availability/Hadoop.Head.Node.Log.Files.png)
 
@@ -106,6 +106,6 @@ Per l'SDK, la procedura è simile. La creazione e il provisioning di un cluster 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

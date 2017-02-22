@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi | Documentazione Microsoft
+title: 'Connettere Raspberry Pi (C) ad Azure IoT: risolvere i problemi | Documentazione Microsoft'
 description: Pagina sulla risoluzione dei problemi relativi all&quot;esperienza Node.js del dispositivo Raspberry Pi
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: c0ddd7e68accf28ee65ba70ea992acd413da6f5b
-ms.openlocfilehash: 6a617da5135a362a0d6a0670c55242d64b1bdd85
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 2c5e2955584b165ca0ca95ce424a2050fb3f6ccd
 
 
 ---
@@ -121,7 +121,8 @@ Durante l'installazione di pip, viene generato un errore di autorizzazione quand
 Se è stato effettuato il provisioning dell'hub IoT di Azure con l'interfaccia della riga di comando di Azure ed è necessario uno strumento per gestire i dispositivi connessi all'hub IoT, provare gli strumenti seguenti.
 
 ### <a name="device-explorer"></a>Esplora dispositivi
-Lo strumento [Esplora dispositivi](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) viene eseguito nel computer locale di Windows e si connette all'hub IoT in Azure. Comunica con i seguenti [endpoint dell'hub IoT](iot-hub-devguide.md):
+Lo strumento [Esplora dispositivi](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) viene eseguito nel computer locale di Windows e si connette all'hub IoT in Azure. Comunica con i seguenti [endpoint dell'hub IoT](iot-hub-devguide.md):
+
 
 * *Gestione delle identità dispositivo* per il provisioning e la gestione dei dispositivi registrati con l'hub IoT.
 * *Ricezione da dispositivo a cloud* per il monitoraggio dei messaggi inviati dal dispositivo all'hub IoT.
@@ -130,7 +131,7 @@ Lo strumento [Esplora dispositivi](https://github.com/Azure/azure-iot-sdks/blob/
 Configurare la stringa di connessione dell'hub IoT in questo strumento per usarne tutte le funzionalità.
 
 ### <a name="iothub-explorer"></a>iothub-explorer
-[iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) è uno strumento di esempio dell'interfaccia della riga di comando multipiattaforma che consente di gestire i dispositivi. È possibile usare questo strumento per gestire i dispositivi nel registro delle identità, monitorare i messaggi da dispositivo a cloud e inviare messaggi da cloud a dispositivo.
+[iothub-explorer](https://github.com/Azure/iothub-explorer) è uno strumento di esempio dell'interfaccia della riga di comando multipiattaforma che consente di gestire i dispositivi. È possibile usare questo strumento per gestire i dispositivi nel registro delle identità, monitorare i messaggi da dispositivo a cloud e inviare messaggi da cloud a dispositivo.
 
 Per installare la versione più recente, non definitiva, dello strumento iothub-explorer, eseguire questo comando nell'ambiente della riga di comando:
 
@@ -153,6 +154,6 @@ Un'interfaccia della riga di comando completa consente di creare e gestire tutte
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

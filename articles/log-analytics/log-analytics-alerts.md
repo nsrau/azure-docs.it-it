@@ -1,5 +1,5 @@
 ---
-title: Avvisi in Log Analytics | Microsoft Docs
+title: Creazione di avvisi in Log Analytics di OMS | Documentazione Microsoft
 description: Gli avvisi in Log Analytics identificano le informazioni importanti nel repository OMS e possono notificare i problemi all&quot;utente in modo proattivo o richiamare le azioni per tentare di correggerle.  Questo articolo descrive come creare una regola di avviso e include i dettagli relativi alle diverse azioni che possono attivare.
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/09/2016
+ms.date: 01/25/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7f8603c9ddfd3f99ea38ad07b7a8a0a553e5e4dd
+ms.sourcegitcommit: 9fe104a1ea26afa2817aedaa8ed77d042404cda6
+ms.openlocfilehash: 9a62ed7540de05b1db7610e12f2671d33fc8049d
 
 
 ---
@@ -24,6 +24,9 @@ ms.openlocfilehash: 7f8603c9ddfd3f99ea38ad07b7a8a0a553e5e4dd
 Gli avvisi in Log Analytics identificano informazioni importanti nel repository OMS.  Le regole di avviso eseguono automaticamente ricerche nei log in base a una pianificazione e creano un record di avviso se i risultati corrispondano a criteri particolari.  La regola può quindi eseguire automaticamente una o più azioni per notificare l'avviso all'utente in modo proattivo o richiamare un altro processo.   
 
 ![Avvisi Log Analytics](media/log-analytics-alerts/overview.png)
+
+>[!NOTE]
+> Per informazioni sulle regole di avviso di misurazione delle metriche attualmente in anteprima pubblica, vedere [New metric measurement alert rule type in Public Preview!](https://blogs.technet.microsoft.com/msoms/2016/11/22/new-metric-measurement-alert-rule-type-in-public-preview/) (Nuovo tipo di regola di avviso di misurazione delle metriche in anteprima pubblica).
 
 ## <a name="creating-an-alert-rule"></a>Creazione di una regola di avviso
 Per creare una regola di avviso, è necessario creare prima di tutto una ricerca nei log per i record che dovranno richiamare l'avviso.  Il pulsante **Avviso** diventerà disponibile per poter creare e configurare la regola di avviso.
@@ -43,7 +46,7 @@ Per creare una regola di avviso, è necessario creare prima di tutto una ricerca
 | Nome |Nome univoco per identificare la regola di avviso. |
 | Gravità |Gravità dell'avviso creato da questa regola. |
 | Query di ricerca |Selezionare **Usa query di ricerca corrente** per usare la query corrente o selezionare una ricerca salvata dall'elenco.  La sintassi della query è disponibile nella casella di testo dove può essere modificata, se necessario. |
-| Intervallo di tempo |Specifica l'intervallo di tempo per la query.  La query restituisce solo i record creati in questo intervallo dell'ora corrente.  Può essere un valore qualsiasi compreso tra 5 minuti e 24 ore.  Deve essere maggiore o uguale alla frequenza degli avvisi.  <br><br>  Ad esempio, se l'intervallo di tempo è impostato su 60 minuti e la query viene eseguita alle 13.15 , verranno restituiti solo i record creati tra 12.15 e le 13.15. |
+| Intervallo di tempo |Specifica l'intervallo di tempo per la query.  La query restituisce solo i record creati in questo intervallo dell'ora corrente.  Può essere un valore qualsiasi compreso tra 5 minuti e 24 ore.  Deve essere maggiore o uguale alla frequenza degli avvisi.  <br><br> Ad esempio, se l'intervallo di tempo è impostato su 60 minuti e la query viene eseguita alle 13.15 , verranno restituiti solo i record creati tra 12.15 e le 13.15. |
 | **Pianificazione** | |
 | Soglia |Criteri per la creazione di un avviso.  Viene creato un avviso se il numero di record restituiti dalla query corrisponde a questi criteri. |
 | Frequenza di avviso |Specifica la frequenza con cui deve essere eseguita la query.  Può essere un valore qualsiasi compreso tra 5 minuti e 24 ore.  Deve essere uguale o minore dell'intervallo di tempo. |
@@ -60,6 +63,7 @@ Per creare una regola di avviso, è necessario creare prima di tutto una ricerca
 | Selezionare un runbook |Selezionare il runbook da avviare dai runbook disponibili nell'account di automazione configurato nella soluzione di automazione. |
 | Esegui in |Selezionare **Azure** per eseguire il runbook nel cloud di Azure.  Selezionare **Ruolo di lavoro ibrido** per eseguire il runbook su un [ruolo di lavoro ibrido per runbook](../automation/automation-hybrid-runbook-worker.md) nell'ambiente locale. |
 
+
 ## <a name="manage-alert-rules"></a>Gestire le regole di avviso
 È possibile ottenere un elenco di tutte le regole di avviso nel menu **Avvisi** delle **Impostazioni** di Log Analytics.  
 
@@ -74,22 +78,30 @@ Da questa visualizzazione è possibile eseguire più azioni.
 * Modificare una regola di avviso facendo clic sull'icona a forma di matita accanto alla regola.
 * Rimuovere una regola di avviso facendo clic sull'icona a forma di **X** accanto alla regola. 
 
-## <a name="setting-time-windows"></a>Impostazione di intervalli di tempo
+## <a name="setting-time-windows-and-thresholds"></a>Impostazione di intervalli di tempo e soglie
+
+>[!NOTE]
+> Per informazioni sulle regole di avviso di misurazione delle metriche attualmente in anteprima pubblica, vedere [New metric measurement alert rule type in Public Preview!](https://blogs.technet.microsoft.com/msoms/2016/11/22/new-metric-measurement-alert-rule-type-in-public-preview/) (Nuovo tipo di regola di avviso di misurazione delle metriche in anteprima pubblica).
+ 
 ### <a name="event-alerts"></a>Avvisi di eventi
-Gli eventi includono origini dati, ad esempio registri eventi di Windows, Syslog e log personalizzati.  È consigliabile creare un avviso quando viene creato un evento di errore specifico o vengono creati più eventi di errore all'interno di un intervallo di tempo specifico.
+Gli eventi includono origini dati, ad esempio registri eventi di Windows, Syslog e log personalizzati.  È consigliabile creare un avviso quando viene creato un evento di errore specifico o vengono creati più eventi di errore entro un intervallo di tempo specifico.
 
 Per generare un avviso su un singolo evento, impostare un numero di risultati maggiore di 0 e la frequenza e l'intervallo di tempo su 5 minuti.  Queste impostazioni attivano l'esecuzione della query ogni 5 minuti e la ricerca dell'occorrenza di un singolo evento creato dall'ultima esecuzione della query.  Una frequenza maggiore può ritardare il tempo tra l'evento raccolto e la creazione dell'avviso.
 
 Alcune applicazioni possono registrare un errore occasionale che non deve necessariamente generare un avviso.  Ad esempio, l'applicazione può ripetere il processo che ha creato l'evento di errore e riuscire quindi al tentativo al successivo.  In questo caso, non è consigliabile creare l'avviso, a meno che in un intervallo di tempo specifico non vengano creati più eventi.  
 
-In alcuni casi, è possibile creare un avviso in assenza di un evento.  Ad esempio, un processo può registrare eventi regolari per indicare che funziona correttamente.  Se non viene registrato uno di questi eventi in un intervallo di tempo specifico, dovrà essere creato un avviso.  In questo caso è necessario impostare la soglia *Minore di 1*.
+In alcuni casi, è possibile creare un avviso in assenza di un evento.  Ad esempio, un processo può registrare eventi regolari per indicare che funziona correttamente.  Se non viene registrato uno di questi eventi in un intervallo di tempo specifico, dovrà essere creato un avviso.  In questo caso è necessario impostare la soglia su **minore di 1**.
 
 ### <a name="performance-alerts"></a>Avvisi di prestazioni
-[I dati sulle prestazioni](log-analytics-data-sources-performance-counters.md) vengono archiviato come record nel repository OMS in modo analogo agli eventi.  Il valore in ogni record è la media misurata negli ultimi 30 minuti.  Se si vuole generare un avviso quando un contatore delle prestazioni supera una determinata soglia, tale soglia deve essere inclusa nella query.
+[I dati sulle prestazioni](log-analytics-data-sources-performance-counters.md) vengono archiviato come record nel repository OMS in modo analogo agli eventi.  Se si vuole generare un avviso quando un contatore delle prestazioni supera una determinata soglia, tale soglia deve essere inclusa nella query.
 
-Ad esempio, se si vuole generare un avviso quando il processore è in esecuzione oltre il 90% per 30 minuti, usare una query quale *Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90* e impostare la soglia per la regola di avviso *maggiore di 0*.  
+Ad esempio, se si vuole generare un avviso quando il processore è in esecuzione oltre il 90%, usare una query come la seguente con la soglia per la regola di avviso **maggiore di 0**.
 
- Poiché i [record delle prestazioni](log-analytics-data-sources-performance-counters.md) vengono aggregati ogni 30 minuti indipendentemente dalla frequenza di raccolta di ogni contatore, un intervallo di tempo inferiore a 30 minuti potrebbe non restituire alcun record.  L'impostazione dell'intervallo di tempo su 30 minuti assicura di ottenere un singolo record per ogni origine connessa che rappresenta la media in quell'intervallo.
+    Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
+
+Se si vuole generare un avviso quando la media del processore è oltre il 90% per un determinato intervallo di tempo, usare una query con il [comando measure](log-analytics-search-reference.md#commands) come la seguente con la soglia per la regola di avviso **maggiore di 0**. 
+
+    Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
 ## <a name="alert-actions"></a>Azioni di avviso
 Oltre a creare un record di avviso, è possibile configurare la regola di avviso per eseguire automaticamente una o più azioni.  Le azioni possono notificare l'avviso all'utente in modo proattivo o richiamare un processo che prova a risolvere il problema rilevato.  Le sezioni seguenti descrivono le azioni attualmente disponibili.
@@ -212,6 +224,6 @@ Sono disponibili altri tipi di record di avviso creati dalla [soluzione Gestione
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

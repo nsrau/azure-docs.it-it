@@ -12,107 +12,139 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 02/08/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: 237a92713ee8dca72a09550c47519189f2fd23cc
+ms.sourcegitcommit: b9902de45477bb7970da6c8f2234775bdb6edba8
+ms.openlocfilehash: 65f19191bbb736d3b7fbdd94d73f2308ee6dea83
 
 
 ---
-# <a name="performance-levels-and-pricing-tiers-in-documentdb"></a>Livelli di prestazioni e piani tariffari in DocumentDB
-Questo articolo fornisce una panoramica dei livelli di prestazioni in [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
+# <a name="performance-levels-in-documentdb"></a>Livelli di prestazioni in DocumentDB
 
-Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:  
+> [!IMPORTANT] 
+> I livelli di prestazioni S1, S2 e S3 descritti in questo articolo sono in fase di ritiro e non sono più disponibili per le nuove raccolte di DocumentDB.
+>
 
-* Che cos'è un livello di prestazioni?
-* In che modo la velocità effettiva viene riservata per un account di database?
-* Come usare i livelli di prestazioni?
-* Come viene addebitato il costo per i livelli di prestazioni?
+Questo articolo offre una panoramica dei livelli di prestazioni S1, S2 e S3 e descrive come, il 1° agosto 2017, verrà eseguita la migrazione delle raccolte che usano questi livelli di prestazioni a raccolte a partizione singola. Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 
-## <a name="introduction-to-performance-levels"></a>Introduzione ai livelli di prestazioni
-Per ogni raccolta di DocumentDB creata in un account DocumentDB Standard viene effettuato il provisioning con un livello di prestazioni associato. Dato che ogni raccolta in un database può avere un livello di prestazioni diverso, è possibile designare una velocità effettiva maggiore per le raccolte a cui si accede di frequente e una velocità effettiva minore per quelle a cui si accede raramente. 
+- [Perché i livelli di prestazioni S1, S2 e S3 sono in fase di ritiro?](#why-retired)
+- [Che differenze ci sono tra le raccolte a partizione singola e partizionate e i livelli di prestazioni S1, S2 e S3?](#compare)
+- [Cosa bisogna fare per garantire l'accesso ininterrotto ai dati?](#uninterrupted-access)
+- [Dopo la migrazione, come cambierà una raccolta esistente?](#collection-change)
+- [Dopo la migrazione a raccolte a partizione singola, come cambierà la fatturazione?](#billing-change)
+- [Come bisogna comportarsi se sono necessari più di 10 GB di spazio di archiviazione?](#more-storage-needed)
+- [È possibile passare tra i livelli di prestazioni S1, S2 e S3 prima del 1° agosto 2017?](#change-before)
+- [Come è possibile sapere quando sarà stata eseguita la migrazione di una raccolta?](#when-migrated)
+- [Come è possibile seguire autonomamente la migrazione dai livelli di prestazioni S1, S2 e S3 alle raccolte a partizione singola?](#migrate-diy)
+- [Quali sono le conseguenze per i clienti EA?](#ea-customer)
 
-DocumentDB supporta sia livelli di prestazioni **definiti dall'utente** che livelli di prestazioni **predefiniti**, come illustrato nella tabella seguente.  Le prestazioni definite dall'utente supportano una velocità effettiva riservata in unità di 100 UR/sec e spazio di archiviazione illimitato, mentre i tre livelli di prestazioni predefiniti offrono opzioni di velocità effettiva specificate e una quota di archiviazione di 10 GB. La tabella seguente mette a confronto le prestazioni **definite dall'utente** e quelle **predefinite**.
+<a name="why-retired"></a>
 
-|Tipo di prestazioni|Dettagli|Velocità effettiva|Archiviazione|Versione|API|
-|----------------|-------|----------|-------|-------|----|
-|Prestazioni definite dall'utente|L'utente imposta la velocità effettiva in unità di 100 UR/sec|Senza limiti|Senza limiti|V2|API 2015-12-16 e versioni successive|
-|Prestazioni predefinite|10 GB di capacità di archiviazione riservata.<br><br>S1 = 250 UR/sec<br>S2 = 1000 UR/sec<br>S3 = 2500 UR/sec|2500 UR/sec|10 GB|V1|Qualsiasi|
+## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>Perché i livelli di prestazioni S1, S2 e S3 sono in fase di ritiro?
 
-La velocità effettiva è riservata per raccolta ed è usabile esclusivamente dalla raccolta specifica. La velocità effettiva viene misurata in [unità richiesta (UR)](documentdb-request-units.md), che identificano la quantità di risorse necessaria per eseguire diverse operazioni su database DocumentDB.
+I livelli di prestazioni S1, S2 e S3 non offrono la stessa flessibilità delle raccolte a partizione singola di DocumentDB. Con i livelli di prestazioni S1, S2 e S3, la velocità effettiva e la capacità di archiviazione erano preimpostati. DocumentDB ora offre la possibilità di personalizzare questi valori offrendo una flessibilità decisamente superiore per ridimensionare in base alle proprie esigenze.
 
-> [!NOTE]
-> Il livello di prestazioni di una raccolta può essere modificato tramite gli [SDK](documentdb-sdk-dotnet.md) o il [portale di Azure](https://portal.azure.com/). Le modifiche a livello di prestazioni devono essere completate entro 3 minuti.
-> 
-> 
+<a name="compare"></a>
 
-## <a name="setting-performance-levels-for-collections"></a>Impostazione dei livelli di prestazioni per le raccolte
-Una volta creata una raccolta, l'allocazione completa di unità di richiesta in base al livello di prestazioni designato è riservata per la raccolta.
+## <a name="how-do-single-partition-collections-and-partitioned-collections-compare-to-the-s1-s2-s3-performance-levels"></a>Che differenze ci sono tra le raccolte a partizione singola e partizionate e i livelli di prestazioni S1, S2 e S3?
 
-Si noti che, sia con i livelli di prestazioni predefiniti che con quelli definiti dall'utente, DocumentDB opera in base alla velocità effettiva riservata. Quando viene creata una raccolta, l'applicazione prenota una velocità effettiva e viene fatturata per la velocità effettiva riservata, indipendentemente dalla quantità usata effettivamente. Con i livelli di prestazioni definiti dall'utente l'archiviazione viene misurata in base al consumo, mentre con i livelli di prestazioni predefiniti viene riservato uno spazio di archiviazione di 10 GB al momento della creazione della raccolta.  
+Nella tabella seguente vengono confrontate le opzioni di archiviazione e di velocità effettiva disponibili in raccolte a partizione singola, raccolte partizionate e livelli di prestazioni S1, S2 e S3. Di seguito è riportato un esempio per l'area Stati Uniti orientali 2:
 
-Dopo aver creato le raccolte, è possibile modificare il livello di prestazioni e/o la velocità effettiva usando gli [SDK](documentdb-sdk-dotnet.md) o il [portale di Azure](https://portal.azure.com/).
+|   |Raccolta partizionata|Raccolta a partizione singola|S1|S2|S3|
+|---|---|---|---|---|---|
+|Velocità effettiva massima|Illimitato|10.000 UR/sec|250 UR/sec|1000 UR/sec|2500 UR/sec|
+|Velocità effettiva minima|2500 UR/sec|400 UR/sec|250 UR/sec|1000 UR/sec|2500 UR/sec|
+|Spazio di archiviazione massimo|Illimitato|10 GB|10 GB|10 GB|10 GB|
+|Prezzo|Velocità effettiva: $ 6/100 UR/sec<br><br>Spazio di archiviazione: $&0;,25/GB|Velocità effettiva: $ 6/100 UR/sec<br><br>Spazio di archiviazione: $&0;,25/GB|$&25; USD|$&50; USD|$&100; USD|
 
-> [!IMPORTANT]
-> Per le raccolte standard di DocumentDB viene fatturata una tariffa oraria e per ogni raccolta creata verrà fatturata minimo un'ora di utilizzo.
-> 
-> 
+Per i clienti EA, è consigliabile fare riferimento a [Quali sono le conseguenze per i clienti EA?](#ea-customer)
 
-Se si modifica il livello di prestazioni di una raccolta nell'intervallo di un'ora, verrà addebitato il costo per il massimo livello di prestazioni impostato durante quell'ora. Ad esempio, se si aumenta il livello di prestazioni per una raccolta alle ore 8:53, verrà addebitato il costo per il nuovo livello a partire dalle ore 8:00. Analogamente, se si diminuisce il livello di prestazioni alle ore 8:53, la nuova tariffa verrà applicata alle ore 9:00.
+<a name="uninterrupted-access"></a>
 
-Le unità di richiesta vengono riservate per ogni raccolta in base al livello delle prestazioni impostato. L'utilizzo di unità di richiesta viene valutato con una tariffa al secondo. Le applicazioni che superano il livello di unità di richiesta con provisioning (o il livello delle prestazioni) in una raccolta saranno limitate fino al ritorno del livello sotto il valore riservato per tale raccolta. Se l'applicazione necessita di un livello superiore di velocità effettiva, sarà possibile aumentare il livello delle prestazioni per ogni raccolta.
+## <a name="what-do-i-need-to-do-to-ensure-uninterrupted-access-to-my-data"></a>Cosa bisogna fare per garantire l'accesso ininterrotto ai dati?
 
-> [!NOTE]
-> Quando l'applicazione supera i livelli delle prestazioni per una o più raccolte, le richieste saranno limitate in base a ogni raccolta. Ciò significa che alcune richieste di applicazione possono avere esito positivo mentre altre possono essere limitate. In questo caso, è consigliabile aggiungere un numero ridotto di tentativi per gestire i picchi di traffico delle richieste.
-> 
-> 
+Niente, perché DocumentDB gestisce automaticamente la migrazione. Per chi usa una raccolta S1, S2 o S3, il 31 luglio 2017 verrà eseguita la migrazione a una raccolta a partizione singola. 
 
-## <a name="working-with-performance-levels"></a>Utilizzo dei livelli delle prestazioni
-Le raccolte di DocumentDB consentono di raggruppare i dati in base ai modelli di query e alle esigenze in termini di prestazioni dell'applicazione. Con l'indicizzazione automatica e il supporto delle query di DocumentDB, è molto comune collocare documenti eterogenei all'interno della stessa raccolta. Le considerazioni principali nello stabilire se è necessario usare raccolte separate per i dati includono:
+<a name="collection-change"></a>
 
-* Query: una raccolta è l'ambito per l'esecuzione di query. Se è necessario eseguire una query in un set di documenti, i modelli di lettura più efficienti derivano dall'inserimento dei documenti in un'unica raccolta.
-* Transazioni: tutte le transazioni sono limitate a una singola raccolta. Se sono presenti documenti da aggiornare in un singolo trigger o una stored procedure, devono essere archiviati nella stessa raccolta. In particolare, una chiave di partizione in una raccolta rappresenta il limite della transazione. Per altre informazioni, vedere l'articolo relativo al [partizionamento in DocumentDB](documentdb-partition-data.md) .
-* Isolamento delle prestazioni: a ogni raccolta è associato un livello delle prestazioni. Ciò garantisce che ogni raccolta offra prestazioni prevedibili tramite unità di richiesta riservate. È possibile allocare dati in più raccolte, con diversi livelli di prestazioni, in base alla frequenza di accesso.
+## <a name="how-will-my-collection-change-after-the-migration"></a>Dopo la migrazione, come cambierà una raccolta esistente?
 
-> [!IMPORTANT]
-> È importante comprendere che la fatturazione avverrà alle tariffe standard complete in base al numero di raccolte create all'interno dell'applicazione.
-> 
-> 
+Se si dispone di una raccolta S1, verrà eseguita la migrazione a una raccolta a partizione singola con una velocità effettiva di 400 UR/sec, cioè la velocità effettiva minima disponibile per le raccolte a partizione singola. Tuttavia, il costo di 400 UR/sec in una raccolta a partizione singola corrisponde approssimativamente a quello di 250 UR/sec pagato in una raccolta S1, per cui i 150 UR/sec aggiuntivi sono praticamente gratuiti.
 
-È consigliabile che l'applicazione usi un numero ridotto di raccolte, a meno che non si dispone di requisiti di archiviazione o throughput elevati. Assicurarsi di avere ben compreso i modelli di applicazione per la creazione di nuove raccolte. È possibile scegliere di riservare la creazione della raccolta come un'azione di gestione gestita all'esterno dell'applicazione. Analogamente, la regolazione del livello delle prestazioni per una raccolta cambierà la tariffa oraria con la quale la raccolta viene fatturata. Se l'applicazione consente di regolarli in modo dinamico, è opportuno monitorare i livelli delle prestazioni della raccolta.
+Se si dispone di una raccolta S2, verrà eseguita la migrazione a una raccolta a partizione singola con una velocità effettiva di 1000 UR/sec. Non sarà percepita nessuna modifica al livello di velocità effettiva.
 
-## <a name="a-idchanging-performance-levels-using-the-azure-portalachange-from-s1-s2-s3-to-user-defined-performance"></a><a id="changing-performance-levels-using-the-azure-portal"></a>Passare dal livello S1, S2, S3 alle prestazioni definite dall'utente
-Seguire questa procedura per passare da livelli di velocità effettiva predefiniti a livelli di velocità effettiva definiti dall'utente nel portale di Azure. L'uso di livelli di velocità effettiva definiti dall'utente permette di personalizzare la velocità effettiva in base alle esigenze. Se si usa un account S1, con pochi clic è possibile aumentare la velocità effettiva predefinita da 250 UR/sec a 400 UR/sec. Si noti che dopo lo spostamento di una raccolta da S1, S2 o S3 al livello Standard (definito dall'utente), non è possibile tornare a S1, S2 o S3. La velocità effettiva di una raccolta Standard può tuttavia essere modificata in qualsiasi momento.
+Se si dispone di una raccolta S3, verrà eseguita la migrazione a una raccolta a partizione singola con una velocità effettiva di 2500 UR/sec. Non sarà percepita nessuna modifica al livello di velocità effettiva.
 
-Per altre informazioni sulle modifiche ai prezzi della velocità effettiva definita dall'utente e predefinita, vedere il post del blog [DocumentDB: Everything you need to know about using the new pricing options](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/)(DocumentDB: tutto quello che occorre sapere sull'uso delle nuove opzioni relative ai prezzi).
+In ognuno di questi casi dopo la migrazione della raccolta sarà possibile personalizzare il livello di velocità effettiva o aumentarla e ridurla in base alle proprie esigenze, per offrire agli utenti un accesso a bassa latenza. Per modificare il livello di velocità effettiva dopo la migrazione della raccolta, è sufficiente aprire il proprio account DocumentDB nel Portale di Azure, fare clic su Scale (Ridimensiona), scegliere la raccolta e modificare il livello di velocità effettiva, come illustrato nella schermata seguente:
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureDocumentDB/ChangeDocumentDBCollectionPerformance/player]
-> 
-> 
+![Come ridimensionare la velocità effettiva nel Portale di Azure](./media/documentdb-performance-levels/azure-documentdb-portal-scale-throughput.png)
+
+<a name="billing-change"></a>
+
+## <a name="how-will-my-billing-change-after-im-migrated-to-the-single-partition-collections"></a>Dopo la migrazione alle raccolte a partizione singola, come cambierà la fatturazione?
+
+Si supponga di avere a disposizione 10 raccolte S1, ciascuna con 1 GB di spazio di archiviazione, nell'area degli Stati Uniti orientali e di eseguire la migrazione di queste raccolte a 10 raccolte a partizione singola con 400 UR/sec (livello minimo). Se si mantengono le 10 raccolte a partizione singola per un mese intero, la fattura sarà simile a questa:
+
+![Differenza tra i prezzi di 10 raccolte S1 e quelli di 10 raccolte a partizione singola](./media/documentdb-performance-levels/documentdb-s1-vs-standard-pricing.png)
+
+<a name="more-storage-needed"></a>
+
+## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>Come bisogna comportarsi se sono necessari più di 10 GB di spazio di archiviazione?
+
+Se si usa una raccolta con un livello di prestazioni S1, S2 o S3 o una raccolta a partizione singola, ognuna delle quali dispone di 10 GB di spazio di archiviazione, è possibile usare l'Utilità di migrazione dati di DocumentDB per eseguire la migrazione dei dati a una raccolta partizionata con spazio di archiviazione virtualmente illimitato. Per altre informazioni sui vantaggi di una raccolta partizionata vedere [Partizionamento e scalabilità in Azure DocumentDB](documentdb-partition-data.md). Per informazioni su come eseguire la migrazione di una raccolta S1, S2, S3 o di una raccolta a partizione singola a una raccolta partizionata vedere [Migrazione da raccolte a partizione singola a raccolte partizionate](documentdb-partition-data.md#migrating-from-single-partition). 
+
+<a name="change-before"></a>
+
+## <a name="can-i-change-between-the-s1-s2-and-s3-performance-levels-before-august-1-2017"></a>È possibile passare tra i livelli di prestazioni S1, S2 e S3 prima del 1° agosto 2017?
+
+Solo gli account già esistenti con livelli di prestazioni S1, S2 e S3 potranno cambiare livelli tramite il portale o a livello di programmazione. Dal 1° agosto 2017 i livelli di prestazioni S1, S2 e S3 non saranno più disponibili. Se si passa da S1, S3 o S3 a una raccolta a partizione singola non è possibile tornare ai livelli di prestazioni S1, S2 o S3.
+
+<a name="when-migrated"></a>
+
+## <a name="how-will-i-know-when-my-collection-has-migrated"></a>Come è possibile sapere quando sarà stata eseguita la migrazione di una raccolta?
+
+La migrazione verrà eseguita il 31 luglio 2017. Se si dispone di una raccolta che usa i livelli di prestazioni S1, S2 o S3, il team di DocumentDB contatterà l'utente tramite email prima che venga eseguita la migrazione. Al termine della migrazione, il 1° agosto 2017, sul Portale di Azure verrà mostrato che la raccolta usa il piano tariffario Standard.
+
+![Come verificare che è stata eseguita la migrazione della raccolta al piano tariffario Standard](./media/documentdb-performance-levels/documentdb-portal-standard-pricing-applied.png)
+
+<a name="migrate-diy"></a>
+
+## <a name="how-do-i-migrate-from-the-s1-s2-s3-performance-levels-to-single-partition-collections-on-my-own"></a>Come è possibile eseguire autonomamente la migrazione dai livelli di prestazioni S1, S2, S3 a raccolte a partizione singola?
+
+È possibile eseguire la migrazione dai livelli di prestazioni S1, S2 e S3 a raccolte a partizione singola tramite il Portale di Azure o a livello di programmazione. È possibile farlo autonomamente prima del 1° agosto per poter beneficiare delle opzioni di flessibilità della velocità effettiva disponibili con le raccolte a partizione singola; in alternativa la migrazione verrà eseguita da Microsoft il 31 luglio 2017.
+
+**Per eseguire la migrazione delle raccolte a partizione singola tramite il Portale di Azure**
 
 1. Nel [**portale di Azure**](https://portal.azure.com) fare clic su **NoSQL (DocumentDB)** e quindi selezionare l'account DocumentDB da modificare. 
  
     Se la voce **NoSQL (DocumentDB)** non è inclusa nell'indice, fare clic su >, scorrere fino a **Database** e selezionare **NoSQL (DocumentDB)**e quindi l'account DocumentDB.  
 
-2. Nel menu delle risorse fare clic su **Piano** in **Raccolte**, selezionare la raccolta da modificare nell'elenco a discesa e quindi fare clic su **Piano tariffario**. Gli account che usano la velocità effettiva predefinita hanno un piano tariffario S1, S2 o S3.  Nel pannello **Scegliere il piano tariffario** fare clic su **Standard** per modificare la velocità effettiva definita dall'utente e quindi su **Seleziona** per salvare la modifica.
+2. Nel menu delle risorse fare clic su **Scale** (Ridimensiona) in **Raccolte**, scegliere la raccolta da modificare dall'elenco a discesa e quindi fare clic su **Piano tariffario**. Gli account che usano la velocità effettiva predefinita hanno un piano tariffario S1, S2 o S3.  Nel pannello **Scegliere il piano tariffario** fare clic su **Standard** per modificare la velocità effettiva definita dall'utente e quindi su **Seleziona** per salvare la modifica.
 
     ![Screenshot del pannello Impostazioni che mostra dove modificare il valore della velocità effettiva](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
 
-3. Nel pannello **Piano** il **piano tariffario** è impostato su **Standard** e nella casella **Velocità effettiva (UR/sec)** viene visualizzato un valore predefinito di 400. Impostare la velocità effettiva tra 400 e 10.000 [unità richiesta](documentdb-request-units.md)al secondo (UR/sec). Il contenuto di **Fattura mensile stimata** nella parte inferiore della pagina viene aggiornato automaticamente per fornire una stima del costo mensile. Fare clic su **Salva** per salvare le modifiche.
+3. Nel pannello **Piano** il **piano tariffario** è impostato su **Standard** e nella casella **Velocità effettiva (UR/sec)** viene visualizzato un valore predefinito di 400. Impostare la velocità effettiva tra 400 e 10.000 [unità richiesta](documentdb-request-units.md)al secondo (UR/sec). Il contenuto di **Fattura mensile stimata** nella parte inferiore della pagina viene aggiornato automaticamente per fornire una stima del costo mensile. 
 
-    Se è necessaria una velocità effettiva maggiore di 10.000 UR/sec o uno spazio di archiviazione maggiore di 10 GB è possibile creare una raccolta partizionata. Per creare una raccolta partizionata, vedere [Come creare una raccolta DocumentDB usando il portale di Azure](documentdb-create-collection.md).
+    >[!IMPORTANT] 
+    > Dopo aver salvato le modifiche ed essere passati al piano tariffario Standard, non è possibile tornare ai livelli di prestazioni S1, S2 o S3.
 
-> [!NOTE]
-> La modifica dei livelli di prestazioni di una raccolta può richiedere fino a 2 minuti.
-> 
-> 
+4. Fare clic su **Salva** per salvare le modifiche.
 
-## <a name="changing-performance-levels-using-the-net-sdk"></a>Modifica dei livelli di prestazioni tramite il SDK di .NET
-Un'altra opzione per la modifica dei livelli di prestazioni degli insiemi è tramite SDK. Questa sezione illustra solo la modifica del livello di prestazioni di una raccolta con l'[SDK .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), ma il processo per gli altri [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) è simile. Se non si conosce il SDK di .NET, visitare la nostra [esercitazione introduttiva](documentdb-get-started.md).
+    Se è necessaria una velocità effettiva maggiore di 10.000 UR/sec o uno spazio di archiviazione maggiore di 10 GB è possibile creare una raccolta partizionata. Per eseguire la migrazione di una raccolta a partizione singola a una raccolta partizionata vedere [Migrazione da raccolte a partizione singola a raccolte partizionate](documentdb-partition-data.md#migrating-from-single-partition).
 
-Di seguito è riportato un frammento di codice per la modifica della velocità effettiva dell'offerta a 50.000 unità richiesta al secondo:
+    > [!NOTE]
+    > Il passaggio dai livelli S1, S2 o S3 al livello Standard può richiedere fino a 2 minuti.
+    > 
+    > 
 
+**Per eseguire la migrazione alle raccolte a partizione singola tramite .NET SDK**
+
+Un'altra opzione per la modifica dei livelli di prestazioni degli insiemi è tramite SDK. Questa sezione illustra solo la modifica del livello di prestazioni di una raccolta con l'[SDK .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), ma il processo per gli altri [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) è simile. Se non si conosce .NET SDK, fare riferimento all'[esercitazione introduttiva](documentdb-get-started.md).
+
+Di seguito è riportato un frammento di codice per modificare la velocità effettiva della raccolta a 5000 unità richiesta al secondo:
+    
+```C#
     //Fetch the resource to be updated
     Offer offer = client.CreateOfferQuery()
                       .Where(r => r.ResourceLink == collection.SelfLink)    
@@ -124,20 +156,7 @@ Di seguito è riportato un frammento di codice per la modifica della velocità e
 
     //Now persist these changes to the database by replacing the original resource
     await client.ReplaceOfferAsync(offer);
-
-    // Set the throughput to S2
-    offer = new Offer(offer);
-    offer.OfferType = "S2";
-
-    //Now persist these changes to the database by replacing the original resource
-    await client.ReplaceOfferAsync(offer);
-
-
-
-> [!NOTE]
-> Per le raccolte con provisioning di meno di 10.000 unità richiesta al secondo, è possibile eseguire la migrazione tra le offerte con velocità effettiva definita dall'utente e velocità effettiva predefinita (S1, S2, S3) in qualsiasi momento. Le raccolte con provisioning di oltre 10.000 unità richiesta al secondo non possono essere convertite in livelli di velocità effettiva predefiniti.
-> 
-> 
+```
 
 Visitare [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) per visualizzare ulteriori esempi e ulteriori informazioni sui metodi della nostra offerta:
 
@@ -146,42 +165,21 @@ Visitare [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documen
 * [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
 * [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
 
-## <a name="a-idchange-throughputachanging-the-throughput-of-a-collection"></a><a id="change-throughput"></a>Modifica della velocità effettiva di una raccolta
-Se si usano già prestazioni definite dall'utente, è possibile modificare la velocità effettiva della raccolta eseguendo le operazioni seguenti. Se è necessario passare da un livello di prestazioni S1, S2 o S3 (prestazioni predefinite) a prestazioni definite dall'utente, vedere [Passare dal livello S1, S2, S3 alle prestazioni definite dall'utente](#changing-performance-levels-using-the-azure-portal).
+<a name="ea-customer"></a>
 
-1. Nel [**portale di Azure**](https://portal.azure.com) fare clic su **NoSQL (DocumentDB)** e quindi selezionare l'account DocumentDB da modificare.    
-2. Nel menu delle risorse fare clic su **Piano** in **Raccolte** e selezionare la raccolta da modificare nell'elenco a discesa.
-3. Nella casella **Velocità effettiva (UR/sec)** digitare il nuovo livello di velocità effettiva. 
-   
-    Il contenuto di **Fattura mensile stimata** nella parte inferiore della pagina viene aggiornato automaticamente per fornire una stima del costo mensile. Fare clic su **Salva** per salvare le modifiche.
+## <a name="how-am-i-impacted-if-im-an-ea-customer"></a>Quali sono le conseguenze per i clienti EA?
 
-    Se non si è certi dell'aumento della velocità effettiva necessario, vedere [Stima delle esigenze di velocità effettiva](documentdb-request-units.md#estimating-throughput-needs) e il [calcolatore di unità richiesta](https://www.documentdb.com/capacityplanner).
-
-## <a name="troubleshooting"></a>Risoluzione dei problemi
-
-Se nel pannello **Scegliere il piano tariffario** non è presente l'opzione per passare ai livelli di prestazioni S1, S2 o S3, fare clic su **Visualizza tutto** per visualizzare i livelli di prestazioni Standard, S1, S2 e S3. Se si usa il piano tariffario Standard, non è possibile passare a S1, S2 e S3.
-
-![Screenshot del pannello Scegliere il piano tariffario con opzione Visualizza tutto evidenziata](./media/documentdb-performance-levels/azure-documentdb-database-view-all-performance-levels.png)
-
-Dopo lo spostamento di una raccolta da S1, S2 o S3 a Standard, non è possibile tornare a S1, S2 o S3.
+Il prezzo resterà bloccato per i clienti EA fino alla scadenza del contratto in vigore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sui prezzi e sulla gestione dei dati con Azure DocumentDB, esplorare queste risorse:
 
-* [Prezzi di DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/)
-* [Modellazione dei dati in DocumentDB](documentdb-modeling-data.md)
-* [Partizionamento dei dati in DocumentDB](documentdb-partition-data.md)
-* [Unità richiesta](http://go.microsoft.com/fwlink/?LinkId=735027)
-
-Per altre informazioni su DocumentDB, vedere la [documentazione](https://azure.microsoft.com/documentation/services/documentdb/)relativa ad Azure DocumentDB.
-
-Per informazioni sulle attività iniziali relative al test delle prestazioni e della scalabilità con DocumentDB, vedere [Test delle prestazioni e della scalabilità con Azure DocumentDB](documentdb-performance-testing.md).
-
-[1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
-[2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
+1.  [Partizionamento dei dati in DocumentDB](documentdb-partition-data.md). Spiegazione della differenza tra le raccolte a partizione singola e le raccolte partizionate e suggerimenti su come implementare una strategia di partizionamento per un perfetto ridimensionamento.
+2.  [Prezzi di DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Informazioni sui costi del provisioning della velocità effettiva e del consumo di spazio di archiviazione.
+3.  [Unità richiesta](documentdb-request-units.md). Analisi del consumo di velocità effettiva per i diversi tipi di operazione, ad esempio lettura, scrittura, query.
+4.  [Modellazione dei dati in DocumentDB](documentdb-modeling-data.md). Informazioni sulla modellazione dei dati per DocumentDB.
 
 
-
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

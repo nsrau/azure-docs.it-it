@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 03112e4bde1e5f986102083fc0e16cd51fc47504
-ms.openlocfilehash: 83a80fe794000387173575e84879789ff1a057b7
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: a526610f5b09ce73a9c192ec45ae8aafab001401
 
 
 ---
 # <a name="media-encoder-standard-schema"></a>Schema di Media Encoder Standard
-In questo argomento vengono descritti alcuni elementi e tipi di schema XML su cui si basa il [set di impostazioni di Media Encoder Standard](https://msdn.microsoft.com/library/azure/mt269960.aspx). L'argomento spiega gli elementi e i valori possibili per ognuno. Lo schema completo verrà pubblicato in un secondo momento.  
+In questo argomento vengono descritti alcuni elementi e tipi di schema XML su cui si basa il [set di impostazioni di Media Encoder Standard](media-services-mes-presets-overview.md). L'argomento spiega gli elementi e i valori possibili per ognuno. Lo schema completo verrà pubblicato in un secondo momento.  
 
 ## <a name="a-namepreseta-preset-root-element"></a><a name="Preset"></a> Set di impostazioni (elemento radice)
 Definisce un set di impostazioni per la codifica.  
@@ -35,7 +35,7 @@ Definisce un set di impostazioni per la codifica.
 ### <a name="attributes"></a>Attributi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **Versione**<br /><br /> Obbligatorio |**xs: decimal** |Versione predefinita. Valgono le limitazioni seguenti: xs:fractionDigits value="1" e xs:minInclusive value="1" Ad esempio, **version="1.0"**. |
+| **Versione**<br/><br/> Obbligatorio |**xs: decimal** |Versione predefinita. Valgono le limitazioni seguenti: xs:fractionDigits value="1" e xs:minInclusive value="1" Ad esempio, **version="1.0"**. |
 
 ## <a name="a-nameencodinga-encoding"></a><a name="Encoding"></a> Encoding
 Contiene una sequenza degli elementi seguenti.  
@@ -53,18 +53,18 @@ Contiene una sequenza degli elementi seguenti.
 ### <a name="elements"></a>Elementi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **TwoPass**<br /><br /> minOccurs="0" |**xs:boolean** |Al momento è supportata solo la codifica in un passaggio. |
-| **KeyFrameInterval**<br /><br /> minOccurs="0"<br /><br /> **default="00:00:02"** |**xs:time** |Determina la spaziatura (valore predefinito) tra i frame IDR. |
-| **SceneChangeDetection**<br /><br /> minOccurs="0"<br /><br /> default="false" |**xs:boolean** |Se impostato su true, il codificatore tenta di rilevare i cambi scena nel video e inserisce un frame IDR. |
-| **Complexity**<br /><br /> minOccurs="0"<br /><br /> default="Balanced" |**xs:string** |Consente di controllare il compromesso tra qualità video e velocità di codifica. Può corrispondere a uno dei valori seguenti: **Speed**, **Balanced** o **Quality**.<br /><br /> Valore predefinito: **Balanced** |
-| **SyncMode**<br /><br /> minOccurs="0" | |La funzionalità sarà disponibile in una delle prossime versioni. |
-| **H264Layers**<br /><br /> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Raccolta di livelli video di output. |
+| **TwoPass**<br/><br/> minOccurs="0" |**xs:boolean** |Al momento è supportata solo la codifica in un passaggio. |
+| **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |Determina la spaziatura (valore predefinito) tra i frame IDR. |
+| **SceneChangeDetection**<br/><br/> minOccurs="0"<br/><br/> default="false" |**xs:boolean** |Se impostato su true, il codificatore tenta di rilevare i cambi scena nel video e inserisce un frame IDR. |
+| **Complexity**<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |Consente di controllare il compromesso tra qualità video e velocità di codifica. Può corrispondere a uno dei valori seguenti: **Speed**, **Balanced** o **Quality**.<br/><br/> Valore predefinito: **Balanced** |
+| **SyncMode**<br/><br/> minOccurs="0" | |La funzionalità sarà disponibile in una delle prossime versioni. |
+| **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Raccolta di livelli video di output. |
 
 ## <a name="a-nameh264layersa-h264layers"></a><a name="H264Layers"></a> H264Layers
 ### <a name="elements"></a>Elementi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **H264Layer**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[H264Layer](media-services-mes-schema.md#H264Layer) |Raccolta di livelli H264. |
+| **H264Layer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[H264Layer](media-services-mes-schema.md#H264Layer) |Raccolta di livelli H264. |
 
 ## <a name="a-nameh264layera-h264layer"></a><a name="H264Layer"></a> H264Layer
 > [!NOTE]
@@ -75,19 +75,19 @@ Contiene una sequenza degli elementi seguenti.
 ### <a name="elements"></a>Elementi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **Profilo**<br /><br /> minOccurs="0"<br /><br /> default="Auto" |**xs:string** |Può corrispondere a uno dei valori seguenti **xs:string**: **Auto**, **Baseline**, **Main**, **High**. |
-| **Level**<br /><br /> minOccurs="0"<br /><br /> default="Auto" |**xs:string** | |
-| **Bitrate**<br /><br /> minOccurs="0" |**xs:int** |La velocità in bit usata per questo livello video, espressa in kbps. |
-| **MaxBitrate**<br /><br /> minOccurs="0" |**xs:int** |La velocità in bit massima usata per questo livello video, espressa in kbps. |
-| **BufferWindow**<br /><br /> minOccurs="0"<br /><br /> default="00:00:05" |**xs:time** |Lunghezza del buffer video. |
-| **Width**<br /><br /> minOccurs="0" |**xs:int** |Larghezza del frame video di output, espressa in pixel.<br /><br /> Al momento è necessario specificare entrambi i valori di larghezza e altezza, che devono essere numeri pari. |
-| **Height**<br /><br /> minOccurs="0" |**xs:int** |Altezza del frame video di output, espressa in pixel.<br /><br /> Al momento è necessario specificare entrambi i valori di larghezza e altezza, che devono essere numeri pari.|
-| **BFrames**<br /><br /> minOccurs="0" |**xs:int** |Numero di fotogrammi B tra frame di riferimento. |
-| **ReferenceFrames**<br /><br /> minOccurs="0"<br /><br /> default=”3” |**xs:int** |Numero di frame di riferimento in un GOP. |
-| **EntropyMode**<br /><br /> minOccurs="0"<br /><br /> default="Cabac" |**xs:string** |Può corrispondere a uno dei valori seguenti: **Cabac** e **Cavlc**. |
-| **FrameRate**<br /><br /> minOccurs="0" |numero razionale |Determina la frequenza dei fotogrammi del video di output. Usare il valore predefinito "0/1" per consentire al codificatore di usare la stessa frequenza dei fotogrammi del video di input. I valori consentiti sono in genere le normali frequenze di fotogrammi video, come illustrato di seguito. Tuttavia, è consentito qualunque numero razionale. Ad esempio 1/1 corrisponderebbe a 1 fps e sarebbe valido.<br /><br /> - 12/1 (12 fps)<br /><br /> - 15/1 (15 fps)<br /><br /> - 24/1 (24 fps)<br /><br /> - 24.000/1.001 (23,976 fps)<br /><br /> - 25/1 (25 fps)<br /><br /> - 30/1 (30 fps)<br /><br /> - 30.000/1.001 (29,97 fps) |
-| **AdaptiveBFrame**<br /><br /> minOccurs="0" |**xs:boolean** |Copiare da Azure Media Encoder |
-| **Slices**<br /><br /> minOccurs="0"<br /><br /> default="0" |**xs:int** |Stabilisce il numero di sezioni in cui è suddiviso un frame. È consigliabile usare il valore predefinito. |
+| **Profilo**<br/><br/> minOccurs="0"<br/><br/> default="Auto" |**xs:string** |Può corrispondere a uno dei valori seguenti **xs:string**: **Auto**, **Baseline**, **Main**, **High**. |
+| **Level**<br/><br/> minOccurs="0"<br/><br/> default="Auto" |**xs:string** | |
+| **Bitrate**<br/><br/> minOccurs="0" |**xs:int** |La velocità in bit usata per questo livello video, espressa in kbps. |
+| **MaxBitrate**<br/><br/> minOccurs="0" |**xs:int** |La velocità in bit massima usata per questo livello video, espressa in kbps. |
+| **BufferWindow**<br/><br/> minOccurs="0"<br/><br/> default="00:00:05" |**xs:time** |Lunghezza del buffer video. |
+| **Width**<br/><br/> minOccurs="0" |**xs:int** |Larghezza del frame video di output, espressa in pixel.<br/><br/> Al momento è necessario specificare entrambi i valori di larghezza e altezza, che devono essere numeri pari. |
+| **Height**<br/><br/> minOccurs="0" |**xs:int** |Altezza del frame video di output, espressa in pixel.<br/><br/> Al momento è necessario specificare entrambi i valori di larghezza e altezza, che devono essere numeri pari.|
+| **BFrames**<br/><br/> minOccurs="0" |**xs:int** |Numero di fotogrammi B tra frame di riferimento. |
+| **ReferenceFrames**<br/><br/> minOccurs="0"<br/><br/> default=”3” |**xs:int** |Numero di frame di riferimento in un GOP. |
+| **EntropyMode**<br/><br/> minOccurs="0"<br/><br/> default="Cabac" |**xs:string** |Può corrispondere a uno dei valori seguenti: **Cabac** e **Cavlc**. |
+| **FrameRate**<br/><br/> minOccurs="0" |numero razionale |Determina la frequenza dei fotogrammi del video di output. Usare il valore predefinito "0/1" per consentire al codificatore di usare la stessa frequenza dei fotogrammi del video di input. I valori consentiti sono in genere le normali frequenze di fotogrammi video, come illustrato di seguito. Tuttavia, è consentito qualunque numero razionale. Ad esempio 1/1 corrisponderebbe a 1 fps e sarebbe valido.<br/><br/> - 12/1 (12 fps)<br/><br/> - 15/1 (15 fps)<br/><br/> - 24/1 (24 fps)<br/><br/> - 24.000/1.001 (23,976 fps)<br/><br/> - 25/1 (25 fps)<br/><br/>  - 30/1 (30 fps)<br/><br/> - 30.000/1.001 (29,97 fps) |
+| **AdaptiveBFrame**<br/><br/> minOccurs="0" |**xs:boolean** |Copiare da Azure Media Encoder |
+| **Slices**<br/><br/> minOccurs="0"<br/><br/> default="0" |**xs:int** |Stabilisce il numero di sezioni in cui è suddiviso un frame. È consigliabile usare il valore predefinito. |
 
 ## <a name="a-nameaacaudioa-aacaudio"></a><a name="AACAudio"></a> AACAudio
  Contiene una sequenza degli elementi e dei gruppi seguenti.  
@@ -97,17 +97,17 @@ Contiene una sequenza degli elementi seguenti.
 ### <a name="elements"></a>Elementi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **Profilo**<br /><br /> minOccurs="0 "<br /><br /> default="AACLC" |**xs:string** |Può corrispondere a uno dei valori seguenti: **AACLC**, **HEAACV1**, or **HEAACV2**. |
+| **Profilo**<br/><br/> minOccurs="0 "<br/><br/> default="AACLC" |**xs:string** |Può corrispondere a uno dei valori seguenti: **AACLC**, **HEAACV1**, or **HEAACV2**. |
 
 ### <a name="attributes"></a>Attributi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **Condition** |**xs:string** |Per forzare la generazione di un asset contenente una traccia audio silenziosa da parte del codificatore quando l'input è privo di audio, specificare il valore "InsertSilenceIfNoAudio".<br /><br /> Per impostazione predefinita, se si invia al codificatore un input che contiene solo video e nessun audio, l'asset di output contiene file di soli dati video. Alcuni lettori non possono gestire flussi di output di questo tipo. In tal caso, è possibile usare questa impostazione per forzare l'aggiunta di una traccia audio silenziosa all'output da parte del codificatore. |
+| **Condition** |**xs:string** |Per forzare la generazione di un asset contenente una traccia audio silenziosa da parte del codificatore quando l'input è privo di audio, specificare il valore "InsertSilenceIfNoAudio".<br/><br/> Per impostazione predefinita, se si invia al codificatore un input che contiene solo video e nessun audio, l'asset di output contiene file di soli dati video. Alcuni lettori non possono gestire flussi di output di questo tipo. In tal caso, è possibile usare questa impostazione per forzare l'aggiunta di una traccia audio silenziosa all'output da parte del codificatore. |
 
 ### <a name="groups"></a>Gruppi
 | riferimento | Descrizione |
 | --- | --- |
-| [AudioGroup](media-services-mes-schema.md#AudioGroup)<br /><br /> minOccurs="0" |Vedere la descrizione di [AudioGroup](media-services-mes-schema.md#AudioGroup) per conoscere il numero di canali, la frequenza di campionamento e la velocità in bit appropriati che è possibile impostare per ogni profilo. |
+| [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |Vedere la descrizione di [AudioGroup](media-services-mes-schema.md#AudioGroup) per conoscere il numero di canali, la frequenza di campionamento e la velocità in bit appropriati che è possibile impostare per ogni profilo. |
 
 ## <a name="a-nameaudiogroupa-audiogroup"></a><a name="AudioGroup"></a> AudioGroup
 Per altre informazioni sui valori validi per ogni profilo, vedere la tabella "Dettagli sui codec audio" qui di seguito.  
@@ -115,16 +115,17 @@ Per altre informazioni sui valori validi per ogni profilo, vedere la tabella "De
 ### <a name="elements"></a>Elementi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **Channels**<br /><br /> minOccurs="0" |**xs:int** |Numero dei canali audio codificati. Le opzioni valide sono: 1, 2, 5, 6, 8.<br /><br /> Valore predefinito: 2. |
-| **SamplingRate**<br /><br /> minOccurs="0" |**xs:int** |Frequenza di campionamento audio, espressa in Hz. |
-| **Bitrate**<br /><br /> minOccurs="0" |**xs:int** |Velocità in bit usata per la codifica audio, specificata in kbps. |
+| **Channels**<br/><br/> minOccurs="0" |**xs:int** |Numero dei canali audio codificati. Le opzioni valide sono: 1, 2, 5, 6, 8.<br/><br/> Valore predefinito: 2. |
+| **SamplingRate**<br/><br/> minOccurs="0" |**xs:int** |Frequenza di campionamento audio, espressa in Hz. |
+| **Bitrate**<br/><br/> minOccurs="0" |**xs:int** |Velocità in bit usata per la codifica audio, specificata in kbps. |
 
 ### <a name="audio-codec-details"></a>Dettagli sui codec audio
-| Codec audio |
-| --- | --- |
-| **AACLC** |
-| **HEAACV1** |
-| **HEAACV2** |
+Codec audio|Dettagli  
+-----------------|---  
+**AACLC**|1:<br/><br/> - 11025 : 8 &lt;= bitrate &lt; 16<br/><br/> - 12000 : 8 &lt;= bitrate &lt; 16<br/><br/> - 16000 : 8 &lt;= bitrate &lt;32<br/><br/>- 22050 : 24 &lt;= bitrate &lt; 32<br/><br/> - 24000 : 24 &lt;= bitrate &lt; 32<br/><br/> - 32000 : 32 &lt;= bitrate &lt;= 192<br/><br/> - 44100 : 56 &lt;= bitrate &lt;= 288<br/><br/> - 48000 : 56 &lt;= bitrate &lt;= 288<br/><br/> - 88200 : 128 &lt;= bitrate &lt;= 288<br/><br/> - 96000 : 128 &lt;= bitrate &lt;= 288<br/><br/> 2:<br/><br/> - 11025 : 16 &lt;= bitrate &lt; 24<br/><br/> - 12000 : 16 &lt;= bitrate &lt; 24<br/><br/> - 16000 : 16 &lt;= bitrate &lt; 40<br/><br/> - 22050 : 32 &lt;= bitrate &lt; 40<br/><br/> - 24000 : 32 &lt;= bitrate &lt; 40<br/><br/> - 32000 : 40 &lt;= bitrate &lt;= 384<br/><br/> - 44100 : 96 &lt;= bitrate &lt;= 576<br/><br/> - 48000 : 96 &lt;= bitrate &lt;= 576<br/><br/> - 88200 : 256 &lt;= bitrate &lt;= 576<br/><br/> - 96000 : 256 &lt;= bitrate &lt;= 576<br/><br/> 5/6:<br/><br/> - 32000 : 160 &lt;= bitrate &lt;= 896<br/><br/> - 44100 : 240 &lt;= bitrate &lt;= 1024<br/><br/> - 48000 : 240 &lt;= bitrate &lt;= 1024<br/><br/> - 88200 : 640 &lt;= bitrate &lt;= 1024<br/><br/> - 96000 : 640 &lt;= bitrate &lt;= 1024<br/><br/> 8:<br/><br/> - 32000 : 224 &lt;= bitrate &lt;= 1024<br/><br/> - 44100 : 384 &lt;= bitrate &lt;= 1024<br/><br/> - 48000 : 384 &lt;= bitrate &lt;= 1024<br/><br/> - 88200 : 896 &lt;= bitrate &lt;= 1024<br/><br/> - 96000 : 896 &lt;= bitrate &lt;= 1024  
+**HEAACV1**|1:<br/><br/> - 22050 : bitrate = 8<br/><br/> - 24000 : 8 &lt;= bitrate &lt;= 10<br/><br/> - 32000 : 12 &lt;= bitrate &lt;= 64<br/><br/> - 44100 : 20 &lt;= bitrate &lt;= 64<br/><br/> - 48000 : 20 &lt;= bitrate &lt;= 64<br/><br/> - 88200 : bitrate = 64<br/><br/> 2:<br/><br/> - 32000 : 16 &lt;= bitrate &lt;= 128<br/><br/> - 44100 : 16 &lt;= bitrate &lt;= 128<br/><br/> - 48000 : 16 &lt;= bitrate &lt;= 128<br/><br/> - 88200 : 96 &lt;= bitrate &lt;= 128<br/><br/> - 96000 : 96 &lt;= bitrate &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000 : 64 &lt;= bitrate &lt;= 320<br/><br/> - 44100 : 64 &lt;= bitrate &lt;= 320<br/><br/> - 48000 : 64 &lt;= bitrate &lt;= 320<br/><br/> - 88200 : 256 &lt;= bitrate &lt;= 320<br/><br/> - 96000 : 256 &lt;= bitrate &lt;= 320<br/><br/> 8:<br/><br/> - 32000 : 96 &lt;= bitrate &lt;= 448<br/><br/> - 44100 : 96 &lt;= bitrate &lt;= 448<br/><br/> - 48000 : 96 &lt;= bitrate &lt;= 448<br/><br/> - 88200 : 384 &lt;= bitrate &lt;= 448<br/><br/> - 96000 : 384 &lt;= bitrate &lt;= 448  
+**HEAACV2**|2:<br/><br/> - 22050 : 8 &lt;= bitrate &lt;= 10<br/><br/> - 24000 : 8 &lt;= bitrate &lt;= 10<br/><br/> - 32000 : 12 &lt;= bitrate &lt;= 64<br/><br/> - 44100 : 20 &lt;= bitrate &lt;= 64<br/><br/> - 48000 : 20 &lt;= bitrate &lt;= 64<br/><br/> - 88200 : 64 &lt;= bitrate &lt;= 64  
+  
 
 ## <a name="a-nameclipa-clip"></a><a name="Clip"></a> Clip
 ### <a name="attributes"></a>Attributi
@@ -137,12 +138,12 @@ Per altre informazioni sui valori validi per ogni profilo, vedere la tabella "De
 ### <a name="attributes"></a>Attributi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **FileName** |**xs:string** |Nome del file di output.<br /><br /> È possibile usare le macro descritte nella tabella seguente per creare i nomi dei file di output. Ad esempio:<br /><br /> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
+| **FileName** |**xs:string** |Nome del file di output.<br/><br/> È possibile usare le macro descritte nella tabella seguente per creare i nomi dei file di output. Ad esempio:<br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
 
 ### <a name="macros"></a>Macro
 | Macro | Descrizione |
 | --- | --- |
-| **{Basename}** |Se si esegue la codifica VoD, {Basename} corrisponde ai primi 32 caratteri della proprietà AssetFile.Name del file primario dell'asset di input.<br /><br /> Se l'asset di input è un archivio live, {Basename} è derivato dagli attributi trackName nel manifesto server. Se si invia un processo subclip usando TopBitrate, come in "<VideoStream\>TopBitrate</VideoStream\>", e il file di output contiene video, {Basename} corrisponde ai primi 32 caratteri dell'attributo trackName del livello video con il valore di velocità in bit più alto.<br /><br /> Se invece si invia un processo subclip usando tutte le velocità in bit dell'input, come in "<VideoStream\>*</VideoStream\>", e il file di output contiene video, {Basename} corrisponde ai primi 32 caratteri dell'attributo trackName del livello video corrispondente. |
+| **{Basename}** |Se si esegue la codifica VoD, {Basename} corrisponde ai primi 32 caratteri della proprietà AssetFile.Name del file primario dell'asset di input.<br/><br/> Se l'asset di input è un archivio live, {Basename} è derivato dagli attributi trackName nel manifesto server. Se si invia un processo subclip usando TopBitrate, come in "<VideoStream\>TopBitrate</VideoStream\>", e il file di output contiene video, {Basename} corrisponde ai primi 32 caratteri dell'attributo trackName del livello video con il valore di velocità in bit più alto.<br/><br/> Se invece si invia un processo subclip usando tutte le velocità in bit dell'input, come in "<VideoStream\>*</VideoStream\>", e il file di output contiene video, {Basename} corrisponde ai primi 32 caratteri dell'attributo trackName del livello video corrispondente. |
 | **{Codec}** |Esegue il mapping a "H264" per i video e "AAC" per l'audio. |
 | **{Bitrate}** |Velocità in bit video di destinazione se il file di output contiene video e audio oppure velocità in bit audio di destinazione se il file di output contiene solo l'audio. Il valore usato è la velocità in bit espressa in kbps. |
 | **{Channel}** |Numero di canali audio se il file contiene audio. |
@@ -187,8 +188,8 @@ Se il codice precedente non corrisponde al comportamento desiderato, è possibil
 ### <a name="element"></a>Elemento
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **Width**<br /><br /> minOccurs="0" |**xs:int** | |
-| **Height**<br /><br /> minOccurs="0" |**xs:int** | |
+| **Width**<br/><br/> minOccurs="0" |**xs:int** | |
+| **Height**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>Attributi
 | Nome | Tipo | Descrizione |
@@ -199,8 +200,8 @@ Se il codice precedente non corrisponde al comportamento desiderato, è possibil
 ### <a name="element"></a>Elemento
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **Width**<br /><br /> minOccurs="0" |**xs:int** | |
-| **Height**<br /><br /> minOccurs="0" |**xs:int** | |
+| **Width**<br/><br/> minOccurs="0" |**xs:int** | |
+| **Height**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>Attributi
 | Nome | Tipo | Descrizione |
@@ -211,9 +212,9 @@ Se il codice precedente non corrisponde al comportamento desiderato, è possibil
 ### <a name="element"></a>Elemento
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **Width**<br /><br /> minOccurs="0" |**xs:int** | |
-| **Height**<br /><br /> minOccurs="0" |**xs:int** | |
-| **Quality**<br /><br /> minOccurs="0" |**xs:int** |I valori validi sono 1(worst)-100(best) |
+| **Width**<br/><br/> minOccurs="0" |**xs:int** | |
+| **Height**<br/><br/> minOccurs="0" |**xs:int** | |
+| **Quality**<br/><br/> minOccurs="0" |**xs:int** |I valori validi sono 1(worst)-100(best) |
 
 ### <a name="attributes"></a>Attributi
 | Nome | Tipo | Descrizione |
@@ -224,40 +225,40 @@ Se il codice precedente non corrisponde al comportamento desiderato, è possibil
 ### <a name="elements"></a>Elementi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **PngLayer**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[PngLayer](media-services-mes-schema.md#PngLayer) | |
+| **PngLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[PngLayer](media-services-mes-schema.md#PngLayer) | |
 
 ## <a name="a-namebmplayersa-bmplayers"></a><a name="BmpLayers"></a> BmpLayers
 ### <a name="elements"></a>Elementi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **BmpLayer**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[BmpLayer](media-services-mes-schema.md#BmpLayer) | |
+| **BmpLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[BmpLayer](media-services-mes-schema.md#BmpLayer) | |
 
 ## <a name="a-namejpglayersa-jpglayers"></a><a name="JpgLayers"></a> JpgLayers
 ### <a name="elements"></a>Elementi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **JpgLayer**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[JpgLayer](media-services-mes-schema.md#JpgLayer) | |
+| **JpgLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[JpgLayer](media-services-mes-schema.md#JpgLayer) | |
 
 ## <a name="a-namebmpimagea-bmpimage-complex-type-inherits-from-video"></a><a name="BmpImage"></a> BmpImage (il tipo complesso eredita da Video)
 ### <a name="elements"></a>Elementi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **PngLayers**<br /><br /> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png layers |
+| **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png layers |
 
 ## <a name="a-namejpgimagea-jpgimage-complex-type-inherits-from-video"></a><a name="JpgImage"></a> JpgImage (il tipo complesso eredita da Video)
 ### <a name="elements"></a>Elementi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **PngLayers**<br /><br /> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png layers |
+| **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png layers |
 
 ## <a name="a-namepngimagea-pngimage-complex-type-inherits-from-video"></a><a name="PngImage"></a> PngImage (il tipo complesso eredita da Video)
 ### <a name="elements"></a>Elementi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **PngLayers**<br /><br /> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png layers |
+| **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png layers |
 
 ## <a name="examples"></a>esempi
-Per osservare esempi di set di impostazioni XML compilati in base a questo schema, vedere [Task Presets for MES (Media Encoder Standard)](https://msdn.microsoft.com/library/azure/mt269960.aspx) (Set di impostazioni delle attività di MES (Media Encoder Standard)).
+Per osservare esempi di set di impostazioni XML compilati in base a questo schema, vedere [Task Presets for MES (Media Encoder Standard)](media-services-mes-presets-overview.md) (Set di impostazioni delle attività di MES (Media Encoder Standard)).
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -268,6 +269,6 @@ Per osservare esempi di set di impostazioni XML compilati in base a questo schem
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

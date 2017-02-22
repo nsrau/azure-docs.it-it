@@ -23,6 +23,7 @@
 ### [App per la logica come endpoint che è possibile chiamare](logic-apps-http-endpoint.md)
 ### [Cicli, ambiti e debatching](logic-apps-loops-and-scopes.md)
 ### [Uso dell'API personalizzata](logic-apps-custom-hosted-api.md)
+### [Usare l'istruzione switch](logic-apps-switch-case.md)
 ### [Gestione delle eccezioni](logic-apps-exception-handling.md)
 ### [Scenario di gestione delle eccezioni](logic-apps-scenario-error-and-exception-handling.md)
 ### [Gestione dei tipi di contenuto](logic-apps-content-type.md)
@@ -91,6 +92,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

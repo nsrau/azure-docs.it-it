@@ -1,5 +1,5 @@
 ---
-title: Creare un&quot;app Web Hello World per Azure in Eclipse | Documentazione Microsoft
+title: Creare un&quot;app Web di base di Azure con Eclipse | Documentazione Microsoft
 description: Questa esercitazione descrive come usare il toolkit di Azure per Eclipse per creare un&quot;app Web Hello World per Azure.
 services: app-service\web
 documentationcenter: java
@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
-ms.author: robmcm
+ms.date: 12/22/2016
+ms.author: robmcm;asirveda
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d3549bca22266aab2deca1d9fcaabfc4034956cf
+ms.sourcegitcommit: 9bb0b5fa32cd6dabd6c41106db38a587b0a55eed
+ms.openlocfilehash: 18299966173f030f615049eaf11a55a1f71305a0
 
 
 ---
-# <a name="create-a-hello-world-web-app-for-azure-in-eclipse"></a>Creare un'app Web Hello World per Azure in Eclipse
-Questa esercitazione descrive come creare e distribuire un'applicazione Hello World di base in Azure come app Web usando [Azure Toolkit per Eclipse]. Per semplicità è riportato un esempio JSP di base, ma è possibile adottare una procedura molto simile anche per un servlet Java, per quanto riguarda la distribuzione di Azure.
+# <a name="create-a-basic-azure-web-app-using-eclipse"></a>Creare un'app Web di base di Azure con Eclipse
+Questa esercitazione descrive come creare e distribuire un'applicazione Hello World di base in Azure come app Web usando [Azure Toolkit per Eclipse]. Per semplicità è riportato un esempio JSP di base, ma è possibile adottare una procedura simile anche per un servlet Java, per quanto riguarda la distribuzione di Azure.
 
 Al termine di questa esercitazione, l'applicazione visualizzata in un browser Web avrà un aspetto simile al seguente:
 
@@ -30,11 +30,11 @@ Al termine di questa esercitazione, l'applicazione visualizzata in un browser We
 ## <a name="prerequisites"></a>Prerequisiti
 * Java Developer Kit (JDK) versione 1.8 o successiva.
 * IDE Eclipse per sviluppatori Java EE, Luna o versione successiva. È possibile scaricare il pacchetto all'indirizzo <http://www.eclipse.org/downloads/>.
-* Distribuzione di un server Web basato su Java o un server applicazioni, ad esempio Apache Tomcat o Jetty.
+* Distribuzione di un server Web basato su Java o un server applicazioni, ad esempio [Apache Tomcat] o [Jetty].
 * Una sottoscrizione di Azure, che può essere ottenuta all'indirizzo <https://azure.microsoft.com/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
-* Azure Toolkit per Eclipse. Per altre informazioni, vedere [Installazione di Azure Toolkit per Eclipse].
+* [Azure Toolkit per Eclipse]. Per informazioni sull'installazione di Azure Toolkit, vedere [Installazione di Azure Toolkit for Eclipse].
 
-## <a name="to-create-a-hello-world-application"></a>Per creare un'applicazione Hello World
+## <a name="to-create-a-hello-world-application"></a>Creare un'applicazione Hello World JSP
 Creare innanzitutto un progetto Java.
 
 1. Avviare Eclipse e nel menu fare clic su **File**, **New** e quindi su **Dynamic Web Project**. Se **Dynamic Web Project** non è elencato tra i progetti disponibili dopo aver fatto clic su **File** e **New**, fare clic su **File**, **New**, **Project...**, espandere **Web**, fare clic su **Dynamic Web Project** e fare clic su **Next**.
@@ -148,17 +148,17 @@ In entrambi i casi, il processo è identico e richiede solo pochi secondi:
 
 Pochi secondi dopo nella visualizzazione **Azure Activity Log** (Log attività di Azure) la distribuzione aggiornata apparirà come **Published** (Pubblicata) e sarà possibile verificare l'applicazione aggiornata in un browser Web.
 
-## <a name="stopping-an-existing-web-app"></a>Arresto di un'app Web esistente
-Per arrestare un contenitore di app Web di Azure esistente, incluse tutte le applicazioni Java in esso distribuite, è possibile usare la visualizzazione **Azure Explorer** .
+## <a name="starting-stopping-or-restarting-an-existing-web-app"></a>Avvio, arresto o riavvio di un'app Web esistente
+Per avviare o arrestare un contenitore di app Web di Azure esistente, incluse tutte le applicazioni Java in esso distribuite, è possibile usare la visualizzazione **Azure Explorer** .
 
 Se la visualizzazione **Azure Explorer** non è già aperta, aprirla facendo clic sul menu **Window** (Finestra) in Eclipse, quindi su **Show View** (Mostra visualizzazione), **Other** (Altro), **Azure** e infine su **Azure Explorer**. Se non è già stato eseguito l'accesso in precedenza, verrà richiesto di accedere.
 
-Quando viene aperta la visualizzazione **Azure Explorer** , seguire questa procedura per arrestare l'app Web: 
+Quando appare la visualizzazione **Azure Explorer** , per avviare o arrestare l'app Web seguire questa procedura: 
 
 1. Espandere il nodo **Azure** .
 2. Espandere il nodo **Web Apps** (App Web). 
 3. Fare clic con il pulsante destro del mouse sull'app Web desiderata.
-4. Quando viene visualizzato il menu di scelta rapida, fare clic su **Stop**(Arresta).
+4. Quando viene visualizzato il menu di scelta rapida, fare clic su **Start** (Avvia), **Stop** (Arresta) o **Restart** (Riavvia). Si noti che le opzioni di menu sono sensibili al contesto, quindi è possibile arrestare solo un'app Web in esecuzione o avviare un'app Web al momento non in esecuzione.
    
     ![Arresto di un'app Web esistente][13]
 
@@ -166,7 +166,7 @@ Quando viene aperta la visualizzazione **Azure Explorer** , seguire questa proce
 Per ulteriori informazioni sui Toolkit di Azure per gli IDE di Java, consultare i seguenti collegamenti:
 
 * [Azure Toolkit per Eclipse]
-  * [Installazione di Azure Toolkit per Eclipse]
+  * [Installazione di Azure Toolkit for Eclipse]
   * *Creare un’app Web Hello World per Azure in Eclipse (questo articolo)*
   * [Novità di Azure Toolkit per Eclipse]
 * [Toolkit di Azure per IntelliJ]
@@ -184,15 +184,17 @@ Per altre informazioni sulla creazione di App Web di Azure, vedere la [Panoramic
 
 [Azure Toolkit per Eclipse]: ../azure-toolkit-for-eclipse.md
 [Toolkit di Azure per IntelliJ]: ../azure-toolkit-for-intellij.md
-[Creare un'app Web Hello World per Azure in Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
+[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
 [Creare un'App Web Hello World per Azure in IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
-[Installazione di Azure Toolkit per Eclipse]: ../azure-toolkit-for-eclipse-installation.md
+[Installazione di Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse-installation.md
 [Installazione del Toolkit di Azure per IntelliJ]: ../azure-toolkit-for-intellij-installation.md
 [Novità di Azure Toolkit per Eclipse]: ../azure-toolkit-for-eclipse-whats-new.md
 [Novità del Toolkit di Azure per IntelliJ]: ../azure-toolkit-for-intellij-whats-new.md
 
 [Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
 [Panoramica delle App Web]: ./app-service-web-overview.md
+[Apache Tomcat]: http://tomcat.apache.org/
+[Jetty]: http://www.eclipse.org/jetty/
 
 <!-- IMG List -->
 
@@ -215,6 +217,6 @@ Per altre informazioni sulla creazione di App Web di Azure, vedere la [Panoramic
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

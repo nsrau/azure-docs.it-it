@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 959eaca7aafd8516cfc6f3b5dd2a44ce21ec4825
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: e6f569355dd73919824f22c88ce3eead10e5b853
 
 
 ---
-# <a name="get-started-with-the-office365-video-connector"></a>Introduzione al connettore Office 365 Video
+# <a name="get-started-with-the-office365-video-connector"></a>Introduzione al connettore Office&365; Video
 Connettersi a Office 365 Video per ottenere informazioni su un video di Office 365, recuperare un elenco di video e altro ancora. Il connettore Office 365 Video può essere usato da:
 
 * App per la logica 
@@ -36,18 +36,18 @@ Con Office 365 Video è possibile:
 * Creare un flusso aziendale basato sui dati ottenuti da Office 365 Video. 
 * Usare azioni per controllare lo stato del portale video, recuperare l'elenco di tutti video in un canale e altro ancora. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, è possibile usare il connettore di ricerca di Bing per cercare video di Office 365 e quindi usare il connettore Office 365 Video per ottenere informazioni relative a un video specifico. Se il video soddisfa le esigenze, è possibile pubblicarlo su Facebook. 
 
-Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Trigger e azioni
 Nel connettore Office 365 Video sono disponibili le azioni seguenti. Non sono disponibili trigger.
 
 | Trigger | Azioni |
 | --- | --- |
-| Nessuno |<ul><li>Controlla stato portale video</li><li>Recupera tutti i canali visualizzabili</li><li>Recupera l'URL di riproduzione del manifesto dei Servizi multimediali di Azure per un video</li><li>Recupera il token di connessione per poter accedere a un video da decrittografare</li><li>Recupera informazioni su un particolare video di Office 365</li><li>Elenca tutti i video di Office 365 presenti in un canale</li></ul> |
+| Nessuno |<ul><li>Controlla stato portale video</li><li>Recupera tutti i canali visualizzabili</li><li>Recupera l'URL di riproduzione del manifesto dei Servizi multimediali di Azure per un video</li><li>Recupera il token di connessione per poter accedere a un video da decrittografare</li><li>Recupera informazioni su un particolare video di Office&365;</li><li>Elenca tutti i video di Office&365; presenti in un canale</li></ul> |
 
 Tutti i connettori supportano dati nei formati JSON e XML. 
 
-## <a name="create-a-connection-to-office365-video-connector"></a>Creare una connessione al connettore Office 365 Video
+## <a name="create-a-connection-to-office365-video-connector"></a>Creare una connessione al connettore Office&365; Video
 Quando si aggiunge questo connettore alle app per la logica, è necessario accedere all'account Office 365 Video e consentire alle app per la logica di connettersi all'account.
 
 > [!INCLUDE [Steps to create a connection to Office 365 Video](../../includes/connectors-create-api-office365video.md)]
@@ -100,8 +100,8 @@ Recupera tutti i canali a cui l'utente ha accesso in visualizzazione.
 | 500 |Internal Server Error |
 | default |Operazione non riuscita. |
 
-### <a name="lists-all-the-office365-videos-present-in-a-channel"></a>Elenca tutti i video di Office 365 presenti in un canale
-Elenca tutti i video di Office 365 presenti in un canale.  
+### <a name="lists-all-the-office365-videos-present-in-a-channel"></a>Elenca tutti i video di Office&365; presenti in un canale
+Elenca tutti i video di Office&365; presenti in un canale.  
 ```GET: /{tenant}/Channels/{channelId}/Videos``` 
 
 | Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
@@ -119,8 +119,8 @@ Elenca tutti i video di Office 365 presenti in un canale.
 | 500 |Internal Server Error |
 | default |Operazione non riuscita. |
 
-### <a name="gets-information-about-a-particular-office365-video"></a>Recupera informazioni su un particolare video di Office 365
-Recupera informazioni su un particolare video di Office 365.  
+### <a name="gets-information-about-a-particular-office365-video"></a>Recupera informazioni su un particolare video di Office&365;
+Recupera informazioni su un particolare video di Office&365;.  
 ```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}``` 
 
 | Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
@@ -203,11 +203,11 @@ Recupera il token di connessione per poter accedere a un video da decrittografar
 | ViewCount |integer |no |
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

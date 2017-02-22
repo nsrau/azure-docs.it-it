@@ -11,35 +11,85 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 01/05/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: 73753bb96d2c9680ed5d5bdf5eb3780e371c08d3
-ms.openlocfilehash: 53f971624c2c7a7f64eed257aeb0c402461cc7ba
+ms.sourcegitcommit: 0ab2e30165fe3dca0e00109e9b4e22a9a1433de5
+ms.openlocfilehash: 43cf4dad58ee0e12a233125049ab4e62411459fe
 
 
 ---
-# <a name="azure-app-service-deployment-credentials"></a>Credenziali per la distribuzione del Servizio app di Azure
-La piattaforma [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) supporta due tipi di credenziali per la distribuzione dei contenuti.
-* Credenziali per la distribuzione: credenziali con ambito di utente
-* Profilo di pubblicazione: credenziali con ambito di app 
+# <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurazione delle credenziali per la distribuzione del Servizio app di Azure
+Il [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) supporta due tipi di credenziali per la [distribuzione di GIT locale](app-service-deploy-local-git.md) e la [distribuzione FTP/S](app-service-deploy-ftp.md).
 
-## <a name="a-nameuserscopeauser-scoped-credentials"></a><a name="userscope"></a>Credenziali con ambito di utente
-Le credenziali con ambito di utente vengono create dall'utente di Azure e il loro mapping viene eseguito direttamente a un account Microsoft anziché a qualsiasi app specifica del Servizio app. Le credenziali di distribuzione con ambito di utente possono essere impostate o reimpostate dal [portale di Azure](https://portal.azure.com), in cui ogni app del Servizio app ha un punto di ingresso per la modifica in **DISTRIBUZIONE APP > Credenziali per la distribuzione**. A prescindere dal punto di ingresso, le modifiche apportate a queste credenziali con ambito di utente vengono applicate nell'intero account Microsoft. Queste credenziali vengono usate spesso per la distribuzione FTP e Git.
+* **Credenziali a livello di utente**: un insieme di credenziali per tutto l'account Azure. Può essere usato per distribuire il Servizio app per qualsiasi app, in tutte le sottoscrizioni a cui l'account di Azure è autorizzato ad accedere. Si tratta dell'insieme di credenziali predefinito configurabile in **Servizi app** > **&lt;nome_app>** > **Credenziali per la distribuzione**. Si tratta inoltre dell'insieme predefinito indicato nella GUI del portale, ad esempio **Panoramica** e **Proprietà** nel [pannello risorse](../azure-resource-manager/resource-group-portal.md#manage-resources) dell'app.
 
-![Credenziali per la distribuzione del Servizio app di Azure](./media/app-service-deployment-credentials/deployment_credentials.png)
- 
-Quando si delega l'accesso alle risorse di Azure tramite controllo degli accessi in base al ruolo o autorizzazioni di coamministratore, ogni utente Azure che riceve l'accesso può usare le sue credenziali con ambito di utente fino a quando l'accesso non viene revocato. Queste credenziali di distribuzione non devono essere condivise con altri utenti di Azure.
+    > [!NOTE]
+    > Quando si delega l'accesso alle risorse di Azure tramite controllo degli accessi in base al ruolo o autorizzazioni di coamministratore, ogni utente Azure che riceve l'accesso a un'app può usare le sue credenziali a livello utente fino a quando l'accesso non viene revocato. Queste credenziali di distribuzione non devono essere condivise con altri utenti di Azure.
+    >
+    >
 
-## <a name="a-nameappscopeaapp-scoped-credentials"></a><a name="appscope"></a>Credenziali con ambito di app
-Le credenziali con ambito di app vengono create automaticamente dalla piattaforma Servizio app. Vengono archiviate nel profilo di pubblicazione XML per ogni app del Servizio app. Il profilo di pubblicazione è disponibile nel [portale di Azure](https://portal.azure.com) tramite l'azione **Recupera profilo** nel pannello **Panoramica** dell'app. Queste credenziali vengono usate spesso per la distribuzione basata su WebDeploy. Possono inoltre essere usate per la distribuzione su FTP o GIT. Visual Studio, ovvero un punto di ingresso per la distribuzione basata su WebDeploy, è in grado di analizzare il profilo di pubblicazione per l'autenticazione.
+* **Credenziali a livello di applicazione**: un insieme di credenziali per ogni applicazione. Può essere usato per distribuire solo in quella app. Le credenziali per ogni app sono generate automaticamente alla creazione dell'app stessa e si trovano nel suo profilo di pubblicazione. Non è possibile configurare manualmente le credenziali per un'applicazione, ma è possibile reimpostarle in qualsiasi momento.
 
-![Profilo di pubblicazione di Servizio app di Azure](./media/app-service-deployment-credentials/publish_profile.png)
+## <a name="a-nameuserscopeaset-and-reset-user-level-credentials"></a><a name="userscope"></a>Impostare e reimpostare le credenziali a livello di utente
 
-Quando si delega l'accesso alle risorse di Azure tramite le controllo degli accessi in base al ruolo o autorizzazioni di coamministratore, ogni utente Azure che riceve l'accesso può scaricare lo stesso profilo di pubblicazione specifico dell'app. Il profilo di pubblicazione può essere reimpostato in qualsiasi momento dal pannello **Panoramica** del Portale di Azure. La reimpostazione delle credenziali con ambito di app può essere una buona idea dopo la revoca dell'accesso delegato.
+È possibile configurare le credenziali a livello di utente nel [pannello risorse](../azure-resource-manager/resource-group-portal.md#manage-resources) di ogni app. Indipendentemente dall'app, le credenziali configurate si applicano a tutte le app e a tutte le sottoscrizioni nell'account di Azure dell'utente. 
+
+Per configurare le credenziali a livello di utente:
+
+1. Nel [portale di Azure](https://portal.azure.com), fare clic su Servizio app > ** &lt;qualsiasi_app>** > **Credenziali per la distribuzione**.
+
+    > [!NOTE]
+    > È necessario disporre di almeno un'app nel portale prima di poter accedere al pannello delle credenziali per la distribuzione. Tuttavia, con l'[interfaccia della riga di comando di Azure](app-service-web-app-azure-resource-manager-xplat-cli.md) è possibile configurare le credenziali a livello di utente senza un'app esistente.
+
+2. Configurare il nome utente e la password e quindi fare clic su **Salva**.
+
+    ![](./media/app-service-deployment-credentials/deployment_credentials_configure.png)
+
+Dopo aver impostato le credenziali per la distribuzione, è possibile trovare il nome utente per la distribuzione di *GIT* nella **Panoramica** dell'app,
+
+![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
+
+oltre a un nome utente per la distribuzione *FTP* nelle **Proprietà** dell'app.
+
+![](./media/app-service-deployment-credentials/deployment_credentials_properties.png)
+
+> [!NOTE]
+> Azure non mostra la password di distribuzione a livello di utente. Se si dimentica la password, non è possibile recuperarla. Tuttavia, è possibile reimpostare le credenziali seguendo i passaggi descritti in questa sezione.
+>
+>  
+
+## <a name="a-nameappscopeaget-and-reset-app-level-credentials"></a><a name="appscope"></a>Ottenere e reimpostare le credenziali a livello di utente
+Per ogni app nel servizio app, le credenziali a livello di app vengono archiviate nel file XML del profilo di pubblicazione.
+
+Per ottenere le credenziali a livello di app:
+
+1. Nel [portale di Azure](https://portal.azure.com), fare clic su Servizio app > ** &lt;qualsiasi_app>** > **Panoramica**.
+
+2. Fare clic su **...More** (...Altro) > **Recupera profilo di pubblicazione** per avviare il download di un file .PublishSettings.
+
+    ![](./media/app-service-deployment-credentials/publish_profile_get.png)
+
+3. Aprire il file .PublishSettings e trovare il tag `<publishProfile>` con l'attributo `publishMethod="FTP"`. Quindi, ottenere i relativi attributi `userName` e `password`.
+Si tratta delle credenziali a livello di app.
+
+    ![](./media/app-service-deployment-credentials/publish_profile_editor.png)
+
+    Come per le credenziali a livello di utente, il nome utente di distribuzione dell'FTP è nel formato `<app_name>\<username>`, mentre quello della distribuzione è Git è solo `<username>` senza `<app_name>\` a precedere.
+
+Per reimpostare le credenziali a livello di app:
+
+1. Nel [portale di Azure](https://portal.azure.com), fare clic su Servizio app > ** &lt;qualsiasi_app>** > **Panoramica**.
+
+2. Fare clic su **...More** (...Altro) > **Reimposta profilo di pubblicazione**. Fare clic su **Sì** per confermare la reimpostazione.
+
+    L'operazione di reimpostazione invalida qualsiasi file .PublishSettings scaricato in precedenza.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Informazioni su come usare queste credenziali per distribuire l'app da [GIT locale](app-service-deploy-local-git.md) o usando [FTP/S](app-service-deploy-ftp.md).
 
 
-
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

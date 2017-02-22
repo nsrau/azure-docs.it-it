@@ -4,16 +4,16 @@
 
 Per visualizzare le cache, fare clic su **More services (Altri servizi) > Cache Redis**. Se è stata visitata di recente una Cache Redis, è possibile fare clic su **Cache Redis** direttamente dall'elenco senza fare clic su **More services** (Altri servizi).
 
-Selezionare la cache desiderata per visualizzarne le proprietà.
+Selezionare la cache desiderata per visualizzare e configurare le impostazioni per tale cache.
 
 ![Elenco Sfoglia cache di Cache Redis di Azure](media/redis-cache-browse/redis-caches.png)
 
-Fare clic su **Impostazioni** o su **All settings** (Tutte le impostazioni) per visualizzare e configurare la cache.
+È possibile visualizzare e configurare la cache dal pannello **Cache Redis**.
 
 ![Tutte le impostazioni di Cache Redis](media/redis-cache-browse/redis-cache-blade.png)
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

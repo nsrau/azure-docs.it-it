@@ -1,5 +1,5 @@
 ---
-title: Isolamento delle applicazioni del bus di servizio da interruzioni ed emergenze del servizio | Microsoft Docs
+title: Isolamento delle applicazioni del bus di servizio di Azure da interruzioni ed emergenze del servizio | Documentazione Microsoft
 description: "Descrive le tecniche che è possibile usare per proteggere le applicazioni da potenziali interruzioni del bus di servizio."
 services: service-bus-messaging
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/02/2016
+ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a76ebad52b8b08311b488cd5bbdb909628d43ec3
+ms.sourcegitcommit: 994a379129bffd7457912bc349f240a970aed253
+ms.openlocfilehash: 6424d4dabe20514c0e41c6d755d644494afea302
 
 
 ---
@@ -35,22 +35,22 @@ Tutte le entità del bus di servizio (code, argomenti, inoltri) risiedono in uno
 ## <a name="protecting-against-acs-outages"></a>Protezione da interruzioni del servizio di controllo di accesso (ACS)
 Se si usano credenziali ACS e il servizio ACS non è disponibile, i client non possono più ottenere i token. I client che dispongono di un token nel momento in cui ACS si arresta possono continuare a usare il bus di servizio fino alla scadenza dei token. La durata predefinita dei token è 3 ore.
 
-Per proteggersi dalle interruzioni del servizio ACS, usare token di firma di accesso condiviso. In questo caso, il client esegue direttamente l'autenticazione con il bus di servizio firmando un token coniato automaticamente con una chiave privata. Non sono più necessarie chiamate ad ACS. Per altre informazioni sulla configurazione dei token di firma di accesso condiviso, vedere [Service Bus authentication][Service Bus authentication] (Autenticazione del bus di servizio).
+Per proteggersi dalle interruzioni del servizio ACS, usare token di firma di accesso condiviso. In questo caso, il client esegue direttamente l'autenticazione con il bus di servizio firmando un token coniato automaticamente con una chiave privata. Non sono più necessarie chiamate ad ACS. Per altre informazioni sulla configurazione dei token di firma di accesso condiviso, vedere [Autenticazione e autorizzazione del bus di servizio][Service Bus authentication].
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Protezione di code e argomenti da errori degli archivi di messaggistica
-Una coda o un argomento non partizionato viene assegnato a un archivio di messaggistica. Se l'archivio di messaggistica in questione non è disponibile, tutte le operazioni eseguite sulla coda o sull'argomento avranno esito negativo. Una coda partizionata, invece, è costituita da più frammenti, ciascuno dei quali memorizzato in un archivio di messaggistica differente. Quando un messaggio viene inviato a una coda o a un argomento partizionato, il bus di servizio assegna il messaggio a uno dei frammenti. Se l'archivio di messaggistica corrispondente non è disponibile, il bus di servizio scrive i messaggi in un frammento diverso, se possibile. Per altre informazioni sulle entità partizionate, vedere [Code e argomenti partizionati][Code e argomenti partizionati].
+Una coda o un argomento non partizionato viene assegnato a un archivio di messaggistica. Se l'archivio di messaggistica in questione non è disponibile, tutte le operazioni eseguite sulla coda o sull'argomento avranno esito negativo. Una coda partizionata, invece, è costituita da più frammenti, ciascuno dei quali memorizzato in un archivio di messaggistica differente. Quando un messaggio viene inviato a una coda o a un argomento partizionato, il bus di servizio assegna il messaggio a uno dei frammenti. Se l'archivio di messaggistica corrispondente non è disponibile, il bus di servizio scrive i messaggi in un frammento diverso, se possibile. Per altre informazioni sulle entità partizionate, vedere [Code e argomenti partizionati][Partitioned messaging entities].
 
 ## <a name="protecting-against-datacenter-outages-or-disasters"></a>Protezione da interruzioni o emergenze dei data center
 Per consentire un failover tra due data center, è possibile creare uno spazio dei nomi servizio del bus di servizio in ogni data center. Ad esempio, lo spazio dei nomi servizio del bus di servizio **contosoPrimary.servicebus.windows.net** potrebbe trovarsi nell'area centro-settentrionale degli Stati Uniti, mentre **contosoSecondary.servicebus.windows.net** potrebbe trovarsi in quella centro-meridionale. Se un'entità di messaggistica del bus di servizio deve rimanere accessibile in caso di interruzione del data center, è possibile creare l'entità in entrambi gli spazi dei nomi.
 
-Per altre informazioni, vedere la sezione "Errore del bus di servizio in un data center di Azure" in [Modelli di messaggistica asincrona e disponibilità elevata][Modelli di messaggistica asincrona e disponibilità elevata].
+Per altre informazioni, vedere la sezione "Errore del bus di servizio in un data center di Azure" in [Modelli di messaggistica asincrona e disponibilità elevata][Asynchronous messaging patterns and high availability].
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Protezione degli endpoint di inoltro da interruzioni o emergenze dei data center
 La replica geografica degli endpoint di inoltro consente a un servizio che espone un endpoint di inoltro di essere raggiungibile in presenza di interruzioni del bus di servizio. Per ottenere la replica geografica, il servizio deve creare due endpoint di inoltro in diverse istanze di spazio dei nomi servizio. Le due istanze di spazio dei nomi servizio devono trovarsi in data center diversi e i due endpoint devono avere nomi differenti. Ad esempio, un endpoint primario può essere raggiunto in **contosoPrimary.servicebus.windows.net/myPrimaryService**, mentre il corrispettivo endpoint secondario può essere raggiunto in **contosoSecondary.servicebus.windows.net/mySecondaryService**.
 
 Il servizio rimane quindi in ascolto su entrambi gli endpoint e un client può richiamare il servizio tramite l'uno o l'altro. Un'applicazione client seleziona casualmente uno degli inoltri come endpoint primario e invia la richiesta all'endpoint attivo. Se l'operazione ha esito negativo e viene visualizzato un codice di errore, significa che l'endpoint di inoltro non è disponibile. L'applicazione apre un canale per l'endpoint di backup e invia nuovamente la richiesta. A quel punto, l'endpoint attivo e quello di backup si scambiano i ruoli: l'applicazione client considera l'endpoint attivo precedente come nuovo endpoint di backup e l'endpoint di backup precedente come nuovo endpoint attivo. Se entrambe le operazioni di invio hanno esito negativo, i ruoli delle due entità rimangono invariati e viene restituito un errore.
 
-L'esempio relativo alla [replica geografica con i messaggi inoltrati del bus di servizio][replica geografica con i messaggi inoltrati del bus di servizio] illustra come replicare gli inoltri.
+L'esempio relativo alla [replica geografica con i messaggi inoltrati del bus di servizio][Geo-replication with Service Bus relayed Messages] illustra come replicare gli inoltri.
 
 ## <a name="protecting-queues-and-topics-against-datacenter-outages-or-disasters"></a>Protezione delle code e degli argomenti da interruzioni o emergenze dei data center
 Per ottenere resilienza in caso di possibili interruzioni dei data center durante l'uso della messaggistica negoziata, il bus di servizio supporta due approcci: replica *attiva* e replica *passiva*. Per ogni approccio, se una coda o un argomento specifico deve rimanere accessibile in presenza di un'interruzione del data center, è possibile creare tale coda o argomento in entrambi gli spazi dei nomi. Entrambe le entità possono avere lo stesso nome. Ad esempio, una coda primaria può essere raggiunta in **contosoPrimary.servicebus.windows.net/myQueue**, mentre la rispettiva coda secondaria può essere raggiunta in **contosoSecondary.servicebus.windows.net/myQueue**.
@@ -60,9 +60,9 @@ Se l'applicazione non richiede una comunicazione mittente-ricevitore permanente,
 ## <a name="active-replication"></a>Replica attiva
 La replica attiva usa entità in entrambi gli spazi dei nomi per ogni operazione. Ogni client invia sempre due copie di un messaggio. La prima viene inviata all'entità primaria, ad esempio **contosoPrimary.servicebus.windows.net/sales**, la seconda all'entità secondaria, ad esempio **contosoSecondary.servicebus.windows.net/sales**.
 
-Un client riceve messaggi da entrambe le code. Il ricevitore elabora la prima copia di un messaggio ed elimina la seconda. Per eliminare i messaggi duplicati, il mittente deve contrassegnare ogni messaggio con un identificatore univoco. Entrambe le copie del messaggio devono essere contrassegnate con lo stesso identificatore. Per contrassegnare il messaggio, è possibile usare le proprietà [BrokeredMessage.MessageId][BrokeredMessage.MessageId] o [BrokeredMessage.Label][BrokeredMessage.Label] o una proprietà personalizzata. Il ricevitore deve mantenere l'elenco dei messaggi già ricevuti.
+Un client riceve messaggi da entrambe le code. Il ricevitore elabora la prima copia di un messaggio ed elimina la seconda. Per eliminare i messaggi duplicati, il mittente deve contrassegnare ogni messaggio con un identificatore univoco. Entrambe le copie del messaggio devono essere contrassegnate con lo stesso identificatore. Per contrassegnare il messaggio, è possibile usare la proprietà [BrokeredMessage.MessageId][BrokeredMessage.MessageId] o [BrokeredMessage.Label][BrokeredMessage.Label] oppure una proprietà personalizzata. Il ricevitore deve mantenere l'elenco dei messaggi già ricevuti.
 
-L'esempio relativo alla [replica geografica con i messaggi negoziati del bus di servizio][replica geografica con i messaggi negoziati del bus di servizio] illustra la modalità di replica attiva delle entità di messaggistica.
+L'esempio relativo alla [replica geografica con i messaggi negoziati del bus di servizio][Geo-replication with Service Bus Brokered Messages] illustra la modalità di replica attiva delle entità di messaggistica.
 
 > [!NOTE]
 > Nella replica attiva il numero delle operazioni raddoppia. Di conseguenza, questo approccio può comportare costi più elevati.
@@ -81,26 +81,26 @@ Quando si usa la replica passiva, negli scenari seguenti è possibile che i mess
 * **Ritardo o perdita del messaggio**: si supponga che il mittente abbia inviato con esito positivo un messaggio m1 alla coda primaria e che quindi la coda diventi non disponibile prima della ricezione di m1 da parte del ricevitore. Il mittente invia un secondo messaggio m2 alla coda secondaria. Se la coda primaria è temporaneamente non disponibile, m1 viene ricevuto solo quando la coda torna nuovamente disponibile. In caso di emergenza, il destinatario potrebbe non ricevere mai m1.
 * **Ricezione di duplicati**: si supponga che il mittente invii un messaggio m alla coda primaria. Il bus di servizio elabora m ma non riesce a inviare una risposta. Dopo il timeout dell'operazione di invio, il mittente invia una copia identica di m alla coda secondaria. Se la prima copia di m viene ricevuta prima che la coda primaria diventi non disponibile, le due copie di m verranno ricevute quasi contemporaneamente. Se invece la prima copia di m non viene ricevuta prima che la coda primaria diventi non disponibile, il ricevitore riceverà inizialmente solo la seconda copia di m. L'altra copia di m verrà ricevuta quando la coda primaria diventerà disponibile.
 
-L'esempio relativo alla [replica geografica con i messaggi negoziati del bus di servizio][replica geografica con i messaggi negoziati del bus di servizio] illustra la modalità di replica attiva delle entità di messaggistica.
+L'esempio relativo alla [replica geografica con i messaggi negoziati del bus di servizio][Geo-replication with Service Bus Brokered Messages] illustra la modalità di replica passiva delle entità di messaggistica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sul ripristino di emergenza, vedere gli articoli seguenti:
 
-* [Continuità aziendale del database SQL di Azure][Continuità aziendale del database SQL di Azure]
-* [Indicazioni tecniche sulla resilienza di Azure][Indicazioni tecniche sulla resilienza di Azure]
+* [Continuità aziendale del database SQL di Azure][Azure SQL Database Business Continuity]
+* [Indicazioni tecniche sulla resilienza di Azure][Azure resiliency technical guidance]
 
 [Service Bus Authentication]: service-bus-authentication-and-authorization.md
-[Code e argomenti partizionati]: service-bus-partitioning.md
-[Modelli di messaggistica asincrona e disponibilità elevata]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
-[replica geografica con i messaggi inoltrati del bus di servizio]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
-[BrokeredMessage.MessageId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx
-[BrokeredMessage.Label]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx
-[replica geografica con i messaggi negoziati del bus di servizio]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
-[Continuità aziendale del database SQL di Azure]: ../sql-database/sql-database-business-continuity.md
-[Indicazioni tecniche sulla resilienza di Azure]: ../resiliency/resiliency-technical-guidance.md
+[Partitioned messaging entities]: service-bus-partitioning.md
+[Asynchronous messaging patterns and high availability]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
+[Geo-replication with Service Bus Relayed Messages]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
+[BrokeredMessage.MessageId]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
+[BrokeredMessage.Label]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label
+[Geo-replication with Service Bus Brokered Messages]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
+[Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
+[Azure resiliency technical guidance]: ../resiliency/resiliency-technical-guidance.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

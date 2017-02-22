@@ -13,18 +13,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0890076fb1f80489ec9ec75dddb8cbd4cfaa44f3
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: af9e0b7c0f7077b8d4e20ccafdc1fb4e1eb58505
 
 
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gestire cluster Hadoop in HDInsight tramite Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell è un ambiente di scripting potente che può essere usato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. In questo articolo verrà illustrato come gestire cluster Hadoop in Azure HDInsight usando una console di Azure PowerShell locale tramite Windows PowerShell. Per l'elenco dei cmdlet PowerShell per HDInsight, vedere [HDInsight cmdlet reference][hdinsight-powershell-reference] (Documentazione di riferimento relativa ai cmdlet di HDInsight).
+Azure PowerShell è un ambiente di scripting potente che può essere usato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. In questo articolo verrà illustrato come gestire cluster Hadoop in Azure HDInsight usando una console di Azure PowerShell locale tramite Windows PowerShell. Per l'elenco dei cmdlet PowerShell per HDInsight, vedere [Documentazione di riferimento di cmdlet di HDInsight][hdinsight-powershell-reference].
 
 **Prerequisiti**
 
@@ -104,10 +104,10 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
     
     Di seguito viene fornito un esempio d'uso del comando CLI per ribilanciare la topologia di Storm:
     
-    ## <a name="reconfigure-the-topology-mytopology-to-use-5-worker-processes"></a>Riconfigurare la topologia "mytopology" in modo da usare 5 processi di lavoro,
-    ## <a name="the-spout-blue-spout-to-use-3-executors-and"></a>lo spout "blu-spout" in modo da usare 3 esecutori e
-    ## <a name="the-bolt-yellow-bolt-to-use-10-executors"></a>il bolt "giallo-bolt" in modo da usare 10 esecutori
-      $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ## Reconfigure the topology "mytopology" to use 5 worker processes,
+        ## the spout "blue-spout" to use 3 executors, and
+        ## the bolt "yellow-bolt" to use 10 executors
+        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 Per modificare le dimensioni del cluster Hadoop mediante Azure PowerShell, eseguire il comando seguente da un computer client:
 
@@ -147,7 +147,7 @@ Per concedere:
 > 
 > 
 
-Questa operazione può essere eseguita anche tramite il portale. Vedere [Amministrare HDInsight tramite il Portale di Azure][hdinsight-admin-portal].
+Questa operazione può essere eseguita anche tramite il portale. Vedere l'articolo su come [amministrare HDInsight con il portale di Azure][hdinsight-admin-portal].
 
 ## <a name="update-http-user-credentials"></a>Aggiornare le credenziali utente HTTP
 È la stessa procedura di [Concedere/revocare l'accesso HTTP](#grant/revoke-access). Se al cluster è stato concesso l'accesso HTTP, è necessario prima revocarlo.  E quindi concedere l'accesso con le nuove credenziali utente HTTP.
@@ -195,12 +195,12 @@ Vedere [Usare Sqoop con Hadoop in HDInsight](hdinsight-use-sqoop.md).
 Vedere [Usare Oozie con Hadoop per definire ed eseguire un flusso di lavoro in HDInsight](hdinsight-use-oozie.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Caricare dati nell'archivio BLOB di Azure
-Vedere [Caricare dati in HDInsight][hdinsight-upload-data].
+Vedere[Caricare dati in HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Vedere anche
-* [HDInsight cmdlet reference documentation][hdinsight-powershell-reference] (Documentazione di riferimento relativa ai cmdlet di HDInsight)
-* [Amministrare HDInsight tramite il Portale di Azure][hdinsight-admin-portal]
-* [Amministrare HDInsight tramite l'interfaccia della riga di comando][hdinsight-admin-cli]
+* [Documentazione di riferimento dei cmdlet di HDInsight][hdinsight-powershell-reference]
+* [Amministrare HDInsight con il portale di Azure][hdinsight-admin-portal]
+* [Amministrare HDInsight con l'interfaccia della riga di comando][hdinsight-admin-cli]
 * [Creare cluster HDInsight][hdinsight-provision]
 * [Caricare dati in HDInsight][hdinsight-upload-data]
 * [Inviare processi Hadoop a livello di codice][hdinsight-submit-jobs]
@@ -225,12 +225,12 @@ Vedere [Caricare dati in HDInsight][hdinsight-upload-data].
 
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
-[powershell-install-configure]: powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

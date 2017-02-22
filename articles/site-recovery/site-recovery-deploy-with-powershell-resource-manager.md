@@ -1,6 +1,6 @@
 ---
-title: Proteggere i server in Azure tramite Azure PowerShell con Azure Resource Manager | Microsoft Docs
-description: Automatizzare la protezione dei server in Azure con Azure Site Recovery usando PowerShell e Azure Resource Manager.
+title: Eseguire la replica di macchine virtuali Hyper-V con PowerShell e Azure Resource Manager | Documentazione Microsoft
+description: Automatizzare la replica di macchine virtuali in Azure con Azure Site Recovery usando PowerShell e Azure Resource Manager.
 services: site-recovery
 documentationcenter: 
 author: bsiva
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 09/27/2016
+ms.date: 02/06/2017
 ms.author: bsiva
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: 555f61f76a8d6f1564e7ca736bcdd0dec7d594df
+ms.sourcegitcommit: a084cecddc2af36ee087b2e0e63a2b18b20f07f0
+ms.openlocfilehash: 3df4aaa018d31e9ee9526679ac1febbe5b75bb7e
 
 
 ---
@@ -62,7 +62,7 @@ Questo articolo descrive come usare Azure Powershell con Azure Resource Manager 
 
 * Host Hyper-V che esegue Windows Server 2012 R2 o Microsoft Hyper-V Server 2012 R2 contenente una o più macchine virtuali.
 * Server Hyper-V connessi a Internet, in modo diretto o tramite proxy.
-* Le macchine virtuali da proteggere devono essere conformi ai [prerequisiti per le macchine virtuali](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+* Le macchine virtuali da proteggere devono essere conformi ai [prerequisiti per le macchine virtuali](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Passaggio 1: Accedere al proprio account Azure
 1. Aprire una console di PowerShell ed eseguire questo comando per accedere all'account di Azure. Il cmdlet visualizza una pagina Web che richiederà le credenziali dell'account.
@@ -247,6 +247,6 @@ Questo articolo descrive come usare Azure Powershell con Azure Resource Manager 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

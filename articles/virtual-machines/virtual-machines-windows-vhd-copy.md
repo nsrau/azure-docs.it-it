@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: e516d3cea9a53dec209a51fc8729f2cca934d3cd
+ms.sourcegitcommit: e5bacb7ce32845b97e06cb0d35cc62935a3c86f6
+ms.openlocfilehash: 79b597fb1d76ec0dd7bdfca701a16f885d245b94
 
 
 ---
@@ -93,7 +93,7 @@ Elapsed time:            00.00:13:07
 ```
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
-* Quando si usa AZCopy, se viene visualizzato il messaggio di errore "Autenticazione della richiesta non riuscita nel server. Verificare che il formato dell'intestazione Authorization, firma inclusa, sia corretto" e si sta usando la chiave 2 o la chiave di archiviazione secondaria, provare a usare la chiave 1 o la chiave di archiviazione primaria.
+* Quando si usa AZCopy, se si visualizza l'errore indicante che il server non ha autenticato la richiesta correttamente, assicurarsi che il valore dell'intestazione di autorizzazione sia formato correttamente, inclusa la firma, e che si stia usando la chiave 2 o la chiave di archiviazione secondaria. A questo scopo, provare a usare la chiave 1 o la chiave di archiviazione primaria.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * È possibile creare una nuova VM [collegando la copia del disco rigido virtuale a una macchina VM come disco del sistema operativo](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -101,6 +101,6 @@ Elapsed time:            00.00:13:07
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

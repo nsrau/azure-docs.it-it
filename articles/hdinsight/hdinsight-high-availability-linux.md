@@ -1,5 +1,5 @@
 ---
-title: "Funzionalità a disponibilità elevata di HDInsight (Hadoop) basato su Linux | Documentazione Microsoft"
+title: "Funzionalità a disponibilità elevata di HDInsight (Hadoop) | Documentazione Microsoft"
 description: "Informazioni su come i cluster HDInsight basati su Linux migliorano l&quot;affidabilità e la disponibilità tramite l’utilizzo di un nodo head aggiuntivo. Informazioni su come questo influisce sui servizi di Hadoop come Ambari e Hive, e anche su come connettersi singolarmente a ogni nodo head utilizzando SSH."
 services: hdinsight
 editor: cgronlun
@@ -13,23 +13,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
-ms.openlocfilehash: 461ff9ce5aac5b2bf87671c314b38a4b1adad233
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: c29f539d25df3f7b005eb0fa98009d26549fa32b
 
 
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilità e affidabilità dei cluster Hadoop in HDInsight
+
 Hadoop ottiene disponibilità e l'affidabilità elevate distribuendo copie ridondanti di servizi e dati tra i nodi di un cluster. Tuttavia le distribuzioni standard di Hadoop hanno in genere un singolo nodo head. Eventuali interruzioni del singolo nodo head possono causare l'interruzione del funzionamento del cluster.
 
-Per risolvere questo problema, i cluster HDInsight basati su Linux in Azure forniscono due nodi head per aumentare la disponibilità e l'affidabilità dei servizi Hadoop e dei processi in esecuzione.
+Per risolvere questo problema, i cluster HDInsight in Azure forniscono due nodi head per aumentare la disponibilità e l'affidabilità dei servizi Hadoop e dei processi in esecuzione.
 
-> [!NOTE]
-> I passaggi descritti in questo documento sono specifici per i cluster HDInsight basati su Linux. Se si utilizza un cluster basato su Windows, vedere [Disponibilità e affidabilità dei cluster Hadoop basati su Windows in HDInsight](hdinsight-high-availability.md) per informazioni specifiche su Windows.
-> 
-> 
+> [!IMPORTANT]
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="understanding-the-nodes"></a>Informazioni sui nodi
 I nodi in un cluster HDInsight vengono implementati con macchine virtuali di Azure. Nel caso di errore di un nodo, questo viene portato offline e viene creato un nuovo nodo per sostituire il nodo che non funziona. Mentre il nodo è offline, viene usato un altro nodo dello stesso tipo fino a quando il nuovo nodo viene portato online.
@@ -187,14 +186,10 @@ Per un elenco di comandi disponibili, immettere `help` al prompt `sftp>`.
 
 > [!NOTE]
 > Esistono anche interfacce grafiche che consentono di visualizzare il file system quando si è connessi tramite SFTP. Ad esempio, [MobaXTerm](http://mobaxterm.mobatek.net/) consente di sfogliare il file system con un'interfaccia simile a Esplora risorse.
-> 
-> 
 
 ### <a name="ambari"></a>Ambari
 > [!NOTE]
-> L’accesso ai file di registro tramite Ambari richiede un tunnel SSH, poichè  i siti web per i singoli servizi non sono esposti pubblicamente in Internet. Per informazioni sull'uso di un tunnel SSH, vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce Web](hdinsight-linux-ambari-ssh-tunnel.md).
-> 
-> 
+> L'accesso ai file di registro tramite Ambari richiede un tunnel SSH, poiché i siti Web per i singoli servizi non sono esposti pubblicamente in Internet. Per informazioni sull'uso di un tunnel SSH, vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 Dall'interfaccia utente Web Ambari, selezionare il servizio per il quale si desidera visualizzare i registri (ad esempio, YARN) e quindi utilizzare **Collegamenti rapidi** per selezionare il nodo head per il quale si vuole visualizzare i registri.
 
@@ -226,6 +221,6 @@ In questo documento si è appreso il modo in cui Azure HDInsight fornisce dispon
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

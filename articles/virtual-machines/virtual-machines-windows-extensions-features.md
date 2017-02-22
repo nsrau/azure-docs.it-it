@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 259ad6e8481545c48865fbb108956b70251ade7c
-ms.openlocfilehash: 16d5b3347e01718a9976b6fa5e6d0b92c073da21
+ms.sourcegitcommit: 1493bf0a545cd605b80404413894bd56e1ced735
+ms.openlocfilehash: ebd8734ad2de6f5e528e941f90098de079966f48
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 16d5b3347e01718a9976b6fa5e6d0b92c073da21
 
 Le estensioni della macchina virtuale di Azure sono piccole applicazioni che eseguono attività di configurazione e automazione post-distribuzione sulle macchine virtuali di Azure. Ad esempio, se una macchina virtuale richiede l'installazione di software, la protezione antivirus o la configurazione di Docker, è possibile usare un'estensione di macchina virtuale per completare queste attività. Le estensioni della macchina virtuale di Azure possono essere eseguite tramite l'interfaccia della riga di comando di Azure, PowerShell, i modelli di Azure Resource Manager e il portale di Azure. Le estensioni possono essere unite in bundle con una nuova distribuzione di macchina virtuale o eseguite su un sistema esistente.
 
-Questo documento fornisce una panoramica delle estensioni macchina virtuale, i prerequisiti per l'uso delle estensioni macchina virtuale e le indicazioni su come rilevare, gestire e rimuovere le estensioni macchina virtuale. Questo documento fornisce informazioni generali perché sono disponibili molte estensioni della macchina virtuale, ognuna con una configurazione potenzialmente univoca. I dettagli specifici delle estensioni sono reperibili nel documento specifico per la singola estensione.
+Questo documento fornisce una panoramica delle estensioni macchina virtuale, i prerequisiti per l'uso delle estensioni macchina virtuale e le indicazioni su come rilevare, gestire e rimuovere le estensioni macchina virtuale. Questo documento fornisce informazioni generali perché sono disponibili molte estensioni della macchina virtuale, ognuna con una configurazione potenzialmente univoca. I dettagli sono disponibili nel documento specifico della singola estensione.
 
 ## <a name="use-cases-and-samples"></a>Casi d'uso ed esempi
 
@@ -47,9 +47,9 @@ Ogni estensione macchina virtuale può avere un insieme specifico di prerequisit
 ### <a name="azure-vm-agent"></a>Agente di macchine virtuali di Azure
 L'agente di macchine virtuali di Azure gestisce l'interazione tra una macchina virtuale di Azure e il controller di infrastruttura di Azure. L'agente di macchine virtuali è responsabile di molti aspetti funzionali della distribuzione e della gestione delle macchine virtuali di Azure, tra cui l'esecuzione delle estensioni delle macchine virtuali. L'agente di macchine virtuali di Azure è preinstallato nelle immagini di Azure Marketplace e può essere installato nei sistemi operativi supportati.
 
-Per informazioni sui sistemi operativi supportati e per le istruzioni di installazione, vedere [Agente delle macchine virtuali di Azure](virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Per informazioni sui sistemi operativi supportati e per le istruzioni di installazione, vedere [Agente delle macchine virtuali di Azure](virtual-machines-windows-agent-user-guide.md).
 
-## <a name="discover-vm-extensions"></a>Individuare le estensioni delle macchine virtuali
+## <a name="discover-vm-extensions"></a>Individuare le estensioni della macchina virtuale
 Molte estensioni delle macchine virtuali di diverso tipo sono disponibili per l'uso con macchine virtuali di Azure. Per visualizzare un elenco completo, eseguire il comando seguente con il modulo Azure Resource Manager di PowerShell. Assicurarsi di specificare il percorso desiderato quando si esegue questo comando.
 
 ```powershell
@@ -60,7 +60,7 @@ Get-AzureRmVMExtensionImage | Select Type, Version
 
 ## <a name="run-vm-extensions"></a>Eseguire le estensioni della macchina virtuale
 
-Le estensioni della macchina virtuale di Azure possono essere eseguite su macchine virtuali esistenti risultando utili quando è necessario apportare modifiche alla configurazione o ripristinare la connettività in una macchina virtuale già distribuita. Le estensioni della macchina virtuale possono essere anche unite in bundle con le distribuzioni del modello di Azure Resource Manager. L'uso delle estensioni con i modelli di Resource Manager consente di distribuire e configurare le macchine virtuali di Azure senza che sia necessario l'intervento post-distribuzione.
+Le estensioni della macchina virtuale di Azure possono essere eseguite nelle macchine virtuali esistenti e sono utili quando è necessario apportare modifiche alla configurazione o ripristinare la connettività in una VM già distribuita. Le estensioni della macchina virtuale possono essere anche unite in bundle con le distribuzioni del modello di Azure Resource Manager. L'uso delle estensioni con i modelli di Resource Manager consente di distribuire e configurare le macchine virtuali di Azure senza che sia necessario l'intervento post-distribuzione.
 
 Per eseguire un'estensione in una macchina virtuale esistente, è possibile usare i metodi seguenti.
 
@@ -161,7 +161,7 @@ Per altre informazioni, vedere [Authoring Azure Resource Manager templates with 
 
 ## <a name="secure-vm-extension-data"></a>Proteggere i dati dell'estensione della macchina virtuale
 
-Quando si esegue un'estensione della macchina virtuale, potrebbe essere necessario includere informazioni riservate, ad esempio le credenziali e i nomi di account di archiviazione e le chiavi di accesso dell'account di archiviazione. Molte estensioni della macchina virtuale includono una configurazione protetta, che consente di crittografare dati e di decrittografarli solo all'interno della macchina virtuale di destinazione. Ogni estensione ha uno schema di configurazione protetto specifico che sarà descritto in maniera dettagliata nella documentazione specifica dell'estensione.
+Quando si esegue un'estensione macchina virtuale, potrebbe essere necessario includere informazioni riservate, ad esempio le credenziali, i nomi degli account di archiviazione e le chiavi di accesso dell'account di archiviazione. Molte estensioni della macchina virtuale includono una configurazione protetta, che consente di crittografare dati e di decrittografarli solo all'interno della macchina virtuale di destinazione. Ogni estensione ha uno schema di configurazione protetto specifico che sarà descritto in maniera dettagliata nella documentazione specifica dell'estensione.
 
 L'esempio seguente illustra un'istanza dell'estensione Script personalizzato per Windows. Si noti che il comando da eseguire include un insieme di credenziali. In questo esempio, il comando da eseguire non verrà crittografato.
 
@@ -288,6 +288,6 @@ Un'estensione può essere eliminata anche tramite il portale di Azure. A tale sc
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

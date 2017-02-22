@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: Documentazione delle app per dispositivi mobili di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come per usare App per dispositivi mobili nel Servizio app di azure per creare e ospitare app iOS, Android o Windows native oppure app multipiattaforma tramite Xamarin o Cordova.
+services: app-service\mobile
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: app-service\mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 5735759300fddfb650220cebc49bd5968621a8d4
-ms.openlocfilehash: 59bab7c719a01643dacf5549c0674d149e8b92f4
+ms.sourcegitcommit: 6f1ca5fe5125728b51a6d46e55415afb72405910
+ms.openlocfilehash: f660922fa2f7d5d21b4e6678233792ad6cb84041
 
 ---
 # <a name="mobile-apps-documentation"></a>Documentazione sulle app per dispositivi mobili
@@ -185,8 +196,13 @@ Informazioni su come usare App per dispositivi mobili nel Servizio app di Azure 
                 <div class="card">
                     <div class="cardText">
                         <h3>Lingue</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">.NET</a></p>
-                   </div>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">.NET backend SDK</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-node/">Node.js backend SDK</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-android-client/">Android client SDK</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-ios-client/">iOS client SDK</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-js-client/">JavaScript/Cordova client SDK</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt419521.aspx">Windows/Xamarin client SDK</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -195,6 +211,6 @@ Informazioni su come usare App per dispositivi mobili nel Servizio app di Azure 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

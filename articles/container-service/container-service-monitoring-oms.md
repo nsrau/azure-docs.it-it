@@ -1,7 +1,6 @@
 ---
-
-title: Soluzione contenitore OMS | Microsoft Docs
-description: "La soluzione contenitore OMS è una soluzione di Log Analytics di OMS che consente di visualizzare l&quot;inventario, le prestazioni e i log del contenitore in un&quot;unica posizione. È possibile controllare, risolvere i problemi relativi ai contenitori visualizzando i log in una posizione centralizzata e trovare contenitori fastidiosi in un host."
+title: Monitorare il cluster DC/OS di Azure - Operations Management | Documentazione Microsoft
+description: Monitorare un cluster DC/OS del servizio contenitore di Azure con Microsoft Operations Management Suite.
 services: container-service
 documentationcenter: 
 author: keikhara
@@ -18,15 +17,15 @@ ms.workload: infrastructure
 ms.date: 11/17/2016
 ms.author: keikhara
 translationtype: Human Translation
-ms.sourcegitcommit: 10770c96900737e1894405a6aedaa7fe2a55fd3d
-ms.openlocfilehash: 9697a4c23b50b5ed2435a00a31fa2ee239c56c48
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: f10236ab89339234a32abf42c42083e233ab3a52
 
 
 ---
 
-# <a name="using-oms-to-monitor-container-applications-on-acs-dcos"></a>Uso di OMS per monitorare le applicazioni contenitore su DC/OS del servizio contenitore di Azure
+# <a name="monitor-an-azure-container-service-dcos-cluster-with-operations-management-suite"></a>Monitorare un cluster DC/OS del servizio contenitore di Azure con Operations Management Suite
 
-Microsoft Operations Management (OMS) è la soluzione Microsoft per la gestione IT basata sul cloud che consente di gestire e proteggere l'infrastruttura locale e cloud. La soluzione contenitore è una soluzione di Log Analytics di OMS che consente di visualizzare l'inventario, le prestazioni e i log del contenitore in un'unica posizione. È possibile controllare, risolvere i problemi relativi ai contenitori visualizzando i log in una posizione centralizzata e trovare un contenitore con un consumo eccessivo in un host.
+Microsoft Operations Management Suite (OMS) è la soluzione Microsoft per la gestione IT basata sul cloud che consente di gestire e proteggere l'infrastruttura locale e cloud. La soluzione contenitore è una soluzione di Log Analytics di OMS che consente di visualizzare l'inventario, le prestazioni e i log del contenitore in un'unica posizione. È possibile controllare, risolvere i problemi relativi ai contenitori visualizzando i log in una posizione centralizzata e trovare un contenitore con un consumo eccessivo in un host.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
@@ -120,6 +119,6 @@ Cosa funziona? Cosa manca? Cos'altro può servire? Scrivere a <a href="mailto:OM
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

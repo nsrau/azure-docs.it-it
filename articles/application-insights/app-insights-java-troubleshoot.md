@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: d53257f43c50ffae48dd8f024f9f0515be1c9338
+ms.sourcegitcommit: 4fc4561516490b9b285220e7ae688bf97384fe6e
+ms.openlocfilehash: 9164a93308a4a2f3eed4ff6262942239df029dae
 
 
 ---
@@ -23,12 +23,12 @@ ms.openlocfilehash: d53257f43c50ffae48dd8f024f9f0515be1c9338
 Domande o problemi relativi ad [Azure Application Insights in Java][java]? Ecco alcuni suggerimenti.
 
 ## <a name="build-errors"></a>Errori di compilazione
-*Quando si aggiunge Application Insights SDK in Eclipse tramite Maven o Gradle, vengono visualizzati errori di convalida relativi a compilazione o checksum.*
+**Quando si aggiunge Application Insights SDK in Eclipse tramite Maven o Gradle, vengono visualizzati errori di convalida relativi a compilazione o checksum.**
 
 * Se l'elemento di dipendenza <version> usa un criterio di ricerca con caratteri jolly, ad esempio (Maven) `<version>[1.0,)</version>` o (Gradle) `version:'1.0.+'`, provare a indicare una versione specifica, come `1.0.2`. Vedere le [note sulla versione](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) per la versione più recente.
 
 ## <a name="no-data"></a>Dati non presenti
-*Dopo avere aggiunto Application Insights correttamente ed avere eseguito l'app, nel portale non vengono visualizzati dati.*
+**Dopo avere aggiunto Application Insights correttamente ed avere eseguito l'app, nel portale non vengono visualizzati dati.**
 
 * Attendere un minuto, quindi fare clic su Aggiorna. I grafici si aggiornano autonomamente periodicamente, ma è anche possibile aggiornare manualmente. L'intervallo di aggiornamento dipende dall'intervallo di tempo del grafico.
 * Verificare di disporre di una chiave di strumentazione definita nel file ApplicationInsights.xml (presente nella cartella resources del progetto).
@@ -47,7 +47,7 @@ Domande o problemi relativi ad [Azure Application Insights in Java][java]? Ecco 
 * Aprire il pannello Quota + prezzi e verificare se il [campionamento](app-insights-sampling.md) è abilitato. La trasmissione al 100% indica che il campionamento non è abilitato. È possibile impostare il servizio Application Insights in modo che vengano accettati soltanto i dati di telemetria provenienti dall'app. Ciò permette di evitare il superamento della quota mensile. 
 
 ## <a name="no-usage-data"></a>Dati di utilizzo non presenti
-*I dati relativi a richieste e tempi di risposta vengono visualizzati, ma non sono presenti dati relativi alla visualizzazione di pagine, ai browser o dati relativi agli utenti.*
+**I dati relativi a richieste e tempi di risposta vengono visualizzati, ma non sono presenti dati relativi alla visualizzazione di pagine, ai browser o dati relativi agli utenti.**
 
 L'app è stata correttamente configurata per inviare dati di telemetria dal server. Il passaggio successivo consiste nel [configurare le pagine Web per inviare dati di telemetria dal Web browser][usage].
 
@@ -57,30 +57,37 @@ Usare la chiave di strumentazione per impostare la telemetria sia sul client che
 
 
 ## <a name="disabling-telemetry"></a>Disabilitazione della telemetria
-*In che modo è possibile disabilitare la raccolta di dati di telemetria?*
+**In che modo è possibile disabilitare la raccolta di dati di telemetria?**
 
 Nel codice:
 
+```Java
+
     TelemetryConfiguration config = TelemetryConfiguration.getActive();
     config.setTrackingIsDisabled(true);
-
+```
 
 **Oppure** 
 
 Aggiornare ApplicationInsights.xml (nella cartella resources del progetto). Aggiungere la riga seguente sotto il nodo radice:
 
+```XML
+
     <DisableTelemetry>true</DisableTelemetry>
+```
 
 Usando il metodo XML, dopo la modifica di questo valore sarà necessario riavviare l'applicazione.
 
 ## <a name="changing-the-target"></a>Modifica della destinazione
-*In che modo è possibile modificare la risorsa di Azure che riceve i dati del progetto?*
+**In che modo è possibile modificare la risorsa di Azure che riceve i dati del progetto?**
 
-* [Ottenere la chiave di strumentazione della nuova risorsa.][java]
+* [Ottenere la chiave di strumentazione della nuova risorsa][java].
 * Se si è aggiunto Application Insights al progetto usando Azure Toolkit for Eclipse, fare clic con il pulsante destro del mouse sul progetto Web, selezionare **Azure**, **Configura Application Insights**, quindi modificare la chiave.
 * Oppure, aggiornare la chiave nel file ApplicationInsights.xml presente nella cartella resources del progetto.
 
 ## <a name="debug-data-from-the-sdk"></a>Debug dei dati dall'SDK
+
+**Come ottenere informazioni sulle attività dell'SDK**
 
 Per ottenere altre informazioni su quello che accade nell'API, aggiungere `<SDKLogger/>` sotto il nodo radice del file di configurazione ApplicationInsights.xml.
 
@@ -98,33 +105,33 @@ I file sono reperibili in `%temp%\javasdklogs`.
 
 
 ## <a name="the-azure-start-screen"></a>Schermata iniziale di Azure
-*Guardando nel [portale di Azure](https://portal.azure.com). la mappa contiene informazioni sull'app?*
+**Guardando nel [portale di Azure](https://portal.azure.com). la mappa contiene informazioni sull'app?**
 
 No, la mappa visualizza lo stato di integrità dei server Azure nelle varie parti del mondo.
 
 *Dalla schermata iniziale (home) di Azure, in che modo è possibile trovare i dati relativi all'app?*
 
-Supponendo che [l'app sia stata impostata per Application Insights][java], fare clic su Sfoglia, selezionare Application Insights, quindi selezionare la risorsa dell'app creata per l'app specifica. Per raggiungere questa area più velocemente in futuro, è possibile aggiungere l'app alla schermata iniziale.
+Supponendo che [l'app sia stata impostata per Application Insights][java], fare clic su Esplora, selezionare Application Insights, quindi selezionare la risorsa dell'app creata per l'app specifica. Per raggiungere questa area più velocemente in futuro, è possibile aggiungere l'app alla schermata iniziale.
 
 ## <a name="intranet-servers"></a>Server Intranet
-*È possibile monitorare un server nella Intranet?*
+**È possibile monitorare un server nella Intranet?**
 
 Sì, purché il server possa inviare dati di telemetria al portale di Application Insights tramite la rete Internet pubblica. 
 
 Nel firewall, potrebbe essere necessario aprire le porte TCP 80 e 443 per il traffico in uscita verso dc.services.visualstudio.com e f5.services.visualstudio.com.
 
 ## <a name="data-retention"></a>Conservazione dei dati
-*Per quanto tempo vengono conservati i dati nel portale? Tale conservazione è sicura?*
+**Per quanto tempo vengono conservati i dati nel portale? Tale conservazione è sicura?**
 
-Vedere [Conservazione dei dati e privacy][dati].
+Vedere [Conservazione dei dati e privacy][data].
 
 ## <a name="next-steps"></a>Passaggi successivi
-*Application Insights è stato correttamente impostato per l'app server Java. Cos'altro è possibile fare?*
+**Application Insights è stato correttamente impostato per l'app server Java. Cos'altro è possibile fare?**
 
 * [Monitorare la disponibilità delle pagine Web][availability]
 * [Monitorare l'utilizzo delle pagine Web][usage]
 * [Tenere traccia dell'utilizzo delle app per dispositivi e diagnosticarne i problemi][platforms]
-* [Scrivere codice per tenere traccia dell'utilizzo dell'app][rilevamento]
+* [Scrivere codice per tenere traccia dell'utilizzo dell'app][track]
 * [Acquisire i log di diagnostica][javalogs]
 
 ## <a name="get-help"></a>Ottenere aiuto
@@ -133,16 +140,16 @@ Vedere [Conservazione dei dati e privacy][dati].
 <!--Link references-->
 
 [availability]: app-insights-monitor-web-app-availability.md
-[dati]: app-insights-data-retention-privacy.md
+[data]: app-insights-data-retention-privacy.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [platforms]: app-insights-platforms.md
-[rilevamento]: app-insights-api-custom-events-metrics.md
+[track]: app-insights-api-custom-events-metrics.md
 [usage]: app-insights-web-track-usage.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

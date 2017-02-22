@@ -1,5 +1,5 @@
 ---
-title: Script personalizzati nelle macchine virtuali Linux | Microsoft Docs
+title: Eseguire script personalizzati nelle macchine virtuali Linux | Documentazione Microsoft
 description: "Automatizzare le attività di configurazione delle macchine virtuali Linux usando l&quot;estensione script personalizzata"
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: bf6c1423ca2f88d7a881c87cf1e7d42302c33a9c
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 09c1ace33461eff30fbd4b277e1397934fe5a98a
 
 
 ---
@@ -185,7 +185,7 @@ L'estensione script personalizzata di Azure può essere eseguita durante la fase
     "autoUpgradeMinorVersion": true,
     "settings": {
       "fileUris": [
-        "https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh
+        "https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"
       ]              
     },
     "protectedSettings": {
@@ -234,6 +234,6 @@ Per informazioni su altre estensioni script delle macchine virtuali, vedere [Pan
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
-ms.author: sethm
+ms.date: 02/14/2017
+ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 16071ba6c99e41af9fe7614fcc3254cd7e786e89
-ms.openlocfilehash: 497f54903bef564bab687103a763c7a7b58da074
+ms.sourcegitcommit: 579942cfe0dc7d6a5e3f205308642d36bf6be880
+ms.openlocfilehash: d3a191797e75c424af07910e4a6a87e1183f6676
 
 
 ---
@@ -118,7 +118,7 @@ Il messaggio contiene un oggetto JSON denominato "accept", che definisce le prop
 * **connectHeaders**: tutte le intestazioni HTTP fornite all'endpoint di inoltro dal mittente, che include anche le intestazioni Sec-WebSocket-Protocol e Sec-WebSocket-Extensions.
 
 #### <a name="accept-message"></a>Messaggio accept
-``` JSON
+```json
 {                                                           
     "accept" : {
         "address" : "wss://168.61.148.205:443/$hc/{path}?..."    
@@ -201,7 +201,7 @@ Quando il token del listener sta per scadere, può essere sostituito inviando un
 * **token**: token di accesso condiviso del bus di servizio codificato con URL valido per lo spazio dei nomi o la connessione ibrida che conferisce il diritto **Listen**.
 
 #### <a name="renewtoken-message"></a>Messaggio renewToken
-``` JSON
+```json
 {                                                                                                                                                                        
     "renewToken" : {                                                                                                                                                      
         "token" : "SharedAccessSignature sr=http%3a%2f%2fcontoso.servicebus.windows.net%2fhyco%2f&amp;sig=XXXXXXXXXX%3d&amp;se=1471633754&amp;skn=SasKeyName"  
@@ -231,7 +231,7 @@ Le opzioni dei parametri della stringa di query sono le seguenti.
 
 | Param | Obbligatorio? | Description |
 | --- | --- | --- |
-| sb-hc-action |sì |Per il ruolo listener, il parametro deve essere `action=connect`. |
+| sb-hc-action |Sì |Per il ruolo mittente, il parametro deve essere `action=connect`. |
 | {path} |sì |(vedere il paragrafo seguente) |
 | sb-hc-token |Sì\* |Il listener deve fornire un token di accesso condiviso del bus di servizio codificato con URL valido per lo spazio dei nomi o la connessione ibrida che conferisce il diritto **Send**. |
 | sb-hc-id |No |ID facoltativo che consente la traccia diagnostica end-to-end ed è disponibile per il listener durante l'handshake accept. |
@@ -271,6 +271,6 @@ Se la connessione Web Socket viene intenzionalmente arrestata dal servizio dopo 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -4,7 +4,7 @@ description: "Panoramica dell&quot;azione HTTP con proprietà"
 services: 
 documentationcenter: 
 author: jeffhollan
-manager: erikre
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 522624ccb14d295359ff5585e1b46b618b45c305
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: d3514dad84bea024ad6215711877a9784a8d8ffd
 
 
 ---
@@ -29,7 +29,7 @@ Con l'azione HTTP è possibile estendere i flussi di lavoro per l'organizzazione
 * Creare flussi di lavoro con app per la logica che si attivano (trigger) quando un sito Web gestito diventa inattivo.
 * Comunicare con qualsiasi endpoint su HTTP per estendere i flussi di lavoro ad altri servizi.
 
-Per informazioni su come iniziare a usare un'azione HTTP in un'app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per informazioni su come iniziare a usare un'azione HTTP in un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="use-the-http-trigger"></a>Usare un trigger HTTP
 Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](connectors-overview.md).
@@ -125,7 +125,7 @@ Di seguito sono riportati i dettagli di output per la risposta HTTP.
 | Codice di stato |int |Stato codice HTTP |
 
 ## <a name="authentication"></a>Autenticazione
-La funzionalità App per la logica del servizio app di Azure consente di usare diversi tipi di autenticazione per gli endpoint HTTP. Questo tipo di autenticazione può essere usato con i connettori **HTTP**, **[HTTP e Swagger](connectors-native-http-swagger.md)** e **[Webhook HTTP](connectors-native-webhook.md)**. È possibile configurare i seguenti tipi di autenticazione:
+La funzionalità App per la logica permette di usare diversi tipi di autenticazione per gli endpoint HTTP. Questo tipo di autenticazione può essere usato con i connettori **HTTP**, **[HTTP e Swagger](connectors-native-http-swagger.md)** e **[Webhook HTTP](connectors-native-webhook.md)**. È possibile configurare i seguenti tipi di autenticazione:
 
 * [Autenticazione di base](#basic-authentication)
 * [Autenticazione con certificato client](#client-certificate-authentication)
@@ -162,7 +162,7 @@ Per l'autenticazione con certificato client è necessario l'oggetto di autentica
 | Nome proprietà | Tipo di dati | Descrizione |
 | --- | --- | --- |
 | Type* |type |Tipo di autenticazione (deve essere `ClientCertificate` per i certificati client SSL) |
-| PFX* |pfx |Contenuto con codifica Base 64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) |
+| PFX* |pfx |Contenuto con codifica Base&64; del file di scambio di informazioni personali (PFX, Personal Information Exchange) |
 | Password* |password |La password per accedere al file PFX |
 
 > [!TIP]
@@ -209,11 +209,11 @@ Ad esempio:
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Provare ora a usare la piattaforma e [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
+Provare ora a usare la piattaforma e [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

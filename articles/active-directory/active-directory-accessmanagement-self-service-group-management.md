@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 02/3/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 255670335151443445e5ea4a87614b904915e76f
+ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
+ms.openlocfilehash: be84686351255585c3484f5ab8dad37b92462e2b
 
 
 ---
-# <a name="setting-up-azure-active-directory-for-selfservice-group-management"></a>Configurazione di Azure Active Directory per la gestione self-service dei gruppi
+# <a name="setting-up-azure-active-directory-for-self-service-group-management"></a>Configurazione di Azure Active Directory per la gestione self-service dei gruppi
 La gestione self-service dei gruppi consente agli utenti di creare e gestire gruppi di sicurezza o gruppi di Office 365 in Azure Active Directory (Azure AD). Gli utenti possono anche richiedere l'appartenenza a gruppi di sicurezza o gruppi di Office 365, che il proprietario del gruppo può quindi approvare o rifiutare. In questo modo, il controllo giornaliero dell'appartenenza al gruppo può essere delegato a persone che ne conoscono il contesto aziendale. Le funzionalità di gestione self-service dei gruppi sono disponibili solo per i gruppi di sicurezza e i gruppi di Office 365, ma non per i gruppi di protezione abilitati alla posta o le liste di distribuzione.
 
 La gestione self-service dei gruppi comprende attualmente due scenari principali, ovvero gestione delegata e gestione self-service.
@@ -30,7 +30,7 @@ La gestione self-service dei gruppi comprende attualmente due scenari principali
 * **Gestione self-service dei gruppi**
    Un esempio di questo scenario è costituito da due utenti che hanno entrambi siti di SharePoint Online configurati in modo indipendente e che vogliono concedere al team dell'altro l'accesso al proprio sito. A questo scopo, possono creare un gruppo in Azure AD che può essere selezionato da ognuno in SharePoint Online per consentire l'accesso al proprio sito. Se un utente desidera accedere, effettua la richiesta dal pannello di accesso e dopo aver ottenuto l'approvazione potrà accedere automaticamente a entrambi i siti di SharePoint Online. Se successivamente uno degli utenti decide che tutte le persone che accedono al sito devono poter accedere anche a una determinata applicazione SaaS, l'amministratore dell'applicazione SaaS può aggiungere i diritti di accesso per l'applicazione al sito di SharePoint Online. A questo punto, tutte le richieste approvate garantiranno l'accesso ai due siti di SharePoint Online e anche all'applicazione SaaS.
 
-## <a name="making-a-group-available-for-end-user-selfservice"></a>Rendere un gruppo disponibile per la modalità self-service per gli utenti finali
+## <a name="making-a-group-available-for-end-user-self-service"></a>Rendere un gruppo disponibile per la modalità self-service per gli utenti finali
 1. Nel [portale di Azure classico](https://manage.windowsazure.com)aprire la directory di Azure AD.
 2. Nella scheda **Configura** impostare **Gestione gruppi delegata** su Abilitata.
 3. Impostare **Gli utenti possono creare gruppi di sicurezza** o **Users can create Office groups** (Gli utenti possono creare gruppi di Office) su Abilitato.
@@ -41,7 +41,7 @@ Quando l'opzione **Gli utenti possono creare gruppi di sicurezza** è abilitata,
 
 È anche possibile usare la casella **Gruppi che possono usare la modalità self-service per i gruppi di sicurezza** per specificare un nome personalizzato di un gruppo i cui membri potranno usare la modalità self-service.
 
-## <a name="additional-information"></a>Informazioni aggiuntive
+## <a name="next-steps"></a>Passaggi successivi
 Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 * [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md)
@@ -52,7 +52,6 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

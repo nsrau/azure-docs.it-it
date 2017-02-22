@@ -1,5 +1,5 @@
 ---
-title: Funzioni del modello di Resource Manager | Microsoft Docs
+title: Funzioni del modello di gestione risorse | Microsoft Docs
 description: Vengono descritte le funzioni da utilizzare in un modello di gestione risorse di Azure per recuperare valori, lavorare con stringhe e valori numerici, e recuperare informazioni sulla distribuzione.
 services: azure-resource-manager
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 11/22/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 971a154170c5deb08e4aa5f061a53d120e6dead6
+ms.sourcegitcommit: 33e6b9ba880f56d967b49d0b89e61d1b531e8376
+ms.openlocfilehash: 1d8cb6894399a7863392a7f11bde69d75d4685c3
 
 
 ---
@@ -39,14 +39,14 @@ Gestione risorse fornisce le funzioni seguenti per usare i numeri interi:
 <a id="add" />
 
 ### <a name="add"></a>add
-**add(operand1, operand2)**
+`add(operand1, operand2)`
 
 Restituisce la somma dei due numeri interi forniti.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| operand1 |Sì |Primo numero intero da sommare. |
-| operand2 |Sì |Secondo numero intero da sommare. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- | 
+|operand1 |Sì |Integer |Il primo numero da aggiungere. |
+|operand2 |Sì |Integer |Il secondo numero da aggiungere. |
 
 L'esempio seguente aggiunge due parametri.
 
@@ -75,15 +75,15 @@ L'esempio seguente aggiunge due parametri.
 <a id="copyindex" />
 
 ### <a name="copyindex"></a>copyIndex
-**copyIndex(offset)**
+`copyIndex(offset)`
 
-Restituisce l'indice corrente di un ciclo di iterazione. 
+Restituisce l'indice di un ciclo di iterazione. 
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| offset |No |Quantità da aggiungere al valore di iterazione corrente. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| offset |No |Integer |Il numero da aggiungere al valore di iterazione in base zero. |
 
-Questa funzione viene sempre usata con un oggetto **copy** . Per una descrizione completa dell'uso di **copyIndex**, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md).
+Questa funzione viene sempre usata con un oggetto **copy** . Se non viene specificato alcun valore per **offset**, viene restituito il valore di iterazione corrente. Il valore di iterazione inizia da zero. Per una descrizione completa dell'uso di **copyIndex**, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md).
 
 L'esempio seguente illustra un ciclo di copy e il valore di indice incluso nel nome. 
 
@@ -103,14 +103,14 @@ L'esempio seguente illustra un ciclo di copy e il valore di indice incluso nel n
 <a id="div" />
 
 ### <a name="div"></a>div
-**div(operand1, operand2)**
+`div(operand1, operand2)`
 
 Restituisce la divisione Integer dei due numeri interi forniti.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| operand1 |Sì |Numero intero che viene diviso. |
-| operand2 |Sì |Numero intero usato per dividere. Non può essere 0. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| operand1 |Sì |Integer |Il numero da dividere. |
+| operand2 |Sì |Integer |Il numero usato per dividere. Non può essere 0. |
 
 L'esempio seguente mostra come dividere un parametro per un altro parametro.
 
@@ -139,13 +139,13 @@ L'esempio seguente mostra come dividere un parametro per un altro parametro.
 <a id="int" />
 
 ### <a name="int"></a>int
-**int(valueToConvert)**
+`int(valueToConvert)`
 
-Converte il valore specificato in numero intero.
+Converte il valore specificato in un numero intero.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| valueToConvert |Sì |Il valore da convertire in numero intero. Il tipo di valore può essere solo Stringa o Numero Intero. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| valueToConvert |Sì |Stringa o numero intero |Il valore da convertire in numero intero. |
 
 Nell'esempio seguente il valore del parametro fornito dall'utente viene convertito in numero intero.
 
@@ -160,14 +160,14 @@ Nell'esempio seguente il valore del parametro fornito dall'utente viene converti
 <a id="mod" />
 
 ### <a name="mod"></a>mod
-**mod(operand1, operand2)**
+`mod(operand1, operand2)`
 
 Restituisce la parte rimanente della divisione Integer usando i due numeri interi forniti.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| operand1 |Sì |Numero intero che viene diviso. |
-| operand2 |Sì |Numero intero usato per dividere. Deve essere diverso da 0. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| operand1 |Sì |Integer |Il numero da dividere. |
+| operand2 |Sì |Integer |Il numero usato per dividere; non può corrispondere a 0. |
 
 L'esempio seguente restituisce il resto della divisione di un parametro per un altro parametro.
 
@@ -196,14 +196,14 @@ L'esempio seguente restituisce il resto della divisione di un parametro per un a
 <a id="mul" />
 
 ### <a name="mul"></a>mul
-**mul(operand1, operand2)**
+`mul(operand1, operand2)`
 
 Restituisce la moltiplicazione dei due numeri interi forniti.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| operand1 |Sì |Primo numero intero da moltiplicare. |
-| operand2 |Sì |Secondo numero intero da moltiplicare. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| operand1 |Sì |Integer |Il primo numero da moltiplicare. |
+| operand2 |Sì |Integer |Il secondo numero da moltiplicare. |
 
 L'esempio seguente mostra come moltiplicare un parametro per un altro parametro.
 
@@ -232,14 +232,14 @@ L'esempio seguente mostra come moltiplicare un parametro per un altro parametro.
 <a id="sub" />
 
 ### <a name="sub"></a>sub
-**sub(operand1, operand2)**
+`sub(operand1, operand2)`
 
 Restituisce la sottrazione dei due numeri interi forniti.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| operand1 |Sì |Numero intero da cui sottrarre. |
-| operand2 |Sì |Numero intero che viene sottratto. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| operand1 |Sì |Integer |Il numero da cui sottrarre. |
+| operand2 |Sì |Integer |Il numero sottratto. |
 
 L'esempio seguente mostra come sottrarre un parametro da un altro parametro.
 
@@ -287,13 +287,13 @@ Gestione risorse fornisce le funzioni seguenti per usare le stringhe:
 <a id="base64" />
 
 ### <a name="base64"></a>base64
-**base64 (inputString)**
+`base64 (inputString)`
 
 Restituisce la rappresentazione base64 della stringa di input.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| inputString |Sì |Il valore di stringa da restituire come rappresentazione base64. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| inputString |Sì |String |Il valore da restituire come rappresentazione base64. |
 
 L'esempio seguente mostra come usare la funzione base64.
 
@@ -305,14 +305,14 @@ L'esempio seguente mostra come usare la funzione base64.
 <a id="concat" />
 
 ### <a name="concat---string"></a>Funzione per valori stringa: concat
-**concat (string1, string2, string3, ...)**
+`concat (string1, string2, string3, ...)`
 
 Combina più valori stringa e restituisce la stringa concatenata. 
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| string1 |Sì |Valore stringa da concatenare. |
-| stringhe aggiuntive |No |Valori stringa da concatenare. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| string1 |Sì |string |Il primo valore per la concatenazione. |
+| stringhe aggiuntive |No |string |Altri valori in ordine sequenziale per la concatenazione. |
 
 Questa funzione può accettare qualsiasi numero di argomenti e può accettare stringhe o matrici per i parametri. Per un esempio di concatenazione di matrici, vedere [Funzione di matrice concat](#concatarray).
 
@@ -329,13 +329,13 @@ L'esempio seguente illustra come combinare più valori di stringa per restituire
 <a id="lengthstring" />
 
 ### <a name="length---string"></a>Funzione per valori stringa: length
-**length(string)**
+`length(string)`
 
 Restituisce il numero di caratteri in una stringa.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| string |Sì |Valore stringa da usare per ottenere il numero di caratteri. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| string |Sì |string |Il valore da usare per ottenere il numero di caratteri. |
 
 Per un esempio relativo all'uso di length con una matrice, vedere [Funzione di matrice length](#length).
 
@@ -352,15 +352,15 @@ L'esempio seguente restituisce il numero di caratteri in una stringa.
 <a id="padleft" />
 
 ### <a name="padleft"></a>padLeft
-**padLeft(valueToPad, totalLength, paddingCharacter)**
+`padLeft(valueToPad, totalLength, paddingCharacter)`
 
 Restituisce una stringa allineata a destra mediante l'aggiunta di caratteri a sinistra, fino a raggiungere la lunghezza totale specificata.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| valueToPad |Sì |Stringa o numero intero allineato a destra. |
-| totalLength |Sì |Numero totale di caratteri della stringa restituita. |
-| paddingCharacter |No |Il carattere da utilizzare per la spaziatura interna a sinistra, fino a raggiungere la lunghezza totale. Il valore predefinito è uno spazio. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| valueToPad |Sì |Stringa o numero intero |Il valore per eseguire l'allineamento a destra. |
+| totalLength |Sì |Integer |Numero totale di caratteri della stringa restituita. |
+| paddingCharacter |No |Carattere singolo |Il carattere da utilizzare per la spaziatura interna a sinistra, fino a raggiungere la lunghezza totale. Il valore predefinito è uno spazio. |
 
 Nell'esempio seguente viene illustrato come il valore del parametro fornito dall'utente viene completato aggiungendo il carattere zero finché la stringa non raggiunge i 10 caratteri. Se il valore del parametro originale è più lungo di 10 caratteri, non vengono aggiunti caratteri.
 
@@ -374,15 +374,15 @@ Nell'esempio seguente viene illustrato come il valore del parametro fornito dall
 <a id="replace" />
 
 ### <a name="replace"></a>replace
-**replace(originalString, oldCharacter, newCharacter)**
+`replace(originalString, oldCharacter, newCharacter)`
 
 Restituisce una nuova stringa con tutte le istanze di un carattere della stringa specificata sostituito con un altro carattere.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| originalString |Sì |Stringa che sostituisce tutte le istanze di un carattere con un altro carattere. |
-| oldCharacter |Sì |Carattere da rimuovere dalla stringa originale. |
-| newCharacter |Sì |Carattere da aggiungere al posto del carattere rimosso. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| originalString |Sì |string |Il valore in cui tutte le istanze di un carattere vengono sostituite con un altro carattere. |
+| oldCharacter |Sì |String |Carattere da rimuovere dalla stringa originale. |
+| newCharacter |Sì |String |Carattere da aggiungere al posto del carattere rimosso. |
 
 Nell'esempio seguente viene illustrato come rimuovere tutti i trattini dalla stringa fornita dall'utente.
 
@@ -396,14 +396,14 @@ Nell'esempio seguente viene illustrato come rimuovere tutti i trattini dalla str
 <a id="skipstring" />
 
 ### <a name="skip---string"></a>Funzione per valori stringa: skip
-**skip(originalValue, numberToSkip)**
+`skip(originalValue, numberToSkip)`
 
 Restituisce una stringa con tutti i caratteri dopo il numero specificato nella stringa.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| originalValue |Sì |Stringa da usare. |
-| numberToSkip |Sì |Numero di caratteri da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti i caratteri nella stringa. Se è maggiore della lunghezza della stringa, viene restituita una stringa vuota. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| originalValue |Sì |string |Stringa da usare. |
+| numberToSkip |Sì |Integer |Numero di caratteri da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti i caratteri nella stringa. Se è maggiore della lunghezza della stringa, viene restituita una stringa vuota. |
 
 Per un esempio relativo all'uso di skip con una matrice, vedere [Funzione di matrice skip](#skip).
 
@@ -436,16 +436,16 @@ L'esempio seguente ignora il numero specificato di caratteri nella stringa.
 <a id="split" />
 
 ### <a name="split"></a>split
-**split(inputString, delimiterString)**
+`split(inputString, delimiterString)`
 
-**split(inputString, delimiterArray)**
+`split(inputString, delimiterArray)`
 
 Restituisce una matrice di stringhe che contiene le sottostringhe della stringa di input delimitate dai delimitatori specificati.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| inputString |Sì |Stringa da dividere. |
-| delimiter |Sì |Delimitatore da usare, può essere una stringa singola o una matrice di stringhe. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| inputString |Sì |String |Stringa da dividere. |
+| delimiter |Sì |Stringa o matrice di stringhe |Il delimitatore da usare per dividere la stringa. |
 
 Nell'esempio seguente la stringa di input viene divisa con una virgola.
 
@@ -473,13 +473,13 @@ L'esempio seguente mostra come suddividere la stringa di input usando una virgol
 <a id="string" />
 
 ### <a name="string"></a>string
-**string(valueToConvert)**
+`string(valueToConvert)`
 
 Converte il valore specificato in una stringa.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| valueToConvert |Sì |Valore da convertire in stringa. È possibile convertire qualsiasi tipo di valore, inclusi gli oggetti e le matrici. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| valueToConvert |Sì | Qualsiasi |Valore da convertire in stringa. È possibile convertire qualsiasi tipo di valore, inclusi gli oggetti e le matrici. |
 
 Nell'esempio seguente il valore del parametro fornito dall'utente viene convertito in stringhe.
 
@@ -509,15 +509,15 @@ Nell'esempio seguente il valore del parametro fornito dall'utente viene converti
 <a id="substring" />
 
 ### <a name="substring"></a>substring
-**substring (stringToParse, startIndex, lenght)**
+`substring(stringToParse, startIndex, length)`
 
 Restituisce una sottostringa che inizia nella posizione del carattere specificato e contiene il numero di caratteri specificato.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| stringToParse |Sì |La stringa originale da cui estrarre la sottostringa. |
-| startIndex |No |La posizione del carattere iniziale in base zero della sottostringa. |
-| length |No |Il numero di caratteri della sottostringa. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| stringToParse |Sì |string |La stringa originale da cui estrarre la sottostringa. |
+| startIndex |No |Integer |La posizione del carattere iniziale in base zero della sottostringa. |
+| length |No |Integer |Il numero di caratteri della sottostringa. |
 
 Nell'esempio seguente si estraggono i primi tre caratteri da un parametro.
 
@@ -531,14 +531,14 @@ Nell'esempio seguente si estraggono i primi tre caratteri da un parametro.
 <a id="takestring" />
 
 ### <a name="take---string"></a>Funzione per valori stringa: take
-**take(originalValue, numberToTake)**
+`take(originalValue, numberToTake)`
 
 Restituisce una stringa con il numero specificato di caratteri dall'inizio della stringa.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| originalValue |Sì |Stringa da cui prendere i caratteri. |
-| numberToTake |Sì |Numero di caratteri da prendere. Se il valore è minore o uguale a 0, viene restituita una stringa vuota. Se è maggiore della lunghezza della stringa specificata, vengono restituiti tutti i caratteri nella stringa. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| originalValue |Sì |string |Il valore da cui prendere i caratteri. |
+| numberToTake |Sì |Integer |Numero di caratteri da prendere. Se il valore è minore o uguale a 0, viene restituita una stringa vuota. Se è maggiore della lunghezza della stringa specificata, vengono restituiti tutti i caratteri nella stringa. |
 
 Per un esempio relativo all'uso di take con una matrice, vedere [Funzione di matrice take](#take).
 
@@ -570,13 +570,13 @@ L'esempio seguente prende il numero specificato di caratteri dalla stringa.
 <a id="tolower" />
 
 ### <a name="tolower"></a>toLower
-**toLower(stringToChange)**
+`toLower(stringToChange)`
 
 Converte la stringa specificata in caratteri minuscoli.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| stringToChange |Sì |Stringa da convertire in lettere minuscole. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| stringToChange |Sì |String |Il valore da convertire in lettere minuscole. |
 
 Nell'esempio seguente il valore del parametro fornito dall'utente viene convertito in lettere minuscole.
 
@@ -590,13 +590,13 @@ Nell'esempio seguente il valore del parametro fornito dall'utente viene converti
 <a id="toupper" />
 
 ### <a name="toupper"></a>toUpper
-**toUpper(stringToChange)**
+`toUpper(stringToChange)`
 
 Converte la stringa specificata in lettere maiuscole.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| stringToChange |Sì |Stringa da convertire in lettere maiuscole. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| stringToChange |Sì |String |Il valore da convertire in lettere maiuscole. |
 
 Nell'esempio seguente il valore del parametro fornito dall'utente viene convertito in lettere maiuscole.
 
@@ -610,13 +610,13 @@ Nell'esempio seguente il valore del parametro fornito dall'utente viene converti
 <a id="trim" />
 
 ### <a name="trim"></a>Trim
-**trim (stringToTrim)**
+`trim (stringToTrim)`
 
 Rimuove tutti i caratteri di spazi vuoti iniziali e finali dalla stringa specificata.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| stringToTrim |Sì |La stringa da eliminare. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| stringToTrim |Sì |string |Il valore da tagliare. |
 
 Nell'esempio seguente vengono eliminati i caratteri spazi vuoti dal valore del parametro fornito dall'utente.
 
@@ -630,18 +630,18 @@ Nell'esempio seguente vengono eliminati i caratteri spazi vuoti dal valore del p
 <a id="uniquestring" />
 
 ### <a name="uniquestring"></a>uniqueString
-**uniqueString (baseString, ...)**
+`uniqueString (baseString, ...)`
 
 Crea una stringa hash deterministica in base ai valori forniti come parametri. 
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| baseString |Sì |Stringa usata nella funzione hash per creare una stringa univoca. |
-| parametri aggiuntivi in base alle esigenze |No |È possibile aggiungere tutte le stringhe necessarie per creare il valore che specifica il livello di univocità. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| baseString |Sì |String |Il valore usato nella funzione hash per creare una stringa univoca. |
+| parametri aggiuntivi in base alle esigenze |No |String |È possibile aggiungere tutte le stringhe necessarie per creare il valore che specifica il livello di univocità. |
 
 Questa funzione è utile quando è necessario creare un nome univoco per una risorsa. È possibile specificare i valori dei parametri che limitano l'ambito di univocità per il risultato. È possibile specificare se il nome è univoco nella sottoscrizione, nel gruppo di risorse o nella distribuzione. 
 
-Il valore restituito non è una stringa casuale, ma il risultato di una funzione hash. Il valore restituito ha una lunghezza di 13 caratteri. Non è globalmente univoco. È possibile combinare il valore con un prefisso dalla convenzione di denominazione scelta per creare un nome significativo. L'esempio seguente illustra il formato del valore restituito. Naturalmente, il valore effettivo varia in base ai parametri forniti.
+Il valore restituito non è una stringa casuale, ma il risultato di una funzione hash. Il valore restituito ha una lunghezza di 13 caratteri. Non è globalmente univoco. È possibile combinare il valore con un prefisso dalla convenzione di denominazione scelta per creare un nome significativo. L'esempio seguente illustra il formato del valore restituito. Il valore effettivo varia in base ai parametri forniti.
 
     tcvhiyu5h2o5o
 
@@ -659,7 +659,7 @@ Con ambito univoco nella distribuzione per un gruppo di risorse
 
     "[uniqueString(resourceGroup().id, deployment().name)]"
 
-L'esempio seguente illustra come creare un nome univoco per un account di archiviazione basato su gruppo di risorse. In questo gruppo di risorse il nome non è univoco se costruito nello stesso modo.
+Nell'esempio seguente viene illustrato come creare un nome univoco per un account di archiviazione in base al gruppo di risorse. All'interno del gruppo di risorse, il nome non è univoco se costruito allo stesso modo.
 
     "resources": [{ 
         "name": "[concat('storage', uniqueString(resourceGroup().id))]", 
@@ -671,16 +671,16 @@ L'esempio seguente illustra come creare un nome univoco per un account di archiv
 <a id="uri" />
 
 ### <a name="uri"></a>Uri
-**uri (baseUri, relativeUri)**
+`uri (baseUri, relativeUri)`
 
 Crea un URI assoluto combinando la baseUri e la stringa relativeUri.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| baseUri |Sì |La stringa URI di base. |
-| relativeUri |Sì |La stringa URI relativa da aggiungere alla stringa di URI di base. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| baseUri |Sì |String |La stringa URI di base. |
+| relativeUri |Sì |string |La stringa URI relativa da aggiungere alla stringa di URI di base. |
 
-Il valore per il parametro **baseUri** può includere un file specifico, ma solo il percorso di base viene usato per costruire l'URI. Ad esempio, passando **http://contoso.com/resources/azuredeploy.json** come parametro baseUri viene restituito l'URI di base **http://contoso.com/resources/**.
+Il valore per il parametro **baseUri** può includere un file specifico, ma solo il percorso di base viene usato per costruire l'URI. Ad esempio, se si trasmette `http://contoso.com/resources/azuredeploy.json` come parametro baseUri, viene restituito l'URI di base `http://contoso.com/resources/`.
 
 Nell'esempio seguente viene illustrato come costruire un collegamento a un modello annidato in base al valore del modello padre.
 
@@ -699,14 +699,14 @@ Per ottenere una matrice di valori stringa delimitata da un valore, vedere [spli
 <a id="concatarray" />
 
 ### <a name="concat---array"></a>Funzione di matrice concat
-**concat (array1, array2, array3, ...)**
+`concat (array1, array2, array3, ...)`
 
 Combina più matrici e restituisce la matrice concatenata. 
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| array1 |Sì |Matrice da concatenare. |
-| matrici aggiuntive |No |Matrici da concatenare. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| array1 |Sì |Array |Il primo array per la concatenazione. |
+| matrici aggiuntive |No |Array |Altre matrici in ordine sequenziale per la concatenazione. |
 
 Questa funzione può accettare qualsiasi numero di argomenti e può accettare stringhe o matrici per i parametri. Per un esempio di concatenazione di valori stringa, vedere la sezione [Funzione per valori stringa concat](#concat).
 
@@ -728,13 +728,13 @@ L'esempio seguente illustra come combinare due matrici.
 <a id="length" />
 
 ### <a name="length---array"></a>Funzione di matrice length
-**length(array)**
+`length(array)`
 
 Restituisce il numero di elementi in una matrice.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| array |Sì |Matrice da usare per ottenere il numero di elementi. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| array |Sì |Array |Matrice da usare per ottenere il numero di elementi. |
 
 È possibile usare questa funzione con una matrice per specificare il numero di iterazioni durante la creazione di risorse. Nell'esempio seguente, il parametro **siteNames** fa riferimento a una matrice di nomi da usare durante la creazione di siti Web.
 
@@ -750,14 +750,14 @@ Per un esempio relativo all'uso di length con un valore stringa, vedere la sezio
 <a id="skip" />
 
 ### <a name="skip---array"></a>Funzione di matrice skip
-**skip(originalValue, numberToSkip)**
+`skip(originalValue, numberToSkip)`
 
 Restituisce una matrice con tutti gli elementi dopo il numero specificato nella matrice.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| originalValue |Sì |Matrice da usare. |
-| numberToSkip |Sì |Numero di elementi da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti gli elementi nella matrice. Se è maggiore della lunghezza della matrice, viene restituita una matrice vuota. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| originalValue |Sì |Array |Matrice da usare. |
+| numberToSkip |Sì |Integer |Numero di elementi da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti gli elementi nella matrice. Se è maggiore della lunghezza della matrice, viene restituita una matrice vuota. |
 
 Per un esempio relativo all'uso di skip con una stringa, vedere la sezione [Funzione per valori stringa skip](#skipstring).
 
@@ -790,14 +790,14 @@ L'esempio seguente ignora il numero specificato di elementi nella matrice.
 <a id="take" />
 
 ### <a name="take---array"></a>Funzione di matrice take
-**take(originalValue, numberToTake)**
+`take(originalValue, numberToTake)`
 
 Restituisce una matrice con il numero specificato di elementi dall'inizio della matrice.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| originalValue |Sì |Matrice da cui prendere gli elementi. |
-| numberToTake |Sì |Numero di elementi da prendere. Se il valore è minore o uguale a 0, viene restituita una matrice vuota. Se è maggiore della lunghezza della matrice specificata, vengono restituiti tutti gli elementi nella matrice. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| originalValue |Sì |Array |Matrice da cui prendere gli elementi. |
+| numberToTake |Sì |Integer |Numero di elementi da prendere. Se il valore è minore o uguale a 0, viene restituita una matrice vuota. Se è maggiore della lunghezza della matrice specificata, vengono restituiti tutti gli elementi nella matrice. |
 
 Per un esempio relativo all'uso di take con una stringa, vedere la sezione [Funzione per valori stringa take](#takestring).
 
@@ -838,8 +838,8 @@ Per ottenere valori da risorse, gruppi di risorse o sottoscrizioni, vedere [Funz
 
 <a id="deployment" />
 
-### <a name="deployment"></a>deployment
-**deployment()**
+### <a name="deployment"></a>distribuzione
+`deployment()`
 
 Restituisce informazioni sull'operazione di distribuzione corrente.
 
@@ -865,7 +865,7 @@ Quando l'oggetto di distribuzione viene passato inline, ad esempio quando si usa
         }
     }
 
-Quando l'oggetto viene passato come collegamento, come quando si usa il parametro **- TemplateUri** per puntare a un oggetto remoto, l'oggetto viene restituito nel formato seguente. 
+Quando l'oggetto viene passato come collegamento, come quando si usa il parametro **-TemplateUri** per puntare a un oggetto remoto, l'oggetto viene restituito nel formato seguente: 
 
     {
         "name": "",
@@ -895,14 +895,14 @@ Nell'esempio seguente viene illustrato come utilizzare la distribuzione () per c
 
 <a id="parameters" />
 
-### <a name="parameters"></a>parameters
-**parameters (parameterName)**
+### <a name="parameters"></a>Parametri
+`parameters (parameterName)`
 
 Restituisce un valore di parametro. Il nome del parametro specificato deve essere definito nella sezione parameters del modello.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| parameterName |Sì |Nome del parametro da restituire. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| parameterName |Sì |String |Nome del parametro da restituire. |
 
 L'esempio seguente mostra un uso semplificato della funzione parameters.
 
@@ -923,13 +923,13 @@ L'esempio seguente mostra un uso semplificato della funzione parameters.
 <a id="variables" />
 
 ### <a name="variables"></a>variables
-**variables (variableName)**
+`variables (variableName)`
 
 Restituisce il valore della variabile. Il nome della variabile specificato deve essere definito nella sezione variables del modello.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| variable Name |Sì |Nome della variabile da restituire. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| variableName |Sì |String |Nome della variabile da restituire. |
 
 L'esempio seguente usa un valore della variabile.
 
@@ -960,18 +960,18 @@ Per ottenere valori dai parametri, dalle variabili o dalla distribuzione corrent
 <a id="list" />
 
 ### <a name="listkeys-and-listvalue"></a>listKeys e list{Value}
-**listKeys (resourceName or resourceIdentifier, [apiVersion])**
+`listKeys (resourceName or resourceIdentifier, apiVersion)`
 
-**list{Value} (resourceName o resourceIdentifier, apiVersion)**
+`list{Value} (resourceName or resourceIdentifier, apiVersion)`
 
 Restituisce i valori per qualsiasi tipo di risorsa che supporta l'operazione di tipo elenco. L'uso più comune è rappresentato da **listKeys**. 
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| resourceName o resourceIdentifier |Sì |Identificatore univoco della risorsa. |
-| apiVersion |Sì |Versione dell'API dello stato di runtime della risorsa. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| resourceName o resourceIdentifier |Sì |string |Identificatore univoco della risorsa. |
+| apiVersion |Sì |String |Versione dell'API dello stato di runtime della risorsa. In genere il formato è **aaaa-mm-gg**. |
 
-Qualsiasi operazione che inizia con **list** può essere usata come funzione nel modello. Le operazioni disponibili non includono solo **listKeys**, ma anche operazioni come **list**, **listAdminKeys** e **listStatus**. Per determinare quali tipi di risorse dispongono di un'operazione list, usare il comando PowerShell seguente.
+Qualsiasi operazione che inizia con **list** può essere usata come funzione nel modello. Le operazioni disponibili non includono solo **listKeys**, ma anche operazioni come **list**, **listAdminKeys** e **listStatus**. Per determinare quali tipi di risorse dispongono di un'operazione list, usare il comando PowerShell seguente:
 
     Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
 
@@ -1010,14 +1010,14 @@ L'oggetto restituito da listKeys è nel formato seguente:
 <a id="providers" />
 
 ### <a name="providers"></a>provider
-**providers (providerNamespace, [resourceType])**
+`providers (providerNamespace, [resourceType])`
 
 Restituisce informazioni su un provider di risorse e i relativi tipi di risorse supportati. Se non si specifica un tipo di risorsa, la funzione restituisce tutti i tipi supportati per il provider di risorse.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| providerNamespace |Sì |Spazio dei nomi del provider |
-| resourceType |No |Il tipo di risorsa all'interno dello spazio dei nomi specificato. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| providerNamespace |Sì |String |Spazio dei nomi del provider |
+| resourceType |No |string |Il tipo di risorsa all'interno dello spazio dei nomi specificato. |
 
 Ogni tipo supportato viene restituito nel formato seguente: L'ordinamento della matrice non è garantito.
 
@@ -1039,14 +1039,14 @@ L'esempio seguente mostra come usare la funzione provider:
 <a id="reference" />
 
 ### <a name="reference"></a>reference
-**reference (resourceName or resourceIdentifier, [apiVersion])**
+`reference (resourceName or resourceIdentifier, [apiVersion])`
 
 Restituisce un oggetto che rappresenta lo stato di runtime di un'altra risorsa.
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| resourceName o resourceIdentifier |Sì |Nome o identificatore univoco di una risorsa. |
-| apiVersion |No |Versione dell'API della risorsa specificata. Includere questo parametro quando non viene effettuato il provisioning della risorsa nello stesso modello. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| resourceName o resourceIdentifier |Sì |string |Nome o identificatore univoco di una risorsa. |
+| apiVersion |No |String |Versione dell'API della risorsa specificata. Includere questo parametro quando non viene effettuato il provisioning della risorsa nello stesso modello. In genere il formato è **aaaa-mm-gg**. |
 
 La funzione **reference** deriva il proprio valore da uno stato di runtime, quindi non può essere usata nella sezione variables. Può essere usata, invece, nella sezione outputs di un modello.
 
@@ -1070,7 +1070,7 @@ L'esempio seguente fa riferimento a un account di archiviazione non distribuito 
         }
     }
 
-È possibile recuperare un valore specifico dall'oggetto restituito, ad esempio l'URI dell'endpoint BLOB, come illustrato nell'esempio seguente.
+È possibile recuperare un valore specifico dall'oggetto restituito, ad esempio l'URI dell'endpoint BLOB, come illustrato nell'esempio seguente:
 
     "outputs": {
         "BlobUri": {
@@ -1093,7 +1093,7 @@ Le proprietà sull'oggetto restituito dalla funzione di **riferimento** variano 
 <a id="resourcegroup" />
 
 ### <a name="resourcegroup"></a>resourceGroup
-**resourceGroup()**
+`resourceGroup()`
 
 Restituisce un oggetto che rappresenta il gruppo di risorse corrente. 
 
@@ -1125,17 +1125,17 @@ L'esempio seguente usa il percorso del gruppo di risorse per assegnare il percor
 <a id="resourceid" />
 
 ### <a name="resourceid"></a>resourceId
-**resourceId ([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
+`resourceId ([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
 
 Restituisce l'identificatore univoco di una risorsa. 
 
-| Parametro | Obbligatorio | Descrizione |
-|:---:|:---:|:--- |
-| subscriptionId |No |Il valore predefinito è la sottoscrizione corrente. Specificare questo valore quando si vuole recuperare una risorsa in un'altra sottoscrizione. |
-| resourceGroupName |No |Il valore predefinito è il gruppo di risorse corrente. Specificare questo valore quando si vuole recuperare una risorsa in un altro gruppo di risorse. |
-| resourceType |Sì |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
-| resourceName1 |Sì |Nome della risorsa. |
-| resourceName2 |No |Segmento successivo del nome della risorsa se la risorsa è annidata. |
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| subscriptionId |No |Stringa (in formato GUID) |Il valore predefinito è la sottoscrizione corrente. Specificare questo valore quando si vuole recuperare una risorsa in un'altra sottoscrizione. |
+| resourceGroupName |No |string |Il valore predefinito è il gruppo di risorse corrente. Specificare questo valore quando si vuole recuperare una risorsa in un altro gruppo di risorse. |
+| resourceType |Sì |String |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
+| resourceName1 |Sì |String |Nome della risorsa. |
+| resourceName2 |No |String |Segmento successivo del nome della risorsa se la risorsa è annidata. |
 
 Questa funzione viene usata quando il nome della risorsa è ambiguo o non è stato sottoposto a provisioning all'interno dello stesso modello. L'identificatore viene restituito nel formato seguente:
 
@@ -1192,9 +1192,9 @@ Spesso è necessario usare questa funzione quando si usa un account di archiviaz
 <a id="subscription" />
 
 ### <a name="subscription"></a>sottoscrizione
-**subscription()**
+`subscription()`
 
-Restituisce informazioni dettagliate sulla sottoscrizione nel formato seguente.
+Restituisce informazioni dettagliate sulla sottoscrizione nel formato seguente:
 
     {
         "id": "/subscriptions/#####",
@@ -1221,6 +1221,6 @@ L'esempio seguente mostra la funzione subscription chiamata nella sezione output
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

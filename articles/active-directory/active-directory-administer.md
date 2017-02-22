@@ -6,18 +6,17 @@ documentationcenter:
 author: MarkusVi
 writer: markvi
 manager: femila
-editor: 
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2016
+ms.date: 01/11/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 20f38ef90d9f3793c0bb0814e6fd5d67aa550209
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 001ffc0f9c7465552392a9848ef1487a4c0eafce
 
 
 ---
@@ -66,7 +65,7 @@ Se non si dispone ancora di una sottoscrizione a un servizio cloud Microsoft, us
 * [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
 * [Microsoft Intune](https://account.manage.microsoft.com/Signup/MainSignUp.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&ali=1)
 
-### <a name="manage-an-azureprovisioned-default-directory"></a>Gestire una directory predefinita di cui Azure ha eseguito il provisioning
+### <a name="manage-an-azure-provisioned-default-directory"></a>Gestire una directory predefinita di cui Azure ha eseguito il provisioning
 Attualmente viene creata automaticamente una directory quando si esegue l'iscrizione ad Azure e la sottoscrizione viene associata a tale directory. Tuttavia, se l'iscrizione ad Azure è stata effettuata prima di ottobre 2013, non è stata creata automaticamente alcuna directory. In questo caso, Azure potrebbe aver "recuperato le informazioni" per l'account effettuando, per tale account, il provisioning di una directory predefinita. La sottoscrizione è stata quindi associata a tale directory predefinita.
 
 Il recupero delle informazioni delle directory è stato eseguito nel mese di ottobre 2013 come parte di un miglioramento generale del modello di sicurezza di Azure. In questo modo, è possibile offrire funzionalità di identità dell'organizzazione a tutti i clienti Azure e garantire che l'accesso a tutte le risorse di Azure avvenga nel contesto di un utente nella directory. Non è possibile usare Azure senza una directory. A tale scopo, gli utenti che si sono iscritti prima del 7 luglio 2013, ma che non disponevano di una directory, hanno dovuto crearne una. Se la directory era già stata creata, la sottoscrizione è stata associata a tale directory.
@@ -150,6 +149,6 @@ Viene verificato che siano soddisfatte le condizioni seguenti:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

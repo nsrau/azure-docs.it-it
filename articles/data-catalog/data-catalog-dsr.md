@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/15/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c357d477684444342c74e04a2c5545a76b9ee0e3
+ms.sourcegitcommit: 24143b6866c4393b18636669b5b4281a0d18c3d1
+ms.openlocfilehash: 64e8c8b284f21320601208c798d354df2496274c
 
 
 ---
@@ -126,7 +126,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
       <td>✓</td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
+      <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
 
@@ -135,7 +135,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
       <td>✓</td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
+      <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
 
@@ -144,7 +144,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
       <td>✓</td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
+      <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
 
@@ -153,7 +153,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
       <td>✓</td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
+      <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
 
@@ -189,7 +189,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
       <td>✓</td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
+      <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
 
@@ -198,7 +198,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
       <td>✓</td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
+      <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
 
@@ -207,7 +207,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
       <td>✓</td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
+      <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
 
@@ -216,7 +216,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
       <td>✓</td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
+      <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
 
@@ -271,7 +271,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
       <td>✓ </td>
       <td>✓</td>
       <td><font size=2>PowerBI</font></td>
-      <td><font size=2>Solo visualizzazioni calcolo e visualizzazioni analitiche. Visualizzazioni attributi non supportate.</font></td>
+      <td><font size=2>Solo visualizzazioni calcolo e analisi. Le visualizzazioni attributi non sono supportate.</font></td>
     </tr>
 
     <tr>
@@ -419,11 +419,11 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
 ## <a name="data-source-reference-specification"></a>Specifica di riferimento per l'origine dati
 > [!NOTE]
 > Nella colonna "Struttura DSL" della tabella seguente vengono elencate solo le proprietà di connessione per il contenitore delle proprietà "address" usate in Azure Data Catalog. Il contenitore delle proprietà "address" può in realtà contenere altre proprietà di connessione dell'origine dati che Azure Data Catalog mantiene ma non usa.
-> 
+>
 > <table>
 > <tr>
 > <td><b>Tipo di origine</b></td>
-> <td><b>Tipo di risorsa</b></td>
+> <td><b>Tipo di asset</b></td>
 > <td><b>Tipi di oggetto</b></td>
 > <td><b>Struttura DSL<b></td>
 > </tr>
@@ -1169,11 +1169,10 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
 > <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId </font>
 > </td>
 > </tr>
-> </table> 
+> </table>>
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

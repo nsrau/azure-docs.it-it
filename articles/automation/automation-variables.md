@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/14/2016
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: dac32c62f34dea958754fe9e85ed02b2221bd81c
-ms.openlocfilehash: a2f953961cb372677b3204046825b84027653c95
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: 299b419c0271bbe7355a491cddf32dc922090621
 
 
 ---
@@ -53,7 +53,7 @@ Di seguito è riportato un elenco dei tipi di variabile disponibili in Automazio
 
 ## <a name="cmdlets-and-workflow-activities"></a>Cmdlet e attività flusso di lavoro
 
-I cmdlet della tabella seguente vengono usati per creare e gestire variabili di automazione con Windows PowerShell. Sono inclusi nel [modulo Azure PowerShell](../powershell-install-configure.md) , disponibile per l'uso nei runbook di Automazione e nella configurazione DSC.
+I cmdlet della tabella seguente vengono usati per creare e gestire variabili di automazione con Windows PowerShell. Sono inclusi nel [modulo Azure PowerShell](/powershell/azureps-cmdlets-docs) , disponibile per l'uso nei runbook di Automazione e nella configurazione DSC.
 
 |Cmdlets|Descrizione|
 |:---|:---|
@@ -189,6 +189,6 @@ La figura seguente illustra attività di esempio per aggiornare una variabile co
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Preparare il computer host e l&quot;hub IoT di Azure | Documentazione Microsoft
-description: Installare gli strumenti e il software nel computer host che esegue Windows, creare un hub IoT e registrare il dispositivo nell&quot;hub.
+title: 'Dispositivo simulato e gateway Azure IoT: lezione 2: Ottenere gli strumenti (Windows) | Documentazione Microsoft'
+description: Installare gli strumenti e il software nel computer host che esegue Windows, creare un hub IoT e registrare il dispositivo nell&quot;hub IoT.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1c4f44787a7200a1c3634b258df32d30152daa90
-ms.openlocfilehash: fd00d36e55109dfa4c6ddfab7d92872854696ba0
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: b07c6c383f31f77a78628593a60b7b76a49bca4f
 
 
 ---
@@ -47,7 +47,7 @@ In questa lezione si apprenderà:
 - Come installare Visual Studio Code.
   - Visual Studio Code è un editor di codice sorgente multipiattaforma leggero ma potente per Windows, Linux e macOS. Offre un eccellente supporto per il debug, il controllo di Git incorporato, l'evidenziazione della sintassi, il completamento intelligente del codice, i frammenti e il refactoring del codice.
 - Come installare Python.
-  - Python è un diffuso linguaggio di programmazione dinamico e interpretato di alto livello e di uso generico.
+  - Python è un linguaggio di programmazione dinamico, interpretato, generico e di alto livello molto diffuso.
 - Come installare l'interfaccia della riga di comando di Azure.
   - L'interfaccia della riga di comando di Azure offre un'esperienza di riga di comando multipiattaforma per Azure. Il provisioning e la gestione delle risorse vengono eseguiti direttamente dalla riga di comando.
 - Come usare l'interfaccia della riga di comando di Azure per creare un hub IoT.
@@ -127,6 +127,6 @@ Sono stati installati tutto il software e tutti gli strumenti necessari nel comp
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

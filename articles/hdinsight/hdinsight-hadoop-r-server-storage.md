@@ -12,18 +12,18 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2016
+ms.date: 01/09/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 089b5691673abce3ffa51b8dff1835f366c51d2e
-ms.openlocfilehash: c8487a14990396dcdd2eac5a7a9adc822bcd5177
+ms.sourcegitcommit: 2df17cddf629cb72b7fa4d590dfaa69311c96aa4
+ms.openlocfilehash: 3e47a7e0382009a07b885a28c6e8d90f9bff9cfb
 
 
 ---
 # <a name="azure-storage-options-for-r-server-on-hdinsight"></a>Opzioni di Archiviazione di Azure per R Server in HDInsight
 Microsoft R Server in HDInsight ha accesso sia all'archivio BLOB di Azure sia ad [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)come strumenti di salvataggio permanente di dati, codice, oggetti risultato di analisi e così via.
 
-Quando si crea un cluster Hadoop in HDInsight, si specifica un account di archiviazione di Azure. Un contenitore di archiviazione BLOB specifico dell'account include il file system del cluster creato, ad esempio Hadoop Distributed File System. Per motivi di prestazioni, il cluster HDInsight viene creato nello stesso data center dell'account di archiviazione primario specificato. Per altre informazioni, vedere [Usare l'archivio BLOB di Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md "Usare l'archivio BLOB di Azure con HDInsight").   
+Quando si crea un cluster Hadoop in HDInsight, si specifica un account di Archiviazione di Azure o un archivio Data Lake. Un contenitore di archiviazione specifico dell'account include il file system del cluster creato, ad esempio Hadoop Distributed File System. Per motivi di prestazioni, il cluster HDInsight viene creato nello stesso data center dell'account di archiviazione primario specificato. Per altre informazioni, vedere [Usare l'archivio BLOB di Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md "Usare l'archivio BLOB di Azure con HDInsight").   
 
 ## <a name="use-multiple-azure-blob-storage-accounts"></a>Usare più account di archiviazione BLOB di Azure
 Se necessario, è possibile accedere a più account di archiviazione o contenitori di Azure con il cluster HDI. A tale scopo è necessario specificare gli account di archiviazione aggiuntivi nell'interfaccia utente al momento della creazione del cluster e quindi seguire questa procedura per usarli in R.  
@@ -31,36 +31,36 @@ Se necessario, è possibile accedere a più account di archiviazione o contenito
 1. Creare un cluster HDInsight con un nome di account di archiviazione **storage1** e un contenitore predefinito denominato **container1**.
 2. Si specifica anche un account di archiviazione aggiuntivo denominato **storage2**.  
 3. Copiare il file mycsv.csv nella directory /share ed eseguire analisi su tale file.  
-   
+
         hadoop fs –mkdir /share
         hadoop fs –copyFromLocal myscsv.scv /share  
 
 4. Nel codice R il nodo del nome è stato impostato su **default** e sono stati specificati la directory e il file da elaborare.  
-   
+
         myNameNode <- "default"
         myPort <- 0
-   
+
     Percorso dei dati:  
-   
+
         bigDataDirRoot <- "/share"  
-   
+
     Definire il contesto di calcolo di Spark:
-   
+
         mySparkCluster <- RxSpark(consoleOutput=TRUE)
-   
+
     Impostare il contesto di calcolo:
-   
+
         rxSetComputeContext(mySparkCluster)
-   
+
     Definire il file system HDFS (Hadoop Distributed File System):
-   
+
         hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
-   
+
     Specificare il file di input da analizzare in HDFS:
-   
+
         inputFile <-file.path(bigDataDirRoot,"mycsv.csv")
 
-Tutti i riferimenti a file e directory puntano all'account di archiviazione wasbs://container1@storage1.blob.core.windows.net. Si tratta dell' **account di archiviazione predefinito** associato al cluster HDInsight.
+Tutti i riferimenti a file e directory puntano all'account di archiviazione wasbs://container1@storage1.blob.core.windows.net. Si tratta dell'**account di archiviazione predefinito** associato al cluster HDInsight.
 
 Si supponga ora di voler elaborare un file denominato mySpecial.csv che si trova nella directory /private di **container2** in **storage2**.
 
@@ -101,7 +101,7 @@ Specificare il file di input da analizzare in HDFS:
 inputFile <-file.path(bigDataDirRoot,"mySpecial.csv")
 ````
 
-Tutti i riferimenti a file e directory ora puntano all'account di archiviazione wasbs://container2@storage2.blob.core.windows.net. Si tratta dell' **nodo del nome** specificato.
+Tutti i riferimenti a file e directory ora puntano all'account di archiviazione wasbs://container2@storage2.blob.core.windows.net. Questo è il **nodo del nome** specificato.
 
 Si noti che è necessario configurare la directory /user/RevoShare/<SSH username> in **storage2** come indicato di seguito:
 
@@ -119,15 +119,14 @@ Per accedere a un Archivio Azure Data Lake, usare un'entità servizio di Azure A
 
 ### <a name="to-add-a-service-principal"></a>Per aggiungere un'entità servizio
 1. Quando si crea il cluster HDInsight, selezionare **Identità AAD del cluster** nella scheda **Origine dati**.
+
 2. Nella finestra di dialogo **Identità AAD del cluster** selezionare **Crea nuova** in **Selezionare l'entità servizio di Active Directory**.
 
-Dopo aver assegnato un nome all'entità servizio, creare una password per tale entità. Verrà aperta una nuova scheda in cui è possibile associare l'entità servizio agli archivi Data Lake.
+Dopo aver assegnato un nome all'entità servizio, creare una password per tale entità e fare clic su **Gestisci l'accesso ad Archivio Azure Data Lake** per associare l'entità servizio agli archivi Data Lake.
 
-Si noti che è anche possibile aggiungere l'accesso a un Data Lake Store aprendo Azure Data Lake Store nel portale di Azure e passando a **Esplora dati** > **Accesso**.  Di seguito è riportato un esempio di finestra di dialogo che mostra come creare un'entità servizio e associarla all'Archivio Data Lake "rkadl11".
+È anche possibile aggiungere l'accesso per il cluster a uno o più archivi Data Lake dopo la creazione del cluster. Aprire la voce del portale di Azure per un archivio Data Lake e passare a **Esplora dati > Accesso > Aggiungi**. 
 
-![Creare un'entità servizio di archiviazione 1 dell'Archivio Data Lake](./media/hdinsight-hadoop-r-server-storage/hdinsight-hadoop-r-server-storage-adls-sp1.png)
-
-![Creare un'entità servizio di archiviazione 2 dell'Archivio Data Lake](./media/hdinsight-hadoop-r-server-storage/hdinsight-hadoop-r-server-storage-adls-sp2.png)
+Per altri dettagli sull'aggiunta dell'accesso ad archivi Data Lake per cluster HDI, vedere l'articolo [Creare un cluster HDInsight con Data Lake Store tramite il portale di Azure](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal#create-an-hdinsight-cluster-with-access-to-azure-data-lake-store).
 
 ## <a name="use-the-data-lake-store-with-r-server"></a>Usare un Archivio Azure Data Lake con R Server
 Una volta che è stato concesso l'accesso a un Archivio Data Lake, è possibile usarlo in R Server in HDInsight come con un account di archiviazione di Azure secondario. L'unica differenza è che il prefisso **wasb://** cambia in **adl://** come indicato di seguito:
@@ -185,16 +184,16 @@ hadoop fs –ls adl://rkadl1.azuredatalakestore.net/share
 Un vantaggio importante di File di Azure riguarda la possibilità di montare e usare le condivisioni file in qualsiasi sistema dotato di un sistema operativo supportato, ad esempio Windows o Linux. Ad esempio, può essere usato da un altro cluster HDInsight disponibile all'utente o a un membro del team, da una macchina virtuale di Azure o anche da un sistema locale.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo avere appreso le nozioni di base sull'uso della console di R da una sessione SSH e come creare un nuovo cluster HDInsight che include R Server. usare i collegamenti seguenti per trovare altre modalità di utilizzo di R Server in HDInsight.
+Ora che si conoscono le opzioni di archiviazione per Azure, usare i collegamenti seguenti per scoprire altre modalità di utilizzo di R Server in HDInsight.
 
 * [Panoramica: R Server su HDInsight (anteprima)](hdinsight-hadoop-r-server-overview.md)
 * [Articolo introduttivo relativo a Server R su Hadoop.](hdinsight-hadoop-r-server-get-started.md)
-* [Aggiungere RStudio Server a HDInsight](hdinsight-hadoop-r-server-install-r-studio.md)
+* [Aggiungere RStudio Server a HDInsight (se non è stato aggiunto durante la creazione del cluster)](hdinsight-hadoop-r-server-install-r-studio.md)
 * [Opzioni del contesto di calcolo per R Server su HDInsight (anteprima)](hdinsight-hadoop-r-server-compute-contexts.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
-ms.openlocfilehash: e8be3cd9aeb3ff39c808f5ee39bdf3091d45feec
+ms.sourcegitcommit: cea81f16ecc6203f487fdf15310638b123312dde
+ms.openlocfilehash: caee6a14bd988f2355c9683519b5f5480428a709
 
 
 ---
@@ -44,7 +44,7 @@ Per iniziare, è necessario:
 
 ## <a name="create-a-sql-data-warehouse"></a>Creare un SQL Data Warehouse
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Fare clic su **+ Nuovo** > **Dati e archiviazione** > ** SQL Data Warehouse**.
+2. Fare clic su **+ Nuovo** > **Database** > **SQL Data Warehouse**.
 
     ![Create](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 3. Nel pannello **SQL Data Warehouse** specificare le informazioni necessarie, quindi fare clic su 'Crea'.
@@ -102,6 +102,6 @@ Le regole firewall possono anche essere configurate con Transact-SQL. Per altre 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

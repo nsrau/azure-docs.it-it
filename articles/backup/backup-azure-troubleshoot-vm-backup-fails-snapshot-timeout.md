@@ -1,10 +1,10 @@
 ---
-title: "Errore di backup delle VM di Azure: impossibile comunicare con l&quot;agente della macchina virtuale sullo stato dello snapshot a causa del timeout della sottoattività di creazione snapshot della macchina virtuale | Documentazione Microsoft"
-description: "Sintomi, cause e soluzioni per gli errori di backup delle macchine virtuali di Azure correlati a: Non è stato possibile comunicare con l&quot;agente della macchina virtuale per lo stato dello snapshot. Si è verificato il timeout della sottoattività di creazione snapshot della macchina virtuale."
+title: "Risolvere i problemi relativi all&quot;errore di Backup di Azure: &quot;Si è verificato il timeout della sottoattività di creazione snapshot della macchina virtuale&quot; | Documentazione Microsoft"
+description: "Sintomi, cause e risoluzioni degli errori di Backup di Azure correlati all&quot;errore: Non è stato possibile comunicare con l&quot;agente della macchina virtuale per lo stato dello snapshot. Si è verificato il timeout della sottoattività di creazione snapshot della macchina virtuale"
 services: backup
 documentationcenter: 
 author: genlin
-manager: cfreeman
+manager: cshepard
 editor: 
 ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
@@ -12,127 +12,115 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: jimpark; markgal;genli
+ms.date: 02/07/2017
+ms.author: genli;markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 87387e4f182214fa0c34a6a1358c6cc2648be906
-
+ms.sourcegitcommit: 26ea5c6f867165a25dd5aecb01d0a0ce3b213a51
+ms.openlocfilehash: 707d666eb6c23fb926c31711daddfb22979513bc
 
 ---
-# <a name="azure-vm-backup-fails-could-not-communicate-with-the-vm-agent-for-snapshot-status---snapshot-vm-sub-task-timed-out"></a>Errore di backup delle VM di Azure: non è stato possibile comunicare con l'agente della macchina virtuale per lo stato dello snapshot a causa del timeout della sottoattività di creazione snapshot della macchina virtuale
+
+# <a name="troubleshoot-azure-backup-failure-snapshot-vm-sub-task-timed-out"></a>Risolvere i problemi relativi all'errore di Backup di Azure: "Si è verificato il timeout della sottoattività di creazione snapshot della macchina virtuale"
 ## <a name="summary"></a>Riepilogo
-Dopo la registrazione e la pianificazione di una macchina virtuale (VM) per il servizio Backup di Azure, il servizio avvia il processo di backup all'ora pianificata comunicando con l'estensione di backup nella macchina virtuale per acquisire uno snapshot temporizzato. Alcune condizioni potrebbero impedire l'attivazione dello snapshot e determinare un errore di backup. Questo articolo fornisce istruzioni per la risoluzione di problemi relativi a errori di backup di VM di Azure correlati all'errore di timeout dello snapshot.
+Dopo la registrazione e la pianificazione di una macchina virtuale per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'estensione di backup della macchina virtuale per la creazione di uno snapshot temporizzato. Quattro condizioni possono impedire l'attivazione dello snapshot, che a sua volta può provocare l'errore di Backup. Questo articolo fornisce la procedura di risoluzione dei problemi per correggere gli errori di Backup correlati ai problemi di timeout dello snapshot.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="symptom"></a>Sintomo
-Backup di Microsoft Azure per VM IaaS (infrastruttura distribuita come servizio) ha esito negativo e restituisce il messaggio di errore seguente nei dettagli errore processo nel [portale di Azure](https://portal.azure.com/):
+Si verifica un errore di Backup di Azure per una macchina virtuale IaaS (Infrastructure as a Service), che restituisce il messaggio di errore seguente nei dettagli degli errori del processo nel [portale di Azure](https://portal.azure.com/): "Non è stato possibile comunicare con l'agente della macchina virtuale per lo stato dello snapshot. Si è verificato il timeout della sottoattività di creazione snapshot della macchina virtuale".
 
-**Non è stato possibile comunicare con l'agente della macchina virtuale per lo stato dello snapshot. Si è verificato il timeout della sottoattività di creazione snapshot della macchina virtuale.**
-
-## <a name="cause"></a>Causa
-Questo errore può essere dovuto a quattro cause comuni:
-
-* La macchina virtuale non ha accesso a Internet.
-* L'agente di macchine virtuali di Microsoft Azure installato nella VM Linux non è aggiornato.
-* Non è possibile aggiornare o caricare l'estensione di backup.
-* Non è possibile recuperare lo stato degli snapshot o non è possibile acquisire gli snapshot.
-
-## <a name="cause-1-the-vm-does-not-have-internet-access"></a>Causa 1: la macchina virtuale non ha accesso a Internet
+## <a name="cause-1-the-vm-has-no-internet-access"></a>Causa 1: la macchina virtuale non ha accesso a Internet
 In base al requisito di distribuzione, la macchina virtuale non ha accesso a Internet o sono presenti restrizioni che impediscono l'accesso all'infrastruttura di Azure.
 
-L'estensione di backup richiede che la connettività agli indirizzi IP pubblici di Azure funzioni correttamente, perché invia comandi a un endpoint di Archiviazione di Azure (URL HTTP) per la gestione degli snapshot della macchina virtuale. Se l'estensione non ha accesso a Internet pubblico, il backup ha esito negativo.
+Per funzionare correttamente, l'estensione di backup richiede la connettività agli indirizzi IP pubblici di Azure. L'estensione invia comandi a un endpoint di Archiviazione di Azure (URL HTTP) per gestire gli snapshot della macchina virtuale. Se l'estensione non ha accesso a Internet pubblico, il servizio Backup ha esito negativo.
 
 ### <a name="solution"></a>Soluzione
-In questo scenario usare uno dei metodi seguenti per risolvere il problema:
+Per risolvere il problema, provare ad applicare uno dei metodi seguenti.
+#### <a name="allow-access-to-the-azure-datacenter-ip-ranges"></a>Consentire l'accesso agli intervalli di indirizzi IP del data center di Azure
 
-* Aggiungere gli intervalli IP dei data center di Azure all'elenco elementi consentiti.
-* Creare un percorso per il flusso del traffico HTTP
+1. Ottenere l'[elenco di indirizzi IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) a cui consentire l'accesso.
+2. Sbloccare gli indirizzi IP eseguendo il cmdlet **New-NetRoute** nella macchina virtuale di Azure in una finestra di PowerShell con privilegi elevati. Eseguire il cmdlet come amministratore.
+3. Per consentire l'accesso agli indirizzi IP, aggiungere regole al gruppo di sicurezza di rete, se disponibile.
 
-### <a name="to-whitelist-the-azure-datacenter-ip-ranges"></a>Per aggiungere gli intervalli IP dei data center di Azure all'elenco elementi consentiti
-1. Ottenere l'elenco di [indirizzi IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) da aggiungere all'elenco elementi consentiti.
-2. Sbloccare gli indirizzi IP usando il cmdlet New-NetRoute. Eseguire questo cmdlet nella macchina virtuale di Azure, in una finestra di PowerShell con privilegi elevati, eseguita come amministratore.
-3. Aggiungere regole al gruppo di sicurezza di rete, se presente, per consentire l'accesso agli indirizzi IP.
+#### <a name="create-a-path-for-http-traffic-to-flow"></a>Creare un percorso per il flusso del traffico HTTP
 
-### <a name="to-create-a-path-for-http-traffic-to-flow"></a>Per creare un percorso per il flusso del traffico HTTP
-1. Se sono presenti restrizioni di rete, ad esempio come gruppo di sicurezza di rete, distribuire un server proxy HTTP per instradare il traffico.
-2. Se è presente un gruppo di sicurezza di rete (NSG), aggiungere regole per consentire l'accesso a Internet dal proxy HTTP.
+1. Se sono state applicate restrizioni di rete, ad esempio un gruppo di sicurezza di rete, distribuire un server proxy HTTP per indirizzare il traffico.
+2. Per consentire l'accesso a Internet dal server proxy HTTP, aggiungere regole al gruppo di sicurezza di rete, se disponibile.
 
-Sono disponibili informazioni su come [configurare un proxy HTTP per i backup di macchine virtuali](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
+Per informazioni su come configurare un proxy HTTP per i backup delle macchine virtuali, vedere [Preparare l'ambiente per il backup di macchine virtuali di Azure](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
 
-## <a name="cause-2-the-microsoft-azure-vm-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 2: l'agente di macchine virtuali di Microsoft Azure installato nella VM Linux non è aggiornato
+## <a name="cause-2-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 2: l'agente installato nella VM Linux non è aggiornato
+
 ### <a name="solution"></a>Soluzione
-La maggior parte degli errori relativi ad agenti o estensioni nelle macchine virtuali Linux è dovuta a problemi correlati ad agenti di macchine virtuali non aggiornati. In generale, per risolvere questo problema occorre prima di tutto seguire questa procedura:
+La maggior parte degli errori relativi ad agenti o estensioni nelle macchine virtuali Linux è dovuta a problemi correlati ad agenti di macchine virtuali non aggiornati. Per risolvere il problema, seguire queste indicazioni generali:
 
-1. [Installare la versione più recente dell'agente di macchine virtuali di Azure](https://github.com/Azure/WALinuxAgent).
-2. Assicurarsi che l'agente di Azure sia in esecuzione nella macchina virtuale. A tale scopo, eseguire il comando seguente:      ```ps -e```
-   
-    Se il processo non è in esecuzione, usare i comandi seguenti per riavviarlo.
-   
-    Per Ubuntu:     ```service walinuxagent start```
-   
-    Per altre distribuzioni:     ```avvio waagent del servizio
-   ```
-3. [Configure the auto restart agent](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
-4. Run a new test backup. If the failures persist, please collect logs from the following folders for further debugging.
-   
-    We require the following logs from the customer’s VM:
-   
+1. Seguire le istruzioni per l'[aggiornamento dell'agente di macchine virtuali Linux](../virtual-machines/virtual-machines-linux-update-agent.md).
+
+ >[!NOTE]
+ >È *fortemente consigliato* aggiornare l'agente solo tramite un repository di distribuzione. Non è consigliabile scaricare il codice dell'agente direttamente da GitHub e aggiornarlo. Se l'agente più recente non è disponibile per la distribuzione, contattare il supporto per la distribuzione per istruzioni su come installarlo. Per cercare l'agente più recente, passare alla pagina dell'[agente Linux di Microsoft Azure](https://github.com/Azure/WALinuxAgent/releases) nel repository GitHub.
+
+2. Assicurarsi che l'agente di Azure sia in esecuzione nella macchina virtuale eseguendo il comando seguente: `ps -e`
+
+ Se il processo non è in esecuzione, riavviarlo usando i comandi seguenti:
+
+ * Per Ubuntu: `service walinuxagent start`
+ * Per altre distribuzioni: `service waagent start`
+
+3. [Configurare l'agente per il riavvio automatico](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
+4. Eseguire un nuovo backup di prova. Se l'errore persiste, raccogliere i log seguenti dalla macchina virtuale del cliente:
+
    * /var/lib/waagent/*.xml
    * /var/log/waagent.log
    * /var/log/azure/*
 
-If we require verbose logging for waagent, follow these steps to enable this:
+Se è necessaria una registrazione dettagliata per waagent, seguire questa procedura:
 
-1. In the /etc/waagent.conf file, locate the following line:
-   
-    Enable verbose logging (y|n)
-2. Change the **Logs.Verbose** value from n to y.
-3. Save the change, and then restart waagent by following the previous steps in this section.
+1. Nel file /etc/waagent.conf individuare la riga seguente: **Enable verbose logging (y|n)**
+2. Modificare il valore di **Logs.Verbose** da *n* a *y*.
+3. Salvare la modifica e riavviare waagent seguendo la procedura precedente in questa sezione.
 
-## Cause 3: The backup extension fails to update or load
-If extensions cannot be loaded, then Backup fails because a snapshot cannot be taken.
+## <a name="cause-3-the-backup-extension-fails-to-update-or-load"></a>Causa 3: non è possibile aggiornare o caricare l'estensione di backup
+Se non è possibile caricare le estensioni, Backup ha esito negativo perché non è possibile acquisire uno snapshot.
 
-### Solution
-For Windows guests:
+### <a name="solution"></a>Soluzione
 
-1. Verify that the iaasvmprovider service is enabled and has a startup type of automatic.
-2. If this is not the configuration, enable the service to determine whether the next backup succeeds.
+Per utenti guest di Windows:
 
-For Linux guests:
+Verificare che il servizio iaasvmprovider sia abilitato e abbia un tipo di avvio *automatico*. Se il servizio non è configurato in questo modo, abilitarlo per determinare se il backup successivo avrà esito positivo.
 
-The latest version of VMSnapshot Linux (extension used by backup) is 1.0.91.0
+Per utenti guest di Linux:
 
-If the backup extension still fails to update or load, you can force the VMSnapshot extension to be reloaded by uninstalling the extension. The next backup attempt will reload the extension.
+La versione più recente di VMSnapshot per Linux (estensione usata da Backup) è 1.0.91.0.
 
-### To uninstall the extension
-1. Go to the [Azure portal](https://portal.azure.com/).
-2. Locate the particular VM that has backup problems.
-3. Click **Settings**.
-4. Click **Extensions**.
-5. Click **Vmsnapshot Extension**.
-6. Click **uninstall**.
+Se l'aggiornamento o il caricamento dell'estensione di backup ancora non riesce, è possibile forzare il ricaricamento dell'estensione VMSnapshot disinstallandola. L'estensione viene ricaricata al successivo tentativo di backup.
 
-This will cause the extension to be reinstalled during the next backup.
+Per disinstallare l'estensione, seguire questa procedura:
 
-## Cause 4: The snapshots status cannot be retrieved or the snapshots cannot be taken
-VM backup relies on issuing snapshot command to underlying storage. The backup can fail because it has no access to storage or because of a delay in snapshot task execution.
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+2. Trovare la macchina virtuale che presenta problemi di backup.
+3. Fare clic su **Impostazioni**.
+4. Fare clic su **Estensioni**.
+5. Fare clic su **Estensione Vmsnapshot**.
+6. Fare clic su **Disinstalla**.  
 
-### Solution
-The following conditions can cause snapshot task failure:
+Questa procedura reinstalla l'estensione durante il backup successivo.
 
-| Cause | Solution |
+## <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 4: non è possibile recuperare lo stato degli snapshot o non è possibile acquisire uno snapshot
+Il backup delle macchine virtuali si basa sull'esecuzione del comando di snapshot sull'account di archiviazione sottostante. Il backup può avere esito negativo perché non ha accesso all'account di archiviazione o perché l'esecuzione dell'attività dello snapshot è stata posticipata.
+
+### <a name="solution"></a>Soluzione
+Le condizioni seguenti possono causare errori dell'attività di snapshot:
+
+| Causa | Soluzione |
 | --- | --- |
-| VMs that have Microsoft SQL Server Backup configured. By default, VM Backup runs a VSS Full backup on Windows VMs. On VMs that are running SQL Server-based servers and on which SQL Server Backup is configured, snapshot execution delays may occur. |Set following registry key if you are experiencing backup failures because of snapshot issues.<br><br>[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE" |
-| VM status is reported incorrectly because the VM is shut down in RDP. If you shut down the virtual machine in RDP, check the portal to determine whether that VM status is reflected correctly. |If it’s not, shut down the VM in the portal by using the ”Shutdown” option in the VM dashboard. |
-| Many VMs from the same cloud service are configured to back up at the same time. |It’s a best practice to spread out the VMs from the same cloud service to have different backup schedules. |
-| The VM is running at high CPU or memory usage. |If the VM is running at high CPU usage (more than 90 percent) or high memory usage, the snapshot task is queued and delayed and eventually times out. In this situation, try on-demand backup. |
-| The VM cannot get host/fabric address from DHCP. |DHCP must be enabled inside the guest for IaaS VM Backup to work.  If the VM cannot get host/fabric address from DHCP response 245, then it cannot download ir run any extensions. If you need a static private IP, you should configure it through the platform. The DHCP option inside the VM should be left enabled. View more information about [Setting a Static Internal Private IP](../virtual-network/virtual-networks-reserved-private-ip.md). |
+| Per la macchina virtuale è stato configurato il backup di SQL Server. | Per impostazione predefinita, il servizio Backup delle macchine virtuali esegue backup VSS completi nelle macchine virtuali Windows. Nelle macchine virtuali che eseguono server basati su SQL Server e in cui è configurato il backup di SQL Server possono verificarsi ritardi nell'esecuzione di snapshot.<br><br>Se si verificano errori di backup a causa di problemi di snapshot, configurare la chiave seguente del Registro di sistema:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
+| Lo stato della macchina virtuale viene segnalato in modo non corretto perché la macchina virtuale viene arrestata in RDP. | Se si arresta la macchina virtuale in Remote Desktop Protocol (RDP), controllare il portale per determinare se lo stato della macchina virtuale è corretto. In caso contrario, arrestare la macchina virtuale nel portale tramite l'opzione **Spegni** nel dashboard della macchina virtuale. |
+| Diverse macchine virtuali dello stesso servizio cloud sono configurate per eseguire il backup nello stesso momento. | È consigliabile distribuire le pianificazione dei backup per le macchine virtuali dello stesso servizio cloud. |
+| L'esecuzione della macchina virtuale fa un uso elevato della CPU o della memoria. | Se l'esecuzione della macchina virtuale fa un uso elevato della CPU (oltre il 90%) o della memoria, l'attività di snapshot viene accodata e ritardata e infine si verifica il timeout. In una situazione di questo tipo, provare a eseguire un backup su richiesta. |
+| La macchina virtuale non riesce a ottenere l'indirizzo dell'host/infrastruttura dal DHCP. | DHCP deve essere abilitato nel computer guest per consentire il funzionamento del backup delle VM IaaS.  Se la macchina virtuale non riesce a ottenere l'indirizzo dell'host/infrastruttura dal DHCP, risposta 245, non è possibile scaricare o eseguire le estensioni. Se è necessario un indirizzo IP privato statico, è necessario configurarlo tramite la piattaforma. L'opzione DHCP all'interno della VM deve essere abilitata. Per altre informazioni, vedere [Impostazione di un indirizzo IP privato interno statico](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

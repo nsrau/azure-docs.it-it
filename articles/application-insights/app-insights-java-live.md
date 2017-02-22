@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/10/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: c2b0a0554b2899b082079f75e9d235edc0f71042
+ms.sourcegitcommit: 42e682eb8e0a740393648e9fe49244c3a02a9867
+ms.openlocfilehash: eb6bce9be34467e472fbae6cbf154f3b789b6ddc
 
 
 ---
@@ -33,13 +33,13 @@ Se è disponibile un'applicazione Web già in esecuzione nel server J2EE, è pos
 
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Ottenere una chiave di strumentazione di Application Insights
 1. Accedere al [portale di Microsoft Azure](https://portal.azure.com)
-2. Creare una nuova risorsa di Application Insights
-   
-    ![Fare clic su + e scegliere Application Insights](./media/app-insights-java-live/01-create.png)
-3. Impostare il tipo di applicazione nell'applicazione Web Java.
+2. Creare una nuova risorsa di Application Insights e configurare il tipo di applicazione su applicazione Web Java.
    
     ![Inserire un nome, scegliere l'app Web Java e fare clic su Crea](./media/app-insights-java-live/02-create.png)
-4. Ottenere la chiave di strumentazione della nuova risorsa. Questa chiave dovrà a breve essere incollata nel progetto di codice.
+
+    La risorsa viene creata in pochi secondi.
+
+4. Aprire la nuova risorsa e ottenere la rispettiva chiave di strumentazione. Questa chiave dovrà a breve essere incollata nel progetto di codice.
    
     ![Nella panoramica della nuova risorsa, fare clic su Proprietà e copiare la chiave di strumentazione](./media/app-insights-java-live/03-key.png)
 
@@ -53,6 +53,8 @@ Si noti che è necessario ripetere questo passaggio per ogni istanza del server 
 Creare ApplicationInsights.xml nella cartella in cui è stato aggiunto il SDK. Copiarvi il seguente file XML.
 
 Sostituire la chiave di strumentazione recuperata dal portale di Azure.
+
+```XML
 
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
@@ -83,7 +85,7 @@ Sostituire la chiave di strumentazione recuperata dal portale di Azure.
 
       </TelemetryInitializers>
     </ApplicationInsights>
-
+```
 
 * La chiave di strumentazione viene inviata insieme a tutti gli elementi di dati di telemetria e indica ad Application Insights di visualizzarla nella risorsa.
 * Il componente delle richieste HTTP è facoltativo. Invia automaticamente i dati di telemetria sulle richieste e tempi di risposta al portale.
@@ -93,6 +95,8 @@ Sostituire la chiave di strumentazione recuperata dal portale di Azure.
 Individuare e aprire il file web.xml nel progetto e unire il frammento di codice seguente al di sotto del nodo app-web, in cui sono configurati i filtri dell'applicazione.
 
 Per ottenere risultati più accurati, il filtro deve essere mappato prima di tutti gli altri filtri.
+
+```XML
 
     <filter>
       <filter-name>ApplicationInsightsWebFilter</filter-name>
@@ -104,6 +108,7 @@ Per ottenere risultati più accurati, il filtro deve essere mappato prima di tut
        <filter-name>ApplicationInsightsWebFilter</filter-name>
        <url-pattern>/*</url-pattern>
     </filter-mapping>
+```
 
 ## <a name="5-check-firewall-exceptions"></a>5. Verificare le eccezioni del firewall
 Potrebbe essere necessario [impostare le eccezioni per l'invio dei dati in uscita](app-insights-ip-addresses.md).
@@ -135,6 +140,6 @@ E quando si visualizzano le proprietà di una richiesta, è possibile visualizza
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

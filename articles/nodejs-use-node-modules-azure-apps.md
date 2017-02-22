@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7f2fb432881c606c29d4ee7bc810bff984ddec2c
+ms.sourcegitcommit: f9a216f3f76ef84e745ef29575d20da971e5eb61
+ms.openlocfilehash: 2ccd414e0eec04dbee7c412cef245e1ab0da2bff
 
 
 ---
@@ -46,6 +46,7 @@ Sebbene la maggior parte dei moduli sia semplicemente costituita da file JavaScr
 Servizio app di Azure non supporta tutti i moduli nativi e potrebbe non riuscire a compilare quelli con prerequisiti molto specifici. Mentre alcuni moduli più diffusi, come MongoDB, hanno dipendenze native facoltative e funzionano anche senza di esse, due soluzioni alternative hanno fornito risultati positivi con quasi tutti i moduli nativi disponibili attualmente:
 
 * Eseguire **npm install** in un computer Windows con installati tutti i prerequisiti del modulo nativo. Distribuire quindi la cartella **node\_modules** creata come parte dell'applicazione in Servizio app di Azure.
+  * Prima di eseguire la compilazione, verificare che l'installazione locale di Node.js disponga di un'architettura corrispondente e che la versione sia molto simile a quella usata in Azure (i valori correnti possono essere verificati in fase di esecuzione tramite le proprietà **process.arch** e **process.version**).
 * È possibile configurare Servizio app di Azure per l'esecuzione di script bash o della shell durante la distribuzione, offrendo la possibilità di eseguire comandi personalizzati e di configurare con precisione la modalità di esecuzione di **npm install** . Per un video che illustra come eseguire questa operazione, vedere l'articolo relativo agli [script di distribuzione di un sito Web personalizzato con Kudu].
 
 ### <a name="using-a-packagejson-file"></a>Utilizzare un file package.json
@@ -85,13 +86,13 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/deve
 
 [specificare una versione di Node.js]: nodejs-specify-node-version-azure-apps.md
 [usare l'interfaccia della riga di comando di Azure per Mac e Linux]: xplat-cli-install.md
-[compilare e distribuire un'App Web Node.js]: web-sites-nodejs-develop-deploy-mac.md
-[Applicazione Web Node.js con archiviazione su MongoDB (MongoLab)]: store-mongolab-web-sites-nodejs-store-data-mongodb.md
-[Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure]: cloud-services-nodejs-develop-deploy-app.md
+[build and deploy a Node.js web app]: web-sites-nodejs-develop-deploy-mac.md
+[Node.js Web Application with Storage on MongoDB (MongoLab)]: store-mongolab-web-sites-nodejs-store-data-mongodb.md
+[Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [script di distribuzione di un sito Web personalizzato con Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -4,7 +4,7 @@ description: Questo articolo contiene i passaggi per usare makecert e creare cer
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 27b99f7c-50dc-4f88-8a6e-d60080819a43
@@ -13,23 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/22/2016
+ms.date: 01/19/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b44f46273c6ddb439ec3793f193986011c222ee3
+ms.sourcegitcommit: 64c6e8fa5288ce9a25bcb434217511425aebfe21
+ms.openlocfilehash: beb873c99d956eafebecc69f9afc480c558efabb
 
 
 ---
 # <a name="working-with-self-signed-certificates-for-point-to-site-connections"></a>Usare i certificati autofirmati per le connessioni da punto a sito
-Questo articolo spiega come creare un certificato autofirmato tramite **makecert**, da cui generare i certificati client. I passaggi illustrano l'uso di makecert in Windows 10. Makecert è uno strumento convalidato per creare i certificati compatibili con le connessioni da punto a sito 
+Questo articolo spiega come creare un certificato autofirmato tramite **makecert** e come usarlo per generare certificati client. Per le connessioni da punto a sito, il metodo preferito è l'uso della soluzione aziendale per la creazione di certificati. Assicurarsi di generare i certificati client nel formato del valore di nome comune 'name@yourdomain.com',, anziché nel formato NetBIOS "nome di dominio\nomeutente".
 
-Per le connessioni da punto a sito, il metodo preferito per i certificati consiste nell'usare la soluzione con certificato enterprise, assicurandosi di emettere i certificati client nel formato del valore nome comune 'name@yourdomain.com', anziché nel formato "NetBIOS domain name\username" (cognome\nome dominio NetBIOS).
-
-Se non si dispone di una soluzione enterprise, è richiesto un certificato autofirmato per consentire ai client da punto a sito per connettersi a una rete virtuale. Siamo consapevoli che makecert è stato deprecato, ma è ancora un metodo valido per creare certificati autofirmati compatibili con le connessioni da punto a sito. Stiamo lavorando a un'altra soluzione per la creazione di certificati autofirmati, ma al momento makecert è il metodo privilegiato.
+Se non si dispone di una soluzione enterprise, è richiesto un certificato autofirmato per consentire ai client da punto a sito per connettersi a una rete virtuale. Anche se è possibile usare PowerShell per creare certificati, il certificato generato con PowerShell non contiene i campi necessari ad Azure per l'autenticazione da punto a sito. Makecert è uno strumento convalidato per creare i certificati compatibili con le connessioni da punto a sito Makecert non è stato deprecato per l'uso con le configurazioni da punto a sito.
 
 ## <a name="create-a-self-signed-certificate"></a>Creare un certificato autofirmato
-Makecert è un modo per creare un certificato autofirmato. La seguente procedura offre una guida completa alla creazione di un certificato autofirmato tramite makecert. Questi passaggi non sono specifici di un modello di distribuzione. Sono validi sia per Gestione risorse che per il modello classico.
+La seguente procedura offre una guida completa alla creazione di un certificato autofirmato tramite makecert. Questi passaggi non sono specifici di un modello di distribuzione. Sono validi sia per Gestione risorse che per il modello classico.
 
 ### <a name="to-create-a-self-signed-certificate"></a>Per creare un certificato autofirmato
 1. Da un computer che esegue Windows 10, scaricare e installare [Windows Software Development Kit (SDK) per Windows 10](https://dev.windows.com/en-us/downloads/windows-10-sdk).
@@ -45,7 +43,7 @@ Durante la configurazione del gateway VPN per le connessioni da punto a sito, in
 
 1. Per ottenere un file con estensione .cer dal certificato, aprire **certmgr.msc**. Fare clic con il pulsante destro del mouse sul certificato radice autofirmato, scegliere **Tutte le attività** e quindi fare clic su **Esporta**. Si avvia la procedura di **Esportazione guidata certificati**.
 2. Nella procedura guidata fare clic su **Avanti**, selezionare **No, non esportare la chiave privata** e quindi fare clic su **Avanti**.
-3. Nella pagina **Formato file di esportazione** selezionare **Codificato Base 64 X.509 (.CER)**. Quindi fare clic su **Avanti**. 
+3. Nella pagina **Formato file di esportazione** selezionare **Codificato Base&64; X.509 (.CER)**. Quindi fare clic su **Avanti**. 
 4. In **File da esportare** fare clic su **Sfoglia** e passare alla posizione in cui si vuole esportare il certificato. Per **Nome file**, assegnare un nome al file del certificato. Quindi fare clic su **Avanti**.
 5. Fare clic su **Fine** per esportare il certificato.
 
@@ -87,7 +85,7 @@ In ogni client che si desidera connettere alla rete virtuale con una connessione
 2. Nella pagina **File da importare** non apportare alcuna modifica. Fare clic su **Avanti**.
 3. Nella pagina **Protezione della chiave privata** immettere la password per il certificato, se usato, o verificare che l'entità di sicurezza che installa il certificato sia corretta, quindi fare clic su **Avanti**.
 4. Nella pagina **Archivio certificati** lasciare la posizione come predefinita e quindi fare clic su **Avanti**.
-5. Fare clic su **Fine**. In **Avviso di sicurezza** per l'installazione del certificato fare clic su **Sì**. Il certificato è stato importato correttamente.
+5. Fare clic su **Fine**. In **Avviso di sicurezza** per l'installazione del certificato fare clic su **Sì**. È possibile fare clic su "Sì" perché il certificato è stato generato. Il certificato è stato importato correttamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Continuare con la configurazione da punto a sito. 
@@ -98,6 +96,6 @@ Continuare con la configurazione da punto a sito.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

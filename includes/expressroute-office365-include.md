@@ -9,6 +9,6 @@ Le offerte software come un servizio, ad esempio Office 365 e Dynamics 365, sono
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

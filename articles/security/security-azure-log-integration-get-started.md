@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 08/24/2016
+ms.date: 01/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: d02a99406fd22f7578cb4825447f7710df374210
-ms.openlocfilehash: 1ccd7d97596b3a74efcb9a066f42b04b62600fe3
+ms.sourcegitcommit: aaa69e2e4fed314e8bc363f60e7538b12bb3a56d
+ms.openlocfilehash: ca7f05534113752f3607268c15a9fe3e0e2982e0
 
 
 ---
@@ -24,10 +24,12 @@ ms.openlocfilehash: 1ccd7d97596b3a74efcb9a066f42b04b62600fe3
 L'integrazione dei log di Azure consente di integrare log non elaborati delle risorse di Azure nei sistemi di gestione di informazioni ed eventi di sicurezza locali. Questa integrazione fornisce un dashboard unificato per tutti gli asset, locali o su cloud, consentendo di aggregare, correlare, analizzare e inviare avvisi per gli eventi di sicurezza associati alle applicazioni.
 
 Questa esercitazione illustra come installare l'integrazione dei log di Azure e integrare i log dall'archiviazione di Azure, i log di controllo di Azure e gli avvisi del Centro sicurezza di Azure. Il tempo previsto per il completamento dell'esercitazione è di un'ora.
-E o## Prerequisiti Per completare l'esercitazione, sono necessari gli elementi seguenti:
+
+## <a name="prerequisites"></a>Prerequisiti
+Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Un computer (locale o nel cloud) per installare il servizio di integrazione dei log di Azure. Questo computer deve eseguire un sistema operativo Windows a 64 bit con installato .Net 4.5.1. Il computer viene chiamato **integratore Azlog**.
-y* Sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/).
+* Sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/).
 * La diagnostica di Azure abilitata per le macchine virtuali (VM) di Azure. Per abilitare la diagnostica per i servizi cloud, vedere [Abilitazione di Diagnostica di Azure in servizi cloud di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md). Per abilitare la diagnostica per una VM di Azure che esegue Windows, vedere [Usare PowerShell per abilitare Diagnostica di Azure in una macchina virtuale che esegue Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Connettività dall'integratore azlog all'archiviazione di Azure e autenticazione e autorizzazione alla sottoscrizione di Azure.
 * Per i log VM di Azure, l'agente SIEM (ad esempio Splunk Universal Forwarder, l'agente HP ArcSight Windows Event Collector o IBM QRadar WinCollect) deve essere installato sull'integratore Azlog.
@@ -50,35 +52,35 @@ Il servizio di integrazione dei log di Azure raccoglie i dati di telemetria dal 
 
 > [!NOTE]
 > Per disabilitare la raccolta dei dati di telemetria è possibile deselezionare questa opzione.
-> 
-> 
+>
+>
 
 
 ## <a name="set-your-azure-environment"></a>Configurare l'ambiente Azure
-1. Aprire il prompt dei comandi e digitare **cd** per passare alla directory **c:\Program Files\Microsoft Azure Log Integration**.
+1. Aprire la console di PowerShell come amministratore ed eseguire il comando **cd** per passare alla directory **c:\Programmi\Microsoft Azure Log Integration**.
 2. Eseguire il comando Set-AzLogAzureEnvironment -Name <Cloud>
-       
+
        Replace the Cloud with any of the following
-       AzureCloud 
-       AzureChinaCloud 
-       AzureUSGovernment 
+       AzureCloud
+       AzureChinaCloud
+       AzureUSGovernment
        AzureGermanCloud
-       
-       Note that at this time, an Azlog integrator only supports integrating logs from one cloud that you choose to integrate
-       
+
+       Note that at this time, an Azlog integrator only supports integrating logs from one cloud that you choose to integrate.
+
 ## <a name="integrate-azure-vm-logs-from-your-azure-diagnostics-storage-accounts"></a>Integrare i registri VM di Azure dagli account di archiviazione di Diagnostica di Azure
 1. Prima di continuare con l'integrazione dei log di Azure, verificare i prerequisiti elencati sopra per assicurarsi che l'account di archiviazione WAD stia raccogliendo i log. Se l'account di archiviazione WAD non sta raccogliendo i log, non eseguire i passaggi seguenti.
 2. Aprire il prompt dei comandi e digitare **cd** per passare alla directory **c:\Program Files\Microsoft Azure Log Integration**.
 3. Eseguire il comando
-   
+
         azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey>
-   
+
       Sostituire StorageAccountName con il nome dell'account di archiviazione di Azure configurato per ricevere eventi di diagnostica da una VM.
-   
+
         azlog source add azlogtest WAD azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==
-   
+
       Se si vuole che l'ID sottoscrizione venga visualizzato nell'XML dell'evento, aggiungere l'ID sottoscrizione al nome descrittivo:
-   
+
         azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>
 4. Attendere 30-60 minuti (l'operazione potrebbe richiedere fino a un'ora), quindi visualizzare gli eventi che vengono estratti dall'account di archiviazione. Per visualizzarli, aprire **Visualizzatore eventi > Registri di Windows > Eventi inoltrati** nell'integratore Azlog.
 5. Assicurarsi che il connettore SIEM standard installato nel computer sia configurato per prelevare gli eventi dalla cartella **Eventi inoltrati** e inviarli tramite pipe all'istanza di SIEM. Esaminare la configurazione specifica SIEM per configurare e visualizzare l'integrazione dei log.
@@ -100,28 +102,28 @@ Se gli eventi non compaiono ancora, procedere come segue:
 ## <a name="integrate-azure-audit-logs-and-security-center-alerts"></a>Integrare i log di controllo di Azure e gli avvisi del Centro sicurezza di Azure
 1. Aprire il prompt dei comandi e digitare **cd** per passare alla directory **c:\Program Files\Microsoft Azure Log Integration**.
 2. Eseguire il comando
-   
+
         azlog createazureid
-   
+
       Questo comando richiede le credenziali di accesso di Azure. Il comando crea quindi un' [entità servizio di Azure Active Directory](../active-directory/active-directory-application-objects.md) nei tenant di Azure AD che ospitano le sottoscrizioni di Azure in cui l'utente connesso è amministratore, coamministratore o proprietario. Se l'utente connesso è solo un utente Guest nel tenant di Azure AD, il comando avrà esito negativo. L'autenticazione in Azure avviene tramite Azure Active Directory (AD).  La creazione di un'entità servizio per l'integrazione dei log di Azure crea l'identità di Azure AD a cui verrà consentito l'accesso in lettura dalle sottoscrizioni di Azure.
 3. Eseguire il comando
-   
+
         azlog authorize <SubscriptionID>
-   
+
       In questo modo si assegna l'accesso in lettura per la sottoscrizione all'entità servizio creata nel passaggio 2. Se non si specifica un ID sottoscrizione, viene tentata l'assegnazione del ruolo Lettore all'entità servizio per tutte le sottoscrizioni verso cui si dispone di qualsiasi tipo di accesso.
-   
+
         azlog authorize 0ee9d577-9bc4-4a32-a4e8-c29981025328
-   
+
    > [!NOTE]
    > Se si esegue il comando **authorize** subito dopo il comando c**createazureid**, potrebbero essere visualizzati avvisi. Tra il momento in cui viene creato l'account Azure AD e quello in cui l'account è disponibile per l'uso c'è una certa latenza. Per non visualizzare tali avvisi, attendere circa 10 secondi tra l'esecuzione del comando **createazureid** e l'esecuzione del comando **authorize**.
-   > 
-   > 
+   >
+   >
 4. Verificare che nelle cartelle seguenti siano presenti i file JSON del log di controllo:
-   
+
    * **c:\Users\azlog\AzureResourceManagerJson**
    * **c:\Users\azlog\AzureResourceManagerJsonLD**
 5. Verificare che nelle cartelle seguenti siano presenti avvisi del Centro sicurezza di Azure:
-   
+
    * **c:\Users\azlog\ AzureSecurityCenterJson**
    * **c:\Users\azlog\AzureSecurityCenterJsonLD**
 6. Puntare il connettore del server di inoltro del file SIEM standard alla cartella appropriata per reindirizzare i dati all'istanza di SIEM. A seconda del prodotto SIEM in uso, potrebbe essere necessario il mapping dei campi.
@@ -140,7 +142,6 @@ In questa esercitazione è stato descritto come installare l'integrazione dei lo
 
 
 
-
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

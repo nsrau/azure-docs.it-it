@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f2a77ada25d7d6285c62d2f3d1330df5f192713d
+ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
+ms.openlocfilehash: a70eb51e7ebbc79e1aab4176d154dbef754368c1
 
 
 ---
@@ -25,11 +25,11 @@ ms.openlocfilehash: f2a77ada25d7d6285c62d2f3d1330df5f192713d
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 ## <a name="build-and-run-the-c-sample-solution"></a>Compilare ed eseguire la soluzione di esempio C
-Le istruzioni seguenti descrivono i passaggi per connettere un dispositivo [mbed-enabled Freescale FRDM-K64F][lnk-mbed-home] alla soluzione di monitoraggio remoto.
+Le istruzioni seguenti descrivono i passaggi per connettere un dispositivo [Freescale FRDM-K64F abilitato per mbed][lnk-mbed-home] alla soluzione di monitoraggio remoto.
 
 ### <a name="connect-the-mbed-device-to-your-network-and-desktop-machine"></a>Connettere il dispositivo mbed alla rete e al computer desktop
 1. Connettere il dispositivo mbed alla rete con un cavo Ethernet. Questo passaggio è necessario perché l'applicazione di esempio richiede l'accesso a Internet.
-2. Vedere le [informazioni introduttive su mbed][lnk-mbed-getstarted] per connettere il dispositivo mbed al PC desktop.
+2. Vedere [Getting Started with mbed][lnk-mbed-getstarted] (Guida introduttiva a mbed) per connettere il dispositivo mbed al PC desktop.
 3. Se il PC desktop esegue Windows, vedere [PC Configuration][lnk-mbed-pcconnect] (Configurazione PC) per configurare l'accesso alla porta seriale al dispositivo mbed.
 
 ### <a name="create-an-mbed-project-and-import-the-sample-code"></a>Creare un progetto mbed e importare il codice di esempio
@@ -67,7 +67,11 @@ Le istruzioni seguenti descrivono i passaggi per connettere un dispositivo [mbed
 Se si è interessati a conoscere la modalità di funzionamento del programma, in questa sezione vengono descritte alcune parti chiave del codice di esempio. Se invece si vuole solo eseguire il codice, passare direttamente alla sezione [Compilare ed eseguire il programma](#buildandrun).
 
 #### <a name="defining-the-model"></a>Definizione del modello
-QuEsto esempio usa la libreria del [serializzatore][lnk-serializer] per definire un modello che specifica i messaggi che il dispositivo può scambiare con l'hub IoT. In questo esempio lo spazio dei nomi **Contoso** definisce un modello **Thermostat** che specifica i dati di telemetria **Temperature**, **ExternalTemperature** e **Humidity** insieme ai metadati, come l'ID e le proprietà del dispositivo e i comandi a cui risponde il dispositivo:
+In questo esempio viene usata la libreria per la [serializzazione][lnk-serializer] per definire un modello che specifica i messaggi che il dispositivo può scambiare con l'hub IoT. In questo esempio lo spazio dei nomi **Contoso** definisce un modello **Thermostat** che specifica:
+
+- Dati di telemetria come **Temperature**, **ExternalTemperature** e **Humidity**.
+- Metadati, ad esempio l'ID e le proprietà del dispositivo.
+- Comandi cui il dispositivo risponde:
 
 ```
 BEGIN_NAMESPACE(Contoso);
@@ -204,6 +208,6 @@ Per riferimento, ecco un esempio di messaggio **Comando** ricevuto dall'hub IoT:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

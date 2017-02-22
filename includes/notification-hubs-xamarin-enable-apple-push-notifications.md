@@ -67,7 +67,7 @@ Creare un nuovo ID App esplicito per l'applicazione in Apple e configurarlo anch
    > Il nome del certificato potrebbe essere diverso, ma verrà preceduto da **Apple Development iOS Push Services:**.
    > 
    > 
-10. In Accesso portachiavi fare clic con il pulsante destro del mouse sul nuovo certificato push appena creato nella categoria **Certificati** . Fare clic su **Esporta**, assegnare un nome al file, selezionare il formato **.p12** e quindi fare clic su **Salva**.
+10. In Accesso portachiavi tenere premuto il tasto Comando e fare clic sul nuovo certificato push appena creato nella categoria **Certificati**. Fare clic su **Esporta**, assegnare un nome al file, selezionare il formato **.p12** e quindi fare clic su **Salva**.
     
     Prendere nota del nome e del percorso del file di certificato con estensione p12 esportato. Questo certificato verrà usato per abilitare l'autenticazione con il servizio APN caricandolo nel portale di Azure classico.
 
@@ -91,6 +91,6 @@ Creare un nuovo ID App esplicito per l'applicazione in Apple e configurarlo anch
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

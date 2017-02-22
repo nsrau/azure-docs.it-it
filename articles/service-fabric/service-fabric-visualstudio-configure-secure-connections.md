@@ -1,5 +1,5 @@
 ---
-title: Configurare connessioni protette supportate dal cluster di Service Fabric | Microsoft Docs
+title: Configurare connessioni protette a cluster di Azure Service Fabric | Documentazione Microsoft
 description: Scoprire come usare Visual Studio per configurare connessioni sicure supportate dal cluster di Service Fabric di Azure.
 services: service-fabric
 documentationcenter: na
@@ -15,8 +15,8 @@ ms.workload: multiple
 ms.date: 10/08/2015
 ms.author: cawa
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a02d3840555df0d9c16d179023b3bc763274701a
+ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
+ms.openlocfilehash: b6705e14e52e98759027389758d7fa57c4e11462
 
 
 ---
@@ -74,6 +74,6 @@ Per ulteriori informazioni sull'accesso ai cluster di Infrastruttura di servizi,
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 51501cc5e344c321652982a3a7f448d84f892392
+ms.sourcegitcommit: 53f4898f31ef19a39e1448235ed14c8fc7df7b3b
+ms.openlocfilehash: 50cdea437db5387813c6a3905d14b6904d2aba34
 
 
 ---
@@ -25,23 +25,30 @@ Il Centro sicurezza di Azure monitora ogni giorno le macchine virtuali (VM) Wind
 
 > [!NOTE]
 > Il documento introduce il servizio usando una distribuzione di esempio.  Questa non è una guida dettagliata.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
 1. Nel pannello **Consigli** selezionare **Applica gli aggiornamenti del sistema**.
+
    ![Applicare gli aggiornamenti di sistema][1]
 2. Viene visualizzato il pannello **Applica gli aggiornamenti del sistema** , che mostra un elenco di macchine virtuali prive di alcuni aggiornamenti del sistema. Selezionare una macchina virtuale.
+
    ![Selezionare una macchina virtuale][2]
 3. Viene visualizzato un pannello che mostra un elenco di aggiornamenti mancanti per la VM. Selezionare un aggiornamento del sistema. In questo esempio viene selezionato l'aggiornamento KB3156016.
+
    ![Aggiornamenti della sicurezza mancanti][3]
+
 4. Seguire la procedura illustrata nel pannello **Aggiornamento per la sicurezza** per applicare l'aggiornamento mancante.
-   ![Security update][4]
+
+   ![Aggiornamento della sicurezza][4]
 
 ## <a name="reboot-after-system-updates"></a>Riavviare dopo gli aggiornamenti del sistema
 1. Tornare al pannello **Raccomandazioni** . Dopo l'applicazione degli aggiornamenti del sistema è stata generata una nuova voce, denominata **Riavvia dopo gli aggiornamenti del sistema**. Questa voce indica che è necessario avviare la VM per completare il processo di applicazione degli aggiornamenti del sistema.
+
    ![Riavviare dopo gli aggiornamenti del sistema][5]
 2. Selezionare **Riavvia dopo gli aggiornamenti del sistema**. Verrà visualizzato il pannello **In attesa di un riavvio per completare gli aggiornamenti del sistema** che mostra un elenco di macchine virtuali che devono essere riavviate per completare il processo di aggiornamento del sistema.
+
    ![Riavvio in sospeso][6]
 
 Riavviare la VM da Azure per completare il processo.
@@ -67,6 +74,6 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -102,6 +102,6 @@ Per rigenerare una chiave di registrazione del servizio, attenersi alla procedur
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

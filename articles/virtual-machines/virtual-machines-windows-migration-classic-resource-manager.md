@@ -1,5 +1,5 @@
 ---
-title: Migrazione di risorse IaaS supportata dalla piattaforma dal modello classico al modello di Azure Resource Manager | Microsoft Docs
+title: Eseguire la migrazione di risorse classiche in Azure Resource Manager - Panoramica | Documentazione Microsoft
 description: Questo articolo illustra la migrazione di risorse supportata dalla piattaforma dal modello classico al modello di Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 01/23/2017
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 66b1bcdf0f79ff4743f466c3737696f53ef6a44c
-ms.openlocfilehash: 8eb70339785ca15131b5ce8debd6a232a8a693b9
+ms.sourcegitcommit: 2c96a3ca5fd72a4a3c992206aeb93f201342dd6a
+ms.openlocfilehash: aafaacea59c2c7fc463fb84207417d2c4e1d81ff
 
 
 ---
@@ -138,6 +138,8 @@ Selezionare la rete virtuale o il servizio ospitato, se non è una rete virtuale
 
 * Se una risorsa non è idonea per la migrazione, la piattaforma Azure mostra un elenco di tutti i motivi per cui non è supportata.
 
+Durante la convalida dei servizi di archiviazione, l'account sottoposto a migrazione sarà disponibile in un gruppo di risorse con nome corrispondente a quello dell'account di archiviazione, a cui è stato aggiunto il termine "-Migrated".  Se, ad esempio, l'account di archiviazione è denominato "mystorage", la risorsa abilitata per ARM sarà disponibile in un gruppo di risorse denominato "mystorage-Migrated" e conterrà un account di archiviazione denominato "mystorage".
+
 ### <a name="prepare"></a>Preparazione
 L'operazione di preparazione è il secondo passaggio del processo di migrazione. L'obiettivo di questo passaggio consiste nel simulare la trasformazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager e nel presentare la trasformazione in modo affiancato per consentirne la visualizzazione.
 
@@ -237,7 +239,7 @@ Tutti i nomi di risorse specificati in modo esplicito nel modello di distribuzio
 
 **Un messaggio informa che *lo stato generale dell'agente VM è segnalato come Non pronto. Di conseguenza, non è possibile eseguire la migrazione della VM. Il messaggio invita a controllare che l'agente VM segnali lo stato Pronto*. In un altro messaggio si legge che *la VM contiene un'estensione di cui non segnala lo stato. Di conseguenza, non è possibile eseguire la migrazione di questa VM.***
 
-Questo messaggio viene ricevuto quando la VM non dispone di connettività in uscita a Internet. L'agente VM usa la connettività in uscita per raggiungere l'account di archiviazione di Azure in modo da aggiornare lo stato dell'agente ogni 5 minuti.
+Questo messaggio viene ricevuto quando la VM non dispone di connettività in uscita a Internet. L'agente VM usa la connettività in uscita per raggiungere l'account di archiviazione di Azure in modo da aggiornare lo stato dell'agente ogni&5; minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere compreso i concetti fondamentali della migrazione di risorse IaaS classiche in Resource Manager, è possibile avviare la migrazione delle risorse.
@@ -250,6 +252,6 @@ Dopo avere compreso i concetti fondamentali della migrazione di risorse IaaS cla
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

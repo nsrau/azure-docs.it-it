@@ -1,6 +1,6 @@
 ---
-title: Creare e caricare un&quot;immagine Linux personalizzata | Microsoft Docs
-description: Creare e caricare un disco rigido virtuale (VHD) su Azure con un&quot;immagine Linux personalizzata usando il modello di distribuzione di Resource Manager.
+title: Caricare un&quot;immagine Linux personalizzata con l&quot;interfaccia della riga di comando di Azure 2.0 (anteprima) | Documentazione Microsoft
+description: Creare e caricare un disco rigido virtuale (VHD) in Azure con un&quot;immagine Linux personalizzata usando il modello di distribuzione Resource Manager e l&quot;interfaccia della riga di comando di Azure 2.0 (anteprima)
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -13,69 +13,76 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 12/15/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2d31365c7de59fc50da9b4d675dc5cf64302ea6a
-ms.openlocfilehash: 4041cc528f07b678bd6a6daebc44007cad095d6e
+ms.sourcegitcommit: 24928d9457db46f6976f50227d81c97ff6c202d7
+ms.openlocfilehash: ef735c887c1ce42a160a868b6bcc56b32f10aa9e
 
 
 ---
-# <a name="upload-and-create-a-linux-vm-from-custom-disk-image"></a>Caricamento e creazione di una VM Lnux da un'immagine disco personalizzata
+# <a name="upload-and-create-a-linux-vm-from-custom-disk-image-by-using-the-azure-cli-20-preview"></a>Caricare e creare una VM Linux da un'immagine disco personalizzata usando l'interfaccia della riga di comando di Azure 2.0 (anteprima)
 Questo articolo illustra come caricare un disco rigido virtuale su Azure usando il modello di distribuzione Resource Manager e come creare le VM Linux da questa immagine personalizzata. Questa funzionalità consente di installare e configurare una distribuzione Linux in base ai propri requisiti e quindi di usare il disco rigido virtuale per creare rapidamente macchine virtuali di Azure.
+
+
+## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività
+È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
+
+- [Interfaccia della riga di comando di Azure 1.0](virtual-machines-linux-upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](#quick-commands): interfaccia di prossima generazione per il modello di distribuzione di gestione delle risorse (questo articolo)
+
 
 ## <a name="quick-commands"></a>Comandi rapidi
 Se si vuole eseguire rapidamente l'attività, la sezione seguente indica in dettaglio i comandi base per caricare una VM in Azure. Altre informazioni dettagliate e il contesto per ogni passaggio sono disponibili nelle sezioni successive del documento, [a partire da qui](#requirements).
 
-Controllare di aver effettuato l'accesso tramite l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) e di usare la modalità Resource Manager:
-
-```bash
-azure config mode arm
-```
+Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0 (anteprima)](/cli/azure/install-az-cli2) e aver effettuato l'accesso a un account Azure con [az login](/cli/azure/#login).
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono `myResourceGroup`, `mystorageaccount` e `myimages`.
 
-Creare prima un gruppo di risorse. Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella località `WestUs`:
+Creare prima un gruppo di risorse con [az group create](/cli/azure/group#create). Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella località `WestUs`:
 
-```bash
-azure group create myResourceGroup --location "WestUS"
+```azurecli
+az group create --name myResourceGroup --location westus
 ```
 
-Creare un account di archiviazione in cui salvare i dischi virtuali. Nell'esempio seguente viene creato un nuovo account di archiviazione denominato `mystorageaccount`:
+Creare un account di archiviazione in cui salvare i dischi virtuali con [az storage account create](/cli/azure/storage/account#create). Nell'esempio seguente viene creato un nuovo account di archiviazione denominato `mystorageaccount`:
 
-```bash
-azure storage account create mystorageaccount --resource-group myResourceGroup \
-    --location "WestUS" --kind Storage --sku-name PLRS
+```azurecli
+az storage account create --resource-group myResourceGroup --location westus \
+  --name mystorageaccount --kind Storage --sku Standard_LRS
 ```
 
-Elencare le chiavi di accesso per l'account di archiviazione. Annotare il valore di `key1`:
+Elencare le chiavi di accesso per l'account di archiviazione con [az storage account keys list](/cli/azure/storage/account/keys#list). Annotare il valore di `key1`:
 
-```bash
-azure storage account keys list mystorageaccount --resource-group myResourceGroup
+```azurecli
+az storage account keys list --resource-group myResourceGroup --name mystorageaccount
 ```
 
-Creare un contenitore nell'account di archiviazione usando la chiave di archiviazione ottenuta. Nell'esempio seguente viene creato un contenitore denominato `myimages` usando il valore della chiave di archiviazione da `key1`:
+Creare un contenitore nell'account di archiviazione con [az storage container create](/cli/azure/storage/container#create) usando la chiave di archiviazione ottenuta. Nell'esempio seguente viene creato un contenitore denominato `myimages` usando il valore della chiave di archiviazione da `key1`:
 
-```bash
-azure storage container create --account-name mystorageaccount \
-    --account-key key1 --container myimages
+```azurecli
+az storage container create --account-name mystorageaccount \
+    --account-key key1 --name myimages
 ```
 
-Caricare infine il disco rigido virtuale nel contenitore creato. Specificare il percorso locale per il disco rigido virtuale in `/path/to/disk/mydisk.vhd`:
+Usare infine [az storage blob upload](/cli/azure/storage/blob#upload) per caricare il disco rigido virtuale nel contenitore creato. Specificare il percorso locale per il disco rigido virtuale in `/path/to/disk/mydisk.vhd`:
 
-```bash
-azure storage blob upload --blobtype page --account-name mystorageaccount \
-    --account-key key1 --container myimages /path/to/disk/mydisk.vhd
+```azurecli
+az storage blob upload --account-name mystorageaccount \
+    --account-key key1 --container-name myimages --type page \
+    --file /path/to/disk/mydisk.vhd --name myImage.vhd
 ```
 
 È ora possibile creare una macchina virtuale dal disco virtuale caricato [utilizzando un modello di Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd). È anche possibile utilizzare l'interfaccia della riga di comando specificando l'URI sul disco (`--image-urn`). L'esempio seguente crea una VM denominata `myVM` usando il disco virtuale caricato in precedenza:
 
-```bash
-azure vm create myVM -l "WestUS" --resource-group myResourceGroup \
-    --image-urn https://mystorageaccount.blob.core.windows.net/myimages/mydisk.vhd
+```azurecli
+az vm create --resource-group myResourceGroup --location westus \
+    --name myVM --storage-account mystorageaccount --custom-os-disk-type linux \
+    --admin-username ops --ssh-key-value ~/.ssh/id_rsa.pub \
+    --image https://mystorageaccount.blob.core.windows.net/myimages/myImage.vhd
 ```
 
-L'account di archiviazione di destinazione deve essere lo stesso in cui è stato caricato il disco virtuale. È inoltre necessario specificare tutti i parametri aggiuntivi richiesti dal comando `azure vm create` , ad esempio rete virtuale, indirizzo IP pubblico, nome utente e chiavi SSH, oppure rispondere ai messaggi inerenti. Sono disponibili altre informazioni sui [parametri di Resource Manager per l'interfaccia della riga di comando](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
+L'account di archiviazione di destinazione deve essere lo stesso in cui è stato caricato il disco virtuale. È anche necessario specificare tutti i parametri aggiuntivi richiesti dal comando **az vm create**, ad esempio rete virtuale, indirizzo IP pubblico, nome utente e chiavi SSH, oppure rispondere ai messaggi inerenti. Sono disponibili altre informazioni sui [parametri di Resource Manager per l'interfaccia della riga di comando](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
 
 ## <a name="requirements"></a>Requisiti
 Per completare la procedura seguente, è necessario:
@@ -93,11 +100,7 @@ Per completare la procedura seguente, è necessario:
   * Creare un account di archiviazione e un contenitore in cui inserire l'immagine personalizzata e le VM create.
   * Una volta create tutte le VM, è possibile eliminare l'immagine.
 
-Controllare di aver effettuato l'accesso tramite l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) e di usare la modalità Resource Manager:
-
-```bash
-azure config mode arm
-```
+Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0 (anteprima)](/cli/azure/install-az-cli2) e aver effettuato l'accesso a un account Azure con [az login](/cli/azure/#login).
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono `myResourceGroup`, `mystorageaccount` e `myimages`.
 
@@ -122,36 +125,36 @@ Vedere anche le **[Note generali sull'installazione di Linux](virtual-machines-l
 > 
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
-I gruppi di risorse riuniscono in modo logico tutte le risorse di Azure a supporto delle macchine virtuali, come l'archiviazione e la rete virtuale. Ulteriori informazioni sui [gruppi di risorse di Azure sono disponibili qui](../azure-resource-manager/resource-group-overview.md). Prima di caricare l'immagine disco personalizzata e creare le VM, è necessario creare un gruppo di risorse. 
+I gruppi di risorse riuniscono in modo logico tutte le risorse di Azure a supporto delle macchine virtuali, come l'archiviazione e la rete virtuale. Per altre informazioni sui gruppi di risorse, vedere la [panoramica dei gruppi di risorse](../azure-resource-manager/resource-group-overview.md). Prima di caricare l'immagine disco personalizzata e creare le VM, è necessario creare un gruppo di risorse con [az group create](/cli/azure/group#create).
 
-Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella località `WestUS`:
+Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella località `westus`:
 
-```bash
-azure group create myResourceGroup --location "WestUS"
+```azurecli
+az group create --name myResourceGroup --location westus
 ```
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
-Le VM vengono archiviate come BLOB di pagine all'interno di un account di archiviazione. Ulteriori informazioni sull' [archiviazione BLOB di Azure sono disponibili qui](../storage/storage-introduction.md#blob-storage). Creare un account di archiviazione per l'immagine disco personalizzata e le VM. Le VM create a partire dall'immagine disco personalizzata devono trovarsi nello stesso account di archiviazione dell'immagine.
+Le VM vengono archiviate come BLOB di pagine all'interno di un account di archiviazione. Ulteriori informazioni sull' [archiviazione BLOB di Azure sono disponibili qui](../storage/storage-introduction.md#blob-storage). Creare un account di archiviazione per l'immagine disco personalizzata e le VM con [az storage account create](/cli/azure/storage/account#create). Le VM create a partire dall'immagine disco personalizzata devono trovarsi nello stesso account di archiviazione dell'immagine.
 
 Nell'esempio seguente viene creato un account di archiviazione denominato `mystorageaccount` nel gruppo di risorse creato in precedenza:
 
-```bash
-azure storage account create mystorageaccount --resource-group myResourceGroup \
-    --location "WestUS" --kind Storage --sku-name PLRS
+```azurecli
+az storage account create --resource-group myResourceGroup --location westus \
+  --name mystorageaccount --kind Storage --sku Standard_LRS
 ```
 
 ## <a name="list-storage-account-keys"></a>Ottenere chiavi degli account di archiviazione
-Azure genera due chiavi di accesso a 512 bit per ogni account di archiviazione. Queste chiavi di accesso vengono utilizzate per autenticarsi nell'account di archiviazione, ad esempio per eseguire operazioni di scrittura. Ulteriori informazioni sulla [gestione dell'accesso all'archiviazione sono disponibili qui](../storage/storage-create-storage-account.md#manage-your-storage-account). Le chiavi di accesso possono essere visualizzate tramite il comando `azure storage account keys list` .
+Azure genera due chiavi di accesso a 512 bit per ogni account di archiviazione. Queste chiavi di accesso vengono utilizzate per autenticarsi nell'account di archiviazione, ad esempio per eseguire operazioni di scrittura. Ulteriori informazioni sulla [gestione dell'accesso all'archiviazione sono disponibili qui](../storage/storage-create-storage-account.md#manage-your-storage-account). Visualizzare le chiavi di accesso con [az storage account keys list](/cli/azure/storage/account/keys#list).
 
 Visualizzare le chiavi di accesso per l'account di archiviazione creato:
 
-```bash
-azure storage account keys list mystorageaccount --resource-group myResourceGroup
+```azurecli
+az storage account keys list --resource-group myResourceGroup --name mystorageaccount
 ```
 
 L'output è simile a:
 
-```
+```azurecli
 info:    Executing command storage account keys list
 + Getting storage account keys
 data:    Name  Key                                                                                       Permissions
@@ -159,52 +162,54 @@ data:    ----  -----------------------------------------------------------------
 data:    key1  d4XAvZzlGAgWdvhlWfkZ9q4k9bYZkXkuPCJ15NTsQOeDeowCDAdB80r9zA/tUINApdSGQ94H9zkszYyxpe8erw==  Full
 data:    key2  Ww0T7g4UyYLaBnLYcxIOTVziGAAHvU+wpwuPvK4ZG0CDFwu/mAxS/YYvAQGHocq1w7/3HcalbnfxtFdqoXOw8g==  Full
 info:    storage account keys list command OK
-
 ```
 Prendere nota dell'elemento `key1` perché verrà utilizzato per interagire con l'account di archiviazione nei passaggi successivi.
 
 ## <a name="create-a-storage-container"></a>Creare un contenitore di archiviazione
-Come si creano directory diverse per organizzare in modo logico il file system locale, per organizzare i dischi virtuali e le immagini all'interno di un account di archiviazione vengono creati contenitori. Un account di archiviazione può contenere un numero qualsiasi di contenitori. 
+Come si creano directory diverse per organizzare in modo logico il file system locale, per organizzare i dischi virtuali e le immagini all'interno di un account di archiviazione vengono creati contenitori. Un account di archiviazione può contenere un numero qualsiasi di contenitori. Creare un contenitore con [az storage container create](/cli/azure/storage/container#create).
 
 L'esempio seguente crea un nuovo contenitore denominato `myimages`, specificando la chiave di accesso ricavata nel passaggio precedente (`key1`):
 
-```bash
-azure storage container create --account-name mystorageaccount \
-    --account-key key1 --container myimages
+```azurecli
+az storage container create --account-name mystorageaccount \
+    --account-key key1 --name myimages
 ```
 
 ## <a name="upload-vhd"></a>Caricare il file VHD.
-Ora è effettivamente possibile caricare l'immagine disco personalizzata. Come con tutti i dischi virtuali utilizzati dalle VM, l'immagine disco personalizzata viene caricata e archiviata come BLOB di pagine.
+Ora è effettivamente possibile caricare l'immagine disco personalizzata con [az storage blob upload](/cli/azure/storage/blob#upload). Come con tutti i dischi virtuali utilizzati dalle VM, l'immagine disco personalizzata viene caricata e archiviata come BLOB di pagine.
 
 Specificare la chiave di accesso e il contenitore creato nel passaggio precedente, quindi selezionare il percorso dell'immagine disco personalizzata sul computer locale:
 
-```bash
-azure storage blob upload --blobtype page --account-name mystorageaccount \
-    --account-key key1 --container myimages /path/to/disk/mydisk.vhd
+```azurecli
+az storage blob upload --account-name mystorageaccount \
+    --account-key key1 --container-name myimages --type page \
+    --file /path/to/disk/mydisk.vhd --name myImage.vhd
 ```
 
 ## <a name="create-vm-from-custom-image"></a>Creare una VM in base a un'immagine personalizzata
 Quando si creano le macchine virtuali dall'immagine disco personalizzata, specificare l'URI sull'immagine disco. Assicurarsi che l'account di archiviazione corrisponda alla destinazioni in cui viene archiviata l'immagine disco personalizzata. È possibile creare la VM tramite l'interfaccia della riga di comando di Azure o il modello JSON di Resource Manager.
 
 ### <a name="create-a-vm-using-the-azure-cli"></a>Creare una VM Linux usando l'interfaccia della riga di comando di Azure
-Specificare il parametro `--image-urn` con il comando `azure vm create` in modo da puntare all'immagine disco personalizzata. Assicurarsi che `--storage-account-name` corrisponda all'account di archiviazione in cui è archiviata l'immagine disco personalizzata. Non è necessario utilizzare lo stesso contenitore come immagine disco personalizzata per archiviare le macchine virtuali. Assicurarsi di creare qualsiasi contenitore aggiuntivo seguendo la stessa procedura utilizzata in precedenza prima di caricare le immagini disco personalizzate.
+Specificare il parametro `--image` con il comando [az vm create](/cli/azure/vm#create) in modo da puntare all'immagine disco personalizzata. Assicurarsi che `--storage-account` corrisponda all'account di archiviazione in cui è archiviata l'immagine disco personalizzata. Non è necessario utilizzare lo stesso contenitore come immagine disco personalizzata per archiviare le macchine virtuali. Assicurarsi di creare qualsiasi contenitore aggiuntivo seguendo la stessa procedura utilizzata in precedenza prima di caricare le immagini disco personalizzate.
 
 L'esempio seguente crea una VM denominata `myVM` dall'immagine disco personalizzata:
 
-```bash
-azure vm create myVM -l "WestUS" --resource-group myResourceGroup \
-    --image-urn https://mystorageaccount.blob.core.windows.net/myimages/mydisk.vhd
-    --storage-account-name mystorageaccount
+```azurecli
+az vm create --resource-group myResourceGroup --location westus \
+    --name myVM --storage-account mystorageaccount --custom-os-disk-type linux \
+    --admin-username ops --ssh-key-value ~/.ssh/id_rsa.pub \
+    --image https://mystorageaccount.blob.core.windows.net/myimages/myImage.vhd
 ```
 
-È ancora necessario specificare tutti i parametri aggiuntivi richiesti dal comando `azure vm create` , ad esempio rete virtuale, indirizzo IP pubblico, nome utente e chiavi SSH, oppure rispondere ai messaggi inerenti. Sono disponibili altre informazioni sui [parametri di Resource Manager per l'interfaccia della riga di comando](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
+È ancora necessario specificare tutti i parametri aggiuntivi richiesti dal comando **az vm create**, ad esempio nome utente e chiavi SSH.
+
 
 ### <a name="create-a-vm-using-a-json-template"></a>Creare una VM utilizzando un modello JSON
 I modelli di Azure Resource Manager sono file JavaScript Object Notation (JSON) che definiscono l'ambiente che si desidera generare. I modelli sono suddivisi in diversi provider di risorse, ad esempio calcolo o rete. È possibile utilizzare i modelli esistenti o crearne di nuovi. Altre informazioni sull' [uso di Resource Manager e relativi modelli](../azure-resource-manager/resource-group-overview.md).
 
 Nel provider `Microsoft.Compute/virtualMachines` del modello, è presente un nodo `storageProfile` contenente i dettagli sulla configurazione della VM. I due parametri principali da modificare sono gli URI `image` e `vhd`, che puntano all'immagine disco e al disco virtuale della nuova VM. Di seguito viene mostrato un esempio di JSON per l'utilizzo di un'immagine disco personalizzata:
 
-```bash
+```json
 "storageProfile": {
           "osDisk": {
             "name": "myVM",
@@ -220,20 +225,20 @@ Nel provider `Microsoft.Compute/virtualMachines` del modello, è presente un nod
           }
 ```
 
-È possibile usare [questo modello esistente per creare una VM da un'immagine personalizzata](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) oppure consultare le informazioni sulla [creazione di modelli di Azure Resource Manager personalizzati](../azure-resource-manager/resource-group-authoring-templates.md). 
+È possibile usare [questo modello esistente per creare una VM da un'immagine personalizzata](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) oppure consultare le informazioni sulla [creazione di modelli di Azure Resource Manager personalizzati](../resource-group-authoring-templates.md). 
 
-Dopo aver configurato un modello, creare le VM tramite il comando `azure group deployment create` . Specificare l'URI del modello JSON con il parametro `--template-uri` :
+Dopo aver configurato un modello, creare le VM tramite il comando [az group deployment create](/cli/azure/group/deployment#create). Specificare l'URI del modello JSON con il parametro `--template-uri` :
 
-```bash
-azure group deployment create --resource-group myResourceGroup
-    --template-uri https://uri.to.template/mytemplate.json
+```azurecli
+az group deployment create --resource-group myNewResourceGroup \
+  --template-uri https://uri.to.template/mytemplate.json
 ```
 
 Se si dispone di un file JSON archiviato localmente nel computer in uso, è possibile utilizzare il parametro alternativo `--template-file` :
 
-```bash
-azure group deployment create --resource-group myResourceGroup
-    --template-file /path/to/mytemplate.json
+```azurecli
+az group deployment create --resource-group myNewResourceGroup \
+  --template-file /path/to/mytemplate.json
 ```
 
 
@@ -243,6 +248,6 @@ Dopo avere preparato e caricato il disco rigido virtuale, è possibile ottenere 
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

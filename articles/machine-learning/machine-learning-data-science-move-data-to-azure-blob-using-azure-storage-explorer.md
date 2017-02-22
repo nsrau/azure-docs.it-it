@@ -1,5 +1,5 @@
 ---
-title: Spostamento dei dati da e verso l&quot;archiviazione BLOB di Azure utilizzando Esplora archivi di Azure | Documentazione Microsoft
+title: Spostamento dei dati da e verso l&quot;archiviazione BLOB utilizzando Esplora archivi Azure | Documentazione Microsoft
 description: Spostamento dei dati da e verso l&quot;archiviazione BLOB di Azure utilizzando Storage Explorer di Azure
 services: machine-learning,storage
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: a67f2e77d3bc7da35a03b68d7f32fd3a2a42bfcd
-ms.openlocfilehash: 18c05ade1ee0c0c716307613a3c0daf1c8d853aa
+ms.sourcegitcommit: 69bb7e5fb0dafa3a9d0f6ad4eb271ab1af2edc50
+ms.openlocfilehash: a258404e659bd6d6e7e0f468a5f3ce5e184be2a3
 
 
 ---
-# <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Spostamento dei dati da e verso l'archiviazione BLOB di Azure utilizzando Storage Explorer di Azure
+# <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Spostamento dei dati da e verso l'archiviazione BLOB di Azure usando Storage Explorer di Azure
 Esplora archivi di Azure è uno strumento gratuito di Microsoft che consente di lavorare con i dati di Archiviazione di Azure in Windows, MacOS e Linux. Questo argomento descrive come usarlo per caricare e scaricare i dati dall'archiviazione BLOB di Azure. Lo strumento può essere scaricato da [Esplora archivi di Microsoft Azure](http://storageexplorer.com/).
 
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
@@ -46,18 +46,18 @@ In questo documento si presuppone di avere una sottoscrizione di Azure, un accou
 I passaggi seguenti documentano come caricare e scaricare i dati utilizzando Esplora archivi Azure. 
 
 1. Avviare Esplora archivi di Microsoft Azure.
-2. Per visualizzare la procedura guidata **Accedi al tuo account...**, selezionare l'icona delle **impostazioni dell'account Azure**, selezionare **Aggiungi un account** e immettere le credenziali. ![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
-3. Per visualizzare la procedura guidata **Connetti ad Archiviazione di Azure**, selezionare l'icona per la **connessione ad Archiviazione di Azure**. ![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
-4. Immettere la chiave di accesso dell'account di archiviazione di Azure nella procedura guidata **Connetti ad Archiviazione di Azure** e selezionare **Avanti**. ![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
-5. Immettere il nome dell'account di archiviazione nella casella **Nome account** e selezionare **Avanti**. ![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/attach-external-storage.png)
+2. Per visualizzare la procedura guidata **Accedi al tuo account...**, selezionare l'icona delle **impostazioni dell'account Azure**, selezionare **Aggiungi un account** e immettere le credenziali. ![Aggiungere un account di archiviazione di Azure](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
+3. Per visualizzare la procedura guidata **Connetti ad Archiviazione di Azure**, selezionare l'icona per la **connessione ad Archiviazione di Azure**. ![Connetti ad Archiviazione di Azure](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
+4. Immettere la chiave di accesso dell'account di archiviazione di Azure nella procedura guidata **Connetti ad Archiviazione di Azure** e selezionare **Avanti**. ![Connetti ad Archiviazione di Azure](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
+5. Immettere il nome dell'account di archiviazione nella casella **Nome account** e selezionare **Avanti**. ![Associa archiviazione esterna](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/attach-external-storage.png)
 6. L'account di archiviazione aggiunto apparirà nell'elenco. Per creare un contenitore BLOB in un account di archiviazione, fare clic con il pulsante destro del mouse sul nodo **Contenitori BLOB** in tale account, selezionare **Crea contenitore BLOB** e immettere un nome.
-7. Per caricare dati in un contenitore, selezionare il contenitore di destinazione e fare clic sul pulsante **Carica**.![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)
-8. Fare clic su **...** a destra della casella **File**, selezionare uno o più file da caricare dal file system e scegliere **Carica** per iniziare a caricare i file.![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/upload-files-to-blob.png)
-9. Per scaricare i dati, selezionare il BLOB nel contenitore corrispondente da scaricare e fare clic su **Scarica**. ![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/download-files-from-blob.png)
+7. Per caricare dati in un contenitore, selezionare il contenitore di destinazione e fare clic sul pulsante **Carica**.![Account di archiviazione](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)
+8. Fare clic su **...** a destra della casella **File**, selezionare uno o più file da caricare dal file system e fare clic su **Carica** per iniziare a caricare i file.![Caricare i file](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/upload-files-to-blob.png)
+9. Per scaricare i dati, selezionare il BLOB nel contenitore corrispondente da scaricare e fare clic su **Scarica**. ![Download dei file](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/download-files-from-blob.png)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

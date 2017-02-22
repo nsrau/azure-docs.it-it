@@ -1,5 +1,5 @@
 ---
-title: Limiti, quote e vincoli relativi alle sottoscrizioni e ai servizi di Microsoft Azure
+title: Limiti e quote della sottoscrizione di Azure | Documentazione Microsoft
 description: Fornisce un elenco di limiti, quote e vincoli comuni relativi alle sottoscrizioni e ai servizi di Azure. Sono incluse informazioni su come aumentare i limiti e i valori massimi.
 services: 
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 02/13/2017
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: 18c8997d8ee77c9c3005aa765a64ae82dce8c70c
-ms.openlocfilehash: fc519c242b2676e20c1b19bfb2b5edae73b0b926
+ms.sourcegitcommit: bf6c6017f623766f5e7a6472feed02108b5adf5f
+ms.openlocfilehash: d770a05ee247103fe9693754d7fb7eada12ef1bc
 
 
 ---
@@ -65,6 +65,7 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Hub eventi](#event-hubs-limits)
 * [Hub IoT](#iot-hub-limits)
 * [Insieme di credenziali di chiave](#key-vault-limits)
+* [Log Analytics/Operational Insights](#log-analytics-limits)
 * [Servizi multimediali](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Servizi mobili](#mobile-services-limits)
@@ -72,7 +73,6 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Autenticazione a più fattori](#multi-factor-authentication)
 * [Rete](#networking-limits)
 * [Servizio di Hub di notifica](#notification-hub-service-limits)
-* [Operational Insights](#operational-insights-limits)
 * [Gruppo di risorse](#resource-group-limits)
 * [Utilità di pianificazione](#scheduler-limits)
 * [Search](#search-limits)
@@ -134,7 +134,7 @@ Per altre informazioni sui limiti dell'account di archiviazione, vedere [Obietti
 #### <a name="storage-service-limits"></a>Limiti relativi al servizio di archiviazione
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-#### <a name="virtual-machine-disk-limits"></a>Limiti relativi ai dischi della macchina virtuale
+#### <a name="virtual-machine-disk-limits"></a>Limiti relativi ai dischi della macchina virtuale 
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
 Vedere [Dimensioni della macchina virtuale](virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per altri dettagli.
@@ -179,7 +179,7 @@ DocumentDB è un database con scalabilità globale in cui la velocità effettiva
 I piano tariffari determinano la capacità e i limiti del servizio di ricerca. Sono disponibili i piani seguenti:
 
 * *Gratuito* , offre un servizio multi-tenant, condiviso con altri sottoscrittori di Azure, progettato per la valutazione e progetti di sviluppo di piccole dimensioni.
-* *Basic* fornisce risorse di calcolo dedicate per i carichi di lavoro di produzione su scala più ridotta, con un massimo di 3 repliche per i carichi di lavoro di query a disponibilità elevata.
+* *Basic* fornisce risorse di calcolo dedicate per i carichi di lavoro di produzione su scala più ridotta, con un massimo di&3; repliche per i carichi di lavoro di query a disponibilità elevata.
 * *Standard (S1, S2, S3, S3 ad alta densità)* è per i carichi di lavoro di produzione più consistenti. All'interno del livello standard esistono più livelli per consentire di scegliere una configurazione delle risorse ottimale per il profilo di carico di lavoro.
 
 **Limiti per ogni sottoscrizione**
@@ -234,7 +234,7 @@ Per informazioni più dettagliati sui limiti, ad esempio dimensioni dei document
 ### <a name="storsimple-system-limits"></a>Limiti relativi al sistema StorSimple
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
-### <a name="operational-insights-limits"></a>Limiti relativi a Operational Insights
+### <a name="log-analytics-limits"></a>Limiti relativi a Log Analytics
 [!INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
 
 ### <a name="backup-limits"></a>Limiti relativi a Backup
@@ -274,6 +274,6 @@ Per i limiti di Database SQL, vedere [Limiti delle risorse dei Database SQL](sql
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

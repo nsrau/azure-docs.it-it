@@ -12,24 +12,26 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub,sethm
+ms.date: 02/03/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: a645d742c1e6d80e86ac29d78d78422b5b47a286
+ms.sourcegitcommit: 1ee1e7d0c6f239abfda474d51c8d02d5338dabc7
+ms.openlocfilehash: ec8d7cf64786a3347998f243fc7e4f9550fd9f08
 
 
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Introduzione alle connessioni ibride di inoltro
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
+Questa esercitazione offre un'introduzione alle [connessioni ibride di inoltro di Azure](relay-what-is-it.md#hybrid-connections) e illustra come creare un'applicazione client che invia messaggi a un'applicazione listener corrispondente. 
+
 ## <a name="what-will-be-accomplished"></a>Contenuto dell'esercitazione
-Poiché le connessioni ibride richiedono sia un componente client sia un componente server, in questa esercitazione verranno create due applicazioni console. Di seguito sono riportati i passaggi necessari:
+Dato che le connessioni ibride richiedono sia un componente client che un componente server, nel corso dell'esercitazione vengono create due applicazioni console. Procedura:
 
 1. Creare uno spazio dei nomi di inoltro usando il portale di Azure.
 2. Creare una connessione ibrida usando il portale di Azure.
-3. Scrivere un'applicazione console server per ricevere messaggi.
-4. Scrivere un'applicazione console client per inviare messaggi.
+3. Scrivere un'applicazione console server (listener) per ricevere messaggi.
+4. Scrivere un'applicazione console client (mittente) per inviare messaggi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 1. [Visual Studio 2013 o Visual Studio 2015](http://www.visualstudio.com). Negli esempi di questa esercitazione viene usato Visual Studio 2015.
@@ -74,6 +76,6 @@ A questo punto è stata creata un'applicazione per le connessioni ibride end-to-
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

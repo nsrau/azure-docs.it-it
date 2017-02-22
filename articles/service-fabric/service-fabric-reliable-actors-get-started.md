@@ -1,5 +1,5 @@
 ---
-title: Introduzione a Reliable Actors di Service Fabric | Documentazione Microsoft
+title: Creare il primo microservizio di Azure basato su attori in C# | Documentazione Microsoft
 description: Questa esercitazione illustra la procedura per la creazione, il debug e la distribuzione di un semplice servizio basato su attore usando Service Fabric Reliable Actors.
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 01/04/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2304a9433bb382c0c7ddcf36733838ac769b9584
-ms.openlocfilehash: 98e519df244e9ae934b8100ea9820a7f765b1ee3
+ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
+ms.openlocfilehash: 25b24e6d267ac14147f426fce46d609954b7dfc9
 
 
 ---
@@ -155,6 +155,6 @@ Durante il processo di distribuzione è possibile visualizzare lo stato di avanz
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2016
+ms.date: 01/03/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 47c9be0aef918eee322245164458cfffa95b8551
+ms.sourcegitcommit: 86228225275c4486852c17803a99a194458196b7
+ms.openlocfilehash: b2cf981e6a655f5c7f0d429714e0efb8e88e178c
 
 
 ---
@@ -26,7 +26,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 * Sottoscrizione di Azure valida
 * Sottoscrizione di SCC LifeCycle abilitata per l'accesso Single Sign-On
 
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a SCC LifeCycle saranno in grado di eseguire l’accesso Single Sign-On all'applicazione tramite il sito aziendale di SCC LifeCycle (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a SCC LifeCycle saranno in grado di eseguire l'accesso Single Sign-On all'applicazione tramite il sito aziendale di SCC LifeCycle (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
@@ -43,52 +43,63 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 ### <a name="to-enable-the-application-integration-for-scc-lifecycle-perform-the-following-steps"></a>Per abilitare l'integrazione dell'applicazione per SCC LifeCycle, eseguire la procedura seguente:
 1. Nel portale di Azure classico fare clic su **Active Directory**nel riquadro di spostamento sinistro.
    
-   ![Active Directory](./media/active-directory-saas-scc-lifecycle-tutorial/IC700993.png "Active Directory")
+    ![Active Directory](./media/active-directory-saas-scc-lifecycle-tutorial/IC700993.png "Active Directory")
+
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
    
-   ![Applications](./media/active-directory-saas-scc-lifecycle-tutorial/IC700994.png "Applications")
+    ![Applicazioni](./media/active-directory-saas-scc-lifecycle-tutorial/IC700994.png "Applicazioni")
+
 4. Fare clic su **Add** nella parte inferiore della pagina.
    
-   ![Aggiungi applicazione](./media/active-directory-saas-scc-lifecycle-tutorial/IC749321.png "Add application")
+    ![Aggiungere un'applicazione](./media/active-directory-saas-scc-lifecycle-tutorial/IC749321.png "Aggiungere un'applicazione")
+
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
    
-   ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-scc-lifecycle-tutorial/IC749322.png "Add an application from gallerry")
+    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-scc-lifecycle-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
+
 6. Nella **casella di ricerca** digitare **SCC LifeCycle**.
    
-   ![Raccolta di applicazioni](./media/active-directory-saas-scc-lifecycle-tutorial/IC794121.png "Application Gallery")
+    ![Raccolta di applicazioni](./media/active-directory-saas-scc-lifecycle-tutorial/IC794121.png "Raccolta di applicazioni")
+
 7. Nel riquadro dei risultati selezionare **SCC LifeCycle**, quindi fare clic su **Completa** per aggiungere l'applicazione.
    
-   ![SCC LifeCycle](./media/active-directory-saas-scc-lifecycle-tutorial/IC795082.png "SCC LifeCycle")
+    ![SCC LifeCycle](./media/active-directory-saas-scc-lifecycle-tutorial/IC795082.png "SCC LifeCycle")
    
-   ## <a name="configuring-single-sign-on"></a>Configurazione dell'accesso Single Sign-On
+## <a name="configuring-single-sign-on"></a>Configurazione dell'accesso Single Sign-On
 
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a SCC LifeCycle tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML.
 
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
 1. Nella pagina di integrazione dell'applicazione **SCC LifeCycle** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-scc-lifecycle-tutorial/IC794122.png "Configure Single Sign-On")
+    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-scc-lifecycle-tutorial/IC794122.png "Configurare l'accesso Single Sign-On")
+
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a SCC LifeCycle** selezionare **Single Sign-On di Microsoft Azure AD**, quindi fare clic su **Avanti**.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-scc-lifecycle-tutorial/IC794123.png "Configure Single Sign-On")
+    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-scc-lifecycle-tutorial/IC794123.png "Configurare l'accesso Single Sign-On")
+
 3. Nella pagina **Configura URL app** digitare nella casella di testo **URL di accesso** l'URL utilizzato dagli utenti per accedere all'applicazione SCC LifeCycle usando il modello "*https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx*" e fare clic su **Avanti**.
    
-   ![Configura URL app](./media/active-directory-saas-scc-lifecycle-tutorial/IC794124.png "Configure App URL")
+    ![Configurare l'URL dell'app](./media/active-directory-saas-scc-lifecycle-tutorial/IC794124.png "Configurare l'URL dell'app")
+
 4. Nella pagina **Configura accesso Single Sign-On in SCC LifeCycle** fare clic su **Scarica metadati**, quindi salvare il file di metadati in locale nel computer.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-scc-lifecycle-tutorial/IC795083.png "Configure Single Sign-On")
+   ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-scc-lifecycle-tutorial/IC795083.png "Configurare l'accesso Single Sign-On")
+
 5. Inoltrare il file di metadati al team di supporto di SCC LifeCycle.
    
-   > [!NOTE]
-   > L’accesso Single Sign-On deve essere abilitato dal team di supporto di SCC LifeCycle.
-   > 
-   > 
+    > [!NOTE]
+    > L'accesso Single Sign-On deve essere abilitato dal team di supporto di SCC LifeCycle.
+    > 
+    > 
+
 6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Complete** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-scc-lifecycle-tutorial/IC794125.png "Configure Single Sign-On")
+    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-scc-lifecycle-tutorial/IC794125.png "Configurare l'accesso Single Sign-On")
    
-   ## <a name="configuring-user-provisioning"></a>Configurazione del provisioning utente
+## <a name="configuring-user-provisioning"></a>Configurazione del provisioning utente
 
 Per consentire agli utenti di Azure AD di accedere a SCC LifeCycle, è necessario eseguirne il provisioning in SCC LifeCycle.
 
@@ -105,18 +116,20 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 ### <a name="to-assign-users-to-scc-lifecycle-perform-the-following-steps"></a>Per assegnare gli utenti a SCC LifeCycle, eseguire la procedura seguente:
 1. Nel portale di Azure classico creare un account di test.
+
 2. Nella pagina di integrazione dell'applicazione **SCC LifeCycle** fare clic su **Assegna utenti**.
    
-   ![Assegna utenti](./media/active-directory-saas-scc-lifecycle-tutorial/IC794126.png "Assign Users")
+    ![Assegnare utenti](./media/active-directory-saas-scc-lifecycle-tutorial/IC794126.png "Assegnare utenti")
+
 3. Selezionare l'utente di test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
    
-   ![Sì](./media/active-directory-saas-scc-lifecycle-tutorial/IC767830.png "Yes")
+    ![Sì](./media/active-directory-saas-scc-lifecycle-tutorial/IC767830.png "Sì")
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

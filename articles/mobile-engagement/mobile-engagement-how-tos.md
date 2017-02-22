@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: ae5a946be74131d52d25e9d7d36c116e707a4be3
+ms.sourcegitcommit: 3a423e42441c6b3b2f1917ba02f80078c759ec69
+ms.openlocfilehash: 4c114f470631ae6b06968c3cc8601bc1c76bc1da
 
 
 ---
@@ -115,7 +115,7 @@ La modalità di recapito "Solo all'esterno dell'app" fornisce la notifica push q
 Quando si seleziona "Solo all'esterno dell'app", è necessario aver già fornito i certificati dalla piattaforma su cui si basa l'applicazione (servizio APN o GCM).
 
 ### <a name="see-also"></a>Vedere anche
-* [Apple Push Notification Service – Certificates](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9) (Certificati del Servizio notifiche push Apple), Google Cloud Messaging – Certificate (http://developer.android.com/google/gcm/index.html) 
+* [Apple Push Notification Service - Certificati](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), [Google Cloud Messaging - Certificato](http://developer.android.com/google/gcm/index.html) 
 
 ### <a name="in-app-only-delivery-mode"></a>Modalità di recapito "Solo in-app"
 ![Differentiate3][17]
@@ -277,43 +277,43 @@ Una visualizzazione Web consente una maggiore interazione con l'utente finale.
 [32]: ./media/mobile-engagement-how-tos/WebView5.png
 
 <!--Link references-->
-[Collegamento 1]: mobile-engagement-user-interface.md
-[Collegamento 2]: mobile-engagement-troubleshooting-guide.md
-[Collegamento 3]: mobile-engagement-how-tos.md
-[Collegamento 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Collegamento 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Collegamento 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Collegamento 7]: https://account.windowsazure.com/PreviewFeatures
-[Collegamento 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Collegamento 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Collegamento 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Collegamento 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Collegamento 12]: mobile-engagement-user-interface-navigation.md
-[Collegamento 13]: mobile-engagement-user-interface-home.md
-[Collegamento 14]: mobile-engagement-user-interface-my-account.md
-[Collegamento 15]: mobile-engagement-user-interface-analytics.md
-[Collegamento 16]: mobile-engagement-user-interface-monitor.md
-[Collegamento 17]: mobile-engagement-user-interface-reach.md
-[Collegamento 18]: mobile-engagement-user-interface-segments.md
-[Collegamento 19]: mobile-engagement-user-interface-dashboard.md
-[Collegamento 20]: mobile-engagement-user-interface-settings.md
-[Collegamento 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Collegamento 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Collegamento 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Collegamento 24]: mobile-engagement-troubleshooting-guide-service.md
-[Collegamento 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Collegamento 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Collegamento 27]: ../mobile-engagement-how-tos-first-push.md
-[Collegamento 28]: ../mobile-engagement-how-tos-test-campaign.md
-[Collegamento 29]: ../mobile-engagement-how-tos-personalize-push.md
-[Collegamento 30]: ../mobile-engagement-how-tos-differentiate-push.md
-[Collegamento 31]: ../mobile-engagement-how-tos-schedule-campaign.md
-[Collegamento 32]: ../mobile-engagement-how-tos-text-view.md
-[Collegamento 33]: ../mobile-engagement-how-tos-web-view.md
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
+[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: ../mobile-engagement-how-tos-first-push.md
+[Link 28]: ../mobile-engagement-how-tos-test-campaign.md
+[Link 29]: ../mobile-engagement-how-tos-personalize-push.md
+[Link 30]: ../mobile-engagement-how-tos-differentiate-push.md
+[Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
+[Link 32]: ../mobile-engagement-how-tos-text-view.md
+[Link 33]: ../mobile-engagement-how-tos-web-view.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

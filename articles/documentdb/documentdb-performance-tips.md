@@ -1,5 +1,5 @@
 ---
-title: Suggerimenti sulle prestazioni per DocumentDB | Documentazione Microsoft
+title: Suggerimenti sulle prestazioni - Azure DocumentDB NoSQL | Documentazione Microsoft
 description: Informazioni sulle opzioni di configurazione del client per migliorare le prestazioni del database di Azure DocumentDB
 keywords: Come migliorare le prestazioni del database
 services: documentdb
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 01/19/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: 5b4efb2d6dedb43436745f5e8055cae44e4a58ac
+ms.sourcegitcommit: 532cfeb5115feb7558018af73968576dac17ff88
+ms.openlocfilehash: 28ca2d86f5008ee26376d76f3411cac05ffdfde4
 
 
 ---
@@ -37,6 +37,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
    2. Modalità diretta
 
       La modalità gateway è supportata in tutte le piattaforme SDK ed è l'impostazione predefinita configurata.  Se l'applicazione è in esecuzione in una rete aziendale con limitazioni rigide del firewall, la modalità gateway è la scelta migliore, perché usa la porta HTTPS standard e un singolo endpoint. A livello di prestazioni, tuttavia, la modalità gateway prevede un hop di rete aggiuntivo ogni volta che i dati vengono letti o scritti in DocumentDB.   La modalità diretta offre quindi prestazioni migliori grazie al numero minore di hop di rete.
+<a id="use-tcp"></a>
 2. **Criteri di connessione: usare il protocollo TCP**
 
     Quando si usa la modalità diretta, sono disponibili due opzioni del protocollo:
@@ -111,7 +112,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     Durante il test delle prestazioni, è necessario aumentare il carico fino a limitare un numero ridotto di richieste. Se limitata, l'applicazione client deve eseguire il backoff sulla limitazione per l'intervallo tra tentativi specificato dal server. Rispettando il backoff si garantiscono tempi di attesa minimi tra i tentativi. Il supporto dei criteri di ripetizione dei tentativi è incluso nella versione 1.8.0 e versioni successive degli SDK [.NET](documentdb-sdk-dotnet.md) e [Java](documentdb-sdk-java.md), nella versione 1.9.0 e versioni successive degli SDK [Node.js](documentdb-sdk-node.md) e [Python](documentdb-sdk-python.md) e in tutte le versioni supportate degli SDK [.NET Core](documentdb-sdk-dotnet-core.md) di DocumentDB. Per altre informazioni, vedere [Superamento dei limiti della velocità effettiva riservata](documentdb-request-units.md#RequestRateTooLarge) e [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 7. **Aumentare il carico di lavoro client**
 
-    Se si sta eseguendo il test a livelli di velocità effettiva elevati (> 50.000 UR/sec), l'applicazione client può diventare un collo di bottiglia a causa della limitazione di utilizzo della CPU o della rete. In questo caso, è possibile continuare a eseguire il push dell'account di DocumentDB tramite l'aumento delle istanze delle applicazioni client su più server.
+    Se si sta eseguendo il test a livelli di velocità effettiva elevati (>&50;.000 UR/sec), l'applicazione client può diventare un collo di bottiglia a causa della limitazione di utilizzo della CPU o della rete. In questo caso, è possibile continuare a eseguire il push dell'account di DocumentDB tramite l'aumento delle istanze delle applicazioni client su più server.
 8. **Memorizzare nella cache gli URI dei documenti per una minore latenza di lettura**
 
     Memorizzare nella cache gli URI dei documenti quando possibile per ottenere prestazioni di lettura ottimali.
@@ -128,6 +129,18 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 10. **Aumentare il numero di thread/attività**
 
     Vedere [Aumentare il numero di thread/attività](#increase-threads) nella sezione Rete.
+    
+11. **Usare processi host a 64 bit**
+
+    DocumentDB SDK opera in un processo host a 32 bit. Tuttavia, se si usano query tra più partizioni, è consigliabile un processo host a 64 bit per migliorare le prestazioni. I tipi seguenti di applicazioni dispongono di un processo host a 32 bit per impostazione predefinita; per passare a un processo a 64 bit, seguire questi passaggi in base al tipo di applicazione:
+    
+    - Per le applicazioni eseguibili è possibile, a tale scopo, deselezionare l'opzione **Preferisci 32 bit** nella scheda **Compila** della finestra **Proprietà progetto**. 
+    
+    - Per progetti di test basati su VSTest questa operazione può essere eseguita selezionando **Test**->**Impostazioni test**->**Default Processor Architecture as X64** (Imposta architettura processore X64 come predefinita) dall'opzione **Visual Studio Test**.
+    
+    - Per le applicazioni Web ASP.NET distribuite in locale questa operazione può essere eseguita selezionando **Utilizzare la versione a 64 bit di IIS Express per progetti e siti Web** in **Strumenti**->**Opzioni**->**Progetti e soluzioni**->**Progetti Web**.
+    
+    - Per le applicazioni Web ASP.NET distribuite in Azure questa operazione può essere eseguita selezionando **Platform as 64-bit** (Piattaforma 64 bit) in **Impostazioni applicazione** nel Portale di Azure.
 
 ## <a name="indexing-policy"></a>Criterio di indicizzazione
 1. **Usare l'indicizzazione differita per frequenze di inserimento più veloci nei momenti di massima attività**
@@ -173,6 +186,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
              }
 
     L'addebito richiesta restituito in questa intestazione è una frazione della velocità effettiva con provisioning, ad esempio 2000 UR/secondo. Se, ad esempio, la query precedente restituisce 1000 documenti da 1 KB, il costo dell'operazione sarà 1000. Entro un secondo, il server rispetterà quindi solo due richieste di questo tipo prima di limitare le richieste successive. Per altre informazioni, vedere [Unità richiesta](documentdb-request-units.md) e il [calcolatore di unità richiesta](https://www.documentdb.com/capacityplanner).
+<a id="429"></a>
 2. **Gestire la limitazione della frequenza o una frequenza di richieste troppo elevata**
 
     Quando un client prova a superare la velocità effettiva riservata per un account, non si verifica alcun calo delle prestazioni del server e l'uso della capacità della velocità effettiva non supera il livello riservato. Il server termina preventivamente la richiesta con RequestRateTooLarge (codice di stato HTTP 429) e restituisce l'intestazione x-ms-retry-after-ms, che indica la quantità di tempo, in millisecondi, che l'utente deve attendere prima di eseguire di nuovo la richiesta.
@@ -197,6 +211,6 @@ Per altre informazioni sulla progettazione dell'applicazione per scalabilità e 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

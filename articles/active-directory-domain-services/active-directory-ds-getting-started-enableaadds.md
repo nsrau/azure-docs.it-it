@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/19/2016
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 553b93c2c379b961e793033ab2b5c76b107cda10
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 64bb5f7e78a6e48faf3487da780597b25891a2fa
 
 
 ---
@@ -87,12 +87,12 @@ In questa attività si abilita Azure Active Directory Domain Services per la dir
 
 <br>
 
-## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Attività 4: Aggiornare le impostazioni DNS per la rete virtuale di Azure
+## <a name="task-4---update-dns-settings-for-the-azure-virtual-network"></a>Attività 4: Aggiornare le impostazioni DNS per la rete virtuale di Azure
 L'attività di configurazione successiva consiste nell' [aggiornare le impostazioni DNS per la rete virtuale di Azure](active-directory-ds-getting-started-dns.md).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

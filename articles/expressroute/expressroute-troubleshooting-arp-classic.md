@@ -1,5 +1,5 @@
 ---
-title: Guida alla risoluzione dei problemi di ExpressRoute - Ottenere tabelle ARP | Documentazione Microsoft
+title: Recupero di tabelle ARP - Modello di distribuzione classica - Risoluzione dei problemi di Azure ExpressRoute | Documentazione Microsoft
 description: Questa pagina fornisce istruzioni per ottenere le tabelle ARP tabelle per un circuito ExpressRoute.
 documentationcenter: na
 services: expressroute
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 01/30/2017
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
-ms.openlocfilehash: 49f7eae7184fda3ea73c8a85e354d0e41df039c7
+ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
+ms.openlocfilehash: fcc847b7e30fd55ca759830e0254ab7542e7663e
 
 
 ---
-# <a name="expressroute-troubleshooting-guide-getting-arp-tables-in-the-classic-deployment-model"></a>Guida alla risoluzione dei problemi di ExpressRoute: ottenere tabelle ARP nel modello di distribuzione classica
+# <a name="getting-arp-tables-in-the-classic-deployment-model"></a>Recupero di tabelle ARP nel modello di distribuzione classica
 > [!div class="op_single_selector"]
 > * [PowerShell - Gestione risorse](expressroute-troubleshooting-arp-resource-manager.md)
 > * [PowerShell - Classico](expressroute-troubleshooting-arp-classic.md)
@@ -139,7 +139,7 @@ La tabella ARP di un peer può essere usata per convalidare la connettività e l
 * La tabella ARP contiene una voce per il lato locale con gli indirizzi IP e MAC validi e una voce simile per il lato Microsoft.
 * L'ultimo ottetto dell'indirizzo IP locale è sempre un numero dispari.
 * L'ultimo ottetto dell'indirizzo IP Microsoft è sempre un numero pari.
-* Lo stesso indirizzo MAC viene visualizzato sul lato Microsoft per tutti i 3 peer (principale/secondario).
+* Lo stesso indirizzo MAC viene visualizzato sul lato Microsoft per tutti i&3; peer (principale/secondario).
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
@@ -172,6 +172,6 @@ La tabella ARP di un peer può essere usata per convalidare la connettività e l
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

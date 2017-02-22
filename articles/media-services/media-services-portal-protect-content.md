@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0f9b0cf4e88a1ab27546063ae89cde8de7761609
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 4256201f2fd505ed86734e900496eb7364c9a575
 
 
 ---
@@ -26,12 +26,13 @@ ms.openlocfilehash: 0f9b0cf4e88a1ab27546063ae89cde8de7761609
 > 
 > 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Servizi multimediali di Microsoft Azure (AMS) consente di proteggere i file multimediali dal momento in cui escono dal computer fino alle fasi di archiviazione, elaborazione e recapito. Servizi multimediali consente di distribuire contenuti crittografati dinamicamente con AES (Advanced Encryption Standard) mediante chiavi di crittografia a 128 bit, con la crittografia comune (CENC) mediante PlayReady e/o la soluzione DRM Widevine e Apple FairPlay. 
 
 AMS offre un servizio per la distribuzione di licenze DRM e chiavi non crittografate AES ai client autorizzati. Il portale di Azure consente di creare un **criterio di autorizzazione per chiavi e licenze** per tutti i tipi di crittografia.
 
 Questo articolo illustra come configurare i criteri di protezione del contenuto con il portale di Azure. Descrive anche come applicare la crittografia dinamica agli asset.
+
 
 > [!NOTE]
 > Se è stato usato portale di Azure classico per creare criteri di protezione, i criteri potrebbero non essere visualizzati nel [portale di Azure](https://portal.azure.com/). Questi criteri sono tuttavia ancora disponibili. È possibile esaminarli mediante Azure Media Services .NET SDK o lo [strumento di esplorazione di Servizi multimediali di Azure](https://github.com/Azure/Azure-Media-Services-Explorer/releases). Per visualizzare i criteri, fare clic con il pulsante destro del mouse sull'asset, scegliere Display information (Visualizza informazioni) (F4), fare clic sulla scheda Content keys (Chiavi simmetriche), quindi sulla chiave. 
@@ -93,10 +94,7 @@ Per abilitare la crittografia FairPlay, è necessario indicare il certificato de
 ![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection006.png)
 
 ## <a name="apply-dynamic-encryption-to-your-asset"></a>Applicare la crittografia dinamica agli asset
-Per sfruttare i vantaggi della crittografia dinamica, è necessario seguire questa procedura:
-
-* Codificare il file di origine in un set di file MP4 a bitrate adattivo.
-* Ottenere almeno un'unità di streaming on demand per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti. Per altre informazioni, vedere l'articolo sulla [procedura per scalare unità riservate di streaming on demand](media-services-portal-manage-streaming-endpoints.md).
+Per sfruttare i vantaggi della crittografia dinamica, è necessario codificare il file di origine in un set di file MP4 a velocità in bit adattiva.
 
 ### <a name="select-an-asset-that-you-want-to-encrypt"></a>Selezionare un asset da crittografare
 Per visualizzare tutti gli asset, selezionare **Impostazioni** > **Asset**.
@@ -137,6 +135,6 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

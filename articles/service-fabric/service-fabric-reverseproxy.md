@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 10/04/2016
-ms.author: vturecek
+ms.date: 01/04/2017
+ms.author: bharatn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fcc939fc1a70e179f714e73bc5757ed750974f17
+ms.sourcegitcommit: c738b9d6461da032f216b8a51c69204066d5cfd3
+ms.openlocfilehash: 9487209a8e5d976d56da50b8c70e69950d0ad129
 
 
 ---
@@ -39,15 +39,15 @@ Il proxy inverso di Service Fabric viene eseguito in tutti i nodi del cluster. E
 ![Comunicazione interna][1]
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>Raggiungere i microservizi dall'esterno del cluster
-Il modello di comunicazione esterna predefinito per i microservizi è l'**accettazione** nei casi in cui per impostazione predefinita non è possibile accedere direttamente a ogni servizio dai client esterni. Il [Azure Load Balancer](../load-balancer/load-balancer-overview.md) è un limite di rete tra microservizi e client esterni che esegue la conversione degli indirizzi di rete e inoltra le richieste esterne agli endpoint **IP:port** interni. Per rendere un endpoint del microservizio direttamente accessibile ai client esterni, è prima necessario configurare Azure Load Balancer per l'inoltro del traffico a ogni porta usata dal servizio nel cluster. Inoltre, molti microservizi (specialmente i microservizi con stato) non risiedono in tutti i nodi del cluster e possono spostarsi tra i nodi in caso di failover. In questi casi Azure Load Balancer non può quindi determinare in modo efficace il nodo di destinazione delle repliche a cui inoltrare il traffico.
+Il modello di comunicazione esterna predefinito per i microservizi è l'**accettazione** nei casi in cui per impostazione predefinita non è possibile accedere direttamente a ogni servizio dai client esterni. Il [Azure Load Balancer](../load-balancer/load-balancer-overview.md) è un limite di rete tra microservizi e client esterni che esegue la conversione degli indirizzi di rete e inoltra le richieste esterne agli endpoint **IP:port** interni. Per rendere un endpoint del microservizio direttamente accessibile ai client esterni, è prima necessario configurare Azure Load Balancer per l'inoltro del traffico a ogni porta usata dal servizio nel cluster. Inoltre, la maggior parte dei microservizi (soprattutto i microservizi con stato) non risiede in tutti i nodi del cluster e può essere spostata tra i nodi in caso di failover. In questi casi, Azure Load Balancer non può determinare in modo efficace la posizione del nodo di destinazione delle repliche a cui inoltrare il traffico.
 
 ### <a name="reaching-microservices-via-the-sf-reverse-proxy-from-outside-the-cluster"></a>Raggiungere i microservizi tramite il proxy inverso di SF dall'esterno del cluster
-Anziché configurare porte singole del servizio in Azure Load Balancer, è possibile configurare solo la porta del proxy inverso di SF in Azure Load Balancer. Ciò permette ai client esterni al cluster di raggiungere i servizi interni tramite il proxy inverso senza configurazioni aggiuntive.
+Anziché configurare porte singole del servizio in Azure Load Balancer, è possibile configurare solo la porta del proxy inverso di SF in Azure Load Balancer. In questo modo, i client all'esterno del cluster possono raggiungere i servizi all'interno tramite il proxy inverso senza configurazioni aggiuntive.
 
 ![Comunicazione esterna][0]
 
 > [!WARNING]
-> La configurazione della porta del proxy inverso sul bilanciamento del carico rende tutti i microservizi nel cluster che espongono endpoint HTTP indirizzabili dall'esterno del cluster.
+> La configurazione della porta del proxy inverso nel servizio di bilanciamento del carico rende tutti i microservizi nel cluster che espongono endpoint HTTP indirizzabili dall'esterno del cluster.
 > 
 > 
 
@@ -58,7 +58,7 @@ Il proxy inverso usa un formato URI specifico per identificare la partizione di 
 http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&Timeout=<timeout_in_seconds>
 ```
 
-* **http(s):** il proxy inverso può essere configurato per accettare il traffico HTTP o HTTPS. In caso di traffico HTTPS, la terminazione SSL si verifica in corrispondenza del proxy inverso. Le richieste dal proxy inverso ai servizi del cluster sono inoltrate tramite HTTP.
+* **http(s):** il proxy inverso può essere configurato per accettare il traffico HTTP o HTTPS. In caso di traffico HTTPS, la terminazione SSL si verifica in corrispondenza del proxy inverso. Le richieste dal proxy inverso ai servizi del cluster sono inoltrate tramite HTTP. **Si noti che non sono attualmente supportati servizi HTTPS.**
 * **FQDN del cluster | indirizzo IP interno:** per i client esterni, è possibile configurare il proxy inverso in modo che sia raggiungibile tramite il dominio del cluster (ad esempio, mycluster.eastus.cloudapp.azure.com). Per impostazione predefinita, il proxy inverso viene eseguito su ogni nodo, quindi è raggiungibile dal traffico interno sugli host locali o all'indirizzo IP di qualsiasi nodo interno (ad esempio, 10.0.0.1).
 * **Port:** la porta che è stata specificata per il proxy inverso. Ad esempio: 19008.
 * **ServiceInstanceName:** questo è il nome dell'istanza del servizio distribuito completo che si sta tentando di raggiungere senza lo schema "fabric:/". Ad esempio, per raggiungere il servizio *fabric:/myapp/myservice/*, si userebbe *myapp/myservice*.
@@ -129,9 +129,9 @@ L'intestazione della risposta HTTP indica una situazione HTTP 404 normale, in cu
 ## <a name="setup-and-configuration"></a>Installazione e configurazione
 Il proxy inverso di Service Fabric può essere abilitato per il cluster tramite il [modello di Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
-Dopo aver ottenuto il modello per il cluster che si desidera distribuire (da modelli di esempio o creando un modello di Resource Manager personalizzato), il proxy inverso può essere abilitato nel modello tramite la procedura seguente.
+Dopo aver ottenuto il modello per il cluster che si vuole distribuire (da modelli di esempio o creando un modello di Resource Manager personalizzato), è possibile abilitare il proxy inverso nel modello con la procedura seguente.
 
-1. Definire una porta per il proxy inverso nella [sezione dei parametri](../resource-group-authoring-templates.md) del modello.
+1. Definire una porta per il proxy inverso nella [sezione dei parametri](../azure-resource-manager/resource-group-authoring-templates.md) del modello.
    
     ```json
     "SFReverseProxyPort": {
@@ -142,9 +142,9 @@ Dopo aver ottenuto il modello per il cluster che si desidera distribuire (da mod
         }
     },
     ```
-2. Specificare la porta per ogni oggetto nodetype nella sezione **Cluster** [Tipo di risorsa](../resource-group-authoring-templates.md)
+2. Specificare la porta per ogni oggetto nodetype nella sezione **Cluster** [Tipo di risorsa](../azure-resource-manager/resource-group-authoring-templates.md)
    
-    Per le versioni delle API precedenti a ' 2016-09-01', la porta è identificata dal nome del parametro ***httpApplicationGatewayEndpointPort***
+    Per le versioni delle API precedenti a '&2016;-09-01', la porta è identificata dal nome del parametro ***httpApplicationGatewayEndpointPort***
    
     ```json
     {
@@ -165,7 +165,7 @@ Dopo aver ottenuto il modello per il cluster che si desidera distribuire (da mod
     }
     ```
    
-    Per le versioni delle API successive a ' 2016-09-01', la porta è identificata dal nome del parametro ***reverseProxyEndpointPort***
+    Per le versioni delle API successive a '&2016;-09-01', la porta è identificata dal nome del parametro ***reverseProxyEndpointPort***
    
     ```json
     {
@@ -229,9 +229,9 @@ Dopo aver ottenuto il modello per il cluster che si desidera distribuire (da mod
         ]
     }
     ```
-4. Per configurare i certificati SSL sulla porta per il proxy inverso, aggiungere il certificato alla proprietà httpApplicationGatewayCertificate nella **Cluster** [Tipo di risorsa](../resource-group-authoring-templates.md)
+4. Per configurare i certificati SSL sulla porta per il proxy inverso, aggiungere il certificato alla proprietà httpApplicationGatewayCertificate nella **Cluster** [Tipo di risorsa](../azure-resource-manager/resource-group-authoring-templates.md)
    
-    Per le versioni delle API precedenti a ' 2016-09-01', il certificato è identificato dal nome del parametro ***httpApplicationGatewayCertificate***
+    Per le versioni delle API precedenti a '&2016;-09-01', il certificato è identificato dal nome del parametro ***httpApplicationGatewayCertificate***
    
     ```json
     {
@@ -253,7 +253,7 @@ Dopo aver ottenuto il modello per il cluster che si desidera distribuire (da mod
         }
     }
     ```
-    Per le versioni delle API successive a ' 2016-09-01', il certificato è identificato dal nome del parametro ***reverseProxyCertificate***
+    Per le versioni delle API successive a '&2016;-09-01', il certificato è identificato dal nome del parametro ***reverseProxyCertificate***
    
     ```json
     {
@@ -287,6 +287,6 @@ Dopo aver ottenuto il modello per il cluster che si desidera distribuire (da mod
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Distribuzione di un nuovo servizio Web
+title: Distribuire un nuovo servizio Web in Azure Machine Learning | Documentazione Microsoft
 description: Il flusso di lavoro di implementazione di un servizio Web basato su ARM
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 02/13/2017
 ms.author: v-donglo
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: machine-learning-publish-a-machine-learning-web-service
 translationtype: Human Translation
-ms.sourcegitcommit: 201b07536bcee58e2b7102379dff1c1c93c4b675
-ms.openlocfilehash: 70db87762757c42790047362ded24263157e6ae7
+ms.sourcegitcommit: 0813611f581a68efb8f09a1e041cfbe429bf0c5c
+ms.openlocfilehash: 902be47eb59444a1214b096be10525743f406d1c
 
 
 ---
@@ -103,6 +105,6 @@ Per altre informazioni sull'utilizzo dei servizi Web, vedere:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

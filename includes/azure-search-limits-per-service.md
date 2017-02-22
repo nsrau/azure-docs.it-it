@@ -8,6 +8,8 @@ L'archiviazione è vincolata dallo spazio su disco o da un limite rigido al *num
 | Dimensioni della partizione |N/D |2 GB |25 GB |100 GB |200 GB |200 GB |
 | Repliche |N/D |3 |12 |12 |12 |12 |
 | Numero massimo di indici |3 |5 |50 |200 |200 |1000 per partizione o 3000 per servizio |
+| Numero massimo di indicizzatori |3 |5 |50 |200 |200 |Nessun supporto per l'indicizzatore |
+| Numero massimo di origini dati |3 |5 |50 |200 |200 |Nessun supporto per l'indicizzatore |
 | Numero massimo di documenti |10.000 |1 milione |15 milioni per partizione o 180 milioni per servizio |60 milioni per partizione o 720 milioni per servizio |120 milioni per partizione o 1,4 miliardi per servizio |1 milione per indice o 200 milioni per partizione |
 | Query al secondo stimate |N/D |~3 per replica |~15 per replica |~60 per replica |~60 per replica |>60 per replica |
 
@@ -16,6 +18,6 @@ L'archiviazione è vincolata dallo spazio su disco o da un limite rigido al *num
 <sup>2</sup> Per S3 HD è previsto un limite rigido di 3 partizioni, inferiore al limite di partizioni per S3. Il limite minore di partizioni viene imposto perché il numero di indici per S3 HD è significativamente superiore. Dato che sono presenti limiti del servizio per entrambe le risorse di calcolo (archiviazione ed elaborazione) e per il contenuto (indici e documenti), il limite relativo al contenuto viene raggiunto per primo.
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

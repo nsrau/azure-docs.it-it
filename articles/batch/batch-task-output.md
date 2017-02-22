@@ -1,5 +1,5 @@
 ---
-title: "Salvataggio permanente dell&quot;output di attività e processi in Azure Batch | Documentazione Microsoft"
+title: "Mantenere l&quot;output di processi e attività: Azure Batch | Documentazione Microsoft"
 description: "Informazioni su come usare Archiviazione di Azure come archivio permanente per l&quot;output di attività e processi di Batch e abilitare la visualizzazione di questo output permanente nel portale di Azure."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 1ae4ee2e8728ac8bcbc1dc528eb76d11a2f3d8a3
+ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
+ms.openlocfilehash: e5231970b772f7cc043441954ebab6cb1bb6ed8b
 
 
 ---
@@ -251,6 +251,6 @@ Per una panoramica delle diverse modalità di preparazione dei nodi per l'esecuz
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

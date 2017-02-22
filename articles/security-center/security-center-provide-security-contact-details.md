@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9921bce954186ba5d3fa21312aa596dcddfe827f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f4ae3395c44f175603556711bfe2f90f0f987c94
 
 
 ---
@@ -27,8 +27,8 @@ Alla prima occorrenza giornaliera di un avviso e solo per gli avvisi di elevata 
 
 > [!NOTE]
 > Il documento introduce il servizio usando una distribuzione di esempio.  Questa non è una guida dettagliata.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
 1. Nel pannello **Indicazioni** selezionare **Specificare i dettagli dei contatti di sicurezza**.
@@ -36,7 +36,7 @@ Alla prima occorrenza giornaliera di un avviso e solo per gli avvisi di elevata 
 2. Verrà visualizzato il pannello **Specificare i dettagli dei contatti di sicurezza**. Selezionare la sottoscrizione di Azure per cui specificare le informazioni di contatto.
    ![Specificare i dettagli dei contatti di sicurezza][2]
 3. Viene visualizzato un altro pannello **Specificare i dettagli dei contatti di sicurezza** .
-   
+
    * Immettere l'indirizzo o gli indirizzi di posta elettronica del contatto di sicurezza, separati da virgole. Non è previsto alcun limite per il numero di indirizzi di posta elettronica che è possibile immettere.
    * Immettere un numero di telefono internazionale per il contatto di sicurezza.
    * Per ricevere messaggi di posta elettronica relativi agli avvisi di elevata gravità, attivare l'opzione **Send me emails about alerts**(Invia messaggi di posta elettronica sugli avvisi).
@@ -60,6 +60,6 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -13,31 +13,31 @@ ms.workload: multiple
 ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/21/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2053470f0a54a0a9b388d020b416df1ff2bfd084
+ms.sourcegitcommit: cc3cc2dce324942f184b6a520dc4db28518a3091
+ms.openlocfilehash: 08f0fe132858bf4629cadc53fbfc6c203592e3a7
 
 
 ---
 # <a name="install-the-azure-cli"></a>Installare l'interfaccia della riga di comando di Azure
 > [!div class="op_single_selector"]
-> * [PowerShell](/powershell/azureps-cmdlets-docs)
+> * [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 > * [Interfaccia della riga di comando di Azure](xplat-cli-install.md)
 
-Installare rapidamente l'interfaccia della riga di comando di Azure per usare un set di comandi open source basati sulla shell per creare e gestire le risorse in Microsoft Azure. Sono disponibili diverse opzioni per installare questi strumenti multipiattaforma nel computer in uso: 
+Installare rapidamente l'interfaccia della riga di comando di Azure per usare un set di comandi open source basati sulla shell per creare e gestire le risorse in Microsoft Azure. Sono disponibili diverse opzioni per installare questi strumenti multipiattaforma nel computer in uso:
 
 * **Pacchetto npm** -Esegue npm (Gestione pacchetti per JavaScript) per installare il pacchetto dell'interfaccia della riga di comando di Azure più recente nella distribuzione o sistema operativo Linux in uso. Nel computer devono essere installati node.js e npm.
 * **Programma di installazione** - È possibile scaricare un programma di installazione per agevolare l'installazione in Mac o Windows.
 * **Contenitore Docker** - Per usare l'interfaccia della riga di comando più recente in un contenitore Docker pronto per l'esecuzione. Nel computer deve essere installato l'host Docker.
 
-Per altre opzioni e informazioni, vedere il repository dei progetti in [GitHub](https://github.com/azure/azure-xplat-cli). 
+Per altre opzioni e informazioni, vedere il repository dei progetti in [GitHub](https://github.com/azure/azure-xplat-cli).
 
 Dopo l'installazione dell'interfaccia della riga di comando di Azure, [connetterla alla sottoscrizione di Azure](xplat-cli-connect.md) ed eseguire i comandi **azure** dall'interfaccia della riga di comando (Bash, terminale, prompt dei comandi e così via) per usare le risorse di Azure.
 
 ## <a name="option-1-install-an-npm-package"></a>Opzione 1: Installare un pacchetto npm
-Per installare l'interfaccia della riga di comando da un pacchetto npm, verificare che siano state caricate e installate le [versioni più recenti di Node.js e npm](https://nodejs.org/en/download/package-manager/). Eseguire quindi il comando **npm install** per installare il pacchetto dell'interfaccia della riga di comando di Azure: 
+Per installare l'interfaccia della riga di comando da un pacchetto npm, verificare che siano state caricate e installate le [versioni più recenti di Node.js e npm](https://nodejs.org/en/download/package-manager/). Eseguire quindi il comando **npm install** per installare il pacchetto dell'interfaccia della riga di comando di Azure:
 
 ```bash
 npm install -g azure-cli
@@ -50,7 +50,7 @@ sudo npm install -g azure-cli
 ```
 
 > [!NOTE]
-> Se è necessario installare o aggiornare Node.js e npm nella distribuzione o nel sistema operativo Linux, è consigliabile installare la versione più recente di Node.js LTS (4.x). Se si usa una versione precedente, potrebbero verificarsi errori di installazione. 
+> Se è necessario installare o aggiornare Node.js e npm nella distribuzione o nel sistema operativo Linux, è consigliabile installare la versione più recente di Node.js LTS (4.x). Se si usa una versione precedente, potrebbero verificarsi errori di installazione.
 
 È anche possibile scaricare in locale il [file tar][linux-installer] di Linux più recente per il pacchetto npm. Installare quindi il pacchetto npm scaricato come indicato di seguito (nelle distribuzioni di Linux potrebbe essere necessario usare **sudo**):
 
@@ -62,10 +62,10 @@ npm install -g <path to downloaded tar file>
 Se si usa un computer Mac o Windows, è possibile scaricare i programmi di installazione del pacchetto dell'interfaccia della riga di comando seguenti:
 
 * [Programma di installazione di Mac OS X][mac-installer]
-* [Windows MSI][windows-installer] 
+* [Windows MSI][windows-installer]
 
 > [!TIP]
-> In Windows è anche possibile scaricare l' [Installazione guidata piattaforma Web](https://go.microsoft.com/?linkid=9828653) per installare per il pacchetto dell'interfaccia della riga di comando. Questo programma di installazione consente di installare altri strumenti Azure SDK e a riga di comando dopo l'installazione dell'interfaccia della riga di comando. 
+> In Windows è anche possibile scaricare l' [Installazione guidata piattaforma Web](https://go.microsoft.com/?linkid=9828653) per installare per il pacchetto dell'interfaccia della riga di comando. Questo programma di installazione consente di installare altri strumenti Azure SDK e a riga di comando dopo l'installazione dell'interfaccia della riga di comando.
 
 ## <a name="option-3-use-a-docker-container"></a>Opzione 3: Usare un contenitore Docker
 Se il computer è stato configurato come host [Docker](https://docs.docker.com/engine/understanding-docker/) è possibile eseguire l'interfaccia della riga di comando di Azure in un contenitore Docker. Eseguire il comando seguente (nelle distribuzioni di Linux potrebbe essere necessario usare **sudo**):
@@ -137,6 +137,6 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

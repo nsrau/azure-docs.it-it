@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: Documentazione del gateway applicazione di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come distribuire un controller di distribuzione di applicazioni cloud. I documenti mostrano come configurare servizi di routing e bilanciamento del carico a livello di applicazione per un front-end Web.
+services: application-gateway
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: application-gateway
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 8f9b8cee583b9bc12df14bf5161cab1952e3e022
-ms.openlocfilehash: 5e7843adfb31fcfc56986cce44fc5d59ee558d58
+ms.sourcegitcommit: 50b30a64fab9a7c996040c5a0380975b11b5966f
+ms.openlocfilehash: 9d62ea6d75b48bbc84194635da792764871617e7
 
 ---
 #<a name="application-gateway-documentation"></a>Documentazione sul gateway applicazione
@@ -143,24 +154,18 @@ Informazioni su come distribuire un gateway applicazione, un controller della di
                     <div class="cardText">
                         <h3>REST</h3>
                         <p><a href="https://msdn.microsoft.com/library/mt684941">Informazioni di riferimento sulle API REST</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt299393">Versione classica delle informazioni di riferimento sulle API REST</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt299393">Informazioni di riferimento sulle API REST (versione classica)</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
-</ul>   
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-gateway.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scarica la documentazione del gateway applicazione </div>
-    </a>
-</div>
+</ul>    
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di Analytics - Il potente strumento di ricerca di Application Insights | Microsoft Docs
+title: Risolvere i problemi di Analytics in Azure Application Insights | Documentazione Microsoft
 description: 'Problemi con Application Insights Analytics? Inizia da qui. '
 services: application-insights
 documentationcenter: 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 07/11/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: 263e8955608d87869937ea6584f88233fd690f72
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: 6533b1e6a40b7cbf7d3d6961523144b3d0e5263b
 
 
 ---
@@ -114,6 +114,6 @@ L'URL non è valido.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

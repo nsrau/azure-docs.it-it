@@ -11,7 +11,7 @@
 
 # Introduzione
 ## [Prerequisiti](active-directory-aadconnect-prerequisites.md)
-## [Installare Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
+## [Installare Azure AD Connect](active-directory-aadconnect-select-installation.md)
 ### [Impostazioni rapide](active-directory-aadconnect-get-started-express.md)
 ### [Impostazioni personalizzate](active-directory-aadconnect-get-started-custom.md)
 ### [Aggiornamento da DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
@@ -25,7 +25,7 @@
 ### [Considerazioni speciali sulle istanze](active-directory-aadconnect-instances.md)
 
 ## [Gestire Azure AD Connect](active-directory-aadconnect-whats-next.md)
-### [Rinnovare i certificati per Office 365 e Azure AD](active-directory-aadconnect-o365-certs.md)
+### [Rinnovare i certificati per Office&365; e Azure AD](active-directory-aadconnect-o365-certs.md)
 ### [Abilitare il writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md)
 ### [Opzioni di accesso utente](active-directory-aadconnect-user-signin.md)
 ### [Supporto di più domini per la federazione](active-directory-aadconnect-multiple-domains.md)
@@ -33,7 +33,6 @@
 
 
 ## Gestire il Servizio di sincronizzazione Azure AD Connect
-### [Procedura dettagliata per la creazione del connettore Generic SQL](active-directory-aadconnectsync-connector-genericsql-step-by-step.md)
 ### [Impedire eliminazioni accidentali](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Sincronizzazione delle password](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Account del servizio Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -58,14 +57,11 @@
 
 
 # Riferimento
-## [Connettore Windows PowerShell](active-directory-aadconnectsync-connector-powershell.md)
-## [Connettore Generic SQL](active-directory-aadconnectsync-connector-genericsql.md)
-## [Connettore Generic LDAP](active-directory-aadconnectsync-connector-genericldap.md)
-## [Connettore Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
 ## [Sincronizzazione delle identità e resilienza degli attributi duplicati](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Porte e protocolli necessari per la soluzione ibrida di gestione delle identità](active-directory-aadconnect-ports.md)
 ## [Funzionalità in anteprima](active-directory-aadconnect-feature-preview.md)
 ## [Cronologia delle versioni](active-directory-aadconnect-version-history.md)
+## [Account e autorizzazioni](active-directory-aadconnect-accounts-permissions.md)
 
 ## Servizio di sincronizzazione Azure AD Connect
 ### [Attributi sincronizzati con Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md)
@@ -89,6 +85,6 @@
 ##[Deprecazione di DirSync](active-directory-aadconnect-dirsync-deprecated.md)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

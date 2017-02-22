@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi del gateway IoT di Azure | Documentazione Microsoft
+title: 'Dispositivo SensorTag e gateway Azure IoT: risoluzione dei problemi | Documentazione Microsoft'
 description: Pagina sulla risoluzione dei problemi del gateway Intel NUC
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/21/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 44b61dbdad51e3d6b5505477c97de75c8fc5a1a4
-ms.openlocfilehash: d704d21a89a8fde0128063430476c14317243e33
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: f24a620a18d7756b24f8f5f63d8b31fca63ade25
 
 
 ---
@@ -49,7 +49,7 @@ gulp --verbose
 
 ### <a name="device-discovery-issues"></a>Problemi di individuazione dei dispositivi
 
-Per risolvere più facilmente i problemi comuni relativi al comando `discover-sensortag`, vedere la [pagina wiki](https://wiki.archlinux.org/index.php/bluetooth#Bluetoothctl).
+Per supporto nella risoluzione dei problemi comuni relativi al comando `discover-sensortag`, vedere la [pagina wiki](https://wiki.archlinux.org/index.php/bluetooth#Bluetoothctl).
 
 ### <a name="npm-issues"></a>Problemi di npm
 
@@ -62,10 +62,10 @@ npm install -g npm
 Se il problema persiste, aggiungere commenti alla fine di questo articolo o definire un problema di GitHub nel [repository degli esempi](https://github.com/azure-samples/iot-hub-c-intel-nuc-gateway-getting-started).
 
 ## <a name="remote-debugging"></a>Debug remoto
-> Le istruzioni di seguito consentono di eseguire il debug degli script node.js usati in questa esercitazione.
+> Le istruzioni riportate di seguito consentono di eseguire il debug degli script node.js usati in questa esercitazione.
 ### <a name="run-the-sample-application-in-debug-mode"></a>Eseguire l'applicazione di esempio in modalità di debug
 
-Eseguire l'applicazione di esempio in modalità di debug eseguendo questo comando:
+Eseguire l'applicazione di esempio in modalità di debug tramite questo comando:
 
 ```bash
 gulp run --debug
@@ -140,7 +140,7 @@ Se è stato completato il provisioning dell'hub IoT di Azure con l'interfaccia d
 
 ### <a name="device-explorer"></a>Esplora dispositivi
 
-[Esplora dispositivi](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) viene eseguito sul computer locale di Windows e si connette all'hub IoT in Azure. Comunica con i seguenti [endpoint dell'hub IoT](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/):
+[Esplora dispositivi](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) viene eseguito sul computer locale di Windows e si connette all'hub IoT in Azure. Comunica con i seguenti [endpoint dell'hub IoT](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/):
 
 - Gestione delle identità dei dispositivi per il provisioning e la gestione dei dispositivi registrati nell'hub IoT.
 - Ricezione da dispositivo a cloud per il monitoraggio dei messaggi inviati dal dispositivo all'hub IoT.
@@ -150,9 +150,9 @@ Configurare la stringa di connessione dell'hub IoT in questo strumento per usarn
 
 ### <a name="iothub-explorer"></a>iothub-explorer
 
-[iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) è uno strumento di esempio dell'interfaccia della riga di comando multipiattaforma che permette di gestire i dispositivi client. È possibile usare questo strumento per gestire i dispositivi nel registro di identità, monitorare i messaggi da dispositivo a cloud e inviare comandi da cloud a dispositivo.
+[iothub-explorer](https://github.com/Azure/iothub-explorer) è uno strumento di esempio dell'interfaccia della riga di comando multipiattaforma che permette di gestire i dispositivi client. È possibile usare questo strumento per gestire i dispositivi nel registro di identità, monitorare i messaggi da dispositivo a cloud e inviare comandi da cloud a dispositivo.
 
-Per installare l'ultima versione, non definitiva, dello strumento iothub-explorer, eseguire questo comando:
+Per installare l'ultima versione, provvisoria, dello strumento iothub-explorer, eseguire questo comando:
 
 ```bash
 npm install -g iothub-explorer@latest
@@ -174,6 +174,6 @@ Un'interfaccia della riga di comando completa consente di creare e gestire tutte
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

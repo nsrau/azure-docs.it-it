@@ -1,13 +1,13 @@
 ---
-title: Distribuire una VM con un IP pubblico statico con un modello in Gestione risorse | Microsoft Docs
-description: Scoprire come distribuire le VM con un IP pubblico statico tramite un modello in Gestione risorse
+title: Creare una VM con un IP pubblico statico usando un modello | Documentazione Microsoft
+description: Informazioni su come creare una VM con un indirizzo IP pubblico statico tramite Azure Resource Manager usando un modello.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: d551085a-c7ed-4ec6-b4c3-e9e1cebb774c
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,76 +15,90 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 67f2f420eecc89a9ffce2fb9ba4781a8fcb0d03b
+
 
 ---
-# Distribuire una VM con un IP pubblico statico tramite un modello
-[!INCLUDE [virtual-network-deploy-static-pip-arm-selectors-include.md](../../includes/virtual-network-deploy-static-pip-arm-selectors-include.md)]
+# <a name="create-a-vm-with-a-static-public-ip-using-a-template"></a>Creare una VM con un IP pubblico statico usando un modello
+
+> [!div class="op_single_selector"]
+- [Portale di Azure](virtual-network-deploy-static-pip-arm-portal.md)
+- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+- [Interfaccia della riga di comando di Azure](virtual-network-deploy-static-pip-arm-cli.md)
+- [Modello](virtual-network-deploy-static-pip-arm-template.md)
+- [PowerShell (Classic)](virtual-networks-reserved-public-ip.md) (PowerShell (classico))
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
-
-Modello di distribuzione classica.
+> [!NOTE]
+> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione Resource Manager che Microsoft consiglia di usare invece del modello di distribuzione classica per le distribuzioni più recenti.
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
-## Risorse IP pubblico in un file di modello
+## <a name="public-ip-address-resources-in-a-template-file"></a>Risorse indirizzo IP pubblico in un file di modello
 È possibile visualizzare e scaricare il [modello di esempio](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json).
 
-La sezione seguente illustra la definizione della risorsa IP pubblico in base allo scenario precedente.
+La sezione seguente illustra la definizione della risorsa IP pubblico in base allo scenario precedente:
 
-      {
-        "apiVersion": "2015-06-15",
-        "type": "Microsoft.Network/publicIPAddresses",
-        "name": "[variables('webVMSetting').pipName]",
-        "location": "[variables('location')]",
-        "properties": {
-          "publicIPAllocationMethod": "Static"
-        },
-        "tags": {
-          "displayName": "PublicIPAddress - Web"
-        }
-      },
+```json
+{
+  "apiVersion": "2015-06-15",
+  "type": "Microsoft.Network/publicIPAddresses",
+  "name": "[variables('webVMSetting').pipName]",
+  "location": "[variables('location')]",
+  "properties": {
+    "publicIPAllocationMethod": "Static"
+  },
+  "tags": {
+    "displayName": "PublicIPAddress - Web"
+  }
+},
+```
 
 Notare la proprietà **publicIPAllocationMethod** impostata su *Statico*. Questa proprietà può essere *Dinamico* (valore predefinito) o *Statico*. Impostarla su Static garantisce che l'indirizzo IP pubblico assegnato non verrà mai modificato.
 
-La sezione seguente illustra l'associazione dell'IP pubblico con un'interfaccia di rete.
+La sezione seguente illustra l'associazione dell'IP pubblico con un'interfaccia di rete:
 
-      {
-        "apiVersion": "2015-06-15",
-        "type": "Microsoft.Network/networkInterfaces",
-        "name": "[variables('webVMSetting').nicName]",
-        "location": "[variables('location')]",
-        "tags": {
-          "displayName": "NetworkInterface - Web"
-        },
-        "dependsOn": [
-          "[concat('Microsoft.Network/publicIPAddresses/', variables('webVMSetting').pipName)]",
-          "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]"
-        ],
-        "properties": {
-          "ipConfigurations": [
-            {
-              "name": "ipconfig1",
-              "properties": {
-                "privateIPAllocationMethod": "Static",
-                "privateIPAddress": "[variables('webVMSetting').ipAddress]",
-                "publicIPAddress": {
-                  "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('webVMSetting').pipName)]"
-                },
-                "subnet": {
-                  "id": "[variables('frontEndSubnetRef')]"
-                }
-              }
-            }
-          ]
+```json
+  {
+    "apiVersion": "2015-06-15",
+    "type": "Microsoft.Network/networkInterfaces",
+    "name": "[variables('webVMSetting').nicName]",
+    "location": "[variables('location')]",
+    "tags": {
+    "displayName": "NetworkInterface - Web"
+    },
+    "dependsOn": [
+      "[concat('Microsoft.Network/publicIPAddresses/', variables('webVMSetting').pipName)]",
+      "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]"
+    ],
+    "properties": {
+      "ipConfigurations": [
+        {
+          "name": "ipconfig1",
+          "properties": {
+          "privateIPAllocationMethod": "Static",
+          "privateIPAddress": "[variables('webVMSetting').ipAddress]",
+          "publicIPAddress": {
+          "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('webVMSetting').pipName)]"
+          },
+          "subnet": {
+            "id": "[variables('frontEndSubnetRef')]"
+          }
         }
-      },
+      }
+    ]
+  }
+},
+```
 
-Notare che la proprietà **publicIPAddress** punta all'**Id** di una risorsa denominata **variables('webVMSetting').pipName**. È il nome della risorsa IP pubblico illustrata sopra.
+Si noti che la proprietà **publicIPAddress** punta all'**Id** di una risorsa denominata **variables('webVMSetting').pipName**. È il nome della risorsa IP pubblico illustrata sopra.
 
 Infine, l'interfaccia di rete di cui sopra è elencata nella proprietà **networkProfile** della VM in fase di creazione.
 
+```json
       "networkProfile": {
         "networkInterfaces": [
           {
@@ -92,18 +106,23 @@ Infine, l'interfaccia di rete di cui sopra è elencata nella proprietà **networ
           }
         ]
       }
+```
 
-## Distribuire il modello tramite clic per la distribuzione
-Il modello di esempio disponibile nel repository pubblico usa un file di parametro che contiene i valori predefiniti usati per generare lo scenario descritto in precedenza. Per distribuire questo modello tramite clic per la distribuzione, fare clic su **Deploy to Azure** (Distribuisci in Azure) nel file Readme.md per il modello [VM with static PIP](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP) modello(VM con PIP statico). Se richiesto, sostituire i valori predefiniti dei parametri e immettere i valori per i parametri vuoti. Seguire le istruzioni nel portale per creare una macchina virtuale con un indirizzo IP pubblico statico.
+## <a name="deploy-the-template-by-using-click-to-deploy"></a>Distribuire il modello tramite clic per la distribuzione
 
-## Distribuire il modello tramite PowerShell
+Il modello di esempio disponibile nel repository pubblico usa un file di parametro che contiene i valori predefiniti usati per generare lo scenario descritto in precedenza. Per distribuire questo modello tramite clic per la distribuzione, fare clic su **Deploy to Azure** (Distribuisci in Azure) nel file Readme.md per il modello [VM with static PIP](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP) modello(VM con PIP statico). Se richiesto, sostituire i valori predefiniti dei parametri e immettere i valori per i parametri vuoti.  Seguire le istruzioni nel portale per creare una macchina virtuale con un indirizzo IP pubblico statico.
+
+## <a name="deploy-the-template-by-using-powershell"></a>Distribuire il modello tramite PowerShell
+
 Per distribuire il modello scaricato tramite PowerShell, seguire questa procedura.
 
-1. Se si usa Azure PowerShell per la prima volta, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) e seguire le istruzioni nei passaggi da 1 a 3.
-2. In una console PowerShell, eseguire il cmdlet **New-AzureRmResourceGroup** per creare un nuovo gruppo di risorse, se necessario. Se è già stato creato un gruppo di risorse, andare al passaggio 3.
-   
-        New-AzureRmResourceGroup -Name PIPTEST -Location westus
-   
+1. Se non è mai stato usato Azure PowerShell, completare la procedura descritta nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+2. In una console PowerShell, eseguire il cmdlet `New-AzureRmResourceGroup` per creare un nuovo gruppo di risorse, se necessario. Se è già stato creato un gruppo di risorse, andare al passaggio 3.
+
+    ```powershell
+    New-AzureRmResourceGroup -Name PIPTEST -Location westus
+    ```
+
     Output previsto:
    
         ResourceGroupName : PIPTEST
@@ -111,18 +130,21 @@ Per distribuire il modello scaricato tramite PowerShell, seguire questa procedur
         ProvisioningState : Succeeded
         Tags              :
         ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/StaticPublicIP
-3. Nella console di PowerShell, eseguire il cmdlet **New-AzureRmResourceGroupDeployment** per distribuire il modello.
-   
-        New-AzureRmResourceGroupDeployment -Name DeployVM -ResourceGroupName PIPTEST `
-            -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json `
-            -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json
-   
+
+3. In una console di PowerShell, eseguire il cmdlet `New-AzureRmResourceGroupDeployment` per distribuire il modello.
+
+    ```powershell
+    New-AzureRmResourceGroupDeployment -Name DeployVM -ResourceGroupName PIPTEST `
+        -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json `
+        -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json
+    ```
+
     Output previsto:
    
         DeploymentName    : DeployVM
         ResourceGroupName : PIPTEST
         ProvisioningState : Succeeded
-        Timestamp         : <Deployment date> <Deployment time>
+        Timestamp         : [Date and time]
         Mode              : Incremental
         TemplateLink      :
                             Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/mas
@@ -144,24 +166,29 @@ Per distribuire il modello scaricato tramite PowerShell, seguire questa procedur
    
         Outputs           :
 
-## Distribuire il modello tramite l'interfaccia della riga di comando di Azure
-Per distribuire il modello tramite l'interfaccia della riga di comando di Azure, seguire questa procedura.
+## <a name="deploy-the-template-by-using-the-azure-cli"></a>Distribuire il modello tramite l'interfaccia della riga di comando di Azure
+Per distribuire il modello tramite l'interfaccia della riga di comando di Azure, completare la procedura seguente:
 
-1. Se non si è mai usata l'interfaccia della riga di comando di Azure, seguire la procedura nell'articolo [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e quindi la procedura di connessione dell'interfaccia della riga di comando alla sottoscrizione nella sezione "Usare azure login per autenticarsi interattivamente" dell'articolo [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
-2. Eseguire il comando **azure config mode** per passare alla modalità Gestione risorse, come illustrato di seguito.
-   
-        azure config mode arm
-   
+1. Se non è stata mai usata l'interfaccia della riga di comando di Azure, seguire la procedura riportata nell'articolo [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) per installarla e configurarla.
+2. Eseguire il comando `azure config mode` per passare alla modalità Gestione risorse, come illustrato di seguito.
+
+    ```azurecli
+    azure config mode arm
+    ```
+
     Di seguito è riportato l'output previsto per il comando precedente:
-   
+
         info:    New mode is arm
+
 3. Aprire il [file dei parametri](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json), selezionarne il contenuto e salvarlo in un file nel computer in uso. Per questo esempio, i parametri vengono salvati in un file denominato *parameters.json*. Modificare i valori dei parametri all'interno del file, se richiesto, ma, come minimo, è consigliabile modificare il valore del parametro adminPassword in una password complessa e univoca.
-4. Eseguire il cmdlet **azure group deployment create** per distribuire la nuova rete virtuale usando il modello e i file di parametri scaricati e modificati in precedenza. Nel comando seguente sostituire <path> con il percorso in cui è stato salvato il file.
-   
-        azure group create -n PIPTEST2 -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json -e <path>\parameters.json
-   
+4. Eseguire il cmdlet `azure group deployment create` per distribuire la nuova rete virtuale usando il modello e i file dei parametri scaricati e modificati in precedenza. Nel comando seguente sostituire <path> con il percorso in cui è stato salvato il file. 
+
+    ```azurecli
+    azure group create -n PIPTEST2 -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json -e <path>\parameters.json
+    ```
+
     Output previsto (elenca i valori usati per i parametri):
-   
+
         info:    Executing command group create
         + Getting resource group PIPTEST2
         + Creating resource group PIPTEST2
@@ -169,7 +196,7 @@ Per distribuire il modello tramite l'interfaccia della riga di comando di Azure,
         + Initializing template configurations and parameters
         + Creating a deployment
         info:    Created template deployment "azuredeploy"
-        data:    Id:                  /subscriptions/<Subscription ID>/resourceGroups/PIPTEST2
+        data:    Id:                  /subscriptions/[Subscription ID]/resourceGroups/PIPTEST2
         data:    Name:                PIPTEST2
         data:    Location:            westus
         data:    Provisioning State:  Succeeded
@@ -177,4 +204,9 @@ Per distribuire il modello tramite l'interfaccia della riga di comando di Azure,
         data:
         info:    group create command OK
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Dec16_HO1-->
+
+

@@ -12,30 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5fa7882653d6a41376cffb0eaca78c8d05044dc2
+ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
+ms.openlocfilehash: be4361af8f3f3024ab7f12114760f6f58e77deaf
 
 
 ---
-# <a name="getting-started-with-an-azure-multifactor-auth-provider"></a>Introduzione all'uso di un provider di Azure Multi-Factor Authentication
+# <a name="getting-started-with-an-azure-multi-factor-auth-provider"></a>Introduzione all'uso di un provider di Azure Multi-Factor Authentication
 La verifica in due passaggi è disponibile per impostazione predefinita per gli amministratori globali che si occupano di utenti di Azure Active Directory e Office 365. Per sfruttare le [funzionalità avanzate](multi-factor-authentication-whats-next.md), è tuttavia consigliabile acquistare la versione completa di Azure Multi-Factor Authentication (MFA).
 
 > [!NOTE]
 > Un provider di Azure Multi-Factor Authentication viene usato per sfruttare le funzionalità fornite dalla versione completa di Azure MFA. È destinato agli utenti che **non hanno ottenuto licenze tramite Azure MFA, Azure AD Premium o EMS**.  Azure MFA, Azure AD Premium e EMS includono le versione completa di Azure MFA per impostazione predefinita.  Se si dispone di licenze, non è necessario un provider di Azure Multi-Factor Authentication.
-> 
-> 
 
 È necessario un provider di Azure Multi-Factor Authentication per scaricare l'SDK.
 
 > [!IMPORTANT]
 > Per scaricare l'SDK, creare un provider di Azure Multi-Factor Authentication, anche se si dispone di licenze di Azure MFA, AAD Premium o EMS.  Se si crea un provider di Azure Multi-Factor Authentication a tale scopo e si dispone già di licenze, creare il provider con il modello **Per utente abilitato**. Collegare quindi il Provider alla directory contenente le licenze di Azure MFA, Azure AD Premium o EMS.  In questo modo verranno eseguiti addebiti, solo se il numero di utenti singoli che usano l'SDK è maggiore del numero di licenze possedute.
-> 
-> 
 
-## <a name="to-create-a-multifactor-auth-provider"></a>Per creare un provider di Multi-Factor Authentication
+## <a name="create-a-multi-factor-auth-provider"></a>Creare un provider di Multi-Factor Authentication
 Usare la procedura seguente per creare un provider di Azure Multi-Factor Authentication.
 
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com) come amministratore.
@@ -64,6 +60,6 @@ Usare la procedura seguente per creare un provider di Azure Multi-Factor Authent
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: 531927178699d6534c37dca6616fe8fdaa19e5fe
+ms.sourcegitcommit: f3a8ef4a166a061e1f4e7ce056255e02b810c196
+ms.openlocfilehash: aa4c6400bcd16c90654c40e14b7a8ed239a4d8aa
 
 
 ---
@@ -31,7 +31,7 @@ Il pannello (pagina) Panoramica dell'app mostra un riepilogo della metrica di di
 
 ![Route principali per visualizzare i dati di telemetria](./media/app-insights-dashboards/010-oview.png)
 
-È possibile personalizzare tutti gli altri grafici e aggiungerli a un dashboard. In questo modo, è possibile raggruppare i grafici più importanti da app diverse.
+È possibile personalizzare tutti i grafici e le griglie e aggiungerli a un dashboard. In questo modo è possibile raccogliere i dati di telemetria chiave da diverse app in un dashboard centrale.
 
 ## <a name="dashboards"></a>Dashboard
 Il primo oggetto visualizzato dopo l'accesso al [portale di Microsoft Azure](https://portal.azure.com) è un dashboard, in cui è possibile raggruppare i grafici più importanti di tutte le risorse di Azure, inclusi i dati di telemetria di [Azure Application Insights](app-insights-overview.md).
@@ -119,8 +119,8 @@ Il pannello Panoramica è il gateway per altre informazioni sull'app.
 RICERCA CAUSA
 
 * [**Mappa delle applicazioni**](app-insights-app-map.md): una mappa attiva che mostra i componenti dell'applicazione, ricavata dalle informazioni sulle dipendenze.
-* [**Diagnostica proattiva**](app-insights-proactive-diagnostics.md): consente di esaminare gli avvisi recenti sulle prestazioni.
-* [**Flusso attivo**](app-insights-metrics-explorer.md#live-metrics-stream): un set fisso di metriche quasi istantanee, utile quando si distribuisce una nuova compilazione o si esegue il debug.
+* [**Rilevamento intelligente**](app-insights-proactive-diagnostics.md): consente di esaminare gli avvisi recenti sulle prestazioni.
+* [**Flusso attivo**](app-insights-live-stream.md): un set fisso di metriche quasi istantanee, utile quando si distribuisce una nuova compilazione o si esegue il debug.
 * [**Test Web/disponibilità**](app-insights-monitor-web-app-availability.md): consente di inviare regolarmente richieste all'App Web da ogni parte del mondo.*
 * [**Errori, Prestazioni**](app-insights-web-monitor-performance.md): eccezioni, frequenze di errori e tempi di risposta per le richieste verso l'app e dall'app alle [dipendenze](app-insights-asp-net-dependencies.md).
 * [**Performance**](app-insights-web-monitor-performance.md): tempo di risposta e tempi di risposta delle dipendenze.
@@ -157,6 +157,6 @@ SUPPORTO
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

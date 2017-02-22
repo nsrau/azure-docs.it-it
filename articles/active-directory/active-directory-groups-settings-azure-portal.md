@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 246ad13f92ea5146f28213a330a49cf2d639089a
+ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
+ms.openlocfilehash: ffb2f8d2eaaa0754063cd2f92791739b2dee3b16
 
 
 ---
@@ -26,20 +26,20 @@ Questo articolo illustra come cambiare le impostazioni per un gruppo in anteprim
 ## <a name="how-do-i-find-and-change-the-settings"></a>Come è possibile trovare e modificare le impostazioni?
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
 2. Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi premere **INVIO**.
-   
+
    ![Apertura di Gestione utenti](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
 3. Nel pannello **Utenti e gruppi** selezionare **Tutti i gruppi**.
-   
+
    ![Apertura del pannello Gruppi](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
 4. Nel pannello **Utenti e gruppi - Tutti i gruppi** selezionare un gruppo.
 5. Nel pannello **Gruppo - *nomegruppo*** selezionare **Proprietà**.
-   
+
    ![Apertura del pannello Proprietà](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
 6. Al termine della modifica delle proprietà per il gruppo, selezionare **Salva**.    
-   
+
    ![Salvataggio delle modifiche alle proprietà](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
 
-## <a name="additional-information"></a>Informazioni aggiuntive
+## <a name="next-steps"></a>Passaggi successivi
 Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 * [Vedere i gruppi esistenti](active-directory-groups-view-azure-portal.md)
@@ -50,7 +50,6 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Leggere messaggi dall&quot;hub IoT di Azure | Documentazione Microsoft
-description: Eseguire un codice di esempio nel computer host per leggere i messaggi dall&quot;hub IoT.
+title: 'Dispositivo SensorTag e gateway Azure IoT: lezione 3: Leggere i messaggi | Documentazione Microsoft'
+description: Eseguire un codice di esempio sul computer host per leggere i messaggi dall&quot;hub IoT.
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: dati nel cloud, raccolta di dati cloud, servizio cloud IoT, dati IoT
+keywords: dati nel cloud, raccolta dati nel cloud, servizio cloud iot, dati iot
 ms.assetid: cc88be24-b5c0-4ef2-ba21-4e8f77f3e167
 ms.service: iot-hub
 ms.devlang: c
@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: 09b0e0321b08a11622633e727cf8be54c1707436
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 0a5dd7e010ba46b724bb6a2526dc2a2730acc10f
 
 
 ---
 
-# <a name="read-messages-from-your-iot-hub"></a>Leggere messaggi dall'hub IoT
+# <a name="read-messages-from-your-iot-hub"></a>Leggere i messaggi dall'hub IoT
 
 ## <a name="what-you-will-do"></a>Contenuto dell'esercitazione
 
-- Eseguire il codice di esempio nel computer host per leggere messaggi dall'hub IoT.
+- Eseguire il codice di esempio sul computer host per leggere i messaggi dall'hub IoT.
 
 In caso di problemi, cercare le soluzioni nella pagina sulla [risoluzione dei problemi](iot-hub-gateway-kit-c-troubleshooting.md).
 
@@ -95,12 +95,12 @@ I messaggi inviati e ricevuti vengono visualizzati tutti immediatamente nella st
 È stato eseguito un codice di esempio per leggere i messaggi dall'hub IoT. Ora è possibile leggere i messaggi salvati nell'archivio tabelle di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per le funzioni di Azure e un account di archiviazione di Azure](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
+[Creare un'app per le funzioni di Azure e un account di Archiviazione di Azure](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
 
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

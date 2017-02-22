@@ -1,6 +1,6 @@
 ---
 title: Abilitare Transparent Data Encryption nel Centro sicurezza di Azure | Documentazione Microsoft
-description: "In questo documento è illustrato come implementare la raccomandazione **AbilitareTransparent Data Encryption** del Centro sicurezza di Azure."
+description: "In questo documento è illustrato come implementare la raccomandazione **Abilitare Transparent Data Encryption** del Centro sicurezza di Azure."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6944454190d2744cd7cd9a25d9876c5c7427b5f8
+ms.sourcegitcommit: f532f1aea9b8c4be6707862be4001099aa3c1d32
+ms.openlocfilehash: 2a2963affdbff3710ad08f86c6ed4e6304335559
 
 
 ---
@@ -27,8 +27,8 @@ Questa indicazione si applica esclusivamente al servizio SQL di Azure e non incl
 
 > [!NOTE]
 > Il documento introduce il servizio usando una distribuzione di esempio.  Questa non è una guida dettagliata.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
 1. Nel pannello **Raccomandazioni** selezionare **Abilita Transparent Data Encryption**.
@@ -37,9 +37,9 @@ Questa indicazione si applica esclusivamente al servizio SQL di Azure e non incl
    ![Selezionare database SQL per abilitare la crittografia TDE][2]
 3. Nel pannello **Transparent Data Encryption** selezionare **ON** in Crittografia dati e selezionare **Salva** nella barra multifunzione situata nella parte superiore del pannello.
    ![Attivare la crittografia TDE][3]
-   
+
    Dopo aver abilitato TDE nel database SQL selezionato, lo **Stato crittografia** diventerà **Crittografato**.    
-   
+
    ![Stato della crittografia][4]
 
 ## <a name="see-also"></a>Vedere anche
@@ -66,6 +66,6 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

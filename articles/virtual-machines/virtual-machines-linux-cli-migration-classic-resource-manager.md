@@ -1,9 +1,9 @@
 ---
-title: Eseguire la migrazione di risorse IaaS dal modello classico al modello di Azure Resource Manager tramite l&quot;interfaccia della riga di comando di Azure | Microsoft Docs
+title: Migrazione di macchine virtuali in Azure Resource Manager tramite l&quot;interfaccia della riga di comando di Azure | Documentazione Microsoft
 description: Questo articolo illustra la migrazione supportata dalla piattaforma di risorse dal modello classico al modello di Azure Resource Manager tramite l&quot;interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: 
-author: cynthn
+author: singhkays
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2016
-ms.author: cynthn
+ms.date: 02/21/2017
+ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3fa3dacd0b5e2ad97cd751395d58ef3afe92aee3
+ms.sourcegitcommit: e64449991bc28427d8f559ed13c3bdf9160488db
+ms.openlocfilehash: 92211cc98b6d8394ff04bc7c2fe33f7bd710713b
 
 
 ---
@@ -116,7 +116,7 @@ Se la configurazione preparata appare corretta, è possibile procedere ed esegui
 
 
 
-## <a name="step-4-option-2---migrate-virtual-machines-in-a-virtual-network"></a>Passaggio 4: Opzione 2 - Eseguire la migrazione delle macchine virtuali a una rete virtuale
+## <a name="step-4-option-2----migrate-virtual-machines-in-a-virtual-network"></a>Passaggio 4: Opzione 2 - Eseguire la migrazione delle macchine virtuali a una rete virtuale
 Selezionare la rete virtuale per cui si vuole eseguire la migrazione. Si noti che se la rete virtuale contiene ruoli Web/di lavoro o VM con configurazioni non supportate, verrà visualizzato un messaggio di errore di convalida.
 
 Ottenere tutte le reti virtuali nella sottoscrizione con il comando seguente.
@@ -163,6 +163,6 @@ Se la configurazione preparata appare corretta, è possibile procedere ed esegui
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

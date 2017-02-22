@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2016
+ms.date: 01/17/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 15460ef4add0e0ab94e776ffb715b86d39b89659
+ms.sourcegitcommit: 2969e6063d7bc59a6c8ca733912904abeeb7e7e8
+ms.openlocfilehash: c79826afe9af20dd46db46ab6c73f3196a71fc46
 
 
 ---
@@ -33,7 +33,7 @@ In questo articolo sono descritte le quattro fasi per Archivio Azure Data Lake p
 ## <a name="ingest-data-into-data-lake-store"></a>Inserire i dati in Archivio Data Lake
 Questa sezione descrive le diverse origini dei dati e i diversi modi in cui i dati possono essere inseriti in un account di Archivio Data Lake.
 
-![Inserire i dati in Archivio Data Lake](./media/data-lake-store-data-scenarios/ingest-data.png "Ingest data into Data Lake Store")
+![Inserire i dati in Data Lake Store](./media/data-lake-store-data-scenarios/ingest-data.png "Inserire i dati in Data Lake Store")
 
 ### <a name="ad-hoc-data"></a>Dati ad hoc
 Si tratta di set di dati di piccole dimensioni usati per la creazione del prototipo di un'applicazione Big Data. L'inserimento di dati ad hoc può essere eseguito in modi diversi, a seconda dell'origine dei dati.
@@ -50,7 +50,7 @@ Di seguito sono elencati gli strumenti che è possibile usare:
 
 * [Analisi di flusso di Azure](../stream-analytics/stream-analytics-data-lake-output.md): gli eventi inseriti in Hub eventi possono essere scritti in Azure Data Lake usando un output di Azure Data Lake Store.
 * [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md) : è possibile scrivere i dati direttamente in Data Lake Store dal cluster Storm.
-* [EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost): è possibile ricevere eventi da Hub eventi e scriverli in Data Lake Store usando [.NET SDK di Data Lake Store](data-lake-store-get-started-net-sdk.md).
+* [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md): è possibile ricevere eventi da Hub eventi e scriverli in Data Lake Store usando [.NET SDK di Data Lake Store](data-lake-store-get-started-net-sdk.md).
 
 ### <a name="relational-data"></a>Dati relazionali
 È inoltre possibile recuperare i dati dai database relazionali. I database relazionali raccolgono nel tempo elevate quantità di dati che possono fornire informazioni significative se elaborate tramite una pipeline Big Data. Per spostare i dati in Archivio Data Lake è possibile usare gli strumenti seguenti.
@@ -91,14 +91,14 @@ L'uso dei metodi descritti in precedenza per il caricamento di set di dati di pi
 * **Caricamento "offline" dei dati**. Se l'uso di Azure ExpressRoute non è possibile per qualsiasi motivo, si può usare il [servizio Importazione/Esportazione di Azure](../storage/storage-import-export-service.md) per inviare le unità disco rigido coi dati a un data center di Azure. I dati vengono caricati prima di tutto in BLOB di archiviazione di Azure. È quindi possibile usare [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) o lo [strumento AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) per copiare i dati dai BLOB di archiviazione di Azure a Data Lake Store.
 
   > [!NOTE]
-  > Durante l'uso del servizio di importazione/esportazione, le dimensioni dei file nei dischi inviati al data center di Azure non devono superare i 200 GB.
+  > Durante l'uso del servizio di Importazione/Esportazione, le dimensioni dei file nei dischi inviati al data center di Azure non devono superare i 195 GB.
   >
   >
 
 ## <a name="process-data-stored-in-data-lake-store"></a>Elaborare i dati archiviati in Archivio Data Lake
 Quando i dati sono disponibili in Archivio Data Lake è possibile eseguire l'analisi sui dati tramite le applicazioni Big Data supportate. Attualmente, è possibile usare Azure HDInsight e Analisi Data Lake per eseguire processi di analisi dei dati sui dati archiviati in Archivio Data Lake.
 
-![Analizzare i dati in Archivio Data Lake](./media/data-lake-store-data-scenarios/analyze-data.png "Analyze data in Data Lake Store")
+![Analizzare i dati in Data Lake Store](./media/data-lake-store-data-scenarios/analyze-data.png "Analizzare i dati in Data Lake Store")
 
 Esaminare gli esempi seguenti.
 
@@ -111,7 +111,7 @@ Esaminare gli esempi seguenti.
 * Spostare i dati in altri repository per l'interfaccia con le pipeline di elaborazione dati esistenti. È possibile ad esempio che si desideri spostare i dati da Archivio Data Lake al database SQL di Azure o al server SQL locale.
 * Scaricare i dati nel computer locale per l'elaborazione in ambienti IDE durante la creazione di prototipi di applicazioni.
 
-![Estrarre i dati da Archivio Data Lake](./media/data-lake-store-data-scenarios/egress-data.png "Egress data from Data Lake Store")
+![Estrarre i dati da Data Lake Store](./media/data-lake-store-data-scenarios/egress-data.png "Estrarre i dati da Data Lake Store")
 
 In questi casi, è possibile usare le opzioni seguenti:
 
@@ -128,13 +128,13 @@ In questi casi, è possibile usare le opzioni seguenti:
 ## <a name="visualize-data-in-data-lake-store"></a>Visualizzare i dati in Archivio Data Lake
 È possibile usare più servizi per creare rappresentazioni visive dei dati archiviati in Archivio Data Lake.
 
-![Visualizzare i dati in Archivio Data Lake](./media/data-lake-store-data-scenarios/visualize-data.png "Visualize data in Data Lake Store")
+![Visualizzare i dati in Data Lake Store](./media/data-lake-store-data-scenarios/visualize-data.png "Visualizzare i dati in Data Lake Store")
 
 * Iniziare usando [Azure Data Factory per spostare i dati da Data Lake Store ad Azure SQL Data Warehouse](../data-factory/data-factory-data-movement-activities.md#supported-data-stores-and-formats)
 * Successivamente è possibile [integrare Power BI con Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) per creare la rappresentazione visiva dei dati.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

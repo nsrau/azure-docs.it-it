@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: c157517124d8c4c17cff6e8701135e16d41ee194
-ms.openlocfilehash: b1c7f3951d8865feb1cd7600f3bb6d1741d7cde0
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 596bcd2f38a39cc1404d422214ab49ae79df744c
 
 
 ---
@@ -260,21 +260,21 @@ Quando la nuova versione del client è pronta, provarla con il progetto server a
 [portale di Azure]: https://portal.azure.com/
 [portale di Azure classico]: https://manage.windowsazure.com/
 [Che cosa sono le app per dispositivi mobili?]: app-service-mobile-value-prop.md
-[Qual è l'utilità del servizio app per chi usa già i siti Web e i Servizi mobili?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
+[I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Creare un'app per dispositivi mobili]: app-service-mobile-xamarin-ios-get-started.md
-[Aggiungere notifiche push all'app per dispositivi mobili]: app-service-mobile-xamarin-ios-get-started-push.md
-[Aggiungere l'autenticazione all'app per dispositivi mobili]: app-service-mobile-xamarin-ios-get-started-users.md
+[Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
+[Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
+[Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Utilità di pianificazione di Azure]: /en-us/documentation/services/scheduler/
 [processo Web]: ../app-service-web/websites-webjobs-resources.md
 [Come usare l'SDK del server .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Eseguire la migrazione da Servizi mobili a un'app per dispositivi mobili del servizio app]: app-service-mobile-migrating-from-mobile-services.md
-[Eseguire la migrazione del servizio mobile esistente al servizio app]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [prezzi del servizio app]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [panoramica di .NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti su Database SQL di Azure
+title: Domande frequenti sul database SQL di Azure | Documentazione Microsoft
 description: Le risposte a domande comuni dei clienti su database cloud e Database SQL di Azure, sistema di gestione di database relazionali di Microsoft (RDBMS) e database come servizio nel cloud.
 services: sql-database
 documentationcenter: 
@@ -13,15 +13,31 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 12/19/2016
+ms.date: 02/06/2017
 ms.author: sashan;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: ad6fb631f05b1e88e8cbaaca83f9863cfb643269
-ms.openlocfilehash: aba60bf5108a4e5ad95e3c634b9fcbca7393c700
+ms.sourcegitcommit: ff3ea3564d3cde5369f87d5f5102176229686acb
+ms.openlocfilehash: 6b828f7256c27aab567428706cd38c38b2f896eb
 
 
 ---
 # <a name="sql-database-faq"></a>Domande frequenti sul database SQL
+
+## <a name="what-is-the-current-version-of-sql-database"></a>Qual è la versione corrente del database SQL?
+La versione corrente del database SQL è V12. La versione V11 è stata ritirata.
+
+## <a name="what-is-the-sla-for-sql-database"></a>Qual è il contratto di servizio per il database SQL?
+Microsoft garantisce che per almeno il 99,99% del tempo i clienti avranno a disposizione la connettività tra il database SQL di Microsoft Azure Basic, Standard o Premium, singolo o elastico, e il gateway Internet. Per altre informazioni, vedere [Contratto di servizio](http://azure.microsoft.com/support/legal/sla/).
+
+## <a name="how-do-i-reset-the-password-for-the-server-admin"></a>Come si reimposta la password per l'amministratore del server?
+Nel [portale di Azure](https://portal.azure.com) fare clic su **SQL Server**, selezionare il server dall'elenco e quindi fare clic su **Reimposta password**.
+
+## <a name="how-do-i-manage-databases-and-logins"></a>Come si gestiscono database e accessi?
+Vedere [Gestione di database e accessi](sql-database-manage-logins.md).
+
+## <a name="how-do-i-make-sure-only-authorized-ip-addresses-are-allowed-to-access-a-server"></a>Come si può garantire che l'accesso al server sia consentito solo agli indirizzi IP autorizzati?
+Vedere [Procedura: configurare le impostazioni del firewall su Database SQL mediante il portale di Azure](sql-database-configure-firewall-settings.md).
+
 ## <a name="how-does-the-usage-of-sql-database-show-up-on-my-bill"></a>Come viene indicato l'utilizzo del database SQL in fattura?
 Database SQL emette fattura in base a una tariffa oraria stimabile in base al livello di servizio + il livello di prestazioni per database singoli o eDTU per ogni pool elastico. L'utilizzo effettivo è calcolato e ripartito su base oraria. È quindi possibile che nella fattura siano indicate frazioni di un'ora. Ad esempio, se un database esiste per 12 ore in un mese, nella fattura viene indicato l'utilizzo di 0,5 giorni. Inoltre, i livelli di servizio + i livelli delle prestazioni e le DTU per ogni pool sono suddivisi in fattura per permettere di vedere più facilmente il numero di giorni di database utilizzati per ognuno di essi in un singolo mese.
 
@@ -35,7 +51,7 @@ esempi
 * Se si esegue il downgrade di un database da Premium a Basic alle 11:00 e viene completato alle 14:15, viene addebitata la tariffa Premium per il database fino alle 15:00 e successivamente viene addebitata la tariffa Basic.
 
 ## <a name="how-does-elastic-pool-usage-show-up-on-my-bill-and-what-happens-when-i-change-edtus-per-pool"></a>Come viene indicato l'utilizzo del pool elastico nella fattura e cosa accade quando si modificano le eDTU per ciascun pool?
-Gli addebiti relativi ai pool elastici vengono mostrati in fattura come DTU elastiche (eDTU) sotto agli incrementi mostrati nelle eDTU per ciascun pool nella [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/sql-database/). Non è previsto alcun costo per database per i pool elastici. Viene fatturata ogni ora che un pool esiste con le eDTU più alte, indipendentemente dall'utilizzo o dal fatto che il pool sia stato attivo per meno di un'ora. 
+Gli addebiti relativi ai pool elastici vengono riportati in fattura come DTU elastiche (eDTU) sotto agli incrementi indicati nelle eDTU per ciascun pool nella [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/sql-database/). Non è previsto alcun costo per database per i pool elastici. Viene fatturata ogni ora che un pool esiste con le eDTU più alte, indipendentemente dall'utilizzo o dal fatto che il pool sia stato attivo per meno di un'ora. 
 
 Esempi
 
@@ -48,13 +64,14 @@ I pool elastici vengono fatturati in base alle caratteristiche seguenti:
 
 * Un pool elastico viene fatturato al momento della creazione, persino quando nel pool non sono presenti database.
 * Un pool elastico viene fatturato su base oraria. Si tratta della stessa frequenza di controllo dei livelli di prestazioni dei database singoli.
-* Se un pool elastico viene ridimensionato per una nuova quantità di eDTU, non viene fatturato in base alla nuova quantità di eDTU fino al completamento dell'operazione di ridimensionamento. Tale comportamento segue lo stesso modello della modifica del livello di prestazioni dei database singoli.
+* Se viene ridimensionato per un nuovo numero di eDTU, un pool elastico non viene fatturato in base al nuovo numero di eDTU fino al completamento dell'operazione di ridimensionamento. Tale comportamento segue lo stesso modello della modifica del livello di prestazioni dei database singoli.
 * Il prezzo di un pool elastico è basato sul numero di eDTU del pool. Il prezzo di un pool elastico è indipendente dal numero e dall'uso dei database elastici in esso contenuti.
 * Il prezzo di base viene calcolato da (numero di eDTU del pool) x (prezzo unitario per eDTU).
 
 Il prezzo unitario delle eDTU per un pool elastico è superiore al prezzo unitario delle DTU per un database singolo nello stesso livello di servizio. Per ulteriori informazioni, vedere [Database SQL Prezzi](https://azure.microsoft.com/pricing/details/sql-database/). 
 
 Per comprendere i livelli di eDTU e servizio, vedere l'articolo relativo a [opzioni e prestazioni del database SQL](sql-database-service-tiers.md).
+
 ## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>Come viene indicato in fattura l'uso della replica geografica attiva in un pool elastico?
 A differenza dei database singoli, l'uso della [replica geografica attiva](sql-database-geo-replication-overview.md) con i database elastici non ha un impatto diretto sulla fatturazione.  Vengono addebitate solo le DTU della quali si è effettuato il provisioning per ognuno dei pool (pool primario e secondario)
 
@@ -106,6 +123,6 @@ L'intervallo di replica in tempo reale tra il database primario e la replica geo
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

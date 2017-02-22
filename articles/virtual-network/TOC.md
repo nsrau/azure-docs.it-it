@@ -97,9 +97,10 @@
 ##### [Applicazione di esempio](virtual-networks-sample-app.md)
 
 ## Configurare
-### Rete accelerata
+### Rete accelerata per macchine virtuali
 #### [Portale di Azure](virtual-network-accelerated-networking-portal.md)
 #### [PowerShell](virtual-network-accelerated-networking-powershell.md)
+### [Ottimizzare la velocità della rete VM](virtual-network-optimize-network-bandwidth.md)
 ### Elenchi di controllo di accesso
 #### [Portale classico](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
@@ -147,6 +148,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

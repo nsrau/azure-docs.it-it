@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 03/31/2016
 ms.author: mattrow
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 45cfb660db9ea1d93d136d223d65602f3a373574
+ms.sourcegitcommit: c9730b553e59d12b8720bbf3a06cc956912e27de
+ms.openlocfilehash: c920a206d6f3288f6cba0d2658d556749fc4d574
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 45cfb660db9ea1d93d136d223d65602f3a373574
 Durante l'esecuzione di servizi nel computer di sviluppo è facile usare [Strumenti di debug di Visual Studio](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Per i cluster remoti, [i rapporti di integrità](service-fabric-view-entities-aggregated-health.md) sono sempre un buon punto di partenza. I modi più semplici per accedere a questi report sono quelli che avvengono tramite PowerShell o [SFX](service-fabric-visualizing-your-cluster.md). In questo articolo si presuppone che si stia eseguendo il debug di un cluster remoto e una conoscenza di base dell'utilizzo di questi strumenti.
 
 ## <a name="application-crash"></a>Arresto anomalo dell’applicazione
-Il report 'La partizione è inferiore rispetto al conteggio delle repliche di destinazione o dell’istanza ' è una valida indicazione del fatto che il servizio si sta arrestando in modo anomalo. Per scoprire dove il servizio si arresta in modo anomalo è necessaria un’ulteriore indagine. Quando si esegue su vasta scala, sarà necessario un set di tracce ben studiate.  È consigliabile provare [Diagnostica di Azure](service-fabric-diagnostics-how-to-setup-wad.md) per raccogliere tali tracce e usare una soluzione come [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) per visualizzare ed eseguire ricerche nelle tracce.
+Il report 'La partizione è inferiore rispetto al conteggio delle repliche di destinazione o dell’istanza ' è una valida indicazione del fatto che il servizio si sta arrestando in modo anomalo. Per scoprire dove il servizio si arresta in modo anomalo è necessaria un’ulteriore indagine. Quando si esegue su vasta scala, sarà necessario un set di tracce ben studiate.  È consigliabile provare [Diagnostica di Azure](service-fabric-diagnostics-how-to-setup-wad.md) per raccogliere tali tracce e usare una soluzione come [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) per visualizzare ed eseguire ricerche nelle tracce.
 
 ![Integrità della partizione SFX](./media/service-fabric-diagnostics-troubleshoot-common-scenarios/crashNewApp.png)
 
@@ -55,6 +55,6 @@ Altre informazioni sulla diagnostica esistente fornita dall'infrastruttura di se
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Eseguire la migrazione della cache a Redis | Microsoft Docs
-description: Informazioni sulla migrazione di applicazioni che usano il Servizio cache gestita alla Cache Redis di Azure
+title: Eseguire la migrazione di applicazioni di Servizio cache gestita in Redis - Azure | Documentazione Microsoft
+description: Informazioni su come eseguire la migrazione di applicazioni di Servizio cache gestita e di Cache nel ruolo per Cache Redis di Azure
 services: redis-cache
 documentationcenter: na
 author: steved0x
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 01/06/2017
+ms.date: 01/23/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b1a686bb26edf4f24bbb8ffac97a5f0751dd21d0
+ms.sourcegitcommit: 550b4154f0fe510cb37ec4f8bdef251b06f0b495
+ms.openlocfilehash: e739bb129ea2b280803380f3f9c20ca052b3f122
 
 
 ---
@@ -57,8 +57,8 @@ Il Servizio cache gestita di Azure e la Cache Redis di Azure sono simili, ma imp
 Cache Redis di Microsoft Azure è disponibile nei seguenti livelli:
 
 * **Basic**: singolo nodo. Più dimensioni fino a 53 GB.
-* **Standard**: principale/replica a due nodi. Più dimensioni fino a 53 GB. Contratti di servizio del 99,9%.
-* **Premium** : principale/replica a due nodi con fino a 10 partizioni. Più dimensioni da 6 GB a 530 GB (contattare Microsoft per ulteriori informazioni). Supporto per tutte le funzionalità del piano Standard e altre, tra cui [cluster Redis](cache-how-to-premium-clustering.md), [persistenza Redis](cache-how-to-premium-persistence.md) e [Rete virtuale di Azure](cache-how-to-premium-vnet.md). Contratti di servizio del 99,9%.
+* **Standard**: principale/replica a due nodi. Più dimensioni fino a 53 GB. Contratti di servizio del&99;,9%.
+* **Premium** : principale/replica a due nodi con fino a 10 partizioni. Più dimensioni da 6 GB a 530 GB (contattare Microsoft per ulteriori informazioni). Supporto per tutte le funzionalità del piano Standard e altre, tra cui [cluster Redis](cache-how-to-premium-clustering.md), [persistenza Redis](cache-how-to-premium-persistence.md) e [Rete virtuale di Azure](cache-how-to-premium-vnet.md). Contratti di servizio del&99;,9%.
 
 Ogni livello presenta differenze in termini di funzionalità e prezzi. Le funzionalità vengono illustrate più avanti in questa guida. Per altre informazioni sui prezzi, vedere [Dettagli prezzi del servizio Cache](https://azure.microsoft.com/pricing/details/cache/).
 
@@ -190,6 +190,6 @@ Per esercitazioni, esempi, video e altro ancora, vedere la [documentazione sulla
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

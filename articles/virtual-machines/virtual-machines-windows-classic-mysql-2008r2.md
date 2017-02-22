@@ -1,5 +1,5 @@
 ---
-title: Creare una macchina virtuale che esegue MySQL | Microsoft Docs
+title: Creare una macchina virtuale di Azure classica che esegue MySQL | Documentazione Microsoft
 description: Creare una macchina virtuale di Azure che esegue Windows Server 2012 R2 e il database MySQL usando il modello di distribuzione classica.
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2016
+ms.date: 01/23/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 5d08c629fc6e94b43b73c74d8485f6aee695cf4a
+ms.sourcegitcommit: 0937d80011d0ae7015c08d99b06934fda85930b0
+ms.openlocfilehash: d17c92bd239360e0bfddd61a57a9f481f64ff05d
 
 
 ---
@@ -74,7 +74,7 @@ Per installare, configurare ed eseguire la versione Community di MySQL Server, s
 18. Immettere la password radice specificata nel passaggio 11. Verrà visualizzato un prompt in cui è possibile inviare comandi per la configurazione di MySQL. Per informazioni dettagliate sui comandi e la sintassi, vedere i [manuali di riferimento di MySQL](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
     
     ![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_CommandPrompt.png)
-19. È anche possibile configurare impostazioni di configurazione predefinite per il server, ad esempio le unità e le directory dati e di base, specificando le voci nel file C:\Programmi (x86)\MySQL\MySQL Server 5.6\my-default.ini. Per altre informazioni, vedere [l'articolo relativo alle impostazioni di configurazione predefinite di MySQL 5.1.2 Server](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
+19. È anche possibile configurare impostazioni di configurazione predefinite per il server, ad esempio le unità e le directory dati e di base, specificando le voci nel file C:\Programmi (x86)\MySQL\MySQL Server 5.6\my-default.ini. Per altre informazioni, vedere [l'articolo relativo alle impostazioni di configurazione predefinite di MySQL&5;.1.2 Server](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
 
 ## <a name="configure-endpoints"></a>Configurare gli endpoint
 Se si desidera rendere disponibile il servizio MySQL Server per i computer client di MySQL su Internet è necessario configurare un endpoint per la porta TCP su cui è in ascolto il servizio MySQL Server e creare una nuova regola di Windows Firewall. Normalmente è la porta TCP 3306, a meno che non sia stata specificata una porta diversa nella pagina **Type and Networking** (passaggio 10 della procedura precedente).
@@ -120,6 +120,6 @@ Per altre informazioni sull'esecuzione di MySQL, vedere la [documentazione di My
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/27/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 42a2b241ed6ac2b13d1fb65f42242b194ef2858b
+ms.sourcegitcommit: 1a074e54204ff8098bea09eb4aa2066ccee47608
+ms.openlocfilehash: ab9e952027dcaa5b43cdad8faf8005b063c01dce
 
 
 ---
@@ -26,7 +26,7 @@ A partire da Servizi multimediali di Microsoft Azure 2.2 è possibile collegare 
 * Bilanciamento del carico degli asset tra più account di archiviazione.
 * Ridimensionamento di Servizi multimediali per l'elaborazione di grandi quantità di contenuti (attualmente è previsto un limite massimo di 500 TB per ogni account di archiviazione). 
 
-Questo argomento illustra come collegare più account di archiviazione a un account di Servizi multimediali mediante l'API REST di gestione dei servizi di Azure. Spiega inoltre come specificare diversi account di archiviazione durante la creazione di asset mediante l'SDK di Servizi multimediali. 
+Questo argomento illustra come collegare più account di archiviazione a un account Servizi multimediali mediante le [API di Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) e [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media). Spiega inoltre come specificare diversi account di archiviazione durante la creazione di asset mediante l'SDK di Servizi multimediali. 
 
 ## <a name="considerations"></a>Considerazioni
 Quando si collegano più account di archiviazione a un account di Servizi multimediali, tenere presente quanto segue:
@@ -34,13 +34,33 @@ Quando si collegano più account di archiviazione a un account di Servizi multim
 * Tutti gli account di archiviazione collegati a un account di Servizi multimediali devono trovarsi nello stesso data center dell'account di Servizi multimediali.
 * Non è possibile scollegare un account di archiviazione dopo che è stato collegato a un account di Servizi multimediali.
 * L'account di archiviazione principale è quello indicato durante la procedura di creazione dell'account di Servizi multimediali. Attualmente non è possibile modificare l'account di archiviazione predefinito. 
+* Attualmente, se si desidera aggiungere un account di archiviazione offline sicura all'account Servizi multimediali di Azure (AMS), l'account di archiviazione deve essere di tipo BLOB ed essere impostato come non principale.
 
 Altre considerazioni:
 
-Servizi multimediali usa il valore della proprietà **IAssetFile.Name** durante la creazione di URL per i contenuti in streaming, ad esempio http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà Name non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#[]".. Inoltre, può essere presente un solo punto (.). L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
+Servizi multimediali usa il valore della proprietà **IAssetFile.Name** durante la creazione di URL per i contenuti in streaming, ad esempio http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà Name non può contenere i [caratteri riservati per la codifica percentuale seguenti](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Può essere presente solo un carattere '.' L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
 
-## <a name="to-attach-a-storage-account-with-azure-service-management-rest-api"></a>Per collegare un account di archiviazione con l'API REST di gestione dei servizi di Azure
-Attualmente, l' [API REST di gestione dei servizi di Azure](http://msdn.microsoft.com/library/azure/dn167014.aspx)costituisce l'unico strumento disponibile per collegare più account di archiviazione. L'esempio di codice riportato nell'argomento [Procedura: usare l'API REST di gestione di Servizi multimediali](https://msdn.microsoft.com/library/azure/dn167656.aspx) definisce il metodo **AttachStorageAccountToMediaServiceAccount** da usare per collegare un account di archiviazione all'account di Servizi multimediali specificato. Il codice nello stesso argomento definisce il metodo **ListStorageAccountDetails** che elenca tutti gli account di archiviazione collegati all'account di Servizi multimediali specificato.
+## <a name="to-attach-storage-accounts"></a>Per collegare account di archiviazione  
+
+Per collegare account di archiviazione all'account Servizi multimediali di Azure (AMS), usare le [API di Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) e [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media), come illustrato nell'esempio seguente.
+
+    $regionName = "West US"
+    $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
+    $resourceGroupName = "SkyMedia-USWest-App"
+    $mediaAccountName = "sky"
+    $storageAccount1Name = "skystorage1"
+    $storageAccount2Name = "skystorage2"
+    $storageAccount1Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount1Name"
+    $storageAccount2Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount2Name"
+    $storageAccount1 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
+    $storageAccount2 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
+    $storageAccounts = @($storageAccount1, $storageAccount2)
+    
+    Set-AzureRmMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
+
+### <a name="support-for-cool-storage"></a>Supporto per l'archiviazione offline sicura
+
+Attualmente, se si desidera aggiungere un account di archiviazione offline sicura all'account Servizi multimediali di Azure (AMS), l'account di archiviazione deve essere di tipo BLOB ed essere impostato come non principale.
 
 ## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>Per gestire asset di Servizi multimediali su più account di archiviazione
 Il codice seguente usa la versione più recente dell'SDK di Servizi multimediali per eseguire le attività seguenti: 
@@ -257,6 +277,6 @@ Il codice seguente usa la versione più recente dell'SDK di Servizi multimediali
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

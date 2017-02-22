@@ -13,21 +13,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 660524509b523ae2edb72cb8c80d75437730c119
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 64324eb5258a060f31902cfb30c97425304b7e33
 
 
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Analizzare i dati di Twitter con Hive in HDInsight
-In questo documento viene illustrato come ricevere tweet usando un'API di streaming di Twitter e quindi come usare Apache Hive in un cluster HDInsight basato su Linux per elaborare i dati in formato JSON. Il risultato sarà un elenco di utenti Twitter che hanno inviato il maggior numero di tweet contenenti una determinata parola.
 
-> [!NOTE]
-> Anche se alcune parti di questo articolo possono essere usate con i cluster HDInsight basati su Windows (ad esempio Python), molti passaggi descritti in questo documento sono specifici per i cluster HDInsight basati su Linux. Per passaggi specifici di un cluster basato su Windows, vedere [Analizzare i dati di Twitter con Hive in HDInsight](hdinsight-analyze-twitter-data.md).
-> 
-> 
+In questo documento viene illustrato come ricevere tweet usando un'API di streaming di Twitter e quindi usare Apache Hive in un cluster HDInsight per elaborare i dati in formato JSON. Il risultato sarà un elenco di utenti Twitter che hanno inviato il maggior numero di tweet contenenti una determinata parola.
+
+> [!IMPORTANT]
+> I passaggi descritti in questo documento sono stati testati in un cluster HDInsight basato su Linux.
+>
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ### <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
@@ -61,8 +62,7 @@ Twitter consente di recuperare i [dati relativi ad ogni tweet](https://dev.twitt
 
 > [!NOTE]
 > Quando si usa il comando curl in Windows, per i valori delle opzioni usare le virgolette doppie invece di quelle singole.
-> 
-> 
+
 
 ### <a name="download-tweets"></a>Scaricare tweet
 Il codice Python seguente consente di scaricare 10.000 tweet da Twitter e salvarli in un file denominato **tweets.txt**.
@@ -95,7 +95,7 @@ Il codice Python seguente consente di scaricare 10.000 tweet da Twitter e salvar
    > [!NOTE]
    > I bit sulla rimozione di python-openssl, installando python-dev, libffi-dev, libssl-dev, pyOpenSSL e le richieste [sicurezza] consistono nell'evitare un'avvertenza InsecurePlatform durante la connessione a Twitter tramite SSL da Python.
    > 
-   > Tweepy 3.2.0 viene usato per evitare un [errore](https://github.com/tweepy/tweepy/issues/576) che può verificarsi durante l'elaborazione dei tweet.
+   > Tweepy&3;.2.0 viene usato per evitare un [errore](https://github.com/tweepy/tweepy/issues/576) che può verificarsi durante l'elaborazione dei tweet.
    > 
    > 
 4. Usare il comando seguente per creare un nuovo file denominato **gettweets.py**:
@@ -316,6 +316,6 @@ In questa esercitazione è stato illustrato come trasformare un set di dati JSON
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

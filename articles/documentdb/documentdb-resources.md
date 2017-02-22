@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 01/28/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 51c5694379d3f35ed2595f0cafeb00c6cc527854
-ms.openlocfilehash: 94549905816707fa3dcce3c3e443122162a2c4e8
+ms.sourcegitcommit: a42e04b6a8b09078986ba0d12c6d07305e8068c6
+ms.openlocfilehash: 15d1a9d819fdf9565e85ccea39a922c608aba917
 
 
 ---
@@ -43,7 +43,7 @@ Come illustrato nel diagramma seguente, il **modello di risorse** gerarchico di 
 ![Modello di risorse gerarchico di DocumentDB][1]  
 **Modello di risorse gerarchico**   
 
-Per iniziare a usare le risorse è necessario [creare un account di database DocumentDB](documentdb-create-account.md) usando la sottoscrizione di Azure. Un account di database può essere costituito da un set di **database**, ognuno contenente più **raccolte**. Ogni raccolta include a propria volta **stored procedure, trigger, funzioni definite dall'utente, documenti** e **allegati** correlati. Un database include anche gli **utenti** associati, ognuno dei quali possiede un set di **autorizzazioni** per accedere a raccolte, stored procedure, trigger, UDF, documenti o allegati. Mentre i database, gli utenti, le autorizzazioni e le raccolte sono ricorse definite dal sistema con schemi noti, i documenti e gli allegati includono contenuto JSON arbitrario definito dagli utenti.  
+Per iniziare a usare le risorse è necessario [creare un account di database](documentdb-create-account.md) usando la sottoscrizione di Azure. Un account di database può essere costituito da un set di **database**, ognuno contenente più **raccolte**. Ogni raccolta include a propria volta **stored procedure, trigger, funzioni definite dall'utente, documenti** e **allegati** correlati. Un database include anche gli **utenti** associati, ognuno dei quali possiede un set di **autorizzazioni** per accedere a raccolte, stored procedure, trigger, UDF, documenti o allegati. Mentre i database, gli utenti, le autorizzazioni e le raccolte sono ricorse definite dal sistema con schemi noti, i documenti e gli allegati includono contenuto JSON arbitrario definito dagli utenti.  
 
 | Risorsa | Descrizione |
 | --- | --- |
@@ -70,7 +70,7 @@ Tutte le risorse quali account di database, database, raccolte, utenti, autorizz
     <tbody>
         <tr>
             <td valign="top"><p><strong>Proprietà</strong></p></td>
-            <td valign="top"><p><strong>Impostabile dall'utente o generata dal sistema?</strong></p></td>
+            <td valign="top"><p><strong>Impostabile dall'utente o generata dal sistema</strong></p></td>
             <td valign="top"><p><strong>Scopo</strong></p></td>
         </tr>
         <tr>
@@ -138,7 +138,7 @@ Come parte del provisioning e della gestione di un account di database, è possi
     <tbody>
         <tr>
             <td valign="top"><p><strong>Nome proprietà</strong></p></td>
-            <td valign="top"><p><strong>Description</strong></p></td>
+            <td valign="top"><p><strong>Descrizione</strong></p></td>
         </tr>
         <tr>
             <td valign="top"><p>Criterio di coerenza</p></td>
@@ -464,6 +464,6 @@ Per altre informazioni sull'utilizzo di risorse tramite comandi HTTP, vedere [In
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

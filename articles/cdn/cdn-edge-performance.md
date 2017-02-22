@@ -1,9 +1,9 @@
 ---
-title: Analizzare le prestazioni del server perimetrale nella rete CDN di Microsoft Azure | Microsoft Docs
+title: Analizzare le prestazioni del nodo perimetrale nella rete CDN di Azure | Documentazione Microsoft
 description: Analizzare le prestazioni del nodo perimetrale nella rete CDN di Microsoft Azure. L&quot;analisi delle prestazioni perimetrali fornisce informazioni granulari sul traffico e sull&quot;utilizzo della larghezza di banda per la rete CDN.
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 8cc596a7-3e01-4f76-af7b-a05a1421517e
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 61fe3f9419b5a6b15beb27d7b3f0782b404cd076
+ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
+ms.openlocfilehash: ad285b4e2226c85859acb22ba214cc44c77c08e2
 
 
 ---
@@ -118,8 +118,8 @@ Lo scopo di queste metriche consiste nel tenere traccia delle prestazioni comple
 | Velocità di trasferimento |Indica la velocità media del trasferimento del contenuto dalla rete CDN a un richiedente. |
 | Durata |Indica il tempo medio, in millisecondi, necessario per distribuire un asset a un richiedente (ad esempio un Web browser). |
 | Velocità richieste con compressione |Indica la percentuale di riscontri distribuiti dalla rete CDN (server perimetrali) al richiedente (ad esempio un Web browser) in formato compresso. |
-| Frequenza degli errori 4xx |Indica la percentuale di riscontri che hanno generato un codice di stato 4xx. |
-| Frequenza degli errori 5xx |Indica la percentuale di riscontri che hanno generato un codice di stato 5xx. |
+| Frequenza degli errori&4;xx |Indica la percentuale di riscontri che hanno generato un codice di stato 4xx. |
+| Frequenza degli errori&5;xx |Indica la percentuale di riscontri che hanno generato un codice di stato 5xx. |
 | Riscontri |Indica il numero di richieste di contenuto della rete CDN. |
 
 #### <a name="secure-traffic-metrics"></a>Metriche relative al traffico sicuro
@@ -175,12 +175,12 @@ Ogni report in questo modulo contiene un grafico e statistiche relative a larghe
 | Riepilogo autenticazione con token |Contiene un grafico a torta che fornisce una rapida panoramica relativa alla protezione tramite autenticazione con token degli asset richiesti. Gli asset protetti vengono visualizzati nel grafico in base ai risultati dei rispettivi tentativi di autenticazione. |
 | Dettagli di autenticazione con token rifiutata |Contiene un grafico a barre che consente di visualizzare le prime 10 richieste rifiutate a causa dell'autenticazione basata su token. |
 | Codici di risposta HTTP |Fornisce una suddivisione dei codici di stato HTTP (ad esempio, 200 OK, 403 Accesso negato, 404 Non trovato e così via) recapitati ai client HTTP dai server perimetrali. Un grafico a torta consente di verificare rapidamente il modo in cui sono stati gestiti gli asset. Dati statistici dettagliati per ogni codice di risposta sono disponibili sotto il grafico. |
-| Errori 404 |Contiene un grafico a barre che consente di visualizzare le prime 10 richieste che hanno avuto come risultato un codice di risposta di tipo 404 Non trovato. |
-| Errori 403 |Contiene un grafico a barre che consente di visualizzare le prime 10 richieste che hanno avuto come risultato un codice di risposta di tipo 403 Accesso negato. Un codice di risposta di tipo 403 Accesso negato viene restituito quando una richiesta viene rifiutata da un server di origine del cliente o da un server perimetrale sul POP. |
-| Errori 4xx |Contiene un grafico a barre che consente di visualizzare le prime 10 richieste che hanno avuto come risultato un codice di risposta incluso nell'intervallo 400. I codici di risposta di tipo 403 Accesso negato e 404 Non trovato sono esclusi da questo report. In genere, un codice di risposta di tipo 4xx viene restituito quando una richiesta viene rifiutata a causa di un errore del client. |
-| Errori 504 |Contiene un grafico a barre che consente di visualizzare le prime 10 richieste che hanno avuto come risultato un codice di risposta di tipo 504 - Timeout gateway. Un codice di risposta di tipo 504 - Timeout gateway viene restituito quando si verifica un timeout durante un tentativo di comunicazione di un proxy HTTP con un altro server. Nel caso della rete CDN, un codice di risposta di tipo 504 - Timeout gateway viene in genere restituito quando un server perimetrale non riesce a stabilire una comunicazione con un server di origine del cliente. |
-| Errori 502 |Contiene un grafico a barre che consente di visualizzare le prime 10 richieste che hanno restituito un codice di risposta di tipo 502 - Gateway non valido. Un codice di risposta di tipo 502 - Gateway non valido viene restituito in caso di errore del protocollo HTTP tra un server e un proxy HTTP. Nel caso della rete CDN, un codice di risposta di tipo 502 - Gateway non valido viene in genere restituito quando un server di origine del cliente restituisce una risposta non valida a un server perimetrale. Una risposta non è valida se non può essere analizzata o se è incompleta. |
-| Errori 5xx |Contiene un grafico a barre che consente di visualizzare le prime 10 richieste che hanno avuto come risultato un codice di risposta incluso nell'intervallo 500.  I codici di risposta di tipo 502 - Gateway non valido e 504 - Timeout gateway sono esclusi da questo report. |
+| Errori&404; |Contiene un grafico a barre che consente di visualizzare le prime 10 richieste che hanno avuto come risultato un codice di risposta di tipo 404 Non trovato. |
+| Errori&403; |Contiene un grafico a barre che consente di visualizzare le prime 10 richieste che hanno avuto come risultato un codice di risposta di tipo 403 Accesso negato. Un codice di risposta di tipo 403 Accesso negato viene restituito quando una richiesta viene rifiutata da un server di origine del cliente o da un server perimetrale sul POP. |
+| Errori&4;xx |Contiene un grafico a barre che consente di visualizzare le prime 10 richieste che hanno avuto come risultato un codice di risposta incluso nell'intervallo 400. I codici di risposta di tipo 403 Accesso negato e 404 Non trovato sono esclusi da questo report. In genere, un codice di risposta di tipo 4xx viene restituito quando una richiesta viene rifiutata a causa di un errore del client. |
+| Errori&504; |Contiene un grafico a barre che consente di visualizzare le prime 10 richieste che hanno avuto come risultato un codice di risposta di tipo 504 - Timeout gateway. Un codice di risposta di tipo 504 - Timeout gateway viene restituito quando si verifica un timeout durante un tentativo di comunicazione di un proxy HTTP con un altro server. Nel caso della rete CDN, un codice di risposta di tipo 504 - Timeout gateway viene in genere restituito quando un server perimetrale non riesce a stabilire una comunicazione con un server di origine del cliente. |
+| Errori&502; |Contiene un grafico a barre che consente di visualizzare le prime 10 richieste che hanno restituito un codice di risposta di tipo 502 - Gateway non valido. Un codice di risposta di tipo 502 - Gateway non valido viene restituito in caso di errore del protocollo HTTP tra un server e un proxy HTTP. Nel caso della rete CDN, un codice di risposta di tipo 502 - Gateway non valido viene in genere restituito quando un server di origine del cliente restituisce una risposta non valida a un server perimetrale. Una risposta non è valida se non può essere analizzata o se è incompleta. |
+| Errori&5;xx |Contiene un grafico a barre che consente di visualizzare le prime 10 richieste che hanno avuto come risultato un codice di risposta incluso nell'intervallo 500.  I codici di risposta di tipo 502 - Gateway non valido e 504 - Timeout gateway sono esclusi da questo report. |
 
 ## <a name="see-also"></a>Vedere anche
 * [Panoramica della rete CDN di Azure](cdn-overview.md)
@@ -191,6 +191,6 @@ Ogni report in questo modulo contiene un grafico e statistiche relative a larghe
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

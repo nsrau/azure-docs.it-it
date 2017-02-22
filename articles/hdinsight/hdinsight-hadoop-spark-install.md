@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 02/05/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 8a7ca492d846f274019eb228fc027defac0aa390
-ms.openlocfilehash: 98688632c6aaba14b71923dc217f6b0368ae76d8
+ms.sourcegitcommit: c9e3c1d2a1f5b83c59fa2a22f3cb4d89df203384
+ms.openlocfilehash: 4fa808b50b56122976cc176c55937f9443f31097
 
 
 ---
-# <a name="install-and-use-spark-on-hdinsight-hadoop-clusters-using-script-action"></a>Installare e usare Spark in cluster Hadoop di HDInsight usando un'azione script
+# <a name="install-and-use-spark-on-windows-based-hdinsight-clusters-using-script-action"></a>Installare e usare Spark in cluster HDInsight basati su Windows usando un'azione script
+
 > [!IMPORTANT]
-> Questo articolo è ora deprecato. HDInsight offre ora Spark come tipo di cluster di prima classe per cluster basati su Windows, quindi è possibile creare direttamente un cluster Spark senza modificare un cluster Hadoop usando un'azione script. Usando il tipo di cluster Spark, si ottiene un cluster HDInsight versione 3.2 con Spark versione 1.3.1.  Per installare versioni diverse di Spark, è possibile usare un'azione script. HDInsight offre uno script di azione script di esempio.
+> Questo articolo è ora deprecato. HDInsight offre ora Spark come tipo di cluster di prima classe per cluster basati su Linux, quindi è possibile creare direttamente un cluster Spark senza modificare un cluster Hadoop usando un'azione script. I passaggi descritti in questo documento funzionano solo con i cluster HDInsight basati su Windows. HDInsight è disponibile in Windows solo per le versioni precedenti a HDInsight 3.4. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 Informazioni su come installare Spark nei cluster HDInsight basati su Windows con un'azione script e su come eseguire query Spark nei cluster HDInsight.
 
@@ -297,6 +298,6 @@ Vedere [Personalizzare cluster HDInsight mediante l'azione script](hdinsight-had
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

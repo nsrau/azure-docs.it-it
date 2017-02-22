@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 09/12/2016
 ms.author: magoedte;sngun
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9fff24dfd2b20a785c6046b6c9700b583c309de4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 17c7e410a9c5b69ab450eb3affd192f1e3cb6e76
 
 
 ---
-# <a name="rolebased-access-control-in-azure-automation"></a>Controllo degli accessi in base al ruolo in Automazione di Azure
-## <a name="rolebased-access-control"></a>Controllo degli accessi in base al ruolo
+# <a name="role-based-access-control-in-azure-automation"></a>Controllo degli accessi in base al ruolo in Automazione di Azure
+## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 Il controllo degli accessi in base al ruolo consente di gestire gli accessi per le risorse di Azure. Con il [Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md)è possibile separare i compiti all'interno del team e concedere a utenti, gruppi e applicazioni solo il livello di accesso necessario per svolgere le proprie attività. L'accesso in base al ruolo può essere concesso agli utenti tramite il portale di Azure, gli strumenti da riga di comando di Azure o le API di gestione di Azure.
 
 ## <a name="rbac-in-automation-accounts"></a>Controllo degli accessi in base al ruolo negli account di automazione
@@ -233,6 +233,6 @@ Negli esempi precedenti sostituire l'**ID di accesso**, l'**ID sottoscrizione**,
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: f5bdbd801107650f87993b395338adfb1b26d17e
-ms.openlocfilehash: f4ad13e7674f7af28b22f55dbbb76ccc5d5d26f8
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ea75a14232c010ebea31273856f21cb0e02067a7
 
 
 ---
@@ -976,7 +976,7 @@ La stessa API Web può essere utilizzata da numerose applicazioni client in esec
 
     Il protocollo HTTP supporta le connessioni HTTP permanenti dove sono disponibili. Le specifiche HTTP 1.0 hanno aggiunto l’intestazione: Connection: Keep-Alive che consente a un'applicazione client di indicare al server che è possibile utilizzare la stessa connessione per inviare le richieste successive, anziché aprire nuove connessioni. La connessione verrà chiusa automaticamente se il client non riutilizzare la connessione all'interno di un periodo definito dall'host. Questo comportamento è l'impostazione predefinita in HTTP 1.1 come utilizzato dai servizi di Azure, pertanto non è necessario includere le intestazioni Keep-Alive nei messaggi.
 
-    Mantenere aperta una connessione può contribuire a migliorare la velocità di risposta riducendo la latenza e la congestione della rete, ma può avere effetti negativi sulla scalabilità, mantenendo aperte connessioni inutili più a lungo del necessario e limitando la possibilità di connessione ad altri client simultanei. Può inoltre influire sulla durata della batteria se l'applicazione client è in esecuzione su un dispositivo mobile. Se l'applicazione effettua solo occasionali richieste al server, la gestione di una connessione aperta può scaricare più velocemente la batteria. Per garantire che una connessione non venga resa persistente con HTTP 1.1, il client può includere un'intestazione Connection:Close con i messaggi per eseguire l'override del comportamento predefinito. Analogamente, se un server gestisce un numero molto elevato di client può includere un'intestazione di  Connection:Close nei messaggi di risposta che devono chiudere la connessione e salvare le risorse del server.
+    Mantenere aperta una connessione può contribuire a migliorare la velocità di risposta riducendo la latenza e la congestione della rete, ma può avere effetti negativi sulla scalabilità, mantenendo aperte connessioni inutili più a lungo del necessario e limitando la possibilità di connessione ad altri client simultanei. Può anche influire sulla durata della batteria se l'applicazione client è in esecuzione su un dispositivo mobile. Se l'applicazione effettua solo occasionali richieste al server, la gestione di una connessione aperta può scaricare più velocemente la batteria. Per garantire che una connessione non venga resa persistente con HTTP 1.1, il client può includere un'intestazione Connection:Close con i messaggi per eseguire l'override del comportamento predefinito. Analogamente, se un server gestisce un numero molto elevato di client può includere un'intestazione di  Connection:Close nei messaggi di risposta che devono chiudere la connessione e salvare le risorse del server.
 
   > [!NOTE]
   > Le connessioni HTTP permanenti sono una funzionalità facoltativa esclusivamente per ridurre il sovraccarico di rete associato al tentativo di stabilire ripetutamente un canale di comunicazione. Né L'API Web né l'applicazione client devono dipendere da una connessione HTTP permanente disponibile. Non utilizzare connessioni HTTP permanenti per implementare sistemi di notifica Comet stile; è invece consigliabile utilizzare Socket (o WebSocket, se disponibile) a livello di TCP. Si noti infine che le intestazioni Keep-Alive hanno un utilizzo limitato se un'applicazione client comunica con un server tramite un proxy. Solo la connessione con il client e il proxy è permanente.
@@ -1150,6 +1150,6 @@ Se l'API Web è stata pubblicata mediante il Servizio di gestione API, la pagina
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

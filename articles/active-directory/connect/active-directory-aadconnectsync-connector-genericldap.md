@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 783952ef1a19d18c3dd5d25c9ccf25cf3b29af45
+ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
+ms.openlocfilehash: 5eacb832ba2a20eae35c58704296c9d03e94ef0e
 
 
 ---
@@ -114,7 +114,7 @@ I controlli e le funzionalità LDAP seguenti devono essere disponibili nel serve
 
 Il filtro True/False spesso non viene segnalato come supportato dalle directory LDAP e potrebbe essere visualizzato nella **Global Page** in **Mandatory Features Not Found**. Viene usato per creare filtri **OR** nelle query LDAP, ad esempio quando si importano più tipi di oggetto. Se è possibile importare più di un tipo di oggetto, il server LDAP supporta questa funzionalità.
 
-Se si usa una directory in cui un identificatore univoco è l'ancoraggio, dovrà essere disponibile anche quanto segue (per altre informazioni, vedere la sezione [Configurare gli ancoraggi](#configure-anchors) più avanti in questo articolo):  
+Se si usa una directory in cui un identificatore univoco è l'ancoraggio, dovrà essere disponibile anche quanto segue. Per altre informazioni, vedere la sezione [Configurare gli ancoraggi](#configure-anchors):  
 `1.3.6.1.4.1.4203.1.5.1` Tutti gli attributi operativi
 
 Se la directory ha più oggetti di quanti sia possibile inserirne in una sola chiamata alla directory, è consigliabile usare il paging. Per il funzionamento del paging, è necessaria una delle opzioni seguenti:
@@ -162,7 +162,7 @@ Nella pagina Connectivity (Connettività) è necessario specificare le informazi
 * Per gli altri valori di Binding immettere le informazioni in nome utente/password o selezionare un certificato.
 * Se si usa Kerberos per l'autenticazione, fornire anche le informazioni per l'area autenticazione o il dominio dell'utente.
 
-La casella di testo **Attribute Aliases** viene usata per gli attributi definiti nello schema con la sintassi RFC4522. Questi attributi non possono essere rilevati durante il rilevamento dello schema ed è necessario l'intervento dell'utente per consentire al connettore di identificarli. Ad esempio, è necessario immettere quanto segue nella casella Attribute Aliases per identificare correttamente l'attributo userCertificate come attributo binario:
+La casella di testo **Attribute Aliases** viene usata per gli attributi definiti nello schema con la sintassi RFC4522. Questi attributi non possono essere rilevati durante il rilevamento dello schema ed è necessario l'intervento dell'utente per consentire al connettore di identificarli. È ad esempio necessario immettere quanto segue nella casella relativa agli alias dell'attributo per identificare correttamente l'attributo userCertificate come attributo binario:
 
 `userCertificate;binary`
 
@@ -264,7 +264,6 @@ Per le directory con un log delle modifiche differenziali basato su data/ora, è
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

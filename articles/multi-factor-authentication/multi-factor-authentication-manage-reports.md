@@ -1,5 +1,5 @@
 ---
-title: Report di Azure Multi-Factor Authentication
+title: Accedere alla visualizzazione dei report per Azure MFA nel cloud | Documentazione Microsoft
 description: "Viene descritto come usare la funzionalità dei report di Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 738f9862ce8a8e4a0d63ec94583c4c868d914686
+ms.sourcegitcommit: 27ff53646992308d574dcc2e631cd63b8227f9c8
+ms.openlocfilehash: 8f18c3850f60795d2cdf498ca3882f49d4986c59
 
 
 ---
@@ -52,7 +52,6 @@ Azure Multi-Factor Authentication offre diversi report che possono essere utiliz
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d6cee6b4d47264bb0b91d3169490af0b08c05711
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4bf0847e41b10862fdfdaa662ab7ce48a1cf747a
 
 
 ---
@@ -108,7 +108,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_04.png)
    
-    a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://surveys.kenexa.com/<company code>`.
+    a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://surveys.kenexa.com/<company code>`
    
     b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://surveys.kenexa.com/<company code>/tools/sso.asp`
    
@@ -264,6 +264,6 @@ Quando si fa clic sul riquadro IBM Kenexa Survey Enterprise nel pannello di acce
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

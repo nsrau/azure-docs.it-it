@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/20/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dece2cd1c8645c0a2d19177d433dbfe5d6e3f6cd
+ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
+ms.openlocfilehash: ac73b5c2ece8044d9f75e017428c43259f8a9357
 
 
 ---
@@ -47,8 +47,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 * Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test.  
-Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
 1. Aggiunta di Promapp dalla raccolta 
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -105,19 +104,18 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
     ![Single Sign-On di Microsoft Azure AD][7] 
 3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
    
-    ![Accesso Single Sign-On di Azure AD][8] 
+    ![Single Sign-On di Microsoft Azure AD][8] 
    
-     a. Nella casella di testo **URL di accesso** digitare l'URL utilizzato dagli utenti per accedere al sito Promapp, ad esempio *https://companyname.promapp.com/instancename*.
-
-     b. Fare clic su **Next**.
+   1. Nella casella di testo **URL di accesso** digitare l'URL utilizzato dagli utenti per accedere al sito Promapp, ad esempio *https://companyname.promapp.com/instancename*.
+   2. Fare clic su **Avanti**.
 
 1. Nella pagina **Configure single sign-on at Promapp** (Configura accesso Single Sign-On in Promapp) seguire questa procedura:
    
-    ![Accesso Single Sign-On di Azure AD][9] 
+    ![Single Sign-On di Microsoft Azure AD][9] 
    
-    a. Fare clic su Download certificato e quindi salvare il file nel computer.
+   1. Fare clic su Download certificato e quindi salvare il file nel computer.
+   2. Fare clic su **Avanti**.
    
-    b. Fare clic su **Next**.
 2. Accedere al sito aziendale di Promapp come amministratore. 
 3. Nel menu in alto fare clic su **Admin**. 
    
@@ -127,13 +125,11 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
     ![Accesso Single Sign-On di Azure AD][13]
 5. Nella finestra di dialogo **Security** (Sicurezza) seguire questa procedura:
    
-    ![Accesso Single Sign-On di Azure AD][14] 
+    ![Single Sign-On di Microsoft Azure AD][14] 
    
-    a. Nella pagina **Configure single sign-on at Promapp** (Configura accesso Single Sign-On in Promapp) del portale di Azure classico copiare il valore di **URL accesso remoto**, incollarlo nella casella di testo **SSO-Login URL** (URL di accesso SSO) e quindi fare clic su **Save** (Salva).
-   
-    b. Per **SSO - Single Sign-on Mode** selezionare **Optional** e quindi fare clic su **Save**.
-   
-    c. Aprire il certificato scaricato nel Blocco note, copiare il contenuto del certificato senza la prima riga (*-----BEGIN CERTIFICATE-----*) e l'ultima riga (*-----END CERTIFICATE-----*), incollarlo nella casella di testo **SSO-x.509 Certificate** e quindi fare clic su **Save**.
+   1. Nella pagina **Configure single sign-on at Promapp** (Configura accesso Single Sign-On in Promapp) del portale di Azure classico copiare il valore di **URL accesso remoto**, incollarlo nella casella di testo **SSO-Login URL** (URL di accesso SSO) e quindi fare clic su **Save** (Salva).
+   2. Per **SSO - Single Sign-on Mode** selezionare **Optional** e quindi fare clic su **Save**.
+   3. Aprire il certificato scaricato nel Blocco note, copiare il contenuto del certificato senza la prima riga (*-----BEGIN CERTIFICATE-----*) e l'ultima riga (*-----END CERTIFICATE-----*), incollarlo nella casella di testo **SSO-x.509 Certificate** e quindi fare clic su **Save**.
 6. Nel portale di Azure AD classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. 
    
     ![Single Sign-On di Microsoft Azure AD][10]
@@ -162,23 +158,20 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-promapp-tutorial/create_aaduser_05.png)  
    
-    a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
+   1. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
+   2. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
+   3. Fare clic su **Avanti**.
    
-    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
-   
-    c. Fare clic su **Avanti**.
 6. Nella pagina **Profilo utente** seguire questa procedura: 
    
    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-promapp-tutorial/create_aaduser_06.png) 
    
-   a. Nella casella di testo **Nome** digitare **Britta**.  
+   1. Nella casella di testo **Nome** digitare **Britta**.   
+   2. Nella casella di testo **Cognome** digitare **Simon**.
+   3. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+   4. Nell'elenco **Ruolo** selezionare **Utente**.
+   5. Fare clic su **Avanti**.
    
-   b. Nella casella di testo **Cognome** digitare **Simon**.
-   
-   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
-   
-   d. Nell'elenco **Ruolo** selezionare **Utente**.
-   e. Fare clic su **Avanti**.
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-promapp-tutorial/create_aaduser_07.png) 
@@ -186,9 +179,8 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-promapp-tutorial/create_aaduser_08.png) 
    
-    a. Prendere nota del valore visualizzato in **Nuova password**.
-   
-    b. Fare clic su **Complete**.   
+   1. Prendere nota del valore visualizzato in **Nuova password**.
+   2. Fare clic su **Completa**.   
 
 ### <a name="creating-a-promapp-test-user"></a>Creazione di un utente test per Promapp
 L'applicazione Promapp supporta il provisioning JIT (just-in-time).
@@ -259,6 +251,6 @@ Quando si fa clic sul riquadro Promapp nel pannello di accesso, si dovrebbe acce
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

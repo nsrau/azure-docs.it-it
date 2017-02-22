@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 01/17/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 49e5cc5045f5bd626826b4992b8b49f886ef7bde
+ms.sourcegitcommit: 744c4bd37b7b1443cf78586aab8ec2661e02254e
+ms.openlocfilehash: c0fc2ae5318068c204296b9e053c2cc7324e84c7
 
 
 ---
@@ -47,7 +47,7 @@ Se non si intende connettere i controller di dominio direttamente a OMS è possi
 3. Nel computer impostare la chiave del Registro di sistema seguente:
 
    * Chiave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
-   * Valore: **IsTarge**
+   * Valore: **IsTarget**
    * Dati valore: **true**
 
    > [!NOTE]
@@ -115,31 +115,31 @@ Il campo **HelpLink** indica l'URL di una pagina di TechNet con altre informazio
 
 ## <a name="ad-replication-status-faq"></a>Domande frequenti su Stato replica di Active Directory
 **D: con quale frequenza vengono aggiornati i dati di Stato replica di Active Directory?**
- R: le informazioni vengono aggiornate ogni 5 giorni.
+R: le informazioni vengono aggiornate ogni 5 giorni.
 
 **D: è possibile configurare la frequenza di aggiornamento dei dati?**
- R: attualmente non è possibile.
+R: attualmente non è possibile.
 
 **D: è necessario aggiungere tutti i controller di dominio all'area di lavoro di OMS per visualizzare lo stato della replica?**
- R: no, è necessario aggiungere un solo controller di dominio. Se sono presenti più controller di dominio nell'area di lavoro di OMS, verranno inviati a OMS i dati di tutti i controller.
+R: no, è necessario aggiungere un solo controller di dominio. Se sono presenti più controller di dominio nell'area di lavoro di OMS, verranno inviati a OMS i dati di tutti i controller.
 
 **D: Non intendo aggiungere controller di dominio all'area di lavoro di OMS. È possibile usare comunque la soluzione Stato replica di Active Directory?**
 A: Sì. È possibile impostare il valore di una chiave del Registro di sistema per abilitare questa opzione. Vedere [Per abilitare un controller non di dominio per l'invio di dati di Active Directory a OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 **D: come si chiama il processo che esegue la raccolta dati?**
- R: AdvisorAssessment.exe
+R: AdvisorAssessment.exe
 
 **D: quanto tempo occorre per la raccolta dati?**
- R: il tempo necessario per la raccolta dati dipende dalle dimensioni dell'ambiente Active Directory, ma in genere è inferiore a 15 minuti.
+R: il tempo necessario per la raccolta dati dipende dalle dimensioni dell'ambiente Active Directory, ma in genere è inferiore a 15 minuti.
 
 **D: quali tipi di dati vengono raccolti?**
- R: le informazioni di replica vengono raccolte tramite LDAP.
+R: le informazioni di replica vengono raccolte tramite LDAP.
 
 **D: è possibile definire la data/ora per la raccolta dati?**
- R: attualmente non è possibile.
+R: attualmente non è possibile.
 
 **D: quali autorizzazioni sono necessarie per raccogliere i dati?**
- R: le normali autorizzazioni utente in Active Directory sono in genere sufficienti.
+R: le normali autorizzazioni utente in Active Directory sono in genere sufficienti.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Risolvere i problemi di raccolta dati
 Per raccogliere i dati, il pacchetto della soluzione Stato replica di Active Directory richiede la connessione di almeno un controller di dominio all'area di lavoro di OMS. Fino a quel momento verrà visualizzato un messaggio che indica che **la raccolta dati è in corso**.
@@ -153,6 +153,6 @@ Se non si intende connettere i controller di dominio direttamente a OMS o SCOM, 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

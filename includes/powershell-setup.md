@@ -1,24 +1,27 @@
 ---
 services: virtual-machines
-title: Setting up PowerShell
+title: Configurazione di PowerShell
 author: JoeDavies-MSFT
-solutions: ''
+solutions: 
 manager: timlt
 editor: tysonn
-
 ms.service: virtual-machines
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: ''
+ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 05/12/2015
 ms.author: rasquill
+translationtype: Human Translation
+ms.sourcegitcommit: b3fd172d8dc468780d483821d7067c053e39968e
+ms.openlocfilehash: 19c704d965ff3e2fc9ac8c5b623aeb386cb0b974
+
 
 ---
-## Configurazione di PowerShell
+## <a name="setting-up-powershell"></a>Configurazione di PowerShell
 Prima di usare Azure PowerShell, seguire questi passaggi.
 
-### Verificare le versioni di PowerShell
+### <a name="verify-powershell-versions"></a>Verificare le versioni di PowerShell
 Per poter usare Windows PowerShell, è necessario disporre di Windows PowerShell versione 3.0 o 4.0. Per individuare la versione di Windows PowerShell, digitare il comando seguente al prompt dei comandi di Windows PowerShell.
 
     $PSVersionTable
@@ -35,7 +38,7 @@ Dovrebbe essere visualizzata una schermata analoga alla seguente.
     PSCompatibleVersions           {1.0, 2.0, 3.0}
     PSRemotingProtocolVersion      2.2
 
-Verificare che il valore di **PSVersion** sia 3.0 o 4.0. Per installare una versione compatibile, vedere [Windows Management Framework 3.0 ](http://www.microsoft.com/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+Verificare che il valore di **PSVersion** sia 3.0 o 4.0. Per installare una versione compatibile, vedere [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
 È necessario disporre anche di Azure PowerShell versione 0.8.0 o successiva. Per verificare quale versione di Azure PowerShell è installata, è possibile utilizzare il comando del relativo prompt di Microsoft PowerShell.
 
@@ -47,10 +50,10 @@ Dovrebbe essere visualizzata una schermata analoga alla seguente.
     -------
     0.8.16.1
 
-Per istruzioni e un collegamento alla versione più recente, vedere l'argomento relativo alla [modalità di installazione e configurazione di Azure PowerShell](../articles/powershell-install-configure.md).
+Per istruzioni e un collegamento alla versione più recente, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-### Impostare l'account e la sottoscrizione di Azure
-Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+### <a name="set-your-azure-account-and-subscription"></a>Impostare l'account e la sottoscrizione di Azure
+Se non si ha già una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Aprire un prompt dei comandi di Azure PowerShell e usare il comando seguente per accedere ad Azure.
 
@@ -78,6 +81,11 @@ Per impostare la sottoscrizione di Azure corrente, eseguire i comandi seguenti a
     $subscr="<SubscriptionName from the display of Get-AzureSubscription>"
     Select-AzureSubscription -SubscriptionName $subscr -Current    
 
-Per altre informazioni su sottoscrizioni e account di Azure, vedere [Procedura: Connettersi alla sottoscrizione](../articles/powershell-install-configure.md#Connect).
+Per altre informazioni su sottoscrizioni e account di Azure, vedere [Procedura: Connettersi alla sottoscrizione](/powershell/azureps-cmdlets-docs#Connect).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Jan17_HO3-->
+
+

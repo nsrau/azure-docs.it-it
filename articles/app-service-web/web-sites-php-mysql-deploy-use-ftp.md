@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 93cfd92687fdcad3f1f593a5c5c098850af4762f
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 134239990df959fe2657340eca4f2a8bf646a7b0
 
 
 ---
 # <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-ftp"></a>Creazione di un'app Web PHP-MySQL in Servizio app di Azure e distribuzione tramite FTP
-Questa esercitazione illustra come creare un'app Web di Azure PHP-MySQL e distribuirla tramite FTP. A tale scopo si presuppone che [PHP][install-php], [MySQL][install-mysql], un server Web e un client FTP siano installati sul computer. Le istruzioni di questa esercitazione possono essere eseguite in qualsiasi sistema operativo, tra cui Windows, Mac e Linux. Dopo aver completato questa guida, si disporrà dell'app Web PHP/MySQL in esecuzione in Azure.
+Questa esercitazione illustra come creare un'app Web di Azure PHP-MySQL e distribuirla tramite FTP. A tale scopo, si presuppone che nel computer siano installati [PHP][install-php], [MySQL][install-mysql], un server Web e un client FTP. Le istruzioni di questa esercitazione possono essere eseguite in qualsiasi sistema operativo, tra cui Windows, Mac e Linux. Dopo aver completato questa guida, si disporrà dell'app Web PHP/MySQL in esecuzione in Azure.
 
 Si acquisiranno le nozioni seguenti:
 
@@ -33,14 +33,14 @@ Seguendo questa esercitazione, verrà creata una semplice app Web di registrazio
 ![Sito Web PHP di Azure][running-app]
 
 > [!NOTE]
-> Per iniziare a utilizzare Servizio app di Azureprima di registrare un account di Azure, andare alla pagina di [prova di Servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare immediatamente un'app Web temporanea in Servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo. 
+> Per iniziare a utilizzare Servizio app di Azureprima di registrare un account di Azure, andare alla pagina di [prova di Servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare immediatamente un'app Web temporanea in Servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo. 
 > 
 > 
 
 ## <a name="create-a-web-app-and-set-up-ftp-publishing"></a>Creare un'app Web e configurare la pubblicazione FTP
 Per creare un'app Web e un database MySQL, attenersi alla procedura seguente:
 
-1. Accedere al portale di [Azure][management-portal].
+1. Eseguire l'accesso al [portale di Azure][management-portal].
 2. Fare clic sull'icona **+Nuovo** nella parte superiore sinistra del portale di Azure.
    
     ![Creazione di un nuovo sito Web di Azure][new-website]
@@ -197,7 +197,7 @@ Per creare ed eseguire l'app in locale, attenersi alla procedura seguente. Si no
             echo "<h3>No one is currently registered.</h3>";
         }
 
-È possibile passare a [http://localhost/registration/index.php][localhost-index] per testare l'app.
+A questo punto è possibile passare a [http://localhost/registration/index.php][localhost-index] per testare l'applicazione.
 
 ## <a name="get-mysql-and-ftp-connection-information"></a>Recupero di informazioni sulla connessione a MySQL ed FTP
 Per connettersi al database MySQL in esecuzione in App Web, saranno necessarie le informazioni sulla connessione. Per recuperare le informazioni sulla connessione a MySQL, attenersi alla procedura seguente:
@@ -276,6 +276,6 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

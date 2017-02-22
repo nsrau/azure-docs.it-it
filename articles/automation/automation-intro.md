@@ -87,6 +87,6 @@ Sono disponibili numerose risorse per approfondire la conoscenza di Automazione 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

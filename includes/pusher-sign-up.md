@@ -1,21 +1,21 @@
 Il primo passaggio consiste nel creare un nuovo account da utilizzare per l'esercitazione. Il piano sandbox gratuito è ideale per questa esercitazione.
 
-### Per iscriversi e ottenere un account Pusher
-1. Accedere al [portale di gestione di Azure][portale di gestione di Azure].
+### <a name="to-sign-up-for-a-pusher-account"></a>Per iscriversi e ottenere un account Pusher
+1. Accedere al [portale di gestione di Azure][Azure Management Portal].
 2. Nel riquadro inferiore del portale di gestione fare clic su **New**.
    
     ![command-bar-new][command-bar-new]
 3. Fare clic su **Store**.
    
     ![pusher-store][pusher-store]
-4. Nella finestra di dialogo **Choose an Add-on** selezionare **Pusher** e fare clic sulla freccia destra.
-5. Nella finestra di dialogo **Personalize Add-on** selezionare il piano **Pusher** a cui si desidera iscriversi.
-6. Immettere un nome per identificare il servizio **Pusher** nelle impostazioni di Azure, oppure utilizzare il valore predefinito di **Pusher**. I nomi devono essere composti da un numero di caratteri compreso tra 1 e 100 e possono includere solo caratteri alfanumerici, trattini, punti e caratteri di sottolineatura. Il nome deve essere univoco nell'elenco di elementi di Azure Store sottoscritti.
+4. Nella finestra di dialogo **Scegliere un componente aggiuntivo** selezionare **Pusher** e fare clic sulla freccia destra.
+5. Nella finestra di dialogo **Personalizza componente aggiuntivo** selezionare il piano di **Pusher** a cui ci si vuole iscrivere.
+6. Immettere un nome per identificare il servizio **Pusher** nelle impostazioni di Azure oppure usare il valore predefinito **Pusher**. I nomi devono essere composti da un numero di caratteri compreso tra 1 e 100 e possono includere solo caratteri alfanumerici, trattini, punti e caratteri di sottolineatura. Il nome deve essere univoco nell'elenco di elementi di Azure Store sottoscritti.
    
     ![store-screen-1][store-screen-1]
-7. Scegliere un valore per l'area, ad esempio Stati Uniti occidentali.
+7. Scegliere un valore per l'area, ad esempio Stati Uniti occidentali. 
 8. Fare clic sulla freccia destra.
-9. Nella scheda **Review Purchase** rivedere le informazioni sul piano e sui prezzi e consultare le note legali. Per accettare le condizioni, fare clic sul segno di spunta. Dopo aver fatto clic sul segno di spunta, l'account Pusher inizierà il processo di provisioning.
+9. Nella scheda **Review Purchase** rivedere le informazioni sul piano e sui prezzi e consultare le note legali. Per accettare le condizioni, fare clic sul segno di spunta. Dopo aver fatto clic sul segno di spunta, l'account Pusher inizierà il processo di provisioning. 
    
    ![store-screen-2][store-screen-2]
 10. Dopo la conferma dell'acquisto, si verrà reindirizzati al dashboard dei componenti aggiuntivi e verrà visualizzato il messaggio **Purchasing Pusher**.
@@ -30,7 +30,7 @@ Per modificare il piano di sottoscrizione o visualizzare le impostazioni di cont
 
 Quando si utilizza Pusher è necessario fornire le impostazioni di connessione dell'app Pusher in uso.
 
-### Per trovare le impostazioni di connessione Pusher
+### <a name="to-find-your-pusher-connection-settings"></a>Per trovare le impostazioni di connessione Pusher
 1. Fare clic su **Connection Info**.
    
     ![pusher-connection-info-button][pusher-connection-info-button]
@@ -38,7 +38,7 @@ Quando si utilizza Pusher è necessario fornire le impostazioni di connessione d
    
     ![pusher-connection-info][pusher-connection-info]
 
-Per ulteriori informazioni su come iniziare con Pusher, vedere [Informazioni su Pusher][Informazioni su Pusher].
+Per altre informazioni su come iniziare a usare Pusher, vedere [Understanding Pusher][Understanding Pusher] (Informazioni su Pusher).
 
 <!--images-->
 
@@ -53,7 +53,11 @@ Per ulteriori informazioni su come iniziare con Pusher, vedere [Informazioni su 
 
 <!--Links-->
 
-[portale di gestione di Azure]: https://manage.windowsazure.com
-[Informazioni su Pusher]: http://pusher.com/docs
+[Azure Management Portal]: https://manage.windowsazure.com
+[Understanding Pusher]: http://pusher.com/docs
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

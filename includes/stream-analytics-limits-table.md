@@ -1,24 +1,4 @@
 ---
-title: Tabella dei limiti di Analisi di flusso
-description: Descrive i limiti di sistema e le dimensioni consigliate per i componenti e le connessioni di Analisi di flusso.
-services: stream-analytics
-documentationcenter: NA
-author: jeffstokes72
-manager: paulettm
-editor: cgronlun
-ms.service: stream-analytics
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: big-data
-ms.date: 07/25/2016
-ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: e664ce9426a2852a35dfdade5d41a9ce8b37a3b7
-ms.openlocfilehash: b4cfc4663dbef820c866846d65b9fa8512c7dcff
-
-
----
 | Identificatore limite | Limite | Commenti |
 | --- | --- | --- |
 | Numero massimo di unità di streaming per sottoscrizione per area |50 |Per richiedere un aumento delle unità di streaming per la sottoscrizione a oltre 50 è possibile contattare il [supporto Microsoft](https://support.microsoft.com/en-us). |
@@ -27,10 +7,10 @@ ms.openlocfilehash: b4cfc4663dbef820c866846d65b9fa8512c7dcff
 | Numero massimo di output per processo |60 |Esiste un limite rigido di 60 output per il processo di Analisi di flusso. |
 | Numero massimo di funzioni per processo |60 |Esiste un limite rigido di 60 funzioni per il processo di Analisi di flusso. |
 | Numero massimo di processi per area |1500 |Per ogni sottoscrizione può esserci un massimo di 1.500 processi per area geografica. |
+| BLOB di dati di riferimento - MB | 100 | Un BLOB di dati di riferimento non può essere maggiore di 100 MB. |
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

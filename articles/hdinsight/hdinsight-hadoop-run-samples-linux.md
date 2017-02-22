@@ -1,6 +1,6 @@
 ---
-title: Eseguire esempi di MapReduce in Hadoop in HDInsight basato su Linux | Documentazione Microsoft
-description: Introduzione all&quot;uso di esempi MapReduce con HDInsight basato su Linux. Usare SSH per connettersi al cluster, quindi usare il comando di Hadoop per eseguire i processi di esempio.
+title: Eseguire esempi di MapReduce in HDInsight | Documentazione Microsoft
+description: Introduzione all&quot;uso di esempi MapReduce con HDInsight. Usare SSH per connettersi al cluster, quindi usare il comando di Hadoop per eseguire i processi di esempio.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,22 +13,27 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8e9cf3d1a2ae950f4f843458ae8b22d99beddd7e
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: b3c56871ec23c7595d18006943be19c38d2fb5c9
 
 
 ---
 # <a name="run-the-hadoop-samples-in-hdinsight"></a>Eseguire gli esempi di Hadoop in HDInsight
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-I cluster HDInsight basati su Linux forniscono una serie di esempi MapReduce che è possibile usare per acquisire familiarità con l'esecuzione di processi Hadoop MapReduce. Questo documento descrive gli esempi disponibili e illustra l'esecuzione di alcuni di essi.
+I cluster HDInsight forniscono un set di esempi MapReduce che è possibile usare per acquisire familiarità con l'esecuzione di processi Hadoop MapReduce. Questo documento descrive gli esempi disponibili e illustra l'esecuzione di alcuni di essi.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* **Sottoscrizione di Azure**: vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
+
+
 * **Un cluster HDInsight basato su Linux**: vedere [Introduzione all'uso di Hadoop con Hive in HDInsight in Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
+
+  > [!IMPORTANT]
+  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * **Un client SSH**: per informazioni sull'uso di SSH con HDInsight, vedere gli articoli seguenti:
   
   * [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -170,7 +175,7 @@ Usare il comando seguente per eseguire l'esempio. Usa 16 mappe con 10.000.000 di
 
 Il valore restituito dovrebbe essere simile a **3,14159155000000000000**. A scopo di riferimento, le prime 10 cifre decimali del pi greco sono 3,1415926535.
 
-## <a name="10gb-greysort"></a>Greysort da 10 GB
+## <a name="10gb-greysort"></a>Greysort da&10; GB
 GraySort è un ordinamento benchmark che usa come metrica la velocità di ordinamento (TB/minuto) ottenuta durante l'ordinamento di quantità di dati molto elevate, in genere almeno 100 TB.
 
 In questo esempio vengono usati solo 10 GB di dati, in modo da consentire un'esecuzione relativamente rapida. Vengono usate le applicazioni MapReduce sviluppate da Owen O'Malley e Arun Murthy, vincitrici del benchmark annuale di ordinamento generico di terabyte ("daytona") nel 2009 con una velocità pari a 0,578 TB/min (100 TB in 173 minuti). Per ulteriori informazioni su questo e su altri benchmark di ordinamento, vedere il sito [Sortbenchmark](http://sortbenchmark.org/) .
@@ -224,6 +229,6 @@ In questo articolo si è appreso come eseguire gli esempi inclusi nei cluster HD
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

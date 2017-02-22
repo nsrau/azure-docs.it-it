@@ -13,14 +13,12 @@ ms.workload: identity
 ms.date: 12/05/2016
 ms.author: joroja
 translationtype: Human Translation
-ms.sourcegitcommit: 0475c0f209cde80177df7dbf23eaf8dd17a44752
-ms.openlocfilehash: b5754a08e0683344cc97bdc664ed26ef9a9cf34d
+ms.sourcegitcommit: 10bcd51746315d80cef20592b869dca95eaacb56
+ms.openlocfilehash: a460ef42dafac04088ecdce12f64ee5e19ba77ff
 
 
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-b2c-tenant-to-pay-for-usage-charges"></a>Collegamento di una sottoscrizione di Azure a un tenant di Azure B2C per pagare gli addebiti per l'utilizzo
-> [!IMPORTANT]
-> Presto disponibile. Questa funzionalità non è disponibile per tutti i tenant B2C.
 
 I costi per l'utilizzo in corso di Azure Active Directory B2C (o Azure AD B2C) vengono addebitati a una sottoscrizione di Azure. Dopo la creazione del tenant B2C, l'amministratore del tenant Azure AD B2C deve collegarlo in modo esplicito a una sottoscrizione di Azure.  Questo collegamento viene realizzato mediante la creazione di una risorsa "Tenant B2C" di Azure AD B2C nella sottoscrizione di Azure di destinazione. È possibile collegare più tenant B2C a una singola sottoscrizione di Azure insieme ad altre risorse di Azure, come macchine virtuali, archivio dati o app per la logica.
 
@@ -69,6 +67,9 @@ Facendo clic sulla risorsa Tenant B2C è possibile:
 
 ![Impostazioni della risorsa B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
+## <a name="known-issues"></a>Problemi noti
+- Eliminazione del tenant B2C. Se un tenant B2C viene creato, eliminato e ricreato con lo stesso nome di dominio, è necessario eliminare e ricreare anche la risorsa "Collegamento" con lo stesso nome di dominio.  La risorsa "Collegamento" si trova in "Tutte le risorse" nel tenant di sottoscrizione mediante il portale di Azure.
+- Restrizione autoimposta nel percorso di risorse regionali.  In rari casi, un utente potrebbe aver stabilito una restrizione regionale per la creazione di risorse di Azure.  Questa restrizione può impedire la creazione del collegamento tra una sottoscrizione di Azure e un tenant B2C. Per attenuate il problema, ridurre questa restrizione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver completato questa procedura per ogni tenant B2C, i costi vengono addebitati alla sottoscrizione di Azure in base al Contratto Enterprise o Azure Direct.
@@ -84,6 +85,6 @@ Dopo aver completato questa procedura per ogni tenant B2C, i costi vengono addeb
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

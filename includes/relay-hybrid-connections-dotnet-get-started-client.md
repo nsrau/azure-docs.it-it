@@ -6,7 +6,7 @@
 2. Fare clic sulla scheda **Sfoglia**, quindi cercare "Microsoft.Azure.Relay" e selezionare l'elemento **Inoltro di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione, quindi chiudere questa finestra di dialogo.
 
 ### <a name="write-some-code-to-send-messages"></a>Scrivere codice per inviare messaggi
-1. Aggiungere le istruzioni `using` seguenti all'inizio del file Program.cs.
+1. Sostituire le istruzioni `using` esistenti all'inizio del file Program.cs con le istruzioni seguenti:
    
     ```csharp
     using System;
@@ -23,7 +23,7 @@
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. Aggiungere alla classe `Program` un nuovo metodo come il seguente:
+3. Aggiungere il nuovo metodo seguente alla classe `Program`:
    
     ```csharp
     private static async Task RunAsync()
@@ -176,6 +176,6 @@
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

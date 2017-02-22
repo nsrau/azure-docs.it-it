@@ -1,5 +1,5 @@
 ---
-title: 'Controllo degli accessi in base al ruolo: ruoli predefiniti | Microsoft Docs'
+title: Azioni consentite e non consentite per i ruoli nel controllo degli accessi in base al ruolo di Azure | Documentazione Microsoft
 description: Questo argomento descrive i ruoli predefiniti per il controllo degli accessi in base al ruolo.
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/25/2016
+ms.date: 01/31/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 386e8479a64af20469e3e03180348f674b08ef8f
+ms.sourcegitcommit: becd7fbcfa094257408ed96eda0c62deefceb44d
+ms.openlocfilehash: 59067ef58d276265e0431119986774ff14212067
 
 
 ---
@@ -28,14 +28,17 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 
 > [!NOTE]
 > Le definizioni dei ruoli di Azure sono in continua evoluzione. Questo articolo viene aggiornato il più possibile, ma le definizioni dei ruoli più recenti sono sempre disponibili in Azure PowerShell. Usare i cmdlet `(get-azurermroledefinition "<role name>").actions` o `(get-azurermroledefinition "<role name>").notactions` applicabili.
-> 
-> 
+>
+>
 
 | Nome del ruolo | Descrizione |
 | --- | --- |
 | [Collaboratore servizio Gestione API](#api-management-service-contributor) |È in grado di gestire i servizi Gestione API |
 | [Collaboratore componente di Application Insights](#application-insights-component-contributor) |È in grado di gestire i componenti di Application Insights |
 | [Operatore di automazione](#automation-operator) |È in grado di avviare, arrestare, sospendere e riprendere i processi |
+| [Collaboratore di backup](#backup-contributor) | Consente di gestire il backup nell'insieme di credenziali dei Servizi di ripristino |
+| [Operatore di backup](#backup-operator) | Consente di gestire il backup, ad eccezione della rimozione del backup, nell'insieme di credenziali dei Servizi di ripristino |
+| [Lettore di backup](#backup-reader) | Consente di visualizzare tutti i servizi di gestione di backup  |
 | [Collaboratore BizTalk](#biztalk-contributor) |È in grado di gestire i servizi BizTalk |
 | [Collaboratore database ClearDB MySQL](#cleardb-mysql-db-contributor) |È in grado di gestire i database ClearDB MySQL |
 | [Collaboratore](#contributor) |È in grado di gestire tutto ad eccezione degli accessi. |
@@ -117,6 +120,98 @@ Nelle tabelle seguenti vengono descritte le autorizzazioni specifiche assegnate 
 | Microsoft.Resources/deployments/* |Creare e gestire distribuzioni di gruppi di risorse |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leggere gruppi di risorse |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
+
+### <a name="backup-contributor"></a>Collaboratore di backup
+Consente di gestire tutte le azioni per la gestione del backup, ad eccezione della creazione dell'insieme di credenziali di Servizi di ripristino e l'accesso ad altri utenti
+
+| **Actions** | |
+| --- | --- |
+| Microsoft.Network/virtualNetworks/read | Leggere reti virtuali |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | Consente di gestire i risultati dell'operazione sulla gestione del backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/* | Consente di creare e gestire i contenitori di backup all'interno delle infrastrutture di backup dell'insieme di credenziali dei Servizi di ripristino |
+| Microsoft.RecoveryServices/Vaults/backupJobs/* | Consente di creare e gestire i processi di backup |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Consente di esportare i processi di backup in un file Excel |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Consente di creare e gestire i metadati relativi alla gestione di backup |
+| Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Consente di creare e gestire i risultati delle operazioni di gestione di backup |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/* | Consente di creare e gestire i criteri di backup |
+| Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Consente di creare e gestire gli elementi su cui è possibile eseguire il backup |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/* | Consente di creare e gestire gli elementi su cui è stato eseguito il backup |
+| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/* | Consente di creare e gestire i contenitori che contengono gli elementi di backup |
+| Microsoft.RecoveryServices/Vaults/certificates/* | Consente di creare e gestire i certificati relativi al backup nell'insieme di credenziali dei Servizi di ripristino |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Consente di creare e gestire informazioni estese relative all'insieme di credenziali | 
+| Microsoft.RecoveryServices/Vaults/read | Consente di leggere l'insieme di credenziali dei servizi di ripristino |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/* | Consente di gestire le operazioni di individuazione per il recupero dei nuovi contenitori creati |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Consente di creare e gestire le identità registrate |
+| Microsoft.RecoveryServices/Vaults/usages/* | Consente di creare e gestire l'uso dell'insieme di credenziali dei Servizi di ripristino |
+| Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse |
+| Microsoft.Storage/storageAccounts/read | Leggere account di archiviazione |
+| Microsoft.Support/* |Creare e gestire ticket di supporto |
+
+### <a name="backup-operator"></a>Operatore di backup
+Consente di gestire tutte le azioni di gestione dei backup, ad eccezione della creazione dell'insieme di credenziali, della rimozione del backup e dell'accesso ad altri utenti
+
+| **Actions** | |
+| --- | --- |
+| Microsoft.Network/virtualNetworks/read | Leggere reti virtuali |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Consente di leggere i risultati dell'operazione nella gestione dei backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Consente di leggere i risultati di un'operazione di lettura nei contenitori di protezione |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Consente di eseguire l'operazione di backup su richiesta su un elemento su cui è stato eseguito il backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Consente di leggere il risultato dell'operazione eseguita su un elemento su cui è stato eseguito il backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationStatus/read | Consente di leggere l'operazione eseguita su un elemento su cui è stato eseguito il backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Consente di leggere gli elementi su cui è stato eseguito il backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Consente di leggere il punto di ripristino di un elemento su cui è stato eseguito il backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Consente di eseguire un'operazione di ripristino usando un punto di ripristino di un elemento su cui è stato eseguito il backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Consente di creare un elemento di backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Consente di leggere i contenitori che contengono l'elemento di backup |
+| Microsoft.RecoveryServices/Vaults/backupJobs/* | Consente di creare e gestire i processi di backup |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Consente di esportare i processi di backup in un file Excel |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Consente di leggere i metadati relativi alla gestione di backup |
+| Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Consente di creare e gestire i risultati delle operazioni di gestione di backup |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Consente di leggere i risultati delle operazioni eseguite sui criteri di backup |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/read | Consente di leggere i criteri di backup |
+| Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Consente di creare e gestire gli elementi su cui è possibile eseguire il backup |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Consente di leggere gli elementi su cui è stato eseguito il backup |
+| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Consente di leggere i contenitori su cui è stato eseguito il backup che contengono gli elementi di backup |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Consente di leggere informazioni estese relative all'insieme di credenziali | 
+| Microsoft.RecoveryServices/Vaults/extendedInformation/write | Consente di scrivere informazioni estese relative all'insieme di credenziali | 
+| Microsoft.RecoveryServices/Vaults/read | Consente di leggere l'insieme di credenziali dei servizi di ripristino |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/* | Consente di gestire le operazioni di individuazione per il recupero dei nuovi contenitori creati |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Consente di leggere i risultati dell'operazione eseguita sugli elementi registrati dell'insieme di credenziali |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Consente di leggere gli elementi registrati dell'insieme di credenziali |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/write | Consente di scrivere gli elementi registrati nell'insieme di credenziali |
+| Microsoft.RecoveryServices/Vaults/usages/read | Consente di leggere l'uso dell'insieme di credenziali dei Servizi di ripristino |
+| Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Leggere gruppi di risorse |
+| Microsoft.Storage/storageAccounts/read | Leggere account di archiviazione |
+| Microsoft.Support/* | Creare e gestire ticket di supporto |
+
+### <a name="backup-reader"></a>Lettore di backup
+Consente di monitorare la gestione di backup nell'insieme di credenziali dei Servizi di ripristino
+
+| **Actions** | |
+| --- | --- |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read  | Consente di leggere i risultati dell'operazione nella gestione dei backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read  | Consente di leggere i risultati di un'operazione di lettura nei contenitori di protezione |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read  | Consente di leggere il risultato dell'operazione eseguita su un elemento su cui è stato eseguito il backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationStatus/read  | Consente di leggere l'operazione eseguita su un elemento su cui è stato eseguito il backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read  | Consente di leggere gli elementi su cui è stato eseguito il backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read  | Consente di leggere i contenitori che contengono l'elemento di backup |
+| Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read  | Consente di leggere i risultati dei processi di backup |
+| Microsoft.RecoveryServices/Vaults/backupJobs/read  | Consente di leggere i processi di backup |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Consente di esportare i processi di backup in un file Excel |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read  | Consente di leggere i metadati relativi alla gestione di backup |
+| Microsoft.RecoveryServices/Vaults/backupOperationResults/read  | Consente di leggere i risultati dell'operazione di gestione di backup |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read  | Consente di leggere i risultati delle operazioni eseguite sui criteri di backup |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/read  | Consente di leggere i criteri di backup |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/read  |  Consente di leggere gli elementi su cui è stato eseguito il backup |
+| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read  | Consente di leggere i contenitori su cui è stato eseguito il backup che contengono gli elementi di backup |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Consente di leggere informazioni estese relative all'insieme di credenziali |
+| Microsoft.RecoveryServices/Vaults/read  | Consente di leggere l'insieme di credenziali dei servizi di ripristino |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/read  | Consente di leggere i risultati delle operazioni di individuazione per il recupero dei nuovi contenitori creati |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Consente di leggere i risultati dell'operazione eseguita sugli elementi registrati dell'insieme di credenziali |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Consente di leggere gli elementi registrati dell'insieme di credenziali |
+| Microsoft.RecoveryServices/Vaults/usages/read  |  Consente di leggere l'uso dell'insieme di credenziali dei Servizi di ripristino |
 
 ### <a name="biztalk-contributor"></a>Collaboratore BizTalk
 È in grado di gestire i servizi BizTalk
@@ -555,7 +650,6 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Cicli in SQL Data Warehouse | Documentazione Microsoft
+title: Sfruttare cicli T-SQL in Azure SQL Data Warehouse | Documentazione Microsoft
 description: Suggerimenti sui di cicli Transact-SQL e sulla sostituzione di cursori in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 41bb17ccd175506d4436eff985c52d46fa594576
+ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
+ms.openlocfilehash: d6409f1eb87787e5e023aa53b7b264116c9d8026
 
 
 ---
@@ -72,12 +72,12 @@ DROP TABLE #tbl;
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altri suggerimenti sullo sviluppo, vedere la [panoramica sullo sviluppo][panoramica sullo sviluppo].
+Per altri suggerimenti sullo sviluppo, vedere la [panoramica dello sviluppo][development overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[panoramica sullo sviluppo]: sql-data-warehouse-overview-develop.md
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [WHILE]: https://msdn.microsoft.com/library/ms178642.aspx
@@ -87,6 +87,6 @@ Per altri suggerimenti sullo sviluppo, vedere la [panoramica sullo sviluppo][pan
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

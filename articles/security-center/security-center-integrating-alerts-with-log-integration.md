@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: f946ef41f0fc5ab39351d85c37ed24715b92b882
-ms.openlocfilehash: cd58f24c356e6d1ec0ebe77b1c336ee8370a4a9a
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: 32d26fa811f1b5b34981e40d20e6c941d5f08477
 
 
 ---
@@ -84,7 +84,7 @@ In caso di domande sull'integrazione dei log di Azure, inviare un messaggio di p
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sui log di controllo di Azure e le definizioni delle proprietà, vedere:
 
-* [Operazioni di controllo con Gestione risorse](../resource-group-audit.md)
+* [Operazioni di controllo con Gestione risorse](../azure-resource-manager/resource-group-audit.md)
 * [Elencare gli eventi di gestione in una sottoscrizione](https://msdn.microsoft.com/library/azure/dn931934.aspx) : per il recupero degli eventi del log di controllo.
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
@@ -95,6 +95,6 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

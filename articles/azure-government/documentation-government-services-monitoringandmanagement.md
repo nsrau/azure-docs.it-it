@@ -1,23 +1,22 @@
 ---
 title: Monitoraggio e gestione di Azure per enti pubblici | Microsoft Docs
 description: "Fornisce un confronto delle funzionalità e alcune linee guida sullo sviluppo di applicazioni per Azure per enti pubblici."
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: 
 ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/31/2016
+ms.date: 1/13/2017
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: 3e460dd2aaf51ef2ba9840513d236ce313320c80
-ms.openlocfilehash: 39a87bdbef7c532f9e50f1e71e9c12797bc9a33c
+ms.sourcegitcommit: ec62cc79aeffa21e5d9d772dcd2da6f973c18d81
+ms.openlocfilehash: 3d9f2308d20e723da324be7e3aec3106ff5ff846
 
 
 ---
@@ -39,14 +38,6 @@ Backup è disponibile a livello generale in Azure per enti pubblici.
 
 Per altre informazioni, vedere [Azure Government Backup](documentation-government-services-backup.md) (Backup di Azure per enti pubblici).
 
-### <a name="variations"></a>Varianti
-Le funzionalità di Backup seguenti non sono attualmente disponibili in Azure per enti pubblici:
-
-* Insieme di credenziali di Azure Resource Manager
-* Gestione tramite il Portale di Azure (è supportato il portale di Azure classico)
-
-Gli URL per Backup sono diversi in Azure per enti pubblici:
-
 ## <a name="site-recovery"></a>Site Recovery
 Site Recovery (ASR) è disponibile a livello generale in Azure per enti pubblici.
 
@@ -56,14 +47,16 @@ Per altre informazioni, vedere la [documentazione pubblica su Site Recovery](../
 Le funzionalità di Site Recovery seguenti non sono attualmente disponibili in Azure per enti pubblici:
 
 * Insieme di credenziali per il ripristino sito di Azure Resource Manager
+* Notifica tramite posta elettronica
 
-| Site Recovery | Classico | Gestione risorse | 
+| Site Recovery | Classico | Gestione risorse |
 | --- | --- | --- |
-| Server fisico/VMware  | GA | Pianificata |
-| Hyper-V | GA | Pianificata |
-| Da sito a sito | GA | Pianificata |
+| Server fisico/VMware  | GA | GA |
+| Hyper-V | GA | GA |
+| Da sito a sito | GA | GA |
 
-Note: la tabella è applicabile alla Virginia e allo Iowa. 
+>[!NOTE]
+>La tabella è valida per US Gov Virginia e US Gov Iowa.
 
 Gli URL per Azure Site Recovery sono diversi in Azure per enti pubblici:
 
@@ -74,8 +67,6 @@ Gli URL per Azure Site Recovery sono diversi in Azure per enti pubblici:
 | *.blob.core.windows.net | *.blob.core.usgovcloudapi.net | Per l'archiviazione di snapshot di VM |
 | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | Per scaricare MySQL |
 
-
-
 ## <a name="log-analytics"></a>Log Analytics
 Log Analytics è disponibile a livello generale in Azure per enti pubblici.
 
@@ -84,7 +75,7 @@ Le funzionalità e le soluzioni di Log Analytics seguenti non sono attualmente d
 
 * Soluzioni in anteprima in Microsoft Azure, tra cui:
   * Soluzione di monitoraggio della rete
-  * Soluzione Application Dependency Monitor
+  * Elenco dei servizi
   * Soluzioni di Office 365
   * Soluzione di analisi di aggiornamento di Windows 10
   * Soluzione Application Insights
@@ -127,21 +118,11 @@ Le funzionalità di Log Analytics seguenti hanno un comportamento diverso in Azu
 
 Per altre informazioni, vedere la [documentazione pubblica su Log Analytics](../log-analytics/log-analytics-overview.md).
 
-## <a name="site-recovery"></a>Site Recovery
-Site Recovery è disponibile a livello generale in Azure per enti pubblici.
-
-Per altre informazioni, vedere la [documentazione pubblica su Site Recovery](../site-recovery/site-recovery-overview.md).
-
-### <a name="variations"></a>Varianti
-Le funzionalità di Site Recovery seguenti non sono attualmente disponibili in Azure per enti pubblici:
-
-* Insieme di credenziali per il ripristino sito di Azure Resource Manager
-
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni aggiuntive e aggiornamenti, sottoscrivere il <a href="https://blogs.msdn.microsoft.com/azuregov/">blog di Microsoft Azure per enti pubblici. </a>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

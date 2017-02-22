@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 08/25/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b4168e44ad771031f880538d41604558bf1d6043
+ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
+ms.openlocfilehash: 530530952a4f69ae0a78e02cc1c079532f0c5b0f
 
 
 ---
@@ -31,61 +31,81 @@ In questo argomento viene descritto come esaminare e aggiornare la configurazion
 ## <a name="configure-redis-cache-settings"></a>Configurare le impostazioni di Cache Redis di Azure
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
 
-Cache Redis di Azure fornisce le impostazioni seguenti nel pannello **Impostazioni** .
+Cache Redis di Azure include le impostazioni seguenti nel **menu delle risorse**.
 
 ![Impostazioni di Cache Redis](./media/cache-configure/redis-cache-settings.png)
 
+* [Panoramica](#overview)
+* [Log attività](#activity-log)
+* [Controllo di accesso (IAM)](#access-control-iam)
+* [Tag](#tags)
+* [Diagnostica e risoluzione dei problemi](#diagnose-and-solve-problems)
+* [Impostazioni](#settings)
+    * [Chiavi di accesso](#access-keys)
+    * [Impostazioni avanzate](#advanced-settings)
+    * [Redis Cache Advisor](#redis-cache-advisor)
+    * [Piano tariffario](#pricing-tier)
+    * [Dimensione del cluster Redis](#cluster-size)
+    * [Persistenza dei dati Redis:](#redis-data-persistence)
+    * [Pianificare gli aggiornamenti](#schedule-updates)
+    * [Rete virtuale](#virtual-network)
+    * [Proprietà](#properties)
+    * [Blocchi](#locks)
+    * [Script di automazione](#automation-script)
+* [Amministrazione](#administration)
+    * [Importazione dei dati](#importexport)
+    * [Esportazione dei dati](#importexport)
+    * [Reboot](#reboot)
+* [Monitoraggio](#monitoring)
+    * [Metriche di Redis](#redis-metrics)
+    * [Regole di avviso](#alert-rules)
+    * [Diagnostica](#diagnostics)
 * [Supporto e impostazioni di risoluzione dei problemi](#support-amp-troubleshooting-settings)
-* [Impostazioni generali](#general-settings)
-  * [Proprietà](#properties)
-  * [Chiavi di accesso](#access-keys)
-  * [Impostazioni avanzate](#advanced-settings)
-  * [Redis Cache Advisor](#redis-cache-advisor)
-* [Impostazioni di scalabilità](#scale-settings)
-  * [Pricing tier](#pricing-tier)
-  * [Dimensione del cluster Redis](#cluster-size)
-* [Impostazioni di gestione dati](#data-management-settings)
-  * [Persistenza dei dati Redis:](#redis-data-persistence)
-  * [Importazione/Esportazione](#importexport)
-* [Impostazioni di amministrazione](#administration-settings)
-  * [Reboot](#reboot)
-  * [Pianificare gli aggiornamenti](#schedule-updates)
-* [Impostazioni di diagnostica](#diagnostics-settings)
-* [Impostazioni di rete](#network-settings)
-* [Impostazioni di gestione delle risorse](#resource-management-settings)
+    * [Integrità delle risorse](#resource-health)
+    * [Nuova richiesta di supporto](#new-support-request)
 
-## <a name="support--troubleshooting-settings"></a>Supporto e impostazioni di risoluzione dei problemi
-Le impostazioni nella sezione **Supporto e risoluzione dei problemi** forniscono le opzioni per risolvere i problemi della cache.
 
-![Supporto e risoluzione dei problemi](./media/cache-configure/redis-cache-support-troubleshooting.png)
+## <a name="overview"></a>Panoramica
+
+**Panoramica** include le informazioni di base sulla cache, ad esempio nome, porte, piano tariffario e le metriche della cache selezionata.
+
+### <a name="activity-log"></a>Log attività
+
+Fare clic su **Log attività** per visualizzare le operazioni eseguite nella cache. È possibile inoltre utilizzare il filtro per espandere la visualizzazione in modo da includere altre risorse. Per altre informazioni sull'uso dei log di controllo, vedere [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) (Visualizzare eventi e log di controllo) e [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md) (Operazioni di controllo con Resource Manager). Per altre informazioni sul monitoraggio degli eventi di Cache Redis di Azure, vedere [Operazioni e avvisi](cache-how-to-monitor.md#operations-and-alerts).
+
+### <a name="access-control-iam"></a>Controllo di accesso (IAM)
+
+La sezione **Controllo di accesso (IAM)** fornisce il supporto per il controllo degli accessi in base al ruolo (RBAC) nel portale di Azure per aiutare le organizzazioni a soddisfare i requisiti di gestione degli accessi in maniera semplice e precisa. Per altre informazioni, vedere [Controllo di accesso in base al ruolo nel portale di Azure](../active-directory/role-based-access-control-configure.md).
+
+### <a name="tags"></a>Tag
+
+La sezione **Tag** consente di organizzare le risorse. Per altre informazioni, vedere [Uso dei tag per organizzare le risorse di Azure](../azure-resource-manager/resource-group-using-tags.md).
+
+
+### <a name="diagnose-and-solve-problems"></a>Diagnostica e risoluzione dei problemi
 
 Fare clic su **Diagnostica e risoluzione dei problemi** per conoscere i problemi comuni e le strategie per risolverli.
 
-Fare clic su **Log attività** per visualizzare le operazioni eseguite nella cache. È possibile inoltre utilizzare il filtro per espandere la visualizzazione in modo da includere altre risorse. Per altre informazioni sull'uso dei log di controllo, vedere [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) (Visualizzare eventi e log di controllo) e [Audit operations with Resource Manager](../resource-group-audit.md) (Operazioni di controllo con Resource Manager). Per altre informazioni sul monitoraggio degli eventi di Cache Redis di Azure, vedere [Operazioni e avvisi](cache-how-to-monitor.md#operations-and-alerts).
 
-**Integrità risorsa** esamina la risorsa e indica se viene eseguita nel modo previsto. Per altre informazioni sul servizio Integrità risorse di Azure, vedere l'articolo sulla [Panoramica su Integrità risorse di Azure](../resource-health/resource-health-overview.md).
 
-> [!NOTE]
-> Integrità risorsa non è attualmente in grado di segnalare l'integrità delle istanze della Cache Redis di Azure ospitate in una rete virtuale. Per altre informazioni, vedere [Tutte le funzionalità della cache funzionano quando si ospita una cache in una rete virtuale?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
-> 
-> 
+## <a name="settings"></a>Impostazioni
+La sezione **Impostazioni** consente di accedere alle impostazioni seguenti per la cache e di configurarle.
 
-Fare clic su **Nuova richiesta di supporto** per aprire una richiesta di supporto per la cache.
+![Impostazioni](./media/cache-configure/redis-cache-general-settings.png)
 
-## <a name="general-settings"></a>Impostazioni generali
-Le impostazioni nella sezione **Generale** consentono di visualizzare e configurare le impostazioni seguenti relative alla cache.
-
-![Impostazioni generali](./media/cache-configure/redis-cache-general-settings.png)
-
-* [Proprietà](#properties)
 * [Chiavi di accesso](#access-keys)
 * [Impostazioni avanzate](#advanced-settings)
 * [Redis Cache Advisor](#redis-cache-advisor)
+* [Piano tariffario](#pricing-tier)
+* [Dimensione del cluster Redis](#cluster-size)
+* [Persistenza dei dati Redis:](#redis-data-persistence)
+* [Pianificare gli aggiornamenti](#schedule-updates)
+* [Rete virtuale](#virtual-network)
+* [Proprietà](#properties)
+* [Blocchi](#locks)
+* [Script di automazione](#automation-script)
 
-### <a name="properties"></a>Proprietà
-Fare clic su **Proprietà** per visualizzare le informazioni sulla cache, incluse porte ed endpoint della cache.
 
-![Proprietà di Cache Redis](./media/cache-configure/redis-cache-properties.png)
 
 ### <a name="access-keys"></a>Chiavi di accesso
 Fare clic su **Chiavi di accesso** per visualizzare o rigenerare le chiavi di accesso per la cache. Tali chiavi vengono utilizzate insieme al nome host e alle porte indicate nel pannello **Proprietà** dai client che si connettono alla cache.
@@ -93,18 +113,18 @@ Fare clic su **Chiavi di accesso** per visualizzare o rigenerare le chiavi di ac
 ![Chiavi di accesso di Cache Redis](./media/cache-configure/redis-cache-manage-keys.png)
 
 ### <a name="advanced-settings"></a>Impostazioni avanzate
-Le impostazioni seguenti devono essere configurate nel pannello **Impostazioni avanzate** .
+Le impostazioni seguenti vengono configurate nel pannello **Impostazioni avanzate**.
 
 * [Porte di accesso](#access-ports)
 * [Maxmemory-policy e maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)
 * [Notifiche di Keyspace (impostazioni avanzate)](#keyspace-notifications-advanced-settings)
 
-### <a name="access-ports"></a>Porte di accesso
+#### <a name="access-ports"></a>Porte di accesso
 Per le nuove cache la porta senza SSL è disabilitata per impostazione predefinita. Per abilitare la porta non SSL, fare clic su **No** per **Consenti l'accesso solo tramite SSL** nel pannello **Impostazioni avanzate** e quindi fare clic su **Salva**.
 
 ![Porte di accesso di Cache Redis](./media/cache-configure/redis-cache-access-ports.png)
 
-### <a name="maxmemory-policy-and-maxmemory-reserved"></a>Maxmemory-policy e maxmemory-reserved
+#### <a name="maxmemory-policy-and-maxmemory-reserved"></a>Maxmemory-policy e maxmemory-reserved
 Le impostazioni **Criterio per la memoria massima** e **maxmemory-reserved** del pannello **Impostazioni avanzate** configurano i criteri di memoria per la cache. L'impostazione **maxmemory-policy** consente di configurare i criteri di eliminazione per la cache mentre **maxmemory-reserved** consente di configurare la memoria riservata per i processi non appartenenti alla cache.
 
 ![Criterio maxmemory di Cache Redis](./media/cache-configure/redis-cache-maxmemory-policy.png)
@@ -127,7 +147,7 @@ L'impostazione **maxmemory-reserved** consente di configurare la quantità di me
 > 
 > 
 
-### <a name="keyspace-notifications-advanced-settings"></a>Notifiche di Keyspace (impostazioni avanzate)
+#### <a name="keyspace-notifications-advanced-settings"></a>Notifiche di Keyspace (impostazioni avanzate)
 Le notifiche di Keyspace Redis possono essere configurate nel pannello **Impostazioni avanzate** . Le notifiche di Keyspace consentono ai client di ricevere notifiche quando si verificano determinati eventi.
 
 ![Impostazioni avanzate di Cache Redis](./media/cache-configure/redis-cache-advanced-settings.png)
@@ -139,10 +159,10 @@ Le notifiche di Keyspace Redis possono essere configurate nel pannello **Imposta
 
 Per altre informazioni, vedere [Notifiche di Keyspace Redis](http://redis.io/topics/notifications). Per un esempio di codice, vedere il file [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) nell'esempio di [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
 
-<a name="recommendations"></a>
 
+<a name="recommendations"></a>
 ## <a name="redis-cache-advisor"></a>Redis Cache Advisor
-Il pannello **Raccomandazioni** mostra le raccomandazioni per la cache. Durante il normale funzionamento non viene visualizzata nessuna raccomandazione. 
+Il pannello **Redis Cache Advisor** visualizza le raccomandazioni per la cache. Durante il normale funzionamento non viene visualizzata nessuna raccomandazione. 
 
 ![Raccomandazioni](./media/cache-configure/redis-cache-no-recommendations.png)
 
@@ -167,13 +187,6 @@ Ogni piano tariffario presenta diversi limiti di connessioni client, memoria e l
 
 Per aggiornare la cache, fare clic su **Aggiorna ora** per modificare il [piano tariffario](#pricing-tier) e ridimensionare la cache. Per altre informazioni su come scegliere un piano tariffario, vedere [Quali offerte e dimensioni della Cache Redis è consigliabile usare?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
-## <a name="scale-settings"></a>Impostazioni di scalabilità
-Le impostazioni nella sezione **Scalabilità** consentono di visualizzare e configurare le impostazioni seguenti relative alla cache.
-
-![Rete](./media/cache-configure/redis-cache-scale.png)
-
-* [Pricing tier](#pricing-tier)
-* [Dimensione del cluster Redis](#cluster-size)
 
 ### <a name="pricing-tier"></a>Pricing tier
 Fare clic su **Livello di prezzo** per visualizzare o modificare il livello di prezzo della cache. Per altre informazioni sulla scalabilità, vedere [Come monitorare Cache Redis di Azure](cache-how-to-scale.md).
@@ -195,17 +208,10 @@ Fare clic su **(ANTEPRIMA) dimensione del cluster Redis** per modificare la dime
 Per modificare la dimensione del cluster, usare il dispositivo di scorrimento oppure digitare un numero compreso tra 1 e 10 nella casella di testo **Numero di partizioni** e fare clic su **OK** per salvare.
 
 > [!IMPORTANT]
-> Il clustering Redis è disponibile esclusivamente per le cache Premium. Per ulteriori informazioni, vedere [Come configurare il clustering per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md).
+> Il clustering Redis è disponibile esclusivamente per le cache Premium. Per altre informazioni, vedere [Come configurare il clustering per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md).
 > 
 > 
 
-## <a name="data-management-settings"></a>Impostazioni di gestione dati
-Le impostazioni nella sezione **Gestione dati** consentono di visualizzare e configurare le impostazioni seguenti relative alla cache.
-
-![Gestione dati](./media/cache-configure/redis-cache-data-management.png)
-
-* [Persistenza dei dati Redis:](#redis-data-persistence)
-* [Importazione/Esportazione](#importexport)
 
 ### <a name="redis-data-persistence"></a>Persistenza dei dati Redis:
 Fare clic su **Persistenza dati Redis** per abilitare, disabilitare o configurare la persistenza dei dati per la cache premium.
@@ -222,47 +228,6 @@ Fare clic su **OK** per salvare la configurazione della persistenza.
 
 > [!IMPORTANT]
 > La persistenza dei dati Redis è disponibile solo per le cache Premium. Per altre informazioni, vedere [Come configurare la persistenza dei dati per una Cache Redis di Azure Premium](cache-how-to-premium-persistence.md).
-> 
-> 
-
-### <a name="importexport"></a>Importazione/Esportazione
-L'importazione/esportazione è un'operazione di gestione dati di Cache Redis di Azure che consente di importare o esportare dati da Cache Redis di Azure, importando o esportando uno snapshot del database di Cache Redis (RDB) da una cache Premium a un BLOB di pagine in un account di archiviazione di Azure. Questa operazione consente di eseguire la migrazione tra diverse istanze di Cache Redis di Azure o di popolare la cache con i dati prima dell'uso.
-
-L'importazione può essere usata per spostare i file RDB compatibili con Redis da qualsiasi server Redis in esecuzione su qualsiasi cloud o ambiente, compresi i server Redis in esecuzione su Linux, Windows o su qualsiasi provider di servizi cloud come Amazon Web Services e altri. L'importazione dei dati è un modo semplice per creare una cache con dati già popolati. Durante il processo di importazione Cache Redis di Azure carica i file RDB dall'archiviazione di Azure nella memoria e quindi inserisce le chiavi nella cache.
-
-L'esportazione consente di esportare i dati memorizzati in Cache Redis di Azure su file RDB compatibili con Redis. È possibile usare questa funzionalità per spostare i dati da un'istanza di Cache Redis di Azure a un'altra o su un altro server Redis. Durante il processo di esportazione viene creato un file temporaneo nella VM che ospita l'istanza del server Cache Redis di Azure e il file viene caricato nell'account di archiviazione designato. Quando l'operazione di esportazione viene completata con esito positivo o negativo, il file temporaneo viene eliminato.
-
-> [!IMPORTANT]
-> La funzionalità Importazione/Esportazione è disponibile solo per le cache del piano Premium. Per altre informazioni e istruzioni, vedere [Importare ed esportare dati in Cache Redis di Azure](cache-how-to-import-export-data.md).
-> 
-> 
-
-## <a name="administration-settings"></a>Impostazioni di amministrazione
-Le impostazioni della sezione **Amministrazione** consentono di eseguire le attività amministrative per la cache Premium seguenti. 
-
-![Amministrazione](./media/cache-configure/redis-cache-administration.png)
-
-* [Reboot](#reboot)
-* [Pianificare gli aggiornamenti](#schedule-updates)
-
-> [!IMPORTANT]
-> Le impostazioni descritte in questa sezione sono disponibili solo per le cache di livello Premium.
-> 
-> 
-
-### <a name="reboot"></a>Reboot
-Il pannello **Riavvia** consente di riavviare uno o più nodi della cache. Ciò consente di verificare la resilienza dell'applicazione in caso di errore.
-
-![Reboot](./media/cache-configure/redis-cache-reboot.png)
-
-Se si dispone di una cache Premium con clustering abilitato, è possibile selezionare le partizioni della cache da riavviare.
-
-![Reboot](./media/cache-configure/redis-cache-reboot-cluster.png)
-
-Per riavviare uno o più nodi della cache, selezionare i nodi desiderati e fare clic su **Riavvia**. Se si ha una cache Premium con clustering abilitato, selezionare le partizioni per riavviare il computer e quindi fare clic su **Riavvia**. Dopo alcuni minuti, i nodi selezionati si riavviano e vengono ripristinati online pochi minuti dopo.
-
-> [!IMPORTANT]
-> La funzionalità di riavvio è disponibile solo per le cache del piano Premium. Per altre informazioni e istruzioni, vedere [Come amministrare Cache Redis di Azure - Riavvia](cache-administration.md#reboot).
 > 
 > 
 
@@ -283,39 +248,118 @@ Per specificare un intervallo di manutenzione, selezionare i giorni desiderati e
 > 
 > 
 
-## <a name="diagnostics-settings"></a>Impostazioni di diagnostica
-La sezione **Diagnostica** consente di configurare la diagnostica per la cache Redis.
+
+
+## <a name="virtual-network"></a>Rete virtuale
+La sezione **Rete virtuale** consente di configurare le impostazioni della rete virtuale per la cache. Per informazioni sulla creazione di una cache di livello Premium che supporti la rete virtuale e sull'aggiornamento delle impostazioni, vedere [Come configurare il supporto di una rete virtuale per un'istanza Premium di Cache Redis di Azure](cache-how-to-premium-vnet.md).
+
+> [!IMPORTANT]
+> Le impostazioni della rete virtuale sono disponibili solo per le cache di livello Premium configurate con il supporto della rete virtuale durante la creazione della cache. 
+> 
+> 
+
+
+### <a name="properties"></a>Proprietà
+Fare clic su **Proprietà** per visualizzare le informazioni sulla cache, incluse porte ed endpoint della cache.
+
+![Proprietà di Cache Redis](./media/cache-configure/redis-cache-properties.png)
+
+### <a name="locks"></a>Blocchi
+La sezione **Blocchi** consente di bloccare una sottoscrizione, una risorsa o un gruppo di risorse per impedire che altri utenti nell'organizzazione modifichino o eliminino accidentalmente risorse strategiche. Per altre informazioni, vedere [Bloccare le risorse con Gestione risorse di Azure](../azure-resource-manager/resource-group-lock-resources.md).
+
+### <a name="automation-script"></a>Script di automazione
+
+Fare clic su **Script di automazione** per creare ed esportare un modello per le risorse distribuite da usare per future distribuzioni. Per altre informazioni sull'uso dei modelli, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+
+## <a name="administration-settings"></a>Impostazioni di amministrazione
+Le impostazioni della sezione **Amministrazione** consentono di eseguire le attività amministrative per la cache Premium seguenti. 
+
+![Amministrazione](./media/cache-configure/redis-cache-administration.png)
+
+* [Importazione dei dati](#importexport)
+* [Esportazione dei dati](#importexport)
+* [Reboot](#reboot)
+
+
+> [!IMPORTANT]
+> Le impostazioni descritte in questa sezione sono disponibili solo per le cache di livello Premium.
+> 
+> 
+
+### <a name="importexport"></a>Importazione/Esportazione
+L'importazione/esportazione è un'operazione di gestione dati di Cache Redis di Azure che consente di importare o esportare dati da Cache Redis di Azure, importando o esportando uno snapshot del database di Cache Redis (RDB) da una cache Premium a un BLOB di pagine in un account di archiviazione di Azure. Questa operazione consente di eseguire la migrazione tra diverse istanze di Cache Redis di Azure o di popolare la cache con i dati prima dell'uso.
+
+L'importazione può essere usata per spostare i file RDB compatibili con Redis da qualsiasi server Redis in esecuzione su qualsiasi cloud o ambiente, compresi i server Redis in esecuzione su Linux, Windows o su qualsiasi provider di servizi cloud come Amazon Web Services e altri. L'importazione dei dati è un modo semplice per creare una cache con dati già popolati. Durante il processo di importazione Cache Redis di Azure carica i file RDB dall'archiviazione di Azure nella memoria e quindi inserisce le chiavi nella cache.
+
+L'esportazione consente di esportare i dati memorizzati in Cache Redis di Azure su file RDB compatibili con Redis. È possibile usare questa funzionalità per spostare i dati da un'istanza di Cache Redis di Azure a un'altra o su un altro server Redis. Durante il processo di esportazione viene creato un file temporaneo nella VM che ospita l'istanza del server Cache Redis di Azure e il file viene caricato nell'account di archiviazione designato. Quando l'operazione di esportazione viene completata con esito positivo o negativo, il file temporaneo viene eliminato.
+
+> [!IMPORTANT]
+> La funzionalità Importazione/Esportazione è disponibile solo per le cache del piano Premium. Per altre informazioni e istruzioni, vedere [Importare ed esportare dati in Cache Redis di Azure](cache-how-to-import-export-data.md).
+> 
+> 
+
+### <a name="reboot"></a>Reboot
+Il pannello **Riavvia** consente di riavviare uno o più nodi della cache. Ciò consente di verificare la resilienza dell'applicazione in caso di errore.
+
+![Reboot](./media/cache-configure/redis-cache-reboot.png)
+
+Se si dispone di una cache Premium con clustering abilitato, è possibile selezionare le partizioni della cache da riavviare.
+
+![Reboot](./media/cache-configure/redis-cache-reboot-cluster.png)
+
+Per riavviare uno o più nodi della cache, selezionare i nodi desiderati e fare clic su **Riavvia**. Se si ha una cache Premium con clustering abilitato, selezionare le partizioni per riavviare il computer e quindi fare clic su **Riavvia**. Dopo alcuni minuti, i nodi selezionati si riavviano e vengono ripristinati online pochi minuti dopo.
+
+> [!IMPORTANT]
+> La funzionalità di riavvio è disponibile solo per le cache del piano Premium. Per altre informazioni e istruzioni, vedere [Come amministrare Cache Redis di Azure - Riavvia](cache-administration.md#reboot).
+> 
+> 
+
+
+## <a name="monitoring"></a>Monitoraggio
+
+La sezione **Diagnostica** consente di configurare la diagnostica e il monitoraggio per la cache Redis. Per altre informazioni sulla diagnostica e il monitoraggio di Cache Redis di Azure, vedere [Come monitorare Cache Redis di Azure](cache-how-to-monitor.md).
 
 ![Diagnostica](./media/cache-configure/redis-cache-diagnostics.png)
+
+* [Metriche di Redis](#redis-metrics)
+* [Regole di avviso](#alert-rules)
+* [Diagnostica](#diagnostics)
+
+### <a name="redis-metrics"></a>Metriche Redis
+Fare clic su **Metriche di Redis** per [visualizzare le metriche](cache-how-to-monitor.md#how-to-view-metrics-and-customize-charts) per la cache.
+
+### <a name="alert-rules"></a>Regole di avviso
+
+Fare clic su **Regole di avviso** per configurare gli avvisi in base alle metriche di Cache Redis. Per altre informazioni, vedere [Operazioni e avvisi](cache-how-to-monitor.md#operations-and-alerts).
+
+### <a name="diagnostics"></a>Diagnostica
 
 Fare clic su **Diagnostica** per [configurare l'account di archiviazione](cache-how-to-monitor.md#enable-cache-diagnostics) utilizzato per archiviare la diagnostica della cache.
 
 ![Diagnostica di Cache Redis](./media/cache-configure/redis-cache-diagnostics-settings.png)
 
-Fare clic su **Metriche di Redis** per [visualizzare le metriche](cache-how-to-monitor.md#how-to-view-metrics-and-customize-charts) per la cache e su **Regole di avviso** per [configurare le regole di avviso](cache-how-to-monitor.md#operations-and-alerts).
+## <a name="support--troubleshooting-settings"></a>Supporto e impostazioni di risoluzione dei problemi
+Le impostazioni nella sezione **Supporto e risoluzione dei problemi** forniscono le opzioni per risolvere i problemi della cache.
 
-Per altre informazioni sulla diagnostica di Cache Redis di Azure, vedere [Come monitorare Cache Redis di Azure](cache-how-to-monitor.md).
+![Supporto e risoluzione dei problemi](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
-## <a name="network-settings"></a>Impostazioni di rete
-Le impostazioni nella sezione **Rete** consentono di visualizzare e configurare le impostazioni seguenti relative alla cache.
+* [Integrità delle risorse](#resource-health)
+* [Nuova richiesta di supporto](#new-support-request)
 
-![Rete](./media/cache-configure/redis-cache-network.png)
+### <a name="resource-health"></a>Integrità delle risorse
+**Integrità risorsa** esamina la risorsa e indica se viene eseguita nel modo previsto. Per altre informazioni sul servizio Integrità risorse di Azure, vedere l'articolo sulla [Panoramica su Integrità risorse di Azure](../resource-health/resource-health-overview.md).
 
-> [!IMPORTANT]
-> Le impostazioni della rete virtuale sono disponibili solo per le cache di livello Premium configurate con il supporto della rete virtuale durante la creazione della cache. Per informazioni sulla creazione di una cache di livello Premium che supporti la rete virtuale e sull'aggiornamento delle impostazioni, vedere [Come configurare il supporto di una rete virtuale per un'istanza Premium di Cache Redis di Azure](cache-how-to-premium-vnet.md).
+> [!NOTE]
+> Integrità risorsa non è attualmente in grado di segnalare l'integrità delle istanze della Cache Redis di Azure ospitate in una rete virtuale. Per altre informazioni, vedere [Tutte le funzionalità della cache funzionano quando si ospita una cache in una rete virtuale?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 > 
 > 
 
-## <a name="resource-management-settings"></a>Impostazioni di gestione delle risorse
-![Resource management](./media/cache-configure/redis-cache-resource-management.png)
+### <a name="new-support-request"></a>Nuova richiesta di supporto
+Fare clic su **Nuova richiesta di supporto** per aprire una richiesta di supporto per la cache.
 
-La sezione **Tag** consente di organizzare le risorse. Per altre informazioni, vedere [Uso dei tag per organizzare le risorse di Azure](../resource-group-using-tags.md).
 
-La sezione **Blocchi** consente di bloccare una sottoscrizione, una risorsa o un gruppo di risorse per impedire che altri utenti nell'organizzazione modifichino o eliminino accidentalmente risorse strategiche. Per altre informazioni, vedere [Bloccare le risorse con Gestione risorse di Azure](../resource-group-lock-resources.md).
 
-La sezione **Utenti** fornisce il supporto del controllo di accesso in base al ruolo (RBAC) nel portale di Azure per aiutare le organizzazioni a soddisfare i requisiti di gestione degli accessi in maniera semplice e precisa. Per altre informazioni, vedere [Controllo di accesso in base al ruolo nel portale di Azure](../active-directory/role-based-access-control-configure.md).
 
-Fare clic su **Esporta modello** per compilare ed esportare un modello delle risorse distribuite per le distribuzioni future. Per altre informazioni sull'uso dei modelli, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../resource-group-template-deploy.md).
 
 ## <a name="default-redis-server-configuration"></a>Configurazione predefinita del server Redis
 Le nuove istanze di Cache Redis di Azure sono configurate con i seguenti valori predefiniti di configurazione di Redis.
@@ -424,7 +468,7 @@ Per un elenco dei comandi di Redis disabilitati per Cache Redis di Azure, vedere
 
 ![Spostare la cache Redis](./media/cache-configure/redis-cache-move.png)
 
-Per informazioni sullo spostamento delle risorse da un gruppo di risorse all'altro e da una sottoscrizione all'altra, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../resource-group-move-resources.md).
+Per informazioni sullo spostamento delle risorse da un gruppo di risorse all'altro e da una sottoscrizione all'altra, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../azure-resource-manager/resource-group-move-resources.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sull'uso dei comandi di Redis, vedere [Come è possibile eseguire i comandi di Redis?](cache-faq.md#how-can-i-run-redis-commands).
@@ -432,6 +476,6 @@ Per informazioni sullo spostamento delle risorse da un gruppo di risorse all'alt
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

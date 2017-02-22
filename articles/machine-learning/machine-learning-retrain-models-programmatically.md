@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: raymondl;garye;v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8544f04360c44d54b9c3e69448b6d5b29826f06c
+ms.sourcegitcommit: cd32cb7d2247676795f345448960d547eafba084
+ms.openlocfilehash: 9290258998f6756dce55a764e020fb3278c2f8a6
 
 
 ---
@@ -44,10 +44,11 @@ Per creare l'esperimento:
 5. Digitare Census Model.
 6. Fare clic su **Run**(Esegui) nella parte inferiore dell'area di disegno dell'esperimento.
 7. Fare clic su **Set Up Web service** (Configura servizio Web) e selezionare **Retraining Web service** (Servizio Web di ripetizione del training). 
+
+Di seguito viene illustrato l'esperimento iniziale.
    
    ![Esperimento iniziale.][2]
 
-Diagramma 2: esperimento iniziale.
 
 ## <a name="create-a-predictive-experiment-and-publish-as-a-web-service"></a>Creare un esperimento predittivo e pubblicarlo come servizio Web
 Ora viene creato un esperimento predicativo.
@@ -79,7 +80,7 @@ Al termine dell'esecuzione dell'esperimento, il flusso di lavoro sarà in ogni c
 
 ![Flusso di lavoro risultante dopo l'esecuzione.][4]
 
-Diagramma 3: flusso di lavoro risultante dopo l'esecuzione.
+
 
 ## <a name="retrain-the-model-with-new-data-using-bes"></a>Ripetere il training del modello con i nuovi dati usando BES
 In questo esempio viene usato C# per creare l'applicazione di ripetizione del training. Per eseguire questa attività, è anche possibile usare il codice di esempio Python o R.
@@ -185,6 +186,6 @@ Se è stato distribuito un nuovo servizio Web facendo clic su **Deploy Web Servi
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

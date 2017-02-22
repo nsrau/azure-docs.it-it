@@ -1,5 +1,5 @@
 ---
-title: Introduzione allo starter kit di Azure IoT per Adafruit Feather M0 WiFi | Documentazione Microsoft
+title: 'Connettere Arduino (C) ad Azure IoT: introduzione | Documentazione Microsoft'
 description: Introduzione ad Adafruit Feather M0 WiFi e informazioni per la creazione dell&quot;hub IoT di Azure e la connessione all&quot;hub IoT di Adafruit Feather M0 WiFi
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/13/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9e8084fe26229ef9ed1676c0a3c34e0ee7be88b1
-ms.openlocfilehash: 8689ee35e880b1aa774b09bb194b43f280b2af79
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 6789e6f1c094f8809163e29349c8ea54e1e97683
 
 
 ---
@@ -143,6 +143,6 @@ Per eventuali problemi durante le lezioni, vedere l'articolo [Risoluzione dei pr
 [troubleshooting]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

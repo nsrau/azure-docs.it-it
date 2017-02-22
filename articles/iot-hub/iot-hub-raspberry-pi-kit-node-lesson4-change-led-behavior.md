@@ -1,5 +1,5 @@
 ---
-title: 'Facoltativo: Modificare il comportamento di accensione e spegnimento del LED | Documentazione Microsoft'
+title: 'Connettere Raspberry Pi (Node) ad Azure IoT: lezione 4: Modificare l&quot;app | Documentazione Microsoft'
 description: Personalizzare i messaggi per modificare il comportamento di accensione e spegnimento del LED.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: dd74474d315c94ae3f2d3e69f8696f9be8508499
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 53c9408bedc6c61cdb0e755b46b3090e8723e271
 
 
 ---
@@ -104,6 +104,6 @@ Questa sezione facoltativa illustra come personalizzare i messaggi per consentir
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

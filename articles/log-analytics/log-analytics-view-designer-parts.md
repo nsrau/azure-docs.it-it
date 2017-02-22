@@ -1,5 +1,5 @@
 ---
-title: Progettazione viste di Log Analytics | Microsoft Docs
+title: Informazioni di riferimento sulle parti per Progettazione viste in Log Analytics di OMS | Documentazione Microsoft
 description: Progettazione viste di Log Analytics consente di creare viste personalizzate nella console di OMS contenenti visualizzazioni diverse dei dati nel repository di OMS. In questo articolo vengono fornite informazioni di riferimento sulle impostazioni relative a ciascuna parte di visualizzazione disponibile per l&quot;uso nelle viste personalizzate.
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 58d9f258bbfa582cf4059eeed939a87fb03cd232
+ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
+ms.openlocfilehash: 07edc26f62fada8b5e32693a172cb23b48d36e1f
 
 
 ---
@@ -346,6 +346,6 @@ La tabella seguente illustra le impostazioni relative alle soglie.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

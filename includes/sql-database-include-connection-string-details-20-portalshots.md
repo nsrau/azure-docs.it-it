@@ -15,7 +15,7 @@ Usare il [portale di Azure](https://portal.azure.com/) per ottenere la stringa d
     ![Selezione di SQL][1-select-sql]
 2. Immettere il nome del database nella casella di testo filtro vicino alla parte superiore sinistra del pannello **Database SQL** .
    
-    ![Selezionare il database][2-select-database]]
+    ![Selezionare il database][2-select-database]
 3. Fare clic sulla riga per il database.
 4. Quando viene visualizzato il pannello del database, è possibile scegliere i controlli di riduzione a icona standard per comprimere i pannelli usati per la ricerca e il filtro del database per una visualizzazione più chiara.
 5. Annotare il nome del **database SQL** e il **nome del server**.  Il nome utente sarà yourusername@yourserver.
@@ -48,6 +48,6 @@ includes/sql-database-include-connection-string-40-config.md
 -->
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

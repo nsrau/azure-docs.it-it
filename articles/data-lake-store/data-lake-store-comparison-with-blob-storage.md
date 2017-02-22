@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2016
+ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: e82cc23dac2b765ee3dc8ae2eb1e4f7f2e49675a
-ms.openlocfilehash: 9e7dbb2b218796e3484bee05c6026c801c7780b7
+ms.sourcegitcommit: ab9c4bc6e2e68a3522bbc3fe23ea33760f03b620
+ms.openlocfilehash: 10926263ee2657dc96fb1873733d349cf0956e92
 
 
 ---
@@ -38,7 +38,7 @@ Questo articolo propone una tabella di riepilogo delle differenze tra Azure Data
 | Operazioni sui dati: controllo |Disponibile. Per altre informazioni, fare clic [qui](data-lake-store-diagnostic-logs.md) . |Disponibile |
 | Crittografia dei dati inattivi |Trasparente, lato server <ul><li>Con chiavi gestite dal servizio</li><li>Con chiavi gestite dal cliente nell'insieme di credenziali delle chiavi di Azure</li></ul> |<ul><li>Trasparente, lato server</li> <ul><li>Con chiavi gestite dal servizio</li><li>Con chiavi gestite dal cliente nell'insieme di credenziali delle chiavi di Azure (presto disponibile)</li></ul><li>Crittografia lato client</li></ul> |
 | Operazioni di gestione, come la creazione di account |[Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md) (RBAC) fornito da Azure per la gestione degli account. |[Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md) (RBAC) fornito da Azure per la gestione degli account. |
-| SDK per sviluppatori |.NET, Java, Node.js |.Net, Java, Python, Node.js, C++, Ruby |
+| SDK per sviluppatori |.NET, Java, Python, Node.js |.Net, Java, Python, Node.js, C++, Ruby |
 | Prestazioni del carico di lavoro di analisi |Prestazioni ottimizzate per carichi di lavoro di analisi parallela. IOPS e velocità effettiva elevata. |Non è ottimizzato per carichi di lavoro di analisi. |
 | Limiti di dimensioni |Nessun limite di dimensioni per l'account, i file o il numero di file |Limiti specifici documentati [qui](../azure-subscription-service-limits.md#storage-limits) |
 | Ridondanza geografica |Archiviazione con ridondanza locale (più copie di dati in un'area di Azure). |Archiviazione con ridondanza locale, archiviazione con ridondanza geografica, archiviazione con ridondanza geografica e accesso in lettura. Per altre informazioni, fare clic [qui](../storage/storage-redundancy.md) . |
@@ -53,6 +53,6 @@ Questo articolo propone una tabella di riepilogo delle differenze tra Azure Data
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

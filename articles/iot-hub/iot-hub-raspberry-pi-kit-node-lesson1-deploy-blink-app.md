@@ -1,5 +1,7 @@
 ---
-title: Creare e distribuire l&quot;applicazione per il lampeggiamento | Documentazione Microsoft
+featureFlags:
+- usabilla
+title: 'Connettere Raspberry Pi (Node) ad Azure IoT: lezione 1: Distribuire l&quot;app | Documentazione Microsoft'
 description: Clonare l&quot;applicazione Node.js di esempio da GitHub e usare gulp per distribuire l&quot;applicazione sulla scheda di Raspberry Pi 3. Questa applicazione di esempio fa lampeggiare il LED connesso alla scheda ogni due secondi.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +18,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: aee1ef8c4275f64865ff830739fc818d6bf02bd2
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 90ceb432bd9506dc40e340af21a3cae4e21a20b0
 
 
 ---
@@ -124,7 +126,7 @@ Per configurare la connessione al dispositivo, seguire questa procedura.
 Congratulazioni. La creazione della prima applicazione di esempio per Pi è completata.
 
 ## <a name="deploy-and-run-the-sample-application"></a>Distribuire ed eseguire l'applicazione di esempio
-### <a name="install-nodejs-and--on-pi"></a>Installare Node.js e NPM in Pi
+### <a name="install-nodejs-and-npm-on-pi"></a>Installare Node.js e NPM in Pi
 Installare Node.js e NPM in Pi eseguendo questo comando:
 
 ```bash
@@ -153,6 +155,6 @@ Sono stati installati gli strumenti necessari per usare Pi ed è stata distribui
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

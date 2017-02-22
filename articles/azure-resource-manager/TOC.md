@@ -43,19 +43,22 @@
 ### [Creare un'entità servizio con l'interfaccia della riga di comando di Azure](resource-group-authenticate-service-principal-cli.md)
 ### [Creare un'entità servizio con il portale](resource-group-create-service-principal-portal.md)
 ### [API di autenticazione per accedere alle sottoscrizioni](resource-manager-api-authentication.md)
-### [Impostare criteri di gestione](resource-manager-policy.md)
 ### [Bloccare le risorse](resource-group-lock-resources.md)
 ### [Considerazioni relative alla sicurezza](best-practices-resource-manager-security.md)
+## Impostare i criteri delle risorse
+### [Informazioni sui criteri delle risorse](resource-manager-policy.md)
+### [Assegnare e gestire i criteri](resource-manager-policy-create-assign.md)
+### [Criteri dei tag delle risorse](resource-manager-policy-tags.md)
+### [Criteri di archiviazione](resource-manager-policy-storage.md)
+### [Criteri delle VM Linux](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Criteri delle VM Windows](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Controllare e risolvere i problemi
 ### [Risolvere gli errori comuni relativi alla distribuzione](resource-manager-common-deployment-errors.md)
 ### [Visualizzare log di attività](resource-group-audit.md)
-### [Visualizzare le operazioni di distribuzione con il portale](resource-manager-troubleshoot-deployments-portal.md)
-### [Visualizzare le operazioni di distribuzione con PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
-### [Visualizzare le operazioni di distribuzione con l'interfaccia della riga di comando di Azure](resource-manager-troubleshoot-deployments-cli.md)
-### [Visualizzare le operazioni di distribuzione con l'API REST](resource-manager-troubleshoot-deployments-rest.md)
+### [Visualizzare le operazioni di distribuzione](resource-manager-deployment-operations.md)
 
 # Riferimento
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
+## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
 ## [Interfaccia della riga di comando di Azure 2.0 (anteprima)](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
@@ -65,11 +68,12 @@
 
 # Risorse
 ## [Limitazione delle richieste](resource-manager-request-limits.md)
+## [Tenere traccia delle operazioni asincrone](resource-manager-async-operations.md)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

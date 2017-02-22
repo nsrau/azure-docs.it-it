@@ -277,6 +277,6 @@ Per connettersi a un database in Azure, creare il database desiderato in Azure, 
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

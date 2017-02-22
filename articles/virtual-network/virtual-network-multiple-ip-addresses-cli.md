@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: bf92cdc3f6adf1bfaffbcae4e8a0257d0682e33d
-ms.openlocfilehash: 0bb3e5f74cb6d013a2b14b4e4c81f0936f90004a
+ms.sourcegitcommit: 482e0d8084d84f9a3170180c2e5414ca77364da8
+ms.openlocfilehash: 6fb458d47173b4922f085e8b1e6339cabefc7da6
 
 
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-azure-cli"></a>Assegnare più indirizzi IP alle macchine virtuali usando l'interfaccia della riga di comando di Azure
 
 > [!div class="op_single_selector"]
-> * [portale di Azure](virtual-network-multiple-ip-addresses-portal.md)
+> * [Portale](virtual-network-multiple-ip-addresses-portal.md)
 > * [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 > * [CLI](virtual-network-multiple-ip-addresses-cli.md)
 
@@ -71,7 +71,6 @@ La procedura seguente illustra come creare una macchina virtuale di esempio con 
 
 4. [Creare un account di archiviazione](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-storage-account) per la macchina virtuale.
 
-
 5. Creare la scheda di interfaccia di rete e le configurazioni IP da assegnare alla scheda di interfaccia di rete. È possibile aggiungere, rimuovere o modificare le configurazioni in base alle esigenze. Nello scenario vengono descritte le configurazioni seguenti:
 
     **IPConfig-1**
@@ -115,9 +114,7 @@ La procedura seguente illustra come creare una macchina virtuale di esempio con 
 6. Articolo [Creare una macchina virtuale Linux](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-the-linux-vms). Assicurarsi di rimuovere la proprietà ```  --availset-name myAvailabilitySet \ ```, non è necessaria per questo scenario. Usare il percorso appropriato in base allo scenario in uso. 
 
     >[!WARNING] 
-    > Il passaggio 6 nell'articolo sulla creazione di macchine virtuali ha esito negativo se la dimensione della macchina virtuale non è supportata nella posizione selezionata. Eseguire il comando seguente per ottenere un elenco completo delle macchine virtuali, ad esempio negli Stati Uniti centro-occidentali. Questo nome di percorso può essere modificato in base allo scenario.
-    > 
-    >       azure vm sizes --location westcentralus
+    > Il passaggio 6 nell'articolo sulla creazione di macchine virtuali ha esito negativo se la dimensione della macchina virtuale non è supportata nella posizione selezionata. Eseguire il comando seguente per ottenere un elenco completo delle macchine virtuali negli Stati Uniti occidentali, ad esempio: `azure vm sizes --location westcentralus`. È possibile modificare il nome della località in base allo scenario.
 
     Per modificare le dimensioni della macchina virtuale alla versione 2 DS2 Standard, ad esempio, è sufficiente aggiungere la seguente proprietà ```  --vm-size Standard_DS3_v2``` al comando ``` azure vm create ``` nel passaggio 6.
 
@@ -126,144 +123,7 @@ La procedura seguente illustra come creare una macchina virtuale di esempio con 
     ```azurecli
     azure network nic show --resource-group myResourceGroup --name myNic1
     ```
-
-## <a name="a-nameosconfigaadd-ip-addresses-to-a-vm-operating-system"></a><a name="OsConfig"></a>Aggiungere indirizzi IP a un sistema operativo VM
-
-Connettersi e accedere alla VM creata con più indirizzi IP privati. È necessario aggiungere manualmente tutti gli indirizzi IP privati aggiunti alla VM, incluso l'indirizzo primario. Completare i passaggi seguenti per il sistema operativo VM:
-
-### <a name="windows"></a>Windows
-
-1. Da un prompt dei comandi digitare *ipconfig /all*.  Viene visualizzato solo l'indirizzo IP privato *Primary* , tramite DHCP.
-2. Digitare *ncpa.cpl* nel prompt dei comandi per aprire la finestra **Connessioni di rete**.
-3. Aprire le proprietà per**Connessione alla rete locale (LAN)**.
-4. Fare doppio clic su Protocollo Intenret versione 4 (IPv4).
-5. Selezionare **Utilizza il seguente indirizzo IP** e immettere i valori seguenti:
-
-    * **Indirizzo IP**: immettere l'indirizzo IP privato *Primary* .
-    * **Subnet mask**: configurare questo valore in base alla subnet. Se, ad esempio, la subnet è di tipo /24, la subnet mask è 255.255.255.0.
-    * **Gateway predefinito**: primo indirizzo IP nella subnet. Se la subnet è 10.0.0.0/24, l'indirizzo IP del gateway è 10.0.0.1.
-    * Fare clic su **Utilizza i seguenti indirizzi server DNS** e immettere i valori seguenti:
-        * **Server DNS preferito**: immettere 168.63.129.16 se non si usa il proprio server DNS.  Se si usa il proprio server DNS, immettere il relativo indirizzo IP.
-    * Fare clic sul pulsante **Avanzate** e aggiungere altri indirizzi IP. Aggiungere ogni indirizzo IP privato secondario elencato nel passaggio 8 all'interfaccia di rete con la stessa subnet specificata per l'indirizzo IP primario.
-    * Fare clic su **OK** per chiudere le impostazioni TCP/IP e quindi di nuovo su **OK** per chiudere le impostazioni della scheda. Viene ristabilita la connessione RDP.
-6. Da un prompt dei comandi digitare *ipconfig /all*. Tutti gli indirizzi IP aggiunti vengono visualizzati e DHCP viene disattivato.
-    
-### <a name="linux-ubuntu"></a>Linux (Ubuntu)
-
-1. Aprire una finestra del terminale.
-2. Assicurarsi di essere l'utente ROOT. In caso contrario, immettere il comando seguente:
-
-    ```bash
-    sudo -i
-    ```
-
-3. Aggiornare il file di configurazione dell'interfaccia di rete, presupponendo 'eth0'.
-
-    * Mantenere la voce esistente per dhcp. L'indirizzo IP primario conserva la configurazione precedente.
-    * Aggiungere una configurazione per un indirizzo IP statico aggiuntivo con i comandi seguenti:
-
-        ```bash
-        cd /etc/network/interfaces.d/
-        ls
-        ```
-
-    Dovrebbe essere visualizzato un file con estensione cfg.
-4. Aprire il file: vi *filename*.
-
-    Dovrebbero essere visualizzate le righe seguenti alla fine del file:
-
-    ```bash
-    auto eth0
-    iface eth0 inet dhcp
-    ```
-
-5. Aggiungere le righe seguenti dopo le righe esistenti nel file:
-
-    ```bash
-    iface eth0 inet static
-    address <your private IP address here>
-    ```
-
-6. Salvare il file usando il comando seguente:
-
-    ```bash
-    :wq
-    ```
-
-7. Reimpostare l'interfaccia di rete con il comando seguente:
-
-    ```bash
-    sudo ifdown eth0 && sudo ifup eth0
-    ```
-
-    > [!IMPORTANT]
-    > Eseguire ifdown e ifup nella stessa riga se si usa una connessione remota.
-    >
-
-8. Verificare che l'indirizzo IP venga aggiunto all'interfaccia di rete con il comando seguente:
-
-    ```bash
-    Ip addr list eth0
-    ```
-
-    L'indirizzo IP aggiunto dovrebbe essere incluso nell'elenco.
-    
-### <a name="linux-redhat-centos-and-others"></a>Linux (Redhat, CentOS e altro)
-
-1. Aprire una finestra del terminale.
-2. Assicurarsi di essere l'utente ROOT. In caso contrario, immettere il comando seguente:
-
-    ```bash
-    sudo -i
-    ```
-
-3. Immettere la password e seguire le istruzioni visualizzate. Quando si è l'utente ROOT, passare alla cartella degli script di rete con il comando seguente:
-
-    ```bash
-    cd /etc/sysconfig/network-scripts
-    ```
-
-4. Elencare i file ifcfg correlati usando il comando seguente:
-
-    ```bash
-    ls ifcfg-*
-    ```
-
-    Uno dei file visualizzati dovrebbe essere *ifcfg-eth0* .
-
-5. Copiare il file *ifcfg-eth0* e denominarlo *ifcfg-eth0:0* con il comando seguente:
-
-    ```bash
-    cp ifcfg-eth0 ifcfg-eth0:0
-    ```
-
-6. Modificare il file *ifcfg-eth0:0* con il comando seguente:
-
-    ```bash
-    vi ifcfg-eth1
-    ```
-
-7. Cambiare il dispositivo specificando il nome appropriato nel file, in questo caso *eth0:0* , con il comando seguente:
-
-    ```bash
-    DEVICE=eth0:0
-    ```
-
-8. Cambiare la riga *IPADDR = YourPrivateIPAddress* in modo che rispecchi l'indirizzo IP.
-9. Salvare il file usando il comando seguente:
-
-    ```bash
-    :wq
-    ```
-
-10. Riavviare i servizi di rete e assicurarsi che le modifiche siano riuscite eseguendo i comandi seguenti:
-
-    ```bash
-    /etc/init.d/network restart
-    Ipconfig
-    ```
-
-    L'indirizzo IP aggiunto, *eth0:0*, dovrebbe essere incluso nell'elenco restituito.
+8. Aggiungere gli indirizzi IP privati al sistema operativo della macchina virtuale seguendo la procedura per il proprio sistema operativo riportata nella sezione [Aggiungere indirizzi IP a una macchina virtuale](#os-config) di questo articolo.
 
 ## <a name="a-nameaddaadd-ip-addresses-to-a-vm"></a><a name="add"></a>Aggiungere indirizzi IP a una macchina virtuale
 
@@ -274,7 +134,6 @@ Connettersi e accedere alla VM creata con più indirizzi IP privati. È necessar
 2. Registrarsi all'anteprima inviando un messaggio di posta elettronica a [IP multipli](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) con l'ID sottoscrizione e l'uso previsto. Non completare i passaggi rimanenti:
     - Finché non si riceve un messaggio di posta elettronica che comunica che si è stati accettati nell'anteprima.
     - Senza seguire le istruzioni nel messaggio di posta elettronica ricevuto.
-
 
 3. Completare i passaggi in una delle sezioni seguenti, a seconda delle esigenze:
 
@@ -336,7 +195,6 @@ Connettersi e accedere alla VM creata con più indirizzi IP privati. È necessar
     azure network nic ip-config set --resource-group myResourceGroup --nic-name myNic1 --name IPConfig-3 --public-ip-name myPublicIP3
     ```
 
-
 7. Visualizzare le risorse indirizzo IP privato e indirizzo IP pubblico assegnate alla scheda di interfaccia di rete immettendo il comando seguente:
 
     ```azurecli
@@ -350,9 +208,11 @@ Connettersi e accedere alla VM creata con più indirizzi IP privati. È necessar
         IPConfig-2         Succeeded           false    Static                 IPv4                10.0.0.5            mySubnet  myPublicIP2
         IPConfig-3         Succeeded           false    Dynamic                IPv4                10.0.0.6            mySubnet  myPublicIP3
      
-9. Aggiungere gli indirizzi IP aggiunti alla scheda di interfaccia di rete al sistema operativo della macchina virtuale seguendo le istruzioni disponibili nella sezione [Aggiungere indirizzi IP a un sistema operativo VM](#OsConfig) in questo articolo.
+9. Aggiungere al sistema operativo della macchina virtuale gli indirizzi IP privati aggiunti alla scheda di interfaccia di rete seguendo le istruzioni disponibili nella sezione [Aggiungere indirizzi IP a una macchina virtuale](#os-config) di questo articolo. Non aggiungere gli indirizzi IP pubblici al sistema operativo.
+
+[!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

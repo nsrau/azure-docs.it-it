@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 15d830e418e08c388039d9ee6b9af212bfdf310e
+ms.sourcegitcommit: 9b2d456d8dba33af224ea147f5f8ec49ba7397f9
+ms.openlocfilehash: 523b986f66a2e48685e9707903194856f0dcf4a2
 
 
 ---
@@ -46,7 +46,7 @@ L'uso di SendGrid in un'applicazione PHP di Azure non richiede speciali attivit�
 È possibile inviare un messaggio di posta elettronica tramite SMTP o con l'API Web di SendGrid.
 
 ### <a name="smtp-api"></a>API SMTP
-Per inviare un messaggio di posta elettronica tramite l'API SMTP di SendGrid, usare *Swift Mailer*, una libreria basata su componenti per l'invio di messaggi di posta elettronica da applicazioni PHP. Per scaricare la libreria *Swift Mailer*, accedere alla pagina [http://swiftmailer.org/download][http://swiftmailer.org/download] v5.3.0 (usare [Composer] per installare Swift Mailer). L'invio di e-mail tramite la libreria prevede la creazione di istanze delle classi <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_Mailer</span> e <span class="auto-style2">Swift\_Message</span>, l'impostazione delle proprietà appropriate e la chiamata del metodo <span class="auto-style2">Swift\_Mailer::send</span>.
+Per inviare un messaggio di posta elettronica tramite l'API SMTP di SendGrid, usare *Swift Mailer*, una libreria basata su componenti per l'invio di messaggi di posta elettronica da applicazioni PHP. Per scaricare la libreria *Swift Mailer*, accedere alla pagina [http://swiftmailer.org/download][http://swiftmailer.org/download] v5.3.0. Usare [Composer] per installare Swift Mailer. L'invio di e-mail tramite la libreria prevede la creazione di istanze delle classi <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_Mailer</span> e <span class="auto-style2">Swift\_Message</span>, l'impostazione delle proprietà appropriate e la chiamata del metodo <span class="auto-style2">Swift\_Mailer::send</span>.
 
     <?php
      include_once "vendor/autoload.php";
@@ -54,9 +54,9 @@ Per inviare un messaggio di posta elettronica tramite l'API SMTP di SendGrid, us
       * Create the body of the message (a plain-text and an HTML version).
       * $text is your plain-text email
       * $html is your html version of the email
-      * If the reciever is able to view html emails then only the html
+      * If the receiver is able to view html emails then only the html
       * email will be displayed
-      */ 
+      */
      $text = "Hi!\nHow are you?\n";
      $html = "<html>
            <head></head>
@@ -95,7 +95,7 @@ Per inviare un messaggio di posta elettronica tramite l'API SMTP di SendGrid, us
      $message->setTo($to);
      $message->addPart($text, 'text/plain');
 
-     // send message 
+     // send message
      if ($recipients = $swift->send($message, $failures))
      {
          // This will let us know how many users received this message
@@ -109,13 +109,13 @@ Per inviare un messaggio di posta elettronica tramite l'API SMTP di SendGrid, us
      }
 
 ### <a name="web-api"></a>API Web
-Usare la [funzione curl][funzione curl] di PHP per inviare e-mail tramite l'API Web di SendGrid.
+Usare la [funzione curl][curl function] di PHP per inviare messaggi di posta elettronica tramite l'API Web SendGrid.
 
     <?php
 
      $url = 'https://api.sendgrid.com/';
      $user = 'USERNAME';
-     $pass = 'PASSWORD'; 
+     $pass = 'PASSWORD';
 
      $params = array(
           'api_user' => $user,
@@ -205,7 +205,7 @@ L'invio di un allegato tramite l'API SMTP prevede una riga di codice aggiuntiva 
      $message->addPart($text, 'text/plain');
      $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName("file_name"));
 
-     // send message 
+     // send message
      if ($recipients = $swift->send($message, $failures))
      {
           // This will let us know how many users received this message
@@ -311,7 +311,7 @@ Esempio:
      // Specify that this is an initial contact message
      $email->addCategory("initial");
 
-     // You can optionally setup individual filters here, in this example, we have 
+     // You can optionally setup individual filters here, in this example, we have
      // enabled the footer filter
      $email->addFilter('footer', 'enable', 1);
      $email->addFilter('footer', "text/plain", "Thank you for your business");
@@ -320,16 +320,16 @@ Esempio:
      // The subject of your email
      $subject = 'Example SendGrid Email';
 
-     // Where is this message coming from. For example, this message can be from 
+     // Where is this message coming from. For example, this message can be from
      // support@yourcompany.com, info@yourcompany.com
      $from = 'someone@example.com';
 
-     // If you do not specify a sender list above, you can specifiy the user here. If 
+     // If you do not specify a sender list above, you can specifiy the user here. If
      // a sender list IS specified above, this email address becomes irrelevant.
      $to = 'john@contoso.com';
 
-     # Create the body of the message (a plain-text and an HTML version). 
-     # text is your plain-text email 
+     # Create the body of the message (a plain-text and an HTML version).
+     # text is your plain-text email
      # html is your html version of the email
      # if the receiver is able to view html emails then only the html
      # email will be displayed
@@ -344,7 +344,7 @@ Esempio:
      Fred";
 
      $html = "
-     <html> 
+     <html>
      <head></head>
      <body>
      <p>Hello -name-,<br>
@@ -390,10 +390,10 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](/de
 
 [https://sendgrid.com]: https://sendgrid.com
 [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
-[offerta speciale]: https://www.sendgrid.com/windowsazure.html
-[Creazione di un pacchetto per applicazioni PHP e relativa distribuzione in Azure]: http://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx
+[special offer]: https://www.sendgrid.com/windowsazure.html
+[Packaging and Deploying PHP Applications for Azure]: http://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx
 [http://swiftmailer.org/download]: http://swiftmailer.org/download
-[funzione curl]: http://php.net/curl
+[curl function]: http://php.net/curl
 [servizio di posta elettronica basato sul cloud]: https://sendgrid.com/email-solutions
 [recapito affidabile di messaggi di posta elettronica transazionali]: https://sendgrid.com/transactional-email
 [libreria sendgrid-php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
@@ -401,6 +401,6 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](/de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

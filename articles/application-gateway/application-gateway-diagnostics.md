@@ -1,5 +1,5 @@
 ---
-title: Monitorare i log di accesso e delle prestazioni e le Metriche per il gateway applicazione | Microsoft Docs
+title: "Monitorare i log di accesso e delle prestazioni, l&quot;integrità back-end e le metriche per il gateway applicazione | Documentazione Microsoft"
 description: Informazioni su come abilitare e gestire i log di accesso e delle prestazioni per il gateway applicazione
 services: application-gateway
 documentationcenter: na
@@ -13,21 +13,76 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 01/17/2017
 ms.author: amitsriva
 translationtype: Human Translation
-ms.sourcegitcommit: dfae00654129371f4ca78c53bacb7084a03ec946
-ms.openlocfilehash: e61234f5e8c3683f9ed67ca95d1692a572a68201
+ms.sourcegitcommit: ca5291e00fcf4fbd9927fe3cadad01f62b235d10
+ms.openlocfilehash: c6829c94bb8e5de3bec155bf326ac61c300477cb
 
 
 ---
-# <a name="diagnostics-logging-and-metrics-for-application-gateway"></a>Registrazione diagnostica e metriche per il gateway applicazione
+# <a name="backend-health-diagnostics-logging-and-metrics-for-application-gateway"></a>Integrità back-end, registrazione diagnostica e metriche per il gateway applicazione
 
-Azure offre la possibilità di monitorare le risorse tramite la registrazione e le metriche
+Azure consente di monitorare le risorse tramite la registrazione e le metriche. Il gateway applicazione offre queste funzionalità con integrità back-end, registrazione e metriche.
+
+[**Integrità back-end** ](#backend-health): il gateway applicazione consente di monitorare l'integrità dei server nei pool back-end tramite il portale e PowerShell. L'integrità dei pool back-end è disponibile anche tramite i log di diagnostica delle prestazioni.
 
 [**Registrazione**](#enable-logging-with-powershell): la registrazione consente di salvare o usare i log delle prestazioni, di accesso e di altre tipologie relativi a una risorsa per il monitoraggio.
 
 [**Metrica**](#metrics) : attualmente, il gateway applicazione dispone di una metrica. Questa metrica misura la velocità effettiva del gateway applicazione in byte al secondo.
+
+## <a name="backend-health"></a>Integrità back-end
+
+Il gateway applicazione consente di monitorare l'integrità dei singoli membri dei pool back-end tramite il portale, PowerShell e l'interfaccia della riga di comando. Le informazioni di riepilogo dell'integrità dei pool back-end sono disponibili anche tramite i log di diagnostica delle prestazioni. Il report sull'integrità back-end riflette l'output del probe di integrità del gateway applicazione per le istanze di back-end. Se il probing ha esito positivo ed è possibile inviare traffico al back-end, questo verrà considerato integro, altrimenti verrà considerato danneggiato.
+
+> [!important]
+> Se è presente un gruppo di sicurezza di rete nella subnet del gateway applicazione, è necessario aprire gli intervalli di porte 65503-65534 sulle istanze del gateway applicazione.
+
+### <a name="view-backend-health-through-the-portal"></a>Visualizzare l'integrità back-end tramite il portale
+
+Non sono necessarie operazioni per visualizzare l'integrità back-end. In un gateway applicazione esistente, passare a **Monitoraggio** > **Integrità back-end**. Ogni membro del pool back-end è elencato in questa pagina, a prescindere che si tratti di schede di interfaccia di rete, IP o FQDN. Vengono visualizzati il nome del pool back-end, la porta, le impostazioni HTTP back-end e lo stato di integrità. I valori validi per lo stato di integrità sono "Integro", "Danneggiato" e "Sconosciuto".
+
+> [!WARNING]
+> Se viene visualizzato lo stato di integrità back-end **Sconosciuto**, assicurarsi che l'accesso al back-end non sia bloccato da una regola del gruppo di sicurezza di rete o da un DNS personalizzato nella rete virtuale.
+
+![Integrità back-end][10]
+
+### <a name="view-backend-health-with-powershell"></a>Visualizzare l'integrità back-end con PowerShell
+
+L'integrità back-end può anche essere recuperata tramite PowerShell. Il codice di PowerShell seguente illustra come eseguire il pull dell'integrità back-end con il cmdlet `Get-AzureRmApplicationGatewayBackendHealth`.
+
+```powershell
+Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
+```
+
+Un esempio della risposta restituita è indicato nel frammento seguente.
+
+```json
+{
+"BackendAddressPool": {
+    "Id": "/subscriptions/00000000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/appGatewayBackendPool"
+},
+"BackendHttpSettingsCollection": [
+    {
+    "BackendHttpSettings": {
+        "Id": "/00000000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings"
+    },
+    "Servers": [
+        {
+        "Address": "hostname.westus.cloudapp.azure.com",
+        "Health": "Healthy"
+        },
+        {
+        "Address": "hostname.westus.cloudapp.azure.com",
+        "Health": "Healthy"
+        }
+    ]
+    }
+]
+}
+```
+
+## <a name="diagnostic-logging"></a>Registrazione diagnostica
 
 In Azure è possibile usare diversi tipi di log per gestire e risolvere i problemi dei gateway applicazione. Alcuni di questi log sono accessibili dal portale e tutti i log possono essere estratti da un archivio BLOB di Azure e visualizzati in diversi strumenti, ad esempio [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel e PowerBI. L'elenco seguente contiene altre informazioni sui diversi tipi di log:
 
@@ -38,31 +93,37 @@ In Azure è possibile usare diversi tipi di log per gestire e risolvere i proble
 
 > [!WARNING]
 > I log sono disponibili solo per le risorse distribuite nel modello di distribuzione di Gestione risorse. Non è possibile usare i log per le risorse nel modello di distribuzione classica. Per altre informazioni sui due modelli, vedere l'articolo [Comprendere la distribuzione di Gestione risorse e distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md) .
-> 
-> 
 
-## <a name="enable-logging-with-powershell"></a>Abilitare la registrazione con PowerShell
+Per l'archiviazione dei log sono disponibili tre diverse opzioni.
+
+* Account di archiviazione: ideali quando i log vengono archiviati per un periodo più lungo ed esaminati quando necessario.
+* Hub eventi: ottima opzione per l'integrazione con altri strumenti SEIM per ricevere avvisi sulle risorse
+* Log Analytics: questa soluzione è più adatta per il monitoraggio generale in tempo reale dell'applicazione o l'analisi delle tendenze.
+
+### <a name="enable-logging-with-powershell"></a>Abilitare la registrazione con PowerShell
 
 Registrazione attività viene abilitata automaticamente per tutte le risorse di Resource Manager. È necessario abilitare la registrazione degli accessi e delle prestazioni per iniziare a raccogliere i dati disponibili tramite tali log. Per abilitare la registrazione, seguire questa procedura:
 
-1. Prendere nota dell'ID risorsa dell'account di archiviazione in cui vengono archiviati i dati dei log. Il formato sarà: /subscriptions/\<subscriptionId\>/resourceGroups/\<nume gruppo di risorse\>/providers/Microsoft.Storage/storageAccounts/\<nome account di archiviazione\>. Può essere usato qualsiasi account di archiviazione della sottoscrizione. Per reperire queste informazioni è possibile usare il portale di anteprima.
-   
-    ![Portale di anteprima: Diagnostica del gateway applicazione](./media/application-gateway-diagnostics/diagnostics1.png)
-2. Prendere nota dell'ID di risorsa del gateway applicazione per cui abilitare la registrazione. Il formato sarà: /subscriptions/\<subscriptionId\>/resourceGroups/\<nome gruppo di risorse\>/providers/Microsoft.Network/applicationGateways/\<nome gateway applicazione\>. Per reperire queste informazioni è possibile usare il portale di anteprima.
-   
-    ![Portale di anteprima: Diagnostica del gateway applicazione](./media/application-gateway-diagnostics/diagnostics2.png)
-3. Abilitare la registrazione diagnostica usando il cmdlet di PowerShell seguente:
-   
-        Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
+1. Prendere nota dell'ID risorsa dell'account di archiviazione in cui vengono archiviati i dati dei log. Il valore sarà nel formato: /subscriptions/\<subscriptionId\>/resourceGroups/\<nume gruppo di risorse\>/providers/Microsoft.Storage/storageAccounts/\<nome account di archiviazione\>. Può essere usato qualsiasi account di archiviazione della sottoscrizione. Per reperire queste informazioni è possibile usare il portale di anteprima.
 
+    ![Portale di anteprima: Diagnostica del gateway applicazione](./media/application-gateway-diagnostics/diagnostics1.png)
+
+2. Prendere nota dell'ID di risorsa del gateway applicazione per cui abilitare la registrazione. Il valore sarà nel formato: /subscriptions/\<subscriptionId\>/resourceGroups/\<nome gruppo di risorse\>/providers/Microsoft.Network/applicationGateways/\<nome gateway applicazione\>. Per reperire queste informazioni è possibile usare il portale di anteprima.
+
+    ![Portale di anteprima: Diagnostica del gateway applicazione](./media/application-gateway-diagnostics/diagnostics2.png)
+
+3. Abilitare la registrazione diagnostica usando il cmdlet di PowerShell seguente:
+
+    ```powershell
+    Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
+    ```
+    
 > [!TIP] 
 >I log attività non richiedono un account di archiviazione separato. Per l'uso del servizio di archiviazione per la registrazione degli accessi e delle prestazioni è previsto un addebito.
-> 
-> 
 
-## <a name="enable-logging-with-azure-portal"></a>Abilitare la registrazione con il portale di Azure
+### <a name="enable-logging-with-azure-portal"></a>Abilitare la registrazione con il portale di Azure
 
-### <a name="step-1"></a>Passaggio 1
+#### <a name="step-1"></a>Passaggio 1
 
 Nel portale di Azure passare alla risorsa. Fare clic su **Log diagnostici**. Se è la prima volta che si esegue la configurazione della diagnostica, il pannello sarà simile al seguente:
 
@@ -72,33 +133,33 @@ Per il gateway applicazione, sono disponibili 3 log.
 * Log delle prestazioni
 * Log del firewall
 
-Fare clic su **Attiva diagnostica** per avviare la raccolta dei dati.
+Fare clic su **Abilita diagnostica** per avviare la raccolta dei dati.
 
 ![pannello impostazioni di diagnostica][1]
 
-### <a name="step-2"></a>Passaggio 2
+#### <a name="step-2"></a>Passaggio 2
 
 Nel pannello **Impostazioni diagnostica** vengono configurate le impostazioni per i log di diagnostica. In questo esempio viene usato Log Analytics per archiviare i log. Fare clic su **Configura** in **Log Analytics** per configurare l'area di lavoro. Per salvare i log di diagnostica, è possibile anche usare l'hub eventi e un account di archiviazione.
 
 ![pannello Diagnostica][2]
 
-### <a name="step-3"></a>Passaggio 3
+#### <a name="step-3"></a>Passaggio 3
 
 Scegliere un'area di lavoro di OMS oppure crearne una nuova. In questo esempio viene usata un'area di lavoro esistente.
 
 ![area di lavoro oms][3]
 
-### <a name="step-4"></a>Passaggio 4
+#### <a name="step-4"></a>Passaggio 4
 
 Al termine, verificare le impostazioni e fare clic su **Salva** per salvarle.
 
 ![confermare la selezione][4]
 
-## <a name="activity-log"></a>Log attività
+### <a name="activity-log"></a>Log attività
 
 Questi log (noti in precedenza come "log operativi") vengono generati da Azure per impostazione predefinita.  I log vengono conservati per 90 giorni nell'archivio dei registri eventi di Azure. Per altre informazioni su questi log, consultare l'articolo [Visualizzare eventi e log attività](../monitoring-and-diagnostics/insights-debugging-with-events.md).
 
-## <a name="access-log"></a>Log di accesso
+### <a name="access-log"></a>Log di accesso
 
 Questo log viene generato solo se è stato abilitato per il singolo gateway applicazione come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Ogni accesso del gateway applicazione viene registrato in formato JSON, come illustrato nell'esempio seguente:
 
@@ -126,7 +187,7 @@ Questo log viene generato solo se è stato abilitato per il singolo gateway appl
 }
 ```
 
-## <a name="performance-log"></a>Log delle prestazioni
+### <a name="performance-log"></a>Log delle prestazioni
 
 Questo log viene generato solo se è stato abilitato per il singolo gateway applicazione come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Vengono registrati i dati seguenti:
 
@@ -149,7 +210,7 @@ Questo log viene generato solo se è stato abilitato per il singolo gateway appl
 }
 ```
 
-## <a name="firewall-log"></a>Log del firewall
+### <a name="firewall-log"></a>Log del firewall
 
 Questo log viene generato solo se è stato abilitato per il singolo gateway applicazione come descritto nei passaggi precedenti. Questo log richiede anche che il firewall applicazione Web sia configurato in un gateway applicazione. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Vengono registrati i dati seguenti:
 
@@ -173,7 +234,7 @@ Questo log viene generato solo se è stato abilitato per il singolo gateway appl
 }
 ```
 
-## <a name="view-and-analyze-the-activity-log"></a>Visualizzare e analizzare Log attività
+### <a name="view-and-analyze-the-activity-log"></a>Visualizzare e analizzare Log attività
 
 È possibile visualizzare e analizzare i dati di Log attività con uno dei metodi seguenti:
 
@@ -193,25 +254,25 @@ Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.
 
 ## <a name="metrics"></a>Metrica
 
-Metrica è una funzionalità di alcune risorse di Azure che consente di visualizzare i contatori delle prestazioni nel portale. Per il gateway applicazione è disponibile una metrica al momento della stesura di questo articolo. Questa metrica è la velocità effettiva e può essere visualizzata nel portale. Passare a un gateway applicazione e fare clic su **Metrics**(Metriche).  Selezionare Throughput (Velocità effettiva) nella sezione **Available metrics** (Metriche disponibili) per visualizzare i valori. Nella figura seguente è possibile vedere un esempio dei filtri che possono essere applicati per visualizzare i dati in diversi intervalli di tempo.
+Metrica è una funzionalità di alcune risorse di Azure che consente di visualizzare i contatori delle prestazioni nel portale. Per il gateway applicazione è disponibile una metrica al momento della stesura di questo articolo. Questa metrica è la velocità effettiva e può essere visualizzata nel portale. Passare a un gateway applicazione e fare clic su **Metrics**(Metriche). Per visualizzare i valori, selezionare Velocità effettiva nella sezione **Metriche disponibili**. Nella figura seguente è possibile vedere un esempio dei filtri che possono essere applicati per visualizzare i dati in diversi intervalli di tempo.
 
 Per un elenco delle metriche attualmente supportate, visitare [Supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
 ![visualizzazione della metrica][5]
 
-## <a name="alert-rules"></a>Regole di avviso
+### <a name="alert-rules"></a>Regole di avviso
 
 Le regole di avviso possono essere avviate in base alle metriche su una risorsa. Per il gateway applicazione, questo significa che un avviso può chiamare un webhook o inviare un messaggio di posta elettronica a un amministratore se la velocità effettiva del gateway applicazione è al di sopra, al di sotto o sul limite per un periodo di tempo specificato.
 
 L'esempio seguente illustra la creazione di una regola di avviso per l'invio di un messaggio di posta elettronica a un amministratore al superamento del limite della velocità effettiva.
 
-### <a name="step-1"></a>Passaggio 1
+#### <a name="step-1"></a>Passaggio 1
 
 Per iniziare, fare clic su **Add metric alert** (Aggiungi avviso sulla metrica). Questo può essere visualizzato anche dal pannello delle metriche.
 
 ![pannello Regole di avviso][6]
 
-### <a name="step-2"></a>Passaggio 2
+#### <a name="step-2"></a>Passaggio 2
 
 Nel pannello **Add rule** (Aggiungi regola) compilare le sezioni relative a nome, condizione e notifica, quindi fare clic su **OK** al termine.
 
@@ -219,7 +280,7 @@ Lo strumento di selezione **Condition** (Condizione) accetta 4 valori: **Greater
 
 Lo strumento di selezione **Period** (Periodo) è possibile inserire valori compresi tra 5 minuti e 6 ore.
 
-Selezionando **Email owners, contributors, and readers** (Invia messaggio a proprietari, collaboratori e lettori), il messaggio di posta elettronica può essere dinamicamente basato sugli utenti che dispongono di accesso a questa risorsa. In alternativa, è possibile inserire un elenco di utenti separato da virgole nella casella di testo **Additional administrator email(s)** (Indirizzi di posta elettronica aggiuntivi dell'amministratore).
+Selezionando **Invia messaggio di posta elettronica a proprietari, collaboratori e lettori**, il messaggio di posta elettronica può essere dinamicamente basato sugli utenti che dispongono di accesso a questa risorsa. In alternativa, è possibile inserire un elenco di utenti separato da virgole nella casella di testo **Additional administrator email(s)** (Indirizzi di posta elettronica aggiuntivi dell'amministratore).
 
 ![aggiungere regole di avviso][7]
 
@@ -250,9 +311,9 @@ Per maggiori informazioni sui webhook e su come usarli con gli avvisi, visitare 
 [7]: ./media/application-gateway-diagnostics/figure7.png
 [8]: ./media/application-gateway-diagnostics/figure8.png
 [9]: ./media/application-gateway-diagnostics/figure9.png
+[10]: ./media/application-gateway-diagnostics/figure10.png
 
 
-
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -10,7 +10,7 @@ Quando si crea una nuova macchina virtuale (VM) in un gruppo di risorse distribu
 > 
 
 ## <a name="resize-the-os-drive"></a>Ridimensionare l'unità del sistema operativo
-In questo articolo verrà eseguito il ridimensionamento dell'unità del sistema operativo usando i moduli di Gestione risorse di [Azure Powershell](../articles/powershell-install-configure.md). Aprire la finestra di Powershell ISE o Powershell in modalità amministrativa e seguire questa procedura:
+In questo articolo verrà eseguito il ridimensionamento dell'unità del sistema operativo usando i moduli di Gestione risorse di [Azure Powershell](/powershell/azureps-cmdlets-docs). Aprire la finestra di Powershell ISE o Powershell in modalità amministrativa e seguire questa procedura:
 
 1. Accedere all'account Microsoft Azure in modalità Gestione risorse e selezionare la sottoscrizione come segue:
    
@@ -84,6 +84,6 @@ Per informazioni su come collegare i dischi a una VM di Azure Resource Manager, 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

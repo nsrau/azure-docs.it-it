@@ -1,5 +1,5 @@
 ---
-title: Leggere i messaggi con salvataggio permanente nell&quot;archivio tabelle di Azure | Documentazione Microsoft
+title: 'Dispositivo SensorTag e gateway Azure IoT: lezione 4: Archivio tabelle | Documentazione Microsoft'
 description: Salvare i messaggi da Intel NUC all&quot;hub IoT, scriverli nell&quot;archivio tabelle di Azure e quindi leggerli dal cloud.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: a1007ac2db53c2c378cf4312b73765ef490e0ad6
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 293343e5db58bebc8c2e27d54d6396212fe6d3a1
 
 
 ---
@@ -78,7 +78,7 @@ Aggiornare il file `config-azure.json` in modo che il codice di esempio eseguito
 
 2. Sostituire `[Azure storage connection string]` con la stringa di connessione di archiviazione di Azure ottenuta.
 
-   `[IoT hub connection string]` dovrebbe già essere stata sostituita nella sezione [Leggere messaggi dall'hub IoT di Azure](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md) della lezione 3.
+   `[IoT hub connection string]` dovrebbe già essere stata sostituita nella sezione [Leggere messaggi dall'hub IoT di Azure](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md) della lezione&3;.
 
 ## <a name="read-messages-in-your-azure-table-storage"></a>Leggere i messaggi nell'archivio tabelle di Azure
 
@@ -93,7 +93,7 @@ Il comando `gulp run` esegue l'applicazione di esempio gateway che invia i messa
 
 I messaggi inviati e ricevuti vengono visualizzati tutti immediatamente nella stessa finestra della console nel computer host. L'istanza dell'applicazione di esempio terminerà automaticamente in 40 secondi.
 
-   ![gulp read](media/iot-hub-gateway-kit-lessons/lesson4/gulp_run_read_table.png)
+   ![Lettura gulp](media/iot-hub-gateway-kit-lessons/lesson4/gulp_run_read_table.png)
 
 
 ## <a name="summary"></a>Riepilogo
@@ -101,6 +101,6 @@ I messaggi inviati e ricevuti vengono visualizzati tutti immediatamente nella st
 È stato eseguito il codice di esempio per leggere i messaggi nell'archivio tabelle di Azure, salvati dall'applicazione per le funzioni di Azure.
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

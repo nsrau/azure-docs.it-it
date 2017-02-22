@@ -1,5 +1,5 @@
 ---
-title: Distribuire una macchina virtuale Linux in una rete virtuale di Azure esistente tramite il portale | Documentazione Microsoft
+title: Distribuire le macchine virtuali Linux nelle reti esistenti - Portale di Azure | Documentazione Microsoft
 description: Distribuire una macchina virtuale Linux in una rete virtuale di Azure esistente tramite il portale.
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 6b285b67c3d5bcc89be4d371e444796501eb7de2
-ms.openlocfilehash: 7c07a99f9a72cb69812191ca042fac905d2e3706
+ms.sourcegitcommit: e64449991bc28427d8f559ed13c3bdf9160488db
+ms.openlocfilehash: 8e75aa3b38df512dc93031d5a0e9047febe7ab74
 
 
 ---
@@ -81,6 +81,6 @@ Usando il portale per scegliere le risorse esistenti, si indica ad Azure di dist
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

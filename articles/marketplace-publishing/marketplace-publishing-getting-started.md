@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/05/2017
 ms.author: hascipio
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: aed47a7e9aa06e48199a71f67ae6d82bcfe27c9a
+ms.sourcegitcommit: b76185c0a4a0e17b663affee9a02b65f222fedeb
+ms.openlocfilehash: d679096476406831c1fda4f695adff84e63d6ae8
 
 
 ---
@@ -24,63 +24,48 @@ ms.openlocfilehash: aed47a7e9aa06e48199a71f67ae6d82bcfe27c9a
 Questo articolo viene fornito per aiutare uno sviluppatore a creare, distribuire e gestire le sue soluzioni disponibili in Azure Marketplace che altri clienti e partner di Azure possono acquistare e usare.
 
 ## <a name="what-is-the-azure-marketplace"></a>Cos'è Azure Marketplace?
-Azure Marketplace è dove un sottoscrittore di Azure può trovare servizi per semplificare lo sviluppo di soluzioni e applicazioni locali o su cloud. E usare i servizi [Azure Certified](http://azure.com/certified) come blocchi predefiniti per lo sviluppo di un'applicazione o un servizio innovativo per la propria linea di business e altri sottoscrittori di Azure.
+In quanto server di pubblicazione di Azure, Azure Marketplace consente di distribuire e vendere soluzioni o servizi innovativi ad altri sviluppatori, ISV e professionisti IT che vogliono sviluppare rapidamente applicazioni basate su cloud e soluzioni per dispositivi mobili. Se la soluzione è destinata agli utenti aziendali, si consiglia di prendere in considerazione il marketplace [AppSource](http://appsource.microsoft.com).
 
-In quanto server di pubblicazione di Azure, Azure Marketplace consente di distribuire e vendere soluzioni o servizi innovativi ad altri sviluppatori, ISV e professionisti IT che vogliono sviluppare rapidamente applicazioni basate su cloud e soluzioni per dispositivi mobili.
 
-## <a name="supported-types-of-offers"></a>Tipi di offerte supportate
-La prima operazione da eseguire come editore è definire il tipo di soluzione offerta dalla propria azienda. Azure Marketplace supporta tre tipi di offerte:
+## <a name="supported-types-of-solutions"></a>Tipi di soluzioni supportati
+La prima operazione da eseguire come editore è definire il tipo di soluzione offerta dalla propria azienda. Azure Marketplace supporta i tipi di offerte seguenti:
 
-* **immagini di macchina virtuale** sono immagini preconfigurate con installato un sistema operativo e una o più applicazioni. Un'immagine di macchina virtuale fornisce le informazioni necessarie per creare e distribuire macchine virtuali nel servizio Macchine virtuali di Azure.
+|Tipo di soluzione|Macchina virtuale|Modello di soluzione|
+|---|---|---|
+|Definizione|Immagini preconfigurate con un sistema operativo completamente installato e una o più applicazioni. Un'immagine di macchina virtuale fornisce le informazioni necessarie per creare e distribuire macchine virtuali nel servizio Macchine virtuali di Azure.|Struttura di dati che può fare riferimento a uno o più servizi di Azure distinti, inclusi quelli pubblicati da altri venditori, per consentire ai sottoscrittori di Azure di distribuire una o più offerte in un unico modo coordinato.|
+|Esempio|**Ad esempio** , come autori di Azure, potreste aver creato e convalidato una VM con un servizio di database innovativo e interessante al punto che altri sottoscrittori di Azure sono disposti a procurarsi e distribuire questa VM nei loro ambienti di servizio cloud.|**Ad esempio,** come server di pubblicazione Azure, è stato reso disponibile un set di servizi in Azure che accelerano la distribuzione di servizi cloud con bilanciamento del carico, sicurezza avanzata e disponibilità elevata. Altri sottoscrittori di Azure possono risparmiare tempo grazie a modelli di soluzioni che soddisfano gli obiettivi, anziché individuare, fornire, distribuire e configurare manualmente lo stesso servizio o servizi di Azure simili.|
 
-  > [!NOTE]
-  > **Ad esempio** , come autori di Azure, potreste aver creato e convalidato una VM con un servizio di database innovativo e interessante al punto che altri sottoscrittori di Azure sono disposti a procurarsi e distribuire questa VM nei loro ambienti di servizio cloud.
-  >
-  >
-* **servizi per gli sviluppatori** sono servizi completamente gestiti da usare per lo sviluppo di applicazioni o per la gestione di sistema. Offrono funzionalità che consentono il rapido sviluppo di applicazioni di livello cloud in Azure.
-
-  > [!NOTE]
-  > **Ad esempio** , come autori di Azure, potreste aver sviluppato un servizio accessibile mediante API (ospitato su Azure o altrove) che fornisce previsioni in base ai dati storici. Si tratta di un servizio che potrebbe risultare utile ad altri sottoscrittori di Azure che creano soluzioni. È possibile distribuire questo servizio in Azure Marketplace in modo che altri possano trovarlo, ottenerlo e usarlo nei loro servizi.
-  >
-  >
-* **modello di soluzione** è una struttura di dati che può fare riferimento a uno o più servizi di Azure distinti, inclusi quelli pubblicati da altri venditori, per consentire ai sottoscrittori di Azure di distribuire una o più offerte in un unico modo coordinato.
-
-  > [!NOTE]
-  > **Ad esempio** , come autori di Azure, potreste aver creato un pacchetto contenente un set di servizi, provenienti da vari ambiti di Azure, che velocizza la distribuzione di un servizio cloud sicuro e ad alta disponibilità con bilanciamento del carico mediante pochi clic. Altri sottoscrittori di Azure potrebbero voler ottenere questo modello di soluzione per risparmiare tempo, anziché identificare e configurare manualmente gli stessi servizi di Azure o servizi di Azure simili.
-  >
-  >
-
-Alcuni passaggi sono condivisi tra i diversi tipi di soluzioni. Questo articolo fornisce una breve panoramica dei passaggi da completare per qualsiasi tipo di soluzione.
-
-## <a name="1-pre-requisites"></a>1. Prerequisiti
 > [!NOTE]
-> Prima di iniziare qualsiasi operazione in Azure Marketplace, è necessario avere ottenuto la [pre-approvazione](http://azure.com/certified).
->
->
+> Si noti che alcuni passaggi sono condivisi tra diversi tipi di soluzioni e altri sono distinti per il tipo di soluzione. Questo articolo fornisce una breve panoramica dei passaggi da completare per qualsiasi tipo di soluzione.
 
-1. [Ottenere la pre-approvazione tramite il programma Microsoft Azure Certified](marketplace-publishing-azure-certification.md)
-2. [Creare un account di Microsoft Developer](marketplace-publishing-accounts-creation-registration.md)
-3. [Rispettare i prerequisiti non tecnici](marketplace-publishing-pre-requisites.md)
+## <a name="how-to-publish-a-solution"></a>Come pubblicare una soluzione
+![disegno](media/marketplace-publishing-getting-started/img01.png)
 
-## <a name="2-publishing-your-offer"></a>2. Pubblicazione dell'offerta
-### <a name="21-complete-offer-specific-technical-pre-requisites"></a>2.1 Completare i prerequisiti tecnici specifici per l'offerta
-* [Prerequisiti tecnici per le macchine virtuali](marketplace-publishing-vm-image-creation-prerequisites.md)
-* [Prerequisiti tecnici per il modello di soluzione](marketplace-publishing-solution-template-creation-prerequisites.md)
+### <a name="1-nominate-your-solution-for-pre-approval"></a>1. Proporre la soluzione per l'approvazione
+- Completare il modulo per la nomina della soluzione per **Microsoft Azure Certified per macchine virtuali** [qui](https://createopportunity.azurewebsites.net)
 
-### <a name="22-create-your-offer"></a>2.2 Creare l'offerta
-1. Creare l'offerta usando le guide seguenti specifiche per l'offerta.
-   * [Creare l'offerta per la macchina virtuale](marketplace-publishing-vm-image-creation.md)
-   * [Creare l'offerta per il modello di soluzione](marketplace-publishing-solution-template-creation.md)
-2. [Creare il contenuto marketing per l'offerta](marketplace-publishing-push-to-staging.md)
+>[!NOTE]
+> Se si lavora con un gestore di account partner o con un gestore di partner sviluppatori, chiedere di proporre la soluzione per il programma Azure Certified OPPURE accedere alla pagina Web [Microsoft Azure Certified](http://createopportunity.azurewebsites.net), compilare il modulo di richiesta e immettere l'indirizzo di posta elettronica del gestore di account partner o di partner sviluppatori nel campo relativo al contatto dello sponsor Microsoft.
 
-### <a name="23-test-your-offer-in-staging"></a>2.3 Testare l'offerta VM nello staging
-* [Testare l'offerta VM nello staging](marketplace-publishing-vm-image-test-in-staging.md)
-* [Test dell'offerta di modello di soluzione nello staging](marketplace-publishing-solution-template-test-in-staging.md)
+Se sono soddisfatti i criteri di idoneità per le [Politiche di partecipazione ad Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833) e l'applicazione è approvata, la collaborazione tra Microsoft e l'utente inizierà subito per inserire la soluzione in Azure Marketplace.
 
-### <a name="24-deploy-your-offer-to-the-marketplace"></a>2.4 Distribuire l'offerta nel Marketplace
-* [Distribuire l'offerta in Azure Marketplace](marketplace-publishing-push-to-production.md)
-* [Risoluzione dei problemi di pubblicazione comuni in Marketplace](marketplace-publishing-support-common-issues.md)
-* Per altre informazioni sui portali usati, vedere [Portali necessari](marketplace-publishing-portals.md)
+### <a name="2-register-your-account-as-a-microsoft-seller"></a>2. Registrare l'account come venditore Microsoft
+- [Registrare l'account Microsoft come account di Microsoft Developer](marketplace-publishing-accounts-creation-registration.md)
+
+### <a name="3-publish-your-solution"></a>3. Pubblicare la soluzione
+1. Soddisfare i requisiti non tecnici
+  - [Rispettare i prerequisiti non tecnici](marketplace-publishing-pre-requisites.md)
+  - [Prerequisiti tecnici per le macchine virtuali](marketplace-publishing-vm-image-creation-prerequisites.md)
+  - [Prerequisiti tecnici per il modello di soluzione](marketplace-publishing-solution-template-creation-prerequisites.md)
+2. Creare l'offerta
+  - [Macchina virtuale](marketplace-publishing-vm-image-creation.md)
+  - [Modello di soluzione](marketplace-publishing-solution-template-creation.md)
+3. [Creare il contenuto marketing per l'offerta](marketplace-publishing-push-to-staging.md)
+4. Testare l'offerta nello staging
+  - [Testare l'offerta VM nello staging](marketplace-publishing-vm-image-test-in-staging.md)
+  - [Test dell'offerta di modello di soluzione nello staging](marketplace-publishing-solution-template-test-in-staging.md)
+5. [Distribuire l'offerta in Azure Marketplace](marketplace-publishing-push-to-production.md)
+
 
 ### <a name="virtual-machine-image-specific"></a>Informazioni specifiche per immagini di macchine virtuali
 * [Creazione di un'immagine di macchina virtuale in locale](marketplace-publishing-vm-image-creation-on-premise.md)
@@ -88,7 +73,7 @@ Alcuni passaggi sono condivisi tra i diversi tipi di soluzioni. Questo articolo 
 * [Creare una macchina virtuale con Linux nel portale di Azure](../virtual-machines/virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Troubleshooting common issues encountered during VHD creation](marketplace-publishing-vm-image-creation-troubleshooting.md) (Risoluzione di problemi comuni incontrati durante la creazione del disco rigido virtuale)
 
-## <a name="3-post-publishing-management-of-your-offer"></a>3. Gestione post-pubblicazione dell'offerta
+## <a name="how-to-manage-your-solution"></a>Come gestire la soluzione
 * [Guida di post-produzione per le offerte di macchine virtuali](marketplace-publishing-vm-image-post-publishing.md)
 * [Come aggiornare i dati non tecnici di un'offerta o di uno SKU](marketplace-publishing-vm-image-post-publishing.md#2-how-to-update-the-non-technical-details-of-an-offer-or-a-sku)
 * [Come aggiornare i dati tecnici di un'offerta o di uno SKU](marketplace-publishing-vm-image-post-publishing.md#1-how-to-update-the-technical-details-of-a-sku)
@@ -110,6 +95,6 @@ Alcuni passaggi sono condivisi tra i diversi tipi di soluzioni. Questo articolo 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

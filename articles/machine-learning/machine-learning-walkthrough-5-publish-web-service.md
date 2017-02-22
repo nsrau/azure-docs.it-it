@@ -42,18 +42,18 @@ Il processo si articola in due passaggi:
 
 Prima però è necessario ridurre un po' questo esperimento. Nell'esperimento sono attualmente presenti due modelli diversi, ma è necessario avere un solo modello da distribuire come servizio Web.  
 
-Si supponga che il modello di albero con boosting sia il modello eseguito meglio con il modello SVM. La prima cosa da fare, quindi, è rimuovere il modulo [Two-Class Support Vector Machine][two-class-support-vector-machinetwo-class-support-vector-machine] e i moduli usati per eseguirne il training. È possibile creare prima una copia dell'esperimento facendo clic su **Save As** nella parte inferiore dell'area di disegno dell'esperimento.
+Si supponga che il modello di albero con boosting sia il modello eseguito meglio con il modello SVM. La prima cosa da fare, quindi, è rimuovere il modulo [Two-Class Support Vector Machine][two-class-support-vector-machine] e i moduli usati per eseguirne il training. È possibile creare prima una copia dell'esperimento facendo clic su **Save As** nella parte inferiore dell'area di disegno dell'esperimento.
 
 È necessario eliminare i seguenti moduli:  
 
 * [Two-Class Support Vector Machine][two-class-support-vector-machine]
 * I moduli [Train Model][train-model] e [Score Model][score-model] che sono stati connessi
 * [Normalize Data][normalize-data] (entrambi)
-* [Evaluate Model] [ evaluate-model] (poiché è terminata la valutazione dei modelli)
+* [Evaluate Model][evaluate-model] (poiché è terminata la valutazione dei modelli)
 
 Selezionare ogni modulo e premere CANC oppure fare clic con il pulsante destro del mouse sul modulo e scegliere **Delete** (Elimina).
 
-Ora il modello è pronto per essere distribuito tramite il modulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-treetwo-class-boosted-decision-tree].
+Ora il modello è pronto per essere distribuito tramite il modulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree].
 
 ## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Convertire l'esperimento di training in un esperimento predittivo
 
@@ -204,7 +204,7 @@ Per monitorare le prestazioni del servizio Web:
 4. Fare clic su **Dashboard**
 
 - - -
-**Passaggio successivo:[ ](machine-learning-walkthrough-6-access-web-service.md)Accedere al servizio Web**
+**Passaggio successivo:[Accedere al servizio Web](machine-learning-walkthrough-6-access-web-service.md)**
 
 [1]: ./media/machine-learning-walkthrough-5-publish-web-service/publish1.png
 [2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png

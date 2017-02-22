@@ -38,10 +38,10 @@ Sono necessari:
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Ottenere una chiave di strumentazione di Application Insights
 1. Accedere al [portale di Microsoft Azure](https://portal.azure.com).
 2. Creare una risorsa di Application Insights. Impostare il tipo di applicazione nell'applicazione Web Java.
-   
+
     ![Inserire un nome, scegliere l'app Web Java e fare clic su Crea](./media/app-insights-java-get-started/02-create.png)
 3. Ottenere la chiave di strumentazione della nuova risorsa. Questa chiave dovrà a breve essere incollata nel progetto di codice.
-   
+
     ![Nella panoramica della nuova risorsa, fare clic su Proprietà e copiare la chiave di strumentazione](./media/app-insights-java-get-started/03-key.png)
 
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. Aggiungere SDK per Java di Application Insights al progetto
@@ -107,11 +107,11 @@ Aggiungere manualmente SDK:
 
 ### <a name="questions"></a>Domande...
 * *Qual è la relazione tra i componenti `-core` e `-web` nel file ZIP?*
-  
+
   * `applicationinsights-core` fornisce semplicemente l'API. Questo componente sarà sempre necessario.
   * `applicationinsights-web` fornisce le metriche che consentono di tenere traccia del numero e dei tempi di risposta delle richieste HTTP. Questo componente può essere omesso se non si vuole che questi dati di telemetria vengano raccolti automaticamente. Ad esempio se si preferisce scrivere dati personalizzati.
 * *Per aggiornare il SDK, quando si pubblicano le modifiche*
-  
+
   * Scaricare la versione più recente di [Application Insights SDK per Java](https://aka.ms/qqkaq6) e sostituire le versioni precedenti.
   * Le modifiche sono descritte nelle [note sulla versione dell'SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
@@ -239,11 +239,11 @@ Fare clic su qualsiasi grafico per visualizzare metriche aggregate più dettagli
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
 > Application Insights presuppone che il formato delle richieste HTTP per le applicazioni MVC sia `VERB controller/action`. Ad esempio, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` e `GET Home/Product/sdf96vws` vengono raggruppati in `GET Home/Product`. Questo raggruppamento consente aggregazioni significative delle richieste, come il numero di richieste e il tempo medio di esecuzione per le richieste.
-> 
-> 
+>
+>
 
 ### <a name="instance-data"></a>Dati dell'istanza
-Fare clic su un tipo di richiesta specifico per visualizzare le singole istanze. 
+Fare clic su un tipo di richiesta specifico per visualizzare le singole istanze.
 
 In Application Insights vengono visualizzati due tipi di dati, ovvero i dati aggregati, archiviati e visualizzati come medie, conteggi e somme, e i dati di istanza, ovvero singoli report di richieste HTTP, eccezioni, visualizzazioni di pagina o eventi personalizzati.
 
@@ -260,16 +260,16 @@ Quando si accumulano molti dati, è possibile eseguire query per aggregare i dat
 A questo punto è possibile pubblicare l'applicazione nel server, permettere agli utenti di utilizzarla e visualizzare la telemetria mostrata nel portale.
 
 * Verificare che il firewall consenta all'applicazione di inviare i dati di telemetria a queste porte:
-  
+
   * dc.services.visualstudio.com:443
   * f5.services.visualstudio.com:443
 
-* Se il traffico in uscita deve essere instradato attraverso un firewall, definire le proprietà di sistema `http.proxyHost` e `http.proxyPort`. 
+* Se il traffico in uscita deve essere instradato attraverso un firewall, definire le proprietà di sistema `http.proxyHost` e `http.proxyPort`.
 
 * Nei server Windows installare:
-  
+
   * [Microsoft Visual C++ Redistributable Package](http://www.microsoft.com/download/details.aspx?id=40784)
-    
+
     Questo componente abilita i contatori delle prestazioni.
 
 
@@ -280,7 +280,7 @@ Vengono raccolte automaticamente le eccezioni non gestite:
 
 Per raccogliere dati su altre eccezioni, sono disponibili due opzioni:
 
-* [Inserire chiamate a trackException() nel codice][apiexceptions]. 
+* [Inserire chiamate a trackException() nel codice][apiexceptions].
 * [Installare l'agente Java nel server](app-insights-java-agent.md). È possibile specificare i metodi da controllare.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Monitorare le chiamate al metodo e le dipendenze esterne
@@ -370,7 +370,7 @@ Se il sito è inattivo, si otterranno grafici dei tempi di risposta, nonché not
 
 ![Esempio di test Web](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
-[Altre informazioni sui test Web di disponibilità.][availability] 
+[Altre informazioni sui test Web di disponibilità.][availability]
 
 ## <a name="questions-problems"></a>Domande? Problemi?
 [Risoluzione dei problemi Java](app-insights-java-troubleshoot.md)
@@ -387,7 +387,7 @@ Se il sito è inattivo, si otterranno grafici dei tempi di risposta, nonché not
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
-[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
+[apiexceptions]: app-insights-api-custom-events-metrics.md#trackexception
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
@@ -397,6 +397,6 @@ Se il sito è inattivo, si otterranno grafici dei tempi di risposta, nonché not
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

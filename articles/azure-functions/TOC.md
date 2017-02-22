@@ -13,8 +13,8 @@
 ## Sviluppare
 ### [Sviluppare app per le funzioni](functions-reference.md)
 #### [C#](functions-reference-csharp.md)
-#### [Node.js](functions-reference-node.md)
 #### [F#](functions-reference-fsharp.md)
+#### [JavaScript](functions-reference-node.md)
 ### [Usare trigger e associazioni](functions-triggers-bindings.md)
 #### [Associazioni di DocumentDB](functions-bindings-documentdb.md)
 #### [Associazioni di Hub eventi](functions-bindings-event-hubs.md)
@@ -28,7 +28,7 @@
 ##### [Associazioni di tabelle](functions-bindings-storage-table.md)
 #### [Trigger timer](functions-bindings-timer.md)
 #### [Associazione output di Twilio](functions-bindings-twilio.md)
-### [Creare una funzione dal portale di Azure](functions-create-first-azure-function-azure-portal.md)
+### [Creare una funzione dal portale di Azure](functions-create-first-azure-function-azure-portal.md) 
 ### [Test di Funzioni di Azure](functions-test-a-function.md)
 ### [Sviluppare ed eseguire il debug in locale](functions-run-local.md)
 ### [Procedure consigliate per Funzioni di Azure](functions-best-practices.md)
@@ -39,17 +39,19 @@
 
 ## Distribuire
 ### [Distribuzione continua per Funzioni di Azure](functions-continuous-deployment.md)
+### [Distribuire funzioni usando l'infrastruttura come codice](functions-infrastructure-as-code.md)
 
-## Monitoraggio
+## Monitorare
 ### [Monitoraggio di Funzioni di Azure](functions-monitoring.md)
 
 # Risorse
 ## [Prezzi](https://azure.microsoft.com/pricing/details/functions/)  
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
+## [Repository GitHub di Funzioni di Azure](https://github.com/Azure/Azure-Functions/) 
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Modificare il comportamento di lampeggiamento del LED con messaggi dall&quot;hub IoT di Azure | Documentazione Microsoft
+title: 'Connettere Arduino (C) ad Azure IoT: lezione 4: Modificare l&quot;app | Documentazione Microsoft'
 description: Personalizzare i messaggi per modificare il comportamento di accensione e spegnimento del LED.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/13/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9e8084fe26229ef9ed1676c0a3c34e0ee7be88b1
-ms.openlocfilehash: fa69c49028c20ce657d3f0050c98ebaae7a56051
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 3585dfbac8816140c0a62931920aff1a6bf7d540
 
 
 ---
@@ -118,6 +118,6 @@ Questa sezione facoltativa illustra come personalizzare i messaggi per consentir
 [on-and-off]: media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson4/gulp_on_and_off_arduino.png
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

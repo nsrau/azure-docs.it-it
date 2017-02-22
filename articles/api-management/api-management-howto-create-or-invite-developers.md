@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8ba349a3d247f0d42e869baef456cde2e6ee62b1
+ms.sourcegitcommit: a7ff82a47b4e972db96929acb47fcce760b244b3
+ms.openlocfilehash: eb2e260e71d9ebc3000b440d0413c7d557e15258
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 8ba349a3d247f0d42e869baef456cde2e6ee62b1
 In Gestione API gli sviluppatori sono gli utenti delle API esposte con Gestione API. In questa guida viene illustrato come creare e invitare gli sviluppatori a usare le API e i prodotti resi disponibili con l'istanza di Gestione API. Per informazioni sulla gestione degli account utente a livello di codice, vedere la documentazione [Entità utente](https://msdn.microsoft.com/library/azure/dn776330.aspx) nel riferimento [API Management REST (REST di gestione API)](https://msdn.microsoft.com/library/azure/dn776326.aspx).
 
 ## <a name="create-developer"> </a>Creare un nuovo sviluppatore
-Per creare un nuovo sviluppatore, fare clic su **Portale di pubblicazione** nel portale di Azure per il servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API. Se non è ancora stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][Creare un'istanza di Gestione API] nell'esercitazione [Introduzione a Gestione API di Azure][Introduzione a Gestione API di Azure].
+Per creare un nuovo sviluppatore, fare clic su **Portale di pubblicazione** nel portale di Azure per il servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API. Se non è stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][Create an API Management service instance] nell'esercitazione [Introduzione a Gestione API di Azure][Get started with Azure API Management].
 
 ![Portale di pubblicazione][api-management-management-console]
 
@@ -40,7 +40,7 @@ Per impostazione predefinita, i nuovi account sviluppatore creati sono **attivi*
 
 ![New developer][api-management-new-developer]
 
-Gli account sviluppatore con stato **attivo** possono essere usati per accedere a tutte le API per cui dispongono di sottoscrizioni. Per associare il nuovo sviluppatore creato ad altri gruppi, vedere [Come associare i gruppi agli sviluppatori][Come associare i gruppi agli sviluppatori].
+Gli account sviluppatore con stato **attivo** possono essere usati per accedere a tutte le API per cui dispongono di sottoscrizioni. Per associare il nuovo sviluppatore creato ad altri gruppi, vedere [Come associare gruppi a sviluppatori][How to associate groups with developers].
 
 ## <a name="invite-developer"> </a>Invitare uno sviluppatore
 Per invitare uno sviluppatore, fare clic su **Utenti** dal menu **Gestione API** sulla sinistra, quindi scegliere **Invita utente**.
@@ -55,7 +55,7 @@ Viene visualizzato un messaggio di conferma, ma il nuovo sviluppatore invitato n
 
 ![Invite confirmation][api-management-invite-developer-confirmation]
 
-Quando uno sviluppatore viene invitato, gli viene inviato un messaggio di posta elettronica generato con un modello e personalizzabile. Per altre informazioni, vedere [Configurare modelli di e-mail][Configurare modelli di e-mail].
+Quando uno sviluppatore viene invitato, gli viene inviato un messaggio di posta elettronica generato con un modello e personalizzabile. Per altre informazioni, vedere [Configurare modelli di posta elettronica][Configure email templates].
 
 Dopo l'accettazione dell'invito, l'account diventa attivo.
 
@@ -79,7 +79,7 @@ Per lavorare con gli account utente a livello di codice, vedere la documentazion
 ![Verifica in sospeso][api-management-pending-verification]
 
 ## <a name="next-steps"> </a>Passaggi successivi
-Dopo aver creato un account sviluppatore, è possibile associarlo ai ruoli ed effettuarne la sottoscrizione a prodotti e API. Per altre informazioni, vedere [Come creare e usare i gruppi][Come creare e usare i gruppi].
+Dopo aver creato un account sviluppatore, è possibile associarlo ai ruoli ed effettuarne la sottoscrizione a prodotti e API. Per altre informazioni, vedere [Come creare e usare i gruppi][How to create and use groups].
 
 [api-management-management-console]: ./media/api-management-howto-create-or-invite-developers/api-management-management-console.png
 [api-management-add-new-user]: ./media/api-management-howto-create-or-invite-developers/api-management-add-new-user.png
@@ -91,21 +91,21 @@ Dopo aver creato un account sviluppatore, è possibile associarlo ai ruoli ed ef
 [api-management-pending-verification]: ./media/api-management-howto-create-or-invite-developers/api-management-pending-verification.png
 [api-management-view-developer]: ./media/api-management-howto-create-or-invite-developers/api-management-view-developer.png
 [api-management-reset-password]: ./media/api-management-howto-create-or-invite-developers/api-management-reset-password.png
-[]: ./media/api-management-howto-create-or-invite-developers/.png
-
-[Creare un nuovo sviluppatore]: #create-developer
-[Invitare uno sviluppatore]: #invite-developer
-[Disattivare o riattivare un account sviluppatore]: #block-developer
-[Passaggi successivi]: #next-steps
-[Come creare e usare i gruppi]: api-management-howto-create-groups.md
-[Come associare i gruppi agli sviluppatori]: api-management-howto-create-groups.md#associate-group-developer
-
-[Introduzione a Gestione API di Azure]: api-management-get-started.md
-[Creare un'istanza di Gestione API]: api-management-get-started.md#create-service-instance
-[Configurare modelli di e-mail]: api-management-howto-configure-notifications.md#email-templates
 
 
+[Create a new developer]: #create-developer
+[Invite a developer]: #invite-developer
+[Deactivate or reactivate a developer account]: #block-developer
+[Next steps]: #next-steps
+[How to create and use groups]: api-management-howto-create-groups.md
+[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
-<!--HONumber=Nov16_HO3-->
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Configure email templates]: api-management-howto-configure-notifications.md#email-templates
+
+
+
+<!--HONumber=Dec16_HO3-->
 
 

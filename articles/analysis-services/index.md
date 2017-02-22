@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: Documentazione di Azure Analysis Services - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come impostare la modellazione dei dati con Analysis Services nel cloud. Nella documentazione viene illustrato come creare una soluzione di Business Intelligence aziendale tramite dati tabulari.
+services: analysis-services
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: analysis-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: fad85d382ef508b65b57559f7f52e079caae9363
-ms.openlocfilehash: 40c79ea2a68c69352d7f14bd138f8131b3b01da9
+ms.sourcegitcommit: 565dfcc4ca69badecff981057681bb7bd61d048d
+ms.openlocfilehash: 931102cca5799d0117fdaf056ac479edac8de776
 
 ---
 # <a name="analysis-services-documentation"></a>Documentazione su Analysis Services
@@ -77,7 +88,7 @@ Informazioni su come impostare e gestire la modellazione dei dati con Analysis S
                 <div class="card">
                     <div class="cardText">
                         <h3>Riga di comando</h3>
-                        <p><a href="/powershell/resourcemanager">PowerShell</a></p>
+                        <p><a href="/azure/analysis-services/analysis-services-powershell">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -97,18 +108,10 @@ Informazioni su come impostare e gestire la modellazione dei dati con Analysis S
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/analysis-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scarica la documentazione su Analysis Services </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

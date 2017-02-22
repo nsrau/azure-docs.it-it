@@ -1,5 +1,5 @@
 ---
-title: Uso di tag in formato JSON per creare una pianificazione per l&quot;avvio e l&quot;arresto di una VM di Azure | Documentazione Microsoft
+title: Usare tag in formato JSON per pianificare lo stato delle VM di Azure | Documentazione Microsoft
 description: Questo articolo illustra come usare stringhe JSON nei tag per automatizzare la pianificazione di arresto e avvio delle macchine virtuali.
 services: automation
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2016
+ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0d4098199cec948541eddba8fa88242606e2ec5c
+ms.sourcegitcommit: 00d348306f76194bb44e5252be5c956a48192768
+ms.openlocfilehash: 69f05a8c0fc88201fc365546870585de5a419f1d
 
 
 ---
@@ -103,7 +103,7 @@ Ecco alcune informazioni dettagliate su questa struttura:
 
    ![GetSystemTimeZones in PowerShell](./media/automation-scenario-start-stop-vm-wjson-tags/automation-get-timzone-powershell.png)
 
-   * I giorni della settimana sono rappresentati da un valore numerico da 0 a 6. Il valore zero corrisponde a domenica.
+   * I giorni della settimana sono rappresentati da un valore numerico da&0; a&6;. Il valore zero corrisponde a domenica.
    * L'ora di inizio è rappresentata dall'attributo **S** e dal relativo valore nel formato di 24 ore.
    * L'ora di fine o di arresto è rappresentata dall'attributo **E** e dal relativo valore nel formato di 24 ore.
 
@@ -244,6 +244,6 @@ Il **Riepilogo processi** include i messaggi dai flussi di output, di avviso e d
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

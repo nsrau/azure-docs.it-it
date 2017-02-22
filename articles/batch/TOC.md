@@ -1,4 +1,4 @@
-# Overview
+# Panoramica
 ## [Informazioni su Azure Batch](batch-technical-overview.md)
 ## [Panoramica delle funzionalità](batch-api-basics.md)
 ## [Quote e limitazioni](batch-quota-limit.md)
@@ -29,7 +29,7 @@
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
-## [Python SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch)
+## [Python SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html)
 ## [REST](/rest/api/batchservice)
 
 # Risorse correlate
