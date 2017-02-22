@@ -1,11 +1,11 @@
 <!--author=SharS last changed: 12/01/15-->
 
-### Passaggio 1: Autorizzare un dispositivo a modificare la chiave DEK del servizio nel portale di Azure classico
+### <a name="step-1-authorize-a-device-to-change-the-service-data-encryption-key-in-the-azure-classic-portal"></a>Passaggio 1: Autorizzare un dispositivo a modificare la chiave DEK del servizio nel portale di Azure classico
 In genere, l'amministratore dei dispositivi richiede all'amministratore del servizio di autorizzare un dispositivo a modificare le chiavi DEK del servizio. L'amministratore del servizio autorizza quindi il dispositivo a modificare la chiave.
 
 Questo passaggio viene eseguito nel portale di Azure classico. L'amministratore del servizio può selezionare un dispositivo in un elenco di dispositivi idonei per l'autorizzazione. Il dispositivo viene quindi autorizzato ad avviare il processo di modifica della chiave DEK del servizio.
 
-#### Quali dispositivi possono essere autorizzati a modificare le chiavi DEK del servizio?
+#### <a name="which-devices-can-be-authorized-to-change-service-data-encryption-keys"></a>Quali dispositivi possono essere autorizzati a modificare le chiavi DEK del servizio?
 Per essere autorizzato ad avviare le modifiche alla chiave DEK del servizio, un dispositivo deve soddisfare i criteri seguenti:
 
 * Il dispositivo deve essere online per essere idoneo per l'autorizzazione di modifica della chiave DEK del servizio.
@@ -21,14 +21,14 @@ Per essere autorizzato ad avviare le modifiche alla chiave DEK del servizio, un 
 
 Per selezionare e autorizzare un dispositivo per avviare la modifica della chiave DEK del servizio, seguire questa procedura.
 
-#### Per autorizzare un dispositivo a modificare la chiave
+#### <a name="to-authorize-a-device-to-change-the-key"></a>Per autorizzare un dispositivo a modificare la chiave
 1. Nella pagina del dashboard del servizio fare clic su **Modifica chiave DEK del servizio**.
    
     ![Modificare la chiave di crittografia del servizio](./media/storsimple-change-data-encryption-key/HCS_ChangeServiceDataEncryptionKey-include.png)
 2. Nella finestra di dialogo **Modifica chiave DEK del servizio** selezionare e autorizzare un dispositivo per avviare la modifica della chiave DEK del servizio. L'elenco a discesa contiene tutti i dispositivi idonei che possono essere autorizzati.
-3. Fare clic sull'icona del segno di spunta ![icona del segno di spunta](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png).
+3. Fare clic sull'icona del segno di spunta  ![icona del segno di spunta](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png).
 
-### Passaggio 2: Usare Windows PowerShell per StorSimple per avviare la modifica della chiave DEK del servizio
+### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Passaggio 2: Usare Windows PowerShell per StorSimple per avviare la modifica della chiave DEK del servizio
 Questo passaggio viene eseguito nell'interfaccia di Windows PowerShell per StorSimple nel dispositivo StorSimple autorizzato.
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Questo passaggio viene eseguito nell'interfaccia di Windows PowerShell per StorS
 
 Se si usa la console seriale del dispositivo per la connessione all'interfaccia di Windows PowerShell,seguire questa procedura.
 
-#### Per avviare la modifica della chiave DEK del servizio
+#### <a name="to-initiate-the-service-data-encryption-key-change"></a>Per avviare la modifica della chiave DEK del servizio
 1. Selezionare l'opzione 1 per eseguire l'accesso completo.
 2. Al prompt dei comandi digitare:
    
@@ -54,16 +54,20 @@ Se si usa la console seriale del dispositivo per la connessione all'interfaccia 
    
    Se nel servizio è registrato un unico dispositivo, il processo di rollover è completo ed è possibile ignorare il passaggio successivo. Se nel servizio sono registrati più dispositivi, andare al passaggio 3.
 
-### Passaggio 3: Aggiornare la chiave DEK del servizio in altri dispositivi StorSimple
+### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>Passaggio 3: Aggiornare la chiave DEK del servizio in altri dispositivi StorSimple
 Questa procedura deve essere eseguita nell'interfaccia di Windows PowerShell del dispositivo StorSimple se vi sono più dispositivi registrati per il servizio StorSimple Manager. La chiave ottenuta nel Passaggio 2: Usare Windows PowerShell per StorSimple per avviare la modifica della chiave DEK del servizio deve essere usata per aggiornare tutti i rimanenti dispositivi StorSimple registrati con il servizio StorSimple Manager.
 
 Eseguire i passaggi seguenti per aggiornare la chiave DEK del servizio nel dispositivo.
 
-#### Per aggiornare la chiave DEK del servizio
+#### <a name="to-update-the-service-data-encryption-key"></a>Per aggiornare la chiave DEK del servizio
 1. Usare Windows PowerShell per StorSimple per connettersi alla console. Selezionare l'opzione 1 per eseguire l'accesso completo.
 2. Al prompt dei comandi digitare:
    
     `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
 3. Specificare la chiave DEK ottenuta nel [Passaggio 2: Usare Windows PowerShell per StorSimple per avviare la modifica della chiave DEK del servizio](#to-initiate-the-service-data-encryption-key-change).
 
-<!---HONumber=AcomDC_0128_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

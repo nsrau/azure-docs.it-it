@@ -6,4 +6,8 @@ I limiti seguenti si applicano quando si usano Gestione risorse di Azure e i gru
 | Operazioni di gestione account di archiviazione (scrittura) |200 all'ora |
 | Operazioni di gestione account di archiviazione (elenco) |100 per 5 minuti |
 
-<!---HONumber=Nov15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
