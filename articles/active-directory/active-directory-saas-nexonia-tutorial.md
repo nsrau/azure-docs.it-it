@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/21/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: ffe250e0ad1ede2eff62989d90f5ef93e633b846
-ms.openlocfilehash: c85a07a9154e9ac28a1ee8aa974a5528cce6beff
+ms.sourcegitcommit: 1b5527090a41c274b590ed9d1ac7b561b6f4ed14
+ms.openlocfilehash: 05db0ade3f74f380ccf287be61ae19b96bfee902
 
 
 ---
@@ -277,6 +277,6 @@ Quando si fa clic sul riquadro Nexonia nel pannello di accesso, si dovrebbe acce
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

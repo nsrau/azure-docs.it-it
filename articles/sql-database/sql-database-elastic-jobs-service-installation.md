@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 4aac611e857c0b5b985f887f8536d212c28fd6e4
+ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
+ms.openlocfilehash: 045e4486920f147a66b2ea81552ce1b75aa119c2
 
 
 ---
@@ -147,7 +147,7 @@ Per aggiornare la dimensione della macchina virtuale di un'installazione, esegui
 </table>
 
 ## <a name="install-the-elastic-database-jobs-components-using-the-portal"></a>Installare i componenti dei processi di database elastici utilizzando il portale
-Dopo aver creato un [pool elastico](sql-database-elastic-pool-create-portal.md), è possibile installare componenti dei **processi di database elastici** per abilitare l'esecuzione di attività amministrative su ogni database nel pool elastico. A differenza di quando si utilizzano le API PowerShell dei **processi di database elastici** , l'interfaccia del portale è attualmente limitata solamente all’esecuzione su un pool esistente.
+Dopo aver creato un [pool elastico](sql-database-elastic-pool-manage-portal.md), è possibile installare componenti dei **processi di database elastici** per abilitare l'esecuzione di attività amministrative su ogni database nel pool elastico. A differenza di quando si utilizzano le API PowerShell dei **processi di database elastici** , l'interfaccia del portale è attualmente limitata solamente all’esecuzione su un pool esistente.
 
 **Tempo previsto per il completamento:** 10 minuti
 
@@ -181,6 +181,6 @@ Per un’introduzione, vedere [Creazione e gestione di processi di database elas
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

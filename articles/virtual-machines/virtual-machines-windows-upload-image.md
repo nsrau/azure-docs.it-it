@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 5aa6b2149170ef04af0ebde957feda5630c5d5eb
+ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
+ms.openlocfilehash: a2df2169acda706a0fc3e1b7daf743ce29e5f030
 
 
 ---
 # <a name="upload-a-windows-vhd-from-an-on-premises-vm-to-azure"></a>Caricare un disco rigido virtuale Windows da una macchina virtuale locale in Azure
 In questo articolo viene illustrato come creare e caricare un disco rigido virtuale (VHD) di Windows da usare per creare una macchina virtuale di Azure. È possibile caricare un disco rigido virtuale da una macchina virtuale generalizzata o specializzata. 
 
-Per informazioni dettagliate sui dischi e sui dischi rigidi virtuali in Azure, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Per informazioni dettagliate sui dischi e sui dischi rigidi virtuali in Azure, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="prepare-the-vm"></a>Preparare la macchina virtuale
 È possibile caricare dischi rigidi virtuali generalizzati e specializzati in Azure. Entrambi i tipi richiedono innanzitutto la preparazione della macchina virtuale.
@@ -132,6 +132,6 @@ L'esecuzione del comando potrebbe richiedere del tempo, a seconda della connessi
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 169366535ed15d40de22bf71f444df7569562c8a
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 641fe31fc4b160fe5f0628df717006fb540394b9
 
 
 ---
@@ -60,7 +60,7 @@ Se si usa il nome di dominio **\*.azurewebsites.net** creato per l'app del servi
 L'abilitazione di [HTTPS](https://en.wikipedia.org/wiki/HTTPS) aumenta la protezione da attacchi MITM nelle comunicazioni tra l'app e gli utenti.
 
 ## <a name="secure-data-tier"></a>Sicurezza del livello dati
-Il servizio app si integra strettamente con il database SQL, in modo che tutte le stringhe di connessione vengano crittografate a tutti i livelli e vengano decrittografate solo sulla VM che esegue l'app *e* solo quando l'app viene eseguita. Il database SQL di Azure include anche molte funzionalità di sicurezza per proteggere i dati dell'applicazione da minacce informatiche, tra cui [crittografia dei dati inattivi](https://msdn.microsoft.com/library/dn948096.aspx), [crittografia sempre attiva](https://msdn.microsoft.com/library/mt163865.aspx), [maschera dati dinamica](../sql-database/sql-database-dynamic-data-masking-get-started.md) e [rilevamento delle minacce](../sql-database/sql-database-threat-detection-get-started.md). In caso di dati sensibili o requisiti di conformità, vedere l'articolo relativo alla [sicurezza del database SQL](../sql-database/sql-database-security.md) per altre informazioni su come proteggere i dati.
+Il servizio app si integra strettamente con il database SQL, in modo che tutte le stringhe di connessione vengano crittografate a tutti i livelli e vengano decrittografate solo sulla VM che esegue l'app *e* solo quando l'app viene eseguita. Il database SQL di Azure include anche molte funzionalità di sicurezza per proteggere i dati dell'applicazione da minacce informatiche, tra cui [crittografia dei dati inattivi](https://msdn.microsoft.com/library/dn948096.aspx), [crittografia sempre attiva](https://msdn.microsoft.com/library/mt163865.aspx), [maschera dati dinamica](../sql-database/sql-database-dynamic-data-masking-get-started.md) e [rilevamento delle minacce](../sql-database/sql-database-threat-detection.md). In caso di dati sensibili o requisiti di conformità, vedere l'articolo relativo alla [sicurezza del database SQL](../sql-database/sql-database-security-overview.md) per altre informazioni su come proteggere i dati.
 
 Se si usa un provider di database di terze parti, ad esempio ClearDB, è consigliabile consultare direttamente la documentazione del fornitore per le procedure di sicurezza consigliate.  
 
@@ -120,6 +120,6 @@ Per informazioni sulla registrazione di informazioni nelle app del servizio app,
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

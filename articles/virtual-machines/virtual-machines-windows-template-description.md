@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: c94d114c50d44a3ca2933ec3464e7a2396867d60
-ms.openlocfilehash: eb94a0e383be4a2c125b9f5a2e7c1e49beacd4df
+ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
+ms.openlocfilehash: 5c43e6c646928ef17e1bf2e5b9bce90f9038d5d0
 
 
 ---
@@ -38,7 +38,7 @@ Questo esempio mostra una sezione di risorse tipica di un modello per la creazio
     "name": "[concat('myVM', copyindex())]", 
     "location": "[resourceGroup().location]",
     "copy": {
-      "name": "virtualMachineLoop", 
+      "name": "virtualMachineLoop",    
       "count": "[parameters('numberOfInstances')]"
     },
     "dependsOn": [
@@ -230,7 +230,7 @@ Quando sono necessarie più macchine virtuali per l'applicazione, è possibile u
 
 ```
 "copy": {
-  "name": "virtualMachineLoop", 
+  "name": "virtualMachineLoop",    
   "count": "[parameters('numberOfInstances')]"
 },
 ```
@@ -307,7 +307,7 @@ Quando si definisce una risorsa di macchina virtuale, vengono usati diversi elem
 
 ## <a name="disks-and-images"></a>Dischi e immagini
    
-In Azure i file del disco rigido virtuale possono rappresentare [dischi o immagini](virtual-machines-windows-about-disks-vhds.md). Quando il sistema operativo in un file di disco rigido virtuale è specializzato per essere una VM specifica, vi viene fatto riferimento come disco. Quando il sistema operativo in un file di disco rigido virtuale è generalizzato per essere usato per creare più VM, viene considerato un'immagine.   
+In Azure i file del disco rigido virtuale possono rappresentare [dischi o immagini](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Quando il sistema operativo in un file di disco rigido virtuale è specializzato per essere una VM specifica, vi viene fatto riferimento come disco. Quando il sistema operativo in un file di disco rigido virtuale è generalizzato per essere usato per creare più VM, viene considerato un'immagine.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Creare nuove macchine virtuali e nuovi dischi da un'immagine della piattaforma
 
@@ -500,6 +500,6 @@ Non è un problema usare lo stesso modello per creare risorse o per aggiornare l
 - Per informazioni su come gestire le VM create, vedere [Gestire macchine virtuali con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

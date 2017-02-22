@@ -3,7 +3,7 @@ title: Quando usare un pool elastico
 description: "Un pool elastico è una raccolta di risorse disponibili condivise da un gruppo di database elastici. Questo documento fornisce informazioni utili per valutare l&quot;idoneità dell&quot;uso di un pool elastico per un gruppo di database."
 services: sql-database
 documentationcenter: 
-author: CarlRabeler
+author: ddove
 manager: jhubbard
 editor: 
 ms.assetid: 3d3941d5-276c-4fd2-9cc1-9fe8b1e4c96c
@@ -11,13 +11,13 @@ ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
 ms.date: 12/19/2016
-ms.author: sstein;carlrab
+ms.author: ddove
 ms.workload: data-management
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 6c8420a154d998aa95c0220049ee54b3039a872b
-ms.openlocfilehash: a79b78a4e8e683afe5b41a41911e7d5f020eff88
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 9fa8c7d06675c3a7481e64c8f5390f1b5470a280
 
 
 ---
@@ -74,13 +74,13 @@ Le seguenti regole relative al numero e all'utilizzo del database consentono di 
 Se la somma di DTU di livelli di prestazioni per singoli database è superiore di 1,5x rispetto ai DTU necessari per il pool, allora un pool elastico è più conveniente. Per le dimensioni disponibili, vedere [Limiti di archiviazione e di eDTU per i pool elastici e dei database elastici](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
 ***Esempio***<br>
- Sono necessari almeno due database S3 o 15 database S0 perché un pool di 100 eDTU risulti più conveniente rispetto all'uso di livelli di prestazioni per database singoli.
+Sono necessari almeno due database S3 o 15 database S0 perché un pool di 100 eDTU risulti più conveniente rispetto all'uso di livelli di prestazioni per database singoli.
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Numero massimo di picco contemporaneamente database
 Condividendo eDTU, non tutti i database in un pool possono utilizzare contemporaneamente eDTU fino al limite disponibile quando si utilizzano livelli di prestazioni per singoli database. Meno database raggiungono il picco contemporaneamente, minore è il valore da impostare per le eDTU del pool e quindi più redditizio diventa il pool stesso. In generale, non più di un 2/3 (o 67%) dei database nel pool deve raggiungere il picco contemporaneamente al limite delle relative eDTU.
 
 ***Esempio***<br>
- Per ridurre i costi relativi a tre database S3 in un pool di 200 eDTU, al massimo due dei tre database possono raggiungere il picco di utilizzo contemporaneamente. In caso contrario, se più di due di questi quattro database S3 raggiungono il picco contemporaneamente, il pool dovrebbe essere ridimensionato a più di 200 eDTU. Se il pool viene ridimensionato a più di 200 eDTU, più database S3 dovranno essere aggiunti al pool per mantenere i costi inferiori rispetto a quelli dei livelli di prestazioni per singoli database.
+Per ridurre i costi relativi a tre database S3 in un pool di 200 eDTU, al massimo due dei tre database possono raggiungere il picco di utilizzo contemporaneamente. In caso contrario, se più di due di questi quattro database S3 raggiungono il picco contemporaneamente, il pool dovrebbe essere ridimensionato a più di 200 eDTU. Se il pool viene ridimensionato a più di 200 eDTU, più database S3 dovranno essere aggiunti al pool per mantenere i costi inferiori rispetto a quelli dei livelli di prestazioni per singoli database.
 
 Si noti in questo esempio non prende in considerazione l'utilizzo di altri database nel pool. Se tutti i database con alcune utilizzo in qualsiasi punto nel tempo, minore di 2/3 (o 67%) dei database possono picco contemporaneamente.
 
@@ -88,7 +88,7 @@ Si noti in questo esempio non prende in considerazione l'utilizzo di altri datab
 Una notevole differenza tra il picco e l'utilizzo medio di un database indica periodi prolungati di utilizzo ridotto e brevi periodi di utilizzo elevato. Questo modello di utilizzo è ideale per la condivisione delle risorse tra database. Un database deve essere considerato per un pool quando relativo picchi di utilizzo sono circa 1.5 volte maggiore relativo utilizzo medio.
 
 ***Esempio***<br>
- Un database S3 con picchi di 100 DTU e un utilizzo medio di 67 DTU o meno è un buon candidato per la condivisione di eDTU in un pool. In alternativa, un database S1 con picchi di 20 DTU e utilizzo medio di 13 DTU o meno è un buon candidato per un pool.
+Un database S3 con picchi di 100 DTU e un utilizzo medio di 67 DTU o meno è un buon candidato per la condivisione di eDTU in un pool. In alternativa, un database S1 con picchi di 20 DTU e utilizzo medio di 13 DTU o meno è un buon candidato per un pool.
 
 ## <a name="sizing-an-elastic-pool"></a>Ridimensionamento di un pool elastico
 La dimensione ottimale per un pool dipende dalle eDTU di aggregazione e dalle risorse di archiviazione necessarie per tutti i database nel pool. Questo richiede di stabilire il valore maggiore tra i seguenti:
@@ -99,17 +99,6 @@ La dimensione ottimale per un pool dipende dalle eDTU di aggregazione e dalle ri
 Per le dimensioni disponibili, vedere [Limiti di archiviazione e di eDTU per i pool elastici e dei database elastici](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
 Database SQL valuta automaticamente la cronologia d’utilizzo delle risorse dei database in un server di database SQL esistente e consiglia una configurazione appropriata del pool nel portale di Azure. Oltre alle raccomandazioni, una funzionalità incorporata stima l'utilizzo di eDTU per un gruppo personalizzato di database del server. Ciò consente di eseguire un'analisi di simulazione tramite l'aggiunta interattiva di database al pool e la relativa rimozione in modo da ottenere un'analisi di utilizzo delle risorse e suggerimenti di ridimensionamento prima di eseguire il commit delle modifiche. Per le procedure, vedere [Monitorare e gestire un pool di database elastici con il portale di Azure](sql-database-elastic-pool-manage-portal.md).
-
-Per valutazioni più flessibili sull'uso delle risorse che consentano stime di ridimensionamento ad hoc per i server precedenti la versione 12 e stime di ridimensionamento per i database in server diversi, vedere [Script di PowerShell per identificare database adatti a un pool elastico](sql-database-elastic-pool-database-assessment-powershell.md).
-
-| Funzionalità | Funzionalità del portale | Script di PowerShell |
-|:--- |:--- |:--- |
-| Granularità |5 secondi |5 secondi |
-| Considera differenze di prezzo tra un pool e livelli di prestazioni per database singoli. |Sì |No |
-| Consente di personalizzare l'elenco dei database analizzati |Sì |Sì |
-| Consente di personalizzare il periodo di tempo utilizzato per l'analisi |No |Sì |
-| Consente di personalizzare l'elenco dei database analizzati tra server diversi |No |Sì |
-| Consente di personalizzare l'elenco dei database analizzati su server v11 |No |Sì |
 
 Nei casi in cui non è possibile utilizzare gli strumenti, le seguenti istruzioni dettagliate consentono di stimare se un pool è più conveniente rispetto ai database singoli:
 
@@ -126,13 +115,12 @@ Nei casi in cui non è possibile utilizzare gli strumenti, le seguenti istruzion
 Non tutti i database singoli sono candidati ottimali per i pool. Database con modelli di utilizzo caratterizzati da basso utilizzo medio e i picchi di utilizzo relativamente poco frequenti sono candidati eccellenti. I modelli di utilizzo delle applicazioni sono dinamici, quindi usare le informazioni e gli strumenti descritti in questo articolo per una valutazione iniziale che consenta di determinare se un pool potrebbe essere una buona scelta per parte dei database o per tutti. Questo articolo rappresenta solo un punto di inizio per stabilire se un pool elastico potrebbe rappresentare un valido strumento. Tenere presente che è necessario monitorare continuamente l'utilizzo delle risorse cronologico e rivalutare costantemente i livelli di prestazioni di tutti i database. Tenere presente che è possibile spostare facilmente i database fuori e dentro i pool elastici e, con un numero elevato di database, è possibile avere più pool di dimensioni variabili in cui possono essere divisi i database.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Creare un pool elastico](sql-database-elastic-pool-create-portal.md)
+* [Creare un pool elastico](sql-database-elastic-pool-manage-portal.md)
 * [Monitorare, gestire e dimensionare un pool elastico](sql-database-elastic-pool-manage-portal.md)
 * [Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL](sql-database-service-tiers.md)
-* [Script di PowerShell per identificare database adatti a un pool elastico](sql-database-elastic-pool-database-assessment-powershell.md)
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

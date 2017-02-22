@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 02/17/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 9cc6d0b42f5e3ace2acff2f68666a22accc4f8b3
-ms.openlocfilehash: bec9f0cd3a6801dbcefeaed9d2b2839245f7014f
+ms.sourcegitcommit: b2eb87a88721a3fd1ecdfa573c6a6d49ed02d344
+ms.openlocfilehash: 84b707668dc45e92e6151f422f1c919f638533b1
 
 
 ---
@@ -263,6 +263,6 @@ Quando si fa clic sul riquadro SciQuest Spend Director nel pannello di accesso, 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

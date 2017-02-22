@@ -1,5 +1,5 @@
 ---
-title: Collegare un disco a una macchina virtuale | Microsoft Docs
+title: Collegare un disco a una macchina virtuale di Azure classica | Documentazione Microsoft
 description: Collegare un disco dati da una macchina virtuale Windows creata con il modello di distribuzione classico e inizializzarla.
 services: virtual-machines-windows, storage
 documentationcenter: 
@@ -13,27 +13,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2016
+ms.date: 01/23/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 0e0dc3c764928aae2186aa87fcf4208f37685c8c
+ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
+ms.openlocfilehash: 8393b8ce2b373e8ff33454a61c944a5f8f7a8168
 
 
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Collegare un disco dati da una macchina virtuale di Windows creata con il modello di distribuzione classico.
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Se si vuole usare il nuovo portale, vedere [Collegare un disco dati a una macchina virtuale Windows nel portale di Azure](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> [!IMPORTANT] 
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Se si vuole usare il nuovo portale, vedere [Collegare un disco dati a una macchina virtuale Windows nel portale di Azure](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Se è necessario un disco dati aggiuntivo, è possibile collegare un disco vuoto o un disco esistente con dei dati a una macchina virtuale. In entrambi i casi, i dischi sono file con estensione vhd che risiedono in un account di archiviazione di Azure. Nel caso di un nuovo disco, dopo aver collegato il disco, è anche necessario inizializzarlo in modo che sia pronto per essere usato da una macchina virtuale Windows.
 
-Per altre informazioni dettagliate sui dischi, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Per altre informazioni dettagliate sui dischi, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
 ## <a name="initialize-the-disk"></a>Inizializzare il disco
-1. Connettersi alla macchina virtuale. Per informazioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server][logon].
+1. Connettersi alla macchina virtuale. Per istruzioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server][logon].
 2. Dopo aver eseguito l'accesso alla macchina virtuale, aprire **Server Manager**. Nel riquadro sinistro fare clic su **Servizi file e archiviazione**.
    
     ![Avviare Server Manager](./media/virtual-machines-windows-classic-attach-disk/fileandstorageservices.png)
@@ -58,6 +57,6 @@ Per altre informazioni dettagliate sui dischi, vedere [Informazioni sui dischi e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

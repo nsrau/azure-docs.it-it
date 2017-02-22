@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
-ms.openlocfilehash: 73eec3322f8ee027c68ede89501b8b9fb00961a6
+ms.sourcegitcommit: f24227a33b2106955dc44defe8feb5a7d4dc655e
+ms.openlocfilehash: 6f6338d8c0e941b7fee4fb8c04315b26919716a3
 
 ---
 
@@ -148,18 +148,18 @@ La risorsa dell'estensione finale è simile all'esempio JSON seguente:
 }
 ```
 
-Se si utilizzano parametri del modello per fornire i valori delle proprietà, questi devono essere creati. Durante la creazione di parametri del modello per i valori delle impostazioni protette, assicurarsi di utilizzare il tipo di parametro `SecureObject`, in modo che i valori sensibili siano protetti. Per altre informazioni sull'utilizzo dei parametri, vedere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Se si utilizzano parametri del modello per fornire i valori delle proprietà, questi devono essere creati. Durante la creazione di parametri del modello per i valori delle impostazioni protette, assicurarsi di utilizzare il tipo di parametro `SecureString`, in modo che i valori sensibili siano protetti. Per altre informazioni sull'utilizzo dei parametri, vedere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Nell'esempio dell'estensione `IaasDiagnostic`, i parametri seguenti devono essere creati nella sezione dei parametri del modello di Resource Manager.
 
 ```json
 "storageAccountName": {
     "defaultValue": null,
-    "type": "SecureObject"
+    "type": "SecureString"
 },
 "storageAccountKey": {
     "defaultValue": null,
-    "type": "SecureObject"
+    "type": "SecureString"
 }
 ```
 
@@ -167,6 +167,6 @@ A questo punto, il modello può essere distribuito utilizzando qualsiasi metodo 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 
