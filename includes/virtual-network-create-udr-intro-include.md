@@ -7,4 +7,8 @@ Alcuni dei casi in cui possono essere utilizzati dispositivi di rete:
 
 Per altre informazioni su UDR, l’inoltro IP vedere [Route e inoltro IP definiti dall'utente](../articles/virtual-network/virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

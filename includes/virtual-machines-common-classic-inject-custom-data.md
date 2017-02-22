@@ -12,8 +12,8 @@ In questo argomento viene spiegato come:
 > 
 > 
 
-## Inserimento di dati personalizzati nella macchina virtuale di Azure
-Questa funzionalità è attualmente supportata solo nell'[interfaccia della riga di comando di Azure](https://github.com/Azure/azure-xplat-cli). È necessario creare un file `custom-data.txt` contenente i dati e quindi inserirlo nella VM durante il provisioning. Anche se è possibile usare una delle numerose opzioni per il comando `azure vm create`, di seguito è illustrato un approccio molto semplice:
+## <a name="injecting-custom-data-into-your-azure-virtual-machine"></a>Inserimento di dati personalizzati nella macchina virtuale di Azure
+Questa funzionalità è attualmente supportata solo nell' [interfaccia della riga di comando di Azure](https://github.com/Azure/azure-xplat-cli). È necessario creare un file `custom-data.txt` contenente i dati e quindi inserirlo nella VM durante il provisioning. Anche se è possibile usare una delle numerose opzioni per il comando `azure vm create` , di seguito è illustrato un approccio molto semplice:
 
 ```
     azure vm create <vmname> <vmimage> <username> <password> \  
@@ -22,7 +22,7 @@ Questa funzionalità è attualmente supportata solo nell'[interfaccia della riga
 ```
 
 
-## Uso di dati personalizzati nella macchina virtuale
+## <a name="using-custom-data-in-the-virtual-machine"></a>Uso di dati personalizzati nella macchina virtuale
 * Se la VM di Azure è una macchina virtuale basata su Windows, il file di dati personalizzato viene salvato in `%SYSTEMDRIVE%\AzureData\CustomData.bin`. Anche se si tratta di un file con codifica Base 64 per il trasferimento dal computer locale alla nuova VM, viene decodificato automaticamente e può essere aperto o usato immediatamente.
   
   > [!NOTE]
@@ -35,16 +35,16 @@ Questa funzionalità è attualmente supportata solo nell'[interfaccia della riga
   * `/var/lib/waagent/CustomData`
   * `/var/lib/cloud/instance/user-data.txt` 
 
-## Inizializzazione cloud di Azure
+## <a name="cloud-init-on-azure"></a>Inizializzazione cloud di Azure
 Se la VM di Azure proviene da un'immagine Ubuntu o CoreOS, è possibile usare CustomData per inviare un file cloud-config a cloud-init. Se il file di dati personalizzato è uno script, cloud-init può semplicemente eseguirlo.
 
-### Immagini di Ubuntu Cloud
-Nella maggior parte delle immagini Linux di Azure occorre modificare "/ /etc/waagent.conf" per configurare disco temporaneo di risorse e file di scambio. Per altre informazioni, vedere [Guida dell'utente dell'agente Linux di Azure](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md).
+### <a name="ubuntu-cloud-images"></a>Immagini di Ubuntu Cloud
+Nella maggior parte delle immagini Linux di Azure occorre modificare "/ /etc/waagent.conf" per configurare disco temporaneo di risorse e file di scambio. Per altre informazioni, vedere [Guida dell'utente dell'agente Linux di Azure](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Tuttavia, nelle immagini di Ubuntu Cloud è necessario utilizzare cloud-init per configurare il disco delle risorse (noto anche come disco "temporaneo") e la partizione di scambio. Per ulteriori informazioni, vedere la pagina seguente del wiki di Ubuntu: [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Passaggi successivi: Utilizzo cloud-init
+## <a name="next-steps-using-cloud-init"></a>Passaggi successivi: Utilizzo cloud-init
 Per altre informazioni, vedere la [documentazione su cloud-init per Ubuntu](https://help.ubuntu.com/community/CloudInit).
 
 <!--Link references-->
@@ -52,4 +52,8 @@ Per altre informazioni, vedere la [documentazione su cloud-init per Ubuntu](http
 
 [Interfaccia della riga di comando di Azure](https://github.com/Azure/azure-xplat-cli)
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
