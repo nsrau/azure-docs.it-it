@@ -1,5 +1,5 @@
 ---
-title: Opzioni di supporto di Azure Service Fabric | Documentazione Microsoft
+title: Informazioni sulle opzioni di supporto di Azure Service Fabric | Documentazione Microsoft
 description: Versioni dei cluster di Azure Service Fabric supportate e link ai ticket di supporto.
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2016
+ms.date: 02/10/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: d848bebea962e8ba883266188cd0bafe991dd804
-ms.openlocfilehash: 5d27e6622faeee7cf9f4cdb2911171ef29d94b5c
+ms.sourcegitcommit: 05e433b028762016759637b2afa8c741b04f31ff
+ms.openlocfilehash: a31a297f909ffb1c6da748623b0050415c43486b
 
 
 ---
@@ -79,11 +79,9 @@ Di seguito è riportato un elenco delle versioni di Service Fabric supportate co
 | **Cluster runtime di Service Fabric** | **Data di fine supporto** |
 | --- | --- |
 | Tutte le versioni di cluster precedenti alla 5.3.121 |20 gennaio 2017 |
-| 5.3.121.* |24 febbraio 2017 |
-| 5.3.204.* |24 febbraio 2017 |
-| 5.3.301.* |24 febbraio 2017 |
-| 5.3.311.* |24 febbraio 2017 |
-| 5.4. *. * |Versione corrente, nessuna data di fine supporto |
+| 5.3.* |24 febbraio 2017 |
+| 5.4.* |17 aprile 2017     |
+| 5.5.* |Versione corrente, nessuna data di fine supporto
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -100,6 +98,6 @@ Di seguito è riportato un elenco delle versioni di Service Fabric supportate co
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2e7d60b453fec2ce4c78179419362eee30ab7cb2
-ms.openlocfilehash: d3ac0587a89625501ea3d295ef19826205ab5cc8
+ms.sourcegitcommit: 3eda8b459b5f095a40c6ea1ed355472daf23a6e3
+ms.openlocfilehash: ae5c430e702b561ddf156aa29016cfec6a0a8153
 
 
 ---
@@ -48,7 +48,7 @@ La distribuzione di un modello consente di creare rapidamente e in modo coerente
 
 |Nome|Descrizione|
 |---|---|
-|adminUsername|Nome utente amministratore. Il nome utente deve essere conforme ai [requisiti per il nome utente di Azure](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).|
+|adminUsername|Nome utente amministratore. Il nome utente deve essere conforme ai [requisiti per il nome utente di Azure](../virtual-machines/virtual-machines-windows-faq.md).|
 |adminPassword|Password amministratore. La password deve essere conforme ai [requisiti per la password di Azure](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 |dnsLabelPrefix|Nome DNS per PublicIPAddressName1. Il nome DNS viene risolto con uno degli indirizzi IP pubblici assegnati alla VM. Il nome deve essere univoco all'interno dell'area di Azure (percorso) in cui è stata creata la VM.|
 |dnsLabelPrefix1|Nome DNS per PublicIPAddressName2. Il nome DNS viene risolto con uno degli indirizzi IP pubblici assegnati alla VM. Il nome deve essere univoco all'interno dell'area di Azure (percorso) in cui è stata creata la VM.|
@@ -67,9 +67,26 @@ Tutte le risorse distribuite dal modello sono configurate con diverse impostazio
 
 Per distribuire il modello tramite il portale di Azure, completare la procedura seguente:
 
-1. Registrarsi all'anteprima inviando un messaggio di posta elettronica a [IP multipli](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) con l'ID sottoscrizione e l'uso previsto. Non completare i passaggi rimanenti:
-    - Finché non si riceve un messaggio di posta elettronica che comunica che si è stati accettati nell'anteprima.
-    - Senza seguire le istruzioni nel messaggio di posta elettronica ricevuto. 
+1. Eseguire la registrazione per l'anteprima eseguendo i comandi seguenti in PowerShell dopo aver effettuato l'accesso, quindi selezionare la sottoscrizione appropriata:
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    ```
+    Non tentare di completare i passaggi rimanenti fino a quando non viene visualizzato il seguente output all'esecuzione del comando ```Get-AzureRmProviderFeature```:
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >L'operazione potrebbe richiedere alcuni minuti.
+
 2. Modificare il modello se necessario. Il modello consente di distribuire le risorse e le impostazioni elencate nella sezione [risorse](#resources) di questo articolo. Per altre informazioni sui modelli e sulle modalità di creazione, leggere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 3. Distribuire il modello con uno dei metodi seguenti:
     - **Selezionare il modello nel portale:** completare la procedura riportata nell'articolo [Deploy resources from custom template](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) (Distribuire le risorse da un modello personalizzato). Scegliere il modello preesistente denominato *101-vm-multiple-ipconfig*.
@@ -81,9 +98,26 @@ Indipendentemente dal metodo scelto, è necessario fornire i valori dei [paramet
 
 Per distribuire il modello tramite Powershell, completare la procedura seguente:
 
-1. Registrarsi all'anteprima inviando un messaggio di posta elettronica a [IP multipli](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) con l'ID sottoscrizione e l'uso previsto. Non completare i passaggi rimanenti:
-    - Finché non si riceve un messaggio di posta elettronica che comunica che si è stati accettati nell'anteprima.
-    - Senza seguire le istruzioni nel messaggio di posta elettronica ricevuto.
+1. Eseguire la registrazione per l'anteprima eseguendo i comandi seguenti in PowerShell dopo aver effettuato l'accesso, quindi selezionare la sottoscrizione appropriata:
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    ```
+    Non tentare di completare i passaggi rimanenti fino a quando non viene visualizzato il seguente output all'esecuzione del comando ```Get-AzureRmProviderFeature```:
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >L'operazione potrebbe richiedere alcuni minuti.
+
 2. Distribuire il modello completando i passaggi indicati nell'articolo [Deploy a template with PowerShell](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy) (Distribuire un modello con Powershell). L'articolo descrive più opzioni per la distribuzione di un modello. Se si desidera distribuire tramite il `-TemplateUri parameter`, l'URI per questo modello è *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Se si desidera distribuire usando il parametro `-TemplateFile`, copiare il contenuto del [file modello](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) da GitHub in un nuovo file nel computer. Modificare il contenuto del modello se necessario. Il modello consente di distribuire le risorse e le impostazioni elencate nella sezione [risorse](#resources) di questo articolo. Per altre informazioni sui modelli e sulle modalità di creazione, leggere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     Indipendentemente dall'opzione scelta per distribuire il modello, è necessario fornire i valori dei parametri elencati nella sezione [parametri](#parameters) di questo articolo. Se si desidera specificare i parametri usando un file dei parametri, copiare il contenuto del [file dei parametri](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) da GitHub in un nuovo file nel computer. Modificare i valori nel file. Usare come valore per il parametro `-TemplateParameterFile` il file che è stato creato.
@@ -99,14 +133,31 @@ Per distribuire il modello tramite Powershell, completare la procedura seguente:
 
 Per distribuire il modello usando l'interfaccia della riga di comando di Azure 1.0, completare la procedura seguente:
 
-1. Registrarsi all'anteprima inviando un messaggio di posta elettronica a [IP multipli](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) con l'ID sottoscrizione e l'uso previsto. Non completare i passaggi rimanenti:
-    - Finché non si riceve un messaggio di posta elettronica che comunica che si è stati accettati nell'anteprima.
-    - Senza seguire le istruzioni nel messaggio di posta elettronica ricevuto.
+1. Eseguire la registrazione per l'anteprima eseguendo i comandi seguenti in PowerShell dopo aver effettuato l'accesso, quindi selezionare la sottoscrizione appropriata:
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    ```
+    Non tentare di completare i passaggi rimanenti fino a quando non viene visualizzato il seguente output all'esecuzione del comando ```Get-AzureRmProviderFeature```:
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >L'operazione potrebbe richiedere alcuni minuti.
+
 2. Distribuire il modello completando i passaggi indicati nell'articolo [Deploy a template with the Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy) (Distribuire un modello con l'interfaccia della riga di comando di Azure). L'articolo descrive più opzioni per la distribuzione del modello. Se si desidera distribuire usando il `--template-uri` (-f), l'URI per questo modello è *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Se si desidera distribuire usando il parametro `--template-file` (-f), copiare il contenuto del [file modello](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) da GitHub in un nuovo file nel computer. Modificare il contenuto del modello se necessario. Il modello consente di distribuire le risorse e le impostazioni elencate nella sezione [risorse](#resources) di questo articolo. Per altre informazioni sui modelli e sulle modalità di creazione, leggere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     Indipendentemente dall'opzione scelta per distribuire il modello, è necessario fornire i valori dei parametri elencati nella sezione [parametri](#parameters) di questo articolo. Se si desidera specificare i parametri usando un file dei parametri, copiare il contenuto del [file dei parametri](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) da GitHub in un nuovo file nel computer. Modificare i valori nel file. Usare come valore per il parametro `--parameters-file` (-e) il file che è stato creato.
     
-    Per determinare i valori validi per i parametri di OSVersion, ImagePublisher e imageOffer, completare la procedura riportata nell'articolo [Esplorare e selezionare immagini di macchine virtuali Windows](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md#azure-cli).
+    Per determinare i valori validi per i parametri di OSVersion, ImagePublisher e imageOffer, completare la procedura riportata nell'articolo [Esplorare e selezionare immagini di macchine virtuali Windows](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md#azure-cli-10).
 
 3. Dopo aver distribuito la VM, connettersi alla VM e aggiungere gli indirizzi IP privati al sistema operativo che si è distribuito completando la procedura riportata nella sezione di questo articolo [Add IP addresses to a VM operating system](#os-config) (Aggiungere indirizzi IP al sistema operativo di una VM). Non aggiungere gli indirizzi IP pubblici al sistema operativo.
 
@@ -114,6 +165,6 @@ Per distribuire il modello usando l'interfaccia della riga di comando di Azure 1
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 
