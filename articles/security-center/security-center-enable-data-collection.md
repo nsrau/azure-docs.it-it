@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 02/08/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 486ab53ede1465da2cba16ff4160599b50c2b092
-ms.openlocfilehash: 7cad771f5f134a9dffe7846a2c82017e3da9d9bc
+ms.sourcegitcommit: 57c0228c398ba4ba3fd18a1088472749bed3ac69
+ms.openlocfilehash: 9ebbed56bdbc8385bb651c7aa1e77f369da1d727
 
 
 ---
 # <a name="enable-data-collection-in-azure-security-center"></a>Abilitare la raccolta dati nel Centro sicurezza di Azure
-Per consentire ai clienti a impedire, rilevare e rispondere alle minacce, il Centro sicurezza di Azure raccoglie ed elabora dati sulle macchine virtuali di Azure, incluse le informazioni di configurazione, i metadati, i registri eventi e altro. La prima volta che si accede al Centro sicurezza, la raccolta dati viene abilitata in tutte le macchine virtuali della sottoscrizione. La raccolta dati è consigliata, ma è possibile rifiutare esplicitamente disattivandola nei criteri del Centro sicurezza. Vedere [Disabilitazione della raccolta dati](#disabling-data-collection). Se si disattiva la raccolta dati, il Centro sicurezza consiglierà di attivare la raccolta dati nei criteri di sicurezza per la sottoscrizione in questione.
+Per consentire ai clienti a impedire, rilevare e rispondere alle minacce, il Centro sicurezza di Azure raccoglie ed elabora dati sulle macchine virtuali di Azure, incluse le informazioni di configurazione, i metadati, i registri eventi e altro. La prima volta che si accede al Centro sicurezza, la raccolta dati viene abilitata in tutte le macchine virtuali della sottoscrizione. La raccolta dati è consigliata, ma è possibile rifiutare esplicitamente disattivandola nei criteri del Centro sicurezza. Vedere [Disabilitazione della raccolta dati](#disabling-data-collection). Se si disattiva la raccolta dati, il Centro sicurezza consiglierà di attivarla nei criteri di sicurezza per la sottoscrizione in questione.
 
 > [!NOTE]
 > Il documento introduce il servizio usando una distribuzione di esempio. Questa non è una guida dettagliata.
@@ -34,12 +34,12 @@ Per consentire ai clienti a impedire, rilevare e rispondere alle minacce, il Cen
 2. Nel pannello **Raccomandazioni** selezionare **Abilita la raccolta di dati per le sottoscrizioni**.  Verrà visualizzato il pannello **Attiva la raccolta di dati** .
    ![Pannello Raccomandazioni][2]
 3. Nel pannello **Attiva la raccolta di dati** selezionare la sottoscrizione. Verrà visualizzato il pannello **Criteri di sicurezza** per la sottoscrizione.
-4. Nel pannello **Criteri di sicurezza** selezionare **Sì** in **Raccolta di dati** per raccogliere automaticamente i log. Attivando la raccolta dati verrà anche eseguito il provisioning dell'estensione di monitoraggio per tutte le VM correnti e nuove supportate nella sottoscrizione.
+4. Nel pannello **Criteri di sicurezza** selezionare **Sì** in **Raccolta di dati** per raccogliere automaticamente i log. Attivando la raccolta dati verrà eseguito il provisioning dell'estensione di monitoraggio per tutte le VM correnti e nuove supportate nella sottoscrizione.
 
    ![Pannello Criteri di sicurezza][3]
 
 5. Selezionare **Salva**.
-6. Selezionare **Scegliere un account di archiviazione per area**. Per ciascuna area in cui si dispone di macchine virtuali in esecuzione, è necessario selezionare l'account di archiviazione in cui vengono archiviati i dati raccolti da tali macchine virtuali. Se non si sceglie un account di archiviazione per ogni area, verrà creato automaticamente. In questo esempio verrà creato **newstoracct**. È possibile modificare l'account di archiviazione in un secondo momento tornando ai criteri di sicurezza della sottoscrizione e scegliendo un account di archiviazione diverso.
+6. Selezionare **Scegliere un account di archiviazione per area**. Per ciascuna area in cui si dispone di macchine virtuali in esecuzione, è necessario selezionare l'account di archiviazione in cui vengono archiviati i dati raccolti da tali macchine virtuali. Se non si sceglie un account di archiviazione per ogni area, viene creato un account di archiviazione per il gruppo di risorse securitydata e inserito in esso. In questo esempio si sceglie **newstoracct**. È possibile modificare l'account di archiviazione in un secondo momento tornando ai criteri di sicurezza della sottoscrizione e scegliendo un account di archiviazione diverso.
    ![Scegliere un account di archiviazione][4]
 7. Selezionare **OK**.
 
@@ -49,10 +49,10 @@ Per consentire ai clienti a impedire, rilevare e rispondere alle minacce, il Cen
 >
 
 ## <a name="after-data-collection-is-enabled"></a>Dopo aver abilitato la raccolta dati
-La raccolta dei dati viene abilitata tramite l'agente di monitoraggio di Azure e l'estensione per il monitoraggio della sicurezza di Azure. L'estensione per il monitoraggio della sicurezza di Azure esegue l'analisi delle varie configurazioni relative alla sicurezza e le invia alle tracce di [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Il sistema operativo crea anche le voci del registro eventi. L'agente di monitoraggio di Azure legge le voci del registro eventi ed ETW le traccia e le copia nell'account di archiviazione per l'analisi. L'agente di monitoraggio copia anche i file di dump di arresto anomalo nell'account di archiviazione. Si tratta dell'account di archiviazione configurato in Criteri di sicurezza.
+La raccolta dei dati viene abilitata tramite l'agente di monitoraggio di Azure e l'estensione per il monitoraggio della sicurezza di Azure. L'estensione per il monitoraggio della sicurezza di Azure analizza le diverse configurazioni di sicurezza e le invia alle tracce di [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Il sistema operativo crea anche le voci del registro eventi. L'agente di monitoraggio di Azure legge le voci del registro eventi ed ETW le traccia e le copia nell'account di archiviazione per l'analisi. L'agente di monitoraggio copia anche i file di dump di arresto anomalo nell'account di archiviazione. Si tratta dell'account di archiviazione configurato in Criteri di sicurezza.
 
 ## <a name="disabling-data-collection"></a>Disabilitazione della raccolta dati
-È possibile disabilitare la raccolta dati in qualsiasi momento. In questo modo gli agenti di monitoraggio installati dal Centro sicurezza verranno rimossi automaticamente.  È necessario selezionare una sottoscrizione per disattivare la raccolta dati.
+È possibile disabilitare la raccolta dati in qualsiasi momento. In questo modo gli agenti di monitoraggio installati dal Centro sicurezza verranno rimossi automaticamente. È necessario selezionare una sottoscrizione per disattivare la raccolta dati.
 
 > [!NOTE]
 > I criteri di sicurezza possono essere impostati a livello di sottoscrizione di Azure e a livello di gruppo di risorse, ma è necessario selezionare una sottoscrizione per disattivare la raccolta dei dati.
@@ -67,7 +67,7 @@ La raccolta dei dati viene abilitata tramite l'agente di monitoraggio di Azure e
 4. Fare clic su **Salva** nella barra multifunzione in alto.
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 Questo documento illustra come implementare la raccomandazione "Abilita raccolta dati" del Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 * [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
@@ -88,6 +88,6 @@ Questo documento illustra come implementare la raccomandazione "Abilita raccolta
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

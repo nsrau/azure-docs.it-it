@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2016
+ms.date: 02/07/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: da5ad10e01d83d714b47f8d478dc73a824797dea
-ms.openlocfilehash: 714e0dd907b1efe8d2c4d6e062a6cedd08f44c4c
+ms.sourcegitcommit: f13545d753690534e0e645af67efcf1b524837eb
+ms.openlocfilehash: dad27b11b5f02ed41826b82882cc5089eb69cb04
 
 
 ---
@@ -33,6 +33,10 @@ Un vantaggio di questo approccio è che offre un livello di separazione tra il c
 **Se si trasmettono dati sensibili nel comando dell'estensione dello script personalizzata, come ad esempio una password, assicurarsi di specificare `commandToExecute` nell'attributo `protectedSettings` dell'estensione dello script personalizzata invece dell'attributo `settings`.**
 
 * Creare un'immagine di VM personalizzata che includa sia il sistema operativo sia l'applicazione in un singolo disco rigido virtuale. In questo caso il set di scalabilità è costituito da un set di VM copiate da un'immagine creata dall'utente, che è necessario gestire. Questo approccio non richiede alcuna configurazione aggiuntiva in fase di distribuzione della VM. Tuttavia, nella versione `2016-03-30` dei set di scalabilità di VM (e versioni precedenti), i dischi del sistema operativo per le VM nel set di scalabilità sono limitati a un singolo account di archiviazione. Pertanto, è possibile avere un massimo di 40 VM in un set di scalabilità anziché le 100 VM per set con le immagini di piattaforma. Per altri dettagli vedere la [panoramica sulla progettazione di set di scalabilità](virtual-machine-scale-sets-design-overview.md).
+
+    >[!NOTE]
+    >La versione dell'API di set di scalabilità di macchine virtuali di Microsoft Azure `2016-04-30-preview` supporta l'uso di Azure Managed Disks per il disco del sistema operativo ed eventuali dischi dati aggiuntivi. Per altre informazioni, vedere [Panoramica del servizio Managed Disks](../storage/storage-managed-disks-overview.md) e [Usare dischi dati collegati](virtual-machine-scale-sets-attached-disks.md). 
+
 * Distribuire un'immagine di piattaforma o personalizzata che sia sostanzialmente un host del contenitore e installare l'applicazione come uno o più contenitori da gestire con un agente di orchestrazione o uno strumento per la gestione della configurazione. L'aspetto positivo di questo approccio è che consente di eseguire l'astrazione dell'infrastruttura cloud dal livello dell'applicazione e di poterli gestire separatamente.
 
 ## <a name="what-happens-when-a-vm-scale-set-scales-out"></a>Cosa accade in caso di aumento della capacità di un set di scalabilità di VM
@@ -42,6 +46,7 @@ Quando si aggiungono una o più VM a un set di scalabilità aumentando la capaci
 Per gli aggiornamenti dell'applicazione in set di scalabilità di VM sono disponibili tre approcci principali derivati dai tre metodi di distribuzione dell'applicazione precedenti:
 
 * Aggiornamento con estensioni di VM. Tutte le estensioni di VM definite per un set di scalabilità di VM vengono eseguite ogni volta che viene distribuita una nuova VM, viene ricreata l'immagine di una VM esistente o viene aggiornata un'estensione di VM. Un approccio valido per aggiornare l'applicazione prevede l'aggiornamento diretto tramite estensioni, di cui si aggiorna semplicemente la definizione. Un modo semplice per adottare tale approccio prevede la modifica di fileUris in modo che punti al nuovo software.
+
 * Approccio dell'immagine personalizzata non modificabile. Quando l'applicazione, o i relativi componenti, vengono inseriti in un'immagine di VM, è possibile concentrarsi sulla creazione di una pipeline affidabile per automatizzare compilazione, test e distribuzione delle immagini. È possibile progettare l'architettura per facilitare il passaggio rapido di un set di scalabilità temporaneo in produzione. Un buon esempio di questo approccio è rappresentato dall'[uso del driver Spinnaker di Azure](https://github.com/spinnaker/deck/tree/master/app/scripts/modules/azure) - [http://www.spinnaker.io/](http://www.spinnaker.io/).
 
 Packer e Terraform supportano inoltre Azure Resource Manager; pertanto, è anche possibile definire le immagini "come codice" e compilarle in Azure, quindi usare il disco rigido virtuale nel set di scalabilità. Tuttavia, tale approccio diventerebbe problematico per immagini Marketplace, in cui gli script personalizzati/le estensioni acquistano importanza in quanto i bit non vengono modificati direttamente da Marketplace.
@@ -51,11 +56,11 @@ Packer e Terraform supportano inoltre Azure Resource Manager; pertanto, è anche
 Le VM dei set di scalabilità diventano una base stabile per i contenitori e richiedono solo protezione occasionale e aggiornamenti correlati al sistema operativo. Come accennato, il servizio contenitore di Azure è un buon esempio di questo approccio e della creazione di un servizio associato.
 
 ## <a name="how-do-you-roll-out-an-os-update-across-update-domains"></a>Come distribuire un aggiornamento del sistema operativo nei domini di aggiornamento
-Si supponga di che voler aggiornare un'immagine del sistema operativo mantenendo in esecuzione il set di scalabilità di VM. Un possibile approccio prevede di aggiornare le immagini una VM alla volta. A tale scopo è possibile usare PowerShell o l'interfaccia della riga di comando di Azure. Sono disponibili comandi separati per aggiornare il modello del set di scalabilità di VM (la modalità di definizione della sua configurazione) e per eseguire chiamate di "aggiornamento manuale" su singole VM. Nel documento di Azure [Aggiornare un set di scalabilità di macchine virtuali](./virtual-machine-scale-sets-upgrade-scale-set.md) sono disponibili altre informazioni sulle opzioni disponibili per eseguire aggiornamenti del sistema operativo in un set di scalabilità di macchine virtuali.
+Si supponga di che voler aggiornare un'immagine del sistema operativo mantenendo in esecuzione il set di scalabilità di VM. Un possibile approccio prevede di aggiornare le immagini una VM alla volta. A tale scopo è possibile usare PowerShell o l'interfaccia della riga di comando di Azure. Sono disponibili comandi separati per aggiornare il modello del set di scalabilità di VM (la modalità di definizione della sua configurazione) e per eseguire chiamate di "aggiornamento manuale" su singole VM. Il documento di Azure [Aggiornare un set di scalabilità di macchine virtuali](./virtual-machine-scale-sets-upgrade-scale-set.md) include altre informazioni sulle opzioni disponibili per eseguire aggiornamenti del sistema operativo in un set di scalabilità di macchine virtuali.
 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 02/08/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: ab863266e1462f970b7906f68be2bcf5edb0dfc3
-ms.openlocfilehash: ac64bb0de03053702a4663c9356b3f9ce332c7de
+ms.sourcegitcommit: a87b2811175193377142e391597011f48f169f11
+ms.openlocfilehash: 4c16c843ba43a9e38d73fc1fd44d06f6f72de60c
 
 
 ---
@@ -40,7 +40,7 @@ Per informazioni sulle raccolte, vedere [Creare una raccolta DocumentDB](#what-i
 
     Impostare la capacità di archiviazione su **10 GB** se si desidera una [raccolta a partizione singola](documentdb-partition-data.md#single-partition-and-partitioned-collections) con livelli di velocità effettiva da 400-10.000 unità richiesta/secondo (UR/s). Una unità richiesta corrisponde alla velocità effettiva dell'operazione di lettura di un documento da 1 KB. Per altre informazioni sulle unità richiesta, vedere l'articolo [Unità richiesta in DocumentDB](documentdb-request-units.md).
 
-    Impostare la capacità di archiviazione su **250 GB** se si desidera una [raccolta partizionata](documentdb-partition-data.md#single-partition-and-partitioned-collections) scalabile per gestire una quantità illimitata di archiviazione in più partizioni e in grado di offrire livelli di velocità effettiva da 10.100 UR/s.
+    Impostare la capacità di archiviazione su **250 GB** se si vuole una [raccolta partizionata](documentdb-partition-data.md#single-partition-and-partitioned-collections) scalabile per gestire una quantità illimitata di archiviazione in più partizioni e in grado di offrire livelli di velocità effettiva da 2.500 UR/s.
 
     Impostare la capacità di archiviazione su **Personalizzata** se si desidera eseguire il provisioning di una quantità diversa da 10 GB o 250 GB. DocumentDB ha una scalabilità praticamente illimitata, pertanto, è consigliabile includere la dimensione e la velocità effettiva di archiviazione richieste nella richiesta di supporto.
 
@@ -83,6 +83,6 @@ Quando sono presenti documenti in una raccolta, è possibile usare [DocumentDB S
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

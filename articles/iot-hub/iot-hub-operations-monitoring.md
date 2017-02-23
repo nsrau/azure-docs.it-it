@@ -12,24 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 12/13/2016
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: f6f894157a31641b1d0294e84795563c727caaac
+ms.sourcegitcommit: 8f72f2ca66a5d1394e87c7c0f8d8dff9da73732f
+ms.openlocfilehash: 612ef94efb9776ae0ce768de1b59fb208824da93
 
 
 ---
-# <a name="operations-monitoring"></a>Monitoraggio delle operazioni
+# <a name="iot-hub-operations-monitoring"></a>Monitoraggio delle operazioni dell'hub IoT
 Il monitoraggio delle operazioni dell'hub IoT consente di monitorare lo stato delle operazioni nel proprio hub IoT in tempo reale. L'hub IoT tiene traccia degli eventi nelle diverse categorie di operazioni. È possibile scegliere di impostare l'invio di eventi da una o più categorie a un endpoint del proprio hub IoT per l'elaborazione. È possibile monitorare i dati per individuare gli errori o configurare un'elaborazione più complessa in base ai modelli di dati.
 
-L'hub IoT monitora cinque categorie di eventi:
+L'hub IoT monitora sei categorie di eventi:
 
 * Operazioni relative alle identità dei dispositivi
 * Telemetria dei dispositivi
 * Messaggi da cloud a dispositivo
 * Connessioni
 * Caricamenti di file
+* Routing dei messaggi
 
 ## <a name="how-to-enable-operations-monitoring"></a>Come abilitare il monitoraggio delle operazioni
 1. Creare un hub IoT. Le istruzioni sulla creazione di un hub IoT sono disponibili nella [Guida introduttiva][lnk-get-started].
@@ -39,6 +40,9 @@ L'hub IoT monitora cinque categorie di eventi:
 3. Selezionare le categorie di monitoraggio da controllare e fare clic su **Salva**. Gli eventi sono disponibili per la lettura nell'endpoint compatibile con l'hub eventi elencato in **Impostazioni di monitoraggio**. L'endpoint dell'hub IoT è chiamato `messages/operationsmonitoringevents`.
    
     ![][2]
+
+> [!NOTE]
+> La selezione del monitoraggio **Dettagliato** per la categoria **Connessioni** consente all'hub IoT di generare messaggi di diagnostica aggiuntivi. Per tutte le altre categorie, l'impostazione **Dettagliato** modifica la quantità di informazioni che l'hub IoT include in ogni messaggio di errore.
 
 ## <a name="event-categories-and-how-to-use-them"></a>Categorie di eventi e modalità d'uso
 Ogni categoria di monitoraggio delle operazioni tiene traccia di un diverso tipo di interazione con l'hub IoT e ogni categoria di monitoraggio ha uno schema che definisce come sono strutturati gli eventi nella categoria stessa.
@@ -144,6 +148,22 @@ Questa categoria non può intercettare errori che si verificano direttamente men
          "durationMs": 1234
     }
 
+### <a name="message-routing"></a>Routing dei messaggi
+La categoria del routing dei messaggi tiene traccia degli errori che si verificano durante la valutazione del routing dei messaggi e dell'integrità dell'endpoint percepiti dall'hub IoT. Questa categoria include eventi come ad esempio quando una regola viene valutata come "non definita", quando l'hub IoT contrassegna un endpoint come inattivo ed eventuali altri errori ricevuti da un endpoint. Si noti che questa categoria non include errori specifici sugli stessi messaggi, ad esempio gli errori di limitazione sui dispositivi, che vengono segnalati nella categoria dei "dati di telemetria del dispositivo".
+        
+    {
+        "messageSizeInBytes": 1234,
+        "time": "UTC timestamp",
+        "operationName": "ingress",
+        "category": "routes",
+        "level": "Error",
+        "deviceId": "device-ID",
+        "messageId": "ID of message",
+        "routeName": "myroute",
+        "endpointName": "myendpoint",
+        "details": "ExternalEndpointDisabled"
+    }
+
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
@@ -164,6 +184,6 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

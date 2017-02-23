@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 02/09/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 2a590795178d819d9df1b010dc68809492d6bdbc
+ms.sourcegitcommit: af15b530dd512873e4534fb61d276c8c8c3a196a
+ms.openlocfilehash: 2de70faa090fb3da25fec8f8946e52fcae2677d3
 
 
 ---
@@ -33,7 +33,7 @@ Data factory supporta la connessione a origini MongoDB locali con il Gateway di 
 Data Factory supporta attualmente solo lo spostamento di dati da MongoDB ad altri archivi dati, non da altri archivi dati a MongoDB.
 
 ## <a name="supported-versions"></a>Versioni supportate
-Questo connettore MongoDB supporta MongoDB versione 2.4 e versioni successive.
+Questo connettore MongoDB supporta MongoDB versione 2.4, 2.6, 3.0 e 3.2.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per consentire al servizio Azure Data Factory di connettersi al database MongoDB in locale, è necessario installare i componenti seguenti:
@@ -358,6 +358,6 @@ Vedere l'articolo [Spostare dati tra origini locali e il cloud con Gateway di ge
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

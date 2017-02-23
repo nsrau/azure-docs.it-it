@@ -14,11 +14,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.date: 09/06/2016
-ms.author: rclaus
+ms.date: 02/02/2017
+ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 17ddda372f3a232be62e565b700bb1be967fb8e3
-ms.openlocfilehash: 5e9fb48fdf0da9a1c75f4d08ab7d97976859340c
+ms.sourcegitcommit: 50a71382982256e98ec821fd63c95fbe5a767963
+ms.openlocfilehash: 91f4ada749c3f37903a8757843b10060b73d95a2
 
 
 ---
@@ -28,12 +28,72 @@ Questo articolo illustra come collegare un disco persistente alla VM per poter m
 ## <a name="quick-commands"></a>Comandi rapidi
 L'esempio seguente collega un `50`disco GB alla macchina virtuale denominata `myVM` nel gruppo di risorse `myResourceGroup`:
 
+Per usare i dischi gestiti:
+
+```azurecli
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
+```
+
+Per usare i dischi non gestiti:
+
 ```azurecli
 azure vm disk attach-new myResourceGroup myVM 50
 ```
 
-## <a name="attach-a-disk"></a>Collegare un disco
-Il collegamento di un nuovo disco è un’operazione rapida. Digitare `azure vm disk attach-new myResourceGroup myVM sizeInGB` per creare e collegare un nuovo disco GB per la VM. Se non si indica in modo esplicito un account di archiviazione, tutti i dischi creati vengono assegnati allo stesso account di archiviazione in cui si trova il disco del sistema operativo. L'esempio seguente collega un `50`disco GB alla macchina virtuale denominata `myVM` nel gruppo di risorse `myResourceGroup`:
+## <a name="attach-a-managed-disk"></a>Collegare un disco gestito
+
+L'uso di dischi gestiti consente di concentrarsi sulle macchine virtuali e sui relativi dischi senza doversi preoccupare degli account di archiviazione di Azure. È possibile creare e collegare rapidamente un disco gestito a una macchina virtuale tramite lo stesso gruppo di risorse di Azure oppure è possibile creare qualsiasi numero di dischi e collegarli.
+
+
+### <a name="attach-a-new-disk-to-a-vm"></a>Collegare un nuovo disco a una VM
+
+Se è necessario solo un nuovo disco nella macchina virtuale, è possibile usare il comando `az vm disk attach`.
+
+```azurecli
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
+```
+
+### <a name="attach-an-existing-disk"></a>Collegare un disco esistente 
+
+In molti casi si collegano dischi già creati. Innanzitutto viene trovato l'id del disco e quindi passato al comando `az vm disk attach-disk`. Il codice seguente usa un disco creato con `az disk create -g myResourceGroup -n myDataDisk --size-gb 50`.
+
+```azurecli
+# find the disk id
+diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
+az vm disk attach-disk -g myResourceGroup --vm-name myVM --disk $diskId
+```
+
+L'output è simile al seguente (è possibile usare l'opzione `-o table` con qualsiasi comando per formattare l'output):
+
+```json
+{
+  "accountType": "Standard_LRS",
+  "creationData": {
+    "createOption": "Empty",
+    "imageReference": null,
+    "sourceResourceId": null,
+    "sourceUri": null,
+    "storageAccountId": null
+  },
+  "diskSizeGb": 50,
+  "encryptionSettings": null,
+  "id": "/subscriptions/<guid>/resourceGroups/rasquill-script/providers/Microsoft.Compute/disks/myDataDisk",
+  "location": "westus",
+  "name": "myDataDisk",
+  "osType": null,
+  "ownerId": null,
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "tags": null,
+  "timeCreated": "2017-02-02T23:35:47.708082+00:00",
+  "type": "Microsoft.Compute/disks"
+}
+```
+
+
+## <a name="attach-an-unmanaged-disk"></a>Collegare un disco non gestito
+
+Il collegamento di un nuovo disco è un'operazione rapida se non è necessario creare un disco nello stesso account di archiviazione della macchina virtuale. Digitare `azure vm disk attach-new` per creare e collegare un nuovo disco GB per la VM. Se non si indica in modo esplicito un account di archiviazione, tutti i dischi creati vengono assegnati allo stesso account di archiviazione in cui si trova il disco del sistema operativo. L'esempio seguente collega un `50`disco GB alla macchina virtuale denominata `myVM` nel gruppo di risorse `myResourceGroup`:
 
 ```azurecli
 azure vm disk attach-new myResourceGroup myVM 50
@@ -292,6 +352,6 @@ Esistono due modi per abilitare la funzione TRIM in una VM Linux. Come di consue
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

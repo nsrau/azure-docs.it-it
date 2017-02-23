@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2016
 ms.author: smalone
 translationtype: Human Translation
-ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
-ms.openlocfilehash: 730321ccacb211ec82e69f8ebc69ee84cbf46a01
+ms.sourcegitcommit: dd020bf625510eb90af2e1ad19c155831abd7e75
+ms.openlocfilehash: 78de3b8dd2d8bd0992bfbacb1079825dca486442
 
 
 ---
@@ -34,6 +34,7 @@ ms.openlocfilehash: 730321ccacb211ec82e69f8ebc69ee84cbf46a01
 Per altre informazioni sul modello di distribuzione classica, vedere [Come gestire i record DNS inversi per i servizi di Azure (classico) con Azure PowerShell](dns-reverse-dns-record-operations-classic-ps.md).
 
 ## <a name="validation-of-reverse-dns-records"></a>Convalida dei record DNS inversi
+
 Per impedire che qualcun altro possa creare record DNS inversi mappati ai propri domini DNS, Azure consente la creazione di un record DNS inverso solo se una delle condizioni seguenti è vera:
 
 * Il valore "ReverseFqdn" corrisponde al valore "Fqdn" per la risorsa indirizzo IP pubblico per cui è stato specificato o al valore "Fqdn" per qualsiasi indirizzo IP pubblico nella stessa sottoscrizione, ad esempio "ReverseFqdn" è "contosoapp1.northus.cloudapp.azure.com.".
@@ -42,37 +43,50 @@ Per impedire che qualcun altro possa creare record DNS inversi mappati ai propri
 Controlli di convalida vengono eseguiti solo quando la proprietà DNS inverso per un indirizzo IP pubblico viene impostata o modificata. La convalida non viene ripetuta periodicamente.
 
 ## <a name="add-reverse-dns-to-existing-public-ip-addresses"></a>Aggiungere il DNS inverso agli indirizzi IP pubblici esistenti
-È possibile aggiungere il DNS inverso a un indirizzo IP pubblico esistente usando il cmdlet "Set-AzureRmPublicIpAddress".
 
-    PS C:\> $pip = Get-AzureRmPublicIpAddress -Name PublicIP -ResourceGroupName NRP-DemoRG-PS
-    PS C:\> $pip.DnsSettings.ReverseFqdn = "contosoapp1.westus.cloudapp.azure.com."
-    PS C:\> Set-AzureRmPublicIpAddress -PublicIpAddress $pip
+È possibile aggiungere il DNS inverso a un indirizzo IP pubblico usando il cmdlet `Set-AzureRmPublicIpAddress`:
+
+```powershell
+$pip = Get-AzureRmPublicIpAddress -Name "PublicIP" -ResourceGroupName "NRP-DemoRG-PS"
+$pip.DnsSettings.ReverseFqdn = "contosoapp1.westus.cloudapp.azure.com."
+Set-AzureRmPublicIpAddress -PublicIpAddress $pip
+```
 
 Se si desidera aggiungere il DNS inverso a un indirizzo IP pubblico esistente che non dispone già di un nome DNS è necessario specificare anche un nome DNS. A tale scopo è possibile usare il cmdlet "Set-AzureRmPublicIpAddress":
 
-    PS C:\> $pip = Get-AzureRmPublicIpAddress -Name PublicIP -ResourceGroupName NRP-DemoRG-PS
-    PS C:\> $pip.DnsSettings = New-Object -TypeName Microsoft.Azure.Commands.Network.Models.PSPublicIpAddressDnsSettings
-    PS C:\> $pip.DnsSettings.DomainNameLabel = "contosoapp1"
-    PS C:\> $pip.DnsSettings.ReverseFqdn = "contosoapp1.westus.cloudapp.azure.com."
-    PS C:\> Set-AzureRmPublicIpAddress -PublicIpAddress $pip
+```powershell
+$pip = Get-AzureRmPublicIpAddress -Name "PublicIP" -ResourceGroupName "NRP-DemoRG-PS"
+$pip.DnsSettings = New-Object -TypeName "Microsoft.Azure.Commands.Network.Models.PSPublicIpAddressDnsSettings"
+$pip.DnsSettings.DomainNameLabel = "contosoapp1"
+$pip.DnsSettings.ReverseFqdn = "contosoapp1.westus.cloudapp.azure.com."
+Set-AzureRmPublicIpAddress -PublicIpAddress $pip
+```
 
 ## <a name="create-a-public-ip-address-with-reverse-dns"></a>Creare un indirizzo IP pubblico con il DNS inverso
-È possibile aggiungere un nuovo indirizzo IP pubblico con la proprietà DNS inverso specificata usando il cmdlet "New-AzureRmPublicIpAddress".
 
-    PS C:\> New-AzureRmPublicIpAddress -Name PublicIP2 -ResourceGroupName NRP-DemoRG-PS -Location WestUS -AllocationMethod Dynamic -DomainNameLabel "contosoapp2" -ReverseFqdn "contosoapp2.westus.cloudapp.azure.com."
+È possibile aggiungere un nuovo indirizzo IP pubblico con la proprietà DNS inverso specificata usando il cmdlet `New-AzureRmPublicIpAddress`:
+
+```powershell
+New-AzureRmPublicIpAddress -Name "PublicIP2" -ResourceGroupName "NRP-DemoRG-PS" -Location "WestUS" -AllocationMethod Dynamic -DomainNameLabel "contosoapp2" -ReverseFqdn "contosoapp2.westus.cloudapp.azure.com."
+```
 
 ## <a name="view-reverse-dns-for-existing-public-ip-addresses"></a>Visualizzare il DNS inverso per gli indirizzi IP pubblici esistenti
-È possibile visualizzare il valore configurato per un indirizzo IP pubblico esistente usando il cmdlet "Get-AzureRmPublicIpAddress":
 
-    PS C:\> Get-AzureRmPublicIpAddress -Name PublicIP2 -ResourceGroupName NRP-DemoRG-PS
+È possibile visualizzare il valore configurato per un indirizzo IP pubblico esistente usando il cmdlet `Get-AzureRmPublicIpAddress`:
+
+```powershell
+Get-AzureRmPublicIpAddress -Name "PublicIP2" -ResourceGroupName "NRP-DemoRG-PS"
+```
 
 ## <a name="remove-reverse-dns-from-existing-public-ip-addresses"></a>Rimuovere il DNS inverso da indirizzi IP pubblici esistenti
-È possibile rimuovere una proprietà DNS inverso da un indirizzo IP pubblico esistente usando il cmdlet “Set-AzureRmPublicIpAddress”. Questa operazione viene eseguita impostando il valore della proprietà ReverseFqdn su un valore vuoto:
 
-    PS C:\> $pip = Get-AzureRmPublicIpAddress -Name PublicIP -ResourceGroupName NRP-DemoRG-PS
-    PS C:\> $pip.DnsSettings.ReverseFqdn = ""
-    PS C:\> Set-AzureRmPublicIpAddress -PublicIpAddress $pip
+È possibile rimuovere il DNS inverso da un indirizzo IP pubblico usando il cmdlet `Set-AzureRmPublicIpAddress`. Questa operazione viene eseguita impostando il valore della proprietà ReverseFqdn su un valore vuoto:
 
+```powershell
+$pip = Get-AzureRmPublicIpAddress -Name "PublicIP" -ResourceGroupName "NRP-DemoRG-PS"
+$pip.DnsSettings.ReverseFqdn = ""
+Set-AzureRmPublicIpAddress -PublicIpAddress $pip
+```
 
 [!INCLUDE [FAQ1](../../includes/dns-reverse-dns-record-operations-faq-host-own-arpa-zone-include.md)]
 
@@ -81,6 +95,6 @@ Se si desidera aggiungere il DNS inverso a un indirizzo IP pubblico esistente ch
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

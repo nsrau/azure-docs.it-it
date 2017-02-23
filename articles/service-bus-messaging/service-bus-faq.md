@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti sul bus di servizio | Microsoft Docs
+title: Domande frequenti sul bus di servizio di Azure | Documentazione Microsoft
 description: Risposte ad alcune delle domande frequenti sul bus di servizio di Azure.
 services: service-bus-messaging
 documentationcenter: na
@@ -12,27 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2016
-ms.author: sethm;juconway
+ms.date: 02/09/2017
+ms.author: sethm;jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b350bac36f1d46c97da37a2807ead8c9c732d69a
+ms.sourcegitcommit: da7f8e3e61705cf07ff65c9dd1d8f292f4fb9f62
+ms.openlocfilehash: 9061829e42ed5563d64860774aa7d80f2ab011bd
 
 
 ---
 # <a name="service-bus-faq"></a>Domande frequenti sul bus di servizio
-Questo articolo risponde ad alcune domande frequenti sul bus di servizio di Microsoft Azure. Per informazioni generali sui prezzi e sul supporto di Azure, vedere [Domande frequenti sul supporto di Azure](http://go.microsoft.com/fwlink/?LinkID=185083) . Vengono trattati gli argomenti seguenti:
+Questo articolo risponde ad alcune domande frequenti sul bus di servizio di Microsoft Azure. Per informazioni generali sui prezzi e sul supporto di Azure, vedere [Domande frequenti sul supporto di Azure](http://go.microsoft.com/fwlink/?LinkID=185083) .
 
-* [Domande generali sulla messaggistica del bus di servizio di Azure](#general-questions-about-azure-service-bus-messaging)
-* [Procedure consigliate del bus di servizio](#service-bus-best-practices)
-* [Prezzi del bus di servizio](#service-bus-pricing)
-* [Quote del bus di servizio](#service-bus-quotas)
-* [Gestione di sottoscrizioni e spazio dei nomi](#subscription-and-namespace-management)
-* [Risoluzione dei problemi](#service-bus-troubleshooting)
-
-## <a name="general-questions-about-azure-service-bus-messaging"></a>Domande generali sulla messaggistica del bus di servizio di Azure
-### <a name="what-is-azure-service-bus-messaging"></a>Cos'è la messaggistica del bus di servizio di Azure?
-La [messaggistica del bus di servizio di Azure](service-bus-messaging-overview.md) è una piattaforma cloud di messaggistica asincrona che consente di scambiare dati tra sistemi disaccoppiati. Microsoft offre questa funzionalità come servizio. Non è pertanto necessario un hardware per poterla usare.
+## <a name="general-questions-about-azure-service-bus"></a>Domande generali sul bus di servizio di Azure
+### <a name="what-is-azure-service-bus"></a>Cos'è il bus di servizio di Azure?
+Il [bus di servizio di Azure](service-bus-messaging-overview.md) è una piattaforma cloud di messaggistica asincrona che consente di scambiare dati tra sistemi disaccoppiati. Microsoft offre questa funzionalità come servizio. Non è pertanto necessario un hardware per poterla usare.
 
 ### <a name="what-is-a-service-bus-namespace"></a>Cos'è uno spazio dei nomi del bus di servizio?
 Lo [spazio dei nomi](service-bus-create-namespace-portal.md) è un contenitore per le risorse del bus di servizio all'interno dell'applicazione. La creazione di uno spazio dei nomi è necessaria per usare il bus di servizio ed è uno dei primi passaggi delle attività iniziali.
@@ -48,11 +41,11 @@ Una coda o un argomento convenzionale è gestito da un singolo broker messaggi e
 
 Se si usano entità di partizionamento, l'ordinamento non è garantito. Se una partizione non è disponibile è comunque possibile inviare e ricevere messaggi da altre partizioni.
 
-## <a name="service-bus-best-practices"></a>Procedure consigliate per il bus di servizio
+## <a name="best-practices"></a>Procedure consigliate
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Quali sono alcune procedure consigliate per il bus di servizio di Azure?
-* [Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica negoziata del bus di servizio][Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica negoziata del bus di servizio]: questo articolo descrive come ottimizzare le prestazioni durante lo scambio di messaggi negoziati.
+* [Procedure consigliate per il miglioramento delle prestazioni tramite il bus di servizio][Best practices for performance improvements using Service Bus]: questo articolo descrive come ottimizzare le prestazioni durante lo scambio di messaggi.
 
-### <a name="what-should-i-know-before-creating-messaging-entities"></a>Cosa è necessario sapere prima di creare entità di messaggistica?
+### <a name="what-should-i-know-before-creating-entities"></a>Cosa è necessario sapere prima di creare entità?
 Le proprietà seguenti di code e argomenti non sono modificabili. Tenerne conto quando si effettua il provisioning delle entità perché non è possibile apportare modifiche senza creare una nuova entità sostitutiva.
 
 * Dimensione
@@ -61,25 +54,23 @@ Le proprietà seguenti di code e argomenti non sono modificabili. Tenerne conto 
 * Rilevamento duplicati
 * Entità espressa
 
-## <a name="service-bus-pricing"></a>Prezzi per il bus di servizio
+## <a name="pricing"></a>Prezzi
 In questa sezione vengono fornite le risposte ad alcune delle domande più frequenti sul modello di prezzo del bus di servizio. Per informazioni generali sui prezzi di Microsoft Azure, vedere le [Domande frequenti su Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=185083) . Per informazioni complete sui prezzi del bus di servizio, vedere la pagina relativa ai [prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ### <a name="how-do-you-charge-for-service-bus"></a>Quali sono le modalità di addebito per il bus di servizio?
-Per informazioni complete sui prezzi del bus di servizio, vedere i [dettagli sui prezzi del bus di servizio][Panoramica sui prezzi]. Oltre ai prezzi indicati, vengono addebitati i trasferimenti di dati associati in uscita dal data center in cui è stato effettuato il provisioning dell'applicazione.
+Per informazioni complete sui prezzi del bus di servizio, vedere la pagina relativa ai [prezzi del bus di servizio][Pricing overview]. Oltre ai prezzi indicati, vengono addebitati i trasferimenti di dati associati in uscita dal data center in cui è stato effettuato il provisioning dell'applicazione.
 
 ### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>Quale tipo di utilizzo del bus di servizio è soggetto all'addebito per trasferimento di dati e quale non lo è?
-Qualsiasi trasferimento di dati all'interno di una specifica area di Azure non è soggetto ad alcun addebito. Per trasferimenti all'esterno di un'area verranno invece addebitati i costi per trasferimento in uscita, alla tariffa di 0,15 USD per GB dalle aree di America del Nord ed Europa e di 0,20 per GB dall'area Asia Pacifico. Per tutti i trasferimenti di dati in ingresso non è previsto alcun addebito.
+Qualsiasi trasferimento di dati nell'ambito di una specifica area di Azure non è soggetto ad alcun addebito, come qualsiasi trasferimento di dati verso l'interno. Il trasferimento di dati all'esterno di un'area è soggetto alle spese di uscita indicate [qui](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### <a name="does-service-bus-charge-for-storage"></a>Per il bus di servizio viene addebitato lo spazio di archiviazione?
 No, per il bus di servizio non viene addebitato lo spazio di archiviazione. È tuttavia prevista una quota che limita la quantità massima di dati che è possibile salvare in modo permanente per ogni coda e argomento. Vedere la risposta alla domanda successiva.
 
-## <a name="service-bus-quotas"></a>Quote del bus di servizio
-Per un elenco dei limiti e delle quote del bus di servizio, vedere [Quote del bus di servizio][Quote del bus di servizio].
+## <a name="quotas"></a>Quote
+Per un elenco di limiti e quote del bus di servizio, vedere [Quote del bus di servizio][Quotas overview].
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>Sono previste quote di utilizzo per il bus di servizio?
-Per impostazione predefinita, per qualsiasi servizio cloud, Microsoft imposta una quota di utilizzo mensile aggregata che viene calcolata su tutte le sottoscrizioni di un cliente. Dal momento che i limiti previsti potrebbero non essere sufficienti, è possibile rivolgersi in qualsiasi momento al servizio clienti, che identificherà le esigenze specifiche e modificherà di conseguenza i limiti. Per il bus di servizio, le quote di utilizzo aggregate sono le seguenti:
-
-* 5 miliardi di messaggi
+Per impostazione predefinita, per qualsiasi servizio cloud, Microsoft imposta una quota di utilizzo mensile aggregata che viene calcolata su tutte le sottoscrizioni di un cliente. Dal momento che i limiti previsti potrebbero non essere sufficienti, è possibile rivolgersi in qualsiasi momento al servizio clienti, che identificherà le esigenze specifiche e modificherà di conseguenza i limiti. Per il bus di servizio, le quote di utilizzo aggregate sono pari a 5 miliardi di messaggi al mese.
 
 Anche se Microsoft si riserva il diritto di disabilitare l'account di un cliente che abbia superato le quote di utilizzo previste in un determinato mese, invierà una notifica tramite posta elettronica ed effettuerà diversi tentativi di contattare il cliente prima di intraprendere qualsiasi azione. I clienti che superano tali quote saranno comunque responsabili per gli addebiti delle eccedenze.
 
@@ -111,45 +102,48 @@ I messaggi che superano queste quote di dimensioni verranno rifiutati e il codic
 
 **Numero di filtri di correlazione per argomento** : il numero massimo di filtri di correlazione per argomento è limitato a 100.000. Se viene raggiunta questa quota, le successive richieste di creazione di altri filtri per l'argomento verranno rifiutate e il codice chiamante riceverà un'eccezione.
 
-## <a name="subscription-and-namespace-management"></a>Gestione di sottoscrizioni e spazi dei nomi
-### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Come si esegue la migrazione di uno spazio dei nomi a un'altra sottoscrizione di Azure?
-È possibile usare i comandi di PowerShell descritti in [in questo articolo][in questo articolo] per spostare uno spazio dei nomi da una sottoscrizione di Azure a un'altra. Per eseguire l'operazione, lo spazio dei nomi deve essere già attivo. L'utente che esegue i comandi deve anche essere un amministratore delle sottoscrizioni di origine e destinazione.
-
-## <a name="service-bus-troubleshooting"></a>Risoluzione dei problemi relativi al bus di servizio
-[Panoramica sulle eccezioni][Panoramica sulle eccezioni]
-
-### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-messaging-apis-and-their-suggested-actions"></a>Quali sono alcune delle eccezioni generate dalle API del sistema di messaggistica del bus di servizio di Azure e le azioni consigliate?
-Le eccezioni che possono essere generate dalle API del sistema di messaggistica rientrano nelle categorie seguenti:
-
-* Errore di codifica utente
-* Errore di installazione/configurazione
-* Eccezioni temporanee
-* Altre eccezioni
-
-L'articolo [Eccezioni di messaggistica del bus di servizio][Panoramica sulle eccezioni] descrive alcune eccezioni con le azioni consigliate.
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Quali sono alcune delle eccezioni generate dalle API del bus di servizio di Azure e le azioni consigliate?
+Per un elenco delle possibili eccezioni del bus di servizio, vedere [Eccezioni di messaggistica del bus di servizio][Exceptions overview].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Cos'è una firma di accesso condiviso e quali linguaggi supportano la generazione di una firma?
-Le firme di accesso condiviso sono un meccanismo di autenticazione basato su hash sicuri SHA-256 o URI. Per informazioni su come generare le proprie firme in Node, PHP, Java e C\#, vedere l'articolo [Firme di accesso condiviso][Firme di accesso condiviso] (Firme di accesso condiviso).
+Le firme di accesso condiviso sono un meccanismo di autenticazione basato su hash sicuri SHA-256 o URI. Per informazioni su come generare le firme in Node, PHP, Java e C\#, vedere l'articolo relativo alle [firme di accesso condiviso][Shared Access Signatures].
+
+## <a name="subscription-and-namespace-management"></a>Gestione di sottoscrizioni e spazi dei nomi
+### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Come si esegue la migrazione di uno spazio dei nomi a un'altra sottoscrizione di Azure?
+Tramite il portale di Azure è possibile migrare gli spazi dei nomi del bus di servizio in un'altra sottoscrizione seguendo le istruzioni disponibili [qui](../azure-resource-manager/resource-group-move-resources.md#use-portal). Se si preferisce usare PowerShell, seguire le istruzioni seguenti: 
+
+La sequenza di comandi seguente sposta uno spazio dei nomi da una sottoscrizione di Azure a un'altra. Per eseguire questa operazione, lo spazio dei nomi deve essere già attivo e l'utente che esegue i comandi di PowerShell deve essere un amministratore nella sottoscrizione di origine e in quella di destinazione.
+
+```powershell
+# Create a new resource group in target subscription
+Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
+New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
+
+# Move namespace from source subscription to target subscription
+Select-AzureRmSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
+$res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
+Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ulteriori informazioni sulla messaggistica del bus di servizio, vedere gli argomenti seguenti.
+Per altre informazioni sul bus di servizio, vedere gli argomenti seguenti.
 
-* [Introduzione alla messaggistica Premium del bus di servizio di Azure (post di blog)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-* [Introduzione alla messaggistica Premium del bus di servizio di Azure (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-* [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
+* [Introduzione ad Azure Service Bus Premium (post di blog)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+* [Introduzione ad Azure Service Bus Premium (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
+* [Panoramica del bus di servizio](service-bus-messaging-overview.md)
 * [Bus di servizio di Azure](service-bus-fundamentals-hybrid-solutions.md)
 * [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 
-[Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica negoziata del bus di servizio]: service-bus-performance-improvements.md
-[Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze del servizio]: service-bus-outages-disasters.md
-[Panoramica sui prezzi]: https://azure.microsoft.com/pricing/details/service-bus/
-[Quote del bus di servizio]: service-bus-quotas.md
-[in questo articolo]: service-bus-powershell-how-to-provision.md#migrate-a-namespace-to-another-azure-subscription
-[Panoramica sulle eccezioni]: service-bus-messaging-exceptions.md
-[Firme di accesso condiviso]: service-bus-sas-overview.md
+[Best practices for performance improvements using Service Bus]: service-bus-performance-improvements.md
+[Best practices for insulating applications against Service Bus outages and disasters]: service-bus-outages-disasters.md
+[Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
+[Quotas overview]: service-bus-quotas.md
+[Exceptions overview]: service-bus-messaging-exceptions.md
+[Shared Access Signatures]: service-bus-sas-overview.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

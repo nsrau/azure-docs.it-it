@@ -1,6 +1,6 @@
 ---
-title: "Creare un set di disponibilità per una VM | Microsoft Docs"
-description: "Informazioni su come creare un set di disponibilità per le macchine virtuali tramite il portale di Azure o PowerShell e utilizzando il modello di distribuzione di Resource Manager."
+title: "Creare un set di disponibilità per una VM in Azure | Documentazione Microsoft"
+description: "Informazioni su come creare un set di disponibilità gestito o non gestito per le macchine virtuali tramite Azure PowerShell o il portale nel modello di distribuzione di Resource Manager."
 keywords: "set di disponibilità"
 services: virtual-machines-windows
 documentationcenter: 
@@ -14,16 +14,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 02/06/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 19f22b9e38e472b56fc9abecc6c14b63b521a58b
+ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
+ms.openlocfilehash: f7562c2bb6ad354ece3aa3c51fdaabad8e878fa9
 
 
 ---
 # <a name="create-an-availability-set"></a>Creare un set di disponibilità
-Quando si usa il portale, se si desidera includere la VM in un set di disponibilità, per prima cosa è necessario creare quest'ultimo.
+I set di disponibilità forniscono ridondanza all'applicazione. È consigliabile raggruppare due o più macchine virtuali in un set di disponibilità. Questa configurazione assicura infatti che, nel corso di un evento di manutenzione pianificata o non pianificata, almeno una delle macchine virtuali sia sempre disponibile e soddisfi per almeno il 99,95% i requisiti del contratto di servizio di Azure. Per altre informazioni, vedere [Contratto di Servizio per Macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
+
+> [!IMPORTANT]
+> La macchina virtuale deve essere creata nello stesso gruppo di risorse del set di disponibilità.
+> 
+
+Se si desidera includere la VM in un set di disponibilità, è necessario creare quest'ultimo prima o durante la creazione della prima macchina virtuale nel set. Se la macchina virtuale usa Managed Disks, è necessario creare il set di disponibilità come set di disponibilità gestito.
 
 Per altre informazioni sulla creazione e sull'uso dei set di disponibilità, vedere l'articolo relativo alla [gestione della disponibilità delle macchine virtuali](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -42,24 +48,46 @@ Per altre informazioni sulla creazione e sull'uso dei set di disponibilità, ved
    * **Sottoscrizione** : se sono disponibili più sottoscrizioni, selezionare quella da usare.
    * **Gruppo di risorse**: per selezionare un gruppo di risorse esistente, fare clic sulla freccia verso il basso e scegliere un gruppo di risorse dall'elenco. È inoltre possibile creare un nuovo gruppo di risorse digitando un nome. Il nome può contenere lettere, numeri, punti, trattini, caratteri di sottolineatura e parentesi aperte o chiuse, mentre non può terminare con un punto. Tutte le VM nel gruppo di disponibilità devono essere create nello stesso gruppo di risorse del set di disponibilità.
    * **Percorso** : selezionare un percorso nell'elenco a discesa.
-4. Dopo aver immesso le informazioni, fare clic su **Crea**. Una volta creato, il gruppo di disponibilità verrà visualizzato nell'elenco dopo aver aggiornato il portale.
+   * **Gestito**: selezionare *Sì* per creare un set di disponibilità gestito da usare con le macchine virtuali che usano Managed Disks per l'archiviazione. Selezionare **No** se le macchine virtuali presenti nel set usano dischi non gestiti in un account di archiviazione.
+   
+4. Dopo aver immesso le informazioni, fare clic su **Crea**. 
 
 ## <a name="use-the-portal-to-create-a-virtual-machine-and-an-availability-set-at-the-same-time"></a>Usare il portale per creare una macchina virtuale e un set di disponibilità contemporaneamente
-Quando si crea una nuova VM tramite il portale, è anche possibile creare un nuovo set di disponibilità durante la creazione della prima VM del set.
+Quando si crea una nuova VM tramite il portale, è anche possibile creare un nuovo set di disponibilità durante la creazione della prima VM del set. Se si sceglie di usare Managed Disks per la macchina virtuale, verrà creato un set di disponibilità gestito.
 
 ![Schermata che illustra la procedura di creazione di un nuovo set di disponibilità in fase di creazione della VM.](./media/virtual-machines-windows-create-availability-set/new-vm-avail-set.png)
 
-## <a name="add-a-new-vm-to-an-existing-availability-set"></a>Aggiungere una nuova VM a un set di disponibilità esistente
+## <a name="add-a-new-vm-to-an-existing-availability-set-in-the-portal"></a>Aggiungere una nuova VM a un set di disponibilità esistente nel portale
 Per ogni nuova VM da aggiungere al set, assicurarsi di creare la VM nello stesso **gruppo di risorse** e di selezionare il set di disponibilità esistente al Passaggio 3. 
 
 ![Schermata che illustra come selezionare un set di disponibilità da utilizzare per la VM.](./media/virtual-machines-windows-create-availability-set/add-vm-to-set.png)
 
 ## <a name="use-powershell-to-create-an-availability-set"></a>Usare PowerShell per creare un set di disponibilità
-In questo esempio viene creato un set di disponibilità nel gruppo di risorse **RMResGroup** nella posizione **Stati Uniti occidentali**. Questa operazione deve essere eseguita prima di creare la prima VM da inserire nel set.
+In questo esempio viene creato un set di disponibilità denominato **myAvailabilitySet** nel gruppo di risorse **myResourceGroup** nella posizione **Stati Uniti occidentali**. Questa operazione deve essere eseguita prima di creare la prima VM da inserire nel set.
 
-    New-AzureRmAvailabilitySet -ResourceGroupName "RMResGroup" -Name "AvailabilitySet03" -Location "West US"
+Prima di iniziare, verificare di avere la versione più recente del modulo di PowerShell AzureRM.Compute. Eseguire il comando seguente per installarlo.
 
-Per ulteriori informazioni, vedere [New AzureRmAvailabilitySet](https://msdn.microsoft.com/library/mt619453.aspx).
+```powershell
+Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+```
+Per altre informazioni, vedere [Controllo delle versioni di Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+
+
+Se si usano dischi gestiti per le macchine virtuali, digitare:
+
+```powershell
+    New-AzureRmAvailabilitySet -ResourceGroupName "myResourceGroup" '
+    -Name "myAvailabilitySet" -Location "West US" -managed
+```
+
+Se si usa il proprio account di archiviazione per le macchine virtuali, digitare:
+
+```powershell
+    New-AzureRmAvailabilitySet -ResourceGroupName "myResourceGroup" '
+    -Name "myAvailabilitySet" -Location "West US" 
+```
+
+Per ulteriori informazioni, vedere [New AzureRmAvailabilitySet](/powershell/new-azurermavailabilityset).
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 * Quando si crea una VM, se il set di disponibilità desiderato non si trova nell'elenco a discesa nel portale, potrebbe essere stato creato in un altro gruppo di risorse. Se non si conosce il gruppo di risorse del set di disponibilità, accedere al menu dell'hub e fare clic su Sfoglia > Gruppi di disponibilità per visualizzare un elenco dei set di disponibilità e dei gruppi di risorse appartenenti a ciascuno.
@@ -70,6 +98,6 @@ Aumentare lo spazio di archiviazione della VM aggiungendo un ulteriore [disco da
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

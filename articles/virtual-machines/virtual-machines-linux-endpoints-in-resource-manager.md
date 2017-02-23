@@ -1,6 +1,6 @@
 ---
-title: Informazioni sugli endpoint per VM Linux in Azure | Documentazione Microsoft
-description: Informazioni sul modo in cui gli endpoint del modello di distribuzione classica vengono ora implementati in Azure Resource Manager usando i gruppi di sicurezza di rete e le regole dell&quot;elenco di controllo di accesso
+title: Informazioni sugli endpoint per macchine virtuali Linux in Azure | Documentazione Microsoft
+description: Informazioni sul modo in cui gli endpoint del modello di distribuzione classica vengono ora implementati in Azure Resource Manager usando i gruppi di sicurezza di rete e le regole dell&quot;elenco di controllo di accesso.
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
-ms.openlocfilehash: 3079b9103f450b511d60ce3a2bf5021332149525
+ms.sourcegitcommit: ccdfd0c64b5a784664edaef9c19e272c8e8323e6
+ms.openlocfilehash: 890c1ea7f7039886b1d2de72ea8f4a453a7b8ce2
 
 
 ---
@@ -34,6 +34,6 @@ Per informazioni dettagliate sulle tecnologie illustrate qui, oltre a guide intr
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

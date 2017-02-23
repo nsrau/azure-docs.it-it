@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/09/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 23979aec895649d80aab21d729833a846c4aeb19
-ms.openlocfilehash: 176aad9c25af6f4f31cf9f7c2152c8d63b3126a4
+ms.sourcegitcommit: fcb2c38b18e40d3ca4406810e523ae339d612bcf
+ms.openlocfilehash: b2049e2b3673ddc0455fc07c298f1054c8c8e78e
 
 
 ---
@@ -32,8 +32,7 @@ Esistono quattro diversi modi per raccogliere log e metriche per i servizi di Az
 
 | Service                 | Tipo di risorsa                           | Log        | Metrica     | Soluzione |
 | --- | --- | --- | --- | --- |
-| Gateway di applicazione    | Microsoft.Network/applicationGateways   | Diagnostica | Diagnostica | [Azure Networking Analytics (anteprima)](log-analytics-azure-networking-analytics.md) |
-| Gestione API          | Microsoft.ApiManagement/service         |             | Diagnostica | |
+| Gateway di applicazione    | Microsoft.Network/applicationGateways   | Diagnostica | Diagnostica | [Analisi dei gateway applicazione di Azure](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
 | Application Insights    |                                         | Connettore   | Connettore   | [Application Insights Connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (anteprima) |
 | Account di Automazione     | Microsoft.Automation/AutomationAccounts | Diagnostica |             | [Altre informazioni](../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Account Batch          | Microsoft.Batch/batchAccounts           | Diagnostica | Diagnostica | |
@@ -43,10 +42,10 @@ Esistono quattro diversi modi per raccogliere log e metriche per i servizi di Az
 | Data Lake Store         | Microsoft.DataLakeStore/accounts        | Diagnostica |             | |
 | Spazio dei nomi dell'hub eventi     | Microsoft.EventHub/namespaces           | Diagnostica | Diagnostica | |
 | Hub IoT                | Microsoft.Devices/IotHubs               |             | Diagnostica | |
-| Insieme di credenziali delle chiavi               | Microsoft.KeyVault/vaults               | Diagnostica |             | [KeyVault Analytics (anteprima)](log-analytics-azure-key-vault.md) |
+| Insieme di credenziali delle chiavi               | Microsoft.KeyVault/vaults               | Diagnostica |             | [KeyVault Analytics](log-analytics-azure-key-vault.md) |
 | Servizi di bilanciamento del carico          | Microsoft.Network/loadBalancers         | Diagnostica |             |  |
 | App per la logica              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnostica | Diagnostica | |
-| Gruppi di sicurezza di rete | Microsoft.Network/networksecuritygroups | Diagnostica |             | [Azure Networking Analytics (anteprima)](log-analytics-azure-networking-analytics.md) |
+| Gruppi di sicurezza di rete | Microsoft.Network/networksecuritygroups | Diagnostica |             | [Analisi del gruppo di sicurezza di rete di Azure](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
 | Servizi di ricerca         | Microsoft.Search/searchServices         | Diagnostica | Diagnostica | |
 | Spazio dei nomi del bus di servizio   | Microsoft.ServiceBus/namespaces         | Diagnostica | Diagnostica | |
 | Service Fabric          |                                         | Archiviazione     |             | [Service Fabric Analytics (anteprima)](log-analytics-service-fabric.md) |
@@ -112,6 +111,7 @@ Per abilitare la diagnostica per una risorsa al momento della creazione e inviar
         }
 ```
 
+[!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="azure-diagnostics-to-storage-then-to-log-analytics"></a>Da Diagnostica di Azure ad Archiviazione di Azure e poi a Log Analytics
 
@@ -152,6 +152,6 @@ La raccolta di modelli di Azure include [esempi dell'uso di Automazione di Azure
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

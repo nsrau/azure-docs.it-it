@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 01/09/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 8e7c14d9eeeab43d596eec99cb380f06cf9c39b3
+ms.sourcegitcommit: 6c2464b2f4d16f70c2841faf18e2246c8125b60f
+ms.openlocfilehash: 9421b8545715def823a4bdafd27c261e159fbbab
 
 
 ---
@@ -140,6 +140,7 @@ Per impostazione predefinita, Service Fabric distribuisce e attiva i servizi com
 [cluster-imagestore-apptypes]: ./media/service-fabric-content-roadmap/cluster-imagestore-apptypes.png
 
 
-<!--HONumber=Jan17_HO4-->
+
+<!--HONumber=Feb17_HO3-->
 
 

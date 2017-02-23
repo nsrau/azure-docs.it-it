@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 148ab898194fc1ab8a10d49dbb2f125f68cc2b1e
-ms.openlocfilehash: c30a69350136273bdaf010cb033dcbb7a26cd39e
+ms.sourcegitcommit: 3c18b1929a78137ff3b53b8e084dc35e0c8dcaac
+ms.openlocfilehash: 478db825a269beeaa9fbb0afef3488fc7d49d024
 
 
 ---
@@ -31,7 +31,7 @@ ms.openlocfilehash: c30a69350136273bdaf010cb033dcbb7a26cd39e
 
 ## <a name="develop"></a>Sviluppare
 ### <a name="app-service-editor"></a>Editor del servizio app
-L'Editor del servizio app è un editor avanzato, disponibile nel portale, che si può utilizzare per modificare i file di configurazione JSON e file del codice nello stesso modo. Quando si sceglie questa opzione, viene aperta una scheda separata del browser con un editor di base. Ciò consente di integrarsi con Github, eseguire il codice e il relativo debug e modificare le impostazioni dell'applicazione per le funzioni.
+L'Editor del servizio app è un editor avanzato, disponibile nel portale, che si può usare per modificare file di configurazione JSON e file del codice nello stesso modo. Quando si sceglie questa opzione, viene aperta una scheda separata del browser con un editor di base. Ciò consente di integrarsi con Github, eseguire il codice e il relativo debug e modificare le impostazioni dell'applicazione per le funzioni.
 
 ![Editor del servizio app](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
@@ -137,6 +137,6 @@ Funzioni di Azure consente di determinare il limite di utilizzo della piattaform
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

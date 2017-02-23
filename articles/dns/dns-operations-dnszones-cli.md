@@ -1,6 +1,6 @@
 ---
-title: Gestire le zone DNS usando l&quot;interfaccia della riga di comando | Documentazione Microsoft
-description: "È possibile gestire le zone DNS utilizzando Azure CLI. Come aggiornare, eliminare e creare le zone DNS in DNS di Azure"
+title: Gestire le zone DNS in DNS di Azure - Interfaccia della riga di comando di Azure | Documentazione Microsoft
+description: "È possibile gestire le zone DNS utilizzando Azure CLI. Questo articolo illustra come aggiornare, eliminare e creare le zone DNS in DNS di Azure."
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -11,27 +11,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/07/2016
+ms.date: 12/21/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: bfbffe7843bc178cdf289c999925c690ab82e922
-ms.openlocfilehash: 927503bb18a63db1da2c92e034dbccb7707afab4
+ms.sourcegitcommit: dd020bf625510eb90af2e1ad19c155831abd7e75
+ms.openlocfilehash: 8519812977c7cc042243e47b2e80bb9605fc9ddc
 
 ---
 
-# <a name="how-to-manage-dns-zones-using-cli"></a>Come gestire le zone DNS utilizzando CLI
+# <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Come gestire le zone DNS in DNS di Azure DNS usando l'interfaccia della riga di comando di Azure
 
 > [!div class="op_single_selector"]
 > * [Interfaccia della riga di comando di Azure](dns-operations-dnszones-cli.md)
 > * [PowerShell](dns-operations-dnszones.md)
 
-Questa guida illustra come gestire le risorse della zona DNS usando l'interfaccia della riga di comando multipiattaforma di Azure.
+Questa guida illustra come gestire le zone DNS usando l'interfaccia della riga di comando di Azure multipiattaforma, disponibile per Windows, Mac e Linux. È anche possibile gestire le zone DNS usando [Azure PowerShell](dns-operations-dnszones.md) o il portale di Azure.
 
-Per queste istruzioni viene usata l'interfaccia della riga di comando di Microsoft Azure. Assicurarsi di eseguire l'aggiornamento alla versione più recente dell'interfaccia della riga di comando di Azure per usare questi comandi del servizio DNS di Azure. È possibile installare l'interfaccia della riga di comando di Azure per Windows, Linux o MAC. Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+[!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
-DNS di Azure è un servizio solo di Gestione risorse di Azure. Non include un modello di distribuzione "classico". È necessario assicurarsi che l'interfaccia della riga di comando di Azure sia configurata per l'uso della modalità Resource Manager. A tale scopo è possibile usare il comando `azure config mode arm`.
+[!INCLUDE [dns-cli-setup](../../includes/dns-cli-setup-include.md)]
 
-Se viene visualizzato il messaggio di errore con l'avviso che *"dns" non è un comando di Azure*, probabilmente è perché si sta usando l’interfaccia della riga di comando di Azure in modalità Azure Service Management e non in modalità Resource Manager.
+## <a name="getting-help"></a>Risorse della Guida
 
 Tutti i comandi dell'interfaccia della riga di comando relativi a DNS di Azure iniziano con `azure network dns`. Sono disponibili informazioni per ogni comando tramite l'opzione `--help` (forma breve `-h`).  ad esempio:
 
@@ -45,11 +45,7 @@ azure network dns zone create -h
 
 Una zona DNS viene creata utilizzando il comando `azure network dns zone create` . Per altre informazioni, vedere `azure network dns zone create -h`.
 
-Gli esempi seguenti mostrano come creare una zona DNS con o senza [tag di Azure Resource Manager](dns-zones-records.md#tags).
-
-### <a name="to-create-a-dns-zone"></a>Per creare una zona DNS
-
-L'esempio seguente crea una zona DNS denominata *contoso.com* nel gruppo di risorse denominato *MyResourceGroup*. Usare l'esempio per creare la zona DNS, sostituendo i valori con quelli personalizzati.
+L'esempio seguente crea una zona DNS denominata *contoso.com* nel gruppo di risorse denominato *MyResourceGroup*:
 
 ```azurecli
 azure network dns zone create MyResourceGroup contoso.com
@@ -57,7 +53,7 @@ azure network dns zone create MyResourceGroup contoso.com
 
 ### <a name="to-create-a-dns-zone-with-tags"></a>Per creare una zona DNS con tag.
 
-L'esempio seguente illustra come creare una zona DNS con due tag, *project = demo* ed *env = test*, usando il parametro `--tags` (forma breve `-t`).
+L'esempio seguente illustra come creare una zona DNS con due [tag di Azure Resource Manager](dns-zones-records.md#tags), *project = demo* ed *env = test*, usando il parametro `--tags` (forma breve `-t`):
 
 ```azurecli
 azure network dns zone create MyResourceGroup contoso.com -t "project=demo";"env=test"
@@ -71,7 +67,11 @@ L'esempio seguente restituisce la zona DNS *contoso.com* e i relativi dati assoc
 
 ```azurecli
 azure network dns zone show MyResourceGroup contoso.com
+```
 
+L'esempio seguente corrisponde alla risposta.
+
+```
 info:    Executing command network dns zone show
 + Looking up the dns zone "contoso.com"
 data:    Id                              : /subscriptions/.../contoso.com
@@ -112,7 +112,7 @@ azure network dns zone list
 
 È possibile apportare modifiche a una risorsa di zona DNS usando `azure network dns zone set`. Per altre informazioni, vedere `azure network dns zone set -h`.
 
-Questo comando non consente di aggiornare alcun set di record DNS compreso nella zona (vedere [Come gestire i record DNS](dns-operations-recordsets.md)). Questa operazione permette solo di aggiornare le proprietà della risorsa di zona stessa. Queste proprietà sono attualmente limitate ai ["tag" di Azure Resource Manager](dns-zones-records.md#tags) relativi alla risorsa di zona.
+Questo comando non consente di aggiornare alcun set di record DNS compreso nella zona (vedere [Come gestire i record DNS](dns-operations-recordsets-cli.md)). Questa operazione permette solo di aggiornare le proprietà della risorsa di zona stessa. Queste proprietà sono attualmente limitate ai ["tag" di Azure Resource Manager](dns-zones-records.md#tags) relativi alla risorsa di zona.
 
 L'esempio seguente illustra come aggiornare i tag in una zona DNS. I tag esistenti vengono sostituiti dal valore specificato.
 
@@ -125,7 +125,7 @@ azure network dns zone set MyResourceGroup contoso.com -t "team=support"
 Le zone DNS possono essere eliminate usando `azure network dns zone delete`. Per altre informazioni, vedere `azure network dns zone delete -h`.
 
 > [!NOTE]
-> L'eliminazione di una zona DNS comporterà anche l'eliminazione di tutti i record DNS all'interno della zona. Questa operazione non può essere annullata. Se la zona DNS è in uso, i servizi che la usano rileveranno un errore quando la zona viene eliminata.
+> L'eliminazione di una zona DNS comporta anche l'eliminazione di tutti i record DNS all'interno della zona. Questa operazione non può essere annullata. Se la zona DNS è in uso, i servizi che la usano rileveranno un errore quando la zona viene eliminata.
 >
 >Per evitare l'eliminazione accidentale di una zona, vedere [How to protect DNS zones and records](dns-protect-zones-recordsets.md) (Come proteggere le zone e i record DNS).
 
@@ -140,12 +140,12 @@ azure network dns zone delete MyResourceGroup contoso.com
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni su come [gestire record e set di record](dns-getstarted-create-recordset-cli.md) nella zona DNS.
-<br>
+
 Informazioni su come [delegare il dominio al servizio DNS di Azure](dns-domain-delegation.md).
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

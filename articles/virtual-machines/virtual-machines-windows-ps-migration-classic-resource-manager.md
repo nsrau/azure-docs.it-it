@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: b75ed253a47b5f4ad0d95ef29c30f3d5ba3cb5fb
+ms.sourcegitcommit: e90036d97451b271451d0ba5845c788ac05d7abf
+ms.openlocfilehash: 4253d60a8a12877a3c5dac073bd06d70d020ccdc
 
 
 ---
@@ -37,7 +37,7 @@ Ecco alcune procedure consigliate per valutare la migrazione delle risorse IaaS 
 * Se si hanno script automatizzati che consentono di distribuire subito l'infrastruttura e le applicazioni, provare a creare una configurazione di test simile usando questi script per la migrazione. In alternativa, è anche possibile configurare ambienti di esempio tramite il portale di Azure.
 
 > [!IMPORTANT]
-> I gateway ExpressRoute e applicazione non sono attualmente supportati per la migrazione dal modello di distribuzione classica a Resource Manager. Per eseguire la migrazione di una rete virtuale classica con un gateway ExpressRoute o applicazione, rimuovere il gateway prima di eseguire un'operazione di commit per spostare la rete (è possibile eseguire la fase di preparazione senza eliminare il gateway ExpressRoute o applicazione). Dopo aver completato la migrazione, riconnettere il gateway in Azure Resource Manager.
+> I gateway applicazione non sono attualmente supportati per la migrazione dal modello di distribuzione classica a Resource Manager. Per eseguire la migrazione di una rete virtuale classica con un gateway applicazione, rimuovere il gateway prima di eseguire un'operazione di commit per spostare la rete (è possibile eseguire la fase di preparazione senza eliminare il gateway applicazione). Dopo aver completato la migrazione, riconnettere il gateway in Azure Resource Manager. Se si desidera eseguire la migrazione di gateway ExpressRoute in casi in cui il gateway e il circuito ExpressRoute sono nella stessa sottoscrizione, è necessario contattare il supporto. Non è possibile eseguire la migrazione di gateway ExpressRoute che si connettono a circuiti ExpressRoute in un'altra sottoscrizione. In tal caso, rimuovere il gateway ExpressRoute, eseguire la migrazione della rete virtuale e ricreare il gateway.
 > 
 > 
 
@@ -274,6 +274,6 @@ Se la configurazione preparata appare corretta, è possibile procedere ed esegui
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

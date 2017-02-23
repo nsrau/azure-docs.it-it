@@ -1,6 +1,6 @@
 ---
-title: Ridimensionare i livelli di risorse per i carichi di lavoro di indicizzazione e query in Ricerca di Azure | Documentazione Microsoft
-description: "La pianificazione della capacità in Ricerca di Azure si basa su combinazioni di risorse di calcolo costituite da partizioni e repliche, in cui ogni risorsa è quotata in unità di ricerca fatturabili."
+title: "Pianificazione della capacità per Ricerca di Azure | Documentazione Microsoft"
+description: "Regolare le risorse di calcolo, ovvero partizioni e repliche, dove il prezzo di ogni risorsa è definito in unità di ricerca fatturabili, in Ricerca di Azure."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/24/2016
+ms.date: 02/08/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 7fc643a4c852b723d030212f01e6ff475c76e1a4
-ms.openlocfilehash: 8fb3011d755dd0330e71005de4df52f59e1f7b95
+ms.sourcegitcommit: bf06b5623ca6bd6005cdde6fd587048ded6412dd
+ms.openlocfilehash: 3e33d1c815589fdb40af46f3c3410e037f77a34c
 
 ---
 
@@ -71,7 +71,10 @@ I contratti di servizio per Ricerca di Azure sono associati a operazioni di quer
 
 ### <a name="index-availability-during-a-rebuild"></a>Disponibilità degli indici durante la ricompilazione###
 
-La disponibilità elevata per Ricerca di Azure riguarda gli aggiornamenti di query e indici che non comportano la ricompilazione di un indice. Se si aggiunge, elimina o rinomina un campo oppure si modifica il tipo di dati, sarà necessario ricompilare l'indice. A tale scopo, è necessario eliminare l'indice, ricrearlo e ricaricare i dati.
+La disponibilità elevata per Ricerca di Azure riguarda gli aggiornamenti di query e indici che non comportano la ricompilazione di un indice. Se si elimina o si rinomina un campo oppure si modifica il tipo di dati, sarà necessario ricompilare l'indice. A tale scopo, è necessario eliminare l'indice, ricrearlo e ricaricare i dati.
+
+> [!NOTE]
+> È possibile aggiungere nuovi campi a un indice di Ricerca di Azure senza ricompilare l'indice. Il valore del nuovo campo sarà null per tutti i documenti già presenti nell'indice.
 
 Per mantenere la disponibilità degli indici durante la ricompilazione, è necessario avere una copia dell'indice con un nome diverso nelle stesso servizio oppure una copia dell'indice con lo stesso nome in un servizio diverso e quindi specificare la logica di reindirizzamento o di failover nel codice.
 
@@ -122,6 +125,6 @@ Il costo per SU è determinato dal livello, con una tariffa di fatturazione per 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

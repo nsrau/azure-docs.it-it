@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/14/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: da120b0ea1bfa7a0afcb6eed864c4eadbd2bbec0
+ms.sourcegitcommit: e5103ccd0cc9ac46a29d98c613b58eead01f5e31
+ms.openlocfilehash: 6c7adb5d20c70c52400f1b003d4a81fdbf62b405
 
 
 ---
 # <a name="using-attributes-to-create-advanced-rules-for-group-membership-in-azure-active-directory-preview"></a>Utilizzo degli attributi per creare regole avanzate per l'appartenenza al gruppo in anteprima di Azure Active Directory
-Il portale di Azure offre la possibilità di creare regole avanzate per consentire appartenenze dinamiche basate su attributi più complesse per i gruppi in anteprima di Azure Active Directory (Azure AD). [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md)  Questo articolo descrive in dettaglio la sintassi e gli attributi delle regole per creare queste regole avanzate.
+Il portale di Azure offre la possibilità di creare regole avanzate per consentire appartenenze dinamiche basate su attributi più complesse per i gruppi in anteprima di Azure Active Directory (Azure AD). [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md) Questo articolo descrive in dettaglio la sintassi e gli attributi delle regole per creare queste regole avanzate.
 
 ## <a name="to-create-the-advanced-rule"></a>Per creare la regola avanzata
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
@@ -119,6 +119,7 @@ Operatori consentiti
 | --- | --- | --- |
 | city |Qualsiasi valore stringa o $null |(user.city -eq "valore") |
 | country |Qualsiasi valore stringa o $null |(user.country -eq "valore") |
+| CompanyName | Qualsiasi valore stringa o $null | (user.CompanyName -eq "valore") |
 | department |Qualsiasi valore stringa o $null |(user.department -eq "valore") |
 | displayName |Qualsiasi valore stringa. |(user.displayName -eq "valore") |
 | facsimileTelephoneNumber |Qualsiasi valore stringa o $null |(user.facsimileTelephoneNumber -eq "valore") |
@@ -194,7 +195,7 @@ Ora è possibile popolare i membri di un gruppo in base all'attributo di manager
 | isManaged |true false null |(device.isManaged -eq "false") |
 | isCompliant |true false null |(device.isCompliant -eq "true") |
 
-## <a name="additional-information"></a>Informazioni aggiuntive
+## <a name="next-steps"></a>Passaggi successivi
 Questi articoli forniscono informazioni aggiuntive sui gruppi in Azure Active Directory.
 
 * [Vedere i gruppi esistenti](active-directory-groups-view-azure-portal.md)
@@ -205,6 +206,6 @@ Questi articoli forniscono informazioni aggiuntive sui gruppi in Azure Active Di
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

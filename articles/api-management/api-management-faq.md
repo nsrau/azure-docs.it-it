@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
-ms.openlocfilehash: f4f3ee081d7c89fb5bc01552cb2e3ce01dd5381a
+ms.sourcegitcommit: 8d5c21f8e746a9bcddc2eb9b0294836e0de55bf2
+ms.openlocfilehash: 6300aa7030cfd29ec4b8b1db7b42227855fddbcf
 
 ---
 # <a name="azure-api-management-faqs"></a>Domande frequenti su Gestione API di Azure
@@ -44,6 +44,7 @@ Risposte alle domande comuni, modelli e procedure consigliate per Gestione API d
 * [Perché si ottiene un errore di autenticazione quando si cerca di clonare un repository GIT?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [Gestione API funziona con ExpressRoute?](#does-api-management-work-with-azure-expressroute)
 * [È possibile spostare un servizio Gestione API da una sottoscrizione a un'altra?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
+* [Esistono restrizioni o problemi noti relativi all'importazione di questa API?](#api-management-api-import-restrictions)
 
 ### <a name="how-can-i-ask-the-microsoft-azure-api-management-team-a-question"></a>Come si rivolge una domanda al team di Gestione API di Microsoft Azure?
 È possibile contattare Microsoft in uno dei modi seguenti:
@@ -90,7 +91,6 @@ Ora il nuovo collaboratore aggiunto può usare i [cmdlet](https://msdn.microsoft
 2. Impostare il contesto sulla sottoscrizione che contiene il servizio usando `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.
 3. Ottenere un l'URL Single Sign-On usando `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
 4. Usare l'URL per accedere al portale di amministrazione.
-
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Perché il criterio da aggiungere non è disponibile nell'editor dei criteri?
 Se il criterio che si vuole aggiungere è in grigio o ombreggiato nell'editor dei criteri, assicurarsi che l'ambito del criterio sia corretto. Ogni istruzione di criterio è progettata per essere usata in ambiti e sezioni dei criteri specifici. Per esaminare le sezioni dei criteri e gli ambiti di un criterio, vedere la sezione sull'utilizzo in [API Management policies](https://msdn.microsoft.com/library/azure/dn894080.aspx) (Criteri di Gestione API).
 
@@ -100,7 +100,6 @@ Esistono alcune opzioni per usare il controllo delle versioni API in Gestione AP
 * In Gestione API è possibile configurare le API per rappresentare versioni diverse. Ad esempio, se esistono due API diverse, MyAPIv1 e MyAPIv2, uno sviluppatore può scegliere la versione che vuole usare.
 * È anche possibile configurare l'API con un URL del servizio che non include un segmento di versione, ad esempio https://my.api. Configurare quindi un segmento di versione nel modello di [URL di riscrittura](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) di ogni operazione. Ad esempio, è possibile avere un'operazione con un [modello di URL](api-management-howto-add-operations.md#url-template) denominato /resource e un modello di [URL di riscrittura](api-management-howto-add-operations.md#rewrite-url-template) denominato /v1/Resource. È possibile modificare il valore del segmento di versione separatamente per ogni operazione.
 * Per mantenere un segmento di versione "predefinito" nell'URL del servizio dell'API, in alcune operazioni specificare un criterio che usa l'[impostazione del servizio back-end](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) per modificare il percorso di richiesta del back-end.
-
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Come si configurano più ambienti in una sola API?
 Per configurare più ambienti, ad esempio un ambiente di test e un ambiente di produzione, in una sola API, esistono due opzioni. È possibile:
 
@@ -148,9 +147,11 @@ Sì. Gestione API funziona con ExpressRoute.
 ### <a name="can-i-move-an-api-management-service-from-one-subscription-to-another"></a>È possibile spostare un servizio Gestione API da una sottoscrizione a un'altra?
 Sì. Per informazioni, vedere [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md) (Spostare le risorse in un nuovo gruppo di risorse o in una nuova sottoscrizione).
 
+### <a name="are-there-restrictions-on-or-known-issues-with-importing-my-api"></a>Esistono restrizioni o problemi noti relativi all'importazione di questa API?
+[Problemi noti e limitazioni](api-management-api-import-restrictions.md) per i formati Open API (Swagger), WSDL e WADL.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

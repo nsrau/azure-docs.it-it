@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: bddd581b5164b03ccba75370cd89a7831101cf37
-ms.openlocfilehash: 5b77d16c4a373936dfa5fbba35bc3dc4c9a37e78
+ms.sourcegitcommit: 4fbe7bd802e9cc32d43f019980650c4723b75d5f
+ms.openlocfilehash: 7e821117e62eda286cefb59a5ded85b2f99f3ef7
 
 
 ---
@@ -97,7 +97,7 @@ Se è stato già configurato l’accesso al cloud tramite una versione precedent
 ### <a name="understanding-user-principal-name"></a>Informazioni sul nome dell'entità utente
 In Active Directory il suffisso UPN predefinito è il nome DNS del dominio in cui è stato creato l'account utente. Nella maggior parte dei casi si tratta del nome di dominio registrato come dominio dell'organizzazione su Internet. Tuttavia, è possibile aggiungere altri suffissi UPN usando Domini e trust di Active Directory.
 
-L'UPN dell'utente è in formato username@domain. Ad esempio, per l'utente John del dominio di Active Directory "contoso.com", l'UPN può essere 'john@contoso.com'. L'UPN dell'utente è basato su RFC 822. Anche se UPN  e posta elettronica condividono lo stesso formato, il valore UPN per un utente non è necessariamente uguale all'indirizzo di posta elettronica dell'utente.
+L'UPN dell'utente è in formato username@domain. Ad esempio, per un dominio di Active Directory denominato "contoso.com", un utente denominato John potrebbe avere il nome UPN 'john@contoso.com'. L'UPN dell'utente è basato su RFC 822. Anche se UPN  e posta elettronica condividono lo stesso formato, il valore UPN per un utente non è necessariamente uguale all'indirizzo di posta elettronica dell'utente.
 
 ### <a name="user-principal-name-in-azure-ad"></a>Nome dell'entità utente in Azure AD
 La procedura guidata di Azure AD Connect usa l'attributo userPrincipalName o, nelle installazioni personalizzate, consente di specificare l'attributo da usare in locale come nome dell'entità utente in Azure AD. Questo è il valore che verrà usato per l'accesso ad Azure AD. Se il valore dell'attributo del nome dell'entità utente non corrisponde a un dominio verificato in Azure AD, Azure AD lo sostituisce con un valore .onmicrosoft.com predefinito.
@@ -178,6 +178,6 @@ Per altre informazioni, vedere [Azure AD Connect: Concetti relativi alla progett
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

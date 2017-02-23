@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 01/20/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 4dbd2c87d648f6923772b070fdfe7379de22e6c5
-ms.openlocfilehash: e1adeaca702de3bad1c2e572f89ade9eba753173
+ms.sourcegitcommit: 13eb8ab1bf3c218f14b4c23ca1a46e9552d55b25
+ms.openlocfilehash: d70b9f2c2a0cb1abe11dcfee9acb51dcb5552a60
 
 
 ---
@@ -28,7 +28,7 @@ Le applicazioni client richiedono provider di dati, chiamati anche librerie clie
 
 Analysis Services usa tre provider di dati. ADOMD.NET e Analysis Services Management Objects (AMO) sono provider di dati gestiti. Il provider Analysis Services OLE DB (MSOLAP DLL) è un provider di dati nativo. In genere, tutti e tre i provider vengono installati nello stesso momento. Azure Analysis Services richiede le versioni più recenti dei provider di dati. 
 
-Le applicazioni client di Microsoft, ad esempio Power BI Desktop ed Excel, installano tutti e tre i provider di dati. Tuttavia, a seconda della versione di Excel o a seconda se ogni mese siano aggiornate versioni più recenti di Excel e Power BI Desktop, i provider di dati installati potrebbero non essere aggiornati alle versioni più recenti richieste da Azure Analysis Services. Lo stesso vale per le applicazioni personalizzate o per le altre interfacce come AsCmd, TOM e ADOMD.NET. Queste applicazioni richiedono l'installazione manuale dei provider. I provider di dati per l'installazione manuale sono inclusi nei Feature Pack di SQL Server come pacchetti distribuibili; tuttavia, questi vengono associati alla versione di SQL Server e potrebbe non essere i più recenti.  
+Le applicazioni client di Microsoft, ad esempio Power BI Desktop ed Excel, installano tutti e tre i provider di dati. Tuttavia, a seconda della versione di Excel o a seconda se ogni mese siano aggiornate versioni più recenti di Excel e Power BI Desktop, i provider di dati installati potrebbero non essere aggiornati alle versioni più recenti richieste da Azure Analysis Services. Lo stesso vale per le applicazioni personalizzate o per le altre interfacce come AsCmd, TOM e ADOMD.NET. Queste applicazioni richiedono l'installazione manuale dei provider. I provider di dati per l'installazione manuale sono inclusi nei Feature Pack di SQL Server come pacchetti distribuibili; tuttavia, questi vengono associati alla versione di SQL Server e potrebbero non essere quelli più recenti.  
 
 I provider di dati per le connessioni client sono diversi da quelli necessari per connettersi da un server di Azure Analysis Services a un'origine dati. Per ulteriori informazioni sulle connessioni alle origini dati, vedere [Connessioni alle origini dati](analysis-services-datasource.md).
  
@@ -40,10 +40,10 @@ I provider di dati per le connessioni client sono diversi da quelli necessari pe
 [ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)</br>
 
 ## <a name="next-steps"></a>Passaggi successivi
-Con i provider di dati più recenti installati, l'applicazione client è pronta a connettersi a un server. Per altre informazioni sulla connessione, vedere [Ottenere dati da Azure Analysis Services](analysis-services-connect.md).
+Con i provider di dati più recenti installati, l'applicazione client è pronta a connettersi a un server. Per altre informazioni sulla connessione da un client, vedere [Ottenere dati da Azure Analysis Services](analysis-services-connect.md).
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

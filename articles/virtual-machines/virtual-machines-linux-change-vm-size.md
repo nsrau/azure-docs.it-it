@@ -1,5 +1,5 @@
 ---
-title: Come ridimensionare una macchina virtuale Linux | Microsoft Docs
+title: Come ridimensionare una VM Linux con l&quot;interfaccia della riga di comando di Azure 2.0 (Anteprima) | Documentazione Microsoft
 description: Come ridimensionare una macchina virtuale di Linux, modificando le dimensioni della VM.
 services: virtual-machines-linux
 documentationcenter: na
@@ -13,68 +13,61 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/16/2016
+ms.date: 02/10/2017
 ms.author: mwasson
 translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
-ms.openlocfilehash: 788efb5d1cbbd5fd20096c54ca702b99eb2b5a18
+ms.sourcegitcommit: b95ab7b023dddc77231a59151b0c2d44cf968b6e
+ms.openlocfilehash: fb2adcfafca35c35d0b526c30d242927b3ef58fe
 
 
 ---
 # <a name="how-to-resize-a-linux-vm"></a>Come ridimensionare una VM di Linux
-## <a name="overview"></a>Panoramica
-Dopo aver eseguito il provisioning di una macchina virtuale (VM), è possibile scalare la macchina virtuale in verticale o orizzontale modificando le [dimensioni della VM][vm-sizes]. In alcuni casi, è necessario prima deallocare la macchina virtuale. Questa situazione può verificarsi se le nuove dimensioni non sono disponibili nel cluster hardware che ospita la VM.
+Dopo aver eseguito il provisioning di una macchina virtuale (VM), è possibile scalare la macchina virtuale in verticale o orizzontale modificando le [dimensioni della VM][vm-sizes]. In alcuni casi, è necessario prima deallocare la macchina virtuale. Se le dimensioni desiderate non sono disponibili nel cluster hardware che ospita la VM, è necessario deallocare la VM. Questo articolo illustra come ridimensionare una VM Linux tramite l'interfaccia della riga di comando di Azure 2.0 (Anteprima).
 
-Questo articolo illustra come ridimensionare una VM Linux mediante l'[interfaccia della riga di comando di Azure][azure-cli].
+## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività
+È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+- [Interfaccia della riga di comando di Azure 1.0](virtual-machines-linux-change-vm-size-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](#resize-a-linux-vm): interfaccia di prossima generazione per il modello di distribuzione di gestione delle risorse (questo articolo)
 
 ## <a name="resize-a-linux-vm"></a>Ridimensionare una VM di Linux
-Per ridimensionare una VM, seguire questa procedura.
+Per ridimensionare la VM, è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0 (Anteprima)](/cli/azure/install-az-cli2) e aver effettuato l'accesso a un account Azure con il comando [az login](/cli/azure/#login).
 
-1. Eseguire il comando dell'interfaccia della riga di comando seguente. Questo comando elenca le dimensioni delle VM che sono disponibili nel cluster hardware in cui è ospitata la VM.
+1. Per consultare l'elenco delle dimensioni delle VM disponibili nel cluster hardware in cui è ospitata la macchina virtuale, usare il comando [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options). L'esempio seguente elenca le dimensioni di macchina virtuale disponibili per la VM denominata `myVM` nell'area `myResourceGroup` del gruppo di risorse:
    
     ```azurecli
-    azure vm sizes -g myResourceGroup --vm-name myVM
+    az vm list-vm-resize-options --resource-group myResourceGroup --name myVM --output table
     ```
-2. Se le dimensioni desiderate sono nell'elenco, eseguire il comando seguente per ridimensionare la VM.
+
+2. Se le dimensioni di VM desiderate sono presenti nell'elenco, ridimensionare la VM con il comando [az vm resize](/cli/azure/vm#resize). Nell'esempio seguente viene ridimensionata la VM denominata `myVM` alle dimensioni `Standard_DS3_v2`:
    
     ```azurecli
-    azure vm set -g myResourceGroup --vm-size <new-vm-size> -n myVM  \
-        --enable-boot-diagnostics
-        --boot-diagnostics-storage-uri https://mystorageaccount.blob.core.windows.net/ 
+    az vm resize --resource-group myResourceGroup --name myVM --size Standard_DS3_v2
     ```
    
-    Durante questo processo verrà riavviata la VM. Dopo il riavvio, si rimappano il sistema operativo esistente e i dischi di dati. Qualsiasi elemento presente nel disco temporaneo andrà perso.
-   
-    L'uso dell'opzione `--enable-boot-diagnostics` consente alla [diagnostica di avvio][boot-diagnostics] di registrare eventuali errori correlati all'avvio.
-3. In caso contrario, se la dimensione desiderata non è nell'elenco, eseguire i comandi seguenti per deallocare la VM, ridimensionarla e quindi riavviare la VM.
+    Durante questo processo, la VM viene riavviata. Dopo il riavvio, viene eseguito un nuovo mappaggio del sistema operativo esistente e dei dischi dati. Qualsiasi elemento presente nel disco temporaneo andrà perso.
+
+3. Se le dimensioni della VM desiderate non sono presenti nell'elenco, è necessario innanzitutto deallocare la macchina virtuale con il comando [az vm deallocate](/cli/azure/vm#deallocate). Questo processo consente il ridimensionamento della macchina virtuale a qualsiasi dimensione disponibile supportata dall'area e l'avvio della stessa. I passaggi seguenti consentono di deallocare, ridimensionare e quindi avviare la VM denominata `myVM` nel gruppo di risorse denominato `myResourceGroup`:
    
     ```azurecli
-    azure vm deallocate -g myResourceGroup myVM
-    azure vm set -g myResourceGroup --vm-size <new-vm-size> -n myVM \
-        --enable-boot-diagnostics --boot-diagnostics-storage-uri \
-        https://mystorageaccount.blob.core.windows.net/ 
-    azure vm start -g myResourceGroup myVM
+    az vm deallocate --resource-group myResourceGroup --name myVM
+    az vm resize --resource-group myResourceGroup --name myVM --size Standard_DS3_v2
+    az vm start --resource-group myResourceGroup --name myVM
     ```
    
    > [!WARNING]
    > La deallocazione della VM rilascia anche degli indirizzi IP dinamici assegnati alla VM. I dischi del sistema operativo e dei dati non sono coinvolti.
-   > 
-   > 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per una maggiore scalabilità, eseguire più istanze di VM e la scalabilità orizzontale. Per altre informazioni, vedere [Ridimensionare automaticamente macchine virtuali Linux in un set di scalabilità di macchine virtuali][scale-set]. 
 
 <!-- links -->
-
-[azure-cli]: ../xplat-cli-install.md
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
 [scale-set]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md 
 [vm-sizes]: virtual-machines-linux-sizes.md
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 
