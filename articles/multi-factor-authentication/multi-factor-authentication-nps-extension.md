@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 02/13/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: c9cf1540c0f8d16b0a5cdbedc78ac58cd5686107
-ms.openlocfilehash: 51ebadc241892ebc6fb26b29955e3030ae1bdcb3
+ms.sourcegitcommit: 68f1088a7303b5eddecc9ff99f7330c0462baafc
+ms.openlocfilehash: 9fb517a08fb56a1adb9e23f820aa2e4aa20eacf6
 
 
 ---
@@ -49,10 +49,8 @@ Windows Server 2008 R2 SP1 o versione successiva con il componente Server dei cr
 
 ### <a name="libraries"></a>Librerie
 
-L'estensione di Server dei criteri di rete richiede due librerie. Queste vengono installate durante il processo di configurazione:
-
--   Microsoft Visual Studio 2013 C++ Redistributable (X64)
--   Modulo di Microsoft Azure Active Directory per Windows PowerShell versione 1.1.166
+-    [Visual C++ Redistributable Packages per Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+-    [Modulo di Microsoft Azure Active Directory per Windows PowerShell versione 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
@@ -64,19 +62,22 @@ Quando si installa l'estensione, per il tenant di Azure AD sono necessarie le cr
 
 ## <a name="install-the-nps-extension"></a>Installare l'estensione di Server dei criteri di rete
 
+> [!IMPORTANT]
+> Installare l'estensione di Server dei criteri di rete in un server diverso rispetto al punto di accesso della VPN. 
+
 Per installare l'estensione di Server dei criteri di rete per Azure MFA:
 
-1.  [Scaricare l'estensione di Server dei criteri di rete](https://aka.ms/npsmfa) dall'Area download Microsoft
-2.  Copiare il file binario nel Server dei criteri di rete da configurare
-3.  Eseguire *setup.exe* e seguire le istruzioni di installazione
+1.    [Scaricare l'estensione di Server dei criteri di rete](https://aka.ms/npsmfa) dall'Area download Microsoft
+2.    Copiare il file binario nel Server dei criteri di rete da configurare
+3.    Eseguire *setup.exe* e seguire le istruzioni di installazione
 
 Dopo aver completato l'installazione, il programma di installazione crea uno script di PowerShell in questa posizione: `C:\Program Files\Microsoft\AzureMfa\Config` (dove C:\ è l'unità di installazione). Lo script di PowerShell esegue le azioni seguenti:
 
--   Creare un certificato autofirmato.
--   Associare la chiave pubblica del certificato all'entità servizio su Azure AD.
--   Archiviare il certificato nell'archivio certificati del computer locale.
--   Concedere l'accesso alla chiave privata del certificato all'utente di rete.
--   Riavviare il Server dei criteri di rete.
+-    Creare un certificato autofirmato.
+-    Associare la chiave pubblica del certificato all'entità servizio su Azure AD.
+-    Archiviare il certificato nell'archivio certificati del computer locale.
+-    Concedere l'accesso alla chiave privata del certificato all'utente di rete.
+-    Riavviare il Server dei criteri di rete.
 
 A meno che non si desideri utilizzare i propri certificati (invece dei certificati autofirmati generati dallo script di PowerShell), eseguire lo script di PowerShell per completare l'installazione.
 
@@ -137,7 +138,7 @@ Questo errore potrebbe essere dovuto a diverse ragioni. Usare la procedura segue
 1. Riavviare il server di Server dei criteri di rete.
 2. Verificare che il certificato client sia installato come previsto.
 3. Verificare che il certificato sia associato al tenant in Azure AD.
-4. Verificare che https://login.windows.new/ sia accessibile dal server che esegue l'estensione.
+4. Verificare che https://login.windows.net/ sia accessibile dal server che esegue l'estensione.
 
 -------------------------------------------------------------
 
@@ -157,6 +158,6 @@ Consultare gli articoli su come integrare Azure MFA con [Active Directory](multi
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

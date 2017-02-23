@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: b01d0ddef2271c440cbff1684c85d23dcda9a1de
-ms.openlocfilehash: 75d657412a61de38ab53708a8108d40309de742d
+ms.sourcegitcommit: 67650676117fef834ea819da2fc45ca66ed15493
+ms.openlocfilehash: 1b713e015f48b044c6c9d8ff6a0d8669d4532a9f
 
 
 ---
@@ -54,7 +54,7 @@ Il proxy applicazione Azure AD offre i vantaggi di sicurezza seguenti:
 * Protezione dell'identità di Azure AD con intelligence basata sul linguaggio macchina e feed di dati provenienti dalla Digital Crimes Unit e da Microsoft Security Response Center. Insieme identifichiamo in modo proattivo gli account compromessi e offriamo una protezione in tempo reale contro gli accessi ad alto rischio. Teniamo in considerazione diversi fattori, ad esempio l'accesso da dispositivi infetti e tramite reti anonime, da posizioni atipiche e improbabili.
 * Molte di queste segnalazioni ed eventi sono già disponibili tramite un'API per l'integrazione con i sistemi SIEM.
 * Per altre informazioni, vedere [Azure Active Directory Identity Protection](https://azure.microsoft.com/en-us/documentation/articles/active-directory-identityprotection).
-
+!
 **Accesso remoto come servizio:** non è necessario preoccuparsi di mantenere e applicare patch ai server locali
 
 * Il proxy applicazione Azure AD è un servizio su scala Internet che possediamo, pertanto si può avere la certezza di ottenere sempre le patch di sicurezza e gli aggiornamenti più recenti. Tutelare la sicurezza della rete è uno dei nostri scopi.
@@ -65,6 +65,12 @@ I servizi di accesso remoto forniti con Azure AD operano in base alle linee guid
 Il diagramma seguente illustra in che modo Azure AD consente l'accesso remoto sicuro alle applicazioni locali.
 
  ![Connettori del proxy applicazione AzureAD](./media/application-proxy-security-considerations/secure-remote-access.png)
+
+>[!NOTE] 
+>Per migliorare la sicurezza delle applicazioni pubblicate dal proxy applicazione Azure AD, blocchiamo l'indicizzazione e l'archiviazione delle applicazioni da parte dei robot del crawler Web. Ogni volta che un robot del crawler Web tenta di recuperare le impostazioni dei robot per un'applicazione pubblicata, il proxy dell'applicazione risponde con un file robots.txt che include quanto segue: <br>
+>   _User-agent: *_<br>
+>   _Disallow: /_
+>
 
 ## <a name="components-of-the-azure-ad-app-proxy-solution"></a>Componenti della soluzione proxy applicazione Azure AD
 
@@ -141,6 +147,6 @@ Se si richiede assistenza per la comunicazione da un'applicazione Web di Azure t
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

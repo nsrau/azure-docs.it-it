@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/25/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 9ee3ba5a5dee206c2358a76aaea680b998e994f8
-ms.openlocfilehash: 732f9b135732c33364cab7200d43893d4cdda5f9
+ms.sourcegitcommit: 2e7815702f2d2f4ce935826c4769838727a83696
+ms.openlocfilehash: 7d1be1dea6ed4ecda196743f592456a5b977e9b0
 
 
 ---
@@ -73,6 +73,8 @@ Quando gli utenti accedono alle applicazioni in remoto, si connettono all'endpoi
 ### <a name="single-sign-on"></a>Single sign-on
 Il proxy dell'applicazione di Azure AD fornisce l'accesso Single Sign-On (SSO) alle applicazioni che usano l'autenticazione integrata di Windows o alle applicazioni che riescono a riconoscere le attestazioni. Se l'applicazione usa l'autenticazione integrata di Windows, il proxy dell'applicazione rappresenta l'utente tramite la delega vincolata Kerberos per fornire l'accesso Single Sign-On. Se invece si dispone di un'applicazione con riconoscimento delle attestazione che considera attendibile Azure Active Directory, l'accesso Single Sign-On viene concesso perché l'utente era già stato autenticato da Azure AD.
 
+Per altre informazioni su Kerberos, vedere [All you want to know about Kerberos Constrained Delegation (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd) (Tutto quello che si desidera sapere sulla delega vincolata Kerberos (KCD)).
+
 ## <a name="how-to-get-started"></a>Attività iniziali
 Assicurarsi di avere una sottoscrizione di Azure AD Basic o Premium e di una directory di Azure ADdi cui si è amministratore globale. Sono inoltre necessarie licenze di base o premium di Microsoft Azure per l'amministratore della directory e gli utenti che accedono alle applicazioni. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md) .
 
@@ -95,6 +97,6 @@ Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog]
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

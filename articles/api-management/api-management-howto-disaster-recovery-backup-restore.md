@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 809fc7a5454c814d1d3edb8ebcdd40978952bc2c
-ms.openlocfilehash: d05404ed6893978a857a3ad66d5129998272ebbd
+ms.sourcegitcommit: 1c812fc31011b57f2cdb357574877d6b7125280f
+ms.openlocfilehash: c5ae5049588d5bc7628442942e71f182a425fead
 
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
@@ -148,7 +148,7 @@ Quando si crea una richiesta di backup, occorre notare i vincoli seguenti.
 
 * Il **contenitore** specificato nel corpo della richiesta **deve esistere**.
 * Mentre il backup è in corso, **non tentare di eseguire alcuna operazione di gestione dei servizi** , ad esempio l'aggiornamento o il downgrade di SKU, la modifica di nomi di dominio e così via.
-* Il ripristino di un **backup è garantito solo per 7 giorni** dal momento della sua creazione.
+* Il ripristino di un **backup è garantito solo per 30 giorni** dal momento della sua creazione.
 * I **dati di utilizzo** usati per creare report analitici **non sono inclusi** nel backup. Usare l'[API REST di Gestione API di Azure][Azure API Management REST API] per recuperare periodicamente i report analitici e custodirli al sicuro.
 * La frequenza con cui si eseguono i backup dei servizi influenzerà i propri obiettivi relativi ai punti di ripristino. Per ridurla al minimo, si consiglia di implementare backup regolari e di eseguire backup su richiesta dopo aver apportato modifiche importanti al servizio di Gestione API.
 * Le **modifiche** apportate alla configurazione del servizio (ad esempio alle API, ai criteri, all'aspetto del portale per sviluppatori) durante l'esecuzione del processo di backup **potrebbero non essere incluse nel backup e potrebbero quindi andare perse**.
@@ -213,6 +213,6 @@ Consultare i blog Microsoft seguenti per due diverse procedure dettagliate del p
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

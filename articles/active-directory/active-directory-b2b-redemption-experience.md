@@ -14,11 +14,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/02/2017
+ms.date: 02/09/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: d9ffd4176e87b6b5ada882ff09f507665bda7b1d
-ms.openlocfilehash: 48ed4077ff4564787521a6ca220dac34e45dd765
+ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
+ms.openlocfilehash: 44cfe1c86abaea19ce48255902b2b9611560d695
 
 
 ---
@@ -41,18 +41,19 @@ Se il video non è incorporato, è possibile guardarlo [qui](https://channel9.ms
 Vedere gli altri articoli su Azure AD B2B Collaboration.
 
 * [Che cos'è Azure AD B2B Collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Procedura di aggiunta di utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori](active-directory-b2b-admin-add-users.md)
-* [Procedura di aggiunta di utenti di Collaborazione B2B da parte di information worker](active-directory-b2b-how-it-works.md)
+* [Procedura per aggiungere utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori](active-directory-b2b-admin-add-users.md)
+* [Procedura di aggiunta di utenti di Collaborazione B2B da parte di information worker](active-directory-b2b-iw-add-users.md)
 * [Elementi del messaggio di posta elettronica di invito per la Collaborazione B2B](active-directory-b2b-invitation-email.md)
 * [Licenze per la Collaborazione B2B di Azure AD](active-directory-b2b-licensing.md)
 * [Risoluzione dei problemi di Collaborazione B2B di Azure Active Directory](active-directory-b2b-troubleshooting.md)
 * [Domande frequenti su Collaborazione B2B di Azure Active Directory](active-directory-b2b-faq.md)
 * [API e personalizzazione per Collaborazione B2B di Azure Active Directory](active-directory-b2b-api.md)
 * [Autenticazione a più fattori per utenti di Collaborazione B2B](active-directory-b2b-mfa-instructions.md)
+* [Aggiungere gli utenti per la Collaborazione B2B senza un invito](active-directory-b2b-add-user-without-invite.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,12 +15,17 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: 96c9425d8f58d3b617330615573a479429f12b11
-ms.openlocfilehash: 44a7cf18afdf6a523c5f7fb03ee49f72cdd22564
+ms.sourcegitcommit: f2eb1f67c5687ac9bd8b94f6480617e6dc87ac9f
+ms.openlocfilehash: ace35adc1cd2745ea11cb60429a1e7892d1f66d3
 
 
 ---
-# <a name="azure-active-directory-b2c-sign-in-for-single-page-apps-using-auth-20-implicit-flow"></a>Azure Active Directory B2C: Accedere ad app a singola pagina tramite il flusso implicito OAuth 2.0
+# <a name="azure-active-directory-b2c-sign-in-for-single-page-apps-using-oauth-20-implicit-flow"></a>Azure Active Directory B2C: accedere ad app a singola pagina tramite il flusso implicito OAuth 2.0
+
+> [!NOTE]
+> Questa funzionalità è ancora in anteprima.
+> 
+
 Molte app moderne hanno un front-end dell'app a singola pagina scritto principalmente in JavaScript. Il front-end viene scritto spesso usando un framework come AngularJS, Ember.js o Durandal. Le app a pagina singola e le altre app JavaScript che vengono eseguite soprattutto in un browser presentano alcune problematiche interessanti nell'ambito dell'autenticazione:
 
 * Le caratteristiche di sicurezza di queste app sono considerevolmente diverse da quelle delle tradizionali applicazioni Web basate su server.
@@ -285,6 +290,6 @@ Per provare queste richieste autonomamente, è innanzitutto necessario eseguire 
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 
