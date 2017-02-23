@@ -3,7 +3,7 @@ title: Aggiungere un nome di dominio personalizzato e configurare l&quot;accesso
 description: Come aggiungere i nomi di dominio dell&quot;azienda ad Azure Active Directory e come configurare l&quot;accesso Single Sign-On federato tra Azure Active Directory e la soluzione federativa locale.
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 27126c7e-e6d6-4ef3-a4fb-f5f0706e749d

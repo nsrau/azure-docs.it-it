@@ -3,7 +3,7 @@ title: Gestione dei nomi di dominio personalizzati nell&quot;anteprima di Azure 
 description: Concetti relativi alla gestione e procedure dettagliate per gestire un nome di dominio in Azure Active Directory
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a
