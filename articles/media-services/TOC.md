@@ -195,9 +195,10 @@
 #### [REST](media-services-rest-check-job-progress.md)
 #### [Portale](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
-### [Archiviazione code per monitorare le notifiche dei processi](media-services-dotnet-check-job-progress-with-queues.md)
+### [Monitorare le notifiche dei processi con l'archiviazione code](media-services-dotnet-check-job-progress-with-queues.md)
+### [Monitorare le notifiche dei processi con webhook](media-services-dotnet-check-job-progress-with-webhooks.md)
 
-## Risolvere i problemi
+## Risolvere problemi
 ### [Domande frequenti](media-services-frequently-asked-questions.md)
 ### [Guida per la risoluzione dei problemi relativi allo streaming live](media-services-troubleshooting-live-streaming.md)
 ### [Codici di errore](media-services-error-codes.md)
@@ -216,6 +217,6 @@
 ## [Video](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

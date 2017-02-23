@@ -3,6 +3,7 @@
 
 # Attività iniziali
 ## [Creare un set di scalabilità nel portale](virtual-machine-scale-sets-portal-create.md)
+## [Creare un set di scalabilità con l'interfaccia della riga di comando di Azure](virtual-machine-scale-sets-linux-create-cli.md)
 
 # Procedure
 ## Pianificare e progettare
@@ -10,6 +11,7 @@
 
 ## Distribuire
 ### [Set di scalabilità tramite il portale](virtual-machine-scale-sets-portal-create.md)
+### [Set di scalabilità con Managed Disks](virtual-machine-scale-sets-managed-disks.md)
 ### [Set di scalabilità con Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Set di scalabilità con PowerShell](virtual-machine-scale-sets-windows-create.md)
 ### [Set di scalabilità con l'interfaccia della riga di comando di Azure](virtual-machine-scale-sets-linux-create-cli.md)
@@ -19,6 +21,7 @@
 ### [Usare dischi di dati con set di scalabilità](virtual-machine-scale-sets-attached-disks.md)
 ### [Usare set di scalabilità di grandi dimensioni](virtual-machine-scale-sets-placement-groups.md)
 ### [Convertire un modello di set di scalabilità per l'uso di dischi gestiti](virtual-machine-scale-sets-convert-template-to-md.md)
+
 
 
 ## Gestisci
@@ -36,7 +39,7 @@
 # Riferimento
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Interfaccia della riga di comando di Azure](../virtual-machines/azure-cli-arm-commands.md)
-## [REST](/rest/api/compute/)
+## [REST](/rest/api/virtualmachinescalesets/)
 
 # Risorse
 ## Prezzi 
@@ -45,6 +48,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

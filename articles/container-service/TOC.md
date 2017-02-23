@@ -3,7 +3,7 @@
 ## [Domande frequenti](container-service-faq.md)
 # Attività iniziali
 ## [Distribuire un cluster del servizio contenitore di Azure](container-service-deployment.md)
-## [Distribuire nel servizio contenitore di Azure con l'interfaccia della riga di comando di Azure 2.0 (anteprima)](container-service-create-acs-cluster-cli.md)
+## [Distribuire nel servizio contenitore di Azure con l'interfaccia della riga di comando di Azure 2.0](container-service-create-acs-cluster-cli.md)
 ## [Connettersi con un cluster del servizio contenitore di Azure](container-service-connect.md)
 ## [Ridimensionare un cluster del servizio contenitore di Azure](container-service-scale.md)
 # Procedure
@@ -23,6 +23,7 @@
 #### [Monitorare con Dynatrace](container-service-monitoring-dynatrace.md)
 ## Gestire con Kubernetes
 ### [Introduzione a Kubernetes](container-service-kubernetes-walkthrough.md)
+### [Introduzione a Kubernetes e Windows](container-service-kubernetes-windows-walkthrough.md)
 ### [Configurare un'entità servizio](container-service-kubernetes-service-principal.md)
 ### [Gestione dei contenitori: interfaccia utente di Kubernetes](container-service-kubernetes-ui.md)
 ### [Bilanciare il carico dei contenitori in Kubernetes](container-service-kubernetes-load-balancing.md)
@@ -34,7 +35,7 @@
 ### [Docker e Docker Compose](container-service-docker-swarm.md)
 ### [Integrazione continua di Docker Swarm](container-service-docker-swarm-setup-ci-cd.md)
 # Riferimento
-## [Interfaccia della riga di comando di Azure 2.0 (anteprima)](/cli/azure/acs)
+## [Interfaccia della riga di comando di Azure 2.0](/cli/azure/acs)
 ## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
 ## [REST](/rest/api/compute/containerservices)
@@ -44,6 +45,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

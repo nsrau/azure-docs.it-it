@@ -3,8 +3,8 @@ title: Connettere dispositivi aggiunti a un dominio ad Azure AD in ambiente Wind
 description: Illustra agli amministratori come configurare Criteri di gruppo per abilitare i dispositivi per l&quot;aggiunta a un dominio nella rete dell&quot;organizzazione.
 services: active-directory
 documentationcenter: 
-author: femila
-manager: swadhwa
+author: markvi
+manager: femila
 editor: 
 tags: azure-classic-portal
 ms.assetid: 2ff29f3e-5325-4f43-9baa-6ae8d6bad3e3
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2016
-ms.author: femila
+ms.date: 02/22/2017
+ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 7d141adf04cfb99e57c63ba62de4a7dad9ab8326
 ms.openlocfilehash: 290645b920bc4a83c610e80266854450b6e1509a
