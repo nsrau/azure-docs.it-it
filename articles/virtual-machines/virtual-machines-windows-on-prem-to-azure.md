@@ -104,6 +104,6 @@ Esaminare i [prezzi per Managed Disks](https://azure.microsoft.com/en-us/pricing
 
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 
