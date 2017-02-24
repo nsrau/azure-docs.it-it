@@ -1,0 +1,190 @@
+---
+title: Eseguire la migrazione dal modello di distribuzione classica ad Azure Managed Disks | Microsoft Docs
+description: Eseguire la migrazione di una singola macchina virtuale di Azure dal modello di distribuzione classica a Managed Disks nel modello di distribuzione di Resource Manager.
+services: virtual-machines-windows
+documentationcenter: 
+author: cynthn
+manager: timlt
+editor: 
+tags: azure-resource-manager
+ms.assetid: 
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 02/05/2017
+ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
+ms.openlocfilehash: a46db1815b84f0ecf93c805f3ea36e4e3d4282ac
+
+
+---
+
+# <a name="migrate-a-single-azure-vm-from-classic-to-managed-disks"></a>Eseguire la migrazione di una singola macchina virtuale di Azure dal modello di distribuzione classica a Managed Disks 
+
+
+Questa sezione illustra come eseguire la migrazione di una macchina virtuale di Azure esistente dal modello di distribuzione classica a [Managed Disks](../storage/storage-managed-disks-overview.md) nel modello di distribuzione di Resource Manager.
+
+## <a name="before-you-begin"></a>Prima di iniziare
+Se si usa PowerShell, verificare di disporre della versione più recente del modulo di PowerShell AzureRM.Compute. Eseguire il comando seguente per installarlo.
+
+```powershell
+Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+```
+Per altre informazioni, vedere [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning) (Controllo delle versioni di Azure PowerShell).
+
+
+## <a name="plan-for-the-migration-to-managed-disks"></a>Pianificare la migrazione a Managed Disks
+
+Questa sezione consente di prendere le decisioni migliori sui tipi di macchina virtuale e disco.
+
+
+### <a name="location"></a>Percorso
+
+Selezionare una posizione in cui Azure Managed Disks è disponibile. Se si esegue la migrazione a Managed Disks Premium, assicurarsi anche che l'Archiviazione Premium sia disponibile nell'area di destinazione della migrazione. Per informazioni aggiornate sulle località disponibili, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/#services).
+
+### <a name="vm-sizes"></a>Dimensioni delle macchine virtuali
+
+Se si sta eseguendo la migrazione a Managed Disks Premium, sarà necessario aggiornare le dimensioni della macchina virtuale alle dimensioni di Archiviazione Premium disponibili nell'area in cui si trova la macchina virtuale stessa. Esaminare le dimensioni delle macchine virtuali in grado di supportare Archiviazione Premium. Le specifiche delle dimensioni delle VM di Azure sono elencate in [Dimensioni delle macchine virtuali](virtual-machines-windows-sizes.md).
+Esaminare le caratteristiche delle prestazioni delle Macchine virtuali che usano Archiviazione Premium e scegliere le dimensioni delle VM maggiormente indicate per i propri carichi di lavoro. Assicurarsi che nella macchina virtuale sia disponibile larghezza di banda sufficiente per gestire il traffico dei dischi.
+
+### <a name="disk-sizes"></a>Dimensione disco
+
+**Managed Disks Premium**
+
+È possibile usare tre tipi di dischi gestiti della versione Premium con la macchina virtuale, ciascuno con limiti IOP e di velocità effettiva specifici. Tenere in considerazione questi limiti nella scelta del tipo di disco Premium per la macchina virtuale in base alle esigenze dell'applicazione in termini di capacità, prestazioni, scalabilità e carichi di picco.
+
+| Tipo di disco Premium  | P10               | P20               | P30               |
+|---------------------|-------------------|-------------------|-------------------|
+| Dimensioni disco           | 128 GB            | 512 GB            | 1024 GB (1 TB)    |
+| IOPS per disco       | 500               | 2300              | 5000              |
+| Velocità effettiva per disco | 100 MB al secondo | 150 MB al secondo | 200 MB al secondo |
+
+**Managed Disks Standard**
+
+Esistono cinque tipi di dischi gestiti della versione Standard utilizzabili con la macchina virtuale. Si differenziano per capacità ma presentano gli stessi limiti IOP e di velocità effettiva. Scegliere il tipo di disco gestito della versione Standard in base alle esigenze in termini di capacità dell'applicazione.
+
+| Tipo di disco Standard  | S4               | S6               | S10              | S20              | S30              |
+|---------------------|------------------|------------------|------------------|------------------|------------------|
+| Dimensioni disco           | 30 GB            | 64 GB            | 128 GB           | 512 GB           | 1024 GB (1 TB)   |
+| IOPS per disco       | 500              | 500              | 500              | 500              | 500              |
+| Velocità effettiva per disco | 60 MB al secondo | 60 MB al secondo | 60 MB al secondo | 60 MB al secondo | 60 MB al secondo |
+
+### <a name="disk-caching-policy"></a>Criteri di memorizzazione nella cache su disco 
+
+**Managed Disks Premium**
+
+Per impostazione predefinita, il criterio di memorizzazione nella cache su disco è impostato su *Sola lettura* per tutti i dischi di dati Premium e su *Lettura/scrittura* per il disco del sistema operativo Premium collegato alla macchina virtuale. Queste impostazioni di configurazione sono consigliate per ottenere prestazioni ottimali per le operazioni di I/O dell'applicazione. Per i dischi di dati con un utilizzo elevato della scrittura o di sola scrittura (ad esempio i file di log di SQL Server), disabilitare la memorizzazione nella cache su disco in modo da migliorare le prestazioni delle applicazioni.
+
+### <a name="pricing"></a>Prezzi
+
+Esaminare i [prezzi per Managed Disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Il prezzo di Managed Disks Premium è uguale a quello della versione Premium dei dischi non gestiti. Tuttavia, il prezzo di Managed Disks Standard è diverso da quello della versione Standard dei dischi non gestiti.
+
+
+## <a name="checklist"></a>Elenco di controllo
+
+1.  Se si esegue la migrazione a Managed Disks Premium, assicurarsi che sia disponibile nell'area di migrazione.
+
+2.  Decidere la nuova serie di VM da usare. Se si esegue la migrazione a Managed Disks Premium, deve essere compatibile con Archiviazione Premium.
+
+3.  Decidere l'esatta dimensione della macchina virtuale che si userà tra quelle disponibili nell'area in cui si sta eseguendo la migrazione. Le dimensioni della VM devono essere abbastanza grandi da supportare tutti i dischi dati. Ad esempio, se si dispone di quattro dischi dati, la macchina virtuale deve disporre di due o più core. Considerare anche la potenza di elaborazione, la memoria e la larghezza di banda di rete necessarie.
+
+4.  Tenere a portata di mano i dettagli della VM corrente, inclusi l'elenco di dischi e i BLOB VHD corrispondenti.
+
+Preparare l'applicazione per il tempo di inattività. Per eseguire una migrazione senza problemi, è necessario arrestare ogni elaborazione nel sistema corrente. Solo a quel punto lo stato sarà coerente e sarà possibile eseguire la migrazione alla nuova piattaforma. La durata del tempo di inattività dipende dalla quantità di dati nei dischi di cui eseguire la migrazione.
+
+
+## <a name="migrate-the-vm"></a>Eseguire la migrazione della macchina virtuale
+
+Preparare l'applicazione per il tempo di inattività. Per eseguire una migrazione senza problemi, è necessario arrestare ogni elaborazione nel sistema corrente. Solo a quel punto lo stato sarà coerente e sarà possibile eseguire la migrazione alla nuova piattaforma. La durata del tempo di inattività dipende dalla quantità di dati nei dischi di cui eseguire la migrazione.
+
+
+1.  Innanzitutto, impostare i parametri comuni:
+
+    ```powershell
+    $resourceGroupName = 'yourResourceGroupName'
+    
+    $location = 'your location' 
+    
+    $virtualNetworkName = 'yourExistingVirtualNetworkName'
+    
+    $virtualMachineName = 'yourVMName'
+    
+    $virtualMachineSize = 'Standard_DS3'
+    
+    $adminUserName = "youradminusername"
+    
+    $adminPassword = "yourpassword" | ConvertTo-SecureString -AsPlainText -Force
+    
+    $imageName = 'yourImageName'
+    
+    $osVhdUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
+    
+    $dataVhdUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/datadisk1.vhd'
+    
+    $dataDiskName = 'dataDisk1'
+    ```
+
+2.  Creare un disco del sistema operativo gestito usando il disco rigido virtuale dalla macchina virtuale classica.
+
+    Assicurarsi che siano stati specificati l'URI completo del disco rigido virtuale del sistema operativo per il parametro $osVhdUri. Per **-AccountType**, immettere **PremiumLRS** o **StandardLRS** in base al tipo di dischi (Premium o Standard) verso cui si sta eseguendo la migrazione.
+
+    ```powershell
+    $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk (New-AzureRmDiskConfig '
+    -AccountType PremiumLRS -Location $location -CreateOption Import -SourceUri $osVhdUri) '
+    -ResourceGroupName $resourceGroupName
+    ```
+
+3.  Collegare il disco del sistema operativo alla nuova macchina virtuale.
+
+    ```powershell
+    $VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
+    $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $osDisk.Id '
+    -ManagedDiskStorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption Attach -Windows
+    ```
+
+4.  Creare un disco di dati gestiti dal file del disco rigido virtuale dei dati e aggiungerlo alla nuova macchina virtuale.
+
+    ```powershell
+    $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk (New-AzureRmDiskConfig '
+    -AccountType PremiumLRS -Location $location -CreationDataCreateOption Import '
+    -SourceUri $dataVhdUri ) -ResourceGroupName $resourceGroupName
+    
+    $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName '
+    -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
+    ```
+
+5.  Creare la nuova macchina virtuale impostando l'IP pubblico, la rete virtuale e la scheda di interfaccia di rete.
+
+    ```powershell
+    $publicIp = New-AzureRmPublicIpAddress -Name ($VirtualMachineName.ToLower()+'\_ip') '
+    -ResourceGroupName $resourceGroupName -Location $location -AllocationMethod Dynamic
+    
+    $vnet = Get-AzureRmVirtualNetwork -Name $virtualNetworkName -ResourceGroupName $resourceGroupName
+    
+    $nic = New-AzureRmNetworkInterface -Name ($VirtualMachineName.ToLower()+'\_nic') '
+    -ResourceGroupName $resourceGroupName -Location $location -SubnetId $vnet.Subnets\[0\].Id '
+    -PublicIpAddressId $publicIp.Id
+    
+    $VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $nic.Id
+    
+    New-AzureRmVM -VM $VirtualMachine -ResourceGroupName $resourceGroupName -Location $location
+    ```
+
+> [!NOTE]
+>È possibile che per supportare l'applicazione siano necessari passaggi specifici che non sono illustrati in questa guida.
+>
+>
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Connettersi alla macchina virtuale. Per istruzioni, vedere [Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows Server](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+
+
+
+<!--HONumber=Feb17_HO2-->
+
+
